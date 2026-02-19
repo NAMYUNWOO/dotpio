@@ -10,9 +10,13 @@ Map.Collision = nil
 Map.Overlay = nil
 Map.dimTiles = {}
 Map.occludeTiles = {}
+Map.portals = {}
+Map.currentMap = nil
 
-function Map.load()
-    local data = dofile("map_data.lua")
+function Map.load(mapName)
+    mapName = mapName or "01"
+    Map.currentMap = mapName
+    local data = dofile("maps/map_" .. mapName .. ".lua")
     Map.width = data.width
     Map.height = data.height
     Map.Ground = data.Ground
@@ -21,6 +25,25 @@ function Map.load()
     Map.Overlay = data.Overlay
     Map.dimTiles = data.dimTiles or {}
     Map.occludeTiles = data.occludeTiles or {}
+    Map.portals = data.portals or {}
+end
+
+function Map.getPortalAt(gx, gy)
+    for _, p in ipairs(Map.portals) do
+        if p.tileX == gx and p.tileY == gy then
+            return p
+        end
+    end
+    return nil
+end
+
+function Map.getPortalByName(name)
+    for _, p in ipairs(Map.portals) do
+        if p.name == name then
+            return p
+        end
+    end
+    return nil
 end
 
 function Map.isOverlayOpaque(gx, gy)

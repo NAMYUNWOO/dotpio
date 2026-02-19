@@ -26,7 +26,7 @@ local function decodeGid(raw)
 end
 
 function Tileset.load()
-    tileset = love.graphics.newImage("kenny1bit/Tilemap/tileset_legacy_transparent.png")
+    tileset = love.graphics.newImage("Tilemap/tileset_legacy_transparent.png")
     quads = {}
     for gid = 1, 1024 do
         local row = math.floor((gid-1) / Config.TS_COLS)
@@ -47,7 +47,7 @@ function Tileset.drawLayer(layerData, fov, dimOutside)
             local raw = layerData[y][x]
             if raw ~= 0 then
                 if dimOutside and not fov.isVisible(x, y) then
-                    love.graphics.setColor(0.15, 0.15, 0.25, 1)
+                    love.graphics.setColor(Config.DIM_R, Config.DIM_G, Config.DIM_B, 1)
                 else
                     love.graphics.setColor(1, 1, 1, 1)
                 end

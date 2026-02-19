@@ -97,9 +97,12 @@ function EnemyAI.init(e, idx)
     e.atkTimer = 0
     e.spawnX = e.x
     e.spawnY = e.y
+    e.visualX = e.x
+    e.visualY = e.y
     e.patrolX = nil
     e.patrolY = nil
     e.idleTimer = love.math.random() * 1.5
+    e.alerted = false
 end
 
 function EnemyAI.update(e, idx, dt, player, enemies)
@@ -115,7 +118,7 @@ function EnemyAI.update(e, idx, dt, player, enemies)
     -- State transitions
     if e.state == "idle" then
         e.idleTimer = e.idleTimer - dt
-        if canSee then
+        if canSee or e.alerted then
             e.state = "chase"
         elseif e.idleTimer <= 0 then
             e.state = "patrol"
@@ -123,7 +126,7 @@ function EnemyAI.update(e, idx, dt, player, enemies)
         end
 
     elseif e.state == "patrol" then
-        if canSee then
+        if canSee or e.alerted then
             e.state = "chase"
         elseif e.x == e.patrolX and e.y == e.patrolY then
             e.state = "idle"
@@ -133,8 +136,15 @@ function EnemyAI.update(e, idx, dt, player, enemies)
     elseif e.state == "chase" then
         if e.hp <= Config.ENEMY_FLEE_HP then
             e.state = "flee"
+            e.alerted = false
         elseif isAdjacent(e.x, e.y, player.x, player.y) then
             e.state = "attack"
+        elseif e.alerted then
+            if d > Config.ENEMY_DETECT then
+                e.alerted = false
+                e.state = "idle"
+                e.idleTimer = 0.5
+            end
         elseif d > Config.ENEMY_CHASE or not los then
             e.state = "idle"
             e.idleTimer = 0.5
@@ -153,6 +163,11 @@ function EnemyAI.update(e, idx, dt, player, enemies)
             e.idleTimer = 1.0
         end
     end
+
+    -- Visual lerp
+    local t = math.min(1, Config.LERP_SPEED * dt)
+    e.visualX = (e.visualX or e.x) + (e.x - (e.visualX or e.x)) * t
+    e.visualY = (e.visualY or e.y) + (e.y - (e.visualY or e.y)) * t
 
     -- Actions per state
     if e.state == "patrol" and e.moveTimer <= 0 and e.patrolX then

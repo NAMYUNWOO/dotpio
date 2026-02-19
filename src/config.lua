@@ -21,6 +21,14 @@ local Config = {
     ENEMY_CHASE    = 12,
     ENEMY_FLEE_HP  = 1,
 
+    -- Visual lerp
+    LERP_SPEED     = 12,
+
+    -- FOV dimming (시야 밖 타일 색상)
+    DIM_R = 0.15,
+    DIM_G = 0.15,
+    DIM_B = 0.25,
+
     DIR8 = {
         {1,0},{1,1},{0,1},{-1,1},{-1,0},{-1,-1},{0,-1},{1,-1},
     },

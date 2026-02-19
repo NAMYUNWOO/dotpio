@@ -10,19 +10,38 @@ local Combat   = require("src.combat")
 local Entities = require("src.entities")
 local Camera   = require("src.camera")
 local HUD      = require("src.hud")
+local Portal   = require("src.portal")
 
 local gameOver = false
+
+local function loadMap(mapName, portalName)
+    Map.load(mapName)
+    Combat.reset()
+    if portalName then
+        local portal = Map.getPortalByName(portalName)
+        if portal then
+            Player.x, Player.y = portal.x, portal.y
+        end
+        Entities.spawn(Player, true)
+        Portal.setCooldown()
+    else
+        Entities.spawn(Player)
+        Portal.resetCooldown()
+    end
+    Player.visualX, Player.visualY = Player.x, Player.y
+    FOV.calculate(Player.x, Player.y, Player.aimAngle)
+    gameOver = false
+end
+
+Portal.onLoad = loadMap
 
 ------------------------------------------------------------
 -- LOVE CALLBACKS
 ------------------------------------------------------------
 function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
-    Map.load()
     Tileset.load()
-    Entities.spawn(Player)
-    FOV.calculate(Player.x, Player.y, Player.aimAngle)
-    gameOver = false
+    loadMap("01", nil)
 end
 
 function love.update(dt)
@@ -32,12 +51,14 @@ function love.update(dt)
     FOV.calculate(Player.x, Player.y, Player.aimAngle)
     Combat.update(dt, Entities.enemyAt)
     Entities.update(dt, Player, Combat.addDamageFlash)
-    Camera.update(Player.x, Player.y)
+    Camera.update(Player.visualX, Player.visualY)
 
     if Player.hp <= 0 then
         Player.hp = 0
         gameOver = true
     end
+
+    Portal.check(Player.x, Player.y, Map)
 end
 
 function love.draw()
@@ -63,7 +84,7 @@ function love.draw()
     -- FOV cone border
     local TILE = Config.TILE
     love.graphics.setColor(0.3,0.5,1, 0.12)
-    love.graphics.arc("fill", (Player.x-1)*TILE+TILE/2, (Player.y-1)*TILE+TILE/2,
+    love.graphics.arc("fill", (Player.visualX-1)*TILE+TILE/2, (Player.visualY-1)*TILE+TILE/2,
         Config.FOV_RANGE*TILE, Player.aimAngle-Config.FOV_HALF, Player.aimAngle+Config.FOV_HALF)
 
     -- Aim crosshair
@@ -87,11 +108,8 @@ end
 
 function love.keypressed(key)
     if key == "r" then
-        Combat.reset()
         Player.init(0, 0)
-        Entities.spawn(Player)
-        FOV.calculate(Player.x, Player.y, Player.aimAngle)
-        gameOver = false
+        loadMap("01", nil)
         return
     end
     if gameOver then return end

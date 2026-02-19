@@ -12,7 +12,7 @@ function Entities.reset()
     Entities.items = {}
 end
 
-function Entities.spawn(player)
+function Entities.spawn(player, skipPlayerPlace)
     Entities.enemies = {}
     Entities.items = {}
 
@@ -36,11 +36,15 @@ function Entities.spawn(player)
         pool[i], pool[j] = pool[j], pool[i]
     end
 
-    player.x, player.y = pool[1][1], pool[1][2]
+    local idx
+    if skipPlayerPlace then
+        idx = 1
+    else
+        player.x, player.y = pool[1][1], pool[1][2]
+        idx = 2
+    end
 
     local enemyGids = {45, 23, 25, 26, 27, 28, 31, 32, 57, 58}
-
-    local idx = 2
     for i = 1, Config.ENEMY_COUNT do
         if idx > #pool then break end
         local p = pool[idx]; idx = idx + 1
@@ -88,10 +92,11 @@ function Entities.drawEnemies(fov, tileset)
     local img = tileset.getImage()
     for _, e in ipairs(Entities.enemies) do
         if e.alive and fov.isVisible(e.x, e.y) then
+            local vx, vy = e.visualX or e.x, e.visualY or e.y
             local alpha = Map.isOverlayOpaque(e.x, e.y) and 0.45 or 1
             love.graphics.setColor(1,1,1,alpha)
-            love.graphics.draw(img, tileset.getQuad(e.gid), (e.x-1)*TILE, (e.y-1)*TILE)
-            local bx, by = (e.x-1)*TILE, (e.y-1)*TILE - 3
+            love.graphics.draw(img, tileset.getQuad(e.gid), (vx-1)*TILE, (vy-1)*TILE)
+            local bx, by = (vx-1)*TILE, (vy-1)*TILE - 3
             love.graphics.setColor(0.3,0,0,alpha)
             love.graphics.rectangle("fill", bx, by, TILE, 2)
             love.graphics.setColor(1,0,0,alpha)
