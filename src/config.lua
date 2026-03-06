@@ -12,6 +12,13 @@ local Config = {
     ENEMY_COUNT  = 8,
     ITEM_COUNT   = 6,
     MP_ITEM_GID  = 817,
+    HP_ITEM_GID  = 818,
+    SWORD_GID    = 819,
+    SCROLL_GID   = 820,
+    KEY_GID      = 821,
+    SHIELD_GID   = 822,
+
+    INVENTORY_CAPACITY = 30,
 
     -- Enemy AI
     ENEMY_MOVE_CD  = 0.35,

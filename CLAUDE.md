@@ -14,6 +14,11 @@ python3 gen_game_data.py
 
 # 게임 실행
 love .
+
+# AI 서버 실행 (아이템 AI 설명 생성용, 포트 8001)
+./bin/llama-server \
+  -m models/Qwen3.5-9B-UD-Q4_K_XL.gguf \
+  --alias "qwen3.5-9b" --ctx-size 8192 --port 8001 -ngl 99
 ```
 
 테스트/린팅 미설정.
@@ -35,9 +40,26 @@ love .
 | `camera.lua` | 카메라 팔로우 (맵 경계 클램프) |
 | `portal.lua` | 포탈 시스템 (쿨다운, onLoad 콜백으로 맵 전환) |
 | `hud.lua` | HP/MP 바, 적 수, 컨트롤 안내 |
+| `items.lua` | 아이템 정의 (6종: 포션/무기/스크롤/키/방패) |
+| `inventory.lua` | 인벤토리 데이터 (DOS 파일시스템 트리, 폴더/파일 CRUD) |
+| `inventory_ui.lua` | DOS MDIR 스타일 인벤토리 UI + AI 아이템 Info 패널 |
+| `dos_ui.lua` | DOS 텍스트모드 렌더러 (80x40 그리드, 16색 ANSI, 박스드로잉) |
+| `ai_describe.lua` | AI 아이템 설명 매니저 (서버 자동 시작/종료, 캐시, 비동기 요청) |
+| `ai_worker.lua` | love.thread 워커 — llama-server API 호출 + JSON 파싱 |
+
+**AI 아이템 설명 시스템:**
+- `ai_describe.lua` — llama-server 자동 시작/종료 + 비동기 AI 설명 요청 관리
+- `ai_worker.lua` — love.thread 워커, curl로 llama-server `/v1/chat/completions` 호출
+- `items.lua` — 아이템 정의 (name, gid, category, desc, tileDesc, onUse)
+- `inventory_ui.lua` — Info 패널에서 AI 결과 (lore/traits/effect/rarity) 렌더링
+- **흐름:** 인벤토리에서 아이템 선택 → `AiDescribe.request(itemId)` → 워커 스레드가 프롬프트 생성 → llama-server 호출 → JSON 파싱 → 캐시 저장 → Info 패널에 표시
+- **서버 관리:** `AiDescribe.init()`에서 health 체크 후 자동 시작, `love.quit()`에서 자동 종료 (게임이 시작한 경우만)
+- **모델:** `models/Qwen3.5-9B-UD-Q4_K_XL.gguf`, 바이너리: `bin/llama-server`, 포트 8001
+- **Fallback:** 서버 응답 실패 시 기본 설명 제공 (`fallback = true`)
 
 **외부 라이브러리:**
 - `libs/jumper/` — A* 경로탐색 (enemy_ai.lua에서 사용)
+- `libs/json.lua` — JSON 인코딩/디코딩 (AI 통신용)
 
 **맵 데이터:**
 - `maps/map_01.lua`, `map_02.lua`, `map_03.lua` — `gen_game_data.py`가 TMX+TSX에서 자동 생성

@@ -1,16 +1,18 @@
 -- Top-down Roguelike with Fan-shaped FOV System
 -- Layered map: Ground -> GroundDeco -> Collision -> Player -> Overlay
 
-local Config   = require("src.config")
-local Map      = require("src.map")
-local Tileset  = require("src.tileset")
-local FOV      = require("src.fov")
-local Player   = require("src.player")
-local Combat   = require("src.combat")
-local Entities = require("src.entities")
-local Camera   = require("src.camera")
-local HUD      = require("src.hud")
-local Portal   = require("src.portal")
+local Config      = require("src.config")
+local Map         = require("src.map")
+local Tileset     = require("src.tileset")
+local FOV         = require("src.fov")
+local Player      = require("src.player")
+local Combat      = require("src.combat")
+local Entities    = require("src.entities")
+local Camera      = require("src.camera")
+local HUD         = require("src.hud")
+local Portal      = require("src.portal")
+local InventoryUI = require("src.inventory_ui")
+local AiDescribe  = require("src.ai_describe")
 
 local gameOver = false
 
@@ -41,10 +43,18 @@ Portal.onLoad = loadMap
 function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
     Tileset.load()
+    InventoryUI.init()
+    AiDescribe.init()
+    Player.init(0, 0)
     loadMap("01", nil)
 end
 
 function love.update(dt)
+    AiDescribe.update()
+    if InventoryUI.isOpen() then
+        InventoryUI.update(dt)
+        return
+    end
     if gameOver then return end
 
     Player.update(dt, Camera, Entities.items)
@@ -104,10 +114,24 @@ function love.draw()
 
     -- HUD
     HUD.draw(Player, Entities.enemies, gameOver)
+
+    -- Inventory overlay (drawn last, on top of everything)
+    if InventoryUI.isOpen() then
+        InventoryUI.draw()
+    end
 end
 
 function love.keypressed(key)
+    if InventoryUI.isOpen() then
+        InventoryUI.keypressed(key)
+        return
+    end
+    if key == "tab" or key == "i" then
+        InventoryUI.open(Player, Entities)
+        return
+    end
     if key == "r" then
+        Player.inventory = nil
         Player.init(0, 0)
         loadMap("01", nil)
         return
@@ -120,7 +144,18 @@ function love.keypressed(key)
     end
 end
 
+function love.textinput(text)
+    if InventoryUI.isOpen() then
+        InventoryUI.textinput(text)
+    end
+end
+
+function love.quit()
+    AiDescribe.shutdown()
+end
+
 function love.mousepressed(x, y, button)
+    if InventoryUI.isOpen() then return end
     if gameOver then return end
     if button == 1 then
         local tx = (x + Camera.x) / (Config.TILE*Config.SCALE) + 0.5

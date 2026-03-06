@@ -1,6 +1,7 @@
 local Config = require("src.config")
 local Map = require("src.map")
 local EnemyAI = require("src.enemy_ai")
+local Items = require("src.items")
 
 local Entities = {}
 
@@ -57,10 +58,12 @@ function Entities.spawn(player, skipPlayerPlace)
     for i = 1, Config.ITEM_COUNT do
         if idx > #pool then break end
         local p = pool[idx]; idx = idx + 1
+        local itemId = Items.spawnPool[love.math.random(1, #Items.spawnPool)]
+        local def = Items.get(itemId)
         Entities.items[#Entities.items+1] = {
             x=p[1], y=p[2], collected=false,
-            gid=Config.MP_ITEM_GID,
-            mpRestore=love.math.random(5, 10),
+            gid=def.gid,
+            itemId=itemId,
         }
     end
 

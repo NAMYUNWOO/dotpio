@@ -1,5 +1,6 @@
 local Config = require("src.config")
 local Map = require("src.map")
+local Inventory = require("src.inventory")
 
 local Player = {
     x = 0, y = 0, aimAngle = 0,
@@ -8,6 +9,7 @@ local Player = {
     hp = 10, maxHp = 10,
     mp = 20, maxMp = 20,
     attackTimer = 0, attackDir = nil,
+    inventory = nil,
 }
 
 function Player.init(x, y)
@@ -23,6 +25,9 @@ function Player.init(x, y)
     Player.maxMp = 20
     Player.attackTimer = 0
     Player.attackDir = nil
+    if not Player.inventory then
+        Player.inventory = Inventory.new()
+    end
 end
 
 function Player.update(dt, camera, items)
@@ -53,8 +58,11 @@ function Player.update(dt, camera, items)
                 Player.moveTimer = Config.MOVE_CD
                 for _, it in ipairs(items) do
                     if not it.collected and it.x == Player.x and it.y == Player.y then
-                        it.collected = true
-                        Player.mp = math.min(Player.maxMp, Player.mp + it.mpRestore)
+                        local itemId = it.itemId or "mp_potion"
+                        local ok = Inventory.addItem(Player.inventory, itemId, 1)
+                        if ok then
+                            it.collected = true
+                        end
                     end
                 end
             end
