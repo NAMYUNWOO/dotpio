@@ -20,6 +20,14 @@ local Config = {
     ENEMY_CHASE    = 12,
     ENEMY_FLEE_HP  = 1,
 
+    -- Lootbox
+    LOOTBOX_GID          = 203,
+    LOOTBOX_SEARCH_TIME  = 0.5,
+    LOOTBOX_BREACH_TIME  = 3.0,
+    LOOTBOX_MIN_ITEMS    = 2,
+    LOOTBOX_MAX_ITEMS    = 4,
+    LOOTBOX_LOCKED_CHANCE = 0.5,
+
     -- Visual lerp
     LERP_SPEED     = 12,
 

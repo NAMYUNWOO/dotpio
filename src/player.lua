@@ -30,7 +30,7 @@ function Player.init(x, y)
     end
 end
 
-function Player.update(dt, camera, items)
+function Player.update(dt, camera)
     Player.moveTimer = math.max(0, Player.moveTimer - dt)
     Player.attackTimer = math.max(0, Player.attackTimer - dt)
     if Player.attackTimer <= 0 then Player.attackDir = nil end
@@ -56,15 +56,6 @@ function Player.update(dt, camera, items)
             end
             if moved then
                 Player.moveTimer = Config.MOVE_CD
-                for _, it in ipairs(items) do
-                    if not it.collected and it.x == Player.x and it.y == Player.y then
-                        local itemId = it.itemId
-                        local ok = Inventory.addItem(Player.inventory, itemId, 1)
-                        if ok then
-                            it.collected = true
-                        end
-                    end
-                end
             end
         end
     end

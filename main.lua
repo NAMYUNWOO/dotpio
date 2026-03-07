@@ -13,9 +13,16 @@ local HUD         = require("src.hud")
 local Portal      = require("src.portal")
 local Items       = require("src.items")
 local InventoryUI = require("src.inventory_ui")
+local LootboxUI   = require("src.lootbox_ui")
 local AiDescribe  = require("src.ai_describe")
 
 local gameOver = false
+
+local lootboxInteract = {
+    active = false, lootbox = nil, timer = 0, duration = 0,
+}
+local hoveredLootbox = nil
+local lastPlayerX, lastPlayerY = 0, 0
 
 local function loadMap(mapName, portalName)
     Map.load(mapName)
@@ -34,6 +41,9 @@ local function loadMap(mapName, portalName)
     Player.visualX, Player.visualY = Player.x, Player.y
     FOV.calculate(Player.x, Player.y, Player.aimAngle)
     gameOver = false
+    lootboxInteract = {active = false, lootbox = nil, timer = 0, duration = 0}
+    hoveredLootbox = nil
+    lastPlayerX, lastPlayerY = Player.x, Player.y
 end
 
 Portal.onLoad = loadMap
@@ -57,9 +67,13 @@ function love.update(dt)
         InventoryUI.update(dt)
         return
     end
+    if LootboxUI.isOpen() then
+        LootboxUI.update(dt)
+        return
+    end
     if gameOver then return end
 
-    Player.update(dt, Camera, Entities.items)
+    Player.update(dt, Camera)
     FOV.calculate(Player.x, Player.y, Player.aimAngle)
     Combat.update(dt, Entities.enemyAt)
     Entities.update(dt, Player, Combat.addDamageFlash)
@@ -71,6 +85,46 @@ function love.update(dt)
     end
 
     Portal.check(Player.x, Player.y, Map)
+
+    -- Detect player movement → reset lootbox interact
+    if Player.x ~= lastPlayerX or Player.y ~= lastPlayerY then
+        lootboxInteract.active = false
+        lootboxInteract.timer = 0
+        lastPlayerX, lastPlayerY = Player.x, Player.y
+    end
+
+    -- Mouse hover → lootbox detection
+    local TILE = Config.TILE
+    local mx, my = love.mouse.getPosition()
+    local mgx = math.floor((mx + Camera.x) / (TILE * Config.SCALE)) + 1
+    local mgy = math.floor((my + Camera.y) / (TILE * Config.SCALE)) + 1
+    local _, hovered = Entities.lootboxAt(mgx, mgy)
+    if hovered and FOV.isVisible(mgx, mgy) then
+        hoveredLootbox = hovered
+    else
+        hoveredLootbox = nil
+    end
+
+    -- E key hold for progress bar
+    if love.keyboard.isDown("e") and hoveredLootbox then
+        if not lootboxInteract.active or lootboxInteract.lootbox ~= hoveredLootbox then
+            lootboxInteract.active = true
+            lootboxInteract.lootbox = hoveredLootbox
+            lootboxInteract.timer = 0
+            lootboxInteract.duration = hoveredLootbox.locked
+                and Config.LOOTBOX_BREACH_TIME or Config.LOOTBOX_SEARCH_TIME
+        end
+        lootboxInteract.timer = lootboxInteract.timer + dt
+        if lootboxInteract.timer >= lootboxInteract.duration then
+            LootboxUI.open(hoveredLootbox, Player)
+            lootboxInteract.active = false
+            lootboxInteract.timer = 0
+            hoveredLootbox = nil
+        end
+    else
+        lootboxInteract.active = false
+        lootboxInteract.timer = 0
+    end
 end
 
 function love.draw()
@@ -81,7 +135,8 @@ function love.draw()
     Tileset.drawLayer(Map.GroundDeco, FOV, true)
     Tileset.drawLayer(Map.Collision, FOV, true)
 
-    -- Items & Enemies
+    -- Lootboxes, Items & Enemies
+    Entities.drawLootboxes(FOV, Tileset)
     Entities.drawItems(FOV, Tileset)
     Entities.drawEnemies(FOV, Tileset)
 
@@ -117,15 +172,54 @@ function love.draw()
     -- HUD
     HUD.draw(Player, Entities.enemies, gameOver)
 
+    -- Lootbox hover tooltip (with integrated progress fill)
+    if hoveredLootbox and not LootboxUI.isOpen() then
+        local mx, my = love.mouse.getPosition()
+        local label = hoveredLootbox.locked and "[E] Breach & Search" or "[E] Search"
+        local isLocked = hoveredLootbox.locked
+        local tw = #label * 8 + 8
+        local th = 20
+        local tx, ty = mx + 12, my - 8
+
+        -- Dark background
+        love.graphics.setColor(0, 0, 0, 0.8)
+        love.graphics.rectangle("fill", tx, ty, tw, th, 3, 3)
+
+        -- Progress fill (left to right)
+        if lootboxInteract.active and lootboxInteract.duration > 0 then
+            local progress = math.min(lootboxInteract.timer / lootboxInteract.duration, 1)
+            if isLocked then
+                love.graphics.setColor(1, 0.5, 0, 0.6)
+            else
+                love.graphics.setColor(0.3, 1, 0.5, 0.6)
+            end
+            love.graphics.rectangle("fill", tx, ty, tw * progress, th, 3, 3)
+        end
+
+        -- Label text
+        local fg = isLocked and {1, 0.5, 0} or {0.3, 1, 0.5}
+        love.graphics.setColor(fg[1], fg[2], fg[3], 1)
+        love.graphics.print(label, tx + 4, ty + 4)
+    end
+
     -- Inventory overlay (drawn last, on top of everything)
     if InventoryUI.isOpen() then
         InventoryUI.draw()
+    end
+
+    -- Lootbox UI overlay
+    if LootboxUI.isOpen() then
+        LootboxUI.draw()
     end
 end
 
 function love.keypressed(key)
     if InventoryUI.isOpen() then
         InventoryUI.keypressed(key)
+        return
+    end
+    if LootboxUI.isOpen() then
+        LootboxUI.keypressed(key)
         return
     end
     if key == "tab" or key == "i" then
@@ -158,6 +252,7 @@ end
 
 function love.mousepressed(x, y, button)
     if InventoryUI.isOpen() then return end
+    if LootboxUI.isOpen() then return end
     if gameOver then return end
     if button == 1 then
         local tx = (x + Camera.x) / (Config.TILE*Config.SCALE) + 0.5

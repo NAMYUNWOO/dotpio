@@ -7,10 +7,12 @@ local Entities = {}
 
 Entities.enemies = {}
 Entities.items = {}
+Entities.lootboxes = {}
 
 function Entities.reset()
     Entities.enemies = {}
     Entities.items = {}
+    Entities.lootboxes = {}
 end
 
 function Entities.spawn(player, skipPlayerPlace)
@@ -55,15 +57,21 @@ function Entities.spawn(player, skipPlayerPlace)
         }
         Entities.enemies[#Entities.enemies+1] = e
     end
-    -- Spawn items at lootbox positions from map data
+    -- Spawn lootbox containers at map lootbox positions
+    Entities.lootboxes = {}
     local lootPositions = Map.getLootboxPositions()
     for _, pos in ipairs(lootPositions) do
-        local itemId = Items.allItemIds[love.math.random(#Items.allItemIds)]
-        local def = Items.get(itemId)
-        Entities.items[#Entities.items+1] = {
-            x=pos[1], y=pos[2], collected=false,
-            gid=def.gid,
-            itemId=itemId,
+        local itemCount = love.math.random(Config.LOOTBOX_MIN_ITEMS, Config.LOOTBOX_MAX_ITEMS)
+        local boxItems = {}
+        for i = 1, itemCount do
+            boxItems[i] = Items.allItemIds[love.math.random(#Items.allItemIds)]
+        end
+        Entities.lootboxes[#Entities.lootboxes+1] = {
+            x = pos[1], y = pos[2],
+            looted = false,
+            locked = love.math.random() < Config.LOOTBOX_LOCKED_CHANCE,
+            items = boxItems,
+            gid = Config.LOOTBOX_GID,
         }
     end
 
@@ -104,6 +112,34 @@ function Entities.drawEnemies(fov, tileset)
             love.graphics.rectangle("fill", bx, by, TILE, 2)
             love.graphics.setColor(1,0,0,alpha)
             love.graphics.rectangle("fill", bx, by, TILE*(e.hp/e.maxHp), 2)
+        end
+    end
+end
+
+function Entities.lootboxAt(gx, gy)
+    for i, lb in ipairs(Entities.lootboxes) do
+        if not lb.looted and lb.x == gx and lb.y == gy then
+            return i, lb
+        end
+    end
+    return nil
+end
+
+function Entities.drawLootboxes(fov, tileset)
+    local TILE = Config.TILE
+    local img = tileset.getImage()
+    for _, lb in ipairs(Entities.lootboxes) do
+        if not lb.looted and fov.isVisible(lb.x, lb.y) then
+            local alpha = Map.isOverlayOpaque(lb.x, lb.y) and 0.45 or 1
+            love.graphics.setColor(1,1,1,alpha)
+            love.graphics.draw(img, tileset.getQuad(lb.gid), (lb.x-1)*TILE, (lb.y-1)*TILE)
+            -- Tint: locked=orange, unlocked=green
+            if lb.locked then
+                love.graphics.setColor(1, 0.5, 0, (0.25 + 0.1*math.sin(love.timer.getTime()*3)) * alpha)
+            else
+                love.graphics.setColor(0, 1, 0.3, (0.2 + 0.1*math.sin(love.timer.getTime()*3)) * alpha)
+            end
+            love.graphics.rectangle("fill", (lb.x-1)*TILE, (lb.y-1)*TILE, TILE, TILE)
         end
     end
 end

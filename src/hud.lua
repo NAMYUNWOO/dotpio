@@ -20,7 +20,7 @@ function HUD.draw(player, enemies, gameOver)
     love.graphics.setColor(1,0.5,0.5,1)
     love.graphics.print("Enemies: "..alive, 160, 14)
     love.graphics.setColor(0.6,0.6,0.6,1)
-    love.graphics.print("WASD:Move  Click:Magic  Space:Melee  R:Restart", 16, 54)
+    love.graphics.print("WASD:Move  Click:Magic  Space:Melee  E:Search  R:Restart", 16, 54)
     love.graphics.setColor(0.5,0.5,0.5,0.8)
     love.graphics.print(string.format("Pos: %d,%d", player.x, player.y), 16, 690)
 
