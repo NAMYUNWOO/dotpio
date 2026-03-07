@@ -112,9 +112,18 @@ end
 ------------------------------------------------------------
 
 function InventoryUI.draw()
-    -- Full screen dark background
+    -- Full screen dark background (before scale so it covers everything)
     love.graphics.setColor(0, 0, 0, 0.95)
     love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+
+    -- Scale UI to fill screen height, center horizontally
+    local cw, ch = DosUI.getCellSize()
+    local uiScale = love.graphics.getHeight() / (DosUI.ROWS * ch)
+    local uiW = DosUI.COLS * cw * uiScale
+    local ox, oy = DosUI.getOffset()
+    love.graphics.push()
+    love.graphics.translate((love.graphics.getWidth() - uiW) / 2 - ox * uiScale, -oy * uiScale)
+    love.graphics.scale(uiScale, uiScale)
 
     -- Function key bar (row 0)
     InventoryUI.drawFunctionBar()
@@ -160,6 +169,8 @@ function InventoryUI.draw()
     if state == "dialog" then
         InventoryUI.drawDialog()
     end
+
+    love.graphics.pop()
 end
 
 function InventoryUI.drawFunctionBar()
