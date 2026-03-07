@@ -55,10 +55,6 @@ function LootboxUI.update(dt)
         statusTimer = statusTimer - dt
         if statusTimer <= 0 then statusMsg = "" end
     end
-    -- Auto-close if lootbox emptied
-    if lootbox and lootbox.looted then
-        LootboxUI.close()
-    end
 end
 
 ------------------------------------------------------------
@@ -281,9 +277,6 @@ function LootboxUI.doTake()
         local name = def and (def.name .. "." .. def.ext) or "UNKNOWN"
         statusMsg = "Took " .. name
         statusTimer = 2
-        if #lootbox.items == 0 then
-            lootbox.looted = true
-        end
         if cursor > #lootbox.items then
             cursor = math.max(1, #lootbox.items)
         end

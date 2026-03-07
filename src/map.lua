@@ -91,8 +91,12 @@ function Map.isOpaque(gx, gy)
     return false
 end
 
+Map.extraBlockers = nil  -- optional callback(gx,gy) → true if blocked
+
 function Map.isWalkable(gx, gy)
-    return Map.inBounds(gx, gy) and not Map.isBlocked(gx, gy)
+    if not Map.inBounds(gx, gy) or Map.isBlocked(gx, gy) then return false end
+    if Map.extraBlockers and Map.extraBlockers(gx, gy) then return false end
+    return true
 end
 
 return Map

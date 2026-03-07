@@ -44,6 +44,13 @@ local function loadMap(mapName, portalName)
     lootboxInteract = {active = false, lootbox = nil, timer = 0, duration = 0}
     hoveredLootbox = nil
     lastPlayerX, lastPlayerY = Player.x, Player.y
+
+    Map.extraBlockers = function(gx, gy)
+        for _, lb in ipairs(Entities.lootboxes) do
+            if lb.x == gx and lb.y == gy then return true end
+        end
+        return false
+    end
 end
 
 Portal.onLoad = loadMap
@@ -93,16 +100,22 @@ function love.update(dt)
         lastPlayerX, lastPlayerY = Player.x, Player.y
     end
 
-    -- Mouse hover → lootbox detection
-    local TILE = Config.TILE
-    local mx, my = love.mouse.getPosition()
-    local mgx = math.floor((mx + Camera.x) / (TILE * Config.SCALE)) + 1
-    local mgy = math.floor((my + Camera.y) / (TILE * Config.SCALE)) + 1
-    local _, hovered = Entities.lootboxAt(mgx, mgy)
-    if hovered and FOV.isVisible(mgx, mgy) then
-        hoveredLootbox = hovered
-    else
-        hoveredLootbox = nil
+    -- Proximity + FOV lootbox detection (Chebyshev distance ≤ 1)
+    hoveredLootbox = nil
+    local bestDist = math.huge
+    for _, lb in ipairs(Entities.lootboxes) do
+        local dx = math.abs(lb.x - Player.x)
+        local dy = math.abs(lb.y - Player.y)
+        local rdx, rdy = lb.x - Player.x, lb.y - Player.y
+        local ang = math.abs(math.atan2(rdy, rdx) - Player.aimAngle)
+        if ang > math.pi then ang = 2*math.pi - ang end
+        if dx <= 1 and dy <= 1 and ang <= Config.FOV_HALF then
+            local dist = math.max(dx, dy)
+            if dist < bestDist then
+                bestDist = dist
+                hoveredLootbox = lb
+            end
+        end
     end
 
     -- E key hold for progress bar
@@ -174,12 +187,14 @@ function love.draw()
 
     -- Lootbox hover tooltip (with integrated progress fill)
     if hoveredLootbox and not LootboxUI.isOpen() then
-        local mx, my = love.mouse.getPosition()
+        local TILE = Config.TILE
         local label = hoveredLootbox.locked and "[E] Breach & Search" or "[E] Search"
         local isLocked = hoveredLootbox.locked
         local tw = #label * 8 + 8
         local th = 20
-        local tx, ty = mx + 12, my - 8
+        local sx = (hoveredLootbox.x - 1) * TILE * Config.SCALE - Camera.x
+        local sy = (hoveredLootbox.y - 1) * TILE * Config.SCALE - Camera.y
+        local tx, ty = sx + (TILE * Config.SCALE - tw) / 2, sy - th - 4
 
         -- Dark background
         love.graphics.setColor(0, 0, 0, 0.8)

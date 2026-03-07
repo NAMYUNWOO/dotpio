@@ -118,7 +118,7 @@ end
 
 function Entities.lootboxAt(gx, gy)
     for i, lb in ipairs(Entities.lootboxes) do
-        if not lb.looted and lb.x == gx and lb.y == gy then
+        if lb.x == gx and lb.y == gy then
             return i, lb
         end
     end
@@ -129,12 +129,14 @@ function Entities.drawLootboxes(fov, tileset)
     local TILE = Config.TILE
     local img = tileset.getImage()
     for _, lb in ipairs(Entities.lootboxes) do
-        if not lb.looted and fov.isVisible(lb.x, lb.y) then
+        if fov.isVisible(lb.x, lb.y) then
             local alpha = Map.isOverlayOpaque(lb.x, lb.y) and 0.45 or 1
             love.graphics.setColor(1,1,1,alpha)
             love.graphics.draw(img, tileset.getQuad(lb.gid), (lb.x-1)*TILE, (lb.y-1)*TILE)
-            -- Tint: locked=orange, unlocked=green
-            if lb.locked then
+            -- Tint: locked=orange, unlocked=green, empty=gray
+            if #lb.items == 0 then
+                love.graphics.setColor(0.5, 0.5, 0.5, 0.3 * alpha)
+            elseif lb.locked then
                 love.graphics.setColor(1, 0.5, 0, (0.25 + 0.1*math.sin(love.timer.getTime()*3)) * alpha)
             else
                 love.graphics.setColor(0, 1, 0.3, (0.2 + 0.1*math.sin(love.timer.getTime()*3)) * alpha)
