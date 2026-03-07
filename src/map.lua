@@ -11,6 +11,7 @@ Map.Overlay = nil
 Map.dimTiles = {}
 Map.occludeTiles = {}
 Map.portals = {}
+Map.lootbox = nil
 Map.currentMap = nil
 
 function Map.load(mapName)
@@ -26,6 +27,20 @@ function Map.load(mapName)
     Map.dimTiles = data.dimTiles or {}
     Map.occludeTiles = data.occludeTiles or {}
     Map.portals = data.portals or {}
+    Map.lootbox = data.lootbox
+end
+
+function Map.getLootboxPositions()
+    local positions = {}
+    if not Map.lootbox then return positions end
+    for y = 1, Map.height do
+        for x = 1, Map.width do
+            if Map.lootbox[y][x] ~= 0 then
+                table.insert(positions, {x, y})
+            end
+        end
+    end
+    return positions
 end
 
 function Map.getPortalAt(gx, gy)

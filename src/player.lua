@@ -58,7 +58,7 @@ function Player.update(dt, camera, items)
                 Player.moveTimer = Config.MOVE_CD
                 for _, it in ipairs(items) do
                     if not it.collected and it.x == Player.x and it.y == Player.y then
-                        local itemId = it.itemId or "mp_potion"
+                        local itemId = it.itemId
                         local ok = Inventory.addItem(Player.inventory, itemId, 1)
                         if ok then
                             it.collected = true

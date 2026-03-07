@@ -93,6 +93,9 @@ for map_id in map_ids:
                             'targetPortal': target_portal,
                         })
 
+    # Extract lootbox layer separately (not included in normal layer rendering)
+    lootbox_grid = layers.pop('lootbox', None)
+
     # Output Lua
     out_path = f'maps/map_{map_id}.lua'
     with open(out_path, 'w') as f:
@@ -101,6 +104,13 @@ for map_id in map_ids:
         for name, grid in layers.items():
             f.write(f'  {name} = {{\n')
             for row in grid:
+                f.write('    {' + ', '.join(str(v) for v in row) + '},\n')
+            f.write('  },\n')
+
+        # lootbox layer
+        if lootbox_grid:
+            f.write('  lootbox = {\n')
+            for row in lootbox_grid:
                 f.write('    {' + ', '.join(str(v) for v in row) + '},\n')
             f.write('  },\n')
 
@@ -126,6 +136,9 @@ for map_id in map_ids:
     for name, grid in layers.items():
         nonzero = sum(1 for row in grid for v in row if v != 0)
         print(f'  {name}: {nonzero} non-empty tiles')
+    if lootbox_grid:
+        lootbox_count = sum(1 for row in lootbox_grid for v in row if v != 0)
+        print(f'  lootbox: {lootbox_count} positions')
     print(f'  portals: {len(portals)}')
     for p in portals:
         print(f'    {p["name"]}: ({p["x"]},{p["y"]}) -> map {p["targetMap"]} portal {p["targetPortal"]}')

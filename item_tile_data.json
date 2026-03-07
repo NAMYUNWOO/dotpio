@@ -1,0 +1,1390 @@
+{
+  "note": "tiled_id = Tiled editor 0-based ID, gid = game code 1-based ID (gid = tiled_id + 1)",
+  "total_count": 180,
+  "items": [
+    {
+      "tiled_id": 704,
+      "gid": 705,
+      "row": 22,
+      "col": 0,
+      "category": "helmet",
+      "description": "iron helmet"
+    },
+    {
+      "tiled_id": 705,
+      "gid": 706,
+      "row": 22,
+      "col": 1,
+      "category": "helmet",
+      "description": "roman helmet"
+    },
+    {
+      "tiled_id": 706,
+      "gid": 707,
+      "row": 22,
+      "col": 2,
+      "category": "helmet",
+      "description": "roman helmet"
+    },
+    {
+      "tiled_id": 707,
+      "gid": 708,
+      "row": 22,
+      "col": 3,
+      "category": "helmet",
+      "description": "roman helmet"
+    },
+    {
+      "tiled_id": 708,
+      "gid": 709,
+      "row": 22,
+      "col": 4,
+      "category": "helmet",
+      "description": "spartan helmet"
+    },
+    {
+      "tiled_id": 709,
+      "gid": 710,
+      "row": 22,
+      "col": 5,
+      "category": "helmet",
+      "description": "horned helmet"
+    },
+    {
+      "tiled_id": 710,
+      "gid": 711,
+      "row": 22,
+      "col": 6,
+      "category": "helmet",
+      "description": "construction helmet"
+    },
+    {
+      "tiled_id": 711,
+      "gid": 712,
+      "row": 22,
+      "col": 7,
+      "category": "boots",
+      "description": "boots"
+    },
+    {
+      "tiled_id": 712,
+      "gid": 713,
+      "row": 22,
+      "col": 8,
+      "category": "boots",
+      "description": "boots"
+    },
+    {
+      "tiled_id": 713,
+      "gid": 714,
+      "row": 22,
+      "col": 9,
+      "category": "gloves",
+      "description": "gloves"
+    },
+    {
+      "tiled_id": 714,
+      "gid": 715,
+      "row": 22,
+      "col": 10,
+      "category": "gloves",
+      "description": "gloves"
+    },
+    {
+      "tiled_id": 720,
+      "gid": 721,
+      "row": 22,
+      "col": 16,
+      "category": "gem",
+      "description": "amber"
+    },
+    {
+      "tiled_id": 721,
+      "gid": 722,
+      "row": 22,
+      "col": 17,
+      "category": "gem",
+      "description": "blue diamond"
+    },
+    {
+      "tiled_id": 722,
+      "gid": 723,
+      "row": 22,
+      "col": 18,
+      "category": "gem",
+      "description": "ruby"
+    },
+    {
+      "tiled_id": 736,
+      "gid": 737,
+      "row": 23,
+      "col": 0,
+      "category": "armor",
+      "description": "chest armor"
+    },
+    {
+      "tiled_id": 737,
+      "gid": 738,
+      "row": 23,
+      "col": 1,
+      "category": "armor",
+      "description": "chest armor"
+    },
+    {
+      "tiled_id": 738,
+      "gid": 739,
+      "row": 23,
+      "col": 2,
+      "category": "armor",
+      "description": "body armor"
+    },
+    {
+      "tiled_id": 739,
+      "gid": 740,
+      "row": 23,
+      "col": 3,
+      "category": "armor",
+      "description": "body armor"
+    },
+    {
+      "tiled_id": 740,
+      "gid": 741,
+      "row": 23,
+      "col": 4,
+      "category": "armor",
+      "description": "body armor"
+    },
+    {
+      "tiled_id": 741,
+      "gid": 742,
+      "row": 23,
+      "col": 5,
+      "category": "armor",
+      "description": "leather jacket"
+    },
+    {
+      "tiled_id": 742,
+      "gid": 743,
+      "row": 23,
+      "col": 6,
+      "category": "robe",
+      "description": "hooded robe"
+    },
+    {
+      "tiled_id": 743,
+      "gid": 744,
+      "row": 23,
+      "col": 7,
+      "category": "boots",
+      "description": "leather boots"
+    },
+    {
+      "tiled_id": 744,
+      "gid": 745,
+      "row": 23,
+      "col": 8,
+      "category": "boots",
+      "description": "pair of boots"
+    },
+    {
+      "tiled_id": 745,
+      "gid": 746,
+      "row": 23,
+      "col": 9,
+      "category": "gloves",
+      "description": "leather gloves"
+    },
+    {
+      "tiled_id": 746,
+      "gid": 747,
+      "row": 23,
+      "col": 10,
+      "category": "gloves",
+      "description": "leather gloves"
+    },
+    {
+      "tiled_id": 752,
+      "gid": 753,
+      "row": 23,
+      "col": 16,
+      "category": "key",
+      "description": "yellow key"
+    },
+    {
+      "tiled_id": 753,
+      "gid": 754,
+      "row": 23,
+      "col": 17,
+      "category": "key",
+      "description": "blue key"
+    },
+    {
+      "tiled_id": 754,
+      "gid": 755,
+      "row": 23,
+      "col": 18,
+      "category": "key",
+      "description": "red key"
+    },
+    {
+      "tiled_id": 768,
+      "gid": 769,
+      "row": 24,
+      "col": 0,
+      "category": "weapon",
+      "description": "wooden club"
+    },
+    {
+      "tiled_id": 769,
+      "gid": 770,
+      "row": 24,
+      "col": 1,
+      "category": "weapon",
+      "description": "spiked club"
+    },
+    {
+      "tiled_id": 770,
+      "gid": 771,
+      "row": 24,
+      "col": 2,
+      "category": "weapon",
+      "description": "wooden club"
+    },
+    {
+      "tiled_id": 771,
+      "gid": 772,
+      "row": 24,
+      "col": 3,
+      "category": "weapon",
+      "description": "hooked polearm"
+    },
+    {
+      "tiled_id": 772,
+      "gid": 773,
+      "row": 24,
+      "col": 4,
+      "category": "weapon",
+      "description": "hooked polearm"
+    },
+    {
+      "tiled_id": 773,
+      "gid": 774,
+      "row": 24,
+      "col": 5,
+      "category": "shield",
+      "description": "bronze round shield"
+    },
+    {
+      "tiled_id": 774,
+      "gid": 775,
+      "row": 24,
+      "col": 6,
+      "category": "shield",
+      "description": "iron round shield"
+    },
+    {
+      "tiled_id": 775,
+      "gid": 776,
+      "row": 24,
+      "col": 7,
+      "category": "shield",
+      "description": "wooden round shield"
+    },
+    {
+      "tiled_id": 776,
+      "gid": 777,
+      "row": 24,
+      "col": 8,
+      "category": "shield",
+      "description": "checkered round shield"
+    },
+    {
+      "tiled_id": 779,
+      "gid": 780,
+      "row": 24,
+      "col": 11,
+      "category": "crown",
+      "description": "golden crown"
+    },
+    {
+      "tiled_id": 780,
+      "gid": 781,
+      "row": 24,
+      "col": 12,
+      "category": "crown",
+      "description": "golden crown"
+    },
+    {
+      "tiled_id": 781,
+      "gid": 782,
+      "row": 24,
+      "col": 13,
+      "category": "helmet",
+      "description": "top hat"
+    },
+    {
+      "tiled_id": 782,
+      "gid": 783,
+      "row": 24,
+      "col": 14,
+      "category": "helmet",
+      "description": "cowboy hat"
+    },
+    {
+      "tiled_id": 783,
+      "gid": 784,
+      "row": 24,
+      "col": 15,
+      "category": "helmet",
+      "description": "hooded helmet"
+    },
+    {
+      "tiled_id": 784,
+      "gid": 785,
+      "row": 24,
+      "col": 16,
+      "category": "bone",
+      "description": "human bone"
+    },
+    {
+      "tiled_id": 785,
+      "gid": 786,
+      "row": 24,
+      "col": 17,
+      "category": "skull",
+      "description": "animal skull"
+    },
+    {
+      "tiled_id": 786,
+      "gid": 787,
+      "row": 24,
+      "col": 18,
+      "category": "skull",
+      "description": "human skull"
+    },
+    {
+      "tiled_id": 800,
+      "gid": 801,
+      "row": 25,
+      "col": 0,
+      "category": "weapon",
+      "description": "spear"
+    },
+    {
+      "tiled_id": 801,
+      "gid": 802,
+      "row": 25,
+      "col": 1,
+      "category": "weapon",
+      "description": "spear"
+    },
+    {
+      "tiled_id": 802,
+      "gid": 803,
+      "row": 25,
+      "col": 2,
+      "category": "weapon",
+      "description": "spear"
+    },
+    {
+      "tiled_id": 803,
+      "gid": 804,
+      "row": 25,
+      "col": 3,
+      "category": "weapon",
+      "description": "spear"
+    },
+    {
+      "tiled_id": 804,
+      "gid": 805,
+      "row": 25,
+      "col": 4,
+      "category": "weapon",
+      "description": "spear"
+    },
+    {
+      "tiled_id": 805,
+      "gid": 806,
+      "row": 25,
+      "col": 5,
+      "category": "shield",
+      "description": "shield"
+    },
+    {
+      "tiled_id": 806,
+      "gid": 807,
+      "row": 25,
+      "col": 6,
+      "category": "shield",
+      "description": "shield"
+    },
+    {
+      "tiled_id": 807,
+      "gid": 808,
+      "row": 25,
+      "col": 7,
+      "category": "shield",
+      "description": "shield"
+    },
+    {
+      "tiled_id": 808,
+      "gid": 809,
+      "row": 25,
+      "col": 8,
+      "category": "shield",
+      "description": "shield"
+    },
+    {
+      "tiled_id": 809,
+      "gid": 810,
+      "row": 25,
+      "col": 9,
+      "category": "coin",
+      "description": "gold coin"
+    },
+    {
+      "tiled_id": 810,
+      "gid": 811,
+      "row": 25,
+      "col": 10,
+      "category": "torch",
+      "description": "small torch"
+    },
+    {
+      "tiled_id": 811,
+      "gid": 812,
+      "row": 25,
+      "col": 11,
+      "category": "torch",
+      "description": "torch"
+    },
+    {
+      "tiled_id": 812,
+      "gid": 813,
+      "row": 25,
+      "col": 12,
+      "category": "torch",
+      "description": "burnt out torch"
+    },
+    {
+      "tiled_id": 813,
+      "gid": 814,
+      "row": 25,
+      "col": 13,
+      "category": "belt",
+      "description": "leather belt"
+    },
+    {
+      "tiled_id": 814,
+      "gid": 815,
+      "row": 25,
+      "col": 14,
+      "category": "tool",
+      "description": "watering can"
+    },
+    {
+      "tiled_id": 815,
+      "gid": 816,
+      "row": 25,
+      "col": 15,
+      "category": "bag",
+      "description": "small pouch"
+    },
+    {
+      "tiled_id": 816,
+      "gid": 817,
+      "row": 25,
+      "col": 16,
+      "category": "potion",
+      "description": "potion"
+    },
+    {
+      "tiled_id": 817,
+      "gid": 818,
+      "row": 25,
+      "col": 17,
+      "category": "potion",
+      "description": "potion"
+    },
+    {
+      "tiled_id": 818,
+      "gid": 819,
+      "row": 25,
+      "col": 18,
+      "category": "potion",
+      "description": "potion"
+    },
+    {
+      "tiled_id": 832,
+      "gid": 833,
+      "row": 26,
+      "col": 0,
+      "category": "weapon",
+      "description": "wand"
+    },
+    {
+      "tiled_id": 833,
+      "gid": 834,
+      "row": 26,
+      "col": 1,
+      "category": "weapon",
+      "description": "wand"
+    },
+    {
+      "tiled_id": 834,
+      "gid": 835,
+      "row": 26,
+      "col": 2,
+      "category": "wand",
+      "description": "wand"
+    },
+    {
+      "tiled_id": 835,
+      "gid": 836,
+      "row": 26,
+      "col": 3,
+      "category": "wand",
+      "description": "wand"
+    },
+    {
+      "tiled_id": 836,
+      "gid": 837,
+      "row": 26,
+      "col": 4,
+      "category": "weapon",
+      "description": "spiked club"
+    },
+    {
+      "tiled_id": 837,
+      "gid": 838,
+      "row": 26,
+      "col": 5,
+      "category": "shield",
+      "description": "crusader shield"
+    },
+    {
+      "tiled_id": 838,
+      "gid": 839,
+      "row": 26,
+      "col": 6,
+      "category": "shield",
+      "description": "tome"
+    },
+    {
+      "tiled_id": 839,
+      "gid": 840,
+      "row": 26,
+      "col": 7,
+      "category": "shield",
+      "description": "checkered shield"
+    },
+    {
+      "tiled_id": 840,
+      "gid": 841,
+      "row": 26,
+      "col": 8,
+      "category": "shield",
+      "description": "ornate shield"
+    },
+    {
+      "tiled_id": 841,
+      "gid": 842,
+      "row": 26,
+      "col": 9,
+      "category": "coin",
+      "description": "pile of coins"
+    },
+    {
+      "tiled_id": 845,
+      "gid": 846,
+      "row": 26,
+      "col": 13,
+      "category": "bag",
+      "description": "leather pouch"
+    },
+    {
+      "tiled_id": 847,
+      "gid": 848,
+      "row": 26,
+      "col": 15,
+      "category": "bag",
+      "description": "leather backpack"
+    },
+    {
+      "tiled_id": 848,
+      "gid": 849,
+      "row": 26,
+      "col": 16,
+      "category": "potion",
+      "description": "empty glass flask"
+    },
+    {
+      "tiled_id": 849,
+      "gid": 850,
+      "row": 26,
+      "col": 17,
+      "category": "potion",
+      "description": "empty glass flask"
+    },
+    {
+      "tiled_id": 850,
+      "gid": 851,
+      "row": 26,
+      "col": 18,
+      "category": "potion",
+      "description": "empty glass flask"
+    },
+    {
+      "tiled_id": 864,
+      "gid": 865,
+      "row": 27,
+      "col": 0,
+      "category": "weapon",
+      "description": "wand"
+    },
+    {
+      "tiled_id": 865,
+      "gid": 866,
+      "row": 27,
+      "col": 1,
+      "category": "wand",
+      "description": "wand"
+    },
+    {
+      "tiled_id": 866,
+      "gid": 867,
+      "row": 27,
+      "col": 2,
+      "category": "weapon",
+      "description": "mace"
+    },
+    {
+      "tiled_id": 867,
+      "gid": 868,
+      "row": 27,
+      "col": 3,
+      "category": "weapon",
+      "description": "weapon"
+    },
+    {
+      "tiled_id": 868,
+      "gid": 869,
+      "row": 27,
+      "col": 4,
+      "category": "tool",
+      "description": "grappling hook"
+    },
+    {
+      "tiled_id": 869,
+      "gid": 870,
+      "row": 27,
+      "col": 5,
+      "category": "bow",
+      "description": "crossbow"
+    },
+    {
+      "tiled_id": 870,
+      "gid": 871,
+      "row": 27,
+      "col": 6,
+      "category": "bow",
+      "description": "crossbow"
+    },
+    {
+      "tiled_id": 871,
+      "gid": 872,
+      "row": 27,
+      "col": 7,
+      "category": "bow",
+      "description": "crossbow"
+    },
+    {
+      "tiled_id": 872,
+      "gid": 873,
+      "row": 27,
+      "col": 8,
+      "category": "arrow",
+      "description": "arrow"
+    },
+    {
+      "tiled_id": 873,
+      "gid": 874,
+      "row": 27,
+      "col": 9,
+      "category": "arrow",
+      "description": "arrow"
+    },
+    {
+      "tiled_id": 874,
+      "gid": 875,
+      "row": 27,
+      "col": 10,
+      "category": "tool",
+      "description": "shovel"
+    },
+    {
+      "tiled_id": 875,
+      "gid": 876,
+      "row": 27,
+      "col": 11,
+      "category": "tool",
+      "description": "mining pickaxe"
+    },
+    {
+      "tiled_id": 877,
+      "gid": 878,
+      "row": 27,
+      "col": 13,
+      "category": "book",
+      "description": "book"
+    },
+    {
+      "tiled_id": 878,
+      "gid": 879,
+      "row": 27,
+      "col": 14,
+      "category": "book",
+      "description": "book"
+    },
+    {
+      "tiled_id": 879,
+      "gid": 880,
+      "row": 27,
+      "col": 15,
+      "category": "misc",
+      "description": "map"
+    },
+    {
+      "tiled_id": 880,
+      "gid": 881,
+      "row": 27,
+      "col": 16,
+      "category": "misc",
+      "description": "treasure map"
+    },
+    {
+      "tiled_id": 881,
+      "gid": 882,
+      "row": 27,
+      "col": 17,
+      "category": "scroll",
+      "description": "scroll"
+    },
+    {
+      "tiled_id": 882,
+      "gid": 883,
+      "row": 27,
+      "col": 18,
+      "category": "scroll",
+      "description": "scroll"
+    },
+    {
+      "tiled_id": 896,
+      "gid": 897,
+      "row": 28,
+      "col": 0,
+      "category": "weapon",
+      "description": "dagger"
+    },
+    {
+      "tiled_id": 897,
+      "gid": 898,
+      "row": 28,
+      "col": 1,
+      "category": "weapon",
+      "description": "dagger"
+    },
+    {
+      "tiled_id": 898,
+      "gid": 899,
+      "row": 28,
+      "col": 2,
+      "category": "weapon",
+      "description": "dagger"
+    },
+    {
+      "tiled_id": 899,
+      "gid": 900,
+      "row": 28,
+      "col": 3,
+      "category": "weapon",
+      "description": "dagger"
+    },
+    {
+      "tiled_id": 900,
+      "gid": 901,
+      "row": 28,
+      "col": 4,
+      "category": "weapon",
+      "description": "dagger"
+    },
+    {
+      "tiled_id": 901,
+      "gid": 902,
+      "row": 28,
+      "col": 5,
+      "category": "bow",
+      "description": "bow"
+    },
+    {
+      "tiled_id": 902,
+      "gid": 903,
+      "row": 28,
+      "col": 6,
+      "category": "bow",
+      "description": "bow"
+    },
+    {
+      "tiled_id": 903,
+      "gid": 904,
+      "row": 28,
+      "col": 7,
+      "category": "bow",
+      "description": "bow"
+    },
+    {
+      "tiled_id": 904,
+      "gid": 905,
+      "row": 28,
+      "col": 8,
+      "category": "bow",
+      "description": "bow"
+    },
+    {
+      "tiled_id": 905,
+      "gid": 906,
+      "row": 28,
+      "col": 9,
+      "category": "bow",
+      "description": "wooden hunting bow"
+    },
+    {
+      "tiled_id": 906,
+      "gid": 907,
+      "row": 28,
+      "col": 10,
+      "category": "arrow",
+      "description": "quiver of arrows"
+    },
+    {
+      "tiled_id": 907,
+      "gid": 908,
+      "row": 28,
+      "col": 11,
+      "category": "ring",
+      "description": "bronze ring"
+    },
+    {
+      "tiled_id": 908,
+      "gid": 909,
+      "row": 28,
+      "col": 12,
+      "category": "ring",
+      "description": "silver gemstone ring"
+    },
+    {
+      "tiled_id": 909,
+      "gid": 910,
+      "row": 28,
+      "col": 13,
+      "category": "ring",
+      "description": "gold gemstone ring"
+    },
+    {
+      "tiled_id": 910,
+      "gid": 911,
+      "row": 28,
+      "col": 14,
+      "category": "ring",
+      "description": "blue gemstone ring"
+    },
+    {
+      "tiled_id": 911,
+      "gid": 912,
+      "row": 28,
+      "col": 15,
+      "category": "food",
+      "description": "slice of bread"
+    },
+    {
+      "tiled_id": 912,
+      "gid": 913,
+      "row": 28,
+      "col": 16,
+      "category": "food",
+      "description": "raw steak"
+    },
+    {
+      "tiled_id": 913,
+      "gid": 914,
+      "row": 28,
+      "col": 17,
+      "category": "food",
+      "description": "cured ham"
+    },
+    {
+      "tiled_id": 914,
+      "gid": 915,
+      "row": 28,
+      "col": 18,
+      "category": "food",
+      "description": "wedge of cheese"
+    },
+    {
+      "tiled_id": 928,
+      "gid": 929,
+      "row": 29,
+      "col": 0,
+      "category": "weapon",
+      "description": "short sword"
+    },
+    {
+      "tiled_id": 929,
+      "gid": 930,
+      "row": 29,
+      "col": 1,
+      "category": "weapon",
+      "description": "short sword"
+    },
+    {
+      "tiled_id": 930,
+      "gid": 931,
+      "row": 29,
+      "col": 2,
+      "category": "weapon",
+      "description": "short sword"
+    },
+    {
+      "tiled_id": 931,
+      "gid": 932,
+      "row": 29,
+      "col": 3,
+      "category": "weapon",
+      "description": "short sword"
+    },
+    {
+      "tiled_id": 932,
+      "gid": 933,
+      "row": 29,
+      "col": 4,
+      "category": "weapon",
+      "description": "short sword"
+    },
+    {
+      "tiled_id": 933,
+      "gid": 934,
+      "row": 29,
+      "col": 5,
+      "category": "weapon",
+      "description": "war hammer"
+    },
+    {
+      "tiled_id": 934,
+      "gid": 935,
+      "row": 29,
+      "col": 6,
+      "category": "weapon",
+      "description": "war hammer"
+    },
+    {
+      "tiled_id": 935,
+      "gid": 936,
+      "row": 29,
+      "col": 7,
+      "category": "weapon",
+      "description": "battle axe"
+    },
+    {
+      "tiled_id": 936,
+      "gid": 937,
+      "row": 29,
+      "col": 8,
+      "category": "weapon",
+      "description": "battle axe"
+    },
+    {
+      "tiled_id": 937,
+      "gid": 938,
+      "row": 29,
+      "col": 9,
+      "category": "weapon",
+      "description": "battle axe"
+    },
+    {
+      "tiled_id": 938,
+      "gid": 939,
+      "row": 29,
+      "col": 10,
+      "category": "weapon",
+      "description": "battle axe"
+    },
+    {
+      "tiled_id": 939,
+      "gid": 940,
+      "row": 29,
+      "col": 11,
+      "category": "necklace",
+      "description": "bronze pendant"
+    },
+    {
+      "tiled_id": 940,
+      "gid": 941,
+      "row": 29,
+      "col": 12,
+      "category": "necklace",
+      "description": "silver pendant"
+    },
+    {
+      "tiled_id": 941,
+      "gid": 942,
+      "row": 29,
+      "col": 13,
+      "category": "necklace",
+      "description": "gold pendant"
+    },
+    {
+      "tiled_id": 942,
+      "gid": 943,
+      "row": 29,
+      "col": 14,
+      "category": "necklace",
+      "description": "blue pendant"
+    },
+    {
+      "tiled_id": 943,
+      "gid": 944,
+      "row": 29,
+      "col": 15,
+      "category": "food",
+      "description": "red apple"
+    },
+    {
+      "tiled_id": 944,
+      "gid": 945,
+      "row": 29,
+      "col": 16,
+      "category": "food",
+      "description": "green pear"
+    },
+    {
+      "tiled_id": 945,
+      "gid": 946,
+      "row": 29,
+      "col": 17,
+      "category": "food",
+      "description": "fish"
+    },
+    {
+      "tiled_id": 946,
+      "gid": 947,
+      "row": 29,
+      "col": 18,
+      "category": "food",
+      "description": "egg"
+    },
+    {
+      "tiled_id": 960,
+      "gid": 961,
+      "row": 30,
+      "col": 0,
+      "category": "weapon",
+      "description": "broad sword"
+    },
+    {
+      "tiled_id": 961,
+      "gid": 962,
+      "row": 30,
+      "col": 1,
+      "category": "weapon",
+      "description": "broad sword"
+    },
+    {
+      "tiled_id": 962,
+      "gid": 963,
+      "row": 30,
+      "col": 2,
+      "category": "weapon",
+      "description": "broad sword"
+    },
+    {
+      "tiled_id": 963,
+      "gid": 964,
+      "row": 30,
+      "col": 3,
+      "category": "weapon",
+      "description": "broad sword"
+    },
+    {
+      "tiled_id": 964,
+      "gid": 965,
+      "row": 30,
+      "col": 4,
+      "category": "weapon",
+      "description": "broad sword"
+    },
+    {
+      "tiled_id": 965,
+      "gid": 966,
+      "row": 30,
+      "col": 5,
+      "category": "weapon",
+      "description": "mace"
+    },
+    {
+      "tiled_id": 966,
+      "gid": 967,
+      "row": 30,
+      "col": 6,
+      "category": "weapon",
+      "description": "mace"
+    },
+    {
+      "tiled_id": 967,
+      "gid": 968,
+      "row": 30,
+      "col": 7,
+      "category": "weapon",
+      "description": "battle axe"
+    },
+    {
+      "tiled_id": 968,
+      "gid": 969,
+      "row": 30,
+      "col": 8,
+      "category": "weapon",
+      "description": "battle axe"
+    },
+    {
+      "tiled_id": 969,
+      "gid": 970,
+      "row": 30,
+      "col": 9,
+      "category": "weapon",
+      "description": "small battle axe"
+    },
+    {
+      "tiled_id": 970,
+      "gid": 971,
+      "row": 30,
+      "col": 10,
+      "category": "weapon",
+      "description": "grand battle axe"
+    },
+    {
+      "tiled_id": 971,
+      "gid": 972,
+      "row": 30,
+      "col": 11,
+      "category": "necklace",
+      "description": "bronze pendant"
+    },
+    {
+      "tiled_id": 972,
+      "gid": 973,
+      "row": 30,
+      "col": 12,
+      "category": "necklace",
+      "description": "silver pendant"
+    },
+    {
+      "tiled_id": 973,
+      "gid": 974,
+      "row": 30,
+      "col": 13,
+      "category": "necklace",
+      "description": "gold pendant"
+    },
+    {
+      "tiled_id": 974,
+      "gid": 975,
+      "row": 30,
+      "col": 14,
+      "category": "necklace",
+      "description": "blue pendant"
+    },
+    {
+      "tiled_id": 975,
+      "gid": 976,
+      "row": 30,
+      "col": 15,
+      "category": "misc",
+      "description": "raw hide"
+    },
+    {
+      "tiled_id": 976,
+      "gid": 977,
+      "row": 30,
+      "col": 16,
+      "category": "food",
+      "description": "ale"
+    },
+    {
+      "tiled_id": 977,
+      "gid": 978,
+      "row": 30,
+      "col": 17,
+      "category": "food",
+      "description": "vegetable"
+    },
+    {
+      "tiled_id": 978,
+      "gid": 979,
+      "row": 30,
+      "col": 18,
+      "category": "food",
+      "description": "orange carrot"
+    },
+    {
+      "tiled_id": 992,
+      "gid": 993,
+      "row": 31,
+      "col": 0,
+      "category": "weapon",
+      "description": "long sword"
+    },
+    {
+      "tiled_id": 993,
+      "gid": 994,
+      "row": 31,
+      "col": 1,
+      "category": "weapon",
+      "description": "long sword"
+    },
+    {
+      "tiled_id": 994,
+      "gid": 995,
+      "row": 31,
+      "col": 2,
+      "category": "weapon",
+      "description": "long sword"
+    },
+    {
+      "tiled_id": 995,
+      "gid": 996,
+      "row": 31,
+      "col": 3,
+      "category": "weapon",
+      "description": "long sword"
+    },
+    {
+      "tiled_id": 996,
+      "gid": 997,
+      "row": 31,
+      "col": 4,
+      "category": "weapon",
+      "description": "long sword"
+    },
+    {
+      "tiled_id": 997,
+      "gid": 998,
+      "row": 31,
+      "col": 5,
+      "category": "weapon",
+      "description": "handgun"
+    },
+    {
+      "tiled_id": 998,
+      "gid": 999,
+      "row": 31,
+      "col": 6,
+      "category": "weapon",
+      "description": "handgun"
+    },
+    {
+      "tiled_id": 999,
+      "gid": 1000,
+      "row": 31,
+      "col": 7,
+      "category": "weapon",
+      "description": "rifle"
+    },
+    {
+      "tiled_id": 1000,
+      "gid": 1001,
+      "row": 31,
+      "col": 8,
+      "category": "weapon",
+      "description": "submachine gun"
+    },
+    {
+      "tiled_id": 1001,
+      "gid": 1002,
+      "row": 31,
+      "col": 9,
+      "category": "weapon",
+      "description": "submachine gun"
+    },
+    {
+      "tiled_id": 1002,
+      "gid": 1003,
+      "row": 31,
+      "col": 10,
+      "category": "weapon",
+      "description": "submachine gun"
+    },
+    {
+      "tiled_id": 1003,
+      "gid": 1004,
+      "row": 31,
+      "col": 11,
+      "category": "weapon",
+      "description": "M20 Super Bazooka"
+    },
+    {
+      "tiled_id": 1004,
+      "gid": 1005,
+      "row": 31,
+      "col": 12,
+      "category": "box",
+      "description": "open chest"
+    },
+    {
+      "tiled_id": 1005,
+      "gid": 1006,
+      "row": 31,
+      "col": 13,
+      "category": "bomb",
+      "description": "explosive bomb"
+    },
+    {
+      "tiled_id": 1006,
+      "gid": 1007,
+      "row": 31,
+      "col": 14,
+      "category": "bomb",
+      "description": "dynamite"
+    },
+    {
+      "tiled_id": 1007,
+      "gid": 1008,
+      "row": 31,
+      "col": 15,
+      "category": "bomb",
+      "description": "hand grenade"
+    },
+    {
+      "tiled_id": 1008,
+      "gid": 1009,
+      "row": 31,
+      "col": 16,
+      "category": "bomb",
+      "description": "hand grenade"
+    },
+    {
+      "tiled_id": 1009,
+      "gid": 1010,
+      "row": 31,
+      "col": 17,
+      "category": "bomb",
+      "description": "missile"
+    },
+    {
+      "tiled_id": 1010,
+      "gid": 1011,
+      "row": 31,
+      "col": 18,
+      "category": "bomb",
+      "description": "missile"
+    }
+  ]
+}

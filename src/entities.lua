@@ -55,13 +55,13 @@ function Entities.spawn(player, skipPlayerPlace)
         }
         Entities.enemies[#Entities.enemies+1] = e
     end
-    for i = 1, Config.ITEM_COUNT do
-        if idx > #pool then break end
-        local p = pool[idx]; idx = idx + 1
-        local itemId = Items.spawnPool[love.math.random(1, #Items.spawnPool)]
+    -- Spawn items at lootbox positions from map data
+    local lootPositions = Map.getLootboxPositions()
+    for _, pos in ipairs(lootPositions) do
+        local itemId = Items.allItemIds[love.math.random(#Items.allItemIds)]
         local def = Items.get(itemId)
         Entities.items[#Entities.items+1] = {
-            x=p[1], y=p[2], collected=false,
+            x=pos[1], y=pos[2], collected=false,
             gid=def.gid,
             itemId=itemId,
         }
