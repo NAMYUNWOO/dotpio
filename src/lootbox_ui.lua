@@ -14,13 +14,13 @@ local statusTimer = 0
 
 -- Layout (80x40 grid, 2-column)
 local PANEL_COL = 1
-local PANEL_W = 78
+local PANEL_W = 98
 local TITLE_ROW = 0
 local BOX_TOP = 1
 local BOX_H = 37       -- rows 1..37
 local BOX_BOT = BOX_TOP + BOX_H - 1
 
-local LEFT_W = 38       -- inner width of left (container) column
+local LEFT_W = 48       -- inner width of left (container) column
 local DIVIDER_COL = PANEL_COL + LEFT_W + 1
 local RIGHT_W = PANEL_W - LEFT_W - 3  -- inner width of right (inventory) column
 
@@ -76,9 +76,9 @@ function LootboxUI.draw()
     love.graphics.scale(uiScale, uiScale)
 
     -- Title row
-    DosUI.fillRect(0, TITLE_ROW, 80, 1, " ", nil, 0)
+    DosUI.fillRect(0, TITLE_ROW, 100, 1, " ", nil, 0)
     local title = "<<< CONTAINER >>>"
-    local tx = math.floor((80 - #title) / 2)
+    local tx = math.floor((100 - #title) / 2)
     DosUI.putString(tx, TITLE_ROW, title, 15, 0)
 
     -- Main box
@@ -114,7 +114,7 @@ function LootboxUI.draw()
     LootboxUI.drawInventorySummary()
 
     -- Status bar
-    DosUI.fillRect(0, STATUS_ROW, 80, 1, " ", nil, 0)
+    DosUI.fillRect(0, STATUS_ROW, 100, 1, " ", nil, 0)
     if #statusMsg > 0 then
         DosUI.putString(1, STATUS_ROW, statusMsg, 11, 0, 78)
     else
@@ -123,7 +123,7 @@ function LootboxUI.draw()
     end
 
     -- Help bar
-    DosUI.fillRect(0, HELP_ROW, 80, 1, " ", nil, 0)
+    DosUI.fillRect(0, HELP_ROW, 100, 1, " ", nil, 0)
     DosUI.putString(1, HELP_ROW, "Up/Down:Select  Enter:Take  Q/Esc:Close", 8, 0)
 
     -- Dialog overlay
@@ -207,7 +207,7 @@ function LootboxUI.drawTakeDialog()
     local msg = "Take " .. name .. "? [Enter/N]"
     local w = math.max(#msg + 6, 30)
     local h = 4
-    local col = math.floor((80 - w) / 2)
+    local col = math.floor((100 - w) / 2)
     local row = math.floor((40 - h) / 2)
     DosUI.drawBox(col, row, w, h, 15, 4)
     DosUI.putString(col + 2, row + 1, "Confirm", 15, 4)

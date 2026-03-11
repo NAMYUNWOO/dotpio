@@ -35,7 +35,7 @@ DosUI.BOX = {
     CR = "\xe2\x94\xbc",  -- ┼ U+253C
 }
 
-DosUI.COLS = 80
+DosUI.COLS = 100
 DosUI.ROWS = 40
 
 local font = nil
