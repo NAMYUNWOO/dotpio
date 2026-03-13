@@ -3,6 +3,8 @@ local Items = require("src.items")
 local Inventory = require("src.inventory")
 local Config = require("src.config")
 local AiDescribe = require("src.ai_describe")
+local Stats = require("src.stats")
+local StatChart = require("src.stat_chart")
 
 local InventoryUI = {}
 
@@ -329,7 +331,9 @@ function InventoryUI.drawFileList()
             elseif item.type == "file" then
                 local def = Items.get(item.itemId)
                 fg = def and def.color or 7
-                DosUI.putString(LIST_INNER_COL + 1, row, item.name, fg, bg, 18)
+                if item.isHeroFile then fg = 11 end
+                local displayName = item.isHeroFile and "HERO.CHAR" or item.name
+                DosUI.putString(LIST_INNER_COL + 1, row, displayName, fg, bg, 18)
                 if item.count > 1 then
                     DosUI.putString(LIST_INNER_COL + 21, row, "x" .. item.count, 7, bg)
                 end
@@ -339,6 +343,37 @@ function InventoryUI.drawFileList()
             end
         end
     end
+end
+
+function InventoryUI.drawHeroCharts()
+    if not player or not player.effectiveStats then return end
+    local cw, ch = DosUI.getCellSize()
+    local ox, oy = DosUI.getOffset()
+
+    -- Title
+    DosUI.putString(INFO_INNER_COL + 1, CONTENT_TOP + 1, "HERO.CHAR", 15, 0)
+    DosUI.putString(INFO_INNER_COL + 1, CONTENT_TOP + 2, "Character Profile", 8, 0)
+
+    -- Physical chart (quad) - upper area
+    local quadCx = ox + (INFO_INNER_COL + INFO_INNER_W / 2) * cw
+    local quadCy = oy + (CONTENT_TOP + 8) * ch
+    local radius = math.min(INFO_INNER_W * cw, 10 * ch) * 0.3
+
+    StatChart.drawQuad(quadCx, quadCy, radius,
+        player.effectiveStats, Stats.PHYS_KEYS,
+        {0.3, 0.8, 1.0}, 0.6)
+
+    -- Separator label
+    DosUI.putString(INFO_INNER_COL + 1, CONTENT_TOP + 15, "-- Elements --", 8, 0)
+
+    -- Elemental chart (octa) - lower area
+    local octaCx = quadCx
+    local octaCy = oy + (CONTENT_TOP + 24) * ch
+    local octaRadius = radius * 0.9
+
+    StatChart.drawOcta(octaCx, octaCy, octaRadius,
+        player.effectiveStats, Stats.ELEM_KEYS,
+        {1.0, 0.5, 0.3}, 0.5)
 end
 
 function InventoryUI.drawInfoPanel()
@@ -356,6 +391,12 @@ function InventoryUI.drawInfoPanel()
         item = contents[cursor]
     end
     if not item then return end
+
+    -- HERO.CHAR special rendering
+    if item.isHeroFile then
+        InventoryUI.drawHeroCharts()
+        return
+    end
 
     if item.type == "up" then
         DosUI.putString(INFO_INNER_COL + 1, infoRow, "Parent directory", 7, 0)
@@ -721,6 +762,7 @@ function InventoryUI.equipPanelKeypressed(key)
             local ok, err = Inventory.unequip(player.inventory, equipCursor)
             if ok then
                 InventoryUI.setStatus("Unequipped " .. equipped.name)
+                player.recalcStats()
             else
                 InventoryUI.setStatus(err or "Error")
             end
@@ -800,6 +842,7 @@ function InventoryUI.equipSelectKeypressed(key)
         local ok = Inventory.equip(player.inventory, equipSelectTarget, equipSelectCursor)
         if ok then
             InventoryUI.setStatus("Equipped to " .. EQUIP_SLOTS[equipSelectCursor].name)
+            player.recalcStats()
         else
             InventoryUI.setStatus("Cannot equip")
         end
@@ -924,6 +967,8 @@ function InventoryUI.activateItem()
         scrollOffset = 0
         InventoryUI.refreshContents()
     elseif item.type == "file" then
+        -- HERO.CHAR cannot be actioned
+        if item.isHeroFile then return end
         -- Open action menu
         actionMenuTarget = item
         actionMenuItems = InventoryUI.buildActionMenu(item)
@@ -966,6 +1011,7 @@ function InventoryUI.promptDrop()
     if cursor < 1 or cursor > #contents then return end
     local item = contents[cursor]
     if item.type ~= "file" then return end
+    if item.isHeroFile then InventoryUI.setStatus("Cannot drop HERO.CHAR"); return end
     state = "dialog"
     dialogType = "drop"
 end
@@ -1016,6 +1062,7 @@ function InventoryUI.promptMove()
         InventoryUI.setStatus("Select a file")
         return
     end
+    if item.isHeroFile then InventoryUI.setStatus("Cannot move HERO.CHAR"); return end
     moveDirs = Inventory.getAllDirs(player.inventory.root)
     moveCursor = 1
     state = "dialog"

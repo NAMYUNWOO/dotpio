@@ -16,14 +16,25 @@ function Inventory.new()
         local dir = {type = "dir", name = name, children = {}, parent = root}
         root.children[#root.children + 1] = dir
     end
-    return {root = root, currentDir = root}
+    -- Special HERO.CHAR file (always first, non-deletable)
+    local heroFile = {
+        type = "file",
+        name = "HERO",
+        ext = "CHAR",
+        itemId = "__HERO__",
+        count = 1,
+        parent = root,
+        isHeroFile = true,
+    }
+    table.insert(root.children, 1, heroFile)
+    return {root = root, currentDir = root, equipment = {}}
 end
 
 function Inventory.getTotalSize(inv)
     local total = 0
     local function walk(dir)
         for _, child in ipairs(dir.children) do
-            if child.type == "file" then
+            if child.type == "file" and not child.isHeroFile then
                 local def = Items.get(child.itemId)
                 total = total + (def and def.size or 1) * child.count
             elseif child.type == "dir" then
@@ -94,6 +105,7 @@ end
 
 function Inventory.removeItem(inv, node, count)
     if node.type ~= "file" then return false end
+    if node.isHeroFile then return false, "Cannot remove HERO.CHAR" end
     count = count or 1
     node.count = node.count - count
     if node.count <= 0 then
@@ -149,6 +161,7 @@ end
 
 function Inventory.moveItem(inv, node, targetDir)
     if node.type == "dir" then return false, "Cannot move folders" end
+    if node.isHeroFile then return false, "Cannot move HERO.CHAR" end
     if targetDir.type ~= "dir" then return false, "Target is not a folder" end
     -- Remove from old parent
     local parent = node.parent
@@ -166,8 +179,11 @@ end
 function Inventory.getContents(dir)
     local dirs = {}
     local files = {}
+    local heroFile = nil
     for _, child in ipairs(dir.children) do
-        if child.type == "dir" then
+        if child.isHeroFile then
+            heroFile = child
+        elseif child.type == "dir" then
             dirs[#dirs + 1] = child
         else
             files[#files + 1] = child
@@ -176,6 +192,7 @@ function Inventory.getContents(dir)
     table.sort(dirs, function(a, b) return a.name < b.name end)
     table.sort(files, function(a, b) return a.name < b.name end)
     local result = {}
+    if heroFile then result[#result + 1] = heroFile end
     for _, d in ipairs(dirs) do result[#result + 1] = d end
     for _, f in ipairs(files) do result[#result + 1] = f end
     return result
@@ -185,8 +202,11 @@ function Inventory.sortContents(dir, mode)
     -- mode: "name", "type", "size"
     local dirs = {}
     local files = {}
+    local heroFile = nil
     for _, child in ipairs(dir.children) do
-        if child.type == "dir" then
+        if child.isHeroFile then
+            heroFile = child
+        elseif child.type == "dir" then
             dirs[#dirs + 1] = child
         else
             files[#files + 1] = child
@@ -213,6 +233,7 @@ function Inventory.sortContents(dir, mode)
         end)
     end
     dir.children = {}
+    if heroFile then dir.children[#dir.children + 1] = heroFile end
     for _, d in ipairs(dirs) do dir.children[#dir.children + 1] = d end
     for _, f in ipairs(files) do dir.children[#dir.children + 1] = f end
 end
@@ -241,6 +262,48 @@ function Inventory.getAllDirs(root, excludeDir)
     end
     walk(root, 0)
     return result
+end
+
+function Inventory.equip(inv, fileNode, slotIndex)
+    if fileNode.type ~= "file" then return false, "Not a file" end
+    if fileNode.isHeroFile then return false, "Cannot equip HERO.CHAR" end
+    -- If slot already occupied, swap: unequip old item first
+    local old = inv.equipment[slotIndex]
+    if old then
+        -- Return old item to currentDir
+        old.parent = inv.currentDir
+        inv.currentDir.children[#inv.currentDir.children + 1] = old
+    end
+    -- Remove fileNode from its parent's children
+    local parent = fileNode.parent
+    for i, child in ipairs(parent.children) do
+        if child == fileNode then
+            table.remove(parent.children, i)
+            break
+        end
+    end
+    fileNode.parent = nil
+    inv.equipment[slotIndex] = fileNode
+    return true
+end
+
+function Inventory.unequip(inv, slotIndex)
+    local node = inv.equipment[slotIndex]
+    if not node then return false, "Slot empty" end
+    -- Check capacity
+    local def = Items.get(node.itemId)
+    local currentSize = Inventory.getTotalSize(inv)
+    if currentSize + (def and def.size or 1) * node.count > Inventory.capacity then
+        return false, "Inventory full"
+    end
+    node.parent = inv.currentDir
+    inv.currentDir.children[#inv.currentDir.children + 1] = node
+    inv.equipment[slotIndex] = nil
+    return true
+end
+
+function Inventory.getEquipped(inv, slotIndex)
+    return inv.equipment[slotIndex]
 end
 
 return Inventory

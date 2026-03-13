@@ -1,6 +1,7 @@
 local Config = require("src.config")
 local Map = require("src.map")
 local Inventory = require("src.inventory")
+local Stats = require("src.stats")
 
 local Player = {
     x = 0, y = 0, aimAngle = 0,
@@ -10,6 +11,8 @@ local Player = {
     mp = 20, maxMp = 20,
     attackTimer = 0, attackDir = nil,
     inventory = nil,
+    baseStats = nil,
+    effectiveStats = nil,
 }
 
 function Player.init(x, y)
@@ -28,6 +31,23 @@ function Player.init(x, y)
     if not Player.inventory then
         Player.inventory = Inventory.new()
     end
+    Player.baseStats = Stats.defaultBase()
+    Player.effectiveStats = Stats.computeEffective(Player.baseStats, {})
+end
+
+function Player.recalcStats()
+    local AiDescribe = require("src.ai_describe")
+    local equipStats = {}
+    for i = 1, 8 do
+        local item = Player.inventory.equipment[i]
+        if item then
+            local aiResult = AiDescribe.getResult(item.itemId)
+            if type(aiResult) == "table" and aiResult.stats then
+                equipStats[#equipStats + 1] = aiResult.stats
+            end
+        end
+    end
+    Player.effectiveStats = Stats.computeEffective(Player.baseStats, equipStats)
 end
 
 function Player.update(dt, camera)
@@ -55,7 +75,7 @@ function Player.update(dt, camera)
                 end
             end
             if moved then
-                Player.moveTimer = Config.MOVE_CD
+                Player.moveTimer = Stats.moveCooldown(Config.MOVE_CD, Player.effectiveStats)
             end
         end
     end

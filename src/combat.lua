@@ -1,5 +1,6 @@
 local Config = require("src.config")
 local Map = require("src.map")
+local Stats = require("src.stats")
 
 local Combat = {}
 
@@ -18,7 +19,8 @@ function Combat.meleeAttack(player, enemyAtFn)
     player.attackDir = {dir[1], dir[2]}
     local _, e = enemyAtFn(tx, ty)
     if e then
-        e.hp = e.hp - 2
+        local dmg = Stats.meleeDamage(2, player.effectiveStats)
+        e.hp = e.hp - math.max(1, math.floor(dmg + 0.5))
         e.alerted = true
         damageFlash[#damageFlash+1] = {x=tx, y=ty, timer=0.3}
         if e.hp <= 0 then e.alive = false end
@@ -26,6 +28,7 @@ function Combat.meleeAttack(player, enemyAtFn)
 end
 
 function Combat.castMagic(player, targetTileX, targetTileY)
+    Combat._playerRef = player
     if player.mp < Config.MAGIC_COST then return end
     local tx = math.floor(targetTileX + 0.5)
     local ty = math.floor(targetTileY + 0.5)
@@ -48,7 +51,8 @@ function Combat.update(dt, enemyAtFn)
                 damageFlash[#damageFlash+1] = {x=p.targetX, y=p.targetY, timer=0.3}
                 local _, e = enemyAtFn(p.targetX, p.targetY)
                 if e then
-                    e.hp = e.hp - Config.MAGIC_DMG
+                    local dmg = Stats.magicDamage(Config.MAGIC_DMG, Combat._playerRef and Combat._playerRef.effectiveStats or {int = 3})
+                    e.hp = e.hp - math.max(1, math.floor(dmg + 0.5))
                     e.alerted = true
                     if e.hp <= 0 then e.alive = false end
                 end

@@ -65,11 +65,13 @@ function love.load()
     InventoryUI.init()
     AiDescribe.init()
     Player.init(0, 0)
+    Player.recalcStats()
     loadMap("01", nil)
 end
 
 function love.update(dt)
     AiDescribe.update()
+    Player.recalcStats()
     if InventoryUI.isOpen() then
         InventoryUI.update(dt)
         return

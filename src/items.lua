@@ -94,7 +94,10 @@ function Items.loadFromJson()
             maxStack = defaults.maxStack,
             desc     = entry.description,
             tileDesc = cat .. " sprite: " .. entry.description,
+            tileRow  = entry.row,
+            tileCol  = entry.col,
             onUse    = CATEGORY_ON_USE[cat],
+            equip_slot = entry.equip_slot or 0,
         }
         Items.gidToItemId[entry.gid] = itemId
         table.insert(Items.allItemIds, itemId)
@@ -124,6 +127,19 @@ function Items.categoryColor(cat)
     local defaults = CATEGORY_DEFAULTS[cat]
     if defaults then return defaults.color end
     return 7
+end
+
+function Items.getValidSlots(itemId)
+    local def = Items.defs[itemId]
+    if not def then return {} end
+    local es = def.equip_slot
+    if es >= 1 and es <= 6 then return {es} end
+    if es == 7 then return {7, 8} end
+    return {}
+end
+
+function Items.isEquippable(itemId)
+    return #Items.getValidSlots(itemId) > 0
 end
 
 return Items

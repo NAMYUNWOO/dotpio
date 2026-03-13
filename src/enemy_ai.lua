@@ -1,5 +1,6 @@
 local Config = require("src.config")
 local Map = require("src.map")
+local Stats = require("src.stats")
 
 -- Jumper A* pathfinding
 local Grid = require("libs.jumper.jumper.grid")
@@ -190,7 +191,8 @@ function EnemyAI.update(e, idx, dt, player, enemies)
 
     elseif e.state == "attack" and e.atkTimer <= 0 then
         -- Deal damage to player
-        player.hp = player.hp - Config.ENEMY_ATK_DMG
+        local dmg = Stats.damageReduction(Config.ENEMY_ATK_DMG, player.effectiveStats)
+        player.hp = player.hp - math.max(1, math.floor(dmg + 0.5))
         e.atkTimer = Config.ENEMY_ATK_CD
         return "hit_player"
 
