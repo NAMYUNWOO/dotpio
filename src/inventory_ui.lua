@@ -679,6 +679,7 @@ function InventoryUI.drawHelpDialog()
         "Tab / I     Toggle inventory",
         "",
         "Build rule: consumes top 2 files + 1 BUILDER.SRL",
+        "Disassemble yield: item size scales salvage cap (1..3)",
         "Action Menu: USE / EQUIP / DISASSEMBLE / DROP",
         "",
         "Press any key to close...",

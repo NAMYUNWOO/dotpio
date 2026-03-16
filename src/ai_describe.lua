@@ -150,12 +150,21 @@ Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic
     local result = awaitSyncResponse(req, 6)
 
     local outputs = {}
+    local itemSize = tonumber(def.size) or 1
+    local salvageCap = math.max(1, math.min(3, math.floor((itemSize + 1) / 2)))
+    local remaining = salvageCap
+
     if result and type(result.outputs) == "table" then
         for _, row in ipairs(result.outputs) do
+            if remaining <= 0 or #outputs >= 2 then break end
             local cat = tostring(row.category or "misc")
-            local cnt = math.max(1, math.min(2, tonumber(row.count) or 1))
+            local wanted = math.max(1, math.min(2, tonumber(row.count) or 1))
+            local cnt = math.min(wanted, remaining)
             local outId = pickItemByCategory(cat) or pickItemByCategory("misc")
-            if outId then table.insert(outputs, { itemId = outId, count = cnt }) end
+            if outId and cnt > 0 then
+                table.insert(outputs, { itemId = outId, count = cnt })
+                remaining = remaining - cnt
+            end
         end
     end
 
