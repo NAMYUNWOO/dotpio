@@ -518,31 +518,65 @@ function InventoryUI.drawStatusBar()
     end
 end
 
+local function getBuildPlan(inv, dir)
+    if not inv or not dir then
+        return {}, 1
+    end
+
+    local components = {}
+    for _, f in ipairs(Inventory.getFilesInDir(dir)) do
+        if f.itemId ~= "builder_scroll" then
+            components[#components + 1] = f
+        end
+    end
+
+    table.sort(components, function(a, b)
+        local ad = Items.get(a.itemId) or {}
+        local bd = Items.get(b.itemId) or {}
+        local as = ad.size or 1
+        local bs = bd.size or 1
+        if as == bs then return (a.itemId or "") < (b.itemId or "") end
+        return as > bs
+    end)
+
+    local consumed = {}
+    local score = 0
+    for i = 1, math.min(2, #components) do
+        consumed[#consumed + 1] = components[i]
+        local d = Items.get(components[i].itemId) or {}
+        score = score + (d.size or 1)
+    end
+
+    local builderCost = math.max(1, math.min(3, math.ceil(score / 4)))
+    return consumed, builderCost
+end
+
 local function getBuildHint()
     if not player or not player.inventory or not player.inventory.currentDir then
         return "F9:Build"
     end
 
-    local files = Inventory.getFilesInDir(player.inventory.currentDir)
-    local componentCount = 0
-    for _, f in ipairs(files) do
-        if f.itemId ~= "builder_scroll" then
-            componentCount = componentCount + 1
-        end
-    end
+    local inv = player.inventory
+    local consumed, builderCost = getBuildPlan(inv, inv.currentDir)
+    local componentCount = #consumed
+    local builderCount = Inventory.countItemById(inv, "builder_scroll")
 
-    local hasBuilder = Inventory.countItemById(player.inventory, "builder_scroll") > 0
-    if componentCount >= 2 and hasBuilder then
+    if componentCount >= 2 and builderCount >= builderCost then
+        if builderCost > 1 then
+            return string.format("F9:Build READY (%d BUILDER)", builderCost)
+        end
         return "F9:Build READY"
     end
 
     local neededFiles = math.max(0, 2 - componentCount)
-    if not hasBuilder and neededFiles > 0 then
-        return string.format("F9:Build +%d FILE + BUILDER", neededFiles)
-    elseif not hasBuilder then
-        return "F9:Build NEED BUILDER"
+    local neededBuilder = math.max(0, builderCost - builderCount)
+
+    if neededFiles > 0 and neededBuilder > 0 then
+        return string.format("F9:Build +%d FILE +%d BUILDER", neededFiles, neededBuilder)
     elseif neededFiles > 0 then
         return string.format("F9:Build +%d FILE", neededFiles)
+    elseif neededBuilder > 0 then
+        return string.format("F9:Build NEED %d BUILDER", neededBuilder)
     end
 
     return "F9:Build"
@@ -1083,36 +1117,18 @@ end
 function InventoryUI.buildCurrentFolder()
     local inv = player.inventory
     local cur = inv.currentDir
-    local files = Inventory.getFilesInDir(cur)
+    local consumed, builderCost = getBuildPlan(inv, cur)
 
-    local components = {}
-    for _, f in ipairs(files) do
-        if f.itemId ~= "builder_scroll" then
-            table.insert(components, f)
-        end
-    end
-
-    if #components < 2 then
+    if #consumed < 2 then
         InventoryUI.setStatus("Build requires at least 2 files in this folder")
         return
     end
 
-    if Inventory.countItemById(inv, "builder_scroll") < 1 then
-        InventoryUI.setStatus("Build requires BUILDER.SRL")
+    local builderCount = Inventory.countItemById(inv, "builder_scroll")
+    if builderCount < builderCost then
+        InventoryUI.setStatus(string.format("Build requires %d BUILDER.SRL", builderCost))
         return
     end
-
-    -- Balance pass: only consume the two strongest components instead of nuking the folder.
-    table.sort(components, function(a, b)
-        local ad = Items.get(a.itemId) or {}
-        local bd = Items.get(b.itemId) or {}
-        local as = ad.size or 1
-        local bs = bd.size or 1
-        if as == bs then return (a.itemId or "") < (b.itemId or "") end
-        return as > bs
-    end)
-
-    local consumed = {components[1], components[2]}
 
     local componentIds = {}
     for _, c in ipairs(consumed) do componentIds[#componentIds + 1] = c.itemId end
@@ -1122,8 +1138,8 @@ function InventoryUI.buildCurrentFolder()
         return
     end
 
-    -- Consume one BUILDER.SRL globally, and one each from selected components.
-    Inventory.consumeItemById(inv, "builder_scroll", 1)
+    -- Consume selected components and a builder cost scaled by component quality.
+    Inventory.consumeItemById(inv, "builder_scroll", builderCost)
     for _, c in ipairs(consumed) do
         Inventory.removeItem(inv, c, 1)
     end
@@ -1132,7 +1148,11 @@ function InventoryUI.buildCurrentFolder()
     if not ok then
         InventoryUI.setStatus("Build complete, but inventory is full")
     else
-        InventoryUI.setStatus("Build complete: " .. (note or "new item created") .. " [2 files + BUILDER]")
+        InventoryUI.setStatus(string.format(
+            "Build complete: %s [2 files + %d BUILDER]",
+            note or "new item created",
+            builderCost
+        ))
     end
 
     InventoryUI.refreshContents()
