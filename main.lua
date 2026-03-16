@@ -17,6 +17,9 @@ local LootboxUI   = require("src.lootbox_ui")
 local AiDescribe  = require("src.ai_describe")
 
 local gameOver = false
+local autoShotDone = false
+local autoShotTimer = 0
+local autoShotPath = os.getenv("AUTO_SCREENSHOT")
 
 local lootboxInteract = {
     active = false, lootbox = nil, timer = 0, duration = 0,
@@ -72,6 +75,19 @@ end
 function love.update(dt)
     AiDescribe.update()
     Player.recalcStats()
+
+    if autoShotPath and not autoShotDone then
+        autoShotTimer = autoShotTimer + dt
+        if autoShotTimer > 0.5 then
+            local shotPath = autoShotPath
+            love.graphics.captureScreenshot(function(imgData)
+                imgData:encode("png", shotPath)
+                print("[AUTO_SCREENSHOT] saved: " .. shotPath)
+                love.event.quit()
+            end)
+            autoShotDone = true
+        end
+    end
     if InventoryUI.isOpen() then
         InventoryUI.update(dt)
         return

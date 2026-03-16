@@ -306,4 +306,52 @@ function Inventory.getEquipped(inv, slotIndex)
     return inv.equipment[slotIndex]
 end
 
+function Inventory.countItemById(inv, itemId)
+    local total = 0
+    local function walk(dir)
+        for _, child in ipairs(dir.children) do
+            if child.type == "file" and child.itemId == itemId then
+                total = total + (child.count or 1)
+            elseif child.type == "dir" then
+                walk(child)
+            end
+        end
+    end
+    walk(inv.root)
+    return total
+end
+
+function Inventory.consumeItemById(inv, itemId, need)
+    need = need or 1
+    local function walk(dir)
+        for _, child in ipairs(dir.children) do
+            if child.type == "file" and child.itemId == itemId then
+                local take = math.min(child.count or 1, need)
+                Inventory.removeItem(inv, child, take)
+                need = need - take
+                if need <= 0 then return true end
+            end
+        end
+        for _, child in ipairs(dir.children) do
+            if child.type == "dir" then
+                if walk(child) then return true end
+            end
+        end
+        return false
+    end
+
+    walk(inv.root)
+    return need <= 0
+end
+
+function Inventory.getFilesInDir(dir)
+    local out = {}
+    for _, child in ipairs(dir.children) do
+        if child.type == "file" and not child.isHeroFile then
+            out[#out + 1] = child
+        end
+    end
+    return out
+end
+
 return Inventory

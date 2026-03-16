@@ -225,6 +225,7 @@ function InventoryUI.drawFunctionBar()
         {key = "F6", label = "Move"},
         {key = "F7", label = "MkDir"},
         {key = "F8", label = "Del"},
+        {key = "F9", label = "Build"},
         {key = "L/R", label = "Panel"},
         {key = "F10", label = "Close"},
     }
@@ -522,7 +523,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot Enter:Unequip L/R:Panel Esc:Close", 8, 0)
     else
         DosUI.putString(1, HELP_ROW,
-            "Arrows:Nav Enter:Action L/R:Panel F5:Sort Esc:Close", 8, 0)
+            "Arrows:Nav Enter:Action F9:Build L/R:Panel Esc:Close", 8, 0)
     end
 end
 
@@ -539,8 +540,8 @@ function InventoryUI.buildActionMenu(item)
     -- EQUIP
     local canEquip = Items.isEquippable(item.itemId)
     menu[#menu+1] = {label = "EQUIP", enabled = canEquip, action = "equip"}
-    -- RECYCLE (always disabled)
-    menu[#menu+1] = {label = "RECYCLE", enabled = false, action = "recycle"}
+    -- DISASSEMBLE (AI salvage)
+    menu[#menu+1] = {label = "DISASSEMBLE", enabled = true, action = "disassemble"}
     -- DELETE (drop)
     menu[#menu+1] = {label = "DELETE", enabled = true, action = "delete"}
     return menu
@@ -635,6 +636,7 @@ function InventoryUI.drawHelpDialog()
         "F6          Move item to folder",
         "F7          Create new folder",
         "F8          Delete empty folder",
+        "F9          Build item in current folder",
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
@@ -743,6 +745,8 @@ function InventoryUI.filesPanelKeypressed(key)
         dialogInput = ""
     elseif key == "f8" then
         InventoryUI.promptDelete()
+    elseif key == "f9" then
+        InventoryUI.buildCurrentFolder()
     end
 end
 
@@ -809,6 +813,9 @@ function InventoryUI.actionMenuKeypressed(key)
                     state = "browsing"
                     InventoryUI.setStatus("Cannot equip")
                 end
+            elseif mi.action == "disassemble" then
+                state = "browsing"
+                InventoryUI.disassembleItem(actionMenuTarget)
             elseif mi.action == "delete" then
                 state = "dialog"
                 dialogType = "drop"
@@ -1004,6 +1011,78 @@ function InventoryUI.useSelected()
     else
         InventoryUI.setStatus(msg or "Cannot use")
     end
+    InventoryUI.refreshContents()
+end
+
+function InventoryUI.disassembleItem(item)
+    if not item or item.type ~= "file" then return end
+    if item.isHeroFile then
+        InventoryUI.setStatus("Cannot disassemble HERO.CHAR")
+        return
+    end
+    if item.itemId == "builder_scroll" then
+        InventoryUI.setStatus("Cannot disassemble BUILDER.SRL")
+        return
+    end
+
+    local outputs, note = AiDescribe.generateDisassembly(item.itemId)
+    if not outputs or #outputs == 0 then
+        InventoryUI.setStatus("Disassemble failed")
+        return
+    end
+
+    Inventory.removeItem(player.inventory, item, 1)
+    for _, out in ipairs(outputs) do
+        Inventory.addItem(player.inventory, out.itemId, out.count)
+    end
+
+    InventoryUI.setStatus("Disassembled: " .. (note or "salvage recovered"))
+    InventoryUI.refreshContents()
+end
+
+function InventoryUI.buildCurrentFolder()
+    local inv = player.inventory
+    local cur = inv.currentDir
+    local files = Inventory.getFilesInDir(cur)
+
+    local components = {}
+    for _, f in ipairs(files) do
+        if f.itemId ~= "builder_scroll" then
+            table.insert(components, f)
+        end
+    end
+
+    if #components < 2 then
+        InventoryUI.setStatus("Need >=2 components in folder")
+        return
+    end
+
+    if Inventory.countItemById(inv, "builder_scroll") < 1 then
+        InventoryUI.setStatus("Need BUILDER.SRL to build")
+        return
+    end
+
+    local componentIds = {}
+    for _, c in ipairs(components) do componentIds[#componentIds + 1] = c.itemId end
+    local outItemId, note = AiDescribe.generateBuild(cur.name, componentIds)
+    if not outItemId then
+        InventoryUI.setStatus("Build failed")
+        return
+    end
+
+    -- Consume one BUILDER.SRL globally, and one each component from current folder
+    Inventory.consumeItemById(inv, "builder_scroll", 1)
+    for _, c in ipairs(components) do
+        Inventory.removeItem(inv, c, 1)
+    end
+
+    local ok = Inventory.addItem(inv, outItemId, 1)
+    if not ok then
+        InventoryUI.setStatus("Build ok, but inventory full")
+    else
+        InventoryUI.setStatus("Build complete: " .. (note or "new item created"))
+    end
+
     InventoryUI.refreshContents()
 end
 

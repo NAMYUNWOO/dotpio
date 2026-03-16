@@ -78,6 +78,8 @@ function Items.loadFromJson()
     Items.gidToItemId = {}
     Items.allItemIds = {}
 
+    local firstScrollGid = nil
+
     for _, entry in ipairs(data.items) do
         local itemId = "item_" .. entry.tiled_id
         local cat = entry.category or "misc"
@@ -101,7 +103,30 @@ function Items.loadFromJson()
         }
         Items.gidToItemId[entry.gid] = itemId
         table.insert(Items.allItemIds, itemId)
+
+        if (entry.category == "scroll") and (not firstScrollGid) then
+            firstScrollGid = entry.gid
+        end
     end
+
+    -- Synthetic system item: required for folder-build synthesis
+    local builderId = "builder_scroll"
+    Items.defs[builderId] = {
+        name = "BUILDER",
+        ext = "SRL",
+        gid = firstScrollGid or (data.items[1] and data.items[1].gid) or 1,
+        category = "scroll",
+        color = 11,
+        size = 1,
+        stackable = true,
+        maxStack = 5,
+        desc = "Builder synthesis scroll",
+        tileDesc = "mystic build script scroll",
+        onUse = CATEGORY_ON_USE.scroll,
+        equip_slot = 0,
+        isSystem = true,
+    }
+    table.insert(Items.allItemIds, builderId)
 end
 
 function Items.get(itemId)
@@ -140,6 +165,17 @@ end
 
 function Items.isEquippable(itemId)
     return #Items.getValidSlots(itemId) > 0
+end
+
+function Items.getIdsByCategory(category)
+    local out = {}
+    for _, itemId in ipairs(Items.allItemIds) do
+        local def = Items.defs[itemId]
+        if def and def.category == category and not def.isSystem then
+            out[#out + 1] = itemId
+        end
+    end
+    return out
 end
 
 return Items
