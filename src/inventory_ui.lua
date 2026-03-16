@@ -220,7 +220,7 @@ function InventoryUI.drawFunctionBar()
     DosUI.fillRect(0, 0, 100, 1, " ", nil, 8)
     local buttons = {
         {key = "F1", label = "Help"},
-        {key = "Ent", label = "Menu"},
+        {key = "Ent", label = "Action"},
         {key = "F3", label = "Drop"},
         {key = "F5", label = "Sort"},
         {key = "F6", label = "Move"},
@@ -586,13 +586,13 @@ function InventoryUI.drawHelpBar()
     DosUI.fillRect(0, HELP_ROW, SCREEN_COLS, 1, " ", nil, 0)
     if state == "equip_select" then
         DosUI.putString(1, HELP_ROW,
-            "Up/Dn:Slot Enter:Equip Esc:Cancel", 8, 0)
+            "Up/Dn:Slot Enter:Equip Esc:Back", 8, 0)
     elseif focusPanel == "equip" then
         DosUI.putString(1, HELP_ROW,
             "Up/Dn:Slot Enter:Unequip L/R:Panel Esc:Close", 8, 0)
     else
         local help = string.format(
-            "Arrows:Nav Enter:Menu(U/E/D/X) %s F1:Help Esc:Close",
+            "Up/Dn:Nav Enter:Action(U/E/D/X) %s F1:Help Esc:Close",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -620,8 +620,8 @@ function InventoryUI.buildActionMenu(item)
 end
 
 function InventoryUI.drawActionMenu()
-    local w = 20
-    local h = #actionMenuItems + 4
+    local w = 28
+    local h = #actionMenuItems + 5
     local col = math.floor((100 - w) / 2)
     local row = math.floor((40 - h) / 2)
     DosUI.drawBox(col, row, w, h, 15, 4)
@@ -640,8 +640,10 @@ function InventoryUI.drawActionMenu()
         local fg = mi.enabled and 15 or 8
         DosUI.fillRect(col + 1, row + 2 + i, w - 2, 1, " ", nil, bg)
         local prefix = isSelected and "> " or "  "
-        DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg)
+        DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
     end
+
+    DosUI.putString(col + 2, row + h - 2, "Enter=Run  Esc=Back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -652,12 +654,12 @@ function InventoryUI.drawDialog()
     if dialogType == "mkdir" then
         InventoryUI.drawMkdirDialog()
     elseif dialogType == "delete" then
-        InventoryUI.drawConfirmDialog("Delete " .. (dialogTarget and dialogTarget.name or "?") .. "? [Y/N]")
+        InventoryUI.drawConfirmDialog("Delete " .. (dialogTarget and dialogTarget.name or "?") .. "? [Y/N]", "RMDIR")
     elseif dialogType == "drop" then
         local item = contents[cursor]
         local label = item and item.name or "?"
         local cnt = item and item.count or 1
-        InventoryUI.drawConfirmDialog("Drop " .. label .. " x" .. cnt .. "? [Y/N]")
+        InventoryUI.drawConfirmDialog("Drop " .. label .. " x" .. cnt .. "? [Y/N]", "DROP FILE")
     elseif dialogType == "help" then
         InventoryUI.drawHelpDialog()
     elseif dialogType == "move" then
@@ -677,13 +679,13 @@ function InventoryUI.drawMkdirDialog()
     DosUI.putString(col + 2, row + 4, "Enter=OK  Esc=Cancel", 8, 4)
 end
 
-function InventoryUI.drawConfirmDialog(msg)
+function InventoryUI.drawConfirmDialog(msg, title)
     local w = math.max(#msg + 6, 30)
     local h = 4
     local col = math.floor((100 - w) / 2)
     local row = math.floor((40 - h) / 2)
     DosUI.drawBox(col, row, w, h, 15, 4)
-    DosUI.putString(col + 2, row + 1, "Confirm", 15, 4)
+    DosUI.putString(col + 2, row + 1, title or "CONFIRM", 15, 4)
     DosUI.putString(col + 2, row + 2, msg, 15, 4)
 end
 
@@ -1101,7 +1103,7 @@ function InventoryUI.disassembleItem(item)
 
     local outputs = AiDescribe.generateDisassembly(item.itemId)
     if not outputs or #outputs == 0 then
-        InventoryUI.setStatus("Disassemble failed")
+        InventoryUI.setStatus("DISASM FAIL")
         return
     end
 
@@ -1128,7 +1130,7 @@ function InventoryUI.buildCurrentFolder()
     local consumed, builderCost = getBuildPlan(inv, cur)
 
     if #consumed < 2 then
-        InventoryUI.setStatus("Build requires at least 2 files in this folder")
+        InventoryUI.setStatus("BUILD NEEDS 2+ FILES")
         return
     end
 
@@ -1142,7 +1144,7 @@ function InventoryUI.buildCurrentFolder()
     for _, c in ipairs(consumed) do componentIds[#componentIds + 1] = c.itemId end
     local outItemId, note = AiDescribe.generateBuild(cur.name, componentIds)
     if not outItemId then
-        InventoryUI.setStatus("Build failed")
+        InventoryUI.setStatus("BUILD FAIL")
         return
     end
 
@@ -1154,7 +1156,7 @@ function InventoryUI.buildCurrentFolder()
 
     local ok = Inventory.addItem(inv, outItemId, 1)
     if not ok then
-        InventoryUI.setStatus("Build complete, but inventory is full")
+        InventoryUI.setStatus("BUILD OK, INVENTORY FULL")
     else
         local resultLabel = note or "new item created"
         if #resultLabel > 28 then resultLabel = resultLabel:sub(1, 25) .. "..." end
@@ -1188,7 +1190,7 @@ function InventoryUI.doDrop()
         }
     end
     Inventory.removeItem(player.inventory, item, item.count)
-    InventoryUI.setStatus("Dropped " .. item.name)
+    InventoryUI.setStatus("DROP OK: " .. item.name)
     InventoryUI.refreshContents()
 end
 
@@ -1232,7 +1234,7 @@ function InventoryUI.doMove()
     local target = moveDirs[moveCursor].dir
     local ok, err = Inventory.moveItem(player.inventory, dialogTarget, target)
     if ok then
-        InventoryUI.setStatus("Moved to " .. target.name)
+        InventoryUI.setStatus("MOVE OK -> " .. target.name)
     else
         InventoryUI.setStatus(err or "Error")
     end
