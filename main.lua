@@ -20,6 +20,9 @@ local gameOver = false
 local autoShotDone = false
 local autoShotTimer = 0
 local autoShotPath = os.getenv("AUTO_SCREENSHOT")
+local autoStartMap = os.getenv("AUTO_START_MAP")
+local autoStartPortal = os.getenv("AUTO_START_PORTAL")
+local autoOpenInventory = os.getenv("AUTO_OPEN_INVENTORY") == "1"
 
 local lootboxInteract = {
     active = false, lootbox = nil, timer = 0, duration = 0,
@@ -69,7 +72,10 @@ function love.load()
     AiDescribe.init()
     Player.init(0, 0)
     Player.recalcStats()
-    loadMap("01", nil)
+    loadMap(autoStartMap or "01", autoStartPortal)
+    if autoOpenInventory then
+        InventoryUI.open(Player, Entities)
+    end
 end
 
 function love.update(dt)
