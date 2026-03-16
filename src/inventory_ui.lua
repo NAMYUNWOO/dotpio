@@ -1062,17 +1062,29 @@ function InventoryUI.buildCurrentFolder()
         return
     end
 
+    -- Balance pass: only consume the two strongest components instead of nuking the folder.
+    table.sort(components, function(a, b)
+        local ad = Items.get(a.itemId) or {}
+        local bd = Items.get(b.itemId) or {}
+        local as = ad.size or 1
+        local bs = bd.size or 1
+        if as == bs then return (a.itemId or "") < (b.itemId or "") end
+        return as > bs
+    end)
+
+    local consumed = {components[1], components[2]}
+
     local componentIds = {}
-    for _, c in ipairs(components) do componentIds[#componentIds + 1] = c.itemId end
+    for _, c in ipairs(consumed) do componentIds[#componentIds + 1] = c.itemId end
     local outItemId, note = AiDescribe.generateBuild(cur.name, componentIds)
     if not outItemId then
         InventoryUI.setStatus("Build failed")
         return
     end
 
-    -- Consume one BUILDER.SRL globally, and one each component from current folder
+    -- Consume one BUILDER.SRL globally, and one each from selected components.
     Inventory.consumeItemById(inv, "builder_scroll", 1)
-    for _, c in ipairs(components) do
+    for _, c in ipairs(consumed) do
         Inventory.removeItem(inv, c, 1)
     end
 
@@ -1080,7 +1092,7 @@ function InventoryUI.buildCurrentFolder()
     if not ok then
         InventoryUI.setStatus("Build ok, but inventory full")
     else
-        InventoryUI.setStatus("Build complete: " .. (note or "new item created"))
+        InventoryUI.setStatus("Build complete: " .. (note or "new item created") .. " [2 files + BUILDER]")
     end
 
     InventoryUI.refreshContents()

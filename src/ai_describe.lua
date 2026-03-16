@@ -140,8 +140,8 @@ Task: Disassemble one item into salvage materials.
 Input item category: %s
 Input item name: %s
 Return strict JSON:
-{"outputs":[{"category":"gem|scroll|tool|bone|skull|coin|potion|misc","count":1-3}, ...], "note":"short text"}
-Rules: 1-3 output rows, total count 2-5, make thematic sense.]],
+{"outputs":[{"category":"gem|scroll|tool|bone|skull|coin|potion|misc","count":1-2}, ...], "note":"short text"}
+Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic sense.]],
         def.category or "misc", def.name or "UNKNOWN"
     )
 
@@ -153,7 +153,7 @@ Rules: 1-3 output rows, total count 2-5, make thematic sense.]],
     if result and type(result.outputs) == "table" then
         for _, row in ipairs(result.outputs) do
             local cat = tostring(row.category or "misc")
-            local cnt = math.max(1, math.min(3, tonumber(row.count) or 1))
+            local cnt = math.max(1, math.min(2, tonumber(row.count) or 1))
             local outId = pickItemByCategory(cat) or pickItemByCategory("misc")
             if outId then table.insert(outputs, { itemId = outId, count = cnt }) end
         end
@@ -162,7 +162,7 @@ Rules: 1-3 output rows, total count 2-5, make thematic sense.]],
     if #outputs == 0 then
         local fallbackId = pickItemByCategory("misc")
         if fallbackId then
-            outputs = {{ itemId = fallbackId, count = 2 }}
+            outputs = {{ itemId = fallbackId, count = 1 }}
         end
     end
 
