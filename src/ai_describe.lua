@@ -123,10 +123,23 @@ local function awaitSyncResponse(requestId, timeoutSec)
     return { fallback = true, error = "sync_timeout" }
 end
 
-local function pickItemByCategory(category)
+local function pickItemByCategory(category, opts)
+    opts = opts or {}
     local ids = Items.getIdsByCategory(category)
     if not ids or #ids == 0 then return nil end
-    return ids[love.math.random(1, #ids)]
+
+    local filtered = {}
+    local maxSize = tonumber(opts.maxSize)
+    for _, iid in ipairs(ids) do
+        local d = Items.get(iid)
+        local size = (d and d.size) or 1
+        if (not maxSize) or size <= maxSize then
+            filtered[#filtered + 1] = iid
+        end
+    end
+
+    local pool = (#filtered > 0) and filtered or ids
+    return pool[love.math.random(1, #pool)]
 end
 
 function AiDescribe.generateDisassembly(itemId)
@@ -141,7 +154,7 @@ Input item category: %s
 Input item name: %s
 Return strict JSON:
 {"outputs":[{"category":"gem|scroll|tool|bone|skull|coin|potion|misc","count":1-2}, ...], "note":"short text"}
-Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic sense.]],
+Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic sense, and keep output low-tier for simple inputs.]],
         def.category or "misc", def.name or "UNKNOWN"
     )
 
@@ -160,7 +173,7 @@ Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic
             local cat = tostring(row.category or "misc")
             local wanted = math.max(1, math.min(2, tonumber(row.count) or 1))
             local cnt = math.min(wanted, remaining)
-            local outId = pickItemByCategory(cat) or pickItemByCategory("misc")
+            local outId = pickItemByCategory(cat, { maxSize = itemSize }) or pickItemByCategory("misc", { maxSize = itemSize })
             if outId and cnt > 0 then
                 table.insert(outputs, { itemId = outId, count = cnt })
                 remaining = remaining - cnt
@@ -169,7 +182,7 @@ Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic
     end
 
     if #outputs == 0 then
-        local fallbackId = pickItemByCategory("misc")
+        local fallbackId = pickItemByCategory("misc", { maxSize = itemSize })
         if fallbackId then
             outputs = {{ itemId = fallbackId, count = 1 }}
         end
