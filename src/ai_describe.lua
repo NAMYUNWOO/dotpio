@@ -130,10 +130,13 @@ local function pickItemByCategory(category, opts)
 
     local filtered = {}
     local maxSize = tonumber(opts.maxSize)
+    local minSize = tonumber(opts.minSize)
     for _, iid in ipairs(ids) do
         local d = Items.get(iid)
         local size = (d and d.size) or 1
-        if (not maxSize) or size <= maxSize then
+        local okMax = (not maxSize) or size <= maxSize
+        local okMin = (not minSize) or size >= minSize
+        if okMax and okMin then
             filtered[#filtered + 1] = iid
         end
     end
@@ -195,19 +198,32 @@ function AiDescribe.generateBuild(folderName, componentIds)
     if not ensureThread() then return nil, "AI unavailable" end
 
     local cats = {}
+    local totalSize = 0
+    local maxSize = 1
     for _, iid in ipairs(componentIds) do
         local d = Items.get(iid)
-        if d then cats[#cats + 1] = d.category or "misc" end
+        if d then
+            cats[#cats + 1] = d.category or "misc"
+            local s = tonumber(d.size) or 1
+            totalSize = totalSize + s
+            if s > maxSize then maxSize = s end
+        end
     end
+
+    local componentCount = math.max(1, #componentIds)
+    local avgSize = totalSize / componentCount
+    local buildCeil = math.max(1, math.min(3, math.ceil(avgSize)))
+    local buildFloor = math.max(1, math.min(buildCeil, math.floor(avgSize)))
 
     local prompt = string.format(
 [[Game context: dark fantasy roguelike with DOS build metaphor.
 Task: Synthesize ONE new item from folder components.
 Folder: %s
 Component categories: %s
+Power budget: avg component size %.2f (output size must stay in this range)
 Return strict JSON: {"target_category":"weapon|armor|ring|wand|scroll|tool|gem|potion|misc", "rarity_hint":"Common|Uncommon|Rare|Legendary", "note":"short text"}
-Choose category that matches component synergy.]],
-        folderName or "PROJECT", table.concat(cats, ",")
+Choose category that matches component synergy and keep result grounded to component quality.]],
+        folderName or "PROJECT", table.concat(cats, ","), avgSize
     )
 
     local req = generateRequestId("bld")
@@ -215,7 +231,10 @@ Choose category that matches component synergy.]],
     local result = awaitSyncResponse(req, 6)
 
     local target = (result and result.target_category) or "misc"
-    local itemId = pickItemByCategory(target) or pickItemByCategory("misc")
+    local itemId = pickItemByCategory(target, { minSize = buildFloor, maxSize = buildCeil })
+        or pickItemByCategory(target, { maxSize = math.max(maxSize, buildCeil) })
+        or pickItemByCategory("misc", { maxSize = math.max(maxSize, buildCeil) })
+        or pickItemByCategory("misc")
     return itemId, ((result and result.note) or "Build complete")
 end
 
