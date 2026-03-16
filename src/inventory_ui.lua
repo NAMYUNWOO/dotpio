@@ -76,6 +76,7 @@ local VISIBLE_ROWS = CONTENT_BOT - CONTENT_TOP + 1
 
 local STATUS_ROW = BOX_BOT + 1
 local HELP_ROW = STATUS_ROW + 1
+local SCREEN_COLS = 100
 
 -- Word-wrap text into lines of at most `w` characters
 local function wordWrap(text, w)
@@ -497,7 +498,7 @@ function InventoryUI.drawInfoPanel()
 end
 
 function InventoryUI.drawStatusBar()
-    DosUI.fillRect(0, STATUS_ROW, 100, 1, " ", nil, 0)
+    DosUI.fillRect(0, STATUS_ROW, SCREEN_COLS, 1, " ", nil, 0)
     local fileCount, dirCount = 0, 0
     for _, c in ipairs(contents) do
         if c.type == "file" then fileCount = fileCount + 1
@@ -506,15 +507,49 @@ function InventoryUI.drawStatusBar()
     local totalSize = Inventory.getTotalSize(player.inventory)
     local info = string.format("%d Files  %d Dirs   %d/%d Bytes   Sort:%s",
         fileCount, dirCount, totalSize, Inventory.capacity, sortMode:upper())
-    DosUI.putString(1, STATUS_ROW, info, 7, 0)
+
+    local leftMax = SCREEN_COLS - 36
+    DosUI.putString(1, STATUS_ROW, info, 7, 0, leftMax)
 
     if #statusMsg > 0 then
-        DosUI.putString(49, STATUS_ROW, statusMsg, 11, 0, 50)
+        local msgCol = leftMax + 2
+        DosUI.putString(msgCol, STATUS_ROW, "|", 8, 0)
+        DosUI.putString(msgCol + 2, STATUS_ROW, statusMsg, 11, 0, SCREEN_COLS - (msgCol + 2))
     end
 end
 
+local function getBuildHint()
+    if not player or not player.inventory or not player.inventory.currentDir then
+        return "F9:Build"
+    end
+
+    local files = Inventory.getFilesInDir(player.inventory.currentDir)
+    local componentCount = 0
+    for _, f in ipairs(files) do
+        if f.itemId ~= "builder_scroll" then
+            componentCount = componentCount + 1
+        end
+    end
+
+    local hasBuilder = Inventory.countItemById(player.inventory, "builder_scroll") > 0
+    if componentCount >= 2 and hasBuilder then
+        return "F9:Build READY"
+    end
+
+    local neededFiles = math.max(0, 2 - componentCount)
+    if not hasBuilder and neededFiles > 0 then
+        return string.format("F9:Build +%d FILE + BUILDER", neededFiles)
+    elseif not hasBuilder then
+        return "F9:Build NEED BUILDER"
+    elseif neededFiles > 0 then
+        return string.format("F9:Build +%d FILE", neededFiles)
+    end
+
+    return "F9:Build"
+end
+
 function InventoryUI.drawHelpBar()
-    DosUI.fillRect(0, HELP_ROW, 100, 1, " ", nil, 0)
+    DosUI.fillRect(0, HELP_ROW, SCREEN_COLS, 1, " ", nil, 0)
     if state == "equip_select" then
         DosUI.putString(1, HELP_ROW,
             "Up/Dn:Slot Enter:Equip Esc:Cancel", 8, 0)
@@ -522,8 +557,11 @@ function InventoryUI.drawHelpBar()
         DosUI.putString(1, HELP_ROW,
             "Up/Dn:Slot Enter:Unequip L/R:Panel Esc:Close", 8, 0)
     else
-        DosUI.putString(1, HELP_ROW,
-            "Arrows:Nav Enter:Menu (Use/Equip/Disasm/Drop) F9:Build L/R:Panel Esc:Close", 8, 0)
+        local help = string.format(
+            "Arrows:Nav Enter:Menu (Use/Equip/Disasm/Drop) %s L/R:Panel Esc:Close",
+            getBuildHint()
+        )
+        DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
     end
 end
 
