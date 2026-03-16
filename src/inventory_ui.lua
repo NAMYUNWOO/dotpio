@@ -219,12 +219,12 @@ function InventoryUI.drawFunctionBar()
     DosUI.fillRect(0, 0, 100, 1, " ", nil, 8)
     local buttons = {
         {key = "F1", label = "Help"},
-        {key = "Ent", label = "Action"},
+        {key = "Ent", label = "Menu"},
         {key = "F3", label = "Drop"},
         {key = "F5", label = "Sort"},
         {key = "F6", label = "Move"},
         {key = "F7", label = "MkDir"},
-        {key = "F8", label = "Del"},
+        {key = "F8", label = "RmDir"},
         {key = "F9", label = "Build"},
         {key = "L/R", label = "Panel"},
         {key = "F10", label = "Close"},
@@ -509,7 +509,7 @@ function InventoryUI.drawStatusBar()
     DosUI.putString(1, STATUS_ROW, info, 7, 0)
 
     if #statusMsg > 0 then
-        DosUI.putString(55, STATUS_ROW, statusMsg, 11, 0, 24)
+        DosUI.putString(49, STATUS_ROW, statusMsg, 11, 0, 50)
     end
 end
 
@@ -523,7 +523,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot Enter:Unequip L/R:Panel Esc:Close", 8, 0)
     else
         DosUI.putString(1, HELP_ROW,
-            "Arrows:Nav Enter:Action F9:Build L/R:Panel Esc:Close", 8, 0)
+            "Arrows:Nav Enter:Menu (Use/Equip/Disasm) F9:Build L/R:Panel Esc:Close", 8, 0)
     end
 end
 
@@ -640,7 +640,8 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "In Action Menu: USE/EQUIP/DELETE",
+        "Build rule: consumes top 2 files + 1 BUILDER.SRL",
+        "Action Menu: USE / EQUIP / DISASSEMBLE / DELETE",
         "",
         "Press any key to close...",
     }
@@ -1053,12 +1054,12 @@ function InventoryUI.buildCurrentFolder()
     end
 
     if #components < 2 then
-        InventoryUI.setStatus("Need >=2 components in folder")
+        InventoryUI.setStatus("Build needs >=2 files in current folder")
         return
     end
 
     if Inventory.countItemById(inv, "builder_scroll") < 1 then
-        InventoryUI.setStatus("Need BUILDER.SRL to build")
+        InventoryUI.setStatus("Build needs BUILDER.SRL")
         return
     end
 
@@ -1090,7 +1091,7 @@ function InventoryUI.buildCurrentFolder()
 
     local ok = Inventory.addItem(inv, outItemId, 1)
     if not ok then
-        InventoryUI.setStatus("Build ok, but inventory full")
+        InventoryUI.setStatus("Build complete, but inventory is full")
     else
         InventoryUI.setStatus("Build complete: " .. (note or "new item created") .. " [2 files + BUILDER]")
     end
