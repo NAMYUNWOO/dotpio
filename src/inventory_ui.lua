@@ -563,23 +563,23 @@ local function getBuildHint()
 
     if componentCount >= 2 and builderCount >= builderCost then
         if builderCost > 1 then
-            return string.format("F9:Build READY (%d SRL)", builderCost)
+            return string.format("F9:BUILD READY (%d SRL)", builderCost)
         end
-        return "F9:Build READY (1 SRL)"
+        return "F9:BUILD READY (1 SRL)"
     end
 
     local neededFiles = math.max(0, 2 - componentCount)
     local neededBuilder = math.max(0, builderCost - builderCount)
 
     if neededFiles > 0 and neededBuilder > 0 then
-        return string.format("F9:Build +%d FILE +%d SRL", neededFiles, neededBuilder)
+        return string.format("F9:BUILD +%d FILE +%d SRL", neededFiles, neededBuilder)
     elseif neededFiles > 0 then
-        return string.format("F9:Build +%d FILE", neededFiles)
+        return string.format("F9:BUILD +%d FILE", neededFiles)
     elseif neededBuilder > 0 then
-        return string.format("F9:Build NEED %d SRL", neededBuilder)
+        return string.format("F9:BUILD NEED %d SRL", neededBuilder)
     end
 
-    return "F9:Build"
+    return "F9:BUILD"
 end
 
 function InventoryUI.drawHelpBar()
@@ -592,7 +592,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot Enter:Unequip L/R:Panel Esc:Close", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Action(U/E/D/X) %s F1:Help Esc:Close",
+            "Up/Dn:Nav Enter:Action(U/E/D/X) F3:Drop F5:Sort %s Esc:Close",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -643,7 +643,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn=Select  Enter=Run  Esc=Back", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn=Select  Enter/U/E/D/X=Run", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -714,8 +714,8 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "Build rule: top 2 files + BUILDER.SRL cost (1..3)",
-        "Disasm rule: item size scales salvage cap (1..3)",
+        "Build rule: top 2 FILES + BUILDER.SRL cost (1..3)",
+        "Disasm rule: item size caps salvage tier (1..3)",
         "Action Menu: U=Use  E=Equip  D=Disasm  X=Drop",
         "",
         "Press any key to close...",
