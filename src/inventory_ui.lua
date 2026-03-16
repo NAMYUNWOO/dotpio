@@ -563,20 +563,20 @@ local function getBuildHint()
 
     if componentCount >= 2 and builderCount >= builderCost then
         if builderCost > 1 then
-            return string.format("F9:Build READY (%d BUILDER)", builderCost)
+            return string.format("F9:Build READY (%d SRL)", builderCost)
         end
-        return "F9:Build READY"
+        return "F9:Build READY (1 SRL)"
     end
 
     local neededFiles = math.max(0, 2 - componentCount)
     local neededBuilder = math.max(0, builderCost - builderCount)
 
     if neededFiles > 0 and neededBuilder > 0 then
-        return string.format("F9:Build +%d FILE +%d BUILDER", neededFiles, neededBuilder)
+        return string.format("F9:Build +%d FILE +%d SRL", neededFiles, neededBuilder)
     elseif neededFiles > 0 then
         return string.format("F9:Build +%d FILE", neededFiles)
     elseif neededBuilder > 0 then
-        return string.format("F9:Build NEED %d BUILDER", neededBuilder)
+        return string.format("F9:Build NEED %d SRL", neededBuilder)
     end
 
     return "F9:Build"
@@ -592,7 +592,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot Enter:Unequip L/R:Panel Esc:Close", 8, 0)
     else
         local help = string.format(
-            "Arrows:Nav Enter:Menu (Use/Equip/Disasm/Drop) %s L/R:Panel Esc:Close",
+            "Arrows:Nav Enter:Menu(U/E/D/X) %s F1:Help Esc:Close",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -712,8 +712,8 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "Build rule: consumes top 2 files + 1 BUILDER.SRL",
-        "Disassemble yield: item size scales salvage cap (1..3)",
+        "Build rule: top 2 files + BUILDER.SRL cost (1..3)",
+        "Disasm rule: item size scales salvage cap (1..3)",
         "Action Menu: USE / EQUIP / DISASSEMBLE / DROP",
         "",
         "Press any key to close...",
@@ -1099,7 +1099,7 @@ function InventoryUI.disassembleItem(item)
         return
     end
 
-    local outputs, note = AiDescribe.generateDisassembly(item.itemId)
+    local outputs = AiDescribe.generateDisassembly(item.itemId)
     if not outputs or #outputs == 0 then
         InventoryUI.setStatus("Disassemble failed")
         return
@@ -1110,7 +1110,15 @@ function InventoryUI.disassembleItem(item)
         Inventory.addItem(player.inventory, out.itemId, out.count)
     end
 
-    InventoryUI.setStatus("Disassembled: " .. (note or "salvage recovered"))
+    local salvage = {}
+    for _, out in ipairs(outputs) do
+        local d = Items.get(out.itemId) or {}
+        salvage[#salvage + 1] = string.format("%s x%d", d.name or out.itemId, out.count)
+    end
+    local salvageText = table.concat(salvage, ", ")
+    if #salvageText > 44 then salvageText = salvageText:sub(1, 41) .. "..." end
+
+    InventoryUI.setStatus("DISASM OK: " .. salvageText)
     InventoryUI.refreshContents()
 end
 
@@ -1148,11 +1156,9 @@ function InventoryUI.buildCurrentFolder()
     if not ok then
         InventoryUI.setStatus("Build complete, but inventory is full")
     else
-        InventoryUI.setStatus(string.format(
-            "Build complete: %s [2 files + %d BUILDER]",
-            note or "new item created",
-            builderCost
-        ))
+        local resultLabel = note or "new item created"
+        if #resultLabel > 28 then resultLabel = resultLabel:sub(1, 25) .. "..." end
+        InventoryUI.setStatus(string.format("BUILD OK: %s (2F+%dSRL)", resultLabel, builderCost))
     end
 
     InventoryUI.refreshContents()
