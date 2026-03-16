@@ -15,6 +15,9 @@ python3 gen_game_data.py
 # 게임 실행
 love .
 
+# 자동 스크린샷 생성 (map04 / DOS inventory)
+./scripts/capture_screenshots.sh
+
 # AI 서버 실행 (아이템 AI 설명 생성용, 포트 8001)
 # 게임 내 AiDescribe.init()에서 자동 시작됨 — 수동 실행 불필요
 ./bin/llama-server \
@@ -74,7 +77,7 @@ love .
 - `libs/json.lua` — JSON 인코딩/디코딩 (AI 통신용)
 
 **맵 데이터:**
-- `maps/map_01.lua`, `map_02.lua`, `map_03.lua` — `gen_game_data.py`가 TMX+TSX에서 자동 생성
+- `maps/map_01.lua`, `map_02.lua`, `map_03.lua`, `map_04.lua` — `gen_game_data.py`가 TMX+TSX에서 자동 생성
 - 4레이어: Ground, GroundDeco, Collision, Overlay
 - 타일 속성: `dim=true` → dimTiles (FOV 차단), `occlude_ov=true` → occludeTiles (엔티티 반투명)
 
