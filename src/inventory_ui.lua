@@ -608,14 +608,14 @@ function InventoryUI.buildActionMenu(item)
     local menu = {}
     -- USE
     local hasUse = def and def.onUse
-    menu[#menu+1] = {label = "USE", enabled = hasUse, action = "use"}
+    menu[#menu+1] = {label = "USE [U]", enabled = hasUse, action = "use"}
     -- EQUIP
     local canEquip = Items.isEquippable(item.itemId)
-    menu[#menu+1] = {label = "EQUIP", enabled = canEquip, action = "equip"}
+    menu[#menu+1] = {label = "EQUIP [E]", enabled = canEquip, action = "equip"}
     -- DISASSEMBLE (AI salvage)
-    menu[#menu+1] = {label = "DISASSEMBLE", enabled = true, action = "disassemble"}
+    menu[#menu+1] = {label = "DISASSEMBLE [D]", enabled = true, action = "disassemble"}
     -- DROP (remove from inventory to current map tile)
-    menu[#menu+1] = {label = "DROP", enabled = true, action = "delete"}
+    menu[#menu+1] = {label = "DROP [X]", enabled = true, action = "delete"}
     return menu
 end
 
@@ -643,7 +643,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Enter=Run  Esc=Back", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn=Select  Enter=Run  Esc=Back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -716,7 +716,7 @@ function InventoryUI.drawHelpDialog()
         "",
         "Build rule: top 2 files + BUILDER.SRL cost (1..3)",
         "Disasm rule: item size scales salvage cap (1..3)",
-        "Action Menu: USE / EQUIP / DISASSEMBLE / DROP",
+        "Action Menu: U=Use  E=Equip  D=Disasm  X=Drop",
         "",
         "Press any key to close...",
     }
@@ -859,6 +859,31 @@ function InventoryUI.equipPanelKeypressed(key)
 end
 
 function InventoryUI.actionMenuKeypressed(key)
+    local function runAction(mi)
+        if not (mi and mi.enabled) then return end
+        if mi.action == "use" then
+            state = "browsing"
+            InventoryUI.useSelected()
+        elseif mi.action == "equip" then
+            -- Enter equip select mode
+            equipValidSlots = Items.getValidSlots(actionMenuTarget.itemId)
+            equipSelectTarget = actionMenuTarget
+            if #equipValidSlots > 0 then
+                equipSelectCursor = equipValidSlots[1]
+                state = "equip_select"
+            else
+                state = "browsing"
+                InventoryUI.setStatus("Cannot equip")
+            end
+        elseif mi.action == "disassemble" then
+            state = "browsing"
+            InventoryUI.disassembleItem(actionMenuTarget)
+        elseif mi.action == "delete" then
+            state = "dialog"
+            dialogType = "drop"
+        end
+    end
+
     if key == "up" then
         -- Move cursor up, skipping disabled items
         local start = actionMenuCursor
@@ -873,28 +898,14 @@ function InventoryUI.actionMenuKeypressed(key)
             if actionMenuCursor > #actionMenuItems then actionMenuCursor = 1 end
         until actionMenuItems[actionMenuCursor].enabled or actionMenuCursor == start
     elseif key == "return" then
-        local mi = actionMenuItems[actionMenuCursor]
-        if mi and mi.enabled then
-            if mi.action == "use" then
-                state = "browsing"
-                InventoryUI.useSelected()
-            elseif mi.action == "equip" then
-                -- Enter equip select mode
-                equipValidSlots = Items.getValidSlots(actionMenuTarget.itemId)
-                equipSelectTarget = actionMenuTarget
-                if #equipValidSlots > 0 then
-                    equipSelectCursor = equipValidSlots[1]
-                    state = "equip_select"
-                else
-                    state = "browsing"
-                    InventoryUI.setStatus("Cannot equip")
-                end
-            elseif mi.action == "disassemble" then
-                state = "browsing"
-                InventoryUI.disassembleItem(actionMenuTarget)
-            elseif mi.action == "delete" then
-                state = "dialog"
-                dialogType = "drop"
+        runAction(actionMenuItems[actionMenuCursor])
+    elseif key == "u" or key == "e" or key == "d" or key == "x" then
+        local map = {u = "use", e = "equip", d = "disassemble", x = "delete"}
+        local want = map[key]
+        for _, mi in ipairs(actionMenuItems) do
+            if mi.action == want then
+                runAction(mi)
+                break
             end
         end
     elseif key == "escape" then
