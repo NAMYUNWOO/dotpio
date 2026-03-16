@@ -504,7 +504,7 @@ function InventoryUI.drawStatusBar()
         elseif c.type == "dir" then dirCount = dirCount + 1 end
     end
     local totalSize = Inventory.getTotalSize(player.inventory)
-    local info = string.format("%d Files  %d Dir    %d/%d Bytes    Sort:%s",
+    local info = string.format("%d Files  %d Dirs   %d/%d Bytes   Sort:%s",
         fileCount, dirCount, totalSize, Inventory.capacity, sortMode:upper())
     DosUI.putString(1, STATUS_ROW, info, 7, 0)
 
@@ -523,7 +523,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot Enter:Unequip L/R:Panel Esc:Close", 8, 0)
     else
         DosUI.putString(1, HELP_ROW,
-            "Arrows:Nav Enter:Menu (Use/Equip/Disasm) F9:Build L/R:Panel Esc:Close", 8, 0)
+            "Arrows:Nav Enter:Menu (Use/Equip/Disasm/Drop) F9:Build L/R:Panel Esc:Close", 8, 0)
     end
 end
 
@@ -542,8 +542,8 @@ function InventoryUI.buildActionMenu(item)
     menu[#menu+1] = {label = "EQUIP", enabled = canEquip, action = "equip"}
     -- DISASSEMBLE (AI salvage)
     menu[#menu+1] = {label = "DISASSEMBLE", enabled = true, action = "disassemble"}
-    -- DELETE (drop)
-    menu[#menu+1] = {label = "DELETE", enabled = true, action = "delete"}
+    -- DROP (remove from inventory to current map tile)
+    menu[#menu+1] = {label = "DROP", enabled = true, action = "delete"}
     return menu
 end
 
@@ -641,7 +641,7 @@ function InventoryUI.drawHelpDialog()
         "Tab / I     Toggle inventory",
         "",
         "Build rule: consumes top 2 files + 1 BUILDER.SRL",
-        "Action Menu: USE / EQUIP / DISASSEMBLE / DELETE",
+        "Action Menu: USE / EQUIP / DISASSEMBLE / DROP",
         "",
         "Press any key to close...",
     }
@@ -1054,12 +1054,12 @@ function InventoryUI.buildCurrentFolder()
     end
 
     if #components < 2 then
-        InventoryUI.setStatus("Build needs >=2 files in current folder")
+        InventoryUI.setStatus("Build requires at least 2 files in this folder")
         return
     end
 
     if Inventory.countItemById(inv, "builder_scroll") < 1 then
-        InventoryUI.setStatus("Build needs BUILDER.SRL")
+        InventoryUI.setStatus("Build requires BUILDER.SRL")
         return
     end
 
