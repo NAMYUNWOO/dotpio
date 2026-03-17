@@ -548,15 +548,19 @@ local function getBuildPlan(inv, dir)
     end
 
     local consumed = {}
-    local score = 0
-    local weights = {1.0, 0.8, 0.6}
+    local sumSize = 0
+    local peakSize = 1
     for i = 1, consumeCount do
         consumed[#consumed + 1] = components[i]
         local d = Items.get(components[i].itemId) or {}
-        score = score + (d.size or 1) * (weights[i] or 0.6)
+        local s = d.size or 1
+        sumSize = sumSize + s
+        if s > peakSize then peakSize = s end
     end
 
-    local builderCost = math.max(1, math.min(4, math.ceil(score / 3)))
+    -- Balance: high-tier component should lift SRL cost even in mixed recipes.
+    local score = sumSize + peakSize * 0.5
+    local builderCost = math.max(1, math.min(5, math.ceil(score / 3)))
     return consumed, builderCost
 end
 
@@ -723,7 +727,7 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "Build rule: top 2 FILES + BUILDER.SRL cost (1..3)",
+        "Build rule: top FILES + SRL cost scales w/ peak tier (1..5)",
         "Disasm rule: item size caps salvage tier (1..3)",
         "Action Menu: U=Use  E=Equip  D=Disasm  X=Drop",
         "",
