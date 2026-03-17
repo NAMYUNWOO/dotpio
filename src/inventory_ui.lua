@@ -735,29 +735,31 @@ end
 
 function InventoryUI.drawActionMenu()
     local w = 44
-    local h = #actionMenuItems + 5
+    local h = #actionMenuItems + 6
     local col = math.floor((100 - w) / 2)
     local row = math.floor((40 - h) / 2)
     DosUI.drawBox(col, row, w, h, 15, 4)
 
-    -- Item name header
+    -- Item name header + current SRL balance
     local itemName = actionMenuTarget and actionMenuTarget.name or "?"
+    local builderCount = Inventory.countItemById(player.inventory, "builder_scroll")
     DosUI.putString(col + 2, row + 1, itemName, 15, 4, w - 4)
+    DosUI.putString(col + 2, row + 2, string.format("BUILDER.SRL: %d", builderCount), 11, 4, w - 4)
 
     -- Separator
     local sepStr = string.rep("\xe2\x94\x80", w - 2)
-    DosUI.putString(col + 1, row + 2, sepStr, 15, 4, w - 2)
+    DosUI.putString(col + 1, row + 3, sepStr, 15, 4, w - 2)
 
     for i, mi in ipairs(actionMenuItems) do
         local isSelected = (i == actionMenuCursor)
         local bg = isSelected and 12 or 4
         local fg = mi.enabled and 15 or 8
-        DosUI.fillRect(col + 1, row + 2 + i, w - 2, 1, " ", nil, bg)
+        DosUI.fillRect(col + 1, row + 3 + i, w - 2, 1, " ", nil, bg)
         local prefix = isSelected and "> " or "  "
-        DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
+        DosUI.putString(col + 2, row + 3 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X:Instant (gray=locked) Esc:Back", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X:Quick gray=locked Esc:Back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -833,7 +835,7 @@ function InventoryUI.drawHelpDialog()
         "Disasm rule: salvage tier <= source-1 (min size 1)",
         "Disasm SRL: size 1~2 -> 1, 3~5 -> 2, 6+ -> 3",
         "Disasm cap: floor(size/2), clamped to 1~2 stacks",
-        "Action Menu: U=Use  E=Equip  D=Disasm  X=Drop",
+        "Action Menu: shows current SRL, U=Use E=Equip D=Disasm X=Drop",
         "",
         "Press any key to close...",
     }
@@ -1022,9 +1024,9 @@ function InventoryUI.actionMenuKeypressed(key)
             end
         end
         if mi.action == "use" then
-            InventoryUI.setStatus("USE N/A")
+            InventoryUI.setStatus("USE N/A (consumables only)")
         elseif mi.action == "equip" then
-            InventoryUI.setStatus("EQUIP N/A")
+            InventoryUI.setStatus("EQUIP N/A (no valid slot)")
         else
             InventoryUI.setStatus("ACTION LOCKED")
         end
