@@ -689,7 +689,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot  Enter:Unequip  L/R:Panel  Esc:Exit", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Menu Bksp:UpDir U/E/D/X:File F1:Help F5:Sort %s Esc:Exit",
+            "Up/Dn:Nav Enter:Menu Backspace:UpDir U/E/D/X:File F1:Help F5:Sort %s Esc:Exit",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -718,7 +718,7 @@ function InventoryUI.buildActionMenu(item)
 end
 
 function InventoryUI.drawActionMenu()
-    local w = 28
+    local w = 44
     local h = #actionMenuItems + 5
     local col = math.floor((100 - w) / 2)
     local row = math.floor((40 - h) / 2)
@@ -741,7 +741,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn Select  Enter OK  U/E/D/X quick  Esc back", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X:Quick Esc:Back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -792,7 +792,7 @@ function InventoryUI.drawHelpDialog()
     local col = math.floor((100 - w) / 2)
     local row = math.floor((40 - h) / 2)
     DosUI.drawBox(col, row, w, h, 15, 4)
-    DosUI.putString(col + 2, row + 1, "Help - Key Bindings", 15, 4)
+    DosUI.putString(col + 2, row + 1, "HELP / KEY BINDINGS", 15, 4)
     local lines = {
         "",
         "Up/Down     Navigate list / slots",
@@ -808,7 +808,7 @@ function InventoryUI.drawHelpDialog()
         "F6          Move item to folder",
         "F7          Create new folder",
         "F8          Delete empty folder",
-        "F9          Build from current folder",
+        "F9          Build from current folder (needs SRL)",
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
