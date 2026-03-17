@@ -94,6 +94,9 @@ local STATUS_ROW = BOX_BOT + 1
 local HELP_ROW = STATUS_ROW + 1
 local SCREEN_COLS = 100
 
+-- Forward declaration (used by draw() for build tag)
+local getBuildPlan
+
 -- Word-wrap text into lines of at most `w` characters
 local function wordWrap(text, w)
     local lines = {}
@@ -191,6 +194,13 @@ function InventoryUI.draw()
     local path = Inventory.getPath(player.inventory.currentDir)
     DosUI.fillRect(0, 1, 100, 1, " ", nil, 0)
     DosUI.putString(1, 1, path, 15, 0, 78)
+    if player and player.inventory and player.inventory.currentDir then
+        local consumed, builderCost, requiredCount = getBuildPlan(player.inventory, player.inventory.currentDir)
+        local buildTag = string.format("B:%dF+%dS", requiredCount, builderCost)
+        local builderCount = Inventory.countItemById(player.inventory, "builder_scroll")
+        local buildFg = (builderCount >= builderCost and #consumed >= requiredCount) and 10 or 8
+        DosUI.putString(100 - #buildTag - 1, 1, buildTag, buildFg, 0)
+    end
 
     -- Title row (row 2)
     DosUI.fillRect(PANEL_COL, TITLE_ROW, PANEL_W, 1, " ", nil, 0)
@@ -600,7 +610,7 @@ local function getDisassembleCost(itemId)
     return 1
 end
 
-local function getBuildPlan(inv, dir)
+getBuildPlan = function(inv, dir)
     if not inv or not dir then
         return {}, 1, 2
     end
@@ -833,6 +843,7 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
+        "Build tag: B:nF+mS on path row (files + SRL needed)",
         "Build rule: weak pairs/5+ files need 3, 8+ files need 4",
         "Build SRL: quality-weighted cost (1~7)",
         "Disasm rule: salvage tier <= source-1 (min size 1)",
