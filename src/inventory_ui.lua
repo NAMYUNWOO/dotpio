@@ -711,7 +711,15 @@ function InventoryUI.buildActionMenu(item)
     menu[#menu+1] = {label = "EQUIP [E]", enabled = canEquip, action = "equip"}
     -- DISASSEMBLE (AI salvage)
     local disasmCost = getDisassembleCost(item.itemId)
-    menu[#menu+1] = {label = string.format("DISASSEMBLE [D] (%d SRL)", disasmCost), enabled = true, action = "disassemble"}
+    local builderCount = Inventory.countItemById(player.inventory, "builder_scroll")
+    local canDisassemble = builderCount >= disasmCost
+    local disasmLabel
+    if canDisassemble then
+        disasmLabel = string.format("DISASSEMBLE [D] (%d SRL)", disasmCost)
+    else
+        disasmLabel = string.format("DISASSEMBLE [D] (%d SRL, NEED %d)", disasmCost, disasmCost - builderCount)
+    end
+    menu[#menu+1] = {label = disasmLabel, enabled = canDisassemble, action = "disassemble"}
     -- DROP (remove from inventory to current map tile)
     menu[#menu+1] = {label = "DROP [X] (to map)", enabled = true, action = "delete"}
     return menu
@@ -741,7 +749,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X:Instant Esc:Back", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X:Instant (gray=locked) Esc:Back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -812,11 +820,11 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "Build rule: weak pairs or crowded folders (5+) use 3 files",
-        "Build SRL: cost scales with file quality (1~5)",
+        "Build rule: weak pairs or crowded folders (5+) need 3 files",
+        "Build SRL: quality-weighted cost (1~5)",
         "Disasm rule: salvage tier <= source-1 (min size 1)",
-        "Disasm SRL: size 1~4 = 1 SRL, size 5+ = 2 SRL",
-        "Disasm cap: max floor(size/2), clamped to 1~2 stacks",
+        "Disasm SRL: size 1~4 -> 1, size 5+ -> 2",
+        "Disasm cap: floor(size/2), clamped to 1~2 stacks",
         "Action Menu: U=Use  E=Equip  D=Disasm  X=Drop",
         "",
         "Press any key to close...",
