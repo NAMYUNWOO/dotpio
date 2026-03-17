@@ -844,6 +844,30 @@ function InventoryUI.filesPanelKeypressed(key)
         InventoryUI.promptDelete()
     elseif key == "f9" then
         InventoryUI.buildCurrentFolder()
+    elseif key == "u" or key == "e" or key == "d" or key == "x" then
+        -- Quick keys: act on selected file without opening the action menu
+        if cursor >= 1 and cursor <= #contents then
+            local item = contents[cursor]
+            if item.type == "file" and not item.isHeroFile then
+                if key == "u" then
+                    InventoryUI.useSelected()
+                elseif key == "e" then
+                    local validSlots = Items.getValidSlots(item.itemId)
+                    if #validSlots > 0 then
+                        equipValidSlots = validSlots
+                        equipSelectTarget = item
+                        equipSelectCursor = validSlots[1]
+                        state = "equip_select"
+                    else
+                        InventoryUI.setStatus("Cannot equip")
+                    end
+                elseif key == "d" then
+                    InventoryUI.disassembleItem(item)
+                elseif key == "x" then
+                    InventoryUI.promptDrop()
+                end
+            end
+        end
     end
 end
 
