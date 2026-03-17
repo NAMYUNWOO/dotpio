@@ -664,7 +664,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X Esc", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X=Quick Esc", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -735,7 +735,7 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "Build rule: weak pairs require 3 files, others require 2",
+        "Build rule: weak pairs OR crowded folders (5+) use 3 files",
         "Build SRL: cost scales by file size/quality (1~5)",
         "Disasm rule: output tier <= source-1 (min size 1)",
         "Disasm cap: max floor(size/2), clamped to 1~2 units",
