@@ -539,15 +539,24 @@ local function getBuildPlan(inv, dir)
         return as > bs
     end)
 
-    local consumed = {}
-    local score = 0
-    for i = 1, math.min(2, #components) do
-        consumed[#consumed + 1] = components[i]
-        local d = Items.get(components[i].itemId) or {}
-        score = score + (d.size or 1)
+    local consumeCount = math.min(2, #components)
+    local topA = Items.get(components[1] and components[1].itemId or "") or {}
+    local topB = Items.get(components[2] and components[2].itemId or "") or {}
+    local lowTierPair = ((topA.size or 1) + (topB.size or 1)) <= 3
+    if #components >= 3 and lowTierPair then
+        consumeCount = 3
     end
 
-    local builderCost = math.max(1, math.min(3, math.ceil(score / 4)))
+    local consumed = {}
+    local score = 0
+    local weights = {1.0, 0.8, 0.6}
+    for i = 1, consumeCount do
+        consumed[#consumed + 1] = components[i]
+        local d = Items.get(components[i].itemId) or {}
+        score = score + (d.size or 1) * (weights[i] or 0.6)
+    end
+
+    local builderCost = math.max(1, math.min(4, math.ceil(score / 3)))
     return consumed, builderCost
 end
 
@@ -1171,7 +1180,7 @@ function InventoryUI.buildCurrentFolder()
     else
         local resultLabel = note or "new item created"
         if #resultLabel > 28 then resultLabel = resultLabel:sub(1, 25) .. "..." end
-        InventoryUI.setStatus(string.format("BUILD OK: %s (2F+%dSRL)", resultLabel, builderCost))
+        InventoryUI.setStatus(string.format("BUILD OK: %s (%dF+%dSRL)", resultLabel, #consumed, builderCost))
     end
 
     InventoryUI.refreshContents()
