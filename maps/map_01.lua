@@ -136,6 +136,7 @@ return {
   occludeTiles = { [33]=true, [35]=true, [36]=true, [37]=true, [38]=true, [68]=true, [69]=true, [358]=true, [359]=true, [360]=true, [390]=true, [391]=true, [392]=true },
   portals = {
     { name="01", x=22, y=24, tileX=22, tileY=24, targetMap="02", targetPortal="01" },
-    { name="02", x=46, y=24, tileX=46, tileY=24, targetMap="03", targetPortal="01" },
+    { name="02", x=46, y=24, tileX=46, tileY=24, targetMap="04", targetPortal="01" },
+    { name="03", x=45, y=24, tileX=45, tileY=24, targetMap="03", targetPortal="01" },
   },
 }
