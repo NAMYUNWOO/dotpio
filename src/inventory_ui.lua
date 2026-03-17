@@ -590,11 +590,11 @@ local function getDisassembleCost(itemId)
     local def = Items.get(itemId) or {}
     local size = math.max(1, tonumber(def.size) or 1)
     -- Balance pass:
-    --  - size 1~3: 1 SRL (starter items stay approachable)
-    --  - size 4~6: 2 SRL
-    --  - size 7+:  3 SRL (high-size loot no longer near-free to recycle)
-    if size >= 7 then return 3 end
-    if size >= 4 then return 2 end
+    --  - size 1~2: 1 SRL (starter scraps stay approachable)
+    --  - size 3~5: 2 SRL
+    --  - size 6+:  3 SRL (high-size loot no longer near-free to recycle)
+    if size >= 6 then return 3 end
+    if size >= 3 then return 2 end
     return 1
 end
 
@@ -628,8 +628,11 @@ local function getBuildPlan(inv, dir)
 
     -- Economy guardrails:
     -- 1) Weak pairs now always require 3 files (even when currently holding only 2).
-    -- 2) Large scrap stacks also shift to 3-file recipes to reduce spam loops.
-    if lowTierPair or #components >= 5 then
+    -- 2) Large scrap stacks shift to 3-file recipes to reduce spam loops.
+    -- 3) Very crowded folders require 4 files to dampen build-chain farming.
+    if #components >= 8 then
+        requiredCount = 4
+    elseif lowTierPair or #components >= 5 then
         requiredCount = 3
     end
     consumeCount = math.min(requiredCount, #components)
@@ -645,11 +648,11 @@ local function getBuildPlan(inv, dir)
         if s > peakSize then peakSize = s end
     end
 
-    -- Balance pass: keep low-tier loops from being SRL-neutral while preserving room for 3-file recipes.
-    -- Slightly increase premium recipes so larger outputs demand real SRL investment.
-    local score = sumSize + peakSize * 1.0
+    -- Balance pass: keep low-tier loops from being SRL-neutral while preserving room for 3/4-file recipes.
+    -- Premium recipes scale a bit harder so high-quality chain builds need deeper SRL reserves.
+    local score = sumSize + peakSize * 1.1
     local lowTierSurcharge = (sumSize <= 4) and 1 or 0
-    local builderCost = math.max(1, math.min(6, math.ceil(score / 2.6) + lowTierSurcharge))
+    local builderCost = math.max(1, math.min(7, math.ceil(score / 2.4) + lowTierSurcharge))
     return consumed, builderCost, requiredCount
 end
 
@@ -825,10 +828,10 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "Build rule: weak pairs or crowded folders (5+) need 3 files",
-        "Build SRL: quality-weighted cost (1~5)",
+        "Build rule: weak pairs/5+ files need 3, 8+ files need 4",
+        "Build SRL: quality-weighted cost (1~7)",
         "Disasm rule: salvage tier <= source-1 (min size 1)",
-        "Disasm SRL: size 1~4 -> 1, size 5+ -> 2",
+        "Disasm SRL: size 1~2 -> 1, 3~5 -> 2, 6+ -> 3",
         "Disasm cap: floor(size/2), clamped to 1~2 stacks",
         "Action Menu: U=Use  E=Equip  D=Disasm  X=Drop",
         "",
