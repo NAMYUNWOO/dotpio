@@ -581,9 +581,9 @@ local function getBuildHint()
     local neededBuilder = math.max(0, builderCost - builderCount)
 
     if neededFiles > 0 and neededBuilder > 0 then
-        return string.format("F9:BUILD +%d FILE +%d SRL", neededFiles, neededBuilder)
+        return string.format("F9:BUILD +%d %s +%d SRL", neededFiles, neededFiles == 1 and "FILE" or "FILES", neededBuilder)
     elseif neededFiles > 0 then
-        return string.format("F9:BUILD +%d FILE", neededFiles)
+        return string.format("F9:BUILD +%d %s", neededFiles, neededFiles == 1 and "FILE" or "FILES")
     elseif neededBuilder > 0 then
         return string.format("F9:BUILD NEED %d SRL", neededBuilder)
     end
@@ -601,7 +601,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot Enter:Unequip L/R:Panel Esc:Close", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Action(U/E/D/X) F3:Drop F5:Sort %s Esc:Close",
+            "Up/Dn:Nav Enter:Menu U:Use E:Equip D:Disasm X:Delete F3:Drop F5:Sort %s Esc:Close",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -1156,7 +1156,7 @@ function InventoryUI.buildCurrentFolder()
 
     local builderCount = Inventory.countItemById(inv, "builder_scroll")
     if builderCount < builderCost then
-        InventoryUI.setStatus(string.format("Build requires %d BUILDER.SRL", builderCost))
+        InventoryUI.setStatus(string.format("BUILD NEED %d SRL", builderCost))
         return
     end
 
