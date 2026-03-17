@@ -123,6 +123,10 @@ local function awaitSyncResponse(requestId, timeoutSec)
     return { fallback = true, error = "sync_timeout" }
 end
 
+local SPECIAL_ECONOMY_ITEM_IDS = {
+    builder_scroll = true,
+}
+
 local function pickItemByCategory(category, opts)
     opts = opts or {}
     local ids = Items.getIdsByCategory(category)
@@ -132,16 +136,21 @@ local function pickItemByCategory(category, opts)
     local maxSize = tonumber(opts.maxSize)
     local minSize = tonumber(opts.minSize)
     for _, iid in ipairs(ids) do
-        local d = Items.get(iid)
-        local size = (d and d.size) or 1
-        local okMax = (not maxSize) or size <= maxSize
-        local okMin = (not minSize) or size >= minSize
-        if okMax and okMin then
-            filtered[#filtered + 1] = iid
+        if not SPECIAL_ECONOMY_ITEM_IDS[iid] or opts.includeSpecial then
+            local d = Items.get(iid)
+            local size = (d and d.size) or 1
+            local okMax = (not maxSize) or size <= maxSize
+            local okMin = (not minSize) or size >= minSize
+            if okMax and okMin then
+                filtered[#filtered + 1] = iid
+            end
         end
     end
 
     local pool = (#filtered > 0) and filtered or ids
+    if not opts.includeSpecial and #filtered == 0 then
+        return nil
+    end
     return pool[love.math.random(1, #pool)]
 end
 
@@ -157,7 +166,7 @@ Input item category: %s
 Input item name: %s
 Return strict JSON:
 {"outputs":[{"category":"gem|scroll|tool|bone|skull|coin|potion|misc","count":1-2}, ...], "note":"short text"}
-Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic sense, and keep output low-tier for simple inputs.]],
+Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic sense, keep output low-tier for simple inputs, and never output builder scroll equivalents.]],
         def.category or "misc", def.name or "UNKNOWN"
     )
 
@@ -222,7 +231,7 @@ Folder: %s
 Component categories: %s
 Power budget: avg component size %.2f (output size must stay in this range)
 Return strict JSON: {"target_category":"weapon|armor|ring|wand|scroll|tool|gem|potion|misc", "rarity_hint":"Common|Uncommon|Rare|Legendary", "note":"short text"}
-Choose category that matches component synergy and keep result grounded to component quality.]],
+Choose category that matches component synergy and keep result grounded to component quality. Never return build-enabler items.]],
         folderName or "PROJECT", table.concat(cats, ","), avgSize
     )
 
