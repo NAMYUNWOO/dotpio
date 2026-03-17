@@ -611,7 +611,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot  Enter:Unequip  L/R:Panel  Esc:Exit", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Menu Bksp:Up U/E/D/X:Quick F1:Help F5:Sort %s Esc:Exit",
+            "Up/Dn:Nav Enter:Menu Back:UpDir U/E/D/X:File F1:Help F5:Sort %s Esc:Exit",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -846,27 +846,38 @@ function InventoryUI.filesPanelKeypressed(key)
         InventoryUI.buildCurrentFolder()
     elseif key == "u" or key == "e" or key == "d" or key == "x" then
         -- Quick keys: act on selected file without opening the action menu
-        if cursor >= 1 and cursor <= #contents then
-            local item = contents[cursor]
-            if item.type == "file" and not item.isHeroFile then
-                if key == "u" then
-                    InventoryUI.useSelected()
-                elseif key == "e" then
-                    local validSlots = Items.getValidSlots(item.itemId)
-                    if #validSlots > 0 then
-                        equipValidSlots = validSlots
-                        equipSelectTarget = item
-                        equipSelectCursor = validSlots[1]
-                        state = "equip_select"
-                    else
-                        InventoryUI.setStatus("Cannot equip")
-                    end
-                elseif key == "d" then
-                    InventoryUI.disassembleItem(item)
-                elseif key == "x" then
-                    InventoryUI.promptDrop()
-                end
+        if cursor < 1 or cursor > #contents then
+            InventoryUI.setStatus("Select a file")
+            return
+        end
+
+        local item = contents[cursor]
+        if item.type ~= "file" then
+            InventoryUI.setStatus("Quick keys work on files")
+            return
+        end
+
+        if item.isHeroFile then
+            InventoryUI.setStatus("HERO.CHAR is protected")
+            return
+        end
+
+        if key == "u" then
+            InventoryUI.useSelected()
+        elseif key == "e" then
+            local validSlots = Items.getValidSlots(item.itemId)
+            if #validSlots > 0 then
+                equipValidSlots = validSlots
+                equipSelectTarget = item
+                equipSelectCursor = validSlots[1]
+                state = "equip_select"
+            else
+                InventoryUI.setStatus("Cannot equip")
             end
+        elseif key == "d" then
+            InventoryUI.disassembleItem(item)
+        elseif key == "x" then
+            InventoryUI.promptDrop()
         end
     end
 end
