@@ -6,6 +6,22 @@ local AiDescribe = require("src.ai_describe")
 local Stats = require("src.stats")
 local StatChart = require("src.stat_chart")
 
+-- Stat display labels (short, fits narrow Info panel)
+local STAT_DISPLAY = {
+    {key = "atk", label = "ATK"},
+    {key = "def", label = "DEF"},
+    {key = "agi", label = "AGI"},
+    {key = "int", label = "INT"},
+    {key = "fire", label = "Fire"},
+    {key = "water", label = "Water"},
+    {key = "grass", label = "Grass"},
+    {key = "elec", label = "Elec"},
+    {key = "ice", label = "Ice"},
+    {key = "poison", label = "Poison"},
+    {key = "earth", label = "Earth"},
+    {key = "wind", label = "Wind"},
+}
+
 local InventoryUI = {}
 
 local state = "closed"  -- closed, browsing, dialog, action_menu, equip_select
@@ -451,6 +467,57 @@ function InventoryUI.drawInfoPanel()
 
             local r = infoRow + 11
 
+            -- Show item stats for equippable items
+            local isEquip = Items.isEquippable(item.itemId)
+            if isEquip and type(aiResult) == "table" and aiResult.stats then
+                local statLines = {}
+                -- Physical stats on one line
+                local physParts = {}
+                for i = 1, 4 do
+                    local sd = STAT_DISPLAY[i]
+                    local v = aiResult.stats[sd.key] or 0
+                    if v ~= 0 then
+                        local sign = v > 0 and "+" or ""
+                        physParts[#physParts + 1] = {text = sd.label .. sign .. v, v = v}
+                    end
+                end
+                if #physParts > 0 then
+                    statLines[#statLines + 1] = physParts
+                end
+                -- Elemental stats on next line(s)
+                local elemParts = {}
+                for i = 5, 12 do
+                    local sd = STAT_DISPLAY[i]
+                    local v = aiResult.stats[sd.key] or 0
+                    if v ~= 0 then
+                        local sign = v > 0 and "+" or ""
+                        elemParts[#elemParts + 1] = {text = sd.label .. sign .. v, v = v}
+                    end
+                end
+                if #elemParts > 0 then
+                    statLines[#statLines + 1] = elemParts
+                end
+
+                for _, parts in ipairs(statLines) do
+                    if r >= CONTENT_BOT - 8 then break end
+                    local col = INFO_INNER_COL + 1
+                    for pi, p in ipairs(parts) do
+                        local fg = p.v > 0 and 10 or 12  -- green / red
+                        DosUI.putString(col, r, p.text, fg, 0)
+                        col = col + #p.text
+                        if pi < #parts then
+                            DosUI.putString(col, r, " ", 8, 0)
+                            col = col + 1
+                        end
+                    end
+                    r = r + 1
+                end
+                if #statLines > 0 then
+                    DosUI.putString(INFO_INNER_COL + 1, r, string.rep("-", maxW), 8, 0)
+                    r = r + 1
+                end
+            end
+
             if aiResult == "loading" then
                 local dots = string.rep(".", math.floor(love.timer.getTime() * 3) % 4)
                 DosUI.putString(INFO_INNER_COL + 1, r, "Analyzing" .. dots, 11, 0)
@@ -646,7 +713,7 @@ function InventoryUI.buildActionMenu(item)
     local disasmCost = getDisassembleCost(item.itemId)
     menu[#menu+1] = {label = string.format("DISASSEMBLE [D] (%d SRL)", disasmCost), enabled = true, action = "disassemble"}
     -- DROP (remove from inventory to current map tile)
-    menu[#menu+1] = {label = "DROP [X]", enabled = true, action = "delete"}
+    menu[#menu+1] = {label = "DROP TO MAP [X]", enabled = true, action = "delete"}
     return menu
 end
 
@@ -674,7 +741,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X Quick Esc:Back", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn Select  Enter OK  U/E/D/X quick  Esc back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -745,11 +812,11 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "Build rule: weak pairs OR crowded folders (5+) use 3 files",
-        "Build SRL: cost scales by file size/quality (1~5)",
-        "Disasm rule: output tier <= source-1 (min size 1)",
-        "Disasm SRL: size 1~4 => 1 SRL, size 5+ => 2 SRL",
-        "Disasm cap: max floor(size/2), clamped to 1~2 units",
+        "Build rule: weak pairs or crowded folders (5+) use 3 files",
+        "Build SRL: cost scales with file quality (1~5)",
+        "Disasm rule: salvage tier <= source-1 (min size 1)",
+        "Disasm SRL: size 1~4 = 1 SRL, size 5+ = 2 SRL",
+        "Disasm cap: max floor(size/2), clamped to 1~2 stacks",
         "Action Menu: U=Use  E=Equip  D=Disasm  X=Drop",
         "",
         "Press any key to close...",
