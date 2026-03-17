@@ -585,7 +585,7 @@ local function getBuildHint()
     local neededBuilder = math.max(0, builderCost - builderCount)
 
     if neededFiles > 0 and neededBuilder > 0 then
-        return string.format("F9:BUILD +%d %s +%d SRL", neededFiles, neededFiles == 1 and "FILE" or "FILES", neededBuilder)
+        return string.format("F9:BUILD NEED %d %s + %d SRL", neededFiles, neededFiles == 1 and "FILE" or "FILES", neededBuilder)
     elseif neededFiles > 0 then
         return string.format("F9:BUILD +%d %s", neededFiles, neededFiles == 1 and "FILE" or "FILES")
     elseif neededBuilder > 0 then
@@ -605,7 +605,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot Enter:Unequip L/R:Panel Esc:Close", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Menu U:Use E:Equip D:Disasm X:Delete F3:Drop F5:Sort %s Esc:Close",
+            "Up/Dn:Nav Enter:Menu U:Use E:Equip D:Disasm X:Drop F3:Drop F5:Sort %s Esc:Close",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -656,7 +656,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn=Select  Enter/U/E/D/X=Run", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Arrows=Select  Enter/U/E/D/X=Run", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -727,8 +727,8 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "Build rule: top FILES + SRL cost scales hard w/ peak tier (1..5)",
-        "Disasm rule: salvage drops one size tier (min size 1)",
+        "Build rule: consumes top FILES; SRL cost scales with peak tier (1..5)",
+        "Disasm rule: salvage is capped to one tier below source (min size 1)",
         "Action Menu: U=Use  E=Equip  D=Disasm  X=Drop",
         "",
         "Press any key to close...",
