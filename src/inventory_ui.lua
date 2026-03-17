@@ -689,7 +689,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot  Enter:Unequip  L/R:Panel  Esc:Exit", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Menu Backspace:UpDir U/E/D/X:File F1:Help F5:Sort %s Esc:Exit",
+            "Up/Dn:Nav Enter:Actions Backspace:UpDir U:Use E:Equip D:Disasm X:Drop F1:Help F5:Sort %s Esc:Exit",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -713,7 +713,7 @@ function InventoryUI.buildActionMenu(item)
     local disasmCost = getDisassembleCost(item.itemId)
     menu[#menu+1] = {label = string.format("DISASSEMBLE [D] (%d SRL)", disasmCost), enabled = true, action = "disassemble"}
     -- DROP (remove from inventory to current map tile)
-    menu[#menu+1] = {label = "DROP TO MAP [X]", enabled = true, action = "delete"}
+    menu[#menu+1] = {label = "DROP [X] (to map)", enabled = true, action = "delete"}
     return menu
 end
 
@@ -741,7 +741,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X:Quick Esc:Back", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X:Instant Esc:Back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
