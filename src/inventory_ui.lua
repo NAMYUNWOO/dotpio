@@ -542,8 +542,13 @@ local function getBuildPlan(inv, dir)
     local consumeCount = math.min(2, #components)
     local topA = Items.get(components[1] and components[1].itemId or "") or {}
     local topB = Items.get(components[2] and components[2].itemId or "") or {}
-    local lowTierPair = ((topA.size or 1) + (topB.size or 1)) <= 3
-    if #components >= 3 and lowTierPair then
+    local pairScore = (topA.size or 1) + (topB.size or 1)
+    local lowTierPair = pairScore <= 3
+
+    -- Economy guardrails:
+    -- 1) Force 3-file recipes for weak component pairs.
+    -- 2) If player stockpiles many scraps, also consume 3 to avoid 2-file spam loops.
+    if #components >= 3 and (lowTierPair or #components >= 5) then
         consumeCount = 3
     end
 
@@ -560,7 +565,8 @@ local function getBuildPlan(inv, dir)
 
     -- Balance pass: keep low-tier loops from being SRL-neutral while preserving room for 3-file recipes.
     local score = sumSize + peakSize * 0.9
-    local builderCost = math.max(1, math.min(5, math.ceil(score / 2.7)))
+    local lowTierSurcharge = (sumSize <= 4) and 1 or 0
+    local builderCost = math.max(1, math.min(5, math.ceil(score / 2.7) + lowTierSurcharge))
     return consumed, builderCost
 end
 
