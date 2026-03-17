@@ -520,7 +520,7 @@ end
 
 local function getBuildPlan(inv, dir)
     if not inv or not dir then
-        return {}, 1
+        return {}, 1, 2
     end
 
     local components = {}
@@ -539,18 +539,20 @@ local function getBuildPlan(inv, dir)
         return as > bs
     end)
 
-    local consumeCount = math.min(2, #components)
+    local requiredCount = 2
+    local consumeCount = math.min(requiredCount, #components)
     local topA = Items.get(components[1] and components[1].itemId or "") or {}
     local topB = Items.get(components[2] and components[2].itemId or "") or {}
     local pairScore = (topA.size or 1) + (topB.size or 1)
     local lowTierPair = pairScore <= 3
 
     -- Economy guardrails:
-    -- 1) Force 3-file recipes for weak component pairs.
-    -- 2) If player stockpiles many scraps, also consume 3 to avoid 2-file spam loops.
-    if #components >= 3 and (lowTierPair or #components >= 5) then
-        consumeCount = 3
+    -- 1) Weak pairs now always require 3 files (even when currently holding only 2).
+    -- 2) Large scrap stacks also shift to 3-file recipes to reduce spam loops.
+    if lowTierPair or #components >= 5 then
+        requiredCount = 3
     end
+    consumeCount = math.min(requiredCount, #components)
 
     local consumed = {}
     local sumSize = 0
@@ -567,7 +569,7 @@ local function getBuildPlan(inv, dir)
     local score = sumSize + peakSize * 0.9
     local lowTierSurcharge = (sumSize <= 4) and 1 or 0
     local builderCost = math.max(1, math.min(5, math.ceil(score / 2.7) + lowTierSurcharge))
-    return consumed, builderCost
+    return consumed, builderCost, requiredCount
 end
 
 local function getBuildHint()
@@ -576,18 +578,18 @@ local function getBuildHint()
     end
 
     local inv = player.inventory
-    local consumed, builderCost = getBuildPlan(inv, inv.currentDir)
+    local consumed, builderCost, requiredCount = getBuildPlan(inv, inv.currentDir)
     local componentCount = #consumed
     local builderCount = Inventory.countItemById(inv, "builder_scroll")
 
-    if componentCount >= 2 and builderCount >= builderCost then
+    if componentCount >= requiredCount and builderCount >= builderCost then
         if builderCost > 1 then
             return string.format("F9:BUILD READY (%d SRL)", builderCost)
         end
         return "F9:BUILD READY (1 SRL)"
     end
 
-    local neededFiles = math.max(0, 2 - componentCount)
+    local neededFiles = math.max(0, requiredCount - componentCount)
     local neededBuilder = math.max(0, builderCost - builderCount)
 
     if neededFiles > 0 and neededBuilder > 0 then
@@ -733,7 +735,7 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "Build rule: consumes top files (2, or 3 for low-tier pair)",
+        "Build rule: weak pairs require 3 files, others require 2",
         "Build SRL: cost scales by file size/quality (1~5)",
         "Disasm rule: output tier <= source-1 (min size 1)",
         "Disasm cap: max floor(size/2), clamped to 1~2 units",
@@ -1194,10 +1196,10 @@ end
 function InventoryUI.buildCurrentFolder()
     local inv = player.inventory
     local cur = inv.currentDir
-    local consumed, builderCost = getBuildPlan(inv, cur)
+    local consumed, builderCost, requiredCount = getBuildPlan(inv, cur)
 
-    if #consumed < 2 then
-        InventoryUI.setStatus("BUILD NEEDS 2+ FILES")
+    if #consumed < requiredCount then
+        InventoryUI.setStatus(string.format("BUILD NEEDS %d+ FILES", requiredCount))
         return
     end
 
