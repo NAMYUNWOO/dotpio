@@ -1,4 +1,5 @@
 local DosUI = {}
+local utf8 = utf8 or require("utf8")
 
 -- 16-color ANSI palette
 DosUI.colors = {
@@ -89,12 +90,16 @@ end
 
 -- Draw ASCII-only string at grid position
 function DosUI.putString(col, row, str, fg, bg, maxLen)
-    if maxLen and #str > maxLen then
-        str = str:sub(1, maxLen)
+    if maxLen then
+        local cut = utf8.offset(str, maxLen + 1)
+        if cut then
+            str = str:sub(1, cut - 1)
+        end
     end
     local px = offsetX + col * charW
     local py = offsetY + row * charH
-    local w = #str * charW
+    local charCount = utf8.len(str) or #str
+    local w = charCount * charW
     if bg and bg >= 0 then
         DosUI.setColor(bg)
         love.graphics.rectangle("fill", px, py, w, charH)
