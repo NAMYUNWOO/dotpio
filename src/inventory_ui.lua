@@ -605,7 +605,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot  Enter:Unequip  L/R:Panel  Esc:Exit", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Menu Back:Up U/E/D/X:Act F5:Sort %s Esc:Exit",
+            "Up/Dn:Nav Enter:Actions Back:Up U/E/D/X:Hotkey F5:Sort %s Esc:Exit",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -656,7 +656,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Arrows:Select  Enter/U/E/D/X", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Arrows:Select  Enter/U/E/D/X  Esc", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -723,13 +723,13 @@ function InventoryUI.drawHelpDialog()
         "F6          Move item to folder",
         "F7          Create new folder",
         "F8          Delete empty folder",
-        "F9          Build item in current folder",
+        "F9          Build from current folder",
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "Build rule: uses top files in folder (2, or 3 for low-tier pairs)", 
-        "Build SRL cost: scales by file size/quality (range 1~5)",
-        "Disasm rule: salvage is capped to one tier below source (min size 1)",
+        "Build rule: consumes top files (2, or 3 for low-tier pair)",
+        "Build SRL: cost scales by file size/quality (1~5)",
+        "Disasm rule: salvage capped to source-1 tier (min size 1)",
         "Action Menu: U=Use  E=Equip  D=Disasm  X=Drop",
         "",
         "Press any key to close...",
