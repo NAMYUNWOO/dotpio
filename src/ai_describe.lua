@@ -177,26 +177,40 @@ Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic
     local outputs = {}
     local itemSize = tonumber(def.size) or 1
     local maxOutSize = math.max(1, itemSize - 1)
-    -- Balance pass: keep disassembly useful, but avoid feeding infinite build loops.
-    local salvageCap = math.max(1, math.min(2, math.floor(itemSize / 2)))
-    local remaining = salvageCap
+
+    -- Balance pass: disassembly should be a convenience path, not a free size multiplier.
+    -- Use both a stack-count cap and a total salvage-size budget.
+    local salvageStackCap = math.max(1, math.min(2, math.floor(itemSize / 2)))
+    local salvageSizeBudget = math.max(1, math.floor(itemSize * 0.7))
+    local remainingStacks = salvageStackCap
+    local remainingSize = salvageSizeBudget
 
     if result and type(result.outputs) == "table" then
         for _, row in ipairs(result.outputs) do
-            if remaining <= 0 or #outputs >= 2 then break end
+            if remainingStacks <= 0 or remainingSize <= 0 or #outputs >= 2 then break end
             local cat = tostring(row.category or "misc")
             local wanted = math.max(1, math.min(2, tonumber(row.count) or 1))
-            local cnt = math.min(wanted, remaining)
-            local outId = pickItemByCategory(cat, { maxSize = maxOutSize }) or pickItemByCategory("misc", { maxSize = maxOutSize })
-            if outId and cnt > 0 then
-                table.insert(outputs, { itemId = outId, count = cnt })
-                remaining = remaining - cnt
+
+            local outId = pickItemByCategory(cat, { maxSize = math.min(maxOutSize, remainingSize) })
+                or pickItemByCategory("misc", { maxSize = math.min(maxOutSize, remainingSize) })
+
+            if outId then
+                local outDef = Items.get(outId) or {}
+                local outSize = math.max(1, tonumber(outDef.size) or 1)
+                local sizeLimited = math.floor(remainingSize / outSize)
+                local cnt = math.min(wanted, remainingStacks, math.max(0, sizeLimited))
+
+                if cnt > 0 then
+                    table.insert(outputs, { itemId = outId, count = cnt })
+                    remainingStacks = remainingStacks - cnt
+                    remainingSize = remainingSize - (outSize * cnt)
+                end
             end
         end
     end
 
     if #outputs == 0 then
-        local fallbackId = pickItemByCategory("misc", { maxSize = maxOutSize })
+        local fallbackId = pickItemByCategory("misc", { maxSize = math.min(maxOutSize, remainingSize) })
         if fallbackId then
             outputs = {{ itemId = fallbackId, count = 1 }}
         end
