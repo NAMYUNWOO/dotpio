@@ -28,7 +28,7 @@ for tile_el in tsx_root.findall('tile'):
 # Ensure output directory exists
 os.makedirs('maps', exist_ok=True)
 
-map_ids = ['01', '02', '03']
+map_ids = ['01', '02', '03', '04']
 
 for map_id in map_ids:
     tmx_path = f'Tilemap/layerd_fantasy_{map_id}.tmx'
