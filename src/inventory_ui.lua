@@ -662,10 +662,10 @@ getBuildPlan = function(inv, dir)
 
     -- Balance pass: keep low-tier loops from being SRL-neutral while preserving room for 3/4-file recipes.
     -- Premium recipes scale a bit harder so high-quality chain builds need deeper SRL reserves.
-    local score = sumSize + peakSize * 1.1
-    local lowTierSurcharge = (sumSize <= 4) and 1 or 0
+    local score = sumSize + peakSize * 1.15
+    local lowTierSurcharge = (sumSize <= 5) and 1 or 0
     local recipeSurcharge = (requiredCount >= 4) and 1 or 0
-    local builderCost = math.max(1, math.min(7, math.ceil(score / 2.3) + lowTierSurcharge + recipeSurcharge))
+    local builderCost = math.max(1, math.min(7, math.ceil(score / 2.15) + lowTierSurcharge + recipeSurcharge))
     return consumed, builderCost, requiredCount
 end
 
