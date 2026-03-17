@@ -518,6 +518,15 @@ function InventoryUI.drawStatusBar()
     end
 end
 
+
+local function getDisassembleCost(itemId)
+    local def = Items.get(itemId) or {}
+    local size = math.max(1, tonumber(def.size) or 1)
+    -- Keep disassembly convenient, but not free compared to BUILD loops.
+    -- Size 1~4 => 1 SRL, size 5+ => 2 SRL.
+    return math.max(1, math.min(2, math.ceil(size / 4)))
+end
+
 local function getBuildPlan(inv, dir)
     if not inv or not dir then
         return {}, 1, 2
@@ -634,7 +643,8 @@ function InventoryUI.buildActionMenu(item)
     local canEquip = Items.isEquippable(item.itemId)
     menu[#menu+1] = {label = "EQUIP [E]", enabled = canEquip, action = "equip"}
     -- DISASSEMBLE (AI salvage)
-    menu[#menu+1] = {label = "DISASSEMBLE [D]", enabled = true, action = "disassemble"}
+    local disasmCost = getDisassembleCost(item.itemId)
+    menu[#menu+1] = {label = string.format("DISASSEMBLE [D] (%d SRL)", disasmCost), enabled = true, action = "disassemble"}
     -- DROP (remove from inventory to current map tile)
     menu[#menu+1] = {label = "DROP [X]", enabled = true, action = "delete"}
     return menu
@@ -738,6 +748,7 @@ function InventoryUI.drawHelpDialog()
         "Build rule: weak pairs OR crowded folders (5+) use 3 files",
         "Build SRL: cost scales by file size/quality (1~5)",
         "Disasm rule: output tier <= source-1 (min size 1)",
+        "Disasm SRL: size 1~4 => 1 SRL, size 5+ => 2 SRL",
         "Disasm cap: max floor(size/2), clamped to 1~2 units",
         "Action Menu: U=Use  E=Equip  D=Disasm  X=Drop",
         "",
@@ -1170,12 +1181,20 @@ function InventoryUI.disassembleItem(item)
         return
     end
 
+    local disasmCost = getDisassembleCost(item.itemId)
+    local builderCount = Inventory.countItemById(player.inventory, "builder_scroll")
+    if builderCount < disasmCost then
+        InventoryUI.setStatus(string.format("DISASM NEED %d SRL", disasmCost))
+        return
+    end
+
     local outputs = AiDescribe.generateDisassembly(item.itemId)
     if not outputs or #outputs == 0 then
         InventoryUI.setStatus("DISASM FAIL")
         return
     end
 
+    Inventory.consumeItemById(player.inventory, "builder_scroll", disasmCost)
     Inventory.removeItem(player.inventory, item, 1)
     for _, out in ipairs(outputs) do
         Inventory.addItem(player.inventory, out.itemId, out.count)
@@ -1189,7 +1208,7 @@ function InventoryUI.disassembleItem(item)
     local salvageText = table.concat(salvage, ", ")
     if #salvageText > 44 then salvageText = salvageText:sub(1, 41) .. "..." end
 
-    InventoryUI.setStatus("DISASM OK: " .. salvageText)
+    InventoryUI.setStatus(string.format("DISASM OK (%d SRL): %s", disasmCost, salvageText))
     InventoryUI.refreshContents()
 end
 
