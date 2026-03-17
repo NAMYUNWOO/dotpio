@@ -1003,8 +1003,31 @@ function InventoryUI.equipPanelKeypressed(key)
 end
 
 function InventoryUI.actionMenuKeypressed(key)
+    local function showLockedReason(mi)
+        if not mi then return end
+        if mi.action == "disassemble" and actionMenuTarget then
+            local need = getDisassembleCost(actionMenuTarget.itemId)
+            local have = Inventory.countItemById(player.inventory, "builder_scroll")
+            if have < need then
+                InventoryUI.setStatus(string.format("DISASM NEED %d SRL", need))
+                return
+            end
+        end
+        if mi.action == "use" then
+            InventoryUI.setStatus("USE N/A")
+        elseif mi.action == "equip" then
+            InventoryUI.setStatus("EQUIP N/A")
+        else
+            InventoryUI.setStatus("ACTION LOCKED")
+        end
+    end
+
     local function runAction(mi)
-        if not (mi and mi.enabled) then return end
+        if not mi then return end
+        if not mi.enabled then
+            showLockedReason(mi)
+            return
+        end
         if mi.action == "use" then
             state = "browsing"
             InventoryUI.useSelected()
