@@ -177,7 +177,8 @@ Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic
     local outputs = {}
     local itemSize = tonumber(def.size) or 1
     local maxOutSize = math.max(1, itemSize - 1)
-    local salvageCap = math.max(1, math.min(3, math.floor((itemSize + 1) / 2)))
+    -- Balance pass: keep disassembly useful, but avoid feeding infinite build loops.
+    local salvageCap = math.max(1, math.min(2, math.floor(itemSize / 2)))
     local remaining = salvageCap
 
     if result and type(result.outputs) == "table" then
