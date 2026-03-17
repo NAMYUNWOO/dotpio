@@ -180,8 +180,9 @@ Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic
 
     -- Balance pass: disassembly should be a convenience path, not a free size multiplier.
     -- Use both a stack-count cap and a total salvage-size budget.
-    local salvageStackCap = math.max(1, math.min(2, math.floor(itemSize / 2)))
-    local salvageSizeBudget = math.max(1, math.floor(itemSize * 0.7))
+    -- Tightened to keep medium/high-tier loops SRL-negative unless the player mixes in fresh drops.
+    local salvageStackCap = math.max(1, math.min(2, math.ceil(itemSize / 3)))
+    local salvageSizeBudget = math.max(1, math.floor(itemSize * 0.55))
     local remainingStacks = salvageStackCap
     local remainingSize = salvageSizeBudget
 

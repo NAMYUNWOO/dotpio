@@ -591,9 +591,11 @@ local function getDisassembleCost(itemId)
     local size = math.max(1, tonumber(def.size) or 1)
     -- Balance pass:
     --  - size 1~2: 1 SRL (starter scraps stay approachable)
-    --  - size 3~5: 2 SRL
-    --  - size 6+:  3 SRL (high-size loot no longer near-free to recycle)
-    if size >= 6 then return 3 end
+    --  - size 3~4: 2 SRL
+    --  - size 5~7: 3 SRL
+    --  - size 8+:  4 SRL (large loot now needs real SRL investment)
+    if size >= 8 then return 4 end
+    if size >= 5 then return 3 end
     if size >= 3 then return 2 end
     return 1
 end
