@@ -5,6 +5,8 @@ Checks:
 1) Every portal targetMap points to an existing map_XX.lua file.
 2) Every portal targetPortal exists in the target map.
 3) Optional reciprocal check (warn-only): target portal returns to source map.
+4) Same-name portals inside one map must resolve to one consistent target.
+5) Every map must have at least one inbound + outbound portal (warn-only).
 """
 
 from __future__ import annotations
@@ -12,9 +14,8 @@ from __future__ import annotations
 import glob
 import os
 import re
-import sys
 from dataclasses import dataclass
-from typing import Dict, List
+from typing import Dict, List, Set, Tuple
 
 
 PORTAL_RE = re.compile(
@@ -65,9 +66,14 @@ def main() -> int:
 
     available_maps = set(by_map.keys())
     names_by_map = {mid: {p.name for p in portals} for mid, portals in by_map.items()}
+    inbound_counts = {mid: 0 for mid in by_map}
 
     for src_map, portals in by_map.items():
+        grouped_targets: Dict[str, Set[Tuple[str, str]]] = {}
+
         for p in portals:
+            grouped_targets.setdefault(p.name, set()).add((p.target_map, p.target_portal))
+
             if p.target_map not in available_maps:
                 errors.append(
                     f"map_{src_map}:{p.name} -> missing target map_{p.target_map}"
@@ -79,6 +85,8 @@ def main() -> int:
                 )
                 continue
 
+            inbound_counts[p.target_map] += 1
+
             reciprocal = any(
                 tp.name == p.target_portal and tp.target_map == src_map
                 for tp in by_map[p.target_map]
@@ -87,6 +95,21 @@ def main() -> int:
                 warnings.append(
                     f"map_{src_map}:{p.name} -> map_{p.target_map}:{p.target_portal} is one-way"
                 )
+
+        for portal_name, targets in grouped_targets.items():
+            if len(targets) > 1:
+                serialized = ", ".join(
+                    sorted(f"map_{tm}:{tp}" for tm, tp in targets)
+                )
+                errors.append(
+                    f"map_{src_map}:{portal_name} has inconsistent multi-tile targets: {serialized}"
+                )
+
+    for map_id, portals in by_map.items():
+        if not portals:
+            warnings.append(f"map_{map_id} has no outbound portals")
+        if inbound_counts[map_id] == 0:
+            warnings.append(f"map_{map_id} has no inbound portals")
 
     print(f"Maps scanned: {len(by_map)}")
     print(f"Portals scanned: {sum(len(v) for v in by_map.values())}")
