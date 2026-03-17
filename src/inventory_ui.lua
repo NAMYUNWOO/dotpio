@@ -808,7 +808,7 @@ function InventoryUI.drawConfirmDialog(msg, title)
 end
 
 function InventoryUI.drawHelpDialog()
-    local w, h = 50, 22
+    local w, h = 56, 28
     local col = math.floor((100 - w) / 2)
     local row = math.floor((40 - h) / 2)
     DosUI.drawBox(col, row, w, h, 15, 4)
@@ -835,8 +835,9 @@ function InventoryUI.drawHelpDialog()
         "Build rule: weak pairs/5+ files need 3, 8+ files need 4",
         "Build SRL: quality-weighted cost (1~7)",
         "Disasm rule: salvage tier <= source-1 (min size 1)",
-        "Disasm SRL: size 1~2 -> 1, 3~5 -> 2, 6+ -> 3",
-        "Disasm cap: floor(size/2), clamped to 1~2 stacks",
+        "Disasm SRL: size 1~2 -> 1, 3~4 -> 2, 5~7 -> 3, 8+ -> 4",
+        "Disasm cap: ceil(size/3) stacks, max 2",
+        "Disasm size budget: floor(size*0.55) total salvage",
         "Action Menu: shows current SRL, U=Use E=Equip D=Disasm X=Drop",
         "",
         "Press any key to close...",
