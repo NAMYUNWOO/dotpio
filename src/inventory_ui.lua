@@ -654,7 +654,8 @@ local function getBuildPlan(inv, dir)
     -- Premium recipes scale a bit harder so high-quality chain builds need deeper SRL reserves.
     local score = sumSize + peakSize * 1.1
     local lowTierSurcharge = (sumSize <= 4) and 1 or 0
-    local builderCost = math.max(1, math.min(7, math.ceil(score / 2.4) + lowTierSurcharge))
+    local recipeSurcharge = (requiredCount >= 4) and 1 or 0
+    local builderCost = math.max(1, math.min(7, math.ceil(score / 2.3) + lowTierSurcharge + recipeSurcharge))
     return consumed, builderCost, requiredCount
 end
 
