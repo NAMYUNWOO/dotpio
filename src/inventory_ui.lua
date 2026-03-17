@@ -605,7 +605,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot  Enter:Unequip  L/R:Panel  Esc:Exit", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Actions Back:Up U/E/D/X:Hotkey F5:Sort %s Esc:Exit",
+            "Up/Dn:Nav Enter:Menu Bksp:Up U/E/D/X:Quick F1:Help F5:Sort %s Esc:Exit",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -656,7 +656,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Arrows:Select  Enter/U/E/D/X  Esc", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X Esc", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -729,7 +729,8 @@ function InventoryUI.drawHelpDialog()
         "",
         "Build rule: consumes top files (2, or 3 for low-tier pair)",
         "Build SRL: cost scales by file size/quality (1~5)",
-        "Disasm rule: salvage capped to source-1 tier (min size 1)",
+        "Disasm rule: output tier <= source-1 (min size 1)",
+        "Disasm cap: max floor(size/2), clamped to 1~2 units",
         "Action Menu: U=Use  E=Equip  D=Disasm  X=Drop",
         "",
         "Press any key to close...",
