@@ -18,6 +18,9 @@ love .
 # 자동 스크린샷 생성 (map04 / DOS inventory)
 ./scripts/capture_screenshots.sh
 
+# 포탈 연결 검증 (targetMap/targetPortal 무결성)
+python3 scripts/validate_portals.py
+
 # AI 서버 실행 (아이템 AI 설명 생성용, 포트 8001)
 # 게임 내 AiDescribe.init()에서 자동 시작됨 — 수동 실행 불필요
 ./bin/llama-server \
