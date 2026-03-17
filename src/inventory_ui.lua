@@ -589,9 +589,13 @@ end
 local function getDisassembleCost(itemId)
     local def = Items.get(itemId) or {}
     local size = math.max(1, tonumber(def.size) or 1)
-    -- Keep disassembly convenient, but not free compared to BUILD loops.
-    -- Size 1~4 => 1 SRL, size 5+ => 2 SRL.
-    return math.max(1, math.min(2, math.ceil(size / 4)))
+    -- Balance pass:
+    --  - size 1~3: 1 SRL (starter items stay approachable)
+    --  - size 4~6: 2 SRL
+    --  - size 7+:  3 SRL (high-size loot no longer near-free to recycle)
+    if size >= 7 then return 3 end
+    if size >= 4 then return 2 end
+    return 1
 end
 
 local function getBuildPlan(inv, dir)
@@ -642,9 +646,10 @@ local function getBuildPlan(inv, dir)
     end
 
     -- Balance pass: keep low-tier loops from being SRL-neutral while preserving room for 3-file recipes.
-    local score = sumSize + peakSize * 0.9
+    -- Slightly increase premium recipes so larger outputs demand real SRL investment.
+    local score = sumSize + peakSize * 1.0
     local lowTierSurcharge = (sumSize <= 4) and 1 or 0
-    local builderCost = math.max(1, math.min(5, math.ceil(score / 2.7) + lowTierSurcharge))
+    local builderCost = math.max(1, math.min(6, math.ceil(score / 2.6) + lowTierSurcharge))
     return consumed, builderCost, requiredCount
 end
 
