@@ -220,7 +220,7 @@ function InventoryUI.drawFunctionBar()
     DosUI.fillRect(0, 0, 100, 1, " ", nil, 8)
     local buttons = {
         {key = "F1", label = "Help"},
-        {key = "Ent", label = "Action"},
+        {key = "Ent", label = "Menu"},
         {key = "F3", label = "Drop"},
         {key = "F5", label = "Sort"},
         {key = "F6", label = "Move"},
@@ -228,7 +228,7 @@ function InventoryUI.drawFunctionBar()
         {key = "F8", label = "RmDir"},
         {key = "F9", label = "Build"},
         {key = "L/R", label = "Panel"},
-        {key = "F10", label = "Close"},
+        {key = "F10", label = "Exit"},
     }
     local col = 0
     for _, btn in ipairs(buttons) do
@@ -599,13 +599,13 @@ function InventoryUI.drawHelpBar()
     DosUI.fillRect(0, HELP_ROW, SCREEN_COLS, 1, " ", nil, 0)
     if state == "equip_select" then
         DosUI.putString(1, HELP_ROW,
-            "Up/Dn:Slot Enter:Equip Esc:Back", 8, 0)
+            "Up/Dn:Slot  Enter:Equip  Esc:Back", 8, 0)
     elseif focusPanel == "equip" then
         DosUI.putString(1, HELP_ROW,
-            "Up/Dn:Slot Enter:Unequip L/R:Panel Esc:Close", 8, 0)
+            "Up/Dn:Slot  Enter:Unequip  L/R:Panel  Esc:Exit", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Menu U:Use E:Equip D:Disasm X:Drop F3:Drop F5:Sort %s Esc:Close",
+            "Up/Dn:Nav Enter:Menu Back:Up U/E/D/X:Act F5:Sort %s Esc:Exit",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -656,7 +656,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Arrows=Select  Enter/U/E/D/X=Run", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Arrows:Select  Enter/U/E/D/X", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -727,7 +727,8 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "Build rule: consumes top FILES; SRL cost now starts at 2 for most 2-file recipes", 
+        "Build rule: uses top files in folder (2, or 3 for low-tier pairs)", 
+        "Build SRL cost: scales by file size/quality (range 1~5)",
         "Disasm rule: salvage is capped to one tier below source (min size 1)",
         "Action Menu: U=Use  E=Equip  D=Disasm  X=Drop",
         "",
