@@ -622,7 +622,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot  Enter:Unequip  L/R:Panel  Esc:Exit", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Menu Back:UpDir U/E/D/X:File F1:Help F5:Sort %s Esc:Exit",
+            "Up/Dn:Nav Enter:Menu Bksp:UpDir U/E/D/X:File F1:Help F5:Sort %s Esc:Exit",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -674,7 +674,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 2 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X=Quick Esc", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X Quick Esc:Back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
