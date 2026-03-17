@@ -558,9 +558,9 @@ local function getBuildPlan(inv, dir)
         if s > peakSize then peakSize = s end
     end
 
-    -- Balance: high-tier component should lift SRL cost even in mixed recipes.
-    local score = sumSize + peakSize * 0.5
-    local builderCost = math.max(1, math.min(5, math.ceil(score / 3)))
+    -- Balance: mixed recipes with one high-tier component should still cost real SRL.
+    local score = sumSize + peakSize * 0.75
+    local builderCost = math.max(1, math.min(5, math.ceil(score / 2.8)))
     return consumed, builderCost
 end
 
@@ -727,8 +727,8 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "Build rule: top FILES + SRL cost scales w/ peak tier (1..5)",
-        "Disasm rule: item size caps salvage tier (1..3)",
+        "Build rule: top FILES + SRL cost scales hard w/ peak tier (1..5)",
+        "Disasm rule: salvage drops one size tier (min size 1)",
         "Action Menu: U=Use  E=Equip  D=Disasm  X=Drop",
         "",
         "Press any key to close...",

@@ -176,6 +176,7 @@ Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic
 
     local outputs = {}
     local itemSize = tonumber(def.size) or 1
+    local maxOutSize = math.max(1, itemSize - 1)
     local salvageCap = math.max(1, math.min(3, math.floor((itemSize + 1) / 2)))
     local remaining = salvageCap
 
@@ -185,7 +186,7 @@ Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic
             local cat = tostring(row.category or "misc")
             local wanted = math.max(1, math.min(2, tonumber(row.count) or 1))
             local cnt = math.min(wanted, remaining)
-            local outId = pickItemByCategory(cat, { maxSize = itemSize }) or pickItemByCategory("misc", { maxSize = itemSize })
+            local outId = pickItemByCategory(cat, { maxSize = maxOutSize }) or pickItemByCategory("misc", { maxSize = maxOutSize })
             if outId and cnt > 0 then
                 table.insert(outputs, { itemId = outId, count = cnt })
                 remaining = remaining - cnt
@@ -194,7 +195,7 @@ Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic
     end
 
     if #outputs == 0 then
-        local fallbackId = pickItemByCategory("misc", { maxSize = itemSize })
+        local fallbackId = pickItemByCategory("misc", { maxSize = maxOutSize })
         if fallbackId then
             outputs = {{ itemId = fallbackId, count = 1 }}
         end
