@@ -1,7 +1,7 @@
 local Items = require("src.items")
 
 local Inventory = {}
-Inventory.capacity = 30
+Inventory.capacity = 120 -- widened for build/disassemble system testing
 
 function Inventory.new()
     local root = {

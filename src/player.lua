@@ -1,6 +1,7 @@
 local Config = require("src.config")
 local Map = require("src.map")
 local Inventory = require("src.inventory")
+local Items = require("src.items")
 local Stats = require("src.stats")
 
 local Player = {
@@ -14,6 +15,48 @@ local Player = {
     baseStats = nil,
     effectiveStats = nil,
 }
+
+local function firstByCategory(category)
+    local ids = Items.getIdsByCategory(category)
+    if not ids or #ids == 0 then return nil end
+    return ids[1]
+end
+
+local function seedBuildTestLoadout(inv)
+    local function add(itemId, count)
+        if itemId then Inventory.addItem(inv, itemId, count or 1) end
+    end
+
+    -- Core build currency for testing loops
+    add("builder_scroll", 12)
+
+    -- Stackables / materials
+    add(firstByCategory("scroll"), 4)
+    add(firstByCategory("gem"), 4)
+    add(firstByCategory("potion"), 3)
+    add(firstByCategory("food"), 2)
+    add(firstByCategory("key"), 2)
+    add(firstByCategory("coin"), 20)
+    add(firstByCategory("bomb"), 2)
+    add(firstByCategory("arrow"), 8)
+    add(firstByCategory("bone"), 2)
+    add(firstByCategory("skull"), 1)
+
+    -- Equip/build candidates
+    add(firstByCategory("weapon"), 1)
+    add(firstByCategory("armor"), 1)
+    add(firstByCategory("helmet"), 1)
+    add(firstByCategory("boots"), 1)
+    add(firstByCategory("gloves"), 1)
+    add(firstByCategory("shield"), 1)
+    add(firstByCategory("robe"), 1)
+    add(firstByCategory("bow"), 1)
+    add(firstByCategory("wand"), 1)
+    add(firstByCategory("ring"), 1)
+    add(firstByCategory("necklace"), 1)
+    add(firstByCategory("tool"), 1)
+    add(firstByCategory("book"), 1)
+end
 
 function Player.init(x, y)
     Player.x = x
@@ -30,6 +73,7 @@ function Player.init(x, y)
     Player.attackDir = nil
     if not Player.inventory then
         Player.inventory = Inventory.new()
+        seedBuildTestLoadout(Player.inventory)
     end
     Player.baseStats = Stats.defaultBase()
     Player.effectiveStats = Stats.computeEffective(Player.baseStats, {})
