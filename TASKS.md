@@ -35,3 +35,7 @@ See project-level plans:
 - [x] Economy tuning for low-tier build spam suppression
   - [x] Tune SRL build-cost curve to increase low-tier churn penalties without overtaxing premium recipes
   - [x] Tune disassembly salvage stack/size caps by item size tier for fairness
+
+- [x] Validate map_01~04 progression with portal validator + playtest checklist
+  - [x] Run portal wiring validator and capture output artifact
+  - [x] Add scripted progression checklist artifact for map_01~04 routes

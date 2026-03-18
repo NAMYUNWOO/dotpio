@@ -166,3 +166,16 @@
   - Screenshot refresh confirmed inventory help text update for new disassembly cap/budget guidance.
 - Follow-up:
   - Add playtest fixture once map progression validation run executes, so cap tuning can be checked against full 30-minute loop logs.
+
+## 2026-03-19 04:43:40 KST
+- Task: QA verification for M1 map_01~04 progression validation.
+- Commit: HEAD (this run)
+- Files checked: `scripts/regression_map_progression.py`, `logs/playtests/map_01_04_progression_checklist.md`
+- Verification:
+  - `python3 -m py_compile scripts/regression_map_progression.py` ✅
+  - `python3 scripts/regression_map_progression.py` ✅
+  - Checklist artifact includes portal validator transcript + manual quick-pass checklist ✅
+- Decisions:
+  - Progression validation is now reproducible as a scripted QA artifact instead of ad-hoc command output.
+- Follow-up:
+  - Use the new checklist artifact as input baseline for the next 30-minute loop checklist run.
