@@ -42,3 +42,18 @@
   - Cancel path returns to browsing with explicit `BUILD CANCELED` status.
 - Follow-up:
   - Next M1 UX priority: make BUILDER.SRL affordance explicit in action menu + F9 flow copy.
+
+## 2026-03-19 02:44:44 KST
+- Task: M1 BUILDER.SRL affordance copy pass (action menu + F9 flow).
+- Commit: HEAD (this run)
+- Files: `src/inventory_ui.lua`, `scripts/regression_builder_srl_affordance.lua`, `screenshots/screenshot-map04.png`, `screenshots/screenshot-inventory-dos.png`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p src/inventory_ui.lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Action-menu disassemble labels and locked helper copy now spell out `BUILDER.SRL` explicitly (instead of generic `SRL`).
+  - F9 affordance text, build preview dialog cost line, and status messages now consistently communicate `BUILDER.SRL` requirements.
+  - Help dialog guidance updated so first-time users see `BUILDER.SRL` terminology on the build path.
+- Follow-up:
+  - Next UX item: keep build material consumption explicit in confirmation/status copy.

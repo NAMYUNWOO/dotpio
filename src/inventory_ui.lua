@@ -747,21 +747,21 @@ local function getBuildHint()
     local builderCount = Inventory.countItemById(inv, "builder_scroll")
 
     if componentCount >= requiredCount and builderCount >= builderCost then
-        return string.format("F9:READY %dF/%dSRL", requiredCount, builderCost)
+        return string.format("F9:READY %dF/%dBUILDER.SRL", requiredCount, builderCost)
     end
 
     local neededFiles = math.max(0, requiredCount - componentCount)
     local neededBuilder = math.max(0, builderCost - builderCount)
 
     if neededFiles > 0 and neededBuilder > 0 then
-        return string.format("F9:NEED +%dF +%dSRL", neededFiles, neededBuilder)
+        return string.format("F9:NEED +%dF +%dBUILDER.SRL", neededFiles, neededBuilder)
     elseif neededFiles > 0 then
         return string.format("F9:NEED +%dF", neededFiles)
     elseif neededBuilder > 0 then
-        return string.format("F9:NEED +%dSRL", neededBuilder)
+        return string.format("F9:NEED +%dBUILDER.SRL", neededBuilder)
     end
 
-    return string.format("F9:PLAN %dF/%dSRL", requiredCount, builderCost)
+    return string.format("F9:PLAN %dF/%dBUILDER.SRL", requiredCount, builderCost)
 end
 
 function InventoryUI.drawHelpBar()
@@ -800,9 +800,9 @@ function InventoryUI.buildActionMenu(item)
     local canDisassemble = builderCount >= disasmCost
     local disasmLabel
     if canDisassemble then
-        disasmLabel = string.format("DISASSEMBLE [D] (%d SRL)", disasmCost)
+        disasmLabel = string.format("DISASSEMBLE [D] (%d BUILDER.SRL)", disasmCost)
     else
-        disasmLabel = string.format("DISASSEMBLE [D] (%d SRL, NEED %d)", disasmCost, disasmCost - builderCount)
+        disasmLabel = string.format("DISASSEMBLE [D] (%d BUILDER.SRL, NEED %d)", disasmCost, disasmCost - builderCount)
     end
     menu[#menu+1] = {label = disasmLabel, enabled = canDisassemble, action = "disassemble"}
     -- SPLIT (stackables only)
@@ -839,7 +839,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 3 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:Run U/E/D/S/X:Quick Gray=LOCKED (need reqs) Esc:Back", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:Run U/E/D/S/X:Quick Gray=LOCKED (need BUILDER.SRL/stack) Esc:Back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -927,12 +927,12 @@ function InventoryUI.drawHelpDialog()
         "F6          Move item to folder",
         "F7          Create new folder",
         "F8          Delete empty folder",
-        "F9          Build preview/confirm (shows files + SRL before execute)",
+        "F9          Build preview/confirm (shows files + BUILDER.SRL before execute)",
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "G           Pickup item on player tile",
         "",
-        "Build tag: B:nF+mSRL on path row (files + SRL needed)",
+        "Build tag: B:nF+mSRL on path row (files + BUILDER.SRL needed)",
         "Build rule: weak pairs/5+ files need 3, 8+ files need 4",
         "Build SRL: quality-weighted cost (1~7) + loop surcharges",
         "  (+1 for same-cat, stack-heavy, salvage-heavy folders)",
@@ -996,8 +996,8 @@ function InventoryUI.drawBuildPreviewDialog()
     local need = plan.builderCost or 0
     local enough = have >= need
     local srlLine = enough
-        and string.format("SRL COST: %d (HAVE %d)", need, have)
-        or string.format("SRL COST: %d (HAVE %d, NEED +%d)", need, have, need - have)
+        and string.format("BUILDER.SRL COST: %d (HAVE %d)", need, have)
+        or string.format("BUILDER.SRL COST: %d (HAVE %d, NEED +%d)", need, have, need - have)
 
     DosUI.drawBox(col, row, w, h, 15, 4)
     DosUI.putString(col + 2, row + 1, "BUILD PREVIEW", 15, 4)
@@ -1164,7 +1164,7 @@ function InventoryUI.actionMenuKeypressed(key)
             local need = getDisassembleCost(actionMenuTarget.itemId)
             local have = Inventory.countItemById(player.inventory, "builder_scroll")
             if have < need then
-                InventoryUI.setStatus(string.format("DISASM NEED %d SRL (%d/%d)", need - have, have, need))
+                InventoryUI.setStatus(string.format("DISASM NEED %d BUILDER.SRL (%d/%d)", need - have, have, need))
                 return
             end
         end
@@ -1476,7 +1476,7 @@ function InventoryUI.disassembleItem(item)
     local disasmCost = getDisassembleCost(item.itemId)
     local builderCountBefore = Inventory.countItemById(player.inventory, "builder_scroll")
     if builderCountBefore < disasmCost then
-        InventoryUI.setStatus(string.format("DISASM LOCKED: %d/%d SRL", builderCountBefore, disasmCost))
+        InventoryUI.setStatus(string.format("DISASM LOCKED: BUILDER.SRL %d/%d", builderCountBefore, disasmCost))
         logEconomyEvent("disassemble", {
             status = "locked",
             itemId = item.itemId,
@@ -1518,7 +1518,7 @@ function InventoryUI.disassembleItem(item)
     local salvageText = table.concat(salvage, ", ")
     if #salvageText > 44 then salvageText = salvageText:sub(1, 41) .. "..." end
 
-    InventoryUI.setStatus(string.format("DISASM OK (%d SRL): %s", disasmCost, salvageText))
+    InventoryUI.setStatus(string.format("DISASM OK (%d BUILDER.SRL): %s", disasmCost, salvageText))
     local builderCountAfter = Inventory.countItemById(player.inventory, "builder_scroll")
     logEconomyEvent("disassemble", {
         status = "ok",
@@ -1549,7 +1549,7 @@ function InventoryUI.promptBuildPreview()
 
     local builderCount = Inventory.countItemById(inv, "builder_scroll")
     if builderCount < builderCost then
-        InventoryUI.setStatus(string.format("BUILD LOCKED: SRL %d/%d", builderCount, builderCost))
+        InventoryUI.setStatus(string.format("BUILD LOCKED: BUILDER.SRL %d/%d", builderCount, builderCost))
         return
     end
 
@@ -1588,7 +1588,7 @@ function InventoryUI.buildCurrentFolder()
 
     local builderCountBefore = Inventory.countItemById(inv, "builder_scroll")
     if builderCountBefore < builderCost then
-        InventoryUI.setStatus(string.format("BUILD LOCKED: SRL %d/%d", builderCountBefore, builderCost))
+        InventoryUI.setStatus(string.format("BUILD LOCKED: BUILDER.SRL %d/%d", builderCountBefore, builderCost))
         logEconomyEvent("build", {
             status = "locked",
             folder = cur and cur.name or "?",
@@ -1636,7 +1636,7 @@ function InventoryUI.buildCurrentFolder()
     else
         local resultLabel = note or "new item created"
         if #resultLabel > 28 then resultLabel = resultLabel:sub(1, 25) .. "..." end
-        InventoryUI.setStatus(string.format("BUILD OK: %s (%dF+%dSRL)", resultLabel, #consumed, builderCost))
+        InventoryUI.setStatus(string.format("BUILD OK: %s (%dF+%dBUILDER.SRL)", resultLabel, #consumed, builderCost))
     end
 
     local componentIdsForLog = {}

@@ -99,3 +99,21 @@
   - Screenshot refresh executed due visible inventory/help copy behavior update.
 - Follow-up:
   - Add coverage for explicit SRL affordance copy once action-menu/F9 wording pass lands.
+
+## 2026-03-19 02:44:44 KST
+- Task: Verify M1 BUILDER.SRL affordance copy pass.
+- Commit: HEAD (this run)
+- Files checked: `src/inventory_ui.lua`, `scripts/regression_builder_srl_affordance.lua`
+- Verification:
+  - `luac -p src/inventory_ui.lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_split_stack.lua` ✅
+  - `lua scripts/regression_economy_telemetry.lua` ✅
+  - `lua scripts/regression_starter_loadout.lua` ✅
+  - `lua scripts/regression_drop_pickup.lua` ✅
+- Decisions:
+  - Added explicit regression for lock/status strings to prevent future copy drift away from `BUILDER.SRL` terminology.
+  - Screenshot regen executed because visible inventory/help copy changed.
+- Follow-up:
+  - Reuse new affordance regression when touching action-menu/F9 copy in subsequent UX passes.

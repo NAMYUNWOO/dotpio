@@ -28,4 +28,6 @@ Compact decision memory for AI context efficiency.
 - Stack split regression is scripted in `scripts/regression_split_stack.lua`.
 - F9 build flow now requires preview/confirm before execution, showing planned component usage + SRL have/need to keep build consumption explicit.
 - Build preview confirmation gate is covered by `scripts/regression_build_preview_confirm.lua`.
+- BUILDER.SRL affordance copy is now explicit across action menu, lock/status messages, and F9 preview/help text (no generic SRL-only wording).
+- BUILDER.SRL copy consistency is regression-covered in `scripts/regression_builder_srl_affordance.lua`.
 - Progress/report protocol: commit + verification + next task on each run.

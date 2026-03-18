@@ -23,6 +23,6 @@ See project-level plans:
 
 - [~] Inventory UX improvements for build workflow
   - [x] Add item split/partial stack feature ("소분")
-  - [ ] Improve `BUILDER.SRL` use flow UX (action menu + F9 path)
+  - [x] Improve `BUILDER.SRL` use flow UX (action menu + F9 path)
   - [x] Build preview panel: consumed components + expected SRL cost
   - [ ] Keep build material consumption explicit in confirmation/status copy
