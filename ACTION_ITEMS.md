@@ -12,7 +12,7 @@ Tracking rule:
 - [x] Remove/flag collected world item after pickup
 - [x] Add `G:Pickup` to in-game help/UI hints
 - [x] Add regression scenario: drop -> pickup -> count validation
-- [ ] Add inventory build-test starter loadout tuning pass
+- [x] Add inventory build-test starter loadout tuning pass
 
 ## M1 - Core Loop Lock
 - [ ] Add economy telemetry logging for build/disassemble (input/output/SRL)

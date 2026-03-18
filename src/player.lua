@@ -22,40 +22,60 @@ local function firstByCategory(category)
     return ids[1]
 end
 
+local function dirByName(inv, name)
+    if not inv or not inv.root then return nil end
+    for _, child in ipairs(inv.root.children or {}) do
+        if child.type == "dir" and child.name == name then
+            return child
+        end
+    end
+    return nil
+end
+
 local function seedBuildTestLoadout(inv)
-    local function add(itemId, count)
-        if itemId then Inventory.addItem(inv, itemId, count or 1) end
+    local rootDir = inv.currentDir
+    local scrollDir = dirByName(inv, "SCROLLS") or rootDir
+    local potionDir = dirByName(inv, "POTIONS") or rootDir
+    local weaponDir = dirByName(inv, "WEAPONS") or rootDir
+
+    local function addTo(dir, itemId, count)
+        if not itemId then return end
+        inv.currentDir = dir or rootDir
+        Inventory.addItem(inv, itemId, count or 1)
     end
 
-    -- Core build currency for testing loops
-    add("builder_scroll", 12)
+    -- Build smoke-test baseline:
+    -- - enough SRL for repeated build/disassemble checks
+    -- - mixed low/high-tier files so folder recipes can hit 2/3/4-file plans
+    -- - starter folders pre-populated for immediate UI-path testing
+    addTo(scrollDir, "builder_scroll", 18)
+    addTo(scrollDir, firstByCategory("scroll"), 6)
+    addTo(scrollDir, firstByCategory("book"), 1)
 
-    -- Stackables / materials
-    add(firstByCategory("scroll"), 4)
-    add(firstByCategory("gem"), 4)
-    add(firstByCategory("potion"), 3)
-    add(firstByCategory("food"), 2)
-    add(firstByCategory("key"), 2)
-    add(firstByCategory("coin"), 20)
-    add(firstByCategory("bomb"), 2)
-    add(firstByCategory("arrow"), 8)
-    add(firstByCategory("bone"), 2)
-    add(firstByCategory("skull"), 1)
+    addTo(potionDir, firstByCategory("potion"), 5)
+    addTo(potionDir, firstByCategory("food"), 3)
+    addTo(potionDir, firstByCategory("gem"), 5)
+    addTo(potionDir, firstByCategory("coin"), 30)
+    addTo(potionDir, firstByCategory("key"), 3)
 
-    -- Equip/build candidates
-    add(firstByCategory("weapon"), 1)
-    add(firstByCategory("armor"), 1)
-    add(firstByCategory("helmet"), 1)
-    add(firstByCategory("boots"), 1)
-    add(firstByCategory("gloves"), 1)
-    add(firstByCategory("shield"), 1)
-    add(firstByCategory("robe"), 1)
-    add(firstByCategory("bow"), 1)
-    add(firstByCategory("wand"), 1)
-    add(firstByCategory("ring"), 1)
-    add(firstByCategory("necklace"), 1)
-    add(firstByCategory("tool"), 1)
-    add(firstByCategory("book"), 1)
+    addTo(weaponDir, firstByCategory("weapon"), 1)
+    addTo(weaponDir, firstByCategory("armor"), 1)
+    addTo(weaponDir, firstByCategory("helmet"), 1)
+    addTo(weaponDir, firstByCategory("boots"), 1)
+    addTo(weaponDir, firstByCategory("gloves"), 1)
+    addTo(weaponDir, firstByCategory("shield"), 1)
+    addTo(weaponDir, firstByCategory("robe"), 1)
+    addTo(weaponDir, firstByCategory("bow"), 1)
+    addTo(weaponDir, firstByCategory("wand"), 1)
+    addTo(weaponDir, firstByCategory("ring"), 1)
+    addTo(weaponDir, firstByCategory("necklace"), 1)
+    addTo(weaponDir, firstByCategory("tool"), 2)
+    addTo(weaponDir, firstByCategory("arrow"), 12)
+    addTo(weaponDir, firstByCategory("bomb"), 3)
+    addTo(weaponDir, firstByCategory("bone"), 3)
+    addTo(weaponDir, firstByCategory("skull"), 2)
+
+    inv.currentDir = rootDir
 end
 
 function Player.init(x, y)

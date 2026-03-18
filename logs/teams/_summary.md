@@ -20,4 +20,6 @@ Compact decision memory for AI context efficiency.
 - Dropped world items can now be picked up via `G` on player tile; pickup enforces inventory capacity and consumes map entity on success.
 - Pickup affordance is now surfaced in both realtime HUD controls and inventory help dialog (`G:Pickup`).
 - Drop->pickup regression is now scripted in `scripts/regression_drop_pickup.lua` to validate item count restoration + world item cleanup.
+- Starter build-test loadout is now folder-seeded (`SCROLLS`/`POTIONS`/`WEAPONS`) with `BUILDER.SRL` baseline 18 and mixed-tier materials for stable smoke loops.
+- Starter loadout sanity is scripted in `scripts/regression_starter_loadout.lua` (Player.init baseline check).
 - Progress/report protocol: commit + verification + next task on each run.

@@ -37,3 +37,17 @@
   - Scenario explicitly validates both inventory count restoration and world-item cleanup after pickup.
 - Follow-up:
   - Next M0 task: tune inventory build-test starter loadout for stable build/disassemble smoke runs.
+
+## 2026-03-19 00:45:22 KST
+- Task: Verify starter loadout tuning pass (M0 completion).
+- Commit: HEAD (this run)
+- Files checked: `src/player.lua`, `scripts/regression_starter_loadout.lua`
+- Verification:
+  - `luac -p src/player.lua scripts/regression_starter_loadout.lua` ✅
+  - `lua scripts/regression_starter_loadout.lua` ✅
+  - `lua scripts/regression_drop_pickup.lua` ✅
+- Decisions:
+  - No portal validator run (no map/portal changes).
+  - No screenshot regen (no UI rendering/copy/layout changes).
+- Follow-up:
+  - Start M1 economy telemetry logging for build/disassemble events.
