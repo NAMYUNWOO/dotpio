@@ -97,6 +97,26 @@ local SCREEN_COLS = 100
 -- Forward declaration (used by draw() for build tag)
 local getBuildPlan
 
+local function logEconomyEvent(eventType, fields)
+    local ok, json = pcall(require, "libs.json")
+    if not ok or type(json) ~= "table" or type(json.encode) ~= "function" then
+        return
+    end
+
+    fields = fields or {}
+    fields.event = eventType
+    fields.ts = os.date("!%Y-%m-%dT%H:%M:%SZ")
+
+    local line = json.encode(fields)
+    if not line then return end
+
+    os.execute("mkdir -p logs")
+    local f = io.open("logs/economy_telemetry.ndjson", "a")
+    if not f then return end
+    f:write(line, "\n")
+    f:close()
+end
+
 -- Word-wrap text into lines of at most `w` characters
 local function wordWrap(text, w)
     local lines = {}
@@ -624,9 +644,9 @@ local function getDisassembleCost(itemId)
     end
 
     -- Consumable stackables (potions/food/coins etc.) were too cheap to churn.
-    -- Keep them at >=2 SRL to make low-tier disasm loops net-negative.
+    -- Keep them at >=3 SRL to make low-tier disasm loops clearly net-negative.
     if def.stackable and size <= 1 then
-        cost = math.max(cost, 2)
+        cost = math.max(cost, 3)
     end
 
     -- Very large targets should not be cheap to crack into salvage.
@@ -717,12 +737,14 @@ getBuildPlan = function(inv, dir)
     -- Mostly-stackable recipes (consumable spam) also pay +1 SRL to reduce churn exploits.
     -- Salvage-like recipes (coin/gem/potion/scroll/tool/misc heavy) pay +1 SRL to break disasm→build churn loops.
     local score = sumSize + peakSize * 1.15
+    local avgSize = (consumeCount > 0) and (sumSize / consumeCount) or 1
     local lowTierSurcharge = (sumSize <= 5) and 1 or 0
     local recipeSurcharge = (requiredCount >= 4) and 1 or 0
     local monoCategorySurcharge = (consumeCount >= 3 and dominantCategoryCount >= consumeCount - 1) and 1 or 0
     local stackableSurcharge = (consumeCount >= 3 and stackableCount >= consumeCount - 1) and 1 or 0
     local salvageLoopSurcharge = (consumeCount >= 3 and salvageLikeCount >= consumeCount - 1) and 1 or 0
-    local builderCost = math.max(1, math.min(7, math.ceil(score / 2.15) + lowTierSurcharge + recipeSurcharge + monoCategorySurcharge + stackableSurcharge + salvageLoopSurcharge))
+    local scrapBlendSurcharge = (consumeCount >= 3 and avgSize <= 2.0 and salvageLikeCount >= 2) and 1 or 0
+    local builderCost = math.max(1, math.min(7, math.ceil(score / 2.15) + lowTierSurcharge + recipeSurcharge + monoCategorySurcharge + stackableSurcharge + salvageLoopSurcharge + scrapBlendSurcharge))
     return consumed, builderCost, requiredCount
 end
 
@@ -902,7 +924,7 @@ function InventoryUI.drawHelpDialog()
         "Build SRL: quality-weighted cost (1~7) + loop surcharges",
         "  (+1 for same-cat, stack-heavy, salvage-heavy folders)",
         "Disasm rule: salvage tier <= source-1 (min size 1)",
-        "Disasm SRL: size tier + gear surcharge; small stackables cost >=2 (max 5)",
+        "Disasm SRL: size tier + gear surcharge; small stackables cost >=3 (max 6)",
         "Disasm cap: ceil(size/5) stacks, max 2",
         "Disasm size budget: floor(size*0.45) total salvage",
         "Action Menu: shows SRL, U=Use E=Equip D=Disasm X=Drop",
@@ -1387,6 +1409,12 @@ function InventoryUI.disassembleItem(item)
     if #salvageText > 44 then salvageText = salvageText:sub(1, 41) .. "..." end
 
     InventoryUI.setStatus(string.format("DISASM OK (%d SRL): %s", disasmCost, salvageText))
+    logEconomyEvent("disassemble", {
+        itemId = item.itemId,
+        srlSpent = disasmCost,
+        outputCount = #outputs,
+        outputs = outputs,
+    })
     InventoryUI.refreshContents()
 end
 
@@ -1428,6 +1456,19 @@ function InventoryUI.buildCurrentFolder()
         if #resultLabel > 28 then resultLabel = resultLabel:sub(1, 25) .. "..." end
         InventoryUI.setStatus(string.format("BUILD OK: %s (%dF+%dSRL)", resultLabel, #consumed, builderCost))
     end
+
+    local componentIdsForLog = {}
+    for _, c in ipairs(consumed) do
+        componentIdsForLog[#componentIdsForLog + 1] = c.itemId
+    end
+    logEconomyEvent("build", {
+        folder = cur and cur.name or "?",
+        componentCount = #consumed,
+        components = componentIdsForLog,
+        srlSpent = builderCost,
+        outputItemId = outItemId,
+        outputAdded = ok and 1 or 0,
+    })
 
     InventoryUI.refreshContents()
 end
