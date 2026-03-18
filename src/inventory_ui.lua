@@ -918,6 +918,7 @@ function InventoryUI.drawHelpDialog()
         "F9          Build current folder (footer shows nF/mSRL plan)",
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
+        "G           Pickup item on player tile",
         "",
         "Build tag: B:nF+mSRL on path row (files + SRL needed)",
         "Build rule: weak pairs/5+ files need 3, 8+ files need 4",

@@ -10,7 +10,7 @@ Tracking rule:
 - [x] Implement dropped-item pickup (`G`) from player tile
 - [x] Pickup fail message on inventory full
 - [x] Remove/flag collected world item after pickup
-- [ ] Add `G:Pickup` to in-game help/UI hints
+- [x] Add `G:Pickup` to in-game help/UI hints
 - [ ] Add regression scenario: drop -> pickup -> count validation
 - [ ] Add inventory build-test starter loadout tuning pass
 
