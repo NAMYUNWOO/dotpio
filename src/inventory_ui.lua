@@ -788,7 +788,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 3 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:Run U/E/D/X:Quick Gray=locked (Need SRL) Esc:Back", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:Run U/E/D/X:Quick Gray=locked (req unmet) Esc:Back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -1050,7 +1050,7 @@ function InventoryUI.actionMenuKeypressed(key)
             local need = getDisassembleCost(actionMenuTarget.itemId)
             local have = Inventory.countItemById(player.inventory, "builder_scroll")
             if have < need then
-                InventoryUI.setStatus(string.format("DISASM NEED %d SRL", need))
+                InventoryUI.setStatus(string.format("DISASM NEED %d SRL (%d/%d)", need - have, have, need))
                 return
             end
         end
