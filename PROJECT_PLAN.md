@@ -71,3 +71,5 @@ Definition of Done:
 - AI Content: generation quality + safeguards
 - UX: DOS interactions/copy/status feedback
 - QA: scripted + manual regressions
+
+See also: `TEAM_OPERATING_PROTOCOL.md` for dispatch/report workflow.
