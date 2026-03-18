@@ -196,7 +196,7 @@
 
 ## 2026-03-19 05:43:40 KST
 - Task: QA verification for M2 map_05 layout + portal links.
-- Commit: pending (this run)
+- Commit: `f1b32bf`
 - Files checked: `maps/map_04.lua`, `maps/map_05.lua`, `logs/playtests/map_01_04_progression_checklist.md`
 - Verification:
   - `luac -p maps/map_04.lua maps/map_05.lua` ✅
