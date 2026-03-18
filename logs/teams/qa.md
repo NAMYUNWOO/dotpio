@@ -66,3 +66,19 @@
   - No screenshot regen (no visible UI rendering/copy/layout changes).
 - Follow-up:
   - Continue with M1 stack split interaction + dedicated regression once implementation lands.
+
+## 2026-03-19 01:46:07 KST
+- Task: Verify M1 stack split interaction + regressions.
+- Commit: HEAD (this run)
+- Files checked: `src/inventory.lua`, `src/inventory_ui.lua`, `scripts/regression_split_stack.lua`
+- Verification:
+  - `luac -p src/inventory.lua src/inventory_ui.lua scripts/regression_split_stack.lua` ✅
+  - `lua scripts/regression_split_stack.lua` ✅
+  - `lua scripts/regression_economy_telemetry.lua` ✅
+  - `lua scripts/regression_starter_loadout.lua` ✅
+  - `lua scripts/regression_drop_pickup.lua` ✅
+- Decisions:
+  - Added dedicated split regression covering successful split, total-count invariance, and invalid full-stack split rejection.
+  - No portal validator run (no map/portal changes).
+- Follow-up:
+  - Add regression coverage once build preview/confirm flow lands.

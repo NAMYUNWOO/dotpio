@@ -42,11 +42,12 @@ local focusPanel = "files"  -- "files" or "equip"
 local equipCursor = 1       -- 1~8 for equip panel
 
 -- Dialog state
-local dialogType = nil   -- "mkdir", "delete", "drop", "help", "move"
+local dialogType = nil   -- "mkdir", "delete", "drop", "help", "move", "split"
 local dialogInput = ""
 local dialogTarget = nil
 local moveDirs = {}
 local moveCursor = 1
+local splitCountInput = ""
 
 -- Action menu state
 local actionMenuCursor = 1
@@ -771,7 +772,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot  Enter:Unequip  L/R:Panel  Esc:Exit", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Actions Bksp:UpDir U/E/D/X:Quick F1:Help F5:Sort %s Esc:Exit",
+            "Up/Dn:Nav Enter:Actions Bksp:UpDir U/E/D/S/X:Quick F1:Help F5:Sort %s Esc:Exit",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -802,6 +803,9 @@ function InventoryUI.buildActionMenu(item)
         disasmLabel = string.format("DISASSEMBLE [D] (%d SRL, NEED %d)", disasmCost, disasmCost - builderCount)
     end
     menu[#menu+1] = {label = disasmLabel, enabled = canDisassemble, action = "disassemble"}
+    -- SPLIT (stackables only)
+    local canSplit = def and def.stackable and (item.count or 1) > 1
+    menu[#menu+1] = {label = "SPLIT [S] (stack)", enabled = canSplit, action = "split"}
     -- DROP (remove from inventory to current map tile)
     menu[#menu+1] = {label = "DROP [X] (to map)", enabled = true, action = "delete"}
     return menu
@@ -833,7 +837,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 3 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:Run U/E/D/X:Quick Gray=LOCKED (need reqs) Esc:Back", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:Run U/E/D/S/X:Quick Gray=LOCKED (need reqs) Esc:Back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -854,6 +858,8 @@ function InventoryUI.drawDialog()
         InventoryUI.drawHelpDialog()
     elseif dialogType == "move" then
         InventoryUI.drawMoveDialog()
+    elseif dialogType == "split" then
+        InventoryUI.drawSplitDialog()
     end
 end
 
@@ -913,7 +919,7 @@ function InventoryUI.drawHelpDialog()
         "Disasm SRL: size tier + gear surcharge; small stackables cost >=3 (max 6)",
         "Disasm cap: ceil(size/5) stacks, max 2",
         "Disasm size budget: floor(size*0.45) total salvage",
-        "Action Menu: shows SRL, U=Use E=Equip D=Disasm X=Drop",
+        "Action Menu: shows SRL, U=Use E=Equip D=Disasm S=Split X=Drop",
         "",
         "Press any key to close...",
     }
@@ -941,6 +947,22 @@ function InventoryUI.drawMoveDialog()
         end
     end
     DosUI.putString(col + 2, row + h - 2, "Enter=Move  Esc=Cancel", 8, 4)
+end
+
+function InventoryUI.drawSplitDialog()
+    local item = dialogTarget
+    local total = (item and item.count) or 0
+    local w, h = 46, 8
+    local col = math.floor((100 - w) / 2)
+    local row = math.floor((40 - h) / 2)
+    DosUI.drawBox(col, row, w, h, 15, 4)
+    DosUI.putString(col + 2, row + 1, "Split Stack", 15, 4)
+    DosUI.putString(col + 2, row + 2, string.format("%s (x%d)", item and item.name or "?", total), 7, 4, w - 4)
+    DosUI.putString(col + 2, row + 3, "Move qty to new stack:", 7, 4)
+    DosUI.fillRect(col + 2, row + 4, w - 4, 1, " ", nil, 0)
+    DosUI.putString(col + 2, row + 4, splitCountInput .. "_", 15, 0)
+    DosUI.putString(col + 2, row + 5, string.format("Valid: 1 ~ %d", math.max(1, total - 1)), 8, 4)
+    DosUI.putString(col + 2, row + 6, "Enter=Split  Esc=Cancel", 8, 4)
 end
 
 ------------------------------------------------------------
@@ -1020,7 +1042,7 @@ function InventoryUI.filesPanelKeypressed(key)
         InventoryUI.promptDelete()
     elseif key == "f9" then
         InventoryUI.buildCurrentFolder()
-    elseif key == "u" or key == "e" or key == "d" or key == "x" then
+    elseif key == "u" or key == "e" or key == "d" or key == "s" or key == "x" then
         -- Quick keys: act on selected file without opening the action menu
         if cursor < 1 or cursor > #contents then
             InventoryUI.setStatus("Select a file")
@@ -1052,6 +1074,8 @@ function InventoryUI.filesPanelKeypressed(key)
             end
         elseif key == "d" then
             InventoryUI.disassembleItem(item)
+        elseif key == "s" then
+            InventoryUI.promptSplit(item)
         elseif key == "x" then
             InventoryUI.promptDrop()
         end
@@ -1105,6 +1129,8 @@ function InventoryUI.actionMenuKeypressed(key)
             InventoryUI.setStatus("USE N/A (consumables only)")
         elseif mi.action == "equip" then
             InventoryUI.setStatus("EQUIP N/A (no valid slot)")
+        elseif mi.action == "split" then
+            InventoryUI.setStatus("SPLIT N/A (need stack x2+)")
         else
             InventoryUI.setStatus("ACTION LOCKED")
         end
@@ -1133,6 +1159,8 @@ function InventoryUI.actionMenuKeypressed(key)
         elseif mi.action == "disassemble" then
             state = "browsing"
             InventoryUI.disassembleItem(actionMenuTarget)
+        elseif mi.action == "split" then
+            InventoryUI.promptSplit(actionMenuTarget)
         elseif mi.action == "delete" then
             state = "dialog"
             dialogType = "drop"
@@ -1154,8 +1182,8 @@ function InventoryUI.actionMenuKeypressed(key)
         until actionMenuItems[actionMenuCursor].enabled or actionMenuCursor == start
     elseif key == "return" then
         runAction(actionMenuItems[actionMenuCursor])
-    elseif key == "u" or key == "e" or key == "d" or key == "x" then
-        local map = {u = "use", e = "equip", d = "disassemble", x = "delete"}
+    elseif key == "u" or key == "e" or key == "d" or key == "s" or key == "x" then
+        local map = {u = "use", e = "equip", d = "disassemble", s = "split", x = "delete"}
         local want = map[key]
         for _, mi in ipairs(actionMenuItems) do
             if mi.action == want then
@@ -1282,12 +1310,32 @@ function InventoryUI.dialogKeypressed(key)
         end
         return
     end
+
+    if dialogType == "split" then
+        if key == "return" then
+            InventoryUI.doSplit()
+            state = "browsing"
+            dialogType = nil
+        elseif key == "escape" then
+            state = "browsing"
+            dialogType = nil
+        elseif key == "backspace" then
+            splitCountInput = splitCountInput:sub(1, -2)
+        end
+        return
+    end
 end
 
 function InventoryUI.textinput(text)
-    if state == "dialog" and dialogType == "mkdir" then
+    if state ~= "dialog" then return end
+
+    if dialogType == "mkdir" then
         if text:match("^[A-Za-z0-9_]$") and #dialogInput < 8 then
             dialogInput = dialogInput .. text:upper()
+        end
+    elseif dialogType == "split" then
+        if text:match("^%d$") and #splitCountInput < 3 then
+            splitCountInput = splitCountInput .. text
         end
     end
 end
@@ -1583,6 +1631,54 @@ function InventoryUI.promptMove()
     state = "dialog"
     dialogType = "move"
     dialogTarget = item
+end
+
+function InventoryUI.promptSplit(item)
+    local target = item
+    if not target then
+        if cursor < 1 or cursor > #contents then return end
+        target = contents[cursor]
+    end
+
+    if not target or target.type ~= "file" then
+        InventoryUI.setStatus("Select a stack file")
+        return
+    end
+
+    local def = Items.get(target.itemId)
+    if not def or not def.stackable then
+        InventoryUI.setStatus("Split only works on stackables")
+        return
+    end
+
+    if (target.count or 1) <= 1 then
+        InventoryUI.setStatus("Need stack x2+")
+        return
+    end
+
+    dialogTarget = target
+    splitCountInput = tostring(math.max(1, math.floor((target.count or 2) / 2)))
+    state = "dialog"
+    dialogType = "split"
+end
+
+function InventoryUI.doSplit()
+    if not dialogTarget then
+        InventoryUI.setStatus("Split canceled")
+        return
+    end
+
+    local splitCount = tonumber(splitCountInput)
+    local ok, err = Inventory.splitStack(player.inventory, dialogTarget, splitCount)
+    if ok then
+        local remain = dialogTarget.count or 0
+        InventoryUI.setStatus(string.format("SPLIT OK: -%d (remain %d)", splitCount, remain))
+    else
+        InventoryUI.setStatus(err or "Split failed")
+    end
+    dialogTarget = nil
+    splitCountInput = ""
+    InventoryUI.refreshContents()
 end
 
 function InventoryUI.doMove()

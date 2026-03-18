@@ -16,7 +16,7 @@ Tracking rule:
 
 ## M1 - Core Loop Lock
 - [x] Add economy telemetry logging for build/disassemble (input/output/SRL)
-- [ ] Add stack split (partial item quantity split) interaction in inventory
+- [x] Add stack split (partial item quantity split) interaction in inventory
 - [ ] Add build preview/confirm UX (consumed materials + SRL cost before execute)
 - [ ] Make BUILDER.SRL usage affordance explicit in action menu and F9 flow
 - [ ] Add anti-exploit report (loop profit detection over N actions)

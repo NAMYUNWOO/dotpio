@@ -24,4 +24,6 @@ Compact decision memory for AI context efficiency.
 - Starter loadout sanity is scripted in `scripts/regression_starter_loadout.lua` (Player.init baseline check).
 - Economy telemetry baseline now logs build/disassemble lock/fail/success events into `logs/economy_telemetry.ndjson` with input/output metadata and SRL envelope fields.
 - Telemetry schema regression is scripted in `scripts/regression_economy_telemetry.lua`.
+- Inventory stacks now support split interaction (`S`) via action menu/quick key with quantity dialog and guardrails.
+- Stack split regression is scripted in `scripts/regression_split_stack.lua`.
 - Progress/report protocol: commit + verification + next task on each run.

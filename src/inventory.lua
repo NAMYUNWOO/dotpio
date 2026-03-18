@@ -176,6 +176,46 @@ function Inventory.moveItem(inv, node, targetDir)
     return true
 end
 
+function Inventory.splitStack(inv, node, splitCount)
+    if not node or node.type ~= "file" then return false, "Not a file" end
+    if node.isHeroFile then return false, "Cannot split HERO.CHAR" end
+
+    local def = Items.get(node.itemId)
+    if not def or not def.stackable then
+        return false, "Item is not stackable"
+    end
+
+    local currentCount = node.count or 1
+    splitCount = math.floor(tonumber(splitCount) or 0)
+    if splitCount < 1 then
+        return false, "Split count must be >= 1"
+    end
+    if splitCount >= currentCount then
+        return false, "Split count must be smaller than stack"
+    end
+
+    node.count = currentCount - splitCount
+
+    local parent = node.parent or inv.currentDir
+    local siblingIndex = 0
+    for _, child in ipairs(parent.children) do
+        if child.type == "file" and child.itemId == node.itemId then
+            siblingIndex = siblingIndex + 1
+        end
+    end
+
+    local splitNode = {
+        type = "file",
+        name = Items.dosName(node.itemId, siblingIndex),
+        itemId = node.itemId,
+        count = splitCount,
+        parent = parent,
+    }
+    table.insert(parent.children, splitNode)
+
+    return true, splitNode
+end
+
 function Inventory.getContents(dir)
     local dirs = {}
     local files = {}
