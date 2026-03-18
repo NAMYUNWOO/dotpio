@@ -17,4 +17,5 @@ Compact decision memory for AI context efficiency.
 - Build requirement scales with folder/component quality and loop-risk signals.
 - Disassemble is constrained by size-tier costs and salvage caps.
 - map_04 and portal validation flow are integrated with validator checks.
+- Dropped world items can now be picked up via `G` on player tile; pickup enforces inventory capacity and consumes map entity on success.
 - Progress/report protocol: commit + verification + next task on each run.

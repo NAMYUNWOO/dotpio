@@ -7,9 +7,9 @@ Tracking rule:
 - [x] done
 
 ## M0 - Immediate Stabilization
-- [ ] Implement dropped-item pickup (`G`) from player tile
-- [ ] Pickup fail message on inventory full
-- [ ] Remove/flag collected world item after pickup
+- [x] Implement dropped-item pickup (`G`) from player tile
+- [x] Pickup fail message on inventory full
+- [x] Remove/flag collected world item after pickup
 - [ ] Add `G:Pickup` to in-game help/UI hints
 - [ ] Add regression scenario: drop -> pickup -> count validation
 - [ ] Add inventory build-test starter loadout tuning pass

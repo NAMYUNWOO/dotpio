@@ -98,6 +98,21 @@ function Entities.enemyAt(gx, gy)
     return nil
 end
 
+function Entities.itemAt(gx, gy)
+    for i, it in ipairs(Entities.items) do
+        if not it.collected and it.x == gx and it.y == gy then
+            return i, it
+        end
+    end
+    return nil
+end
+
+function Entities.removeItem(index)
+    if index and index >= 1 and index <= #Entities.items then
+        table.remove(Entities.items, index)
+    end
+end
+
 function Entities.drawEnemies(fov, tileset)
     local TILE = Config.TILE
     local img = tileset.getImage()

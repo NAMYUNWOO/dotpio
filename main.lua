@@ -12,6 +12,7 @@ local Camera      = require("src.camera")
 local HUD         = require("src.hud")
 local Portal      = require("src.portal")
 local Items       = require("src.items")
+local Inventory   = require("src.inventory")
 local InventoryUI = require("src.inventory_ui")
 local LootboxUI   = require("src.lootbox_ui")
 local AiDescribe  = require("src.ai_describe")
@@ -252,6 +253,29 @@ function love.draw()
     end
 end
 
+local function tryPickupItem()
+    local itemIndex, item = Entities.itemAt(Player.x, Player.y)
+    if not item then
+        return
+    end
+
+    local ok, err = Inventory.addItem(Player.inventory, item.itemId, 1)
+    if not ok then
+        InventoryUI.setStatus("PICKUP FAILED: " .. ((err or "error"):upper()))
+        return
+    end
+
+    item.collected = true
+    Entities.removeItem(itemIndex)
+
+    local itemName = item.itemId
+    local def = Items.get(item.itemId)
+    if def and def.name then
+        itemName = def.name
+    end
+    InventoryUI.setStatus("PICKUP OK: " .. itemName:upper())
+end
+
 function love.keypressed(key)
     if InventoryUI.isOpen() then
         InventoryUI.keypressed(key)
@@ -272,7 +296,9 @@ function love.keypressed(key)
         return
     end
     if gameOver then return end
-    if key == "space" then
+    if key == "g" then
+        tryPickupItem()
+    elseif key == "space" then
         Combat.meleeAttack(Player, Entities.enemyAt)
     elseif key == "escape" then
         love.event.quit()
