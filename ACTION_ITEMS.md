@@ -11,7 +11,7 @@ Tracking rule:
 - [x] Pickup fail message on inventory full
 - [x] Remove/flag collected world item after pickup
 - [x] Add `G:Pickup` to in-game help/UI hints
-- [ ] Add regression scenario: drop -> pickup -> count validation
+- [x] Add regression scenario: drop -> pickup -> count validation
 - [ ] Add inventory build-test starter loadout tuning pass
 
 ## M1 - Core Loop Lock

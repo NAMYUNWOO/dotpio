@@ -19,4 +19,5 @@ Compact decision memory for AI context efficiency.
 - map_04 and portal validation flow are integrated with validator checks.
 - Dropped world items can now be picked up via `G` on player tile; pickup enforces inventory capacity and consumes map entity on success.
 - Pickup affordance is now surfaced in both realtime HUD controls and inventory help dialog (`G:Pickup`).
+- Drop->pickup regression is now scripted in `scripts/regression_drop_pickup.lua` to validate item count restoration + world item cleanup.
 - Progress/report protocol: commit + verification + next task on each run.
