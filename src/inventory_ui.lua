@@ -629,7 +629,12 @@ local function getDisassembleCost(itemId)
         cost = math.max(cost, 2)
     end
 
-    return math.min(5, cost)
+    -- Very large targets should not be cheap to crack into salvage.
+    if size >= 10 then
+        cost = cost + 1
+    end
+
+    return math.min(6, cost)
 end
 
 getBuildPlan = function(inv, dir)
@@ -677,6 +682,15 @@ getBuildPlan = function(inv, dir)
     local categoryCounts = {}
     local dominantCategoryCount = 0
     local stackableCount = 0
+    local salvageLikeCount = 0
+    local salvageLikeCategory = {
+        coin = true,
+        gem = true,
+        potion = true,
+        scroll = true,
+        tool = true,
+        misc = true,
+    }
     for i = 1, consumeCount do
         consumed[#consumed + 1] = components[i]
         local d = Items.get(components[i].itemId) or {}
@@ -692,18 +706,23 @@ getBuildPlan = function(inv, dir)
         if d.stackable then
             stackableCount = stackableCount + 1
         end
+        if salvageLikeCategory[cat] then
+            salvageLikeCount = salvageLikeCount + 1
+        end
     end
 
     -- Balance pass: keep low-tier loops from being SRL-neutral while preserving room for 3/4-file recipes.
     -- Premium recipes scale a bit harder so high-quality chain builds need deeper SRL reserves.
     -- Homogeneous folders (same-category stacks) now pay +1 SRL to discourage deterministic farm loops.
     -- Mostly-stackable recipes (consumable spam) also pay +1 SRL to reduce churn exploits.
+    -- Salvage-like recipes (coin/gem/potion/scroll/tool/misc heavy) pay +1 SRL to break disasm→build churn loops.
     local score = sumSize + peakSize * 1.15
     local lowTierSurcharge = (sumSize <= 5) and 1 or 0
     local recipeSurcharge = (requiredCount >= 4) and 1 or 0
     local monoCategorySurcharge = (consumeCount >= 3 and dominantCategoryCount >= consumeCount - 1) and 1 or 0
     local stackableSurcharge = (consumeCount >= 3 and stackableCount >= consumeCount - 1) and 1 or 0
-    local builderCost = math.max(1, math.min(7, math.ceil(score / 2.15) + lowTierSurcharge + recipeSurcharge + monoCategorySurcharge + stackableSurcharge))
+    local salvageLoopSurcharge = (consumeCount >= 3 and salvageLikeCount >= consumeCount - 1) and 1 or 0
+    local builderCost = math.max(1, math.min(7, math.ceil(score / 2.15) + lowTierSurcharge + recipeSurcharge + monoCategorySurcharge + stackableSurcharge + salvageLoopSurcharge))
     return consumed, builderCost, requiredCount
 end
 
