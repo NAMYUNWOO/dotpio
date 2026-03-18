@@ -668,20 +668,30 @@ getBuildPlan = function(inv, dir)
     local consumed = {}
     local sumSize = 0
     local peakSize = 1
+    local categoryCounts = {}
+    local dominantCategoryCount = 0
     for i = 1, consumeCount do
         consumed[#consumed + 1] = components[i]
         local d = Items.get(components[i].itemId) or {}
         local s = d.size or 1
         sumSize = sumSize + s
         if s > peakSize then peakSize = s end
+
+        local cat = d.category or "misc"
+        categoryCounts[cat] = (categoryCounts[cat] or 0) + 1
+        if categoryCounts[cat] > dominantCategoryCount then
+            dominantCategoryCount = categoryCounts[cat]
+        end
     end
 
     -- Balance pass: keep low-tier loops from being SRL-neutral while preserving room for 3/4-file recipes.
     -- Premium recipes scale a bit harder so high-quality chain builds need deeper SRL reserves.
+    -- Homogeneous folders (same-category stacks) now pay +1 SRL to discourage deterministic farm loops.
     local score = sumSize + peakSize * 1.15
     local lowTierSurcharge = (sumSize <= 5) and 1 or 0
     local recipeSurcharge = (requiredCount >= 4) and 1 or 0
-    local builderCost = math.max(1, math.min(7, math.ceil(score / 2.15) + lowTierSurcharge + recipeSurcharge))
+    local monoCategorySurcharge = (consumeCount >= 3 and dominantCategoryCount >= consumeCount - 1) and 1 or 0
+    local builderCost = math.max(1, math.min(7, math.ceil(score / 2.15) + lowTierSurcharge + recipeSurcharge + monoCategorySurcharge))
     return consumed, builderCost, requiredCount
 end
 
@@ -861,7 +871,7 @@ function InventoryUI.drawHelpDialog()
         "",
         "Build tag: B:nF+mS on path row (files + SRL needed)",
         "Build rule: weak pairs/5+ files need 3, 8+ files need 4",
-        "Build SRL: quality-weighted cost (1~7)",
+        "Build SRL: quality-weighted cost (1~7), +1 for mostly same-category stacks", 
         "Disasm rule: salvage tier <= source-1 (min size 1)",
         "Disasm SRL: size tier + premium surcharge for gear (max 5)",
         "Disasm cap: ceil(size/4) stacks, max 2",
