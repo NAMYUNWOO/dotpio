@@ -47,13 +47,33 @@ function Entities.spawn(player, skipPlayerPlace)
         idx = 2
     end
 
-    local enemyGids = {45, 23, 25, 26, 27, 28, 31, 32, 57, 58}
+    local enemyVariants = {
+        { name = "raider", chance = 0.4, hp = 3, gidPool = {45, 23, 25, 26} },
+        { name = "skirmisher", chance = 0.25, hp = 2, gidPool = {27, 28, 31} },
+        { name = "bruiser", chance = 0.2, hp = 5, gidPool = {57, 58} },
+        { name = "sentinel", chance = 0.15, hp = 4, gidPool = {32, 45} },
+    }
+
+    local function pickVariant()
+        local roll = love.math.random()
+        local acc = 0
+        for _, variant in ipairs(enemyVariants) do
+            acc = acc + variant.chance
+            if roll <= acc then return variant end
+        end
+        return enemyVariants[1]
+    end
+
     for i = 1, Config.ENEMY_COUNT do
         if idx > #pool then break end
         local p = pool[idx]; idx = idx + 1
+        local variant = pickVariant()
+        local hp = variant.hp
+        local gidPool = variant.gidPool
         local e = {
-            x=p[1], y=p[2], hp=3, maxHp=3, alive=true,
-            gid=enemyGids[love.math.random(1, #enemyGids)],
+            x=p[1], y=p[2], hp=hp, maxHp=hp, alive=true,
+            behavior = variant.name,
+            gid=gidPool[love.math.random(1, #gidPool)],
         }
         Entities.enemies[#Entities.enemies+1] = e
     end
@@ -159,6 +179,10 @@ function Entities.drawLootboxes(fov, tileset)
             love.graphics.rectangle("fill", (lb.x-1)*TILE, (lb.y-1)*TILE, TILE, TILE)
         end
     end
+end
+
+function Entities.getEnemyBehaviorVariants()
+    return { "raider", "skirmisher", "bruiser", "sentinel" }
 end
 
 function Entities.drawItems(fov, tileset)

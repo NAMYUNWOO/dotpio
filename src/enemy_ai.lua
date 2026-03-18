@@ -10,6 +10,47 @@ local EnemyAI = {}
 
 local grid, finder
 
+local BEHAVIOR_DEFAULTS = {
+    moveCdMul = 1.0,
+    atkCdMul = 1.0,
+    atkDmgBonus = 0,
+    detectBonus = 0,
+    chaseBonus = 0,
+    fleeHp = Config.ENEMY_FLEE_HP,
+    leashRadius = nil,
+    retreatAfterHit = false,
+}
+
+local BEHAVIOR_PROFILES = {
+    raider = {},
+    skirmisher = {
+        moveCdMul = 0.75,
+        detectBonus = 1,
+        chaseBonus = 1,
+        retreatAfterHit = true,
+    },
+    bruiser = {
+        moveCdMul = 1.2,
+        atkCdMul = 1.15,
+        atkDmgBonus = 1,
+        detectBonus = -1,
+        chaseBonus = -1,
+        fleeHp = 0,
+    },
+    sentinel = {
+        moveCdMul = 0.9,
+        detectBonus = 2,
+        chaseBonus = -2,
+        leashRadius = 5,
+        fleeHp = 0,
+    },
+}
+
+local function behaviorFor(e)
+    local profile = BEHAVIOR_PROFILES[e.behavior or "raider"] or {}
+    return setmetatable(profile, { __index = BEHAVIOR_DEFAULTS })
+end
+
 -- Build walkability grid for Jumper (0 = walkable, 1 = blocked)
 function EnemyAI.buildGrid()
     local map = {}
@@ -93,8 +134,18 @@ local function pickPatrolTarget(e)
 end
 
 function EnemyAI.init(e, idx)
+    e.behavior = e.behavior or "raider"
+    local behavior = behaviorFor(e)
     e.state = "idle"
-    e.moveTimer = love.math.random() * Config.ENEMY_MOVE_CD
+    e.moveCd = Config.ENEMY_MOVE_CD * behavior.moveCdMul
+    e.atkCd = Config.ENEMY_ATK_CD * behavior.atkCdMul
+    e.fleeHp = behavior.fleeHp
+    e.detectRange = math.max(2, Config.ENEMY_DETECT + behavior.detectBonus)
+    e.chaseRange = math.max(e.detectRange, Config.ENEMY_CHASE + behavior.chaseBonus)
+    e.leashRadius = behavior.leashRadius
+    e.atkDmg = Config.ENEMY_ATK_DMG + behavior.atkDmgBonus
+    e.retreatAfterHit = behavior.retreatAfterHit
+    e.moveTimer = love.math.random() * e.moveCd
     e.atkTimer = 0
     e.spawnX = e.x
     e.spawnY = e.y
@@ -113,8 +164,8 @@ function EnemyAI.update(e, idx, dt, player, enemies)
     e.atkTimer = math.max(0, e.atkTimer - dt)
 
     local d = dist(e.x, e.y, player.x, player.y)
-    local los = d <= Config.ENEMY_CHASE and hasLOS(e.x, e.y, player.x, player.y)
-    local canSee = d <= Config.ENEMY_DETECT and los
+    local los = d <= e.chaseRange and hasLOS(e.x, e.y, player.x, player.y)
+    local canSee = d <= e.detectRange and los
 
     -- State transitions
     if e.state == "idle" then
@@ -135,31 +186,36 @@ function EnemyAI.update(e, idx, dt, player, enemies)
         end
 
     elseif e.state == "chase" then
-        if e.hp <= Config.ENEMY_FLEE_HP then
+        local distFromSpawn = dist(e.x, e.y, e.spawnX, e.spawnY)
+        if e.hp <= e.fleeHp then
             e.state = "flee"
             e.alerted = false
+        elseif e.leashRadius and distFromSpawn > e.leashRadius then
+            e.state = "idle"
+            e.idleTimer = 0.5
+            e.patrolX, e.patrolY = e.spawnX, e.spawnY
         elseif isAdjacent(e.x, e.y, player.x, player.y) then
             e.state = "attack"
         elseif e.alerted then
-            if d > Config.ENEMY_DETECT then
+            if d > e.detectRange then
                 e.alerted = false
                 e.state = "idle"
                 e.idleTimer = 0.5
             end
-        elseif d > Config.ENEMY_CHASE or not los then
+        elseif d > e.chaseRange or not los then
             e.state = "idle"
             e.idleTimer = 0.5
         end
 
     elseif e.state == "attack" then
-        if e.hp <= Config.ENEMY_FLEE_HP then
+        if e.hp <= e.fleeHp then
             e.state = "flee"
         elseif not isAdjacent(e.x, e.y, player.x, player.y) then
             e.state = "chase"
         end
 
     elseif e.state == "flee" then
-        if d > Config.ENEMY_CHASE then
+        if d > e.chaseRange then
             e.state = "idle"
             e.idleTimer = 1.0
         end
@@ -175,7 +231,7 @@ function EnemyAI.update(e, idx, dt, player, enemies)
         local nx, ny = getNextStep(e.x, e.y, e.patrolX, e.patrolY, enemies, idx)
         if nx then
             e.x, e.y = nx, ny
-            e.moveTimer = Config.ENEMY_MOVE_CD
+            e.moveTimer = e.moveCd
         else
             -- Can't reach patrol target, go idle
             e.state = "idle"
@@ -186,14 +242,17 @@ function EnemyAI.update(e, idx, dt, player, enemies)
         local nx, ny = getNextStep(e.x, e.y, player.x, player.y, enemies, idx)
         if nx then
             e.x, e.y = nx, ny
-            e.moveTimer = Config.ENEMY_MOVE_CD
+            e.moveTimer = e.moveCd
         end
 
     elseif e.state == "attack" and e.atkTimer <= 0 then
         -- Deal damage to player
-        local dmg = Stats.damageReduction(Config.ENEMY_ATK_DMG, player.effectiveStats)
+        local dmg = Stats.damageReduction(e.atkDmg, player.effectiveStats)
         player.hp = player.hp - math.max(1, math.floor(dmg + 0.5))
-        e.atkTimer = Config.ENEMY_ATK_CD
+        e.atkTimer = e.atkCd
+        if e.retreatAfterHit then
+            e.state = "flee"
+        end
         return "hit_player"
 
     elseif e.state == "flee" and e.moveTimer <= 0 then
@@ -206,7 +265,7 @@ function EnemyAI.update(e, idx, dt, player, enemies)
         local nx, ny = getNextStep(e.x, e.y, fleeX, fleeY, enemies, idx)
         if nx then
             e.x, e.y = nx, ny
-            e.moveTimer = Config.ENEMY_MOVE_CD
+            e.moveTimer = e.moveCd
         else
             -- Try random adjacent walkable cell
             local dirs = {{1,0},{-1,0},{0,1},{0,-1}}
@@ -221,13 +280,17 @@ function EnemyAI.update(e, idx, dt, player, enemies)
                     end
                     if not occupied and not (tx == player.x and ty == player.y) then
                         e.x, e.y = tx, ty
-                        e.moveTimer = Config.ENEMY_MOVE_CD
+                        e.moveTimer = e.moveCd
                         break
                     end
                 end
             end
         end
     end
+end
+
+function EnemyAI.getBehaviorProfiles()
+    return BEHAVIOR_PROFILES
 end
 
 return EnemyAI

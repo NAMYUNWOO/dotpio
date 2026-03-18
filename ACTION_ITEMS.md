@@ -28,7 +28,7 @@ Tracking rule:
 ## M2 - Content Sprint
 - [x] Design and implement map_05 layout + portal links
 - [x] Design and implement map_06 layout + portal links
-- [ ] Add at least 3 new enemy behavior variants
+- [x] Add at least 3 new enemy behavior variants
 - [ ] Expand AI build output category diversity constraints
 - [ ] Add reward table pass for lootbox contents by map tier
 

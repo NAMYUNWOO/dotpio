@@ -47,3 +47,7 @@ See project-level plans:
 ## Next Up (M2 content sprint)
 - [x] Design and implement map_05 layout + portal links
 - [x] Design and implement map_06 layout + portal links
+- [x] Add at least 3 enemy behavior variants
+  - [x] Introduce variant archetypes with distinct combat/movement tendencies
+  - [x] Assign variants during spawn so encounters mix behaviors per run
+  - [x] Add regression coverage for variant roster/parameters
