@@ -36,6 +36,7 @@ local sortModes = {"name", "type", "size"}
 local sortIndex = 1
 local statusMsg = ""
 local statusTimer = 0
+local onBuildCompleted = nil
 
 -- Panel focus
 local focusPanel = "files"  -- "files" or "equip"
@@ -130,6 +131,14 @@ end
 
 function InventoryUI.init()
     DosUI.init()
+end
+
+function InventoryUI.setBuildCompletedHandler(handler)
+    if type(handler) == "function" then
+        onBuildCompleted = handler
+    else
+        onBuildCompleted = nil
+    end
 end
 
 function InventoryUI.isOpen()
@@ -1660,6 +1669,16 @@ function InventoryUI.buildCurrentFolder()
         local resultLabel = note or "new item created"
         if #resultLabel > 28 then resultLabel = resultLabel:sub(1, 25) .. "..." end
         InventoryUI.setStatus(string.format("BUILD OK: %s (%dF+%dBUILDER.SRL)", resultLabel, #consumed, builderCost))
+    end
+
+    if onBuildCompleted then
+        onBuildCompleted({
+            folder = cur and cur.name or "?",
+            outputItemId = outItemId,
+            consumed = #consumed,
+            builderCost = builderCost,
+            inventoryAdded = ok and 1 or 0,
+        })
     end
 
     local componentIdsForLog = {}

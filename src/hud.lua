@@ -1,6 +1,29 @@
 local HUD = {}
 
-function HUD.draw(player, enemies, gameOver)
+local function drawMissionPanel(missionState)
+    if not missionState or not missionState.active then
+        return
+    end
+
+    love.graphics.setColor(0, 0, 0, 0.72)
+    love.graphics.rectangle("fill", 8, 84, 320, 74)
+
+    local headerColor = missionState.completed and {0.4, 1, 0.6, 1} or {0.95, 0.9, 0.6, 1}
+    love.graphics.setColor(headerColor)
+    love.graphics.print(string.format("RUN MISSIONS %d/%d", missionState.doneCount or 0, missionState.total or 0), 16, 90)
+
+    local row = 108
+    for _, objective in ipairs(missionState.objectives or {}) do
+        local done = objective.done
+        local marker = done and "[x]" or "[ ]"
+        local fg = done and {0.5, 1, 0.6, 1} or {0.8, 0.8, 0.8, 1}
+        love.graphics.setColor(fg)
+        love.graphics.print(string.format("%s %s (%d/%d)", marker, objective.label or "?", objective.progress or 0, objective.target or 0), 16, row)
+        row = row + 16
+    end
+end
+
+function HUD.draw(player, enemies, gameOver, missionState)
     love.graphics.setColor(0,0,0,0.7)
     love.graphics.rectangle("fill", 8, 8, 220, 70)
     love.graphics.setColor(1,1,1,1)
@@ -23,6 +46,8 @@ function HUD.draw(player, enemies, gameOver)
     love.graphics.print("WASD:Move  Click:Magic  Space:Melee  E:Search  G:Pickup  R:Restart", 16, 54)
     love.graphics.setColor(0.5,0.5,0.5,0.8)
     love.graphics.print(string.format("Pos: %d,%d", player.x, player.y), 16, 690)
+
+    drawMissionPanel(missionState)
 
     if gameOver then
         love.graphics.setColor(0,0,0,0.6)

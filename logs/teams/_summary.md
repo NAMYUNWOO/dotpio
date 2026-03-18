@@ -43,4 +43,6 @@ Compact decision memory for AI context efficiency.
 - Diversity constraint behavior is regression-covered in `scripts/regression_build_category_diversity.lua`.
 - Lootbox rewards are now map-tiered (01~02 consumable-heavy, 03~04 mixed gear, 05~06 gear/accessory weighted) via weighted category profiles in `src/entities.lua`.
 - Tiered loot distribution is regression-covered in `scripts/regression_lootbox_rewards_by_tier.lua`.
+- M3 run mission prototype now tracks three objective lanes (`kills`, `pickup`, `build`) in runtime state and surfaces checklist progress in HUD.
+- Mission objective flow is regression-covered in `scripts/regression_run_missions.lua`.
 - Progress/report protocol: commit + verification + next task on each run.

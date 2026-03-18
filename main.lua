@@ -16,6 +16,7 @@ local Inventory   = require("src.inventory")
 local InventoryUI = require("src.inventory_ui")
 local LootboxUI   = require("src.lootbox_ui")
 local AiDescribe  = require("src.ai_describe")
+local RunMissions = require("src.run_missions")
 
 local gameOver = false
 local autoShotDone = false
@@ -30,6 +31,10 @@ local lootboxInteract = {
 }
 local hoveredLootbox = nil
 local lastPlayerX, lastPlayerY = 0, 0
+
+local function resetRunState()
+    RunMissions.reset()
+end
 
 local function loadMap(mapName, portalName)
     Map.load(mapName)
@@ -71,6 +76,10 @@ function love.load()
     Items.loadFromJson()
     InventoryUI.init()
     AiDescribe.init()
+    InventoryUI.setBuildCompletedHandler(function()
+        RunMissions.addProgress("build", 1)
+    end)
+    resetRunState()
     Player.init(0, 0)
     Player.recalcStats()
     loadMap(autoStartMap or "01", autoStartPortal)
@@ -108,6 +117,10 @@ function love.update(dt)
     Player.update(dt, Camera)
     FOV.calculate(Player.x, Player.y, Player.aimAngle)
     Combat.update(dt, Entities.enemyAt)
+    local kills = Combat.consumeKillCount()
+    if kills > 0 then
+        RunMissions.addProgress("kills", kills)
+    end
     Entities.update(dt, Player, Combat.addDamageFlash)
     Camera.update(Player.visualX, Player.visualY)
 
@@ -208,7 +221,7 @@ function love.draw()
     love.graphics.pop()
 
     -- HUD
-    HUD.draw(Player, Entities.enemies, gameOver)
+    HUD.draw(Player, Entities.enemies, gameOver, RunMissions.getState())
 
     -- Lootbox hover tooltip (with integrated progress fill)
     if hoveredLootbox and not LootboxUI.isOpen() then
@@ -267,6 +280,7 @@ local function tryPickupItem()
 
     item.collected = true
     Entities.removeItem(itemIndex)
+    RunMissions.addProgress("pickup", 1)
 
     local itemName = item.itemId
     local def = Items.get(item.itemId)
@@ -291,6 +305,7 @@ function love.keypressed(key)
     end
     if key == "r" then
         Player.inventory = nil
+        resetRunState()
         Player.init(0, 0)
         loadMap("01", nil)
         return

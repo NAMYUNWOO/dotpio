@@ -127,3 +127,17 @@
   - The checklist now emits a durable playtest artifact at `logs/playtests/loop_30min_checklist.md` to track M1 momentum gate pass/fail in one place.
 - Follow-up:
   - Next highest unchecked milestone item is M2 `Design and implement map_05 layout + portal links`.
+
+## 2026-03-19 08:15:07 KST
+- Task: M3 run mission prototype (3 objectives) with runtime progress tracking hooks.
+- Commit: HEAD (this run)
+- Files: `src/run_missions.lua`, `src/combat.lua`, `src/inventory_ui.lua`, `main.lua`, `scripts/regression_run_missions.lua`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p main.lua src/run_missions.lua src/combat.lua src/inventory_ui.lua scripts/regression_run_missions.lua` ✅
+  - `lua scripts/regression_run_missions.lua` ✅
+- Decisions:
+  - Added run mission state module with 3 prototype objectives (`kills`, `pickup`, `build`) and clamped progress semantics.
+  - Combat now exports kill deltas (`consumeKillCount`) so mission progression can track player eliminations without invasive enemy rewrites.
+  - Inventory build flow exposes completion callback to increment mission progress only on successful AI build generation.
+- Follow-up:
+  - Next M3 item: add unlock flag framework for new build options.

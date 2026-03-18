@@ -246,3 +246,16 @@
   - No portal validator required (map files untouched).
 - Follow-up:
   - Include loot-tier regression in next full 30-minute loop checklist rerun to ensure economy momentum remains stable.
+
+## 2026-03-19 08:15:07 KST
+- Task: QA verification for M3 run mission prototype.
+- Commit: HEAD (this run)
+- Files checked: `src/run_missions.lua`, `src/combat.lua`, `src/inventory_ui.lua`, `src/hud.lua`, `main.lua`, `scripts/regression_run_missions.lua`
+- Verification:
+  - `luac -p main.lua src/run_missions.lua src/hud.lua src/combat.lua src/inventory_ui.lua scripts/regression_run_missions.lua` ✅
+  - `lua scripts/regression_run_missions.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅ (HUD mission panel reflected in refreshed artifacts)
+- Decisions:
+  - Regression covers objective progress and completion clamp behavior; no portal validator run required (map files untouched).
+- Follow-up:
+  - Add mission-progress checks into the 30-minute orchestrator regression after unlock/fail-forward systems are added.

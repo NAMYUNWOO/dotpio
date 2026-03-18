@@ -57,3 +57,16 @@
   - Help dialog guidance updated so first-time users see `BUILDER.SRL` terminology on the build path.
 - Follow-up:
   - Next UX item: keep build material consumption explicit in confirmation/status copy.
+
+## 2026-03-19 08:15:07 KST
+- Task: M3 mission checklist HUD prototype.
+- Commit: HEAD (this run)
+- Files: `src/hud.lua`, `main.lua`, `screenshots/screenshot-map04.png`, `screenshots/screenshot-inventory-dos.png`
+- Verification:
+  - `luac -p src/hud.lua main.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Added always-visible mission panel with `RUN MISSIONS n/3` header and per-objective checklist rows (`[ ]/[x]`) to make meta goals readable during normal play.
+  - Kept mission panel below base HP/MP HUD to avoid overlap with existing controls/help row and preserve DOS readability.
+- Follow-up:
+  - Fold unlock/progression affordance into this panel once M3 unlock flags land.

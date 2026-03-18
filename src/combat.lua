@@ -6,10 +6,12 @@ local Combat = {}
 
 local projectiles = {}
 local damageFlash = {}
+local killCount = 0
 
 function Combat.reset()
     projectiles = {}
     damageFlash = {}
+    killCount = 0
 end
 
 function Combat.meleeAttack(player, enemyAtFn)
@@ -23,7 +25,10 @@ function Combat.meleeAttack(player, enemyAtFn)
         e.hp = e.hp - math.max(1, math.floor(dmg + 0.5))
         e.alerted = true
         damageFlash[#damageFlash+1] = {x=tx, y=ty, timer=0.3}
-        if e.hp <= 0 then e.alive = false end
+        if e.hp <= 0 and e.alive then
+            e.alive = false
+            killCount = killCount + 1
+        end
     end
 end
 
@@ -54,7 +59,10 @@ function Combat.update(dt, enemyAtFn)
                     local dmg = Stats.magicDamage(Config.MAGIC_DMG, Combat._playerRef and Combat._playerRef.effectiveStats or {int = 3})
                     e.hp = e.hp - math.max(1, math.floor(dmg + 0.5))
                     e.alerted = true
-                    if e.hp <= 0 then e.alive = false end
+                    if e.hp <= 0 and e.alive then
+                        e.alive = false
+                        killCount = killCount + 1
+                    end
                 end
             end
         end
@@ -101,6 +109,12 @@ function Combat.drawEffects()
             love.graphics.rectangle("fill", (d.x-1)*TILE, (d.y-1)*TILE, TILE, TILE)
         end
     end
+end
+
+function Combat.consumeKillCount()
+    local n = killCount
+    killCount = 0
+    return n
 end
 
 return Combat

@@ -57,3 +57,9 @@ See project-level plans:
 - [x] Add reward table pass for lootbox contents by map tier
   - [x] Add map-tier reward profile selection for lootbox generation
   - [x] Add regression coverage to validate tiered reward weighting envelope
+
+## Next Up (M3 meta progression)
+- [x] Add run mission prototype (3 objectives)
+  - [x] Track run objective progress (combat/loot/build)
+  - [x] Surface objective checklist in HUD
+  - [x] Add regression coverage for objective completion flow

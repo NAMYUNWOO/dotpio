@@ -33,7 +33,7 @@ Tracking rule:
 - [x] Add reward table pass for lootbox contents by map tier
 
 ## M3 - Meta Progression
-- [ ] Add run mission prototype (3 objectives)
+- [x] Add run mission prototype (3 objectives)
 - [ ] Add unlock flag framework for new build options
 - [ ] Add fail-forward reward (currency/material carryover)
 - [ ] Add summary screen for run result + unlock progress
