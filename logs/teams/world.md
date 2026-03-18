@@ -28,3 +28,17 @@
   - Added dedicated `map_04` -> `map_05` portal (`name=05`) and reciprocal `map_05` -> `map_04` return portal (`name=04`) to preserve bidirectional routing.
 - Follow-up:
   - Next M2 priority item: design and implement map_06 layout + portal links.
+
+## 2026-03-19 06:12:51 KST
+- Task: M2 design and implement map_06 layout + portal links.
+- Commit: HEAD (this run)
+- Files: `maps/map_05.lua`, `maps/map_06.lua`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p maps/map_05.lua maps/map_06.lua` ✅
+  - `python3 scripts/validate_portals.py` ✅ (Maps scanned: 6 / Portals scanned: 18)
+  - `python3 scripts/regression_map_progression.py` ✅
+- Decisions:
+  - Added `map_06` as a new dungeon-tier extension using the proven map_05 schema baseline to keep tile/collision compatibility stable.
+  - Added forward routing `map_05` portal `06` at (47,24) and reciprocal return `map_06` portal `05` at (1,13), preserving bidirectional progression integrity.
+- Follow-up:
+  - Next M2 priority item: add at least 3 new enemy behavior variants.

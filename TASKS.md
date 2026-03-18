@@ -46,4 +46,4 @@ See project-level plans:
 
 ## Next Up (M2 content sprint)
 - [x] Design and implement map_05 layout + portal links
-- [ ] Design and implement map_06 layout + portal links
+- [x] Design and implement map_06 layout + portal links

@@ -206,3 +206,16 @@
   - No screenshot regen required (no UI/copy/layout-facing screen changes).
 - Follow-up:
   - Re-run portal validator and progression checklist after map_06 lands.
+
+## 2026-03-19 06:12:51 KST
+- Task: QA verification for M2 map_06 layout + portal links.
+- Commit: HEAD (this run)
+- Files checked: `maps/map_05.lua`, `maps/map_06.lua`, `logs/playtests/map_01_04_progression_checklist.md`
+- Verification:
+  - `luac -p maps/map_05.lua maps/map_06.lua` ✅
+  - `python3 scripts/validate_portals.py` ✅ (new map wiring resolves)
+  - `python3 scripts/regression_map_progression.py` ✅ (map_01~04 gate still passes)
+- Decisions:
+  - No screenshot regen required (no UI/copy/layout-facing screen changes).
+- Follow-up:
+  - Re-run full loop checklist once enemy variant work lands to confirm momentum gate remains green.
