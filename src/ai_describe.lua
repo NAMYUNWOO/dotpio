@@ -127,6 +127,38 @@ local SPECIAL_ECONOMY_ITEM_IDS = {
     builder_scroll = true,
 }
 
+local function computeDisassemblyLimits(itemSize)
+    local size = math.max(1, tonumber(itemSize) or 1)
+
+    -- Fairness tuning:
+    -- - Tiny items should not flood stacks.
+    -- - Medium items keep current baseline.
+    -- - Larger items can recover a little more salvage without creating free loops.
+    local salvageStackCap
+    if size <= 2 then
+        salvageStackCap = 1
+    elseif size <= 6 then
+        salvageStackCap = 2
+    else
+        salvageStackCap = 3
+    end
+
+    local budgetScale
+    if size <= 2 then
+        budgetScale = 0.35
+    elseif size <= 6 then
+        budgetScale = 0.45
+    else
+        budgetScale = 0.55
+    end
+
+    local salvageSizeBudget = math.max(1, math.floor(size * budgetScale))
+    -- Keep salvage tiering meaningful: disassembly output total should never exceed source-1.
+    salvageSizeBudget = math.min(salvageSizeBudget, math.max(1, size - 1))
+
+    return salvageStackCap, salvageSizeBudget
+end
+
 local function pickItemByCategory(category, opts)
     opts = opts or {}
     local ids = Items.getIdsByCategory(category)
@@ -180,9 +212,8 @@ Rules: exactly 1-2 output rows, total count 1-3, no rare jackpots, make thematic
 
     -- Balance pass: disassembly should be a convenience path, not a free size multiplier.
     -- Use both a stack-count cap and a total salvage-size budget.
-    -- Tightened to keep medium/high-tier loops SRL-negative unless the player mixes in fresh drops.
-    local salvageStackCap = math.max(1, math.min(2, math.ceil(itemSize / 5)))
-    local salvageSizeBudget = math.max(1, math.floor(itemSize * 0.45))
+    -- Fairness-tuned by source size tier to avoid over-punishing big drops.
+    local salvageStackCap, salvageSizeBudget = computeDisassemblyLimits(itemSize)
     local remainingStacks = salvageStackCap
     local remainingSize = salvageSizeBudget
 
@@ -262,6 +293,14 @@ Choose category that matches component synergy and keep result grounded to compo
         or pickItemByCategory("misc", { maxSize = math.max(maxSize, buildCeil) })
         or pickItemByCategory("misc")
     return itemId, ((result and result.note) or "Build complete")
+end
+
+function AiDescribe.debugDisassemblyLimits(itemSize)
+    local stackCap, sizeBudget = computeDisassemblyLimits(itemSize)
+    return {
+        stackCap = stackCap,
+        sizeBudget = sizeBudget,
+    }
 end
 
 function AiDescribe.update()

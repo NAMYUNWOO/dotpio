@@ -97,3 +97,20 @@
   - Added dedicated regression (`scripts/regression_srl_cost_curve.lua`) asserting low-tier spam fixtures remain expensive vs premium fixtures.
 - Follow-up:
   - Next M1 item: tune salvage size/stack caps for fairness.
+
+## 2026-03-19 04:13:17 KST
+- Task: M1 tune salvage size/stack caps for fairness.
+- Commit: HEAD (this run)
+- Files: `src/ai_describe.lua`, `src/inventory_ui.lua`, `scripts/regression_disassembly_caps.lua`, `screenshots/screenshot-inventory-dos.png`, `screenshots/screenshot-map04.png`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p src/ai_describe.lua src/inventory_ui.lua scripts/regression_disassembly_caps.lua` ✅
+  - `lua scripts/regression_disassembly_caps.lua` ✅
+  - `lua scripts/regression_srl_cost_curve.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Replaced flat disassembly caps with size-tier fairness limits (tiny/medium/large => stack cap 1/2/3; budget scale 35%/45%/55%, clamped by `size-1`).
+  - Added `AiDescribe.debugDisassemblyLimits` + dedicated regression to lock cap/budget expectations.
+  - Updated help copy so disassembly constraints reflect tiered caps instead of stale fixed formulas.
+- Follow-up:
+  - Next M1 item: validate map_01~04 progression with portal validator + playtest checklist.

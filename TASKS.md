@@ -34,3 +34,4 @@ See project-level plans:
 
 - [x] Economy tuning for low-tier build spam suppression
   - [x] Tune SRL build-cost curve to increase low-tier churn penalties without overtaxing premium recipes
+  - [x] Tune disassembly salvage stack/size caps by item size tier for fairness

@@ -150,3 +150,19 @@
   - Locked regression expectation that low-tier salvage-heavy recipes should stay high-cost (>=6 BUILDER.SRL) and not undercut premium recipes.
 - Follow-up:
   - Add extended telemetry fixture once 30-minute loop runs are collected to validate live balance envelope.
+
+## 2026-03-19 04:13:17 KST
+- Task: Verify M1 disassembly salvage cap fairness tuning.
+- Commit: HEAD (this run)
+- Files checked: `src/ai_describe.lua`, `src/inventory_ui.lua`, `scripts/regression_disassembly_caps.lua`
+- Verification:
+  - `luac -p src/ai_describe.lua src/inventory_ui.lua scripts/regression_disassembly_caps.lua` ✅
+  - `lua scripts/regression_disassembly_caps.lua` ✅
+  - `lua scripts/regression_srl_cost_curve.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Locked tiered cap regression for tiny/medium/large source sizes to prevent future over-nerf/over-yield drift.
+  - Screenshot refresh confirmed inventory help text update for new disassembly cap/budget guidance.
+- Follow-up:
+  - Add playtest fixture once map progression validation run executes, so cap tuning can be checked against full 30-minute loop logs.

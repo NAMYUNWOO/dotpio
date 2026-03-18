@@ -21,7 +21,7 @@ Tracking rule:
 - [x] Make BUILDER.SRL usage affordance explicit in action menu and F9 flow
 - [x] Add anti-exploit report (loop profit detection over N actions)
 - [x] Tune SRL cost curve for low-tier spam suppression
-- [ ] Tune salvage size/stack caps for fairness
+- [x] Tune salvage size/stack caps for fairness
 - [ ] Validate map_01~04 progression with portal validator + playtest checklist
 - [ ] Add one scripted 30-minute loop checklist and pass it
 
