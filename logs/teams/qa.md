@@ -117,3 +117,21 @@
   - Screenshot regen executed because visible inventory/help copy changed.
 - Follow-up:
   - Reuse new affordance regression when touching action-menu/F9 copy in subsequent UX passes.
+
+## 2026-03-19 03:14:05 KST
+- Task: Verify M1 anti-exploit report implementation.
+- Commit: HEAD (this run)
+- Files checked: `src/economy_anti_exploit.lua`, `scripts/economy_anti_exploit_report.lua`, `scripts/regression_anti_exploit_report.lua`
+- Verification:
+  - `luac -p src/economy_anti_exploit.lua scripts/economy_anti_exploit_report.lua scripts/regression_anti_exploit_report.lua` ✅
+  - `lua scripts/regression_anti_exploit_report.lua` ✅
+  - `lua scripts/economy_anti_exploit_report.lua 20` ✅
+  - `lua scripts/regression_economy_telemetry.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_split_stack.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+- Decisions:
+  - Added explicit regression scenario that injects flat-SRL/high-output windows and asserts suspicious loop flagging.
+  - Report CLI now returns pass with empty baseline report when telemetry source is absent instead of hard-failing.
+- Follow-up:
+  - Add a fixture with net-positive SRL window once live telemetry from extended playtest is captured.

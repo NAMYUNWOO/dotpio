@@ -19,7 +19,7 @@ Tracking rule:
 - [x] Add stack split (partial item quantity split) interaction in inventory
 - [x] Add build preview/confirm UX (consumed materials + SRL cost before execute)
 - [x] Make BUILDER.SRL usage affordance explicit in action menu and F9 flow
-- [ ] Add anti-exploit report (loop profit detection over N actions)
+- [x] Add anti-exploit report (loop profit detection over N actions)
 - [ ] Tune SRL cost curve for low-tier spam suppression
 - [ ] Tune salvage size/stack caps for fairness
 - [ ] Validate map_01~04 progression with portal validator + playtest checklist

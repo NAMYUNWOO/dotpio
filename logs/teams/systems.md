@@ -61,3 +61,22 @@
   - Split dialog defaults to half-stack and surfaces valid range to reduce invalid input churn.
 - Follow-up:
   - Next M1 item: build preview/confirm UX (consumed materials + SRL cost before execute).
+
+## 2026-03-19 03:14:05 KST
+- Task: M1 anti-exploit report (loop profit detection over N actions).
+- Commit: HEAD (this run)
+- Files: `src/economy_anti_exploit.lua`, `scripts/economy_anti_exploit_report.lua`, `scripts/regression_anti_exploit_report.lua`, `.gitignore`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p src/economy_anti_exploit.lua scripts/economy_anti_exploit_report.lua scripts/regression_anti_exploit_report.lua` ✅
+  - `lua scripts/regression_anti_exploit_report.lua` ✅
+  - `lua scripts/economy_anti_exploit_report.lua 20` ✅
+  - `lua scripts/regression_economy_telemetry.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_split_stack.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+- Decisions:
+  - Added a sliding-window analyzer that flags suspicious loops when BUILDER.SRL is net-positive across N actions or flat with high output/input ratio.
+  - Report generator now emits JSON + Markdown summaries and degrades gracefully when telemetry log is missing.
+  - Ignored runtime telemetry/report artifacts in `.gitignore` to keep commits focused on source/docs.
+- Follow-up:
+  - Next M1 item: tune SRL cost curve for low-tier spam suppression.

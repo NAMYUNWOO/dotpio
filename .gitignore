@@ -8,3 +8,9 @@ bin/
 .env
 .env.ai
 .env.local
+
+# Runtime economy telemetry artifacts
+logs/economy_telemetry.ndjson
+logs/economy_anti_exploit_report.json
+logs/economy_anti_exploit_report.md
+logs/_regression/

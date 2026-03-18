@@ -21,6 +21,11 @@ See project-level plans:
   - [x] Emit build/disassemble telemetry for lock/fail/success paths in inventory workflow
   - [x] Add telemetry regression script (`scripts/regression_economy_telemetry.lua`)
 
+- [x] Add anti-exploit loop report from economy telemetry
+  - [x] Add analyzer module for sliding-window loop profit detection (`src/economy_anti_exploit.lua`)
+  - [x] Add report generator script for JSON+Markdown outputs (`scripts/economy_anti_exploit_report.lua`)
+  - [x] Add regression script for suspicious loop detection (`scripts/regression_anti_exploit_report.lua`)
+
 - [~] Inventory UX improvements for build workflow
   - [x] Add item split/partial stack feature ("소분")
   - [x] Improve `BUILDER.SRL` use flow UX (action menu + F9 path)

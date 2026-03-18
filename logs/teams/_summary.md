@@ -30,4 +30,5 @@ Compact decision memory for AI context efficiency.
 - Build preview confirmation gate is covered by `scripts/regression_build_preview_confirm.lua`.
 - BUILDER.SRL affordance copy is now explicit across action menu, lock/status messages, and F9 preview/help text (no generic SRL-only wording).
 - BUILDER.SRL copy consistency is regression-covered in `scripts/regression_builder_srl_affordance.lua`.
+- Anti-exploit monitoring now has a sliding-window analyzer (`src/economy_anti_exploit.lua`) and report generator (`scripts/economy_anti_exploit_report.lua`) that flags net-positive/flat-profit loops over N actions.
 - Progress/report protocol: commit + verification + next task on each run.
