@@ -30,7 +30,7 @@
 
 ## 2026-03-19 02:14:58 KST
 - Task: M1 build preview/confirm UX for F9 flow (consumed parts + SRL cost before execute).
-- Commit: HEAD (this run)
+- Commit: ec0c770
 - Files: `src/inventory_ui.lua`, `scripts/regression_build_preview_confirm.lua`, `screenshots/screenshot-map04.png`, `ACTION_ITEMS.md`, `TASKS.md`
 - Verification:
   - `luac -p src/inventory_ui.lua scripts/regression_build_preview_confirm.lua` ✅

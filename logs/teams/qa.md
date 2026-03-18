@@ -85,7 +85,7 @@
 
 ## 2026-03-19 02:14:58 KST
 - Task: Verify M1 build preview/confirm gate behavior.
-- Commit: HEAD (this run)
+- Commit: ec0c770
 - Files checked: `src/inventory_ui.lua`, `scripts/regression_build_preview_confirm.lua`
 - Verification:
   - `luac -p src/inventory_ui.lua scripts/regression_build_preview_confirm.lua` ✅
