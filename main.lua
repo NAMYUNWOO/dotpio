@@ -17,6 +17,7 @@ local InventoryUI = require("src.inventory_ui")
 local LootboxUI   = require("src.lootbox_ui")
 local AiDescribe  = require("src.ai_describe")
 local RunMissions = require("src.run_missions")
+local Unlocks     = require("src.unlocks")
 
 local gameOver = false
 local autoShotDone = false
@@ -31,9 +32,11 @@ local lootboxInteract = {
 }
 local hoveredLootbox = nil
 local lastPlayerX, lastPlayerY = 0, 0
+local missionUnlockAnnounced = false
 
 local function resetRunState()
     RunMissions.reset()
+    missionUnlockAnnounced = false
 end
 
 local function loadMap(mapName, portalName)
@@ -121,6 +124,17 @@ function love.update(dt)
     if kills > 0 then
         RunMissions.addProgress("kills", kills)
     end
+
+    local missionState = RunMissions.getState()
+    if missionState.completed and not missionUnlockAnnounced then
+        if Unlocks.unlock("advanced_build_categories") then
+            InventoryUI.setStatus("UNLOCKED: ADVANCED SCHEMATICS (RING/WAND/GEM)")
+        else
+            InventoryUI.setStatus("MISSIONS CLEARED: ADVANCED SCHEMATICS READY")
+        end
+        missionUnlockAnnounced = true
+    end
+
     Entities.update(dt, Player, Combat.addDamageFlash)
     Camera.update(Player.visualX, Player.visualY)
 
@@ -221,7 +235,7 @@ function love.draw()
     love.graphics.pop()
 
     -- HUD
-    HUD.draw(Player, Entities.enemies, gameOver, RunMissions.getState())
+    HUD.draw(Player, Entities.enemies, gameOver, RunMissions.getState(), Unlocks.getAllFlags())
 
     -- Lootbox hover tooltip (with integrated progress fill)
     if hoveredLootbox and not LootboxUI.isOpen() then

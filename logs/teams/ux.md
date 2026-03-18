@@ -70,3 +70,16 @@
   - Kept mission panel below base HP/MP HUD to avoid overlap with existing controls/help row and preserve DOS readability.
 - Follow-up:
   - Fold unlock/progression affordance into this panel once M3 unlock flags land.
+
+## 2026-03-19 08:45:23 KST
+- Task: M3 unlock progression affordance pass in runtime HUD/status flow.
+- Commit: HEAD (this run)
+- Files: `src/hud.lua`, `main.lua`, `screenshots/screenshot-map04.png`, `screenshots/screenshot-inventory-dos.png`
+- Verification:
+  - `luac -p main.lua src/hud.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Mission panel now includes explicit unlock row: `UNLOCK: ADVANCED SCHEMATICS [ON/OFF]`.
+  - On first mission completion per run, status bar emits unlock confirmation copy for advanced build schematics.
+- Follow-up:
+  - Revisit panel height/content once M3 summary screen lands so mission+unlock info remains readable.

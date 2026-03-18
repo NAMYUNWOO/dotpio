@@ -45,4 +45,6 @@ Compact decision memory for AI context efficiency.
 - Tiered loot distribution is regression-covered in `scripts/regression_lootbox_rewards_by_tier.lua`.
 - M3 run mission prototype now tracks three objective lanes (`kills`, `pickup`, `build`) in runtime state and surfaces checklist progress in HUD.
 - Mission objective flow is regression-covered in `scripts/regression_run_missions.lua`.
+- New unlock flag framework (`src/unlocks.lua`) now gates advanced build targets (`ring`, `wand`, `gem`) behind mission completion (`advanced_build_categories`) and surfaces unlock state in HUD/status copy.
+- Unlock gating/regression is covered in `scripts/regression_unlock_flags.lua`.
 - Progress/report protocol: commit + verification + next task on each run.

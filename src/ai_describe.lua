@@ -2,6 +2,7 @@
 
 local json = require("libs.json")
 local Items = require("src.items")
+local Unlocks = require("src.unlocks")
 
 local AiDescribe = {}
 
@@ -127,9 +128,28 @@ local SPECIAL_ECONOMY_ITEM_IDS = {
     builder_scroll = true,
 }
 
-local BUILD_TARGET_CATEGORIES = {
-    "weapon", "armor", "ring", "wand", "scroll", "tool", "gem", "potion", "misc"
+local BUILD_TARGET_CATEGORIES_BASE = {
+    "weapon", "armor", "scroll", "tool", "potion", "misc"
 }
+
+local BUILD_TARGET_CATEGORIES_ADVANCED = {
+    "ring", "wand", "gem"
+}
+
+local function getBuildTargetCategories()
+    local out = {}
+    for _, cat in ipairs(BUILD_TARGET_CATEGORIES_BASE) do
+        out[#out + 1] = cat
+    end
+
+    if Unlocks.isUnlocked("advanced_build_categories") then
+        for _, cat in ipairs(BUILD_TARGET_CATEGORIES_ADVANCED) do
+            out[#out + 1] = cat
+        end
+    end
+
+    return out
+end
 
 local BUILD_CATEGORY_HISTORY_LIMIT = 6
 local BUILD_CATEGORY_RECENT_CAP = 3
@@ -137,7 +157,7 @@ local buildCategoryHistory = {}
 
 local function normalizeBuildCategory(category)
     local cat = tostring(category or "misc"):lower()
-    for _, allowed in ipairs(BUILD_TARGET_CATEGORIES) do
+    for _, allowed in ipairs(getBuildTargetCategories()) do
         if cat == allowed then return cat end
     end
     return "misc"
@@ -199,7 +219,7 @@ local function buildCategoryCandidates(componentCats, targetCategory)
         end
     end
 
-    for _, cat in ipairs(BUILD_TARGET_CATEGORIES) do
+    for _, cat in ipairs(getBuildTargetCategories()) do
         appendUnique(out, seen, cat)
     end
 
@@ -395,15 +415,16 @@ function AiDescribe.generateBuild(folderName, componentIds)
     local buildCeil = math.max(1, math.min(3, math.ceil(avgSize)))
     local buildFloor = math.max(1, math.min(buildCeil, math.floor(avgSize)))
 
+    local allowedTargets = getBuildTargetCategories()
     local prompt = string.format(
 [[Game context: dark fantasy roguelike with DOS build metaphor.
 Task: Synthesize ONE new item from folder components.
 Folder: %s
 Component categories: %s
 Power budget: avg component size %.2f (output size must stay in this range)
-Return strict JSON: {"target_category":"weapon|armor|ring|wand|scroll|tool|gem|potion|misc", "rarity_hint":"Common|Uncommon|Rare|Legendary", "note":"short text"}
+Return strict JSON: {"target_category":"%s", "rarity_hint":"Common|Uncommon|Rare|Legendary", "note":"short text"}
 Choose category that matches component synergy and keep result grounded to component quality. Prefer underused categories when several are equally valid so outputs stay diverse across consecutive builds. Never return build-enabler items.]],
-        folderName or "PROJECT", table.concat(cats, ","), avgSize
+        folderName or "PROJECT", table.concat(cats, ","), avgSize, table.concat(allowedTargets, "|")
     )
 
     local req = generateRequestId("bld")
@@ -450,6 +471,10 @@ function AiDescribe.debugConstrainBuildCategory(targetCategory, componentCategor
         reason = reason,
         candidates = candidates,
     }
+end
+
+function AiDescribe.debugGetBuildTargetCategories()
+    return getBuildTargetCategories()
 end
 
 function AiDescribe.debugResetBuildCategoryHistory(seed)

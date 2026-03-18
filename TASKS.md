@@ -63,3 +63,8 @@ See project-level plans:
   - [x] Track run objective progress (combat/loot/build)
   - [x] Surface objective checklist in HUD
   - [x] Add regression coverage for objective completion flow
+- [x] Add unlock flag framework for new build options
+  - [x] Add shared unlock-state module with reset/debug helpers
+  - [x] Gate advanced build target categories behind unlock flag
+  - [x] Trigger unlock on run mission completion and surface status in HUD
+  - [x] Add regression coverage for unlock flow + gated category pool

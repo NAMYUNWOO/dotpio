@@ -141,3 +141,18 @@
   - Inventory build flow exposes completion callback to increment mission progress only on successful AI build generation.
 - Follow-up:
   - Next M3 item: add unlock flag framework for new build options.
+
+## 2026-03-19 08:45:23 KST
+- Task: M3 unlock flag framework for new build options.
+- Commit: HEAD (this run)
+- Files: `src/unlocks.lua`, `src/ai_describe.lua`, `main.lua`, `scripts/regression_unlock_flags.lua`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p main.lua src/ai_describe.lua src/unlocks.lua scripts/regression_unlock_flags.lua` ✅
+  - `lua scripts/regression_build_category_diversity.lua` ✅
+  - `lua scripts/regression_unlock_flags.lua` ✅
+- Decisions:
+  - Added shared unlock-state module with named flags and idempotent unlock semantics.
+  - Build target category pool is now dynamic: baseline categories are always available, while `ring/wand/gem` unlock via `advanced_build_categories`.
+  - AI build prompt now advertises only currently allowed target categories to keep generation aligned with unlocked progression.
+- Follow-up:
+  - Next M3 item: add fail-forward reward (currency/material carryover).

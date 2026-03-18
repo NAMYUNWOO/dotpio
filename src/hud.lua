@@ -1,12 +1,12 @@
 local HUD = {}
 
-local function drawMissionPanel(missionState)
+local function drawMissionPanel(missionState, unlockFlags)
     if not missionState or not missionState.active then
         return
     end
 
     love.graphics.setColor(0, 0, 0, 0.72)
-    love.graphics.rectangle("fill", 8, 84, 320, 74)
+    love.graphics.rectangle("fill", 8, 84, 320, 92)
 
     local headerColor = missionState.completed and {0.4, 1, 0.6, 1} or {0.95, 0.9, 0.6, 1}
     love.graphics.setColor(headerColor)
@@ -21,9 +21,13 @@ local function drawMissionPanel(missionState)
         love.graphics.print(string.format("%s %s (%d/%d)", marker, objective.label or "?", objective.progress or 0, objective.target or 0), 16, row)
         row = row + 16
     end
+
+    local advancedUnlocked = unlockFlags and unlockFlags.advanced_build_categories
+    love.graphics.setColor(advancedUnlocked and 0.45 or 0.6, advancedUnlocked and 1 or 0.6, advancedUnlocked and 0.7 or 0.6, 1)
+    love.graphics.print(string.format("UNLOCK: ADVANCED SCHEMATICS [%s]", advancedUnlocked and "ON" or "OFF"), 16, row)
 end
 
-function HUD.draw(player, enemies, gameOver, missionState)
+function HUD.draw(player, enemies, gameOver, missionState, unlockFlags)
     love.graphics.setColor(0,0,0,0.7)
     love.graphics.rectangle("fill", 8, 8, 220, 70)
     love.graphics.setColor(1,1,1,1)
@@ -47,7 +51,7 @@ function HUD.draw(player, enemies, gameOver, missionState)
     love.graphics.setColor(0.5,0.5,0.5,0.8)
     love.graphics.print(string.format("Pos: %d,%d", player.x, player.y), 16, 690)
 
-    drawMissionPanel(missionState)
+    drawMissionPanel(missionState, unlockFlags)
 
     if gameOver then
         love.graphics.setColor(0,0,0,0.6)

@@ -259,3 +259,19 @@
   - Regression covers objective progress and completion clamp behavior; no portal validator run required (map files untouched).
 - Follow-up:
   - Add mission-progress checks into the 30-minute orchestrator regression after unlock/fail-forward systems are added.
+
+## 2026-03-19 08:45:23 KST
+- Task: QA verification for M3 unlock flag framework.
+- Commit: HEAD (this run)
+- Files checked: `src/unlocks.lua`, `src/ai_describe.lua`, `main.lua`, `src/hud.lua`, `scripts/regression_unlock_flags.lua`
+- Verification:
+  - `luac -p main.lua src/hud.lua src/ai_describe.lua src/unlocks.lua scripts/regression_unlock_flags.lua` ✅
+  - `lua scripts/regression_run_missions.lua` ✅
+  - `lua scripts/regression_build_category_diversity.lua` ✅
+  - `lua scripts/regression_unlock_flags.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Unlock regression asserts advanced categories remain gated pre-completion and become available post-mission completion.
+  - No portal validator run required (map/portal files unchanged).
+- Follow-up:
+  - Extend unlock regression once fail-forward rewards/summaries start consuming unlock state.
