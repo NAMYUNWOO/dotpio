@@ -599,15 +599,31 @@ end
 local function getDisassembleCost(itemId)
     local def = Items.get(itemId) or {}
     local size = math.max(1, tonumber(def.size) or 1)
+
+    -- Baseline by byte size.
+    local cost = 1
+    if size >= 8 then cost = 4
+    elseif size >= 5 then cost = 3
+    elseif size >= 3 then cost = 2 end
+
     -- Balance pass:
-    --  - size 1~2: 1 SRL (starter scraps stay approachable)
-    --  - size 3~4: 2 SRL
-    --  - size 5~7: 3 SRL
-    --  - size 8+:  4 SRL (large loot now needs real SRL investment)
-    if size >= 8 then return 4 end
-    if size >= 5 then return 3 end
-    if size >= 3 then return 2 end
-    return 1
+    -- High-impact gear classes (combat-defining outputs) add +1 SRL so
+    -- disassemble loops on equipment are not SRL-neutral.
+    local premiumCategory = {
+        weapon = true,
+        armor = true,
+        shield = true,
+        robe = true,
+        bow = true,
+        wand = true,
+        book = true,
+        crown = true,
+    }
+    if premiumCategory[def.category or ""] then
+        cost = cost + 1
+    end
+
+    return math.min(5, cost)
 end
 
 getBuildPlan = function(inv, dir)
@@ -847,7 +863,7 @@ function InventoryUI.drawHelpDialog()
         "Build rule: weak pairs/5+ files need 3, 8+ files need 4",
         "Build SRL: quality-weighted cost (1~7)",
         "Disasm rule: salvage tier <= source-1 (min size 1)",
-        "Disasm SRL: size 1~2 -> 1, 3~4 -> 2, 5~7 -> 3, 8+ -> 4",
+        "Disasm SRL: size tier +1 for premium gear (max 5)",
         "Disasm cap: ceil(size/4) stacks, max 2",
         "Disasm size budget: floor(size*0.50) total salvage",
         "Action Menu: shows current SRL, U=Use E=Equip D=Disasm X=Drop",
