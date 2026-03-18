@@ -114,3 +114,16 @@
   - Updated help copy so disassembly constraints reflect tiered caps instead of stale fixed formulas.
 - Follow-up:
   - Next M1 item: validate map_01~04 progression with portal validator + playtest checklist.
+
+## 2026-03-19 05:13:00 KST
+- Task: M1 scripted 30-minute loop checklist + pass artifact.
+- Commit: HEAD (this run)
+- Files: `scripts/regression_30min_loop_checklist.py`, `logs/playtests/loop_30min_checklist.md`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `python3 -m py_compile scripts/regression_30min_loop_checklist.py` ✅
+  - `python3 scripts/regression_30min_loop_checklist.py` ✅ (`[PASS] 30-minute core loop checklist regression validated`)
+- Decisions:
+  - Added a single orchestrator regression that runs core-loop gates (starter loadout, build/disassemble telemetry, preview/confirm, SRL affordance, SRL curve, disassembly caps, anti-exploit, map progression).
+  - The checklist now emits a durable playtest artifact at `logs/playtests/loop_30min_checklist.md` to track M1 momentum gate pass/fail in one place.
+- Follow-up:
+  - Next highest unchecked milestone item is M2 `Design and implement map_05 layout + portal links`.

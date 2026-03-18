@@ -179,3 +179,17 @@
   - Progression validation is now reproducible as a scripted QA artifact instead of ad-hoc command output.
 - Follow-up:
   - Use the new checklist artifact as input baseline for the next 30-minute loop checklist run.
+
+## 2026-03-19 05:13:00 KST
+- Task: QA verification for M1 scripted 30-minute loop checklist pass.
+- Commit: HEAD (this run)
+- Files checked: `scripts/regression_30min_loop_checklist.py`, `logs/playtests/loop_30min_checklist.md`
+- Verification:
+  - `python3 -m py_compile scripts/regression_30min_loop_checklist.py` ✅
+  - `python3 scripts/regression_30min_loop_checklist.py` ✅
+  - Artifact result is `PASS` with all scripted checks marked complete ✅
+- Decisions:
+  - No screenshot regen (no UI/layout/copy changes in runtime views).
+  - No direct portal validator command needed because the checklist invokes `scripts/regression_map_progression.py`, which already wraps validator coverage.
+- Follow-up:
+  - For M2 map work, re-run this checklist after map_05 lands to keep 30-minute loop gate trending green.

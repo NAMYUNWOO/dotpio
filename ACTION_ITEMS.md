@@ -23,7 +23,7 @@ Tracking rule:
 - [x] Tune SRL cost curve for low-tier spam suppression
 - [x] Tune salvage size/stack caps for fairness
 - [x] Validate map_01~04 progression with portal validator + playtest checklist
-- [ ] Add one scripted 30-minute loop checklist and pass it
+- [x] Add one scripted 30-minute loop checklist and pass it
 
 ## M2 - Content Sprint
 - [ ] Design and implement map_05 layout + portal links

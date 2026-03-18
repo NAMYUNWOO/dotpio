@@ -39,3 +39,7 @@ See project-level plans:
 - [x] Validate map_01~04 progression with portal validator + playtest checklist
   - [x] Run portal wiring validator and capture output artifact
   - [x] Add scripted progression checklist artifact for map_01~04 routes
+
+- [x] Add scripted 30-minute core-loop checklist and pass artifact
+  - [x] Add a script that executes the core-loop regression suite and emits a checklist artifact
+  - [x] Run it and capture pass evidence under `logs/playtests/`
