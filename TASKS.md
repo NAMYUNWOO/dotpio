@@ -31,3 +31,6 @@ See project-level plans:
   - [x] Improve `BUILDER.SRL` use flow UX (action menu + F9 path)
   - [x] Build preview panel: consumed components + expected SRL cost
   - [ ] Keep build material consumption explicit in confirmation/status copy
+
+- [x] Economy tuning for low-tier build spam suppression
+  - [x] Tune SRL build-cost curve to increase low-tier churn penalties without overtaxing premium recipes

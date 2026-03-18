@@ -135,3 +135,18 @@
   - Report CLI now returns pass with empty baseline report when telemetry source is absent instead of hard-failing.
 - Follow-up:
   - Add a fixture with net-positive SRL window once live telemetry from extended playtest is captured.
+
+## 2026-03-19 03:44:56 KST
+- Task: Validate M1 SRL cost-curve tuning regression coverage.
+- Commit: pending (current run)
+- Files checked: `src/inventory_ui.lua`, `scripts/regression_srl_cost_curve.lua`
+- Verification:
+  - `luac -p src/inventory_ui.lua scripts/regression_srl_cost_curve.lua` ✅
+  - `lua scripts/regression_srl_cost_curve.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_economy_telemetry.lua` ✅
+  - `lua scripts/regression_anti_exploit_report.lua` ✅
+- Decisions:
+  - Locked regression expectation that low-tier salvage-heavy recipes should stay high-cost (>=6 BUILDER.SRL) and not undercut premium recipes.
+- Follow-up:
+  - Add extended telemetry fixture once 30-minute loop runs are collected to validate live balance envelope.

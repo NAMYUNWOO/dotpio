@@ -80,3 +80,20 @@
   - Ignored runtime telemetry/report artifacts in `.gitignore` to keep commits focused on source/docs.
 - Follow-up:
   - Next M1 item: tune SRL cost curve for low-tier spam suppression.
+
+## 2026-03-19 03:44:56 KST
+- Task: M1 tune SRL cost curve for low-tier spam suppression.
+- Commit: pending (current run)
+- Files: `src/inventory_ui.lua`, `scripts/regression_srl_cost_curve.lua`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p src/inventory_ui.lua scripts/regression_srl_cost_curve.lua` ✅
+  - `lua scripts/regression_srl_cost_curve.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_economy_telemetry.lua` ✅
+  - `lua scripts/regression_anti_exploit_report.lua` ✅
+- Decisions:
+  - Reworked build SRL cost surcharges to scale with low average size + salvage-heavy compositions instead of only flat penalties.
+  - Added two-step salvage-ratio surcharge and stronger low-tier surcharge to suppress cheap churn loops while keeping premium recipes in a lower cost band.
+  - Added dedicated regression (`scripts/regression_srl_cost_curve.lua`) asserting low-tier spam fixtures remain expensive vs premium fixtures.
+- Follow-up:
+  - Next M1 item: tune salvage size/stack caps for fairness.

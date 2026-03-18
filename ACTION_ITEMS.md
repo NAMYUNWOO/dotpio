@@ -20,7 +20,7 @@ Tracking rule:
 - [x] Add build preview/confirm UX (consumed materials + SRL cost before execute)
 - [x] Make BUILDER.SRL usage affordance explicit in action menu and F9 flow
 - [x] Add anti-exploit report (loop profit detection over N actions)
-- [ ] Tune SRL cost curve for low-tier spam suppression
+- [x] Tune SRL cost curve for low-tier spam suppression
 - [ ] Tune salvage size/stack caps for fairness
 - [ ] Validate map_01~04 progression with portal validator + playtest checklist
 - [ ] Add one scripted 30-minute loop checklist and pass it

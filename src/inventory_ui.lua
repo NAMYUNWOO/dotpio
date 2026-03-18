@@ -719,21 +719,44 @@ getBuildPlan = function(inv, dir)
         end
     end
 
-    -- Balance pass: keep low-tier loops from being SRL-neutral while preserving room for 3/4-file recipes.
-    -- Premium recipes scale a bit harder so high-quality chain builds need deeper SRL reserves.
-    -- Homogeneous folders (same-category stacks) now pay +1 SRL to discourage deterministic farm loops.
-    -- Mostly-stackable recipes (consumable spam) also pay +1 SRL to reduce churn exploits.
-    -- Salvage-like recipes (coin/gem/potion/scroll/tool/misc heavy) pay +1 SRL to break disasm→build churn loops.
+    -- Balance pass: push low-tier churn loops out of SRL-neutral territory while keeping premium recipes playable.
+    -- The penalty ramps with cheap/salvage-heavy compositions instead of only applying a flat +1.
     local score = sumSize + peakSize * 1.15
     local avgSize = (consumeCount > 0) and (sumSize / consumeCount) or 1
-    local lowTierSurcharge = (sumSize <= 5) and 1 or 0
+
+    local lowTierSurcharge = 0
+    if sumSize <= 5 then
+        lowTierSurcharge = lowTierSurcharge + 1
+    end
+    if avgSize <= 1.7 then
+        lowTierSurcharge = lowTierSurcharge + 1
+    end
+
     local recipeSurcharge = (requiredCount >= 4) and 1 or 0
     local monoCategorySurcharge = (consumeCount >= 3 and dominantCategoryCount >= consumeCount - 1) and 1 or 0
     local stackableSurcharge = (consumeCount >= 3 and stackableCount >= consumeCount - 1) and 1 or 0
-    local salvageLoopSurcharge = (consumeCount >= 3 and salvageLikeCount >= consumeCount - 1) and 1 or 0
+
+    local salvageRatio = (consumeCount > 0) and (salvageLikeCount / consumeCount) or 0
+    local salvageLoopSurcharge = 0
+    if consumeCount >= 3 then
+        if salvageRatio >= 0.66 then
+            salvageLoopSurcharge = salvageLoopSurcharge + 1
+        end
+        if salvageRatio >= 0.99 then
+            salvageLoopSurcharge = salvageLoopSurcharge + 1
+        end
+    end
+
     local scrapBlendSurcharge = (consumeCount >= 3 and avgSize <= 2.0 and salvageLikeCount >= 2) and 1 or 0
-    local builderCost = math.max(1, math.min(7, math.ceil(score / 2.15) + lowTierSurcharge + recipeSurcharge + monoCategorySurcharge + stackableSurcharge + salvageLoopSurcharge + scrapBlendSurcharge))
+
+    local costBase = math.ceil(score / 2.15)
+    local totalSurcharge = lowTierSurcharge + recipeSurcharge + monoCategorySurcharge + stackableSurcharge + salvageLoopSurcharge + scrapBlendSurcharge
+    local builderCost = math.max(1, math.min(7, costBase + totalSurcharge))
     return consumed, builderCost, requiredCount
+end
+
+function InventoryUI.debugGetBuildPlan(inv, dir)
+    return getBuildPlan(inv, dir or (inv and inv.currentDir) or nil)
 end
 
 local function getBuildHint()
