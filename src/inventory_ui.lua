@@ -5,6 +5,7 @@ local Config = require("src.config")
 local AiDescribe = require("src.ai_describe")
 local Stats = require("src.stats")
 local StatChart = require("src.stat_chart")
+local EconomyTelemetry = require("src.economy_telemetry")
 
 -- Stat display labels (short, fits narrow Info panel)
 local STAT_DISPLAY = {
@@ -98,23 +99,7 @@ local SCREEN_COLS = 100
 local getBuildPlan
 
 local function logEconomyEvent(eventType, fields)
-    local ok, json = pcall(require, "libs.json")
-    if not ok or type(json) ~= "table" or type(json.encode) ~= "function" then
-        return
-    end
-
-    fields = fields or {}
-    fields.event = eventType
-    fields.ts = os.date("!%Y-%m-%dT%H:%M:%SZ")
-
-    local line = json.encode(fields)
-    if not line then return end
-
-    os.execute("mkdir -p logs")
-    local f = io.open("logs/economy_telemetry.ndjson", "a")
-    if not f then return end
-    f:write(line, "\n")
-    f:close()
+    EconomyTelemetry.append(eventType, fields)
 end
 
 -- Word-wrap text into lines of at most `w` characters
@@ -1383,15 +1368,33 @@ function InventoryUI.disassembleItem(item)
     end
 
     local disasmCost = getDisassembleCost(item.itemId)
-    local builderCount = Inventory.countItemById(player.inventory, "builder_scroll")
-    if builderCount < disasmCost then
-        InventoryUI.setStatus(string.format("DISASM LOCKED: %d/%d SRL", builderCount, disasmCost))
+    local builderCountBefore = Inventory.countItemById(player.inventory, "builder_scroll")
+    if builderCountBefore < disasmCost then
+        InventoryUI.setStatus(string.format("DISASM LOCKED: %d/%d SRL", builderCountBefore, disasmCost))
+        logEconomyEvent("disassemble", {
+            status = "locked",
+            itemId = item.itemId,
+            srlBefore = builderCountBefore,
+            srlSpent = 0,
+            srlRequired = disasmCost,
+            outputCount = 0,
+            outputs = {},
+        })
         return
     end
 
     local outputs = AiDescribe.generateDisassembly(item.itemId)
     if not outputs or #outputs == 0 then
         InventoryUI.setStatus("DISASM FAIL")
+        logEconomyEvent("disassemble", {
+            status = "failed",
+            itemId = item.itemId,
+            srlBefore = builderCountBefore,
+            srlSpent = 0,
+            srlRequired = disasmCost,
+            outputCount = 0,
+            outputs = {},
+        })
         return
     end
 
@@ -1410,9 +1413,14 @@ function InventoryUI.disassembleItem(item)
     if #salvageText > 44 then salvageText = salvageText:sub(1, 41) .. "..." end
 
     InventoryUI.setStatus(string.format("DISASM OK (%d SRL): %s", disasmCost, salvageText))
+    local builderCountAfter = Inventory.countItemById(player.inventory, "builder_scroll")
     logEconomyEvent("disassemble", {
+        status = "ok",
         itemId = item.itemId,
+        inputCount = 1,
+        srlBefore = builderCountBefore,
         srlSpent = disasmCost,
+        srlAfter = builderCountAfter,
         outputCount = #outputs,
         outputs = outputs,
     })
@@ -1426,12 +1434,35 @@ function InventoryUI.buildCurrentFolder()
 
     if #consumed < requiredCount then
         InventoryUI.setStatus(string.format("BUILD LOCKED: FILES %d/%d", #consumed, requiredCount))
+        logEconomyEvent("build", {
+            status = "locked",
+            folder = cur and cur.name or "?",
+            componentCount = #consumed,
+            requiredComponents = requiredCount,
+            components = {},
+            srlBefore = Inventory.countItemById(inv, "builder_scroll"),
+            srlSpent = 0,
+            outputItemId = nil,
+            outputAdded = 0,
+        })
         return
     end
 
-    local builderCount = Inventory.countItemById(inv, "builder_scroll")
-    if builderCount < builderCost then
-        InventoryUI.setStatus(string.format("BUILD LOCKED: SRL %d/%d", builderCount, builderCost))
+    local builderCountBefore = Inventory.countItemById(inv, "builder_scroll")
+    if builderCountBefore < builderCost then
+        InventoryUI.setStatus(string.format("BUILD LOCKED: SRL %d/%d", builderCountBefore, builderCost))
+        logEconomyEvent("build", {
+            status = "locked",
+            folder = cur and cur.name or "?",
+            componentCount = #consumed,
+            requiredComponents = requiredCount,
+            components = {},
+            srlBefore = builderCountBefore,
+            srlSpent = 0,
+            srlRequired = builderCost,
+            outputItemId = nil,
+            outputAdded = 0,
+        })
         return
     end
 
@@ -1440,6 +1471,18 @@ function InventoryUI.buildCurrentFolder()
     local outItemId, note = AiDescribe.generateBuild(cur.name, componentIds)
     if not outItemId then
         InventoryUI.setStatus("BUILD FAIL")
+        logEconomyEvent("build", {
+            status = "failed",
+            folder = cur and cur.name or "?",
+            componentCount = #consumed,
+            requiredComponents = requiredCount,
+            components = componentIds,
+            srlBefore = builderCountBefore,
+            srlSpent = 0,
+            srlRequired = builderCost,
+            outputItemId = nil,
+            outputAdded = 0,
+        })
         return
     end
 
@@ -1462,11 +1505,16 @@ function InventoryUI.buildCurrentFolder()
     for _, c in ipairs(consumed) do
         componentIdsForLog[#componentIdsForLog + 1] = c.itemId
     end
+    local builderCountAfter = Inventory.countItemById(inv, "builder_scroll")
     logEconomyEvent("build", {
+        status = "ok",
         folder = cur and cur.name or "?",
         componentCount = #consumed,
+        requiredComponents = requiredCount,
         components = componentIdsForLog,
+        srlBefore = builderCountBefore,
         srlSpent = builderCost,
+        srlAfter = builderCountAfter,
         outputItemId = outItemId,
         outputAdded = ok and 1 or 0,
     })

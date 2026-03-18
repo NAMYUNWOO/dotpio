@@ -15,7 +15,7 @@ Tracking rule:
 - [x] Add inventory build-test starter loadout tuning pass
 
 ## M1 - Core Loop Lock
-- [ ] Add economy telemetry logging for build/disassemble (input/output/SRL)
+- [x] Add economy telemetry logging for build/disassemble (input/output/SRL)
 - [ ] Add stack split (partial item quantity split) interaction in inventory
 - [ ] Add build preview/confirm UX (consumed materials + SRL cost before execute)
 - [ ] Make BUILDER.SRL usage affordance explicit in action menu and F9 flow

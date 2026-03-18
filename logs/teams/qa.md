@@ -51,3 +51,18 @@
   - No screenshot regen (no UI rendering/copy/layout changes).
 - Follow-up:
   - Start M1 economy telemetry logging for build/disassemble events.
+
+## 2026-03-19 01:14:09 KST
+- Task: Verify M1 economy telemetry baseline (build/disassemble).
+- Commit: HEAD (this run)
+- Files checked: `src/economy_telemetry.lua`, `src/inventory_ui.lua`, `scripts/regression_economy_telemetry.lua`
+- Verification:
+  - `luac -p src/inventory_ui.lua src/economy_telemetry.lua scripts/regression_economy_telemetry.lua` ✅
+  - `lua scripts/regression_economy_telemetry.lua` ✅
+  - `lua scripts/regression_starter_loadout.lua` ✅
+  - `lua scripts/regression_drop_pickup.lua` ✅
+- Decisions:
+  - No portal validator run (no map/portal data changes).
+  - No screenshot regen (no visible UI rendering/copy/layout changes).
+- Follow-up:
+  - Continue with M1 stack split interaction + dedicated regression once implementation lands.

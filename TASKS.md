@@ -16,6 +16,11 @@ See project-level plans:
   - [x] Seed balanced starter materials/equipment + BUILDER.SRL reserves by folder
   - [x] Add starter loadout regression script (`scripts/regression_starter_loadout.lua`)
 
+- [x] Add economy telemetry baseline for build/disassemble (input/output/SRL envelope)
+  - [x] Add shared telemetry writer module (`src/economy_telemetry.lua`)
+  - [x] Emit build/disassemble telemetry for lock/fail/success paths in inventory workflow
+  - [x] Add telemetry regression script (`scripts/regression_economy_telemetry.lua`)
+
 - [~] Inventory UX improvements for build workflow
   - [ ] Add item split/partial stack feature ("소분")
   - [ ] Improve `BUILDER.SRL` use flow UX (action menu + F9 path)

@@ -28,3 +28,19 @@
   - Added a dedicated regression script to validate starter folder population + SRL baseline after `Player.init`.
 - Follow-up:
   - Next highest priority: M1 telemetry logging for build/disassemble input/output/SRL.
+
+## 2026-03-19 01:14:09 KST
+- Task: M1 economy telemetry logging for build/disassemble (input/output/SRL envelope).
+- Commit: HEAD (this run)
+- Files: `src/economy_telemetry.lua`, `src/inventory_ui.lua`, `scripts/regression_economy_telemetry.lua`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p src/inventory_ui.lua src/economy_telemetry.lua scripts/regression_economy_telemetry.lua` ✅
+  - `lua scripts/regression_economy_telemetry.lua` ✅
+  - `lua scripts/regression_starter_loadout.lua` ✅
+  - `lua scripts/regression_drop_pickup.lua` ✅
+- Decisions:
+  - Introduced shared telemetry writer module (`src/economy_telemetry.lua`) to centralize NDJSON append behavior.
+  - Build/disassemble now emit telemetry on lock/fail/success paths with consistent SRL envelope fields (`srlBefore`, `srlSpent`, `srlAfter`/`srlRequired`) plus input/output metadata.
+  - Added regression coverage that validates telemetry row schema for both build and disassemble events.
+- Follow-up:
+  - Next M1 item: stack split (partial quantity split) interaction in inventory.

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-18 (KST)
+Last updated: 2026-03-19 (KST)
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -22,4 +22,6 @@ Compact decision memory for AI context efficiency.
 - Drop->pickup regression is now scripted in `scripts/regression_drop_pickup.lua` to validate item count restoration + world item cleanup.
 - Starter build-test loadout is now folder-seeded (`SCROLLS`/`POTIONS`/`WEAPONS`) with `BUILDER.SRL` baseline 18 and mixed-tier materials for stable smoke loops.
 - Starter loadout sanity is scripted in `scripts/regression_starter_loadout.lua` (Player.init baseline check).
+- Economy telemetry baseline now logs build/disassemble lock/fail/success events into `logs/economy_telemetry.ndjson` with input/output metadata and SRL envelope fields.
+- Telemetry schema regression is scripted in `scripts/regression_economy_telemetry.lua`.
 - Progress/report protocol: commit + verification + next task on each run.
