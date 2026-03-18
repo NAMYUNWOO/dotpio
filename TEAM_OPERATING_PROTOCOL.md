@@ -54,6 +54,10 @@ On every completed task, report in channel with:
 4. Verification result
 5. Next task
 
+And append team logs under `logs/teams/`:
+- `systems.md`, `world.md`, `ai-content.md`, `ux.md`, `qa.md`
+- Use append-only entries with timestamp, decision notes, and follow-ups.
+
 ## Priority Rule
 Always pick highest-priority unchecked item from:
 1. `ACTION_ITEMS.md`
