@@ -138,7 +138,7 @@
 
 ## 2026-03-19 03:44:56 KST
 - Task: Validate M1 SRL cost-curve tuning regression coverage.
-- Commit: pending (current run)
+- Commit: 242f0db
 - Files checked: `src/inventory_ui.lua`, `scripts/regression_srl_cost_curve.lua`
 - Verification:
   - `luac -p src/inventory_ui.lua scripts/regression_srl_cost_curve.lua` ✅

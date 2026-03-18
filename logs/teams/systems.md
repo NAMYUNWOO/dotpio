@@ -83,7 +83,7 @@
 
 ## 2026-03-19 03:44:56 KST
 - Task: M1 tune SRL cost curve for low-tier spam suppression.
-- Commit: pending (current run)
+- Commit: 242f0db
 - Files: `src/inventory_ui.lua`, `scripts/regression_srl_cost_curve.lua`, `ACTION_ITEMS.md`, `TASKS.md`
 - Verification:
   - `luac -p src/inventory_ui.lua scripts/regression_srl_cost_curve.lua` ✅
