@@ -82,3 +82,20 @@
   - No portal validator run (no map/portal changes).
 - Follow-up:
   - Add regression coverage once build preview/confirm flow lands.
+
+## 2026-03-19 02:14:58 KST
+- Task: Verify M1 build preview/confirm gate behavior.
+- Commit: HEAD (this run)
+- Files checked: `src/inventory_ui.lua`, `scripts/regression_build_preview_confirm.lua`
+- Verification:
+  - `luac -p src/inventory_ui.lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_split_stack.lua` ✅
+  - `lua scripts/regression_economy_telemetry.lua` ✅
+  - `lua scripts/regression_starter_loadout.lua` ✅
+  - `lua scripts/regression_drop_pickup.lua` ✅
+- Decisions:
+  - Build resources are no longer consumed on initial F9 press; consumption occurs only after explicit confirm.
+  - Screenshot refresh executed due visible inventory/help copy behavior update.
+- Follow-up:
+  - Add coverage for explicit SRL affordance copy once action-menu/F9 wording pass lands.

@@ -26,4 +26,6 @@ Compact decision memory for AI context efficiency.
 - Telemetry schema regression is scripted in `scripts/regression_economy_telemetry.lua`.
 - Inventory stacks now support split interaction (`S`) via action menu/quick key with quantity dialog and guardrails.
 - Stack split regression is scripted in `scripts/regression_split_stack.lua`.
+- F9 build flow now requires preview/confirm before execution, showing planned component usage + SRL have/need to keep build consumption explicit.
+- Build preview confirmation gate is covered by `scripts/regression_build_preview_confirm.lua`.
 - Progress/report protocol: commit + verification + next task on each run.

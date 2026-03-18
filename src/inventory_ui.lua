@@ -42,12 +42,13 @@ local focusPanel = "files"  -- "files" or "equip"
 local equipCursor = 1       -- 1~8 for equip panel
 
 -- Dialog state
-local dialogType = nil   -- "mkdir", "delete", "drop", "help", "move", "split"
+local dialogType = nil   -- "mkdir", "delete", "drop", "help", "move", "split", "build_preview"
 local dialogInput = ""
 local dialogTarget = nil
 local moveDirs = {}
 local moveCursor = 1
 local splitCountInput = ""
+local buildPreviewPlan = nil
 
 -- Action menu state
 local actionMenuCursor = 1
@@ -150,6 +151,7 @@ end
 function InventoryUI.close()
     state = "closed"
     dialogType = nil
+    buildPreviewPlan = nil
 end
 
 function InventoryUI.refreshContents()
@@ -844,6 +846,23 @@ end
 -- DIALOGS
 ------------------------------------------------------------
 
+local function summarizeBuildComponents(consumed, maxItems)
+    local labels = {}
+    local cap = math.max(1, maxItems or 4)
+    for i = 1, math.min(#consumed, cap) do
+        local c = consumed[i]
+        local def = c and c.itemId and Items.get(c.itemId) or nil
+        labels[#labels + 1] = (def and def.name) or (c and c.name) or (c and c.itemId) or "?"
+    end
+    if #consumed > cap then
+        labels[#labels + 1] = string.format("... +%d", #consumed - cap)
+    end
+    if #labels == 0 then
+        return "(none)"
+    end
+    return table.concat(labels, ", ")
+end
+
 function InventoryUI.drawDialog()
     if dialogType == "mkdir" then
         InventoryUI.drawMkdirDialog()
@@ -860,6 +879,8 @@ function InventoryUI.drawDialog()
         InventoryUI.drawMoveDialog()
     elseif dialogType == "split" then
         InventoryUI.drawSplitDialog()
+    elseif dialogType == "build_preview" then
+        InventoryUI.drawBuildPreviewDialog()
     end
 end
 
@@ -906,7 +927,7 @@ function InventoryUI.drawHelpDialog()
         "F6          Move item to folder",
         "F7          Create new folder",
         "F8          Delete empty folder",
-        "F9          Build current folder (footer shows nF/mSRL plan)",
+        "F9          Build preview/confirm (shows files + SRL before execute)",
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "G           Pickup item on player tile",
@@ -963,6 +984,28 @@ function InventoryUI.drawSplitDialog()
     DosUI.putString(col + 2, row + 4, splitCountInput .. "_", 15, 0)
     DosUI.putString(col + 2, row + 5, string.format("Valid: 1 ~ %d", math.max(1, total - 1)), 8, 4)
     DosUI.putString(col + 2, row + 6, "Enter=Split  Esc=Cancel", 8, 4)
+end
+
+function InventoryUI.drawBuildPreviewDialog()
+    local plan = buildPreviewPlan or {}
+    local w, h = 66, 10
+    local col = math.floor((100 - w) / 2)
+    local row = math.floor((40 - h) / 2)
+    local summary = summarizeBuildComponents(plan.consumed or {}, 4)
+    local have = plan.builderCount or 0
+    local need = plan.builderCost or 0
+    local enough = have >= need
+    local srlLine = enough
+        and string.format("SRL COST: %d (HAVE %d)", need, have)
+        or string.format("SRL COST: %d (HAVE %d, NEED +%d)", need, have, need - have)
+
+    DosUI.drawBox(col, row, w, h, 15, 4)
+    DosUI.putString(col + 2, row + 1, "BUILD PREVIEW", 15, 4)
+    DosUI.putString(col + 2, row + 2, string.format("Folder: %s", plan.folderName or "?"), 7, 4, w - 4)
+    DosUI.putString(col + 2, row + 3, string.format("Consume: %d files (need %d)", plan.componentCount or 0, plan.requiredCount or 0), 15, 4, w - 4)
+    DosUI.putString(col + 2, row + 4, srlLine, enough and 11 or 8, 4, w - 4)
+    DosUI.putString(col + 2, row + 5, "Parts: " .. summary, 7, 4, w - 4)
+    DosUI.putString(col + 2, row + 7, "Enter/Y=Build  N/Esc=Cancel", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -1041,7 +1084,7 @@ function InventoryUI.filesPanelKeypressed(key)
     elseif key == "f8" then
         InventoryUI.promptDelete()
     elseif key == "f9" then
-        InventoryUI.buildCurrentFolder()
+        InventoryUI.promptBuildPreview()
     elseif key == "u" or key == "e" or key == "d" or key == "s" or key == "x" then
         -- Quick keys: act on selected file without opening the action menu
         if cursor < 1 or cursor > #contents then
@@ -1324,6 +1367,21 @@ function InventoryUI.dialogKeypressed(key)
         end
         return
     end
+
+    if dialogType == "build_preview" then
+        if key == "return" or key == "y" then
+            state = "browsing"
+            dialogType = nil
+            buildPreviewPlan = nil
+            InventoryUI.buildCurrentFolder()
+        elseif key == "n" or key == "escape" then
+            state = "browsing"
+            dialogType = nil
+            buildPreviewPlan = nil
+            InventoryUI.setStatus("BUILD CANCELED")
+        end
+        return
+    end
 end
 
 function InventoryUI.textinput(text)
@@ -1473,6 +1531,38 @@ function InventoryUI.disassembleItem(item)
         outputs = outputs,
     })
     InventoryUI.refreshContents()
+end
+
+function InventoryUI.promptBuildPreview()
+    local inv = player and player.inventory
+    if not inv or not inv.currentDir then
+        InventoryUI.setStatus("BUILD N/A")
+        return
+    end
+
+    local cur = inv.currentDir
+    local consumed, builderCost, requiredCount = getBuildPlan(inv, cur)
+    if #consumed < requiredCount then
+        InventoryUI.setStatus(string.format("BUILD LOCKED: FILES %d/%d", #consumed, requiredCount))
+        return
+    end
+
+    local builderCount = Inventory.countItemById(inv, "builder_scroll")
+    if builderCount < builderCost then
+        InventoryUI.setStatus(string.format("BUILD LOCKED: SRL %d/%d", builderCount, builderCost))
+        return
+    end
+
+    buildPreviewPlan = {
+        folderName = cur.name,
+        consumed = consumed,
+        componentCount = #consumed,
+        requiredCount = requiredCount,
+        builderCost = builderCost,
+        builderCount = builderCount,
+    }
+    state = "dialog"
+    dialogType = "build_preview"
 end
 
 function InventoryUI.buildCurrentFolder()

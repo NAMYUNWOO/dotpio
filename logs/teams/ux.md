@@ -27,3 +27,18 @@
   - Split dialog now requests quantity with explicit valid range to keep DOS flow predictable.
 - Follow-up:
   - Align upcoming build preview/confirm UX with the same lock-reason verbosity style.
+
+## 2026-03-19 02:14:58 KST
+- Task: M1 build preview/confirm UX for F9 flow (consumed parts + SRL cost before execute).
+- Commit: HEAD (this run)
+- Files: `src/inventory_ui.lua`, `scripts/regression_build_preview_confirm.lua`, `screenshots/screenshot-map04.png`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p src/inventory_ui.lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - F9 now opens a dedicated build preview/confirm dialog instead of executing immediately.
+  - Preview includes folder, planned component count, SRL have/need, and compact component summary for material visibility.
+  - Cancel path returns to browsing with explicit `BUILD CANCELED` status.
+- Follow-up:
+  - Next M1 UX priority: make BUILDER.SRL affordance explicit in action menu + F9 flow copy.
