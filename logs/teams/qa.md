@@ -27,7 +27,7 @@
 
 ## 2026-03-19 00:13:43 KST
 - Task: M0 regression scenario automation for drop -> pickup -> inventory count validation.
-- Commit: a75212e
+- Commit: 3b11aa6
 - Files: `scripts/regression_drop_pickup.lua`, `ACTION_ITEMS.md`, `TASKS.md`
 - Verification:
   - `luac -p scripts/regression_drop_pickup.lua` ✅
