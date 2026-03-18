@@ -14,3 +14,17 @@
 - Follow-up:
   - Next M1 priority item: add one scripted 30-minute loop checklist and pass it.
 
+
+## 2026-03-19 05:43:40 KST
+- Task: M2 design and implement map_05 layout + portal links.
+- Commit: pending (this run)
+- Files: `maps/map_04.lua`, `maps/map_05.lua`, `ACTION_ITEMS.md`, `TASKS.md`, `logs/playtests/map_01_04_progression_checklist.md`
+- Verification:
+  - `luac -p maps/map_04.lua maps/map_05.lua` ✅
+  - `python3 scripts/validate_portals.py` ✅ (Maps scanned: 5 / Portals scanned: 16)
+  - `python3 scripts/regression_map_progression.py` ✅
+- Decisions:
+  - Added `map_05` as a new dungeon-tier map derived from map_04 baseline to keep collision/loot schema stable for M2 kickoff.
+  - Added dedicated `map_04` -> `map_05` portal (`name=05`) and reciprocal `map_05` -> `map_04` return portal (`name=04`) to preserve bidirectional routing.
+- Follow-up:
+  - Next M2 priority item: design and implement map_06 layout + portal links.

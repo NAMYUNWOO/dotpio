@@ -43,3 +43,7 @@ See project-level plans:
 - [x] Add scripted 30-minute core-loop checklist and pass artifact
   - [x] Add a script that executes the core-loop regression suite and emits a checklist artifact
   - [x] Run it and capture pass evidence under `logs/playtests/`
+
+## Next Up (M2 content sprint)
+- [x] Design and implement map_05 layout + portal links
+- [ ] Design and implement map_06 layout + portal links

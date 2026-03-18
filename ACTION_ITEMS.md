@@ -26,7 +26,7 @@ Tracking rule:
 - [x] Add one scripted 30-minute loop checklist and pass it
 
 ## M2 - Content Sprint
-- [ ] Design and implement map_05 layout + portal links
+- [x] Design and implement map_05 layout + portal links
 - [ ] Design and implement map_06 layout + portal links
 - [ ] Add at least 3 new enemy behavior variants
 - [ ] Expand AI build output category diversity constraints

@@ -193,3 +193,16 @@
   - No direct portal validator command needed because the checklist invokes `scripts/regression_map_progression.py`, which already wraps validator coverage.
 - Follow-up:
   - For M2 map work, re-run this checklist after map_05 lands to keep 30-minute loop gate trending green.
+
+## 2026-03-19 05:43:40 KST
+- Task: QA verification for M2 map_05 layout + portal links.
+- Commit: pending (this run)
+- Files checked: `maps/map_04.lua`, `maps/map_05.lua`, `logs/playtests/map_01_04_progression_checklist.md`
+- Verification:
+  - `luac -p maps/map_04.lua maps/map_05.lua` ✅
+  - `python3 scripts/validate_portals.py` ✅ (new map wiring resolves)
+  - `python3 scripts/regression_map_progression.py` ✅ (map_01~04 gate still passes)
+- Decisions:
+  - No screenshot regen required (no UI/copy/layout-facing screen changes).
+- Follow-up:
+  - Re-run portal validator and progression checklist after map_06 lands.
