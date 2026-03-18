@@ -69,7 +69,7 @@
 
 ## 2026-03-19 01:46:07 KST
 - Task: Verify M1 stack split interaction + regressions.
-- Commit: HEAD (this run)
+- Commit: 6819ccf
 - Files checked: `src/inventory.lua`, `src/inventory_ui.lua`, `scripts/regression_split_stack.lua`
 - Verification:
   - `luac -p src/inventory.lua src/inventory_ui.lua scripts/regression_split_stack.lua` ✅

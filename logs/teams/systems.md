@@ -47,7 +47,7 @@
 
 ## 2026-03-19 01:46:07 KST
 - Task: M1 stack split (partial quantity) interaction in inventory.
-- Commit: HEAD (this run)
+- Commit: 6819ccf
 - Files: `src/inventory.lua`, `src/inventory_ui.lua`, `scripts/regression_split_stack.lua`, `ACTION_ITEMS.md`, `TASKS.md`
 - Verification:
   - `luac -p src/inventory.lua src/inventory_ui.lua scripts/regression_split_stack.lua` ✅

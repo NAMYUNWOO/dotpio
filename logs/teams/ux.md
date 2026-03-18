@@ -16,7 +16,7 @@
 
 ## 2026-03-19 01:46:07 KST
 - Task: M1 stack split UX pass (action menu + quick key + help text).
-- Commit: HEAD (this run)
+- Commit: 6819ccf
 - Files: `src/inventory_ui.lua`, `screenshots/screenshot-map04.png`, `screenshots/screenshot-inventory-dos.png`, `ACTION_ITEMS.md`, `TASKS.md`
 - Verification:
   - `luac -p src/inventory_ui.lua` ✅
