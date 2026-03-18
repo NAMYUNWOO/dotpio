@@ -51,3 +51,6 @@ See project-level plans:
   - [x] Introduce variant archetypes with distinct combat/movement tendencies
   - [x] Assign variants during spawn so encounters mix behaviors per run
   - [x] Add regression coverage for variant roster/parameters
+- [x] Expand AI build output category diversity constraints
+  - [x] Add category-balance guardrails so generated build outputs cannot overconcentrate in one category
+  - [x] Add regression coverage for diversity constraints

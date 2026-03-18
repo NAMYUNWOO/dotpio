@@ -127,6 +127,129 @@ local SPECIAL_ECONOMY_ITEM_IDS = {
     builder_scroll = true,
 }
 
+local BUILD_TARGET_CATEGORIES = {
+    "weapon", "armor", "ring", "wand", "scroll", "tool", "gem", "potion", "misc"
+}
+
+local BUILD_CATEGORY_HISTORY_LIMIT = 6
+local BUILD_CATEGORY_RECENT_CAP = 3
+local buildCategoryHistory = {}
+
+local function normalizeBuildCategory(category)
+    local cat = tostring(category or "misc"):lower()
+    for _, allowed in ipairs(BUILD_TARGET_CATEGORIES) do
+        if cat == allowed then return cat end
+    end
+    return "misc"
+end
+
+local function hasBuildableItems(category)
+    local ids = Items.getIdsByCategory(category)
+    return ids and #ids > 0
+end
+
+local COMPONENT_TO_BUILD_CATEGORY = {
+    weapon = { "weapon" },
+    bow = { "weapon" },
+    armor = { "armor" },
+    shield = { "armor" },
+    helmet = { "armor" },
+    gloves = { "armor" },
+    boots = { "armor" },
+    robe = { "armor" },
+    belt = { "armor" },
+    crown = { "armor", "ring" },
+    wand = { "wand" },
+    scroll = { "scroll", "wand" },
+    book = { "scroll", "wand" },
+    ring = { "ring" },
+    necklace = { "ring", "gem" },
+    gem = { "gem", "ring" },
+    potion = { "potion" },
+    food = { "potion", "misc" },
+    bomb = { "tool", "potion" },
+    tool = { "tool" },
+    key = { "tool", "misc" },
+    bag = { "tool", "misc" },
+    box = { "tool", "misc" },
+    coin = { "misc", "gem" },
+    bone = { "misc" },
+    skull = { "misc" },
+    arrow = { "weapon", "misc" },
+    torch = { "tool", "misc" },
+    misc = { "misc" },
+}
+
+local function appendUnique(out, seen, category)
+    local cat = normalizeBuildCategory(category)
+    if not seen[cat] and hasBuildableItems(cat) then
+        seen[cat] = true
+        out[#out + 1] = cat
+    end
+end
+
+local function buildCategoryCandidates(componentCats, targetCategory)
+    local out, seen = {}, {}
+    appendUnique(out, seen, targetCategory)
+
+    for _, componentCat in ipairs(componentCats or {}) do
+        local mapped = COMPONENT_TO_BUILD_CATEGORY[componentCat] or { componentCat }
+        for _, cat in ipairs(mapped) do
+            appendUnique(out, seen, cat)
+        end
+    end
+
+    for _, cat in ipairs(BUILD_TARGET_CATEGORIES) do
+        appendUnique(out, seen, cat)
+    end
+
+    return out
+end
+
+local function countRecentBuildCategories(history)
+    local counts = {}
+    for _, cat in ipairs(history) do
+        local normalized = normalizeBuildCategory(cat)
+        counts[normalized] = (counts[normalized] or 0) + 1
+    end
+    return counts
+end
+
+local function constrainBuildCategory(targetCategory, componentCats, history)
+    local normalizedTarget = normalizeBuildCategory(targetCategory)
+    local recent = history or buildCategoryHistory
+    local counts = countRecentBuildCategories(recent)
+    local targetCount = counts[normalizedTarget] or 0
+
+    local candidates = buildCategoryCandidates(componentCats, normalizedTarget)
+    if #recent < 4 or targetCount < BUILD_CATEGORY_RECENT_CAP then
+        return normalizedTarget, "target-ok", candidates
+    end
+
+    local chosen = normalizedTarget
+    local chosenCount = targetCount
+    for _, cat in ipairs(candidates) do
+        local catCount = counts[cat] or 0
+        if catCount < BUILD_CATEGORY_RECENT_CAP and (catCount < chosenCount or (catCount == chosenCount and cat ~= normalizedTarget)) then
+            chosen = cat
+            chosenCount = catCount
+        end
+    end
+
+    if chosen ~= normalizedTarget then
+        return chosen, "diversity-shift", candidates
+    end
+
+    return normalizedTarget, "target-saturated-fallback", candidates
+end
+
+local function rememberBuildCategory(category)
+    buildCategoryHistory[#buildCategoryHistory + 1] = normalizeBuildCategory(category)
+    while #buildCategoryHistory > BUILD_CATEGORY_HISTORY_LIMIT do
+        table.remove(buildCategoryHistory, 1)
+    end
+end
+
 local function computeDisassemblyLimits(itemSize)
     local size = math.max(1, tonumber(itemSize) or 1)
 
@@ -279,7 +402,7 @@ Folder: %s
 Component categories: %s
 Power budget: avg component size %.2f (output size must stay in this range)
 Return strict JSON: {"target_category":"weapon|armor|ring|wand|scroll|tool|gem|potion|misc", "rarity_hint":"Common|Uncommon|Rare|Legendary", "note":"short text"}
-Choose category that matches component synergy and keep result grounded to component quality. Never return build-enabler items.]],
+Choose category that matches component synergy and keep result grounded to component quality. Prefer underused categories when several are equally valid so outputs stay diverse across consecutive builds. Never return build-enabler items.]],
         folderName or "PROJECT", table.concat(cats, ","), avgSize
     )
 
@@ -287,12 +410,29 @@ Choose category that matches component synergy and keep result grounded to compo
     inputChannel:push(json.encode({ mode = "build", requestId = req, prompt = prompt }))
     local result = awaitSyncResponse(req, 6)
 
-    local target = (result and result.target_category) or "misc"
+    local rawTarget = (result and result.target_category) or "misc"
+    local target, diversityReason = constrainBuildCategory(rawTarget, cats)
+
     local itemId = pickItemByCategory(target, { minSize = buildFloor, maxSize = buildCeil })
         or pickItemByCategory(target, { maxSize = math.max(maxSize, buildCeil) })
+        or pickItemByCategory(rawTarget, { minSize = buildFloor, maxSize = buildCeil })
+        or pickItemByCategory(rawTarget, { maxSize = math.max(maxSize, buildCeil) })
         or pickItemByCategory("misc", { maxSize = math.max(maxSize, buildCeil) })
         or pickItemByCategory("misc")
-    return itemId, ((result and result.note) or "Build complete")
+
+    if itemId then
+        local picked = Items.get(itemId)
+        rememberBuildCategory((picked and picked.category) or target)
+    else
+        rememberBuildCategory(target)
+    end
+
+    local note = ((result and result.note) or "Build complete")
+    if diversityReason == "diversity-shift" then
+        note = string.format("%s [diversity:%s->%s]", note, normalizeBuildCategory(rawTarget), target)
+    end
+
+    return itemId, note
 end
 
 function AiDescribe.debugDisassemblyLimits(itemSize)
@@ -301,6 +441,25 @@ function AiDescribe.debugDisassemblyLimits(itemSize)
         stackCap = stackCap,
         sizeBudget = sizeBudget,
     }
+end
+
+function AiDescribe.debugConstrainBuildCategory(targetCategory, componentCategories, history)
+    local chosen, reason, candidates = constrainBuildCategory(targetCategory, componentCategories or {}, history)
+    return {
+        chosen = chosen,
+        reason = reason,
+        candidates = candidates,
+    }
+end
+
+function AiDescribe.debugResetBuildCategoryHistory(seed)
+    buildCategoryHistory = {}
+    if type(seed) == "table" then
+        for _, cat in ipairs(seed) do
+            rememberBuildCategory(cat)
+        end
+    end
+    return #buildCategoryHistory
 end
 
 function AiDescribe.update()

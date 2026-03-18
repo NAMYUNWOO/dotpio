@@ -219,3 +219,16 @@
   - No screenshot regen required (no UI/copy/layout-facing screen changes).
 - Follow-up:
   - Re-run full loop checklist once enemy variant work lands to confirm momentum gate remains green.
+
+## 2026-03-19 07:13:57 KST
+- Task: QA verification for M2 build category diversity constraints.
+- Commit: `HEAD (this run)`
+- Files checked: `src/ai_describe.lua`, `scripts/regression_build_category_diversity.lua`
+- Verification:
+  - `luac -p src/ai_describe.lua scripts/regression_build_category_diversity.lua` ✅
+  - `lua scripts/regression_build_category_diversity.lua` ✅
+- Decisions:
+  - No screenshot regen required (runtime UI/copy/layout unchanged).
+  - No portal validator required (map files untouched).
+- Follow-up:
+  - Pair next loot reward table pass with a regression that samples category distribution by map tier.
