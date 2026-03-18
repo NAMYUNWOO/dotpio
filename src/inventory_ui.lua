@@ -718,24 +718,21 @@ local function getBuildHint()
     local builderCount = Inventory.countItemById(inv, "builder_scroll")
 
     if componentCount >= requiredCount and builderCount >= builderCost then
-        if builderCost > 1 then
-            return string.format("F9:BUILD READY (%d SRL)", builderCost)
-        end
-        return "F9:BUILD READY (1 SRL)"
+        return string.format("F9:READY %dF/%dSRL", requiredCount, builderCost)
     end
 
     local neededFiles = math.max(0, requiredCount - componentCount)
     local neededBuilder = math.max(0, builderCost - builderCount)
 
     if neededFiles > 0 and neededBuilder > 0 then
-        return string.format("F9:BUILD NEED %d %s + %d SRL", neededFiles, neededFiles == 1 and "FILE" or "FILES", neededBuilder)
+        return string.format("F9:NEED +%dF +%dSRL", neededFiles, neededBuilder)
     elseif neededFiles > 0 then
-        return string.format("F9:BUILD NEED +%d %s", neededFiles, neededFiles == 1 and "FILE" or "FILES")
+        return string.format("F9:NEED +%dF", neededFiles)
     elseif neededBuilder > 0 then
-        return string.format("F9:BUILD NEED +%d SRL", neededBuilder)
+        return string.format("F9:NEED +%dSRL", neededBuilder)
     end
 
-    return "F9:BUILD"
+    return string.format("F9:PLAN %dF/%dSRL", requiredCount, builderCost)
 end
 
 function InventoryUI.drawHelpBar()
@@ -877,7 +874,7 @@ function InventoryUI.drawHelpDialog()
         "F6          Move item to folder",
         "F7          Create new folder",
         "F8          Delete empty folder",
-        "F9          Build from current folder (needs SRL)",
+        "F9          Build current folder (footer shows nF/mSRL plan)",
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
@@ -1379,13 +1376,13 @@ function InventoryUI.buildCurrentFolder()
     local consumed, builderCost, requiredCount = getBuildPlan(inv, cur)
 
     if #consumed < requiredCount then
-        InventoryUI.setStatus(string.format("BUILD NEEDS %d+ FILES", requiredCount))
+        InventoryUI.setStatus(string.format("BUILD LOCKED: FILES %d/%d", #consumed, requiredCount))
         return
     end
 
     local builderCount = Inventory.countItemById(inv, "builder_scroll")
     if builderCount < builderCost then
-        InventoryUI.setStatus(string.format("BUILD LOCKED: %d/%d SRL", builderCount, builderCost))
+        InventoryUI.setStatus(string.format("BUILD LOCKED: SRL %d/%d", builderCount, builderCost))
         return
     end
 
