@@ -726,7 +726,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot  Enter:Unequip  L/R:Panel  Esc:Exit", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Actions Backspace:UpDir U:Use E:Equip D:Recycle X:Drop F1:Help F5:Sort %s Esc:Exit",
+            "Up/Dn:Nav Enter:Actions Backspace:UpDir U:Use E:Equip D:Disasm X:Drop F1:Help F5:Sort %s Esc:Exit",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -788,7 +788,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 3 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:OK U/E/D/X:Quick Gray text=locked Esc:Back", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:Run U/E/D/X:Quick Gray=locked (Need SRL) Esc:Back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -863,7 +863,7 @@ function InventoryUI.drawHelpDialog()
         "Build rule: weak pairs/5+ files need 3, 8+ files need 4",
         "Build SRL: quality-weighted cost (1~7)",
         "Disasm rule: salvage tier <= source-1 (min size 1)",
-        "Disasm SRL: size tier +1 for premium gear (max 5)",
+        "Disasm SRL: size tier + premium surcharge for gear (max 5)",
         "Disasm cap: ceil(size/4) stacks, max 2",
         "Disasm size budget: floor(size*0.50) total salvage",
         "Action Menu: shows current SRL, U=Use E=Equip D=Disasm X=Drop",
@@ -1323,7 +1323,7 @@ function InventoryUI.disassembleItem(item)
     local disasmCost = getDisassembleCost(item.itemId)
     local builderCount = Inventory.countItemById(player.inventory, "builder_scroll")
     if builderCount < disasmCost then
-        InventoryUI.setStatus(string.format("DISASM NEED %d SRL", disasmCost))
+        InventoryUI.setStatus(string.format("DISASM LOCKED: %d/%d SRL", builderCount, disasmCost))
         return
     end
 
@@ -1363,7 +1363,7 @@ function InventoryUI.buildCurrentFolder()
 
     local builderCount = Inventory.countItemById(inv, "builder_scroll")
     if builderCount < builderCost then
-        InventoryUI.setStatus(string.format("BUILD NEED %d SRL", builderCost))
+        InventoryUI.setStatus(string.format("BUILD LOCKED: %d/%d SRL", builderCount, builderCost))
         return
     end
 
