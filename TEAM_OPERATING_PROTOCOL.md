@@ -58,6 +58,11 @@ And append team logs under `logs/teams/`:
 - `systems.md`, `world.md`, `ai-content.md`, `ux.md`, `qa.md`
 - Use append-only entries with timestamp, decision notes, and follow-ups.
 
+Context-window policy:
+- Keep `logs/teams/_summary.md` updated with key decisions.
+- Default context load = `_summary.md` + recent tails (20~50 lines) from team logs.
+- Load older sections only on demand for specific tasks.
+
 ## Priority Rule
 Always pick highest-priority unchecked item from:
 1. `ACTION_ITEMS.md`
