@@ -30,7 +30,7 @@ Tracking rule:
 - [x] Design and implement map_06 layout + portal links
 - [x] Add at least 3 new enemy behavior variants
 - [x] Expand AI build output category diversity constraints
-- [ ] Add reward table pass for lootbox contents by map tier
+- [x] Add reward table pass for lootbox contents by map tier
 
 ## M3 - Meta Progression
 - [ ] Add run mission prototype (3 objectives)

@@ -232,3 +232,17 @@
   - No portal validator required (map files untouched).
 - Follow-up:
   - Pair next loot reward table pass with a regression that samples category distribution by map tier.
+
+## 2026-03-19 07:43:35 KST
+- Task: QA verification for M2 lootbox reward table pass by map tier.
+- Commit: `HEAD (this run)`
+- Files checked: `src/entities.lua`, `scripts/regression_lootbox_rewards_by_tier.lua`
+- Verification:
+  - `luac -p src/entities.lua scripts/regression_lootbox_rewards_by_tier.lua` ✅
+  - `lua scripts/regression_lootbox_rewards_by_tier.lua` ✅
+  - `lua scripts/regression_build_category_diversity.lua` ✅
+- Decisions:
+  - No screenshot regen required (UI/copy/layout unchanged).
+  - No portal validator required (map files untouched).
+- Follow-up:
+  - Include loot-tier regression in next full 30-minute loop checklist rerun to ensure economy momentum remains stable.

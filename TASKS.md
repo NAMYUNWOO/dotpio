@@ -54,3 +54,6 @@ See project-level plans:
 - [x] Expand AI build output category diversity constraints
   - [x] Add category-balance guardrails so generated build outputs cannot overconcentrate in one category
   - [x] Add regression coverage for diversity constraints
+- [x] Add reward table pass for lootbox contents by map tier
+  - [x] Add map-tier reward profile selection for lootbox generation
+  - [x] Add regression coverage to validate tiered reward weighting envelope

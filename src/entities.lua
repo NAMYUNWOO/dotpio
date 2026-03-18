@@ -15,6 +15,105 @@ function Entities.reset()
     Entities.lootboxes = {}
 end
 
+local LOOT_REWARD_PROFILES = {
+    [1] = {
+        { category = "potion", weight = 22 },
+        { category = "food", weight = 20 },
+        { category = "scroll", weight = 16 },
+        { category = "coin", weight = 14 },
+        { category = "torch", weight = 8 },
+        { category = "key", weight = 8 },
+        { category = "misc", weight = 6 },
+        { category = "bone", weight = 4 },
+        { category = "skull", weight = 2 },
+    },
+    [2] = {
+        { category = "potion", weight = 16 },
+        { category = "food", weight = 12 },
+        { category = "scroll", weight = 14 },
+        { category = "coin", weight = 10 },
+        { category = "weapon", weight = 9 },
+        { category = "armor", weight = 8 },
+        { category = "shield", weight = 6 },
+        { category = "boots", weight = 5 },
+        { category = "gloves", weight = 5 },
+        { category = "wand", weight = 5 },
+        { category = "bow", weight = 5 },
+        { category = "gem", weight = 5 },
+    },
+    [3] = {
+        { category = "weapon", weight = 14 },
+        { category = "armor", weight = 12 },
+        { category = "shield", weight = 8 },
+        { category = "wand", weight = 8 },
+        { category = "bow", weight = 8 },
+        { category = "ring", weight = 7 },
+        { category = "necklace", weight = 7 },
+        { category = "gem", weight = 7 },
+        { category = "book", weight = 6 },
+        { category = "crown", weight = 4 },
+        { category = "scroll", weight = 8 },
+        { category = "potion", weight = 6 },
+        { category = "coin", weight = 5 },
+    },
+}
+
+local function mapTier(mapName)
+    local mapNumber = tonumber(mapName or "1") or 1
+    if mapNumber <= 2 then return 1 end
+    if mapNumber <= 4 then return 2 end
+    return 3
+end
+
+local function buildCategoryPools()
+    local pools = {}
+    for _, itemId in ipairs(Items.allItemIds) do
+        local def = Items.get(itemId)
+        if def and not def.isSystem then
+            pools[def.category] = pools[def.category] or {}
+            pools[def.category][#pools[def.category] + 1] = itemId
+        end
+    end
+    return pools
+end
+
+local function pickWeightedCategory(profile)
+    local totalWeight = 0
+    for _, entry in ipairs(profile) do
+        totalWeight = totalWeight + (entry.weight or 0)
+    end
+    if totalWeight <= 0 then return nil end
+
+    local roll = love.math.random() * totalWeight
+    local acc = 0
+    for _, entry in ipairs(profile) do
+        acc = acc + (entry.weight or 0)
+        if roll <= acc then
+            return entry.category
+        end
+    end
+    return profile[#profile] and profile[#profile].category or nil
+end
+
+local function pickLootItemIdForTier(tier, categoryPools)
+    local profile = LOOT_REWARD_PROFILES[tier] or LOOT_REWARD_PROFILES[1]
+    local category = pickWeightedCategory(profile)
+    local pool = category and categoryPools[category] or nil
+    if pool and #pool > 0 then
+        return pool[love.math.random(1, #pool)]
+    end
+
+    -- Fallback: any non-system item.
+    local fallback = {}
+    for _, catPool in pairs(categoryPools) do
+        for i = 1, #catPool do
+            fallback[#fallback + 1] = catPool[i]
+        end
+    end
+    if #fallback == 0 then return nil end
+    return fallback[love.math.random(1, #fallback)]
+end
+
 function Entities.spawn(player, skipPlayerPlace)
     Entities.enemies = {}
     Entities.items = {}
@@ -80,11 +179,16 @@ function Entities.spawn(player, skipPlayerPlace)
     -- Spawn lootbox containers at map lootbox positions
     Entities.lootboxes = {}
     local lootPositions = Map.getLootboxPositions()
+    local tier = mapTier(Map.currentMap)
+    local categoryPools = buildCategoryPools()
     for _, pos in ipairs(lootPositions) do
         local itemCount = love.math.random(Config.LOOTBOX_MIN_ITEMS, Config.LOOTBOX_MAX_ITEMS)
         local boxItems = {}
         for i = 1, itemCount do
-            boxItems[i] = Items.allItemIds[love.math.random(#Items.allItemIds)]
+            local itemId = pickLootItemIdForTier(tier, categoryPools)
+            if itemId then
+                boxItems[#boxItems + 1] = itemId
+            end
         end
         Entities.lootboxes[#Entities.lootboxes+1] = {
             x = pos[1], y = pos[2],
@@ -183,6 +287,18 @@ end
 
 function Entities.getEnemyBehaviorVariants()
     return { "raider", "skirmisher", "bruiser", "sentinel" }
+end
+
+function Entities.debugSampleLootboxItems(mapName, samples)
+    local tier = mapTier(mapName)
+    local categoryPools = buildCategoryPools()
+    local out = {}
+    local n = samples or 100
+    for i = 1, n do
+        local itemId = pickLootItemIdForTier(tier, categoryPools)
+        if itemId then out[#out + 1] = itemId end
+    end
+    return out, tier
 end
 
 function Entities.drawItems(fov, tileset)

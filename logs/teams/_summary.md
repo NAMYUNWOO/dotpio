@@ -41,4 +41,6 @@ Compact decision memory for AI context efficiency.
 - Enemy roster now includes behavior variants (`skirmisher`, `bruiser`, `sentinel`) with profile-driven move/aggro/flee/attack modifiers and weighted spawn mix for encounter diversity.
 - Build synthesis now enforces rolling category diversity (window 6 / cap 3) and shifts saturated AI targets toward underused synergy categories.
 - Diversity constraint behavior is regression-covered in `scripts/regression_build_category_diversity.lua`.
+- Lootbox rewards are now map-tiered (01~02 consumable-heavy, 03~04 mixed gear, 05~06 gear/accessory weighted) via weighted category profiles in `src/entities.lua`.
+- Tiered loot distribution is regression-covered in `scripts/regression_lootbox_rewards_by_tier.lua`.
 - Progress/report protocol: commit + verification + next task on each run.

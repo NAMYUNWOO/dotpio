@@ -36,3 +36,21 @@
   - Added debug/regression hooks to lock constraint behavior and history window bounds.
 - Follow-up:
   - Next M2 priority is reward table tuning by map tier; run economy/loot validation together with diversity guardrails.
+
+## 2026-03-19 07:43:35 KST
+- Task: M2 reward table pass for lootbox contents by map tier.
+- Commit: `HEAD (this run)`
+- Files changed:
+  - `src/entities.lua`
+  - `scripts/regression_lootbox_rewards_by_tier.lua`
+  - `ACTION_ITEMS.md`
+  - `TASKS.md`
+- Verification:
+  - `luac -p src/entities.lua scripts/regression_lootbox_rewards_by_tier.lua` ✅
+  - `lua scripts/regression_lootbox_rewards_by_tier.lua` ✅
+  - `lua scripts/regression_build_category_diversity.lua` ✅
+- Decisions:
+  - Added map-tiered loot reward profiles (tier1=consumable-heavy, tier2=balanced gear ramp, tier3=gear/accessory weighted) for lootbox item generation.
+  - Excluded synthetic system items from lootbox drops and added deterministic distribution regression to lock tier envelopes.
+- Follow-up:
+  - Next M3 priority: run mission prototype (3 objectives).
