@@ -764,7 +764,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot  Enter:Unequip  L/R:Panel  Esc:Exit", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Actions Backspace:UpDir U:Use E:Equip D:Disasm X:Drop F1:Help F5:Sort %s Esc:Exit",
+            "Up/Dn:Nav Enter:Actions Bksp:UpDir U/E/D/X:Quick F1:Help F5:Sort %s Esc:Exit",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -826,7 +826,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 3 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:Run U/E/D/X:Quick Gray=locked (req unmet) Esc:Back", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:Run U/E/D/X:Quick Gray=LOCKED (need reqs) Esc:Back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -897,14 +897,15 @@ function InventoryUI.drawHelpDialog()
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "",
-        "Build tag: B:nF+mS on path row (files + SRL needed)",
+        "Build tag: B:nF+mSRL on path row (files + SRL needed)",
         "Build rule: weak pairs/5+ files need 3, 8+ files need 4",
-        "Build SRL: quality-weighted cost (1~7), +1 for same-category/stackable-heavy stacks", 
+        "Build SRL: quality-weighted cost (1~7) + loop surcharges",
+        "  (+1 for same-cat, stack-heavy, salvage-heavy folders)",
         "Disasm rule: salvage tier <= source-1 (min size 1)",
         "Disasm SRL: size tier + gear surcharge; small stackables cost >=2 (max 5)",
         "Disasm cap: ceil(size/5) stacks, max 2",
         "Disasm size budget: floor(size*0.45) total salvage",
-        "Action Menu: shows current SRL, U=Use E=Equip D=Disasm X=Drop",
+        "Action Menu: shows SRL, U=Use E=Equip D=Disasm X=Drop",
         "",
         "Press any key to close...",
     }
@@ -1020,7 +1021,7 @@ function InventoryUI.filesPanelKeypressed(key)
 
         local item = contents[cursor]
         if item.type ~= "file" then
-            InventoryUI.setStatus("Quick keys work on files")
+            InventoryUI.setStatus("Quick keys need a file row")
             return
         end
 
