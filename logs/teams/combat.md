@@ -85,3 +85,16 @@
 - Verification: `lua scripts/regression_run_missions.lua` ✅
 - Decisions:
   - No combat behavior/damage pacing changes; update is UI metadata only.
+
+## 2026-03-20 05:29 KST
+- Task: P1 combat experiment `Add berserker desperation behavior (low-HP speed/damage spike) with regression coverage`.
+- Commit: HEAD (this run)
+- Files: `src/enemy_ai.lua`, `src/entities.lua`, `scripts/regression_enemy_behavior_variants.lua`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `luac -p src/enemy_ai.lua src/entities.lua scripts/regression_enemy_behavior_variants.lua` ✅
+  - `lua scripts/regression_enemy_behavior_variants.lua` ✅
+- Decisions:
+  - Added new `berserker` archetype that flips into desperation mode at low HP for faster cadence + higher damage.
+  - Kept desperation deterministic (`hp <= 2`) and reversible through profile fields to allow quick rebalance/rollback.
+- Follow-up:
+  - Next experiment candidate: telegraph desperation state in HUD/combat log for readability testing.

@@ -156,3 +156,8 @@
 - Verification: Reused mission regressions (`regression_run_summary`, `regression_mission_variety_pack`) ✅
 - Decisions:
   - Flavor labels are deterministic metadata (not generated text), preserving current AI safety/output envelope.
+
+## 2026-03-20 05:29 KST
+- Cross-lane review: no AI text generation/prompt pipeline changes required.
+- Decision: enemy behavior expansion remains data/profile-driven in runtime combat logic; AI content safeguards unchanged.
+- Follow-up: none.

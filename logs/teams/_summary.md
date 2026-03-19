@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-20 04:29 KST
+Last updated: 2026-03-20 05:29 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -235,3 +235,15 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_mission_variety_pack.lua`
 - Backlog update: `POST_RC_BACKLOG.md` item marked done.
 - Next priority item: none currently unchecked in tracked backlogs; inject next Game Director experiment in next cycle.
+
+## 2026-03-20 05:29 KST — P1 combat experiment: berserker desperation behavior
+- Completed backlog item: `Combat Team: Add berserker desperation behavior (low-HP speed/damage spike) with regression coverage`.
+- Durable decisions:
+  - Added new enemy archetype `berserker` to spawn roster and behavior catalog.
+  - Enemy modifier sync now composes synergy and low-HP desperation in one deterministic pass (move cadence, attack cadence, attack damage).
+  - Berserker desperation trigger is profile-driven (`hp <= 2`) to keep tuning/rollback low-risk.
+- Verification set:
+  - `luac -p src/enemy_ai.lua src/entities.lua scripts/regression_enemy_behavior_variants.lua`
+  - `lua scripts/regression_enemy_behavior_variants.lua`
+- Backlog update: `POST_RC_BACKLOG.md` combat experiment item marked done.
+- Next priority item: none unchecked in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject next Game Director experiment candidate next cycle.

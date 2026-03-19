@@ -860,3 +860,11 @@
   - `lua scripts/regression_mission_momentum.lua` ✅
   - `lua scripts/regression_mission_variety_pack.lua` ✅
 - Result: PASS, no regressions.
+
+## 2026-03-20 05:29 KST
+- Task: regression guardrail update for new berserker variant.
+- Verification:
+  - `luac -p src/enemy_ai.lua src/entities.lua scripts/regression_enemy_behavior_variants.lua` ✅
+  - `lua scripts/regression_enemy_behavior_variants.lua` ✅ (`[PASS] enemy behavior variants + synergy regression validated`)
+- Decision: expanded variant regression now asserts berserker roster presence and desperation modifier activation/deactivation behavior.
+- Follow-up: add encounter-level simulation check if future tuning modifies desperation thresholds.

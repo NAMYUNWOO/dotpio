@@ -24,6 +24,10 @@ local BEHAVIOR_DEFAULTS = {
     synergyRange = 0,
     synergyMoveCdMul = 1.0,
     synergyAtkDmgBonus = 0,
+    desperationHpThreshold = nil,
+    desperationMoveCdMul = 1.0,
+    desperationAtkCdMul = 1.0,
+    desperationAtkDmgBonus = 0,
 }
 
 local BEHAVIOR_PROFILES = {
@@ -66,6 +70,18 @@ local BEHAVIOR_PROFILES = {
         synergyRange = 4,
         synergyMoveCdMul = 0.75,
         synergyAtkDmgBonus = 1,
+    },
+    berserker = {
+        moveCdMul = 1.05,
+        atkCdMul = 1.1,
+        atkDmgBonus = 1,
+        detectBonus = 0,
+        chaseBonus = 1,
+        fleeHp = 0,
+        desperationHpThreshold = 2,
+        desperationMoveCdMul = 0.65,
+        desperationAtkCdMul = 0.7,
+        desperationAtkDmgBonus = 2,
     },
 }
 
@@ -143,13 +159,22 @@ local function alertNearbyAllies(e, enemies, range)
     return alerted
 end
 
-local function syncSynergy(e, enemies)
+local function syncCombatModifiers(e, enemies)
     local behavior = behaviorFor(e)
     local empowered = hasNearbyBehavior(e, enemies, behavior.synergyFromBehavior, behavior.synergyRange)
+    local desperationActive = behavior.desperationHpThreshold and e.hp <= behavior.desperationHpThreshold or false
+
     e.synergyEmpowered = empowered
-    e.moveCd = e.baseMoveCd * (empowered and behavior.synergyMoveCdMul or 1)
-    e.atkDmg = e.baseAtkDmg + (empowered and behavior.synergyAtkDmgBonus or 0)
-    return empowered
+    e.desperationActive = desperationActive
+
+    local moveMul = (empowered and behavior.synergyMoveCdMul or 1) * (desperationActive and behavior.desperationMoveCdMul or 1)
+    e.moveCd = e.baseMoveCd * moveMul
+    e.atkCd = e.baseAtkCd * (desperationActive and behavior.desperationAtkCdMul or 1)
+    e.atkDmg = e.baseAtkDmg
+        + (empowered and behavior.synergyAtkDmgBonus or 0)
+        + (desperationActive and behavior.desperationAtkDmgBonus or 0)
+
+    return empowered, desperationActive
 end
 
 -- Get next step from A* path toward target
@@ -200,7 +225,8 @@ function EnemyAI.init(e, idx)
     e.state = "idle"
     e.baseMoveCd = Config.ENEMY_MOVE_CD * behavior.moveCdMul
     e.moveCd = e.baseMoveCd
-    e.atkCd = Config.ENEMY_ATK_CD * behavior.atkCdMul
+    e.baseAtkCd = Config.ENEMY_ATK_CD * behavior.atkCdMul
+    e.atkCd = e.baseAtkCd
     e.fleeHp = behavior.fleeHp
     e.detectRange = math.max(2, Config.ENEMY_DETECT + behavior.detectBonus)
     e.chaseRange = math.max(e.detectRange, Config.ENEMY_CHASE + behavior.chaseBonus)
@@ -231,7 +257,7 @@ function EnemyAI.update(e, idx, dt, player, enemies)
     local canSee = d <= e.detectRange and los
     local behavior = behaviorFor(e)
 
-    syncSynergy(e, enemies)
+    syncCombatModifiers(e, enemies)
     if canSee and behavior.alertAlliesRange then
         alertNearbyAllies(e, enemies, behavior.alertAlliesRange)
     end
@@ -363,7 +389,7 @@ function EnemyAI.getBehaviorProfiles()
 end
 
 function EnemyAI.debugSyncSynergy(e, enemies)
-    return syncSynergy(e, enemies or {})
+    return syncCombatModifiers(e, enemies or {})
 end
 
 function EnemyAI.debugAlertNearbyAllies(e, enemies)

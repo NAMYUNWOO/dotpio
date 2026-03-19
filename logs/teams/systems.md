@@ -487,3 +487,13 @@
   - HUD/run-summary now expose compact pacing context without changing reward/economy logic.
 - Follow-up:
   - Consider mission-pack-specific bonus text hooks when objectives complete.
+
+## 2026-03-20 05:29 KST
+- Task: Combat experiment systems support for berserker desperation modifiers.
+- Commit: HEAD (this run)
+- Files: `src/enemy_ai.lua`, `src/entities.lua`
+- Verification: `lua scripts/regression_enemy_behavior_variants.lua` ✅
+- Decisions:
+  - Enemy modifier refresh now composes synergy + desperation in one pass (`moveCd`, `atkCd`, `atkDmg`).
+  - Added explicit base stat anchors (`baseAtkCd`) to avoid cumulative drift across updates.
+- Follow-up: watch for low-HP burst overkill in early maps before increasing spawn chance.

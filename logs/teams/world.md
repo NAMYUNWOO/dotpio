@@ -150,3 +150,8 @@
 - Verification: N/A (no map/portal file changes).
 - Decisions:
   - Portal graph and map topology unchanged.
+
+## 2026-03-20 05:29 KST
+- Cross-lane review: world/map/portal data unchanged for berserker experiment.
+- Decision: retain current map identity + portal topology while validating new combat pressure via enemy archetype mix.
+- Follow-up: monitor if map_06~07 chokepoints over-amplify berserker spikes.

@@ -317,3 +317,8 @@
   - `lua scripts/regression_mission_variety_pack.lua` ✅
 - Decisions:
   - Mission panel now shows `PACK/TAG/STREAK`; run summary includes `PACE` line for post-run readability.
+
+## 2026-03-20 05:29 KST
+- Cross-lane UX review: no HUD/menu copy updated in this patch.
+- Decision: ship combat behavior first, then consider explicit desperation indicator/status text if playtests show surprise damage confusion.
+- Follow-up: candidate backlog item for readability cue after combat telemetry review.

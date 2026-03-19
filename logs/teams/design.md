@@ -86,3 +86,8 @@
 - Verification: `luac -p src/hud.lua` ✅
 - Decisions:
   - Added terse DOS-style `TAG` and `PACE` labels to communicate run rhythm while avoiding panel clutter.
+
+## 2026-03-20 05:29 KST
+- Cross-lane design note: introduced berserker as a readability-friendly high-threat archetype (predictable low-HP power spike).
+- Decision: keep behavior trigger simple (`hp <= 2`) to maintain player learnability and avoid hidden randomness.
+- Follow-up: evaluate optional visual cue for desperation state in a later polish pass.

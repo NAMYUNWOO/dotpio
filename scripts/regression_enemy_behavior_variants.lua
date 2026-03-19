@@ -22,12 +22,12 @@ local function expect(ok, msg)
 end
 
 local variantRoster = Entities.getEnemyBehaviorVariants()
-expect(#variantRoster >= 6, "expected at least 6 spawn variants including new synergy archetypes")
+expect(#variantRoster >= 7, "expected at least 7 spawn variants including berserker experiment")
 
 local byName = {}
 for _, name in ipairs(variantRoster) do byName[name] = true end
 expect(
-    byName.skirmisher and byName.bruiser and byName.sentinel and byName.warcaller and byName.hunter,
+    byName.skirmisher and byName.bruiser and byName.sentinel and byName.warcaller and byName.hunter and byName.berserker,
     "missing required behavior variants"
 )
 
@@ -38,6 +38,7 @@ local probe = {
     sentinel = { x = 1, y = 1, behavior = "sentinel", hp = 3, alive = true },
     warcaller = { x = 2, y = 1, behavior = "warcaller", hp = 4, alive = true, state = "idle", alerted = false },
     hunter = { x = 3, y = 1, behavior = "hunter", hp = 3, alive = true, state = "idle", alerted = false },
+    berserker = { x = 4, y = 1, behavior = "berserker", hp = 4, alive = true, state = "idle", alerted = false },
     ally = { x = 2, y = 2, behavior = "raider", hp = 3, alive = true, state = "idle", alerted = false },
 }
 
@@ -47,6 +48,18 @@ expect(probe.skirmisher.moveCd < probe.raider.moveCd, "skirmisher should move fa
 expect(probe.bruiser.atkDmg > probe.raider.atkDmg, "bruiser should hit harder than raider")
 expect(probe.sentinel.leashRadius ~= nil, "sentinel should have leash radius")
 expect(probe.skirmisher.retreatAfterHit == true, "skirmisher should retreat after hit")
+
+local berserkerBaseMove = probe.berserker.moveCd
+local berserkerBaseAtkCd = probe.berserker.atkCd
+local berserkerBaseAtk = probe.berserker.atkDmg
+local _, desperationOff = EnemyAI.debugSyncSynergy(probe.berserker, { probe.berserker })
+expect(desperationOff == false and probe.berserker.desperationActive == false, "berserker should not be desperate at full HP")
+probe.berserker.hp = 2
+local _, desperationOn = EnemyAI.debugSyncSynergy(probe.berserker, { probe.berserker })
+expect(desperationOn == true and probe.berserker.desperationActive == true, "berserker should trigger desperation at low HP")
+expect(probe.berserker.moveCd < berserkerBaseMove, "berserker desperation should increase move speed")
+expect(probe.berserker.atkCd < berserkerBaseAtkCd, "berserker desperation should increase attack cadence")
+expect(probe.berserker.atkDmg > berserkerBaseAtk, "berserker desperation should increase attack damage")
 
 local hunterSolo = { x = 8, y = 8, behavior = "hunter", hp = 3, alive = true }
 EnemyAI.init(hunterSolo, 1)

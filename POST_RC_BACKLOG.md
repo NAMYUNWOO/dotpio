@@ -1,6 +1,6 @@
 # POST_RC_BACKLOG
 
-Last updated: 2026-03-20 03:00 KST
+Last updated: 2026-03-20 05:29 KST
 
 ## P0 (Now)
 - [x] Replace F9-centric build flow with Enter->Action menu primary flow
@@ -25,3 +25,6 @@ Last updated: 2026-03-20 03:00 KST
 - [x] Surface active mission-pack id + momentum streak in HUD/run-summary for clearer run pacing readability
 - [x] Add mission momentum lane-switch variety bonus (+1 BUILDER.SRL on consecutive objective completions from different lanes)
 - [x] Add mission-pack flavor descriptors and surface compact tag in HUD/run-summary
+
+## P1 (Combat Experiment)
+- [x] Combat Team: Add berserker desperation behavior (low-HP speed/damage spike) with regression coverage

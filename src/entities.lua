@@ -147,12 +147,13 @@ function Entities.spawn(player, skipPlayerPlace)
     end
 
     local enemyVariants = {
-        { name = "raider", chance = 0.30, hp = 3, gidPool = {45, 23, 25, 26} },
-        { name = "skirmisher", chance = 0.20, hp = 2, gidPool = {27, 28, 31} },
-        { name = "bruiser", chance = 0.18, hp = 5, gidPool = {57, 58} },
-        { name = "sentinel", chance = 0.12, hp = 4, gidPool = {32, 45} },
-        { name = "warcaller", chance = 0.12, hp = 4, gidPool = {43, 44, 46} },
-        { name = "hunter", chance = 0.08, hp = 3, gidPool = {29, 30, 33} },
+        { name = "raider", chance = 0.27, hp = 3, gidPool = {45, 23, 25, 26} },
+        { name = "skirmisher", chance = 0.18, hp = 2, gidPool = {27, 28, 31} },
+        { name = "bruiser", chance = 0.17, hp = 5, gidPool = {57, 58} },
+        { name = "sentinel", chance = 0.10, hp = 4, gidPool = {32, 45} },
+        { name = "warcaller", chance = 0.11, hp = 4, gidPool = {43, 44, 46} },
+        { name = "hunter", chance = 0.09, hp = 3, gidPool = {29, 30, 33} },
+        { name = "berserker", chance = 0.08, hp = 4, gidPool = {57, 58, 29} },
     }
 
     local encounterProfile = (Map.metadata and Map.metadata.encounterProfile) or {}
@@ -309,7 +310,7 @@ function Entities.drawLootboxes(fov, tileset)
 end
 
 function Entities.getEnemyBehaviorVariants()
-    return { "raider", "skirmisher", "bruiser", "sentinel", "warcaller", "hunter" }
+    return { "raider", "skirmisher", "bruiser", "sentinel", "warcaller", "hunter", "berserker" }
 end
 
 function Entities.debugSampleLootboxItems(mapName, samples)
