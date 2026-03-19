@@ -106,6 +106,23 @@ raise SystemExit(2)
         if json_payload["minute"] != 15 or json_payload["retain_rotated_logs"] != 4:
             raise AssertionError(f"Unexpected json payload fields: {json_payload}")
 
+        pretty_output = run(
+            ["bash", str(AUDIT), "--format", "json", "--pretty"],
+            expect_ok=True,
+            must_contain=['\n  "status": "ok"', '\n  "tz": "UTC"'],
+            env=env,
+        )
+        pretty_payload = json.loads(pretty_output.strip())
+        if pretty_payload["hour"] != 6 or pretty_payload["max_log_size_mb"] != 12:
+            raise AssertionError(f"Unexpected pretty json payload fields: {pretty_payload}")
+
+        run(
+            ["bash", str(AUDIT), "--pretty"],
+            expect_ok=False,
+            must_contain=["[ERROR] --pretty is only supported with --format json"],
+            env=env,
+        )
+
         run(
             ["bash", str(AUDIT), "--format", "yaml"],
             expect_ok=False,

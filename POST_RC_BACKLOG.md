@@ -1,6 +1,6 @@
 # POST_RC_BACKLOG
 
-Last updated: 2026-03-20 00:02 KST
+Last updated: 2026-03-20 01:28 KST
 
 ## P0 (Now)
 - [x] Replace F9-centric build flow with Enter->Action menu primary flow
@@ -15,6 +15,6 @@ Last updated: 2026-03-20 00:02 KST
 - [x] Add mission variety pack (at least +5 objectives)
 
 ## P2 (Ops)
-- [ ] Add weekly sustain audit JSON pretty mode
+- [x] Add weekly sustain audit JSON pretty mode
 - [ ] Add sustain health dashboard markdown report
 - [ ] Add automatic stale-branch/report drift check

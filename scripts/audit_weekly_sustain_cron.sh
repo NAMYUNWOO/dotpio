@@ -4,11 +4,12 @@ set -euo pipefail
 MARKER="# DOTPIO_WEEKLY_SUSTAIN"
 CRONTAB_BIN="${CRONTAB_BIN:-crontab}"
 OUTPUT_FORMAT="text"
+PRETTY_JSON=0
 
 usage() {
   cat <<'EOF'
 Usage:
-  bash scripts/audit_weekly_sustain_cron.sh [--crontab-bin PATH] [--format text|json]
+  bash scripts/audit_weekly_sustain_cron.sh [--crontab-bin PATH] [--format text|json] [--pretty]
 
 Reads current crontab, locates the managed DOTPIO weekly sustain entry,
 and prints parsed schedule + log-rotation policy fields.
@@ -28,6 +29,10 @@ while [[ $# -gt 0 ]]; do
       OUTPUT_FORMAT="$2"
       shift 2
       ;;
+    --pretty)
+      PRETTY_JSON=1
+      shift
+      ;;
     -h|--help)
       usage
       exit 0
@@ -42,6 +47,11 @@ done
 
 if [[ "$OUTPUT_FORMAT" != "text" && "$OUTPUT_FORMAT" != "json" ]]; then
   echo "[ERROR] --format must be one of: text, json" >&2
+  exit 1
+fi
+
+if [[ "$PRETTY_JSON" -eq 1 && "$OUTPUT_FORMAT" != "json" ]]; then
+  echo "[ERROR] --pretty is only supported with --format json" >&2
   exit 1
 fi
 
@@ -103,6 +113,7 @@ if [[ "$OUTPUT_FORMAT" == "json" ]]; then
   MAX_ROTATED_AGE_DAYS="$MAX_ROTATED_AGE_DAYS" \
   RUNNER_LOG_PATH="$RUNNER_LOG_PATH" \
   ENTRY="$ENTRY" \
+  PRETTY_JSON="$PRETTY_JSON" \
   python3 - <<'PY'
 import json
 import os
@@ -121,7 +132,11 @@ payload = {
     "runner_log_path": os.environ["RUNNER_LOG_PATH"],
     "entry": os.environ["ENTRY"],
 }
-print(json.dumps(payload, ensure_ascii=False, sort_keys=True))
+pretty = os.environ.get("PRETTY_JSON", "0") == "1"
+if pretty:
+    print(json.dumps(payload, ensure_ascii=False, sort_keys=True, indent=2))
+else:
+    print(json.dumps(payload, ensure_ascii=False, sort_keys=True))
 PY
   exit 0
 fi

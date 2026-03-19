@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-19 23:29 KST
+Last updated: 2026-03-20 01:28 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -122,3 +122,13 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/regression_map_progression.py`
 - Backlog update: `POST_RC_BACKLOG.md` P1 portal repositioning item marked done.
 - Next priority item: P2 `Add weekly sustain audit JSON pretty mode`.
+
+## 2026-03-20 01:28 KST — P2 weekly audit JSON pretty mode completed
+- Completed backlog item: `Add weekly sustain audit JSON pretty mode`.
+- Durable decision: `scripts/audit_weekly_sustain_cron.sh --format json --pretty` now emits indented JSON for operator readability while plain `--format json` remains compact/stable for machine consumers.
+- Guardrail: `--pretty` is now explicitly rejected unless `--format json` is selected.
+- Verification set:
+  - `python3 -m py_compile scripts/regression_weekly_cron_audit.py`
+  - `python3 scripts/regression_weekly_cron_audit.py`
+- Backlog update: `POST_RC_BACKLOG.md` P2 pretty-mode item marked done.
+- Next priority item: P2 `Add sustain health dashboard markdown report`.

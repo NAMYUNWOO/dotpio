@@ -87,3 +87,19 @@
 - Cross-lane note: World portal reposition pass completed for map_03~07 with validator/regression green.
 - Impact: traversal landmarks and fallback routes are clearer; no economy/combat/UI schema changes required in this patch.
 - Follow-up: monitor playtest readability feedback and tune labels/cues if confusion persists.
+
+## 2026-03-20 01:28:00 KST
+- Task: P2 backlog item `Add weekly sustain audit JSON pretty mode`.
+- Commit: HEAD (pending)
+- Files:
+  - `scripts/audit_weekly_sustain_cron.sh`
+  - `scripts/regression_weekly_cron_audit.py`
+  - `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/regression_weekly_cron_audit.py` ✅
+  - `python3 scripts/regression_weekly_cron_audit.py` ✅
+- Decisions:
+  - Added `--pretty` flag for `--format json` to emit indented, human-readable audit payload while keeping compact JSON default stable.
+  - Added guardrail: `--pretty` rejects non-JSON formats to avoid ambiguous output modes.
+- Follow-up:
+  - Next P2 priority: `Add sustain health dashboard markdown report`.
