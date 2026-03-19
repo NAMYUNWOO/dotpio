@@ -18,6 +18,7 @@ local LootboxUI   = require("src.lootbox_ui")
 local AiDescribe  = require("src.ai_describe")
 local RunMissions = require("src.run_missions")
 local Unlocks     = require("src.unlocks")
+local FailForward = require("src.fail_forward")
 
 local gameOver = false
 local autoShotDone = false
@@ -318,9 +319,16 @@ function love.keypressed(key)
         return
     end
     if key == "r" then
+        local missionState = RunMissions.getState()
+        local carryReward = FailForward.compute(Player.inventory, missionState)
+
         Player.inventory = nil
         resetRunState()
         Player.init(0, 0)
+
+        local applied = FailForward.apply(Player.inventory, carryReward)
+        InventoryUI.setStatus(FailForward.formatStatus(applied))
+
         loadMap("01", nil)
         return
     end

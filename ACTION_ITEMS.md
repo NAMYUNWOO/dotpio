@@ -35,7 +35,7 @@ Tracking rule:
 ## M3 - Meta Progression
 - [x] Add run mission prototype (3 objectives)
 - [x] Add unlock flag framework for new build options
-- [ ] Add fail-forward reward (currency/material carryover)
+- [x] Add fail-forward reward (currency/material carryover)
 - [ ] Add summary screen for run result + unlock progress
 
 ## M4 - UX/Accessibility

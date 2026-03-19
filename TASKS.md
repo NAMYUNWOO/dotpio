@@ -68,3 +68,8 @@ See project-level plans:
   - [x] Gate advanced build target categories behind unlock flag
   - [x] Trigger unlock on run mission completion and surface status in HUD
   - [x] Add regression coverage for unlock flow + gated category pool
+
+- [x] Add fail-forward reward (currency/material carryover)
+  - [x] Compute carryover package from run inventory + mission completion state
+  - [x] Apply carryover package on next run start and expose restart status copy
+  - [x] Add regression coverage for carryover caps + reward application
