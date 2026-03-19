@@ -48,6 +48,7 @@ local state = {
     lastPackTag = nil,
     lastPackLabel = nil,
     completionStreak = 0,
+    varietyBonusCount = 0,
     lastCompletedLane = nil,
 }
 
@@ -130,6 +131,7 @@ function RunMissions.reset(objectives)
     state.lastPackTag = pack.flavorTag or "UNKNOWN"
     state.lastPackLabel = pack.flavorLabel or "unknown pacing"
     state.completionStreak = 0
+    state.varietyBonusCount = 0
     state.lastCompletedLane = nil
     recalcDoneCount()
 end
@@ -173,6 +175,7 @@ function RunMissions.addProgress(eventId, amount)
     local completionLane = completedLanes[1]
     if completionLane and state.lastCompletedLane and completionLane ~= state.lastCompletedLane then
         laneSwitchBonusSrl = 1
+        state.varietyBonusCount = state.varietyBonusCount + 1
     end
     if completionLane then
         state.lastCompletedLane = completionLane
@@ -210,6 +213,7 @@ function RunMissions.getState()
         total = state.total,
         completed = (state.total > 0 and state.doneCount == state.total) or false,
         completionStreak = state.completionStreak,
+        varietyBonusCount = state.varietyBonusCount,
         lastPackId = state.lastPackId,
         lastPackTag = state.lastPackTag,
         lastPackLabel = state.lastPackLabel,

@@ -184,3 +184,4 @@ See project-level plans:
 - [x] Add one-turn post-lunge recovery window for berserker desperation chain (readability/fairness follow-up)
 - [x] Add HUD threat-strip counter for active berserker recovery windows
 - [x] Add mission lane-switch variety bonus preview hint in HUD metadata (`NEXT:<lane> +1`)
+- [x] Track and surface mission lane-switch variety bonus count in HUD/run-summary (`VAR:<n>`)

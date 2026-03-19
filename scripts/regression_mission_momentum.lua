@@ -32,6 +32,9 @@ expect((r3.laneSwitchBonusSrl or 0) == 1, "lane switch should grant +1 SRL varie
 expect(r3.rewardSrl == 3, "streak 3 with lane switch should reward +3 SRL total")
 expect(r3.completionStreak == 3, "streak 3 completionStreak mismatch")
 
+local s3 = RunMissions.getState()
+expect((s3.varietyBonusCount or 0) == 1, "lane-switch completion should increment variety bonus counter")
+
 local none = RunMissions.addProgress("alpha", 1)
 expect(none == nil, "already completed objective should not pay extra momentum reward")
 
@@ -40,5 +43,6 @@ RunMissions.reset({
 })
 local s = RunMissions.getState()
 expect(s.completionStreak == 0, "reset should clear completion streak")
+expect((s.varietyBonusCount or 0) == 0, "reset should clear variety bonus counter")
 
 print("[PASS] mission momentum payout regression validated")

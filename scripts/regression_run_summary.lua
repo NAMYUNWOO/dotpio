@@ -32,6 +32,7 @@ expect(state.data.missionPackId == "pack_1", "mission pack id should be captured
 expect(state.data.missionPackTag == "BASELINE", "mission pack tag should be captured in summary snapshot")
 expect(state.data.missionPackLabel == "steady pressure", "mission pack label should be captured in summary snapshot")
 expect(state.data.momentumStreak == 1, "momentum streak should be captured in summary snapshot")
+expect(state.data.varietyBonusCount == 0, "variety bonus count should be captured in summary snapshot")
 expect(state.data.advancedUnlocked == false, "unlock state should be copied into snapshot")
 expect(#(state.data.objectives or {}) == 3, "summary should include objective rows")
 expect(state.data.carry.srl == 4 and state.data.carry.coins == 3 and state.data.carry.gems == 1, "carryover values should match applied reward")

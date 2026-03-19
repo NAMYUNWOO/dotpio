@@ -529,3 +529,8 @@
 ## 2026-03-20 07:26 KST — Mission variety preview contract
 - Decision: expose `nextVarietyLane` and `varietyBonusPreview` from `RunMissions.getState()` so HUD can surface upcoming lane-switch bonus without touching payout logic.
 - Follow-up: if future packs add >3 lanes, keep hint as first unfinished alternate-lane objective for deterministic UI.
+
+## 2026-03-20 07:56 KST — Mission variety mastery counter snapshot field
+- Decision: added `varietyBonusCount` to mission runtime state and reset lifecycle to persist lane-switch mastery as a first-class stat.
+- Implementation: increment only when lane-switch bonus payout triggers; expose through `RunMissions.getState()` for HUD/summary consumers.
+- Verification: mission momentum + mission variety regressions PASS.

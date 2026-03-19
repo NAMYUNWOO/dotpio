@@ -117,3 +117,7 @@
 ## 2026-03-20 07:26 KST — Mission panel readability pass
 - Decision: append compact `NEXT:<lane> +1` token to mission metadata row to communicate achievable variety reward with minimal HUD footprint.
 - Follow-up: monitor line width if future metadata fields expand.
+
+## 2026-03-20 07:56 KST — HUD readability: add compact mission mastery token
+- Decision: added concise `VAR:<n>` alongside `PACK/TAG/STREAK` to communicate earned lane-switch mastery without increasing panel height.
+- Follow-up: monitor line-width pressure if future metadata expands.

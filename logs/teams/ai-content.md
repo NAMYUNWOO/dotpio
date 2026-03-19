@@ -178,3 +178,6 @@
 ## 2026-03-20 07:26 KST — No AI generation rule changes
 - Scope check: preview hint uses existing mission lane metadata; no AI prompt/category constraint updates required.
 - Follow-up: if AI-authored mission packs land, ensure lane tags are always present for preview rendering.
+
+## 2026-03-20 07:56 KST — No AI generation changes
+- Scope check: mission variety counter is deterministic runtime metadata; no AI prompt/schema changes.

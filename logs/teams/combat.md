@@ -139,3 +139,7 @@
 ## 2026-03-20 07:26 KST — Combat unaffected by mission preview update
 - Scope check: no enemy behavior/timing/damage deltas.
 - Follow-up: keep berserker readability counters independent from mission metadata row.
+
+## 2026-03-20 07:56 KST — Combat unchanged by variety counter update
+- Scope check: no enemy behavior/damage cadence changes.
+- Follow-up: keep combat threat strip independent from mission metadata counters.

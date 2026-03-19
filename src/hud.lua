@@ -43,10 +43,11 @@ local function drawMissionPanel(missionState, unlockFlags, startY)
     local metaPack = string.upper(tostring(missionState.lastPackId or "unknown"))
     local metaTag = string.upper(tostring(missionState.lastPackTag or "unknown"))
     local metaStreak = tonumber(missionState.completionStreak) or 0
+    local metaVarietyCount = tonumber(missionState.varietyBonusCount) or 0
     local metaNextVarietyLane = missionState.nextVarietyLane and string.upper(tostring(missionState.nextVarietyLane)) or nil
     local metaVarietyBonus = tonumber(missionState.varietyBonusPreview) or 0
     love.graphics.setColor(0.7, 0.88, 1, 1)
-    local metaLine = string.format("PACK:%s  TAG:%s  STREAK:%d", metaPack, metaTag, metaStreak)
+    local metaLine = string.format("PACK:%s  TAG:%s  STREAK:%d  VAR:%d", metaPack, metaTag, metaStreak, metaVarietyCount)
     if metaNextVarietyLane and metaVarietyBonus > 0 then
         metaLine = string.format("%s  NEXT:%s +%d", metaLine, metaNextVarietyLane, metaVarietyBonus)
     end
@@ -85,7 +86,7 @@ local function drawRunSummary(runSummary)
     love.graphics.setColor(0.8, 0.9, 1, 1)
     love.graphics.printf(string.format("MISSIONS: %d/%d", data.missionsDone or 0, data.missionsTotal or 0), 112, 168, w - 224, "left")
     love.graphics.setColor(0.7, 0.88, 1, 1)
-    love.graphics.printf(string.format("PACK: %s   TAG: %s   STREAK: %d", string.upper(tostring(data.missionPackId or "unknown")), string.upper(tostring(data.missionPackTag or "unknown")), data.momentumStreak or 0), 112, 188, w - 224, "left")
+    love.graphics.printf(string.format("PACK: %s   TAG: %s   STREAK: %d   VAR: %d", string.upper(tostring(data.missionPackId or "unknown")), string.upper(tostring(data.missionPackTag or "unknown")), data.momentumStreak or 0, data.varietyBonusCount or 0), 112, 188, w - 224, "left")
 
     love.graphics.setColor(0.62, 0.78, 0.95, 1)
     love.graphics.printf(string.format("PACE: %s", string.upper(tostring(data.missionPackLabel or "unknown pacing"))), 112, 206, w - 224, "left")

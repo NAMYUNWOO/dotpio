@@ -319,3 +319,20 @@ Compact decision memory for AI context efficiency.
   - Marked new P1 gameplay experiment item done in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
 - Next priority item:
   - No unchecked items remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject next Game Director experiment candidate.
+
+## 2026-03-20 07:56 KST — P1 gameplay readability follow-up: mission variety mastery counter
+- Completed backlog item: `UX/Systems Team: Track and surface mission lane-switch variety bonus count in HUD/run-summary`.
+- Durable decisions:
+  - Added mission-state stat `varietyBonusCount` (increments only on lane-switch bonus payouts, resets on mission reset).
+  - HUD mission metadata now includes compact `VAR:<n>` token next to `PACK/TAG/STREAK`.
+  - Run summary snapshot now persists/displays `varietyBonusCount` for post-run pacing review.
+- Verification set:
+  - `luac -p src/run_missions.lua src/run_summary.lua src/hud.lua scripts/regression_mission_momentum.lua scripts/regression_run_summary.lua`
+  - `lua scripts/regression_mission_momentum.lua`
+  - `lua scripts/regression_run_summary.lua`
+  - `lua scripts/regression_mission_variety_preview.lua`
+  - `lua scripts/regression_mission_variety_pack.lua`
+- Backlog update:
+  - Marked new P1 gameplay experiment item done in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
+- Next priority item:
+  - No unchecked entries remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject a fresh Game Director experiment candidate next cycle.

@@ -356,3 +356,7 @@
 - Decision: players now see upcoming lane-switch bonus in HUD before completion, reducing hidden-reward confusion.
 - Copy/UI: mission meta row now conditionally renders `NEXT:<lane> +1` only when an alternate-lane objective remains.
 - Follow-up: consider matching run-summary annotation if user testing asks for post-run visibility.
+
+## 2026-03-20 07:56 KST — Run-summary parity for mission variety feedback
+- Decision: mission variety bonus count now appears in both in-run HUD and run summary row for pre/post-run consistency.
+- Copy/UI: `PACK ... STREAK ... VAR ...` format retained in DOS-style compact metadata line.

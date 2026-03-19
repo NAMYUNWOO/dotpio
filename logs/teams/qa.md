@@ -905,3 +905,14 @@
   - `lua scripts/regression_mission_momentum.lua`
   - `lua scripts/regression_mission_variety_pack.lua`
 - Result: PASS.
+
+## 2026-03-20 07:56 KST — Regression coverage for mission variety bonus counter
+- Updated checks:
+  - `scripts/regression_mission_momentum.lua` now asserts `varietyBonusCount` increments on lane switch and resets on mission reset.
+  - `scripts/regression_run_summary.lua` now asserts snapshot captures `varietyBonusCount`.
+- Verification set PASS:
+  - `luac -p src/run_missions.lua src/run_summary.lua src/hud.lua scripts/regression_mission_momentum.lua scripts/regression_run_summary.lua`
+  - `lua scripts/regression_mission_momentum.lua`
+  - `lua scripts/regression_run_summary.lua`
+  - `lua scripts/regression_mission_variety_preview.lua`
+  - `lua scripts/regression_mission_variety_pack.lua`
