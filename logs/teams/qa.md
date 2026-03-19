@@ -275,3 +275,17 @@
   - No portal validator run required (map/portal files unchanged).
 - Follow-up:
   - Extend unlock regression once fail-forward rewards/summaries start consuming unlock state.
+
+## 2026-03-19 09:13:50 KST
+- Task: QA verification for M3 fail-forward carryover rewards.
+- Commit: `90cdfa9`
+- Files checked: `main.lua`, `src/fail_forward.lua`, `scripts/regression_fail_forward_rewards.lua`
+- Verification:
+  - `luac -p main.lua src/fail_forward.lua scripts/regression_fail_forward_rewards.lua` ✅
+  - `lua scripts/regression_fail_forward_rewards.lua` ✅
+- Decisions:
+  - Regression asserts carryover formula/caps and confirms rewards are applied to a fresh run inventory with status copy emitted.
+  - No portal validator run required (map/portal files untouched).
+  - No screenshot regen required (no persistent UI layout/copy asset change).
+- Follow-up:
+  - Add summary-screen regression coverage once M3 run result screen is implemented.

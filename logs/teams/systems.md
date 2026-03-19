@@ -156,3 +156,17 @@
   - AI build prompt now advertises only currently allowed target categories to keep generation aligned with unlocked progression.
 - Follow-up:
   - Next M3 item: add fail-forward reward (currency/material carryover).
+
+## 2026-03-19 09:13:50 KST
+- Task: M3 fail-forward reward (currency/material carryover) on run reset.
+- Commit: `90cdfa9`
+- Files: `src/fail_forward.lua`, `main.lua`, `scripts/regression_fail_forward_rewards.lua`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p main.lua src/fail_forward.lua scripts/regression_fail_forward_rewards.lua` ✅
+  - `lua scripts/regression_fail_forward_rewards.lua` ✅ (`[PASS] fail-forward reward regression validated`)
+- Decisions:
+  - Added a dedicated fail-forward module that computes capped carryover from run inventory + mission completion state (BUILDER.SRL/coin/gem).
+  - Run reset (`R`) now snapshots carryover before inventory reset, applies rewards into starter folders on next run, and surfaces restart status copy.
+  - Carryover is intentionally capped (SRL 8, coin 25, gem 3) to preserve anti-exploit economy constraints while still giving fail-forward momentum.
+- Follow-up:
+  - Next highest unchecked milestone item is M3 `Add summary screen for run result + unlock progress`.
