@@ -599,3 +599,20 @@
   - Installer CLI regression now validates `--retain-rotated-logs` rendering and non-negative integer validation.
 - Follow-up:
   - Keep regression fixture sleep spacing if timestamp format/rotation granularity changes.
+
+## 2026-03-19 20:15:40 KST
+- Task: QA verification for age-based pruning on weekly sustain rotated logs.
+- Commit: HEAD (this run)
+- Files checked: `scripts/rotate_log_if_needed.sh`, `scripts/install_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_installer.py`, `scripts/regression_rotate_log_retention.py`
+- Verification:
+  - `bash -n scripts/rotate_log_if_needed.sh` ✅
+  - `bash -n scripts/install_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_installer.py scripts/regression_rotate_log_retention.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_rotate_log_retention.py` ✅
+  - Cron dry-run preview contains age token in rotate command (`... rotate_log_if_needed.sh /tmp/dotpio-weekly.log 12 4 14 ...`) ✅
+- Decisions:
+  - Age-prune regression mutates fixture mtime to assert stale rotated file deletion independent of size-triggered rotation path.
+  - Installer regression now enforces explicit non-negative integer validation for `--max-rotated-age-days`.
+- Follow-up:
+  - Keep regression expected token in sync if rotate helper argument order changes.

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-19 19:44 KST
+Last updated: 2026-03-19 20:15 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -72,3 +72,4 @@ Compact decision memory for AI context efficiency.
 - Weekly sustain log rotation now enforces keep-latest-N retention pruning via `scripts/rotate_log_if_needed.sh <log> <max-size-mb> <retain-rotated>` to avoid rotated-log accumulation.
 - Cron installer now exposes `--retain-rotated-logs` / `SUSTAIN_CRON_RETAIN_ROTATED_LOGS`, wiring retention policy directly into managed cron entries.
 - Retention behavior is regression-covered by `scripts/regression_rotate_log_retention.py` (repeated over-threshold rotations + prune assertions).
+- Weekly sustain log rotation now also supports optional age-based pruning (`max-age-days`) via rotate helper + cron installer (`--max-rotated-age-days` / `SUSTAIN_CRON_MAX_ROTATED_AGE_DAYS`), with regression coverage for stale-file deletion and CLI token rendering.

@@ -156,3 +156,7 @@ See project-level plans:
 - [x] Add rotated sustain-log retention policy
   - [x] Keep only latest N rotated weekly sustain logs to prevent disk creep
   - [x] Add regression coverage for retention pruning behavior
+
+- [x] Add optional age-based pruning for rotated sustain logs
+  - [x] Support max-age-days pruning in rotate helper and cron installer wiring
+  - [x] Extend regressions for age-based prune behavior + installer CLI rendering/validation

@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import os
 import pathlib
 import subprocess
 import tempfile
@@ -12,9 +13,22 @@ REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 ROTATE_HELPER = REPO_ROOT / "scripts" / "rotate_log_if_needed.sh"
 
 
-def run(log_path: pathlib.Path, max_size_mb: int, retain: int, expect_tokens: list[str] | None = None) -> str:
+def run(
+    log_path: pathlib.Path,
+    max_size_mb: int,
+    retain: int,
+    max_age_days: int = 0,
+    expect_tokens: list[str] | None = None,
+) -> str:
     result = subprocess.run(
-        ["bash", str(ROTATE_HELPER), str(log_path), str(max_size_mb), str(retain)],
+        [
+            "bash",
+            str(ROTATE_HELPER),
+            str(log_path),
+            str(max_size_mb),
+            str(retain),
+            str(max_age_days),
+        ],
         cwd=REPO_ROOT,
         text=True,
         capture_output=True,
@@ -61,6 +75,16 @@ def main() -> int:
         files = rotated_files(log_path)
         if len(files) != 2:
             raise AssertionError(f"expected 2 rotated files after pruning, got {len(files)}: {files}")
+
+        # Age-based pruning should remove stale rotated files even when retain cap is high.
+        stale = files[-1]
+        stale_mtime = time.time() - (2 * 24 * 60 * 60)
+        os.utime(stale, (stale_mtime, stale_mtime))
+        out = run(log_path, max_size_mb=99, retain=10, max_age_days=1)
+        if "pruned 1 rotated logs by age" not in out:
+            raise AssertionError(f"expected age-based prune message\n{out}")
+        if stale.exists():
+            raise AssertionError("expected stale rotated file to be pruned by age")
 
     print("[PASS] rotate log retention regression checks")
     return 0

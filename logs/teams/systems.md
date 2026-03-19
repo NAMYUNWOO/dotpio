@@ -303,3 +303,21 @@
   - Cron installer now exposes `--retain-rotated-logs` / `SUSTAIN_CRON_RETAIN_ROTATED_LOGS` and wires retention into the managed schedule command.
 - Follow-up:
   - Consider optional age-based retention (days) only if operators request time-window semantics beyond keep-latest-N.
+
+## 2026-03-19 20:15:40 KST
+- Task: M5 post-RC sustain - add optional max-age-days pruning window for rotated weekly sustain logs.
+- Commit: HEAD (this run)
+- Files: `scripts/rotate_log_if_needed.sh`, `scripts/install_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_installer.py`, `scripts/regression_rotate_log_retention.py`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `bash -n scripts/rotate_log_if_needed.sh` ✅
+  - `bash -n scripts/install_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_installer.py scripts/regression_rotate_log_retention.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_rotate_log_retention.py` ✅
+  - `bash scripts/install_weekly_sustain_cron.sh --minute 15 --hour 6 --dow 2 --tz UTC --log-path /tmp/dotpio-weekly.log --max-log-size-mb 12 --retain-rotated-logs 4 --max-rotated-age-days 14` (dry-run preview) ✅
+- Decisions:
+  - Rotation helper now accepts optional `max-age-days` and prunes stale rotated logs even when no new rotation occurs in the current run.
+  - Cron installer now exposes `--max-rotated-age-days` / `SUSTAIN_CRON_MAX_ROTATED_AGE_DAYS` and wires the value into the managed rotation command.
+  - Regression suite now covers CLI rendering/validation for age token and fixture-based stale-file pruning behavior.
+- Follow-up:
+  - Next sustain hardening candidate: add lightweight audit command to report current cron rotate policy from managed entry.

@@ -63,6 +63,7 @@ Tracking rule:
 - [x] Add optional weekly cron log path override for multi-instance deployments
 - [x] Add weekly sustain cron log rotation guard (size-based pre-run rotate helper + installer wiring)
 - [x] Add rotated sustain-log retention policy (keep-latest-N pruning + regression)
+- [x] Add optional rotated sustain-log max-age pruning window (days-based) for long-lived nodes
 
 ---
 

@@ -87,12 +87,14 @@ def main() -> int:
             "12",
             "--retain-rotated-logs",
             "4",
+            "--max-rotated-age-days",
+            "14",
         ],
         expect_ok=True,
         must_contain=[
             "CRON_TZ=UTC 15 6 * * 2",
             "/tmp/dotpio-weekly.log",
-            "bash scripts/rotate_log_if_needed.sh /tmp/dotpio-weekly.log 12 4",
+            "bash scripts/rotate_log_if_needed.sh /tmp/dotpio-weekly.log 12 4 14",
         ],
     )
 
@@ -111,6 +113,11 @@ def main() -> int:
         ["bash", str(INSTALLER), "--retain-rotated-logs", "-1"],
         expect_ok=False,
         must_contain=["[ERROR] --retain-rotated-logs must be a non-negative integer"],
+    )
+    run(
+        ["bash", str(INSTALLER), "--max-rotated-age-days", "-2"],
+        expect_ok=False,
+        must_contain=["[ERROR] --max-rotated-age-days must be a non-negative integer"],
     )
 
     # Apply path should be safely testable via injected crontab binary.
