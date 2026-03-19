@@ -86,3 +86,7 @@ See project-level plans:
 - [x] Add always-visible lock reason for all disabled actions
   - [x] Surface per-action lock reason text directly in Action Menu rows
   - [x] Add regression coverage for disabled action lock-reason labels
+- [x] Add compact onboarding hint flow for first 5 minutes
+  - [x] Show concise contextual hint strip without obscuring HUD
+  - [x] Rotate/advance hints based on elapsed run time and first interactions
+  - [x] Add regression coverage for hint window expiry and progression

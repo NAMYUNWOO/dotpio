@@ -131,3 +131,21 @@
   - Added regression coverage to pin lock-reason visibility for USE/DISASM/SPLIT disabled states.
 - Follow-up:
   - Next M4 priority: compact onboarding hint flow for first 5 minutes.
+
+## 2026-03-19 11:14:50 KST
+- Task: M4 compact onboarding hint flow for first 5 minutes.
+- Commit: HEAD (this run)
+- Files: `main.lua`, `src/hud.lua`, `src/onboarding_hints.lua`, `scripts/regression_onboarding_hints.lua`, `screenshots/screenshot-map04.png`, `screenshots/screenshot-inventory-dos.png`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p main.lua src/hud.lua src/onboarding_hints.lua scripts/regression_onboarding_hints.lua` ✅
+  - `lua scripts/regression_onboarding_hints.lua` ✅
+  - `lua scripts/regression_action_menu_lock_reasons.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Added a compact HUD onboarding strip that stays active only during the first 5 minutes and avoids mission-panel overlap.
+  - Hint flow now advances by first interactions (move/search/pickup/inventory/build) and then rotates compact loop tips by elapsed time.
+  - Hooked onboarding completion events from real gameplay interactions (lootbox search open, pickup success, inventory open, build completion).
+- Follow-up:
+  - Next M4 priority: keyboard-only usability pass checklist.

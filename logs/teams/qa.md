@@ -337,3 +337,21 @@
   - No portal validator run required (map/portal files unchanged).
 - Follow-up:
   - Add onboarding hint-flow regression once M4 onboarding implementation lands.
+
+## 2026-03-19 11:14:50 KST
+- Task: QA verification for M4 compact onboarding hint flow.
+- Commit: HEAD (this run)
+- Files checked: `main.lua`, `src/hud.lua`, `src/onboarding_hints.lua`, `scripts/regression_onboarding_hints.lua`, `screenshots/screenshot-map04.png`, `screenshots/screenshot-inventory-dos.png`
+- Verification:
+  - `luac -p main.lua src/hud.lua src/onboarding_hints.lua scripts/regression_onboarding_hints.lua` ✅
+  - `lua scripts/regression_onboarding_hints.lua` ✅
+  - `lua scripts/regression_action_menu_lock_reasons.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Added deterministic regression coverage for onboarding hint progression order and 5-minute expiry.
+  - Screenshot refresh confirmed due visible HUD strip changes in map/inventory captures.
+  - No portal validator run required (map/portal files unchanged).
+- Follow-up:
+  - Add checklist artifact when M4 keyboard-only usability pass is implemented.

@@ -1,18 +1,20 @@
 local HUD = {}
 
-local function drawMissionPanel(missionState, unlockFlags)
+local function drawMissionPanel(missionState, unlockFlags, startY)
     if not missionState or not missionState.active then
         return
     end
 
+    local panelY = startY or 84
+
     love.graphics.setColor(0, 0, 0, 0.72)
-    love.graphics.rectangle("fill", 8, 84, 320, 92)
+    love.graphics.rectangle("fill", 8, panelY, 320, 92)
 
     local headerColor = missionState.completed and {0.4, 1, 0.6, 1} or {0.95, 0.9, 0.6, 1}
     love.graphics.setColor(headerColor)
-    love.graphics.print(string.format("RUN MISSIONS %d/%d", missionState.doneCount or 0, missionState.total or 0), 16, 90)
+    love.graphics.print(string.format("RUN MISSIONS %d/%d", missionState.doneCount or 0, missionState.total or 0), 16, panelY + 6)
 
-    local row = 108
+    local row = panelY + 24
     for _, objective in ipairs(missionState.objectives or {}) do
         local done = objective.done
         local marker = done and "[x]" or "[ ]"
@@ -70,7 +72,7 @@ local function drawRunSummary(runSummary)
     love.graphics.printf("Press R / Enter / Esc to close", 0, h - 148, w, "center")
 end
 
-function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary)
+function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary, onboardingHint)
     love.graphics.setColor(0,0,0,0.7)
     love.graphics.rectangle("fill", 8, 8, 220, 70)
     love.graphics.setColor(1,1,1,1)
@@ -91,10 +93,20 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     love.graphics.print("Enemies: "..alive, 160, 14)
     love.graphics.setColor(0.6,0.6,0.6,1)
     love.graphics.print("WASD:Move  Click:Magic  Space:Melee  E:Search  G:Pickup  R:Restart", 16, 54)
+
+    if onboardingHint then
+        love.graphics.setColor(0, 0, 0, 0.74)
+        love.graphics.rectangle("fill", 8, 84, 460, 28)
+        love.graphics.setColor(0.95, 0.95, 0.7, 1)
+        love.graphics.print("ONBOARDING", 16, 90)
+        love.graphics.setColor(0.82, 0.9, 1, 1)
+        love.graphics.print(onboardingHint, 112, 90)
+    end
+
     love.graphics.setColor(0.5,0.5,0.5,0.8)
     love.graphics.print(string.format("Pos: %d,%d", player.x, player.y), 16, 690)
 
-    drawMissionPanel(missionState, unlockFlags)
+    drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)
 
     if gameOver then
         love.graphics.setColor(0,0,0,0.6)

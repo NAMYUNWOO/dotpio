@@ -20,6 +20,7 @@ local RunMissions = require("src.run_missions")
 local Unlocks     = require("src.unlocks")
 local FailForward = require("src.fail_forward")
 local RunSummary  = require("src.run_summary")
+local OnboardingHints = require("src.onboarding_hints")
 
 local gameOver = false
 local autoShotDone = false
@@ -38,6 +39,7 @@ local missionUnlockAnnounced = false
 
 local function resetRunState()
     RunMissions.reset()
+    OnboardingHints.reset()
     missionUnlockAnnounced = false
 end
 
@@ -82,6 +84,7 @@ function love.load()
     InventoryUI.init()
     AiDescribe.init()
     InventoryUI.setBuildCompletedHandler(function()
+        OnboardingHints.mark("build")
         RunMissions.addProgress("build", 1)
     end)
     resetRunState()
@@ -96,6 +99,7 @@ end
 function love.update(dt)
     AiDescribe.update()
     Player.recalcStats()
+    OnboardingHints.update(dt)
 
     if autoShotPath and not autoShotDone then
         autoShotTimer = autoShotTimer + dt
@@ -187,6 +191,7 @@ function love.update(dt)
         lootboxInteract.timer = lootboxInteract.timer + dt
         if lootboxInteract.timer >= lootboxInteract.duration then
             LootboxUI.open(hoveredLootbox, Player)
+            OnboardingHints.mark("searched")
             lootboxInteract.active = false
             lootboxInteract.timer = 0
             hoveredLootbox = nil
@@ -240,7 +245,7 @@ function love.draw()
     love.graphics.pop()
 
     -- HUD
-    HUD.draw(Player, Entities.enemies, gameOver, RunMissions.getState(), Unlocks.getAllFlags(), RunSummary.getState())
+    HUD.draw(Player, Entities.enemies, gameOver, RunMissions.getState(), Unlocks.getAllFlags(), RunSummary.getState(), OnboardingHints.getHint())
 
     -- Lootbox hover tooltip (with integrated progress fill)
     if hoveredLootbox and not LootboxUI.isOpen() then
@@ -299,6 +304,7 @@ local function tryPickupItem()
 
     item.collected = true
     Entities.removeItem(itemIndex)
+    OnboardingHints.mark("pickup")
     RunMissions.addProgress("pickup", 1)
 
     local itemName = item.itemId
@@ -324,7 +330,11 @@ function love.keypressed(key)
         end
         return
     end
+    if key == "w" or key == "a" or key == "s" or key == "d" then
+        OnboardingHints.mark("moved")
+    end
     if key == "tab" or key == "i" then
+        OnboardingHints.mark("inventory")
         InventoryUI.open(Player, Entities)
         return
     end
