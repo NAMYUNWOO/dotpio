@@ -114,3 +114,20 @@
   - Build confirmation/status copy now explicitly names consumed materials (`USED: ...`) so build resource spending stays visible after execution.
 - Follow-up:
   - Next M4 priority: add always-visible lock reason for all disabled actions.
+
+## 2026-03-19 10:45:09 KST
+- Task: M4 always-visible lock reason for disabled action-menu actions.
+- Commit: HEAD (this run)
+- Files: `src/inventory_ui.lua`, `scripts/regression_action_menu_lock_reasons.lua`, `screenshots/screenshot-map04.png`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p src/inventory_ui.lua scripts/regression_action_menu_lock_reasons.lua` ✅
+  - `lua scripts/regression_action_menu_lock_reasons.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Disabled Action Menu rows now include inline lock-reason text (`[LOCK: ...]`) so users can read constraints without attempting activation.
+  - Footer help now points users to inline lock reasons instead of generic disabled-state wording.
+  - Added regression coverage to pin lock-reason visibility for USE/DISASM/SPLIT disabled states.
+- Follow-up:
+  - Next M4 priority: compact onboarding hint flow for first 5 minutes.

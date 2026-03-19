@@ -820,26 +820,39 @@ end
 function InventoryUI.buildActionMenu(item)
     local def = Items.get(item.itemId)
     local menu = {}
+
+    local function withLockReason(baseLabel, enabled, reason)
+        if enabled then
+            return baseLabel, nil
+        end
+        local lockReason = reason or "LOCKED"
+        return string.format("%s [LOCK: %s]", baseLabel, lockReason), lockReason
+    end
+
     -- USE
     local hasUse = def and def.onUse
-    menu[#menu+1] = {label = "USE [U]", enabled = hasUse, action = "use"}
+    local useLabel, useReason = withLockReason("USE [U]", hasUse, "consumables only")
+    menu[#menu+1] = {label = useLabel, enabled = hasUse, action = "use", lockReason = useReason}
+
     -- EQUIP
     local canEquip = Items.isEquippable(item.itemId)
-    menu[#menu+1] = {label = "EQUIP [E]", enabled = canEquip, action = "equip"}
+    local equipLabel, equipReason = withLockReason("EQUIP [E]", canEquip, "no valid slot")
+    menu[#menu+1] = {label = equipLabel, enabled = canEquip, action = "equip", lockReason = equipReason}
+
     -- DISASSEMBLE (AI salvage)
     local disasmCost = getDisassembleCost(item.itemId)
     local builderCount = Inventory.countItemById(player.inventory, "builder_scroll")
     local canDisassemble = builderCount >= disasmCost
-    local disasmLabel
-    if canDisassemble then
-        disasmLabel = string.format("DISASM [D] (%d BUILDER.SRL)", disasmCost)
-    else
-        disasmLabel = string.format("DISASM [D] (%d BUILDER.SRL, NEED %d)", disasmCost, disasmCost - builderCount)
-    end
-    menu[#menu+1] = {label = disasmLabel, enabled = canDisassemble, action = "disassemble"}
+    local disasmBase = string.format("DISASM [D] (%d BUILDER.SRL)", disasmCost)
+    local disasmReason = string.format("need +%d BUILDER.SRL", math.max(0, disasmCost - builderCount))
+    local disasmLabel, disasmLockReason = withLockReason(disasmBase, canDisassemble, disasmReason)
+    menu[#menu+1] = {label = disasmLabel, enabled = canDisassemble, action = "disassemble", lockReason = disasmLockReason}
+
     -- SPLIT (stackables only)
     local canSplit = def and def.stackable and (item.count or 1) > 1
-    menu[#menu+1] = {label = "SPLIT [S] (stack)", enabled = canSplit, action = "split"}
+    local splitLabel, splitReason = withLockReason("SPLIT [S] (stack)", canSplit, "need stack x2+")
+    menu[#menu+1] = {label = splitLabel, enabled = canSplit, action = "split", lockReason = splitReason}
+
     -- DROP (remove from inventory to current map tile)
     menu[#menu+1] = {label = "DROP [X] (to map)", enabled = true, action = "delete"}
     return menu
@@ -871,7 +884,7 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 3 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:Run U/E/D/S/X:Quick Gray=LOCKED (need BUILDER.SRL/stack) Esc:Back", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:Run U/E/D/S/X:Quick Gray=LOCKED (see inline reason) Esc:Back", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------

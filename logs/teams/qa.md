@@ -320,3 +320,20 @@
   - No portal validator run required (map/portal files unchanged).
 - Follow-up:
   - Add/extend regression coverage once M4 always-visible lock reason work lands.
+
+## 2026-03-19 10:45:09 KST
+- Task: QA verification for M4 always-visible lock reason rollout.
+- Commit: HEAD (this run)
+- Files checked: `src/inventory_ui.lua`, `scripts/regression_action_menu_lock_reasons.lua`, `screenshots/screenshot-map04.png`
+- Verification:
+  - `luac -p src/inventory_ui.lua scripts/regression_action_menu_lock_reasons.lua` ✅
+  - `lua scripts/regression_action_menu_lock_reasons.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - New regression confirms disabled action rows retain explicit lock metadata for USE/DISASM/SPLIT.
+  - Screenshot refresh performed due visible Action Menu copy changes.
+  - No portal validator run required (map/portal files unchanged).
+- Follow-up:
+  - Add onboarding hint-flow regression once M4 onboarding implementation lands.

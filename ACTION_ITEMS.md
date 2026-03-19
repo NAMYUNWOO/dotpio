@@ -40,7 +40,7 @@ Tracking rule:
 
 ## M4 - UX/Accessibility
 - [x] Finalize DOS terminology consistency (Menu/Action/Drop/Disasm/Build)
-- [ ] Add always-visible lock reason for all disabled actions
+- [x] Add always-visible lock reason for all disabled actions
 - [ ] Add compact onboarding hint flow for first 5 minutes
 - [ ] Add keyboard-only usability pass checklist
 
