@@ -67,6 +67,11 @@ Context-window policy:
 Always pick highest-priority unchecked item from:
 1. `ACTION_ITEMS.md`
 2. `TASKS.md` (current sprint immediates)
+3. `POST_RC_BACKLOG.md` (when 1/2 are fully checked)
+
+Game Director cadence:
+- Follow `GAME_DIRECTOR_AGENT.md` as a separate ideation/experiment lane.
+- At least once per day, inject one validated experiment task into backlog.
 
 ## Validation Gates Before Commit
 - Syntax/lint checks for touched files
