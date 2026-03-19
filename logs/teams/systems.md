@@ -214,3 +214,18 @@
   - Updated RC sustain checklist to reference the one-command runner while retaining explicit regression row visibility.
 - Follow-up:
   - Next sustain cadence item: wire `bash scripts/run_weekly_sustain.sh` into external weekly scheduler/cron environment and monitor decision drift.
+
+## 2026-03-19 16:44:20 KST
+- Task: M5 post-RC sustain - scheduler wiring helper for weekly sustain runner.
+- Commit: HEAD (this run)
+- Files: `scripts/install_weekly_sustain_cron.sh`, `logs/playtests/rc_checklist.md`, `logs/economy_weekly_snapshot.md`, `logs/economy_weekly_snapshot.json`, `ACTION_ITEMS.md`, `TASKS.md`, `logs/teams/_summary.md`
+- Verification:
+  - `bash -n scripts/install_weekly_sustain_cron.sh` ✅
+  - `bash scripts/install_weekly_sustain_cron.sh` ✅ (dry-run preview)
+  - `bash scripts/run_weekly_sustain.sh` ✅
+- Decisions:
+  - Added cron installer helper with managed marker (`DOTPIO_WEEKLY_SUSTAIN`) so weekly sustain scheduling can be upserted without manual crontab editing.
+  - Default schedule is Monday 09:00 KST via `CRON_TZ=Asia/Seoul`, with CLI/env overrides for hour/minute/day.
+  - RC checklist now includes scheduler dry-run command as a post-RC sustain guardrail.
+- Follow-up:
+  - Next sustain action: run installer with `--apply` on deployment host when weekly automation ownership is confirmed.

@@ -498,3 +498,17 @@
   - No screenshot regen required (non-UI scripting/docs update only).
 - Follow-up:
   - Validate scheduler integration once weekly automation wiring is added outside repo.
+
+## 2026-03-19 16:44:20 KST
+- Task: QA verification for weekly sustain scheduler wiring helper.
+- Commit: HEAD (this run)
+- Files checked: `scripts/install_weekly_sustain_cron.sh`, `logs/playtests/rc_checklist.md`, `logs/economy_weekly_snapshot.md`, `logs/economy_weekly_snapshot.json`
+- Verification:
+  - `bash -n scripts/install_weekly_sustain_cron.sh` ✅
+  - `bash scripts/install_weekly_sustain_cron.sh` ✅ (dry-run; no crontab mutation)
+  - `bash scripts/run_weekly_sustain.sh` ✅
+- Decisions:
+  - Dry-run output now provides auditable cron line preview + existing managed-entry status before apply.
+  - Sustain checklist includes scheduler handoff row so operations can verify cron wiring path alongside telemetry regressions.
+- Follow-up:
+  - Validate `--apply` behavior in target runtime host change window before enabling unattended weekly cadence.

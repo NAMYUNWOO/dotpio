@@ -127,3 +127,7 @@ See project-level plans:
 - [x] Add one-command weekly sustain runner (snapshot + anti-exploit + regression)
   - [x] Add script entrypoint to execute anti-exploit report, weekly snapshot generation, and weekly regression in one pass
   - [x] Document/validate command usage in RC sustain checklist context
+
+- [x] Add weekly scheduler wiring helper for sustain runner (cron install script + usage)
+  - [x] Add helper script to print/apply a weekly cron entry for `scripts/run_weekly_sustain.sh`
+  - [x] Add runbook note in RC checklist for scheduler verification workflow

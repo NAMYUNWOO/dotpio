@@ -86,6 +86,10 @@ Owner: QA lane
   - Command: `python3 scripts/regression_weekly_snapshot.py`
   - Artifact: command output (pass/fail)
   - Covers: week-over-week delta compatibility for SRL telemetry sustain reporting
+- [x] Weekly scheduler wiring helper (cron dry-run)
+  - Command: `bash scripts/install_weekly_sustain_cron.sh`
+  - Artifact: command output showing managed cron line + existing entry status
+  - Covers: operational handoff path to install weekly sustain automation without manual cron editing
 
 ## Blocker Triage (critical blockers must be zero)
 | ID | Area | Symptom | Severity | Owner | Status | Fix Commit |
