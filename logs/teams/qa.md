@@ -512,3 +512,16 @@
   - Sustain checklist includes scheduler handoff row so operations can verify cron wiring path alongside telemetry regressions.
 - Follow-up:
   - Validate `--apply` behavior in target runtime host change window before enabling unattended weekly cadence.
+
+## 2026-03-19 17:13:53 KST
+- Task: QA verification for weekly scheduler installer CLI regression coverage.
+- Commit: HEAD (this run)
+- Files checked: `scripts/regression_weekly_cron_installer.py`, `logs/playtests/rc_checklist.md`
+- Verification:
+  - `python3 -m py_compile scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+- Decisions:
+  - RC/sustain matrix now explicitly guards scheduler installer UX contract (dry-run evidence + input validation) with a single scripted regression.
+  - No screenshot regen required (non-UI scripting/docs update only).
+- Follow-up:
+  - Keep regression green when installer options or marker format evolve.

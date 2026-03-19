@@ -229,3 +229,16 @@
   - RC checklist now includes scheduler dry-run command as a post-RC sustain guardrail.
 - Follow-up:
   - Next sustain action: run installer with `--apply` on deployment host when weekly automation ownership is confirmed.
+
+## 2026-03-19 17:13:53 KST
+- Task: M5 post-RC sustain - add regression coverage for weekly scheduler installer CLI behavior.
+- Commit: HEAD (this run)
+- Files: `scripts/regression_weekly_cron_installer.py`, `logs/playtests/rc_checklist.md`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `python3 -m py_compile scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+- Decisions:
+  - Added deterministic regression coverage for cron installer dry-run output, CLI schedule override reflection, and invalid arg rejection.
+  - Kept regression in no-mutation mode (no `--apply`) so CI/local validation can run safely without touching host crontab.
+- Follow-up:
+  - Run this regression in weekly sustain cadence alongside `scripts/run_weekly_sustain.sh` to detect installer CLI drift early.

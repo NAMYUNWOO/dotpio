@@ -57,6 +57,7 @@ Tracking rule:
 - [x] Wire weekly snapshot delta regression into RC/sustain checklist command matrix
 - [x] Add one-command weekly sustain runner (snapshot + anti-exploit + regression)
 - [x] Add weekly scheduler wiring helper for sustain runner (cron install script + usage)
+- [x] Add regression coverage for weekly scheduler installer CLI validation/dry-run evidence
 
 ---
 

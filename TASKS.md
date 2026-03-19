@@ -131,3 +131,7 @@ See project-level plans:
 - [x] Add weekly scheduler wiring helper for sustain runner (cron install script + usage)
   - [x] Add helper script to print/apply a weekly cron entry for `scripts/run_weekly_sustain.sh`
   - [x] Add runbook note in RC checklist for scheduler verification workflow
+
+- [x] Add regression coverage for weekly scheduler installer CLI validation/dry-run evidence
+  - [x] Add regression script that asserts valid dry-run output and invalid flag rejection for `scripts/install_weekly_sustain_cron.sh`
+  - [x] Link regression command into RC/sustain checklist command matrix
