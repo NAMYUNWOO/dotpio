@@ -55,6 +55,7 @@ Tracking rule:
 - [x] Weekly SRL telemetry snapshot + rebalance decision log
 - [x] Add week-over-week delta signals to SRL telemetry snapshot output
 - [x] Wire weekly snapshot delta regression into RC/sustain checklist command matrix
+- [x] Add one-command weekly sustain runner (snapshot + anti-exploit + regression)
 
 ---
 

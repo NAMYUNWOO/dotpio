@@ -201,3 +201,16 @@
   - Added schema regression that validates baseline (first run null deltas) and compare-mode (second run concrete deltas).
 - Follow-up:
   - Next sustain task: wire this regression into any release/sustain checklist runner so weekly ops always gate on delta schema health.
+
+## 2026-03-19 16:13:40 KST
+- Task: M5 post-RC sustain - add one-command weekly sustain runner (anti-exploit + snapshot + regression).
+- Commit: HEAD (this run)
+- Files: `scripts/run_weekly_sustain.sh`, `logs/playtests/rc_checklist.md`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `bash -n scripts/run_weekly_sustain.sh` ✅
+  - `bash scripts/run_weekly_sustain.sh` ✅
+- Decisions:
+  - Added executable sustain entrypoint that runs anti-exploit report refresh, weekly snapshot generation, and weekly delta regression in one command.
+  - Updated RC sustain checklist to reference the one-command runner while retaining explicit regression row visibility.
+- Follow-up:
+  - Next sustain cadence item: wire `bash scripts/run_weekly_sustain.sh` into external weekly scheduler/cron environment and monitor decision drift.

@@ -76,6 +76,12 @@ Owner: QA lane
     - `screenshots/screenshot-inventory-dos.png`
 
 ### 5) Post-RC Sustain Guardrail
+- [x] Weekly sustain one-command runner
+  - Command: `bash scripts/run_weekly_sustain.sh`
+  - Artifacts:
+    - `logs/economy_anti_exploit_report.{md,json}`
+    - `logs/economy_weekly_snapshot.{md,json}`
+  - Covers: anti-exploit report refresh + weekly snapshot generation + schema regression in one pass
 - [x] Weekly snapshot delta schema regression
   - Command: `python3 scripts/regression_weekly_snapshot.py`
   - Artifact: command output (pass/fail)

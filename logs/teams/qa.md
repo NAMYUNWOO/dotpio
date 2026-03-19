@@ -485,3 +485,16 @@
   - Kept sustain verification bound to `scripts/regression_weekly_snapshot.py` to prevent snapshot format drift during weekly telemetry ops.
 - Follow-up:
   - Next sustain priority: keep running weekly snapshot + delta regression and open rebalance work only when anti-exploit suspicious windows turn non-zero.
+
+## 2026-03-19 16:13:40 KST
+- Task: QA verification for weekly sustain one-command runner.
+- Commit: HEAD (this run)
+- Files checked: `scripts/run_weekly_sustain.sh`, `logs/playtests/rc_checklist.md`
+- Verification:
+  - `bash -n scripts/run_weekly_sustain.sh` ✅
+  - `bash scripts/run_weekly_sustain.sh` ✅
+- Decisions:
+  - Sustain guardrail commands now have a single deterministic entrypoint for weekly ops while preserving direct regression command visibility in checklist.
+  - No screenshot regen required (non-UI scripting/docs update only).
+- Follow-up:
+  - Validate scheduler integration once weekly automation wiring is added outside repo.

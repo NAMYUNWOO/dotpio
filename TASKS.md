@@ -123,3 +123,7 @@ See project-level plans:
 - [x] Wire weekly snapshot delta regression into RC/sustain checklist command matrix
   - [x] Add `scripts/regression_weekly_snapshot.py` to RC checklist regression matrix with sustain context
   - [x] Re-run weekly snapshot regression and keep checklist references in sync
+
+- [x] Add one-command weekly sustain runner (snapshot + anti-exploit + regression)
+  - [x] Add script entrypoint to execute anti-exploit report, weekly snapshot generation, and weekly regression in one pass
+  - [x] Document/validate command usage in RC sustain checklist context
