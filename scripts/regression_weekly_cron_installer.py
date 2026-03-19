@@ -3,21 +3,33 @@
 
 from __future__ import annotations
 
+import os
 import pathlib
 import subprocess
-import sys
+import tempfile
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 INSTALLER = REPO_ROOT / "scripts" / "install_weekly_sustain_cron.sh"
+MARKER = "# DOTPIO_WEEKLY_SUSTAIN"
 
 
-def run(cmd: list[str], expect_ok: bool, must_contain: list[str] | None = None) -> None:
+def run(
+    cmd: list[str],
+    expect_ok: bool,
+    must_contain: list[str] | None = None,
+    env: dict[str, str] | None = None,
+) -> str:
+    run_env = os.environ.copy()
+    if env:
+        run_env.update(env)
+
     result = subprocess.run(
         cmd,
         cwd=REPO_ROOT,
         text=True,
         capture_output=True,
         check=False,
+        env=run_env,
     )
     output = f"{result.stdout}\n{result.stderr}"
 
@@ -30,6 +42,16 @@ def run(cmd: list[str], expect_ok: bool, must_contain: list[str] | None = None) 
         if token not in output:
             raise AssertionError(f"Missing token `{token}` in output of: {' '.join(cmd)}\n{output}")
 
+    return output
+
+
+def assert_has_exactly_one_marker(cron_content: str) -> None:
+    marker_hits = [line for line in cron_content.splitlines() if MARKER in line]
+    if len(marker_hits) != 1:
+        raise AssertionError(
+            f"Expected exactly one managed cron entry, got {len(marker_hits)}.\n{cron_content}"
+        )
+
 
 def main() -> int:
     if not INSTALLER.exists():
@@ -41,7 +63,7 @@ def main() -> int:
         expect_ok=True,
         must_contain=[
             "[INFO] Proposed managed cron entry:",
-            "# DOTPIO_WEEKLY_SUSTAIN",
+            MARKER,
             "[DRY-RUN] No changes applied. Re-run with --apply to upsert.",
         ],
     )
@@ -70,6 +92,62 @@ def main() -> int:
         expect_ok=False,
         must_contain=["[ERROR] --hour must be 0-23"],
     )
+
+    # Apply path should be safely testable via injected crontab binary.
+    with tempfile.TemporaryDirectory(prefix="dotpio-cron-reg-") as temp_dir:
+        temp_path = pathlib.Path(temp_dir)
+        fake_crontab = temp_path / "fake_crontab.sh"
+        state_file = temp_path / "cron_state.txt"
+
+        fake_crontab.write_text(
+            """#!/usr/bin/env bash
+set -euo pipefail
+STATE_FILE=\"${FAKE_CRON_STATE:?missing FAKE_CRON_STATE}\"
+mkdir -p \"$(dirname \"$STATE_FILE\")\"
+touch \"$STATE_FILE\"
+if [[ \"${1:-}\" == \"-l\" ]]; then
+  cat \"$STATE_FILE\"
+  exit 0
+fi
+if [[ \"${1:-}\" == \"-\" ]]; then
+  cat >\"$STATE_FILE\"
+  exit 0
+fi
+echo \"unsupported args: $*\" >&2
+exit 2
+""",
+            encoding="utf-8",
+        )
+        fake_crontab.chmod(0o755)
+
+        env = {
+            "CRONTAB_BIN": str(fake_crontab),
+            "FAKE_CRON_STATE": str(state_file),
+        }
+
+        # First apply should insert exactly one managed entry.
+        run(
+            ["bash", str(INSTALLER), "--apply", "--minute", "5", "--hour", "10", "--dow", "3"],
+            expect_ok=True,
+            must_contain=["[OK] Managed weekly sustain cron upserted."],
+            env=env,
+        )
+        first_state = state_file.read_text(encoding="utf-8")
+        assert_has_exactly_one_marker(first_state)
+        if "CRON_TZ=Asia/Seoul 5 10 * * 3" not in first_state:
+            raise AssertionError(f"Applied cron content missing expected schedule.\n{first_state}")
+
+        # Re-apply with new schedule should upsert (replace marker entry, not duplicate).
+        run(
+            ["bash", str(INSTALLER), "--apply", "--minute", "25", "--hour", "11", "--dow", "4"],
+            expect_ok=True,
+            must_contain=["[OK] Managed weekly sustain cron upserted."],
+            env=env,
+        )
+        second_state = state_file.read_text(encoding="utf-8")
+        assert_has_exactly_one_marker(second_state)
+        if "CRON_TZ=Asia/Seoul 25 11 * * 4" not in second_state:
+            raise AssertionError(f"Updated cron content missing latest schedule.\n{second_state}")
 
     print("[PASS] weekly cron installer regression checks")
     return 0

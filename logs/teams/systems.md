@@ -242,3 +242,17 @@
   - Kept regression in no-mutation mode (no `--apply`) so CI/local validation can run safely without touching host crontab.
 - Follow-up:
   - Run this regression in weekly sustain cadence alongside `scripts/run_weekly_sustain.sh` to detect installer CLI drift early.
+
+## 2026-03-19 18:14:29 KST
+- Task: M5 post-RC sustain - add safe apply-mode test hook for weekly cron installer.
+- Commit: HEAD (this run)
+- Files: `scripts/install_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_installer.py`, `logs/playtests/rc_checklist.md`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `bash -n scripts/install_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+- Decisions:
+  - Installer now supports `CRONTAB_BIN` override so apply-mode behavior can be tested in sandbox/mocked environments without touching host crontab.
+  - Apply path keeps managed-marker upsert semantics (replace existing marker entry, keep exactly one managed row).
+- Follow-up:
+  - Next sustain hardening candidate: expose optional `--log-path` override for multi-instance deployments sharing one repo clone.

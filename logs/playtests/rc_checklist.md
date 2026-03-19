@@ -93,7 +93,7 @@ Owner: QA lane
 - [x] Weekly scheduler installer CLI regression
   - Command: `python3 scripts/regression_weekly_cron_installer.py`
   - Artifact: command output (pass/fail)
-  - Covers: dry-run evidence format + CLI override reflection + invalid schedule arg rejection
+  - Covers: dry-run evidence format + CLI override reflection + invalid schedule arg rejection + safe mocked `--apply` upsert behavior
 
 ## Blocker Triage (critical blockers must be zero)
 | ID | Area | Symptom | Severity | Owner | Status | Fix Commit |

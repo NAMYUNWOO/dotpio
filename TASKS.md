@@ -139,3 +139,7 @@ See project-level plans:
 - [x] Sync RC checklist sign-off status with actual tagged RC evidence
   - [x] Reconcile `logs/playtests/rc_checklist.md` sign-off rows with lane completion and tag state
   - [x] Add evidence note (tag hash + verification timestamp) for auditable RC closure
+
+- [x] Add safe apply-mode test hook for weekly cron installer
+  - [x] Support overriding crontab binary path in installer for sandboxed/mocked apply verification
+  - [x] Extend weekly cron installer regression to cover `--apply` upsert behavior without touching host crontab

@@ -538,3 +538,17 @@
   - Added explicit tag hash + KST timestamp in sign-off note for auditable closure context.
 - Follow-up:
   - Next sustain item: monitor weekly runner outputs and only reopen RC checklist if blocker triage regresses.
+
+## 2026-03-19 18:14:29 KST
+- Task: QA verification for cron installer mocked apply-mode regression.
+- Commit: HEAD (this run)
+- Files checked: `scripts/install_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_installer.py`, `logs/playtests/rc_checklist.md`
+- Verification:
+  - `bash -n scripts/install_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+- Decisions:
+  - Regression now validates dry-run/override/invalid-arg flows plus mocked `--apply` upsert semantics with single-marker guarantee.
+  - Host crontab remains untouched during regression by injecting fake crontab binary + isolated state file.
+- Follow-up:
+  - Keep mocked-apply checks green when cron marker format or installer write path changes.

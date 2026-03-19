@@ -12,6 +12,7 @@ SCHEDULE_HOUR="${SUSTAIN_CRON_HOUR:-9}"
 SCHEDULE_DOW="${SUSTAIN_CRON_DOW:-1}" # 1 = Monday
 TZ_VALUE="${SUSTAIN_CRON_TZ:-Asia/Seoul}"
 APPLY=0
+CRONTAB_BIN="${CRONTAB_BIN:-crontab}"
 
 usage() {
   cat <<'EOF'
@@ -26,7 +27,7 @@ Behavior:
   - With --apply: upserts one managed cron entry for scripts/run_weekly_sustain.sh.
 
 Environment override (optional):
-  SUSTAIN_CRON_MINUTE, SUSTAIN_CRON_HOUR, SUSTAIN_CRON_DOW, SUSTAIN_CRON_TZ
+  SUSTAIN_CRON_MINUTE, SUSTAIN_CRON_HOUR, SUSTAIN_CRON_DOW, SUSTAIN_CRON_TZ, CRONTAB_BIN
 EOF
 }
 
@@ -83,11 +84,16 @@ if ! [[ "$SCHEDULE_DOW" =~ ^[0-7]$ ]]; then
   exit 1
 fi
 
+if ! command -v "$CRONTAB_BIN" >/dev/null 2>&1; then
+  echo "[ERROR] crontab binary not found: $CRONTAB_BIN" >&2
+  exit 1
+fi
+
 MARKER="# DOTPIO_WEEKLY_SUSTAIN"
 CRON_CMD="cd ${REPO_ROOT} && bash ${RUNNER_REL} >> ${LOG_PATH} 2>&1"
 CRON_LINE="CRON_TZ=${TZ_VALUE} ${SCHEDULE_MINUTE} ${SCHEDULE_HOUR} * * ${SCHEDULE_DOW} ${CRON_CMD} ${MARKER}"
 
-CURRENT_CRON="$(crontab -l 2>/dev/null || true)"
+CURRENT_CRON="$($CRONTAB_BIN -l 2>/dev/null || true)"
 EXISTING_MATCH="$(printf '%s\n' "$CURRENT_CRON" | grep -F "$MARKER" || true)"
 
 echo "[INFO] Proposed managed cron entry:"
@@ -108,7 +114,7 @@ fi
 UPDATED_CRON="$(printf '%s\n' "$CURRENT_CRON" | grep -vF "$MARKER" || true)"
 UPDATED_CRON="${UPDATED_CRON}"$'\n'"${CRON_LINE}"$'\n'
 
-printf '%s' "$UPDATED_CRON" | crontab -
+printf '%s' "$UPDATED_CRON" | "$CRONTAB_BIN" -
 
 echo "[OK] Managed weekly sustain cron upserted."
-crontab -l | grep -F "$MARKER" || true
+"$CRONTAB_BIN" -l | grep -F "$MARKER" || true
