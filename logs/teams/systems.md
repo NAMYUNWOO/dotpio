@@ -385,3 +385,8 @@
 - Change: `src/entities.lua` now supports map-specific enemy count multiplier + variant bias weighting, with safe fallback when weights collapse.
 - Verification: `lua scripts/regression_enemy_behavior_variants.lua` and profile regression passed.
 - Follow-up: Revisit low/high multipliers after live telemetry snapshots.
+
+## 2026-03-20 00:58 KST
+- Cross-lane note: World portal reposition pass completed for map_03~07 with validator/regression green.
+- Impact: traversal landmarks and fallback routes are clearer; no economy/combat/UI schema changes required in this patch.
+- Follow-up: monitor playtest readability feedback and tune labels/cues if confusion persists.

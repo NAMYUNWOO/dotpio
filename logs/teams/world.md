@@ -68,3 +68,16 @@
 - Change: Attached per-map `encounterProfile` knobs (enemy count multiplier + variant bias) to support rhythm differentiation without breaking portal topology.
 - Evidence: `lua scripts/regression_map_profile_distinctness.lua`, `python3 scripts/validate_portals.py`, `python3 scripts/regression_map_progression.py`.
 - Follow-up: Next P1 item is portal landmark/risk-reward repositioning now that lane identities are encoded.
+
+## 2026-03-20 00:58 KST — P1 portal progression reposition pass
+- Task: Reposition map_03~07 portals to enforce landmark-based traversal and clearer return/risk routing.
+- Decision:
+  - map_03 now anchors exits at distinct landmarks (west-upper return to map_02, north apex to map_04, east-south fallback to map_01).
+  - map_04 mirrors hinge logic with south return to map_03, west fallback to map_01, east-overlook push into map_05.
+  - map_05~07 chain portals shifted off corner clumping to clearer lane landmarks while preserving bidirectional links.
+- Files: `maps/map_03.lua`, `maps/map_04.lua`, `maps/map_05.lua`, `maps/map_06.lua`, `maps/map_07.lua`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `luac -p maps/map_03.lua maps/map_04.lua maps/map_05.lua maps/map_06.lua maps/map_07.lua` ✅
+  - `python3 scripts/validate_portals.py` ✅ (Maps scanned: 7 / Portals scanned: 20)
+  - `python3 scripts/regression_map_progression.py` ✅
+- Follow-up: Next unchecked backlog item is P2 `Add weekly sustain audit JSON pretty mode`.

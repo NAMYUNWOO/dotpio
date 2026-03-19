@@ -232,3 +232,8 @@
 - Context: World/System completed map_03~07 identity metadata + encounter rhythm profile wiring.
 - Impact: No content schema break; existing flows remain stable with differentiated pacing.
 - Follow-up: Validate player readability and portal landmark cues in upcoming portal reposition task.
+
+## 2026-03-20 00:58 KST
+- Cross-lane note: World portal reposition pass completed for map_03~07 with validator/regression green.
+- Impact: traversal landmarks and fallback routes are clearer; no economy/combat/UI schema changes required in this patch.
+- Follow-up: monitor playtest readability feedback and tune labels/cues if confusion persists.

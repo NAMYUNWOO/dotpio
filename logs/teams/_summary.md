@@ -109,3 +109,16 @@ Compact decision memory for AI context efficiency.
 - Validation set: profile distinctness PASS, portal integrity PASS, map_01~04 progression PASS, enemy behavior regression PASS.
 - Backlog state: `POST_RC_BACKLOG.md` P1 item “Redesign map_03~07 …” marked complete.
 - Next priority: P1 portal repositioning with return-path + landmark rules.
+
+## 2026-03-20 00:58 KST — P1 portal progression rules completed
+- Completed backlog item: `World Team: Reposition portals with logical progression rules (clear return paths, risk/reward routing, landmark-based placement)`.
+- Durable decisions:
+  - map_03 portals were redistributed to three distinct landmarks (west-upper return, north apex progression, east-south fallback).
+  - map_04 now serves as a hinge hub with explicit fallback (`map_01`) and forward push (`map_05`) at separated landmarks.
+  - map_05~07 chain portals moved away from corner clustering to improve landmark legibility while preserving bidirectional progression.
+- Verification set:
+  - `luac -p maps/map_03.lua maps/map_04.lua maps/map_05.lua maps/map_06.lua maps/map_07.lua`
+  - `python3 scripts/validate_portals.py`
+  - `python3 scripts/regression_map_progression.py`
+- Backlog update: `POST_RC_BACKLOG.md` P1 portal repositioning item marked done.
+- Next priority item: P2 `Add weekly sustain audit JSON pretty mode`.

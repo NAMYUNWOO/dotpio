@@ -144,8 +144,8 @@ return {
     },
   },
   portals = {
-    { name="01", x=48, y=24, tileX=48, tileY=24, targetMap="01", targetPortal="03" },
-    { name="02", x=1, y=13, tileX=1, tileY=13, targetMap="02", targetPortal="02" },
-    { name="04", x=44, y=1, tileX=44, tileY=1, targetMap="04", targetPortal="03" },
+    { name="01", x=47, y=22, tileX=47, tileY=22, targetMap="01", targetPortal="03" },
+    { name="02", x=2, y=6, tileX=2, tileY=6, targetMap="02", targetPortal="02" },
+    { name="04", x=24, y=1, tileX=24, tileY=1, targetMap="04", targetPortal="03" },
   },
 }

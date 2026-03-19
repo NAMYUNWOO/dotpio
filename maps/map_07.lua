@@ -144,6 +144,6 @@ return {
     },
   },
   portals = {
-    { name="06", x=1, y=13, tileX=1, tileY=13, targetMap="06", targetPortal="07" },
+    { name="06", x=2, y=13, tileX=2, tileY=13, targetMap="06", targetPortal="07" },
   },
 }

@@ -751,3 +751,15 @@
 - Context: World/System completed map_03~07 identity metadata + encounter rhythm profile wiring.
 - Impact: No content schema break; existing flows remain stable with differentiated pacing.
 - Follow-up: Validate player readability and portal landmark cues in upcoming portal reposition task.
+
+## 2026-03-20 00:58 KST
+- Task: QA verification for P1 portal repositioning rules.
+- Files checked: `maps/map_03.lua`, `maps/map_04.lua`, `maps/map_05.lua`, `maps/map_06.lua`, `maps/map_07.lua`
+- Verification:
+  - `luac -p maps/map_03.lua maps/map_04.lua maps/map_05.lua maps/map_06.lua maps/map_07.lua` ✅
+  - `python3 scripts/validate_portals.py` ✅
+  - `python3 scripts/regression_map_progression.py` ✅
+- Decisions:
+  - Portal target integrity/regression remains green after coordinate-only relocation.
+  - No UI copy/layout changes; screenshot refresh not required.
+- Follow-up: Keep regression_map_progression in sustain matrix as guard for future portal edits.

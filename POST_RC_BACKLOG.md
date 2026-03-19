@@ -9,7 +9,7 @@ Last updated: 2026-03-20 00:02 KST
 
 ## P1 (Gameplay)
 - [x] World Team: Redesign map_03~07 to be visually/tactically distinct (silhouette, lane structure, encounter rhythm)
-- [ ] World Team: Reposition portals with logical progression rules (clear return paths, risk/reward routing, landmark-based placement)
+- [x] World Team: Reposition portals with logical progression rules (clear return paths, risk/reward routing, landmark-based placement)
 - [x] Add map_07 with new tactical pattern and portal integration
 - [x] Add 2 new enemy archetypes with synergy behavior
 - [x] Add mission variety pack (at least +5 objectives)
