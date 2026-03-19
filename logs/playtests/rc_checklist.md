@@ -75,6 +75,12 @@ Owner: QA lane
     - `screenshots/screenshot-map04.png`
     - `screenshots/screenshot-inventory-dos.png`
 
+### 5) Post-RC Sustain Guardrail
+- [x] Weekly snapshot delta schema regression
+  - Command: `python3 scripts/regression_weekly_snapshot.py`
+  - Artifact: command output (pass/fail)
+  - Covers: week-over-week delta compatibility for SRL telemetry sustain reporting
+
 ## Blocker Triage (critical blockers must be zero)
 | ID | Area | Symptom | Severity | Owner | Status | Fix Commit |
 | --- | --- | --- | --- | --- | --- | --- |

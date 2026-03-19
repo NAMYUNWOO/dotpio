@@ -472,3 +472,16 @@
   - Kept anti-exploit gate in verification chain so weekly decision remains tied to suspicious-window count.
 - Follow-up:
   - Next QA sustain check: include `scripts/regression_weekly_snapshot.py` in any future RC/sustain command matrix update.
+
+## 2026-03-19 15:43:32 KST
+- Task: M5 post-RC sustain - wire weekly snapshot delta regression into RC/sustain checklist matrix.
+- Commit: HEAD (this run)
+- Files: `logs/playtests/rc_checklist.md`, `scripts/regression_weekly_snapshot.py`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `python3 -m py_compile scripts/regression_weekly_snapshot.py scripts/economy_weekly_snapshot.py` ✅
+  - `python3 scripts/regression_weekly_snapshot.py` ✅
+- Decisions:
+  - Added a dedicated Post-RC sustain guardrail row in RC checklist so weekly delta-schema regression stays in the standard command matrix.
+  - Kept sustain verification bound to `scripts/regression_weekly_snapshot.py` to prevent snapshot format drift during weekly telemetry ops.
+- Follow-up:
+  - Next sustain priority: keep running weekly snapshot + delta regression and open rebalance work only when anti-exploit suspicious windows turn non-zero.

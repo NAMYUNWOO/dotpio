@@ -119,3 +119,7 @@ See project-level plans:
   - [x] Include deltas vs previous snapshot for telemetry volume and SRL spend
   - [x] Surface delta-aware decision context in markdown/json artifacts
   - [x] Add regression check for weekly snapshot schema including delta fields
+
+- [x] Wire weekly snapshot delta regression into RC/sustain checklist command matrix
+  - [x] Add `scripts/regression_weekly_snapshot.py` to RC checklist regression matrix with sustain context
+  - [x] Re-run weekly snapshot regression and keep checklist references in sync
