@@ -9,7 +9,7 @@ Last updated: 2026-03-19
 
 ## P1 (Gameplay)
 - [x] Add map_07 with new tactical pattern and portal integration
-- [ ] Add 2 new enemy archetypes with synergy behavior
+- [x] Add 2 new enemy archetypes with synergy behavior
 - [ ] Add mission variety pack (at least +5 objectives)
 
 ## P2 (Ops)

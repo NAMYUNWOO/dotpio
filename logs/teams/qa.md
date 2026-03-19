@@ -710,3 +710,16 @@
   - Existing map_01~04 progression regression remains stable after post-RC map expansion.
 - Follow-up:
   - Add dedicated map_05~07 path regression when more high-tier maps/archetypes are added.
+
+## 2026-03-19 23:29:10 KST
+- Task: QA verification for P1 enemy synergy archetypes (`warcaller`/`hunter`).
+- Commit: HEAD (this run)
+- Files checked: `src/enemy_ai.lua`, `src/entities.lua`, `scripts/regression_enemy_behavior_variants.lua`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `lua scripts/regression_enemy_behavior_variants.lua` ✅
+- Decisions:
+  - Regression now covers roster expansion, hunter-without-warcaller baseline, hunter-with-warcaller buff activation, and warcaller ally-alert propagation.
+  - No portal validator run required (map/portal files unchanged).
+  - No screenshot regen required (no UI layout/copy change).
+- Follow-up:
+  - Keep synergy assertions in sync if archetype ranges/buff multipliers are retuned.

@@ -147,10 +147,12 @@ function Entities.spawn(player, skipPlayerPlace)
     end
 
     local enemyVariants = {
-        { name = "raider", chance = 0.4, hp = 3, gidPool = {45, 23, 25, 26} },
-        { name = "skirmisher", chance = 0.25, hp = 2, gidPool = {27, 28, 31} },
-        { name = "bruiser", chance = 0.2, hp = 5, gidPool = {57, 58} },
-        { name = "sentinel", chance = 0.15, hp = 4, gidPool = {32, 45} },
+        { name = "raider", chance = 0.30, hp = 3, gidPool = {45, 23, 25, 26} },
+        { name = "skirmisher", chance = 0.20, hp = 2, gidPool = {27, 28, 31} },
+        { name = "bruiser", chance = 0.18, hp = 5, gidPool = {57, 58} },
+        { name = "sentinel", chance = 0.12, hp = 4, gidPool = {32, 45} },
+        { name = "warcaller", chance = 0.12, hp = 4, gidPool = {43, 44, 46} },
+        { name = "hunter", chance = 0.08, hp = 3, gidPool = {29, 30, 33} },
     }
 
     local function pickVariant()
@@ -286,7 +288,7 @@ function Entities.drawLootboxes(fov, tileset)
 end
 
 function Entities.getEnemyBehaviorVariants()
-    return { "raider", "skirmisher", "bruiser", "sentinel" }
+    return { "raider", "skirmisher", "bruiser", "sentinel", "warcaller", "hunter" }
 end
 
 function Entities.debugSampleLootboxItems(mapName, samples)

@@ -19,6 +19,11 @@ local BEHAVIOR_DEFAULTS = {
     fleeHp = Config.ENEMY_FLEE_HP,
     leashRadius = nil,
     retreatAfterHit = false,
+    alertAlliesRange = nil,
+    synergyFromBehavior = nil,
+    synergyRange = 0,
+    synergyMoveCdMul = 1.0,
+    synergyAtkDmgBonus = 0,
 }
 
 local BEHAVIOR_PROFILES = {
@@ -43,6 +48,24 @@ local BEHAVIOR_PROFILES = {
         chaseBonus = -2,
         leashRadius = 5,
         fleeHp = 0,
+    },
+    warcaller = {
+        moveCdMul = 0.95,
+        atkCdMul = 0.9,
+        detectBonus = 1,
+        chaseBonus = 0,
+        alertAlliesRange = 4,
+    },
+    hunter = {
+        moveCdMul = 1.0,
+        atkCdMul = 1.0,
+        atkDmgBonus = 0,
+        detectBonus = 1,
+        chaseBonus = 1,
+        synergyFromBehavior = "warcaller",
+        synergyRange = 4,
+        synergyMoveCdMul = 0.75,
+        synergyAtkDmgBonus = 1,
     },
 }
 
@@ -91,6 +114,44 @@ local function isAdjacent(x1, y1, x2, y2)
         and not (x1 == x2 and y1 == y2)
 end
 
+local function hasNearbyBehavior(e, enemies, behaviorName, range)
+    if not behaviorName or (range or 0) <= 0 then return false end
+    for _, other in ipairs(enemies or {}) do
+        if other ~= e and other.alive and other.behavior == behaviorName then
+            if dist(e.x, e.y, other.x, other.y) <= range then
+                return true
+            end
+        end
+    end
+    return false
+end
+
+local function alertNearbyAllies(e, enemies, range)
+    if not range or range <= 0 then return 0 end
+    local alerted = 0
+    for _, other in ipairs(enemies or {}) do
+        if other ~= e and other.alive then
+            if dist(e.x, e.y, other.x, other.y) <= range then
+                if not other.alerted then alerted = alerted + 1 end
+                other.alerted = true
+                if other.state == "idle" or other.state == "patrol" then
+                    other.state = "chase"
+                end
+            end
+        end
+    end
+    return alerted
+end
+
+local function syncSynergy(e, enemies)
+    local behavior = behaviorFor(e)
+    local empowered = hasNearbyBehavior(e, enemies, behavior.synergyFromBehavior, behavior.synergyRange)
+    e.synergyEmpowered = empowered
+    e.moveCd = e.baseMoveCd * (empowered and behavior.synergyMoveCdMul or 1)
+    e.atkDmg = e.baseAtkDmg + (empowered and behavior.synergyAtkDmgBonus or 0)
+    return empowered
+end
+
 -- Get next step from A* path toward target
 local function getNextStep(fromX, fromY, toX, toY, enemies, selfIdx)
     if not finder then return nil, nil end
@@ -137,13 +198,15 @@ function EnemyAI.init(e, idx)
     e.behavior = e.behavior or "raider"
     local behavior = behaviorFor(e)
     e.state = "idle"
-    e.moveCd = Config.ENEMY_MOVE_CD * behavior.moveCdMul
+    e.baseMoveCd = Config.ENEMY_MOVE_CD * behavior.moveCdMul
+    e.moveCd = e.baseMoveCd
     e.atkCd = Config.ENEMY_ATK_CD * behavior.atkCdMul
     e.fleeHp = behavior.fleeHp
     e.detectRange = math.max(2, Config.ENEMY_DETECT + behavior.detectBonus)
     e.chaseRange = math.max(e.detectRange, Config.ENEMY_CHASE + behavior.chaseBonus)
     e.leashRadius = behavior.leashRadius
-    e.atkDmg = Config.ENEMY_ATK_DMG + behavior.atkDmgBonus
+    e.baseAtkDmg = Config.ENEMY_ATK_DMG + behavior.atkDmgBonus
+    e.atkDmg = e.baseAtkDmg
     e.retreatAfterHit = behavior.retreatAfterHit
     e.moveTimer = love.math.random() * e.moveCd
     e.atkTimer = 0
@@ -166,6 +229,12 @@ function EnemyAI.update(e, idx, dt, player, enemies)
     local d = dist(e.x, e.y, player.x, player.y)
     local los = d <= e.chaseRange and hasLOS(e.x, e.y, player.x, player.y)
     local canSee = d <= e.detectRange and los
+    local behavior = behaviorFor(e)
+
+    syncSynergy(e, enemies)
+    if canSee and behavior.alertAlliesRange then
+        alertNearbyAllies(e, enemies, behavior.alertAlliesRange)
+    end
 
     -- State transitions
     if e.state == "idle" then
@@ -291,6 +360,15 @@ end
 
 function EnemyAI.getBehaviorProfiles()
     return BEHAVIOR_PROFILES
+end
+
+function EnemyAI.debugSyncSynergy(e, enemies)
+    return syncSynergy(e, enemies or {})
+end
+
+function EnemyAI.debugAlertNearbyAllies(e, enemies)
+    local behavior = behaviorFor(e)
+    return alertNearbyAllies(e, enemies or {}, behavior.alertAlliesRange)
 end
 
 return EnemyAI

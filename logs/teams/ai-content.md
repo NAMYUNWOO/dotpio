@@ -54,3 +54,20 @@
   - Excluded synthetic system items from lootbox drops and added deterministic distribution regression to lock tier envelopes.
 - Follow-up:
   - Next M3 priority: run mission prototype (3 objectives).
+
+## 2026-03-19 23:29:10 KST
+- Task: P1 add two new enemy archetypes with synergy behavior (`warcaller`, `hunter`).
+- Commit: `HEAD (this run)`
+- Files changed:
+  - `src/enemy_ai.lua`
+  - `src/entities.lua`
+  - `scripts/regression_enemy_behavior_variants.lua`
+  - `POST_RC_BACKLOG.md`
+- Verification:
+  - `lua scripts/regression_enemy_behavior_variants.lua` ✅
+- Decisions:
+  - Added `warcaller` archetype that alerts nearby allies into chase when it sees the player (group aggression trigger).
+  - Added `hunter` archetype that gets synergy buffs (faster move CD + bonus attack) when near a living `warcaller`.
+  - Expanded weighted spawn roster to include both synergy archetypes while preserving baseline variant diversity.
+- Follow-up:
+  - Next highest-priority unchecked item is `Add mission variety pack (at least +5 objectives)`.
