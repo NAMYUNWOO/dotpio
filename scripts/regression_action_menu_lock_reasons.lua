@@ -70,4 +70,21 @@ expect(byAction.disassemble.label:find("BUILDER.SRL", 1, true) ~= nil, "DISASM l
 expect(byAction.split and byAction.split.enabled == false, "SPLIT should be disabled for non-stackable item")
 expect(byAction.split.label:find("LOCK:", 1, true) ~= nil, "SPLIT disabled row should include inline LOCK reason")
 
+-- BUILDER.SRL should never be directly usable; it must guide player to BUILD flow.
+local okBuilder, errBuilder = Inventory.addItem(inv, "builder_scroll", 1)
+expect(okBuilder, "Failed to seed BUILDER.SRL: " .. tostring(errBuilder))
+local builderNode = findItemNode(inv.root, "builder_scroll")
+expect(builderNode ~= nil, "Expected BUILDER.SRL in inventory")
+
+local builderMenu = InventoryUI.buildActionMenu(builderNode)
+local builderByAction = {}
+for _, entry in ipairs(builderMenu) do
+    builderByAction[entry.action] = entry
+end
+
+expect(builderByAction.use and builderByAction.use.enabled == false, "USE should be disabled for BUILDER.SRL")
+local builderUseLabelLower = string.lower(builderByAction.use.label or "")
+expect(builderUseLabelLower:find("build%-only") ~= nil, "BUILDER.SRL USE lock should mention build-only guidance")
+expect(builderUseLabelLower:find("b/enter%-%>build") ~= nil, "BUILDER.SRL USE lock should include B or Enter->BUILD guidance")
+
 print("[PASS] action menu lock reason regression validated")

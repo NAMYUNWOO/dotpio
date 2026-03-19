@@ -192,3 +192,17 @@
   - F9 remains as a shortcut, but help copy now points to Enter+B as primary build flow.
 - Follow-up:
   - Next P0: hide/disable `USE` for `BUILDER.SRL` and provide explicit build-only guidance.
+
+## 2026-03-19 21:59 KST
+- Task: P0 hide/disable `USE` for `BUILDER.SRL` and provide explicit build-only guidance.
+- Commit: HEAD (this run)
+- Files: `src/inventory_ui.lua`, `scripts/regression_action_menu_lock_reasons.lua`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `lua scripts/regression_action_menu_lock_reasons.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `lua scripts/regression_build_action_menu.lua` ✅
+- Decisions:
+  - Action Menu now hard-disables `USE [U]` on `BUILDER.SRL` with inline lock copy directing players to `B` or `Enter->BUILD`.
+  - Direct `U` quick-use on `BUILDER.SRL` is blocked with explicit build-only status guidance.
+- Follow-up:
+  - Next P0: build preview panel clarity pass (materials consumed, SRL, expected category).

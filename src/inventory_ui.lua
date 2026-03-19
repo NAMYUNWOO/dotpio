@@ -831,8 +831,10 @@ function InventoryUI.buildActionMenu(item)
     end
 
     -- USE
-    local hasUse = def and def.onUse
-    local useLabel, useReason = withLockReason("USE [U]", hasUse, "consumables only")
+    local isBuilderScroll = item.itemId == "builder_scroll"
+    local hasUse = (def and def.onUse) and (not isBuilderScroll)
+    local useLockReason = isBuilderScroll and "build-only resource (press B/Enter->BUILD)" or "consumables only"
+    local useLabel, useReason = withLockReason("USE [U]", hasUse, useLockReason)
     menu[#menu+1] = {label = useLabel, enabled = hasUse, action = "use", lockReason = useReason}
 
     -- EQUIP
@@ -1270,7 +1272,11 @@ function InventoryUI.actionMenuKeypressed(key)
             end
         end
         if mi.action == "use" then
-            InventoryUI.setStatus("USE N/A (consumables only)")
+            if actionMenuTarget and actionMenuTarget.itemId == "builder_scroll" then
+                InventoryUI.setStatus("BUILDER.SRL: BUILD-ONLY (Press B or Enter->BUILD on folder)")
+            else
+                InventoryUI.setStatus("USE N/A (consumables only)")
+            end
         elseif mi.action == "equip" then
             InventoryUI.setStatus("EQUIP N/A (no valid slot)")
         elseif mi.action == "split" then
@@ -1580,6 +1586,10 @@ function InventoryUI.useSelected()
     if cursor < 1 or cursor > #contents then return end
     local item = contents[cursor]
     if item.type ~= "file" then return end
+    if item.itemId == "builder_scroll" then
+        InventoryUI.setStatus("BUILDER.SRL: BUILD-ONLY (Press B or Enter->BUILD on folder)")
+        return
+    end
     local ok, msg = Inventory.useItem(player.inventory, item, player)
     if ok then
         InventoryUI.setStatus(msg or "Item used")

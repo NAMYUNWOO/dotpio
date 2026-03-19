@@ -665,3 +665,18 @@
   - No portal validator run (no map/portal changes).
 - Follow-up:
   - Extend UI regression pack when `BUILDER.SRL` `USE` lock/guidance changes land.
+
+## 2026-03-19 21:59 KST
+- Task: Verify P0 `BUILDER.SRL` USE disable + build-only guidance.
+- Commit: HEAD (this run)
+- Files checked: `src/inventory_ui.lua`, `scripts/regression_action_menu_lock_reasons.lua`
+- Verification:
+  - `lua scripts/regression_action_menu_lock_reasons.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `lua scripts/regression_build_action_menu.lua` ✅
+- Decisions:
+  - Regression now enforces that `USE` is disabled specifically for `BUILDER.SRL` and includes build-only path guidance.
+  - No portal validator run (no map/portal edits).
+  - No screenshot refresh required (copy/lock-state only, no layout change).
+- Follow-up:
+  - Add preview-copy assertion coverage when P0 build preview clarity pass lands.

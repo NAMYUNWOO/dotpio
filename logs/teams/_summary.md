@@ -76,3 +76,5 @@ Compact decision memory for AI context efficiency.
 - Added `scripts/audit_weekly_sustain_cron.sh` to introspect the managed `DOTPIO_WEEKLY_SUSTAIN` cron entry and print parsed schedule + rotation policy fields; regression-covered by `scripts/regression_weekly_cron_audit.py` including missing-entry diagnostics.
 - Weekly sustain cron audit helper now supports machine-readable output via `--format json` (default remains text), and regression coverage now validates JSON payload fields plus invalid-format rejection.
 - Folder rows now use Enter -> Action Menu (`OPEN`/`BUILD`) as the primary build flow, with `B` quick action opening the same build preview/confirm gate; F9 remains as shortcut.
+- `BUILDER.SRL` can no longer be directly consumed via `USE`; item Action Menu now shows a locked `USE` row with explicit build-only guidance (`B` or `Enter->BUILD`), and quick-use attempts emit matching status text.
+- Regression coverage in `scripts/regression_action_menu_lock_reasons.lua` now asserts `BUILDER.SRL`-specific `USE` lock + guidance copy.

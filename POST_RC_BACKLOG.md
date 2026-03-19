@@ -4,7 +4,7 @@ Last updated: 2026-03-19
 
 ## P0 (Now)
 - [x] Replace F9-centric build flow with Enter->Action menu primary flow
-- [ ] Hide/disable `USE` for BUILDER.SRL and provide explicit build-only guidance
+- [x] Hide/disable `USE` for BUILDER.SRL and provide explicit build-only guidance
 - [ ] Add build preview panel clarity pass (materials consumed, SRL, expected category)
 
 ## P1 (Gameplay)
