@@ -55,6 +55,7 @@ local buildPreviewPlan = nil
 local actionMenuCursor = 1
 local actionMenuItems = {}
 local actionMenuTarget = nil
+local actionMenuContext = "file" -- file | dir
 
 -- Equip select state
 local equipValidSlots = {}
@@ -806,7 +807,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot  Enter:Unequip  L/R:Panel  Esc:Exit", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:ActionMenu Bksp:UpDir U/E/D/S/X:Quick F1:Help F5:Sort %s Esc:Exit",
+            "Up/Dn:Nav Enter:ActionMenu(O/B) Bksp:UpDir U/E/D/S/X:Quick F1:Help F5:Sort %s Esc:Exit",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -858,6 +859,41 @@ function InventoryUI.buildActionMenu(item)
     return menu
 end
 
+function InventoryUI.buildDirectoryActionMenu(dir)
+    local menu = {}
+    menu[#menu + 1] = {label = "OPEN [O]", enabled = true, action = "open_dir"}
+
+    local inv = player and player.inventory
+    local consumed, builderCost, requiredCount = getBuildPlan(inv, dir)
+    local builderCount = Inventory.countItemById(inv, "builder_scroll")
+    local hasFiles = #consumed >= requiredCount
+    local hasSrl = builderCount >= builderCost
+    local canBuild = hasFiles and hasSrl
+
+    local buildLabel
+    if canBuild then
+        buildLabel = string.format("BUILD [B] (%dF+%d BUILDER.SRL)", requiredCount, builderCost)
+    else
+        local reasons = {}
+        if not hasFiles then
+            reasons[#reasons + 1] = string.format("FILES %d/%d", #consumed, requiredCount)
+        end
+        if not hasSrl then
+            reasons[#reasons + 1] = string.format("BUILDER.SRL %d/%d", builderCount, builderCost)
+        end
+        buildLabel = string.format("BUILD [B] (%dF+%d BUILDER.SRL) [LOCK: %s]", requiredCount, builderCost, table.concat(reasons, ", "))
+    end
+
+    menu[#menu + 1] = {
+        label = buildLabel,
+        enabled = canBuild,
+        action = "build_dir",
+        lockReason = canBuild and nil or buildLabel,
+    }
+
+    return menu
+end
+
 function InventoryUI.drawActionMenu()
     local w = 44
     local h = #actionMenuItems + 6
@@ -865,10 +901,11 @@ function InventoryUI.drawActionMenu()
     local row = math.floor((40 - h) / 2)
     DosUI.drawBox(col, row, w, h, 15, 4)
 
-    -- Item name header + current SRL balance
-    local itemName = actionMenuTarget and actionMenuTarget.name or "?"
+    -- Header + current SRL balance
+    local targetName = actionMenuTarget and actionMenuTarget.name or "?"
     local builderCount = Inventory.countItemById(player.inventory, "builder_scroll")
-    DosUI.putString(col + 2, row + 1, itemName, 15, 4, w - 4)
+    local titlePrefix = actionMenuContext == "dir" and "Folder: " or "Item: "
+    DosUI.putString(col + 2, row + 1, titlePrefix .. targetName, 15, 4, w - 4)
     DosUI.putString(col + 2, row + 2, string.format("BUILDER.SRL: %d", builderCount), 11, 4, w - 4)
 
     -- Separator
@@ -884,7 +921,13 @@ function InventoryUI.drawActionMenu()
         DosUI.putString(col + 2, row + 3 + i, prefix .. mi.label, fg, bg, w - 4)
     end
 
-    DosUI.putString(col + 2, row + h - 2, "Up/Dn:Select Enter:Run U/E/D/S/X:Quick Gray=LOCKED (see inline reason) Esc:Back", 8, 4, w - 4)
+    local helpText
+    if actionMenuContext == "dir" then
+        helpText = "Up/Dn:Select Enter:Run O:Open B:Build Gray=LOCKED (see inline reason) Esc:Back"
+    else
+        helpText = "Up/Dn:Select Enter:Run U/E/D/S/X:Quick Gray=LOCKED (see inline reason) Esc:Back"
+    end
+    DosUI.putString(col + 2, row + h - 2, helpText, 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -961,7 +1004,7 @@ function InventoryUI.drawHelpDialog()
         "",
         "Up/Down     Navigate list / slots",
         "Left/Right  Switch panel (Equip/Files)",
-        "Enter       Action Menu (file) / Unequip",
+        "Enter       Action Menu (file/folder) / Unequip",
         "Backspace   Go to parent folder",
         "Home/End    Jump to first/last",
         "PgUp/PgDn   Page up/down",
@@ -972,7 +1015,8 @@ function InventoryUI.drawHelpDialog()
         "F6          Move item to folder",
         "F7          Create new folder",
         "F8          Delete empty folder",
-        "F9          Build preview/confirm (shows files + BUILDER.SRL before execute)",
+        "Enter+B     Folder Build preview/confirm (primary flow)",
+        "F9          Build preview shortcut (same confirmation dialog)",
         "F10 / Esc   Close inventory",
         "Tab / I     Toggle inventory",
         "G           Pickup item on player tile",
@@ -1213,6 +1257,18 @@ function InventoryUI.actionMenuKeypressed(key)
                 return
             end
         end
+        if mi.action == "build_dir" and actionMenuTarget then
+            local consumed, builderCost, requiredCount = getBuildPlan(player.inventory, actionMenuTarget)
+            local builderCount = Inventory.countItemById(player.inventory, "builder_scroll")
+            if #consumed < requiredCount then
+                InventoryUI.setStatus(string.format("BUILD LOCKED: FILES %d/%d", #consumed, requiredCount))
+                return
+            end
+            if builderCount < builderCost then
+                InventoryUI.setStatus(string.format("BUILD LOCKED: BUILDER.SRL %d/%d", builderCount, builderCost))
+                return
+            end
+        end
         if mi.action == "use" then
             InventoryUI.setStatus("USE N/A (consumables only)")
         elseif mi.action == "equip" then
@@ -1230,7 +1286,24 @@ function InventoryUI.actionMenuKeypressed(key)
             showLockedReason(mi)
             return
         end
-        if mi.action == "use" then
+        if mi.action == "open_dir" then
+            if actionMenuTarget and actionMenuTarget.type == "dir" then
+                player.inventory.currentDir = actionMenuTarget
+                cursor = 1
+                scrollOffset = 0
+                InventoryUI.refreshContents()
+            end
+            state = "browsing"
+        elseif mi.action == "build_dir" then
+            if actionMenuTarget and actionMenuTarget.type == "dir" then
+                player.inventory.currentDir = actionMenuTarget
+                cursor = 1
+                scrollOffset = 0
+                InventoryUI.refreshContents()
+            end
+            state = "browsing"
+            InventoryUI.promptBuildPreview()
+        elseif mi.action == "use" then
             state = "browsing"
             InventoryUI.useSelected()
         elseif mi.action == "equip" then
@@ -1270,13 +1343,20 @@ function InventoryUI.actionMenuKeypressed(key)
         until actionMenuItems[actionMenuCursor].enabled or actionMenuCursor == start
     elseif key == "return" then
         runAction(actionMenuItems[actionMenuCursor])
-    elseif key == "u" or key == "e" or key == "d" or key == "s" or key == "x" then
-        local map = {u = "use", e = "equip", d = "disassemble", s = "split", x = "delete"}
+    elseif key == "u" or key == "e" or key == "d" or key == "s" or key == "x" or key == "o" or key == "b" then
+        local map
+        if actionMenuContext == "dir" then
+            map = {o = "open_dir", b = "build_dir"}
+        else
+            map = {u = "use", e = "equip", d = "disassemble", s = "split", x = "delete"}
+        end
         local want = map[key]
-        for _, mi in ipairs(actionMenuItems) do
-            if mi.action == want then
-                runAction(mi)
-                break
+        if want then
+            for _, mi in ipairs(actionMenuItems) do
+                if mi.action == want then
+                    runAction(mi)
+                    break
+                end
             end
         end
     elseif key == "escape" then
@@ -1462,14 +1542,16 @@ function InventoryUI.activateItem()
     if item.type == "up" then
         InventoryUI.goUp()
     elseif item.type == "dir" then
-        player.inventory.currentDir = item
-        cursor = 1
-        scrollOffset = 0
-        InventoryUI.refreshContents()
+        actionMenuContext = "dir"
+        actionMenuTarget = item
+        actionMenuItems = InventoryUI.buildDirectoryActionMenu(item)
+        actionMenuCursor = 1
+        state = "action_menu"
     elseif item.type == "file" then
         -- HERO.CHAR cannot be actioned
         if item.isHeroFile then return end
         -- Open action menu
+        actionMenuContext = "file"
         actionMenuTarget = item
         actionMenuItems = InventoryUI.buildActionMenu(item)
         actionMenuCursor = 1

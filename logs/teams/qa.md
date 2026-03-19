@@ -650,3 +650,18 @@
   - Missing managed-entry diagnostics remain unchanged and still covered.
 - Follow-up:
   - Keep JSON payload keys stable to avoid breaking downstream automation parsers.
+
+## 2026-03-19 21:31 KST
+- Task: Verify P0 Enter->Action Menu primary build flow transition.
+- Commit: HEAD (this run)
+- Files checked: `src/inventory_ui.lua`, `scripts/regression_build_action_menu.lua`, `scripts/regression_build_preview_confirm.lua`
+- Verification:
+  - `lua scripts/regression_build_action_menu.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `lua scripts/regression_action_menu_lock_reasons.lua` ✅
+- Decisions:
+  - Added dedicated regression coverage for folder action-menu build path to guard against re-centering on F9-only behavior.
+  - No portal validator run (no map/portal changes).
+- Follow-up:
+  - Extend UI regression pack when `BUILDER.SRL` `USE` lock/guidance changes land.

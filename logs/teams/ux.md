@@ -176,3 +176,19 @@
   - Published launch-facing changelog notes in `CHANGELOG.md` aligned with current DOS UI/flow.
 - Follow-up:
   - Next UX-related launch step: none blocking; proceed to RC tag.
+
+## 2026-03-19 21:31 KST
+- Task: P0 replace F9-centric build flow with Enter->Action Menu primary flow.
+- Commit: HEAD (this run)
+- Files: `src/inventory_ui.lua`, `scripts/regression_build_action_menu.lua`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `lua scripts/regression_build_action_menu.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `lua scripts/regression_action_menu_lock_reasons.lua` ✅
+- Decisions:
+  - Enter on folder rows now opens a folder action menu (`OPEN` / `BUILD`) instead of immediately entering the folder.
+  - Build is now first-class in the folder menu via `B` quick action; preview/confirm gate remains unchanged for safe execution.
+  - F9 remains as a shortcut, but help copy now points to Enter+B as primary build flow.
+- Follow-up:
+  - Next P0: hide/disable `USE` for `BUILDER.SRL` and provide explicit build-only guidance.
