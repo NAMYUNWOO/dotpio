@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-03-19T17:59:47.334244Z",
+  "overall": {
+    "tier": "YELLOW",
+    "score": 2,
+    "totalChecks": 3
+  },
+  "signals": {
+    "economySafety": {
+      "ok": true,
+      "decision": "NO_CURVE_CHANGE",
+      "suspiciousWindows": 0
+    },
+    "telemetryFreshness": {
+      "ok": true,
+      "weeklyEvents": 41,
+      "totalSrlSpent": 68
+    },
+    "schedulerPolicyAudit": {
+      "ok": false,
+      "status": "missing"
+    }
+  },
+  "weeklySnapshot": {
+    "windowStart": "2026-03-12T13:29:45Z",
+    "windowEnd": "2026-03-19T13:29:45Z",
+    "decision": "NO_CURVE_CHANGE",
+    "decisionRationale": "No suspicious net-positive exploit windows detected in the latest anti-exploit report.",
+    "delta": {
+      "telemetryEventCount": 0,
+      "totalSrlSpent": 0
+    }
+  },
+  "schedulerPolicy": {
+    "status": "missing",
+    "tz": "n/a",
+    "minute": "n/a",
+    "hour": "n/a",
+    "dow": "n/a",
+    "logPath": "n/a",
+    "maxLogSizeMb": "n/a",
+    "retainRotatedLogs": "n/a",
+    "maxRotatedAgeDays": "n/a"
+  },
+  "action": "If overall is YELLOW/ORANGE/RED: run `bash scripts/run_weekly_sustain.sh` and investigate the failing signal before next RC cut."
+}

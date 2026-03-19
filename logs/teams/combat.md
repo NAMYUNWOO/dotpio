@@ -57,3 +57,8 @@
 - Combat lane verified no combat tuning deltas are involved in this operations-focused task.
 - Decision: keep combat regressions out of this checker to avoid duplicate signal noise; checker remains branch/report freshness only.
 - Follow-up: none.
+
+## 2026-03-20 03:00 KST — P2 sustain dashboard JSON mode handoff
+- Combat lane verified no combat behavior/balance changes in this ops task.
+- Decision: keep regression scope focused on dashboard output contracts (markdown + json) to avoid unrelated combat churn.
+- Follow-up: none.

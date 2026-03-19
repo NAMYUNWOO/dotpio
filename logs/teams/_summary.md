@@ -158,3 +158,17 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/stale_branch_report_drift_check.py`
 - Backlog update: `POST_RC_BACKLOG.md` item marked done.
 - Next priority item: none remaining in `POST_RC_BACKLOG.md` (all checked).
+
+## 2026-03-20 03:00 KST — P2 sustain dashboard JSON mode completed
+- Completed backlog item: `Add sustain health dashboard JSON output mode (compact + pretty) and wire weekly runner artifact output`.
+- Durable decisions:
+  - `scripts/sustain_health_dashboard.py` now supports `--format md|json` (default `md`) and optional `--pretty` for indented JSON output.
+  - JSON payload schema is standardized around `overall`, `signals`, `weeklySnapshot`, and `schedulerPolicy` to support automation consumers.
+  - `--pretty` is explicitly rejected unless `--format json` is selected to keep CLI behavior unambiguous.
+  - Weekly sustain runner now publishes both dashboard artifacts: `logs/sustain_health_dashboard.md` and `logs/sustain_health_dashboard.json`.
+- Verification set:
+  - `python3 -m py_compile scripts/sustain_health_dashboard.py scripts/regression_sustain_health_dashboard.py`
+  - `python3 scripts/regression_sustain_health_dashboard.py`
+  - `bash scripts/run_weekly_sustain.sh`
+- Backlog update: `POST_RC_BACKLOG.md` new P2 item marked done.
+- Next priority item: none remaining in `POST_RC_BACKLOG.md` (all checked).

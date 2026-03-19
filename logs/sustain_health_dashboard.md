@@ -1,6 +1,6 @@
 # DOTPIO Sustain Health Dashboard
 
-- GeneratedAt(UTC): 2026-03-19T16:58:34.853704Z
+- GeneratedAt(UTC): 2026-03-19T17:59:47.259073Z
 - Overall: **YELLOW** (2/3 checks green)
 
 ## Signals
@@ -12,8 +12,8 @@
 - Window: 2026-03-12T13:29:45Z ~ 2026-03-19T13:29:45Z
 - Decision: **NO_CURVE_CHANGE**
 - Rationale: No suspicious net-positive exploit windows detected in the latest anti-exploit report.
-- Delta events: 9
-- Delta total SRL spent: 20
+- Delta events: 0
+- Delta total SRL spent: 0
 
 ## Scheduler Policy
 - Managed weekly sustain cron entry not found or audit artifact missing.

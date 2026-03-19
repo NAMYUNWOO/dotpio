@@ -122,3 +122,8 @@
 - World lane reviewed sustain automation scope impact: no map/portal data changes required.
 - Decision: consume drift artifacts (`logs/stale_branch_report_drift.{md,json}`) in weekly operations review to ensure world validation reports are not stale.
 - Follow-up: none.
+
+## 2026-03-20 03:00 KST — P2 sustain dashboard JSON mode handoff
+- World lane impact review: no map/portal topology changes required.
+- Decision: world ops can now ingest dashboard JSON for automated weekly health snapshots without markdown parsing.
+- Follow-up: none.

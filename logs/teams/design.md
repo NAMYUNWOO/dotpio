@@ -57,3 +57,8 @@
 - Design lane reviewed markdown artifact readability.
 - Decision: generate a concise markdown summary (`logs/stale_branch_report_drift.md`) with clear checkmarks/warnings for human weekly review.
 - Follow-up: none.
+
+## 2026-03-20 03:00 KST — P2 sustain dashboard JSON mode handoff
+- Design lane reviewed operator readability split: markdown for humans, pretty JSON for tooling/debug readability.
+- Decision: gate `--pretty` to JSON-only mode to avoid ambiguous CLI expectations.
+- Follow-up: none.

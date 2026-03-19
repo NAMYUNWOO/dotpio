@@ -807,3 +807,10 @@
   - `python3 scripts/regression_stale_branch_report_drift.py`
   - `python3 scripts/stale_branch_report_drift_check.py`
 - Result: PASS, artifacts emitted under `logs/stale_branch_report_drift.{md,json}`.
+
+## 2026-03-20 03:00 KST — P2 sustain dashboard JSON mode
+- Validation set:
+  - `python3 -m py_compile scripts/sustain_health_dashboard.py scripts/regression_sustain_health_dashboard.py`
+  - `python3 scripts/regression_sustain_health_dashboard.py`
+  - `bash scripts/run_weekly_sustain.sh`
+- Result: PASS, emits `logs/sustain_health_dashboard.{md,json}` and preserves weekly sustain pipeline green state.

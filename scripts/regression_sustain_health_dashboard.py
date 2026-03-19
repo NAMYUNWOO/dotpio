@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regression check for sustain health dashboard markdown generation."""
+"""Regression check for sustain health dashboard markdown/json generation."""
 from __future__ import annotations
 
 import json
@@ -19,6 +19,7 @@ def main() -> int:
         anti = tmp / "anti.json"
         audit = tmp / "audit.json"
         out_md = tmp / "dashboard.md"
+        out_json = tmp / "dashboard.json"
 
         snapshot.write_text(
             json.dumps(
@@ -73,7 +74,7 @@ def main() -> int:
         )
 
         text = out_md.read_text(encoding="utf-8")
-        required = [
+        required_md = [
             "# DOTPIO Sustain Health Dashboard",
             "Overall: **GREEN**",
             "decision=NO_CURVE_CHANGE",
@@ -81,9 +82,59 @@ def main() -> int:
             "CRON_TZ: Asia/Seoul",
             "Delta events: 3",
         ]
-        for token in required:
+        for token in required_md:
             if token not in text:
                 raise AssertionError(f"Missing expected dashboard token: {token}")
+
+        subprocess.run(
+            [
+                "python3",
+                str(SCRIPT),
+                "--format",
+                "json",
+                "--pretty",
+                "--snapshot-json",
+                str(snapshot),
+                "--anti-exploit-json",
+                str(anti),
+                "--audit-json",
+                str(audit),
+                "--out-json",
+                str(out_json),
+            ],
+            check=True,
+            cwd=ROOT,
+        )
+        json_text = out_json.read_text(encoding="utf-8")
+        if "\n  \"overall\"" not in json_text:
+            raise AssertionError("Pretty JSON indentation missing from dashboard output")
+        payload = json.loads(json_text)
+        if payload.get("overall", {}).get("tier") != "GREEN":
+            raise AssertionError("Unexpected overall tier in JSON dashboard output")
+        if payload.get("schedulerPolicy", {}).get("tz") != "Asia/Seoul":
+            raise AssertionError("Scheduler policy fields missing from JSON dashboard output")
+
+        bad = subprocess.run(
+            [
+                "python3",
+                str(SCRIPT),
+                "--pretty",
+                "--snapshot-json",
+                str(snapshot),
+                "--anti-exploit-json",
+                str(anti),
+                "--audit-json",
+                str(audit),
+                "--out-md",
+                str(out_md),
+            ],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if bad.returncode == 0:
+            raise AssertionError("Expected --pretty without --format json to fail")
 
     print("[PASS] sustain health dashboard regression validated")
     return 0

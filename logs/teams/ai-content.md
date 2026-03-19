@@ -128,3 +128,8 @@
 - AI-content lane aligned on report freshness guardrail so generated-content safety reports can be monitored via shared sustain workflow.
 - Decision: checker reads `generatedAt` when present and falls back to file mtime for markdown-only artifacts.
 - Follow-up: if AI-content reports adopt JSON artifacts, include them in checker `--report-path` list.
+
+## 2026-03-20 03:00 KST — P2 sustain dashboard JSON mode handoff
+- AI-content lane aligned on machine-readable sustain summary for future content-quality signal aggregation.
+- Decision: preserve stable key names (`overall`, `signals`, `weeklySnapshot`) for script consumers.
+- Follow-up: include AI-content safety metrics when dedicated JSON artifact is available.

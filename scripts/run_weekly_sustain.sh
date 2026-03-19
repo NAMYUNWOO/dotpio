@@ -19,6 +19,7 @@ else
 fi
 
 python3 scripts/sustain_health_dashboard.py --audit-json "$AUDIT_JSON"
+python3 scripts/sustain_health_dashboard.py --format json --pretty --audit-json "$AUDIT_JSON"
 python3 scripts/regression_sustain_health_dashboard.py
 python3 scripts/stale_branch_report_drift_check.py
 python3 scripts/regression_stale_branch_report_drift.py
@@ -29,5 +30,6 @@ echo "- logs/economy_anti_exploit_report.json"
 echo "- logs/economy_weekly_snapshot.md"
 echo "- logs/economy_weekly_snapshot.json"
 echo "- logs/sustain_health_dashboard.md"
+echo "- logs/sustain_health_dashboard.json"
 echo "- logs/stale_branch_report_drift.md"
 echo "- logs/stale_branch_report_drift.json"

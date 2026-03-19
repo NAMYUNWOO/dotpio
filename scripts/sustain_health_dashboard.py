@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate sustain health dashboard markdown from weekly sustain artifacts."""
+"""Generate sustain health dashboard markdown/json from weekly sustain artifacts."""
 from __future__ import annotations
 
 import argparse
@@ -13,6 +13,7 @@ DEFAULT_SNAPSHOT_JSON = ROOT / "logs" / "economy_weekly_snapshot.json"
 DEFAULT_ANTI_JSON = ROOT / "logs" / "economy_anti_exploit_report.json"
 DEFAULT_AUDIT_JSON = ROOT / "logs" / "weekly_sustain_cron_audit.json"
 DEFAULT_OUT_MD = ROOT / "logs" / "sustain_health_dashboard.md"
+DEFAULT_OUT_JSON = ROOT / "logs" / "sustain_health_dashboard.json"
 
 
 def parse_args() -> argparse.Namespace:
@@ -21,6 +22,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--anti-exploit-json", type=Path, default=DEFAULT_ANTI_JSON)
     parser.add_argument("--audit-json", type=Path, default=DEFAULT_AUDIT_JSON)
     parser.add_argument("--out-md", type=Path, default=DEFAULT_OUT_MD)
+    parser.add_argument("--out-json", type=Path, default=DEFAULT_OUT_JSON)
+    parser.add_argument("--format", choices=("md", "json"), default="md")
+    parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output (requires --format json)")
     return parser.parse_args()
 
 
@@ -38,13 +42,7 @@ def badge(ok: bool, label: str) -> str:
     return f"{icon} {label}"
 
 
-def main() -> int:
-    args = parse_args()
-
-    snapshot = load_json(args.snapshot_json)
-    anti = load_json(args.anti_exploit_json)
-    audit = load_json(args.audit_json)
-
+def build_dashboard_payload(snapshot: dict[str, Any], anti: dict[str, Any], audit: dict[str, Any]) -> dict[str, Any]:
     decision = str(snapshot.get("decision", "UNKNOWN"))
     suspicious_count = int(snapshot.get("suspiciousCount", anti.get("suspiciousCount", 0)) or 0)
     telemetry_event_count = int(snapshot.get("telemetryEventCount", 0) or 0)
@@ -58,51 +56,127 @@ def main() -> int:
     health_score = sum([economy_ok, telemetry_ok, cron_ok])
     health_tier = {3: "GREEN", 2: "YELLOW", 1: "ORANGE", 0: "RED"}[health_score]
 
+    generated_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+    return {
+        "generatedAt": generated_at,
+        "overall": {
+            "tier": health_tier,
+            "score": health_score,
+            "totalChecks": 3,
+        },
+        "signals": {
+            "economySafety": {
+                "ok": economy_ok,
+                "decision": decision,
+                "suspiciousWindows": suspicious_count,
+            },
+            "telemetryFreshness": {
+                "ok": telemetry_ok,
+                "weeklyEvents": telemetry_event_count,
+                "totalSrlSpent": total_srl_spent,
+            },
+            "schedulerPolicyAudit": {
+                "ok": cron_ok,
+                "status": audit.get("status", "missing"),
+            },
+        },
+        "weeklySnapshot": {
+            "windowStart": snapshot.get("windowStart", "n/a"),
+            "windowEnd": snapshot.get("windowEnd", "n/a"),
+            "decision": decision,
+            "decisionRationale": snapshot.get("decisionRationale", "n/a"),
+            "delta": {
+                "telemetryEventCount": delta.get("telemetryEventCount", "n/a"),
+                "totalSrlSpent": delta.get("totalSrlSpent", "n/a"),
+            },
+        },
+        "schedulerPolicy": {
+            "status": audit.get("status", "missing"),
+            "tz": audit.get("tz", "n/a"),
+            "minute": audit.get("minute", "n/a"),
+            "hour": audit.get("hour", "n/a"),
+            "dow": audit.get("dow", "n/a"),
+            "logPath": audit.get("log_path", "n/a"),
+            "maxLogSizeMb": audit.get("max_log_size_mb", "n/a"),
+            "retainRotatedLogs": audit.get("retain_rotated_logs", "n/a"),
+            "maxRotatedAgeDays": audit.get("max_rotated_age_days", "n/a"),
+        },
+        "action": "If overall is YELLOW/ORANGE/RED: run `bash scripts/run_weekly_sustain.sh` and investigate the failing signal before next RC cut.",
+    }
+
+
+def write_markdown(path: Path, payload: dict[str, Any]) -> None:
+    signals = payload["signals"]
+    weekly = payload["weeklySnapshot"]
+    scheduler = payload["schedulerPolicy"]
+
     lines = [
         "# DOTPIO Sustain Health Dashboard",
         "",
-        f"- GeneratedAt(UTC): {datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')}",
-        f"- Overall: **{health_tier}** ({health_score}/3 checks green)",
+        f"- GeneratedAt(UTC): {payload['generatedAt']}",
+        f"- Overall: **{payload['overall']['tier']}** ({payload['overall']['score']}/{payload['overall']['totalChecks']} checks green)",
         "",
         "## Signals",
-        f"- {badge(economy_ok, 'Economy safety')}: decision={decision}, suspiciousWindows={suspicious_count}",
-        f"- {badge(telemetry_ok, 'Telemetry freshness')}: weeklyEvents={telemetry_event_count}, totalSrlSpent={total_srl_spent}",
-        f"- {badge(cron_ok, 'Scheduler policy audit')}: status={audit.get('status', 'missing')}",
+        f"- {badge(bool(signals['economySafety']['ok']), 'Economy safety')}: decision={signals['economySafety']['decision']}, suspiciousWindows={signals['economySafety']['suspiciousWindows']}",
+        f"- {badge(bool(signals['telemetryFreshness']['ok']), 'Telemetry freshness')}: weeklyEvents={signals['telemetryFreshness']['weeklyEvents']}, totalSrlSpent={signals['telemetryFreshness']['totalSrlSpent']}",
+        f"- {badge(bool(signals['schedulerPolicyAudit']['ok']), 'Scheduler policy audit')}: status={signals['schedulerPolicyAudit']['status']}",
         "",
         "## Weekly Snapshot",
-        f"- Window: {snapshot.get('windowStart', 'n/a')} ~ {snapshot.get('windowEnd', 'n/a')}",
-        f"- Decision: **{decision}**",
-        f"- Rationale: {snapshot.get('decisionRationale', 'n/a')}",
-        f"- Delta events: {delta.get('telemetryEventCount', 'n/a')}",
-        f"- Delta total SRL spent: {delta.get('totalSrlSpent', 'n/a')}",
+        f"- Window: {weekly['windowStart']} ~ {weekly['windowEnd']}",
+        f"- Decision: **{weekly['decision']}**",
+        f"- Rationale: {weekly['decisionRationale']}",
+        f"- Delta events: {weekly['delta']['telemetryEventCount']}",
+        f"- Delta total SRL spent: {weekly['delta']['totalSrlSpent']}",
         "",
         "## Scheduler Policy",
     ]
 
-    if cron_ok:
+    if signals["schedulerPolicyAudit"]["ok"]:
         lines.extend(
             [
-                f"- CRON_TZ: {audit.get('tz', 'n/a')}",
-                f"- Schedule: minute={audit.get('minute', 'n/a')} hour={audit.get('hour', 'n/a')} dow={audit.get('dow', 'n/a')}",
-                f"- Log path: {audit.get('log_path', 'n/a')}",
-                f"- Rotate max size (MB): {audit.get('max_log_size_mb', 'n/a')}",
-                f"- Retain rotated logs: {audit.get('retain_rotated_logs', 'n/a')}",
-                f"- Max rotated age days: {audit.get('max_rotated_age_days', 'n/a')}",
+                f"- CRON_TZ: {scheduler['tz']}",
+                f"- Schedule: minute={scheduler['minute']} hour={scheduler['hour']} dow={scheduler['dow']}",
+                f"- Log path: {scheduler['logPath']}",
+                f"- Rotate max size (MB): {scheduler['maxLogSizeMb']}",
+                f"- Retain rotated logs: {scheduler['retainRotatedLogs']}",
+                f"- Max rotated age days: {scheduler['maxRotatedAgeDays']}",
             ]
         )
     else:
         lines.append("- Managed weekly sustain cron entry not found or audit artifact missing.")
 
-    lines.extend(
-        [
-            "",
-            "## Action",
-            "- If overall is YELLOW/ORANGE/RED: run `bash scripts/run_weekly_sustain.sh` and investigate the failing signal before next RC cut.",
-        ]
-    )
+    lines.extend(["", "## Action", f"- {payload['action']}"])
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-    args.out_md.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"Wrote {args.out_md}")
+
+def write_json(path: Path, payload: dict[str, Any], pretty: bool) -> None:
+    if pretty:
+        text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    else:
+        text = json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n"
+    path.write_text(text, encoding="utf-8")
+
+
+def main() -> int:
+    args = parse_args()
+
+    if args.pretty and args.format != "json":
+        raise SystemExit("--pretty is only supported with --format json")
+
+    snapshot = load_json(args.snapshot_json)
+    anti = load_json(args.anti_exploit_json)
+    audit = load_json(args.audit_json)
+
+    payload = build_dashboard_payload(snapshot, anti, audit)
+
+    if args.format == "json":
+        write_json(args.out_json, payload, args.pretty)
+        print(f"Wrote {args.out_json}")
+    else:
+        write_markdown(args.out_md, payload)
+        print(f"Wrote {args.out_md}")
+
     return 0
 
 

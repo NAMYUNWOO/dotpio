@@ -278,3 +278,8 @@
 - UX lane approved operator-facing copy style in drift report (`Status`, `Ahead/Behind`, per-report age days).
 - Decision: preserve simple ok/warn wording to avoid ambiguity during weekly sustain triage.
 - Follow-up: none.
+
+## 2026-03-20 03:00 KST — P2 sustain dashboard JSON mode handoff
+- UX lane approved output-mode UX: default markdown remains unchanged for existing workflow.
+- Decision: explicit CLI error when `--pretty` is used without `--format json` for faster operator correction.
+- Follow-up: none.

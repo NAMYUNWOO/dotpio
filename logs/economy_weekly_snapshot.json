@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-19T16:58:34.580443Z",
+  "generatedAt": "2026-03-19T17:59:46.984721Z",
   "windowStart": "2026-03-12T13:29:45Z",
   "windowEnd": "2026-03-19T13:29:45Z",
   "telemetryEventCount": 41,
@@ -18,7 +18,7 @@
   "decisionRationale": "No suspicious net-positive exploit windows detected in the latest anti-exploit report.",
   "comparedToPrevious": true,
   "deltaFromPrevious": {
-    "telemetryEventCount": 9,
-    "totalSrlSpent": 20
+    "telemetryEventCount": 0,
+    "totalSrlSpent": 0
   }
 }
