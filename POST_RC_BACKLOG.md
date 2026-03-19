@@ -1,6 +1,6 @@
 # POST_RC_BACKLOG
 
-Last updated: 2026-03-20 05:29 KST
+Last updated: 2026-03-20 05:44 KST
 
 ## P0 (Now)
 - [x] Replace F9-centric build flow with Enter->Action menu primary flow
@@ -28,3 +28,5 @@ Last updated: 2026-03-20 05:29 KST
 
 ## P1 (Combat Experiment)
 - [x] Combat Team: Add berserker desperation behavior (low-HP speed/damage spike) with regression coverage
+- [x] UX/Combat Team: Telegraph berserker desperation state in HUD + combat status feed
+- [ ] Combat Team: Add one-turn pre-lunge tell for berserker desperation attacks (readability/fairness A/B)

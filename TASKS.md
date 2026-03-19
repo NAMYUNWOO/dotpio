@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-03-19
+Last updated: 2026-03-20
 
 See project-level plans:
 - `PROJECT_PLAN.md` (milestones/release gates)
@@ -175,3 +175,9 @@ See project-level plans:
   - [x] Add new objective variants for higher-intensity kill/pickup/build cadence plus search/inventory planning beats
   - [x] Add regression coverage for mission-pack rotation + objective catalog floor
 - [x] Add mission momentum bonus payout experiment (partial SRL reward per objective completion streak)
+- [x] Add berserker desperation readability telegraph (HUD + status feed)
+  - [x] Expose one-shot `justEnteredDesperation` transition signal in enemy AI state sync
+  - [x] Emit DOS combat status warning when visible berserker first enrages
+  - [x] Surface active desperate berserker count in HUD
+  - [x] Extend enemy behavior regression for desperation transition signal edge
+- [ ] Add pre-lunge telegraph for berserker desperation attacks (one-turn warning before boosted hit)

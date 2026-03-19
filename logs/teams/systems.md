@@ -497,3 +497,14 @@
   - Enemy modifier refresh now composes synergy + desperation in one pass (`moveCd`, `atkCd`, `atkDmg`).
   - Added explicit base stat anchors (`baseAtkCd`) to avoid cumulative drift across updates.
 - Follow-up: watch for low-HP burst overkill in early maps before increasing spawn chance.
+
+## 2026-03-20 05:44 KST
+- Task: Combat state-signal support for desperation readability slice.
+- Commit: HEAD (this run)
+- Files: `src/enemy_ai.lua`, `main.lua`
+- Verification:
+  - `luac -p src/enemy_ai.lua main.lua` ✅
+  - `lua scripts/regression_enemy_behavior_variants.lua` ✅
+- Decisions:
+  - `syncCombatModifiers` now emits a transition-only `justEnteredDesperation` flag in addition to persistent `desperationActive`.
+  - Runtime consumes and clears the flag after warning emission to avoid status spam.

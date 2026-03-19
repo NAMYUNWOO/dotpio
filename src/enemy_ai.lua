@@ -163,9 +163,11 @@ local function syncCombatModifiers(e, enemies)
     local behavior = behaviorFor(e)
     local empowered = hasNearbyBehavior(e, enemies, behavior.synergyFromBehavior, behavior.synergyRange)
     local desperationActive = behavior.desperationHpThreshold and e.hp <= behavior.desperationHpThreshold or false
+    local prevDesperation = e.desperationActive == true
 
     e.synergyEmpowered = empowered
     e.desperationActive = desperationActive
+    e.justEnteredDesperation = desperationActive and not prevDesperation
 
     local moveMul = (empowered and behavior.synergyMoveCdMul or 1) * (desperationActive and behavior.desperationMoveCdMul or 1)
     e.moveCd = e.baseMoveCd * moveMul
@@ -244,6 +246,9 @@ function EnemyAI.init(e, idx)
     e.patrolY = nil
     e.idleTimer = love.math.random() * 1.5
     e.alerted = false
+    e.synergyEmpowered = false
+    e.desperationActive = false
+    e.justEnteredDesperation = false
 end
 
 function EnemyAI.update(e, idx, dt, player, enemies)

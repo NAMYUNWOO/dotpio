@@ -868,3 +868,13 @@
   - `lua scripts/regression_enemy_behavior_variants.lua` ✅ (`[PASS] enemy behavior variants + synergy regression validated`)
 - Decision: expanded variant regression now asserts berserker roster presence and desperation modifier activation/deactivation behavior.
 - Follow-up: add encounter-level simulation check if future tuning modifies desperation thresholds.
+
+## 2026-03-20 05:44 KST
+- Task: Regression extension for berserker desperation telegraph transition.
+- Files checked: `src/enemy_ai.lua`, `scripts/regression_enemy_behavior_variants.lua`, `main.lua`, `src/hud.lua`
+- Verification:
+  - `luac -p src/enemy_ai.lua main.lua src/hud.lua scripts/regression_enemy_behavior_variants.lua` ✅
+  - `lua scripts/regression_enemy_behavior_variants.lua` ✅
+- Decisions:
+  - Regression now asserts transition-edge semantics (`justEnteredDesperation` true only on first low-HP activation frame).
+  - Existing variant/synergy checks remain green.

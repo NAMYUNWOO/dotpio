@@ -98,3 +98,16 @@
   - Kept desperation deterministic (`hp <= 2`) and reversible through profile fields to allow quick rebalance/rollback.
 - Follow-up:
   - Next experiment candidate: telegraph desperation state in HUD/combat log for readability testing.
+
+## 2026-03-20 05:44 KST
+- Task: P1 combat readability experiment — telegraph berserker desperation state.
+- Commit: HEAD (this run)
+- Files: `src/enemy_ai.lua`, `main.lua`, `scripts/regression_enemy_behavior_variants.lua`, `POST_RC_BACKLOG.md`, `TASKS.md`
+- Verification:
+  - `luac -p src/enemy_ai.lua main.lua scripts/regression_enemy_behavior_variants.lua` ✅
+  - `lua scripts/regression_enemy_behavior_variants.lua` ✅
+- Decisions:
+  - Added one-shot transition signal (`justEnteredDesperation`) so readability cues fire only on state change, not every frame.
+  - Kept combat tuning unchanged; this slice focuses strictly on threat telegraph clarity.
+- Follow-up:
+  - Next experiment candidate: one-turn pre-lunge tell before desperation attacks.

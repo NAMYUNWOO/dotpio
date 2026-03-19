@@ -91,3 +91,10 @@
 - Cross-lane design note: introduced berserker as a readability-friendly high-threat archetype (predictable low-HP power spike).
 - Decision: keep behavior trigger simple (`hp <= 2`) to maintain player learnability and avoid hidden randomness.
 - Follow-up: evaluate optional visual cue for desperation state in a later polish pass.
+
+## 2026-03-20 05:44 KST
+- Task: Design readability check for berserker escalation cue.
+- Verification: `luac -p src/hud.lua main.lua` ✅
+- Decisions:
+  - Used terse DOS-compatible wording and compact HUD slot (`Berserk`) to preserve panel density.
+  - Alert only triggers on transition to avoid noisy message churn.

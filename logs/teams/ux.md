@@ -322,3 +322,14 @@
 - Cross-lane UX review: no HUD/menu copy updated in this patch.
 - Decision: ship combat behavior first, then consider explicit desperation indicator/status text if playtests show surprise damage confusion.
 - Follow-up: candidate backlog item for readability cue after combat telemetry review.
+
+## 2026-03-20 05:44 KST
+- Task: UX readability pass for berserker threat escalation.
+- Files: `main.lua`, `src/hud.lua`
+- Verification:
+  - `luac -p main.lua src/hud.lua` ✅
+- Decisions:
+  - Added high-salience status line when visible berserker first enrages (`BERSERKER ENRAGED...`).
+  - HUD now shows compact `Berserk: <n>` indicator to reduce surprise burst damage moments.
+- Follow-up:
+  - If playtests still show surprise hits, add a pre-lunge wind-up cue.

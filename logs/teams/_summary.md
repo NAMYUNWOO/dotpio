@@ -247,3 +247,16 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_enemy_behavior_variants.lua`
 - Backlog update: `POST_RC_BACKLOG.md` combat experiment item marked done.
 - Next priority item: none unchecked in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject next Game Director experiment candidate next cycle.
+
+## 2026-03-20 05:44 KST — P1 combat readability experiment: berserker telegraph
+- Completed experiment slice: `UX/Combat Team: Telegraph berserker desperation state in HUD + combat status feed`.
+- Durable decisions:
+  - Enemy AI now exposes one-shot transition signal `justEnteredDesperation` when berserker low-HP mode first activates.
+  - Runtime emits explicit warning status text only when enraging enemy is visible, then clears signal to prevent spam.
+  - HUD now surfaces active desperate berserker count (`Berserk: n`) for persistent threat readability.
+- Verification set:
+  - `luac -p src/enemy_ai.lua main.lua src/hud.lua scripts/regression_enemy_behavior_variants.lua`
+  - `lua scripts/regression_enemy_behavior_variants.lua`
+- Backlog update:
+  - Marked telegraph experiment done in `POST_RC_BACKLOG.md` and `TASKS.md`.
+  - Added next candidate: berserker pre-lunge tell (one-turn warning) as unchecked follow-up.

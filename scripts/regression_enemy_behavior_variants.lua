@@ -54,12 +54,17 @@ local berserkerBaseAtkCd = probe.berserker.atkCd
 local berserkerBaseAtk = probe.berserker.atkDmg
 local _, desperationOff = EnemyAI.debugSyncSynergy(probe.berserker, { probe.berserker })
 expect(desperationOff == false and probe.berserker.desperationActive == false, "berserker should not be desperate at full HP")
+expect(probe.berserker.justEnteredDesperation == false, "berserker should not emit desperation entry signal at full HP")
 probe.berserker.hp = 2
 local _, desperationOn = EnemyAI.debugSyncSynergy(probe.berserker, { probe.berserker })
 expect(desperationOn == true and probe.berserker.desperationActive == true, "berserker should trigger desperation at low HP")
+expect(probe.berserker.justEnteredDesperation == true, "berserker should emit entry signal when desperation first activates")
 expect(probe.berserker.moveCd < berserkerBaseMove, "berserker desperation should increase move speed")
 expect(probe.berserker.atkCd < berserkerBaseAtkCd, "berserker desperation should increase attack cadence")
 expect(probe.berserker.atkDmg > berserkerBaseAtk, "berserker desperation should increase attack damage")
+
+EnemyAI.debugSyncSynergy(probe.berserker, { probe.berserker })
+expect(probe.berserker.justEnteredDesperation == false, "berserker entry signal should only fire on transition")
 
 local hunterSolo = { x = 8, y = 8, behavior = "hunter", hp = 3, alive = true }
 EnemyAI.init(hunterSolo, 1)

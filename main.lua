@@ -164,6 +164,24 @@ function love.update(dt)
     end
 
     Entities.update(dt, Player, Combat.addDamageFlash)
+
+    local visibleEnrageCount = 0
+    for _, enemy in ipairs(Entities.enemies) do
+        if enemy.justEnteredDesperation then
+            if FOV.isVisible(enemy.x, enemy.y) then
+                visibleEnrageCount = visibleEnrageCount + 1
+            end
+            enemy.justEnteredDesperation = false
+        end
+    end
+    if visibleEnrageCount > 0 then
+        if visibleEnrageCount == 1 then
+            InventoryUI.setStatus("BERSERKER ENRAGED: LOW-HP SPIKE INCOMING")
+        else
+            InventoryUI.setStatus(string.format("BERSERKERS ENRAGED x%d: LOW-HP SPIKES INCOMING", visibleEnrageCount))
+        end
+    end
+
     Camera.update(Player.visualX, Player.visualY)
 
     if Player.hp <= 0 then
