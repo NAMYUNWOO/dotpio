@@ -525,3 +525,16 @@
   - No screenshot regen required (non-UI scripting/docs update only).
 - Follow-up:
   - Keep regression green when installer options or marker format evolve.
+
+## 2026-03-19 17:43:35 KST
+- Task: M5 post-RC sustain - sync RC checklist sign-off rows with shipped tag evidence.
+- Commit: HEAD (this run)
+- Files checked: `logs/playtests/rc_checklist.md`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `git tag --list 0.5.0-rc.1` ✅
+  - `git rev-parse --short 0.5.0-rc.1` ✅ (`d82cab1`)
+- Decisions:
+  - RC checklist sign-off rows now reflect completed lane approvals and release-tag existence.
+  - Added explicit tag hash + KST timestamp in sign-off note for auditable closure context.
+- Follow-up:
+  - Next sustain item: monitor weekly runner outputs and only reopen RC checklist if blocker triage regresses.

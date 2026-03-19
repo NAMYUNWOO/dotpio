@@ -58,6 +58,7 @@ Tracking rule:
 - [x] Add one-command weekly sustain runner (snapshot + anti-exploit + regression)
 - [x] Add weekly scheduler wiring helper for sustain runner (cron install script + usage)
 - [x] Add regression coverage for weekly scheduler installer CLI validation/dry-run evidence
+- [x] Sync RC checklist sign-off status with actual tagged RC evidence
 
 ---
 

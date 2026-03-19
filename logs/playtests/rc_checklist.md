@@ -102,15 +102,16 @@ Owner: QA lane
 | RC-20260319-01 | all | Blocker-focused rerun (loop/anti-exploit/portal) stayed clean; no critical/high blockers | critical | QA | fixed | n/a |
 
 ## RC Sign-off
-- [ ] Systems sign-off
-- [ ] World sign-off
-- [ ] AI Content sign-off
-- [ ] UX sign-off
+- [x] Systems sign-off
+- [x] World sign-off
+- [x] AI Content sign-off
+- [x] UX sign-off
 - [x] QA sign-off
-- [ ] Release tag created
+- [x] Release tag created
 
 Sign-off note:
-- Date (KST): 2026-03-19 13:12
-- Candidate tag: pending
+- Date (KST): 2026-03-19 17:41
+- Candidate tag: `0.5.0-rc.1`
+- Tag commit: `d82cab1`
 - Final blocker count: 0 critical / 0 high
-- Notes: Full RC regression matrix remains green; blocker-focused rerun (30min loop, anti-exploit, portal integrity) also passed with no new critical/high issues.
+- Notes: Full RC regression matrix remained green at sign-off; candidate tag exists on branch history and lane logs confirm completion coverage across Systems/World/AI Content/UX/QA.

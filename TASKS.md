@@ -135,3 +135,7 @@ See project-level plans:
 - [x] Add regression coverage for weekly scheduler installer CLI validation/dry-run evidence
   - [x] Add regression script that asserts valid dry-run output and invalid flag rejection for `scripts/install_weekly_sustain_cron.sh`
   - [x] Link regression command into RC/sustain checklist command matrix
+
+- [x] Sync RC checklist sign-off status with actual tagged RC evidence
+  - [x] Reconcile `logs/playtests/rc_checklist.md` sign-off rows with lane completion and tag state
+  - [x] Add evidence note (tag hash + verification timestamp) for auditable RC closure
