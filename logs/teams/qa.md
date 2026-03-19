@@ -372,3 +372,18 @@
   - No screenshot refresh required (no UI rendering/layout source changed).
 - Follow-up:
   - Start M5 RC checklist document and connect it to existing regression artifacts.
+
+## 2026-03-19 12:12:53 KST
+- Task: Create M5 RC checklist document with executable regression matrix.
+- Commit: HEAD (this run)
+- Files checked: `logs/playtests/rc_checklist.md`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `python3 -m py_compile scripts/regression_30min_loop_checklist.py scripts/regression_map_progression.py scripts/regression_keyboard_usability_checklist.py scripts/validate_portals.py` ✅
+  - `lua scripts/regression_enemy_behavior_variants.lua` ✅
+- Decisions:
+  - Added release-candidate checklist artifact `logs/playtests/rc_checklist.md` with gate rows for combat/inventory/build/disasm/portal + explicit command/artifact mapping.
+  - Included blocker triage table and cross-team RC sign-off section to standardize launch readiness reviews.
+  - No portal/map source changes in this task; validator is referenced in checklist and syntax-verified only.
+  - No screenshot refresh required in this run (checklist/documentation-only change).
+- Follow-up:
+  - Execute full M5 regression matrix from `logs/playtests/rc_checklist.md` and file blockers before fixing critical issues.

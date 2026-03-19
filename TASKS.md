@@ -93,3 +93,9 @@ See project-level plans:
 - [x] Add keyboard-only usability pass checklist
   - [x] Add scripted keyboard-coverage regression for core inventory controls
   - [x] Generate keyboard-only usability checklist artifact under logs/playtests/
+
+## Next Up (M5 RC/Launch)
+- [x] Create RC checklist document
+  - [x] Define release gate checklist rows for combat/inventory/build/disasm/portal regressions
+  - [x] Link each row to concrete command + artifact path for pass evidence
+  - [x] Include blocker triage and release sign-off section

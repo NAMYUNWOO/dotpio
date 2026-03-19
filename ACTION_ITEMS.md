@@ -45,7 +45,7 @@ Tracking rule:
 - [x] Add keyboard-only usability pass checklist
 
 ## M5 - RC/Launch
-- [ ] Create RC checklist document
+- [x] Create RC checklist document
 - [ ] Execute full regression (combat/inventory/build/disasm/portal)
 - [ ] Fix all critical blockers
 - [ ] Capture launch screenshots + changelog
