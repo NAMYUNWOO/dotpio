@@ -94,6 +94,10 @@ Owner: QA lane
   - Command: `python3 scripts/regression_weekly_cron_installer.py`
   - Artifact: command output (pass/fail)
   - Covers: dry-run evidence format + CLI override reflection + invalid schedule arg rejection + safe mocked `--apply` upsert behavior
+- [x] Weekly sustain log-rotation retention pruning regression
+  - Command: `python3 scripts/regression_rotate_log_retention.py`
+  - Artifact: command output (pass/fail)
+  - Covers: keep-latest-N rotated log pruning behavior when rotation threshold is repeatedly exceeded
 
 ## Blocker Triage (critical blockers must be zero)
 | ID | Area | Symptom | Severity | Owner | Status | Fix Commit |

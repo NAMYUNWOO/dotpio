@@ -286,3 +286,20 @@
   - Cron installer now wires `--max-log-size-mb` / `SUSTAIN_CRON_MAX_LOG_SIZE_MB` into the managed command to prevent unbounded sustain-log growth.
 - Follow-up:
   - Consider retention pruning policy (e.g., keep latest N rotated files) if long-lived nodes accumulate many rotation artifacts.
+
+## 2026-03-19 19:44:44 KST
+- Task: M5 post-RC sustain - add rotated weekly sustain-log retention policy (keep-latest-N pruning + regression).
+- Commit: HEAD (this run)
+- Files: `scripts/rotate_log_if_needed.sh`, `scripts/install_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_installer.py`, `scripts/regression_rotate_log_retention.py`, `logs/playtests/rc_checklist.md`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `bash -n scripts/rotate_log_if_needed.sh` ✅
+  - `bash -n scripts/install_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_installer.py scripts/regression_rotate_log_retention.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_rotate_log_retention.py` ✅
+  - `bash scripts/install_weekly_sustain_cron.sh --minute 15 --hour 6 --dow 2 --tz UTC --log-path /tmp/dotpio-weekly.log --max-log-size-mb 12 --retain-rotated-logs 4` (dry-run preview) ✅
+- Decisions:
+  - Rotation helper now supports `retain-rotated` keep-latest-N pruning after each rotate event to prevent long-term rotated-log disk creep.
+  - Cron installer now exposes `--retain-rotated-logs` / `SUSTAIN_CRON_RETAIN_ROTATED_LOGS` and wires retention into the managed schedule command.
+- Follow-up:
+  - Consider optional age-based retention (days) only if operators request time-window semantics beyond keep-latest-N.

@@ -85,12 +85,14 @@ def main() -> int:
             "/tmp/dotpio-weekly.log",
             "--max-log-size-mb",
             "12",
+            "--retain-rotated-logs",
+            "4",
         ],
         expect_ok=True,
         must_contain=[
             "CRON_TZ=UTC 15 6 * * 2",
             "/tmp/dotpio-weekly.log",
-            "bash scripts/rotate_log_if_needed.sh /tmp/dotpio-weekly.log 12",
+            "bash scripts/rotate_log_if_needed.sh /tmp/dotpio-weekly.log 12 4",
         ],
     )
 
@@ -104,6 +106,11 @@ def main() -> int:
         ["bash", str(INSTALLER), "--max-log-size-mb", "0"],
         expect_ok=False,
         must_contain=["[ERROR] --max-log-size-mb must be a positive integer"],
+    )
+    run(
+        ["bash", str(INSTALLER), "--retain-rotated-logs", "-1"],
+        expect_ok=False,
+        must_contain=["[ERROR] --retain-rotated-logs must be a non-negative integer"],
     )
 
     # Apply path should be safely testable via injected crontab binary.

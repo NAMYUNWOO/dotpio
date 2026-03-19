@@ -582,3 +582,20 @@
   - Mocked `--apply` upsert coverage remains intact (single managed marker guarantee).
 - Follow-up:
   - Add targeted regression for rotate helper file-rotation behavior under threshold/over-threshold fixtures.
+
+## 2026-03-19 19:44:44 KST
+- Task: QA verification for sustain-log rotated-file retention pruning.
+- Commit: HEAD (this run)
+- Files checked: `scripts/rotate_log_if_needed.sh`, `scripts/install_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_installer.py`, `scripts/regression_rotate_log_retention.py`, `logs/playtests/rc_checklist.md`
+- Verification:
+  - `bash -n scripts/rotate_log_if_needed.sh` ✅
+  - `bash -n scripts/install_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_installer.py scripts/regression_rotate_log_retention.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_rotate_log_retention.py` ✅
+  - Cron dry-run preview contains rotate+retention command (`... rotate_log_if_needed.sh /tmp/dotpio-weekly.log 12 4 ...`) ✅
+- Decisions:
+  - Regression coverage now includes repeated over-threshold rotation cycles and asserts keep-latest-N pruning outcome.
+  - Installer CLI regression now validates `--retain-rotated-logs` rendering and non-negative integer validation.
+- Follow-up:
+  - Keep regression fixture sleep spacing if timestamp format/rotation granularity changes.

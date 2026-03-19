@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-19 (KST)
+Last updated: 2026-03-19 19:44 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -69,3 +69,6 @@ Compact decision memory for AI context efficiency.
 - RC checklist sign-off rows are now synchronized with actual release state: all lane sign-offs checked, release tag recorded as `0.5.0-rc.1` (`d82cab1`), and sign-off note includes auditable timestamp/hash.
 - Weekly cron installer now supports configurable log sinks via `--log-path` / `SUSTAIN_CRON_LOG_PATH` (default still `logs/weekly_sustain_cron.log`), with regression coverage ensuring custom path rendering stays stable.
 - Weekly sustain scheduler now includes size-based pre-run log rotation via `scripts/rotate_log_if_needed.sh`; installer exposes `--max-log-size-mb` / `SUSTAIN_CRON_MAX_LOG_SIZE_MB` and regression coverage checks rotate-command rendering + validation.
+- Weekly sustain log rotation now enforces keep-latest-N retention pruning via `scripts/rotate_log_if_needed.sh <log> <max-size-mb> <retain-rotated>` to avoid rotated-log accumulation.
+- Cron installer now exposes `--retain-rotated-logs` / `SUSTAIN_CRON_RETAIN_ROTATED_LOGS`, wiring retention policy directly into managed cron entries.
+- Retention behavior is regression-covered by `scripts/regression_rotate_log_retention.py` (repeated over-threshold rotations + prune assertions).

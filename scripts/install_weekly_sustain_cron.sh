@@ -8,6 +8,7 @@ RUNNER_PATH="${REPO_ROOT}/${RUNNER_REL}"
 DEFAULT_LOG_PATH="${REPO_ROOT}/logs/weekly_sustain_cron.log"
 LOG_PATH="${SUSTAIN_CRON_LOG_PATH:-$DEFAULT_LOG_PATH}"
 MAX_LOG_SIZE_MB="${SUSTAIN_CRON_MAX_LOG_SIZE_MB:-20}"
+RETAIN_ROTATED_LOGS="${SUSTAIN_CRON_RETAIN_ROTATED_LOGS:-5}"
 
 SCHEDULE_MINUTE="${SUSTAIN_CRON_MINUTE:-0}"
 SCHEDULE_HOUR="${SUSTAIN_CRON_HOUR:-9}"
@@ -19,7 +20,7 @@ CRONTAB_BIN="${CRONTAB_BIN:-crontab}"
 usage() {
   cat <<'EOF'
 Usage:
-  bash scripts/install_weekly_sustain_cron.sh [--apply] [--minute N] [--hour N] [--dow N] [--tz Zone] [--log-path Path] [--max-log-size-mb N]
+  bash scripts/install_weekly_sustain_cron.sh [--apply] [--minute N] [--hour N] [--dow N] [--tz Zone] [--log-path Path] [--max-log-size-mb N] [--retain-rotated-logs N]
 
 Default schedule:
   Every Monday 09:00 (Asia/Seoul)
@@ -30,7 +31,8 @@ Behavior:
 
 Environment override (optional):
   SUSTAIN_CRON_MINUTE, SUSTAIN_CRON_HOUR, SUSTAIN_CRON_DOW, SUSTAIN_CRON_TZ,
-  SUSTAIN_CRON_LOG_PATH, SUSTAIN_CRON_MAX_LOG_SIZE_MB, CRONTAB_BIN
+  SUSTAIN_CRON_LOG_PATH, SUSTAIN_CRON_MAX_LOG_SIZE_MB, SUSTAIN_CRON_RETAIN_ROTATED_LOGS,
+  CRONTAB_BIN
 EOF
 }
 
@@ -62,6 +64,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --max-log-size-mb)
       MAX_LOG_SIZE_MB="$2"
+      shift 2
+      ;;
+    --retain-rotated-logs)
+      RETAIN_ROTATED_LOGS="$2"
       shift 2
       ;;
     -h|--help)
@@ -110,6 +116,10 @@ if ! [[ "$MAX_LOG_SIZE_MB" =~ ^[0-9]+$ ]] || [[ "$MAX_LOG_SIZE_MB" -le 0 ]]; the
   echo "[ERROR] --max-log-size-mb must be a positive integer" >&2
   exit 1
 fi
+if ! [[ "$RETAIN_ROTATED_LOGS" =~ ^[0-9]+$ ]]; then
+  echo "[ERROR] --retain-rotated-logs must be a non-negative integer" >&2
+  exit 1
+fi
 
 if ! command -v "$CRONTAB_BIN" >/dev/null 2>&1; then
   echo "[ERROR] crontab binary not found: $CRONTAB_BIN" >&2
@@ -118,7 +128,7 @@ fi
 
 MARKER="# DOTPIO_WEEKLY_SUSTAIN"
 ROTATE_REL="scripts/rotate_log_if_needed.sh"
-CRON_CMD="cd ${REPO_ROOT} && bash ${ROTATE_REL} ${LOG_PATH} ${MAX_LOG_SIZE_MB} && bash ${RUNNER_REL} >> ${LOG_PATH} 2>&1"
+CRON_CMD="cd ${REPO_ROOT} && bash ${ROTATE_REL} ${LOG_PATH} ${MAX_LOG_SIZE_MB} ${RETAIN_ROTATED_LOGS} && bash ${RUNNER_REL} >> ${LOG_PATH} 2>&1"
 CRON_LINE="CRON_TZ=${TZ_VALUE} ${SCHEDULE_MINUTE} ${SCHEDULE_HOUR} * * ${SCHEDULE_DOW} ${CRON_CMD} ${MARKER}"
 
 CURRENT_CRON="$($CRONTAB_BIN -l 2>/dev/null || true)"
