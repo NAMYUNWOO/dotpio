@@ -799,3 +799,11 @@
   - Dashboard consumes cron audit JSON when available and degrades gracefully to warning when managed cron entry is absent.
 - Follow-up:
   - Next P2 priority: `Add automatic stale-branch/report drift check`.
+
+## 2026-03-20 02:26 KST — P2 stale-branch/report drift guardrail validated
+- Added regression coverage: `scripts/regression_stale_branch_report_drift.py`.
+- Validation set:
+  - `python3 -m py_compile scripts/stale_branch_report_drift_check.py scripts/regression_stale_branch_report_drift.py`
+  - `python3 scripts/regression_stale_branch_report_drift.py`
+  - `python3 scripts/stale_branch_report_drift_check.py`
+- Result: PASS, artifacts emitted under `logs/stale_branch_report_drift.{md,json}`.

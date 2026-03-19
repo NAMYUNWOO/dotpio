@@ -17,4 +17,4 @@ Last updated: 2026-03-20 01:28 KST
 ## P2 (Ops)
 - [x] Add weekly sustain audit JSON pretty mode
 - [x] Add sustain health dashboard markdown report
-- [ ] Add automatic stale-branch/report drift check
+- [x] Add automatic stale-branch/report drift check

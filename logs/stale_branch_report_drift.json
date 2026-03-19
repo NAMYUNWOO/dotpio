@@ -1,0 +1,37 @@
+{
+  "status": "ok",
+  "generatedAt": "2026-03-19T17:29:06.732776Z",
+  "thresholds": {
+    "branchMaxAgeDays": 7,
+    "reportMaxAgeDays": 8
+  },
+  "branch": {
+    "name": "feature/ai-disassemble-builder",
+    "upstream": "origin/feature/ai-disassemble-builder",
+    "ahead": 0,
+    "behind": 0,
+    "lastCommitAt": "2026-03-19T16:59:40Z",
+    "ageDays": 0.02,
+    "ok": true
+  },
+  "reports": [
+    {
+      "path": "logs/economy_anti_exploit_report.json",
+      "generatedAt": "2026-03-19T16:58:34Z",
+      "ageDays": 0.02,
+      "ok": true
+    },
+    {
+      "path": "logs/economy_weekly_snapshot.json",
+      "generatedAt": "2026-03-19T16:58:34.580443Z",
+      "ageDays": 0.02,
+      "ok": true
+    },
+    {
+      "path": "logs/sustain_health_dashboard.md",
+      "generatedAt": "2026-03-19T16:58:34.853704Z",
+      "ageDays": 0.02,
+      "ok": true
+    }
+  ]
+}

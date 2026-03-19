@@ -52,3 +52,8 @@
   - Dashboard consumes cron audit JSON when available and degrades gracefully to warning when managed cron entry is absent.
 - Follow-up:
   - Next P2 priority: `Add automatic stale-branch/report drift check`.
+
+## 2026-03-20 02:26 KST — P2 stale-branch/report drift guardrail handoff
+- Combat lane verified no combat tuning deltas are involved in this operations-focused task.
+- Decision: keep combat regressions out of this checker to avoid duplicate signal noise; checker remains branch/report freshness only.
+- Follow-up: none.

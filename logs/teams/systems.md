@@ -426,3 +426,9 @@
   - Dashboard consumes cron audit JSON when available and degrades gracefully to warning when managed cron entry is absent.
 - Follow-up:
   - Next P2 priority: `Add automatic stale-branch/report drift check`.
+
+## 2026-03-20 02:26 KST — P2 stale-branch/report drift guardrail
+- Completed: automatic stale-branch/report drift check.
+- Added `scripts/stale_branch_report_drift_check.py` to evaluate upstream drift (`ahead/behind`), branch commit age, and freshness of sustain artifacts.
+- Decision: keep status as `ok|warn` (non-fatal) so weekly automation remains informative instead of brittle.
+- Follow-up: consider escalating to hard fail in release-candidate-only pipeline if stale persists for >2 cycles.

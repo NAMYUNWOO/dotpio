@@ -273,3 +273,8 @@
   - Dashboard consumes cron audit JSON when available and degrades gracefully to warning when managed cron entry is absent.
 - Follow-up:
   - Next P2 priority: `Add automatic stale-branch/report drift check`.
+
+## 2026-03-20 02:26 KST — P2 stale-branch/report drift guardrail handoff
+- UX lane approved operator-facing copy style in drift report (`Status`, `Ahead/Behind`, per-report age days).
+- Decision: preserve simple ok/warn wording to avoid ambiguity during weekly sustain triage.
+- Follow-up: none.

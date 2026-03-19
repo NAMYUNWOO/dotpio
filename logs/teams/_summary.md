@@ -145,3 +145,16 @@ Compact decision memory for AI context efficiency.
   - `bash scripts/run_weekly_sustain.sh`
 - Backlog update: `POST_RC_BACKLOG.md` P2 dashboard item marked done.
 - Next priority item: P2 `Add automatic stale-branch/report drift check`.
+
+## 2026-03-20 02:26 KST — P2 stale-branch/report drift check completed
+- Completed backlog item: `Add automatic stale-branch/report drift check`.
+- Durable decisions:
+  - Added `scripts/stale_branch_report_drift_check.py` to emit `logs/stale_branch_report_drift.{md,json}` with combined branch freshness (upstream behind/ahead + commit age) and sustain-report freshness checks.
+  - Drift checker prefers embedded JSON `generatedAt` and gracefully falls back to file mtime for markdown artifacts.
+  - Weekly sustain runner now includes drift check + regression (`scripts/regression_stale_branch_report_drift.py`) in the one-command pipeline.
+- Verification set:
+  - `python3 -m py_compile scripts/stale_branch_report_drift_check.py scripts/regression_stale_branch_report_drift.py`
+  - `python3 scripts/regression_stale_branch_report_drift.py`
+  - `python3 scripts/stale_branch_report_drift_check.py`
+- Backlog update: `POST_RC_BACKLOG.md` item marked done.
+- Next priority item: none remaining in `POST_RC_BACKLOG.md` (all checked).

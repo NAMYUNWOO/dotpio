@@ -117,3 +117,8 @@
   - Dashboard consumes cron audit JSON when available and degrades gracefully to warning when managed cron entry is absent.
 - Follow-up:
   - Next P2 priority: `Add automatic stale-branch/report drift check`.
+
+## 2026-03-20 02:26 KST — P2 stale-branch/report drift guardrail handoff
+- World lane reviewed sustain automation scope impact: no map/portal data changes required.
+- Decision: consume drift artifacts (`logs/stale_branch_report_drift.{md,json}`) in weekly operations review to ensure world validation reports are not stale.
+- Follow-up: none.

@@ -111,6 +111,13 @@ Owner: QA lane
     - `python3 scripts/regression_weekly_cron_audit.py`
   - Artifact: command output (pass/fail)
   - Covers: managed DOTPIO cron entry introspection for schedule + rotate policy fields and missing-entry failure handling
+- [x] Stale branch/report drift checker
+  - Commands:
+    - `python3 scripts/stale_branch_report_drift_check.py`
+    - `python3 scripts/regression_stale_branch_report_drift.py`
+  - Artifacts:
+    - `logs/stale_branch_report_drift.{md,json}`
+  - Covers: branch freshness/upstream drift + weekly sustain report staleness guardrail
 
 ## Blocker Triage (critical blockers must be zero)
 | ID | Area | Symptom | Severity | Owner | Status | Fix Commit |
