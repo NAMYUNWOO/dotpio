@@ -149,3 +149,18 @@
   - Hooked onboarding completion events from real gameplay interactions (lootbox search open, pickup success, inventory open, build completion).
 - Follow-up:
   - Next M4 priority: keyboard-only usability pass checklist.
+
+## 2026-03-19 11:43:49 KST
+- Task: M4 keyboard-only usability pass checklist.
+- Commit: HEAD (this run)
+- Files: `scripts/regression_keyboard_shortcuts.lua`, `scripts/regression_keyboard_usability_checklist.py`, `logs/playtests/keyboard_only_usability_checklist.md`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p scripts/regression_keyboard_shortcuts.lua` ✅
+  - `python3 -m py_compile scripts/regression_keyboard_usability_checklist.py` ✅
+  - `lua scripts/regression_keyboard_shortcuts.lua` ✅
+  - `python3 scripts/regression_keyboard_usability_checklist.py` ✅
+- Decisions:
+  - Added a keyboard-focused regression that guards inventory key branches and key-binding copy in help/action rows.
+  - Added checklist artifact generator for scripted PASS/FAIL + manual keyboard-only smoke checklist under `logs/playtests/`.
+- Follow-up:
+  - Next M5 priority: create RC checklist document.

@@ -90,3 +90,6 @@ See project-level plans:
   - [x] Show concise contextual hint strip without obscuring HUD
   - [x] Rotate/advance hints based on elapsed run time and first interactions
   - [x] Add regression coverage for hint window expiry and progression
+- [x] Add keyboard-only usability pass checklist
+  - [x] Add scripted keyboard-coverage regression for core inventory controls
+  - [x] Generate keyboard-only usability checklist artifact under logs/playtests/

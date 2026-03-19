@@ -355,3 +355,20 @@
   - No portal validator run required (map/portal files unchanged).
 - Follow-up:
   - Add checklist artifact when M4 keyboard-only usability pass is implemented.
+
+## 2026-03-19 11:43:49 KST
+- Task: QA verification for M4 keyboard-only usability pass checklist.
+- Commit: HEAD (this run)
+- Files checked: `scripts/regression_keyboard_shortcuts.lua`, `scripts/regression_keyboard_usability_checklist.py`, `logs/playtests/keyboard_only_usability_checklist.md`
+- Verification:
+  - `luac -p scripts/regression_keyboard_shortcuts.lua` ✅
+  - `python3 -m py_compile scripts/regression_keyboard_usability_checklist.py` ✅
+  - `lua scripts/regression_keyboard_shortcuts.lua` ✅
+  - `python3 scripts/regression_keyboard_usability_checklist.py` ✅
+- Decisions:
+  - Scripted checks now verify keyboard binding coverage plus lock-reason/onboarding/build-preview keyboard flows in one checklist pass.
+  - Generated deterministic artifact `logs/playtests/keyboard_only_usability_checklist.md` for release gate evidence.
+  - No portal validator run required (map/portal files unchanged).
+  - No screenshot refresh required (no UI rendering/layout source changed).
+- Follow-up:
+  - Start M5 RC checklist document and connect it to existing regression artifacts.

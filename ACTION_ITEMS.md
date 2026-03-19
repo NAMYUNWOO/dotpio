@@ -42,7 +42,7 @@ Tracking rule:
 - [x] Finalize DOS terminology consistency (Menu/Action/Drop/Disasm/Build)
 - [x] Add always-visible lock reason for all disabled actions
 - [x] Add compact onboarding hint flow for first 5 minutes
-- [ ] Add keyboard-only usability pass checklist
+- [x] Add keyboard-only usability pass checklist
 
 ## M5 - RC/Launch
 - [ ] Create RC checklist document
