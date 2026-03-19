@@ -616,3 +616,21 @@
   - Installer regression now enforces explicit non-negative integer validation for `--max-rotated-age-days`.
 - Follow-up:
   - Keep regression expected token in sync if rotate helper argument order changes.
+
+## 2026-03-19 20:41:00 KST
+- Task: QA verification for weekly sustain cron policy audit helper + regression.
+- Commit: `0a0bd4d`
+- Files checked: `scripts/audit_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_audit.py`, `scripts/regression_weekly_cron_installer.py`, `scripts/regression_rotate_log_retention.py`, `logs/playtests/rc_checklist.md`
+- Verification:
+  - `bash -n scripts/audit_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_audit.py scripts/regression_weekly_cron_installer.py scripts/regression_rotate_log_retention.py` ✅
+  - `python3 scripts/regression_weekly_cron_audit.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_rotate_log_retention.py` ✅
+  - `bash scripts/audit_weekly_sustain_cron.sh` ✅ expected error path when no managed marker exists in host crontab
+- Decisions:
+  - Audit regression now guards managed-entry parsing contract and missing-entry diagnostics without mutating host crontab state.
+  - No portal validator run (no map/portal changes).
+  - No screenshot regen (no UI rendering/copy/layout changes).
+- Follow-up:
+  - Keep audit parser regression fixtures aligned if managed cron command token order changes.

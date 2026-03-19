@@ -321,3 +321,22 @@
   - Regression suite now covers CLI rendering/validation for age token and fixture-based stale-file pruning behavior.
 - Follow-up:
   - Next sustain hardening candidate: add lightweight audit command to report current cron rotate policy from managed entry.
+
+## 2026-03-19 20:41:00 KST
+- Task: M5 post-RC sustain - add weekly cron policy audit command for managed DOTPIO entry introspection.
+- Commit: `0a0bd4d`
+- Files: `scripts/audit_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_audit.py`, `logs/playtests/rc_checklist.md`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `bash -n scripts/audit_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_audit.py` ✅
+  - `python3 scripts/regression_weekly_cron_audit.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_rotate_log_retention.py` ✅
+  - `bash scripts/install_weekly_sustain_cron.sh --minute 15 --hour 6 --dow 2 --tz UTC --log-path /tmp/dotpio-weekly.log --max-log-size-mb 12 --retain-rotated-logs 4 --max-rotated-age-days 14` ✅ (dry-run preview)
+  - `bash scripts/audit_weekly_sustain_cron.sh` ✅ expected failure when managed entry is absent (`[ERROR] Managed weekly sustain entry not found ...`)
+- Decisions:
+  - Added an audit helper that reads `crontab -l`, enforces a single managed marker entry, and prints parsed schedule + rotate policy fields (`log_path`, `max_log_size_mb`, `retain_rotated_logs`, `max_rotated_age_days`) for operator visibility.
+  - Added regression coverage for both parse success and managed-entry-missing failure path using an injected fake `crontab` binary.
+  - Linked audit helper/regression into RC sustain checklist so weekly operations include policy introspection checks.
+- Follow-up:
+  - Next sustain hardening candidate: add optional JSON output mode for machine-readable audit ingestion.

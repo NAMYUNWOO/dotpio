@@ -98,6 +98,12 @@ Owner: QA lane
   - Command: `python3 scripts/regression_rotate_log_retention.py`
   - Artifact: command output (pass/fail)
   - Covers: keep-latest-N rotated log pruning behavior when rotation threshold is repeatedly exceeded
+- [x] Weekly scheduler policy audit helper + regression
+  - Commands:
+    - `bash scripts/audit_weekly_sustain_cron.sh`
+    - `python3 scripts/regression_weekly_cron_audit.py`
+  - Artifact: command output (pass/fail)
+  - Covers: managed DOTPIO cron entry introspection for schedule + rotate policy fields and missing-entry failure handling
 
 ## Blocker Triage (critical blockers must be zero)
 | ID | Area | Symptom | Severity | Owner | Status | Fix Commit |

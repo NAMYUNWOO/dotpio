@@ -160,3 +160,7 @@ See project-level plans:
 - [x] Add optional age-based pruning for rotated sustain logs
   - [x] Support max-age-days pruning in rotate helper and cron installer wiring
   - [x] Extend regressions for age-based prune behavior + installer CLI rendering/validation
+
+- [x] Add weekly sustain cron policy audit command
+  - [x] Add script to inspect managed DOTPIO weekly cron entry and print parsed rotate/schedule policy
+  - [x] Add regression coverage for parse success + managed-entry-missing failure path
