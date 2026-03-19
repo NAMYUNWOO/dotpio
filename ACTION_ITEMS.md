@@ -1,6 +1,6 @@
 # ACTION_ITEMS (Execution Backlog)
 
-Last updated: 2026-03-18
+Last updated: 2026-03-19
 Tracking rule:
 - [ ] todo
 - [~] in progress
@@ -50,6 +50,9 @@ Tracking rule:
 - [x] Fix all critical blockers
 - [x] Capture launch screenshots + changelog
 - [x] Tag release candidate
+
+## M5 - Post-RC Sustain
+- [x] Weekly SRL telemetry snapshot + rebalance decision log
 
 ---
 

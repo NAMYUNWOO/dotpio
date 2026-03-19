@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-03-19T05:43:25.626294Z",
+  "windowStart": "2026-03-12T05:13:02Z",
+  "windowEnd": "2026-03-19T05:13:02Z",
+  "events": {
+    "build": 22,
+    "disassemble": 10
+  },
+  "status": {
+    "ok": 12,
+    "locked": 20
+  },
+  "totalSrlSpent": 48,
+  "buildOkSrlSpent": 48,
+  "suspiciousCount": 0,
+  "decision": "NO_CURVE_CHANGE",
+  "decisionRationale": "No suspicious net-positive exploit windows detected in the latest anti-exploit report."
+}

@@ -1,5 +1,7 @@
 # TASKS
 
+Last updated: 2026-03-19
+
 See project-level plans:
 - `PROJECT_PLAN.md` (milestones/release gates)
 - `ACTION_ITEMS.md` (detailed execution backlog)
@@ -107,3 +109,8 @@ See project-level plans:
   - [x] Update blocker triage status in RC checklist
 - [x] Capture launch screenshots + changelog
 - [x] Tag release candidate
+
+## Next Up (M5 Post-RC sustain)
+- [x] Weekly SRL telemetry snapshot + rebalance decision log
+  - [x] Generate weekly SRL telemetry summary artifact under `logs/`
+  - [x] Run anti-exploit report and record rebalance/no-change decision with rationale

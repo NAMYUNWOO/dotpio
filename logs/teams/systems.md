@@ -170,3 +170,18 @@
   - Carryover is intentionally capped (SRL 8, coin 25, gem 3) to preserve anti-exploit economy constraints while still giving fail-forward momentum.
 - Follow-up:
   - Next highest unchecked milestone item is M3 `Add summary screen for run result + unlock progress`.
+
+## 2026-03-19 14:43:49 KST
+- Task: M5 post-RC sustain - weekly SRL telemetry snapshot + rebalance decision log.
+- Commit: HEAD (this run)
+- Files: `scripts/economy_weekly_snapshot.py`, `logs/economy_weekly_snapshot.md`, `logs/economy_weekly_snapshot.json`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `python3 -m py_compile scripts/economy_weekly_snapshot.py` ✅
+  - `lua scripts/economy_anti_exploit_report.lua` ✅
+  - `python3 scripts/economy_weekly_snapshot.py` ✅
+- Decisions:
+  - Added weekly telemetry snapshot generator to summarize 7-day event/status/SRL spend metrics from ndjson economy logs.
+  - Snapshot now records explicit rebalance decision (`NO_CURVE_CHANGE` vs `REBALANCE_REQUIRED`) using anti-exploit suspicious-window count as gate.
+  - Current weekly decision is `NO_CURVE_CHANGE` (0 suspicious windows).
+- Follow-up:
+  - Next sustain item: schedule this snapshot in weekly cadence and revisit SRL curve only when suspicious windows become non-zero.
