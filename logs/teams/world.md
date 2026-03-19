@@ -42,3 +42,17 @@
   - Added forward routing `map_05` portal `06` at (47,24) and reciprocal return `map_06` portal `05` at (1,13), preserving bidirectional progression integrity.
 - Follow-up:
   - Next M2 priority item: add at least 3 new enemy behavior variants.
+
+## 2026-03-19 22:58:37 KST
+- Task: P1 add map_07 with tactical choke pattern + portal integration.
+- Commit: HEAD (this run)
+- Files: `maps/map_06.lua`, `maps/map_07.lua`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `luac -p maps/map_06.lua maps/map_07.lua` ✅
+  - `python3 scripts/validate_portals.py` ✅ (Maps scanned: 7 / Portals scanned: 20)
+  - `python3 scripts/regression_map_progression.py` ✅
+- Decisions:
+  - Added new `map_07` based on the stable map_06 schema and introduced added central collision barricades to create tighter tactical choke movement in the mid lane.
+  - Extended portal routing with `map_06` portal `07` (47,13) -> `map_07` portal `06`, and reciprocal `map_07` return portal `06` -> `map_06` portal `07`.
+- Follow-up:
+  - Next P1 priority item: add 2 new enemy archetypes with synergy behavior.

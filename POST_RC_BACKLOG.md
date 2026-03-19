@@ -8,7 +8,7 @@ Last updated: 2026-03-19
 - [x] Add build preview panel clarity pass (materials consumed, SRL, expected category)
 
 ## P1 (Gameplay)
-- [ ] Add map_07 with new tactical pattern and portal integration
+- [x] Add map_07 with new tactical pattern and portal integration
 - [ ] Add 2 new enemy archetypes with synergy behavior
 - [ ] Add mission variety pack (at least +5 objectives)
 

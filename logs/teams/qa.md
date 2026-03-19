@@ -696,3 +696,17 @@
   - No portal validator run (no map/portal changes).
 - Follow-up:
   - Keep extending preview assertions if expected-category policy gains rarity/confidence fields.
+
+## 2026-03-19 22:58:37 KST
+- Task: Verify map_07 addition and portal wiring.
+- Commit: HEAD (this run)
+- Files checked: `maps/map_06.lua`, `maps/map_07.lua`
+- Verification:
+  - `luac -p maps/map_06.lua maps/map_07.lua` ✅
+  - `python3 scripts/validate_portals.py` ✅
+  - `python3 scripts/regression_map_progression.py` ✅
+- Decisions:
+  - Portal validator remains green after adding seventh map and new cross-map portal pair.
+  - Existing map_01~04 progression regression remains stable after post-RC map expansion.
+- Follow-up:
+  - Add dedicated map_05~07 path regression when more high-tier maps/archetypes are added.

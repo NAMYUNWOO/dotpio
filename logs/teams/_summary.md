@@ -80,3 +80,5 @@ Compact decision memory for AI context efficiency.
 - Regression coverage in `scripts/regression_action_menu_lock_reasons.lua` now asserts `BUILDER.SRL`-specific `USE` lock + guidance copy.
 - Build preview dialog now includes an explicit `Expected category` line (derived from constrained component-category mix via `AiDescribe.debugConstrainBuildCategory`) so players can see projected output class before confirming material/SRL spend.
 - Added `scripts/regression_build_preview_clarity.lua` to enforce preview-plan expected-category metadata presence while existing preview confirm/action-menu regressions stay green.
+- Added `map_07` as a post-RC P1 world expansion with additional mid-lane collision barricades to create a tighter tactical choke pattern compared to map_06.
+- Portal graph now includes a bidirectional `map_06` <-> `map_07` pair (`map_06` portal `07` at 47,13 to `map_07` portal `06`, reciprocal return path on `map_07`).
