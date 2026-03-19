@@ -113,3 +113,7 @@
 ## 2026-03-20 06:58 KST — HUD berserker recovery counter readability slice
 - Threat strip hierarchy now reads: Berserk -> Lunge Tell -> Recovering, preserving urgency order.
 - Decision: use warm amber for recovery indicator to communicate reduced immediate threat vs lunge tell.
+
+## 2026-03-20 07:26 KST — Mission panel readability pass
+- Decision: append compact `NEXT:<lane> +1` token to mission metadata row to communicate achievable variety reward with minimal HUD footprint.
+- Follow-up: monitor line width if future metadata fields expand.

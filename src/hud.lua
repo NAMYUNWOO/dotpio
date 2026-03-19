@@ -43,8 +43,14 @@ local function drawMissionPanel(missionState, unlockFlags, startY)
     local metaPack = string.upper(tostring(missionState.lastPackId or "unknown"))
     local metaTag = string.upper(tostring(missionState.lastPackTag or "unknown"))
     local metaStreak = tonumber(missionState.completionStreak) or 0
+    local metaNextVarietyLane = missionState.nextVarietyLane and string.upper(tostring(missionState.nextVarietyLane)) or nil
+    local metaVarietyBonus = tonumber(missionState.varietyBonusPreview) or 0
     love.graphics.setColor(0.7, 0.88, 1, 1)
-    love.graphics.print(string.format("PACK:%s  TAG:%s  STREAK:%d", metaPack, metaTag, metaStreak), 16, panelY + 22)
+    local metaLine = string.format("PACK:%s  TAG:%s  STREAK:%d", metaPack, metaTag, metaStreak)
+    if metaNextVarietyLane and metaVarietyBonus > 0 then
+        metaLine = string.format("%s  NEXT:%s +%d", metaLine, metaNextVarietyLane, metaVarietyBonus)
+    end
+    love.graphics.print(metaLine, 16, panelY + 22)
 
     local row = panelY + 40
     for _, objective in ipairs(missionState.objectives or {}) do

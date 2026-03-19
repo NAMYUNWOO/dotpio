@@ -135,3 +135,7 @@
 - Added HUD-facing combat threat counter signal for berserker post-lunge recovery state (`desperationRecoveryPending`).
 - Decision: keep recovery indicator gated behind active desperation to avoid noisy baseline HUD.
 - Verification coupled with HUD regression script for counter semantics.
+
+## 2026-03-20 07:26 KST — Combat unaffected by mission preview update
+- Scope check: no enemy behavior/timing/damage deltas.
+- Follow-up: keep berserker readability counters independent from mission metadata row.

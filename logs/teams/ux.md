@@ -351,3 +351,8 @@
 ## 2026-03-20 06:58 KST — HUD berserker recovery counter readability slice
 - HUD now surfaces `Recovering: N` when desperate berserkers are in post-lunge recovery windows.
 - Decision: stacked row rendering keeps strip compact while avoiding overlap when both tell/recovery counters are active.
+
+## 2026-03-20 07:26 KST — Variety bonus anticipation affordance
+- Decision: players now see upcoming lane-switch bonus in HUD before completion, reducing hidden-reward confusion.
+- Copy/UI: mission meta row now conditionally renders `NEXT:<lane> +1` only when an alternate-lane objective remains.
+- Follow-up: consider matching run-summary annotation if user testing asks for post-run visibility.

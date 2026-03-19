@@ -896,3 +896,12 @@
 ## 2026-03-20 06:58 KST — HUD berserker recovery counter readability slice
 - Added `scripts/regression_hud_berserker_counters.lua` to validate alive/desperation/lunge/recovery counter derivation.
 - Verification run: luac syntax pass + HUD counter regression + existing enemy behavior regression all PASS.
+
+## 2026-03-20 07:26 KST — Mission variety preview regression coverage
+- Added regression `scripts/regression_mission_variety_preview.lua` for preview lifecycle (none -> craft -> combat -> cleared).
+- Verification run:
+  - `luac -p src/run_missions.lua src/hud.lua scripts/regression_mission_variety_preview.lua`
+  - `lua scripts/regression_mission_variety_preview.lua`
+  - `lua scripts/regression_mission_momentum.lua`
+  - `lua scripts/regression_mission_variety_pack.lua`
+- Result: PASS.

@@ -174,3 +174,7 @@
 ## 2026-03-20 06:58 KST — HUD berserker recovery counter readability slice
 - No AI generation prompt/schema changes; content lane unchanged.
 - Follow-up: none.
+
+## 2026-03-20 07:26 KST — No AI generation rule changes
+- Scope check: preview hint uses existing mission lane metadata; no AI prompt/category constraint updates required.
+- Follow-up: if AI-authored mission packs land, ensure lane tags are always present for preview rendering.

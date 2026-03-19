@@ -188,7 +188,22 @@ function RunMissions.addProgress(eventId, amount)
     }
 end
 
+local function getNextVarietyLaneHint()
+    if not state.lastCompletedLane then
+        return nil
+    end
+
+    for _, objective in ipairs(state.objectives) do
+        if not objective.done and objective.lane and objective.lane ~= state.lastCompletedLane then
+            return objective.lane
+        end
+    end
+
+    return nil
+end
+
 function RunMissions.getState()
+    local nextVarietyLane = getNextVarietyLaneHint()
     return {
         active = state.active,
         doneCount = state.doneCount,
@@ -198,6 +213,8 @@ function RunMissions.getState()
         lastPackId = state.lastPackId,
         lastPackTag = state.lastPackTag,
         lastPackLabel = state.lastPackLabel,
+        nextVarietyLane = nextVarietyLane,
+        varietyBonusPreview = nextVarietyLane and 1 or 0,
         objectives = state.objectives,
     }
 end

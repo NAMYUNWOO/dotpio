@@ -525,3 +525,7 @@
 ## 2026-03-20 06:58 KST — HUD berserker recovery counter readability slice
 - No economy/system balance constants changed; combat readability-only slice confirmed no SRL loop impact.
 - Follow-up: none.
+
+## 2026-03-20 07:26 KST — Mission variety preview contract
+- Decision: expose `nextVarietyLane` and `varietyBonusPreview` from `RunMissions.getState()` so HUD can surface upcoming lane-switch bonus without touching payout logic.
+- Follow-up: if future packs add >3 lanes, keep hint as first unfinished alternate-lane objective for deterministic UI.

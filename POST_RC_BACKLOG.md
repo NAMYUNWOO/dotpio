@@ -32,3 +32,6 @@ Last updated: 2026-03-20 06:58 KST
 - [x] Combat Team: Add one-turn pre-lunge tell for berserker desperation attacks (readability/fairness A/B)
 - [x] Combat Team: Add one-turn post-lunge recovery window for berserker desperation chain (readability/fairness follow-up)
 - [x] UX/Combat Team: Surface active berserker recovery-window count in HUD threat strip
+
+## P1 (Gameplay Experiment Queue)
+- [x] UX/Systems Team: Add mission lane-switch preview hint in HUD so players can anticipate variety bonus (+1 BUILDER.SRL)

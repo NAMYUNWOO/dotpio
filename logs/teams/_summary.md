@@ -303,3 +303,19 @@ Compact decision memory for AI context efficiency.
   - Marked new HUD recovery-counter item done in `POST_RC_BACKLOG.md` and `TASKS.md`.
 - Next priority item:
   - No unchecked items remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; next cycle should inject a fresh Game Director experiment candidate.
+
+## 2026-03-20 07:26 KST — P1 gameplay experiment: mission variety bonus preview hint
+- Completed backlog item: `UX/Systems Team: Add mission lane-switch preview hint in HUD so players can anticipate variety bonus (+1 BUILDER.SRL)`.
+- Durable decisions:
+  - `RunMissions.getState()` now exposes `nextVarietyLane` + `varietyBonusPreview` derived from unfinished alternate-lane objectives after the latest completion.
+  - HUD mission metadata row now conditionally appends `NEXT:<lane> +1` when variety bonus is currently achievable.
+  - Variety payout mechanics remain unchanged (preview-only readability pass).
+- Verification set:
+  - `luac -p src/run_missions.lua src/hud.lua scripts/regression_mission_variety_preview.lua`
+  - `lua scripts/regression_mission_variety_preview.lua`
+  - `lua scripts/regression_mission_momentum.lua`
+  - `lua scripts/regression_mission_variety_pack.lua`
+- Backlog update:
+  - Marked new P1 gameplay experiment item done in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
+- Next priority item:
+  - No unchecked items remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject next Game Director experiment candidate.
