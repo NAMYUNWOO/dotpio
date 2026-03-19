@@ -101,3 +101,11 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_mission_variety_pack.lua`
   - `luac -p main.lua src/run_missions.lua`
 - Next recommended item (POST_RC_BACKLOG): `Add weekly sustain audit JSON pretty mode`.
+
+## 2026-03-20 00:26 KST — Post-RC P1 map identity pass completed
+- map_03~07 now carry explicit tactical identity metadata (`silhouette`, `laneStructure`, `encounterRhythm`) to prevent map feel drift.
+- Runtime now reads `Map.metadata` and applies per-map encounter pacing through enemy count multipliers + behavior bias.
+- Added regression guardrail: `scripts/regression_map_profile_distinctness.lua` ensures map_03~07 identity tags stay unique and encounter profile fields remain valid.
+- Validation set: profile distinctness PASS, portal integrity PASS, map_01~04 progression PASS, enemy behavior regression PASS.
+- Backlog state: `POST_RC_BACKLOG.md` P1 item “Redesign map_03~07 …” marked complete.
+- Next priority: P1 portal repositioning with return-path + landmark rules.

@@ -13,6 +13,7 @@ Map.occludeTiles = {}
 Map.portals = {}
 Map.lootbox = nil
 Map.currentMap = nil
+Map.metadata = {}
 
 function Map.load(mapName)
     mapName = mapName or "01"
@@ -28,6 +29,7 @@ function Map.load(mapName)
     Map.occludeTiles = data.occludeTiles or {}
     Map.portals = data.portals or {}
     Map.lootbox = data.lootbox
+    Map.metadata = data.metadata or {}
 end
 
 function Map.getLootboxPositions()

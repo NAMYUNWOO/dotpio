@@ -62,3 +62,9 @@
 - Decision: Logged lane impact for streak-based reward model (1,1,2 SRL) with reward cap and no duplicate payout on already-complete objectives.
 - Evidence: `src/run_missions.lua`, `main.lua`, `scripts/regression_mission_momentum.lua` (+ mission regressions).
 - Follow-up: Monitor telemetry for early-run SRL inflation and tune reward curve if low-tier churn increases.
+
+## 2026-03-20 00:26 KST — map_03~07 silhouette/encounter redesign pass
+- Decision: Added explicit map metadata on map_03~07 (`silhouette`, `laneStructure`, `encounterRhythm`) to lock each map's tactical identity and make future tuning auditable.
+- Change: Attached per-map `encounterProfile` knobs (enemy count multiplier + variant bias) to support rhythm differentiation without breaking portal topology.
+- Evidence: `lua scripts/regression_map_profile_distinctness.lua`, `python3 scripts/validate_portals.py`, `python3 scripts/regression_map_progression.py`.
+- Follow-up: Next P1 item is portal landmark/risk-reward repositioning now that lane identities are encoded.

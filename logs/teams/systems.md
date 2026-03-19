@@ -379,3 +379,9 @@
 - Decision: Logged lane impact for streak-based reward model (1,1,2 SRL) with reward cap and no duplicate payout on already-complete objectives.
 - Evidence: `src/run_missions.lua`, `main.lua`, `scripts/regression_mission_momentum.lua` (+ mission regressions).
 - Follow-up: Monitor telemetry for early-run SRL inflation and tune reward curve if low-tier churn increases.
+
+## 2026-03-20 00:26 KST — encounter profile plumbing for map identity
+- Decision: Load optional `Map.metadata` from map files and let entity spawn consume `encounterProfile` for map-scoped pacing.
+- Change: `src/entities.lua` now supports map-specific enemy count multiplier + variant bias weighting, with safe fallback when weights collapse.
+- Verification: `lua scripts/regression_enemy_behavior_variants.lua` and profile regression passed.
+- Follow-up: Revisit low/high multipliers after live telemetry snapshots.

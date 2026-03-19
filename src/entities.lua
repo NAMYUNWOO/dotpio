@@ -155,17 +155,38 @@ function Entities.spawn(player, skipPlayerPlace)
         { name = "hunter", chance = 0.08, hp = 3, gidPool = {29, 30, 33} },
     }
 
+    local encounterProfile = (Map.metadata and Map.metadata.encounterProfile) or {}
+    local variantBias = encounterProfile.variantBias or {}
+    local totalChance = 0
+    for _, variant in ipairs(enemyVariants) do
+        variant.adjustedChance = variant.chance * (variantBias[variant.name] or 1)
+        totalChance = totalChance + variant.adjustedChance
+    end
+
+    if totalChance <= 0 then
+        totalChance = 1
+        for _, variant in ipairs(enemyVariants) do
+            variant.adjustedChance = 1 / #enemyVariants
+        end
+    end
+
     local function pickVariant()
-        local roll = love.math.random()
+        local roll = love.math.random() * totalChance
         local acc = 0
         for _, variant in ipairs(enemyVariants) do
-            acc = acc + variant.chance
+            acc = acc + variant.adjustedChance
             if roll <= acc then return variant end
         end
         return enemyVariants[1]
     end
 
-    for i = 1, Config.ENEMY_COUNT do
+    local enemyCount = Config.ENEMY_COUNT
+    local countMultiplier = tonumber(encounterProfile.enemyCountMultiplier)
+    if countMultiplier and countMultiplier > 0 then
+        enemyCount = math.max(1, math.floor(enemyCount * countMultiplier + 0.5))
+    end
+
+    for i = 1, enemyCount do
         if idx > #pool then break end
         local p = pool[idx]; idx = idx + 1
         local variant = pickVariant()
