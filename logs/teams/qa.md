@@ -849,3 +849,14 @@
 - Decisions:
   - Regression now asserts lane-switch bonus behavior and total reward composition (`baseRewardSrl` + `laneSwitchBonusSrl`).
   - No portal/map validation required (no world files touched).
+
+## 2026-03-20 04:59 KST
+- Task: QA validation for mission-pack flavor descriptor integration.
+- Files checked: `src/run_missions.lua`, `src/run_summary.lua`, `src/hud.lua`, `scripts/regression_run_summary.lua`, `scripts/regression_mission_variety_pack.lua`
+- Verification:
+  - `luac -p src/run_missions.lua src/run_summary.lua src/hud.lua scripts/regression_run_summary.lua scripts/regression_mission_variety_pack.lua` ✅
+  - `lua scripts/regression_run_summary.lua` ✅
+  - `lua scripts/regression_run_missions.lua` ✅
+  - `lua scripts/regression_mission_momentum.lua` ✅
+  - `lua scripts/regression_mission_variety_pack.lua` ✅
+- Result: PASS, no regressions.

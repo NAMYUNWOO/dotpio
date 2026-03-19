@@ -12,10 +12,30 @@ local OBJECTIVE_VARIANTS = {
 }
 
 local DEFAULT_OBJECTIVE_PACKS = {
-    { "kills_3", "pickup_2", "build_1" },
-    { "kills_5", "pickup_4", "build_1" },
-    { "kills_3", "search_2", "build_2" },
-    { "kills_5", "pickup_2", "inventory_3" },
+    {
+        id = "pack_1",
+        flavorTag = "BASELINE",
+        flavorLabel = "steady pressure",
+        objectives = { "kills_3", "pickup_2", "build_1" },
+    },
+    {
+        id = "pack_2",
+        flavorTag = "HUNT",
+        flavorLabel = "aggressive clear",
+        objectives = { "kills_5", "pickup_4", "build_1" },
+    },
+    {
+        id = "pack_3",
+        flavorTag = "FORGE",
+        flavorLabel = "craft surge",
+        objectives = { "kills_3", "search_2", "build_2" },
+    },
+    {
+        id = "pack_4",
+        flavorTag = "PIVOT",
+        flavorLabel = "lane switching",
+        objectives = { "kills_5", "pickup_2", "inventory_3" },
+    },
 }
 
 local state = {
@@ -25,6 +45,8 @@ local state = {
     total = 0,
     cycleIndex = 0,
     lastPackId = nil,
+    lastPackTag = nil,
+    lastPackLabel = nil,
     completionStreak = 0,
     lastCompletedLane = nil,
 }
@@ -75,26 +97,38 @@ end
 
 local function resolvePack(packOrObjectives)
     if packOrObjectives ~= nil then
-        return packOrObjectives, "custom"
+        return {
+            id = "custom",
+            flavorTag = "CUSTOM",
+            flavorLabel = "custom mission set",
+            objectives = packOrObjectives,
+        }
     end
 
     local packs = DEFAULT_OBJECTIVE_PACKS
     if #packs == 0 then
-        return { OBJECTIVE_VARIANTS.kills_3, OBJECTIVE_VARIANTS.pickup_2, OBJECTIVE_VARIANTS.build_1 }, "fallback"
+        return {
+            id = "fallback",
+            flavorTag = "FALLBACK",
+            flavorLabel = "core loop",
+            objectives = { OBJECTIVE_VARIANTS.kills_3, OBJECTIVE_VARIANTS.pickup_2, OBJECTIVE_VARIANTS.build_1 },
+        }
     end
 
     state.cycleIndex = state.cycleIndex + 1
     local idx = ((state.cycleIndex - 1) % #packs) + 1
-    return packs[idx], string.format("pack_%d", idx)
+    return packs[idx]
 end
 
 function RunMissions.reset(objectives)
-    local source, packId = resolvePack(objectives)
-    state.objectives = cloneObjectives(source)
+    local pack = resolvePack(objectives)
+    state.objectives = cloneObjectives(pack.objectives)
     state.total = #state.objectives
     state.active = state.total > 0
     state.doneCount = 0
-    state.lastPackId = packId
+    state.lastPackId = pack.id or "unknown"
+    state.lastPackTag = pack.flavorTag or "UNKNOWN"
+    state.lastPackLabel = pack.flavorLabel or "unknown pacing"
     state.completionStreak = 0
     state.lastCompletedLane = nil
     recalcDoneCount()
@@ -162,6 +196,8 @@ function RunMissions.getState()
         completed = (state.total > 0 and state.doneCount == state.total) or false,
         completionStreak = state.completionStreak,
         lastPackId = state.lastPackId,
+        lastPackTag = state.lastPackTag,
+        lastPackLabel = state.lastPackLabel,
         objectives = state.objectives,
     }
 end

@@ -309,3 +309,11 @@
   - `luac -p main.lua` ✅
 - Decisions:
   - Added inline suffix `[VARIETY +1]` to mission momentum status text (including bag-full path) to communicate why payout exceeded base curve.
+
+## 2026-03-20 04:59 KST
+- Task: UX clarity update for mission pacing context.
+- Verification:
+  - `lua scripts/regression_run_summary.lua` ✅
+  - `lua scripts/regression_mission_variety_pack.lua` ✅
+- Decisions:
+  - Mission panel now shows `PACK/TAG/STREAK`; run summary includes `PACE` line for post-run readability.

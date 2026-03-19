@@ -79,3 +79,9 @@
 - Verification: Indirect via mission regressions passing (`scripts/regression_run_missions.lua`).
 - Decisions:
   - No enemy behavior/damage pacing modifications were required for momentum variety bonus.
+
+## 2026-03-20 04:59 KST
+- Task: Combat lane impact check for mission-pack flavor tag feature.
+- Verification: `lua scripts/regression_run_missions.lua` ✅
+- Decisions:
+  - No combat behavior/damage pacing changes; update is UI metadata only.

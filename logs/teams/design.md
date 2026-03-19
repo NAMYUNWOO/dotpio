@@ -80,3 +80,9 @@
 - Verification: `luac -p main.lua` ✅
 - Decisions:
   - Reward status copy now appends `[VARIETY +1]` when lane-switch bonus is awarded, preserving DOS-style compact readability.
+
+## 2026-03-20 04:59 KST
+- Task: Design readability pass for mission metadata row.
+- Verification: `luac -p src/hud.lua` ✅
+- Decisions:
+  - Added terse DOS-style `TAG` and `PACE` labels to communicate run rhythm while avoiding panel clutter.

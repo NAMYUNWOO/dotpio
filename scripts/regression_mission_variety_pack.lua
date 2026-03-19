@@ -24,6 +24,8 @@ for i = 1, 4 do
     local state = RunMissions.getState()
     expect(state.total == 3, "each generated pack should contain 3 objectives")
     expect(state.lastPackId ~= nil, "generated pack should expose pack id")
+    expect(state.lastPackTag ~= nil and state.lastPackTag ~= "UNKNOWN", "generated pack should expose flavor tag")
+    expect(state.lastPackLabel ~= nil and state.lastPackLabel ~= "unknown pacing", "generated pack should expose flavor label")
     seenPackIds[state.lastPackId] = true
     for _, objective in ipairs(state.objectives or {}) do
         seenObjectiveIds[objective.id] = true

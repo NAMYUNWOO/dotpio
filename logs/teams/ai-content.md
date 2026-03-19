@@ -150,3 +150,9 @@
 - Verification: N/A (no ai_describe/ai_worker changes)
 - Decisions:
   - Mission reward variety bonus implemented without altering generation constraints.
+
+## 2026-03-20 04:59 KST
+- Task: AI-content lane review for mission-pack flavor metadata.
+- Verification: Reused mission regressions (`regression_run_summary`, `regression_mission_variety_pack`) ✅
+- Decisions:
+  - Flavor labels are deterministic metadata (not generated text), preserving current AI safety/output envelope.

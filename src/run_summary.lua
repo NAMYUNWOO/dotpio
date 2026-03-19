@@ -30,6 +30,8 @@ function RunSummary.open(missionState, unlockFlags, appliedCarry)
         missionsTotal = missionsTotal,
         completed = missionsTotal > 0 and missionsDone == missionsTotal,
         missionPackId = (missionState and missionState.lastPackId) or "unknown",
+        missionPackTag = (missionState and missionState.lastPackTag) or "UNKNOWN",
+        missionPackLabel = (missionState and missionState.lastPackLabel) or "unknown pacing",
         momentumStreak = (missionState and missionState.completionStreak) or 0,
         objectives = objectives,
         advancedUnlocked = advancedUnlocked,

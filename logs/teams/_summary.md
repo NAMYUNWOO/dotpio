@@ -218,3 +218,20 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_mission_variety_pack.lua`
 - Backlog update: `POST_RC_BACKLOG.md` item marked done.
 - Next priority item: none unchecked in tracked backlogs; next cycle should inject a fresh Game Director experiment candidate.
+- Mission pack rotation now includes deterministic flavor metadata (`lastPackTag`, `lastPackLabel`) in mission state for pacing readability without altering objective logic.
+- HUD mission panel now surfaces `PACK/TAG/STREAK`, and run summary snapshot now persists and displays `missionPackTag` + `missionPackLabel` (`PACE`) for post-run context.
+- Regression coverage extended so mission variety/summary tests assert flavor metadata presence and snapshot integrity.
+
+## 2026-03-20 04:59 KST — P1 gameplay follow-up: mission pack flavor descriptors
+- Completed backlog item: `Add mission-pack flavor descriptors and surface compact tag in HUD/run-summary`.
+- Durable decisions:
+  - Default mission packs now define explicit flavor descriptors (`BASELINE/HUNT/FORGE/PIVOT`) plus short pacing labels.
+  - Summary snapshot contract expanded with `missionPackTag` and `missionPackLabel` for durable run review context.
+- Verification set:
+  - `luac -p src/run_missions.lua src/run_summary.lua src/hud.lua scripts/regression_run_summary.lua scripts/regression_mission_variety_pack.lua`
+  - `lua scripts/regression_run_summary.lua`
+  - `lua scripts/regression_run_missions.lua`
+  - `lua scripts/regression_mission_momentum.lua`
+  - `lua scripts/regression_mission_variety_pack.lua`
+- Backlog update: `POST_RC_BACKLOG.md` item marked done.
+- Next priority item: none currently unchecked in tracked backlogs; inject next Game Director experiment in next cycle.

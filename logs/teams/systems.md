@@ -472,3 +472,18 @@
   - Kept original momentum curve (1/1/2) as base reward and layered variety bonus without changing objective progression logic.
 - Follow-up:
   - Consider surfacing completion lane metadata in HUD if pacing telemetry needs deeper readability.
+
+## 2026-03-20 04:59 KST
+- Task: Injected/implemented new gameplay follow-up experiment — mission-pack flavor descriptors + HUD/run-summary tag surfacing.
+- Files: `src/run_missions.lua`, `src/run_summary.lua`, `src/hud.lua`, `scripts/regression_run_summary.lua`, `scripts/regression_mission_variety_pack.lua`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `luac -p src/run_missions.lua src/run_summary.lua src/hud.lua scripts/regression_run_summary.lua scripts/regression_mission_variety_pack.lua` ✅
+  - `lua scripts/regression_run_summary.lua` ✅
+  - `lua scripts/regression_run_missions.lua` ✅
+  - `lua scripts/regression_mission_momentum.lua` ✅
+  - `lua scripts/regression_mission_variety_pack.lua` ✅
+- Decisions:
+  - Mission pack rotation now carries stable flavor metadata (`flavorTag`, `flavorLabel`) alongside pack id.
+  - HUD/run-summary now expose compact pacing context without changing reward/economy logic.
+- Follow-up:
+  - Consider mission-pack-specific bonus text hooks when objectives complete.
