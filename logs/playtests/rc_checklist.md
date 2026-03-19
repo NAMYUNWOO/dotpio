@@ -86,6 +86,12 @@ Owner: QA lane
   - Command: `python3 scripts/regression_weekly_snapshot.py`
   - Artifact: command output (pass/fail)
   - Covers: week-over-week delta compatibility for SRL telemetry sustain reporting
+- [x] Sustain health dashboard markdown report
+  - Commands:
+    - `python3 scripts/sustain_health_dashboard.py`
+    - `python3 scripts/regression_sustain_health_dashboard.py`
+  - Artifact: `logs/sustain_health_dashboard.md`
+  - Covers: at-a-glance sustain status rollup (economy/telemetry/scheduler) for operations handoff
 - [x] Weekly scheduler wiring helper (cron dry-run)
   - Command: `bash scripts/install_weekly_sustain_cron.sh`
   - Artifact: command output showing managed cron line + existing entry status

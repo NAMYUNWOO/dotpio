@@ -1,14 +1,14 @@
 # Weekly SRL Economy Snapshot
 
-- GeneratedAt(UTC): 2026-03-19T07:44:01.212267Z
-- Window: 2026-03-12T05:13:02Z ~ 2026-03-19T05:13:02Z
-- Telemetry events: 32
-- Event counts: {'build': 22, 'disassemble': 10}
-- Status counts: {'ok': 12, 'locked': 20}
-- Total SRL spent: 48
-- Build(ok) SRL spent: 48
+- GeneratedAt(UTC): 2026-03-19T16:58:34.580443Z
+- Window: 2026-03-12T13:29:45Z ~ 2026-03-19T13:29:45Z
+- Telemetry events: 41
+- Event counts: {'build': 29, 'disassemble': 12}
+- Status counts: {'ok': 17, 'locked': 24}
+- Total SRL spent: 68
+- Build(ok) SRL spent: 68
 - Anti-exploit suspicious windows: 0
-- Delta vs previous snapshot: events +0, total SRL spent +0
+- Delta vs previous snapshot: events +9, total SRL spent +20
 
 ## Rebalance Decision
 - Decision: **NO_CURVE_CHANGE**

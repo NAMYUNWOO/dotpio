@@ -132,3 +132,16 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/regression_weekly_cron_audit.py`
 - Backlog update: `POST_RC_BACKLOG.md` P2 pretty-mode item marked done.
 - Next priority item: P2 `Add sustain health dashboard markdown report`.
+
+## 2026-03-20 01:59 KST — P2 sustain health dashboard report completed
+- Completed backlog item: `Add sustain health dashboard markdown report`.
+- Durable decisions:
+  - Added `scripts/sustain_health_dashboard.py` to generate `logs/sustain_health_dashboard.md` with a 3-signal health rollup (economy safety, telemetry freshness, scheduler audit).
+  - `scripts/run_weekly_sustain.sh` now attempts cron audit capture (`logs/weekly_sustain_cron_audit.json`) and gracefully degrades to warning state when no managed cron entry exists.
+  - Added regression guardrail `scripts/regression_sustain_health_dashboard.py` and linked dashboard commands into RC sustain checklist.
+- Verification set:
+  - `python3 -m py_compile scripts/sustain_health_dashboard.py scripts/regression_sustain_health_dashboard.py`
+  - `python3 scripts/regression_sustain_health_dashboard.py`
+  - `bash scripts/run_weekly_sustain.sh`
+- Backlog update: `POST_RC_BACKLOG.md` P2 dashboard item marked done.
+- Next priority item: P2 `Add automatic stale-branch/report drift check`.

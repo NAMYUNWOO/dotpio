@@ -779,3 +779,23 @@
   - Added guardrail: `--pretty` rejects non-JSON formats to avoid ambiguous output modes.
 - Follow-up:
   - Next P2 priority: `Add sustain health dashboard markdown report`.
+
+## 2026-03-20 01:59:00 KST
+- Task: P2 backlog item `Add sustain health dashboard markdown report`.
+- Commit: HEAD (pending)
+- Files:
+  - scripts/sustain_health_dashboard.py
+  - scripts/regression_sustain_health_dashboard.py
+  - scripts/run_weekly_sustain.sh
+  - logs/playtests/rc_checklist.md
+  - POST_RC_BACKLOG.md
+  - logs/sustain_health_dashboard.md
+- Verification:
+  - `python3 -m py_compile scripts/sustain_health_dashboard.py scripts/regression_sustain_health_dashboard.py` ✅
+  - `python3 scripts/regression_sustain_health_dashboard.py` ✅
+  - `bash scripts/run_weekly_sustain.sh` ✅
+- Decisions:
+  - Weekly sustain runner now emits a single markdown dashboard rollup (economy safety, telemetry freshness, scheduler audit signal).
+  - Dashboard consumes cron audit JSON when available and degrades gracefully to warning when managed cron entry is absent.
+- Follow-up:
+  - Next P2 priority: `Add automatic stale-branch/report drift check`.
