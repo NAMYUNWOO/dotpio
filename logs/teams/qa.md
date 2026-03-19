@@ -680,3 +680,19 @@
   - No screenshot refresh required (copy/lock-state only, no layout change).
 - Follow-up:
   - Add preview-copy assertion coverage when P0 build preview clarity pass lands.
+
+## 2026-03-19 22:29:59 KST
+- Task: Verify P0 build preview clarity pass (materials/SRL/expected category).
+- Commit: HEAD (this run)
+- Files checked: `src/inventory_ui.lua`, `scripts/regression_build_preview_clarity.lua`
+- Verification:
+  - `luac -p src/inventory_ui.lua scripts/regression_build_preview_clarity.lua scripts/regression_build_preview_confirm.lua scripts/regression_build_action_menu.lua` ✅
+  - `lua scripts/regression_build_preview_clarity.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_build_action_menu.lua` ✅
+- Decisions:
+  - Added dedicated regression guard to ensure build preview metadata always includes a non-empty expected output category.
+  - Existing preview-confirm and action-menu build regressions remain green after dialog copy/layout change.
+  - No portal validator run (no map/portal changes).
+- Follow-up:
+  - Keep extending preview assertions if expected-category policy gains rarity/confidence fields.

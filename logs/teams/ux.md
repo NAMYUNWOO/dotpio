@@ -206,3 +206,18 @@
   - Direct `U` quick-use on `BUILDER.SRL` is blocked with explicit build-only status guidance.
 - Follow-up:
   - Next P0: build preview panel clarity pass (materials consumed, SRL, expected category).
+
+## 2026-03-19 22:29:59 KST
+- Task: P0 build preview panel clarity pass (materials consumed, SRL, expected category).
+- Commit: HEAD (this run)
+- Files: `src/inventory_ui.lua`, `scripts/regression_build_preview_clarity.lua`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `luac -p src/inventory_ui.lua scripts/regression_build_preview_clarity.lua scripts/regression_build_preview_confirm.lua scripts/regression_build_action_menu.lua` ✅
+  - `lua scripts/regression_build_preview_clarity.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_build_action_menu.lua` ✅
+- Decisions:
+  - Build preview dialog now includes explicit `Expected category` line derived from constrained component-category mix.
+  - Existing materials-consumed and SRL cost copy was retained; spacing updated to keep confirmation prompt readable.
+- Follow-up:
+  - Next P1 candidate: add map_07 with tactical pattern and portal integration.

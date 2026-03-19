@@ -953,6 +953,39 @@ local function summarizeBuildComponents(consumed, maxItems)
     return table.concat(labels, ", ")
 end
 
+local function titleCaseCategory(cat)
+    local raw = tostring(cat or "misc")
+    return (raw:gsub("^%l", string.upper))
+end
+
+local function estimateBuildPreviewCategory(consumed)
+    local categoryCounts = {}
+    local dominantCategory = "misc"
+    local dominantCount = 0
+    local componentCategories = {}
+
+    for _, c in ipairs(consumed or {}) do
+        local def = Items.get(c.itemId) or {}
+        local cat = tostring(def.category or "misc")
+        componentCategories[#componentCategories + 1] = cat
+        categoryCounts[cat] = (categoryCounts[cat] or 0) + 1
+        if categoryCounts[cat] > dominantCount then
+            dominantCount = categoryCounts[cat]
+            dominantCategory = cat
+        end
+    end
+
+    local expected = dominantCategory
+    if AiDescribe and AiDescribe.debugConstrainBuildCategory then
+        local constrained = AiDescribe.debugConstrainBuildCategory(dominantCategory, componentCategories)
+        if constrained and constrained.chosen then
+            expected = constrained.chosen
+        end
+    end
+
+    return titleCaseCategory(expected)
+end
+
 function InventoryUI.drawDialog()
     if dialogType == "mkdir" then
         InventoryUI.drawMkdirDialog()
@@ -1079,13 +1112,14 @@ end
 
 function InventoryUI.drawBuildPreviewDialog()
     local plan = buildPreviewPlan or {}
-    local w, h = 66, 10
+    local w, h = 66, 11
     local col = math.floor((100 - w) / 2)
     local row = math.floor((40 - h) / 2)
     local summary = summarizeBuildComponents(plan.consumed or {}, 4)
     local have = plan.builderCount or 0
     local need = plan.builderCost or 0
     local enough = have >= need
+    local expectedCategory = plan.expectedCategory or "Misc"
     local srlLine = enough
         and string.format("BUILDER.SRL COST: %d (HAVE %d)", need, have)
         or string.format("BUILDER.SRL COST: %d (HAVE %d, NEED +%d)", need, have, need - have)
@@ -1096,7 +1130,8 @@ function InventoryUI.drawBuildPreviewDialog()
     DosUI.putString(col + 2, row + 3, string.format("Build materials: %d files (need %d)", plan.componentCount or 0, plan.requiredCount or 0), 15, 4, w - 4)
     DosUI.putString(col + 2, row + 4, srlLine, enough and 11 or 8, 4, w - 4)
     DosUI.putString(col + 2, row + 5, "Parts: " .. summary, 7, 4, w - 4)
-    DosUI.putString(col + 2, row + 7, "Enter/Y=Build  N/Esc=Cancel", 8, 4, w - 4)
+    DosUI.putString(col + 2, row + 6, string.format("Expected category: %s", expectedCategory), 11, 4, w - 4)
+    DosUI.putString(col + 2, row + 8, "Enter/Y=Build  N/Esc=Cancel", 8, 4, w - 4)
 end
 
 ------------------------------------------------------------
@@ -1697,6 +1732,7 @@ function InventoryUI.promptBuildPreview()
         requiredCount = requiredCount,
         builderCost = builderCost,
         builderCount = builderCount,
+        expectedCategory = estimateBuildPreviewCategory(consumed),
     }
     state = "dialog"
     dialogType = "build_preview"
@@ -1932,6 +1968,10 @@ function InventoryUI.doMove()
         InventoryUI.setStatus(err or "Error")
     end
     InventoryUI.refreshContents()
+end
+
+function InventoryUI.debugGetBuildPreviewPlan()
+    return buildPreviewPlan
 end
 
 return InventoryUI
