@@ -143,3 +143,10 @@
 - AI-content lane aligned on exposing mission pack/streak context for better player readability of rotating objective design.
 - Decision: keep mission catalog semantics unchanged; this patch is visibility-only.
 - Follow-up: consider adding pack-level flavor descriptors in future mission metadata.
+
+## 2026-03-20 04:29 KST
+- Task: AI content logic unchanged for this cycle.
+- Commit: HEAD (this run)
+- Verification: N/A (no ai_describe/ai_worker changes)
+- Decisions:
+  - Mission reward variety bonus implemented without altering generation constraints.

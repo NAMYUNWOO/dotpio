@@ -457,3 +457,18 @@
   - Run summary snapshot now persists `missionPackId` + `momentumStreak` as durable context for post-run review.
 - Follow-up:
   - Next gameplay experiment candidate: add mission-pack-specific bonus text/hints on objective completion.
+
+## 2026-03-20 04:29 KST
+- Task: P1 gameplay follow-up — mission momentum lane-switch variety bonus.
+- Commit: HEAD (this run)
+- Files: `src/run_missions.lua`, `main.lua`, `scripts/regression_mission_momentum.lua`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `luac -p main.lua src/run_missions.lua scripts/regression_mission_momentum.lua` ✅
+  - `lua scripts/regression_run_missions.lua` ✅
+  - `lua scripts/regression_mission_momentum.lua` ✅
+  - `lua scripts/regression_mission_variety_pack.lua` ✅
+- Decisions:
+  - Added a +1 BUILDER.SRL lane-switch variety bonus when consecutive completed objectives come from different mission lanes.
+  - Kept original momentum curve (1/1/2) as base reward and layered variety bonus without changing objective progression logic.
+- Follow-up:
+  - Consider surfacing completion lane metadata in HUD if pacing telemetry needs deeper readability.

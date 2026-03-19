@@ -72,3 +72,10 @@
 - Combat lane impact review: no combat logic/balance adjustments in this task.
 - Decision: streak display is HUD/readout only; momentum reward curve (1,1,2) remains unchanged.
 - Follow-up: none.
+
+## 2026-03-20 04:29 KST
+- Task: Combat systems unchanged in this cycle.
+- Commit: HEAD (this run)
+- Verification: Indirect via mission regressions passing (`scripts/regression_run_missions.lua`).
+- Decisions:
+  - No enemy behavior/damage pacing modifications were required for momentum variety bonus.

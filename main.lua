@@ -49,13 +49,17 @@ local function applyMissionProgress(eventId, amount)
         return
     end
 
-    local ok = Inventory.addItem(Player.inventory, "builder_scroll", completion.rewardSrl or 0)
+    local rewardSrl = completion.rewardSrl or 0
+    local laneBonus = completion.laneSwitchBonusSrl or 0
+    local laneBonusSuffix = laneBonus > 0 and string.format(" [VARIETY +%d]", laneBonus) or ""
+
+    local ok = Inventory.addItem(Player.inventory, "builder_scroll", rewardSrl)
     if ok then
-        InventoryUI.setStatus(string.format("MISSION MOMENTUM x%d: +%d BUILDER.SRL", completion.completionStreak or 1, completion.rewardSrl or 0))
+        InventoryUI.setStatus(string.format("MISSION MOMENTUM x%d: +%d BUILDER.SRL%s", completion.completionStreak or 1, rewardSrl, laneBonusSuffix))
         return
     end
 
-    InventoryUI.setStatus(string.format("MISSION MOMENTUM x%d: +%d BUILDER.SRL DROPPED (BAG FULL)", completion.completionStreak or 1, completion.rewardSrl or 0))
+    InventoryUI.setStatus(string.format("MISSION MOMENTUM x%d: +%d BUILDER.SRL%s DROPPED (BAG FULL)", completion.completionStreak or 1, rewardSrl, laneBonusSuffix))
 end
 
 local function loadMap(mapName, portalName)

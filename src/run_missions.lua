@@ -26,6 +26,7 @@ local state = {
     cycleIndex = 0,
     lastPackId = nil,
     completionStreak = 0,
+    lastCompletedLane = nil,
 }
 
 local MOMENTUM_REWARD_BY_STREAK = {
@@ -95,6 +96,7 @@ function RunMissions.reset(objectives)
     state.doneCount = 0
     state.lastPackId = packId
     state.completionStreak = 0
+    state.lastCompletedLane = nil
     recalcDoneCount()
 end
 
@@ -105,6 +107,7 @@ function RunMissions.addProgress(eventId, amount)
 
     local completedAny = false
     local completedNow = {}
+    local completedLanes = {}
     local matched = false
     for _, objective in ipairs(state.objectives) do
         if objective.event == eventId or objective.id == eventId then
@@ -115,6 +118,7 @@ function RunMissions.addProgress(eventId, amount)
             if objective.done and not beforeDone then
                 completedAny = true
                 completedNow[#completedNow + 1] = objective.id
+                completedLanes[#completedLanes + 1] = objective.lane
             end
         end
     end
@@ -131,10 +135,22 @@ function RunMissions.addProgress(eventId, amount)
     local rewardTier = math.min(state.completionStreak, #MOMENTUM_REWARD_BY_STREAK)
     local rewardSrl = MOMENTUM_REWARD_BY_STREAK[rewardTier] or 0
 
+    local laneSwitchBonusSrl = 0
+    local completionLane = completedLanes[1]
+    if completionLane and state.lastCompletedLane and completionLane ~= state.lastCompletedLane then
+        laneSwitchBonusSrl = 1
+    end
+    if completionLane then
+        state.lastCompletedLane = completionLane
+    end
+
     return {
         completedObjectiveIds = completedNow,
         completionStreak = state.completionStreak,
-        rewardSrl = rewardSrl,
+        rewardSrl = rewardSrl + laneSwitchBonusSrl,
+        baseRewardSrl = rewardSrl,
+        laneSwitchBonusSrl = laneSwitchBonusSrl,
+        completionLane = completionLane,
     }
 end
 

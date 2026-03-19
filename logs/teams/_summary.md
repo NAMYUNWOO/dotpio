@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-20 01:28 KST
+Last updated: 2026-03-20 04:29 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -202,3 +202,19 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_mission_variety_pack.lua`
 - Backlog update: `POST_RC_BACKLOG.md` P1 gameplay follow-up item marked done.
 - Next priority item: none currently unchecked in `POST_RC_BACKLOG.md`.
+- Mission momentum rewards now include a lane-switch variety bonus (+1 BUILDER.SRL) when consecutive objective completions come from different lanes, while preserving the base streak curve (1/1/2).
+- Mission status messaging now annotates variety payouts with `[VARIETY +1]` (including bag-full drop path) for readable reward causality.
+
+## 2026-03-20 04:29 KST — P1 mission momentum lane-switch variety bonus
+- Completed backlog item: `Add mission momentum lane-switch variety bonus (+1 BUILDER.SRL on consecutive objective completions from different lanes)`.
+- Durable decisions:
+  - Added `lastCompletedLane` tracking in run mission state to detect lane alternation between objective completions.
+  - Reward payload now exposes `baseRewardSrl`, `laneSwitchBonusSrl`, and total `rewardSrl` so downstream UX can explain payout composition.
+  - Applied compact UX annotation `[VARIETY +1]` in mission reward status text without changing inventory/economy fundamentals.
+- Verification set:
+  - `luac -p main.lua src/run_missions.lua scripts/regression_mission_momentum.lua`
+  - `lua scripts/regression_run_missions.lua`
+  - `lua scripts/regression_mission_momentum.lua`
+  - `lua scripts/regression_mission_variety_pack.lua`
+- Backlog update: `POST_RC_BACKLOG.md` item marked done.
+- Next priority item: none unchecked in tracked backlogs; next cycle should inject a fresh Game Director experiment candidate.

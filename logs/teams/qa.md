@@ -836,3 +836,16 @@
   - No portal validator run required (map/portal files unchanged).
 - Follow-up:
   - Keep run-summary regression aligned if mission-state metadata keys change.
+
+## 2026-03-20 04:29 KST
+- Task: Verify mission momentum lane-switch variety bonus.
+- Commit: HEAD (this run)
+- Files checked: `src/run_missions.lua`, `main.lua`, `scripts/regression_mission_momentum.lua`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `luac -p main.lua src/run_missions.lua scripts/regression_mission_momentum.lua` ✅
+  - `lua scripts/regression_run_missions.lua` ✅
+  - `lua scripts/regression_mission_momentum.lua` ✅
+  - `lua scripts/regression_mission_variety_pack.lua` ✅
+- Decisions:
+  - Regression now asserts lane-switch bonus behavior and total reward composition (`baseRewardSrl` + `laneSwitchBonusSrl`).
+  - No portal/map validation required (no world files touched).

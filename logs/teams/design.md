@@ -72,3 +72,11 @@
 - Design lane approved compact readability pass for mission pacing metadata (`PACK`, `STREAK`) in both mission panel and run summary.
 - Decision: maintain terse DOS-style labels to avoid panel clutter.
 - Follow-up: revisit panel density only if additional mission metadata is added.
+
+## 2026-03-20 04:29 KST
+- Task: Mission pacing readability micro-pass via status copy.
+- Commit: HEAD (this run)
+- Files: `main.lua`
+- Verification: `luac -p main.lua` ✅
+- Decisions:
+  - Reward status copy now appends `[VARIETY +1]` when lane-switch bonus is awarded, preserving DOS-style compact readability.

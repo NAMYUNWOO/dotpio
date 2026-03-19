@@ -300,3 +300,12 @@
   - Run summary now includes the same metadata so players can correlate completion outcomes with the active mission pack.
 - Follow-up:
   - If mission metadata expands, prioritize abbreviation to preserve DOS HUD readability.
+
+## 2026-03-20 04:29 KST
+- Task: Surface mission variety reward feedback in action status line.
+- Commit: HEAD (this run)
+- Files: `main.lua`
+- Verification:
+  - `luac -p main.lua` ✅
+- Decisions:
+  - Added inline suffix `[VARIETY +1]` to mission momentum status text (including bag-full path) to communicate why payout exceeded base curve.

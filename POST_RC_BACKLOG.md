@@ -23,3 +23,4 @@ Last updated: 2026-03-20 03:00 KST
 
 ## P1 (Gameplay Follow-up)
 - [x] Surface active mission-pack id + momentum streak in HUD/run-summary for clearer run pacing readability
+- [x] Add mission momentum lane-switch variety bonus (+1 BUILDER.SRL on consecutive objective completions from different lanes)
