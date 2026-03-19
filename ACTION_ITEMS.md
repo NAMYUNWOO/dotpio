@@ -65,6 +65,7 @@ Tracking rule:
 - [x] Add rotated sustain-log retention policy (keep-latest-N pruning + regression)
 - [x] Add optional rotated sustain-log max-age pruning window (days-based) for long-lived nodes
 - [x] Add weekly sustain cron policy audit command (managed entry introspection + regression)
+- [x] Add machine-readable JSON output mode for weekly sustain cron audit helper
 
 ---
 

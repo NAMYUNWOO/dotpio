@@ -340,3 +340,19 @@
   - Linked audit helper/regression into RC sustain checklist so weekly operations include policy introspection checks.
 - Follow-up:
   - Next sustain hardening candidate: add optional JSON output mode for machine-readable audit ingestion.
+
+## 2026-03-19 21:14:52 KST
+- Task: M5 post-RC sustain - add machine-readable JSON output mode for weekly cron policy audit helper.
+- Commit: HEAD (this run)
+- Files: `scripts/audit_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_audit.py`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `bash -n scripts/audit_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_audit.py` ✅
+  - `python3 scripts/regression_weekly_cron_audit.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+- Decisions:
+  - `scripts/audit_weekly_sustain_cron.sh` now supports `--format text|json` while preserving existing text output as default.
+  - JSON mode emits a stable machine-readable payload (`status`, schedule fields, rotation policy fields, raw managed entry) for automation ingestion.
+  - Regression coverage now asserts JSON success payload shape and invalid format rejection in addition to existing missing-entry failure handling.
+- Follow-up:
+  - Next sustain hardening candidate: add optional `--pretty` JSON formatting toggle for operator readability without changing default compact JSON.

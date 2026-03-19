@@ -3,11 +3,12 @@ set -euo pipefail
 
 MARKER="# DOTPIO_WEEKLY_SUSTAIN"
 CRONTAB_BIN="${CRONTAB_BIN:-crontab}"
+OUTPUT_FORMAT="text"
 
 usage() {
   cat <<'EOF'
 Usage:
-  bash scripts/audit_weekly_sustain_cron.sh [--crontab-bin PATH]
+  bash scripts/audit_weekly_sustain_cron.sh [--crontab-bin PATH] [--format text|json]
 
 Reads current crontab, locates the managed DOTPIO weekly sustain entry,
 and prints parsed schedule + log-rotation policy fields.
@@ -23,6 +24,10 @@ while [[ $# -gt 0 ]]; do
       CRONTAB_BIN="$2"
       shift 2
       ;;
+    --format)
+      OUTPUT_FORMAT="$2"
+      shift 2
+      ;;
     -h|--help)
       usage
       exit 0
@@ -34,6 +39,11 @@ while [[ $# -gt 0 ]]; do
       ;;
   esac
 done
+
+if [[ "$OUTPUT_FORMAT" != "text" && "$OUTPUT_FORMAT" != "json" ]]; then
+  echo "[ERROR] --format must be one of: text, json" >&2
+  exit 1
+fi
 
 if ! command -v "$CRONTAB_BIN" >/dev/null 2>&1; then
   echo "[ERROR] crontab binary not found: $CRONTAB_BIN" >&2
@@ -80,6 +90,41 @@ MAX_LOG_SIZE_MB="${BASH_REMATCH[2]}"
 RETAIN_ROTATED_LOGS="${BASH_REMATCH[3]}"
 MAX_ROTATED_AGE_DAYS="${BASH_REMATCH[4]}"
 RUNNER_LOG_PATH="${BASH_REMATCH[5]}"
+
+if [[ "$OUTPUT_FORMAT" == "json" ]]; then
+  MARKER="$MARKER" \
+  TZ_VALUE="$TZ_VALUE" \
+  SCHEDULE_MINUTE="$SCHEDULE_MINUTE" \
+  SCHEDULE_HOUR="$SCHEDULE_HOUR" \
+  SCHEDULE_DOW="$SCHEDULE_DOW" \
+  LOG_PATH="$LOG_PATH" \
+  MAX_LOG_SIZE_MB="$MAX_LOG_SIZE_MB" \
+  RETAIN_ROTATED_LOGS="$RETAIN_ROTATED_LOGS" \
+  MAX_ROTATED_AGE_DAYS="$MAX_ROTATED_AGE_DAYS" \
+  RUNNER_LOG_PATH="$RUNNER_LOG_PATH" \
+  ENTRY="$ENTRY" \
+  python3 - <<'PY'
+import json
+import os
+
+payload = {
+    "status": "ok",
+    "marker": os.environ["MARKER"],
+    "tz": os.environ["TZ_VALUE"],
+    "minute": int(os.environ["SCHEDULE_MINUTE"]),
+    "hour": int(os.environ["SCHEDULE_HOUR"]),
+    "dow": int(os.environ["SCHEDULE_DOW"]),
+    "log_path": os.environ["LOG_PATH"],
+    "max_log_size_mb": int(os.environ["MAX_LOG_SIZE_MB"]),
+    "retain_rotated_logs": int(os.environ["RETAIN_ROTATED_LOGS"]),
+    "max_rotated_age_days": int(os.environ["MAX_ROTATED_AGE_DAYS"]),
+    "runner_log_path": os.environ["RUNNER_LOG_PATH"],
+    "entry": os.environ["ENTRY"],
+}
+print(json.dumps(payload, ensure_ascii=False, sort_keys=True))
+PY
+  exit 0
+fi
 
 echo "[OK] Managed weekly sustain entry found."
 echo "tz=${TZ_VALUE}"

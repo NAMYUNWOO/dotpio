@@ -634,3 +634,19 @@
   - No screenshot regen (no UI rendering/copy/layout changes).
 - Follow-up:
   - Keep audit parser regression fixtures aligned if managed cron command token order changes.
+
+## 2026-03-19 21:14:52 KST
+- Task: QA verification for weekly cron audit helper JSON output mode.
+- Commit: HEAD (this run)
+- Files checked: `scripts/audit_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_audit.py`, `scripts/regression_weekly_cron_installer.py`
+- Verification:
+  - `bash -n scripts/audit_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_audit.py` ✅
+  - `python3 scripts/regression_weekly_cron_audit.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+- Decisions:
+  - JSON mode contract validated for parseable payload fields and numeric schedule/rotation values.
+  - Unsupported output format now fails fast with explicit validation error text.
+  - Missing managed-entry diagnostics remain unchanged and still covered.
+- Follow-up:
+  - Keep JSON payload keys stable to avoid breaking downstream automation parsers.

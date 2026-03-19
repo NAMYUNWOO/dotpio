@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import os
 import pathlib
 import subprocess
@@ -92,6 +93,23 @@ raise SystemExit(2)
                 "retain_rotated_logs=4",
                 "max_rotated_age_days=14",
             ],
+            env=env,
+        )
+
+        json_output = run(
+            ["bash", str(AUDIT), "--format", "json"],
+            expect_ok=True,
+            must_contain=['"status": "ok"', '"tz": "UTC"'],
+            env=env,
+        )
+        json_payload = json.loads(json_output.strip().splitlines()[0])
+        if json_payload["minute"] != 15 or json_payload["retain_rotated_logs"] != 4:
+            raise AssertionError(f"Unexpected json payload fields: {json_payload}")
+
+        run(
+            ["bash", str(AUDIT), "--format", "yaml"],
+            expect_ok=False,
+            must_contain=["[ERROR] --format must be one of: text, json"],
             env=env,
         )
 

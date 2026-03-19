@@ -164,3 +164,7 @@ See project-level plans:
 - [x] Add weekly sustain cron policy audit command
   - [x] Add script to inspect managed DOTPIO weekly cron entry and print parsed rotate/schedule policy
   - [x] Add regression coverage for parse success + managed-entry-missing failure path
+
+- [x] Add machine-readable JSON output mode for weekly sustain cron audit helper
+  - [x] Add `--format json` support while keeping default text output stable
+  - [x] Extend audit regression for JSON success payload + missing-entry error path

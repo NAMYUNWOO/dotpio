@@ -101,6 +101,7 @@ Owner: QA lane
 - [x] Weekly scheduler policy audit helper + regression
   - Commands:
     - `bash scripts/audit_weekly_sustain_cron.sh`
+    - `bash scripts/audit_weekly_sustain_cron.sh --format json`
     - `python3 scripts/regression_weekly_cron_audit.py`
   - Artifact: command output (pass/fail)
   - Covers: managed DOTPIO cron entry introspection for schedule + rotate policy fields and missing-entry failure handling

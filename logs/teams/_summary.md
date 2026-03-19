@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-19 20:41 KST
+Last updated: 2026-03-19 21:14 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -74,3 +74,4 @@ Compact decision memory for AI context efficiency.
 - Retention behavior is regression-covered by `scripts/regression_rotate_log_retention.py` (repeated over-threshold rotations + prune assertions).
 - Weekly sustain log rotation now also supports optional age-based pruning (`max-age-days`) via rotate helper + cron installer (`--max-rotated-age-days` / `SUSTAIN_CRON_MAX_ROTATED_AGE_DAYS`), with regression coverage for stale-file deletion and CLI token rendering.
 - Added `scripts/audit_weekly_sustain_cron.sh` to introspect the managed `DOTPIO_WEEKLY_SUSTAIN` cron entry and print parsed schedule + rotation policy fields; regression-covered by `scripts/regression_weekly_cron_audit.py` including missing-entry diagnostics.
+- Weekly sustain cron audit helper now supports machine-readable output via `--format json` (default remains text), and regression coverage now validates JSON payload fields plus invalid-format rejection.
