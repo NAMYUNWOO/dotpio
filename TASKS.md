@@ -106,4 +106,4 @@ See project-level plans:
   - [x] Re-run blocker-focused regression subset and confirm no critical/high failures
   - [x] Update blocker triage status in RC checklist
 - [x] Capture launch screenshots + changelog
-- [ ] Tag release candidate
+- [x] Tag release candidate

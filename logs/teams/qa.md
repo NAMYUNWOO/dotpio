@@ -444,3 +444,16 @@
   - Marked "Capture launch screenshots + changelog" complete in both backlog trackers.
 - Follow-up:
   - Next M5 priority item: tag release candidate.
+
+## 2026-03-19 14:13:12 KST
+- Task: M5 release candidate tagging (`0.5.0-rc.1`).
+- Commit: HEAD (this run)
+- Files: `ACTION_ITEMS.md`, `TASKS.md`, `logs/teams/qa.md`, `logs/teams/_summary.md`
+- Verification:
+  - `python3 scripts/validate_portals.py` ✅
+  - `python3 scripts/regression_30min_loop_checklist.py` ✅
+- Decisions:
+  - Tagged current RC snapshot as `0.5.0-rc.1` to match launch changelog package.
+  - Closed final unchecked M5 backlog item (`Tag release candidate`) in both trackers.
+- Follow-up:
+  - Next item: post-RC telemetry monitoring and bugfix hotlist only if new blockers are reported.

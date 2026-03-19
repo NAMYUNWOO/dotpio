@@ -49,7 +49,7 @@ Tracking rule:
 - [x] Execute full regression (combat/inventory/build/disasm/portal)
 - [x] Fix all critical blockers
 - [x] Capture launch screenshots + changelog
-- [ ] Tag release candidate
+- [x] Tag release candidate
 
 ---
 

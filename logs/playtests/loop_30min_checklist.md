@@ -1,6 +1,6 @@
 # 30-minute Core Loop Checklist
 
-Generated: 2026-03-19 13:12:34 KST
+Generated: 2026-03-19 14:13:02 KST
 
 ## Scripted pass/fail
 - [x] starter loadout baseline is stable
