@@ -5,7 +5,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 RUNNER_REL="scripts/run_weekly_sustain.sh"
 RUNNER_PATH="${REPO_ROOT}/${RUNNER_REL}"
-LOG_PATH="${REPO_ROOT}/logs/weekly_sustain_cron.log"
+DEFAULT_LOG_PATH="${REPO_ROOT}/logs/weekly_sustain_cron.log"
+LOG_PATH="${SUSTAIN_CRON_LOG_PATH:-$DEFAULT_LOG_PATH}"
 
 SCHEDULE_MINUTE="${SUSTAIN_CRON_MINUTE:-0}"
 SCHEDULE_HOUR="${SUSTAIN_CRON_HOUR:-9}"
@@ -17,7 +18,7 @@ CRONTAB_BIN="${CRONTAB_BIN:-crontab}"
 usage() {
   cat <<'EOF'
 Usage:
-  bash scripts/install_weekly_sustain_cron.sh [--apply] [--minute N] [--hour N] [--dow N] [--tz Zone]
+  bash scripts/install_weekly_sustain_cron.sh [--apply] [--minute N] [--hour N] [--dow N] [--tz Zone] [--log-path Path]
 
 Default schedule:
   Every Monday 09:00 (Asia/Seoul)
@@ -27,7 +28,8 @@ Behavior:
   - With --apply: upserts one managed cron entry for scripts/run_weekly_sustain.sh.
 
 Environment override (optional):
-  SUSTAIN_CRON_MINUTE, SUSTAIN_CRON_HOUR, SUSTAIN_CRON_DOW, SUSTAIN_CRON_TZ, CRONTAB_BIN
+  SUSTAIN_CRON_MINUTE, SUSTAIN_CRON_HOUR, SUSTAIN_CRON_DOW, SUSTAIN_CRON_TZ,
+  SUSTAIN_CRON_LOG_PATH, CRONTAB_BIN
 EOF
 }
 
@@ -51,6 +53,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --tz)
       TZ_VALUE="$2"
+      shift 2
+      ;;
+    --log-path)
+      LOG_PATH="$2"
       shift 2
       ;;
     -h|--help)
@@ -81,6 +87,11 @@ if ! [[ "$SCHEDULE_HOUR" =~ ^([01]?[0-9]|2[0-3])$ ]]; then
 fi
 if ! [[ "$SCHEDULE_DOW" =~ ^[0-7]$ ]]; then
   echo "[ERROR] --dow must be 0-7 (0/7=Sunday, 1=Monday)" >&2
+  exit 1
+fi
+
+if [[ -z "$LOG_PATH" ]]; then
+  echo "[ERROR] --log-path must be non-empty" >&2
   exit 1
 fi
 

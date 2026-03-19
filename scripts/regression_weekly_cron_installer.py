@@ -68,7 +68,7 @@ def main() -> int:
         ],
     )
 
-    # CLI override path should reflect provided schedule arguments in output.
+    # CLI override path should reflect provided schedule arguments + custom log path in output.
     run(
         [
             "bash",
@@ -81,9 +81,11 @@ def main() -> int:
             "2",
             "--tz",
             "UTC",
+            "--log-path",
+            "/tmp/dotpio-weekly.log",
         ],
         expect_ok=True,
-        must_contain=["CRON_TZ=UTC 15 6 * * 2"],
+        must_contain=["CRON_TZ=UTC 15 6 * * 2", "/tmp/dotpio-weekly.log"],
     )
 
     # Invalid args must fail with explicit guidance.

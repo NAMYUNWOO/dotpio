@@ -67,3 +67,4 @@ Compact decision memory for AI context efficiency.
 - Weekly scheduler installer behavior is now regression-covered by `scripts/regression_weekly_cron_installer.py` (dry-run evidence, CLI override reflection, invalid arg rejection).
 - Weekly cron installer now supports `CRONTAB_BIN` override so mocked apply-mode upsert behavior can be regression-tested safely without mutating host crontab; regression now asserts single-marker upsert semantics under `--apply`.
 - RC checklist sign-off rows are now synchronized with actual release state: all lane sign-offs checked, release tag recorded as `0.5.0-rc.1` (`d82cab1`), and sign-off note includes auditable timestamp/hash.
+- Weekly cron installer now supports configurable log sinks via `--log-path` / `SUSTAIN_CRON_LOG_PATH` (default still `logs/weekly_sustain_cron.log`), with regression coverage ensuring custom path rendering stays stable.

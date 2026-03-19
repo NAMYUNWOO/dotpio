@@ -552,3 +552,17 @@
   - Host crontab remains untouched during regression by injecting fake crontab binary + isolated state file.
 - Follow-up:
   - Keep mocked-apply checks green when cron marker format or installer write path changes.
+
+## 2026-03-19 18:43:17 KST
+- Task: QA verification for weekly cron installer custom log-path override.
+- Commit: HEAD (this run)
+- Files checked: `scripts/install_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_installer.py`
+- Verification:
+  - `bash -n scripts/install_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+- Decisions:
+  - Regression now asserts schedule override output also includes custom `--log-path` rendering.
+  - Existing mocked `--apply` upsert safeguards remain green with single-marker guarantee.
+- Follow-up:
+  - Keep CLI regression tokens updated if cron command composition changes.

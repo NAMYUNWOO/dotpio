@@ -143,3 +143,7 @@ See project-level plans:
 - [x] Add safe apply-mode test hook for weekly cron installer
   - [x] Support overriding crontab binary path in installer for sandboxed/mocked apply verification
   - [x] Extend weekly cron installer regression to cover `--apply` upsert behavior without touching host crontab
+
+- [x] Add optional weekly cron log path override for multi-instance deployments
+  - [x] Add installer support for `--log-path`/`SUSTAIN_CRON_LOG_PATH` override while keeping default logs path
+  - [x] Extend weekly cron installer regression coverage for custom log-path rendering

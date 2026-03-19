@@ -60,6 +60,7 @@ Tracking rule:
 - [x] Add regression coverage for weekly scheduler installer CLI validation/dry-run evidence
 - [x] Sync RC checklist sign-off status with actual tagged RC evidence
 - [x] Add safe apply-mode test hook for weekly cron installer (mockable crontab binary + regression)
+- [x] Add optional weekly cron log path override for multi-instance deployments
 
 ---
 

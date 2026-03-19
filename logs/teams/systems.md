@@ -256,3 +256,17 @@
   - Apply path keeps managed-marker upsert semantics (replace existing marker entry, keep exactly one managed row).
 - Follow-up:
   - Next sustain hardening candidate: expose optional `--log-path` override for multi-instance deployments sharing one repo clone.
+
+## 2026-03-19 18:43:17 KST
+- Task: M5 post-RC sustain - add optional cron log-path override for multi-instance deployments.
+- Commit: HEAD (this run)
+- Files: `scripts/install_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_installer.py`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `bash -n scripts/install_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+- Decisions:
+  - Added `--log-path` CLI flag and `SUSTAIN_CRON_LOG_PATH` env override while preserving default `logs/weekly_sustain_cron.log` behavior.
+  - Cron installer now supports per-deployment log sink routing without changing runner path or managed marker semantics.
+- Follow-up:
+  - Next sustain hardening candidate: optional log-rotation helper/check for long-lived cron logs.
