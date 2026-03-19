@@ -62,3 +62,8 @@
 - Combat lane verified no combat behavior/balance changes in this ops task.
 - Decision: keep regression scope focused on dashboard output contracts (markdown + json) to avoid unrelated combat churn.
 - Follow-up: none.
+
+## 2026-03-20 03:29 KST — P2 sustain dashboard trend classification handoff
+- Combat lane verified no combat tuning/code changes in this ops task.
+- Decision: combat pipeline remains unchanged; only sustain dashboard contract updated.
+- Follow-up: none.

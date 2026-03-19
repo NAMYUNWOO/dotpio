@@ -283,3 +283,8 @@
 - UX lane approved output-mode UX: default markdown remains unchanged for existing workflow.
 - Decision: explicit CLI error when `--pretty` is used without `--format json` for faster operator correction.
 - Follow-up: none.
+
+## 2026-03-20 03:29 KST — P2 sustain dashboard trend classification handoff
+- UX lane approved plain-language trend labels over numeric scores.
+- Decision: keep markdown phrasing concise (`Trend: **...**`) to reduce operator scan time.
+- Follow-up: none.

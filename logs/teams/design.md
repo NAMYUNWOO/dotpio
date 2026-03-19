@@ -62,3 +62,8 @@
 - Design lane reviewed operator readability split: markdown for humans, pretty JSON for tooling/debug readability.
 - Decision: gate `--pretty` to JSON-only mode to avoid ambiguous CLI expectations.
 - Follow-up: none.
+
+## 2026-03-20 03:29 KST — P2 sustain dashboard trend classification handoff
+- Design lane reviewed dashboard readability with new trend row.
+- Decision: expose trend near overall tier for at-a-glance weekly triage.
+- Follow-up: none.

@@ -437,3 +437,8 @@
 - Completed: sustain health dashboard now emits structured JSON (`--format json`) with compact default and optional `--pretty` output.
 - Decision: keep markdown as default surface; JSON is additive for automation and downstream parsing.
 - Follow-up: if weekly governance expands, consume `logs/sustain_health_dashboard.json` in cross-repo monitoring.
+
+## 2026-03-20 03:29 KST — P2 sustain dashboard trend classification
+- Completed: added trend classifier (`improving|stable|degrading`) to sustain dashboard payload based on weekly deltas + economy safety signal.
+- Decision: keep trend additive (non-gating) so existing GREEN/YELLOW/ORANGE/RED health scoring remains backward compatible.
+- Follow-up: if trend remains degrading for >=2 cycles, consider auto-escalation in weekly ops policy.

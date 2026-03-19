@@ -172,3 +172,16 @@ Compact decision memory for AI context efficiency.
   - `bash scripts/run_weekly_sustain.sh`
 - Backlog update: `POST_RC_BACKLOG.md` new P2 item marked done.
 - Next priority item: none remaining in `POST_RC_BACKLOG.md` (all checked).
+
+## 2026-03-20 03:29 KST — P2 sustain dashboard trend classification
+- Completed task: Add sustain dashboard trend classification (`improving|stable|degrading`) with regression coverage.
+- Durable decisions:
+  - Added `overall.trend` to dashboard JSON; markdown now surfaces `Trend: **...**` directly under overall tier.
+  - Trend is computed from weekly delta signals (events/SRL) and economy safety override (suspicious windows or curve-change decisions force `degrading`).
+  - Health-tier scoring remains unchanged (trend is additive, non-breaking for existing consumers).
+- Verification set:
+  - `python3 -m py_compile scripts/sustain_health_dashboard.py scripts/regression_sustain_health_dashboard.py`
+  - `python3 scripts/regression_sustain_health_dashboard.py`
+  - `bash scripts/run_weekly_sustain.sh`
+- Backlog update: `POST_RC_BACKLOG.md` P2 trend-classification item marked done.
+- Next priority item: none remaining in `POST_RC_BACKLOG.md` (all checked).

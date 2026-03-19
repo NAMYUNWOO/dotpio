@@ -42,6 +42,25 @@ def badge(ok: bool, label: str) -> str:
     return f"{icon} {label}"
 
 
+def classify_trend(decision: str, suspicious_count: int, delta_events: int | None, delta_srl_spent: int | None) -> str:
+    if suspicious_count > 0 or decision != "NO_CURVE_CHANGE":
+        return "degrading"
+    if delta_events is None and delta_srl_spent is None:
+        return "stable"
+
+    score = 0
+    if delta_events is not None:
+        score += 1 if delta_events > 0 else -1 if delta_events < 0 else 0
+    if delta_srl_spent is not None:
+        score += 1 if delta_srl_spent > 0 else -1 if delta_srl_spent < 0 else 0
+
+    if score > 0:
+        return "improving"
+    if score < 0:
+        return "degrading"
+    return "stable"
+
+
 def build_dashboard_payload(snapshot: dict[str, Any], anti: dict[str, Any], audit: dict[str, Any]) -> dict[str, Any]:
     decision = str(snapshot.get("decision", "UNKNOWN"))
     suspicious_count = int(snapshot.get("suspiciousCount", anti.get("suspiciousCount", 0)) or 0)
@@ -49,12 +68,16 @@ def build_dashboard_payload(snapshot: dict[str, Any], anti: dict[str, Any], audi
     total_srl_spent = int(snapshot.get("totalSrlSpent", 0) or 0)
     delta = snapshot.get("deltaFromPrevious", {}) if isinstance(snapshot.get("deltaFromPrevious"), dict) else {}
 
+    delta_events = delta.get("telemetryEventCount") if isinstance(delta.get("telemetryEventCount"), int) else None
+    delta_srl_spent = delta.get("totalSrlSpent") if isinstance(delta.get("totalSrlSpent"), int) else None
+
     economy_ok = decision == "NO_CURVE_CHANGE" and suspicious_count == 0
     telemetry_ok = telemetry_event_count > 0
     cron_ok = audit.get("status") == "ok"
 
     health_score = sum([economy_ok, telemetry_ok, cron_ok])
     health_tier = {3: "GREEN", 2: "YELLOW", 1: "ORANGE", 0: "RED"}[health_score]
+    trend = classify_trend(decision, suspicious_count, delta_events, delta_srl_spent)
 
     generated_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
@@ -62,6 +85,7 @@ def build_dashboard_payload(snapshot: dict[str, Any], anti: dict[str, Any], audi
         "generatedAt": generated_at,
         "overall": {
             "tier": health_tier,
+            "trend": trend,
             "score": health_score,
             "totalChecks": 3,
         },
@@ -116,6 +140,7 @@ def write_markdown(path: Path, payload: dict[str, Any]) -> None:
         "",
         f"- GeneratedAt(UTC): {payload['generatedAt']}",
         f"- Overall: **{payload['overall']['tier']}** ({payload['overall']['score']}/{payload['overall']['totalChecks']} checks green)",
+        f"- Trend: **{payload['overall']['trend']}**",
         "",
         "## Signals",
         f"- {badge(bool(signals['economySafety']['ok']), 'Economy safety')}: decision={signals['economySafety']['decision']}, suspiciousWindows={signals['economySafety']['suspiciousWindows']}",

@@ -19,3 +19,4 @@ Last updated: 2026-03-20 03:00 KST
 - [x] Add sustain health dashboard markdown report
 - [x] Add automatic stale-branch/report drift check
 - [x] Add sustain health dashboard JSON output mode (compact + pretty) and wire weekly runner artifact output
+- [x] Add sustain dashboard trend classification (improving/stable/degrading) with regression coverage

@@ -1,7 +1,8 @@
 # DOTPIO Sustain Health Dashboard
 
-- GeneratedAt(UTC): 2026-03-19T17:59:47.259073Z
+- GeneratedAt(UTC): 2026-03-19T18:29:15.527346Z
 - Overall: **YELLOW** (2/3 checks green)
+- Trend: **stable**
 
 ## Signals
 - ✅ Economy safety: decision=NO_CURVE_CHANGE, suspiciousWindows=0

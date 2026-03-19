@@ -127,3 +127,8 @@
 - World lane impact review: no map/portal topology changes required.
 - Decision: world ops can now ingest dashboard JSON for automated weekly health snapshots without markdown parsing.
 - Follow-up: none.
+
+## 2026-03-20 03:29 KST — P2 sustain dashboard trend classification handoff
+- World lane impact review: no map/portal topology changes required.
+- Decision: consume `overall.trend` as optional context only; do not block world content cadence on ops trend state.
+- Follow-up: none.

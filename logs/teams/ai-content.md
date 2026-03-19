@@ -133,3 +133,8 @@
 - AI-content lane aligned on machine-readable sustain summary for future content-quality signal aggregation.
 - Decision: preserve stable key names (`overall`, `signals`, `weeklySnapshot`) for script consumers.
 - Follow-up: include AI-content safety metrics when dedicated JSON artifact is available.
+
+## 2026-03-20 03:29 KST — P2 sustain dashboard trend classification handoff
+- AI-content lane aligned on additive `overall.trend` field for downstream automation.
+- Decision: preserve stable value set (`improving`, `stable`, `degrading`) for parser simplicity.
+- Follow-up: extend with AI-content-specific trend inputs once dedicated weekly metrics land.

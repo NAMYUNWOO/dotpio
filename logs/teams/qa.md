@@ -814,3 +814,10 @@
   - `python3 scripts/regression_sustain_health_dashboard.py`
   - `bash scripts/run_weekly_sustain.sh`
 - Result: PASS, emits `logs/sustain_health_dashboard.{md,json}` and preserves weekly sustain pipeline green state.
+
+## 2026-03-20 03:29 KST — P2 sustain dashboard trend classification
+- Validation set:
+  - `python3 -m py_compile scripts/sustain_health_dashboard.py scripts/regression_sustain_health_dashboard.py`
+  - `python3 scripts/regression_sustain_health_dashboard.py`
+  - `bash scripts/run_weekly_sustain.sh`
+- Result: PASS, trend field emitted in markdown/json while weekly sustain runner remains green.

@@ -77,6 +77,7 @@ def main() -> int:
         required_md = [
             "# DOTPIO Sustain Health Dashboard",
             "Overall: **GREEN**",
+            "Trend: **stable**",
             "decision=NO_CURVE_CHANGE",
             "weeklyEvents=42",
             "CRON_TZ: Asia/Seoul",
@@ -111,6 +112,8 @@ def main() -> int:
         payload = json.loads(json_text)
         if payload.get("overall", {}).get("tier") != "GREEN":
             raise AssertionError("Unexpected overall tier in JSON dashboard output")
+        if payload.get("overall", {}).get("trend") != "stable":
+            raise AssertionError("Unexpected trend classification in JSON dashboard output")
         if payload.get("schedulerPolicy", {}).get("tz") != "Asia/Seoul":
             raise AssertionError("Scheduler policy fields missing from JSON dashboard output")
 

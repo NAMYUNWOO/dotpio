@@ -1,7 +1,8 @@
 {
-  "generatedAt": "2026-03-19T17:59:47.334244Z",
+  "generatedAt": "2026-03-19T18:29:15.598859Z",
   "overall": {
     "tier": "YELLOW",
+    "trend": "stable",
     "score": 2,
     "totalChecks": 3
   },
