@@ -174,4 +174,4 @@ See project-level plans:
   - [x] Add rotating mission packs (3 objectives/run) that preserve core loop readability
   - [x] Add new objective variants for higher-intensity kill/pickup/build cadence plus search/inventory planning beats
   - [x] Add regression coverage for mission-pack rotation + objective catalog floor
-- [ ] Add mission momentum bonus payout experiment (partial SRL reward per objective completion streak)
+- [x] Add mission momentum bonus payout experiment (partial SRL reward per objective completion streak)

@@ -71,7 +71,7 @@ Tracking rule:
 
 ## M5 - Post-RC Gameplay Experiments
 - [x] Add mission variety pack (at least +5 objectives)
-- [ ] Add mission momentum bonus payout experiment (objective streak SRL micro-reward)
+- [x] Add mission momentum bonus payout experiment (objective streak SRL micro-reward)
 
 ## Weekly Cadence
 - Daily: ship at least 1 meaningful commit

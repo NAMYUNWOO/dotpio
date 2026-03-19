@@ -56,3 +56,9 @@
   - Extended portal routing with `map_06` portal `07` (47,13) -> `map_07` portal `06`, and reciprocal `map_07` return portal `06` -> `map_06` portal `07`.
 - Follow-up:
   - Next P1 priority item: add 2 new enemy archetypes with synergy behavior.
+
+### 2026-03-19 23:59 KST
+- Task: Mission momentum bonus payout experiment (objective completion streak SRL micro-reward).
+- Decision: Logged lane impact for streak-based reward model (1,1,2 SRL) with reward cap and no duplicate payout on already-complete objectives.
+- Evidence: `src/run_missions.lua`, `main.lua`, `scripts/regression_mission_momentum.lua` (+ mission regressions).
+- Follow-up: Monitor telemetry for early-run SRL inflation and tune reward curve if low-tier churn increases.

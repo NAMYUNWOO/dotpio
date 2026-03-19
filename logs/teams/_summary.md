@@ -87,3 +87,17 @@ Compact decision memory for AI context efficiency.
 - Mission variety pack now includes +5 new objective variants (`kills_5`, `pickup_4`, `build_2`, `search_2`, `inventory_3`) with shared event-key progress tracking.
 - Gameplay hooks now increment mission progress on crate search completion and inventory-open actions, enabling the new mission variants without extra controls.
 - Mission variety behavior is regression-covered by `scripts/regression_mission_variety_pack.lua` (catalog floor, pack rotation, and new objective inclusion assertions).
+
+## 2026-03-19 — Mission Momentum Bonus Experiment Shipped
+- Completed backlog item: objective streak micro-reward for missions.
+- Durable decision: mission objective completions now grant capped momentum payout in BUILDER.SRL using streak curve **1, 1, 2** (cap at streak 3+).
+- Implementation notes:
+  - `RunMissions.addProgress` now returns structured completion payload (`completedObjectiveIds`, `completionStreak`, `rewardSrl`).
+  - Main loop consumes completion payload and applies `builder_scroll` payout immediately with DOS status messaging.
+  - Inventory-full path is explicit (`... DROPPED (BAG FULL)`) to avoid silent reward loss.
+- Verification:
+  - `lua scripts/regression_run_missions.lua`
+  - `lua scripts/regression_mission_momentum.lua`
+  - `lua scripts/regression_mission_variety_pack.lua`
+  - `luac -p main.lua src/run_missions.lua`
+- Next recommended item (POST_RC_BACKLOG): `Add weekly sustain audit JSON pretty mode`.

@@ -43,6 +43,21 @@ local function resetRunState()
     missionUnlockAnnounced = false
 end
 
+local function applyMissionProgress(eventId, amount)
+    local completion = RunMissions.addProgress(eventId, amount)
+    if not completion or (completion.rewardSrl or 0) <= 0 then
+        return
+    end
+
+    local ok = Inventory.addItem(Player.inventory, "builder_scroll", completion.rewardSrl or 0)
+    if ok then
+        InventoryUI.setStatus(string.format("MISSION MOMENTUM x%d: +%d BUILDER.SRL", completion.completionStreak or 1, completion.rewardSrl or 0))
+        return
+    end
+
+    InventoryUI.setStatus(string.format("MISSION MOMENTUM x%d: +%d BUILDER.SRL DROPPED (BAG FULL)", completion.completionStreak or 1, completion.rewardSrl or 0))
+end
+
 local function loadMap(mapName, portalName)
     Map.load(mapName)
     Combat.reset()
@@ -85,7 +100,7 @@ function love.load()
     AiDescribe.init()
     InventoryUI.setBuildCompletedHandler(function()
         OnboardingHints.mark("build")
-        RunMissions.addProgress("build", 1)
+        applyMissionProgress("build", 1)
     end)
     resetRunState()
     Player.init(0, 0)
@@ -131,7 +146,7 @@ function love.update(dt)
     Combat.update(dt, Entities.enemyAt)
     local kills = Combat.consumeKillCount()
     if kills > 0 then
-        RunMissions.addProgress("kills", kills)
+        applyMissionProgress("kills", kills)
     end
 
     local missionState = RunMissions.getState()
@@ -192,7 +207,7 @@ function love.update(dt)
         if lootboxInteract.timer >= lootboxInteract.duration then
             LootboxUI.open(hoveredLootbox, Player)
             OnboardingHints.mark("searched")
-            RunMissions.addProgress("search", 1)
+            applyMissionProgress("search", 1)
             lootboxInteract.active = false
             lootboxInteract.timer = 0
             hoveredLootbox = nil
@@ -306,7 +321,7 @@ local function tryPickupItem()
     item.collected = true
     Entities.removeItem(itemIndex)
     OnboardingHints.mark("pickup")
-    RunMissions.addProgress("pickup", 1)
+    applyMissionProgress("pickup", 1)
 
     local itemName = item.itemId
     local def = Items.get(item.itemId)
@@ -336,7 +351,7 @@ function love.keypressed(key)
     end
     if key == "tab" or key == "i" then
         OnboardingHints.mark("inventory")
-        RunMissions.addProgress("inventory", 1)
+        applyMissionProgress("inventory", 1)
         InventoryUI.open(Player, Entities)
         return
     end

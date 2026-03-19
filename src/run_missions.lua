@@ -25,6 +25,13 @@ local state = {
     total = 0,
     cycleIndex = 0,
     lastPackId = nil,
+    completionStreak = 0,
+}
+
+local MOMENTUM_REWARD_BY_STREAK = {
+    1, -- 1st objective in streak
+    1, -- 2nd objective in streak
+    2, -- 3rd+ objective in streak (cap)
 }
 
 local function clampProgress(value, target)
@@ -87,15 +94,17 @@ function RunMissions.reset(objectives)
     state.active = state.total > 0
     state.doneCount = 0
     state.lastPackId = packId
+    state.completionStreak = 0
     recalcDoneCount()
 end
 
 function RunMissions.addProgress(eventId, amount)
-    if not state.active then return false end
+    if not state.active then return nil end
     local delta = tonumber(amount) or 0
-    if delta <= 0 then return false end
+    if delta <= 0 then return nil end
 
-    local completedNew = false
+    local completedAny = false
+    local completedNow = {}
     local matched = false
     for _, objective in ipairs(state.objectives) do
         if objective.event == eventId or objective.id == eventId then
@@ -104,7 +113,8 @@ function RunMissions.addProgress(eventId, amount)
             objective.progress = clampProgress(objective.progress + delta, objective.target)
             objective.done = objective.progress >= objective.target
             if objective.done and not beforeDone then
-                completedNew = true
+                completedAny = true
+                completedNow[#completedNow + 1] = objective.id
             end
         end
     end
@@ -113,7 +123,19 @@ function RunMissions.addProgress(eventId, amount)
         recalcDoneCount()
     end
 
-    return completedNew
+    if not completedAny then
+        return nil
+    end
+
+    state.completionStreak = state.completionStreak + #completedNow
+    local rewardTier = math.min(state.completionStreak, #MOMENTUM_REWARD_BY_STREAK)
+    local rewardSrl = MOMENTUM_REWARD_BY_STREAK[rewardTier] or 0
+
+    return {
+        completedObjectiveIds = completedNow,
+        completionStreak = state.completionStreak,
+        rewardSrl = rewardSrl,
+    }
 end
 
 function RunMissions.getState()
@@ -122,6 +144,7 @@ function RunMissions.getState()
         doneCount = state.doneCount,
         total = state.total,
         completed = (state.total > 0 and state.doneCount == state.total) or false,
+        completionStreak = state.completionStreak,
         lastPackId = state.lastPackId,
         objectives = state.objectives,
     }
