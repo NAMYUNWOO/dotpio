@@ -270,3 +270,19 @@
   - Cron installer now supports per-deployment log sink routing without changing runner path or managed marker semantics.
 - Follow-up:
   - Next sustain hardening candidate: optional log-rotation helper/check for long-lived cron logs.
+
+## 2026-03-19 19:15:15 KST
+- Task: M5 post-RC sustain - add size-based weekly sustain cron log rotation guard.
+- Commit: 01f471d
+- Files: `scripts/rotate_log_if_needed.sh`, `scripts/install_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_installer.py`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `bash -n scripts/rotate_log_if_needed.sh` ✅
+  - `bash -n scripts/install_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+  - `bash scripts/install_weekly_sustain_cron.sh --minute 15 --hour 6 --dow 2 --tz UTC --log-path /tmp/dotpio-weekly.log --max-log-size-mb 12` (dry-run preview) ✅
+- Decisions:
+  - Added `scripts/rotate_log_if_needed.sh` as a pre-run guard that rotates the cron log once it reaches a configurable MB threshold.
+  - Cron installer now wires `--max-log-size-mb` / `SUSTAIN_CRON_MAX_LOG_SIZE_MB` into the managed command to prevent unbounded sustain-log growth.
+- Follow-up:
+  - Consider retention pruning policy (e.g., keep latest N rotated files) if long-lived nodes accumulate many rotation artifacts.

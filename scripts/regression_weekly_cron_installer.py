@@ -83,9 +83,15 @@ def main() -> int:
             "UTC",
             "--log-path",
             "/tmp/dotpio-weekly.log",
+            "--max-log-size-mb",
+            "12",
         ],
         expect_ok=True,
-        must_contain=["CRON_TZ=UTC 15 6 * * 2", "/tmp/dotpio-weekly.log"],
+        must_contain=[
+            "CRON_TZ=UTC 15 6 * * 2",
+            "/tmp/dotpio-weekly.log",
+            "bash scripts/rotate_log_if_needed.sh /tmp/dotpio-weekly.log 12",
+        ],
     )
 
     # Invalid args must fail with explicit guidance.
@@ -94,29 +100,41 @@ def main() -> int:
         expect_ok=False,
         must_contain=["[ERROR] --hour must be 0-23"],
     )
+    run(
+        ["bash", str(INSTALLER), "--max-log-size-mb", "0"],
+        expect_ok=False,
+        must_contain=["[ERROR] --max-log-size-mb must be a positive integer"],
+    )
 
     # Apply path should be safely testable via injected crontab binary.
     with tempfile.TemporaryDirectory(prefix="dotpio-cron-reg-") as temp_dir:
         temp_path = pathlib.Path(temp_dir)
-        fake_crontab = temp_path / "fake_crontab.sh"
+        fake_crontab = temp_path / "fake_crontab.py"
         state_file = temp_path / "cron_state.txt"
 
         fake_crontab.write_text(
-            """#!/usr/bin/env bash
-set -euo pipefail
-STATE_FILE=\"${FAKE_CRON_STATE:?missing FAKE_CRON_STATE}\"
-mkdir -p \"$(dirname \"$STATE_FILE\")\"
-touch \"$STATE_FILE\"
-if [[ \"${1:-}\" == \"-l\" ]]; then
-  cat \"$STATE_FILE\"
-  exit 0
-fi
-if [[ \"${1:-}\" == \"-\" ]]; then
-  cat >\"$STATE_FILE\"
-  exit 0
-fi
-echo \"unsupported args: $*\" >&2
-exit 2
+            """#!/usr/bin/env python3
+import os
+import pathlib
+import sys
+
+state_path = pathlib.Path(os.environ.get(\"FAKE_CRON_STATE\", \"\"))
+if not str(state_path):
+    print(\"missing FAKE_CRON_STATE\", file=sys.stderr)
+    raise SystemExit(2)
+state_path.parent.mkdir(parents=True, exist_ok=True)
+state_path.touch(exist_ok=True)
+
+arg = sys.argv[1] if len(sys.argv) > 1 else \"\"
+if arg == \"-l\":
+    sys.stdout.write(state_path.read_text(encoding=\"utf-8\"))
+    raise SystemExit(0)
+if arg == \"-\":
+    state_path.write_text(sys.stdin.read(), encoding=\"utf-8\")
+    raise SystemExit(0)
+
+print(f\"unsupported args: {' '.join(sys.argv[1:])}\", file=sys.stderr)
+raise SystemExit(2)
 """,
             encoding="utf-8",
         )

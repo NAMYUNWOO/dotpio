@@ -566,3 +566,19 @@
   - Existing mocked `--apply` upsert safeguards remain green with single-marker guarantee.
 - Follow-up:
   - Keep CLI regression tokens updated if cron command composition changes.
+
+## 2026-03-19 19:15:15 KST
+- Task: QA verification for weekly sustain cron log rotation guard + installer rendering updates.
+- Commit: 01f471d
+- Files checked: `scripts/rotate_log_if_needed.sh`, `scripts/install_weekly_sustain_cron.sh`, `scripts/regression_weekly_cron_installer.py`
+- Verification:
+  - `bash -n scripts/rotate_log_if_needed.sh` ✅
+  - `bash -n scripts/install_weekly_sustain_cron.sh` ✅
+  - `python3 -m py_compile scripts/regression_weekly_cron_installer.py` ✅
+  - `python3 scripts/regression_weekly_cron_installer.py` ✅
+  - Dry-run cron preview includes rotate helper command + max-size threshold token ✅
+- Decisions:
+  - Regression now enforces `--max-log-size-mb` positive-int validation and command rendering for rotate helper invocation.
+  - Mocked `--apply` upsert coverage remains intact (single managed marker guarantee).
+- Follow-up:
+  - Add targeted regression for rotate helper file-rotation behavior under threshold/over-threshold fixtures.

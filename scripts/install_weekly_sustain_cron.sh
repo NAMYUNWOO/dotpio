@@ -7,6 +7,7 @@ RUNNER_REL="scripts/run_weekly_sustain.sh"
 RUNNER_PATH="${REPO_ROOT}/${RUNNER_REL}"
 DEFAULT_LOG_PATH="${REPO_ROOT}/logs/weekly_sustain_cron.log"
 LOG_PATH="${SUSTAIN_CRON_LOG_PATH:-$DEFAULT_LOG_PATH}"
+MAX_LOG_SIZE_MB="${SUSTAIN_CRON_MAX_LOG_SIZE_MB:-20}"
 
 SCHEDULE_MINUTE="${SUSTAIN_CRON_MINUTE:-0}"
 SCHEDULE_HOUR="${SUSTAIN_CRON_HOUR:-9}"
@@ -18,7 +19,7 @@ CRONTAB_BIN="${CRONTAB_BIN:-crontab}"
 usage() {
   cat <<'EOF'
 Usage:
-  bash scripts/install_weekly_sustain_cron.sh [--apply] [--minute N] [--hour N] [--dow N] [--tz Zone] [--log-path Path]
+  bash scripts/install_weekly_sustain_cron.sh [--apply] [--minute N] [--hour N] [--dow N] [--tz Zone] [--log-path Path] [--max-log-size-mb N]
 
 Default schedule:
   Every Monday 09:00 (Asia/Seoul)
@@ -29,7 +30,7 @@ Behavior:
 
 Environment override (optional):
   SUSTAIN_CRON_MINUTE, SUSTAIN_CRON_HOUR, SUSTAIN_CRON_DOW, SUSTAIN_CRON_TZ,
-  SUSTAIN_CRON_LOG_PATH, CRONTAB_BIN
+  SUSTAIN_CRON_LOG_PATH, SUSTAIN_CRON_MAX_LOG_SIZE_MB, CRONTAB_BIN
 EOF
 }
 
@@ -59,6 +60,10 @@ while [[ $# -gt 0 ]]; do
       LOG_PATH="$2"
       shift 2
       ;;
+    --max-log-size-mb)
+      MAX_LOG_SIZE_MB="$2"
+      shift 2
+      ;;
     -h|--help)
       usage
       exit 0
@@ -74,6 +79,13 @@ done
 if [[ ! -x "$RUNNER_PATH" ]]; then
   echo "[ERROR] Missing executable runner: $RUNNER_PATH" >&2
   echo "Run: chmod +x $RUNNER_REL" >&2
+  exit 1
+fi
+
+ROTATE_PATH="${REPO_ROOT}/scripts/rotate_log_if_needed.sh"
+if [[ ! -x "$ROTATE_PATH" ]]; then
+  echo "[ERROR] Missing executable log rotate helper: $ROTATE_PATH" >&2
+  echo "Run: chmod +x scripts/rotate_log_if_needed.sh" >&2
   exit 1
 fi
 
@@ -94,6 +106,10 @@ if [[ -z "$LOG_PATH" ]]; then
   echo "[ERROR] --log-path must be non-empty" >&2
   exit 1
 fi
+if ! [[ "$MAX_LOG_SIZE_MB" =~ ^[0-9]+$ ]] || [[ "$MAX_LOG_SIZE_MB" -le 0 ]]; then
+  echo "[ERROR] --max-log-size-mb must be a positive integer" >&2
+  exit 1
+fi
 
 if ! command -v "$CRONTAB_BIN" >/dev/null 2>&1; then
   echo "[ERROR] crontab binary not found: $CRONTAB_BIN" >&2
@@ -101,7 +117,8 @@ if ! command -v "$CRONTAB_BIN" >/dev/null 2>&1; then
 fi
 
 MARKER="# DOTPIO_WEEKLY_SUSTAIN"
-CRON_CMD="cd ${REPO_ROOT} && bash ${RUNNER_REL} >> ${LOG_PATH} 2>&1"
+ROTATE_REL="scripts/rotate_log_if_needed.sh"
+CRON_CMD="cd ${REPO_ROOT} && bash ${ROTATE_REL} ${LOG_PATH} ${MAX_LOG_SIZE_MB} && bash ${RUNNER_REL} >> ${LOG_PATH} 2>&1"
 CRON_LINE="CRON_TZ=${TZ_VALUE} ${SCHEDULE_MINUTE} ${SCHEDULE_HOUR} * * ${SCHEDULE_DOW} ${CRON_CMD} ${MARKER}"
 
 CURRENT_CRON="$($CRONTAB_BIN -l 2>/dev/null || true)"

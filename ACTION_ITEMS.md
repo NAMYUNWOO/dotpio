@@ -61,6 +61,7 @@ Tracking rule:
 - [x] Sync RC checklist sign-off status with actual tagged RC evidence
 - [x] Add safe apply-mode test hook for weekly cron installer (mockable crontab binary + regression)
 - [x] Add optional weekly cron log path override for multi-instance deployments
+- [x] Add weekly sustain cron log rotation guard (size-based pre-run rotate helper + installer wiring)
 
 ---
 

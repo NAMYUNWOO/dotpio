@@ -147,3 +147,8 @@ See project-level plans:
 - [x] Add optional weekly cron log path override for multi-instance deployments
   - [x] Add installer support for `--log-path`/`SUSTAIN_CRON_LOG_PATH` override while keeping default logs path
   - [x] Extend weekly cron installer regression coverage for custom log-path rendering
+
+- [x] Add weekly sustain cron log rotation guard
+  - [x] Add a size-based pre-run log rotation helper script for weekly sustain cron logs
+  - [x] Wire installer support for configurable max-log-size MB threshold in managed cron entry
+  - [x] Extend cron installer regression coverage for log-rotation command rendering
