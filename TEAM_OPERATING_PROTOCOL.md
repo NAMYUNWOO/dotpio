@@ -36,6 +36,16 @@ Each request must include:
 - Output: prompt/fallback updates + edge-case handling
 - DoD: malformed/abusive outputs under threshold
 
+### Combat Team
+- Focus: combat pacing, enemy behavior, damage windows, encounter feel
+- Output: combat tuning diff + behavior/regression evidence
+- DoD: combat loop remains readable, varied, and stable under regression
+
+### Design Team
+- Focus: visual/thematic consistency, UI affordance hierarchy, map readability
+- Output: design guideline updates + UI/map polish diffs
+- DoD: theme coherence and UX clarity improve without breaking flow
+
 ### UX Team
 - Focus: DOS UI clarity and action feedback
 - Output: copy/UI diff + refreshed screenshots
@@ -55,7 +65,7 @@ On every completed task, report in channel with:
 5. Next task
 
 And append team logs under `logs/teams/`:
-- `systems.md`, `world.md`, `ai-content.md`, `ux.md`, `qa.md`
+- `systems.md`, `world.md`, `ai-content.md`, `combat.md`, `design.md`, `ux.md`, `qa.md`
 - Use append-only entries with timestamp, decision notes, and follow-ups.
 
 Context-window policy:
