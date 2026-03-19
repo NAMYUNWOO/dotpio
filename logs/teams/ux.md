@@ -288,3 +288,15 @@
 - UX lane approved plain-language trend labels over numeric scores.
 - Decision: keep markdown phrasing concise (`Trend: **...**`) to reduce operator scan time.
 - Follow-up: none.
+
+## 2026-03-20 03:58 KST
+- Task: Surface active mission pack id + momentum streak in mission HUD and run summary overlay.
+- Files: `src/hud.lua`, `src/run_summary.lua`, `scripts/regression_run_summary.lua`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `luac -p src/hud.lua src/run_summary.lua scripts/regression_run_summary.lua` ✅
+  - `lua scripts/regression_run_summary.lua` ✅
+- Decisions:
+  - Mission panel now shows `PACK:<id> STREAK:<n>` under the mission header for in-run pacing feedback.
+  - Run summary now includes the same metadata so players can correlate completion outcomes with the active mission pack.
+- Follow-up:
+  - If mission metadata expands, prioritize abbreviation to preserve DOS HUD readability.

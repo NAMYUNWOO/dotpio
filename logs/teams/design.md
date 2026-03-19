@@ -67,3 +67,8 @@
 - Design lane reviewed dashboard readability with new trend row.
 - Decision: expose trend near overall tier for at-a-glance weekly triage.
 - Follow-up: none.
+
+## 2026-03-20 03:58 KST — cross-lane handoff
+- Design lane approved compact readability pass for mission pacing metadata (`PACK`, `STREAK`) in both mission panel and run summary.
+- Decision: maintain terse DOS-style labels to avoid panel clutter.
+- Follow-up: revisit panel density only if additional mission metadata is added.

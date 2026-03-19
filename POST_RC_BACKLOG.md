@@ -20,3 +20,6 @@ Last updated: 2026-03-20 03:00 KST
 - [x] Add automatic stale-branch/report drift check
 - [x] Add sustain health dashboard JSON output mode (compact + pretty) and wire weekly runner artifact output
 - [x] Add sustain dashboard trend classification (improving/stable/degrading) with regression coverage
+
+## P1 (Gameplay Follow-up)
+- [x] Surface active mission-pack id + momentum streak in HUD/run-summary for clearer run pacing readability

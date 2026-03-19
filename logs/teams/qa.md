@@ -821,3 +821,18 @@
   - `python3 scripts/regression_sustain_health_dashboard.py`
   - `bash scripts/run_weekly_sustain.sh`
 - Result: PASS, trend field emitted in markdown/json while weekly sustain runner remains green.
+
+## 2026-03-20 03:58 KST
+- Task: QA verification for mission pack/streak readability metadata in HUD + run summary snapshot.
+- Files checked: `src/hud.lua`, `src/run_summary.lua`, `scripts/regression_run_summary.lua`, `scripts/regression_run_missions.lua`, `scripts/regression_mission_momentum.lua`, `scripts/regression_mission_variety_pack.lua`
+- Verification:
+  - `luac -p src/hud.lua src/run_summary.lua scripts/regression_run_summary.lua scripts/regression_run_missions.lua` ✅
+  - `lua scripts/regression_run_missions.lua` ✅
+  - `lua scripts/regression_run_summary.lua` ✅
+  - `lua scripts/regression_mission_momentum.lua` ✅
+  - `lua scripts/regression_mission_variety_pack.lua` ✅
+- Decisions:
+  - Added regression assertion for summary snapshot mission metadata (`missionPackId`, `momentumStreak`) to prevent future drift.
+  - No portal validator run required (map/portal files unchanged).
+- Follow-up:
+  - Keep run-summary regression aligned if mission-state metadata keys change.

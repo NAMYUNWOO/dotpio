@@ -442,3 +442,18 @@
 - Completed: added trend classifier (`improving|stable|degrading`) to sustain dashboard payload based on weekly deltas + economy safety signal.
 - Decision: keep trend additive (non-gating) so existing GREEN/YELLOW/ORANGE/RED health scoring remains backward compatible.
 - Follow-up: if trend remains degrading for >=2 cycles, consider auto-escalation in weekly ops policy.
+
+## 2026-03-20 03:58 KST
+- Task: P1 gameplay follow-up — expose mission pack id + momentum streak in mission HUD/run summary.
+- Files: `src/hud.lua`, `src/run_summary.lua`, `scripts/regression_run_summary.lua`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `luac -p src/hud.lua src/run_summary.lua scripts/regression_run_summary.lua scripts/regression_run_missions.lua` ✅
+  - `lua scripts/regression_run_missions.lua` ✅
+  - `lua scripts/regression_run_summary.lua` ✅
+  - `lua scripts/regression_mission_momentum.lua` ✅
+  - `lua scripts/regression_mission_variety_pack.lua` ✅
+- Decisions:
+  - Mission state metadata (`lastPackId`, `completionStreak`) is now surfaced directly in HUD and run summary to make run pacing legible.
+  - Run summary snapshot now persists `missionPackId` + `momentumStreak` as durable context for post-run review.
+- Follow-up:
+  - Next gameplay experiment candidate: add mission-pack-specific bonus text/hints on objective completion.

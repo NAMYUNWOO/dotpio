@@ -138,3 +138,8 @@
 - AI-content lane aligned on additive `overall.trend` field for downstream automation.
 - Decision: preserve stable value set (`improving`, `stable`, `degrading`) for parser simplicity.
 - Follow-up: extend with AI-content-specific trend inputs once dedicated weekly metrics land.
+
+## 2026-03-20 03:58 KST — cross-lane handoff
+- AI-content lane aligned on exposing mission pack/streak context for better player readability of rotating objective design.
+- Decision: keep mission catalog semantics unchanged; this patch is visibility-only.
+- Follow-up: consider adding pack-level flavor descriptors in future mission metadata.

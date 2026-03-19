@@ -185,3 +185,20 @@ Compact decision memory for AI context efficiency.
   - `bash scripts/run_weekly_sustain.sh`
 - Backlog update: `POST_RC_BACKLOG.md` P2 trend-classification item marked done.
 - Next priority item: none remaining in `POST_RC_BACKLOG.md` (all checked).
+- Mission HUD now surfaces compact pacing metadata (`PACK:<id>`, `STREAK:<n>`) directly under `RUN MISSIONS` for in-run readability.
+- Run summary snapshots now persist mission metadata (`missionPackId`, `momentumStreak`) alongside objective/carryover details.
+- Regression coverage extended in `scripts/regression_run_summary.lua` to lock mission metadata snapshot integrity.
+
+## 2026-03-20 03:58 KST — P1 mission pacing readability metadata
+- Completed backlog item: `Surface active mission-pack id + momentum streak in HUD/run-summary for clearer run pacing readability`.
+- Durable decisions:
+  - Added compact mission panel metadata row (`PACK`, `STREAK`) without changing mission/combat/economy logic.
+  - Run summary now records pack id + streak so post-run reviews retain pacing context.
+- Verification set:
+  - `luac -p src/hud.lua src/run_summary.lua scripts/regression_run_summary.lua scripts/regression_run_missions.lua`
+  - `lua scripts/regression_run_missions.lua`
+  - `lua scripts/regression_run_summary.lua`
+  - `lua scripts/regression_mission_momentum.lua`
+  - `lua scripts/regression_mission_variety_pack.lua`
+- Backlog update: `POST_RC_BACKLOG.md` P1 gameplay follow-up item marked done.
+- Next priority item: none currently unchecked in `POST_RC_BACKLOG.md`.

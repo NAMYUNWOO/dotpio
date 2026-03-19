@@ -67,3 +67,8 @@
 - Combat lane verified no combat tuning/code changes in this ops task.
 - Decision: combat pipeline remains unchanged; only sustain dashboard contract updated.
 - Follow-up: none.
+
+## 2026-03-20 03:58 KST — cross-lane handoff
+- Combat lane impact review: no combat logic/balance adjustments in this task.
+- Decision: streak display is HUD/readout only; momentum reward curve (1,1,2) remains unchanged.
+- Follow-up: none.

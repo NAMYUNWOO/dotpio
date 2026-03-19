@@ -132,3 +132,8 @@
 - World lane impact review: no map/portal topology changes required.
 - Decision: consume `overall.trend` as optional context only; do not block world content cadence on ops trend state.
 - Follow-up: none.
+
+## 2026-03-20 03:58 KST — cross-lane handoff
+- World lane impact review: no map/portal topology change in this gameplay-UI task.
+- Decision: keep world regression scope unchanged (`validate_portals.py`, `regression_map_progression.py`).
+- Follow-up: none.

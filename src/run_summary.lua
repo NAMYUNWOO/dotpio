@@ -29,6 +29,8 @@ function RunSummary.open(missionState, unlockFlags, appliedCarry)
         missionsDone = missionsDone,
         missionsTotal = missionsTotal,
         completed = missionsTotal > 0 and missionsDone == missionsTotal,
+        missionPackId = (missionState and missionState.lastPackId) or "unknown",
+        momentumStreak = (missionState and missionState.completionStreak) or 0,
         objectives = objectives,
         advancedUnlocked = advancedUnlocked,
         carry = {

@@ -8,13 +8,18 @@ local function drawMissionPanel(missionState, unlockFlags, startY)
     local panelY = startY or 84
 
     love.graphics.setColor(0, 0, 0, 0.72)
-    love.graphics.rectangle("fill", 8, panelY, 320, 92)
+    love.graphics.rectangle("fill", 8, panelY, 380, 108)
 
     local headerColor = missionState.completed and {0.4, 1, 0.6, 1} or {0.95, 0.9, 0.6, 1}
     love.graphics.setColor(headerColor)
     love.graphics.print(string.format("RUN MISSIONS %d/%d", missionState.doneCount or 0, missionState.total or 0), 16, panelY + 6)
 
-    local row = panelY + 24
+    local metaPack = string.upper(tostring(missionState.lastPackId or "unknown"))
+    local metaStreak = tonumber(missionState.completionStreak) or 0
+    love.graphics.setColor(0.7, 0.88, 1, 1)
+    love.graphics.print(string.format("PACK:%s  STREAK:%d", metaPack, metaStreak), 16, panelY + 22)
+
+    local row = panelY + 40
     for _, objective in ipairs(missionState.objectives or {}) do
         local done = objective.done
         local marker = done and "[x]" or "[ ]"
@@ -46,8 +51,10 @@ local function drawRunSummary(runSummary)
 
     love.graphics.setColor(0.8, 0.9, 1, 1)
     love.graphics.printf(string.format("MISSIONS: %d/%d", data.missionsDone or 0, data.missionsTotal or 0), 112, 168, w - 224, "left")
+    love.graphics.setColor(0.7, 0.88, 1, 1)
+    love.graphics.printf(string.format("PACK: %s   STREAK: %d", string.upper(tostring(data.missionPackId or "unknown")), data.momentumStreak or 0), 112, 188, w - 224, "left")
 
-    local row = 192
+    local row = 214
     for _, objective in ipairs(data.objectives or {}) do
         local marker = objective.done and "[x]" or "[ ]"
         local fg = objective.done and {0.45, 1, 0.65, 1} or {0.8, 0.8, 0.8, 1}
