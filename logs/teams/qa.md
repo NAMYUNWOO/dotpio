@@ -387,3 +387,31 @@
   - No screenshot refresh required in this run (checklist/documentation-only change).
 - Follow-up:
   - Execute full M5 regression matrix from `logs/playtests/rc_checklist.md` and file blockers before fixing critical issues.
+
+## 2026-03-19 12:44:12 KST
+- Task: M5 full regression execution (combat/inventory/build/disasm/portal) from RC matrix.
+- Commit: HEAD (this run)
+- Files checked: `logs/playtests/rc_checklist.md`, `logs/playtests/loop_30min_checklist.md`, `logs/playtests/map_01_04_progression_checklist.md`, `logs/playtests/keyboard_only_usability_checklist.md`, `logs/economy_anti_exploit_report.json`, `logs/economy_anti_exploit_report.md`, `screenshots/screenshot-map04.png`, `screenshots/screenshot-inventory-dos.png`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `python3 scripts/regression_30min_loop_checklist.py` ✅
+  - `lua scripts/regression_enemy_behavior_variants.lua` ✅
+  - `lua scripts/regression_drop_pickup.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `lua scripts/regression_split_stack.lua` ✅
+  - `lua scripts/regression_disassembly_caps.lua` ✅
+  - `lua scripts/regression_srl_cost_curve.lua` ✅
+  - `lua scripts/regression_anti_exploit_report.lua` ✅
+  - `lua scripts/economy_anti_exploit_report.lua` ✅
+  - `python3 scripts/regression_map_progression.py` ✅
+  - `python3 scripts/validate_portals.py` ✅
+  - `lua scripts/regression_action_menu_lock_reasons.lua` ✅
+  - `lua scripts/regression_onboarding_hints.lua` ✅
+  - `python3 scripts/regression_keyboard_usability_checklist.py` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Updated RC checklist rows and release gates to PASS based on fresh command/artifact evidence.
+  - Recorded blocker triage result as zero critical/high blockers for this sweep.
+  - Marked M5 full regression as complete in `ACTION_ITEMS.md` and `TASKS.md`.
+- Follow-up:
+  - Next M5 priority item: fix any newly reported critical blockers (if discovered) and proceed to launch changelog/screenshot packaging + RC tag.

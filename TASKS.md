@@ -99,3 +99,6 @@ See project-level plans:
   - [x] Define release gate checklist rows for combat/inventory/build/disasm/portal regressions
   - [x] Link each row to concrete command + artifact path for pass evidence
   - [x] Include blocker triage and release sign-off section
+- [x] Execute full regression (combat/inventory/build/disasm/portal)
+  - [x] Run RC regression command matrix and record pass/fail evidence
+  - [x] Update blocker triage + sign-off rows from latest results

@@ -1,6 +1,6 @@
 # Keyboard-only Usability Checklist
 
-Generated: 2026-03-19 11:43:30 KST
+Generated: 2026-03-19 12:42:36 KST
 
 ## Scripted pass/fail
 - [x] keyboard shortcut wiring/help text coverage

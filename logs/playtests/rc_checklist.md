@@ -10,43 +10,43 @@ Owner: QA lane
 - Record blocker IDs in the blocker triage table before re-running.
 
 ## Release Gates (must-pass)
-- [ ] No infinite farm loop in SRL economy
-- [ ] 30-minute session keeps progression momentum
-- [ ] New player can complete one build within 5 minutes
-- [ ] No crash/progression blocker in default flow
+- [x] No infinite farm loop in SRL economy
+- [x] 30-minute session keeps progression momentum
+- [x] New player can complete one build within 5 minutes
+- [x] No crash/progression blocker in default flow
 
 ## Regression Matrix
 
 ### 1) Combat & Core Loop
-- [ ] 30-minute core loop checklist
+- [x] 30-minute core loop checklist
   - Command: `python3 scripts/regression_30min_loop_checklist.py`
   - Artifact: `logs/playtests/loop_30min_checklist.md`
   - Covers: progression momentum, combat/build/disasm flow stability
-- [ ] Enemy behavior variant sanity
+- [x] Enemy behavior variant sanity
   - Command: `lua scripts/regression_enemy_behavior_variants.lua`
   - Artifact: command output (pass/fail)
   - Covers: encounter diversity and combat behavior profile safety
 
 ### 2) Inventory / Build / Disassemble
-- [ ] Drop -> pickup regression
+- [x] Drop -> pickup regression
   - Command: `lua scripts/regression_drop_pickup.lua`
   - Covers: world pickup reliability + inventory capacity failure path
-- [ ] Build preview/confirm gate
+- [x] Build preview/confirm gate
   - Command: `lua scripts/regression_build_preview_confirm.lua`
   - Covers: explicit material/SRL consumption before build
-- [ ] BUILDER.SRL affordance copy
+- [x] BUILDER.SRL affordance copy
   - Command: `lua scripts/regression_builder_srl_affordance.lua`
   - Covers: player-facing SRL requirement clarity
-- [ ] Split stack interaction
+- [x] Split stack interaction
   - Command: `lua scripts/regression_split_stack.lua`
   - Covers: partial stack split guardrails
-- [ ] Disassembly caps fairness
+- [x] Disassembly caps fairness
   - Command: `lua scripts/regression_disassembly_caps.lua`
   - Covers: salvage cap and size-tier budget envelope
-- [ ] SRL spam suppression curve
+- [x] SRL spam suppression curve
   - Command: `lua scripts/regression_srl_cost_curve.lua`
   - Covers: anti-spam build cost curve
-- [ ] Anti-exploit loop detector
+- [x] Anti-exploit loop detector
   - Commands:
     - `lua scripts/regression_anti_exploit_report.lua`
     - `lua scripts/economy_anti_exploit_report.lua`
@@ -54,22 +54,22 @@ Owner: QA lane
   - Covers: positive/flat-profit loop detection
 
 ### 3) Portal / World Progression
-- [ ] map_01~04 progression route + portal validator
+- [x] map_01~04 progression route + portal validator
   - Command: `python3 scripts/regression_map_progression.py`
   - Artifact: `logs/playtests/map_01_04_progression_checklist.md`
-- [ ] Full portal integrity check
+- [x] Full portal integrity check
   - Command: `python3 scripts/validate_portals.py`
   - Artifact: command output (pass/fail)
 
 ### 4) UX / Accessibility / Presentation
-- [ ] Disabled action lock reasons
+- [x] Disabled action lock reasons
   - Command: `lua scripts/regression_action_menu_lock_reasons.lua`
-- [ ] Onboarding hint flow (<5 min)
+- [x] Onboarding hint flow (<5 min)
   - Command: `lua scripts/regression_onboarding_hints.lua`
-- [ ] Keyboard-only usability checklist
+- [x] Keyboard-only usability checklist
   - Command: `python3 scripts/regression_keyboard_usability_checklist.py`
   - Artifact: `logs/playtests/keyboard_only_usability_checklist.md`
-- [ ] Refresh launch screenshots
+- [x] Refresh launch screenshots
   - Command: `bash scripts/capture_screenshots.sh`
   - Artifacts:
     - `screenshots/screenshot-map04.png`
@@ -78,18 +78,18 @@ Owner: QA lane
 ## Blocker Triage (critical blockers must be zero)
 | ID | Area | Symptom | Severity | Owner | Status | Fix Commit |
 | --- | --- | --- | --- | --- | --- | --- |
-| (fill) | | | critical/high/medium | | open/fixed | |
+| RC-20260319-00 | all | No critical/high blockers detected in full regression sweep | critical | QA | fixed | n/a |
 
 ## RC Sign-off
 - [ ] Systems sign-off
 - [ ] World sign-off
 - [ ] AI Content sign-off
 - [ ] UX sign-off
-- [ ] QA sign-off
+- [x] QA sign-off
 - [ ] Release tag created
 
 Sign-off note:
-- Date (KST):
-- Candidate tag:
-- Final blocker count:
-- Notes:
+- Date (KST): 2026-03-19 12:41
+- Candidate tag: pending
+- Final blocker count: 0 critical / 0 high
+- Notes: Full RC regression matrix executed; all scripted checks passed and launch screenshots refreshed.
