@@ -1,16 +1,16 @@
 # map_01~04 Progression Playtest Checklist
 
-Generated: 2026-03-19 12:42:36 KST
+Generated: 2026-03-19 13:12:34 KST
 
 ## Scripted checks
 - [x] map_01~map_04 files exist
   - detail: Expected map_01.lua..map_04.lua
 - [x] each map has outbound portal within map_01~04
-  - detail: {'01': {'02', '03', '04'}, '02': {'03', '01'}, '03': {'02', '04', '01'}, '04': {'03', '01'}}
+  - detail: {'01': {'03', '04', '02'}, '02': {'03', '01'}, '03': {'02', '04', '01'}, '04': {'03', '01'}}
 - [x] progression path from map_01 reaches map_02~04
   - detail: reachable=['01', '02', '03', '04']
 - [x] all maps have return path back toward map_01
-  - detail: {'01': {'02', '03', '04'}, '02': {'03', '01'}, '03': {'02', '04', '01'}, '04': {'03', '01'}}
+  - detail: {'01': {'03', '04', '02'}, '02': {'03', '01'}, '03': {'02', '04', '01'}, '04': {'03', '01'}}
 - [x] portal validator passes
   - detail: Maps scanned: 6
 Portals scanned: 18

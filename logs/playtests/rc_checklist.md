@@ -79,6 +79,7 @@ Owner: QA lane
 | ID | Area | Symptom | Severity | Owner | Status | Fix Commit |
 | --- | --- | --- | --- | --- | --- | --- |
 | RC-20260319-00 | all | No critical/high blockers detected in full regression sweep | critical | QA | fixed | n/a |
+| RC-20260319-01 | all | Blocker-focused rerun (loop/anti-exploit/portal) stayed clean; no critical/high blockers | critical | QA | fixed | n/a |
 
 ## RC Sign-off
 - [ ] Systems sign-off
@@ -89,7 +90,7 @@ Owner: QA lane
 - [ ] Release tag created
 
 Sign-off note:
-- Date (KST): 2026-03-19 12:41
+- Date (KST): 2026-03-19 13:12
 - Candidate tag: pending
 - Final blocker count: 0 critical / 0 high
-- Notes: Full RC regression matrix executed; all scripted checks passed and launch screenshots refreshed.
+- Notes: Full RC regression matrix remains green; blocker-focused rerun (30min loop, anti-exploit, portal integrity) also passed with no new critical/high issues.

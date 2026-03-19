@@ -47,7 +47,7 @@ Tracking rule:
 ## M5 - RC/Launch
 - [x] Create RC checklist document
 - [x] Execute full regression (combat/inventory/build/disasm/portal)
-- [ ] Fix all critical blockers
+- [x] Fix all critical blockers
 - [ ] Capture launch screenshots + changelog
 - [ ] Tag release candidate
 

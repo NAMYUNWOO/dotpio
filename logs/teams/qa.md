@@ -415,3 +415,19 @@
   - Marked M5 full regression as complete in `ACTION_ITEMS.md` and `TASKS.md`.
 - Follow-up:
   - Next M5 priority item: fix any newly reported critical blockers (if discovered) and proceed to launch changelog/screenshot packaging + RC tag.
+
+## 2026-03-19 13:12:39 KST
+- Task: M5 fix-all-critical-blockers closure audit (blocker-focused rerun + triage update).
+- Commit: HEAD (this run)
+- Files: `ACTION_ITEMS.md`, `TASKS.md`, `logs/playtests/rc_checklist.md`
+- Verification:
+  - `python3 scripts/regression_30min_loop_checklist.py` ✅
+  - `lua scripts/regression_anti_exploit_report.lua` ✅
+  - `lua scripts/economy_anti_exploit_report.lua` ✅
+  - `python3 scripts/validate_portals.py` ✅
+- Decisions:
+  - Confirmed no outstanding critical/high blockers after targeted rerun; kept blocker triage at 0 critical / 0 high.
+  - Added blocker-audit row `RC-20260319-01` to RC checklist to preserve rerun evidence.
+  - Marked "Fix all critical blockers" complete in both backlog trackers.
+- Follow-up:
+  - Next M5 item: capture launch screenshots + changelog, then create release candidate tag.

@@ -102,3 +102,8 @@ See project-level plans:
 - [x] Execute full regression (combat/inventory/build/disasm/portal)
   - [x] Run RC regression command matrix and record pass/fail evidence
   - [x] Update blocker triage + sign-off rows from latest results
+- [x] Fix all critical blockers
+  - [x] Re-run blocker-focused regression subset and confirm no critical/high failures
+  - [x] Update blocker triage status in RC checklist
+- [ ] Capture launch screenshots + changelog
+- [ ] Tag release candidate
