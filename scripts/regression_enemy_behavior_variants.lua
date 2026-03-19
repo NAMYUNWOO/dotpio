@@ -70,9 +70,21 @@ local telegraphFirst = EnemyAI.debugConsumeDesperationAttackWindow(probe.berserk
 expect(telegraphFirst == true and probe.berserker.desperationLungePrimed == true, "berserker desperate attack should telegraph before first lunge")
 local telegraphSecond = EnemyAI.debugConsumeDesperationAttackWindow(probe.berserker)
 expect(telegraphSecond == false and probe.berserker.desperationLungePrimed == false, "berserker lunge should resolve after telegraph window")
+
+probe.berserker.desperationRecoveryPending = true
+local recoveryFirst = EnemyAI.debugConsumeDesperationRecoveryWindow(probe.berserker)
+expect(recoveryFirst == true and probe.berserker.desperationRecoveryPending == false, "berserker should consume one-turn post-lunge recovery window")
+local recoverySecond = EnemyAI.debugConsumeDesperationRecoveryWindow(probe.berserker)
+expect(recoverySecond == false, "berserker should only recover for a single turn")
+
 probe.berserker.hp = 3
 EnemyAI.debugSyncSynergy(probe.berserker, { probe.berserker })
-expect(probe.berserker.desperationActive == false and probe.berserker.desperationLungePrimed == false, "lunge telegraph should reset when berserker leaves desperation")
+expect(
+    probe.berserker.desperationActive == false
+        and probe.berserker.desperationLungePrimed == false
+        and probe.berserker.desperationRecoveryPending == false,
+    "lunge telegraph/recovery windows should reset when berserker leaves desperation"
+)
 
 local hunterSolo = { x = 8, y = 8, behavior = "hunter", hp = 3, alive = true }
 EnemyAI.init(hunterSolo, 1)

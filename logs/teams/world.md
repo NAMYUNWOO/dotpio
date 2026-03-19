@@ -159,3 +159,7 @@
 ## 2026-03-20 06:02 KST
 - Cross-lane review: no world/map/portal topology changes in this combat readability slice.
 - Decision: keep current map encounter structures unchanged while observing berserker fairness telemetry.
+
+## 2026-03-20 06:30 KST — No map topology change (combat rhythm-only patch)
+- Decision: keep world/portal layouts unchanged; fairness update scoped to enemy behavior loop.
+- Follow-up: revisit map-specific berserker spawn pressure only if recovery window materially changes encounter tension.

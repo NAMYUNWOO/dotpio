@@ -174,6 +174,20 @@ local function consumeDesperationAttackWindow(e)
     return false
 end
 
+local function consumeDesperationRecoveryWindow(e)
+    if e.behavior ~= "berserker" or not e.desperationActive then
+        e.desperationRecoveryPending = false
+        return false
+    end
+
+    if e.desperationRecoveryPending then
+        e.desperationRecoveryPending = false
+        return true
+    end
+
+    return false
+end
+
 local function syncCombatModifiers(e, enemies)
     local behavior = behaviorFor(e)
     local empowered = hasNearbyBehavior(e, enemies, behavior.synergyFromBehavior, behavior.synergyRange)
@@ -185,6 +199,7 @@ local function syncCombatModifiers(e, enemies)
     e.justEnteredDesperation = desperationActive and not prevDesperation
     if not desperationActive then
         e.desperationLungePrimed = false
+        e.desperationRecoveryPending = false
     end
 
     local moveMul = (empowered and behavior.synergyMoveCdMul or 1) * (desperationActive and behavior.desperationMoveCdMul or 1)
@@ -268,6 +283,7 @@ function EnemyAI.init(e, idx)
     e.desperationActive = false
     e.justEnteredDesperation = false
     e.desperationLungePrimed = false
+    e.desperationRecoveryPending = false
 end
 
 function EnemyAI.update(e, idx, dt, player, enemies)
@@ -330,9 +346,11 @@ function EnemyAI.update(e, idx, dt, player, enemies)
         if e.hp <= e.fleeHp then
             e.state = "flee"
             e.desperationLungePrimed = false
+            e.desperationRecoveryPending = false
         elseif not isAdjacent(e.x, e.y, player.x, player.y) then
             e.state = "chase"
             e.desperationLungePrimed = false
+            e.desperationRecoveryPending = false
         end
 
     elseif e.state == "flee" then
@@ -367,6 +385,11 @@ function EnemyAI.update(e, idx, dt, player, enemies)
         end
 
     elseif e.state == "attack" and e.atkTimer <= 0 then
+        if consumeDesperationRecoveryWindow(e) then
+            e.atkTimer = e.atkCd
+            return "berserker_lunge_recovery"
+        end
+
         if consumeDesperationAttackWindow(e) then
             e.atkTimer = e.atkCd
             return "berserker_lunge_telegraph"
@@ -376,6 +399,9 @@ function EnemyAI.update(e, idx, dt, player, enemies)
         local dmg = Stats.damageReduction(e.atkDmg, player.effectiveStats)
         player.hp = player.hp - math.max(1, math.floor(dmg + 0.5))
         e.atkTimer = e.atkCd
+        if e.behavior == "berserker" and e.desperationActive then
+            e.desperationRecoveryPending = true
+        end
         if e.retreatAfterHit then
             e.state = "flee"
         end
@@ -430,6 +456,10 @@ end
 
 function EnemyAI.debugConsumeDesperationAttackWindow(e)
     return consumeDesperationAttackWindow(e)
+end
+
+function EnemyAI.debugConsumeDesperationRecoveryWindow(e)
+    return consumeDesperationRecoveryWindow(e)
 end
 
 return EnemyAI

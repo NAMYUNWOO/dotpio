@@ -516,3 +516,8 @@
 - Decisions:
   - Added deterministic berserker lunge window consumption helper (`consumeDesperationAttackWindow`).
   - Entities update now returns combat event counts (`hits`, `berserkerLungeTelegraphs`) for runtime consumers.
+
+## 2026-03-20 06:30 KST — Enemy event plumbing update for recovery turns
+- Decision: `Entities.update` now tracks `berserkerLungeRecoveries` event count alongside hit/telegraph events.
+- Rationale: structured event output keeps combat telemetry/event consumers extensible.
+- Follow-up: include recovery count in future combat telemetry snapshots if balancing requires data-driven tuning.

@@ -274,3 +274,17 @@ Compact decision memory for AI context efficiency.
   - Marked pre-lunge tell task done in `TASKS.md` and `POST_RC_BACKLOG.md`.
 - Next priority item:
   - No unchecked items remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; request next Game Director experiment injection.
+
+## 2026-03-20 06:30 KST — P1 combat fairness follow-up: berserker post-lunge recovery
+- Completed backlog item: `Combat Team: Add one-turn post-lunge recovery window for berserker desperation chain (readability/fairness follow-up)`.
+- Durable decisions:
+  - Berserker desperation cadence is now deterministic three-step: **telegraph -> lunge hit -> one-turn recovery**.
+  - Enemy AI now tracks `desperationRecoveryPending`; recovery consumes one attack turn and then clears.
+  - Runtime status feed now emits explicit recovery feedback (`BERSERKER RECOVERING: BRIEF BREATHER`) via new combat event `berserker_lunge_recovery`.
+- Verification set:
+  - `luac -p src/enemy_ai.lua src/entities.lua main.lua scripts/regression_enemy_behavior_variants.lua`
+  - `lua scripts/regression_enemy_behavior_variants.lua`
+- Backlog update:
+  - Marked new P1 combat follow-up item done in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
+- Next priority item:
+  - No unchecked items remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject next Game Director experiment candidate next cycle.

@@ -104,3 +104,8 @@
 - Verification: `luac -p src/hud.lua main.lua` ✅
 - Decisions:
   - Preserved terse DOS-style warning copy and compact HUD telemetry to avoid panel overload.
+
+## 2026-03-20 06:30 KST — Combat readability rhythm adjustment
+- Decision: preserve high-threat berserker identity while introducing a recover beat after desperation lunge.
+- Rationale: telegraph-only pattern remained punishing in chain engagements; recovery beat improves tactical readability without removing spike moments.
+- Follow-up: monitor if map choke points over-amplify recovery exploitation.

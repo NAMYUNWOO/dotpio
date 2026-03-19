@@ -124,3 +124,9 @@
   - Telegraph consumes an attack turn and emits runtime event `berserker_lunge_telegraph` for status/HUD readability.
 - Follow-up:
   - Balance-check if one-turn wind-up over-nerfs berserker pressure on higher-tier maps.
+
+## 2026-03-20 06:30 KST — P1 combat fairness follow-up: berserker post-lunge recovery
+- Decision: berserker desperation chain now enforces a one-turn recovery window immediately after lunge impact.
+- Implementation: enemy AI tracks `desperationRecoveryPending`; attack cadence becomes telegraph -> lunge hit -> recovery pause.
+- Verification: `luac -p src/enemy_ai.lua src/entities.lua main.lua scripts/regression_enemy_behavior_variants.lua` and `lua scripts/regression_enemy_behavior_variants.lua`.
+- Follow-up: if combat pacing gets too forgiving, tune recovery cadence by profile flag rather than removing readability window.

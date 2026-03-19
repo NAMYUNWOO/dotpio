@@ -165,3 +165,8 @@
 ## 2026-03-20 06:02 KST
 - Cross-lane review: no AI generation or prompt safety pipeline changes.
 - Decision: pre-lunge tell is runtime combat/UI signaling only; AI-content safeguards remain unchanged.
+
+## 2026-03-20 06:30 KST — Berserker pattern readability guardrail
+- Decision: desperation attack chain now includes deterministic recovery phase to reduce opaque burst chaining.
+- Impact: behavior profile remains aggressive but easier to parse in text/HUD feedback channels.
+- Follow-up: consider exposing behavior-sequence hints in future enemy glossary/help content.

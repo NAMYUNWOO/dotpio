@@ -189,6 +189,13 @@ function love.update(dt)
         else
             InventoryUI.setStatus(string.format("BERSERKER LUNGE TELLS x%d: IMPACT NEXT TURN", telegraphCount))
         end
+    elseif (enemyEvents.berserkerLungeRecoveries or 0) > 0 then
+        local recoveryCount = enemyEvents.berserkerLungeRecoveries
+        if recoveryCount == 1 then
+            InventoryUI.setStatus("BERSERKER RECOVERING: BRIEF BREATHER")
+        else
+            InventoryUI.setStatus(string.format("BERSERKERS RECOVERING x%d: BRIEF BREATHER", recoveryCount))
+        end
     end
 
     Camera.update(Player.visualX, Player.visualY)

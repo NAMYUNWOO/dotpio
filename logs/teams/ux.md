@@ -342,3 +342,8 @@
 - Decisions:
   - Added explicit status feed callout (`BERSERKER LUNGE TELL...`) when lunge warning triggers.
   - HUD now shows compact `Lunge Tell: <n>` indicator alongside `Berserk` count.
+
+## 2026-03-20 06:30 KST — Berserker recovery feedback copy
+- Decision: emit explicit status text for recovery turn (`BERSERKER RECOVERING: BRIEF BREATHER`) so players can identify safe reposition windows.
+- Impact: status feed now distinguishes telegraph danger vs post-lunge recovery breathing room.
+- Follow-up: evaluate if HUD should also surface recovery count when multiple berserkers are active.

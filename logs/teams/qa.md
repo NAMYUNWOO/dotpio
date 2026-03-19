@@ -887,3 +887,8 @@
   - `luac -p src/enemy_ai.lua src/entities.lua src/hud.lua main.lua` ✅
 - Decisions:
   - Regression now asserts telegraph->lunge consume cycle and reset when berserker exits desperation.
+
+## 2026-03-20 06:30 KST — Regression extension for berserker recovery window
+- Decision: extend `scripts/regression_enemy_behavior_variants.lua` to validate one-turn recovery consumption and reset on desperation exit.
+- Evidence: regression pass confirmed single-turn recovery behavior and no lingering recovery flag after leaving desperation.
+- Follow-up: add runtime integration scenario if future combat event sequencing becomes more complex.
