@@ -1,6 +1,6 @@
 # POST_RC_BACKLOG
 
-Last updated: 2026-03-20 06:30 KST
+Last updated: 2026-03-20 06:58 KST
 
 ## P0 (Now)
 - [x] Replace F9-centric build flow with Enter->Action menu primary flow
@@ -31,3 +31,4 @@ Last updated: 2026-03-20 06:30 KST
 - [x] UX/Combat Team: Telegraph berserker desperation state in HUD + combat status feed
 - [x] Combat Team: Add one-turn pre-lunge tell for berserker desperation attacks (readability/fairness A/B)
 - [x] Combat Team: Add one-turn post-lunge recovery window for berserker desperation chain (readability/fairness follow-up)
+- [x] UX/Combat Team: Surface active berserker recovery-window count in HUD threat strip

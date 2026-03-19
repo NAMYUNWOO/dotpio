@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-03-20 06:30 KST
+Last updated: 2026-03-20 06:58 KST
 
 See project-level plans:
 - `PROJECT_PLAN.md` (milestones/release gates)
@@ -182,3 +182,4 @@ See project-level plans:
   - [x] Extend enemy behavior regression for desperation transition signal edge
 - [x] Add pre-lunge telegraph for berserker desperation attacks (one-turn warning before boosted hit)
 - [x] Add one-turn post-lunge recovery window for berserker desperation chain (readability/fairness follow-up)
+- [x] Add HUD threat-strip counter for active berserker recovery windows

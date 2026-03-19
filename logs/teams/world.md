@@ -163,3 +163,7 @@
 ## 2026-03-20 06:30 KST — No map topology change (combat rhythm-only patch)
 - Decision: keep world/portal layouts unchanged; fairness update scoped to enemy behavior loop.
 - Follow-up: revisit map-specific berserker spawn pressure only if recovery window materially changes encounter tension.
+
+## 2026-03-20 06:58 KST — HUD berserker recovery counter readability slice
+- No map/portal/content-routing changes in this slice.
+- Follow-up: none.

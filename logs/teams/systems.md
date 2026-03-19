@@ -521,3 +521,7 @@
 - Decision: `Entities.update` now tracks `berserkerLungeRecoveries` event count alongside hit/telegraph events.
 - Rationale: structured event output keeps combat telemetry/event consumers extensible.
 - Follow-up: include recovery count in future combat telemetry snapshots if balancing requires data-driven tuning.
+
+## 2026-03-20 06:58 KST — HUD berserker recovery counter readability slice
+- No economy/system balance constants changed; combat readability-only slice confirmed no SRL loop impact.
+- Follow-up: none.

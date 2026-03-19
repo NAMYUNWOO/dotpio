@@ -892,3 +892,7 @@
 - Decision: extend `scripts/regression_enemy_behavior_variants.lua` to validate one-turn recovery consumption and reset on desperation exit.
 - Evidence: regression pass confirmed single-turn recovery behavior and no lingering recovery flag after leaving desperation.
 - Follow-up: add runtime integration scenario if future combat event sequencing becomes more complex.
+
+## 2026-03-20 06:58 KST — HUD berserker recovery counter readability slice
+- Added `scripts/regression_hud_berserker_counters.lua` to validate alive/desperation/lunge/recovery counter derivation.
+- Verification run: luac syntax pass + HUD counter regression + existing enemy behavior regression all PASS.

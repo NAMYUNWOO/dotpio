@@ -347,3 +347,7 @@
 - Decision: emit explicit status text for recovery turn (`BERSERKER RECOVERING: BRIEF BREATHER`) so players can identify safe reposition windows.
 - Impact: status feed now distinguishes telegraph danger vs post-lunge recovery breathing room.
 - Follow-up: evaluate if HUD should also surface recovery count when multiple berserkers are active.
+
+## 2026-03-20 06:58 KST — HUD berserker recovery counter readability slice
+- HUD now surfaces `Recovering: N` when desperate berserkers are in post-lunge recovery windows.
+- Decision: stacked row rendering keeps strip compact while avoiding overlap when both tell/recovery counters are active.

@@ -109,3 +109,7 @@
 - Decision: preserve high-threat berserker identity while introducing a recover beat after desperation lunge.
 - Rationale: telegraph-only pattern remained punishing in chain engagements; recovery beat improves tactical readability without removing spike moments.
 - Follow-up: monitor if map choke points over-amplify recovery exploitation.
+
+## 2026-03-20 06:58 KST — HUD berserker recovery counter readability slice
+- Threat strip hierarchy now reads: Berserk -> Lunge Tell -> Recovering, preserving urgency order.
+- Decision: use warm amber for recovery indicator to communicate reduced immediate threat vs lunge tell.

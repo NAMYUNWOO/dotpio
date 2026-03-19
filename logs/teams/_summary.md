@@ -288,3 +288,18 @@ Compact decision memory for AI context efficiency.
   - Marked new P1 combat follow-up item done in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
 - Next priority item:
   - No unchecked items remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject next Game Director experiment candidate next cycle.
+
+## 2026-03-20 06:58 KST — P1 combat readability follow-up: berserker recovery HUD counter
+- Completed backlog item: `UX/Combat Team: Surface active berserker recovery-window count in HUD threat strip`.
+- Durable decisions:
+  - Refactored HUD combat-threat counting into `HUD.collectCombatThreatCounters(enemies)` to keep threat-strip semantics testable.
+  - Added `Recovering: n` HUD row (amber) for berserkers with `desperationRecoveryPending`, shown only while desperation is active.
+  - Threat hierarchy remains urgency-ordered: `Berserk` -> `Lunge Tell` -> `Recovering`.
+- Verification set:
+  - `luac -p src/hud.lua scripts/regression_hud_berserker_counters.lua scripts/regression_enemy_behavior_variants.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+  - `lua scripts/regression_enemy_behavior_variants.lua`
+- Backlog update:
+  - Marked new HUD recovery-counter item done in `POST_RC_BACKLOG.md` and `TASKS.md`.
+- Next priority item:
+  - No unchecked items remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; next cycle should inject a fresh Game Director experiment candidate.

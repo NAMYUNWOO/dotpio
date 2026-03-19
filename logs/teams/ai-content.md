@@ -170,3 +170,7 @@
 - Decision: desperation attack chain now includes deterministic recovery phase to reduce opaque burst chaining.
 - Impact: behavior profile remains aggressive but easier to parse in text/HUD feedback channels.
 - Follow-up: consider exposing behavior-sequence hints in future enemy glossary/help content.
+
+## 2026-03-20 06:58 KST — HUD berserker recovery counter readability slice
+- No AI generation prompt/schema changes; content lane unchanged.
+- Follow-up: none.

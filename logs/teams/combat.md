@@ -130,3 +130,8 @@
 - Implementation: enemy AI tracks `desperationRecoveryPending`; attack cadence becomes telegraph -> lunge hit -> recovery pause.
 - Verification: `luac -p src/enemy_ai.lua src/entities.lua main.lua scripts/regression_enemy_behavior_variants.lua` and `lua scripts/regression_enemy_behavior_variants.lua`.
 - Follow-up: if combat pacing gets too forgiving, tune recovery cadence by profile flag rather than removing readability window.
+
+## 2026-03-20 06:58 KST — HUD berserker recovery counter readability slice
+- Added HUD-facing combat threat counter signal for berserker post-lunge recovery state (`desperationRecoveryPending`).
+- Decision: keep recovery indicator gated behind active desperation to avoid noisy baseline HUD.
+- Verification coupled with HUD regression script for counter semantics.

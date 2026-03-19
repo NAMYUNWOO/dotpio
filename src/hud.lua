@@ -1,5 +1,31 @@
 local HUD = {}
 
+function HUD.collectCombatThreatCounters(enemies)
+    local counters = {
+        alive = 0,
+        desperateBerserkers = 0,
+        primedBerserkerLunges = 0,
+        recoveringBerserkers = 0,
+    }
+
+    for _, e in ipairs(enemies or {}) do
+        if e.alive then
+            counters.alive = counters.alive + 1
+            if e.behavior == "berserker" and e.desperationActive then
+                counters.desperateBerserkers = counters.desperateBerserkers + 1
+                if e.desperationLungePrimed then
+                    counters.primedBerserkerLunges = counters.primedBerserkerLunges + 1
+                end
+                if e.desperationRecoveryPending then
+                    counters.recoveringBerserkers = counters.recoveringBerserkers + 1
+                end
+            end
+        end
+    end
+
+    return counters
+end
+
 local function drawMissionPanel(missionState, unlockFlags, startY)
     if not missionState or not missionState.active then
         return
@@ -99,28 +125,23 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     love.graphics.rectangle("fill", 44, 34, 100, 14)
     love.graphics.setColor(0.3,0.3,1,1)
     love.graphics.rectangle("fill", 44, 34, 100*(player.mp/player.maxMp), 14)
-    local alive = 0
-    local desperateBerserkers = 0
-    local primedBerserkerLunges = 0
-    for _, e in ipairs(enemies) do
-        if e.alive then
-            alive = alive + 1
-            if e.behavior == "berserker" and e.desperationActive then
-                desperateBerserkers = desperateBerserkers + 1
-                if e.desperationLungePrimed then
-                    primedBerserkerLunges = primedBerserkerLunges + 1
-                end
-            end
-        end
-    end
+    local counters = HUD.collectCombatThreatCounters(enemies)
     love.graphics.setColor(1,0.5,0.5,1)
-    love.graphics.print("Enemies: "..alive, 160, 14)
-    if desperateBerserkers > 0 then
+    love.graphics.print("Enemies: "..counters.alive, 160, 14)
+    if counters.desperateBerserkers > 0 then
         love.graphics.setColor(1, 0.35, 0.2, 1)
-        love.graphics.print(string.format("Berserk: %d", desperateBerserkers), 160, 30)
-        if primedBerserkerLunges > 0 then
+        love.graphics.print(string.format("Berserk: %d", counters.desperateBerserkers), 160, 30)
+
+        local rowY = 46
+        if counters.primedBerserkerLunges > 0 then
             love.graphics.setColor(1, 0.6, 0.25, 1)
-            love.graphics.print(string.format("Lunge Tell: %d", primedBerserkerLunges), 160, 46)
+            love.graphics.print(string.format("Lunge Tell: %d", counters.primedBerserkerLunges), 160, rowY)
+            rowY = rowY + 16
+        end
+
+        if counters.recoveringBerserkers > 0 then
+            love.graphics.setColor(1, 0.78, 0.38, 1)
+            love.graphics.print(string.format("Recovering: %d", counters.recoveringBerserkers), 160, rowY)
         end
     end
     love.graphics.setColor(0.6,0.6,0.6,1)
@@ -147,7 +168,7 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
         love.graphics.printf("GAME OVER", 0, 290, love.graphics.getWidth(), "center")
         love.graphics.setColor(0.8,0.8,0.8,1)
         love.graphics.printf("Press R to restart", 0, 320, love.graphics.getWidth(), "center")
-    elseif alive == 0 and #enemies > 0 then
+    elseif counters.alive == 0 and #enemies > 0 then
         love.graphics.setColor(0,1,0.5,1)
         love.graphics.printf("ALL ENEMIES DEFEATED! Press R to restart", 0, 200, love.graphics.getWidth(), "center")
     end
