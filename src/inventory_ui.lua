@@ -806,7 +806,7 @@ function InventoryUI.drawHelpBar()
             "Up/Dn:Slot  Enter:Unequip  L/R:Panel  Esc:Exit", 8, 0)
     else
         local help = string.format(
-            "Up/Dn:Nav Enter:Actions Bksp:UpDir U/E/D/S/X:Quick F1:Help F5:Sort %s Esc:Exit",
+            "Up/Dn:Nav Enter:ActionMenu Bksp:UpDir U/E/D/S/X:Quick F1:Help F5:Sort %s Esc:Exit",
             getBuildHint()
         )
         DosUI.putString(1, HELP_ROW, help, 8, 0, SCREEN_COLS - 2)
@@ -832,9 +832,9 @@ function InventoryUI.buildActionMenu(item)
     local canDisassemble = builderCount >= disasmCost
     local disasmLabel
     if canDisassemble then
-        disasmLabel = string.format("DISASSEMBLE [D] (%d BUILDER.SRL)", disasmCost)
+        disasmLabel = string.format("DISASM [D] (%d BUILDER.SRL)", disasmCost)
     else
-        disasmLabel = string.format("DISASSEMBLE [D] (%d BUILDER.SRL, NEED %d)", disasmCost, disasmCost - builderCount)
+        disasmLabel = string.format("DISASM [D] (%d BUILDER.SRL, NEED %d)", disasmCost, disasmCost - builderCount)
     end
     menu[#menu+1] = {label = disasmLabel, enabled = canDisassemble, action = "disassemble"}
     -- SPLIT (stackables only)
@@ -948,7 +948,7 @@ function InventoryUI.drawHelpDialog()
         "",
         "Up/Down     Navigate list / slots",
         "Left/Right  Switch panel (Equip/Files)",
-        "Enter       Action menu (file) / Unequip",
+        "Enter       Action Menu (file) / Unequip",
         "Backspace   Go to parent folder",
         "Home/End    Jump to first/last",
         "PgUp/PgDn   Page up/down",
@@ -972,7 +972,7 @@ function InventoryUI.drawHelpDialog()
         "Disasm SRL: size tier + gear surcharge; small stackables cost >=3 (max 6)",
         "Disasm cap: size-tier stacks (1/2/3 for tiny/medium/large)",
         "Disasm size budget: 35%/45%/55% by size tier (clamped)",
-        "Action Menu: shows SRL, U=Use E=Equip D=Disasm S=Split X=Drop",
+        "Action Menu: BUILDER.SRL shown, U=Use E=Equip D=Disasm S=Split X=Drop",
         "",
         "Press any key to close...",
     }
@@ -1034,7 +1034,7 @@ function InventoryUI.drawBuildPreviewDialog()
     DosUI.drawBox(col, row, w, h, 15, 4)
     DosUI.putString(col + 2, row + 1, "BUILD PREVIEW", 15, 4)
     DosUI.putString(col + 2, row + 2, string.format("Folder: %s", plan.folderName or "?"), 7, 4, w - 4)
-    DosUI.putString(col + 2, row + 3, string.format("Consume: %d files (need %d)", plan.componentCount or 0, plan.requiredCount or 0), 15, 4, w - 4)
+    DosUI.putString(col + 2, row + 3, string.format("Build materials: %d files (need %d)", plan.componentCount or 0, plan.requiredCount or 0), 15, 4, w - 4)
     DosUI.putString(col + 2, row + 4, srlLine, enough and 11 or 8, 4, w - 4)
     DosUI.putString(col + 2, row + 5, "Parts: " .. summary, 7, 4, w - 4)
     DosUI.putString(col + 2, row + 7, "Enter/Y=Build  N/Esc=Cancel", 8, 4, w - 4)
@@ -1196,7 +1196,7 @@ function InventoryUI.actionMenuKeypressed(key)
             local need = getDisassembleCost(actionMenuTarget.itemId)
             local have = Inventory.countItemById(player.inventory, "builder_scroll")
             if have < need then
-                InventoryUI.setStatus(string.format("DISASM NEED %d BUILDER.SRL (%d/%d)", need - have, have, need))
+                InventoryUI.setStatus(string.format("DISASM LOCKED: BUILDER.SRL %d/%d (NEED +%d)", have, need, need - have))
                 return
             end
         end
@@ -1497,11 +1497,11 @@ end
 function InventoryUI.disassembleItem(item)
     if not item or item.type ~= "file" then return end
     if item.isHeroFile then
-        InventoryUI.setStatus("Cannot disassemble HERO.CHAR")
+        InventoryUI.setStatus("DISASM N/A: HERO.CHAR protected")
         return
     end
     if item.itemId == "builder_scroll" then
-        InventoryUI.setStatus("Cannot disassemble BUILDER.SRL")
+        InventoryUI.setStatus("DISASM N/A: BUILDER.SRL protected")
         return
     end
 
@@ -1663,12 +1663,16 @@ function InventoryUI.buildCurrentFolder()
     end
 
     local ok = Inventory.addItem(inv, outItemId, 1)
+    local materialSummary = summarizeBuildComponents(consumed, 2)
+    if #materialSummary > 28 then
+        materialSummary = materialSummary:sub(1, 25) .. "..."
+    end
     if not ok then
-        InventoryUI.setStatus("BUILD OK, INVENTORY FULL")
+        InventoryUI.setStatus(string.format("BUILD OK, INVENTORY FULL (USED: %s)", materialSummary))
     else
         local resultLabel = note or "new item created"
         if #resultLabel > 28 then resultLabel = resultLabel:sub(1, 25) .. "..." end
-        InventoryUI.setStatus(string.format("BUILD OK: %s (%dF+%dBUILDER.SRL)", resultLabel, #consumed, builderCost))
+        InventoryUI.setStatus(string.format("BUILD OK: %s (USED: %s, %dF+%dBUILDER.SRL)", resultLabel, materialSummary, #consumed, builderCost))
     end
 
     if onBuildCompleted then

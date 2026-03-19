@@ -99,3 +99,18 @@
   - Summary can be dismissed via `R`/`Enter`/`Esc` to keep keyboard-only UX flow intact.
 - Follow-up:
   - Next UX priority: M4 DOS terminology consistency pass.
+
+## 2026-03-19 10:13:54 KST
+- Task: M4 DOS terminology consistency pass (Menu/Action/Drop/Disasm/Build) + explicit build material consumption copy.
+- Commit: HEAD (this run)
+- Files: `src/inventory_ui.lua`, `screenshots/screenshot-map04.png`, `screenshots/screenshot-inventory-dos.png`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p src/inventory_ui.lua main.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Standardized inventory copy to canonical DOS terms: `Action Menu`, `Disasm`, `Drop`, `Build` across help bar/dialog + action labels.
+  - Build confirmation/status copy now explicitly names consumed materials (`USED: ...`) so build resource spending stays visible after execution.
+- Follow-up:
+  - Next M4 priority: add always-visible lock reason for all disabled actions.

@@ -26,11 +26,11 @@ See project-level plans:
   - [x] Add report generator script for JSON+Markdown outputs (`scripts/economy_anti_exploit_report.lua`)
   - [x] Add regression script for suspicious loop detection (`scripts/regression_anti_exploit_report.lua`)
 
-- [~] Inventory UX improvements for build workflow
+- [x] Inventory UX improvements for build workflow
   - [x] Add item split/partial stack feature ("소분")
   - [x] Improve `BUILDER.SRL` use flow UX (action menu + F9 path)
   - [x] Build preview panel: consumed components + expected SRL cost
-  - [ ] Keep build material consumption explicit in confirmation/status copy
+  - [x] Keep build material consumption explicit in confirmation/status copy
 
 - [x] Economy tuning for low-tier build spam suppression
   - [x] Tune SRL build-cost curve to increase low-tier churn penalties without overtaxing premium recipes
@@ -78,3 +78,8 @@ See project-level plans:
   - [x] Present per-run mission completion snapshot at reset time
   - [x] Surface unlock status + fail-forward carryover details in summary copy
   - [x] Add regression coverage for summary snapshot formatting/state
+
+## Next Up (M4 UX polish)
+- [x] Finalize DOS terminology consistency (Menu/Action/Drop/Disasm/Build)
+  - [x] Unify inventory help/status/action copy to canonical terms
+  - [x] Keep build material consumption explicit in build preview/confirm/status copy

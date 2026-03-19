@@ -304,3 +304,19 @@
   - No portal validator run required (map/portal files untouched).
 - Follow-up:
   - Fold run-summary checks into 30-minute orchestrator if M4 onboarding flow changes restart semantics.
+
+## 2026-03-19 10:13:54 KST
+- Task: QA verification for M4 terminology consistency + build material explicitness.
+- Commit: HEAD (this run)
+- Files checked: `src/inventory_ui.lua`, `main.lua`, `screenshots/screenshot-map04.png`, `screenshots/screenshot-inventory-dos.png`
+- Verification:
+  - `luac -p src/inventory_ui.lua main.lua` ✅
+  - `lua scripts/regression_build_preview_confirm.lua` ✅
+  - `lua scripts/regression_builder_srl_affordance.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Existing build preview/affordance regressions still pass after terminology/copy normalization.
+  - Screenshot refresh required and captured (visible inventory/help/status copy changes).
+  - No portal validator run required (map/portal files unchanged).
+- Follow-up:
+  - Add/extend regression coverage once M4 always-visible lock reason work lands.
