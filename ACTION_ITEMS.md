@@ -53,6 +53,7 @@ Tracking rule:
 
 ## M5 - Post-RC Sustain
 - [x] Weekly SRL telemetry snapshot + rebalance decision log
+- [x] Add week-over-week delta signals to SRL telemetry snapshot output
 
 ---
 

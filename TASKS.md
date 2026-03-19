@@ -114,3 +114,8 @@ See project-level plans:
 - [x] Weekly SRL telemetry snapshot + rebalance decision log
   - [x] Generate weekly SRL telemetry summary artifact under `logs/`
   - [x] Run anti-exploit report and record rebalance/no-change decision with rationale
+
+- [x] Add week-over-week delta signals to SRL telemetry snapshot output
+  - [x] Include deltas vs previous snapshot for telemetry volume and SRL spend
+  - [x] Surface delta-aware decision context in markdown/json artifacts
+  - [x] Add regression check for weekly snapshot schema including delta fields

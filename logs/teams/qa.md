@@ -457,3 +457,18 @@
   - Closed final unchecked M5 backlog item (`Tag release candidate`) in both trackers.
 - Follow-up:
   - Next item: post-RC telemetry monitoring and bugfix hotlist only if new blockers are reported.
+
+## 2026-03-19 15:14:28 KST
+- Task: M5 sustain telemetry reporting hardening (week-over-week deltas + regression).
+- Commit: HEAD (this run)
+- Files: `scripts/economy_weekly_snapshot.py`, `scripts/regression_weekly_snapshot.py`, `logs/economy_weekly_snapshot.md`, `logs/economy_weekly_snapshot.json`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `python3 -m py_compile scripts/economy_weekly_snapshot.py scripts/regression_weekly_snapshot.py` ✅
+  - `lua scripts/economy_anti_exploit_report.lua` ✅
+  - `python3 scripts/economy_weekly_snapshot.py` ✅
+  - `python3 scripts/regression_weekly_snapshot.py` ✅
+- Decisions:
+  - Added explicit regression coverage for weekly snapshot delta schema to guard sustain-report compatibility.
+  - Kept anti-exploit gate in verification chain so weekly decision remains tied to suspicious-window count.
+- Follow-up:
+  - Next QA sustain check: include `scripts/regression_weekly_snapshot.py` in any future RC/sustain command matrix update.

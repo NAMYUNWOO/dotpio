@@ -185,3 +185,19 @@
   - Current weekly decision is `NO_CURVE_CHANGE` (0 suspicious windows).
 - Follow-up:
   - Next sustain item: schedule this snapshot in weekly cadence and revisit SRL curve only when suspicious windows become non-zero.
+
+## 2026-03-19 15:14:28 KST
+- Task: M5 post-RC sustain - add week-over-week delta signals to weekly SRL snapshot.
+- Commit: HEAD (this run)
+- Files: `scripts/economy_weekly_snapshot.py`, `scripts/regression_weekly_snapshot.py`, `logs/economy_weekly_snapshot.md`, `logs/economy_weekly_snapshot.json`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `python3 -m py_compile scripts/economy_weekly_snapshot.py scripts/regression_weekly_snapshot.py` ✅
+  - `lua scripts/economy_anti_exploit_report.lua` ✅
+  - `python3 scripts/economy_weekly_snapshot.py` ✅
+  - `python3 scripts/regression_weekly_snapshot.py` ✅
+- Decisions:
+  - Weekly snapshot now supports CLI path overrides, enabling deterministic regression runs in temp outputs without mutating canonical artifacts.
+  - Snapshot JSON/Markdown now include previous-snapshot comparison signals (event count + SRL spend deltas) for faster trend detection during sustain cadence.
+  - Added schema regression that validates baseline (first run null deltas) and compare-mode (second run concrete deltas).
+- Follow-up:
+  - Next sustain task: wire this regression into any release/sustain checklist runner so weekly ops always gate on delta schema health.
