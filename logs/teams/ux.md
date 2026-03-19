@@ -164,3 +164,15 @@
   - Added checklist artifact generator for scripted PASS/FAIL + manual keyboard-only smoke checklist under `logs/playtests/`.
 - Follow-up:
   - Next M5 priority: create RC checklist document.
+
+## 2026-03-19 13:43:27 KST
+- Task: M5 launch screenshot refresh for RC packaging.
+- Commit: HEAD (this run)
+- Files: `screenshots/screenshot-map04.png`, `screenshots/screenshot-inventory-dos.png`, `CHANGELOG.md`
+- Verification:
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Kept scripted capture route as single source for release screenshots to avoid drift.
+  - Published launch-facing changelog notes in `CHANGELOG.md` aligned with current DOS UI/flow.
+- Follow-up:
+  - Next UX-related launch step: none blocking; proceed to RC tag.

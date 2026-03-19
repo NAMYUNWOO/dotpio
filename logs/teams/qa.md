@@ -431,3 +431,16 @@
   - Marked "Fix all critical blockers" complete in both backlog trackers.
 - Follow-up:
   - Next M5 item: capture launch screenshots + changelog, then create release candidate tag.
+
+## 2026-03-19 13:43:27 KST
+- Task: M5 capture launch screenshots + changelog packaging.
+- Commit: HEAD (this run)
+- Files: `CHANGELOG.md`, `screenshots/screenshot-map04.png`, `screenshots/screenshot-inventory-dos.png`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Added root `CHANGELOG.md` with RC snapshot (`0.5.0-rc.1`) consolidating shipped M0~M5 deltas for release packaging.
+  - Refreshed launch screenshot artifacts from scripted capture pipeline.
+  - Marked "Capture launch screenshots + changelog" complete in both backlog trackers.
+- Follow-up:
+  - Next M5 priority item: tag release candidate.

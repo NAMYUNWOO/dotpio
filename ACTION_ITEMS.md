@@ -48,7 +48,7 @@ Tracking rule:
 - [x] Create RC checklist document
 - [x] Execute full regression (combat/inventory/build/disasm/portal)
 - [x] Fix all critical blockers
-- [ ] Capture launch screenshots + changelog
+- [x] Capture launch screenshots + changelog
 - [ ] Tag release candidate
 
 ---
