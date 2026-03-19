@@ -1,6 +1,6 @@
 # POST_RC_BACKLOG
 
-Last updated: 2026-03-19
+Last updated: 2026-03-19 23:44 KST
 
 ## P0 (Now)
 - [x] Replace F9-centric build flow with Enter->Action menu primary flow
@@ -10,7 +10,7 @@ Last updated: 2026-03-19
 ## P1 (Gameplay)
 - [x] Add map_07 with new tactical pattern and portal integration
 - [x] Add 2 new enemy archetypes with synergy behavior
-- [ ] Add mission variety pack (at least +5 objectives)
+- [x] Add mission variety pack (at least +5 objectives)
 
 ## P2 (Ops)
 - [ ] Add weekly sustain audit JSON pretty mode

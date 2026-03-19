@@ -723,3 +723,20 @@
   - No screenshot regen required (no UI layout/copy change).
 - Follow-up:
   - Keep synergy assertions in sync if archetype ranges/buff multipliers are retuned.
+
+## 2026-03-19 23:47:05 KST
+- Task: QA verification for mission variety pack vertical slice.
+- Commit: HEAD (this run)
+- Files checked: `src/run_missions.lua`, `main.lua`, `scripts/regression_mission_variety_pack.lua`
+- Verification:
+  - `luac -p src/run_missions.lua main.lua scripts/regression_run_missions.lua scripts/regression_unlock_flags.lua scripts/regression_run_summary.lua scripts/regression_mission_variety_pack.lua` ✅
+  - `lua scripts/regression_run_missions.lua` ✅
+  - `lua scripts/regression_unlock_flags.lua` ✅
+  - `lua scripts/regression_run_summary.lua` ✅
+  - `lua scripts/regression_mission_variety_pack.lua` ✅
+- Decisions:
+  - Legacy mission regressions remain green with rotating mission packs because first-cycle pack preserves baseline kill/pickup/build expectations.
+  - New regression asserts objective catalog size floor (>=8), 4-pack rotation coverage, and inclusion of newly introduced search/inventory/build-2 variants.
+  - No portal validator run required (map/portal files unchanged).
+- Follow-up:
+  - Add a future playtest assertion once mission rewards are attached (to verify streak/bonus economy side effects).

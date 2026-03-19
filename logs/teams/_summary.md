@@ -83,3 +83,7 @@ Compact decision memory for AI context efficiency.
 - Added `map_07` as a post-RC P1 world expansion with additional mid-lane collision barricades to create a tighter tactical choke pattern compared to map_06.
 - Portal graph now includes a bidirectional `map_06` <-> `map_07` pair (`map_06` portal `07` at 47,13 to `map_07` portal `06`, reciprocal return path on `map_07`).
 - Enemy roster now includes two P1 synergy archetypes: `warcaller` (nearby ally alert propagation on player sight) and `hunter` (proximity buff when a living warcaller is nearby), with regression coverage extended for synergy activation and ally-alert behavior.
+- Run missions now support rotating 3-objective packs instead of a fixed prototype list, preserving HUD readability while varying run goals across resets.
+- Mission variety pack now includes +5 new objective variants (`kills_5`, `pickup_4`, `build_2`, `search_2`, `inventory_3`) with shared event-key progress tracking.
+- Gameplay hooks now increment mission progress on crate search completion and inventory-open actions, enabling the new mission variants without extra controls.
+- Mission variety behavior is regression-covered by `scripts/regression_mission_variety_pack.lua` (catalog floor, pack rotation, and new objective inclusion assertions).

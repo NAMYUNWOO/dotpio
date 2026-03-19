@@ -168,3 +168,10 @@ See project-level plans:
 - [x] Add machine-readable JSON output mode for weekly sustain cron audit helper
   - [x] Add `--format json` support while keeping default text output stable
   - [x] Extend audit regression for JSON success payload + missing-entry error path
+
+## Next Up (Post-RC gameplay experiments)
+- [x] Add mission variety pack with at least +5 objective variants
+  - [x] Add rotating mission packs (3 objectives/run) that preserve core loop readability
+  - [x] Add new objective variants for higher-intensity kill/pickup/build cadence plus search/inventory planning beats
+  - [x] Add regression coverage for mission-pack rotation + objective catalog floor
+- [ ] Add mission momentum bonus payout experiment (partial SRL reward per objective completion streak)

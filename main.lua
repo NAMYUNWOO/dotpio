@@ -192,6 +192,7 @@ function love.update(dt)
         if lootboxInteract.timer >= lootboxInteract.duration then
             LootboxUI.open(hoveredLootbox, Player)
             OnboardingHints.mark("searched")
+            RunMissions.addProgress("search", 1)
             lootboxInteract.active = false
             lootboxInteract.timer = 0
             hoveredLootbox = nil
@@ -335,6 +336,7 @@ function love.keypressed(key)
     end
     if key == "tab" or key == "i" then
         OnboardingHints.mark("inventory")
+        RunMissions.addProgress("inventory", 1)
         InventoryUI.open(Player, Entities)
         return
     end

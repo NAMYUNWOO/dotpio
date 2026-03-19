@@ -356,3 +356,20 @@
   - Regression coverage now asserts JSON success payload shape and invalid format rejection in addition to existing missing-entry failure handling.
 - Follow-up:
   - Next sustain hardening candidate: add optional `--pretty` JSON formatting toggle for operator readability without changing default compact JSON.
+
+## 2026-03-19 23:47:05 KST
+- Task: P1 mission variety pack (+5 objective variants) minimal vertical slice.
+- Commit: `HEAD (this run)`
+- Files: `src/run_missions.lua`, `main.lua`, `scripts/regression_mission_variety_pack.lua`, `POST_RC_BACKLOG.md`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p src/run_missions.lua main.lua scripts/regression_run_missions.lua scripts/regression_unlock_flags.lua scripts/regression_run_summary.lua scripts/regression_mission_variety_pack.lua` ✅
+  - `lua scripts/regression_run_missions.lua` ✅
+  - `lua scripts/regression_unlock_flags.lua` ✅
+  - `lua scripts/regression_run_summary.lua` ✅
+  - `lua scripts/regression_mission_variety_pack.lua` ✅
+- Decisions:
+  - Reworked run missions from a fixed 3-objective prototype to rotating mission packs while keeping 3-visible-objective readability per run.
+  - Added 5 new objective variants (`kills_5`, `pickup_4`, `build_2`, `search_2`, `inventory_3`) and event-key based progress tracking so multiple mission definitions can share gameplay triggers.
+  - Wired new progress hooks for search completion and inventory-open events to support the new mission set without introducing new controls.
+- Follow-up:
+  - Next gameplay experiment candidate: objective-completion streak bonus (small BUILDER.SRL payout) to amplify mission momentum feedback.
