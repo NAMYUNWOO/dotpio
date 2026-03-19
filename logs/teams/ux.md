@@ -360,3 +360,8 @@
 ## 2026-03-20 07:56 KST — Run-summary parity for mission variety feedback
 - Decision: mission variety bonus count now appears in both in-run HUD and run summary row for pre/post-run consistency.
 - Copy/UI: `PACK ... STREAK ... VAR ...` format retained in DOS-style compact metadata line.
+
+## 2026-03-20 08:28 KST — Threat strip compact readability pass
+- Decision: surfaced `Threat:<n>` under `Berserk:<n>` in HUD and shifted help row lower to avoid overlap with combat indicators.
+- Evidence: HUD panel spacing update in `src/hud.lua`.
+- Follow-up: capture screenshot refresh in next visual polish sweep.

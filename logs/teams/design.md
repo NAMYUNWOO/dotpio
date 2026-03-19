@@ -121,3 +121,7 @@
 ## 2026-03-20 07:56 KST — HUD readability: add compact mission mastery token
 - Decision: added concise `VAR:<n>` alongside `PACK/TAG/STREAK` to communicate earned lane-switch mastery without increasing panel height.
 - Follow-up: monitor line-width pressure if future metadata expands.
+
+## 2026-03-20 08:28 KST — HUD hierarchy tweak
+- Decision: expanded top-left HUD panel height to preserve legibility while adding threat aggregate line.
+- Follow-up: validate alignment against onboarding strip and mission panel in next screenshot pass.

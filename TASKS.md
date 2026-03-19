@@ -185,3 +185,7 @@ See project-level plans:
 - [x] Add HUD threat-strip counter for active berserker recovery windows
 - [x] Add mission lane-switch variety bonus preview hint in HUD metadata (`NEXT:<lane> +1`)
 - [x] Track and surface mission lane-switch variety bonus count in HUD/run-summary (`VAR:<n>`)
+- [x] Add weighted berserker threat index in HUD threat strip (`THREAT:<n>`)
+  - [x] Weight active desperate berserkers + primed lunges + recovery windows into one compact pressure score
+  - [x] Surface `THREAT:<n>` in HUD combat strip without hiding existing counters
+  - [x] Extend HUD threat regression coverage for weighted index math

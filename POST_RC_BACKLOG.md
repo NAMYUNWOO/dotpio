@@ -36,3 +36,6 @@ Last updated: 2026-03-20 06:58 KST
 ## P1 (Gameplay Experiment Queue)
 - [x] UX/Systems Team: Add mission lane-switch preview hint in HUD so players can anticipate variety bonus (+1 BUILDER.SRL)
 - [x] UX/Systems Team: Track and surface mission lane-switch variety bonus count in HUD/run-summary
+
+## P1 (Combat Readability Follow-up)
+- [x] UX/Combat Team: Add weighted berserker threat index in HUD threat strip (`THREAT:<n>`) to summarize active desperation pressure

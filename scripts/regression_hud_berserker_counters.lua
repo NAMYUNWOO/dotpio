@@ -23,9 +23,10 @@ expect(counters.alive == 4, "alive counter should include only alive enemies")
 expect(counters.desperateBerserkers == 2, "desperate berserker counter should include only active desperation enemies")
 expect(counters.primedBerserkerLunges == 1, "lunge tell counter should include only primed desperate berserkers")
 expect(counters.recoveringBerserkers == 2, "recovering counter should include only desperate berserkers with pending recovery")
+expect(counters.berserkerThreatScore == 6, "threat score should weight desperate(1) + lunge(2) + recovery(1) contributions")
 
 local empty = HUD.collectCombatThreatCounters(nil)
-expect(empty.alive == 0 and empty.desperateBerserkers == 0 and empty.primedBerserkerLunges == 0 and empty.recoveringBerserkers == 0,
+expect(empty.alive == 0 and empty.desperateBerserkers == 0 and empty.primedBerserkerLunges == 0 and empty.recoveringBerserkers == 0 and empty.berserkerThreatScore == 0,
     "nil enemy list should return zeroed counters")
 
 print("[PASS] hud berserker threat counters regression validated")

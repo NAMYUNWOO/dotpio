@@ -143,3 +143,8 @@
 ## 2026-03-20 07:56 KST — Combat unchanged by variety counter update
 - Scope check: no enemy behavior/damage cadence changes.
 - Follow-up: keep combat threat strip independent from mission metadata counters.
+
+## 2026-03-20 08:28 KST — Berserker pressure readability index
+- Decision: added weighted HUD threat index for desperate berserkers (`Threat = desperate*1 + lungePrimed*2 + recoveryPending*1`) to summarize short-term pressure.
+- Evidence: `src/hud.lua`, `scripts/regression_hud_berserker_counters.lua`.
+- Follow-up: monitor if threat weighting needs rebalance after more playtest telemetry.

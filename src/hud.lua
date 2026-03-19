@@ -6,6 +6,7 @@ function HUD.collectCombatThreatCounters(enemies)
         desperateBerserkers = 0,
         primedBerserkerLunges = 0,
         recoveringBerserkers = 0,
+        berserkerThreatScore = 0,
     }
 
     for _, e in ipairs(enemies or {}) do
@@ -13,11 +14,14 @@ function HUD.collectCombatThreatCounters(enemies)
             counters.alive = counters.alive + 1
             if e.behavior == "berserker" and e.desperationActive then
                 counters.desperateBerserkers = counters.desperateBerserkers + 1
+                counters.berserkerThreatScore = counters.berserkerThreatScore + 1
                 if e.desperationLungePrimed then
                     counters.primedBerserkerLunges = counters.primedBerserkerLunges + 1
+                    counters.berserkerThreatScore = counters.berserkerThreatScore + 2
                 end
                 if e.desperationRecoveryPending then
                     counters.recoveringBerserkers = counters.recoveringBerserkers + 1
+                    counters.berserkerThreatScore = counters.berserkerThreatScore + 1
                 end
             end
         end
@@ -119,7 +123,7 @@ end
 
 function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary, onboardingHint)
     love.graphics.setColor(0,0,0,0.7)
-    love.graphics.rectangle("fill", 8, 8, 220, 70)
+    love.graphics.rectangle("fill", 8, 8, 240, 92)
     love.graphics.setColor(1,1,1,1)
     love.graphics.print("HP:", 16, 14)
     love.graphics.setColor(0.3,0,0,1)
@@ -138,8 +142,10 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if counters.desperateBerserkers > 0 then
         love.graphics.setColor(1, 0.35, 0.2, 1)
         love.graphics.print(string.format("Berserk: %d", counters.desperateBerserkers), 160, 30)
+        love.graphics.setColor(1, 0.5, 0.24, 1)
+        love.graphics.print(string.format("Threat: %d", counters.berserkerThreatScore), 160, 46)
 
-        local rowY = 46
+        local rowY = 62
         if counters.primedBerserkerLunges > 0 then
             love.graphics.setColor(1, 0.6, 0.25, 1)
             love.graphics.print(string.format("Lunge Tell: %d", counters.primedBerserkerLunges), 160, rowY)
@@ -152,7 +158,7 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
         end
     end
     love.graphics.setColor(0.6,0.6,0.6,1)
-    love.graphics.print("WASD:Move  Click:Magic  Space:Melee  E:Search  G:Pickup  R:Restart", 16, 54)
+    love.graphics.print("WASD:Move  Click:Magic  Space:Melee  E:Search  G:Pickup  R:Restart", 16, 74)
 
     if onboardingHint then
         love.graphics.setColor(0, 0, 0, 0.74)

@@ -336,3 +336,17 @@ Compact decision memory for AI context efficiency.
   - Marked new P1 gameplay experiment item done in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
 - Next priority item:
   - No unchecked entries remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject a fresh Game Director experiment candidate next cycle.
+
+## 2026-03-20 08:28 KST — P1 combat readability follow-up: weighted berserker threat index
+- Completed backlog item: `UX/Combat Team: Add weighted berserker threat index in HUD threat strip (THREAT:<n>)`.
+- Durable decisions:
+  - `HUD.collectCombatThreatCounters()` now computes `berserkerThreatScore` using weighted pressure formula: desperate +2(lunge primed) +1(recovery pending).
+  - HUD threat strip now renders `Threat:<n>` below berserker count for faster danger scanning.
+  - Top-left HUD panel height/help-row spacing adjusted to prevent text overlap while preserving existing counters.
+- Verification set:
+  - `luac -p src/hud.lua scripts/regression_hud_berserker_counters.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+- Backlog update:
+  - Marked item done in `POST_RC_BACKLOG.md` and `TASKS.md`.
+- Next priority item:
+  - No unchecked entries remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject a fresh Game Director experiment candidate.

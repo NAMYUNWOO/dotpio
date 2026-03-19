@@ -534,3 +534,7 @@
 - Decision: added `varietyBonusCount` to mission runtime state and reset lifecycle to persist lane-switch mastery as a first-class stat.
 - Implementation: increment only when lane-switch bonus payout triggers; expose through `RunMissions.getState()` for HUD/summary consumers.
 - Verification: mission momentum + mission variety regressions PASS.
+
+## 2026-03-20 08:28 KST — Combat pressure scoring policy
+- Decision: introduced lightweight deterministic weighting model for berserker pressure readability (no economy/system balance impact).
+- Follow-up: keep weights config-local until enough combat feedback warrants data-driven tuning.

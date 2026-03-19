@@ -916,3 +916,10 @@
   - `lua scripts/regression_run_summary.lua`
   - `lua scripts/regression_mission_variety_preview.lua`
   - `lua scripts/regression_mission_variety_pack.lua`
+
+## 2026-03-20 08:28 KST — HUD threat index regression update
+- Verification:
+  - `luac -p src/hud.lua scripts/regression_hud_berserker_counters.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+- Result: PASS; weighted threat score and zero-state assertions validated.
+- Follow-up: include this regression in broader combat smoke pass next cycle.
