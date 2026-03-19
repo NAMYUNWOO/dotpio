@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-20 05:29 KST
+Last updated: 2026-03-20 08:56 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -350,3 +350,17 @@ Compact decision memory for AI context efficiency.
   - Marked item done in `POST_RC_BACKLOG.md` and `TASKS.md`.
 - Next priority item:
   - No unchecked entries remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject a fresh Game Director experiment candidate.
+
+## 2026-03-20 08:56 KST — P1 combat readability follow-up: threat tier label
+- Completed backlog item: `UX/Combat Team: Add berserker threat-tier label (LOW|MED|HIGH) in HUD for score readability`.
+- Durable decisions:
+  - Added `HUD.getBerserkerThreatTier(score)` with deterministic thresholds: `LOW(0-2)`, `MED(3-5)`, `HIGH(>=6)`.
+  - HUD threat-strip line now renders `Threat: <score> (<tier>)` to pair quantitative and qualitative danger cues.
+  - Preserved existing compact combat rows (`Berserk`, `Lunge Tell`, `Recovering`) to avoid panel growth.
+- Verification set:
+  - `luac -p src/hud.lua scripts/regression_hud_berserker_counters.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+- Backlog update:
+  - Marked new P1 item done in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
+- Next priority item:
+  - No unchecked entries remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject a fresh Game Director experiment candidate next cycle.

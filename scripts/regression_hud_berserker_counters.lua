@@ -24,6 +24,10 @@ expect(counters.desperateBerserkers == 2, "desperate berserker counter should in
 expect(counters.primedBerserkerLunges == 1, "lunge tell counter should include only primed desperate berserkers")
 expect(counters.recoveringBerserkers == 2, "recovering counter should include only desperate berserkers with pending recovery")
 expect(counters.berserkerThreatScore == 6, "threat score should weight desperate(1) + lunge(2) + recovery(1) contributions")
+expect(HUD.getBerserkerThreatTier(counters.berserkerThreatScore) == "HIGH", "threat tier should be HIGH at score >= 6")
+expect(HUD.getBerserkerThreatTier(3) == "MED", "threat tier should be MED at score >= 3")
+expect(HUD.getBerserkerThreatTier(2) == "LOW", "threat tier should be LOW below medium threshold")
+expect(HUD.getBerserkerThreatTier(nil) == "LOW", "threat tier should default to LOW for missing score")
 
 local empty = HUD.collectCombatThreatCounters(nil)
 expect(empty.alive == 0 and empty.desperateBerserkers == 0 and empty.primedBerserkerLunges == 0 and empty.recoveringBerserkers == 0 and empty.berserkerThreatScore == 0,

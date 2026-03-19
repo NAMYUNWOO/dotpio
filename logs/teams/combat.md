@@ -148,3 +148,8 @@
 - Decision: added weighted HUD threat index for desperate berserkers (`Threat = desperate*1 + lungePrimed*2 + recoveryPending*1`) to summarize short-term pressure.
 - Evidence: `src/hud.lua`, `scripts/regression_hud_berserker_counters.lua`.
 - Follow-up: monitor if threat weighting needs rebalance after more playtest telemetry.
+
+## 2026-03-20 08:56 KST — Berserker threat tier readability
+- Completed HUD readability follow-up: mapped weighted berserker threat score to discrete tiers (`LOW|MED|HIGH`).
+- Decision: use stable thresholds `0-2=LOW`, `3-5=MED`, `>=6=HIGH` to keep pressure interpretation deterministic across runs.
+- Follow-up: if combat pacing changes alter score distribution, retune thresholds with telemetry-backed percentile bands.

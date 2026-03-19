@@ -538,3 +538,6 @@
 ## 2026-03-20 08:28 KST — Combat pressure scoring policy
 - Decision: introduced lightweight deterministic weighting model for berserker pressure readability (no economy/system balance impact).
 - Follow-up: keep weights config-local until enough combat feedback warrants data-driven tuning.
+
+## 2026-03-20 08:56 KST — No systems-economy delta
+- This slice was HUD readability only; no SRL/economy logic changed.

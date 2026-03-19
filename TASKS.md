@@ -189,3 +189,7 @@ See project-level plans:
   - [x] Weight active desperate berserkers + primed lunges + recovery windows into one compact pressure score
   - [x] Surface `THREAT:<n>` in HUD combat strip without hiding existing counters
   - [x] Extend HUD threat regression coverage for weighted index math
+- [x] Add berserker threat-tier label in HUD (`THREAT LVL:LOW|MED|HIGH`)
+  - [x] Map weighted threat score to stable tier thresholds for fast readability
+  - [x] Surface tier label near `THREAT:<n>` without cluttering existing counters
+  - [x] Extend HUD threat regression coverage for tier mapping edge-cases

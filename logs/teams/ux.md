@@ -365,3 +365,8 @@
 - Decision: surfaced `Threat:<n>` under `Berserk:<n>` in HUD and shifted help row lower to avoid overlap with combat indicators.
 - Evidence: HUD panel spacing update in `src/hud.lua`.
 - Follow-up: capture screenshot refresh in next visual polish sweep.
+
+## 2026-03-20 08:56 KST — Threat strip clarity pass
+- Updated threat strip copy from numeric-only to mixed signal: `Threat: <score> (<tier>)`.
+- Kept existing rows (`Berserk`, `Lunge Tell`, `Recovering`) unchanged to avoid extra HUD clutter.
+- Follow-up: evaluate whether tier color shift is needed after next screenshot/playtest pass.

@@ -125,3 +125,6 @@
 ## 2026-03-20 08:28 KST — HUD hierarchy tweak
 - Decision: expanded top-left HUD panel height to preserve legibility while adding threat aggregate line.
 - Follow-up: validate alignment against onboarding strip and mission panel in next screenshot pass.
+
+## 2026-03-20 08:56 KST — HUD semantic readability note
+- Approved compact text augmentation (`Threat score + tier`) over adding a new panel row to preserve DOS HUD density.

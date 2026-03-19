@@ -923,3 +923,10 @@
   - `lua scripts/regression_hud_berserker_counters.lua`
 - Result: PASS; weighted threat score and zero-state assertions validated.
 - Follow-up: include this regression in broader combat smoke pass next cycle.
+
+## 2026-03-20 08:56 KST — Threat tier regression coverage
+- Extended `scripts/regression_hud_berserker_counters.lua` with tier mapping assertions.
+- Verification:
+  - `luac -p src/hud.lua scripts/regression_hud_berserker_counters.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua` (PASS)
+- Follow-up: include this regression in future combat HUD sweeps.

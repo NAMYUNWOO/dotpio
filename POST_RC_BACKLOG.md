@@ -39,3 +39,4 @@ Last updated: 2026-03-20 06:58 KST
 
 ## P1 (Combat Readability Follow-up)
 - [x] UX/Combat Team: Add weighted berserker threat index in HUD threat strip (`THREAT:<n>`) to summarize active desperation pressure
+- [x] UX/Combat Team: Add berserker threat-tier label (`THREAT LVL:LOW|MED|HIGH`) in HUD for score readability
