@@ -260,3 +260,17 @@ Compact decision memory for AI context efficiency.
 - Backlog update:
   - Marked telegraph experiment done in `POST_RC_BACKLOG.md` and `TASKS.md`.
   - Added next candidate: berserker pre-lunge tell (one-turn warning) as unchecked follow-up.
+
+## 2026-03-20 06:02 KST — P1 combat readability/fairness experiment: berserker pre-lunge tell
+- Completed backlog item: `Combat Team: Add one-turn pre-lunge tell for berserker desperation attacks (readability/fairness A/B)`.
+- Durable decisions:
+  - Berserker desperation attacks now run a deterministic two-step cadence: telegraph turn first, then lunge hit turn.
+  - Enemy AI tracks `desperationLungePrimed`; runtime surfaces telegraph via status feed and HUD (`Lunge Tell: n`).
+  - Combat event plumbing in `Entities.update` now reports lunge telegraph counts without changing non-berserker behavior paths.
+- Verification set:
+  - `lua scripts/regression_enemy_behavior_variants.lua`
+  - `luac -p src/enemy_ai.lua src/entities.lua src/hud.lua main.lua`
+- Backlog update:
+  - Marked pre-lunge tell task done in `TASKS.md` and `POST_RC_BACKLOG.md`.
+- Next priority item:
+  - No unchecked items remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; request next Game Director experiment injection.

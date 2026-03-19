@@ -161,3 +161,7 @@
 - Cross-lane review: no AI text generation/prompt pipeline changes required.
 - Decision: enemy behavior expansion remains data/profile-driven in runtime combat logic; AI content safeguards unchanged.
 - Follow-up: none.
+
+## 2026-03-20 06:02 KST
+- Cross-lane review: no AI generation or prompt safety pipeline changes.
+- Decision: pre-lunge tell is runtime combat/UI signaling only; AI-content safeguards remain unchanged.

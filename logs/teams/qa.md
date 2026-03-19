@@ -878,3 +878,12 @@
 - Decisions:
   - Regression now asserts transition-edge semantics (`justEnteredDesperation` true only on first low-HP activation frame).
   - Existing variant/synergy checks remain green.
+
+## 2026-03-20 06:02 KST
+- Task: Regression extension for berserker one-turn pre-lunge tell lifecycle.
+- Files checked: `src/enemy_ai.lua`, `scripts/regression_enemy_behavior_variants.lua`, `src/entities.lua`, `main.lua`, `src/hud.lua`
+- Verification:
+  - `lua scripts/regression_enemy_behavior_variants.lua` ✅
+  - `luac -p src/enemy_ai.lua src/entities.lua src/hud.lua main.lua` ✅
+- Decisions:
+  - Regression now asserts telegraph->lunge consume cycle and reset when berserker exits desperation.

@@ -101,11 +101,15 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     love.graphics.rectangle("fill", 44, 34, 100*(player.mp/player.maxMp), 14)
     local alive = 0
     local desperateBerserkers = 0
+    local primedBerserkerLunges = 0
     for _, e in ipairs(enemies) do
         if e.alive then
             alive = alive + 1
             if e.behavior == "berserker" and e.desperationActive then
                 desperateBerserkers = desperateBerserkers + 1
+                if e.desperationLungePrimed then
+                    primedBerserkerLunges = primedBerserkerLunges + 1
+                end
             end
         end
     end
@@ -114,6 +118,10 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if desperateBerserkers > 0 then
         love.graphics.setColor(1, 0.35, 0.2, 1)
         love.graphics.print(string.format("Berserk: %d", desperateBerserkers), 160, 30)
+        if primedBerserkerLunges > 0 then
+            love.graphics.setColor(1, 0.6, 0.25, 1)
+            love.graphics.print(string.format("Lunge Tell: %d", primedBerserkerLunges), 160, 46)
+        end
     end
     love.graphics.setColor(0.6,0.6,0.6,1)
     love.graphics.print("WASD:Move  Click:Magic  Space:Melee  E:Search  G:Pickup  R:Restart", 16, 54)

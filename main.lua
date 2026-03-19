@@ -163,7 +163,7 @@ function love.update(dt)
         missionUnlockAnnounced = true
     end
 
-    Entities.update(dt, Player, Combat.addDamageFlash)
+    local enemyEvents = Entities.update(dt, Player, Combat.addDamageFlash) or {}
 
     local visibleEnrageCount = 0
     for _, enemy in ipairs(Entities.enemies) do
@@ -179,6 +179,15 @@ function love.update(dt)
             InventoryUI.setStatus("BERSERKER ENRAGED: LOW-HP SPIKE INCOMING")
         else
             InventoryUI.setStatus(string.format("BERSERKERS ENRAGED x%d: LOW-HP SPIKES INCOMING", visibleEnrageCount))
+        end
+    end
+
+    if (enemyEvents.berserkerLungeTelegraphs or 0) > 0 then
+        local telegraphCount = enemyEvents.berserkerLungeTelegraphs
+        if telegraphCount == 1 then
+            InventoryUI.setStatus("BERSERKER LUNGE TELL: IMPACT NEXT TURN")
+        else
+            InventoryUI.setStatus(string.format("BERSERKER LUNGE TELLS x%d: IMPACT NEXT TURN", telegraphCount))
         end
     end
 

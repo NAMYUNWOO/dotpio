@@ -231,12 +231,19 @@ function Entities.spawn(player, skipPlayerPlace)
 end
 
 function Entities.update(dt, player, damageFlashFn)
+    local events = { hits = 0, berserkerLungeTelegraphs = 0 }
     for i, e in ipairs(Entities.enemies) do
         local result = EnemyAI.update(e, i, dt, player, Entities.enemies)
-        if result == "hit_player" and damageFlashFn then
-            damageFlashFn(player.x, player.y)
+        if result == "hit_player" then
+            events.hits = events.hits + 1
+            if damageFlashFn then
+                damageFlashFn(player.x, player.y)
+            end
+        elseif result == "berserker_lunge_telegraph" then
+            events.berserkerLungeTelegraphs = events.berserkerLungeTelegraphs + 1
         end
     end
+    return events
 end
 
 function Entities.enemyAt(gx, gy)

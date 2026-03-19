@@ -155,3 +155,7 @@
 - Cross-lane review: world/map/portal data unchanged for berserker experiment.
 - Decision: retain current map identity + portal topology while validating new combat pressure via enemy archetype mix.
 - Follow-up: monitor if map_06~07 chokepoints over-amplify berserker spikes.
+
+## 2026-03-20 06:02 KST
+- Cross-lane review: no world/map/portal topology changes in this combat readability slice.
+- Decision: keep current map encounter structures unchanged while observing berserker fairness telemetry.

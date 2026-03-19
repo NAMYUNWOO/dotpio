@@ -98,3 +98,9 @@
 - Decisions:
   - Used terse DOS-compatible wording and compact HUD slot (`Berserk`) to preserve panel density.
   - Alert only triggers on transition to avoid noisy message churn.
+
+## 2026-03-20 06:02 KST
+- Task: Design readability check for one-turn lunge tell messaging.
+- Verification: `luac -p src/hud.lua main.lua` ✅
+- Decisions:
+  - Preserved terse DOS-style warning copy and compact HUD telemetry to avoid panel overload.

@@ -333,3 +333,12 @@
   - HUD now shows compact `Berserk: <n>` indicator to reduce surprise burst damage moments.
 - Follow-up:
   - If playtests still show surprise hits, add a pre-lunge wind-up cue.
+
+## 2026-03-20 06:02 KST
+- Task: UX readability update for berserker pre-lunge warning.
+- Files: `main.lua`, `src/hud.lua`
+- Verification:
+  - `luac -p main.lua src/hud.lua` ✅
+- Decisions:
+  - Added explicit status feed callout (`BERSERKER LUNGE TELL...`) when lunge warning triggers.
+  - HUD now shows compact `Lunge Tell: <n>` indicator alongside `Berserk` count.

@@ -66,6 +66,14 @@ expect(probe.berserker.atkDmg > berserkerBaseAtk, "berserker desperation should 
 EnemyAI.debugSyncSynergy(probe.berserker, { probe.berserker })
 expect(probe.berserker.justEnteredDesperation == false, "berserker entry signal should only fire on transition")
 
+local telegraphFirst = EnemyAI.debugConsumeDesperationAttackWindow(probe.berserker)
+expect(telegraphFirst == true and probe.berserker.desperationLungePrimed == true, "berserker desperate attack should telegraph before first lunge")
+local telegraphSecond = EnemyAI.debugConsumeDesperationAttackWindow(probe.berserker)
+expect(telegraphSecond == false and probe.berserker.desperationLungePrimed == false, "berserker lunge should resolve after telegraph window")
+probe.berserker.hp = 3
+EnemyAI.debugSyncSynergy(probe.berserker, { probe.berserker })
+expect(probe.berserker.desperationActive == false and probe.berserker.desperationLungePrimed == false, "lunge telegraph should reset when berserker leaves desperation")
+
 local hunterSolo = { x = 8, y = 8, behavior = "hunter", hp = 3, alive = true }
 EnemyAI.init(hunterSolo, 1)
 local soloMoveCd = hunterSolo.moveCd

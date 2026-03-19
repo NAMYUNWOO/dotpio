@@ -111,3 +111,16 @@
   - Kept combat tuning unchanged; this slice focuses strictly on threat telegraph clarity.
 - Follow-up:
   - Next experiment candidate: one-turn pre-lunge tell before desperation attacks.
+
+## 2026-03-20 06:02 KST
+- Task: P1 combat readability/fairness experiment — one-turn pre-lunge tell for berserker desperation attacks.
+- Commit: HEAD (this run)
+- Files: `src/enemy_ai.lua`, `src/entities.lua`, `main.lua`, `src/hud.lua`, `scripts/regression_enemy_behavior_variants.lua`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `lua scripts/regression_enemy_behavior_variants.lua` ✅
+  - `luac -p src/enemy_ai.lua src/entities.lua src/hud.lua main.lua` ✅
+- Decisions:
+  - Desperate berserkers now telegraph once (`desperationLungePrimed`) before each lunge hit window.
+  - Telegraph consumes an attack turn and emits runtime event `berserker_lunge_telegraph` for status/HUD readability.
+- Follow-up:
+  - Balance-check if one-turn wind-up over-nerfs berserker pressure on higher-tier maps.

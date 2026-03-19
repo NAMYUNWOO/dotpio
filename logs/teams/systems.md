@@ -508,3 +508,11 @@
 - Decisions:
   - `syncCombatModifiers` now emits a transition-only `justEnteredDesperation` flag in addition to persistent `desperationActive`.
   - Runtime consumes and clears the flag after warning emission to avoid status spam.
+
+## 2026-03-20 06:02 KST
+- Task: Combat systems support for pre-lunge telegraph state machine.
+- Files: `src/enemy_ai.lua`, `src/entities.lua`
+- Verification: `lua scripts/regression_enemy_behavior_variants.lua` ✅
+- Decisions:
+  - Added deterministic berserker lunge window consumption helper (`consumeDesperationAttackWindow`).
+  - Entities update now returns combat event counts (`hits`, `berserkerLungeTelegraphs`) for runtime consumers.

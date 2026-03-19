@@ -159,6 +159,21 @@ local function alertNearbyAllies(e, enemies, range)
     return alerted
 end
 
+local function consumeDesperationAttackWindow(e)
+    if e.behavior ~= "berserker" or not e.desperationActive then
+        e.desperationLungePrimed = false
+        return false
+    end
+
+    if not e.desperationLungePrimed then
+        e.desperationLungePrimed = true
+        return true
+    end
+
+    e.desperationLungePrimed = false
+    return false
+end
+
 local function syncCombatModifiers(e, enemies)
     local behavior = behaviorFor(e)
     local empowered = hasNearbyBehavior(e, enemies, behavior.synergyFromBehavior, behavior.synergyRange)
@@ -168,6 +183,9 @@ local function syncCombatModifiers(e, enemies)
     e.synergyEmpowered = empowered
     e.desperationActive = desperationActive
     e.justEnteredDesperation = desperationActive and not prevDesperation
+    if not desperationActive then
+        e.desperationLungePrimed = false
+    end
 
     local moveMul = (empowered and behavior.synergyMoveCdMul or 1) * (desperationActive and behavior.desperationMoveCdMul or 1)
     e.moveCd = e.baseMoveCd * moveMul
@@ -249,6 +267,7 @@ function EnemyAI.init(e, idx)
     e.synergyEmpowered = false
     e.desperationActive = false
     e.justEnteredDesperation = false
+    e.desperationLungePrimed = false
 end
 
 function EnemyAI.update(e, idx, dt, player, enemies)
@@ -310,8 +329,10 @@ function EnemyAI.update(e, idx, dt, player, enemies)
     elseif e.state == "attack" then
         if e.hp <= e.fleeHp then
             e.state = "flee"
+            e.desperationLungePrimed = false
         elseif not isAdjacent(e.x, e.y, player.x, player.y) then
             e.state = "chase"
+            e.desperationLungePrimed = false
         end
 
     elseif e.state == "flee" then
@@ -346,6 +367,11 @@ function EnemyAI.update(e, idx, dt, player, enemies)
         end
 
     elseif e.state == "attack" and e.atkTimer <= 0 then
+        if consumeDesperationAttackWindow(e) then
+            e.atkTimer = e.atkCd
+            return "berserker_lunge_telegraph"
+        end
+
         -- Deal damage to player
         local dmg = Stats.damageReduction(e.atkDmg, player.effectiveStats)
         player.hp = player.hp - math.max(1, math.floor(dmg + 0.5))
@@ -400,6 +426,10 @@ end
 function EnemyAI.debugAlertNearbyAllies(e, enemies)
     local behavior = behaviorFor(e)
     return alertNearbyAllies(e, enemies or {}, behavior.alertAlliesRange)
+end
+
+function EnemyAI.debugConsumeDesperationAttackWindow(e)
+    return consumeDesperationAttackWindow(e)
 end
 
 return EnemyAI
