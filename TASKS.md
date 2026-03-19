@@ -73,3 +73,8 @@ See project-level plans:
   - [x] Compute carryover package from run inventory + mission completion state
   - [x] Apply carryover package on next run start and expose restart status copy
   - [x] Add regression coverage for carryover caps + reward application
+
+- [x] Add summary screen for run result + unlock progress
+  - [x] Present per-run mission completion snapshot at reset time
+  - [x] Surface unlock status + fail-forward carryover details in summary copy
+  - [x] Add regression coverage for summary snapshot formatting/state

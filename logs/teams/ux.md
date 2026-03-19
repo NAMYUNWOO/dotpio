@@ -83,3 +83,19 @@
   - On first mission completion per run, status bar emits unlock confirmation copy for advanced build schematics.
 - Follow-up:
   - Revisit panel height/content once M3 summary screen lands so mission+unlock info remains readable.
+
+## 2026-03-19 09:44:22 KST
+- Task: M3 run result summary screen + unlock progress overlay.
+- Commit: HEAD (this run)
+- Files: `main.lua`, `src/hud.lua`, `src/run_summary.lua`, `scripts/regression_run_summary.lua`, `screenshots/screenshot-map04.png`, `screenshots/screenshot-inventory-dos.png`, `ACTION_ITEMS.md`, `TASKS.md`
+- Verification:
+  - `luac -p main.lua src/hud.lua src/run_summary.lua scripts/regression_run_summary.lua` ✅
+  - `lua scripts/regression_run_summary.lua` ✅
+  - `lua scripts/regression_fail_forward_rewards.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Pressing `R` now resets run state and opens a modal run summary with mission snapshot rows, unlock status, and carryover package details.
+  - Summary snapshot is captured before mission reset so progress is preserved for review even after the new run starts.
+  - Summary can be dismissed via `R`/`Enter`/`Esc` to keep keyboard-only UX flow intact.
+- Follow-up:
+  - Next UX priority: M4 DOS terminology consistency pass.

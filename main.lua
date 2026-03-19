@@ -19,6 +19,7 @@ local AiDescribe  = require("src.ai_describe")
 local RunMissions = require("src.run_missions")
 local Unlocks     = require("src.unlocks")
 local FailForward = require("src.fail_forward")
+local RunSummary  = require("src.run_summary")
 
 local gameOver = false
 local autoShotDone = false
@@ -114,6 +115,9 @@ function love.update(dt)
     end
     if LootboxUI.isOpen() then
         LootboxUI.update(dt)
+        return
+    end
+    if RunSummary.isOpen() then
         return
     end
     if gameOver then return end
@@ -236,7 +240,7 @@ function love.draw()
     love.graphics.pop()
 
     -- HUD
-    HUD.draw(Player, Entities.enemies, gameOver, RunMissions.getState(), Unlocks.getAllFlags())
+    HUD.draw(Player, Entities.enemies, gameOver, RunMissions.getState(), Unlocks.getAllFlags(), RunSummary.getState())
 
     -- Lootbox hover tooltip (with integrated progress fill)
     if hoveredLootbox and not LootboxUI.isOpen() then
@@ -314,12 +318,19 @@ function love.keypressed(key)
         LootboxUI.keypressed(key)
         return
     end
+    if RunSummary.isOpen() then
+        if key == "r" or key == "return" or key == "escape" then
+            RunSummary.close()
+        end
+        return
+    end
     if key == "tab" or key == "i" then
         InventoryUI.open(Player, Entities)
         return
     end
     if key == "r" then
         local missionState = RunMissions.getState()
+        local unlockFlags = Unlocks.getAllFlags()
         local carryReward = FailForward.compute(Player.inventory, missionState)
 
         Player.inventory = nil
@@ -328,6 +339,7 @@ function love.keypressed(key)
 
         local applied = FailForward.apply(Player.inventory, carryReward)
         InventoryUI.setStatus(FailForward.formatStatus(applied))
+        RunSummary.open(missionState, unlockFlags, applied)
 
         loadMap("01", nil)
         return

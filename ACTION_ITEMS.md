@@ -36,7 +36,7 @@ Tracking rule:
 - [x] Add run mission prototype (3 objectives)
 - [x] Add unlock flag framework for new build options
 - [x] Add fail-forward reward (currency/material carryover)
-- [ ] Add summary screen for run result + unlock progress
+- [x] Add summary screen for run result + unlock progress
 
 ## M4 - UX/Accessibility
 - [ ] Finalize DOS terminology consistency (Menu/Action/Drop/Disasm/Build)

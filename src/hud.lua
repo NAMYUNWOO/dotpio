@@ -27,7 +27,50 @@ local function drawMissionPanel(missionState, unlockFlags)
     love.graphics.print(string.format("UNLOCK: ADVANCED SCHEMATICS [%s]", advancedUnlocked and "ON" or "OFF"), 16, row)
 end
 
-function HUD.draw(player, enemies, gameOver, missionState, unlockFlags)
+local function drawRunSummary(runSummary)
+    if not runSummary or not runSummary.active or not runSummary.data then
+        return
+    end
+
+    local data = runSummary.data
+    local w = love.graphics.getWidth()
+    local h = love.graphics.getHeight()
+
+    love.graphics.setColor(0, 0, 0, 0.86)
+    love.graphics.rectangle("fill", 88, 118, w - 176, h - 236, 6, 6)
+
+    love.graphics.setColor(0.95, 0.95, 0.7, 1)
+    love.graphics.printf("RUN SUMMARY", 0, 136, w, "center")
+
+    love.graphics.setColor(0.8, 0.9, 1, 1)
+    love.graphics.printf(string.format("MISSIONS: %d/%d", data.missionsDone or 0, data.missionsTotal or 0), 112, 168, w - 224, "left")
+
+    local row = 192
+    for _, objective in ipairs(data.objectives or {}) do
+        local marker = objective.done and "[x]" or "[ ]"
+        local fg = objective.done and {0.45, 1, 0.65, 1} or {0.8, 0.8, 0.8, 1}
+        love.graphics.setColor(fg)
+        love.graphics.printf(string.format("%s %s (%d/%d)", marker, objective.label or "?", objective.progress or 0, objective.target or 0), 112, row, w - 224, "left")
+        row = row + 20
+    end
+
+    row = row + 8
+    love.graphics.setColor(0.7, 0.9, 1, 1)
+    love.graphics.printf(string.format("UNLOCK: ADVANCED SCHEMATICS [%s]", data.advancedUnlocked and "ON" or "OFF"), 112, row, w - 224, "left")
+
+    row = row + 28
+    local carry = data.carry or { srl = 0, coins = 0, gems = 0 }
+    love.graphics.setColor(0.9, 0.85, 0.65, 1)
+    love.graphics.printf("FAIL-FORWARD CARRYOVER APPLIED", 112, row, w - 224, "left")
+    row = row + 20
+    love.graphics.setColor(0.88, 0.88, 0.88, 1)
+    love.graphics.printf(string.format("+%d BUILDER.SRL   +%d COIN   +%d GEM", carry.srl or 0, carry.coins or 0, carry.gems or 0), 112, row, w - 224, "left")
+
+    love.graphics.setColor(0.65, 0.65, 0.65, 1)
+    love.graphics.printf("Press R / Enter / Esc to close", 0, h - 148, w, "center")
+end
+
+function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary)
     love.graphics.setColor(0,0,0,0.7)
     love.graphics.rectangle("fill", 8, 8, 220, 70)
     love.graphics.setColor(1,1,1,1)
@@ -64,6 +107,8 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags)
         love.graphics.setColor(0,1,0.5,1)
         love.graphics.printf("ALL ENEMIES DEFEATED! Press R to restart", 0, 200, love.graphics.getWidth(), "center")
     end
+
+    drawRunSummary(runSummary)
 end
 
 return HUD

@@ -289,3 +289,18 @@
   - No screenshot regen required (no persistent UI layout/copy asset change).
 - Follow-up:
   - Add summary-screen regression coverage once M3 run result screen is implemented.
+
+## 2026-03-19 09:44:22 KST
+- Task: QA verification for M3 run summary screen + unlock progress.
+- Commit: HEAD (this run)
+- Files checked: `main.lua`, `src/hud.lua`, `src/run_summary.lua`, `scripts/regression_run_summary.lua`
+- Verification:
+  - `luac -p main.lua src/hud.lua src/run_summary.lua scripts/regression_run_summary.lua` ✅
+  - `lua scripts/regression_run_summary.lua` ✅
+  - `lua scripts/regression_fail_forward_rewards.lua` ✅
+  - `bash scripts/capture_screenshots.sh` ✅
+- Decisions:
+  - Regression confirms summary snapshot immutability after open and validates close behavior.
+  - No portal validator run required (map/portal files untouched).
+- Follow-up:
+  - Fold run-summary checks into 30-minute orchestrator if M4 onboarding flow changes restart semantics.
