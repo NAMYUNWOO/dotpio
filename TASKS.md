@@ -152,3 +152,7 @@ See project-level plans:
   - [x] Add a size-based pre-run log rotation helper script for weekly sustain cron logs
   - [x] Wire installer support for configurable max-log-size MB threshold in managed cron entry
   - [x] Extend cron installer regression coverage for log-rotation command rendering
+
+- [ ] Add rotated sustain-log retention policy
+  - [ ] Keep only latest N rotated weekly sustain logs to prevent disk creep
+  - [ ] Add regression coverage for retention pruning behavior
