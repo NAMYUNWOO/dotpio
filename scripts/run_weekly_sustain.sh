@@ -23,6 +23,8 @@ python3 scripts/sustain_health_dashboard.py --format json --pretty --audit-json 
 python3 scripts/regression_sustain_health_dashboard.py
 python3 scripts/stale_branch_report_drift_check.py
 python3 scripts/regression_stale_branch_report_drift.py
+python3 scripts/weekly_changelog_drift_check.py
+python3 scripts/regression_weekly_changelog_drift.py
 
 echo "[weekly-sustain] done"
 echo "- logs/economy_anti_exploit_report.md"
@@ -33,3 +35,5 @@ echo "- logs/sustain_health_dashboard.md"
 echo "- logs/sustain_health_dashboard.json"
 echo "- logs/stale_branch_report_drift.md"
 echo "- logs/stale_branch_report_drift.json"
+echo "- logs/weekly_changelog_drift.md"
+echo "- logs/weekly_changelog_drift.json"

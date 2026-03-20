@@ -200,3 +200,9 @@
 - Added `metadata.overclockHazard` zone on map_07 center ring (`rect={x=21,y=10,w=7,h=5}`) as prototype room.
 - Room behavior: entering zone triggers short overclock pulse (SRL build discount) with cooldown for repeat traversal risk/reward routing.
 - Portal topology unchanged; hazard is embedded into existing crown-arena center contest lane.
+
+## 2026-03-20 12:01 KST — Weekly changelog drift detector rollout
+- Completed backlog item: `QA/Systems: Add weekly changelog drift detector (code changes without corresponding team-log/report entry)`.
+- Added `scripts/weekly_changelog_drift_check.py` + `scripts/regression_weekly_changelog_drift.py` and wired them into `scripts/run_weekly_sustain.sh` / RC sustain checklist.
+- Verification: `python3 -m py_compile scripts/weekly_changelog_drift_check.py scripts/regression_weekly_changelog_drift.py`; `python3 scripts/regression_weekly_changelog_drift.py`; `bash scripts/run_weekly_sustain.sh`.
+- Follow-up: next backlog priority is `Ops: Add sustain dashboard regression risk score (0~100) with threshold alert section`.

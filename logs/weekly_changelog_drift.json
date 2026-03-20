@@ -1,0 +1,4821 @@
+{
+  "generatedAt": "2026-03-20T03:01:09.734192Z",
+  "status": "warn",
+  "window": {
+    "sinceDays": 7,
+    "maxCommits": 200
+  },
+  "checkedCodeCommits": 136,
+  "missingEvidenceCommits": 66,
+  "commits": [
+    {
+      "sha": "bcfb6f6eca7ca8d6df4b1ceb306e3c76165b76c9",
+      "shortSha": "bcfb6f6",
+      "author": "yunwoo",
+      "subject": "feat: add overclock hazard room prototype with SRL pulse and aggro spike",
+      "committedAt": "2026-03-20T02:35:22Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "main.lua",
+        "maps/map_07.lua",
+        "scripts/regression_overclock_hazard.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua",
+        "src/hud.lua",
+        "src/inventory_ui.lua",
+        "src/overclock_hazard.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "maps/map_07.lua",
+        "scripts/regression_overclock_hazard.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua",
+        "src/hud.lua",
+        "src/inventory_ui.lua",
+        "src/overclock_hazard.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "e15d46094888e7ddfa5a836a90c0eceaf602705e",
+      "shortSha": "e15d460",
+      "author": "yunwoo",
+      "subject": "feat: add mission pressure-breaker dodge bonus on rising threat",
+      "committedAt": "2026-03-20T02:06:41Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "main.lua",
+        "scripts/regression_mission_pressure_breaker.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua",
+        "src/hud.lua",
+        "src/player.lua",
+        "src/run_missions.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_mission_pressure_breaker.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua",
+        "src/hud.lua",
+        "src/player.lua",
+        "src/run_missions.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "3df3f6720855b561125502b2dff87fe07312580b",
+      "shortSha": "3df3f67",
+      "author": "yunwoo",
+      "subject": "feat: add threat-aware onboarding combat tip slice",
+      "committedAt": "2026-03-20T01:59:31Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/combat.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md",
+        "main.lua",
+        "scripts/regression_onboarding_hints.lua",
+        "src/onboarding_hints.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_onboarding_hints.lua",
+        "src/onboarding_hints.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/combat.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "4ed60a1b2be0a14c97463ceb7f17b1dc44a7cdb0",
+      "shortSha": "4ed60a1",
+      "author": "yunwoo",
+      "subject": "Seed next gameplay/ops wave backlog for Game Director loop",
+      "committedAt": "2026-03-20T01:57:19Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "8c6c12e15cf626e44993ebca8ec489e7bdf0f074",
+      "shortSha": "8c6c12e",
+      "author": "yunwoo",
+      "subject": "feat(hud): add berserker threat delta indicator",
+      "committedAt": "2026-03-20T01:29:18Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_hud_berserker_counters.lua",
+        "src/hud.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_hud_berserker_counters.lua",
+        "src/hud.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "286e17bd585043b8f58920c5a345c494ce84e6e5",
+      "shortSha": "286e17b",
+      "author": "yunwoo",
+      "subject": "feat: add berserker threat formula legend in hud and status",
+      "committedAt": "2026-03-20T00:59:20Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "main.lua",
+        "scripts/regression_hud_berserker_counters.lua",
+        "src/hud.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_hud_berserker_counters.lua",
+        "src/hud.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "2da99ccffcfd71f7c2a5d2646c91a61f45530501",
+      "shortSha": "2da99cc",
+      "author": "yunwoo",
+      "subject": "feat(hud): color-code berserker threat tiers",
+      "committedAt": "2026-03-20T00:28:44Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_hud_berserker_counters.lua",
+        "src/hud.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_hud_berserker_counters.lua",
+        "src/hud.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "57614ea7895c2ce22c88d77dd827fa8cdf87e3c2",
+      "shortSha": "57614ea",
+      "author": "yunwoo",
+      "subject": "feat(hud): add berserker threat tier label and regression",
+      "committedAt": "2026-03-19T23:59:13Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_hud_berserker_counters.lua",
+        "src/hud.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_hud_berserker_counters.lua",
+        "src/hud.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "88f68e625111e4c67ebcf4b3dcfc880f8045a098",
+      "shortSha": "88f68e6",
+      "author": "yunwoo",
+      "subject": "feat: add weighted berserker threat index to HUD",
+      "committedAt": "2026-03-19T23:29:02Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_hud_berserker_counters.lua",
+        "src/hud.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_hud_berserker_counters.lua",
+        "src/hud.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "5752a1828efbbbced7e6965b245f425725f2f0f1",
+      "shortSha": "5752a18",
+      "author": "yunwoo",
+      "subject": "feat: surface mission variety bonus mastery counter",
+      "committedAt": "2026-03-19T22:59:48Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_mission_momentum.lua",
+        "scripts/regression_run_summary.lua",
+        "src/hud.lua",
+        "src/run_missions.lua",
+        "src/run_summary.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_mission_momentum.lua",
+        "scripts/regression_run_summary.lua",
+        "src/hud.lua",
+        "src/run_missions.lua",
+        "src/run_summary.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "a7e5da776c2495dbd7d9bf8d04c2b48cec668cb0",
+      "shortSha": "a7e5da7",
+      "author": "yunwoo",
+      "subject": "feat: preview mission lane-switch variety bonus in HUD",
+      "committedAt": "2026-03-19T22:29:22Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_mission_variety_preview.lua",
+        "src/hud.lua",
+        "src/run_missions.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_mission_variety_preview.lua",
+        "src/hud.lua",
+        "src/run_missions.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "9af5bc4dfaa8584c050981768cbf14b2dba0047d",
+      "shortSha": "9af5bc4",
+      "author": "yunwoo",
+      "subject": "feat(hud): surface berserker recovery-window threat counter",
+      "committedAt": "2026-03-19T21:59:22Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_hud_berserker_counters.lua",
+        "src/hud.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_hud_berserker_counters.lua",
+        "src/hud.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "4732569d17e0d8dacbbe4146aa530ce1db57a419",
+      "shortSha": "4732569",
+      "author": "yunwoo",
+      "subject": "Add berserker post-lunge recovery window",
+      "committedAt": "2026-03-19T21:31:07Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "main.lua",
+        "scripts/regression_enemy_behavior_variants.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_enemy_behavior_variants.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "ecd8f8f4a003482d0cae01f7d273911bad64776e",
+      "shortSha": "ecd8f8f",
+      "author": "yunwoo",
+      "subject": "feat(combat): add berserker pre-lunge desperation telegraph",
+      "committedAt": "2026-03-19T21:00:47Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "main.lua",
+        "scripts/regression_enemy_behavior_variants.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua",
+        "src/hud.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_enemy_behavior_variants.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua",
+        "src/hud.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "a3dcf808144997926de993e9b0bb1ba5663da15f",
+      "shortSha": "a3dcf80",
+      "author": "yunwoo",
+      "subject": "feat: telegraph berserker desperation state in HUD and status feed",
+      "committedAt": "2026-03-19T20:47:02Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "main.lua",
+        "scripts/regression_enemy_behavior_variants.lua",
+        "src/enemy_ai.lua",
+        "src/hud.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_enemy_behavior_variants.lua",
+        "src/enemy_ai.lua",
+        "src/hud.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "deabb6b3ebe77e36b0a5ef53a1f45dcfe981d5af",
+      "shortSha": "deabb6b",
+      "author": "yunwoo",
+      "subject": "feat(combat): add berserker low-hp desperation behavior",
+      "committedAt": "2026-03-19T20:30:51Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_enemy_behavior_variants.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_enemy_behavior_variants.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "f3ebf1ff5f163bad5a9fe7e18f0cac3d82a4b63e",
+      "shortSha": "f3ebf1f",
+      "author": "yunwoo",
+      "subject": "feat: add mission pack flavor metadata to hud and run summary",
+      "committedAt": "2026-03-19T19:59:45Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_mission_variety_pack.lua",
+        "scripts/regression_run_summary.lua",
+        "src/hud.lua",
+        "src/run_missions.lua",
+        "src/run_summary.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_mission_variety_pack.lua",
+        "scripts/regression_run_summary.lua",
+        "src/hud.lua",
+        "src/run_missions.lua",
+        "src/run_summary.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "e8eb8a0f24da59e254a3a0a5297e3c3e4947abdc",
+      "shortSha": "e8eb8a0",
+      "author": "yunwoo",
+      "subject": "Add mission lane-switch variety bonus for momentum rewards",
+      "committedAt": "2026-03-19T19:30:03Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "main.lua",
+        "scripts/regression_mission_momentum.lua",
+        "src/run_missions.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_mission_momentum.lua",
+        "src/run_missions.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "c3c116b21f8dba88b21c763bc2cde7d53441bfde",
+      "shortSha": "c3c116b",
+      "author": "yunwoo",
+      "subject": "feat: show mission pack and streak in HUD + run summary",
+      "committedAt": "2026-03-19T18:59:40Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_run_summary.lua",
+        "src/hud.lua",
+        "src/run_summary.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_run_summary.lua",
+        "src/hud.lua",
+        "src/run_summary.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "b60498f2c075111c21bc474998e80fe3951b6f1a",
+      "shortSha": "b60498f",
+      "author": "yunwoo",
+      "subject": "feat(ops): add sustain dashboard trend classification",
+      "committedAt": "2026-03-19T18:30:16Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/economy_weekly_snapshot.json",
+        "logs/economy_weekly_snapshot.md",
+        "logs/stale_branch_report_drift.json",
+        "logs/stale_branch_report_drift.md",
+        "logs/sustain_health_dashboard.json",
+        "logs/sustain_health_dashboard.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_sustain_health_dashboard.py",
+        "scripts/sustain_health_dashboard.py"
+      ],
+      "codeFiles": [
+        "scripts/regression_sustain_health_dashboard.py",
+        "scripts/sustain_health_dashboard.py"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/stale_branch_report_drift.json",
+        "logs/stale_branch_report_drift.md",
+        "logs/sustain_health_dashboard.json",
+        "logs/sustain_health_dashboard.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "d460370b5978322e77061794b5b037e0aee6f890",
+      "shortSha": "d460370",
+      "author": "yunwoo",
+      "subject": "feat(ops): add sustain dashboard json mode and weekly artifact wiring",
+      "committedAt": "2026-03-19T18:01:31Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/economy_weekly_snapshot.json",
+        "logs/economy_weekly_snapshot.md",
+        "logs/stale_branch_report_drift.json",
+        "logs/stale_branch_report_drift.md",
+        "logs/sustain_health_dashboard.json",
+        "logs/sustain_health_dashboard.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_sustain_health_dashboard.py",
+        "scripts/run_weekly_sustain.sh",
+        "scripts/sustain_health_dashboard.py"
+      ],
+      "codeFiles": [
+        "scripts/regression_sustain_health_dashboard.py",
+        "scripts/run_weekly_sustain.sh",
+        "scripts/sustain_health_dashboard.py"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/stale_branch_report_drift.json",
+        "logs/stale_branch_report_drift.md",
+        "logs/sustain_health_dashboard.json",
+        "logs/sustain_health_dashboard.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "810ddf0d07ddf05c6b595083d6cabd12a382d799",
+      "shortSha": "810ddf0",
+      "author": "yunwoo",
+      "subject": "ops: add stale branch/report drift guardrail",
+      "committedAt": "2026-03-19T17:29:47Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/stale_branch_report_drift.json",
+        "logs/stale_branch_report_drift.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_stale_branch_report_drift.py",
+        "scripts/run_weekly_sustain.sh",
+        "scripts/stale_branch_report_drift_check.py"
+      ],
+      "codeFiles": [
+        "scripts/regression_stale_branch_report_drift.py",
+        "scripts/run_weekly_sustain.sh",
+        "scripts/stale_branch_report_drift_check.py"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/stale_branch_report_drift.json",
+        "logs/stale_branch_report_drift.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "5793f3b47a6b9dd30353f6f5d28f34f6bf95b761",
+      "shortSha": "5793f3b",
+      "author": "yunwoo",
+      "subject": "feat: add weekly sustain health dashboard report",
+      "committedAt": "2026-03-19T16:59:40Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/economy_weekly_snapshot.json",
+        "logs/economy_weekly_snapshot.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/sustain_health_dashboard.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_sustain_health_dashboard.py",
+        "scripts/run_weekly_sustain.sh",
+        "scripts/sustain_health_dashboard.py"
+      ],
+      "codeFiles": [
+        "scripts/regression_sustain_health_dashboard.py",
+        "scripts/run_weekly_sustain.sh",
+        "scripts/sustain_health_dashboard.py"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/sustain_health_dashboard.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "9d411ec456b31785d8dd4234ef50bcdac4b749c1",
+      "shortSha": "9d411ec",
+      "author": "yunwoo",
+      "subject": "feat(ops): add pretty JSON mode for weekly cron audit",
+      "committedAt": "2026-03-19T16:29:19Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/audit_weekly_sustain_cron.sh",
+        "scripts/regression_weekly_cron_audit.py"
+      ],
+      "codeFiles": [
+        "scripts/audit_weekly_sustain_cron.sh",
+        "scripts/regression_weekly_cron_audit.py"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "fe6b2ed6265b1eb80535b55db6d58b46e5ec64d5",
+      "shortSha": "fe6b2ed",
+      "author": "yunwoo",
+      "subject": "feat(world): reposition map_03-07 portals for clearer progression landmarks",
+      "committedAt": "2026-03-19T15:58:53Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "maps/map_03.lua",
+        "maps/map_04.lua",
+        "maps/map_05.lua",
+        "maps/map_06.lua",
+        "maps/map_07.lua"
+      ],
+      "codeFiles": [
+        "maps/map_03.lua",
+        "maps/map_04.lua",
+        "maps/map_05.lua",
+        "maps/map_06.lua",
+        "maps/map_07.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "d1ee22df5b14e3846d37124249958a8f9fd9c92c",
+      "shortSha": "d1ee22d",
+      "author": "yunwoo",
+      "subject": "feat: add map_03-07 tactical identity metadata and spawn profiles",
+      "committedAt": "2026-03-19T15:29:48Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "maps/map_03.lua",
+        "maps/map_04.lua",
+        "maps/map_05.lua",
+        "maps/map_06.lua",
+        "maps/map_07.lua",
+        "scripts/regression_map_profile_distinctness.lua",
+        "src/entities.lua",
+        "src/map.lua"
+      ],
+      "codeFiles": [
+        "maps/map_03.lua",
+        "maps/map_04.lua",
+        "maps/map_05.lua",
+        "maps/map_06.lua",
+        "maps/map_07.lua",
+        "scripts/regression_map_profile_distinctness.lua",
+        "src/entities.lua",
+        "src/map.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "6094aa694bfce6c3a8648b824c16431d380c65c2",
+      "shortSha": "6094aa6",
+      "author": "yunwoo",
+      "subject": "Prioritize World Team map variety and logical portal routing tasks",
+      "committedAt": "2026-03-19T15:02:44Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "4ac9c643218d341e544abc6a93d5da3163dd9349",
+      "shortSha": "4ac9c64",
+      "author": "yunwoo",
+      "subject": "feat: add mission momentum streak SRL bonus experiment",
+      "committedAt": "2026-03-19T15:00:16Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "main.lua",
+        "scripts/regression_mission_momentum.lua",
+        "src/run_missions.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_mission_momentum.lua",
+        "src/run_missions.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "01eb8356620f7393447c938c27c3df1f7316dde6",
+      "shortSha": "01eb835",
+      "author": "yunwoo",
+      "subject": "Add Combat/Design team lanes and logs",
+      "committedAt": "2026-03-19T14:53:31Z",
+      "changedFiles": [
+        "TEAM_OPERATING_PROTOCOL.md",
+        "logs/teams/README.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "logs/teams/README.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "09fa4dd5ec00d28cdd7b81a905c0545661e96653",
+      "shortSha": "09fa4dd",
+      "author": "yunwoo",
+      "subject": "feat: add rotating mission variety packs and progression hooks",
+      "committedAt": "2026-03-19T14:47:39Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "main.lua",
+        "scripts/regression_mission_variety_pack.lua",
+        "src/run_missions.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_mission_variety_pack.lua",
+        "src/run_missions.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "8b19e18726ff00f700e29e200b781cc36941edd3",
+      "shortSha": "8b19e18",
+      "author": "yunwoo",
+      "subject": "Add Game Director agent protocol and integrate into operating priority",
+      "committedAt": "2026-03-19T14:44:16Z",
+      "changedFiles": [
+        "GAME_DIRECTOR_AGENT.md",
+        "TEAM_OPERATING_PROTOCOL.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [],
+      "missingEvidence": false
+    },
+    {
+      "sha": "262a3bd74d6afd225504b9aee59372d6d4b3cf3d",
+      "shortSha": "262a3bd",
+      "author": "yunwoo",
+      "subject": "feat: add warcaller/hunter enemy synergy archetypes",
+      "committedAt": "2026-03-19T14:29:47Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/qa.md",
+        "scripts/regression_enemy_behavior_variants.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_enemy_behavior_variants.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/qa.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "ba2d6c3dc5d26227ca19e6028a2ca628e25738e6",
+      "shortSha": "ba2d6c3",
+      "author": "yunwoo",
+      "subject": "feat(world): add map_07 tactical choke map with portal integration",
+      "committedAt": "2026-03-19T13:59:07Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/world.md",
+        "maps/map_06.lua",
+        "maps/map_07.lua"
+      ],
+      "codeFiles": [
+        "maps/map_06.lua",
+        "maps/map_07.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "da6d624e0330abf6d06c5c3ff408fa73ed74e303",
+      "shortSha": "da6d624",
+      "author": "yunwoo",
+      "subject": "feat: clarify build preview with expected category",
+      "committedAt": "2026-03-19T13:30:33Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md",
+        "scripts/regression_build_preview_clarity.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_build_preview_clarity.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "193b313ae12b359eee7f6394d0dcb94bbe36578b",
+      "shortSha": "193b313",
+      "author": "yunwoo",
+      "subject": "feat(ux): disable BUILDER.SRL use and guide build-only flow",
+      "committedAt": "2026-03-19T12:59:47Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md",
+        "scripts/regression_action_menu_lock_reasons.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_action_menu_lock_reasons.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "e81d84250c4fb75fbd08693245530adadaaca301",
+      "shortSha": "e81d842",
+      "author": "yunwoo",
+      "subject": "feat(ui): make folder action menu primary build entry flow",
+      "committedAt": "2026-03-19T12:32:38Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md",
+        "scripts/regression_build_action_menu.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_build_action_menu.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "a1dc57eff1e19d9a1b55fc06e6f57a25fca8344d",
+      "shortSha": "a1dc57e",
+      "author": "yunwoo",
+      "subject": "Add post-RC backlog and wire loop fallback priority",
+      "committedAt": "2026-03-19T12:26:30Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "410f76ae4f8c1dcbd7532ba9ed4a6a26a71ff54b",
+      "shortSha": "410f76a",
+      "author": "yunwoo",
+      "subject": "feat(sustain): add json mode for weekly cron audit helper",
+      "committedAt": "2026-03-19T12:15:50Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/audit_weekly_sustain_cron.sh",
+        "scripts/regression_weekly_cron_audit.py"
+      ],
+      "codeFiles": [
+        "scripts/audit_weekly_sustain_cron.sh",
+        "scripts/regression_weekly_cron_audit.py"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "d54daab3ff577f697552ae4b5f87afd533b4ede7",
+      "shortSha": "d54daab",
+      "author": "yunwoo",
+      "subject": "feat(sustain): add weekly cron policy audit helper",
+      "committedAt": "2026-03-19T11:45:38Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/audit_weekly_sustain_cron.sh",
+        "scripts/regression_weekly_cron_audit.py"
+      ],
+      "codeFiles": [
+        "scripts/audit_weekly_sustain_cron.sh",
+        "scripts/regression_weekly_cron_audit.py"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "ff2f35387e5e812b4674b1cb0597d2b54e6319c4",
+      "shortSha": "ff2f353",
+      "author": "yunwoo",
+      "subject": "post-rc: add age-based prune window for sustain log rotation",
+      "committedAt": "2026-03-19T11:16:21Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/install_weekly_sustain_cron.sh",
+        "scripts/regression_rotate_log_retention.py",
+        "scripts/regression_weekly_cron_installer.py",
+        "scripts/rotate_log_if_needed.sh"
+      ],
+      "codeFiles": [
+        "scripts/install_weekly_sustain_cron.sh",
+        "scripts/regression_rotate_log_retention.py",
+        "scripts/regression_weekly_cron_installer.py",
+        "scripts/rotate_log_if_needed.sh"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "9096474b998502a1cd28196a7f422ee398c76dd7",
+      "shortSha": "9096474",
+      "author": "yunwoo",
+      "subject": "sustain: add rotated log retention pruning policy",
+      "committedAt": "2026-03-19T10:45:32Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/install_weekly_sustain_cron.sh",
+        "scripts/regression_rotate_log_retention.py",
+        "scripts/regression_weekly_cron_installer.py",
+        "scripts/rotate_log_if_needed.sh"
+      ],
+      "codeFiles": [
+        "scripts/install_weekly_sustain_cron.sh",
+        "scripts/regression_rotate_log_retention.py",
+        "scripts/regression_weekly_cron_installer.py",
+        "scripts/rotate_log_if_needed.sh"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "08914ee2a91a0cb5b3b44672dd19965be648125f",
+      "shortSha": "08914ee",
+      "author": "yunwoo",
+      "subject": "docs(backlog): seed next sustain log retention task",
+      "committedAt": "2026-03-19T10:16:48Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "e7bf3c9cdd610bb7c2f116557e23d3108296c3b9",
+      "shortSha": "e7bf3c9",
+      "author": "yunwoo",
+      "subject": "chore(sustain): add weekly cron log rotation guard",
+      "committedAt": "2026-03-19T10:16:12Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/install_weekly_sustain_cron.sh",
+        "scripts/regression_weekly_cron_installer.py",
+        "scripts/rotate_log_if_needed.sh"
+      ],
+      "codeFiles": [
+        "scripts/install_weekly_sustain_cron.sh",
+        "scripts/regression_weekly_cron_installer.py",
+        "scripts/rotate_log_if_needed.sh"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "3f7d678745c7bd2e8d2d04e321e7a5f556a4813b",
+      "shortSha": "3f7d678",
+      "author": "yunwoo",
+      "subject": "feat: allow custom weekly sustain cron log path",
+      "committedAt": "2026-03-19T09:43:47Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/install_weekly_sustain_cron.sh",
+        "scripts/regression_weekly_cron_installer.py"
+      ],
+      "codeFiles": [
+        "scripts/install_weekly_sustain_cron.sh",
+        "scripts/regression_weekly_cron_installer.py"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "8a8dfabedf634722604281d5fc30de4e1f614ec2",
+      "shortSha": "8a8dfab",
+      "author": "yunwoo",
+      "subject": "test: cover mocked apply path for weekly cron installer",
+      "committedAt": "2026-03-19T09:15:06Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/install_weekly_sustain_cron.sh",
+        "scripts/regression_weekly_cron_installer.py"
+      ],
+      "codeFiles": [
+        "scripts/install_weekly_sustain_cron.sh",
+        "scripts/regression_weekly_cron_installer.py"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "8e6c0f3afdfd8401f6aecd6d993cea8bd7124c62",
+      "shortSha": "8e6c0f3",
+      "author": "yunwoo",
+      "subject": "docs: sync RC checklist sign-off with tagged evidence",
+      "committedAt": "2026-03-19T08:44:13Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "5cff3ce14a4cc281b967f7a491f647deeab92e9b",
+      "shortSha": "5cff3ce",
+      "author": "yunwoo",
+      "subject": "add regression guardrail for weekly cron installer cli",
+      "committedAt": "2026-03-19T08:14:38Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/regression_weekly_cron_installer.py"
+      ],
+      "codeFiles": [
+        "scripts/regression_weekly_cron_installer.py"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "5db3d4b3eef159280ca900d524e86ce214c4d90b",
+      "shortSha": "5db3d4b",
+      "author": "yunwoo",
+      "subject": "chore: add weekly sustain cron wiring helper",
+      "committedAt": "2026-03-19T07:45:26Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/economy_weekly_snapshot.json",
+        "logs/economy_weekly_snapshot.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/install_weekly_sustain_cron.sh"
+      ],
+      "codeFiles": [
+        "scripts/install_weekly_sustain_cron.sh"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "58515de5266f0184ae95519d0401acac30d22292",
+      "shortSha": "58515de",
+      "author": "yunwoo",
+      "subject": "chore: add one-command weekly sustain runner",
+      "committedAt": "2026-03-19T07:13:51Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/economy_weekly_snapshot.json",
+        "logs/economy_weekly_snapshot.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/run_weekly_sustain.sh"
+      ],
+      "codeFiles": [
+        "scripts/run_weekly_sustain.sh"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "f2818fcc21358c6d0b0a7c399341326c98c963e7",
+      "shortSha": "f2818fc",
+      "author": "yunwoo",
+      "subject": "chore: wire weekly snapshot regression into sustain checklist",
+      "committedAt": "2026-03-19T06:43:28Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "817f126fdc52fca33213003a2f161aa6f6bec277",
+      "shortSha": "817f126",
+      "author": "yunwoo",
+      "subject": "feat(sustain): add weekly snapshot delta regression",
+      "committedAt": "2026-03-19T06:15:19Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/economy_weekly_snapshot.json",
+        "logs/economy_weekly_snapshot.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/economy_weekly_snapshot.py",
+        "scripts/regression_weekly_snapshot.py"
+      ],
+      "codeFiles": [
+        "scripts/economy_weekly_snapshot.py",
+        "scripts/regression_weekly_snapshot.py"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "428cb71d5e956815649c93f1be5a76225fc11cfa",
+      "shortSha": "428cb71",
+      "author": "yunwoo",
+      "subject": "chore: add weekly SRL telemetry snapshot and rebalance decision log",
+      "committedAt": "2026-03-19T05:45:00Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/economy_weekly_snapshot.json",
+        "logs/economy_weekly_snapshot.md",
+        "logs/teams/_summary.md",
+        "logs/teams/systems.md",
+        "scripts/economy_weekly_snapshot.py"
+      ],
+      "codeFiles": [
+        "scripts/economy_weekly_snapshot.py"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "9d89732691692bd1e6030222b548d9d3cdb008ef",
+      "shortSha": "9d89732",
+      "author": "yunwoo",
+      "subject": "chore: close M5 backlog and prep rc tag 0.5.0-rc.1",
+      "committedAt": "2026-03-19T05:13:44Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/loop_30min_checklist.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/loop_30min_checklist.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "fdd0f9a599786124caa2aec4100640def148e345",
+      "shortSha": "fdd0f9a",
+      "author": "yunwoo",
+      "subject": "release: capture launch assets and draft rc changelog",
+      "committedAt": "2026-03-19T04:44:03Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "CHANGELOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md",
+        "screenshots/screenshot-map04.png"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "CHANGELOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "a629534b9c90c4ec6cbe140df8b10c6d4c262c98",
+      "shortSha": "a629534",
+      "author": "yunwoo",
+      "subject": "qa: close M5 critical blocker audit and update triage",
+      "committedAt": "2026-03-19T04:13:19Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/loop_30min_checklist.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/loop_30min_checklist.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "7b44055808ed373ca3d9697e869ce655b0255291",
+      "shortSha": "7b44055",
+      "author": "yunwoo",
+      "subject": "qa: execute m5 full regression matrix and refresh rc evidence",
+      "committedAt": "2026-03-19T03:44:49Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/keyboard_only_usability_checklist.md",
+        "logs/playtests/loop_30min_checklist.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "screenshots/screenshot-map04.png"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/keyboard_only_usability_checklist.md",
+        "logs/playtests/loop_30min_checklist.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "d4c70d0e64937946e6c4f23b211abe14113b1e0b",
+      "shortSha": "d4c70d0",
+      "author": "yunwoo",
+      "subject": "docs: add M5 release candidate checklist matrix",
+      "committedAt": "2026-03-19T03:13:39Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "3553b986dc4aa64853f54fa2eaf9177d9ffda040",
+      "shortSha": "3553b98",
+      "author": "yunwoo",
+      "subject": "Add keyboard-only usability checklist regression artifacts",
+      "committedAt": "2026-03-19T02:44:28Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/keyboard_only_usability_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md",
+        "scripts/regression_keyboard_shortcuts.lua",
+        "scripts/regression_keyboard_usability_checklist.py"
+      ],
+      "codeFiles": [
+        "scripts/regression_keyboard_shortcuts.lua",
+        "scripts/regression_keyboard_usability_checklist.py"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/keyboard_only_usability_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "bb0cae5b4907befe956b68f8604894d76be73326",
+      "shortSha": "bb0cae5",
+      "author": "yunwoo",
+      "subject": "feat(ux): add first-5-minute onboarding hint flow",
+      "committedAt": "2026-03-19T02:15:20Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md",
+        "main.lua",
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "scripts/regression_onboarding_hints.lua",
+        "src/hud.lua",
+        "src/onboarding_hints.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_onboarding_hints.lua",
+        "src/hud.lua",
+        "src/onboarding_hints.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "2ce533417af959d87156c8598215f724a54c2fa2",
+      "shortSha": "2ce5334",
+      "author": "yunwoo",
+      "subject": "feat(ux): show inline lock reasons for disabled action menu items",
+      "committedAt": "2026-03-19T01:45:42Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md",
+        "screenshots/screenshot-map04.png",
+        "scripts/regression_action_menu_lock_reasons.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_action_menu_lock_reasons.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "b74c99d0ed9836ca65cca39cc0a23a142d7ffad2",
+      "shortSha": "b74c99d",
+      "author": "yunwoo",
+      "subject": "M4: normalize DOS action terminology and explicit build material copy",
+      "committedAt": "2026-03-19T01:14:26Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md",
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "63c5a799c0bb48f6513eb30072ab91269ac39e62",
+      "shortSha": "63c5a79",
+      "author": "yunwoo",
+      "subject": "feat: add run summary overlay for reset progression",
+      "committedAt": "2026-03-19T00:44:50Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md",
+        "main.lua",
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "scripts/regression_run_summary.lua",
+        "src/hud.lua",
+        "src/run_summary.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_run_summary.lua",
+        "src/hud.lua",
+        "src/run_summary.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "5d2ba5881065c14b10c8d810dc238e785db8cda6",
+      "shortSha": "5d2ba58",
+      "author": "yunwoo",
+      "subject": "docs(logs): record fail-forward carryover run context",
+      "committedAt": "2026-03-19T00:14:41Z",
+      "changedFiles": [
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "90cdfa915cc21da268a74ecf5f6f97aac49d9023",
+      "shortSha": "90cdfa9",
+      "author": "yunwoo",
+      "subject": "feat(meta): add fail-forward carryover rewards on run reset",
+      "committedAt": "2026-03-19T00:14:00Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "main.lua",
+        "scripts/regression_fail_forward_rewards.lua",
+        "src/fail_forward.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_fail_forward_rewards.lua",
+        "src/fail_forward.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "653977747f1842f6a32d9c2e09c022aea7b3548d",
+      "shortSha": "6539777",
+      "author": "yunwoo",
+      "subject": "feat(m3): add unlock flag framework for advanced build options",
+      "committedAt": "2026-03-18T23:46:01Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "main.lua",
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "scripts/regression_unlock_flags.lua",
+        "src/ai_describe.lua",
+        "src/hud.lua",
+        "src/unlocks.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_unlock_flags.lua",
+        "src/ai_describe.lua",
+        "src/hud.lua",
+        "src/unlocks.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "a6bcfe8785bc2f8695e4730c3478c843f2e5a44b",
+      "shortSha": "a6bcfe8",
+      "author": "yunwoo",
+      "subject": "feat(m3): add run mission prototype with HUD checklist",
+      "committedAt": "2026-03-18T23:15:39Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "main.lua",
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "scripts/regression_run_missions.lua",
+        "src/combat.lua",
+        "src/hud.lua",
+        "src/inventory_ui.lua",
+        "src/run_missions.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "scripts/regression_run_missions.lua",
+        "src/combat.lua",
+        "src/hud.lua",
+        "src/inventory_ui.lua",
+        "src/run_missions.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "c5ab09d6b0b0549f96452ee0f98da0b62a620fa2",
+      "shortSha": "c5ab09d",
+      "author": "yunwoo",
+      "subject": "M2: tier lootbox rewards by map progression",
+      "committedAt": "2026-03-18T22:44:10Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/qa.md",
+        "scripts/regression_lootbox_rewards_by_tier.lua",
+        "src/entities.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_lootbox_rewards_by_tier.lua",
+        "src/entities.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/qa.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "b81c62fe86c8b31dd81bc68262e99fa99234ffab",
+      "shortSha": "b81c62f",
+      "author": "yunwoo",
+      "subject": "feat(ai): enforce build output category diversity constraints",
+      "committedAt": "2026-03-18T22:14:22Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/qa.md",
+        "scripts/regression_build_category_diversity.lua",
+        "src/ai_describe.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_build_category_diversity.lua",
+        "src/ai_describe.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/qa.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "2ece1fc544aa273a969211f55b81e79d97f58239",
+      "shortSha": "2ece1fc",
+      "author": "yunwoo",
+      "subject": "feat(ai): add enemy behavior variants for M2 encounters",
+      "committedAt": "2026-03-18T21:47:56Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "scripts/regression_enemy_behavior_variants.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_enemy_behavior_variants.lua",
+        "src/enemy_ai.lua",
+        "src/entities.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "4da2f326a4cf9f0ddb988c4c8605b6bc3ac36e33",
+      "shortSha": "4da2f32",
+      "author": "yunwoo",
+      "subject": "feat(world): add map_06 with bidirectional portal links",
+      "committedAt": "2026-03-18T21:13:21Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/world.md",
+        "maps/map_05.lua",
+        "maps/map_06.lua"
+      ],
+      "codeFiles": [
+        "maps/map_05.lua",
+        "maps/map_06.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "6a64ac9ec8157d4d2382927cd6d91d4d3dac0e71",
+      "shortSha": "6a64ac9",
+      "author": "yunwoo",
+      "subject": "chore(logs): record commit hash for map_05 run",
+      "committedAt": "2026-03-18T20:44:43Z",
+      "changedFiles": [
+        "logs/teams/qa.md",
+        "logs/teams/world.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "logs/teams/qa.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "f1b32bffbfaa02d027242fb7a8b1720629f03d10",
+      "shortSha": "f1b32bf",
+      "author": "yunwoo",
+      "subject": "feat(world): add map_05 and wire portal progression",
+      "committedAt": "2026-03-18T20:44:24Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/world.md",
+        "maps/map_04.lua",
+        "maps/map_05.lua"
+      ],
+      "codeFiles": [
+        "maps/map_04.lua",
+        "maps/map_05.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "f3309c8c482e67423d37dd246443df58aa286101",
+      "shortSha": "f3309c8",
+      "author": "yunwoo",
+      "subject": "Add scripted 30-minute core-loop checklist regression",
+      "committedAt": "2026-03-18T20:14:05Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/loop_30min_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/regression_30min_loop_checklist.py"
+      ],
+      "codeFiles": [
+        "scripts/regression_30min_loop_checklist.py"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/loop_30min_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "658ddb216b898177081d2e3e170cc0384dc66bf9",
+      "shortSha": "658ddb2",
+      "author": "yunwoo",
+      "subject": "m1: script map_01-04 progression validation checklist",
+      "committedAt": "2026-03-18T19:44:17Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/world.md",
+        "scripts/regression_map_progression.py"
+      ],
+      "codeFiles": [
+        "scripts/regression_map_progression.py"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/playtests/map_01_04_progression_checklist.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "f56bfa87fe9a57543b65f4af57f1953d8e3831a0",
+      "shortSha": "f56bfa8",
+      "author": "yunwoo",
+      "subject": "balance: tier disassembly salvage caps for fairness",
+      "committedAt": "2026-03-18T19:13:46Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "scripts/regression_disassembly_caps.lua",
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_disassembly_caps.lua",
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "d41625a3d8b407e7d87f9b9ee22acae7a937c59d",
+      "shortSha": "d41625a",
+      "author": "yunwoo",
+      "subject": "logs: record commit hash for SRL cost curve run",
+      "committedAt": "2026-03-18T18:46:07Z",
+      "changedFiles": [
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "242f0db3626cc6ebc789975971761cdaba630570",
+      "shortSha": "242f0db",
+      "author": "yunwoo",
+      "subject": "balance: tighten low-tier SRL build cost curve",
+      "committedAt": "2026-03-18T18:45:41Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/regression_srl_cost_curve.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_srl_cost_curve.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "c4788d55bed6ffe639851c5b33a777d50561ad20",
+      "shortSha": "c4788d5",
+      "author": "yunwoo",
+      "subject": "feat(economy): add anti-exploit loop report from telemetry",
+      "committedAt": "2026-03-18T18:15:27Z",
+      "changedFiles": [
+        ".gitignore",
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/economy_anti_exploit_report.lua",
+        "scripts/regression_anti_exploit_report.lua",
+        "src/economy_anti_exploit.lua"
+      ],
+      "codeFiles": [
+        "scripts/economy_anti_exploit_report.lua",
+        "scripts/regression_anti_exploit_report.lua",
+        "src/economy_anti_exploit.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "ff5ff714b4bd8cb98bc5363b288425fbacc76bf7",
+      "shortSha": "ff5ff71",
+      "author": "yunwoo",
+      "subject": "feat(ui): make BUILDER.SRL affordance explicit in build/disasm flow",
+      "committedAt": "2026-03-18T17:45:14Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md",
+        "screenshots/screenshot-map04.png",
+        "scripts/regression_builder_srl_affordance.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_builder_srl_affordance.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "921880564ce3deadaa488dd73f7ef43694b82dcf",
+      "shortSha": "9218805",
+      "author": "yunwoo",
+      "subject": "docs(logs): record build preview confirm execution",
+      "committedAt": "2026-03-18T17:16:01Z",
+      "changedFiles": [
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "ec0c770d94cda9d9114eaf70aa3f8c97e51c8e8a",
+      "shortSha": "ec0c770",
+      "author": "yunwoo",
+      "subject": "feat(inventory): add build preview confirm dialog",
+      "committedAt": "2026-03-18T17:15:36Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md",
+        "screenshots/screenshot-map04.png",
+        "scripts/regression_build_preview_confirm.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_build_preview_confirm.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "fcac5a88a580efc83d4f4621a3a0af4b5c0a529c",
+      "shortSha": "fcac5a8",
+      "author": "yunwoo",
+      "subject": "docs(logs): stamp stack-split entries with commit hash",
+      "committedAt": "2026-03-18T16:47:32Z",
+      "changedFiles": [
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "6819ccfef47402def48a35f4b76b388d4717b10a",
+      "shortSha": "6819ccf",
+      "author": "yunwoo",
+      "subject": "feat(inventory): add stack split interaction with regression",
+      "committedAt": "2026-03-18T16:47:00Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "scripts/regression_split_stack.lua",
+        "src/inventory.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_split_stack.lua",
+        "src/inventory.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "71c574763056dbce6363dc933bcadd64e90d61b1",
+      "shortSha": "71c5747",
+      "author": "yunwoo",
+      "subject": "feat: add build/disassemble economy telemetry baseline",
+      "committedAt": "2026-03-18T16:14:51Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/regression_economy_telemetry.lua",
+        "src/economy_telemetry.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_economy_telemetry.lua",
+        "src/economy_telemetry.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "190d2f6a7015cf34ec54ac4587663b21c5d07dca",
+      "shortSha": "190d2f6",
+      "author": "yunwoo",
+      "subject": "feat(m0): tune starter build-test loadout baseline",
+      "committedAt": "2026-03-18T15:45:55Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "scripts/regression_starter_loadout.lua",
+        "src/player.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_starter_loadout.lua",
+        "src/player.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "fe4e4f144af12122aec4b51a8945fe99260599b5",
+      "shortSha": "fe4e4f1",
+      "author": "yunwoo",
+      "subject": "docs: finalize QA run log metadata",
+      "committedAt": "2026-03-18T15:14:35Z",
+      "changedFiles": [
+        "logs/teams/qa.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "logs/teams/qa.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "3b11aa646a099bfc337fb91903d61b88ceee07b5",
+      "shortSha": "3b11aa6",
+      "author": "yunwoo",
+      "subject": "test: add drop-pickup regression scenario",
+      "committedAt": "2026-03-18T15:14:22Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "scripts/regression_drop_pickup.lua"
+      ],
+      "codeFiles": [
+        "scripts/regression_drop_pickup.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "a9beb4c850ef0a8f86e5f3a3d29cf839cf803f30",
+      "shortSha": "a9beb4c",
+      "author": "yunwoo",
+      "subject": "docs(logs): record M0 pickup hint completion context",
+      "committedAt": "2026-03-18T14:46:00Z",
+      "changedFiles": [
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/ux.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "3a6b2061d6f21fbe25fce93a0070133ed6d699cb",
+      "shortSha": "3a6b206",
+      "author": "yunwoo",
+      "subject": "feat(ux): surface G pickup hint in HUD and help",
+      "committedAt": "2026-03-18T14:45:10Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/hud.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/hud.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "599c50bd73572637ccf048bfc15ae5be9895af96",
+      "shortSha": "599c50b",
+      "author": "yunwoo",
+      "subject": "Plan inventory split and build UX improvements in immediate backlog",
+      "committedAt": "2026-03-18T14:36:13Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "5d9604af2de6724ab1fbab5aeab973312bb548d3",
+      "shortSha": "5d9604a",
+      "author": "yunwoo",
+      "subject": "feat(m0): add G-key dropped-item pickup flow",
+      "committedAt": "2026-03-18T14:15:50Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "main.lua",
+        "src/entities.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "src/entities.lua"
+      ],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "07b61af27559f0a20d8570d29b784742eb7e457c",
+      "shortSha": "07b61af",
+      "author": "yunwoo",
+      "subject": "Add team log summary policy for context-window-safe operations",
+      "committedAt": "2026-03-18T13:54:58Z",
+      "changedFiles": [
+        "TEAM_OPERATING_PROTOCOL.md",
+        "logs/teams/_summary.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "logs/teams/_summary.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "b0f2767720fb2737cda5aece30d3b00d1b6420f7",
+      "shortSha": "b0f2767",
+      "author": "yunwoo",
+      "subject": "Add per-team development logs and enforce append-only logging protocol",
+      "committedAt": "2026-03-18T13:51:10Z",
+      "changedFiles": [
+        "TEAM_OPERATING_PROTOCOL.md",
+        "logs/teams/README.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "logs/teams/README.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "a587bc0e3e6dbda45c39a8cd86b41e8dd905e6a3",
+      "shortSha": "a587bc0",
+      "author": "yunwoo",
+      "subject": "balance: tighten SRL churn and add economy telemetry logs",
+      "committedAt": "2026-03-18T13:45:12Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "7f1cb24cf637884c212dbaf80589378fe8d459ab",
+      "shortSha": "7f1cb24",
+      "author": "yunwoo",
+      "subject": "Add team operating protocol and link it from project plan",
+      "committedAt": "2026-03-18T13:37:11Z",
+      "changedFiles": [
+        "PROJECT_PLAN.md",
+        "TEAM_OPERATING_PROTOCOL.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [],
+      "missingEvidence": false
+    },
+    {
+      "sha": "a4f8e262b849bd61de5c3fccc5efd8ef4de74621",
+      "shortSha": "a4f8e26",
+      "author": "yunwoo",
+      "subject": "Add milestone roadmap and detailed action backlog for project management",
+      "committedAt": "2026-03-18T13:33:40Z",
+      "changedFiles": [
+        "ACTION_ITEMS.md",
+        "PROJECT_PLAN.md",
+        "TASKS.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "ACTION_ITEMS.md",
+        "TASKS.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "7f6d68661a608b5763fc4154cfe35a2758f486e8",
+      "shortSha": "7f6d686",
+      "author": "yunwoo",
+      "subject": "Seed diverse starter inventory for build-system testing",
+      "committedAt": "2026-03-18T13:27:27Z",
+      "changedFiles": [
+        "src/inventory.lua",
+        "src/player.lua"
+      ],
+      "codeFiles": [
+        "src/inventory.lua",
+        "src/player.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "cb9776221644ea955dee39e8f72ccb7772041187",
+      "shortSha": "cb97762",
+      "author": "yunwoo",
+      "subject": "Add TODO for dropped-item pickup implementation",
+      "committedAt": "2026-03-18T13:20:53Z",
+      "changedFiles": [
+        "TASKS.md"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [
+        "TASKS.md"
+      ],
+      "missingEvidence": false
+    },
+    {
+      "sha": "a3d9f8ef849617c08d9a8e883315332ff0200571",
+      "shortSha": "a3d9f8e",
+      "author": "yunwoo",
+      "subject": "ux: clarify DOS help copy and quick-key hints",
+      "committedAt": "2026-03-18T04:13:07Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "52b5074933ea2da1eff044a78a011d4fd75d91aa",
+      "shortSha": "52b5074",
+      "author": "yunwoo",
+      "subject": "balance: harden disasm/build anti-loop SRL scaling",
+      "committedAt": "2026-03-18T03:43:20Z",
+      "changedFiles": [
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "2fb97e3658c4680a01e00763c5d4a9ee17dc093d",
+      "shortSha": "2fb97e3",
+      "author": "yunwoo",
+      "subject": "ux: compact F9 build-plan hints and refresh screenshots",
+      "committedAt": "2026-03-18T03:13:59Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "f0aaf991ebf057a466b189cbe3e25856679578c8",
+      "shortSha": "f0aaf99",
+      "author": "yunwoo",
+      "subject": "balance: penalize stackable-heavy build/disasm loops",
+      "committedAt": "2026-03-18T02:43:43Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "4e92006df32aa942d4d71a2ad08671a77eb2cfd9",
+      "shortSha": "4e92006",
+      "author": "yunwoo",
+      "subject": "ux: sync DOS disasm help constants and refresh screenshots",
+      "committedAt": "2026-03-18T02:12:53Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "65fe191ce54f6d4993bcee6195d34bddf256929e",
+      "shortSha": "65fe191",
+      "author": "yunwoo",
+      "subject": "balance: surcharge mono-category build recipes",
+      "committedAt": "2026-03-18T01:42:58Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "bd449f96dfe0b7e4e3d03f42931f6918b123104a",
+      "shortSha": "bd449f9",
+      "author": "yunwoo",
+      "subject": "ux: clarify locked-action footer and disasm deficit copy",
+      "committedAt": "2026-03-18T01:13:10Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "b7e425c3cde94e672c834f997d8fbda0c86b2f56",
+      "shortSha": "b7e425c",
+      "author": "yunwoo",
+      "subject": "ux: clarify SRL lock copy in DOS actions and refresh screenshots",
+      "committedAt": "2026-03-18T00:43:17Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "0397ece3a1b97a9dcdc2c238e203c55e7fd962f2",
+      "shortSha": "0397ece",
+      "author": "yunwoo",
+      "subject": "balance: add premium gear disassemble SRL surcharge",
+      "committedAt": "2026-03-18T00:12:56Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "2058dc7955b7f129ab918e7bb8f9335cecc165f7",
+      "shortSha": "2058dc7",
+      "author": "yunwoo",
+      "subject": "chore: harden portal validator with tile-conflict and reciprocity checks",
+      "committedAt": "2026-03-17T23:44:00Z",
+      "changedFiles": [
+        "scripts/validate_portals.py"
+      ],
+      "codeFiles": [
+        "scripts/validate_portals.py"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "4d59b90b9b0077d6e6aa7895f0ff9fe1cb52aee1",
+      "shortSha": "4d59b90",
+      "author": "yunwoo",
+      "subject": "balance: tighten disassemble salvage and build SRL scaling",
+      "committedAt": "2026-03-17T23:13:27Z",
+      "changedFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "90e31c4d0fac2693451f54c67fe21dcc5a9d5d6e",
+      "shortSha": "90e31c4",
+      "author": "yunwoo",
+      "subject": "ux: add DOS build-plan tag and refresh screenshots",
+      "committedAt": "2026-03-17T22:43:40Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "90ca4d0eb7251bffe5806c943b068f9826ade6f0",
+      "shortSha": "90ca4d0",
+      "author": "yunwoo",
+      "subject": "chore: strengthen portal wiring validator for map progression",
+      "committedAt": "2026-03-17T22:12:49Z",
+      "changedFiles": [
+        "scripts/validate_portals.py"
+      ],
+      "codeFiles": [
+        "scripts/validate_portals.py"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "d0d7e69604893ec999ccc2797c19c9421e42e2f5",
+      "shortSha": "d0d7e69",
+      "author": "yunwoo",
+      "subject": "ux: sync disasm help copy with current balance values",
+      "committedAt": "2026-03-17T21:42:38Z",
+      "changedFiles": [
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "0270a01efff81690e3974ce3d771c3866d6d7c75",
+      "shortSha": "0270a01",
+      "author": "yunwoo",
+      "subject": "balance: further reduce salvage yields and raise heavy recipe SRL cost",
+      "committedAt": "2026-03-17T21:12:40Z",
+      "changedFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "d6a772d7543a39ab6a5a75e44aa92636abf04212",
+      "shortSha": "d6a772d",
+      "author": "yunwoo",
+      "subject": "ux: sync DOS help copy with balance rules and refresh screenshots",
+      "committedAt": "2026-03-17T20:43:17Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "99bf18b2f146fd1861a0682f30ed007171f8507b",
+      "shortSha": "99bf18b",
+      "author": "yunwoo",
+      "subject": "ux: clarify DOS inventory copy and refresh screenshots",
+      "committedAt": "2026-03-17T20:12:39Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "144afd43ba74c5eadfdb077fb8fff2d4d31602d7",
+      "shortSha": "144afd4",
+      "author": "yunwoo",
+      "subject": "balance: further tighten disassemble SRL and salvage budgets",
+      "committedAt": "2026-03-17T19:43:01Z",
+      "changedFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "02ce0e6416154d49a42d145856b869a7c009d5cd",
+      "shortSha": "02ce0e6",
+      "author": "yunwoo",
+      "subject": "feat: wire map04 portals and refresh map04/DOS screenshots",
+      "committedAt": "2026-03-17T19:13:02Z",
+      "changedFiles": [
+        "maps/map_01.lua",
+        "maps/map_03.lua",
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png"
+      ],
+      "codeFiles": [
+        "maps/map_01.lua",
+        "maps/map_03.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "b4a3bd35fac29130e50808a5ca07bb6b567a0997",
+      "shortSha": "b4a3bd3",
+      "author": "yunwoo",
+      "subject": "ux: show SRL balance in DOS action menu",
+      "committedAt": "2026-03-17T18:43:46Z",
+      "changedFiles": [
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "3c90a9c2d212da44bfd68d44a48d805f1c416533",
+      "shortSha": "3c90a9c",
+      "author": "yunwoo",
+      "subject": "chore: add portal wiring validation script for map progression",
+      "committedAt": "2026-03-17T18:13:16Z",
+      "changedFiles": [
+        "CLAUDE.md",
+        "scripts/validate_portals.py"
+      ],
+      "codeFiles": [
+        "scripts/validate_portals.py"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "9bb69292be420371f9c633f5d9d86e40b46b345f",
+      "shortSha": "9bb6929",
+      "author": "yunwoo",
+      "subject": "chore(screenshots): refresh map04 capture",
+      "committedAt": "2026-03-17T17:42:48Z",
+      "changedFiles": [
+        "screenshots/screenshot-map04.png"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [],
+      "missingEvidence": false
+    },
+    {
+      "sha": "065666a4aabba81147f54ae36d5b445522425769",
+      "shortSha": "065666a",
+      "author": "yunwoo",
+      "subject": "balance: tighten SRL economy for disassemble and bulk builds",
+      "committedAt": "2026-03-17T17:13:14Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "6b9585b1c57a105926195bd5bf8ab66c0cf8049f",
+      "shortSha": "6b9585b",
+      "author": "yunwoo",
+      "subject": "balance: raise SRL costs for large recycle/build loops",
+      "committedAt": "2026-03-17T16:42:46Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "f9f2fe8009e24c51fc70fe28d88081f907de04c5",
+      "shortSha": "f9f2fe8",
+      "author": "yunwoo",
+      "subject": "ux: surface locked-action reasons and refresh screenshots",
+      "committedAt": "2026-03-17T16:13:18Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "cef14a05f4b76db00154ff214acdd94b4623d803",
+      "shortSha": "cef14a0",
+      "author": "yunwoo",
+      "subject": "ux: lock disassemble action when SRL is insufficient",
+      "committedAt": "2026-03-17T15:42:56Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "e3c59306882d83c0934d84236e51214719db2fb5",
+      "shortSha": "e3c5930",
+      "author": "yunwoo",
+      "subject": "ux: clarify DOS action hints and refresh screenshots",
+      "committedAt": "2026-03-17T15:12:55Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "296ddc913403de6749eb77ae66e7ff4b4a3b7ed1",
+      "shortSha": "296ddc9",
+      "author": "yunwoo",
+      "subject": "ux: polish DOS action-menu copy and refresh screenshots",
+      "committedAt": "2026-03-17T14:42:43Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "f1c7a783ca2f388eaa22ff56be87725c59028ebf",
+      "shortSha": "f1c7a78",
+      "author": "yunwoo",
+      "subject": "Fix UTF-8 truncation in DosUI.putString to prevent draw crashes",
+      "committedAt": "2026-03-17T14:01:22Z",
+      "changedFiles": [
+        "src/dos_ui.lua"
+      ],
+      "codeFiles": [
+        "src/dos_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "d506a48867bcbec97975d3df6debef231e92b20a",
+      "shortSha": "d506a48",
+      "author": "yunwoo",
+      "subject": "feat(ui): improve DOS inventory copy and stat readability",
+      "committedAt": "2026-03-17T13:43:44Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "fe816f2ff14c63cf598473541f1d426e384ad6ba",
+      "shortSha": "fe816f2",
+      "author": "yunwoo",
+      "subject": "ux: tighten DOS key labels and refresh screenshots",
+      "committedAt": "2026-03-17T12:42:43Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "c50894b245da93d90aa896653ef862b5f8afe5f6",
+      "shortSha": "c50894b",
+      "author": "yunwoo",
+      "subject": "balance: charge SRL for disassemble actions",
+      "committedAt": "2026-03-17T12:13:25Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "218ad362c5f79bfba2f774dc2c1e12927b4cc825",
+      "shortSha": "218ad36",
+      "author": "yunwoo",
+      "subject": "chore: refresh map04 and DOS inventory screenshots",
+      "committedAt": "2026-03-17T11:42:27Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [],
+      "missingEvidence": false
+    },
+    {
+      "sha": "b526cdf5041fd17b707a419525121320a5e71f7d",
+      "shortSha": "b526cdf",
+      "author": "yunwoo",
+      "subject": "ux: clarify build help copy and action-menu quickkey legend",
+      "committedAt": "2026-03-17T11:13:05Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "b320e2b81c32c0a7fdb7ba63b34842065876a8ff",
+      "shortSha": "b320e2b",
+      "author": "yunwoo",
+      "subject": "balance: require 3-file weak recipes and refresh DOS screenshots",
+      "committedAt": "2026-03-17T10:43:15Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "d00ede9cc073c44597df77e78c0eb9ff0cc169fa",
+      "shortSha": "d00ede9",
+      "author": "yunwoo",
+      "subject": "ux: improve DOS quick-key feedback and refresh screenshots",
+      "committedAt": "2026-03-17T10:13:15Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "51eddf8d1fe4da819f0c8dd39676023c8ddc2914",
+      "shortSha": "51eddf8",
+      "author": "yunwoo",
+      "subject": "balance: cap disassembly output by salvage size budget",
+      "committedAt": "2026-03-17T09:43:34Z",
+      "changedFiles": [
+        "src/ai_describe.lua"
+      ],
+      "codeFiles": [
+        "src/ai_describe.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "b27e961db9402a0b5e5ea86fa6bd6f82fbe2c998",
+      "shortSha": "b27e961",
+      "author": "yunwoo",
+      "subject": "chore: refresh map04 and DOS inventory screenshots",
+      "committedAt": "2026-03-17T09:12:49Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [],
+      "missingEvidence": false
+    },
+    {
+      "sha": "95c9f8a7053c18e820951c8ea9ed11a89434098c",
+      "shortSha": "95c9f8a",
+      "author": "yunwoo",
+      "subject": "ux: enable direct U/E/D/X file hotkeys and refresh screenshots",
+      "committedAt": "2026-03-17T08:42:16Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "402d0b250edf3d67fa74c906fc0f9f5b5455d66a",
+      "shortSha": "402d0b2",
+      "author": "yunwoo",
+      "subject": "balance: harden low-tier build loops and refresh shots",
+      "committedAt": "2026-03-17T07:43:04Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "88133ba52b6b26e5922d61ab37b641aade08bb5a",
+      "shortSha": "88133ba",
+      "author": "yunwoo",
+      "subject": "chore: refresh map04 screenshot",
+      "committedAt": "2026-03-17T07:12:24Z",
+      "changedFiles": [
+        "screenshots/screenshot-map04.png"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [],
+      "missingEvidence": false
+    },
+    {
+      "sha": "a263f0ea70293469f5e199efbb857f7f0fbc57aa",
+      "shortSha": "a263f0e",
+      "author": "yunwoo",
+      "subject": "ux: clarify DOS hotkey copy and disassembly help",
+      "committedAt": "2026-03-17T06:42:54Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "69fd0f869bfad1015bea4fbe3cb240b150d60574",
+      "shortSha": "69fd0f8",
+      "author": "yunwoo",
+      "subject": "ux: clarify DOS action/help copy and refresh inventory shot",
+      "committedAt": "2026-03-17T06:13:14Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "1e363da04de0e331587cb85762f3a22ef8e2ad8b",
+      "shortSha": "1e363da",
+      "author": "yunwoo",
+      "subject": "ux: polish DOS inventory control copy",
+      "committedAt": "2026-03-17T05:42:57Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "5586fdb76a233206af342685544dbe4e06e1f1b1",
+      "shortSha": "5586fdb",
+      "author": "yunwoo",
+      "subject": "balance: tighten disassembly yields and SRL build floor",
+      "committedAt": "2026-03-17T05:12:55Z",
+      "changedFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "f6a70035805da3f3875330c28bfcc73074fe3ebe",
+      "shortSha": "f6a7003",
+      "author": "yunwoo",
+      "subject": "feat: add map_04 TMX source and restore portal wiring",
+      "committedAt": "2026-03-17T04:44:40Z",
+      "changedFiles": [
+        "Tilemap/layerd_fantasy_03.tmx",
+        "Tilemap/layerd_fantasy_04.tmx",
+        "gen_game_data.py"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [],
+      "missingEvidence": false
+    },
+    {
+      "sha": "22022f6f0fb20530ea0fcce182e1dafdfb07561e",
+      "shortSha": "22022f6",
+      "author": "yunwoo",
+      "subject": "chore: refresh map04 and DOS UI screenshots",
+      "committedAt": "2026-03-17T04:12:53Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [],
+      "missingEvidence": false
+    },
+    {
+      "sha": "a1db54cb6b365179a3cdb1ff760d97e8d70d18f8",
+      "shortSha": "a1db54c",
+      "author": "yunwoo",
+      "subject": "ux: tighten DOS inventory copy and refresh screenshots",
+      "committedAt": "2026-03-17T03:43:10Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "0b6e9d7fdba583b4e9a6ec8055b35e0e76c88e27",
+      "shortSha": "0b6e9d7",
+      "author": "yunwoo",
+      "subject": "balance: tighten build SRL costs and down-tier disassembly salvage",
+      "committedAt": "2026-03-17T03:13:16Z",
+      "changedFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "e228f452165061f2c5e2e12a8901f06be6c57b06",
+      "shortSha": "e228f45",
+      "author": "yunwoo",
+      "subject": "chore: refresh map04 and DOS UI screenshots",
+      "committedAt": "2026-03-17T02:42:12Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [],
+      "missingEvidence": false
+    },
+    {
+      "sha": "603cbe7e975633b12acf59198f5f2ae2afd14f1b",
+      "shortSha": "603cbe7",
+      "author": "yunwoo",
+      "subject": "balance: prevent builder-scroll salvage/build outputs",
+      "committedAt": "2026-03-17T02:13:36Z",
+      "changedFiles": [
+        "src/ai_describe.lua"
+      ],
+      "codeFiles": [
+        "src/ai_describe.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "6fa20ba618d078bb6503999bf4b3b3e74ba61fc1",
+      "shortSha": "6fa20ba",
+      "author": "yunwoo",
+      "subject": "balance: raise SRL build cost for mixed high-tier recipes",
+      "committedAt": "2026-03-17T01:43:41Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "0ead58ca7cfa5b810b0234c1502c237a0ce40cde",
+      "shortSha": "0ead58c",
+      "author": "yunwoo",
+      "subject": "ux: clarify DOS key legend and refresh screenshots",
+      "committedAt": "2026-03-17T01:12:55Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "2bb0a6b489f139c51f83c7b70cf751566b739c3f",
+      "shortSha": "2bb0a6b",
+      "author": "yunwoo",
+      "subject": "balance: tighten low-tier build recipes and SRL cost scaling",
+      "committedAt": "2026-03-17T00:42:56Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "e2649b39f36db04823afd61d5f6c91b1df53264b",
+      "shortSha": "e2649b3",
+      "author": "yunwoo",
+      "subject": "balance: gate build output tier by component size",
+      "committedAt": "2026-03-16T23:43:50Z",
+      "changedFiles": [
+        "src/ai_describe.lua"
+      ],
+      "codeFiles": [
+        "src/ai_describe.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "a5648faba22762d7d7ad9ebb1ea9ba02b3b26010",
+      "shortSha": "a5648fa",
+      "author": "yunwoo",
+      "subject": "ux: tighten DOS help copy and refresh screenshots",
+      "committedAt": "2026-03-16T23:13:02Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "e997c4efd8dfaeb1d1cc18888245a575c063d87f",
+      "shortSha": "e997c4e",
+      "author": "yunwoo",
+      "subject": "chore: refresh map04 and DOS UI screenshots",
+      "committedAt": "2026-03-16T22:42:13Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [],
+      "missingEvidence": false
+    },
+    {
+      "sha": "8b9210a2914910d8bef768dffd8190670fa32593",
+      "shortSha": "8b9210a",
+      "author": "yunwoo",
+      "subject": "ux: add action-menu hotkeys and clearer DOS prompts",
+      "committedAt": "2026-03-16T22:13:17Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "f5951653b0b7c7fd94d6303c361ae9854280652e",
+      "shortSha": "f595165",
+      "author": "yunwoo",
+      "subject": "balance: constrain disassembly salvage tier by source size",
+      "committedAt": "2026-03-16T21:43:42Z",
+      "changedFiles": [
+        "src/ai_describe.lua"
+      ],
+      "codeFiles": [
+        "src/ai_describe.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "cdc235921d76e96f81eb2559e03c095283eb48b8",
+      "shortSha": "cdc2359",
+      "author": "yunwoo",
+      "subject": "chore: refresh DOS UI screenshot after copy updates",
+      "committedAt": "2026-03-16T21:12:06Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [],
+      "missingEvidence": false
+    },
+    {
+      "sha": "b5370d4a7b90dc77db3bfa8f2e3616b3d1204fde",
+      "shortSha": "b5370d4",
+      "author": "yunwoo",
+      "subject": "ux: polish DOS inventory copy and action dialogs",
+      "committedAt": "2026-03-16T20:43:06Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "55fb0eb76f3f1911d282846fb240c66448b50fae",
+      "shortSha": "55fb0eb",
+      "author": "yunwoo",
+      "subject": "ux: refine DOS inventory copy and build/disasm messaging",
+      "committedAt": "2026-03-16T20:13:21Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "29cb27533f39d5bc9b13aa49c1d32f20b6681645",
+      "shortSha": "29cb275",
+      "author": "yunwoo",
+      "subject": "balance: scale build scroll cost by component power",
+      "committedAt": "2026-03-16T19:42:53Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "831996d0756159e0b731620e298c53f6177c342e",
+      "shortSha": "831996d",
+      "author": "yunwoo",
+      "subject": "balance: cap disassemble salvage by item size",
+      "committedAt": "2026-03-16T19:12:47Z",
+      "changedFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "1307fc4e6688dc44560e5bc62ac61034734ffbb1",
+      "shortSha": "1307fc4",
+      "author": "yunwoo",
+      "subject": "chore: refresh map04 and DOS UI screenshots",
+      "committedAt": "2026-03-16T18:42:29Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png"
+      ],
+      "codeFiles": [],
+      "evidenceFiles": [],
+      "missingEvidence": false
+    },
+    {
+      "sha": "bac8090188a67d4877c4007a8c93b937e61bbc94",
+      "shortSha": "bac8090",
+      "author": "yunwoo",
+      "subject": "ux: add build-readiness hints to DOS inventory help/status",
+      "committedAt": "2026-03-16T18:13:59Z",
+      "changedFiles": [
+        "screenshots/screenshot-inventory-dos.png",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "06774a234387ef178129f8d808ea97b885918043",
+      "shortSha": "06774a2",
+      "author": "yunwoo",
+      "subject": "ux: polish DOS inventory copy and action labels",
+      "committedAt": "2026-03-16T17:43:16Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "ef5e80396a3ff56b24592afec2d1760ffaf84877",
+      "shortSha": "ef5e803",
+      "author": "yunwoo",
+      "subject": "chore: automate reproducible map04 and DOS screenshot capture",
+      "committedAt": "2026-03-16T17:13:41Z",
+      "changedFiles": [
+        "CLAUDE.md",
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png",
+        "scripts/capture_screenshots.sh"
+      ],
+      "codeFiles": [
+        "scripts/capture_screenshots.sh"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "ef04b1ac03696301f0b3a2c59154c5ef9417c89d",
+      "shortSha": "ef04b1a",
+      "author": "yunwoo",
+      "subject": "add automated screenshot capture presets for map04 and DOS UI",
+      "committedAt": "2026-03-16T16:44:57Z",
+      "changedFiles": [
+        "main.lua",
+        "screenshots/screenshot-inventory-dos.png",
+        "screenshots/screenshot-map04.png"
+      ],
+      "codeFiles": [
+        "main.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "0ecd60c371718f1323d594307741f8e949d742d1",
+      "shortSha": "0ecd60c",
+      "author": "yunwoo",
+      "subject": "polish DOS inventory copy and action/help UX hints",
+      "committedAt": "2026-03-16T16:13:23Z",
+      "changedFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "90e0d3f26354679e06a72cc97e2db09dd66b90c5",
+      "shortSha": "90e0d3f",
+      "author": "yunwoo",
+      "subject": "balance build/disassemble economy and fix map03 portal target",
+      "committedAt": "2026-03-16T15:44:25Z",
+      "changedFiles": [
+        "maps/map_03.lua",
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "codeFiles": [
+        "maps/map_03.lua",
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "efc7d08f0aabf1f76f0b153b10ee79198f675844",
+      "shortSha": "efc7d08",
+      "author": "yunwoo",
+      "subject": "feat: add map_04 and wire portal progression",
+      "committedAt": "2026-03-16T15:17:33Z",
+      "changedFiles": [
+        "maps/map_03.lua",
+        "maps/map_04.lua"
+      ],
+      "codeFiles": [
+        "maps/map_03.lua",
+        "maps/map_04.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "711b6a8358e5c5d130b0fae3afdbf2794cd73204",
+      "shortSha": "711b6a8",
+      "author": "yunwoo",
+      "subject": "Implement DeepSeek AI pipeline, disassemble/build systems, and capture screenshot",
+      "committedAt": "2026-03-16T12:41:36Z",
+      "changedFiles": [
+        ".gitignore",
+        "main.lua",
+        "screenshots/screenshot-main-menu.png",
+        "src/ai_describe.lua",
+        "src/ai_worker.lua",
+        "src/inventory.lua",
+        "src/inventory_ui.lua",
+        "src/items.lua"
+      ],
+      "codeFiles": [
+        "main.lua",
+        "src/ai_describe.lua",
+        "src/ai_worker.lua",
+        "src/inventory.lua",
+        "src/inventory_ui.lua",
+        "src/items.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    },
+    {
+      "sha": "e0f102402d84b3c95f3e0554d375770082f81f49",
+      "shortSha": "e0f1024",
+      "author": "NAM YUNWOO",
+      "subject": "스탯 시스템 + AI 프롬프트 개선 + 장비 스탯 연동",
+      "committedAt": "2026-03-13T06:24:30Z",
+      "changedFiles": [
+        "CLAUDE.md",
+        "item_tile_data.json",
+        "main.lua",
+        "src/ai_describe.lua",
+        "src/ai_worker.lua",
+        "src/combat.lua",
+        "src/enemy_ai.lua",
+        "src/inventory.lua",
+        "src/inventory_ui.lua",
+        "src/items.lua",
+        "src/player.lua",
+        "src/stat_chart.lua",
+        "src/stats.lua"
+      ],
+      "codeFiles": [
+        "item_tile_data.json",
+        "main.lua",
+        "src/ai_describe.lua",
+        "src/ai_worker.lua",
+        "src/combat.lua",
+        "src/enemy_ai.lua",
+        "src/inventory.lua",
+        "src/inventory_ui.lua",
+        "src/items.lua",
+        "src/player.lua",
+        "src/stat_chart.lua",
+        "src/stats.lua"
+      ],
+      "evidenceFiles": [],
+      "missingEvidence": true
+    }
+  ],
+  "violations": [
+    {
+      "sha": "a587bc0e3e6dbda45c39a8cd86b41e8dd905e6a3",
+      "shortSha": "a587bc0",
+      "committedAt": "2026-03-18T13:45:12Z",
+      "author": "yunwoo",
+      "subject": "balance: tighten SRL churn and add economy telemetry logs",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "7f6d68661a608b5763fc4154cfe35a2758f486e8",
+      "shortSha": "7f6d686",
+      "committedAt": "2026-03-18T13:27:27Z",
+      "author": "yunwoo",
+      "subject": "Seed diverse starter inventory for build-system testing",
+      "codeFiles": [
+        "src/inventory.lua",
+        "src/player.lua"
+      ]
+    },
+    {
+      "sha": "a3d9f8ef849617c08d9a8e883315332ff0200571",
+      "shortSha": "a3d9f8e",
+      "committedAt": "2026-03-18T04:13:07Z",
+      "author": "yunwoo",
+      "subject": "ux: clarify DOS help copy and quick-key hints",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "52b5074933ea2da1eff044a78a011d4fd75d91aa",
+      "shortSha": "52b5074",
+      "committedAt": "2026-03-18T03:43:20Z",
+      "author": "yunwoo",
+      "subject": "balance: harden disasm/build anti-loop SRL scaling",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "2fb97e3658c4680a01e00763c5d4a9ee17dc093d",
+      "shortSha": "2fb97e3",
+      "committedAt": "2026-03-18T03:13:59Z",
+      "author": "yunwoo",
+      "subject": "ux: compact F9 build-plan hints and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "f0aaf991ebf057a466b189cbe3e25856679578c8",
+      "shortSha": "f0aaf99",
+      "committedAt": "2026-03-18T02:43:43Z",
+      "author": "yunwoo",
+      "subject": "balance: penalize stackable-heavy build/disasm loops",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "4e92006df32aa942d4d71a2ad08671a77eb2cfd9",
+      "shortSha": "4e92006",
+      "committedAt": "2026-03-18T02:12:53Z",
+      "author": "yunwoo",
+      "subject": "ux: sync DOS disasm help constants and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "65fe191ce54f6d4993bcee6195d34bddf256929e",
+      "shortSha": "65fe191",
+      "committedAt": "2026-03-18T01:42:58Z",
+      "author": "yunwoo",
+      "subject": "balance: surcharge mono-category build recipes",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "bd449f96dfe0b7e4e3d03f42931f6918b123104a",
+      "shortSha": "bd449f9",
+      "committedAt": "2026-03-18T01:13:10Z",
+      "author": "yunwoo",
+      "subject": "ux: clarify locked-action footer and disasm deficit copy",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "b7e425c3cde94e672c834f997d8fbda0c86b2f56",
+      "shortSha": "b7e425c",
+      "committedAt": "2026-03-18T00:43:17Z",
+      "author": "yunwoo",
+      "subject": "ux: clarify SRL lock copy in DOS actions and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "0397ece3a1b97a9dcdc2c238e203c55e7fd962f2",
+      "shortSha": "0397ece",
+      "committedAt": "2026-03-18T00:12:56Z",
+      "author": "yunwoo",
+      "subject": "balance: add premium gear disassemble SRL surcharge",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "2058dc7955b7f129ab918e7bb8f9335cecc165f7",
+      "shortSha": "2058dc7",
+      "committedAt": "2026-03-17T23:44:00Z",
+      "author": "yunwoo",
+      "subject": "chore: harden portal validator with tile-conflict and reciprocity checks",
+      "codeFiles": [
+        "scripts/validate_portals.py"
+      ]
+    },
+    {
+      "sha": "4d59b90b9b0077d6e6aa7895f0ff9fe1cb52aee1",
+      "shortSha": "4d59b90",
+      "committedAt": "2026-03-17T23:13:27Z",
+      "author": "yunwoo",
+      "subject": "balance: tighten disassemble salvage and build SRL scaling",
+      "codeFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "90e31c4d0fac2693451f54c67fe21dcc5a9d5d6e",
+      "shortSha": "90e31c4",
+      "committedAt": "2026-03-17T22:43:40Z",
+      "author": "yunwoo",
+      "subject": "ux: add DOS build-plan tag and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "90ca4d0eb7251bffe5806c943b068f9826ade6f0",
+      "shortSha": "90ca4d0",
+      "committedAt": "2026-03-17T22:12:49Z",
+      "author": "yunwoo",
+      "subject": "chore: strengthen portal wiring validator for map progression",
+      "codeFiles": [
+        "scripts/validate_portals.py"
+      ]
+    },
+    {
+      "sha": "d0d7e69604893ec999ccc2797c19c9421e42e2f5",
+      "shortSha": "d0d7e69",
+      "committedAt": "2026-03-17T21:42:38Z",
+      "author": "yunwoo",
+      "subject": "ux: sync disasm help copy with current balance values",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "0270a01efff81690e3974ce3d771c3866d6d7c75",
+      "shortSha": "0270a01",
+      "committedAt": "2026-03-17T21:12:40Z",
+      "author": "yunwoo",
+      "subject": "balance: further reduce salvage yields and raise heavy recipe SRL cost",
+      "codeFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "d6a772d7543a39ab6a5a75e44aa92636abf04212",
+      "shortSha": "d6a772d",
+      "committedAt": "2026-03-17T20:43:17Z",
+      "author": "yunwoo",
+      "subject": "ux: sync DOS help copy with balance rules and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "99bf18b2f146fd1861a0682f30ed007171f8507b",
+      "shortSha": "99bf18b",
+      "committedAt": "2026-03-17T20:12:39Z",
+      "author": "yunwoo",
+      "subject": "ux: clarify DOS inventory copy and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "144afd43ba74c5eadfdb077fb8fff2d4d31602d7",
+      "shortSha": "144afd4",
+      "committedAt": "2026-03-17T19:43:01Z",
+      "author": "yunwoo",
+      "subject": "balance: further tighten disassemble SRL and salvage budgets",
+      "codeFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "02ce0e6416154d49a42d145856b869a7c009d5cd",
+      "shortSha": "02ce0e6",
+      "committedAt": "2026-03-17T19:13:02Z",
+      "author": "yunwoo",
+      "subject": "feat: wire map04 portals and refresh map04/DOS screenshots",
+      "codeFiles": [
+        "maps/map_01.lua",
+        "maps/map_03.lua"
+      ]
+    },
+    {
+      "sha": "b4a3bd35fac29130e50808a5ca07bb6b567a0997",
+      "shortSha": "b4a3bd3",
+      "committedAt": "2026-03-17T18:43:46Z",
+      "author": "yunwoo",
+      "subject": "ux: show SRL balance in DOS action menu",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "3c90a9c2d212da44bfd68d44a48d805f1c416533",
+      "shortSha": "3c90a9c",
+      "committedAt": "2026-03-17T18:13:16Z",
+      "author": "yunwoo",
+      "subject": "chore: add portal wiring validation script for map progression",
+      "codeFiles": [
+        "scripts/validate_portals.py"
+      ]
+    },
+    {
+      "sha": "065666a4aabba81147f54ae36d5b445522425769",
+      "shortSha": "065666a",
+      "committedAt": "2026-03-17T17:13:14Z",
+      "author": "yunwoo",
+      "subject": "balance: tighten SRL economy for disassemble and bulk builds",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "6b9585b1c57a105926195bd5bf8ab66c0cf8049f",
+      "shortSha": "6b9585b",
+      "committedAt": "2026-03-17T16:42:46Z",
+      "author": "yunwoo",
+      "subject": "balance: raise SRL costs for large recycle/build loops",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "f9f2fe8009e24c51fc70fe28d88081f907de04c5",
+      "shortSha": "f9f2fe8",
+      "committedAt": "2026-03-17T16:13:18Z",
+      "author": "yunwoo",
+      "subject": "ux: surface locked-action reasons and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "cef14a05f4b76db00154ff214acdd94b4623d803",
+      "shortSha": "cef14a0",
+      "committedAt": "2026-03-17T15:42:56Z",
+      "author": "yunwoo",
+      "subject": "ux: lock disassemble action when SRL is insufficient",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "e3c59306882d83c0934d84236e51214719db2fb5",
+      "shortSha": "e3c5930",
+      "committedAt": "2026-03-17T15:12:55Z",
+      "author": "yunwoo",
+      "subject": "ux: clarify DOS action hints and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "296ddc913403de6749eb77ae66e7ff4b4a3b7ed1",
+      "shortSha": "296ddc9",
+      "committedAt": "2026-03-17T14:42:43Z",
+      "author": "yunwoo",
+      "subject": "ux: polish DOS action-menu copy and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "f1c7a783ca2f388eaa22ff56be87725c59028ebf",
+      "shortSha": "f1c7a78",
+      "committedAt": "2026-03-17T14:01:22Z",
+      "author": "yunwoo",
+      "subject": "Fix UTF-8 truncation in DosUI.putString to prevent draw crashes",
+      "codeFiles": [
+        "src/dos_ui.lua"
+      ]
+    },
+    {
+      "sha": "d506a48867bcbec97975d3df6debef231e92b20a",
+      "shortSha": "d506a48",
+      "committedAt": "2026-03-17T13:43:44Z",
+      "author": "yunwoo",
+      "subject": "feat(ui): improve DOS inventory copy and stat readability",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "fe816f2ff14c63cf598473541f1d426e384ad6ba",
+      "shortSha": "fe816f2",
+      "committedAt": "2026-03-17T12:42:43Z",
+      "author": "yunwoo",
+      "subject": "ux: tighten DOS key labels and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "c50894b245da93d90aa896653ef862b5f8afe5f6",
+      "shortSha": "c50894b",
+      "committedAt": "2026-03-17T12:13:25Z",
+      "author": "yunwoo",
+      "subject": "balance: charge SRL for disassemble actions",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "b526cdf5041fd17b707a419525121320a5e71f7d",
+      "shortSha": "b526cdf",
+      "committedAt": "2026-03-17T11:13:05Z",
+      "author": "yunwoo",
+      "subject": "ux: clarify build help copy and action-menu quickkey legend",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "b320e2b81c32c0a7fdb7ba63b34842065876a8ff",
+      "shortSha": "b320e2b",
+      "committedAt": "2026-03-17T10:43:15Z",
+      "author": "yunwoo",
+      "subject": "balance: require 3-file weak recipes and refresh DOS screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "d00ede9cc073c44597df77e78c0eb9ff0cc169fa",
+      "shortSha": "d00ede9",
+      "committedAt": "2026-03-17T10:13:15Z",
+      "author": "yunwoo",
+      "subject": "ux: improve DOS quick-key feedback and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "51eddf8d1fe4da819f0c8dd39676023c8ddc2914",
+      "shortSha": "51eddf8",
+      "committedAt": "2026-03-17T09:43:34Z",
+      "author": "yunwoo",
+      "subject": "balance: cap disassembly output by salvage size budget",
+      "codeFiles": [
+        "src/ai_describe.lua"
+      ]
+    },
+    {
+      "sha": "95c9f8a7053c18e820951c8ea9ed11a89434098c",
+      "shortSha": "95c9f8a",
+      "committedAt": "2026-03-17T08:42:16Z",
+      "author": "yunwoo",
+      "subject": "ux: enable direct U/E/D/X file hotkeys and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "402d0b250edf3d67fa74c906fc0f9f5b5455d66a",
+      "shortSha": "402d0b2",
+      "committedAt": "2026-03-17T07:43:04Z",
+      "author": "yunwoo",
+      "subject": "balance: harden low-tier build loops and refresh shots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "a263f0ea70293469f5e199efbb857f7f0fbc57aa",
+      "shortSha": "a263f0e",
+      "committedAt": "2026-03-17T06:42:54Z",
+      "author": "yunwoo",
+      "subject": "ux: clarify DOS hotkey copy and disassembly help",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "69fd0f869bfad1015bea4fbe3cb240b150d60574",
+      "shortSha": "69fd0f8",
+      "committedAt": "2026-03-17T06:13:14Z",
+      "author": "yunwoo",
+      "subject": "ux: clarify DOS action/help copy and refresh inventory shot",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "1e363da04de0e331587cb85762f3a22ef8e2ad8b",
+      "shortSha": "1e363da",
+      "committedAt": "2026-03-17T05:42:57Z",
+      "author": "yunwoo",
+      "subject": "ux: polish DOS inventory control copy",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "5586fdb76a233206af342685544dbe4e06e1f1b1",
+      "shortSha": "5586fdb",
+      "committedAt": "2026-03-17T05:12:55Z",
+      "author": "yunwoo",
+      "subject": "balance: tighten disassembly yields and SRL build floor",
+      "codeFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "a1db54cb6b365179a3cdb1ff760d97e8d70d18f8",
+      "shortSha": "a1db54c",
+      "committedAt": "2026-03-17T03:43:10Z",
+      "author": "yunwoo",
+      "subject": "ux: tighten DOS inventory copy and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "0b6e9d7fdba583b4e9a6ec8055b35e0e76c88e27",
+      "shortSha": "0b6e9d7",
+      "committedAt": "2026-03-17T03:13:16Z",
+      "author": "yunwoo",
+      "subject": "balance: tighten build SRL costs and down-tier disassembly salvage",
+      "codeFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "603cbe7e975633b12acf59198f5f2ae2afd14f1b",
+      "shortSha": "603cbe7",
+      "committedAt": "2026-03-17T02:13:36Z",
+      "author": "yunwoo",
+      "subject": "balance: prevent builder-scroll salvage/build outputs",
+      "codeFiles": [
+        "src/ai_describe.lua"
+      ]
+    },
+    {
+      "sha": "6fa20ba618d078bb6503999bf4b3b3e74ba61fc1",
+      "shortSha": "6fa20ba",
+      "committedAt": "2026-03-17T01:43:41Z",
+      "author": "yunwoo",
+      "subject": "balance: raise SRL build cost for mixed high-tier recipes",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "0ead58ca7cfa5b810b0234c1502c237a0ce40cde",
+      "shortSha": "0ead58c",
+      "committedAt": "2026-03-17T01:12:55Z",
+      "author": "yunwoo",
+      "subject": "ux: clarify DOS key legend and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "2bb0a6b489f139c51f83c7b70cf751566b739c3f",
+      "shortSha": "2bb0a6b",
+      "committedAt": "2026-03-17T00:42:56Z",
+      "author": "yunwoo",
+      "subject": "balance: tighten low-tier build recipes and SRL cost scaling",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "e2649b39f36db04823afd61d5f6c91b1df53264b",
+      "shortSha": "e2649b3",
+      "committedAt": "2026-03-16T23:43:50Z",
+      "author": "yunwoo",
+      "subject": "balance: gate build output tier by component size",
+      "codeFiles": [
+        "src/ai_describe.lua"
+      ]
+    },
+    {
+      "sha": "a5648faba22762d7d7ad9ebb1ea9ba02b3b26010",
+      "shortSha": "a5648fa",
+      "committedAt": "2026-03-16T23:13:02Z",
+      "author": "yunwoo",
+      "subject": "ux: tighten DOS help copy and refresh screenshots",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "8b9210a2914910d8bef768dffd8190670fa32593",
+      "shortSha": "8b9210a",
+      "committedAt": "2026-03-16T22:13:17Z",
+      "author": "yunwoo",
+      "subject": "ux: add action-menu hotkeys and clearer DOS prompts",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "f5951653b0b7c7fd94d6303c361ae9854280652e",
+      "shortSha": "f595165",
+      "committedAt": "2026-03-16T21:43:42Z",
+      "author": "yunwoo",
+      "subject": "balance: constrain disassembly salvage tier by source size",
+      "codeFiles": [
+        "src/ai_describe.lua"
+      ]
+    },
+    {
+      "sha": "b5370d4a7b90dc77db3bfa8f2e3616b3d1204fde",
+      "shortSha": "b5370d4",
+      "committedAt": "2026-03-16T20:43:06Z",
+      "author": "yunwoo",
+      "subject": "ux: polish DOS inventory copy and action dialogs",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "55fb0eb76f3f1911d282846fb240c66448b50fae",
+      "shortSha": "55fb0eb",
+      "committedAt": "2026-03-16T20:13:21Z",
+      "author": "yunwoo",
+      "subject": "ux: refine DOS inventory copy and build/disasm messaging",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "29cb27533f39d5bc9b13aa49c1d32f20b6681645",
+      "shortSha": "29cb275",
+      "committedAt": "2026-03-16T19:42:53Z",
+      "author": "yunwoo",
+      "subject": "balance: scale build scroll cost by component power",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "831996d0756159e0b731620e298c53f6177c342e",
+      "shortSha": "831996d",
+      "committedAt": "2026-03-16T19:12:47Z",
+      "author": "yunwoo",
+      "subject": "balance: cap disassemble salvage by item size",
+      "codeFiles": [
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "bac8090188a67d4877c4007a8c93b937e61bbc94",
+      "shortSha": "bac8090",
+      "committedAt": "2026-03-16T18:13:59Z",
+      "author": "yunwoo",
+      "subject": "ux: add build-readiness hints to DOS inventory help/status",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "06774a234387ef178129f8d808ea97b885918043",
+      "shortSha": "06774a2",
+      "committedAt": "2026-03-16T17:43:16Z",
+      "author": "yunwoo",
+      "subject": "ux: polish DOS inventory copy and action labels",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "ef5e80396a3ff56b24592afec2d1760ffaf84877",
+      "shortSha": "ef5e803",
+      "committedAt": "2026-03-16T17:13:41Z",
+      "author": "yunwoo",
+      "subject": "chore: automate reproducible map04 and DOS screenshot capture",
+      "codeFiles": [
+        "scripts/capture_screenshots.sh"
+      ]
+    },
+    {
+      "sha": "ef04b1ac03696301f0b3a2c59154c5ef9417c89d",
+      "shortSha": "ef04b1a",
+      "committedAt": "2026-03-16T16:44:57Z",
+      "author": "yunwoo",
+      "subject": "add automated screenshot capture presets for map04 and DOS UI",
+      "codeFiles": [
+        "main.lua"
+      ]
+    },
+    {
+      "sha": "0ecd60c371718f1323d594307741f8e949d742d1",
+      "shortSha": "0ecd60c",
+      "committedAt": "2026-03-16T16:13:23Z",
+      "author": "yunwoo",
+      "subject": "polish DOS inventory copy and action/help UX hints",
+      "codeFiles": [
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "90e0d3f26354679e06a72cc97e2db09dd66b90c5",
+      "shortSha": "90e0d3f",
+      "committedAt": "2026-03-16T15:44:25Z",
+      "author": "yunwoo",
+      "subject": "balance build/disassemble economy and fix map03 portal target",
+      "codeFiles": [
+        "maps/map_03.lua",
+        "src/ai_describe.lua",
+        "src/inventory_ui.lua"
+      ]
+    },
+    {
+      "sha": "efc7d08f0aabf1f76f0b153b10ee79198f675844",
+      "shortSha": "efc7d08",
+      "committedAt": "2026-03-16T15:17:33Z",
+      "author": "yunwoo",
+      "subject": "feat: add map_04 and wire portal progression",
+      "codeFiles": [
+        "maps/map_03.lua",
+        "maps/map_04.lua"
+      ]
+    },
+    {
+      "sha": "711b6a8358e5c5d130b0fae3afdbf2794cd73204",
+      "shortSha": "711b6a8",
+      "committedAt": "2026-03-16T12:41:36Z",
+      "author": "yunwoo",
+      "subject": "Implement DeepSeek AI pipeline, disassemble/build systems, and capture screenshot",
+      "codeFiles": [
+        "main.lua",
+        "src/ai_describe.lua",
+        "src/ai_worker.lua",
+        "src/inventory.lua",
+        "src/inventory_ui.lua",
+        "src/items.lua"
+      ]
+    },
+    {
+      "sha": "e0f102402d84b3c95f3e0554d375770082f81f49",
+      "shortSha": "e0f1024",
+      "committedAt": "2026-03-13T06:24:30Z",
+      "author": "NAM YUNWOO",
+      "subject": "스탯 시스템 + AI 프롬프트 개선 + 장비 스탯 연동",
+      "codeFiles": [
+        "item_tile_data.json",
+        "main.lua",
+        "src/ai_describe.lua",
+        "src/ai_worker.lua",
+        "src/combat.lua",
+        "src/enemy_ai.lua",
+        "src/inventory.lua",
+        "src/inventory_ui.lua",
+        "src/items.lua",
+        "src/player.lua",
+        "src/stat_chart.lua",
+        "src/stats.lua"
+      ]
+    }
+  ]
+}

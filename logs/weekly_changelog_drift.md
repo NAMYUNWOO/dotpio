@@ -1,0 +1,78 @@
+# Weekly Changelog Drift Check
+
+- GeneratedAt(UTC): 2026-03-20T03:01:09.734192Z
+- Status: **WARN**
+- Window: last 7 days (max 200 commits)
+- Checked code commits: 136
+- Missing evidence commits: 66
+
+## Violations
+- ⚠️ `a587bc0` balance: tighten SRL churn and add economy telemetry logs (2026-03-18T13:45:12Z) code=src/inventory_ui.lua
+- ⚠️ `7f6d686` Seed diverse starter inventory for build-system testing (2026-03-18T13:27:27Z) code=src/inventory.lua, src/player.lua
+- ⚠️ `a3d9f8e` ux: clarify DOS help copy and quick-key hints (2026-03-18T04:13:07Z) code=src/inventory_ui.lua
+- ⚠️ `52b5074` balance: harden disasm/build anti-loop SRL scaling (2026-03-18T03:43:20Z) code=src/inventory_ui.lua
+- ⚠️ `2fb97e3` ux: compact F9 build-plan hints and refresh screenshots (2026-03-18T03:13:59Z) code=src/inventory_ui.lua
+- ⚠️ `f0aaf99` balance: penalize stackable-heavy build/disasm loops (2026-03-18T02:43:43Z) code=src/inventory_ui.lua
+- ⚠️ `4e92006` ux: sync DOS disasm help constants and refresh screenshots (2026-03-18T02:12:53Z) code=src/inventory_ui.lua
+- ⚠️ `65fe191` balance: surcharge mono-category build recipes (2026-03-18T01:42:58Z) code=src/inventory_ui.lua
+- ⚠️ `bd449f9` ux: clarify locked-action footer and disasm deficit copy (2026-03-18T01:13:10Z) code=src/inventory_ui.lua
+- ⚠️ `b7e425c` ux: clarify SRL lock copy in DOS actions and refresh screenshots (2026-03-18T00:43:17Z) code=src/inventory_ui.lua
+- ⚠️ `0397ece` balance: add premium gear disassemble SRL surcharge (2026-03-18T00:12:56Z) code=src/inventory_ui.lua
+- ⚠️ `2058dc7` chore: harden portal validator with tile-conflict and reciprocity checks (2026-03-17T23:44:00Z) code=scripts/validate_portals.py
+- ⚠️ `4d59b90` balance: tighten disassemble salvage and build SRL scaling (2026-03-17T23:13:27Z) code=src/ai_describe.lua, src/inventory_ui.lua
+- ⚠️ `90e31c4` ux: add DOS build-plan tag and refresh screenshots (2026-03-17T22:43:40Z) code=src/inventory_ui.lua
+- ⚠️ `90ca4d0` chore: strengthen portal wiring validator for map progression (2026-03-17T22:12:49Z) code=scripts/validate_portals.py
+- ⚠️ `d0d7e69` ux: sync disasm help copy with current balance values (2026-03-17T21:42:38Z) code=src/inventory_ui.lua
+- ⚠️ `0270a01` balance: further reduce salvage yields and raise heavy recipe SRL cost (2026-03-17T21:12:40Z) code=src/ai_describe.lua, src/inventory_ui.lua
+- ⚠️ `d6a772d` ux: sync DOS help copy with balance rules and refresh screenshots (2026-03-17T20:43:17Z) code=src/inventory_ui.lua
+- ⚠️ `99bf18b` ux: clarify DOS inventory copy and refresh screenshots (2026-03-17T20:12:39Z) code=src/inventory_ui.lua
+- ⚠️ `144afd4` balance: further tighten disassemble SRL and salvage budgets (2026-03-17T19:43:01Z) code=src/ai_describe.lua, src/inventory_ui.lua
+- ⚠️ `02ce0e6` feat: wire map04 portals and refresh map04/DOS screenshots (2026-03-17T19:13:02Z) code=maps/map_01.lua, maps/map_03.lua
+- ⚠️ `b4a3bd3` ux: show SRL balance in DOS action menu (2026-03-17T18:43:46Z) code=src/inventory_ui.lua
+- ⚠️ `3c90a9c` chore: add portal wiring validation script for map progression (2026-03-17T18:13:16Z) code=scripts/validate_portals.py
+- ⚠️ `065666a` balance: tighten SRL economy for disassemble and bulk builds (2026-03-17T17:13:14Z) code=src/inventory_ui.lua
+- ⚠️ `6b9585b` balance: raise SRL costs for large recycle/build loops (2026-03-17T16:42:46Z) code=src/inventory_ui.lua
+- ⚠️ `f9f2fe8` ux: surface locked-action reasons and refresh screenshots (2026-03-17T16:13:18Z) code=src/inventory_ui.lua
+- ⚠️ `cef14a0` ux: lock disassemble action when SRL is insufficient (2026-03-17T15:42:56Z) code=src/inventory_ui.lua
+- ⚠️ `e3c5930` ux: clarify DOS action hints and refresh screenshots (2026-03-17T15:12:55Z) code=src/inventory_ui.lua
+- ⚠️ `296ddc9` ux: polish DOS action-menu copy and refresh screenshots (2026-03-17T14:42:43Z) code=src/inventory_ui.lua
+- ⚠️ `f1c7a78` Fix UTF-8 truncation in DosUI.putString to prevent draw crashes (2026-03-17T14:01:22Z) code=src/dos_ui.lua
+- ⚠️ `d506a48` feat(ui): improve DOS inventory copy and stat readability (2026-03-17T13:43:44Z) code=src/inventory_ui.lua
+- ⚠️ `fe816f2` ux: tighten DOS key labels and refresh screenshots (2026-03-17T12:42:43Z) code=src/inventory_ui.lua
+- ⚠️ `c50894b` balance: charge SRL for disassemble actions (2026-03-17T12:13:25Z) code=src/inventory_ui.lua
+- ⚠️ `b526cdf` ux: clarify build help copy and action-menu quickkey legend (2026-03-17T11:13:05Z) code=src/inventory_ui.lua
+- ⚠️ `b320e2b` balance: require 3-file weak recipes and refresh DOS screenshots (2026-03-17T10:43:15Z) code=src/inventory_ui.lua
+- ⚠️ `d00ede9` ux: improve DOS quick-key feedback and refresh screenshots (2026-03-17T10:13:15Z) code=src/inventory_ui.lua
+- ⚠️ `51eddf8` balance: cap disassembly output by salvage size budget (2026-03-17T09:43:34Z) code=src/ai_describe.lua
+- ⚠️ `95c9f8a` ux: enable direct U/E/D/X file hotkeys and refresh screenshots (2026-03-17T08:42:16Z) code=src/inventory_ui.lua
+- ⚠️ `402d0b2` balance: harden low-tier build loops and refresh shots (2026-03-17T07:43:04Z) code=src/inventory_ui.lua
+- ⚠️ `a263f0e` ux: clarify DOS hotkey copy and disassembly help (2026-03-17T06:42:54Z) code=src/inventory_ui.lua
+- ⚠️ `69fd0f8` ux: clarify DOS action/help copy and refresh inventory shot (2026-03-17T06:13:14Z) code=src/inventory_ui.lua
+- ⚠️ `1e363da` ux: polish DOS inventory control copy (2026-03-17T05:42:57Z) code=src/inventory_ui.lua
+- ⚠️ `5586fdb` balance: tighten disassembly yields and SRL build floor (2026-03-17T05:12:55Z) code=src/ai_describe.lua, src/inventory_ui.lua
+- ⚠️ `a1db54c` ux: tighten DOS inventory copy and refresh screenshots (2026-03-17T03:43:10Z) code=src/inventory_ui.lua
+- ⚠️ `0b6e9d7` balance: tighten build SRL costs and down-tier disassembly salvage (2026-03-17T03:13:16Z) code=src/ai_describe.lua, src/inventory_ui.lua
+- ⚠️ `603cbe7` balance: prevent builder-scroll salvage/build outputs (2026-03-17T02:13:36Z) code=src/ai_describe.lua
+- ⚠️ `6fa20ba` balance: raise SRL build cost for mixed high-tier recipes (2026-03-17T01:43:41Z) code=src/inventory_ui.lua
+- ⚠️ `0ead58c` ux: clarify DOS key legend and refresh screenshots (2026-03-17T01:12:55Z) code=src/inventory_ui.lua
+- ⚠️ `2bb0a6b` balance: tighten low-tier build recipes and SRL cost scaling (2026-03-17T00:42:56Z) code=src/inventory_ui.lua
+- ⚠️ `e2649b3` balance: gate build output tier by component size (2026-03-16T23:43:50Z) code=src/ai_describe.lua
+- ⚠️ `a5648fa` ux: tighten DOS help copy and refresh screenshots (2026-03-16T23:13:02Z) code=src/inventory_ui.lua
+- ⚠️ `8b9210a` ux: add action-menu hotkeys and clearer DOS prompts (2026-03-16T22:13:17Z) code=src/inventory_ui.lua
+- ⚠️ `f595165` balance: constrain disassembly salvage tier by source size (2026-03-16T21:43:42Z) code=src/ai_describe.lua
+- ⚠️ `b5370d4` ux: polish DOS inventory copy and action dialogs (2026-03-16T20:43:06Z) code=src/inventory_ui.lua
+- ⚠️ `55fb0eb` ux: refine DOS inventory copy and build/disasm messaging (2026-03-16T20:13:21Z) code=src/inventory_ui.lua
+- ⚠️ `29cb275` balance: scale build scroll cost by component power (2026-03-16T19:42:53Z) code=src/inventory_ui.lua
+- ⚠️ `831996d` balance: cap disassemble salvage by item size (2026-03-16T19:12:47Z) code=src/ai_describe.lua, src/inventory_ui.lua
+- ⚠️ `bac8090` ux: add build-readiness hints to DOS inventory help/status (2026-03-16T18:13:59Z) code=src/inventory_ui.lua
+- ⚠️ `06774a2` ux: polish DOS inventory copy and action labels (2026-03-16T17:43:16Z) code=src/inventory_ui.lua
+- ⚠️ `ef5e803` chore: automate reproducible map04 and DOS screenshot capture (2026-03-16T17:13:41Z) code=scripts/capture_screenshots.sh
+- ⚠️ `ef04b1a` add automated screenshot capture presets for map04 and DOS UI (2026-03-16T16:44:57Z) code=main.lua
+- ⚠️ `0ecd60c` polish DOS inventory copy and action/help UX hints (2026-03-16T16:13:23Z) code=src/inventory_ui.lua
+- ⚠️ `90e0d3f` balance build/disassemble economy and fix map03 portal target (2026-03-16T15:44:25Z) code=maps/map_03.lua, src/ai_describe.lua, src/inventory_ui.lua
+- ⚠️ `efc7d08` feat: add map_04 and wire portal progression (2026-03-16T15:17:33Z) code=maps/map_03.lua, maps/map_04.lua
+- ⚠️ `711b6a8` Implement DeepSeek AI pipeline, disassemble/build systems, and capture screenshot (2026-03-16T12:41:36Z) code=main.lua, src/ai_describe.lua, src/ai_worker.lua, src/inventory.lua, src/inventory_ui.lua, src/items.lua
+- ⚠️ `e0f1024` 스탯 시스템 + AI 프롬프트 개선 + 장비 스탯 연동 (2026-03-13T06:24:30Z) code=item_tile_data.json, main.lua, src/ai_describe.lua, src/ai_worker.lua, src/combat.lua, src/enemy_ai.lua
+
+## Rule
+- Any commit touching code/gameplay paths must include at least one evidence update in the same commit (team log, playtest/report artifact, or changelog/backlog tracker).

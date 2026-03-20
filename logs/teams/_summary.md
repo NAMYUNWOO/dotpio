@@ -451,3 +451,17 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_mission_pressure_breaker.lua`
   - `luac -p src/overclock_hazard.lua src/entities.lua src/enemy_ai.lua src/inventory_ui.lua src/hud.lua main.lua maps/map_07.lua`
 - Next priority: `P2 Ops — QA/Systems: weekly changelog drift detector`.
+
+## 2026-03-20 12:01 KST — P2 weekly changelog drift detector completed
+- Completed backlog item: `QA/Systems: Add weekly changelog drift detector (code changes without corresponding team-log/report entry)`.
+- Durable decision: weekly sustain now audits recent code commits for same-commit evidence updates (team logs/playtest artifacts/changelog trackers) via `scripts/weekly_changelog_drift_check.py` with artifacts at `logs/weekly_changelog_drift.{md,json}`.
+- Regression guardrail: `scripts/regression_weekly_changelog_drift.py` validates WARN on code-only commit and OK on code+evidence commit.
+- Ops wiring: `scripts/run_weekly_sustain.sh` now runs detector + regression and includes drift artifacts in its output manifest.
+- RC checklist matrix now includes a dedicated row for weekly changelog drift detection.
+- Verification set:
+  - `python3 -m py_compile scripts/weekly_changelog_drift_check.py scripts/regression_weekly_changelog_drift.py`
+  - `python3 scripts/regression_weekly_changelog_drift.py`
+  - `python3 scripts/weekly_changelog_drift_check.py`
+  - `bash scripts/run_weekly_sustain.sh`
+- Current detector status on branch: `WARN` (historical code commits in scan window without same-commit evidence updates), which is expected baseline before enforcement adoption.
+- Next priority item (POST_RC_BACKLOG): `Ops: Add sustain dashboard regression risk score (0~100) with threshold alert section`.

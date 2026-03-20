@@ -564,3 +564,9 @@
 - Task: Prototype SRL discount pulse in hazard room without changing baseline build-cost curve.
 - Decision: Added `src/overclock_hazard.lua` and applied pulse-time discount through `src/inventory_ui.lua` build-cost plan hook (`OverclockHazard.applyBuildCost`).
 - Balance guardrail: discount is temporary and floor-clamped (min build cost remains 1) to avoid zero-cost loops.
+
+## 2026-03-20 12:01 KST — Weekly changelog drift detector rollout
+- Completed backlog item: `QA/Systems: Add weekly changelog drift detector (code changes without corresponding team-log/report entry)`.
+- Added `scripts/weekly_changelog_drift_check.py` + `scripts/regression_weekly_changelog_drift.py` and wired them into `scripts/run_weekly_sustain.sh` / RC sustain checklist.
+- Verification: `python3 -m py_compile scripts/weekly_changelog_drift_check.py scripts/regression_weekly_changelog_drift.py`; `python3 scripts/regression_weekly_changelog_drift.py`; `bash scripts/run_weekly_sustain.sh`.
+- Follow-up: next backlog priority is `Ops: Add sustain dashboard regression risk score (0~100) with threshold alert section`.

@@ -146,3 +146,9 @@
 ## 2026-03-20 11:26 KST — Risk/reward readability for hazard room prototype
 - Kept prototype lightweight: hazard lives in contested center room to make risk legible through natural encounter density.
 - Added compact HUD/state messaging (`OVERCLOCK READY/HOT/CD`) instead of new paneling to preserve DOS hierarchy.
+
+## 2026-03-20 12:01 KST — Weekly changelog drift detector rollout
+- Completed backlog item: `QA/Systems: Add weekly changelog drift detector (code changes without corresponding team-log/report entry)`.
+- Added `scripts/weekly_changelog_drift_check.py` + `scripts/regression_weekly_changelog_drift.py` and wired them into `scripts/run_weekly_sustain.sh` / RC sustain checklist.
+- Verification: `python3 -m py_compile scripts/weekly_changelog_drift_check.py scripts/regression_weekly_changelog_drift.py`; `python3 scripts/regression_weekly_changelog_drift.py`; `bash scripts/run_weekly_sustain.sh`.
+- Follow-up: next backlog priority is `Ops: Add sustain dashboard regression risk score (0~100) with threshold alert section`.

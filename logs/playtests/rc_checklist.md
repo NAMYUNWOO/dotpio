@@ -118,6 +118,13 @@ Owner: QA lane
   - Artifacts:
     - `logs/stale_branch_report_drift.{md,json}`
   - Covers: branch freshness/upstream drift + weekly sustain report staleness guardrail
+- [x] Weekly changelog drift detector
+  - Commands:
+    - `python3 scripts/weekly_changelog_drift_check.py`
+    - `python3 scripts/regression_weekly_changelog_drift.py`
+  - Artifacts:
+    - `logs/weekly_changelog_drift.{md,json}`
+  - Covers: code commits missing same-commit evidence updates (team logs/playtest reports/changelog trackers)
 
 ## Blocker Triage (critical blockers must be zero)
 | ID | Area | Symptom | Severity | Owner | Status | Fix Commit |
