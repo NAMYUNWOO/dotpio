@@ -515,3 +515,9 @@
 - Decision: commitment tier thresholds fixed at `LOW <5s`, `MID <12s`, `HIGH >=12s` for compact risk readability without tuning gameplay balance.
 - Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` passed.
 - Follow-up: if additional unchecked backlog item is needed next cycle, queue next hazard readability experiment candidate.
+
+## 2026-03-20 21:42 KST — P1 hazard readability wave 10 (`RISK Δ` color semantics)
+- Completed item: overclock HUD hint color now reflects risk delta state (rising pressure = red, retreat cooling = green) while keeping base tier color fallback.
+- Decision: readability-only slice; no hazard reward/combat/economy parameter changes.
+- Evidence: `lua scripts/regression_overclock_hazard.lua` and `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` passed.
+- Follow-up: test a short post-pulse relief token (`WINDOW`) as next pacing readability experiment.

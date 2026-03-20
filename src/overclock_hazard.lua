@@ -135,6 +135,9 @@ local function getRiskDeltaValue()
     if (state.cooldownTimer or 0) > 0 and state.enteredZone and (state.cooldownTimer or 0) <= 3 then
         return 1
     end
+    if (state.cooldownTimer or 0) > 0 and not state.enteredZone then
+        return -1
+    end
     return 0
 end
 
@@ -276,8 +279,22 @@ function OverclockHazard.getPressureProfile()
     }
 end
 
+local function getRiskDeltaColor(delta)
+    if delta > 0 then
+        return { 1, 0.34, 0.25, 1 }
+    end
+    if delta < 0 then
+        return { 0.56, 1, 0.66, 1 }
+    end
+    return { 0.78, 0.78, 0.78, 1 }
+end
+
 function OverclockHazard.getHudHintColor()
     if not state.zone then return nil end
+    local delta = getRiskDeltaValue()
+    if delta ~= 0 then
+        return getRiskDeltaColor(delta)
+    end
     local riskTier = getRiskTier(state.zone)
     return getRiskTierColor(riskTier)
 end

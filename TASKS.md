@@ -272,3 +272,17 @@ See project-level plans:
   - [x] Add exposure-seconds-to-tier helper in hazard module (`LOW <5s`, `MID <12s`, `HIGH >=12s`)
   - [x] Surface `COMMIT:<tier>` token in HOT/CD/IMMINENT hints while `ZONE:IN`
   - [x] Extend overclock hazard regression coverage for commitment-tier progression/reset behavior
+
+## Next Up (Post-RC hazard readability wave 10)
+- [x] Add overclock risk-delta color semantics in HUD hint (rising=red, cooling=green)
+  - [x] Add delta-aware HUD color resolver in hazard module while preserving base risk-tier fallback
+  - [x] Mark retreat state with `RISK Δ:-1` during out-of-zone cooldown for de-escalation readability
+  - [x] Extend overclock hazard regression for positive/negative delta color mapping and token expectations
+- [ ] Add overclock pulse-end relief burst HUD token (`WINDOW:<n>s`) to reward timed disengage
+  - [ ] Add short post-pulse relief timer state in hazard module
+  - [ ] Surface compact `WINDOW` token only during out-of-zone cooldown relief window
+  - [ ] Add regression coverage for relief-token visibility and expiry behavior
+- [ ] Add overclock exposure dwell-bucket telemetry artifact (`LOW|MID|HIGH`) for tuning
+  - [ ] Emit per-run dwell bucket counters from hazard runtime state
+  - [ ] Write compact markdown/json summary under `logs/playtests/`
+  - [ ] Add regression coverage for telemetry schema + bucket math

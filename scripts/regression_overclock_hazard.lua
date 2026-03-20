@@ -35,7 +35,7 @@ expect(readyHint:find("RISK SRC:D%d+%+DET%d+%+MOVE%d+"), "ready hint should incl
 
 local highRiskColor = OverclockHazard.getHudHintColor()
 expect(type(highRiskColor) == "table" and #highRiskColor >= 3, "risk tier color should be exposed for HUD rendering")
-expect(math.abs(highRiskColor[1] - 1) < 0.001 and math.abs(highRiskColor[2] - 0.34) < 0.001 and math.abs(highRiskColor[3] - 0.25) < 0.001, "high-risk tier should map to red HUD color")
+expect(math.abs(highRiskColor[1] - 1) < 0.001 and math.abs(highRiskColor[2] - 0.34) < 0.001 and math.abs(highRiskColor[3] - 0.25) < 0.001, "baseline high-risk tier should map to red HUD color")
 
 local idleCost = OverclockHazard.applyBuildCost(5)
 expect(idleCost == 5, "no pulse: build cost should remain unchanged")
@@ -57,6 +57,8 @@ local killBonusCapped = OverclockHazard.consumeKillBonus(3)
 expect(killBonusCapped == 1, "per-pulse overclock kill bonus should respect configured cap")
 
 local hotHint = OverclockHazard.getHudHint()
+local hotRiskColor = OverclockHazard.getHudHintColor()
+expect(math.abs(hotRiskColor[1] - 1) < 0.001 and math.abs(hotRiskColor[2] - 0.34) < 0.001 and math.abs(hotRiskColor[3] - 0.25) < 0.001, "positive risk delta should map to red HUD color")
 expect(type(hotHint) == "string" and hotHint:find("OVERCLOCK HOT") and hotHint:find("%d+s"), "hot hint should include active pulse countdown seconds")
 expect(hotHint:find("ZONE:IN"), "hot hint should show inside-zone presence token")
 expect(hotHint:find("EXPOSED:%d+s"), "hot hint should include in-zone exposure-duration token")
@@ -109,10 +111,13 @@ expect(highCommitHint:find("COMMIT:HIGH"), "in-zone hint should escalate commitm
 
 OverclockHazard.update(0.0, 2, 2)
 local outsideHint = OverclockHazard.getHudHint()
+local outsideRiskColor = OverclockHazard.getHudHintColor()
 expect(type(outsideHint) == "string" and not outsideHint:find("IMMINENT:"), "imminent warning should hide when player leaves hazard zone")
 expect(outsideHint:find("ZONE:OUT"), "cooldown hint should switch to outside-zone presence token when player leaves hazard")
 expect(not outsideHint:find("EXPOSED:"), "outside-zone cooldown hint should clear exposure-duration token")
 expect(not outsideHint:find("COMMIT:"), "outside-zone cooldown hint should clear commitment-tier token")
+expect(outsideHint:find("RISK Δ:%-1"), "outside-zone cooldown hint should show de-escalation risk-delta token")
+expect(math.abs(outsideRiskColor[1] - 0.56) < 0.001 and math.abs(outsideRiskColor[2] - 1) < 0.001 and math.abs(outsideRiskColor[3] - 0.66) < 0.001, "negative risk delta should map to green HUD color")
 expect(OverclockHazard.consumeKillBonus(2) == 0, "kill bonus should not trigger while outside hazard zone")
 
 local postCost = OverclockHazard.applyBuildCost(5)

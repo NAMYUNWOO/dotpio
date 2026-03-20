@@ -641,3 +641,18 @@ Compact decision memory for AI context efficiency.
   - Marked wave-9 done in `POST_RC_BACKLOG.md` and mirrored done state in `TASKS.md`.
 - Next priority item:
   - No unchecked entries currently remain in ACTION_ITEMS/TASKS/POST_RC; inject next validated Game Director experiment candidate.
+
+## 2026-03-20 21:42 KST — P1 hazard readability wave 10 (`RISK Δ` color semantics)
+- Completed backlog item: `UX/World Team: Add overclock risk-delta color semantics in HUD hint (rising=red, cooling=green)`.
+- Durable decisions:
+  - `OverclockHazard.getHudHintColor()` now prioritizes delta-state color when `RISK Δ` is non-zero (red on rising pressure, green on cooling retreat).
+  - During out-of-zone cooldown, hazard hint now emits `RISK Δ:-1` to make safe disengage timing explicit.
+  - Neutral states keep existing risk-tier color mapping (LOW/MED/HIGH).
+- Verification set:
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`
+- Backlog update:
+  - Marked wave-10 delta-color item done in `POST_RC_BACKLOG.md` and mirrored done state in `TASKS.md`.
+  - Added next candidates: post-pulse relief `WINDOW` token and exposure dwell-bucket telemetry.
+- Next priority item:
+  - `UX/World Team: Add overclock pulse-end relief burst HUD token (WINDOW:<n>s)`.

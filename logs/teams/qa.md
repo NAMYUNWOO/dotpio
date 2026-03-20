@@ -1092,3 +1092,13 @@
 - Decision: commitment tier thresholds fixed at `LOW <5s`, `MID <12s`, `HIGH >=12s` for compact risk readability without tuning gameplay balance.
 - Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` passed.
 - Follow-up: if additional unchecked backlog item is needed next cycle, queue next hazard readability experiment candidate.
+
+## 2026-03-20 21:42 KST — Regression extension for hazard wave 10 (delta color semantics)
+- Coverage updates:
+  - HOT state asserts positive delta color mapping (red) and `RISK Δ:+n` token.
+  - Out-of-zone cooldown asserts de-escalation token `RISK Δ:-1`.
+  - Out-of-zone cooldown asserts negative delta color mapping (green).
+- Verification:
+  - `lua scripts/regression_overclock_hazard.lua` ✅
+  - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` ✅
+- Follow-up: add regression case for planned post-pulse relief `WINDOW` token if experiment proceeds.
