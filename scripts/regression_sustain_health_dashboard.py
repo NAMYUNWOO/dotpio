@@ -81,6 +81,8 @@ def main() -> int:
             "## Regression Risk",
             "Score: **5 / 100**",
             "Threshold alert: **OK**",
+            "Top drivers:",
+            "trendStable: +5 (Trend classification is stable)",
             "decision=NO_CURVE_CHANGE",
             "weeklyEvents=42",
             "CRON_TZ: Asia/Seoul",
@@ -122,6 +124,9 @@ def main() -> int:
         risk = payload.get("regressionRisk", {})
         if risk.get("score") != 5 or risk.get("level") != "LOW" or risk.get("alert") != "OK":
             raise AssertionError("Regression risk score payload mismatch")
+        top_drivers = risk.get("topDrivers", [])
+        if not top_drivers or top_drivers[0].get("name") != "trendStable" or top_drivers[0].get("points") != 5:
+            raise AssertionError("Expected trendStable top driver in regression risk payload")
 
         bad = subprocess.run(
             [

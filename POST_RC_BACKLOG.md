@@ -1,6 +1,6 @@
 # POST_RC_BACKLOG
 
-Last updated: 2026-03-20 10:57 KST
+Last updated: 2026-03-20 14:00 KST
 
 ## P0 (Now)
 - [x] Replace F9-centric build flow with Enter->Action menu primary flow
@@ -53,3 +53,4 @@ Last updated: 2026-03-20 10:57 KST
 ## P2 (Ops/Telemetry Next)
 - [x] QA/Systems: Add weekly changelog drift detector (code changes without corresponding team-log/report entry)
 - [x] Ops: Add sustain dashboard “regression risk score” (0~100) with threshold alert section
+- [x] Ops: Add sustain dashboard regression-risk driver breakdown (top contributors) in markdown/json with regression coverage

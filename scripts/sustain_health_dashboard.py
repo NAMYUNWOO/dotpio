@@ -106,6 +106,47 @@ def compute_regression_risk_score(
     return score, level, alert
 
 
+def build_regression_risk_drivers(
+    *,
+    economy_ok: bool,
+    decision: str,
+    suspicious_count: int,
+    telemetry_ok: bool,
+    cron_ok: bool,
+    trend: str,
+    delta_events: int | None,
+) -> list[dict[str, Any]]:
+    drivers: list[tuple[str, int, str]] = []
+
+    if not economy_ok:
+        drivers.append(("economySafetyFail", 35, "Economy safety signal failed"))
+    if decision != "NO_CURVE_CHANGE":
+        drivers.append(("curveChangeRequired", 20, f"Decision={decision}"))
+    if suspicious_count > 0:
+        points = min(30, suspicious_count * 10)
+        drivers.append(("suspiciousWindows", points, f"suspiciousWindows={suspicious_count}"))
+    if not telemetry_ok:
+        drivers.append(("telemetryFreshnessFail", 15, "Weekly telemetry events missing"))
+    if delta_events is not None and delta_events < 0:
+        drivers.append(("deltaEventsNegative", 10, f"deltaEvents={delta_events}"))
+    if not cron_ok:
+        drivers.append(("schedulerPolicyAuditFail", 20, "Cron audit status not ok"))
+
+    if trend == "degrading":
+        drivers.append(("trendDegrading", 15, "Trend classification is degrading"))
+    elif trend == "stable":
+        drivers.append(("trendStable", 5, "Trend classification is stable"))
+
+    if not drivers:
+        drivers.append(("baseline", 0, "No active risk contributors"))
+
+    drivers.sort(key=lambda row: row[1], reverse=True)
+    return [
+        {"name": name, "points": points, "detail": detail}
+        for name, points, detail in drivers
+    ]
+
+
 def build_dashboard_payload(snapshot: dict[str, Any], anti: dict[str, Any], audit: dict[str, Any]) -> dict[str, Any]:
     decision = str(snapshot.get("decision", "UNKNOWN"))
     suspicious_count = int(snapshot.get("suspiciousCount", anti.get("suspiciousCount", 0)) or 0)
@@ -132,6 +173,15 @@ def build_dashboard_payload(snapshot: dict[str, Any], anti: dict[str, Any], audi
         trend=trend,
         delta_events=delta_events,
     )
+    risk_drivers = build_regression_risk_drivers(
+        economy_ok=economy_ok,
+        decision=decision,
+        suspicious_count=suspicious_count,
+        telemetry_ok=telemetry_ok,
+        cron_ok=cron_ok,
+        trend=trend,
+        delta_events=delta_events,
+    )
 
     generated_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
@@ -147,6 +197,7 @@ def build_dashboard_payload(snapshot: dict[str, Any], anti: dict[str, Any], audi
             "score": risk_score,
             "level": risk_level,
             "alert": risk_alert,
+            "topDrivers": risk_drivers[:3],
             "thresholds": {
                 "warnAt": 30,
                 "alertAt": 60,
@@ -210,6 +261,13 @@ def write_markdown(path: Path, payload: dict[str, Any]) -> None:
         f"- Score: **{risk['score']} / 100**",
         f"- Level: **{risk['level']}**",
         f"- Threshold alert: **{risk['alert']}** (WARN >= {risk['thresholds']['warnAt']}, ALERT >= {risk['thresholds']['alertAt']})",
+        "- Top drivers:",
+    ]
+
+    for driver in risk.get("topDrivers", []):
+        lines.append(f"  - {driver['name']}: +{driver['points']} ({driver['detail']})")
+
+    lines.extend([
         "",
         "## Signals",
         f"- {badge(bool(signals['economySafety']['ok']), 'Economy safety')}: decision={signals['economySafety']['decision']}, suspiciousWindows={signals['economySafety']['suspiciousWindows']}",
@@ -224,7 +282,7 @@ def write_markdown(path: Path, payload: dict[str, Any]) -> None:
         f"- Delta total SRL spent: {weekly['delta']['totalSrlSpent']}",
         "",
         "## Scheduler Policy",
-    ]
+    ])
 
     if signals["schedulerPolicyAudit"]["ok"]:
         lines.extend(
