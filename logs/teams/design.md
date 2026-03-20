@@ -269,3 +269,15 @@
 - Added compact post-run token: `OVERCLOCK EFF: <srl> SRL / <sec>s = <ratio> SRL/EXPOSED sec`.
 - Decision: display `n/a` when exposure seconds are zero to avoid misleading divide-by-zero output.
 - Scope is readability-only; no economy or hazard tuning changed.
+
+## 2026-03-20 23:33 KST — Balance-review readability artifact added
+- Added compact markdown trend report (`overclock_dwell_trend.md`) with median dwell mix and included-run ledger.
+- Decision: keep report operations-facing to avoid adding active-game UI clutter.
+
+## 2026-03-20 23:36 KST — Game Director Cycle B experiment shipped (`PROFILE` token)
+- Idea set generated:
+  1) Run-summary commitment profile token (low-risk UX coaching) [chosen]
+  2) Dwell-trend volatility token in combiner artifact (mid-risk systems)
+  3) Run-summary glossary row for analytics tokens (higher UI clutter risk)
+- Implemented vertical slice: `OVERCLOCK PROFILE: CAUTIOUS|BALANCED|ALL-IN` derived from dwell mix thresholds.
+- Pass criterion met: token appears in run summary state/render path with deterministic mapping and regression coverage.

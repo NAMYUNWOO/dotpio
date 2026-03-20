@@ -19,6 +19,26 @@ local function cloneObjectives(objectives)
     return out
 end
 
+local function resolveOverclockProfile(low, mid, high)
+    low = math.max(0, math.floor(tonumber(low) or 0))
+    mid = math.max(0, math.floor(tonumber(mid) or 0))
+    high = math.max(0, math.floor(tonumber(high) or 0))
+    local total = low + mid + high
+    if total <= 0 then
+        return "CAUTIOUS"
+    end
+
+    local highPct = (high / total) * 100
+    local lowPct = (low / total) * 100
+    if high >= mid and high >= low and highPct >= 45 then
+        return "ALL-IN"
+    end
+    if lowPct >= 55 then
+        return "CAUTIOUS"
+    end
+    return "BALANCED"
+end
+
 function RunSummary.open(missionState, unlockFlags, appliedCarry, overclockDwellBuckets, overclockRewardSrl)
     local missionsDone = (missionState and missionState.doneCount) or 0
     local missionsTotal = (missionState and missionState.total) or 0
@@ -47,6 +67,11 @@ function RunSummary.open(missionState, unlockFlags, appliedCarry, overclockDwell
             high = math.max(0, math.floor((overclockDwellBuckets and overclockDwellBuckets.HIGH) or 0)),
         },
         overclockRewardSrl = math.max(0, math.floor(tonumber(overclockRewardSrl) or 0)),
+        overclockProfile = resolveOverclockProfile(
+            (overclockDwellBuckets and overclockDwellBuckets.LOW) or 0,
+            (overclockDwellBuckets and overclockDwellBuckets.MID) or 0,
+            (overclockDwellBuckets and overclockDwellBuckets.HIGH) or 0
+        ),
     }
     state.active = true
 end

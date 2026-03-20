@@ -708,3 +708,14 @@
 - Added run-level overclock reward SRL telemetry in `src/overclock_hazard.lua` (`runRewardSrl`, `getRunRewardSrl`, reset semantics).
 - `consumeKillBonus` now accumulates granted bounty into run telemetry for post-run efficiency analysis.
 - Follow-up: use this token in multi-run trend combiner (next unchecked backlog item).
+
+## 2026-03-20 23:33 KST — Multi-run overclock dwell trend combiner shipped
+- Task: QA/Systems backlog item for balance-review cadence (`last N run medians`).
+- Runtime change: run reset now persists timestamped dwell artifacts (`logs/playtests/overclock_dwell_buckets_run_YYYYmmdd_HHMMSS.{json,md}`) in addition to `latest`.
+- Added combiner script `scripts/overclock_dwell_trend.py` to aggregate last-N run artifacts and emit median + exposure mix snapshot.
+- Weekly sustain wiring: `scripts/run_weekly_sustain.sh` now generates dwell trend artifact (`--runs 7`) and runs dedicated regression.
+
+## 2026-03-20 23:36 KST — Dwell-mix profile resolver added
+- Added `resolveOverclockProfile(low, mid, high)` in `src/run_summary.lua`.
+- Snapshot now carries `overclockProfile` alongside dwell and efficiency stats for post-run tuning coaching.
+- Follow-up queued: trend-volatility token in multi-run combiner artifact.

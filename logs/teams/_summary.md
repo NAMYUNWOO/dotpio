@@ -698,3 +698,30 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_overclock_hazard.lua`
   - `lua scripts/regression_run_summary.lua`
 - Next priority item: `QA/Systems Team: Add multi-run dwell trend combiner artifact (last N run medians)`.
+
+## 2026-03-20 23:33 KST — P1 Game Director injection: multi-run dwell trend combiner
+- Completed backlog item: `QA/Systems Team: Add multi-run dwell trend combiner artifact (last N run medians)`.
+- Durable decisions:
+  - Persist per-reset timestamped dwell snapshots (`overclock_dwell_buckets_run_*.json`) alongside latest snapshot to build review history.
+  - New combiner `scripts/overclock_dwell_trend.py` computes median LOW/MID/HIGH/TOTAL and aggregate mix% over last-N runs.
+  - Weekly sustain runner now emits trend artifacts (`logs/playtests/overclock_dwell_trend.{md,json}`) and executes trend regression.
+- Verification set:
+  - `luac -p main.lua src/overclock_hazard.lua`
+  - `python3 scripts/regression_overclock_dwell_trend.py`
+  - `python3 scripts/overclock_dwell_trend.py --runs 3`
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_run_summary.lua`
+- Next item: all listed backlog lanes are checked; trigger next Game Director review cycle (3 ideas -> choose 1 -> vertical slice).
+
+## 2026-03-20 23:36 KST — Game Director Cycle B completed (3 ideas -> 1 slice)
+- Candidate ideas:
+  1) **Chosen (low-risk UX):** run-summary commitment profile token from dwell mix.
+  2) Mid-risk systems: trend artifact volatility classifier (`VOL:STEADY|SWING`).
+  3) High-risk UX density: analytics glossary row in run summary.
+- Implemented slice: `src/run_summary.lua` now computes `overclockProfile` and `src/hud.lua` renders `OVERCLOCK PROFILE: ...` under efficiency line.
+- Backlog updated in `POST_RC_BACKLOG.md`: chosen item marked done; remaining two ideas retained as open injections.
+- Verification:
+  - `luac -p main.lua src/run_summary.lua src/hud.lua src/overclock_hazard.lua scripts/regression_run_summary.lua`
+  - `lua scripts/regression_run_summary.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `python3 scripts/regression_overclock_dwell_trend.py`

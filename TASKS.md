@@ -286,3 +286,11 @@ See project-level plans:
   - [x] Emit per-run dwell bucket counters from hazard runtime state
   - [x] Write compact markdown/json summary under `logs/playtests/`
   - [x] Add regression coverage for telemetry schema + bucket math
+- [x] Add multi-run dwell trend combiner artifact (`last N run medians`) for balance review cadence
+  - [x] Persist timestamped run dwell artifacts at reset (`overclock_dwell_buckets_run_*.json`)
+  - [x] Add combiner script emitting `logs/playtests/overclock_dwell_trend.{md,json}`
+  - [x] Add regression coverage for trend window + median math
+- [x] Add run-summary overclock commitment profile token (`PROFILE:CAUTIOUS|BALANCED|ALL-IN`) from dwell mix
+  - [x] Add profile resolver in run-summary snapshot state
+  - [x] Render compact profile token under overclock efficiency line
+  - [x] Extend run-summary regression coverage for profile mapping fixture

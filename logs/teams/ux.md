@@ -542,3 +542,12 @@
 - Extended run summary panel with efficiency line directly under dwell snapshot for immediate pacing feedback.
 - Preserved compact DOS layout and existing dwell token placement.
 - Color choice: soft green tint for reward-efficiency scanability.
+
+## 2026-03-20 23:33 KST — No active HUD copy changes this slice
+- Player-facing HUD/run-summary text unchanged.
+- Added ops-facing trend artifact only (`logs/playtests/overclock_dwell_trend.{md,json}`) for balance cadence review.
+
+## 2026-03-20 23:36 KST — Run-summary profile coaching token
+- Added compact line below efficiency readout: `OVERCLOCK PROFILE: <tier>`.
+- Tier mapping favors readability: no exposure -> `CAUTIOUS`, high-dominant >=45% -> `ALL-IN`, otherwise `BALANCED` unless low>=55%.
+- Kept single-line DOS formatting to avoid panel overflow.

@@ -192,6 +192,10 @@ local function drawRunSummary(runSummary)
     love.graphics.setColor(0.68, 0.95, 0.78, 1)
     love.graphics.printf(string.format("OVERCLOCK EFF: %d SRL / %ds = %s SRL/EXPOSED sec", overclockRewardSrl, exposureTotal, efficiencyToken), 112, row, w - 224, "left")
 
+    row = row + 20
+    love.graphics.setColor(0.92, 0.86, 0.64, 1)
+    love.graphics.printf(string.format("OVERCLOCK PROFILE: %s", string.upper(tostring(data.overclockProfile or "BALANCED"))), 112, row, w - 224, "left")
+
     love.graphics.setColor(0.65, 0.65, 0.65, 1)
     love.graphics.printf("Press R / Enter / Esc to close", 0, h - 148, w, "center")
 end

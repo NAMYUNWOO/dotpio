@@ -97,4 +97,9 @@ Last updated: 2026-03-20 17:31 KST
 ## P1 (Game Director Injection — 2026-03-20)
 - [x] UX/Systems Team: Surface overclock dwell-bucket snapshot in run summary (`DWELL L/M/H`) for immediate post-run tuning readability
 - [x] Systems/Design Team: Add overclock zone reward-efficiency token (`SRL/EXPOSED sec`) to run summary for risk/reward pacing insight
-- [ ] QA/Systems Team: Add multi-run dwell trend combiner artifact (`last N run medians`) for balance review cadence
+- [x] QA/Systems Team: Add multi-run dwell trend combiner artifact (`last N run medians`) for balance review cadence
+
+## P1 (Game Director Injection — 2026-03-20 Cycle B)
+- [x] UX/Design Team: Add run-summary overclock commitment profile token (`PROFILE:CAUTIOUS|BALANCED|ALL-IN`) from dwell mix for fast post-run coaching
+- [ ] Systems Team: Add overclock dwell trend volatility token (`VOL:STEADY|SWING`) to trend artifact for tuning cadence triage
+- [ ] QA/UX Team: Add compact run-summary tooltip glossary row for overclock analytics tokens (`DWELL`, `EFF`, `PROFILE`)

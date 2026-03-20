@@ -458,6 +458,7 @@ function love.keypressed(key)
         local overclockDwellBuckets = OverclockHazard.getRunDwellBuckets()
         local overclockRewardSrl = OverclockHazard.getRunRewardSrl()
         OverclockHazard.writeRunDwellArtifact("logs/playtests/overclock_dwell_buckets_latest")
+        OverclockHazard.writeRunDwellArtifact("logs/playtests/overclock_dwell_buckets_run_" .. os.date("%Y%m%d_%H%M%S"))
 
         Player.inventory = nil
         resetRunState()

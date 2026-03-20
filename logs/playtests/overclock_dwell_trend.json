@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-03-20T14:33:42Z",
+  "status": "insufficient-data",
+  "windowRuns": 0,
+  "requestedRuns": 3,
+  "input": {
+    "dir": "/home/namyunwoo/.openclaw/workspace/dotpio/logs/playtests",
+    "pattern": "overclock_dwell_buckets_run_*.json"
+  },
+  "medians": {
+    "LOW": 0,
+    "MID": 0,
+    "HIGH": 0,
+    "TOTAL": 0
+  },
+  "mixPct": {
+    "LOW": 0.0,
+    "MID": 0.0,
+    "HIGH": 0.0
+  },
+  "runs": []
+}

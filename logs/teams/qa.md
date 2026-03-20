@@ -1134,3 +1134,23 @@
   - `luac -p main.lua src/overclock_hazard.lua src/run_summary.lua src/hud.lua scripts/regression_run_summary.lua scripts/regression_overclock_hazard.lua`
   - `lua scripts/regression_overclock_hazard.lua`
   - `lua scripts/regression_run_summary.lua`
+
+## 2026-03-20 23:33 KST — Regression coverage for multi-run dwell trend combiner
+- Added `scripts/regression_overclock_dwell_trend.py` validating:
+  - last-N window slicing,
+  - median LOW/MID/HIGH/TOTAL math,
+  - markdown summary token stability.
+- Verification PASS:
+  - `luac -p main.lua src/overclock_hazard.lua`
+  - `python3 scripts/regression_overclock_dwell_trend.py`
+  - `python3 scripts/overclock_dwell_trend.py --runs 3`
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_run_summary.lua`
+
+## 2026-03-20 23:36 KST — Run summary profile regression assertion
+- Extended `scripts/regression_run_summary.lua` to assert `overclockProfile == BALANCED` for fixture dwell mix.
+- Verification PASS:
+  - `luac -p main.lua src/run_summary.lua src/hud.lua src/overclock_hazard.lua scripts/regression_run_summary.lua`
+  - `lua scripts/regression_run_summary.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `python3 scripts/regression_overclock_dwell_trend.py`

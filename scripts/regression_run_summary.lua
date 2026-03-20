@@ -40,6 +40,7 @@ expect(#(state.data.objectives or {}) == 3, "summary should include objective ro
 expect(state.data.carry.srl == 4 and state.data.carry.coins == 3 and state.data.carry.gems == 1, "carryover values should match applied reward")
 expect(state.data.overclockDwell.low == 5 and state.data.overclockDwell.mid == 7 and state.data.overclockDwell.high == 1, "overclock dwell buckets should be captured in run summary snapshot")
 expect(state.data.overclockRewardSrl == 6, "overclock reward SRL should be captured in run summary snapshot")
+expect(state.data.overclockProfile == "BALANCED", "overclock profile should be derived from dwell mix")
 
 -- Ensure snapshot data is stable even if mission state changes afterwards.
 RunMissions.addProgress("pickup", 1)

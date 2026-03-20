@@ -292,3 +292,11 @@
 ## 2026-03-20 23:03 KST — No combat behavior tuning changes this slice
 - Berserker/overclock combat mechanics unchanged.
 - Task limited to reward telemetry snapshot + run-summary readability.
+
+## 2026-03-20 23:33 KST — No combat tuning changes this slice
+- Overclock combat behavior values unchanged.
+- Added only run-history telemetry persistence and trend combiner reporting.
+
+## 2026-03-20 23:36 KST — Combat behavior unchanged (profile-only readout)
+- No enemy tuning or overclock combat math changes.
+- Added only post-run interpretation token from existing dwell telemetry.
