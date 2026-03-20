@@ -187,3 +187,6 @@
 
 ## 2026-03-20 10:06 KST — No world/map delta
 - Scope check: threat-formula legend update touched no map, portal, or traversal assets.
+
+## 2026-03-20 10:35 KST — No world/map delta
+- Scope check: threat delta HUD row touched no map, portal, or traversal content.

@@ -201,3 +201,7 @@ See project-level plans:
   - [x] Add reusable HUD formatter for weighted threat breakdown text
   - [x] Surface formula hint in berserker enrage status feed copy for quick onboarding
   - [x] Extend HUD threat regression coverage for formula-string stability
+- [x] Add turn-over-turn berserker threat delta indicator in HUD (`THREAT Δ:+n|-n`)
+  - [x] Add HUD threat delta helpers for signed score change math/copy
+  - [x] Render color-coded delta row beneath threat tier in combat strip
+  - [x] Extend HUD threat regression coverage for delta formatting edge-cases

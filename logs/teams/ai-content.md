@@ -193,3 +193,6 @@
 
 ## 2026-03-20 10:06 KST — No AI-content generation delta
 - Threat-formula legend/status hints are deterministic UI copy changes; AI generation constraints unchanged.
+
+## 2026-03-20 10:35 KST — No AI-content generation delta
+- Threat delta indicator is deterministic HUD/state math; AI generation prompts/constraints unchanged.

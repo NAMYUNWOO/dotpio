@@ -135,3 +135,6 @@
 
 ## 2026-03-20 10:06 KST — Threat math affordance placement
 - Approved in-strip formula placement under berserker counters instead of a separate panel to preserve DOS hierarchy and keep threat context local.
+
+## 2026-03-20 10:35 KST — Compact hierarchy-preserving delta row
+- Approved placing threat delta directly beneath existing threat line to preserve DOS HUD locality and avoid new panel sprawl.

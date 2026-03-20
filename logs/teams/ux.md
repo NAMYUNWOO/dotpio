@@ -378,3 +378,7 @@
 ## 2026-03-20 10:06 KST — Combat status formula hint copy
 - Added compact enrage status suffix (`[THREAT=B+2L+R]`) so players learn threat math from existing combat feed.
 - Added HUD formula row only while berserkers are active to avoid baseline HUD noise.
+
+## 2026-03-20 10:35 KST — Signed threat-delta copy pass
+- Added concise copy token `THREAT Δ:+n|-n` with explicit sign to communicate momentum shifts without requiring color interpretation.
+- Follow-up: if line density becomes noisy at low resolutions, gate delta row behind active-berserker + nonzero-change mode.

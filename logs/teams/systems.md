@@ -549,3 +549,7 @@
 ## 2026-03-20 10:06 KST — Threat formula helper centralization
 - Added reusable HUD helper methods (`getBerserkerThreatLegend`, `formatBerserkerThreatBreakdown`) to keep weighting semantics single-sourced.
 - Scope remains presentation-only; no mission reward/economy constants touched.
+
+## 2026-03-20 10:35 KST — Threat delta helper wiring
+- Added deterministic HUD helpers for signed threat change (`getBerserkerThreatDelta`, `formatBerserkerThreatDelta`) so pacing signal math stays centralized/testable.
+- Scope: presentation-only; no economy/progression constants changed.

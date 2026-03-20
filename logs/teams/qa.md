@@ -942,3 +942,9 @@
   - `luac -p main.lua src/hud.lua`
   - `lua scripts/regression_hud_berserker_counters.lua`
 - Result: PASS; legend string and weighted breakdown formatting assertions validated.
+
+## 2026-03-20 10:35 KST — Threat delta regression coverage
+- Verification:
+  - `luac -p main.lua src/hud.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+- Result: PASS; delta math/copy assertions validated alongside existing threat tier/color checks.

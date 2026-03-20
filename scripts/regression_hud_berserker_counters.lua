@@ -29,6 +29,12 @@ expect(HUD.getBerserkerThreatTier(3) == "MED", "threat tier should be MED at sco
 expect(HUD.getBerserkerThreatTier(2) == "LOW", "threat tier should be LOW below medium threshold")
 expect(HUD.getBerserkerThreatTier(nil) == "LOW", "threat tier should default to LOW for missing score")
 expect(HUD.getBerserkerThreatLegend() == "THREAT = BERSERK + 2*LUNGE + RECOVER", "threat legend copy should stay stable")
+expect(HUD.getBerserkerThreatDelta(6, 2) == 4, "threat delta should increase when current score is higher")
+expect(HUD.getBerserkerThreatDelta(2, 6) == -4, "threat delta should decrease when current score is lower")
+expect(HUD.getBerserkerThreatDelta(nil, nil) == 0, "threat delta should default to zero for missing scores")
+expect(HUD.formatBerserkerThreatDelta(6, 2) == "THREAT Δ:+4", "threat delta copy should include explicit plus sign for increases")
+expect(HUD.formatBerserkerThreatDelta(2, 6) == "THREAT Δ:-4", "threat delta copy should include minus sign for decreases")
+expect(HUD.formatBerserkerThreatDelta(3, 3) == "THREAT Δ:0", "threat delta copy should show zero for no change")
 expect(HUD.formatBerserkerThreatBreakdown(counters) == "THREAT = 2 + 2*1 + 2 = 6", "threat breakdown should expose weighted formula")
 expect(HUD.formatBerserkerThreatBreakdown(nil) == "THREAT = 0 + 2*0 + 0 = 0", "threat breakdown should be safe on nil")
 

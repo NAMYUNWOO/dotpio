@@ -162,3 +162,7 @@
 - Completed readability follow-up: exposed weighted threat formula directly in active berserker HUD strip via `THREAT = B + 2*L + R` breakdown line.
 - Decision: keep formula live-computed from counters so score decomposition remains auditable during high-pressure turns.
 - Follow-up: if line wraps on lower resolutions, collapse to compact token format (`T=B+2L+R`) behind config flag.
+
+## 2026-03-20 10:35 KST — Threat pacing delta readability
+- Added turn-over-turn threat delta row (`THREAT Δ`) under threat score/tier to expose pressure acceleration/deceleration in live combat.
+- Decision: color delta by direction (up=warm, down=cool, flat=neutral) while retaining explicit signed text for accessibility.

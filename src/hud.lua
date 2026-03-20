@@ -1,4 +1,6 @@
-local HUD = {}
+local HUD = {
+    _lastThreatScore = 0,
+}
 
 function HUD.getBerserkerThreatTier(score)
     local value = tonumber(score) or 0
@@ -24,6 +26,18 @@ end
 
 function HUD.getBerserkerThreatLegend()
     return "THREAT = BERSERK + 2*LUNGE + RECOVER"
+end
+
+function HUD.getBerserkerThreatDelta(currentScore, previousScore)
+    local current = tonumber(currentScore) or 0
+    local previous = tonumber(previousScore) or 0
+    return current - previous
+end
+
+function HUD.formatBerserkerThreatDelta(currentScore, previousScore)
+    local delta = HUD.getBerserkerThreatDelta(currentScore, previousScore)
+    local signed = delta > 0 and ("+" .. delta) or tostring(delta)
+    return string.format("THREAT Δ:%s", signed)
 end
 
 function HUD.formatBerserkerThreatBreakdown(counters)
@@ -181,7 +195,17 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
         love.graphics.setColor(HUD.getBerserkerThreatColor(counters.berserkerThreatScore))
         love.graphics.print(string.format("Threat: %d (%s)", counters.berserkerThreatScore, threatTier), 160, 46)
 
-        local rowY = 62
+        local threatDelta = HUD.getBerserkerThreatDelta(counters.berserkerThreatScore, HUD._lastThreatScore)
+        if threatDelta > 0 then
+            love.graphics.setColor(1, 0.48, 0.36, 1)
+        elseif threatDelta < 0 then
+            love.graphics.setColor(0.58, 1, 0.68, 1)
+        else
+            love.graphics.setColor(0.78, 0.78, 0.78, 1)
+        end
+        love.graphics.print(HUD.formatBerserkerThreatDelta(counters.berserkerThreatScore, HUD._lastThreatScore), 160, 62)
+
+        local rowY = 78
         if counters.primedBerserkerLunges > 0 then
             love.graphics.setColor(1, 0.6, 0.25, 1)
             love.graphics.print(string.format("Lunge Tell: %d", counters.primedBerserkerLunges), 160, rowY)
@@ -197,6 +221,7 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
         love.graphics.setColor(0.78, 0.88, 1, 1)
         love.graphics.print(HUD.formatBerserkerThreatBreakdown(counters), 160, rowY)
     end
+    HUD._lastThreatScore = counters.berserkerThreatScore
     love.graphics.setColor(0.6,0.6,0.6,1)
     love.graphics.print("WASD:Move  Click:Magic  Space:Melee  E:Search  G:Pickup  R:Restart", 16, 74)
 

@@ -394,3 +394,17 @@ Compact decision memory for AI context efficiency.
   - Added mirrored completed entry in `TASKS.md`.
 - Next priority:
   - No unchecked entries remain in ACTION_ITEMS/TASKS/POST_RC; queue next Game Director experiment candidate (e.g., threat-aware onboarding micro-tip decay logic).
+
+## 2026-03-20 10:35 KST — Berserker threat delta HUD slice
+- Completed: Added turn-over-turn berserker threat delta indicator (`THREAT Δ:+n|-n`) in HUD combat strip.
+- Durable decisions:
+  - Keep delta math centralized in HUD helpers (`getBerserkerThreatDelta`, `formatBerserkerThreatDelta`) for deterministic testing.
+  - Keep signed text visible even with directional colors (accessibility + log readability).
+  - Persist compact layout by placing delta row directly below `Threat: <score> (<tier)`.
+- Verification set:
+  - `luac -p main.lua src/hud.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+- Backlog sync:
+  - Marked completed in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
+- Next priority:
+  - No unchecked entries remain in ACTION_ITEMS/TASKS/POST_RC; queue next Game Director experiment candidate.
