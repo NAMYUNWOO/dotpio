@@ -655,3 +655,10 @@
 - Artifacts/regression remain green after update.
 - Follow-ups kept in backlog: pressure-band drift token, top-token movers section.
 
+
+## 2026-03-21 07:01 KST — Game Director Cycle J slice (pressure-band drift token)
+- Task: Implement backlog item `PRESSURE BAND:LOW|MID|HIGH` for weekly portal prompt readability digest.
+- Decision: Extended `scripts/weekly_portal_prompt_readability_drift.py` to aggregate pressure-token edits (`PRESSURE:` + `P:`) and map net drift to `pressureBand` thresholds (LOW <3, MID 3~7, HIGH >=8 by |net|).
+- Evidence: Digest artifacts now include JSON `pressureBand` + `pressureEdits` and markdown line `PRESSURE BAND` with +/-/net counts.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`.
+- Follow-up: Remaining Cycle J item is top-token movers section for digest triage.

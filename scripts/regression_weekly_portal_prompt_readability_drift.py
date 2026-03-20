@@ -69,9 +69,12 @@ def main() -> int:
         assert payload["totals"]["added"]["compact"] > 0, payload
         assert payload["totals"]["added"]["detailed"] > 0, payload
         assert payload["modeTrend"] in {"COMPACT", "DETAILED", "BALANCED"}, payload
+        assert payload["pressureBand"] in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         md_text = out_md.read_text(encoding="utf-8")
         assert "Token Totals" in md_text
         assert "MODE TREND" in md_text
+        assert "PRESSURE BAND" in md_text
 
     print("[PASS] weekly portal prompt readability drift regression checks")
     return 0

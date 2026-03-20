@@ -29,6 +29,8 @@ TOKEN_GROUPS = {
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 
+PRESSURE_TOKENS = ["PRESSURE:", "P:"]
+
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
@@ -60,6 +62,15 @@ def count_tokens_in_line(line: str) -> dict[str, int]:
     return counts
 
 
+def pressure_band_from_net(net: int) -> str:
+    magnitude = abs(net)
+    if magnitude >= 8:
+        return "HIGH"
+    if magnitude >= 3:
+        return "MID"
+    return "LOW"
+
+
 def commit_stats(root: Path, commit: str) -> dict:
     meta = git(root, "show", "-s", "--format=%H%n%ct%n%an%n%s", commit).splitlines()
     sha, ts, author = meta[0], int(meta[1]), meta[2]
@@ -69,6 +80,8 @@ def commit_stats(root: Path, commit: str) -> dict:
 
     added = {k: 0 for k in TOKEN_GROUPS}
     removed = {k: 0 for k in TOKEN_GROUPS}
+    pressure_added = 0
+    pressure_removed = 0
 
     if portal_files:
         patch = git(root, "show", "--pretty=format:", commit, "--", *portal_files)
@@ -76,15 +89,20 @@ def commit_stats(root: Path, commit: str) -> dict:
             if raw.startswith("+++") or raw.startswith("---"):
                 continue
             if raw.startswith("+"):
-                c = count_tokens_in_line(raw[1:])
+                line = raw[1:]
+                c = count_tokens_in_line(line)
                 for k, v in c.items():
                     added[k] += v
+                pressure_added += sum(line.count(token) for token in PRESSURE_TOKENS)
             elif raw.startswith("-"):
-                c = count_tokens_in_line(raw[1:])
+                line = raw[1:]
+                c = count_tokens_in_line(line)
                 for k, v in c.items():
                     removed[k] += v
+                pressure_removed += sum(line.count(token) for token in PRESSURE_TOKENS)
 
     net = {k: added[k] - removed[k] for k in TOKEN_GROUPS}
+    pressure_net = pressure_added - pressure_removed
     touched = bool(portal_files)
     mode = "neutral"
     if net["compact"] > net["detailed"]:
@@ -105,6 +123,11 @@ def commit_stats(root: Path, commit: str) -> dict:
         "removed": removed,
         "net": net,
         "dominantMode": mode,
+        "pressureEdits": {
+            "added": pressure_added,
+            "removed": pressure_removed,
+            "net": pressure_net,
+        },
     }
 
 
@@ -134,6 +157,11 @@ def main() -> int:
     elif detailed_commits > compact_commits:
         mode_trend = "DETAILED"
 
+    pressure_added = sum(r["pressureEdits"]["added"] for r in touched)
+    pressure_removed = sum(r["pressureEdits"]["removed"] for r in touched)
+    pressure_net = pressure_added - pressure_removed
+    pressure_band = pressure_band_from_net(pressure_net)
+
     status = "ok"
     if touched and totals["net"]["compact"] < 0 and totals["net"]["detailed"] > 0:
         status = "warn"
@@ -150,6 +178,12 @@ def main() -> int:
             "neutral": neutral_commits,
         },
         "modeTrend": mode_trend,
+        "pressureBand": pressure_band,
+        "pressureEdits": {
+            "added": pressure_added,
+            "removed": pressure_removed,
+            "net": pressure_net,
+        },
         "totals": totals,
         "commits": rows,
     }
@@ -167,6 +201,7 @@ def main() -> int:
         f"- Portal prompt commits: {len(touched)}",
         f"- Dominant mode commits: compact={compact_commits}, detailed={detailed_commits}, neutral={neutral_commits}",
         f"- MODE TREND: **{mode_trend}**",
+        f"- PRESSURE BAND: **{pressure_band}** (edits +{pressure_added} / -{pressure_removed} / net {pressure_net})",
         "",
         "## Token Totals (added/removed/net)",
         f"- Compact: +{totals['added']['compact']} / -{totals['removed']['compact']} / net {totals['net']['compact']}",

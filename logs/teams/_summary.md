@@ -1004,3 +1004,16 @@ Compact decision memory for AI context efficiency.
   - Marked mode-trend slice done in `POST_RC_BACKLOG.md` (Cycle J).
   - Left two injected follow-up ideas unchecked for next cycle.
 - Next priority item: `Systems/World Team: Add pressure-band drift token (PRESSURE BAND:LOW|MID|HIGH)`.
+
+## 2026-03-21 07:01 KST — Game Director Cycle J follow-up slice completed
+- Completed item: `Systems/World Team: Add pressure-band drift token (PRESSURE BAND:LOW|MID|HIGH)`.
+- Implementation:
+  - `scripts/weekly_portal_prompt_readability_drift.py`: added pressure-token aggregation, `pressureBand` classification, `pressureEdits` payload, and markdown `PRESSURE BAND` line.
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`: added assertions for new JSON fields and markdown token.
+  - Regenerated `logs/weekly_portal_prompt_readability_drift.{json,md}` with new token.
+- Verification (PASS):
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
+- Progress: POST_RC backlog Cycle J now 2/3 complete; remaining unchecked item is top-token movers section.
+- Next priority item: `Design/QA Team: Add digest top-token movers section`.

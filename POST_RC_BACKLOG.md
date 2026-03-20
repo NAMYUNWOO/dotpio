@@ -141,5 +141,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-21 Cycle J)
 - [x] QA/UX Team: Add digest mode-trend token (`MODE TREND:COMPACT|DETAILED|BALANCED`) to weekly portal prompt readability report
-- [ ] Systems/World Team: Add pressure-band drift token (`PRESSURE BAND:LOW|MID|HIGH`) from recent portal prompt pressure score edits
+- [x] Systems/World Team: Add pressure-band drift token (`PRESSURE BAND:LOW|MID|HIGH`) from recent portal prompt pressure score edits
 - [ ] Design/QA Team: Add digest top-token movers section (largest net ± token deltas) for readability triage
