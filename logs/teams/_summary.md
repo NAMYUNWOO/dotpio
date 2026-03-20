@@ -555,3 +555,18 @@ Compact decision memory for AI context efficiency.
   - Marked done in `POST_RC_BACKLOG.md` and mirrored done in `TASKS.md`.
 - Next priority item:
   - ACTION_ITEMS/TASKS/POST_RC currently fully checked; inject next validated Game Director experiment candidate.
+- Overclock HUD hints now include compact risk-factor breakdown token `RISK SRC:Dx+DETy+MOVEz` in READY/HOT/CD states so hazard tuning impact is legible in-run without opening configs.
+
+## 2026-03-20 18:31 KST — P1 hazard readability wave 3: risk-factor breakdown token
+- Completed backlog item: `UX/Systems Team: Add compact overclock risk-factor breakdown token in HUD hint (RISK SRC:Dx+DETy+MOVEz)`.
+- Durable decisions:
+  - Added `getRiskComponents` + `getRiskBreakdownToken` in `src/overclock_hazard.lua` so risk score internals remain centralized and testable.
+  - OVERCLOCK READY/HOT/CD HUD hints now append `RISK SRC:Dx+DETy+MOVEz` alongside existing `RISK:<tier>(<score>)` token.
+  - Change is readability-only (no hazard reward/aggro/economy tuning changes).
+- Verification set:
+  - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+- Backlog update:
+  - Marked done in `POST_RC_BACKLOG.md`.
+- Next priority item:
+  - ACTION_ITEMS/TASKS/POST_RC currently fully checked; inject next validated Game Director experiment candidate next cycle.

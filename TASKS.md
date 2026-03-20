@@ -230,3 +230,9 @@ See project-level plans:
   - [x] Expose tier-aware overclock HUD hint color metadata from hazard module
   - [x] Render overclock auxiliary HUD hint with provided tier color while keeping existing default fallback
   - [x] Extend overclock hazard regression coverage for risk-tier color mapping
+
+## Next Up (Post-RC hazard readability wave 3)
+- [x] Add compact overclock risk-factor breakdown token in HUD hint (`RISK SRC:Dx+DETy+MOVEz`)
+  - [x] Centralize overclock risk-component math helper (`discount`, `detect`, `move`) in hazard module
+  - [x] Surface `RISK SRC:Dx+DETy+MOVEz` token in READY/HOT/CD overclock HUD hints
+  - [x] Extend overclock hazard regression coverage for risk-factor token visibility

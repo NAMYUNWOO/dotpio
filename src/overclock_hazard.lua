@@ -39,12 +39,21 @@ local function inRect(px, py, rect)
     return rect and px >= rect.x and px < (rect.x + rect.w) and py >= rect.y and py < (rect.y + rect.h)
 end
 
+local function getRiskComponents(zone)
+    if not zone then
+        return { discount = 0, detect = 0, move = 0 }
+    end
+
+    return {
+        discount = math.floor((zone.discountPct or 0) * 10 + 0.5),
+        detect = math.max(0, tonumber(zone.aggroDetectBonus) or 0),
+        move = math.max(0, math.floor((1 - (tonumber(zone.aggroMoveMul) or 1)) * 10 + 0.5)),
+    }
+end
+
 local function getRiskScore(zone)
-    if not zone then return 0 end
-    local discountScore = math.floor((zone.discountPct or 0) * 10 + 0.5)
-    local detectScore = math.max(0, tonumber(zone.aggroDetectBonus) or 0)
-    local moveScore = math.max(0, math.floor((1 - (tonumber(zone.aggroMoveMul) or 1)) * 10 + 0.5))
-    return discountScore + detectScore + moveScore
+    local parts = getRiskComponents(zone)
+    return parts.discount + parts.detect + parts.move
 end
 
 local function getRiskTier(zone)
@@ -87,6 +96,11 @@ end
 local function getNextBountyBudgetToken()
     local cap = math.max(0, math.floor((state.zone and state.zone.killBonusPulseCap) or 0))
     return string.format("NEXT BOUNTY:0/%d", cap)
+end
+
+local function getRiskBreakdownToken(zone)
+    local parts = getRiskComponents(zone)
+    return string.format("RISK SRC:D%d+DET%d+MOVE%d", parts.discount, parts.detect, parts.move)
 end
 
 function OverclockHazard.onMapLoaded(mapName, metadata)
@@ -190,21 +204,22 @@ end
 function OverclockHazard.getHudHint()
     if not state.zone then return nil end
     local riskTier, riskScore = getRiskTier(state.zone)
+    local riskBreakdown = getRiskBreakdownToken(state.zone)
     if state.pulseActive then
         local pulseSeconds = math.max(0, math.ceil(state.pulseTimer or 0))
         local aggroLegend = getAggroPressureLegend(state.zone)
         local bountyProgress = getBountyProgressToken()
-        return string.format("OVERCLOCK HOT %ds: -%d%% SRL / %s / %s  RISK:%s(%d)", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5), aggroLegend, bountyProgress, riskTier, riskScore)
+        return string.format("OVERCLOCK HOT %ds: -%d%% SRL / %s / %s  RISK:%s(%d) %s", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5), aggroLegend, bountyProgress, riskTier, riskScore, riskBreakdown)
     end
     if state.cooldownTimer > 0 then
         local cooldownSeconds = math.max(0, math.ceil(state.cooldownTimer))
         local nextBounty = getNextBountyBudgetToken()
         if state.enteredZone and cooldownSeconds <= 3 then
-            return string.format("OVERCLOCK CD %ds (IMMINENT:%ds) %s  RISK:%s(%d)", cooldownSeconds, cooldownSeconds, nextBounty, riskTier, riskScore)
+            return string.format("OVERCLOCK CD %ds (IMMINENT:%ds) %s  RISK:%s(%d) %s", cooldownSeconds, cooldownSeconds, nextBounty, riskTier, riskScore, riskBreakdown)
         end
-        return string.format("OVERCLOCK CD %ds %s  RISK:%s(%d)", cooldownSeconds, nextBounty, riskTier, riskScore)
+        return string.format("OVERCLOCK CD %ds %s  RISK:%s(%d) %s", cooldownSeconds, nextBounty, riskTier, riskScore, riskBreakdown)
     end
-    return string.format("OVERCLOCK READY %s  RISK:%s(%d)", getNextBountyBudgetToken(), riskTier, riskScore)
+    return string.format("OVERCLOCK READY %s  RISK:%s(%d) %s", getNextBountyBudgetToken(), riskTier, riskScore, riskBreakdown)
 end
 
 function OverclockHazard.debugSetPulse(active, pulseTimer)

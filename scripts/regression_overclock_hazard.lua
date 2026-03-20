@@ -27,6 +27,7 @@ local readyHint = OverclockHazard.getHudHint()
 expect(type(readyHint) == "string" and readyHint:find("OVERCLOCK READY"), "ready hint should be visible before entering hazard zone")
 expect(readyHint:find("NEXT BOUNTY:0/%d+"), "ready hint should include next-pulse bounty budget token")
 expect(readyHint:find("RISK:[A-Z]+%(%d+%)"), "ready hint should include risk tier + score")
+expect(readyHint:find("RISK SRC:D%d+%+DET%d+%+MOVE%d+"), "ready hint should include compact risk-factor breakdown token")
 
 local highRiskColor = OverclockHazard.getHudHintColor()
 expect(type(highRiskColor) == "table" and #highRiskColor >= 3, "risk tier color should be exposed for HUD rendering")
@@ -57,6 +58,7 @@ expect(hotHint:find("MOVE:%+%d+%%"), "hot hint should include aggro move-speed p
 expect(hotHint:find("BOUNTY:%d+/%d+"), "hot hint should include bounty progress token")
 expect(hotHint:find("BOUNTY:3/3"), "bounty progress token should reflect per-pulse cap consumption")
 expect(hotHint:find("RISK:[A-Z]+%(%d+%)"), "hot hint should include hazard risk tier + score")
+expect(hotHint:find("RISK SRC:D%d+%+DET%d+%+MOVE%d+"), "hot hint should include compact risk-factor breakdown token")
 
 local pressure = OverclockHazard.getPressureProfile()
 expect(pressure.active == true, "pressure profile should be active during pulse")
@@ -70,6 +72,7 @@ local cooldownHint = OverclockHazard.getHudHint()
 expect(type(cooldownHint) == "string" and cooldownHint:find("OVERCLOCK CD") and cooldownHint:find("%d+s"), "cooldown hint should include cooldown seconds")
 expect(cooldownHint:find("NEXT BOUNTY:0/%d+"), "cooldown hint should include next-pulse bounty budget token")
 expect(cooldownHint:find("RISK:[A-Z]+%(%d+%)"), "cooldown hint should keep risk tier + score visible")
+expect(cooldownHint:find("RISK SRC:D%d+%+DET%d+%+MOVE%d+"), "cooldown hint should keep risk-factor breakdown token visible")
 expect(not cooldownHint:find("IMMINENT:"), "cooldown hint should not show imminent warning too early")
 
 OverclockHazard.update(3.2, 11, 11)

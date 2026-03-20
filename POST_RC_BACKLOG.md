@@ -67,3 +67,6 @@ Last updated: 2026-03-20 17:31 KST
 
 ## P1 (Hazard Readability Wave 2)
 - [x] UX/World Team: Color-code overclock `RISK` tier in HUD hint (`LOW`=green, `MED`=amber, `HIGH`=red) while preserving compact DOS line layout
+
+## P1 (Hazard Readability Wave 3)
+- [x] UX/Systems Team: Add compact overclock risk-factor breakdown token in HUD hint (`RISK SRC:Dx+DETy+MOVEz`) so tuning impact is readable in-run

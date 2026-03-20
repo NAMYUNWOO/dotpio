@@ -238,3 +238,9 @@
 - Decision: Implemented tier-aware HUD color metadata from hazard module and threaded it through HUD auxiliary hint rendering with fallback color.
 - Evidence: ; [PASS] overclock hazard regression validated.
 - Follow-up: Queue next Post-RC gameplay/UX experiment candidate.
+
+## 2026-03-20 18:31 KST — P1 hazard readability wave 3: overclock risk-factor breakdown token
+- Task: Added compact HUD token "RISK SRC:Dx+DETy+MOVEz" across OVERCLOCK READY/HOT/CD hints.
+- Decision: Expose risk component math (discount + detect + move) inline for fast tuning readability without changing hazard mechanics.
+- Evidence: luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua; lua scripts/regression_overclock_hazard.lua (PASS).
+- Follow-up: If HUD width pressure appears in smaller layouts, abbreviate token labels while keeping component values visible.
