@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-20T22:33:35.255919Z
+- GeneratedAt(UTC): 2026-03-20T23:02:49.270359Z
 - Status: **OK**
 - Window: last 14 days (max 200 commits)
 - Checked commits: 200
@@ -8,6 +8,7 @@
 - Dominant mode commits: compact=2, detailed=5, neutral=2
 - MODE TREND: **DETAILED**
 - PRESSURE BAND: **HIGH** (edits +17 / -2 / net 15)
+- DRIFT RISK: **HIGH** (score=19 | imbalance=4 | pressure=15)
 
 ## Token Totals (added/removed/net)
 - Compact: +28 / -3 / net 25

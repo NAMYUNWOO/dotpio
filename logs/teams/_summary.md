@@ -1032,3 +1032,4 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
 - Backlog update: marked final unchecked Cycle J item done in `POST_RC_BACKLOG.md`.
 - Next priority item: all tracked backlogs checked; execute next Game Director review cycle (3 ideas -> choose 1 -> vertical slice).
+- 2026-03-21 08:03 KST: Game Director Cycle K started and shipped first vertical slice: weekly portal prompt digest now includes `DRIFT RISK:LOW|MID|HIGH` derived from mode-imbalance + pressure churn (`driftRiskSignals.score/imbalance/pressureChurn`); regression coverage extended in `scripts/regression_weekly_portal_prompt_readability_drift.py`.

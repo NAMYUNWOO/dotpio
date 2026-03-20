@@ -1316,3 +1316,16 @@
 - Added per-token edit aggregation (`added/removed/net`) and top-movers ranking in weekly digest outputs.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200` PASS.
 - Follow-up: no unchecked items remain in ACTION_ITEMS/TASKS/POST_RC; next cycle should inject new Game Director experiments.
+
+## 2026-03-21 08:03 KST — Game Director Cycle K slice: weekly drift-risk token
+- Completed backlog item: `QA/UX Team: Add digest drift-risk token (DRIFT RISK:LOW|MID|HIGH)`.
+- Durable decisions:
+  - Added `drift_risk_from_signals` classifier in `scripts/weekly_portal_prompt_readability_drift.py` using compact-vs-detailed net imbalance plus pressure-token churn.
+  - Weekly digest JSON now exposes `driftRisk` + `driftRiskSignals` (`score`, `imbalance`, `pressureChurn`).
+  - Weekly digest markdown now surfaces compact triage line: `DRIFT RISK: <level>`.
+- Verification set (PASS):
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
+- Follow-up:
+  - Remaining Cycle K backlog items: `STICKY TOKENS` persistence token, `FOCUS` lane-focus token.

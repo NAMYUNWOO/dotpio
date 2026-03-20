@@ -143,3 +143,8 @@ Last updated: 2026-03-21 02:31 KST
 - [x] QA/UX Team: Add digest mode-trend token (`MODE TREND:COMPACT|DETAILED|BALANCED`) to weekly portal prompt readability report
 - [x] Systems/World Team: Add pressure-band drift token (`PRESSURE BAND:LOW|MID|HIGH`) from recent portal prompt pressure score edits
 - [x] Design/QA Team: Add digest top-token movers section (largest net ± token deltas) for readability triage
+
+## P1 (Game Director Injection — 2026-03-21 Cycle K)
+- [x] QA/UX Team: Add digest drift-risk token (`DRIFT RISK:LOW|MID|HIGH`) from compact/detailed imbalance + pressure churn for quick triage
+- [ ] Systems/World Team: Add prompt-token persistence token (`STICKY TOKENS:<n>`) counting tokens present in both added/removed sets over window
+- [ ] Design/QA Team: Add digest lane-focus token (`FOCUS:PORTAL|ALT|PRESSURE|MIXED`) from top mover families for action routing

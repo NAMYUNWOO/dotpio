@@ -81,6 +81,23 @@ def pressure_band_from_net(net: int) -> str:
     return "LOW"
 
 
+def drift_risk_from_signals(*, compact_net: int, detailed_net: int, pressure_net: int) -> tuple[str, dict[str, int]]:
+    imbalance = abs(compact_net - detailed_net)
+    pressure_churn = abs(pressure_net)
+    score = imbalance + pressure_churn
+    if score >= 12:
+        level = "HIGH"
+    elif score >= 5:
+        level = "MID"
+    else:
+        level = "LOW"
+    return level, {
+        "score": score,
+        "imbalance": imbalance,
+        "pressureChurn": pressure_churn,
+    }
+
+
 def commit_stats(root: Path, commit: str) -> dict:
     meta = git(root, "show", "-s", "--format=%H%n%ct%n%an%n%s", commit).splitlines()
     sha, ts, author = meta[0], int(meta[1]), meta[2]
@@ -190,6 +207,11 @@ def main() -> int:
     pressure_removed = sum(r["pressureEdits"]["removed"] for r in touched)
     pressure_net = pressure_added - pressure_removed
     pressure_band = pressure_band_from_net(pressure_net)
+    drift_risk, drift_risk_signals = drift_risk_from_signals(
+        compact_net=totals["net"]["compact"],
+        detailed_net=totals["net"]["detailed"],
+        pressure_net=pressure_net,
+    )
 
     token_movers = [
         {
@@ -220,6 +242,8 @@ def main() -> int:
         },
         "modeTrend": mode_trend,
         "pressureBand": pressure_band,
+        "driftRisk": drift_risk,
+        "driftRiskSignals": drift_risk_signals,
         "pressureEdits": {
             "added": pressure_added,
             "removed": pressure_removed,
@@ -245,6 +269,7 @@ def main() -> int:
         f"- Dominant mode commits: compact={compact_commits}, detailed={detailed_commits}, neutral={neutral_commits}",
         f"- MODE TREND: **{mode_trend}**",
         f"- PRESSURE BAND: **{pressure_band}** (edits +{pressure_added} / -{pressure_removed} / net {pressure_net})",
+        f"- DRIFT RISK: **{drift_risk}** (score={drift_risk_signals['score']} | imbalance={drift_risk_signals['imbalance']} | pressure={drift_risk_signals['pressureChurn']})",
         "",
         "## Token Totals (added/removed/net)",
         f"- Compact: +{totals['added']['compact']} / -{totals['removed']['compact']} / net {totals['net']['compact']}",

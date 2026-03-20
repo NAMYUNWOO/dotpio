@@ -70,6 +70,8 @@ def main() -> int:
         assert payload["totals"]["added"]["detailed"] > 0, payload
         assert payload["modeTrend"] in {"COMPACT", "DETAILED", "BALANCED"}, payload
         assert payload["pressureBand"] in {"LOW", "MID", "HIGH"}, payload
+        assert payload["driftRisk"] in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload["driftRiskSignals"].keys()) == {"score", "imbalance", "pressureChurn"}, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert isinstance(payload.get("topTokenMovers"), list), payload
@@ -80,6 +82,7 @@ def main() -> int:
         assert "Top Token Movers" in md_text
         assert "MODE TREND" in md_text
         assert "PRESSURE BAND" in md_text
+        assert "DRIFT RISK" in md_text
 
     print("[PASS] weekly portal prompt readability drift regression checks")
     return 0
