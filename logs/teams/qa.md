@@ -1182,3 +1182,15 @@
   - `DOTPIO_EXPERIMENT_THREAT_LINKED_VARIETY_SCALER=1 lua scripts/regression_mission_momentum.lua` (flag ON scaled payout)
   - `lua scripts/regression_mission_pressure_breaker.lua` (non-regression guard)
 - Result: PASS all.
+
+## 2026-03-21 01:34 KST — Route-tag regression extension
+- Extended `scripts/regression_overclock_hazard.lua` assertions:
+  - route metadata extraction (`SPIKE`)
+  - mini-callout token formatting (`ROUTE:SPIKE`)
+  - route-tag color mapping (red for `SPIKE`)
+  - nil behavior when route tag missing
+- Validation commands (PASS):
+  - `luac -p main.lua src/hud.lua src/overclock_hazard.lua maps/map_07.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_run_summary.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`

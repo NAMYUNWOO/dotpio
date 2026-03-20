@@ -2,6 +2,8 @@ local HUD = {
     _lastThreatScore = 0,
     _auxThreatHint = nil,
     _auxThreatHintColor = nil,
+    _routeCallout = nil,
+    _routeCalloutColor = nil,
 }
 
 function HUD.setAuxThreatHint(text, color)
@@ -10,6 +12,26 @@ function HUD.setAuxThreatHint(text, color)
         HUD._auxThreatHintColor = { color[1], color[2], color[3], color[4] or 1 }
     else
         HUD._auxThreatHintColor = nil
+    end
+end
+
+function HUD.setRouteCallout(text, color)
+    if text == nil then
+        HUD._routeCallout = nil
+        HUD._routeCalloutColor = nil
+        return
+    end
+    local value = tostring(text)
+    if value == "" then
+        HUD._routeCallout = nil
+        HUD._routeCalloutColor = nil
+        return
+    end
+    HUD._routeCallout = value
+    if type(color) == "table" and #color >= 3 then
+        HUD._routeCalloutColor = { color[1], color[2], color[3], color[4] or 1 }
+    else
+        HUD._routeCalloutColor = nil
     end
 end
 
@@ -232,6 +254,14 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     local counters = HUD.collectCombatThreatCounters(enemies)
     love.graphics.setColor(1,0.5,0.5,1)
     love.graphics.print("Enemies: "..counters.alive, 160, 14)
+    if HUD._routeCallout then
+        if HUD._routeCalloutColor then
+            love.graphics.setColor(HUD._routeCalloutColor)
+        else
+            love.graphics.setColor(0.82, 0.9, 1, 1)
+        end
+        love.graphics.print(HUD._routeCallout, 160, 30)
+    end
     if HUD._auxThreatHint then
         if HUD._auxThreatHintColor then
             love.graphics.setColor(HUD._auxThreatHintColor)
@@ -241,11 +271,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
         love.graphics.print(HUD._auxThreatHint, 16, 58)
     end
     if counters.desperateBerserkers > 0 then
+        local threatTopY = HUD._routeCallout and 46 or 30
         love.graphics.setColor(1, 0.35, 0.2, 1)
-        love.graphics.print(string.format("Berserk: %d", counters.desperateBerserkers), 160, 30)
+        love.graphics.print(string.format("Berserk: %d", counters.desperateBerserkers), 160, threatTopY)
         local threatTier = HUD.getBerserkerThreatTier(counters.berserkerThreatScore)
         love.graphics.setColor(HUD.getBerserkerThreatColor(counters.berserkerThreatScore))
-        love.graphics.print(string.format("Threat: %d (%s)", counters.berserkerThreatScore, threatTier), 160, 46)
+        love.graphics.print(string.format("Threat: %d (%s)", counters.berserkerThreatScore, threatTier), 160, threatTopY + 16)
 
         local threatDelta = HUD.getBerserkerThreatDelta(counters.berserkerThreatScore, HUD._lastThreatScore)
         if threatDelta > 0 then
@@ -255,9 +286,9 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
         else
             love.graphics.setColor(0.78, 0.78, 0.78, 1)
         end
-        love.graphics.print(HUD.formatBerserkerThreatDelta(counters.berserkerThreatScore, HUD._lastThreatScore), 160, 62)
+        love.graphics.print(HUD.formatBerserkerThreatDelta(counters.berserkerThreatScore, HUD._lastThreatScore), 160, threatTopY + 32)
 
-        local rowY = 78
+        local rowY = threatTopY + 48
         if counters.primedBerserkerLunges > 0 then
             love.graphics.setColor(1, 0.6, 0.25, 1)
             love.graphics.print(string.format("Lunge Tell: %d", counters.primedBerserkerLunges), 160, rowY)

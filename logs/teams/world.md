@@ -356,3 +356,8 @@
 ## 2026-03-21 01:04 KST — Lane note (no world-data edits this cycle)
 - No map/portal/layout changes required for threat-linked momentum scaler prototype.
 - World lane remains stable; continue prioritizing pending hazard route-tag prototype next cycle.
+
+## 2026-03-21 01:34 KST — Hazard route-tag prototype + HUD callout shipped
+- Added map metadata route tag on hazard map (`maps/map_07.lua`): `routeTag = "SPIKE"`.
+- Exposed route-tag API via hazard runtime (`getRouteTag`, `getRouteCallout`).
+- Follow-up: backfill route tags on additional hazard maps once portal-preview token experiment lands.

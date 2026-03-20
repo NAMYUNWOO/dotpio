@@ -15,6 +15,7 @@ end
 OverclockHazard.onMapLoaded("07", {
     overclockHazard = {
         rect = { x = 10, y = 10, w = 4, h = 4 },
+        routeTag = "SPIKE",
         discountPct = 0.4,
         pulseDuration = 5,
         cooldownDuration = 12,
@@ -25,6 +26,11 @@ OverclockHazard.onMapLoaded("07", {
 
 local readyHint = OverclockHazard.getHudHint()
 expect(type(readyHint) == "string" and readyHint:find("OVERCLOCK READY"), "ready hint should be visible before entering hazard zone")
+expect(OverclockHazard.getRouteTag() == "SPIKE", "route tag should be exposed from map metadata")
+expect(OverclockHazard.getRouteCallout() == "ROUTE:SPIKE", "route callout should format compact HUD token")
+local routeColor = OverclockHazard.getRouteCalloutColor()
+expect(type(routeColor) == "table" and #routeColor >= 3, "route callout color should be exposed")
+expect(math.abs(routeColor[1] - 1) < 0.001 and math.abs(routeColor[2] - 0.34) < 0.001 and math.abs(routeColor[3] - 0.25) < 0.001, "SPIKE route tag should map to red callout color")
 expect(readyHint:find("NEXT BOUNTY:0/%d+"), "ready hint should include next-pulse bounty budget token")
 expect(readyHint:find("NEXT PULSE:%d+s"), "ready hint should include next-pulse ETA token")
 expect(readyHint:find("RECHARGE:100%%"), "ready hint should show fully charged recharge progress")
@@ -155,6 +161,8 @@ OverclockHazard.onMapLoaded("07", {
 })
 local lowRiskColor = OverclockHazard.getHudHintColor()
 expect(math.abs(lowRiskColor[1] - 0.56) < 0.001 and math.abs(lowRiskColor[2] - 1) < 0.001 and math.abs(lowRiskColor[3] - 0.66) < 0.001, "low-risk tier should map to green HUD color")
+expect(OverclockHazard.getRouteTag() == nil, "route tag should be nil when metadata omits route tag")
+expect(OverclockHazard.getRouteCallout() == nil, "route callout should be hidden when route tag missing")
 
 OverclockHazard.onMapLoaded("07", {
     overclockHazard = {

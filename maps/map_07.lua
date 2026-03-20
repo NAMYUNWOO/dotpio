@@ -144,6 +144,7 @@ return {
     },
     overclockHazard = {
       name = "crown-overclock",
+      routeTag = "SPIKE",
       rect = { x = 21, y = 10, w = 7, h = 5 },
       discountPct = 0.40,
       pulseDuration = 7,

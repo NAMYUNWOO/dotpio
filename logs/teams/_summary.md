@@ -781,3 +781,25 @@ Compact decision memory for AI context efficiency.
   - `DOTPIO_EXPERIMENT_THREAT_LINKED_VARIETY_SCALER=1 lua scripts/regression_mission_momentum.lua`
   - `lua scripts/regression_mission_pressure_breaker.lua`
 - Next priority item: `World/Design Team: Prototype hazard room route tag (SAFE|RISK|SPIKE) in map metadata and HUD mini-callout for path planning`.
+
+## 2026-03-21 01:34 KST — Game Director Cycle D (route-callout readability slice)
+- Context: ACTION_ITEMS/TASKS/POST_RC backlog reached fully-checked state, triggering Game Director review cycle.
+- Idea slate generated:
+  1) Low-risk UX: route callout color semantics (`SAFE|RISK|SPIKE`).
+  2) Mid-risk systems: portal transition route preview token (`NEXT ROUTE:<tag>`).
+  3) High-risk QA/design: route-tag distribution drift checker across hazard maps.
+- Selected experiment: #1 (low-risk, reversible, immediate readability gain).
+- Shipped decisions:
+  - Route tags are map-metadata-driven (`overclockHazard.routeTag`).
+  - Hazard module now exposes `getRouteTag/getRouteCallout/getRouteCalloutColor` with strict tag validation.
+  - HUD renders `ROUTE:<tag>` mini-callout near enemy strip and applies semantic colors (SAFE green / RISK amber / SPIKE red).
+  - Berserker threat rows offset when route callout exists to avoid visual overlap.
+- Verification set (PASS):
+  - `luac -p main.lua src/hud.lua src/overclock_hazard.lua maps/map_07.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_run_summary.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+- Backlog injection status:
+  - Done: route mini-callout color semantics.
+  - Pending: portal hover route preview, route-tag distribution checker.
+- Next priority item: `Systems/World Team: Add portal-hover route preview token (NEXT ROUTE:<tag>) in transition prompt before confirming map jump`.

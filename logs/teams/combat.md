@@ -322,3 +322,7 @@
 - Wired mission completion context to include live berserker threat tier (`LOW|MED|HIGH`) from HUD threat counters.
 - This keeps experiment coupling explicit: combat pressure informs mission reward scaling only when flag is enabled.
 - No enemy behavior tables changed; pacing risk is isolated to reward layer.
+
+## 2026-03-21 01:34 KST — Combat lane note (no behavior tuning)
+- Route-tag callout update does not modify enemy AI, damage, or pacing.
+- Existing berserker threat strip remains source of combat pressure; route token is navigation-only context.

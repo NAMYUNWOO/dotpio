@@ -575,3 +575,8 @@
 - Updated mission momentum status suffix in `main.lua`.
 - New copy when scaler triggers: `[VARIETY +2 HIGH-THREAT SCALER]`.
 - Default lane-switch copy remains `[VARIETY +1]`/`[VARIETY +n]` for non-scaled cases.
+
+## 2026-03-21 01:34 KST — Route mini-callout color semantics
+- HUD now renders `ROUTE:<tag>` near enemy counter when hazard route metadata exists.
+- Color semantics: `SAFE` green, `RISK` amber, `SPIKE` red.
+- Threat rows auto-offset when route callout is present to avoid overlap.

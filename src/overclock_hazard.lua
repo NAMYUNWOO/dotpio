@@ -76,6 +76,7 @@ local function resolveZone(metadata)
 
     return {
         name = hazard.name or "OVERCLOCK",
+        routeTag = hazard.routeTag,
         x = rect.x,
         y = rect.y,
         w = rect.w,
@@ -431,6 +432,37 @@ function OverclockHazard.getPressureProfile()
         pulseTimer = state.pulseTimer,
         discountPct = state.zone.discountPct,
     }
+end
+
+function OverclockHazard.getRouteTag()
+    if not state.zone then return nil end
+    local tag = tostring(state.zone.routeTag or "")
+    if tag == "" then return nil end
+    tag = string.upper(tag)
+    if tag ~= "SAFE" and tag ~= "RISK" and tag ~= "SPIKE" then
+        return nil
+    end
+    return tag
+end
+
+function OverclockHazard.getRouteCallout()
+    local tag = OverclockHazard.getRouteTag()
+    if not tag then return nil end
+    return string.format("ROUTE:%s", tag)
+end
+
+function OverclockHazard.getRouteCalloutColor()
+    local tag = OverclockHazard.getRouteTag()
+    if tag == "SPIKE" then
+        return { 1, 0.34, 0.25, 1 }
+    end
+    if tag == "RISK" then
+        return { 1, 0.7, 0.3, 1 }
+    end
+    if tag == "SAFE" then
+        return { 0.56, 1, 0.66, 1 }
+    end
+    return nil
 end
 
 local function getRiskDeltaColor(delta)

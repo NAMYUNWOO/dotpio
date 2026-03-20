@@ -305,3 +305,10 @@
 ## 2026-03-21 01:04 KST — Risk/reward tuning note on momentum scaler prototype
 - Design intent: reward skilled objective clears during peak threat windows without changing core objective cadence.
 - Guardrail: feature is reversible/env-gated to prevent permanent SRL inflation until telemetry confirms pacing impact.
+
+## 2026-03-21 01:34 KST — Game Director Cycle D idea slate + selection
+- Idea slate generated:
+  1) Low risk (selected): color-code route mini-callout (`SAFE|RISK|SPIKE`) for instant path-read.
+  2) Mid risk: portal-hover `NEXT ROUTE:<tag>` transition preview.
+  3) High risk: route-tag distribution checker to prevent one-note map risk profiles.
+- Selection rationale: additive, reversible, and directly improves path-planning legibility.

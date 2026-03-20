@@ -179,6 +179,7 @@ function love.update(dt)
     local overclockPressure = OverclockHazard.getPressureProfile()
     Entities.setThreatPressure(overclockPressure)
     HUD.setAuxThreatHint(OverclockHazard.getHudHint(), OverclockHazard.getHudHintColor())
+    HUD.setRouteCallout(OverclockHazard.getRouteCallout(), OverclockHazard.getRouteCalloutColor())
     if overclockEvents.activated then
         InventoryUI.setStatus("OVERCLOCK ONLINE: BUILD COST DISCOUNT ACTIVE, ENEMIES AGGRO BOOSTED")
     elseif overclockEvents.expired then
