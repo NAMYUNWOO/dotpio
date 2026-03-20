@@ -590,3 +590,7 @@
 - Transition prompt now renders: `... NEXT ROUTE:<tag>  COACH:<guidance>`.
 - Added compact guidance copy for faster jump decisions without opening extra UI.
 - Updated regression to assert SPIKE coaching token and UNKNOWN fallback token.
+
+## 2026-03-21 03:06 KST — UX lane note (no HUD copy change)
+- This cycle ships offline analytics artifact only; no in-game prompt/HUD strings changed.
+- Output structure is prepared for future compact copy-budget checks.

@@ -324,3 +324,7 @@
   2) Mid-risk systems: route-tag density ledger by reachable portal graph depth.
   3) High-risk QA/UX: DOS prompt-width budget checker.
 - Selected #1 for immediate readability gain with minimal rollback risk.
+
+## 2026-03-21 03:06 KST — Design telemetry readability decision
+- Chose depth-bucket ledger format (per start map) to make portal-chain risk texture legible at a glance.
+- Kept output compact and artifact-first (`.md` + `.json`) for review without runtime UI clutter.

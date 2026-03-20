@@ -1219,3 +1219,11 @@
   - `lua scripts/regression_route_tag_distribution.lua`
   - `lua scripts/check_route_tag_distribution.lua`
   - `luac -p src/portal.lua src/route_tag_distribution.lua ...`
+
+## 2026-03-21 03:06 KST — Route-tag density ledger regression coverage
+## 2026-03-21 03:06 KST — Route-tag density ledger regression coverage
+- Added regression `scripts/regression_route_tag_density_ledger.lua` validating BFS depth grouping and tag-count math.
+- Verification pass:
+  - `lua scripts/regression_route_tag_density_ledger.lua`
+  - `lua scripts/check_route_tag_density_ledger.lua`
+  - `luac -p src/route_tag_density_ledger.lua scripts/check_route_tag_density_ledger.lua scripts/regression_route_tag_density_ledger.lua`

@@ -334,3 +334,7 @@
 ## 2026-03-21 02:31 KST — Lane note (combat unchanged)
 - Route-tag audit and portal coaching copy are non-combat changes.
 - Berserker threat logic and pressure systems are untouched this cycle.
+
+## 2026-03-21 03:06 KST — Combat lane note (no tuning changes)
+- Added portal-route density analytics only; no combat behavior/damage/threat math modified.
+- Combat balance impact is observational via richer routing telemetry.

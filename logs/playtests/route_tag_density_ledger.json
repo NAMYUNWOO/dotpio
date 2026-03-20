@@ -1,0 +1,293 @@
+{
+  "generatedAt": "2026-03-21 03:06:03",
+  "mapCount": 7,
+  "ledgers": [
+    {
+      "startMap": "01",
+      "maxDepth": 4,
+      "reachableCount": 6,
+      "depthRows": [
+        {
+          "depth": 1,
+          "totalReachable": 3,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "02", "routeTag": "NONE"},
+            {"mapId": "03", "routeTag": "NONE"},
+            {"mapId": "04", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 2,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "05", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 3,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "06", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 4,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 1},
+          "maps": [
+            {"mapId": "07", "routeTag": "SPIKE"}
+          ]
+        }
+      ]
+    },
+    {
+      "startMap": "02",
+      "maxDepth": 5,
+      "reachableCount": 6,
+      "depthRows": [
+        {
+          "depth": 1,
+          "totalReachable": 2,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "01", "routeTag": "NONE"},
+            {"mapId": "03", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 2,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "04", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 3,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "05", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 4,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "06", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 5,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 1},
+          "maps": [
+            {"mapId": "07", "routeTag": "SPIKE"}
+          ]
+        }
+      ]
+    },
+    {
+      "startMap": "03",
+      "maxDepth": 4,
+      "reachableCount": 6,
+      "depthRows": [
+        {
+          "depth": 1,
+          "totalReachable": 3,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "01", "routeTag": "NONE"},
+            {"mapId": "02", "routeTag": "NONE"},
+            {"mapId": "04", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 2,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "05", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 3,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "06", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 4,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 1},
+          "maps": [
+            {"mapId": "07", "routeTag": "SPIKE"}
+          ]
+        }
+      ]
+    },
+    {
+      "startMap": "04",
+      "maxDepth": 3,
+      "reachableCount": 6,
+      "depthRows": [
+        {
+          "depth": 1,
+          "totalReachable": 3,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "01", "routeTag": "NONE"},
+            {"mapId": "03", "routeTag": "NONE"},
+            {"mapId": "05", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 2,
+          "totalReachable": 2,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "02", "routeTag": "NONE"},
+            {"mapId": "06", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 3,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 1},
+          "maps": [
+            {"mapId": "07", "routeTag": "SPIKE"}
+          ]
+        }
+      ]
+    },
+    {
+      "startMap": "05",
+      "maxDepth": 3,
+      "reachableCount": 6,
+      "depthRows": [
+        {
+          "depth": 1,
+          "totalReachable": 2,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "04", "routeTag": "NONE"},
+            {"mapId": "06", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 2,
+          "totalReachable": 3,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 1},
+          "maps": [
+            {"mapId": "01", "routeTag": "NONE"},
+            {"mapId": "03", "routeTag": "NONE"},
+            {"mapId": "07", "routeTag": "SPIKE"}
+          ]
+        },
+        {
+          "depth": 3,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "02", "routeTag": "NONE"}
+          ]
+        }
+      ]
+    },
+    {
+      "startMap": "06",
+      "maxDepth": 4,
+      "reachableCount": 6,
+      "depthRows": [
+        {
+          "depth": 1,
+          "totalReachable": 2,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 1},
+          "maps": [
+            {"mapId": "05", "routeTag": "NONE"},
+            {"mapId": "07", "routeTag": "SPIKE"}
+          ]
+        },
+        {
+          "depth": 2,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "04", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 3,
+          "totalReachable": 2,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "01", "routeTag": "NONE"},
+            {"mapId": "03", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 4,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "02", "routeTag": "NONE"}
+          ]
+        }
+      ]
+    },
+    {
+      "startMap": "07",
+      "maxDepth": 5,
+      "reachableCount": 6,
+      "depthRows": [
+        {
+          "depth": 1,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "06", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 2,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "05", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 3,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "04", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 4,
+          "totalReachable": 2,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "01", "routeTag": "NONE"},
+            {"mapId": "03", "routeTag": "NONE"}
+          ]
+        },
+        {
+          "depth": 5,
+          "totalReachable": 1,
+          "tagCounts": {"SAFE": 0, "RISK": 0, "SPIKE": 0},
+          "maps": [
+            {"mapId": "02", "routeTag": "NONE"}
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -374,3 +374,8 @@
   - SPIKE -> `COACH:HIGH PRESSURE`
   - UNKNOWN -> `COACH:NO DATA`
 - No portal topology/layout changes; readability-only slice.
+
+## 2026-03-21 03:06 KST — Portal graph depth ledger for route planning visibility
+- World-routing audit now includes reachable graph depth from each map chain.
+- Ledger highlights that only `map_07` currently contributes hazard route tags (`SPIKE`) while earlier depths are `NONE`.
+- Follow-up remains metadata expansion across more hazard-enabled maps for broader profile spread.

@@ -827,3 +827,25 @@ Compact decision memory for AI context efficiency.
 - Regression additions/updates:
   - New: `scripts/regression_route_tag_distribution.lua`
   - Updated: `scripts/regression_portal_route_preview.lua` for coaching token coverage.
+
+## 2026-03-21 03:06 KST — Route-tag density ledger completed (Cycle E follow-up)
+- Closed backlog item: route-tag density ledger artifact per map chain depth.
+- New files:
+  - 
+  - 
+  - 
+  - 
+  - 
+- Key finding: current chain depth exposure is overwhelmingly  until  due limited routeTag metadata coverage.
+- Next highest-priority unchecked backlog item: portal prompt copy budget checker (DOS width guard).
+
+## 2026-03-21 03:06 KST — Route-tag density ledger completed (Cycle E follow-up)
+- Closed backlog item: route-tag density ledger artifact per map chain depth.
+- New files:
+  - `src/route_tag_density_ledger.lua`
+  - `scripts/check_route_tag_density_ledger.lua`
+  - `scripts/regression_route_tag_density_ledger.lua`
+  - `logs/playtests/route_tag_density_ledger.md`
+  - `logs/playtests/route_tag_density_ledger.json`
+- Key finding: current chain depth exposure is overwhelmingly `NONE` until `map_07 (SPIKE)` due limited routeTag metadata coverage.
+- Next highest-priority unchecked backlog item: portal prompt copy budget checker (DOS width guard).
