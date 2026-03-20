@@ -685,3 +685,10 @@
 - Decision: commitment tier thresholds fixed at `LOW <5s`, `MID <12s`, `HIGH >=12s` for compact risk readability without tuning gameplay balance.
 - Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` passed.
 - Follow-up: if additional unchecked backlog item is needed next cycle, queue next hazard readability experiment candidate.
+
+## 2026-03-20 22:01 KST — Post-RC hazard readability wave 10 follow-up (WINDOW token)
+- Task: Add post-pulse relief burst token (`WINDOW:<n>s`) for out-of-zone cooldown readability.
+- Scope: `src/overclock_hazard.lua`, `scripts/regression_overclock_hazard.lua`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Decision: Relief window now arms only when player disengages during HOT and pulse then expires while outside; token is shown only during out-of-zone cooldown and auto-expires.
+- Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua` (PASS).
+- Follow-up: Next unchecked backlog item is overclock dwell-bucket telemetry (`LOW|MID|HIGH`).

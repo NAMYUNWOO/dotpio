@@ -656,3 +656,17 @@ Compact decision memory for AI context efficiency.
   - Added next candidates: post-pulse relief `WINDOW` token and exposure dwell-bucket telemetry.
 - Next priority item:
   - `UX/World Team: Add overclock pulse-end relief burst HUD token (WINDOW:<n>s)`.
+
+## 2026-03-20 22:01 KST — P1 hazard readability wave 10 follow-up (`WINDOW` relief token)
+- Completed backlog item: `UX/World Team: Add overclock pulse-end relief burst (+short WINDOW token) after exiting HOT zone to reward disengage timing`.
+- Implementation notes:
+  - Added relief-window state in `src/overclock_hazard.lua` (`pendingRelief`, `reliefTimer`, configurable `reliefWindowDuration`, default 3s).
+  - Relief now arms on HOT-zone disengage and activates only after pulse expiry while player remains outside.
+  - Cooldown hint now appends `WINDOW:<n>s` only in out-of-zone cooldown during active relief window; token expires automatically.
+- Regression updates:
+  - Extended `scripts/regression_overclock_hazard.lua` with relief-window visibility/expiry assertions.
+- Verification:
+  - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+- Next priority:
+  - `Systems/Telemetry Team: Log overclock zone dwell buckets (LOW|MID|HIGH) per run for exposure-driven tuning evidence`.

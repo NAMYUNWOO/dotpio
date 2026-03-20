@@ -126,6 +126,27 @@ expect(postCost == 5, "after expiry: build cost should return to base")
 OverclockHazard.onMapLoaded("07", {
     overclockHazard = {
         rect = { x = 10, y = 10, w = 4, h = 4 },
+        discountPct = 0.4,
+        pulseDuration = 4,
+        cooldownDuration = 10,
+        reliefWindowDuration = 3,
+    }
+})
+OverclockHazard.update(0.1, 11, 11)
+OverclockHazard.update(2.0, 2, 2)
+OverclockHazard.update(2.1, 2, 2)
+local reliefHint = OverclockHazard.getHudHint()
+expect(type(reliefHint) == "string" and reliefHint:find("OVERCLOCK CD"), "relief scenario should remain in cooldown state")
+expect(reliefHint:find("ZONE:OUT"), "relief scenario should keep outside-zone token")
+expect(reliefHint:find("WINDOW:%d+s"), "outside cooldown hint should show temporary relief window token after pulse-end disengage")
+OverclockHazard.update(3.5, 2, 2)
+local reliefExpiredHint = OverclockHazard.getHudHint()
+expect(type(reliefExpiredHint) == "string" and reliefExpiredHint:find("OVERCLOCK CD"), "relief expiry check should still be in cooldown")
+expect(not reliefExpiredHint:find("WINDOW:"), "relief window token should expire after configured duration")
+
+OverclockHazard.onMapLoaded("07", {
+    overclockHazard = {
+        rect = { x = 10, y = 10, w = 4, h = 4 },
         discountPct = 0.2,
         aggroMoveMul = 0.9,
         aggroDetectBonus = 1,

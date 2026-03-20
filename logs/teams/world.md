@@ -313,3 +313,10 @@
 - Decision: out-of-zone cooldown now emits `RISK Δ:-1` to communicate safe disengage timing after overclock pulse.
 - Evidence: `lua scripts/regression_overclock_hazard.lua` + `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`.
 - Follow-up: evaluate adding a compact post-pulse relief window token for stronger retreat/re-engage rhythm.
+
+## 2026-03-20 22:01 KST — Post-RC hazard readability wave 10 follow-up (WINDOW token)
+- Task: Add post-pulse relief burst token (`WINDOW:<n>s`) for out-of-zone cooldown readability.
+- Scope: `src/overclock_hazard.lua`, `scripts/regression_overclock_hazard.lua`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Decision: Relief window now arms only when player disengages during HOT and pulse then expires while outside; token is shown only during out-of-zone cooldown and auto-expires.
+- Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua` (PASS).
+- Follow-up: Next unchecked backlog item is overclock dwell-bucket telemetry (`LOW|MID|HIGH`).

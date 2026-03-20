@@ -11,6 +11,8 @@ local state = {
     enteredZone = false,
     killBonusGrantedThisPulse = 0,
     exposureSeconds = 0,
+    reliefTimer = 0,
+    pendingRelief = false,
 }
 
 local function resolveZone(metadata)
@@ -33,6 +35,7 @@ local function resolveZone(metadata)
         aggroDetectBonus = math.max(0, math.floor(tonumber(hazard.aggroDetectBonus) or 2)),
         killBonusPerKill = math.max(0, math.floor(tonumber(hazard.killBonusPerKill) or 1)),
         killBonusPulseCap = math.max(0, math.floor(tonumber(hazard.killBonusPulseCap) or 3)),
+        reliefWindowDuration = math.max(1, tonumber(hazard.reliefWindowDuration) or 3),
     }
 end
 
@@ -182,6 +185,14 @@ local function getCommitmentToken()
     return string.format("COMMIT:%s", getCommitmentTier())
 end
 
+local function getReliefSeconds()
+    return math.max(0, math.ceil(tonumber(state.reliefTimer) or 0))
+end
+
+local function getReliefToken()
+    return string.format("WINDOW:%ds", getReliefSeconds())
+end
+
 function OverclockHazard.onMapLoaded(mapName, metadata)
     state.mapName = tostring(mapName or "")
     state.zone = resolveZone(metadata)
@@ -191,18 +202,27 @@ function OverclockHazard.onMapLoaded(mapName, metadata)
     state.enteredZone = false
     state.killBonusGrantedThisPulse = 0
     state.exposureSeconds = 0
+    state.reliefTimer = 0
+    state.pendingRelief = false
 end
 
 function OverclockHazard.update(dt, playerX, playerY)
     local events = {}
     if not state.zone then return events end
 
+    local delta = math.max(0, tonumber(dt) or 0)
+    local wasPulseActive = state.pulseActive
+
     if state.cooldownTimer > 0 then
-        state.cooldownTimer = math.max(0, state.cooldownTimer - dt)
+        state.cooldownTimer = math.max(0, state.cooldownTimer - delta)
+    end
+
+    if state.reliefTimer > 0 then
+        state.reliefTimer = math.max(0, state.reliefTimer - delta)
     end
 
     if state.pulseActive then
-        state.pulseTimer = state.pulseTimer - dt
+        state.pulseTimer = state.pulseTimer - delta
         if state.pulseTimer <= 0 then
             state.pulseActive = false
             state.pulseTimer = 0
@@ -212,7 +232,9 @@ function OverclockHazard.update(dt, playerX, playerY)
 
     local inside = inRect(playerX, playerY, state.zone)
     if inside then
-        state.exposureSeconds = math.max(0, (state.exposureSeconds or 0) + math.max(0, tonumber(dt) or 0))
+        state.exposureSeconds = math.max(0, (state.exposureSeconds or 0) + delta)
+        state.reliefTimer = 0
+        state.pendingRelief = false
         if not state.enteredZone then
             state.enteredZone = true
             if (not state.pulseActive) and state.cooldownTimer <= 0 then
@@ -226,6 +248,21 @@ function OverclockHazard.update(dt, playerX, playerY)
     elseif state.enteredZone then
         state.enteredZone = false
         state.exposureSeconds = 0
+        if wasPulseActive and (state.cooldownTimer or 0) > 0 then
+            state.pendingRelief = true
+        end
+    end
+
+    if events.expired and (not state.enteredZone) and state.pendingRelief and (state.cooldownTimer or 0) > 0 then
+        state.reliefTimer = math.min(state.zone.reliefWindowDuration or 0, state.cooldownTimer or 0)
+        state.pendingRelief = false
+    end
+
+    if (state.cooldownTimer or 0) <= 0 then
+        if (state.reliefTimer or 0) > 0 then
+            state.reliefTimer = 0
+        end
+        state.pendingRelief = false
     end
 
     return events
@@ -321,10 +358,14 @@ function OverclockHazard.getHudHint()
         local nextBounty = getNextBountyBudgetToken()
         local nextPulseEta = getNextPulseEtaToken()
         local rechargeProgress = getRechargeProgressToken()
+        local reliefSuffix = ""
+        if (not state.enteredZone) and (state.reliefTimer or 0) > 0 then
+            reliefSuffix = string.format(" %s", getReliefToken())
+        end
         if state.enteredZone and cooldownSeconds <= 3 then
             return string.format("OVERCLOCK CD %ds (IMMINENT:%ds) %s %s %s %s%s  RISK:%s(%d) %s %s", cooldownSeconds, cooldownSeconds, nextBounty, nextPulseEta, rechargeProgress, zonePresence, exposureSuffix, riskTier, riskScore, riskDelta, riskBreakdown)
         end
-        return string.format("OVERCLOCK CD %ds %s %s %s %s%s  RISK:%s(%d) %s %s", cooldownSeconds, nextBounty, nextPulseEta, rechargeProgress, zonePresence, exposureSuffix, riskTier, riskScore, riskDelta, riskBreakdown)
+        return string.format("OVERCLOCK CD %ds %s %s %s%s %s%s  RISK:%s(%d) %s %s", cooldownSeconds, nextBounty, nextPulseEta, rechargeProgress, reliefSuffix, zonePresence, exposureSuffix, riskTier, riskScore, riskDelta, riskBreakdown)
     end
     return string.format("OVERCLOCK READY %s %s %s %s  RISK:%s(%d) %s %s", getNextBountyBudgetToken(), getNextPulseEtaToken(), getRechargeProgressToken(), zonePresence, riskTier, riskScore, riskDelta, riskBreakdown)
 end
