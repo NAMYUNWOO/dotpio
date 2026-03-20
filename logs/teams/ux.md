@@ -429,3 +429,9 @@
 - Decision: Added `regressionRisk.topDrivers` (top 3 contributors) to dashboard payload and markdown so ops reviews can immediately see what is driving score changes.
 - Evidence: `python3 scripts/regression_sustain_health_dashboard.py`; `python3 scripts/sustain_health_dashboard.py --format json --pretty`.
 - Follow-up: If risk repeatedly trends WARN/ALERT, add automated recommendation mapping each driver to a concrete remediation runbook step.
+
+## 2026-03-20 14:29 KST — Overclock hint clarity pass shipped
+- Completed: overclock HUD hint now always includes `RISK:<tier>(<score>)` across READY/HOT/CD states.
+- Active pulse line keeps countdown + SRL discount and now adds compact risk legibility for route planning.
+- Verification: `lua scripts/regression_overclock_hazard.lua`.
+- Follow-up: evaluate color treatment for risk tier text in future HUD compression pass.

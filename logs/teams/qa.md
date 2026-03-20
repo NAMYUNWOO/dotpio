@@ -1004,3 +1004,10 @@
 - Decision: Added `regressionRisk.topDrivers` (top 3 contributors) to dashboard payload and markdown so ops reviews can immediately see what is driving score changes.
 - Evidence: `python3 scripts/regression_sustain_health_dashboard.py`; `python3 scripts/sustain_health_dashboard.py --format json --pretty`.
 - Follow-up: If risk repeatedly trends WARN/ALERT, add automated recommendation mapping each driver to a concrete remediation runbook step.
+
+## 2026-03-20 14:29 KST — Regression evidence: overclock risk-tier hint
+- Added assertions in `scripts/regression_overclock_hazard.lua` to require `RISK:<tier>(<score>)` visibility in READY/HOT/CD hint states.
+- Verification commands:
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `luac -p src/overclock_hazard.lua`
+- Result: PASS.

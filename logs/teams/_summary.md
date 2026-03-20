@@ -472,3 +472,8 @@ Compact decision memory for AI context efficiency.
 - Regression coverage now asserts driver rendering in markdown and payload correctness in JSON (`trendStable` baseline case).
 - Completed POST_RC item: `Ops: Add sustain dashboard regression-risk driver breakdown (top contributors) in markdown/json with regression coverage`.
 - Next priority item: none currently unchecked in `POST_RC_BACKLOG.md` (needs new Game Director experiment injection).
+- 2026-03-20 14:29 KST: Completed POST-RC hazard readability follow-up — overclock HUD hint now includes persistent `RISK:<tier>(<score>)` label in READY/HOT/CD states.
+- Risk-tier derivation is display-only and computed from existing hazard knobs (`discountPct`, `aggroDetectBonus`, `aggroMoveMul`) to avoid content/schema churn.
+- Regression coverage updated: `scripts/regression_overclock_hazard.lua` now asserts risk label presence across all hazard hint states.
+- Verification pass: `lua scripts/regression_overclock_hazard.lua`, `luac -p src/overclock_hazard.lua`.
+- Next priority: no unchecked items currently present in `POST_RC_BACKLOG.md` (requires new backlog injection).

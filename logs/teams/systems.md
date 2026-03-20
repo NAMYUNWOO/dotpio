@@ -595,3 +595,11 @@
 - Decision: Added `regressionRisk.topDrivers` (top 3 contributors) to dashboard payload and markdown so ops reviews can immediately see what is driving score changes.
 - Evidence: `python3 scripts/regression_sustain_health_dashboard.py`; `python3 scripts/sustain_health_dashboard.py --format json --pretty`.
 - Follow-up: If risk repeatedly trends WARN/ALERT, add automated recommendation mapping each driver to a concrete remediation runbook step.
+
+## 2026-03-20 14:29 KST — Risk score derivation for overclock hazards
+- Added deterministic risk scoring from existing config values:
+  - discount contribution: rounded `% * 10`
+  - detect bonus contribution: integer detect bonus
+  - movement pressure contribution: rounded `(1 - moveMul) * 10`
+- Tier thresholds: LOW < 6, MED 6-9, HIGH >= 10.
+- No gameplay balance knobs changed; display-only derivation.

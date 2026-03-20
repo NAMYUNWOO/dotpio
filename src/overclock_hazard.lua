@@ -36,6 +36,25 @@ local function inRect(px, py, rect)
     return rect and px >= rect.x and px < (rect.x + rect.w) and py >= rect.y and py < (rect.y + rect.h)
 end
 
+local function getRiskScore(zone)
+    if not zone then return 0 end
+    local discountScore = math.floor((zone.discountPct or 0) * 10 + 0.5)
+    local detectScore = math.max(0, tonumber(zone.aggroDetectBonus) or 0)
+    local moveScore = math.max(0, math.floor((1 - (tonumber(zone.aggroMoveMul) or 1)) * 10 + 0.5))
+    return discountScore + detectScore + moveScore
+end
+
+local function getRiskTier(zone)
+    local score = getRiskScore(zone)
+    if score >= 10 then
+        return "HIGH", score
+    end
+    if score >= 6 then
+        return "MED", score
+    end
+    return "LOW", score
+end
+
 function OverclockHazard.onMapLoaded(mapName, metadata)
     state.mapName = tostring(mapName or "")
     state.zone = resolveZone(metadata)
@@ -105,14 +124,15 @@ end
 
 function OverclockHazard.getHudHint()
     if not state.zone then return nil end
+    local riskTier, riskScore = getRiskTier(state.zone)
     if state.pulseActive then
         local pulseSeconds = math.max(0, math.ceil(state.pulseTimer or 0))
-        return string.format("OVERCLOCK HOT %ds: -%d%% SRL / AGGRO+", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5))
+        return string.format("OVERCLOCK HOT %ds: -%d%% SRL / AGGRO+  RISK:%s(%d)", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5), riskTier, riskScore)
     end
     if state.cooldownTimer > 0 then
-        return string.format("OVERCLOCK CD %ds", math.max(0, math.ceil(state.cooldownTimer)))
+        return string.format("OVERCLOCK CD %ds  RISK:%s(%d)", math.max(0, math.ceil(state.cooldownTimer)), riskTier, riskScore)
     end
-    return "OVERCLOCK READY"
+    return string.format("OVERCLOCK READY  RISK:%s(%d)", riskTier, riskScore)
 end
 
 function OverclockHazard.debugSetPulse(active, pulseTimer)

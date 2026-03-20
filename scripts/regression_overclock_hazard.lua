@@ -23,6 +23,10 @@ OverclockHazard.onMapLoaded("07", {
     }
 })
 
+local readyHint = OverclockHazard.getHudHint()
+expect(type(readyHint) == "string" and readyHint:find("OVERCLOCK READY"), "ready hint should be visible before entering hazard zone")
+expect(readyHint:find("RISK:[A-Z]+%(%d+%)"), "ready hint should include risk tier + score")
+
 local idleCost = OverclockHazard.applyBuildCost(5)
 expect(idleCost == 5, "no pulse: build cost should remain unchanged")
 
@@ -34,6 +38,7 @@ expect(discounted == 3, "pulse should discount build cost (5 -> 3)")
 
 local hotHint = OverclockHazard.getHudHint()
 expect(type(hotHint) == "string" and hotHint:find("OVERCLOCK HOT") and hotHint:find("%d+s"), "hot hint should include active pulse countdown seconds")
+expect(hotHint:find("RISK:[A-Z]+%(%d+%)"), "hot hint should include hazard risk tier + score")
 
 local pressure = OverclockHazard.getPressureProfile()
 expect(pressure.active == true, "pressure profile should be active during pulse")
@@ -45,6 +50,7 @@ expect(coolEvent.expired == true, "pulse should expire after timer elapses")
 
 local cooldownHint = OverclockHazard.getHudHint()
 expect(type(cooldownHint) == "string" and cooldownHint:find("OVERCLOCK CD") and cooldownHint:find("%d+s"), "cooldown hint should include cooldown seconds")
+expect(cooldownHint:find("RISK:[A-Z]+%(%d+%)"), "cooldown hint should keep risk tier + score visible")
 
 local postCost = OverclockHazard.applyBuildCost(5)
 expect(postCost == 5, "after expiry: build cost should return to base")

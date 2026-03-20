@@ -231,3 +231,8 @@
 - Decision: Added `regressionRisk.topDrivers` (top 3 contributors) to dashboard payload and markdown so ops reviews can immediately see what is driving score changes.
 - Evidence: `python3 scripts/regression_sustain_health_dashboard.py`; `python3 scripts/sustain_health_dashboard.py --format json --pretty`.
 - Follow-up: If risk repeatedly trends WARN/ALERT, add automated recommendation mapping each driver to a concrete remediation runbook step.
+
+## 2026-03-20 14:29 KST — Overclock hazard HUD risk-tier readability
+- Reviewed map-driven overclock metadata usage in runtime HUD hint path.
+- Decision: keep map metadata schema unchanged; compute readable risk tier from existing hazard knobs (discount + detect bonus + move pressure) to avoid map migration overhead.
+- Follow-up: if multiple hazard archetypes ship, consider per-map explicit risk override for authored pacing.

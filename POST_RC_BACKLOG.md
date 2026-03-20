@@ -54,3 +54,6 @@ Last updated: 2026-03-20 14:00 KST
 - [x] QA/Systems: Add weekly changelog drift detector (code changes without corresponding team-log/report entry)
 - [x] Ops: Add sustain dashboard “regression risk score” (0~100) with threshold alert section
 - [x] Ops: Add sustain dashboard regression-risk driver breakdown (top contributors) in markdown/json with regression coverage
+
+## P1 (Hazard Readability Follow-up)
+- [x] UX/World Team: Add overclock hazard risk-tier label + countdown legend in HUD hint (`RISK:LOW|MED|HIGH`)
