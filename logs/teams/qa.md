@@ -956,3 +956,12 @@
   - `lua scripts/regression_onboarding_hints.lua`
   - `lua scripts/regression_hud_berserker_counters.lua`
 - Result: PASS.
+
+## 2026-03-20 11:06 KST — Pressure-breaker regression evidence
+- Syntax gate: `luac -p main.lua src/run_missions.lua src/player.lua src/enemy_ai.lua src/entities.lua src/hud.lua`
+- Regression suite:
+  - `lua scripts/regression_mission_momentum.lua`
+  - `lua scripts/regression_mission_pressure_breaker.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+  - `lua scripts/regression_enemy_behavior_variants.lua`
+- Result: PASS all.

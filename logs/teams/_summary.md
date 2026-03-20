@@ -422,3 +422,18 @@ Compact decision memory for AI context efficiency.
 - Backlog sync:
   - Marked completed in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
   - Added next experiment candidates: pressure-breaker bonus, overclock hazard room.
+
+## 2026-03-20 11:06 KST — Mission pressure-breaker bonus shipped
+- Completed: Systems/Combat P1 experiment `mission-chain pressure breaker bonus`.
+- Durable decisions:
+  - `RunMissions.addProgress` now accepts optional context and emits `pressureBreakerDodgeCharge` on rising-threat completions.
+  - Main loop tracks short rising-threat window from berserker threat-score delta and applies pressure-breaker dodge charge grants (6s TTL).
+  - Enemy attack resolution consumes dodge charges before damage (`dodged_player`) while preserving berserker recovery flow.
+  - HUD/status readability updated with `Dodge:<n>` + pressure-breaker trigger copy.
+- Verification:
+  - `luac -p main.lua src/run_missions.lua src/player.lua src/enemy_ai.lua src/entities.lua src/hud.lua`
+  - `lua scripts/regression_mission_momentum.lua`
+  - `lua scripts/regression_mission_pressure_breaker.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+  - `lua scripts/regression_enemy_behavior_variants.lua`
+- Next priority: `World/Design Team: Add overclock hazard room prototype (SRL discount pulse + aggro spike risk)`.

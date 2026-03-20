@@ -395,9 +395,8 @@ function EnemyAI.update(e, idx, dt, player, enemies)
             return "berserker_lunge_telegraph"
         end
 
-        -- Deal damage to player
-        local dmg = Stats.damageReduction(e.atkDmg, player.effectiveStats)
-        player.hp = player.hp - math.max(1, math.floor(dmg + 0.5))
+        -- Deal damage to player (or consume pressure-breaker dodge charge)
+        local dodged = player.consumeDodgeCharge and player.consumeDodgeCharge()
         e.atkTimer = e.atkCd
         if e.behavior == "berserker" and e.desperationActive then
             e.desperationRecoveryPending = true
@@ -405,6 +404,12 @@ function EnemyAI.update(e, idx, dt, player, enemies)
         if e.retreatAfterHit then
             e.state = "flee"
         end
+        if dodged then
+            return "dodged_player"
+        end
+
+        local dmg = Stats.damageReduction(e.atkDmg, player.effectiveStats)
+        player.hp = player.hp - math.max(1, math.floor(dmg + 0.5))
         return "hit_player"
 
     elseif e.state == "flee" and e.moveTimer <= 0 then

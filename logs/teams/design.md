@@ -138,3 +138,7 @@
 
 ## 2026-03-20 10:35 KST — Compact hierarchy-preserving delta row
 - Approved placing threat delta directly beneath existing threat line to preserve DOS HUD locality and avoid new panel sprawl.
+
+## 2026-03-20 11:06 KST — Combat readability alignment for pressure-breaker
+- Kept pressure-breaker communication diegetic and compact (HUD count + status pulse) to avoid crowding the DOS combat strip.
+- Maintained existing threat decomposition rows; dodge counter sits in left status cluster for quick glance during movement/combat.

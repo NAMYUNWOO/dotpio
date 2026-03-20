@@ -211,5 +211,5 @@ See project-level plans:
   - [x] Extend onboarding regression coverage for threat-tip progression
 
 ## Next Up (Game Director experiment candidates)
-- [ ] Add mission-chain pressure breaker bonus (complete objective during `THREAT Δ:+` turn grants temporary dodge charge)
+- [x] Add mission-chain pressure breaker bonus (complete objective during `THREAT Δ:+` turn grants temporary dodge charge)
 - [ ] Add map hazard overclock rooms (high-risk interactable gives short burst SRL discounts + enemy aggro spike)

@@ -36,30 +36,48 @@ local lootboxInteract = {
 local hoveredLootbox = nil
 local lastPlayerX, lastPlayerY = 0, 0
 local missionUnlockAnnounced = false
+local threatScoreLastTick = 0
+local threatRiseWindow = 0
 
 local function resetRunState()
     RunMissions.reset()
     OnboardingHints.reset()
     missionUnlockAnnounced = false
+    threatScoreLastTick = 0
+    threatRiseWindow = 0
 end
 
 local function applyMissionProgress(eventId, amount)
-    local completion = RunMissions.addProgress(eventId, amount)
-    if not completion or (completion.rewardSrl or 0) <= 0 then
+    local risingThreat = threatRiseWindow > 0
+    local completion = RunMissions.addProgress(eventId, amount, { risingThreat = risingThreat })
+    if not completion then
         return
     end
 
     local rewardSrl = completion.rewardSrl or 0
     local laneBonus = completion.laneSwitchBonusSrl or 0
+    local pressureBreakerCharge = completion.pressureBreakerDodgeCharge or 0
     local laneBonusSuffix = laneBonus > 0 and string.format(" [VARIETY +%d]", laneBonus) or ""
+    local pressureBreakerSuffix = ""
+    if pressureBreakerCharge > 0 then
+        local totalCharges = Player.grantDodgeCharge(pressureBreakerCharge, 6)
+        pressureBreakerSuffix = string.format(" [PRESSURE BREAKER +%d DODGE (%ds) | READY:%d]", pressureBreakerCharge, 6, totalCharges)
+    end
 
-    local ok = Inventory.addItem(Player.inventory, "builder_scroll", rewardSrl)
-    if ok then
-        InventoryUI.setStatus(string.format("MISSION MOMENTUM x%d: +%d BUILDER.SRL%s", completion.completionStreak or 1, rewardSrl, laneBonusSuffix))
+    if rewardSrl <= 0 then
+        if pressureBreakerCharge > 0 then
+            InventoryUI.setStatus(string.format("MISSION MOMENTUM x%d%s", completion.completionStreak or 1, pressureBreakerSuffix))
+        end
         return
     end
 
-    InventoryUI.setStatus(string.format("MISSION MOMENTUM x%d: +%d BUILDER.SRL%s DROPPED (BAG FULL)", completion.completionStreak or 1, rewardSrl, laneBonusSuffix))
+    local ok = Inventory.addItem(Player.inventory, "builder_scroll", rewardSrl)
+    if ok then
+        InventoryUI.setStatus(string.format("MISSION MOMENTUM x%d: +%d BUILDER.SRL%s%s", completion.completionStreak or 1, rewardSrl, laneBonusSuffix, pressureBreakerSuffix))
+        return
+    end
+
+    InventoryUI.setStatus(string.format("MISSION MOMENTUM x%d: +%d BUILDER.SRL%s%s DROPPED (BAG FULL)", completion.completionStreak or 1, rewardSrl, laneBonusSuffix, pressureBreakerSuffix))
 end
 
 local function loadMap(mapName, portalName)
@@ -145,6 +163,8 @@ function love.update(dt)
     end
     if gameOver then return end
 
+    threatRiseWindow = math.max(0, threatRiseWindow - dt)
+
     Player.update(dt, Camera)
     FOV.calculate(Player.x, Player.y, Player.aimAngle)
     Combat.update(dt, Entities.enemyAt)
@@ -164,6 +184,13 @@ function love.update(dt)
     end
 
     local enemyEvents = Entities.update(dt, Player, Combat.addDamageFlash) or {}
+
+    local threatCounters = HUD.collectCombatThreatCounters(Entities.enemies)
+    local threatScore = threatCounters.berserkerThreatScore or 0
+    if threatScore > threatScoreLastTick then
+        threatRiseWindow = math.max(threatRiseWindow, 0.9)
+    end
+    threatScoreLastTick = threatScore
 
     local visibleEnrageCount = 0
     for _, enemy in ipairs(Entities.enemies) do
@@ -198,6 +225,13 @@ function love.update(dt)
             InventoryUI.setStatus("BERSERKER RECOVERING: BRIEF BREATHER")
         else
             InventoryUI.setStatus(string.format("BERSERKERS RECOVERING x%d: BRIEF BREATHER", recoveryCount))
+        end
+    elseif (enemyEvents.dodges or 0) > 0 then
+        local dodgeCount = enemyEvents.dodges
+        if dodgeCount == 1 then
+            InventoryUI.setStatus("PRESSURE BREAKER: DODGE CHARGE TRIGGERED")
+        else
+            InventoryUI.setStatus(string.format("PRESSURE BREAKER: DODGE CHARGES TRIGGERED x%d", dodgeCount))
         end
     end
 

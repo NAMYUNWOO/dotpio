@@ -58,6 +58,8 @@ local MOMENTUM_REWARD_BY_STREAK = {
     2, -- 3rd+ objective in streak (cap)
 }
 
+local PRESSURE_BREAKER_DODGE_CHARGE = 1
+
 local function clampProgress(value, target)
     return math.max(0, math.min(target or 0, tonumber(value) or 0))
 end
@@ -136,7 +138,7 @@ function RunMissions.reset(objectives)
     recalcDoneCount()
 end
 
-function RunMissions.addProgress(eventId, amount)
+function RunMissions.addProgress(eventId, amount, context)
     if not state.active then return nil end
     local delta = tonumber(amount) or 0
     if delta <= 0 then return nil end
@@ -181,6 +183,9 @@ function RunMissions.addProgress(eventId, amount)
         state.lastCompletedLane = completionLane
     end
 
+    local risingThreat = context and context.risingThreat == true
+    local pressureBreakerDodgeCharge = risingThreat and PRESSURE_BREAKER_DODGE_CHARGE or 0
+
     return {
         completedObjectiveIds = completedNow,
         completionStreak = state.completionStreak,
@@ -188,6 +193,8 @@ function RunMissions.addProgress(eventId, amount)
         baseRewardSrl = rewardSrl,
         laneSwitchBonusSrl = laneSwitchBonusSrl,
         completionLane = completionLane,
+        pressureBreakerDodgeCharge = pressureBreakerDodgeCharge,
+        risingThreat = risingThreat,
     }
 end
 

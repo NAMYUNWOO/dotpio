@@ -553,3 +553,9 @@
 ## 2026-03-20 10:35 KST — Threat delta helper wiring
 - Added deterministic HUD helpers for signed threat change (`getBerserkerThreatDelta`, `formatBerserkerThreatDelta`) so pacing signal math stays centralized/testable.
 - Scope: presentation-only; no economy/progression constants changed.
+
+## 2026-03-20 11:06 KST — Mission pressure-breaker dodge reward wiring
+- Task: Systems/Combat mission-chain pressure breaker bonus.
+- Decision: Reused `RunMissions.addProgress(..., context)` with `risingThreat` flag to emit deterministic `pressureBreakerDodgeCharge` reward metadata (1 charge).
+- Implementation: `main.lua` now grants a short-lived dodge charge (6s TTL) when objective completion occurs during a rising-threat window.
+- Follow-up: Keep charge value+TTL configurable if overclock room prototype also introduces burst survivability buffs.

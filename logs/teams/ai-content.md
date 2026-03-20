@@ -196,3 +196,7 @@
 
 ## 2026-03-20 10:35 KST — No AI-content generation delta
 - Threat delta indicator is deterministic HUD/state math; AI generation prompts/constraints unchanged.
+
+## 2026-03-20 11:06 KST — AI-content lane note (no generator prompt/schema change)
+- No AI generation prompt/output policy changes required for pressure-breaker implementation.
+- Existing build/disassemble AI-content constraints remain unchanged.

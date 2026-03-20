@@ -170,3 +170,9 @@
 ## 2026-03-20 10:58 KST — Combat signal hooked into onboarding
 - Wired berserker enrage/lunge events to mark onboarding `threat` milestone so players retire combat tutorial only after real threat exposure.
 - Scope check: no enemy behavior/cadence tuning changes (signal-only integration).
+
+## 2026-03-20 11:06 KST — Pressure-breaker dodge consumption on enemy attack
+- Task: Make pressure-breaker reward materially affect combat pacing.
+- Decision: Consume dodge charge at hit resolution in `EnemyAI.update` and return `dodged_player` event; preserve berserker lunge recovery sequencing even when hit is dodged.
+- Result: Rising-threat objective clears create one short tactical escape window without suppressing enemy cadence.
+- Follow-up: Validate stacked-charge readability if future tasks increase reward intensity.

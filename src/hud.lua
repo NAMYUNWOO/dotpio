@@ -185,6 +185,8 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     love.graphics.rectangle("fill", 44, 34, 100, 14)
     love.graphics.setColor(0.3,0.3,1,1)
     love.graphics.rectangle("fill", 44, 34, 100*(player.mp/player.maxMp), 14)
+    love.graphics.setColor(0.75, 0.95, 1, 1)
+    love.graphics.print(string.format("Dodge: %d", player.getDodgeChargeCount and player.getDodgeChargeCount() or 0), 16, 54)
     local counters = HUD.collectCombatThreatCounters(enemies)
     love.graphics.setColor(1,0.5,0.5,1)
     love.graphics.print("Enemies: "..counters.alive, 160, 14)

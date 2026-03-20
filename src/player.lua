@@ -14,6 +14,7 @@ local Player = {
     inventory = nil,
     baseStats = nil,
     effectiveStats = nil,
+    dodgeCharges = {},
 }
 
 local function firstByCategory(category)
@@ -91,6 +92,7 @@ function Player.init(x, y)
     Player.maxMp = 20
     Player.attackTimer = 0
     Player.attackDir = nil
+    Player.dodgeCharges = {}
     if not Player.inventory then
         Player.inventory = Inventory.new()
         seedBuildTestLoadout(Player.inventory)
@@ -114,10 +116,38 @@ function Player.recalcStats()
     Player.effectiveStats = Stats.computeEffective(Player.baseStats, equipStats)
 end
 
+function Player.grantDodgeCharge(count, durationSec)
+    local addCount = math.max(1, math.floor(tonumber(count) or 1))
+    local ttl = math.max(0.5, tonumber(durationSec) or 6)
+    for _ = 1, addCount do
+        Player.dodgeCharges[#Player.dodgeCharges + 1] = ttl
+    end
+    return #Player.dodgeCharges
+end
+
+function Player.consumeDodgeCharge()
+    if #Player.dodgeCharges <= 0 then
+        return false
+    end
+    table.remove(Player.dodgeCharges, 1)
+    return true
+end
+
+function Player.getDodgeChargeCount()
+    return #Player.dodgeCharges
+end
+
 function Player.update(dt, camera)
     Player.moveTimer = math.max(0, Player.moveTimer - dt)
     Player.attackTimer = math.max(0, Player.attackTimer - dt)
     if Player.attackTimer <= 0 then Player.attackDir = nil end
+
+    for i = #Player.dodgeCharges, 1, -1 do
+        Player.dodgeCharges[i] = Player.dodgeCharges[i] - dt
+        if Player.dodgeCharges[i] <= 0 then
+            table.remove(Player.dodgeCharges, i)
+        end
+    end
 
     -- WASD
     if Player.moveTimer <= 0 then

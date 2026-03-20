@@ -387,3 +387,8 @@
 - Added transitional onboarding copy after first build: `COMBAT TIP: THREAT shows pressure, THREAT Δ shows if danger is rising.`
 - Tip auto-decays once the player witnesses first berserker threat event, keeping early readability without long-term HUD noise.
 - Follow-up: if onboarding line pressure rises, shorten to token form (`TIP: THREAT/Δ`).
+
+## 2026-03-20 11:06 KST — Pressure-breaker HUD/status readability pass
+- Added HUD counter `Dodge: <n>` near HP/MP for immediate survivability context.
+- Added status feed copy for charge trigger (`PRESSURE BREAKER: DODGE CHARGE TRIGGERED`).
+- Mission reward status now appends compact pressure-breaker suffix showing gained charge, TTL, and ready count.

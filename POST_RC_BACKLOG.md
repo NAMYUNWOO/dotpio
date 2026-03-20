@@ -46,7 +46,7 @@ Last updated: 2026-03-20 10:57 KST
 
 ## P1 (Next Gameplay Wave)
 - [x] UX/Combat Team: Add threat-aware onboarding micro-tip decay logic (show `COMBAT TIP` after first build until first threat event)
-- [ ] Systems/Combat Team: Add mission-chain pressure breaker bonus (objective completion on rising threat grants short dodge charge)
+- [x] Systems/Combat Team: Add mission-chain pressure breaker bonus (objective completion on rising threat grants short dodge charge)
 - [ ] World/Design Team: Add overclock hazard room prototype (SRL discount pulse + aggro spike risk)
 
 ## P2 (Ops/Telemetry Next)
