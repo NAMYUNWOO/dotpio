@@ -1,10 +1,10 @@
 # Weekly Changelog Drift Check
 
-- GeneratedAt(UTC): 2026-03-20T03:59:50.886425Z
+- GeneratedAt(UTC): 2026-03-20T21:33:44.124298Z
 - Status: **WARN**
 - Window: last 7 days (max 200 commits)
-- Checked code commits: 137
-- Missing evidence commits: 66
+- Checked code commits: 165
+- Missing evidence commits: 56
 
 ## Violations
 - ⚠️ `a587bc0` balance: tighten SRL churn and add economy telemetry logs (2026-03-18T13:45:12Z) code=src/inventory_ui.lua
@@ -63,16 +63,6 @@
 - ⚠️ `b5370d4` ux: polish DOS inventory copy and action dialogs (2026-03-16T20:43:06Z) code=src/inventory_ui.lua
 - ⚠️ `55fb0eb` ux: refine DOS inventory copy and build/disasm messaging (2026-03-16T20:13:21Z) code=src/inventory_ui.lua
 - ⚠️ `29cb275` balance: scale build scroll cost by component power (2026-03-16T19:42:53Z) code=src/inventory_ui.lua
-- ⚠️ `831996d` balance: cap disassemble salvage by item size (2026-03-16T19:12:47Z) code=src/ai_describe.lua, src/inventory_ui.lua
-- ⚠️ `bac8090` ux: add build-readiness hints to DOS inventory help/status (2026-03-16T18:13:59Z) code=src/inventory_ui.lua
-- ⚠️ `06774a2` ux: polish DOS inventory copy and action labels (2026-03-16T17:43:16Z) code=src/inventory_ui.lua
-- ⚠️ `ef5e803` chore: automate reproducible map04 and DOS screenshot capture (2026-03-16T17:13:41Z) code=scripts/capture_screenshots.sh
-- ⚠️ `ef04b1a` add automated screenshot capture presets for map04 and DOS UI (2026-03-16T16:44:57Z) code=main.lua
-- ⚠️ `0ecd60c` polish DOS inventory copy and action/help UX hints (2026-03-16T16:13:23Z) code=src/inventory_ui.lua
-- ⚠️ `90e0d3f` balance build/disassemble economy and fix map03 portal target (2026-03-16T15:44:25Z) code=maps/map_03.lua, src/ai_describe.lua, src/inventory_ui.lua
-- ⚠️ `efc7d08` feat: add map_04 and wire portal progression (2026-03-16T15:17:33Z) code=maps/map_03.lua, maps/map_04.lua
-- ⚠️ `711b6a8` Implement DeepSeek AI pipeline, disassemble/build systems, and capture screenshot (2026-03-16T12:41:36Z) code=main.lua, src/ai_describe.lua, src/ai_worker.lua, src/inventory.lua, src/inventory_ui.lua, src/items.lua
-- ⚠️ `e0f1024` 스탯 시스템 + AI 프롬프트 개선 + 장비 스탯 연동 (2026-03-13T06:24:30Z) code=item_tile_data.json, main.lua, src/ai_describe.lua, src/ai_worker.lua, src/combat.lua, src/enemy_ai.lua
 
 ## Rule
 - Any commit touching code/gameplay paths must include at least one evidence update in the same commit (team log, playtest/report artifact, or changelog/backlog tracker).

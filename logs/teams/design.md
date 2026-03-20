@@ -374,3 +374,16 @@
 - Task: Design consistency check for retreat reward experiment.
 - Decision: Kept reward cadence aligned with risk/reward doctrine (only after deliberate safe disengage pattern, not passive cooldown).
 - Follow-up: Observe if 2-cycle requirement feels legible without explicit meter before exposing new HUD token.
+## 2026-03-21 06:33 KST — Weekly portal prompt readability drift digest shipped
+- Completed support for weekly digest artifact: `logs/weekly_portal_prompt_readability_drift.{md,json}` via `scripts/weekly_portal_prompt_readability_drift.py`.
+- Added regression coverage: `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Weekly sustain runner now executes digest + regression and reports generated artifacts.
+- Verification: `python3 -m py_compile ...`, digest regression PASS, `bash scripts/run_weekly_sustain.sh` PASS.
+- Follow-up: use digest trend in upcoming Game Director readability tuning cycles.
+
+## 2026-03-21 06:36 KST — Game Director Cycle J slice (mode-trend token)
+- Idea slate generated (low/mid/high risk); selected low-risk readability slice.
+- Added `MODE TREND` token to weekly portal prompt drift digest (`COMPACT|DETAILED|BALANCED`).
+- Artifacts/regression remain green after update.
+- Follow-ups kept in backlog: pressure-band drift token, top-token movers section.
+

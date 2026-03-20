@@ -1,6 +1,6 @@
 # DOTPIO Sustain Health Dashboard
 
-- GeneratedAt(UTC): 2026-03-20T03:59:50.120048Z
+- GeneratedAt(UTC): 2026-03-20T21:33:43.351307Z
 - Overall: **YELLOW** (2/3 checks green)
 - Trend: **stable**
 
@@ -8,6 +8,9 @@
 - Score: **25 / 100**
 - Level: **LOW**
 - Threshold alert: **OK** (WARN >= 30, ALERT >= 60)
+- Top drivers:
+  - schedulerPolicyAuditFail: +20 (Cron audit status not ok)
+  - trendStable: +5 (Trend classification is stable)
 
 ## Signals
 - ✅ Economy safety: decision=NO_CURVE_CHANGE, suspiciousWindows=0

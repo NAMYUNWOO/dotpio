@@ -973,3 +973,34 @@ Compact decision memory for AI context efficiency.
 - Runtime integration: `main.lua` consumes event, grants 6s temporary dodge via `Player.grantDodgeCharge`, and prints explicit status feedback.
 - Regression: `scripts/regression_overclock_hazard.lua` now validates first disengage=0 bonus, second consecutive disengage=+1 bonus.
 - Remaining top backlog item: `QA/Systems Team: Add weekly portal prompt readability drift digest (compact/detailed token stats over last N commits)`.
+
+## 2026-03-21 06:33 KST — Weekly portal prompt readability drift digest completed
+- Completed backlog item: `QA/Systems Team: Add weekly portal prompt readability drift digest (compact/detailed token stats over last N commits)`.
+- Durable decisions:
+  - Added `scripts/weekly_portal_prompt_readability_drift.py` to produce weekly digest artifacts (`logs/weekly_portal_prompt_readability_drift.{md,json}`) from recent commit diffs.
+  - Digest tracks compact/detailed/shared portal prompt token churn, dominant mode per commit, and window-level net drift.
+  - Added regression guardrail `scripts/regression_weekly_portal_prompt_readability_drift.py` (temp-repo fixture with detailed+compact commits).
+  - Wired digest + regression into `scripts/run_weekly_sustain.sh` and output manifest.
+- Verification set (PASS):
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
+  - `bash scripts/run_weekly_sustain.sh`
+- Next priority item: ACTION_ITEMS/TASKS/POST_RC now fully checked; execute next Game Director review cycle (3 ideas -> choose 1 -> vertical slice).
+
+## 2026-03-21 06:36 KST — Game Director Cycle J executed (3 ideas -> 1 slice)
+- Idea slate generated:
+  1) Low-risk (chosen): add digest mode-trend token (`MODE TREND:COMPACT|DETAILED|BALANCED`).
+  2) Mid-risk: pressure-band drift token from portal prompt pressure score edits.
+  3) High-risk: top-token movers section for readability triage.
+- Implemented minimal vertical slice:
+  - `scripts/weekly_portal_prompt_readability_drift.py` now emits `modeTrend` in JSON and `MODE TREND` line in markdown.
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py` now validates `modeTrend` enum + markdown token presence.
+- Verification set (PASS):
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
+- Backlog sync:
+  - Marked mode-trend slice done in `POST_RC_BACKLOG.md` (Cycle J).
+  - Left two injected follow-up ideas unchecked for next cycle.
+- Next priority item: `Systems/World Team: Add pressure-band drift token (PRESSURE BAND:LOW|MID|HIGH)`.

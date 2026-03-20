@@ -25,6 +25,8 @@ python3 scripts/stale_branch_report_drift_check.py
 python3 scripts/regression_stale_branch_report_drift.py
 python3 scripts/weekly_changelog_drift_check.py
 python3 scripts/regression_weekly_changelog_drift.py
+python3 scripts/weekly_portal_prompt_readability_drift.py
+python3 scripts/regression_weekly_portal_prompt_readability_drift.py
 python3 scripts/overclock_dwell_trend.py --runs 7
 python3 scripts/regression_overclock_dwell_trend.py
 
@@ -39,5 +41,7 @@ echo "- logs/stale_branch_report_drift.md"
 echo "- logs/stale_branch_report_drift.json"
 echo "- logs/weekly_changelog_drift.md"
 echo "- logs/weekly_changelog_drift.json"
+echo "- logs/weekly_portal_prompt_readability_drift.md"
+echo "- logs/weekly_portal_prompt_readability_drift.json"
 echo "- logs/playtests/overclock_dwell_trend.md"
 echo "- logs/playtests/overclock_dwell_trend.json"

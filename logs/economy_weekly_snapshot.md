@@ -1,6 +1,6 @@
 # Weekly SRL Economy Snapshot
 
-- GeneratedAt(UTC): 2026-03-20T03:59:49.847012Z
+- GeneratedAt(UTC): 2026-03-20T21:33:43.076531Z
 - Window: 2026-03-12T13:29:45Z ~ 2026-03-19T13:29:45Z
 - Telemetry events: 41
 - Event counts: {'build': 29, 'disassemble': 12}

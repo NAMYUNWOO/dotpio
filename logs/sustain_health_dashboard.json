@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-20T03:59:50.193070Z",
+  "generatedAt": "2026-03-20T21:33:43.424916Z",
   "overall": {
     "tier": "YELLOW",
     "trend": "stable",
@@ -10,6 +10,18 @@
     "score": 25,
     "level": "LOW",
     "alert": "OK",
+    "topDrivers": [
+      {
+        "name": "schedulerPolicyAuditFail",
+        "points": 20,
+        "detail": "Cron audit status not ok"
+      },
+      {
+        "name": "trendStable",
+        "points": 5,
+        "detail": "Trend classification is stable"
+      }
+    ],
     "thresholds": {
       "warnAt": 30,
       "alertAt": 60
