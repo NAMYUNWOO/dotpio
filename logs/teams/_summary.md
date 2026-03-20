@@ -623,3 +623,7 @@ Compact decision memory for AI context efficiency.
   - Marked wave-7 item done in `POST_RC_BACKLOG.md` and mirrored done state in `TASKS.md`.
 - Next priority item:
   - No unchecked entries remain in ACTION_ITEMS/TASKS/POST_RC; inject next validated Game Director experiment candidate.
+- 2026-03-20 21:04 KST: Completed POST-RC P1 hazard readability wave 8 — overclock HUD hints now include `EXPOSED:<n>s` while player remains in-zone (`ZONE:IN`) across HOT/CD/IMMINENT states.
+- Durable decision: exposure timer is continuous-in-zone only (accumulates inside, resets on exit) and is display-only with no hazard balance/economy changes.
+- Regression coverage: `scripts/regression_overclock_hazard.lua` now asserts exposure token presence in-zone and absence out-of-zone.
+- Verification pass: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`, `lua scripts/regression_overclock_hazard.lua`.

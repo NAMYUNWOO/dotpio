@@ -496,3 +496,16 @@
 - Completed slice: added `ZONE:IN|OUT` token to overclock HUD hints (READY/HOT/CD/IMMINENT) for immediate hazard-context readability.
 - Verification: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua`.
 - Follow-up: inject next Game Director experiment candidate (no unchecked backlog items remain).
+
+## 2026-03-20 21:04 KST
+- Task: Hazard readability wave 8 (`EXPOSED:<n>s` in overclock hint).
+- Commit: HEAD (pending)
+- Files: `src/overclock_hazard.lua`, `scripts/regression_overclock_hazard.lua`, `POST_RC_BACKLOG.md`, `TASKS.md`
+- Verification:
+  - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` ✅
+  - `lua scripts/regression_overclock_hazard.lua` ✅
+- Decisions:
+  - Added in-zone dwell timer token (`EXPOSED:<n>s`) to HOT/CD/IMMINENT hint text for commitment risk legibility.
+  - Suppressed token outside hazard zone to avoid stale/noisy HUD copy.
+- Follow-up:
+  - Queue next readability/system experiment candidate for POST-RC backlog injection.

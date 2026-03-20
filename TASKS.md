@@ -260,3 +260,9 @@ See project-level plans:
   - [x] Add zone-presence token helper in hazard module derived from player in-zone state
   - [x] Surface `ZONE` token in READY/HOT/CD/IMMINENT overclock HUD hints with compact DOS copy
   - [x] Extend overclock hazard regression coverage for zone token visibility in inside/outside states
+
+## Next Up (Post-RC hazard readability wave 8)
+- [x] Add overclock zone exposure-duration token in HUD hints (`EXPOSED:<n>s`)
+  - [x] Track continuous in-zone exposure seconds in hazard runtime state
+  - [x] Surface `EXPOSED:<n>s` token in HOT/CD/IMMINENT hints while `ZONE:IN`
+  - [x] Extend overclock hazard regression coverage for exposure-token visibility/reset behavior

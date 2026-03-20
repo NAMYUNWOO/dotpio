@@ -266,3 +266,8 @@
 - Completed slice: added `ZONE:IN|OUT` token to overclock HUD hints (READY/HOT/CD/IMMINENT) for immediate hazard-context readability.
 - Verification: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua`.
 - Follow-up: inject next Game Director experiment candidate (no unchecked backlog items remain).
+
+## 2026-03-20 21:04 KST
+- Task context: Overclock HUD readability update (`EXPOSED:<n>s`).
+- Decision: Combat balance/behavior unchanged; token is informational only.
+- Follow-up: Consider using exposure duration as an optional trigger input for future hazard-combat synergies.

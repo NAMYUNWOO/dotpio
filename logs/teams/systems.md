@@ -665,3 +665,17 @@
 - Completed slice: added `ZONE:IN|OUT` token to overclock HUD hints (READY/HOT/CD/IMMINENT) for immediate hazard-context readability.
 - Verification: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua`.
 - Follow-up: inject next Game Director experiment candidate (no unchecked backlog items remain).
+
+## 2026-03-20 21:04:13 KST
+- Task: Overclock hazard exposure-duration state tracking (`EXPOSED:<n>s`).
+- Commit: HEAD (pending)
+- Files: `src/overclock_hazard.lua`, `scripts/regression_overclock_hazard.lua`
+- Verification:
+  - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` ✅
+  - `lua scripts/regression_overclock_hazard.lua` ✅
+- Decisions:
+  - Added `state.exposureSeconds` accumulator while player remains inside hazard rect.
+  - Reset exposure to zero on zone exit to represent continuous commitment windows only.
+  - Kept feature display-only (no economy/aggro parameter changes).
+- Follow-up:
+  - Continue validating no SRL loop impact in future hazard reward experiments.

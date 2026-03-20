@@ -82,3 +82,6 @@ Last updated: 2026-03-20 17:31 KST
 
 ## P1 (Hazard Readability Wave 7)
 - [x] UX/World Team: Add overclock zone-presence token in HUD hints (`ZONE:IN|OUT`) so risk context remains clear when near/inside hazard
+
+## P1 (Hazard Readability Wave 8)
+- [x] UX/World Team: Add overclock zone exposure-duration token in HUD hints (`EXPOSED:<n>s`) so in-zone commitment risk is glanceable
