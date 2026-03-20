@@ -264,3 +264,8 @@
   2) Reward-efficiency token (`SRL/EXPOSED sec`) in run summary
   3) Multi-run dwell trend combiner artifact for weekly balance review
 - Chosen experiment: #1 (low-risk UX readout with immediate tuning utility).
+
+## 2026-03-20 23:03 KST — Run-summary risk/reward readability token
+- Added compact post-run token: `OVERCLOCK EFF: <srl> SRL / <sec>s = <ratio> SRL/EXPOSED sec`.
+- Decision: display `n/a` when exposure seconds are zero to avoid misleading divide-by-zero output.
+- Scope is readability-only; no economy or hazard tuning changed.

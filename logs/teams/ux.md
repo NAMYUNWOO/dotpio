@@ -537,3 +537,8 @@
 - Implemented `OVERCLOCK DWELL L/M/H` line in run summary overlay so post-run tuning reads commitment mix at a glance.
 - Data source wired from hazard telemetry snapshot captured on reset.
 - Scope kept minimal (single summary line) to avoid HUD clutter during active gameplay.
+
+## 2026-03-20 23:03 KST — Run summary UX pass for overclock efficiency
+- Extended run summary panel with efficiency line directly under dwell snapshot for immediate pacing feedback.
+- Preserved compact DOS layout and existing dwell token placement.
+- Color choice: soft green tint for reward-efficiency scanability.

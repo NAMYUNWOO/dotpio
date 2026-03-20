@@ -14,6 +14,7 @@ local state = {
     reliefTimer = 0,
     pendingRelief = false,
     runDwellSeconds = { LOW = 0, MID = 0, HIGH = 0 },
+    runRewardSrl = 0,
 }
 
 local function cloneBuckets(src)
@@ -253,6 +254,7 @@ end
 
 function OverclockHazard.resetRunTelemetry()
     state.runDwellSeconds = { LOW = 0, MID = 0, HIGH = 0 }
+    state.runRewardSrl = 0
 end
 
 function OverclockHazard.update(dt, playerX, playerY)
@@ -327,6 +329,10 @@ function OverclockHazard.getRunDwellBuckets()
     }
 end
 
+function OverclockHazard.getRunRewardSrl()
+    return math.max(0, math.floor((tonumber(state.runRewardSrl) or 0) + 0.5))
+end
+
 function OverclockHazard.writeRunDwellArtifact(outBasePath)
     local basePath = tostring(outBasePath or "logs/playtests/overclock_dwell_buckets_latest")
     local jsonPath = basePath .. ".json"
@@ -398,6 +404,7 @@ function OverclockHazard.consumeKillBonus(kills)
     local proposedReward = killCount * perKill
     local reward = math.min(remaining, proposedReward)
     state.killBonusGrantedThisPulse = (state.killBonusGrantedThisPulse or 0) + reward
+    state.runRewardSrl = (state.runRewardSrl or 0) + reward
     return reward
 end
 

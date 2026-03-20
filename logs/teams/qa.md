@@ -1126,3 +1126,11 @@
   - `lua scripts/regression_run_summary.lua`
   - `lua scripts/regression_overclock_hazard.lua`
   - `lua scripts/regression_overclock_dwell_buckets.lua`
+
+## 2026-03-20 23:03 KST — Regression coverage for overclock efficiency snapshot
+- Updated `scripts/regression_overclock_hazard.lua` to assert run reward SRL accumulation/reset behavior.
+- Updated `scripts/regression_run_summary.lua` to assert `overclockRewardSrl` snapshot capture.
+- Verification PASS:
+  - `luac -p main.lua src/overclock_hazard.lua src/run_summary.lua src/hud.lua scripts/regression_run_summary.lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_run_summary.lua`

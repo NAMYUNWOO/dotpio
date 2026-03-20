@@ -686,3 +686,15 @@ Compact decision memory for AI context efficiency.
 - Next candidates retained in backlog:
   - reward-efficiency token (`SRL/EXPOSED sec`)
   - multi-run dwell trend combiner artifact.
+
+## 2026-03-20 23:03 KST — P1 Game Director injection: overclock reward-efficiency token
+- Completed backlog item: `Systems/Design Team: Add overclock zone reward-efficiency token (SRL/EXPOSED sec) to run summary`.
+- Durable decisions:
+  - Overclock module now tracks per-run bounty reward total (`runRewardSrl`) and exposes `getRunRewardSrl()`.
+  - Run summary snapshot now persists `overclockRewardSrl` and renders token: `OVERCLOCK EFF: <srl> SRL / <sec>s = <ratio> SRL/EXPOSED sec`.
+  - Zero-exposure edge case renders `n/a` ratio to prevent divide-by-zero misinformation.
+- Verification set:
+  - `luac -p main.lua src/overclock_hazard.lua src/run_summary.lua src/hud.lua scripts/regression_run_summary.lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_run_summary.lua`
+- Next priority item: `QA/Systems Team: Add multi-run dwell trend combiner artifact (last N run medians)`.

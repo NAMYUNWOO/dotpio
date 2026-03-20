@@ -21,8 +21,9 @@ local missionState = RunMissions.getState()
 local unlockFlags = { advanced_build_categories = false }
 local applied = { srl = 4, coins = 3, gems = 1 }
 local dwell = { LOW = 5, MID = 7, HIGH = 1 }
+local overclockRewardSrl = 6
 
-RunSummary.open(missionState, unlockFlags, applied, dwell)
+RunSummary.open(missionState, unlockFlags, applied, dwell, overclockRewardSrl)
 local state = RunSummary.getState()
 
 expect(state.active == true, "run summary should open")
@@ -38,6 +39,7 @@ expect(state.data.advancedUnlocked == false, "unlock state should be copied into
 expect(#(state.data.objectives or {}) == 3, "summary should include objective rows")
 expect(state.data.carry.srl == 4 and state.data.carry.coins == 3 and state.data.carry.gems == 1, "carryover values should match applied reward")
 expect(state.data.overclockDwell.low == 5 and state.data.overclockDwell.mid == 7 and state.data.overclockDwell.high == 1, "overclock dwell buckets should be captured in run summary snapshot")
+expect(state.data.overclockRewardSrl == 6, "overclock reward SRL should be captured in run summary snapshot")
 
 -- Ensure snapshot data is stable even if mission state changes afterwards.
 RunMissions.addProgress("pickup", 1)

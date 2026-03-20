@@ -55,6 +55,7 @@ expect(killBonusFirst == 2, "hot-zone kills should award overclock bonus SRL per
 
 local killBonusCapped = OverclockHazard.consumeKillBonus(3)
 expect(killBonusCapped == 1, "per-pulse overclock kill bonus should respect configured cap")
+expect(OverclockHazard.getRunRewardSrl() == 3, "run reward SRL should accumulate granted overclock bounty")
 
 local hotHint = OverclockHazard.getHudHint()
 local hotRiskColor = OverclockHazard.getHudHintColor()
@@ -165,5 +166,8 @@ OverclockHazard.onMapLoaded("07", {
 })
 local medRiskColor = OverclockHazard.getHudHintColor()
 expect(math.abs(medRiskColor[1] - 1) < 0.001 and math.abs(medRiskColor[2] - 0.7) < 0.001 and math.abs(medRiskColor[3] - 0.3) < 0.001, "medium-risk tier should map to amber HUD color")
+
+OverclockHazard.resetRunTelemetry()
+expect(OverclockHazard.getRunRewardSrl() == 0, "run reward SRL should reset with run telemetry reset")
 
 print("[PASS] overclock hazard regression validated")

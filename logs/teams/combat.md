@@ -288,3 +288,7 @@
 ## 2026-03-20 22:35 KST — Sync note
 - No combat behavior/damage window tuning changes in this cycle.
 - Existing overclock pressure behavior unchanged; only dwell telemetry was added.
+
+## 2026-03-20 23:03 KST — No combat behavior tuning changes this slice
+- Berserker/overclock combat mechanics unchanged.
+- Task limited to reward telemetry snapshot + run-summary readability.

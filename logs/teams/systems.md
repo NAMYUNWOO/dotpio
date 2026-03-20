@@ -703,3 +703,8 @@
 ## 2026-03-20 22:41 KST — Game Director slice: dwell snapshot plumbing
 - Passed per-run dwell bucket snapshot (`LOW/MID/HIGH`) from `OverclockHazard` -> `RunSummary.open()`.
 - Run reset now captures dwell snapshot before telemetry reset and persists latest artifact under `logs/playtests/overclock_dwell_buckets_latest.{json,md}`.
+
+## 2026-03-20 23:03 KST — Overclock reward-efficiency token wired into run summary
+- Added run-level overclock reward SRL telemetry in `src/overclock_hazard.lua` (`runRewardSrl`, `getRunRewardSrl`, reset semantics).
+- `consumeKillBonus` now accumulates granted bounty into run telemetry for post-run efficiency analysis.
+- Follow-up: use this token in multi-run trend combiner (next unchecked backlog item).
