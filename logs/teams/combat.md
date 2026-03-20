@@ -250,3 +250,8 @@
 - Scope: `src/overclock_hazard.lua`, `scripts/regression_overclock_hazard.lua`, backlog tracking docs.
 - Verification: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` (PASS).
 - Follow-up: pick next unchecked Post-RC gameplay readability experiment item.
+
+## 2026-03-20 19:39 KST — Combat readability impact (overclock timing)
+- Decision: Added pulse/recharge progress tokens to support combat commit/withdraw decisions around overclock zones.
+- Guardrail: No damage, aggro multiplier, or enemy behavior tuning in this patch.
+- Follow-up: Pair with future threat-strip telemetry if timing misreads remain high.

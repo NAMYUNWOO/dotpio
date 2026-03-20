@@ -649,3 +649,8 @@
 - Scope: `src/overclock_hazard.lua`, `scripts/regression_overclock_hazard.lua`, backlog tracking docs.
 - Verification: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` (PASS).
 - Follow-up: pick next unchecked Post-RC gameplay readability experiment item.
+
+## 2026-03-20 19:39 KST — Overclock pulse/recharge progress tokens
+- Decision: Add explicit timing progress tokens to overclock HUD hints (`PULSE:%`, `RECHARGE:%`) to reduce cooldown timing guesswork.
+- Scope: `src/overclock_hazard.lua`, `scripts/regression_overclock_hazard.lua`.
+- Follow-up: Monitor whether compact line length remains readable at low resolutions.

@@ -273,3 +273,7 @@
 - Scope: `src/overclock_hazard.lua`, `scripts/regression_overclock_hazard.lua`, backlog tracking docs.
 - Verification: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` (PASS).
 - Follow-up: pick next unchecked Post-RC gameplay readability experiment item.
+
+## 2026-03-20 19:39 KST — AI content lane note (no generator changes)
+- Status: No AI generation prompt/safety changes required for this HUD readability task.
+- Follow-up: Keep current generation constraints unchanged; revisit only when mission/content telemetry indicates drift.

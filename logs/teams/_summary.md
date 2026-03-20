@@ -582,3 +582,17 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_overclock_hazard.lua`
 - Backlog update: `POST_RC_BACKLOG.md` wave-4 item marked done.
 - Next priority item: none currently unchecked in tracked backlogs; inject next Game Director experiment candidate.
+
+## 2026-03-20 19:39 KST — P1 hazard readability wave 5 (pulse/recharge progress)
+- Completed backlog item: `UX/World Team: Add pulse progress token in overclock HUD hints (PULSE:%/RECHARGE:%)`.
+- Durable decisions:
+  - Added reusable timing-format helpers in `src/overclock_hazard.lua` for pulse and cooldown progress percentages.
+  - HOT hint now shows `PULSE:%`; READY/CD/IMMINENT hints now show `RECHARGE:%` while preserving existing risk/bounty/ETA tokens.
+  - Regression updated in `scripts/regression_overclock_hazard.lua` to lock token visibility across state transitions.
+- Verification set:
+  - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+- Backlog update:
+  - Marked wave-5 item done in `POST_RC_BACKLOG.md` and mirrored done state in `TASKS.md`.
+- Next priority item:
+  - No unchecked entries currently remain in ACTION_ITEMS/TASKS/POST_RC; queue next Game Director experiment candidate for injection.

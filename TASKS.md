@@ -242,3 +242,9 @@ See project-level plans:
   - [x] Add reusable next-pulse ETA formatter in hazard module for ready/cooldown states
   - [x] Surface token in READY/CD/IMMINENT overclock HUD hints without changing HOT hint payload
   - [x] Extend overclock hazard regression coverage for next-pulse ETA token visibility
+
+## Next Up (Post-RC hazard readability wave 5)
+- [x] Add overclock pulse progress token in HUD hints (`PULSE:%`/`RECHARGE:%`)
+  - [x] Add reusable pulse/recharge progress formatter helpers in hazard module
+  - [x] Surface progress token in HOT + READY/CD/IMMINENT overclock hints with compact DOS copy
+  - [x] Extend overclock hazard regression coverage for progress-token visibility/state math

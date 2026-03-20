@@ -109,6 +109,19 @@ local function getNextPulseEtaToken()
     return string.format("NEXT PULSE:%ds", seconds)
 end
 
+local function getPulseProgressToken()
+    local duration = math.max(1, tonumber(state.zone and state.zone.pulseDuration) or 1)
+    local ratio = math.max(0, math.min(1, (tonumber(state.pulseTimer) or 0) / duration))
+    return string.format("PULSE:%d%%", math.floor(ratio * 100 + 0.5))
+end
+
+local function getRechargeProgressToken()
+    local duration = math.max(1, tonumber(state.zone and state.zone.cooldownDuration) or 1)
+    local remaining = math.max(0, tonumber(state.cooldownTimer) or 0)
+    local ratio = 1 - math.max(0, math.min(1, remaining / duration))
+    return string.format("RECHARGE:%d%%", math.floor(ratio * 100 + 0.5))
+end
+
 local function getRiskBreakdownToken(zone)
     local parts = getRiskComponents(zone)
     return string.format("RISK SRC:D%d+DET%d+MOVE%d", parts.discount, parts.detect, parts.move)
@@ -220,18 +233,20 @@ function OverclockHazard.getHudHint()
         local pulseSeconds = math.max(0, math.ceil(state.pulseTimer or 0))
         local aggroLegend = getAggroPressureLegend(state.zone)
         local bountyProgress = getBountyProgressToken()
-        return string.format("OVERCLOCK HOT %ds: -%d%% SRL / %s / %s  RISK:%s(%d) %s", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5), aggroLegend, bountyProgress, riskTier, riskScore, riskBreakdown)
+        local pulseProgress = getPulseProgressToken()
+        return string.format("OVERCLOCK HOT %ds: -%d%% SRL / %s / %s / %s  RISK:%s(%d) %s", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5), aggroLegend, bountyProgress, pulseProgress, riskTier, riskScore, riskBreakdown)
     end
     if state.cooldownTimer > 0 then
         local cooldownSeconds = math.max(0, math.ceil(state.cooldownTimer))
         local nextBounty = getNextBountyBudgetToken()
         local nextPulseEta = getNextPulseEtaToken()
+        local rechargeProgress = getRechargeProgressToken()
         if state.enteredZone and cooldownSeconds <= 3 then
-            return string.format("OVERCLOCK CD %ds (IMMINENT:%ds) %s %s  RISK:%s(%d) %s", cooldownSeconds, cooldownSeconds, nextBounty, nextPulseEta, riskTier, riskScore, riskBreakdown)
+            return string.format("OVERCLOCK CD %ds (IMMINENT:%ds) %s %s %s  RISK:%s(%d) %s", cooldownSeconds, cooldownSeconds, nextBounty, nextPulseEta, rechargeProgress, riskTier, riskScore, riskBreakdown)
         end
-        return string.format("OVERCLOCK CD %ds %s %s  RISK:%s(%d) %s", cooldownSeconds, nextBounty, nextPulseEta, riskTier, riskScore, riskBreakdown)
+        return string.format("OVERCLOCK CD %ds %s %s %s  RISK:%s(%d) %s", cooldownSeconds, nextBounty, nextPulseEta, rechargeProgress, riskTier, riskScore, riskBreakdown)
     end
-    return string.format("OVERCLOCK READY %s %s  RISK:%s(%d) %s", getNextBountyBudgetToken(), getNextPulseEtaToken(), riskTier, riskScore, riskBreakdown)
+    return string.format("OVERCLOCK READY %s %s %s  RISK:%s(%d) %s", getNextBountyBudgetToken(), getNextPulseEtaToken(), getRechargeProgressToken(), riskTier, riskScore, riskBreakdown)
 end
 
 function OverclockHazard.debugSetPulse(active, pulseTimer)

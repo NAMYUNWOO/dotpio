@@ -73,3 +73,6 @@ Last updated: 2026-03-20 17:31 KST
 
 ## P1 (Hazard Readability Wave 4)
 - [x] UX/World Team: Add overclock pulse ETA token in READY/CD HUD hints (`NEXT PULSE:<n>s`) so re-entry timing is legible
+
+## P1 (Hazard Readability Wave 5)
+- [x] UX/World Team: Add pulse progress token in overclock HUD hints (`PULSE:%`/`RECHARGE:%`) for glanceable timing read

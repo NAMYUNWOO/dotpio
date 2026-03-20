@@ -275,3 +275,8 @@
 - Scope: `src/overclock_hazard.lua`, `scripts/regression_overclock_hazard.lua`, backlog tracking docs.
 - Verification: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` (PASS).
 - Follow-up: pick next unchecked Post-RC gameplay readability experiment item.
+
+## 2026-03-20 19:39 KST — Hazard room readability wave 5 sync
+- Decision: Keep wave-5 as readability-only; no hazard zone geometry or portal routing changes.
+- Impact: Players get clearer re-entry timing in overclock rooms.
+- Follow-up: Consider future map-specific hazard cadence tuning only if playtest friction persists.

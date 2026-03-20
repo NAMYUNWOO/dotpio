@@ -480,3 +480,8 @@
 - Scope: `src/overclock_hazard.lua`, `scripts/regression_overclock_hazard.lua`, backlog tracking docs.
 - Verification: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` (PASS).
 - Follow-up: pick next unchecked Post-RC gameplay readability experiment item.
+
+## 2026-03-20 19:39 KST — Overclock hint microcopy wave 5
+- Completed: HOT hint now includes `PULSE:%`; READY/CD/IMMINENT hints include `RECHARGE:%`.
+- Rationale: Replace implicit timing feel with explicit, glanceable progress feedback.
+- Follow-up: If line saturation grows, consider rotating secondary tokens by state.

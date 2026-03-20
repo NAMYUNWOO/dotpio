@@ -1058,3 +1058,10 @@
 - Scope: `src/overclock_hazard.lua`, `scripts/regression_overclock_hazard.lua`, backlog tracking docs.
 - Verification: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` (PASS).
 - Follow-up: pick next unchecked Post-RC gameplay readability experiment item.
+
+## 2026-03-20 19:39 KST — Regression evidence (overclock wave 5)
+- Verification commands:
+  - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+- Result: PASS (`[PASS] overclock hazard regression validated`).
+- Coverage extension: Assert visibility of `PULSE:%` / `RECHARGE:%` tokens across READY/HOT/CD/IMMINENT states.
