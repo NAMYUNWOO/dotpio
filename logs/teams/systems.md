@@ -736,3 +736,9 @@
 - Implemented `resolveOverclockCoachTip(profile, exposure, reward)` in `src/run_summary.lua`.
 - New snapshot field: `overclockCoachTip` derived from profile + SRL/exposure efficiency envelope.
 - Follow-up systems experiments queued: threat-linked momentum scaler (backlog).
+
+## 2026-03-21 01:04 KST — Threat-linked momentum scaler prototype (experiment flag)
+- Task: Prototype lane-switch variety bonus scaler under HIGH berserker threat (`+1 -> +2`) behind flag.
+- Decision: Added env-gated flag `DOTPIO_EXPERIMENT_THREAT_LINKED_VARIETY_SCALER=1` in `src/run_missions.lua`.
+- Implementation: when lane-switch objective completes and context `threatTier == HIGH`, payout scales to `laneSwitchBonusSrl=2`; default behavior remains `+1`.
+- Follow-up: collect telemetry on payout frequency before considering default enable.

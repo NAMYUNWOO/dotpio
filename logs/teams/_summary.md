@@ -768,3 +768,16 @@ Compact decision memory for AI context efficiency.
 - Backlog updates (`POST_RC_BACKLOG.md`):
   - Coach cue task marked done.
   - Threat-scaler + hazard-route-tag tasks injected as next experiment candidates.
+
+## 2026-03-21 01:04 KST — Game Director Cycle C follow-up: threat-linked momentum scaler prototype
+- Completed Post-RC Cycle C item: `Systems/Combat Team: Prototype threat-linked momentum bonus scaler` behind experiment flag.
+- Durable decisions:
+  - Added env-gated experiment toggle `DOTPIO_EXPERIMENT_THREAT_LINKED_VARIETY_SCALER` in `src/run_missions.lua`.
+  - Lane-switch variety bonus remains `+1` by default; scales to `+2` only when flag is ON and mission completion occurs at `THREAT LVL:HIGH`.
+  - Mission progress context now receives live `threatTier` from combat threat counters.
+  - UX status line explicitly labels scaled payout as `HIGH-THREAT SCALER`.
+- Verification set (PASS):
+  - `lua scripts/regression_mission_momentum.lua`
+  - `DOTPIO_EXPERIMENT_THREAT_LINKED_VARIETY_SCALER=1 lua scripts/regression_mission_momentum.lua`
+  - `lua scripts/regression_mission_pressure_breaker.lua`
+- Next priority item: `World/Design Team: Prototype hazard room route tag (SAFE|RISK|SPIKE) in map metadata and HUD mini-callout for path planning`.

@@ -570,3 +570,8 @@
 - Added run-summary line: `OVERCLOCK COACH: <tip>` below `PROFILE` and above glossary row.
 - Goal: make post-run analytics actionable without leaving summary screen.
 - Current BALANCED fixture resolves to `HOLD MID-ZONE TEMPO`.
+
+## 2026-03-21 01:04 KST — Momentum status readability for threat-scaled variety payout
+- Updated mission momentum status suffix in `main.lua`.
+- New copy when scaler triggers: `[VARIETY +2 HIGH-THREAT SCALER]`.
+- Default lane-switch copy remains `[VARIETY +1]`/`[VARIETY +n]` for non-scaled cases.

@@ -317,3 +317,8 @@
 - Reviewed idea slate (UX coach cue / threat scaler / hazard route tags).
 - This cycle shipped only low-risk coach cue slice; no lane runtime mechanics changed.
 - Mid/high-risk experiments queued in backlog for future cycle.
+
+## 2026-03-21 01:04 KST — Combat pressure hook for mission payout context
+- Wired mission completion context to include live berserker threat tier (`LOW|MED|HIGH`) from HUD threat counters.
+- This keeps experiment coupling explicit: combat pressure informs mission reward scaling only when flag is enabled.
+- No enemy behavior tables changed; pacing risk is isolated to reward layer.

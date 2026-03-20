@@ -106,5 +106,5 @@ Last updated: 2026-03-20 17:31 KST
 
 ## P1 (Game Director Injection — 2026-03-21 Cycle C)
 - [x] UX/Systems Team: Add run-summary overclock coach cue token (`COACH:<tip>`) derived from `PROFILE + EFF` for immediate post-run adjustment guidance
-- [ ] Systems/Combat Team: Prototype threat-linked momentum bonus scaler (`VAR bonus +1->+2` when `THREAT LVL:HIGH` objective clear) behind experiment flag
+- [x] Systems/Combat Team: Prototype threat-linked momentum bonus scaler (`VAR bonus +1->+2` when `THREAT LVL:HIGH` objective clear) behind experiment flag
 - [ ] World/Design Team: Prototype hazard room route tag (`SAFE|RISK|SPIKE`) in map metadata and HUD mini-callout for path planning

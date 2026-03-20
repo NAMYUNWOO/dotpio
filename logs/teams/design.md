@@ -301,3 +301,7 @@
   3) High-risk novelty: hazard route tags (`SAFE|RISK|SPIKE`) with mini-callouts.
 - Selected experiment #1 for this cycle (small reversible UI guidance slice).
 - Follow-up injected tasks remain in `POST_RC_BACKLOG.md` for #2/#3.
+
+## 2026-03-21 01:04 KST — Risk/reward tuning note on momentum scaler prototype
+- Design intent: reward skilled objective clears during peak threat windows without changing core objective cadence.
+- Guardrail: feature is reversible/env-gated to prevent permanent SRL inflation until telemetry confirms pacing impact.

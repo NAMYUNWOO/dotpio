@@ -45,4 +45,20 @@ local s = RunMissions.getState()
 expect(s.completionStreak == 0, "reset should clear completion streak")
 expect((s.varietyBonusCount or 0) == 0, "reset should clear variety bonus counter")
 
+RunMissions.reset({
+    { id = "lane_a", event = "lane_a", label = "lane_a", lane = "combat", target = 1 },
+    { id = "lane_b", event = "lane_b", label = "lane_b", lane = "craft", target = 1 },
+})
+expect(RunMissions.addProgress("lane_a", 1) ~= nil, "seed completion should succeed")
+local highThreatSwitch = RunMissions.addProgress("lane_b", 1, { threatTier = "HIGH" })
+expect(highThreatSwitch ~= nil, "high-threat lane switch completion should produce payout")
+local scalerEnabled = os.getenv("DOTPIO_EXPERIMENT_THREAT_LINKED_VARIETY_SCALER") == "1"
+if scalerEnabled then
+    expect((highThreatSwitch.laneSwitchBonusSrl or 0) == 2, "high-threat lane switch should scale variety bonus to +2 when experiment is enabled")
+    expect(highThreatSwitch.threatLinkedVarietyScalerApplied == true, "scaled payout should mark scaler-applied flag")
+else
+    expect((highThreatSwitch.laneSwitchBonusSrl or 0) == 1, "without experiment flag high-threat lane switch should remain +1")
+    expect(highThreatSwitch.threatLinkedVarietyScalerApplied == false, "without experiment flag scaler-applied marker should stay false")
+end
+
 print("[PASS] mission momentum payout regression validated")

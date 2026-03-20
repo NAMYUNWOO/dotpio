@@ -59,6 +59,7 @@ local MOMENTUM_REWARD_BY_STREAK = {
 }
 
 local PRESSURE_BREAKER_DODGE_CHARGE = 1
+local THREAT_LINKED_VARIETY_SCALER_ENABLED = os.getenv("DOTPIO_EXPERIMENT_THREAT_LINKED_VARIETY_SCALER") == "1"
 
 local function clampProgress(value, target)
     return math.max(0, math.min(target or 0, tonumber(value) or 0))
@@ -175,8 +176,14 @@ function RunMissions.addProgress(eventId, amount, context)
 
     local laneSwitchBonusSrl = 0
     local completionLane = completedLanes[1]
+    local threatTier = context and tostring(context.threatTier or ""):upper() or nil
+    local threatLinkedVarietyScalerApplied = false
     if completionLane and state.lastCompletedLane and completionLane ~= state.lastCompletedLane then
         laneSwitchBonusSrl = 1
+        if THREAT_LINKED_VARIETY_SCALER_ENABLED and threatTier == "HIGH" then
+            laneSwitchBonusSrl = 2
+            threatLinkedVarietyScalerApplied = true
+        end
         state.varietyBonusCount = state.varietyBonusCount + 1
     end
     if completionLane then
@@ -195,6 +202,8 @@ function RunMissions.addProgress(eventId, amount, context)
         completionLane = completionLane,
         pressureBreakerDodgeCharge = pressureBreakerDodgeCharge,
         risingThreat = risingThreat,
+        threatTier = threatTier,
+        threatLinkedVarietyScalerApplied = threatLinkedVarietyScalerApplied,
     }
 end
 

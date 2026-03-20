@@ -1174,3 +1174,11 @@
   - `overclockCoachTip` expected for baseline fixture (`HOLD MID-ZONE TEMPO`).
   - glossary copy guard still stable.
 - Verification: `lua scripts/regression_run_summary.lua` PASS; `luac -p src/run_summary.lua` PASS; `luac -p src/hud.lua` PASS.
+
+## 2026-03-21 01:04 KST — Regression coverage for threat-linked variety scaler flag
+- Extended `scripts/regression_mission_momentum.lua` with HIGH-threat lane-switch assertions.
+- Validation run set:
+  - `lua scripts/regression_mission_momentum.lua` (flag OFF baseline)
+  - `DOTPIO_EXPERIMENT_THREAT_LINKED_VARIETY_SCALER=1 lua scripts/regression_mission_momentum.lua` (flag ON scaled payout)
+  - `lua scripts/regression_mission_pressure_breaker.lua` (non-regression guard)
+- Result: PASS all.

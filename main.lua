@@ -51,7 +51,9 @@ end
 
 local function applyMissionProgress(eventId, amount)
     local risingThreat = threatRiseWindow > 0
-    local completion = RunMissions.addProgress(eventId, amount, { risingThreat = risingThreat })
+    local threatCounters = HUD.collectCombatThreatCounters(Entities.enemies)
+    local threatTier = HUD.getBerserkerThreatTier(threatCounters.berserkerThreatScore or 0)
+    local completion = RunMissions.addProgress(eventId, amount, { risingThreat = risingThreat, threatTier = threatTier })
     if not completion then
         return
     end
@@ -59,7 +61,14 @@ local function applyMissionProgress(eventId, amount)
     local rewardSrl = completion.rewardSrl or 0
     local laneBonus = completion.laneSwitchBonusSrl or 0
     local pressureBreakerCharge = completion.pressureBreakerDodgeCharge or 0
-    local laneBonusSuffix = laneBonus > 0 and string.format(" [VARIETY +%d]", laneBonus) or ""
+    local laneBonusSuffix = ""
+    if laneBonus > 0 then
+        if completion.threatLinkedVarietyScalerApplied then
+            laneBonusSuffix = string.format(" [VARIETY +%d HIGH-THREAT SCALER]", laneBonus)
+        else
+            laneBonusSuffix = string.format(" [VARIETY +%d]", laneBonus)
+        end
+    end
     local pressureBreakerSuffix = ""
     if pressureBreakerCharge > 0 then
         local totalCharges = Player.grantDodgeCharge(pressureBreakerCharge, 6)
