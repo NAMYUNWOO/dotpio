@@ -28,6 +28,9 @@ expect(HUD.getBerserkerThreatTier(counters.berserkerThreatScore) == "HIGH", "thr
 expect(HUD.getBerserkerThreatTier(3) == "MED", "threat tier should be MED at score >= 3")
 expect(HUD.getBerserkerThreatTier(2) == "LOW", "threat tier should be LOW below medium threshold")
 expect(HUD.getBerserkerThreatTier(nil) == "LOW", "threat tier should default to LOW for missing score")
+expect(HUD.getBerserkerThreatLegend() == "THREAT = BERSERK + 2*LUNGE + RECOVER", "threat legend copy should stay stable")
+expect(HUD.formatBerserkerThreatBreakdown(counters) == "THREAT = 2 + 2*1 + 2 = 6", "threat breakdown should expose weighted formula")
+expect(HUD.formatBerserkerThreatBreakdown(nil) == "THREAT = 0 + 2*0 + 0 = 0", "threat breakdown should be safe on nil")
 
 local lowR, lowG, lowB, lowA = HUD.getBerserkerThreatColor(2)
 expect(lowR == 0.5 and lowG == 1 and lowB == 0.62 and lowA == 1, "LOW tier color should be green")

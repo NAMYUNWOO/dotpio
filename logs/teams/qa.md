@@ -936,3 +936,9 @@
   - `luac -p src/hud.lua scripts/regression_hud_berserker_counters.lua`
   - `lua scripts/regression_hud_berserker_counters.lua`
 - Result: PASS; tier mapping + color mapping assertions all validated.
+
+## 2026-03-20 10:06 KST — Threat formula regression extension
+- Verification:
+  - `luac -p main.lua src/hud.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+- Result: PASS; legend string and weighted breakdown formatting assertions validated.

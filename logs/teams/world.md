@@ -184,3 +184,6 @@
 
 ## 2026-03-20 09:28 KST — No world/map delta
 - Scope check: HUD color-coding change touched no map, portal, or progression assets.
+
+## 2026-03-20 10:06 KST — No world/map delta
+- Scope check: threat-formula legend update touched no map, portal, or traversal assets.

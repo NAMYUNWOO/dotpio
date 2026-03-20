@@ -175,10 +175,11 @@ function love.update(dt)
         end
     end
     if visibleEnrageCount > 0 then
+        local threatHint = "THREAT=B+2L+R"
         if visibleEnrageCount == 1 then
-            InventoryUI.setStatus("BERSERKER ENRAGED: LOW-HP SPIKE INCOMING")
+            InventoryUI.setStatus(string.format("BERSERKER ENRAGED: LOW-HP SPIKE INCOMING [%s]", threatHint))
         else
-            InventoryUI.setStatus(string.format("BERSERKERS ENRAGED x%d: LOW-HP SPIKES INCOMING", visibleEnrageCount))
+            InventoryUI.setStatus(string.format("BERSERKERS ENRAGED x%d: LOW-HP SPIKES INCOMING [%s]", visibleEnrageCount, threatHint))
         end
     end
 

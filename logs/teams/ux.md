@@ -374,3 +374,7 @@
 ## 2026-03-20 09:28 KST — Threat strip legibility update
 - Copy unchanged (`Threat: <score> (<tier>)`), but tier line now uses tier-aware color for faster interpretation.
 - Decision: preserve text-first readability and avoid hidden color-only meaning by keeping explicit tier token.
+
+## 2026-03-20 10:06 KST — Combat status formula hint copy
+- Added compact enrage status suffix (`[THREAT=B+2L+R]`) so players learn threat math from existing combat feed.
+- Added HUD formula row only while berserkers are active to avoid baseline HUD noise.

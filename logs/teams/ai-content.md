@@ -190,3 +190,6 @@
 
 ## 2026-03-20 09:28 KST — No AI-content schema changes
 - Scope check: threat-tier color coding is deterministic HUD rendering; no AI prompt/output constraints changed.
+
+## 2026-03-20 10:06 KST — No AI-content generation delta
+- Threat-formula legend/status hints are deterministic UI copy changes; AI generation constraints unchanged.

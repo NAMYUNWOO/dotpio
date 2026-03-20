@@ -197,3 +197,7 @@ See project-level plans:
   - [x] Add tier-to-color resolver helper in HUD module
   - [x] Render threat line using tier-specific color while preserving DOS compact text layout
   - [x] Extend HUD threat regression coverage for tier color mapping
+- [x] Add compact berserker threat-formula legend in HUD/combat status (`THREAT = BERSERK + 2*LUNGE + RECOVER`)
+  - [x] Add reusable HUD formatter for weighted threat breakdown text
+  - [x] Surface formula hint in berserker enrage status feed copy for quick onboarding
+  - [x] Extend HUD threat regression coverage for formula-string stability

@@ -545,3 +545,7 @@
 ## 2026-03-20 09:28 KST — Threat-tier color mapping helper
 - Decision: added deterministic `HUD.getBerserkerThreatColor(score)` helper keyed by existing threat tiers to keep presentation logic centralized.
 - System impact: UI-only; no SRL economy or mission payout changes.
+
+## 2026-03-20 10:06 KST — Threat formula helper centralization
+- Added reusable HUD helper methods (`getBerserkerThreatLegend`, `formatBerserkerThreatBreakdown`) to keep weighting semantics single-sourced.
+- Scope remains presentation-only; no mission reward/economy constants touched.

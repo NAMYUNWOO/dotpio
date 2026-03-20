@@ -378,3 +378,19 @@ Compact decision memory for AI context efficiency.
   - Marked item done in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
 - Next priority item:
   - No unchecked entries remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject next Game Director experiment candidate.
+
+## 2026-03-20 10:06 KST — Post-RC Combat Readability: Threat formula legend
+- Completed item:
+  - `UX/Combat Team: Add compact berserker threat formula legend in HUD/combat status (THREAT = BERSERK + 2*LUNGE + RECOVER)`
+- Product decisions:
+  - Added reusable helpers in `src/hud.lua` for threat legend and weighted breakdown formatting.
+  - HUD now shows live decomposition line when berserkers are active: `THREAT = <berserk> + 2*<lunge> + <recover> = <score>`.
+  - Enrage combat status copy now includes compact teaching token: `[THREAT=B+2L+R]`.
+- Verification set:
+  - `luac -p main.lua src/hud.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+- Backlog sync:
+  - Marked done in `POST_RC_BACKLOG.md`.
+  - Added mirrored completed entry in `TASKS.md`.
+- Next priority:
+  - No unchecked entries remain in ACTION_ITEMS/TASKS/POST_RC; queue next Game Director experiment candidate (e.g., threat-aware onboarding micro-tip decay logic).

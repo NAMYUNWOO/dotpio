@@ -157,3 +157,8 @@
 ## 2026-03-20 09:28 KST — Combat readability color pass
 - Decision: threat-tier line now color-codes semantic danger (`LOW` green / `MED` amber / `HIGH` red) while preserving existing compact text.
 - Follow-up: if players overfocus on color-only signal, consider subtle glyph reinforcement in a later UX pass.
+
+## 2026-03-20 10:06 KST — Threat formula legend follow-up
+- Completed readability follow-up: exposed weighted threat formula directly in active berserker HUD strip via `THREAT = B + 2*L + R` breakdown line.
+- Decision: keep formula live-computed from counters so score decomposition remains auditable during high-pressure turns.
+- Follow-up: if line wraps on lower resolutions, collapse to compact token format (`T=B+2L+R`) behind config flag.

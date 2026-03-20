@@ -22,6 +22,19 @@ function HUD.getBerserkerThreatColor(score)
     return 0.5, 1, 0.62, 1
 end
 
+function HUD.getBerserkerThreatLegend()
+    return "THREAT = BERSERK + 2*LUNGE + RECOVER"
+end
+
+function HUD.formatBerserkerThreatBreakdown(counters)
+    counters = counters or {}
+    local berserkers = tonumber(counters.desperateBerserkers) or 0
+    local lunges = tonumber(counters.primedBerserkerLunges) or 0
+    local recoveries = tonumber(counters.recoveringBerserkers) or 0
+    local score = tonumber(counters.berserkerThreatScore) or (berserkers + (lunges * 2) + recoveries)
+    return string.format("THREAT = %d + 2*%d + %d = %d", berserkers, lunges, recoveries, score)
+end
+
 function HUD.collectCombatThreatCounters(enemies)
     local counters = {
         alive = 0,
@@ -178,7 +191,11 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
         if counters.recoveringBerserkers > 0 then
             love.graphics.setColor(1, 0.78, 0.38, 1)
             love.graphics.print(string.format("Recovering: %d", counters.recoveringBerserkers), 160, rowY)
+            rowY = rowY + 16
         end
+
+        love.graphics.setColor(0.78, 0.88, 1, 1)
+        love.graphics.print(HUD.formatBerserkerThreatBreakdown(counters), 160, rowY)
     end
     love.graphics.setColor(0.6,0.6,0.6,1)
     love.graphics.print("WASD:Move  Click:Magic  Space:Melee  E:Search  G:Pickup  R:Restart", 16, 74)
