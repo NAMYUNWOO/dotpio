@@ -342,3 +342,14 @@
 ## 2026-03-21 03:35 KST — Cross-lane combat note
 - No combat pacing/math changes in this cycle.
 - Added pending experiment candidate for future cycle: route-pressure token that may consume threat-tier context (`PRESSURE:<n>`), currently backlog-only.
+
+## 2026-03-21 04:12 KST — Portal transition prompt token-order linter + budget parser
+- Task: QA/Design backlog closure for transition prompt readability order enforcement.
+- Scope touched:
+  - `src/portal_prompt_linter.lua`
+  - `scripts/check_portal_prompt_token_order.lua`
+  - `scripts/regression_portal_prompt_token_order.lua`
+  - `POST_RC_BACKLOG.md`
+- Decision: enforce prompt semantic order `ACTION -> ROUTE -> COACH -> PRESSURE` in sampled portal prompt variants and verify budget-selection behavior at configurable char limits.
+- Verification: `luac -p src/portal_prompt_linter.lua scripts/check_portal_prompt_token_order.lua scripts/regression_portal_prompt_token_order.lua`, `lua scripts/regression_portal_prompt_token_order.lua`, `lua scripts/check_portal_prompt_token_order.lua`.
+- Follow-up: next unchecked item is adaptive portal hint prototype (`ALT ROUTE:<SAFE|RISK|SPIKE>`).

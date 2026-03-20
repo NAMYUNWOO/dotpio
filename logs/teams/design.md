@@ -336,3 +336,14 @@
 ## 2026-03-21 03:36 KST — Cycle G design note
 - Added explicit transition-pressure communication at portal decision time to reinforce risk/reward route fantasy.
 - Pressure token remains additive/readability-only; no route topology or combat balance mutation in this slice.
+
+## 2026-03-21 04:12 KST — Portal transition prompt token-order linter + budget parser
+- Task: QA/Design backlog closure for transition prompt readability order enforcement.
+- Scope touched:
+  - `src/portal_prompt_linter.lua`
+  - `scripts/check_portal_prompt_token_order.lua`
+  - `scripts/regression_portal_prompt_token_order.lua`
+  - `POST_RC_BACKLOG.md`
+- Decision: enforce prompt semantic order `ACTION -> ROUTE -> COACH -> PRESSURE` in sampled portal prompt variants and verify budget-selection behavior at configurable char limits.
+- Verification: `luac -p src/portal_prompt_linter.lua scripts/check_portal_prompt_token_order.lua scripts/regression_portal_prompt_token_order.lua`, `lua scripts/regression_portal_prompt_token_order.lua`, `lua scripts/check_portal_prompt_token_order.lua`.
+- Follow-up: next unchecked item is adaptive portal hint prototype (`ALT ROUTE:<SAFE|RISK|SPIKE>`).

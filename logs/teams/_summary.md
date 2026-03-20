@@ -885,3 +885,21 @@ Compact decision memory for AI context efficiency.
 - Backlog sync:
   - Marked Cycle F pressure-token item done.
   - Added Cycle G trio with two follow-ups retained (token-order linter, adaptive alt-route hint).
+
+## 2026-03-21 04:12 KST — Cycle G follow-up: transition prompt token-order linter + budget parser
+- Completed backlog closure items:
+  - `QA/Design Team: Add transition prompt token-order linter (warn when readability order deviates from ACTION->ROUTE->COACH/PRESSURE)`
+  - `QA/Design Team: Add transition prompt token-order linter and budget parser (warn when token sequence deviates from ACTION -> ROUTE -> COACH -> PRESSURE)`
+- Shipped tooling:
+  - `src/portal_prompt_linter.lua` (shared prompt-order + budget-selection analyzer)
+  - `scripts/check_portal_prompt_token_order.lua` (artifact generator)
+  - `scripts/regression_portal_prompt_token_order.lua` (baseline regression)
+- Evidence (PASS):
+  - `luac -p src/portal_prompt_linter.lua scripts/check_portal_prompt_token_order.lua scripts/regression_portal_prompt_token_order.lua`
+  - `lua scripts/regression_portal_prompt_token_order.lua`
+  - `lua scripts/check_portal_prompt_token_order.lua`
+- Artifact output:
+  - `logs/playtests/portal_prompt_token_order.md`
+  - `logs/playtests/portal_prompt_token_order.json`
+- Next highest-priority unchecked backlog item:
+  - `World/Design Team: Prototype adaptive portal hint (ALT ROUTE:<SAFE|RISK|SPIKE>) suggesting a lower-pressure branch when current pressure is high`.
