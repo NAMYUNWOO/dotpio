@@ -136,5 +136,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-21 Cycle I)
 - [x] UX/World Team: Prototype adaptive portal nudge token (`ALT PLAN:LOWER RISK`) behind experiment flag for HIGH-pressure transitions
-- [ ] Systems/Combat Team: Prototype overclock retreat streak bonus (grant +1 temporary dodge after 2 consecutive safe disengages)
+- [x] Systems/Combat Team: Prototype overclock retreat streak bonus (grant +1 temporary dodge after 2 consecutive safe disengages)
 - [ ] QA/Systems Team: Add weekly portal prompt readability drift digest (compact/detailed token stats over last N commits)

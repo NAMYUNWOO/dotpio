@@ -809,3 +809,8 @@
 - Implementation: Added experiment-flagged prompt token in `src/portal.lua` (`ALT PLAN:LOWER RISK` detailed / `AP:LOW` compact) gated by `DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE`.
 - Verification: `lua scripts/regression_portal_prompt_adaptive_alt_readability.lua`, `DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE=1 lua scripts/regression_portal_alt_plan_nudge.lua`, `lua scripts/regression_portal_prompt_compact_mode.lua`, `lua scripts/regression_portal_prompt_token_order.lua`.
 - Follow-up: Monitor readability impact in playtests before promoting flag default.
+
+## 2026-03-21 06:03 KST
+- Task: Prototype overclock retreat streak bonus (+1 temporary dodge after 2 consecutive safe disengages).
+- Decision: Added retreat streak state machine in `src/overclock_hazard.lua` (`retreatDisengagePending`, `retreatStreak`) and bonus emit event `retreatStreakBonusDodgeCharges=1` on second consecutive safe pulse disengage.
+- Follow-up: Keep bonus isolated to overclock pulse expiry-outside-zone path; no reward if player re-enters before expiry.

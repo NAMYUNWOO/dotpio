@@ -1284,3 +1284,9 @@
 - Implementation: Added experiment-flagged prompt token in `src/portal.lua` (`ALT PLAN:LOWER RISK` detailed / `AP:LOW` compact) gated by `DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE`.
 - Verification: `lua scripts/regression_portal_prompt_adaptive_alt_readability.lua`, `DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE=1 lua scripts/regression_portal_alt_plan_nudge.lua`, `lua scripts/regression_portal_prompt_compact_mode.lua`, `lua scripts/regression_portal_prompt_token_order.lua`.
 - Follow-up: Monitor readability impact in playtests before promoting flag default.
+
+## 2026-03-21 06:03 KST
+- Task: Regression coverage for overclock retreat streak bonus.
+- Decision: Extended `scripts/regression_overclock_hazard.lua` with two-cycle safe disengage fixture; assert no reward on first disengage, +1 on second.
+- Verification: `lua scripts/regression_overclock_hazard.lua` PASS; `luac -p src/overclock_hazard.lua main.lua` PASS.
+- Follow-up: Next QA item remains weekly portal prompt readability drift digest automation.

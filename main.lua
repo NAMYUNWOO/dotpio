@@ -185,6 +185,11 @@ function love.update(dt)
     elseif overclockEvents.expired then
         InventoryUI.setStatus("OVERCLOCK COOLED: SRL DISCOUNT OFF")
     end
+    local retreatBonusCharges = math.max(0, math.floor(tonumber(overclockEvents.retreatStreakBonusDodgeCharges) or 0))
+    if retreatBonusCharges > 0 then
+        local totalCharges = Player.grantDodgeCharge(retreatBonusCharges, 6)
+        InventoryUI.setStatus(string.format("OVERCLOCK RETREAT STREAK: +%d DODGE (%ds) | READY:%d", retreatBonusCharges, 6, totalCharges))
+    end
 
     threatRiseWindow = math.max(0, threatRiseWindow - dt)
 

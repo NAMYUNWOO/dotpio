@@ -13,6 +13,8 @@ local state = {
     exposureSeconds = 0,
     reliefTimer = 0,
     pendingRelief = false,
+    retreatDisengagePending = false,
+    retreatStreak = 0,
     runDwellSeconds = { LOW = 0, MID = 0, HIGH = 0 },
     runRewardSrl = 0,
 }
@@ -240,6 +242,9 @@ local function getReliefToken()
     return string.format("WINDOW:%ds", getReliefSeconds())
 end
 
+local RETREAT_STREAK_TARGET = 2
+local RETREAT_STREAK_BONUS_DODGE_CHARGE = 1
+
 function OverclockHazard.onMapLoaded(mapName, metadata)
     state.mapName = tostring(mapName or "")
     state.zone = resolveZone(metadata)
@@ -251,6 +256,8 @@ function OverclockHazard.onMapLoaded(mapName, metadata)
     state.exposureSeconds = 0
     state.reliefTimer = 0
     state.pendingRelief = false
+    state.retreatDisengagePending = false
+    state.retreatStreak = 0
 end
 
 function OverclockHazard.resetRunTelemetry()
@@ -290,6 +297,10 @@ function OverclockHazard.update(dt, playerX, playerY)
         state.pendingRelief = false
         if not state.enteredZone then
             state.enteredZone = true
+            if state.retreatDisengagePending then
+                state.retreatDisengagePending = false
+                state.retreatStreak = 0
+            end
             if (not state.pulseActive) and state.cooldownTimer <= 0 then
                 state.pulseActive = true
                 state.pulseTimer = state.zone.pulseDuration
@@ -303,12 +314,24 @@ function OverclockHazard.update(dt, playerX, playerY)
         state.exposureSeconds = 0
         if wasPulseActive and (state.cooldownTimer or 0) > 0 then
             state.pendingRelief = true
+            state.retreatDisengagePending = true
         end
     end
 
     if events.expired and (not state.enteredZone) and state.pendingRelief and (state.cooldownTimer or 0) > 0 then
         state.reliefTimer = math.min(state.zone.reliefWindowDuration or 0, state.cooldownTimer or 0)
         state.pendingRelief = false
+        if state.retreatDisengagePending then
+            state.retreatStreak = (state.retreatStreak or 0) + 1
+            state.retreatDisengagePending = false
+            if state.retreatStreak >= RETREAT_STREAK_TARGET then
+                events.retreatStreakBonusDodgeCharges = RETREAT_STREAK_BONUS_DODGE_CHARGE
+                state.retreatStreak = 0
+            end
+        end
+    elseif events.expired then
+        state.retreatDisengagePending = false
+        state.retreatStreak = 0
     end
 
     if (state.cooldownTimer or 0) <= 0 then

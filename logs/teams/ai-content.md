@@ -394,3 +394,8 @@
 - Implementation: Added experiment-flagged prompt token in `src/portal.lua` (`ALT PLAN:LOWER RISK` detailed / `AP:LOW` compact) gated by `DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE`.
 - Verification: `lua scripts/regression_portal_prompt_adaptive_alt_readability.lua`, `DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE=1 lua scripts/regression_portal_alt_plan_nudge.lua`, `lua scripts/regression_portal_prompt_compact_mode.lua`, `lua scripts/regression_portal_prompt_token_order.lua`.
 - Follow-up: Monitor readability impact in playtests before promoting flag default.
+
+## 2026-03-21 06:03 KST
+- Task: AI content lane review for retreat streak prototype cycle.
+- Decision: No AI generation prompt/content changes required for this systems/combat-only experiment.
+- Follow-up: Sync terminology if future run-summary coach text references retreat streak outcomes.

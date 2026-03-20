@@ -375,3 +375,9 @@
 - Implementation: Added experiment-flagged prompt token in `src/portal.lua` (`ALT PLAN:LOWER RISK` detailed / `AP:LOW` compact) gated by `DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE`.
 - Verification: `lua scripts/regression_portal_prompt_adaptive_alt_readability.lua`, `DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE=1 lua scripts/regression_portal_alt_plan_nudge.lua`, `lua scripts/regression_portal_prompt_compact_mode.lua`, `lua scripts/regression_portal_prompt_token_order.lua`.
 - Follow-up: Monitor readability impact in playtests before promoting flag default.
+
+## 2026-03-21 06:03 KST
+- Task: Combat survivability experiment tied to overclock retreat behavior.
+- Decision: Wired temporary dodge charge grant in `main.lua` when overclock module emits retreat streak bonus event.
+- Evidence: Status copy `OVERCLOCK RETREAT STREAK: +1 DODGE (6s)` confirms live trigger path.
+- Follow-up: Track whether dodge burst meaningfully changes death spikes in hazard-heavy maps.

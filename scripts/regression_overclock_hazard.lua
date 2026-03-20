@@ -154,6 +154,28 @@ expect(not reliefExpiredHint:find("WINDOW:"), "relief window token should expire
 OverclockHazard.onMapLoaded("07", {
     overclockHazard = {
         rect = { x = 10, y = 10, w = 4, h = 4 },
+        discountPct = 0.3,
+        pulseDuration = 2,
+        cooldownDuration = 6,
+    }
+})
+local retreatCycleOneEnter = OverclockHazard.update(0.1, 11, 11)
+expect(retreatCycleOneEnter.activated == true, "retreat streak cycle #1 should activate pulse")
+OverclockHazard.update(0.2, 2, 2)
+local retreatCycleOneExpire = OverclockHazard.update(2.1, 2, 2)
+expect(retreatCycleOneExpire.expired == true, "retreat streak cycle #1 should expire while outside zone")
+expect((retreatCycleOneExpire.retreatStreakBonusDodgeCharges or 0) == 0, "single safe disengage should not grant retreat streak dodge bonus")
+
+local retreatCycleTwoEnter = OverclockHazard.update(6.1, 11, 11)
+expect(retreatCycleTwoEnter.activated == true, "retreat streak cycle #2 should reactivate pulse after cooldown")
+OverclockHazard.update(0.2, 2, 2)
+local retreatCycleTwoExpire = OverclockHazard.update(2.1, 2, 2)
+expect(retreatCycleTwoExpire.expired == true, "retreat streak cycle #2 should expire while outside zone")
+expect((retreatCycleTwoExpire.retreatStreakBonusDodgeCharges or 0) == 1, "two consecutive safe disengages should grant retreat streak dodge bonus")
+
+OverclockHazard.onMapLoaded("07", {
+    overclockHazard = {
+        rect = { x = 10, y = 10, w = 4, h = 4 },
         discountPct = 0.2,
         aggroMoveMul = 0.9,
         aggroDetectBonus = 1,

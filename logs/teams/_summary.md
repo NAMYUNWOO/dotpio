@@ -966,3 +966,10 @@ Compact decision memory for AI context efficiency.
 - Safety/rollback: feature is fully off by default; disable by unsetting the env flag.
 - Verification: portal prompt regression suite remains green with/without flag.
 - Backlog injection updated in `POST_RC_BACKLOG.md` (Cycle I): selected idea marked done; 2 follow-up ideas queued unchecked.
+
+## 2026-03-21 06:03 KST — Retreat Streak Bonus Prototype (Cycle I item 2)
+- Completed: `POST_RC_BACKLOG` item `Systems/Combat Team: Prototype overclock retreat streak bonus`.
+- Core implementation: `src/overclock_hazard.lua` now tracks consecutive safe disengages and emits one dodge-charge bonus on every 2nd valid streak completion.
+- Runtime integration: `main.lua` consumes event, grants 6s temporary dodge via `Player.grantDodgeCharge`, and prints explicit status feedback.
+- Regression: `scripts/regression_overclock_hazard.lua` now validates first disengage=0 bonus, second consecutive disengage=+1 bonus.
+- Remaining top backlog item: `QA/Systems Team: Add weekly portal prompt readability drift digest (compact/detailed token stats over last N commits)`.
