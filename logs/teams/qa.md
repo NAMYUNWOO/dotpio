@@ -1161,3 +1161,16 @@
 - Decision: Classified volatility from run-to-run total-exposure relative deltas (`maxΔ>=45%` or `avgΔ>=30%` => `SWING`; else `STEADY`) to keep signal compact/reversible.
 - Verification: `python3 -m py_compile scripts/overclock_dwell_trend.py scripts/regression_overclock_dwell_trend.py`; `python3 scripts/regression_overclock_dwell_trend.py`; `python3 scripts/overclock_dwell_trend.py --runs 3`.
 - Follow-up: Remaining unchecked backlog item is `QA/UX Team: run-summary overclock analytics glossary row (DWELL/EFF/PROFILE)`.
+
+## 2026-03-21 00:32 KST — Regression coverage updated for run-summary overclock glossary
+- Added assertion in `scripts/regression_run_summary.lua` to lock glossary copy for `DWELL/EFF/PROFILE` tokens.
+- Verified:
+  - `lua scripts/regression_run_summary.lua` → PASS
+  - `luac -p src/hud.lua` → PASS
+- Result: checklist item validated with automated evidence.
+
+## 2026-03-21 00:36 KST — Coach cue regression evidence
+- Extended `scripts/regression_run_summary.lua` assertions:
+  - `overclockCoachTip` expected for baseline fixture (`HOLD MID-ZONE TEMPO`).
+  - glossary copy guard still stable.
+- Verification: `lua scripts/regression_run_summary.lua` PASS; `luac -p src/run_summary.lua` PASS; `luac -p src/hud.lua` PASS.

@@ -738,3 +738,33 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/overclock_dwell_trend.py --runs 3`
 - Backlog sync: marked the volatility token item done in `POST_RC_BACKLOG.md`.
 - Next priority item: `QA/UX Team: Add compact run-summary tooltip glossary row for overclock analytics tokens (DWELL, EFF, PROFILE)`.
+
+## 2026-03-21 00:32 KST — Post-RC backlog closure: run-summary overclock glossary row
+- Closed remaining unchecked Post-RC item by shipping a compact glossary row in run summary:
+  - `GLOSSARY: DWELL=EXPOSURE sec(L/M/H)  EFF=SRL/EXPOSED sec  PROFILE=COMMIT TIER`
+- Files:
+  - `src/hud.lua` (new glossary helper + rendered row)
+  - `scripts/regression_run_summary.lua` (copy-stability assertion)
+  - `POST_RC_BACKLOG.md` (item lifecycle `[ ] -> [~] -> [x]`)
+- Verification:
+  - `lua scripts/regression_run_summary.lua` PASS
+  - `luac -p src/hud.lua` PASS
+- State: ACTION_ITEMS/TASKS/POST_RC_BACKLOG all checked; next cycle should execute Game Director review loop (3 ideas -> pick 1 -> minimal vertical slice).
+
+## 2026-03-21 00:36 KST — Game Director Cycle C executed (all prior backlogs completed)
+- Idea slate generated:
+  1) Low-risk UX: run-summary `COACH` cue from `PROFILE + EFF`
+  2) Mid-risk systems: HIGH-threat objective clear boosts variety payout
+  3) High-risk novelty: hazard route tags (`SAFE|RISK|SPIKE`) + HUD callout
+- Chosen experiment: #1 (minimal vertical slice, reversible).
+- Implementation:
+  - `src/run_summary.lua`: added `resolveOverclockCoachTip(...)` and snapshot field `overclockCoachTip`.
+  - `src/hud.lua`: renders `OVERCLOCK COACH: <tip>` line in run summary.
+  - `scripts/regression_run_summary.lua`: added assertion for coach tip and kept glossary copy guard.
+- Verification:
+  - `lua scripts/regression_run_summary.lua` PASS
+  - `luac -p src/run_summary.lua` PASS
+  - `luac -p src/hud.lua` PASS
+- Backlog updates (`POST_RC_BACKLOG.md`):
+  - Coach cue task marked done.
+  - Threat-scaler + hazard-route-tag tasks injected as next experiment candidates.

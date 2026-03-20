@@ -60,6 +60,10 @@ function HUD.formatBerserkerThreatBreakdown(counters)
     return string.format("THREAT = %d + 2*%d + %d = %d", berserkers, lunges, recoveries, score)
 end
 
+function HUD.getRunSummaryOverclockGlossary()
+    return "GLOSSARY: DWELL=EXPOSURE sec(L/M/H)  EFF=SRL/EXPOSED sec  PROFILE=COMMIT TIER"
+end
+
 function HUD.collectCombatThreatCounters(enemies)
     local counters = {
         alive = 0,
@@ -195,6 +199,14 @@ local function drawRunSummary(runSummary)
     row = row + 20
     love.graphics.setColor(0.92, 0.86, 0.64, 1)
     love.graphics.printf(string.format("OVERCLOCK PROFILE: %s", string.upper(tostring(data.overclockProfile or "BALANCED"))), 112, row, w - 224, "left")
+
+    row = row + 20
+    love.graphics.setColor(0.7, 0.92, 0.78, 1)
+    love.graphics.printf(string.format("OVERCLOCK COACH: %s", string.upper(tostring(data.overclockCoachTip or "HOLD MID-ZONE TEMPO"))), 112, row, w - 224, "left")
+
+    row = row + 20
+    love.graphics.setColor(0.72, 0.82, 0.9, 1)
+    love.graphics.printf(HUD.getRunSummaryOverclockGlossary(), 112, row, w - 224, "left")
 
     love.graphics.setColor(0.65, 0.65, 0.65, 1)
     love.graphics.printf("Press R / Enter / Esc to close", 0, h - 148, w, "center")

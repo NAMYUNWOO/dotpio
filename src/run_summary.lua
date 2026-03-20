@@ -39,11 +39,50 @@ local function resolveOverclockProfile(low, mid, high)
     return "BALANCED"
 end
 
+local function resolveOverclockCoachTip(profile, totalExposureSec, rewardSrl)
+    local exposure = math.max(0, math.floor(tonumber(totalExposureSec) or 0))
+    local reward = math.max(0, math.floor(tonumber(rewardSrl) or 0))
+    local efficiency = exposure > 0 and (reward / exposure) or 0
+
+    if exposure <= 0 then
+        return "SEED HOT-ZONE REPS"
+    end
+
+    if profile == "ALL-IN" then
+        if efficiency < 0.40 then
+            return "DISENGAGE AFTER CAP"
+        end
+        return "PRESS HOT STREAKS"
+    end
+
+    if profile == "CAUTIOUS" then
+        if efficiency >= 0.45 then
+            return "EXTEND HOT WINDOWS"
+        end
+        return "TEST MID-RISK RE-ENTRY"
+    end
+
+    if efficiency >= 0.50 then
+        return "LOCK BALANCED ROUTE"
+    end
+    if efficiency < 0.30 then
+        return "CHASE CLEANER PICKS"
+    end
+    return "HOLD MID-ZONE TEMPO"
+end
+
 function RunSummary.open(missionState, unlockFlags, appliedCarry, overclockDwellBuckets, overclockRewardSrl)
     local missionsDone = (missionState and missionState.doneCount) or 0
     local missionsTotal = (missionState and missionState.total) or 0
     local objectives = cloneObjectives((missionState and missionState.objectives) or {})
     local advancedUnlocked = unlockFlags and unlockFlags.advanced_build_categories == true
+
+    local dwellLow = math.max(0, math.floor((overclockDwellBuckets and overclockDwellBuckets.LOW) or 0))
+    local dwellMid = math.max(0, math.floor((overclockDwellBuckets and overclockDwellBuckets.MID) or 0))
+    local dwellHigh = math.max(0, math.floor((overclockDwellBuckets and overclockDwellBuckets.HIGH) or 0))
+    local rewardSrl = math.max(0, math.floor(tonumber(overclockRewardSrl) or 0))
+    local profile = resolveOverclockProfile(dwellLow, dwellMid, dwellHigh)
+    local exposureTotal = dwellLow + dwellMid + dwellHigh
 
     state.data = {
         missionsDone = missionsDone,
@@ -62,16 +101,13 @@ function RunSummary.open(missionState, unlockFlags, appliedCarry, overclockDwell
             gems = (appliedCarry and appliedCarry.gems) or 0,
         },
         overclockDwell = {
-            low = math.max(0, math.floor((overclockDwellBuckets and overclockDwellBuckets.LOW) or 0)),
-            mid = math.max(0, math.floor((overclockDwellBuckets and overclockDwellBuckets.MID) or 0)),
-            high = math.max(0, math.floor((overclockDwellBuckets and overclockDwellBuckets.HIGH) or 0)),
+            low = dwellLow,
+            mid = dwellMid,
+            high = dwellHigh,
         },
-        overclockRewardSrl = math.max(0, math.floor(tonumber(overclockRewardSrl) or 0)),
-        overclockProfile = resolveOverclockProfile(
-            (overclockDwellBuckets and overclockDwellBuckets.LOW) or 0,
-            (overclockDwellBuckets and overclockDwellBuckets.MID) or 0,
-            (overclockDwellBuckets and overclockDwellBuckets.HIGH) or 0
-        ),
+        overclockRewardSrl = rewardSrl,
+        overclockProfile = profile,
+        overclockCoachTip = resolveOverclockCoachTip(profile, exposureTotal, rewardSrl),
     }
     state.active = true
 end

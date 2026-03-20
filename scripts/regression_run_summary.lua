@@ -5,6 +5,7 @@ package.path = "./?.lua;./?/init.lua;" .. package.path
 
 local RunMissions = require("src.run_missions")
 local RunSummary = require("src.run_summary")
+local HUD = require("src.hud")
 
 local function expect(ok, msg)
     if not ok then
@@ -41,6 +42,8 @@ expect(state.data.carry.srl == 4 and state.data.carry.coins == 3 and state.data.
 expect(state.data.overclockDwell.low == 5 and state.data.overclockDwell.mid == 7 and state.data.overclockDwell.high == 1, "overclock dwell buckets should be captured in run summary snapshot")
 expect(state.data.overclockRewardSrl == 6, "overclock reward SRL should be captured in run summary snapshot")
 expect(state.data.overclockProfile == "BALANCED", "overclock profile should be derived from dwell mix")
+expect(state.data.overclockCoachTip == "HOLD MID-ZONE TEMPO", "overclock coach tip should be derived from profile + efficiency envelope")
+expect(HUD.getRunSummaryOverclockGlossary() == "GLOSSARY: DWELL=EXPOSURE sec(L/M/H)  EFF=SRL/EXPOSED sec  PROFILE=COMMIT TIER", "run-summary overclock glossary copy should stay stable")
 
 -- Ensure snapshot data is stable even if mission state changes afterwards.
 RunMissions.addProgress("pickup", 1)

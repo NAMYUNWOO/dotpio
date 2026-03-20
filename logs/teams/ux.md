@@ -558,3 +558,15 @@
 - Decision: Classified volatility from run-to-run total-exposure relative deltas (`maxΔ>=45%` or `avgΔ>=30%` => `SWING`; else `STEADY`) to keep signal compact/reversible.
 - Verification: `python3 -m py_compile scripts/overclock_dwell_trend.py scripts/regression_overclock_dwell_trend.py`; `python3 scripts/regression_overclock_dwell_trend.py`; `python3 scripts/overclock_dwell_trend.py --runs 3`.
 - Follow-up: Remaining unchecked backlog item is `QA/UX Team: run-summary overclock analytics glossary row (DWELL/EFF/PROFILE)`.
+
+## 2026-03-21 00:32 KST — Run-summary overclock analytics glossary row shipped
+- Completed backlog item: added compact run-summary glossary line for overclock analytics tokens.
+- UI copy added in `src/hud.lua`:
+  - `GLOSSARY: DWELL=EXPOSURE sec(L/M/H)  EFF=SRL/EXPOSED sec  PROFILE=COMMIT TIER`
+- Verification: `lua scripts/regression_run_summary.lua` (PASS), `luac -p src/hud.lua` (PASS).
+- Follow-up: monitor readability in next gameplay playtest; adjust wording only if line-wrap harms scan speed.
+
+## 2026-03-21 00:36 KST — Run-summary coaching cue line added
+- Added run-summary line: `OVERCLOCK COACH: <tip>` below `PROFILE` and above glossary row.
+- Goal: make post-run analytics actionable without leaving summary screen.
+- Current BALANCED fixture resolves to `HOLD MID-ZONE TEMPO`.

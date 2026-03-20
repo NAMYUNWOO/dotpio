@@ -288,3 +288,16 @@
 - Decision: Classified volatility from run-to-run total-exposure relative deltas (`maxΔ>=45%` or `avgΔ>=30%` => `SWING`; else `STEADY`) to keep signal compact/reversible.
 - Verification: `python3 -m py_compile scripts/overclock_dwell_trend.py scripts/regression_overclock_dwell_trend.py`; `python3 scripts/regression_overclock_dwell_trend.py`; `python3 scripts/overclock_dwell_trend.py --runs 3`.
 - Follow-up: Remaining unchecked backlog item is `QA/UX Team: run-summary overclock analytics glossary row (DWELL/EFF/PROFILE)`.
+
+## 2026-03-21 00:32 KST — Cross-lane sync: run-summary overclock glossary row
+- Synced backlog closure: compact glossary row for run-summary analytics tokens (`DWELL`, `EFF`, `PROFILE`) is now shipped.
+- Evidence: `scripts/regression_run_summary.lua` PASS + HUD syntax check PASS.
+- No lane-specific balance/system behavior change; readability/documentation-only increment.
+
+## 2026-03-21 00:36 KST — Game Director Cycle C ideation + slice selection
+- Generated 3 candidate ideas:
+  1) Low-risk UX/game-feel: run-summary `COACH` cue derived from `PROFILE + EFF` for immediate next-run guidance.
+  2) Mid-risk systems: threat-linked momentum scaler (`VAR` bonus boost on HIGH threat clears).
+  3) High-risk novelty: hazard route tags (`SAFE|RISK|SPIKE`) with mini-callouts.
+- Selected experiment #1 for this cycle (small reversible UI guidance slice).
+- Follow-up injected tasks remain in `POST_RC_BACKLOG.md` for #2/#3.
