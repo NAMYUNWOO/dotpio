@@ -661,3 +661,7 @@
 - Decision: Kept risk-tier/score static and added state-aware delta signaling (+2 HOT, +1 IMMINENT in-zone cooldown, 0 otherwise) to preserve compact DOS readability.
 - Evidence: `lua scripts/regression_overclock_hazard.lua` => PASS.
 - Follow-up: Consider exposing token color metadata so RISK Δ can mirror rising/neutral/falling pressure semantics in a future wave.
+## 2026-03-20 20:33 KST — P1 hazard readability wave 7: overclock zone-presence token
+- Completed slice: added `ZONE:IN|OUT` token to overclock HUD hints (READY/HOT/CD/IMMINENT) for immediate hazard-context readability.
+- Verification: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua`.
+- Follow-up: inject next Game Director experiment candidate (no unchecked backlog items remain).

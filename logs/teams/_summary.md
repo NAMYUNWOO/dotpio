@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-20 16:55 KST
+Last updated: 2026-03-20 20:33 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -609,3 +609,17 @@ Compact decision memory for AI context efficiency.
   - Marked wave-6 item done in `POST_RC_BACKLOG.md` and mirrored subtask completion in `TASKS.md`.
 - Next priority item:
   - No unchecked entries remain across ACTION_ITEMS/TASKS/POST_RC; inject next validated Game Director experiment candidate.
+
+## 2026-03-20 20:33 KST — P1 hazard readability wave 7 (zone presence token)
+- Completed backlog item: `UX/World Team: Add overclock zone-presence token in HUD hints (ZONE:IN|OUT)`.
+- Durable decisions:
+  - Added `getZonePresenceToken()` in `src/overclock_hazard.lua` driven by in-zone runtime state (`state.enteredZone`).
+  - Overclock READY/HOT/CD/IMMINENT hints now include `ZONE:IN|OUT` while preserving existing risk/bounty/ETA/progress tokens.
+  - Change is readability-only; no hazard balance/economy tuning adjustments.
+- Verification set:
+  - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+- Backlog update:
+  - Marked wave-7 item done in `POST_RC_BACKLOG.md` and mirrored done state in `TASKS.md`.
+- Next priority item:
+  - No unchecked entries remain in ACTION_ITEMS/TASKS/POST_RC; inject next validated Game Director experiment candidate.

@@ -254,3 +254,9 @@ See project-level plans:
   - [x] Add baseline-vs-current risk delta formatter helper in hazard module
   - [x] Surface `RISK Δ` token in READY/HOT/CD/IMMINENT hints while keeping DOS compact copy stable
   - [x] Extend overclock hazard regression coverage for risk-delta token visibility/sign formatting
+
+## Next Up (Post-RC hazard readability wave 7)
+- [x] Add overclock zone-presence token in HUD hints (`ZONE:IN|OUT`)
+  - [x] Add zone-presence token helper in hazard module derived from player in-zone state
+  - [x] Surface `ZONE` token in READY/HOT/CD/IMMINENT overclock HUD hints with compact DOS copy
+  - [x] Extend overclock hazard regression coverage for zone token visibility in inside/outside states

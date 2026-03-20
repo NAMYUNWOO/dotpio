@@ -148,6 +148,13 @@ local function getRiskDeltaToken()
     return "RISK Δ:0"
 end
 
+local function getZonePresenceToken()
+    if state.enteredZone then
+        return "ZONE:IN"
+    end
+    return "ZONE:OUT"
+end
+
 function OverclockHazard.onMapLoaded(mapName, metadata)
     state.mapName = tostring(mapName or "")
     state.zone = resolveZone(metadata)
@@ -251,12 +258,13 @@ function OverclockHazard.getHudHint()
     local riskTier, riskScore = getRiskTier(state.zone)
     local riskBreakdown = getRiskBreakdownToken(state.zone)
     local riskDelta = getRiskDeltaToken()
+    local zonePresence = getZonePresenceToken()
     if state.pulseActive then
         local pulseSeconds = math.max(0, math.ceil(state.pulseTimer or 0))
         local aggroLegend = getAggroPressureLegend(state.zone)
         local bountyProgress = getBountyProgressToken()
         local pulseProgress = getPulseProgressToken()
-        return string.format("OVERCLOCK HOT %ds: -%d%% SRL / %s / %s / %s  RISK:%s(%d) %s %s", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5), aggroLegend, bountyProgress, pulseProgress, riskTier, riskScore, riskDelta, riskBreakdown)
+        return string.format("OVERCLOCK HOT %ds: -%d%% SRL / %s / %s / %s %s  RISK:%s(%d) %s %s", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5), aggroLegend, bountyProgress, pulseProgress, zonePresence, riskTier, riskScore, riskDelta, riskBreakdown)
     end
     if state.cooldownTimer > 0 then
         local cooldownSeconds = math.max(0, math.ceil(state.cooldownTimer))
@@ -264,11 +272,11 @@ function OverclockHazard.getHudHint()
         local nextPulseEta = getNextPulseEtaToken()
         local rechargeProgress = getRechargeProgressToken()
         if state.enteredZone and cooldownSeconds <= 3 then
-            return string.format("OVERCLOCK CD %ds (IMMINENT:%ds) %s %s %s  RISK:%s(%d) %s %s", cooldownSeconds, cooldownSeconds, nextBounty, nextPulseEta, rechargeProgress, riskTier, riskScore, riskDelta, riskBreakdown)
+            return string.format("OVERCLOCK CD %ds (IMMINENT:%ds) %s %s %s %s  RISK:%s(%d) %s %s", cooldownSeconds, cooldownSeconds, nextBounty, nextPulseEta, rechargeProgress, zonePresence, riskTier, riskScore, riskDelta, riskBreakdown)
         end
-        return string.format("OVERCLOCK CD %ds %s %s %s  RISK:%s(%d) %s %s", cooldownSeconds, nextBounty, nextPulseEta, rechargeProgress, riskTier, riskScore, riskDelta, riskBreakdown)
+        return string.format("OVERCLOCK CD %ds %s %s %s %s  RISK:%s(%d) %s %s", cooldownSeconds, nextBounty, nextPulseEta, rechargeProgress, zonePresence, riskTier, riskScore, riskDelta, riskBreakdown)
     end
-    return string.format("OVERCLOCK READY %s %s %s  RISK:%s(%d) %s %s", getNextBountyBudgetToken(), getNextPulseEtaToken(), getRechargeProgressToken(), riskTier, riskScore, riskDelta, riskBreakdown)
+    return string.format("OVERCLOCK READY %s %s %s %s  RISK:%s(%d) %s %s", getNextBountyBudgetToken(), getNextPulseEtaToken(), getRechargeProgressToken(), zonePresence, riskTier, riskScore, riskDelta, riskBreakdown)
 end
 
 function OverclockHazard.debugSetPulse(active, pulseTimer)

@@ -79,3 +79,6 @@ Last updated: 2026-03-20 17:31 KST
 
 ## P1 (Hazard Readability Wave 6)
 - [x] UX/World Team: Add overclock risk-trend token in READY/CD/HOT hints (`RISK Δ:+n|-n`) to show pressure shift from baseline at a glance
+
+## P1 (Hazard Readability Wave 7)
+- [x] UX/World Team: Add overclock zone-presence token in HUD hints (`ZONE:IN|OUT`) so risk context remains clear when near/inside hazard
