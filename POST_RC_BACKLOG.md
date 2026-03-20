@@ -85,3 +85,6 @@ Last updated: 2026-03-20 17:31 KST
 
 ## P1 (Hazard Readability Wave 8)
 - [x] UX/World Team: Add overclock zone exposure-duration token in HUD hints (`EXPOSED:<n>s`) so in-zone commitment risk is glanceable
+
+## P1 (Hazard Readability Wave 9)
+- [x] UX/World Team: Add overclock exposure commitment-tier token in HUD hints (`COMMIT:LOW|MID|HIGH`) derived from `EXPOSED` duration for faster risk read

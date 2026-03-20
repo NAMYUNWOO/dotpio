@@ -266,3 +266,9 @@ See project-level plans:
   - [x] Track continuous in-zone exposure seconds in hazard runtime state
   - [x] Surface `EXPOSED:<n>s` token in HOT/CD/IMMINENT hints while `ZONE:IN`
   - [x] Extend overclock hazard regression coverage for exposure-token visibility/reset behavior
+
+## Next Up (Post-RC hazard readability wave 9)
+- [x] Add overclock exposure commitment-tier token in HUD hints (`COMMIT:LOW|MID|HIGH`)
+  - [x] Add exposure-seconds-to-tier helper in hazard module (`LOW <5s`, `MID <12s`, `HIGH >=12s`)
+  - [x] Surface `COMMIT:<tier>` token in HOT/CD/IMMINENT hints while `ZONE:IN`
+  - [x] Extend overclock hazard regression coverage for commitment-tier progression/reset behavior

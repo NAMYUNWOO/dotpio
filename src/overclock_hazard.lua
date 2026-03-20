@@ -156,9 +156,27 @@ local function getZonePresenceToken()
     return "ZONE:OUT"
 end
 
+local function getExposureSeconds()
+    return math.max(0, math.floor((tonumber(state.exposureSeconds) or 0) + 0.5))
+end
+
 local function getExposureToken()
-    local seconds = math.max(0, math.floor((tonumber(state.exposureSeconds) or 0) + 0.5))
-    return string.format("EXPOSED:%ds", seconds)
+    return string.format("EXPOSED:%ds", getExposureSeconds())
+end
+
+local function getCommitmentTier()
+    local seconds = getExposureSeconds()
+    if seconds >= 12 then
+        return "HIGH"
+    end
+    if seconds >= 5 then
+        return "MID"
+    end
+    return "LOW"
+end
+
+local function getCommitmentToken()
+    return string.format("COMMIT:%s", getCommitmentTier())
 end
 
 function OverclockHazard.onMapLoaded(mapName, metadata)
@@ -272,7 +290,7 @@ function OverclockHazard.getHudHint()
     local zonePresence = getZonePresenceToken()
     local exposureSuffix = ""
     if state.enteredZone then
-        exposureSuffix = " " .. getExposureToken()
+        exposureSuffix = string.format(" %s %s", getExposureToken(), getCommitmentToken())
     end
     if state.pulseActive then
         local pulseSeconds = math.max(0, math.ceil(state.pulseTimer or 0))

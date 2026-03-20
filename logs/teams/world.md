@@ -301,3 +301,9 @@
   - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` ✅
   - `lua scripts/regression_overclock_hazard.lua` ✅
 - Follow-up: Inject next Game Director experiment candidate (no unchecked backlog items remain).
+
+## 2026-03-20 21:34 KST — Post-RC hazard readability wave 9 (`COMMIT` token)
+- Completed item: overclock HUD hints now include `COMMIT:LOW|MID|HIGH` while player is in-zone (`ZONE:IN`), derived from continuous `EXPOSED` duration.
+- Decision: commitment tier thresholds fixed at `LOW <5s`, `MID <12s`, `HIGH >=12s` for compact risk readability without tuning gameplay balance.
+- Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` passed.
+- Follow-up: if additional unchecked backlog item is needed next cycle, queue next hazard readability experiment candidate.

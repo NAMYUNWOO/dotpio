@@ -627,3 +627,17 @@ Compact decision memory for AI context efficiency.
 - Durable decision: exposure timer is continuous-in-zone only (accumulates inside, resets on exit) and is display-only with no hazard balance/economy changes.
 - Regression coverage: `scripts/regression_overclock_hazard.lua` now asserts exposure token presence in-zone and absence out-of-zone.
 - Verification pass: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`, `lua scripts/regression_overclock_hazard.lua`.
+
+## 2026-03-20 21:34 KST — P1 hazard readability wave 9 (exposure commitment tier)
+- Completed backlog item: `UX/World Team: Add overclock exposure commitment-tier token in HUD hints (COMMIT:LOW|MID|HIGH)`.
+- Durable decisions:
+  - Added exposure-tier helpers in `src/overclock_hazard.lua` with stable thresholds (`LOW <5s`, `MID <12s`, `HIGH >=12s`).
+  - HUD hints now append `COMMIT:<tier>` alongside `EXPOSED:<n>s` during HOT/CD/IMMINENT in-zone states; token clears when player leaves zone (`ZONE:OUT`).
+  - Change is readability-only (no economy/combat parameter changes).
+- Verification set:
+  - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+- Backlog update:
+  - Marked wave-9 done in `POST_RC_BACKLOG.md` and mirrored done state in `TASKS.md`.
+- Next priority item:
+  - No unchecked entries currently remain in ACTION_ITEMS/TASKS/POST_RC; inject next validated Game Director experiment candidate.
