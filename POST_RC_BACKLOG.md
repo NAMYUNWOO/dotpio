@@ -1,6 +1,6 @@
 # POST_RC_BACKLOG
 
-Last updated: 2026-03-20 06:58 KST
+Last updated: 2026-03-20 10:57 KST
 
 ## P0 (Now)
 - [x] Replace F9-centric build flow with Enter->Action menu primary flow
@@ -43,3 +43,12 @@ Last updated: 2026-03-20 06:58 KST
 - [x] UX/Combat Team: Color-code berserker threat-tier label in HUD (`LOW`=green, `MED`=amber, `HIGH`=red) for faster parsing
 - [x] UX/Combat Team: Add compact berserker threat formula legend in HUD/combat status (`THREAT = BERSERK + 2*LUNGE + RECOVER`)
 - [x] UX/Combat Team: Add turn-over-turn berserker threat delta indicator in HUD (`THREAT Δ:+n|-n`) for pacing readability
+
+## P1 (Next Gameplay Wave)
+- [ ] Combat Team: Add elite enemy skill markers + pre-impact telegraph VFX timing windows
+- [ ] Design Team: Introduce map landmark set (3 motifs) and tie portal placement to landmark semantics
+- [ ] Systems Team: Add build recipe affinity tags and synergy bonus outcomes
+
+## P2 (Ops/Telemetry Next)
+- [ ] QA/Systems: Add weekly changelog drift detector (code changes without corresponding team-log/report entry)
+- [ ] Ops: Add sustain dashboard “regression risk score” (0~100) with threshold alert section
