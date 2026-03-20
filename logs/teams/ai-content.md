@@ -372,3 +372,8 @@
 - Decision: enforce prompt semantic order `ACTION -> ROUTE -> COACH -> PRESSURE` in sampled portal prompt variants and verify budget-selection behavior at configurable char limits.
 - Verification: `luac -p src/portal_prompt_linter.lua scripts/check_portal_prompt_token_order.lua scripts/regression_portal_prompt_token_order.lua`, `lua scripts/regression_portal_prompt_token_order.lua`, `lua scripts/check_portal_prompt_token_order.lua`.
 - Follow-up: next unchecked item is adaptive portal hint prototype (`ALT ROUTE:<SAFE|RISK|SPIKE>`).
+
+## 2026-03-21 04:34 KST — Director ideation cycle H context
+- Idea slate reviewed for portal decision readability under combat pressure.
+- No AI item-generation schema change required this slice.
+- Follow-up hook: if ALT selector v2 ships, add lightweight coaching copy variants tied to reachable branch confidence.

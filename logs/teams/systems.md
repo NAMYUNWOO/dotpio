@@ -786,3 +786,9 @@
 - Decision: enforce prompt semantic order `ACTION -> ROUTE -> COACH -> PRESSURE` in sampled portal prompt variants and verify budget-selection behavior at configurable char limits.
 - Verification: `luac -p src/portal_prompt_linter.lua scripts/check_portal_prompt_token_order.lua scripts/regression_portal_prompt_token_order.lua`, `lua scripts/regression_portal_prompt_token_order.lua`, `lua scripts/check_portal_prompt_token_order.lua`.
 - Follow-up: next unchecked item is adaptive portal hint prototype (`ALT ROUTE:<SAFE|RISK|SPIKE>`).
+
+## 2026-03-21 04:34 KST — Cycle H adaptive portal pressure-delta slice
+- Decision: extend transition prompt guidance with `ALT DELTA:-n` so players can quantify expected pressure drop before jump.
+- Implementation: portal pressure delta now compares current route pressure vs adaptive alternative under same threat tier (`src/portal.lua`).
+- Verification: `lua scripts/regression_portal_route_preview.lua`, `lua scripts/regression_portal_prompt_compact_mode.lua`, `lua scripts/regression_portal_prompt_token_order.lua` (PASS).
+- Follow-up: implement ALT selector v2 using reachable portal graph for true lowest-pressure branch suggestions.

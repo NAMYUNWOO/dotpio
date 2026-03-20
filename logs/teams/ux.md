@@ -615,3 +615,8 @@
 - Decision: enforce prompt semantic order `ACTION -> ROUTE -> COACH -> PRESSURE` in sampled portal prompt variants and verify budget-selection behavior at configurable char limits.
 - Verification: `luac -p src/portal_prompt_linter.lua scripts/check_portal_prompt_token_order.lua scripts/regression_portal_prompt_token_order.lua`, `lua scripts/regression_portal_prompt_token_order.lua`, `lua scripts/check_portal_prompt_token_order.lua`.
 - Follow-up: next unchecked item is adaptive portal hint prototype (`ALT ROUTE:<SAFE|RISK|SPIKE>`).
+
+## 2026-03-21 04:34 KST — UX micro-clarity: safer route magnitude
+- Added explicit magnitude token (`ALT DELTA:-n`) so alternate route hint is actionable, not just categorical.
+- Compact fallback includes `ADEL:-n` to preserve decision utility on tight DOS width.
+- Follow-up: tune token naming if copy budget pressure grows with future prompt additions.

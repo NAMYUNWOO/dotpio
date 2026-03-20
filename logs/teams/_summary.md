@@ -903,3 +903,20 @@ Compact decision memory for AI context efficiency.
   - `logs/playtests/portal_prompt_token_order.json`
 - Next highest-priority unchecked backlog item:
   - `World/Design Team: Prototype adaptive portal hint (ALT ROUTE:<SAFE|RISK|SPIKE>) suggesting a lower-pressure branch when current pressure is high`.
+
+## 2026-03-21 04:34 KST — Game Director Cycle H: adaptive pressure-drop coaching
+- Idea slate (L/M/H risk):
+  1) Low-risk UX/System (chosen): add `ALT DELTA:-n` token to quantify safer portal branch pressure reduction.
+  2) Mid-risk Systems/World: ALT selector v2 from current-map reachable portal graph (true lowest-pressure suggestion).
+  3) High-risk Novelty: dynamic route mutation event (temporary `SAFE` reroute after hazard clear streak).
+- Shipped vertical slice:
+  - `src/portal.lua` now computes adaptive alternate-route pressure delta with threat-aware pressure scoring and appends `ALT DELTA` (`ADEL` compact).
+  - Existing adaptive `ALT ROUTE` hint retained; compact/full prompts keep parity.
+- Verification (PASS):
+  - `luac -p src/portal.lua scripts/regression_portal_route_preview.lua scripts/regression_portal_prompt_compact_mode.lua`
+  - `lua scripts/regression_portal_route_preview.lua`
+  - `lua scripts/regression_portal_prompt_compact_mode.lua`
+  - `lua scripts/regression_portal_prompt_token_order.lua`
+- Backlog sync:
+  - Marked Cycle G adaptive portal hint task done.
+  - Added Cycle H injection trio; completed `ALT DELTA` slice, queued ALT selector v2 + ALT token budget/order regression.

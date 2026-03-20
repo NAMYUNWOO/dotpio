@@ -127,4 +127,9 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-21 Cycle G)
 - [x] Systems/World Team: Add route-pressure score token in transition prompt (`PRESSURE:<n>`) derived from route tag + recent threat tier
 - [x] QA/Design Team: Add transition prompt token-order linter and budget parser (warn when token sequence deviates from `ACTION -> ROUTE -> COACH -> PRESSURE`)
-- [ ] World/Design Team: Prototype adaptive portal hint (`ALT ROUTE:<SAFE|RISK|SPIKE>`) suggesting a lower-pressure branch when current pressure is high
+- [x] World/Design Team: Prototype adaptive portal hint (`ALT ROUTE:<SAFE|RISK|SPIKE>`) suggesting a lower-pressure branch when current pressure is high
+
+## P1 (Game Director Injection — 2026-03-21 Cycle H)
+- [x] UX/Systems Team: Add adaptive portal pressure-drop token (`ALT DELTA:-n`) in transition prompt to quantify safer branch impact
+- [ ] Systems/World Team: Route-aware ALT selector v2 (pick lowest-pressure reachable branch among current-map portals, not just one-step fallback)
+- [ ] QA/UX Team: Add portal prompt readability regression for adaptive ALT token budget/order under HIGH threat compact mode

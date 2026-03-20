@@ -128,12 +128,51 @@ local function resolvePressureScore(routeTag, threatTier)
     return score
 end
 
-local function buildTransitionPrompt(routeTag, coach, pressureScore)
-    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d", routeTag, coach, pressureScore)
+local function resolveAdaptiveAltRoute(routeTag, pressureScore)
+    if pressureScore < 4 then
+        return nil
+    end
+    if routeTag == "SPIKE" then
+        return "RISK"
+    elseif routeTag == "RISK" then
+        return "SAFE"
+    end
+    return nil
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore)
-    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d", routeTag, resolveCompactCoach(routeTag), pressureScore)
+local function resolveAdaptiveAltPressureDelta(routeTag, altRouteTag, threatTier)
+    if not altRouteTag then
+        return nil
+    end
+    local currentPressure = resolvePressureScore(routeTag, threatTier)
+    local altPressure = resolvePressureScore(altRouteTag, threatTier)
+    local delta = altPressure - currentPressure
+    if delta >= 0 then
+        return nil
+    end
+    return delta
+end
+
+local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta)
+    local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d", routeTag, coach, pressureScore)
+    if altRouteTag then
+        prompt = string.format("%s  ALT ROUTE:%s", prompt, altRouteTag)
+        if altDelta then
+            prompt = string.format("%s  ALT DELTA:%+d", prompt, altDelta)
+        end
+    end
+    return prompt
+end
+
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta)
+    local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d", routeTag, resolveCompactCoach(routeTag), pressureScore)
+    if altRouteTag then
+        prompt = string.format("%s  ALT:%s", prompt, altRouteTag)
+        if altDelta then
+            prompt = string.format("%s  ADEL:%+d", prompt, altDelta)
+        end
+    end
+    return prompt
 end
 
 function Portal.getTransitionPrompt(maxChars, context)
@@ -144,10 +183,12 @@ function Portal.getTransitionPrompt(maxChars, context)
     local coach = resolveRouteCoach(routeTag)
     local threatTier = context and context.threatTier or nil
     local pressureScore = resolvePressureScore(routeTag, threatTier)
-    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore)
+    local altRouteTag = resolveAdaptiveAltRoute(routeTag, pressureScore)
+    local altDelta = resolveAdaptiveAltPressureDelta(routeTag, altRouteTag, threatTier)
+    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta)
     local budget = tonumber(maxChars) or 76
     if budget > 0 and #prompt > budget then
-        return buildCompactTransitionPrompt(routeTag, pressureScore)
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta)
     end
     return prompt
 end
