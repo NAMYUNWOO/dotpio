@@ -570,3 +570,15 @@ Compact decision memory for AI context efficiency.
   - Marked done in `POST_RC_BACKLOG.md`.
 - Next priority item:
   - ACTION_ITEMS/TASKS/POST_RC currently fully checked; inject next validated Game Director experiment candidate next cycle.
+
+## 2026-03-20 19:03 KST — P1 hazard readability wave 4 (next-pulse ETA)
+- Completed backlog item: `UX/World Team: Add overclock pulse ETA token in READY/CD HUD hints (NEXT PULSE:<n>s)`.
+- Durable decisions:
+  - Added `getNextPulseEtaToken()` helper in `src/overclock_hazard.lua` to standardize cooldown/ready timing copy.
+  - READY and CD/IMMINENT hints now include `NEXT PULSE:<n>s` while HOT hint payload remains unchanged to preserve compact combat readability.
+  - Regression guardrail extended in `scripts/regression_overclock_hazard.lua` to assert ETA token visibility in READY/CD/IMMINENT states.
+- Verification set:
+  - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+- Backlog update: `POST_RC_BACKLOG.md` wave-4 item marked done.
+- Next priority item: none currently unchecked in tracked backlogs; inject next Game Director experiment candidate.

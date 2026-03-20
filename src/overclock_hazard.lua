@@ -98,6 +98,17 @@ local function getNextBountyBudgetToken()
     return string.format("NEXT BOUNTY:0/%d", cap)
 end
 
+local function getNextPulseEtaToken()
+    if state.pulseActive then
+        return string.format("NEXT PULSE:%ds", math.max(0, math.ceil(state.pulseTimer or 0)))
+    end
+    local seconds = 0
+    if (state.cooldownTimer or 0) > 0 then
+        seconds = math.max(0, math.ceil(state.cooldownTimer))
+    end
+    return string.format("NEXT PULSE:%ds", seconds)
+end
+
 local function getRiskBreakdownToken(zone)
     local parts = getRiskComponents(zone)
     return string.format("RISK SRC:D%d+DET%d+MOVE%d", parts.discount, parts.detect, parts.move)
@@ -214,12 +225,13 @@ function OverclockHazard.getHudHint()
     if state.cooldownTimer > 0 then
         local cooldownSeconds = math.max(0, math.ceil(state.cooldownTimer))
         local nextBounty = getNextBountyBudgetToken()
+        local nextPulseEta = getNextPulseEtaToken()
         if state.enteredZone and cooldownSeconds <= 3 then
-            return string.format("OVERCLOCK CD %ds (IMMINENT:%ds) %s  RISK:%s(%d) %s", cooldownSeconds, cooldownSeconds, nextBounty, riskTier, riskScore, riskBreakdown)
+            return string.format("OVERCLOCK CD %ds (IMMINENT:%ds) %s %s  RISK:%s(%d) %s", cooldownSeconds, cooldownSeconds, nextBounty, nextPulseEta, riskTier, riskScore, riskBreakdown)
         end
-        return string.format("OVERCLOCK CD %ds %s  RISK:%s(%d) %s", cooldownSeconds, nextBounty, riskTier, riskScore, riskBreakdown)
+        return string.format("OVERCLOCK CD %ds %s %s  RISK:%s(%d) %s", cooldownSeconds, nextBounty, nextPulseEta, riskTier, riskScore, riskBreakdown)
     end
-    return string.format("OVERCLOCK READY %s  RISK:%s(%d) %s", getNextBountyBudgetToken(), riskTier, riskScore, riskBreakdown)
+    return string.format("OVERCLOCK READY %s %s  RISK:%s(%d) %s", getNextBountyBudgetToken(), getNextPulseEtaToken(), riskTier, riskScore, riskBreakdown)
 end
 
 function OverclockHazard.debugSetPulse(active, pulseTimer)

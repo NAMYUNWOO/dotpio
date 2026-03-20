@@ -269,3 +269,9 @@
 - Decision: Expose risk component math (discount + detect + move) inline for fast tuning readability without changing hazard mechanics.
 - Evidence: luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua; lua scripts/regression_overclock_hazard.lua (PASS).
 - Follow-up: If HUD width pressure appears in smaller layouts, abbreviate token labels while keeping component values visible.
+
+## 2026-03-20 19:03 KST — Overclock next-pulse ETA HUD token
+- Task: Add `NEXT PULSE:<n>s` timing token to overclock READY/CD hint flow for clearer hazard re-entry planning.
+- Scope: `src/overclock_hazard.lua`, `scripts/regression_overclock_hazard.lua`, backlog tracking docs.
+- Verification: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` (PASS).
+- Follow-up: pick next unchecked Post-RC gameplay readability experiment item.

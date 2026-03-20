@@ -236,3 +236,9 @@ See project-level plans:
   - [x] Centralize overclock risk-component math helper (`discount`, `detect`, `move`) in hazard module
   - [x] Surface `RISK SRC:Dx+DETy+MOVEz` token in READY/HOT/CD overclock HUD hints
   - [x] Extend overclock hazard regression coverage for risk-factor token visibility
+
+## Next Up (Post-RC hazard readability wave 4)
+- [x] Add overclock next-pulse ETA token in READY/CD HUD hints (`NEXT PULSE:<n>s`)
+  - [x] Add reusable next-pulse ETA formatter in hazard module for ready/cooldown states
+  - [x] Surface token in READY/CD/IMMINENT overclock HUD hints without changing HOT hint payload
+  - [x] Extend overclock hazard regression coverage for next-pulse ETA token visibility
