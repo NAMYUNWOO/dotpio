@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-20 08:56 KST
+Last updated: 2026-03-20 16:29 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -481,3 +481,20 @@ Compact decision memory for AI context efficiency.
 - Change is readability-only: hazard mechanics, scoring, and map metadata remain unchanged.
 - Regression coverage updated in `scripts/regression_overclock_hazard.lua` to assert detect/move legend tokens in HOT state.
 - Verification pass: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`, `lua scripts/regression_overclock_hazard.lua`.
+
+
+- Overclock hazard cooldown hint now shows in-zone near-ready warning token `IMMINENT:<n>s` during final 3 seconds before pulse re-arm; warning hides outside the hazard zone.
+- Regression coverage for overclock hazard now asserts imminent warning visibility/hide behavior (`scripts/regression_overclock_hazard.lua`).
+
+## 2026-03-20 16:29 KST — P1 hazard readability follow-up: pulse-imminent warning
+- Completed backlog item: `UX/World Team: Add overclock pulse-imminent warning in cooldown HUD hint when standing in hazard zone (IMMINENT:<n>s)`.
+- Durable decisions:
+  - Show imminent warning only when player is inside hazard zone and cooldown is within 3 seconds.
+  - Keep warning embedded in existing cooldown hint line to preserve DOS HUD compactness.
+- Verification set:
+  - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+- Backlog update:
+  - Marked new item done in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
+- Next priority item:
+  - No unchecked entries remain in ACTION_ITEMS/TASKS/POST_RC; inject fresh Game Director experiment candidate next cycle.

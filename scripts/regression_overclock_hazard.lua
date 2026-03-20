@@ -53,6 +53,15 @@ expect(coolEvent.expired == true, "pulse should expire after timer elapses")
 local cooldownHint = OverclockHazard.getHudHint()
 expect(type(cooldownHint) == "string" and cooldownHint:find("OVERCLOCK CD") and cooldownHint:find("%d+s"), "cooldown hint should include cooldown seconds")
 expect(cooldownHint:find("RISK:[A-Z]+%(%d+%)"), "cooldown hint should keep risk tier + score visible")
+expect(not cooldownHint:find("IMMINENT:"), "cooldown hint should not show imminent warning too early")
+
+OverclockHazard.update(3.2, 11, 11)
+local imminentHint = OverclockHazard.getHudHint()
+expect(type(imminentHint) == "string" and imminentHint:find("IMMINENT:%d+s"), "cooldown hint should show imminent pulse warning when inside zone near ready")
+
+OverclockHazard.update(0.0, 2, 2)
+local outsideHint = OverclockHazard.getHudHint()
+expect(type(outsideHint) == "string" and not outsideHint:find("IMMINENT:"), "imminent warning should hide when player leaves hazard zone")
 
 local postCost = OverclockHazard.applyBuildCost(5)
 expect(postCost == 5, "after expiry: build cost should return to base")

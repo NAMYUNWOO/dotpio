@@ -141,7 +141,11 @@ function OverclockHazard.getHudHint()
         return string.format("OVERCLOCK HOT %ds: -%d%% SRL / %s  RISK:%s(%d)", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5), aggroLegend, riskTier, riskScore)
     end
     if state.cooldownTimer > 0 then
-        return string.format("OVERCLOCK CD %ds  RISK:%s(%d)", math.max(0, math.ceil(state.cooldownTimer)), riskTier, riskScore)
+        local cooldownSeconds = math.max(0, math.ceil(state.cooldownTimer))
+        if state.enteredZone and cooldownSeconds <= 3 then
+            return string.format("OVERCLOCK CD %ds (IMMINENT:%ds)  RISK:%s(%d)", cooldownSeconds, cooldownSeconds, riskTier, riskScore)
+        end
+        return string.format("OVERCLOCK CD %ds  RISK:%s(%d)", cooldownSeconds, riskTier, riskScore)
     end
     return string.format("OVERCLOCK READY  RISK:%s(%d)", riskTier, riskScore)
 end

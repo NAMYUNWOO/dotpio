@@ -1017,3 +1017,8 @@
 - Decision: Keep mechanic unchanged; surface detect/move pressure explicitly in HOT hint for faster risk parsing.
 - Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua`.
 - Follow-up: Observe readability during next map_07 playtest and adjust wording only if hint width becomes noisy.
+
+## 2026-03-20 16:29 KST — Regression coverage for imminent pulse warning
+- Task: Extended `scripts/regression_overclock_hazard.lua` for imminent warning behavior.
+- Verification: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` passed.
+- Follow-up: Add a runtime integration check later for edge timing around exact 0s re-arm boundary.

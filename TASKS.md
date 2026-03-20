@@ -215,3 +215,4 @@ See project-level plans:
 - [x] Add map hazard overclock rooms (high-risk interactable gives short burst SRL discounts + enemy aggro spike)
 - [x] Add overclock hazard countdown readability pass (active pulse + cooldown seconds in HUD hint)
 - [x] Add overclock aggro-pressure legend in active HUD hint (`AGGRO DET:+n MOVE:+m%`)
+- [x] Add overclock pulse-imminent warning in cooldown HUD hint when standing inside hazard zone (`IMMINENT:<n>s`)

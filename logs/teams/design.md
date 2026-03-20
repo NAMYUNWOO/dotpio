@@ -187,3 +187,7 @@
 - Decision: Keep mechanic unchanged; surface detect/move pressure explicitly in HOT hint for faster risk parsing.
 - Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua`.
 - Follow-up: Observe readability during next map_07 playtest and adjust wording only if hint width becomes noisy.
+
+## 2026-03-20 16:29 KST — Hazard readability micro-polish
+- Decision: Reused existing overclock hint line to retain DOS compactness and avoid panel-height growth.
+- Follow-up: Consider unified hazard legend style if more hazard-room variants are introduced.

@@ -222,3 +222,7 @@
 - Decision: Keep mechanic unchanged; surface detect/move pressure explicitly in HOT hint for faster risk parsing.
 - Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua`.
 - Follow-up: Observe readability during next map_07 playtest and adjust wording only if hint width becomes noisy.
+
+## 2026-03-20 16:29 KST — Combat lane note
+- Decision: No combat behavior tuning in this slice; aggro pressure model remains unchanged.
+- Follow-up: Monitor whether imminent warning shifts player engagement timing with active aggro pulses.

@@ -441,3 +441,8 @@
 - Decision: Keep mechanic unchanged; surface detect/move pressure explicitly in HOT hint for faster risk parsing.
 - Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua`.
 - Follow-up: Observe readability during next map_07 playtest and adjust wording only if hint width becomes noisy.
+
+## 2026-03-20 16:29 KST — Overclock cooldown hint clarity pass
+- Task: Updated overclock HUD cooldown copy to show `IMMINENT:<n>s` when pulse is about to re-arm in-zone.
+- Decision: Preserve existing READY/HOT/CD layout and append imminent token without adding a new HUD row.
+- Follow-up: If clutter appears, collapse imminent token to icon shorthand in a later polish pass.
