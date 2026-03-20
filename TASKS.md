@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-03-20 16:55 KST
+Last updated: 2026-03-20 17:31 KST
 
 See project-level plans:
 - `PROJECT_PLAN.md` (milestones/release gates)
@@ -221,3 +221,6 @@ See project-level plans:
   - [x] Award bonus SRL when kills occur during active in-zone overclock pulse
   - [x] Extend overclock hazard regression coverage for bounty payout + pulse cap
 - [x] Add overclock HOT hint bounty progress token (`BOUNTY:x/y`) for payout cap readability
+- [x] Add overclock READY/CD next-pulse bounty budget hint (`NEXT BOUNTY:0/y`) for reward planning readability
+  - [x] Surface token in READY and cooldown hints without changing bounty mechanics
+  - [x] Extend overclock hazard regression coverage for READY/CD token visibility

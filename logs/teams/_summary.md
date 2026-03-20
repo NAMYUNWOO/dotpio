@@ -527,3 +527,17 @@ Compact decision memory for AI context efficiency.
   - Marked item done in `POST_RC_BACKLOG.md` and mirrored done in `TASKS.md`.
 - Next priority item:
   - No unchecked items currently remain in `POST_RC_BACKLOG.md`.
+
+## 2026-03-20 17:31 KST — P1 hazard reward readability: READY/CD next-pulse bounty budget
+- Completed backlog item: `UX/Systems Team: Surface next-pulse bounty budget token in READY/CD hints (NEXT BOUNTY:0/y) for reward planning`.
+- Durable decisions:
+  - Overclock READY and cooldown HUD hints now include `NEXT BOUNTY:0/y` so reward budget is legible before pulse activation.
+  - This is display-only; kill-bounty payout/cap mechanics are unchanged.
+  - Imminent cooldown warning (`IMMINENT`) now coexists with `NEXT BOUNTY` token in a single compact hint line.
+- Verification set:
+  - `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+- Backlog update:
+  - Marked done in `POST_RC_BACKLOG.md` and mirrored done in `TASKS.md`.
+- Next priority item:
+  - No unchecked items remain in ACTION_ITEMS/TASKS/POST_RC; inject next Game Director experiment candidate next cycle.

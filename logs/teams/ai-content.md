@@ -249,3 +249,9 @@
 ## 2026-03-20 16:29 KST — AI content lane note
 - Decision: No AI-generation prompt/content changes required for imminent hazard warning slice.
 - Follow-up: None.
+
+## 2026-03-20 17:31 KST — Overclock next-pulse bounty budget readability
+- Decision: READY/CD overclock HUD hints now include `NEXT BOUNTY:0/y` so players can pre-plan hot-zone reward windows before pulse activation.
+- Scope: No combat/economy math changes; display-only hint extension around existing kill-bounty cap.
+- Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` PASS.
+- Follow-up: Add next Game Director experiment candidate (no unchecked backlog items remain).

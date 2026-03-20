@@ -1,6 +1,6 @@
 # POST_RC_BACKLOG
 
-Last updated: 2026-03-20 16:55 KST
+Last updated: 2026-03-20 17:31 KST
 
 ## P0 (Now)
 - [x] Replace F9-centric build flow with Enter->Action menu primary flow
@@ -63,3 +63,4 @@ Last updated: 2026-03-20 16:55 KST
 ## P1 (Hazard Reward Follow-up)
 - [x] Systems/World Team: Add overclock hot-zone kill bounty (`+BUILDER.SRL` per kill, pulse-capped) to reinforce risk/reward combat commitment
 - [x] UX/Systems Team: Surface overclock bounty pulse cap progress in HUD hint (`BOUNTY:x/y`) during HOT state
+- [x] UX/Systems Team: Surface next-pulse bounty budget token in READY/CD hints (`NEXT BOUNTY:0/y`) for reward planning

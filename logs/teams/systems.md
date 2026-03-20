@@ -625,3 +625,9 @@
 - Decision: Reuse `killBonusGrantedThisPulse` + `killBonusPulseCap` as canonical HUD token source to avoid duplicate counters/state drift.
 - Evidence: `lua scripts/regression_overclock_hazard.lua`.
 - Follow-up: If map variants need per-kill cap semantics later, keep HUD token as reward-units progress unless design explicitly requests kill-count mode.
+
+## 2026-03-20 17:31 KST — Overclock next-pulse bounty budget readability
+- Decision: READY/CD overclock HUD hints now include `NEXT BOUNTY:0/y` so players can pre-plan hot-zone reward windows before pulse activation.
+- Scope: No combat/economy math changes; display-only hint extension around existing kill-bounty cap.
+- Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` PASS.
+- Follow-up: Add next Game Director experiment candidate (no unchecked backlog items remain).

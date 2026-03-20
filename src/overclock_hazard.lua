@@ -74,6 +74,11 @@ local function getBountyProgressToken()
     return string.format("BOUNTY:%d/%d", math.min(granted, cap), cap)
 end
 
+local function getNextBountyBudgetToken()
+    local cap = math.max(0, math.floor((state.zone and state.zone.killBonusPulseCap) or 0))
+    return string.format("NEXT BOUNTY:0/%d", cap)
+end
+
 function OverclockHazard.onMapLoaded(mapName, metadata)
     state.mapName = tostring(mapName or "")
     state.zone = resolveZone(metadata)
@@ -177,12 +182,13 @@ function OverclockHazard.getHudHint()
     end
     if state.cooldownTimer > 0 then
         local cooldownSeconds = math.max(0, math.ceil(state.cooldownTimer))
+        local nextBounty = getNextBountyBudgetToken()
         if state.enteredZone and cooldownSeconds <= 3 then
-            return string.format("OVERCLOCK CD %ds (IMMINENT:%ds)  RISK:%s(%d)", cooldownSeconds, cooldownSeconds, riskTier, riskScore)
+            return string.format("OVERCLOCK CD %ds (IMMINENT:%ds) %s  RISK:%s(%d)", cooldownSeconds, cooldownSeconds, nextBounty, riskTier, riskScore)
         end
-        return string.format("OVERCLOCK CD %ds  RISK:%s(%d)", cooldownSeconds, riskTier, riskScore)
+        return string.format("OVERCLOCK CD %ds %s  RISK:%s(%d)", cooldownSeconds, nextBounty, riskTier, riskScore)
     end
-    return string.format("OVERCLOCK READY  RISK:%s(%d)", riskTier, riskScore)
+    return string.format("OVERCLOCK READY %s  RISK:%s(%d)", getNextBountyBudgetToken(), riskTier, riskScore)
 end
 
 function OverclockHazard.debugSetPulse(active, pulseTimer)

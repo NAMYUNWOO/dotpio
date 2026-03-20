@@ -1034,3 +1034,9 @@
 - Task: Extended `scripts/regression_overclock_hazard.lua` to assert HOT hint shows `BOUNTY:x/y` at pulse start and after cap consumption.
 - Verification: `lua scripts/regression_overclock_hazard.lua`.
 - Result: PASS.
+
+## 2026-03-20 17:31 KST — Overclock next-pulse bounty budget readability
+- Decision: READY/CD overclock HUD hints now include `NEXT BOUNTY:0/y` so players can pre-plan hot-zone reward windows before pulse activation.
+- Scope: No combat/economy math changes; display-only hint extension around existing kill-bounty cap.
+- Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` PASS.
+- Follow-up: Add next Game Director experiment candidate (no unchecked backlog items remain).

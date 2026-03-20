@@ -25,6 +25,7 @@ OverclockHazard.onMapLoaded("07", {
 
 local readyHint = OverclockHazard.getHudHint()
 expect(type(readyHint) == "string" and readyHint:find("OVERCLOCK READY"), "ready hint should be visible before entering hazard zone")
+expect(readyHint:find("NEXT BOUNTY:0/%d+"), "ready hint should include next-pulse bounty budget token")
 expect(readyHint:find("RISK:[A-Z]+%(%d+%)"), "ready hint should include risk tier + score")
 
 local idleCost = OverclockHazard.applyBuildCost(5)
@@ -63,12 +64,14 @@ expect(coolEvent.expired == true, "pulse should expire after timer elapses")
 
 local cooldownHint = OverclockHazard.getHudHint()
 expect(type(cooldownHint) == "string" and cooldownHint:find("OVERCLOCK CD") and cooldownHint:find("%d+s"), "cooldown hint should include cooldown seconds")
+expect(cooldownHint:find("NEXT BOUNTY:0/%d+"), "cooldown hint should include next-pulse bounty budget token")
 expect(cooldownHint:find("RISK:[A-Z]+%(%d+%)"), "cooldown hint should keep risk tier + score visible")
 expect(not cooldownHint:find("IMMINENT:"), "cooldown hint should not show imminent warning too early")
 
 OverclockHazard.update(3.2, 11, 11)
 local imminentHint = OverclockHazard.getHudHint()
 expect(type(imminentHint) == "string" and imminentHint:find("IMMINENT:%d+s"), "cooldown hint should show imminent pulse warning when inside zone near ready")
+expect(imminentHint:find("NEXT BOUNTY:0/%d+"), "imminent cooldown hint should keep next-pulse bounty budget token")
 
 OverclockHazard.update(0.0, 2, 2)
 local outsideHint = OverclockHazard.getHudHint()

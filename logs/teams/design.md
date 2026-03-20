@@ -195,3 +195,9 @@
 ## 2026-03-20 16:55 KST — Risk/reward pacing pass
 - Decision: Overclock room now pays a small pulse-capped kill bounty so players are incentivized to stay in HOT zone briefly instead of always dipping out after build.
 - Intent: tighten "high risk center contest" fantasy with immediate SRL feedback.
+
+## 2026-03-20 17:31 KST — Overclock next-pulse bounty budget readability
+- Decision: READY/CD overclock HUD hints now include `NEXT BOUNTY:0/y` so players can pre-plan hot-zone reward windows before pulse activation.
+- Scope: No combat/economy math changes; display-only hint extension around existing kill-bounty cap.
+- Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` PASS.
+- Follow-up: Add next Game Director experiment candidate (no unchecked backlog items remain).
