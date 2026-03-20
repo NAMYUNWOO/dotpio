@@ -1,10 +1,16 @@
 local HUD = {
     _lastThreatScore = 0,
     _auxThreatHint = nil,
+    _auxThreatHintColor = nil,
 }
 
-function HUD.setAuxThreatHint(text)
+function HUD.setAuxThreatHint(text, color)
     HUD._auxThreatHint = text
+    if type(color) == "table" and #color >= 3 then
+        HUD._auxThreatHintColor = { color[1], color[2], color[3], color[4] or 1 }
+    else
+        HUD._auxThreatHintColor = nil
+    end
 end
 
 function HUD.getBerserkerThreatTier(score)
@@ -196,7 +202,11 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     love.graphics.setColor(1,0.5,0.5,1)
     love.graphics.print("Enemies: "..counters.alive, 160, 14)
     if HUD._auxThreatHint then
-        love.graphics.setColor(0.95, 0.82, 0.48, 1)
+        if HUD._auxThreatHintColor then
+            love.graphics.setColor(HUD._auxThreatHintColor)
+        else
+            love.graphics.setColor(0.95, 0.82, 0.48, 1)
+        end
         love.graphics.print(HUD._auxThreatHint, 16, 58)
     end
     if counters.desperateBerserkers > 0 then

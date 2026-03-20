@@ -18,7 +18,7 @@ OverclockHazard.onMapLoaded("07", {
         discountPct = 0.4,
         pulseDuration = 5,
         cooldownDuration = 12,
-        aggroMoveMul = 0.7,
+        aggroMoveMul = 0.6,
         aggroDetectBonus = 2,
     }
 })
@@ -27,6 +27,10 @@ local readyHint = OverclockHazard.getHudHint()
 expect(type(readyHint) == "string" and readyHint:find("OVERCLOCK READY"), "ready hint should be visible before entering hazard zone")
 expect(readyHint:find("NEXT BOUNTY:0/%d+"), "ready hint should include next-pulse bounty budget token")
 expect(readyHint:find("RISK:[A-Z]+%(%d+%)"), "ready hint should include risk tier + score")
+
+local highRiskColor = OverclockHazard.getHudHintColor()
+expect(type(highRiskColor) == "table" and #highRiskColor >= 3, "risk tier color should be exposed for HUD rendering")
+expect(math.abs(highRiskColor[1] - 1) < 0.001 and math.abs(highRiskColor[2] - 0.34) < 0.001 and math.abs(highRiskColor[3] - 0.25) < 0.001, "high-risk tier should map to red HUD color")
 
 local idleCost = OverclockHazard.applyBuildCost(5)
 expect(idleCost == 5, "no pulse: build cost should remain unchanged")
@@ -57,7 +61,7 @@ expect(hotHint:find("RISK:[A-Z]+%(%d+%)"), "hot hint should include hazard risk 
 local pressure = OverclockHazard.getPressureProfile()
 expect(pressure.active == true, "pressure profile should be active during pulse")
 expect(pressure.detectBonus == 2, "pressure detect bonus should match hazard config")
-expect(math.abs((pressure.moveMul or 1) - 0.7) < 0.001, "pressure move multiplier should match hazard config")
+expect(math.abs((pressure.moveMul or 1) - 0.6) < 0.001, "pressure move multiplier should match hazard config")
 
 local coolEvent = OverclockHazard.update(6.0, 11, 11)
 expect(coolEvent.expired == true, "pulse should expire after timer elapses")
@@ -80,5 +84,27 @@ expect(OverclockHazard.consumeKillBonus(2) == 0, "kill bonus should not trigger 
 
 local postCost = OverclockHazard.applyBuildCost(5)
 expect(postCost == 5, "after expiry: build cost should return to base")
+
+OverclockHazard.onMapLoaded("07", {
+    overclockHazard = {
+        rect = { x = 10, y = 10, w = 4, h = 4 },
+        discountPct = 0.2,
+        aggroMoveMul = 0.9,
+        aggroDetectBonus = 1,
+    }
+})
+local lowRiskColor = OverclockHazard.getHudHintColor()
+expect(math.abs(lowRiskColor[1] - 0.56) < 0.001 and math.abs(lowRiskColor[2] - 1) < 0.001 and math.abs(lowRiskColor[3] - 0.66) < 0.001, "low-risk tier should map to green HUD color")
+
+OverclockHazard.onMapLoaded("07", {
+    overclockHazard = {
+        rect = { x = 10, y = 10, w = 4, h = 4 },
+        discountPct = 0.35,
+        aggroMoveMul = 0.8,
+        aggroDetectBonus = 1,
+    }
+})
+local medRiskColor = OverclockHazard.getHudHintColor()
+expect(math.abs(medRiskColor[1] - 1) < 0.001 and math.abs(medRiskColor[2] - 0.7) < 0.001 and math.abs(medRiskColor[3] - 0.3) < 0.001, "medium-risk tier should map to amber HUD color")
 
 print("[PASS] overclock hazard regression validated")

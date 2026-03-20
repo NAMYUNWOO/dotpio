@@ -541,3 +541,17 @@ Compact decision memory for AI context efficiency.
   - Marked done in `POST_RC_BACKLOG.md` and mirrored done in `TASKS.md`.
 - Next priority item:
   - No unchecked items remain in ACTION_ITEMS/TASKS/POST_RC; inject next Game Director experiment candidate next cycle.
+
+## 2026-03-20 18:01 KST — P1 hazard readability wave 2: risk-tier color coding in overclock HUD hint
+- Completed backlog item: `UX/World Team: Color-code overclock RISK tier in HUD hint (LOW=green, MED=amber, HIGH=red)`.
+- Durable decisions:
+  - Overclock hazard module now exposes tier-aware HUD color metadata (`getHudHintColor`) to keep risk semantics centralized.
+  - HUD auxiliary threat hint renderer accepts optional per-hint RGBA color and falls back to existing amber tone when metadata is absent.
+  - Risk-tier color mapping mirrors established threat readability palette: LOW green, MED amber, HIGH red.
+- Verification set:
+  - `luac -p main.lua src/hud.lua src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+- Backlog update:
+  - Marked done in `POST_RC_BACKLOG.md` and mirrored done in `TASKS.md`.
+- Next priority item:
+  - ACTION_ITEMS/TASKS/POST_RC currently fully checked; inject next validated Game Director experiment candidate.

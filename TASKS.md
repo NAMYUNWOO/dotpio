@@ -224,3 +224,9 @@ See project-level plans:
 - [x] Add overclock READY/CD next-pulse bounty budget hint (`NEXT BOUNTY:0/y`) for reward planning readability
   - [x] Surface token in READY and cooldown hints without changing bounty mechanics
   - [x] Extend overclock hazard regression coverage for READY/CD token visibility
+
+## Next Up (Post-RC hazard readability wave 2)
+- [x] Color-code overclock `RISK` tier token in HUD hint (`LOW`=green, `MED`=amber, `HIGH`=red)
+  - [x] Expose tier-aware overclock HUD hint color metadata from hazard module
+  - [x] Render overclock auxiliary HUD hint with provided tier color while keeping existing default fallback
+  - [x] Extend overclock hazard regression coverage for risk-tier color mapping

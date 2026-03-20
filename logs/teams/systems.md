@@ -631,3 +631,9 @@
 - Scope: No combat/economy math changes; display-only hint extension around existing kill-bounty cap.
 - Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` PASS.
 - Follow-up: Add next Game Director experiment candidate (no unchecked backlog items remain).
+
+## 2026-03-20 18:01 KST — Post-RC hazard readability wave 2: overclock risk-tier HUD color
+- Task: Color-code overclock RISK tier token in HUD hint (LOW/MED/HIGH).
+- Decision: Implemented tier-aware HUD color metadata from hazard module and threaded it through HUD auxiliary hint rendering with fallback color.
+- Evidence: ; [PASS] overclock hazard regression validated.
+- Follow-up: Queue next Post-RC gameplay/UX experiment candidate.

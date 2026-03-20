@@ -58,6 +58,16 @@ local function getRiskTier(zone)
     return "LOW", score
 end
 
+local function getRiskTierColor(tier)
+    if tier == "HIGH" then
+        return { 1, 0.34, 0.25, 1 }
+    end
+    if tier == "MED" then
+        return { 1, 0.7, 0.3, 1 }
+    end
+    return { 0.56, 1, 0.66, 1 }
+end
+
 local function getAggroPressureLegend(zone)
     if not zone then
         return "AGGRO DET:+0 MOVE:+0%"
@@ -169,6 +179,12 @@ function OverclockHazard.getPressureProfile()
         pulseTimer = state.pulseTimer,
         discountPct = state.zone.discountPct,
     }
+end
+
+function OverclockHazard.getHudHintColor()
+    if not state.zone then return nil end
+    local riskTier = getRiskTier(state.zone)
+    return getRiskTierColor(riskTier)
 end
 
 function OverclockHazard.getHudHint()
