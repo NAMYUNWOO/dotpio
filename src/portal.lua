@@ -2,6 +2,7 @@ local Portal = {}
 local cooldown = false
 local pendingTransition = nil
 local routeTagCache = {}
+local routeTagOverrides = {}
 
 -- 맵 전환 콜백: onLoad(targetMap, targetPortal)
 Portal.onLoad = nil
@@ -18,6 +19,9 @@ local function resolveMapRouteTag(mapName)
     local key = tostring(mapName or "")
     if key == "" then
         return nil
+    end
+    if routeTagOverrides[key] ~= nil then
+        return routeTagOverrides[key] or nil
     end
     if routeTagCache[key] ~= nil then
         return routeTagCache[key] or nil
@@ -37,15 +41,31 @@ local function resolveMapRouteTag(mapName)
     return tag
 end
 
-local function setPendingTransition(portal)
+local function collectReachableTargetMaps(Map)
+    local reachable = {}
+    if type(Map) ~= "table" or type(Map.portals) ~= "table" then
+        return reachable
+    end
+    for _, candidate in ipairs(Map.portals) do
+        local targetMap = tostring(candidate and candidate.targetMap or "")
+        if targetMap ~= "" then
+            reachable[targetMap] = true
+        end
+    end
+    return reachable
+end
+
+local function setPendingTransition(portal, Map)
     if not portal then
         pendingTransition = nil
         return
     end
     pendingTransition = {
+        sourceMap = tostring(Map and Map.currentMap or ""),
         targetMap = portal.targetMap,
         targetPortal = portal.targetPortal,
         routeTag = resolveMapRouteTag(portal.targetMap),
+        reachableTargetMaps = collectReachableTargetMaps(Map),
     }
 end
 
@@ -53,7 +73,7 @@ function Portal.check(playerX, playerY, Map)
     local p = Map.getPortalAt(playerX, playerY)
     if p and not cooldown then
         cooldown = true
-        setPendingTransition(p)
+        setPendingTransition(p, Map)
     elseif not p then
         cooldown = false
         pendingTransition = nil
@@ -128,10 +148,37 @@ local function resolvePressureScore(routeTag, threatTier)
     return score
 end
 
-local function resolveAdaptiveAltRoute(routeTag, pressureScore)
+local function resolveAdaptiveAltRoute(routeTag, pressureScore, threatTier, reachableTargetMaps)
     if pressureScore < 4 then
         return nil
     end
+
+    local best = nil
+    local currentPressure = resolvePressureScore(routeTag, threatTier)
+
+    if type(reachableTargetMaps) == "table" then
+        for targetMap, enabled in pairs(reachableTargetMaps) do
+            if enabled then
+                local candidateRouteTag = resolveMapRouteTag(targetMap)
+                if candidateRouteTag and candidateRouteTag ~= routeTag then
+                    local candidatePressure = resolvePressureScore(candidateRouteTag, threatTier)
+                    if candidatePressure < currentPressure then
+                        if not best or candidatePressure < best.pressure then
+                            best = {
+                                routeTag = candidateRouteTag,
+                                pressure = candidatePressure,
+                            }
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    if best then
+        return best.routeTag
+    end
+
     if routeTag == "SPIKE" then
         return "RISK"
     elseif routeTag == "RISK" then
@@ -183,7 +230,7 @@ function Portal.getTransitionPrompt(maxChars, context)
     local coach = resolveRouteCoach(routeTag)
     local threatTier = context and context.threatTier or nil
     local pressureScore = resolvePressureScore(routeTag, threatTier)
-    local altRouteTag = resolveAdaptiveAltRoute(routeTag, pressureScore)
+    local altRouteTag = resolveAdaptiveAltRoute(routeTag, pressureScore, threatTier, pendingTransition.reachableTargetMaps)
     local altDelta = resolveAdaptiveAltPressureDelta(routeTag, altRouteTag, threatTier)
     local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta)
     local budget = tonumber(maxChars) or 76
@@ -221,6 +268,18 @@ end
 
 function Portal.setCooldown()
     cooldown = true
+end
+
+function Portal._setRouteTagOverride(mapName, routeTag)
+    local key = tostring(mapName or "")
+    if key == "" then
+        return
+    end
+    if routeTag == nil then
+        routeTagOverrides[key] = nil
+        return
+    end
+    routeTagOverrides[key] = normalizeRouteTag(routeTag) or false
 end
 
 return Portal

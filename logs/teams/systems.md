@@ -792,3 +792,8 @@
 - Implementation: portal pressure delta now compares current route pressure vs adaptive alternative under same threat tier (`src/portal.lua`).
 - Verification: `lua scripts/regression_portal_route_preview.lua`, `lua scripts/regression_portal_prompt_compact_mode.lua`, `lua scripts/regression_portal_prompt_token_order.lua` (PASS).
 - Follow-up: implement ALT selector v2 using reachable portal graph for true lowest-pressure branch suggestions.
+
+## 2026-03-21 05:04 KST — Cycle H follow-up: route-aware ALT selector v2
+- Completed backlog item: choose adaptive `ALT ROUTE` from lowest-pressure reachable portal branch on current map (not fixed one-step downgrade).
+- Verification: [PASS] portal route preview transition prompt regression validated, [PASS] portal prompt compact-mode regression validated, [PASS] portal prompt token-order regression validated, [PASS] portal adaptive ALT selector v2 regression validated (all PASS).
+- Follow-up: keep `QA/UX Team: portal prompt readability regression for adaptive ALT token budget/order under HIGH threat compact mode` as next unchecked priority.

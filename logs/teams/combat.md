@@ -358,3 +358,8 @@
 - Transition prompt now surfaces `ALT DELTA:-n` derived with live threat-tier context.
 - Combat readability impact hypothesis: players can better de-escalate after HIGH threat spikes by selecting safer branch with explicit pressure tradeoff.
 - Follow-up: validate with run-level pacing telemetry once ALT selector v2 lands.
+
+## 2026-03-21 05:04 KST — Cycle H follow-up: route-aware ALT selector v2
+- Completed backlog item: choose adaptive `ALT ROUTE` from lowest-pressure reachable portal branch on current map (not fixed one-step downgrade).
+- Verification: [PASS] portal route preview transition prompt regression validated, [PASS] portal prompt compact-mode regression validated, [PASS] portal prompt token-order regression validated, [PASS] portal adaptive ALT selector v2 regression validated (all PASS).
+- Follow-up: keep `QA/UX Team: portal prompt readability regression for adaptive ALT token budget/order under HIGH threat compact mode` as next unchecked priority.

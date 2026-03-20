@@ -920,3 +920,22 @@ Compact decision memory for AI context efficiency.
 - Backlog sync:
   - Marked Cycle G adaptive portal hint task done.
   - Added Cycle H injection trio; completed `ALT DELTA` slice, queued ALT selector v2 + ALT token budget/order regression.
+
+## 2026-03-21 05:04 KST — Cycle H follow-up: route-aware ALT selector v2
+- Completed backlog item:
+  - `Systems/World Team: Route-aware ALT selector v2 (pick lowest-pressure reachable branch among current-map portals, not just one-step fallback)`
+- Durable decisions:
+  - Adaptive alt-route selection now evaluates all reachable portal targets on the current map and chooses the lowest pressure branch that is strictly safer than the selected route.
+  - If no safer reachable tagged route exists, behavior falls back to legacy downgrade mapping (`SPIKE->RISK`, `RISK->SAFE`) to preserve guidance continuity.
+  - Added test-only route-tag override hook in `src/portal.lua` (`Portal._setRouteTagOverride`) to keep selector regression deterministic without mutating shipped map metadata.
+- Shipped files:
+  - `src/portal.lua`
+  - `scripts/regression_portal_alt_selector_v2.lua`
+  - `POST_RC_BACKLOG.md`
+- Verification (PASS):
+  - `lua scripts/regression_portal_route_preview.lua`
+  - `lua scripts/regression_portal_prompt_compact_mode.lua`
+  - `lua scripts/regression_portal_prompt_token_order.lua`
+  - `lua scripts/regression_portal_alt_selector_v2.lua`
+- Next highest-priority unchecked backlog item:
+  - `QA/UX Team: Add portal prompt readability regression for adaptive ALT token budget/order under HIGH threat compact mode`.

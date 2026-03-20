@@ -620,3 +620,8 @@
 - Added explicit magnitude token (`ALT DELTA:-n`) so alternate route hint is actionable, not just categorical.
 - Compact fallback includes `ADEL:-n` to preserve decision utility on tight DOS width.
 - Follow-up: tune token naming if copy budget pressure grows with future prompt additions.
+
+## 2026-03-21 05:04 KST — Cycle H follow-up: route-aware ALT selector v2
+- Completed backlog item: choose adaptive `ALT ROUTE` from lowest-pressure reachable portal branch on current map (not fixed one-step downgrade).
+- Verification: [PASS] portal route preview transition prompt regression validated, [PASS] portal prompt compact-mode regression validated, [PASS] portal prompt token-order regression validated, [PASS] portal adaptive ALT selector v2 regression validated (all PASS).
+- Follow-up: keep `QA/UX Team: portal prompt readability regression for adaptive ALT token budget/order under HIGH threat compact mode` as next unchecked priority.
