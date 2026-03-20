@@ -437,3 +437,17 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_hud_berserker_counters.lua`
   - `lua scripts/regression_enemy_behavior_variants.lua`
 - Next priority: `World/Design Team: Add overclock hazard room prototype (SRL discount pulse + aggro spike risk)`.
+
+## 2026-03-20 11:26 KST — Overclock hazard room prototype shipped
+- Completed: `World/Design Team: Add overclock hazard room prototype (SRL discount pulse + aggro spike risk)`.
+- Durable decisions:
+  - New runtime module `src/overclock_hazard.lua` owns zone pulse/cooldown state, build-cost discount, and combat pressure profile.
+  - `maps/map_07.lua` now defines prototype hazard room metadata in center contest zone.
+  - Build-cost plan (`src/inventory_ui.lua`) applies temporary SRL discount during active pulse.
+  - Enemy AI consumes hazard pressure (`EnemyAI.setThreatPressure`) to increase aggro via move-cadence + detection boost.
+  - HUD/status now surface overclock state (`OVERCLOCK READY/HOT/CD`) and pulse activation/expiry messages.
+- Verification:
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_mission_pressure_breaker.lua`
+  - `luac -p src/overclock_hazard.lua src/entities.lua src/enemy_ai.lua src/inventory_ui.lua src/hud.lua main.lua maps/map_07.lua`
+- Next priority: `P2 Ops — QA/Systems: weekly changelog drift detector`.

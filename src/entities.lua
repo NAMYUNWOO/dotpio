@@ -8,11 +8,26 @@ local Entities = {}
 Entities.enemies = {}
 Entities.items = {}
 Entities.lootboxes = {}
+Entities.threatPressure = { active = false, moveMul = 1.0, detectBonus = 0 }
 
 function Entities.reset()
     Entities.enemies = {}
     Entities.items = {}
     Entities.lootboxes = {}
+    Entities.threatPressure = { active = false, moveMul = 1.0, detectBonus = 0 }
+end
+
+function Entities.setThreatPressure(pressure)
+    if type(pressure) ~= "table" then
+        Entities.threatPressure = { active = false, moveMul = 1.0, detectBonus = 0 }
+    else
+        Entities.threatPressure = {
+            active = pressure.active == true,
+            moveMul = tonumber(pressure.moveMul) or 1.0,
+            detectBonus = math.floor(tonumber(pressure.detectBonus) or 0),
+        }
+    end
+    EnemyAI.setThreatPressure(Entities.threatPressure)
 end
 
 local LOOT_REWARD_PROFILES = {
@@ -117,6 +132,7 @@ end
 function Entities.spawn(player, skipPlayerPlace)
     Entities.enemies = {}
     Entities.items = {}
+    EnemyAI.setThreatPressure(Entities.threatPressure)
 
     local interior, fallback = {}, {}
     for y = 2, Map.height-1 do

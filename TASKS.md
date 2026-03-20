@@ -212,4 +212,4 @@ See project-level plans:
 
 ## Next Up (Game Director experiment candidates)
 - [x] Add mission-chain pressure breaker bonus (complete objective during `THREAT Δ:+` turn grants temporary dodge charge)
-- [ ] Add map hazard overclock rooms (high-risk interactable gives short burst SRL discounts + enemy aggro spike)
+- [x] Add map hazard overclock rooms (high-risk interactable gives short burst SRL discounts + enemy aggro spike)

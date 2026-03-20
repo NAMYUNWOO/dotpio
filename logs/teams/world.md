@@ -195,3 +195,8 @@
 - No map/portal edits in this slice.
 - Impact to world lane: none; combat survivability mechanic is system-side and map-agnostic.
 - Next world priority remains overclock hazard room prototype.
+
+## 2026-03-20 11:26 KST — Map_07 overclock hazard room prototype
+- Added `metadata.overclockHazard` zone on map_07 center ring (`rect={x=21,y=10,w=7,h=5}`) as prototype room.
+- Room behavior: entering zone triggers short overclock pulse (SRL build discount) with cooldown for repeat traversal risk/reward routing.
+- Portal topology unchanged; hazard is embedded into existing crown-arena center contest lane.

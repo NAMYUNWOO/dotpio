@@ -176,3 +176,8 @@
 - Decision: Consume dodge charge at hit resolution in `EnemyAI.update` and return `dodged_player` event; preserve berserker lunge recovery sequencing even when hit is dodged.
 - Result: Rising-threat objective clears create one short tactical escape window without suppressing enemy cadence.
 - Follow-up: Validate stacked-charge readability if future tasks increase reward intensity.
+
+## 2026-03-20 11:26 KST — Overclock aggro spike pressure profile
+- Added global threat-pressure plumbing from hazard pulse into enemy AI (`EnemyAI.setThreatPressure`).
+- During pulse, enemies receive aggro spike via faster move cadence multiplier + detect/chase range bonus.
+- Intent: SRL discount window is explicitly high-risk; combat pressure rises during discount uptime.

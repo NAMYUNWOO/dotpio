@@ -21,6 +21,7 @@ local Unlocks     = require("src.unlocks")
 local FailForward = require("src.fail_forward")
 local RunSummary  = require("src.run_summary")
 local OnboardingHints = require("src.onboarding_hints")
+local OverclockHazard = require("src.overclock_hazard")
 
 local gameOver = false
 local autoShotDone = false
@@ -100,6 +101,7 @@ local function loadMap(mapName, portalName)
     lootboxInteract = {active = false, lootbox = nil, timer = 0, duration = 0}
     hoveredLootbox = nil
     lastPlayerX, lastPlayerY = Player.x, Player.y
+    OverclockHazard.onMapLoaded(Map.currentMap, Map.metadata)
 
     Map.extraBlockers = function(gx, gy)
         for _, lb in ipairs(Entities.lootboxes) do
@@ -162,6 +164,16 @@ function love.update(dt)
         return
     end
     if gameOver then return end
+
+    local overclockEvents = OverclockHazard.update(dt, Player.x, Player.y)
+    local overclockPressure = OverclockHazard.getPressureProfile()
+    Entities.setThreatPressure(overclockPressure)
+    HUD.setAuxThreatHint(OverclockHazard.getHudHint())
+    if overclockEvents.activated then
+        InventoryUI.setStatus("OVERCLOCK ONLINE: BUILD COST DISCOUNT ACTIVE, ENEMIES AGGRO BOOSTED")
+    elseif overclockEvents.expired then
+        InventoryUI.setStatus("OVERCLOCK COOLED: SRL DISCOUNT OFF")
+    end
 
     threatRiseWindow = math.max(0, threatRiseWindow - dt)
 

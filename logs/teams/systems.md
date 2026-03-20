@@ -559,3 +559,8 @@
 - Decision: Reused `RunMissions.addProgress(..., context)` with `risingThreat` flag to emit deterministic `pressureBreakerDodgeCharge` reward metadata (1 charge).
 - Implementation: `main.lua` now grants a short-lived dodge charge (6s TTL) when objective completion occurs during a rising-threat window.
 - Follow-up: Keep charge value+TTL configurable if overclock room prototype also introduces burst survivability buffs.
+
+## 2026-03-20 11:26 KST — Overclock hazard economy hook
+- Task: Prototype SRL discount pulse in hazard room without changing baseline build-cost curve.
+- Decision: Added `src/overclock_hazard.lua` and applied pulse-time discount through `src/inventory_ui.lua` build-cost plan hook (`OverclockHazard.applyBuildCost`).
+- Balance guardrail: discount is temporary and floor-clamped (min build cost remains 1) to avoid zero-cost loops.

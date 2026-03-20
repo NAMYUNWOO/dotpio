@@ -6,6 +6,7 @@ local AiDescribe = require("src.ai_describe")
 local Stats = require("src.stats")
 local StatChart = require("src.stat_chart")
 local EconomyTelemetry = require("src.economy_telemetry")
+local OverclockHazard = require("src.overclock_hazard")
 
 -- Stat display labels (short, fits narrow Info panel)
 local STAT_DISPLAY = {
@@ -762,6 +763,7 @@ getBuildPlan = function(inv, dir)
     local costBase = math.ceil(score / 2.15)
     local totalSurcharge = lowTierSurcharge + recipeSurcharge + monoCategorySurcharge + stackableSurcharge + salvageLoopSurcharge + scrapBlendSurcharge
     local builderCost = math.max(1, math.min(7, costBase + totalSurcharge))
+    builderCost = OverclockHazard.applyBuildCost(builderCost)
     return consumed, builderCost, requiredCount
 end
 

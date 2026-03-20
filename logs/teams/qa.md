@@ -965,3 +965,11 @@
   - `lua scripts/regression_hud_berserker_counters.lua`
   - `lua scripts/regression_enemy_behavior_variants.lua`
 - Result: PASS all.
+
+## 2026-03-20 11:26 KST — Overclock hazard prototype verification
+- Syntax gate:
+  - `luac -p src/overclock_hazard.lua src/entities.lua src/enemy_ai.lua src/inventory_ui.lua src/hud.lua main.lua maps/map_07.lua`
+- Regression:
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_mission_pressure_breaker.lua`
+- Result: PASS.

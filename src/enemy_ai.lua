@@ -9,6 +9,19 @@ local Pathfinder = require("libs.jumper.jumper.pathfinder")
 local EnemyAI = {}
 
 local grid, finder
+local threatPressure = { active = false, moveMul = 1.0, detectBonus = 0 }
+
+function EnemyAI.setThreatPressure(pressure)
+    if type(pressure) ~= "table" then
+        threatPressure = { active = false, moveMul = 1.0, detectBonus = 0 }
+        return
+    end
+    threatPressure = {
+        active = pressure.active == true,
+        moveMul = tonumber(pressure.moveMul) or 1.0,
+        detectBonus = math.floor(tonumber(pressure.detectBonus) or 0),
+    }
+end
 
 local BEHAVIOR_DEFAULTS = {
     moveCdMul = 1.0,
@@ -203,6 +216,9 @@ local function syncCombatModifiers(e, enemies)
     end
 
     local moveMul = (empowered and behavior.synergyMoveCdMul or 1) * (desperationActive and behavior.desperationMoveCdMul or 1)
+    if threatPressure.active then
+        moveMul = moveMul * math.max(0.35, threatPressure.moveMul)
+    end
     e.moveCd = e.baseMoveCd * moveMul
     e.atkCd = e.baseAtkCd * (desperationActive and behavior.desperationAtkCdMul or 1)
     e.atkDmg = e.baseAtkDmg
@@ -293,8 +309,10 @@ function EnemyAI.update(e, idx, dt, player, enemies)
     e.atkTimer = math.max(0, e.atkTimer - dt)
 
     local d = dist(e.x, e.y, player.x, player.y)
-    local los = d <= e.chaseRange and hasLOS(e.x, e.y, player.x, player.y)
-    local canSee = d <= e.detectRange and los
+    local detectRange = e.detectRange + (threatPressure.active and threatPressure.detectBonus or 0)
+    local chaseRange = e.chaseRange + (threatPressure.active and threatPressure.detectBonus or 0)
+    local los = d <= chaseRange and hasLOS(e.x, e.y, player.x, player.y)
+    local canSee = d <= detectRange and los
     local behavior = behaviorFor(e)
 
     syncCombatModifiers(e, enemies)

@@ -142,6 +142,15 @@ return {
       enemyCountMultiplier = 1.2,
       variantBias = { raider = 1.3, warcaller = 1.2, sentinel = 0.8 },
     },
+    overclockHazard = {
+      name = "crown-overclock",
+      rect = { x = 21, y = 10, w = 7, h = 5 },
+      discountPct = 0.40,
+      pulseDuration = 7,
+      cooldownDuration = 16,
+      aggroMoveMul = 0.68,
+      aggroDetectBonus = 2,
+    },
   },
   portals = {
     { name="06", x=2, y=13, tileX=2, tileY=13, targetMap="06", targetPortal="07" },

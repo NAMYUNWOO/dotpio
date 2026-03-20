@@ -392,3 +392,9 @@
 - Added HUD counter `Dodge: <n>` near HP/MP for immediate survivability context.
 - Added status feed copy for charge trigger (`PRESSURE BREAKER: DODGE CHARGE TRIGGERED`).
 - Mission reward status now appends compact pressure-breaker suffix showing gained charge, TTL, and ready count.
+
+## 2026-03-20 11:26 KST — Overclock status copy pass
+- Added concise feed copy on pulse start/end:
+  - `OVERCLOCK ONLINE: BUILD COST DISCOUNT ACTIVE, ENEMIES AGGRO BOOSTED`
+  - `OVERCLOCK COOLED: SRL DISCOUNT OFF`
+- Added compact HUD hint cycle (`OVERCLOCK READY`, `OVERCLOCK HOT`, `OVERCLOCK CD`) to communicate temporary window state without extra controls.

@@ -142,3 +142,7 @@
 ## 2026-03-20 11:06 KST — Combat readability alignment for pressure-breaker
 - Kept pressure-breaker communication diegetic and compact (HUD count + status pulse) to avoid crowding the DOS combat strip.
 - Maintained existing threat decomposition rows; dodge counter sits in left status cluster for quick glance during movement/combat.
+
+## 2026-03-20 11:26 KST — Risk/reward readability for hazard room prototype
+- Kept prototype lightweight: hazard lives in contested center room to make risk legible through natural encounter density.
+- Added compact HUD/state messaging (`OVERCLOCK READY/HOT/CD`) instead of new paneling to preserve DOS hierarchy.
