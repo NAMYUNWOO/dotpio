@@ -78,6 +78,9 @@ def main() -> int:
             "# DOTPIO Sustain Health Dashboard",
             "Overall: **GREEN**",
             "Trend: **stable**",
+            "## Regression Risk",
+            "Score: **5 / 100**",
+            "Threshold alert: **OK**",
             "decision=NO_CURVE_CHANGE",
             "weeklyEvents=42",
             "CRON_TZ: Asia/Seoul",
@@ -116,6 +119,9 @@ def main() -> int:
             raise AssertionError("Unexpected trend classification in JSON dashboard output")
         if payload.get("schedulerPolicy", {}).get("tz") != "Asia/Seoul":
             raise AssertionError("Scheduler policy fields missing from JSON dashboard output")
+        risk = payload.get("regressionRisk", {})
+        if risk.get("score") != 5 or risk.get("level") != "LOW" or risk.get("alert") != "OK":
+            raise AssertionError("Regression risk score payload mismatch")
 
         bad = subprocess.run(
             [

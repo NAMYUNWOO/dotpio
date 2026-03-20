@@ -51,4 +51,4 @@ Last updated: 2026-03-20 10:57 KST
 
 ## P2 (Ops/Telemetry Next)
 - [x] QA/Systems: Add weekly changelog drift detector (code changes without corresponding team-log/report entry)
-- [ ] Ops: Add sustain dashboard “regression risk score” (0~100) with threshold alert section
+- [x] Ops: Add sustain dashboard “regression risk score” (0~100) with threshold alert section

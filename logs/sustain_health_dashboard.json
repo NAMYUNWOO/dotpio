@@ -1,10 +1,19 @@
 {
-  "generatedAt": "2026-03-20T03:01:09.077845Z",
+  "generatedAt": "2026-03-20T03:59:50.193070Z",
   "overall": {
     "tier": "YELLOW",
     "trend": "stable",
     "score": 2,
     "totalChecks": 3
+  },
+  "regressionRisk": {
+    "score": 25,
+    "level": "LOW",
+    "alert": "OK",
+    "thresholds": {
+      "warnAt": 30,
+      "alertAt": 60
+    }
   },
   "signals": {
     "economySafety": {
@@ -43,5 +52,5 @@
     "retainRotatedLogs": "n/a",
     "maxRotatedAgeDays": "n/a"
   },
-  "action": "If overall is YELLOW/ORANGE/RED: run `bash scripts/run_weekly_sustain.sh` and investigate the failing signal before next RC cut."
+  "action": "If overall is YELLOW/ORANGE/RED OR regression risk alert is WARN/ALERT: run `bash scripts/run_weekly_sustain.sh` and investigate before next RC cut."
 }

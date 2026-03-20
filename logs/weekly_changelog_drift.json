@@ -1,13 +1,67 @@
 {
-  "generatedAt": "2026-03-20T03:01:09.734192Z",
+  "generatedAt": "2026-03-20T03:59:50.886425Z",
   "status": "warn",
   "window": {
     "sinceDays": 7,
     "maxCommits": 200
   },
-  "checkedCodeCommits": 136,
+  "checkedCodeCommits": 137,
   "missingEvidenceCommits": 66,
   "commits": [
+    {
+      "sha": "4b3adc512cabd01ef4db652b83a4132e8d6e7255",
+      "shortSha": "4b3adc5",
+      "author": "yunwoo",
+      "subject": "feat(ops): add weekly changelog drift detector and sustain wiring",
+      "committedAt": "2026-03-20T03:02:26Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/economy_weekly_snapshot.json",
+        "logs/economy_weekly_snapshot.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/stale_branch_report_drift.json",
+        "logs/stale_branch_report_drift.md",
+        "logs/sustain_health_dashboard.json",
+        "logs/sustain_health_dashboard.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_changelog_drift.json",
+        "logs/weekly_changelog_drift.md",
+        "scripts/regression_weekly_changelog_drift.py",
+        "scripts/run_weekly_sustain.sh",
+        "scripts/weekly_changelog_drift_check.py"
+      ],
+      "codeFiles": [
+        "scripts/regression_weekly_changelog_drift.py",
+        "scripts/run_weekly_sustain.sh",
+        "scripts/weekly_changelog_drift_check.py"
+      ],
+      "evidenceFiles": [
+        "POST_RC_BACKLOG.md",
+        "logs/playtests/rc_checklist.md",
+        "logs/stale_branch_report_drift.json",
+        "logs/stale_branch_report_drift.md",
+        "logs/sustain_health_dashboard.json",
+        "logs/sustain_health_dashboard.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_changelog_drift.json",
+        "logs/weekly_changelog_drift.md"
+      ],
+      "missingEvidence": false
+    },
     {
       "sha": "bcfb6f6eca7ca8d6df4b1ceb306e3c76165b76c9",
       "shortSha": "bcfb6f6",

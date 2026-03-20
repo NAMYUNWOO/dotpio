@@ -187,3 +187,18 @@
 - Added `scripts/weekly_changelog_drift_check.py` + `scripts/regression_weekly_changelog_drift.py` and wired them into `scripts/run_weekly_sustain.sh` / RC sustain checklist.
 - Verification: `python3 -m py_compile scripts/weekly_changelog_drift_check.py scripts/regression_weekly_changelog_drift.py`; `python3 scripts/regression_weekly_changelog_drift.py`; `bash scripts/run_weekly_sustain.sh`.
 - Follow-up: next backlog priority is `Ops: Add sustain dashboard regression risk score (0~100) with threshold alert section`.
+
+## 2026-03-20 13:05 KST
+- Task: P2 Ops backlog — sustain dashboard regression risk score (0~100) + threshold alert section.
+- Commit: HEAD (this run)
+- Files: `scripts/sustain_health_dashboard.py`, `scripts/regression_sustain_health_dashboard.py`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/sustain_health_dashboard.py scripts/regression_sustain_health_dashboard.py` ✅
+  - `python3 scripts/regression_sustain_health_dashboard.py` ✅
+  - `bash scripts/run_weekly_sustain.sh` ✅
+- Decisions:
+  - Dashboard now emits `regressionRisk` payload with score/level/alert and fixed thresholds (`warnAt=30`, `alertAt=60`).
+  - Markdown dashboard now includes a dedicated **Regression Risk** section with threshold alert status.
+- Follow-up:
+  - Backlog item marked done; queue next Game Director/Ops candidate.
+

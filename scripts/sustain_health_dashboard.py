@@ -61,6 +61,51 @@ def classify_trend(decision: str, suspicious_count: int, delta_events: int | Non
     return "stable"
 
 
+def compute_regression_risk_score(
+    *,
+    economy_ok: bool,
+    decision: str,
+    suspicious_count: int,
+    telemetry_ok: bool,
+    cron_ok: bool,
+    trend: str,
+    delta_events: int | None,
+) -> tuple[int, str, str]:
+    score = 0
+
+    if not economy_ok:
+        score += 35
+    if decision != "NO_CURVE_CHANGE":
+        score += 20
+    if suspicious_count > 0:
+        score += min(30, suspicious_count * 10)
+    if not telemetry_ok:
+        score += 15
+    if delta_events is not None and delta_events < 0:
+        score += 10
+    if not cron_ok:
+        score += 20
+
+    if trend == "degrading":
+        score += 15
+    elif trend == "stable":
+        score += 5
+
+    score = max(0, min(100, score))
+
+    if score >= 60:
+        level = "HIGH"
+        alert = "ALERT"
+    elif score >= 30:
+        level = "MEDIUM"
+        alert = "WARN"
+    else:
+        level = "LOW"
+        alert = "OK"
+
+    return score, level, alert
+
+
 def build_dashboard_payload(snapshot: dict[str, Any], anti: dict[str, Any], audit: dict[str, Any]) -> dict[str, Any]:
     decision = str(snapshot.get("decision", "UNKNOWN"))
     suspicious_count = int(snapshot.get("suspiciousCount", anti.get("suspiciousCount", 0)) or 0)
@@ -78,6 +123,15 @@ def build_dashboard_payload(snapshot: dict[str, Any], anti: dict[str, Any], audi
     health_score = sum([economy_ok, telemetry_ok, cron_ok])
     health_tier = {3: "GREEN", 2: "YELLOW", 1: "ORANGE", 0: "RED"}[health_score]
     trend = classify_trend(decision, suspicious_count, delta_events, delta_srl_spent)
+    risk_score, risk_level, risk_alert = compute_regression_risk_score(
+        economy_ok=economy_ok,
+        decision=decision,
+        suspicious_count=suspicious_count,
+        telemetry_ok=telemetry_ok,
+        cron_ok=cron_ok,
+        trend=trend,
+        delta_events=delta_events,
+    )
 
     generated_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
@@ -88,6 +142,15 @@ def build_dashboard_payload(snapshot: dict[str, Any], anti: dict[str, Any], audi
             "trend": trend,
             "score": health_score,
             "totalChecks": 3,
+        },
+        "regressionRisk": {
+            "score": risk_score,
+            "level": risk_level,
+            "alert": risk_alert,
+            "thresholds": {
+                "warnAt": 30,
+                "alertAt": 60,
+            },
         },
         "signals": {
             "economySafety": {
@@ -126,7 +189,7 @@ def build_dashboard_payload(snapshot: dict[str, Any], anti: dict[str, Any], audi
             "retainRotatedLogs": audit.get("retain_rotated_logs", "n/a"),
             "maxRotatedAgeDays": audit.get("max_rotated_age_days", "n/a"),
         },
-        "action": "If overall is YELLOW/ORANGE/RED: run `bash scripts/run_weekly_sustain.sh` and investigate the failing signal before next RC cut.",
+        "action": "If overall is YELLOW/ORANGE/RED OR regression risk alert is WARN/ALERT: run `bash scripts/run_weekly_sustain.sh` and investigate before next RC cut.",
     }
 
 
@@ -134,6 +197,7 @@ def write_markdown(path: Path, payload: dict[str, Any]) -> None:
     signals = payload["signals"]
     weekly = payload["weeklySnapshot"]
     scheduler = payload["schedulerPolicy"]
+    risk = payload["regressionRisk"]
 
     lines = [
         "# DOTPIO Sustain Health Dashboard",
@@ -141,6 +205,11 @@ def write_markdown(path: Path, payload: dict[str, Any]) -> None:
         f"- GeneratedAt(UTC): {payload['generatedAt']}",
         f"- Overall: **{payload['overall']['tier']}** ({payload['overall']['score']}/{payload['overall']['totalChecks']} checks green)",
         f"- Trend: **{payload['overall']['trend']}**",
+        "",
+        "## Regression Risk",
+        f"- Score: **{risk['score']} / 100**",
+        f"- Level: **{risk['level']}**",
+        f"- Threshold alert: **{risk['alert']}** (WARN >= {risk['thresholds']['warnAt']}, ALERT >= {risk['thresholds']['alertAt']})",
         "",
         "## Signals",
         f"- {badge(bool(signals['economySafety']['ok']), 'Economy safety')}: decision={signals['economySafety']['decision']}, suspiciousWindows={signals['economySafety']['suspiciousWindows']}",
