@@ -202,3 +202,8 @@
 - Follow-up:
   - Backlog item marked done; queue next Game Director/Ops candidate.
 
+
+## 2026-03-20 13:28 KST — Overclock hazard HUD countdown readability pass
+- Decision: Overclock status hint now includes live seconds for active pulse (`OVERCLOCK HOT <n>s`) and cooldown (`OVERCLOCK CD <n>s`) to reduce timing ambiguity.
+- Evidence: `lua scripts/regression_overclock_hazard.lua`; `luac -p src/overclock_hazard.lua`.
+- Follow-up: Consider mirroring countdown near build preview panel for players who open inventory during hazard pulses.

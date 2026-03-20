@@ -32,6 +32,9 @@ expect(events.activated == true, "entering hazard zone should activate pulse")
 local discounted = OverclockHazard.applyBuildCost(5)
 expect(discounted == 3, "pulse should discount build cost (5 -> 3)")
 
+local hotHint = OverclockHazard.getHudHint()
+expect(type(hotHint) == "string" and hotHint:find("OVERCLOCK HOT") and hotHint:find("%d+s"), "hot hint should include active pulse countdown seconds")
+
 local pressure = OverclockHazard.getPressureProfile()
 expect(pressure.active == true, "pressure profile should be active during pulse")
 expect(pressure.detectBonus == 2, "pressure detect bonus should match hazard config")
@@ -39,6 +42,9 @@ expect(math.abs((pressure.moveMul or 1) - 0.7) < 0.001, "pressure move multiplie
 
 local coolEvent = OverclockHazard.update(6.0, 11, 11)
 expect(coolEvent.expired == true, "pulse should expire after timer elapses")
+
+local cooldownHint = OverclockHazard.getHudHint()
+expect(type(cooldownHint) == "string" and cooldownHint:find("OVERCLOCK CD") and cooldownHint:find("%d+s"), "cooldown hint should include cooldown seconds")
 
 local postCost = OverclockHazard.applyBuildCost(5)
 expect(postCost == 5, "after expiry: build cost should return to base")

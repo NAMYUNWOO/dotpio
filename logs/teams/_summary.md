@@ -467,3 +467,4 @@ Compact decision memory for AI context efficiency.
 - Next priority item (POST_RC_BACKLOG): `Ops: Add sustain dashboard regression risk score (0~100) with threshold alert section`.
 - Sustain health dashboard now includes a computed `regressionRisk` block (0~100) with thresholded alert states (`OK`/`WARN`/`ALERT`) and fixed thresholds (`warnAt=30`, `alertAt=60`).
 - Markdown dashboard includes a dedicated **Regression Risk** section so weekly ops reviews can spot escalating regression pressure without parsing raw signals.
+- Overclock hazard HUD hint now includes explicit active-pulse and cooldown countdown seconds (`OVERCLOCK HOT <n>s`, `OVERCLOCK CD <n>s`) for better risk/reward timing readability while traversing map_07 hazard zones.

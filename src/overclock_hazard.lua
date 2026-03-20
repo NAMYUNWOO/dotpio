@@ -106,10 +106,11 @@ end
 function OverclockHazard.getHudHint()
     if not state.zone then return nil end
     if state.pulseActive then
-        return string.format("OVERCLOCK HOT: -%d%% SRL / AGGRO+", math.floor(state.zone.discountPct * 100 + 0.5))
+        local pulseSeconds = math.max(0, math.ceil(state.pulseTimer or 0))
+        return string.format("OVERCLOCK HOT %ds: -%d%% SRL / AGGRO+", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5))
     end
     if state.cooldownTimer > 0 then
-        return string.format("OVERCLOCK CD: %.0fs", math.ceil(state.cooldownTimer))
+        return string.format("OVERCLOCK CD %ds", math.max(0, math.ceil(state.cooldownTimer)))
     end
     return "OVERCLOCK READY"
 end
