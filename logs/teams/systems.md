@@ -699,3 +699,7 @@
 - Added artifact writer `writeRunDwellArtifact()` emitting compact JSON/MD telemetry under `logs/playtests/`.
 - Hooked run-reset flow to persist latest artifact (`logs/playtests/overclock_dwell_buckets_latest.{json,md}`).
 - Follow-up: feed these buckets into weekly sustain dashboard once enough run samples accumulate.
+
+## 2026-03-20 22:41 KST — Game Director slice: dwell snapshot plumbing
+- Passed per-run dwell bucket snapshot (`LOW/MID/HIGH`) from `OverclockHazard` -> `RunSummary.open()`.
+- Run reset now captures dwell snapshot before telemetry reset and persists latest artifact under `logs/playtests/overclock_dwell_buckets_latest.{json,md}`.

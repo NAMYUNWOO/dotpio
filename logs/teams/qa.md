@@ -1119,3 +1119,10 @@
   - `lua scripts/regression_overclock_hazard.lua`
   - `lua scripts/regression_overclock_dwell_buckets.lua`
   - Result: PASS
+
+## 2026-03-20 22:41 KST — Run summary regression extension
+- Extended `scripts/regression_run_summary.lua` to assert overclock dwell snapshot copy (`low/mid/high`) is stable in summary state.
+- Re-verified regression trio:
+  - `lua scripts/regression_run_summary.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_dwell_buckets.lua`

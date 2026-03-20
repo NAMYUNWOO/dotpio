@@ -257,3 +257,10 @@
 ## 2026-03-20 22:35 KST — Sync note
 - No new visual/UI hierarchy changes in this cycle.
 - Telemetry artifacts are ops-facing (`logs/playtests`) and do not alter player-facing layout.
+
+## 2026-03-20 22:41 KST — Game Director ideation snapshot
+- Candidate ideas generated:
+  1) Run-summary dwell snapshot readability (implemented this cycle)
+  2) Reward-efficiency token (`SRL/EXPOSED sec`) in run summary
+  3) Multi-run dwell trend combiner artifact for weekly balance review
+- Chosen experiment: #1 (low-risk UX readout with immediate tuning utility).

@@ -677,3 +677,12 @@ Compact decision memory for AI context efficiency.
 - Runtime integration: latest per-run artifact now written on run reset (`R`) to `logs/playtests/overclock_dwell_buckets_latest.json` + `.md`.
 - QA coverage: `scripts/regression_overclock_dwell_buckets.lua` validates bucket math + telemetry schema + total exposure aggregation.
 - Impact hypothesis: gives tuning evidence for overclock commitment risk profile before adding dashboard-level trending.
+
+## 2026-03-20 22:41 KST — Game Director review cycle executed
+- Idea set (L/M/H risk) generated and backlog-injected under `POST_RC_BACKLOG.md` (Game Director Injection section).
+- Implemented experiment: run-summary overclock dwell snapshot (`OVERCLOCK DWELL L/M/H`).
+- Wiring: `OverclockHazard.getRunDwellBuckets()` snapshot is captured on reset and injected into `RunSummary` state.
+- Verification: run summary + hazard + dwell telemetry regressions all PASS.
+- Next candidates retained in backlog:
+  - reward-efficiency token (`SRL/EXPOSED sec`)
+  - multi-run dwell trend combiner artifact.

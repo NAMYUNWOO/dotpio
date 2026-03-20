@@ -93,3 +93,8 @@ Last updated: 2026-03-20 17:31 KST
 - [x] UX/World Team: Add overclock risk-delta color semantics in HUD hint (rising=red, cooling=green) to improve commit/retreat readability
 - [x] UX/World Team: Add overclock pulse-end relief burst (+short "WINDOW" token) after exiting HOT zone to reward disengage timing
 - [x] Systems/Telemetry Team: Log overclock zone dwell buckets (`LOW|MID|HIGH`) per run for exposure-driven tuning evidence
+
+## P1 (Game Director Injection — 2026-03-20)
+- [x] UX/Systems Team: Surface overclock dwell-bucket snapshot in run summary (`DWELL L/M/H`) for immediate post-run tuning readability
+- [ ] Systems/Design Team: Add overclock zone reward-efficiency token (`SRL/EXPOSED sec`) to run summary for risk/reward pacing insight
+- [ ] QA/Systems Team: Add multi-run dwell trend combiner artifact (`last N run medians`) for balance review cadence

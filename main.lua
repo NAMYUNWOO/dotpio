@@ -455,6 +455,7 @@ function love.keypressed(key)
         local missionState = RunMissions.getState()
         local unlockFlags = Unlocks.getAllFlags()
         local carryReward = FailForward.compute(Player.inventory, missionState)
+        local overclockDwellBuckets = OverclockHazard.getRunDwellBuckets()
         OverclockHazard.writeRunDwellArtifact("logs/playtests/overclock_dwell_buckets_latest")
 
         Player.inventory = nil
@@ -463,7 +464,7 @@ function love.keypressed(key)
 
         local applied = FailForward.apply(Player.inventory, carryReward)
         InventoryUI.setStatus(FailForward.formatStatus(applied))
-        RunSummary.open(missionState, unlockFlags, applied)
+        RunSummary.open(missionState, unlockFlags, applied, overclockDwellBuckets)
 
         loadMap("01", nil)
         return

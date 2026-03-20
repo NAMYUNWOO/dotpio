@@ -532,3 +532,8 @@
 ## 2026-03-20 22:35 KST — Sync note
 - No HUD copy or interaction-flow changes in this cycle.
 - Overclock HUD readability tokens remain unchanged while telemetry is captured in background.
+
+## 2026-03-20 22:41 KST — Game Director slice: run-summary dwell readability
+- Implemented `OVERCLOCK DWELL L/M/H` line in run summary overlay so post-run tuning reads commitment mix at a glance.
+- Data source wired from hazard telemetry snapshot captured on reset.
+- Scope kept minimal (single summary line) to avoid HUD clutter during active gameplay.

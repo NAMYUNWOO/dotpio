@@ -19,7 +19,7 @@ local function cloneObjectives(objectives)
     return out
 end
 
-function RunSummary.open(missionState, unlockFlags, appliedCarry)
+function RunSummary.open(missionState, unlockFlags, appliedCarry, overclockDwellBuckets)
     local missionsDone = (missionState and missionState.doneCount) or 0
     local missionsTotal = (missionState and missionState.total) or 0
     local objectives = cloneObjectives((missionState and missionState.objectives) or {})
@@ -40,6 +40,11 @@ function RunSummary.open(missionState, unlockFlags, appliedCarry)
             srl = (appliedCarry and appliedCarry.srl) or 0,
             coins = (appliedCarry and appliedCarry.coins) or 0,
             gems = (appliedCarry and appliedCarry.gems) or 0,
+        },
+        overclockDwell = {
+            low = math.max(0, math.floor((overclockDwellBuckets and overclockDwellBuckets.LOW) or 0)),
+            mid = math.max(0, math.floor((overclockDwellBuckets and overclockDwellBuckets.MID) or 0)),
+            high = math.max(0, math.floor((overclockDwellBuckets and overclockDwellBuckets.HIGH) or 0)),
         },
     }
     state.active = true

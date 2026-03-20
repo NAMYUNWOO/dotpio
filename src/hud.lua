@@ -177,6 +177,11 @@ local function drawRunSummary(runSummary)
     love.graphics.setColor(0.88, 0.88, 0.88, 1)
     love.graphics.printf(string.format("+%d BUILDER.SRL   +%d COIN   +%d GEM", carry.srl or 0, carry.coins or 0, carry.gems or 0), 112, row, w - 224, "left")
 
+    row = row + 20
+    local dwell = data.overclockDwell or { low = 0, mid = 0, high = 0 }
+    love.graphics.setColor(0.76, 0.9, 1, 1)
+    love.graphics.printf(string.format("OVERCLOCK DWELL L/M/H: %ds / %ds / %ds", dwell.low or 0, dwell.mid or 0, dwell.high or 0), 112, row, w - 224, "left")
+
     love.graphics.setColor(0.65, 0.65, 0.65, 1)
     love.graphics.printf("Press R / Enter / Esc to close", 0, h - 148, w, "center")
 end
