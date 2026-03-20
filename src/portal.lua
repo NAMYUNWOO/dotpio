@@ -200,23 +200,38 @@ local function resolveAdaptiveAltPressureDelta(routeTag, altRouteTag, threatTier
     return delta
 end
 
-local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta)
+local function isAltPlanExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
+local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d", routeTag, coach, pressureScore)
     if altRouteTag then
         prompt = string.format("%s  ALT ROUTE:%s", prompt, altRouteTag)
         if altDelta then
             prompt = string.format("%s  ALT DELTA:%+d", prompt, altDelta)
         end
+        if altPlanNudge then
+            prompt = string.format("%s  ALT PLAN:LOWER RISK", prompt)
+        end
     end
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d", routeTag, resolveCompactCoach(routeTag), pressureScore)
     if altRouteTag then
         prompt = string.format("%s  ALT:%s", prompt, altRouteTag)
         if altDelta then
             prompt = string.format("%s  ADEL:%+d", prompt, altDelta)
+        end
+        if altPlanNudge then
+            prompt = string.format("%s  AP:LOW", prompt)
         end
     end
     return prompt
@@ -232,10 +247,11 @@ function Portal.getTransitionPrompt(maxChars, context)
     local pressureScore = resolvePressureScore(routeTag, threatTier)
     local altRouteTag = resolveAdaptiveAltRoute(routeTag, pressureScore, threatTier, pendingTransition.reachableTargetMaps)
     local altDelta = resolveAdaptiveAltPressureDelta(routeTag, altRouteTag, threatTier)
-    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta)
+    local altPlanNudge = isAltPlanExperimentEnabled() and altRouteTag ~= nil
+    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge)
     local budget = tonumber(maxChars) or 76
     if budget > 0 and #prompt > budget then
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta)
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge)
     end
     return prompt
 end

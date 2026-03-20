@@ -294,3 +294,6 @@ See project-level plans:
   - [x] Add profile resolver in run-summary snapshot state
   - [x] Render compact profile token under overclock efficiency line
   - [x] Extend run-summary regression coverage for profile mapping fixture
+- [x] Add adaptive portal nudge token experiment behind flag (`ALT PLAN:LOWER RISK` / `AP:LOW`)
+  - [x] Gate token behind `DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE` to keep default prompt contract stable
+  - [x] Add regression coverage for detailed/compact token visibility when flag enabled

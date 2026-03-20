@@ -133,3 +133,8 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/Systems Team: Add adaptive portal pressure-drop token (`ALT DELTA:-n`) in transition prompt to quantify safer branch impact
 - [x] Systems/World Team: Route-aware ALT selector v2 (pick lowest-pressure reachable branch among current-map portals, not just one-step fallback)
 - [x] QA/UX Team: Add portal prompt readability regression for adaptive ALT token budget/order under HIGH threat compact mode
+
+## P1 (Game Director Injection — 2026-03-21 Cycle I)
+- [x] UX/World Team: Prototype adaptive portal nudge token (`ALT PLAN:LOWER RISK`) behind experiment flag for HIGH-pressure transitions
+- [ ] Systems/Combat Team: Prototype overclock retreat streak bonus (grant +1 temporary dodge after 2 consecutive safe disengages)
+- [ ] QA/Systems Team: Add weekly portal prompt readability drift digest (compact/detailed token stats over last N commits)

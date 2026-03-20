@@ -952,3 +952,17 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_portal_prompt_compact_mode.lua`
   - `lua scripts/regression_portal_prompt_token_order.lua`
 - All checks passed.
+
+## 2026-03-21 05:38 KST — Game Director Cycle I experiment shipped
+- All previously tracked ACTION_ITEMS/TASKS were complete; after closing the final Cycle H QA item, initiated required Game Director review cycle.
+- Candidate ideas generated:
+  1) Low-risk UX: adaptive portal ALT PLAN nudge token,
+  2) Mid-risk systems: overclock retreat streak bonus,
+  3) High-risk novelty/ops: portal readability drift digest automation.
+- Chosen experiment: idea (1).
+- Vertical slice implementation:
+  - `src/portal.lua`: experiment-gated adaptive nudge copy (`ALT PLAN:LOWER RISK` / `AP:LOW`) under `DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE`.
+  - `scripts/regression_portal_alt_plan_nudge.lua`: new regression for detailed+compact nudge token visibility when flag is enabled.
+- Safety/rollback: feature is fully off by default; disable by unsetting the env flag.
+- Verification: portal prompt regression suite remains green with/without flag.
+- Backlog injection updated in `POST_RC_BACKLOG.md` (Cycle I): selected idea marked done; 2 follow-up ideas queued unchecked.

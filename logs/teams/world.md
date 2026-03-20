@@ -414,3 +414,10 @@
 - Decision: Added dedicated regression `scripts/regression_portal_prompt_adaptive_alt_readability.lua` to validate HIGH-threat compact prompt budget + token order with adaptive ALT tokens (`ALT`, `ADEL`).
 - Evidence: `lua scripts/regression_portal_prompt_adaptive_alt_readability.lua` PASS, plus companion prompt regressions PASS.
 - Follow-up: Keep this regression in portal readability validation set for future prompt-token changes.
+
+## 2026-03-21 05:38 KST — Game Director Cycle I: ALT PLAN nudge experiment
+- Ideas generated: (1) adaptive portal ALT PLAN nudge token (low-risk UX), (2) overclock retreat streak bonus (mid-risk systems), (3) portal readability drift digest automation (high-risk ops novelty).
+- Selected experiment: (1) adaptive portal ALT PLAN nudge token for HIGH-pressure transitions.
+- Implementation: Added experiment-flagged prompt token in `src/portal.lua` (`ALT PLAN:LOWER RISK` detailed / `AP:LOW` compact) gated by `DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE`.
+- Verification: `lua scripts/regression_portal_prompt_adaptive_alt_readability.lua`, `DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE=1 lua scripts/regression_portal_alt_plan_nudge.lua`, `lua scripts/regression_portal_prompt_compact_mode.lua`, `lua scripts/regression_portal_prompt_token_order.lua`.
+- Follow-up: Monitor readability impact in playtests before promoting flag default.
