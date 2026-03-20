@@ -57,3 +57,4 @@ Last updated: 2026-03-20 14:00 KST
 
 ## P1 (Hazard Readability Follow-up)
 - [x] UX/World Team: Add overclock hazard risk-tier label + countdown legend in HUD hint (`RISK:LOW|MED|HIGH`)
+- [x] UX/Combat Team: Add explicit overclock aggro-pressure legend in HUD hint (`AGGRO DET:+n MOVE:+m%`) during active pulse

@@ -239,3 +239,9 @@
 ## 2026-03-20 14:29 KST — AI-content lane sync (no schema changes)
 - No procedural content prompt/schema updates required.
 - Existing hazard metadata remains backward-compatible with generated map descriptors.
+
+## 2026-03-20 14:56 KST — overclock aggro-pressure legend follow-up
+- Task: Add active-pulse HUD hint legend for overclock aggro pressure (`AGGRO DET:+n MOVE:+m%`).
+- Decision: Keep mechanic unchanged; surface detect/move pressure explicitly in HOT hint for faster risk parsing.
+- Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua`.
+- Follow-up: Observe readability during next map_07 playtest and adjust wording only if hint width becomes noisy.

@@ -38,6 +38,8 @@ expect(discounted == 3, "pulse should discount build cost (5 -> 3)")
 
 local hotHint = OverclockHazard.getHudHint()
 expect(type(hotHint) == "string" and hotHint:find("OVERCLOCK HOT") and hotHint:find("%d+s"), "hot hint should include active pulse countdown seconds")
+expect(hotHint:find("AGGRO DET:%+%d+"), "hot hint should include aggro detect bonus legend")
+expect(hotHint:find("MOVE:%+%d+%%"), "hot hint should include aggro move-speed pressure legend")
 expect(hotHint:find("RISK:[A-Z]+%(%d+%)"), "hot hint should include hazard risk tier + score")
 
 local pressure = OverclockHazard.getPressureProfile()

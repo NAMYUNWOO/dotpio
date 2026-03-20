@@ -55,6 +55,16 @@ local function getRiskTier(zone)
     return "LOW", score
 end
 
+local function getAggroPressureLegend(zone)
+    if not zone then
+        return "AGGRO DET:+0 MOVE:+0%"
+    end
+
+    local detectBonus = math.max(0, math.floor(tonumber(zone.aggroDetectBonus) or 0))
+    local moveBoostPct = math.max(0, math.floor(((1 / math.max(0.01, tonumber(zone.aggroMoveMul) or 1)) - 1) * 100 + 0.5))
+    return string.format("AGGRO DET:+%d MOVE:+%d%%", detectBonus, moveBoostPct)
+end
+
 function OverclockHazard.onMapLoaded(mapName, metadata)
     state.mapName = tostring(mapName or "")
     state.zone = resolveZone(metadata)
@@ -127,7 +137,8 @@ function OverclockHazard.getHudHint()
     local riskTier, riskScore = getRiskTier(state.zone)
     if state.pulseActive then
         local pulseSeconds = math.max(0, math.ceil(state.pulseTimer or 0))
-        return string.format("OVERCLOCK HOT %ds: -%d%% SRL / AGGRO+  RISK:%s(%d)", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5), riskTier, riskScore)
+        local aggroLegend = getAggroPressureLegend(state.zone)
+        return string.format("OVERCLOCK HOT %ds: -%d%% SRL / %s  RISK:%s(%d)", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5), aggroLegend, riskTier, riskScore)
     end
     if state.cooldownTimer > 0 then
         return string.format("OVERCLOCK CD %ds  RISK:%s(%d)", math.max(0, math.ceil(state.cooldownTimer)), riskTier, riskScore)

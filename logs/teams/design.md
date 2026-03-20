@@ -181,3 +181,9 @@
 ## 2026-03-20 14:29 KST — Hazard readability hierarchy note
 - Approved compact text hierarchy: state token first (`READY/HOT/CD`), then reward/timer, then risk tier.
 - Keeps DOS-style single-line affordance without extra panel footprint.
+
+## 2026-03-20 14:56 KST — overclock aggro-pressure legend follow-up
+- Task: Add active-pulse HUD hint legend for overclock aggro pressure (`AGGRO DET:+n MOVE:+m%`).
+- Decision: Keep mechanic unchanged; surface detect/move pressure explicitly in HOT hint for faster risk parsing.
+- Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua`.
+- Follow-up: Observe readability during next map_07 playtest and adjust wording only if hint width becomes noisy.

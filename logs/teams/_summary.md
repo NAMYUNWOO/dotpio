@@ -477,3 +477,7 @@ Compact decision memory for AI context efficiency.
 - Regression coverage updated: `scripts/regression_overclock_hazard.lua` now asserts risk label presence across all hazard hint states.
 - Verification pass: `lua scripts/regression_overclock_hazard.lua`, `luac -p src/overclock_hazard.lua`.
 - Next priority: no unchecked items currently present in `POST_RC_BACKLOG.md` (requires new backlog injection).
+- 2026-03-20 14:56 KST: Added active overclock pulse aggro-pressure legend in HUD hint (`AGGRO DET:+n MOVE:+m%`) so hazard risk is explicit beyond generic `AGGRO+` text.
+- Change is readability-only: hazard mechanics, scoring, and map metadata remain unchanged.
+- Regression coverage updated in `scripts/regression_overclock_hazard.lua` to assert detect/move legend tokens in HOT state.
+- Verification pass: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`, `lua scripts/regression_overclock_hazard.lua`.

@@ -603,3 +603,9 @@
   - movement pressure contribution: rounded `(1 - moveMul) * 10`
 - Tier thresholds: LOW < 6, MED 6-9, HIGH >= 10.
 - No gameplay balance knobs changed; display-only derivation.
+
+## 2026-03-20 14:56 KST — overclock aggro-pressure legend follow-up
+- Task: Add active-pulse HUD hint legend for overclock aggro pressure (`AGGRO DET:+n MOVE:+m%`).
+- Decision: Keep mechanic unchanged; surface detect/move pressure explicitly in HOT hint for faster risk parsing.
+- Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua`.
+- Follow-up: Observe readability during next map_07 playtest and adjust wording only if hint width becomes noisy.
