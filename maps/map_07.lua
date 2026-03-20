@@ -150,6 +150,8 @@ return {
       cooldownDuration = 16,
       aggroMoveMul = 0.68,
       aggroDetectBonus = 2,
+      killBonusPerKill = 1,
+      killBonusPulseCap = 3,
     },
   },
   portals = {

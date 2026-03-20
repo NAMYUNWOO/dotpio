@@ -1,6 +1,6 @@
 # POST_RC_BACKLOG
 
-Last updated: 2026-03-20 14:00 KST
+Last updated: 2026-03-20 16:55 KST
 
 ## P0 (Now)
 - [x] Replace F9-centric build flow with Enter->Action menu primary flow
@@ -59,3 +59,7 @@ Last updated: 2026-03-20 14:00 KST
 - [x] UX/World Team: Add overclock hazard risk-tier label + countdown legend in HUD hint (`RISK:LOW|MED|HIGH`)
 - [x] UX/Combat Team: Add explicit overclock aggro-pressure legend in HUD hint (`AGGRO DET:+n MOVE:+m%`) during active pulse
 - [x] UX/World Team: Add overclock pulse-imminent warning in cooldown HUD hint when standing in hazard zone (`IMMINENT:<n>s`)
+
+## P1 (Hazard Reward Follow-up)
+- [x] Systems/World Team: Add overclock hot-zone kill bounty (`+BUILDER.SRL` per kill, pulse-capped) to reinforce risk/reward combat commitment
+- [ ] UX/Systems Team: Surface overclock bounty pulse cap progress in HUD hint (`BOUNTY:x/y`) during HOT state

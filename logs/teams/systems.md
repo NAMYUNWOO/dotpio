@@ -613,3 +613,9 @@
 ## 2026-03-20 16:29 KST — Overclock warning scope decision
 - Decision: Change is UI/readability-only; no economy/combat parameter adjustments.
 - Follow-up: Keep hazard risk score formula unchanged to maintain telemetry continuity.
+
+## 2026-03-20 16:55 KST — Overclock hot-zone kill bounty slice
+- Task: Add pulse-capped overclock kill bounty reward to convert hazard combat pressure into immediate SRL upside.
+- Decision: `OverclockHazard.consumeKillBonus(kills)` now awards `killBonusPerKill` SRL only while player is in-zone during active pulse, capped by `killBonusPulseCap` each pulse.
+- Evidence: `luac -p main.lua src/overclock_hazard.lua maps/map_07.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua`.
+- Follow-up: Surface bounty cap progress (`BOUNTY:x/y`) in HOT hint for clearer reward budgeting.

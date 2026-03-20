@@ -9,6 +9,7 @@ local state = {
     pulseTimer = 0,
     cooldownTimer = 0,
     enteredZone = false,
+    killBonusGrantedThisPulse = 0,
 }
 
 local function resolveZone(metadata)
@@ -29,6 +30,8 @@ local function resolveZone(metadata)
         cooldownDuration = math.max(3, tonumber(hazard.cooldownDuration) or 16),
         aggroMoveMul = math.max(0.4, tonumber(hazard.aggroMoveMul) or 0.7),
         aggroDetectBonus = math.max(0, math.floor(tonumber(hazard.aggroDetectBonus) or 2)),
+        killBonusPerKill = math.max(0, math.floor(tonumber(hazard.killBonusPerKill) or 1)),
+        killBonusPulseCap = math.max(0, math.floor(tonumber(hazard.killBonusPulseCap) or 3)),
     }
 end
 
@@ -72,6 +75,7 @@ function OverclockHazard.onMapLoaded(mapName, metadata)
     state.pulseTimer = 0
     state.cooldownTimer = 0
     state.enteredZone = false
+    state.killBonusGrantedThisPulse = 0
 end
 
 function OverclockHazard.update(dt, playerX, playerY)
@@ -98,6 +102,7 @@ function OverclockHazard.update(dt, playerX, playerY)
             state.pulseActive = true
             state.pulseTimer = state.zone.pulseDuration
             state.cooldownTimer = state.zone.cooldownDuration
+            state.killBonusGrantedThisPulse = 0
             events.activated = true
         end
     elseif not inside and state.enteredZone then
@@ -105,6 +110,29 @@ function OverclockHazard.update(dt, playerX, playerY)
     end
 
     return events
+end
+
+function OverclockHazard.consumeKillBonus(kills)
+    local killCount = math.max(0, math.floor(tonumber(kills) or 0))
+    if killCount <= 0 or not state.zone or not state.pulseActive or not state.enteredZone then
+        return 0
+    end
+
+    local perKill = math.max(0, state.zone.killBonusPerKill or 0)
+    local pulseCap = math.max(0, state.zone.killBonusPulseCap or 0)
+    if perKill <= 0 or pulseCap <= 0 then
+        return 0
+    end
+
+    local remaining = math.max(0, pulseCap - (state.killBonusGrantedThisPulse or 0))
+    if remaining <= 0 then
+        return 0
+    end
+
+    local proposedReward = killCount * perKill
+    local reward = math.min(remaining, proposedReward)
+    state.killBonusGrantedThisPulse = (state.killBonusGrantedThisPulse or 0) + reward
+    return reward
 end
 
 function OverclockHazard.applyBuildCost(baseCost)

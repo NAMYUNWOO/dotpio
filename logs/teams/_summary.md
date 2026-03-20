@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-20 16:29 KST
+Last updated: 2026-03-20 16:55 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -498,3 +498,19 @@ Compact decision memory for AI context efficiency.
   - Marked new item done in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
 - Next priority item:
   - No unchecked entries remain in ACTION_ITEMS/TASKS/POST_RC; inject fresh Game Director experiment candidate next cycle.
+- Overclock hazard now supports pulse-capped hot-zone kill bounty rewards (`killBonusPerKill`, `killBonusPulseCap`) and runtime payout via `OverclockHazard.consumeKillBonus(kills)`.
+- map_07 overclock metadata now sets baseline bounty tuning (`killBonusPerKill=1`, `killBonusPulseCap=3`).
+- Overclock hazard regression now asserts kill bounty payout, pulse cap enforcement, and outside-zone no-reward behavior.
+
+## 2026-03-20 16:55 KST — P1 hazard reward follow-up: hot-zone kill bounty
+- Completed backlog item: `Systems/World Team: Add overclock hot-zone kill bounty (+BUILDER.SRL per kill, pulse-capped)`.
+- Durable decisions:
+  - Kill bounty awards only while player is inside active overclock pulse zone.
+  - Payout is pulse-capped to keep reward additive without opening an infinite SRL loop.
+  - Runtime status copy explains bonus trigger immediately (`OVERCLOCK BOUNTY...`).
+- Verification set:
+  - `luac -p main.lua src/overclock_hazard.lua maps/map_07.lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+- Backlog update:
+  - Marked done in `POST_RC_BACKLOG.md` and `TASKS.md`.
+  - Added next follow-up candidate: HOT-hint bounty progress token (`BOUNTY:x/y`).

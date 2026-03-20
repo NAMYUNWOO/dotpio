@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-03-20 06:58 KST
+Last updated: 2026-03-20 16:55 KST
 
 See project-level plans:
 - `PROJECT_PLAN.md` (milestones/release gates)
@@ -216,3 +216,8 @@ See project-level plans:
 - [x] Add overclock hazard countdown readability pass (active pulse + cooldown seconds in HUD hint)
 - [x] Add overclock aggro-pressure legend in active HUD hint (`AGGRO DET:+n MOVE:+m%`)
 - [x] Add overclock pulse-imminent warning in cooldown HUD hint when standing inside hazard zone (`IMMINENT:<n>s`)
+- [x] Add overclock hot-zone kill bounty reward (+BUILDER.SRL per kill, pulse-capped)
+  - [x] Add hazard config knobs for kill bounty payout/cap (`killBonusPerKill`, `killBonusPulseCap`)
+  - [x] Award bonus SRL when kills occur during active in-zone overclock pulse
+  - [x] Extend overclock hazard regression coverage for bounty payout + pulse cap
+- [ ] Add overclock HOT hint bounty progress token (`BOUNTY:x/y`) for payout cap readability

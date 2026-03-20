@@ -36,6 +36,12 @@ expect(events.activated == true, "entering hazard zone should activate pulse")
 local discounted = OverclockHazard.applyBuildCost(5)
 expect(discounted == 3, "pulse should discount build cost (5 -> 3)")
 
+local killBonusFirst = OverclockHazard.consumeKillBonus(2)
+expect(killBonusFirst == 2, "hot-zone kills should award overclock bonus SRL per kill")
+
+local killBonusCapped = OverclockHazard.consumeKillBonus(3)
+expect(killBonusCapped == 1, "per-pulse overclock kill bonus should respect configured cap")
+
 local hotHint = OverclockHazard.getHudHint()
 expect(type(hotHint) == "string" and hotHint:find("OVERCLOCK HOT") and hotHint:find("%d+s"), "hot hint should include active pulse countdown seconds")
 expect(hotHint:find("AGGRO DET:%+%d+"), "hot hint should include aggro detect bonus legend")
@@ -62,6 +68,7 @@ expect(type(imminentHint) == "string" and imminentHint:find("IMMINENT:%d+s"), "c
 OverclockHazard.update(0.0, 2, 2)
 local outsideHint = OverclockHazard.getHudHint()
 expect(type(outsideHint) == "string" and not outsideHint:find("IMMINENT:"), "imminent warning should hide when player leaves hazard zone")
+expect(OverclockHazard.consumeKillBonus(2) == 0, "kill bonus should not trigger while outside hazard zone")
 
 local postCost = OverclockHazard.applyBuildCost(5)
 expect(postCost == 5, "after expiry: build cost should return to base")

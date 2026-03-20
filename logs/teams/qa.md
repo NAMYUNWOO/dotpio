@@ -1022,3 +1022,10 @@
 - Task: Extended `scripts/regression_overclock_hazard.lua` for imminent warning behavior.
 - Verification: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua` and `lua scripts/regression_overclock_hazard.lua` passed.
 - Follow-up: Add a runtime integration check later for edge timing around exact 0s re-arm boundary.
+
+## 2026-03-20 16:55 KST — Regression coverage: overclock kill bounty
+- Extended `scripts/regression_overclock_hazard.lua` to assert:
+  - in-zone HOT kill bonus payout,
+  - per-pulse payout cap enforcement,
+  - no payout outside hazard zone.
+- Verification: `luac -p main.lua src/overclock_hazard.lua maps/map_07.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua`.

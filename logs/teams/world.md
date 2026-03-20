@@ -247,3 +247,7 @@
 - Task: Added cooldown near-ready warning token while standing in overclock hazard zone (`IMMINENT:<n>s`).
 - Decision: Keep warning scoped to in-zone state + final 3 seconds only to avoid HUD noise outside risk context.
 - Follow-up: Validate threshold feel in playtest; tune 3s window if players still miss pulse timing.
+
+## 2026-03-20 16:55 KST — Hazard reward follow-up
+- Added map-authored overclock reward knobs in `map_07` metadata (`killBonusPerKill=1`, `killBonusPulseCap=3`) to keep reward tuning local to hazard content.
+- No geometry/portal changes.

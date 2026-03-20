@@ -183,6 +183,14 @@ function love.update(dt)
     local kills = Combat.consumeKillCount()
     if kills > 0 then
         applyMissionProgress("kills", kills)
+        local overclockKillBonus = OverclockHazard.consumeKillBonus(kills)
+        if overclockKillBonus > 0 then
+            if Inventory.addItem(Player.inventory, "builder_scroll", overclockKillBonus) then
+                InventoryUI.setStatus(string.format("OVERCLOCK BOUNTY: +%d BUILDER.SRL (HOT ZONE KILL)", overclockKillBonus))
+            else
+                InventoryUI.setStatus(string.format("OVERCLOCK BOUNTY: +%d BUILDER.SRL DROPPED (BAG FULL)", overclockKillBonus))
+            end
+        end
     end
 
     local missionState = RunMissions.getState()

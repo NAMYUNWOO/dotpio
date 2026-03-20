@@ -191,3 +191,7 @@
 ## 2026-03-20 16:29 KST — Hazard readability micro-polish
 - Decision: Reused existing overclock hint line to retain DOS compactness and avoid panel-height growth.
 - Follow-up: Consider unified hazard legend style if more hazard-room variants are introduced.
+
+## 2026-03-20 16:55 KST — Risk/reward pacing pass
+- Decision: Overclock room now pays a small pulse-capped kill bounty so players are incentivized to stay in HOT zone briefly instead of always dipping out after build.
+- Intent: tighten "high risk center contest" fantasy with immediate SRL feedback.

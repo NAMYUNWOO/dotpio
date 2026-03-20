@@ -446,3 +446,7 @@
 - Task: Updated overclock HUD cooldown copy to show `IMMINENT:<n>s` when pulse is about to re-arm in-zone.
 - Decision: Preserve existing READY/HOT/CD layout and append imminent token without adding a new HUD row.
 - Follow-up: If clutter appears, collapse imminent token to icon shorthand in a later polish pass.
+
+## 2026-03-20 16:55 KST — UX note for bounty readability
+- Runtime now emits explicit status copy: `OVERCLOCK BOUNTY: +n BUILDER.SRL (HOT ZONE KILL)`.
+- Follow-up: add compact HOT-hint bounty cap progress token (`BOUNTY:x/y`) to reduce hidden-cap confusion.
