@@ -166,3 +166,7 @@
 ## 2026-03-20 10:35 KST — Threat pacing delta readability
 - Added turn-over-turn threat delta row (`THREAT Δ`) under threat score/tier to expose pressure acceleration/deceleration in live combat.
 - Decision: color delta by direction (up=warm, down=cool, flat=neutral) while retaining explicit signed text for accessibility.
+
+## 2026-03-20 10:58 KST — Combat signal hooked into onboarding
+- Wired berserker enrage/lunge events to mark onboarding `threat` milestone so players retire combat tutorial only after real threat exposure.
+- Scope check: no enemy behavior/cadence tuning changes (signal-only integration).

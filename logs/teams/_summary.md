@@ -408,3 +408,17 @@ Compact decision memory for AI context efficiency.
   - Marked completed in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
 - Next priority:
   - No unchecked entries remain in ACTION_ITEMS/TASKS/POST_RC; queue next Game Director experiment candidate.
+
+## 2026-03-20 10:58 KST — Game Director experiment: threat-aware onboarding micro-tip
+- Completed vertical slice: after build onboarding milestone, HUD hint now teaches combat pressure model (`THREAT` + `THREAT Δ`) until first berserker threat event is observed.
+- Durable decisions:
+  - Added onboarding `threat` milestone in `src/onboarding_hints.lua` and state export.
+  - Runtime marks milestone from berserker enrage/lunge signals in `main.lua` to avoid permanent tutorial copy.
+  - Kept economy/combat mechanics untouched (UX-only reversible slice).
+- Verification set:
+  - `luac -p main.lua src/onboarding_hints.lua`
+  - `lua scripts/regression_onboarding_hints.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+- Backlog sync:
+  - Marked completed in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
+  - Added next experiment candidates: pressure-breaker bonus, overclock hazard room.

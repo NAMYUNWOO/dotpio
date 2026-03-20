@@ -29,8 +29,11 @@ OnboardingHints.mark("inventory")
 assertTrue((OnboardingHints.getHint() or ""):match("BUILD:"), "fifth hint should teach build")
 
 OnboardingHints.mark("build")
+assertTrue((OnboardingHints.getHint() or ""):match("COMBAT TIP:"), "post-build hint should teach threat strip")
+
+OnboardingHints.mark("threat")
 local loopHint = OnboardingHints.getHint() or ""
-assertTrue(loopHint:match("LOOP:") or loopHint:match("TIP:"), "post-onboarding hint should rotate loop tips")
+assertTrue(loopHint:match("LOOP:") or loopHint:match("TIP:"), "post-threat hint should rotate loop tips")
 
 OnboardingHints.update(300)
 assertEq(OnboardingHints.isActive(), false, "onboarding window should expire at 5 minutes")

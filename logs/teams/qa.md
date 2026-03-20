@@ -948,3 +948,11 @@
   - `luac -p main.lua src/hud.lua`
   - `lua scripts/regression_hud_berserker_counters.lua`
 - Result: PASS; delta math/copy assertions validated alongside existing threat tier/color checks.
+
+## 2026-03-20 10:58 KST — Onboarding threat-tip regression extension
+- Extended `scripts/regression_onboarding_hints.lua` to assert post-build `COMBAT TIP` and transition to loop tips after `threat` milestone.
+- Verification:
+  - `luac -p main.lua src/onboarding_hints.lua`
+  - `lua scripts/regression_onboarding_hints.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+- Result: PASS.

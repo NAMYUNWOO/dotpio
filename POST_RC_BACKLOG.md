@@ -45,9 +45,9 @@ Last updated: 2026-03-20 10:57 KST
 - [x] UX/Combat Team: Add turn-over-turn berserker threat delta indicator in HUD (`THREAT Δ:+n|-n`) for pacing readability
 
 ## P1 (Next Gameplay Wave)
-- [ ] Combat Team: Add elite enemy skill markers + pre-impact telegraph VFX timing windows
-- [ ] Design Team: Introduce map landmark set (3 motifs) and tie portal placement to landmark semantics
-- [ ] Systems Team: Add build recipe affinity tags and synergy bonus outcomes
+- [x] UX/Combat Team: Add threat-aware onboarding micro-tip decay logic (show `COMBAT TIP` after first build until first threat event)
+- [ ] Systems/Combat Team: Add mission-chain pressure breaker bonus (objective completion on rising threat grants short dodge charge)
+- [ ] World/Design Team: Add overclock hazard room prototype (SRL discount pulse + aggro spike risk)
 
 ## P2 (Ops/Telemetry Next)
 - [ ] QA/Systems: Add weekly changelog drift detector (code changes without corresponding team-log/report entry)

@@ -382,3 +382,8 @@
 ## 2026-03-20 10:35 KST — Signed threat-delta copy pass
 - Added concise copy token `THREAT Δ:+n|-n` with explicit sign to communicate momentum shifts without requiring color interpretation.
 - Follow-up: if line density becomes noisy at low resolutions, gate delta row behind active-berserker + nonzero-change mode.
+
+## 2026-03-20 10:58 KST — Threat-aware onboarding micro-tip
+- Added transitional onboarding copy after first build: `COMBAT TIP: THREAT shows pressure, THREAT Δ shows if danger is rising.`
+- Tip auto-decays once the player witnesses first berserker threat event, keeping early readability without long-term HUD noise.
+- Follow-up: if onboarding line pressure rises, shorten to token form (`TIP: THREAT/Δ`).

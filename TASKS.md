@@ -205,3 +205,11 @@ See project-level plans:
   - [x] Add HUD threat delta helpers for signed score change math/copy
   - [x] Render color-coded delta row beneath threat tier in combat strip
   - [x] Extend HUD threat regression coverage for delta formatting edge-cases
+- [x] Add threat-aware onboarding micro-tip after first build (`COMBAT TIP` until first berserker threat event)
+  - [x] Extend onboarding hint state/events with `threat` milestone
+  - [x] Mark milestone from berserker enrage/lunge signals in runtime loop
+  - [x] Extend onboarding regression coverage for threat-tip progression
+
+## Next Up (Game Director experiment candidates)
+- [ ] Add mission-chain pressure breaker bonus (complete objective during `THREAT Δ:+` turn grants temporary dodge charge)
+- [ ] Add map hazard overclock rooms (high-risk interactable gives short burst SRL discounts + enemy aggro spike)

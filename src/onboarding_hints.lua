@@ -12,6 +12,7 @@ local state = {
         pickup = false,
         inventory = false,
         build = false,
+        threat = false,
     }
 }
 
@@ -61,6 +62,7 @@ function OnboardingHints.getState()
             pickup = state.events.pickup,
             inventory = state.events.inventory,
             build = state.events.build,
+            threat = state.events.threat,
         }
     }
 end
@@ -84,6 +86,9 @@ function OnboardingHints.getHint()
     end
     if not state.events.build then
         return "BUILD: Press F9 in inventory, preview, then confirm."
+    end
+    if not state.events.threat then
+        return "COMBAT TIP: THREAT shows pressure, THREAT Δ shows if danger is rising."
     end
 
     local idx = math.floor(state.elapsed / ROTATE_SECONDS) % #loopTips + 1

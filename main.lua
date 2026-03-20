@@ -175,6 +175,7 @@ function love.update(dt)
         end
     end
     if visibleEnrageCount > 0 then
+        OnboardingHints.mark("threat")
         local threatHint = "THREAT=B+2L+R"
         if visibleEnrageCount == 1 then
             InventoryUI.setStatus(string.format("BERSERKER ENRAGED: LOW-HP SPIKE INCOMING [%s]", threatHint))
@@ -184,6 +185,7 @@ function love.update(dt)
     end
 
     if (enemyEvents.berserkerLungeTelegraphs or 0) > 0 then
+        OnboardingHints.mark("threat")
         local telegraphCount = enemyEvents.berserkerLungeTelegraphs
         if telegraphCount == 1 then
             InventoryUI.setStatus("BERSERKER LUNGE TELL: IMPACT NEXT TURN")
