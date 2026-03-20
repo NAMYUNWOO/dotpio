@@ -585,3 +585,8 @@
 - New bottom-screen transition prompt appears on portal tile before map jump confirmation.
 - Prompt includes `NEXT ROUTE:<tag>` token and explicit controls (`ENTER` confirm, `N` cancel).
 - Prevents accidental blind transitions and aligns with existing compact HUD callout language.
+
+## 2026-03-21 02:31 KST — Portal prompt coaching readability update
+- Transition prompt now renders: `... NEXT ROUTE:<tag>  COACH:<guidance>`.
+- Added compact guidance copy for faster jump decisions without opening extra UI.
+- Updated regression to assert SPIKE coaching token and UNKNOWN fallback token.

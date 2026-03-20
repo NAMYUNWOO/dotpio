@@ -366,3 +366,11 @@
 - Portal interaction now surfaces target-map route profile before jump confirmation.
 - Route tag resolves from destination map metadata (`overclockHazard.routeTag`) and falls back to `UNKNOWN` when absent.
 - Improves map-to-map path planning readability without changing portal topology.
+
+## 2026-03-21 02:31 KST — Portal route coaching cue (Cycle E slice)
+- Portal prompt now includes route coaching token mapped from `NEXT ROUTE`:
+  - SAFE -> `COACH:LOW PRESSURE`
+  - RISK -> `COACH:BALANCED RISK`
+  - SPIKE -> `COACH:HIGH PRESSURE`
+  - UNKNOWN -> `COACH:NO DATA`
+- No portal topology/layout changes; readability-only slice.

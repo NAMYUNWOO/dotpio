@@ -349,3 +349,7 @@
 ## 2026-03-21 02:06 KST — Lane note (no AI content changes)
 - Portal route-preview experiment only touches transition UX/runtime state.
 - No AI generation schema/prompt/model behavior changed this cycle.
+
+## 2026-03-21 02:31 KST — Lane note (no AI-content mutation)
+- Route-distribution checker + portal coaching token do not alter generation prompts/models.
+- AI-content lane remains unchanged; monitor downstream behavior shifts only via telemetry.

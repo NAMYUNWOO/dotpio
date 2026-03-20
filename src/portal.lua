@@ -68,12 +68,24 @@ function Portal.getPendingTransition()
     return pendingTransition
 end
 
+local function resolveRouteCoach(routeTag)
+    if routeTag == "SAFE" then
+        return "LOW PRESSURE"
+    elseif routeTag == "RISK" then
+        return "BALANCED RISK"
+    elseif routeTag == "SPIKE" then
+        return "HIGH PRESSURE"
+    end
+    return "NO DATA"
+end
+
 function Portal.getTransitionPrompt()
     if not pendingTransition then
         return nil
     end
     local routeTag = pendingTransition.routeTag or "UNKNOWN"
-    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s", routeTag)
+    local coach = resolveRouteCoach(routeTag)
+    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s", routeTag, coach)
 end
 
 function Portal.confirmTransition()

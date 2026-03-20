@@ -1207,3 +1207,15 @@
   - `luac -p main.lua src/portal.lua src/overclock_hazard.lua src/hud.lua`
   - `lua scripts/regression_overclock_hazard.lua`
   - `lua scripts/regression_portal_route_preview.lua`
+
+## 2026-03-21 02:31 KST — Route-tag audit + portal coaching regression coverage
+- Added `scripts/regression_route_tag_distribution.lua` covering:
+  - WARN on converged single-profile hazard maps
+  - OK on mixed SAFE/RISK/SPIKE map set
+  - WARN on invalid routeTag values
+- Updated `scripts/regression_portal_route_preview.lua` to assert coaching tokens.
+- Verification pass:
+  - `lua scripts/regression_portal_route_preview.lua`
+  - `lua scripts/regression_route_tag_distribution.lua`
+  - `lua scripts/check_route_tag_distribution.lua`
+  - `luac -p src/portal.lua src/route_tag_distribution.lua ...`

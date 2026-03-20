@@ -752,3 +752,10 @@
 - Reworked `src/portal.lua` flow from immediate warp to pending transition state.
 - Added target-map route-tag resolver (metadata-driven with cache) and prompt token formatter: `NEXT ROUTE:<tag>`.
 - Confirm/cancel API added (`confirmTransition`, `cancelTransition`) to keep transition behavior explicit and reversible.
+
+## 2026-03-21 02:31 KST — Route-tag distribution checker shipped
+- Added `src/route_tag_distribution.lua` analyzer to audit hazard-map `routeTag` coverage (`SAFE|RISK|SPIKE`).
+- Added runner `scripts/check_route_tag_distribution.lua` writing artifacts:
+  - `logs/playtests/route_tag_distribution.md`
+  - `logs/playtests/route_tag_distribution.json`
+- Decision: checker warns (does not hard-fail) when all hazard-enabled maps converge to one profile.

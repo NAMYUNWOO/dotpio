@@ -815,3 +815,15 @@ Compact decision memory for AI context efficiency.
 - Backlog status:
   - Done: portal-hover route preview token.
   - Remaining top priority: route-tag distribution checker across hazard-enabled maps.
+
+## 2026-03-21 02:31 KST — Route-tag audit closure + Cycle E slice
+- Closed remaining Post-RC item by shipping route-tag distribution checker across hazard-enabled maps.
+- New analyzer module: `src/route_tag_distribution.lua` with audit runner `scripts/check_route_tag_distribution.lua` and artifacts under `logs/playtests/route_tag_distribution.{md,json}`.
+- Current live audit result is `WARN` (single hazard-enabled map profile: SPIKE-only), matching expected convergence warning behavior.
+- All ACTION_ITEMS/TASKS/POST_RC were checked, so Game Director Cycle E executed:
+  - Generated 3 ideas (low/mid/high risk).
+  - Implemented low-risk vertical slice: portal prompt coaching cue token (`COACH:*`) mapped from `NEXT ROUTE`.
+  - Injected two follow-up ideas into backlog as new unchecked tasks.
+- Regression additions/updates:
+  - New: `scripts/regression_route_tag_distribution.lua`
+  - Updated: `scripts/regression_portal_route_preview.lua` for coaching token coverage.

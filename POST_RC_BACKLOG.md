@@ -1,6 +1,6 @@
 # POST_RC_BACKLOG
 
-Last updated: 2026-03-20 17:31 KST
+Last updated: 2026-03-21 02:31 KST
 
 ## P0 (Now)
 - [x] Replace F9-centric build flow with Enter->Action menu primary flow
@@ -112,4 +112,9 @@ Last updated: 2026-03-20 17:31 KST
 ## P1 (Game Director Injection — 2026-03-21 Cycle D)
 - [x] UX/World Team: Color-code hazard route mini-callout token (`SAFE`=green, `RISK`=amber, `SPIKE`=red) for faster path-choice readability
 - [x] Systems/World Team: Add portal-hover route preview token (`NEXT ROUTE:<tag>`) in transition prompt before confirming map jump
-- [ ] QA/Design Team: Add route-tag distribution checker across hazard-enabled maps (warn if all maps converge on same route profile)
+- [x] QA/Design Team: Add route-tag distribution checker across hazard-enabled maps (warn if all maps converge on same route profile)
+
+## P1 (Game Director Injection — 2026-03-21 Cycle E)
+- [x] UX/World Team: Add portal route-coaching cue token in transition prompt (`COACH:LOW PRESSURE|BALANCED RISK|HIGH PRESSURE`) mapped from `NEXT ROUTE` for instant jump readability
+- [ ] Systems/World Team: Add route-tag density ledger artifact per map chain (`SAFE|RISK|SPIKE` counts by reachable portal graph depth)
+- [ ] QA/Design Team: Add portal prompt copy budget checker (warn when route preview line exceeds DOS compact width threshold)

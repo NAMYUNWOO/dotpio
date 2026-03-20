@@ -317,3 +317,10 @@
 - Added explicit transition modal copy: `PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:<tag>`.
 - Decision: keep prompt compact DOS-style and inject route token directly in confirmation line for low cognitive overhead.
 - Fallback token `UNKNOWN` avoids blank-state ambiguity when destination lacks hazard route metadata.
+
+## 2026-03-21 02:31 KST — Game Director Cycle E selection
+- Idea slate generated (low/mid/high):
+  1) Low-risk UX (selected): route coaching token in portal confirm prompt.
+  2) Mid-risk systems: route-tag density ledger by reachable portal graph depth.
+  3) High-risk QA/UX: DOS prompt-width budget checker.
+- Selected #1 for immediate readability gain with minimal rollback risk.

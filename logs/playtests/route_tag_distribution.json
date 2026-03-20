@@ -1,0 +1,14 @@
+{
+  "status": "WARN",
+  "hazardMapCount": 1,
+  "uniqueRouteTagCount": 1,
+  "counts": {"SAFE": 0, "RISK": 0, "SPIKE": 1},
+  "hazardMaps": [
+    {"mapName": "07", "routeTag": "SPIKE"}
+  ],
+  "invalidTags": [
+  ],
+  "warnings": [
+    "All hazard-enabled maps converge on a single routeTag profile."
+  ]
+}
