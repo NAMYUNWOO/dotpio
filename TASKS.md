@@ -248,3 +248,9 @@ See project-level plans:
   - [x] Add reusable pulse/recharge progress formatter helpers in hazard module
   - [x] Surface progress token in HOT + READY/CD/IMMINENT overclock hints with compact DOS copy
   - [x] Extend overclock hazard regression coverage for progress-token visibility/state math
+
+## Next Up (Post-RC hazard readability wave 6)
+- [x] Add overclock risk-trend token in HUD hints (`RISK Δ:+n|-n`)
+  - [x] Add baseline-vs-current risk delta formatter helper in hazard module
+  - [x] Surface `RISK Δ` token in READY/HOT/CD/IMMINENT hints while keeping DOS compact copy stable
+  - [x] Extend overclock hazard regression coverage for risk-delta token visibility/sign formatting

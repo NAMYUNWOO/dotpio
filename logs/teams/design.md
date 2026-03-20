@@ -224,3 +224,10 @@
 - Decision: Use terse tokens (`PULSE:%`, `RECHARGE:%`) to preserve single-line DOS readability while adding timing context.
 - Constraint: Keep existing risk/bounty legends visible; avoid multiline expansion.
 - Follow-up: Validate contrast/scan speed in screenshot refresh cycle.
+
+
+## 2026-03-20 20:01 KST
+- Task: P1 Hazard Readability Wave 6 - overclock risk-trend HUD token (RISK Δ:+n|-n).
+- Decision: Kept risk-tier/score static and added state-aware delta signaling (+2 HOT, +1 IMMINENT in-zone cooldown, 0 otherwise) to preserve compact DOS readability.
+- Evidence: `lua scripts/regression_overclock_hazard.lua` => PASS.
+- Follow-up: Consider exposing token color metadata so RISK Δ can mirror rising/neutral/falling pressure semantics in a future wave.

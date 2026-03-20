@@ -255,3 +255,10 @@
 - Decision: Added pulse/recharge progress tokens to support combat commit/withdraw decisions around overclock zones.
 - Guardrail: No damage, aggro multiplier, or enemy behavior tuning in this patch.
 - Follow-up: Pair with future threat-strip telemetry if timing misreads remain high.
+
+
+## 2026-03-20 20:01 KST
+- Task: P1 Hazard Readability Wave 6 - overclock risk-trend HUD token (RISK Δ:+n|-n).
+- Decision: Kept risk-tier/score static and added state-aware delta signaling (+2 HOT, +1 IMMINENT in-zone cooldown, 0 otherwise) to preserve compact DOS readability.
+- Evidence: `lua scripts/regression_overclock_hazard.lua` => PASS.
+- Follow-up: Consider exposing token color metadata so RISK Δ can mirror rising/neutral/falling pressure semantics in a future wave.

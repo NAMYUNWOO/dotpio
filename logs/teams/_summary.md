@@ -596,3 +596,16 @@ Compact decision memory for AI context efficiency.
   - Marked wave-5 item done in `POST_RC_BACKLOG.md` and mirrored done state in `TASKS.md`.
 - Next priority item:
   - No unchecked entries currently remain in ACTION_ITEMS/TASKS/POST_RC; queue next Game Director experiment candidate for injection.
+
+## 2026-03-20 20:01 KST — Hazard Readability Wave 6
+- Completed backlog item: `UX/World Team: Add overclock risk-trend token in READY/CD/HOT hints (RISK Δ:+n|-n)`.
+- Durable decisions:
+  - Added state-aware `RISK Δ` formatter in `src/overclock_hazard.lua` (+2 during HOT pulse, +1 while in-zone IMMINENT cooldown, 0 otherwise).
+  - Kept existing `RISK:<tier>(score)` + `RISK SRC` tokens unchanged to preserve tuning readability while adding pressure-shift signal.
+  - Applied token to READY/HOT/CD/IMMINENT copy paths with compact DOS-safe line format.
+- Verification set:
+  - `lua scripts/regression_overclock_hazard.lua`
+- Backlog update:
+  - Marked wave-6 item done in `POST_RC_BACKLOG.md` and mirrored subtask completion in `TASKS.md`.
+- Next priority item:
+  - No unchecked entries remain across ACTION_ITEMS/TASKS/POST_RC; inject next validated Game Director experiment candidate.

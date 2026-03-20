@@ -29,6 +29,7 @@ expect(readyHint:find("NEXT BOUNTY:0/%d+"), "ready hint should include next-puls
 expect(readyHint:find("NEXT PULSE:%d+s"), "ready hint should include next-pulse ETA token")
 expect(readyHint:find("RECHARGE:100%%"), "ready hint should show fully charged recharge progress")
 expect(readyHint:find("RISK:[A-Z]+%(%d+%)"), "ready hint should include risk tier + score")
+expect(readyHint:find("RISK Δ:0"), "ready hint should include neutral risk-delta token before pulse")
 expect(readyHint:find("RISK SRC:D%d+%+DET%d+%+MOVE%d+"), "ready hint should include compact risk-factor breakdown token")
 
 local highRiskColor = OverclockHazard.getHudHintColor()
@@ -62,6 +63,7 @@ expect(hotHint:find("BOUNTY:%d+/%d+"), "hot hint should include bounty progress 
 expect(hotHint:find("BOUNTY:3/3"), "bounty progress token should reflect per-pulse cap consumption")
 expect(hotHint:find("PULSE:%d+%%"), "hot hint should include pulse progress token")
 expect(hotHint:find("RISK:[A-Z]+%(%d+%)"), "hot hint should include hazard risk tier + score")
+expect(hotHint:find("RISK Δ:%+%d+"), "hot hint should include positive risk-delta token during active pulse")
 expect(hotHint:find("RISK SRC:D%d+%+DET%d+%+MOVE%d+"), "hot hint should include compact risk-factor breakdown token")
 
 local pressure = OverclockHazard.getPressureProfile()
@@ -78,6 +80,7 @@ expect(cooldownHint:find("NEXT BOUNTY:0/%d+"), "cooldown hint should include nex
 expect(cooldownHint:find("NEXT PULSE:%d+s"), "cooldown hint should include next-pulse ETA token")
 expect(cooldownHint:find("RECHARGE:%d+%%"), "cooldown hint should include recharge progress token")
 expect(cooldownHint:find("RISK:[A-Z]+%(%d+%)"), "cooldown hint should keep risk tier + score visible")
+expect(cooldownHint:find("RISK Δ:0"), "cooldown hint should show neutral risk-delta outside imminent window")
 expect(cooldownHint:find("RISK SRC:D%d+%+DET%d+%+MOVE%d+"), "cooldown hint should keep risk-factor breakdown token visible")
 expect(not cooldownHint:find("IMMINENT:"), "cooldown hint should not show imminent warning too early")
 
@@ -87,6 +90,7 @@ expect(type(imminentHint) == "string" and imminentHint:find("IMMINENT:%d+s"), "c
 expect(imminentHint:find("NEXT BOUNTY:0/%d+"), "imminent cooldown hint should keep next-pulse bounty budget token")
 expect(imminentHint:find("NEXT PULSE:%d+s"), "imminent cooldown hint should keep next-pulse ETA token")
 expect(imminentHint:find("RECHARGE:%d+%%"), "imminent cooldown hint should keep recharge progress token")
+expect(imminentHint:find("RISK Δ:%+%d+"), "imminent cooldown hint should surface elevated risk-delta token while standing in zone")
 
 OverclockHazard.update(0.0, 2, 2)
 local outsideHint = OverclockHazard.getHudHint()
