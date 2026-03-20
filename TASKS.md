@@ -193,3 +193,7 @@ See project-level plans:
   - [x] Map weighted threat score to stable tier thresholds for fast readability
   - [x] Surface tier label near `THREAT:<n>` without cluttering existing counters
   - [x] Extend HUD threat regression coverage for tier mapping edge-cases
+- [x] Color-code berserker threat-tier label in HUD (`LOW`=green, `MED`=amber, `HIGH`=red)
+  - [x] Add tier-to-color resolver helper in HUD module
+  - [x] Render threat line using tier-specific color while preserving DOS compact text layout
+  - [x] Extend HUD threat regression coverage for tier color mapping

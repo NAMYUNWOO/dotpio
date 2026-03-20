@@ -128,3 +128,7 @@
 
 ## 2026-03-20 08:56 KST — HUD semantic readability note
 - Approved compact text augmentation (`Threat score + tier`) over adding a new panel row to preserve DOS HUD density.
+
+## 2026-03-20 09:28 KST — HUD danger hierarchy polish
+- Decision: aligned threat tier semantics with intuitive color hierarchy (safe->warn->danger) for faster glance parsing.
+- Constraint: kept DOS density unchanged (no extra row added).

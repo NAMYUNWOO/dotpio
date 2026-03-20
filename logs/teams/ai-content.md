@@ -187,3 +187,6 @@
 
 ## 2026-03-20 08:56 KST — No AI-content generation delta
 - No build generation prompt/constraint changes in this cycle.
+
+## 2026-03-20 09:28 KST — No AI-content schema changes
+- Scope check: threat-tier color coding is deterministic HUD rendering; no AI prompt/output constraints changed.

@@ -930,3 +930,9 @@
   - `luac -p src/hud.lua scripts/regression_hud_berserker_counters.lua`
   - `lua scripts/regression_hud_berserker_counters.lua` (PASS)
 - Follow-up: include this regression in future combat HUD sweeps.
+
+## 2026-03-20 09:28 KST — Threat-tier color regression coverage
+- Verification:
+  - `luac -p src/hud.lua scripts/regression_hud_berserker_counters.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+- Result: PASS; tier mapping + color mapping assertions all validated.

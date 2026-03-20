@@ -364,3 +364,17 @@ Compact decision memory for AI context efficiency.
   - Marked new P1 item done in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
 - Next priority item:
   - No unchecked entries remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject a fresh Game Director experiment candidate next cycle.
+
+## 2026-03-20 09:28 KST — P1 combat readability follow-up: threat-tier color coding
+- Completed backlog item: `UX/Combat Team: Color-code berserker threat-tier label in HUD (LOW=green, MED=amber, HIGH=red)`.
+- Durable decisions:
+  - Added `HUD.getBerserkerThreatColor(score)` to centralize tier-to-color mapping.
+  - Threat row rendering now reuses existing `Threat: <score> (<tier>)` text while applying tier-specific color to reduce scan latency.
+  - Kept explicit tier token in text to avoid color-only communication risk.
+- Verification set:
+  - `luac -p src/hud.lua scripts/regression_hud_berserker_counters.lua`
+  - `lua scripts/regression_hud_berserker_counters.lua`
+- Backlog update:
+  - Marked item done in `POST_RC_BACKLOG.md` and mirrored in `TASKS.md`.
+- Next priority item:
+  - No unchecked entries remain in `ACTION_ITEMS.md` / `TASKS.md` / `POST_RC_BACKLOG.md`; inject next Game Director experiment candidate.

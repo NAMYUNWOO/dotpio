@@ -29,6 +29,13 @@ expect(HUD.getBerserkerThreatTier(3) == "MED", "threat tier should be MED at sco
 expect(HUD.getBerserkerThreatTier(2) == "LOW", "threat tier should be LOW below medium threshold")
 expect(HUD.getBerserkerThreatTier(nil) == "LOW", "threat tier should default to LOW for missing score")
 
+local lowR, lowG, lowB, lowA = HUD.getBerserkerThreatColor(2)
+expect(lowR == 0.5 and lowG == 1 and lowB == 0.62 and lowA == 1, "LOW tier color should be green")
+local medR, medG, medB, medA = HUD.getBerserkerThreatColor(3)
+expect(medR == 1 and medG == 0.66 and medB == 0.25 and medA == 1, "MED tier color should be amber")
+local highR, highG, highB, highA = HUD.getBerserkerThreatColor(6)
+expect(highR == 1 and highG == 0.3 and highB == 0.2 and highA == 1, "HIGH tier color should be red")
+
 local empty = HUD.collectCombatThreatCounters(nil)
 expect(empty.alive == 0 and empty.desperateBerserkers == 0 and empty.primedBerserkerLunges == 0 and empty.recoveringBerserkers == 0 and empty.berserkerThreatScore == 0,
     "nil enemy list should return zeroed counters")

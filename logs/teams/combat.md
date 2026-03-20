@@ -153,3 +153,7 @@
 - Completed HUD readability follow-up: mapped weighted berserker threat score to discrete tiers (`LOW|MED|HIGH`).
 - Decision: use stable thresholds `0-2=LOW`, `3-5=MED`, `>=6=HIGH` to keep pressure interpretation deterministic across runs.
 - Follow-up: if combat pacing changes alter score distribution, retune thresholds with telemetry-backed percentile bands.
+
+## 2026-03-20 09:28 KST — Combat readability color pass
+- Decision: threat-tier line now color-codes semantic danger (`LOW` green / `MED` amber / `HIGH` red) while preserving existing compact text.
+- Follow-up: if players overfocus on color-only signal, consider subtle glyph reinforcement in a later UX pass.

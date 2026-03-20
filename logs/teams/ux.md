@@ -370,3 +370,7 @@
 - Updated threat strip copy from numeric-only to mixed signal: `Threat: <score> (<tier>)`.
 - Kept existing rows (`Berserk`, `Lunge Tell`, `Recovering`) unchanged to avoid extra HUD clutter.
 - Follow-up: evaluate whether tier color shift is needed after next screenshot/playtest pass.
+
+## 2026-03-20 09:28 KST — Threat strip legibility update
+- Copy unchanged (`Threat: <score> (<tier>)`), but tier line now uses tier-aware color for faster interpretation.
+- Decision: preserve text-first readability and avoid hidden color-only meaning by keeping explicit tier token.

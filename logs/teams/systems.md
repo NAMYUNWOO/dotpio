@@ -541,3 +541,7 @@
 
 ## 2026-03-20 08:56 KST — No systems-economy delta
 - This slice was HUD readability only; no SRL/economy logic changed.
+
+## 2026-03-20 09:28 KST — Threat-tier color mapping helper
+- Decision: added deterministic `HUD.getBerserkerThreatColor(score)` helper keyed by existing threat tiers to keep presentation logic centralized.
+- System impact: UI-only; no SRL economy or mission payout changes.
