@@ -43,6 +43,7 @@ local threatRiseWindow = 0
 local function resetRunState()
     RunMissions.reset()
     OnboardingHints.reset()
+    OverclockHazard.resetRunTelemetry()
     missionUnlockAnnounced = false
     threatScoreLastTick = 0
     threatRiseWindow = 0
@@ -454,6 +455,7 @@ function love.keypressed(key)
         local missionState = RunMissions.getState()
         local unlockFlags = Unlocks.getAllFlags()
         local carryReward = FailForward.compute(Player.inventory, missionState)
+        OverclockHazard.writeRunDwellArtifact("logs/playtests/overclock_dwell_buckets_latest")
 
         Player.inventory = nil
         resetRunState()

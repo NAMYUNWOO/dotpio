@@ -320,3 +320,7 @@
 - Decision: Relief window now arms only when player disengages during HOT and pulse then expires while outside; token is shown only during out-of-zone cooldown and auto-expires.
 - Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua` (PASS).
 - Follow-up: Next unchecked backlog item is overclock dwell-bucket telemetry (`LOW|MID|HIGH`).
+
+## 2026-03-20 22:35 KST — Sync note
+- No map/layout/portal topology changes in this cycle.
+- Overclock work focused on telemetry instrumentation only.

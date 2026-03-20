@@ -282,7 +282,7 @@ See project-level plans:
   - [x] Add short post-pulse relief timer state in hazard module
   - [x] Surface compact `WINDOW` token only during out-of-zone cooldown relief window
   - [x] Add regression coverage for relief-token visibility and expiry behavior
-- [ ] Add overclock exposure dwell-bucket telemetry artifact (`LOW|MID|HIGH`) for tuning
-  - [ ] Emit per-run dwell bucket counters from hazard runtime state
-  - [ ] Write compact markdown/json summary under `logs/playtests/`
-  - [ ] Add regression coverage for telemetry schema + bucket math
+- [x] Add overclock exposure dwell-bucket telemetry artifact (`LOW|MID|HIGH`) for tuning
+  - [x] Emit per-run dwell bucket counters from hazard runtime state
+  - [x] Write compact markdown/json summary under `logs/playtests/`
+  - [x] Add regression coverage for telemetry schema + bucket math

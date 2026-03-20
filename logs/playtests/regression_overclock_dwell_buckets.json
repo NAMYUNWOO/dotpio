@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-03-20T13:34:59Z",
+  "map": "07",
+  "totalExposureSeconds": 13,
+  "dwellBuckets": {
+    "LOW": 5,
+    "MID": 7,
+    "HIGH": 1
+  }
+}

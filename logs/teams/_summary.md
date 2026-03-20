@@ -670,3 +670,10 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_overclock_hazard.lua`
 - Next priority:
   - `Systems/Telemetry Team: Log overclock zone dwell buckets (LOW|MID|HIGH) per run for exposure-driven tuning evidence`.
+
+## 2026-03-20 22:35 KST — Overclock exposure dwell telemetry baseline
+- Completed Post-RC hazard wave follow-up: per-run overclock exposure dwell buckets now tracked as `LOW|MID|HIGH` seconds in hazard runtime state.
+- Decision: accumulate dwell using threshold-aware segmentation so long ticks crossing 5s/12s boundaries distribute correctly across buckets (avoids single-bucket misattribution).
+- Runtime integration: latest per-run artifact now written on run reset (`R`) to `logs/playtests/overclock_dwell_buckets_latest.json` + `.md`.
+- QA coverage: `scripts/regression_overclock_dwell_buckets.lua` validates bucket math + telemetry schema + total exposure aggregation.
+- Impact hypothesis: gives tuning evidence for overclock commitment risk profile before adding dashboard-level trending.

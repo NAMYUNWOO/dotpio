@@ -13,7 +13,58 @@ local state = {
     exposureSeconds = 0,
     reliefTimer = 0,
     pendingRelief = false,
+    runDwellSeconds = { LOW = 0, MID = 0, HIGH = 0 },
 }
+
+local function cloneBuckets(src)
+    return {
+        LOW = math.max(0, tonumber(src and src.LOW) or 0),
+        MID = math.max(0, tonumber(src and src.MID) or 0),
+        HIGH = math.max(0, tonumber(src and src.HIGH) or 0),
+    }
+end
+
+local function getCommitmentTierForSeconds(seconds)
+    if seconds >= 12 then
+        return "HIGH"
+    end
+    if seconds >= 5 then
+        return "MID"
+    end
+    return "LOW"
+end
+
+local function accumulateExposureDwell(delta)
+    local dt = math.max(0, tonumber(delta) or 0)
+    if dt <= 0 then return end
+
+    local startSeconds = math.max(0, tonumber(state.exposureSeconds) or 0)
+    local remaining = dt
+    local cursor = startSeconds
+
+    while remaining > 0 do
+        local tier = getCommitmentTierForSeconds(cursor)
+        local boundary = math.huge
+        if tier == "LOW" then
+            boundary = 5
+        elseif tier == "MID" then
+            boundary = 12
+        end
+
+        local chunk = remaining
+        if boundary < math.huge then
+            chunk = math.min(remaining, math.max(0, boundary - cursor))
+        end
+
+        state.runDwellSeconds[tier] = (state.runDwellSeconds[tier] or 0) + chunk
+        cursor = cursor + chunk
+        remaining = remaining - chunk
+
+        if chunk <= 0 then
+            break
+        end
+    end
+end
 
 local function resolveZone(metadata)
     local hazard = metadata and metadata.overclockHazard
@@ -172,13 +223,7 @@ end
 
 local function getCommitmentTier()
     local seconds = getExposureSeconds()
-    if seconds >= 12 then
-        return "HIGH"
-    end
-    if seconds >= 5 then
-        return "MID"
-    end
-    return "LOW"
+    return getCommitmentTierForSeconds(seconds)
 end
 
 local function getCommitmentToken()
@@ -204,6 +249,10 @@ function OverclockHazard.onMapLoaded(mapName, metadata)
     state.exposureSeconds = 0
     state.reliefTimer = 0
     state.pendingRelief = false
+end
+
+function OverclockHazard.resetRunTelemetry()
+    state.runDwellSeconds = { LOW = 0, MID = 0, HIGH = 0 }
 end
 
 function OverclockHazard.update(dt, playerX, playerY)
@@ -232,6 +281,7 @@ function OverclockHazard.update(dt, playerX, playerY)
 
     local inside = inRect(playerX, playerY, state.zone)
     if inside then
+        accumulateExposureDwell(delta)
         state.exposureSeconds = math.max(0, (state.exposureSeconds or 0) + delta)
         state.reliefTimer = 0
         state.pendingRelief = false
@@ -266,6 +316,66 @@ function OverclockHazard.update(dt, playerX, playerY)
     end
 
     return events
+end
+
+function OverclockHazard.getRunDwellBuckets()
+    local buckets = cloneBuckets(state.runDwellSeconds)
+    return {
+        LOW = math.floor(buckets.LOW + 0.5),
+        MID = math.floor(buckets.MID + 0.5),
+        HIGH = math.floor(buckets.HIGH + 0.5),
+    }
+end
+
+function OverclockHazard.writeRunDwellArtifact(outBasePath)
+    local basePath = tostring(outBasePath or "logs/playtests/overclock_dwell_buckets_latest")
+    local jsonPath = basePath .. ".json"
+    local mdPath = basePath .. ".md"
+    local buckets = OverclockHazard.getRunDwellBuckets()
+    local total = (buckets.LOW or 0) + (buckets.MID or 0) + (buckets.HIGH or 0)
+    local generatedAt = os.date("!%Y-%m-%dT%H:%M:%SZ")
+
+    local jsonPayload = string.format(
+        '{\n  "generatedAt": "%s",\n  "map": "%s",\n  "totalExposureSeconds": %d,\n  "dwellBuckets": {\n    "LOW": %d,\n    "MID": %d,\n    "HIGH": %d\n  }\n}\n',
+        generatedAt,
+        tostring(state.mapName or ""),
+        total,
+        buckets.LOW or 0,
+        buckets.MID or 0,
+        buckets.HIGH or 0
+    )
+
+    local mdPayload = table.concat({
+        "# Overclock Exposure Dwell Buckets",
+        "",
+        string.format("- GeneratedAt(UTC): %s", generatedAt),
+        string.format("- Map: %s", tostring(state.mapName or "")),
+        string.format("- Total exposure seconds: %d", total),
+        string.format("- LOW: %d", buckets.LOW or 0),
+        string.format("- MID: %d", buckets.MID or 0),
+        string.format("- HIGH: %d", buckets.HIGH or 0),
+    }, "\n") .. "\n"
+
+    local jsonFile, jsonErr = io.open(jsonPath, "w")
+    if not jsonFile then
+        return nil, string.format("failed to open json path '%s': %s", jsonPath, tostring(jsonErr))
+    end
+    jsonFile:write(jsonPayload)
+    jsonFile:close()
+
+    local mdFile, mdErr = io.open(mdPath, "w")
+    if not mdFile then
+        return nil, string.format("failed to open markdown path '%s': %s", mdPath, tostring(mdErr))
+    end
+    mdFile:write(mdPayload)
+    mdFile:close()
+
+    return {
+        jsonPath = jsonPath,
+        mdPath = mdPath,
+        totalExposureSeconds = total,
+        dwellBuckets = buckets,
+    }
 end
 
 function OverclockHazard.consumeKillBonus(kills)

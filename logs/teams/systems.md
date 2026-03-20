@@ -692,3 +692,10 @@
 - Decision: Relief window now arms only when player disengages during HOT and pulse then expires while outside; token is shown only during out-of-zone cooldown and auto-expires.
 - Evidence: `luac -p src/overclock_hazard.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua` (PASS).
 - Follow-up: Next unchecked backlog item is overclock dwell-bucket telemetry (`LOW|MID|HIGH`).
+
+## 2026-03-20 22:35 KST — Overclock dwell-bucket telemetry shipped
+- Task: Log overclock zone dwell buckets (`LOW|MID|HIGH`) per run for exposure-driven tuning evidence.
+- Implemented runtime dwell accumulation in `src/overclock_hazard.lua` with threshold-aware split across LOW(<5s)/MID(<12s)/HIGH(>=12s).
+- Added artifact writer `writeRunDwellArtifact()` emitting compact JSON/MD telemetry under `logs/playtests/`.
+- Hooked run-reset flow to persist latest artifact (`logs/playtests/overclock_dwell_buckets_latest.{json,md}`).
+- Follow-up: feed these buckets into weekly sustain dashboard once enough run samples accumulate.
