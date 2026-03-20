@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-20T14:33:42Z",
+  "generatedAt": "2026-03-20T15:02:46Z",
   "status": "insufficient-data",
   "windowRuns": 0,
   "requestedRuns": 3,
@@ -17,6 +17,12 @@
     "LOW": 0.0,
     "MID": 0.0,
     "HIGH": 0.0
+  },
+  "volatility": {
+    "level": "STEADY",
+    "token": "VOL:STEADY",
+    "maxRelDeltaPct": 0.0,
+    "avgRelDeltaPct": 0.0
   },
   "runs": []
 }

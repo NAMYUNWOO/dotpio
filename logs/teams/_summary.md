@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-20 20:33 KST
+Last updated: 2026-03-21 00:02 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -725,3 +725,16 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_run_summary.lua`
   - `lua scripts/regression_overclock_hazard.lua`
   - `python3 scripts/regression_overclock_dwell_trend.py`
+
+## 2026-03-21 00:02 KST — P1 Game Director follow-up: dwell trend volatility token
+- Completed backlog item: `Systems Team: Add overclock dwell trend volatility token (VOL:STEADY|SWING) to trend artifact`.
+- Durable decisions:
+  - `scripts/overclock_dwell_trend.py` now emits `volatility.level`, `volatility.token`, and compact diagnostics (`maxRelDeltaPct`, `avgRelDeltaPct`).
+  - Volatility classification uses run-to-run total-exposure relative deltas with deterministic thresholds: `SWING` when `maxΔ>=45%` or `avgΔ>=30%`; otherwise `STEADY`.
+  - Markdown trend report now includes a compact line: `Volatility: VOL:<level> (maxΔ ... , avgΔ ...)`.
+- Verification set:
+  - `python3 -m py_compile scripts/overclock_dwell_trend.py scripts/regression_overclock_dwell_trend.py`
+  - `python3 scripts/regression_overclock_dwell_trend.py`
+  - `python3 scripts/overclock_dwell_trend.py --runs 3`
+- Backlog sync: marked the volatility token item done in `POST_RC_BACKLOG.md`.
+- Next priority item: `QA/UX Team: Add compact run-summary tooltip glossary row for overclock analytics tokens (DWELL, EFF, PROFILE)`.

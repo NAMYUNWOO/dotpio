@@ -59,10 +59,39 @@ def main() -> int:
         assert payload["medians"]["HIGH"] == 11, payload
         assert payload["medians"]["TOTAL"] == 25, payload
         assert len(payload["runs"]) == 2, payload
+        assert payload["volatility"]["level"] == "STEADY", payload
+        assert payload["volatility"]["token"] == "VOL:STEADY", payload
 
         md_text = out_md.read_text(encoding="utf-8")
         assert "Window runs: 2/2" in md_text
         assert "Median LOW/MID/HIGH/TOTAL: 6 / 8 / 11 / 25" in md_text
+        assert "Volatility: VOL:STEADY" in md_text
+
+        write_sample(inp / "overclock_dwell_buckets_run_20260320_130000.json", "2026-03-20T13:00:00Z", 2, 2, 40)
+        subprocess.run(
+            [
+                "python3",
+                str(SCRIPT),
+                "--input-dir",
+                str(inp),
+                "--runs",
+                "2",
+                "--out-json",
+                str(out_json),
+                "--out-md",
+                str(out_md),
+            ],
+            check=True,
+            cwd=ROOT,
+            stdout=subprocess.DEVNULL,
+        )
+
+        payload = json.loads(out_json.read_text(encoding="utf-8"))
+        assert payload["volatility"]["level"] == "SWING", payload
+        assert payload["volatility"]["token"] == "VOL:SWING", payload
+
+        md_text = out_md.read_text(encoding="utf-8")
+        assert "Volatility: VOL:SWING" in md_text
 
     print("[PASS] overclock dwell trend regression checks")
     return 0

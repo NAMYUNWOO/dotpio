@@ -71,6 +71,21 @@ def _pct(n: int, d: int) -> float:
     return round((n / d) * 100.0, 2)
 
 
+def _classify_volatility(totals: list[int]) -> tuple[str, float, float]:
+    if len(totals) < 2:
+        return "STEADY", 0.0, 0.0
+
+    rel_deltas: list[float] = []
+    for prev, curr in zip(totals, totals[1:]):
+        baseline = max(1, prev)
+        rel_deltas.append(abs(curr - prev) / baseline)
+
+    max_rel = max(rel_deltas)
+    avg_rel = sum(rel_deltas) / len(rel_deltas)
+    level = "SWING" if (max_rel >= 0.45 or avg_rel >= 0.30) else "STEADY"
+    return level, round(max_rel * 100.0, 2), round(avg_rel * 100.0, 2)
+
+
 def main() -> int:
     args = parse_args()
     args.out_json.parent.mkdir(parents=True, exist_ok=True)
@@ -103,6 +118,7 @@ def main() -> int:
 
     generated_at = datetime.now(tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     status = "ok" if selected_count > 0 else "insufficient-data"
+    volatility_level, max_rel_delta_pct, avg_rel_delta_pct = _classify_volatility(totals)
 
     payload = {
         "generatedAt": generated_at,
@@ -123,6 +139,12 @@ def main() -> int:
             "LOW": _pct(low_sum, total_sum),
             "MID": _pct(mid_sum, total_sum),
             "HIGH": _pct(high_sum, total_sum),
+        },
+        "volatility": {
+            "level": volatility_level,
+            "token": f"VOL:{volatility_level}",
+            "maxRelDeltaPct": max_rel_delta_pct,
+            "avgRelDeltaPct": avg_rel_delta_pct,
         },
         "runs": [
             {
@@ -147,6 +169,7 @@ def main() -> int:
         f"- Window runs: {selected_count}/{max(1, args.runs)}",
         f"- Median LOW/MID/HIGH/TOTAL: {med_low} / {med_mid} / {med_high} / {med_total}",
         f"- Exposure mix LOW/MID/HIGH (%): {payload['mixPct']['LOW']} / {payload['mixPct']['MID']} / {payload['mixPct']['HIGH']}",
+        f"- Volatility: VOL:{volatility_level} (maxΔ {max_rel_delta_pct}%, avgΔ {avg_rel_delta_pct}%)",
         "",
         "## Included Runs",
     ]

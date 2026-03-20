@@ -551,3 +551,10 @@
 - Added compact line below efficiency readout: `OVERCLOCK PROFILE: <tier>`.
 - Tier mapping favors readability: no exposure -> `CAUTIOUS`, high-dominant >=45% -> `ALL-IN`, otherwise `BALANCED` unless low>=55%.
 - Kept single-line DOS formatting to avoid panel overflow.
+
+## 2026-03-21 00:02 KST — P1 Game Director Cycle B follow-up: overclock dwell volatility token
+- Task: Add trend-artifact volatility token (`VOL:STEADY|SWING`) for overclock dwell cadence triage.
+- Scope: `scripts/overclock_dwell_trend.py`, `scripts/regression_overclock_dwell_trend.py`, `POST_RC_BACKLOG.md`.
+- Decision: Classified volatility from run-to-run total-exposure relative deltas (`maxΔ>=45%` or `avgΔ>=30%` => `SWING`; else `STEADY`) to keep signal compact/reversible.
+- Verification: `python3 -m py_compile scripts/overclock_dwell_trend.py scripts/regression_overclock_dwell_trend.py`; `python3 scripts/regression_overclock_dwell_trend.py`; `python3 scripts/overclock_dwell_trend.py --runs 3`.
+- Follow-up: Remaining unchecked backlog item is `QA/UX Team: run-summary overclock analytics glossary row (DWELL/EFF/PROFILE)`.

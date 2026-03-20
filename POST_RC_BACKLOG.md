@@ -101,5 +101,5 @@ Last updated: 2026-03-20 17:31 KST
 
 ## P1 (Game Director Injection — 2026-03-20 Cycle B)
 - [x] UX/Design Team: Add run-summary overclock commitment profile token (`PROFILE:CAUTIOUS|BALANCED|ALL-IN`) from dwell mix for fast post-run coaching
-- [ ] Systems Team: Add overclock dwell trend volatility token (`VOL:STEADY|SWING`) to trend artifact for tuning cadence triage
+- [x] Systems Team: Add overclock dwell trend volatility token (`VOL:STEADY|SWING`) to trend artifact for tuning cadence triage
 - [ ] QA/UX Team: Add compact run-summary tooltip glossary row for overclock analytics tokens (`DWELL`, `EFF`, `PROFILE`)
