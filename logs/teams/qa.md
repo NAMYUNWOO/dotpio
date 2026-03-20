@@ -1227,3 +1227,18 @@
   - `lua scripts/regression_route_tag_density_ledger.lua`
   - `lua scripts/check_route_tag_density_ledger.lua`
   - `luac -p src/route_tag_density_ledger.lua scripts/check_route_tag_density_ledger.lua scripts/regression_route_tag_density_ledger.lua`
+
+## 2026-03-21 03:35 KST — QA verification: portal prompt budget + compact fallback
+- Task: Close remaining Post-RC item (portal prompt copy budget checker), then execute Game Director Cycle F selected slice.
+- Files checked: `src/portal_prompt_budget.lua`, `scripts/check_portal_prompt_copy_budget.lua`, `scripts/regression_portal_prompt_copy_budget.lua`, `src/portal.lua`, `scripts/regression_portal_prompt_compact_mode.lua`, `scripts/regression_portal_route_preview.lua`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `luac -p src/portal.lua src/portal_prompt_budget.lua scripts/regression_portal_route_preview.lua scripts/regression_portal_prompt_copy_budget.lua scripts/regression_portal_prompt_compact_mode.lua scripts/check_portal_prompt_copy_budget.lua` ✅
+  - `lua scripts/regression_portal_route_preview.lua` ✅
+  - `lua scripts/regression_portal_prompt_compact_mode.lua` ✅
+  - `lua scripts/regression_portal_prompt_copy_budget.lua` ✅
+  - `lua scripts/check_portal_prompt_copy_budget.lua` ✅ (`status=OK checked=20 budget=76 max=75 warnings=0`)
+- Decisions:
+  - Kept default prompt copy stable while adding opt-in compact fallback path for constrained budgets.
+  - No portal topology changes, so `validate_portals.py` rerun not required for this slice.
+- Follow-up:
+  - Next unchecked backlog item: route-pressure score token in transition prompt.

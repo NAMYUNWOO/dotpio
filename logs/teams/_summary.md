@@ -849,3 +849,18 @@ Compact decision memory for AI context efficiency.
   - `logs/playtests/route_tag_density_ledger.json`
 - Key finding: current chain depth exposure is overwhelmingly `NONE` until `map_07 (SPIKE)` due limited routeTag metadata coverage.
 - Next highest-priority unchecked backlog item: portal prompt copy budget checker (DOS width guard).
+
+## 2026-03-21 03:35 KST — Portal prompt budget closure + Game Director Cycle F
+- Closed remaining Cycle E unchecked backlog item with a new portal prompt copy budget audit:
+  - `src/portal_prompt_budget.lua`
+  - `scripts/check_portal_prompt_copy_budget.lua`
+  - `scripts/regression_portal_prompt_copy_budget.lua`
+  - Artifacts: `logs/playtests/portal_prompt_copy_budget.{md,json}`
+- Audit baseline: `status=OK`, `checked=20`, `budget=76`, `maxObserved=75`, `warnings=0`.
+- With ACTION_ITEMS/TASKS/POST_RC fully checked, executed Game Director Cycle F (3 ideas -> pick 1 -> vertical slice):
+  - Chosen slice shipped: portal transition compact fallback when prompt budget is constrained (`NEXT:<tag> COACH:<short>`), while default detailed copy remains unchanged.
+  - Added regression: `scripts/regression_portal_prompt_compact_mode.lua`.
+- Backlog injection for next cycle (`POST_RC_BACKLOG.md` Cycle F):
+  - Done: compact fallback.
+  - Pending: route-pressure score token (`PRESSURE:<n>`), prompt token-order linter.
+

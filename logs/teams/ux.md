@@ -594,3 +594,8 @@
 ## 2026-03-21 03:06 KST — UX lane note (no HUD copy change)
 - This cycle ships offline analytics artifact only; no in-game prompt/HUD strings changed.
 - Output structure is prepared for future compact copy-budget checks.
+
+## 2026-03-21 03:35 KST — Cycle F selected UX slice
+- Implemented portal transition compact mode for narrow copy budgets.
+- Detailed mode remains unchanged for default flow; compact mode shortens labels to reduce overflow risk while keeping route decision signal.
+- Candidate queue updated with pressure-token and token-order lint follow-ups.

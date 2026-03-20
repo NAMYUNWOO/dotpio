@@ -379,3 +379,8 @@
 - World-routing audit now includes reachable graph depth from each map chain.
 - Ledger highlights that only `map_07` currently contributes hazard route tags (`SPIKE`) while earlier depths are `NONE`.
 - Follow-up remains metadata expansion across more hazard-enabled maps for broader profile spread.
+
+## 2026-03-21 03:35 KST — Portal prompt compact fallback shipped
+- Completed Cycle F selected experiment: portal transition prompt now supports compact fallback copy when a strict budget is requested.
+- Runtime contract: detailed prompt stays default (`NEXT ROUTE:<tag> COACH:<phrase>`), constrained mode returns compact tokenized copy (`NEXT:<tag> COACH:<short>`).
+- Scope kept reversible and UI-only (no portal routing/mechanics changes).

@@ -764,3 +764,8 @@
 - Added `src/route_tag_density_ledger.lua` to compute portal-graph BFS depth buckets per start map.
 - Counts `SAFE|RISK|SPIKE` tags by reachable depth and records per-depth reachable map roster.
 - Added runner `scripts/check_route_tag_density_ledger.lua` emitting `logs/playtests/route_tag_density_ledger.{md,json}` for cadence review.
+
+## 2026-03-21 03:35 KST — Game Director Cycle F systems note
+- Candidate slate generated after full backlog closure (low/mid/high risk).
+- Injected follow-up systems experiment: `PRESSURE:<n>` token derived from route tag + current threat tier (left queued as next unchecked item).
+- No systems-balance mutation shipped in this slice; transition behavior remains display-only fallback mode.

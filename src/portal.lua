@@ -79,13 +79,37 @@ local function resolveRouteCoach(routeTag)
     return "NO DATA"
 end
 
-function Portal.getTransitionPrompt()
+local function resolveCompactCoach(routeTag)
+    if routeTag == "SAFE" then
+        return "LOW"
+    elseif routeTag == "RISK" then
+        return "MID"
+    elseif routeTag == "SPIKE" then
+        return "HIGH"
+    end
+    return "UNK"
+end
+
+local function buildTransitionPrompt(routeTag, coach)
+    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s", routeTag, coach)
+end
+
+local function buildCompactTransitionPrompt(routeTag)
+    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s", routeTag, resolveCompactCoach(routeTag))
+end
+
+function Portal.getTransitionPrompt(maxChars)
     if not pendingTransition then
         return nil
     end
     local routeTag = pendingTransition.routeTag or "UNKNOWN"
     local coach = resolveRouteCoach(routeTag)
-    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s", routeTag, coach)
+    local prompt = buildTransitionPrompt(routeTag, coach)
+    local budget = tonumber(maxChars) or 76
+    if budget > 0 and #prompt > budget then
+        return buildCompactTransitionPrompt(routeTag)
+    end
+    return prompt
 end
 
 function Portal.confirmTransition()

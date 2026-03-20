@@ -338,3 +338,7 @@
 ## 2026-03-21 03:06 KST — Combat lane note (no tuning changes)
 - Added portal-route density analytics only; no combat behavior/damage/threat math modified.
 - Combat balance impact is observational via richer routing telemetry.
+
+## 2026-03-21 03:35 KST — Cross-lane combat note
+- No combat pacing/math changes in this cycle.
+- Added pending experiment candidate for future cycle: route-pressure token that may consume threat-tier context (`PRESSURE:<n>`), currently backlog-only.

@@ -328,3 +328,7 @@
 ## 2026-03-21 03:06 KST — Design telemetry readability decision
 - Chose depth-bucket ledger format (per start map) to make portal-chain risk texture legible at a glance.
 - Kept output compact and artifact-first (`.md` + `.json`) for review without runtime UI clutter.
+
+## 2026-03-21 03:35 KST — Prompt readability budget follow-up
+- Shipped compact fallback wording for constrained portal prompt budget: keep action verbs first, then route/coach tokens.
+- Added QA follow-up candidate: token-order linter to preserve readability hierarchy (`ACTION -> ROUTE -> COACH/PRESSURE`).
