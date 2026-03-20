@@ -747,3 +747,8 @@
 - Added `getRouteTag`, `getRouteCallout`, `getRouteCalloutColor` in `src/overclock_hazard.lua`.
 - Validation guardrails: only `SAFE|RISK|SPIKE` accepted; invalid/missing metadata resolves to nil.
 - Keeps route messaging data-driven from map metadata.
+
+## 2026-03-21 02:06 KST — Portal transition confirmation state + route preview token
+- Reworked `src/portal.lua` flow from immediate warp to pending transition state.
+- Added target-map route-tag resolver (metadata-driven with cache) and prompt token formatter: `NEXT ROUTE:<tag>`.
+- Confirm/cancel API added (`confirmTransition`, `cancelTransition`) to keep transition behavior explicit and reversible.

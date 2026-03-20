@@ -368,6 +368,7 @@ function love.draw()
 
     -- HUD
     HUD.draw(Player, Entities.enemies, gameOver, RunMissions.getState(), Unlocks.getAllFlags(), RunSummary.getState(), OnboardingHints.getHint())
+    drawPortalTransitionPrompt()
 
     -- Lootbox hover tooltip (with integrated progress fill)
     if hoveredLootbox and not LootboxUI.isOpen() then
@@ -412,6 +413,27 @@ function love.draw()
     end
 end
 
+local function drawPortalTransitionPrompt()
+    local prompt = Portal.getTransitionPrompt()
+    if not prompt then
+        return
+    end
+
+    local w = love.graphics.getWidth()
+    local h = love.graphics.getHeight()
+    local boxW = math.min(w - 80, math.max(460, (#prompt * 7) + 24))
+    local boxH = 56
+    local boxX = math.floor((w - boxW) / 2)
+    local boxY = h - 118
+
+    love.graphics.setColor(0, 0, 0, 0.86)
+    love.graphics.rectangle("fill", boxX, boxY, boxW, boxH, 5, 5)
+    love.graphics.setColor(0.95, 0.95, 0.7, 1)
+    love.graphics.printf("PORTAL TRANSITION", boxX + 12, boxY + 8, boxW - 24, "left")
+    love.graphics.setColor(0.78, 0.9, 1, 1)
+    love.graphics.printf(prompt, boxX + 12, boxY + 28, boxW - 24, "left")
+end
+
 local function tryPickupItem()
     local itemIndex, item = Entities.itemAt(Player.x, Player.y)
     if not item then
@@ -449,6 +471,14 @@ function love.keypressed(key)
     if RunSummary.isOpen() then
         if key == "r" or key == "return" or key == "escape" then
             RunSummary.close()
+        end
+        return
+    end
+    if Portal.hasPendingTransition() then
+        if key == "return" or key == "kpenter" or key == "y" or key == "e" then
+            Portal.confirmTransition()
+        elseif key == "n" or key == "backspace" or key == "escape" then
+            Portal.cancelTransition()
         end
         return
     end

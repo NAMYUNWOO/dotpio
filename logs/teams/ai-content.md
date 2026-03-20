@@ -345,3 +345,7 @@
 ## 2026-03-21 01:34 KST — AI content lane note (no generation changes)
 - Hazard route-tag and callout color experiment did not alter AI description/generation modules.
 - Keep monitoring whether clearer route planning shifts player build-request patterns in telemetry.
+
+## 2026-03-21 02:06 KST — Lane note (no AI content changes)
+- Portal route-preview experiment only touches transition UX/runtime state.
+- No AI generation schema/prompt/model behavior changed this cycle.

@@ -326,3 +326,7 @@
 ## 2026-03-21 01:34 KST — Combat lane note (no behavior tuning)
 - Route-tag callout update does not modify enemy AI, damage, or pacing.
 - Existing berserker threat strip remains source of combat pressure; route token is navigation-only context.
+
+## 2026-03-21 02:06 KST — Combat lane note (no pacing/AI changes)
+- Portal confirmation + route-preview prompt does not alter enemy behavior, threat math, or damage flow.
+- Combat systems remain unchanged; regression reused to confirm no collateral break in hazard threat HUD data path.

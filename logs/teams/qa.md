@@ -1194,3 +1194,16 @@
   - `lua scripts/regression_overclock_hazard.lua`
   - `lua scripts/regression_run_summary.lua`
   - `lua scripts/regression_hud_berserker_counters.lua`
+
+## 2026-03-21 02:06 KST — Portal transition preview regression coverage
+- Added regression: `scripts/regression_portal_route_preview.lua`.
+- Assertions cover:
+  - pending transition opens on portal contact
+  - prompt includes `NEXT ROUTE:SPIKE` for tagged target map
+  - confirm triggers `Portal.onLoad` with expected map/portal
+  - missing route tag falls back to `NEXT ROUTE:UNKNOWN`
+  - cancel clears pending transition state
+- Validation commands (PASS):
+  - `luac -p main.lua src/portal.lua src/overclock_hazard.lua src/hud.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_portal_route_preview.lua`

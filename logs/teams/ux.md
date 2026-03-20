@@ -580,3 +580,8 @@
 - HUD now renders `ROUTE:<tag>` near enemy counter when hazard route metadata exists.
 - Color semantics: `SAFE` green, `RISK` amber, `SPIKE` red.
 - Threat rows auto-offset when route callout is present to avoid overlap.
+
+## 2026-03-21 02:06 KST — Portal hover route preview UX shipped
+- New bottom-screen transition prompt appears on portal tile before map jump confirmation.
+- Prompt includes `NEXT ROUTE:<tag>` token and explicit controls (`ENTER` confirm, `N` cancel).
+- Prevents accidental blind transitions and aligns with existing compact HUD callout language.

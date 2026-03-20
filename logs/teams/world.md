@@ -361,3 +361,8 @@
 - Added map metadata route tag on hazard map (`maps/map_07.lua`): `routeTag = "SPIKE"`.
 - Exposed route-tag API via hazard runtime (`getRouteTag`, `getRouteCallout`).
 - Follow-up: backfill route tags on additional hazard maps once portal-preview token experiment lands.
+
+## 2026-03-21 02:06 KST — Portal jump now previews target route profile
+- Portal interaction now surfaces target-map route profile before jump confirmation.
+- Route tag resolves from destination map metadata (`overclockHazard.routeTag`) and falls back to `UNKNOWN` when absent.
+- Improves map-to-map path planning readability without changing portal topology.

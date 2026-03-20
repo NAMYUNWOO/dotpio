@@ -312,3 +312,8 @@
   2) Mid risk: portal-hover `NEXT ROUTE:<tag>` transition preview.
   3) High risk: route-tag distribution checker to prevent one-note map risk profiles.
 - Selection rationale: additive, reversible, and directly improves path-planning legibility.
+
+## 2026-03-21 02:06 KST — Transition prompt readability decision
+- Added explicit transition modal copy: `PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:<tag>`.
+- Decision: keep prompt compact DOS-style and inject route token directly in confirmation line for low cognitive overhead.
+- Fallback token `UNKNOWN` avoids blank-state ambiguity when destination lacks hazard route metadata.

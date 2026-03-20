@@ -803,3 +803,15 @@ Compact decision memory for AI context efficiency.
   - Done: route mini-callout color semantics.
   - Pending: portal hover route preview, route-tag distribution checker.
 - Next priority item: `Systems/World Team: Add portal-hover route preview token (NEXT ROUTE:<tag>) in transition prompt before confirming map jump`.
+
+## 2026-03-21 02:06 KST — Post-RC Cycle D follow-up shipped (portal route preview)
+- Completed backlog item: `Systems/World Team: Add portal-hover route preview token (NEXT ROUTE:<tag>) in transition prompt before confirming map jump`.
+- Gameplay/runtime decision: portal contact now opens a confirm/cancel transition prompt instead of immediate warp.
+- Route preview token source: destination map metadata `overclockHazard.routeTag` (`SAFE|RISK|SPIKE`, fallback `UNKNOWN`).
+- Evidence (PASS):
+  - `luac -p main.lua src/portal.lua src/overclock_hazard.lua src/hud.lua`
+  - `lua scripts/regression_overclock_hazard.lua`
+  - `lua scripts/regression_portal_route_preview.lua`
+- Backlog status:
+  - Done: portal-hover route preview token.
+  - Remaining top priority: route-tag distribution checker across hazard-enabled maps.
