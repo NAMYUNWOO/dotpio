@@ -25,10 +25,22 @@ local function resolveCoach(routeTag)
     return "NO DATA"
 end
 
+local function resolvePressure(routeTag)
+    if routeTag == "SAFE" then
+        return 1
+    elseif routeTag == "RISK" then
+        return 2
+    elseif routeTag == "SPIKE" then
+        return 3
+    end
+    return 2
+end
+
 local function buildPrompt(routeTag)
     local normalized = normalizeRouteTag(routeTag)
     local coach = resolveCoach(normalized)
-    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s", normalized, coach)
+    local pressure = resolvePressure(normalized)
+    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d", normalized, coach, pressure)
 end
 
 local function parseMapId(path)
@@ -101,6 +113,7 @@ function PortalPromptBudget.analyze(entries, maxChars)
             targetMap = entry.targetMap or "",
             routeTag = routeTag,
             coach = resolveCoach(routeTag),
+            pressure = resolvePressure(routeTag),
             length = length,
             prompt = prompt,
         }

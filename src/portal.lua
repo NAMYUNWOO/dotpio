@@ -90,24 +90,64 @@ local function resolveCompactCoach(routeTag)
     return "UNK"
 end
 
-local function buildTransitionPrompt(routeTag, coach)
-    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s", routeTag, coach)
+local function normalizeThreatTier(threatTier)
+    local value = string.upper(tostring(threatTier or ""))
+    if value == "LOW" or value == "MED" or value == "HIGH" then
+        return value
+    end
+    return "LOW"
 end
 
-local function buildCompactTransitionPrompt(routeTag)
-    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s", routeTag, resolveCompactCoach(routeTag))
+local function resolveRoutePressureBase(routeTag)
+    if routeTag == "SAFE" then
+        return 1
+    elseif routeTag == "RISK" then
+        return 2
+    elseif routeTag == "SPIKE" then
+        return 3
+    end
+    return 2
 end
 
-function Portal.getTransitionPrompt(maxChars)
+local function resolveThreatPressureOffset(threatTier)
+    if threatTier == "MED" then
+        return 1
+    elseif threatTier == "HIGH" then
+        return 2
+    end
+    return 0
+end
+
+local function resolvePressureScore(routeTag, threatTier)
+    local score = resolveRoutePressureBase(routeTag) + resolveThreatPressureOffset(normalizeThreatTier(threatTier))
+    if score < 1 then
+        return 1
+    elseif score > 5 then
+        return 5
+    end
+    return score
+end
+
+local function buildTransitionPrompt(routeTag, coach, pressureScore)
+    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d", routeTag, coach, pressureScore)
+end
+
+local function buildCompactTransitionPrompt(routeTag, pressureScore)
+    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d", routeTag, resolveCompactCoach(routeTag), pressureScore)
+end
+
+function Portal.getTransitionPrompt(maxChars, context)
     if not pendingTransition then
         return nil
     end
     local routeTag = pendingTransition.routeTag or "UNKNOWN"
     local coach = resolveRouteCoach(routeTag)
-    local prompt = buildTransitionPrompt(routeTag, coach)
+    local threatTier = context and context.threatTier or nil
+    local pressureScore = resolvePressureScore(routeTag, threatTier)
+    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore)
     local budget = tonumber(maxChars) or 76
     if budget > 0 and #prompt > budget then
-        return buildCompactTransitionPrompt(routeTag)
+        return buildCompactTransitionPrompt(routeTag, pressureScore)
     end
     return prompt
 end

@@ -414,7 +414,9 @@ function love.draw()
 end
 
 local function drawPortalTransitionPrompt()
-    local prompt = Portal.getTransitionPrompt()
+    local threatCounters = HUD.collectCombatThreatCounters(Entities.enemies)
+    local threatTier = HUD.getBerserkerThreatTier(threatCounters.berserkerThreatScore or 0)
+    local prompt = Portal.getTransitionPrompt(nil, { threatTier = threatTier })
     if not prompt then
         return
     end

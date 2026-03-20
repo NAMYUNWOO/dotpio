@@ -19,13 +19,15 @@ Portal.check(10, 10, {
     end,
 })
 
-local fullPrompt = Portal.getTransitionPrompt(120)
+local fullPrompt = Portal.getTransitionPrompt(160, { threatTier = "HIGH" })
 expect(type(fullPrompt) == "string" and fullPrompt:find("NEXT ROUTE:SPIKE"), "full prompt should retain detailed NEXT ROUTE token")
 expect(fullPrompt:find("COACH:HIGH PRESSURE"), "full prompt should retain full coach phrase")
+expect(fullPrompt:find("PRESSURE:5"), "full prompt should include pressure token")
 
-local compactPrompt = Portal.getTransitionPrompt(60)
+local compactPrompt = Portal.getTransitionPrompt(60, { threatTier = "HIGH" })
 expect(type(compactPrompt) == "string" and compactPrompt:find("NEXT:SPIKE"), "compact prompt should use shortened NEXT token")
 expect(compactPrompt:find("COACH:HIGH"), "compact prompt should use shortened coach token")
+expect(compactPrompt:find("P:5"), "compact prompt should include abbreviated pressure token")
 expect(not compactPrompt:find("NEXT ROUTE:"), "compact prompt should remove verbose NEXT ROUTE label")
 expect(#compactPrompt < #fullPrompt, "compact prompt should be shorter than full prompt")
 

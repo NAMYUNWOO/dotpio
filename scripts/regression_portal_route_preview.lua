@@ -27,10 +27,11 @@ Portal.resetCooldown()
 Portal.check(10, 10, fakeMap)
 expect(Portal.hasPendingTransition(), "stepping onto portal should open transition prompt")
 
-local prompt = Portal.getTransitionPrompt()
+local prompt = Portal.getTransitionPrompt(160, { threatTier = "HIGH" })
 expect(type(prompt) == "string", "transition prompt should be rendered")
 expect(prompt:find("NEXT ROUTE:SPIKE"), "transition prompt should include target map route tag token")
 expect(prompt:find("COACH:HIGH PRESSURE"), "transition prompt should include SPIKE route coaching token")
+expect(prompt:find("PRESSURE:5"), "transition prompt should include high-pressure score token for SPIKE+HIGH")
 
 local confirmed = Portal.confirmTransition()
 expect(confirmed == true, "portal confirm should succeed when transition is pending")
@@ -44,9 +45,10 @@ Portal.check(10, 10, {
         return { targetMap = "01", targetPortal = "02" }
     end,
 })
-local unknownPrompt = Portal.getTransitionPrompt()
+local unknownPrompt = Portal.getTransitionPrompt(160, { threatTier = "LOW" })
 expect(type(unknownPrompt) == "string" and unknownPrompt:find("NEXT ROUTE:UNKNOWN"), "transition prompt should fallback to UNKNOWN when route tag missing")
 expect(unknownPrompt:find("COACH:NO DATA"), "transition prompt should fallback to NO DATA coaching token")
+expect(unknownPrompt:find("PRESSURE:2"), "unknown route with low threat should keep neutral pressure token")
 expect(Portal.cancelTransition() == true, "cancel should clear pending portal transition")
 expect(not Portal.hasPendingTransition(), "portal prompt should close after cancel")
 

@@ -1242,3 +1242,10 @@
   - No portal topology changes, so `validate_portals.py` rerun not required for this slice.
 - Follow-up:
   - Next unchecked backlog item: route-pressure score token in transition prompt.
+
+## 2026-03-21 03:36 KST — Cycle G QA verification (portal pressure token)
+- PASS: `lua scripts/regression_portal_route_preview.lua`
+- PASS: `lua scripts/regression_portal_prompt_compact_mode.lua`
+- PASS: `lua scripts/regression_portal_prompt_copy_budget.lua`
+- INFO: `lua scripts/check_portal_prompt_copy_budget.lua` now reports `status=WARN` (`maxObserved=87`, `budget=76`, warnings=20), expected after adding pressure token.
+- Follow-up queued: token-order + budget linter to keep readability contract stable.

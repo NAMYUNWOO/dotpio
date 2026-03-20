@@ -332,3 +332,7 @@
 ## 2026-03-21 03:35 KST — Prompt readability budget follow-up
 - Shipped compact fallback wording for constrained portal prompt budget: keep action verbs first, then route/coach tokens.
 - Added QA follow-up candidate: token-order linter to preserve readability hierarchy (`ACTION -> ROUTE -> COACH/PRESSURE`).
+
+## 2026-03-21 03:36 KST — Cycle G design note
+- Added explicit transition-pressure communication at portal decision time to reinforce risk/reward route fantasy.
+- Pressure token remains additive/readability-only; no route topology or combat balance mutation in this slice.

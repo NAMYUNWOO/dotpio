@@ -769,3 +769,9 @@
 - Candidate slate generated after full backlog closure (low/mid/high risk).
 - Injected follow-up systems experiment: `PRESSURE:<n>` token derived from route tag + current threat tier (left queued as next unchecked item).
 - No systems-balance mutation shipped in this slice; transition behavior remains display-only fallback mode.
+
+## 2026-03-21 03:36 KST — Cycle G systems slice: transition pressure token
+- Implemented route-pressure score plumbing in `src/portal.lua`.
+- Formula: `PRESSURE = routeBase + threatOffset` (SAFE/RISK/SPIKE => 1/2/3, LOW/MED/HIGH => +0/+1/+2, clamp 1..5).
+- `Portal.getTransitionPrompt(maxChars, context)` now accepts threat-tier context for deterministic prompt output.
+- Compact fallback now carries pressure as `P:<n>` to preserve signal under tight copy budgets.

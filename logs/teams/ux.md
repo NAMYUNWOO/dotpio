@@ -599,3 +599,8 @@
 - Implemented portal transition compact mode for narrow copy budgets.
 - Detailed mode remains unchanged for default flow; compact mode shortens labels to reduce overflow risk while keeping route decision signal.
 - Candidate queue updated with pressure-token and token-order lint follow-ups.
+
+## 2026-03-21 03:36 KST — Cycle G UX note: portal pressure readability
+- Transition prompt now exposes explicit pressure cue (`PRESSURE:<n>`) next to route/coach tokens.
+- Compact prompt preserves pressure with abbreviated token (`P:<n>`) instead of dropping guidance under overflow.
+- Immediate UX risk detected: detailed line now often breaches 76-char DOS budget; queued token-order/budget linter follow-up.

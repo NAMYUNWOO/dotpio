@@ -1,9 +1,29 @@
 {
-  "status": "OK",
+  "status": "WARN",
   "budgetChars": 76,
   "checkedCount": 20,
-  "warningCount": 0,
-  "maxObservedChars": 75,
+  "warningCount": 20,
+  "maxObservedChars": 87,
   "warnings": [
+    {"sourceMap": "01", "targetMap": "02", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "01", "targetMap": "04", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "01", "targetMap": "03", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "02", "targetMap": "01", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "02", "targetMap": "01", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "02", "targetMap": "03", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "02", "targetMap": "03", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "02", "targetMap": "03", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "02", "targetMap": "03", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "03", "targetMap": "01", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "03", "targetMap": "02", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "03", "targetMap": "04", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "04", "targetMap": "03", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "04", "targetMap": "01", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "04", "targetMap": "05", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "05", "targetMap": "04", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "05", "targetMap": "06", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "06", "targetMap": "05", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"},
+    {"sourceMap": "06", "targetMap": "07", "routeTag": "SPIKE", "length": 87, "overBy": 11, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:SPIKE  COACH:HIGH PRESSURE  PRESSURE:3"},
+    {"sourceMap": "07", "targetMap": "06", "routeTag": "UNKNOWN", "length": 83, "overBy": 7, "prompt": "PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:UNKNOWN  COACH:NO DATA  PRESSURE:2"}
   ]
 }

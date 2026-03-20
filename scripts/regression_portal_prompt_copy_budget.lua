@@ -18,7 +18,7 @@ local sampleEntries = {
     { sourceMap = "03", targetMap = "99", targetRouteTag = nil },
 }
 
-local okReport = Budget.analyze(sampleEntries, 80)
+local okReport = Budget.analyze(sampleEntries, 90)
 expect(okReport.status == "OK", "status should be OK when prompts stay within budget")
 expect(okReport.warningCount == 0, "warning count should be zero for generous budget")
 expect(okReport.maxObservedChars > 0, "max observed chars should be populated")
@@ -37,5 +37,6 @@ for _, sample in ipairs(okReport.samples) do
 end
 expect(unknownSample ~= nil, "unknown route tag sample should be preserved")
 expect(unknownSample.coach == "NO DATA", "unknown route tag should map to NO DATA coach")
+expect(type(unknownSample.pressure) == "number", "sample should include computed pressure score")
 
 print("[PASS] portal prompt copy budget regression validated")

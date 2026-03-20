@@ -864,3 +864,24 @@ Compact decision memory for AI context efficiency.
   - Done: compact fallback.
   - Pending: route-pressure score token (`PRESSURE:<n>`), prompt token-order linter.
 
+
+## 2026-03-21 03:36 KST — Game Director Cycle G: route-pressure token slice
+- Idea slate (L/M/H risk):
+  1) Low-risk UX/System (chosen): transition prompt `PRESSURE:<n>` token (route tag + live threat tier).
+  2) Mid-risk QA/Design: prompt token-order linter (`ACTION -> ROUTE -> COACH -> PRESSURE`) with budget parser.
+  3) High-risk novelty: adaptive `ALT ROUTE:<tag>` branch suggestion when pressure is high.
+- Shipped vertical slice:
+  - Portal prompt now includes pressure token in detailed mode and compact `P:<n>` fallback.
+  - Pressure score mapping: route base (`SAFE=1`, `RISK=2`, `SPIKE=3`) + threat tier offset (`LOW=0`, `MED=+1`, `HIGH=+2`), clamped 1..5.
+  - Main draw path now injects live berserker threat tier context into portal prompt rendering.
+  - Prompt-budget analyzer updated to include pressure token in measured copy length.
+- Verification (PASS):
+  - `lua scripts/regression_portal_route_preview.lua`
+  - `lua scripts/regression_portal_prompt_compact_mode.lua`
+  - `lua scripts/regression_portal_prompt_copy_budget.lua`
+  - `lua scripts/check_portal_prompt_copy_budget.lua`
+- Result:
+  - `PRESSURE` cue is now visible at transition decision point, but copy-budget audit flipped to `WARN` baseline (`max=87 > budget=76`), validating need for next QA linter/budget follow-up.
+- Backlog sync:
+  - Marked Cycle F pressure-token item done.
+  - Added Cycle G trio with two follow-ups retained (token-order linter, adaptive alt-route hint).

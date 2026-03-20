@@ -384,3 +384,7 @@
 - Completed Cycle F selected experiment: portal transition prompt now supports compact fallback copy when a strict budget is requested.
 - Runtime contract: detailed prompt stays default (`NEXT ROUTE:<tag> COACH:<phrase>`), constrained mode returns compact tokenized copy (`NEXT:<tag> COACH:<short>`).
 - Scope kept reversible and UI-only (no portal routing/mechanics changes).
+
+## 2026-03-21 03:36 KST — Cycle G world lane note
+- No map layout or portal graph rewiring in this cycle.
+- World-facing change is metadata consumption only: destination `routeTag` now contributes to transition pressure scoring.
