@@ -939,3 +939,16 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_portal_alt_selector_v2.lua`
 - Next highest-priority unchecked backlog item:
   - `QA/UX Team: Add portal prompt readability regression for adaptive ALT token budget/order under HIGH threat compact mode`.
+
+## 2026-03-21 05:33 KST — Portal adaptive ALT compact-readability regression
+- Closed final unchecked backlog item in `POST_RC_BACKLOG.md` (Cycle H QA/UX readability regression).
+- Added `scripts/regression_portal_prompt_adaptive_alt_readability.lua` to enforce HIGH-threat compact prompt readability contract:
+  - compact mode selection under constrained budget,
+  - adaptive ALT token presence (`ALT`, `ADEL`),
+  - token order `ACTION -> ROUTE -> COACH -> PRESSURE -> ALT -> ALT_DELTA`,
+  - compact prompt length stays within budget.
+- Verification set:
+  - `lua scripts/regression_portal_prompt_adaptive_alt_readability.lua`
+  - `lua scripts/regression_portal_prompt_compact_mode.lua`
+  - `lua scripts/regression_portal_prompt_token_order.lua`
+- All checks passed.

@@ -625,3 +625,8 @@
 - Completed backlog item: choose adaptive `ALT ROUTE` from lowest-pressure reachable portal branch on current map (not fixed one-step downgrade).
 - Verification: [PASS] portal route preview transition prompt regression validated, [PASS] portal prompt compact-mode regression validated, [PASS] portal prompt token-order regression validated, [PASS] portal adaptive ALT selector v2 regression validated (all PASS).
 - Follow-up: keep `QA/UX Team: portal prompt readability regression for adaptive ALT token budget/order under HIGH threat compact mode` as next unchecked priority.
+
+## 2026-03-21 05:33 KST — Portal adaptive ALT compact-readability regression
+- Decision: Added dedicated regression `scripts/regression_portal_prompt_adaptive_alt_readability.lua` to validate HIGH-threat compact prompt budget + token order with adaptive ALT tokens (`ALT`, `ADEL`).
+- Evidence: `lua scripts/regression_portal_prompt_adaptive_alt_readability.lua` PASS, plus companion prompt regressions PASS.
+- Follow-up: Keep this regression in portal readability validation set for future prompt-token changes.

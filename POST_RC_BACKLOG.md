@@ -132,4 +132,4 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-21 Cycle H)
 - [x] UX/Systems Team: Add adaptive portal pressure-drop token (`ALT DELTA:-n`) in transition prompt to quantify safer branch impact
 - [x] Systems/World Team: Route-aware ALT selector v2 (pick lowest-pressure reachable branch among current-map portals, not just one-step fallback)
-- [ ] QA/UX Team: Add portal prompt readability regression for adaptive ALT token budget/order under HIGH threat compact mode
+- [x] QA/UX Team: Add portal prompt readability regression for adaptive ALT token budget/order under HIGH threat compact mode
