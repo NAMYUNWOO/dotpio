@@ -1017,3 +1017,18 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
 - Progress: POST_RC backlog Cycle J now 2/3 complete; remaining unchecked item is top-token movers section.
 - Next priority item: `Design/QA Team: Add digest top-token movers section`.
+
+- Weekly portal prompt readability digest now includes **Top Token Movers** (largest net ± token deltas) with per-token added/removed/net fields in JSON + markdown, improving triage for prompt-copy drift.
+
+## 2026-03-21 07:44 KST — Cycle J closure: top-token movers section
+- Completed backlog item: `Design/QA Team: Add digest top-token movers section (largest net ± token deltas) for readability triage`.
+- Durable decisions:
+  - Weekly digest now tracks per-token edits across all portal prompt tokens and publishes top absolute movers (top 5).
+  - Markdown digest adds a dedicated `Top Token Movers (net ±)` section for fast human triage.
+  - JSON digest adds `tokenTotals` and `topTokenMovers` fields for tooling consumers.
+- Verification set:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
+- Backlog update: marked final unchecked Cycle J item done in `POST_RC_BACKLOG.md`.
+- Next priority item: all tracked backlogs checked; execute next Game Director review cycle (3 ideas -> choose 1 -> vertical slice).

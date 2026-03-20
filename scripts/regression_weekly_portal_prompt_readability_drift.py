@@ -71,8 +71,13 @@ def main() -> int:
         assert payload["modeTrend"] in {"COMPACT", "DETAILED", "BALANCED"}, payload
         assert payload["pressureBand"] in {"LOW", "MID", "HIGH"}, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
+        assert "tokenTotals" in payload, payload
+        assert isinstance(payload.get("topTokenMovers"), list), payload
+        if payload["topTokenMovers"]:
+            assert {"token", "net", "added", "removed"}.issubset(payload["topTokenMovers"][0].keys()), payload
         md_text = out_md.read_text(encoding="utf-8")
         assert "Token Totals" in md_text
+        assert "Top Token Movers" in md_text
         assert "MODE TREND" in md_text
         assert "PRESSURE BAND" in md_text
 

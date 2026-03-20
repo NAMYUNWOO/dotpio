@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-20T22:03:32.362699Z
+- GeneratedAt(UTC): 2026-03-20T22:33:35.255919Z
 - Status: **OK**
 - Window: last 14 days (max 200 commits)
 - Checked commits: 200
@@ -13,6 +13,13 @@
 - Compact: +28 / -3 / net 25
 - Detailed: +35 / -6 / net 29
 - Shared: +32 / -13 / net 19
+
+## Top Token Movers (net ±)
+- `COACH:` net +12 (added 18, removed 6)
+- `NEXT ROUTE:` net +10 (added 15, removed 5)
+- `P:` net +8 (added 9, removed 1)
+- `PRESSURE:` net +7 (added 8, removed 1)
+- `ENTER:JUMP` net +7 (added 14, removed 7)
 
 ## Commit-level digest
 - `0aa530c` feat: add flagged ALT PLAN portal nudge experiment | mode=compact | compact net=5 detailed net=3 shared net=0

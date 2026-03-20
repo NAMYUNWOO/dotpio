@@ -394,3 +394,9 @@
 - Evidence: Digest artifacts now include JSON `pressureBand` + `pressureEdits` and markdown line `PRESSURE BAND` with +/-/net counts.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`.
 - Follow-up: Remaining Cycle J item is top-token movers section for digest triage.
+
+## 2026-03-21 07:44 KST — Cycle J follow-up: digest top-token movers shipped
+- Completed backlog item: `Design/QA Team: Add digest top-token movers section (largest net ± token deltas) for readability triage`.
+- Added per-token edit aggregation (`added/removed/net`) and top-movers ranking in weekly digest outputs.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200` PASS.
+- Follow-up: no unchecked items remain in ACTION_ITEMS/TASKS/POST_RC; next cycle should inject new Game Director experiments.

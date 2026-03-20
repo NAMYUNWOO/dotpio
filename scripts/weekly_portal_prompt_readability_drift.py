@@ -29,6 +29,12 @@ TOKEN_GROUPS = {
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 
+TOKEN_CATALOG: list[str] = []
+for _tokens in TOKEN_GROUPS.values():
+    for _token in _tokens:
+        if _token not in TOKEN_CATALOG:
+            TOKEN_CATALOG.append(_token)
+
 PRESSURE_TOKENS = ["PRESSURE:", "P:"]
 
 
@@ -62,6 +68,10 @@ def count_tokens_in_line(line: str) -> dict[str, int]:
     return counts
 
 
+def count_catalog_tokens_in_line(line: str) -> dict[str, int]:
+    return {token: line.count(token) for token in TOKEN_CATALOG}
+
+
 def pressure_band_from_net(net: int) -> str:
     magnitude = abs(net)
     if magnitude >= 8:
@@ -80,6 +90,8 @@ def commit_stats(root: Path, commit: str) -> dict:
 
     added = {k: 0 for k in TOKEN_GROUPS}
     removed = {k: 0 for k in TOKEN_GROUPS}
+    token_added = {token: 0 for token in TOKEN_CATALOG}
+    token_removed = {token: 0 for token in TOKEN_CATALOG}
     pressure_added = 0
     pressure_removed = 0
 
@@ -91,17 +103,24 @@ def commit_stats(root: Path, commit: str) -> dict:
             if raw.startswith("+"):
                 line = raw[1:]
                 c = count_tokens_in_line(line)
+                c_tokens = count_catalog_tokens_in_line(line)
                 for k, v in c.items():
                     added[k] += v
+                for token, v in c_tokens.items():
+                    token_added[token] += v
                 pressure_added += sum(line.count(token) for token in PRESSURE_TOKENS)
             elif raw.startswith("-"):
                 line = raw[1:]
                 c = count_tokens_in_line(line)
+                c_tokens = count_catalog_tokens_in_line(line)
                 for k, v in c.items():
                     removed[k] += v
+                for token, v in c_tokens.items():
+                    token_removed[token] += v
                 pressure_removed += sum(line.count(token) for token in PRESSURE_TOKENS)
 
     net = {k: added[k] - removed[k] for k in TOKEN_GROUPS}
+    token_net = {token: token_added[token] - token_removed[token] for token in TOKEN_CATALOG}
     pressure_net = pressure_added - pressure_removed
     touched = bool(portal_files)
     mode = "neutral"
@@ -128,6 +147,11 @@ def commit_stats(root: Path, commit: str) -> dict:
             "removed": pressure_removed,
             "net": pressure_net,
         },
+        "tokenEdits": {
+            "added": token_added,
+            "removed": token_removed,
+            "net": token_net,
+        },
     }
 
 
@@ -146,6 +170,11 @@ def main() -> int:
         "removed": {k: sum(r["removed"][k] for r in touched) for k in TOKEN_GROUPS},
         "net": {k: sum(r["net"][k] for r in touched) for k in TOKEN_GROUPS},
     }
+    token_totals = {
+        "added": {token: sum(r["tokenEdits"]["added"][token] for r in touched) for token in TOKEN_CATALOG},
+        "removed": {token: sum(r["tokenEdits"]["removed"][token] for r in touched) for token in TOKEN_CATALOG},
+        "net": {token: sum(r["tokenEdits"]["net"][token] for r in touched) for token in TOKEN_CATALOG},
+    }
 
     compact_commits = sum(1 for r in touched if r["dominantMode"] == "compact")
     detailed_commits = sum(1 for r in touched if r["dominantMode"] == "detailed")
@@ -161,6 +190,18 @@ def main() -> int:
     pressure_removed = sum(r["pressureEdits"]["removed"] for r in touched)
     pressure_net = pressure_added - pressure_removed
     pressure_band = pressure_band_from_net(pressure_net)
+
+    token_movers = [
+        {
+            "token": token,
+            "net": token_totals["net"][token],
+            "added": token_totals["added"][token],
+            "removed": token_totals["removed"][token],
+        }
+        for token in TOKEN_CATALOG
+        if token_totals["net"][token] != 0
+    ]
+    token_movers.sort(key=lambda row: (abs(row["net"]), row["token"]), reverse=True)
 
     status = "ok"
     if touched and totals["net"]["compact"] < 0 and totals["net"]["detailed"] > 0:
@@ -185,6 +226,8 @@ def main() -> int:
             "net": pressure_net,
         },
         "totals": totals,
+        "tokenTotals": token_totals,
+        "topTokenMovers": token_movers[:5],
         "commits": rows,
     }
 
@@ -208,8 +251,20 @@ def main() -> int:
         f"- Detailed: +{totals['added']['detailed']} / -{totals['removed']['detailed']} / net {totals['net']['detailed']}",
         f"- Shared: +{totals['added']['shared']} / -{totals['removed']['shared']} / net {totals['net']['shared']}",
         "",
-        "## Commit-level digest",
+        "## Top Token Movers (net ±)",
     ]
+    if not token_movers:
+        md.append("- No token deltas in this window.")
+    else:
+        for row in token_movers[:5]:
+            md.append(
+                f"- `{row['token']}` net {row['net']:+d} (added {row['added']}, removed {row['removed']})"
+            )
+
+    md.extend([
+        "",
+        "## Commit-level digest",
+    ])
     if not touched:
         md.append("- No portal prompt related commits in this window.")
     else:
