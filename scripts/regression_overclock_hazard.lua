@@ -36,6 +36,9 @@ expect(events.activated == true, "entering hazard zone should activate pulse")
 local discounted = OverclockHazard.applyBuildCost(5)
 expect(discounted == 3, "pulse should discount build cost (5 -> 3)")
 
+local hotHintBeforeKills = OverclockHazard.getHudHint()
+expect(type(hotHintBeforeKills) == "string" and hotHintBeforeKills:find("BOUNTY:0/3"), "hot hint should show zeroed bounty progress at pulse start")
+
 local killBonusFirst = OverclockHazard.consumeKillBonus(2)
 expect(killBonusFirst == 2, "hot-zone kills should award overclock bonus SRL per kill")
 
@@ -46,6 +49,8 @@ local hotHint = OverclockHazard.getHudHint()
 expect(type(hotHint) == "string" and hotHint:find("OVERCLOCK HOT") and hotHint:find("%d+s"), "hot hint should include active pulse countdown seconds")
 expect(hotHint:find("AGGRO DET:%+%d+"), "hot hint should include aggro detect bonus legend")
 expect(hotHint:find("MOVE:%+%d+%%"), "hot hint should include aggro move-speed pressure legend")
+expect(hotHint:find("BOUNTY:%d+/%d+"), "hot hint should include bounty progress token")
+expect(hotHint:find("BOUNTY:3/3"), "bounty progress token should reflect per-pulse cap consumption")
 expect(hotHint:find("RISK:[A-Z]+%(%d+%)"), "hot hint should include hazard risk tier + score")
 
 local pressure = OverclockHazard.getPressureProfile()

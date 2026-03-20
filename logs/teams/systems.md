@@ -619,3 +619,9 @@
 - Decision: `OverclockHazard.consumeKillBonus(kills)` now awards `killBonusPerKill` SRL only while player is in-zone during active pulse, capped by `killBonusPulseCap` each pulse.
 - Evidence: `luac -p main.lua src/overclock_hazard.lua maps/map_07.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua`.
 - Follow-up: Surface bounty cap progress (`BOUNTY:x/y`) in HOT hint for clearer reward budgeting.
+
+## 2026-03-20 17:03 KST — Overclock HOT bounty progress token
+- Task: Surface pulse-cap payout progress in HOT hint (`BOUNTY:x/y`) for overclock reward readability.
+- Decision: Reuse `killBonusGrantedThisPulse` + `killBonusPulseCap` as canonical HUD token source to avoid duplicate counters/state drift.
+- Evidence: `lua scripts/regression_overclock_hazard.lua`.
+- Follow-up: If map variants need per-kill cap semantics later, keep HUD token as reward-units progress unless design explicitly requests kill-count mode.

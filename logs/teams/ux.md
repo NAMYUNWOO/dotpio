@@ -450,3 +450,9 @@
 ## 2026-03-20 16:55 KST — UX note for bounty readability
 - Runtime now emits explicit status copy: `OVERCLOCK BOUNTY: +n BUILDER.SRL (HOT ZONE KILL)`.
 - Follow-up: add compact HOT-hint bounty cap progress token (`BOUNTY:x/y`) to reduce hidden-cap confusion.
+
+## 2026-03-20 17:03 KST — HOT hint bounty cap readability token
+- Task: Added `BOUNTY:x/y` token to overclock HOT hint so players can see remaining pulse payout headroom at a glance.
+- Decision: Keep token inline on existing HOT row (`discount / aggro legend / bounty`) to preserve DOS compact layout.
+- Evidence: `lua scripts/regression_overclock_hazard.lua`.
+- Follow-up: If line width becomes noisy on smaller displays, abbreviate aggro legend before dropping bounty token.

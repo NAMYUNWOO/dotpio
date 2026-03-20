@@ -514,3 +514,16 @@ Compact decision memory for AI context efficiency.
 - Backlog update:
   - Marked done in `POST_RC_BACKLOG.md` and `TASKS.md`.
   - Added next follow-up candidate: HOT-hint bounty progress token (`BOUNTY:x/y`).
+
+## 2026-03-20 17:03 KST — P1 hazard reward follow-up: HOT bounty progress token
+- Completed backlog item: `UX/Systems Team: Surface overclock bounty pulse cap progress in HUD hint (BOUNTY:x/y) during HOT state`.
+- Durable decisions:
+  - HOT hint now includes `BOUNTY:x/y` derived from pulse reward units granted vs per-pulse cap.
+  - Token initializes at `0/cap` when pulse activates and updates as kills consume bounty budget.
+  - Layout stays single-line DOS style (`discount / aggro legend / bounty`) to avoid HUD row growth.
+- Verification set:
+  - `lua scripts/regression_overclock_hazard.lua`
+- Backlog update:
+  - Marked item done in `POST_RC_BACKLOG.md` and mirrored done in `TASKS.md`.
+- Next priority item:
+  - No unchecked items currently remain in `POST_RC_BACKLOG.md`.

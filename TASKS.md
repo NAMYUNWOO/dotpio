@@ -220,4 +220,4 @@ See project-level plans:
   - [x] Add hazard config knobs for kill bounty payout/cap (`killBonusPerKill`, `killBonusPulseCap`)
   - [x] Award bonus SRL when kills occur during active in-zone overclock pulse
   - [x] Extend overclock hazard regression coverage for bounty payout + pulse cap
-- [ ] Add overclock HOT hint bounty progress token (`BOUNTY:x/y`) for payout cap readability
+- [x] Add overclock HOT hint bounty progress token (`BOUNTY:x/y`) for payout cap readability

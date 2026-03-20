@@ -68,6 +68,12 @@ local function getAggroPressureLegend(zone)
     return string.format("AGGRO DET:+%d MOVE:+%d%%", detectBonus, moveBoostPct)
 end
 
+local function getBountyProgressToken()
+    local cap = math.max(0, math.floor((state.zone and state.zone.killBonusPulseCap) or 0))
+    local granted = math.max(0, math.floor(state.killBonusGrantedThisPulse or 0))
+    return string.format("BOUNTY:%d/%d", math.min(granted, cap), cap)
+end
+
 function OverclockHazard.onMapLoaded(mapName, metadata)
     state.mapName = tostring(mapName or "")
     state.zone = resolveZone(metadata)
@@ -166,7 +172,8 @@ function OverclockHazard.getHudHint()
     if state.pulseActive then
         local pulseSeconds = math.max(0, math.ceil(state.pulseTimer or 0))
         local aggroLegend = getAggroPressureLegend(state.zone)
-        return string.format("OVERCLOCK HOT %ds: -%d%% SRL / %s  RISK:%s(%d)", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5), aggroLegend, riskTier, riskScore)
+        local bountyProgress = getBountyProgressToken()
+        return string.format("OVERCLOCK HOT %ds: -%d%% SRL / %s / %s  RISK:%s(%d)", pulseSeconds, math.floor(state.zone.discountPct * 100 + 0.5), aggroLegend, bountyProgress, riskTier, riskScore)
     end
     if state.cooldownTimer > 0 then
         local cooldownSeconds = math.max(0, math.ceil(state.cooldownTimer))

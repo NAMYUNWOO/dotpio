@@ -1029,3 +1029,8 @@
   - per-pulse payout cap enforcement,
   - no payout outside hazard zone.
 - Verification: `luac -p main.lua src/overclock_hazard.lua maps/map_07.lua scripts/regression_overclock_hazard.lua`; `lua scripts/regression_overclock_hazard.lua`.
+
+## 2026-03-20 17:03 KST — Regression coverage: overclock HOT bounty progress token
+- Task: Extended `scripts/regression_overclock_hazard.lua` to assert HOT hint shows `BOUNTY:x/y` at pulse start and after cap consumption.
+- Verification: `lua scripts/regression_overclock_hazard.lua`.
+- Result: PASS.
