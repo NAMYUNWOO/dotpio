@@ -225,6 +225,12 @@ def main() -> int:
     ]
     token_movers.sort(key=lambda row: (abs(row["net"]), row["token"]), reverse=True)
 
+    sticky_tokens = [
+        token
+        for token in TOKEN_CATALOG
+        if token_totals["added"][token] > 0 and token_totals["removed"][token] > 0
+    ]
+
     status = "ok"
     if touched and totals["net"]["compact"] < 0 and totals["net"]["detailed"] > 0:
         status = "warn"
@@ -251,6 +257,10 @@ def main() -> int:
         },
         "totals": totals,
         "tokenTotals": token_totals,
+        "stickyTokens": {
+            "count": len(sticky_tokens),
+            "tokens": sticky_tokens,
+        },
         "topTokenMovers": token_movers[:5],
         "commits": rows,
     }
@@ -270,6 +280,7 @@ def main() -> int:
         f"- MODE TREND: **{mode_trend}**",
         f"- PRESSURE BAND: **{pressure_band}** (edits +{pressure_added} / -{pressure_removed} / net {pressure_net})",
         f"- DRIFT RISK: **{drift_risk}** (score={drift_risk_signals['score']} | imbalance={drift_risk_signals['imbalance']} | pressure={drift_risk_signals['pressureChurn']})",
+        f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         "",
         "## Token Totals (added/removed/net)",
         f"- Compact: +{totals['added']['compact']} / -{totals['removed']['compact']} / net {totals['net']['compact']}",
@@ -285,6 +296,15 @@ def main() -> int:
             md.append(
                 f"- `{row['token']}` net {row['net']:+d} (added {row['added']}, removed {row['removed']})"
             )
+
+    md.extend([
+        "",
+        "## Sticky Tokens",
+    ])
+    if not sticky_tokens:
+        md.append("- None in this window.")
+    else:
+        md.append("- " + ", ".join(f"`{token}`" for token in sticky_tokens))
 
     md.extend([
         "",

@@ -465,3 +465,9 @@
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
 - Follow-up:
   - Remaining Cycle K backlog items: `STICKY TOKENS` persistence token, `FOCUS` lane-focus token.
+
+## 2026-03-21 08:31 KST — Portal prompt telemetry support
+- Task: Updated portal prompt weekly digest outputs with sticky-token persistence for route/prompt churn visibility.
+- Decision: Keep token-family detection centralized in digest script (no map-runtime changes).
+- Evidence: `logs/weekly_portal_prompt_readability_drift.{json,md}` regenerated.
+- Follow-up: Add `FOCUS:PORTAL|ALT|PRESSURE|MIXED` routing token.

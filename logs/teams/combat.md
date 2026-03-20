@@ -420,3 +420,8 @@
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
 - Follow-up:
   - Remaining Cycle K backlog items: `STICKY TOKENS` persistence token, `FOCUS` lane-focus token.
+
+## 2026-03-21 08:31 KST — No combat tuning changes
+- Task impact: None on combat systems.
+- Decision: Combat telemetry unaffected; keep threat/overclock regressions unchanged.
+- Follow-up: Monitor if lane-focus token recommends pressure-heavy prompt edits.

@@ -1033,3 +1033,9 @@ Compact decision memory for AI context efficiency.
 - Backlog update: marked final unchecked Cycle J item done in `POST_RC_BACKLOG.md`.
 - Next priority item: all tracked backlogs checked; execute next Game Director review cycle (3 ideas -> choose 1 -> vertical slice).
 - 2026-03-21 08:03 KST: Game Director Cycle K started and shipped first vertical slice: weekly portal prompt digest now includes `DRIFT RISK:LOW|MID|HIGH` derived from mode-imbalance + pressure churn (`driftRiskSignals.score/imbalance/pressureChurn`); regression coverage extended in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-21 08:31 KST — Cycle K follow-up (sticky token persistence)
+- Shipped: Weekly portal prompt readability digest now computes `stickyTokens` (`count`, `tokens`) where tokens were both added and removed within the window.
+- Why: Captures prompt copy churn that net/mover-only signals can hide.
+- Verification: Dedicated regression PASS + live digest regeneration PASS.
+- Backlog sync: Marked sticky-token item done in `TASKS.md` and `POST_RC_BACKLOG.md`; lane-focus token remains next highest priority.

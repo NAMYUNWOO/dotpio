@@ -438,3 +438,8 @@
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
 - Follow-up:
   - Remaining Cycle K backlog items: `STICKY TOKENS` persistence token, `FOCUS` lane-focus token.
+
+## 2026-03-21 08:31 KST — No AI prompt-generation changes
+- Task impact: None on AI generation prompts/fallbacks this cycle.
+- Decision: Maintain current AI content safeguards; consume digest outputs only for design triage.
+- Follow-up: Revisit after lane-focus token lands.

@@ -853,3 +853,9 @@
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
 - Follow-up:
   - Remaining Cycle K backlog items: `STICKY TOKENS` persistence token, `FOCUS` lane-focus token.
+
+## 2026-03-21 08:31 KST — Sticky token persistence digest metric
+- Task: Added `stickyTokens` aggregate in weekly portal prompt readability drift digest.
+- Decision: Define sticky token as token with both added>0 and removed>0 over window.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; digest regenerated.
+- Follow-up: Implement lane-focus routing token from top mover families.

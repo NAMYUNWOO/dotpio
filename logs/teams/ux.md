@@ -681,3 +681,8 @@
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
 - Follow-up:
   - Remaining Cycle K backlog items: `STICKY TOKENS` persistence token, `FOCUS` lane-focus token.
+
+## 2026-03-21 08:31 KST — Digest UX telemetry update
+- Task: Markdown digest now surfaces `STICKY TOKENS:<n>` and sticky-token list section.
+- Decision: Keep display compact and summary-first to preserve DOS-style scanability.
+- Evidence: `logs/weekly_portal_prompt_readability_drift.md` includes new lines.

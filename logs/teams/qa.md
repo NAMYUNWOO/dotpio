@@ -1329,3 +1329,10 @@
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
 - Follow-up:
   - Remaining Cycle K backlog items: `STICKY TOKENS` persistence token, `FOCUS` lane-focus token.
+
+## 2026-03-21 08:31 KST — Regression coverage update
+- Task: Extended weekly portal prompt drift regression for `stickyTokens` JSON schema + markdown sections.
+- Evidence:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200` PASS
+- Follow-up: Add regression assertions for upcoming lane-focus token.

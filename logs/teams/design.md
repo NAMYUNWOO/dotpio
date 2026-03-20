@@ -413,3 +413,8 @@
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
 - Follow-up:
   - Remaining Cycle K backlog items: `STICKY TOKENS` persistence token, `FOCUS` lane-focus token.
+
+## 2026-03-21 08:31 KST — Readability triage metric expansion
+- Task: Added sticky token signal for weekly readability digest.
+- Decision: Treat sticky count as copy-churn smell indicator (re-added/re-removed tokens over time).
+- Follow-up: Add lane-focus token to map dominant churn family into actionable design lane.

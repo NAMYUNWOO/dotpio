@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-20T23:02:49.270359Z
+- GeneratedAt(UTC): 2026-03-20T23:33:13.347633Z
 - Status: **OK**
 - Window: last 14 days (max 200 commits)
 - Checked commits: 200
@@ -9,6 +9,7 @@
 - MODE TREND: **DETAILED**
 - PRESSURE BAND: **HIGH** (edits +17 / -2 / net 15)
 - DRIFT RISK: **HIGH** (score=19 | imbalance=4 | pressure=15)
+- STICKY TOKENS: **6**
 
 ## Token Totals (added/removed/net)
 - Compact: +28 / -3 / net 25
@@ -21,6 +22,9 @@
 - `P:` net +8 (added 9, removed 1)
 - `PRESSURE:` net +7 (added 8, removed 1)
 - `ENTER:JUMP` net +7 (added 14, removed 7)
+
+## Sticky Tokens
+- `NEXT:`, `P:`, `NEXT ROUTE:`, `PRESSURE:`, `ENTER:JUMP`, `COACH:`
 
 ## Commit-level digest
 - `0aa530c` feat: add flagged ALT PLAN portal nudge experiment | mode=compact | compact net=5 detailed net=3 shared net=0

@@ -303,5 +303,5 @@ See project-level plans:
   - [x] Add drift-risk classifier helper in weekly digest script from mode-imbalance + pressure churn signals
   - [x] Surface `driftRisk` + `driftRiskSignals` in JSON and `DRIFT RISK` line in markdown output
   - [x] Extend weekly digest regression coverage for new token/schema assertions
-- [ ] Add prompt-token persistence token (`STICKY TOKENS:<n>`) counting tokens present in both added/removed sets over window
+- [x] Add prompt-token persistence token (`STICKY TOKENS:<n>`) counting tokens present in both added/removed sets over window
 - [ ] Add digest lane-focus token (`FOCUS:PORTAL|ALT|PRESSURE|MIXED`) from top mover families for action routing

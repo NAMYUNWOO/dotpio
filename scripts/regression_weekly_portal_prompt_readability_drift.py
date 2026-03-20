@@ -74,6 +74,9 @@ def main() -> int:
         assert set(payload["driftRiskSignals"].keys()) == {"score", "imbalance", "pressureChurn"}, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
+        assert "stickyTokens" in payload, payload
+        assert set(payload["stickyTokens"].keys()) == {"count", "tokens"}, payload
+        assert payload["stickyTokens"]["count"] == len(payload["stickyTokens"]["tokens"]), payload
         assert isinstance(payload.get("topTokenMovers"), list), payload
         if payload["topTokenMovers"]:
             assert {"token", "net", "added", "removed"}.issubset(payload["topTokenMovers"][0].keys()), payload
@@ -83,6 +86,8 @@ def main() -> int:
         assert "MODE TREND" in md_text
         assert "PRESSURE BAND" in md_text
         assert "DRIFT RISK" in md_text
+        assert "STICKY TOKENS" in md_text
+        assert "Sticky Tokens" in md_text
 
     print("[PASS] weekly portal prompt readability drift regression checks")
     return 0
