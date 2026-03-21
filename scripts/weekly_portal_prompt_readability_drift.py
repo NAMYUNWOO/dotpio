@@ -1014,6 +1014,61 @@ def what_if_fallback_plan_from_signals(
     }
 
 
+def what_if_fallback_plan_fit_from_signals(
+    *,
+    what_if_fallback_plan: str,
+    what_if_fallback_fit: str,
+    what_if_fallback_alt2: str,
+    what_if_alt_signals: dict[str, str | int | bool],
+    pressure_band: str,
+) -> tuple[str, dict[str, str | int]]:
+    if what_if_fallback_plan == "PRIMARY":
+        fit = what_if_fallback_fit
+        reason = "inherits-primary-fallback-fit"
+        lane = "PRIMARY"
+        projected_band = str(what_if_fallback_fit)
+    elif what_if_fallback_plan == "SECONDARY" and what_if_fallback_alt2 in {"PORTAL", "ALT", "PRESSURE"}:
+        baseline_risk = int(what_if_alt_signals.get("baselineRisk", 0))
+        imbalance = int(what_if_alt_signals.get("imbalance", baseline_risk))
+        pressure_churn = int(what_if_alt_signals.get("pressureChurn", 0))
+
+        projected_imbalance = max(0, imbalance - 2) if what_if_fallback_alt2 in {"ALT", "PORTAL"} else max(0, imbalance - 1)
+        projected_pressure = max(0, pressure_churn - 2) if what_if_fallback_alt2 == "PRESSURE" else max(0, pressure_churn - 1)
+        projected_risk = projected_imbalance + projected_pressure
+
+        if projected_risk >= 12:
+            projected_band = "HIGH"
+        elif projected_risk >= 5:
+            projected_band = "MID"
+        else:
+            projected_band = "LOW"
+
+        band_rank = {"LOW": 0, "MID": 1, "HIGH": 2}
+        projected_rank = band_rank.get(projected_band, 1)
+        pressure_rank = band_rank.get(pressure_band, 1)
+        if projected_rank < pressure_rank:
+            fit = "SAFE"
+        elif projected_rank > pressure_rank:
+            fit = "TENSE"
+        else:
+            fit = "EVEN"
+        reason = "secondary-projection-vs-pressure-band"
+        lane = what_if_fallback_alt2
+    else:
+        fit = "EVEN"
+        reason = "hold-or-no-actionable-secondary"
+        lane = "HOLD"
+        projected_band = pressure_band
+
+    return fit, {
+        "plan": what_if_fallback_plan,
+        "planLane": lane,
+        "pressureBand": pressure_band,
+        "projectedBand": projected_band,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -1537,6 +1592,13 @@ def main() -> int:
         what_if_fallback_alt2=what_if_fallback_alt2,
         what_if_fallback_alt2_confidence=what_if_fallback_alt2_confidence,
     )
+    what_if_fallback_plan_fit, what_if_fallback_plan_fit_signals = what_if_fallback_plan_fit_from_signals(
+        what_if_fallback_plan=what_if_fallback_plan,
+        what_if_fallback_fit=what_if_fallback_fit,
+        what_if_fallback_alt2=what_if_fallback_alt2,
+        what_if_alt_signals=what_if_alt_signals,
+        pressure_band=pressure_band,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -1630,6 +1692,8 @@ def main() -> int:
         "whatIfFallbackAlt2ConfidenceSignals": what_if_fallback_alt2_confidence_signals,
         "whatIfFallbackPlan": what_if_fallback_plan,
         "whatIfFallbackPlanSignals": what_if_fallback_plan_signals,
+        "whatIfFallbackPlanFit": what_if_fallback_plan_fit,
+        "whatIfFallbackPlanFitSignals": what_if_fallback_plan_fit_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -1699,6 +1763,7 @@ def main() -> int:
         f"- WHAT-IF FALLBACK ALT2: **{what_if_fallback_alt2}** ({what_if_fallback_alt2_signals['reason']}; flag={what_if_fallback_alt2_signals['flagName']} enabled={what_if_fallback_alt2_signals['flagEnabled']} fallback={what_if_fallback_alt2_signals['fallbackLane']} scores=portal:{what_if_fallback_alt2_signals['portalScore']} alt:{what_if_fallback_alt2_signals['altScore']} pressure:{what_if_fallback_alt2_signals['pressureScore']})",
         f"- WHAT-IF FALLBACK ALT2 CONF: **{what_if_fallback_alt2_confidence}** ({what_if_fallback_alt2_confidence_signals['reason']}; alt2={what_if_fallback_alt2_confidence_signals['alt2']} fallback={what_if_fallback_alt2_confidence_signals['fallbackLane']} top={what_if_fallback_alt2_confidence_signals['topScore']} second={what_if_fallback_alt2_confidence_signals['secondScore']} gap={what_if_fallback_alt2_confidence_signals['scoreGap']} enabled={what_if_fallback_alt2_confidence_signals['flagEnabled']})",
         f"- WHAT-IF FALLBACK PLAN: **{what_if_fallback_plan}** ({what_if_fallback_plan_signals['reason']}; flag={what_if_fallback_plan_signals['flagName']} enabled={what_if_fallback_plan_signals['flagEnabled']} primary={what_if_fallback_plan_signals['fallback']}({what_if_fallback_plan_signals['fallbackConfidence']}) secondary={what_if_fallback_plan_signals['fallbackAlt2']}({what_if_fallback_plan_signals['fallbackAlt2Confidence']}))",
+        f"- WHAT-IF PLAN FIT: **{what_if_fallback_plan_fit}** ({what_if_fallback_plan_fit_signals['reason']}; plan={what_if_fallback_plan_fit_signals['plan']} lane={what_if_fallback_plan_fit_signals['planLane']} pressure={what_if_fallback_plan_fit_signals['pressureBand']} projected={what_if_fallback_plan_fit_signals['projectedBand']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

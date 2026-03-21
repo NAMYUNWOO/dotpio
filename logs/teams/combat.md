@@ -594,3 +594,6 @@
 ## 2026-03-21 22:33:50 KST
 - Note: No combat simulation or tuning deltas this cycle.
 - Dependency: New digest planning token may influence future combat/pressure route experiments.
+
+## 2026-03-21 22:36:47 KST
+- No combat mechanics changed; new digest fit token can feed future pressure pacing experiments.

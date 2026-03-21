@@ -864,3 +864,6 @@
 ## 2026-03-21 22:33:50 KST
 - UX update: Weekly markdown digest now includes explicit `WHAT-IF FALLBACK PLAN` line immediately after ALT2 confidence.
 - Rationale: Reduce ambiguity when both primary and secondary fallback candidates exist.
+
+## 2026-03-21 22:36:47 KST
+- Digest readability pass: `WHAT-IF PLAN FIT` follows `WHAT-IF FALLBACK PLAN` to preserve decision flow.

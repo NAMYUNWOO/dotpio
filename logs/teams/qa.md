@@ -1574,3 +1574,7 @@
 - Coverage:
   - Added JSON schema assertions for `whatIfFallbackPlan` and `whatIfFallbackPlanSignals`.
   - Added markdown digest assertion for `WHAT-IF FALLBACK PLAN` line presence.
+
+## 2026-03-21 22:36:47 KST
+- Regression extension: validated new `whatIfFallbackPlanFit` payload + markdown line `WHAT-IF PLAN FIT`.
+- Result: regression suite green after schema assertions update.

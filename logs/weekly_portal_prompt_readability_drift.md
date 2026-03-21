@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T13:33:34.374869Z
+- GeneratedAt(UTC): 2026-03-21T13:36:37.788313Z
 - Status: **OK**
 - Window: last 7 days (max 50 commits)
 - Checked commits: 50
@@ -45,6 +45,7 @@
 - WHAT-IF FALLBACK ALT2: **NONE** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2 enabled=False fallback=NONE scores=portal:35 alt:23 pressure:15)
 - WHAT-IF FALLBACK ALT2 CONF: **LOW** (flag-disabled; alt2=NONE fallback=NONE top=0 second=0 gap=0 enabled=False)
 - WHAT-IF FALLBACK PLAN: **HOLD** (no-actionable-fallback-plan; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN enabled=True primary=OFF(LOW) secondary=NONE(LOW))
+- WHAT-IF PLAN FIT: **EVEN** (hold-or-no-actionable-secondary; plan=HOLD lane=HOLD pressure=HIGH projected=HIGH)
 - STICKY TOKENS: **6**
 - ANOMALY: **ON** (sticky=6/3 pressure=15/5)
 - ANOMALY CONF: **HIGH** (triggers=2 gap=13)

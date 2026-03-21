@@ -621,3 +621,6 @@
 - Task: Added AI-content-facing merge guidance token for dual fallback planning.
 - Decision: `WHAT-IF FALLBACK PLAN` now exposes PRIMARY/SECONDARY/HOLD strategy derived from fallback confidence signals.
 - Safety: Feature is flag-gated (`DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN`) to quarantine experiment impact.
+
+## 2026-03-21 22:36:47 KST
+- Added plan-level pressure fit signal for future AI-content route recommendation tuning.

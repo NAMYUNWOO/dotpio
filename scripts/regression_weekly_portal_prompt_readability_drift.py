@@ -339,6 +339,14 @@ def main() -> int:
             "secondaryActionable",
             "reason",
         }, payload
+        assert payload.get("whatIfFallbackPlanFit") in {"SAFE", "EVEN", "TENSE"}, payload
+        assert set(payload.get("whatIfFallbackPlanFitSignals", {}).keys()) == {
+            "plan",
+            "planLane",
+            "pressureBand",
+            "projectedBand",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -404,6 +412,7 @@ def main() -> int:
         assert "WHAT-IF FALLBACK ALT2" in md_text
         assert "WHAT-IF FALLBACK ALT2 CONF" in md_text
         assert "WHAT-IF FALLBACK PLAN" in md_text
+        assert "WHAT-IF PLAN FIT" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

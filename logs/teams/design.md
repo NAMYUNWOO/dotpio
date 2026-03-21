@@ -623,3 +623,6 @@
 ## 2026-03-21 22:33:50 KST
 - Task: Completed compact strategy token design `WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD`.
 - Decision: Keep tri-state wording terse for DOS digest readability and operator handoff speed.
+
+## 2026-03-21 22:36:47 KST
+- Added compact merge-plan fitness token wording: `WHAT-IF PLAN FIT:SAFE|EVEN|TENSE`.
