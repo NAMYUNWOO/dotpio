@@ -207,4 +207,9 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-21 Cycle W)
 - [x] UX/Systems Team: Add fallback-lane alignment token (`WHAT-IF FALLBACK ALIGN:SYNC|ASYNC`) comparing fallback lane vs digest lane-focus for routing coherence
 - [x] Systems/QA Team: Add fallback-delta magnitude band token (`WHAT-IF FALLBACK MAG:SMALL|MED|LARGE`) for rollback impact sizing
-- [ ] Design/AI Content Team: Prototype secondary fallback candidate token (`WHAT-IF FALLBACK ALT2:<lane>`) behind flag for dual-path planning
+- [x] Design/AI Content Team: Prototype secondary fallback candidate token (`WHAT-IF FALLBACK ALT2:<lane>`) behind flag for dual-path planning
+
+## P1 (Game Director Injection — 2026-03-21 Cycle X)
+- [x] Systems/QA Team: Add secondary fallback quality gate so `ALT2` only emits when lane-focus score is strong and non-ambiguous
+- [ ] UX/Design Team: Add secondary fallback confidence token (`WHAT-IF FALLBACK ALT2 CONF:LOW|MID|HIGH`) for dual-path trust readability
+- [ ] Design/AI Content Team: Prototype dual-path merge hint token (`WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD`) behind flag

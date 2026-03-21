@@ -1554,3 +1554,9 @@
 - Added schema assertions for `whatIfFallbackMagnitude*` and `whatIfFallbackAlt2*` JSON payload fields.
 - Added markdown assertions for `WHAT-IF FALLBACK MAG` and `WHAT-IF FALLBACK ALT2` lines.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-21 21:58 KST — ALT2 quality-gate regression sync
+- Updated regression schema expectations for `whatIfFallbackAlt2Signals` to include gate diagnostics (`topScore`, `secondScore`, `minTopScore`, `minGap`).
+- Verification PASS:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Scope remains digest telemetry/readability only.

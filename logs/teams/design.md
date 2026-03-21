@@ -609,3 +609,8 @@
 - Added explicit rollback impact sizing token: `WHAT-IF FALLBACK MAG`.
 - Added optional secondary path preview token: `WHAT-IF FALLBACK ALT2` (flag-gated).
 - Copy kept compact in existing token stack to preserve DOS digest scanability.
+
+## 2026-03-21 21:58 KST — Dual-path readability refinement
+- Task: stabilize `WHAT-IF FALLBACK ALT2` so secondary path is only shown when lane ranking is meaningful.
+- UX rationale: hide weak/coin-flip secondary suggestions to avoid over-coaching noise in digest review.
+- Outcome: quality-gated ALT2 with explicit diagnostic reasons retained in JSON/markdown signals.

@@ -1072,3 +1072,13 @@
 - Decision: added digest classifier `WHAT-IF FALLBACK MAG:SMALL|MED|LARGE` based on fallback `|ΔRISK|` bands.
 - Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now computes `whatIfFallbackMagnitude` + signal payload.
 - Follow-up: wire magnitude into dual-path planner once `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2` is enabled in ops.
+
+## 2026-03-21 21:58 KST — Cycle X vertical slice: ALT2 quality gate
+- Completed backlog closure for Cycle W `WHAT-IF FALLBACK ALT2` and shipped follow-up quality gate in digest classifier.
+- Durable decision:
+  - `ALT2` now emits only when candidate lane-focus score is strong (`>=2`) and non-ambiguous vs next lane (`gap>=1`).
+  - Otherwise emit `NONE` with explicit reasons (`secondary-score-too-low` / `secondary-ambiguity-gap`).
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`

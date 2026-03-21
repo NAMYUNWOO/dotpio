@@ -1356,3 +1356,11 @@ Compact decision memory for AI context efficiency.
 - Added (flagged prototype): `WHAT-IF FALLBACK ALT2:<lane>` secondary candidate lane from lane-focus ranking (`DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2`).
 - Regression updated and passing for new JSON schema + markdown lines.
 - Remaining in Cycle W backlog: finish ALT2 prototype task closure criteria in backlog wording.
+
+## 2026-03-21 21:58 KST — Cycle W closed + Cycle X injected
+- Closed remaining Cycle W backlog item: `WHAT-IF FALLBACK ALT2` now marked done in `TASKS.md` and `POST_RC_BACKLOG.md`.
+- Shipped Cycle X minimal vertical slice (chosen from 3 ideas): ALT2 quality gate in weekly portal digest.
+  - `what_if_fallback_alt2_from_signals(...)` now requires a strong, non-ambiguous secondary lane before emitting `ALT2`.
+  - New diagnostics in JSON signals: `topScore`, `secondScore`, `minTopScore`, `minGap`.
+- Verification (PASS): py_compile, digest regression, and digest artifact regeneration.
+- Next queued experiments (Cycle X): `WHAT-IF FALLBACK ALT2 CONF`, `WHAT-IF FALLBACK PLAN`.

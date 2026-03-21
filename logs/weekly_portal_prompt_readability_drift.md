@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T12:37:34.400361Z
+- GeneratedAt(UTC): 2026-03-21T12:40:24.133767Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120

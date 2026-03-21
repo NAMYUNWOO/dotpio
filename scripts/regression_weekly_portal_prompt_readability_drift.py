@@ -311,6 +311,10 @@ def main() -> int:
             "portalScore",
             "altScore",
             "pressureScore",
+            "topScore",
+            "secondScore",
+            "minTopScore",
+            "minGap",
             "reason",
         }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload

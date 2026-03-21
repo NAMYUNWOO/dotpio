@@ -881,22 +881,38 @@ def what_if_fallback_alt2_from_signals(
 
     alt2_lane = "NONE"
     reason = "flag-disabled"
+    top_score = 0
+    second_score = 0
+    min_top_score = 2
+    min_gap = 1
 
     if flag_enabled:
         ranked = sorted(
             ((lane, int(lane_focus_scores.get(lane.lower(), 0))) for lane in lane_candidates),
             key=lambda row: (-row[1], row[0]),
         )
-        viable = [lane for lane, score in ranked if score > 0 and lane != fallback_lane]
+        viable_ranked = [(lane, score) for lane, score in ranked if lane != fallback_lane]
+
         if fallback_lane == "NONE":
             alt2_lane = "NONE"
             reason = "no-actionable-primary-fallback"
-        elif viable:
-            alt2_lane = viable[0]
-            reason = "lane-focus-ranked-secondary"
-        else:
+        elif not viable_ranked:
             alt2_lane = "NONE"
             reason = "no-secondary-lane-candidate"
+        else:
+            top_lane, top_score = viable_ranked[0]
+            second_score = viable_ranked[1][1] if len(viable_ranked) > 1 else 0
+            score_gap = top_score - second_score
+
+            if top_score < min_top_score:
+                alt2_lane = "NONE"
+                reason = "secondary-score-too-low"
+            elif score_gap < min_gap:
+                alt2_lane = "NONE"
+                reason = "secondary-ambiguity-gap"
+            else:
+                alt2_lane = top_lane
+                reason = "lane-focus-ranked-secondary"
 
     return alt2_lane, {
         "flagName": flag_name,
@@ -906,6 +922,10 @@ def what_if_fallback_alt2_from_signals(
         "portalScore": int(lane_focus_scores.get("portal", 0)),
         "altScore": int(lane_focus_scores.get("alt", 0)),
         "pressureScore": int(lane_focus_scores.get("pressure", 0)),
+        "topScore": top_score,
+        "secondScore": second_score,
+        "minTopScore": min_top_score,
+        "minGap": min_gap,
         "reason": reason,
     }
 
