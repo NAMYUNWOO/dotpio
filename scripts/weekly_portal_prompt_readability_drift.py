@@ -37,6 +37,12 @@ for _tokens in TOKEN_GROUPS.values():
 
 PRESSURE_TOKENS = ["PRESSURE:", "P:"]
 
+TOKEN_FAMILIES = {
+    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:"],
+    "alt": ["ALT:", "ALT ROUTE:", "ALT DELTA:", "ADEL:", "ALT PLAN:", "AP:"],
+    "pressure": ["PRESSURE:", "P:"],
+}
+
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
@@ -96,6 +102,42 @@ def drift_risk_from_signals(*, compact_net: int, detailed_net: int, pressure_net
         "imbalance": imbalance,
         "pressureChurn": pressure_churn,
     }
+
+
+def lane_focus_from_token_totals(token_totals: dict[str, dict[str, int]]) -> tuple[str, dict[str, int]]:
+    family_scores = {
+        family: sum(abs(token_totals["net"].get(token, 0)) for token in tokens)
+        for family, tokens in TOKEN_FAMILIES.items()
+    }
+    max_score = max(family_scores.values(), default=0)
+    if max_score == 0:
+        return "MIXED", {"portal": 0, "alt": 0, "pressure": 0}
+
+    leaders = [family for family, score in family_scores.items() if score == max_score]
+    if len(leaders) != 1:
+        return "MIXED", family_scores
+
+    leader = leaders[0]
+    lane = "MIXED"
+    if leader == "portal":
+        lane = "PORTAL"
+    elif leader == "alt":
+        lane = "ALT"
+    elif leader == "pressure":
+        lane = "PRESSURE"
+    return lane, family_scores
+
+
+def route_action_from_focus(*, lane_focus: str, drift_risk: str) -> tuple[str, str]:
+    if drift_risk == "LOW":
+        return "WATCH", "low drift risk"
+    if lane_focus == "PORTAL":
+        return "PORTAL_AUDIT", "portal-family tokens dominate top movers"
+    if lane_focus == "ALT":
+        return "ALT_TUNE", "alt-route tokens dominate top movers"
+    if lane_focus == "PRESSURE":
+        return "PRESSURE_REBASE", "pressure tokens dominate top movers"
+    return "BALANCE_PASS", "mixed lane focus with non-low drift risk"
 
 
 def commit_stats(root: Path, commit: str) -> dict:
@@ -230,6 +272,11 @@ def main() -> int:
         for token in TOKEN_CATALOG
         if token_totals["added"][token] > 0 and token_totals["removed"][token] > 0
     ]
+    lane_focus, lane_focus_scores = lane_focus_from_token_totals(token_totals)
+    route_action, route_action_reason = route_action_from_focus(
+        lane_focus=lane_focus,
+        drift_risk=drift_risk,
+    )
 
     status = "ok"
     if touched and totals["net"]["compact"] < 0 and totals["net"]["detailed"] > 0:
@@ -250,6 +297,10 @@ def main() -> int:
         "pressureBand": pressure_band,
         "driftRisk": drift_risk,
         "driftRiskSignals": drift_risk_signals,
+        "laneFocus": lane_focus,
+        "laneFocusScores": lane_focus_scores,
+        "routeAction": route_action,
+        "routeActionReason": route_action_reason,
         "pressureEdits": {
             "added": pressure_added,
             "removed": pressure_removed,
@@ -280,6 +331,8 @@ def main() -> int:
         f"- MODE TREND: **{mode_trend}**",
         f"- PRESSURE BAND: **{pressure_band}** (edits +{pressure_added} / -{pressure_removed} / net {pressure_net})",
         f"- DRIFT RISK: **{drift_risk}** (score={drift_risk_signals['score']} | imbalance={drift_risk_signals['imbalance']} | pressure={drift_risk_signals['pressureChurn']})",
+        f"- FOCUS: **{lane_focus}** (portal={lane_focus_scores['portal']} | alt={lane_focus_scores['alt']} | pressure={lane_focus_scores['pressure']})",
+        f"- ROUTE ACTION: **{route_action}** ({route_action_reason})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         "",
         "## Token Totals (added/removed/net)",

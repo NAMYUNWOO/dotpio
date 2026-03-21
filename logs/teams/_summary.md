@@ -1039,3 +1039,19 @@ Compact decision memory for AI context efficiency.
 - Why: Captures prompt copy churn that net/mover-only signals can hide.
 - Verification: Dedicated regression PASS + live digest regeneration PASS.
 - Backlog sync: Marked sticky-token item done in `TASKS.md` and `POST_RC_BACKLOG.md`; lane-focus token remains next highest priority.
+
+## 2026-03-21 09:03 KST — Cycle K closure + Cycle L injection
+- Completed pending Cycle K item: digest `FOCUS:PORTAL|ALT|PRESSURE|MIXED` token now ships from top-mover family aggregation (`laneFocus`, `laneFocusScores`) in weekly readability digest JSON/markdown.
+- Since ACTION_ITEMS/TASKS/POST_RC were fully checked, executed Game Director review cycle (Cycle L):
+  1) low-risk UX idea: route-action token from `FOCUS + DRIFT RISK`
+  2) mid-risk systems idea: lane-focus streak token
+  3) high-risk novelty idea: lane-focus transition token
+- Chosen experiment (Cycle L vertical slice): route-action token.
+- Shipped: digest now emits `routeAction` + `routeActionReason` in JSON and `ROUTE ACTION:<...>` line in markdown (`PORTAL_AUDIT|ALT_TUNE|PRESSURE_REBASE|BALANCE_PASS|WATCH`).
+- Verification set (PASS):
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`
+- Backlog sync:
+  - Marked lane-focus token done in `TASKS.md` + `POST_RC_BACKLOG.md` (Cycle K complete).
+  - Injected Cycle L tasks in `TASKS.md` + `POST_RC_BACKLOG.md`; marked route-action task done, leaving `FOCUS STREAK` and `FOCUS SHIFT` as next items.

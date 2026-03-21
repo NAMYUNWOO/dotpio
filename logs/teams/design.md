@@ -418,3 +418,13 @@
 - Task: Added sticky token signal for weekly readability digest.
 - Decision: Treat sticky count as copy-churn smell indicator (re-added/re-removed tokens over time).
 - Follow-up: Add lane-focus token to map dominant churn family into actionable design lane.
+
+## 2026-03-21 09:03 KST — Cycle L route-action token vertical slice
+- Ideas generated:
+  1) Low-risk UX: add digest route-action token (`ROUTE ACTION:*`) from `FOCUS + DRIFT RISK`.
+  2) Mid-risk systems: add lane-focus streak metric across windows (`FOCUS STREAK:<n>`).
+  3) High-risk novelty: add lane-focus transition handoff token (`FOCUS SHIFT:<FROM->TO>`).
+- Chosen experiment: idea #1 (minimal reversible vertical slice).
+- Shipped: weekly digest now emits `routeAction` + `routeActionReason` in JSON and `ROUTE ACTION` line in markdown.
+- Verification: py_compile PASS, digest regression PASS, live digest regeneration PASS.
+- Follow-up: backlog carries remaining Cycle L items (focus streak, focus shift).

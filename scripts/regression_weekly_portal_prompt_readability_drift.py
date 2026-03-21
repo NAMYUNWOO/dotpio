@@ -72,6 +72,10 @@ def main() -> int:
         assert payload["pressureBand"] in {"LOW", "MID", "HIGH"}, payload
         assert payload["driftRisk"] in {"LOW", "MID", "HIGH"}, payload
         assert set(payload["driftRiskSignals"].keys()) == {"score", "imbalance", "pressureChurn"}, payload
+        assert payload["laneFocus"] in {"PORTAL", "ALT", "PRESSURE", "MIXED"}, payload
+        assert set(payload["laneFocusScores"].keys()) == {"portal", "alt", "pressure"}, payload
+        assert payload["routeAction"] in {"PORTAL_AUDIT", "ALT_TUNE", "PRESSURE_REBASE", "BALANCE_PASS", "WATCH"}, payload
+        assert isinstance(payload["routeActionReason"], str) and payload["routeActionReason"], payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -86,6 +90,8 @@ def main() -> int:
         assert "MODE TREND" in md_text
         assert "PRESSURE BAND" in md_text
         assert "DRIFT RISK" in md_text
+        assert "FOCUS" in md_text
+        assert "ROUTE ACTION" in md_text
         assert "STICKY TOKENS" in md_text
         assert "Sticky Tokens" in md_text
 
