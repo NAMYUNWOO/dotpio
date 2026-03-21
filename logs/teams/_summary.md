@@ -1226,3 +1226,16 @@ Compact decision memory for AI context efficiency.
 - Durable decision: readiness tier now derives from `ROUTE SANDBOX + SANDBOX TARGET CONF + ACTION GUARD + lane-lock armed` and is emitted in both JSON (`sandboxReadiness`, `sandboxReadinessSignals`) and markdown (`SANDBOX READY`) outputs.
 - Backlog injection updated for Cycle S with two queued follow-ups: `ACTION STABILITY` token and flagged `WHAT-IF ALT` hint prototype.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` passed.
+
+## 2026-03-21 16:33 KST — Cycle S stability slice shipped
+- Completed highest-priority unchecked task: `ACTION STABILITY:LOCKED|WATCH` from `ACTION CONF + FOCUS VOL + DRIFT MOMENTUM`.
+- Durable rule: emit `LOCKED` only when `(routeActionConfidence in {MID,HIGH}) AND (focusVolatility=STEADY) AND (driftMomentum in {FLAT,COOLING})`; else `WATCH`.
+- Artifacts updated:
+  - `scripts/weekly_portal_prompt_readability_drift.py` (new classifier + JSON/markdown outputs)
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py` (schema + markdown assertions)
+  - `logs/weekly_portal_prompt_readability_drift.{json,md}` regenerated
+  - `TASKS.md`, `POST_RC_BACKLOG.md` item status set to done
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+- Next item: Cycle S `WHAT-IF ALT:<lane> ΔRISK:<n>` flagged prototype.

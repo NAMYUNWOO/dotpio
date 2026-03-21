@@ -1466,3 +1466,12 @@
 - Decision: Extended regression to assert `sandboxReadiness` payload schema and markdown line presence.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Follow-up: add dedicated branch in fixture data once `ACTION STABILITY` token lands.
+
+## 2026-03-21 16:33 KST — Cycle S digest stability token (`ACTION STABILITY`)
+- Task: Add `ACTION STABILITY:LOCKED|WATCH` derived from `ACTION CONF + FOCUS VOL + DRIFT MOMENTUM` to reduce retune whiplash.
+- Decision: Classified as `LOCKED` only when confidence is MID/HIGH, focus volatility is STEADY, and drift momentum is FLAT/COOLING; otherwise `WATCH`.
+- Evidence:
+  - Updated `scripts/weekly_portal_prompt_readability_drift.py` with `route_action_stability_from_signals`, JSON fields (`actionStability`, `actionStabilitySignals`), and markdown digest line.
+  - Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` assertions for new schema + markdown token.
+  - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS), `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (PASS).
+- Follow-up: Remaining highest-priority unchecked item is Cycle S `WHAT-IF ALT:<lane> ΔRISK:<n>` experiment behind flag.

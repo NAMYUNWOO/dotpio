@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T07:04:06.576392Z
+- GeneratedAt(UTC): 2026-03-21T07:33:12.348367Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
@@ -28,6 +28,7 @@
 - TARGET SHIFT: **NONE->NONE** (target-stable; changed=False priorLoaded=True)
 - SANDBOX COOLOFF: **0** (no-prior-on-cycle; active=False prior=OFF:0)
 - DRIFT MOMENTUM: **FLAT** (recent=4.6 older=3.5 delta=1.1)
+- ACTION STABILITY: **WATCH** (retune-watch-needed; conf=LOW vol=SWING momentum=FLAT)
 - PRESSURE LAG: **SLOW** (churn=15 momentum=FLAT |Δ|=1.1)
 - STICKY TOKENS: **6**
 - ANOMALY: **ON** (sticky=6/3 pressure=15/5)

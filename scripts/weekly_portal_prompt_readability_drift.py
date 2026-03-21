@@ -322,6 +322,33 @@ def drift_momentum_from_commits(touched_rows: list[dict]) -> tuple[str, dict[str
     }
 
 
+def route_action_stability_from_signals(
+    *,
+    route_action_confidence: str,
+    focus_volatility: str,
+    drift_momentum: str,
+) -> tuple[str, dict[str, str | bool]]:
+    stable_conf = route_action_confidence in {"MID", "HIGH"}
+    stable_vol = focus_volatility == "STEADY"
+    stable_momentum = drift_momentum in {"FLAT", "COOLING"}
+    locked = stable_conf and stable_vol and stable_momentum
+
+    if locked:
+        reason = "confidence-volatility-momentum-aligned"
+    else:
+        reason = "retune-watch-needed"
+
+    return ("LOCKED" if locked else "WATCH"), {
+        "routeActionConfidence": route_action_confidence,
+        "focusVolatility": focus_volatility,
+        "driftMomentum": drift_momentum,
+        "stableConfidence": stable_conf,
+        "steadyFocus": stable_vol,
+        "stableMomentum": stable_momentum,
+        "reason": reason,
+    }
+
+
 def pressure_latency_from_signals(*, pressure_churn: int, drift_momentum: str, drift_momentum_delta: float) -> tuple[str, dict[str, int | str | float]]:
     abs_delta = abs(drift_momentum_delta)
 
@@ -797,6 +824,11 @@ def main() -> int:
         prior_json_path=args.out_json,
     )
     drift_momentum, drift_momentum_signals = drift_momentum_from_commits(touched)
+    action_stability, action_stability_signals = route_action_stability_from_signals(
+        route_action_confidence=route_action_confidence,
+        focus_volatility=focus_volatility,
+        drift_momentum=drift_momentum,
+    )
     pressure_lag, pressure_lag_signals = pressure_latency_from_signals(
         pressure_churn=drift_risk_signals["pressureChurn"],
         drift_momentum=drift_momentum,
@@ -861,6 +893,8 @@ def main() -> int:
         "sandboxCooloffSignals": sandbox_cooloff_signals,
         "driftMomentum": drift_momentum,
         "driftMomentumSignals": drift_momentum_signals,
+        "actionStability": action_stability,
+        "actionStabilitySignals": action_stability_signals,
         "pressureLag": pressure_lag,
         "pressureLagSignals": pressure_lag_signals,
         "anomalyPulse": anomaly_pulse,
@@ -915,6 +949,7 @@ def main() -> int:
         f"- TARGET SHIFT: **{sandbox_target_shift}** ({sandbox_target_shift_signals['reason']}; changed={sandbox_target_shift_signals['changed']} priorLoaded={sandbox_target_shift_signals['priorLoaded']})",
         f"- SANDBOX COOLOFF: **{sandbox_cooloff}** ({sandbox_cooloff_signals['reason']}; active={sandbox_cooloff_signals['active']} prior={sandbox_cooloff_signals['priorSandbox']}:{sandbox_cooloff_signals['priorCooloff']})",
         f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",
+        f"- ACTION STABILITY: **{action_stability}** ({action_stability_signals['reason']}; conf={action_stability_signals['routeActionConfidence']} vol={action_stability_signals['focusVolatility']} momentum={action_stability_signals['driftMomentum']})",
         f"- PRESSURE LAG: **{pressure_lag}** (churn={pressure_lag_signals['pressureChurn']} momentum={pressure_lag_signals['driftMomentum']} |Δ|={pressure_lag_signals['absDriftDelta']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",

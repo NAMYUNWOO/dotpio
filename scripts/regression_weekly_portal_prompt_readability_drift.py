@@ -178,6 +178,16 @@ def main() -> int:
         assert payload["sandboxCooloffSignals"]["currentSandbox"] in {"ON", "OFF"}, payload
         assert payload.get("driftMomentum") in {"RISING", "COOLING", "FLAT"}, payload
         assert set(payload.get("driftMomentumSignals", {}).keys()) == {"recentAvg", "olderAvg", "delta", "recentCount", "olderCount"}, payload
+        assert payload.get("actionStability") in {"LOCKED", "WATCH"}, payload
+        assert set(payload.get("actionStabilitySignals", {}).keys()) == {
+            "routeActionConfidence",
+            "focusVolatility",
+            "driftMomentum",
+            "stableConfidence",
+            "steadyFocus",
+            "stableMomentum",
+            "reason",
+        }, payload
         assert payload.get("pressureLag") in {"FAST", "STABLE", "SLOW"}, payload
         assert set(payload.get("pressureLagSignals", {}).keys()) == {
             "pressureChurn",
@@ -233,6 +243,7 @@ def main() -> int:
         assert "TARGET SHIFT" in md_text
         assert "SANDBOX COOLOFF" in md_text
         assert "DRIFT MOMENTUM" in md_text
+        assert "ACTION STABILITY" in md_text
         assert "PRESSURE LAG" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text

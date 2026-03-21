@@ -186,5 +186,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-21 Cycle S)
 - [x] Design/Systems Team: Add sandbox readiness tier token (`SANDBOX READY:IDLE|PRIMED|ARMED`) from `ROUTE SANDBOX + TARGET CONF + ACTION GUARD` for faster go/no-go triage
-- [ ] QA/Systems Team: Add route-action stability token (`ACTION STABILITY:LOCKED|WATCH`) from `ACTION CONF + FOCUS VOL + DRIFT MOMENTUM` to reduce retune whiplash
+- [x] QA/Systems Team: Add route-action stability token (`ACTION STABILITY:LOCKED|WATCH`) from `ACTION CONF + FOCUS VOL + DRIFT MOMENTUM` to reduce retune whiplash
 - [ ] UX/Design Team: Prototype digest what-if lane hint (`WHAT-IF ALT:<lane> ΔRISK:<n>`) behind flag for low-cost alternate-route planning
