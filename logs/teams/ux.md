@@ -701,3 +701,10 @@
 - Decision: Define volatility from non-mixed lane-focus commit sequence switch ratio (`switches/edges`), with `SWING` threshold `>= 0.4`.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Follow-up: Cycle M backlog keeps `ACTION CONF` + `ANOMALY` items open.
+
+## 2026-03-21 09:36 KST — Weekly digest UX: confidence row added
+- Task impact: Added `ACTION CONF` summary row to markdown digest for quicker scan of route-action reliability.
+- Copy shape:
+  - `ACTION CONF: <LEVEL> (dom=<ratio> spread=<n> driftSpread=<n>)`
+- Decision: Keep one-line DOS-style diagnostics rather than a separate explanatory block.
+- Commit: `1067216`.

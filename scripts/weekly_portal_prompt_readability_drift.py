@@ -192,6 +192,37 @@ def focus_volatility_from_commits(commit_focuses: list[str]) -> tuple[str, dict[
     }
 
 
+def route_action_confidence_from_signals(
+    *,
+    lane_focus: str,
+    lane_focus_scores: dict[str, int],
+    drift_risk_signals: dict[str, int],
+) -> tuple[str, dict[str, float | int]]:
+    score_values = sorted(lane_focus_scores.values(), reverse=True)
+    top_score = score_values[0] if score_values else 0
+    second_score = score_values[1] if len(score_values) > 1 else 0
+    total_score = sum(lane_focus_scores.values())
+    dominance_ratio = (top_score / total_score) if total_score > 0 else 0.0
+    focus_spread = top_score - second_score
+    drift_spread = abs(drift_risk_signals["imbalance"] - drift_risk_signals["pressureChurn"])
+
+    confidence = "LOW"
+    if lane_focus != "MIXED" and total_score > 0:
+        if dominance_ratio >= 0.7 and focus_spread >= 3 and drift_spread <= 3:
+            confidence = "HIGH"
+        elif dominance_ratio >= 0.5 and focus_spread >= 1 and drift_spread <= 8:
+            confidence = "MID"
+
+    return confidence, {
+        "topScore": top_score,
+        "secondScore": second_score,
+        "totalScore": total_score,
+        "dominanceRatio": round(dominance_ratio, 3),
+        "focusSpread": focus_spread,
+        "driftSpread": drift_spread,
+    }
+
+
 def commit_stats(root: Path, commit: str) -> dict:
     meta = git(root, "show", "-s", "--format=%H%n%ct%n%an%n%s", commit).splitlines()
     sha, ts, author = meta[0], int(meta[1]), meta[2]
@@ -336,6 +367,11 @@ def main() -> int:
         lane_focus=lane_focus,
         drift_risk=drift_risk,
     )
+    route_action_confidence, route_action_confidence_signals = route_action_confidence_from_signals(
+        lane_focus=lane_focus,
+        lane_focus_scores=lane_focus_scores,
+        drift_risk_signals=drift_risk_signals,
+    )
 
     status = "ok"
     if touched and totals["net"]["compact"] < 0 and totals["net"]["detailed"] > 0:
@@ -364,6 +400,8 @@ def main() -> int:
         "focusVolatilitySignals": focus_volatility_signals,
         "routeAction": route_action,
         "routeActionReason": route_action_reason,
+        "routeActionConfidence": route_action_confidence,
+        "routeActionConfidenceSignals": route_action_confidence_signals,
         "pressureEdits": {
             "added": pressure_added,
             "removed": pressure_removed,
@@ -399,6 +437,7 @@ def main() -> int:
         f"- FOCUS SHIFT: **{focus_shift}**",
         f"- FOCUS VOL: **{focus_volatility}** (switches={focus_volatility_signals['switches']}/{focus_volatility_signals['edges']} ratio={focus_volatility_signals['switchRatio']})",
         f"- ROUTE ACTION: **{route_action}** ({route_action_reason})",
+        f"- ACTION CONF: **{route_action_confidence}** (dom={route_action_confidence_signals['dominanceRatio']} spread={route_action_confidence_signals['focusSpread']} driftSpread={route_action_confidence_signals['driftSpread']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         "",
         "## Token Totals (added/removed/net)",

@@ -433,3 +433,12 @@
 - Decision: Define volatility from non-mixed lane-focus commit sequence switch ratio (`switches/edges`), with `SWING` threshold `>= 0.4`.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Follow-up: Cycle M backlog keeps `ACTION CONF` + `ANOMALY` items open.
+
+## 2026-03-21 09:36 KST — Digest readability cue expansion (`ACTION CONF`)
+- Task: Surface confidence cue so `ROUTE ACTION` recommendations feel less opaque.
+- Decision:
+  - Keep confidence compact (`LOW|MID|HIGH`) and show underlying triage hints (`dom`, `spread`, `driftSpread`) inline.
+  - Preserve reversibility: no gameplay/runtime change, digest-only signal.
+- Evidence:
+  - `logs/weekly_portal_prompt_readability_drift.md` now includes `ACTION CONF` row.
+- Commit: `1067216`.

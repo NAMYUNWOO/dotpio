@@ -80,6 +80,15 @@ def main() -> int:
         assert set(payload.get("focusVolatilitySignals", {}).keys()) == {"switches", "edges", "switchRatio"}, payload
         assert payload["routeAction"] in {"PORTAL_AUDIT", "ALT_TUNE", "PRESSURE_REBASE", "BALANCE_PASS", "WATCH"}, payload
         assert isinstance(payload["routeActionReason"], str) and payload["routeActionReason"], payload
+        assert payload.get("routeActionConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("routeActionConfidenceSignals", {}).keys()) == {
+            "topScore",
+            "secondScore",
+            "totalScore",
+            "dominanceRatio",
+            "focusSpread",
+            "driftSpread",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -99,6 +108,7 @@ def main() -> int:
         assert "FOCUS SHIFT" in md_text
         assert "FOCUS VOL" in md_text
         assert "ROUTE ACTION" in md_text
+        assert "ACTION CONF" in md_text
         assert "STICKY TOKENS" in md_text
         assert "Sticky Tokens" in md_text
 

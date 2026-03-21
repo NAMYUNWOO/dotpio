@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T00:34:52.356310Z",
+  "generatedAt": "2026-03-21T00:38:26.530794Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -36,6 +36,15 @@
   },
   "routeAction": "PORTAL_AUDIT",
   "routeActionReason": "portal-family tokens dominate top movers",
+  "routeActionConfidence": "LOW",
+  "routeActionConfidenceSignals": {
+    "topScore": 35,
+    "secondScore": 23,
+    "totalScore": 73,
+    "dominanceRatio": 0.479,
+    "focusSpread": 12,
+    "driftSpread": 11
+  },
   "pressureEdits": {
     "added": 17,
     "removed": 2,
@@ -146,6 +155,97 @@
     }
   ],
   "commits": [
+    {
+      "sha": "a06eb6c02f0a2abde89f3df7879d2082138ee425",
+      "shortSha": "a06eb6c",
+      "author": "yunwoo",
+      "subject": "feat: add focus streak/shift and volatility signals to portal digest",
+      "committedAt": "2026-03-21T00:35:46Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      }
+    },
     {
       "sha": "792c04a83bd008ec1cb656f94c2b0bdc89ac0ed3",
       "shortSha": "792c04a",
@@ -10558,93 +10658,6 @@
         "logs/teams/qa.md",
         "logs/teams/world.md",
         "scripts/regression_map_progression.py"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      }
-    },
-    {
-      "sha": "f56bfa87fe9a57543b65f4af57f1953d8e3831a0",
-      "shortSha": "f56bfa8",
-      "author": "yunwoo",
-      "subject": "balance: tier disassembly salvage caps for fairness",
-      "committedAt": "2026-03-18T19:13:46Z",
-      "changedFiles": [
-        "ACTION_ITEMS.md",
-        "TASKS.md",
-        "logs/teams/_summary.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "screenshots/screenshot-inventory-dos.png",
-        "screenshots/screenshot-map04.png",
-        "scripts/regression_disassembly_caps.lua",
-        "src/ai_describe.lua",
-        "src/inventory_ui.lua"
       ],
       "portalFiles": [],
       "touchedPortalPrompt": false,

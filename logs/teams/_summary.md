@@ -1064,3 +1064,19 @@ Compact decision memory for AI context efficiency.
 - Shipped Cycle M slice: digest now adds `focusVolatility` + `focusVolatilitySignals` and markdown `FOCUS VOL` line based on lane-switch ratio across touched commits.
 - Regression updated and passing: `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Backlog sync: Cycle M volatility item marked done; `ACTION CONF` and `ANOMALY` remain queued.
+
+## 2026-03-21 09:36 KST — Cycle M follow-up: route-action confidence token shipped
+- Reviewed current sprint state + team tails and generated 3 ideas for this cycle:
+  1) Low-risk UX (chosen): `ACTION CONF:LOW|MID|HIGH` from focus-dominance + drift-spread.
+  2) Mid-risk systems: anomaly confidence tier (`ANOMALY CONF`) instead of binary pulse.
+  3) High-risk novelty: lane-lock sentinel (`LANE LOCK:<lane>x<n>`) for prolonged single-lane drift.
+- Implemented minimal vertical slice (#1): weekly portal prompt digest now emits `routeActionConfidence` + `routeActionConfidenceSignals` in JSON and `ACTION CONF` line in markdown.
+- Confidence model (reversible): derived from lane-focus dominance ratio, top-vs-second focus spread, and drift spread (`|imbalance-pressureChurn|`).
+- Verification (PASS):
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`
+- Commit: `1067216`
+- Backlog sync:
+  - Marked Cycle M `ACTION CONF` item done in `TASKS.md` + `POST_RC_BACKLOG.md`.
+  - Added Cycle N candidates and marked chosen confidence telemetry task validated/done.

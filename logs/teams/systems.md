@@ -874,3 +874,15 @@
 - Decision: Define volatility from non-mixed lane-focus commit sequence switch ratio (`switches/edges`), with `SWING` threshold `>= 0.4`.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Follow-up: Cycle M backlog keeps `ACTION CONF` + `ANOMALY` items open.
+
+## 2026-03-21 09:36 KST — Cycle M follow-up: route-action confidence scoring
+- Task: Add route-action confidence token (`ACTION CONF:LOW|MID|HIGH`) derived from lane-focus dominance + drift spread.
+- Implementation:
+  - Added `route_action_confidence_from_signals(...)` in `scripts/weekly_portal_prompt_readability_drift.py`.
+  - JSON now emits `routeActionConfidence` + `routeActionConfidenceSignals` (`topScore`, `secondScore`, `totalScore`, `dominanceRatio`, `focusSpread`, `driftSpread`).
+  - Markdown digest now includes `ACTION CONF` line for operator triage.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`
+- Commit: `1067216`
+- Follow-up: anomaly pulse remains open; consider confidence-tiered anomaly state before enabling hard alerting.

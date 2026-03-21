@@ -1351,3 +1351,14 @@
 - Decision: Define volatility from non-mixed lane-focus commit sequence switch ratio (`switches/edges`), with `SWING` threshold `>= 0.4`.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Follow-up: Cycle M backlog keeps `ACTION CONF` + `ANOMALY` items open.
+
+## 2026-03-21 09:36 KST — Regression extended for `ACTION CONF`
+- Task: Add schema and markdown guardrails for route-action confidence output.
+- Coverage updates (`scripts/regression_weekly_portal_prompt_readability_drift.py`):
+  - assert `routeActionConfidence ∈ {LOW,MID,HIGH}`
+  - assert `routeActionConfidenceSignals` key contract
+  - assert markdown contains `ACTION CONF`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` PASS
+- Commit: `1067216`.
