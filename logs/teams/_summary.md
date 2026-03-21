@@ -1276,3 +1276,14 @@ Compact decision memory for AI context efficiency.
   - Marked Cycle T `WHAT-IF BAND` done in `TASKS.md` + `POST_RC_BACKLOG.md`.
   - Injected Cycle U tasks into both backlog files; marked and completed `WHAT-IF MAG`.
   - Remaining queued: `WHAT-IF FIT`, `WHAT-IF FALLBACK`.
+
+## 2026-03-21 19:03 KST — Cycle U experiment slice: WHAT-IF FIT
+- Shipped `WHAT-IF FIT:SAFE|EVEN|TENSE` in weekly portal prompt readability digest.
+- Decision rule: compare projected what-if risk band (from `projectedRisk`) to current `pressureBand`.
+  - lower => `SAFE`, equal => `EVEN`, higher => `TENSE` (flag disabled defaults to `EVEN`).
+- Artifacts updated:
+  - `scripts/weekly_portal_prompt_readability_drift.py`
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `logs/weekly_portal_prompt_readability_drift.{json,md}` regenerated.
+- Regression status: pass.
+- Backlog state: Cycle U pressure-fit item marked done in `TASKS.md` + `POST_RC_BACKLOG.md`; remaining unchecked item is fallback-lane token.

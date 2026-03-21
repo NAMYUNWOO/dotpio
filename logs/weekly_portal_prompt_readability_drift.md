@@ -1,8 +1,8 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T09:35:08.085285Z
+- GeneratedAt(UTC): 2026-03-21T10:02:58.962962Z
 - Status: **OK**
-- Window: last 7 days (max 120 commits)
+- Window: last 30 days (max 120 commits)
 - Checked commits: 120
 - Portal prompt commits: 9
 - Dominant mode commits: compact=2, detailed=5, neutral=2
@@ -35,6 +35,7 @@
 - WHAT-IF ALIGN: **DIVERGED** (flag-disabled; route=PORTAL_AUDIT lane=PORTAL alt=ALT)
 - WHAT-IF BAND: **NEUTRAL** (flag-disabled; delta=-3 current=PORTAL alt=ALT enabled=False)
 - WHAT-IF MAG: **SMALL** (flag-disabled; delta=-3 |Δ|=3 enabled=False)
+- WHAT-IF FIT: **EVEN** (flag-disabled; pressure=HIGH projected=HIGH risk=16 enabled=False)
 - STICKY TOKENS: **6**
 - ANOMALY: **ON** (sticky=6/3 pressure=15/5)
 - ANOMALY CONF: **HIGH** (triggers=2 gap=13)

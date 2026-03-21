@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-03-21T09:35:08.085285Z",
+  "generatedAt": "2026-03-21T10:02:58.962962Z",
   "status": "ok",
   "window": {
-    "sinceDays": 7,
+    "sinceDays": 30,
     "maxCommits": 120
   },
   "checkedCommits": 120,
@@ -202,6 +202,14 @@
     "absDeltaRisk": 3,
     "reason": "flag-disabled"
   },
+  "whatIfFit": "EVEN",
+  "whatIfFitSignals": {
+    "flagEnabled": false,
+    "pressureBand": "HIGH",
+    "projectedRisk": 16,
+    "projectedBand": "HIGH",
+    "reason": "flag-disabled"
+  },
   "anomalyPulse": "ON",
   "anomalyConfidence": "HIGH",
   "anomalyPulseSignals": {
@@ -327,6 +335,97 @@
     }
   ],
   "commits": [
+    {
+      "sha": "f217d035c46a26d69b867dcd274d42e86fdafa71",
+      "shortSha": "f217d03",
+      "author": "yunwoo",
+      "subject": "feat: add what-if band and magnitude digest tokens",
+      "committedAt": "2026-03-21T09:36:26Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      }
+    },
     {
       "sha": "f1de239b32fd267115312bdf40aadf22cdd1d5b1",
       "shortSha": "f1de239",
@@ -10853,90 +10952,6 @@
         "logs/teams/qa.md",
         "logs/teams/ux.md",
         "screenshots/screenshot-map04.png"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      }
-    },
-    {
-      "sha": "a629534b9c90c4ec6cbe140df8b10c6d4c262c98",
-      "shortSha": "a629534",
-      "author": "yunwoo",
-      "subject": "qa: close M5 critical blocker audit and update triage",
-      "committedAt": "2026-03-19T04:13:19Z",
-      "changedFiles": [
-        "ACTION_ITEMS.md",
-        "TASKS.md",
-        "logs/playtests/loop_30min_checklist.md",
-        "logs/playtests/map_01_04_progression_checklist.md",
-        "logs/playtests/rc_checklist.md",
-        "logs/teams/_summary.md",
-        "logs/teams/qa.md"
       ],
       "portalFiles": [],
       "touchedPortalPrompt": false,

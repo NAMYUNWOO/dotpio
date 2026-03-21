@@ -238,6 +238,14 @@ def main() -> int:
             "absDeltaRisk",
             "reason",
         }, payload
+        assert payload.get("whatIfFit") in {"SAFE", "EVEN", "TENSE"}, payload
+        assert set(payload.get("whatIfFitSignals", {}).keys()) == {
+            "flagEnabled",
+            "pressureBand",
+            "projectedRisk",
+            "projectedBand",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -293,6 +301,7 @@ def main() -> int:
         assert "WHAT-IF ALIGN" in md_text
         assert "WHAT-IF BAND" in md_text
         assert "WHAT-IF MAG" in md_text
+        assert "WHAT-IF FIT" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

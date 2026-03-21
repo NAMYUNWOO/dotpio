@@ -1025,3 +1025,9 @@
 - Output: `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfMagnitude` + `whatIfMagnitudeSignals` and markdown line `WHAT-IF MAG`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Cycle U remaining items are `WHAT-IF FIT` and flagged `WHAT-IF FALLBACK`.
+
+## 2026-03-21 19:03 KST — WHAT-IF FIT token shipped
+- Task: Added `WHAT-IF FIT:SAFE|EVEN|TENSE` in weekly portal readability digest.
+- Decision: derive fit from projected what-if risk band (`LOW|MID|HIGH`) compared against current pressure band.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfFit` + `whatIfFitSignals` (JSON + markdown).
+- Follow-up: complete remaining Cycle U fallback-lane token behind flag.

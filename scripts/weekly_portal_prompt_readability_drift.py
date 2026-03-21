@@ -573,6 +573,47 @@ def what_if_magnitude_from_signals(
     }
 
 
+def what_if_pressure_fit_from_signals(
+    *,
+    what_if_alt_signals: dict[str, str | int | bool],
+    pressure_band: str,
+) -> tuple[str, dict[str, str | int | bool]]:
+    flag_enabled = bool(what_if_alt_signals.get("flagEnabled", False))
+    projected_risk = int(what_if_alt_signals.get("projectedRisk", 0))
+
+    if projected_risk >= 12:
+        projected_band = "HIGH"
+    elif projected_risk >= 5:
+        projected_band = "MID"
+    else:
+        projected_band = "LOW"
+
+    band_rank = {"LOW": 0, "MID": 1, "HIGH": 2}
+    projected_rank = band_rank.get(projected_band, 1)
+    pressure_rank = band_rank.get(pressure_band, 1)
+
+    if not flag_enabled:
+        fit = "EVEN"
+        reason = "flag-disabled"
+    elif projected_rank < pressure_rank:
+        fit = "SAFE"
+        reason = "projected-risk-below-current-pressure-band"
+    elif projected_rank > pressure_rank:
+        fit = "TENSE"
+        reason = "projected-risk-above-current-pressure-band"
+    else:
+        fit = "EVEN"
+        reason = "projected-risk-matches-current-pressure-band"
+
+    return fit, {
+        "flagEnabled": flag_enabled,
+        "pressureBand": pressure_band,
+        "projectedRisk": projected_risk,
+        "projectedBand": projected_band,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -1044,6 +1085,10 @@ def main() -> int:
     what_if_magnitude, what_if_magnitude_signals = what_if_magnitude_from_signals(
         what_if_alt_signals=what_if_alt_signals,
     )
+    what_if_fit, what_if_fit_signals = what_if_pressure_fit_from_signals(
+        what_if_alt_signals=what_if_alt_signals,
+        pressure_band=pressure_band,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -1117,6 +1162,8 @@ def main() -> int:
         "whatIfBandSignals": what_if_band_signals,
         "whatIfMagnitude": what_if_magnitude,
         "whatIfMagnitudeSignals": what_if_magnitude_signals,
+        "whatIfFit": what_if_fit,
+        "whatIfFitSignals": what_if_fit_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -1176,6 +1223,7 @@ def main() -> int:
         f"- WHAT-IF ALIGN: **{what_if_align}** ({what_if_align_signals['reason']}; route={what_if_align_signals['routeAction']} lane={what_if_align_signals['routeActionLane']} alt={what_if_align_signals['altLane']})",
         f"- WHAT-IF BAND: **{what_if_band}** ({what_if_band_signals['reason']}; delta={what_if_band_signals['deltaRisk']} current={what_if_band_signals['currentLane']} alt={what_if_band_signals['altLane']} enabled={what_if_band_signals['flagEnabled']})",
         f"- WHAT-IF MAG: **{what_if_magnitude}** ({what_if_magnitude_signals['reason']}; delta={what_if_magnitude_signals['deltaRisk']} |Δ|={what_if_magnitude_signals['absDeltaRisk']} enabled={what_if_magnitude_signals['flagEnabled']})",
+        f"- WHAT-IF FIT: **{what_if_fit}** ({what_if_fit_signals['reason']}; pressure={what_if_fit_signals['pressureBand']} projected={what_if_fit_signals['projectedBand']} risk={what_if_fit_signals['projectedRisk']} enabled={what_if_fit_signals['flagEnabled']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

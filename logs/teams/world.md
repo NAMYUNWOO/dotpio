@@ -594,3 +594,7 @@
 ## 2026-03-21 18:31 KST — Route-planning digest assist (`WHAT-IF MAG`)
 - Weekly portal readability digest now reports what-if impact size (`SMALL|MED|LARGE`) to support safer branch planning at route review time.
 - Follow-up: pair magnitude with pressure-fit classification (`SAFE|EVEN|TENSE`) for route-context triage.
+
+## 2026-03-21 19:03 KST — Route planning telemetry note
+- No map topology change this cycle.
+- Consumed current pressure band to contextualize alternate route projection in weekly portal prompt digest.

@@ -1502,3 +1502,10 @@
   - validates markdown includes `WHAT-IF MAG`
 - Result: regression and digest generation both PASS after update.
 - Follow-up: add assertions for upcoming `WHAT-IF FIT` token once implemented.
+
+## 2026-03-21 19:03 KST — Regression coverage for WHAT-IF FIT
+- Added regression assertions for `whatIfFit` enum and `whatIfFitSignals` schema.
+- Added markdown assertion for `WHAT-IF FIT` digest line.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 120` ✅

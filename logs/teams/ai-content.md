@@ -567,3 +567,7 @@
 ## 2026-03-21 18:31 KST — Cycle U planning token enrichment (`WHAT-IF MAG`)
 - Added `WHAT-IF MAG` signal path to digest payload/markdown so ideation loops can quickly filter minor vs major alternate-lane projections.
 - Follow-up: once `WHAT-IF FIT` lands, test combined narration templates for concise planning recommendations.
+
+## 2026-03-21 19:03 KST — Narrative/token coherence
+- Added `WHAT-IF FIT` token semantics for planning narration coherence across digest outputs.
+- No AI generation prompt contract changes this cycle.

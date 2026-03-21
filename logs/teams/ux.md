@@ -817,3 +817,7 @@
 - Completed: digest now includes `WHAT-IF MAG` line with explicit `delta`, `|Δ|`, and flag state for quick operator scan.
 - UX rationale: directional token (`BAND`) + size token (`MAG`) reduces ambiguity when delta is near zero.
 - Follow-up: evaluate if `WHAT-IF MAG` should collapse to compact shorthand in narrow-copy mode.
+
+## 2026-03-21 19:03 KST — HUD/digest copy lane
+- Updated weekly digest copy with `WHAT-IF FIT` line (pressure/current vs projected context).
+- Keeps existing token order intact (`WHAT-IF`, `CONF`, `ALIGN`, `BAND`, `MAG`, `FIT`).

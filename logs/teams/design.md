@@ -564,3 +564,7 @@
 - Added compact token `WHAT-IF MAG:SMALL|MED|LARGE` to summarize alternate-lane impact magnitude without reading full delta tuple.
 - Readability contract: keep `WHAT-IF BAND` (directional outcome) and `WHAT-IF MAG` (impact size) as separate lines to avoid overloaded labels.
 - Follow-up: define `WHAT-IF FIT:SAFE|EVEN|TENSE` semantics against pressure-band context.
+
+## 2026-03-21 19:03 KST — Digest readability semantics update
+- Added pressure-context fit tier (`SAFE|EVEN|TENSE`) so what-if delta is interpreted against current pressure conditions, not delta alone.
+- Rationale: keeps route-planning token semantics glanceable during mixed-risk weeks.
