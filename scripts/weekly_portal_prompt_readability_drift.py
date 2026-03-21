@@ -832,6 +832,84 @@ def what_if_fallback_alignment_from_signals(
     }
 
 
+def what_if_fallback_magnitude_from_signals(
+    *,
+    what_if_fallback: str,
+    what_if_fallback_signals: dict[str, str | bool],
+    what_if_alt_signals: dict[str, str | int | bool],
+) -> tuple[str, dict[str, str | int | bool]]:
+    flag_enabled = bool(what_if_fallback_signals.get("flagEnabled", False))
+    delta_risk = int(what_if_alt_signals.get("deltaRisk", 0))
+    abs_delta = abs(delta_risk)
+
+    if not flag_enabled:
+        magnitude = "SMALL"
+        reason = "flag-disabled"
+    elif what_if_fallback in {"OFF", "NONE"}:
+        magnitude = "SMALL"
+        reason = "no-actionable-fallback"
+    elif abs_delta >= 4:
+        magnitude = "LARGE"
+        reason = "large-risk-shift"
+    elif abs_delta >= 2:
+        magnitude = "MED"
+        reason = "moderate-risk-shift"
+    else:
+        magnitude = "SMALL"
+        reason = "small-risk-shift"
+
+    return magnitude, {
+        "flagEnabled": flag_enabled,
+        "fallback": what_if_fallback,
+        "deltaRisk": delta_risk,
+        "absDeltaRisk": abs_delta,
+        "reason": reason,
+    }
+
+
+def what_if_fallback_alt2_from_signals(
+    *,
+    what_if_fallback: str,
+    lane_focus_scores: dict[str, int],
+) -> tuple[str, dict[str, str | int | bool]]:
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    lane_candidates = ["PORTAL", "ALT", "PRESSURE"]
+    fallback_lane = what_if_fallback if what_if_fallback in lane_candidates else "NONE"
+
+    alt2_lane = "NONE"
+    reason = "flag-disabled"
+
+    if flag_enabled:
+        ranked = sorted(
+            ((lane, int(lane_focus_scores.get(lane.lower(), 0))) for lane in lane_candidates),
+            key=lambda row: (-row[1], row[0]),
+        )
+        viable = [lane for lane, score in ranked if score > 0 and lane != fallback_lane]
+        if fallback_lane == "NONE":
+            alt2_lane = "NONE"
+            reason = "no-actionable-primary-fallback"
+        elif viable:
+            alt2_lane = viable[0]
+            reason = "lane-focus-ranked-secondary"
+        else:
+            alt2_lane = "NONE"
+            reason = "no-secondary-lane-candidate"
+
+    return alt2_lane, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "fallback": what_if_fallback,
+        "fallbackLane": fallback_lane,
+        "portalScore": int(lane_focus_scores.get("portal", 0)),
+        "altScore": int(lane_focus_scores.get("alt", 0)),
+        "pressureScore": int(lane_focus_scores.get("pressure", 0)),
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -1336,6 +1414,15 @@ def main() -> int:
         what_if_fallback=what_if_fallback,
         lane_focus=lane_focus,
     )
+    what_if_fallback_magnitude, what_if_fallback_magnitude_signals = what_if_fallback_magnitude_from_signals(
+        what_if_fallback=what_if_fallback,
+        what_if_fallback_signals=what_if_fallback_signals,
+        what_if_alt_signals=what_if_alt_signals,
+    )
+    what_if_fallback_alt2, what_if_fallback_alt2_signals = what_if_fallback_alt2_from_signals(
+        what_if_fallback=what_if_fallback,
+        lane_focus_scores=lane_focus_scores,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -1421,6 +1508,10 @@ def main() -> int:
         "whatIfFallbackWhySignals": what_if_fallback_why_signals,
         "whatIfFallbackAlign": what_if_fallback_align,
         "whatIfFallbackAlignSignals": what_if_fallback_align_signals,
+        "whatIfFallbackMagnitude": what_if_fallback_magnitude,
+        "whatIfFallbackMagnitudeSignals": what_if_fallback_magnitude_signals,
+        "whatIfFallbackAlt2": what_if_fallback_alt2,
+        "whatIfFallbackAlt2Signals": what_if_fallback_alt2_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -1486,6 +1577,8 @@ def main() -> int:
         f"- WHAT-IF FALLBACK FIT: **{what_if_fallback_fit}** ({what_if_fallback_fit_signals['reason']}; fallback={what_if_fallback_fit_signals['fallback']} pressure={what_if_fallback_fit_signals['pressureBand']} projected={what_if_fallback_fit_signals['projectedBand']} risk={what_if_fallback_fit_signals['projectedRisk']} enabled={what_if_fallback_fit_signals['flagEnabled']})",
         f"- WHAT-IF FALLBACK WHY: **{what_if_fallback_why}** ({what_if_fallback_why_signals['reason']}; flag={what_if_fallback_why_signals['flagName']} enabled={what_if_fallback_why_signals['flagEnabled']} fallback={what_if_fallback_why_signals['fallback']} conf={what_if_fallback_why_signals['fallbackConfidence']} fit={what_if_fallback_why_signals['fallbackFit']} pressure={what_if_fallback_why_signals['pressureBand']})",
         f"- WHAT-IF FALLBACK ALIGN: **{what_if_fallback_align}** ({what_if_fallback_align_signals['reason']}; fallback={what_if_fallback_align_signals['fallback']} focus={what_if_fallback_align_signals['laneFocus']} actionable={what_if_fallback_align_signals['actionable']})",
+        f"- WHAT-IF FALLBACK MAG: **{what_if_fallback_magnitude}** ({what_if_fallback_magnitude_signals['reason']}; fallback={what_if_fallback_magnitude_signals['fallback']} delta={what_if_fallback_magnitude_signals['deltaRisk']} |Δ|={what_if_fallback_magnitude_signals['absDeltaRisk']} enabled={what_if_fallback_magnitude_signals['flagEnabled']})",
+        f"- WHAT-IF FALLBACK ALT2: **{what_if_fallback_alt2}** ({what_if_fallback_alt2_signals['reason']}; flag={what_if_fallback_alt2_signals['flagName']} enabled={what_if_fallback_alt2_signals['flagEnabled']} fallback={what_if_fallback_alt2_signals['fallbackLane']} scores=portal:{what_if_fallback_alt2_signals['portalScore']} alt:{what_if_fallback_alt2_signals['altScore']} pressure:{what_if_fallback_alt2_signals['pressureScore']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

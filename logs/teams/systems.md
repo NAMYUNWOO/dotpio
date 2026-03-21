@@ -1067,3 +1067,8 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` ✅
 - Next priority item: Cycle W `WHAT-IF FALLBACK MAG:SMALL|MED|LARGE`.
+
+## 2026-03-21 21:35 KST — Fallback impact sizing token shipped
+- Decision: added digest classifier `WHAT-IF FALLBACK MAG:SMALL|MED|LARGE` based on fallback `|ΔRISK|` bands.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now computes `whatIfFallbackMagnitude` + signal payload.
+- Follow-up: wire magnitude into dual-path planner once `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2` is enabled in ops.

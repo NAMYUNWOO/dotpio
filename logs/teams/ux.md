@@ -851,3 +851,7 @@
 - Impact: telemetry/readability only; no gameplay/economy/map balance changes.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Next hook: continue Cycle W queued items (`WHAT-IF FALLBACK MAG`, `WHAT-IF FALLBACK ALT2`).
+
+## 2026-03-21 21:35 KST — Operator-facing digest affordance pass
+- Added glanceable rollback sizing (`SMALL|MED|LARGE`) for fallback action confidence calibration.
+- Added optional dual-path cue (`ALT2`) for faster triage during divergent lane windows.

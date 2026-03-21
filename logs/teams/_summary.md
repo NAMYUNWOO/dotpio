@@ -1350,3 +1350,9 @@ Compact decision memory for AI context efficiency.
   - Extended regression coverage in `scripts/regression_weekly_portal_prompt_readability_drift.py` for schema + markdown assertions.
 - Verification (PASS): py_compile, regression script, digest artifact refresh.
 - Backlog sync: Cycle W alignment task marked done in `TASKS.md` + `POST_RC_BACKLOG.md`; two Cycle W follow-ups remain queued.
+
+## 2026-03-21 21:35 KST — Game Director Cycle W (partial)
+- Completed: `WHAT-IF FALLBACK MAG` token (`SMALL|MED|LARGE`) in weekly portal prompt readability digest.
+- Added (flagged prototype): `WHAT-IF FALLBACK ALT2:<lane>` secondary candidate lane from lane-focus ranking (`DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2`).
+- Regression updated and passing for new JSON schema + markdown lines.
+- Remaining in Cycle W backlog: finish ALT2 prototype task closure criteria in backlog wording.

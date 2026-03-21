@@ -628,3 +628,7 @@
 - Impact: telemetry/readability only; no gameplay/economy/map balance changes.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Next hook: continue Cycle W queued items (`WHAT-IF FALLBACK MAG`, `WHAT-IF FALLBACK ALT2`).
+
+## 2026-03-21 21:35 KST — Route-planning telemetry handoff
+- Weekly portal readability digest now emits secondary fallback lane candidate (`ALT2`) behind feature flag.
+- Intended use: route planning handoff when primary fallback lane is congested or low-confidence.

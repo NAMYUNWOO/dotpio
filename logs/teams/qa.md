@@ -1549,3 +1549,8 @@
 - Impact: telemetry/readability only; no gameplay/economy/map balance changes.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Next hook: continue Cycle W queued items (`WHAT-IF FALLBACK MAG`, `WHAT-IF FALLBACK ALT2`).
+
+## 2026-03-21 21:35 KST — Regression coverage expanded for fallback planning tokens
+- Added schema assertions for `whatIfFallbackMagnitude*` and `whatIfFallbackAlt2*` JSON payload fields.
+- Added markdown assertions for `WHAT-IF FALLBACK MAG` and `WHAT-IF FALLBACK ALT2` lines.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

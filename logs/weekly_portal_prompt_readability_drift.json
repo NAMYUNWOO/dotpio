@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T12:04:14.170847Z",
+  "generatedAt": "2026-03-21T12:37:34.400361Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -258,6 +258,25 @@
     "actionable": false,
     "reason": "no-actionable-fallback"
   },
+  "whatIfFallbackMagnitude": "SMALL",
+  "whatIfFallbackMagnitudeSignals": {
+    "flagEnabled": false,
+    "fallback": "OFF",
+    "deltaRisk": -3,
+    "absDeltaRisk": 3,
+    "reason": "flag-disabled"
+  },
+  "whatIfFallbackAlt2": "NONE",
+  "whatIfFallbackAlt2Signals": {
+    "flagName": "DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2",
+    "flagEnabled": false,
+    "fallback": "OFF",
+    "fallbackLane": "NONE",
+    "portalScore": 35,
+    "altScore": 23,
+    "pressureScore": 15,
+    "reason": "flag-disabled"
+  },
   "anomalyPulse": "ON",
   "anomalyConfidence": "HIGH",
   "anomalyPulseSignals": {
@@ -383,6 +402,97 @@
     }
   ],
   "commits": [
+    {
+      "sha": "f9b96bb3fbfb4643ad9d4a3ab9e7d723acd7c542",
+      "shortSha": "f9b96bb",
+      "author": "yunwoo",
+      "subject": "feat: add fallback alignment token to weekly digest",
+      "committedAt": "2026-03-21T12:05:00Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      }
+    },
     {
       "sha": "ee1cb8ec29b37030e62ce37f36173af3eed7a617",
       "shortSha": "ee1cb8e",
@@ -10944,92 +11054,6 @@
         "logs/teams/qa.md",
         "logs/teams/systems.md",
         "scripts/install_weekly_sustain_cron.sh"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      }
-    },
-    {
-      "sha": "58515de5266f0184ae95519d0401acac30d22292",
-      "shortSha": "58515de",
-      "author": "yunwoo",
-      "subject": "chore: add one-command weekly sustain runner",
-      "committedAt": "2026-03-19T07:13:51Z",
-      "changedFiles": [
-        "ACTION_ITEMS.md",
-        "TASKS.md",
-        "logs/economy_weekly_snapshot.json",
-        "logs/economy_weekly_snapshot.md",
-        "logs/playtests/rc_checklist.md",
-        "logs/teams/_summary.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "scripts/run_weekly_sustain.sh"
       ],
       "portalFiles": [],
       "touchedPortalPrompt": false,

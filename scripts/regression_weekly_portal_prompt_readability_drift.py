@@ -294,6 +294,25 @@ def main() -> int:
             "actionable",
             "reason",
         }, payload
+        assert payload.get("whatIfFallbackMagnitude") in {"SMALL", "MED", "LARGE"}, payload
+        assert set(payload.get("whatIfFallbackMagnitudeSignals", {}).keys()) == {
+            "flagEnabled",
+            "fallback",
+            "deltaRisk",
+            "absDeltaRisk",
+            "reason",
+        }, payload
+        assert isinstance(payload.get("whatIfFallbackAlt2"), str), payload
+        assert set(payload.get("whatIfFallbackAlt2Signals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "fallback",
+            "fallbackLane",
+            "portalScore",
+            "altScore",
+            "pressureScore",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -355,6 +374,8 @@ def main() -> int:
         assert "WHAT-IF FALLBACK FIT" in md_text
         assert "WHAT-IF FALLBACK WHY" in md_text
         assert "WHAT-IF FALLBACK ALIGN" in md_text
+        assert "WHAT-IF FALLBACK MAG" in md_text
+        assert "WHAT-IF FALLBACK ALT2" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

@@ -604,3 +604,8 @@
 - Impact: telemetry/readability only; no gameplay/economy/map balance changes.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Next hook: continue Cycle W queued items (`WHAT-IF FALLBACK MAG`, `WHAT-IF FALLBACK ALT2`).
+
+## 2026-03-21 21:35 KST — Digest readability update (fallback planning)
+- Added explicit rollback impact sizing token: `WHAT-IF FALLBACK MAG`.
+- Added optional secondary path preview token: `WHAT-IF FALLBACK ALT2` (flag-gated).
+- Copy kept compact in existing token stack to preserve DOS digest scanability.
