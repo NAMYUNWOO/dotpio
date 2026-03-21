@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T06:38:11.768463Z",
+  "generatedAt": "2026-03-21T07:04:06.576392Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -107,6 +107,15 @@
     "laneLockArmed": false,
     "laneLockStreak": 0,
     "reason": "no-single-lane-target"
+  },
+  "sandboxReadiness": "PRIMED",
+  "sandboxReadinessSignals": {
+    "routeSandbox": "OFF",
+    "sandboxTargetConfidence": "LOW",
+    "actionGuard": "LOCK",
+    "laneLockArmed": false,
+    "laneLockStreak": 0,
+    "reason": "preconditions-forming"
   },
   "sandboxTargetShift": "NONE->NONE",
   "sandboxTargetShiftSignals": {
@@ -265,6 +274,97 @@
     }
   ],
   "commits": [
+    {
+      "sha": "8ee7acfb3170cf0fe47533e32775c7a14d010061",
+      "shortSha": "8ee7acf",
+      "author": "yunwoo",
+      "subject": "feat: add sandbox target shift token to weekly digest",
+      "committedAt": "2026-03-21T06:38:48Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      }
+    },
     {
       "sha": "161bf21861d3f03ef756ca1aa82099f72042c9cb",
       "shortSha": "161bf21",
@@ -10754,91 +10854,6 @@
         "logs/teams/ux.md",
         "screenshots/screenshot-map04.png",
         "scripts/regression_action_menu_lock_reasons.lua",
-        "src/inventory_ui.lua"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      }
-    },
-    {
-      "sha": "b74c99d0ed9836ca65cca39cc0a23a142d7ffad2",
-      "shortSha": "b74c99d",
-      "author": "yunwoo",
-      "subject": "M4: normalize DOS action terminology and explicit build material copy",
-      "committedAt": "2026-03-19T01:14:26Z",
-      "changedFiles": [
-        "ACTION_ITEMS.md",
-        "TASKS.md",
-        "logs/teams/_summary.md",
-        "logs/teams/qa.md",
-        "logs/teams/ux.md",
-        "screenshots/screenshot-inventory-dos.png",
-        "screenshots/screenshot-map04.png",
         "src/inventory_ui.lua"
       ],
       "portalFiles": [],

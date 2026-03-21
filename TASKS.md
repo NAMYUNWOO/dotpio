@@ -340,3 +340,8 @@ See project-level plans:
 - [x] Add sandbox-target confidence token (`SANDBOX TARGET CONF:LOW|MID|HIGH`) for lane-target handoff quality
 - [x] Add sandbox-target source token (`TARGET SRC:LOCK|MIXED|NONE`) for quick audit of lane-target derivation path
 - [x] Add sandbox-target history token (`TARGET SHIFT:<FROM->TO>`) to highlight lane-target changes across digest windows
+
+## Next Up (Game Director Injection — 2026-03-21 Cycle S)
+- [x] Add sandbox readiness tier token (`SANDBOX READY:IDLE|PRIMED|ARMED`) from `ROUTE SANDBOX + TARGET CONF + ACTION GUARD` for faster go/no-go triage
+- [ ] Add route-action stability token (`ACTION STABILITY:LOCKED|WATCH`) from `ACTION CONF + FOCUS VOL + DRIFT MOMENTUM` to reduce whiplash retunes
+- [ ] Prototype digest what-if token (`WHAT-IF ALT:<lane> ΔRISK:<n>`) behind flag for low-cost alternate-lane planning

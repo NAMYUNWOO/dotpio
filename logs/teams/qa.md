@@ -1461,3 +1461,8 @@
 - Digest now emits JSON fields `sandboxTargetShift`, `sandboxTargetShiftSignals` and markdown row `TARGET SHIFT`.
 - Shift semantics compare prior digest `sandboxTarget` to current target; emits stable `X->X` when unchanged and still reports prior-load/change signals for auditability.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 ...` PASS.
+
+## 2026-03-21 16:01 KST — Cycle S regression coverage refresh
+- Decision: Extended regression to assert `sandboxReadiness` payload schema and markdown line presence.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Follow-up: add dedicated branch in fixture data once `ACTION STABILITY` token lands.

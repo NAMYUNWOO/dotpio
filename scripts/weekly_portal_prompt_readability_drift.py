@@ -501,6 +501,34 @@ def sandbox_target_confidence_from_signals(
     }
 
 
+def sandbox_readiness_from_signals(
+    *,
+    route_sandbox: str,
+    sandbox_target_confidence: str,
+    action_guard: str,
+    lane_lock_signals: dict[str, int | str | bool],
+) -> tuple[str, dict[str, str | bool | int]]:
+    lane_lock_armed = bool(lane_lock_signals.get("armed", False))
+    lane_lock_streak = int(lane_lock_signals.get("streak", 0))
+
+    if route_sandbox == "ON" and sandbox_target_confidence in {"MID", "HIGH"} and lane_lock_armed:
+        tier = "ARMED"
+        reason = "sandbox-on-with-credible-target"
+    elif lane_lock_armed or sandbox_target_confidence in {"MID", "HIGH"} or action_guard == "LOCK":
+        tier = "PRIMED"
+        reason = "preconditions-forming"
+    else:
+        tier = "IDLE"
+        reason = "no-activation-pressure"
+
+    return tier, {
+        "routeSandbox": route_sandbox,
+        "sandboxTargetConfidence": sandbox_target_confidence,
+        "actionGuard": action_guard,
+        "laneLockArmed": lane_lock_armed,
+        "laneLockStreak": lane_lock_streak,
+        "reason": reason,
+    }
 
 
 def sandbox_target_shift_from_prior(*, current_target: str, prior_json_path: Path) -> tuple[str, dict[str, str | bool]]:
@@ -754,6 +782,12 @@ def main() -> int:
         route_action_confidence=route_action_confidence,
         lane_lock_signals=lane_lock_signals,
     )
+    sandbox_readiness, sandbox_readiness_signals = sandbox_readiness_from_signals(
+        route_sandbox=route_sandbox,
+        sandbox_target_confidence=sandbox_target_confidence,
+        action_guard=action_guard,
+        lane_lock_signals=lane_lock_signals,
+    )
     sandbox_target_shift, sandbox_target_shift_signals = sandbox_target_shift_from_prior(
         current_target=sandbox_target,
         prior_json_path=args.out_json,
@@ -819,6 +853,8 @@ def main() -> int:
         "sandboxTargetSource": str(sandbox_target_signals.get("targetSource", "NONE")),
         "sandboxTargetConfidence": sandbox_target_confidence,
         "sandboxTargetConfidenceSignals": sandbox_target_confidence_signals,
+        "sandboxReadiness": sandbox_readiness,
+        "sandboxReadinessSignals": sandbox_readiness_signals,
         "sandboxTargetShift": sandbox_target_shift,
         "sandboxTargetShiftSignals": sandbox_target_shift_signals,
         "sandboxCooloff": sandbox_cooloff,
@@ -875,6 +911,7 @@ def main() -> int:
         f"- SANDBOX TARGET: **{sandbox_target}** ({sandbox_target_signals['reason']}; lane={sandbox_target_signals['lane']} armed={sandbox_target_signals['laneLockArmed']} streak={sandbox_target_signals['laneLockStreak']})",
         f"- TARGET SRC: **{sandbox_target_signals['targetSource']}** (sandbox={sandbox_target_signals['routeSandbox']} target={sandbox_target})",
         f"- SANDBOX TARGET CONF: **{sandbox_target_confidence}** ({sandbox_target_confidence_signals['reason']}; routeConf={sandbox_target_confidence_signals['routeActionConfidence']} lock={sandbox_target_confidence_signals['laneLockArmed']}x{sandbox_target_confidence_signals['laneLockStreak']})",
+        f"- SANDBOX READY: **{sandbox_readiness}** ({sandbox_readiness_signals['reason']}; sandbox={sandbox_readiness_signals['routeSandbox']} conf={sandbox_readiness_signals['sandboxTargetConfidence']} guard={sandbox_readiness_signals['actionGuard']} lock={sandbox_readiness_signals['laneLockArmed']}x{sandbox_readiness_signals['laneLockStreak']})",
         f"- TARGET SHIFT: **{sandbox_target_shift}** ({sandbox_target_shift_signals['reason']}; changed={sandbox_target_shift_signals['changed']} priorLoaded={sandbox_target_shift_signals['priorLoaded']})",
         f"- SANDBOX COOLOFF: **{sandbox_cooloff}** ({sandbox_cooloff_signals['reason']}; active={sandbox_cooloff_signals['active']} prior={sandbox_cooloff_signals['priorSandbox']}:{sandbox_cooloff_signals['priorCooloff']})",
         f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",

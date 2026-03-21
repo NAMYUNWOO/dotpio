@@ -783,3 +783,7 @@
 - Digest now emits JSON fields `sandboxTargetShift`, `sandboxTargetShiftSignals` and markdown row `TARGET SHIFT`.
 - Shift semantics compare prior digest `sandboxTarget` to current target; emits stable `X->X` when unchanged and still reports prior-load/change signals for auditability.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 ...` PASS.
+
+## 2026-03-21 16:01 KST — Cycle S digest UX note
+- Decision: Kept new readiness token copy compact (`SANDBOX READY`) with cause tuple `(sandbox/conf/guard/lock)` for DOS-style quick scanning.
+- Follow-up: evaluate whether `WHAT-IF ALT` preview should collapse to compact mode token when width budget is tight.

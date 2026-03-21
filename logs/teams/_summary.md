@@ -1220,3 +1220,9 @@ Compact decision memory for AI context efficiency.
 - Digest now emits JSON fields `sandboxTargetShift`, `sandboxTargetShiftSignals` and markdown row `TARGET SHIFT`.
 - Shift semantics compare prior digest `sandboxTarget` to current target; emits stable `X->X` when unchanged and still reports prior-load/change signals for auditability.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 ...` PASS.
+
+## 2026-03-21 16:01 KST — Game Director Cycle S (sandbox readiness)
+- Review cycle generated 3 candidates and selected low-risk digest UX/systems slice: `SANDBOX READY:IDLE|PRIMED|ARMED`.
+- Durable decision: readiness tier now derives from `ROUTE SANDBOX + SANDBOX TARGET CONF + ACTION GUARD + lane-lock armed` and is emitted in both JSON (`sandboxReadiness`, `sandboxReadinessSignals`) and markdown (`SANDBOX READY`) outputs.
+- Backlog injection updated for Cycle S with two queued follow-ups: `ACTION STABILITY` token and flagged `WHAT-IF ALT` hint prototype.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` passed.
