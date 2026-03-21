@@ -1095,3 +1095,16 @@ Compact decision memory for AI context efficiency.
 - Backlog sync:
   - Marked Cycle M anomaly pulse item done in `TASKS.md` + `POST_RC_BACKLOG.md`.
   - Remaining highest-priority unchecked items: Cycle N `ANOMALY CONF` tier, `LANE LOCK` alert.
+
+## 2026-03-21 10:33 KST — Cycle N anomaly-confidence vertical slice
+- Completed highest-priority unchecked item: `ANOMALY CONF:LOW|MID|HIGH` for weekly portal prompt readability digest.
+- Implementation:
+  - Upgraded anomaly classifier to emit `(anomalyPulse, anomalyConfidence, anomalyPulseSignals)` with richer diagnostics (`triggerCount`, threshold met flags, per-signal gaps, combined gap).
+  - Added JSON field `anomalyConfidence` and markdown row `ANOMALY CONF` with compact diagnostics.
+  - Extended regression coverage to assert new schema + markdown token.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` ✅
+- Backlog sync:
+  - Marked Cycle N anomaly-confidence item done in `TASKS.md` and `POST_RC_BACKLOG.md`.
+  - Next highest open item: `LANE LOCK:<lane>x<n>` alert token.

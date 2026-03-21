@@ -713,3 +713,8 @@
 - Decision: Use conservative trigger (`sticky >= 3` and `pressureChurn >= 5`) and expose thresholds/signals in JSON + markdown for auditability.
 - Evidence: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Follow-up: Next highest open item is Cycle N `ANOMALY CONF` tiering to reduce binary alert noise.
+
+## 2026-03-21 10:33 KST — Digest UX signal enrichment (`ANOMALY CONF`)
+- Completed: Added severity tier row beneath `ANOMALY` in weekly digest output.
+- Impact hypothesis: faster triage and reduced overreaction to low-severity spikes.
+- Follow-up: lane-lock continuity signal next.

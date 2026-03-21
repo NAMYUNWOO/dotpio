@@ -463,3 +463,9 @@
 - Decision: Use conservative trigger (`sticky >= 3` and `pressureChurn >= 5`) and expose thresholds/signals in JSON + markdown for auditability.
 - Evidence: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Follow-up: Next highest open item is Cycle N `ANOMALY CONF` tiering to reduce binary alert noise.
+
+## 2026-03-21 10:33 KST — Anomaly-confidence signal tier landed
+- Completed: Digest now emits `ANOMALY CONF:LOW|MID|HIGH` derived from sticky/pressure threshold overrun severity.
+- Notes: Binary pulse (`ANOMALY:ON|OFF`) remains unchanged; confidence tier adds graded interpretability.
+- Evidence: regression script pass + digest artifact regeneration.
+- Follow-up: implement `LANE LOCK` alert token next.

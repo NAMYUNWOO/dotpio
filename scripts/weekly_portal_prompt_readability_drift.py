@@ -223,15 +223,40 @@ def route_action_confidence_from_signals(
     }
 
 
-def anomaly_pulse_from_signals(*, sticky_count: int, pressure_churn: int) -> tuple[str, dict[str, int | bool]]:
+def anomaly_pulse_from_signals(
+    *, sticky_count: int, pressure_churn: int
+) -> tuple[str, str, dict[str, int | bool]]:
     sticky_threshold = 3
     pressure_threshold = 5
-    is_spike = sticky_count >= sticky_threshold and pressure_churn >= pressure_threshold
-    return ("ON" if is_spike else "OFF"), {
+    sticky_met = sticky_count >= sticky_threshold
+    pressure_met = pressure_churn >= pressure_threshold
+    trigger_count = int(sticky_met) + int(pressure_met)
+    sticky_gap = max(0, sticky_count - sticky_threshold)
+    pressure_gap = max(0, pressure_churn - pressure_threshold)
+    combined_gap = sticky_gap + pressure_gap
+    is_spike = sticky_met and pressure_met
+
+    anomaly_conf = "LOW"
+    if is_spike:
+        if combined_gap >= 6:
+            anomaly_conf = "HIGH"
+        elif combined_gap >= 2:
+            anomaly_conf = "MID"
+    elif trigger_count == 1:
+        if sticky_gap >= 2 or pressure_gap >= 4:
+            anomaly_conf = "MID"
+
+    return ("ON" if is_spike else "OFF"), anomaly_conf, {
         "stickyCount": sticky_count,
         "stickyThreshold": sticky_threshold,
         "pressureChurn": pressure_churn,
         "pressureThreshold": pressure_threshold,
+        "stickyMet": sticky_met,
+        "pressureMet": pressure_met,
+        "triggerCount": trigger_count,
+        "stickyGap": sticky_gap,
+        "pressureGap": pressure_gap,
+        "combinedGap": combined_gap,
         "spike": is_spike,
     }
 
@@ -385,7 +410,7 @@ def main() -> int:
         lane_focus_scores=lane_focus_scores,
         drift_risk_signals=drift_risk_signals,
     )
-    anomaly_pulse, anomaly_pulse_signals = anomaly_pulse_from_signals(
+    anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
     )
@@ -420,6 +445,7 @@ def main() -> int:
         "routeActionConfidence": route_action_confidence,
         "routeActionConfidenceSignals": route_action_confidence_signals,
         "anomalyPulse": anomaly_pulse,
+        "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
         "pressureEdits": {
             "added": pressure_added,
@@ -459,6 +485,7 @@ def main() -> int:
         f"- ACTION CONF: **{route_action_confidence}** (dom={route_action_confidence_signals['dominanceRatio']} spread={route_action_confidence_signals['focusSpread']} driftSpread={route_action_confidence_signals['driftSpread']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
+        f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",
         "",
         "## Token Totals (added/removed/net)",
         f"- Compact: +{totals['added']['compact']} / -{totals['removed']['compact']} / net {totals['net']['compact']}",

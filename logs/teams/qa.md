@@ -1367,3 +1367,15 @@
 - Decision: Use conservative trigger (`sticky >= 3` and `pressureChurn >= 5`) and expose thresholds/signals in JSON + markdown for auditability.
 - Evidence: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Follow-up: Next highest open item is Cycle N `ANOMALY CONF` tiering to reduce binary alert noise.
+
+## 2026-03-21 10:33 KST — Cycle N anomaly-confidence tier completed
+- Task: Add `ANOMALY CONF:LOW|MID|HIGH` to weekly portal prompt readability digest to reduce binary-alert noise.
+- Changed:
+  - `scripts/weekly_portal_prompt_readability_drift.py`
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `logs/weekly_portal_prompt_readability_drift.{json,md}`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` ✅
+- Decision: Keep binary `ANOMALY` pulse for compatibility, add confidence tier + expanded signal payload (`triggerCount`, gap metrics) for triage quality.
+- Follow-up: Next highest unchecked item is Cycle N `LANE LOCK:<lane>x<n>` alert token.

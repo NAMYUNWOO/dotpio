@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T01:03:04.373938Z",
+  "generatedAt": "2026-03-21T01:33:01.608267Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -46,11 +46,18 @@
     "driftSpread": 11
   },
   "anomalyPulse": "ON",
+  "anomalyConfidence": "HIGH",
   "anomalyPulseSignals": {
     "stickyCount": 6,
     "stickyThreshold": 3,
     "pressureChurn": 15,
     "pressureThreshold": 5,
+    "stickyMet": true,
+    "pressureMet": true,
+    "triggerCount": 2,
+    "stickyGap": 3,
+    "pressureGap": 10,
+    "combinedGap": 13,
     "spike": true
   },
   "pressureEdits": {
@@ -163,6 +170,97 @@
     }
   ],
   "commits": [
+    {
+      "sha": "2d994a8af1ce08e9def5df1be8447e7d7a33bc44",
+      "shortSha": "2d994a8",
+      "author": "yunwoo",
+      "subject": "feat(digest): add anomaly pulse token for sticky+pressure spike",
+      "committedAt": "2026-03-21T01:03:45Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      }
+    },
     {
       "sha": "934a1febbabb73914531a8a4f7514bc7111334e6",
       "shortSha": "934a1fe",
@@ -10586,90 +10684,6 @@
         "logs/teams/world.md",
         "maps/map_04.lua",
         "maps/map_05.lua"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      }
-    },
-    {
-      "sha": "f3309c8c482e67423d37dd246443df58aa286101",
-      "shortSha": "f3309c8",
-      "author": "yunwoo",
-      "subject": "Add scripted 30-minute core-loop checklist regression",
-      "committedAt": "2026-03-18T20:14:05Z",
-      "changedFiles": [
-        "ACTION_ITEMS.md",
-        "TASKS.md",
-        "logs/playtests/loop_30min_checklist.md",
-        "logs/teams/_summary.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "scripts/regression_30min_loop_checklist.py"
       ],
       "portalFiles": [],
       "touchedPortalPrompt": false,
