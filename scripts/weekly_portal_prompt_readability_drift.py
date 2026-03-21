@@ -1411,6 +1411,33 @@ def what_if_split_escalate_from_signals(
     }
 
 
+def what_if_split_escalate_confidence_from_signals(
+    *,
+    what_if_split_escalate: str,
+    what_if_split_confidence: str,
+    what_if_fallback_plan_fit: str,
+) -> tuple[str, dict[str, str | bool]]:
+    if what_if_split_escalate != "ON":
+        conf = "LOW"
+        reason = "escalation-not-armed"
+    elif what_if_split_confidence == "HIGH" and what_if_fallback_plan_fit == "TENSE":
+        conf = "HIGH"
+        reason = "high-split-confidence-under-tense-fit"
+    elif what_if_split_confidence in {"MID", "HIGH"}:
+        conf = "MID"
+        reason = "armed-with-moderate-confidence"
+    else:
+        conf = "LOW"
+        reason = "armed-but-low-split-confidence"
+
+    return conf, {
+        "splitEscalate": what_if_split_escalate,
+        "splitConfidence": what_if_split_confidence,
+        "planFit": what_if_fallback_plan_fit,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -1977,6 +2004,11 @@ def main() -> int:
         what_if_split_signals=what_if_split_signals,
         what_if_fallback_plan_fit=what_if_fallback_plan_fit,
     )
+    what_if_split_escalate_confidence, what_if_split_escalate_confidence_signals = what_if_split_escalate_confidence_from_signals(
+        what_if_split_escalate=what_if_split_escalate,
+        what_if_split_confidence=what_if_split_confidence,
+        what_if_fallback_plan_fit=what_if_fallback_plan_fit,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -2088,6 +2120,8 @@ def main() -> int:
         "whatIfSplitCooloffSignals": what_if_split_cooloff_signals,
         "whatIfSplitEscalate": what_if_split_escalate,
         "whatIfSplitEscalateSignals": what_if_split_escalate_signals,
+        "whatIfSplitEscalateConfidence": what_if_split_escalate_confidence,
+        "whatIfSplitEscalateConfidenceSignals": what_if_split_escalate_confidence_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -2166,6 +2200,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT POSTURE: **{what_if_split_posture}** ({what_if_split_posture_signals['reason']}; split={what_if_split_posture_signals['split']} safe={what_if_split_posture_signals['splitSafe']} conf={what_if_split_posture_signals['splitConfidence']})",
         f"- WHAT-IF SPLIT COOLOFF: **{what_if_split_cooloff}** ({what_if_split_cooloff_signals['reason']}; active={what_if_split_cooloff_signals['active']} prior={what_if_split_cooloff_signals['priorSplit']}:{what_if_split_cooloff_signals['priorCooloff']})",
         f"- WHAT-IF SPLIT ESCALATE: **{what_if_split_escalate}** ({what_if_split_escalate_signals['reason']}; flag={what_if_split_escalate_signals['flagName']} enabled={what_if_split_escalate_signals['flagEnabled']} split={what_if_split_escalate_signals['split']} diverged={what_if_split_escalate_signals['lanesDiverged']} fit={what_if_split_escalate_signals['planFit']})",
+        f"- WHAT-IF SPLIT ESC CONF: **{what_if_split_escalate_confidence}** ({what_if_split_escalate_confidence_signals['reason']}; escalate={what_if_split_escalate_confidence_signals['splitEscalate']} splitConf={what_if_split_escalate_confidence_signals['splitConfidence']} fit={what_if_split_escalate_confidence_signals['planFit']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

@@ -385,3 +385,8 @@ See project-level plans:
 - [x] Add split posture token (`WHAT-IF SPLIT POSTURE:SAFE|WATCH|HOLD`) to digest from split armed/safe/confidence trio *(lifecycle: [~] -> [x])*
 - [x] Add split cooloff token (`WHAT-IF SPLIT COOLOFF:<n>`) counting consecutive OFF windows after split ON cycle
 - [x] Prototype split escalation sentinel (`WHAT-IF SPLIT ESCALATE:ON`) behind flag when split lanes remain divergent under `TENSE` fit
+
+## Next Up (Game Director Injection — 2026-03-22 Cycle AB)
+- [x] Add split escalation confidence token (`WHAT-IF SPLIT ESC CONF:LOW|MID|HIGH`) from split confidence + plan-fit pressure context
+- [ ] Add split escalation route-pair readability token (`WHAT-IF SPLIT ESC LANES:<primary>/<secondary>`) for escalation handoff clarity
+- [ ] Prototype split escalation cooldown pressure token (`WHAT-IF SPLIT ESC COOL:<n>`) behind flag when escalation recently disarmed

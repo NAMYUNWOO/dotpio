@@ -430,6 +430,13 @@ def main() -> int:
             "tenseFit",
             "reason",
         }, payload
+        assert payload.get("whatIfSplitEscalateConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("whatIfSplitEscalateConfidenceSignals", {}).keys()) == {
+            "splitEscalate",
+            "splitConfidence",
+            "planFit",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -504,6 +511,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT POSTURE" in md_text
         assert "WHAT-IF SPLIT COOLOFF" in md_text
         assert "WHAT-IF SPLIT ESCALATE" in md_text
+        assert "WHAT-IF SPLIT ESC CONF" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

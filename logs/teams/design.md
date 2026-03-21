@@ -687,3 +687,11 @@
 - Task: Digest readability pass for new split escalation token.
 - Decision: Keep compact token label `WHAT-IF SPLIT ESCALATE` with concise reason + gate context (flag/split/divergence/fit) to match existing digest style.
 - Follow-up: monitor token-line width in future copy-budget lint wave.
+
+## 2026-03-22 02:12 KST
+- Game Director Cycle AB ideation:
+  1) Low-risk UX token: `WHAT-IF SPLIT ESC CONF` (confidence readability for escalation sentinel) — Scope S, rollback: remove token line.
+  2) Mid-risk systems token: `WHAT-IF SPLIT ESC LANES` (explicit escalation route pair) — Scope S/M, rollback: fallback to existing split lanes token.
+  3) High-risk novelty token: `WHAT-IF SPLIT ESC COOL` (post-escalation cooloff pressure memory) — Scope M, rollback: flag OFF.
+- Selected experiment this cycle: Idea #1 (`WHAT-IF SPLIT ESC CONF`) for minimal vertical slice.
+- Pass criterion: digest JSON/MD include new token + regression stays green.

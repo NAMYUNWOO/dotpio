@@ -684,3 +684,7 @@
 - Decision: keep sentinel strictly flag-gated and additive (`WHAT-IF SPLIT ESCALATE`) to avoid default digest contract churn.
 - Rationale: preserves safe default behavior while enabling high-pressure operator signaling experiments.
 - Follow-up: tune reason copy only if weekly digest consumers request shorter phrases.
+
+## 2026-03-22 02:12 KST
+- Task: Confidence copy semantics for escalation signal.
+- Decision: keep confidence labels LOW/MID/HIGH aligned with existing what-if token vocabulary.

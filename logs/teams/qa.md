@@ -1645,3 +1645,8 @@
   - Added markdown presence assertion for `WHAT-IF SPLIT ESCALATE` line.
   - Full regression run passed.
 - Follow-up: add explicit ON-path fixture if future cycles require behavior-level threshold tuning.
+
+## 2026-03-22 02:12 KST
+- Task: Regression guard for `WHAT-IF SPLIT ESC CONF` token.
+- Added assertions for payload enum/schema and markdown token presence.
+- Full weekly digest regression suite passed.

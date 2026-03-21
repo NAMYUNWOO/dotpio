@@ -1182,3 +1182,15 @@
   - Sentinel now turns `ON` only when split is armed, lanes remain divergent, and plan fit is `TENSE`.
 - Follow-up:
   - Evaluate next unchecked Game Director injection item.
+
+## 2026-03-22 02:12 KST
+- Task: Game Director Cycle AB vertical slice — add `WHAT-IF SPLIT ESC CONF:LOW|MID|HIGH`.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Confidence maps from `(split escalate ON/OFF, split confidence, plan fit)` with conservative default LOW when escalation is OFF.
+  - Token is additive and non-breaking to existing digest consumers.
+- Follow-up:
+  - Remaining Cycle AB backlog items: `ESC LANES`, flag-gated `ESC COOL`.
