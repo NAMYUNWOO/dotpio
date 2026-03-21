@@ -742,3 +742,7 @@
 - Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS); python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py (PASS).
 - Next: Implement WHAT-IF SPLIT ESC RECOVER ALT:<lane> prototype behind flag for contingency planning.
+
+## 2026-03-22 04:33 KST — HUD/digest readability decision
+- Added explicit markdown line `WHAT-IF SPLIT ESC RECOVER ALT` adjacent to RECOVER + RECOVER CONF for triage continuity.
+- Kept token naming compact and parallel with existing `ESC` family for scan speed.

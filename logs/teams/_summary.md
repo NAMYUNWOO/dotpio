@@ -1470,3 +1470,15 @@ Compact decision memory for AI context efficiency.
 - Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS); python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py (PASS).
 - Next: Implement WHAT-IF SPLIT ESC RECOVER ALT:<lane> prototype behind flag for contingency planning.
+
+## 2026-03-22 04:33 KST — Cycle AD closure (`WHAT-IF SPLIT ESC RECOVER ALT`)
+- Completed pending Cycle AD backlog item: prototype `WHAT-IF SPLIT ESC RECOVER ALT:<lane>` behind `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_ALT`.
+- Implementation: added `what_if_split_escalate_recover_alt_from_signals(...)` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Behavior contract:
+  - `OFF` when flag disabled
+  - `NONE` when escalation is ARMED / no primary recovery / no secondary candidate
+  - otherwise select contingency lane different from primary recovery, ordered by lowest-pressure lane rank.
+- Output contract added to digest artifacts:
+  - JSON: `whatIfSplitEscRecoverAlt`, `whatIfSplitEscRecoverAltSignals`
+  - Markdown: `WHAT-IF SPLIT ESC RECOVER ALT` row
+- Regression updated and passing (`scripts/regression_weekly_portal_prompt_readability_drift.py`).

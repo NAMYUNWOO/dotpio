@@ -735,3 +735,7 @@
 - Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS); python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py (PASS).
 - Next: Implement WHAT-IF SPLIT ESC RECOVER ALT:<lane> prototype behind flag for contingency planning.
+
+## 2026-03-22 04:33 KST — Contingency hint copy kept deterministic
+- For `RECOVER ALT`, reasons are constrained to deterministic short labels (`flag-disabled`, `no-primary-recovery-lane`, `no-secondary-recovery-lane`, etc.) to keep digest text stable for downstream parsers.
+- No narrative/freeform language added to token reasons to preserve machine-readability.

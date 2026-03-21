@@ -975,3 +975,7 @@
 - Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS); python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py (PASS).
 - Next: Implement WHAT-IF SPLIT ESC RECOVER ALT:<lane> prototype behind flag for contingency planning.
+
+## 2026-03-22 04:33 KST — Operator UX continuity
+- Recovery fallback token appears only when feature-flag path is active (`OFF` otherwise), matching existing experiment-token UX expectations.
+- Copy remains one-line compact to avoid DOS digest bloat.

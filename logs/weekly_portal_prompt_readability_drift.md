@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T18:41:01.114301Z
+- GeneratedAt(UTC): 2026-03-21T19:33:28.673407Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
@@ -60,6 +60,8 @@
 - WHAT-IF SPLIT ESC STATE: **IDLE** (split-escalation-idle; escalate=OFF cool=0 cooling=False)
 - WHAT-IF SPLIT ESC PRESSURE: **LOW** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_PRESSURE enabled=False state=IDLE cool=0 pressure=HIGH)
 - WHAT-IF SPLIT ESC RECOVER: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER enabled=False state=IDLE lanes=NONE/NONE)
+- WHAT-IF SPLIT ESC RECOVER CONF: **LOW** (no-recovery-lane; recover=OFF state=IDLE pressure=LOW lanes=NONE/NONE)
+- WHAT-IF SPLIT ESC RECOVER ALT: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_ALT enabled=False recover=OFF state=IDLE lanes=NONE/NONE)
 - STICKY TOKENS: **6**
 - ANOMALY: **ON** (sticky=6/3 pressure=15/5)
 - ANOMALY CONF: **HIGH** (triggers=2 gap=13)

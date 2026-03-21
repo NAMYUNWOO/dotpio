@@ -1697,3 +1697,12 @@
 - Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS); python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py (PASS).
 - Next: Implement WHAT-IF SPLIT ESC RECOVER ALT:<lane> prototype behind flag for contingency planning.
+
+## 2026-03-22 04:33 KST — Regression extension for RECOVER ALT
+- Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` to assert:
+  - `whatIfSplitEscRecoverAlt` presence/type
+  - `whatIfSplitEscRecoverAltSignals` schema keys
+  - markdown includes `WHAT-IF SPLIT ESC RECOVER ALT`
+- Verification PASS:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`

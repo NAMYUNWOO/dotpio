@@ -703,3 +703,7 @@
 - Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS); python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py (PASS).
 - Next: Implement WHAT-IF SPLIT ESC RECOVER ALT:<lane> prototype behind flag for contingency planning.
+
+## 2026-03-22 04:33 KST — No combat mechanic delta
+- This cycle was digest/control-plane only (`WHAT-IF SPLIT ESC RECOVER ALT`).
+- Combat runtime behavior untouched; no combat balance/regression rerun needed beyond digest regressions.

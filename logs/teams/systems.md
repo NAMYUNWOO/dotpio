@@ -1241,3 +1241,11 @@
 - Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS); python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py (PASS).
 - Next: Implement WHAT-IF SPLIT ESC RECOVER ALT:<lane> prototype behind flag for contingency planning.
+
+## 2026-03-22 04:33 KST — Cycle AD closure: split escalation recovery ALT fallback
+- Completed `WHAT-IF SPLIT ESC RECOVER ALT:<lane>` prototype behind `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_ALT`.
+- Added secondary contingency lane selector that excludes primary recover lane and prefers lowest-pressure remaining lane (`PORTAL` > `ALT` > `PRESSURE`).
+- Signal contract shipped in digest JSON/markdown:
+  - `whatIfSplitEscRecoverAlt`
+  - `whatIfSplitEscRecoverAltSignals`
+- Follow-up: if operators want stronger fallback confidence semantics, add dedicated `RECOVER ALT CONF` token next cycle.
