@@ -89,6 +89,20 @@ def main() -> int:
             "focusSpread",
             "driftSpread",
         }, payload
+        assert isinstance(payload.get("focusBalance"), str) and payload["focusBalance"].endswith("%"), payload
+        assert set(payload.get("focusBalanceSignals", {}).keys()) == {
+            "topScore",
+            "totalScore",
+            "dominanceRatio",
+            "percent",
+        }, payload
+        assert payload.get("focusEntropy") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("focusEntropySignals", {}).keys()) == {
+            "raw",
+            "normalized",
+            "maxEntropy",
+            "totalScore",
+        }, payload
         assert payload.get("actionGuard") in {"LOCK", "SOFT"}, payload
         assert set(payload.get("actionGuardSignals", {}).keys()) == {
             "armed",
@@ -135,6 +149,8 @@ def main() -> int:
         assert "FOCUS VOL" in md_text
         assert "ROUTE ACTION" in md_text
         assert "ACTION CONF" in md_text
+        assert "FOCUS BAL" in md_text
+        assert "FOCUS ENTROPY" in md_text
         assert "ACTION GUARD" in md_text
         assert "LANE LOCK" in md_text
         assert "DRIFT MOMENTUM" in md_text

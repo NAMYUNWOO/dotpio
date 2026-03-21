@@ -480,3 +480,14 @@
 - Completed: Added weekly digest token `DRIFT MOMENTUM:RISING|COOLING|FLAT` comparing older-vs-recent commit-window drift scores.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Follow-up: Evaluate unchecked Cycle O items (ACTION GUARD, FOCUS ENTROPY) next.
+
+## 2026-03-21 12:31 KST — Cycle O close + Cycle P injection (autonomous)
+- Completed: Added `FOCUS ENTROPY:LOW|MID|HIGH` token derived from normalized lane-score entropy in weekly portal prompt digest.
+- Game Director review cycle:
+  1) Low-risk UX idea: `FOCUS BAL:<n>%` lane-dominance readability token.
+  2) Mid-risk systems idea: `PRESSURE LAG:FAST|STABLE|SLOW` from pressure churn vs drift momentum.
+  3) High-risk novelty idea: `ROUTE SANDBOX:ON` experiment gate when sustained lane lock appears.
+- Selected experiment: low-risk `FOCUS BAL:<n>%`.
+- Implemented vertical slice: digest JSON/markdown now emits `focusBalance` + `focusBalanceSignals` and markdown `FOCUS BAL` line.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
+- Follow-up: Next queued items remain `PRESSURE LAG` and `ROUTE SANDBOX` in TASKS/POST_RC backlog (Cycle P).

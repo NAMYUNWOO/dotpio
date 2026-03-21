@@ -324,4 +324,9 @@ See project-level plans:
 ## Next Up (Game Director Injection — 2026-03-21 Cycle O)
 - [x] Add digest drift-momentum token (`DRIFT MOMENTUM:RISING|COOLING|FLAT`) comparing early-vs-late window risk score averages
 - [x] Add route-action guardrail token (`ACTION GUARD:LOCK|SOFT`) when confidence is LOW under HIGH drift risk
-- [ ] Add lane-focus entropy token (`FOCUS ENTROPY:LOW|MID|HIGH`) from normalized lane score spread
+- [x] Add lane-focus entropy token (`FOCUS ENTROPY:LOW|MID|HIGH`) from normalized lane score spread
+
+## Next Up (Game Director Injection — 2026-03-21 Cycle P)
+- [x] Add focus-balance token (`FOCUS BAL:<n>%`) to weekly digest for quick lane dominance readability
+- [ ] Add pressure-latency token (`PRESSURE LAG:FAST|STABLE|SLOW`) comparing pressure churn against drift momentum
+- [ ] Prototype adaptive route sandbox mode (`ROUTE SANDBOX:ON`) behind flag when digest enters sustained lane lock

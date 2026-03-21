@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -234,6 +235,50 @@ def lane_lock_from_focus(*, lane_focus: str, focus_streak: int) -> tuple[str, di
         "armed": armed,
         "lane": lane_focus,
         "streak": focus_streak,
+    }
+
+
+def focus_balance_from_scores(lane_focus_scores: dict[str, int]) -> tuple[str, dict[str, int | float]]:
+    values = sorted((max(0, v) for v in lane_focus_scores.values()), reverse=True)
+    top_score = values[0] if values else 0
+    total_score = sum(values)
+    dominance_ratio = (top_score / total_score) if total_score > 0 else 0.0
+    pct = int(round(dominance_ratio * 100))
+    return f"{pct}%", {
+        "topScore": top_score,
+        "totalScore": total_score,
+        "dominanceRatio": round(dominance_ratio, 3),
+        "percent": pct,
+    }
+
+
+def focus_entropy_from_scores(lane_focus_scores: dict[str, int]) -> tuple[str, dict[str, float | int]]:
+    values = [max(0, lane_focus_scores.get(key, 0)) for key in ("portal", "alt", "pressure")]
+    total = sum(values)
+    if total <= 0:
+        return "LOW", {
+            "raw": 0.0,
+            "normalized": 0.0,
+            "maxEntropy": round(math.log2(3), 3),
+            "totalScore": 0,
+        }
+
+    probs = [value / total for value in values if value > 0]
+    raw_entropy = -sum(p * math.log2(p) for p in probs)
+    max_entropy = math.log2(3)
+    normalized = raw_entropy / max_entropy if max_entropy > 0 else 0.0
+
+    tier = "LOW"
+    if normalized >= 0.67:
+        tier = "HIGH"
+    elif normalized >= 0.34:
+        tier = "MID"
+
+    return tier, {
+        "raw": round(raw_entropy, 3),
+        "normalized": round(normalized, 3),
+        "maxEntropy": round(max_entropy, 3),
+        "totalScore": total,
     }
 
 
@@ -474,6 +519,8 @@ def main() -> int:
         lane_focus_scores=lane_focus_scores,
         drift_risk_signals=drift_risk_signals,
     )
+    focus_balance, focus_balance_signals = focus_balance_from_scores(lane_focus_scores)
+    focus_entropy, focus_entropy_signals = focus_entropy_from_scores(lane_focus_scores)
     action_guard, action_guard_signals = route_action_guardrail_from_signals(
         drift_risk=drift_risk,
         route_action_confidence=route_action_confidence,
@@ -517,6 +564,10 @@ def main() -> int:
         "routeActionReason": route_action_reason,
         "routeActionConfidence": route_action_confidence,
         "routeActionConfidenceSignals": route_action_confidence_signals,
+        "focusBalance": focus_balance,
+        "focusBalanceSignals": focus_balance_signals,
+        "focusEntropy": focus_entropy,
+        "focusEntropySignals": focus_entropy_signals,
         "actionGuard": action_guard,
         "actionGuardSignals": action_guard_signals,
         "laneLock": lane_lock,
@@ -562,6 +613,8 @@ def main() -> int:
         f"- FOCUS VOL: **{focus_volatility}** (switches={focus_volatility_signals['switches']}/{focus_volatility_signals['edges']} ratio={focus_volatility_signals['switchRatio']})",
         f"- ROUTE ACTION: **{route_action}** ({route_action_reason})",
         f"- ACTION CONF: **{route_action_confidence}** (dom={route_action_confidence_signals['dominanceRatio']} spread={route_action_confidence_signals['focusSpread']} driftSpread={route_action_confidence_signals['driftSpread']})",
+        f"- FOCUS BAL: **{focus_balance}** (top={focus_balance_signals['topScore']} total={focus_balance_signals['totalScore']} dom={focus_balance_signals['dominanceRatio']})",
+        f"- FOCUS ENTROPY: **{focus_entropy}** (norm={focus_entropy_signals['normalized']} raw={focus_entropy_signals['raw']} max={focus_entropy_signals['maxEntropy']})",
         f"- ACTION GUARD: **{action_guard}** ({action_guard_signals['reason']}; risk={action_guard_signals['driftRisk']} conf={action_guard_signals['actionConfidence']})",
         f"- LANE LOCK: **{lane_lock}** (threshold={lane_lock_signals['threshold']} lane={lane_lock_signals['lane']} streak={lane_lock_signals['streak']})",
         f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",

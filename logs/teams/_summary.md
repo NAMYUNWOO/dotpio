@@ -1158,3 +1158,20 @@ Compact decision memory for AI context efficiency.
   - `TASKS.md` Cycle O action-guardrail item marked `[x]`
   - `POST_RC_BACKLOG.md` Cycle O action-guardrail item marked `[x]`
 - Next highest open item: `FOCUS ENTROPY:LOW|MID|HIGH`.
+
+## 2026-03-21 12:31 KST — Cycle O complete, Cycle P injected
+- Closed remaining Cycle O item by shipping `FOCUS ENTROPY:LOW|MID|HIGH` in weekly portal prompt readability digest.
+- Entropy implementation details:
+  - Normalized Shannon entropy over lane-focus scores (`portal/alt/pressure`) with thresholds `LOW <0.34`, `MID <0.67`, else `HIGH`.
+  - Added JSON fields: `focusEntropy`, `focusEntropySignals`.
+  - Added markdown line: `FOCUS ENTROPY`.
+- Because ACTION_ITEMS + TASKS + POST_RC backlog were fully checked, executed Game Director review cycle and injected Cycle P:
+  - Low-risk UX: `FOCUS BAL:<n>%` (chosen, implemented this cycle)
+  - Mid-risk systems: `PRESSURE LAG:FAST|STABLE|SLOW` (queued)
+  - High-risk novelty: `ROUTE SANDBOX:ON` under sustained lane lock (queued)
+- `FOCUS BAL` vertical slice shipped:
+  - Added JSON fields `focusBalance`, `focusBalanceSignals` and markdown token `FOCUS BAL`.
+  - Regression extended for payload schema + markdown token assertion.
+- Verification artifacts refreshed:
+  - `logs/weekly_portal_prompt_readability_drift.json`
+  - `logs/weekly_portal_prompt_readability_drift.md`

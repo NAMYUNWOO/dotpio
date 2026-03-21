@@ -914,3 +914,14 @@
 - Rule: `ACTION GUARD:LOCK` only when `DRIFT RISK=HIGH` and `ACTION CONF=LOW`; otherwise `SOFT`.
 - Signals persisted for auditability: `armed`, `reason`, `driftRisk`, `actionConfidence`.
 - Follow-up: implement remaining Cycle O entropy token to close lane-spread visibility gap.
+
+## 2026-03-21 12:31 KST — Cycle O close + Cycle P injection (autonomous)
+- Completed: Added `FOCUS ENTROPY:LOW|MID|HIGH` token derived from normalized lane-score entropy in weekly portal prompt digest.
+- Game Director review cycle:
+  1) Low-risk UX idea: `FOCUS BAL:<n>%` lane-dominance readability token.
+  2) Mid-risk systems idea: `PRESSURE LAG:FAST|STABLE|SLOW` from pressure churn vs drift momentum.
+  3) High-risk novelty idea: `ROUTE SANDBOX:ON` experiment gate when sustained lane lock appears.
+- Selected experiment: low-risk `FOCUS BAL:<n>%`.
+- Implemented vertical slice: digest JSON/markdown now emits `focusBalance` + `focusBalanceSignals` and markdown `FOCUS BAL` line.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
+- Follow-up: Next queued items remain `PRESSURE LAG` and `ROUTE SANDBOX` in TASKS/POST_RC backlog (Cycle P).
