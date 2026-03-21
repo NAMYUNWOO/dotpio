@@ -163,3 +163,8 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Design/Systems Team: Add route-action confidence telemetry line in markdown + JSON (`ACTION CONF`, confidence signals)
 - [x] QA/AI Content Team: Add anomaly confidence tier (`ANOMALY CONF:LOW|MID|HIGH`) to reduce binary alert noise
 - [x] Design/QA Team: Add lane-lock alert token (`LANE LOCK:<lane>x<n>`) for prolonged single-lane drift streaks
+
+## P1 (Game Director Injection — 2026-03-21 Cycle O)
+- [x] QA/Systems Team: Add digest drift-momentum token (`DRIFT MOMENTUM:RISING|COOLING|FLAT`) comparing early-vs-late window risk-score averages
+- [ ] Design/Systems Team: Add route-action guardrail token (`ACTION GUARD:LOCK|SOFT`) when confidence is LOW under HIGH drift risk
+- [ ] QA/Design Team: Add lane-focus entropy token (`FOCUS ENTROPY:LOW|MID|HIGH`) from normalized lane score spread

@@ -320,3 +320,8 @@ See project-level plans:
 - [x] Add route-action confidence telemetry line in markdown + JSON (`ACTION CONF`, confidence signals)
 - [x] Add anomaly confidence tier (`ANOMALY CONF:LOW|MID|HIGH`) to avoid binary over-alerting
 - [x] Add lane-lock alert token (`LANE LOCK:<lane>x<n>`) for prolonged single-lane drift streaks
+
+## Next Up (Game Director Injection — 2026-03-21 Cycle O)
+- [x] Add digest drift-momentum token (`DRIFT MOMENTUM:RISING|COOLING|FLAT`) comparing early-vs-late window risk score averages
+- [ ] Add route-action guardrail token (`ACTION GUARD:LOCK|SOFT`) when confidence is LOW under HIGH drift risk
+- [ ] Add lane-focus entropy token (`FOCUS ENTROPY:LOW|MID|HIGH`) from normalized lane score spread

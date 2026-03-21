@@ -502,3 +502,8 @@
 - Implementation: scripts/weekly_portal_prompt_readability_drift.py now emits JSON laneLock/laneLockSignals and markdown LANE LOCK line (NONE when threshold not met; <LANE>x<STREAK> when armed).
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py and weekly digest generation both PASS.
 - Follow-up: ACTION_ITEMS/TASKS/POST_RC_BACKLOG now fully checked; next cycle should run Game Director review loop with new experiment injection.
+
+## 2026-03-21 11:31 KST — Cycle O drift-momentum digest slice
+- Completed: Added weekly digest token `DRIFT MOMENTUM:RISING|COOLING|FLAT` comparing older-vs-recent commit-window drift scores.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Follow-up: Evaluate unchecked Cycle O items (ACTION GUARD, FOCUS ENTROPY) next.

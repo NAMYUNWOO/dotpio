@@ -237,6 +237,45 @@ def lane_lock_from_focus(*, lane_focus: str, focus_streak: int) -> tuple[str, di
     }
 
 
+def drift_momentum_from_commits(touched_rows: list[dict]) -> tuple[str, dict[str, float | int]]:
+    if not touched_rows:
+        return "FLAT", {
+            "recentAvg": 0.0,
+            "olderAvg": 0.0,
+            "delta": 0.0,
+            "recentCount": 0,
+            "olderCount": 0,
+        }
+
+    chronological = list(reversed(touched_rows))
+    scores = [
+        abs(row["net"]["compact"] - row["net"]["detailed"]) + abs(row["pressureEdits"]["net"])
+        for row in chronological
+    ]
+
+    split = max(1, len(scores) // 2)
+    older = scores[:split]
+    recent = scores[split:] if len(scores) > split else scores[:]
+
+    older_avg = sum(older) / len(older) if older else 0.0
+    recent_avg = sum(recent) / len(recent) if recent else 0.0
+    delta = recent_avg - older_avg
+
+    momentum = "FLAT"
+    if delta >= 2.0:
+        momentum = "RISING"
+    elif delta <= -2.0:
+        momentum = "COOLING"
+
+    return momentum, {
+        "recentAvg": round(recent_avg, 3),
+        "olderAvg": round(older_avg, 3),
+        "delta": round(delta, 3),
+        "recentCount": len(recent),
+        "olderCount": len(older),
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -428,6 +467,7 @@ def main() -> int:
         lane_focus=lane_focus,
         focus_streak=focus_streak,
     )
+    drift_momentum, drift_momentum_signals = drift_momentum_from_commits(touched)
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -464,6 +504,8 @@ def main() -> int:
         "routeActionConfidenceSignals": route_action_confidence_signals,
         "laneLock": lane_lock,
         "laneLockSignals": lane_lock_signals,
+        "driftMomentum": drift_momentum,
+        "driftMomentumSignals": drift_momentum_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -504,6 +546,7 @@ def main() -> int:
         f"- ROUTE ACTION: **{route_action}** ({route_action_reason})",
         f"- ACTION CONF: **{route_action_confidence}** (dom={route_action_confidence_signals['dominanceRatio']} spread={route_action_confidence_signals['focusSpread']} driftSpread={route_action_confidence_signals['driftSpread']})",
         f"- LANE LOCK: **{lane_lock}** (threshold={lane_lock_signals['threshold']} lane={lane_lock_signals['lane']} streak={lane_lock_signals['streak']})",
+        f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

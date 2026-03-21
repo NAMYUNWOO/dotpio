@@ -1122,3 +1122,20 @@ Compact decision memory for AI context efficiency.
   - `TASKS.md` Cycle N lane-lock task marked `[x]`
   - `POST_RC_BACKLOG.md` Cycle N lane-lock task marked `[x]`
 - Next hook: all ACTION_ITEMS + TASKS + POST_RC_BACKLOG checked; next autonomous cycle should execute Game Director review loop (3 ideas → pick 1 experiment → vertical slice).
+
+## 2026-03-21 11:31 KST — Game Director Cycle O: drift-momentum token shipped
+- Trigger: ACTION_ITEMS/TASKS/POST_RC reached all-checked state, so executed Game Director review cycle with 3 candidates:
+  1) Low-risk (chosen): `DRIFT MOMENTUM:RISING|COOLING|FLAT`.
+  2) Mid-risk: `ACTION GUARD:LOCK|SOFT` from confidence+risk.
+  3) High-risk: `FOCUS ENTROPY:LOW|MID|HIGH` from lane score spread.
+- Shipped vertical slice:
+  - `scripts/weekly_portal_prompt_readability_drift.py` now computes `driftMomentum` + `driftMomentumSignals` (recent/older averages, delta, split counts) from chronological commit-window drift scores.
+  - Markdown digest now includes `DRIFT MOMENTUM` line for fast trend triage.
+  - Regression extended in `scripts/regression_weekly_portal_prompt_readability_drift.py` for schema + markdown token checks.
+- Verification (PASS):
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`
+- Backlog sync:
+  - Marked Cycle O drift-momentum item done in `TASKS.md` and `POST_RC_BACKLOG.md`.
+  - Remaining Cycle O items: `ACTION GUARD`, `FOCUS ENTROPY`.
