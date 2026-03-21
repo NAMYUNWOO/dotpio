@@ -505,6 +505,18 @@ def main() -> int:
             "splitEscLanes",
             "reason",
         }, payload
+        assert payload.get("whatIfSplitEscRecoverAltConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverAltConfidenceSignals", {}).keys()) == {
+            "splitEscRecoverAlt",
+            "splitEscState",
+            "splitEscPressure",
+            "splitEscLanes",
+            "laneDivergence",
+            "laneCount",
+            "pressureRank",
+            "stateEasing",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -587,6 +599,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER CONF" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER ALT" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER ALT CONF" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

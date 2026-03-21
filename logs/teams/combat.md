@@ -707,3 +707,8 @@
 ## 2026-03-22 04:33 KST — No combat mechanic delta
 - This cycle was digest/control-plane only (`WHAT-IF SPLIT ESC RECOVER ALT`).
 - Combat runtime behavior untouched; no combat balance/regression rerun needed beyond digest regressions.
+
+## 2026-03-22 04:41 KST — Cycle AE update
+- Injected Game Director Cycle AE slate (3 ideas), shipped selected vertical slice: `WHAT-IF SPLIT ESC RECOVER ALT CONF`.
+- Verification references: weekly portal readability regression + digest generation passed.
+- Remaining Cycle AE queue: `RECOVER PLAN`, flagged `RECOVER WHY`.

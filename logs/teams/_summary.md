@@ -1482,3 +1482,17 @@ Compact decision memory for AI context efficiency.
   - JSON: `whatIfSplitEscRecoverAlt`, `whatIfSplitEscRecoverAltSignals`
   - Markdown: `WHAT-IF SPLIT ESC RECOVER ALT` row
 - Regression updated and passing (`scripts/regression_weekly_portal_prompt_readability_drift.py`).
+
+## 2026-03-22 04:41 KST — Game Director Cycle AE (3 ideas -> 1 shipped)
+- Idea slate generated:
+  1) **Low-risk UX**: `WHAT-IF SPLIT ESC RECOVER ALT CONF` token for fallback trust readability. *(chosen)*
+  2) **Mid-risk systems**: `WHAT-IF SPLIT ESC RECOVER PLAN:PRIMARY|ALT|HOLD` decision token.
+  3) **High-risk novelty**: flagged `WHAT-IF SPLIT ESC RECOVER WHY:<short>` rationale token.
+- Implemented minimal vertical slice (#1):
+  - Added `what_if_split_escalate_recover_alt_confidence_from_signals(...)`.
+  - Digest emits JSON fields `whatIfSplitEscRecoverAltConfidence` + `whatIfSplitEscRecoverAltConfidenceSignals`.
+  - Markdown row `WHAT-IF SPLIT ESC RECOVER ALT CONF` added.
+- Verification PASS:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`
+- Backlog update: Cycle AE section injected into `TASKS.md` + `POST_RC_BACKLOG.md`; selected item closed, remaining two queued.
