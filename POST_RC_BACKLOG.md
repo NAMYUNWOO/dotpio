@@ -226,5 +226,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-22 Cycle AA)
 - [x] UX/Design Team: Add split posture token (`WHAT-IF SPLIT POSTURE:SAFE|WATCH|HOLD`) from split armed/safe/confidence trio for faster operator go/no-go read *(lifecycle: [~] -> [x])*
-- [ ] QA/Systems Team: Add split cooloff token (`WHAT-IF SPLIT COOLOFF:<n>`) counting consecutive OFF windows after split ON cycle
+- [x] QA/Systems Team: Add split cooloff token (`WHAT-IF SPLIT COOLOFF:<n>`) counting consecutive OFF windows after split ON cycle
 - [ ] Systems/AI Content Team: Prototype split escalation sentinel (`WHAT-IF SPLIT ESCALATE:ON`) behind flag when split lanes remain divergent under `TENSE` fit

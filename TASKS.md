@@ -383,5 +383,5 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — 2026-03-22 Cycle AA)
 - [x] Add split posture token (`WHAT-IF SPLIT POSTURE:SAFE|WATCH|HOLD`) to digest from split armed/safe/confidence trio *(lifecycle: [~] -> [x])*
-- [ ] Add split cooloff token (`WHAT-IF SPLIT COOLOFF:<n>`) counting consecutive OFF windows after split ON cycle
+- [x] Add split cooloff token (`WHAT-IF SPLIT COOLOFF:<n>`) counting consecutive OFF windows after split ON cycle
 - [ ] Prototype split escalation sentinel (`WHAT-IF SPLIT ESCALATE:ON`) behind flag when split lanes remain divergent under `TENSE` fit

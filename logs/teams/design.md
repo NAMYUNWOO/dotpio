@@ -676,3 +676,9 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Next hook: implement Cycle AA follow-ups (`SPLIT COOLOFF`, `SPLIT ESCALATE`).
 
+
+## 2026-03-22 01:35 KST — Cycle AA follow-up closure (`WHAT-IF SPLIT COOLOFF`)
+- Completed backlog item: added `WHAT-IF SPLIT COOLOFF:<n>` token to weekly portal readability digest.
+- Decision: cooloff starts at 1 when split flips ON->OFF, increments while split stays OFF, resets to 0 on split ON.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Follow-up: next unchecked item is flagged novelty `WHAT-IF SPLIT ESCALATE:ON`.

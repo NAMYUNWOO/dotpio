@@ -1316,6 +1316,58 @@ def what_if_split_posture_from_signals(
     }
 
 
+def what_if_split_cooloff_from_prior(*, current_split: str, prior_json_path: Path) -> tuple[int, dict[str, str | int | bool]]:
+    """Count consecutive OFF windows after split ON cycle.
+
+    Returns (cooloff_count, signals_dict).
+    - If current split is ON, cooloff resets to 0.
+    - If prior digest had split ON and current is OFF, cooloff starts at 1.
+    - If prior digest already had a split cooloff counter and current is still OFF, increment.
+    """
+    if current_split == "ON":
+        return 0, {
+            "active": False,
+            "currentSplit": current_split,
+            "priorSplit": "ON",
+            "priorCooloff": 0,
+            "reason": "split-active-no-cooloff",
+            "priorLoaded": False,
+        }
+
+    prior_split = "OFF"
+    prior_cooloff = 0
+    prior_loaded = False
+    if prior_json_path.exists():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_split = str(prior.get("whatIfSplit", "OFF"))
+            prior_cooloff = int(prior.get("whatIfSplitCooloff", 0) or 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, OSError, ValueError, TypeError):
+            prior_split = "OFF"
+            prior_cooloff = 0
+            prior_loaded = False
+
+    if prior_split == "ON":
+        cooloff = 1
+        reason = "split-just-disarmed"
+    elif prior_cooloff > 0:
+        cooloff = prior_cooloff + 1
+        reason = "cooloff-continuing"
+    else:
+        cooloff = 0
+        reason = "no-prior-on-cycle"
+
+    return cooloff, {
+        "active": cooloff > 0,
+        "currentSplit": current_split,
+        "priorSplit": prior_split,
+        "priorCooloff": prior_cooloff,
+        "reason": reason,
+        "priorLoaded": prior_loaded,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -1873,6 +1925,10 @@ def main() -> int:
         what_if_split_safe=what_if_split_safe,
         what_if_split_confidence=what_if_split_confidence,
     )
+    what_if_split_cooloff, what_if_split_cooloff_signals = what_if_split_cooloff_from_prior(
+        current_split=what_if_split,
+        prior_json_path=args.out_json,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -1980,6 +2036,8 @@ def main() -> int:
         "whatIfSplitSafeSignals": what_if_split_safe_signals,
         "whatIfSplitPosture": what_if_split_posture,
         "whatIfSplitPostureSignals": what_if_split_posture_signals,
+        "whatIfSplitCooloff": what_if_split_cooloff,
+        "whatIfSplitCooloffSignals": what_if_split_cooloff_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -2056,6 +2114,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT CONF: **{what_if_split_confidence}** ({what_if_split_confidence_signals['reason']}; split={what_if_split_confidence_signals['split']} conf={what_if_split_confidence_signals['primaryConfidence']}/{what_if_split_confidence_signals['secondaryConfidence']} strong={what_if_split_confidence_signals['strongConfidence']} delta={what_if_split_confidence_signals['strongDelta']})",
         f"- WHAT-IF SPLIT SAFE: **{what_if_split_safe}** ({what_if_split_safe_signals['reason']}; flag={what_if_split_safe_signals['flagName']} enabled={what_if_split_safe_signals['flagEnabled']} split={what_if_split_safe_signals['split']} fit={what_if_split_safe_signals['primaryFit']} alt2Conf={what_if_split_safe_signals['secondaryConfidenceGate']})",
         f"- WHAT-IF SPLIT POSTURE: **{what_if_split_posture}** ({what_if_split_posture_signals['reason']}; split={what_if_split_posture_signals['split']} safe={what_if_split_posture_signals['splitSafe']} conf={what_if_split_posture_signals['splitConfidence']})",
+        f"- WHAT-IF SPLIT COOLOFF: **{what_if_split_cooloff}** ({what_if_split_cooloff_signals['reason']}; active={what_if_split_cooloff_signals['active']} prior={what_if_split_cooloff_signals['priorSplit']}:{what_if_split_cooloff_signals['priorCooloff']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

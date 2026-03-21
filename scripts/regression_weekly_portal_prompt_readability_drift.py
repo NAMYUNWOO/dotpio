@@ -7,7 +7,10 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from weekly_portal_prompt_readability_drift import sandbox_cooloff_from_prior
+from weekly_portal_prompt_readability_drift import (
+    sandbox_cooloff_from_prior,
+    what_if_split_cooloff_from_prior,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "weekly_portal_prompt_readability_drift.py"
@@ -407,6 +410,15 @@ def main() -> int:
             "splitConfidence",
             "reason",
         }, payload
+        assert isinstance(payload.get("whatIfSplitCooloff"), int), payload
+        assert set(payload.get("whatIfSplitCooloffSignals", {}).keys()) == {
+            "active",
+            "currentSplit",
+            "priorSplit",
+            "priorCooloff",
+            "reason",
+            "priorLoaded",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -479,6 +491,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT CONF" in md_text
         assert "WHAT-IF SPLIT SAFE" in md_text
         assert "WHAT-IF SPLIT POSTURE" in md_text
+        assert "WHAT-IF SPLIT COOLOFF" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -508,6 +521,31 @@ def main() -> int:
         )
         assert cooloff_three == 3, (cooloff_three, signals_three)
         assert signals_three["reason"] == "cooloff-continuing", signals_three
+
+        split_cooloff_zero, split_signals_zero = what_if_split_cooloff_from_prior(
+            current_split="OFF",
+            prior_json_path=repo / "missing-split-prior.json",
+        )
+        assert split_cooloff_zero == 0, (split_cooloff_zero, split_signals_zero)
+        assert split_signals_zero["reason"] == "no-prior-on-cycle", split_signals_zero
+
+        split_prior_on = repo / "split-prior-on.json"
+        split_prior_on.write_text(json.dumps({"whatIfSplit": "ON", "whatIfSplitCooloff": 0}), encoding="utf-8")
+        split_cooloff_one, split_signals_one = what_if_split_cooloff_from_prior(
+            current_split="OFF",
+            prior_json_path=split_prior_on,
+        )
+        assert split_cooloff_one == 1, (split_cooloff_one, split_signals_one)
+        assert split_signals_one["reason"] == "split-just-disarmed", split_signals_one
+
+        split_prior_cooling = repo / "split-prior-cooloff.json"
+        split_prior_cooling.write_text(json.dumps({"whatIfSplit": "OFF", "whatIfSplitCooloff": 2}), encoding="utf-8")
+        split_cooloff_three, split_signals_three = what_if_split_cooloff_from_prior(
+            current_split="OFF",
+            prior_json_path=split_prior_cooling,
+        )
+        assert split_cooloff_three == 3, (split_cooloff_three, split_signals_three)
+        assert split_signals_three["reason"] == "cooloff-continuing", split_signals_three
 
     print("[PASS] weekly portal prompt readability drift regression checks")
     return 0

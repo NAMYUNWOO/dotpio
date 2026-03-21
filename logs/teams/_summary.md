@@ -1426,3 +1426,10 @@ Compact decision memory for AI context efficiency.
   - Added posture classifier `SAFE|WATCH|HOLD` from `whatIfSplit`, `whatIfSplitSafe`, `whatIfSplitConfidence`.
   - Emitted `whatIfSplitPosture` + `whatIfSplitPostureSignals` in JSON and markdown `WHAT-IF SPLIT POSTURE` row.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-22 01:35 KST — Cycle AA systems closure (`WHAT-IF SPLIT COOLOFF`)
+- Added `what_if_split_cooloff_from_prior(...)` in `scripts/weekly_portal_prompt_readability_drift.py` to persist split cooloff lifecycle across digest windows.
+- Digest now emits JSON fields `whatIfSplitCooloff` + `whatIfSplitCooloffSignals` and markdown row `WHAT-IF SPLIT COOLOFF`.
+- Rule locked: `ON` => cooloff `0`; prior `ON` then current `OFF` => `1`; continuing `OFF` with prior cooloff => increment.
+- Regression expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` (schema+markdown assertions and direct helper lifecycle tests).
+- Backlog sync: `WHAT-IF SPLIT COOLOFF` marked done in `TASKS.md` and `POST_RC_BACKLOG.md`.
