@@ -251,5 +251,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-22 Cycle AF)
 - [x] UX/Systems Team: Add split escalation recovery tempo token (`WHAT-IF SPLIT ESC RECOVER TEMPO:FAST|STEADY|DEFER`) for operator pacing readability *(lifecycle: [~] -> [x])*
-- [ ] QA/Systems Team: Add split escalation recovery confidence-delta token (`WHAT-IF SPLIT ESC RECOVER ΔCONF:+n|-n`) comparing against prior digest window
+- [x] QA/Systems Team: Add split escalation recovery confidence-delta token (`WHAT-IF SPLIT ESC RECOVER ΔCONF:+n|-n`) comparing against prior digest window
 - [ ] Systems/AI Content Team: Prototype split escalation recovery veto sentinel (`WHAT-IF SPLIT ESC RECOVER VETO:ON`) behind flag when pressure remains HIGH under low confidence

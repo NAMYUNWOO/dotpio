@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-22 03:33 KST
+Last updated: 2026-03-22 06:12 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,8 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Cycle AF follow-up slice shipped: weekly digest now emits `WHAT-IF SPLIT ESC RECOVER ΔCONF:+n|-n` by comparing current vs prior digest recovery confidence (`LOW=0`, `MID=1`, `HIGH=2`) and exposing `priorLoaded` + reason signals.
+- Cycle AF backlog now has one remaining unchecked item: flag-gated `WHAT-IF SPLIT ESC RECOVER VETO:ON` under HIGH pressure + LOW confidence.
 - Cycle AC follow-up slice shipped: weekly digest now emits `WHAT-IF SPLIT ESC PRESSURE:LOW|MID|HIGH` with lifecycle-aware cooling decay for escalation cooldown risk context.
 - `WHAT-IF SPLIT ESC PRESSURE` is guarded by `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_PRESSURE`; when disabled it defaults to `LOW` with explicit `flag-disabled` reason to preserve default contract stability.
 - Remaining highest-priority unchecked item is Cycle AC recovery hint prototype: `WHAT-IF SPLIT ESC RECOVER:<lane>` (flag-gated).

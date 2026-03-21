@@ -15,6 +15,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_plan_from_signals,
     what_if_split_escalate_recover_why_from_signals,
     what_if_split_escalate_recover_tempo_from_signals,
+    what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -784,6 +785,31 @@ def main() -> int:
             )
             assert tempo_defer == "DEFER", (tempo_defer, tempo_defer_signals)
             assert tempo_defer_signals["reason"] == "no-actionable-recovery-plan", tempo_defer_signals
+
+            recover_prior = repo / "recover-prior.json"
+            recover_prior.write_text(json.dumps({"whatIfSplitEscRecoverConfidence": "LOW"}), encoding="utf-8")
+            delta_up, delta_up_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
+                current_confidence="HIGH",
+                prior_json_path=recover_prior,
+            )
+            assert delta_up == "+2", (delta_up, delta_up_signals)
+            assert delta_up_signals["reason"] == "confidence-increased-vs-prior-window", delta_up_signals
+
+            recover_prior.write_text(json.dumps({"whatIfSplitEscRecoverConfidence": "HIGH"}), encoding="utf-8")
+            delta_down, delta_down_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
+                current_confidence="LOW",
+                prior_json_path=recover_prior,
+            )
+            assert delta_down == "-2", (delta_down, delta_down_signals)
+            assert delta_down_signals["reason"] == "confidence-decreased-vs-prior-window", delta_down_signals
+
+            delta_flat, delta_flat_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
+                current_confidence="MID",
+                prior_json_path=repo / "missing-recover-prior.json",
+            )
+            assert delta_flat == "+0", (delta_flat, delta_flat_signals)
+            assert delta_flat_signals["priorLoaded"] is False, delta_flat_signals
+            assert delta_flat_signals["reason"] == "confidence-unchanged-vs-prior-window", delta_flat_signals
         finally:
             if prior_recover_why_env is None:
                 os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_WHY", None)

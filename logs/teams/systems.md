@@ -1276,3 +1276,10 @@
 - Implementation: weekly digest now emits JSON fields `whatIfSplitEscRecoverTempo` + `whatIfSplitEscRecoverTempoSignals` and markdown line `WHAT-IF SPLIT ESC RECOVER TEMPO`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` pass.
 - Backlog injection: added Cycle AF entries to `TASKS.md` and `POST_RC_BACKLOG.md` with selected slice done and two follow-up candidates queued.
+
+## 2026-03-22 06:12 KST — Cycle AF follow-up: split escalation recovery confidence delta
+- Completed: Added `WHAT-IF SPLIT ESC RECOVER ΔCONF:+n|-n` token by comparing current recovery confidence tier against prior digest window.
+- Decision: Use ordinal confidence scoring (`LOW=0`, `MID=1`, `HIGH=2`) and emit signed delta (`+n` / `-n`, zero as `+0`) with explicit `priorLoaded` signal for auditability.
+- Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS), `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` (PASS)
+- Next: implement flagged `WHAT-IF SPLIT ESC RECOVER VETO:ON` sentinel when pressure remains HIGH under low confidence.

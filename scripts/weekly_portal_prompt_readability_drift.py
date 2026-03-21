@@ -1886,6 +1886,51 @@ def what_if_split_escalate_recover_tempo_from_signals(
     }
 
 
+def what_if_split_escalate_recover_confidence_delta_from_prior(
+    *,
+    current_confidence: str,
+    prior_json_path: Path,
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Compare current recovery confidence against prior digest window."""
+    score_map = {"LOW": 0, "MID": 1, "HIGH": 2}
+    current = str(current_confidence).upper()
+    current_score = score_map.get(current, 0)
+
+    prior_loaded = False
+    prior_confidence = current
+    prior_score = current_score
+
+    if prior_json_path.is_file():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_confidence = str(prior.get("whatIfSplitEscRecoverConfidence", current)).upper()
+            prior_score = score_map.get(prior_confidence, current_score)
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    delta = current_score - prior_score
+    if delta > 0:
+        delta_token = f"+{delta}"
+        reason = "confidence-increased-vs-prior-window"
+    elif delta < 0:
+        delta_token = str(delta)
+        reason = "confidence-decreased-vs-prior-window"
+    else:
+        delta_token = "+0"
+        reason = "confidence-unchanged-vs-prior-window"
+
+    return delta_token, {
+        "currentConfidence": current,
+        "currentScore": current_score,
+        "priorConfidence": prior_confidence,
+        "priorScore": prior_score,
+        "delta": delta,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -2509,6 +2554,10 @@ def main() -> int:
         what_if_split_esc_recover_confidence=what_if_split_esc_recover_confidence,
         what_if_split_esc_pressure=what_if_split_esc_pressure,
     )
+    what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
+        current_confidence=what_if_split_esc_recover_confidence,
+        prior_json_path=args.out_json,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -2644,6 +2693,8 @@ def main() -> int:
         "whatIfSplitEscRecoverWhySignals": what_if_split_esc_recover_why_signals,
         "whatIfSplitEscRecoverTempo": what_if_split_esc_recover_tempo,
         "whatIfSplitEscRecoverTempoSignals": what_if_split_esc_recover_tempo_signals,
+        "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
+        "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -2734,6 +2785,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER PLAN: **{what_if_split_esc_recover_plan}** ({what_if_split_esc_recover_plan_signals['reason']}; primary={what_if_split_esc_recover_plan_signals['splitEscRecover']} alt={what_if_split_esc_recover_plan_signals['splitEscRecoverAlt']} hasPrimary={what_if_split_esc_recover_plan_signals['hasPrimary']} hasAlt={what_if_split_esc_recover_plan_signals['hasAlt']})",
         f"- WHAT-IF SPLIT ESC RECOVER WHY: **{what_if_split_esc_recover_why}** ({what_if_split_esc_recover_why_signals['reason']}; flag={what_if_split_esc_recover_why_signals['flagName']} enabled={what_if_split_esc_recover_why_signals['flagEnabled']} plan={what_if_split_esc_recover_why_signals['splitEscRecoverPlan']} conf={what_if_split_esc_recover_why_signals['splitEscRecoverConfidence']} pressure={what_if_split_esc_recover_why_signals['splitEscPressure']})",
         f"- WHAT-IF SPLIT ESC RECOVER TEMPO: **{what_if_split_esc_recover_tempo}** ({what_if_split_esc_recover_tempo_signals['reason']}; plan={what_if_split_esc_recover_tempo_signals['splitEscRecoverPlan']} conf={what_if_split_esc_recover_tempo_signals['splitEscRecoverConfidence']} pressure={what_if_split_esc_recover_tempo_signals['splitEscPressure']})",
+        f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",
