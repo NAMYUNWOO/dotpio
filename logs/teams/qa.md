@@ -1390,3 +1390,13 @@
 - Completed: Added weekly digest token `DRIFT MOMENTUM:RISING|COOLING|FLAT` comparing older-vs-recent commit-window drift scores.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Follow-up: Evaluate unchecked Cycle O items (ACTION GUARD, FOCUS ENTROPY) next.
+
+## 2026-03-21 12:03 KST — Regression update for action guardrail token
+- Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` to assert:
+  - JSON token `actionGuard` in `{LOCK,SOFT}`
+  - JSON payload `actionGuardSignals` schema (`armed`, `reason`, `driftRisk`, `actionConfidence`)
+  - Markdown includes `ACTION GUARD`
+- Verification PASS:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`

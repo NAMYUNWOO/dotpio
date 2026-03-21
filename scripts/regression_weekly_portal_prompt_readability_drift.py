@@ -89,6 +89,13 @@ def main() -> int:
             "focusSpread",
             "driftSpread",
         }, payload
+        assert payload.get("actionGuard") in {"LOCK", "SOFT"}, payload
+        assert set(payload.get("actionGuardSignals", {}).keys()) == {
+            "armed",
+            "reason",
+            "driftRisk",
+            "actionConfidence",
+        }, payload
         assert isinstance(payload.get("laneLock"), str), payload
         assert set(payload.get("laneLockSignals", {}).keys()) == {"threshold", "armed", "lane", "streak"}, payload
         assert payload.get("driftMomentum") in {"RISING", "COOLING", "FLAT"}, payload
@@ -128,6 +135,7 @@ def main() -> int:
         assert "FOCUS VOL" in md_text
         assert "ROUTE ACTION" in md_text
         assert "ACTION CONF" in md_text
+        assert "ACTION GUARD" in md_text
         assert "LANE LOCK" in md_text
         assert "DRIFT MOMENTUM" in md_text
         assert "STICKY TOKENS" in md_text

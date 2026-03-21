@@ -1139,3 +1139,22 @@ Compact decision memory for AI context efficiency.
 - Backlog sync:
   - Marked Cycle O drift-momentum item done in `TASKS.md` and `POST_RC_BACKLOG.md`.
   - Remaining Cycle O items: `ACTION GUARD`, `FOCUS ENTROPY`.
+
+## 2026-03-21 12:03 KST — Cycle O: action-guardrail token shipped
+- Completed Cycle O item: `ACTION GUARD:LOCK|SOFT` for weekly portal prompt readability digest.
+- Implementation (`scripts/weekly_portal_prompt_readability_drift.py`):
+  - Added `route_action_guardrail_from_signals(driftRisk, routeActionConfidence)`.
+  - Emits JSON: `actionGuard`, `actionGuardSignals`.
+  - Emits markdown row: `ACTION GUARD` with compact reason + risk/conf tuple.
+  - Arming condition: `driftRisk=HIGH && actionConfidence=LOW` => `LOCK`; else `SOFT`.
+- Regression (`scripts/regression_weekly_portal_prompt_readability_drift.py`):
+  - Added schema assertions for `actionGuard` and `actionGuardSignals`.
+  - Added markdown token assertion for `ACTION GUARD`.
+- Verification (PASS):
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`
+- Backlog sync:
+  - `TASKS.md` Cycle O action-guardrail item marked `[x]`
+  - `POST_RC_BACKLOG.md` Cycle O action-guardrail item marked `[x]`
+- Next highest open item: `FOCUS ENTROPY:LOW|MID|HIGH`.

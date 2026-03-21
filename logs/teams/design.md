@@ -463,3 +463,8 @@
 - Completed: Added weekly digest token `DRIFT MOMENTUM:RISING|COOLING|FLAT` comparing older-vs-recent commit-window drift scores.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Follow-up: Evaluate unchecked Cycle O items (ACTION GUARD, FOCUS ENTROPY) next.
+
+## 2026-03-21 12:03 KST — Digest action policy readability
+- Added markdown digest line `ACTION GUARD` to make route-action safety posture explicit.
+- Copy format keeps compact triage intent: guard state + reason + upstream risk/confidence pair.
+- Decision: default to `SOFT` unless high-risk/low-confidence conjunction arms a hard lock.

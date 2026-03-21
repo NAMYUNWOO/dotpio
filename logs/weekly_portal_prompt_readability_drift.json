@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T02:33:15.361129Z",
+  "generatedAt": "2026-03-21T03:02:54.232916Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -44,6 +44,13 @@
     "dominanceRatio": 0.479,
     "focusSpread": 12,
     "driftSpread": 11
+  },
+  "actionGuard": "LOCK",
+  "actionGuardSignals": {
+    "armed": true,
+    "reason": "high-drift-low-confidence",
+    "driftRisk": "HIGH",
+    "actionConfidence": "LOW"
   },
   "laneLock": "NONE",
   "laneLockSignals": {
@@ -185,6 +192,97 @@
     }
   ],
   "commits": [
+    {
+      "sha": "dff2f4c932e6e16bed748ca14c3037d2cf613b02",
+      "shortSha": "dff2f4c",
+      "author": "yunwoo",
+      "subject": "feat: add drift momentum token to portal prompt digest",
+      "committedAt": "2026-03-21T02:34:00Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      }
+    },
     {
       "sha": "ac71d4d55fa181d61ba2345d6a25e76e7149cf5a",
       "shortSha": "ac71d4d",
@@ -10632,91 +10730,6 @@
         "scripts/regression_enemy_behavior_variants.lua",
         "src/enemy_ai.lua",
         "src/entities.lua"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      }
-    },
-    {
-      "sha": "4da2f326a4cf9f0ddb988c4c8605b6bc3ac36e33",
-      "shortSha": "4da2f32",
-      "author": "yunwoo",
-      "subject": "feat(world): add map_06 with bidirectional portal links",
-      "committedAt": "2026-03-18T21:13:21Z",
-      "changedFiles": [
-        "ACTION_ITEMS.md",
-        "TASKS.md",
-        "logs/playtests/map_01_04_progression_checklist.md",
-        "logs/teams/_summary.md",
-        "logs/teams/qa.md",
-        "logs/teams/world.md",
-        "maps/map_05.lua",
-        "maps/map_06.lua"
       ],
       "portalFiles": [],
       "touchedPortalPrompt": false,

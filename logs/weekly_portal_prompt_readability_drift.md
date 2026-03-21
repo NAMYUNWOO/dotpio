@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T02:33:15.361129Z
+- GeneratedAt(UTC): 2026-03-21T03:02:54.232916Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
@@ -15,6 +15,7 @@
 - FOCUS VOL: **SWING** (switches=5/8 ratio=0.625)
 - ROUTE ACTION: **PORTAL_AUDIT** (portal-family tokens dominate top movers)
 - ACTION CONF: **LOW** (dom=0.479 spread=12 driftSpread=11)
+- ACTION GUARD: **LOCK** (high-drift-low-confidence; risk=HIGH conf=LOW)
 - LANE LOCK: **NONE** (threshold=3 lane=PORTAL streak=0)
 - DRIFT MOMENTUM: **FLAT** (recent=4.6 older=3.5 delta=1.1)
 - STICKY TOKENS: **6**

@@ -276,6 +276,17 @@ def drift_momentum_from_commits(touched_rows: list[dict]) -> tuple[str, dict[str
     }
 
 
+def route_action_guardrail_from_signals(*, drift_risk: str, route_action_confidence: str) -> tuple[str, dict[str, str | bool]]:
+    lock = drift_risk == "HIGH" and route_action_confidence == "LOW"
+    token = "LOCK" if lock else "SOFT"
+    return token, {
+        "armed": lock,
+        "reason": "high-drift-low-confidence" if lock else "default-soft-guardrail",
+        "driftRisk": drift_risk,
+        "actionConfidence": route_action_confidence,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -463,6 +474,10 @@ def main() -> int:
         lane_focus_scores=lane_focus_scores,
         drift_risk_signals=drift_risk_signals,
     )
+    action_guard, action_guard_signals = route_action_guardrail_from_signals(
+        drift_risk=drift_risk,
+        route_action_confidence=route_action_confidence,
+    )
     lane_lock, lane_lock_signals = lane_lock_from_focus(
         lane_focus=lane_focus,
         focus_streak=focus_streak,
@@ -502,6 +517,8 @@ def main() -> int:
         "routeActionReason": route_action_reason,
         "routeActionConfidence": route_action_confidence,
         "routeActionConfidenceSignals": route_action_confidence_signals,
+        "actionGuard": action_guard,
+        "actionGuardSignals": action_guard_signals,
         "laneLock": lane_lock,
         "laneLockSignals": lane_lock_signals,
         "driftMomentum": drift_momentum,
@@ -545,6 +562,7 @@ def main() -> int:
         f"- FOCUS VOL: **{focus_volatility}** (switches={focus_volatility_signals['switches']}/{focus_volatility_signals['edges']} ratio={focus_volatility_signals['switchRatio']})",
         f"- ROUTE ACTION: **{route_action}** ({route_action_reason})",
         f"- ACTION CONF: **{route_action_confidence}** (dom={route_action_confidence_signals['dominanceRatio']} spread={route_action_confidence_signals['focusSpread']} driftSpread={route_action_confidence_signals['driftSpread']})",
+        f"- ACTION GUARD: **{action_guard}** ({action_guard_signals['reason']}; risk={action_guard_signals['driftRisk']} conf={action_guard_signals['actionConfidence']})",
         f"- LANE LOCK: **{lane_lock}** (threshold={lane_lock_signals['threshold']} lane={lane_lock_signals['lane']} streak={lane_lock_signals['streak']})",
         f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",

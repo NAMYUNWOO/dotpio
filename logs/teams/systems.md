@@ -908,3 +908,9 @@
 - Completed: Added weekly digest token `DRIFT MOMENTUM:RISING|COOLING|FLAT` comparing older-vs-recent commit-window drift scores.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Follow-up: Evaluate unchecked Cycle O items (ACTION GUARD, FOCUS ENTROPY) next.
+
+## 2026-03-21 12:03 KST — Cycle O follow-up: action guardrail token
+- Added route-action guardrail resolver in weekly portal prompt digest.
+- Rule: `ACTION GUARD:LOCK` only when `DRIFT RISK=HIGH` and `ACTION CONF=LOW`; otherwise `SOFT`.
+- Signals persisted for auditability: `armed`, `reason`, `driftRisk`, `actionConfidence`.
+- Follow-up: implement remaining Cycle O entropy token to close lane-spread visibility gap.
