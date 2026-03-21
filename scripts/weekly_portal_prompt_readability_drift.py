@@ -433,6 +433,42 @@ def what_if_alt_from_signals(
     }
 
 
+def what_if_confidence_from_signals(
+    *,
+    what_if_alt_signals: dict[str, str | int | bool],
+    route_action_confidence: str,
+) -> tuple[str, dict[str, str | int | bool]]:
+    flag_enabled = bool(what_if_alt_signals.get("flagEnabled", False))
+    delta_risk = int(what_if_alt_signals.get("deltaRisk", 0))
+    current_lane = str(what_if_alt_signals.get("currentLane", "MIXED"))
+    alt_lane = str(what_if_alt_signals.get("altLane", "NONE"))
+
+    if not flag_enabled:
+        confidence = "LOW"
+        reason = "flag-disabled"
+    elif alt_lane in {"NONE", "MIXED"} or alt_lane == current_lane:
+        confidence = "LOW"
+        reason = "no-distinct-alt-lane"
+    elif delta_risk <= -3 and route_action_confidence in {"MID", "HIGH"}:
+        confidence = "HIGH"
+        reason = "strong-risk-drop-with-route-confidence"
+    elif delta_risk <= -1:
+        confidence = "MID"
+        reason = "moderate-risk-drop"
+    else:
+        confidence = "LOW"
+        reason = "weak-or-negative-impact"
+
+    return confidence, {
+        "flagEnabled": flag_enabled,
+        "deltaRisk": delta_risk,
+        "currentLane": current_lane,
+        "altLane": alt_lane,
+        "routeActionConfidence": route_action_confidence,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -890,6 +926,10 @@ def main() -> int:
         lane_focus_scores=lane_focus_scores,
         drift_risk_signals=drift_risk_signals,
     )
+    what_if_confidence, what_if_confidence_signals = what_if_confidence_from_signals(
+        what_if_alt_signals=what_if_alt_signals,
+        route_action_confidence=route_action_confidence,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -955,6 +995,8 @@ def main() -> int:
         "pressureLagSignals": pressure_lag_signals,
         "whatIfAlt": what_if_alt,
         "whatIfAltSignals": what_if_alt_signals,
+        "whatIfConfidence": what_if_confidence,
+        "whatIfConfidenceSignals": what_if_confidence_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -1010,6 +1052,7 @@ def main() -> int:
         f"- ACTION STABILITY: **{action_stability}** ({action_stability_signals['reason']}; conf={action_stability_signals['routeActionConfidence']} vol={action_stability_signals['focusVolatility']} momentum={action_stability_signals['driftMomentum']})",
         f"- PRESSURE LAG: **{pressure_lag}** (churn={pressure_lag_signals['pressureChurn']} momentum={pressure_lag_signals['driftMomentum']} |Δ|={pressure_lag_signals['absDriftDelta']})",
         f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
+        f"- WHAT-IF CONF: **{what_if_confidence}** ({what_if_confidence_signals['reason']}; delta={what_if_confidence_signals['deltaRisk']} routeConf={what_if_confidence_signals['routeActionConfidence']} current={what_if_confidence_signals['currentLane']} alt={what_if_confidence_signals['altLane']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

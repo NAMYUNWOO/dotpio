@@ -552,3 +552,8 @@
 - Added compact what-if planning token path to digest payload/markdown for AI-assisted backlog ideation loops.
 - New fields: `whatIfAlt`, `whatIfAltSignals` with explicit `flagEnabled`, `currentLane`, `altLane`, `deltaRisk`.
 - Regression suite updated to assert schema + markdown presence.
+
+## 2026-03-21 17:31 KST
+- Task support: No AI generation prompt/content changes.
+- Decision: Digest confidence token remains deterministic telemetry logic (non-generative).
+- Follow-up: Revisit if future what-if signals need narrative coaching text variants.

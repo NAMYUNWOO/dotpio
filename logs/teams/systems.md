@@ -1003,3 +1003,12 @@
 - Digest output: JSON now includes `whatIfAlt`, `whatIfAltSignals`; markdown adds `WHAT-IF` line with flag/status/current-alt/risk projection tuple.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + digest regeneration pass.
 - Follow-up: if enabled in sustain env, validate real-window usefulness of projected `ΔRISK` heuristic and tune coefficients if noisy.
+
+## 2026-03-21 17:31 KST
+- Task: Cycle T vertical slice — add digest `WHAT-IF CONF:LOW|MID|HIGH` token from flagged alt-lane projection + route confidence.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Decisions:
+  - Confidence remains conservative (`LOW`) when experiment flag is off or no distinct alternate lane exists.
+  - High confidence requires strong projected risk drop (`ΔRISK<=-3`) plus non-low route-action confidence.
+- Verification: py_compile + weekly digest regression + digest artifact refresh all PASS.
+- Next: implement Cycle T `WHAT-IF ALIGN` token.

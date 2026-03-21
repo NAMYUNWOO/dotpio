@@ -1480,3 +1480,12 @@
 - Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` with assertions for new payload keys `whatIfAlt` + `whatIfAltSignals`.
 - Added markdown coverage assertion for `WHAT-IF` digest line.
 - Verification run: `[PASS] weekly portal prompt readability drift regression checks`.
+
+## 2026-03-21 17:31 KST
+- Task: Regression expansion for `WHAT-IF CONF` output contract.
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` ✅
+- Follow-up: add assertions for upcoming `WHAT-IF ALIGN` token.

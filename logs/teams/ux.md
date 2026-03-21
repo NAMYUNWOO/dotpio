@@ -801,3 +801,8 @@
 - Added markdown digest row: `WHAT-IF: ALT:<lane> ΔRISK:<n>` with compact context tuple and explicit flag state.
 - Readability intent: preserve DOS-style single-line scan while surfacing alternate-lane planning cue.
 - Follow-up: if line budget gets tight, evaluate compact fallback tokenization in prompt digest output.
+
+## 2026-03-21 17:31 KST
+- Task: UX/readability pass for digest what-if projection trust.
+- Decision: Surface confidence as 3-tier enum (LOW/MID/HIGH) to avoid binary overconfidence.
+- Follow-up: add alignment token to reduce ambiguity between suggested ALT lane and route action.

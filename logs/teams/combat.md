@@ -532,3 +532,8 @@
 - No combat runtime behavior changed.
 - Digest telemetry now exposes route-planning what-if token (`WHAT-IF ALT`) to support safer pressure-lane decision review upstream.
 - Verification: weekly digest regression suite green after schema/markdown assertions update.
+
+## 2026-03-21 17:31 KST
+- Task support: No combat/runtime balance changes.
+- Decision: Continue consuming existing `routeActionConfidence` signal without altering threat math.
+- Follow-up: none.

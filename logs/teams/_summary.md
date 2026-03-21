@@ -1245,3 +1245,15 @@ Compact decision memory for AI context efficiency.
   - QA: `scripts/regression_weekly_portal_prompt_readability_drift.py` now validates new schema and markdown token presence; regression passes.
   - Artifacts refreshed: `logs/weekly_portal_prompt_readability_drift.json` and `.md` regenerated.
   - Backlog state: `TASKS.md` + `POST_RC_BACKLOG.md` item marked done; all currently listed ACTION_ITEMS/TASKS/POST_RC entries are checked.
+
+## 2026-03-21 17:31 KST — Game Director Cycle T started: WHAT-IF confidence slice shipped
+- Trigger: ACTION_ITEMS/TASKS/POST_RC were all checked, so new Game Director cycle was injected.
+- Idea slate generated:
+  1) **Chosen (low-risk UX):** `WHAT-IF CONF:LOW|MID|HIGH` for alt-lane projection trust.
+  2) Mid-risk QA/Systems: `WHAT-IF ALIGN:ALIGNED|DIVERGED`.
+  3) High-risk Design/Systems: `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.
+- Shipped vertical slice:
+  - `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfConfidence` + `whatIfConfidenceSignals` and markdown line `WHAT-IF CONF`.
+  - Confidence model is conservative by default and only reaches HIGH on strong projected risk drop plus non-low route confidence.
+- Verification (PASS): py_compile + digest regression + digest artifact refresh.
+- Backlog sync: Cycle T `WHAT-IF CONF` marked done in `TASKS.md` and `POST_RC_BACKLOG.md`; two Cycle T follow-ups remain unchecked.

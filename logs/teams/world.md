@@ -579,3 +579,8 @@
 - Completed backlog item: `WHAT-IF ALT:<lane> ΔRISK:<n>` behind flag in weekly portal readability digest.
 - World-routing handoff gain: digest now previews an alternate lane target even when sandbox is OFF, reducing route planning ambiguity.
 - Flag contract: inactive by default (`DOTPIO_EXPERIMENT_WHAT_IF_ALT`), emits `WHAT-IF: OFF` until enabled.
+
+## 2026-03-21 17:31 KST
+- Task support: No map/portal topology changes in this slice.
+- Decision: Keep cycle scoped to digest analytics only; world lane unchanged.
+- Follow-up: Prepare for `WHAT-IF ALIGN` mapping review once route-action coupling is implemented.

@@ -548,3 +548,8 @@
 - Completed highest-priority open item by shipping `WHAT-IF ALT:<lane> ΔRISK:<n>` as a flag-gated digest token.
 - Durable decision: keep token non-invasive (`OFF` by default) and include both projected/baseline risk in markdown context for auditability.
 - Next review hook: all ACTION_ITEMS/TASKS/POST_RC checklist items are now checked; next cron should enter Game Director ideation cycle immediately.
+
+## 2026-03-21 17:31 KST
+- Task: Added readability token `WHAT-IF CONF` to weekly digest markdown.
+- Decision: Keep compact explanatory diagnostics (`delta`, `routeConf`, lanes) on one line for triage speed.
+- Follow-up: design semantics for `WHAT-IF ALIGN` token (`ALIGNED|DIVERGED`).
