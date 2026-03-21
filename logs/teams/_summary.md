@@ -1395,3 +1395,11 @@ Compact decision memory for AI context efficiency.
 - Backlog injection/sync:
   - Added Cycle Z section to `TASKS.md` and `POST_RC_BACKLOG.md`.
   - Marked selected item done; left two follow-ups queued (`SPLIT LANES`, `SPLIT SAFE`).
+
+## 2026-03-22 00:03 KST — Game Director Cycle Z progress (`WHAT-IF SPLIT LANES`)
+- Closed one of two remaining unchecked Cycle Z items by shipping `WHAT-IF SPLIT LANES:<primary>/<secondary>` in the weekly portal readability digest.
+- Implementation details:
+  - `scripts/weekly_portal_prompt_readability_drift.py` now derives `whatIfSplitLanes` + `whatIfSplitLanesSignals` from split signals and emits a markdown line `WHAT-IF SPLIT LANES` for compact handoff clarity.
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py` now validates the new JSON fields and markdown token presence.
+- Backlog sync: marked route-pair token done in both `TASKS.md` and `POST_RC_BACKLOG.md`.
+- Remaining priority item: `WHAT-IF SPLIT SAFE:ON` (flagged novelty gate).

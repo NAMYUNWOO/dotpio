@@ -1168,6 +1168,33 @@ def what_if_split_from_signals(
     }
 
 
+def what_if_split_lanes_from_signals(
+    *,
+    what_if_split_signals: dict[str, str | int | bool],
+) -> tuple[str, dict[str, str | bool]]:
+    primary_lane = str(what_if_split_signals.get("primaryLane", "OFF"))
+    secondary_lane = str(what_if_split_signals.get("secondaryLane", "NONE"))
+
+    primary_actionable = primary_lane in {"PORTAL", "ALT", "PRESSURE"}
+    secondary_actionable = secondary_lane in {"PORTAL", "ALT", "PRESSURE"}
+
+    if primary_actionable and secondary_actionable:
+        lanes = f"{primary_lane}/{secondary_lane}"
+        reason = "dual-lane-pair"
+    elif primary_actionable:
+        lanes = f"{primary_lane}/NONE"
+        reason = "secondary-missing"
+    else:
+        lanes = "NONE/NONE"
+        reason = "no-actionable-lanes"
+
+    return lanes, {
+        "primaryActionable": primary_actionable,
+        "secondaryActionable": secondary_actionable,
+        "reason": reason,
+    }
+
+
 def what_if_split_confidence_from_signals(
     *,
     what_if_split: str,
@@ -1745,6 +1772,9 @@ def main() -> int:
         what_if_fallback_plan_signals=what_if_fallback_plan_signals,
         what_if_alt_signals=what_if_alt_signals,
     )
+    what_if_split_lanes, what_if_split_lanes_signals = what_if_split_lanes_from_signals(
+        what_if_split_signals=what_if_split_signals,
+    )
     what_if_split_confidence, what_if_split_confidence_signals = what_if_split_confidence_from_signals(
         what_if_split=what_if_split,
         what_if_split_signals=what_if_split_signals,
@@ -1848,6 +1878,8 @@ def main() -> int:
         "whatIfFallbackPlanWhySignals": what_if_fallback_plan_why_signals,
         "whatIfSplit": what_if_split,
         "whatIfSplitSignals": what_if_split_signals,
+        "whatIfSplitLanes": what_if_split_lanes,
+        "whatIfSplitLanesSignals": what_if_split_lanes_signals,
         "whatIfSplitConfidence": what_if_split_confidence,
         "whatIfSplitConfidenceSignals": what_if_split_confidence_signals,
         "anomalyPulse": anomaly_pulse,
@@ -1922,6 +1954,7 @@ def main() -> int:
         f"- WHAT-IF PLAN FIT: **{what_if_fallback_plan_fit}** ({what_if_fallback_plan_fit_signals['reason']}; plan={what_if_fallback_plan_fit_signals['plan']} lane={what_if_fallback_plan_fit_signals['planLane']} pressure={what_if_fallback_plan_fit_signals['pressureBand']} projected={what_if_fallback_plan_fit_signals['projectedBand']})",
         f"- WHAT-IF PLAN WHY: **{what_if_fallback_plan_why}** ({what_if_fallback_plan_why_signals['reason']}; flag={what_if_fallback_plan_why_signals['flagName']} enabled={what_if_fallback_plan_why_signals['flagEnabled']} plan={what_if_fallback_plan_why_signals['plan']} fit={what_if_fallback_plan_why_signals['planFit']})",
         f"- WHAT-IF SPLIT: **{what_if_split}** ({what_if_split_signals['reason']}; flag={what_if_split_signals['flagName']} enabled={what_if_split_signals['flagEnabled']} lanes={what_if_split_signals['primaryLane']}->{what_if_split_signals['secondaryLane']} conf={what_if_split_signals['primaryConfidence']}/{what_if_split_signals['secondaryConfidence']} |Δ|={what_if_split_signals['absDeltaRisk']})",
+        f"- WHAT-IF SPLIT LANES: **{what_if_split_lanes}** ({what_if_split_lanes_signals['reason']}; actionable={what_if_split_lanes_signals['primaryActionable']}/{what_if_split_lanes_signals['secondaryActionable']})",
         f"- WHAT-IF SPLIT CONF: **{what_if_split_confidence}** ({what_if_split_confidence_signals['reason']}; split={what_if_split_confidence_signals['split']} conf={what_if_split_confidence_signals['primaryConfidence']}/{what_if_split_confidence_signals['secondaryConfidence']} strong={what_if_split_confidence_signals['strongConfidence']} delta={what_if_split_confidence_signals['strongDelta']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",

@@ -221,5 +221,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-21 Cycle Z)
 - [x] QA/Design Team: Add split-recommendation confidence token (`WHAT-IF SPLIT CONF:LOW|MID|HIGH`) behind flag for operator trust readability
-- [ ] UX/Systems Team: Add split route-pair token (`WHAT-IF SPLIT LANES:<primary>/<secondary>`) for compact handoff clarity
+- [x] UX/Systems Team: Add split route-pair token (`WHAT-IF SPLIT LANES:<primary>/<secondary>`) for compact handoff clarity
 - [ ] Systems/AI Content Team: Prototype split-safe-mode token (`WHAT-IF SPLIT SAFE:ON`) behind flag when split suggests non-escalating dual-path plans

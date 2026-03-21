@@ -889,3 +889,11 @@
 - Implementation: Added `what_if_split_confidence_from_signals(...)` and emitted `whatIfSplitConfidence`/`whatIfSplitConfidenceSignals` in JSON plus markdown line `WHAT-IF SPLIT CONF`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Next hook: implement Cycle Z remaining items (`WHAT-IF SPLIT LANES`, `WHAT-IF SPLIT SAFE`).
+
+## 2026-03-22 00:03 KST — Cycle Z mid-risk slice closure (`WHAT-IF SPLIT LANES`)
+- Completed backlog item: added compact route-pair handoff token `WHAT-IF SPLIT LANES:<primary>/<secondary>` to weekly portal readability digest.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Next hook: implement remaining Cycle Z novelty item `WHAT-IF SPLIT SAFE:ON` behind flag.

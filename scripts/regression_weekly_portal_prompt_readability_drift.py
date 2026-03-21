@@ -370,6 +370,12 @@ def main() -> int:
             "strongConfidence",
             "reason",
         }, payload
+        assert isinstance(payload.get("whatIfSplitLanes"), str), payload
+        assert set(payload.get("whatIfSplitLanesSignals", {}).keys()) == {
+            "primaryActionable",
+            "secondaryActionable",
+            "reason",
+        }, payload
         assert payload.get("whatIfSplitConfidence") in {"LOW", "MID", "HIGH"}, payload
         assert set(payload.get("whatIfSplitConfidenceSignals", {}).keys()) == {
             "split",
@@ -448,6 +454,7 @@ def main() -> int:
         assert "WHAT-IF PLAN FIT" in md_text
         assert "WHAT-IF PLAN WHY" in md_text
         assert "WHAT-IF SPLIT" in md_text
+        assert "WHAT-IF SPLIT LANES" in md_text
         assert "WHAT-IF SPLIT CONF" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
