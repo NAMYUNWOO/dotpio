@@ -575,3 +575,9 @@
 - Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` schema + markdown assertions.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; digest regeneration PASS.
 - Follow-up: remaining Cycle V unchecked item is `WHAT-IF FALLBACK WHY:<short>` behind flag.
+
+## 2026-03-21 21:01 KST — Cycle W sync note
+- Cross-lane acknowledgment: shipped digest token `WHAT-IF FALLBACK ALIGN:SYNC|ASYNC` for fallback-vs-focus routing coherence.
+- Impact: telemetry/readability only; no gameplay/economy/map balance changes.
+- Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Next hook: continue Cycle W queued items (`WHAT-IF FALLBACK MAG`, `WHAT-IF FALLBACK ALT2`).

@@ -598,3 +598,9 @@
 - Decision: Added concise rationale classifier gated by `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_WHY` with short operator-facing labels (`RISK-DROP`, `CONF-LOW`, `PRESSURE`, etc.) and kept default output stable as `OFF` when flag-disabled.
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, backlog trackers.
 - Follow-up: If enabled in ops, tune rationale vocabulary from weekly digest review feedback.
+
+## 2026-03-21 21:01 KST — Cycle W sync note
+- Cross-lane acknowledgment: shipped digest token `WHAT-IF FALLBACK ALIGN:SYNC|ASYNC` for fallback-vs-focus routing coherence.
+- Impact: telemetry/readability only; no gameplay/economy/map balance changes.
+- Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Next hook: continue Cycle W queued items (`WHAT-IF FALLBACK MAG`, `WHAT-IF FALLBACK ALT2`).

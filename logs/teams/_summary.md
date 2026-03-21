@@ -1337,3 +1337,16 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 120 --out-json logs/playtests/weekly_portal_prompt_readability_drift.json --out-md logs/playtests/weekly_portal_prompt_readability_drift.md`
 - Backlog state: fallback-fit item marked done in `TASKS.md` and `POST_RC_BACKLOG.md`; remaining unchecked item is fallback rationale token (`WHAT-IF FALLBACK WHY:<short>`).
 - Weekly portal prompt digest now supports experimental fallback rationale token `WHAT-IF FALLBACK WHY:<short>` (flag: `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_WHY`), with JSON fields `whatIfFallbackWhy` + `whatIfFallbackWhySignals` and regression guardrails for schema/markdown presence.
+
+## 2026-03-21 21:01 KST — Game Director Cycle W started (fallback alignment slice)
+- Trigger: ACTION_ITEMS/TASKS/POST_RC were fully checked, so Game Director review cycle executed.
+- Idea slate generated:
+  1) Low-risk (chosen): `WHAT-IF FALLBACK ALIGN:SYNC|ASYNC` from fallback lane vs lane focus coherence.
+  2) Mid-risk: `WHAT-IF FALLBACK MAG:SMALL|MED|LARGE` for rollback impact sizing.
+  3) High-risk: flag-gated `WHAT-IF FALLBACK ALT2:<lane>` secondary candidate.
+- Implemented vertical slice:
+  - Added `whatIfFallbackAlign` + `whatIfFallbackAlignSignals` to weekly digest JSON.
+  - Added markdown token line `WHAT-IF FALLBACK ALIGN`.
+  - Extended regression coverage in `scripts/regression_weekly_portal_prompt_readability_drift.py` for schema + markdown assertions.
+- Verification (PASS): py_compile, regression script, digest artifact refresh.
+- Backlog sync: Cycle W alignment task marked done in `TASKS.md` + `POST_RC_BACKLOG.md`; two Cycle W follow-ups remain queued.

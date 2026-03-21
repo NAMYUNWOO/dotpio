@@ -1543,3 +1543,9 @@
   - Regression assertions now cover `whatIfFallbackWhy` schema keys and markdown token presence.
   - No portal validator/screenshots required (digest script + regression scope only).
 - Follow-up: none.
+
+## 2026-03-21 21:01 KST — Cycle W sync note
+- Cross-lane acknowledgment: shipped digest token `WHAT-IF FALLBACK ALIGN:SYNC|ASYNC` for fallback-vs-focus routing coherence.
+- Impact: telemetry/readability only; no gameplay/economy/map balance changes.
+- Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Next hook: continue Cycle W queued items (`WHAT-IF FALLBACK MAG`, `WHAT-IF FALLBACK ALT2`).

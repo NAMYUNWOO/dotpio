@@ -802,6 +802,36 @@ def what_if_fallback_why_from_signals(
         "pressureBand": pressure_band,
         "reason": reason,
     }
+
+
+def what_if_fallback_alignment_from_signals(
+    *,
+    what_if_fallback: str,
+    lane_focus: str,
+) -> tuple[str, dict[str, str | bool]]:
+    actionable = what_if_fallback in {"PORTAL", "ALT", "PRESSURE"}
+
+    if not actionable:
+        align = "SYNC"
+        reason = "no-actionable-fallback"
+    elif lane_focus == "MIXED":
+        align = "SYNC"
+        reason = "lane-focus-mixed"
+    elif what_if_fallback == lane_focus:
+        align = "SYNC"
+        reason = "fallback-matches-lane-focus"
+    else:
+        align = "ASYNC"
+        reason = "fallback-diverges-from-lane-focus"
+
+    return align, {
+        "fallback": what_if_fallback,
+        "laneFocus": lane_focus,
+        "actionable": actionable,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -1302,6 +1332,10 @@ def main() -> int:
         what_if_alt_signals=what_if_alt_signals,
         pressure_band=pressure_band,
     )
+    what_if_fallback_align, what_if_fallback_align_signals = what_if_fallback_alignment_from_signals(
+        what_if_fallback=what_if_fallback,
+        lane_focus=lane_focus,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -1385,6 +1419,8 @@ def main() -> int:
         "whatIfFallbackFitSignals": what_if_fallback_fit_signals,
         "whatIfFallbackWhy": what_if_fallback_why,
         "whatIfFallbackWhySignals": what_if_fallback_why_signals,
+        "whatIfFallbackAlign": what_if_fallback_align,
+        "whatIfFallbackAlignSignals": what_if_fallback_align_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -1449,6 +1485,7 @@ def main() -> int:
         f"- WHAT-IF FALLBACK CONF: **{what_if_fallback_confidence}** ({what_if_fallback_confidence_signals['reason']}; fallback={what_if_fallback_confidence_signals['fallback']} align={what_if_fallback_confidence_signals['whatIfAlign']} delta={what_if_fallback_confidence_signals['deltaRisk']} routeConf={what_if_fallback_confidence_signals['routeActionConfidence']} enabled={what_if_fallback_confidence_signals['flagEnabled']})",
         f"- WHAT-IF FALLBACK FIT: **{what_if_fallback_fit}** ({what_if_fallback_fit_signals['reason']}; fallback={what_if_fallback_fit_signals['fallback']} pressure={what_if_fallback_fit_signals['pressureBand']} projected={what_if_fallback_fit_signals['projectedBand']} risk={what_if_fallback_fit_signals['projectedRisk']} enabled={what_if_fallback_fit_signals['flagEnabled']})",
         f"- WHAT-IF FALLBACK WHY: **{what_if_fallback_why}** ({what_if_fallback_why_signals['reason']}; flag={what_if_fallback_why_signals['flagName']} enabled={what_if_fallback_why_signals['flagEnabled']} fallback={what_if_fallback_why_signals['fallback']} conf={what_if_fallback_why_signals['fallbackConfidence']} fit={what_if_fallback_why_signals['fallbackFit']} pressure={what_if_fallback_why_signals['pressureBand']})",
+        f"- WHAT-IF FALLBACK ALIGN: **{what_if_fallback_align}** ({what_if_fallback_align_signals['reason']}; fallback={what_if_fallback_align_signals['fallback']} focus={what_if_fallback_align_signals['laneFocus']} actionable={what_if_fallback_align_signals['actionable']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

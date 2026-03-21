@@ -1055,3 +1055,15 @@
 - Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` schema + markdown assertions.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; digest regeneration PASS.
 - Follow-up: remaining Cycle V unchecked item is `WHAT-IF FALLBACK WHY:<short>` behind flag.
+
+## 2026-03-21 21:01 KST — Cycle W vertical slice: fallback-lane alignment token
+- Completed backlog item: `WHAT-IF FALLBACK ALIGN:SYNC|ASYNC`.
+- Durable decisions:
+  - Added `what_if_fallback_alignment_from_signals(...)` in `scripts/weekly_portal_prompt_readability_drift.py`.
+  - Alignment emits `SYNC` for no-actionable/mixed-focus safe states and `ASYNC` only when actionable fallback diverges from lane focus.
+  - Digest now publishes JSON fields `whatIfFallbackAlign` / `whatIfFallbackAlignSignals` and markdown line `WHAT-IF FALLBACK ALIGN`.
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` ✅
+- Next priority item: Cycle W `WHAT-IF FALLBACK MAG:SMALL|MED|LARGE`.
