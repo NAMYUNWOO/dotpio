@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-22 06:12 KST
+Last updated: 2026-03-22 06:31 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,9 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed the final Cycle AF unchecked item: weekly digest now emits flag-gated `WHAT-IF SPLIT ESC RECOVER VETO:ON|OFF` (`DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO`) when recovery remains `LOW` confidence under `HIGH` pressure with actionable plan context.
+- Since ACTION_ITEMS + TASKS + POST_RC were fully checked, executed Game Director review cycle (low/mid/high idea generation) and shipped selected low-risk slice: `WHAT-IF SPLIT ESC RECOVER VETO CONF:LOW|MID|HIGH`.
+- Injected Cycle AG follow-up backlog items: `WHAT-IF SPLIT ESC RECOVER VETO WHY:<short>` (flag-gated) and `WHAT-IF SPLIT ESC RECOVER VETO COOLOFF:<n>` (flag-gated).
 - Cycle AF follow-up slice shipped: weekly digest now emits `WHAT-IF SPLIT ESC RECOVER ΔCONF:+n|-n` by comparing current vs prior digest recovery confidence (`LOW=0`, `MID=1`, `HIGH=2`) and exposing `priorLoaded` + reason signals.
 - Cycle AF backlog now has one remaining unchecked item: flag-gated `WHAT-IF SPLIT ESC RECOVER VETO:ON` under HIGH pressure + LOW confidence.
 - Cycle AC follow-up slice shipped: weekly digest now emits `WHAT-IF SPLIT ESC PRESSURE:LOW|MID|HIGH` with lifecycle-aware cooling decay for escalation cooldown risk context.

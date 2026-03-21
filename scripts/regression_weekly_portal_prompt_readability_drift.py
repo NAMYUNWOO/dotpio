@@ -15,6 +15,8 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_plan_from_signals,
     what_if_split_escalate_recover_why_from_signals,
     what_if_split_escalate_recover_tempo_from_signals,
+    what_if_split_escalate_recover_veto_from_signals,
+    what_if_split_escalate_recover_veto_confidence_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -553,6 +555,30 @@ def main() -> int:
             "splitEscPressure",
             "reason",
         }, payload
+        assert payload.get("whatIfSplitEscRecoverVeto") in {"ON", "OFF"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "splitEscRecoverConfidence",
+            "splitEscPressure",
+            "splitEscRecoverPlan",
+            "confidenceLow",
+            "pressureHigh",
+            "planActionable",
+            "reason",
+        }, payload
+        assert payload.get("whatIfSplitEscRecoverVetoConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoConfidenceSignals", {}).keys()) == {
+            "splitEscRecoverVeto",
+            "splitEscRecoverConfidence",
+            "splitEscPressure",
+            "splitEscRecoverPlan",
+            "confidenceLow",
+            "pressureHigh",
+            "planActionable",
+            "vetoOn",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -639,6 +665,8 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER PLAN" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER WHY" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER TEMPO" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO CONF" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -785,6 +813,57 @@ def main() -> int:
             )
             assert tempo_defer == "DEFER", (tempo_defer, tempo_defer_signals)
             assert tempo_defer_signals["reason"] == "no-actionable-recovery-plan", tempo_defer_signals
+
+            prior_veto_env = os.environ.get("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO")
+            try:
+                os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO"] = "0"
+                veto_off, veto_off_signals = what_if_split_escalate_recover_veto_from_signals(
+                    what_if_split_esc_recover_confidence="LOW",
+                    what_if_split_esc_pressure="HIGH",
+                    what_if_split_esc_recover_plan="PRIMARY",
+                )
+                assert veto_off == "OFF", (veto_off, veto_off_signals)
+                assert veto_off_signals["reason"] == "flag-disabled", veto_off_signals
+
+                os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO"] = "1"
+                veto_on, veto_on_signals = what_if_split_escalate_recover_veto_from_signals(
+                    what_if_split_esc_recover_confidence="LOW",
+                    what_if_split_esc_pressure="HIGH",
+                    what_if_split_esc_recover_plan="ALT",
+                )
+                assert veto_on == "ON", (veto_on, veto_on_signals)
+                assert veto_on_signals["reason"] == "low-confidence-under-high-pressure-with-actionable-plan", veto_on_signals
+
+                veto_hold, veto_hold_signals = what_if_split_escalate_recover_veto_from_signals(
+                    what_if_split_esc_recover_confidence="LOW",
+                    what_if_split_esc_pressure="HIGH",
+                    what_if_split_esc_recover_plan="HOLD",
+                )
+                assert veto_hold == "OFF", (veto_hold, veto_hold_signals)
+                assert veto_hold_signals["reason"] == "low-confidence-high-pressure-but-no-actionable-plan", veto_hold_signals
+
+                veto_conf_high, veto_conf_high_signals = what_if_split_escalate_recover_veto_confidence_from_signals(
+                    what_if_split_esc_recover_veto="ON",
+                    what_if_split_esc_recover_confidence="LOW",
+                    what_if_split_esc_pressure="HIGH",
+                    what_if_split_esc_recover_plan="PRIMARY",
+                )
+                assert veto_conf_high == "HIGH", (veto_conf_high, veto_conf_high_signals)
+                assert veto_conf_high_signals["reason"] == "all-veto-guard-signals-aligned", veto_conf_high_signals
+
+                veto_conf_mid, veto_conf_mid_signals = what_if_split_escalate_recover_veto_confidence_from_signals(
+                    what_if_split_esc_recover_veto="OFF",
+                    what_if_split_esc_recover_confidence="LOW",
+                    what_if_split_esc_pressure="HIGH",
+                    what_if_split_esc_recover_plan="HOLD",
+                )
+                assert veto_conf_mid == "MID", (veto_conf_mid, veto_conf_mid_signals)
+                assert veto_conf_mid_signals["reason"] == "pressure-and-confidence-trigger-with-plan-gap", veto_conf_mid_signals
+            finally:
+                if prior_veto_env is None:
+                    os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO", None)
+                else:
+                    os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO"] = prior_veto_env
 
             recover_prior = repo / "recover-prior.json"
             recover_prior.write_text(json.dumps({"whatIfSplitEscRecoverConfidence": "LOW"}), encoding="utf-8")

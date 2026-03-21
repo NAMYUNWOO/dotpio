@@ -786,3 +786,15 @@
 - Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS), `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` (PASS)
 - Next: implement flagged `WHAT-IF SPLIT ESC RECOVER VETO:ON` sentinel when pressure remains HIGH under low confidence.
+
+## 2026-03-22 06:31 KST — Cycle AF/AG digest follow-up
+- Task: Closed remaining Cycle AF unchecked item (`WHAT-IF SPLIT ESC RECOVER VETO:ON`) and executed Game Director review cycle because ACTION_ITEMS/TASKS/POST_RC were fully checked.
+- Commit: pending (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added flag-gated veto sentinel `WHAT-IF SPLIT ESC RECOVER VETO:ON|OFF` (`DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO`) for HIGH-pressure + LOW-confidence recovery contexts.
+  - Ran Game Director cycle ideas (low/mid/high), selected low-risk UX slice, and shipped `WHAT-IF SPLIT ESC RECOVER VETO CONF:LOW|MID|HIGH` for trust readability.
+  - Injected Cycle AG backlog follow-ups (`VETO WHY`, `VETO COOLOFF`) as next queue items.
+- Follow-up:
+  - Highest-priority unchecked item now: `WHAT-IF SPLIT ESC RECOVER VETO WHY:<short>` (flag-gated).

@@ -1886,6 +1886,83 @@ def what_if_split_escalate_recover_tempo_from_signals(
     }
 
 
+def what_if_split_escalate_recover_veto_from_signals(
+    *,
+    what_if_split_esc_recover_confidence: str,
+    what_if_split_esc_pressure: str,
+    what_if_split_esc_recover_plan: str,
+) -> tuple[str, dict[str, str | bool]]:
+    """Emit flagged veto sentinel when recovery context is still unsafe."""
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    confidence_low = str(what_if_split_esc_recover_confidence).upper() == "LOW"
+    pressure_high = str(what_if_split_esc_pressure).upper() == "HIGH"
+    plan_actionable = str(what_if_split_esc_recover_plan).upper() in {"PRIMARY", "ALT"}
+
+    if not flag_enabled:
+        veto = "OFF"
+        reason = "flag-disabled"
+    elif confidence_low and pressure_high and plan_actionable:
+        veto = "ON"
+        reason = "low-confidence-under-high-pressure-with-actionable-plan"
+    elif confidence_low and pressure_high:
+        veto = "OFF"
+        reason = "low-confidence-high-pressure-but-no-actionable-plan"
+    else:
+        veto = "OFF"
+        reason = "confidence-or-pressure-not-in-veto-band"
+
+    return veto, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "splitEscRecoverConfidence": str(what_if_split_esc_recover_confidence).upper(),
+        "splitEscPressure": str(what_if_split_esc_pressure).upper(),
+        "splitEscRecoverPlan": str(what_if_split_esc_recover_plan).upper(),
+        "confidenceLow": confidence_low,
+        "pressureHigh": pressure_high,
+        "planActionable": plan_actionable,
+        "reason": reason,
+    }
+
+
+def what_if_split_escalate_recover_veto_confidence_from_signals(
+    *,
+    what_if_split_esc_recover_veto: str,
+    what_if_split_esc_recover_confidence: str,
+    what_if_split_esc_pressure: str,
+    what_if_split_esc_recover_plan: str,
+) -> tuple[str, dict[str, str | bool]]:
+    """Score trust level for split-escalation recovery veto recommendation."""
+    veto_on = str(what_if_split_esc_recover_veto).upper() == "ON"
+    confidence_low = str(what_if_split_esc_recover_confidence).upper() == "LOW"
+    pressure_high = str(what_if_split_esc_pressure).upper() == "HIGH"
+    plan_actionable = str(what_if_split_esc_recover_plan).upper() in {"PRIMARY", "ALT"}
+
+    if veto_on and confidence_low and pressure_high and plan_actionable:
+        token = "HIGH"
+        reason = "all-veto-guard-signals-aligned"
+    elif confidence_low and pressure_high:
+        token = "MID"
+        reason = "pressure-and-confidence-trigger-with-plan-gap"
+    else:
+        token = "LOW"
+        reason = "veto-conditions-not-sustained"
+
+    return token, {
+        "splitEscRecoverVeto": str(what_if_split_esc_recover_veto).upper(),
+        "splitEscRecoverConfidence": str(what_if_split_esc_recover_confidence).upper(),
+        "splitEscPressure": str(what_if_split_esc_pressure).upper(),
+        "splitEscRecoverPlan": str(what_if_split_esc_recover_plan).upper(),
+        "confidenceLow": confidence_low,
+        "pressureHigh": pressure_high,
+        "planActionable": plan_actionable,
+        "vetoOn": veto_on,
+        "reason": reason,
+    }
+
+
 def what_if_split_escalate_recover_confidence_delta_from_prior(
     *,
     current_confidence: str,
@@ -2554,6 +2631,17 @@ def main() -> int:
         what_if_split_esc_recover_confidence=what_if_split_esc_recover_confidence,
         what_if_split_esc_pressure=what_if_split_esc_pressure,
     )
+    what_if_split_esc_recover_veto, what_if_split_esc_recover_veto_signals = what_if_split_escalate_recover_veto_from_signals(
+        what_if_split_esc_recover_confidence=what_if_split_esc_recover_confidence,
+        what_if_split_esc_pressure=what_if_split_esc_pressure,
+        what_if_split_esc_recover_plan=what_if_split_esc_recover_plan,
+    )
+    what_if_split_esc_recover_veto_confidence, what_if_split_esc_recover_veto_confidence_signals = what_if_split_escalate_recover_veto_confidence_from_signals(
+        what_if_split_esc_recover_veto=what_if_split_esc_recover_veto,
+        what_if_split_esc_recover_confidence=what_if_split_esc_recover_confidence,
+        what_if_split_esc_pressure=what_if_split_esc_pressure,
+        what_if_split_esc_recover_plan=what_if_split_esc_recover_plan,
+    )
     what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
         current_confidence=what_if_split_esc_recover_confidence,
         prior_json_path=args.out_json,
@@ -2693,6 +2781,10 @@ def main() -> int:
         "whatIfSplitEscRecoverWhySignals": what_if_split_esc_recover_why_signals,
         "whatIfSplitEscRecoverTempo": what_if_split_esc_recover_tempo,
         "whatIfSplitEscRecoverTempoSignals": what_if_split_esc_recover_tempo_signals,
+        "whatIfSplitEscRecoverVeto": what_if_split_esc_recover_veto,
+        "whatIfSplitEscRecoverVetoSignals": what_if_split_esc_recover_veto_signals,
+        "whatIfSplitEscRecoverVetoConfidence": what_if_split_esc_recover_veto_confidence,
+        "whatIfSplitEscRecoverVetoConfidenceSignals": what_if_split_esc_recover_veto_confidence_signals,
         "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
         "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
@@ -2785,6 +2877,8 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER PLAN: **{what_if_split_esc_recover_plan}** ({what_if_split_esc_recover_plan_signals['reason']}; primary={what_if_split_esc_recover_plan_signals['splitEscRecover']} alt={what_if_split_esc_recover_plan_signals['splitEscRecoverAlt']} hasPrimary={what_if_split_esc_recover_plan_signals['hasPrimary']} hasAlt={what_if_split_esc_recover_plan_signals['hasAlt']})",
         f"- WHAT-IF SPLIT ESC RECOVER WHY: **{what_if_split_esc_recover_why}** ({what_if_split_esc_recover_why_signals['reason']}; flag={what_if_split_esc_recover_why_signals['flagName']} enabled={what_if_split_esc_recover_why_signals['flagEnabled']} plan={what_if_split_esc_recover_why_signals['splitEscRecoverPlan']} conf={what_if_split_esc_recover_why_signals['splitEscRecoverConfidence']} pressure={what_if_split_esc_recover_why_signals['splitEscPressure']})",
         f"- WHAT-IF SPLIT ESC RECOVER TEMPO: **{what_if_split_esc_recover_tempo}** ({what_if_split_esc_recover_tempo_signals['reason']}; plan={what_if_split_esc_recover_tempo_signals['splitEscRecoverPlan']} conf={what_if_split_esc_recover_tempo_signals['splitEscRecoverConfidence']} pressure={what_if_split_esc_recover_tempo_signals['splitEscPressure']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO: **{what_if_split_esc_recover_veto}** ({what_if_split_esc_recover_veto_signals['reason']}; flag={what_if_split_esc_recover_veto_signals['flagName']} enabled={what_if_split_esc_recover_veto_signals['flagEnabled']} conf={what_if_split_esc_recover_veto_signals['splitEscRecoverConfidence']} pressure={what_if_split_esc_recover_veto_signals['splitEscPressure']} plan={what_if_split_esc_recover_veto_signals['splitEscRecoverPlan']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO CONF: **{what_if_split_esc_recover_veto_confidence}** ({what_if_split_esc_recover_veto_confidence_signals['reason']}; veto={what_if_split_esc_recover_veto_confidence_signals['splitEscRecoverVeto']} conf={what_if_split_esc_recover_veto_confidence_signals['splitEscRecoverConfidence']} pressure={what_if_split_esc_recover_veto_confidence_signals['splitEscPressure']} plan={what_if_split_esc_recover_veto_confidence_signals['splitEscRecoverPlan']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
