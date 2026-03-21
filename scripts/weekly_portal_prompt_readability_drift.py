@@ -466,6 +466,37 @@ def sandbox_target_from_signals(*, route_sandbox: str, lane_lock_signals: dict[s
     }
 
 
+def sandbox_target_confidence_from_signals(
+    *,
+    sandbox_target: str,
+    route_action_confidence: str,
+    lane_lock_signals: dict[str, int | str | bool],
+) -> tuple[str, dict[str, str | int | bool]]:
+    streak = int(lane_lock_signals.get("streak", 0))
+    armed = bool(lane_lock_signals.get("armed", False))
+
+    if sandbox_target in {"NONE", "MIXED"}:
+        confidence = "LOW"
+        reason = "no-single-lane-target"
+    elif route_action_confidence == "HIGH" and armed and streak >= 3:
+        confidence = "HIGH"
+        reason = "high-route-confidence-with-sustained-lock"
+    elif route_action_confidence in {"MID", "HIGH"} and armed:
+        confidence = "MID"
+        reason = "armed-lane-lock-with-moderate-confidence"
+    else:
+        confidence = "LOW"
+        reason = "insufficient-signal-strength"
+
+    return confidence, {
+        "sandboxTarget": sandbox_target,
+        "routeActionConfidence": route_action_confidence,
+        "laneLockArmed": armed,
+        "laneLockStreak": streak,
+        "reason": reason,
+    }
+
+
 def sandbox_cooloff_from_prior(*, current_sandbox: str, prior_json_path: Path) -> tuple[int, dict[str, str | int | bool]]:
     """Count consecutive non-armed digest windows since last ROUTE SANDBOX:ON cycle.
 
@@ -687,6 +718,11 @@ def main() -> int:
         route_sandbox=route_sandbox,
         lane_lock_signals=lane_lock_signals,
     )
+    sandbox_target_confidence, sandbox_target_confidence_signals = sandbox_target_confidence_from_signals(
+        sandbox_target=sandbox_target,
+        route_action_confidence=route_action_confidence,
+        lane_lock_signals=lane_lock_signals,
+    )
     sandbox_cooloff, sandbox_cooloff_signals = sandbox_cooloff_from_prior(
         current_sandbox=route_sandbox,
         prior_json_path=args.out_json,
@@ -745,6 +781,8 @@ def main() -> int:
         "routeSandboxPlanSignals": route_sandbox_plan_signals,
         "sandboxTarget": sandbox_target,
         "sandboxTargetSignals": sandbox_target_signals,
+        "sandboxTargetConfidence": sandbox_target_confidence,
+        "sandboxTargetConfidenceSignals": sandbox_target_confidence_signals,
         "sandboxCooloff": sandbox_cooloff,
         "sandboxCooloffSignals": sandbox_cooloff_signals,
         "driftMomentum": drift_momentum,
@@ -797,6 +835,7 @@ def main() -> int:
         f"- ROUTE SANDBOX: **{route_sandbox}** ({route_sandbox_signals['reason']}; flag={route_sandbox_signals['flagName']} enabled={route_sandbox_signals['flagEnabled']} laneLock={route_sandbox_signals['laneLock']}x{route_sandbox_signals['laneLockStreak']})",
         f"- SANDBOX PLAN: **{route_sandbox_plan}** ({route_sandbox_plan_signals['reason']}; guard={route_sandbox_plan_signals['actionGuard']} risk={route_sandbox_plan_signals['driftRisk']})",
         f"- SANDBOX TARGET: **{sandbox_target}** ({sandbox_target_signals['reason']}; lane={sandbox_target_signals['lane']} armed={sandbox_target_signals['laneLockArmed']} streak={sandbox_target_signals['laneLockStreak']})",
+        f"- SANDBOX TARGET CONF: **{sandbox_target_confidence}** ({sandbox_target_confidence_signals['reason']}; routeConf={sandbox_target_confidence_signals['routeActionConfidence']} lock={sandbox_target_confidence_signals['laneLockArmed']}x{sandbox_target_confidence_signals['laneLockStreak']})",
         f"- SANDBOX COOLOFF: **{sandbox_cooloff}** ({sandbox_cooloff_signals['reason']}; active={sandbox_cooloff_signals['active']} prior={sandbox_cooloff_signals['priorSandbox']}:{sandbox_cooloff_signals['priorCooloff']})",
         f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",
         f"- PRESSURE LAG: **{pressure_lag}** (churn={pressure_lag_signals['pressureChurn']} momentum={pressure_lag_signals['driftMomentum']} |Δ|={pressure_lag_signals['absDriftDelta']})",

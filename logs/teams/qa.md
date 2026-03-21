@@ -1443,3 +1443,8 @@
 - Added markdown assertion for `SANDBOX TARGET` digest line.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Keep schema assertions aligned when adding future sandbox routing tokens.
+
+## 2026-03-21 15:01 KST — Cycle R confidence-token regression coverage
+- Added regression assertions for `sandboxTargetConfidence` + `sandboxTargetConfidenceSignals` schema.
+- Added markdown digest assertion for `SANDBOX TARGET CONF` line presence.
+- Verification PASS: regression and digest generation scripts.

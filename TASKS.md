@@ -335,3 +335,8 @@ See project-level plans:
 - [x] Add route-sandbox action-plan token (`SANDBOX PLAN:SIMULATE|PROBE|PREPARE|HOLD`) from `ROUTE SANDBOX + ACTION GUARD + DRIFT RISK`
 - [x] Add route-sandbox cooloff token (`SANDBOX COOLOFF:<n>`) counting consecutive non-armed windows after an ON cycle
 - [x] Add sandbox lane-target token (`SANDBOX TARGET:<lane>`) to pin which lane-lock family should be tested when sandbox is active
+
+## Next Up (Game Director Injection — 2026-03-21 Cycle R)
+- [x] Add sandbox-target confidence token (`SANDBOX TARGET CONF:LOW|MID|HIGH`) for lane-target handoff quality
+- [ ] Add sandbox-target source token (`TARGET SRC:LOCK|MIXED|NONE`) for quick audit of lane-target derivation path
+- [ ] Add sandbox-target history token (`TARGET SHIFT:<FROM->TO>`) to highlight lane-target changes across digest windows

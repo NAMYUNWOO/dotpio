@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T06:02:54.289711Z
+- GeneratedAt(UTC): 2026-03-21T06:05:20.291531Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
@@ -22,6 +22,7 @@
 - ROUTE SANDBOX: **OFF** (flag-disabled-and-lane-lock-not-armed; flag=DOTPIO_EXPERIMENT_ROUTE_SANDBOX enabled=False laneLock=PORTALx0)
 - SANDBOX PLAN: **PREPARE** (high-risk-waiting-on-sandbox-flag; guard=LOCK risk=HIGH)
 - SANDBOX TARGET: **NONE** (sandbox-inactive; lane=PORTAL armed=False streak=0)
+- SANDBOX TARGET CONF: **LOW** (no-single-lane-target; routeConf=LOW lock=Falsex0)
 - SANDBOX COOLOFF: **0** (no-prior-on-cycle; active=False prior=OFF:0)
 - DRIFT MOMENTUM: **FLAT** (recent=4.6 older=3.5 delta=1.1)
 - PRESSURE LAG: **SLOW** (churn=15 momentum=FLAT |Δ|=1.1)

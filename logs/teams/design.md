@@ -511,3 +511,8 @@
 - Rationale: `ROUTE SANDBOX`/`PLAN` showed activation state but not the concrete lane target for design triage handoff.
 - Implementation notes: weekly digest markdown now prints `SANDBOX TARGET` line with lane-lock context (`lane`, `armed`, `streak`).
 - Follow-up: If sandbox turns ON in live windows, use target lane to open focused probe checklist before broader balance pass.
+
+## 2026-03-21 15:01 KST — Cycle R idea selection and handoff readability
+- Generated 3 ideas (low/mid/high risk) for route-sandbox follow-up.
+- Chosen experiment: `SANDBOX TARGET CONF` token to indicate lane-target handoff reliability.
+- Player-facing intent: reduce ambiguity when deciding whether to run lane-specific probes.

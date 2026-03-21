@@ -1208,3 +1208,4 @@ Compact decision memory for AI context efficiency.
 - Next hook: execute remaining Cycle Q backlog item `SANDBOX TARGET:<lane>`.
 
 - 2026-03-21 15:01 KST: Cycle Q completed — weekly portal digest now emits `SANDBOX TARGET:<lane>` (json+markdown), with regression coverage for payload/schema and digest line presence. Enables explicit lane-family routing when route sandbox activates.
+- 2026-03-21 15:01 KST: Game Director Cycle R ideation completed. Candidate ideas: (1) SANDBOX TARGET CONF token (low-risk UX/game-feel handoff), (2) TARGET SRC derivation token (mid-risk systems auditability), (3) TARGET SHIFT history token (high-risk novelty for window-over-window churn cues). Selected/implemented #1 as vertical slice with regression + digest artifact refresh.

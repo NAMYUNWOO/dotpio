@@ -960,3 +960,12 @@
   - Sandbox OFF -> `NONE`
 - JSON payload now includes `sandboxTarget` + `sandboxTargetSignals`.
 - Follow-up: Revisit mapping if lane-family taxonomy expands beyond portal/alt/pressure.
+
+## 2026-03-21 15:01 KST — Cycle R sandbox target confidence signal
+- Added `sandbox_target_confidence_from_signals()`.
+- Confidence mapping:
+  - `NONE|MIXED` target => LOW
+  - sustained armed lock + HIGH route confidence => HIGH
+  - armed lock + MID/HIGH route confidence => MID
+  - otherwise LOW
+- JSON + markdown outputs now carry confidence token and signal rationale.

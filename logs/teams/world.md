@@ -544,3 +544,7 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py` ✅
 - Follow-up: remaining unchecked Cycle Q item is `SANDBOX TARGET:<lane>` token.
+
+## 2026-03-21 15:01 KST — Cycle R note
+- No world/map topology changes this cycle.
+- Follow-up candidate queued: `TARGET SRC` + `TARGET SHIFT` tokens may feed portal-branch tuning playbooks.

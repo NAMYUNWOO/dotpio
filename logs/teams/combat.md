@@ -497,3 +497,7 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py` ✅
 - Follow-up: remaining unchecked Cycle Q item is `SANDBOX TARGET:<lane>` token.
+
+## 2026-03-21 15:01 KST — Cycle R note
+- No combat behavior/value tuning changes this cycle.
+- Sandbox-target confidence may later gate combat-pressure probe scenarios by lane family.
