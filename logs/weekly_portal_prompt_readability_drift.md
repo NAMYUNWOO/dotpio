@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T00:05:16.456362Z
+- GeneratedAt(UTC): 2026-03-21T00:34:52.356310Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
@@ -10,6 +10,9 @@
 - PRESSURE BAND: **HIGH** (edits +17 / -2 / net 15)
 - DRIFT RISK: **HIGH** (score=19 | imbalance=4 | pressure=15)
 - FOCUS: **PORTAL** (portal=35 | alt=23 | pressure=15)
+- FOCUS STREAK: **0**
+- FOCUS SHIFT: **ALT->PORTAL**
+- FOCUS VOL: **SWING** (switches=5/8 ratio=0.625)
 - ROUTE ACTION: **PORTAL_AUDIT** (portal-family tokens dominate top movers)
 - STICKY TOKENS: **6**
 

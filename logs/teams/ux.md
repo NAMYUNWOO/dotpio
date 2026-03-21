@@ -696,3 +696,8 @@
 - Shipped: weekly digest now emits `routeAction` + `routeActionReason` in JSON and `ROUTE ACTION` line in markdown.
 - Verification: py_compile PASS, digest regression PASS, live digest regeneration PASS.
 - Follow-up: backlog carries remaining Cycle L items (focus streak, focus shift).
+## 2026-03-21 09:35 KST — Cycle L close + Cycle M vertical slice
+- Completed: Weekly portal prompt digest now includes `FOCUS STREAK:<n>` and `FOCUS SHIFT:<FROM->TO>` signals, then Game Director Cycle M experiment `FOCUS VOL:STEADY|SWING`.
+- Decision: Define volatility from non-mixed lane-focus commit sequence switch ratio (`switches/edges`), with `SWING` threshold `>= 0.4`.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Follow-up: Cycle M backlog keeps `ACTION CONF` + `ANOMALY` items open.

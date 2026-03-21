@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T00:05:16.456362Z",
+  "generatedAt": "2026-03-21T00:34:52.356310Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -25,6 +25,14 @@
     "portal": 35,
     "alt": 23,
     "pressure": 15
+  },
+  "focusStreak": 0,
+  "focusShift": "ALT->PORTAL",
+  "focusVolatility": "SWING",
+  "focusVolatilitySignals": {
+    "switches": 5,
+    "edges": 8,
+    "switchRatio": 0.625
   },
   "routeAction": "PORTAL_AUDIT",
   "routeActionReason": "portal-family tokens dominate top movers",
@@ -139,6 +147,97 @@
   ],
   "commits": [
     {
+      "sha": "792c04a83bd008ec1cb656f94c2b0bdc89ac0ed3",
+      "shortSha": "792c04a",
+      "author": "yunwoo",
+      "subject": "feat(ops): add portal digest lane focus + route action token",
+      "committedAt": "2026-03-21T00:06:18Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      }
+    },
+    {
       "sha": "191afb1f5b8c7aeb0153070d35f842679a522171",
       "shortSha": "191afb1",
       "author": "yunwoo",
@@ -178,6 +277,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -268,6 +368,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -357,6 +458,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -446,6 +548,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -546,6 +649,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -634,6 +738,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -725,6 +830,7 @@
         "shared": 0
       },
       "dominantMode": "compact",
+      "laneFocus": "ALT",
       "pressureEdits": {
         "added": 2,
         "removed": 0,
@@ -813,6 +919,7 @@
         "shared": 3
       },
       "dominantMode": "compact",
+      "laneFocus": "PORTAL",
       "pressureEdits": {
         "added": 2,
         "removed": 0,
@@ -903,6 +1010,7 @@
         "shared": 0
       },
       "dominantMode": "detailed",
+      "laneFocus": "ALT",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -995,6 +1103,7 @@
         "shared": 0
       },
       "dominantMode": "detailed",
+      "laneFocus": "ALT",
       "pressureEdits": {
         "added": 2,
         "removed": 2,
@@ -1089,6 +1198,7 @@
         "shared": 6
       },
       "dominantMode": "neutral",
+      "laneFocus": "PORTAL",
       "pressureEdits": {
         "added": 4,
         "removed": 0,
@@ -1186,6 +1296,7 @@
         "shared": 0
       },
       "dominantMode": "detailed",
+      "laneFocus": "PRESSURE",
       "pressureEdits": {
         "added": 7,
         "removed": 0,
@@ -1284,6 +1395,7 @@
         "shared": 6
       },
       "dominantMode": "detailed",
+      "laneFocus": "PORTAL",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -1375,6 +1487,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -1470,6 +1583,7 @@
         "shared": 3
       },
       "dominantMode": "neutral",
+      "laneFocus": "PORTAL",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -1561,6 +1675,7 @@
         "shared": 1
       },
       "dominantMode": "detailed",
+      "laneFocus": "PORTAL",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -1651,6 +1766,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -1739,6 +1855,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -1827,6 +1944,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -1916,6 +2034,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -2011,6 +2130,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -2102,6 +2222,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -2190,6 +2311,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -2281,6 +2403,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -2369,6 +2492,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -2453,6 +2577,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -2541,6 +2666,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -2629,6 +2755,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -2717,6 +2844,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -2805,6 +2933,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -2893,6 +3022,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -2981,6 +3111,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -3069,6 +3200,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -3159,6 +3291,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -3247,6 +3380,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -3331,6 +3465,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -3419,6 +3554,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -3507,6 +3643,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -3595,6 +3732,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -3682,6 +3820,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -3769,6 +3908,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -3857,6 +3997,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -3952,6 +4093,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -4049,6 +4191,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -4143,6 +4286,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -4236,6 +4380,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -4321,6 +4466,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -4398,6 +4544,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -4486,6 +4633,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -4575,6 +4723,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -4663,6 +4812,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -4751,6 +4901,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -4839,6 +4990,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -4930,6 +5082,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -5019,6 +5172,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -5107,6 +5261,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -5197,6 +5352,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -5288,6 +5444,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -5376,6 +5533,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -5464,6 +5622,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -5554,6 +5713,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -5642,6 +5802,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -5730,6 +5891,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -5823,6 +5985,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -5917,6 +6080,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -6008,6 +6172,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -6100,6 +6265,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -6187,6 +6353,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -6278,6 +6445,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -6372,6 +6540,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -6449,6 +6618,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -6538,6 +6708,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -6618,6 +6789,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -6703,6 +6875,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -6781,6 +6954,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -6864,6 +7038,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -6947,6 +7122,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -7029,6 +7205,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -7111,6 +7288,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -7193,6 +7371,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -7270,6 +7449,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -7354,6 +7534,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -7438,6 +7619,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -7523,6 +7705,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -7609,6 +7792,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -7687,6 +7871,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -7771,6 +7956,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -7854,6 +8040,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -7938,6 +8125,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -8019,6 +8207,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -8102,6 +8291,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -8187,6 +8377,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -8272,6 +8463,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -8353,6 +8545,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -8438,6 +8631,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -8521,6 +8715,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -8603,6 +8798,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -8686,6 +8882,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -8769,6 +8966,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -8854,6 +9052,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -8935,6 +9134,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -9019,6 +9219,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -9106,6 +9307,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -9190,6 +9392,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -9274,6 +9477,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -9361,6 +9565,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -9440,6 +9645,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -9521,6 +9727,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -9610,6 +9817,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -9700,6 +9908,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -9783,6 +9992,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -9866,6 +10076,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -9949,6 +10160,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -10033,6 +10245,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -10111,6 +10324,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -10195,6 +10409,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -10278,6 +10493,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -10361,6 +10577,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,
@@ -10447,84 +10664,7 @@
         "shared": 0
       },
       "dominantMode": "neutral",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      }
-    },
-    {
-      "sha": "d41625a3d8b407e7d87f9b9ee22acae7a937c59d",
-      "shortSha": "d41625a",
-      "author": "yunwoo",
-      "subject": "logs: record commit hash for SRL cost curve run",
-      "committedAt": "2026-03-18T18:46:07Z",
-      "changedFiles": [
-        "logs/teams/qa.md",
-        "logs/teams/systems.md"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
       "pressureEdits": {
         "added": 0,
         "removed": 0,

@@ -140,6 +140,58 @@ def route_action_from_focus(*, lane_focus: str, drift_risk: str) -> tuple[str, s
     return "BALANCE_PASS", "mixed lane focus with non-low drift risk"
 
 
+def lane_focus_from_token_net(token_net: dict[str, int]) -> str:
+    family_scores = {
+        family: sum(abs(token_net.get(token, 0)) for token in tokens)
+        for family, tokens in TOKEN_FAMILIES.items()
+    }
+    max_score = max(family_scores.values(), default=0)
+    if max_score == 0:
+        return "MIXED"
+    leaders = [family for family, score in family_scores.items() if score == max_score]
+    if len(leaders) != 1:
+        return "MIXED"
+    return {
+        "portal": "PORTAL",
+        "alt": "ALT",
+        "pressure": "PRESSURE",
+    }[leaders[0]]
+
+
+def focus_streak_and_shift(*, commit_focuses: list[str], aggregate_focus: str) -> tuple[int, str]:
+    if not commit_focuses:
+        return 0, f"{aggregate_focus}->{aggregate_focus}"
+
+    streak = 0
+    for focus in commit_focuses:
+        if focus == aggregate_focus:
+            streak += 1
+        else:
+            break
+
+    previous_focus = aggregate_focus
+    for focus in commit_focuses[streak:]:
+        if focus != "MIXED":
+            previous_focus = focus
+            break
+
+    return streak, f"{previous_focus}->{aggregate_focus}"
+
+
+def focus_volatility_from_commits(commit_focuses: list[str]) -> tuple[str, dict[str, float]]:
+    if len(commit_focuses) <= 1:
+        return "STEADY", {"switches": 0, "edges": max(0, len(commit_focuses) - 1), "switchRatio": 0.0}
+
+    switches = sum(1 for idx in range(1, len(commit_focuses)) if commit_focuses[idx] != commit_focuses[idx - 1])
+    edges = len(commit_focuses) - 1
+    ratio = switches / edges if edges else 0.0
+    return ("SWING" if ratio >= 0.4 else "STEADY"), {
+        "switches": switches,
+        "edges": edges,
+        "switchRatio": round(ratio, 3),
+    }
+
+
 def commit_stats(root: Path, commit: str) -> dict:
     meta = git(root, "show", "-s", "--format=%H%n%ct%n%an%n%s", commit).splitlines()
     sha, ts, author = meta[0], int(meta[1]), meta[2]
@@ -201,6 +253,7 @@ def commit_stats(root: Path, commit: str) -> dict:
         "removed": removed,
         "net": net,
         "dominantMode": mode,
+        "laneFocus": lane_focus_from_token_net(token_net),
         "pressureEdits": {
             "added": pressure_added,
             "removed": pressure_removed,
@@ -273,6 +326,12 @@ def main() -> int:
         if token_totals["added"][token] > 0 and token_totals["removed"][token] > 0
     ]
     lane_focus, lane_focus_scores = lane_focus_from_token_totals(token_totals)
+    commit_focuses = [r["laneFocus"] for r in touched if r["laneFocus"] != "MIXED"]
+    focus_streak, focus_shift = focus_streak_and_shift(
+        commit_focuses=commit_focuses,
+        aggregate_focus=lane_focus,
+    )
+    focus_volatility, focus_volatility_signals = focus_volatility_from_commits(commit_focuses)
     route_action, route_action_reason = route_action_from_focus(
         lane_focus=lane_focus,
         drift_risk=drift_risk,
@@ -299,6 +358,10 @@ def main() -> int:
         "driftRiskSignals": drift_risk_signals,
         "laneFocus": lane_focus,
         "laneFocusScores": lane_focus_scores,
+        "focusStreak": focus_streak,
+        "focusShift": focus_shift,
+        "focusVolatility": focus_volatility,
+        "focusVolatilitySignals": focus_volatility_signals,
         "routeAction": route_action,
         "routeActionReason": route_action_reason,
         "pressureEdits": {
@@ -332,6 +395,9 @@ def main() -> int:
         f"- PRESSURE BAND: **{pressure_band}** (edits +{pressure_added} / -{pressure_removed} / net {pressure_net})",
         f"- DRIFT RISK: **{drift_risk}** (score={drift_risk_signals['score']} | imbalance={drift_risk_signals['imbalance']} | pressure={drift_risk_signals['pressureChurn']})",
         f"- FOCUS: **{lane_focus}** (portal={lane_focus_scores['portal']} | alt={lane_focus_scores['alt']} | pressure={lane_focus_scores['pressure']})",
+        f"- FOCUS STREAK: **{focus_streak}**",
+        f"- FOCUS SHIFT: **{focus_shift}**",
+        f"- FOCUS VOL: **{focus_volatility}** (switches={focus_volatility_signals['switches']}/{focus_volatility_signals['edges']} ratio={focus_volatility_signals['switchRatio']})",
         f"- ROUTE ACTION: **{route_action}** ({route_action_reason})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         "",

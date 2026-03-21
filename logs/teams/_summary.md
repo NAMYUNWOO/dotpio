@@ -1055,3 +1055,12 @@ Compact decision memory for AI context efficiency.
 - Backlog sync:
   - Marked lane-focus token done in `TASKS.md` + `POST_RC_BACKLOG.md` (Cycle K complete).
   - Injected Cycle L tasks in `TASKS.md` + `POST_RC_BACKLOG.md`; marked route-action task done, leaving `FOCUS STREAK` and `FOCUS SHIFT` as next items.
+
+## 2026-03-21 09:35 KST — Cycle L completed + Cycle M launched
+- Closed remaining Cycle L backlog: weekly portal prompt digest now emits `FOCUS STREAK` and `FOCUS SHIFT` in both JSON (`focusStreak`, `focusShift`) and markdown.
+- Because ACTION_ITEMS/TASKS/POST_RC were fully checked, executed Game Director review cycle:
+  - Ideas generated: (1) `FOCUS VOL` volatility token (low risk), (2) `ACTION CONF` confidence token (mid risk), (3) `ANOMALY` pulse sentinel (high risk).
+  - Selected experiment: `FOCUS VOL:STEADY|SWING` minimal vertical slice.
+- Shipped Cycle M slice: digest now adds `focusVolatility` + `focusVolatilitySignals` and markdown `FOCUS VOL` line based on lane-switch ratio across touched commits.
+- Regression updated and passing: `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Backlog sync: Cycle M volatility item marked done; `ACTION CONF` and `ANOMALY` remain queued.
