@@ -619,3 +619,7 @@
 - Completed highest-priority unchecked item by adding `WHAT-IF FALLBACK ALT2 CONF:LOW|MID|HIGH` after `ALT2` token in markdown digest.
 - UX rule: confidence is LOW unless the secondary lane is actionable and quality-gate signals are strong enough to trust.
 - Next hook: remaining backlog item is dual-path merge hint (`WHAT-IF FALLBACK PLAN`).
+
+## 2026-03-21 22:33:50 KST
+- Task: Completed compact strategy token design `WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD`.
+- Decision: Keep tri-state wording terse for DOS digest readability and operator handoff speed.

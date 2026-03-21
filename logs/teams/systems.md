@@ -1088,3 +1088,16 @@
 - Confidence model keys off ALT2 quality-gate outputs (`topScore`, `secondScore`, `scoreGap`) and returns LOW when flag/fallback/secondary lane is not actionable.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Next hook: complete remaining unchecked Cycle X item `WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD`.
+
+## 2026-03-21 22:33:50 KST
+- Task: Game Director Cycle X finalization — dual-path merge hint token (`WHAT-IF FALLBACK PLAN`) behind experiment flag.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 50` ✅
+- Decisions:
+  - Added `WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD` selector based on primary/secondary fallback actionability + confidence.
+  - Kept behavior additive/reversible with `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN` flag (disabled => `HOLD`).
+- Follow-up:
+  - Start next Game Director cycle (new idea triad) now that ACTION_ITEMS/TASKS/POST_RC backlog are fully checked.

@@ -590,3 +590,7 @@
 - Portal readability digest now includes secondary fallback confidence (`ALT2 CONF`) so high-pressure reroute coaching can weight secondary lane trust.
 - No combat runtime behavior changes; telemetry-only addition.
 - Verification aligned with weekly digest regression PASS.
+
+## 2026-03-21 22:33:50 KST
+- Note: No combat simulation or tuning deltas this cycle.
+- Dependency: New digest planning token may influence future combat/pressure route experiments.

@@ -616,3 +616,8 @@
 - Added `WHAT-IF FALLBACK ALT2 CONF` output contract (LOW|MID|HIGH) to support concise dual-path recommendation copy.
 - Signal rationale preserves explainability (`reason`, `topScore`, `secondScore`, `scoreGap`).
 - Next: prototype `WHAT-IF FALLBACK PLAN` narration gate behind flag.
+
+## 2026-03-21 22:33:50 KST
+- Task: Added AI-content-facing merge guidance token for dual fallback planning.
+- Decision: `WHAT-IF FALLBACK PLAN` now exposes PRIMARY/SECONDARY/HOLD strategy derived from fallback confidence signals.
+- Safety: Feature is flag-gated (`DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN`) to quarantine experiment impact.

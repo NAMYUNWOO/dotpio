@@ -637,3 +637,8 @@
 - Added digest-level trust token for secondary fallback lane (`WHAT-IF FALLBACK ALT2 CONF`) so route planners can quickly judge ALT2 viability.
 - Decision: keep lane-selection mechanics unchanged; confidence is a pure observability/readability layer.
 - Follow-up: wire merge-plan token after confidence + ALT2 are jointly visible.
+
+## 2026-03-21 22:33:50 KST
+- Note: No map/portal topology changes in this cycle.
+- Impact: Weekly portal readability digest gained merge-plan token for route handoff interpretation only.
+- Follow-up: World lane remains ready for next route experiment after Game Director re-injection.

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-21 18:01 KST
+Last updated: 2026-03-21 22:33 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,7 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+- Weekly portal readability digest now includes `WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD` (flag: `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN`) to merge primary/secondary fallback routing into one actionable handoff token.
 - Core fun: AI-generated disassemble/build loop with DOS-style inventory UX.
 - Build economy: SRL is enforced as sink; repeated low-tier loops are penalized.
 - Build requirement scales with folder/component quality and loop-risk signals.

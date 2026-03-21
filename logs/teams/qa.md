@@ -1565,3 +1565,12 @@
 - Added payload schema assertions for `whatIfFallbackAlt2Confidence` + `whatIfFallbackAlt2ConfidenceSignals`.
 - Added markdown assertion for `WHAT-IF FALLBACK ALT2 CONF` line.
 - Verification command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+
+## 2026-03-21 22:33:50 KST
+- Task: Regression validation for fallback-plan token injection.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 50` ✅
+- Coverage:
+  - Added JSON schema assertions for `whatIfFallbackPlan` and `whatIfFallbackPlanSignals`.
+  - Added markdown digest assertion for `WHAT-IF FALLBACK PLAN` line presence.

@@ -369,4 +369,4 @@ See project-level plans:
 ## Next Up (Game Director Injection — 2026-03-21 Cycle X)
 - [x] Add secondary fallback quality gate (emit `ALT2` only when lane-focus score is strong + non-ambiguous)
 - [x] Add secondary fallback confidence token (`WHAT-IF FALLBACK ALT2 CONF:LOW|MID|HIGH`) for dual-path trust readability
-- [ ] Prototype dual-path merge hint token (`WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD`) behind flag
+- [x] Prototype dual-path merge hint token (`WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD`) behind flag

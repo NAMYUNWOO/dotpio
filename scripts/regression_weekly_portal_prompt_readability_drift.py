@@ -327,6 +327,18 @@ def main() -> int:
             "scoreGap",
             "reason",
         }, payload
+        assert payload.get("whatIfFallbackPlan") in {"PRIMARY", "SECONDARY", "HOLD"}, payload
+        assert set(payload.get("whatIfFallbackPlanSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "fallback",
+            "fallbackConfidence",
+            "fallbackAlt2",
+            "fallbackAlt2Confidence",
+            "primaryActionable",
+            "secondaryActionable",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -391,6 +403,7 @@ def main() -> int:
         assert "WHAT-IF FALLBACK MAG" in md_text
         assert "WHAT-IF FALLBACK ALT2" in md_text
         assert "WHAT-IF FALLBACK ALT2 CONF" in md_text
+        assert "WHAT-IF FALLBACK PLAN" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

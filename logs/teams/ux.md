@@ -860,3 +860,7 @@
 - Added compact line `WHAT-IF FALLBACK ALT2 CONF` immediately after `WHAT-IF FALLBACK ALT2` to avoid forcing operators into JSON for trust context.
 - Keeps existing token order and compact DOS-style line formatting.
 - Regression: markdown presence asserted in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-21 22:33:50 KST
+- UX update: Weekly markdown digest now includes explicit `WHAT-IF FALLBACK PLAN` line immediately after ALT2 confidence.
+- Rationale: Reduce ambiguity when both primary and secondary fallback candidates exist.
