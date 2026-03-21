@@ -1437,3 +1437,9 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py` ✅
 - Follow-up: remaining unchecked Cycle Q item is `SANDBOX TARGET:<lane>` token.
+
+## 2026-03-21 15:01 KST — Regression update for sandbox lane target
+- Added regression assertions for JSON schema fields: `sandboxTarget`, `sandboxTargetSignals`.
+- Added markdown assertion for `SANDBOX TARGET` digest line.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: Keep schema assertions aligned when adding future sandbox routing tokens.

@@ -505,3 +505,9 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py` ✅
 - Follow-up: remaining unchecked Cycle Q item is `SANDBOX TARGET:<lane>` token.
+
+## 2026-03-21 15:01 KST — Game Director Cycle Q sandbox target token
+- Decision: Added digest routing token `SANDBOX TARGET:<lane>` to explicitly pin the lane family to test when route sandbox is active.
+- Rationale: `ROUTE SANDBOX`/`PLAN` showed activation state but not the concrete lane target for design triage handoff.
+- Implementation notes: weekly digest markdown now prints `SANDBOX TARGET` line with lane-lock context (`lane`, `armed`, `streak`).
+- Follow-up: If sandbox turns ON in live windows, use target lane to open focused probe checklist before broader balance pass.

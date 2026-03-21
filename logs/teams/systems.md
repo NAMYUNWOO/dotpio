@@ -951,3 +951,12 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py` ✅
 - Follow-up: remaining unchecked Cycle Q item is `SANDBOX TARGET:<lane>` token.
+
+## 2026-03-21 15:01 KST — Digest signal wiring for sandbox target lane
+- Added `sandbox_target_from_signals()` to derive lane target from route-sandbox + lane-lock signals.
+- Output contract:
+  - Active sandbox + armed lane lock + non-mixed lane -> `PORTAL|ALT|PRESSURE`
+  - Active sandbox + mixed lane lock -> `MIXED`
+  - Sandbox OFF -> `NONE`
+- JSON payload now includes `sandboxTarget` + `sandboxTargetSignals`.
+- Follow-up: Revisit mapping if lane-family taxonomy expands beyond portal/alt/pressure.

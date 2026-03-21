@@ -1206,3 +1206,5 @@ Compact decision memory for AI context efficiency.
 - Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now persists `sandboxCooloff`/`sandboxCooloffSignals` in JSON and emits markdown `SANDBOX COOLOFF` triage line with prior-state context.
 - QA evidence: `scripts/regression_weekly_portal_prompt_readability_drift.py` now validates cooloff schema + transition fixtures (`no-prior`, `just-disarmed`, `continuing`) and markdown token presence.
 - Next hook: execute remaining Cycle Q backlog item `SANDBOX TARGET:<lane>`.
+
+- 2026-03-21 15:01 KST: Cycle Q completed — weekly portal digest now emits `SANDBOX TARGET:<lane>` (json+markdown), with regression coverage for payload/schema and digest line presence. Enables explicit lane-family routing when route sandbox activates.

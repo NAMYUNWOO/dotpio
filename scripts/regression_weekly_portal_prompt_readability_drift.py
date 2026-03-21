@@ -131,6 +131,14 @@ def main() -> int:
             "driftRisk",
             "reason",
         }, payload
+        assert payload.get("sandboxTarget") in {"PORTAL", "ALT", "PRESSURE", "MIXED", "NONE"}, payload
+        assert set(payload.get("sandboxTargetSignals", {}).keys()) == {
+            "routeSandbox",
+            "lane",
+            "laneLockArmed",
+            "laneLockStreak",
+            "reason",
+        }, payload
         assert isinstance(payload.get("sandboxCooloff"), int) and payload["sandboxCooloff"] >= 0, payload
         assert set(payload.get("sandboxCooloffSignals", {}).keys()) == {
             "active",
@@ -191,6 +199,7 @@ def main() -> int:
         assert "LANE LOCK" in md_text
         assert "ROUTE SANDBOX" in md_text
         assert "SANDBOX PLAN" in md_text
+        assert "SANDBOX TARGET" in md_text
         assert "SANDBOX COOLOFF" in md_text
         assert "DRIFT MOMENTUM" in md_text
         assert "PRESSURE LAG" in md_text

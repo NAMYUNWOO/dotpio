@@ -442,6 +442,30 @@ def route_sandbox_plan_from_signals(*, route_sandbox: str, action_guard: str, dr
     }
 
 
+def sandbox_target_from_signals(*, route_sandbox: str, lane_lock_signals: dict[str, int | str | bool]) -> tuple[str, dict[str, str | bool | int]]:
+    lane = str(lane_lock_signals.get("lane", "MIXED"))
+    armed = bool(lane_lock_signals.get("armed", False))
+    streak = int(lane_lock_signals.get("streak", 0))
+
+    if route_sandbox == "ON" and armed and lane != "MIXED":
+        target = lane
+        reason = "sandbox-active-using-lane-lock-family"
+    elif route_sandbox == "ON" and lane == "MIXED":
+        target = "MIXED"
+        reason = "sandbox-active-with-mixed-lane-lock"
+    else:
+        target = "NONE"
+        reason = "sandbox-inactive"
+
+    return target, {
+        "routeSandbox": route_sandbox,
+        "lane": lane,
+        "laneLockArmed": armed,
+        "laneLockStreak": streak,
+        "reason": reason,
+    }
+
+
 def sandbox_cooloff_from_prior(*, current_sandbox: str, prior_json_path: Path) -> tuple[int, dict[str, str | int | bool]]:
     """Count consecutive non-armed digest windows since last ROUTE SANDBOX:ON cycle.
 
@@ -659,6 +683,10 @@ def main() -> int:
         action_guard=action_guard,
         drift_risk=drift_risk,
     )
+    sandbox_target, sandbox_target_signals = sandbox_target_from_signals(
+        route_sandbox=route_sandbox,
+        lane_lock_signals=lane_lock_signals,
+    )
     sandbox_cooloff, sandbox_cooloff_signals = sandbox_cooloff_from_prior(
         current_sandbox=route_sandbox,
         prior_json_path=args.out_json,
@@ -715,6 +743,8 @@ def main() -> int:
         "routeSandboxSignals": route_sandbox_signals,
         "routeSandboxPlan": route_sandbox_plan,
         "routeSandboxPlanSignals": route_sandbox_plan_signals,
+        "sandboxTarget": sandbox_target,
+        "sandboxTargetSignals": sandbox_target_signals,
         "sandboxCooloff": sandbox_cooloff,
         "sandboxCooloffSignals": sandbox_cooloff_signals,
         "driftMomentum": drift_momentum,
@@ -766,6 +796,7 @@ def main() -> int:
         f"- LANE LOCK: **{lane_lock}** (threshold={lane_lock_signals['threshold']} lane={lane_lock_signals['lane']} streak={lane_lock_signals['streak']})",
         f"- ROUTE SANDBOX: **{route_sandbox}** ({route_sandbox_signals['reason']}; flag={route_sandbox_signals['flagName']} enabled={route_sandbox_signals['flagEnabled']} laneLock={route_sandbox_signals['laneLock']}x{route_sandbox_signals['laneLockStreak']})",
         f"- SANDBOX PLAN: **{route_sandbox_plan}** ({route_sandbox_plan_signals['reason']}; guard={route_sandbox_plan_signals['actionGuard']} risk={route_sandbox_plan_signals['driftRisk']})",
+        f"- SANDBOX TARGET: **{sandbox_target}** ({sandbox_target_signals['reason']}; lane={sandbox_target_signals['lane']} armed={sandbox_target_signals['laneLockArmed']} streak={sandbox_target_signals['laneLockStreak']})",
         f"- SANDBOX COOLOFF: **{sandbox_cooloff}** ({sandbox_cooloff_signals['reason']}; active={sandbox_cooloff_signals['active']} prior={sandbox_cooloff_signals['priorSandbox']}:{sandbox_cooloff_signals['priorCooloff']})",
         f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",
         f"- PRESSURE LAG: **{pressure_lag}** (churn={pressure_lag_signals['pressureChurn']} momentum={pressure_lag_signals['driftMomentum']} |Δ|={pressure_lag_signals['absDriftDelta']})",
