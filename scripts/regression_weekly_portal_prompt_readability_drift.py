@@ -419,6 +419,17 @@ def main() -> int:
             "reason",
             "priorLoaded",
         }, payload
+        assert payload.get("whatIfSplitEscalate") in {"ON", "OFF"}, payload
+        assert set(payload.get("whatIfSplitEscalateSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "split",
+            "splitArmed",
+            "lanesDiverged",
+            "planFit",
+            "tenseFit",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -492,6 +503,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT SAFE" in md_text
         assert "WHAT-IF SPLIT POSTURE" in md_text
         assert "WHAT-IF SPLIT COOLOFF" in md_text
+        assert "WHAT-IF SPLIT ESCALATE" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

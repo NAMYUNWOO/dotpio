@@ -1368,6 +1368,49 @@ def what_if_split_cooloff_from_prior(*, current_split: str, prior_json_path: Pat
     }
 
 
+def what_if_split_escalate_from_signals(
+    *,
+    what_if_split: str,
+    what_if_split_signals: dict[str, str | int | bool],
+    what_if_fallback_plan_fit: str,
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Arm split escalation sentinel when divergent split stays tense."""
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESCALATE"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    split_armed = what_if_split == "ON"
+    lanes_diverged = bool(what_if_split_signals.get("lanesDiverged", False))
+    tense_fit = what_if_fallback_plan_fit == "TENSE"
+
+    if not flag_enabled:
+        escalate = "OFF"
+        reason = "flag-disabled"
+    elif not split_armed:
+        escalate = "OFF"
+        reason = "split-not-armed"
+    elif not lanes_diverged:
+        escalate = "OFF"
+        reason = "split-lanes-not-divergent"
+    elif not tense_fit:
+        escalate = "OFF"
+        reason = "fit-not-tense"
+    else:
+        escalate = "ON"
+        reason = "divergent-split-under-tense-fit"
+
+    return escalate, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "split": what_if_split,
+        "splitArmed": split_armed,
+        "lanesDiverged": lanes_diverged,
+        "planFit": what_if_fallback_plan_fit,
+        "tenseFit": tense_fit,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -1929,6 +1972,11 @@ def main() -> int:
         current_split=what_if_split,
         prior_json_path=args.out_json,
     )
+    what_if_split_escalate, what_if_split_escalate_signals = what_if_split_escalate_from_signals(
+        what_if_split=what_if_split,
+        what_if_split_signals=what_if_split_signals,
+        what_if_fallback_plan_fit=what_if_fallback_plan_fit,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -2038,6 +2086,8 @@ def main() -> int:
         "whatIfSplitPostureSignals": what_if_split_posture_signals,
         "whatIfSplitCooloff": what_if_split_cooloff,
         "whatIfSplitCooloffSignals": what_if_split_cooloff_signals,
+        "whatIfSplitEscalate": what_if_split_escalate,
+        "whatIfSplitEscalateSignals": what_if_split_escalate_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -2115,6 +2165,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT SAFE: **{what_if_split_safe}** ({what_if_split_safe_signals['reason']}; flag={what_if_split_safe_signals['flagName']} enabled={what_if_split_safe_signals['flagEnabled']} split={what_if_split_safe_signals['split']} fit={what_if_split_safe_signals['primaryFit']} alt2Conf={what_if_split_safe_signals['secondaryConfidenceGate']})",
         f"- WHAT-IF SPLIT POSTURE: **{what_if_split_posture}** ({what_if_split_posture_signals['reason']}; split={what_if_split_posture_signals['split']} safe={what_if_split_posture_signals['splitSafe']} conf={what_if_split_posture_signals['splitConfidence']})",
         f"- WHAT-IF SPLIT COOLOFF: **{what_if_split_cooloff}** ({what_if_split_cooloff_signals['reason']}; active={what_if_split_cooloff_signals['active']} prior={what_if_split_cooloff_signals['priorSplit']}:{what_if_split_cooloff_signals['priorCooloff']})",
+        f"- WHAT-IF SPLIT ESCALATE: **{what_if_split_escalate}** ({what_if_split_escalate_signals['reason']}; flag={what_if_split_escalate_signals['flagName']} enabled={what_if_split_escalate_signals['flagEnabled']} split={what_if_split_escalate_signals['split']} diverged={what_if_split_escalate_signals['lanesDiverged']} fit={what_if_split_escalate_signals['planFit']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

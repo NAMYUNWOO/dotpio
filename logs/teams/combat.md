@@ -651,3 +651,8 @@
 - Decision: cooloff starts at 1 when split flips ON->OFF, increments while split stays OFF, resets to 0 on split ON.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Follow-up: next unchecked item is flagged novelty `WHAT-IF SPLIT ESCALATE:ON`.
+
+## 2026-03-22 02:03 KST
+- Task: Combat-lane dependency review for split escalation sentinel.
+- Decision: no combat-state schema changes; sentinel remains analytics-layer only.
+- Follow-up: none.

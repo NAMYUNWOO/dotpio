@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-22 01:01 KST
+Last updated: 2026-03-22 02:03 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,8 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Game Director Cycle AA follow-up slice delivered: weekly digest now emits flag-gated `WHAT-IF SPLIT ESCALATE:ON|OFF` when split remains divergent under `TENSE` fit (`DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESCALATE`).
+- Split escalation sentinel is regression-covered in weekly digest payload + markdown assertions to keep schema/report stability.
 - Game Director Cycle AA slice delivered: weekly digest now emits `WHAT-IF SPLIT POSTURE:SAFE|WATCH|HOLD` from split armed/safe/confidence signals for quick go/no-go triage.
 - Cycle AA backlog injected with two follow-up experiments: `WHAT-IF SPLIT COOLOFF:<n>` and flag-gated `WHAT-IF SPLIT ESCALATE:ON`.
 - Game Director Cycle Y slice delivered: weekly digest now emits `WHAT-IF PLAN WHY:<short>` (flag `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN_WHY`) to explain selected merge-path rationale in one glance.

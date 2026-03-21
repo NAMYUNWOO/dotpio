@@ -1169,3 +1169,16 @@
 - Decision: cooloff starts at 1 when split flips ON->OFF, increments while split stays OFF, resets to 0 on split ON.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Follow-up: next unchecked item is flagged novelty `WHAT-IF SPLIT ESCALATE:ON`.
+
+## 2026-03-22 02:03 KST
+- Task: Game Director Cycle AA follow-up — split escalation sentinel prototype (`WHAT-IF SPLIT ESCALATE:ON`).
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --help` ✅
+- Decisions:
+  - Added flag-gated sentinel `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESCALATE`.
+  - Sentinel now turns `ON` only when split is armed, lanes remain divergent, and plan fit is `TENSE`.
+- Follow-up:
+  - Evaluate next unchecked Game Director injection item.
