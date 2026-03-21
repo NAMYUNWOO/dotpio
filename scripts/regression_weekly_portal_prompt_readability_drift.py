@@ -137,8 +137,10 @@ def main() -> int:
             "lane",
             "laneLockArmed",
             "laneLockStreak",
+            "targetSource",
             "reason",
         }, payload
+        assert payload.get("sandboxTargetSource") in {"LOCK", "MIXED", "NONE"}, payload
         assert payload.get("sandboxTargetConfidence") in {"LOW", "MID", "HIGH"}, payload
         assert set(payload.get("sandboxTargetConfidenceSignals", {}).keys()) == {
             "sandboxTarget",
@@ -208,6 +210,7 @@ def main() -> int:
         assert "ROUTE SANDBOX" in md_text
         assert "SANDBOX PLAN" in md_text
         assert "SANDBOX TARGET" in md_text
+        assert "TARGET SRC" in md_text
         assert "SANDBOX TARGET CONF" in md_text
         assert "SANDBOX COOLOFF" in md_text
         assert "DRIFT MOMENTUM" in md_text

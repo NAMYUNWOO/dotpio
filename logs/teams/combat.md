@@ -501,3 +501,10 @@
 ## 2026-03-21 15:01 KST — Cycle R note
 - No combat behavior/value tuning changes this cycle.
 - Sandbox-target confidence may later gate combat-pressure probe scenarios by lane family.
+
+## 2026-03-21 15:33 KST — Cycle R sandbox target source token
+- Completed backlog item: `TARGET SRC:LOCK|MIXED|NONE` for weekly portal prompt readability drift digest.
+- Decision: expose derivation path directly from sandbox-target resolver (`LOCK` when lane-lock derived, `MIXED` when sandbox active without single-lane lock, `NONE` when sandbox inactive) for quick auditability.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now emits `sandboxTargetSource` in JSON, adds `targetSource` signal, and renders markdown line `TARGET SRC`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; digest regeneration PASS.
+- Follow-up: next highest unchecked item is `TARGET SHIFT:<FROM->TO>` history token.

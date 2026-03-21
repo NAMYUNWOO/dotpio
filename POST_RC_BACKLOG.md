@@ -181,5 +181,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-21 Cycle R)
 - [x] Design/QA Team: Add sandbox-target confidence token (`SANDBOX TARGET CONF:LOW|MID|HIGH`) for lane-target handoff quality
-- [ ] Systems/QA Team: Add sandbox-target source token (`TARGET SRC:LOCK|MIXED|NONE`) for derivation-path auditability
+- [x] Systems/QA Team: Add sandbox-target source token (`TARGET SRC:LOCK|MIXED|NONE`) for derivation-path auditability
 - [ ] UX/Systems Team: Add sandbox-target history token (`TARGET SHIFT:<FROM->TO>`) to flag lane-target swaps across digest windows

@@ -1209,3 +1209,8 @@ Compact decision memory for AI context efficiency.
 
 - 2026-03-21 15:01 KST: Cycle Q completed — weekly portal digest now emits `SANDBOX TARGET:<lane>` (json+markdown), with regression coverage for payload/schema and digest line presence. Enables explicit lane-family routing when route sandbox activates.
 - 2026-03-21 15:01 KST: Game Director Cycle R ideation completed. Candidate ideas: (1) SANDBOX TARGET CONF token (low-risk UX/game-feel handoff), (2) TARGET SRC derivation token (mid-risk systems auditability), (3) TARGET SHIFT history token (high-risk novelty for window-over-window churn cues). Selected/implemented #1 as vertical slice with regression + digest artifact refresh.
+- 2026-03-21 15:33 KST: Closed Cycle R backlog item `TARGET SRC:LOCK|MIXED|NONE`.
+- Weekly portal digest now emits derivation-path audit token as JSON `sandboxTargetSource` and markdown `TARGET SRC`, sourced from sandbox-target resolver signals.
+- Durable decision: keep source taxonomy minimal (`LOCK|MIXED|NONE`) to avoid overfitting while preserving operator traceability.
+- Verification: py_compile PASS, regression PASS, digest artifact refresh PASS (`logs/weekly_portal_prompt_readability_drift.{json,md}`).
+- Next hook: implement remaining unchecked Cycle R item `TARGET SHIFT:<FROM->TO>`.

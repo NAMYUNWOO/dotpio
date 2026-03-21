@@ -449,12 +449,15 @@ def sandbox_target_from_signals(*, route_sandbox: str, lane_lock_signals: dict[s
 
     if route_sandbox == "ON" and armed and lane != "MIXED":
         target = lane
+        target_source = "LOCK"
         reason = "sandbox-active-using-lane-lock-family"
     elif route_sandbox == "ON" and lane == "MIXED":
         target = "MIXED"
+        target_source = "MIXED"
         reason = "sandbox-active-with-mixed-lane-lock"
     else:
         target = "NONE"
+        target_source = "NONE"
         reason = "sandbox-inactive"
 
     return target, {
@@ -462,6 +465,7 @@ def sandbox_target_from_signals(*, route_sandbox: str, lane_lock_signals: dict[s
         "lane": lane,
         "laneLockArmed": armed,
         "laneLockStreak": streak,
+        "targetSource": target_source,
         "reason": reason,
     }
 
@@ -781,6 +785,7 @@ def main() -> int:
         "routeSandboxPlanSignals": route_sandbox_plan_signals,
         "sandboxTarget": sandbox_target,
         "sandboxTargetSignals": sandbox_target_signals,
+        "sandboxTargetSource": str(sandbox_target_signals.get("targetSource", "NONE")),
         "sandboxTargetConfidence": sandbox_target_confidence,
         "sandboxTargetConfidenceSignals": sandbox_target_confidence_signals,
         "sandboxCooloff": sandbox_cooloff,
@@ -835,6 +840,7 @@ def main() -> int:
         f"- ROUTE SANDBOX: **{route_sandbox}** ({route_sandbox_signals['reason']}; flag={route_sandbox_signals['flagName']} enabled={route_sandbox_signals['flagEnabled']} laneLock={route_sandbox_signals['laneLock']}x{route_sandbox_signals['laneLockStreak']})",
         f"- SANDBOX PLAN: **{route_sandbox_plan}** ({route_sandbox_plan_signals['reason']}; guard={route_sandbox_plan_signals['actionGuard']} risk={route_sandbox_plan_signals['driftRisk']})",
         f"- SANDBOX TARGET: **{sandbox_target}** ({sandbox_target_signals['reason']}; lane={sandbox_target_signals['lane']} armed={sandbox_target_signals['laneLockArmed']} streak={sandbox_target_signals['laneLockStreak']})",
+        f"- TARGET SRC: **{sandbox_target_signals['targetSource']}** (sandbox={sandbox_target_signals['routeSandbox']} target={sandbox_target})",
         f"- SANDBOX TARGET CONF: **{sandbox_target_confidence}** ({sandbox_target_confidence_signals['reason']}; routeConf={sandbox_target_confidence_signals['routeActionConfidence']} lock={sandbox_target_confidence_signals['laneLockArmed']}x{sandbox_target_confidence_signals['laneLockStreak']})",
         f"- SANDBOX COOLOFF: **{sandbox_cooloff}** ({sandbox_cooloff_signals['reason']}; active={sandbox_cooloff_signals['active']} prior={sandbox_cooloff_signals['priorSandbox']}:{sandbox_cooloff_signals['priorCooloff']})",
         f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",
