@@ -1116,6 +1116,96 @@ def what_if_fallback_plan_why_from_signals(
     }
 
 
+def what_if_split_from_signals(
+    *,
+    what_if_fallback_plan_signals: dict[str, str | bool],
+    what_if_alt_signals: dict[str, str | int | bool],
+) -> tuple[str, dict[str, str | int | bool]]:
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    primary_lane = str(what_if_fallback_plan_signals.get("fallback", "OFF"))
+    secondary_lane = str(what_if_fallback_plan_signals.get("fallbackAlt2", "NONE"))
+    primary_conf = str(what_if_fallback_plan_signals.get("fallbackConfidence", "LOW"))
+    secondary_conf = str(what_if_fallback_plan_signals.get("fallbackAlt2Confidence", "LOW"))
+
+    primary_actionable = primary_lane in {"PORTAL", "ALT", "PRESSURE"}
+    secondary_actionable = secondary_lane in {"PORTAL", "ALT", "PRESSURE"}
+    lanes_diverged = primary_lane != secondary_lane
+    abs_delta_risk = abs(int(what_if_alt_signals.get("deltaRisk", 0)))
+    strong_delta = abs_delta_risk >= 4
+    strong_confidence = primary_conf in {"MID", "HIGH"} and secondary_conf in {"MID", "HIGH"}
+
+    if not flag_enabled:
+        split = "OFF"
+        reason = "flag-disabled"
+    elif not primary_actionable or not secondary_actionable:
+        split = "OFF"
+        reason = "missing-dual-actionable-routes"
+    elif not lanes_diverged:
+        split = "OFF"
+        reason = "no-lane-divergence"
+    elif strong_confidence and strong_delta:
+        split = "ON"
+        reason = "dual-route-divergence-strong"
+    else:
+        split = "OFF"
+        reason = "divergence-below-threshold"
+
+    return split, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "primaryLane": primary_lane,
+        "secondaryLane": secondary_lane,
+        "primaryConfidence": primary_conf,
+        "secondaryConfidence": secondary_conf,
+        "lanesDiverged": lanes_diverged,
+        "absDeltaRisk": abs_delta_risk,
+        "strongDelta": strong_delta,
+        "strongConfidence": strong_confidence,
+        "reason": reason,
+    }
+
+
+def what_if_split_confidence_from_signals(
+    *,
+    what_if_split: str,
+    what_if_split_signals: dict[str, str | int | bool],
+) -> tuple[str, dict[str, str | int | bool]]:
+    flag_enabled = bool(what_if_split_signals.get("flagEnabled", False))
+    strong_confidence = bool(what_if_split_signals.get("strongConfidence", False))
+    strong_delta = bool(what_if_split_signals.get("strongDelta", False))
+    primary_conf = str(what_if_split_signals.get("primaryConfidence", "LOW"))
+    secondary_conf = str(what_if_split_signals.get("secondaryConfidence", "LOW"))
+
+    if not flag_enabled:
+        confidence = "LOW"
+        reason = "flag-disabled"
+    elif what_if_split != "ON":
+        confidence = "LOW"
+        reason = "split-not-armed"
+    elif primary_conf == "HIGH" and secondary_conf == "HIGH" and strong_delta:
+        confidence = "HIGH"
+        reason = "dual-high-confidence-with-strong-delta"
+    elif strong_confidence:
+        confidence = "MID"
+        reason = "dual-confidence-above-threshold"
+    else:
+        confidence = "LOW"
+        reason = "weak-dual-confidence"
+
+    return confidence, {
+        "split": what_if_split,
+        "flagEnabled": flag_enabled,
+        "primaryConfidence": primary_conf,
+        "secondaryConfidence": secondary_conf,
+        "strongConfidence": strong_confidence,
+        "strongDelta": strong_delta,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -1651,6 +1741,14 @@ def main() -> int:
         what_if_fallback_plan_signals=what_if_fallback_plan_signals,
         what_if_fallback_plan_fit=what_if_fallback_plan_fit,
     )
+    what_if_split, what_if_split_signals = what_if_split_from_signals(
+        what_if_fallback_plan_signals=what_if_fallback_plan_signals,
+        what_if_alt_signals=what_if_alt_signals,
+    )
+    what_if_split_confidence, what_if_split_confidence_signals = what_if_split_confidence_from_signals(
+        what_if_split=what_if_split,
+        what_if_split_signals=what_if_split_signals,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -1748,6 +1846,10 @@ def main() -> int:
         "whatIfFallbackPlanFitSignals": what_if_fallback_plan_fit_signals,
         "whatIfFallbackPlanWhy": what_if_fallback_plan_why,
         "whatIfFallbackPlanWhySignals": what_if_fallback_plan_why_signals,
+        "whatIfSplit": what_if_split,
+        "whatIfSplitSignals": what_if_split_signals,
+        "whatIfSplitConfidence": what_if_split_confidence,
+        "whatIfSplitConfidenceSignals": what_if_split_confidence_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -1819,6 +1921,8 @@ def main() -> int:
         f"- WHAT-IF FALLBACK PLAN: **{what_if_fallback_plan}** ({what_if_fallback_plan_signals['reason']}; flag={what_if_fallback_plan_signals['flagName']} enabled={what_if_fallback_plan_signals['flagEnabled']} primary={what_if_fallback_plan_signals['fallback']}({what_if_fallback_plan_signals['fallbackConfidence']}) secondary={what_if_fallback_plan_signals['fallbackAlt2']}({what_if_fallback_plan_signals['fallbackAlt2Confidence']}))",
         f"- WHAT-IF PLAN FIT: **{what_if_fallback_plan_fit}** ({what_if_fallback_plan_fit_signals['reason']}; plan={what_if_fallback_plan_fit_signals['plan']} lane={what_if_fallback_plan_fit_signals['planLane']} pressure={what_if_fallback_plan_fit_signals['pressureBand']} projected={what_if_fallback_plan_fit_signals['projectedBand']})",
         f"- WHAT-IF PLAN WHY: **{what_if_fallback_plan_why}** ({what_if_fallback_plan_why_signals['reason']}; flag={what_if_fallback_plan_why_signals['flagName']} enabled={what_if_fallback_plan_why_signals['flagEnabled']} plan={what_if_fallback_plan_why_signals['plan']} fit={what_if_fallback_plan_why_signals['planFit']})",
+        f"- WHAT-IF SPLIT: **{what_if_split}** ({what_if_split_signals['reason']}; flag={what_if_split_signals['flagName']} enabled={what_if_split_signals['flagEnabled']} lanes={what_if_split_signals['primaryLane']}->{what_if_split_signals['secondaryLane']} conf={what_if_split_signals['primaryConfidence']}/{what_if_split_signals['secondaryConfidence']} |Δ|={what_if_split_signals['absDeltaRisk']})",
+        f"- WHAT-IF SPLIT CONF: **{what_if_split_confidence}** ({what_if_split_confidence_signals['reason']}; split={what_if_split_confidence_signals['split']} conf={what_if_split_confidence_signals['primaryConfidence']}/{what_if_split_confidence_signals['secondaryConfidence']} strong={what_if_split_confidence_signals['strongConfidence']} delta={what_if_split_confidence_signals['strongDelta']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

@@ -1585,3 +1585,19 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decision: expanded schema assertions for `whatIfFallbackPlanWhy` + signal keys and markdown presence check (`WHAT-IF PLAN WHY`).
 - Follow-up: add regression assertions for `WHAT-IF SPLIT` once implemented.
+
+## 2026-03-21 23:34 KST — Cycle Y novelty slice closure (`WHAT-IF SPLIT`)
+- Completed backlog item: added flagged dual-route split recommendation token `WHAT-IF SPLIT:ON|OFF` in weekly portal readability digest.
+- Decision: gate behind `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT`; emit `ON` only when primary/secondary fallback lanes are both actionable, diverged, and pass confidence + |ΔRISK| threshold.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Follow-up: with TASKS + POST_RC backlog now fully checked, next cycle should start Game Director review loop (3 ideas -> pick 1 -> minimal vertical slice).
+
+## 2026-03-21 23:36 KST — Game Director Cycle Z review + selected vertical slice
+- Idea set:
+  1) Low-risk UX: `WHAT-IF SPLIT CONF:LOW|MID|HIGH` trust token for split recommendation.
+  2) Mid-risk systems: `WHAT-IF SPLIT LANES:<primary>/<secondary>` compact lane-pair handoff token.
+  3) High-risk novelty: `WHAT-IF SPLIT SAFE:ON` gate when split recommendation avoids pressure escalation.
+- Selected experiment: idea #1 (`WHAT-IF SPLIT CONF`) as minimal vertical slice.
+- Implementation: Added `what_if_split_confidence_from_signals(...)` and emitted `whatIfSplitConfidence`/`whatIfSplitConfidenceSignals` in JSON plus markdown line `WHAT-IF SPLIT CONF`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Next hook: implement Cycle Z remaining items (`WHAT-IF SPLIT LANES`, `WHAT-IF SPLIT SAFE`).

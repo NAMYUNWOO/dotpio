@@ -217,4 +217,9 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-21 Cycle Y)
 - [x] UX/Design Team: Add merge-plan rationale token (`WHAT-IF PLAN WHY:<short>`) for concise operator context
 - [x] Systems/QA Team: Add merge-plan pressure-fit token (`WHAT-IF PLAN FIT:SAFE|EVEN|TENSE`) from selected merge-path projection
-- [ ] Design/AI Content Team: Prototype dual-route split recommendation token (`WHAT-IF SPLIT:ON`) behind flag when primary/secondary diverge strongly
+- [x] Design/AI Content Team: Prototype dual-route split recommendation token (`WHAT-IF SPLIT:ON`) behind flag when primary/secondary diverge strongly
+
+## P1 (Game Director Injection — 2026-03-21 Cycle Z)
+- [x] QA/Design Team: Add split-recommendation confidence token (`WHAT-IF SPLIT CONF:LOW|MID|HIGH`) behind flag for operator trust readability
+- [ ] UX/Systems Team: Add split route-pair token (`WHAT-IF SPLIT LANES:<primary>/<secondary>`) for compact handoff clarity
+- [ ] Systems/AI Content Team: Prototype split-safe-mode token (`WHAT-IF SPLIT SAFE:ON`) behind flag when split suggests non-escalating dual-path plans

@@ -1374,3 +1374,24 @@ Compact decision memory for AI context efficiency.
 - Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfFallbackAlt2Confidence` + signals from existing ALT2 quality-gate metrics (`topScore`, `secondScore`, `scoreGap`) and writes markdown line `WHAT-IF FALLBACK ALT2 CONF`.
 - QA: `scripts/regression_weekly_portal_prompt_readability_drift.py` updated for payload+markdown assertions; regression PASS.
 - Remaining unchecked backlog item: `WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD` (next priority).
+
+## 2026-03-21 23:34 KST — Game Director Cycle Y closure (`WHAT-IF SPLIT`)
+- Closed the last unchecked TASKS/POST_RC item by shipping `WHAT-IF SPLIT:ON|OFF` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Contract: feature is off by default and guarded by `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT`; `ON` requires dual actionable lanes (`fallback` + `fallbackAlt2`), lane divergence, MID/HIGH confidence on both, and strong projected risk delta (`|ΔRISK| >= 4`).
+- Regression: extended `scripts/regression_weekly_portal_prompt_readability_drift.py` with schema assertions (`whatIfSplit`, `whatIfSplitSignals`) and markdown presence assertion (`WHAT-IF SPLIT`), then ran it successfully.
+- Backlog sync: marked `WHAT-IF SPLIT` done in both `TASKS.md` and `POST_RC_BACKLOG.md`; action queues are now fully checked and ready for next Game Director idea injection cycle.
+
+## 2026-03-21 23:36 KST — Game Director Cycle Z launched after full backlog clear
+- Trigger: ACTION_ITEMS + TASKS + POST_RC backlog reached fully checked state, so immediate Game Director review cycle executed.
+- Idea generation (3):
+  1) Low-risk UX `WHAT-IF SPLIT CONF:LOW|MID|HIGH`
+  2) Mid-risk systems `WHAT-IF SPLIT LANES:<primary>/<secondary>`
+  3) High-risk novelty `WHAT-IF SPLIT SAFE:ON` (flagged)
+- Selected vertical slice: idea #1 (`WHAT-IF SPLIT CONF`).
+- Implementation details:
+  - `scripts/weekly_portal_prompt_readability_drift.py`: added `what_if_split_confidence_from_signals(...)`; payload now includes `whatIfSplitConfidence` + `whatIfSplitConfidenceSignals`; markdown now includes `WHAT-IF SPLIT CONF` row.
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`: added schema assertions for split confidence fields and markdown presence check.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Backlog injection/sync:
+  - Added Cycle Z section to `TASKS.md` and `POST_RC_BACKLOG.md`.
+  - Marked selected item done; left two follow-ups queued (`SPLIT LANES`, `SPLIT SAFE`).
