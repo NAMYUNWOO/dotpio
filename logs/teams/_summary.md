@@ -1320,3 +1320,19 @@ Compact decision memory for AI context efficiency.
 - Backlog injection completed:
   - Added Cycle V entries to `TASKS.md` and `POST_RC_BACKLOG.md`.
   - Marked confidence item done; left fallback-fit + fallback-why as next queued items.
+
+## 2026-03-21 20:01 KST — Cycle V fallback pressure-safety token shipped
+- Completed next highest-priority unchecked task in `TASKS.md`/`POST_RC_BACKLOG.md`: `WHAT-IF FALLBACK FIT:SAFE|EVEN|TENSE`.
+- `scripts/weekly_portal_prompt_readability_drift.py` updates:
+  - Added `what_if_fallback_pressure_fit_from_signals(...)`.
+  - Added JSON fields `whatIfFallbackFit` + `whatIfFallbackFitSignals`.
+  - Added markdown line `WHAT-IF FALLBACK FIT` with pressure/fallback projection context.
+  - Extended `whatIfAltSignals` with `imbalance`/`pressureChurn` so fallback projection math is explicit.
+- `scripts/regression_weekly_portal_prompt_readability_drift.py` updates:
+  - Expanded schema expectations for `whatIfAltSignals`.
+  - Added assertions for `whatIfFallbackFit` + signal schema.
+  - Added markdown assertion for `WHAT-IF FALLBACK FIT`.
+- Verification PASS:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 120 --out-json logs/playtests/weekly_portal_prompt_readability_drift.json --out-md logs/playtests/weekly_portal_prompt_readability_drift.md`
+- Backlog state: fallback-fit item marked done in `TASKS.md` and `POST_RC_BACKLOG.md`; remaining unchecked item is fallback rationale token (`WHAT-IF FALLBACK WHY:<short>`).

@@ -427,6 +427,8 @@ def what_if_alt_from_signals(
         "currentLane": current_lane,
         "altLane": alt_lane,
         "baselineRisk": baseline_risk,
+        "imbalance": imbalance,
+        "pressureChurn": pressure_churn,
         "projectedRisk": projected_risk,
         "deltaRisk": delta_risk,
         "reason": reason,
@@ -693,6 +695,60 @@ def what_if_fallback_confidence_from_signals(
         "whatIfAlign": align,
         "deltaRisk": delta_risk,
         "routeActionConfidence": route_action_confidence,
+        "reason": reason,
+    }
+
+
+def what_if_fallback_pressure_fit_from_signals(
+    *,
+    what_if_fallback: str,
+    what_if_fallback_signals: dict[str, str | bool],
+    what_if_alt_signals: dict[str, str | int | bool],
+    pressure_band: str,
+) -> tuple[str, dict[str, str | int | bool]]:
+    flag_enabled = bool(what_if_fallback_signals.get("flagEnabled", False))
+    baseline_risk = int(what_if_alt_signals.get("baselineRisk", 0))
+    imbalance = int(what_if_alt_signals.get("imbalance", baseline_risk))
+    pressure_churn = int(what_if_alt_signals.get("pressureChurn", 0))
+
+    projected_risk = baseline_risk
+    if what_if_fallback in {"PORTAL", "ALT", "PRESSURE"}:
+        projected_imbalance = max(0, imbalance - 2) if what_if_fallback in {"ALT", "PORTAL"} else max(0, imbalance - 1)
+        projected_pressure = max(0, pressure_churn - 2) if what_if_fallback == "PRESSURE" else max(0, pressure_churn - 1)
+        projected_risk = projected_imbalance + projected_pressure
+    projected_band = "LOW"
+    if projected_risk >= 12:
+        projected_band = "HIGH"
+    elif projected_risk >= 5:
+        projected_band = "MID"
+
+    band_rank = {"LOW": 0, "MID": 1, "HIGH": 2}
+    projected_rank = band_rank.get(projected_band, 1)
+    pressure_rank = band_rank.get(pressure_band, 1)
+
+    if not flag_enabled:
+        fit = "EVEN"
+        reason = "fallback-flag-disabled"
+    elif what_if_fallback in {"OFF", "NONE"}:
+        fit = "EVEN"
+        reason = "no-actionable-fallback"
+    elif projected_rank < pressure_rank:
+        fit = "SAFE"
+        reason = "fallback-projected-risk-below-current-pressure-band"
+    elif projected_rank > pressure_rank:
+        fit = "TENSE"
+        reason = "fallback-projected-risk-above-current-pressure-band"
+    else:
+        fit = "EVEN"
+        reason = "fallback-projected-risk-matches-current-pressure-band"
+
+    return fit, {
+        "flagEnabled": flag_enabled,
+        "fallback": what_if_fallback,
+        "pressureBand": pressure_band,
+        "baselineRisk": baseline_risk,
+        "projectedRisk": projected_risk,
+        "projectedBand": projected_band,
         "reason": reason,
     }
 
@@ -1183,6 +1239,12 @@ def main() -> int:
         what_if_alt_signals=what_if_alt_signals,
         route_action_confidence=route_action_confidence,
     )
+    what_if_fallback_fit, what_if_fallback_fit_signals = what_if_fallback_pressure_fit_from_signals(
+        what_if_fallback=what_if_fallback,
+        what_if_fallback_signals=what_if_fallback_signals,
+        what_if_alt_signals=what_if_alt_signals,
+        pressure_band=pressure_band,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -1262,6 +1324,8 @@ def main() -> int:
         "whatIfFallbackSignals": what_if_fallback_signals,
         "whatIfFallbackConfidence": what_if_fallback_confidence,
         "whatIfFallbackConfidenceSignals": what_if_fallback_confidence_signals,
+        "whatIfFallbackFit": what_if_fallback_fit,
+        "whatIfFallbackFitSignals": what_if_fallback_fit_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -1324,6 +1388,7 @@ def main() -> int:
         f"- WHAT-IF FIT: **{what_if_fit}** ({what_if_fit_signals['reason']}; pressure={what_if_fit_signals['pressureBand']} projected={what_if_fit_signals['projectedBand']} risk={what_if_fit_signals['projectedRisk']} enabled={what_if_fit_signals['flagEnabled']})",
         f"- WHAT-IF FALLBACK: **{what_if_fallback}** ({what_if_fallback_signals['reason']}; flag={what_if_fallback_signals['flagName']} enabled={what_if_fallback_signals['flagEnabled']} align={what_if_fallback_signals['whatIfAlign']} route={what_if_fallback_signals['routeAction']}->{what_if_fallback_signals['routeActionLane']} alt={what_if_fallback_signals['altLane']})",
         f"- WHAT-IF FALLBACK CONF: **{what_if_fallback_confidence}** ({what_if_fallback_confidence_signals['reason']}; fallback={what_if_fallback_confidence_signals['fallback']} align={what_if_fallback_confidence_signals['whatIfAlign']} delta={what_if_fallback_confidence_signals['deltaRisk']} routeConf={what_if_fallback_confidence_signals['routeActionConfidence']} enabled={what_if_fallback_confidence_signals['flagEnabled']})",
+        f"- WHAT-IF FALLBACK FIT: **{what_if_fallback_fit}** ({what_if_fallback_fit_signals['reason']}; fallback={what_if_fallback_fit_signals['fallback']} pressure={what_if_fallback_fit_signals['pressureBand']} projected={what_if_fallback_fit_signals['projectedBand']} risk={what_if_fallback_fit_signals['projectedRisk']} enabled={what_if_fallback_fit_signals['flagEnabled']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

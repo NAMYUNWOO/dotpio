@@ -615,3 +615,10 @@
 - Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfFallbackConfidence` + signals and markdown `WHAT-IF FALLBACK CONF`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`.
 - Backlog update: Added Cycle V queue to `TASKS.md`/`POST_RC_BACKLOG.md`, marked fallback-confidence item done, left fallback-fit + fallback-why queued.
+
+## 2026-03-21 20:01 KST — Cycle V fallback pressure-safety token shipped
+- Completed `WHAT-IF FALLBACK FIT:SAFE|EVEN|TENSE` digest token implementation.
+- Updated `scripts/weekly_portal_prompt_readability_drift.py` payload/markdown with fallback projection-vs-pressure fit + signals.
+- Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` schema + markdown assertions.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; digest regeneration PASS.
+- Follow-up: remaining Cycle V unchecked item is `WHAT-IF FALLBACK WHY:<short>` behind flag.

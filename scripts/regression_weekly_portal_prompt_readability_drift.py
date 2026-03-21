@@ -202,6 +202,8 @@ def main() -> int:
             "currentLane",
             "altLane",
             "baselineRisk",
+            "imbalance",
+            "pressureChurn",
             "projectedRisk",
             "deltaRisk",
             "reason",
@@ -265,6 +267,16 @@ def main() -> int:
             "routeActionConfidence",
             "reason",
         }, payload
+        assert payload.get("whatIfFallbackFit") in {"SAFE", "EVEN", "TENSE"}, payload
+        assert set(payload.get("whatIfFallbackFitSignals", {}).keys()) == {
+            "flagEnabled",
+            "fallback",
+            "pressureBand",
+            "baselineRisk",
+            "projectedRisk",
+            "projectedBand",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -323,6 +335,7 @@ def main() -> int:
         assert "WHAT-IF FIT" in md_text
         assert "WHAT-IF FALLBACK" in md_text
         assert "WHAT-IF FALLBACK CONF" in md_text
+        assert "WHAT-IF FALLBACK FIT" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
