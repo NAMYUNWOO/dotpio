@@ -812,3 +812,8 @@
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: implement remaining Cycle T item `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.
+
+## 2026-03-21 18:31 KST — Cycle U HUD/report readability extension (`WHAT-IF MAG`)
+- Completed: digest now includes `WHAT-IF MAG` line with explicit `delta`, `|Δ|`, and flag state for quick operator scan.
+- UX rationale: directional token (`BAND`) + size token (`MAG`) reduces ambiguity when delta is near zero.
+- Follow-up: evaluate if `WHAT-IF MAG` should collapse to compact shorthand in narrow-copy mode.

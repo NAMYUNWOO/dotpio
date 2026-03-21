@@ -563,3 +563,7 @@
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: implement remaining Cycle T item `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.
+
+## 2026-03-21 18:31 KST — Cycle U planning token enrichment (`WHAT-IF MAG`)
+- Added `WHAT-IF MAG` signal path to digest payload/markdown so ideation loops can quickly filter minor vs major alternate-lane projections.
+- Follow-up: once `WHAT-IF FIT` lands, test combined narration templates for concise planning recommendations.

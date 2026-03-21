@@ -543,3 +543,7 @@
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: implement remaining Cycle T item `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.
+
+## 2026-03-21 18:31 KST — Combat-adjacent route telemetry note (`WHAT-IF MAG`)
+- Digest now separates impact direction (`WHAT-IF BAND`) from impact size (`WHAT-IF MAG`) to reduce tuning misreads during pressure routing reviews.
+- Follow-up: wait for `WHAT-IF FIT` to align projected route impact with pressure-band intent.

@@ -590,3 +590,7 @@
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: implement remaining Cycle T item `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.
+
+## 2026-03-21 18:31 KST — Route-planning digest assist (`WHAT-IF MAG`)
+- Weekly portal readability digest now reports what-if impact size (`SMALL|MED|LARGE`) to support safer branch planning at route review time.
+- Follow-up: pair magnitude with pressure-fit classification (`SAFE|EVEN|TENSE`) for route-context triage.

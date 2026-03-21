@@ -1495,3 +1495,10 @@
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: implement remaining Cycle T item `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.
+
+## 2026-03-21 18:31 KST — Regression expansion for `WHAT-IF MAG`
+- Extended `scripts/regression_weekly_portal_prompt_readability_drift.py`:
+  - validates JSON fields `whatIfMagnitude`, `whatIfMagnitudeSignals`
+  - validates markdown includes `WHAT-IF MAG`
+- Result: regression and digest generation both PASS after update.
+- Follow-up: add assertions for upcoming `WHAT-IF FIT` token once implemented.

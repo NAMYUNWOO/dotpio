@@ -1018,3 +1018,10 @@
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: implement remaining Cycle T item `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.
+
+## 2026-03-21 18:31 KST — Cycle U what-if magnitude token
+- Task: Add `WHAT-IF MAG:SMALL|MED|LARGE` from `|ΔRISK|` so alternate-lane impact size is glanceable.
+- Decision: Magnitude thresholds set to SMALL(0-1), MED(2-3), LARGE(>=4); flag-disabled defaults to SMALL for stable baseline semantics.
+- Output: `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfMagnitude` + `whatIfMagnitudeSignals` and markdown line `WHAT-IF MAG`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: Cycle U remaining items are `WHAT-IF FIT` and flagged `WHAT-IF FALLBACK`.

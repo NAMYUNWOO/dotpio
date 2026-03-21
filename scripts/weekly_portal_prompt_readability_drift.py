@@ -510,6 +510,69 @@ def what_if_alignment_from_signals(
     }
 
 
+def what_if_impact_band_from_signals(
+    *,
+    what_if_alt_signals: dict[str, str | int | bool],
+) -> tuple[str, dict[str, str | int | bool]]:
+    flag_enabled = bool(what_if_alt_signals.get("flagEnabled", False))
+    delta_risk = int(what_if_alt_signals.get("deltaRisk", 0))
+    current_lane = str(what_if_alt_signals.get("currentLane", "MIXED"))
+    alt_lane = str(what_if_alt_signals.get("altLane", "NONE"))
+
+    if not flag_enabled:
+        band = "NEUTRAL"
+        reason = "flag-disabled"
+    elif alt_lane in {"NONE", "MIXED"} or alt_lane == current_lane:
+        band = "NEUTRAL"
+        reason = "alt-lane-not-actionable"
+    elif delta_risk <= -2:
+        band = "GAIN"
+        reason = "projected-risk-drop"
+    elif delta_risk <= 0:
+        band = "NEUTRAL"
+        reason = "flat-or-marginal-change"
+    else:
+        band = "LOSS"
+        reason = "projected-risk-increase"
+
+    return band, {
+        "flagEnabled": flag_enabled,
+        "deltaRisk": delta_risk,
+        "currentLane": current_lane,
+        "altLane": alt_lane,
+        "reason": reason,
+    }
+
+
+def what_if_magnitude_from_signals(
+    *,
+    what_if_alt_signals: dict[str, str | int | bool],
+) -> tuple[str, dict[str, str | int | bool]]:
+    flag_enabled = bool(what_if_alt_signals.get("flagEnabled", False))
+    delta_risk = int(what_if_alt_signals.get("deltaRisk", 0))
+    abs_delta = abs(delta_risk)
+
+    if not flag_enabled:
+        magnitude = "SMALL"
+        reason = "flag-disabled"
+    elif abs_delta >= 4:
+        magnitude = "LARGE"
+        reason = "large-risk-shift"
+    elif abs_delta >= 2:
+        magnitude = "MED"
+        reason = "moderate-risk-shift"
+    else:
+        magnitude = "SMALL"
+        reason = "small-risk-shift"
+
+    return magnitude, {
+        "flagEnabled": flag_enabled,
+        "deltaRisk": delta_risk,
+        "absDeltaRisk": abs_delta,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -975,6 +1038,12 @@ def main() -> int:
         what_if_alt_signals=what_if_alt_signals,
         route_action=route_action,
     )
+    what_if_band, what_if_band_signals = what_if_impact_band_from_signals(
+        what_if_alt_signals=what_if_alt_signals,
+    )
+    what_if_magnitude, what_if_magnitude_signals = what_if_magnitude_from_signals(
+        what_if_alt_signals=what_if_alt_signals,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -1044,6 +1113,10 @@ def main() -> int:
         "whatIfConfidenceSignals": what_if_confidence_signals,
         "whatIfAlign": what_if_align,
         "whatIfAlignSignals": what_if_align_signals,
+        "whatIfBand": what_if_band,
+        "whatIfBandSignals": what_if_band_signals,
+        "whatIfMagnitude": what_if_magnitude,
+        "whatIfMagnitudeSignals": what_if_magnitude_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -1101,6 +1174,8 @@ def main() -> int:
         f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
         f"- WHAT-IF CONF: **{what_if_confidence}** ({what_if_confidence_signals['reason']}; delta={what_if_confidence_signals['deltaRisk']} routeConf={what_if_confidence_signals['routeActionConfidence']} current={what_if_confidence_signals['currentLane']} alt={what_if_confidence_signals['altLane']})",
         f"- WHAT-IF ALIGN: **{what_if_align}** ({what_if_align_signals['reason']}; route={what_if_align_signals['routeAction']} lane={what_if_align_signals['routeActionLane']} alt={what_if_align_signals['altLane']})",
+        f"- WHAT-IF BAND: **{what_if_band}** ({what_if_band_signals['reason']}; delta={what_if_band_signals['deltaRisk']} current={what_if_band_signals['currentLane']} alt={what_if_band_signals['altLane']} enabled={what_if_band_signals['flagEnabled']})",
+        f"- WHAT-IF MAG: **{what_if_magnitude}** ({what_if_magnitude_signals['reason']}; delta={what_if_magnitude_signals['deltaRisk']} |Δ|={what_if_magnitude_signals['absDeltaRisk']} enabled={what_if_magnitude_signals['flagEnabled']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

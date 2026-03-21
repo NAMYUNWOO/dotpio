@@ -1258,3 +1258,21 @@ Compact decision memory for AI context efficiency.
 - Verification (PASS): py_compile + digest regression + digest artifact refresh.
 - Backlog sync: Cycle T `WHAT-IF CONF` marked done in `TASKS.md` and `POST_RC_BACKLOG.md`; two Cycle T follow-ups remain unchecked.
 - Cycle T update: weekly portal readability digest now emits `WHAT-IF ALIGN:ALIGNED|DIVERGED` based on `ALT LANE` vs mapped `ROUTE ACTION` lane intent (`PORTAL_AUDIT->PORTAL`, `ALT_TUNE->ALT`, `PRESSURE_REBASE->PRESSURE`, `BALANCE_PASS/WATCH->MIXED`), with JSON fields `whatIfAlign` + `whatIfAlignSignals` and regression coverage in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-21 18:31 KST — Game Director Cycle U started + first vertical slice shipped
+- Trigger: ACTION_ITEMS + TASKS + POST_RC_BACKLOG were fully checked, so Game Director review cycle executed immediately per protocol.
+- Idea set generated:
+  1) **Chosen (low-risk UX):** `WHAT-IF MAG:SMALL|MED|LARGE` from `|ΔRISK|`.
+  2) Mid-risk systems: `WHAT-IF FIT:SAFE|EVEN|TENSE` from projected risk + pressure band.
+  3) High-risk novelty: flag-gated `WHAT-IF FALLBACK:<lane>` when alt lane diverges from route action.
+- Implemented vertical slice (#1):
+  - `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfMagnitude` + `whatIfMagnitudeSignals` and markdown line `WHAT-IF MAG`.
+  - Thresholds: SMALL(0-1), MED(2-3), LARGE(>=4); flag-disabled path remains SMALL for stable default signal.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py`
+  - Both PASS; digest artifacts refreshed under `logs/weekly_portal_prompt_readability_drift.{json,md}`.
+- Backlog sync:
+  - Marked Cycle T `WHAT-IF BAND` done in `TASKS.md` + `POST_RC_BACKLOG.md`.
+  - Injected Cycle U tasks into both backlog files; marked and completed `WHAT-IF MAG`.
+  - Remaining queued: `WHAT-IF FIT`, `WHAT-IF FALLBACK`.

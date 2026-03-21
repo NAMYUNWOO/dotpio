@@ -559,3 +559,8 @@
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: implement remaining Cycle T item `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.
+
+## 2026-03-21 18:31 KST — Cycle U digest readability sizing (`WHAT-IF MAG`)
+- Added compact token `WHAT-IF MAG:SMALL|MED|LARGE` to summarize alternate-lane impact magnitude without reading full delta tuple.
+- Readability contract: keep `WHAT-IF BAND` (directional outcome) and `WHAT-IF MAG` (impact size) as separate lines to avoid overloaded labels.
+- Follow-up: define `WHAT-IF FIT:SAFE|EVEN|TENSE` semantics against pressure-band context.
