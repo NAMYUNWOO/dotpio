@@ -379,4 +379,4 @@ See project-level plans:
 ## Next Up (Game Director Injection — 2026-03-21 Cycle Z)
 - [x] Add split-recommendation confidence token (`WHAT-IF SPLIT CONF:LOW|MID|HIGH`) behind flag for operator trust readability
 - [x] Add split route-pair token (`WHAT-IF SPLIT LANES:<primary>/<secondary>`) for handoff clarity in compact digest copy
-- [ ] Prototype split-safe-mode token (`WHAT-IF SPLIT SAFE:ON`) behind flag when split suggests non-escalating dual-path plans
+- [x] Prototype split-safe-mode token (`WHAT-IF SPLIT SAFE:ON`) behind flag when split suggests non-escalating dual-path plans

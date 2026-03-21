@@ -897,3 +897,8 @@
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Next hook: implement remaining Cycle Z novelty item `WHAT-IF SPLIT SAFE:ON` behind flag.
+
+## 2026-03-22 00:33 KST — Digest readability update (`WHAT-IF SPLIT SAFE`)
+- Added markdown token `WHAT-IF SPLIT SAFE` with compact context tuple (flag state, split state, fit, ALT2 confidence gate).
+- Keeps ordering stable and surfaces go/no-go safety signal without opening JSON artifacts.
+- Follow-up: monitor copy width if additional split tokens are added next cycle.

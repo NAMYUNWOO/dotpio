@@ -652,3 +652,8 @@
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Next hook: implement remaining Cycle Z novelty item `WHAT-IF SPLIT SAFE:ON` behind flag.
+
+## 2026-03-22 00:33 KST — Split-safe narration guard shipped
+- Added JSON fields `whatIfSplitSafe` + `whatIfSplitSafeSignals` and markdown token `WHAT-IF SPLIT SAFE`.
+- Copy stays compact and flag-gated to preserve existing digest contract when disabled.
+- Follow-up: if enabled in future experiments, align recommendation templates with safe-mode reason strings.

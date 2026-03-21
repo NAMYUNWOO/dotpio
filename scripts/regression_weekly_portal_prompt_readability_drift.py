@@ -386,6 +386,20 @@ def main() -> int:
             "strongDelta",
             "reason",
         }, payload
+        assert payload.get("whatIfSplitSafe") in {"ON", "OFF"}, payload
+        assert set(payload.get("whatIfSplitSafeSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "split",
+            "primaryConfidence",
+            "secondaryConfidence",
+            "primaryFit",
+            "secondaryConfidenceGate",
+            "splitArmed",
+            "primarySafe",
+            "secondarySafe",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -456,6 +470,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT" in md_text
         assert "WHAT-IF SPLIT LANES" in md_text
         assert "WHAT-IF SPLIT CONF" in md_text
+        assert "WHAT-IF SPLIT SAFE" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

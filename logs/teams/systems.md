@@ -1141,3 +1141,10 @@
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Next hook: implement remaining Cycle Z novelty item `WHAT-IF SPLIT SAFE:ON` behind flag.
+
+## 2026-03-22 00:33 KST — Cycle Z novelty closure (`WHAT-IF SPLIT SAFE`)
+- Completed highest-priority unchecked backlog item by adding flagged token `WHAT-IF SPLIT SAFE:ON|OFF` to weekly portal readability digest.
+- Added `what_if_split_safe_from_signals(...)` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Gate contract: `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_SAFE` (default OFF).
+- Safe-mode `ON` requires: split armed, primary path non-escalating (`SAFE|EVEN` fit), ALT2 confidence gate (`MID|HIGH`), and both split confidences at least `MID`.
+- Follow-up: since TASKS + POST_RC are now fully checked, next cycle should run Game Director review loop (3 ideas -> pick 1 -> vertical slice).

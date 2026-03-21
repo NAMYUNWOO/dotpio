@@ -673,3 +673,8 @@
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Next hook: implement remaining Cycle Z novelty item `WHAT-IF SPLIT SAFE:ON` behind flag.
+
+## 2026-03-22 00:33 KST — Route safety handoff token added (`WHAT-IF SPLIT SAFE`)
+- Digest now emits `WHAT-IF SPLIT SAFE` line to indicate whether split routing stays non-escalating.
+- Signal intent: prevent dual-route recommendations that raise pressure without confidence.
+- Follow-up: use this token in next route experiment selection when split mode is active.

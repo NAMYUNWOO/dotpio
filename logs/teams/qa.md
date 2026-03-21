@@ -1609,3 +1609,10 @@
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Next hook: implement remaining Cycle Z novelty item `WHAT-IF SPLIT SAFE:ON` behind flag.
+
+## 2026-03-22 00:33 KST — Regression coverage for `WHAT-IF SPLIT SAFE`
+- Extended `scripts/regression_weekly_portal_prompt_readability_drift.py`:
+  - schema assertions for `whatIfSplitSafe` and `whatIfSplitSafeSignals`
+  - markdown presence assertion for `WHAT-IF SPLIT SAFE`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` -> PASS.
+- Follow-up: next cycle should validate Game Director injection path now that backlog is clear.

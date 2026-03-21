@@ -1403,3 +1403,13 @@ Compact decision memory for AI context efficiency.
   - `scripts/regression_weekly_portal_prompt_readability_drift.py` now validates the new JSON fields and markdown token presence.
 - Backlog sync: marked route-pair token done in both `TASKS.md` and `POST_RC_BACKLOG.md`.
 - Remaining priority item: `WHAT-IF SPLIT SAFE:ON` (flagged novelty gate).
+
+## 2026-03-22 00:33 KST — Cycle Z final novelty closure (`WHAT-IF SPLIT SAFE`)
+- Closed last unchecked item in `TASKS.md` and `POST_RC_BACKLOG.md`: flag-gated token `WHAT-IF SPLIT SAFE:ON|OFF`.
+- Implementation (`scripts/weekly_portal_prompt_readability_drift.py`):
+  - Added `what_if_split_safe_from_signals(...)`.
+  - Added payload fields `whatIfSplitSafe`, `whatIfSplitSafeSignals`.
+  - Added markdown line `WHAT-IF SPLIT SAFE` after `WHAT-IF SPLIT CONF`.
+- Safety rule for `ON`: split must be armed, primary fit must be non-escalating (`SAFE|EVEN`), ALT2 confidence gate `MID|HIGH`, and both split confidences >= MID.
+- Regression (`scripts/regression_weekly_portal_prompt_readability_drift.py`): schema + markdown assertions added; test run PASS.
+- Backlog state: ACTION_ITEMS, TASKS, POST_RC_BACKLOG all fully checked; next run should execute Game Director review cycle (3 ideas -> select 1 -> implement vertical slice).

@@ -625,3 +625,8 @@
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Next hook: implement remaining Cycle Z novelty item `WHAT-IF SPLIT SAFE:ON` behind flag.
+
+## 2026-03-22 00:33 KST — Pressure escalation guard for split routing
+- Added split-safe gate that blocks `ON` when primary fallback fit is `TENSE` or ALT2 confidence is weak.
+- This keeps split recommendations aligned with non-escalating pressure posture.
+- Follow-up: validate with live telemetry once split flags are exercised in production windows.

@@ -1233,6 +1233,57 @@ def what_if_split_confidence_from_signals(
     }
 
 
+
+
+def what_if_split_safe_from_signals(
+    *,
+    what_if_split: str,
+    what_if_split_signals: dict[str, str | int | bool],
+    what_if_fallback_fit: str,
+    what_if_fallback_alt2_confidence: str,
+) -> tuple[str, dict[str, str | bool]]:
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_SAFE"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    split_armed = what_if_split == "ON"
+    primary_conf = str(what_if_split_signals.get("primaryConfidence", "LOW"))
+    secondary_conf = str(what_if_split_signals.get("secondaryConfidence", "LOW"))
+    primary_safe = what_if_fallback_fit in {"SAFE", "EVEN"}
+    secondary_safe = what_if_fallback_alt2_confidence in {"MID", "HIGH"}
+
+    if not flag_enabled:
+        safe = "OFF"
+        reason = "flag-disabled"
+    elif not split_armed:
+        safe = "OFF"
+        reason = "split-not-armed"
+    elif not primary_safe:
+        safe = "OFF"
+        reason = "primary-path-escalates-pressure"
+    elif not secondary_safe:
+        safe = "OFF"
+        reason = "secondary-path-confidence-too-low"
+    elif primary_conf in {"MID", "HIGH"} and secondary_conf in {"MID", "HIGH"}:
+        safe = "ON"
+        reason = "dual-path-non-escalating"
+    else:
+        safe = "OFF"
+        reason = "dual-path-confidence-below-threshold"
+
+    return safe, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "split": what_if_split,
+        "primaryConfidence": primary_conf,
+        "secondaryConfidence": secondary_conf,
+        "primaryFit": what_if_fallback_fit,
+        "secondaryConfidenceGate": what_if_fallback_alt2_confidence,
+        "splitArmed": split_armed,
+        "primarySafe": primary_safe,
+        "secondarySafe": secondary_safe,
+        "reason": reason,
+    }
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -1779,6 +1830,12 @@ def main() -> int:
         what_if_split=what_if_split,
         what_if_split_signals=what_if_split_signals,
     )
+    what_if_split_safe, what_if_split_safe_signals = what_if_split_safe_from_signals(
+        what_if_split=what_if_split,
+        what_if_split_signals=what_if_split_signals,
+        what_if_fallback_fit=what_if_fallback_fit,
+        what_if_fallback_alt2_confidence=what_if_fallback_alt2_confidence,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -1882,6 +1939,8 @@ def main() -> int:
         "whatIfSplitLanesSignals": what_if_split_lanes_signals,
         "whatIfSplitConfidence": what_if_split_confidence,
         "whatIfSplitConfidenceSignals": what_if_split_confidence_signals,
+        "whatIfSplitSafe": what_if_split_safe,
+        "whatIfSplitSafeSignals": what_if_split_safe_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -1956,6 +2015,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT: **{what_if_split}** ({what_if_split_signals['reason']}; flag={what_if_split_signals['flagName']} enabled={what_if_split_signals['flagEnabled']} lanes={what_if_split_signals['primaryLane']}->{what_if_split_signals['secondaryLane']} conf={what_if_split_signals['primaryConfidence']}/{what_if_split_signals['secondaryConfidence']} |Δ|={what_if_split_signals['absDeltaRisk']})",
         f"- WHAT-IF SPLIT LANES: **{what_if_split_lanes}** ({what_if_split_lanes_signals['reason']}; actionable={what_if_split_lanes_signals['primaryActionable']}/{what_if_split_lanes_signals['secondaryActionable']})",
         f"- WHAT-IF SPLIT CONF: **{what_if_split_confidence}** ({what_if_split_confidence_signals['reason']}; split={what_if_split_confidence_signals['split']} conf={what_if_split_confidence_signals['primaryConfidence']}/{what_if_split_confidence_signals['secondaryConfidence']} strong={what_if_split_confidence_signals['strongConfidence']} delta={what_if_split_confidence_signals['strongDelta']})",
+        f"- WHAT-IF SPLIT SAFE: **{what_if_split_safe}** ({what_if_split_safe_signals['reason']}; flag={what_if_split_safe_signals['flagName']} enabled={what_if_split_safe_signals['flagEnabled']} split={what_if_split_safe_signals['split']} fit={what_if_split_safe_signals['primaryFit']} alt2Conf={what_if_split_safe_signals['secondaryConfidenceGate']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",
