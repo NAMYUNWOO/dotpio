@@ -1411,3 +1411,8 @@
 - Implemented vertical slice: digest JSON/markdown now emits `focusBalance` + `focusBalanceSignals` and markdown `FOCUS BAL` line.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
 - Follow-up: Next queued items remain `PRESSURE LAG` and `ROUTE SANDBOX` in TASKS/POST_RC backlog (Cycle P).
+
+## 2026-03-21 13:03 KST — Cycle P pressure-lag digest token
+- Completed Post-RC Cycle P item: `PRESSURE LAG:FAST|STABLE|SLOW` in weekly portal prompt readability digest.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`.
+- Follow-up: next highest unchecked backlog item is `ROUTE SANDBOX:ON` prototype (flag-gated sustained lane-lock sandbox mode).

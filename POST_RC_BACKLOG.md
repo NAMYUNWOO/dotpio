@@ -171,5 +171,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-21 Cycle P)
 - [x] UX/Design Team: Add focus-balance token (`FOCUS BAL:<n>%`) to weekly digest for quick lane-dominance readability
-- [ ] Systems/QA Team: Add pressure-latency token (`PRESSURE LAG:FAST|STABLE|SLOW`) comparing pressure churn against drift momentum
+- [x] Systems/QA Team: Add pressure-latency token (`PRESSURE LAG:FAST|STABLE|SLOW`) comparing pressure churn against drift momentum
 - [ ] Systems/World Team: Prototype adaptive route sandbox mode (`ROUTE SANDBOX:ON`) behind flag when digest enters sustained lane lock

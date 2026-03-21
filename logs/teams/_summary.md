@@ -1175,3 +1175,21 @@ Compact decision memory for AI context efficiency.
 - Verification artifacts refreshed:
   - `logs/weekly_portal_prompt_readability_drift.json`
   - `logs/weekly_portal_prompt_readability_drift.md`
+
+## 2026-03-21 13:03 KST — Cycle P pressure-latency token shipped
+- Closed highest-priority unchecked item by adding `PRESSURE LAG:FAST|STABLE|SLOW` to weekly portal prompt readability digest.
+- Implementation (`scripts/weekly_portal_prompt_readability_drift.py`):
+  - Added `pressure_latency_from_signals()` classifier comparing pressure churn (`driftRiskSignals.pressureChurn`) vs drift momentum trend/delta.
+  - Added payload fields: `pressureLag`, `pressureLagSignals`.
+  - Added markdown row: `PRESSURE LAG` with churn/momentum/|Δ| diagnostics.
+- Regression (`scripts/regression_weekly_portal_prompt_readability_drift.py`):
+  - Added schema assertions for `pressureLag` + `pressureLagSignals`.
+  - Added markdown token assertion for `PRESSURE LAG`.
+- Verification (PASS):
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`
+- Backlog sync:
+  - `TASKS.md` pressure-latency item marked `[x]`.
+  - `POST_RC_BACKLOG.md` pressure-latency item marked `[x]`.
+- Next hook: only remaining unchecked item is `ROUTE SANDBOX:ON` prototype behind sustained lane-lock flag.

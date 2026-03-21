@@ -114,6 +114,13 @@ def main() -> int:
         assert set(payload.get("laneLockSignals", {}).keys()) == {"threshold", "armed", "lane", "streak"}, payload
         assert payload.get("driftMomentum") in {"RISING", "COOLING", "FLAT"}, payload
         assert set(payload.get("driftMomentumSignals", {}).keys()) == {"recentAvg", "olderAvg", "delta", "recentCount", "olderCount"}, payload
+        assert payload.get("pressureLag") in {"FAST", "STABLE", "SLOW"}, payload
+        assert set(payload.get("pressureLagSignals", {}).keys()) == {
+            "pressureChurn",
+            "driftMomentum",
+            "driftDelta",
+            "absDriftDelta",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -154,6 +161,7 @@ def main() -> int:
         assert "ACTION GUARD" in md_text
         assert "LANE LOCK" in md_text
         assert "DRIFT MOMENTUM" in md_text
+        assert "PRESSURE LAG" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

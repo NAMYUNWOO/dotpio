@@ -321,6 +321,28 @@ def drift_momentum_from_commits(touched_rows: list[dict]) -> tuple[str, dict[str
     }
 
 
+def pressure_latency_from_signals(*, pressure_churn: int, drift_momentum: str, drift_momentum_delta: float) -> tuple[str, dict[str, int | str | float]]:
+    abs_delta = abs(drift_momentum_delta)
+
+    if pressure_churn >= 7 and drift_momentum == "RISING" and abs_delta >= 2.0:
+        lag = "FAST"
+    elif pressure_churn <= 2 and drift_momentum == "FLAT" and abs_delta <= 1.0:
+        lag = "STABLE"
+    elif pressure_churn >= 4 and drift_momentum in {"FLAT", "COOLING"}:
+        lag = "SLOW"
+    elif pressure_churn >= 6:
+        lag = "FAST"
+    else:
+        lag = "STABLE"
+
+    return lag, {
+        "pressureChurn": pressure_churn,
+        "driftMomentum": drift_momentum,
+        "driftDelta": round(drift_momentum_delta, 3),
+        "absDriftDelta": round(abs_delta, 3),
+    }
+
+
 def route_action_guardrail_from_signals(*, drift_risk: str, route_action_confidence: str) -> tuple[str, dict[str, str | bool]]:
     lock = drift_risk == "HIGH" and route_action_confidence == "LOW"
     token = "LOCK" if lock else "SOFT"
@@ -530,6 +552,11 @@ def main() -> int:
         focus_streak=focus_streak,
     )
     drift_momentum, drift_momentum_signals = drift_momentum_from_commits(touched)
+    pressure_lag, pressure_lag_signals = pressure_latency_from_signals(
+        pressure_churn=drift_risk_signals["pressureChurn"],
+        drift_momentum=drift_momentum,
+        drift_momentum_delta=drift_momentum_signals["delta"],
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -574,6 +601,8 @@ def main() -> int:
         "laneLockSignals": lane_lock_signals,
         "driftMomentum": drift_momentum,
         "driftMomentumSignals": drift_momentum_signals,
+        "pressureLag": pressure_lag,
+        "pressureLagSignals": pressure_lag_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -618,6 +647,7 @@ def main() -> int:
         f"- ACTION GUARD: **{action_guard}** ({action_guard_signals['reason']}; risk={action_guard_signals['driftRisk']} conf={action_guard_signals['actionConfidence']})",
         f"- LANE LOCK: **{lane_lock}** (threshold={lane_lock_signals['threshold']} lane={lane_lock_signals['lane']} streak={lane_lock_signals['streak']})",
         f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",
+        f"- PRESSURE LAG: **{pressure_lag}** (churn={pressure_lag_signals['pressureChurn']} momentum={pressure_lag_signals['driftMomentum']} |Δ|={pressure_lag_signals['absDriftDelta']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

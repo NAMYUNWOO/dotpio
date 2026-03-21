@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T03:34:50.739624Z
+- GeneratedAt(UTC): 2026-03-21T04:02:51.565169Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
@@ -20,6 +20,7 @@
 - ACTION GUARD: **LOCK** (high-drift-low-confidence; risk=HIGH conf=LOW)
 - LANE LOCK: **NONE** (threshold=3 lane=PORTAL streak=0)
 - DRIFT MOMENTUM: **FLAT** (recent=4.6 older=3.5 delta=1.1)
+- PRESSURE LAG: **SLOW** (churn=15 momentum=FLAT |Δ|=1.1)
 - STICKY TOKENS: **6**
 - ANOMALY: **ON** (sticky=6/3 pressure=15/5)
 - ANOMALY CONF: **HIGH** (triggers=2 gap=13)
