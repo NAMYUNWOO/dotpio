@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T07:33:12.348367Z
+- GeneratedAt(UTC): 2026-03-21T08:03:44.423295Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
@@ -30,6 +30,7 @@
 - DRIFT MOMENTUM: **FLAT** (recent=4.6 older=3.5 delta=1.1)
 - ACTION STABILITY: **WATCH** (retune-watch-needed; conf=LOW vol=SWING momentum=FLAT)
 - PRESSURE LAG: **SLOW** (churn=15 momentum=FLAT |Δ|=1.1)
+- WHAT-IF: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_ALT enabled=False current=PORTAL alt=ALT risk=19->16)
 - STICKY TOKENS: **6**
 - ANOMALY: **ON** (sticky=6/3 pressure=15/5)
 - ANOMALY CONF: **HIGH** (triggers=2 gap=13)

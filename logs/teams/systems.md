@@ -996,3 +996,10 @@
   - Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` assertions for new schema + markdown token.
   - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS), `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (PASS).
 - Follow-up: Remaining highest-priority unchecked item is Cycle S `WHAT-IF ALT:<lane> ΔRISK:<n>` experiment behind flag.
+
+## 2026-03-21 17:01 KST — Cycle S what-if alt prototype (`WHAT-IF ALT`)
+- Task: ship flagged digest what-if token `WHAT-IF ALT:<lane> ΔRISK:<n>` for low-cost alternate-lane planning.
+- Implementation: added `what_if_alt_from_signals()` in `scripts/weekly_portal_prompt_readability_drift.py` with env flag `DOTPIO_EXPERIMENT_WHAT_IF_ALT`.
+- Digest output: JSON now includes `whatIfAlt`, `whatIfAltSignals`; markdown adds `WHAT-IF` line with flag/status/current-alt/risk projection tuple.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + digest regeneration pass.
+- Follow-up: if enabled in sustain env, validate real-window usefulness of projected `ΔRISK` heuristic and tune coefficients if noisy.

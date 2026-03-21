@@ -195,6 +195,17 @@ def main() -> int:
             "driftDelta",
             "absDriftDelta",
         }, payload
+        assert isinstance(payload.get("whatIfAlt"), str), payload
+        assert set(payload.get("whatIfAltSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "currentLane",
+            "altLane",
+            "baselineRisk",
+            "projectedRisk",
+            "deltaRisk",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -245,6 +256,7 @@ def main() -> int:
         assert "DRIFT MOMENTUM" in md_text
         assert "ACTION STABILITY" in md_text
         assert "PRESSURE LAG" in md_text
+        assert "WHAT-IF" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

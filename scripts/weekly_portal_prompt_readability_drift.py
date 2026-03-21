@@ -382,6 +382,57 @@ def route_action_guardrail_from_signals(*, drift_risk: str, route_action_confide
     }
 
 
+def what_if_alt_from_signals(
+    *,
+    lane_focus: str,
+    lane_focus_scores: dict[str, int],
+    drift_risk_signals: dict[str, int],
+) -> tuple[str, dict[str, str | int | bool]]:
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_ALT"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    ranked = sorted(
+        ((name, int(max(0, score))) for name, score in lane_focus_scores.items()),
+        key=lambda row: (row[1], row[0]),
+        reverse=True,
+    )
+    current_lane = lane_focus if lane_focus in {"PORTAL", "ALT", "PRESSURE"} else "MIXED"
+
+    lane_map = {"portal": "PORTAL", "alt": "ALT", "pressure": "PRESSURE"}
+    alt_lane = "NONE"
+    for family, _score in ranked:
+        candidate = lane_map.get(family, "MIXED")
+        if candidate != current_lane:
+            alt_lane = candidate
+            break
+    if alt_lane == "NONE" and ranked:
+        alt_lane = lane_map.get(ranked[0][0], "MIXED")
+
+    imbalance = int(drift_risk_signals.get("imbalance", 0))
+    pressure_churn = int(drift_risk_signals.get("pressureChurn", 0))
+    baseline_risk = int(drift_risk_signals.get("score", imbalance + pressure_churn))
+
+    projected_imbalance = max(0, imbalance - 2) if alt_lane in {"ALT", "PORTAL"} else max(0, imbalance - 1)
+    projected_pressure = max(0, pressure_churn - 2) if alt_lane == "PRESSURE" else max(0, pressure_churn - 1)
+    projected_risk = projected_imbalance + projected_pressure
+    delta_risk = projected_risk - baseline_risk
+
+    token = f"ALT:{alt_lane} ΔRISK:{delta_risk:+d}" if flag_enabled else "OFF"
+    reason = "flag-enabled-alt-lane-projection" if flag_enabled else "flag-disabled"
+
+    return token, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "currentLane": current_lane,
+        "altLane": alt_lane,
+        "baselineRisk": baseline_risk,
+        "projectedRisk": projected_risk,
+        "deltaRisk": delta_risk,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -834,6 +885,11 @@ def main() -> int:
         drift_momentum=drift_momentum,
         drift_momentum_delta=drift_momentum_signals["delta"],
     )
+    what_if_alt, what_if_alt_signals = what_if_alt_from_signals(
+        lane_focus=lane_focus,
+        lane_focus_scores=lane_focus_scores,
+        drift_risk_signals=drift_risk_signals,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -897,6 +953,8 @@ def main() -> int:
         "actionStabilitySignals": action_stability_signals,
         "pressureLag": pressure_lag,
         "pressureLagSignals": pressure_lag_signals,
+        "whatIfAlt": what_if_alt,
+        "whatIfAltSignals": what_if_alt_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -951,6 +1009,7 @@ def main() -> int:
         f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",
         f"- ACTION STABILITY: **{action_stability}** ({action_stability_signals['reason']}; conf={action_stability_signals['routeActionConfidence']} vol={action_stability_signals['focusVolatility']} momentum={action_stability_signals['driftMomentum']})",
         f"- PRESSURE LAG: **{pressure_lag}** (churn={pressure_lag_signals['pressureChurn']} momentum={pressure_lag_signals['driftMomentum']} |Δ|={pressure_lag_signals['absDriftDelta']})",
+        f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

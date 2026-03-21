@@ -1239,3 +1239,9 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
 - Next item: Cycle S `WHAT-IF ALT:<lane> ΔRISK:<n>` flagged prototype.
+
+- 2026-03-21 17:01 KST: Closed final unchecked Cycle S backlog item by adding flag-gated digest token `WHAT-IF ALT:<lane> ΔRISK:<n>` (`DOTPIO_EXPERIMENT_WHAT_IF_ALT`).
+  - Code: `scripts/weekly_portal_prompt_readability_drift.py` adds `what_if_alt_from_signals()` and emits `whatIfAlt`/`whatIfAltSignals` in JSON + `WHAT-IF` markdown line.
+  - QA: `scripts/regression_weekly_portal_prompt_readability_drift.py` now validates new schema and markdown token presence; regression passes.
+  - Artifacts refreshed: `logs/weekly_portal_prompt_readability_drift.json` and `.md` regenerated.
+  - Backlog state: `TASKS.md` + `POST_RC_BACKLOG.md` item marked done; all currently listed ACTION_ITEMS/TASKS/POST_RC entries are checked.

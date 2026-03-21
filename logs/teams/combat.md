@@ -527,3 +527,8 @@
   - Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` assertions for new schema + markdown token.
   - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS), `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (PASS).
 - Follow-up: Remaining highest-priority unchecked item is Cycle S `WHAT-IF ALT:<lane> ΔRISK:<n>` experiment behind flag.
+
+## 2026-03-21 17:01 KST — Cycle S planning telemetry update
+- No combat runtime behavior changed.
+- Digest telemetry now exposes route-planning what-if token (`WHAT-IF ALT`) to support safer pressure-lane decision review upstream.
+- Verification: weekly digest regression suite green after schema/markdown assertions update.
