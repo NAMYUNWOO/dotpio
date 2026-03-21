@@ -94,6 +94,14 @@ def main() -> int:
         assert "stickyTokens" in payload, payload
         assert set(payload["stickyTokens"].keys()) == {"count", "tokens"}, payload
         assert payload["stickyTokens"]["count"] == len(payload["stickyTokens"]["tokens"]), payload
+        assert payload.get("anomalyPulse") in {"ON", "OFF"}, payload
+        assert set(payload.get("anomalyPulseSignals", {}).keys()) == {
+            "stickyCount",
+            "stickyThreshold",
+            "pressureChurn",
+            "pressureThreshold",
+            "spike",
+        }, payload
         assert isinstance(payload.get("topTokenMovers"), list), payload
         if payload["topTokenMovers"]:
             assert {"token", "net", "added", "removed"}.issubset(payload["topTokenMovers"][0].keys()), payload
@@ -110,6 +118,7 @@ def main() -> int:
         assert "ROUTE ACTION" in md_text
         assert "ACTION CONF" in md_text
         assert "STICKY TOKENS" in md_text
+        assert "ANOMALY" in md_text
         assert "Sticky Tokens" in md_text
 
     print("[PASS] weekly portal prompt readability drift regression checks")

@@ -157,7 +157,7 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-21 Cycle M)
 - [x] QA/Systems Team: Add lane-focus volatility token (`FOCUS VOL:STEADY|SWING`) from lane-switch ratio over touched commits
 - [x] Design/Systems Team: Add route-action confidence token (`ACTION CONF:LOW|MID|HIGH`) from focus dominance + drift-risk spread
-- [ ] QA/AI Content Team: Prototype digest anomaly pulse (`ANOMALY:ON`) when sticky token count and pressure churn spike simultaneously
+- [x] QA/AI Content Team: Prototype digest anomaly pulse (`ANOMALY:ON`) when sticky token count and pressure churn spike simultaneously
 
 ## P1 (Game Director Injection — 2026-03-21 Cycle N)
 - [x] Design/Systems Team: Add route-action confidence telemetry line in markdown + JSON (`ACTION CONF`, confidence signals)

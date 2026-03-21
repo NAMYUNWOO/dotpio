@@ -314,7 +314,7 @@ See project-level plans:
 ## Next Up (Game Director Injection — 2026-03-21 Cycle M)
 - [x] Add lane-focus volatility token (`FOCUS VOL:STEADY|SWING`) from lane-switch ratio over touched commits
 - [x] Add route-action confidence token (`ACTION CONF:LOW|MID|HIGH`) from focus dominance + drift-risk spread
-- [ ] Prototype digest anomaly pulse (`ANOMALY:ON`) when sticky token count and pressure churn spike simultaneously
+- [x] Prototype digest anomaly pulse (`ANOMALY:ON`) when sticky token count and pressure churn spike simultaneously
 
 ## Next Up (Game Director Injection — 2026-03-21 Cycle N)
 - [x] Add route-action confidence telemetry line in markdown + JSON (`ACTION CONF`, confidence signals)

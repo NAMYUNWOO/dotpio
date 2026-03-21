@@ -223,6 +223,19 @@ def route_action_confidence_from_signals(
     }
 
 
+def anomaly_pulse_from_signals(*, sticky_count: int, pressure_churn: int) -> tuple[str, dict[str, int | bool]]:
+    sticky_threshold = 3
+    pressure_threshold = 5
+    is_spike = sticky_count >= sticky_threshold and pressure_churn >= pressure_threshold
+    return ("ON" if is_spike else "OFF"), {
+        "stickyCount": sticky_count,
+        "stickyThreshold": sticky_threshold,
+        "pressureChurn": pressure_churn,
+        "pressureThreshold": pressure_threshold,
+        "spike": is_spike,
+    }
+
+
 def commit_stats(root: Path, commit: str) -> dict:
     meta = git(root, "show", "-s", "--format=%H%n%ct%n%an%n%s", commit).splitlines()
     sha, ts, author = meta[0], int(meta[1]), meta[2]
@@ -372,6 +385,10 @@ def main() -> int:
         lane_focus_scores=lane_focus_scores,
         drift_risk_signals=drift_risk_signals,
     )
+    anomaly_pulse, anomaly_pulse_signals = anomaly_pulse_from_signals(
+        sticky_count=len(sticky_tokens),
+        pressure_churn=drift_risk_signals["pressureChurn"],
+    )
 
     status = "ok"
     if touched and totals["net"]["compact"] < 0 and totals["net"]["detailed"] > 0:
@@ -402,6 +419,8 @@ def main() -> int:
         "routeActionReason": route_action_reason,
         "routeActionConfidence": route_action_confidence,
         "routeActionConfidenceSignals": route_action_confidence_signals,
+        "anomalyPulse": anomaly_pulse,
+        "anomalyPulseSignals": anomaly_pulse_signals,
         "pressureEdits": {
             "added": pressure_added,
             "removed": pressure_removed,
@@ -439,6 +458,7 @@ def main() -> int:
         f"- ROUTE ACTION: **{route_action}** ({route_action_reason})",
         f"- ACTION CONF: **{route_action_confidence}** (dom={route_action_confidence_signals['dominanceRatio']} spread={route_action_confidence_signals['focusSpread']} driftSpread={route_action_confidence_signals['driftSpread']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
+        f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         "",
         "## Token Totals (added/removed/net)",
         f"- Compact: +{totals['added']['compact']} / -{totals['removed']['compact']} / net {totals['net']['compact']}",

@@ -708,3 +708,8 @@
   - `ACTION CONF: <LEVEL> (dom=<ratio> spread=<n> driftSpread=<n>)`
 - Decision: Keep one-line DOS-style diagnostics rather than a separate explanatory block.
 - Commit: `1067216`.
+## 2026-03-21 10:03 KST — Cycle M anomaly pulse prototype
+- Completed: Added weekly digest anomaly pulse token `ANOMALY:ON|OFF` driven by simultaneous sticky-token and pressure-churn spikes.
+- Decision: Use conservative trigger (`sticky >= 3` and `pressureChurn >= 5`) and expose thresholds/signals in JSON + markdown for auditability.
+- Evidence: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Follow-up: Next highest open item is Cycle N `ANOMALY CONF` tiering to reduce binary alert noise.

@@ -1080,3 +1080,18 @@ Compact decision memory for AI context efficiency.
 - Backlog sync:
   - Marked Cycle M `ACTION CONF` item done in `TASKS.md` + `POST_RC_BACKLOG.md`.
   - Added Cycle N candidates and marked chosen confidence telemetry task validated/done.
+
+## 2026-03-21 10:03 KST — Cycle M anomaly pulse vertical slice
+- Scope: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`, `logs/teams/*`.
+- Shipped:
+  - Added digest-level anomaly classifier `anomaly_pulse_from_signals(...)`.
+  - JSON now includes `anomalyPulse` (`ON|OFF`) + `anomalyPulseSignals` (`stickyCount`, `stickyThreshold`, `pressureChurn`, `pressureThreshold`, `spike`).
+  - Markdown digest now includes `ANOMALY` row with threshold diagnostics.
+  - Regression updated to enforce schema + markdown token presence.
+- Verification (PASS):
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`
+- Backlog sync:
+  - Marked Cycle M anomaly pulse item done in `TASKS.md` + `POST_RC_BACKLOG.md`.
+  - Remaining highest-priority unchecked items: Cycle N `ANOMALY CONF` tier, `LANE LOCK` alert.

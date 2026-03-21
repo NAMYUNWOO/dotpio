@@ -486,3 +486,8 @@
 - Decision: Define volatility from non-mixed lane-focus commit sequence switch ratio (`switches/edges`), with `SWING` threshold `>= 0.4`.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Follow-up: Cycle M backlog keeps `ACTION CONF` + `ANOMALY` items open.
+## 2026-03-21 10:03 KST — Cycle M anomaly pulse prototype
+- Completed: Added weekly digest anomaly pulse token `ANOMALY:ON|OFF` driven by simultaneous sticky-token and pressure-churn spikes.
+- Decision: Use conservative trigger (`sticky >= 3` and `pressureChurn >= 5`) and expose thresholds/signals in JSON + markdown for auditability.
+- Evidence: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Follow-up: Next highest open item is Cycle N `ANOMALY CONF` tiering to reduce binary alert noise.

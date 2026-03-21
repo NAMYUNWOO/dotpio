@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T00:38:26.530794Z",
+  "generatedAt": "2026-03-21T01:03:04.373938Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -44,6 +44,14 @@
     "dominanceRatio": 0.479,
     "focusSpread": 12,
     "driftSpread": 11
+  },
+  "anomalyPulse": "ON",
+  "anomalyPulseSignals": {
+    "stickyCount": 6,
+    "stickyThreshold": 3,
+    "pressureChurn": 15,
+    "pressureThreshold": 5,
+    "spike": true
   },
   "pressureEdits": {
     "added": 17,
@@ -155,6 +163,94 @@
     }
   ],
   "commits": [
+    {
+      "sha": "934a1febbabb73914531a8a4f7514bc7111334e6",
+      "shortSha": "934a1fe",
+      "author": "yunwoo",
+      "subject": "feat: add action confidence signal to portal drift digest",
+      "committedAt": "2026-03-21T00:39:38Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      }
+    },
     {
       "sha": "a06eb6c02f0a2abde89f3df7879d2082138ee425",
       "shortSha": "a06eb6c",
@@ -10574,90 +10670,6 @@
         "logs/teams/qa.md",
         "logs/teams/systems.md",
         "scripts/regression_30min_loop_checklist.py"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      }
-    },
-    {
-      "sha": "658ddb216b898177081d2e3e170cc0384dc66bf9",
-      "shortSha": "658ddb2",
-      "author": "yunwoo",
-      "subject": "m1: script map_01-04 progression validation checklist",
-      "committedAt": "2026-03-18T19:44:17Z",
-      "changedFiles": [
-        "ACTION_ITEMS.md",
-        "TASKS.md",
-        "logs/playtests/map_01_04_progression_checklist.md",
-        "logs/teams/_summary.md",
-        "logs/teams/qa.md",
-        "logs/teams/world.md",
-        "scripts/regression_map_progression.py"
       ],
       "portalFiles": [],
       "touchedPortalPrompt": false,
