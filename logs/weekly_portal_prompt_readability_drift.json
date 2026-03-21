@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-03-21T10:02:58.962962Z",
+  "generatedAt": "2026-03-21T10:33:30.516035Z",
   "status": "ok",
   "window": {
-    "sinceDays": 30,
+    "sinceDays": 7,
     "maxCommits": 120
   },
   "checkedCommits": 120,
@@ -210,6 +210,16 @@
     "projectedBand": "HIGH",
     "reason": "flag-disabled"
   },
+  "whatIfFallback": "OFF",
+  "whatIfFallbackSignals": {
+    "flagName": "DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK",
+    "flagEnabled": false,
+    "whatIfAlign": "DIVERGED",
+    "altLane": "ALT",
+    "routeAction": "PORTAL_AUDIT",
+    "routeActionLane": "PORTAL",
+    "reason": "flag-disabled"
+  },
   "anomalyPulse": "ON",
   "anomalyConfidence": "HIGH",
   "anomalyPulseSignals": {
@@ -335,6 +345,97 @@
     }
   ],
   "commits": [
+    {
+      "sha": "ef11c868817a90f8938f5049bc5f0aba92d696dd",
+      "shortSha": "ef11c86",
+      "author": "yunwoo",
+      "subject": "feat: add what-if pressure-fit token to portal digest",
+      "committedAt": "2026-03-21T10:03:53Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      }
+    },
     {
       "sha": "f217d035c46a26d69b867dcd274d42e86fdafa71",
       "shortSha": "f217d03",
@@ -10868,90 +10969,6 @@
         "logs/playtests/map_01_04_progression_checklist.md",
         "logs/teams/_summary.md",
         "logs/teams/qa.md"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      }
-    },
-    {
-      "sha": "fdd0f9a599786124caa2aec4100640def148e345",
-      "shortSha": "fdd0f9a",
-      "author": "yunwoo",
-      "subject": "release: capture launch assets and draft rc changelog",
-      "committedAt": "2026-03-19T04:44:03Z",
-      "changedFiles": [
-        "ACTION_ITEMS.md",
-        "CHANGELOG.md",
-        "TASKS.md",
-        "logs/teams/_summary.md",
-        "logs/teams/qa.md",
-        "logs/teams/ux.md",
-        "screenshots/screenshot-map04.png"
       ],
       "portalFiles": [],
       "touchedPortalPrompt": false,

@@ -246,6 +246,16 @@ def main() -> int:
             "projectedBand",
             "reason",
         }, payload
+        assert payload.get("whatIfFallback") in {"OFF", "NONE", "PORTAL", "ALT", "PRESSURE"}, payload
+        assert set(payload.get("whatIfFallbackSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "whatIfAlign",
+            "altLane",
+            "routeAction",
+            "routeActionLane",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -302,6 +312,7 @@ def main() -> int:
         assert "WHAT-IF BAND" in md_text
         assert "WHAT-IF MAG" in md_text
         assert "WHAT-IF FIT" in md_text
+        assert "WHAT-IF FALLBACK" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

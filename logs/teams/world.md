@@ -598,3 +598,10 @@
 ## 2026-03-21 19:03 KST — Route planning telemetry note
 - No map topology change this cycle.
 - Consumed current pressure band to contextualize alternate route projection in weekly portal prompt digest.
+
+## 2026-03-21 19:33 KST — Cycle U what-if fallback token (`WHAT-IF FALLBACK`) shipped
+- Completed backlog item: prototype `WHAT-IF FALLBACK:<lane>` behind flag when what-if alternate lane diverges from route action.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfFallback` + `whatIfFallbackSignals` and markdown line `WHAT-IF FALLBACK`.
+- Flag contract: `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK` (OFF by default). When enabled + `WHAT-IF ALIGN:DIVERGED`, fallback resolves to route-action lane (`PORTAL|ALT|PRESSURE`), otherwise `NONE`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`.
+- Follow-up: All ACTION_ITEMS/TASKS/POST_RC items are checked; next cycle should run Game Director review loop (3 ideas -> 1 experiment -> slice).

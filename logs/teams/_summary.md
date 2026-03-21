@@ -1287,3 +1287,16 @@ Compact decision memory for AI context efficiency.
   - `logs/weekly_portal_prompt_readability_drift.{json,md}` regenerated.
 - Regression status: pass.
 - Backlog state: Cycle U pressure-fit item marked done in `TASKS.md` + `POST_RC_BACKLOG.md`; remaining unchecked item is fallback-lane token.
+
+## 2026-03-21 19:33 KST — Cycle U what-if fallback token completed
+- Closed highest-priority remaining unchecked item in TASKS/POST_RC: `WHAT-IF FALLBACK:<lane>` prototype behind flag.
+- Durable behavior added to weekly digest (`scripts/weekly_portal_prompt_readability_drift.py`):
+  - New JSON fields: `whatIfFallback`, `whatIfFallbackSignals`.
+  - New markdown token: `WHAT-IF FALLBACK`.
+  - Rule: if `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK` is enabled and `WHAT-IF ALIGN` is `DIVERGED`, fallback maps to route-action lane (`PORTAL|ALT|PRESSURE`); else `NONE` (or `OFF` when flag disabled).
+- Regression coverage extended in `scripts/regression_weekly_portal_prompt_readability_drift.py` for schema + markdown assertions.
+- Verification PASS:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`
+- Backlog state: ACTION_ITEMS, TASKS, and POST_RC_BACKLOG are now fully checked. Next autonomous cycle should execute Game Director review loop.

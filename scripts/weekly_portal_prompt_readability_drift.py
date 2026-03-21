@@ -614,6 +614,49 @@ def what_if_pressure_fit_from_signals(
     }
 
 
+def what_if_lane_fallback_from_signals(
+    *,
+    what_if_alt_signals: dict[str, str | int | bool],
+    what_if_align: str,
+    route_action: str,
+) -> tuple[str, dict[str, str | bool]]:
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    alt_lane = str(what_if_alt_signals.get("altLane", "NONE"))
+    route_action_lane = {
+        "PORTAL_AUDIT": "PORTAL",
+        "ALT_TUNE": "ALT",
+        "PRESSURE_REBASE": "PRESSURE",
+        "BALANCE_PASS": "MIXED",
+        "WATCH": "MIXED",
+    }.get(route_action, "MIXED")
+
+    if not flag_enabled:
+        fallback = "OFF"
+        reason = "flag-disabled"
+    elif what_if_align != "DIVERGED":
+        fallback = "NONE"
+        reason = "alt-lane-aligned"
+    elif route_action_lane in {"PORTAL", "ALT", "PRESSURE"}:
+        fallback = route_action_lane
+        reason = "route-action-lane-fallback"
+    else:
+        fallback = "NONE"
+        reason = "no-actionable-route-lane"
+
+    return fallback, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "whatIfAlign": what_if_align,
+        "altLane": alt_lane,
+        "routeAction": route_action,
+        "routeActionLane": route_action_lane,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -1089,6 +1132,11 @@ def main() -> int:
         what_if_alt_signals=what_if_alt_signals,
         pressure_band=pressure_band,
     )
+    what_if_fallback, what_if_fallback_signals = what_if_lane_fallback_from_signals(
+        what_if_alt_signals=what_if_alt_signals,
+        what_if_align=what_if_align,
+        route_action=route_action,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -1164,6 +1212,8 @@ def main() -> int:
         "whatIfMagnitudeSignals": what_if_magnitude_signals,
         "whatIfFit": what_if_fit,
         "whatIfFitSignals": what_if_fit_signals,
+        "whatIfFallback": what_if_fallback,
+        "whatIfFallbackSignals": what_if_fallback_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -1224,6 +1274,7 @@ def main() -> int:
         f"- WHAT-IF BAND: **{what_if_band}** ({what_if_band_signals['reason']}; delta={what_if_band_signals['deltaRisk']} current={what_if_band_signals['currentLane']} alt={what_if_band_signals['altLane']} enabled={what_if_band_signals['flagEnabled']})",
         f"- WHAT-IF MAG: **{what_if_magnitude}** ({what_if_magnitude_signals['reason']}; delta={what_if_magnitude_signals['deltaRisk']} |Δ|={what_if_magnitude_signals['absDeltaRisk']} enabled={what_if_magnitude_signals['flagEnabled']})",
         f"- WHAT-IF FIT: **{what_if_fit}** ({what_if_fit_signals['reason']}; pressure={what_if_fit_signals['pressureBand']} projected={what_if_fit_signals['projectedBand']} risk={what_if_fit_signals['projectedRisk']} enabled={what_if_fit_signals['flagEnabled']})",
+        f"- WHAT-IF FALLBACK: **{what_if_fallback}** ({what_if_fallback_signals['reason']}; flag={what_if_fallback_signals['flagName']} enabled={what_if_fallback_signals['flagEnabled']} align={what_if_fallback_signals['whatIfAlign']} route={what_if_fallback_signals['routeAction']}->{what_if_fallback_signals['routeActionLane']} alt={what_if_fallback_signals['altLane']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",
