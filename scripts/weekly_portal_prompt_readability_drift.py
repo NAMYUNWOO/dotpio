@@ -442,6 +442,56 @@ def route_sandbox_plan_from_signals(*, route_sandbox: str, action_guard: str, dr
     }
 
 
+def sandbox_cooloff_from_prior(*, current_sandbox: str, prior_json_path: Path) -> tuple[int, dict[str, str | int | bool]]:
+    """Count consecutive non-armed digest windows since last ROUTE SANDBOX:ON cycle.
+
+    Returns (cooloff_count, signals_dict).
+    - If current sandbox is ON, cooloff resets to 0.
+    - If prior digest had sandbox ON and current is OFF, cooloff starts at 1.
+    - If prior digest already had a cooloff counter and current is still OFF, increment.
+    """
+    if current_sandbox == "ON":
+        return 0, {
+            "active": False,
+            "currentSandbox": current_sandbox,
+            "priorSandbox": "N/A",
+            "priorCooloff": 0,
+            "reason": "sandbox-active-no-cooloff",
+        }
+
+    prior_sandbox = "OFF"
+    prior_cooloff = 0
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_sandbox = prior.get("routeSandbox", "OFF")
+            prior_cooloff = prior.get("sandboxCooloff", 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, KeyError, TypeError):
+            pass
+
+    if prior_sandbox == "ON":
+        cooloff = 1
+        reason = "sandbox-just-disarmed"
+    elif prior_cooloff > 0:
+        cooloff = prior_cooloff + 1
+        reason = "cooloff-continuing"
+    else:
+        cooloff = 0
+        reason = "no-prior-on-cycle"
+
+    return cooloff, {
+        "active": cooloff > 0,
+        "currentSandbox": current_sandbox,
+        "priorSandbox": prior_sandbox,
+        "priorCooloff": prior_cooloff,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def commit_stats(root: Path, commit: str) -> dict:
     meta = git(root, "show", "-s", "--format=%H%n%ct%n%an%n%s", commit).splitlines()
     sha, ts, author = meta[0], int(meta[1]), meta[2]
@@ -609,6 +659,10 @@ def main() -> int:
         action_guard=action_guard,
         drift_risk=drift_risk,
     )
+    sandbox_cooloff, sandbox_cooloff_signals = sandbox_cooloff_from_prior(
+        current_sandbox=route_sandbox,
+        prior_json_path=args.out_json,
+    )
     drift_momentum, drift_momentum_signals = drift_momentum_from_commits(touched)
     pressure_lag, pressure_lag_signals = pressure_latency_from_signals(
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -661,6 +715,8 @@ def main() -> int:
         "routeSandboxSignals": route_sandbox_signals,
         "routeSandboxPlan": route_sandbox_plan,
         "routeSandboxPlanSignals": route_sandbox_plan_signals,
+        "sandboxCooloff": sandbox_cooloff,
+        "sandboxCooloffSignals": sandbox_cooloff_signals,
         "driftMomentum": drift_momentum,
         "driftMomentumSignals": drift_momentum_signals,
         "pressureLag": pressure_lag,
@@ -710,6 +766,7 @@ def main() -> int:
         f"- LANE LOCK: **{lane_lock}** (threshold={lane_lock_signals['threshold']} lane={lane_lock_signals['lane']} streak={lane_lock_signals['streak']})",
         f"- ROUTE SANDBOX: **{route_sandbox}** ({route_sandbox_signals['reason']}; flag={route_sandbox_signals['flagName']} enabled={route_sandbox_signals['flagEnabled']} laneLock={route_sandbox_signals['laneLock']}x{route_sandbox_signals['laneLockStreak']})",
         f"- SANDBOX PLAN: **{route_sandbox_plan}** ({route_sandbox_plan_signals['reason']}; guard={route_sandbox_plan_signals['actionGuard']} risk={route_sandbox_plan_signals['driftRisk']})",
+        f"- SANDBOX COOLOFF: **{sandbox_cooloff}** ({sandbox_cooloff_signals['reason']}; active={sandbox_cooloff_signals['active']} prior={sandbox_cooloff_signals['priorSandbox']}:{sandbox_cooloff_signals['priorCooloff']})",
         f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",
         f"- PRESSURE LAG: **{pressure_lag}** (churn={pressure_lag_signals['pressureChurn']} momentum={pressure_lag_signals['driftMomentum']} |Δ|={pressure_lag_signals['absDriftDelta']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",

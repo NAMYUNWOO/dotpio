@@ -755,3 +755,14 @@
 - Added experiment-gated digest token ROUTE SANDBOX:ON|OFF via DOTPIO_EXPERIMENT_ROUTE_SANDBOX with sustained lane-lock arming requirement.
 - Verified regression and digest generation remain PASS (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, digest script run).
 - Follow-up: keep flag OFF by default; enable only for controlled sandbox reviews.
+
+## 2026-03-21 14:33 KST — Cycle Q sandbox cooloff token
+- Completed backlog item: `SANDBOX COOLOFF:<n>` (consecutive non-armed windows since last `ROUTE SANDBOX:ON`).
+- Evidence:
+  - `scripts/weekly_portal_prompt_readability_drift.py` now computes `sandboxCooloff` + `sandboxCooloffSignals` from prior digest JSON and emits markdown line `SANDBOX COOLOFF`.
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py` extended for payload/schema/markdown assertions and cooloff transition fixtures (`no prior`, `just disarmed`, `continuing`).
+  - Fresh digest artifacts regenerated under `logs/weekly_portal_prompt_readability_drift.{json,md}`.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py` ✅
+- Follow-up: remaining unchecked Cycle Q item is `SANDBOX TARGET:<lane>` token.

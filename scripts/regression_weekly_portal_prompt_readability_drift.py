@@ -7,6 +7,8 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+from weekly_portal_prompt_readability_drift import sandbox_cooloff_from_prior
+
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "weekly_portal_prompt_readability_drift.py"
 
@@ -129,6 +131,16 @@ def main() -> int:
             "driftRisk",
             "reason",
         }, payload
+        assert isinstance(payload.get("sandboxCooloff"), int) and payload["sandboxCooloff"] >= 0, payload
+        assert set(payload.get("sandboxCooloffSignals", {}).keys()) == {
+            "active",
+            "currentSandbox",
+            "priorSandbox",
+            "priorCooloff",
+            "priorLoaded",
+            "reason",
+        }, payload
+        assert payload["sandboxCooloffSignals"]["currentSandbox"] in {"ON", "OFF"}, payload
         assert payload.get("driftMomentum") in {"RISING", "COOLING", "FLAT"}, payload
         assert set(payload.get("driftMomentumSignals", {}).keys()) == {"recentAvg", "olderAvg", "delta", "recentCount", "olderCount"}, payload
         assert payload.get("pressureLag") in {"FAST", "STABLE", "SLOW"}, payload
@@ -179,12 +191,38 @@ def main() -> int:
         assert "LANE LOCK" in md_text
         assert "ROUTE SANDBOX" in md_text
         assert "SANDBOX PLAN" in md_text
+        assert "SANDBOX COOLOFF" in md_text
         assert "DRIFT MOMENTUM" in md_text
         assert "PRESSURE LAG" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
         assert "Sticky Tokens" in md_text
+
+        cooloff_zero, signals_zero = sandbox_cooloff_from_prior(
+            current_sandbox="OFF",
+            prior_json_path=repo / "missing-prior.json",
+        )
+        assert cooloff_zero == 0, (cooloff_zero, signals_zero)
+        assert signals_zero["reason"] == "no-prior-on-cycle", signals_zero
+
+        prior_on = repo / "prior-on.json"
+        prior_on.write_text(json.dumps({"routeSandbox": "ON", "sandboxCooloff": 0}), encoding="utf-8")
+        cooloff_one, signals_one = sandbox_cooloff_from_prior(
+            current_sandbox="OFF",
+            prior_json_path=prior_on,
+        )
+        assert cooloff_one == 1, (cooloff_one, signals_one)
+        assert signals_one["reason"] == "sandbox-just-disarmed", signals_one
+
+        prior_cooling = repo / "prior-cooloff.json"
+        prior_cooling.write_text(json.dumps({"routeSandbox": "OFF", "sandboxCooloff": 2}), encoding="utf-8")
+        cooloff_three, signals_three = sandbox_cooloff_from_prior(
+            current_sandbox="OFF",
+            prior_json_path=prior_cooling,
+        )
+        assert cooloff_three == 3, (cooloff_three, signals_three)
+        assert signals_three["reason"] == "cooloff-continuing", signals_three
 
     print("[PASS] weekly portal prompt readability drift regression checks")
     return 0

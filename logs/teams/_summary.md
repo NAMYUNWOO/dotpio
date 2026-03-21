@@ -1201,3 +1201,8 @@ Compact decision memory for AI context efficiency.
 - Idea slate generated (L/M/H): sandbox action-plan token (chosen), sandbox cooloff counter, sandbox lane-target token.
 - Shipped vertical slice: digest now emits `SANDBOX PLAN:SIMULATE|PROBE|PREPARE|HOLD` (`routeSandboxPlan`, `routeSandboxPlanSignals`) derived from `ROUTE SANDBOX + ACTION GUARD + DRIFT RISK`.
 - Backlog injection updated in `TASKS.md` and `POST_RC_BACKLOG.md` with Cycle Q section; chosen slice marked done and two follow-up ideas queued unchecked.
+- 2026-03-21 14:33 KST: Cycle Q cooloff vertical slice shipped for weekly portal prompt digest.
+- Durable decision: `SANDBOX COOLOFF:<n>` starts at 1 immediately after an `ON -> OFF` transition, increments while sandbox stays OFF, and resets to 0 when sandbox is ON.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now persists `sandboxCooloff`/`sandboxCooloffSignals` in JSON and emits markdown `SANDBOX COOLOFF` triage line with prior-state context.
+- QA evidence: `scripts/regression_weekly_portal_prompt_readability_drift.py` now validates cooloff schema + transition fixtures (`no-prior`, `just-disarmed`, `continuing`) and markdown token presence.
+- Next hook: execute remaining Cycle Q backlog item `SANDBOX TARGET:<lane>`.
