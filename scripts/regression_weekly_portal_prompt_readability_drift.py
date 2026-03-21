@@ -23,6 +23,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_dwell_from_prior,
     what_if_split_escalate_recover_veto_release_from_prior,
     what_if_split_escalate_recover_veto_release_confidence_from_signals,
+    what_if_split_escalate_recover_veto_release_route_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -593,6 +594,17 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert payload.get("whatIfSplitEscRecoverVetoReleaseRoute") in {"PORTAL", "ALT", "PRESSURE", "HOLD", "NONE"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoReleaseRouteSignals", {}).keys()) == {
+            "splitEscRecoverVetoRelease",
+            "splitEscRecoverVetoState",
+            "splitEscRecover",
+            "splitEscRecoverAlt",
+            "splitEscRecoverPlan",
+            "primaryActionable",
+            "altActionable",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -687,6 +699,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO DWELL" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE CONF" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -1012,6 +1025,26 @@ def main() -> int:
                         )
                         assert veto_release_conf_mid == "MID", (veto_release_conf_mid, veto_release_conf_mid_signals)
                         assert veto_release_conf_mid_signals["reason"] == "release-pending-while-cooling", veto_release_conf_mid_signals
+
+                        veto_release_route_primary, veto_release_route_primary_signals = what_if_split_escalate_recover_veto_release_route_from_signals(
+                            what_if_split_esc_recover_veto_release="COOLING CLEAR",
+                            what_if_split_esc_recover_veto_state="IDLE",
+                            what_if_split_esc_recover="PORTAL",
+                            what_if_split_esc_recover_alt="ALT",
+                            what_if_split_esc_recover_plan="PRIMARY",
+                        )
+                        assert veto_release_route_primary == "PORTAL", (veto_release_route_primary, veto_release_route_primary_signals)
+                        assert veto_release_route_primary_signals["reason"] == "release-cleared-follow-primary-recovery-lane", veto_release_route_primary_signals
+
+                        veto_release_route_hold, veto_release_route_hold_signals = what_if_split_escalate_recover_veto_release_route_from_signals(
+                            what_if_split_esc_recover_veto_release="COOLING",
+                            what_if_split_esc_recover_veto_state="COOLING",
+                            what_if_split_esc_recover="PORTAL",
+                            what_if_split_esc_recover_alt="ALT",
+                            what_if_split_esc_recover_plan="PRIMARY",
+                        )
+                        assert veto_release_route_hold == "HOLD", (veto_release_route_hold, veto_release_route_hold_signals)
+                        assert veto_release_route_hold_signals["reason"] == "release-route-held-while-cooling", veto_release_route_hold_signals
                     finally:
                         if prior_veto_release_env is None:
                             os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE", None)

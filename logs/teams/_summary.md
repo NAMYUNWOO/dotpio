@@ -1565,3 +1565,9 @@ Compact decision memory for AI context efficiency.
 - Shipped `WHAT-IF SPLIT ESC RECOVER VETO RELEASE CONF:LOW|MID|HIGH` in digest JSON+markdown, with deterministic mapping from release cue/state/dwell.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Backlog injected/updated: Cycle AI keeps remaining unchecked tasks for release route + release timer follow-ups.
+
+## 2026-03-22 08:34 KST — Cycle AI follow-up closure (`WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE`)
+- Closed highest-priority unchecked item by shipping `WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE:<lane>` in weekly portal readability digest.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now derives route token from release-state + recovery plan/lanes and emits payload keys `whatIfSplitEscRecoverVetoReleaseRoute` / `...Signals` plus markdown row `WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE`.
+- Regression: extended `scripts/regression_weekly_portal_prompt_readability_drift.py` schema + markdown assertions and helper tests; full regression passed.
+- Next priority item remains unchecked: prototype `WHAT-IF SPLIT ESC RECOVER VETO RELEASE TICK:<n>` behind flag.

@@ -2211,6 +2211,63 @@ def what_if_split_escalate_recover_veto_release_confidence_from_signals(
     }
 
 
+def what_if_split_escalate_recover_veto_release_route_from_signals(
+    *,
+    what_if_split_esc_recover_veto_release: str,
+    what_if_split_esc_recover_veto_state: str,
+    what_if_split_esc_recover: str,
+    what_if_split_esc_recover_alt: str,
+    what_if_split_esc_recover_plan: str,
+) -> tuple[str, dict[str, str | bool]]:
+    """Emit post-cooldown handoff route token for veto release transitions."""
+    release = str(what_if_split_esc_recover_veto_release).upper()
+    state = str(what_if_split_esc_recover_veto_state).upper()
+    primary = str(what_if_split_esc_recover).upper()
+    alt = str(what_if_split_esc_recover_alt).upper()
+    plan = str(what_if_split_esc_recover_plan).upper()
+
+    valid_lanes = {"PORTAL", "ALT", "PRESSURE"}
+    primary_actionable = primary in valid_lanes
+    alt_actionable = alt in valid_lanes
+
+    if release == "COOLING CLEAR" and state == "IDLE":
+        if plan == "PRIMARY" and primary_actionable:
+            route = primary
+            reason = "release-cleared-follow-primary-recovery-lane"
+        elif plan == "ALT" and alt_actionable:
+            route = alt
+            reason = "release-cleared-follow-alt-recovery-lane"
+        elif primary_actionable:
+            route = primary
+            reason = "release-cleared-fallback-primary-lane"
+        elif alt_actionable:
+            route = alt
+            reason = "release-cleared-fallback-alt-lane"
+        else:
+            route = "NONE"
+            reason = "release-cleared-no-actionable-lane"
+    elif state == "COOLING":
+        route = "HOLD"
+        reason = "release-route-held-while-cooling"
+    elif state == "ARMED":
+        route = "HOLD"
+        reason = "release-route-held-while-veto-armed"
+    else:
+        route = "NONE"
+        reason = "no-release-route-available"
+
+    return route, {
+        "splitEscRecoverVetoRelease": release,
+        "splitEscRecoverVetoState": state,
+        "splitEscRecover": primary,
+        "splitEscRecoverAlt": alt,
+        "splitEscRecoverPlan": plan,
+        "primaryActionable": primary_actionable,
+        "altActionable": alt_actionable,
+        "reason": reason,
+    }
+
+
 def what_if_split_escalate_recover_confidence_delta_from_prior(
     *,
     current_confidence: str,
@@ -2917,6 +2974,13 @@ def main() -> int:
         what_if_split_esc_recover_veto_state=what_if_split_esc_recover_veto_state,
         what_if_split_esc_recover_veto_dwell=what_if_split_esc_recover_veto_dwell,
     )
+    what_if_split_esc_recover_veto_release_route, what_if_split_esc_recover_veto_release_route_signals = what_if_split_escalate_recover_veto_release_route_from_signals(
+        what_if_split_esc_recover_veto_release=what_if_split_esc_recover_veto_release,
+        what_if_split_esc_recover_veto_state=what_if_split_esc_recover_veto_state,
+        what_if_split_esc_recover=what_if_split_esc_recover,
+        what_if_split_esc_recover_alt=what_if_split_esc_recover_alt,
+        what_if_split_esc_recover_plan=what_if_split_esc_recover_plan,
+    )
     what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
         current_confidence=what_if_split_esc_recover_confidence,
         prior_json_path=args.out_json,
@@ -3072,6 +3136,8 @@ def main() -> int:
         "whatIfSplitEscRecoverVetoReleaseSignals": what_if_split_esc_recover_veto_release_signals,
         "whatIfSplitEscRecoverVetoReleaseConfidence": what_if_split_esc_recover_veto_release_confidence,
         "whatIfSplitEscRecoverVetoReleaseConfidenceSignals": what_if_split_esc_recover_veto_release_confidence_signals,
+        "whatIfSplitEscRecoverVetoReleaseRoute": what_if_split_esc_recover_veto_release_route,
+        "whatIfSplitEscRecoverVetoReleaseRouteSignals": what_if_split_esc_recover_veto_release_route_signals,
         "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
         "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
@@ -3172,6 +3238,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER VETO DWELL: **{what_if_split_esc_recover_veto_dwell}** ({what_if_split_esc_recover_veto_dwell_signals['reason']}; state={what_if_split_esc_recover_veto_dwell_signals['currentState']} prior={what_if_split_esc_recover_veto_dwell_signals['priorState']}:{what_if_split_esc_recover_veto_dwell_signals['priorDwell']} loaded={what_if_split_esc_recover_veto_dwell_signals['priorLoaded']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE: **{what_if_split_esc_recover_veto_release}** ({what_if_split_esc_recover_veto_release_signals['reason']}; flag={what_if_split_esc_recover_veto_release_signals['flagName']} enabled={what_if_split_esc_recover_veto_release_signals['flagEnabled']} current={what_if_split_esc_recover_veto_release_signals['currentState']} prior={what_if_split_esc_recover_veto_release_signals['priorState']} loaded={what_if_split_esc_recover_veto_release_signals['priorLoaded']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE CONF: **{what_if_split_esc_recover_veto_release_confidence}** ({what_if_split_esc_recover_veto_release_confidence_signals['reason']}; release={what_if_split_esc_recover_veto_release_confidence_signals['splitEscRecoverVetoRelease']} state={what_if_split_esc_recover_veto_release_confidence_signals['splitEscRecoverVetoState']} dwell={what_if_split_esc_recover_veto_release_confidence_signals['splitEscRecoverVetoDwell']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE: **{what_if_split_esc_recover_veto_release_route}** ({what_if_split_esc_recover_veto_release_route_signals['reason']}; release={what_if_split_esc_recover_veto_release_route_signals['splitEscRecoverVetoRelease']} state={what_if_split_esc_recover_veto_release_route_signals['splitEscRecoverVetoState']} plan={what_if_split_esc_recover_veto_release_route_signals['splitEscRecoverPlan']} primary={what_if_split_esc_recover_veto_release_route_signals['splitEscRecover']} alt={what_if_split_esc_recover_veto_release_route_signals['splitEscRecoverAlt']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",

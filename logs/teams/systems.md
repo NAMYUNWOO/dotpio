@@ -1322,3 +1322,9 @@
 - Decision: Score HIGH only on clean `COOLING CLEAR + IDLE`, MID while still COOLING, LOW otherwise (ARMED/dwell/no transition) to avoid false release trust.
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Remaining Cycle AI backlog items are release route token and release timer token.
+
+## 2026-03-22 08:34 KST — Cycle AI follow-up: veto release route token
+- Task: Add `WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE:<lane>` for post-cooldown handoff clarity.
+- Decision: Route emits actionable lane only on `COOLING CLEAR -> IDLE` release transitions; otherwise `HOLD` (cooling/armed) or `NONE` when no actionable lane exists.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS) and `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 30 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` (PASS).
+- Next: remaining highest-priority unchecked item is `WHAT-IF SPLIT ESC RECOVER VETO RELEASE TICK:<n>` (flag-gated prototype).
