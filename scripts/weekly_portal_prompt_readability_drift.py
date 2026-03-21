@@ -2131,6 +2131,86 @@ def what_if_split_escalate_recover_veto_dwell_from_prior(
     }
 
 
+def what_if_split_escalate_recover_veto_release_from_prior(
+    *,
+    current_split_esc_recover_veto_state: str,
+    prior_json_path: Path,
+) -> tuple[str, dict[str, str | bool]]:
+    """Emit flagged release cue token when veto state exits COOLING into IDLE."""
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    current_state = str(current_split_esc_recover_veto_state).upper()
+    prior_state = "IDLE"
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_state = str(prior.get("whatIfSplitEscRecoverVetoState", prior_state)).upper()
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    if not flag_enabled:
+        token = "FLAG OFF"
+        reason = "flag-disabled"
+    elif prior_state == "COOLING" and current_state == "IDLE":
+        token = "COOLING CLEAR"
+        reason = "veto-state-transitioned-cooling-to-idle"
+    elif current_state == "COOLING":
+        token = "COOLING"
+        reason = "veto-state-still-cooling"
+    elif current_state == "ARMED":
+        token = "HOLD"
+        reason = "veto-state-rearmed"
+    else:
+        token = "STABLE"
+        reason = "no-cooling-to-idle-transition"
+
+    return token, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "currentState": current_state,
+        "priorState": prior_state,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
+def what_if_split_escalate_recover_veto_release_confidence_from_signals(
+    *,
+    what_if_split_esc_recover_veto_release: str,
+    what_if_split_esc_recover_veto_state: str,
+    what_if_split_esc_recover_veto_dwell: int,
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Score trust for veto release cue readability token."""
+    release = str(what_if_split_esc_recover_veto_release).upper()
+    state = str(what_if_split_esc_recover_veto_state).upper()
+    dwell = max(0, int(what_if_split_esc_recover_veto_dwell))
+
+    if release == "COOLING CLEAR" and state == "IDLE":
+        token = "HIGH"
+        reason = "clean-cooling-to-idle-release-transition"
+    elif release == "COOLING":
+        token = "MID"
+        reason = "release-pending-while-cooling"
+    elif state == "ARMED" or dwell > 0:
+        token = "LOW"
+        reason = "release-not-trustworthy-during-armed-or-dwell"
+    else:
+        token = "LOW"
+        reason = "no-release-transition-detected"
+
+    return token, {
+        "splitEscRecoverVetoRelease": release,
+        "splitEscRecoverVetoState": state,
+        "splitEscRecoverVetoDwell": dwell,
+        "reason": reason,
+    }
+
+
 def what_if_split_escalate_recover_confidence_delta_from_prior(
     *,
     current_confidence: str,
@@ -2828,6 +2908,15 @@ def main() -> int:
         current_split_esc_recover_veto_state=what_if_split_esc_recover_veto_state,
         prior_json_path=args.out_json,
     )
+    what_if_split_esc_recover_veto_release, what_if_split_esc_recover_veto_release_signals = what_if_split_escalate_recover_veto_release_from_prior(
+        current_split_esc_recover_veto_state=what_if_split_esc_recover_veto_state,
+        prior_json_path=args.out_json,
+    )
+    what_if_split_esc_recover_veto_release_confidence, what_if_split_esc_recover_veto_release_confidence_signals = what_if_split_escalate_recover_veto_release_confidence_from_signals(
+        what_if_split_esc_recover_veto_release=what_if_split_esc_recover_veto_release,
+        what_if_split_esc_recover_veto_state=what_if_split_esc_recover_veto_state,
+        what_if_split_esc_recover_veto_dwell=what_if_split_esc_recover_veto_dwell,
+    )
     what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
         current_confidence=what_if_split_esc_recover_confidence,
         prior_json_path=args.out_json,
@@ -2979,6 +3068,10 @@ def main() -> int:
         "whatIfSplitEscRecoverVetoStateSignals": what_if_split_esc_recover_veto_state_signals,
         "whatIfSplitEscRecoverVetoDwell": what_if_split_esc_recover_veto_dwell,
         "whatIfSplitEscRecoverVetoDwellSignals": what_if_split_esc_recover_veto_dwell_signals,
+        "whatIfSplitEscRecoverVetoRelease": what_if_split_esc_recover_veto_release,
+        "whatIfSplitEscRecoverVetoReleaseSignals": what_if_split_esc_recover_veto_release_signals,
+        "whatIfSplitEscRecoverVetoReleaseConfidence": what_if_split_esc_recover_veto_release_confidence,
+        "whatIfSplitEscRecoverVetoReleaseConfidenceSignals": what_if_split_esc_recover_veto_release_confidence_signals,
         "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
         "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
@@ -3077,6 +3170,8 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER VETO COOLOFF: **{what_if_split_esc_recover_veto_cooloff}** ({what_if_split_esc_recover_veto_cooloff_signals['reason']}; flag={what_if_split_esc_recover_veto_cooloff_signals['flagName']} enabled={what_if_split_esc_recover_veto_cooloff_signals['flagEnabled']} active={what_if_split_esc_recover_veto_cooloff_signals['active']} prior={what_if_split_esc_recover_veto_cooloff_signals['priorVeto']}:{what_if_split_esc_recover_veto_cooloff_signals['priorCooloff']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO STATE: **{what_if_split_esc_recover_veto_state}** ({what_if_split_esc_recover_veto_state_signals['reason']}; veto={what_if_split_esc_recover_veto_state_signals['splitEscRecoverVeto']} cooloff={what_if_split_esc_recover_veto_state_signals['splitEscRecoverVetoCooloff']} cooling={what_if_split_esc_recover_veto_state_signals['cooling']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO DWELL: **{what_if_split_esc_recover_veto_dwell}** ({what_if_split_esc_recover_veto_dwell_signals['reason']}; state={what_if_split_esc_recover_veto_dwell_signals['currentState']} prior={what_if_split_esc_recover_veto_dwell_signals['priorState']}:{what_if_split_esc_recover_veto_dwell_signals['priorDwell']} loaded={what_if_split_esc_recover_veto_dwell_signals['priorLoaded']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE: **{what_if_split_esc_recover_veto_release}** ({what_if_split_esc_recover_veto_release_signals['reason']}; flag={what_if_split_esc_recover_veto_release_signals['flagName']} enabled={what_if_split_esc_recover_veto_release_signals['flagEnabled']} current={what_if_split_esc_recover_veto_release_signals['currentState']} prior={what_if_split_esc_recover_veto_release_signals['priorState']} loaded={what_if_split_esc_recover_veto_release_signals['priorLoaded']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE CONF: **{what_if_split_esc_recover_veto_release_confidence}** ({what_if_split_esc_recover_veto_release_confidence_signals['reason']}; release={what_if_split_esc_recover_veto_release_confidence_signals['splitEscRecoverVetoRelease']} state={what_if_split_esc_recover_veto_release_confidence_signals['splitEscRecoverVetoState']} dwell={what_if_split_esc_recover_veto_release_confidence_signals['splitEscRecoverVetoDwell']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",

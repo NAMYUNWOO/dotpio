@@ -805,3 +805,9 @@
 - Decision: Dwell increments only when current+prior veto state are both `ARMED`; resets to `0` on `COOLING/IDLE` to avoid stale streak carry.
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Next unchecked backlog item is `WHAT-IF SPLIT ESC RECOVER VETO RELEASE:<short>` (flag-gated on `COOLING -> IDLE`).
+
+## 2026-03-22 08:02 KST — Cycle AI: veto release confidence token
+- Task: Add `WHAT-IF SPLIT ESC RECOVER VETO RELEASE CONF:LOW|MID|HIGH` to score trust for release cue transitions.
+- Decision: Score HIGH only on clean `COOLING CLEAR + IDLE`, MID while still COOLING, LOW otherwise (ARMED/dwell/no transition) to avoid false release trust.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: Remaining Cycle AI backlog items are release route token and release timer token.

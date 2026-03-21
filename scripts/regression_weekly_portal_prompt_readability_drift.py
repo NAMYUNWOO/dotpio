@@ -21,6 +21,8 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_cooloff_from_prior,
     what_if_split_escalate_recover_veto_state_from_signals,
     what_if_split_escalate_recover_veto_dwell_from_prior,
+    what_if_split_escalate_recover_veto_release_from_prior,
+    what_if_split_escalate_recover_veto_release_confidence_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -682,6 +684,9 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO WHY" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO COOLOFF" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO STATE" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO DWELL" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE CONF" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -961,6 +966,57 @@ def main() -> int:
                     )
                     assert veto_dwell_reset == 0, (veto_dwell_reset, veto_dwell_reset_signals)
                     assert veto_dwell_reset_signals["reason"] == "veto-not-armed", veto_dwell_reset_signals
+
+                    prior_veto_release_env = os.environ.get("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE")
+                    try:
+                        os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE"] = "0"
+                        veto_release_flag_off, veto_release_flag_off_signals = what_if_split_escalate_recover_veto_release_from_prior(
+                            current_split_esc_recover_veto_state="IDLE",
+                            prior_json_path=veto_dwell_prior,
+                        )
+                        assert veto_release_flag_off == "FLAG OFF", (veto_release_flag_off, veto_release_flag_off_signals)
+                        assert veto_release_flag_off_signals["reason"] == "flag-disabled", veto_release_flag_off_signals
+
+                        os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE"] = "1"
+                        veto_release_prior = repo / "veto-release-prior.json"
+                        veto_release_prior.write_text(
+                            json.dumps({"whatIfSplitEscRecoverVetoState": "COOLING"}),
+                            encoding="utf-8",
+                        )
+                        veto_release_clear, veto_release_clear_signals = what_if_split_escalate_recover_veto_release_from_prior(
+                            current_split_esc_recover_veto_state="IDLE",
+                            prior_json_path=veto_release_prior,
+                        )
+                        assert veto_release_clear == "COOLING CLEAR", (veto_release_clear, veto_release_clear_signals)
+                        assert veto_release_clear_signals["reason"] == "veto-state-transitioned-cooling-to-idle", veto_release_clear_signals
+
+                        veto_release_cooling, veto_release_cooling_signals = what_if_split_escalate_recover_veto_release_from_prior(
+                            current_split_esc_recover_veto_state="COOLING",
+                            prior_json_path=veto_release_prior,
+                        )
+                        assert veto_release_cooling == "COOLING", (veto_release_cooling, veto_release_cooling_signals)
+                        assert veto_release_cooling_signals["reason"] == "veto-state-still-cooling", veto_release_cooling_signals
+
+                        veto_release_conf_high, veto_release_conf_high_signals = what_if_split_escalate_recover_veto_release_confidence_from_signals(
+                            what_if_split_esc_recover_veto_release="COOLING CLEAR",
+                            what_if_split_esc_recover_veto_state="IDLE",
+                            what_if_split_esc_recover_veto_dwell=0,
+                        )
+                        assert veto_release_conf_high == "HIGH", (veto_release_conf_high, veto_release_conf_high_signals)
+                        assert veto_release_conf_high_signals["reason"] == "clean-cooling-to-idle-release-transition", veto_release_conf_high_signals
+
+                        veto_release_conf_mid, veto_release_conf_mid_signals = what_if_split_escalate_recover_veto_release_confidence_from_signals(
+                            what_if_split_esc_recover_veto_release="COOLING",
+                            what_if_split_esc_recover_veto_state="COOLING",
+                            what_if_split_esc_recover_veto_dwell=0,
+                        )
+                        assert veto_release_conf_mid == "MID", (veto_release_conf_mid, veto_release_conf_mid_signals)
+                        assert veto_release_conf_mid_signals["reason"] == "release-pending-while-cooling", veto_release_conf_mid_signals
+                    finally:
+                        if prior_veto_release_env is None:
+                            os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE", None)
+                        else:
+                            os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE"] = prior_veto_release_env
                 finally:
                     if prior_veto_cooloff_env is None:
                         os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_COOLOFF", None)
