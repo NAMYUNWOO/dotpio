@@ -149,6 +149,14 @@ def main() -> int:
             "laneLockStreak",
             "reason",
         }, payload
+        assert isinstance(payload.get("sandboxTargetShift"), str) and "->" in payload["sandboxTargetShift"], payload
+        assert set(payload.get("sandboxTargetShiftSignals", {}).keys()) == {
+            "priorTarget",
+            "currentTarget",
+            "changed",
+            "priorLoaded",
+            "reason",
+        }, payload
         assert isinstance(payload.get("sandboxCooloff"), int) and payload["sandboxCooloff"] >= 0, payload
         assert set(payload.get("sandboxCooloffSignals", {}).keys()) == {
             "active",
@@ -212,6 +220,7 @@ def main() -> int:
         assert "SANDBOX TARGET" in md_text
         assert "TARGET SRC" in md_text
         assert "SANDBOX TARGET CONF" in md_text
+        assert "TARGET SHIFT" in md_text
         assert "SANDBOX COOLOFF" in md_text
         assert "DRIFT MOMENTUM" in md_text
         assert "PRESSURE LAG" in md_text

@@ -339,4 +339,4 @@ See project-level plans:
 ## Next Up (Game Director Injection — 2026-03-21 Cycle R)
 - [x] Add sandbox-target confidence token (`SANDBOX TARGET CONF:LOW|MID|HIGH`) for lane-target handoff quality
 - [x] Add sandbox-target source token (`TARGET SRC:LOCK|MIXED|NONE`) for quick audit of lane-target derivation path
-- [ ] Add sandbox-target history token (`TARGET SHIFT:<FROM->TO>`) to highlight lane-target changes across digest windows
+- [x] Add sandbox-target history token (`TARGET SHIFT:<FROM->TO>`) to highlight lane-target changes across digest windows

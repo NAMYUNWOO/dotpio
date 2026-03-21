@@ -1,8 +1,8 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T06:32:59.661451Z
+- GeneratedAt(UTC): 2026-03-21T06:38:11.768463Z
 - Status: **OK**
-- Window: last 14 days (max 120 commits)
+- Window: last 7 days (max 120 commits)
 - Checked commits: 120
 - Portal prompt commits: 9
 - Dominant mode commits: compact=2, detailed=5, neutral=2
@@ -24,6 +24,7 @@
 - SANDBOX TARGET: **NONE** (sandbox-inactive; lane=PORTAL armed=False streak=0)
 - TARGET SRC: **NONE** (sandbox=OFF target=NONE)
 - SANDBOX TARGET CONF: **LOW** (no-single-lane-target; routeConf=LOW lock=Falsex0)
+- TARGET SHIFT: **NONE->NONE** (target-stable; changed=False priorLoaded=True)
 - SANDBOX COOLOFF: **0** (no-prior-on-cycle; active=False prior=OFF:0)
 - DRIFT MOMENTUM: **FLAT** (recent=4.6 older=3.5 delta=1.1)
 - PRESSURE LAG: **SLOW** (churn=15 momentum=FLAT |Δ|=1.1)

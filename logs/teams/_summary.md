@@ -1214,3 +1214,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep source taxonomy minimal (`LOCK|MIXED|NONE`) to avoid overfitting while preserving operator traceability.
 - Verification: py_compile PASS, regression PASS, digest artifact refresh PASS (`logs/weekly_portal_prompt_readability_drift.{json,md}`).
 - Next hook: implement remaining unchecked Cycle R item `TARGET SHIFT:<FROM->TO>`.
+
+## 2026-03-21 15:38 KST — Cycle R closure: sandbox target history token
+- Completed remaining Cycle R backlog item: `TARGET SHIFT:<FROM->TO>` in weekly portal prompt readability digest.
+- Digest now emits JSON fields `sandboxTargetShift`, `sandboxTargetShiftSignals` and markdown row `TARGET SHIFT`.
+- Shift semantics compare prior digest `sandboxTarget` to current target; emits stable `X->X` when unchanged and still reports prior-load/change signals for auditability.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 ...` PASS.

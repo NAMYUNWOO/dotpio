@@ -501,6 +501,33 @@ def sandbox_target_confidence_from_signals(
     }
 
 
+
+
+def sandbox_target_shift_from_prior(*, current_target: str, prior_json_path: Path) -> tuple[str, dict[str, str | bool]]:
+    prior_target = current_target
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_target = str(prior.get("sandboxTarget", current_target))
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    shift = f"{prior_target}->{current_target}"
+    changed = prior_target != current_target
+    reason = "target-switched" if changed else "target-stable"
+    if not prior_loaded:
+        reason = "no-prior-target"
+
+    return shift, {
+        "priorTarget": prior_target,
+        "currentTarget": current_target,
+        "changed": changed,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
 def sandbox_cooloff_from_prior(*, current_sandbox: str, prior_json_path: Path) -> tuple[int, dict[str, str | int | bool]]:
     """Count consecutive non-armed digest windows since last ROUTE SANDBOX:ON cycle.
 
@@ -727,6 +754,10 @@ def main() -> int:
         route_action_confidence=route_action_confidence,
         lane_lock_signals=lane_lock_signals,
     )
+    sandbox_target_shift, sandbox_target_shift_signals = sandbox_target_shift_from_prior(
+        current_target=sandbox_target,
+        prior_json_path=args.out_json,
+    )
     sandbox_cooloff, sandbox_cooloff_signals = sandbox_cooloff_from_prior(
         current_sandbox=route_sandbox,
         prior_json_path=args.out_json,
@@ -788,6 +819,8 @@ def main() -> int:
         "sandboxTargetSource": str(sandbox_target_signals.get("targetSource", "NONE")),
         "sandboxTargetConfidence": sandbox_target_confidence,
         "sandboxTargetConfidenceSignals": sandbox_target_confidence_signals,
+        "sandboxTargetShift": sandbox_target_shift,
+        "sandboxTargetShiftSignals": sandbox_target_shift_signals,
         "sandboxCooloff": sandbox_cooloff,
         "sandboxCooloffSignals": sandbox_cooloff_signals,
         "driftMomentum": drift_momentum,
@@ -842,6 +875,7 @@ def main() -> int:
         f"- SANDBOX TARGET: **{sandbox_target}** ({sandbox_target_signals['reason']}; lane={sandbox_target_signals['lane']} armed={sandbox_target_signals['laneLockArmed']} streak={sandbox_target_signals['laneLockStreak']})",
         f"- TARGET SRC: **{sandbox_target_signals['targetSource']}** (sandbox={sandbox_target_signals['routeSandbox']} target={sandbox_target})",
         f"- SANDBOX TARGET CONF: **{sandbox_target_confidence}** ({sandbox_target_confidence_signals['reason']}; routeConf={sandbox_target_confidence_signals['routeActionConfidence']} lock={sandbox_target_confidence_signals['laneLockArmed']}x{sandbox_target_confidence_signals['laneLockStreak']})",
+        f"- TARGET SHIFT: **{sandbox_target_shift}** ({sandbox_target_shift_signals['reason']}; changed={sandbox_target_shift_signals['changed']} priorLoaded={sandbox_target_shift_signals['priorLoaded']})",
         f"- SANDBOX COOLOFF: **{sandbox_cooloff}** ({sandbox_cooloff_signals['reason']}; active={sandbox_cooloff_signals['active']} prior={sandbox_cooloff_signals['priorSandbox']}:{sandbox_cooloff_signals['priorCooloff']})",
         f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",
         f"- PRESSURE LAG: **{pressure_lag}** (churn={pressure_lag_signals['pressureChurn']} momentum={pressure_lag_signals['driftMomentum']} |Δ|={pressure_lag_signals['absDriftDelta']})",
