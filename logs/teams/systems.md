@@ -1082,3 +1082,9 @@
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`
+
+## 2026-03-21 22:04 KST — Cycle X follow-up: ALT2 confidence token shipped
+- Implemented `WHAT-IF FALLBACK ALT2 CONF:LOW|MID|HIGH` in weekly portal digest via `what_if_fallback_alt2_confidence_from_signals(...)`.
+- Confidence model keys off ALT2 quality-gate outputs (`topScore`, `secondScore`, `scoreGap`) and returns LOW when flag/fallback/secondary lane is not actionable.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Next hook: complete remaining unchecked Cycle X item `WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD`.

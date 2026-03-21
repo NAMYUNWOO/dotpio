@@ -1364,3 +1364,9 @@ Compact decision memory for AI context efficiency.
   - New diagnostics in JSON signals: `topScore`, `secondScore`, `minTopScore`, `minGap`.
 - Verification (PASS): py_compile, digest regression, and digest artifact regeneration.
 - Next queued experiments (Cycle X): `WHAT-IF FALLBACK ALT2 CONF`, `WHAT-IF FALLBACK PLAN`.
+
+## 2026-03-21 22:04 KST — Game Director Cycle X follow-up: ALT2 confidence token
+- Closed highest-priority unchecked item in `TASKS.md`/`POST_RC_BACKLOG.md`: `WHAT-IF FALLBACK ALT2 CONF:LOW|MID|HIGH`.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfFallbackAlt2Confidence` + signals from existing ALT2 quality-gate metrics (`topScore`, `secondScore`, `scoreGap`) and writes markdown line `WHAT-IF FALLBACK ALT2 CONF`.
+- QA: `scripts/regression_weekly_portal_prompt_readability_drift.py` updated for payload+markdown assertions; regression PASS.
+- Remaining unchecked backlog item: `WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD` (next priority).

@@ -614,3 +614,8 @@
 - Task: stabilize `WHAT-IF FALLBACK ALT2` so secondary path is only shown when lane ranking is meaningful.
 - UX rationale: hide weak/coin-flip secondary suggestions to avoid over-coaching noise in digest review.
 - Outcome: quality-gated ALT2 with explicit diagnostic reasons retained in JSON/markdown signals.
+
+## 2026-03-21 22:04 KST — Cycle X vertical slice closure (`WHAT-IF FALLBACK ALT2 CONF`)
+- Completed highest-priority unchecked item by adding `WHAT-IF FALLBACK ALT2 CONF:LOW|MID|HIGH` after `ALT2` token in markdown digest.
+- UX rule: confidence is LOW unless the secondary lane is actionable and quality-gate signals are strong enough to trust.
+- Next hook: remaining backlog item is dual-path merge hint (`WHAT-IF FALLBACK PLAN`).

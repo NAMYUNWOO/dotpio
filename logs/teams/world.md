@@ -632,3 +632,8 @@
 ## 2026-03-21 21:35 KST — Route-planning telemetry handoff
 - Weekly portal readability digest now emits secondary fallback lane candidate (`ALT2`) behind feature flag.
 - Intended use: route planning handoff when primary fallback lane is congested or low-confidence.
+
+## 2026-03-21 22:04 KST — Dual-path routing readability sync
+- Added digest-level trust token for secondary fallback lane (`WHAT-IF FALLBACK ALT2 CONF`) so route planners can quickly judge ALT2 viability.
+- Decision: keep lane-selection mechanics unchanged; confidence is a pure observability/readability layer.
+- Follow-up: wire merge-plan token after confidence + ALT2 are jointly visible.

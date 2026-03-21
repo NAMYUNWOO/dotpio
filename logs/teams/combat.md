@@ -585,3 +585,8 @@
 ## [2026-03-21 21:35 KST] Cross-lane planning signal note
 - No combat logic changes in this cycle.
 - Digest fallback magnitude token can be used by combat tuning reviews to size risk of route-level fallback decisions.
+
+## 2026-03-21 22:04 KST — Route-pressure telemetry note
+- Portal readability digest now includes secondary fallback confidence (`ALT2 CONF`) so high-pressure reroute coaching can weight secondary lane trust.
+- No combat runtime behavior changes; telemetry-only addition.
+- Verification aligned with weekly digest regression PASS.

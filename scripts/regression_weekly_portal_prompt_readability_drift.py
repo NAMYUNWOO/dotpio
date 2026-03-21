@@ -317,6 +317,16 @@ def main() -> int:
             "minGap",
             "reason",
         }, payload
+        assert payload.get("whatIfFallbackAlt2Confidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("whatIfFallbackAlt2ConfidenceSignals", {}).keys()) == {
+            "flagEnabled",
+            "alt2",
+            "fallbackLane",
+            "topScore",
+            "secondScore",
+            "scoreGap",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -380,6 +390,7 @@ def main() -> int:
         assert "WHAT-IF FALLBACK ALIGN" in md_text
         assert "WHAT-IF FALLBACK MAG" in md_text
         assert "WHAT-IF FALLBACK ALT2" in md_text
+        assert "WHAT-IF FALLBACK ALT2 CONF" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

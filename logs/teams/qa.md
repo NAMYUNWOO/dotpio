@@ -1560,3 +1560,8 @@
 - Verification PASS:
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Scope remains digest telemetry/readability only.
+
+## 2026-03-21 22:04 KST — Regression expansion for `WHAT-IF FALLBACK ALT2 CONF`
+- Added payload schema assertions for `whatIfFallbackAlt2Confidence` + `whatIfFallbackAlt2ConfidenceSignals`.
+- Added markdown assertion for `WHAT-IF FALLBACK ALT2 CONF` line.
+- Verification command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).

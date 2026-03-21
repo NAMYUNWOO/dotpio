@@ -611,3 +611,8 @@
 ## 2026-03-21 21:35 KST — Planning token semantics synced
 - Added fallback planning extension with second-candidate lane (`ALT2`) selection from lane-focus ranking when enabled.
 - No prompt-generation model changes required; digest-only output extension.
+
+## 2026-03-21 22:04 KST — Planning narration token extension
+- Added `WHAT-IF FALLBACK ALT2 CONF` output contract (LOW|MID|HIGH) to support concise dual-path recommendation copy.
+- Signal rationale preserves explainability (`reason`, `topScore`, `secondScore`, `scoreGap`).
+- Next: prototype `WHAT-IF FALLBACK PLAN` narration gate behind flag.

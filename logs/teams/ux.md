@@ -855,3 +855,8 @@
 ## 2026-03-21 21:35 KST — Operator-facing digest affordance pass
 - Added glanceable rollback sizing (`SMALL|MED|LARGE`) for fallback action confidence calibration.
 - Added optional dual-path cue (`ALT2`) for faster triage during divergent lane windows.
+
+## 2026-03-21 22:04 KST — Digest readability augmentation (`ALT2 CONF`)
+- Added compact line `WHAT-IF FALLBACK ALT2 CONF` immediately after `WHAT-IF FALLBACK ALT2` to avoid forcing operators into JSON for trust context.
+- Keeps existing token order and compact DOS-style line formatting.
+- Regression: markdown presence asserted in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
