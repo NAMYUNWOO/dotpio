@@ -17,6 +17,9 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_tempo_from_signals,
     what_if_split_escalate_recover_veto_from_signals,
     what_if_split_escalate_recover_veto_confidence_from_signals,
+    what_if_split_escalate_recover_veto_why_from_signals,
+    what_if_split_escalate_recover_veto_cooloff_from_prior,
+    what_if_split_escalate_recover_veto_state_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -667,6 +670,9 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER TEMPO" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO CONF" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO WHY" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO COOLOFF" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO STATE" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -859,6 +865,71 @@ def main() -> int:
                 )
                 assert veto_conf_mid == "MID", (veto_conf_mid, veto_conf_mid_signals)
                 assert veto_conf_mid_signals["reason"] == "pressure-and-confidence-trigger-with-plan-gap", veto_conf_mid_signals
+
+                prior_veto_why_env = os.environ.get("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_WHY")
+                try:
+                    os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_WHY"] = "0"
+                    veto_why_off, veto_why_off_signals = what_if_split_escalate_recover_veto_why_from_signals(
+                        what_if_split_esc_recover_veto="ON",
+                        what_if_split_esc_recover_veto_confidence="HIGH",
+                        what_if_split_esc_pressure="HIGH",
+                        what_if_split_esc_recover_plan="PRIMARY",
+                    )
+                    assert veto_why_off == "FLAG OFF", (veto_why_off, veto_why_off_signals)
+                    assert veto_why_off_signals["reason"] == "flag-disabled", veto_why_off_signals
+
+                    os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_WHY"] = "1"
+                    veto_why_on, veto_why_on_signals = what_if_split_escalate_recover_veto_why_from_signals(
+                        what_if_split_esc_recover_veto="ON",
+                        what_if_split_esc_recover_veto_confidence="HIGH",
+                        what_if_split_esc_pressure="HIGH",
+                        what_if_split_esc_recover_plan="ALT",
+                    )
+                    assert veto_why_on == "HIGH PRESSURE LOCK", (veto_why_on, veto_why_on_signals)
+                    assert veto_why_on_signals["reason"] == "veto-armed-under-high-pressure-actionable-plan", veto_why_on_signals
+                finally:
+                    if prior_veto_why_env is None:
+                        os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_WHY", None)
+                    else:
+                        os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_WHY"] = prior_veto_why_env
+
+                prior_veto_cooloff_env = os.environ.get("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_COOLOFF")
+                try:
+                    os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_COOLOFF"] = "1"
+                    veto_cooloff_prior = repo / "veto-cooloff-prior.json"
+                    veto_cooloff_prior.write_text(json.dumps({"whatIfSplitEscRecoverVeto": "ON", "whatIfSplitEscRecoverVetoCooloff": 0}), encoding="utf-8")
+                    veto_cooloff_one, veto_cooloff_one_signals = what_if_split_escalate_recover_veto_cooloff_from_prior(
+                        current_split_esc_recover_veto="OFF",
+                        prior_json_path=veto_cooloff_prior,
+                    )
+                    assert veto_cooloff_one == 1, (veto_cooloff_one, veto_cooloff_one_signals)
+                    assert veto_cooloff_one_signals["reason"] == "veto-just-disarmed", veto_cooloff_one_signals
+
+                    veto_cooloff_prior.write_text(json.dumps({"whatIfSplitEscRecoverVeto": "OFF", "whatIfSplitEscRecoverVetoCooloff": 2}), encoding="utf-8")
+                    veto_cooloff_roll, veto_cooloff_roll_signals = what_if_split_escalate_recover_veto_cooloff_from_prior(
+                        current_split_esc_recover_veto="OFF",
+                        prior_json_path=veto_cooloff_prior,
+                    )
+                    assert veto_cooloff_roll == 3, (veto_cooloff_roll, veto_cooloff_roll_signals)
+                    assert veto_cooloff_roll_signals["reason"] == "veto-remains-disarmed-in-cooloff-window", veto_cooloff_roll_signals
+
+                    veto_state_armed, veto_state_armed_signals = what_if_split_escalate_recover_veto_state_from_signals(
+                        what_if_split_esc_recover_veto="ON",
+                        what_if_split_esc_recover_veto_cooloff=0,
+                    )
+                    assert veto_state_armed == "ARMED", (veto_state_armed, veto_state_armed_signals)
+
+                    veto_state_cooling, veto_state_cooling_signals = what_if_split_escalate_recover_veto_state_from_signals(
+                        what_if_split_esc_recover_veto="OFF",
+                        what_if_split_esc_recover_veto_cooloff=2,
+                    )
+                    assert veto_state_cooling == "COOLING", (veto_state_cooling, veto_state_cooling_signals)
+                    assert veto_state_cooling_signals["reason"] == "veto-disarmed-in-cooloff-window", veto_state_cooling_signals
+                finally:
+                    if prior_veto_cooloff_env is None:
+                        os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_COOLOFF", None)
+                    else:
+                        os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_COOLOFF"] = prior_veto_cooloff_env
             finally:
                 if prior_veto_env is None:
                     os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO", None)

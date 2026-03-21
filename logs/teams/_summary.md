@@ -1543,3 +1543,17 @@ Compact decision memory for AI context efficiency.
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py`
 - Backlog updated:
   - `TASKS.md` + `POST_RC_BACKLOG.md` now include Cycle AF with selected task marked done and two follow-up experiments queued.
+
+## 2026-03-22 07:05 KST — Cycle AG closure
+- Completed Post-RC/Game Director Cycle AG tail work by shipping two flagged digest tokens:
+  - WHAT-IF SPLIT ESC RECOVER VETO WHY:<short>
+  - WHAT-IF SPLIT ESC RECOVER VETO COOLOFF:<n>
+- Added deterministic signal builders + payload/markdown emission in weekly portal prompt digest.
+- Extended regression suite to validate flag-off/on rationale behavior and veto cooloff rollover after disarm.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Backlog sync: TASKS.md + POST_RC_BACKLOG.md Cycle AG entries moved to done.
+
+## 2026-03-22 07:08 KST — Game Director Cycle AH
+- Generated 3 ideas (state, dwell, release cue) and selected **veto state token** for this cycle's minimal vertical slice.
+- Shipped `WHAT-IF SPLIT ESC RECOVER VETO STATE:ARMED|COOLING|IDLE` in digest JSON+markdown plus regression coverage.
+- Injected new backlog items for remaining AH ideas (dwell + release cue) as unchecked follow-ups.

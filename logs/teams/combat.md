@@ -750,3 +750,18 @@
   - Injected Cycle AG backlog follow-ups (`VETO WHY`, `VETO COOLOFF`) as next queue items.
 - Follow-up:
   - Highest-priority unchecked item now: `WHAT-IF SPLIT ESC RECOVER VETO WHY:<short>` (flag-gated).
+
+## [2026-03-22 07:05 KST] Cycle AG - split escalation veto rationale/cooloff tokens
+- Decision: Extended weekly portal prompt digest with  (flag: ) and  (flag: ).
+- Evidence: updated , ; regression pass.
+- Follow-up: continue next unchecked ACTION_ITEMS/TASKS priority item after Cycle AG closure.
+
+## [2026-03-22 07:05 KST] Cycle AG - split escalation veto rationale/cooloff tokens
+- Decision: Extended weekly portal prompt digest with WHAT-IF SPLIT ESC RECOVER VETO WHY (flag: DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_WHY) and WHAT-IF SPLIT ESC RECOVER VETO COOLOFF (flag: DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_COOLOFF).
+- Evidence: updated scripts/weekly_portal_prompt_readability_drift.py and scripts/regression_weekly_portal_prompt_readability_drift.py; regression pass.
+- Follow-up: continue next unchecked ACTION_ITEMS/TASKS priority item after Cycle AG closure.
+
+## [2026-03-22 07:08 KST] Cycle AH - veto state token vertical slice
+- Ideation (3): (1) veto state token (low-risk UX), (2) veto dwell token (mid-risk telemetry), (3) veto release cue token (high-risk novelty copy).
+- Picked experiment: veto state token (`ARMED|COOLING|IDLE`) as minimal vertical slice.
+- Verification: weekly portal digest regression pass with markdown/token assertions and state-signal unit checks.

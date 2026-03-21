@@ -1963,6 +1963,134 @@ def what_if_split_escalate_recover_veto_confidence_from_signals(
     }
 
 
+def what_if_split_escalate_recover_veto_why_from_signals(
+    *,
+    what_if_split_esc_recover_veto: str,
+    what_if_split_esc_recover_veto_confidence: str,
+    what_if_split_esc_pressure: str,
+    what_if_split_esc_recover_plan: str,
+) -> tuple[str, dict[str, str | bool]]:
+    """Emit compact rationale token when veto sentinel is active (flagged)."""
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_WHY"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    veto_on = str(what_if_split_esc_recover_veto).upper() == "ON"
+    veto_conf = str(what_if_split_esc_recover_veto_confidence).upper()
+    pressure = str(what_if_split_esc_pressure).upper()
+    plan = str(what_if_split_esc_recover_plan).upper()
+
+    if not flag_enabled:
+        token = "FLAG OFF"
+        reason = "flag-disabled"
+    elif not veto_on:
+        token = "NO VETO"
+        reason = "veto-not-armed"
+    elif veto_conf == "HIGH" and pressure == "HIGH" and plan in {"PRIMARY", "ALT"}:
+        token = "HIGH PRESSURE LOCK"
+        reason = "veto-armed-under-high-pressure-actionable-plan"
+    elif veto_conf in {"HIGH", "MID"}:
+        token = "GUARD RISK"
+        reason = "veto-armed-with-mid-high-confidence"
+    else:
+        token = "WATCH SIGNAL"
+        reason = "veto-armed-with-low-confidence-context"
+
+    return token, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "splitEscRecoverVeto": str(what_if_split_esc_recover_veto).upper(),
+        "splitEscRecoverVetoConfidence": veto_conf,
+        "splitEscPressure": pressure,
+        "splitEscRecoverPlan": plan,
+        "reason": reason,
+    }
+
+
+def what_if_split_escalate_recover_veto_cooloff_from_prior(
+    *,
+    current_split_esc_recover_veto: str,
+    prior_json_path: Path,
+) -> tuple[int, dict[str, str | int | bool]]:
+    """Track cooldown windows after veto sentinel disarms (flagged experiment)."""
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_COOLOFF"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    current_veto = str(current_split_esc_recover_veto).upper()
+    prior_veto = "OFF"
+    prior_cooloff = 0
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_veto = str(prior.get("whatIfSplitEscRecoverVeto", prior_veto)).upper()
+            prior_cooloff = int(prior.get("whatIfSplitEscRecoverVetoCooloff", 0))
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    if not flag_enabled:
+        cooloff = 0
+        active = False
+        reason = "flag-disabled"
+    elif current_veto == "ON":
+        cooloff = 0
+        active = False
+        reason = "veto-currently-armed"
+    elif prior_veto == "ON":
+        cooloff = 1
+        active = True
+        reason = "veto-just-disarmed"
+    elif prior_cooloff > 0:
+        cooloff = prior_cooloff + 1
+        active = True
+        reason = "veto-remains-disarmed-in-cooloff-window"
+    else:
+        cooloff = 0
+        active = False
+        reason = "no-recent-veto-disarm"
+
+    return cooloff, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "active": active,
+        "currentVeto": current_veto,
+        "priorVeto": prior_veto,
+        "priorCooloff": prior_cooloff,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
+def what_if_split_escalate_recover_veto_state_from_signals(
+    *,
+    what_if_split_esc_recover_veto: str,
+    what_if_split_esc_recover_veto_cooloff: int,
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Classify veto lane state for quick triage (armed/cooling/idle)."""
+    veto = str(what_if_split_esc_recover_veto).upper()
+    cooloff = max(0, int(what_if_split_esc_recover_veto_cooloff))
+
+    if veto == "ON":
+        state = "ARMED"
+        reason = "veto-sentinel-currently-armed"
+    elif cooloff > 0:
+        state = "COOLING"
+        reason = "veto-disarmed-in-cooloff-window"
+    else:
+        state = "IDLE"
+        reason = "no-active-veto-or-cooloff"
+
+    return state, {
+        "splitEscRecoverVeto": veto,
+        "splitEscRecoverVetoCooloff": cooloff,
+        "cooling": cooloff > 0,
+        "reason": reason,
+    }
+
+
 def what_if_split_escalate_recover_confidence_delta_from_prior(
     *,
     current_confidence: str,
@@ -2642,6 +2770,20 @@ def main() -> int:
         what_if_split_esc_pressure=what_if_split_esc_pressure,
         what_if_split_esc_recover_plan=what_if_split_esc_recover_plan,
     )
+    what_if_split_esc_recover_veto_why, what_if_split_esc_recover_veto_why_signals = what_if_split_escalate_recover_veto_why_from_signals(
+        what_if_split_esc_recover_veto=what_if_split_esc_recover_veto,
+        what_if_split_esc_recover_veto_confidence=what_if_split_esc_recover_veto_confidence,
+        what_if_split_esc_pressure=what_if_split_esc_pressure,
+        what_if_split_esc_recover_plan=what_if_split_esc_recover_plan,
+    )
+    what_if_split_esc_recover_veto_cooloff, what_if_split_esc_recover_veto_cooloff_signals = what_if_split_escalate_recover_veto_cooloff_from_prior(
+        current_split_esc_recover_veto=what_if_split_esc_recover_veto,
+        prior_json_path=args.out_json,
+    )
+    what_if_split_esc_recover_veto_state, what_if_split_esc_recover_veto_state_signals = what_if_split_escalate_recover_veto_state_from_signals(
+        what_if_split_esc_recover_veto=what_if_split_esc_recover_veto,
+        what_if_split_esc_recover_veto_cooloff=what_if_split_esc_recover_veto_cooloff,
+    )
     what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
         current_confidence=what_if_split_esc_recover_confidence,
         prior_json_path=args.out_json,
@@ -2785,6 +2927,12 @@ def main() -> int:
         "whatIfSplitEscRecoverVetoSignals": what_if_split_esc_recover_veto_signals,
         "whatIfSplitEscRecoverVetoConfidence": what_if_split_esc_recover_veto_confidence,
         "whatIfSplitEscRecoverVetoConfidenceSignals": what_if_split_esc_recover_veto_confidence_signals,
+        "whatIfSplitEscRecoverVetoWhy": what_if_split_esc_recover_veto_why,
+        "whatIfSplitEscRecoverVetoWhySignals": what_if_split_esc_recover_veto_why_signals,
+        "whatIfSplitEscRecoverVetoCooloff": what_if_split_esc_recover_veto_cooloff,
+        "whatIfSplitEscRecoverVetoCooloffSignals": what_if_split_esc_recover_veto_cooloff_signals,
+        "whatIfSplitEscRecoverVetoState": what_if_split_esc_recover_veto_state,
+        "whatIfSplitEscRecoverVetoStateSignals": what_if_split_esc_recover_veto_state_signals,
         "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
         "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
@@ -2879,6 +3027,9 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER TEMPO: **{what_if_split_esc_recover_tempo}** ({what_if_split_esc_recover_tempo_signals['reason']}; plan={what_if_split_esc_recover_tempo_signals['splitEscRecoverPlan']} conf={what_if_split_esc_recover_tempo_signals['splitEscRecoverConfidence']} pressure={what_if_split_esc_recover_tempo_signals['splitEscPressure']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO: **{what_if_split_esc_recover_veto}** ({what_if_split_esc_recover_veto_signals['reason']}; flag={what_if_split_esc_recover_veto_signals['flagName']} enabled={what_if_split_esc_recover_veto_signals['flagEnabled']} conf={what_if_split_esc_recover_veto_signals['splitEscRecoverConfidence']} pressure={what_if_split_esc_recover_veto_signals['splitEscPressure']} plan={what_if_split_esc_recover_veto_signals['splitEscRecoverPlan']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO CONF: **{what_if_split_esc_recover_veto_confidence}** ({what_if_split_esc_recover_veto_confidence_signals['reason']}; veto={what_if_split_esc_recover_veto_confidence_signals['splitEscRecoverVeto']} conf={what_if_split_esc_recover_veto_confidence_signals['splitEscRecoverConfidence']} pressure={what_if_split_esc_recover_veto_confidence_signals['splitEscPressure']} plan={what_if_split_esc_recover_veto_confidence_signals['splitEscRecoverPlan']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO WHY: **{what_if_split_esc_recover_veto_why}** ({what_if_split_esc_recover_veto_why_signals['reason']}; flag={what_if_split_esc_recover_veto_why_signals['flagName']} enabled={what_if_split_esc_recover_veto_why_signals['flagEnabled']} veto={what_if_split_esc_recover_veto_why_signals['splitEscRecoverVeto']} conf={what_if_split_esc_recover_veto_why_signals['splitEscRecoverVetoConfidence']} pressure={what_if_split_esc_recover_veto_why_signals['splitEscPressure']} plan={what_if_split_esc_recover_veto_why_signals['splitEscRecoverPlan']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO COOLOFF: **{what_if_split_esc_recover_veto_cooloff}** ({what_if_split_esc_recover_veto_cooloff_signals['reason']}; flag={what_if_split_esc_recover_veto_cooloff_signals['flagName']} enabled={what_if_split_esc_recover_veto_cooloff_signals['flagEnabled']} active={what_if_split_esc_recover_veto_cooloff_signals['active']} prior={what_if_split_esc_recover_veto_cooloff_signals['priorVeto']}:{what_if_split_esc_recover_veto_cooloff_signals['priorCooloff']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO STATE: **{what_if_split_esc_recover_veto_state}** ({what_if_split_esc_recover_veto_state_signals['reason']}; veto={what_if_split_esc_recover_veto_state_signals['splitEscRecoverVeto']} cooloff={what_if_split_esc_recover_veto_state_signals['splitEscRecoverVetoCooloff']} cooling={what_if_split_esc_recover_veto_state_signals['cooling']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
