@@ -1379,3 +1379,9 @@
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` ✅
 - Decision: Keep binary `ANOMALY` pulse for compatibility, add confidence tier + expanded signal payload (`triggerCount`, gap metrics) for triage quality.
 - Follow-up: Next highest unchecked item is Cycle N `LANE LOCK:<lane>x<n>` alert token.
+
+## 2026-03-21 11:03 KST — Cycle N follow-up: lane-lock alert token
+- Completed backlog item: Add digest lane-lock alert token (LANE LOCK:<lane>x<n>) for prolonged single-lane drift streaks.
+- Implementation: scripts/weekly_portal_prompt_readability_drift.py now emits JSON laneLock/laneLockSignals and markdown LANE LOCK line (NONE when threshold not met; <LANE>x<STREAK> when armed).
+- Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py and weekly digest generation both PASS.
+- Follow-up: ACTION_ITEMS/TASKS/POST_RC_BACKLOG now fully checked; next cycle should run Game Director review loop with new experiment injection.

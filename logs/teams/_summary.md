@@ -1108,3 +1108,17 @@ Compact decision memory for AI context efficiency.
 - Backlog sync:
   - Marked Cycle N anomaly-confidence item done in `TASKS.md` and `POST_RC_BACKLOG.md`.
   - Next highest open item: `LANE LOCK:<lane>x<n>` alert token.
+
+## 2026-03-21 11:03 KST — Cycle N close: lane-lock alert token shipped
+- Closed remaining unchecked Cycle N backlog item by adding digest lane-lock continuity token.
+- Shipped in `scripts/weekly_portal_prompt_readability_drift.py`:
+  - New JSON fields: `laneLock`, `laneLockSignals` (`threshold`, `armed`, `lane`, `streak`)
+  - New markdown row: `LANE LOCK: <lane>x<n>` (or `NONE` when not armed)
+  - Arming rule: non-MIXED lane focus with `focusStreak >= 3`.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`
+- Backlog sync:
+  - `TASKS.md` Cycle N lane-lock task marked `[x]`
+  - `POST_RC_BACKLOG.md` Cycle N lane-lock task marked `[x]`
+- Next hook: all ACTION_ITEMS + TASKS + POST_RC_BACKLOG checked; next autonomous cycle should execute Game Director review loop (3 ideas → pick 1 experiment → vertical slice).

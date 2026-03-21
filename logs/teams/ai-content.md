@@ -469,3 +469,9 @@
 - Notes: Binary pulse (`ANOMALY:ON|OFF`) remains unchanged; confidence tier adds graded interpretability.
 - Evidence: regression script pass + digest artifact regeneration.
 - Follow-up: implement `LANE LOCK` alert token next.
+
+## 2026-03-21 11:03 KST — Cycle N follow-up: lane-lock alert token
+- Completed backlog item: Add digest lane-lock alert token (LANE LOCK:<lane>x<n>) for prolonged single-lane drift streaks.
+- Implementation: scripts/weekly_portal_prompt_readability_drift.py now emits JSON laneLock/laneLockSignals and markdown LANE LOCK line (NONE when threshold not met; <LANE>x<STREAK> when armed).
+- Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py and weekly digest generation both PASS.
+- Follow-up: ACTION_ITEMS/TASKS/POST_RC_BACKLOG now fully checked; next cycle should run Game Director review loop with new experiment injection.

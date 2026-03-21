@@ -897,3 +897,9 @@
 - Signals added: `stickyMet`, `pressureMet`, `triggerCount`, `stickyGap`, `pressureGap`, `combinedGap`.
 - Rule: `HIGH` requires dual-threshold spike with strong overrun; `MID` for moderate dual-threshold or strong single-threshold pressure; else `LOW`.
 - Follow-up: lane-lock persistence alert remains open.
+
+## 2026-03-21 11:03 KST — Cycle N follow-up: lane-lock alert token
+- Completed backlog item: Add digest lane-lock alert token (LANE LOCK:<lane>x<n>) for prolonged single-lane drift streaks.
+- Implementation: scripts/weekly_portal_prompt_readability_drift.py now emits JSON laneLock/laneLockSignals and markdown LANE LOCK line (NONE when threshold not met; <LANE>x<STREAK> when armed).
+- Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py and weekly digest generation both PASS.
+- Follow-up: ACTION_ITEMS/TASKS/POST_RC_BACKLOG now fully checked; next cycle should run Game Director review loop with new experiment injection.

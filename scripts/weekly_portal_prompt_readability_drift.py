@@ -223,6 +223,20 @@ def route_action_confidence_from_signals(
     }
 
 
+def lane_lock_from_focus(*, lane_focus: str, focus_streak: int) -> tuple[str, dict[str, int | str | bool]]:
+    threshold = 3
+    armed = lane_focus != "MIXED" and focus_streak >= threshold
+    token = "NONE"
+    if armed:
+        token = f"{lane_focus}x{focus_streak}"
+    return token, {
+        "threshold": threshold,
+        "armed": armed,
+        "lane": lane_focus,
+        "streak": focus_streak,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -410,6 +424,10 @@ def main() -> int:
         lane_focus_scores=lane_focus_scores,
         drift_risk_signals=drift_risk_signals,
     )
+    lane_lock, lane_lock_signals = lane_lock_from_focus(
+        lane_focus=lane_focus,
+        focus_streak=focus_streak,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -444,6 +462,8 @@ def main() -> int:
         "routeActionReason": route_action_reason,
         "routeActionConfidence": route_action_confidence,
         "routeActionConfidenceSignals": route_action_confidence_signals,
+        "laneLock": lane_lock,
+        "laneLockSignals": lane_lock_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -483,6 +503,7 @@ def main() -> int:
         f"- FOCUS VOL: **{focus_volatility}** (switches={focus_volatility_signals['switches']}/{focus_volatility_signals['edges']} ratio={focus_volatility_signals['switchRatio']})",
         f"- ROUTE ACTION: **{route_action}** ({route_action_reason})",
         f"- ACTION CONF: **{route_action_confidence}** (dom={route_action_confidence_signals['dominanceRatio']} spread={route_action_confidence_signals['focusSpread']} driftSpread={route_action_confidence_signals['driftSpread']})",
+        f"- LANE LOCK: **{lane_lock}** (threshold={lane_lock_signals['threshold']} lane={lane_lock_signals['lane']} streak={lane_lock_signals['streak']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

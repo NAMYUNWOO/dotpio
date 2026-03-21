@@ -319,4 +319,4 @@ See project-level plans:
 ## Next Up (Game Director Injection — 2026-03-21 Cycle N)
 - [x] Add route-action confidence telemetry line in markdown + JSON (`ACTION CONF`, confidence signals)
 - [x] Add anomaly confidence tier (`ANOMALY CONF:LOW|MID|HIGH`) to avoid binary over-alerting
-- [ ] Add lane-lock alert token (`LANE LOCK:<lane>x<n>`) for prolonged single-lane drift streaks
+- [x] Add lane-lock alert token (`LANE LOCK:<lane>x<n>`) for prolonged single-lane drift streaks
