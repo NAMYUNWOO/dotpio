@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-22 02:36 KST
+Last updated: 2026-03-22 03:33 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,9 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Cycle AC follow-up slice shipped: weekly digest now emits `WHAT-IF SPLIT ESC PRESSURE:LOW|MID|HIGH` with lifecycle-aware cooling decay for escalation cooldown risk context.
+- `WHAT-IF SPLIT ESC PRESSURE` is guarded by `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_PRESSURE`; when disabled it defaults to `LOW` with explicit `flag-disabled` reason to preserve default contract stability.
+- Remaining highest-priority unchecked item is Cycle AC recovery hint prototype: `WHAT-IF SPLIT ESC RECOVER:<lane>` (flag-gated).
 - Cycle AB follow-up backlog is now closed: weekly digest ships `WHAT-IF SPLIT ESC LANES:<primary>/<secondary>` for escalation handoff readability and `WHAT-IF SPLIT ESC COOL:<n>` for flag-gated disarm cooloff pressure context.
 - `WHAT-IF SPLIT ESC COOL` is guarded by `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_COOL`; when disabled it stays `0` with explicit `flag-disabled` reason to preserve default contract stability.
 - Game Director Cycle AB ideation completed (low/mid/high concepts), and the selected vertical slice shipped: weekly digest now emits `WHAT-IF SPLIT ESC CONF:LOW|MID|HIGH` tied to escalation arm state + split confidence + plan fit.

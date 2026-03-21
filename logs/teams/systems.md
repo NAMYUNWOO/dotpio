@@ -1215,3 +1215,15 @@
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 60` ✅
 - Backlog lifecycle: marked Cycle AC state-token item `[~] -> [x]` in `TASKS.md` and `POST_RC_BACKLOG.md`; follow-up items remain unchecked.
 - Next hook: implement Cycle AC mid/high experiments (`ESC PRESSURE`, `ESC RECOVER`) in subsequent loop.
+
+## 2026-03-22 03:31 KST — Cycle AC follow-up: split escalation cooldown pressure-band token
+- Completed task: Add  behind .
+- Decision: token defaults to  with explicit  reason; when enabled, pressure derives from current pressure band with lifecycle-aware cooling decay (=base,  decays 1~2 steps,  minimized).
+- Verification: py_compile + [PASS] weekly portal prompt readability drift regression checks + digest generation PASS.
+- Next: implement remaining Cycle AC item  behind flag.
+
+## 2026-03-22 03:33 KST — Cycle AC follow-up: split escalation cooldown pressure-band token (corrected log)
+- Completed task: Add `WHAT-IF SPLIT ESC PRESSURE:LOW|MID|HIGH` behind `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_PRESSURE`.
+- Decision: token defaults to `LOW` with explicit `flag-disabled` reason; when enabled, pressure derives from current pressure band with lifecycle-aware cooling decay (`ARMED`=base, `COOLING` decays 1~2 steps, `IDLE` minimized).
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly digest generation PASS.
+- Next: implement remaining Cycle AC item `WHAT-IF SPLIT ESC RECOVER:<lane>` behind flag.
