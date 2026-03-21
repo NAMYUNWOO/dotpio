@@ -1438,6 +1438,113 @@ def what_if_split_escalate_confidence_from_signals(
     }
 
 
+def what_if_split_escalate_lanes_from_signals(
+    *,
+    what_if_split_escalate: str,
+    what_if_split_signals: dict[str, str | int | bool],
+) -> tuple[str, dict[str, str | bool]]:
+    primary_lane = str(what_if_split_signals.get("primaryLane", "OFF"))
+    secondary_lane = str(what_if_split_signals.get("secondaryLane", "NONE"))
+    lanes_diverged = bool(what_if_split_signals.get("lanesDiverged", False))
+
+    primary_actionable = primary_lane in {"PORTAL", "ALT", "PRESSURE"}
+    secondary_actionable = secondary_lane in {"PORTAL", "ALT", "PRESSURE"}
+
+    if what_if_split_escalate != "ON":
+        lanes = "NONE/NONE"
+        reason = "escalation-not-armed"
+    elif not lanes_diverged:
+        lanes = "NONE/NONE"
+        reason = "split-lanes-not-divergent"
+    elif primary_actionable and secondary_actionable:
+        lanes = f"{primary_lane}/{secondary_lane}"
+        reason = "escalation-dual-lane-pair"
+    elif primary_actionable:
+        lanes = f"{primary_lane}/NONE"
+        reason = "escalation-secondary-missing"
+    else:
+        lanes = "NONE/NONE"
+        reason = "escalation-no-actionable-lanes"
+
+    return lanes, {
+        "splitEscalate": what_if_split_escalate,
+        "primaryActionable": primary_actionable,
+        "secondaryActionable": secondary_actionable,
+        "lanesDiverged": lanes_diverged,
+        "reason": reason,
+    }
+
+
+def what_if_split_escalate_cooloff_from_prior(
+    *,
+    current_split_escalate: str,
+    prior_json_path: Path,
+) -> tuple[int, dict[str, str | int | bool]]:
+    """Count OFF windows after split escalation disarms (flag-gated output token)."""
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_COOL"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    if not flag_enabled:
+        return 0, {
+            "flagName": flag_name,
+            "flagEnabled": flag_enabled,
+            "active": False,
+            "currentSplitEscalate": current_split_escalate,
+            "priorSplitEscalate": "OFF",
+            "priorCooloff": 0,
+            "reason": "flag-disabled",
+            "priorLoaded": False,
+        }
+
+    if current_split_escalate == "ON":
+        return 0, {
+            "flagName": flag_name,
+            "flagEnabled": flag_enabled,
+            "active": False,
+            "currentSplitEscalate": current_split_escalate,
+            "priorSplitEscalate": "ON",
+            "priorCooloff": 0,
+            "reason": "split-escalation-active-no-cooloff",
+            "priorLoaded": False,
+        }
+
+    prior_split_escalate = "OFF"
+    prior_cooloff = 0
+    prior_loaded = False
+    if prior_json_path.exists():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_split_escalate = str(prior.get("whatIfSplitEscalate", "OFF"))
+            prior_cooloff = int(prior.get("whatIfSplitEscCool", 0) or 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, OSError, ValueError, TypeError):
+            prior_split_escalate = "OFF"
+            prior_cooloff = 0
+            prior_loaded = False
+
+    if prior_split_escalate == "ON":
+        cooloff = 1
+        reason = "split-escalation-just-disarmed"
+    elif prior_cooloff > 0:
+        cooloff = prior_cooloff + 1
+        reason = "split-escalation-cooloff-continuing"
+    else:
+        cooloff = 0
+        reason = "no-prior-split-escalation-cycle"
+
+    return cooloff, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "active": cooloff > 0,
+        "currentSplitEscalate": current_split_escalate,
+        "priorSplitEscalate": prior_split_escalate,
+        "priorCooloff": prior_cooloff,
+        "reason": reason,
+        "priorLoaded": prior_loaded,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -2009,6 +2116,14 @@ def main() -> int:
         what_if_split_confidence=what_if_split_confidence,
         what_if_fallback_plan_fit=what_if_fallback_plan_fit,
     )
+    what_if_split_escalate_lanes, what_if_split_escalate_lanes_signals = what_if_split_escalate_lanes_from_signals(
+        what_if_split_escalate=what_if_split_escalate,
+        what_if_split_signals=what_if_split_signals,
+    )
+    what_if_split_esc_cool, what_if_split_esc_cool_signals = what_if_split_escalate_cooloff_from_prior(
+        current_split_escalate=what_if_split_escalate,
+        prior_json_path=args.out_json,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -2122,6 +2237,10 @@ def main() -> int:
         "whatIfSplitEscalateSignals": what_if_split_escalate_signals,
         "whatIfSplitEscalateConfidence": what_if_split_escalate_confidence,
         "whatIfSplitEscalateConfidenceSignals": what_if_split_escalate_confidence_signals,
+        "whatIfSplitEscLanes": what_if_split_escalate_lanes,
+        "whatIfSplitEscLanesSignals": what_if_split_escalate_lanes_signals,
+        "whatIfSplitEscCool": what_if_split_esc_cool,
+        "whatIfSplitEscCoolSignals": what_if_split_esc_cool_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -2201,6 +2320,8 @@ def main() -> int:
         f"- WHAT-IF SPLIT COOLOFF: **{what_if_split_cooloff}** ({what_if_split_cooloff_signals['reason']}; active={what_if_split_cooloff_signals['active']} prior={what_if_split_cooloff_signals['priorSplit']}:{what_if_split_cooloff_signals['priorCooloff']})",
         f"- WHAT-IF SPLIT ESCALATE: **{what_if_split_escalate}** ({what_if_split_escalate_signals['reason']}; flag={what_if_split_escalate_signals['flagName']} enabled={what_if_split_escalate_signals['flagEnabled']} split={what_if_split_escalate_signals['split']} diverged={what_if_split_escalate_signals['lanesDiverged']} fit={what_if_split_escalate_signals['planFit']})",
         f"- WHAT-IF SPLIT ESC CONF: **{what_if_split_escalate_confidence}** ({what_if_split_escalate_confidence_signals['reason']}; escalate={what_if_split_escalate_confidence_signals['splitEscalate']} splitConf={what_if_split_escalate_confidence_signals['splitConfidence']} fit={what_if_split_escalate_confidence_signals['planFit']})",
+        f"- WHAT-IF SPLIT ESC LANES: **{what_if_split_escalate_lanes}** ({what_if_split_escalate_lanes_signals['reason']}; escalate={what_if_split_escalate_lanes_signals['splitEscalate']} diverged={what_if_split_escalate_lanes_signals['lanesDiverged']} actionable={what_if_split_escalate_lanes_signals['primaryActionable']}/{what_if_split_escalate_lanes_signals['secondaryActionable']})",
+        f"- WHAT-IF SPLIT ESC COOL: **{what_if_split_esc_cool}** ({what_if_split_esc_cool_signals['reason']}; flag={what_if_split_esc_cool_signals['flagName']} enabled={what_if_split_esc_cool_signals['flagEnabled']} active={what_if_split_esc_cool_signals['active']} prior={what_if_split_esc_cool_signals['priorSplitEscalate']}:{what_if_split_esc_cool_signals['priorCooloff']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

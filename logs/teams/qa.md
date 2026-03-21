@@ -1650,3 +1650,10 @@
 - Task: Regression guard for `WHAT-IF SPLIT ESC CONF` token.
 - Added assertions for payload enum/schema and markdown token presence.
 - Full weekly digest regression suite passed.
+
+## 2026-03-22 02:36 KST
+- Task: Cycle AB follow-up closure — split escalation readability/cooloff tokens (`WHAT-IF SPLIT ESC LANES`, `WHAT-IF SPLIT ESC COOL`).
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 50 --out-json /tmp/dotpio-weekly.json --out-md /tmp/dotpio-weekly.md` ✅.
+- Decisions: Added explicit escalation route-pair token `WHAT-IF SPLIT ESC LANES:<primary>/<secondary>`; added flag-gated escalation cooloff counter `WHAT-IF SPLIT ESC COOL:<n>` (`DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_COOL`) with OFF->disarm lifecycle tracking from prior digest payload.
+- Follow-up: ACTION_ITEMS has only tracking legend `- [ ] todo` remaining; next meaningful priority is to continue digest Game Director line when new actionable items are injected.

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import tempfile
 from pathlib import Path
@@ -10,6 +11,7 @@ from pathlib import Path
 from weekly_portal_prompt_readability_drift import (
     sandbox_cooloff_from_prior,
     what_if_split_cooloff_from_prior,
+    what_if_split_escalate_cooloff_from_prior,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -437,6 +439,25 @@ def main() -> int:
             "planFit",
             "reason",
         }, payload
+        assert isinstance(payload.get("whatIfSplitEscLanes"), str), payload
+        assert set(payload.get("whatIfSplitEscLanesSignals", {}).keys()) == {
+            "splitEscalate",
+            "primaryActionable",
+            "secondaryActionable",
+            "lanesDiverged",
+            "reason",
+        }, payload
+        assert isinstance(payload.get("whatIfSplitEscCool"), int), payload
+        assert set(payload.get("whatIfSplitEscCoolSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "active",
+            "currentSplitEscalate",
+            "priorSplitEscalate",
+            "priorCooloff",
+            "reason",
+            "priorLoaded",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -512,6 +533,8 @@ def main() -> int:
         assert "WHAT-IF SPLIT COOLOFF" in md_text
         assert "WHAT-IF SPLIT ESCALATE" in md_text
         assert "WHAT-IF SPLIT ESC CONF" in md_text
+        assert "WHAT-IF SPLIT ESC LANES" in md_text
+        assert "WHAT-IF SPLIT ESC COOL" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -566,6 +589,40 @@ def main() -> int:
         )
         assert split_cooloff_three == 3, (split_cooloff_three, split_signals_three)
         assert split_signals_three["reason"] == "cooloff-continuing", split_signals_three
+
+        prior_env = os.environ.get("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_COOL")
+        try:
+            os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_COOL"] = "0"
+            esc_cool_disabled, esc_signals_disabled = what_if_split_escalate_cooloff_from_prior(
+                current_split_escalate="OFF",
+                prior_json_path=repo / "missing-esc-prior.json",
+            )
+            assert esc_cool_disabled == 0, (esc_cool_disabled, esc_signals_disabled)
+            assert esc_signals_disabled["reason"] == "flag-disabled", esc_signals_disabled
+
+            os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_COOL"] = "1"
+            esc_prior_on = repo / "esc-prior-on.json"
+            esc_prior_on.write_text(json.dumps({"whatIfSplitEscalate": "ON", "whatIfSplitEscCool": 0}), encoding="utf-8")
+            esc_cool_one, esc_signals_one = what_if_split_escalate_cooloff_from_prior(
+                current_split_escalate="OFF",
+                prior_json_path=esc_prior_on,
+            )
+            assert esc_cool_one == 1, (esc_cool_one, esc_signals_one)
+            assert esc_signals_one["reason"] == "split-escalation-just-disarmed", esc_signals_one
+
+            esc_prior_cooling = repo / "esc-prior-cooloff.json"
+            esc_prior_cooling.write_text(json.dumps({"whatIfSplitEscalate": "OFF", "whatIfSplitEscCool": 2}), encoding="utf-8")
+            esc_cool_three, esc_signals_three = what_if_split_escalate_cooloff_from_prior(
+                current_split_escalate="OFF",
+                prior_json_path=esc_prior_cooling,
+            )
+            assert esc_cool_three == 3, (esc_cool_three, esc_signals_three)
+            assert esc_signals_three["reason"] == "split-escalation-cooloff-continuing", esc_signals_three
+        finally:
+            if prior_env is None:
+                os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_COOL", None)
+            else:
+                os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_COOL"] = prior_env
 
     print("[PASS] weekly portal prompt readability drift regression checks")
     return 0
