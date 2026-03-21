@@ -553,3 +553,9 @@
 - Task: Added readability token `WHAT-IF CONF` to weekly digest markdown.
 - Decision: Keep compact explanatory diagnostics (`delta`, `routeConf`, lanes) on one line for triage speed.
 - Follow-up: design semantics for `WHAT-IF ALIGN` token (`ALIGNED|DIVERGED`).
+
+## 2026-03-21 18:01 KST — Cycle T what-if alignment token
+- Completed: Added digest token `WHAT-IF ALIGN:ALIGNED|DIVERGED` derived from `ALT LANE` vs `ROUTE ACTION` mapping.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: implement remaining Cycle T item `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.

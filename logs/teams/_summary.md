@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-21 00:02 KST
+Last updated: 2026-03-21 18:01 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -1257,3 +1257,4 @@ Compact decision memory for AI context efficiency.
   - Confidence model is conservative by default and only reaches HIGH on strong projected risk drop plus non-low route confidence.
 - Verification (PASS): py_compile + digest regression + digest artifact refresh.
 - Backlog sync: Cycle T `WHAT-IF CONF` marked done in `TASKS.md` and `POST_RC_BACKLOG.md`; two Cycle T follow-ups remain unchecked.
+- Cycle T update: weekly portal readability digest now emits `WHAT-IF ALIGN:ALIGNED|DIVERGED` based on `ALT LANE` vs mapped `ROUTE ACTION` lane intent (`PORTAL_AUDIT->PORTAL`, `ALT_TUNE->ALT`, `PRESSURE_REBASE->PRESSURE`, `BALANCE_PASS/WATCH->MIXED`), with JSON fields `whatIfAlign` + `whatIfAlignSignals` and regression coverage in `scripts/regression_weekly_portal_prompt_readability_drift.py`.

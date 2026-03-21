@@ -215,6 +215,14 @@ def main() -> int:
             "routeActionConfidence",
             "reason",
         }, payload
+        assert payload.get("whatIfAlign") in {"ALIGNED", "DIVERGED"}, payload
+        assert set(payload.get("whatIfAlignSignals", {}).keys()) == {
+            "flagEnabled",
+            "routeAction",
+            "routeActionLane",
+            "altLane",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -267,6 +275,7 @@ def main() -> int:
         assert "PRESSURE LAG" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
+        assert "WHAT-IF ALIGN" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

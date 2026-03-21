@@ -557,3 +557,9 @@
 - Task support: No AI generation prompt/content changes.
 - Decision: Digest confidence token remains deterministic telemetry logic (non-generative).
 - Follow-up: Revisit if future what-if signals need narrative coaching text variants.
+
+## 2026-03-21 18:01 KST — Cycle T what-if alignment token
+- Completed: Added digest token `WHAT-IF ALIGN:ALIGNED|DIVERGED` derived from `ALT LANE` vs `ROUTE ACTION` mapping.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: implement remaining Cycle T item `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.

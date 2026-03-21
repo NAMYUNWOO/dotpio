@@ -1489,3 +1489,9 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` ✅
 - Follow-up: add assertions for upcoming `WHAT-IF ALIGN` token.
+
+## 2026-03-21 18:01 KST — Cycle T what-if alignment token
+- Completed: Added digest token `WHAT-IF ALIGN:ALIGNED|DIVERGED` derived from `ALT LANE` vs `ROUTE ACTION` mapping.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: implement remaining Cycle T item `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.

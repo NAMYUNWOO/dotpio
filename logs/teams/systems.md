@@ -1012,3 +1012,9 @@
   - High confidence requires strong projected risk drop (`ΔRISK<=-3`) plus non-low route-action confidence.
 - Verification: py_compile + weekly digest regression + digest artifact refresh all PASS.
 - Next: implement Cycle T `WHAT-IF ALIGN` token.
+
+## 2026-03-21 18:01 KST — Cycle T what-if alignment token
+- Completed: Added digest token `WHAT-IF ALIGN:ALIGNED|DIVERGED` derived from `ALT LANE` vs `ROUTE ACTION` mapping.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: implement remaining Cycle T item `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.

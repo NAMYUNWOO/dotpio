@@ -584,3 +584,9 @@
 - Task support: No map/portal topology changes in this slice.
 - Decision: Keep cycle scoped to digest analytics only; world lane unchanged.
 - Follow-up: Prepare for `WHAT-IF ALIGN` mapping review once route-action coupling is implemented.
+
+## 2026-03-21 18:01 KST — Cycle T what-if alignment token
+- Completed: Added digest token `WHAT-IF ALIGN:ALIGNED|DIVERGED` derived from `ALT LANE` vs `ROUTE ACTION` mapping.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: implement remaining Cycle T item `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.

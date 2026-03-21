@@ -806,3 +806,9 @@
 - Task: UX/readability pass for digest what-if projection trust.
 - Decision: Surface confidence as 3-tier enum (LOW/MID/HIGH) to avoid binary overconfidence.
 - Follow-up: add alignment token to reduce ambiguity between suggested ALT lane and route action.
+
+## 2026-03-21 18:01 KST — Cycle T what-if alignment token
+- Completed: Added digest token `WHAT-IF ALIGN:ALIGNED|DIVERGED` derived from `ALT LANE` vs `ROUTE ACTION` mapping.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: implement remaining Cycle T item `WHAT-IF BAND:GAIN|NEUTRAL|LOSS`.
