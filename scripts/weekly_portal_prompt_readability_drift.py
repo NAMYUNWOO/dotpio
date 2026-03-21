@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -392,6 +393,55 @@ def anomaly_pulse_from_signals(
     }
 
 
+def route_sandbox_from_signals(*, lane_lock_signals: dict[str, int | str | bool]) -> tuple[str, dict[str, str | bool | int]]:
+    flag_name = "DOTPIO_EXPERIMENT_ROUTE_SANDBOX"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+    lane_lock_armed = bool(lane_lock_signals.get("armed", False))
+    enabled = flag_enabled and lane_lock_armed
+
+    if enabled:
+        reason = "flag-enabled-with-sustained-lane-lock"
+    elif flag_enabled:
+        reason = "flag-enabled-but-lane-lock-not-armed"
+    elif lane_lock_armed:
+        reason = "lane-lock-armed-but-flag-disabled"
+    else:
+        reason = "flag-disabled-and-lane-lock-not-armed"
+
+    return ("ON" if enabled else "OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "laneLockArmed": lane_lock_armed,
+        "laneLock": str(lane_lock_signals.get("lane", "MIXED")),
+        "laneLockStreak": int(lane_lock_signals.get("streak", 0)),
+        "threshold": int(lane_lock_signals.get("threshold", 0)),
+        "reason": reason,
+    }
+
+
+def route_sandbox_plan_from_signals(*, route_sandbox: str, action_guard: str, drift_risk: str) -> tuple[str, dict[str, str]]:
+    if route_sandbox == "ON" and action_guard == "LOCK":
+        plan = "SIMULATE"
+        reason = "sandbox-enabled-under-lock-guardrail"
+    elif route_sandbox == "ON":
+        plan = "PROBE"
+        reason = "sandbox-enabled-soft-guardrail"
+    elif drift_risk == "HIGH":
+        plan = "PREPARE"
+        reason = "high-risk-waiting-on-sandbox-flag"
+    else:
+        plan = "HOLD"
+        reason = "no-sandbox-activation-needed"
+
+    return plan, {
+        "routeSandbox": route_sandbox,
+        "actionGuard": action_guard,
+        "driftRisk": drift_risk,
+        "reason": reason,
+    }
+
+
 def commit_stats(root: Path, commit: str) -> dict:
     meta = git(root, "show", "-s", "--format=%H%n%ct%n%an%n%s", commit).splitlines()
     sha, ts, author = meta[0], int(meta[1]), meta[2]
@@ -551,6 +601,14 @@ def main() -> int:
         lane_focus=lane_focus,
         focus_streak=focus_streak,
     )
+    route_sandbox, route_sandbox_signals = route_sandbox_from_signals(
+        lane_lock_signals=lane_lock_signals,
+    )
+    route_sandbox_plan, route_sandbox_plan_signals = route_sandbox_plan_from_signals(
+        route_sandbox=route_sandbox,
+        action_guard=action_guard,
+        drift_risk=drift_risk,
+    )
     drift_momentum, drift_momentum_signals = drift_momentum_from_commits(touched)
     pressure_lag, pressure_lag_signals = pressure_latency_from_signals(
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -599,6 +657,10 @@ def main() -> int:
         "actionGuardSignals": action_guard_signals,
         "laneLock": lane_lock,
         "laneLockSignals": lane_lock_signals,
+        "routeSandbox": route_sandbox,
+        "routeSandboxSignals": route_sandbox_signals,
+        "routeSandboxPlan": route_sandbox_plan,
+        "routeSandboxPlanSignals": route_sandbox_plan_signals,
         "driftMomentum": drift_momentum,
         "driftMomentumSignals": drift_momentum_signals,
         "pressureLag": pressure_lag,
@@ -646,6 +708,8 @@ def main() -> int:
         f"- FOCUS ENTROPY: **{focus_entropy}** (norm={focus_entropy_signals['normalized']} raw={focus_entropy_signals['raw']} max={focus_entropy_signals['maxEntropy']})",
         f"- ACTION GUARD: **{action_guard}** ({action_guard_signals['reason']}; risk={action_guard_signals['driftRisk']} conf={action_guard_signals['actionConfidence']})",
         f"- LANE LOCK: **{lane_lock}** (threshold={lane_lock_signals['threshold']} lane={lane_lock_signals['lane']} streak={lane_lock_signals['streak']})",
+        f"- ROUTE SANDBOX: **{route_sandbox}** ({route_sandbox_signals['reason']}; flag={route_sandbox_signals['flagName']} enabled={route_sandbox_signals['flagEnabled']} laneLock={route_sandbox_signals['laneLock']}x{route_sandbox_signals['laneLockStreak']})",
+        f"- SANDBOX PLAN: **{route_sandbox_plan}** ({route_sandbox_plan_signals['reason']}; guard={route_sandbox_plan_signals['actionGuard']} risk={route_sandbox_plan_signals['driftRisk']})",
         f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",
         f"- PRESSURE LAG: **{pressure_lag}** (churn={pressure_lag_signals['pressureChurn']} momentum={pressure_lag_signals['driftMomentum']} |Δ|={pressure_lag_signals['absDriftDelta']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",

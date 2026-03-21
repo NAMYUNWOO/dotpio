@@ -172,4 +172,9 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-21 Cycle P)
 - [x] UX/Design Team: Add focus-balance token (`FOCUS BAL:<n>%`) to weekly digest for quick lane-dominance readability
 - [x] Systems/QA Team: Add pressure-latency token (`PRESSURE LAG:FAST|STABLE|SLOW`) comparing pressure churn against drift momentum
-- [ ] Systems/World Team: Prototype adaptive route sandbox mode (`ROUTE SANDBOX:ON`) behind flag when digest enters sustained lane lock
+- [x] Systems/World Team: Prototype adaptive route sandbox mode (`ROUTE SANDBOX:ON`) behind flag when digest enters sustained lane lock
+
+## P1 (Game Director Injection — 2026-03-21 Cycle Q)
+- [x] Systems/World Team: Add route-sandbox action-plan token (`SANDBOX PLAN:SIMULATE|PROBE|PREPARE|HOLD`) from `ROUTE SANDBOX + ACTION GUARD + DRIFT RISK`
+- [ ] QA/Systems Team: Add route-sandbox cooloff token (`SANDBOX COOLOFF:<n>`) counting consecutive non-armed windows after an ON cycle
+- [ ] Design/QA Team: Add sandbox lane-target token (`SANDBOX TARGET:<lane>`) to pin which lane-lock family should be tested when sandbox is active

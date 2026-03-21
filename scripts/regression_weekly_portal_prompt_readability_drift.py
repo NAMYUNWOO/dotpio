@@ -112,6 +112,23 @@ def main() -> int:
         }, payload
         assert isinstance(payload.get("laneLock"), str), payload
         assert set(payload.get("laneLockSignals", {}).keys()) == {"threshold", "armed", "lane", "streak"}, payload
+        assert payload.get("routeSandbox") in {"ON", "OFF"}, payload
+        assert set(payload.get("routeSandboxSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "laneLockArmed",
+            "laneLock",
+            "laneLockStreak",
+            "threshold",
+            "reason",
+        }, payload
+        assert payload.get("routeSandboxPlan") in {"SIMULATE", "PROBE", "PREPARE", "HOLD"}, payload
+        assert set(payload.get("routeSandboxPlanSignals", {}).keys()) == {
+            "routeSandbox",
+            "actionGuard",
+            "driftRisk",
+            "reason",
+        }, payload
         assert payload.get("driftMomentum") in {"RISING", "COOLING", "FLAT"}, payload
         assert set(payload.get("driftMomentumSignals", {}).keys()) == {"recentAvg", "olderAvg", "delta", "recentCount", "olderCount"}, payload
         assert payload.get("pressureLag") in {"FAST", "STABLE", "SLOW"}, payload
@@ -160,6 +177,8 @@ def main() -> int:
         assert "FOCUS ENTROPY" in md_text
         assert "ACTION GUARD" in md_text
         assert "LANE LOCK" in md_text
+        assert "ROUTE SANDBOX" in md_text
+        assert "SANDBOX PLAN" in md_text
         assert "DRIFT MOMENTUM" in md_text
         assert "PRESSURE LAG" in md_text
         assert "STICKY TOKENS" in md_text

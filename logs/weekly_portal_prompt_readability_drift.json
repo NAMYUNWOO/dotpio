@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T04:02:51.565169Z",
+  "generatedAt": "2026-03-21T04:35:41.577401Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -72,6 +72,23 @@
     "armed": false,
     "lane": "PORTAL",
     "streak": 0
+  },
+  "routeSandbox": "OFF",
+  "routeSandboxSignals": {
+    "flagName": "DOTPIO_EXPERIMENT_ROUTE_SANDBOX",
+    "flagEnabled": false,
+    "laneLockArmed": false,
+    "laneLock": "PORTAL",
+    "laneLockStreak": 0,
+    "threshold": 3,
+    "reason": "flag-disabled-and-lane-lock-not-armed"
+  },
+  "routeSandboxPlan": "PREPARE",
+  "routeSandboxPlanSignals": {
+    "routeSandbox": "OFF",
+    "actionGuard": "LOCK",
+    "driftRisk": "HIGH",
+    "reason": "high-risk-waiting-on-sandbox-flag"
   },
   "driftMomentum": "FLAT",
   "driftMomentumSignals": {
@@ -213,6 +230,97 @@
     }
   ],
   "commits": [
+    {
+      "sha": "fbfa66f030f4526d5085cf80e6fecf7fca004678",
+      "shortSha": "fbfa66f",
+      "author": "yunwoo",
+      "subject": "feat: add pressure-lag token to portal drift digest",
+      "committedAt": "2026-03-21T04:03:32Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      }
+    },
     {
       "sha": "f73388f14be16d3bbb4233254eba613a944db907",
       "shortSha": "f73388f",
@@ -10677,90 +10785,6 @@
         "src/hud.lua",
         "src/inventory_ui.lua",
         "src/run_missions.lua"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      }
-    },
-    {
-      "sha": "c5ab09d6b0b0549f96452ee0f98da0b62a620fa2",
-      "shortSha": "c5ab09d",
-      "author": "yunwoo",
-      "subject": "M2: tier lootbox rewards by map progression",
-      "committedAt": "2026-03-18T22:44:10Z",
-      "changedFiles": [
-        "ACTION_ITEMS.md",
-        "TASKS.md",
-        "logs/teams/_summary.md",
-        "logs/teams/ai-content.md",
-        "logs/teams/qa.md",
-        "scripts/regression_lootbox_rewards_by_tier.lua",
-        "src/entities.lua"
       ],
       "portalFiles": [],
       "touchedPortalPrompt": false,

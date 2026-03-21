@@ -476,3 +476,13 @@
 - Completed Post-RC Cycle P item: `PRESSURE LAG:FAST|STABLE|SLOW` in weekly portal prompt readability digest.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`.
 - Follow-up: next highest unchecked backlog item is `ROUTE SANDBOX:ON` prototype (flag-gated sustained lane-lock sandbox mode).
+
+## 2026-03-21 13:31 KST — Cycle P route sandbox prototype (weekly digest)
+- Added experiment-gated digest token  via  with sustained lane-lock arming requirement.
+- Verified regression and digest generation remain PASS ([PASS] weekly portal prompt readability drift regression checks, digest script run).
+- Follow-up: keep flag OFF by default; enable only for controlled sandbox reviews.
+
+## 2026-03-21 13:31 KST — Cycle P route sandbox prototype (weekly digest)
+- Added experiment-gated digest token ROUTE SANDBOX:ON|OFF via DOTPIO_EXPERIMENT_ROUTE_SANDBOX with sustained lane-lock arming requirement.
+- Verified regression and digest generation remain PASS (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, digest script run).
+- Follow-up: keep flag OFF by default; enable only for controlled sandbox reviews.

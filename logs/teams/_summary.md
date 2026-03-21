@@ -1193,3 +1193,11 @@ Compact decision memory for AI context efficiency.
   - `TASKS.md` pressure-latency item marked `[x]`.
   - `POST_RC_BACKLOG.md` pressure-latency item marked `[x]`.
 - Next hook: only remaining unchecked item is `ROUTE SANDBOX:ON` prototype behind sustained lane-lock flag.
+- 2026-03-21 13:31 KST: Cycle P route-sandbox prototype shipped in weekly portal digest.
+- Durable decision: `ROUTE SANDBOX:ON|OFF` is now experiment-gated by `DOTPIO_EXPERIMENT_ROUTE_SANDBOX` and only arms when lane-lock signal is sustained (non-MIXED focus streak >= threshold).
+- Digest outputs now include `routeSandbox` + `routeSandboxSignals` JSON fields and markdown `ROUTE SANDBOX` row for operational triage.
+- Regression coverage extended in `scripts/regression_weekly_portal_prompt_readability_drift.py`; digest generation remains PASS.
+- 2026-03-21 13:31 KST: Game Director Cycle Q executed after all tracked backlogs were checked.
+- Idea slate generated (L/M/H): sandbox action-plan token (chosen), sandbox cooloff counter, sandbox lane-target token.
+- Shipped vertical slice: digest now emits `SANDBOX PLAN:SIMULATE|PROBE|PREPARE|HOLD` (`routeSandboxPlan`, `routeSandboxPlanSignals`) derived from `ROUTE SANDBOX + ACTION GUARD + DRIFT RISK`.
+- Backlog injection updated in `TASKS.md` and `POST_RC_BACKLOG.md` with Cycle Q section; chosen slice marked done and two follow-up ideas queued unchecked.
