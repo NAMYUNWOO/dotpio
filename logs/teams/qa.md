@@ -1711,3 +1711,11 @@
 - Injected Game Director Cycle AE slate (3 ideas), shipped selected vertical slice: `WHAT-IF SPLIT ESC RECOVER ALT CONF`.
 - Verification references: weekly portal readability regression + digest generation passed.
 - Remaining Cycle AE queue: `RECOVER PLAN`, flagged `RECOVER WHY`.
+
+## 2026-03-22 05:04 KST — Regression extension for `WHAT-IF SPLIT ESC RECOVER PLAN`
+- Extended payload schema assertions for `whatIfSplitEscRecoverPlan` + `whatIfSplitEscRecoverPlanSignals`.
+- Added markdown presence assertion for `WHAT-IF SPLIT ESC RECOVER PLAN`.
+- Added direct unit assertions for plan resolver:
+  - `PORTAL/ALT` -> `PRIMARY`
+  - `NONE/NONE` -> `HOLD`
+- Verification command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).

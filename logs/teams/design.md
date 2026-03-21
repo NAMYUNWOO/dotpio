@@ -751,3 +751,8 @@
 - Injected Game Director Cycle AE slate (3 ideas), shipped selected vertical slice: `WHAT-IF SPLIT ESC RECOVER ALT CONF`.
 - Verification references: weekly portal readability regression + digest generation passed.
 - Remaining Cycle AE queue: `RECOVER PLAN`, flagged `RECOVER WHY`.
+
+## 2026-03-22 05:04 KST — Cycle AE decision-token readability pass (`RECOVER PLAN`)
+- Added compact operator decision token `WHAT-IF SPLIT ESC RECOVER PLAN:PRIMARY|ALT|HOLD` immediately after recovery confidence tokens for fast triage.
+- Decision rule: prefer `PRIMARY` when actionable recovery lane exists; fallback to `ALT` only when primary unavailable; otherwise `HOLD`.
+- Follow-up: keep rationale token (`RECOVER WHY`) short deterministic labels for parser stability.

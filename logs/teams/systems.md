@@ -1254,3 +1254,9 @@
 - Injected Game Director Cycle AE slate (3 ideas), shipped selected vertical slice: `WHAT-IF SPLIT ESC RECOVER ALT CONF`.
 - Verification references: weekly portal readability regression + digest generation passed.
 - Remaining Cycle AE queue: `RECOVER PLAN`, flagged `RECOVER WHY`.
+
+## 2026-03-22 05:04 KST — Cycle AE systems slice closure (`WHAT-IF SPLIT ESC RECOVER PLAN`)
+- Completed backlog item: added recovery route decision token `WHAT-IF SPLIT ESC RECOVER PLAN:PRIMARY|ALT|HOLD` derived from primary/alt recovery lane availability.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfSplitEscRecoverPlan` + `whatIfSplitEscRecoverPlanSignals` and markdown digest line for operator handoff.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Next hook: implement remaining Cycle AE item `WHAT-IF SPLIT ESC RECOVER WHY:<short>` behind flag.

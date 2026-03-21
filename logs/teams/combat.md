@@ -712,3 +712,6 @@
 - Injected Game Director Cycle AE slate (3 ideas), shipped selected vertical slice: `WHAT-IF SPLIT ESC RECOVER ALT CONF`.
 - Verification references: weekly portal readability regression + digest generation passed.
 - Remaining Cycle AE queue: `RECOVER PLAN`, flagged `RECOVER WHY`.
+
+## 2026-03-22 05:04 KST — No combat tuning changes (Cycle AE systems slice)
+- This cycle focused on post-escalation routing digest tokens; combat behaviors/stat knobs unchanged.

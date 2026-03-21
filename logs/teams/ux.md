@@ -984,3 +984,6 @@
 - Injected Game Director Cycle AE slate (3 ideas), shipped selected vertical slice: `WHAT-IF SPLIT ESC RECOVER ALT CONF`.
 - Verification references: weekly portal readability regression + digest generation passed.
 - Remaining Cycle AE queue: `RECOVER PLAN`, flagged `RECOVER WHY`.
+
+## 2026-03-22 05:04 KST — HUD/readability log sync
+- Added digest readability token `WHAT-IF SPLIT ESC RECOVER PLAN` for operator-facing weekly report; in-game HUD unaffected.

@@ -744,3 +744,8 @@
 - Injected Game Director Cycle AE slate (3 ideas), shipped selected vertical slice: `WHAT-IF SPLIT ESC RECOVER ALT CONF`.
 - Verification references: weekly portal readability regression + digest generation passed.
 - Remaining Cycle AE queue: `RECOVER PLAN`, flagged `RECOVER WHY`.
+
+## 2026-03-22 05:04 KST — Cycle AE copy contract update (`RECOVER PLAN`)
+- Added deterministic decision token copy `WHAT-IF SPLIT ESC RECOVER PLAN` with bounded enum (`PRIMARY|ALT|HOLD`) to avoid free-form phrasing drift.
+- Signals include explicit availability booleans (`hasPrimary`, `hasAlt`) for downstream prompt composers.
+- Next: add concise rationale token (`RECOVER WHY`) behind flag while preserving compact digest width.

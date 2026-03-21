@@ -12,6 +12,7 @@ from weekly_portal_prompt_readability_drift import (
     sandbox_cooloff_from_prior,
     what_if_split_cooloff_from_prior,
     what_if_split_escalate_cooloff_from_prior,
+    what_if_split_escalate_recover_plan_from_signals,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -517,6 +518,14 @@ def main() -> int:
             "stateEasing",
             "reason",
         }, payload
+        assert payload.get("whatIfSplitEscRecoverPlan") in {"PRIMARY", "ALT", "HOLD"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverPlanSignals", {}).keys()) == {
+            "splitEscRecover",
+            "splitEscRecoverAlt",
+            "hasPrimary",
+            "hasAlt",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -600,6 +609,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER CONF" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER ALT" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER ALT CONF" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER PLAN" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -688,6 +698,20 @@ def main() -> int:
                 os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_COOL", None)
             else:
                 os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_COOL"] = prior_env
+
+        plan_primary, plan_primary_signals = what_if_split_escalate_recover_plan_from_signals(
+            what_if_split_esc_recover="PORTAL",
+            what_if_split_esc_recover_alt="ALT",
+        )
+        assert plan_primary == "PRIMARY", (plan_primary, plan_primary_signals)
+        assert plan_primary_signals["reason"] == "primary-recovery-lane-available", plan_primary_signals
+
+        plan_hold, plan_hold_signals = what_if_split_escalate_recover_plan_from_signals(
+            what_if_split_esc_recover="NONE",
+            what_if_split_esc_recover_alt="NONE",
+        )
+        assert plan_hold == "HOLD", (plan_hold, plan_hold_signals)
+        assert plan_hold_signals["reason"] == "no-actionable-recovery-lanes", plan_hold_signals
 
     print("[PASS] weekly portal prompt readability drift regression checks")
     return 0

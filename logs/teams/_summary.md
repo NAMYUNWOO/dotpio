@@ -1496,3 +1496,15 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`
 - Backlog update: Cycle AE section injected into `TASKS.md` + `POST_RC_BACKLOG.md`; selected item closed, remaining two queued.
+
+## 2026-03-22 05:04 KST — Cycle AE systems closure (`WHAT-IF SPLIT ESC RECOVER PLAN`)
+- Closed highest-priority unchecked AE item by shipping `WHAT-IF SPLIT ESC RECOVER PLAN:PRIMARY|ALT|HOLD` in weekly portal readability digest.
+- Implementation details:
+  - `scripts/weekly_portal_prompt_readability_drift.py` now computes `whatIfSplitEscRecoverPlan` + `whatIfSplitEscRecoverPlanSignals` from `RECOVER` / `RECOVER ALT` availability.
+  - Markdown digest now includes `WHAT-IF SPLIT ESC RECOVER PLAN` line with deterministic reason and availability booleans.
+- Regression coverage:
+  - Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` payload schema + markdown assertions for new plan token.
+  - Added resolver unit checks for `PRIMARY` and `HOLD` branches.
+  - Verification pass: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Backlog sync: marked `WHAT-IF SPLIT ESC RECOVER PLAN` done in both `TASKS.md` and `POST_RC_BACKLOG.md`.
+- Remaining top unchecked item: `WHAT-IF SPLIT ESC RECOVER WHY:<short>` (flag-gated rationale token).
