@@ -1336,3 +1336,4 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 120 --out-json logs/playtests/weekly_portal_prompt_readability_drift.json --out-md logs/playtests/weekly_portal_prompt_readability_drift.md`
 - Backlog state: fallback-fit item marked done in `TASKS.md` and `POST_RC_BACKLOG.md`; remaining unchecked item is fallback rationale token (`WHAT-IF FALLBACK WHY:<short>`).
+- Weekly portal prompt digest now supports experimental fallback rationale token `WHAT-IF FALLBACK WHY:<short>` (flag: `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_WHY`), with JSON fields `whatIfFallbackWhy` + `whatIfFallbackWhySignals` and regression guardrails for schema/markdown presence.

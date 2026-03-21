@@ -202,4 +202,4 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-21 Cycle V)
 - [x] UX/Systems Team: Add what-if fallback confidence token (`WHAT-IF FALLBACK CONF:LOW|MID|HIGH`) from divergence strength + route confidence
 - [x] Systems/QA Team: Add what-if fallback pressure-safety token (`WHAT-IF FALLBACK FIT:SAFE|EVEN|TENSE`) comparing fallback projection vs pressure band
-- [ ] Design/AI Content Team: Prototype what-if fallback rationale token (`WHAT-IF FALLBACK WHY:<short>`) behind flag for quick operator context
+- [x] Design/AI Content Team: Prototype what-if fallback rationale token (`WHAT-IF FALLBACK WHY:<short>`) behind flag for quick operator context

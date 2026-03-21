@@ -592,3 +592,9 @@
 - Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` schema + markdown assertions.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; digest regeneration PASS.
 - Follow-up: remaining Cycle V unchecked item is `WHAT-IF FALLBACK WHY:<short>` behind flag.
+
+## 2026-03-21 20:34 KST
+- Task: Prototype what-if fallback rationale token (`WHAT-IF FALLBACK WHY:<short>`) behind experiment flag.
+- Decision: Added concise rationale classifier gated by `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_WHY` with short operator-facing labels (`RISK-DROP`, `CONF-LOW`, `PRESSURE`, etc.) and kept default output stable as `OFF` when flag-disabled.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, backlog trackers.
+- Follow-up: If enabled in ops, tune rationale vocabulary from weekly digest review feedback.

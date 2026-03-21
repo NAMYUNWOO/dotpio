@@ -595,3 +595,9 @@
 - Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` schema + markdown assertions.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; digest regeneration PASS.
 - Follow-up: remaining Cycle V unchecked item is `WHAT-IF FALLBACK WHY:<short>` behind flag.
+
+## 2026-03-21 20:34 KST
+- Task: Add AI-content/operator context token for what-if fallback rationale in weekly portal readability digest.
+- Decision: Emitted `whatIfFallbackWhy` + `whatIfFallbackWhySignals` to JSON and `WHAT-IF FALLBACK WHY` line to markdown so fallback handoff intent is explicit without changing default digest contract.
+- Verification evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Follow-up: Monitor token usefulness under real flagged runs before promoting beyond experiment mode.

@@ -1533,3 +1533,13 @@
 - Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` schema + markdown assertions.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; digest regeneration PASS.
 - Follow-up: remaining Cycle V unchecked item is `WHAT-IF FALLBACK WHY:<short>` behind flag.
+
+## 2026-03-21 20:34 KST
+- Task: Verify what-if fallback rationale token experiment wiring in weekly portal prompt readability digest.
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Regression assertions now cover `whatIfFallbackWhy` schema keys and markdown token presence.
+  - No portal validator/screenshots required (digest script + regression scope only).
+- Follow-up: none.
