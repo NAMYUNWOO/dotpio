@@ -763,3 +763,19 @@
 
 ## 2026-03-22 05:04 KST — No world-map changes (Cycle AE systems slice)
 - This cycle touched digest routing telemetry only; no map/portal topology updates required.
+
+## 2026-03-22 05:34 KST — Cycle AE closure (`WHAT-IF SPLIT ESC RECOVER WHY`)
+- Completed task: Prototype `WHAT-IF SPLIT ESC RECOVER WHY:<short>` behind `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_WHY`.
+- Shipped in weekly digest pipeline with deterministic short rationale states (`FLAG OFF`, `PRIMARY RELIEF`, `PRIMARY STABILIZE`, `PRIMARY STEADY`, `ALT SAFETY NET`, `ALT CONTINGENCY`, `HOLD FOR SIGNAL`).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` passed.
+- Follow-up: all ACTION_ITEMS/TASKS/POST_RC_BACKLOG currently checked; next cycle should run Game Director ideation/injection lane.
+
+## 2026-03-22 05:38 KST — Game Director Cycle AF review + vertical slice
+- Idea slate (3):
+  1) Low-risk UX (selected): `WHAT-IF SPLIT ESC RECOVER TEMPO:FAST|STEADY|DEFER` (Scope S, rollback: remove digest row).
+  2) Mid-risk systems: `WHAT-IF SPLIT ESC RECOVER ΔCONF:+n|-n` (Scope M, rollback: drop prior-window diff state).
+  3) High-risk novelty: flag-gated `WHAT-IF SPLIT ESC RECOVER VETO:ON` under HIGH pressure + LOW confidence (Scope M/L, rollback: flag OFF).
+- Selected experiment: #1 tempo token as minimal vertical slice.
+- Implementation: weekly digest now emits JSON fields `whatIfSplitEscRecoverTempo` + `whatIfSplitEscRecoverTempoSignals` and markdown line `WHAT-IF SPLIT ESC RECOVER TEMPO`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` pass.
+- Backlog injection: added Cycle AF entries to `TASKS.md` and `POST_RC_BACKLOG.md` with selected slice done and two follow-up candidates queued.

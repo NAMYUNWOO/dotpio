@@ -1810,6 +1810,82 @@ def what_if_split_escalate_recover_plan_from_signals(
     }
 
 
+def what_if_split_escalate_recover_why_from_signals(
+    *,
+    what_if_split_esc_recover_plan: str,
+    what_if_split_esc_recover_confidence: str,
+    what_if_split_esc_pressure: str,
+) -> tuple[str, dict[str, str | bool]]:
+    """Provide short operator rationale for split-escalation recovery plan behind flag."""
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_WHY"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    if not flag_enabled:
+        why = "FLAG OFF"
+        reason = "flag-disabled"
+    elif what_if_split_esc_recover_plan == "PRIMARY":
+        if what_if_split_esc_recover_confidence == "HIGH" and what_if_split_esc_pressure == "LOW":
+            why = "PRIMARY RELIEF"
+            reason = "high-confidence-primary-lane-with-low-pressure"
+        elif what_if_split_esc_pressure == "HIGH":
+            why = "PRIMARY STABILIZE"
+            reason = "primary-lane-selected-while-pressure-high"
+        else:
+            why = "PRIMARY STEADY"
+            reason = "primary-lane-available-with-manageable-pressure"
+    elif what_if_split_esc_recover_plan == "ALT":
+        if what_if_split_esc_recover_confidence in {"MID", "HIGH"} and what_if_split_esc_pressure != "HIGH":
+            why = "ALT SAFETY NET"
+            reason = "alt-lane-available-with-manageable-pressure"
+        else:
+            why = "ALT CONTINGENCY"
+            reason = "alt-lane-used-under-uncertain-or-high-pressure-context"
+    else:
+        why = "HOLD FOR SIGNAL"
+        reason = "no-actionable-recovery-lane"
+
+    return why, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "splitEscRecoverPlan": what_if_split_esc_recover_plan,
+        "splitEscRecoverConfidence": what_if_split_esc_recover_confidence,
+        "splitEscPressure": what_if_split_esc_pressure,
+        "reason": reason,
+    }
+
+
+def what_if_split_escalate_recover_tempo_from_signals(
+    *,
+    what_if_split_esc_recover_plan: str,
+    what_if_split_esc_recover_confidence: str,
+    what_if_split_esc_pressure: str,
+) -> tuple[str, dict[str, str]]:
+    """Recommend operator execution tempo for split-escalation recovery plan."""
+    if what_if_split_esc_recover_plan == "HOLD":
+        tempo = "DEFER"
+        reason = "no-actionable-recovery-plan"
+    elif what_if_split_esc_recover_confidence == "HIGH" and what_if_split_esc_pressure == "LOW":
+        tempo = "FAST"
+        reason = "high-confidence-low-pressure-recovery"
+    elif what_if_split_esc_pressure == "HIGH":
+        tempo = "STEADY"
+        reason = "high-pressure-needs-controlled-recovery"
+    elif what_if_split_esc_recover_confidence == "LOW":
+        tempo = "STEADY"
+        reason = "low-confidence-needs-confirmation-pass"
+    else:
+        tempo = "STEADY"
+        reason = "default-controlled-recovery"
+
+    return tempo, {
+        "splitEscRecoverPlan": what_if_split_esc_recover_plan,
+        "splitEscRecoverConfidence": what_if_split_esc_recover_confidence,
+        "splitEscPressure": what_if_split_esc_pressure,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -2423,6 +2499,16 @@ def main() -> int:
         what_if_split_esc_recover=what_if_split_esc_recover,
         what_if_split_esc_recover_alt=what_if_split_esc_recover_alt,
     )
+    what_if_split_esc_recover_why, what_if_split_esc_recover_why_signals = what_if_split_escalate_recover_why_from_signals(
+        what_if_split_esc_recover_plan=what_if_split_esc_recover_plan,
+        what_if_split_esc_recover_confidence=what_if_split_esc_recover_confidence,
+        what_if_split_esc_pressure=what_if_split_esc_pressure,
+    )
+    what_if_split_esc_recover_tempo, what_if_split_esc_recover_tempo_signals = what_if_split_escalate_recover_tempo_from_signals(
+        what_if_split_esc_recover_plan=what_if_split_esc_recover_plan,
+        what_if_split_esc_recover_confidence=what_if_split_esc_recover_confidence,
+        what_if_split_esc_pressure=what_if_split_esc_pressure,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -2554,6 +2640,10 @@ def main() -> int:
         "whatIfSplitEscRecoverAltConfidenceSignals": what_if_split_esc_recover_alt_confidence_signals,
         "whatIfSplitEscRecoverPlan": what_if_split_esc_recover_plan,
         "whatIfSplitEscRecoverPlanSignals": what_if_split_esc_recover_plan_signals,
+        "whatIfSplitEscRecoverWhy": what_if_split_esc_recover_why,
+        "whatIfSplitEscRecoverWhySignals": what_if_split_esc_recover_why_signals,
+        "whatIfSplitEscRecoverTempo": what_if_split_esc_recover_tempo,
+        "whatIfSplitEscRecoverTempoSignals": what_if_split_esc_recover_tempo_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -2642,6 +2732,8 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER ALT: **{what_if_split_esc_recover_alt}** ({what_if_split_esc_recover_alt_signals['reason']}; flag={what_if_split_esc_recover_alt_signals['flagName']} enabled={what_if_split_esc_recover_alt_signals['flagEnabled']} recover={what_if_split_esc_recover_alt_signals['splitEscRecover']} state={what_if_split_esc_recover_alt_signals['splitEscState']} lanes={what_if_split_esc_recover_alt_signals['splitEscLanes']})",
         f"- WHAT-IF SPLIT ESC RECOVER ALT CONF: **{what_if_split_esc_recover_alt_confidence}** ({what_if_split_esc_recover_alt_confidence_signals['reason']}; recoverAlt={what_if_split_esc_recover_alt_confidence_signals['splitEscRecoverAlt']} state={what_if_split_esc_recover_alt_confidence_signals['splitEscState']} pressure={what_if_split_esc_recover_alt_confidence_signals['splitEscPressure']} lanes={what_if_split_esc_recover_alt_confidence_signals['splitEscLanes']})",
         f"- WHAT-IF SPLIT ESC RECOVER PLAN: **{what_if_split_esc_recover_plan}** ({what_if_split_esc_recover_plan_signals['reason']}; primary={what_if_split_esc_recover_plan_signals['splitEscRecover']} alt={what_if_split_esc_recover_plan_signals['splitEscRecoverAlt']} hasPrimary={what_if_split_esc_recover_plan_signals['hasPrimary']} hasAlt={what_if_split_esc_recover_plan_signals['hasAlt']})",
+        f"- WHAT-IF SPLIT ESC RECOVER WHY: **{what_if_split_esc_recover_why}** ({what_if_split_esc_recover_why_signals['reason']}; flag={what_if_split_esc_recover_why_signals['flagName']} enabled={what_if_split_esc_recover_why_signals['flagEnabled']} plan={what_if_split_esc_recover_why_signals['splitEscRecoverPlan']} conf={what_if_split_esc_recover_why_signals['splitEscRecoverConfidence']} pressure={what_if_split_esc_recover_why_signals['splitEscPressure']})",
+        f"- WHAT-IF SPLIT ESC RECOVER TEMPO: **{what_if_split_esc_recover_tempo}** ({what_if_split_esc_recover_tempo_signals['reason']}; plan={what_if_split_esc_recover_tempo_signals['splitEscRecoverPlan']} conf={what_if_split_esc_recover_tempo_signals['splitEscRecoverConfidence']} pressure={what_if_split_esc_recover_tempo_signals['splitEscPressure']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

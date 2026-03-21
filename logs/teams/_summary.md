@@ -1508,3 +1508,33 @@ Compact decision memory for AI context efficiency.
   - Verification pass: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Backlog sync: marked `WHAT-IF SPLIT ESC RECOVER PLAN` done in both `TASKS.md` and `POST_RC_BACKLOG.md`.
 - Remaining top unchecked item: `WHAT-IF SPLIT ESC RECOVER WHY:<short>` (flag-gated rationale token).
+
+## 2026-03-22 05:34 KST — Cycle AE closure (`WHAT-IF SPLIT ESC RECOVER WHY`)
+- Closed final unchecked backlog item by shipping flag-gated rationale token `WHAT-IF SPLIT ESC RECOVER WHY:<short>` in weekly portal readability digest.
+- Implementation details:
+  - `scripts/weekly_portal_prompt_readability_drift.py`: added `what_if_split_escalate_recover_why_from_signals(...)`, payload fields `whatIfSplitEscRecoverWhy` + `whatIfSplitEscRecoverWhySignals`, and markdown row `WHAT-IF SPLIT ESC RECOVER WHY`.
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`: extended payload schema assertions, markdown presence check, and helper-level flag-on/off behavior tests for recover-why token.
+- Verification passed:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py`
+- Backlog sync target reached: this token is now complete in both `TASKS.md` and `POST_RC_BACKLOG.md`.
+
+## 2026-03-22 05:38 KST — Game Director Cycle AF (post-clearance injection)
+- Trigger: after closing all ACTION_ITEMS/TASKS/POST_RC items, executed mandatory Game Director review cycle.
+- Generated ideas:
+  1) **Low-risk UX (chosen):** `WHAT-IF SPLIT ESC RECOVER TEMPO:FAST|STEADY|DEFER`.
+  2) **Mid-risk systems:** `WHAT-IF SPLIT ESC RECOVER ΔCONF:+n|-n`.
+  3) **High-risk novelty (flagged):** `WHAT-IF SPLIT ESC RECOVER VETO:ON`.
+- Shipped vertical slice (#1):
+  - `scripts/weekly_portal_prompt_readability_drift.py`
+    - Added helper `what_if_split_escalate_recover_tempo_from_signals(...)`.
+    - Added payload fields `whatIfSplitEscRecoverTempo`, `whatIfSplitEscRecoverTempoSignals`.
+    - Added markdown row `WHAT-IF SPLIT ESC RECOVER TEMPO`.
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`
+    - Added payload schema assertions + markdown presence assertion for tempo token.
+    - Added helper-level regression checks (`FAST` and `DEFER` paths).
+- Verification passed:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py`
+- Backlog updated:
+  - `TASKS.md` + `POST_RC_BACKLOG.md` now include Cycle AF with selected task marked done and two follow-up experiments queued.

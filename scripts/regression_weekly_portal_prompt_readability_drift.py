@@ -13,6 +13,8 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_cooloff_from_prior,
     what_if_split_escalate_cooloff_from_prior,
     what_if_split_escalate_recover_plan_from_signals,
+    what_if_split_escalate_recover_why_from_signals,
+    what_if_split_escalate_recover_tempo_from_signals,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -526,6 +528,30 @@ def main() -> int:
             "hasAlt",
             "reason",
         }, payload
+        assert payload.get("whatIfSplitEscRecoverWhy") in {
+            "FLAG OFF",
+            "PRIMARY RELIEF",
+            "PRIMARY STABILIZE",
+            "PRIMARY STEADY",
+            "ALT SAFETY NET",
+            "ALT CONTINGENCY",
+            "HOLD FOR SIGNAL",
+        }, payload
+        assert set(payload.get("whatIfSplitEscRecoverWhySignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "splitEscRecoverPlan",
+            "splitEscRecoverConfidence",
+            "splitEscPressure",
+            "reason",
+        }, payload
+        assert payload.get("whatIfSplitEscRecoverTempo") in {"FAST", "STEADY", "DEFER"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverTempoSignals", {}).keys()) == {
+            "splitEscRecoverPlan",
+            "splitEscRecoverConfidence",
+            "splitEscPressure",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -610,6 +636,8 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER ALT" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER ALT CONF" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER PLAN" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER WHY" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER TEMPO" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -712,6 +740,55 @@ def main() -> int:
         )
         assert plan_hold == "HOLD", (plan_hold, plan_hold_signals)
         assert plan_hold_signals["reason"] == "no-actionable-recovery-lanes", plan_hold_signals
+
+        prior_recover_why_env = os.environ.get("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_WHY")
+        try:
+            os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_WHY"] = "0"
+            why_off, why_off_signals = what_if_split_escalate_recover_why_from_signals(
+                what_if_split_esc_recover_plan="PRIMARY",
+                what_if_split_esc_recover_confidence="HIGH",
+                what_if_split_esc_pressure="LOW",
+            )
+            assert why_off == "FLAG OFF", (why_off, why_off_signals)
+            assert why_off_signals["reason"] == "flag-disabled", why_off_signals
+
+            os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_WHY"] = "1"
+            why_primary_relief, why_primary_relief_signals = what_if_split_escalate_recover_why_from_signals(
+                what_if_split_esc_recover_plan="PRIMARY",
+                what_if_split_esc_recover_confidence="HIGH",
+                what_if_split_esc_pressure="LOW",
+            )
+            assert why_primary_relief == "PRIMARY RELIEF", (why_primary_relief, why_primary_relief_signals)
+            assert why_primary_relief_signals["reason"] == "high-confidence-primary-lane-with-low-pressure", why_primary_relief_signals
+
+            why_hold, why_hold_signals = what_if_split_escalate_recover_why_from_signals(
+                what_if_split_esc_recover_plan="HOLD",
+                what_if_split_esc_recover_confidence="LOW",
+                what_if_split_esc_pressure="MID",
+            )
+            assert why_hold == "HOLD FOR SIGNAL", (why_hold, why_hold_signals)
+            assert why_hold_signals["reason"] == "no-actionable-recovery-lane", why_hold_signals
+
+            tempo_fast, tempo_fast_signals = what_if_split_escalate_recover_tempo_from_signals(
+                what_if_split_esc_recover_plan="PRIMARY",
+                what_if_split_esc_recover_confidence="HIGH",
+                what_if_split_esc_pressure="LOW",
+            )
+            assert tempo_fast == "FAST", (tempo_fast, tempo_fast_signals)
+            assert tempo_fast_signals["reason"] == "high-confidence-low-pressure-recovery", tempo_fast_signals
+
+            tempo_defer, tempo_defer_signals = what_if_split_escalate_recover_tempo_from_signals(
+                what_if_split_esc_recover_plan="HOLD",
+                what_if_split_esc_recover_confidence="LOW",
+                what_if_split_esc_pressure="MID",
+            )
+            assert tempo_defer == "DEFER", (tempo_defer, tempo_defer_signals)
+            assert tempo_defer_signals["reason"] == "no-actionable-recovery-plan", tempo_defer_signals
+        finally:
+            if prior_recover_why_env is None:
+                os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_WHY", None)
+            else:
+                os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_WHY"] = prior_recover_why_env
 
     print("[PASS] weekly portal prompt readability drift regression checks")
     return 0
