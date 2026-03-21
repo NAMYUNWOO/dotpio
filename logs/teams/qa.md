@@ -1578,3 +1578,10 @@
 ## 2026-03-21 22:36:47 KST
 - Regression extension: validated new `whatIfFallbackPlanFit` payload + markdown line `WHAT-IF PLAN FIT`.
 - Result: regression suite green after schema assertions update.
+
+## 2026-03-21 23:08 KST
+- Task: Regression gate for Game Director Cycle Y rationale token.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decision: expanded schema assertions for `whatIfFallbackPlanWhy` + signal keys and markdown presence check (`WHAT-IF PLAN WHY`).
+- Follow-up: add regression assertions for `WHAT-IF SPLIT` once implemented.

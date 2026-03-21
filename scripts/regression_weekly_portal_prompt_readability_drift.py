@@ -347,6 +347,15 @@ def main() -> int:
             "projectedBand",
             "reason",
         }, payload
+        assert isinstance(payload.get("whatIfFallbackPlanWhy"), str), payload
+        assert set(payload.get("whatIfFallbackPlanWhySignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "plan",
+            "planFit",
+            "planReason",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -413,6 +422,7 @@ def main() -> int:
         assert "WHAT-IF FALLBACK ALT2 CONF" in md_text
         assert "WHAT-IF FALLBACK PLAN" in md_text
         assert "WHAT-IF PLAN FIT" in md_text
+        assert "WHAT-IF PLAN WHY" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

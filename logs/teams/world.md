@@ -645,3 +645,7 @@
 
 ## 2026-03-21 22:36:47 KST
 - No world-graph changes; digest-only systems telemetry update.
+
+## 2026-03-21 23:08 KST
+- Cross-lane sync: no map/portal topology changes in this slice; world lane unaffected.
+- Follow-up: keep portal-route digest consumers aligned with new `WHAT-IF PLAN WHY` field.

@@ -215,6 +215,6 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Design/AI Content Team: Prototype dual-path merge hint token (`WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD`) behind flag
 
 ## P1 (Game Director Injection — 2026-03-21 Cycle Y)
-- [ ] UX/Design Team: Add merge-plan rationale token (`WHAT-IF PLAN WHY:<short>`) for concise operator context
+- [x] UX/Design Team: Add merge-plan rationale token (`WHAT-IF PLAN WHY:<short>`) for concise operator context
 - [x] Systems/QA Team: Add merge-plan pressure-fit token (`WHAT-IF PLAN FIT:SAFE|EVEN|TENSE`) from selected merge-path projection
 - [ ] Design/AI Content Team: Prototype dual-route split recommendation token (`WHAT-IF SPLIT:ON`) behind flag when primary/secondary diverge strongly

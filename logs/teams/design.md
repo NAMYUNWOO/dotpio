@@ -626,3 +626,9 @@
 
 ## 2026-03-21 22:36:47 KST
 - Added compact merge-plan fitness token wording: `WHAT-IF PLAN FIT:SAFE|EVEN|TENSE`.
+
+## 2026-03-21 23:08 KST
+- Task: concise operator-context token pass for Game Director Cycle Y.
+- Decision: keep rationale strings compact (<18 chars target) to preserve DOS digest scanability.
+- Evidence: markdown line now includes `WHAT-IF PLAN WHY` with reason metadata.
+- Follow-up: pair with split recommendation token for dual-route escalation handoff.

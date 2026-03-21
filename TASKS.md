@@ -372,6 +372,6 @@ See project-level plans:
 - [x] Prototype dual-path merge hint token (`WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD`) behind flag
 
 ## Next Up (Game Director Injection — 2026-03-21 Cycle Y)
-- [ ] Add digest merge-plan rationale token (`WHAT-IF PLAN WHY:<short>`) for quick operator context (low-risk UX)
+- [x] Add digest merge-plan rationale token (`WHAT-IF PLAN WHY:<short>`) for quick operator context (low-risk UX)
 - [x] Add digest merge-plan pressure-fit token (`WHAT-IF PLAN FIT:SAFE|EVEN|TENSE`) from selected merge path projection (mid-risk systems)
 - [ ] Prototype dual-route split recommendation token (`WHAT-IF SPLIT:ON`) behind flag when primary/secondary plans diverge strongly (high-risk novelty)

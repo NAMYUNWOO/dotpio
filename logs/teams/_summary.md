@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-21 22:36 KST
+Last updated: 2026-03-21 23:08 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,8 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Game Director Cycle Y slice delivered: weekly digest now emits `WHAT-IF PLAN WHY:<short>` (flag `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN_WHY`) to explain selected merge-path rationale in one glance.
 - Weekly portal readability digest now includes `WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD` (flag: `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN`) to merge primary/secondary fallback routing into one actionable handoff token.
 - Game Director Cycle Y vertical slice shipped: `WHAT-IF PLAN FIT:SAFE|EVEN|TENSE` now rates selected merge plan against pressure band for quick go/no-go reading.
 - Core fun: AI-generated disassemble/build loop with DOS-style inventory UX.

@@ -597,3 +597,7 @@
 
 ## 2026-03-21 22:36:47 KST
 - No combat mechanics changed; new digest fit token can feed future pressure pacing experiments.
+
+## 2026-03-21 23:08 KST
+- Cross-lane sync: no combat tuning changes; threat/pressure signals consumed as-is by digest rationale token.
+- Follow-up: monitor if plan rationale copy needs combat-pressure lexicon alignment.

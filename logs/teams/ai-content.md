@@ -624,3 +624,7 @@
 
 ## 2026-03-21 22:36:47 KST
 - Added plan-level pressure fit signal for future AI-content route recommendation tuning.
+
+## 2026-03-21 23:08 KST
+- Cross-lane sync: no prompt-model schema change required; digest rationale token is deterministic post-processing text.
+- Follow-up: if `WHAT-IF SPLIT` lands, review phrasing to avoid over-directive wording.

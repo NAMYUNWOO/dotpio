@@ -867,3 +867,9 @@
 
 ## 2026-03-21 22:36:47 KST
 - Digest readability pass: `WHAT-IF PLAN FIT` follows `WHAT-IF FALLBACK PLAN` to preserve decision flow.
+
+## 2026-03-21 23:08 KST
+- Task: Add `WHAT-IF PLAN WHY:<short>` digest token for quick operator context.
+- Decision: rationale is explicitly short and glanceable (`FLAG OFF` / `PRIMARY STEADY` / `ALT2 RELIEF` / `HOLD FOR SIGNAL`).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Follow-up: next UX readout item is flagged split recommendation token.

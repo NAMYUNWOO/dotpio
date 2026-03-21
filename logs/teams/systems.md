@@ -1111,3 +1111,9 @@
   - `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 50` ✅
 - Decisions:
   - Added merge-plan pressure compatibility token (`SAFE|EVEN|TENSE`) to quantify selected plan vs current pressure band.
+
+## 2026-03-21 23:08 KST
+- Task: Game Director Cycle Y low-risk UX token slice (`WHAT-IF PLAN WHY`).
+- Decision: Added plan-rationale resolver in weekly digest pipeline with short operator copy (`PRIMARY RELIEF`, `ALT2 STEADY`, `HOLD FOR SIGNAL`) behind flag `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN_WHY`.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up: remaining Cycle Y novelty item is split recommendation token (`WHAT-IF SPLIT:ON`).
