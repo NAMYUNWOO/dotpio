@@ -237,4 +237,9 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-22 Cycle AC)
 - [x] UX/Systems Team: Add split escalation state token (`WHAT-IF SPLIT ESC STATE:ARMED|COOLING|IDLE`) for faster digest triage
 - [x] Systems/QA Team: Add split escalation cooldown pressure-band token (`WHAT-IF SPLIT ESC PRESSURE:LOW|MID|HIGH`) behind flag for cooldown risk context
-- [ ] Design/AI Content Team: Prototype split escalation recovery route hint (`WHAT-IF SPLIT ESC RECOVER:<lane>`) behind flag for post-escalation planning
+- [x] Design/AI Content Team: Prototype split escalation recovery route hint (`WHAT-IF SPLIT ESC RECOVER:<lane>`) behind flag for post-escalation planning
+
+## P1 (Game Director Injection — 2026-03-22 Cycle AD)
+- [x] Design/AI Content Team: Add split escalation recovery route hint (`WHAT-IF SPLIT ESC RECOVER:<lane>`) behind flag with lowest-pressure lane selection for post-escalation planning
+- [ ] UX/Systems Team: Add split escalation recovery confidence token (`WHAT-IF SPLIT ESC RECOVER CONF:LOW|MID|HIGH`) from lane divergence + state + pressure easing
+- [ ] Systems/AI Content Team: Prototype split escalation dual-lane recovery fallback token (`WHAT-IF SPLIT ESC RECOVER ALT:<lane>`) behind flag for contingency planning

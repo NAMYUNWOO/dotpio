@@ -1614,6 +1614,42 @@ def what_if_split_escalate_pressure_from_signals(
     }
 
 
+def what_if_split_escalate_recover_from_signals(
+    *,
+    what_if_split_esc_state: str,
+    what_if_split_escalate_lanes: str,
+) -> tuple[str, dict[str, str | bool]]:
+    """Suggest post-escalation recovery lane behind experiment flag."""
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    lane_rank = {"PORTAL": 0, "ALT": 1, "PRESSURE": 2}
+    lanes = [part.strip().upper() for part in str(what_if_split_escalate_lanes).split("/") if part.strip()]
+    actionable = [lane for lane in lanes if lane in lane_rank]
+
+    if not flag_enabled:
+        recover = "OFF"
+        reason = "flag-disabled"
+    elif what_if_split_esc_state == "ARMED":
+        recover = "NONE"
+        reason = "escalation-active-no-recovery-route"
+    elif not actionable:
+        recover = "NONE"
+        reason = "no-actionable-escalation-lanes"
+    else:
+        recover = sorted(actionable, key=lambda lane: (lane_rank[lane], lane))[0]
+        reason = "lowest-pressure-recovery-lane"
+
+    return recover, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "splitEscState": what_if_split_esc_state,
+        "splitEscLanes": what_if_split_escalate_lanes,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -2202,6 +2238,10 @@ def main() -> int:
         what_if_split_esc_cool=what_if_split_esc_cool,
         pressure_band=pressure_band,
     )
+    what_if_split_esc_recover, what_if_split_esc_recover_signals = what_if_split_escalate_recover_from_signals(
+        what_if_split_esc_state=what_if_split_esc_state,
+        what_if_split_escalate_lanes=what_if_split_escalate_lanes,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -2323,6 +2363,8 @@ def main() -> int:
         "whatIfSplitEscStateSignals": what_if_split_esc_state_signals,
         "whatIfSplitEscPressure": what_if_split_esc_pressure,
         "whatIfSplitEscPressureSignals": what_if_split_esc_pressure_signals,
+        "whatIfSplitEscRecover": what_if_split_esc_recover,
+        "whatIfSplitEscRecoverSignals": what_if_split_esc_recover_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -2406,6 +2448,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC COOL: **{what_if_split_esc_cool}** ({what_if_split_esc_cool_signals['reason']}; flag={what_if_split_esc_cool_signals['flagName']} enabled={what_if_split_esc_cool_signals['flagEnabled']} active={what_if_split_esc_cool_signals['active']} prior={what_if_split_esc_cool_signals['priorSplitEscalate']}:{what_if_split_esc_cool_signals['priorCooloff']})",
         f"- WHAT-IF SPLIT ESC STATE: **{what_if_split_esc_state}** ({what_if_split_esc_state_signals['reason']}; escalate={what_if_split_esc_state_signals['splitEscalate']} cool={what_if_split_esc_state_signals['splitEscCool']} cooling={what_if_split_esc_state_signals['cooling']})",
         f"- WHAT-IF SPLIT ESC PRESSURE: **{what_if_split_esc_pressure}** ({what_if_split_esc_pressure_signals['reason']}; flag={what_if_split_esc_pressure_signals['flagName']} enabled={what_if_split_esc_pressure_signals['flagEnabled']} state={what_if_split_esc_pressure_signals['splitEscState']} cool={what_if_split_esc_pressure_signals['splitEscCool']} pressure={what_if_split_esc_pressure_signals['pressureBand']})",
+        f"- WHAT-IF SPLIT ESC RECOVER: **{what_if_split_esc_recover}** ({what_if_split_esc_recover_signals['reason']}; flag={what_if_split_esc_recover_signals['flagName']} enabled={what_if_split_esc_recover_signals['flagEnabled']} state={what_if_split_esc_recover_signals['splitEscState']} lanes={what_if_split_esc_recover_signals['splitEscLanes']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

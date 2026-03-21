@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T18:33:37.986742Z",
+  "generatedAt": "2026-03-21T18:41:01.114301Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -435,6 +435,14 @@
     "adjustedRank": 0,
     "reason": "flag-disabled"
   },
+  "whatIfSplitEscRecover": "OFF",
+  "whatIfSplitEscRecoverSignals": {
+    "flagName": "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER",
+    "flagEnabled": false,
+    "splitEscState": "IDLE",
+    "splitEscLanes": "NONE/NONE",
+    "reason": "flag-disabled"
+  },
   "anomalyPulse": "ON",
   "anomalyConfidence": "HIGH",
   "anomalyPulseSignals": {
@@ -560,6 +568,97 @@
     }
   ],
   "commits": [
+    {
+      "sha": "92d947023d017b1cabb0c3f654616716fef89438",
+      "shortSha": "92d9470",
+      "author": "yunwoo",
+      "subject": "feat: add split escalation cooldown pressure-band digest token",
+      "committedAt": "2026-03-21T18:34:50Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      }
+    },
     {
       "sha": "e697f3b8e63bd47701af956292340f346c61a7cd",
       "shortSha": "e697f3b",
@@ -11213,90 +11312,6 @@
         "scripts/regression_enemy_behavior_variants.lua",
         "src/enemy_ai.lua",
         "src/entities.lua"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      }
-    },
-    {
-      "sha": "ba2d6c3dc5d26227ca19e6028a2ca628e25738e6",
-      "shortSha": "ba2d6c3",
-      "author": "yunwoo",
-      "subject": "feat(world): add map_07 tactical choke map with portal integration",
-      "committedAt": "2026-03-19T13:59:07Z",
-      "changedFiles": [
-        "POST_RC_BACKLOG.md",
-        "logs/playtests/map_01_04_progression_checklist.md",
-        "logs/teams/_summary.md",
-        "logs/teams/qa.md",
-        "logs/teams/world.md",
-        "maps/map_06.lua",
-        "maps/map_07.lua"
       ],
       "portalFiles": [],
       "touchedPortalPrompt": false,

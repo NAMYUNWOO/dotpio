@@ -1456,3 +1456,10 @@ Compact decision memory for AI context efficiency.
   1) ✅ `WHAT-IF SPLIT ESC STATE` (implemented this cycle)
   2) ⏳ `WHAT-IF SPLIT ESC PRESSURE` (flagged follow-up)
   3) ⏳ `WHAT-IF SPLIT ESC RECOVER` (flagged follow-up)
+
+## 2026-03-22 03:41 KST — Game Director Cycle AD vertical slice: split escalation recovery hint
+- Idea slate (L/M/H): (1) recovery hint lane token (chosen), (2) recovery confidence token, (3) dual-lane recovery fallback token.
+- Shipped: weekly digest now emits WHAT-IF SPLIT ESC RECOVER:<lane> behind DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER; when enabled it suggests the lowest-pressure actionable lane from escalation lane-pair, otherwise OFF/NONE with explicit reason.
+- Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md.
+- Verification: python3 -m py_compile + python3 scripts/regression_weekly_portal_prompt_readability_drift.py + digest generation PASS.
+- Backlog sync: Cycle AC recovery item closed; Cycle AD injected with recovery-confidence + recovery-alt follow-ups.

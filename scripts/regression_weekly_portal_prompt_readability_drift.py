@@ -476,6 +476,14 @@ def main() -> int:
             "adjustedRank",
             "reason",
         }, payload
+        assert isinstance(payload.get("whatIfSplitEscRecover"), str), payload
+        assert set(payload.get("whatIfSplitEscRecoverSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "splitEscState",
+            "splitEscLanes",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -555,6 +563,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC COOL" in md_text
         assert "WHAT-IF SPLIT ESC STATE" in md_text
         assert "WHAT-IF SPLIT ESC PRESSURE" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
