@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T10:33:30.516035Z
+- GeneratedAt(UTC): 2026-03-21T10:35:41.950330Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
@@ -37,6 +37,7 @@
 - WHAT-IF MAG: **SMALL** (flag-disabled; delta=-3 |Δ|=3 enabled=False)
 - WHAT-IF FIT: **EVEN** (flag-disabled; pressure=HIGH projected=HIGH risk=16 enabled=False)
 - WHAT-IF FALLBACK: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK enabled=False align=DIVERGED route=PORTAL_AUDIT->PORTAL alt=ALT)
+- WHAT-IF FALLBACK CONF: **LOW** (flag-disabled; fallback=OFF align=DIVERGED delta=-3 routeConf=LOW enabled=False)
 - STICKY TOKENS: **6**
 - ANOMALY: **ON** (sticky=6/3 pressure=15/5)
 - ANOMALY CONF: **HIGH** (triggers=2 gap=13)

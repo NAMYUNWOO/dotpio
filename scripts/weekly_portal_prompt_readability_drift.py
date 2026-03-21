@@ -657,6 +657,46 @@ def what_if_lane_fallback_from_signals(
     }
 
 
+def what_if_fallback_confidence_from_signals(
+    *,
+    what_if_fallback: str,
+    what_if_fallback_signals: dict[str, str | bool],
+    what_if_alt_signals: dict[str, str | int | bool],
+    route_action_confidence: str,
+) -> tuple[str, dict[str, str | int | bool]]:
+    flag_enabled = bool(what_if_fallback_signals.get("flagEnabled", False))
+    align = str(what_if_fallback_signals.get("whatIfAlign", "DIVERGED"))
+    delta_risk = int(what_if_alt_signals.get("deltaRisk", 0))
+
+    if not flag_enabled:
+        confidence = "LOW"
+        reason = "flag-disabled"
+    elif what_if_fallback in {"OFF", "NONE"}:
+        confidence = "LOW"
+        reason = "no-actionable-fallback"
+    elif align != "DIVERGED":
+        confidence = "LOW"
+        reason = "fallback-not-needed"
+    elif delta_risk <= -3 and route_action_confidence in {"MID", "HIGH"}:
+        confidence = "HIGH"
+        reason = "strong-risk-drop-with-route-confidence"
+    elif delta_risk <= -1 or route_action_confidence in {"MID", "HIGH"}:
+        confidence = "MID"
+        reason = "moderate-signal-strength"
+    else:
+        confidence = "LOW"
+        reason = "weak-signal-strength"
+
+    return confidence, {
+        "flagEnabled": flag_enabled,
+        "fallback": what_if_fallback,
+        "whatIfAlign": align,
+        "deltaRisk": delta_risk,
+        "routeActionConfidence": route_action_confidence,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -1137,6 +1177,12 @@ def main() -> int:
         what_if_align=what_if_align,
         route_action=route_action,
     )
+    what_if_fallback_confidence, what_if_fallback_confidence_signals = what_if_fallback_confidence_from_signals(
+        what_if_fallback=what_if_fallback,
+        what_if_fallback_signals=what_if_fallback_signals,
+        what_if_alt_signals=what_if_alt_signals,
+        route_action_confidence=route_action_confidence,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -1214,6 +1260,8 @@ def main() -> int:
         "whatIfFitSignals": what_if_fit_signals,
         "whatIfFallback": what_if_fallback,
         "whatIfFallbackSignals": what_if_fallback_signals,
+        "whatIfFallbackConfidence": what_if_fallback_confidence,
+        "whatIfFallbackConfidenceSignals": what_if_fallback_confidence_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -1275,6 +1323,7 @@ def main() -> int:
         f"- WHAT-IF MAG: **{what_if_magnitude}** ({what_if_magnitude_signals['reason']}; delta={what_if_magnitude_signals['deltaRisk']} |Δ|={what_if_magnitude_signals['absDeltaRisk']} enabled={what_if_magnitude_signals['flagEnabled']})",
         f"- WHAT-IF FIT: **{what_if_fit}** ({what_if_fit_signals['reason']}; pressure={what_if_fit_signals['pressureBand']} projected={what_if_fit_signals['projectedBand']} risk={what_if_fit_signals['projectedRisk']} enabled={what_if_fit_signals['flagEnabled']})",
         f"- WHAT-IF FALLBACK: **{what_if_fallback}** ({what_if_fallback_signals['reason']}; flag={what_if_fallback_signals['flagName']} enabled={what_if_fallback_signals['flagEnabled']} align={what_if_fallback_signals['whatIfAlign']} route={what_if_fallback_signals['routeAction']}->{what_if_fallback_signals['routeActionLane']} alt={what_if_fallback_signals['altLane']})",
+        f"- WHAT-IF FALLBACK CONF: **{what_if_fallback_confidence}** ({what_if_fallback_confidence_signals['reason']}; fallback={what_if_fallback_confidence_signals['fallback']} align={what_if_fallback_confidence_signals['whatIfAlign']} delta={what_if_fallback_confidence_signals['deltaRisk']} routeConf={what_if_fallback_confidence_signals['routeActionConfidence']} enabled={what_if_fallback_confidence_signals['flagEnabled']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

@@ -1038,3 +1038,13 @@
 - Flag contract: `DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK` (OFF by default). When enabled + `WHAT-IF ALIGN:DIVERGED`, fallback resolves to route-action lane (`PORTAL|ALT|PRESSURE`), otherwise `NONE`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`.
 - Follow-up: All ACTION_ITEMS/TASKS/POST_RC items are checked; next cycle should run Game Director review loop (3 ideas -> 1 experiment -> slice).
+
+## 2026-03-21 19:36 KST — Game Director Cycle V (ideas + selected vertical slice)
+- Candidate ideas:
+  1) Low-risk UX: `WHAT-IF FALLBACK CONF:LOW|MID|HIGH` from fallback divergence + route confidence.
+  2) Mid-risk systems: `WHAT-IF FALLBACK FIT:SAFE|EVEN|TENSE` from fallback projection vs pressure band.
+  3) High-risk novelty: flagged fallback rationale token `WHAT-IF FALLBACK WHY:<short>` for operator-facing diagnostics.
+- Selected experiment: idea (1) fallback confidence token (minimal reversible slice).
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfFallbackConfidence` + signals and markdown `WHAT-IF FALLBACK CONF`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`.
+- Backlog update: Added Cycle V queue to `TASKS.md`/`POST_RC_BACKLOG.md`, marked fallback-confidence item done, left fallback-fit + fallback-why queued.

@@ -198,3 +198,8 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/Design Team: Add what-if delta-magnitude token (`WHAT-IF MAG:SMALL|MED|LARGE`) from `|ΔRISK|` for glanceable impact sizing
 - [x] Systems/QA Team: Add what-if pressure-fit token (`WHAT-IF FIT:SAFE|EVEN|TENSE`) combining projected risk with pressure-band context
 - [x] Design/Systems Team: Prototype what-if lane fallback token (`WHAT-IF FALLBACK:<lane>`) behind flag when alternate lane diverges from route action
+
+## P1 (Game Director Injection — 2026-03-21 Cycle V)
+- [x] UX/Systems Team: Add what-if fallback confidence token (`WHAT-IF FALLBACK CONF:LOW|MID|HIGH`) from divergence strength + route confidence
+- [ ] Systems/QA Team: Add what-if fallback pressure-safety token (`WHAT-IF FALLBACK FIT:SAFE|EVEN|TENSE`) comparing fallback projection vs pressure band
+- [ ] Design/AI Content Team: Prototype what-if fallback rationale token (`WHAT-IF FALLBACK WHY:<short>`) behind flag for quick operator context

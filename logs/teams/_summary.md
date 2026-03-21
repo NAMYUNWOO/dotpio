@@ -1300,3 +1300,23 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`
 - Backlog state: ACTION_ITEMS, TASKS, and POST_RC_BACKLOG are now fully checked. Next autonomous cycle should execute Game Director review loop.
+
+## 2026-03-21 19:36 KST — Game Director Cycle V injected and first slice shipped
+- Because ACTION_ITEMS/TASKS/POST_RC reached fully-checked state, executed required Game Director review cycle.
+- Candidate ideas generated:
+  1) Low-risk UX: `WHAT-IF FALLBACK CONF:LOW|MID|HIGH`
+  2) Mid-risk systems: `WHAT-IF FALLBACK FIT:SAFE|EVEN|TENSE`
+  3) High-risk novelty: flagged `WHAT-IF FALLBACK WHY:<short>` rationale token
+- Selected experiment (vertical slice): idea #1 (`WHAT-IF FALLBACK CONF`).
+- Durable implementation:
+  - `scripts/weekly_portal_prompt_readability_drift.py` now outputs `whatIfFallbackConfidence` and `whatIfFallbackConfidenceSignals` in JSON.
+  - Markdown digest now prints `WHAT-IF FALLBACK CONF` line.
+  - Confidence rule combines fallback actionability + divergence state + delta risk + route-action confidence.
+- Regression/verification:
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py` extended for new schema + markdown assertions.
+  - `python3 -m py_compile ...` PASS
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 ...` PASS
+- Backlog injection completed:
+  - Added Cycle V entries to `TASKS.md` and `POST_RC_BACKLOG.md`.
+  - Marked confidence item done; left fallback-fit + fallback-why as next queued items.
