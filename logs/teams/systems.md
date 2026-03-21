@@ -1310,3 +1310,9 @@
 - Ideation (3): (1) veto state token (low-risk UX), (2) veto dwell token (mid-risk telemetry), (3) veto release cue token (high-risk novelty copy).
 - Picked experiment: veto state token (`ARMED|COOLING|IDLE`) as minimal vertical slice.
 - Verification: weekly portal digest regression pass with markdown/token assertions and state-signal unit checks.
+
+## 2026-03-22 07:33 KST — Cycle AH follow-up: veto dwell token
+- Task: Add `WHAT-IF SPLIT ESC RECOVER VETO DWELL:<n>` to count consecutive `ARMED` windows.
+- Decision: Dwell increments only when current+prior veto state are both `ARMED`; resets to `0` on `COOLING/IDLE` to avoid stale streak carry.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: Next unchecked backlog item is `WHAT-IF SPLIT ESC RECOVER VETO RELEASE:<short>` (flag-gated on `COOLING -> IDLE`).

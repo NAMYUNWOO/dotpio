@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-22 06:31 KST
+Last updated: 2026-03-22 07:33 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,7 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed Cycle AH follow-up task: weekly digest now emits `WHAT-IF SPLIT ESC RECOVER VETO DWELL:<n>` that tracks consecutive `ARMED` windows and resets when veto state is not armed.
 - Closed the final Cycle AF unchecked item: weekly digest now emits flag-gated `WHAT-IF SPLIT ESC RECOVER VETO:ON|OFF` (`DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO`) when recovery remains `LOW` confidence under `HIGH` pressure with actionable plan context.
 - Since ACTION_ITEMS + TASKS + POST_RC were fully checked, executed Game Director review cycle (low/mid/high idea generation) and shipped selected low-risk slice: `WHAT-IF SPLIT ESC RECOVER VETO CONF:LOW|MID|HIGH`.
 - Injected Cycle AG follow-up backlog items: `WHAT-IF SPLIT ESC RECOVER VETO WHY:<short>` (flag-gated) and `WHAT-IF SPLIT ESC RECOVER VETO COOLOFF:<n>` (flag-gated).

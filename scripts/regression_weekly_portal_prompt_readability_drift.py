@@ -20,6 +20,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_why_from_signals,
     what_if_split_escalate_recover_veto_cooloff_from_prior,
     what_if_split_escalate_recover_veto_state_from_signals,
+    what_if_split_escalate_recover_veto_dwell_from_prior,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -582,6 +583,14 @@ def main() -> int:
             "vetoOn",
             "reason",
         }, payload
+        assert isinstance(payload.get("whatIfSplitEscRecoverVetoDwell"), int) and payload["whatIfSplitEscRecoverVetoDwell"] >= 0, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoDwellSignals", {}).keys()) == {
+            "currentState",
+            "priorState",
+            "priorDwell",
+            "priorLoaded",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -925,6 +934,33 @@ def main() -> int:
                     )
                     assert veto_state_cooling == "COOLING", (veto_state_cooling, veto_state_cooling_signals)
                     assert veto_state_cooling_signals["reason"] == "veto-disarmed-in-cooloff-window", veto_state_cooling_signals
+
+                    veto_dwell_prior = repo / "veto-dwell-prior.json"
+                    veto_dwell_prior.write_text(
+                        json.dumps({"whatIfSplitEscRecoverVetoState": "ARMED", "whatIfSplitEscRecoverVetoDwell": 2}),
+                        encoding="utf-8",
+                    )
+                    veto_dwell_roll, veto_dwell_roll_signals = what_if_split_escalate_recover_veto_dwell_from_prior(
+                        current_split_esc_recover_veto_state="ARMED",
+                        prior_json_path=veto_dwell_prior,
+                    )
+                    assert veto_dwell_roll == 3, (veto_dwell_roll, veto_dwell_roll_signals)
+                    assert veto_dwell_roll_signals["reason"] == "veto-remains-armed", veto_dwell_roll_signals
+
+                    veto_dwell_new, veto_dwell_new_signals = what_if_split_escalate_recover_veto_dwell_from_prior(
+                        current_split_esc_recover_veto_state="ARMED",
+                        prior_json_path=repo / "missing-veto-dwell-prior.json",
+                    )
+                    assert veto_dwell_new == 1, (veto_dwell_new, veto_dwell_new_signals)
+                    assert veto_dwell_new_signals["priorLoaded"] is False, veto_dwell_new_signals
+                    assert veto_dwell_new_signals["reason"] == "veto-armed-new-streak", veto_dwell_new_signals
+
+                    veto_dwell_reset, veto_dwell_reset_signals = what_if_split_escalate_recover_veto_dwell_from_prior(
+                        current_split_esc_recover_veto_state="COOLING",
+                        prior_json_path=veto_dwell_prior,
+                    )
+                    assert veto_dwell_reset == 0, (veto_dwell_reset, veto_dwell_reset_signals)
+                    assert veto_dwell_reset_signals["reason"] == "veto-not-armed", veto_dwell_reset_signals
                 finally:
                     if prior_veto_cooloff_env is None:
                         os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_COOLOFF", None)
