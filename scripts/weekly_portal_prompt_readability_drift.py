@@ -1284,6 +1284,38 @@ def what_if_split_safe_from_signals(
         "secondarySafe": secondary_safe,
         "reason": reason,
     }
+
+
+def what_if_split_posture_from_signals(
+    *,
+    what_if_split: str,
+    what_if_split_safe: str,
+    what_if_split_confidence: str,
+) -> tuple[str, dict[str, str]]:
+    if what_if_split != "ON":
+        posture = "HOLD"
+        reason = "split-not-armed"
+    elif what_if_split_safe != "ON":
+        posture = "HOLD"
+        reason = "safety-gate-off"
+    elif what_if_split_confidence == "HIGH":
+        posture = "SAFE"
+        reason = "safe-and-high-confidence"
+    elif what_if_split_confidence == "MID":
+        posture = "WATCH"
+        reason = "safe-but-needs-monitoring"
+    else:
+        posture = "HOLD"
+        reason = "safe-but-confidence-low"
+
+    return posture, {
+        "split": what_if_split,
+        "splitSafe": what_if_split_safe,
+        "splitConfidence": what_if_split_confidence,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -1836,6 +1868,11 @@ def main() -> int:
         what_if_fallback_fit=what_if_fallback_fit,
         what_if_fallback_alt2_confidence=what_if_fallback_alt2_confidence,
     )
+    what_if_split_posture, what_if_split_posture_signals = what_if_split_posture_from_signals(
+        what_if_split=what_if_split,
+        what_if_split_safe=what_if_split_safe,
+        what_if_split_confidence=what_if_split_confidence,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -1941,6 +1978,8 @@ def main() -> int:
         "whatIfSplitConfidenceSignals": what_if_split_confidence_signals,
         "whatIfSplitSafe": what_if_split_safe,
         "whatIfSplitSafeSignals": what_if_split_safe_signals,
+        "whatIfSplitPosture": what_if_split_posture,
+        "whatIfSplitPostureSignals": what_if_split_posture_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -2016,6 +2055,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT LANES: **{what_if_split_lanes}** ({what_if_split_lanes_signals['reason']}; actionable={what_if_split_lanes_signals['primaryActionable']}/{what_if_split_lanes_signals['secondaryActionable']})",
         f"- WHAT-IF SPLIT CONF: **{what_if_split_confidence}** ({what_if_split_confidence_signals['reason']}; split={what_if_split_confidence_signals['split']} conf={what_if_split_confidence_signals['primaryConfidence']}/{what_if_split_confidence_signals['secondaryConfidence']} strong={what_if_split_confidence_signals['strongConfidence']} delta={what_if_split_confidence_signals['strongDelta']})",
         f"- WHAT-IF SPLIT SAFE: **{what_if_split_safe}** ({what_if_split_safe_signals['reason']}; flag={what_if_split_safe_signals['flagName']} enabled={what_if_split_safe_signals['flagEnabled']} split={what_if_split_safe_signals['split']} fit={what_if_split_safe_signals['primaryFit']} alt2Conf={what_if_split_safe_signals['secondaryConfidenceGate']})",
+        f"- WHAT-IF SPLIT POSTURE: **{what_if_split_posture}** ({what_if_split_posture_signals['reason']}; split={what_if_split_posture_signals['split']} safe={what_if_split_posture_signals['splitSafe']} conf={what_if_split_posture_signals['splitConfidence']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

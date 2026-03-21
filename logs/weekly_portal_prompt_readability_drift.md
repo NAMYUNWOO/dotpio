@@ -1,9 +1,9 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T13:36:37.788313Z
+- GeneratedAt(UTC): 2026-03-21T16:05:07.947439Z
 - Status: **OK**
-- Window: last 7 days (max 50 commits)
-- Checked commits: 50
+- Window: last 7 days (max 120 commits)
+- Checked commits: 120
 - Portal prompt commits: 9
 - Dominant mode commits: compact=2, detailed=5, neutral=2
 - MODE TREND: **DETAILED**
@@ -44,8 +44,14 @@
 - WHAT-IF FALLBACK MAG: **SMALL** (flag-disabled; fallback=OFF delta=-3 |Δ|=3 enabled=False)
 - WHAT-IF FALLBACK ALT2: **NONE** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2 enabled=False fallback=NONE scores=portal:35 alt:23 pressure:15)
 - WHAT-IF FALLBACK ALT2 CONF: **LOW** (flag-disabled; alt2=NONE fallback=NONE top=0 second=0 gap=0 enabled=False)
-- WHAT-IF FALLBACK PLAN: **HOLD** (no-actionable-fallback-plan; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN enabled=True primary=OFF(LOW) secondary=NONE(LOW))
+- WHAT-IF FALLBACK PLAN: **HOLD** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN enabled=False primary=OFF(LOW) secondary=NONE(LOW))
 - WHAT-IF PLAN FIT: **EVEN** (hold-or-no-actionable-secondary; plan=HOLD lane=HOLD pressure=HIGH projected=HIGH)
+- WHAT-IF PLAN WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN_WHY enabled=False plan=HOLD fit=EVEN)
+- WHAT-IF SPLIT: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT enabled=False lanes=OFF->NONE conf=LOW/LOW |Δ|=3)
+- WHAT-IF SPLIT LANES: **NONE/NONE** (no-actionable-lanes; actionable=False/False)
+- WHAT-IF SPLIT CONF: **LOW** (flag-disabled; split=OFF conf=LOW/LOW strong=False delta=False)
+- WHAT-IF SPLIT SAFE: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_SAFE enabled=False split=OFF fit=EVEN alt2Conf=LOW)
+- WHAT-IF SPLIT POSTURE: **HOLD** (split-not-armed; split=OFF safe=OFF conf=LOW)
 - STICKY TOKENS: **6**
 - ANOMALY: **ON** (sticky=6/3 pressure=15/5)
 - ANOMALY CONF: **HIGH** (triggers=2 gap=13)

@@ -1148,3 +1148,18 @@
 - Gate contract: `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_SAFE` (default OFF).
 - Safe-mode `ON` requires: split armed, primary path non-escalating (`SAFE|EVEN` fit), ALT2 confidence gate (`MID|HIGH`), and both split confidences at least `MID`.
 - Follow-up: since TASKS + POST_RC are now fully checked, next cycle should run Game Director review loop (3 ideas -> pick 1 -> vertical slice).
+
+## 2026-03-22 01:01 KST — Game Director Cycle AA: split posture vertical slice
+- Backlog lifecycle: set `WHAT-IF SPLIT POSTURE` to `[~]` before implementation, then promoted to `[x]` after verification in `TASKS.md` + `POST_RC_BACKLOG.md`.
+- Idea slate generated:
+  1) Low-risk UX (chosen): `WHAT-IF SPLIT POSTURE:SAFE|WATCH|HOLD`.
+  2) Mid-risk systems: `WHAT-IF SPLIT COOLOFF:<n>` counter.
+  3) High-risk novelty: flag-gated `WHAT-IF SPLIT ESCALATE:ON`.
+- Implemented minimal vertical slice in `scripts/weekly_portal_prompt_readability_drift.py`:
+  - Added `what_if_split_posture_from_signals(...)`.
+  - Added JSON fields `whatIfSplitPosture` + `whatIfSplitPostureSignals`.
+  - Added markdown digest row `WHAT-IF SPLIT POSTURE`.
+- Regression updates: `scripts/regression_weekly_portal_prompt_readability_drift.py` now asserts new schema keys + markdown token.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Next hook: implement Cycle AA follow-ups (`SPLIT COOLOFF`, `SPLIT ESCALATE`).
+
