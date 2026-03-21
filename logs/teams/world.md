@@ -744,3 +744,10 @@
 - Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md.
 - Verification: python3 -m py_compile + python3 scripts/regression_weekly_portal_prompt_readability_drift.py + digest generation PASS.
 - Backlog sync: Cycle AC recovery item closed; Cycle AD injected with recovery-confidence + recovery-alt follow-ups.
+
+## 2026-03-22 04:01 KST — Cycle AD: Split Escalation Recovery Confidence
+- Completed: Added WHAT-IF SPLIT ESC RECOVER CONF:LOW|MID|HIGH token derived from recovery lane availability, escalation lifecycle state, lane divergence, and pressure easing context.
+- Decision: Confidence stays LOW when recover route is OFF/NONE or state is ARMED; rises to MID/HIGH only during easing (COOLING/IDLE) with actionable/divergent lanes and manageable pressure.
+- Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md
+- Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS); python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py (PASS).
+- Next: Implement WHAT-IF SPLIT ESC RECOVER ALT:<lane> prototype behind flag for contingency planning.
