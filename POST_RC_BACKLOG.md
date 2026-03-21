@@ -233,3 +233,8 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Design/Systems Team: Add split escalation confidence token (`WHAT-IF SPLIT ESC CONF:LOW|MID|HIGH`) from split confidence + plan-fit pressure context
 - [x] UX/Systems Team: Add split escalation route-pair readability token (`WHAT-IF SPLIT ESC LANES:<primary>/<secondary>`) for escalation handoff clarity
 - [x] QA/Systems Team: Prototype split escalation cooldown pressure token (`WHAT-IF SPLIT ESC COOL:<n>`) behind flag when escalation recently disarmed
+
+## P1 (Game Director Injection — 2026-03-22 Cycle AC)
+- [x] UX/Systems Team: Add split escalation state token (`WHAT-IF SPLIT ESC STATE:ARMED|COOLING|IDLE`) for faster digest triage
+- [ ] Systems/QA Team: Add split escalation cooldown pressure-band token (`WHAT-IF SPLIT ESC PRESSURE:LOW|MID|HIGH`) behind flag for cooldown risk context
+- [ ] Design/AI Content Team: Prototype split escalation recovery route hint (`WHAT-IF SPLIT ESC RECOVER:<lane>`) behind flag for post-escalation planning

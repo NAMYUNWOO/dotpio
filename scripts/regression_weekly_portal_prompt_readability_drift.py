@@ -458,6 +458,13 @@ def main() -> int:
             "reason",
             "priorLoaded",
         }, payload
+        assert payload.get("whatIfSplitEscState") in {"ARMED", "COOLING", "IDLE"}, payload
+        assert set(payload.get("whatIfSplitEscStateSignals", {}).keys()) == {
+            "splitEscalate",
+            "splitEscCool",
+            "cooling",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -535,6 +542,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC CONF" in md_text
         assert "WHAT-IF SPLIT ESC LANES" in md_text
         assert "WHAT-IF SPLIT ESC COOL" in md_text
+        assert "WHAT-IF SPLIT ESC STATE" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

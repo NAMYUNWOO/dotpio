@@ -695,3 +695,17 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 50 --out-json /tmp/dotpio-weekly.json --out-md /tmp/dotpio-weekly.md` ✅.
 - Decisions: Added explicit escalation route-pair token `WHAT-IF SPLIT ESC LANES:<primary>/<secondary>`; added flag-gated escalation cooloff counter `WHAT-IF SPLIT ESC COOL:<n>` (`DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_COOL`) with OFF->disarm lifecycle tracking from prior digest payload.
 - Follow-up: ACTION_ITEMS has only tracking legend `- [ ] todo` remaining; next meaningful priority is to continue digest Game Director line when new actionable items are injected.
+
+## 2026-03-22 03:04 KST — Game Director Cycle AC vertical slice closure (`WHAT-IF SPLIT ESC STATE`)
+- Task: Add split escalation lifecycle state token for weekly portal prompt digest triage.
+- Ideas generated:
+  1) Low-risk UX (selected): `WHAT-IF SPLIT ESC STATE:ARMED|COOLING|IDLE`.
+  2) Mid-risk systems: flag-gated `WHAT-IF SPLIT ESC PRESSURE:LOW|MID|HIGH` cooldown pressure band.
+  3) High-risk novelty: flag-gated `WHAT-IF SPLIT ESC RECOVER:<lane>` post-escalation recovery route hint.
+- Decision: Ship idea #1 as minimal vertical slice and inject #2/#3 as follow-up backlog candidates.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now emits JSON fields `whatIfSplitEscState` + `whatIfSplitEscStateSignals` and markdown line `WHAT-IF SPLIT ESC STATE`.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 60` ✅
+- Backlog lifecycle: marked Cycle AC state-token item `[~] -> [x]` in `TASKS.md` and `POST_RC_BACKLOG.md`; follow-up items remain unchecked.
+- Next hook: implement Cycle AC mid/high experiments (`ESC PRESSURE`, `ESC RECOVER`) in subsequent loop.

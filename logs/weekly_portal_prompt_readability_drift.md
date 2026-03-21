@@ -1,9 +1,9 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T16:05:07.947439Z
+- GeneratedAt(UTC): 2026-03-21T18:04:33.120752Z
 - Status: **OK**
-- Window: last 7 days (max 120 commits)
-- Checked commits: 120
+- Window: last 7 days (max 60 commits)
+- Checked commits: 60
 - Portal prompt commits: 9
 - Dominant mode commits: compact=2, detailed=5, neutral=2
 - MODE TREND: **DETAILED**
@@ -52,6 +52,12 @@
 - WHAT-IF SPLIT CONF: **LOW** (flag-disabled; split=OFF conf=LOW/LOW strong=False delta=False)
 - WHAT-IF SPLIT SAFE: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_SAFE enabled=False split=OFF fit=EVEN alt2Conf=LOW)
 - WHAT-IF SPLIT POSTURE: **HOLD** (split-not-armed; split=OFF safe=OFF conf=LOW)
+- WHAT-IF SPLIT COOLOFF: **0** (no-prior-on-cycle; active=False prior=OFF:0)
+- WHAT-IF SPLIT ESCALATE: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESCALATE enabled=False split=OFF diverged=True fit=EVEN)
+- WHAT-IF SPLIT ESC CONF: **LOW** (escalation-not-armed; escalate=OFF splitConf=LOW fit=EVEN)
+- WHAT-IF SPLIT ESC LANES: **NONE/NONE** (escalation-not-armed; escalate=OFF diverged=True actionable=False/False)
+- WHAT-IF SPLIT ESC COOL: **0** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_COOL enabled=False active=False prior=OFF:0)
+- WHAT-IF SPLIT ESC STATE: **IDLE** (split-escalation-idle; escalate=OFF cool=0 cooling=False)
 - STICKY TOKENS: **6**
 - ANOMALY: **ON** (sticky=6/3 pressure=15/5)
 - ANOMALY CONF: **HIGH** (triggers=2 gap=13)

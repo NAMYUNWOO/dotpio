@@ -1545,6 +1545,30 @@ def what_if_split_escalate_cooloff_from_prior(
     }
 
 
+def what_if_split_escalate_state_from_signals(
+    *,
+    what_if_split_escalate: str,
+    what_if_split_esc_cool: int,
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Summarize split-escalation lifecycle into one triage token."""
+    if what_if_split_escalate == "ON":
+        state = "ARMED"
+        reason = "split-escalation-active"
+    elif what_if_split_esc_cool > 0:
+        state = "COOLING"
+        reason = "split-escalation-cooloff-active"
+    else:
+        state = "IDLE"
+        reason = "split-escalation-idle"
+
+    return state, {
+        "splitEscalate": what_if_split_escalate,
+        "splitEscCool": what_if_split_esc_cool,
+        "cooling": what_if_split_esc_cool > 0,
+        "reason": reason,
+    }
+
+
 def anomaly_pulse_from_signals(
     *, sticky_count: int, pressure_churn: int
 ) -> tuple[str, str, dict[str, int | bool]]:
@@ -2124,6 +2148,10 @@ def main() -> int:
         current_split_escalate=what_if_split_escalate,
         prior_json_path=args.out_json,
     )
+    what_if_split_esc_state, what_if_split_esc_state_signals = what_if_split_escalate_state_from_signals(
+        what_if_split_escalate=what_if_split_escalate,
+        what_if_split_esc_cool=what_if_split_esc_cool,
+    )
     anomaly_pulse, anomaly_confidence, anomaly_pulse_signals = anomaly_pulse_from_signals(
         sticky_count=len(sticky_tokens),
         pressure_churn=drift_risk_signals["pressureChurn"],
@@ -2241,6 +2269,8 @@ def main() -> int:
         "whatIfSplitEscLanesSignals": what_if_split_escalate_lanes_signals,
         "whatIfSplitEscCool": what_if_split_esc_cool,
         "whatIfSplitEscCoolSignals": what_if_split_esc_cool_signals,
+        "whatIfSplitEscState": what_if_split_esc_state,
+        "whatIfSplitEscStateSignals": what_if_split_esc_state_signals,
         "anomalyPulse": anomaly_pulse,
         "anomalyConfidence": anomaly_confidence,
         "anomalyPulseSignals": anomaly_pulse_signals,
@@ -2322,6 +2352,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC CONF: **{what_if_split_escalate_confidence}** ({what_if_split_escalate_confidence_signals['reason']}; escalate={what_if_split_escalate_confidence_signals['splitEscalate']} splitConf={what_if_split_escalate_confidence_signals['splitConfidence']} fit={what_if_split_escalate_confidence_signals['planFit']})",
         f"- WHAT-IF SPLIT ESC LANES: **{what_if_split_escalate_lanes}** ({what_if_split_escalate_lanes_signals['reason']}; escalate={what_if_split_escalate_lanes_signals['splitEscalate']} diverged={what_if_split_escalate_lanes_signals['lanesDiverged']} actionable={what_if_split_escalate_lanes_signals['primaryActionable']}/{what_if_split_escalate_lanes_signals['secondaryActionable']})",
         f"- WHAT-IF SPLIT ESC COOL: **{what_if_split_esc_cool}** ({what_if_split_esc_cool_signals['reason']}; flag={what_if_split_esc_cool_signals['flagName']} enabled={what_if_split_esc_cool_signals['flagEnabled']} active={what_if_split_esc_cool_signals['active']} prior={what_if_split_esc_cool_signals['priorSplitEscalate']}:{what_if_split_esc_cool_signals['priorCooloff']})",
+        f"- WHAT-IF SPLIT ESC STATE: **{what_if_split_esc_state}** ({what_if_split_esc_state_signals['reason']}; escalate={what_if_split_esc_state_signals['splitEscalate']} cool={what_if_split_esc_state_signals['splitEscCool']} cooling={what_if_split_esc_state_signals['cooling']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",

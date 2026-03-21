@@ -1439,3 +1439,17 @@ Compact decision memory for AI context efficiency.
 - Rule locked: `ON` => cooloff `0`; prior `ON` then current `OFF` => `1`; continuing `OFF` with prior cooloff => increment.
 - Regression expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` (schema+markdown assertions and direct helper lifecycle tests).
 - Backlog sync: `WHAT-IF SPLIT COOLOFF` marked done in `TASKS.md` and `POST_RC_BACKLOG.md`.
+
+## 2026-03-22 03:04 KST — Game Director Cycle AC closure (`WHAT-IF SPLIT ESC STATE`)
+- Action/TASK/Post-RC queues were fully checked, so Game Director review cycle executed (3 ideas generated, 1 selected, minimal slice shipped).
+- Shipped low-risk UX slice: digest now emits `WHAT-IF SPLIT ESC STATE:ARMED|COOLING|IDLE` with lifecycle signals (`splitEscalate`, `splitEscCool`, `cooling`, `reason`) for faster escalation triage.
+- Code changes:
+  - `scripts/weekly_portal_prompt_readability_drift.py`: added `what_if_split_escalate_state_from_signals(...)`; payload adds `whatIfSplitEscState` + `whatIfSplitEscStateSignals`; markdown adds `WHAT-IF SPLIT ESC STATE` row.
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`: schema + markdown assertions extended for the new state token.
+- Verification passed:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 60`
+- Backlog injection (Cycle AC):
+  1) ✅ `WHAT-IF SPLIT ESC STATE` (implemented this cycle)
+  2) ⏳ `WHAT-IF SPLIT ESC PRESSURE` (flagged follow-up)
+  3) ⏳ `WHAT-IF SPLIT ESC RECOVER` (flagged follow-up)
