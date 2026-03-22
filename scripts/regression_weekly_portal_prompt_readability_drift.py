@@ -22,6 +22,7 @@ from weekly_portal_prompt_readability_drift import (
     route_pulse_link_streak_from_prior,
     route_pulse_link_mode_from_signals,
     route_pulse_link_mode_drift_from_prior,
+    route_pulse_link_mode_stability_streak_from_prior,
     action_pace_window_confidence_from_signals,
     pace_drift_from_prior,
     sandbox_cooloff_from_prior,
@@ -946,6 +947,14 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert isinstance(payload.get("routePulseLinkModeStabilityStreak"), int), payload
+        assert set(payload.get("routePulseLinkModeStabilityStreakSignals", {}).keys()) == {
+            "currentMode",
+            "priorMode",
+            "priorStreak",
+            "priorLoaded",
+            "reason",
+        }, payload
         assert isinstance(payload.get("routePulseLinkModeWhy"), str), payload
         assert set(payload.get("routePulseLinkModeWhySignals", {}).keys()) == {
             "flagName",
@@ -1030,6 +1039,7 @@ def main() -> int:
         assert "ROUTE PULSE LINK STREAK" in md_text
         assert "ROUTE PULSE LINK MODE" in md_text
         assert "ROUTE PULSE LINK MODE Δ" in md_text
+        assert "ROUTE PULSE LINK MODE STREAK" in md_text
         assert "ROUTE PULSE LINK MODE WHY" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
@@ -1186,6 +1196,25 @@ def main() -> int:
         )
         assert route_pulse_mode_drift_up == 1, (route_pulse_mode_drift_up, route_pulse_mode_drift_up_signals)
         assert route_pulse_mode_drift_up_signals["reason"] == "mode-intensified", route_pulse_mode_drift_up_signals
+
+        route_pulse_mode_streak_fresh, route_pulse_mode_streak_fresh_signals = route_pulse_link_mode_stability_streak_from_prior(
+            current_route_pulse_link_mode="IDLE",
+            prior_json_path=repo / "missing-route-pulse-mode-streak-prior.json",
+        )
+        assert route_pulse_mode_streak_fresh == 1, (route_pulse_mode_streak_fresh, route_pulse_mode_streak_fresh_signals)
+        assert route_pulse_mode_streak_fresh_signals["reason"] == "no-prior-mode", route_pulse_mode_streak_fresh_signals
+
+        route_pulse_mode_streak_prior = repo / "prior-route-pulse-mode-streak.json"
+        route_pulse_mode_streak_prior.write_text(
+            json.dumps({"routePulseLinkMode": "SURGE", "routePulseLinkModeStabilityStreak": 4}),
+            encoding="utf-8",
+        )
+        route_pulse_mode_streak_up, route_pulse_mode_streak_up_signals = route_pulse_link_mode_stability_streak_from_prior(
+            current_route_pulse_link_mode="SURGE",
+            prior_json_path=route_pulse_mode_streak_prior,
+        )
+        assert route_pulse_mode_streak_up == 5, (route_pulse_mode_streak_up, route_pulse_mode_streak_up_signals)
+        assert route_pulse_mode_streak_up_signals["reason"] == "mode-stable-extended", route_pulse_mode_streak_up_signals
 
         pace_conf_high, pace_conf_high_signals = action_pace_window_confidence_from_signals(
             action_pace_window="HOLD",

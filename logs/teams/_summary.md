@@ -1968,3 +1968,7 @@ Compact decision memory for AI context efficiency.
 - New digest contract: JSON emits `routePulseLinkModeWhy` + `routePulseLinkModeWhySignals`, markdown includes `ROUTE PULSE LINK MODE WHY` with mode/link/drift/streak diagnostics (`DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY`).
 - Verification refreshed and passing: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Cycle BE backlog now tracks remaining follow-ups: `ROUTE PULSE LINK MODE STREAK:<n>` and flagged detailed prompt parity cue `ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE`.
+- 2026-03-23 08:04 KST: Closed Cycle BE Systems/QA item by shipping `ROUTE PULSE LINK MODE STREAK:<n>` across digest windows.
+- New digest contract: JSON adds `routePulseLinkModeStabilityStreak` + `routePulseLinkModeStabilityStreakSignals`; markdown adds `ROUTE PULSE LINK MODE STREAK` with current/prior mode context.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Backlog state: Cycle BE now has one unchecked item left — flagged detailed portal pulse-mode cue (`ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE`).

@@ -1119,3 +1119,7 @@
 - Completed: Added flagged digest token `ROUTE PULSE LINK MODE WHY:<short>` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY`).
 - Evidence: weekly drift regression PASS + digest generation PASS.
 - Follow-up: Cycle BE remaining queued items are `ROUTE PULSE LINK MODE STREAK:<n>` and detailed prompt parity cue.
+### 2026-03-23 08:04 KST — Design readability note
+- Added `ROUTE PULSE LINK MODE STREAK` markdown line to keep cadence persistence glanceable without widening existing token payload.
+- Decision: numeric streak is sufficient; no new legend needed because mode semantics already established.
+- Detailed portal prompt parity (`ROUTE PULSE MODE:...`) remains queued as next UI-facing step.

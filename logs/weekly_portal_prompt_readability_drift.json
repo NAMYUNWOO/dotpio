@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T22:34:09.323788Z",
+  "generatedAt": "2026-03-22T23:05:01.383633Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -344,15 +344,23 @@
     "priorLoaded": true,
     "reason": "mode-stable"
   },
-  "routePulseLinkModeWhy": "LINK QUIET",
+  "routePulseLinkModeStabilityStreak": 2,
+  "routePulseLinkModeStabilityStreakSignals": {
+    "currentMode": "IDLE",
+    "priorMode": "IDLE",
+    "priorStreak": 0,
+    "priorLoaded": true,
+    "reason": "mode-stable-extended"
+  },
+  "routePulseLinkModeWhy": "FLAG OFF",
   "routePulseLinkModeWhySignals": {
     "flagName": "DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY",
-    "flagEnabled": true,
+    "flagEnabled": false,
     "routePulseLinkMode": "IDLE",
     "routePulseLink": "OFF",
     "routePulseLinkModeDrift": 0,
     "routePulseLinkStreak": 0,
-    "reason": "link-disabled"
+    "reason": "flag-disabled"
   },
   "actionPaceWhy": "FLAG OFF",
   "actionPaceWhySignals": {
@@ -1125,6 +1133,114 @@
     }
   ],
   "commits": [
+    {
+      "sha": "0381cbf06e2a0f1b9bca34b749ab1242e8c55d2b",
+      "shortSha": "0381cbf",
+      "author": "yunwoo",
+      "subject": "feat(digest): add route pulse-link mode why token (cycle BE)",
+      "committedAt": "2026-03-22T22:34:54Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      },
+      "routeVibeEdits": {
+        "added": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "removed": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "net": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        }
+      }
+    },
     {
       "sha": "31d09e6842b61dfa4ca0118f84933fd12c6e7e6e",
       "shortSha": "31d09e6",
@@ -13880,115 +13996,6 @@
           "ALT PLAN:": 0,
           "ENTER:JUMP": 2,
           "COACH:": 4
-        }
-      },
-      "routeVibeEdits": {
-        "added": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "removed": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "net": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        }
-      }
-    },
-    {
-      "sha": "da950d42fbb9a288c41e212952b37954f5a17279",
-      "shortSha": "da950d4",
-      "author": "yunwoo",
-      "subject": "feat: add route-tag density ledger by portal graph depth",
-      "committedAt": "2026-03-20T18:07:07Z",
-      "changedFiles": [
-        "POST_RC_BACKLOG.md",
-        "logs/playtests/route_tag_density_ledger.json",
-        "logs/playtests/route_tag_density_ledger.md",
-        "logs/playtests/route_tag_distribution.md",
-        "logs/teams/_summary.md",
-        "logs/teams/ai-content.md",
-        "logs/teams/combat.md",
-        "logs/teams/design.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "logs/teams/ux.md",
-        "logs/teams/world.md",
-        "scripts/check_route_tag_density_ledger.lua",
-        "scripts/regression_route_tag_density_ledger.lua",
-        "src/route_tag_density_ledger.lua"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
         }
       },
       "routeVibeEdits": {

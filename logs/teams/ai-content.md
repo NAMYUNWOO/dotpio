@@ -1080,3 +1080,7 @@
 - Completed: Added flagged digest token `ROUTE PULSE LINK MODE WHY:<short>` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY`).
 - Evidence: weekly drift regression PASS + digest generation PASS.
 - Follow-up: Cycle BE remaining queued items are `ROUTE PULSE LINK MODE STREAK:<n>` and detailed prompt parity cue.
+### 2026-03-23 08:04 KST — AI content lane sync (no schema break)
+- Confirmed new digest streak token is additive and backward-compatible (`routePulseLinkModeStabilityStreak*`).
+- No prompt-generation contract changes required in this cycle.
+- Keep detailed portal pulse-mode cue queued for next cross-lane parity pass.

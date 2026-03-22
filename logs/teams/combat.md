@@ -1051,3 +1051,7 @@
 - Completed: Added flagged digest token `ROUTE PULSE LINK MODE WHY:<short>` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY`).
 - Evidence: weekly drift regression PASS + digest generation PASS.
 - Follow-up: Cycle BE remaining queued items are `ROUTE PULSE LINK MODE STREAK:<n>` and detailed prompt parity cue.
+### 2026-03-23 08:04 KST — Combat lane acknowledgment
+- Consumed digest improvement: mode-stability streak helps correlate cadence pressure persistence with combat pulse trend reviews.
+- Combat systems unchanged in this slice; no regression impact beyond digest parser assertions.
+- Continue monitoring pulse-mode persistence for future combat readability tuning.

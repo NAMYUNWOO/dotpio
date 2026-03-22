@@ -1705,3 +1705,7 @@
 - Completed: Added flagged digest token `ROUTE PULSE LINK MODE WHY:<short>` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY`).
 - Evidence: weekly drift regression PASS + digest generation PASS.
 - Follow-up: Cycle BE remaining queued items are `ROUTE PULSE LINK MODE STREAK:<n>` and detailed prompt parity cue.
+### 2026-03-23 08:04 KST — Cycle BE stability streak shipped
+- Completed vertical slice: `ROUTE PULSE LINK MODE STREAK:<n>` persisted across weekly digest windows.
+- Implementation: added `route_pulse_link_mode_stability_streak_from_prior()` with prior JSON carry-forward (`routePulseLinkModeStabilityStreak`).
+- Follow-up: remaining BE backlog item is detailed portal prompt parity token (`ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE`).

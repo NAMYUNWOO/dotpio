@@ -2186,3 +2186,7 @@
 - Completed: Added flagged digest token `ROUTE PULSE LINK MODE WHY:<short>` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY`).
 - Evidence: weekly drift regression PASS + digest generation PASS.
 - Follow-up: Cycle BE remaining queued items are `ROUTE PULSE LINK MODE STREAK:<n>` and detailed prompt parity cue.
+### 2026-03-23 08:04 KST — Regression expansion for mode stability streak
+- Added payload schema assertions for `routePulseLinkModeStabilityStreak` and `routePulseLinkModeStabilityStreakSignals`.
+- Added unit coverage for no-prior (`1`, `no-prior-mode`) and stable extension (`prior 4 -> 5`, `mode-stable-extended`).
+- Verified via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).

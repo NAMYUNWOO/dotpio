@@ -1340,3 +1340,7 @@
 - Completed: Added flagged digest token `ROUTE PULSE LINK MODE WHY:<short>` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY`).
 - Evidence: weekly drift regression PASS + digest generation PASS.
 - Follow-up: Cycle BE remaining queued items are `ROUTE PULSE LINK MODE STREAK:<n>` and detailed prompt parity cue.
+### 2026-03-23 08:04 KST — UX digest readability follow-up
+- Weekly markdown digest now includes `ROUTE PULSE LINK MODE STREAK` with current/prior context and load-state.
+- Copy kept compact to preserve DOS-friendly scan order (`MODE`, `MODE Δ`, `MODE STREAK`, `MODE WHY`).
+- Next UX/world follow-up is detailed prompt parity token behind flag.
