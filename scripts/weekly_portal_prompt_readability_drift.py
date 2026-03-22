@@ -1212,6 +1212,77 @@ def route_pulse_link_confidence_from_signals(
     }
 
 
+def route_pulse_link_streak_from_prior(
+    *,
+    current_route_pulse_link: str,
+    prior_json_path: Path,
+) -> tuple[int, dict[str, str | int | bool]]:
+    """Track consecutive non-OFF route pulse link windows for persistence triage."""
+    current_link = str(current_route_pulse_link).upper()
+    prior_link = "OFF"
+    prior_streak = 0
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_link = str(prior.get("routePulseLink", prior_link)).upper()
+            prior_streak = int(prior.get("routePulseLinkStreak", prior_streak))
+            prior_loaded = True
+        except (json.JSONDecodeError, OSError, ValueError, TypeError):
+            prior_loaded = False
+
+    if current_link == "OFF":
+        streak = 0
+        reason = "link-off-reset"
+    elif prior_loaded and current_link == prior_link:
+        streak = max(1, prior_streak) + 1
+        reason = "link-persistence-extended"
+    else:
+        streak = 1
+        reason = "new-link-cycle"
+
+    return streak, {
+        "currentRoutePulseLink": current_link,
+        "priorRoutePulseLink": prior_link,
+        "priorStreak": prior_streak,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
+def route_pulse_link_mode_from_signals(
+    *,
+    route_pulse_link: str,
+    route_pulse_link_streak: int,
+    action_pace_alt_window_pulse_drift: int,
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Classify pulse-link persistence into an operator-facing intensity mode."""
+    link = str(route_pulse_link).upper()
+    streak = max(0, int(route_pulse_link_streak))
+    drift = int(action_pace_alt_window_pulse_drift)
+
+    if link == "OFF":
+        mode = "IDLE"
+        reason = "link-disabled"
+    elif link == "SHARP" and (drift > 0 or streak >= 3):
+        mode = "SURGE"
+        reason = "sharp-link-escalating-or-persistent"
+    elif streak >= 2:
+        mode = "SUSTAIN"
+        reason = "link-persistence-building"
+    else:
+        mode = "IDLE"
+        reason = "new-link-cycle"
+
+    return mode, {
+        "routePulseLink": link,
+        "routePulseLinkStreak": streak,
+        "actionPaceAltWindowPulseDrift": drift,
+        "reason": reason,
+    }
+
+
 def route_action_guardrail_from_signals(*, drift_risk: str, route_action_confidence: str) -> tuple[str, dict[str, str | bool]]:
     lock = drift_risk == "HIGH" and route_action_confidence == "LOW"
     token = "LOCK" if lock else "SOFT"
@@ -4634,6 +4705,15 @@ def main() -> int:
         route_pulse_link_signals=route_pulse_link_signals,
         action_pace_alt_window_confidence=action_pace_alt_window_confidence,
     )
+    route_pulse_link_streak, route_pulse_link_streak_signals = route_pulse_link_streak_from_prior(
+        current_route_pulse_link=route_pulse_link,
+        prior_json_path=args.out_json,
+    )
+    route_pulse_link_mode, route_pulse_link_mode_signals = route_pulse_link_mode_from_signals(
+        route_pulse_link=route_pulse_link,
+        route_pulse_link_streak=route_pulse_link_streak,
+        action_pace_alt_window_pulse_drift=action_pace_alt_window_pulse_drift,
+    )
     action_pace_why, action_pace_why_signals = action_pace_why_from_signals(
         action_pace=action_pace,
         action_guard=action_guard,
@@ -5060,6 +5140,10 @@ def main() -> int:
         "routePulseLinkSignals": route_pulse_link_signals,
         "routePulseLinkConfidence": route_pulse_link_confidence,
         "routePulseLinkConfidenceSignals": route_pulse_link_confidence_signals,
+        "routePulseLinkStreak": route_pulse_link_streak,
+        "routePulseLinkStreakSignals": route_pulse_link_streak_signals,
+        "routePulseLinkMode": route_pulse_link_mode,
+        "routePulseLinkModeSignals": route_pulse_link_mode_signals,
         "actionPaceWhy": action_pace_why,
         "actionPaceWhySignals": action_pace_why_signals,
         "whatIfAlt": what_if_alt,
@@ -5270,6 +5354,8 @@ def main() -> int:
         f"- ACTION PACE ALT WINDOW PULSE Δ: **{action_pace_alt_window_pulse_drift:+d}** ({action_pace_alt_window_pulse_drift_signals['reason']}; current={action_pace_alt_window_pulse_drift_signals['currentPulse']}({action_pace_alt_window_pulse_drift_signals['currentScore']}) prior={action_pace_alt_window_pulse_drift_signals['priorPulse']}({action_pace_alt_window_pulse_drift_signals['priorScore']}) loaded={action_pace_alt_window_pulse_drift_signals['priorLoaded']})",
         f"- ROUTE PULSE LINK: **{route_pulse_link}** ({route_pulse_link_signals['reason']}; flag={route_pulse_link_signals['flagName']} enabled={route_pulse_link_signals['flagEnabled']} pulse={route_pulse_link_signals['actionPaceAltWindowPulse']} drift={route_pulse_link_signals['actionPaceAltWindowPulseDrift']:+d} fit={route_pulse_link_signals['actionPaceAltWindowFit']})",
         f"- ROUTE PULSE LINK CONF: **{route_pulse_link_confidence}** ({route_pulse_link_confidence_signals['reason']}; link={route_pulse_link_confidence_signals['routePulseLink']} pulse={route_pulse_link_confidence_signals['actionPaceAltWindowPulse']} drift={route_pulse_link_confidence_signals['actionPaceAltWindowPulseDrift']:+d} fit={route_pulse_link_confidence_signals['actionPaceAltWindowFit']} altConf={route_pulse_link_confidence_signals['actionPaceAltWindowConfidence']})",
+        f"- ROUTE PULSE LINK STREAK: **{route_pulse_link_streak}** ({route_pulse_link_streak_signals['reason']}; current={route_pulse_link_streak_signals['currentRoutePulseLink']} prior={route_pulse_link_streak_signals['priorRoutePulseLink']} priorStreak={route_pulse_link_streak_signals['priorStreak']} loaded={route_pulse_link_streak_signals['priorLoaded']})",
+        f"- ROUTE PULSE LINK MODE: **{route_pulse_link_mode}** ({route_pulse_link_mode_signals['reason']}; link={route_pulse_link_mode_signals['routePulseLink']} streak={route_pulse_link_mode_signals['routePulseLinkStreak']} drift={route_pulse_link_mode_signals['actionPaceAltWindowPulseDrift']:+d})",
         f"- ACTION PACE WHY: **{action_pace_why}** ({action_pace_why_signals['reason']}; flag={action_pace_why_signals['flagName']} enabled={action_pace_why_signals['flagEnabled']} pace={action_pace_why_signals['actionPace']} guard={action_pace_why_signals['actionGuard']} stability={action_pace_why_signals['actionStability']} lag={action_pace_why_signals['pressureLag']} drift={action_pace_why_signals['paceDrift']:+d})",
         f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
         f"- WHAT-IF CONF: **{what_if_confidence}** ({what_if_confidence_signals['reason']}; delta={what_if_confidence_signals['deltaRisk']} routeConf={what_if_confidence_signals['routeActionConfidence']} current={what_if_confidence_signals['currentLane']} alt={what_if_confidence_signals['altLane']})",

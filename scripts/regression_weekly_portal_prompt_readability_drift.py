@@ -19,6 +19,8 @@ from weekly_portal_prompt_readability_drift import (
     action_pace_alt_window_step_glyph_from_signals,
     action_pace_alt_window_pulse_drift_from_prior,
     action_pace_alt_window_from_signals,
+    route_pulse_link_streak_from_prior,
+    route_pulse_link_mode_from_signals,
     action_pace_window_confidence_from_signals,
     pace_drift_from_prior,
     sandbox_cooloff_from_prior,
@@ -919,6 +921,21 @@ def main() -> int:
             "actionPaceAltWindowConfidence",
             "reason",
         }, payload
+        assert isinstance(payload.get("routePulseLinkStreak"), int), payload
+        assert set(payload.get("routePulseLinkStreakSignals", {}).keys()) == {
+            "currentRoutePulseLink",
+            "priorRoutePulseLink",
+            "priorStreak",
+            "priorLoaded",
+            "reason",
+        }, payload
+        assert payload.get("routePulseLinkMode") in {"IDLE", "SUSTAIN", "SURGE"}, payload
+        assert set(payload.get("routePulseLinkModeSignals", {}).keys()) == {
+            "routePulseLink",
+            "routePulseLinkStreak",
+            "actionPaceAltWindowPulseDrift",
+            "reason",
+        }, payload
         assert isinstance(payload.get("actionPaceWhy"), str), payload
         assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
             "flagName",
@@ -990,6 +1007,8 @@ def main() -> int:
         assert "ACTION PACE ALT WINDOW PULSE Δ" in md_text
         assert "ROUTE PULSE LINK" in md_text
         assert "ROUTE PULSE LINK CONF" in md_text
+        assert "ROUTE PULSE LINK STREAK" in md_text
+        assert "ROUTE PULSE LINK MODE" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
@@ -1094,6 +1113,41 @@ def main() -> int:
         )
         assert pace_drift_up == 2, (pace_drift_up, pace_drift_up_signals)
         assert pace_drift_up_signals["reason"] == "pace-accelerated", pace_drift_up_signals
+
+        route_pulse_streak_reset, route_pulse_streak_reset_signals = route_pulse_link_streak_from_prior(
+            current_route_pulse_link="OFF",
+            prior_json_path=repo / "missing-route-pulse-prior.json",
+        )
+        assert route_pulse_streak_reset == 0, (route_pulse_streak_reset, route_pulse_streak_reset_signals)
+        assert route_pulse_streak_reset_signals["reason"] == "link-off-reset", route_pulse_streak_reset_signals
+
+        route_pulse_prior = repo / "prior-route-pulse.json"
+        route_pulse_prior.write_text(
+            json.dumps({"routePulseLink": "SHARP", "routePulseLinkStreak": 2}),
+            encoding="utf-8",
+        )
+        route_pulse_streak_up, route_pulse_streak_up_signals = route_pulse_link_streak_from_prior(
+            current_route_pulse_link="SHARP",
+            prior_json_path=route_pulse_prior,
+        )
+        assert route_pulse_streak_up == 3, (route_pulse_streak_up, route_pulse_streak_up_signals)
+        assert route_pulse_streak_up_signals["reason"] == "link-persistence-extended", route_pulse_streak_up_signals
+
+        route_pulse_mode_surge, route_pulse_mode_surge_signals = route_pulse_link_mode_from_signals(
+            route_pulse_link="SHARP",
+            route_pulse_link_streak=3,
+            action_pace_alt_window_pulse_drift=1,
+        )
+        assert route_pulse_mode_surge == "SURGE", (route_pulse_mode_surge, route_pulse_mode_surge_signals)
+        assert route_pulse_mode_surge_signals["reason"] == "sharp-link-escalating-or-persistent", route_pulse_mode_surge_signals
+
+        route_pulse_mode_sustain, route_pulse_mode_sustain_signals = route_pulse_link_mode_from_signals(
+            route_pulse_link="SOFT",
+            route_pulse_link_streak=2,
+            action_pace_alt_window_pulse_drift=0,
+        )
+        assert route_pulse_mode_sustain == "SUSTAIN", (route_pulse_mode_sustain, route_pulse_mode_sustain_signals)
+        assert route_pulse_mode_sustain_signals["reason"] == "link-persistence-building", route_pulse_mode_sustain_signals
 
         pace_conf_high, pace_conf_high_signals = action_pace_window_confidence_from_signals(
             action_pace_window="HOLD",

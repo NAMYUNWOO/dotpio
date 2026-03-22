@@ -1063,3 +1063,7 @@
 - Game Director Cycle BC ideation: (1) `ROUTE PULSE LINK CONF`, (2) compact portal pulse cue `PULSE LINK:S|H`, (3) pulse-link drift streak token.
 - Selected experiment: (1) confidence token, implemented as minimal vertical slice in weekly digest + regression.
 - Follow-up queue: keep (2)/(3) in backlog for next autonomous cycle.
+
+## 2026-03-23 06:01 KST
+- Added concise operator-facing vocabulary for route cadence persistence (`STREAK`) and posture (`MODE:IDLE|SUSTAIN|SURGE`).
+- Kept copy compact and deterministic for digest scanability.

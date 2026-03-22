@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-23 04:05 KST
+Last updated: 2026-03-23 06:01 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,11 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed Cycle BC remaining systems/qa task: weekly digest now emits `ROUTE PULSE LINK STREAK:<n>` with prior-window persistence signals.
+- Since actionable backlogs were fully checked after Cycle BC closure, executed Game Director Cycle BD (3 ideas -> 1 selected vertical slice).
+- Selected/shipped Cycle BD slice: weekly digest now emits `ROUTE PULSE LINK MODE:IDLE|SUSTAIN|SURGE` from link + streak + pulse-drift context.
+- Injected Cycle BD follow-ups in backlog: `ROUTE PULSE LINK MODE Δ:+n|-n` and flagged compact portal parity cue `PULSE MODE:I|S|X`.
+- Verification artifacts refreshed and passing: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Cycle BA Systems/QA slice shipped: weekly digest now emits `ACTION PACE ALT WINDOW STEP Δ:+n|-n` by comparing current step token against prior digest snapshot.
 - Digest payload now persists step drift fields (`actionPaceAltWindowStepDrift`, `actionPaceAltWindowStepDriftSignals`) and markdown summary includes signed drift with score breakdown.
 - Regression coverage expanded for step drift: markdown token presence + prior snapshot drift math checks (no-prior baseline, escalated delta case).

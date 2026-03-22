@@ -1322,3 +1322,7 @@
   - Kept detailed prompt unchanged so existing copy-budget and readability contracts stay stable.
 - Follow-up:
   - Next highest-priority unchecked item: `ROUTE PULSE LINK STREAK:<n>` weekly digest persistence triage token.
+
+## 2026-03-23 06:01 KST
+- Readability stack now includes `ROUTE PULSE LINK -> CONF -> STREAK -> MODE` ordering in weekly digest for faster operator cadence scanning.
+- Next UX parity task: compact portal prompt mode glyph/token behind flag.

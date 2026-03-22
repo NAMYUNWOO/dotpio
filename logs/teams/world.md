@@ -1094,3 +1094,8 @@
   - Compact portal prompt now surfaces soft/sharp cadence handoff as a route-facing token without touching map routing logic.
 - Follow-up:
   - Pair with digest-level `ROUTE PULSE LINK STREAK` to track persistence over windows.
+
+## 2026-03-23 06:01 KST
+- Consumed digest-side cadence readability upgrade: `ROUTE PULSE LINK STREAK` and `ROUTE PULSE LINK MODE` now available for portal route triage.
+- No map/portal topology data changes in this slice.
+- Follow-up queued: compact in-run parity cue `PULSE MODE:I|S|X` behind flag.

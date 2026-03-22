@@ -1,11 +1,11 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-22T18:35:52.129504Z
+- GeneratedAt(UTC): 2026-03-22T21:06:11.385287Z
 - Status: **OK**
-- Window: last 30 days (max 200 commits)
-- Checked commits: 200
-- Portal prompt commits: 21
-- Dominant mode commits: compact=2, detailed=5, neutral=14
+- Window: last 7 days (max 120 commits)
+- Checked commits: 120
+- Portal prompt commits: 22
+- Dominant mode commits: compact=2, detailed=5, neutral=15
 - MODE TREND: **DETAILED**
 - PRESSURE BAND: **HIGH** (edits +23 / -8 / net 15)
 - DRIFT RISK: **HIGH** (score=19 | imbalance=4 | pressure=15)
@@ -27,9 +27,9 @@
 - SANDBOX READY: **PRIMED** (preconditions-forming; sandbox=OFF conf=LOW guard=LOCK lock=Falsex0)
 - TARGET SHIFT: **NONE->NONE** (target-stable; changed=False priorLoaded=True)
 - SANDBOX COOLOFF: **0** (no-prior-on-cycle; active=False prior=OFF:0)
-- DRIFT MOMENTUM: **COOLING** (recent=0.0 older=3.7 delta=-3.7)
+- DRIFT MOMENTUM: **COOLING** (recent=0.0 older=3.364 delta=-3.364)
 - ACTION STABILITY: **WATCH** (retune-watch-needed; conf=LOW vol=SWING momentum=COOLING)
-- PRESSURE LAG: **SLOW** (churn=15 momentum=COOLING |Δ|=3.7)
+- PRESSURE LAG: **SLOW** (churn=15 momentum=COOLING |Δ|=3.364)
 - ACTION PACE: **BRAKE** (guard-locked; guard=LOCK stability=WATCH lag=SLOW)
 - PACE DRIFT: **+0** (pace-stable; current=BRAKE(-1) prior=BRAKE(-1) loaded=True)
 - ACTION PACE WINDOW: **CLOSE** (guard-or-brake-closing-window; pace=BRAKE guard=LOCK drift=+0)
@@ -41,7 +41,14 @@
 - ACTION PACE ALT WINDOW URGENCY: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY enabled=False alt=FLAG OFF conf=LOW fit=OFF why=FLAG OFF)
 - ACTION PACE ALT WINDOW URGENCY Δ: **+0** (urgency-stable; current=OFF(0) prior=OFF(0) loaded=True)
 - ACTION PACE ALT WINDOW STEP: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP enabled=False alt=FLAG OFF conf=LOW fit=OFF urgency=OFF sandbox=OFF target=NONE ready=PRIMED)
+- ACTION PACE ALT WINDOW STEP Δ: **+0** (step-stable; current=FLAG OFF(0) prior=FLAG OFF(0) loaded=True)
 - ACTION PACE ALT WINDOW STEP GLYPH: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH enabled=False step=FLAG OFF urgency=OFF fit=OFF)
+- ACTION PACE ALT WINDOW PULSE: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_PULSE enabled=False urgency=OFF fit=OFF conf=LOW)
+- ACTION PACE ALT WINDOW PULSE Δ: **+0** (pulse-stable; current=OFF(0) prior=OFF(0) loaded=True)
+- ROUTE PULSE LINK: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK enabled=False pulse=OFF drift=+0 fit=OFF)
+- ROUTE PULSE LINK CONF: **LOW** (link-disabled; link=OFF pulse=OFF drift=+0 fit=OFF altConf=LOW)
+- ROUTE PULSE LINK STREAK: **0** (link-off-reset; current=OFF prior=OFF priorStreak=0 loaded=True)
+- ROUTE PULSE LINK MODE: **IDLE** (link-disabled; link=OFF streak=0 drift=+0)
 - ACTION PACE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_WHY enabled=False pace=BRAKE guard=LOCK stability=WATCH lag=SLOW drift=+0)
 - WHAT-IF: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_ALT enabled=False current=PORTAL alt=ALT risk=19->16)
 - WHAT-IF CONF: **LOW** (flag-disabled; delta=-3 routeConf=LOW current=PORTAL alt=ALT)
@@ -137,6 +144,7 @@
 - `NEXT:`, `P:`, `NEXT ROUTE:`, `PRESSURE:`, `ENTER:JUMP`, `COACH:`
 
 ## Commit-level digest
+- `007466c` feat(portal): add compact pulse-link cue behind experiment flag | mode=neutral | compact net=0 detailed net=0 shared net=0
 - `ced8caa` feat(portal): add drift glyph escalation cue behind experiment flag | mode=neutral | compact net=0 detailed net=0 shared net=0
 - `e30c798` feat: add route-vibe drift alarm token experiment | mode=neutral | compact net=0 detailed net=0 shared net=0
 - `84fca67` feat(portal): add route-vibe resilience streak token behind flag | mode=neutral | compact net=0 detailed net=0 shared net=0

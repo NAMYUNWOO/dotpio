@@ -1101,3 +1101,7 @@
 - Decision: Keep token compact and flag-gated so DOS-width scanability improves without forcing wider prompt defaults.
 - Evidence: `src/portal.lua`, `scripts/regression_portal_prompt_pulse_link.lua`.
 - Follow-up: Align next digest streak token semantics with in-run cue (`S/H`) to avoid operator/player vocabulary drift.
+
+## 2026-03-23 06:01 KST
+- Design review: `ROUTE PULSE LINK MODE` keeps three-band semantics (IDLE/SUSTAIN/SURGE) to stay glanceable in DOS markdown digest.
+- Deferred compact in-run `PULSE MODE` cue to next slice for parity testing.

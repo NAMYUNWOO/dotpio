@@ -2157,3 +2157,8 @@
   - Regression confirms compact prompt emits `PULSE LINK:H` under high-pressure and `PULSE LINK:S` under low-pressure transition contexts.
 - Follow-up:
   - Extend weekly digest regression once streak token lands.
+
+## 2026-03-23 06:01 KST
+- Regression coverage extended for route pulse-link persistence and mode classification.
+- Added payload schema checks for `routePulseLinkStreak`, `routePulseLinkMode`, signal contracts, markdown row assertions, and helper branch tests.
+- Verification: weekly digest regression + generation PASS.

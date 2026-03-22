@@ -1683,3 +1683,9 @@
   - Scoped change to compact fallback path only to preserve existing detailed prompt schema.
 - Follow-up:
   - Next systems/qa slice: streak persistence token in weekly digest (`ROUTE PULSE LINK STREAK:<n>`).
+
+## 2026-03-23 06:01 KST
+- Completed Cycle BC backlog closure: weekly digest now tracks `ROUTE PULSE LINK STREAK:<n>` persistence across windows.
+- Executed Game Director Cycle BD (3 ideas) and shipped selected vertical slice: `ROUTE PULSE LINK MODE:IDLE|SUSTAIN|SURGE` from link+streak+pulse drift.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: implement `ROUTE PULSE LINK MODE Δ:+n|-n` prior-window drift token.
