@@ -13,6 +13,7 @@ from weekly_portal_prompt_readability_drift import (
     action_pace_alt_window_fit_from_signals,
     action_pace_alt_window_why_from_signals,
     action_pace_alt_window_urgency_from_signals,
+    action_pace_alt_window_urgency_drift_from_prior,
     action_pace_alt_window_from_signals,
     action_pace_window_confidence_from_signals,
     pace_drift_from_prior,
@@ -919,6 +920,7 @@ def main() -> int:
         assert "ACTION PACE ALT WINDOW FIT" in md_text
         assert "ACTION PACE ALT WINDOW WHY" in md_text
         assert "ACTION PACE ALT WINDOW URGENCY" in md_text
+        assert "ACTION PACE ALT WINDOW URGENCY Δ" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
@@ -1145,6 +1147,22 @@ def main() -> int:
             )
             assert alt_urgency_later == "LATER", (alt_urgency_later, alt_urgency_later_signals)
             assert alt_urgency_later_signals["reason"] == "fallback-not-actionable-yet", alt_urgency_later_signals
+
+            urgency_drift_zero, urgency_drift_zero_signals = action_pace_alt_window_urgency_drift_from_prior(
+                current_action_pace_alt_window_urgency="SOON",
+                prior_json_path=repo / "missing-urgency-prior.json",
+            )
+            assert urgency_drift_zero == 0, (urgency_drift_zero, urgency_drift_zero_signals)
+            assert urgency_drift_zero_signals["reason"] == "no-prior-urgency-band", urgency_drift_zero_signals
+
+            urgency_prior = repo / "prior-alt-urgency.json"
+            urgency_prior.write_text(json.dumps({"actionPaceAltWindowUrgency": "LATER"}), encoding="utf-8")
+            urgency_drift_up, urgency_drift_up_signals = action_pace_alt_window_urgency_drift_from_prior(
+                current_action_pace_alt_window_urgency="NOW",
+                prior_json_path=urgency_prior,
+            )
+            assert urgency_drift_up == 2, (urgency_drift_up, urgency_drift_up_signals)
+            assert urgency_drift_up_signals["reason"] == "urgency-escalated", urgency_drift_up_signals
 
             if prior_alt_why_flag is None:
                 os.environ.pop("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY", None)

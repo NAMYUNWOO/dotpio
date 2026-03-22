@@ -1621,3 +1621,15 @@
 - Selected idea #1 and shipped `action_pace_alt_window_urgency_from_signals(...)` behind `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY`.
 - Wired payload fields `actionPaceAltWindowUrgency`/signals and markdown row `ACTION PACE ALT WINDOW URGENCY`.
 - Next hook: implement remaining Cycle AZ items (`URGENCY Δ`, `STEP`).
+
+## 2026-03-23 03:05:36 KST
+- Task: Add fallback urgency drift telemetry token for weekly portal readability digest.
+- Commit: HEAD (pending commit in this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added persisted token pair: `actionPaceAltWindowUrgencyDrift` + signals payload in digest JSON.
+  - Added markdown digest line `ACTION PACE ALT WINDOW URGENCY Δ` with current/prior urgency bands and loaded-state evidence.
+- Follow-up:
+  - Keep urgency-delta signal as input candidate for upcoming compact fallback-step recommendation token.

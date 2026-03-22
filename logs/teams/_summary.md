@@ -1910,3 +1910,6 @@ Compact decision memory for AI context efficiency.
 - 2026-03-23 02:36 KST: Ran Game Director review cycle after all prior backlog items were checked; generated three ideas and selected low-risk UX/systems experiment `ACTION PACE ALT WINDOW URGENCY`.
 - Implemented minimal vertical slice in weekly digest: new flagged token `ACTION PACE ALT WINDOW URGENCY:NOW|SOON|LATER` with payload + markdown + regression coverage.
 - Injected Cycle AZ backlog tasks (remaining unchecked): `ACTION PACE ALT WINDOW URGENCY Δ:+n|-n` and `ACTION PACE ALT WINDOW STEP:<verb>`.
+- Cycle AZ follow-up shipped: weekly portal readability digest now emits `ACTION PACE ALT WINDOW URGENCY Δ:+n|-n` using persisted urgency band scoring (`OFF=0/LATER=1/SOON=2/NOW=3`) against prior digest snapshot.
+- First-run behavior for urgency drift is stabilized to `Δ:+0` with `no-prior-urgency-band` reason when prior JSON is missing/unreadable.
+- Regression coverage expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` for markdown token presence and urgency-drift helper behavior (missing-prior + escalation path).

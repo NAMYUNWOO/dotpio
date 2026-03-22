@@ -2097,3 +2097,15 @@
 ## 2026-03-23 02:36 KST — Cycle AZ regression coverage
 - Added schema assertions for `actionPaceAltWindowUrgency` + signals and markdown assertion for `ACTION PACE ALT WINDOW URGENCY`.
 - Added unit checks for urgency mapping (`PROBE NOW` -> `NOW`, non-actionable fallback -> `LATER`).
+
+## 2026-03-23 03:05:36 KST
+- Task: Cycle AZ fallback urgency drift token (`ACTION PACE ALT WINDOW URGENCY Δ:+n|-n`) regression + digest wiring.
+- Commit: HEAD (pending commit in this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+- Decisions:
+  - Urgency-band drift now uses score mapping `OFF=0/LATER=1/SOON=2/NOW=3` and emits signed delta vs prior digest snapshot.
+  - Missing prior snapshot intentionally yields `Δ:+0` with `no-prior-urgency-band` reason to avoid false first-run spikes.
+- Follow-up:
+  - Next highest-priority unchecked item: Design/AI Content compact fallback step token (`ACTION PACE ALT WINDOW STEP:<verb>`).

@@ -1,9 +1,9 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-22T16:36:49.512300Z
+- GeneratedAt(UTC): 2026-03-22T18:06:06.540881Z
 - Status: **OK**
-- Window: last 7 days (max 120 commits)
-- Checked commits: 120
+- Window: last 14 days (max 200 commits)
+- Checked commits: 200
 - Portal prompt commits: 21
 - Dominant mode commits: compact=2, detailed=5, neutral=14
 - MODE TREND: **DETAILED**
@@ -34,8 +34,12 @@
 - PACE DRIFT: **+0** (pace-stable; current=BRAKE(-1) prior=BRAKE(-1) loaded=True)
 - ACTION PACE WINDOW: **CLOSE** (guard-or-brake-closing-window; pace=BRAKE guard=LOCK drift=+0)
 - ACTION PACE WINDOW CONF: **MID** (moderate-drift-continuity; window=CLOSE stability=WATCH continuity=STABLE drift=+0 loaded=True)
-- ACTION PACE ALT WINDOW: **WAIT SANDBOX** (sandbox-not-armed; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW enabled=True primary=CLOSE sandbox=OFF target=NONE ready=PRIMED)
-- ACTION PACE ALT WINDOW CONF: **LOW** (fallback-not-actionable; base=MID flag=True sandbox=OFF target=NONE ready=PRIMED)
+- ACTION PACE ALT WINDOW: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW enabled=False primary=CLOSE sandbox=OFF target=NONE ready=PRIMED)
+- ACTION PACE ALT WINDOW CONF: **LOW** (fallback-window-flag-disabled; base=MID flag=False sandbox=OFF target=NONE ready=PRIMED)
+- ACTION PACE ALT WINDOW FIT: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT enabled=False pressure=HIGH sandbox=OFF target=NONE ready=PRIMED)
+- ACTION PACE ALT WINDOW WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY enabled=False alt=FLAG OFF conf=LOW fit=OFF sandbox=OFF target=NONE ready=PRIMED)
+- ACTION PACE ALT WINDOW URGENCY: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY enabled=False alt=FLAG OFF conf=LOW fit=OFF why=FLAG OFF)
+- ACTION PACE ALT WINDOW URGENCY Δ: **+0** (urgency-stable; current=OFF(0) prior=OFF(0) loaded=True)
 - ACTION PACE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_WHY enabled=False pace=BRAKE guard=LOCK stability=WATCH lag=SLOW drift=+0)
 - WHAT-IF: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_ALT enabled=False current=PORTAL alt=ALT risk=19->16)
 - WHAT-IF CONF: **LOW** (flag-disabled; delta=-3 routeConf=LOW current=PORTAL alt=ALT)
