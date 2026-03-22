@@ -1326,3 +1326,8 @@
 ## 2026-03-23 06:01 KST
 - Readability stack now includes `ROUTE PULSE LINK -> CONF -> STREAK -> MODE` ordering in weekly digest for faster operator cadence scanning.
 - Next UX parity task: compact portal prompt mode glyph/token behind flag.
+
+## 2026-03-23 06:34 KST
+- UX decision: route pulse-link mode drift line placed adjacent to mode line for scan-order continuity.
+- Copy pattern uses signed delta + current/prior tuple to avoid ambiguity in operator handoff.
+- Follow-up: mirror semantics in player-facing compact cue only if DOS width stays within budget.

@@ -1038,3 +1038,8 @@
 ## 2026-03-23 06:01 KST
 - Lane sync: no combat mechanics changed.
 - New digest cadence tokens remain telemetry/readability-only and do not alter threat calculation.
+
+## 2026-03-23 06:34 KST
+- Cross-lane note: combat rules unchanged; digest-only cadence drift token piggybacks on existing pulse telemetry.
+- Verified no combat regression surface added by this slice.
+- Follow-up: monitor if future `PULSE MODE` portal cue should reflect combat pressure thresholds more explicitly.

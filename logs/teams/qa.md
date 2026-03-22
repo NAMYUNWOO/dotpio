@@ -2162,3 +2162,11 @@
 - Regression coverage extended for route pulse-link persistence and mode classification.
 - Added payload schema checks for `routePulseLinkStreak`, `routePulseLinkMode`, signal contracts, markdown row assertions, and helper branch tests.
 - Verification: weekly digest regression + generation PASS.
+
+## 2026-03-23 06:34 KST
+- Completed regression expansion for `ROUTE PULSE LINK MODE Δ`.
+- Added payload schema assertions for `routePulseLinkModeDrift` and `routePulseLinkModeDriftSignals`.
+- Added markdown assertion for `ROUTE PULSE LINK MODE Δ` and prior-window drift unit checks (`no-prior-mode`, `mode-intensified`).
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅

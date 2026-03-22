@@ -1956,3 +1956,8 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_portal_prompt_compact_mode.lua`
   - `DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_PROMPT=1 lua scripts/regression_portal_prompt_pulse_link.lua`
 - Remaining highest-priority unchecked item: `ROUTE PULSE LINK STREAK:<n>` (Systems/QA weekly digest persistence triage).
+
+- 2026-03-23 06:34 KST: Closed Cycle BD Systems/QA follow-up by shipping `ROUTE PULSE LINK MODE Δ:+n|-n` in weekly digest JSON+markdown.
+- Drift token uses prior-window score diff (`IDLE=0`, `SUSTAIN=1`, `SURGE=2`) with explicit signals (`current/prior`, `priorLoaded`, `reason`) for auditability.
+- Regression + artifact evidence refreshed and passing: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Backlog state: `ROUTE PULSE LINK MODE Δ` marked done in `TASKS.md` and `POST_RC_BACKLOG.md`; next unchecked item is flagged compact portal cue `PULSE MODE:I|S|X`.

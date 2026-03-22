@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T21:06:11.385287Z",
+  "generatedAt": "2026-03-22T21:33:57.500424Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -334,6 +334,15 @@
     "routePulseLinkStreak": 0,
     "actionPaceAltWindowPulseDrift": 0,
     "reason": "link-disabled"
+  },
+  "routePulseLinkModeDrift": 0,
+  "routePulseLinkModeDriftSignals": {
+    "currentMode": "IDLE",
+    "currentScore": 0,
+    "priorMode": "IDLE",
+    "priorScore": 0,
+    "priorLoaded": true,
+    "reason": "mode-stable"
   },
   "actionPaceWhy": "FLAG OFF",
   "actionPaceWhySignals": {
@@ -1106,6 +1115,114 @@
     }
   ],
   "commits": [
+    {
+      "sha": "c448accde5fbb62f7f578b917afd91c65db9513e",
+      "shortSha": "c448acc",
+      "author": "yunwoo",
+      "subject": "feat: add route pulse link streak and mode digest tokens",
+      "committedAt": "2026-03-22T21:07:13Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      },
+      "routeVibeEdits": {
+        "added": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "removed": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "net": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        }
+      }
+    },
     {
       "sha": "007466cd3b89ef8c22e40f5f0202f7b13670b9e8",
       "shortSha": "007466c",
@@ -13866,114 +13983,6 @@
           "ALT DELTA:": 0,
           "ALT PLAN:": 0,
           "ENTER:JUMP": 1,
-          "COACH:": 0
-        }
-      },
-      "routeVibeEdits": {
-        "added": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "removed": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "net": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        }
-      }
-    },
-    {
-      "sha": "5eef8b383acdc5e7ab73d4739f8efd06c166104d",
-      "shortSha": "5eef8b3",
-      "author": "yunwoo",
-      "subject": "feat: add hazard route tag callout and game director cycle D backlog",
-      "committedAt": "2026-03-20T16:35:20Z",
-      "changedFiles": [
-        "POST_RC_BACKLOG.md",
-        "logs/teams/_summary.md",
-        "logs/teams/ai-content.md",
-        "logs/teams/combat.md",
-        "logs/teams/design.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "logs/teams/ux.md",
-        "logs/teams/world.md",
-        "main.lua",
-        "maps/map_07.lua",
-        "scripts/regression_overclock_hazard.lua",
-        "src/hud.lua",
-        "src/overclock_hazard.lua"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
           "COACH:": 0
         }
       },

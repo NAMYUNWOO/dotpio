@@ -1105,3 +1105,8 @@
 ## 2026-03-23 06:01 KST
 - Design review: `ROUTE PULSE LINK MODE` keeps three-band semantics (IDLE/SUSTAIN/SURGE) to stay glanceable in DOS markdown digest.
 - Deferred compact in-run `PULSE MODE` cue to next slice for parity testing.
+
+## 2026-03-23 06:34 KST
+- Design sign-off: `ROUTE PULSE LINK MODE Δ:+n|-n` keeps compact numeric drift readability without adding a new categorical legend.
+- Kept explanation in markdown line to preserve glanceability (`current/prior` + score tuple).
+- Follow-up: validate symbol budget before shipping compact in-run `PULSE MODE:I|S|X` cue.

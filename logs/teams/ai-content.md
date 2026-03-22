@@ -1067,3 +1067,8 @@
 ## 2026-03-23 06:01 KST
 - Added concise operator-facing vocabulary for route cadence persistence (`STREAK`) and posture (`MODE:IDLE|SUSTAIN|SURGE`).
 - Kept copy compact and deterministic for digest scanability.
+
+## 2026-03-23 06:34 KST
+- Cross-lane sync: no generator/prompt schema changes required for `ROUTE PULSE LINK MODE Δ` digest slice.
+- Decision: keep drift token strictly operator-facing in weekly digest to avoid player-facing copy churn.
+- Follow-up: reassess AI-content lane only if portal mode cue introduces narrative wording conflicts.

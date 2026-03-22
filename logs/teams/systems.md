@@ -1689,3 +1689,9 @@
 - Executed Game Director Cycle BD (3 ideas) and shipped selected vertical slice: `ROUTE PULSE LINK MODE:IDLE|SUSTAIN|SURGE` from link+streak+pulse drift.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: implement `ROUTE PULSE LINK MODE Δ:+n|-n` prior-window drift token.
+
+## 2026-03-23 06:34 KST
+- Completed Cycle BD follow-up: added `ROUTE PULSE LINK MODE Δ:+n|-n` prior-window drift token in weekly digest.
+- Implementation: added `route_pulse_link_mode_drift_from_prior()` with score map (`IDLE=0`, `SUSTAIN=1`, `SURGE=2`) and wired JSON/markdown output.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅.
+- Follow-up: remaining unchecked item is compact portal parity cue `PULSE MODE:I|S|X` behind flag.
