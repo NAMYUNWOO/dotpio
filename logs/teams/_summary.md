@@ -1596,3 +1596,12 @@ Compact decision memory for AI context efficiency.
 - Implemented: New rearm classifier + payload + markdown digest + regression tests.
 - Verification: regression PASS, py_compile PASS, weekly digest generation PASS.
 - Backlog updated: Cycle AJ rearm prototype marked done; Cycle AK queued (rearm confidence/why/cooloff).
+
+## 2026-03-22 10:04 KST — Cycle AK: auto-rearm confidence token completed
+- Shipped `WHAT-IF SPLIT ESC RECOVER VETO REARM CONF:LOW|MID|HIGH` in weekly portal prompt readability digest.
+- Added `whatIfSplitEscRecoverVetoRearmConfidence` + `...Signals` to JSON payload and markdown row `WHAT-IF SPLIT ESC RECOVER VETO REARM CONF`.
+- Decision: confidence scoring anchors on rearm token + phase/pressure/cadence alignment (`WATCH+LATE+HIGH+STEADY => HIGH`, guarded/suppressed late-high contexts => MID, otherwise LOW).
+- Validation passed:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Next priority: Cycle AK item 2 — `WHAT-IF SPLIT ESC RECOVER VETO REARM WHY:<short>`.

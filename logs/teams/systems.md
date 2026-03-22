@@ -1352,3 +1352,9 @@
 - Implementation: Added `what_if_split_escalate_recover_veto_rearm_from_signals` and wired payload + markdown digest emission.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Add rearm confidence + rationale tokens before cooloff counter.
+
+## 2026-03-22 10:04 KST — Cycle AK: auto-rearm confidence token
+- Completed backlog item: `WHAT-IF SPLIT ESC RECOVER VETO REARM CONF:LOW|MID|HIGH`.
+- Implementation: added `what_if_split_escalate_recover_veto_rearm_confidence_from_signals()` and wired JSON/markdown digest output fields.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Follow-up: next unchecked item is rearm rationale token (`WHAT-IF SPLIT ESC RECOVER VETO REARM WHY:<short>`).

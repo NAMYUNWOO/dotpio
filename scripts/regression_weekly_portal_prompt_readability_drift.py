@@ -28,6 +28,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_release_tick_phase_from_signals,
     what_if_split_escalate_recover_veto_release_tick_cadence_from_signals,
     what_if_split_escalate_recover_veto_rearm_from_signals,
+    what_if_split_escalate_recover_veto_rearm_confidence_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -626,6 +627,15 @@ def main() -> int:
             "releaseCadence",
             "reason",
         }, payload
+        assert payload.get("whatIfSplitEscRecoverVetoRearmConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmConfidenceSignals", {}).keys()) == {
+            "splitEscRecoverVetoRearm",
+            "flagEnabled",
+            "releaseTickPhase",
+            "splitEscPressure",
+            "releaseCadence",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -725,6 +735,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE PHASE" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM CONF" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -1191,6 +1202,27 @@ def main() -> int:
                                 )
                                 assert veto_rearm_decay == "OFF", (veto_rearm_decay, veto_rearm_decay_signals)
                                 assert veto_rearm_decay_signals["reason"] == "release-cadence-not-rearm-prone", veto_rearm_decay_signals
+
+                                veto_rearm_conf_high, veto_rearm_conf_high_signals = what_if_split_escalate_recover_veto_rearm_confidence_from_signals(
+                                    what_if_split_esc_recover_veto_rearm=veto_rearm_watch,
+                                    what_if_split_esc_recover_veto_rearm_signals=veto_rearm_watch_signals,
+                                )
+                                assert veto_rearm_conf_high == "HIGH", (veto_rearm_conf_high, veto_rearm_conf_high_signals)
+                                assert veto_rearm_conf_high_signals["reason"] == "watch-cue-aligned-with-late-high-pressure-steady-cadence", veto_rearm_conf_high_signals
+
+                                veto_rearm_conf_mid, veto_rearm_conf_mid_signals = what_if_split_escalate_recover_veto_rearm_confidence_from_signals(
+                                    what_if_split_esc_recover_veto_rearm=veto_rearm_decay,
+                                    what_if_split_esc_recover_veto_rearm_signals=veto_rearm_decay_signals,
+                                )
+                                assert veto_rearm_conf_mid == "MID", (veto_rearm_conf_mid, veto_rearm_conf_mid_signals)
+                                assert veto_rearm_conf_mid_signals["reason"] == "watch-cue-suppressed-by-cadence-guard", veto_rearm_conf_mid_signals
+
+                                veto_rearm_conf_low, veto_rearm_conf_low_signals = what_if_split_escalate_recover_veto_rearm_confidence_from_signals(
+                                    what_if_split_esc_recover_veto_rearm=veto_rearm_off,
+                                    what_if_split_esc_recover_veto_rearm_signals=veto_rearm_off_signals,
+                                )
+                                assert veto_rearm_conf_low == "LOW", (veto_rearm_conf_low, veto_rearm_conf_low_signals)
+                                assert veto_rearm_conf_low_signals["reason"] == "flag-disabled", veto_rearm_conf_low_signals
                             finally:
                                 if prior_veto_rearm_env is None:
                                     os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM", None)

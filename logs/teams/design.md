@@ -846,3 +846,9 @@
 - Task: Operator readability pass for auto-rearm warning token.
 - Decision: `WATCH` only emits when phase is `LATE`, pressure is `HIGH`, and cadence is not `DECAY`/`FLAG OFF` to avoid noisy alerts.
 - Follow-up: Add short `REARM WHY` token for one-glance interpretation.
+
+## 2026-03-22 10:04 KST — Cycle AK: auto-rearm confidence token
+- Completed backlog item: `WHAT-IF SPLIT ESC RECOVER VETO REARM CONF:LOW|MID|HIGH`.
+- Implementation: added `what_if_split_escalate_recover_veto_rearm_confidence_from_signals()` and wired JSON/markdown digest output fields.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Follow-up: next unchecked item is rearm rationale token (`WHAT-IF SPLIT ESC RECOVER VETO REARM WHY:<short>`).
