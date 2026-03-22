@@ -2841,6 +2841,39 @@ def what_if_split_escalate_recover_veto_rearm_nudge_impact_from_signals(
     }
 
 
+def what_if_split_escalate_recover_veto_rearm_nudge_drift_from_prior(
+    *,
+    current_nudge_why: str,
+    prior_json_path: Path,
+) -> tuple[str, dict[str, str | bool]]:
+    """Track whether nudge rationale changed versus prior digest window."""
+    current = str(current_nudge_why).strip().upper() or "UNKNOWN"
+    prior_loaded = False
+    prior = current
+
+    if prior_json_path.is_file():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior = str(prior_payload.get("whatIfSplitEscRecoverVetoRearmNudgeWhy", current)).strip().upper() or current
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    if current == prior:
+        drift = "STABLE"
+        reason = "nudge-rationale-unchanged-vs-prior-window"
+    else:
+        drift = "SHIFTING"
+        reason = "nudge-rationale-changed-vs-prior-window"
+
+    return drift, {
+        "currentNudgeWhy": current,
+        "priorNudgeWhy": prior,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def what_if_split_escalate_recover_confidence_delta_from_prior(
     *,
     current_confidence: str,
@@ -3620,6 +3653,10 @@ def main() -> int:
         what_if_split_esc_recover_veto_rearm_nudge_window=what_if_split_esc_recover_veto_rearm_nudge_window,
         what_if_split_esc_recover_veto_rearm_fit=what_if_split_esc_recover_veto_rearm_fit,
     )
+    what_if_split_esc_recover_veto_rearm_nudge_drift, what_if_split_esc_recover_veto_rearm_nudge_drift_signals = what_if_split_escalate_recover_veto_rearm_nudge_drift_from_prior(
+        current_nudge_why=what_if_split_esc_recover_veto_rearm_nudge_why,
+        prior_json_path=args.out_json,
+    )
     what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
         current_confidence=what_if_split_esc_recover_confidence,
         prior_json_path=args.out_json,
@@ -3805,6 +3842,8 @@ def main() -> int:
         "whatIfSplitEscRecoverVetoRearmNudgeWhySignals": what_if_split_esc_recover_veto_rearm_nudge_why_signals,
         "whatIfSplitEscRecoverVetoRearmNudgeImpact": what_if_split_esc_recover_veto_rearm_nudge_impact,
         "whatIfSplitEscRecoverVetoRearmNudgeImpactSignals": what_if_split_esc_recover_veto_rearm_nudge_impact_signals,
+        "whatIfSplitEscRecoverVetoRearmNudgeDrift": what_if_split_esc_recover_veto_rearm_nudge_drift,
+        "whatIfSplitEscRecoverVetoRearmNudgeDriftSignals": what_if_split_esc_recover_veto_rearm_nudge_drift_signals,
         "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
         "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
@@ -3920,6 +3959,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE CONF: **{what_if_split_esc_recover_veto_rearm_nudge_confidence}** ({what_if_split_esc_recover_veto_rearm_nudge_confidence_signals['reason']}; nudge={what_if_split_esc_recover_veto_rearm_nudge_confidence_signals['splitEscRecoverVetoRearmNudge']} rearmConf={what_if_split_esc_recover_veto_rearm_nudge_confidence_signals['splitEscRecoverVetoRearmConfidence']} fit={what_if_split_esc_recover_veto_rearm_nudge_confidence_signals['splitEscRecoverVetoRearmFit']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WHY: **{what_if_split_esc_recover_veto_rearm_nudge_why}** ({what_if_split_esc_recover_veto_rearm_nudge_why_signals['reason']}; flag={what_if_split_esc_recover_veto_rearm_nudge_why_signals['flagName']} enabled={what_if_split_esc_recover_veto_rearm_nudge_why_signals['flagEnabled']} nudge={what_if_split_esc_recover_veto_rearm_nudge_why_signals['splitEscRecoverVetoRearmNudge']} conf={what_if_split_esc_recover_veto_rearm_nudge_why_signals['splitEscRecoverVetoRearmNudgeConfidence']} window={what_if_split_esc_recover_veto_rearm_nudge_why_signals['splitEscRecoverVetoRearmNudgeWindow']} fit={what_if_split_esc_recover_veto_rearm_nudge_why_signals['splitEscRecoverVetoRearmFit']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE IMPACT: **{what_if_split_esc_recover_veto_rearm_nudge_impact}** ({what_if_split_esc_recover_veto_rearm_nudge_impact_signals['reason']}; nudge={what_if_split_esc_recover_veto_rearm_nudge_impact_signals['splitEscRecoverVetoRearmNudge']} window={what_if_split_esc_recover_veto_rearm_nudge_impact_signals['splitEscRecoverVetoRearmNudgeWindow']} fit={what_if_split_esc_recover_veto_rearm_nudge_impact_signals['splitEscRecoverVetoRearmFit']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT: **{what_if_split_esc_recover_veto_rearm_nudge_drift}** ({what_if_split_esc_recover_veto_rearm_nudge_drift_signals['reason']}; current={what_if_split_esc_recover_veto_rearm_nudge_drift_signals['currentNudgeWhy']} prior={what_if_split_esc_recover_veto_rearm_nudge_drift_signals['priorNudgeWhy']} loaded={what_if_split_esc_recover_veto_rearm_nudge_drift_signals['priorLoaded']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",

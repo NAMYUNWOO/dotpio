@@ -36,6 +36,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_rearm_nudge_from_signals,
     what_if_split_escalate_recover_veto_rearm_nudge_window_from_signals,
     what_if_split_escalate_recover_veto_rearm_nudge_confidence_from_signals,
+    what_if_split_escalate_recover_veto_rearm_nudge_drift_from_prior,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -724,6 +725,13 @@ def main() -> int:
             "splitEscRecoverVetoRearmFit",
             "reason",
         }, payload
+        assert payload.get("whatIfSplitEscRecoverVetoRearmNudgeDrift") in {"STABLE", "SHIFTING"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmNudgeDriftSignals", {}).keys()) == {
+            "currentNudgeWhy",
+            "priorNudgeWhy",
+            "priorLoaded",
+            "reason",
+        }, payload
         md_text = out_md.read_text(encoding="utf-8")
         assert "Token Totals" in md_text
         assert "Top Token Movers" in md_text
@@ -810,6 +818,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE CONF" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WHY" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE IMPACT" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -1471,6 +1480,25 @@ def main() -> int:
                                         )
                                         assert nudge_conf_mid == "MID", (nudge_conf_mid, nudge_conf_mid_signals)
                                         assert nudge_conf_mid_signals["reason"] == "actionable-nudge-with-mid-confidence-context", nudge_conf_mid_signals
+
+                                        drift_stable, drift_stable_signals = what_if_split_escalate_recover_veto_rearm_nudge_drift_from_prior(
+                                            current_nudge_why="WATCH REARM",
+                                            prior_json_path=repo / "missing-nudge-drift-prior.json",
+                                        )
+                                        assert drift_stable == "STABLE", (drift_stable, drift_stable_signals)
+                                        assert drift_stable_signals["reason"] == "nudge-rationale-unchanged-vs-prior-window", drift_stable_signals
+
+                                        prior_nudge_drift = repo / "prior-nudge-drift.json"
+                                        prior_nudge_drift.write_text(
+                                            json.dumps({"whatIfSplitEscRecoverVetoRearmNudgeWhy": "LANE MONITOR"}),
+                                            encoding="utf-8",
+                                        )
+                                        drift_shifting, drift_shifting_signals = what_if_split_escalate_recover_veto_rearm_nudge_drift_from_prior(
+                                            current_nudge_why="WATCH REARM",
+                                            prior_json_path=prior_nudge_drift,
+                                        )
+                                        assert drift_shifting == "SHIFTING", (drift_shifting, drift_shifting_signals)
+                                        assert drift_shifting_signals["reason"] == "nudge-rationale-changed-vs-prior-window", drift_shifting_signals
                                     finally:
                                         if prior_veto_rearm_nudge_env is None:
                                             os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE", None)

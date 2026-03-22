@@ -1415,3 +1415,9 @@
   - Selected experiment: NUDGE IMPACT band as minimal vertical slice for immediate pacing readability.
 - Follow-up:
   - Next priority item: NUDGE DRIFT token (WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT:STABLE|SHIFTING).
+
+## 2026-03-22 13:34 KST — Cycle AN nudge drift token shipped
+- Task: Add `WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT:STABLE|SHIFTING` using current/prior nudge-rationale delta.
+- Completed: weekly digest now emits `whatIfSplitEscRecoverVetoRearmNudgeDrift` + signals and markdown line `WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS), `python3 scripts/weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up: next unchecked item is dual-lane coach snapshot prototype (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH:<primary>|<backup>`) behind flag.

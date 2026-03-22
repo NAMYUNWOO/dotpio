@@ -1646,3 +1646,10 @@ Compact decision memory for AI context efficiency.
 - Shipped: `WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE CONF:LOW|MID|HIGH` in digest JSON + markdown.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS (artifacts updated under `logs/weekly_portal_prompt_readability_drift.{json,md}`).
 - Backlog injected: Cycle AM added to TASKS + POST_RC_BACKLOG with item #1 complete and #2/#3 queued.
+
+## 2026-03-22 13:34 KST — Cycle AN nudge drift slice
+- Shipped new digest token `WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT:STABLE|SHIFTING` by comparing current `Nudge WHY` rationale against prior digest window.
+- Durable decision: drift is strictly rationale-change based (`STABLE` when unchanged, `SHIFTING` when changed), independent from nudge impact band.
+- Added payload fields `whatIfSplitEscRecoverVetoRearmNudgeDrift` and `...Signals` plus markdown status line for operator triage.
+- Regression coverage extended for payload schema, markdown token presence, and prior-window drift detection helper behavior.
+- Next priority item remains Cycle AN final prototype: `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH:<primary>|<backup>` behind flag.

@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-22T04:06:43.559732Z
+- GeneratedAt(UTC): 2026-03-22T04:34:10.577689Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
@@ -89,6 +89,7 @@
 - WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE CONF: **LOW** (nudge-flag-disabled; nudge=FLAG OFF rearmConf=LOW fit=RELIEF)
 - WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE_WHY enabled=False nudge=FLAG OFF conf=LOW window=IDLE fit=RELIEF)
 - WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE IMPACT: **NEUTRAL** (monitoring-or-flag-off-state; nudge=FLAG OFF window=IDLE fit=RELIEF)
+- WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT: **STABLE** (nudge-rationale-unchanged-vs-prior-window; current=FLAG OFF prior=FLAG OFF loaded=True)
 - WHAT-IF SPLIT ESC RECOVER ΔCONF: **+0** (confidence-unchanged-vs-prior-window; current=LOW prior=LOW loaded=True)
 - STICKY TOKENS: **6**
 - ANOMALY: **ON** (sticky=6/3 pressure=15/5)
