@@ -1605,3 +1605,10 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Next priority: Cycle AK item 2 — `WHAT-IF SPLIT ESC RECOVER VETO REARM WHY:<short>`.
+
+## 2026-03-22 10:35 KST — Cycle AK: auto-rearm rationale token completed
+- Shipped `WHAT-IF SPLIT ESC RECOVER VETO REARM WHY:<short>` behind experiment flag `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_WHY`.
+- Decision: rationale copy prioritizes operator triage clarity (`HIGH PRESSURE REARM`, `PRESSURE STAY ALERT`, `NO WATCH CUE`, `LOW CONF HOLD`) and degrades safely to `FLAG OFF` when disabled.
+- Added `whatIfSplitEscRecoverVetoRearmWhy` + `...Signals` to digest JSON payload and markdown row `WHAT-IF SPLIT ESC RECOVER VETO REARM WHY`.
+- Validation passed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Next priority: Cycle AK item 3 — `WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF:<n>`.

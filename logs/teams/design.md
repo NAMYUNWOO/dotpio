@@ -852,3 +852,9 @@
 - Implementation: added `what_if_split_escalate_recover_veto_rearm_confidence_from_signals()` and wired JSON/markdown digest output fields.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Follow-up: next unchecked item is rearm rationale token (`WHAT-IF SPLIT ESC RECOVER VETO REARM WHY:<short>`).
+
+## 2026-03-22 10:35 KST — Cycle AK item 2 (rearm rationale token)
+- Completed `WHAT-IF SPLIT ESC RECOVER VETO REARM WHY:<short>` vertical slice in weekly portal prompt readability digest.
+- Evidence: updated rationale classifier + JSON/markdown wiring + regression coverage in `scripts/weekly_portal_prompt_readability_drift.py` and `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: proceed to Cycle AK item 3 (`WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF:<n>` behind flag).

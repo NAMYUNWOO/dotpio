@@ -29,6 +29,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_release_tick_cadence_from_signals,
     what_if_split_escalate_recover_veto_rearm_from_signals,
     what_if_split_escalate_recover_veto_rearm_confidence_from_signals,
+    what_if_split_escalate_recover_veto_rearm_why_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -636,6 +637,16 @@ def main() -> int:
             "releaseCadence",
             "reason",
         }, payload
+        assert isinstance(payload.get("whatIfSplitEscRecoverVetoRearmWhy"), str), payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmWhySignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "splitEscRecoverVetoRearm",
+            "splitEscRecoverVetoRearmConfidence",
+            "splitEscPressure",
+            "releaseTickPhase",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -736,6 +747,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM CONF" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM WHY" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -1223,6 +1235,42 @@ def main() -> int:
                                 )
                                 assert veto_rearm_conf_low == "LOW", (veto_rearm_conf_low, veto_rearm_conf_low_signals)
                                 assert veto_rearm_conf_low_signals["reason"] == "flag-disabled", veto_rearm_conf_low_signals
+
+                                prior_veto_rearm_why_env = os.environ.get("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_WHY")
+                                try:
+                                    os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_WHY"] = "0"
+                                    veto_rearm_why_off, veto_rearm_why_off_signals = what_if_split_escalate_recover_veto_rearm_why_from_signals(
+                                        what_if_split_esc_recover_veto_rearm=veto_rearm_watch,
+                                        what_if_split_esc_recover_veto_rearm_confidence=veto_rearm_conf_high,
+                                        what_if_split_esc_pressure="HIGH",
+                                        what_if_split_esc_recover_veto_release_tick_phase="LATE",
+                                    )
+                                    assert veto_rearm_why_off == "FLAG OFF", (veto_rearm_why_off, veto_rearm_why_off_signals)
+                                    assert veto_rearm_why_off_signals["reason"] == "flag-disabled", veto_rearm_why_off_signals
+
+                                    os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_WHY"] = "1"
+                                    veto_rearm_why_on, veto_rearm_why_on_signals = what_if_split_escalate_recover_veto_rearm_why_from_signals(
+                                        what_if_split_esc_recover_veto_rearm=veto_rearm_watch,
+                                        what_if_split_esc_recover_veto_rearm_confidence=veto_rearm_conf_high,
+                                        what_if_split_esc_pressure="HIGH",
+                                        what_if_split_esc_recover_veto_release_tick_phase="LATE",
+                                    )
+                                    assert veto_rearm_why_on == "HIGH PRESSURE REARM", (veto_rearm_why_on, veto_rearm_why_on_signals)
+                                    assert veto_rearm_why_on_signals["reason"] == "watch-cue-confirmed-under-high-pressure", veto_rearm_why_on_signals
+
+                                    veto_rearm_why_nowatch, veto_rearm_why_nowatch_signals = what_if_split_escalate_recover_veto_rearm_why_from_signals(
+                                        what_if_split_esc_recover_veto_rearm=veto_rearm_decay,
+                                        what_if_split_esc_recover_veto_rearm_confidence=veto_rearm_conf_mid,
+                                        what_if_split_esc_pressure="HIGH",
+                                        what_if_split_esc_recover_veto_release_tick_phase="LATE",
+                                    )
+                                    assert veto_rearm_why_nowatch == "NO WATCH CUE", (veto_rearm_why_nowatch, veto_rearm_why_nowatch_signals)
+                                    assert veto_rearm_why_nowatch_signals["reason"] == "rearm-watch-not-active", veto_rearm_why_nowatch_signals
+                                finally:
+                                    if prior_veto_rearm_why_env is None:
+                                        os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_WHY", None)
+                                    else:
+                                        os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_WHY"] = prior_veto_rearm_why_env
                             finally:
                                 if prior_veto_rearm_env is None:
                                     os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM", None)

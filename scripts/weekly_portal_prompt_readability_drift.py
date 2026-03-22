@@ -2480,6 +2480,53 @@ def what_if_split_escalate_recover_veto_rearm_confidence_from_signals(
     }
 
 
+def what_if_split_escalate_recover_veto_rearm_why_from_signals(
+    *,
+    what_if_split_esc_recover_veto_rearm: str,
+    what_if_split_esc_recover_veto_rearm_confidence: str,
+    what_if_split_esc_pressure: str,
+    what_if_split_esc_recover_veto_release_tick_phase: str,
+) -> tuple[str, dict[str, str | bool]]:
+    """Emit concise operator rationale token for auto-rearm WATCH cue behind flag."""
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_WHY"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    rearm = str(what_if_split_esc_recover_veto_rearm).upper()
+    confidence = str(what_if_split_esc_recover_veto_rearm_confidence).upper()
+    pressure = str(what_if_split_esc_pressure).upper()
+    phase = str(what_if_split_esc_recover_veto_release_tick_phase).upper()
+
+    if not flag_enabled:
+        rationale = "FLAG OFF"
+        reason = "flag-disabled"
+    elif rearm != "WATCH":
+        rationale = "NO WATCH CUE"
+        reason = "rearm-watch-not-active"
+    elif pressure == "HIGH" and confidence == "HIGH" and phase == "LATE":
+        rationale = "HIGH PRESSURE REARM"
+        reason = "watch-cue-confirmed-under-high-pressure"
+    elif pressure == "HIGH" and confidence in {"MID", "HIGH"}:
+        rationale = "PRESSURE STAY ALERT"
+        reason = "watch-cue-active-with-elevated-pressure"
+    elif confidence == "LOW":
+        rationale = "LOW CONF HOLD"
+        reason = "watch-cue-low-confidence-context"
+    else:
+        rationale = "WATCH WINDOW"
+        reason = "watch-cue-active-default-rationale"
+
+    return rationale, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "splitEscRecoverVetoRearm": rearm,
+        "splitEscRecoverVetoRearmConfidence": confidence,
+        "splitEscPressure": pressure,
+        "releaseTickPhase": phase,
+        "reason": reason,
+    }
+
+
 def what_if_split_escalate_recover_confidence_delta_from_prior(
     *,
     current_confidence: str,
@@ -3214,6 +3261,12 @@ def main() -> int:
         what_if_split_esc_recover_veto_rearm=what_if_split_esc_recover_veto_rearm,
         what_if_split_esc_recover_veto_rearm_signals=what_if_split_esc_recover_veto_rearm_signals,
     )
+    what_if_split_esc_recover_veto_rearm_why, what_if_split_esc_recover_veto_rearm_why_signals = what_if_split_escalate_recover_veto_rearm_why_from_signals(
+        what_if_split_esc_recover_veto_rearm=what_if_split_esc_recover_veto_rearm,
+        what_if_split_esc_recover_veto_rearm_confidence=what_if_split_esc_recover_veto_rearm_confidence,
+        what_if_split_esc_pressure=what_if_split_esc_pressure,
+        what_if_split_esc_recover_veto_release_tick_phase=what_if_split_esc_recover_veto_release_tick_phase,
+    )
     what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
         current_confidence=what_if_split_esc_recover_confidence,
         prior_json_path=args.out_json,
@@ -3381,6 +3434,8 @@ def main() -> int:
         "whatIfSplitEscRecoverVetoRearmSignals": what_if_split_esc_recover_veto_rearm_signals,
         "whatIfSplitEscRecoverVetoRearmConfidence": what_if_split_esc_recover_veto_rearm_confidence,
         "whatIfSplitEscRecoverVetoRearmConfidenceSignals": what_if_split_esc_recover_veto_rearm_confidence_signals,
+        "whatIfSplitEscRecoverVetoRearmWhy": what_if_split_esc_recover_veto_rearm_why,
+        "whatIfSplitEscRecoverVetoRearmWhySignals": what_if_split_esc_recover_veto_rearm_why_signals,
         "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
         "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
@@ -3487,6 +3542,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE: **{what_if_split_esc_recover_veto_release_cadence}** ({what_if_split_esc_recover_veto_release_cadence_signals['reason']}; tick={what_if_split_esc_recover_veto_release_cadence_signals['tick']} prior={what_if_split_esc_recover_veto_release_cadence_signals['priorTick']} delta={what_if_split_esc_recover_veto_release_cadence_signals['delta']} numeric={what_if_split_esc_recover_veto_release_cadence_signals['numeric']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM: **{what_if_split_esc_recover_veto_rearm}** ({what_if_split_esc_recover_veto_rearm_signals['reason']}; flag={what_if_split_esc_recover_veto_rearm_signals['flagName']} enabled={what_if_split_esc_recover_veto_rearm_signals['flagEnabled']} phase={what_if_split_esc_recover_veto_rearm_signals['releaseTickPhase']} pressure={what_if_split_esc_recover_veto_rearm_signals['splitEscPressure']} cadence={what_if_split_esc_recover_veto_rearm_signals['releaseCadence']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM CONF: **{what_if_split_esc_recover_veto_rearm_confidence}** ({what_if_split_esc_recover_veto_rearm_confidence_signals['reason']}; rearm={what_if_split_esc_recover_veto_rearm_confidence_signals['splitEscRecoverVetoRearm']} phase={what_if_split_esc_recover_veto_rearm_confidence_signals['releaseTickPhase']} pressure={what_if_split_esc_recover_veto_rearm_confidence_signals['splitEscPressure']} cadence={what_if_split_esc_recover_veto_rearm_confidence_signals['releaseCadence']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO REARM WHY: **{what_if_split_esc_recover_veto_rearm_why}** ({what_if_split_esc_recover_veto_rearm_why_signals['reason']}; flag={what_if_split_esc_recover_veto_rearm_why_signals['flagName']} enabled={what_if_split_esc_recover_veto_rearm_why_signals['flagEnabled']} rearm={what_if_split_esc_recover_veto_rearm_why_signals['splitEscRecoverVetoRearm']} conf={what_if_split_esc_recover_veto_rearm_why_signals['splitEscRecoverVetoRearmConfidence']} pressure={what_if_split_esc_recover_veto_rearm_why_signals['splitEscPressure']} phase={what_if_split_esc_recover_veto_rearm_why_signals['releaseTickPhase']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
