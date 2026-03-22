@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-22T03:09:11.080234Z
+- GeneratedAt(UTC): 2026-03-22T03:34:13.714487Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
@@ -85,6 +85,7 @@
 - WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF STATE: **IDLE** (no-watch-and-no-cooloff; rearm=OFF cooloff=0 active=False)
 - WHAT-IF SPLIT ESC RECOVER VETO REARM FIT: **RELIEF** (idle-post-cooloff-low-pressure; state=IDLE cooloff=0 pressure=LOW)
 - WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE enabled=False rearm=OFF conf=LOW fit=RELIEF state=IDLE)
+- WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WINDOW: **IDLE** (no-watch-or-cooloff-window; rearm=OFF cooloffState=IDLE)
 - WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE CONF: **LOW** (nudge-flag-disabled; nudge=FLAG OFF rearmConf=LOW fit=RELIEF)
 - WHAT-IF SPLIT ESC RECOVER ΔCONF: **+0** (confidence-unchanged-vs-prior-window; current=LOW prior=LOW loaded=True)
 - STICKY TOKENS: **6**

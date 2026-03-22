@@ -34,6 +34,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_rearm_cooloff_state_from_signals,
     what_if_split_escalate_recover_veto_rearm_fit_from_signals,
     what_if_split_escalate_recover_veto_rearm_nudge_from_signals,
+    what_if_split_escalate_recover_veto_rearm_nudge_window_from_signals,
     what_if_split_escalate_recover_veto_rearm_nudge_confidence_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
@@ -700,6 +701,12 @@ def main() -> int:
         assert isinstance(payload.get("topTokenMovers"), list), payload
         if payload["topTokenMovers"]:
             assert {"token", "net", "added", "removed"}.issubset(payload["topTokenMovers"][0].keys()), payload
+        assert payload.get("whatIfSplitEscRecoverVetoRearmNudgeWindow") in {"ARMED", "COOLING", "IDLE"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmNudgeWindowSignals", {}).keys()) == {
+            "splitEscRecoverVetoRearm",
+            "splitEscRecoverVetoRearmCooloffState",
+            "reason",
+        }, payload
         md_text = out_md.read_text(encoding="utf-8")
         assert "Token Totals" in md_text
         assert "Top Token Movers" in md_text
@@ -782,6 +789,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF STATE" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM FIT" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WINDOW" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE CONF" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
@@ -1407,6 +1415,27 @@ def main() -> int:
                                         )
                                         assert nudge_relief == "RESET READY", (nudge_relief, nudge_relief_signals)
                                         assert nudge_relief_signals["reason"] == "cooloff-active-with-relief-fit", nudge_relief_signals
+
+                                        nudge_window_armed, nudge_window_armed_signals = what_if_split_escalate_recover_veto_rearm_nudge_window_from_signals(
+                                            what_if_split_esc_recover_veto_rearm="WATCH",
+                                            what_if_split_esc_recover_veto_rearm_cooloff_state="ACTIVE",
+                                        )
+                                        assert nudge_window_armed == "ARMED", (nudge_window_armed, nudge_window_armed_signals)
+                                        assert nudge_window_armed_signals["reason"] == "watch-cue-active", nudge_window_armed_signals
+
+                                        nudge_window_cooling, nudge_window_cooling_signals = what_if_split_escalate_recover_veto_rearm_nudge_window_from_signals(
+                                            what_if_split_esc_recover_veto_rearm="OFF",
+                                            what_if_split_esc_recover_veto_rearm_cooloff_state="ACTIVE",
+                                        )
+                                        assert nudge_window_cooling == "COOLING", (nudge_window_cooling, nudge_window_cooling_signals)
+                                        assert nudge_window_cooling_signals["reason"] == "watch-disarmed-in-cooloff-window", nudge_window_cooling_signals
+
+                                        nudge_window_idle, nudge_window_idle_signals = what_if_split_escalate_recover_veto_rearm_nudge_window_from_signals(
+                                            what_if_split_esc_recover_veto_rearm="OFF",
+                                            what_if_split_esc_recover_veto_rearm_cooloff_state="IDLE",
+                                        )
+                                        assert nudge_window_idle == "IDLE", (nudge_window_idle, nudge_window_idle_signals)
+                                        assert nudge_window_idle_signals["reason"] == "no-watch-or-cooloff-window", nudge_window_idle_signals
 
                                         nudge_conf_high, nudge_conf_high_signals = what_if_split_escalate_recover_veto_rearm_nudge_confidence_from_signals(
                                             what_if_split_esc_recover_veto_rearm_nudge="HOLD DEFENSE",

@@ -1389,3 +1389,17 @@
 - Decision: Confidence maps from nudge urgency + rearm confidence + relief fit to keep operator trust glanceable.
 - Evidence: updated `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`; regression + digest scripts passed.
 - Follow-up: Remaining Cycle AM queue = nudge window token, flagged nudge rationale token.
+
+## 2026-03-22 12:34:18 KST
+- Task: Cycle AM follow-up — add WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WINDOW token (ARMED|COOLING|IDLE).
+- Commit: pending
+- Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md
+- Verification:
+  - python3 scripts/regression_weekly_portal_prompt_readability_drift.py ✅
+  - python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 ✅
+- Decisions:
+  - Window classification derived strictly from rearm + cooloff-state context.
+  - ARMED when WATCH is active; COOLING when WATCH is off but cooloff ACTIVE; else IDLE.
+- Follow-up:
+  - Next highest-priority unchecked item: nudge rationale token (WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WHY) behind flag.
+
