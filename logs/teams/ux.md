@@ -1344,3 +1344,7 @@
 - Weekly markdown digest now includes `ROUTE PULSE LINK MODE STREAK` with current/prior context and load-state.
 - Copy kept compact to preserve DOS-friendly scan order (`MODE`, `MODE Δ`, `MODE STREAK`, `MODE WHY`).
 - Next UX/world follow-up is detailed prompt parity token behind flag.
+### 2026-03-23 08:31 KST — UX prompt parity update
+- Detailed portal prompt now includes `ROUTE PULSE MODE` so users see cadence mode even when prompt budget is not compacted.
+- Regression now validates both detailed and compact variants in a single script for parity safety.
+- Verified no compact prompt regressions (`PULSE MODE` and `PULSE LINK` checks remain PASS).

@@ -1972,3 +1972,7 @@ Compact decision memory for AI context efficiency.
 - New digest contract: JSON adds `routePulseLinkModeStabilityStreak` + `routePulseLinkModeStabilityStreakSignals`; markdown adds `ROUTE PULSE LINK MODE STREAK` with current/prior mode context.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Backlog state: Cycle BE now has one unchecked item left — flagged detailed portal pulse-mode cue (`ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE`).
+- 2026-03-23 08:31 KST: Closed final unchecked Cycle BE backlog item by shipping flagged detailed portal cue `ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE` in `src/portal.lua` (full-prompt parity with compact mode token).
+- Regression upgrade: `scripts/regression_portal_prompt_pulse_mode.lua` now validates both detailed (`ROUTE PULSE MODE:*`) and compact (`PULSE MODE:*`) outputs across HIGH/MED/LOW fixtures.
+- Verification PASS: `[PASS] portal detailed+compact pulse-mode prompt regression validated`; `[PASS] portal compact pulse-link prompt regression validated`.
+- Backlog state: `TASKS.md` and `POST_RC_BACKLOG.md` Cycle BE items are now fully checked.

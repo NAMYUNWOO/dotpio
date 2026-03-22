@@ -1084,3 +1084,7 @@
 - Confirmed new digest streak token is additive and backward-compatible (`routePulseLinkModeStabilityStreak*`).
 - No prompt-generation contract changes required in this cycle.
 - Keep detailed portal pulse-mode cue queued for next cross-lane parity pass.
+### 2026-03-23 08:31 KST — Prompt contract parity note
+- Confirmed additive prompt contract update: detailed portal line now includes `ROUTE PULSE MODE` while compact keeps `PULSE MODE` shorthand.
+- No AI generation schema or item-generation policy changes required.
+- Follow-up: if BE queue closes entirely, hand off to Game Director cycle ideation branch.

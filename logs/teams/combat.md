@@ -1055,3 +1055,7 @@
 - Consumed digest improvement: mode-stability streak helps correlate cadence pressure persistence with combat pulse trend reviews.
 - Combat systems unchanged in this slice; no regression impact beyond digest parser assertions.
 - Continue monitoring pulse-mode persistence for future combat readability tuning.
+### 2026-03-23 08:31 KST — Combat lane acknowledgment (no behavior drift)
+- Detailed portal pulse-mode token is now available in non-compact prompts; combat pacing math remains unchanged.
+- Threat-tier driven mode mapping () improves pre-jump readability without altering encounters.
+- Regression checks passed; no combat rebalance action required in this slice.

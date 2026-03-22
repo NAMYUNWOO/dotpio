@@ -2190,3 +2190,12 @@
 - Added payload schema assertions for `routePulseLinkModeStabilityStreak` and `routePulseLinkModeStabilityStreakSignals`.
 - Added unit coverage for no-prior (`1`, `no-prior-mode`) and stable extension (`prior 4 -> 5`, `mode-stable-extended`).
 - Verified via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+### 2026-03-23 08:31 KST — QA coverage extension: detailed pulse-mode cue
+- Expanded `scripts/regression_portal_prompt_pulse_mode.lua` to assert detailed prompt tokens:
+  - `ROUTE PULSE MODE:SURGE` (HIGH threat)
+  - `ROUTE PULSE MODE:SUSTAIN` (MED threat)
+  - `ROUTE PULSE MODE:IDLE` (LOW threat)
+- Retained compact assertions (`PULSE MODE:X|S|I`) to ensure parity and backward safety.
+- Verification commands PASS:
+  - `[PASS] portal detailed+compact pulse-mode prompt regression validated`
+  - `[PASS] portal compact pulse-link prompt regression validated`

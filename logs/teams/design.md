@@ -1123,3 +1123,7 @@
 - Added `ROUTE PULSE LINK MODE STREAK` markdown line to keep cadence persistence glanceable without widening existing token payload.
 - Decision: numeric streak is sufficient; no new legend needed because mode semantics already established.
 - Detailed portal prompt parity (`ROUTE PULSE MODE:...`) remains queued as next UI-facing step.
+### 2026-03-23 08:31 KST — Design readability closure for Cycle BE
+- Closed remaining BE parity task by adding full-width portal token `ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE` under flag.
+- Copy mirrors compact cue semantics (`I/S/X`) to keep mental model consistent across prompt budgets.
+- Design decision: retain identical trigger thresholds to avoid split behavior between compact and detailed UI states.

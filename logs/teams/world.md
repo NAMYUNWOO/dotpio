@@ -1117,3 +1117,7 @@
 - Weekly digest now exposes `ROUTE PULSE LINK MODE STREAK` so portal pacing triage can detect stable mode runs across windows.
 - No portal graph/map data changes required this slice.
 - Next world/design parity target remains detailed prompt cue `ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE` (flagged).
+### 2026-03-23 08:31 KST — Portal prompt readability parity (world lane)
+- Completed detailed portal handoff cue parity: full transition prompt now surfaces `ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE` behind experiment flag.
+- Route pressure semantics stay unchanged; token is additive readability context only.
+- Evidence: pulse-mode regression PASS with HIGH/MED/LOW threat fixtures.

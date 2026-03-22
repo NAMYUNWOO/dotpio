@@ -1709,3 +1709,7 @@
 - Completed vertical slice: `ROUTE PULSE LINK MODE STREAK:<n>` persisted across weekly digest windows.
 - Implementation: added `route_pulse_link_mode_stability_streak_from_prior()` with prior JSON carry-forward (`routePulseLinkModeStabilityStreak`).
 - Follow-up: remaining BE backlog item is detailed portal prompt parity token (`ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE`).
+### 2026-03-23 08:31 KST — Route pulse mode detailed prompt parity shipped
+- Added detailed-mode classifier helper in portal prompt pipeline (`resolveRoutePulseMode`) and gated emission under existing flag `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT`.
+- Full prompt now carries `ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE` for parity with compact `PULSE MODE:I|S|X` cue.
+- Verification: [PASS] portal detailed+compact pulse-mode prompt regression validated PASS.

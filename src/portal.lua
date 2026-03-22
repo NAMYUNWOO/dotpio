@@ -249,6 +249,16 @@ local function resolveCompactRoutePulseLink(pressureScore, altRouteTag)
     return "S"
 end
 
+local function resolveRoutePulseMode(pressureScore, altRouteTag)
+    if pressureScore >= 5 then
+        return "SURGE"
+    end
+    if pressureScore >= 4 or altRouteTag ~= nil then
+        return "SUSTAIN"
+    end
+    return "IDLE"
+end
+
 local function resolveCompactRoutePulseMode(pressureScore, altRouteTag, compactPulseLink)
     if pressureScore >= 5 then
         return "X"
@@ -475,10 +485,13 @@ local function resolveRouteVignetteGlyph(routeTag)
     return "???"
 end
 
-local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph)
+local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph, routePulseMode)
     local fxCue = resolvePortalFxCue(pressureScore)
     local routeVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s  ROUTE VIBE:%s", routeTag, coach, pressureScore, fxCue, routeVibe)
+    if routePulseMode then
+        prompt = string.format("%s  ROUTE PULSE MODE:%s", prompt, routePulseMode)
+    end
     if altRouteTag then
         prompt = string.format("%s  ALT ROUTE:%s", prompt, altRouteTag)
         if altDelta then
@@ -632,7 +645,11 @@ function Portal.getTransitionPrompt(maxChars, context)
     pendingTransition.routeVibeConflict = routeVibeConflict
     pendingTransition.vibeSnapback = vibeSnapback
     local coachOverride = isRouteVibeCoachOverrideExperimentEnabled() and routeVibeConflict and altRouteTag ~= nil
-    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph)
+    local routePulseMode = nil
+    if isRoutePulseModeCompactPromptExperimentEnabled() then
+        routePulseMode = resolveRoutePulseMode(pressureScore, altRouteTag)
+    end
+    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph, routePulseMode)
     local budget = tonumber(maxChars) or 76
     if budget > 0 and #prompt > budget then
         local compactPulseLink = nil
