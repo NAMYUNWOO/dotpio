@@ -1580,3 +1580,9 @@
 - Completed selected Cycle AW vertical slice: weekly portal readability digest now emits `ACTION PACE:ACCEL|STEADY|BRAKE`.
 - Deterministic mapping uses existing signals only (`ACTION GUARD`, `ACTION STABILITY`, `PRESSURE LAG`) to avoid churn in core classifiers.
 - Follow-up queued: pace drift token from prior-window comparison.
+
+## 2026-03-23 00:03 KST — Cycle AW pace-drift token shipped
+- Task: Added digest `PACE DRIFT:+n|-n` by comparing current/prior `ACTION PACE` windows in weekly portal readability digest.
+- Decision: Normalize pace states as BRAKE=-1, STEADY=0, ACCEL=+1, then emit signed delta (`currentScore - priorScore`) for deterministic trend triage.
+- Implementation: Added `pace_drift_from_prior(...)` and wired payload fields `paceDrift`, `paceDriftSignals` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Follow-up: Remaining Cycle AW item is `ACTION PACE WHY:<short>` flagged rationale token.

@@ -2055,3 +2055,11 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
 - Result: PASS.
+
+## 2026-03-23 00:03 KST — Regression coverage for pace drift
+- Verification target: Weekly portal prompt drift digest now must expose `PACE DRIFT` in markdown and `paceDrift`/`paceDriftSignals` in JSON.
+- Added checks in `scripts/regression_weekly_portal_prompt_readability_drift.py`:
+  - schema assertions for `paceDrift` and `paceDriftSignals`
+  - markdown token assertion for `PACE DRIFT`
+  - helper behavior checks for missing-prior and accelerated-prior scenarios
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` -> `[PASS]`.

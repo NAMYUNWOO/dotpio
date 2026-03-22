@@ -1852,3 +1852,9 @@ Compact decision memory for AI context efficiency.
 - Regression upgraded (`scripts/regression_portal_route_vibe_drift_alarm.lua`) for max/medium glyph assertions.
 - Verification: syntax + drift/snapback/preview regressions PASS.
 - Backlog status: Cycle AV final unchecked item moved `[~] -> [x]` in both TASKS and POST_RC.
+
+## 2026-03-23 — Cycle AW digest pacing continuity
+- Shipped `PACE DRIFT:+n|-n` token in weekly portal readability digest to make `ACTION PACE` trend direction explicit across windows.
+- Scoring contract set to BRAKE=-1, STEADY=0, ACCEL=+1 and drift computed as current minus prior snapshot score.
+- Digest outputs now include `paceDrift`/`paceDriftSignals` (JSON) and a `PACE DRIFT` markdown row with prior-load visibility.
+- Regression updated to lock schema + markdown token + helper edge behavior.

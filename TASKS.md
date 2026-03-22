@@ -493,5 +493,5 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — 2026-03-22 Cycle AW)
 - [x] Add digest action-pace token (`ACTION PACE:ACCEL|STEADY|BRAKE`) from `ACTION GUARD + ACTION STABILITY + PRESSURE LAG` for quicker route-operation cadence triage *(lifecycle: [~] -> [x])*
-- [ ] Add digest pace-drift token (`PACE DRIFT:+n|-n`) by comparing current/prior `ACTION PACE` windows
+- [x] Add digest pace-drift token (`PACE DRIFT:+n|-n`) by comparing current/prior `ACTION PACE` windows
 - [ ] Prototype flagged pace coach rationale token (`ACTION PACE WHY:<short>`) for compact operator context

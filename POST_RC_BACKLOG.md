@@ -336,5 +336,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-22 Cycle AW)
 - [x] UX/Systems Team: Add digest action-pace token (`ACTION PACE:ACCEL|STEADY|BRAKE`) from `ACTION GUARD + ACTION STABILITY + PRESSURE LAG` for quicker route-operation cadence triage *(lifecycle: [~] -> [x])*
-- [ ] QA/Systems Team: Add digest pace-drift token (`PACE DRIFT:+n|-n`) by comparing current/prior `ACTION PACE` windows
+- [x] QA/Systems Team: Add digest pace-drift token (`PACE DRIFT:+n|-n`) by comparing current/prior `ACTION PACE` windows
 - [ ] Design/AI Content Team: Prototype flagged pace coach rationale token (`ACTION PACE WHY:<short>`) for compact operator context

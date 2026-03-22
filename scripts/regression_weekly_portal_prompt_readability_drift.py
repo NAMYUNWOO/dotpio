@@ -9,6 +9,7 @@ import tempfile
 from pathlib import Path
 
 from weekly_portal_prompt_readability_drift import (
+    pace_drift_from_prior,
     sandbox_cooloff_from_prior,
     what_if_split_cooloff_from_prior,
     what_if_split_escalate_cooloff_from_prior,
@@ -771,6 +772,15 @@ def main() -> int:
             "pressureLag",
             "reason",
         }, payload
+        assert isinstance(payload.get("paceDrift"), int), payload
+        assert set(payload.get("paceDriftSignals", {}).keys()) == {
+            "currentPace",
+            "currentScore",
+            "priorPace",
+            "priorScore",
+            "priorLoaded",
+            "reason",
+        }, payload
         assert set(payload.get("whatIfSplitEscRecoverVetoRearmCoachHandoffFitSignals", {}).keys()) == {
             "splitEscRecoverVetoRearmCoachHandoff",
             "splitEscPressure",
@@ -815,6 +825,7 @@ def main() -> int:
         assert "ACTION STABILITY" in md_text
         assert "PRESSURE LAG" in md_text
         assert "ACTION PACE" in md_text
+        assert "PACE DRIFT" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
         assert "WHAT-IF ALIGN" in md_text
@@ -902,6 +913,22 @@ def main() -> int:
         )
         assert cooloff_one == 1, (cooloff_one, signals_one)
         assert signals_one["reason"] == "sandbox-just-disarmed", signals_one
+
+        pace_drift_zero, pace_drift_zero_signals = pace_drift_from_prior(
+            current_pace="STEADY",
+            prior_json_path=repo / "missing-pace-prior.json",
+        )
+        assert pace_drift_zero == 0, (pace_drift_zero, pace_drift_zero_signals)
+        assert pace_drift_zero_signals["reason"] == "no-prior-pace", pace_drift_zero_signals
+
+        pace_prior = repo / "prior-pace.json"
+        pace_prior.write_text(json.dumps({"actionPace": "BRAKE"}), encoding="utf-8")
+        pace_drift_up, pace_drift_up_signals = pace_drift_from_prior(
+            current_pace="ACCEL",
+            prior_json_path=pace_prior,
+        )
+        assert pace_drift_up == 2, (pace_drift_up, pace_drift_up_signals)
+        assert pace_drift_up_signals["reason"] == "pace-accelerated", pace_drift_up_signals
 
         prior_cooling = repo / "prior-cooloff.json"
         prior_cooling.write_text(json.dumps({"routeSandbox": "OFF", "sandboxCooloff": 2}), encoding="utf-8")

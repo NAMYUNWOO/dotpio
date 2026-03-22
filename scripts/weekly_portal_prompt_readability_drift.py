@@ -408,6 +408,46 @@ def route_action_pacing_from_signals(*, action_guard: str, action_stability: str
     }
 
 
+def pace_drift_from_prior(*, current_pace: str, prior_json_path: Path) -> tuple[int, dict[str, str | int | bool]]:
+    pace_score = {"BRAKE": -1, "STEADY": 0, "ACCEL": 1}
+    current_score = pace_score.get(current_pace, 0)
+
+    prior_loaded = False
+    prior_pace = "NONE"
+    prior_score = 0
+
+    if prior_json_path.is_file():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_pace = str(prior.get("actionPace", "NONE") or "NONE").upper()
+            prior_score = pace_score.get(prior_pace, 0)
+            prior_loaded = True
+        except Exception:
+            prior_loaded = False
+            prior_pace = "NONE"
+            prior_score = 0
+
+    drift = current_score - prior_score
+
+    if not prior_loaded:
+        reason = "no-prior-pace"
+    elif drift > 0:
+        reason = "pace-accelerated"
+    elif drift < 0:
+        reason = "pace-decelerated"
+    else:
+        reason = "pace-stable"
+
+    return drift, {
+        "currentPace": current_pace,
+        "currentScore": current_score,
+        "priorPace": prior_pace,
+        "priorScore": prior_score,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def route_action_guardrail_from_signals(*, drift_risk: str, route_action_confidence: str) -> tuple[str, dict[str, str | bool]]:
     lock = drift_risk == "HIGH" and route_action_confidence == "LOW"
     token = "LOCK" if lock else "SOFT"
@@ -3748,6 +3788,10 @@ def main() -> int:
         action_stability=action_stability,
         pressure_lag=pressure_lag,
     )
+    pace_drift, pace_drift_signals = pace_drift_from_prior(
+        current_pace=action_pace,
+        prior_json_path=args.out_json,
+    )
     what_if_alt, what_if_alt_signals = what_if_alt_from_signals(
         lane_focus=lane_focus,
         lane_focus_scores=lane_focus_scores,
@@ -4135,6 +4179,8 @@ def main() -> int:
         "pressureLagSignals": pressure_lag_signals,
         "actionPace": action_pace,
         "actionPaceSignals": action_pace_signals,
+        "paceDrift": pace_drift,
+        "paceDriftSignals": pace_drift_signals,
         "whatIfAlt": what_if_alt,
         "whatIfAltSignals": what_if_alt_signals,
         "whatIfConfidence": what_if_confidence,
@@ -4327,6 +4373,7 @@ def main() -> int:
         f"- ACTION STABILITY: **{action_stability}** ({action_stability_signals['reason']}; conf={action_stability_signals['routeActionConfidence']} vol={action_stability_signals['focusVolatility']} momentum={action_stability_signals['driftMomentum']})",
         f"- PRESSURE LAG: **{pressure_lag}** (churn={pressure_lag_signals['pressureChurn']} momentum={pressure_lag_signals['driftMomentum']} |Δ|={pressure_lag_signals['absDriftDelta']})",
         f"- ACTION PACE: **{action_pace}** ({action_pace_signals['reason']}; guard={action_pace_signals['actionGuard']} stability={action_pace_signals['actionStability']} lag={action_pace_signals['pressureLag']})",
+        f"- PACE DRIFT: **{pace_drift:+d}** ({pace_drift_signals['reason']}; current={pace_drift_signals['currentPace']}({pace_drift_signals['currentScore']}) prior={pace_drift_signals['priorPace']}({pace_drift_signals['priorScore']}) loaded={pace_drift_signals['priorLoaded']})",
         f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
         f"- WHAT-IF CONF: **{what_if_confidence}** ({what_if_confidence_signals['reason']}; delta={what_if_confidence_signals['deltaRisk']} routeConf={what_if_confidence_signals['routeActionConfidence']} current={what_if_confidence_signals['currentLane']} alt={what_if_confidence_signals['altLane']})",
         f"- WHAT-IF ALIGN: **{what_if_align}** ({what_if_align_signals['reason']}; route={what_if_align_signals['routeAction']} lane={what_if_align_signals['routeActionLane']} alt={what_if_align_signals['altLane']})",
