@@ -1081,3 +1081,7 @@
 
 ## 2026-03-23 02:36 KST — Cycle AZ design sign-off
 - Approved urgency tri-band (`NOW|SOON|LATER`) as minimal cognitive load addition for digest operators.
+
+## 2026-03-23 03:36 KST — Design sign-off on glyph readability
+- Approved minimal symbol set for fallback step glyph (`✦ immediate`, `◈ stage`, `◇ hold`, `◌ arm`) to preserve terminal readability.
+- Kept glyph lane behind flag to protect baseline digest density.

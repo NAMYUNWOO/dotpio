@@ -1,8 +1,8 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-22T18:06:06.540881Z
+- GeneratedAt(UTC): 2026-03-22T18:35:52.129504Z
 - Status: **OK**
-- Window: last 14 days (max 200 commits)
+- Window: last 30 days (max 200 commits)
 - Checked commits: 200
 - Portal prompt commits: 21
 - Dominant mode commits: compact=2, detailed=5, neutral=14
@@ -40,6 +40,8 @@
 - ACTION PACE ALT WINDOW WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY enabled=False alt=FLAG OFF conf=LOW fit=OFF sandbox=OFF target=NONE ready=PRIMED)
 - ACTION PACE ALT WINDOW URGENCY: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY enabled=False alt=FLAG OFF conf=LOW fit=OFF why=FLAG OFF)
 - ACTION PACE ALT WINDOW URGENCY Δ: **+0** (urgency-stable; current=OFF(0) prior=OFF(0) loaded=True)
+- ACTION PACE ALT WINDOW STEP: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP enabled=False alt=FLAG OFF conf=LOW fit=OFF urgency=OFF sandbox=OFF target=NONE ready=PRIMED)
+- ACTION PACE ALT WINDOW STEP GLYPH: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH enabled=False step=FLAG OFF urgency=OFF fit=OFF)
 - ACTION PACE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_WHY enabled=False pace=BRAKE guard=LOCK stability=WATCH lag=SLOW drift=+0)
 - WHAT-IF: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_ALT enabled=False current=PORTAL alt=ALT risk=19->16)
 - WHAT-IF CONF: **LOW** (flag-disabled; delta=-3 routeConf=LOW current=PORTAL alt=ALT)

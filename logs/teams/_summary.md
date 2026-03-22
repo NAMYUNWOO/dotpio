@@ -1913,3 +1913,13 @@ Compact decision memory for AI context efficiency.
 - Cycle AZ follow-up shipped: weekly portal readability digest now emits `ACTION PACE ALT WINDOW URGENCY Δ:+n|-n` using persisted urgency band scoring (`OFF=0/LATER=1/SOON=2/NOW=3`) against prior digest snapshot.
 - First-run behavior for urgency drift is stabilized to `Δ:+0` with `no-prior-urgency-band` reason when prior JSON is missing/unreadable.
 - Regression coverage expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` for markdown token presence and urgency-drift helper behavior (missing-prior + escalation path).
+
+## 2026-03-23 03:36 KST — Closed remaining AZ item + executed BA Game Director cycle
+- Completed the last unchecked AZ backlog item by shipping `ACTION PACE ALT WINDOW STEP:<verb>` (flag: `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP`) with payload/schema + markdown wiring.
+- With ACTION_ITEMS/TASKS/POST_RC backlog fully checked (ignoring template tracker line), immediately ran Game Director review cycle:
+  1. Low-risk Design/UX: `ACTION PACE ALT WINDOW STEP GLYPH:<sigil>` readability companion
+  2. Mid-risk Systems/QA: `ACTION PACE ALT WINDOW STEP Δ:<n>` prior-window drift token
+  3. High-risk Combat/VFX: `ACTION PACE ALT WINDOW PULSE:COOL|LIVE|HOT` pressure pulse token
+- Selected and shipped Idea #1 as minimal vertical slice in same cycle (`STEP GLYPH`) behind `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH`.
+- Backlog injected for Cycle BA: glyph done, `STEP Δ` and `PULSE` queued.
+- Verification: regression suite + weekly digest generator both PASS.

@@ -1633,3 +1633,10 @@
   - Added markdown digest line `ACTION PACE ALT WINDOW URGENCY Δ` with current/prior urgency bands and loaded-state evidence.
 - Follow-up:
   - Keep urgency-delta signal as input candidate for upcoming compact fallback-step recommendation token.
+
+## 2026-03-23 03:36 KST — Cycle AZ step token + Cycle BA glyph slice shipped
+- Completed remaining unchecked priority item: `ACTION PACE ALT WINDOW STEP:<verb>` token in weekly digest.
+- Added helper `action_pace_alt_window_step_from_signals(...)` with flag `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP` and payload keys `actionPaceAltWindowStep` + signals.
+- Ran immediate Game Director cycle after all backlog checks: selected low-risk Design/UX experiment and shipped `ACTION PACE ALT WINDOW STEP GLYPH:<sigil>` via `action_pace_alt_window_step_glyph_from_signals(...)` behind `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH`.
+- Verification: regression + digest generation PASS.
+- Follow-up queued: `STEP Δ` drift token and fallback cadence pulse token.

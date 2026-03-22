@@ -2109,3 +2109,11 @@
   - Missing prior snapshot intentionally yields `Δ:+0` with `no-prior-urgency-band` reason to avoid false first-run spikes.
 - Follow-up:
   - Next highest-priority unchecked item: Design/AI Content compact fallback step token (`ACTION PACE ALT WINDOW STEP:<verb>`).
+
+## 2026-03-23 03:36 KST — Regression expansion for step/glyph tokens
+- Added payload schema assertions for `actionPaceAltWindowStep` / `actionPaceAltWindowStepSignals` and glyph pair `actionPaceAltWindowStepGlyph` / signals.
+- Added markdown assertions for `ACTION PACE ALT WINDOW STEP` and `ACTION PACE ALT WINDOW STEP GLYPH` rows.
+- Added helper checks covering `PROBE -> ✦` and `WAIT -> ◇` cases with experiment flags enabled.
+- Verification commands:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 200 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` ✅

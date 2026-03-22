@@ -1295,3 +1295,7 @@
 
 ## 2026-03-23 02:36 KST — Cycle AZ readability pass
 - Inserted urgency line adjacent to fallback WHY for direct handoff sequence (`ALT WINDOW` -> `CONF` -> `FIT` -> `WHY` -> `URGENCY`).
+
+## 2026-03-23 03:36 KST — Operator scan path update
+- Fallback stack now reads: `ALT WINDOW` -> `CONF` -> `FIT` -> `WHY` -> `URGENCY` -> `URGENCY Δ` -> `STEP` -> `STEP GLYPH`.
+- Step+glyph pairing reduces cognitive load for single-action handoff decisions.

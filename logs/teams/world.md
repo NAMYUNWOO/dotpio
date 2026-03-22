@@ -1069,3 +1069,7 @@
 
 ## 2026-03-23 02:36 KST — Cycle AZ lane sync
 - No world-state changes; consumed urgency token for portal-operator cadence context.
+
+## 2026-03-23 03:36 KST — Lane sync note
+- No map graph/portal topology edits this cycle.
+- Consumed new fallback step + step glyph digest tokens for route handoff readability; world lane remains unchanged.

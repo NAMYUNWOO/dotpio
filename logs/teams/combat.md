@@ -1015,3 +1015,7 @@
 
 ## 2026-03-23 02:36 KST — Cycle AZ lane sync
 - No combat param changes; urgency token remains digest-only and does not modify runtime combat loop.
+
+## 2026-03-23 03:36 KST — Lane sync note
+- No runtime combat stat/behavior changes.
+- Digest-only update; queued next combat/vfx-facing candidate `ACTION PACE ALT WINDOW PULSE` for future cadence readability slice.

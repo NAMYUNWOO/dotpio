@@ -14,6 +14,8 @@ from weekly_portal_prompt_readability_drift import (
     action_pace_alt_window_why_from_signals,
     action_pace_alt_window_urgency_from_signals,
     action_pace_alt_window_urgency_drift_from_prior,
+    action_pace_alt_window_step_from_signals,
+    action_pace_alt_window_step_glyph_from_signals,
     action_pace_alt_window_from_signals,
     action_pace_window_confidence_from_signals,
     pace_drift_from_prior,
@@ -857,6 +859,28 @@ def main() -> int:
             "actionPaceAltWindowWhy",
             "reason",
         }, payload
+        assert isinstance(payload.get("actionPaceAltWindowStep"), str), payload
+        assert set(payload.get("actionPaceAltWindowStepSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "actionPaceAltWindow",
+            "actionPaceAltWindowConfidence",
+            "actionPaceAltWindowFit",
+            "actionPaceAltWindowUrgency",
+            "routeSandbox",
+            "sandboxTarget",
+            "sandboxReadiness",
+            "reason",
+        }, payload
+        assert isinstance(payload.get("actionPaceAltWindowStepGlyph"), str), payload
+        assert set(payload.get("actionPaceAltWindowStepGlyphSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "actionPaceAltWindowStep",
+            "actionPaceAltWindowUrgency",
+            "actionPaceAltWindowFit",
+            "reason",
+        }, payload
         assert isinstance(payload.get("actionPaceWhy"), str), payload
         assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
             "flagName",
@@ -921,6 +945,8 @@ def main() -> int:
         assert "ACTION PACE ALT WINDOW WHY" in md_text
         assert "ACTION PACE ALT WINDOW URGENCY" in md_text
         assert "ACTION PACE ALT WINDOW URGENCY Δ" in md_text
+        assert "ACTION PACE ALT WINDOW STEP" in md_text
+        assert "ACTION PACE ALT WINDOW STEP GLYPH" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
@@ -1164,6 +1190,46 @@ def main() -> int:
             assert urgency_drift_up == 2, (urgency_drift_up, urgency_drift_up_signals)
             assert urgency_drift_up_signals["reason"] == "urgency-escalated", urgency_drift_up_signals
 
+            prior_alt_step_flag = os.environ.get("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP")
+            os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP"] = "1"
+            alt_step_probe, alt_step_probe_signals = action_pace_alt_window_step_from_signals(
+                action_pace_alt_window=alt_window_probe,
+                action_pace_alt_window_confidence=alt_conf_high,
+                action_pace_alt_window_fit=alt_fit_safe,
+                action_pace_alt_window_urgency=alt_urgency_now,
+                action_pace_alt_window_signals=alt_window_probe_signals,
+            )
+            assert alt_step_probe == "PROBE", (alt_step_probe, alt_step_probe_signals)
+            assert alt_step_probe_signals["reason"] == "safe-immediate-probe-window", alt_step_probe_signals
+
+            alt_step_wait, alt_step_wait_signals = action_pace_alt_window_step_from_signals(
+                action_pace_alt_window=alt_window_wait,
+                action_pace_alt_window_confidence=alt_conf_low,
+                action_pace_alt_window_fit=alt_fit_tense,
+                action_pace_alt_window_urgency=alt_urgency_later,
+                action_pace_alt_window_signals=alt_window_wait_signals,
+            )
+            assert alt_step_wait == "ARM", (alt_step_wait, alt_step_wait_signals)
+            assert alt_step_wait_signals["reason"] == "sandbox-not-armed", alt_step_wait_signals
+
+            prior_alt_step_glyph_flag = os.environ.get("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH")
+            os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH"] = "1"
+            step_glyph_probe, step_glyph_probe_signals = action_pace_alt_window_step_glyph_from_signals(
+                action_pace_alt_window_step=alt_step_probe,
+                action_pace_alt_window_urgency=alt_urgency_now,
+                action_pace_alt_window_fit=alt_fit_safe,
+            )
+            assert step_glyph_probe == "✦", (step_glyph_probe, step_glyph_probe_signals)
+            assert step_glyph_probe_signals["reason"] == "immediate-safe-action", step_glyph_probe_signals
+
+            step_glyph_wait, step_glyph_wait_signals = action_pace_alt_window_step_glyph_from_signals(
+                action_pace_alt_window_step="WAIT",
+                action_pace_alt_window_urgency=alt_urgency_later,
+                action_pace_alt_window_fit=alt_fit_tense,
+            )
+            assert step_glyph_wait == "◇", (step_glyph_wait, step_glyph_wait_signals)
+            assert step_glyph_wait_signals["reason"] == "hold-pattern-guidance", step_glyph_wait_signals
+
             if prior_alt_why_flag is None:
                 os.environ.pop("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY", None)
             else:
@@ -1172,6 +1238,14 @@ def main() -> int:
                 os.environ.pop("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY", None)
             else:
                 os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY"] = prior_alt_urgency_flag
+            if prior_alt_step_flag is None:
+                os.environ.pop("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP", None)
+            else:
+                os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP"] = prior_alt_step_flag
+            if prior_alt_step_glyph_flag is None:
+                os.environ.pop("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH", None)
+            else:
+                os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH"] = prior_alt_step_glyph_flag
         finally:
             if prior_alt_flag is None:
                 os.environ.pop("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW", None)

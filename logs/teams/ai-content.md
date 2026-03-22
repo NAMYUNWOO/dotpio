@@ -1049,3 +1049,7 @@
 ## 2026-03-23 02:36 KST — Cycle AZ rationale cadence extension
 - Added urgency vocabulary (`NOW|SOON|LATER`) aligned with fallback WHY + fit/confidence.
 - Keeps operator handoff actionable without long prose.
+
+## 2026-03-23 03:36 KST — Compact fallback verb lexicon finalized
+- Shipped one-action fallback verbs (`PROBE/ARM/PICK/STAGE/WAIT/HOLD/...`) for `ACTION PACE ALT WINDOW STEP`.
+- Added compact glyph companion semantics (`✦/◈/◇/◌`) for DOS-width quick scan behind experiment flag.

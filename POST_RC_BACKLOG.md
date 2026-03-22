@@ -353,4 +353,9 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-23 Cycle AZ)
 - [x] UX/Systems Team: Prototype fallback urgency token (`ACTION PACE ALT WINDOW URGENCY:NOW|SOON|LATER`) from fallback window + fit/confidence for quicker operator handoff
 - [x] QA/Systems Team: Add fallback urgency drift token (`ACTION PACE ALT WINDOW URGENCY Δ:+n|-n`) comparing current/prior urgency band
-- [ ] Design/AI Content Team: Prototype compact fallback step token (`ACTION PACE ALT WINDOW STEP:<verb>`) for one-action operator nudges
+- [x] Design/AI Content Team: Prototype compact fallback step token (`ACTION PACE ALT WINDOW STEP:<verb>`) for one-action operator nudges
+
+## Next Up (Game Director Injection — 2026-03-23 Cycle BA)
+- [x] Design/UX Team: Add compact fallback step glyph token (`ACTION PACE ALT WINDOW STEP GLYPH:<sigil>`) behind flag for DOS-width scanability
+- [ ] Systems/QA Team: Prototype fallback step drift token (`ACTION PACE ALT WINDOW STEP Δ:<n>`) against prior digest snapshot
+- [ ] Combat/VFX Team: Prototype fallback cadence pulse token (`ACTION PACE ALT WINDOW PULSE:COOL|LIVE|HOT`) for pressure readability
