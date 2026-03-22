@@ -41,6 +41,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_rearm_coach_why_from_signals,
     what_if_split_escalate_recover_veto_rearm_coach_handoff_from_signals,
     what_if_split_escalate_recover_veto_rearm_coach_handoff_fit_from_signals,
+    what_if_split_escalate_recover_veto_rearm_coach_handoff_why_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -765,6 +766,15 @@ def main() -> int:
             "splitEscPressure",
             "reason",
         }, payload
+        assert isinstance(payload.get("whatIfSplitEscRecoverVetoRearmCoachHandoffWhy"), str), payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmCoachHandoffWhySignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "splitEscRecoverVetoRearmCoachHandoff",
+            "splitEscRecoverVetoRearmCoachHandoffFit",
+            "splitEscRecoverVetoRearmCoachConfidence",
+            "reason",
+        }, payload
         md_text = out_md.read_text(encoding="utf-8")
         assert "Token Totals" in md_text
         assert "Top Token Movers" in md_text
@@ -858,6 +868,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF FIT" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF WHY" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -1608,6 +1619,39 @@ def main() -> int:
                                             )
                                             assert coach_handoff_fit_tense == "TENSE", (coach_handoff_fit_tense, coach_handoff_fit_tense_signals)
                                             assert coach_handoff_fit_tense_signals["reason"] == "no-handoff-under-high-pressure", coach_handoff_fit_tense_signals
+
+                                            prior_coach_handoff_why_env = os.environ.get("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_HANDOFF_WHY")
+                                            try:
+                                                os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_HANDOFF_WHY"] = "0"
+                                                handoff_why_off, handoff_why_off_signals = what_if_split_escalate_recover_veto_rearm_coach_handoff_why_from_signals(
+                                                    what_if_split_esc_recover_veto_rearm_coach_handoff="LOCKED",
+                                                    what_if_split_esc_recover_veto_rearm_coach_handoff_fit="SAFE",
+                                                    what_if_split_esc_recover_veto_rearm_coach_confidence="HIGH",
+                                                )
+                                                assert handoff_why_off == "FLAG OFF", (handoff_why_off, handoff_why_off_signals)
+                                                assert handoff_why_off_signals["reason"] == "flag-disabled", handoff_why_off_signals
+
+                                                os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_HANDOFF_WHY"] = "1"
+                                                handoff_why_commit, handoff_why_commit_signals = what_if_split_escalate_recover_veto_rearm_coach_handoff_why_from_signals(
+                                                    what_if_split_esc_recover_veto_rearm_coach_handoff="LOCKED",
+                                                    what_if_split_esc_recover_veto_rearm_coach_handoff_fit="SAFE",
+                                                    what_if_split_esc_recover_veto_rearm_coach_confidence="HIGH",
+                                                )
+                                                assert handoff_why_commit == "COMMIT", (handoff_why_commit, handoff_why_commit_signals)
+                                                assert handoff_why_commit_signals["reason"] == "locked-handoff-with-actionable-confidence", handoff_why_commit_signals
+
+                                                handoff_why_hold, handoff_why_hold_signals = what_if_split_escalate_recover_veto_rearm_coach_handoff_why_from_signals(
+                                                    what_if_split_esc_recover_veto_rearm_coach_handoff="NONE",
+                                                    what_if_split_esc_recover_veto_rearm_coach_handoff_fit="TENSE",
+                                                    what_if_split_esc_recover_veto_rearm_coach_confidence="LOW",
+                                                )
+                                                assert handoff_why_hold == "HOLD LINE", (handoff_why_hold, handoff_why_hold_signals)
+                                                assert handoff_why_hold_signals["reason"] == "no-coach-handoff-available", handoff_why_hold_signals
+                                            finally:
+                                                if prior_coach_handoff_why_env is None:
+                                                    os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_HANDOFF_WHY", None)
+                                                else:
+                                                    os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_HANDOFF_WHY"] = prior_coach_handoff_why_env
                                         finally:
                                             if prior_coach_why_env is None:
                                                 os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY", None)

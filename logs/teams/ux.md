@@ -1176,3 +1176,10 @@
 ## 2026-03-22 16:01 KST — Cycle AP UX note
 - Markdown digest now surfaces `COACH HANDOFF` and `COACH HANDOFF FIT` rows for faster glance parsing.
 - Regression confirms token rows are present and schema stable.
+
+## 2026-03-22 16:34 KST — Cycle AP closure (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF WHY`)
+- Completed highest-priority unchecked TASKS/AP item: added flag-gated token `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF WHY:<short>`.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfSplitEscRecoverVetoRearmCoachHandoffWhy` + `...Signals` and markdown row `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF WHY`.
+- Flag: `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_HANDOFF_WHY` (off => `FLAG OFF`; on => concise handoff guidance token).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and direct digest run both PASS.
+- Follow-up: move to next unchecked TASKS/AQ item (`BERSERK FX:PULSE`) unless priority changes.
