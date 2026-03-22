@@ -2268,6 +2268,97 @@ def what_if_split_escalate_recover_veto_release_route_from_signals(
     }
 
 
+def what_if_split_escalate_recover_veto_release_tick_from_prior(
+    *,
+    current_split_esc_recover_veto_release: str,
+    current_split_esc_recover_veto_state: str,
+    prior_json_path: Path,
+) -> tuple[int | str, dict[str, str | int | bool]]:
+    """Count idle-window pacing ticks after veto release clears (flag-gated)."""
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE_TICK"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    release = str(current_split_esc_recover_veto_release).upper()
+    state = str(current_split_esc_recover_veto_state).upper()
+
+    prior_loaded = False
+    prior_tick = 0
+    prior_state = "IDLE"
+    prior_release = "STABLE"
+
+    if prior_json_path.is_file():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_tick_value = prior.get("whatIfSplitEscRecoverVetoReleaseTick", 0)
+            if isinstance(prior_tick_value, int):
+                prior_tick = max(0, prior_tick_value)
+            prior_state = str(prior.get("whatIfSplitEscRecoverVetoState", prior_state)).upper()
+            prior_release = str(prior.get("whatIfSplitEscRecoverVetoRelease", prior_release)).upper()
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    if not flag_enabled:
+        tick: int | str = "FLAG OFF"
+        reason = "flag-disabled"
+    elif release == "COOLING CLEAR" and state == "IDLE":
+        tick = 1
+        reason = "release-cleared-idle-window-started"
+    elif state == "IDLE" and prior_tick > 0:
+        tick = prior_tick + 1
+        reason = "release-idle-window-continuing"
+    else:
+        tick = 0
+        reason = "no-active-release-idle-window"
+
+    return tick, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "currentRelease": release,
+        "currentState": state,
+        "priorTick": prior_tick,
+        "priorRelease": prior_release,
+        "priorState": prior_state,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
+def what_if_split_escalate_recover_veto_release_tick_phase_from_signals(
+    *,
+    what_if_split_esc_recover_veto_release_tick: int | str,
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Map veto release tick count to pacing phase labels."""
+    if isinstance(what_if_split_esc_recover_veto_release_tick, str):
+        token = what_if_split_esc_recover_veto_release_tick.upper()
+        return token, {
+            "tick": token,
+            "reason": "non-numeric-tick-token-forwarded",
+            "numeric": False,
+        }
+
+    tick = max(0, int(what_if_split_esc_recover_veto_release_tick))
+    if tick == 0:
+        phase = "IDLE"
+        reason = "no-active-release-tick-window"
+    elif tick <= 2:
+        phase = "EARLY"
+        reason = "release-window-just-opened"
+    elif tick <= 4:
+        phase = "MID"
+        reason = "release-window-mid-pacing"
+    else:
+        phase = "LATE"
+        reason = "release-window-late-pacing"
+
+    return phase, {
+        "tick": tick,
+        "reason": reason,
+        "numeric": True,
+    }
+
+
 def what_if_split_escalate_recover_confidence_delta_from_prior(
     *,
     current_confidence: str,
@@ -2981,6 +3072,14 @@ def main() -> int:
         what_if_split_esc_recover_alt=what_if_split_esc_recover_alt,
         what_if_split_esc_recover_plan=what_if_split_esc_recover_plan,
     )
+    what_if_split_esc_recover_veto_release_tick, what_if_split_esc_recover_veto_release_tick_signals = what_if_split_escalate_recover_veto_release_tick_from_prior(
+        current_split_esc_recover_veto_release=what_if_split_esc_recover_veto_release,
+        current_split_esc_recover_veto_state=what_if_split_esc_recover_veto_state,
+        prior_json_path=args.out_json,
+    )
+    what_if_split_esc_recover_veto_release_tick_phase, what_if_split_esc_recover_veto_release_tick_phase_signals = what_if_split_escalate_recover_veto_release_tick_phase_from_signals(
+        what_if_split_esc_recover_veto_release_tick=what_if_split_esc_recover_veto_release_tick,
+    )
     what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
         current_confidence=what_if_split_esc_recover_confidence,
         prior_json_path=args.out_json,
@@ -3138,6 +3237,10 @@ def main() -> int:
         "whatIfSplitEscRecoverVetoReleaseConfidenceSignals": what_if_split_esc_recover_veto_release_confidence_signals,
         "whatIfSplitEscRecoverVetoReleaseRoute": what_if_split_esc_recover_veto_release_route,
         "whatIfSplitEscRecoverVetoReleaseRouteSignals": what_if_split_esc_recover_veto_release_route_signals,
+        "whatIfSplitEscRecoverVetoReleaseTick": what_if_split_esc_recover_veto_release_tick,
+        "whatIfSplitEscRecoverVetoReleaseTickSignals": what_if_split_esc_recover_veto_release_tick_signals,
+        "whatIfSplitEscRecoverVetoReleaseTickPhase": what_if_split_esc_recover_veto_release_tick_phase,
+        "whatIfSplitEscRecoverVetoReleaseTickPhaseSignals": what_if_split_esc_recover_veto_release_tick_phase_signals,
         "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
         "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
@@ -3239,6 +3342,8 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE: **{what_if_split_esc_recover_veto_release}** ({what_if_split_esc_recover_veto_release_signals['reason']}; flag={what_if_split_esc_recover_veto_release_signals['flagName']} enabled={what_if_split_esc_recover_veto_release_signals['flagEnabled']} current={what_if_split_esc_recover_veto_release_signals['currentState']} prior={what_if_split_esc_recover_veto_release_signals['priorState']} loaded={what_if_split_esc_recover_veto_release_signals['priorLoaded']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE CONF: **{what_if_split_esc_recover_veto_release_confidence}** ({what_if_split_esc_recover_veto_release_confidence_signals['reason']}; release={what_if_split_esc_recover_veto_release_confidence_signals['splitEscRecoverVetoRelease']} state={what_if_split_esc_recover_veto_release_confidence_signals['splitEscRecoverVetoState']} dwell={what_if_split_esc_recover_veto_release_confidence_signals['splitEscRecoverVetoDwell']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE: **{what_if_split_esc_recover_veto_release_route}** ({what_if_split_esc_recover_veto_release_route_signals['reason']}; release={what_if_split_esc_recover_veto_release_route_signals['splitEscRecoverVetoRelease']} state={what_if_split_esc_recover_veto_release_route_signals['splitEscRecoverVetoState']} plan={what_if_split_esc_recover_veto_release_route_signals['splitEscRecoverPlan']} primary={what_if_split_esc_recover_veto_release_route_signals['splitEscRecover']} alt={what_if_split_esc_recover_veto_release_route_signals['splitEscRecoverAlt']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE TICK: **{what_if_split_esc_recover_veto_release_tick}** ({what_if_split_esc_recover_veto_release_tick_signals['reason']}; flag={what_if_split_esc_recover_veto_release_tick_signals['flagName']} enabled={what_if_split_esc_recover_veto_release_tick_signals['flagEnabled']} release={what_if_split_esc_recover_veto_release_tick_signals['currentRelease']} state={what_if_split_esc_recover_veto_release_tick_signals['currentState']} prior={what_if_split_esc_recover_veto_release_tick_signals['priorRelease']}:{what_if_split_esc_recover_veto_release_tick_signals['priorState']}:{what_if_split_esc_recover_veto_release_tick_signals['priorTick']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE PHASE: **{what_if_split_esc_recover_veto_release_tick_phase}** ({what_if_split_esc_recover_veto_release_tick_phase_signals['reason']}; tick={what_if_split_esc_recover_veto_release_tick_phase_signals['tick']} numeric={what_if_split_esc_recover_veto_release_tick_phase_signals['numeric']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",

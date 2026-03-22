@@ -24,6 +24,8 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_release_from_prior,
     what_if_split_escalate_recover_veto_release_confidence_from_signals,
     what_if_split_escalate_recover_veto_release_route_from_signals,
+    what_if_split_escalate_recover_veto_release_tick_from_prior,
+    what_if_split_escalate_recover_veto_release_tick_phase_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -700,6 +702,8 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE CONF" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE TICK" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE PHASE" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -1045,6 +1049,76 @@ def main() -> int:
                         )
                         assert veto_release_route_hold == "HOLD", (veto_release_route_hold, veto_release_route_hold_signals)
                         assert veto_release_route_hold_signals["reason"] == "release-route-held-while-cooling", veto_release_route_hold_signals
+
+                        prior_veto_release_tick_env = os.environ.get("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE_TICK")
+                        try:
+                            os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE_TICK"] = "0"
+                            veto_release_tick_flag_off, veto_release_tick_flag_off_signals = what_if_split_escalate_recover_veto_release_tick_from_prior(
+                                current_split_esc_recover_veto_release="COOLING CLEAR",
+                                current_split_esc_recover_veto_state="IDLE",
+                                prior_json_path=veto_release_prior,
+                            )
+                            assert veto_release_tick_flag_off == "FLAG OFF", (veto_release_tick_flag_off, veto_release_tick_flag_off_signals)
+                            assert veto_release_tick_flag_off_signals["reason"] == "flag-disabled", veto_release_tick_flag_off_signals
+
+                            os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE_TICK"] = "1"
+                            veto_release_tick_start, veto_release_tick_start_signals = what_if_split_escalate_recover_veto_release_tick_from_prior(
+                                current_split_esc_recover_veto_release="COOLING CLEAR",
+                                current_split_esc_recover_veto_state="IDLE",
+                                prior_json_path=veto_release_prior,
+                            )
+                            assert veto_release_tick_start == 1, (veto_release_tick_start, veto_release_tick_start_signals)
+                            assert veto_release_tick_start_signals["reason"] == "release-cleared-idle-window-started", veto_release_tick_start_signals
+
+                            veto_release_tick_prior = repo / "veto-release-tick-prior.json"
+                            veto_release_tick_prior.write_text(
+                                json.dumps(
+                                    {
+                                        "whatIfSplitEscRecoverVetoReleaseTick": 2,
+                                        "whatIfSplitEscRecoverVetoRelease": "STABLE",
+                                        "whatIfSplitEscRecoverVetoState": "IDLE",
+                                    }
+                                ),
+                                encoding="utf-8",
+                            )
+                            veto_release_tick_continue, veto_release_tick_continue_signals = what_if_split_escalate_recover_veto_release_tick_from_prior(
+                                current_split_esc_recover_veto_release="STABLE",
+                                current_split_esc_recover_veto_state="IDLE",
+                                prior_json_path=veto_release_tick_prior,
+                            )
+                            assert veto_release_tick_continue == 3, (veto_release_tick_continue, veto_release_tick_continue_signals)
+                            assert veto_release_tick_continue_signals["reason"] == "release-idle-window-continuing", veto_release_tick_continue_signals
+
+                            veto_release_tick_reset, veto_release_tick_reset_signals = what_if_split_escalate_recover_veto_release_tick_from_prior(
+                                current_split_esc_recover_veto_release="HOLD",
+                                current_split_esc_recover_veto_state="ARMED",
+                                prior_json_path=veto_release_tick_prior,
+                            )
+                            assert veto_release_tick_reset == 0, (veto_release_tick_reset, veto_release_tick_reset_signals)
+                            assert veto_release_tick_reset_signals["reason"] == "no-active-release-idle-window", veto_release_tick_reset_signals
+
+                            veto_release_phase_idle, veto_release_phase_idle_signals = what_if_split_escalate_recover_veto_release_tick_phase_from_signals(
+                                what_if_split_esc_recover_veto_release_tick=0,
+                            )
+                            assert veto_release_phase_idle == "IDLE", (veto_release_phase_idle, veto_release_phase_idle_signals)
+                            assert veto_release_phase_idle_signals["reason"] == "no-active-release-tick-window", veto_release_phase_idle_signals
+
+                            veto_release_phase_mid, veto_release_phase_mid_signals = what_if_split_escalate_recover_veto_release_tick_phase_from_signals(
+                                what_if_split_esc_recover_veto_release_tick=3,
+                            )
+                            assert veto_release_phase_mid == "MID", (veto_release_phase_mid, veto_release_phase_mid_signals)
+                            assert veto_release_phase_mid_signals["reason"] == "release-window-mid-pacing", veto_release_phase_mid_signals
+
+                            veto_release_phase_flag_off, veto_release_phase_flag_off_signals = what_if_split_escalate_recover_veto_release_tick_phase_from_signals(
+                                what_if_split_esc_recover_veto_release_tick="FLAG OFF",
+                            )
+                            assert veto_release_phase_flag_off == "FLAG OFF", (veto_release_phase_flag_off, veto_release_phase_flag_off_signals)
+                            assert veto_release_phase_flag_off_signals["reason"] == "non-numeric-tick-token-forwarded", veto_release_phase_flag_off_signals
+                        finally:
+                            if prior_veto_release_tick_env is None:
+                                os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE_TICK", None)
+                            else:
+                                os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE_TICK"] = prior_veto_release_tick_env
                     finally:
                         if prior_veto_release_env is None:
                             os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE", None)

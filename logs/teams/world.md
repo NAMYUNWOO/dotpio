@@ -831,3 +831,10 @@
 - Decision: Route emits actionable lane only on `COOLING CLEAR -> IDLE` release transitions; otherwise `HOLD` (cooling/armed) or `NONE` when no actionable lane exists.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS) and `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 30 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` (PASS).
 - Next: remaining highest-priority unchecked item is `WHAT-IF SPLIT ESC RECOVER VETO RELEASE TICK:<n>` (flag-gated prototype).
+
+## 2026-03-22 09:06 KST — Cycle AJ: veto release pacing phase token
+- Task: Close highest-priority unchecked item by adding `WHAT-IF SPLIT ESC RECOVER VETO RELEASE PHASE:IDLE|EARLY|MID|LATE`.
+- Decision: Chosen as low-risk UX slice after Game Director ideation (low/mid/high). Mapping is deterministic from release tick count and forwards non-numeric tokens (e.g., `FLAG OFF`) unchanged.
+- Implementation: Updated `scripts/weekly_portal_prompt_readability_drift.py` payload/markdown plus regression coverage in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: Next highest-priority unchecked item is `WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE:ACCEL|STEADY|DECAY`.

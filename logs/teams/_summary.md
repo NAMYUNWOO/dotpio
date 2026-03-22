@@ -1571,3 +1571,13 @@ Compact decision memory for AI context efficiency.
 - Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now derives route token from release-state + recovery plan/lanes and emits payload keys `whatIfSplitEscRecoverVetoReleaseRoute` / `...Signals` plus markdown row `WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE`.
 - Regression: extended `scripts/regression_weekly_portal_prompt_readability_drift.py` schema + markdown assertions and helper tests; full regression passed.
 - Next priority item remains unchecked: prototype `WHAT-IF SPLIT ESC RECOVER VETO RELEASE TICK:<n>` behind flag.
+
+## 2026-03-22 09:06 KST — Cycle AJ closure (`WHAT-IF SPLIT ESC RECOVER VETO RELEASE PHASE`)
+- Closed highest-priority unchecked item by shipping `WHAT-IF SPLIT ESC RECOVER VETO RELEASE PHASE:IDLE|EARLY|MID|LATE` in weekly portal readability digest output.
+- Implementation: Added `what_if_split_escalate_recover_veto_release_tick_from_prior` + `...tick_phase_from_signals` wiring to JSON payload and markdown rows in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 -m py_compile ...` both PASS.
+- Game Director cycle executed (3 ideas):
+  1) Low-risk UX (selected): release pacing phase token (shipped).
+  2) Mid-risk systems: release cadence token (`ACCEL|STEADY|DECAY`) from tick deltas.
+  3) High-risk novelty (flagged): auto-rearm warning token (`WHAT-IF SPLIT ESC RECOVER VETO REARM:WATCH`).
+- Injected backlog (Cycle AJ): cadence token + auto-rearm warning prototype remain open.
