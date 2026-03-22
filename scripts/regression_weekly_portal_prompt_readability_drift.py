@@ -10,6 +10,7 @@ from pathlib import Path
 
 from weekly_portal_prompt_readability_drift import (
     action_pace_alt_window_confidence_from_signals,
+    action_pace_alt_window_fit_from_signals,
     action_pace_alt_window_from_signals,
     action_pace_window_confidence_from_signals,
     pace_drift_from_prior,
@@ -820,6 +821,17 @@ def main() -> int:
             "sandboxReadiness",
             "reason",
         }, payload
+        assert isinstance(payload.get("actionPaceAltWindowFit"), str), payload
+        assert set(payload.get("actionPaceAltWindowFitSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "actionPaceAltWindow",
+            "routeSandbox",
+            "sandboxTarget",
+            "sandboxReadiness",
+            "pressureBand",
+            "reason",
+        }, payload
         assert isinstance(payload.get("actionPaceWhy"), str), payload
         assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
             "flagName",
@@ -880,6 +892,7 @@ def main() -> int:
         assert "ACTION PACE WINDOW CONF" in md_text
         assert "ACTION PACE ALT WINDOW" in md_text
         assert "ACTION PACE ALT WINDOW CONF" in md_text
+        assert "ACTION PACE ALT WINDOW FIT" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
@@ -1013,8 +1026,10 @@ def main() -> int:
         assert alt_window_flag_off_signals["reason"] == "flag-disabled", alt_window_flag_off_signals
 
         prior_alt_flag = os.environ.get("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW")
+        prior_alt_fit_flag = os.environ.get("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT")
         try:
             os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW"] = "1"
+            os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT"] = "1"
             alt_window_probe, alt_window_probe_signals = action_pace_alt_window_from_signals(
                 action_pace_window="CLOSE",
                 route_sandbox="ON",
@@ -1048,11 +1063,31 @@ def main() -> int:
             )
             assert alt_conf_low == "LOW", (alt_conf_low, alt_conf_low_signals)
             assert alt_conf_low_signals["reason"] == "fallback-not-actionable", alt_conf_low_signals
+
+            alt_fit_safe, alt_fit_safe_signals = action_pace_alt_window_fit_from_signals(
+                action_pace_alt_window=alt_window_probe,
+                action_pace_alt_window_signals=alt_window_probe_signals,
+                pressure_band="MID",
+            )
+            assert alt_fit_safe == "SAFE", (alt_fit_safe, alt_fit_safe_signals)
+            assert alt_fit_safe_signals["reason"] == "armed-fallback-absorbs-mid-pressure", alt_fit_safe_signals
+
+            alt_fit_tense, alt_fit_tense_signals = action_pace_alt_window_fit_from_signals(
+                action_pace_alt_window=alt_window_wait,
+                action_pace_alt_window_signals=alt_window_wait_signals,
+                pressure_band="HIGH",
+            )
+            assert alt_fit_tense == "TENSE", (alt_fit_tense, alt_fit_tense_signals)
+            assert alt_fit_tense_signals["reason"] == "fallback-lane-not-actionable", alt_fit_tense_signals
         finally:
             if prior_alt_flag is None:
                 os.environ.pop("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW", None)
             else:
                 os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW"] = prior_alt_flag
+            if prior_alt_fit_flag is None:
+                os.environ.pop("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT", None)
+            else:
+                os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT"] = prior_alt_fit_flag
 
         prior_cooling = repo / "prior-cooloff.json"
         prior_cooling.write_text(json.dumps({"routeSandbox": "OFF", "sandboxCooloff": 2}), encoding="utf-8")

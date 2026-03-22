@@ -1892,3 +1892,12 @@ Compact decision memory for AI context efficiency.
 - Backlog updates:
   - Cycle AX fallback token completed in both `TASKS.md` + `POST_RC_BACKLOG.md`.
   - Injected Cycle AY with three ideas; completed confidence slice, leaving `FIT` and `WHY` queued.
+
+## 2026-03-23 02:01 KST — Cycle AY fallback fit token shipped
+- Closed Cycle AY mid-risk Systems/UX item: added flagged digest token `ACTION PACE ALT WINDOW FIT:SAFE|EVEN|TENSE`.
+- New classifier `action_pace_alt_window_fit_from_signals()` maps alternate pace-window actionability + pressure band to fit guidance.
+- Payload/schema updated with `actionPaceAltWindowFit` and `actionPaceAltWindowFitSignals`; markdown digest now includes `ACTION PACE ALT WINDOW FIT` row.
+- Regression + generation PASS:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 50 --out-json logs/playtests/weekly_portal_prompt_readability_drift.json --out-md logs/playtests/weekly_portal_prompt_readability_drift.md`
+- Remaining highest-priority unchecked item: `ACTION PACE ALT WINDOW WHY:<short>`.

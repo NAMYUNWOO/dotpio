@@ -1603,3 +1603,10 @@
 - Shipped: `ACTION PACE ALT WINDOW CONF:LOW|MID|HIGH` in weekly portal readability digest (flagged lane via `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW`).
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW=1 python3 scripts/weekly_portal_prompt_readability_drift.py` passed.
 - Follow-up: keep Cycle AY backlog items for `ACTION PACE ALT WINDOW FIT` and `ACTION PACE ALT WINDOW WHY` queued.
+
+## 2026-03-23 02:01 KST — Cycle AY fallback fit token shipped (`ACTION PACE ALT WINDOW FIT`)
+- Completed highest-priority unchecked item by adding flagged digest token `ACTION PACE ALT WINDOW FIT:SAFE|EVEN|TENSE`.
+- Implementation: added `action_pace_alt_window_fit_from_signals(...)` and wired JSON payload fields `actionPaceAltWindowFit` / `actionPaceAltWindowFitSignals` plus markdown row `ACTION PACE ALT WINDOW FIT` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Flag contract: `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT` (OFF by default).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and flagged digest generation PASS.
+- Next hook: remaining Cycle AY unchecked item is `ACTION PACE ALT WINDOW WHY:<short>`.

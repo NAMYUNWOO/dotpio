@@ -1069,3 +1069,8 @@
 - Shipped: `ACTION PACE ALT WINDOW CONF:LOW|MID|HIGH` in weekly portal readability digest (flagged lane via `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW`).
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW=1 python3 scripts/weekly_portal_prompt_readability_drift.py` passed.
 - Follow-up: keep Cycle AY backlog items for `ACTION PACE ALT WINDOW FIT` and `ACTION PACE ALT WINDOW WHY` queued.
+
+## 2026-03-23 02:01 KST — Cycle AY fallback-fit sync
+- Synced lane note: weekly digest gained flagged `ACTION PACE ALT WINDOW FIT:SAFE|EVEN|TENSE` token for pressure-aware alternate pacing guidance.
+- Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: await Cycle AY rationale micro-token (`ACTION PACE ALT WINDOW WHY:<short>`).
