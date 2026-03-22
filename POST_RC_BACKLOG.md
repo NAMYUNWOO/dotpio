@@ -323,3 +323,8 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/Systems Team: Add vibe-sync streak progress token in portal prompt (`VIBE CHAIN:<n>/3`, compact `VSC:<n>/3`) behind flag for pre-reward readability
 - [x] Systems/Combat Team: Prototype sync-threshold dodge charge handoff (`VIBE SYNC DODGE:+1`) behind flag when `VIBE SYNC:+1` triggers
 - [x] Design/AI Content Team: Prototype route-vibe snapback warning (`VIBE SNAPBACK:ON`) behind flag on immediate post-sync misalignment
+
+## P1 (Game Director Injection — 2026-03-22 Cycle AU)
+- [x] UX/Systems Team: Add post-snapback recovery cue token (`VIBE RECOVER:READY`, compact `VR:OK`) behind flag on first re-aligned transition
+- [ ] Systems/Combat Team: Add route-vibe resilience streak token (`VIBE RESILIENCE:<n>`) behind flag for consecutive recoveries after snapback
+- [ ] Design/AI Content Team: Prototype route-vibe drift alarm token (`VIBE DRIFT:WIDE`) behind flag when conflict + snapback co-occur in short window

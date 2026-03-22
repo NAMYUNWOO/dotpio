@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-22 20:04 KST
+Last updated: 2026-03-22 21:04 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,11 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Game Director Cycle AU executed after confirming ACTION_ITEMS + TASKS + POST_RC_BACKLOG remained fully checked.
+- Cycle AU ideas generated (3): low-risk post-snapback recovery cue, mid-risk resilience streak token, high-risk drift alarm token under short-window conflict+snapback overlap.
+- Selected/implemented Cycle AU vertical slice: portal prompt now supports flag-gated recovery cue token (`VIBE RECOVER:READY`, compact `VR:OK`) on the first re-aligned transition after snapback.
+- Recovery cue lifecycle is one-shot and reversible: it arms after immediate post-sync misalignment (`VIBE SNAPBACK:ON`) and auto-clears after first confirmed recovery transition.
+- Regression coverage added in `scripts/regression_portal_route_vibe_recovery.lua`; existing snapback regression remains green.
 - Cycle AQ executed with forced lane rebalance after coverage check showed systems dominance over the last 10 completed items (systems=10/10, all other lanes=0).
 - Shipped underrepresented-lane vertical slice: portal transition prompt now emits pressure-tied FX cue token (`FX:CALM|FLICKER|SURGE`, compact `FX:C|F|S`) to improve world-choice readability without mechanics change.
 - Injected Cycle AQ follow-ups: combat/vfx pressure pulse token (`BERSERK FX:PULSE`) and flagged world-design route vignette token (`ROUTE VIGNETTE:<glyph>`).

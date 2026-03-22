@@ -1228,3 +1228,21 @@
 ## 2026-03-22 20:31 KST — Compact/detailed warning parity
 - Added detailed token `VIBE SNAPBACK:ON` and compact fallback `VSB:ON`.
 - Warning appears only for immediate post-sync misalignment window and does not persist on later mismatches.
+
+## 2026-03-22 21:04:48 KST
+- Task: Game Director Cycle AU ideation + vertical slice execution (post-snapback recovery cue).
+- Commit: HEAD (this run)
+- Files:
+  - `src/portal.lua`
+  - `scripts/regression_portal_route_vibe_recovery.lua`
+  - `TASKS.md`
+  - `POST_RC_BACKLOG.md`
+- Verification:
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_RECOVERY_HINT=1 lua scripts/regression_portal_route_vibe_recovery.lua` ✅
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 lua scripts/regression_portal_route_vibe_snapback.lua` ✅
+- Decisions:
+  - Generated 3 ideas (low/mid/high risk) per Game Director protocol; selected low-risk UX/systems slice to keep iteration cadence fast.
+  - Added one-shot recovery cue token (`VIBE RECOVER:READY`, compact `VR:OK`) behind `DOTPIO_EXPERIMENT_ROUTE_VIBE_RECOVERY_HINT`.
+  - Recovery cue arms on immediate post-sync snapback and auto-clears after the first confirmed re-aligned transition.
+- Follow-up:
+  - Cycle AU backlog remains open with resilience-streak token and drift-alarm prototype for next review pass.

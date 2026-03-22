@@ -5,6 +5,7 @@ local routeTagCache = {}
 local routeTagOverrides = {}
 local routeVibeSyncStreak = 0
 local pendingVibeSyncDodgeCharges = 0
+local routeVibeRecoveryArmed = false
 
 -- 맵 전환 콜백: onLoad(targetMap, targetPortal)
 Portal.onLoad = nil
@@ -322,6 +323,15 @@ local function isRouteVibeSnapbackExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isRouteVibeRecoveryExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_VIBE_RECOVERY_HINT")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function isRouteVibeThreatAligned(routeTag, threatTier)
     return routeTagToExpectedThreatTier(routeTag) == normalizeThreatTier(threatTier)
 end
@@ -355,7 +365,7 @@ local function resolveRouteVignetteGlyph(routeTag)
     return "???"
 end
 
-local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback)
+local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery)
     local fxCue = resolvePortalFxCue(pressureScore)
     local routeVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s  ROUTE VIBE:%s", routeTag, coach, pressureScore, fxCue, routeVibe)
@@ -389,10 +399,13 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
     if vibeSnapback then
         prompt = string.format("%s  VIBE SNAPBACK:ON", prompt)
     end
+    if vibeRecovery then
+        prompt = string.format("%s  VIBE RECOVER:READY", prompt)
+    end
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
@@ -425,6 +438,9 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
     end
     if vibeSnapback then
         prompt = string.format("%s  VSB:ON", prompt)
+    end
+    if vibeRecovery then
+        prompt = string.format("%s  VR:OK", prompt)
     end
     return prompt
 end
@@ -468,11 +484,13 @@ function Portal.getTransitionPrompt(maxChars, context)
     local vibeSyncChain = syncEnabled and projectedVibeSyncStreak or nil
     local vibeSyncHint = syncEnabled and routeVibeAligned and (routeVibeSyncStreak + 1) >= 3
     local vibeSnapback = isRouteVibeSnapbackExperimentEnabled() and syncEnabled and routeVibeAligned == false and routeVibeSyncStreak >= 3
+    local vibeRecovery = isRouteVibeRecoveryExperimentEnabled() and routeVibeRecoveryArmed and routeVibeAligned == true
+    pendingTransition.vibeRecovery = vibeRecovery
     local coachOverride = isRouteVibeCoachOverrideExperimentEnabled() and routeVibeConflict and altRouteTag ~= nil
-    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback)
+    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery)
     local budget = tonumber(maxChars) or 76
     if budget > 0 and #prompt > budget then
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback)
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery)
     end
     return prompt
 end
@@ -486,6 +504,8 @@ function Portal.confirmTransition()
     local aligned = transition.routeVibeAligned
     local syncEnabled = isRouteVibeSyncExperimentEnabled()
     local syncHintTriggered = syncEnabled and aligned == true and (routeVibeSyncStreak + 1) >= 3
+    local snapbackTriggered = isRouteVibeSnapbackExperimentEnabled() and syncEnabled and aligned == false and routeVibeSyncStreak >= 3
+    local recoveryResolved = transition.vibeRecovery == true and aligned == true
     pendingTransition = nil
     if aligned == true then
         routeVibeSyncStreak = routeVibeSyncStreak + 1
@@ -494,6 +514,11 @@ function Portal.confirmTransition()
     end
     if syncHintTriggered and isRouteVibeSyncDodgeExperimentEnabled() then
         pendingVibeSyncDodgeCharges = pendingVibeSyncDodgeCharges + 1
+    end
+    if snapbackTriggered then
+        routeVibeRecoveryArmed = true
+    elseif recoveryResolved then
+        routeVibeRecoveryArmed = false
     end
     if Portal.onLoad then
         Portal.onLoad(transition.targetMap, transition.targetPortal)
@@ -520,6 +545,7 @@ function Portal.resetCooldown()
     pendingTransition = nil
     routeVibeSyncStreak = 0
     pendingVibeSyncDodgeCharges = 0
+    routeVibeRecoveryArmed = false
 end
 
 function Portal.setCooldown()
