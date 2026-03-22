@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T02:33:32.648150Z",
+  "generatedAt": "2026-03-22T03:09:11.080234Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -666,6 +666,23 @@
     "splitEscPressure": "LOW",
     "reason": "idle-post-cooloff-low-pressure"
   },
+  "whatIfSplitEscRecoverVetoRearmNudge": "FLAG OFF",
+  "whatIfSplitEscRecoverVetoRearmNudgeSignals": {
+    "flagName": "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE",
+    "flagEnabled": false,
+    "splitEscRecoverVetoRearm": "OFF",
+    "splitEscRecoverVetoRearmConfidence": "LOW",
+    "splitEscRecoverVetoRearmFit": "RELIEF",
+    "splitEscRecoverVetoRearmCooloffState": "IDLE",
+    "reason": "flag-disabled"
+  },
+  "whatIfSplitEscRecoverVetoRearmNudgeConfidence": "LOW",
+  "whatIfSplitEscRecoverVetoRearmNudgeConfidenceSignals": {
+    "splitEscRecoverVetoRearmNudge": "FLAG OFF",
+    "splitEscRecoverVetoRearmConfidence": "LOW",
+    "splitEscRecoverVetoRearmFit": "RELIEF",
+    "reason": "nudge-flag-disabled"
+  },
   "whatIfSplitEscRecoverConfidenceDelta": "+0",
   "whatIfSplitEscRecoverConfidenceDeltaSignals": {
     "currentConfidence": "LOW",
@@ -801,6 +818,97 @@
     }
   ],
   "commits": [
+    {
+      "sha": "20c11bf561670365c50f7d10bf2900e317ff0257",
+      "shortSha": "20c11bf",
+      "author": "yunwoo",
+      "subject": "feat(digest): add rearm pressure-relief fit token",
+      "committedAt": "2026-03-22T02:34:02Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      }
+    },
     {
       "sha": "5062c7a484fb984b1139621da72e507321795602",
       "shortSha": "5062c7a",
@@ -11471,98 +11579,6 @@
         "scripts/regression_enemy_behavior_variants.lua",
         "src/enemy_ai.lua",
         "src/entities.lua"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      }
-    },
-    {
-      "sha": "ecd8f8f4a003482d0cae01f7d273911bad64776e",
-      "shortSha": "ecd8f8f",
-      "author": "yunwoo",
-      "subject": "feat(combat): add berserker pre-lunge desperation telegraph",
-      "committedAt": "2026-03-19T21:00:47Z",
-      "changedFiles": [
-        "POST_RC_BACKLOG.md",
-        "TASKS.md",
-        "logs/teams/_summary.md",
-        "logs/teams/ai-content.md",
-        "logs/teams/combat.md",
-        "logs/teams/design.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "logs/teams/ux.md",
-        "logs/teams/world.md",
-        "main.lua",
-        "scripts/regression_enemy_behavior_variants.lua",
-        "src/enemy_ai.lua",
-        "src/entities.lua",
-        "src/hud.lua"
       ],
       "portalFiles": [],
       "touchedPortalPrompt": false,

@@ -1630,3 +1630,13 @@ Compact decision memory for AI context efficiency.
 - Backlog injection: appended Cycle AL section to `TASKS.md` and `POST_RC_BACKLOG.md`; item #1 completed, #2/#3 queued.
 
 - 2026-03-22 11:33 KST: Closed Cycle AL pressure-relief fit item; weekly digest now emits `WHAT-IF SPLIT ESC RECOVER VETO REARM FIT:RELIEF|EVEN|TENSE` with deterministic cooloff-state + pressure mapping and regression coverage.
+
+## 2026-03-22 12:09 KST — Game Director Cycle AM
+- Ideation set:
+  1) Low-risk UX: nudge confidence token (NUDGE CONF) for quick trust weighting.
+  2) Mid-risk systems: nudge window token (ARMED|COOLING|IDLE) from rearm/cooloff state.
+  3) High-risk novelty: flagged nudge rationale token (NUDGE WHY:<short>).
+- Chosen experiment: #1 nudge confidence token as minimal vertical slice.
+- Shipped: `WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE CONF:LOW|MID|HIGH` in digest JSON + markdown.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS (artifacts updated under `logs/weekly_portal_prompt_readability_drift.{json,md}`).
+- Backlog injected: Cycle AM added to TASKS + POST_RC_BACKLOG with item #1 complete and #2/#3 queued.

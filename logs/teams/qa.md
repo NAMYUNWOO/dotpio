@@ -1841,3 +1841,9 @@
 - Rule: ACTIVE cooloff maps by pressure (`LOW->RELIEF`, `MID->EVEN`, `HIGH->TENSE`); IDLE + no cooloff + LOW remains `RELIEF`; HIGH without relief window remains `TENSE`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (all PASS).
 - Next priority item: `WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE:<short>` (flagged prototype).
+
+## [2026-03-22 12:09 KST] Cycle AM - Nudge confidence vertical slice
+- Task: Add `WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE CONF:LOW|MID|HIGH` token to weekly portal prompt readability digest.
+- Decision: Confidence maps from nudge urgency + rearm confidence + relief fit to keep operator trust glanceable.
+- Evidence: updated `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`; regression + digest scripts passed.
+- Follow-up: Remaining Cycle AM queue = nudge window token, flagged nudge rationale token.

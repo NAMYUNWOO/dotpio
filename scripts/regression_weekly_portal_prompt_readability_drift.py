@@ -33,6 +33,8 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_rearm_cooloff_from_prior,
     what_if_split_escalate_recover_veto_rearm_cooloff_state_from_signals,
     what_if_split_escalate_recover_veto_rearm_fit_from_signals,
+    what_if_split_escalate_recover_veto_rearm_nudge_from_signals,
+    what_if_split_escalate_recover_veto_rearm_nudge_confidence_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -779,6 +781,8 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF STATE" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM FIT" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE CONF" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -1372,6 +1376,58 @@ def main() -> int:
                                     )
                                     assert rearm_fit_tense == "TENSE", (rearm_fit_tense, rearm_fit_tense_signals)
                                     assert rearm_fit_tense_signals["reason"] == "pressure-high-without-relief-window", rearm_fit_tense_signals
+
+                                    prior_veto_rearm_nudge_env = os.environ.get("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE")
+                                    try:
+                                        os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE"] = "0"
+                                        nudge_off, nudge_off_signals = what_if_split_escalate_recover_veto_rearm_nudge_from_signals(
+                                            what_if_split_esc_recover_veto_rearm="WATCH",
+                                            what_if_split_esc_recover_veto_rearm_confidence="HIGH",
+                                            what_if_split_esc_recover_veto_rearm_fit="TENSE",
+                                            what_if_split_esc_recover_veto_rearm_cooloff_state="ACTIVE",
+                                        )
+                                        assert nudge_off == "FLAG OFF", (nudge_off, nudge_off_signals)
+                                        assert nudge_off_signals["reason"] == "flag-disabled", nudge_off_signals
+
+                                        os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE"] = "1"
+                                        nudge_hold, nudge_hold_signals = what_if_split_escalate_recover_veto_rearm_nudge_from_signals(
+                                            what_if_split_esc_recover_veto_rearm="WATCH",
+                                            what_if_split_esc_recover_veto_rearm_confidence="HIGH",
+                                            what_if_split_esc_recover_veto_rearm_fit="TENSE",
+                                            what_if_split_esc_recover_veto_rearm_cooloff_state="ACTIVE",
+                                        )
+                                        assert nudge_hold == "HOLD DEFENSE", (nudge_hold, nudge_hold_signals)
+                                        assert nudge_hold_signals["reason"] == "watch-armed-high-confidence-tense-fit", nudge_hold_signals
+
+                                        nudge_relief, nudge_relief_signals = what_if_split_escalate_recover_veto_rearm_nudge_from_signals(
+                                            what_if_split_esc_recover_veto_rearm="OFF",
+                                            what_if_split_esc_recover_veto_rearm_confidence="LOW",
+                                            what_if_split_esc_recover_veto_rearm_fit="RELIEF",
+                                            what_if_split_esc_recover_veto_rearm_cooloff_state="ACTIVE",
+                                        )
+                                        assert nudge_relief == "RESET READY", (nudge_relief, nudge_relief_signals)
+                                        assert nudge_relief_signals["reason"] == "cooloff-active-with-relief-fit", nudge_relief_signals
+
+                                        nudge_conf_high, nudge_conf_high_signals = what_if_split_escalate_recover_veto_rearm_nudge_confidence_from_signals(
+                                            what_if_split_esc_recover_veto_rearm_nudge="HOLD DEFENSE",
+                                            what_if_split_esc_recover_veto_rearm_confidence="HIGH",
+                                            what_if_split_esc_recover_veto_rearm_fit="TENSE",
+                                        )
+                                        assert nudge_conf_high == "HIGH", (nudge_conf_high, nudge_conf_high_signals)
+                                        assert nudge_conf_high_signals["reason"] == "high-urgency-nudge-backed-by-high-rearm-confidence", nudge_conf_high_signals
+
+                                        nudge_conf_mid, nudge_conf_mid_signals = what_if_split_escalate_recover_veto_rearm_nudge_confidence_from_signals(
+                                            what_if_split_esc_recover_veto_rearm_nudge="PROBE CAREFUL",
+                                            what_if_split_esc_recover_veto_rearm_confidence="MID",
+                                            what_if_split_esc_recover_veto_rearm_fit="EVEN",
+                                        )
+                                        assert nudge_conf_mid == "MID", (nudge_conf_mid, nudge_conf_mid_signals)
+                                        assert nudge_conf_mid_signals["reason"] == "actionable-nudge-with-mid-confidence-context", nudge_conf_mid_signals
+                                    finally:
+                                        if prior_veto_rearm_nudge_env is None:
+                                            os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE", None)
+                                        else:
+                                            os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE"] = prior_veto_rearm_nudge_env
                                 finally:
                                     if prior_veto_rearm_cooloff_env is None:
                                         os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COOLOFF", None)
