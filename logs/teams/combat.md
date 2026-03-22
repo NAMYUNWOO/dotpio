@@ -822,3 +822,10 @@
 - Implementation: added state reducer from rearm WATCH + cooloff counter; wired JSON payload + markdown digest row.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up backlog injected: remaining Cycle AL items for FIT and NUDGE tokens are queued unchecked.
+
+## 2026-03-22 11:33 KST — Cycle AL systems closure (rearm pressure-relief fit)
+- Completed backlog item: `WHAT-IF SPLIT ESC RECOVER VETO REARM FIT:RELIEF|EVEN|TENSE` from cooloff + pressure context.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfSplitEscRecoverVetoRearmFit` + `...Signals` and markdown row `WHAT-IF SPLIT ESC RECOVER VETO REARM FIT`.
+- Rule: ACTIVE cooloff maps by pressure (`LOW->RELIEF`, `MID->EVEN`, `HIGH->TENSE`); IDLE + no cooloff + LOW remains `RELIEF`; HIGH without relief window remains `TENSE`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (all PASS).
+- Next priority item: `WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE:<short>` (flagged prototype).

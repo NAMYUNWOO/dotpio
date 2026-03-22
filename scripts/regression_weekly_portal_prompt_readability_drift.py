@@ -32,6 +32,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_rearm_why_from_signals,
     what_if_split_escalate_recover_veto_rearm_cooloff_from_prior,
     what_if_split_escalate_recover_veto_rearm_cooloff_state_from_signals,
+    what_if_split_escalate_recover_veto_rearm_fit_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -667,6 +668,13 @@ def main() -> int:
             "active",
             "reason",
         }, payload
+        assert payload.get("whatIfSplitEscRecoverVetoRearmFit") in {"RELIEF", "EVEN", "TENSE"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmFitSignals", {}).keys()) == {
+            "splitEscRecoverVetoRearmCooloffState",
+            "splitEscRecoverVetoRearmCooloff",
+            "splitEscPressure",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -770,6 +778,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM WHY" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF STATE" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM FIT" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -1340,6 +1349,29 @@ def main() -> int:
                                     )
                                     assert rearm_cooloff_state_idle == "IDLE", (rearm_cooloff_state_idle, rearm_cooloff_state_idle_signals)
                                     assert rearm_cooloff_state_idle_signals["reason"] == "no-watch-and-no-cooloff", rearm_cooloff_state_idle_signals
+                                    rearm_fit_relief, rearm_fit_relief_signals = what_if_split_escalate_recover_veto_rearm_fit_from_signals(
+                                        what_if_split_esc_recover_veto_rearm_cooloff_state="ACTIVE",
+                                        what_if_split_esc_recover_veto_rearm_cooloff=2,
+                                        what_if_split_esc_pressure="LOW",
+                                    )
+                                    assert rearm_fit_relief == "RELIEF", (rearm_fit_relief, rearm_fit_relief_signals)
+                                    assert rearm_fit_relief_signals["reason"] == "active-cooloff-with-low-pressure", rearm_fit_relief_signals
+
+                                    rearm_fit_even, rearm_fit_even_signals = what_if_split_escalate_recover_veto_rearm_fit_from_signals(
+                                        what_if_split_esc_recover_veto_rearm_cooloff_state="ACTIVE",
+                                        what_if_split_esc_recover_veto_rearm_cooloff=1,
+                                        what_if_split_esc_pressure="MID",
+                                    )
+                                    assert rearm_fit_even == "EVEN", (rearm_fit_even, rearm_fit_even_signals)
+                                    assert rearm_fit_even_signals["reason"] == "active-cooloff-with-mid-pressure", rearm_fit_even_signals
+
+                                    rearm_fit_tense, rearm_fit_tense_signals = what_if_split_escalate_recover_veto_rearm_fit_from_signals(
+                                        what_if_split_esc_recover_veto_rearm_cooloff_state="IDLE",
+                                        what_if_split_esc_recover_veto_rearm_cooloff=0,
+                                        what_if_split_esc_pressure="HIGH",
+                                    )
+                                    assert rearm_fit_tense == "TENSE", (rearm_fit_tense, rearm_fit_tense_signals)
+                                    assert rearm_fit_tense_signals["reason"] == "pressure-high-without-relief-window", rearm_fit_tense_signals
                                 finally:
                                     if prior_veto_rearm_cooloff_env is None:
                                         os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COOLOFF", None)

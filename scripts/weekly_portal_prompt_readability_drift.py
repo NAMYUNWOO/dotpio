@@ -2608,6 +2608,44 @@ def what_if_split_escalate_recover_veto_rearm_cooloff_state_from_signals(
         "active": state == "ACTIVE",
         "reason": reason,
     }
+
+
+def what_if_split_escalate_recover_veto_rearm_fit_from_signals(
+    *,
+    what_if_split_esc_recover_veto_rearm_cooloff_state: str,
+    what_if_split_esc_recover_veto_rearm_cooloff: int,
+    what_if_split_esc_pressure: str,
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Classify pressure-relief fit during/after rearm cooloff windows."""
+    state = str(what_if_split_esc_recover_veto_rearm_cooloff_state).upper()
+    cooloff = max(0, int(what_if_split_esc_recover_veto_rearm_cooloff))
+    pressure = str(what_if_split_esc_pressure).upper()
+
+    if state == "ACTIVE" and pressure == "LOW":
+        fit = "RELIEF"
+        reason = "active-cooloff-with-low-pressure"
+    elif state == "ACTIVE" and pressure == "MID":
+        fit = "EVEN"
+        reason = "active-cooloff-with-mid-pressure"
+    elif state == "ACTIVE" and pressure == "HIGH":
+        fit = "TENSE"
+        reason = "active-cooloff-with-high-pressure"
+    elif state == "IDLE" and cooloff == 0 and pressure == "LOW":
+        fit = "RELIEF"
+        reason = "idle-post-cooloff-low-pressure"
+    elif pressure == "HIGH":
+        fit = "TENSE"
+        reason = "pressure-high-without-relief-window"
+    else:
+        fit = "EVEN"
+        reason = "neutral-pressure-relief-balance"
+
+    return fit, {
+        "splitEscRecoverVetoRearmCooloffState": state,
+        "splitEscRecoverVetoRearmCooloff": cooloff,
+        "splitEscPressure": pressure,
+        "reason": reason,
+    }
 def what_if_split_escalate_recover_confidence_delta_from_prior(
     *,
     current_confidence: str,
@@ -3356,6 +3394,11 @@ def main() -> int:
         what_if_split_esc_recover_veto_rearm=what_if_split_esc_recover_veto_rearm,
         what_if_split_esc_recover_veto_rearm_cooloff=what_if_split_esc_recover_veto_rearm_cooloff,
     )
+    what_if_split_esc_recover_veto_rearm_fit, what_if_split_esc_recover_veto_rearm_fit_signals = what_if_split_escalate_recover_veto_rearm_fit_from_signals(
+        what_if_split_esc_recover_veto_rearm_cooloff_state=what_if_split_esc_recover_veto_rearm_cooloff_state,
+        what_if_split_esc_recover_veto_rearm_cooloff=what_if_split_esc_recover_veto_rearm_cooloff,
+        what_if_split_esc_pressure=what_if_split_esc_pressure,
+    )
     what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
         current_confidence=what_if_split_esc_recover_confidence,
         prior_json_path=args.out_json,
@@ -3529,6 +3572,8 @@ def main() -> int:
         "whatIfSplitEscRecoverVetoRearmCooloffSignals": what_if_split_esc_recover_veto_rearm_cooloff_signals,
         "whatIfSplitEscRecoverVetoRearmCooloffState": what_if_split_esc_recover_veto_rearm_cooloff_state,
         "whatIfSplitEscRecoverVetoRearmCooloffStateSignals": what_if_split_esc_recover_veto_rearm_cooloff_state_signals,
+        "whatIfSplitEscRecoverVetoRearmFit": what_if_split_esc_recover_veto_rearm_fit,
+        "whatIfSplitEscRecoverVetoRearmFitSignals": what_if_split_esc_recover_veto_rearm_fit_signals,
         "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
         "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
@@ -3638,6 +3683,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM WHY: **{what_if_split_esc_recover_veto_rearm_why}** ({what_if_split_esc_recover_veto_rearm_why_signals['reason']}; flag={what_if_split_esc_recover_veto_rearm_why_signals['flagName']} enabled={what_if_split_esc_recover_veto_rearm_why_signals['flagEnabled']} rearm={what_if_split_esc_recover_veto_rearm_why_signals['splitEscRecoverVetoRearm']} conf={what_if_split_esc_recover_veto_rearm_why_signals['splitEscRecoverVetoRearmConfidence']} pressure={what_if_split_esc_recover_veto_rearm_why_signals['splitEscPressure']} phase={what_if_split_esc_recover_veto_rearm_why_signals['releaseTickPhase']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF: **{what_if_split_esc_recover_veto_rearm_cooloff}** ({what_if_split_esc_recover_veto_rearm_cooloff_signals['reason']}; flag={what_if_split_esc_recover_veto_rearm_cooloff_signals['flagName']} enabled={what_if_split_esc_recover_veto_rearm_cooloff_signals['flagEnabled']} active={what_if_split_esc_recover_veto_rearm_cooloff_signals['active']} prior={what_if_split_esc_recover_veto_rearm_cooloff_signals['priorRearm']}:{what_if_split_esc_recover_veto_rearm_cooloff_signals['priorCooloff']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF STATE: **{what_if_split_esc_recover_veto_rearm_cooloff_state}** ({what_if_split_esc_recover_veto_rearm_cooloff_state_signals['reason']}; rearm={what_if_split_esc_recover_veto_rearm_cooloff_state_signals['splitEscRecoverVetoRearm']} cooloff={what_if_split_esc_recover_veto_rearm_cooloff_state_signals['splitEscRecoverVetoRearmCooloff']} active={what_if_split_esc_recover_veto_rearm_cooloff_state_signals['active']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO REARM FIT: **{what_if_split_esc_recover_veto_rearm_fit}** ({what_if_split_esc_recover_veto_rearm_fit_signals['reason']}; state={what_if_split_esc_recover_veto_rearm_fit_signals['splitEscRecoverVetoRearmCooloffState']} cooloff={what_if_split_esc_recover_veto_rearm_fit_signals['splitEscRecoverVetoRearmCooloff']} pressure={what_if_split_esc_recover_veto_rearm_fit_signals['splitEscPressure']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
