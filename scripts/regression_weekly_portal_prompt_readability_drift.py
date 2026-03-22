@@ -764,6 +764,13 @@ def main() -> int:
             "reason",
         }, payload
         assert payload.get("whatIfSplitEscRecoverVetoRearmCoachHandoffFit") in {"SAFE", "EVEN", "TENSE"}, payload
+        assert payload.get("actionPace") in {"ACCEL", "STEADY", "BRAKE"}, payload
+        assert set(payload.get("actionPaceSignals", {}).keys()) == {
+            "actionGuard",
+            "actionStability",
+            "pressureLag",
+            "reason",
+        }, payload
         assert set(payload.get("whatIfSplitEscRecoverVetoRearmCoachHandoffFitSignals", {}).keys()) == {
             "splitEscRecoverVetoRearmCoachHandoff",
             "splitEscPressure",
@@ -807,6 +814,7 @@ def main() -> int:
         assert "DRIFT MOMENTUM" in md_text
         assert "ACTION STABILITY" in md_text
         assert "PRESSURE LAG" in md_text
+        assert "ACTION PACE" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
         assert "WHAT-IF ALIGN" in md_text

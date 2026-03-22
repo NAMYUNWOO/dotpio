@@ -2048,3 +2048,10 @@
   - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 lua scripts/regression_portal_route_vibe_snapback.lua`
   - `lua scripts/regression_portal_route_preview.lua`
 - Result: PASS.
+
+## 2026-03-22 23:35 KST — Verification: Cycle AW action-pace slice
+- Regression updated to enforce payload schema (`actionPace`, `actionPaceSignals`) and markdown token presence (`ACTION PACE`).
+- Validation commands:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
+- Result: PASS.

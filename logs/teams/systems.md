@@ -1575,3 +1575,8 @@
 - Added flag parser `isRouteVibeDriftGlyphExperimentEnabled()` and resolver `resolveRouteVibeDriftGlyph()` in `src/portal.lua`.
 - Reused existing conflict/snapback age counters to avoid new persistent state.
 - No economy/combat state mutation; prompt-only systems change.
+
+## 2026-03-22 23:35 KST — Cycle AW action-pace digest token
+- Completed selected Cycle AW vertical slice: weekly portal readability digest now emits `ACTION PACE:ACCEL|STEADY|BRAKE`.
+- Deterministic mapping uses existing signals only (`ACTION GUARD`, `ACTION STABILITY`, `PRESSURE LAG`) to avoid churn in core classifiers.
+- Follow-up queued: pace drift token from prior-window comparison.

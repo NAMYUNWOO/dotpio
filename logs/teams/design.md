@@ -1050,3 +1050,7 @@
 - Decision: use punctuation-only escalation glyphs (`!`, `!!`, `!!!`) to preserve DOS fantasy and keep token width predictable.
 - Kept glyph behind `DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_GLYPH` so default prompt contract remains stable.
 - UX rationale: make drift urgency legible without requiring full token parse under rapid portal choice.
+
+## 2026-03-22 23:35 KST — Cadence token design note
+- Approved `ACTION PACE` label semantics as operationally readable without adding new numeric burden.
+- Kept rationale in-line `(guard/stability/lag)` for quick operator context.

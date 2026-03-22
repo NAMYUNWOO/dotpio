@@ -383,6 +383,30 @@ def pressure_latency_from_signals(*, pressure_churn: int, drift_momentum: str, d
         "absDriftDelta": round(abs_delta, 3),
     }
 
+def route_action_pacing_from_signals(*, action_guard: str, action_stability: str, pressure_lag: str) -> tuple[str, dict[str, str]]:
+    if action_guard == "LOCK":
+        pace = "BRAKE"
+        reason = "guard-locked"
+    elif action_stability == "LOCKED" and pressure_lag == "FAST":
+        pace = "ACCEL"
+        reason = "locked-and-fast-lag"
+    elif action_stability == "LOCKED":
+        pace = "STEADY"
+        reason = "locked-stable"
+    elif pressure_lag == "SLOW":
+        pace = "BRAKE"
+        reason = "slow-lag-watch"
+    else:
+        pace = "STEADY"
+        reason = "default-steady"
+
+    return pace, {
+        "actionGuard": action_guard,
+        "actionStability": action_stability,
+        "pressureLag": pressure_lag,
+        "reason": reason,
+    }
+
 
 def route_action_guardrail_from_signals(*, drift_risk: str, route_action_confidence: str) -> tuple[str, dict[str, str | bool]]:
     lock = drift_risk == "HIGH" and route_action_confidence == "LOW"
@@ -3719,6 +3743,11 @@ def main() -> int:
         drift_momentum=drift_momentum,
         drift_momentum_delta=drift_momentum_signals["delta"],
     )
+    action_pace, action_pace_signals = route_action_pacing_from_signals(
+        action_guard=action_guard,
+        action_stability=action_stability,
+        pressure_lag=pressure_lag,
+    )
     what_if_alt, what_if_alt_signals = what_if_alt_from_signals(
         lane_focus=lane_focus,
         lane_focus_scores=lane_focus_scores,
@@ -4104,6 +4133,8 @@ def main() -> int:
         "actionStabilitySignals": action_stability_signals,
         "pressureLag": pressure_lag,
         "pressureLagSignals": pressure_lag_signals,
+        "actionPace": action_pace,
+        "actionPaceSignals": action_pace_signals,
         "whatIfAlt": what_if_alt,
         "whatIfAltSignals": what_if_alt_signals,
         "whatIfConfidence": what_if_confidence,
@@ -4295,6 +4326,7 @@ def main() -> int:
         f"- DRIFT MOMENTUM: **{drift_momentum}** (recent={drift_momentum_signals['recentAvg']} older={drift_momentum_signals['olderAvg']} delta={drift_momentum_signals['delta']})",
         f"- ACTION STABILITY: **{action_stability}** ({action_stability_signals['reason']}; conf={action_stability_signals['routeActionConfidence']} vol={action_stability_signals['focusVolatility']} momentum={action_stability_signals['driftMomentum']})",
         f"- PRESSURE LAG: **{pressure_lag}** (churn={pressure_lag_signals['pressureChurn']} momentum={pressure_lag_signals['driftMomentum']} |Δ|={pressure_lag_signals['absDriftDelta']})",
+        f"- ACTION PACE: **{action_pace}** ({action_pace_signals['reason']}; guard={action_pace_signals['actionGuard']} stability={action_pace_signals['actionStability']} lag={action_pace_signals['pressureLag']})",
         f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
         f"- WHAT-IF CONF: **{what_if_confidence}** ({what_if_confidence_signals['reason']}; delta={what_if_confidence_signals['deltaRisk']} routeConf={what_if_confidence_signals['routeActionConfidence']} current={what_if_confidence_signals['currentLane']} alt={what_if_confidence_signals['altLane']})",
         f"- WHAT-IF ALIGN: **{what_if_align}** ({what_if_align_signals['reason']}; route={what_if_align_signals['routeAction']} lane={what_if_align_signals['routeActionLane']} alt={what_if_align_signals['altLane']})",

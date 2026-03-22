@@ -13,6 +13,12 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Game Director Cycle AW executed after confirming ACTION_ITEMS + TASKS + POST_RC_BACKLOG were fully checked.
+- Cycle AW ideas generated (3): low-risk digest action-pace token, mid-risk pace-drift prior-window token, high-risk flagged pace-coach rationale token.
+- Selected/implemented Cycle AW vertical slice: weekly portal readability digest now emits `ACTION PACE:ACCEL|STEADY|BRAKE` from `ACTION GUARD + ACTION STABILITY + PRESSURE LAG`.
+- Regression and artifact evidence: `scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200` PASS.
+- Cycle AW backlog injected with follow-ups: `PACE DRIFT:+n|-n` and flagged `ACTION PACE WHY:<short>`.
+
 - Game Director Cycle AU executed after confirming ACTION_ITEMS + TASKS + POST_RC_BACKLOG remained fully checked.
 - Cycle AU ideas generated (3): low-risk post-snapback recovery cue, mid-risk resilience streak token, high-risk drift alarm token under short-window conflict+snapback overlap.
 - Selected/implemented Cycle AU vertical slice: portal prompt now supports flag-gated recovery cue token (`VIBE RECOVER:READY`, compact `VR:OK`) on the first re-aligned transition after snapback.

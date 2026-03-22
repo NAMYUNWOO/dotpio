@@ -1016,3 +1016,7 @@
   - Detailed: `DRIFT GLYPH:<...>`
   - Compact: `DGL:<...>`
 - Token emits only when `VIBE DRIFT:WIDE` is active and drift-glyph experiment flag is enabled.
+
+## 2026-03-22 23:35 KST — Prompt contract note
+- No model prompt generation changes this cycle.
+- Weekly digest schema extended with non-flagged `actionPace` field for operator readability only.

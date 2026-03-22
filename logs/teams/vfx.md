@@ -25,3 +25,7 @@
 - Scope: readability-only cooldown relief cue; no combat stat/economy changes.
 - Evidence: `lua scripts/regression_hud_berserker_counters.lua`, `lua scripts/regression_enemy_behavior_variants.lua`, `luac -p main.lua src/hud.lua`.
 - Follow-up queue injected: `LANE CADENCE:OK|GAP` watchdog (systems/ops), `VIBE DRIFT` escalation glyph (world/design).
+
+## 2026-03-22 23:35 KST — Cross-lane note
+- No VFX token additions in this slice.
+- Action-pace digest line is ops-facing and does not alter player-facing FX cues.

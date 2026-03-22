@@ -1040,3 +1040,7 @@
   - Compact: `DGL:!|!!|!!!`
 - Escalation policy: direct conflict+snapback or freshest carryover => `!!!`; short-window carryover => `!!`; otherwise active single-signal => `!`.
 - Follow-up: monitor prompt budget pressure in compact mode as additional tokens accumulate.
+
+## 2026-03-22 23:35 KST — Cross-lane note
+- No portal topology or map metadata changes in Cycle AW action-pace slice.
+- World lane remains unchanged while digest ops readability advanced.

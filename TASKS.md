@@ -490,3 +490,8 @@ See project-level plans:
 - [x] Add berserker cooldown relief token (`BERSERK FX:FADE`) when pulse streak breaks after sustained rise (combat/vfx cadence guard)
 - [x] Add lane-coverage watchdog token in weekly digest (`LANE CADENCE:OK|GAP`) to flag missing combat-vfx/design-world/systems-ops buckets over trailing 24h (systems/ops)
 - [x] Prototype route-vibe drift alarm token (`VIBE DRIFT:WIDE`) with escalating glyph cue (`DRIFT GLYPH:<...>`) behind flag for world/design readability
+
+## Next Up (Game Director Injection — 2026-03-22 Cycle AW)
+- [x] Add digest action-pace token (`ACTION PACE:ACCEL|STEADY|BRAKE`) from `ACTION GUARD + ACTION STABILITY + PRESSURE LAG` for quicker route-operation cadence triage *(lifecycle: [~] -> [x])*
+- [ ] Add digest pace-drift token (`PACE DRIFT:+n|-n`) by comparing current/prior `ACTION PACE` windows
+- [ ] Prototype flagged pace coach rationale token (`ACTION PACE WHY:<short>`) for compact operator context

@@ -986,3 +986,7 @@
 ## 2026-03-22 23:03 KST — Combat lane note
 - No combat mechanic changes in this slice.
 - Verified no regression spillover by rerunning portal/snapback regressions only; berserker threat behavior untouched.
+
+## 2026-03-22 23:35 KST — Cross-lane note
+- No combat behavior modifications this cycle.
+- Existing combat-derived pressure signals are consumed only for digest pacing classification.

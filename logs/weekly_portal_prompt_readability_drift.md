@@ -1,13 +1,13 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-22T04:34:10.577689Z
+- GeneratedAt(UTC): 2026-03-22T14:34:55.555827Z
 - Status: **OK**
-- Window: last 7 days (max 120 commits)
-- Checked commits: 120
-- Portal prompt commits: 9
-- Dominant mode commits: compact=2, detailed=5, neutral=2
+- Window: last 14 days (max 200 commits)
+- Checked commits: 200
+- Portal prompt commits: 21
+- Dominant mode commits: compact=2, detailed=5, neutral=14
 - MODE TREND: **DETAILED**
-- PRESSURE BAND: **HIGH** (edits +17 / -2 / net 15)
+- PRESSURE BAND: **HIGH** (edits +23 / -8 / net 15)
 - DRIFT RISK: **HIGH** (score=19 | imbalance=4 | pressure=15)
 - FOCUS: **PORTAL** (portal=35 | alt=23 | pressure=15)
 - FOCUS STREAK: **0**
@@ -27,9 +27,10 @@
 - SANDBOX READY: **PRIMED** (preconditions-forming; sandbox=OFF conf=LOW guard=LOCK lock=Falsex0)
 - TARGET SHIFT: **NONE->NONE** (target-stable; changed=False priorLoaded=True)
 - SANDBOX COOLOFF: **0** (no-prior-on-cycle; active=False prior=OFF:0)
-- DRIFT MOMENTUM: **FLAT** (recent=4.6 older=3.5 delta=1.1)
-- ACTION STABILITY: **WATCH** (retune-watch-needed; conf=LOW vol=SWING momentum=FLAT)
-- PRESSURE LAG: **SLOW** (churn=15 momentum=FLAT |Δ|=1.1)
+- DRIFT MOMENTUM: **COOLING** (recent=0.0 older=3.7 delta=-3.7)
+- ACTION STABILITY: **WATCH** (retune-watch-needed; conf=LOW vol=SWING momentum=COOLING)
+- PRESSURE LAG: **SLOW** (churn=15 momentum=COOLING |Δ|=3.7)
+- ACTION PACE: **BRAKE** (guard-locked; guard=LOCK stability=WATCH lag=SLOW)
 - WHAT-IF: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_ALT enabled=False current=PORTAL alt=ALT risk=19->16)
 - WHAT-IF CONF: **LOW** (flag-disabled; delta=-3 routeConf=LOW current=PORTAL alt=ALT)
 - WHAT-IF ALIGN: **DIVERGED** (flag-disabled; route=PORTAL_AUDIT lane=PORTAL alt=ALT)
@@ -90,27 +91,52 @@
 - WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE_WHY enabled=False nudge=FLAG OFF conf=LOW window=IDLE fit=RELIEF)
 - WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE IMPACT: **NEUTRAL** (monitoring-or-flag-off-state; nudge=FLAG OFF window=IDLE fit=RELIEF)
 - WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT: **STABLE** (nudge-rationale-unchanged-vs-prior-window; current=FLAG OFF prior=FLAG OFF loaded=True)
+- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH enabled=False primary=OFF backup=OFF plan=HOLD)
+- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH CONF: **LOW** (coach-flag-disabled; coach=FLAG OFF nudgeConf=LOW fit=RELIEF)
+- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH MODE: **PRIMARY** (coach-flag-disabled-default-primary-mode; coach=FLAG OFF primary=FLAG OFF backup=NONE)
+- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY enabled=False coach=FLAG OFF mode=PRIMARY conf=LOW)
+- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF: **NONE** (coach-not-actionable-for-route-handoff; coach=FLAG OFF mode=PRIMARY conf=LOW)
+- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF FIT: **EVEN** (no-handoff-but-pressure-not-critical; handoff=NONE pressure=LOW)
+- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_HANDOFF_WHY enabled=False handoff=NONE fit=EVEN conf=LOW)
 - WHAT-IF SPLIT ESC RECOVER ΔCONF: **+0** (confidence-unchanged-vs-prior-window; current=LOW prior=LOW loaded=True)
 - STICKY TOKENS: **6**
 - ANOMALY: **ON** (sticky=6/3 pressure=15/5)
 - ANOMALY CONF: **HIGH** (triggers=2 gap=13)
+- ROUTE VIBE DRIFT: **CALM +3 | EDGE +0 | DOOM +3**
 
 ## Token Totals (added/removed/net)
-- Compact: +28 / -3 / net 25
-- Detailed: +35 / -6 / net 29
-- Shared: +32 / -13 / net 19
+- Compact: +34 / -9 / net 25
+- Detailed: +41 / -12 / net 29
+- Shared: +44 / -25 / net 19
 
 ## Top Token Movers (net ±)
-- `COACH:` net +12 (added 18, removed 6)
-- `NEXT ROUTE:` net +10 (added 15, removed 5)
-- `P:` net +8 (added 9, removed 1)
-- `PRESSURE:` net +7 (added 8, removed 1)
-- `ENTER:JUMP` net +7 (added 14, removed 7)
+- `COACH:` net +12 (added 24, removed 12)
+- `NEXT ROUTE:` net +10 (added 18, removed 8)
+- `P:` net +8 (added 12, removed 4)
+- `PRESSURE:` net +7 (added 11, removed 4)
+- `ENTER:JUMP` net +7 (added 20, removed 13)
+
+## Route Vibe Drift (added/removed/net)
+- CALM: +3 / -0 / net 3
+- EDGE: +0 / -0 / net 0
+- DOOM: +3 / -0 / net 3
 
 ## Sticky Tokens
 - `NEXT:`, `P:`, `NEXT ROUTE:`, `PRESSURE:`, `ENTER:JUMP`, `COACH:`
 
 ## Commit-level digest
+- `ced8caa` feat(portal): add drift glyph escalation cue behind experiment flag | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `e30c798` feat: add route-vibe drift alarm token experiment | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `84fca67` feat(portal): add route-vibe resilience streak token behind flag | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `497ee71` feat(portal): add post-snapback recovery cue experiment | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `b708f9d` feat(portal): add route-vibe snapback warning experiment | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `6605d9d` feat: add vibe sync dodge handoff experiment | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `953dddf` feat(portal): add vibe-sync chain progress token and cycle AT backlog | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `fd01002` feat(portal): add vibe-sync hint experiment for 3 aligned transitions | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `3d0feef` feat(portal): add conflict-aware coach override prompt token | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `a3df04c` feat: add route vibe conflict cues and reason tokens | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `2e5ee1a` feat(portal): add route vibe token and ascii vignette experiment | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `ec2c0ae` feat(portal): add pressure-tied FX cue token for transition prompts | mode=neutral | compact net=0 detailed net=0 shared net=0
 - `0aa530c` feat: add flagged ALT PLAN portal nudge experiment | mode=compact | compact net=5 detailed net=3 shared net=0
 - `a1fac91` test: add adaptive ALT compact prompt readability regression | mode=compact | compact net=8 detailed net=1 shared net=3
 - `a6ca3a1` feat(portal): select lowest-pressure reachable ALT route | mode=detailed | compact net=0 detailed net=3 shared net=0
