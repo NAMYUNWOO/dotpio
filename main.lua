@@ -39,6 +39,7 @@ local lastPlayerX, lastPlayerY = 0, 0
 local missionUnlockAnnounced = false
 local threatScoreLastTick = 0
 local threatRiseWindow = 0
+local berserkerThreatRiseStreak = 0
 
 local function resetRunState()
     RunMissions.reset()
@@ -47,6 +48,7 @@ local function resetRunState()
     missionUnlockAnnounced = false
     threatScoreLastTick = 0
     threatRiseWindow = 0
+    berserkerThreatRiseStreak = 0
 end
 
 local function applyMissionProgress(eventId, amount)
@@ -223,7 +225,10 @@ function love.update(dt)
 
     local threatCounters = HUD.collectCombatThreatCounters(Entities.enemies)
     local threatScore = threatCounters.berserkerThreatScore or 0
-    if threatScore > threatScoreLastTick then
+    local previousThreatScore = threatScoreLastTick
+    local berserkFxPulseTriggered, nextRiseStreak, threatDelta = HUD.shouldTriggerBerserkerFxPulse(threatScore, previousThreatScore, berserkerThreatRiseStreak)
+    berserkerThreatRiseStreak = nextRiseStreak
+    if threatScore > previousThreatScore then
         threatRiseWindow = math.max(threatRiseWindow, 0.9)
     end
     threatScoreLastTick = threatScore
@@ -269,6 +274,10 @@ function love.update(dt)
         else
             InventoryUI.setStatus(string.format("PRESSURE BREAKER: DODGE CHARGES TRIGGERED x%d", dodgeCount))
         end
+    elseif berserkFxPulseTriggered then
+        OnboardingHints.mark("threat")
+        local pulseDelta = threatDelta > 0 and ("+" .. threatDelta) or tostring(threatDelta)
+        InventoryUI.setStatus(string.format("BERSERK FX:PULSE  [THREAT Δ:%s]", pulseDelta))
     end
 
     Camera.update(Player.visualX, Player.visualY)

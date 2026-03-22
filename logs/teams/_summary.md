@@ -1688,3 +1688,10 @@ Compact decision memory for AI context efficiency.
 - Added JSON payload keys `whatIfSplitEscRecoverVetoRearmCoachHandoffWhy` + `...Signals` and markdown digest line `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF WHY` in `scripts/weekly_portal_prompt_readability_drift.py`.
 - Added regression coverage for payload/schema presence, markdown row inclusion, and flag-off/flag-on behavior via `what_if_split_escalate_recover_veto_rearm_coach_handoff_why_from_signals`.
 - Backlog sync: marked done in `TASKS.md` and `POST_RC_BACKLOG.md`; next top unchecked item is Cycle AQ `Combat/VFX: BERSERK FX:PULSE`.
+
+## 2026-03-22 17:01 KST — Cycle AQ berserker FX pulse shipped
+- Completed highest-priority unchecked item: `BERSERK FX:PULSE` warning token now appears when threat pressure rises for 2+ consecutive turns.
+- Durable decision: streak and trigger logic moved into HUD helpers (`updateBerserkerThreatRiseStreak`, `shouldTriggerBerserkerFxPulse`) so main loop stays thin and behavior is regression-testable.
+- Runtime integration: main combat loop tracks consecutive positive threat deltas and emits `BERSERK FX:PULSE [THREAT Δ:+n]` when conditions are met.
+- Verification: `lua scripts/regression_hud_berserker_counters.lua` PASS; `lua scripts/regression_enemy_behavior_variants.lua` PASS.
+- Backlog sync: marked done in both `TASKS.md` and `POST_RC_BACKLOG.md`; next highest unchecked item is route vignette prototype (`ROUTE VIGNETTE:<glyph>`) behind flag.

@@ -38,6 +38,15 @@ expect(HUD.formatBerserkerThreatDelta(3, 3) == "THREAT Δ:0", "threat delta copy
 expect(HUD.formatBerserkerThreatBreakdown(counters) == "THREAT = 2 + 2*1 + 2 = 6", "threat breakdown should expose weighted formula")
 expect(HUD.formatBerserkerThreatBreakdown(nil) == "THREAT = 0 + 2*0 + 0 = 0", "threat breakdown should be safe on nil")
 
+local riseStreak, riseDelta = HUD.updateBerserkerThreatRiseStreak(4, 2, 0)
+expect(riseStreak == 1 and riseDelta == 2, "rise streak should increment when threat delta is positive")
+local riseStreak2, riseDelta2 = HUD.updateBerserkerThreatRiseStreak(5, 4, riseStreak)
+expect(riseStreak2 == 2 and riseDelta2 == 1, "rise streak should continue across consecutive positive deltas")
+local pulseTriggered, pulseStreak, pulseDelta = HUD.shouldTriggerBerserkerFxPulse(5, 4, riseStreak)
+expect(pulseTriggered == true and pulseStreak == 2 and pulseDelta == 1, "pulse trigger should arm on second consecutive positive delta")
+local pulseResetTriggered, pulseResetStreak, pulseResetDelta = HUD.shouldTriggerBerserkerFxPulse(5, 5, pulseStreak)
+expect(pulseResetTriggered == false and pulseResetStreak == 0 and pulseResetDelta == 0, "pulse trigger should reset on non-positive deltas")
+
 local lowR, lowG, lowB, lowA = HUD.getBerserkerThreatColor(2)
 expect(lowR == 0.5 and lowG == 1 and lowB == 0.62 and lowA == 1, "LOW tier color should be green")
 local medR, medG, medB, medA = HUD.getBerserkerThreatColor(3)

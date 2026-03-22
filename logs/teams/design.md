@@ -958,3 +958,10 @@
 - Flag: `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_HANDOFF_WHY` (off => `FLAG OFF`; on => concise handoff guidance token).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and direct digest run both PASS.
 - Follow-up: move to next unchecked TASKS/AQ item (`BERSERK FX:PULSE`) unless priority changes.
+
+## 2026-03-22 17:01 KST — Cycle AQ berserker FX pulse follow-up
+- Task: Add BERSERK FX:PULSE warning token when THREAT delta stays positive for 2+ consecutive turns.
+- Scope: main.lua, src/hud.lua, scripts/regression_hud_berserker_counters.lua.
+- Decision: Centralized streak/trigger logic in HUD helpers (updateBerserkerThreatRiseStreak, shouldTriggerBerserkerFxPulse) for deterministic behavior and regression coverage.
+- Evidence: lua scripts/regression_hud_berserker_counters.lua PASS; lua scripts/regression_enemy_behavior_variants.lua PASS.
+- Follow-up: Next unchecked backlog item is ROUTE VIGNETTE glyph prototype behind flag.

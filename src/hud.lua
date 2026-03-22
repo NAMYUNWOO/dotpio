@@ -82,6 +82,23 @@ function HUD.formatBerserkerThreatBreakdown(counters)
     return string.format("THREAT = %d + 2*%d + %d = %d", berserkers, lunges, recoveries, score)
 end
 
+function HUD.updateBerserkerThreatRiseStreak(currentScore, previousScore, previousStreak)
+    local delta = HUD.getBerserkerThreatDelta(currentScore, previousScore)
+    local streak = math.max(0, math.floor(tonumber(previousStreak) or 0))
+    if delta > 0 then
+        streak = streak + 1
+    else
+        streak = 0
+    end
+    return streak, delta
+end
+
+function HUD.shouldTriggerBerserkerFxPulse(currentScore, previousScore, previousStreak)
+    local streak, delta = HUD.updateBerserkerThreatRiseStreak(currentScore, previousScore, previousStreak)
+    local triggered = delta > 0 and streak >= 2
+    return triggered, streak, delta
+end
+
 function HUD.getRunSummaryOverclockGlossary()
     return "GLOSSARY: DWELL=EXPOSURE sec(L/M/H)  EFF=SRL/EXPOSED sec  PROFILE=COMMIT TIER"
 end

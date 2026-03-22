@@ -306,5 +306,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-22 Cycle AQ)
 - [x] VFX/World/Systems Team: Add portal transition FX cue token (`FX:CALM|FLICKER|SURGE`, compact `FX:C|F|S`) from route pressure score so jump risk reads instantly
-- [ ] Combat/VFX Team: Add berserker pressure pulse token (`BERSERK FX:PULSE`) when `THREAT Δ:+` persists for 2+ turns
+- [x] Combat/VFX Team: Add berserker pressure pulse token (`BERSERK FX:PULSE`) when `THREAT Δ:+` persists for 2+ turns
 - [ ] Design/World Team: Prototype route-tag ASCII vignette token (`ROUTE VIGNETTE:<glyph>`) behind flag for stronger path fantasy
