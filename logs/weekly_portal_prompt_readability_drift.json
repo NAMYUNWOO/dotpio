@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T16:04:15.161934Z",
+  "generatedAt": "2026-03-22T16:36:49.512300Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -190,6 +190,26 @@
     "driftContinuity": "STABLE",
     "priorLoaded": true,
     "reason": "moderate-drift-continuity"
+  },
+  "actionPaceAltWindow": "WAIT SANDBOX",
+  "actionPaceAltWindowSignals": {
+    "flagName": "DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW",
+    "flagEnabled": true,
+    "actionPaceWindow": "CLOSE",
+    "routeSandbox": "OFF",
+    "sandboxTarget": "NONE",
+    "sandboxReadiness": "PRIMED",
+    "reason": "sandbox-not-armed"
+  },
+  "actionPaceAltWindowConfidence": "LOW",
+  "actionPaceAltWindowConfidenceSignals": {
+    "actionPaceAltWindow": "WAIT SANDBOX",
+    "actionPaceWindowConfidence": "MID",
+    "flagEnabled": true,
+    "routeSandbox": "OFF",
+    "sandboxTarget": "NONE",
+    "sandboxReadiness": "PRIMED",
+    "reason": "fallback-not-actionable"
   },
   "actionPaceWhy": "FLAG OFF",
   "actionPaceWhySignals": {
@@ -962,6 +982,114 @@
     }
   ],
   "commits": [
+    {
+      "sha": "f866d0acb6599196179f0094435697bc6ea46cf3",
+      "shortSha": "f866d0a",
+      "author": "yunwoo",
+      "subject": "feat: add action pace window confidence digest token",
+      "committedAt": "2026-03-22T16:05:05Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      },
+      "routeVibeEdits": {
+        "added": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "removed": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "net": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        }
+      }
+    },
     {
       "sha": "43dc4952deb6b0b705a755b356820762945aad47",
       "shortSha": "43dc495",
@@ -13658,112 +13786,6 @@
       "author": "yunwoo",
       "subject": "feat: add overclock commitment tier token in HUD hints",
       "committedAt": "2026-03-20T12:35:14Z",
-      "changedFiles": [
-        "POST_RC_BACKLOG.md",
-        "TASKS.md",
-        "logs/teams/_summary.md",
-        "logs/teams/ai-content.md",
-        "logs/teams/combat.md",
-        "logs/teams/design.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "logs/teams/ux.md",
-        "logs/teams/world.md",
-        "scripts/regression_overclock_hazard.lua",
-        "src/overclock_hazard.lua"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      },
-      "routeVibeEdits": {
-        "added": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "removed": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "net": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        }
-      }
-    },
-    {
-      "sha": "61945d8a41916c95b622f1551d6d65d09e528482",
-      "shortSha": "61945d8",
-      "author": "yunwoo",
-      "subject": "feat: add overclock exposure token to hazard HUD hints",
-      "committedAt": "2026-03-20T12:04:55Z",
       "changedFiles": [
         "POST_RC_BACKLOG.md",
         "TASKS.md",

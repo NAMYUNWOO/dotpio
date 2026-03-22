@@ -9,6 +9,8 @@ import tempfile
 from pathlib import Path
 
 from weekly_portal_prompt_readability_drift import (
+    action_pace_alt_window_confidence_from_signals,
+    action_pace_alt_window_from_signals,
     action_pace_window_confidence_from_signals,
     pace_drift_from_prior,
     sandbox_cooloff_from_prior,
@@ -798,6 +800,26 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert isinstance(payload.get("actionPaceAltWindow"), str), payload
+        assert set(payload.get("actionPaceAltWindowSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "actionPaceWindow",
+            "routeSandbox",
+            "sandboxTarget",
+            "sandboxReadiness",
+            "reason",
+        }, payload
+        assert payload.get("actionPaceAltWindowConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("actionPaceAltWindowConfidenceSignals", {}).keys()) == {
+            "actionPaceAltWindow",
+            "actionPaceWindowConfidence",
+            "flagEnabled",
+            "routeSandbox",
+            "sandboxTarget",
+            "sandboxReadiness",
+            "reason",
+        }, payload
         assert isinstance(payload.get("actionPaceWhy"), str), payload
         assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
             "flagName",
@@ -856,6 +878,8 @@ def main() -> int:
         assert "PACE DRIFT" in md_text
         assert "ACTION PACE WINDOW" in md_text
         assert "ACTION PACE WINDOW CONF" in md_text
+        assert "ACTION PACE ALT WINDOW" in md_text
+        assert "ACTION PACE ALT WINDOW CONF" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
@@ -978,6 +1002,57 @@ def main() -> int:
         )
         assert pace_conf_low == "LOW", (pace_conf_low, pace_conf_low_signals)
         assert pace_conf_low_signals["reason"] == "watch-stability-with-drift-swing", pace_conf_low_signals
+
+        alt_window_flag_off, alt_window_flag_off_signals = action_pace_alt_window_from_signals(
+            action_pace_window="CLOSE",
+            route_sandbox="ON",
+            sandbox_target="PRESSURE",
+            sandbox_readiness="ARMED",
+        )
+        assert alt_window_flag_off == "FLAG OFF", (alt_window_flag_off, alt_window_flag_off_signals)
+        assert alt_window_flag_off_signals["reason"] == "flag-disabled", alt_window_flag_off_signals
+
+        prior_alt_flag = os.environ.get("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW")
+        try:
+            os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW"] = "1"
+            alt_window_probe, alt_window_probe_signals = action_pace_alt_window_from_signals(
+                action_pace_window="CLOSE",
+                route_sandbox="ON",
+                sandbox_target="ALT",
+                sandbox_readiness="ARMED",
+            )
+            assert alt_window_probe == "PROBE ALT", (alt_window_probe, alt_window_probe_signals)
+            assert alt_window_probe_signals["reason"] == "closed-primary-with-armed-sandbox-lane", alt_window_probe_signals
+
+            alt_window_wait, alt_window_wait_signals = action_pace_alt_window_from_signals(
+                action_pace_window="CLOSE",
+                route_sandbox="OFF",
+                sandbox_target="ALT",
+                sandbox_readiness="IDLE",
+            )
+            assert alt_window_wait == "WAIT SANDBOX", (alt_window_wait, alt_window_wait_signals)
+            assert alt_window_wait_signals["reason"] == "sandbox-not-armed", alt_window_wait_signals
+
+            alt_conf_high, alt_conf_high_signals = action_pace_alt_window_confidence_from_signals(
+                action_pace_alt_window=alt_window_probe,
+                action_pace_alt_window_signals=alt_window_probe_signals,
+                action_pace_window_confidence="MID",
+            )
+            assert alt_conf_high == "HIGH", (alt_conf_high, alt_conf_high_signals)
+            assert alt_conf_high_signals["reason"] == "armed-actionable-sandbox-target", alt_conf_high_signals
+
+            alt_conf_low, alt_conf_low_signals = action_pace_alt_window_confidence_from_signals(
+                action_pace_alt_window=alt_window_wait,
+                action_pace_alt_window_signals=alt_window_wait_signals,
+                action_pace_window_confidence="HIGH",
+            )
+            assert alt_conf_low == "LOW", (alt_conf_low, alt_conf_low_signals)
+            assert alt_conf_low_signals["reason"] == "fallback-not-actionable", alt_conf_low_signals
+        finally:
+            if prior_alt_flag is None:
+                os.environ.pop("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW", None)
+            else:
+                os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW"] = prior_alt_flag
 
         prior_cooling = repo / "prior-cooloff.json"
         prior_cooling.write_text(json.dumps({"routeSandbox": "OFF", "sandboxCooloff": 2}), encoding="utf-8")

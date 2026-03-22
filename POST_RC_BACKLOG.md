@@ -342,4 +342,9 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-23 Cycle AX)
 - [x] UX/Systems Team: Add digest pace-window token (`ACTION PACE WINDOW:OPEN|HOLD|CLOSE`) from `ACTION PACE + PACE DRIFT + ACTION GUARD` for operator go/no-go timing
 - [x] QA/Systems Team: Add digest pace-window confidence token (`ACTION PACE WINDOW CONF:LOW|MID|HIGH`) from window stability + drift continuity
-- [ ] Design/AI Content Team: Prototype flagged pace-window fallback token (`ACTION PACE ALT WINDOW:<short>`) when primary pace window is `CLOSE` but sandbox lane is `ON`
+- [x] Design/AI Content Team: Prototype flagged pace-window fallback token (`ACTION PACE ALT WINDOW:<short>`) when primary pace window is `CLOSE` but sandbox lane is `ON`
+
+## P1 (Game Director Injection — 2026-03-23 Cycle AY)
+- [x] Design/AI Content Team: Add flagged pace-window fallback confidence token (`ACTION PACE ALT WINDOW CONF:LOW|MID|HIGH`) from fallback readiness + sandbox target quality
+- [ ] Systems/UX Team: Add flagged fallback fit token (`ACTION PACE ALT WINDOW FIT:SAFE|EVEN|TENSE`) for pressure-aware alternate pacing guidance
+- [ ] QA/Design Team: Prototype fallback rationale micro-token (`ACTION PACE ALT WINDOW WHY:<short>`) for operator handoff clarity

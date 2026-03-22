@@ -1277,3 +1277,9 @@
 - Inserted `ACTION PACE WINDOW CONF` directly after `ACTION PACE WINDOW` to preserve go/no-go + confidence adjacency for quick operator scan.
 - Confidence line includes continuity hint (`STABLE|SHIFT|SWING`) and prior-load state for triage transparency.
 - No additional UI panel changes required.
+
+## 2026-03-23 01:37 KST — Cycle AY pace-window fallback confidence slice
+- Context: ACTION_ITEMS + prior TASKS/POST_RC queue reached full-check state, so Game Director review cycle executed.
+- Shipped: `ACTION PACE ALT WINDOW CONF:LOW|MID|HIGH` in weekly portal readability digest (flagged lane via `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW`).
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW=1 python3 scripts/weekly_portal_prompt_readability_drift.py` passed.
+- Follow-up: keep Cycle AY backlog items for `ACTION PACE ALT WINDOW FIT` and `ACTION PACE ALT WINDOW WHY` queued.

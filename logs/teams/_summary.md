@@ -1873,3 +1873,22 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/weekly_portal_prompt_readability_drift.py`
 - Next highest-priority unchecked item remains: flagged fallback token `ACTION PACE ALT WINDOW:<short>`.
+
+## 2026-03-23 01:37 KST — Cycle AY Game Director review + experiment slice
+- Review trigger: ACTION_ITEMS + active TASKS queue were fully checked; executed mandatory Game Director cycle.
+- Candidate ideas generated:
+  1. Low-risk UX: `ACTION PACE ALT WINDOW CONF` token to grade fallback viability under CLOSED primary window.
+  2. Mid-risk systems/UX: `ACTION PACE ALT WINDOW FIT` pressure-fit classifier for fallback pacing lanes.
+  3. High-risk novelty: `ACTION PACE ALT WINDOW WHY` micro-coach rationale token with compressed handoff copy.
+- Selected experiment: Idea #1 (`ACTION PACE ALT WINDOW CONF`) for minimal vertical slice.
+- Implementation:
+  - Added `action_pace_alt_window_confidence_from_signals()` in `scripts/weekly_portal_prompt_readability_drift.py`.
+  - Wired JSON payload fields: `actionPaceAltWindowConfidence`, `actionPaceAltWindowConfidenceSignals`.
+  - Added markdown digest line: `ACTION PACE ALT WINDOW CONF`.
+  - Expanded regression schema + helper coverage in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification passed:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW=1 python3 scripts/weekly_portal_prompt_readability_drift.py`
+- Backlog updates:
+  - Cycle AX fallback token completed in both `TASKS.md` + `POST_RC_BACKLOG.md`.
+  - Injected Cycle AY with three ideas; completed confidence slice, leaving `FIT` and `WHY` queued.

@@ -572,6 +572,100 @@ def action_pace_why_from_signals(
     }
 
 
+def action_pace_alt_window_from_signals(
+    *,
+    action_pace_window: str,
+    route_sandbox: str,
+    sandbox_target: str,
+    sandbox_readiness: str,
+) -> tuple[str, dict[str, str | bool]]:
+    """Prototype fallback window cue when CLOSE pace can still run via sandbox lane."""
+    flag_name = "DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    window = str(action_pace_window).upper()
+    sandbox = str(route_sandbox).upper()
+    target = str(sandbox_target).upper()
+    readiness = str(sandbox_readiness).upper()
+
+    if not flag_enabled:
+        alt_window = "FLAG OFF"
+        reason = "flag-disabled"
+    elif window != "CLOSE":
+        alt_window = "PRIMARY OPEN"
+        reason = "primary-window-not-closed"
+    elif sandbox != "ON":
+        alt_window = "WAIT SANDBOX"
+        reason = "sandbox-not-armed"
+    elif target in {"NONE", "MIXED"}:
+        alt_window = "NO ALT LANE"
+        reason = "sandbox-target-not-actionable"
+    elif readiness == "ARMED":
+        alt_window = f"PROBE {target}"
+        reason = "closed-primary-with-armed-sandbox-lane"
+    elif readiness == "PRIMED":
+        alt_window = f"STAGE {target}"
+        reason = "closed-primary-with-primed-sandbox-lane"
+    else:
+        alt_window = f"PREP {target}"
+        reason = "closed-primary-with-idle-sandbox-lane"
+
+    return alt_window, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "actionPaceWindow": window,
+        "routeSandbox": sandbox,
+        "sandboxTarget": target,
+        "sandboxReadiness": readiness,
+        "reason": reason,
+    }
+
+
+def action_pace_alt_window_confidence_from_signals(
+    *,
+    action_pace_alt_window: str,
+    action_pace_alt_window_signals: dict[str, str | bool],
+    action_pace_window_confidence: str,
+) -> tuple[str, dict[str, str | bool]]:
+    """Confidence for fallback pacing window suggestion when enabled."""
+    alt_window = str(action_pace_alt_window).upper()
+    base_conf = str(action_pace_window_confidence).upper()
+    flag_enabled = bool(action_pace_alt_window_signals.get("flagEnabled", False))
+    sandbox = str(action_pace_alt_window_signals.get("routeSandbox", "OFF")).upper()
+    target = str(action_pace_alt_window_signals.get("sandboxTarget", "NONE")).upper()
+    readiness = str(action_pace_alt_window_signals.get("sandboxReadiness", "IDLE")).upper()
+
+    if not flag_enabled:
+        confidence = "LOW"
+        reason = "fallback-window-flag-disabled"
+    elif alt_window.startswith("PROBE") and readiness == "ARMED" and target not in {"NONE", "MIXED"}:
+        confidence = "HIGH"
+        reason = "armed-actionable-sandbox-target"
+    elif alt_window.startswith("STAGE") and sandbox == "ON" and target not in {"NONE", "MIXED"}:
+        confidence = "MID"
+        reason = "primed-sandbox-target-needs-staging"
+    elif alt_window in {"WAIT SANDBOX", "NO ALT LANE"}:
+        confidence = "LOW"
+        reason = "fallback-not-actionable"
+    elif base_conf == "LOW":
+        confidence = "LOW"
+        reason = "primary-window-confidence-low"
+    else:
+        confidence = "MID"
+        reason = "default-fallback-confidence"
+
+    return confidence, {
+        "actionPaceAltWindow": alt_window,
+        "actionPaceWindowConfidence": base_conf,
+        "flagEnabled": flag_enabled,
+        "routeSandbox": sandbox,
+        "sandboxTarget": target,
+        "sandboxReadiness": readiness,
+        "reason": reason,
+    }
+
+
 def route_action_guardrail_from_signals(*, drift_risk: str, route_action_confidence: str) -> tuple[str, dict[str, str | bool]]:
     lock = drift_risk == "HIGH" and route_action_confidence == "LOW"
     token = "LOCK" if lock else "SOFT"
@@ -3927,6 +4021,17 @@ def main() -> int:
         pace_drift=pace_drift,
         pace_drift_signals=pace_drift_signals,
     )
+    action_pace_alt_window, action_pace_alt_window_signals = action_pace_alt_window_from_signals(
+        action_pace_window=action_pace_window,
+        route_sandbox=route_sandbox,
+        sandbox_target=sandbox_target,
+        sandbox_readiness=sandbox_readiness,
+    )
+    action_pace_alt_window_confidence, action_pace_alt_window_confidence_signals = action_pace_alt_window_confidence_from_signals(
+        action_pace_alt_window=action_pace_alt_window,
+        action_pace_alt_window_signals=action_pace_alt_window_signals,
+        action_pace_window_confidence=action_pace_window_confidence,
+    )
     action_pace_why, action_pace_why_signals = action_pace_why_from_signals(
         action_pace=action_pace,
         action_guard=action_guard,
@@ -4327,6 +4432,10 @@ def main() -> int:
         "actionPaceWindowSignals": action_pace_window_signals,
         "actionPaceWindowConfidence": action_pace_window_confidence,
         "actionPaceWindowConfidenceSignals": action_pace_window_confidence_signals,
+        "actionPaceAltWindow": action_pace_alt_window,
+        "actionPaceAltWindowSignals": action_pace_alt_window_signals,
+        "actionPaceAltWindowConfidence": action_pace_alt_window_confidence,
+        "actionPaceAltWindowConfidenceSignals": action_pace_alt_window_confidence_signals,
         "actionPaceWhy": action_pace_why,
         "actionPaceWhySignals": action_pace_why_signals,
         "whatIfAlt": what_if_alt,
@@ -4524,6 +4633,8 @@ def main() -> int:
         f"- PACE DRIFT: **{pace_drift:+d}** ({pace_drift_signals['reason']}; current={pace_drift_signals['currentPace']}({pace_drift_signals['currentScore']}) prior={pace_drift_signals['priorPace']}({pace_drift_signals['priorScore']}) loaded={pace_drift_signals['priorLoaded']})",
         f"- ACTION PACE WINDOW: **{action_pace_window}** ({action_pace_window_signals['reason']}; pace={action_pace_window_signals['actionPace']} guard={action_pace_window_signals['actionGuard']} drift={action_pace_window_signals['paceDrift']:+d})",
         f"- ACTION PACE WINDOW CONF: **{action_pace_window_confidence}** ({action_pace_window_confidence_signals['reason']}; window={action_pace_window_confidence_signals['actionPaceWindow']} stability={action_pace_window_confidence_signals['actionStability']} continuity={action_pace_window_confidence_signals['driftContinuity']} drift={action_pace_window_confidence_signals['paceDrift']:+d} loaded={action_pace_window_confidence_signals['priorLoaded']})",
+        f"- ACTION PACE ALT WINDOW: **{action_pace_alt_window}** ({action_pace_alt_window_signals['reason']}; flag={action_pace_alt_window_signals['flagName']} enabled={action_pace_alt_window_signals['flagEnabled']} primary={action_pace_alt_window_signals['actionPaceWindow']} sandbox={action_pace_alt_window_signals['routeSandbox']} target={action_pace_alt_window_signals['sandboxTarget']} ready={action_pace_alt_window_signals['sandboxReadiness']})",
+        f"- ACTION PACE ALT WINDOW CONF: **{action_pace_alt_window_confidence}** ({action_pace_alt_window_confidence_signals['reason']}; base={action_pace_alt_window_confidence_signals['actionPaceWindowConfidence']} flag={action_pace_alt_window_confidence_signals['flagEnabled']} sandbox={action_pace_alt_window_confidence_signals['routeSandbox']} target={action_pace_alt_window_confidence_signals['sandboxTarget']} ready={action_pace_alt_window_confidence_signals['sandboxReadiness']})",
         f"- ACTION PACE WHY: **{action_pace_why}** ({action_pace_why_signals['reason']}; flag={action_pace_why_signals['flagName']} enabled={action_pace_why_signals['flagEnabled']} pace={action_pace_why_signals['actionPace']} guard={action_pace_why_signals['actionGuard']} stability={action_pace_why_signals['actionStability']} lag={action_pace_why_signals['pressureLag']} drift={action_pace_why_signals['paceDrift']:+d})",
         f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
         f"- WHAT-IF CONF: **{what_if_confidence}** ({what_if_confidence_signals['reason']}; delta={what_if_confidence_signals['deltaRisk']} routeConf={what_if_confidence_signals['routeActionConfidence']} current={what_if_confidence_signals['currentLane']} alt={what_if_confidence_signals['altLane']})",
