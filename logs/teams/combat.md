@@ -1043,3 +1043,6 @@
 - Cross-lane note: combat rules unchanged; digest-only cadence drift token piggybacks on existing pulse telemetry.
 - Verified no combat regression surface added by this slice.
 - Follow-up: monitor if future `PULSE MODE` portal cue should reflect combat pressure thresholds more explicitly.
+
+## 2026-03-23 07:20 KST — Combat signal carry-through
+- No combat mechanics tuned; portal compact prompt now surfaces pulse mode abstraction (`I|S|X`) derived from pressure/alt-route context for faster threat-route reading.

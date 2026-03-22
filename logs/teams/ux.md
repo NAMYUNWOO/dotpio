@@ -1331,3 +1331,7 @@
 - UX decision: route pulse-link mode drift line placed adjacent to mode line for scan-order continuity.
 - Copy pattern uses signed delta + current/prior tuple to avoid ambiguity in operator handoff.
 - Follow-up: mirror semantics in player-facing compact cue only if DOS width stays within budget.
+
+## 2026-03-23 07:20 KST — In-run readability parity
+- Added compact `PULSE MODE` cue to portal prompt fallback path to align in-run decision surface with weekly drift digest language.
+- Regression confirms visible tokens across all tiers (`I`,`S`,`X`) under constrained prompt budget.

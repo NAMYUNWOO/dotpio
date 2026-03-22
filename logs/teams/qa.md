@@ -2170,3 +2170,14 @@
 - Verification:
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+
+## 2026-03-23 07:20 KST — Regression coverage: compact pulse mode
+- Added `scripts/regression_portal_prompt_pulse_mode.lua` asserting compact prompt token contract:
+  - HIGH pressure -> `PULSE MODE:X`
+  - MED pressure -> `PULSE MODE:S`
+  - LOW pressure -> `PULSE MODE:I`
+- Validation set PASS:
+  - `luac -p src/portal.lua scripts/regression_portal_prompt_pulse_mode.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua`
+  - `lua scripts/regression_portal_prompt_compact_mode.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_PROMPT=1 lua scripts/regression_portal_prompt_pulse_link.lua`

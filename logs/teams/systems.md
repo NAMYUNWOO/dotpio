@@ -1695,3 +1695,8 @@
 - Implementation: added `route_pulse_link_mode_drift_from_prior()` with score map (`IDLE=0`, `SUSTAIN=1`, `SURGE=2`) and wired JSON/markdown output.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅.
 - Follow-up: remaining unchecked item is compact portal parity cue `PULSE MODE:I|S|X` behind flag.
+
+## 2026-03-23 07:20 KST — Compact pulse mode cue parity
+- Completed flag-gated compact portal cue `PULSE MODE:I|S|X` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT`) for in-run parity with weekly `ROUTE PULSE LINK MODE` digest semantics.
+- Added `resolveCompactRoutePulseMode(...)` mapping (`I` idle / `S` sustain / `X` surge) and wired compact prompt emission in `src/portal.lua`.
+- Verification: `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua` plus compact/pulse-link regression suite PASS.

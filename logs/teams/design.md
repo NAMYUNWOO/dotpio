@@ -1110,3 +1110,7 @@
 - Design sign-off: `ROUTE PULSE LINK MODE Δ:+n|-n` keeps compact numeric drift readability without adding a new categorical legend.
 - Kept explanation in markdown line to preserve glanceability (`current/prior` + score tuple).
 - Follow-up: validate symbol budget before shipping compact in-run `PULSE MODE:I|S|X` cue.
+
+## 2026-03-23 07:20 KST — Compact token design closure
+- Closed design/world backlog item for compact portal mode cue parity (`PULSE MODE:I|S|X`) behind `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT`.
+- Kept compact token short-form to preserve DOS prompt budget while matching digest semantic tiers (IDLE/SUSTAIN/SURGE).

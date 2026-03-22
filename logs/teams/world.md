@@ -1104,3 +1104,7 @@
 - No map graph/topology edits in this slice.
 - Consumed digest-side cadence token upgrade (`ROUTE PULSE LINK MODE Δ`) to improve portal pacing triage before in-run parity cue work.
 - Follow-up: next world/design item remains flagged compact portal mode cue `PULSE MODE:I|S|X`.
+
+## 2026-03-23 07:20 KST — Portal readability parity cue
+- World-route readability now includes compact `PULSE MODE:I|S|X` token (flag-gated) so portal decision copy better mirrors digest-level route pulse mode context.
+- Scope is UX/readability only; no map routing, hazard metadata, or pressure balance changes.

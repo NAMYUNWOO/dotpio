@@ -1072,3 +1072,6 @@
 - Cross-lane sync: no generator/prompt schema changes required for `ROUTE PULSE LINK MODE Δ` digest slice.
 - Decision: keep drift token strictly operator-facing in weekly digest to avoid player-facing copy churn.
 - Follow-up: reassess AI-content lane only if portal mode cue introduces narrative wording conflicts.
+
+## 2026-03-23 07:20 KST — Prompt copy parity note
+- No narrative/systemic content generation rules changed; compact portal prompt vocabulary expanded with `PULSE MODE` token family (`I|S|X`) under experiment flag.
