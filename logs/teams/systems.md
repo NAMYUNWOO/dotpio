@@ -1335,3 +1335,14 @@
 - Implementation: Updated `scripts/weekly_portal_prompt_readability_drift.py` payload/markdown plus regression coverage in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Next highest-priority unchecked item is `WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE:ACCEL|STEADY|DECAY`.
+
+## 2026-03-22 09:34 KST
+- Task: Cycle AJ follow-up — add `WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE:ACCEL|STEADY|DECAY` derived from release tick deltas.
+- Commit: HEAD (pending commit in this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added cadence classifier based on current release tick vs prior tick (`delta >= 2` => `ACCEL`, `delta == 1` => `STEADY`, `delta <= 0` => `DECAY`, inactive window => `STEADY`).
+  - Non-numeric tick tokens (e.g., `FLAG OFF`) are forwarded unchanged for compatibility.
+- Follow-up:
+  - Next highest unchecked item is auto-rearm warning token prototype (`WHAT-IF SPLIT ESC RECOVER VETO REARM:WATCH`).

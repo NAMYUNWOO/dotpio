@@ -26,6 +26,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_release_route_from_signals,
     what_if_split_escalate_recover_veto_release_tick_from_prior,
     what_if_split_escalate_recover_veto_release_tick_phase_from_signals,
+    what_if_split_escalate_recover_veto_release_tick_cadence_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -607,6 +608,14 @@ def main() -> int:
             "altActionable",
             "reason",
         }, payload
+        assert payload.get("whatIfSplitEscRecoverVetoReleaseCadence") in {"ACCEL", "STEADY", "DECAY", "FLAG OFF"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoReleaseCadenceSignals", {}).keys()) == {
+            "tick",
+            "priorTick",
+            "delta",
+            "numeric",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -704,6 +713,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE TICK" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE PHASE" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -1114,6 +1124,34 @@ def main() -> int:
                             )
                             assert veto_release_phase_flag_off == "FLAG OFF", (veto_release_phase_flag_off, veto_release_phase_flag_off_signals)
                             assert veto_release_phase_flag_off_signals["reason"] == "non-numeric-tick-token-forwarded", veto_release_phase_flag_off_signals
+
+                            veto_release_cadence_accel, veto_release_cadence_accel_signals = what_if_split_escalate_recover_veto_release_tick_cadence_from_signals(
+                                what_if_split_esc_recover_veto_release_tick=4,
+                                what_if_split_esc_recover_veto_release_tick_signals={"priorTick": 1},
+                            )
+                            assert veto_release_cadence_accel == "ACCEL", (veto_release_cadence_accel, veto_release_cadence_accel_signals)
+                            assert veto_release_cadence_accel_signals["reason"] == "tick-growth-jump-vs-prior-window", veto_release_cadence_accel_signals
+
+                            veto_release_cadence_steady, veto_release_cadence_steady_signals = what_if_split_escalate_recover_veto_release_tick_cadence_from_signals(
+                                what_if_split_esc_recover_veto_release_tick=3,
+                                what_if_split_esc_recover_veto_release_tick_signals={"priorTick": 2},
+                            )
+                            assert veto_release_cadence_steady == "STEADY", (veto_release_cadence_steady, veto_release_cadence_steady_signals)
+                            assert veto_release_cadence_steady_signals["reason"] == "tick-growth-linear-vs-prior-window", veto_release_cadence_steady_signals
+
+                            veto_release_cadence_decay, veto_release_cadence_decay_signals = what_if_split_escalate_recover_veto_release_tick_cadence_from_signals(
+                                what_if_split_esc_recover_veto_release_tick=2,
+                                what_if_split_esc_recover_veto_release_tick_signals={"priorTick": 3},
+                            )
+                            assert veto_release_cadence_decay == "DECAY", (veto_release_cadence_decay, veto_release_cadence_decay_signals)
+                            assert veto_release_cadence_decay_signals["reason"] == "tick-stalled-or-regressed-vs-prior-window", veto_release_cadence_decay_signals
+
+                            veto_release_cadence_flag_off, veto_release_cadence_flag_off_signals = what_if_split_escalate_recover_veto_release_tick_cadence_from_signals(
+                                what_if_split_esc_recover_veto_release_tick="FLAG OFF",
+                                what_if_split_esc_recover_veto_release_tick_signals={"priorTick": 7},
+                            )
+                            assert veto_release_cadence_flag_off == "FLAG OFF", (veto_release_cadence_flag_off, veto_release_cadence_flag_off_signals)
+                            assert veto_release_cadence_flag_off_signals["reason"] == "non-numeric-tick-token-forwarded", veto_release_cadence_flag_off_signals
                         finally:
                             if prior_veto_release_tick_env is None:
                                 os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE_TICK", None)

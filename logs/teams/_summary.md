@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-22 07:33 KST
+Last updated: 2026-03-22 09:34 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -1581,3 +1581,7 @@ Compact decision memory for AI context efficiency.
   2) Mid-risk systems: release cadence token (`ACCEL|STEADY|DECAY`) from tick deltas.
   3) High-risk novelty (flagged): auto-rearm warning token (`WHAT-IF SPLIT ESC RECOVER VETO REARM:WATCH`).
 - Injected backlog (Cycle AJ): cadence token + auto-rearm warning prototype remain open.
+
+- Closed Cycle AJ cadence item: weekly portal readability digest now emits `WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE:ACCEL|STEADY|DECAY` from current-vs-prior release tick deltas.
+- Cadence token is schema-covered in JSON (`whatIfSplitEscRecoverVetoReleaseCadence` + `...Signals`) and markdown-covered in regression checks.
+- Remaining highest-priority unchecked backlog item is the flag-gated auto-rearm warning prototype (`WHAT-IF SPLIT ESC RECOVER VETO REARM:WATCH`).

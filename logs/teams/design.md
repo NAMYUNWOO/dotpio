@@ -831,3 +831,13 @@
 - Implementation: Updated `scripts/weekly_portal_prompt_readability_drift.py` payload/markdown plus regression coverage in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Next highest-priority unchecked item is `WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE:ACCEL|STEADY|DECAY`.
+
+## 2026-03-22 09:34 KST
+- Task: Operator token semantics alignment for release cadence.
+- Commit: HEAD (pending commit in this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification: Regression suite pass ✅
+- Decisions:
+  - Semantics fixed as directional pacing labels (`ACCEL|STEADY|DECAY`) tied to prior-window delta rather than absolute tick phase.
+- Follow-up:
+  - Keep cadence + phase split (velocity vs position) as separate tokens for triage clarity.

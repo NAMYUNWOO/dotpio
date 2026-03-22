@@ -1794,3 +1794,14 @@
 - Implementation: Updated `scripts/weekly_portal_prompt_readability_drift.py` payload/markdown plus regression coverage in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Next highest-priority unchecked item is `WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE:ACCEL|STEADY|DECAY`.
+
+## 2026-03-22 09:34 KST
+- Task: Regression expansion for Cycle AJ cadence token.
+- Commit: HEAD (pending commit in this run)
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added payload schema checks for cadence token/signals.
+  - Added targeted function-level checks for `ACCEL`, `STEADY`, `DECAY`, and `FLAG OFF` passthrough cases.
+- Follow-up:
+  - Keep cadence assertions in lockstep with markdown digest token line to prevent report drift.

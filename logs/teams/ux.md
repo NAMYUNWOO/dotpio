@@ -1062,3 +1062,13 @@
 - Implementation: Updated `scripts/weekly_portal_prompt_readability_drift.py` payload/markdown plus regression coverage in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Next highest-priority unchecked item is `WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE:ACCEL|STEADY|DECAY`.
+
+## 2026-03-22 09:34 KST
+- Task: Digest readability pass for new cadence token.
+- Commit: HEAD (pending commit in this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification: Markdown line emission asserted via regression suite ✅
+- Decisions:
+  - Added compact digest line: `WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE` with tick/prior/delta context for glanceable pacing trend.
+- Follow-up:
+  - Evaluate whether cadence line should collapse details when token is non-numeric (`FLAG OFF`).

@@ -2359,6 +2359,48 @@ def what_if_split_escalate_recover_veto_release_tick_phase_from_signals(
     }
 
 
+def what_if_split_escalate_recover_veto_release_tick_cadence_from_signals(
+    *,
+    what_if_split_esc_recover_veto_release_tick: int | str,
+    what_if_split_esc_recover_veto_release_tick_signals: dict[str, str | int | bool],
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Classify release tick pacing cadence from current-vs-prior tick delta."""
+    if isinstance(what_if_split_esc_recover_veto_release_tick, str):
+        token = what_if_split_esc_recover_veto_release_tick.upper()
+        return token, {
+            "tick": token,
+            "priorTick": int(what_if_split_esc_recover_veto_release_tick_signals.get("priorTick", 0) or 0),
+            "delta": 0,
+            "numeric": False,
+            "reason": "non-numeric-tick-token-forwarded",
+        }
+
+    tick = max(0, int(what_if_split_esc_recover_veto_release_tick))
+    prior_tick = max(0, int(what_if_split_esc_recover_veto_release_tick_signals.get("priorTick", 0) or 0))
+    delta = tick - prior_tick
+
+    if tick == 0:
+        cadence = "STEADY"
+        reason = "no-active-release-tick-window"
+    elif delta >= 2:
+        cadence = "ACCEL"
+        reason = "tick-growth-jump-vs-prior-window"
+    elif delta <= 0:
+        cadence = "DECAY"
+        reason = "tick-stalled-or-regressed-vs-prior-window"
+    else:
+        cadence = "STEADY"
+        reason = "tick-growth-linear-vs-prior-window"
+
+    return cadence, {
+        "tick": tick,
+        "priorTick": prior_tick,
+        "delta": delta,
+        "numeric": True,
+        "reason": reason,
+    }
+
+
 def what_if_split_escalate_recover_confidence_delta_from_prior(
     *,
     current_confidence: str,
@@ -3080,6 +3122,10 @@ def main() -> int:
     what_if_split_esc_recover_veto_release_tick_phase, what_if_split_esc_recover_veto_release_tick_phase_signals = what_if_split_escalate_recover_veto_release_tick_phase_from_signals(
         what_if_split_esc_recover_veto_release_tick=what_if_split_esc_recover_veto_release_tick,
     )
+    what_if_split_esc_recover_veto_release_cadence, what_if_split_esc_recover_veto_release_cadence_signals = what_if_split_escalate_recover_veto_release_tick_cadence_from_signals(
+        what_if_split_esc_recover_veto_release_tick=what_if_split_esc_recover_veto_release_tick,
+        what_if_split_esc_recover_veto_release_tick_signals=what_if_split_esc_recover_veto_release_tick_signals,
+    )
     what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
         current_confidence=what_if_split_esc_recover_confidence,
         prior_json_path=args.out_json,
@@ -3241,6 +3287,8 @@ def main() -> int:
         "whatIfSplitEscRecoverVetoReleaseTickSignals": what_if_split_esc_recover_veto_release_tick_signals,
         "whatIfSplitEscRecoverVetoReleaseTickPhase": what_if_split_esc_recover_veto_release_tick_phase,
         "whatIfSplitEscRecoverVetoReleaseTickPhaseSignals": what_if_split_esc_recover_veto_release_tick_phase_signals,
+        "whatIfSplitEscRecoverVetoReleaseCadence": what_if_split_esc_recover_veto_release_cadence,
+        "whatIfSplitEscRecoverVetoReleaseCadenceSignals": what_if_split_esc_recover_veto_release_cadence_signals,
         "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
         "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
@@ -3344,6 +3392,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE: **{what_if_split_esc_recover_veto_release_route}** ({what_if_split_esc_recover_veto_release_route_signals['reason']}; release={what_if_split_esc_recover_veto_release_route_signals['splitEscRecoverVetoRelease']} state={what_if_split_esc_recover_veto_release_route_signals['splitEscRecoverVetoState']} plan={what_if_split_esc_recover_veto_release_route_signals['splitEscRecoverPlan']} primary={what_if_split_esc_recover_veto_release_route_signals['splitEscRecover']} alt={what_if_split_esc_recover_veto_release_route_signals['splitEscRecoverAlt']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE TICK: **{what_if_split_esc_recover_veto_release_tick}** ({what_if_split_esc_recover_veto_release_tick_signals['reason']}; flag={what_if_split_esc_recover_veto_release_tick_signals['flagName']} enabled={what_if_split_esc_recover_veto_release_tick_signals['flagEnabled']} release={what_if_split_esc_recover_veto_release_tick_signals['currentRelease']} state={what_if_split_esc_recover_veto_release_tick_signals['currentState']} prior={what_if_split_esc_recover_veto_release_tick_signals['priorRelease']}:{what_if_split_esc_recover_veto_release_tick_signals['priorState']}:{what_if_split_esc_recover_veto_release_tick_signals['priorTick']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE PHASE: **{what_if_split_esc_recover_veto_release_tick_phase}** ({what_if_split_esc_recover_veto_release_tick_phase_signals['reason']}; tick={what_if_split_esc_recover_veto_release_tick_phase_signals['tick']} numeric={what_if_split_esc_recover_veto_release_tick_phase_signals['numeric']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE: **{what_if_split_esc_recover_veto_release_cadence}** ({what_if_split_esc_recover_veto_release_cadence_signals['reason']}; tick={what_if_split_esc_recover_veto_release_cadence_signals['tick']} prior={what_if_split_esc_recover_veto_release_cadence_signals['priorTick']} delta={what_if_split_esc_recover_veto_release_cadence_signals['delta']} numeric={what_if_split_esc_recover_veto_release_cadence_signals['numeric']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
