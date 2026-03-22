@@ -880,3 +880,9 @@
 - Completed: Added coach-confidence classifier using coach availability + nudge confidence + fit context, and wired JSON/markdown outputs.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up: remaining AO items are coach posture token and coach rationale prototype behind flag.
+
+## 2026-03-22 14:34 KST — Cycle AO coach posture token shipped
+- Task: Add `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH MODE:PRIMARY|BALANCED|BACKUP` from coach lane selection mix.
+- Completed: Added mode classification output for dual-lane coach posture and surfaced it in weekly digest JSON/markdown.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up: next AO item is prototype `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY:<short>` behind flag.

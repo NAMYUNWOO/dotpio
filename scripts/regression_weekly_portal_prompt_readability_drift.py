@@ -37,6 +37,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_rearm_nudge_window_from_signals,
     what_if_split_escalate_recover_veto_rearm_nudge_confidence_from_signals,
     what_if_split_escalate_recover_veto_rearm_nudge_drift_from_prior,
+    what_if_split_escalate_recover_veto_rearm_coach_mode_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -837,6 +838,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH CONF" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH MODE" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -1517,6 +1519,25 @@ def main() -> int:
                                         )
                                         assert drift_shifting == "SHIFTING", (drift_shifting, drift_shifting_signals)
                                         assert drift_shifting_signals["reason"] == "nudge-rationale-changed-vs-prior-window", drift_shifting_signals
+
+
+                                        coach_mode_balanced, coach_mode_balanced_signals = what_if_split_escalate_recover_veto_rearm_coach_mode_from_signals(
+                                            what_if_split_esc_recover_veto_rearm_coach="PORTAL|ALT",
+                                        )
+                                        assert coach_mode_balanced == "BALANCED", (coach_mode_balanced, coach_mode_balanced_signals)
+                                        assert coach_mode_balanced_signals["reason"] == "coach-includes-distinct-primary-and-backup-lanes", coach_mode_balanced_signals
+
+                                        coach_mode_primary, coach_mode_primary_signals = what_if_split_escalate_recover_veto_rearm_coach_mode_from_signals(
+                                            what_if_split_esc_recover_veto_rearm_coach="PORTAL|NONE",
+                                        )
+                                        assert coach_mode_primary == "PRIMARY", (coach_mode_primary, coach_mode_primary_signals)
+                                        assert coach_mode_primary_signals["reason"] == "coach-primary-lane-drives-guidance", coach_mode_primary_signals
+
+                                        coach_mode_backup, coach_mode_backup_signals = what_if_split_escalate_recover_veto_rearm_coach_mode_from_signals(
+                                            what_if_split_esc_recover_veto_rearm_coach="NONE|ALT",
+                                        )
+                                        assert coach_mode_backup == "BACKUP", (coach_mode_backup, coach_mode_backup_signals)
+                                        assert coach_mode_backup_signals["reason"] == "coach-primary-missing-but-backup-actionable", coach_mode_backup_signals
                                     finally:
                                         if prior_veto_rearm_nudge_env is None:
                                             os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE", None)

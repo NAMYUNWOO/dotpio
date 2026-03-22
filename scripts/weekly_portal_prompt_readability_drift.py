@@ -2965,6 +2965,55 @@ def what_if_split_escalate_recover_veto_rearm_coach_confidence_from_signals(
     }
 
 
+def what_if_split_escalate_recover_veto_rearm_coach_mode_from_signals(
+    *,
+    what_if_split_esc_recover_veto_rearm_coach: str,
+) -> tuple[str, dict[str, str]]:
+    """Classify coach lane posture from primary/backup lane mix."""
+    coach = str(what_if_split_esc_recover_veto_rearm_coach).upper()
+
+    if coach == "FLAG OFF":
+        mode = "PRIMARY"
+        reason = "coach-flag-disabled-default-primary-mode"
+        primary = "FLAG OFF"
+        backup = "NONE"
+    else:
+        primary, sep, backup = coach.partition("|")
+        primary = primary.strip() or "NONE"
+        backup = backup.strip() if sep else "NONE"
+        backup = backup or "NONE"
+
+        actionable = {"PORTAL", "ALT", "PRESSURE"}
+        primary_actionable = primary in actionable
+        backup_actionable = backup in actionable
+
+        if primary_actionable and backup_actionable and primary != backup:
+            mode = "BALANCED"
+            reason = "coach-includes-distinct-primary-and-backup-lanes"
+        elif primary in {"NONE", "FLAG OFF"} and backup_actionable:
+            mode = "BACKUP"
+            reason = "coach-primary-missing-but-backup-actionable"
+        elif backup_actionable and primary == backup:
+            mode = "PRIMARY"
+            reason = "coach-backup-duplicates-primary-lane"
+        elif primary_actionable:
+            mode = "PRIMARY"
+            reason = "coach-primary-lane-drives-guidance"
+        elif backup_actionable:
+            mode = "BACKUP"
+            reason = "coach-falls-back-to-backup-lane"
+        else:
+            mode = "PRIMARY"
+            reason = "coach-has-no-actionable-lanes-default-primary-mode"
+
+    return mode, {
+        "splitEscRecoverVetoRearmCoach": coach,
+        "coachPrimaryLane": primary,
+        "coachBackupLane": backup,
+        "reason": reason,
+    }
+
+
 def what_if_split_escalate_recover_confidence_delta_from_prior(
     *,
     current_confidence: str,
@@ -3758,6 +3807,9 @@ def main() -> int:
         what_if_split_esc_recover_veto_rearm_nudge_confidence=what_if_split_esc_recover_veto_rearm_nudge_confidence,
         what_if_split_esc_recover_veto_rearm_fit=what_if_split_esc_recover_veto_rearm_fit,
     )
+    what_if_split_esc_recover_veto_rearm_coach_mode, what_if_split_esc_recover_veto_rearm_coach_mode_signals = what_if_split_escalate_recover_veto_rearm_coach_mode_from_signals(
+        what_if_split_esc_recover_veto_rearm_coach=what_if_split_esc_recover_veto_rearm_coach,
+    )
     what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
         current_confidence=what_if_split_esc_recover_confidence,
         prior_json_path=args.out_json,
@@ -3949,6 +4001,8 @@ def main() -> int:
         "whatIfSplitEscRecoverVetoRearmCoachSignals": what_if_split_esc_recover_veto_rearm_coach_signals,
         "whatIfSplitEscRecoverVetoRearmCoachConfidence": what_if_split_esc_recover_veto_rearm_coach_confidence,
         "whatIfSplitEscRecoverVetoRearmCoachConfidenceSignals": what_if_split_esc_recover_veto_rearm_coach_confidence_signals,
+        "whatIfSplitEscRecoverVetoRearmCoachMode": what_if_split_esc_recover_veto_rearm_coach_mode,
+        "whatIfSplitEscRecoverVetoRearmCoachModeSignals": what_if_split_esc_recover_veto_rearm_coach_mode_signals,
         "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
         "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
@@ -4067,6 +4121,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT: **{what_if_split_esc_recover_veto_rearm_nudge_drift}** ({what_if_split_esc_recover_veto_rearm_nudge_drift_signals['reason']}; current={what_if_split_esc_recover_veto_rearm_nudge_drift_signals['currentNudgeWhy']} prior={what_if_split_esc_recover_veto_rearm_nudge_drift_signals['priorNudgeWhy']} loaded={what_if_split_esc_recover_veto_rearm_nudge_drift_signals['priorLoaded']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH: **{what_if_split_esc_recover_veto_rearm_coach}** ({what_if_split_esc_recover_veto_rearm_coach_signals['reason']}; flag={what_if_split_esc_recover_veto_rearm_coach_signals['flagName']} enabled={what_if_split_esc_recover_veto_rearm_coach_signals['flagEnabled']} primary={what_if_split_esc_recover_veto_rearm_coach_signals['splitEscRecover']} backup={what_if_split_esc_recover_veto_rearm_coach_signals['splitEscRecoverAlt']} plan={what_if_split_esc_recover_veto_rearm_coach_signals['splitEscRecoverPlan']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH CONF: **{what_if_split_esc_recover_veto_rearm_coach_confidence}** ({what_if_split_esc_recover_veto_rearm_coach_confidence_signals['reason']}; coach={what_if_split_esc_recover_veto_rearm_coach_confidence_signals['splitEscRecoverVetoRearmCoach']} nudgeConf={what_if_split_esc_recover_veto_rearm_coach_confidence_signals['splitEscRecoverVetoRearmNudgeConfidence']} fit={what_if_split_esc_recover_veto_rearm_coach_confidence_signals['splitEscRecoverVetoRearmFit']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH MODE: **{what_if_split_esc_recover_veto_rearm_coach_mode}** ({what_if_split_esc_recover_veto_rearm_coach_mode_signals['reason']}; coach={what_if_split_esc_recover_veto_rearm_coach_mode_signals['splitEscRecoverVetoRearmCoach']} primary={what_if_split_esc_recover_veto_rearm_coach_mode_signals['coachPrimaryLane']} backup={what_if_split_esc_recover_veto_rearm_coach_mode_signals['coachBackupLane']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",

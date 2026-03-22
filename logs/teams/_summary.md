@@ -1668,3 +1668,10 @@ Compact decision memory for AI context efficiency.
 - Selected experiment: low-risk `COACH CONF` vertical slice to keep digest readability stable while improving triage trust.
 - Implemented `whatIfSplitEscRecoverVetoRearmCoachConfidence` + signals and markdown line `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH CONF`.
 - Regression suite remains green; AO backlog created with remaining two follow-up tasks.
+
+## 2026-03-22 14:34 KST — Cycle AO follow-up shipped
+- Selected in-flight AO item: `COACH MODE` posture token (mid-risk systems/design) to expose whether coach guidance is primary-only, balanced dual-lane, or backup-driven.
+- Implemented `whatIfSplitEscRecoverVetoRearmCoachMode` with signals (`coachPrimaryLane`, `coachBackupLane`, reason) and markdown line `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH MODE`.
+- Durable decision: posture classification defaults to `PRIMARY` when flag is off or no actionable lane exists, uses `BALANCED` only for distinct actionable primary+backup lanes, and `BACKUP` only when primary is unavailable.
+- Regression: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS, including new token + mode branch assertions.
+- Next priority remains AO final prototype: `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY:<short>` behind flag.
