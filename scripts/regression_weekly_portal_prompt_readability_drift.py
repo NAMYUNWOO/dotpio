@@ -732,6 +732,22 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert isinstance(payload.get("whatIfSplitEscRecoverVetoRearmCoach"), str), payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmCoachSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "splitEscRecover",
+            "splitEscRecoverAlt",
+            "splitEscRecoverPlan",
+            "reason",
+        }, payload
+        assert payload.get("whatIfSplitEscRecoverVetoRearmCoachConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmCoachConfidenceSignals", {}).keys()) == {
+            "splitEscRecoverVetoRearmCoach",
+            "splitEscRecoverVetoRearmNudgeConfidence",
+            "splitEscRecoverVetoRearmFit",
+            "reason",
+        }, payload
         md_text = out_md.read_text(encoding="utf-8")
         assert "Token Totals" in md_text
         assert "Top Token Movers" in md_text
@@ -819,6 +835,8 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WHY" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE IMPACT" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH CONF" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

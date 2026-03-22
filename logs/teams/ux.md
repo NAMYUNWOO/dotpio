@@ -1146,3 +1146,16 @@
 - Completed: weekly digest now emits `whatIfSplitEscRecoverVetoRearmNudgeDrift` + signals and markdown line `WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS), `python3 scripts/weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up: next unchecked item is dual-lane coach snapshot prototype (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH:<primary>|<backup>`) behind flag.
+
+## 2026-03-22 14:03 KST — Cycle AN dual-lane coach snapshot prototype shipped
+- Task: Prototype `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH:<primary>|<backup>` behind experiment flag for contingency readability.
+- Completed: Added `what_if_split_escalate_recover_veto_rearm_coach_from_signals` and wired digest payload/markdown outputs (`whatIfSplitEscRecoverVetoRearmCoach`, `...CoachSignals`).
+- Decision: coach chooses actionable lane from `RECOVER/ALT` using recover plan priority and emits `<primary>|<backup>`; outputs `FLAG OFF` when flag disabled.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up: start next cycle (AO) from Game Director injection queue after backlog sync.
+
+## 2026-03-22 14:06 KST — Cycle AO coach confidence token shipped
+- Task: Add `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH CONF:LOW|MID|HIGH` to weight trust on dual-lane coach snapshots.
+- Completed: Added coach-confidence classifier using coach availability + nudge confidence + fit context, and wired JSON/markdown outputs.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up: remaining AO items are coach posture token and coach rationale prototype behind flag.

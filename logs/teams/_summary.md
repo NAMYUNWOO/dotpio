@@ -1653,3 +1653,18 @@ Compact decision memory for AI context efficiency.
 - Added payload fields `whatIfSplitEscRecoverVetoRearmNudgeDrift` and `...Signals` plus markdown status line for operator triage.
 - Regression coverage extended for payload schema, markdown token presence, and prior-window drift detection helper behavior.
 - Next priority item remains Cycle AN final prototype: `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH:<primary>|<backup>` behind flag.
+
+## 2026-03-22 14:03 KST — Cycle AN coach snapshot prototype
+- Shipped new digest prototype token `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH:<primary>|<backup>` behind `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH`.
+- Durable decision: coach lane selection honors `RECOVER PLAN` first (ALT preferred when plan=ALT), then falls back to primary/alt actionable lanes; backup lane is emitted only when distinct/actionable.
+- Added payload fields `whatIfSplitEscRecoverVetoRearmCoach` + `whatIfSplitEscRecoverVetoRearmCoachSignals` and markdown line for operator triage.
+- Regression expanded to assert payload schema and markdown token presence; full weekly portal drift regression passes.
+
+## 2026-03-22 14:06 KST — Cycle AO experiment (selected)
+- Generated idea set (low/mid/high):
+  - Low-risk UX: add `COACH CONF` token for dual-lane coach trust weighting.
+  - Mid-risk systems: add coach posture token (`PRIMARY|BALANCED|BACKUP`) from selected vs fallback lane mix.
+  - High-risk novelty: prototype coach rationale token behind flag for adaptive operator coaching.
+- Selected experiment: low-risk `COACH CONF` vertical slice to keep digest readability stable while improving triage trust.
+- Implemented `whatIfSplitEscRecoverVetoRearmCoachConfidence` + signals and markdown line `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH CONF`.
+- Regression suite remains green; AO backlog created with remaining two follow-up tasks.
