@@ -1501,3 +1501,10 @@
 - Completed prototype `COACH OVERRIDE:DE-ESCALATE` behind `DOTPIO_EXPERIMENT_ROUTE_VIBE_COACH_OVERRIDE` when route-vibe conflict is ON and adaptive ALT route exists.
 - Implementation: `src/portal.lua` now computes `coachOverride` from `(conflict && altRouteTag)` and emits token in detailed prompt; compact alias `COVR:DEESC` added for budgeted prompt.
 - Follow-up: keep override behind flag until `VIBE SYNC:+1` experiment lands, then evaluate combined readability impact.
+
+## 2026-03-22 19:34 KST — Cycle AS follow-up: VIBE SYNC prototype
+- Task: Implement `VIBE SYNC:+1` hint behind `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT`.
+- Decision: Track alignment streak in `src/portal.lua` and emit hint only when upcoming transition would complete 3rd consecutive aligned vibe/threat pairing.
+- Implementation: Added streak state, alignment tagging on pending transition, streak commit/reset on confirmTransition.
+- Verification: `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 lua scripts/regression_portal_route_vibe_sync_hint.lua` PASS.
+- Follow-up: If experiment graduates, wire actual reward payout event (currently hint-only).

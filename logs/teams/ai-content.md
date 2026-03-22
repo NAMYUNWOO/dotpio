@@ -963,3 +963,7 @@
 ## 2026-03-22 19:01 KST — Prompt token contract extension
 - Extended portal prompt token set with optional conflict-time coach override token under env flag.
 - Token gated to avoid unconditional prompt bloat and preserve deterministic compact fallback behavior.
+
+## 2026-03-22 19:34 KST — No generation prompt/fallback changes
+- Cycle focused on portal transition UX tokening and streak logic.
+- AI content constraints unchanged.

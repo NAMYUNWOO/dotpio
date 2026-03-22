@@ -1211,3 +1211,8 @@
 - Added explicit conflict-time coaching cue token (`COACH OVERRIDE:DE-ESCALATE`; compact `COVR:DEESC`) to reduce mixed pacing ambiguity in portal prompt.
 - Cue only appears when `VIBE CONFLICT:ON` and adaptive ALT exists, preventing noise in aligned or no-alt contexts.
 - Follow-up: validate whether token should graduate from flag to default after `VIBE SYNC:+1` prototype evidence.
+
+## 2026-03-22 19:34 KST — Portal prompt micro-reward cue
+- Added compact-safe tokenization for vibe consistency reward hint (`VIBE SYNC:+1` / `VS:+1`).
+- Hint appears only at streak threshold to reduce noise.
+- Verified compact prompt still preserves conflict/override tokens.

@@ -990,3 +990,9 @@
 - Introduced explicit de-escalation lexeme (`DE-ESCALATE`) for conflict states to keep route intent emotionally legible.
 - Compact alias (`COVR:DEESC`) preserves DOS width constraints while retaining semantic direction.
 - Follow-up: pair with pending vibe-consistency reward hint to avoid one-sided caution bias.
+
+## 2026-03-22 19:34 KST — Route-vibe readability pass
+- Added player-facing sync reward hint token in portal prompt after 3 aligned transitions.
+- Detailed token: `VIBE SYNC:+1`, compact token: `VS:+1`.
+- Rationale: reinforce route fantasy coherence without adding irreversible economy change.
+- Follow-up: Observe readability drift impact once enabled in test windows.

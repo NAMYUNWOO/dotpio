@@ -929,3 +929,7 @@
 ## 2026-03-22 19:01 KST — Combat pacing signal handoff
 - No combat math changes this cycle.
 - Portal prompt now surfaces a de-escalation cue when route-vibe conflict indicates pacing mismatch and safe branch is available.
+
+## 2026-03-22 19:34 KST — Threat-tier integration check
+- Used existing threat tier signal (`LOW|MED|HIGH`) as alignment comparator for route-vibe sync hint.
+- Combat tuning/damage windows unchanged.

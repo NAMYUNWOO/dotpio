@@ -3,6 +3,7 @@ local cooldown = false
 local pendingTransition = nil
 local routeTagCache = {}
 local routeTagOverrides = {}
+local routeVibeSyncStreak = 0
 
 -- 맵 전환 콜백: onLoad(targetMap, targetPortal)
 Portal.onLoad = nil
@@ -293,6 +294,19 @@ local function isRouteVibeCoachOverrideExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isRouteVibeSyncExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
+local function isRouteVibeThreatAligned(routeTag, threatTier)
+    return routeTagToExpectedThreatTier(routeTag) == normalizeThreatTier(threatTier)
+end
+
 local function resolveRouteVibeConflictReason(routeTag, threatTier)
     local routeVibe = "UNKNOWN"
     local compactRouteVibe = "U"
@@ -322,7 +336,7 @@ local function resolveRouteVignetteGlyph(routeTag)
     return "???"
 end
 
-local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride)
+local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint)
     local fxCue = resolvePortalFxCue(pressureScore)
     local routeVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s  ROUTE VIBE:%s", routeTag, coach, pressureScore, fxCue, routeVibe)
@@ -347,10 +361,13 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
             prompt = string.format("%s  COACH OVERRIDE:DE-ESCALATE", prompt)
         end
     end
+    if vibeSyncHint then
+        prompt = string.format("%s  VIBE SYNC:+1", prompt)
+    end
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
@@ -374,6 +391,9 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
         if coachOverride then
             prompt = string.format("%s  COVR:DEESC", prompt)
         end
+    end
+    if vibeSyncHint then
+        prompt = string.format("%s  VS:+1", prompt)
     end
     return prompt
 end
@@ -407,11 +427,14 @@ function Portal.getTransitionPrompt(maxChars, context)
         altDelta = resolveAdaptiveAltPressureDelta(routeTag, altRouteTag, threatTier)
         altPlanNudge = isAltPlanExperimentEnabled() and altRouteTag ~= nil
     end
+    local routeVibeAligned = isRouteVibeThreatAligned(routeTag, threatTier)
+    pendingTransition.routeVibeAligned = routeVibeAligned
+    local vibeSyncHint = isRouteVibeSyncExperimentEnabled() and routeVibeAligned and (routeVibeSyncStreak + 1) >= 3
     local coachOverride = isRouteVibeCoachOverrideExperimentEnabled() and routeVibeConflict and altRouteTag ~= nil
-    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride)
+    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint)
     local budget = tonumber(maxChars) or 76
     if budget > 0 and #prompt > budget then
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride)
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint)
     end
     return prompt
 end
@@ -422,7 +445,13 @@ function Portal.confirmTransition()
     end
 
     local transition = pendingTransition
+    local aligned = transition.routeVibeAligned
     pendingTransition = nil
+    if aligned == true then
+        routeVibeSyncStreak = routeVibeSyncStreak + 1
+    elseif aligned == false then
+        routeVibeSyncStreak = 0
+    end
     if Portal.onLoad then
         Portal.onLoad(transition.targetMap, transition.targetPortal)
     end
@@ -440,6 +469,7 @@ end
 function Portal.resetCooldown()
     cooldown = false
     pendingTransition = nil
+    routeVibeSyncStreak = 0
 end
 
 function Portal.setCooldown()

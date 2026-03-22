@@ -1969,3 +1969,10 @@
   - `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_COACH_OVERRIDE=1 lua scripts/regression_portal_route_vibe_coach_override.lua`
   - `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 lua scripts/regression_portal_route_vibe_conflict.lua`
   - `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT_REASON=1 lua scripts/regression_portal_route_vibe_conflict_reason.lua`
+
+## 2026-03-22 19:34 KST — Regression coverage update
+- Added `scripts/regression_portal_route_vibe_sync_hint.lua`.
+- Coverage: threshold behavior (1/2 no hint, 3rd aligned hint), compact token emission, misalignment streak reset.
+- Cross-checks rerun:
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT_REASON=1 lua scripts/regression_portal_route_vibe_conflict_reason.lua` PASS
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_COACH_OVERRIDE=1 lua scripts/regression_portal_route_vibe_coach_override.lua` PASS
