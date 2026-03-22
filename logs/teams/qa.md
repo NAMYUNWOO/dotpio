@@ -1915,3 +1915,12 @@
   - `lua scripts/regression_portal_prompt_adaptive_alt_readability.lua`
 - Result: all PASS.
 - Additional guardrail updates: adaptive-alt readability regression now validates `FX` token order (`PRESSURE -> FX -> ALT`) and updated compact budget baseline.
+
+## 2026-03-22 16:01 KST — Cycle AP QA verification
+- Ran: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Result: PASS.
+- Added assertions for payload keys:
+  - `whatIfSplitEscRecoverVetoRearmCoachHandoff`
+  - `whatIfSplitEscRecoverVetoRearmCoachHandoffSignals`
+  - `whatIfSplitEscRecoverVetoRearmCoachHandoffFit`
+  - `whatIfSplitEscRecoverVetoRearmCoachHandoffFitSignals`

@@ -893,3 +893,7 @@
 - Gate: `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY` (default OFF).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up: ACTION_ITEMS/TASKS/POST_RC are now fully checked; next cycle should run Game Director review injection flow.
+
+## 2026-03-22 16:01 KST — Cycle AP combat note
+- No combat runtime tuning this cycle.
+- Combat pressure signal (`whatIfSplitEscPressure`) is now consumed by coach handoff fit classifier in weekly routing digest.

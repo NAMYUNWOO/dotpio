@@ -39,6 +39,8 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_rearm_nudge_drift_from_prior,
     what_if_split_escalate_recover_veto_rearm_coach_mode_from_signals,
     what_if_split_escalate_recover_veto_rearm_coach_why_from_signals,
+    what_if_split_escalate_recover_veto_rearm_coach_handoff_from_signals,
+    what_if_split_escalate_recover_veto_rearm_coach_handoff_fit_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -750,6 +752,19 @@ def main() -> int:
             "splitEscRecoverVetoRearmFit",
             "reason",
         }, payload
+        assert payload.get("whatIfSplitEscRecoverVetoRearmCoachHandoff") in {"LOCKED", "FLEX", "NONE"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmCoachHandoffSignals", {}).keys()) == {
+            "splitEscRecoverVetoRearmCoach",
+            "splitEscRecoverVetoRearmCoachMode",
+            "splitEscRecoverVetoRearmCoachConfidence",
+            "reason",
+        }, payload
+        assert payload.get("whatIfSplitEscRecoverVetoRearmCoachHandoffFit") in {"SAFE", "EVEN", "TENSE"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmCoachHandoffFitSignals", {}).keys()) == {
+            "splitEscRecoverVetoRearmCoachHandoff",
+            "splitEscPressure",
+            "reason",
+        }, payload
         md_text = out_md.read_text(encoding="utf-8")
         assert "Token Totals" in md_text
         assert "Top Token Movers" in md_text
@@ -841,6 +856,8 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH CONF" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH MODE" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF FIT" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -1568,6 +1585,29 @@ def main() -> int:
                                             )
                                             assert coach_why_backup == "NO ACTION", (coach_why_backup, coach_why_backup_signals)
                                             assert coach_why_backup_signals["reason"] == "coach-primary-not-actionable", coach_why_backup_signals
+
+
+                                            coach_handoff_locked, coach_handoff_locked_signals = what_if_split_escalate_recover_veto_rearm_coach_handoff_from_signals(
+                                                what_if_split_esc_recover_veto_rearm_coach="PORTAL|NONE",
+                                                what_if_split_esc_recover_veto_rearm_coach_mode="PRIMARY",
+                                                what_if_split_esc_recover_veto_rearm_coach_confidence="HIGH",
+                                            )
+                                            assert coach_handoff_locked == "LOCKED", (coach_handoff_locked, coach_handoff_locked_signals)
+                                            assert coach_handoff_locked_signals["reason"] == "single-lane-coach-ready-for-locked-handoff", coach_handoff_locked_signals
+
+                                            coach_handoff_fit_safe, coach_handoff_fit_safe_signals = what_if_split_escalate_recover_veto_rearm_coach_handoff_fit_from_signals(
+                                                what_if_split_esc_recover_veto_rearm_coach_handoff="LOCKED",
+                                                what_if_split_esc_pressure="LOW",
+                                            )
+                                            assert coach_handoff_fit_safe == "SAFE", (coach_handoff_fit_safe, coach_handoff_fit_safe_signals)
+                                            assert coach_handoff_fit_safe_signals["reason"] == "locked-handoff-with-low-pressure", coach_handoff_fit_safe_signals
+
+                                            coach_handoff_fit_tense, coach_handoff_fit_tense_signals = what_if_split_escalate_recover_veto_rearm_coach_handoff_fit_from_signals(
+                                                what_if_split_esc_recover_veto_rearm_coach_handoff="NONE",
+                                                what_if_split_esc_pressure="HIGH",
+                                            )
+                                            assert coach_handoff_fit_tense == "TENSE", (coach_handoff_fit_tense, coach_handoff_fit_tense_signals)
+                                            assert coach_handoff_fit_tense_signals["reason"] == "no-handoff-under-high-pressure", coach_handoff_fit_tense_signals
                                         finally:
                                             if prior_coach_why_env is None:
                                                 os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY", None)

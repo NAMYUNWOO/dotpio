@@ -1172,3 +1172,7 @@
 - Gate: `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY` (default OFF).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up: ACTION_ITEMS/TASKS/POST_RC are now fully checked; next cycle should run Game Director review injection flow.
+
+## 2026-03-22 16:01 KST — Cycle AP UX note
+- Markdown digest now surfaces `COACH HANDOFF` and `COACH HANDOFF FIT` rows for faster glance parsing.
+- Regression confirms token rows are present and schema stable.

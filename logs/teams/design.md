@@ -947,3 +947,7 @@
 - Shipped: prompt-level FX readability token (`FX:CALM|FLICKER|SURGE` / compact `FX:C|F|S`) positioned after pressure token.
 - Pass criterion met: token-order + compact-budget regressions pass while preserving adaptive ALT cues.
 - Rollback path: remove `FX:` token rendering in portal prompt builders if copy budget or readability regresses.
+
+## 2026-03-22 16:01 KST — Cycle AP design readability note
+- Added explicit triage token `COACH HANDOFF FIT` to reduce ambiguity when handoff is LOCKED/FLEX under varying pressure.
+- Copy remains compact and deterministic for weekly review workflows.

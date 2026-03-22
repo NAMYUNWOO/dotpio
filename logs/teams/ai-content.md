@@ -927,3 +927,7 @@
 - Gate: `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY` (default OFF).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up: ACTION_ITEMS/TASKS/POST_RC are now fully checked; next cycle should run Game Director review injection flow.
+
+## 2026-03-22 16:01 KST — Cycle AP AI-content note
+- Digest coaching lane now includes pressure-fit classification (`SAFE|EVEN|TENSE`) to inform future copy/rationale generation.
+- Next AI-content prototype remains `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF WHY:<short>` (flag-gated).

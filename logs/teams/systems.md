@@ -1456,3 +1456,9 @@
 - Scope rationale: additive/readability-only systems wiring with no economy/combat balance mutation.
 - Verification: `lua scripts/regression_portal_route_preview.lua`, `lua scripts/regression_portal_prompt_compact_mode.lua`, `lua scripts/regression_portal_prompt_token_order.lua`, `lua scripts/regression_portal_prompt_copy_budget.lua`, `lua scripts/regression_portal_prompt_adaptive_alt_readability.lua` (all PASS).
 - Follow-up injected: combat pulse token + route vignette prototype in Cycle AQ backlog.
+
+## 2026-03-22 16:01 KST — Cycle AP pressure-fit token shipped
+- Completed: `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF FIT:SAFE|EVEN|TENSE` derived from coach handoff + split escalation pressure.
+- Added support wiring in weekly digest generator for `whatIfSplitEscRecoverVetoRearmCoachHandoff` + `...CoachHandoffFit` JSON/markdown tokens.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: remaining AP unchecked item is prototype `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF WHY:<short>` behind flag.
