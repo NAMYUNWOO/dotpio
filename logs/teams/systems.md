@@ -1640,3 +1640,16 @@
 - Ran immediate Game Director cycle after all backlog checks: selected low-risk Design/UX experiment and shipped `ACTION PACE ALT WINDOW STEP GLYPH:<sigil>` via `action_pace_alt_window_step_glyph_from_signals(...)` behind `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH`.
 - Verification: regression + digest generation PASS.
 - Follow-up queued: `STEP Δ` drift token and fallback cadence pulse token.
+
+## 2026-03-23 04:05:56 KST
+- Task: Cycle BA Systems/QA fallback step drift token (`ACTION PACE ALT WINDOW STEP Δ:<n>`) against prior digest snapshot.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added prior-snapshot step drift scorer and digest token `ACTION PACE ALT WINDOW STEP Δ` with signed output.
+  - Wired drift token into JSON payload (`actionPaceAltWindowStepDrift`, signals) and markdown digest line.
+- Follow-up:
+  - Next highest unchecked backlog item: pulse drift token (`ACTION PACE ALT WINDOW PULSE Δ:+n|-n`).

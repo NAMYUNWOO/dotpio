@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-22 22:05 KST
+Last updated: 2026-03-23 04:05 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,9 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Cycle BA Systems/QA slice shipped: weekly digest now emits `ACTION PACE ALT WINDOW STEP Δ:+n|-n` by comparing current step token against prior digest snapshot.
+- Digest payload now persists step drift fields (`actionPaceAltWindowStepDrift`, `actionPaceAltWindowStepDriftSignals`) and markdown summary includes signed drift with score breakdown.
+- Regression coverage expanded for step drift: markdown token presence + prior snapshot drift math checks (no-prior baseline, escalated delta case).
 - Game Director Cycle AW executed after confirming ACTION_ITEMS + TASKS + POST_RC_BACKLOG were fully checked.
 - Cycle AW ideas generated (3): low-risk digest action-pace token, mid-risk pace-drift prior-window token, high-risk flagged pace-coach rationale token.
 - Selected/implemented Cycle AW vertical slice: weekly portal readability digest now emits `ACTION PACE:ACCEL|STEADY|BRAKE` from `ACTION GUARD + ACTION STABILITY + PRESSURE LAG`.

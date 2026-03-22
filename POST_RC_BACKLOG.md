@@ -357,7 +357,7 @@ Last updated: 2026-03-21 02:31 KST
 
 ## Next Up (Game Director Injection — 2026-03-23 Cycle BA)
 - [x] Design/UX Team: Add compact fallback step glyph token (`ACTION PACE ALT WINDOW STEP GLYPH:<sigil>`) behind flag for DOS-width scanability
-- [ ] Systems/QA Team: Prototype fallback step drift token (`ACTION PACE ALT WINDOW STEP Δ:<n>`) against prior digest snapshot
+- [x] Systems/QA Team: Prototype fallback step drift token (`ACTION PACE ALT WINDOW STEP Δ:<n>`) against prior digest snapshot
 - [x] Combat/VFX Team: Prototype fallback cadence pulse token (`ACTION PACE ALT WINDOW PULSE:COOL|LIVE|HOT`) for pressure readability
 
 ## Next Up (Game Director Injection — 2026-03-23 Cycle BB)

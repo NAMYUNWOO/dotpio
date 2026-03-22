@@ -951,6 +951,64 @@ def action_pace_alt_window_step_from_signals(
     }
 
 
+def action_pace_alt_window_step_drift_from_prior(
+    *,
+    current_action_pace_alt_window_step: str,
+    prior_json_path: Path,
+) -> tuple[int, dict[str, str | int | bool]]:
+    """Compare current/prior fallback step token and emit signed drift delta."""
+    step_scores = {
+        "FLAG OFF": 0,
+        "ENABLE": 1,
+        "HOLD": 2,
+        "WATCH": 3,
+        "ARM": 4,
+        "PICK": 5,
+        "WAIT": 6,
+        "STAGE": 7,
+        "SHIFT": 8,
+        "SHED": 9,
+        "PROBE": 10,
+    }
+
+    current_step = str(current_action_pace_alt_window_step).upper()
+    current_score = step_scores.get(current_step, 0)
+    prior_step = "FLAG OFF"
+    prior_score = step_scores[prior_step]
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_step = str(prior.get("actionPaceAltWindowStep", prior_step)).upper()
+            prior_score = step_scores.get(prior_step, 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, OSError, ValueError):
+            prior_loaded = False
+
+    drift = current_score - prior_score
+
+    if not prior_loaded:
+        drift = 0
+        reason = "no-prior-step-token"
+    elif drift > 0:
+        reason = "step-escalated"
+    elif drift < 0:
+        reason = "step-deescalated"
+    else:
+        reason = "step-stable"
+
+    return drift, {
+        "currentStep": current_step,
+        "currentScore": current_score,
+        "priorStep": prior_step,
+        "priorScore": prior_score,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
+
 def action_pace_alt_window_step_glyph_from_signals(
     *,
     action_pace_alt_window_step: str,
@@ -4430,6 +4488,10 @@ def main() -> int:
         action_pace_alt_window_urgency=action_pace_alt_window_urgency,
         action_pace_alt_window_signals=action_pace_alt_window_signals,
     )
+    action_pace_alt_window_step_drift, action_pace_alt_window_step_drift_signals = action_pace_alt_window_step_drift_from_prior(
+        current_action_pace_alt_window_step=action_pace_alt_window_step,
+        prior_json_path=args.out_json,
+    )
     action_pace_alt_window_step_glyph, action_pace_alt_window_step_glyph_signals = action_pace_alt_window_step_glyph_from_signals(
         action_pace_alt_window_step=action_pace_alt_window_step,
         action_pace_alt_window_urgency=action_pace_alt_window_urgency,
@@ -4854,6 +4916,8 @@ def main() -> int:
         "actionPaceAltWindowUrgencyDriftSignals": action_pace_alt_window_urgency_drift_signals,
         "actionPaceAltWindowStep": action_pace_alt_window_step,
         "actionPaceAltWindowStepSignals": action_pace_alt_window_step_signals,
+        "actionPaceAltWindowStepDrift": action_pace_alt_window_step_drift,
+        "actionPaceAltWindowStepDriftSignals": action_pace_alt_window_step_drift_signals,
         "actionPaceAltWindowStepGlyph": action_pace_alt_window_step_glyph,
         "actionPaceAltWindowStepGlyphSignals": action_pace_alt_window_step_glyph_signals,
         "actionPaceAltWindowPulse": action_pace_alt_window_pulse,
@@ -5062,6 +5126,7 @@ def main() -> int:
         f"- ACTION PACE ALT WINDOW URGENCY: **{action_pace_alt_window_urgency}** ({action_pace_alt_window_urgency_signals['reason']}; flag={action_pace_alt_window_urgency_signals['flagName']} enabled={action_pace_alt_window_urgency_signals['flagEnabled']} alt={action_pace_alt_window_urgency_signals['actionPaceAltWindow']} conf={action_pace_alt_window_urgency_signals['actionPaceAltWindowConfidence']} fit={action_pace_alt_window_urgency_signals['actionPaceAltWindowFit']} why={action_pace_alt_window_urgency_signals['actionPaceAltWindowWhy']})",
         f"- ACTION PACE ALT WINDOW URGENCY Δ: **{action_pace_alt_window_urgency_drift:+d}** ({action_pace_alt_window_urgency_drift_signals['reason']}; current={action_pace_alt_window_urgency_drift_signals['currentUrgency']}({action_pace_alt_window_urgency_drift_signals['currentScore']}) prior={action_pace_alt_window_urgency_drift_signals['priorUrgency']}({action_pace_alt_window_urgency_drift_signals['priorScore']}) loaded={action_pace_alt_window_urgency_drift_signals['priorLoaded']})",
         f"- ACTION PACE ALT WINDOW STEP: **{action_pace_alt_window_step}** ({action_pace_alt_window_step_signals['reason']}; flag={action_pace_alt_window_step_signals['flagName']} enabled={action_pace_alt_window_step_signals['flagEnabled']} alt={action_pace_alt_window_step_signals['actionPaceAltWindow']} conf={action_pace_alt_window_step_signals['actionPaceAltWindowConfidence']} fit={action_pace_alt_window_step_signals['actionPaceAltWindowFit']} urgency={action_pace_alt_window_step_signals['actionPaceAltWindowUrgency']} sandbox={action_pace_alt_window_step_signals['routeSandbox']} target={action_pace_alt_window_step_signals['sandboxTarget']} ready={action_pace_alt_window_step_signals['sandboxReadiness']})",
+        f"- ACTION PACE ALT WINDOW STEP Δ: **{action_pace_alt_window_step_drift:+d}** ({action_pace_alt_window_step_drift_signals['reason']}; current={action_pace_alt_window_step_drift_signals['currentStep']}({action_pace_alt_window_step_drift_signals['currentScore']}) prior={action_pace_alt_window_step_drift_signals['priorStep']}({action_pace_alt_window_step_drift_signals['priorScore']}) loaded={action_pace_alt_window_step_drift_signals['priorLoaded']})",
         f"- ACTION PACE ALT WINDOW STEP GLYPH: **{action_pace_alt_window_step_glyph}** ({action_pace_alt_window_step_glyph_signals['reason']}; flag={action_pace_alt_window_step_glyph_signals['flagName']} enabled={action_pace_alt_window_step_glyph_signals['flagEnabled']} step={action_pace_alt_window_step_glyph_signals['actionPaceAltWindowStep']} urgency={action_pace_alt_window_step_glyph_signals['actionPaceAltWindowUrgency']} fit={action_pace_alt_window_step_glyph_signals['actionPaceAltWindowFit']})",
         f"- ACTION PACE ALT WINDOW PULSE: **{action_pace_alt_window_pulse}** ({action_pace_alt_window_pulse_signals['reason']}; flag={action_pace_alt_window_pulse_signals['flagName']} enabled={action_pace_alt_window_pulse_signals['flagEnabled']} urgency={action_pace_alt_window_pulse_signals['actionPaceAltWindowUrgency']} fit={action_pace_alt_window_pulse_signals['actionPaceAltWindowFit']} conf={action_pace_alt_window_pulse_signals['actionPaceAltWindowConfidence']})",
         f"- ACTION PACE WHY: **{action_pace_why}** ({action_pace_why_signals['reason']}; flag={action_pace_why_signals['flagName']} enabled={action_pace_why_signals['flagEnabled']} pace={action_pace_why_signals['actionPace']} guard={action_pace_why_signals['actionGuard']} stability={action_pace_why_signals['actionStability']} lag={action_pace_why_signals['pressureLag']} drift={action_pace_why_signals['paceDrift']:+d})",

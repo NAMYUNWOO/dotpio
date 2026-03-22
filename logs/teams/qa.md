@@ -2117,3 +2117,16 @@
 - Verification commands:
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 200 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` ✅
+
+## 2026-03-23 04:05:56 KST
+- Task: Validate fallback step drift digest token regression coverage.
+- Commit: HEAD (this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+- Decisions:
+  - Regression now asserts markdown presence of `ACTION PACE ALT WINDOW STEP Δ`.
+  - Added direct prior-snapshot drift tests (no-prior baseline and escalated step delta scenario).
+- Follow-up:
+  - Keep pulse-drift implementation blocked behind next backlog slice to avoid multi-item scope creep.

@@ -15,6 +15,7 @@ from weekly_portal_prompt_readability_drift import (
     action_pace_alt_window_urgency_from_signals,
     action_pace_alt_window_urgency_drift_from_prior,
     action_pace_alt_window_step_from_signals,
+    action_pace_alt_window_step_drift_from_prior,
     action_pace_alt_window_step_glyph_from_signals,
     action_pace_alt_window_from_signals,
     action_pace_window_confidence_from_signals,
@@ -955,6 +956,7 @@ def main() -> int:
         assert "ACTION PACE ALT WINDOW URGENCY" in md_text
         assert "ACTION PACE ALT WINDOW URGENCY Δ" in md_text
         assert "ACTION PACE ALT WINDOW STEP" in md_text
+        assert "ACTION PACE ALT WINDOW STEP Δ" in md_text
         assert "ACTION PACE ALT WINDOW STEP GLYPH" in md_text
         assert "ACTION PACE ALT WINDOW PULSE" in md_text
         assert "ACTION PACE WHY" in md_text
@@ -1221,6 +1223,22 @@ def main() -> int:
             )
             assert alt_step_wait == "ARM", (alt_step_wait, alt_step_wait_signals)
             assert alt_step_wait_signals["reason"] == "sandbox-not-armed", alt_step_wait_signals
+
+            step_drift_zero, step_drift_zero_signals = action_pace_alt_window_step_drift_from_prior(
+                current_action_pace_alt_window_step="WATCH",
+                prior_json_path=repo / "missing-alt-step-prior.json",
+            )
+            assert step_drift_zero == 0, (step_drift_zero, step_drift_zero_signals)
+            assert step_drift_zero_signals["reason"] == "no-prior-step-token", step_drift_zero_signals
+
+            step_prior = repo / "prior-alt-step.json"
+            step_prior.write_text(json.dumps({"actionPaceAltWindowStep": "ARM"}), encoding="utf-8")
+            step_drift_up, step_drift_up_signals = action_pace_alt_window_step_drift_from_prior(
+                current_action_pace_alt_window_step="PROBE",
+                prior_json_path=step_prior,
+            )
+            assert step_drift_up == 6, (step_drift_up, step_drift_up_signals)
+            assert step_drift_up_signals["reason"] == "step-escalated", step_drift_up_signals
 
             prior_alt_step_glyph_flag = os.environ.get("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH")
             os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH"] = "1"
