@@ -1653,3 +1653,10 @@
   - Wired drift token into JSON payload (`actionPaceAltWindowStepDrift`, signals) and markdown digest line.
 - Follow-up:
   - Next highest unchecked backlog item: pulse drift token (`ACTION PACE ALT WINDOW PULSE Δ:+n|-n`).
+
+## 2026-03-23 04:34 KST — Cycle BB pulse drift token shipped
+- Task: Add `ACTION PACE ALT WINDOW PULSE Δ:+n|-n` comparing current/prior pulse bands.
+- Decision: Use ordinal pulse bands (`OFF=0, COOL=1, LIVE=2, HOT=3`) for deterministic signed drift.
+- Implementation: Added `action_pace_alt_window_pulse_drift_from_prior()` and wired payload + markdown digest output.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS), digest regeneration PASS under `logs/playtests/weekly_portal_prompt_readability_drift.{json,md}`.
+- Follow-up: Next unchecked task is `ROUTE PULSE LINK:SOFT|SHARP` prototype behind flag (Design/World).

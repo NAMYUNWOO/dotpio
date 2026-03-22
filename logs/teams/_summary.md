@@ -1935,3 +1935,5 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_PULSE=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 50 --out-json logs/playtests/weekly_portal_prompt_readability_drift.json --out-md logs/playtests/weekly_portal_prompt_readability_drift.md`
 - Backlog updates: marked BA pulse item done; injected Cycle BB follow-ups (`PULSE Δ`, `ROUTE PULSE LINK`).
+
+- 2026-03-23 04:34 KST: Cycle BB follow-up complete — weekly portal digest now emits `ACTION PACE ALT WINDOW PULSE Δ:+n|-n` with persisted prior-window comparison (`current/prior/loaded/reason`) in JSON+Markdown; regression coverage expanded for schema + delta behavior. Next up: `ROUTE PULSE LINK:SOFT|SHARP` prototype behind flag.

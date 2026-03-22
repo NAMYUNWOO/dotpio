@@ -17,6 +17,7 @@ from weekly_portal_prompt_readability_drift import (
     action_pace_alt_window_step_from_signals,
     action_pace_alt_window_step_drift_from_prior,
     action_pace_alt_window_step_glyph_from_signals,
+    action_pace_alt_window_pulse_drift_from_prior,
     action_pace_alt_window_from_signals,
     action_pace_window_confidence_from_signals,
     pace_drift_from_prior,
@@ -891,6 +892,15 @@ def main() -> int:
             "actionPaceAltWindowConfidence",
             "reason",
         }, payload
+        assert isinstance(payload.get("actionPaceAltWindowPulseDrift"), int), payload
+        assert set(payload.get("actionPaceAltWindowPulseDriftSignals", {}).keys()) == {
+            "currentPulse",
+            "currentScore",
+            "priorPulse",
+            "priorScore",
+            "priorLoaded",
+            "reason",
+        }, payload
         assert isinstance(payload.get("actionPaceWhy"), str), payload
         assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
             "flagName",
@@ -959,6 +969,7 @@ def main() -> int:
         assert "ACTION PACE ALT WINDOW STEP Δ" in md_text
         assert "ACTION PACE ALT WINDOW STEP GLYPH" in md_text
         assert "ACTION PACE ALT WINDOW PULSE" in md_text
+        assert "ACTION PACE ALT WINDOW PULSE Δ" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text

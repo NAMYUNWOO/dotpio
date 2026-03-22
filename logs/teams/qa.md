@@ -2130,3 +2130,8 @@
   - Added direct prior-snapshot drift tests (no-prior baseline and escalated step delta scenario).
 - Follow-up:
   - Keep pulse-drift implementation blocked behind next backlog slice to avoid multi-item scope creep.
+
+## 2026-03-23 04:34 KST — Regression coverage for pulse drift
+- Added regression assertions for `actionPaceAltWindowPulseDrift` and `actionPaceAltWindowPulseDriftSignals` schema.
+- Added unit checks for no-prior baseline (`Δ=0`) and de-escalation case (`HOT -> COOL`, `Δ=-2`).
+- Markdown contract now asserts `ACTION PACE ALT WINDOW PULSE Δ` row presence.
