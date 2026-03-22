@@ -941,3 +941,9 @@
 - Gate: `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY` (default OFF).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up: ACTION_ITEMS/TASKS/POST_RC are now fully checked; next cycle should run Game Director review injection flow.
+
+## 2026-03-22 15:41 KST — Cycle AQ design pass (prompt readability + fantasy)
+- Experiment hypothesis: explicit portal FX tone at choice time will improve risk parsing speed and reduce overcommit surprises on SPIKE routes.
+- Shipped: prompt-level FX readability token (`FX:CALM|FLICKER|SURGE` / compact `FX:C|F|S`) positioned after pressure token.
+- Pass criterion met: token-order + compact-budget regressions pass while preserving adaptive ALT cues.
+- Rollback path: remove `FX:` token rendering in portal prompt builders if copy budget or readability regresses.

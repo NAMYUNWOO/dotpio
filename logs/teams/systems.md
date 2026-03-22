@@ -1448,3 +1448,11 @@
 - Gate: `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY` (default OFF).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up: ACTION_ITEMS/TASKS/POST_RC are now fully checked; next cycle should run Game Director review injection flow.
+
+## 2026-03-22 15:41 KST — Cycle AQ forced lane rebalance slice (portal FX cue)
+- Coverage check (last 10 completed items by lane): systems=10, world=0, design=0, combat=0, vfx=0, ux=0, qa=0, ai-content=0.
+- Policy trigger: single-lane dominance (>40%) detected, so next experiment forced into underrepresented lanes.
+- Implemented vertical slice: `src/portal.lua` now emits portal transition FX cue token tied to pressure score (`FX:CALM|FLICKER|SURGE`, compact `FX:C|F|S`).
+- Scope rationale: additive/readability-only systems wiring with no economy/combat balance mutation.
+- Verification: `lua scripts/regression_portal_route_preview.lua`, `lua scripts/regression_portal_prompt_compact_mode.lua`, `lua scripts/regression_portal_prompt_token_order.lua`, `lua scripts/regression_portal_prompt_copy_budget.lua`, `lua scripts/regression_portal_prompt_adaptive_alt_readability.lua` (all PASS).
+- Follow-up injected: combat pulse token + route vignette prototype in Cycle AQ backlog.

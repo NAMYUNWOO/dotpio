@@ -1905,3 +1905,13 @@
 - Gate: `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY` (default OFF).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up: ACTION_ITEMS/TASKS/POST_RC are now fully checked; next cycle should run Game Director review injection flow.
+
+## 2026-03-22 15:41 KST — Cycle AQ QA evidence (portal FX cue)
+- Regression suite executed after adding `FX` token to portal prompts:
+  - `lua scripts/regression_portal_route_preview.lua`
+  - `lua scripts/regression_portal_prompt_compact_mode.lua`
+  - `lua scripts/regression_portal_prompt_token_order.lua`
+  - `lua scripts/regression_portal_prompt_copy_budget.lua`
+  - `lua scripts/regression_portal_prompt_adaptive_alt_readability.lua`
+- Result: all PASS.
+- Additional guardrail updates: adaptive-alt readability regression now validates `FX` token order (`PRESSURE -> FX -> ALT`) and updated compact budget baseline.

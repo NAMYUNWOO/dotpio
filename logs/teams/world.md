@@ -941,3 +941,10 @@
 - Gate: `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY` (default OFF).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up: ACTION_ITEMS/TASKS/POST_RC are now fully checked; next cycle should run Game Director review injection flow.
+
+## 2026-03-22 15:41 KST — Cycle AQ world readability slice
+- Chosen experiment (forced lane rebalance): portal transition now surfaces route-pressure VFX cue token so map-jump risk is legible before commit.
+- Player-facing output: detailed prompt `FX:CALM|FLICKER|SURGE`, compact prompt `FX:C|F|S`.
+- Design/world intent: reinforce route identity at portal decision point without changing portal graph or hazard tuning.
+- Verification set remained green across portal prompt regressions.
+- Next world-facing candidate queued: `ROUTE VIGNETTE:<glyph>` flagged prototype.

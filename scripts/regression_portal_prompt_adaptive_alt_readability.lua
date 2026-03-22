@@ -23,6 +23,7 @@ local function tokenPositions(prompt)
         ROUTE = prompt:find("NEXT:", 1, true),
         COACH = prompt:find("COACH:", 1, true),
         PRESSURE = prompt:find("P:", 1, true),
+        FX = prompt:find("FX:", 1, true),
         ALT = prompt:find("ALT:", 1, true),
         ALT_DELTA = prompt:find("ADEL:", 1, true),
     }
@@ -40,7 +41,7 @@ Portal.check(8, 8, {
     end,
 })
 
-local compactBudget = 86
+local compactBudget = 90
 local prompt = Portal.getTransitionPrompt(compactBudget, { threatTier = "HIGH" })
 expect(type(prompt) == "string" and prompt ~= "", "prompt should be generated for pending portal transition")
 
@@ -49,6 +50,7 @@ expect(not prompt:find("NEXT ROUTE:", 1, true), "compact prompt should not inclu
 expect(prompt:find("NEXT:SPIKE", 1, true), "compact prompt should include abbreviated NEXT route token")
 expect(prompt:find("COACH:HIGH", 1, true), "compact prompt should include compact coach token")
 expect(prompt:find("P:5", 1, true), "compact prompt should include compact pressure token")
+expect(prompt:find("FX:S", 1, true), "compact prompt should include compact portal FX cue token")
 expect(prompt:find("ALT:RISK", 1, true), "compact prompt should include adaptive ALT route token")
 expect(prompt:find("ADEL:-1", 1, true), "compact prompt should include adaptive ALT delta token")
 expect(#prompt <= compactBudget, string.format("compact prompt should respect budget (%d > %d)", #prompt, compactBudget))
@@ -61,7 +63,8 @@ end
 expect(positions.ACTION < positions.ROUTE, "token order invalid: ACTION must appear before ROUTE")
 expect(positions.ROUTE < positions.COACH, "token order invalid: ROUTE must appear before COACH")
 expect(positions.COACH < positions.PRESSURE, "token order invalid: COACH must appear before PRESSURE")
-expect(positions.PRESSURE < positions.ALT, "token order invalid: PRESSURE must appear before ALT")
+expect(positions.PRESSURE < positions.FX, "token order invalid: PRESSURE must appear before FX")
+expect(positions.FX < positions.ALT, "token order invalid: FX must appear before ALT")
 expect(positions.ALT < positions.ALT_DELTA, "token order invalid: ALT must appear before ALT_DELTA")
 
 Portal.cancelTransition()

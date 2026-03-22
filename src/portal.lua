@@ -209,8 +209,18 @@ local function isAltPlanExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function resolvePortalFxCue(pressureScore)
+    if pressureScore >= 5 then
+        return "SURGE", "S"
+    elseif pressureScore >= 3 then
+        return "FLICKER", "F"
+    end
+    return "CALM", "C"
+end
+
 local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge)
-    local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d", routeTag, coach, pressureScore)
+    local fxCue = resolvePortalFxCue(pressureScore)
+    local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s", routeTag, coach, pressureScore, fxCue)
     if altRouteTag then
         prompt = string.format("%s  ALT ROUTE:%s", prompt, altRouteTag)
         if altDelta then
@@ -224,7 +234,8 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
 end
 
 local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge)
-    local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d", routeTag, resolveCompactCoach(routeTag), pressureScore)
+    local _, compactFxCue = resolvePortalFxCue(pressureScore)
+    local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue)
     if altRouteTag then
         prompt = string.format("%s  ALT:%s", prompt, altRouteTag)
         if altDelta then

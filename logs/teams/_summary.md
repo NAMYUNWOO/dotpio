@@ -13,6 +13,9 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Cycle AQ executed with forced lane rebalance after coverage check showed systems dominance over the last 10 completed items (systems=10/10, all other lanes=0).
+- Shipped underrepresented-lane vertical slice: portal transition prompt now emits pressure-tied FX cue token (`FX:CALM|FLICKER|SURGE`, compact `FX:C|F|S`) to improve world-choice readability without mechanics change.
+- Injected Cycle AQ follow-ups: combat/vfx pressure pulse token (`BERSERK FX:PULSE`) and flagged world-design route vignette token (`ROUTE VIGNETTE:<glyph>`).
 - Closed Cycle AM final task: weekly digest now emits flag-gated `WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WHY:<short>` (`DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE_WHY`) for compact operator coaching context.
 - ACTION_ITEMS + TASKS + POST_RC_BACKLOG were fully checked, so Game Director review cycle ran immediately.
 - Game Director Cycle AN ideas generated: low-risk `NUDGE IMPACT` band, mid-risk `NUDGE DRIFT` token, high-risk flagged dual-lane `COACH` snapshot.

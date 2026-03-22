@@ -24,14 +24,25 @@ local function normalizeRouteTag(routeTag)
     return "UNKNOWN"
 end
 
+local function resolveFxCue(pressure)
+    if pressure >= 5 then
+        return "SURGE", "S"
+    elseif pressure >= 3 then
+        return "FLICKER", "F"
+    end
+    return "CALM", "C"
+end
+
 local function buildDetailedPrompt(routeTag, pressure)
     local tag = normalizeRouteTag(routeTag)
-    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d", tag, COACH_BY_ROUTE[tag], pressure)
+    local fxCue = resolveFxCue(pressure)
+    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s", tag, COACH_BY_ROUTE[tag], pressure, fxCue)
 end
 
 local function buildCompactPrompt(routeTag, pressure)
     local tag = normalizeRouteTag(routeTag)
-    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d", tag, COMPACT_COACH_BY_ROUTE[tag], pressure)
+    local _, compactFxCue = resolveFxCue(pressure)
+    return string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s", tag, COMPACT_COACH_BY_ROUTE[tag], pressure, compactFxCue)
 end
 
 local function resolveTokenOrder(prompt)
@@ -39,12 +50,14 @@ local function resolveTokenOrder(prompt)
     local routePos = prompt:find("NEXT ROUTE:", 1, true) or prompt:find("NEXT:", 1, true)
     local coachPos = prompt:find("COACH:", 1, true)
     local pressurePos = prompt:find("PRESSURE:", 1, true) or prompt:find("P:", 1, true)
+    local fxPos = prompt:find("FX:", 1, true)
 
     return {
         ACTION = actionPos,
         ROUTE = routePos,
         COACH = coachPos,
         PRESSURE = pressurePos,
+        FX = fxPos,
     }
 end
 
@@ -52,7 +65,7 @@ local function lintPrompt(prompt)
     local positions = resolveTokenOrder(prompt)
     local warnings = {}
 
-    for _, token in ipairs({ "ACTION", "ROUTE", "COACH", "PRESSURE" }) do
+    for _, token in ipairs({ "ACTION", "ROUTE", "COACH", "PRESSURE", "FX" }) do
         if not positions[token] then
             table.insert(warnings, string.format("missing token `%s`", token))
         end
@@ -66,6 +79,9 @@ local function lintPrompt(prompt)
     end
     if positions.COACH and positions.PRESSURE and positions.COACH > positions.PRESSURE then
         table.insert(warnings, "token order violation: COACH appears after PRESSURE")
+    end
+    if positions.PRESSURE and positions.FX and positions.PRESSURE > positions.FX then
+        table.insert(warnings, "token order violation: PRESSURE appears after FX")
     end
 
     return {

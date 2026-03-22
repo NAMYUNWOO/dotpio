@@ -455,3 +455,13 @@ See project-level plans:
 - [x] Add dual-lane coach confidence token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH CONF:LOW|MID|HIGH`) for contingency snapshot trust weighting
 - [x] Add dual-lane coach posture token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH MODE:PRIMARY|BALANCED|BACKUP`) from coach lane selection mix
 - [x] Prototype coach fallback reason token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY:<short>`) behind flag for operator context
+
+## Next Up (Game Director Injection — 2026-03-22 Cycle AP)
+- [x] Add dual-lane coach handoff token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF:LOCKED|FLEX|NONE`) for at-a-glance routing readiness
+- [ ] Add coach handoff pressure-fit token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF FIT:SAFE|EVEN|TENSE`) from handoff + pressure context
+- [ ] Prototype coach handoff rationale token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF WHY:<short>`) behind flag for compact operator coaching
+
+## Next Up (Game Director Injection — 2026-03-22 Cycle AQ)
+- [x] Add portal transition FX cue token (`FX:CALM|FLICKER|SURGE`, compact `FX:C|F|S`) from route pressure score for player-facing jump readability *(forced lane rebalance: vfx/world + systems)*
+- [ ] Add combat hit-rhythm warning pulse token (`BERSERK FX:PULSE`) when `THREAT Δ:+` persists for 2+ turns (combat/vfx readability follow-up)
+- [ ] Prototype route-tag ASCII vignette in portal prompt (`ROUTE VIGNETTE:<glyph>`) behind flag for stronger world-choice fantasy
