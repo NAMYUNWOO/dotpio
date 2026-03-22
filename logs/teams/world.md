@@ -1032,3 +1032,11 @@
 ## 2026-03-22 22:34 KST — Cross-lane handoff
 - Weekly digest now reports lane cadence coverage token from team-log recency.
 - World/design lane currently marked covered in trailing 24h; next readability experiment remains `DRIFT GLYPH:<...>` escalation behind flag.
+
+## 2026-03-22 23:03 KST — Cycle AV drift glyph escalation prototype
+- Completed world/design readability slice: drift alarm escalation glyph token behind flag.
+- Added portal prompt token wiring in `src/portal.lua`:
+  - Detailed: `DRIFT GLYPH:!|!!|!!!`
+  - Compact: `DGL:!|!!|!!!`
+- Escalation policy: direct conflict+snapback or freshest carryover => `!!!`; short-window carryover => `!!`; otherwise active single-signal => `!`.
+- Follow-up: monitor prompt budget pressure in compact mode as additional tokens accumulate.

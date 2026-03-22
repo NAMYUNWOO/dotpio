@@ -1045,3 +1045,8 @@
 ## 2026-03-22 22:34 KST — Cross-lane note
 - Design/world cadence is now explicitly visible in weekly digest via `LANE CADENCE:OK|GAP`.
 - Next design-facing experiment remains drift alarm escalation glyph readability (`DRIFT GLYPH:<...>`).
+
+## 2026-03-22 23:03 KST — Drift glyph readability decision
+- Decision: use punctuation-only escalation glyphs (`!`, `!!`, `!!!`) to preserve DOS fantasy and keep token width predictable.
+- Kept glyph behind `DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_GLYPH` so default prompt contract remains stable.
+- UX rationale: make drift urgency legible without requiring full token parse under rapid portal choice.

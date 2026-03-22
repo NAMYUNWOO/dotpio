@@ -982,3 +982,7 @@
 ## 2026-03-22 22:34 KST — Cross-lane note
 - No combat balancing change in this slice.
 - Combat/VFX bucket is now surfaced via weekly digest `LANE CADENCE` watchdog coverage output.
+
+## 2026-03-22 23:03 KST — Combat lane note
+- No combat mechanic changes in this slice.
+- Verified no regression spillover by rerunning portal/snapback regressions only; berserker threat behavior untouched.

@@ -1,5 +1,5 @@
 -- Regression: route-vibe drift alarm token experiment flag.
--- Run: DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_ALARM=1 lua scripts/regression_portal_route_vibe_drift_alarm.lua
+-- Run: DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_ALARM=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_GLYPH=1 lua scripts/regression_portal_route_vibe_drift_alarm.lua
 
 package.path = package.path .. ";./?.lua;./?/init.lua"
 
@@ -16,6 +16,7 @@ expect(os.getenv("DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT") ~= nil, "set DOTPIO_E
 expect(os.getenv("DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK") ~= nil, "set DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1")
 expect(os.getenv("DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT") ~= nil, "set DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1")
 expect(os.getenv("DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_ALARM") ~= nil, "set DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_ALARM=1")
+expect(os.getenv("DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_GLYPH") ~= nil, "set DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_GLYPH=1")
 
 local function buildMap(targetMap)
     return {
@@ -63,14 +64,26 @@ local detailed = Portal.getTransitionPrompt(260, { threatTier = "HIGH" })
 expect(detailed:find("VIBE CONFLICT:ON", 1, true), "detailed prompt should include conflict token")
 expect(detailed:find("VIBE SNAPBACK:ON", 1, true), "detailed prompt should include snapback token")
 expect(detailed:find("VIBE DRIFT:WIDE", 1, true), "detailed prompt should include drift alarm token when conflict+snapback co-occur")
+expect(detailed:find("DRIFT GLYPH:!!!", 1, true), "detailed prompt should include max drift glyph on direct conflict+snapback")
 
 local compact = Portal.getTransitionPrompt(70, { threatTier = "HIGH" })
 expect(compact:find("VC:ON", 1, true), "compact prompt should include compact conflict token")
 expect(compact:find("VSB:ON", 1, true), "compact prompt should include compact snapback token")
 expect(compact:find("VDR:WIDE", 1, true), "compact prompt should include compact drift alarm token")
+expect(compact:find("DGL:!!!", 1, true), "compact prompt should include compact max drift glyph")
 Portal.confirmTransition()
 clearPortalTile()
 
+
+-- Within short carryover window, conflict-only prompt should still show medium escalation glyph.
+
+Portal.check(6, 6, buildMap("91"))
+local carry = Portal.getTransitionPrompt(260, { threatTier = "HIGH" })
+expect(carry:find("VIBE CONFLICT:ON", 1, true), "carryover prompt should include conflict token")
+expect(carry:find("VIBE DRIFT:WIDE", 1, true), "carryover prompt should still include drift alarm inside short window")
+expect(carry:find("DRIFT GLYPH:!!", 1, true), "carryover prompt should downgrade to medium drift glyph inside short window")
+Portal.confirmTransition()
+clearPortalTile()
 -- Calm aligned prompt with no conflict/snapback should not keep drift token latched.
 Portal.check(5, 5, buildMap("91"))
 local stable = Portal.getTransitionPrompt(260, { threatTier = "LOW" })

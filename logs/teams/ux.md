@@ -1259,3 +1259,8 @@
 ## 2026-03-22 22:34 KST — UX telemetry readability update
 - Added digest-facing lane watchdog line (`LANE CADENCE:OK|GAP`) and explicit gap text to reduce operator ambiguity.
 - Decision: Keep token compact and single-line to avoid digest clutter while preserving triage value.
+
+## 2026-03-22 23:03 KST — Portal prompt compact readability pass
+- Compact prompt now appends `DGL:<...>` only when drift alarm is active.
+- Kept glyph token extremely short to reduce compact overflow risk.
+- Regression coverage confirms compact parity for drift alarm and glyph emission.

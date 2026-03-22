@@ -1836,3 +1836,13 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/economy_weekly_snapshot.py`
 - Backlog progression: lane cadence item moved `[~] -> [x]` in `TASKS.md` and `POST_RC_BACKLOG.md`.
 - Next highest-priority unchecked item: drift alarm escalation glyph prototype (`DRIFT GLYPH:<...>`) in world/design lane.
+
+## 2026-03-22 23:03 KST — Cycle AV completion: drift glyph escalation shipped
+- Completed remaining unchecked backlog item in TASKS/POST_RC: route-vibe drift alarm escalation glyph prototype.
+- Implementation (`src/portal.lua`):
+  - Added experiment flag `DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_GLYPH`.
+  - Added escalation resolver using existing conflict/snapback age windows.
+  - Added prompt tokens: detailed `DRIFT GLYPH:!|!!|!!!`, compact `DGL:!|!!|!!!`.
+- Regression upgraded (`scripts/regression_portal_route_vibe_drift_alarm.lua`) for max/medium glyph assertions.
+- Verification: syntax + drift/snapback/preview regressions PASS.
+- Backlog status: Cycle AV final unchecked item moved `[~] -> [x]` in both TASKS and POST_RC.

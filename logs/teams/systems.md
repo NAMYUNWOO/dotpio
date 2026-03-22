@@ -1570,3 +1570,8 @@
 - Output: Snapshot JSON now includes `laneCadence` payload (`status`, `token`, `bucketCoverage`, `missingBuckets`, `sourceLatest`) and markdown digest prints watchdog token + gap summary.
 - Evidence: `python3 scripts/regression_weekly_snapshot.py` PASS; `python3 scripts/economy_weekly_snapshot.py` emits `LANE CADENCE:OK` on current data.
 - Follow-up: Next highest-priority unchecked item is world/design drift glyph escalation prototype (`DRIFT GLYPH:<...>`).
+
+## 2026-03-22 23:03 KST — Drift glyph state machine wiring
+- Added flag parser `isRouteVibeDriftGlyphExperimentEnabled()` and resolver `resolveRouteVibeDriftGlyph()` in `src/portal.lua`.
+- Reused existing conflict/snapback age counters to avoid new persistent state.
+- No economy/combat state mutation; prompt-only systems change.

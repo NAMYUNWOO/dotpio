@@ -2037,3 +2037,14 @@
 ## 2026-03-22 22:34 KST — Regression coverage update
 - Expanded weekly snapshot schema regression to require `laneCadence` payload and expected bucket keys.
 - Verification run: `python3 scripts/regression_weekly_snapshot.py` PASS.
+
+## 2026-03-22 23:03 KST — Verification: drift glyph escalation
+- Added assertions to `scripts/regression_portal_route_vibe_drift_alarm.lua`:
+  - direct conflict+snapback => `DRIFT GLYPH:!!!` / `DGL:!!!`
+  - short carryover conflict-only => `DRIFT GLYPH:!!`
+- Validation commands:
+  - `luac -p src/portal.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_ALARM=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_GLYPH=1 lua scripts/regression_portal_route_vibe_drift_alarm.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 lua scripts/regression_portal_route_vibe_snapback.lua`
+  - `lua scripts/regression_portal_route_preview.lua`
+- Result: PASS.

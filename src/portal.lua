@@ -353,6 +353,43 @@ local function isRouteVibeDriftAlarmExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+
+local function isRouteVibeDriftGlyphExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_GLYPH")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
+local function resolveRouteVibeDriftGlyph(routeVibeConflict, vibeSnapback)
+    if not isRouteVibeDriftGlyphExperimentEnabled() then
+        return nil
+    end
+    local shortestWindow = 1
+    local shortWindow = 2
+
+    if routeVibeConflict and vibeSnapback then
+        return "!!!", "!!!"
+    end
+    if routeVibeConflict and routeVibeSnapbackAge <= shortestWindow then
+        return "!!!", "!!!"
+    end
+    if vibeSnapback and routeVibeConflictAge <= shortestWindow then
+        return "!!!", "!!!"
+    end
+    if routeVibeConflict and routeVibeSnapbackAge <= shortWindow then
+        return "!!", "!!"
+    end
+    if vibeSnapback and routeVibeConflictAge <= shortWindow then
+        return "!!", "!!"
+    end
+    if routeVibeConflict or vibeSnapback then
+        return "!", "!"
+    end
+    return nil
+end
 local function shouldEmitRouteVibeDriftAlarm(routeVibeConflict, vibeSnapback)
     if not isRouteVibeDriftAlarmExperimentEnabled() then
         return false
@@ -403,7 +440,7 @@ local function resolveRouteVignetteGlyph(routeTag)
     return "???"
 end
 
-local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide)
+local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph)
     local fxCue = resolvePortalFxCue(pressureScore)
     local routeVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s  ROUTE VIBE:%s", routeTag, coach, pressureScore, fxCue, routeVibe)
@@ -445,11 +482,14 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
     end
     if vibeDriftWide then
         prompt = string.format("%s  VIBE DRIFT:WIDE", prompt)
+        if vibeDriftGlyph then
+            prompt = string.format("%s  DRIFT GLYPH:%s", prompt, vibeDriftGlyph)
+        end
     end
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
@@ -491,6 +531,9 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
     end
     if vibeDriftWide then
         prompt = string.format("%s  VDR:WIDE", prompt)
+        if vibeDriftGlyphCompact then
+            prompt = string.format("%s  DGL:%s", prompt, vibeDriftGlyphCompact)
+        end
     end
     return prompt
 end
@@ -544,13 +587,14 @@ function Portal.getTransitionPrompt(maxChars, context)
         pendingTransition.vibeResilience = nil
     end
     local vibeDriftWide = shouldEmitRouteVibeDriftAlarm(routeVibeConflict, vibeSnapback)
+    local vibeDriftGlyph, vibeDriftGlyphCompact = resolveRouteVibeDriftGlyph(routeVibeConflict, vibeSnapback)
     pendingTransition.routeVibeConflict = routeVibeConflict
     pendingTransition.vibeSnapback = vibeSnapback
     local coachOverride = isRouteVibeCoachOverrideExperimentEnabled() and routeVibeConflict and altRouteTag ~= nil
-    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide)
+    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph)
     local budget = tonumber(maxChars) or 76
     if budget > 0 and #prompt > budget then
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide)
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact)
     end
     return prompt
 end

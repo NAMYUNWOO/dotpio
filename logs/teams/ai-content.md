@@ -1010,3 +1010,9 @@
 ## 2026-03-22 22:34 KST — Cross-lane note
 - No AI content generation prompt changes in this slice.
 - Cadence watchdog token now creates clearer lane-coverage signal for future Game Director injection prioritization.
+
+## 2026-03-22 23:03 KST — Prompt contract update (portal)
+- Extended route-vibe drift prompt contract with optional escalation glyph token:
+  - Detailed: `DRIFT GLYPH:<...>`
+  - Compact: `DGL:<...>`
+- Token emits only when `VIBE DRIFT:WIDE` is active and drift-glyph experiment flag is enabled.
