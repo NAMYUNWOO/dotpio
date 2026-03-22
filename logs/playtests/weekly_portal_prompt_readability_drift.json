@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T17:37:01.890602Z",
+  "generatedAt": "2026-03-22T18:44:23.569441Z",
   "status": "ok",
   "window": {
     "sinceDays": 30,
@@ -243,6 +243,46 @@
     "actionPaceAltWindowFit": "EVEN",
     "actionPaceAltWindowWhy": "PRIMARY HOLD",
     "reason": "default-moderate-urgency"
+  },
+  "actionPaceAltWindowUrgencyDrift": 0,
+  "actionPaceAltWindowUrgencyDriftSignals": {
+    "currentUrgency": "SOON",
+    "currentScore": 2,
+    "priorUrgency": "SOON",
+    "priorScore": 2,
+    "priorLoaded": true,
+    "reason": "urgency-stable"
+  },
+  "actionPaceAltWindowStep": "HOLD",
+  "actionPaceAltWindowStepSignals": {
+    "flagName": "DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP",
+    "flagEnabled": true,
+    "actionPaceAltWindow": "PRIMARY OPEN",
+    "actionPaceAltWindowConfidence": "MID",
+    "actionPaceAltWindowFit": "EVEN",
+    "actionPaceAltWindowUrgency": "SOON",
+    "routeSandbox": "OFF",
+    "sandboxTarget": "NONE",
+    "sandboxReadiness": "IDLE",
+    "reason": "primary-window-still-open"
+  },
+  "actionPaceAltWindowStepGlyph": "◇",
+  "actionPaceAltWindowStepGlyphSignals": {
+    "flagName": "DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH",
+    "flagEnabled": true,
+    "actionPaceAltWindowStep": "HOLD",
+    "actionPaceAltWindowUrgency": "SOON",
+    "actionPaceAltWindowFit": "EVEN",
+    "reason": "hold-pattern-guidance"
+  },
+  "actionPaceAltWindowPulse": "COOL",
+  "actionPaceAltWindowPulseSignals": {
+    "flagName": "DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_PULSE",
+    "flagEnabled": true,
+    "actionPaceAltWindowUrgency": "SOON",
+    "actionPaceAltWindowFit": "EVEN",
+    "actionPaceAltWindowConfidence": "MID",
+    "reason": "non-urgent-fallback-window"
   },
   "actionPaceWhy": "FLAG OFF",
   "actionPaceWhySignals": {
@@ -984,6 +1024,325 @@
   },
   "topTokenMovers": [],
   "commits": [
+    {
+      "sha": "9947b346d7d0e3a153763ca2632eb08ec6c52414",
+      "shortSha": "9947b34",
+      "author": "yunwoo",
+      "subject": "feat: add fallback step token and step glyph digest cues",
+      "committedAt": "2026-03-22T18:36:50Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      },
+      "routeVibeEdits": {
+        "added": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "removed": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "net": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        }
+      }
+    },
+    {
+      "sha": "5f252f5cc844eb0847887db6004f5447a2ac0836",
+      "shortSha": "5f252f5",
+      "author": "yunwoo",
+      "subject": "feat(digest): add fallback urgency drift token",
+      "committedAt": "2026-03-22T18:06:24Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      },
+      "routeVibeEdits": {
+        "added": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "removed": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "net": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        }
+      }
+    },
+    {
+      "sha": "e662c17a387b6b99757c42b0659b6aaa596fa9ba",
+      "shortSha": "e662c17",
+      "author": "yunwoo",
+      "subject": "feat: add fallback pace rationale+urgency tokens and cycle AZ injection",
+      "committedAt": "2026-03-22T17:37:51Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/playtests/weekly_portal_prompt_readability_drift.json",
+        "logs/playtests/weekly_portal_prompt_readability_drift.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      },
+      "routeVibeEdits": {
+        "added": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "removed": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "net": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        }
+      }
+    },
     {
       "sha": "ac4cdb0275e19b0ffc8920469e477081e606532b",
       "shortSha": "ac4cdb0",
@@ -5925,328 +6284,6 @@
       "author": "yunwoo",
       "subject": "feat(digest): add split escalation recovery plan token",
       "committedAt": "2026-03-21T20:05:46Z",
-      "changedFiles": [
-        "POST_RC_BACKLOG.md",
-        "TASKS.md",
-        "logs/teams/_summary.md",
-        "logs/teams/ai-content.md",
-        "logs/teams/combat.md",
-        "logs/teams/design.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "logs/teams/ux.md",
-        "logs/teams/world.md",
-        "scripts/regression_weekly_portal_prompt_readability_drift.py",
-        "scripts/weekly_portal_prompt_readability_drift.py"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      },
-      "routeVibeEdits": {
-        "added": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "removed": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "net": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        }
-      }
-    },
-    {
-      "sha": "c02e998c4da333d8d878fec49b15bb12741f6e4d",
-      "shortSha": "c02e998",
-      "author": "yunwoo",
-      "subject": "feat: add split escalation recovery alt confidence digest token",
-      "committedAt": "2026-03-21T19:36:05Z",
-      "changedFiles": [
-        "POST_RC_BACKLOG.md",
-        "TASKS.md",
-        "logs/teams/_summary.md",
-        "logs/teams/ai-content.md",
-        "logs/teams/combat.md",
-        "logs/teams/design.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "logs/teams/ux.md",
-        "logs/teams/world.md",
-        "logs/weekly_portal_prompt_readability_drift.json",
-        "logs/weekly_portal_prompt_readability_drift.md",
-        "scripts/regression_weekly_portal_prompt_readability_drift.py",
-        "scripts/weekly_portal_prompt_readability_drift.py"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      },
-      "routeVibeEdits": {
-        "added": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "removed": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "net": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        }
-      }
-    },
-    {
-      "sha": "e15d8dd117c961ab1b3880dea9ed6ec2fcbfd9ec",
-      "shortSha": "e15d8dd",
-      "author": "yunwoo",
-      "subject": "feat: add split escalation recovery alt fallback token",
-      "committedAt": "2026-03-21T19:34:19Z",
-      "changedFiles": [
-        "POST_RC_BACKLOG.md",
-        "TASKS.md",
-        "logs/teams/_summary.md",
-        "logs/teams/ai-content.md",
-        "logs/teams/combat.md",
-        "logs/teams/design.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "logs/teams/ux.md",
-        "logs/teams/world.md",
-        "logs/weekly_portal_prompt_readability_drift.json",
-        "logs/weekly_portal_prompt_readability_drift.md",
-        "scripts/regression_weekly_portal_prompt_readability_drift.py",
-        "scripts/weekly_portal_prompt_readability_drift.py"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      },
-      "routeVibeEdits": {
-        "added": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "removed": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "net": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        }
-      }
-    },
-    {
-      "sha": "308a972f8c1f38953cda13e4f629dd3204d676ba",
-      "shortSha": "308a972",
-      "author": "yunwoo",
-      "subject": "feat: add split escalation recovery confidence token",
-      "committedAt": "2026-03-21T19:04:04Z",
       "changedFiles": [
         "POST_RC_BACKLOG.md",
         "TASKS.md",

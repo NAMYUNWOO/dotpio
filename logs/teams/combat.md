@@ -1019,3 +1019,8 @@
 ## 2026-03-23 03:36 KST — Lane sync note
 - No runtime combat stat/behavior changes.
 - Digest-only update; queued next combat/vfx-facing candidate `ACTION PACE ALT WINDOW PULSE` for future cadence readability slice.
+
+## 2026-03-23 03:41 KST — Cycle BB pulse readability slice
+- Completed queued combat/vfx candidate: digest now emits flagged `ACTION PACE ALT WINDOW PULSE:COOL|LIVE|HOT`.
+- Scope intentionally non-invasive: combat mechanics unchanged; token is operator-facing pressure readability only.
+- Regression evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

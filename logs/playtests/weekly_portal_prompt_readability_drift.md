@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-22T17:37:01.890602Z
+- GeneratedAt(UTC): 2026-03-22T18:44:23.569441Z
 - Status: **OK**
 - Window: last 30 days (max 50 commits)
 - Checked commits: 50
@@ -39,6 +39,10 @@
 - ACTION PACE ALT WINDOW FIT: **EVEN** (fallback-lane-not-actionable; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT enabled=True pressure=LOW sandbox=OFF target=NONE ready=IDLE)
 - ACTION PACE ALT WINDOW WHY: **PRIMARY HOLD** (primary-window-still-actionable; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY enabled=True alt=PRIMARY OPEN conf=MID fit=EVEN sandbox=OFF target=NONE ready=IDLE)
 - ACTION PACE ALT WINDOW URGENCY: **SOON** (default-moderate-urgency; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY enabled=True alt=PRIMARY OPEN conf=MID fit=EVEN why=PRIMARY HOLD)
+- ACTION PACE ALT WINDOW URGENCY Δ: **+0** (urgency-stable; current=SOON(2) prior=SOON(2) loaded=True)
+- ACTION PACE ALT WINDOW STEP: **HOLD** (primary-window-still-open; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP enabled=True alt=PRIMARY OPEN conf=MID fit=EVEN urgency=SOON sandbox=OFF target=NONE ready=IDLE)
+- ACTION PACE ALT WINDOW STEP GLYPH: **◇** (hold-pattern-guidance; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH enabled=True step=HOLD urgency=SOON fit=EVEN)
+- ACTION PACE ALT WINDOW PULSE: **COOL** (non-urgent-fallback-window; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_PULSE enabled=True urgency=SOON fit=EVEN conf=MID)
 - ACTION PACE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_WHY enabled=False pace=STEADY guard=SOFT stability=WATCH lag=STABLE drift=+0)
 - WHAT-IF: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_ALT enabled=False current=MIXED alt=PRESSURE risk=0->0)
 - WHAT-IF CONF: **LOW** (flag-disabled; delta=0 routeConf=LOW current=MIXED alt=PRESSURE)

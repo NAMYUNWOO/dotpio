@@ -1923,3 +1923,12 @@ Compact decision memory for AI context efficiency.
 - Selected and shipped Idea #1 as minimal vertical slice in same cycle (`STEP GLYPH`) behind `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH`.
 - Backlog injected for Cycle BA: glyph done, `STEP Δ` and `PULSE` queued.
 - Verification: regression suite + weekly digest generator both PASS.
+
+## 2026-03-23 03:41 KST — Cycle BB forced-lane follow-up (combat/vfx)
+- Coverage check over the last 10 completed items (from latest summary cycles) showed lane skew above cap: design/ux-heavy cadence exceeded 40%, while combat/vfx remained underrepresented.
+- Forced-lane policy applied: selected underrepresented **combat/vfx** experiment and shipped `ACTION PACE ALT WINDOW PULSE:COOL|LIVE|HOT` behind `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_PULSE`.
+- Implementation: added pulse classifier + JSON payload (`actionPaceAltWindowPulse*`) + markdown digest row in `scripts/weekly_portal_prompt_readability_drift.py`; regression schema updated in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification PASS:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_STEP_GLYPH=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_PULSE=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 50 --out-json logs/playtests/weekly_portal_prompt_readability_drift.json --out-md logs/playtests/weekly_portal_prompt_readability_drift.md`
+- Backlog updates: marked BA pulse item done; injected Cycle BB follow-ups (`PULSE Δ`, `ROUTE PULSE LINK`).

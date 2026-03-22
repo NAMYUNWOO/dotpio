@@ -29,3 +29,9 @@
 ## 2026-03-22 23:35 KST — Cross-lane note
 - No VFX token additions in this slice.
 - Action-pace digest line is ops-facing and does not alter player-facing FX cues.
+
+## 2026-03-23 03:41 KST — Cycle BB combat/vfx cadence pulse shipped
+- Forced-lane rebalance follow-up selected underrepresented combat/vfx lane and shipped flagged digest token `ACTION PACE ALT WINDOW PULSE:COOL|LIVE|HOT`.
+- Added classifier `action_pace_alt_window_pulse_from_signals()` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Token mapping: `HOT` for tense/deferred fallback windows, `LIVE` for safe immediate probes, `COOL` otherwise (`OFF` when flag disabled).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and flagged digest generation run PASS.

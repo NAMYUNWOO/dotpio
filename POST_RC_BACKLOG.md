@@ -358,4 +358,9 @@ Last updated: 2026-03-21 02:31 KST
 ## Next Up (Game Director Injection — 2026-03-23 Cycle BA)
 - [x] Design/UX Team: Add compact fallback step glyph token (`ACTION PACE ALT WINDOW STEP GLYPH:<sigil>`) behind flag for DOS-width scanability
 - [ ] Systems/QA Team: Prototype fallback step drift token (`ACTION PACE ALT WINDOW STEP Δ:<n>`) against prior digest snapshot
-- [ ] Combat/VFX Team: Prototype fallback cadence pulse token (`ACTION PACE ALT WINDOW PULSE:COOL|LIVE|HOT`) for pressure readability
+- [x] Combat/VFX Team: Prototype fallback cadence pulse token (`ACTION PACE ALT WINDOW PULSE:COOL|LIVE|HOT`) for pressure readability
+
+## Next Up (Game Director Injection — 2026-03-23 Cycle BB)
+- [x] Combat/VFX Team: Ship fallback cadence pulse token (`ACTION PACE ALT WINDOW PULSE:COOL|LIVE|HOT`) with flag + digest schema + markdown wiring
+- [ ] Systems/QA Team: Add pulse drift token (`ACTION PACE ALT WINDOW PULSE Δ:+n|-n`) comparing current/prior pulse bands
+- [ ] Design/World Team: Prototype pulse-aware portal handoff cue (`ROUTE PULSE LINK:SOFT|SHARP`) behind flag for cross-surface readability

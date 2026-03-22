@@ -881,6 +881,15 @@ def main() -> int:
             "actionPaceAltWindowFit",
             "reason",
         }, payload
+        assert payload.get("actionPaceAltWindowPulse") in {"OFF", "COOL", "LIVE", "HOT"}, payload
+        assert set(payload.get("actionPaceAltWindowPulseSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "actionPaceAltWindowUrgency",
+            "actionPaceAltWindowFit",
+            "actionPaceAltWindowConfidence",
+            "reason",
+        }, payload
         assert isinstance(payload.get("actionPaceWhy"), str), payload
         assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
             "flagName",
@@ -947,6 +956,7 @@ def main() -> int:
         assert "ACTION PACE ALT WINDOW URGENCY Δ" in md_text
         assert "ACTION PACE ALT WINDOW STEP" in md_text
         assert "ACTION PACE ALT WINDOW STEP GLYPH" in md_text
+        assert "ACTION PACE ALT WINDOW PULSE" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
