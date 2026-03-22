@@ -1612,3 +1612,19 @@ Compact decision memory for AI context efficiency.
 - Added `whatIfSplitEscRecoverVetoRearmWhy` + `...Signals` to digest JSON payload and markdown row `WHAT-IF SPLIT ESC RECOVER VETO REARM WHY`.
 - Validation passed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Next priority: Cycle AK item 3 — `WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF:<n>`.
+
+## 2026-03-22 11:03 KST — Cycle AK: auto-rearm cooloff token completed
+- Shipped `WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF:<n>` behind `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COOLOFF`.
+- Added cooloff lifecycle helper to weekly portal readability digest; outputs `whatIfSplitEscRecoverVetoRearmCooloff` + `...Signals` in JSON and markdown digest row.
+- Behavior: resets on active `WATCH`, starts at 1 on `WATCH -> OFF` transition, increments while OFF cooldown persists.
+- Validation passed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Backlog sync: Cycle AK final checklist item marked done in `TASKS.md` and `POST_RC_BACKLOG.md`.
+
+## 2026-03-22 11:08 KST — Cycle AL (Game Director review cycle)
+- Idea candidates generated:
+  1) Low-risk UX: add `WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF STATE:ACTIVE|IDLE`.
+  2) Mid-risk systems: add `WHAT-IF SPLIT ESC RECOVER VETO REARM FIT:RELIEF|EVEN|TENSE`.
+  3) High-risk novelty: flagged `WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE:<short>`.
+- Selected + implemented vertical slice: idea #1 (cooloff state token).
+- Code + evidence: weekly digest now emits `whatIfSplitEscRecoverVetoRearmCooloffState` and markdown `WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF STATE` line; regression pass confirmed.
+- Backlog injection: appended Cycle AL section to `TASKS.md` and `POST_RC_BACKLOG.md`; item #1 completed, #2/#3 queued.

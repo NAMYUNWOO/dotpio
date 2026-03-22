@@ -1089,3 +1089,15 @@
 - Evidence: updated rationale classifier + JSON/markdown wiring + regression coverage in `scripts/weekly_portal_prompt_readability_drift.py` and `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: proceed to Cycle AK item 3 (`WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF:<n>` behind flag).
+## 2026-03-22 11:03 KST — Cycle AK: split escalation auto-rearm cooloff token
+- Task: Prototype `WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF:<n>` behind flag after WATCH disarms.
+- Decision: Added flag-gated cooloff tracker `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COOLOFF` that increments consecutive OFF windows after prior `WATCH` and resets when `WATCH` is active.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: If ACTION_ITEMS/TASKS/POST_RC are fully complete, run next Game Director idea injection cycle.
+## 2026-03-22 11:08 KST — Cycle AL experiment slice (cooloff state)
+- Ideation set: (1) cooloff state token, (2) pressure-relief fit token, (3) flagged rearm nudge token.
+- Chosen experiment: #1 `WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF STATE:ACTIVE|IDLE`.
+- Implementation: added state reducer from rearm WATCH + cooloff counter; wired JSON payload + markdown digest row.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up backlog injected: remaining Cycle AL items for FIT and NUDGE tokens are queued unchecked.

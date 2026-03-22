@@ -30,6 +30,8 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_rearm_from_signals,
     what_if_split_escalate_recover_veto_rearm_confidence_from_signals,
     what_if_split_escalate_recover_veto_rearm_why_from_signals,
+    what_if_split_escalate_recover_veto_rearm_cooloff_from_prior,
+    what_if_split_escalate_recover_veto_rearm_cooloff_state_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -647,6 +649,24 @@ def main() -> int:
             "releaseTickPhase",
             "reason",
         }, payload
+        assert isinstance(payload.get("whatIfSplitEscRecoverVetoRearmCooloff"), int) and payload["whatIfSplitEscRecoverVetoRearmCooloff"] >= 0, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmCooloffSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "active",
+            "currentRearm",
+            "priorRearm",
+            "priorCooloff",
+            "priorLoaded",
+            "reason",
+        }, payload
+        assert payload.get("whatIfSplitEscRecoverVetoRearmCooloffState") in {"ACTIVE", "IDLE"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmCooloffStateSignals", {}).keys()) == {
+            "splitEscRecoverVetoRearm",
+            "splitEscRecoverVetoRearmCooloff",
+            "active",
+            "reason",
+        }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "stickyTokens" in payload, payload
@@ -748,6 +768,8 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM CONF" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM WHY" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF STATE" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -1271,6 +1293,58 @@ def main() -> int:
                                         os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_WHY", None)
                                     else:
                                         os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_WHY"] = prior_veto_rearm_why_env
+
+                                prior_veto_rearm_cooloff_env = os.environ.get("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COOLOFF")
+                                try:
+                                    os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COOLOFF"] = "0"
+                                    rearm_cooloff_off, rearm_cooloff_off_signals = what_if_split_escalate_recover_veto_rearm_cooloff_from_prior(
+                                        current_split_esc_recover_veto_rearm="OFF",
+                                        prior_json_path=repo / "missing-rearm-cooloff-prior.json",
+                                    )
+                                    assert rearm_cooloff_off == 0, (rearm_cooloff_off, rearm_cooloff_off_signals)
+                                    assert rearm_cooloff_off_signals["reason"] == "flag-disabled", rearm_cooloff_off_signals
+
+                                    os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COOLOFF"] = "1"
+                                    rearm_cooloff_prior = repo / "rearm-cooloff-prior.json"
+                                    rearm_cooloff_prior.write_text(
+                                        json.dumps({"whatIfSplitEscRecoverVetoRearm": "WATCH", "whatIfSplitEscRecoverVetoRearmCooloff": 0}),
+                                        encoding="utf-8",
+                                    )
+                                    rearm_cooloff_one, rearm_cooloff_one_signals = what_if_split_escalate_recover_veto_rearm_cooloff_from_prior(
+                                        current_split_esc_recover_veto_rearm="OFF",
+                                        prior_json_path=rearm_cooloff_prior,
+                                    )
+                                    assert rearm_cooloff_one == 1, (rearm_cooloff_one, rearm_cooloff_one_signals)
+                                    assert rearm_cooloff_one_signals["reason"] == "rearm-watch-just-disarmed", rearm_cooloff_one_signals
+
+                                    rearm_cooloff_prior.write_text(
+                                        json.dumps({"whatIfSplitEscRecoverVetoRearm": "OFF", "whatIfSplitEscRecoverVetoRearmCooloff": 2}),
+                                        encoding="utf-8",
+                                    )
+                                    rearm_cooloff_roll, rearm_cooloff_roll_signals = what_if_split_escalate_recover_veto_rearm_cooloff_from_prior(
+                                        current_split_esc_recover_veto_rearm="OFF",
+                                        prior_json_path=rearm_cooloff_prior,
+                                    )
+                                    assert rearm_cooloff_roll == 3, (rearm_cooloff_roll, rearm_cooloff_roll_signals)
+                                    assert rearm_cooloff_roll_signals["reason"] == "rearm-watch-remains-disarmed-in-cooloff-window", rearm_cooloff_roll_signals
+                                    rearm_cooloff_state_active, rearm_cooloff_state_active_signals = what_if_split_escalate_recover_veto_rearm_cooloff_state_from_signals(
+                                        what_if_split_esc_recover_veto_rearm="OFF",
+                                        what_if_split_esc_recover_veto_rearm_cooloff=rearm_cooloff_roll,
+                                    )
+                                    assert rearm_cooloff_state_active == "ACTIVE", (rearm_cooloff_state_active, rearm_cooloff_state_active_signals)
+                                    assert rearm_cooloff_state_active_signals["reason"] == "watch-armed-or-cooloff-running", rearm_cooloff_state_active_signals
+
+                                    rearm_cooloff_state_idle, rearm_cooloff_state_idle_signals = what_if_split_escalate_recover_veto_rearm_cooloff_state_from_signals(
+                                        what_if_split_esc_recover_veto_rearm="OFF",
+                                        what_if_split_esc_recover_veto_rearm_cooloff=0,
+                                    )
+                                    assert rearm_cooloff_state_idle == "IDLE", (rearm_cooloff_state_idle, rearm_cooloff_state_idle_signals)
+                                    assert rearm_cooloff_state_idle_signals["reason"] == "no-watch-and-no-cooloff", rearm_cooloff_state_idle_signals
+                                finally:
+                                    if prior_veto_rearm_cooloff_env is None:
+                                        os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COOLOFF", None)
+                                    else:
+                                        os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COOLOFF"] = prior_veto_rearm_cooloff_env
                             finally:
                                 if prior_veto_rearm_env is None:
                                     os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM", None)
