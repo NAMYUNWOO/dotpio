@@ -1959,3 +1959,13 @@
 ## 2026-03-22 18:36 KST — Route-vibe conflict reason regression
 - PASS `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT_REASON=1 lua scripts/regression_portal_route_vibe_conflict_reason.lua`
 - Confirmed detailed + compact rationale tokens emit only under conflict conditions.
+
+## 2026-03-22 19:01 KST — Regression evidence: coach override prototype
+- Added regression: `scripts/regression_portal_route_vibe_coach_override.lua`.
+- Assertions:
+  - conflict + adaptive ALT => detailed `COACH OVERRIDE:DE-ESCALATE` and compact `COVR:DEESC` emitted,
+  - conflict without adaptive ALT => override token suppressed.
+- Verification pass:
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_COACH_OVERRIDE=1 lua scripts/regression_portal_route_vibe_coach_override.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 lua scripts/regression_portal_route_vibe_conflict.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT_REASON=1 lua scripts/regression_portal_route_vibe_conflict_reason.lua`

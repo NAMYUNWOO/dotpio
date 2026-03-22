@@ -1496,3 +1496,8 @@
 ## 2026-03-22 18:36 KST — Conflict reason flag wiring
 - Added `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT_REASON` gate in portal prompt flow.
 - Reason token emission depends on both flags: conflict base flag + reason flag, and only when conflict condition is true.
+
+## 2026-03-22 19:01 KST — Cycle AS follow-up: conflict-aware coach override prototype
+- Completed prototype `COACH OVERRIDE:DE-ESCALATE` behind `DOTPIO_EXPERIMENT_ROUTE_VIBE_COACH_OVERRIDE` when route-vibe conflict is ON and adaptive ALT route exists.
+- Implementation: `src/portal.lua` now computes `coachOverride` from `(conflict && altRouteTag)` and emits token in detailed prompt; compact alias `COVR:DEESC` added for budgeted prompt.
+- Follow-up: keep override behind flag until `VIBE SYNC:+1` experiment lands, then evaluate combined readability impact.

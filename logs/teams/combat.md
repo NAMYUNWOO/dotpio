@@ -925,3 +925,7 @@
 
 ## 2026-03-22 18:36 KST — Threat-tier signaling reuse
 - Portal reason token consumes existing combat threat-tier classification without introducing new combat-state branches.
+
+## 2026-03-22 19:01 KST — Combat pacing signal handoff
+- No combat math changes this cycle.
+- Portal prompt now surfaces a de-escalation cue when route-vibe conflict indicates pacing mismatch and safe branch is available.

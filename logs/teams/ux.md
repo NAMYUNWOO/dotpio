@@ -1206,3 +1206,8 @@
 ## 2026-03-22 18:36 KST — Route-vibe conflict reason slice
 - Added optional rationale token in detailed prompt: `VIBE WHY:<vibe>vs<tier>`.
 - Added compact rationale token: `VCWHY:<vibe>/<tier>` to preserve constrained prompt readability.
+
+## 2026-03-22 19:01 KST — Portal prompt readability: de-escalation override cue
+- Added explicit conflict-time coaching cue token (`COACH OVERRIDE:DE-ESCALATE`; compact `COVR:DEESC`) to reduce mixed pacing ambiguity in portal prompt.
+- Cue only appears when `VIBE CONFLICT:ON` and adaptive ALT exists, preventing noise in aligned or no-alt contexts.
+- Follow-up: validate whether token should graduate from flag to default after `VIBE SYNC:+1` prototype evidence.

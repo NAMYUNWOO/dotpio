@@ -959,3 +959,7 @@
 
 ## 2026-03-22 18:36 KST — Conflict cue microcopy standardization
 - Standardized concise rationale grammar to `CALMvsHIGH`/`DOOMvsLOW` style for stable parser-friendly logging.
+
+## 2026-03-22 19:01 KST — Prompt token contract extension
+- Extended portal prompt token set with optional conflict-time coach override token under env flag.
+- Token gated to avoid unconditional prompt bloat and preserve deterministic compact fallback behavior.

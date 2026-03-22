@@ -1738,3 +1738,15 @@ Compact decision memory for AI context efficiency.
 - Backlog injected (Cycle AS):
   - Completed: conflict rationale token.
   - Pending: `COACH OVERRIDE:DE-ESCALATE`, `VIBE SYNC:+1` prototypes.
+
+## 2026-03-22 19:01 KST — Cycle AS follow-up shipped: conflict-aware coach override
+- Completed highest-priority unchecked item from TASKS/POST_RC: `COACH OVERRIDE:DE-ESCALATE` prototype behind `DOTPIO_EXPERIMENT_ROUTE_VIBE_COACH_OVERRIDE`.
+- Implementation (`src/portal.lua`):
+  - Added coach-override experiment gate helper.
+  - Added conflict-aware fallback ALT recompute path (force adaptive ALT resolution when conflict exists but pressure gate previously blocked ALT discovery).
+  - Emitted override tokens only when `(VIBE CONFLICT:ON && adaptive ALT exists)`:
+    - Detailed: `COACH OVERRIDE:DE-ESCALATE`
+    - Compact: `COVR:DEESC`
+- Regression coverage: new `scripts/regression_portal_route_vibe_coach_override.lua` + existing conflict/conflict-reason regressions all passing.
+- Durable decision: keep de-escalation override strictly conditional on actionable branch availability to avoid false guidance.
+- Next highest-priority unchecked backlog item: `VIBE SYNC:+1` prototype behind flag (3 consecutive vibe/threat alignment transitions).

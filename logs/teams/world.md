@@ -982,3 +982,7 @@
 
 ## 2026-03-22 18:36 KST — Portal handoff clarity increment
 - Conflict warnings now include explicit vibe-vs-threat rationale to improve map-jump pacing decisions during high-pressure runs.
+
+## 2026-03-22 19:01 KST — Portal branch handoff note
+- Conflict-time coaching override now requires adaptive ALT route availability, tying cue emission to actual branch alternatives.
+- No map topology or portal graph changes in this slice.

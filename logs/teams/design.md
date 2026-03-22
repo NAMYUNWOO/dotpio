@@ -985,3 +985,8 @@
   2) `COACH OVERRIDE:DE-ESCALATE` conflict-aware coaching override (mid risk).
   3) `VIBE SYNC:+1` alignment-reward hint (high risk novelty).
 - Selected experiment: Idea #1 for minimal vertical slice and quick reversibility.
+
+## 2026-03-22 19:01 KST — Route coaching language update
+- Introduced explicit de-escalation lexeme (`DE-ESCALATE`) for conflict states to keep route intent emotionally legible.
+- Compact alias (`COVR:DEESC`) preserves DOS width constraints while retaining semantic direction.
+- Follow-up: pair with pending vibe-consistency reward hint to avoid one-sided caution bias.

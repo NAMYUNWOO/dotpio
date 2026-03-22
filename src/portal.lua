@@ -284,6 +284,15 @@ local function isRouteVibeConflictReasonExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isRouteVibeCoachOverrideExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_VIBE_COACH_OVERRIDE")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function resolveRouteVibeConflictReason(routeTag, threatTier)
     local routeVibe = "UNKNOWN"
     local compactRouteVibe = "U"
@@ -313,7 +322,7 @@ local function resolveRouteVignetteGlyph(routeTag)
     return "???"
 end
 
-local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason)
+local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride)
     local fxCue = resolvePortalFxCue(pressureScore)
     local routeVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s  ROUTE VIBE:%s", routeTag, coach, pressureScore, fxCue, routeVibe)
@@ -334,11 +343,14 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
         if routeVibeConflictReason then
             prompt = string.format("%s  VIBE WHY:%s", prompt, routeVibeConflictReason)
         end
+        if coachOverride then
+            prompt = string.format("%s  COACH OVERRIDE:DE-ESCALATE", prompt)
+        end
     end
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
@@ -358,6 +370,9 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
         prompt = string.format("%s  VC:ON", prompt)
         if routeVibeConflictReasonCompact then
             prompt = string.format("%s  VCWHY:%s", prompt, routeVibeConflictReasonCompact)
+        end
+        if coachOverride then
+            prompt = string.format("%s  COVR:DEESC", prompt)
         end
     end
     return prompt
@@ -387,10 +402,16 @@ function Portal.getTransitionPrompt(maxChars, context)
             routeVibeConflictReason, routeVibeConflictReasonCompact = resolveRouteVibeConflictReason(routeTag, threatTier)
         end
     end
-    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason)
+    if routeVibeConflict and not altRouteTag then
+        altRouteTag = resolveAdaptiveAltRoute(routeTag, 4, threatTier, pendingTransition.reachableTargetMaps)
+        altDelta = resolveAdaptiveAltPressureDelta(routeTag, altRouteTag, threatTier)
+        altPlanNudge = isAltPlanExperimentEnabled() and altRouteTag ~= nil
+    end
+    local coachOverride = isRouteVibeCoachOverrideExperimentEnabled() and routeVibeConflict and altRouteTag ~= nil
+    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride)
     local budget = tonumber(maxChars) or 76
     if budget > 0 and #prompt > budget then
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact)
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride)
     end
     return prompt
 end

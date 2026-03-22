@@ -316,5 +316,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-22 Cycle AS)
 - [x] UX/Design Team: Add route-vibe conflict rationale token (`VIBE WHY:<vibe>vs<tier>`, compact `VCWHY:<vibe>/<tier>`) behind flag for faster portal-choice triage *(lifecycle: [~] -> [x])*
-- [ ] Systems/UX Team: Prototype conflict-aware coach override token (`COACH OVERRIDE:DE-ESCALATE`) behind flag when `VIBE CONFLICT:ON` and adaptive ALT exists
+- [x] Systems/UX Team: Prototype conflict-aware coach override token (`COACH OVERRIDE:DE-ESCALATE`) behind flag when `VIBE CONFLICT:ON` and adaptive ALT exists *(lifecycle: [~] -> [x])*
 - [ ] Design/Systems Team: Prototype vibe-consistency reward hint (`VIBE SYNC:+1`) behind flag when route vibe aligns with threat tier for 3 consecutive transitions
