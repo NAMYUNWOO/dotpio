@@ -38,6 +38,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_rearm_nudge_confidence_from_signals,
     what_if_split_escalate_recover_veto_rearm_nudge_drift_from_prior,
     what_if_split_escalate_recover_veto_rearm_coach_mode_from_signals,
+    what_if_split_escalate_recover_veto_rearm_coach_why_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
 )
 
@@ -839,6 +840,7 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH CONF" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH MODE" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text
@@ -1538,6 +1540,39 @@ def main() -> int:
                                         )
                                         assert coach_mode_backup == "BACKUP", (coach_mode_backup, coach_mode_backup_signals)
                                         assert coach_mode_backup_signals["reason"] == "coach-primary-missing-but-backup-actionable", coach_mode_backup_signals
+
+                                        prior_coach_why_env = os.environ.get("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY")
+                                        try:
+                                            os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY"] = "0"
+                                            coach_why_off, coach_why_off_signals = what_if_split_escalate_recover_veto_rearm_coach_why_from_signals(
+                                                what_if_split_esc_recover_veto_rearm_coach="PORTAL|ALT",
+                                                what_if_split_esc_recover_veto_rearm_coach_mode="BALANCED",
+                                                what_if_split_esc_recover_veto_rearm_coach_confidence="HIGH",
+                                            )
+                                            assert coach_why_off == "FLAG OFF", (coach_why_off, coach_why_off_signals)
+                                            assert coach_why_off_signals["reason"] == "flag-disabled", coach_why_off_signals
+
+                                            os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY"] = "1"
+                                            coach_why_dual, coach_why_dual_signals = what_if_split_escalate_recover_veto_rearm_coach_why_from_signals(
+                                                what_if_split_esc_recover_veto_rearm_coach="PORTAL|ALT",
+                                                what_if_split_esc_recover_veto_rearm_coach_mode="BALANCED",
+                                                what_if_split_esc_recover_veto_rearm_coach_confidence="HIGH",
+                                            )
+                                            assert coach_why_dual == "DUAL COVER", (coach_why_dual, coach_why_dual_signals)
+                                            assert coach_why_dual_signals["reason"] == "balanced-coach-with-high-confidence", coach_why_dual_signals
+
+                                            coach_why_backup, coach_why_backup_signals = what_if_split_escalate_recover_veto_rearm_coach_why_from_signals(
+                                                what_if_split_esc_recover_veto_rearm_coach="NONE|ALT",
+                                                what_if_split_esc_recover_veto_rearm_coach_mode="BACKUP",
+                                                what_if_split_esc_recover_veto_rearm_coach_confidence="MID",
+                                            )
+                                            assert coach_why_backup == "NO ACTION", (coach_why_backup, coach_why_backup_signals)
+                                            assert coach_why_backup_signals["reason"] == "coach-primary-not-actionable", coach_why_backup_signals
+                                        finally:
+                                            if prior_coach_why_env is None:
+                                                os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY", None)
+                                            else:
+                                                os.environ["DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY"] = prior_coach_why_env
                                     finally:
                                         if prior_veto_rearm_nudge_env is None:
                                             os.environ.pop("DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE", None)

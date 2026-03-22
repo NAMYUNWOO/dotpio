@@ -934,3 +934,10 @@
 - Completed: Added mode classification output for dual-lane coach posture and surfaced it in weekly digest JSON/markdown.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up: next AO item is prototype `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY:<short>` behind flag.
+
+## 2026-03-22 15:04 KST — Cycle AO closure (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY`)
+- Completed highest-priority unchecked backlog item: added flag-gated token `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY:<short>`.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now emits `whatIfSplitEscRecoverVetoRearmCoachWhy` + `...Signals` and markdown row `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY`.
+- Gate: `DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY` (default OFF).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up: ACTION_ITEMS/TASKS/POST_RC are now fully checked; next cycle should run Game Director review injection flow.

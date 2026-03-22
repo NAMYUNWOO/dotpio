@@ -3014,6 +3014,53 @@ def what_if_split_escalate_recover_veto_rearm_coach_mode_from_signals(
     }
 
 
+def what_if_split_escalate_recover_veto_rearm_coach_why_from_signals(
+    *,
+    what_if_split_esc_recover_veto_rearm_coach: str,
+    what_if_split_esc_recover_veto_rearm_coach_mode: str,
+    what_if_split_esc_recover_veto_rearm_coach_confidence: str,
+) -> tuple[str, dict[str, str | bool]]:
+    """Prototype concise rationale for coach fallback guidance behind experiment flag."""
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    coach = str(what_if_split_esc_recover_veto_rearm_coach).upper()
+    mode = str(what_if_split_esc_recover_veto_rearm_coach_mode).upper()
+    confidence = str(what_if_split_esc_recover_veto_rearm_coach_confidence).upper()
+
+    if not flag_enabled:
+        why = "FLAG OFF"
+        reason = "flag-disabled"
+    elif coach == "FLAG OFF":
+        why = "COACH OFF"
+        reason = "coach-token-disabled"
+    elif coach.startswith("NONE"):
+        why = "NO ACTION"
+        reason = "coach-primary-not-actionable"
+    elif mode == "BALANCED" and confidence == "HIGH":
+        why = "DUAL COVER"
+        reason = "balanced-coach-with-high-confidence"
+    elif mode == "BACKUP":
+        why = "BACKUP READY"
+        reason = "coach-routing-through-backup-lane"
+    elif confidence in {"MID", "HIGH"}:
+        why = "PRIMARY HOLD"
+        reason = "primary-lane-guidance-with-actionable-confidence"
+    else:
+        why = "MONITOR"
+        reason = "coach-context-below-action-threshold"
+
+    return why, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "splitEscRecoverVetoRearmCoach": coach,
+        "splitEscRecoverVetoRearmCoachMode": mode,
+        "splitEscRecoverVetoRearmCoachConfidence": confidence,
+        "reason": reason,
+    }
+
+
 def what_if_split_escalate_recover_confidence_delta_from_prior(
     *,
     current_confidence: str,
@@ -3810,6 +3857,11 @@ def main() -> int:
     what_if_split_esc_recover_veto_rearm_coach_mode, what_if_split_esc_recover_veto_rearm_coach_mode_signals = what_if_split_escalate_recover_veto_rearm_coach_mode_from_signals(
         what_if_split_esc_recover_veto_rearm_coach=what_if_split_esc_recover_veto_rearm_coach,
     )
+    what_if_split_esc_recover_veto_rearm_coach_why, what_if_split_esc_recover_veto_rearm_coach_why_signals = what_if_split_escalate_recover_veto_rearm_coach_why_from_signals(
+        what_if_split_esc_recover_veto_rearm_coach=what_if_split_esc_recover_veto_rearm_coach,
+        what_if_split_esc_recover_veto_rearm_coach_mode=what_if_split_esc_recover_veto_rearm_coach_mode,
+        what_if_split_esc_recover_veto_rearm_coach_confidence=what_if_split_esc_recover_veto_rearm_coach_confidence,
+    )
     what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
         current_confidence=what_if_split_esc_recover_confidence,
         prior_json_path=args.out_json,
@@ -4003,6 +4055,8 @@ def main() -> int:
         "whatIfSplitEscRecoverVetoRearmCoachConfidenceSignals": what_if_split_esc_recover_veto_rearm_coach_confidence_signals,
         "whatIfSplitEscRecoverVetoRearmCoachMode": what_if_split_esc_recover_veto_rearm_coach_mode,
         "whatIfSplitEscRecoverVetoRearmCoachModeSignals": what_if_split_esc_recover_veto_rearm_coach_mode_signals,
+        "whatIfSplitEscRecoverVetoRearmCoachWhy": what_if_split_esc_recover_veto_rearm_coach_why,
+        "whatIfSplitEscRecoverVetoRearmCoachWhySignals": what_if_split_esc_recover_veto_rearm_coach_why_signals,
         "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
         "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
@@ -4122,6 +4176,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH: **{what_if_split_esc_recover_veto_rearm_coach}** ({what_if_split_esc_recover_veto_rearm_coach_signals['reason']}; flag={what_if_split_esc_recover_veto_rearm_coach_signals['flagName']} enabled={what_if_split_esc_recover_veto_rearm_coach_signals['flagEnabled']} primary={what_if_split_esc_recover_veto_rearm_coach_signals['splitEscRecover']} backup={what_if_split_esc_recover_veto_rearm_coach_signals['splitEscRecoverAlt']} plan={what_if_split_esc_recover_veto_rearm_coach_signals['splitEscRecoverPlan']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH CONF: **{what_if_split_esc_recover_veto_rearm_coach_confidence}** ({what_if_split_esc_recover_veto_rearm_coach_confidence_signals['reason']}; coach={what_if_split_esc_recover_veto_rearm_coach_confidence_signals['splitEscRecoverVetoRearmCoach']} nudgeConf={what_if_split_esc_recover_veto_rearm_coach_confidence_signals['splitEscRecoverVetoRearmNudgeConfidence']} fit={what_if_split_esc_recover_veto_rearm_coach_confidence_signals['splitEscRecoverVetoRearmFit']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH MODE: **{what_if_split_esc_recover_veto_rearm_coach_mode}** ({what_if_split_esc_recover_veto_rearm_coach_mode_signals['reason']}; coach={what_if_split_esc_recover_veto_rearm_coach_mode_signals['splitEscRecoverVetoRearmCoach']} primary={what_if_split_esc_recover_veto_rearm_coach_mode_signals['coachPrimaryLane']} backup={what_if_split_esc_recover_veto_rearm_coach_mode_signals['coachBackupLane']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY: **{what_if_split_esc_recover_veto_rearm_coach_why}** ({what_if_split_esc_recover_veto_rearm_coach_why_signals['reason']}; flag={what_if_split_esc_recover_veto_rearm_coach_why_signals['flagName']} enabled={what_if_split_esc_recover_veto_rearm_coach_why_signals['flagEnabled']} coach={what_if_split_esc_recover_veto_rearm_coach_why_signals['splitEscRecoverVetoRearmCoach']} mode={what_if_split_esc_recover_veto_rearm_coach_why_signals['splitEscRecoverVetoRearmCoachMode']} conf={what_if_split_esc_recover_veto_rearm_coach_why_signals['splitEscRecoverVetoRearmCoachConfidence']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",

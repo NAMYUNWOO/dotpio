@@ -1675,3 +1675,6 @@ Compact decision memory for AI context efficiency.
 - Durable decision: posture classification defaults to `PRIMARY` when flag is off or no actionable lane exists, uses `BALANCED` only for distinct actionable primary+backup lanes, and `BACKUP` only when primary is unavailable.
 - Regression: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS, including new token + mode branch assertions.
 - Next priority remains AO final prototype: `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY:<short>` behind flag.
+- 2026-03-22 15:04 KST: Closed remaining AO unchecked item by shipping flag-gated `WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY:<short>` (`DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_COACH_WHY`) with JSON payload keys `whatIfSplitEscRecoverVetoRearmCoachWhy` + `...Signals` and markdown digest row.
+- Regression updated and passing: `scripts/regression_weekly_portal_prompt_readability_drift.py` now asserts markdown presence for `COACH WHY` and validates flag-off/flag-on rationale paths for the new token classifier.
+- Backlog sync complete: the item is marked done in both `TASKS.md` and `POST_RC_BACKLOG.md`; ACTION_ITEMS/TASKS/POST_RC are all fully checked, so next cycle should execute Game Director review injection flow.
