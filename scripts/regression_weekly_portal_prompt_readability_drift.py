@@ -946,6 +946,16 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert isinstance(payload.get("routePulseLinkModeWhy"), str), payload
+        assert set(payload.get("routePulseLinkModeWhySignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "routePulseLinkMode",
+            "routePulseLink",
+            "routePulseLinkModeDrift",
+            "routePulseLinkStreak",
+            "reason",
+        }, payload
         assert isinstance(payload.get("actionPaceWhy"), str), payload
         assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
             "flagName",
@@ -1020,6 +1030,7 @@ def main() -> int:
         assert "ROUTE PULSE LINK STREAK" in md_text
         assert "ROUTE PULSE LINK MODE" in md_text
         assert "ROUTE PULSE LINK MODE Δ" in md_text
+        assert "ROUTE PULSE LINK MODE WHY" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text

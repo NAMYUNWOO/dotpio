@@ -531,3 +531,8 @@ See project-level plans:
 - [x] UX/Systems Team: Add route pulse-link mode token (`ROUTE PULSE LINK MODE:IDLE|SUSTAIN|SURGE`) from link + streak + pulse drift for faster cadence triage
 - [x] Systems/QA Team: Add route pulse-link mode drift token (`ROUTE PULSE LINK MODE Δ:+n|-n`) versus prior digest window
 - [x] Design/World Team: Prototype compact portal mode cue (`PULSE MODE:I|S|X`) behind flag for in-run route readability parity
+
+## Next Up (Game Director Injection — 2026-03-23 Cycle BE)
+- [x] UX/Systems Team: Add route pulse-link mode rationale micro-token (`ROUTE PULSE LINK MODE WHY:<short>`) behind flag for compact triage context
+- [ ] Systems/QA Team: Add route pulse-link mode stability streak token (`ROUTE PULSE LINK MODE STREAK:<n>`) across digest windows
+- [ ] Design/World Team: Prototype detailed portal pulse mode cue (`ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE`) behind flag for full-prompt parity

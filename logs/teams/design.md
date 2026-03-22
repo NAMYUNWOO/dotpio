@@ -1114,3 +1114,8 @@
 ## 2026-03-23 07:20 KST — Compact token design closure
 - Closed design/world backlog item for compact portal mode cue parity (`PULSE MODE:I|S|X`) behind `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT`.
 - Kept compact token short-form to preserve DOS prompt budget while matching digest semantic tiers (IDLE/SUSTAIN/SURGE).
+
+## 2026-03-23 07:34 KST — Cycle BE route pulse-link mode rationale token
+- Completed: Added flagged digest token `ROUTE PULSE LINK MODE WHY:<short>` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY`).
+- Evidence: weekly drift regression PASS + digest generation PASS.
+- Follow-up: Cycle BE remaining queued items are `ROUTE PULSE LINK MODE STREAK:<n>` and detailed prompt parity cue.

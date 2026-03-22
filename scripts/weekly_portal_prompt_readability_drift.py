@@ -1328,6 +1328,58 @@ def route_pulse_link_mode_drift_from_prior(
     }
 
 
+def route_pulse_link_mode_why_from_signals(
+    *,
+    route_pulse_link_mode: str,
+    route_pulse_link_mode_signals: dict[str, str | int | bool],
+    route_pulse_link_mode_drift: int,
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Emit compact rationale token for route pulse-link mode triage."""
+    flag_name = "DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    mode = str(route_pulse_link_mode).upper()
+    link = str(route_pulse_link_mode_signals.get("routePulseLink", "OFF")).upper()
+    streak = int(route_pulse_link_mode_signals.get("routePulseLinkStreak", 0) or 0)
+    drift = int(route_pulse_link_mode_drift)
+
+    if not flag_enabled:
+        why = "FLAG OFF"
+        reason = "flag-disabled"
+    elif mode == "SURGE" and drift > 0:
+        why = "SHARP BUILD"
+        reason = "surge-intensifying"
+    elif mode == "SURGE":
+        why = "SURGE HOLD"
+        reason = "surge-persistent"
+    elif mode == "SUSTAIN" and streak >= 3:
+        why = "STAY SHARP"
+        reason = "sustain-persistent"
+    elif mode == "SUSTAIN":
+        why = "LINK WARM"
+        reason = "sustain-building"
+    elif mode == "IDLE" and drift < 0:
+        why = "COOLING OFF"
+        reason = "mode-deescalated"
+    elif mode == "IDLE" and link == "OFF":
+        why = "LINK QUIET"
+        reason = "link-disabled"
+    else:
+        why = "IDLE WATCH"
+        reason = "idle-monitor"
+
+    return why, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "routePulseLinkMode": mode,
+        "routePulseLink": link,
+        "routePulseLinkModeDrift": drift,
+        "routePulseLinkStreak": streak,
+        "reason": reason,
+    }
+
+
 def route_action_guardrail_from_signals(*, drift_risk: str, route_action_confidence: str) -> tuple[str, dict[str, str | bool]]:
     lock = drift_risk == "HIGH" and route_action_confidence == "LOW"
     token = "LOCK" if lock else "SOFT"
@@ -4763,6 +4815,11 @@ def main() -> int:
         current_route_pulse_link_mode=route_pulse_link_mode,
         prior_json_path=args.out_json,
     )
+    route_pulse_link_mode_why, route_pulse_link_mode_why_signals = route_pulse_link_mode_why_from_signals(
+        route_pulse_link_mode=route_pulse_link_mode,
+        route_pulse_link_mode_signals=route_pulse_link_mode_signals,
+        route_pulse_link_mode_drift=route_pulse_link_mode_drift,
+    )
     action_pace_why, action_pace_why_signals = action_pace_why_from_signals(
         action_pace=action_pace,
         action_guard=action_guard,
@@ -5195,6 +5252,8 @@ def main() -> int:
         "routePulseLinkModeSignals": route_pulse_link_mode_signals,
         "routePulseLinkModeDrift": route_pulse_link_mode_drift,
         "routePulseLinkModeDriftSignals": route_pulse_link_mode_drift_signals,
+        "routePulseLinkModeWhy": route_pulse_link_mode_why,
+        "routePulseLinkModeWhySignals": route_pulse_link_mode_why_signals,
         "actionPaceWhy": action_pace_why,
         "actionPaceWhySignals": action_pace_why_signals,
         "whatIfAlt": what_if_alt,
@@ -5408,6 +5467,7 @@ def main() -> int:
         f"- ROUTE PULSE LINK STREAK: **{route_pulse_link_streak}** ({route_pulse_link_streak_signals['reason']}; current={route_pulse_link_streak_signals['currentRoutePulseLink']} prior={route_pulse_link_streak_signals['priorRoutePulseLink']} priorStreak={route_pulse_link_streak_signals['priorStreak']} loaded={route_pulse_link_streak_signals['priorLoaded']})",
         f"- ROUTE PULSE LINK MODE: **{route_pulse_link_mode}** ({route_pulse_link_mode_signals['reason']}; link={route_pulse_link_mode_signals['routePulseLink']} streak={route_pulse_link_mode_signals['routePulseLinkStreak']} drift={route_pulse_link_mode_signals['actionPaceAltWindowPulseDrift']:+d})",
         f"- ROUTE PULSE LINK MODE Δ: **{route_pulse_link_mode_drift:+d}** ({route_pulse_link_mode_drift_signals['reason']}; current={route_pulse_link_mode_drift_signals['currentMode']}({route_pulse_link_mode_drift_signals['currentScore']}) prior={route_pulse_link_mode_drift_signals['priorMode']}({route_pulse_link_mode_drift_signals['priorScore']}) loaded={route_pulse_link_mode_drift_signals['priorLoaded']})",
+        f"- ROUTE PULSE LINK MODE WHY: **{route_pulse_link_mode_why}** ({route_pulse_link_mode_why_signals['reason']}; flag={route_pulse_link_mode_why_signals['flagName']} enabled={route_pulse_link_mode_why_signals['flagEnabled']} mode={route_pulse_link_mode_why_signals['routePulseLinkMode']} link={route_pulse_link_mode_why_signals['routePulseLink']} drift={route_pulse_link_mode_why_signals['routePulseLinkModeDrift']:+d} streak={route_pulse_link_mode_why_signals['routePulseLinkStreak']})",
         f"- ACTION PACE WHY: **{action_pace_why}** ({action_pace_why_signals['reason']}; flag={action_pace_why_signals['flagName']} enabled={action_pace_why_signals['flagEnabled']} pace={action_pace_why_signals['actionPace']} guard={action_pace_why_signals['actionGuard']} stability={action_pace_why_signals['actionStability']} lag={action_pace_why_signals['pressureLag']} drift={action_pace_why_signals['paceDrift']:+d})",
         f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
         f"- WHAT-IF CONF: **{what_if_confidence}** ({what_if_confidence_signals['reason']}; delta={what_if_confidence_signals['deltaRisk']} routeConf={what_if_confidence_signals['routeActionConfidence']} current={what_if_confidence_signals['currentLane']} alt={what_if_confidence_signals['altLane']})",

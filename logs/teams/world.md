@@ -1108,3 +1108,8 @@
 ## 2026-03-23 07:20 KST — Portal readability parity cue
 - World-route readability now includes compact `PULSE MODE:I|S|X` token (flag-gated) so portal decision copy better mirrors digest-level route pulse mode context.
 - Scope is UX/readability only; no map routing, hazard metadata, or pressure balance changes.
+
+## 2026-03-23 07:34 KST — Cycle BE route pulse-link mode rationale token
+- Completed: Added flagged digest token `ROUTE PULSE LINK MODE WHY:<short>` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY`).
+- Evidence: weekly drift regression PASS + digest generation PASS.
+- Follow-up: Cycle BE remaining queued items are `ROUTE PULSE LINK MODE STREAK:<n>` and detailed prompt parity cue.

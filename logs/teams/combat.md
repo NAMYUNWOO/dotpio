@@ -1046,3 +1046,8 @@
 
 ## 2026-03-23 07:20 KST — Combat signal carry-through
 - No combat mechanics tuned; portal compact prompt now surfaces pulse mode abstraction (`I|S|X`) derived from pressure/alt-route context for faster threat-route reading.
+
+## 2026-03-23 07:34 KST — Cycle BE route pulse-link mode rationale token
+- Completed: Added flagged digest token `ROUTE PULSE LINK MODE WHY:<short>` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY`).
+- Evidence: weekly drift regression PASS + digest generation PASS.
+- Follow-up: Cycle BE remaining queued items are `ROUTE PULSE LINK MODE STREAK:<n>` and detailed prompt parity cue.

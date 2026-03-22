@@ -1335,3 +1335,8 @@
 ## 2026-03-23 07:20 KST — In-run readability parity
 - Added compact `PULSE MODE` cue to portal prompt fallback path to align in-run decision surface with weekly drift digest language.
 - Regression confirms visible tokens across all tiers (`I`,`S`,`X`) under constrained prompt budget.
+
+## 2026-03-23 07:34 KST — Cycle BE route pulse-link mode rationale token
+- Completed: Added flagged digest token `ROUTE PULSE LINK MODE WHY:<short>` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY`).
+- Evidence: weekly drift regression PASS + digest generation PASS.
+- Follow-up: Cycle BE remaining queued items are `ROUTE PULSE LINK MODE STREAK:<n>` and detailed prompt parity cue.

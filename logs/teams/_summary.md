@@ -1964,3 +1964,7 @@ Compact decision memory for AI context efficiency.
 - Drift token uses prior-window score diff (`IDLE=0`, `SUSTAIN=1`, `SURGE=2`) with explicit signals (`current/prior`, `priorLoaded`, `reason`) for auditability.
 - Regression + artifact evidence refreshed and passing: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Backlog state: `ROUTE PULSE LINK MODE Δ` marked done in `TASKS.md` and `POST_RC_BACKLOG.md`; next unchecked item is flagged compact portal cue `PULSE MODE:I|S|X`.
+- 2026-03-23 07:34 KST: Game Director Cycle BE injected (3 ideas) after actionable queues were fully checked; selected low-risk vertical slice `ROUTE PULSE LINK MODE WHY:<short>` and shipped it as a flag-gated digest token.
+- New digest contract: JSON emits `routePulseLinkModeWhy` + `routePulseLinkModeWhySignals`, markdown includes `ROUTE PULSE LINK MODE WHY` with mode/link/drift/streak diagnostics (`DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY`).
+- Verification refreshed and passing: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Cycle BE backlog now tracks remaining follow-ups: `ROUTE PULSE LINK MODE STREAK:<n>` and flagged detailed prompt parity cue `ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE`.

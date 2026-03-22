@@ -1,28 +1,28 @@
 {
-  "generatedAt": "2026-03-22T21:33:57.500424Z",
+  "generatedAt": "2026-03-22T22:34:09.323788Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
     "maxCommits": 120
   },
   "checkedCommits": 120,
-  "portalPromptCommits": 22,
+  "portalPromptCommits": 21,
   "dominantModeCommits": {
     "compact": 2,
-    "detailed": 5,
+    "detailed": 4,
     "neutral": 15
   },
   "modeTrend": "DETAILED",
   "pressureBand": "HIGH",
   "driftRisk": "HIGH",
   "driftRiskSignals": {
-    "score": 19,
-    "imbalance": 4,
+    "score": 16,
+    "imbalance": 1,
     "pressureChurn": 15
   },
   "laneFocus": "PORTAL",
   "laneFocusScores": {
-    "portal": 35,
+    "portal": 28,
     "alt": 23,
     "pressure": 15
   },
@@ -31,33 +31,33 @@
   "focusVolatility": "SWING",
   "focusVolatilitySignals": {
     "switches": 5,
-    "edges": 8,
-    "switchRatio": 0.625
+    "edges": 6,
+    "switchRatio": 0.833
   },
   "routeAction": "PORTAL_AUDIT",
   "routeActionReason": "portal-family tokens dominate top movers",
   "routeActionConfidence": "LOW",
   "routeActionConfidenceSignals": {
-    "topScore": 35,
+    "topScore": 28,
     "secondScore": 23,
-    "totalScore": 73,
-    "dominanceRatio": 0.479,
-    "focusSpread": 12,
-    "driftSpread": 11
+    "totalScore": 66,
+    "dominanceRatio": 0.424,
+    "focusSpread": 5,
+    "driftSpread": 14
   },
-  "focusBalance": "48%",
+  "focusBalance": "42%",
   "focusBalanceSignals": {
-    "topScore": 35,
-    "totalScore": 73,
-    "dominanceRatio": 0.479,
-    "percent": 48
+    "topScore": 28,
+    "totalScore": 66,
+    "dominanceRatio": 0.424,
+    "percent": 42
   },
   "focusEntropy": "HIGH",
   "focusEntropySignals": {
-    "raw": 1.503,
-    "normalized": 0.948,
+    "raw": 1.541,
+    "normalized": 0.972,
     "maxEntropy": 1.585,
-    "totalScore": 73
+    "totalScore": 66
   },
   "actionGuard": "LOCK",
   "actionGuardSignals": {
@@ -137,10 +137,10 @@
   "driftMomentum": "COOLING",
   "driftMomentumSignals": {
     "recentAvg": 0.0,
-    "olderAvg": 3.364,
-    "delta": -3.364,
+    "olderAvg": 3.4,
+    "delta": -3.4,
     "recentCount": 11,
-    "olderCount": 11
+    "olderCount": 10
   },
   "actionStability": "WATCH",
   "actionStabilitySignals": {
@@ -156,8 +156,8 @@
   "pressureLagSignals": {
     "pressureChurn": 15,
     "driftMomentum": "COOLING",
-    "driftDelta": -3.364,
-    "absDriftDelta": 3.364
+    "driftDelta": -3.4,
+    "absDriftDelta": 3.4
   },
   "actionPace": "BRAKE",
   "actionPaceSignals": {
@@ -344,6 +344,16 @@
     "priorLoaded": true,
     "reason": "mode-stable"
   },
+  "routePulseLinkModeWhy": "LINK QUIET",
+  "routePulseLinkModeWhySignals": {
+    "flagName": "DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY",
+    "flagEnabled": true,
+    "routePulseLinkMode": "IDLE",
+    "routePulseLink": "OFF",
+    "routePulseLinkModeDrift": 0,
+    "routePulseLinkStreak": 0,
+    "reason": "link-disabled"
+  },
   "actionPaceWhy": "FLAG OFF",
   "actionPaceWhySignals": {
     "flagName": "DOTPIO_EXPERIMENT_ACTION_PACE_WHY",
@@ -361,17 +371,17 @@
     "flagEnabled": false,
     "currentLane": "PORTAL",
     "altLane": "ALT",
-    "baselineRisk": 19,
-    "imbalance": 4,
+    "baselineRisk": 16,
+    "imbalance": 1,
     "pressureChurn": 15,
-    "projectedRisk": 16,
-    "deltaRisk": -3,
+    "projectedRisk": 14,
+    "deltaRisk": -2,
     "reason": "flag-disabled"
   },
   "whatIfConfidence": "LOW",
   "whatIfConfidenceSignals": {
     "flagEnabled": false,
-    "deltaRisk": -3,
+    "deltaRisk": -2,
     "currentLane": "PORTAL",
     "altLane": "ALT",
     "routeActionConfidence": "LOW",
@@ -388,7 +398,7 @@
   "whatIfBand": "NEUTRAL",
   "whatIfBandSignals": {
     "flagEnabled": false,
-    "deltaRisk": -3,
+    "deltaRisk": -2,
     "currentLane": "PORTAL",
     "altLane": "ALT",
     "reason": "flag-disabled"
@@ -396,15 +406,15 @@
   "whatIfMagnitude": "SMALL",
   "whatIfMagnitudeSignals": {
     "flagEnabled": false,
-    "deltaRisk": -3,
-    "absDeltaRisk": 3,
+    "deltaRisk": -2,
+    "absDeltaRisk": 2,
     "reason": "flag-disabled"
   },
   "whatIfFit": "EVEN",
   "whatIfFitSignals": {
     "flagEnabled": false,
     "pressureBand": "HIGH",
-    "projectedRisk": 16,
+    "projectedRisk": 14,
     "projectedBand": "HIGH",
     "reason": "flag-disabled"
   },
@@ -423,7 +433,7 @@
     "flagEnabled": false,
     "fallback": "OFF",
     "whatIfAlign": "DIVERGED",
-    "deltaRisk": -3,
+    "deltaRisk": -2,
     "routeActionConfidence": "LOW",
     "reason": "flag-disabled"
   },
@@ -432,8 +442,8 @@
     "flagEnabled": false,
     "fallback": "OFF",
     "pressureBand": "HIGH",
-    "baselineRisk": 19,
-    "projectedRisk": 19,
+    "baselineRisk": 16,
+    "projectedRisk": 16,
     "projectedBand": "HIGH",
     "reason": "fallback-flag-disabled"
   },
@@ -458,8 +468,8 @@
   "whatIfFallbackMagnitudeSignals": {
     "flagEnabled": false,
     "fallback": "OFF",
-    "deltaRisk": -3,
-    "absDeltaRisk": 3,
+    "deltaRisk": -2,
+    "absDeltaRisk": 2,
     "reason": "flag-disabled"
   },
   "whatIfFallbackAlt2": "NONE",
@@ -468,7 +478,7 @@
     "flagEnabled": false,
     "fallback": "OFF",
     "fallbackLane": "NONE",
-    "portalScore": 35,
+    "portalScore": 28,
     "altScore": 23,
     "pressureScore": 15,
     "topScore": 0,
@@ -525,7 +535,7 @@
     "primaryConfidence": "LOW",
     "secondaryConfidence": "LOW",
     "lanesDiverged": true,
-    "absDeltaRisk": 3,
+    "absDeltaRisk": 2,
     "strongDelta": false,
     "strongConfidence": false,
     "reason": "flag-disabled"
@@ -996,18 +1006,18 @@
   "totals": {
     "added": {
       "compact": 34,
-      "detailed": 41,
-      "shared": 44
+      "detailed": 37,
+      "shared": 39
     },
     "removed": {
       "compact": 9,
-      "detailed": 12,
-      "shared": 25
+      "detailed": 11,
+      "shared": 24
     },
     "net": {
       "compact": 25,
-      "detailed": 29,
-      "shared": 19
+      "detailed": 26,
+      "shared": 15
     }
   },
   "tokenTotals": {
@@ -1017,13 +1027,13 @@
       "ALT:": 5,
       "ADEL:": 4,
       "AP:": 2,
-      "NEXT ROUTE:": 18,
+      "NEXT ROUTE:": 14,
       "PRESSURE:": 11,
       "ALT ROUTE:": 6,
       "ALT DELTA:": 4,
       "ALT PLAN:": 2,
-      "ENTER:JUMP": 20,
-      "COACH:": 24
+      "ENTER:JUMP": 18,
+      "COACH:": 21
     },
     "removed": {
       "NEXT:": 5,
@@ -1031,12 +1041,12 @@
       "ALT:": 0,
       "ADEL:": 0,
       "AP:": 0,
-      "NEXT ROUTE:": 8,
+      "NEXT ROUTE:": 7,
       "PRESSURE:": 4,
       "ALT ROUTE:": 0,
       "ALT DELTA:": 0,
       "ALT PLAN:": 0,
-      "ENTER:JUMP": 13,
+      "ENTER:JUMP": 12,
       "COACH:": 12
     },
     "net": {
@@ -1045,13 +1055,13 @@
       "ALT:": 5,
       "ADEL:": 4,
       "AP:": 2,
-      "NEXT ROUTE:": 10,
+      "NEXT ROUTE:": 7,
       "PRESSURE:": 7,
       "ALT ROUTE:": 6,
       "ALT DELTA:": 4,
       "ALT PLAN:": 2,
-      "ENTER:JUMP": 7,
-      "COACH:": 12
+      "ENTER:JUMP": 6,
+      "COACH:": 9
     }
   },
   "routeVibeTotals": {
@@ -1085,15 +1095,9 @@
   "topTokenMovers": [
     {
       "token": "COACH:",
-      "net": 12,
-      "added": 24,
+      "net": 9,
+      "added": 21,
       "removed": 12
-    },
-    {
-      "token": "NEXT ROUTE:",
-      "net": 10,
-      "added": 18,
-      "removed": 8
     },
     {
       "token": "P:",
@@ -1108,13 +1112,236 @@
       "removed": 4
     },
     {
-      "token": "ENTER:JUMP",
+      "token": "NEXT ROUTE:",
       "net": 7,
-      "added": 20,
-      "removed": 13
+      "added": 14,
+      "removed": 7
+    },
+    {
+      "token": "NEXT:",
+      "net": 6,
+      "added": 11,
+      "removed": 5
     }
   ],
   "commits": [
+    {
+      "sha": "31d09e6842b61dfa4ca0118f84933fd12c6e7e6e",
+      "shortSha": "31d09e6",
+      "author": "yunwoo",
+      "subject": "Add compact portal pulse-mode cue with regression",
+      "committedAt": "2026-03-22T22:04:17Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_portal_prompt_pulse_mode.lua",
+        "src/portal.lua"
+      ],
+      "portalFiles": [
+        "scripts/regression_portal_prompt_pulse_mode.lua",
+        "src/portal.lua"
+      ],
+      "touchedPortalPrompt": true,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      },
+      "routeVibeEdits": {
+        "added": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "removed": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "net": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        }
+      }
+    },
+    {
+      "sha": "08de1726887ad5077513d7556fdbc1292ed0e575",
+      "shortSha": "08de172",
+      "author": "yunwoo",
+      "subject": "feat: add route pulse-link mode drift digest token",
+      "committedAt": "2026-03-22T21:34:41Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      },
+      "routeVibeEdits": {
+        "added": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "removed": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "net": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        }
+      }
+    },
     {
       "sha": "c448accde5fbb62f7f578b917afd91c65db9513e",
       "shortSha": "c448acc",
@@ -13761,228 +13988,6 @@
           "ALT DELTA:": 0,
           "ALT PLAN:": 0,
           "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      },
-      "routeVibeEdits": {
-        "added": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "removed": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "net": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        }
-      }
-    },
-    {
-      "sha": "534c6a62985609017e8f88a2ebc64130d39086b7",
-      "shortSha": "534c6a6",
-      "author": "yunwoo",
-      "subject": "feat: add route-tag distribution audit and portal route coaching cue",
-      "committedAt": "2026-03-20T17:35:48Z",
-      "changedFiles": [
-        "POST_RC_BACKLOG.md",
-        "logs/playtests/route_tag_distribution.json",
-        "logs/playtests/route_tag_distribution.md",
-        "logs/teams/_summary.md",
-        "logs/teams/ai-content.md",
-        "logs/teams/combat.md",
-        "logs/teams/design.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "logs/teams/ux.md",
-        "logs/teams/world.md",
-        "scripts/check_route_tag_distribution.lua",
-        "scripts/regression_portal_route_preview.lua",
-        "scripts/regression_route_tag_distribution.lua",
-        "src/portal.lua",
-        "src/route_tag_distribution.lua"
-      ],
-      "portalFiles": [
-        "scripts/regression_portal_route_preview.lua",
-        "src/portal.lua"
-      ],
-      "touchedPortalPrompt": true,
-      "added": {
-        "compact": 0,
-        "detailed": 1,
-        "shared": 4
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 1,
-        "shared": 1
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 3
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "PORTAL",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 1,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 1,
-          "COACH:": 3
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 1,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 1,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 3
-        }
-      },
-      "routeVibeEdits": {
-        "added": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "removed": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "net": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        }
-      }
-    },
-    {
-      "sha": "1b83237958bfd57ae5392f36978ea181a8aa5978",
-      "shortSha": "1b83237",
-      "author": "yunwoo",
-      "subject": "feat: add portal transition route preview prompt",
-      "committedAt": "2026-03-20T17:05:29Z",
-      "changedFiles": [
-        "POST_RC_BACKLOG.md",
-        "logs/teams/_summary.md",
-        "logs/teams/ai-content.md",
-        "logs/teams/combat.md",
-        "logs/teams/design.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "logs/teams/ux.md",
-        "logs/teams/world.md",
-        "main.lua",
-        "scripts/regression_portal_route_preview.lua",
-        "src/portal.lua"
-      ],
-      "portalFiles": [
-        "scripts/regression_portal_route_preview.lua",
-        "src/portal.lua"
-      ],
-      "touchedPortalPrompt": true,
-      "added": {
-        "compact": 0,
-        "detailed": 3,
-        "shared": 1
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 3,
-        "shared": 1
-      },
-      "dominantMode": "detailed",
-      "laneFocus": "PORTAL",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 3,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 1,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 3,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 1,
           "COACH:": 0
         }
       },

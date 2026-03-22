@@ -1700,3 +1700,8 @@
 - Completed flag-gated compact portal cue `PULSE MODE:I|S|X` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT`) for in-run parity with weekly `ROUTE PULSE LINK MODE` digest semantics.
 - Added `resolveCompactRoutePulseMode(...)` mapping (`I` idle / `S` sustain / `X` surge) and wired compact prompt emission in `src/portal.lua`.
 - Verification: `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua` plus compact/pulse-link regression suite PASS.
+
+## 2026-03-23 07:34 KST — Cycle BE route pulse-link mode rationale token
+- Completed: Added flagged digest token `ROUTE PULSE LINK MODE WHY:<short>` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY`).
+- Evidence: weekly drift regression PASS + digest generation PASS.
+- Follow-up: Cycle BE remaining queued items are `ROUTE PULSE LINK MODE STREAK:<n>` and detailed prompt parity cue.
