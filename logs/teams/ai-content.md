@@ -1020,3 +1020,8 @@
 ## 2026-03-22 23:35 KST — Prompt contract note
 - No model prompt generation changes this cycle.
 - Weekly digest schema extended with non-flagged `actionPace` field for operator readability only.
+
+## 2026-03-23 00:37 KST — Cycle AX rationale copy pass
+- Added compact rationale token `ACTION PACE WHY:<short>` behind `DOTPIO_EXPERIMENT_ACTION_PACE_WHY`.
+- Copy policy favors short, directive phrases (`LOCK BRAKE`, `WINDOW PUSH`, `WATCH FLOW`) for operator scan speed.
+- Next AI-content follow-up queued: flagged `ACTION PACE ALT WINDOW:<short>` fallback phrasing.

@@ -448,6 +448,90 @@ def pace_drift_from_prior(*, current_pace: str, prior_json_path: Path) -> tuple[
     }
 
 
+def action_pace_window_from_signals(
+    *,
+    action_pace: str,
+    action_guard: str,
+    pace_drift: int,
+) -> tuple[str, dict[str, str | int]]:
+    """Compact go/no-go pacing window token for operator triage."""
+    pace = str(action_pace).upper()
+    guard = str(action_guard).upper()
+    drift = int(pace_drift)
+
+    if guard == "LOCK" or (pace == "BRAKE" and drift <= 0):
+        window = "CLOSE"
+        reason = "guard-or-brake-closing-window"
+    elif pace == "ACCEL" and drift >= 0 and guard == "SOFT":
+        window = "OPEN"
+        reason = "accelerating-under-soft-guard"
+    else:
+        window = "HOLD"
+        reason = "maintain-current-pace-window"
+
+    return window, {
+        "actionPace": pace,
+        "actionGuard": guard,
+        "paceDrift": drift,
+        "reason": reason,
+    }
+
+
+def action_pace_why_from_signals(
+    *,
+    action_pace: str,
+    action_guard: str,
+    action_stability: str,
+    pressure_lag: str,
+    pace_drift: int,
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Prototype compact rationale token for ACTION PACE behind experiment flag."""
+    flag_name = "DOTPIO_EXPERIMENT_ACTION_PACE_WHY"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    pace = str(action_pace).upper()
+    guard = str(action_guard).upper()
+    stability = str(action_stability).upper()
+    lag = str(pressure_lag).upper()
+
+    if not flag_enabled:
+        why = "FLAG OFF"
+        reason = "flag-disabled"
+    elif pace == "BRAKE" and guard == "LOCK":
+        why = "LOCK BRAKE"
+        reason = "guard-lock-forced-brake"
+    elif pace == "BRAKE" and lag == "SLOW":
+        why = "LAG BRAKE"
+        reason = "slow-pressure-lag-brake"
+    elif pace == "ACCEL" and stability == "LOCKED" and lag == "FAST":
+        why = "WINDOW PUSH"
+        reason = "locked-stability-with-fast-lag"
+    elif pace == "STEADY" and stability == "LOCKED":
+        why = "LOCK HOLD"
+        reason = "locked-stability-steady-pace"
+    elif pace == "STEADY" and pace_drift > 0:
+        why = "EASE UP"
+        reason = "pace-accelerating-into-steady"
+    elif pace == "STEADY" and pace_drift < 0:
+        why = "SETTLE"
+        reason = "pace-cooling-into-steady"
+    else:
+        why = "WATCH FLOW"
+        reason = "default-watch-state"
+
+    return why, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "actionPace": pace,
+        "actionGuard": guard,
+        "actionStability": stability,
+        "pressureLag": lag,
+        "paceDrift": int(pace_drift),
+        "reason": reason,
+    }
+
+
 def route_action_guardrail_from_signals(*, drift_risk: str, route_action_confidence: str) -> tuple[str, dict[str, str | bool]]:
     lock = drift_risk == "HIGH" and route_action_confidence == "LOW"
     token = "LOCK" if lock else "SOFT"
@@ -3792,6 +3876,18 @@ def main() -> int:
         current_pace=action_pace,
         prior_json_path=args.out_json,
     )
+    action_pace_window, action_pace_window_signals = action_pace_window_from_signals(
+        action_pace=action_pace,
+        action_guard=action_guard,
+        pace_drift=pace_drift,
+    )
+    action_pace_why, action_pace_why_signals = action_pace_why_from_signals(
+        action_pace=action_pace,
+        action_guard=action_guard,
+        action_stability=action_stability,
+        pressure_lag=pressure_lag,
+        pace_drift=pace_drift,
+    )
     what_if_alt, what_if_alt_signals = what_if_alt_from_signals(
         lane_focus=lane_focus,
         lane_focus_scores=lane_focus_scores,
@@ -4181,6 +4277,10 @@ def main() -> int:
         "actionPaceSignals": action_pace_signals,
         "paceDrift": pace_drift,
         "paceDriftSignals": pace_drift_signals,
+        "actionPaceWindow": action_pace_window,
+        "actionPaceWindowSignals": action_pace_window_signals,
+        "actionPaceWhy": action_pace_why,
+        "actionPaceWhySignals": action_pace_why_signals,
         "whatIfAlt": what_if_alt,
         "whatIfAltSignals": what_if_alt_signals,
         "whatIfConfidence": what_if_confidence,
@@ -4374,6 +4474,8 @@ def main() -> int:
         f"- PRESSURE LAG: **{pressure_lag}** (churn={pressure_lag_signals['pressureChurn']} momentum={pressure_lag_signals['driftMomentum']} |Δ|={pressure_lag_signals['absDriftDelta']})",
         f"- ACTION PACE: **{action_pace}** ({action_pace_signals['reason']}; guard={action_pace_signals['actionGuard']} stability={action_pace_signals['actionStability']} lag={action_pace_signals['pressureLag']})",
         f"- PACE DRIFT: **{pace_drift:+d}** ({pace_drift_signals['reason']}; current={pace_drift_signals['currentPace']}({pace_drift_signals['currentScore']}) prior={pace_drift_signals['priorPace']}({pace_drift_signals['priorScore']}) loaded={pace_drift_signals['priorLoaded']})",
+        f"- ACTION PACE WINDOW: **{action_pace_window}** ({action_pace_window_signals['reason']}; pace={action_pace_window_signals['actionPace']} guard={action_pace_window_signals['actionGuard']} drift={action_pace_window_signals['paceDrift']:+d})",
+        f"- ACTION PACE WHY: **{action_pace_why}** ({action_pace_why_signals['reason']}; flag={action_pace_why_signals['flagName']} enabled={action_pace_why_signals['flagEnabled']} pace={action_pace_why_signals['actionPace']} guard={action_pace_why_signals['actionGuard']} stability={action_pace_why_signals['actionStability']} lag={action_pace_why_signals['pressureLag']} drift={action_pace_why_signals['paceDrift']:+d})",
         f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
         f"- WHAT-IF CONF: **{what_if_confidence}** ({what_if_confidence_signals['reason']}; delta={what_if_confidence_signals['deltaRisk']} routeConf={what_if_confidence_signals['routeActionConfidence']} current={what_if_confidence_signals['currentLane']} alt={what_if_confidence_signals['altLane']})",
         f"- WHAT-IF ALIGN: **{what_if_align}** ({what_if_align_signals['reason']}; route={what_if_align_signals['routeAction']} lane={what_if_align_signals['routeActionLane']} alt={what_if_align_signals['altLane']})",

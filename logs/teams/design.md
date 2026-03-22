@@ -1054,3 +1054,8 @@
 ## 2026-03-22 23:35 KST — Cadence token design note
 - Approved `ACTION PACE` label semantics as operationally readable without adding new numeric burden.
 - Kept rationale in-line `(guard/stability/lag)` for quick operator context.
+
+## 2026-03-23 00:37 KST — Cycle AX readability decision
+- Added `ACTION PACE WINDOW` and `ACTION PACE WHY` lines in digest to keep pacing decisions glanceable.
+- Kept token vocabulary compact and deterministic to avoid markdown noise.
+- Next design follow-up queued: alt-window fallback token for `CLOSE` states under sandbox-on context.

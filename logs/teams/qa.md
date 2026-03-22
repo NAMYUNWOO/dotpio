@@ -2063,3 +2063,9 @@
   - markdown token assertion for `PACE DRIFT`
   - helper behavior checks for missing-prior and accelerated-prior scenarios
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` -> `[PASS]`.
+
+## 2026-03-23 00:37 KST — Cycle AX verification
+- Validation PASS:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
+- Regression coverage now includes payload + markdown assertions for `ACTION PACE WHY` and `ACTION PACE WINDOW`.

@@ -1268,3 +1268,7 @@
 ## 2026-03-22 23:35 KST — Digest triage readability pass
 - Added compact operator-facing line `ACTION PACE` in markdown digest for faster cadence triage.
 - Copy contract keeps short enum set (`ACCEL|STEADY|BRAKE`) to stay glanceable beside existing action signals.
+
+## 2026-03-23 00:37 KST — Cycle AX UX triage token
+- New digest UX cue `ACTION PACE WINDOW:OPEN|HOLD|CLOSE` now surfaces go/no-go pacing intent before long WHAT-IF rows.
+- `ACTION PACE WHY` line remains flag-gated for compact coaching context.

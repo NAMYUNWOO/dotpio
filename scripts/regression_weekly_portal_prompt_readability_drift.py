@@ -781,6 +781,24 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert payload.get("actionPaceWindow") in {"OPEN", "HOLD", "CLOSE"}, payload
+        assert set(payload.get("actionPaceWindowSignals", {}).keys()) == {
+            "actionPace",
+            "actionGuard",
+            "paceDrift",
+            "reason",
+        }, payload
+        assert isinstance(payload.get("actionPaceWhy"), str), payload
+        assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "actionPace",
+            "actionGuard",
+            "actionStability",
+            "pressureLag",
+            "paceDrift",
+            "reason",
+        }, payload
         assert set(payload.get("whatIfSplitEscRecoverVetoRearmCoachHandoffFitSignals", {}).keys()) == {
             "splitEscRecoverVetoRearmCoachHandoff",
             "splitEscPressure",
@@ -826,6 +844,8 @@ def main() -> int:
         assert "PRESSURE LAG" in md_text
         assert "ACTION PACE" in md_text
         assert "PACE DRIFT" in md_text
+        assert "ACTION PACE WINDOW" in md_text
+        assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
         assert "WHAT-IF ALIGN" in md_text

@@ -990,3 +990,7 @@
 ## 2026-03-22 23:35 KST — Cross-lane note
 - No combat behavior modifications this cycle.
 - Existing combat-derived pressure signals are consumed only for digest pacing classification.
+
+## 2026-03-23 00:37 KST — Cycle AX note
+- No combat balance/mechanics changes this cycle.
+- Combat-readable pace impact is digest-only (operator triage), with no runtime combat mutations.

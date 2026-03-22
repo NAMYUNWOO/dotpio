@@ -1858,3 +1858,10 @@ Compact decision memory for AI context efficiency.
 - Scoring contract set to BRAKE=-1, STEADY=0, ACCEL=+1 and drift computed as current minus prior snapshot score.
 - Digest outputs now include `paceDrift`/`paceDriftSignals` (JSON) and a `PACE DRIFT` markdown row with prior-load visibility.
 - Regression updated to lock schema + markdown token + helper edge behavior.
+
+## 2026-03-23 00:37 KST — Cycle AW closure + Cycle AX injected
+- Closed final Cycle AW unchecked task: digest now emits `ACTION PACE WHY:<short>` behind `DOTPIO_EXPERIMENT_ACTION_PACE_WHY` with deterministic short rationale mapping.
+- Since TASKS + POST_RC were fully checked (actionable queue), executed Game Director review cycle and injected Cycle AX ideas (low/mid/high).
+- Selected/implemented Cycle AX minimal vertical slice: `ACTION PACE WINDOW:OPEN|HOLD|CLOSE` derived from `ACTION PACE + PACE DRIFT + ACTION GUARD`.
+- Added backlog follow-ups: `ACTION PACE WINDOW CONF` and flagged `ACTION PACE ALT WINDOW:<short>`.
+- Verification artifacts PASS: weekly digest regression + digest generation.

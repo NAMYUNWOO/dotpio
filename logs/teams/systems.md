@@ -1586,3 +1586,8 @@
 - Decision: Normalize pace states as BRAKE=-1, STEADY=0, ACCEL=+1, then emit signed delta (`currentScore - priorScore`) for deterministic trend triage.
 - Implementation: Added `pace_drift_from_prior(...)` and wired payload fields `paceDrift`, `paceDriftSignals` in `scripts/weekly_portal_prompt_readability_drift.py`.
 - Follow-up: Remaining Cycle AW item is `ACTION PACE WHY:<short>` flagged rationale token.
+
+## 2026-03-23 00:37 KST — Cycle AX pace-window slice
+- Completed vertical slice: weekly digest now emits `ACTION PACE WINDOW:OPEN|HOLD|CLOSE` from `ACTION PACE + PACE DRIFT + ACTION GUARD`.
+- Durable rule: `CLOSE` on lock/brake-cooling, `OPEN` on accel with non-negative drift under soft guard, otherwise `HOLD`.
+- Follow-up queued: `ACTION PACE WINDOW CONF`.
