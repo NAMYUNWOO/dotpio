@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-22 21:04 KST
+Last updated: 2026-03-22 22:05 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -1821,3 +1821,7 @@ Compact decision memory for AI context efficiency.
 - Shipped minimal vertical slice: new cooldown feedback token `BERSERK FX:FADE [THREAT Δ:<n>]` when sustained rise streak breaks (`>=2` prior streak, non-positive delta, prior threat > 0).
 - Verification passed: `lua scripts/regression_hud_berserker_counters.lua`, `lua scripts/regression_enemy_behavior_variants.lua`, `luac -p main.lua src/hud.lua`.
 - Backlog injected for cadence balancing: systems/ops `LANE CADENCE:OK|GAP` watchdog + world/design `DRIFT GLYPH` readability prototype.
+- Cycle AU high-risk follow-up shipped as flagged prototype: portal transition prompts now emit `VIBE DRIFT:WIDE` (compact `VDR:WIDE`) when route-vibe conflict and snapback co-occur within a short transition window.
+- Drift alarm is gated behind `DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_ALARM` and uses bounded transition-age counters (`<=2`) to prevent permanent alert latching.
+- Added regression coverage in `scripts/regression_portal_route_vibe_drift_alarm.lua`; existing snapback/conflict regressions remain green.
+- Post-RC backlog status updated: Cycle AU drift-alarm prototype marked complete; highest remaining unchecked items are lane cadence watchdog and drift-glyph escalation prototype.

@@ -2025,3 +2025,11 @@
   - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_RECOVERY_HINT=1 lua scripts/regression_portal_route_vibe_recovery.lua`
   - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 lua scripts/regression_portal_route_vibe_snapback.lua`
 - Follow-up: Add drift-alarm regression once `VIBE DRIFT:WIDE` prototype lands.
+
+## 2026-03-22 22:05 KST — Regression coverage: route-vibe drift alarm
+- Added `scripts/regression_portal_route_vibe_drift_alarm.lua`.
+- Verified pass set:
+  - `regression_portal_route_vibe_drift_alarm.lua`
+  - `regression_portal_route_vibe_snapback.lua`
+  - `regression_portal_route_vibe_conflict.lua`
+- Outcome: no regressions in existing conflict/snapback token flows.

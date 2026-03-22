@@ -1001,3 +1001,8 @@
 - Task support: Added resilience token lifecycle (`VIBE RESILIENCE`) only when recovery cue is active.
 - Decision: Preserve compact token naming (`VRES`) to fit DOS-width fallback behavior.
 - Follow-up: Implement drift alarm rationale copy for next Cycle AU prototype.
+
+## 2026-03-22 22:05 KST — Route-vibe drift alarm signal wiring
+- Implemented experiment gate `DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_ALARM`.
+- Drift alarm emits only on short-window conflict/snapback co-occurrence; default-off to avoid baseline prompt noise.
+- Follow-up: evaluate alarm frequency from digest outputs before graduating from prototype.

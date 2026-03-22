@@ -974,3 +974,7 @@
 - Decision: trigger only when prior rise streak was sustained (>=2), prior threat was non-zero, and current delta is <=0.
 - Impact hypothesis: reduce post-spike uncertainty by explicitly signalling pressure release windows.
 - Evidence: `main.lua`, `src/hud.lua`, `scripts/regression_hud_berserker_counters.lua` PASS.
+
+## 2026-03-22 22:05 KST — Cross-lane note
+- No combat mechanics changed.
+- Portal prompt now exposes drift-risk readability token that may influence player route pacing decisions.

@@ -1036,3 +1036,8 @@
 - With world/design overrepresented in the last-10 coverage window, this cycle intentionally shipped combat/vfx first.
 - Design/world follow-up remains queued (not shipped this cycle): `VIBE DRIFT:WIDE` escalation readability via optional `DRIFT GLYPH:<...>` token.
 - Goal: keep drift alarm legible without expanding prompt copy budget beyond compact-mode thresholds.
+
+## 2026-03-22 22:05 KST — Route-vibe drift alarm prototype (Cycle AU)
+- Decision: Add experimental drift alarm token when route-vibe conflict and snapback signals co-occur within a short transition window.
+- Player-facing copy: `VIBE DRIFT:WIDE` (detailed), `VDR:WIDE` (compact).
+- Follow-up: Escalating glyph variant remains queued as next world/design experiment.

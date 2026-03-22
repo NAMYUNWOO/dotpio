@@ -1558,3 +1558,8 @@
 - Coverage audit (last 10 completed items): systems 0, world 10, ai-content 0, combat 0, design 0, vfx 0, ux 0, qa 0.
 - Governance action: forced next experiment into underrepresented lane (combat/vfx) per >40% cap policy.
 - Backlog injection queued for systems/ops recovery: weekly digest `LANE CADENCE:OK|GAP` watchdog over trailing 24h buckets.
+
+## 2026-03-22 22:05 KST — Portal drift-window state tracking
+- Added lightweight transition-age counters for recent conflict/snapback events in `src/portal.lua`.
+- Window rule: alarm qualifies on same-turn pair or when counterpart occurred within <=2 transitions.
+- Validation: regression script added for detailed/compact token assertions and clear-state behavior.

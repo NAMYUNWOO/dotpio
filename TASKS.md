@@ -484,7 +484,7 @@ See project-level plans:
 ## Next Up (Game Director Injection — 2026-03-22 Cycle AU)
 - [x] Add post-snapback recovery cue token (`VIBE RECOVER:READY`, compact `VR:OK`) behind flag on first re-aligned transition
 - [x] Add route-vibe resilience streak token (`VIBE RESILIENCE:<n>`) behind flag for consecutive recoveries after snapback
-- [ ] Prototype route-vibe drift alarm token (`VIBE DRIFT:WIDE`) behind flag when conflict + snapback co-occur in short window
+- [x] Prototype route-vibe drift alarm token (`VIBE DRIFT:WIDE`) behind flag when conflict + snapback co-occur in short window
 
 ## Next Up (Game Director Injection — 2026-03-22 Cycle AV)
 - [x] Add berserker cooldown relief token (`BERSERK FX:FADE`) when pulse streak breaks after sustained rise (combat/vfx cadence guard)

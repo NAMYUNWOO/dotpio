@@ -1024,3 +1024,7 @@
 - Task support: Route-vibe resilience streak token integration for portal prompts.
 - Decision: Keep token additive and flag-gated to avoid altering baseline portal prompt contract.
 - Follow-up: Next world/design-facing prototype remains `VIBE DRIFT:WIDE` alarm under short-window conflict+snapback co-occurrence.
+
+## 2026-03-22 22:05 KST — Portal prompt readability update
+- Consumed new route-vibe drift alarm prototype for portal transition prompts.
+- No map/portal topology changes in this slice.

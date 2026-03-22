@@ -1251,3 +1251,7 @@
 - Task support: Exposed resilience streak after snapback recoveries in detailed/compact portal prompt variants.
 - Decision: Keep streak hidden unless recovery cue is present for clear moment-to-moment coaching.
 - Follow-up: Validate drift-alarm prompt token placement in both detailed and compact modes.
+
+## 2026-03-22 22:05 KST — Compact token pass
+- Added compact drift token `VDR:WIDE` for low-budget portal prompt mode.
+- Ensured detailed/compact parity with existing vibe conflict/snapback cues.
