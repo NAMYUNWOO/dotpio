@@ -1938,3 +1938,9 @@
 - Decision: Centralized streak/trigger logic in HUD helpers (updateBerserkerThreatRiseStreak, shouldTriggerBerserkerFxPulse) for deterministic behavior and regression coverage.
 - Evidence: lua scripts/regression_hud_berserker_counters.lua PASS; lua scripts/regression_enemy_behavior_variants.lua PASS.
 - Follow-up: Next unchecked backlog item is ROUTE VIGNETTE glyph prototype behind flag.
+
+## 2026-03-22 17:35 KST — Cycle AQ/AR regression evidence
+- PASS `lua scripts/regression_portal_route_preview.lua`
+- PASS `lua scripts/regression_portal_prompt_compact_mode.lua`
+- PASS `lua scripts/regression_portal_route_vibe.lua`
+- PASS `DOTPIO_EXPERIMENT_ROUTE_VIGNETTE_ASCII=1 lua scripts/regression_portal_route_vignette.lua`

@@ -965,3 +965,7 @@
 - Decision: Centralized streak/trigger logic in HUD helpers (updateBerserkerThreatRiseStreak, shouldTriggerBerserkerFxPulse) for deterministic behavior and regression coverage.
 - Evidence: lua scripts/regression_hud_berserker_counters.lua PASS; lua scripts/regression_enemy_behavior_variants.lua PASS.
 - Follow-up: Next unchecked backlog item is ROUTE VIGNETTE glyph prototype behind flag.
+
+## 2026-03-22 17:35 KST — Cycle AR prompt readability decision
+- Approved concise emotional vocabulary for portal routing: `CALM|EDGE|DOOM` (`C|E|D` compact).
+- Decision: preserve DOS compactness by keeping vibe as a single token and deferring richer prose to future flag experiments.

@@ -1695,3 +1695,14 @@ Compact decision memory for AI context efficiency.
 - Runtime integration: main combat loop tracks consecutive positive threat deltas and emits `BERSERK FX:PULSE [THREAT Δ:+n]` when conditions are met.
 - Verification: `lua scripts/regression_hud_berserker_counters.lua` PASS; `lua scripts/regression_enemy_behavior_variants.lua` PASS.
 - Backlog sync: marked done in both `TASKS.md` and `POST_RC_BACKLOG.md`; next highest unchecked item is route vignette prototype (`ROUTE VIGNETTE:<glyph>`) behind flag.
+
+## 2026-03-22 17:35 KST — Cycle AQ closure + Cycle AR injection
+- Closed remaining Cycle AQ prototype by shipping flag-gated portal ASCII vignette token (`ROUTE VIGNETTE:<glyph>`, compact `RV:<glyph>`) via `DOTPIO_EXPERIMENT_ROUTE_VIGNETTE_ASCII`; regression added (`scripts/regression_portal_route_vignette.lua`).
+- ACTION_ITEMS/TASKS/POST_RC_BACKLOG reached fully checked state (excluding checklist legend rows), so Game Director review cycle executed immediately.
+- Cycle AR idea set generated:
+  - Low-risk UX/game-feel: route-vibe coaching token (`ROUTE VIBE:CALM|EDGE|DOOM`).
+  - Mid-risk systems/QA: weekly route-vibe drift telemetry snapshot.
+  - High-risk novelty: `VIBE CONFLICT:ON` flag when route and threat pacing cues diverge.
+- Selected experiment: low-risk route-vibe coaching token vertical slice. Implemented in `src/portal.lua` for detailed+compact prompts (`VIBE:C|E|D` compact), with new regression `scripts/regression_portal_route_vibe.lua`.
+- Durable decision: keep route-vibe token always-on (player-facing readability), while keeping ASCII vignette experimental to protect prompt copy budget.
+- Backlog injected for Cycle AR in `TASKS.md` + `POST_RC_BACKLOG.md`; route-vibe token marked done, telemetry/conflict-warning tasks remain queued.

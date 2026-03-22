@@ -1476,3 +1476,8 @@
 - Decision: Centralized streak/trigger logic in HUD helpers (updateBerserkerThreatRiseStreak, shouldTriggerBerserkerFxPulse) for deterministic behavior and regression coverage.
 - Evidence: lua scripts/regression_hud_berserker_counters.lua PASS; lua scripts/regression_enemy_behavior_variants.lua PASS.
 - Follow-up: Next unchecked backlog item is ROUTE VIGNETTE glyph prototype behind flag.
+
+## 2026-03-22 17:35 KST — Cycle AR route-vibe token shipped
+- Added portal prompt route-vibe token mapping (`SAFE->CALM`, `RISK->EDGE`, `SPIKE->DOOM`; compact `C/E/D`) in `src/portal.lua`.
+- Kept token order stable by appending vibe after `FX` token in both detailed/compact prompts.
+- Follow-up queued: weekly vibe drift telemetry snapshot.

@@ -464,4 +464,9 @@ See project-level plans:
 ## Next Up (Game Director Injection — 2026-03-22 Cycle AQ)
 - [x] Add portal transition FX cue token (`FX:CALM|FLICKER|SURGE`, compact `FX:C|F|S`) from route pressure score for player-facing jump readability *(forced lane rebalance: vfx/world + systems)*
 - [x] Add combat hit-rhythm warning pulse token (`BERSERK FX:PULSE`) when `THREAT Δ:+` persists for 2+ turns (combat/vfx readability follow-up)
-- [ ] Prototype route-tag ASCII vignette in portal prompt (`ROUTE VIGNETTE:<glyph>`) behind flag for stronger world-choice fantasy
+- [x] Prototype route-tag ASCII vignette in portal prompt (`ROUTE VIGNETTE:<glyph>`) behind flag for stronger world-choice fantasy
+
+## Next Up (Game Director Injection — 2026-03-22 Cycle AR)
+- [x] Add route-vibe coaching token in portal prompt (`ROUTE VIBE:CALM|EDGE|DOOM`, compact `VIBE:C|E|D`) for faster emotional read on jump choice
+- [ ] Add route-vibe drift telemetry snapshot (count by vibe per weekly digest window) for readability tuning cadence
+- [ ] Prototype route-vibe conflict warning (`VIBE CONFLICT:ON`) behind flag when route tag and threat tier imply opposing pacing cues

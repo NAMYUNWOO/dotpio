@@ -966,3 +966,8 @@
 - Decision: Centralized streak/trigger logic in HUD helpers (updateBerserkerThreatRiseStreak, shouldTriggerBerserkerFxPulse) for deterministic behavior and regression coverage.
 - Evidence: lua scripts/regression_hud_berserker_counters.lua PASS; lua scripts/regression_enemy_behavior_variants.lua PASS.
 - Follow-up: Next unchecked backlog item is ROUTE VIGNETTE glyph prototype behind flag.
+
+## 2026-03-22 17:35 KST — Cycle AQ/AR portal fantasy readability
+- Completed flag-gated ASCII route vignette prototype (`ROUTE VIGNETTE:<glyph>`, compact `RV:<glyph>`) for portal transitions.
+- Added always-on route-vibe coaching token to strengthen world-choice fantasy before portal jumps.
+- Follow-up queued: conflict warning when route vibe and live threat cues diverge.

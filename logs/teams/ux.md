@@ -1190,3 +1190,7 @@
 - Decision: Centralized streak/trigger logic in HUD helpers (updateBerserkerThreatRiseStreak, shouldTriggerBerserkerFxPulse) for deterministic behavior and regression coverage.
 - Evidence: lua scripts/regression_hud_berserker_counters.lua PASS; lua scripts/regression_enemy_behavior_variants.lua PASS.
 - Follow-up: Next unchecked backlog item is ROUTE VIGNETTE glyph prototype behind flag.
+
+## 2026-03-22 17:35 KST — Cycle AR portal prompt UX pass
+- Route-vibe token now appears in both detailed and compact portal prompts for faster glance parsing under pressure.
+- ASCII vignette remains optional behind `DOTPIO_EXPERIMENT_ROUTE_VIGNETTE_ASCII` to avoid default copy overload.

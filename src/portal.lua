@@ -218,9 +218,41 @@ local function resolvePortalFxCue(pressureScore)
     return "CALM", "C"
 end
 
-local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge)
+local function resolveRouteVibe(routeTag)
+    if routeTag == "SAFE" then
+        return "CALM", "C"
+    elseif routeTag == "RISK" then
+        return "EDGE", "E"
+    elseif routeTag == "SPIKE" then
+        return "DOOM", "D"
+    end
+    return "UNKNOWN", "U"
+end
+
+local function isRouteVignetteExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_VIGNETTE_ASCII")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
+local function resolveRouteVignetteGlyph(routeTag)
+    if routeTag == "SAFE" then
+        return "[]"
+    elseif routeTag == "RISK" then
+        return "/!\\"
+    elseif routeTag == "SPIKE" then
+        return "^^^"
+    end
+    return "???"
+end
+
+local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette)
     local fxCue = resolvePortalFxCue(pressureScore)
-    local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s", routeTag, coach, pressureScore, fxCue)
+    local routeVibe = resolveRouteVibe(routeTag)
+    local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s  ROUTE VIBE:%s", routeTag, coach, pressureScore, fxCue, routeVibe)
     if altRouteTag then
         prompt = string.format("%s  ALT ROUTE:%s", prompt, altRouteTag)
         if altDelta then
@@ -230,12 +262,16 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
             prompt = string.format("%s  ALT PLAN:LOWER RISK", prompt)
         end
     end
+    if routeVignette then
+        prompt = string.format("%s  ROUTE VIGNETTE:%s", prompt, routeVignette)
+    end
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
-    local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue)
+    local _, compactRouteVibe = resolveRouteVibe(routeTag)
+    local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
     if altRouteTag then
         prompt = string.format("%s  ALT:%s", prompt, altRouteTag)
         if altDelta then
@@ -244,6 +280,9 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
         if altPlanNudge then
             prompt = string.format("%s  AP:LOW", prompt)
         end
+    end
+    if routeVignette then
+        prompt = string.format("%s  RV:%s", prompt, routeVignette)
     end
     return prompt
 end
@@ -259,10 +298,14 @@ function Portal.getTransitionPrompt(maxChars, context)
     local altRouteTag = resolveAdaptiveAltRoute(routeTag, pressureScore, threatTier, pendingTransition.reachableTargetMaps)
     local altDelta = resolveAdaptiveAltPressureDelta(routeTag, altRouteTag, threatTier)
     local altPlanNudge = isAltPlanExperimentEnabled() and altRouteTag ~= nil
-    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge)
+    local routeVignette = nil
+    if isRouteVignetteExperimentEnabled() then
+        routeVignette = resolveRouteVignetteGlyph(routeTag)
+    end
+    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette)
     local budget = tonumber(maxChars) or 76
     if budget > 0 and #prompt > budget then
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge)
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette)
     end
     return prompt
 end

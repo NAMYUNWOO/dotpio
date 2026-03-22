@@ -307,4 +307,9 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-22 Cycle AQ)
 - [x] VFX/World/Systems Team: Add portal transition FX cue token (`FX:CALM|FLICKER|SURGE`, compact `FX:C|F|S`) from route pressure score so jump risk reads instantly
 - [x] Combat/VFX Team: Add berserker pressure pulse token (`BERSERK FX:PULSE`) when `THREAT Δ:+` persists for 2+ turns
-- [ ] Design/World Team: Prototype route-tag ASCII vignette token (`ROUTE VIGNETTE:<glyph>`) behind flag for stronger path fantasy
+- [x] Design/World Team: Prototype route-tag ASCII vignette token (`ROUTE VIGNETTE:<glyph>`) behind flag for stronger path fantasy
+
+## P1 (Game Director Injection — 2026-03-22 Cycle AR)
+- [x] UX/Design Team: Add route-vibe coaching token in portal prompt (`ROUTE VIBE:CALM|EDGE|DOOM`, compact `VIBE:C|E|D`) for faster emotional read on jump choice
+- [ ] QA/Systems Team: Add route-vibe drift telemetry snapshot (count by vibe per weekly digest window) for readability tuning cadence
+- [ ] Design/AI Content Team: Prototype route-vibe conflict warning (`VIBE CONFLICT:ON`) behind flag when route tag and threat tier imply opposing pacing cues
