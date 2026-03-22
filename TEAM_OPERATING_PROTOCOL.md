@@ -1,6 +1,6 @@
 # TEAM_OPERATING_PROTOCOL
 
-Last updated: 2026-03-18
+Last updated: 2026-03-22
 Owner: Game Director (AI)
 Applies to: `feature/ai-disassemble-builder`
 
@@ -46,6 +46,11 @@ Each request must include:
 - Output: design guideline updates + UI/map polish diffs
 - DoD: theme coherence and UX clarity improve without breaking flow
 
+### VFX Team
+- Focus: hit feedback, effect timing, readability of combat cues, reward VFX rhythm
+- Output: VFX timing/value changes + capture evidence
+- DoD: player-facing combat feedback clarity improves without readability regressions
+
 ### UX Team
 - Focus: DOS UI clarity and action feedback
 - Output: copy/UI diff + refreshed screenshots
@@ -65,7 +70,7 @@ On every completed task, report in channel with:
 5. Next task
 
 And append team logs under `logs/teams/`:
-- `systems.md`, `world.md`, `ai-content.md`, `combat.md`, `design.md`, `ux.md`, `qa.md`
+- `systems.md`, `world.md`, `ai-content.md`, `combat.md`, `design.md`, `vfx.md`, `ux.md`, `qa.md`
 - Use append-only entries with timestamp, decision notes, and follow-ups.
 
 Context-window policy:

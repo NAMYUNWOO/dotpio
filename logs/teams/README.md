@@ -8,6 +8,7 @@ Purpose: preserve continuity and execution context across autonomous runs.
 - `ai-content.md` - prompt/output constraints/fallback behavior
 - `combat.md` - combat pacing/encounter/skill-effect tuning and decisions
 - `design.md` - visual/theme/UI hierarchy and presentation decisions
+- `vfx.md` - hit/effect timing, feedback readability, impact polish decisions
 - `ux.md` - DOS UI wording/interaction/feedback decisions
 - `qa.md` - regression scenarios, pass/fail, repro steps
 
