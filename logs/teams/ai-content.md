@@ -952,3 +952,10 @@
 ## 2026-03-22 18:05 KST — Route-vibe telemetry support
 - No generator prompt changes this cycle; telemetry foundation shipped to quantify route-vibe usage drift before enabling `VIBE CONFLICT` copy experiments.
 - Next AI-content touchpoint: draft short conflict cue copy variants once flag prototype is implemented.
+
+## 2026-03-22 18:31 KST — Route-vibe conflict copy hook
+- Added optional copy hook token `VIBE CONFLICT:ON` behind experiment flag for opposing pacing cues.
+- AI-content implication: keep token binary (`ON`) now; defer richer rationale text until readability telemetry confirms signal quality.
+
+## 2026-03-22 18:36 KST — Conflict cue microcopy standardization
+- Standardized concise rationale grammar to `CALMvsHIGH`/`DOOMvsLOW` style for stable parser-friendly logging.

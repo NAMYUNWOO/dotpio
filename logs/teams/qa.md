@@ -1949,3 +1949,13 @@
 - PASS `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
 - PASS `lua scripts/regression_portal_route_vibe.lua`
 - Added regression assertions for `routeVibeTotals` schema + markdown section presence.
+
+## 2026-03-22 18:31 KST — Route-vibe conflict regression pass
+- PASS `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 lua scripts/regression_portal_route_vibe_conflict.lua`
+- PASS `lua scripts/regression_portal_route_vibe.lua`
+- PASS `lua scripts/regression_portal_prompt_compact_mode.lua`
+- Validated: conflict token appears in detailed/compact prompts under extreme mismatch and stays absent for near-aligned cues.
+
+## 2026-03-22 18:36 KST — Route-vibe conflict reason regression
+- PASS `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT_REASON=1 lua scripts/regression_portal_route_vibe_conflict_reason.lua`
+- Confirmed detailed + compact rationale tokens emit only under conflict conditions.

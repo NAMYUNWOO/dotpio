@@ -312,4 +312,9 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-22 Cycle AR)
 - [x] UX/Design Team: Add route-vibe coaching token in portal prompt (`ROUTE VIBE:CALM|EDGE|DOOM`, compact `VIBE:C|E|D`) for faster emotional read on jump choice
 - [x] QA/Systems Team: Add route-vibe drift telemetry snapshot (count by vibe per weekly digest window) for readability tuning cadence
-- [ ] Design/AI Content Team: Prototype route-vibe conflict warning (`VIBE CONFLICT:ON`) behind flag when route tag and threat tier imply opposing pacing cues
+- [x] Design/AI Content Team: Prototype route-vibe conflict warning (`VIBE CONFLICT:ON`) behind flag when route tag and threat tier imply opposing pacing cues
+
+## P1 (Game Director Injection — 2026-03-22 Cycle AS)
+- [x] UX/Design Team: Add route-vibe conflict rationale token (`VIBE WHY:<vibe>vs<tier>`, compact `VCWHY:<vibe>/<tier>`) behind flag for faster portal-choice triage *(lifecycle: [~] -> [x])*
+- [ ] Systems/UX Team: Prototype conflict-aware coach override token (`COACH OVERRIDE:DE-ESCALATE`) behind flag when `VIBE CONFLICT:ON` and adaptive ALT exists
+- [ ] Design/Systems Team: Prototype vibe-consistency reward hint (`VIBE SYNC:+1`) behind flag when route vibe aligns with threat tier for 3 consecutive transitions

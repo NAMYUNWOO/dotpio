@@ -975,3 +975,10 @@
 ## 2026-03-22 18:05 KST — Route-vibe telemetry cadence wired
 - Weekly digest now tracks route-vibe drift (`CALM|EDGE|DOOM`) so portal pacing mix can be tuned per window without manual log scraping.
 - World lane follow-up remains: add conflict-warning prototype when route vibe and threat tier pacing diverge.
+
+## 2026-03-22 18:31 KST — Portal pacing conflict signal enabled (flagged)
+- Portal transition prompts can now surface `VIBE CONFLICT:ON` when route fantasy pacing diverges from current combat threat pressure.
+- This is currently experiment-gated to protect default UX while we gather tuning evidence.
+
+## 2026-03-22 18:36 KST — Portal handoff clarity increment
+- Conflict warnings now include explicit vibe-vs-threat rationale to improve map-jump pacing decisions during high-pressure runs.

@@ -918,3 +918,10 @@
 ## 2026-03-22 18:05 KST — Combat lane note (telemetry dependency)
 - Combat logic unchanged.
 - Route-vibe drift telemetry now available for future combat/portal pacing conflict checks (threat tier vs route vibe mismatch).
+
+## 2026-03-22 18:31 KST — Combat-pressure integration note
+- Reused existing `threatTier` context from combat threat strip to drive portal vibe-conflict warning classification.
+- No combat balance values changed.
+
+## 2026-03-22 18:36 KST — Threat-tier signaling reuse
+- Portal reason token consumes existing combat threat-tier classification without introducing new combat-state branches.

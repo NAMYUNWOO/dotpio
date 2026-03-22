@@ -1198,3 +1198,11 @@
 ## 2026-03-22 18:05 KST — UX observability update for portal prompts
 - Weekly digest markdown now includes `ROUTE VIBE DRIFT` headline and per-vibe breakdown section for quick readability audits.
 - This enables UX to detect overuse of one emotional cue without scanning raw commit diffs.
+
+## 2026-03-22 18:31 KST — Portal prompt readability follow-up
+- Added compact conflict shorthand `VC:ON` to preserve DOS prompt width in constrained mode.
+- Detailed prompt now appends `VIBE CONFLICT:ON` only when flagged and strongly divergent (extreme mismatch), avoiding constant warning spam.
+
+## 2026-03-22 18:36 KST — Route-vibe conflict reason slice
+- Added optional rationale token in detailed prompt: `VIBE WHY:<vibe>vs<tier>`.
+- Added compact rationale token: `VCWHY:<vibe>/<tier>` to preserve constrained prompt readability.

@@ -973,3 +973,15 @@
 ## 2026-03-22 18:05 KST — Route-vibe readability telemetry
 - Added durable weekly measurement for route-vibe token mix to support readability tuning cadence.
 - Decision: keep vibe token always-on; use drift counts first, then gate conflict-warning experiment to avoid copy noise.
+
+## 2026-03-22 18:31 KST — Route-vibe conflict cue prototype (flagged)
+- Implemented portal prompt conflict cue token behind `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT`.
+- Rule: emit `VIBE CONFLICT:ON` (compact `VC:ON`) only for strong pacing mismatch (SAFE+HIGH threat or SPIKE+LOW threat).
+- Decision: keep MED-tier variance non-conflicting to reduce false positives/noise.
+
+## 2026-03-22 18:36 KST — Cycle AS idea review + experiment selection
+- Candidate ideas generated:
+  1) `VIBE WHY` conflict rationale token (low risk, UX clarity).
+  2) `COACH OVERRIDE:DE-ESCALATE` conflict-aware coaching override (mid risk).
+  3) `VIBE SYNC:+1` alignment-reward hint (high risk novelty).
+- Selected experiment: Idea #1 for minimal vertical slice and quick reversibility.

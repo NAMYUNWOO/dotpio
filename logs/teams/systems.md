@@ -1486,3 +1486,13 @@
 - Added route-vibe drift aggregation in weekly digest pipeline (`scripts/weekly_portal_prompt_readability_drift.py`) with per-vibe counts (CALM/EDGE/DOOM) across commit window.
 - Snapshot now captures added/removed/net via new `routeVibeTotals` payload block and markdown summary lines for fast tuning triage.
 - Follow-up: wire conflict-warning token experiment (`VIBE CONFLICT:ON`) behind flag using this telemetry as guardrail evidence.
+
+## 2026-03-22 18:31 KST — Conflict classifier wiring for portal prompts
+- Added route-vibe conflict classifier to `src/portal.lua`:
+  - route expected tier mapping: SAFE->LOW, RISK->MED, SPIKE->HIGH
+  - conflict threshold: absolute tier delta >= 2
+- Added env-gated toggle `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT`.
+
+## 2026-03-22 18:36 KST — Conflict reason flag wiring
+- Added `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT_REASON` gate in portal prompt flow.
+- Reason token emission depends on both flags: conflict base flag + reason flag, and only when conflict condition is true.
