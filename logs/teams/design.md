@@ -1074,3 +1074,10 @@
 - Synced lane note: weekly digest gained flagged `ACTION PACE ALT WINDOW FIT:SAFE|EVEN|TENSE` token for pressure-aware alternate pacing guidance.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: await Cycle AY rationale micro-token (`ACTION PACE ALT WINDOW WHY:<short>`).
+
+## 2026-03-23 02:34 KST — Digest handoff clarity pass
+- Approved fallback rationale micro-token language budget for weekly digest line `ACTION PACE ALT WINDOW WHY`.
+- Kept copy compact to avoid DOS-width bloat while preserving operator intent.
+
+## 2026-03-23 02:36 KST — Cycle AZ design sign-off
+- Approved urgency tri-band (`NOW|SOON|LATER`) as minimal cognitive load addition for digest operators.

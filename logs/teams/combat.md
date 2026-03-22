@@ -1009,3 +1009,9 @@
 - Synced lane note: weekly digest gained flagged `ACTION PACE ALT WINDOW FIT:SAFE|EVEN|TENSE` token for pressure-aware alternate pacing guidance.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: await Cycle AY rationale micro-token (`ACTION PACE ALT WINDOW WHY:<short>`).
+
+## 2026-03-23 02:34 KST — Lane sync note
+- No combat tuning changes this cycle; verified fallback rationale token does not alter threat or pacing mechanics, only digest guidance copy.
+
+## 2026-03-23 02:36 KST — Cycle AZ lane sync
+- No combat param changes; urgency token remains digest-only and does not modify runtime combat loop.

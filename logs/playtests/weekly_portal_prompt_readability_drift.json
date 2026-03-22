@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T17:05:18.751403Z",
+  "generatedAt": "2026-03-22T17:37:01.890602Z",
   "status": "ok",
   "window": {
     "sinceDays": 30,
@@ -170,7 +170,7 @@
   "paceDriftSignals": {
     "currentPace": "STEADY",
     "currentScore": 0,
-    "priorPace": "NONE",
+    "priorPace": "STEADY",
     "priorScore": 0,
     "priorLoaded": true,
     "reason": "pace-stable"
@@ -221,6 +221,28 @@
     "sandboxReadiness": "IDLE",
     "pressureBand": "LOW",
     "reason": "fallback-lane-not-actionable"
+  },
+  "actionPaceAltWindowWhy": "PRIMARY HOLD",
+  "actionPaceAltWindowWhySignals": {
+    "flagName": "DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY",
+    "flagEnabled": true,
+    "actionPaceAltWindow": "PRIMARY OPEN",
+    "actionPaceAltWindowConfidence": "MID",
+    "actionPaceAltWindowFit": "EVEN",
+    "routeSandbox": "OFF",
+    "sandboxTarget": "NONE",
+    "sandboxReadiness": "IDLE",
+    "reason": "primary-window-still-actionable"
+  },
+  "actionPaceAltWindowUrgency": "SOON",
+  "actionPaceAltWindowUrgencySignals": {
+    "flagName": "DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY",
+    "flagEnabled": true,
+    "actionPaceAltWindow": "PRIMARY OPEN",
+    "actionPaceAltWindowConfidence": "MID",
+    "actionPaceAltWindowFit": "EVEN",
+    "actionPaceAltWindowWhy": "PRIMARY HOLD",
+    "reason": "default-moderate-urgency"
   },
   "actionPaceWhy": "FLAG OFF",
   "actionPaceWhySignals": {
@@ -668,7 +690,7 @@
     "currentRelease": "FLAG OFF",
     "currentState": "IDLE",
     "priorTick": 0,
-    "priorRelease": "STABLE",
+    "priorRelease": "FLAG OFF",
     "priorState": "IDLE",
     "priorLoaded": true,
     "reason": "flag-disabled"
@@ -962,6 +984,114 @@
   },
   "topTokenMovers": [],
   "commits": [
+    {
+      "sha": "ac4cdb0275e19b0ffc8920469e477081e606532b",
+      "shortSha": "ac4cdb0",
+      "author": "yunwoo",
+      "subject": "feat: add action pace alt window fit token",
+      "committedAt": "2026-03-22T17:06:47Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/playtests/weekly_portal_prompt_readability_drift.json",
+        "logs/playtests/weekly_portal_prompt_readability_drift.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      },
+      "routeVibeEdits": {
+        "added": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "removed": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        },
+        "net": {
+          "CALM": 0,
+          "EDGE": 0,
+          "DOOM": 0
+        }
+      }
+    },
     {
       "sha": "79dc21317d453337e7cfc73af001411a2b2ffa44",
       "shortSha": "79dc213",
@@ -6128,114 +6258,6 @@
         "logs/teams/systems.md",
         "logs/teams/ux.md",
         "logs/teams/world.md",
-        "scripts/regression_weekly_portal_prompt_readability_drift.py",
-        "scripts/weekly_portal_prompt_readability_drift.py"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      },
-      "routeVibeEdits": {
-        "added": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "removed": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        },
-        "net": {
-          "CALM": 0,
-          "EDGE": 0,
-          "DOOM": 0
-        }
-      }
-    },
-    {
-      "sha": "8a07ec547ade22eb4b88db0816d004018ef0eb86",
-      "shortSha": "8a07ec5",
-      "author": "yunwoo",
-      "subject": "feat(digest): add split escalation recovery route hint token",
-      "committedAt": "2026-03-21T18:42:03Z",
-      "changedFiles": [
-        "POST_RC_BACKLOG.md",
-        "TASKS.md",
-        "logs/teams/_summary.md",
-        "logs/teams/ai-content.md",
-        "logs/teams/combat.md",
-        "logs/teams/design.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "logs/teams/ux.md",
-        "logs/teams/world.md",
-        "logs/weekly_portal_prompt_readability_drift.json",
-        "logs/weekly_portal_prompt_readability_drift.md",
         "scripts/regression_weekly_portal_prompt_readability_drift.py",
         "scripts/weekly_portal_prompt_readability_drift.py"
       ],

@@ -1610,3 +1610,14 @@
 - Flag contract: `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT` (OFF by default).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and flagged digest generation PASS.
 - Next hook: remaining Cycle AY unchecked item is `ACTION PACE ALT WINDOW WHY:<short>`.
+
+## 2026-03-23 02:34 KST — Cycle AY fallback rationale token shipped (`ACTION PACE ALT WINDOW WHY`)
+- Added `action_pace_alt_window_why_from_signals(...)` in `scripts/weekly_portal_prompt_readability_drift.py` with experiment flag `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY`.
+- Wired payload fields `actionPaceAltWindowWhy` / `actionPaceAltWindowWhySignals` and markdown row `ACTION PACE ALT WINDOW WHY`.
+- Follow-up: next Game Director cycle should inject fresh unchecked items (TASKS + POST_RC currently fully checked).
+
+## 2026-03-23 02:36 KST — Cycle AZ selected experiment shipped (`ACTION PACE ALT WINDOW URGENCY`)
+- Game Director ideas generated (low/mid/high): URGENCY band token, URGENCY drift delta token, fallback STEP verb token.
+- Selected idea #1 and shipped `action_pace_alt_window_urgency_from_signals(...)` behind `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY`.
+- Wired payload fields `actionPaceAltWindowUrgency`/signals and markdown row `ACTION PACE ALT WINDOW URGENCY`.
+- Next hook: implement remaining Cycle AZ items (`URGENCY Δ`, `STEP`).

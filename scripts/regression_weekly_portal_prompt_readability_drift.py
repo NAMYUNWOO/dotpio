@@ -11,6 +11,8 @@ from pathlib import Path
 from weekly_portal_prompt_readability_drift import (
     action_pace_alt_window_confidence_from_signals,
     action_pace_alt_window_fit_from_signals,
+    action_pace_alt_window_why_from_signals,
+    action_pace_alt_window_urgency_from_signals,
     action_pace_alt_window_from_signals,
     action_pace_window_confidence_from_signals,
     pace_drift_from_prior,
@@ -832,6 +834,28 @@ def main() -> int:
             "pressureBand",
             "reason",
         }, payload
+        assert isinstance(payload.get("actionPaceAltWindowWhy"), str), payload
+        assert set(payload.get("actionPaceAltWindowWhySignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "actionPaceAltWindow",
+            "actionPaceAltWindowConfidence",
+            "actionPaceAltWindowFit",
+            "routeSandbox",
+            "sandboxTarget",
+            "sandboxReadiness",
+            "reason",
+        }, payload
+        assert payload.get("actionPaceAltWindowUrgency") in {"OFF", "NOW", "SOON", "LATER"}, payload
+        assert set(payload.get("actionPaceAltWindowUrgencySignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "actionPaceAltWindow",
+            "actionPaceAltWindowConfidence",
+            "actionPaceAltWindowFit",
+            "actionPaceAltWindowWhy",
+            "reason",
+        }, payload
         assert isinstance(payload.get("actionPaceWhy"), str), payload
         assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
             "flagName",
@@ -893,6 +917,8 @@ def main() -> int:
         assert "ACTION PACE ALT WINDOW" in md_text
         assert "ACTION PACE ALT WINDOW CONF" in md_text
         assert "ACTION PACE ALT WINDOW FIT" in md_text
+        assert "ACTION PACE ALT WINDOW WHY" in md_text
+        assert "ACTION PACE ALT WINDOW URGENCY" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
@@ -1079,6 +1105,55 @@ def main() -> int:
             )
             assert alt_fit_tense == "TENSE", (alt_fit_tense, alt_fit_tense_signals)
             assert alt_fit_tense_signals["reason"] == "fallback-lane-not-actionable", alt_fit_tense_signals
+
+            prior_alt_why_flag = os.environ.get("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY")
+            os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY"] = "1"
+            alt_why_probe, alt_why_probe_signals = action_pace_alt_window_why_from_signals(
+                action_pace_alt_window=alt_window_probe,
+                action_pace_alt_window_confidence=alt_conf_high,
+                action_pace_alt_window_fit=alt_fit_safe,
+                action_pace_alt_window_signals=alt_window_probe_signals,
+            )
+            assert alt_why_probe == "PROBE NOW", (alt_why_probe, alt_why_probe_signals)
+            assert alt_why_probe_signals["reason"] == "high-confidence-safe-probe", alt_why_probe_signals
+
+            alt_why_wait, alt_why_wait_signals = action_pace_alt_window_why_from_signals(
+                action_pace_alt_window=alt_window_wait,
+                action_pace_alt_window_confidence=alt_conf_low,
+                action_pace_alt_window_fit=alt_fit_tense,
+                action_pace_alt_window_signals=alt_window_wait_signals,
+            )
+            assert alt_why_wait == "ARM SANDBOX", (alt_why_wait, alt_why_wait_signals)
+            assert alt_why_wait_signals["reason"] == "sandbox-not-armed", alt_why_wait_signals
+
+            prior_alt_urgency_flag = os.environ.get("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY")
+            os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY"] = "1"
+            alt_urgency_now, alt_urgency_now_signals = action_pace_alt_window_urgency_from_signals(
+                action_pace_alt_window=alt_window_probe,
+                action_pace_alt_window_confidence=alt_conf_high,
+                action_pace_alt_window_fit=alt_fit_safe,
+                action_pace_alt_window_why=alt_why_probe,
+            )
+            assert alt_urgency_now == "NOW", (alt_urgency_now, alt_urgency_now_signals)
+            assert alt_urgency_now_signals["reason"] == "high-confidence-safe-probe-window", alt_urgency_now_signals
+
+            alt_urgency_later, alt_urgency_later_signals = action_pace_alt_window_urgency_from_signals(
+                action_pace_alt_window=alt_window_wait,
+                action_pace_alt_window_confidence=alt_conf_low,
+                action_pace_alt_window_fit=alt_fit_tense,
+                action_pace_alt_window_why=alt_why_wait,
+            )
+            assert alt_urgency_later == "LATER", (alt_urgency_later, alt_urgency_later_signals)
+            assert alt_urgency_later_signals["reason"] == "fallback-not-actionable-yet", alt_urgency_later_signals
+
+            if prior_alt_why_flag is None:
+                os.environ.pop("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY", None)
+            else:
+                os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY"] = prior_alt_why_flag
+            if prior_alt_urgency_flag is None:
+                os.environ.pop("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY", None)
+            else:
+                os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY"] = prior_alt_urgency_flag
         finally:
             if prior_alt_flag is None:
                 os.environ.pop("DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW", None)

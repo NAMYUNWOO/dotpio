@@ -718,6 +718,122 @@ def action_pace_alt_window_fit_from_signals(
     }
 
 
+def action_pace_alt_window_why_from_signals(
+    *,
+    action_pace_alt_window: str,
+    action_pace_alt_window_confidence: str,
+    action_pace_alt_window_fit: str,
+    action_pace_alt_window_signals: dict[str, str | bool],
+) -> tuple[str, dict[str, str | bool]]:
+    """Prototype compact rationale token for fallback pacing handoff."""
+    flag_name = "DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    alt_window = str(action_pace_alt_window).upper()
+    confidence = str(action_pace_alt_window_confidence).upper()
+    fit = str(action_pace_alt_window_fit).upper()
+    target = str(action_pace_alt_window_signals.get("sandboxTarget", "NONE")).upper()
+    readiness = str(action_pace_alt_window_signals.get("sandboxReadiness", "IDLE")).upper()
+    sandbox = str(action_pace_alt_window_signals.get("routeSandbox", "OFF")).upper()
+
+    if not flag_enabled:
+        why = "FLAG OFF"
+        reason = "flag-disabled"
+    elif alt_window == "FLAG OFF":
+        why = "ALT FLAG OFF"
+        reason = "alt-window-flag-disabled"
+    elif alt_window == "PRIMARY OPEN":
+        why = "PRIMARY HOLD"
+        reason = "primary-window-still-actionable"
+    elif alt_window == "WAIT SANDBOX":
+        why = "ARM SANDBOX"
+        reason = "sandbox-not-armed"
+    elif alt_window == "NO ALT LANE":
+        why = "PICK ALT LANE"
+        reason = "sandbox-target-not-actionable"
+    elif fit == "SAFE" and confidence == "HIGH" and alt_window.startswith("PROBE"):
+        why = "PROBE NOW"
+        reason = "high-confidence-safe-probe"
+    elif fit == "SAFE" and alt_window.startswith("STAGE"):
+        why = "STAGE THEN GO"
+        reason = "safe-fit-with-primed-lane"
+    elif fit == "TENSE" and confidence == "LOW":
+        why = "HOLD FALLBACK"
+        reason = "tense-fit-low-confidence"
+    elif fit == "TENSE" and readiness != "ARMED":
+        why = "WAIT ARM"
+        reason = "tense-fit-without-armed-readiness"
+    elif fit == "EVEN" and target in {"ALT", "PRESSURE", "PORTAL"}:
+        why = f"PROBE {target}"
+        reason = "even-fit-actionable-lane"
+    else:
+        why = "WATCH ALT"
+        reason = "default-fallback-watch"
+
+    return why, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "actionPaceAltWindow": alt_window,
+        "actionPaceAltWindowConfidence": confidence,
+        "actionPaceAltWindowFit": fit,
+        "routeSandbox": sandbox,
+        "sandboxTarget": target,
+        "sandboxReadiness": readiness,
+        "reason": reason,
+    }
+
+
+def action_pace_alt_window_urgency_from_signals(
+    *,
+    action_pace_alt_window: str,
+    action_pace_alt_window_confidence: str,
+    action_pace_alt_window_fit: str,
+    action_pace_alt_window_why: str,
+) -> tuple[str, dict[str, str | bool]]:
+    """Prototype urgency band for fallback pacing handoff."""
+    flag_name = "DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    alt_window = str(action_pace_alt_window).upper()
+    confidence = str(action_pace_alt_window_confidence).upper()
+    fit = str(action_pace_alt_window_fit).upper()
+    why = str(action_pace_alt_window_why).upper()
+
+    if not flag_enabled:
+        urgency = "OFF"
+        reason = "flag-disabled"
+    elif alt_window in {"WAIT SANDBOX", "NO ALT LANE", "FLAG OFF"} or why in {"ARM SANDBOX", "PICK ALT LANE", "ALT FLAG OFF"}:
+        urgency = "LATER"
+        reason = "fallback-not-actionable-yet"
+    elif fit == "SAFE" and confidence == "HIGH" and (alt_window.startswith("PROBE") or why == "PROBE NOW"):
+        urgency = "NOW"
+        reason = "high-confidence-safe-probe-window"
+    elif fit == "SAFE" and confidence in {"MID", "HIGH"}:
+        urgency = "SOON"
+        reason = "safe-fit-needs-short-staging"
+    elif fit == "EVEN" and confidence == "HIGH":
+        urgency = "SOON"
+        reason = "balanced-fit-with-strong-confidence"
+    elif fit == "TENSE":
+        urgency = "LATER"
+        reason = "tense-fit-defers-action"
+    else:
+        urgency = "SOON"
+        reason = "default-moderate-urgency"
+
+    return urgency, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "actionPaceAltWindow": alt_window,
+        "actionPaceAltWindowConfidence": confidence,
+        "actionPaceAltWindowFit": fit,
+        "actionPaceAltWindowWhy": why,
+        "reason": reason,
+    }
+
+
 def route_action_guardrail_from_signals(*, drift_risk: str, route_action_confidence: str) -> tuple[str, dict[str, str | bool]]:
     lock = drift_risk == "HIGH" and route_action_confidence == "LOW"
     token = "LOCK" if lock else "SOFT"
@@ -4089,6 +4205,18 @@ def main() -> int:
         action_pace_alt_window_signals=action_pace_alt_window_signals,
         pressure_band=pressure_band,
     )
+    action_pace_alt_window_why, action_pace_alt_window_why_signals = action_pace_alt_window_why_from_signals(
+        action_pace_alt_window=action_pace_alt_window,
+        action_pace_alt_window_confidence=action_pace_alt_window_confidence,
+        action_pace_alt_window_fit=action_pace_alt_window_fit,
+        action_pace_alt_window_signals=action_pace_alt_window_signals,
+    )
+    action_pace_alt_window_urgency, action_pace_alt_window_urgency_signals = action_pace_alt_window_urgency_from_signals(
+        action_pace_alt_window=action_pace_alt_window,
+        action_pace_alt_window_confidence=action_pace_alt_window_confidence,
+        action_pace_alt_window_fit=action_pace_alt_window_fit,
+        action_pace_alt_window_why=action_pace_alt_window_why,
+    )
     action_pace_why, action_pace_why_signals = action_pace_why_from_signals(
         action_pace=action_pace,
         action_guard=action_guard,
@@ -4495,6 +4623,10 @@ def main() -> int:
         "actionPaceAltWindowConfidenceSignals": action_pace_alt_window_confidence_signals,
         "actionPaceAltWindowFit": action_pace_alt_window_fit,
         "actionPaceAltWindowFitSignals": action_pace_alt_window_fit_signals,
+        "actionPaceAltWindowWhy": action_pace_alt_window_why,
+        "actionPaceAltWindowWhySignals": action_pace_alt_window_why_signals,
+        "actionPaceAltWindowUrgency": action_pace_alt_window_urgency,
+        "actionPaceAltWindowUrgencySignals": action_pace_alt_window_urgency_signals,
         "actionPaceWhy": action_pace_why,
         "actionPaceWhySignals": action_pace_why_signals,
         "whatIfAlt": what_if_alt,
@@ -4695,6 +4827,8 @@ def main() -> int:
         f"- ACTION PACE ALT WINDOW: **{action_pace_alt_window}** ({action_pace_alt_window_signals['reason']}; flag={action_pace_alt_window_signals['flagName']} enabled={action_pace_alt_window_signals['flagEnabled']} primary={action_pace_alt_window_signals['actionPaceWindow']} sandbox={action_pace_alt_window_signals['routeSandbox']} target={action_pace_alt_window_signals['sandboxTarget']} ready={action_pace_alt_window_signals['sandboxReadiness']})",
         f"- ACTION PACE ALT WINDOW CONF: **{action_pace_alt_window_confidence}** ({action_pace_alt_window_confidence_signals['reason']}; base={action_pace_alt_window_confidence_signals['actionPaceWindowConfidence']} flag={action_pace_alt_window_confidence_signals['flagEnabled']} sandbox={action_pace_alt_window_confidence_signals['routeSandbox']} target={action_pace_alt_window_confidence_signals['sandboxTarget']} ready={action_pace_alt_window_confidence_signals['sandboxReadiness']})",
         f"- ACTION PACE ALT WINDOW FIT: **{action_pace_alt_window_fit}** ({action_pace_alt_window_fit_signals['reason']}; flag={action_pace_alt_window_fit_signals['flagName']} enabled={action_pace_alt_window_fit_signals['flagEnabled']} pressure={action_pace_alt_window_fit_signals['pressureBand']} sandbox={action_pace_alt_window_fit_signals['routeSandbox']} target={action_pace_alt_window_fit_signals['sandboxTarget']} ready={action_pace_alt_window_fit_signals['sandboxReadiness']})",
+        f"- ACTION PACE ALT WINDOW WHY: **{action_pace_alt_window_why}** ({action_pace_alt_window_why_signals['reason']}; flag={action_pace_alt_window_why_signals['flagName']} enabled={action_pace_alt_window_why_signals['flagEnabled']} alt={action_pace_alt_window_why_signals['actionPaceAltWindow']} conf={action_pace_alt_window_why_signals['actionPaceAltWindowConfidence']} fit={action_pace_alt_window_why_signals['actionPaceAltWindowFit']} sandbox={action_pace_alt_window_why_signals['routeSandbox']} target={action_pace_alt_window_why_signals['sandboxTarget']} ready={action_pace_alt_window_why_signals['sandboxReadiness']})",
+        f"- ACTION PACE ALT WINDOW URGENCY: **{action_pace_alt_window_urgency}** ({action_pace_alt_window_urgency_signals['reason']}; flag={action_pace_alt_window_urgency_signals['flagName']} enabled={action_pace_alt_window_urgency_signals['flagEnabled']} alt={action_pace_alt_window_urgency_signals['actionPaceAltWindow']} conf={action_pace_alt_window_urgency_signals['actionPaceAltWindowConfidence']} fit={action_pace_alt_window_urgency_signals['actionPaceAltWindowFit']} why={action_pace_alt_window_urgency_signals['actionPaceAltWindowWhy']})",
         f"- ACTION PACE WHY: **{action_pace_why}** ({action_pace_why_signals['reason']}; flag={action_pace_why_signals['flagName']} enabled={action_pace_why_signals['flagEnabled']} pace={action_pace_why_signals['actionPace']} guard={action_pace_why_signals['actionGuard']} stability={action_pace_why_signals['actionStability']} lag={action_pace_why_signals['pressureLag']} drift={action_pace_why_signals['paceDrift']:+d})",
         f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
         f"- WHAT-IF CONF: **{what_if_confidence}** ({what_if_confidence_signals['reason']}; delta={what_if_confidence_signals['deltaRisk']} routeConf={what_if_confidence_signals['routeActionConfidence']} current={what_if_confidence_signals['currentLane']} alt={what_if_confidence_signals['altLane']})",

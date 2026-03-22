@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-22T17:05:18.751403Z
+- GeneratedAt(UTC): 2026-03-22T17:37:01.890602Z
 - Status: **OK**
 - Window: last 30 days (max 50 commits)
 - Checked commits: 50
@@ -31,12 +31,14 @@
 - ACTION STABILITY: **WATCH** (retune-watch-needed; conf=LOW vol=STEADY momentum=FLAT)
 - PRESSURE LAG: **STABLE** (churn=0 momentum=FLAT |Δ|=0.0)
 - ACTION PACE: **STEADY** (default-steady; guard=SOFT stability=WATCH lag=STABLE)
-- PACE DRIFT: **+0** (pace-stable; current=STEADY(0) prior=NONE(0) loaded=True)
+- PACE DRIFT: **+0** (pace-stable; current=STEADY(0) prior=STEADY(0) loaded=True)
 - ACTION PACE WINDOW: **HOLD** (maintain-current-pace-window; pace=STEADY guard=SOFT drift=+0)
 - ACTION PACE WINDOW CONF: **MID** (moderate-drift-continuity; window=HOLD stability=WATCH continuity=STABLE drift=+0 loaded=True)
 - ACTION PACE ALT WINDOW: **PRIMARY OPEN** (primary-window-not-closed; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW enabled=True primary=HOLD sandbox=OFF target=NONE ready=IDLE)
 - ACTION PACE ALT WINDOW CONF: **MID** (default-fallback-confidence; base=MID flag=True sandbox=OFF target=NONE ready=IDLE)
 - ACTION PACE ALT WINDOW FIT: **EVEN** (fallback-lane-not-actionable; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT enabled=True pressure=LOW sandbox=OFF target=NONE ready=IDLE)
+- ACTION PACE ALT WINDOW WHY: **PRIMARY HOLD** (primary-window-still-actionable; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY enabled=True alt=PRIMARY OPEN conf=MID fit=EVEN sandbox=OFF target=NONE ready=IDLE)
+- ACTION PACE ALT WINDOW URGENCY: **SOON** (default-moderate-urgency; flag=DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_URGENCY enabled=True alt=PRIMARY OPEN conf=MID fit=EVEN why=PRIMARY HOLD)
 - ACTION PACE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_WHY enabled=False pace=STEADY guard=SOFT stability=WATCH lag=STABLE drift=+0)
 - WHAT-IF: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_ALT enabled=False current=MIXED alt=PRESSURE risk=0->0)
 - WHAT-IF CONF: **LOW** (flag-disabled; delta=0 routeConf=LOW current=MIXED alt=PRESSURE)
@@ -83,7 +85,7 @@
 - WHAT-IF SPLIT ESC RECOVER VETO RELEASE: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE enabled=False current=IDLE prior=IDLE loaded=True)
 - WHAT-IF SPLIT ESC RECOVER VETO RELEASE CONF: **LOW** (no-release-transition-detected; release=FLAG OFF state=IDLE dwell=0)
 - WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE: **NONE** (no-release-route-available; release=FLAG OFF state=IDLE plan=HOLD primary=OFF alt=OFF)
-- WHAT-IF SPLIT ESC RECOVER VETO RELEASE TICK: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE_TICK enabled=False release=FLAG OFF state=IDLE prior=STABLE:IDLE:0)
+- WHAT-IF SPLIT ESC RECOVER VETO RELEASE TICK: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE_TICK enabled=False release=FLAG OFF state=IDLE prior=FLAG OFF:IDLE:0)
 - WHAT-IF SPLIT ESC RECOVER VETO RELEASE PHASE: **FLAG OFF** (non-numeric-tick-token-forwarded; tick=FLAG OFF numeric=False)
 - WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE: **FLAG OFF** (non-numeric-tick-token-forwarded; tick=FLAG OFF prior=0 delta=0 numeric=False)
 - WHAT-IF SPLIT ESC RECOVER VETO REARM: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM enabled=False phase=FLAG OFF pressure=LOW cadence=FLAG OFF)

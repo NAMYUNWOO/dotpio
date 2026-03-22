@@ -1901,3 +1901,12 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 50 --out-json logs/playtests/weekly_portal_prompt_readability_drift.json --out-md logs/playtests/weekly_portal_prompt_readability_drift.md`
 - Remaining highest-priority unchecked item: `ACTION PACE ALT WINDOW WHY:<short>`.
+
+- 2026-03-23 02:34 KST: Closed final Cycle AY unchecked task by shipping flagged token `ACTION PACE ALT WINDOW WHY:<short>` with payload/schema + markdown wiring in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Decision: keep fallback rationale behind `DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY` and map to compact operator verbs (`PROBE NOW`, `ARM SANDBOX`, `PRIMARY HOLD`, `HOLD FALLBACK`) to preserve digest readability.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and flagged digest run (`DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT=1 DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_WHY=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 50 --out-json logs/playtests/weekly_portal_prompt_readability_drift.json --out-md logs/playtests/weekly_portal_prompt_readability_drift.md`).
+- Backlog state: ACTION_ITEMS/TASKS/POST_RC now fully checked; next run should execute Game Director 3-idea review cycle and inject new tasks.
+
+- 2026-03-23 02:36 KST: Ran Game Director review cycle after all prior backlog items were checked; generated three ideas and selected low-risk UX/systems experiment `ACTION PACE ALT WINDOW URGENCY`.
+- Implemented minimal vertical slice in weekly digest: new flagged token `ACTION PACE ALT WINDOW URGENCY:NOW|SOON|LATER` with payload + markdown + regression coverage.
+- Injected Cycle AZ backlog tasks (remaining unchecked): `ACTION PACE ALT WINDOW URGENCY Δ:+n|-n` and `ACTION PACE ALT WINDOW STEP:<verb>`.

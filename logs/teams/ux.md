@@ -1288,3 +1288,10 @@
 - Synced lane note: weekly digest gained flagged `ACTION PACE ALT WINDOW FIT:SAFE|EVEN|TENSE` token for pressure-aware alternate pacing guidance.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: await Cycle AY rationale micro-token (`ACTION PACE ALT WINDOW WHY:<short>`).
+
+## 2026-03-23 02:34 KST — Operator readability sync
+- Weekly digest now presents fallback stack as: `ALT WINDOW` -> `ALT WINDOW CONF` -> `ALT WINDOW FIT` -> `ALT WINDOW WHY`.
+- This keeps actionability, confidence, and rationale adjacent for quick scan.
+
+## 2026-03-23 02:36 KST — Cycle AZ readability pass
+- Inserted urgency line adjacent to fallback WHY for direct handoff sequence (`ALT WINDOW` -> `CONF` -> `FIT` -> `WHY` -> `URGENCY`).

@@ -1041,3 +1041,11 @@
 - Synced lane note: weekly digest gained flagged `ACTION PACE ALT WINDOW FIT:SAFE|EVEN|TENSE` token for pressure-aware alternate pacing guidance.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: await Cycle AY rationale micro-token (`ACTION PACE ALT WINDOW WHY:<short>`).
+
+## 2026-03-23 02:34 KST — Compact fallback rationale copy shipped
+- Added short-form operator micro-rationales for fallback pacing handoff (`PROBE NOW`, `ARM SANDBOX`, `PRIMARY HOLD`, etc.).
+- Rationale mapping now reflects fallback confidence/fit/readiness signals for concise digest readability.
+
+## 2026-03-23 02:36 KST — Cycle AZ rationale cadence extension
+- Added urgency vocabulary (`NOW|SOON|LATER`) aligned with fallback WHY + fit/confidence.
+- Keeps operator handoff actionable without long prose.
