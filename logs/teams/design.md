@@ -1059,3 +1059,7 @@
 - Added `ACTION PACE WINDOW` and `ACTION PACE WHY` lines in digest to keep pacing decisions glanceable.
 - Kept token vocabulary compact and deterministic to avoid markdown noise.
 - Next design follow-up queued: alt-window fallback token for `CLOSE` states under sandbox-on context.
+
+## 2026-03-23 01:04 KST — Cross-lane note
+- Design lane reviewed confidence token order in digest: pacing window then confidence then rationale.
+- No visual asset/theme modifications required.

@@ -1272,3 +1272,8 @@
 ## 2026-03-23 00:37 KST — Cycle AX UX triage token
 - New digest UX cue `ACTION PACE WINDOW:OPEN|HOLD|CLOSE` now surfaces go/no-go pacing intent before long WHAT-IF rows.
 - `ACTION PACE WHY` line remains flag-gated for compact coaching context.
+
+## 2026-03-23 01:04 KST — Digest scanline readability pass
+- Inserted `ACTION PACE WINDOW CONF` directly after `ACTION PACE WINDOW` to preserve go/no-go + confidence adjacency for quick operator scan.
+- Confidence line includes continuity hint (`STABLE|SHIFT|SWING`) and prior-load state for triage transparency.
+- No additional UI panel changes required.

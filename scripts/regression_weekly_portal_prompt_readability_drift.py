@@ -9,6 +9,7 @@ import tempfile
 from pathlib import Path
 
 from weekly_portal_prompt_readability_drift import (
+    action_pace_window_confidence_from_signals,
     pace_drift_from_prior,
     sandbox_cooloff_from_prior,
     what_if_split_cooloff_from_prior,
@@ -788,6 +789,15 @@ def main() -> int:
             "paceDrift",
             "reason",
         }, payload
+        assert payload.get("actionPaceWindowConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("actionPaceWindowConfidenceSignals", {}).keys()) == {
+            "actionPaceWindow",
+            "actionStability",
+            "paceDrift",
+            "driftContinuity",
+            "priorLoaded",
+            "reason",
+        }, payload
         assert isinstance(payload.get("actionPaceWhy"), str), payload
         assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
             "flagName",
@@ -845,6 +855,7 @@ def main() -> int:
         assert "ACTION PACE" in md_text
         assert "PACE DRIFT" in md_text
         assert "ACTION PACE WINDOW" in md_text
+        assert "ACTION PACE WINDOW CONF" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
@@ -949,6 +960,24 @@ def main() -> int:
         )
         assert pace_drift_up == 2, (pace_drift_up, pace_drift_up_signals)
         assert pace_drift_up_signals["reason"] == "pace-accelerated", pace_drift_up_signals
+
+        pace_conf_high, pace_conf_high_signals = action_pace_window_confidence_from_signals(
+            action_pace_window="HOLD",
+            action_stability="LOCKED",
+            pace_drift=0,
+            pace_drift_signals={"priorLoaded": True},
+        )
+        assert pace_conf_high == "HIGH", (pace_conf_high, pace_conf_high_signals)
+        assert pace_conf_high_signals["reason"] == "locked-stability-and-stable-drift", pace_conf_high_signals
+
+        pace_conf_low, pace_conf_low_signals = action_pace_window_confidence_from_signals(
+            action_pace_window="OPEN",
+            action_stability="WATCH",
+            pace_drift=2,
+            pace_drift_signals={"priorLoaded": True},
+        )
+        assert pace_conf_low == "LOW", (pace_conf_low, pace_conf_low_signals)
+        assert pace_conf_low_signals["reason"] == "watch-stability-with-drift-swing", pace_conf_low_signals
 
         prior_cooling = repo / "prior-cooloff.json"
         prior_cooling.write_text(json.dumps({"routeSandbox": "OFF", "sandboxCooloff": 2}), encoding="utf-8")

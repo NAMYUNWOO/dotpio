@@ -2069,3 +2069,11 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 14 --max-commits 200`
 - Regression coverage now includes payload + markdown assertions for `ACTION PACE WHY` and `ACTION PACE WINDOW`.
+
+## 2026-03-23 01:04 KST — Regression coverage for pace-window confidence
+- Extended weekly digest regression schema checks to require payload keys:
+  - `actionPaceWindowConfidence`
+  - `actionPaceWindowConfidenceSignals`
+- Added markdown assertion for `ACTION PACE WINDOW CONF` row.
+- Added helper-level confidence classification checks (HIGH stable case, LOW swing/watch case).
+- Verification command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).

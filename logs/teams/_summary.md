@@ -1865,3 +1865,11 @@ Compact decision memory for AI context efficiency.
 - Selected/implemented Cycle AX minimal vertical slice: `ACTION PACE WINDOW:OPEN|HOLD|CLOSE` derived from `ACTION PACE + PACE DRIFT + ACTION GUARD`.
 - Added backlog follow-ups: `ACTION PACE WINDOW CONF` and flagged `ACTION PACE ALT WINDOW:<short>`.
 - Verification artifacts PASS: weekly digest regression + digest generation.
+
+## 2026-03-23 01:04 KST — Cycle AX confidence slice shipped
+- Completed TASKS/POST_RC item: digest now emits `ACTION PACE WINDOW CONF:LOW|MID|HIGH` from action stability + pace drift continuity.
+- Payload/schema now include `actionPaceWindowConfidence` and `actionPaceWindowConfidenceSignals`; markdown digest includes `ACTION PACE WINDOW CONF` row.
+- Regression and generator verification PASS:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py`
+- Next highest-priority unchecked item remains: flagged fallback token `ACTION PACE ALT WINDOW:<short>`.

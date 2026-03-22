@@ -498,5 +498,5 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — 2026-03-23 Cycle AX)
 - [x] Add digest pace-window token (`ACTION PACE WINDOW:OPEN|HOLD|CLOSE`) from `ACTION PACE + PACE DRIFT + ACTION GUARD` for operator go/no-go timing
-- [ ] Add digest pace-window confidence token (`ACTION PACE WINDOW CONF:LOW|MID|HIGH`) from window stability + drift continuity
+- [x] Add digest pace-window confidence token (`ACTION PACE WINDOW CONF:LOW|MID|HIGH`) from window stability + drift continuity
 - [ ] Prototype flagged pace-window fallback token (`ACTION PACE ALT WINDOW:<short>`) when primary pace window is `CLOSE` but sandbox lane is `ON`

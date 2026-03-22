@@ -477,6 +477,46 @@ def action_pace_window_from_signals(
     }
 
 
+def action_pace_window_confidence_from_signals(
+    *,
+    action_pace_window: str,
+    action_stability: str,
+    pace_drift: int,
+    pace_drift_signals: dict[str, str | int | bool],
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Confidence for ACTION PACE WINDOW from stability + drift continuity."""
+    window = str(action_pace_window).upper()
+    stability = str(action_stability).upper()
+    drift = int(pace_drift)
+    prior_loaded = bool(pace_drift_signals.get("priorLoaded", False))
+    continuity = "STABLE" if drift == 0 else ("SHIFT" if abs(drift) == 1 else "SWING")
+
+    if not prior_loaded:
+        confidence = "LOW"
+        reason = "no-prior-window-drift"
+    elif stability == "LOCKED" and continuity == "STABLE":
+        confidence = "HIGH"
+        reason = "locked-stability-and-stable-drift"
+    elif window in {"OPEN", "CLOSE"} and stability == "WATCH" and continuity == "SWING":
+        confidence = "LOW"
+        reason = "watch-stability-with-drift-swing"
+    elif continuity == "SHIFT" or stability == "WATCH":
+        confidence = "MID"
+        reason = "moderate-drift-continuity"
+    else:
+        confidence = "MID"
+        reason = "default-window-confidence"
+
+    return confidence, {
+        "actionPaceWindow": window,
+        "actionStability": stability,
+        "paceDrift": drift,
+        "driftContinuity": continuity,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def action_pace_why_from_signals(
     *,
     action_pace: str,
@@ -3881,6 +3921,12 @@ def main() -> int:
         action_guard=action_guard,
         pace_drift=pace_drift,
     )
+    action_pace_window_confidence, action_pace_window_confidence_signals = action_pace_window_confidence_from_signals(
+        action_pace_window=action_pace_window,
+        action_stability=action_stability,
+        pace_drift=pace_drift,
+        pace_drift_signals=pace_drift_signals,
+    )
     action_pace_why, action_pace_why_signals = action_pace_why_from_signals(
         action_pace=action_pace,
         action_guard=action_guard,
@@ -4279,6 +4325,8 @@ def main() -> int:
         "paceDriftSignals": pace_drift_signals,
         "actionPaceWindow": action_pace_window,
         "actionPaceWindowSignals": action_pace_window_signals,
+        "actionPaceWindowConfidence": action_pace_window_confidence,
+        "actionPaceWindowConfidenceSignals": action_pace_window_confidence_signals,
         "actionPaceWhy": action_pace_why,
         "actionPaceWhySignals": action_pace_why_signals,
         "whatIfAlt": what_if_alt,
@@ -4475,6 +4523,7 @@ def main() -> int:
         f"- ACTION PACE: **{action_pace}** ({action_pace_signals['reason']}; guard={action_pace_signals['actionGuard']} stability={action_pace_signals['actionStability']} lag={action_pace_signals['pressureLag']})",
         f"- PACE DRIFT: **{pace_drift:+d}** ({pace_drift_signals['reason']}; current={pace_drift_signals['currentPace']}({pace_drift_signals['currentScore']}) prior={pace_drift_signals['priorPace']}({pace_drift_signals['priorScore']}) loaded={pace_drift_signals['priorLoaded']})",
         f"- ACTION PACE WINDOW: **{action_pace_window}** ({action_pace_window_signals['reason']}; pace={action_pace_window_signals['actionPace']} guard={action_pace_window_signals['actionGuard']} drift={action_pace_window_signals['paceDrift']:+d})",
+        f"- ACTION PACE WINDOW CONF: **{action_pace_window_confidence}** ({action_pace_window_confidence_signals['reason']}; window={action_pace_window_confidence_signals['actionPaceWindow']} stability={action_pace_window_confidence_signals['actionStability']} continuity={action_pace_window_confidence_signals['driftContinuity']} drift={action_pace_window_confidence_signals['paceDrift']:+d} loaded={action_pace_window_confidence_signals['priorLoaded']})",
         f"- ACTION PACE WHY: **{action_pace_why}** ({action_pace_why_signals['reason']}; flag={action_pace_why_signals['flagName']} enabled={action_pace_why_signals['flagEnabled']} pace={action_pace_why_signals['actionPace']} guard={action_pace_why_signals['actionGuard']} stability={action_pace_why_signals['actionStability']} lag={action_pace_why_signals['pressureLag']} drift={action_pace_why_signals['paceDrift']:+d})",
         f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
         f"- WHAT-IF CONF: **{what_if_confidence}** ({what_if_confidence_signals['reason']}; delta={what_if_confidence_signals['deltaRisk']} routeConf={what_if_confidence_signals['routeActionConfidence']} current={what_if_confidence_signals['currentLane']} alt={what_if_confidence_signals['altLane']})",

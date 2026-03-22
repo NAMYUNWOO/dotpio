@@ -1025,3 +1025,8 @@
 - Added compact rationale token `ACTION PACE WHY:<short>` behind `DOTPIO_EXPERIMENT_ACTION_PACE_WHY`.
 - Copy policy favors short, directive phrases (`LOCK BRAKE`, `WINDOW PUSH`, `WATCH FLOW`) for operator scan speed.
 - Next AI-content follow-up queued: flagged `ACTION PACE ALT WINDOW:<short>` fallback phrasing.
+
+## 2026-03-23 01:04 KST — Prompt token copy update
+- Added operator-facing digest copy line `ACTION PACE WINDOW CONF` with compact rationale language around stability/continuity (`STABLE|SHIFT|SWING`).
+- Kept wording short and telemetry-backed; no gameplay-side generation prompt mutation in this slice.
+- Next AI-content follow-up: flagged fallback phrasing for `ACTION PACE ALT WINDOW:<short>`.

@@ -1591,3 +1591,9 @@
 - Completed vertical slice: weekly digest now emits `ACTION PACE WINDOW:OPEN|HOLD|CLOSE` from `ACTION PACE + PACE DRIFT + ACTION GUARD`.
 - Durable rule: `CLOSE` on lock/brake-cooling, `OPEN` on accel with non-negative drift under soft guard, otherwise `HOLD`.
 - Follow-up queued: `ACTION PACE WINDOW CONF`.
+
+## 2026-03-23 01:04 KST — Cycle AX pace-window confidence token
+- Task: Added digest token `ACTION PACE WINDOW CONF:LOW|MID|HIGH` derived from window stability + drift continuity.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now computes `actionPaceWindowConfidence` + signals (`actionPaceWindow`, `actionStability`, `paceDrift`, `driftContinuity`, `priorLoaded`) and emits markdown row `ACTION PACE WINDOW CONF`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: Remaining unchecked item is flagged fallback token `ACTION PACE ALT WINDOW:<short>` when primary window is `CLOSE` and sandbox lane is `ON`.

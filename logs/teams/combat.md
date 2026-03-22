@@ -994,3 +994,7 @@
 ## 2026-03-23 00:37 KST — Cycle AX note
 - No combat balance/mechanics changes this cycle.
 - Combat-readable pace impact is digest-only (operator triage), with no runtime combat mutations.
+
+## 2026-03-23 01:04 KST — Cross-lane note
+- No combat tuning deltas this slice.
+- Action pace window confidence remains telemetry/readability-only and does not alter combat state machines.
