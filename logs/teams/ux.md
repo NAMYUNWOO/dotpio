@@ -1220,3 +1220,7 @@
 ## 2026-03-22 19:41 KST — Compact chain token added
 - Added compact-safe progression token `VSC:<n>/3` alongside existing `VS:+1` threshold cue.
 - Keeps coaching legible in compact fallback path.
+
+## 2026-03-22 20:04 KST — Cycle AT sync reward readability
+- Added explicit status line for new reward handoff: `VIBE SYNC DODGE:+1 (6s) | READY:n`.
+- Copy intent: Preserve compact DOS readability while clarifying reward amount, duration, and current charge readiness.

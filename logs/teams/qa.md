@@ -1983,3 +1983,11 @@
   - misaligned => `0/3`
   - post-reset aligned restart => `1/3`
 - Suite pass with conflict reason + coach override cross-checks.
+
+## 2026-03-22 20:04 KST — Cycle AT validation
+- Added `scripts/regression_portal_route_vibe_sync_dodge.lua`.
+- Pass evidence:
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 lua scripts/regression_portal_route_vibe_sync_hint.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_DODGE=1 lua scripts/regression_portal_route_vibe_sync_dodge.lua`
+  - `lua scripts/regression_portal_route_preview.lua`
+- Assertions covered: threshold-only grant, consume/reset semantics, misalignment no-grant.

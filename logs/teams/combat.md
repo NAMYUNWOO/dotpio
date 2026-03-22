@@ -936,3 +936,8 @@
 
 ## 2026-03-22 19:41 KST — Threat-tier signal reuse only
 - Existing threat-tier feed reused for chain projection; no combat behavior tuning applied.
+
+## 2026-03-22 20:04 KST — Cycle AT sync dodge combat handoff
+- Decision: Route-vibe sync reward now grants temporary dodge charge (6s) via existing combat dodge system.
+- Player-facing effect: `VIBE SYNC DODGE:+1 (6s) | READY:n` status appears on successful flagged threshold transition.
+- Verification: Portal sync-dodge regression added and passing.

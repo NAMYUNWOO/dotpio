@@ -1000,3 +1000,7 @@
 ## 2026-03-22 19:41 KST — Vibe-sync pre-reward coaching
 - Added pre-threshold chain readability cue so players see sync progress before `+1` hint.
 - Intent: reduce black-box feel of reward trigger without bloating portal prompt semantics.
+
+## 2026-03-22 20:04 KST — Cycle AT design note
+- Reinforced vibe-alignment fantasy by converting `VIBE SYNC:+1` from hint-only into a tangible short-duration survival reward behind flag.
+- Risk control: experiment remains opt-in (`DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_DODGE`).

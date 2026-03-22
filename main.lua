@@ -492,7 +492,14 @@ function love.keypressed(key)
     end
     if Portal.hasPendingTransition() then
         if key == "return" or key == "kpenter" or key == "y" or key == "e" then
-            Portal.confirmTransition()
+            local confirmed = Portal.confirmTransition()
+            if confirmed then
+                local vibeSyncDodgeCharges = Portal.consumeVibeSyncDodgeCharges()
+                if vibeSyncDodgeCharges > 0 then
+                    local totalCharges = Player.grantDodgeCharge(vibeSyncDodgeCharges, 6)
+                    InventoryUI.setStatus(string.format("VIBE SYNC DODGE:+%d (%ds) | READY:%d", vibeSyncDodgeCharges, 6, totalCharges))
+                end
+            end
         elseif key == "n" or key == "backspace" or key == "escape" then
             Portal.cancelTransition()
         end

@@ -4,6 +4,7 @@ local pendingTransition = nil
 local routeTagCache = {}
 local routeTagOverrides = {}
 local routeVibeSyncStreak = 0
+local pendingVibeSyncDodgeCharges = 0
 
 -- 맵 전환 콜백: onLoad(targetMap, targetPortal)
 Portal.onLoad = nil
@@ -303,6 +304,15 @@ local function isRouteVibeSyncExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isRouteVibeSyncDodgeExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_DODGE")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function isRouteVibeThreatAligned(routeTag, threatTier)
     return routeTagToExpectedThreatTier(routeTag) == normalizeThreatTier(threatTier)
 end
@@ -458,11 +468,16 @@ function Portal.confirmTransition()
 
     local transition = pendingTransition
     local aligned = transition.routeVibeAligned
+    local syncEnabled = isRouteVibeSyncExperimentEnabled()
+    local syncHintTriggered = syncEnabled and aligned == true and (routeVibeSyncStreak + 1) >= 3
     pendingTransition = nil
     if aligned == true then
         routeVibeSyncStreak = routeVibeSyncStreak + 1
     elseif aligned == false then
         routeVibeSyncStreak = 0
+    end
+    if syncHintTriggered and isRouteVibeSyncDodgeExperimentEnabled() then
+        pendingVibeSyncDodgeCharges = pendingVibeSyncDodgeCharges + 1
     end
     if Portal.onLoad then
         Portal.onLoad(transition.targetMap, transition.targetPortal)
@@ -478,10 +493,17 @@ function Portal.cancelTransition()
     return true
 end
 
+function Portal.consumeVibeSyncDodgeCharges()
+    local charges = math.max(0, math.floor(tonumber(pendingVibeSyncDodgeCharges) or 0))
+    pendingVibeSyncDodgeCharges = 0
+    return charges
+end
+
 function Portal.resetCooldown()
     cooldown = false
     pendingTransition = nil
     routeVibeSyncStreak = 0
+    pendingVibeSyncDodgeCharges = 0
 end
 
 function Portal.setCooldown()

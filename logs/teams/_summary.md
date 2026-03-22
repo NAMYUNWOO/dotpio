@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-22 13:06 KST
+Last updated: 2026-03-22 20:04 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -1772,3 +1772,16 @@ Compact decision memory for AI context efficiency.
 - Shipped: chain token projection in `src/portal.lua` behind `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT`.
 - Regression upgraded: `scripts/regression_portal_route_vibe_sync_hint.lua` now validates chain and reset behavior.
 - Backlog injected in TASKS/POST_RC as Cycle AT with one completed + two queued tasks.
+
+## 2026-03-22 20:04 KST — Cycle AT sync-threshold dodge handoff shipped
+- Completed highest-priority unchecked item in TASKS/POST_RC Cycle AT: `VIBE SYNC DODGE:+1` prototype behind experiment flag.
+- Durable decisions:
+  - Added `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_DODGE` to gate new reward behavior; default flow remains unchanged when flag is off.
+  - `Portal.confirmTransition()` now queues dodge charges only when route-vibe sync threshold (`VIBE SYNC:+1`) actually triggers.
+  - Runtime consumes queued charges via `Portal.consumeVibeSyncDodgeCharges()` and grants temporary dodge charges (6s) with explicit DOS status copy.
+- Verification set:
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 lua scripts/regression_portal_route_vibe_sync_hint.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_DODGE=1 lua scripts/regression_portal_route_vibe_sync_dodge.lua`
+  - `lua scripts/regression_portal_route_preview.lua`
+- Backlog progression: Cycle AT first item moved `[ ] -> [~] -> [x]` in both `TASKS.md` and `POST_RC_BACKLOG.md`.
+- Next highest-priority unchecked item: `Prototype route-vibe snapback warning (VIBE SNAPBACK:ON) behind flag on immediate post-sync misalignment`.

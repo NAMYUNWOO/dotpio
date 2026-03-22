@@ -1515,3 +1515,8 @@
 - Prompt tokens: detailed `VIBE CHAIN:<n>/3`, compact `VSC:<n>/3`.
 - Validation: sync-hint regression updated/passing.
 - Follow-up: evaluate if chain token should suppress at `0/3` in live playtests.
+
+## 2026-03-22 20:04 KST — Cycle AT sync-threshold dodge handoff
+- Decision: Added `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_DODGE` gate to queue dodge charge only when `VIBE SYNC:+1` threshold triggers.
+- Implementation: `Portal.confirmTransition()` now records pending sync-dodge grants and exposes `Portal.consumeVibeSyncDodgeCharges()` for runtime handoff.
+- Follow-up: Keep reward additive/reversible; no baseline behavior change when flag is off.
