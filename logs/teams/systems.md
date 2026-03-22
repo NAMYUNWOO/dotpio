@@ -1520,3 +1520,8 @@
 - Decision: Added `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_DODGE` gate to queue dodge charge only when `VIBE SYNC:+1` threshold triggers.
 - Implementation: `Portal.confirmTransition()` now records pending sync-dodge grants and exposes `Portal.consumeVibeSyncDodgeCharges()` for runtime handoff.
 - Follow-up: Keep reward additive/reversible; no baseline behavior change when flag is off.
+
+## 2026-03-22 20:31 KST — Cycle AT snapback warning prototype
+- Added `DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK` gate to portal prompt generation.
+- Rule: emit snapback only on immediate misalignment after a confirmed sync streak (`routeVibeSyncStreak >= 3` and next projected alignment is false).
+- Prompt tokens: detailed `VIBE SNAPBACK:ON`, compact `VSB:ON`.

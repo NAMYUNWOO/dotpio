@@ -1991,3 +1991,11 @@
   - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_DODGE=1 lua scripts/regression_portal_route_vibe_sync_dodge.lua`
   - `lua scripts/regression_portal_route_preview.lua`
 - Assertions covered: threshold-only grant, consume/reset semantics, misalignment no-grant.
+
+## 2026-03-22 20:31 KST — Snapback regression coverage
+- Added `scripts/regression_portal_route_vibe_snapback.lua`.
+- Pass evidence:
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 lua scripts/regression_portal_route_vibe_snapback.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 lua scripts/regression_portal_route_vibe_sync_hint.lua`
+  - `lua scripts/regression_portal_route_preview.lua`
+- Assertions: threshold sync precedes warning arm, immediate misalignment emits token, compact token parity, non-immediate misalignment suppresses warning.

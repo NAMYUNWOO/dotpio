@@ -974,3 +974,7 @@
 ## 2026-03-22 20:04 KST — Cycle AT coordination note
 - No AI text-generation pipeline changes.
 - Token-level portal prompt semantics (`VIBE SYNC:+1`) now has gameplay handoff path consumed by runtime systems.
+
+## 2026-03-22 20:31 KST — AI content lane note
+- No generative prompt policy/model changes.
+- `VIBE SNAPBACK` is deterministic token logic tied to route-vibe streak state.

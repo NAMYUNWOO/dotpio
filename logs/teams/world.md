@@ -997,3 +997,7 @@
 ## 2026-03-22 20:04 KST — Cycle AT touchpoint
 - No map topology/portal graph data changes.
 - Portal transition reward handoff integrated without changing route tags or portal placement logic.
+
+## 2026-03-22 20:31 KST — Portal routing unchanged
+- No map layout/portal graph modifications in snapback cycle.
+- Snapback warning is prompt-layer readability only.

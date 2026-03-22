@@ -1004,3 +1004,7 @@
 ## 2026-03-22 20:04 KST — Cycle AT design note
 - Reinforced vibe-alignment fantasy by converting `VIBE SYNC:+1` from hint-only into a tangible short-duration survival reward behind flag.
 - Risk control: experiment remains opt-in (`DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_DODGE`).
+
+## 2026-03-22 20:31 KST — Post-reward pacing readability
+- Added immediate post-sync misalignment warning (`VIBE SNAPBACK:ON`) behind flag.
+- Intent: signal emotional pacing whiplash right after sync reward to support safer route selection.

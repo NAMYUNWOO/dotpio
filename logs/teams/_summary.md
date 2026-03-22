@@ -1785,3 +1785,15 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_portal_route_preview.lua`
 - Backlog progression: Cycle AT first item moved `[ ] -> [~] -> [x]` in both `TASKS.md` and `POST_RC_BACKLOG.md`.
 - Next highest-priority unchecked item: `Prototype route-vibe snapback warning (VIBE SNAPBACK:ON) behind flag on immediate post-sync misalignment`.
+
+## 2026-03-22 20:31 KST — Cycle AT route-vibe snapback warning shipped
+- Completed highest-priority unchecked item: `Prototype route-vibe snapback warning (VIBE SNAPBACK:ON) behind flag on immediate post-sync misalignment`.
+- Implementation summary:
+  - `src/portal.lua` adds `DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK` and emits `VIBE SNAPBACK:ON` (compact `VSB:ON`) only when misalignment occurs immediately after sync-threshold streak.
+  - `scripts/regression_portal_route_vibe_snapback.lua` validates trigger window + compact parity + suppression on later mismatches.
+- Validation set:
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 lua scripts/regression_portal_route_vibe_snapback.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 lua scripts/regression_portal_route_vibe_sync_hint.lua`
+  - `lua scripts/regression_portal_route_preview.lua`
+- Backlog progression: Cycle AT final item moved `[ ] -> [~] -> [x]` in both `TASKS.md` and `POST_RC_BACKLOG.md`.
+- Note: `ACTION_ITEMS.md` still contains placeholder tracking row `- [ ] todo`; Game Director auto-cycle trigger deferred until ACTION_ITEMS is explicitly closed or replaced.

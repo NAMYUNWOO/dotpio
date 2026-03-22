@@ -941,3 +941,7 @@
 - Decision: Route-vibe sync reward now grants temporary dodge charge (6s) via existing combat dodge system.
 - Player-facing effect: `VIBE SYNC DODGE:+1 (6s) | READY:n` status appears on successful flagged threshold transition.
 - Verification: Portal sync-dodge regression added and passing.
+
+## 2026-03-22 20:31 KST — Combat behavior unchanged
+- No enemy stats/AI pacing updates.
+- Snapback warning intended to reduce post-sync overcommit risk via portal-choice readability.

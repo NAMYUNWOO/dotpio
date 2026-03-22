@@ -313,6 +313,15 @@ local function isRouteVibeSyncDodgeExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isRouteVibeSnapbackExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function isRouteVibeThreatAligned(routeTag, threatTier)
     return routeTagToExpectedThreatTier(routeTag) == normalizeThreatTier(threatTier)
 end
@@ -346,7 +355,7 @@ local function resolveRouteVignetteGlyph(routeTag)
     return "???"
 end
 
-local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain)
+local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback)
     local fxCue = resolvePortalFxCue(pressureScore)
     local routeVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s  ROUTE VIBE:%s", routeTag, coach, pressureScore, fxCue, routeVibe)
@@ -377,10 +386,13 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
     if vibeSyncHint then
         prompt = string.format("%s  VIBE SYNC:+1", prompt)
     end
+    if vibeSnapback then
+        prompt = string.format("%s  VIBE SNAPBACK:ON", prompt)
+    end
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
@@ -410,6 +422,9 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
     end
     if vibeSyncHint then
         prompt = string.format("%s  VS:+1", prompt)
+    end
+    if vibeSnapback then
+        prompt = string.format("%s  VSB:ON", prompt)
     end
     return prompt
 end
@@ -452,11 +467,12 @@ function Portal.getTransitionPrompt(maxChars, context)
     end
     local vibeSyncChain = syncEnabled and projectedVibeSyncStreak or nil
     local vibeSyncHint = syncEnabled and routeVibeAligned and (routeVibeSyncStreak + 1) >= 3
+    local vibeSnapback = isRouteVibeSnapbackExperimentEnabled() and syncEnabled and routeVibeAligned == false and routeVibeSyncStreak >= 3
     local coachOverride = isRouteVibeCoachOverrideExperimentEnabled() and routeVibeConflict and altRouteTag ~= nil
-    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain)
+    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback)
     local budget = tonumber(maxChars) or 76
     if budget > 0 and #prompt > budget then
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain)
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback)
     end
     return prompt
 end

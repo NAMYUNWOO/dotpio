@@ -1224,3 +1224,7 @@
 ## 2026-03-22 20:04 KST — Cycle AT sync reward readability
 - Added explicit status line for new reward handoff: `VIBE SYNC DODGE:+1 (6s) | READY:n`.
 - Copy intent: Preserve compact DOS readability while clarifying reward amount, duration, and current charge readiness.
+
+## 2026-03-22 20:31 KST — Compact/detailed warning parity
+- Added detailed token `VIBE SNAPBACK:ON` and compact fallback `VSB:ON`.
+- Warning appears only for immediate post-sync misalignment window and does not persist on later mismatches.
