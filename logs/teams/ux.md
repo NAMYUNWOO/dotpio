@@ -1255,3 +1255,7 @@
 ## 2026-03-22 22:05 KST — Compact token pass
 - Added compact drift token `VDR:WIDE` for low-budget portal prompt mode.
 - Ensured detailed/compact parity with existing vibe conflict/snapback cues.
+
+## 2026-03-22 22:34 KST — UX telemetry readability update
+- Added digest-facing lane watchdog line (`LANE CADENCE:OK|GAP`) and explicit gap text to reduce operator ambiguity.
+- Decision: Keep token compact and single-line to avoid digest clutter while preserving triage value.

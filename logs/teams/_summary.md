@@ -1825,3 +1825,14 @@ Compact decision memory for AI context efficiency.
 - Drift alarm is gated behind `DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_ALARM` and uses bounded transition-age counters (`<=2`) to prevent permanent alert latching.
 - Added regression coverage in `scripts/regression_portal_route_vibe_drift_alarm.lua`; existing snapback/conflict regressions remain green.
 - Post-RC backlog status updated: Cycle AU drift-alarm prototype marked complete; highest remaining unchecked items are lane cadence watchdog and drift-glyph escalation prototype.
+
+## 2026-03-22 22:34 KST — Cycle AV lane cadence watchdog shipped (systems/ops)
+- Completed highest-priority unchecked item: weekly digest lane coverage watchdog token `LANE CADENCE:OK|GAP`.
+- Implementation:
+  - `scripts/economy_weekly_snapshot.py` now computes trailing-24h lane buckets from team logs (`combat-vfx`, `design-world`, `systems-ops`) and emits structured `laneCadence` data in JSON + digest token line in markdown.
+  - `scripts/regression_weekly_snapshot.py` now enforces `laneCadence` schema/token/bucket presence.
+- Verification:
+  - `python3 scripts/regression_weekly_snapshot.py`
+  - `python3 scripts/economy_weekly_snapshot.py`
+- Backlog progression: lane cadence item moved `[~] -> [x]` in `TASKS.md` and `POST_RC_BACKLOG.md`.
+- Next highest-priority unchecked item: drift alarm escalation glyph prototype (`DRIFT GLYPH:<...>`) in world/design lane.

@@ -1041,3 +1041,7 @@
 - Decision: Add experimental drift alarm token when route-vibe conflict and snapback signals co-occur within a short transition window.
 - Player-facing copy: `VIBE DRIFT:WIDE` (detailed), `VDR:WIDE` (compact).
 - Follow-up: Escalating glyph variant remains queued as next world/design experiment.
+
+## 2026-03-22 22:34 KST — Cross-lane note
+- Design/world cadence is now explicitly visible in weekly digest via `LANE CADENCE:OK|GAP`.
+- Next design-facing experiment remains drift alarm escalation glyph readability (`DRIFT GLYPH:<...>`).

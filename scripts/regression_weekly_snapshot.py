@@ -40,6 +40,7 @@ def assert_has_keys(payload: dict) -> None:
         "deltaFromPrevious",
         "comparedToPrevious",
         "decision",
+        "laneCadence",
     ]
     for key in required:
         if key not in payload:
@@ -65,6 +66,16 @@ def main() -> int:
         assert_has_keys(second)
         if second["comparedToPrevious"] is not True:
             raise AssertionError("Second run should compare against previous snapshot")
+
+        lane_cadence = second["laneCadence"]
+        if lane_cadence.get("status") not in {"OK", "GAP"}:
+            raise AssertionError(f"Unexpected lane cadence status: {lane_cadence.get('status')}")
+        if lane_cadence.get("token") not in {"LANE CADENCE:OK", "LANE CADENCE:GAP"}:
+            raise AssertionError(f"Unexpected lane cadence token: {lane_cadence.get('token')}")
+        buckets = lane_cadence.get("bucketCoverage", {})
+        for expected in ("combat-vfx", "design-world", "systems-ops"):
+            if expected not in buckets:
+                raise AssertionError(f"Missing lane cadence bucket: {expected}")
 
         delta = second["deltaFromPrevious"]
         if delta["telemetryEventCount"] != 0:

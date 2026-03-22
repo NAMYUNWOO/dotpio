@@ -1028,3 +1028,7 @@
 ## 2026-03-22 22:05 KST — Portal prompt readability update
 - Consumed new route-vibe drift alarm prototype for portal transition prompts.
 - No map/portal topology changes in this slice.
+
+## 2026-03-22 22:34 KST — Cross-lane handoff
+- Weekly digest now reports lane cadence coverage token from team-log recency.
+- World/design lane currently marked covered in trailing 24h; next readability experiment remains `DRIFT GLYPH:<...>` escalation behind flag.

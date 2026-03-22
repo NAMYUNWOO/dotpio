@@ -2033,3 +2033,7 @@
   - `regression_portal_route_vibe_snapback.lua`
   - `regression_portal_route_vibe_conflict.lua`
 - Outcome: no regressions in existing conflict/snapback token flows.
+
+## 2026-03-22 22:34 KST — Regression coverage update
+- Expanded weekly snapshot schema regression to require `laneCadence` payload and expected bucket keys.
+- Verification run: `python3 scripts/regression_weekly_snapshot.py` PASS.

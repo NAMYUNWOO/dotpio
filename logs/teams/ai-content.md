@@ -1006,3 +1006,7 @@
 - Implemented experiment gate `DOTPIO_EXPERIMENT_ROUTE_VIBE_DRIFT_ALARM`.
 - Drift alarm emits only on short-window conflict/snapback co-occurrence; default-off to avoid baseline prompt noise.
 - Follow-up: evaluate alarm frequency from digest outputs before graduating from prototype.
+
+## 2026-03-22 22:34 KST — Cross-lane note
+- No AI content generation prompt changes in this slice.
+- Cadence watchdog token now creates clearer lane-coverage signal for future Game Director injection prioritization.

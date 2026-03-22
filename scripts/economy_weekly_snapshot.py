@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -14,10 +15,73 @@ DEFAULT_TELEMETRY_PATH = ROOT / "logs" / "economy_telemetry.ndjson"
 DEFAULT_ANTI_EXPLOIT_PATH = ROOT / "logs" / "economy_anti_exploit_report.json"
 DEFAULT_OUT_MD = ROOT / "logs" / "economy_weekly_snapshot.md"
 DEFAULT_OUT_JSON = ROOT / "logs" / "economy_weekly_snapshot.json"
+TEAM_LOGS_DIR = ROOT / "logs" / "teams"
+TIMESTAMP_HEADER_RE = re.compile(r"^##\s+\[?(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2})\s+KST\]?")
 
 
 def parse_ts(value: str) -> datetime:
     return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
+
+
+def parse_team_log_latest_timestamp(path: Path) -> datetime | None:
+    if not path.exists():
+        return None
+
+    latest: datetime | None = None
+    try:
+        for line in path.read_text(encoding="utf-8").splitlines():
+            m = TIMESTAMP_HEADER_RE.match(line.strip())
+            if not m:
+                continue
+            try:
+                parsed = datetime.strptime(m.group(1), "%Y-%m-%d %H:%M").replace(tzinfo=timezone(timedelta(hours=9)))
+            except ValueError:
+                continue
+            if latest is None or parsed > latest:
+                latest = parsed
+    except OSError:
+        return None
+
+    return latest
+
+
+def lane_activity_within_24h(window_end_utc: datetime) -> dict[str, Any]:
+    kst = timezone(timedelta(hours=9))
+    window_start_utc = window_end_utc - timedelta(hours=24)
+    window_end_kst = window_end_utc.astimezone(kst)
+    window_start_kst = window_start_utc.astimezone(kst)
+
+    lane_sources = {
+        "combat-vfx": ["combat.md", "vfx.md"],
+        "design-world": ["design.md", "world.md"],
+        "systems-ops": ["systems.md", "ops.md"],
+    }
+
+    source_latest: dict[str, str | None] = {}
+    bucket_coverage: dict[str, bool] = {}
+    missing_buckets: list[str] = []
+
+    for bucket, files in lane_sources.items():
+        covered = False
+        for filename in files:
+            ts = parse_team_log_latest_timestamp(TEAM_LOGS_DIR / filename)
+            source_latest[filename] = ts.isoformat() if ts else None
+            if ts and window_start_kst <= ts <= window_end_kst:
+                covered = True
+        bucket_coverage[bucket] = covered
+        if not covered:
+            missing_buckets.append(bucket)
+
+    status = "OK" if not missing_buckets else "GAP"
+    return {
+        "windowStart": window_start_utc.isoformat().replace("+00:00", "Z"),
+        "windowEnd": window_end_utc.isoformat().replace("+00:00", "Z"),
+        "bucketCoverage": bucket_coverage,
+        "missingBuckets": missing_buckets,
+        "status": status,
+        "token": f"LANE CADENCE:{status}",
+        "sourceLatest": source_latest,
+    }
 
 
 def parse_args() -> argparse.Namespace:
@@ -92,6 +156,7 @@ def main() -> int:
     telemetry_event_count = len(weekly)
     telemetry_event_delta = telemetry_event_count - previous_event_count if previous else None
     total_srl_spent_delta = total_srl_spent - previous_total_srl_spent if previous else None
+    lane_cadence = lane_activity_within_24h(datetime.now(timezone.utc))
 
     payload = {
         "generatedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
@@ -110,6 +175,7 @@ def main() -> int:
             "telemetryEventCount": telemetry_event_delta,
             "totalSrlSpent": total_srl_spent_delta,
         },
+        "laneCadence": lane_cadence,
     }
     args.out_json.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
@@ -129,12 +195,22 @@ def main() -> int:
         f"- Total SRL spent: {total_srl_spent}",
         f"- Build(ok) SRL spent: {build_ok_spent}",
         f"- Anti-exploit suspicious windows: {suspicious_count}",
+        f"- Lane cadence watchdog: {lane_cadence['token']}",
         delta_line,
-        "",
-        "## Rebalance Decision",
-        f"- Decision: **{decision}**",
-        f"- Rationale: {rationale}",
     ]
+    if lane_cadence["missingBuckets"]:
+        md.append(f"- Lane cadence gaps: {', '.join(lane_cadence['missingBuckets'])}")
+    else:
+        md.append("- Lane cadence gaps: none")
+
+    md.extend(
+        [
+            "",
+            "## Rebalance Decision",
+            f"- Decision: **{decision}**",
+            f"- Rationale: {rationale}",
+        ]
+    )
     args.out_md.write_text("\n".join(md) + "\n", encoding="utf-8")
     print(f"Wrote {args.out_md}")
     print(f"Wrote {args.out_json}")

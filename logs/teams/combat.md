@@ -978,3 +978,7 @@
 ## 2026-03-22 22:05 KST — Cross-lane note
 - No combat mechanics changed.
 - Portal prompt now exposes drift-risk readability token that may influence player route pacing decisions.
+
+## 2026-03-22 22:34 KST — Cross-lane note
+- No combat balancing change in this slice.
+- Combat/VFX bucket is now surfaced via weekly digest `LANE CADENCE` watchdog coverage output.

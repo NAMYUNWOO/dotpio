@@ -1563,3 +1563,10 @@
 - Added lightweight transition-age counters for recent conflict/snapback events in `src/portal.lua`.
 - Window rule: alarm qualifies on same-turn pair or when counterpart occurred within <=2 transitions.
 - Validation: regression script added for detailed/compact token assertions and clear-state behavior.
+
+## 2026-03-22 22:34 KST — Cycle AV lane cadence watchdog shipped
+- Task: Add weekly digest lane coverage watchdog token (`LANE CADENCE:OK|GAP`) over trailing 24h lane buckets.
+- Decision: Implemented in `scripts/economy_weekly_snapshot.py` with bucket aggregation (`combat-vfx`, `design-world`, `systems-ops`) sourced from latest timestamped team-log headers.
+- Output: Snapshot JSON now includes `laneCadence` payload (`status`, `token`, `bucketCoverage`, `missingBuckets`, `sourceLatest`) and markdown digest prints watchdog token + gap summary.
+- Evidence: `python3 scripts/regression_weekly_snapshot.py` PASS; `python3 scripts/economy_weekly_snapshot.py` emits `LANE CADENCE:OK` on current data.
+- Follow-up: Next highest-priority unchecked item is world/design drift glyph escalation prototype (`DRIFT GLYPH:<...>`).

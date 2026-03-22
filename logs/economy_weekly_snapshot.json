@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-20T21:33:43.076531Z",
+  "generatedAt": "2026-03-22T13:34:02.050108Z",
   "windowStart": "2026-03-12T13:29:45Z",
   "windowEnd": "2026-03-19T13:29:45Z",
   "telemetryEventCount": 41,
@@ -20,5 +20,25 @@
   "deltaFromPrevious": {
     "telemetryEventCount": 0,
     "totalSrlSpent": 0
+  },
+  "laneCadence": {
+    "windowStart": "2026-03-21T13:34:02.037642Z",
+    "windowEnd": "2026-03-22T13:34:02.037642Z",
+    "bucketCoverage": {
+      "combat-vfx": true,
+      "design-world": true,
+      "systems-ops": true
+    },
+    "missingBuckets": [],
+    "status": "OK",
+    "token": "LANE CADENCE:OK",
+    "sourceLatest": {
+      "combat.md": "2026-03-22T22:05:00+09:00",
+      "vfx.md": "2026-03-22T21:46:00+09:00",
+      "design.md": "2026-03-22T22:05:00+09:00",
+      "world.md": "2026-03-22T22:05:00+09:00",
+      "systems.md": "2026-03-22T22:05:00+09:00",
+      "ops.md": null
+    }
   }
 }
