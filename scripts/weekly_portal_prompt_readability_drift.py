@@ -2401,6 +2401,47 @@ def what_if_split_escalate_recover_veto_release_tick_cadence_from_signals(
     }
 
 
+def what_if_split_escalate_recover_veto_rearm_from_signals(
+    *,
+    what_if_split_esc_recover_veto_release_tick_phase: str,
+    what_if_split_esc_pressure: str,
+    what_if_split_esc_recover_veto_release_cadence: str,
+) -> tuple[str, dict[str, str | bool]]:
+    """Emit flagged auto-rearm watch cue when release pacing stays late under high pressure."""
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    phase = str(what_if_split_esc_recover_veto_release_tick_phase).upper()
+    pressure = str(what_if_split_esc_pressure).upper()
+    cadence = str(what_if_split_esc_recover_veto_release_cadence).upper()
+
+    if not flag_enabled:
+        token = "OFF"
+        reason = "flag-disabled"
+    elif phase != "LATE":
+        token = "OFF"
+        reason = "release-phase-not-late"
+    elif pressure != "HIGH":
+        token = "OFF"
+        reason = "pressure-not-high"
+    elif cadence in {"DECAY", "FLAG OFF"}:
+        token = "OFF"
+        reason = "release-cadence-not-rearm-prone"
+    else:
+        token = "WATCH"
+        reason = "late-release-window-under-high-pressure"
+
+    return token, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "releaseTickPhase": phase,
+        "splitEscPressure": pressure,
+        "releaseCadence": cadence,
+        "reason": reason,
+    }
+
+
 def what_if_split_escalate_recover_confidence_delta_from_prior(
     *,
     current_confidence: str,
@@ -3126,6 +3167,11 @@ def main() -> int:
         what_if_split_esc_recover_veto_release_tick=what_if_split_esc_recover_veto_release_tick,
         what_if_split_esc_recover_veto_release_tick_signals=what_if_split_esc_recover_veto_release_tick_signals,
     )
+    what_if_split_esc_recover_veto_rearm, what_if_split_esc_recover_veto_rearm_signals = what_if_split_escalate_recover_veto_rearm_from_signals(
+        what_if_split_esc_recover_veto_release_tick_phase=what_if_split_esc_recover_veto_release_tick_phase,
+        what_if_split_esc_pressure=what_if_split_esc_pressure,
+        what_if_split_esc_recover_veto_release_cadence=what_if_split_esc_recover_veto_release_cadence,
+    )
     what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
         current_confidence=what_if_split_esc_recover_confidence,
         prior_json_path=args.out_json,
@@ -3289,6 +3335,8 @@ def main() -> int:
         "whatIfSplitEscRecoverVetoReleaseTickPhaseSignals": what_if_split_esc_recover_veto_release_tick_phase_signals,
         "whatIfSplitEscRecoverVetoReleaseCadence": what_if_split_esc_recover_veto_release_cadence,
         "whatIfSplitEscRecoverVetoReleaseCadenceSignals": what_if_split_esc_recover_veto_release_cadence_signals,
+        "whatIfSplitEscRecoverVetoRearm": what_if_split_esc_recover_veto_rearm,
+        "whatIfSplitEscRecoverVetoRearmSignals": what_if_split_esc_recover_veto_rearm_signals,
         "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
         "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
@@ -3393,6 +3441,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE TICK: **{what_if_split_esc_recover_veto_release_tick}** ({what_if_split_esc_recover_veto_release_tick_signals['reason']}; flag={what_if_split_esc_recover_veto_release_tick_signals['flagName']} enabled={what_if_split_esc_recover_veto_release_tick_signals['flagEnabled']} release={what_if_split_esc_recover_veto_release_tick_signals['currentRelease']} state={what_if_split_esc_recover_veto_release_tick_signals['currentState']} prior={what_if_split_esc_recover_veto_release_tick_signals['priorRelease']}:{what_if_split_esc_recover_veto_release_tick_signals['priorState']}:{what_if_split_esc_recover_veto_release_tick_signals['priorTick']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE PHASE: **{what_if_split_esc_recover_veto_release_tick_phase}** ({what_if_split_esc_recover_veto_release_tick_phase_signals['reason']}; tick={what_if_split_esc_recover_veto_release_tick_phase_signals['tick']} numeric={what_if_split_esc_recover_veto_release_tick_phase_signals['numeric']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE: **{what_if_split_esc_recover_veto_release_cadence}** ({what_if_split_esc_recover_veto_release_cadence_signals['reason']}; tick={what_if_split_esc_recover_veto_release_cadence_signals['tick']} prior={what_if_split_esc_recover_veto_release_cadence_signals['priorTick']} delta={what_if_split_esc_recover_veto_release_cadence_signals['delta']} numeric={what_if_split_esc_recover_veto_release_cadence_signals['numeric']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO REARM: **{what_if_split_esc_recover_veto_rearm}** ({what_if_split_esc_recover_veto_rearm_signals['reason']}; flag={what_if_split_esc_recover_veto_rearm_signals['flagName']} enabled={what_if_split_esc_recover_veto_rearm_signals['flagEnabled']} phase={what_if_split_esc_recover_veto_rearm_signals['releaseTickPhase']} pressure={what_if_split_esc_recover_veto_rearm_signals['splitEscPressure']} cadence={what_if_split_esc_recover_veto_rearm_signals['releaseCadence']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",

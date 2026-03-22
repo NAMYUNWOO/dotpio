@@ -1585,3 +1585,14 @@ Compact decision memory for AI context efficiency.
 - Closed Cycle AJ cadence item: weekly portal readability digest now emits `WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE:ACCEL|STEADY|DECAY` from current-vs-prior release tick deltas.
 - Cadence token is schema-covered in JSON (`whatIfSplitEscRecoverVetoReleaseCadence` + `...Signals`) and markdown-covered in regression checks.
 - Remaining highest-priority unchecked backlog item is the flag-gated auto-rearm warning prototype (`WHAT-IF SPLIT ESC RECOVER VETO REARM:WATCH`).
+
+## 2026-03-22 09:42 KST — Cycle AK (Game Director)
+- Ideation (fun-factor):
+  1) Auto-rearm warning cue when release stays late under HIGH pressure.
+  2) Recovery route combo token (`primary/alt`) for playful lane-callout readability.
+  3) Risk streak meter for consecutive high-pressure veto windows.
+- Chosen experiment: #1 (auto-rearm warning) as smallest high-signal vertical slice.
+- Hypothesis: Surfacing `WHAT-IF SPLIT ESC RECOVER VETO REARM:WATCH` will reduce operator miss-risk for repeated escalation loops.
+- Implemented: New rearm classifier + payload + markdown digest + regression tests.
+- Verification: regression PASS, py_compile PASS, weekly digest generation PASS.
+- Backlog updated: Cycle AJ rearm prototype marked done; Cycle AK queued (rearm confidence/why/cooloff).

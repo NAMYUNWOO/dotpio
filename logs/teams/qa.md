@@ -1805,3 +1805,8 @@
   - Added targeted function-level checks for `ACCEL`, `STEADY`, `DECAY`, and `FLAG OFF` passthrough cases.
 - Follow-up:
   - Keep cadence assertions in lockstep with markdown digest token line to prevent report drift.
+
+## 2026-03-22 09:42 KST
+- Task: Regression coverage for Cycle AK rearm warning token.
+- Added checks: payload schema keys + markdown line assertion + function tests for flag off, watch-on, and decay-off gates.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

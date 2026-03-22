@@ -841,3 +841,8 @@
   - Semantics fixed as directional pacing labels (`ACCEL|STEADY|DECAY`) tied to prior-window delta rather than absolute tick phase.
 - Follow-up:
   - Keep cadence + phase split (velocity vs position) as separate tokens for triage clarity.
+
+## 2026-03-22 09:42 KST
+- Task: Operator readability pass for auto-rearm warning token.
+- Decision: `WATCH` only emits when phase is `LATE`, pressure is `HIGH`, and cadence is not `DECAY`/`FLAG OFF` to avoid noisy alerts.
+- Follow-up: Add short `REARM WHY` token for one-glance interpretation.

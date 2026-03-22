@@ -1346,3 +1346,9 @@
   - Non-numeric tick tokens (e.g., `FLAG OFF`) are forwarded unchanged for compatibility.
 - Follow-up:
   - Next highest unchecked item is auto-rearm warning token prototype (`WHAT-IF SPLIT ESC RECOVER VETO REARM:WATCH`).
+
+## 2026-03-22 09:42 KST — Cycle AK: auto-rearm warning prototype
+- Task: Add `WHAT-IF SPLIT ESC RECOVER VETO REARM:WATCH` behind flag for late release windows under sustained high pressure.
+- Implementation: Added `what_if_split_escalate_recover_veto_rearm_from_signals` and wired payload + markdown digest emission.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: Add rearm confidence + rationale tokens before cooloff counter.

@@ -1072,3 +1072,8 @@
   - Added compact digest line: `WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE` with tick/prior/delta context for glanceable pacing trend.
 - Follow-up:
   - Evaluate whether cadence line should collapse details when token is non-numeric (`FLAG OFF`).
+
+## 2026-03-22 09:42 KST
+- Task: Digest readability for auto-rearm warning cue.
+- Update: Added compact line `WHAT-IF SPLIT ESC RECOVER VETO REARM` with phase/pressure/cadence context.
+- Outcome: Operators can spot likely rearm loops without inspecting raw JSON fields.

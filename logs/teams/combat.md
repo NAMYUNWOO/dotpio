@@ -794,3 +794,7 @@
 ## 2026-03-22 09:34 KST
 - Note: No combat runtime mechanics changed this cycle.
 - Impact review: Cadence signal may support future threat-recovery pacing overlays when veto release windows overlap high-pressure bands.
+
+## 2026-03-22 09:42 KST
+- Note: No combat runtime mechanic changes this cycle.
+- Impact review: New rearm warning cue can support future pressure spike triage when recovery windows remain late.

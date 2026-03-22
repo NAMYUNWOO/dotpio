@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-21T23:34:05.680162Z
+- GeneratedAt(UTC): 2026-03-22T00:41:57.091998Z
 - Status: **OK**
 - Window: last 7 days (max 30 commits)
 - Checked commits: 30
@@ -75,6 +75,10 @@
 - WHAT-IF SPLIT ESC RECOVER VETO RELEASE: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE enabled=False current=IDLE prior=IDLE loaded=True)
 - WHAT-IF SPLIT ESC RECOVER VETO RELEASE CONF: **LOW** (no-release-transition-detected; release=FLAG OFF state=IDLE dwell=0)
 - WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE: **NONE** (no-release-route-available; release=FLAG OFF state=IDLE plan=HOLD primary=OFF alt=OFF)
+- WHAT-IF SPLIT ESC RECOVER VETO RELEASE TICK: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_RELEASE_TICK enabled=False release=FLAG OFF state=IDLE prior=FLAG OFF:IDLE:0)
+- WHAT-IF SPLIT ESC RECOVER VETO RELEASE PHASE: **FLAG OFF** (non-numeric-tick-token-forwarded; tick=FLAG OFF numeric=False)
+- WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE: **FLAG OFF** (non-numeric-tick-token-forwarded; tick=FLAG OFF prior=0 delta=0 numeric=False)
+- WHAT-IF SPLIT ESC RECOVER VETO REARM: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM enabled=False phase=FLAG OFF pressure=LOW cadence=FLAG OFF)
 - WHAT-IF SPLIT ESC RECOVER ΔCONF: **+0** (confidence-unchanged-vs-prior-window; current=LOW prior=LOW loaded=True)
 - STICKY TOKENS: **0**
 - ANOMALY: **OFF** (sticky=0/3 pressure=0/5)
