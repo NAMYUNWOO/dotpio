@@ -971,3 +971,7 @@
 - Completed flag-gated ASCII route vignette prototype (`ROUTE VIGNETTE:<glyph>`, compact `RV:<glyph>`) for portal transitions.
 - Added always-on route-vibe coaching token to strengthen world-choice fantasy before portal jumps.
 - Follow-up queued: conflict warning when route vibe and live threat cues diverge.
+
+## 2026-03-22 18:05 KST — Route-vibe telemetry cadence wired
+- Weekly digest now tracks route-vibe drift (`CALM|EDGE|DOOM`) so portal pacing mix can be tuned per window without manual log scraping.
+- World lane follow-up remains: add conflict-warning prototype when route vibe and threat tier pacing diverge.

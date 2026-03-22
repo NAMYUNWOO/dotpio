@@ -914,3 +914,7 @@
 
 ## 2026-03-22 17:35 KST — Monitoring note
 - No combat parameter/behavior changes in Cycle AR. Existing `BERSERK FX:PULSE` remains active baseline for portal-pressure context.
+
+## 2026-03-22 18:05 KST — Combat lane note (telemetry dependency)
+- Combat logic unchanged.
+- Route-vibe drift telemetry now available for future combat/portal pacing conflict checks (threat tier vs route vibe mismatch).

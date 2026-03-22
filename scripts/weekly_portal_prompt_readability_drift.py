@@ -45,6 +45,19 @@ TOKEN_FAMILIES = {
     "pressure": ["PRESSURE:", "P:"],
 }
 
+ROUTE_VIBE_PATTERNS = {
+    "CALM": ("ROUTE VIBE:CALM", "VIBE:C"),
+    "EDGE": ("ROUTE VIBE:EDGE", "VIBE:E"),
+    "DOOM": ("ROUTE VIBE:DOOM", "VIBE:D"),
+}
+
+
+def count_route_vibes_in_line(line: str) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for vibe, patterns in ROUTE_VIBE_PATTERNS.items():
+        counts[vibe] = sum(line.count(pattern) for pattern in patterns)
+    return counts
+
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
@@ -3488,6 +3501,8 @@ def commit_stats(root: Path, commit: str) -> dict:
     removed = {k: 0 for k in TOKEN_GROUPS}
     token_added = {token: 0 for token in TOKEN_CATALOG}
     token_removed = {token: 0 for token in TOKEN_CATALOG}
+    vibe_added = {vibe: 0 for vibe in ROUTE_VIBE_PATTERNS}
+    vibe_removed = {vibe: 0 for vibe in ROUTE_VIBE_PATTERNS}
     pressure_added = 0
     pressure_removed = 0
 
@@ -3500,23 +3515,30 @@ def commit_stats(root: Path, commit: str) -> dict:
                 line = raw[1:]
                 c = count_tokens_in_line(line)
                 c_tokens = count_catalog_tokens_in_line(line)
+                c_vibes = count_route_vibes_in_line(line)
                 for k, v in c.items():
                     added[k] += v
                 for token, v in c_tokens.items():
                     token_added[token] += v
+                for vibe, v in c_vibes.items():
+                    vibe_added[vibe] += v
                 pressure_added += sum(line.count(token) for token in PRESSURE_TOKENS)
             elif raw.startswith("-"):
                 line = raw[1:]
                 c = count_tokens_in_line(line)
                 c_tokens = count_catalog_tokens_in_line(line)
+                c_vibes = count_route_vibes_in_line(line)
                 for k, v in c.items():
                     removed[k] += v
                 for token, v in c_tokens.items():
                     token_removed[token] += v
+                for vibe, v in c_vibes.items():
+                    vibe_removed[vibe] += v
                 pressure_removed += sum(line.count(token) for token in PRESSURE_TOKENS)
 
     net = {k: added[k] - removed[k] for k in TOKEN_GROUPS}
     token_net = {token: token_added[token] - token_removed[token] for token in TOKEN_CATALOG}
+    vibe_net = {vibe: vibe_added[vibe] - vibe_removed[vibe] for vibe in ROUTE_VIBE_PATTERNS}
     pressure_net = pressure_added - pressure_removed
     touched = bool(portal_files)
     mode = "neutral"
@@ -3549,6 +3571,11 @@ def commit_stats(root: Path, commit: str) -> dict:
             "removed": token_removed,
             "net": token_net,
         },
+        "routeVibeEdits": {
+            "added": vibe_added,
+            "removed": vibe_removed,
+            "net": vibe_net,
+        },
     }
 
 
@@ -3571,6 +3598,20 @@ def main() -> int:
         "added": {token: sum(r["tokenEdits"]["added"][token] for r in touched) for token in TOKEN_CATALOG},
         "removed": {token: sum(r["tokenEdits"]["removed"][token] for r in touched) for token in TOKEN_CATALOG},
         "net": {token: sum(r["tokenEdits"]["net"][token] for r in touched) for token in TOKEN_CATALOG},
+    }
+    route_vibe_totals = {
+        "added": {
+            vibe: sum(r["routeVibeEdits"]["added"][vibe] for r in touched)
+            for vibe in ROUTE_VIBE_PATTERNS
+        },
+        "removed": {
+            vibe: sum(r["routeVibeEdits"]["removed"][vibe] for r in touched)
+            for vibe in ROUTE_VIBE_PATTERNS
+        },
+        "net": {
+            vibe: sum(r["routeVibeEdits"]["net"][vibe] for r in touched)
+            for vibe in ROUTE_VIBE_PATTERNS
+        },
     }
 
     compact_commits = sum(1 for r in touched if r["dominantMode"] == "compact")
@@ -4209,6 +4250,7 @@ def main() -> int:
         },
         "totals": totals,
         "tokenTotals": token_totals,
+        "routeVibeTotals": route_vibe_totals,
         "stickyTokens": {
             "count": len(sticky_tokens),
             "tokens": sticky_tokens,
@@ -4324,6 +4366,7 @@ def main() -> int:
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",
+        f"- ROUTE VIBE DRIFT: **CALM {route_vibe_totals['net']['CALM']:+d} | EDGE {route_vibe_totals['net']['EDGE']:+d} | DOOM {route_vibe_totals['net']['DOOM']:+d}**",
         "",
         "## Token Totals (added/removed/net)",
         f"- Compact: +{totals['added']['compact']} / -{totals['removed']['compact']} / net {totals['net']['compact']}",
@@ -4341,6 +4384,11 @@ def main() -> int:
             )
 
     md.extend([
+        "",
+        "## Route Vibe Drift (added/removed/net)",
+        f"- CALM: +{route_vibe_totals['added']['CALM']} / -{route_vibe_totals['removed']['CALM']} / net {route_vibe_totals['net']['CALM']}",
+        f"- EDGE: +{route_vibe_totals['added']['EDGE']} / -{route_vibe_totals['removed']['EDGE']} / net {route_vibe_totals['net']['EDGE']}",
+        f"- DOOM: +{route_vibe_totals['added']['DOOM']} / -{route_vibe_totals['removed']['DOOM']} / net {route_vibe_totals['net']['DOOM']}",
         "",
         "## Sticky Tokens",
     ])

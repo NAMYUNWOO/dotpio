@@ -77,7 +77,7 @@ def main() -> int:
         commit_all(repo, "feat: add detailed portal prompt")
 
         (repo / "src" / "portal.lua").write_text(
-            'return "PORTAL READY -> ENTER:JUMP  NEXT:SAFE  COACH:LOW  P:1  ALT:RISK  ADEL:-1  AP:LOW"\n',
+            'return "PORTAL READY -> ENTER:JUMP  NEXT:SAFE  COACH:LOW  P:1  ALT:RISK  ADEL:-1  AP:LOW  VIBE:E"\n',
             encoding="utf-8",
         )
         commit_all(repo, "feat: compact portal prompt")
@@ -110,6 +110,9 @@ def main() -> int:
         assert payload["pressureBand"] in {"LOW", "MID", "HIGH"}, payload
         assert payload["driftRisk"] in {"LOW", "MID", "HIGH"}, payload
         assert set(payload["driftRiskSignals"].keys()) == {"score", "imbalance", "pressureChurn"}, payload
+        assert set(payload.get("routeVibeTotals", {}).keys()) == {"added", "removed", "net"}, payload
+        assert set(payload["routeVibeTotals"]["added"].keys()) == {"CALM", "EDGE", "DOOM"}, payload
+        assert payload["routeVibeTotals"]["added"]["EDGE"] >= 1, payload
         assert payload["laneFocus"] in {"PORTAL", "ALT", "PRESSURE", "MIXED"}, payload
         assert set(payload["laneFocusScores"].keys()) == {"portal", "alt", "pressure"}, payload
         assert isinstance(payload.get("focusStreak"), int) and payload["focusStreak"] >= 0, payload
@@ -781,6 +784,8 @@ def main() -> int:
         assert "MODE TREND" in md_text
         assert "PRESSURE BAND" in md_text
         assert "DRIFT RISK" in md_text
+        assert "ROUTE VIBE DRIFT" in md_text
+        assert "Route Vibe Drift (added/removed/net)" in md_text
         assert "FOCUS" in md_text
         assert "FOCUS STREAK" in md_text
         assert "FOCUS SHIFT" in md_text

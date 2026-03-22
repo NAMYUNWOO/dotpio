@@ -1944,3 +1944,8 @@
 - PASS `lua scripts/regression_portal_prompt_compact_mode.lua`
 - PASS `lua scripts/regression_portal_route_vibe.lua`
 - PASS `DOTPIO_EXPERIMENT_ROUTE_VIGNETTE_ASCII=1 lua scripts/regression_portal_route_vignette.lua`
+
+## 2026-03-22 18:05 KST — Route-vibe drift telemetry regression pass
+- PASS `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- PASS `lua scripts/regression_portal_route_vibe.lua`
+- Added regression assertions for `routeVibeTotals` schema + markdown section presence.

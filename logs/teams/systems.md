@@ -1481,3 +1481,8 @@
 - Added portal prompt route-vibe token mapping (`SAFE->CALM`, `RISK->EDGE`, `SPIKE->DOOM`; compact `C/E/D`) in `src/portal.lua`.
 - Kept token order stable by appending vibe after `FX` token in both detailed/compact prompts.
 - Follow-up queued: weekly vibe drift telemetry snapshot.
+
+## 2026-03-22 18:05 KST — Cycle AR route-vibe drift telemetry snapshot
+- Added route-vibe drift aggregation in weekly digest pipeline (`scripts/weekly_portal_prompt_readability_drift.py`) with per-vibe counts (CALM/EDGE/DOOM) across commit window.
+- Snapshot now captures added/removed/net via new `routeVibeTotals` payload block and markdown summary lines for fast tuning triage.
+- Follow-up: wire conflict-warning token experiment (`VIBE CONFLICT:ON`) behind flag using this telemetry as guardrail evidence.

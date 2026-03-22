@@ -969,3 +969,7 @@
 ## 2026-03-22 17:35 KST — Cycle AR prompt readability decision
 - Approved concise emotional vocabulary for portal routing: `CALM|EDGE|DOOM` (`C|E|D` compact).
 - Decision: preserve DOS compactness by keeping vibe as a single token and deferring richer prose to future flag experiments.
+
+## 2026-03-22 18:05 KST — Route-vibe readability telemetry
+- Added durable weekly measurement for route-vibe token mix to support readability tuning cadence.
+- Decision: keep vibe token always-on; use drift counts first, then gate conflict-warning experiment to avoid copy noise.

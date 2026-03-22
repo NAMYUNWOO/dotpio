@@ -1194,3 +1194,7 @@
 ## 2026-03-22 17:35 KST — Cycle AR portal prompt UX pass
 - Route-vibe token now appears in both detailed and compact portal prompts for faster glance parsing under pressure.
 - ASCII vignette remains optional behind `DOTPIO_EXPERIMENT_ROUTE_VIGNETTE_ASCII` to avoid default copy overload.
+
+## 2026-03-22 18:05 KST — UX observability update for portal prompts
+- Weekly digest markdown now includes `ROUTE VIBE DRIFT` headline and per-vibe breakdown section for quick readability audits.
+- This enables UX to detect overuse of one emotional cue without scanning raw commit diffs.

@@ -1706,3 +1706,12 @@ Compact decision memory for AI context efficiency.
 - Selected experiment: low-risk route-vibe coaching token vertical slice. Implemented in `src/portal.lua` for detailed+compact prompts (`VIBE:C|E|D` compact), with new regression `scripts/regression_portal_route_vibe.lua`.
 - Durable decision: keep route-vibe token always-on (player-facing readability), while keeping ASCII vignette experimental to protect prompt copy budget.
 - Backlog injected for Cycle AR in `TASKS.md` + `POST_RC_BACKLOG.md`; route-vibe token marked done, telemetry/conflict-warning tasks remain queued.
+
+## 2026-03-22 18:05 KST — Cycle AR follow-up: route-vibe drift telemetry snapshot
+- Completed backlog item: weekly digest now tracks route-vibe drift counts (`CALM|EDGE|DOOM`) as added/removed/net across window.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py`
+  - Added per-line vibe counters for detailed (`ROUTE VIBE:*`) + compact (`VIBE:*`) tokens.
+  - Added payload block `routeVibeTotals` and markdown sections (`ROUTE VIBE DRIFT`, `Route Vibe Drift (added/removed/net)`).
+- Regression coverage updated in `scripts/regression_weekly_portal_prompt_readability_drift.py` (schema + markdown assertions, fixture includes `VIBE:E`).
+- Verification: PASS weekly digest regression + PASS route-vibe portal regression.
+- Remaining highest-priority unchecked item: prototype `VIBE CONFLICT:ON` behind flag.
