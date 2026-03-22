@@ -47,6 +47,12 @@ expect(pulseTriggered == true and pulseStreak == 2 and pulseDelta == 1, "pulse t
 local pulseResetTriggered, pulseResetStreak, pulseResetDelta = HUD.shouldTriggerBerserkerFxPulse(5, 5, pulseStreak)
 expect(pulseResetTriggered == false and pulseResetStreak == 0 and pulseResetDelta == 0, "pulse trigger should reset on non-positive deltas")
 
+expect(HUD.shouldTriggerBerserkerFxFade(5, 0, 2) == true, "fade trigger should fire when pulse streak cools down at non-positive delta")
+expect(HUD.shouldTriggerBerserkerFxFade(5, -2, 3) == true, "fade trigger should fire when threat drops after sustained pulse buildup")
+expect(HUD.shouldTriggerBerserkerFxFade(0, -1, 3) == false, "fade trigger should not fire when prior threat score is already zero")
+expect(HUD.shouldTriggerBerserkerFxFade(6, 1, 3) == false, "fade trigger should not fire while threat is still rising")
+expect(HUD.shouldTriggerBerserkerFxFade(6, -1, 1) == false, "fade trigger should require sustained prior rise streak")
+
 local lowR, lowG, lowB, lowA = HUD.getBerserkerThreatColor(2)
 expect(lowR == 0.5 and lowG == 1 and lowB == 0.62 and lowA == 1, "LOW tier color should be green")
 local medR, medG, medB, medA = HUD.getBerserkerThreatColor(3)

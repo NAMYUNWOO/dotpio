@@ -1553,3 +1553,8 @@
   - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_RECOVERY_HINT=1 lua scripts/regression_portal_route_vibe_recovery.lua`
   - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 lua scripts/regression_portal_route_vibe_snapback.lua`
 - Follow-up: Remaining highest-priority unchecked item is Cycle AU drift-alarm prototype (`VIBE DRIFT:WIDE`).
+
+## 2026-03-22 21:46 KST — Cycle AV lane-governance note
+- Coverage audit (last 10 completed items): systems 0, world 10, ai-content 0, combat 0, design 0, vfx 0, ux 0, qa 0.
+- Governance action: forced next experiment into underrepresented lane (combat/vfx) per >40% cap policy.
+- Backlog injection queued for systems/ops recovery: weekly digest `LANE CADENCE:OK|GAP` watchdog over trailing 24h buckets.

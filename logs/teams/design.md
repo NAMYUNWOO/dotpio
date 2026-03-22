@@ -1031,3 +1031,8 @@
 - Task support: Added explicit `VIBE RESILIENCE:<n>` / `VRES:<n>` token while preserving existing cue order.
 - Decision: Token appears only with `VIBE RECOVER` to avoid ambient prompt clutter.
 - Follow-up: Next prototype should test drift alarm salience vs copy-budget limits.
+
+## 2026-03-22 21:46 KST — Cycle AV design follow-up queue
+- With world/design overrepresented in the last-10 coverage window, this cycle intentionally shipped combat/vfx first.
+- Design/world follow-up remains queued (not shipped this cycle): `VIBE DRIFT:WIDE` escalation readability via optional `DRIFT GLYPH:<...>` token.
+- Goal: keep drift alarm legible without expanding prompt copy budget beyond compact-mode thresholds.

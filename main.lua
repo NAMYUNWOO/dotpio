@@ -226,7 +226,9 @@ function love.update(dt)
     local threatCounters = HUD.collectCombatThreatCounters(Entities.enemies)
     local threatScore = threatCounters.berserkerThreatScore or 0
     local previousThreatScore = threatScoreLastTick
-    local berserkFxPulseTriggered, nextRiseStreak, threatDelta = HUD.shouldTriggerBerserkerFxPulse(threatScore, previousThreatScore, berserkerThreatRiseStreak)
+    local previousRiseStreak = berserkerThreatRiseStreak
+    local berserkFxPulseTriggered, nextRiseStreak, threatDelta = HUD.shouldTriggerBerserkerFxPulse(threatScore, previousThreatScore, previousRiseStreak)
+    local berserkFxFadeTriggered = HUD.shouldTriggerBerserkerFxFade(previousThreatScore, threatDelta, previousRiseStreak)
     berserkerThreatRiseStreak = nextRiseStreak
     if threatScore > previousThreatScore then
         threatRiseWindow = math.max(threatRiseWindow, 0.9)
@@ -278,6 +280,9 @@ function love.update(dt)
         OnboardingHints.mark("threat")
         local pulseDelta = threatDelta > 0 and ("+" .. threatDelta) or tostring(threatDelta)
         InventoryUI.setStatus(string.format("BERSERK FX:PULSE  [THREAT Δ:%s]", pulseDelta))
+    elseif berserkFxFadeTriggered then
+        local fadeDelta = threatDelta > 0 and ("+" .. threatDelta) or tostring(threatDelta)
+        InventoryUI.setStatus(string.format("BERSERK FX:FADE   [THREAT Δ:%s]", fadeDelta))
     end
 
     Camera.update(Player.visualX, Player.visualY)

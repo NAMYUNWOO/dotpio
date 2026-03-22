@@ -1814,3 +1814,10 @@ Compact decision memory for AI context efficiency.
   - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_RECOVERY_HINT=1 lua scripts/regression_portal_route_vibe_recovery.lua`
   - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 lua scripts/regression_portal_route_vibe_snapback.lua`
 - Next highest-priority unchecked item: `VIBE DRIFT:WIDE` prototype (conflict + snapback short-window alarm).
+
+## 2026-03-22 21:46 KST — Game Director Cycle AV (forced lane rebalance)
+- Coverage check over last 10 completed items by lane showed hard skew: `world/design=10/10 (100%)`, all other lanes `0%`; this breached >40% cap.
+- Forced-lane policy applied: selected underrepresented **combat/vfx** experiment instead of another world/design token.
+- Shipped minimal vertical slice: new cooldown feedback token `BERSERK FX:FADE [THREAT Δ:<n>]` when sustained rise streak breaks (`>=2` prior streak, non-positive delta, prior threat > 0).
+- Verification passed: `lua scripts/regression_hud_berserker_counters.lua`, `lua scripts/regression_enemy_behavior_variants.lua`, `luac -p main.lua src/hud.lua`.
+- Backlog injected for cadence balancing: systems/ops `LANE CADENCE:OK|GAP` watchdog + world/design `DRIFT GLYPH` readability prototype.

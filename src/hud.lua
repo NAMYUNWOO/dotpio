@@ -99,6 +99,13 @@ function HUD.shouldTriggerBerserkerFxPulse(currentScore, previousScore, previous
     return triggered, streak, delta
 end
 
+function HUD.shouldTriggerBerserkerFxFade(previousScore, threatDelta, previousRiseStreak)
+    local prevScore = math.max(0, math.floor(tonumber(previousScore) or 0))
+    local delta = tonumber(threatDelta) or 0
+    local riseStreak = math.max(0, math.floor(tonumber(previousRiseStreak) or 0))
+    return riseStreak >= 2 and prevScore > 0 and delta <= 0
+end
+
 function HUD.getRunSummaryOverclockGlossary()
     return "GLOSSARY: DWELL=EXPOSURE sec(L/M/H)  EFF=SRL/EXPOSED sec  PROFILE=COMMIT TIER"
 end

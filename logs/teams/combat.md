@@ -968,3 +968,9 @@
 - Task support: Route-vibe recovery chain now surfaces streak count at recovery moments.
 - Decision: Recovery streak increments per confirmed recovery episode, improving post-snapback pacing readability.
 - Follow-up: Pair upcoming drift-alarm token with threat context if conflict/snapback churn persists.
+
+## 2026-03-22 21:46 KST — Cycle AV combat readability relief cue
+- Task: Add cooldown-side combat feedback token `BERSERK FX:FADE` after pulse streak collapse.
+- Decision: trigger only when prior rise streak was sustained (>=2), prior threat was non-zero, and current delta is <=0.
+- Impact hypothesis: reduce post-spike uncertainty by explicitly signalling pressure release windows.
+- Evidence: `main.lua`, `src/hud.lua`, `scripts/regression_hud_berserker_counters.lua` PASS.
