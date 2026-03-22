@@ -1763,3 +1763,12 @@ Compact decision memory for AI context efficiency.
 - Regression added: `scripts/regression_portal_route_vibe_sync_hint.lua`.
 - Verification: PASS sync-hint regression + conflict-reason + coach-override regressions.
 - Durable decision: ship as hint-only experiment first; defer actual SRL payout mutation until telemetry validates readability and behavior shift.
+
+## 2026-03-22 19:41 KST — Cycle AT injection + slice complete
+- Game Director generated 3 ideas (low/mid/high risk) and selected low-risk slice:
+  1) **Selected (low-risk UX/systems):** pre-reward sync chain token (`VIBE CHAIN` / `VSC`).
+  2) Mid-risk systems/combat candidate: sync-threshold dodge-charge handoff (`VIBE SYNC DODGE:+1`) [queued].
+  3) High-risk design/AI-content candidate: route-vibe snapback warning (`VIBE SNAPBACK:ON`) [queued].
+- Shipped: chain token projection in `src/portal.lua` behind `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT`.
+- Regression upgraded: `scripts/regression_portal_route_vibe_sync_hint.lua` now validates chain and reset behavior.
+- Backlog injected in TASKS/POST_RC as Cycle AT with one completed + two queued tasks.

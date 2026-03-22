@@ -336,7 +336,7 @@ local function resolveRouteVignetteGlyph(routeTag)
     return "???"
 end
 
-local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint)
+local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain)
     local fxCue = resolvePortalFxCue(pressureScore)
     local routeVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s  ROUTE VIBE:%s", routeTag, coach, pressureScore, fxCue, routeVibe)
@@ -361,13 +361,16 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
             prompt = string.format("%s  COACH OVERRIDE:DE-ESCALATE", prompt)
         end
     end
+    if vibeSyncChain then
+        prompt = string.format("%s  VIBE CHAIN:%d/3", prompt, vibeSyncChain)
+    end
     if vibeSyncHint then
         prompt = string.format("%s  VIBE SYNC:+1", prompt)
     end
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
@@ -391,6 +394,9 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
         if coachOverride then
             prompt = string.format("%s  COVR:DEESC", prompt)
         end
+    end
+    if vibeSyncChain then
+        prompt = string.format("%s  VSC:%d/3", prompt, vibeSyncChain)
     end
     if vibeSyncHint then
         prompt = string.format("%s  VS:+1", prompt)
@@ -429,12 +435,18 @@ function Portal.getTransitionPrompt(maxChars, context)
     end
     local routeVibeAligned = isRouteVibeThreatAligned(routeTag, threatTier)
     pendingTransition.routeVibeAligned = routeVibeAligned
-    local vibeSyncHint = isRouteVibeSyncExperimentEnabled() and routeVibeAligned and (routeVibeSyncStreak + 1) >= 3
+    local syncEnabled = isRouteVibeSyncExperimentEnabled()
+    local projectedVibeSyncStreak = routeVibeAligned and (routeVibeSyncStreak + 1) or 0
+    if projectedVibeSyncStreak > 3 then
+        projectedVibeSyncStreak = 3
+    end
+    local vibeSyncChain = syncEnabled and projectedVibeSyncStreak or nil
+    local vibeSyncHint = syncEnabled and routeVibeAligned and (routeVibeSyncStreak + 1) >= 3
     local coachOverride = isRouteVibeCoachOverrideExperimentEnabled() and routeVibeConflict and altRouteTag ~= nil
-    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint)
+    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain)
     local budget = tonumber(maxChars) or 76
     if budget > 0 and #prompt > budget then
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint)
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain)
     end
     return prompt
 end

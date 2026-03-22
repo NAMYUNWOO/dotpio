@@ -1216,3 +1216,7 @@
 - Added compact-safe tokenization for vibe consistency reward hint (`VIBE SYNC:+1` / `VS:+1`).
 - Hint appears only at streak threshold to reduce noise.
 - Verified compact prompt still preserves conflict/override tokens.
+
+## 2026-03-22 19:41 KST — Compact chain token added
+- Added compact-safe progression token `VSC:<n>/3` alongside existing `VS:+1` threshold cue.
+- Keeps coaching legible in compact fallback path.

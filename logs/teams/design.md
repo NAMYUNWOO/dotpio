@@ -996,3 +996,7 @@
 - Detailed token: `VIBE SYNC:+1`, compact token: `VS:+1`.
 - Rationale: reinforce route fantasy coherence without adding irreversible economy change.
 - Follow-up: Observe readability drift impact once enabled in test windows.
+
+## 2026-03-22 19:41 KST — Vibe-sync pre-reward coaching
+- Added pre-threshold chain readability cue so players see sync progress before `+1` hint.
+- Intent: reduce black-box feel of reward trigger without bloating portal prompt semantics.

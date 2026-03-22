@@ -933,3 +933,6 @@
 ## 2026-03-22 19:34 KST — Threat-tier integration check
 - Used existing threat tier signal (`LOW|MED|HIGH`) as alignment comparator for route-vibe sync hint.
 - Combat tuning/damage windows unchanged.
+
+## 2026-03-22 19:41 KST — Threat-tier signal reuse only
+- Existing threat-tier feed reused for chain projection; no combat behavior tuning applied.

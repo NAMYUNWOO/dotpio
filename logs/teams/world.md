@@ -990,3 +990,6 @@
 ## 2026-03-22 19:34 KST — No map topology changes
 - This cycle touched portal prompt telemetry/readability only.
 - Route tags/maps/portal graph unchanged.
+
+## 2026-03-22 19:41 KST — No world-layout/portal-graph edits
+- Cycle AT only changed prompt coaching tokens and regression coverage.

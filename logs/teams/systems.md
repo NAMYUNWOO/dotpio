@@ -1508,3 +1508,10 @@
 - Implementation: Added streak state, alignment tagging on pending transition, streak commit/reset on confirmTransition.
 - Verification: `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 lua scripts/regression_portal_route_vibe_sync_hint.lua` PASS.
 - Follow-up: If experiment graduates, wire actual reward payout event (currently hint-only).
+
+## 2026-03-22 19:41 KST — Cycle AT vertical slice shipped (selected idea)
+- Selected idea: add sync-progress readability token before reward threshold.
+- Added projected chain token logic (`0~3/3`) tied to `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT`.
+- Prompt tokens: detailed `VIBE CHAIN:<n>/3`, compact `VSC:<n>/3`.
+- Validation: sync-hint regression updated/passing.
+- Follow-up: evaluate if chain token should suppress at `0/3` in live playtests.

@@ -1976,3 +1976,10 @@
 - Cross-checks rerun:
   - `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT_REASON=1 lua scripts/regression_portal_route_vibe_conflict_reason.lua` PASS
   - `DOTPIO_EXPERIMENT_ROUTE_VIBE_CONFLICT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_COACH_OVERRIDE=1 lua scripts/regression_portal_route_vibe_coach_override.lua` PASS
+
+## 2026-03-22 19:41 KST — Updated portal vibe-sync regression
+- Extended `regression_portal_route_vibe_sync_hint.lua` assertions for chain tokens:
+  - aligned 1st/2nd/3rd => `1/3`, `2/3`, `3/3`
+  - misaligned => `0/3`
+  - post-reset aligned restart => `1/3`
+- Suite pass with conflict reason + coach override cross-checks.
