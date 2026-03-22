@@ -1138,6 +1138,79 @@ def action_pace_alt_window_pulse_drift_from_prior(
     }
 
 
+def route_pulse_link_from_signals(
+    *,
+    action_pace_alt_window_pulse: str,
+    action_pace_alt_window_pulse_drift: int,
+    action_pace_alt_window_fit: str,
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Design/World bridge token to align portal handoff sharpness with fallback pulse cadence."""
+    flag_name = "DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    pulse = str(action_pace_alt_window_pulse).upper()
+    fit = str(action_pace_alt_window_fit).upper()
+    drift = int(action_pace_alt_window_pulse_drift)
+
+    if not flag_enabled:
+        link = "OFF"
+        reason = "flag-disabled"
+    elif pulse == "HOT" or drift > 0 or fit == "TENSE":
+        link = "SHARP"
+        reason = "escalating-or-tense-pulse-context"
+    else:
+        link = "SOFT"
+        reason = "steady-or-cooling-pulse-context"
+
+    return link, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "actionPaceAltWindowPulse": pulse,
+        "actionPaceAltWindowPulseDrift": drift,
+        "actionPaceAltWindowFit": fit,
+        "reason": reason,
+    }
+
+
+def route_pulse_link_confidence_from_signals(
+    *,
+    route_pulse_link: str,
+    route_pulse_link_signals: dict[str, str | int | bool],
+    action_pace_alt_window_confidence: str,
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Trust score for pulse-aware portal handoff cue readability."""
+    link = str(route_pulse_link).upper()
+    pulse = str(route_pulse_link_signals.get("actionPaceAltWindowPulse", "OFF")).upper()
+    drift = int(route_pulse_link_signals.get("actionPaceAltWindowPulseDrift", 0))
+    fit = str(route_pulse_link_signals.get("actionPaceAltWindowFit", "EVEN")).upper()
+    alt_conf = str(action_pace_alt_window_confidence).upper()
+
+    if link == "OFF":
+        confidence = "LOW"
+        reason = "link-disabled"
+    elif link == "SHARP" and pulse == "HOT" and alt_conf in {"MID", "HIGH"}:
+        confidence = "HIGH"
+        reason = "sharp-link-backed-by-hot-pulse"
+    elif link == "SHARP" and (drift > 0 or fit == "TENSE"):
+        confidence = "MID"
+        reason = "sharp-link-backed-by-escalation-signals"
+    elif link == "SOFT" and drift <= 0 and fit in {"SAFE", "EVEN"}:
+        confidence = "MID"
+        reason = "soft-link-backed-by-stable-signals"
+    else:
+        confidence = "LOW"
+        reason = "link-signals-inconclusive"
+
+    return confidence, {
+        "routePulseLink": link,
+        "actionPaceAltWindowPulse": pulse,
+        "actionPaceAltWindowPulseDrift": drift,
+        "actionPaceAltWindowFit": fit,
+        "actionPaceAltWindowConfidence": alt_conf,
+        "reason": reason,
+    }
+
 
 def route_action_guardrail_from_signals(*, drift_risk: str, route_action_confidence: str) -> tuple[str, dict[str, str | bool]]:
     lock = drift_risk == "HIGH" and route_action_confidence == "LOW"
@@ -4551,6 +4624,16 @@ def main() -> int:
         current_action_pace_alt_window_pulse=action_pace_alt_window_pulse,
         prior_json_path=args.out_json,
     )
+    route_pulse_link, route_pulse_link_signals = route_pulse_link_from_signals(
+        action_pace_alt_window_pulse=action_pace_alt_window_pulse,
+        action_pace_alt_window_pulse_drift=action_pace_alt_window_pulse_drift,
+        action_pace_alt_window_fit=action_pace_alt_window_fit,
+    )
+    route_pulse_link_confidence, route_pulse_link_confidence_signals = route_pulse_link_confidence_from_signals(
+        route_pulse_link=route_pulse_link,
+        route_pulse_link_signals=route_pulse_link_signals,
+        action_pace_alt_window_confidence=action_pace_alt_window_confidence,
+    )
     action_pace_why, action_pace_why_signals = action_pace_why_from_signals(
         action_pace=action_pace,
         action_guard=action_guard,
@@ -4973,6 +5056,10 @@ def main() -> int:
         "actionPaceAltWindowPulseSignals": action_pace_alt_window_pulse_signals,
         "actionPaceAltWindowPulseDrift": action_pace_alt_window_pulse_drift,
         "actionPaceAltWindowPulseDriftSignals": action_pace_alt_window_pulse_drift_signals,
+        "routePulseLink": route_pulse_link,
+        "routePulseLinkSignals": route_pulse_link_signals,
+        "routePulseLinkConfidence": route_pulse_link_confidence,
+        "routePulseLinkConfidenceSignals": route_pulse_link_confidence_signals,
         "actionPaceWhy": action_pace_why,
         "actionPaceWhySignals": action_pace_why_signals,
         "whatIfAlt": what_if_alt,
@@ -5181,6 +5268,8 @@ def main() -> int:
         f"- ACTION PACE ALT WINDOW STEP GLYPH: **{action_pace_alt_window_step_glyph}** ({action_pace_alt_window_step_glyph_signals['reason']}; flag={action_pace_alt_window_step_glyph_signals['flagName']} enabled={action_pace_alt_window_step_glyph_signals['flagEnabled']} step={action_pace_alt_window_step_glyph_signals['actionPaceAltWindowStep']} urgency={action_pace_alt_window_step_glyph_signals['actionPaceAltWindowUrgency']} fit={action_pace_alt_window_step_glyph_signals['actionPaceAltWindowFit']})",
         f"- ACTION PACE ALT WINDOW PULSE: **{action_pace_alt_window_pulse}** ({action_pace_alt_window_pulse_signals['reason']}; flag={action_pace_alt_window_pulse_signals['flagName']} enabled={action_pace_alt_window_pulse_signals['flagEnabled']} urgency={action_pace_alt_window_pulse_signals['actionPaceAltWindowUrgency']} fit={action_pace_alt_window_pulse_signals['actionPaceAltWindowFit']} conf={action_pace_alt_window_pulse_signals['actionPaceAltWindowConfidence']})",
         f"- ACTION PACE ALT WINDOW PULSE Δ: **{action_pace_alt_window_pulse_drift:+d}** ({action_pace_alt_window_pulse_drift_signals['reason']}; current={action_pace_alt_window_pulse_drift_signals['currentPulse']}({action_pace_alt_window_pulse_drift_signals['currentScore']}) prior={action_pace_alt_window_pulse_drift_signals['priorPulse']}({action_pace_alt_window_pulse_drift_signals['priorScore']}) loaded={action_pace_alt_window_pulse_drift_signals['priorLoaded']})",
+        f"- ROUTE PULSE LINK: **{route_pulse_link}** ({route_pulse_link_signals['reason']}; flag={route_pulse_link_signals['flagName']} enabled={route_pulse_link_signals['flagEnabled']} pulse={route_pulse_link_signals['actionPaceAltWindowPulse']} drift={route_pulse_link_signals['actionPaceAltWindowPulseDrift']:+d} fit={route_pulse_link_signals['actionPaceAltWindowFit']})",
+        f"- ROUTE PULSE LINK CONF: **{route_pulse_link_confidence}** ({route_pulse_link_confidence_signals['reason']}; link={route_pulse_link_confidence_signals['routePulseLink']} pulse={route_pulse_link_confidence_signals['actionPaceAltWindowPulse']} drift={route_pulse_link_confidence_signals['actionPaceAltWindowPulseDrift']:+d} fit={route_pulse_link_confidence_signals['actionPaceAltWindowFit']} altConf={route_pulse_link_confidence_signals['actionPaceAltWindowConfidence']})",
         f"- ACTION PACE WHY: **{action_pace_why}** ({action_pace_why_signals['reason']}; flag={action_pace_why_signals['flagName']} enabled={action_pace_why_signals['flagEnabled']} pace={action_pace_why_signals['actionPace']} guard={action_pace_why_signals['actionGuard']} stability={action_pace_why_signals['actionStability']} lag={action_pace_why_signals['pressureLag']} drift={action_pace_why_signals['paceDrift']:+d})",
         f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
         f"- WHAT-IF CONF: **{what_if_confidence}** ({what_if_confidence_signals['reason']}; delta={what_if_confidence_signals['deltaRisk']} routeConf={what_if_confidence_signals['routeActionConfidence']} current={what_if_confidence_signals['currentLane']} alt={what_if_confidence_signals['altLane']})",

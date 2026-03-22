@@ -2135,3 +2135,13 @@
 - Added regression assertions for `actionPaceAltWindowPulseDrift` and `actionPaceAltWindowPulseDriftSignals` schema.
 - Added unit checks for no-prior baseline (`Δ=0`) and de-escalation case (`HOT -> COOL`, `Δ=-2`).
 - Markdown contract now asserts `ACTION PACE ALT WINDOW PULSE Δ` row presence.
+
+## 2026-03-23 05:04 KST
+- Decision: Added flagged digest bridge token `ROUTE PULSE LINK:SOFT|SHARP` in weekly readability pipeline to align portal handoff intensity with fallback pulse cadence.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up: Monitor digest output under `DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK=1` and tune SHARP threshold if over-triggered.
+
+## 2026-03-23 05:10 KST
+- Game Director Cycle BC ideation: (1) `ROUTE PULSE LINK CONF`, (2) compact portal pulse cue `PULSE LINK:S|H`, (3) pulse-link drift streak token.
+- Selected experiment: (1) confidence token, implemented as minimal vertical slice in weekly digest + regression.
+- Follow-up queue: keep (2)/(3) in backlog for next autonomous cycle.

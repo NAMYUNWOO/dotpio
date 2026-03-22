@@ -1937,3 +1937,9 @@ Compact decision memory for AI context efficiency.
 - Backlog updates: marked BA pulse item done; injected Cycle BB follow-ups (`PULSE Δ`, `ROUTE PULSE LINK`).
 
 - 2026-03-23 04:34 KST: Cycle BB follow-up complete — weekly portal digest now emits `ACTION PACE ALT WINDOW PULSE Δ:+n|-n` with persisted prior-window comparison (`current/prior/loaded/reason`) in JSON+Markdown; regression coverage expanded for schema + delta behavior. Next up: `ROUTE PULSE LINK:SOFT|SHARP` prototype behind flag.
+
+## 2026-03-23 05:04 KST
+- Shipped Game Director Cycle BB follow-up vertical slice: `ROUTE PULSE LINK:SOFT|SHARP` (flag: `DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK`) in weekly portal readability digest.
+- Token now bridges fallback cadence pulse (`ACTION PACE ALT WINDOW PULSE` + drift + fit) into a portal handoff cue for cross-surface readability.
+- Regression extended to validate markdown presence plus JSON schema/enum for `routePulseLink` and `routePulseLinkSignals`.
+- Game Director Cycle BC executed: generated 3 ideas, selected and shipped `ROUTE PULSE LINK CONF` token; deferred compact in-run cue + streak telemetry as backlog items.

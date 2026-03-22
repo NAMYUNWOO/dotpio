@@ -901,6 +901,24 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert payload.get("routePulseLink") in {"OFF", "SOFT", "SHARP"}, payload
+        assert set(payload.get("routePulseLinkSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "actionPaceAltWindowPulse",
+            "actionPaceAltWindowPulseDrift",
+            "actionPaceAltWindowFit",
+            "reason",
+        }, payload
+        assert payload.get("routePulseLinkConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("routePulseLinkConfidenceSignals", {}).keys()) == {
+            "routePulseLink",
+            "actionPaceAltWindowPulse",
+            "actionPaceAltWindowPulseDrift",
+            "actionPaceAltWindowFit",
+            "actionPaceAltWindowConfidence",
+            "reason",
+        }, payload
         assert isinstance(payload.get("actionPaceWhy"), str), payload
         assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
             "flagName",
@@ -970,6 +988,8 @@ def main() -> int:
         assert "ACTION PACE ALT WINDOW STEP GLYPH" in md_text
         assert "ACTION PACE ALT WINDOW PULSE" in md_text
         assert "ACTION PACE ALT WINDOW PULSE Δ" in md_text
+        assert "ROUTE PULSE LINK" in md_text
+        assert "ROUTE PULSE LINK CONF" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
