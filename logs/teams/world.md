@@ -1083,3 +1083,14 @@
 - Game Director Cycle BC ideation: (1) `ROUTE PULSE LINK CONF`, (2) compact portal pulse cue `PULSE LINK:S|H`, (3) pulse-link drift streak token.
 - Selected experiment: (1) confidence token, implemented as minimal vertical slice in weekly digest + regression.
 - Follow-up queue: keep (2)/(3) in backlog for next autonomous cycle.
+
+## 2026-03-23 05:31 KST
+- Task: Cycle BC compact portal cadence cue follow-up (`PULSE LINK:S|H`) for in-run route readability.
+- Commit: HEAD (pending)
+- Files: `src/portal.lua`, `scripts/regression_portal_prompt_pulse_link.lua`
+- Verification:
+  - `DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_PROMPT=1 lua scripts/regression_portal_prompt_pulse_link.lua` ✅
+- Decisions:
+  - Compact portal prompt now surfaces soft/sharp cadence handoff as a route-facing token without touching map routing logic.
+- Follow-up:
+  - Pair with digest-level `ROUTE PULSE LINK STREAK` to track persistence over windows.

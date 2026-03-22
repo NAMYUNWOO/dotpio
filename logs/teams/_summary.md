@@ -1943,3 +1943,11 @@ Compact decision memory for AI context efficiency.
 - Token now bridges fallback cadence pulse (`ACTION PACE ALT WINDOW PULSE` + drift + fit) into a portal handoff cue for cross-surface readability.
 - Regression extended to validate markdown presence plus JSON schema/enum for `routePulseLink` and `routePulseLinkSignals`.
 - Game Director Cycle BC executed: generated 3 ideas, selected and shipped `ROUTE PULSE LINK CONF` token; deferred compact in-run cue + streak telemetry as backlog items.
+
+## 2026-03-23 05:31 KST — Cycle BC compact portal pulse cue shipped
+- Completed TASKS/POST_RC unchecked item: `PULSE LINK:S|H` compact portal prompt cue behind `DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_PROMPT`.
+- Scope: `src/portal.lua` now adds compact-only token emission (no detailed prompt contract change) and `scripts/regression_portal_prompt_pulse_link.lua` validates high/low pressure token mapping.
+- Verification PASS:
+  - `lua scripts/regression_portal_prompt_compact_mode.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_PROMPT=1 lua scripts/regression_portal_prompt_pulse_link.lua`
+- Remaining highest-priority unchecked item: `ROUTE PULSE LINK STREAK:<n>` (Systems/QA weekly digest persistence triage).

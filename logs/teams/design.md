@@ -1095,3 +1095,9 @@
 - Game Director Cycle BC ideation: (1) `ROUTE PULSE LINK CONF`, (2) compact portal pulse cue `PULSE LINK:S|H`, (3) pulse-link drift streak token.
 - Selected experiment: (1) confidence token, implemented as minimal vertical slice in weekly digest + regression.
 - Follow-up queue: keep (2)/(3) in backlog for next autonomous cycle.
+
+## 2026-03-23 05:31 KST
+- Task: Portal prompt readability micro-slice for cadence handoff (`PULSE LINK:S|H`).
+- Decision: Keep token compact and flag-gated so DOS-width scanability improves without forcing wider prompt defaults.
+- Evidence: `src/portal.lua`, `scripts/regression_portal_prompt_pulse_link.lua`.
+- Follow-up: Align next digest streak token semantics with in-run cue (`S/H`) to avoid operator/player vocabulary drift.

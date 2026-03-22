@@ -2145,3 +2145,15 @@
 - Game Director Cycle BC ideation: (1) `ROUTE PULSE LINK CONF`, (2) compact portal pulse cue `PULSE LINK:S|H`, (3) pulse-link drift streak token.
 - Selected experiment: (1) confidence token, implemented as minimal vertical slice in weekly digest + regression.
 - Follow-up queue: keep (2)/(3) in backlog for next autonomous cycle.
+
+## 2026-03-23 05:31 KST
+- Task: Verify compact portal pulse-link cue experiment.
+- Commit: HEAD (pending)
+- Files checked: `src/portal.lua`, `scripts/regression_portal_prompt_pulse_link.lua`
+- Verification:
+  - `lua scripts/regression_portal_prompt_compact_mode.lua` ✅
+  - `DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_PROMPT=1 lua scripts/regression_portal_prompt_pulse_link.lua` ✅
+- Decisions:
+  - Regression confirms compact prompt emits `PULSE LINK:H` under high-pressure and `PULSE LINK:S` under low-pressure transition contexts.
+- Follow-up:
+  - Extend weekly digest regression once streak token lands.
