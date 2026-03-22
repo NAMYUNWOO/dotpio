@@ -1543,3 +1543,13 @@
   - Recovery cue arms on immediate post-sync snapback and auto-clears after the first confirmed re-aligned transition.
 - Follow-up:
   - Cycle AU backlog remains open with resilience-streak token and drift-alarm prototype for next review pass.
+
+## [2026-03-22 21:34 KST] Game Director Cycle AU — Route-vibe resilience streak token
+- Task: Add `VIBE RESILIENCE:<n>` behind experiment flag for consecutive post-snapback recoveries.
+- Scope: `src/portal.lua`, `scripts/regression_portal_route_vibe_resilience.lua`, backlog sync in `TASKS.md` + `POST_RC_BACKLOG.md`.
+- Decision: Added `DOTPIO_EXPERIMENT_ROUTE_VIBE_RESILIENCE`; streak increments on each confirmed recovery event and is rendered with recovery cue (`VRES:<n>` compact).
+- Verification:
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_RECOVERY_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_RESILIENCE=1 lua scripts/regression_portal_route_vibe_resilience.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_RECOVERY_HINT=1 lua scripts/regression_portal_route_vibe_recovery.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 lua scripts/regression_portal_route_vibe_snapback.lua`
+- Follow-up: Remaining highest-priority unchecked item is Cycle AU drift-alarm prototype (`VIBE DRIFT:WIDE`).

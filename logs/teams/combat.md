@@ -963,3 +963,8 @@
   - Recovery cue arms on immediate post-sync snapback and auto-clears after the first confirmed re-aligned transition.
 - Follow-up:
   - Cycle AU backlog remains open with resilience-streak token and drift-alarm prototype for next review pass.
+
+## [2026-03-22 21:34 KST] Support note — Recovery pacing telemetry cue
+- Task support: Route-vibe recovery chain now surfaces streak count at recovery moments.
+- Decision: Recovery streak increments per confirmed recovery episode, improving post-snapback pacing readability.
+- Follow-up: Pair upcoming drift-alarm token with threat context if conflict/snapback churn persists.

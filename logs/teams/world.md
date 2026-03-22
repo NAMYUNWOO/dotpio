@@ -1019,3 +1019,8 @@
   - Recovery cue arms on immediate post-sync snapback and auto-clears after the first confirmed re-aligned transition.
 - Follow-up:
   - Cycle AU backlog remains open with resilience-streak token and drift-alarm prototype for next review pass.
+
+## [2026-03-22 21:34 KST] Support note — Portal route readability continuity
+- Task support: Route-vibe resilience streak token integration for portal prompts.
+- Decision: Keep token additive and flag-gated to avoid altering baseline portal prompt contract.
+- Follow-up: Next world/design-facing prototype remains `VIBE DRIFT:WIDE` alarm under short-window conflict+snapback co-occurrence.

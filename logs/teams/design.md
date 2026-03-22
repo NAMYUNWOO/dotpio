@@ -1026,3 +1026,8 @@
   - Recovery cue arms on immediate post-sync snapback and auto-clears after the first confirmed re-aligned transition.
 - Follow-up:
   - Cycle AU backlog remains open with resilience-streak token and drift-alarm prototype for next review pass.
+
+## [2026-03-22 21:34 KST] Support note — Prompt readability
+- Task support: Added explicit `VIBE RESILIENCE:<n>` / `VRES:<n>` token while preserving existing cue order.
+- Decision: Token appears only with `VIBE RECOVER` to avoid ambient prompt clutter.
+- Follow-up: Next prototype should test drift alarm salience vs copy-budget limits.

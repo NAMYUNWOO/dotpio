@@ -1802,3 +1802,15 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_portal_route_preview.lua`
 - Backlog progression: Cycle AT final item moved `[ ] -> [~] -> [x]` in both `TASKS.md` and `POST_RC_BACKLOG.md`.
 - Note: `ACTION_ITEMS.md` still contains placeholder tracking row `- [ ] todo`; Game Director auto-cycle trigger deferred until ACTION_ITEMS is explicitly closed or replaced.
+
+## [2026-03-22 21:34 KST] Cycle AU progress — resilience streak shipped
+- Completed backlog item: `VIBE RESILIENCE:<n>` behind `DOTPIO_EXPERIMENT_ROUTE_VIBE_RESILIENCE`.
+- Implementation:
+  - `src/portal.lua`: added resilience flag parser, recovery-streak state, detailed (`VIBE RESILIENCE`) + compact (`VRES`) token rendering.
+  - `scripts/regression_portal_route_vibe_resilience.lua`: validates streak progression across two snapback->recovery episodes.
+  - `TASKS.md` and `POST_RC_BACKLOG.md`: Cycle AU resilience item moved `[ ] -> [~] -> [x]`.
+- Verification:
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_RECOVERY_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_RESILIENCE=1 lua scripts/regression_portal_route_vibe_resilience.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_RECOVERY_HINT=1 lua scripts/regression_portal_route_vibe_recovery.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 lua scripts/regression_portal_route_vibe_snapback.lua`
+- Next highest-priority unchecked item: `VIBE DRIFT:WIDE` prototype (conflict + snapback short-window alarm).

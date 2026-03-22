@@ -996,3 +996,8 @@
   - Recovery cue arms on immediate post-sync snapback and auto-clears after the first confirmed re-aligned transition.
 - Follow-up:
   - Cycle AU backlog remains open with resilience-streak token and drift-alarm prototype for next review pass.
+
+## [2026-03-22 21:34 KST] Support note — Prompt token lifecycle
+- Task support: Added resilience token lifecycle (`VIBE RESILIENCE`) only when recovery cue is active.
+- Decision: Preserve compact token naming (`VRES`) to fit DOS-width fallback behavior.
+- Follow-up: Implement drift alarm rationale copy for next Cycle AU prototype.

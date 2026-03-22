@@ -326,5 +326,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-22 Cycle AU)
 - [x] UX/Systems Team: Add post-snapback recovery cue token (`VIBE RECOVER:READY`, compact `VR:OK`) behind flag on first re-aligned transition
-- [ ] Systems/Combat Team: Add route-vibe resilience streak token (`VIBE RESILIENCE:<n>`) behind flag for consecutive recoveries after snapback
+- [x] Systems/Combat Team: Add route-vibe resilience streak token (`VIBE RESILIENCE:<n>`) behind flag for consecutive recoveries after snapback
 - [ ] Design/AI Content Team: Prototype route-vibe drift alarm token (`VIBE DRIFT:WIDE`) behind flag when conflict + snapback co-occur in short window

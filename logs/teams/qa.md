@@ -2017,3 +2017,11 @@
   - Recovery cue arms on immediate post-sync snapback and auto-clears after the first confirmed re-aligned transition.
 - Follow-up:
   - Cycle AU backlog remains open with resilience-streak token and drift-alarm prototype for next review pass.
+
+## [2026-03-22 21:34 KST] Regression evidence — Route-vibe resilience streak
+- Added regression: `scripts/regression_portal_route_vibe_resilience.lua`.
+- PASS:
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_RECOVERY_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_RESILIENCE=1 lua scripts/regression_portal_route_vibe_resilience.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_RECOVERY_HINT=1 lua scripts/regression_portal_route_vibe_recovery.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_VIBE_SYNC_HINT=1 DOTPIO_EXPERIMENT_ROUTE_VIBE_SNAPBACK=1 lua scripts/regression_portal_route_vibe_snapback.lua`
+- Follow-up: Add drift-alarm regression once `VIBE DRIFT:WIDE` prototype lands.

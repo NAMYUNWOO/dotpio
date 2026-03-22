@@ -1246,3 +1246,8 @@
   - Recovery cue arms on immediate post-sync snapback and auto-clears after the first confirmed re-aligned transition.
 - Follow-up:
   - Cycle AU backlog remains open with resilience-streak token and drift-alarm prototype for next review pass.
+
+## [2026-03-22 21:34 KST] Support note — Portal prompt UX
+- Task support: Exposed resilience streak after snapback recoveries in detailed/compact portal prompt variants.
+- Decision: Keep streak hidden unless recovery cue is present for clear moment-to-moment coaching.
+- Follow-up: Validate drift-alarm prompt token placement in both detailed and compact modes.
