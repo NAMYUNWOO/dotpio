@@ -2758,6 +2758,89 @@ def what_if_split_escalate_recover_veto_rearm_nudge_confidence_from_signals(
         "reason": reason,
     }
 
+
+def what_if_split_escalate_recover_veto_rearm_nudge_why_from_signals(
+    *,
+    what_if_split_esc_recover_veto_rearm_nudge: str,
+    what_if_split_esc_recover_veto_rearm_nudge_confidence: str,
+    what_if_split_esc_recover_veto_rearm_nudge_window: str,
+    what_if_split_esc_recover_veto_rearm_fit: str,
+) -> tuple[str, dict[str, str | bool]]:
+    """Emit concise rationale for auto-rearm nudge token when experiment flag is enabled."""
+    flag_name = "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE_WHY"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    nudge = str(what_if_split_esc_recover_veto_rearm_nudge).upper()
+    confidence = str(what_if_split_esc_recover_veto_rearm_nudge_confidence).upper()
+    window = str(what_if_split_esc_recover_veto_rearm_nudge_window).upper()
+    fit = str(what_if_split_esc_recover_veto_rearm_fit).upper()
+
+    if not flag_enabled:
+        rationale = "FLAG OFF"
+        reason = "flag-disabled"
+    elif nudge == "FLAG OFF":
+        rationale = "NUDGE DISABLED"
+        reason = "upstream-nudge-flag-disabled"
+    elif nudge == "HOLD DEFENSE" and confidence == "HIGH":
+        rationale = "PRESSURE HOLD"
+        reason = "high-confidence-defensive-hold"
+    elif window == "ARMED" and confidence in {"MID", "HIGH"}:
+        rationale = "WATCH REARM"
+        reason = "armed-window-with-actionable-confidence"
+    elif window == "COOLING" and fit == "RELIEF":
+        rationale = "RECOVER RESET"
+        reason = "cooling-window-relief-fit"
+    elif window == "COOLING":
+        rationale = "COOLING CHECK"
+        reason = "cooling-window-monitor-fit"
+    else:
+        rationale = "LANE MONITOR"
+        reason = "idle-window-default-monitoring"
+
+    return rationale, {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "splitEscRecoverVetoRearmNudge": nudge,
+        "splitEscRecoverVetoRearmNudgeConfidence": confidence,
+        "splitEscRecoverVetoRearmNudgeWindow": window,
+        "splitEscRecoverVetoRearmFit": fit,
+        "reason": reason,
+    }
+
+
+def what_if_split_escalate_recover_veto_rearm_nudge_impact_from_signals(
+    *,
+    what_if_split_esc_recover_veto_rearm_nudge: str,
+    what_if_split_esc_recover_veto_rearm_nudge_window: str,
+    what_if_split_esc_recover_veto_rearm_fit: str,
+) -> tuple[str, dict[str, str]]:
+    """Compress nudge urgency into a compact impact band for operator pacing triage."""
+    nudge = str(what_if_split_esc_recover_veto_rearm_nudge).upper()
+    window = str(what_if_split_esc_recover_veto_rearm_nudge_window).upper()
+    fit = str(what_if_split_esc_recover_veto_rearm_fit).upper()
+
+    if nudge in {"HOLD DEFENSE", "DELAY REARM"} and window == "ARMED":
+        impact = "DEFENSIVE"
+        reason = "armed-window-with-high-guard-nudge"
+    elif window == "COOLING" and fit in {"EVEN", "TENSE"}:
+        impact = "DEFENSIVE"
+        reason = "cooling-window-with-non-relief-fit"
+    elif nudge in {"STAY SHARP", "PROBE CAREFUL", "RESET READY"}:
+        impact = "CAUTIOUS"
+        reason = "actionable-nudge-with-moderate-pressure"
+    else:
+        impact = "NEUTRAL"
+        reason = "monitoring-or-flag-off-state"
+
+    return impact, {
+        "splitEscRecoverVetoRearmNudge": nudge,
+        "splitEscRecoverVetoRearmNudgeWindow": window,
+        "splitEscRecoverVetoRearmFit": fit,
+        "reason": reason,
+    }
+
+
 def what_if_split_escalate_recover_confidence_delta_from_prior(
     *,
     current_confidence: str,
@@ -3526,6 +3609,17 @@ def main() -> int:
         what_if_split_esc_recover_veto_rearm_confidence=what_if_split_esc_recover_veto_rearm_confidence,
         what_if_split_esc_recover_veto_rearm_fit=what_if_split_esc_recover_veto_rearm_fit,
     )
+    what_if_split_esc_recover_veto_rearm_nudge_why, what_if_split_esc_recover_veto_rearm_nudge_why_signals = what_if_split_escalate_recover_veto_rearm_nudge_why_from_signals(
+        what_if_split_esc_recover_veto_rearm_nudge=what_if_split_esc_recover_veto_rearm_nudge,
+        what_if_split_esc_recover_veto_rearm_nudge_confidence=what_if_split_esc_recover_veto_rearm_nudge_confidence,
+        what_if_split_esc_recover_veto_rearm_nudge_window=what_if_split_esc_recover_veto_rearm_nudge_window,
+        what_if_split_esc_recover_veto_rearm_fit=what_if_split_esc_recover_veto_rearm_fit,
+    )
+    what_if_split_esc_recover_veto_rearm_nudge_impact, what_if_split_esc_recover_veto_rearm_nudge_impact_signals = what_if_split_escalate_recover_veto_rearm_nudge_impact_from_signals(
+        what_if_split_esc_recover_veto_rearm_nudge=what_if_split_esc_recover_veto_rearm_nudge,
+        what_if_split_esc_recover_veto_rearm_nudge_window=what_if_split_esc_recover_veto_rearm_nudge_window,
+        what_if_split_esc_recover_veto_rearm_fit=what_if_split_esc_recover_veto_rearm_fit,
+    )
     what_if_split_esc_recover_confidence_delta, what_if_split_esc_recover_confidence_delta_signals = what_if_split_escalate_recover_confidence_delta_from_prior(
         current_confidence=what_if_split_esc_recover_confidence,
         prior_json_path=args.out_json,
@@ -3707,6 +3801,10 @@ def main() -> int:
         "whatIfSplitEscRecoverVetoRearmNudgeWindowSignals": what_if_split_esc_recover_veto_rearm_nudge_window_signals,
         "whatIfSplitEscRecoverVetoRearmNudgeConfidence": what_if_split_esc_recover_veto_rearm_nudge_confidence,
         "whatIfSplitEscRecoverVetoRearmNudgeConfidenceSignals": what_if_split_esc_recover_veto_rearm_nudge_confidence_signals,
+        "whatIfSplitEscRecoverVetoRearmNudgeWhy": what_if_split_esc_recover_veto_rearm_nudge_why,
+        "whatIfSplitEscRecoverVetoRearmNudgeWhySignals": what_if_split_esc_recover_veto_rearm_nudge_why_signals,
+        "whatIfSplitEscRecoverVetoRearmNudgeImpact": what_if_split_esc_recover_veto_rearm_nudge_impact,
+        "whatIfSplitEscRecoverVetoRearmNudgeImpactSignals": what_if_split_esc_recover_veto_rearm_nudge_impact_signals,
         "whatIfSplitEscRecoverConfidenceDelta": what_if_split_esc_recover_confidence_delta,
         "whatIfSplitEscRecoverConfidenceDeltaSignals": what_if_split_esc_recover_confidence_delta_signals,
         "anomalyPulse": anomaly_pulse,
@@ -3820,6 +3918,8 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE: **{what_if_split_esc_recover_veto_rearm_nudge}** ({what_if_split_esc_recover_veto_rearm_nudge_signals['reason']}; flag={what_if_split_esc_recover_veto_rearm_nudge_signals['flagName']} enabled={what_if_split_esc_recover_veto_rearm_nudge_signals['flagEnabled']} rearm={what_if_split_esc_recover_veto_rearm_nudge_signals['splitEscRecoverVetoRearm']} conf={what_if_split_esc_recover_veto_rearm_nudge_signals['splitEscRecoverVetoRearmConfidence']} fit={what_if_split_esc_recover_veto_rearm_nudge_signals['splitEscRecoverVetoRearmFit']} state={what_if_split_esc_recover_veto_rearm_nudge_signals['splitEscRecoverVetoRearmCooloffState']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WINDOW: **{what_if_split_esc_recover_veto_rearm_nudge_window}** ({what_if_split_esc_recover_veto_rearm_nudge_window_signals['reason']}; rearm={what_if_split_esc_recover_veto_rearm_nudge_window_signals['splitEscRecoverVetoRearm']} cooloffState={what_if_split_esc_recover_veto_rearm_nudge_window_signals['splitEscRecoverVetoRearmCooloffState']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE CONF: **{what_if_split_esc_recover_veto_rearm_nudge_confidence}** ({what_if_split_esc_recover_veto_rearm_nudge_confidence_signals['reason']}; nudge={what_if_split_esc_recover_veto_rearm_nudge_confidence_signals['splitEscRecoverVetoRearmNudge']} rearmConf={what_if_split_esc_recover_veto_rearm_nudge_confidence_signals['splitEscRecoverVetoRearmConfidence']} fit={what_if_split_esc_recover_veto_rearm_nudge_confidence_signals['splitEscRecoverVetoRearmFit']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WHY: **{what_if_split_esc_recover_veto_rearm_nudge_why}** ({what_if_split_esc_recover_veto_rearm_nudge_why_signals['reason']}; flag={what_if_split_esc_recover_veto_rearm_nudge_why_signals['flagName']} enabled={what_if_split_esc_recover_veto_rearm_nudge_why_signals['flagEnabled']} nudge={what_if_split_esc_recover_veto_rearm_nudge_why_signals['splitEscRecoverVetoRearmNudge']} conf={what_if_split_esc_recover_veto_rearm_nudge_why_signals['splitEscRecoverVetoRearmNudgeConfidence']} window={what_if_split_esc_recover_veto_rearm_nudge_why_signals['splitEscRecoverVetoRearmNudgeWindow']} fit={what_if_split_esc_recover_veto_rearm_nudge_why_signals['splitEscRecoverVetoRearmFit']})",
+        f"- WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE IMPACT: **{what_if_split_esc_recover_veto_rearm_nudge_impact}** ({what_if_split_esc_recover_veto_rearm_nudge_impact_signals['reason']}; nudge={what_if_split_esc_recover_veto_rearm_nudge_impact_signals['splitEscRecoverVetoRearmNudge']} window={what_if_split_esc_recover_veto_rearm_nudge_impact_signals['splitEscRecoverVetoRearmNudgeWindow']} fit={what_if_split_esc_recover_veto_rearm_nudge_impact_signals['splitEscRecoverVetoRearmFit']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",

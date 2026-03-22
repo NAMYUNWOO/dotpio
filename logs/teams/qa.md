@@ -1861,3 +1861,15 @@
 - Follow-up:
   - Next highest-priority unchecked item: nudge rationale token (WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WHY) behind flag.
 
+
+## 2026-03-22 13:06:09 KST
+- Task: Game Director Cycle AN selected slice — add `WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE IMPACT:DEFENSIVE|CAUTIOUS|NEUTRAL` to weekly digest.
+- Commit: pending
+- Files: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md
+- Verification:
+  - python3 scripts/regression_weekly_portal_prompt_readability_drift.py ✅
+- Decisions:
+  - Cycle AN ideas generated: (1) NUDGE IMPACT band (low-risk UX), (2) NUDGE DRIFT state (mid-risk systems), (3) dual-lane COACH snapshot behind flag (high-risk novelty).
+  - Selected experiment: NUDGE IMPACT band as minimal vertical slice for immediate pacing readability.
+- Follow-up:
+  - Next priority item: NUDGE DRIFT token (WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT:STABLE|SHIFTING).

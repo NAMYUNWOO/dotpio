@@ -707,6 +707,23 @@ def main() -> int:
             "splitEscRecoverVetoRearmCooloffState",
             "reason",
         }, payload
+        assert isinstance(payload.get("whatIfSplitEscRecoverVetoRearmNudgeWhy"), str), payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmNudgeWhySignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "splitEscRecoverVetoRearmNudge",
+            "splitEscRecoverVetoRearmNudgeConfidence",
+            "splitEscRecoverVetoRearmNudgeWindow",
+            "splitEscRecoverVetoRearmFit",
+            "reason",
+        }, payload
+        assert payload.get("whatIfSplitEscRecoverVetoRearmNudgeImpact") in {"DEFENSIVE", "CAUTIOUS", "NEUTRAL"}, payload
+        assert set(payload.get("whatIfSplitEscRecoverVetoRearmNudgeImpactSignals", {}).keys()) == {
+            "splitEscRecoverVetoRearmNudge",
+            "splitEscRecoverVetoRearmNudgeWindow",
+            "splitEscRecoverVetoRearmFit",
+            "reason",
+        }, payload
         md_text = out_md.read_text(encoding="utf-8")
         assert "Token Totals" in md_text
         assert "Top Token Movers" in md_text
@@ -791,6 +808,8 @@ def main() -> int:
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WINDOW" in md_text
         assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE CONF" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WHY" in md_text
+        assert "WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE IMPACT" in md_text
         assert "STICKY TOKENS" in md_text
         assert "ANOMALY" in md_text
         assert "ANOMALY CONF" in md_text

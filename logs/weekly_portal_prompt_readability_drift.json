@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T03:34:13.714487Z",
+  "generatedAt": "2026-03-22T04:06:43.559732Z",
   "status": "ok",
   "window": {
     "sinceDays": 7,
@@ -689,6 +689,23 @@
     "splitEscRecoverVetoRearmFit": "RELIEF",
     "reason": "nudge-flag-disabled"
   },
+  "whatIfSplitEscRecoverVetoRearmNudgeWhy": "FLAG OFF",
+  "whatIfSplitEscRecoverVetoRearmNudgeWhySignals": {
+    "flagName": "DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_ESC_RECOVER_VETO_REARM_NUDGE_WHY",
+    "flagEnabled": false,
+    "splitEscRecoverVetoRearmNudge": "FLAG OFF",
+    "splitEscRecoverVetoRearmNudgeConfidence": "LOW",
+    "splitEscRecoverVetoRearmNudgeWindow": "IDLE",
+    "splitEscRecoverVetoRearmFit": "RELIEF",
+    "reason": "flag-disabled"
+  },
+  "whatIfSplitEscRecoverVetoRearmNudgeImpact": "NEUTRAL",
+  "whatIfSplitEscRecoverVetoRearmNudgeImpactSignals": {
+    "splitEscRecoverVetoRearmNudge": "FLAG OFF",
+    "splitEscRecoverVetoRearmNudgeWindow": "IDLE",
+    "splitEscRecoverVetoRearmFit": "RELIEF",
+    "reason": "monitoring-or-flag-off-state"
+  },
   "whatIfSplitEscRecoverConfidenceDelta": "+0",
   "whatIfSplitEscRecoverConfidenceDeltaSignals": {
     "currentConfidence": "LOW",
@@ -824,6 +841,97 @@
     }
   ],
   "commits": [
+    {
+      "sha": "cdc929b910ccab040536ce5076fae2c783f6bacd",
+      "shortSha": "cdc929b",
+      "author": "yunwoo",
+      "subject": "feat(digest): add rearm nudge window token and coverage",
+      "committedAt": "2026-03-22T03:35:08Z",
+      "changedFiles": [
+        "POST_RC_BACKLOG.md",
+        "TASKS.md",
+        "logs/teams/_summary.md",
+        "logs/teams/ai-content.md",
+        "logs/teams/combat.md",
+        "logs/teams/design.md",
+        "logs/teams/qa.md",
+        "logs/teams/systems.md",
+        "logs/teams/ux.md",
+        "logs/teams/world.md",
+        "logs/weekly_portal_prompt_readability_drift.json",
+        "logs/weekly_portal_prompt_readability_drift.md",
+        "scripts/regression_weekly_portal_prompt_readability_drift.py",
+        "scripts/weekly_portal_prompt_readability_drift.py"
+      ],
+      "portalFiles": [],
+      "touchedPortalPrompt": false,
+      "added": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "removed": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "net": {
+        "compact": 0,
+        "detailed": 0,
+        "shared": 0
+      },
+      "dominantMode": "neutral",
+      "laneFocus": "MIXED",
+      "pressureEdits": {
+        "added": 0,
+        "removed": 0,
+        "net": 0
+      },
+      "tokenEdits": {
+        "added": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "removed": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        },
+        "net": {
+          "NEXT:": 0,
+          "P:": 0,
+          "ALT:": 0,
+          "ADEL:": 0,
+          "AP:": 0,
+          "NEXT ROUTE:": 0,
+          "PRESSURE:": 0,
+          "ALT ROUTE:": 0,
+          "ALT DELTA:": 0,
+          "ALT PLAN:": 0,
+          "ENTER:JUMP": 0,
+          "COACH:": 0
+        }
+      }
+    },
     {
       "sha": "f474a94aa6bc124fab81afde41060653ee473b89",
       "shortSha": "f474a94",
@@ -11496,95 +11604,6 @@
         "scripts/regression_mission_variety_preview.lua",
         "src/hud.lua",
         "src/run_missions.lua"
-      ],
-      "portalFiles": [],
-      "touchedPortalPrompt": false,
-      "added": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "removed": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "net": {
-        "compact": 0,
-        "detailed": 0,
-        "shared": 0
-      },
-      "dominantMode": "neutral",
-      "laneFocus": "MIXED",
-      "pressureEdits": {
-        "added": 0,
-        "removed": 0,
-        "net": 0
-      },
-      "tokenEdits": {
-        "added": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "removed": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        },
-        "net": {
-          "NEXT:": 0,
-          "P:": 0,
-          "ALT:": 0,
-          "ADEL:": 0,
-          "AP:": 0,
-          "NEXT ROUTE:": 0,
-          "PRESSURE:": 0,
-          "ALT ROUTE:": 0,
-          "ALT DELTA:": 0,
-          "ALT PLAN:": 0,
-          "ENTER:JUMP": 0,
-          "COACH:": 0
-        }
-      }
-    },
-    {
-      "sha": "9af5bc4dfaa8584c050981768cbf14b2dba0047d",
-      "shortSha": "9af5bc4",
-      "author": "yunwoo",
-      "subject": "feat(hud): surface berserker recovery-window threat counter",
-      "committedAt": "2026-03-19T21:59:22Z",
-      "changedFiles": [
-        "POST_RC_BACKLOG.md",
-        "TASKS.md",
-        "logs/teams/_summary.md",
-        "logs/teams/ai-content.md",
-        "logs/teams/combat.md",
-        "logs/teams/design.md",
-        "logs/teams/qa.md",
-        "logs/teams/systems.md",
-        "logs/teams/ux.md",
-        "logs/teams/world.md",
-        "scripts/regression_hud_berserker_counters.lua",
-        "src/hud.lua"
       ],
       "portalFiles": [],
       "touchedPortalPrompt": false,
