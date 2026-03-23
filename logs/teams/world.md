@@ -1144,3 +1144,11 @@
 - Evidence: `src/portal.lua`, `scripts/regression_portal_prompt_pulse_flare.lua`, `scripts/regression_portal_prompt_pulse_mode.lua`, `scripts/regression_portal_prompt_pulse_fit.lua`.
 - Verification: `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 lua scripts/regression_portal_prompt_pulse_fit.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FLARE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_flare.lua`.
 - Follow-up: Next highest-priority unchecked item remains Systems/UX token-priority mode (`FIT-FIRST|MODE-FIRST`).
+
+## 2026-03-23 10:31 KST — Portal prompt lane sync
+- World lane impact check: no portal graph/map topology changes.
+- Prompt-layer route messaging remains compatible with existing `NEXT/ALT` portal semantics.
+- Follow-up: none for map content this cycle.
+
+## 2026-03-23 10:31 KST — Cycle BH backlog injection
+- Queued world/design micro-cue experiment (`ALT STEP`) in backlog; no map or portal topology edits in this cycle.

@@ -1739,3 +1739,14 @@
 - Evidence: `src/portal.lua`, `scripts/regression_portal_prompt_pulse_flare.lua`, `scripts/regression_portal_prompt_pulse_mode.lua`, `scripts/regression_portal_prompt_pulse_fit.lua`.
 - Verification: `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 lua scripts/regression_portal_prompt_pulse_fit.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FLARE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_flare.lua`.
 - Follow-up: Next highest-priority unchecked item remains Systems/UX token-priority mode (`FIT-FIRST|MODE-FIRST`).
+
+## 2026-03-23 10:31 KST — Cycle BG compact pulse token-priority prototype
+- Task: Prototype compact prompt token-priority mode (`FIT-FIRST|MODE-FIRST`) under strict DOS-width budget behind flag.
+- Decision: Added `DOTPIO_EXPERIMENT_ROUTE_PULSE_TOKEN_PRIORITY` parsing in `src/portal.lua` with accepted values `FIT-FIRST|MODE-FIRST`.
+- Implementation: In compact prompt builder, pulse token ordering now follows priority mode; when priority mode is set, budget-aware append keeps the first-priority pulse token and drops overflowing secondary pulse token.
+- Guardrail: Legacy behavior remains unchanged when the new flag is unset (mode then fit both emitted as before).
+- Follow-up: If operator reports readability churn, wire chosen priority mode into weekly digest outputs as a tracked token.
+
+## 2026-03-23 10:31 KST — Cycle BH vertical slice shipped
+- Added compact pulse-priority cue token (`PRI:F|M`) gated by `DOTPIO_EXPERIMENT_ROUTE_PULSE_TOKEN_PRIORITY`.
+- Scope: prompt composition only; no pressure-score/mode-fit logic changed.

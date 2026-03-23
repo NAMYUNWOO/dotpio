@@ -251,6 +251,18 @@ local function isRoutePulseFlareCompactPromptExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function resolveCompactPulseTokenPriorityMode()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_PULSE_TOKEN_PRIORITY")
+    if not raw then
+        return nil
+    end
+    local normalized = string.upper(tostring(raw))
+    if normalized == "FIT-FIRST" or normalized == "MODE-FIRST" then
+        return normalized
+    end
+    return nil
+end
+
 local function resolvePortalFxCue(pressureScore)
     if pressureScore >= 5 then
         return "SURGE", "S"
@@ -583,21 +595,46 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, maxChars)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
+    local budget = tonumber(maxChars) or 0
+    local function appendToken(token, enforceBudget)
+        if not token then
+            return
+        end
+        local chunk = "  " .. token
+        if enforceBudget and budget > 0 and (#prompt + #chunk) > budget then
+            return
+        end
+        prompt = prompt .. chunk
+    end
+
     if compactPulseLink then
-        prompt = string.format("%s  PULSE LINK:%s", prompt, compactPulseLink)
+        appendToken(string.format("PULSE LINK:%s", compactPulseLink), false)
     end
-    if compactPulseMode then
-        prompt = string.format("%s  PULSE MODE:%s", prompt, compactPulseMode)
+
+    local pulsePriorityMode = resolveCompactPulseTokenPriorityMode()
+    local enforcePulseBudget = pulsePriorityMode ~= nil
+    local compactPulsePriorityCue = nil
+    if pulsePriorityMode == "FIT-FIRST" then
+        compactPulsePriorityCue = "F"
+    elseif pulsePriorityMode == "MODE-FIRST" then
+        compactPulsePriorityCue = "M"
     end
-    if compactPulseFit then
-        prompt = string.format("%s  PULSE FIT:%s", prompt, compactPulseFit)
+    appendToken(compactPulsePriorityCue and string.format("PRI:%s", compactPulsePriorityCue) or nil, enforcePulseBudget)
+
+    if pulsePriorityMode == "FIT-FIRST" then
+        appendToken(compactPulseFit and string.format("PULSE FIT:%s", compactPulseFit) or nil, enforcePulseBudget)
+        appendToken(compactPulseMode and string.format("PULSE MODE:%s", compactPulseMode) or nil, enforcePulseBudget)
+    else
+        appendToken(compactPulseMode and string.format("PULSE MODE:%s", compactPulseMode) or nil, enforcePulseBudget)
+        appendToken(compactPulseFit and string.format("PULSE FIT:%s", compactPulseFit) or nil, enforcePulseBudget)
     end
+
     if compactPulseFlare then
-        prompt = string.format("%s  PULSE FLARE:%s", prompt, compactPulseFlare)
+        appendToken(string.format("PULSE FLARE:%s", compactPulseFlare), false)
     end
     if altRouteTag then
         prompt = string.format("%s  ALT:%s", prompt, altRouteTag)
@@ -720,7 +757,7 @@ function Portal.getTransitionPrompt(maxChars, context)
         if isRoutePulseFlareCompactPromptExperimentEnabled() then
             compactPulseFlare = resolveCompactPulseFlare(compactPulseMode, compactPulseFit)
         end
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare)
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, budget)
     end
     return prompt
 end

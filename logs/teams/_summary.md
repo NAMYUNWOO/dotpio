@@ -1994,3 +1994,24 @@ Compact decision memory for AI context efficiency.
 - Durable decision: fit classification should be derived from route pulse mode + drift + stability streak to avoid binary handoff signals.
 - Verification locked by regression schema, markdown presence checks, and helper behavior tests.
 - Backlog injected: remaining Cycle BF tasks are fit drift token and compact portal cue prototype.
+
+### 2026-03-23 10:31 KST — Cycle BG completion: compact pulse token-priority mode
+- Completed backlog item: `Systems/UX Team: Prototype compact prompt token-priority mode (FIT-FIRST|MODE-FIRST) behind flag under strict DOS width budget`.
+- Shipped behavior:
+  - New flag `DOTPIO_EXPERIMENT_ROUTE_PULSE_TOKEN_PRIORITY` (`FIT-FIRST|MODE-FIRST`) in compact portal prompt pipeline.
+  - Under priority-mode flag, pulse token append becomes budget-aware for `PULSE FIT`/`PULSE MODE`; first-priority token is preserved when width is constrained.
+  - Without flag, legacy compact ordering/coverage remains unchanged.
+- Verification: new token-priority regression + existing pulse mode/fit/flare regressions all pass.
+- Next candidate item: run Game Director cycle because ACTION_ITEMS/TASKS/POST_RC are now fully checked.
+
+### 2026-03-23 10:31 KST — Game Director Cycle BH (auto-trigger after full check completion)
+- Trigger: `ACTION_ITEMS.md` + `TASKS.md` + `POST_RC_BACKLOG.md` reached fully checked state (Cycle BG closure).
+- Candidate ideas generated:
+  1. **Low-risk UX/game-feel** — add compact pulse-priority cue (`PRI:F|M`) so strict-budget prompts still expose active token-order policy.
+  2. **Mid-risk QA/systems** — add weekly digest token `ROUTE PULSE TOKEN PRIORITY` with drift tracking.
+  3. **High-risk design/world** — add `ALT STEP:<SAFE|BAIT|PUSH>` micro-cue in portal prompts for branch-intent flavor.
+- Chosen experiment: **Idea #1** (low-risk, reversible, immediate readability impact).
+- Vertical slice shipped:
+  - `src/portal.lua`: compact prompt now emits `PRI:F|M` when `DOTPIO_EXPERIMENT_ROUTE_PULSE_TOKEN_PRIORITY` is active.
+  - `scripts/regression_portal_prompt_pulse_token_priority.lua`: verifies FIT-FIRST and MODE-FIRST cue+drop behavior under constrained budget.
+- Backlog injection recorded in `TASKS.md` and `POST_RC_BACKLOG.md` as **Cycle BH** (1 done, 2 queued).

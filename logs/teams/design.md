@@ -1146,3 +1146,11 @@
 - Evidence: `src/portal.lua`, `scripts/regression_portal_prompt_pulse_flare.lua`, `scripts/regression_portal_prompt_pulse_mode.lua`, `scripts/regression_portal_prompt_pulse_fit.lua`.
 - Verification: `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 lua scripts/regression_portal_prompt_pulse_fit.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FLARE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_flare.lua`.
 - Follow-up: Next highest-priority unchecked item remains Systems/UX token-priority mode (`FIT-FIRST|MODE-FIRST`).
+
+## 2026-03-23 10:31 KST — Token hierarchy prototype handoff
+- Reviewed compact portal prompt token hierarchy change for DOS-width constraints.
+- Approved experiment direction: explicit priority mode for `PULSE FIT` vs `PULSE MODE` to preserve scanable intent.
+- No visual-theme regressions introduced; copy remains in existing compact token language.
+
+## 2026-03-23 10:31 KST — Cycle BH idea pipeline
+- Kept high-risk `ALT STEP:<SAFE|BAIT|PUSH>` as queued follow-up to avoid overloading current compact prompt slice.

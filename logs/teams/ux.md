@@ -1364,3 +1364,13 @@
 - Evidence: `src/portal.lua`, `scripts/regression_portal_prompt_pulse_flare.lua`, `scripts/regression_portal_prompt_pulse_mode.lua`, `scripts/regression_portal_prompt_pulse_fit.lua`.
 - Verification: `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 lua scripts/regression_portal_prompt_pulse_fit.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FLARE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_flare.lua`.
 - Follow-up: Next highest-priority unchecked item remains Systems/UX token-priority mode (`FIT-FIRST|MODE-FIRST`).
+
+## 2026-03-23 10:31 KST — Compact prompt readability under width pressure
+- Task slice: Ensure compact portal cue keeps the most important pulse token when token budget is tight.
+- Outcome: Priority flag now supports `FIT-FIRST` (favor stability triage cue) and `MODE-FIRST` (favor cadence-state cue).
+- UX rationale: Avoids losing both tokens to clipping noise and gives operator explicit control over which cue survives first.
+- Verification notes: Regression confirms expected keep/drop behavior at strict budget using high-pressure portal fixture.
+- Follow-up: Evaluate whether default should remain MODE-FIRST for combat-heavy sessions.
+
+## 2026-03-23 10:31 KST — Cycle BH UX cue result
+- Added minimal cue `PRI:F|M` so compact prompt communicates active token-order policy even when secondary pulse token is dropped.
