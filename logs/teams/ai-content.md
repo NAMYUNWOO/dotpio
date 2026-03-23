@@ -1329,3 +1329,7 @@
   - `RGFXW:P/S (PRESSURE/STABLE)` -> `RGFXWRM:FLEX`
 - Regression now explicitly checks all three rationale aliases for stable mode outcomes.
 - Cycle CA queued AI-content follow-up: flagged `RGFXWRI WHY:<short>` prototype.
+
+## 2026-03-24 05:31 KST — Rail-intensity language stability checkpoint
+- Confirmed parity cue wording is deterministic (`SOFT|HARD`) and mapped directly from existing rail-mode intensity resolver (no new semantic branch).
+- Next AI-content task remains queued: add concise rationale token `RGFXWRI WHY:<short>` for context.

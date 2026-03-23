@@ -2026,3 +2026,9 @@
 - Strengthened regression `scripts/regression_portal_route_glow_fx_conf_why_rail_mode.lua` to assert alias+mode determinism across `RGFXW:S/P/O`.
 - Since actionable queues were cleared, executed Game Director Cycle CA (3 ideas) and shipped selected low-risk Systems/QA slice: weekly digest rail-intensity family churn coverage for `RGFXWRI:`.
 - Verification: portal rail-mode regression PASS; weekly digest py_compile + regression + artifact generation PASS.
+
+## 2026-03-24 05:31 KST — Cycle CA rail-intensity parity cue slice
+- Advanced highest-priority unchecked TASKS item to in-progress, then shipped detailed parity cue behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_PARITY`.
+- Implementation keeps compact token `RGFXWRI:<SOFT|HARD>` as the canonical compact signal and appends `ROUTE GLOW FX CONF WHY RAIL INTENSITY:<SOFT|HARD>` only when parity flag is enabled.
+- Verification: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity.lua` + new parity regression both PASS.
+- Follow-up queue head: `RGFXWRI WHY:<short>` flagged rationale token.

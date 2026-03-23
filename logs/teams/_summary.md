@@ -2323,3 +2323,9 @@ Compact decision memory for AI context efficiency.
 - Durable mapping decision: intensity is keyed to existing rail mode only (`RGFXWRM:LOCK=>HARD`, `RGFXWRM:FLEX=>SOFT`) to avoid introducing extra state divergence.
 - Added regression `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity.lua`; retained baseline rail-mode regression coverage.
 - Queue head now: remaining unchecked Cycle BZ item — AI Content/Design deterministic rationale-copy guard (`RGFXW` with `LOCK|FLEX` mappings).
+
+## 2026-03-24 05:31 KST — Cycle CA UX/World rail-intensity parity cue shipped
+- Closed highest-priority unchecked TASKS item: added detailed parity token `ROUTE GLOW FX CONF WHY RAIL INTENSITY:<SOFT|HARD>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_PARITY`.
+- Compact token `RGFXWRI:<SOFT|HARD>` remains preserved and emitted regardless of parity flag, preventing compact prompt regressions.
+- Added regression coverage with new script `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_parity.lua`; baseline + parity-enabled regressions both PASS.
+- Next highest unchecked backlog item: Design/AI Content flagged rationale token `RGFXWRI WHY:<short>`.

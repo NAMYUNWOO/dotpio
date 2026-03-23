@@ -1600,3 +1600,8 @@
 ## 2026-03-24 05:01 KST — Prompt readability continuity
 - Deterministic guard prevents conflicting compact cues between rationale alias (`RGFXW`) and rail mode (`RGFXWRM`).
 - Weekly digest now surfaces `RGFXWRI` family churn + token-family coverage rows for quicker compact-budget triage.
+
+## 2026-03-24 05:31 KST — UX parity cue shipment
+- Completed TASKS Cycle CA UX/World item with lifecycle tracking `[ ] -> [~] -> [x]`.
+- Added parity cue emission path in portal compact prompt builder while preserving compact-first signal ordering.
+- Added/ran regressions for both default-hidden and parity-enabled behavior.

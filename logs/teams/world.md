@@ -1373,3 +1373,8 @@
 ## 2026-03-24 05:01 KST — Cycle CA injection (world follow-up queued)
 - BZ deterministic copy guard completed and regression-covered (rail mode now deterministic with rationale aliases).
 - Game Director Cycle CA injected next world-facing follow-up: detailed parity cue for rail intensity (`ROUTE GLOW FX CONF WHY RAIL INTENSITY:SOFT|HARD`) while keeping compact `RGFXWRI`.
+
+## 2026-03-24 05:31 KST — UX/World parity cue rollout
+- Added world-facing detailed parity token for rail intensity readability: `ROUTE GLOW FX CONF WHY RAIL INTENSITY:<SOFT|HARD>`.
+- Compact prompt remains intact (`RGFXWRI`) to preserve DOS token budget; parity cue is opt-in via experiment flag.
+- Added dedicated regression script to lock detailed/compact coexistence behavior.

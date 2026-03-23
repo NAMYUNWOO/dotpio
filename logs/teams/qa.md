@@ -2539,3 +2539,8 @@
 - Updated `scripts/regression_portal_route_glow_fx_conf_why_rail_mode.lua` to validate deterministic pairings across `RGFXW:S/P/O` and `RGFXWRM:FLEX/FLEX/LOCK`.
 - Updated weekly digest regression schema/markdown assertions for new token-family reporting (`routeGlowFxConfidenceWhyRailIntensity`, `RGFXWRI RAIL INTENSITY`, family churn row).
 - Full verification pass completed.
+
+## 2026-03-24 05:31 KST — QA evidence for rail-intensity parity cue
+- Regression pass (baseline): `DOTPIO_EXPERIMENT_..._RAIL_INTENSITY=1 lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity.lua`
+- Regression pass (parity enabled): `DOTPIO_EXPERIMENT_..._RAIL_INTENSITY_PARITY=1 lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_parity.lua`
+- Assertions cover: compact token always present; detailed parity token absent by default; detailed parity token present when flagged.

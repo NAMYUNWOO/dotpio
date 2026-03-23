@@ -1302,3 +1302,7 @@
 ## 2026-03-24 05:01 KST — Rail-intensity cadence follow-through
 - Existing combat/vfx rail-intensity cue (`RGFXWRI`) remains stable after deterministic rationale-copy guard update.
 - No combat behavior tuning changed; readability contract remains `LOCK->HARD`, `FLEX->SOFT`.
+
+## 2026-03-24 05:31 KST — Combat readability parity validation
+- Overdrive readability now supports dual-surface tokening when parity flag is on: compact `RGFXWRI` + detailed rail-intensity cue label.
+- Combat semantics unchanged: `LOCK -> HARD`, `FLEX -> SOFT`; only presentation expanded behind flag.

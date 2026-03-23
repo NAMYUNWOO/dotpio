@@ -1,4 +1,4 @@
--- Regression: route-glow FX confidence rationale rail intensity token (`RGFXWRI:SOFT|HARD`) when enabled.
+-- Regression: route-glow FX confidence rationale rail intensity token (`RGFXWRI:SOFT|HARD`) and optional detailed parity cue when enabled.
 -- Run: DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_ARC=1 DOTPIO_EXPERIMENT_ROUTE_GLOW=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_MODE=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY=1 DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity.lua
 
 package.path = package.path .. ";./?.lua;./?/init.lua"
@@ -26,6 +26,7 @@ Portal.check(10, 10, {
 local promptLow = Portal.getTransitionPrompt(150, { threatTier = "LOW", vibeTrail = "CALM" })
 expect(type(promptLow) == "string", "low-pressure prompt should exist")
 expect(promptLow:find("RGFXWRI:SOFT", 1, true), "FLEX path should emit SOFT intensity")
+expect(not promptLow:find("ROUTE GLOW FX CONF WHY RAIL INTENSITY:", 1, true), "detailed parity token should stay hidden unless parity flag is enabled")
 Portal.cancelTransition()
 Portal.resetCooldown()
 Portal._setRouteTagOverride("02", "SPIKE")
@@ -39,6 +40,7 @@ Portal.check(10, 10, {
 local promptHigh = Portal.getTransitionPrompt(170, { threatTier = "HIGH", vibeTrail = "ASH" })
 expect(type(promptHigh) == "string", "high-pressure prompt should exist")
 expect(promptHigh:find("RGFXWRI:HARD", 1, true), "LOCK path should emit HARD intensity")
+expect(not promptHigh:find("ROUTE GLOW FX CONF WHY RAIL INTENSITY:", 1, true), "detailed parity token should stay hidden unless parity flag is enabled")
 Portal.cancelTransition()
 Portal._setRouteTagOverride("02", nil)
 

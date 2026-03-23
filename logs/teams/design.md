@@ -1407,3 +1407,7 @@
 - Final BZ design/ai-content backlog item closed: rail-mode wording now deterministic with rationale alias mapping (`RGFXW`).
 - Reduced copy ambiguity risk by prioritizing rationale-token contract over inferred rail/fx fallback path.
 - Cycle CA backlog injected with two remaining design/world readability experiments.
+
+## 2026-03-24 05:31 KST — Design parity token decision
+- Approved explicit parity label `ROUTE GLOW FX CONF WHY RAIL INTENSITY` to mirror compact `RGFXWRI` without replacing it.
+- Decision: detailed token remains gated by dedicated parity flag to avoid default prompt-width regression.
