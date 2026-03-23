@@ -1189,3 +1189,9 @@
   - `ASH -> HIGH`
 - Added detailed token `VIBE TRAIL WHY CONF:<tier>` and compact alias `VTWC:<L|M|H>` behind experiment flag.
 - Follow-up queued: micro-rationale token `VIBE TRAIL WHY CONF WHY:<short>`.
+
+## 2026-03-23 20:12 KST — Cycle BQ portal confidence-rail slice
+- Completed backlog item: `VIBE TRAIL CONF RAIL:<STEADY|SPIKE>` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF_RAIL`.
+- Prompt contract: detailed emits `VIBE TRAIL CONF RAIL:*` and compact emits `VTCR:S|X` alongside existing `VTC` token.
+- Regression: `scripts/regression_portal_vibe_trail.lua` expanded for calm/ash rail assertions and invalid-context suppression.
+- Verification: portal vibe-trail regression + weekly digest regression PASS.

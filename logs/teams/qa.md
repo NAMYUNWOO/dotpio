@@ -2371,3 +2371,9 @@
   - `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_COMPACT_ALIAS=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF=1 lua scripts/regression_portal_vibe_trail_why_compact_alias.lua`
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+
+## 2026-03-23 20:12 KST — Cycle BQ portal confidence-rail slice
+- Completed backlog item: `VIBE TRAIL CONF RAIL:<STEADY|SPIKE>` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF_RAIL`.
+- Prompt contract: detailed emits `VIBE TRAIL CONF RAIL:*` and compact emits `VTCR:S|X` alongside existing `VTC` token.
+- Regression: `scripts/regression_portal_vibe_trail.lua` expanded for calm/ash rail assertions and invalid-context suppression.
+- Verification: portal vibe-trail regression + weekly digest regression PASS.

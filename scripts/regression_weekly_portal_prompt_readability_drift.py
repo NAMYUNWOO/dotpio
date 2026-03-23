@@ -709,7 +709,9 @@ def main() -> int:
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
         assert "VIBE TRAIL CONF:" in payload["tokenTotals"]["net"], payload
+        assert "VIBE TRAIL CONF RAIL:" in payload["tokenTotals"]["net"], payload
         assert "VTC:" in payload["tokenTotals"]["net"], payload
+        assert "VTCR:" in payload["tokenTotals"]["net"], payload
         assert "VIBE TRAIL WHY CONF:" in payload["tokenTotals"]["net"], payload
         assert "VTWC:" in payload["tokenTotals"]["net"], payload
         assert "tokenFamilyTotals" in payload, payload

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-23 10:04 KST
+Last updated: 2026-03-23 20:12 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,12 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+
+- Closed Cycle BQ UX/World item: portal prompts now emit confidence-rail token `VIBE TRAIL CONF RAIL:STEADY|SPIKE` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF_RAIL`.
+- Compact parity shipped with alias `VTCR:S|X`; calm contexts resolve to `STEADY/S`, ash contexts to `SPIKE/X`.
+- Regression guardrails updated: `scripts/regression_portal_vibe_trail.lua` now validates detailed+compact rail tokens and invalid-context suppression.
+- Weekly digest token catalogs/families extended for `VIBE TRAIL CONF RAIL:` and `VTCR:` coverage with schema assertions in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Remaining top unchecked item: `VIBE TRAIL WHY CONF WHY:<short>` (Design/AI Content, flagged).
 - Game Director Cycle BO executed after ACTION_ITEMS + TASKS + POST_RC remained fully checked.
 - Cycle BO generated 3 ideas (low/mid/high) and selected low-risk UX/world vertical slice: portal vibe-trail confidence token.
 - Shipped `VIBE TRAIL CONF:LOW|MID|HIGH` + compact alias `VTC:<L|M|H>` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF`.

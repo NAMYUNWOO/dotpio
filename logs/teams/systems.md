@@ -1858,3 +1858,9 @@
 - Added digest token-catalog + family coverage for `VIBE TRAIL WHY CONF` detailed token and compact alias `VTWC`.
 - Decision: keep confidence-alias family (`vibeTrailWhyConfidenceAlias`) distinct from rationale family (`vibeTrailWhyAlias`) to avoid mixed churn attribution.
 - Follow-up queued: rail token (`VIBE TRAIL CONF RAIL`) for compact jump triage.
+
+## 2026-03-23 20:12 KST — Cycle BQ portal confidence-rail slice
+- Completed backlog item: `VIBE TRAIL CONF RAIL:<STEADY|SPIKE>` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF_RAIL`.
+- Prompt contract: detailed emits `VIBE TRAIL CONF RAIL:*` and compact emits `VTCR:S|X` alongside existing `VTC` token.
+- Regression: `scripts/regression_portal_vibe_trail.lua` expanded for calm/ash rail assertions and invalid-context suppression.
+- Verification: portal vibe-trail regression + weekly digest regression PASS.
