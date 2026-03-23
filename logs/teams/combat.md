@@ -1329,3 +1329,7 @@
 - Rail-intensity rationale confidence parity token introduced as optional detailed mirror for combat-facing prompt scanability.
 - Confidence tier mapping logic (`LOW|MID|HIGH`) is unchanged, preserving existing combat pressure interpretation.
 - No combat mechanics/stat tuning changes in this cycle.
+
+## 2026-03-24 08:31 KST — Lane heartbeat
+- No combat balance/runtime combat-event changes in this cycle.
+- Monitoring pending next forced-lane or injected combat/vfx item.

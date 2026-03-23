@@ -1628,3 +1628,7 @@
 - Prompt now can surface detailed confidence parity token `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF:<tier>` behind parity flag.
 - Existing compact/legacy confidence token (`RGFXWRI WHY CONF` or `RGFXWRIWC`) remains first-class and unchanged.
 - Verified compact ordering stability around `RGFXWRI`, `RGFXWRI WHY`, and confidence suffix tokens.
+
+## 2026-03-24 08:31 KST — Lane heartbeat
+- UX surface unchanged in runtime prompts for this cycle (offline report-only recommendation).
+- Keep monitoring compact prompt readability drift via weekly digest rows.

@@ -1437,3 +1437,7 @@
 - Closed UX/Design parity label task for rail-intensity rationale confidence.
 - Detailed wording now mirrors compact confidence signal exactly (`LOW|MID|HIGH`) for prompt readability parity.
 - No visual hierarchy regressions observed in compact token chain order.
+
+## 2026-03-24 08:31 KST — Lane heartbeat
+- No new player-facing visual token added in this cycle; change is digest recommendation-only.
+- Next design pass should be selected from injected backlog in Game Director cycle.

@@ -2060,3 +2060,11 @@
 - Completed flagged parity wiring for rail-intensity rationale confidence in `src/portal.lua`.
 - Added `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_PARITY` gate to emit detailed token `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF:<LOW|MID|HIGH>` while preserving compact/default token output.
 - Follow-up queue remains: drift-adaptive confidence copy policy (`RGFXWRI WHY CONF`) still unchecked.
+
+## 2026-03-24 08:31 KST — RGFXWRI WHY CONF drift-policy recommendation (offline)
+- Task: Prototype drift-adaptive confidence copy policy recommendation for `RGFXWRI WHY CONF` (offline-only, no runtime copy mutation).
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Decision: Weekly digest now emits `RGFXWRI WHY CONF POLICY REC` with deterministic recommendation tiers (`FREEZE|GUARDED|RELAXED`) from drift risk + alias-family churn.
+- Guardrail: Recommendation is explicitly `offlineOnly=true`; runtime portal prompt tokens remain unchanged.
+- Verification: weekly digest regression PASS + digest artifact refresh PASS.
+- Next: ACTION_ITEMS/TASKS/POST_RC are fully checked; next cycle should run Game Director ideation/injection.

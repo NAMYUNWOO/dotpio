@@ -5204,6 +5204,40 @@ def commit_stats(root: Path, commit: str) -> dict:
     }
 
 
+def rgfxwri_why_conf_policy_recommendation(
+    *,
+    drift_risk: str,
+    family_totals: dict[str, int],
+) -> tuple[str, dict[str, object]]:
+    churn = int(family_totals.get("churn", 0))
+    net = int(family_totals.get("net", 0))
+    coverage = str(family_totals.get("coverage", "0/0"))
+
+    if drift_risk == "HIGH" or churn >= 6:
+        recommendation = "FREEZE"
+        rationale = "high-risk-high-churn"
+        guidance = "Prefer MID baseline; require rail/rationale corroboration before HIGH wording."
+    elif drift_risk == "MID" or churn >= 3:
+        recommendation = "GUARDED"
+        rationale = "moderate-drift"
+        guidance = "Keep deterministic LOW/MID/HIGH mapping; only emit HIGH on sustained SPIKE/LOCK context."
+    else:
+        recommendation = "RELAXED"
+        rationale = "stable-window"
+        guidance = "Maintain current deterministic copy and monitor weekly churn before tightening."
+
+    signals: dict[str, object] = {
+        "driftRisk": drift_risk,
+        "familyChurn": churn,
+        "familyNet": net,
+        "familyCoverage": coverage,
+        "rationale": rationale,
+        "offlineOnly": True,
+        "guidance": guidance,
+    }
+    return recommendation, signals
+
+
 def main() -> int:
     args = parse_args()
     root = args.repo_root.resolve()
@@ -5270,6 +5304,10 @@ def main() -> int:
         compact_net=totals["net"]["compact"],
         detailed_net=totals["net"]["detailed"],
         pressure_net=pressure_net,
+    )
+    rgfxwri_why_conf_policy, rgfxwri_why_conf_policy_signals = rgfxwri_why_conf_policy_recommendation(
+        drift_risk=drift_risk,
+        family_totals=token_family_totals["routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias"],
     )
 
     token_movers = [
@@ -5863,6 +5901,8 @@ def main() -> int:
         "pressureBand": pressure_band,
         "driftRisk": drift_risk,
         "driftRiskSignals": drift_risk_signals,
+        "rgfxwriWhyConfPolicyRecommendation": rgfxwri_why_conf_policy,
+        "rgfxwriWhyConfPolicyRecommendationSignals": rgfxwri_why_conf_policy_signals,
         "laneFocus": lane_focus,
         "laneFocusScores": lane_focus_scores,
         "focusStreak": focus_streak,
@@ -6146,6 +6186,7 @@ def main() -> int:
         f"- MODE TREND: **{mode_trend}**",
         f"- PRESSURE BAND: **{pressure_band}** (edits +{pressure_added} / -{pressure_removed} / net {pressure_net})",
         f"- DRIFT RISK: **{drift_risk}** (score={drift_risk_signals['score']} | imbalance={drift_risk_signals['imbalance']} | pressure={drift_risk_signals['pressureChurn']})",
+        f"- RGFXWRI WHY CONF POLICY REC: **{rgfxwri_why_conf_policy}** ({rgfxwri_why_conf_policy_signals['rationale']}; churn={rgfxwri_why_conf_policy_signals['familyChurn']} net={rgfxwri_why_conf_policy_signals['familyNet']} coverage={rgfxwri_why_conf_policy_signals['familyCoverage']} offlineOnly={rgfxwri_why_conf_policy_signals['offlineOnly']})",
         f"- FOCUS: **{lane_focus}** (portal={lane_focus_scores['portal']} | alt={lane_focus_scores['alt']} | pressure={lane_focus_scores['pressure']})",
         f"- FOCUS STREAK: **{focus_streak}**",
         f"- FOCUS SHIFT: **{focus_shift}**",

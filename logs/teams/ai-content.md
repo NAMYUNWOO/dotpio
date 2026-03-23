@@ -1362,3 +1362,8 @@
 - Confidence language remains deterministic (`LOW|MID|HIGH`) across compact and detailed labels.
 - No policy/rationale mapping changes were introduced in this slice; only parity surface output was added.
 - Drift-adaptive confidence copy policy remains queued for future experiment.
+
+## 2026-03-24 08:31 KST — Confidence-copy policy prototype alignment
+- Reviewed `RGFXWRI WHY CONF` drift behavior and added offline recommendation policy output to avoid live wording drift.
+- Recommendation policy maps weekly churn/risk to `FREEZE|GUARDED|RELAXED` and ships guidance text for human/operator review only.
+- No in-game token wording was changed in this slice.

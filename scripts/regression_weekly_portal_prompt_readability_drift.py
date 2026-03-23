@@ -129,6 +129,16 @@ def main() -> int:
         assert payload["pressureBand"] in {"LOW", "MID", "HIGH"}, payload
         assert payload["driftRisk"] in {"LOW", "MID", "HIGH"}, payload
         assert set(payload["driftRiskSignals"].keys()) == {"score", "imbalance", "pressureChurn"}, payload
+        assert payload.get("rgfxwriWhyConfPolicyRecommendation") in {"FREEZE", "GUARDED", "RELAXED"}, payload
+        assert set(payload.get("rgfxwriWhyConfPolicyRecommendationSignals", {}).keys()) == {
+            "driftRisk",
+            "familyChurn",
+            "familyNet",
+            "familyCoverage",
+            "rationale",
+            "offlineOnly",
+            "guidance",
+        }, payload
         assert set(payload.get("routeVibeTotals", {}).keys()) == {"added", "removed", "net"}, payload
         assert set(payload["routeVibeTotals"]["added"].keys()) == {"CALM", "EDGE", "DOOM"}, payload
         assert payload["routeVibeTotals"]["added"]["EDGE"] >= 1, payload
@@ -1318,6 +1328,7 @@ def main() -> int:
         assert "MODE TREND" in md_text
         assert "PRESSURE BAND" in md_text
         assert "DRIFT RISK" in md_text
+        assert "RGFXWRI WHY CONF POLICY REC" in md_text
         assert "ROUTE VIBE DRIFT" in md_text
         assert "Route Vibe Drift (added/removed/net)" in md_text
         assert "FOCUS" in md_text
