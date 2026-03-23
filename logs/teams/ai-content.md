@@ -1140,3 +1140,8 @@
 
 ## 2026-03-23 14:44 KST
 - Added operator-facing markdown line `ALT WHY GLYPH MODE Δ` to track cadence-mode churn across weekly windows.
+
+## 2026-03-23 15:04 KST — Glyph mode alias readability slice
+- Added compact token alias `AWGM` for glyph rationale cadence (`STEADY|SPIKE`) under explicit experiment flag.
+- Rationale: keep operator-intent signal while reducing compact prompt width pressure.
+- Follow-up: add digest confidence tier for glyph-mode drift to stabilize interpretation.

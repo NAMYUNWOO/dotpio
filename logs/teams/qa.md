@@ -2303,3 +2303,8 @@
 - Verification:
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-23 15:04 KST — Verification: AWGM compact alias
+- Ran: `DOTPIO_EXPERIMENT_ALT_STEP_CUE=1 DOTPIO_EXPERIMENT_ALT_STEP_CONF=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY_CONF=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_COMPACT=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE_COMPACT=1 lua scripts/regression_portal_alt_why_glyph_compact.lua`
+- Ran: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Result: PASS. Compact prompt emits `AWGM:SPIKE` and digest regression remains green.

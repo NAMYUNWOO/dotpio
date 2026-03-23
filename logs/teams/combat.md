@@ -1110,3 +1110,7 @@
 
 ## 2026-03-23 14:44 KST
 - No combat mechanics touched (telemetry/reporting-only update).
+
+## 2026-03-23 15:04 KST — Cross-lane note (no combat logic change)
+- Reviewed compact prompt alias slice (`AWGM`) for compatibility with combat threat/readability tokens.
+- Result: no combat behavior/tuning changes required; token budget headroom improved for shared prompt line.

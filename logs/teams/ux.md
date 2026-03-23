@@ -1412,3 +1412,8 @@
 
 ## 2026-03-23 14:44 KST
 - Weekly digest now keeps glyph rationale stack readable with adjacent lines: `ALT WHY GLYPH Δ` + `ALT WHY GLYPH MODE Δ`.
+
+## 2026-03-23 15:04 KST — Compact prompt scanability update
+- Compact portal prompt now supports `AWGM:<S|K>` when glyph-mode compact alias experiment is enabled.
+- Kept detailed prompt unchanged (`ALT WHY GLYPH MODE:<...>`) to avoid readability regressions in full-width mode.
+- Verified compact prompt no longer duplicates full mode label when alias flag is active.

@@ -2079,3 +2079,10 @@ Compact decision memory for AI context efficiency.
 - Selected experiment: (1) `ALT WHY GLYPH MODE Δ:+n|-n` for minimal reversible slice.
 - Implemented in weekly digest script + regression; backlog updated with remaining BL queue items.
 - Verification: py_compile + weekly drift regression PASS.
+
+## 2026-03-23 15:04 KST — Cycle BL: AWGM compact glyph-mode alias
+- Completed backlog slice: compact portal prompt now supports `AWGM:<S|K>` behind `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE_COMPACT`.
+- Detailed prompt retains full `ALT WHY GLYPH MODE:<...>` label; compact alias is reversible and flag-gated.
+- Updated drift digest token catalogs to include `AWGM:` in compact/alt token families.
+- Verification: `regression_portal_alt_why_glyph_compact.lua` + `regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Next priority item: `ALT WHY GLYPH MODE CONF:LOW|MID|HIGH` (Systems/QA, Cycle BL).

@@ -1187,3 +1187,7 @@
 
 ## 2026-03-23 14:44 KST
 - No map/world content changes; digest-only telemetry slice.
+
+## 2026-03-23 15:04 KST — Portal prompt compact alias handoff
+- Synced portal transition copy with design/ux change: compact mode can emit `AWGM` token under flag while preserving existing route readability cues.
+- No portal graph/pathing behavior changes in this slice.

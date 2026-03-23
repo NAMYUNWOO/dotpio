@@ -1799,3 +1799,8 @@
 ## 2026-03-23 14:44 KST
 - Added prior-window drift reducer `alt_why_glyph_mode_drift_from_prior` in weekly digest pipeline.
 - Payload now emits `altWhyGlyphModeDrift` and `altWhyGlyphModeDriftSignals`.
+
+## 2026-03-23 15:04 KST — Token plumbing for AWGM alias
+- Added `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE_COMPACT` gate in `src/portal.lua` and compact token switcher (`AWGM` vs full label).
+- Updated weekly drift token catalogs (`TOKEN_GROUPS`, `TOKEN_FAMILIES`) so compact alias usage remains observable in digest analysis.
+- Follow-up: implement BL confidence token for glyph-mode drift (`ALT WHY GLYPH MODE CONF`).

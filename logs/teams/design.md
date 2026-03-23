@@ -1197,3 +1197,8 @@
 
 ## 2026-03-23 14:44 KST
 - Game Director Cycle BL queued two follow-ups after selected drift-signal slice: compact alias (`AWGM`) and confidence tier token.
+
+## 2026-03-23 15:04 KST — Cycle BL vertical slice (AWGM compact alias)
+- Completed task: prototype compact glyph-mode alias token `AWGM:<S|K>` behind flag.
+- Decision: preserve detailed prompt token `ALT WHY GLYPH MODE` for clarity; compact prompt can switch to `AWGM` for DOS-width headroom.
+- Follow-up: remaining BL item is Systems/QA digest confidence token `ALT WHY GLYPH MODE CONF:LOW|MID|HIGH`.
