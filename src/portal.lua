@@ -233,6 +233,15 @@ local function isRoutePulseModeCompactPromptExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isRoutePulseFitCompactPromptExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function resolvePortalFxCue(pressureScore)
     if pressureScore >= 5 then
         return "SURGE", "S"
@@ -267,6 +276,24 @@ local function resolveCompactRoutePulseMode(pressureScore, altRouteTag, compactP
         return "S"
     end
     return "I"
+end
+
+local function resolveCompactRoutePulseFit(pressureScore, altRouteTag, compactPulseMode, compactPulseLink)
+    local mode = compactPulseMode
+    if mode == nil then
+        mode = resolveCompactRoutePulseMode(pressureScore, altRouteTag, compactPulseLink)
+    end
+    if mode == "I" then
+        return "Y"
+    elseif mode == "X" then
+        return "R"
+    elseif mode == "S" then
+        if altRouteTag ~= nil and pressureScore >= 4 then
+            return "B"
+        end
+        return "W"
+    end
+    return "W"
 end
 
 local function resolveRouteVibe(routeTag)
@@ -537,7 +564,7 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
@@ -546,6 +573,9 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
     end
     if compactPulseMode then
         prompt = string.format("%s  PULSE MODE:%s", prompt, compactPulseMode)
+    end
+    if compactPulseFit then
+        prompt = string.format("%s  PULSE FIT:%s", prompt, compactPulseFit)
     end
     if altRouteTag then
         prompt = string.format("%s  ALT:%s", prompt, altRouteTag)
@@ -660,7 +690,11 @@ function Portal.getTransitionPrompt(maxChars, context)
         if isRoutePulseModeCompactPromptExperimentEnabled() then
             compactPulseMode = resolveCompactRoutePulseMode(pressureScore, altRouteTag, compactPulseLink)
         end
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode)
+        local compactPulseFit = nil
+        if isRoutePulseFitCompactPromptExperimentEnabled() then
+            compactPulseFit = resolveCompactRoutePulseFit(pressureScore, altRouteTag, compactPulseMode, compactPulseLink)
+        end
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit)
     end
     return prompt
 end

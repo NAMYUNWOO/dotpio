@@ -35,3 +35,8 @@
 - Added classifier `action_pace_alt_window_pulse_from_signals()` in `scripts/weekly_portal_prompt_readability_drift.py`.
 - Token mapping: `HOT` for tense/deferred fallback windows, `LIVE` for safe immediate probes, `COOL` otherwise (`OFF` when flag disabled).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and flagged digest generation run PASS.
+
+## 2026-03-23 09:45 KST — Director lane-cadence note
+- 24h cadence check remains satisfied before this cycle: at least one combat/vfx item (`ACTION PACE ALT WINDOW PULSE`, `BERSERK FX:*`), one design/world item, and one systems/ops item were completed.
+- Added readability parity cue for portal pulse states (`PULSE FIT:Y|W|B|R`, flag-gated) so compact prompts preserve pulse clarity without adding new VFX runtime effects.
+- Next proposed combat/vfx experiment candidate: `PULSE FLARE:+` compact warning when mode=`X` and fit downgrades to `B/R`.

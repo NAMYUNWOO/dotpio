@@ -1135,3 +1135,7 @@
 ## 2026-03-23 09:35 KST — Digest affordance update
 - Decision: add explicit delta line for mode-fit drift to improve scannability in weekly markdown reports.
 - Follow-up: evaluate symbol/label parity with other drift rows for visual consistency.
+
+## 2026-03-23 09:45 KST — Compact pulse-fit readability parity
+- Added compact parity cue `PULSE FIT:Y|W|B|R` behind flag to align in-run portal readability with digest-level `ROUTE PULSE LINK MODE FIT` semantics.
+- Chosen as low-risk reversible slice after lane-rebalance gate (systems lane >40% in last-10 completion mix).

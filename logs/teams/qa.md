@@ -2209,3 +2209,15 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
 - Added checks: payload keys for `routePulseLinkModeFitDrift*`, markdown token presence, and prior-window drift behavior.
 - Follow-up: keep digest regression green while adding compact prompt cue drift token.
+
+## 2026-03-23 09:45 KST — Regression coverage: compact pulse-fit prompt
+- Added `scripts/regression_portal_prompt_pulse_fit.lua`.
+- Assertions cover compact fit token emission across representative branches:
+  - idle baseline (`PULSE FIT:Y`)
+  - medium pressure with alternate route (`PULSE FIT:B`)
+  - high pressure surge (`PULSE FIT:R`)
+- Verification pass set:
+  - `luac -p src/portal.lua scripts/regression_portal_prompt_pulse_fit.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 lua scripts/regression_portal_prompt_pulse_fit.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_PROMPT=1 lua scripts/regression_portal_prompt_pulse_link.lua`

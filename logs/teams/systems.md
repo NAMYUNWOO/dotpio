@@ -1723,3 +1723,12 @@
 - Decision: added `routePulseLinkModeFitDrift` + signals to weekly portal prompt digest payload and markdown output.
 - Scope: `scripts/weekly_portal_prompt_readability_drift.py` + regression coverage.
 - Follow-up: apply same drift-token scaffold to compact prompt cue lane (`PULSE MODE FIT Δ`) next.
+
+## 2026-03-23 09:45 KST — Compact pulse-fit token prototype shipped
+- Implemented `DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT` in `src/portal.lua`.
+- Compact transition prompt now emits `PULSE FIT:Y|W|B|R` token in budget-constrained mode.
+- Deterministic mapping shipped:
+  - `I -> Y`
+  - `S -> W` (default) / `B` (alt-route active with elevated pressure)
+  - `X -> R`
+- Kept change fully additive and reversible (flag off = no prompt contract change).

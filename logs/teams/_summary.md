@@ -13,6 +13,11 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed final unchecked Cycle BF world/design item: compact portal prompts now support flag-gated pulse-fit cue `PULSE FIT:Y|W|B|R` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT`).
+- Coverage check over last 10 completed items: systems/ops=5, design/world=3, combat/vfx=2 (others=0); since systems/ops exceeded 40%, this cycle was forced into underrepresented lanes and selected design/world parity slice.
+- Added new QA guardrail `scripts/regression_portal_prompt_pulse_fit.lua`; existing pulse mode/link prompt regressions remain passing.
+- Injected next-cycle candidates: compact pulse-flare warning (`PULSE FLARE:+`) and adaptive compact token-budget ordering (`FIT-first` vs `MODE-first`).
+
 - Closed Cycle BF drift task: weekly digest now emits `ROUTE PULSE LINK MODE FIT Δ:+n|-n` with prior-window context (`current/prior/loaded`).
 - Payload contract extended with `routePulseLinkModeFitDrift` + `routePulseLinkModeFitDriftSignals`; markdown now includes `ROUTE PULSE LINK MODE FIT Δ` row.
 - Regression coverage expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` for new payload keys, markdown token presence, and prior-window drift math.
