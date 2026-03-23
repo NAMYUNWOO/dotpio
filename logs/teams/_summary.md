@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-23 09:35 KST
+Last updated: 2026-03-23 10:04 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle BG combat/vfx slice: compact portal prompts now emit flag-gated pulse flare warning `PULSE FLARE:+` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_FLARE_PROMPT`) only when `PULSE MODE:X` and pulse-fit downgrades (`B|R`).
+- Added QA guardrail `scripts/regression_portal_prompt_pulse_flare.lua`; pulse mode/fit regressions remain green under required flags.
+- Updated backlog state: Cycle BG combat/vfx item is complete with lifecycle trace (`[~] -> [x]`); next highest-priority unchecked item is Systems/UX token-priority mode (`FIT-FIRST|MODE-FIRST`).
 
 - Closed final unchecked Cycle BF world/design item: compact portal prompts now support flag-gated pulse-fit cue `PULSE FIT:Y|W|B|R` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT`).
 - Coverage check over last 10 completed items: systems/ops=5, design/world=3, combat/vfx=2 (others=0); since systems/ops exceeded 40%, this cycle was forced into underrepresented lanes and selected design/world parity slice.

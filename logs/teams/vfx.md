@@ -40,3 +40,10 @@
 - 24h cadence check remains satisfied before this cycle: at least one combat/vfx item (`ACTION PACE ALT WINDOW PULSE`, `BERSERK FX:*`), one design/world item, and one systems/ops item were completed.
 - Added readability parity cue for portal pulse states (`PULSE FIT:Y|W|B|R`, flag-gated) so compact prompts preserve pulse clarity without adding new VFX runtime effects.
 - Next proposed combat/vfx experiment candidate: `PULSE FLARE:+` compact warning when mode=`X` and fit downgrades to `B/R`.
+
+## 2026-03-23 10:04 KST
+- Task: Cycle BG compact pulse-flare warning slice (`PULSE FLARE:+`) behind `DOTPIO_EXPERIMENT_ROUTE_PULSE_FLARE_PROMPT`.
+- Decision: Emit compact flare token only when `PULSE MODE:X` and fit is downgrade band (`B|R`), preserving compact prompt budget and keeping default behavior unchanged when flag is off.
+- Evidence: `src/portal.lua`, `scripts/regression_portal_prompt_pulse_flare.lua`, `scripts/regression_portal_prompt_pulse_mode.lua`, `scripts/regression_portal_prompt_pulse_fit.lua`.
+- Verification: `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 lua scripts/regression_portal_prompt_pulse_fit.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FLARE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_flare.lua`.
+- Follow-up: Next highest-priority unchecked item remains Systems/UX token-priority mode (`FIT-FIRST|MODE-FIRST`).

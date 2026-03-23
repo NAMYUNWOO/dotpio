@@ -1139,3 +1139,10 @@
 ## 2026-03-23 09:45 KST — Compact pulse-fit readability parity
 - Added compact parity cue `PULSE FIT:Y|W|B|R` behind flag to align in-run portal readability with digest-level `ROUTE PULSE LINK MODE FIT` semantics.
 - Chosen as low-risk reversible slice after lane-rebalance gate (systems lane >40% in last-10 completion mix).
+
+## 2026-03-23 10:04 KST
+- Task: Cycle BG compact pulse-flare warning slice (`PULSE FLARE:+`) behind `DOTPIO_EXPERIMENT_ROUTE_PULSE_FLARE_PROMPT`.
+- Decision: Emit compact flare token only when `PULSE MODE:X` and fit is downgrade band (`B|R`), preserving compact prompt budget and keeping default behavior unchanged when flag is off.
+- Evidence: `src/portal.lua`, `scripts/regression_portal_prompt_pulse_flare.lua`, `scripts/regression_portal_prompt_pulse_mode.lua`, `scripts/regression_portal_prompt_pulse_fit.lua`.
+- Verification: `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 lua scripts/regression_portal_prompt_pulse_fit.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FLARE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_flare.lua`.
+- Follow-up: Next highest-priority unchecked item remains Systems/UX token-priority mode (`FIT-FIRST|MODE-FIRST`).

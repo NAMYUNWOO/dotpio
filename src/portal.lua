@@ -242,6 +242,15 @@ local function isRoutePulseFitCompactPromptExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isRoutePulseFlareCompactPromptExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_PULSE_FLARE_PROMPT")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function resolvePortalFxCue(pressureScore)
     if pressureScore >= 5 then
         return "SURGE", "S"
@@ -294,6 +303,16 @@ local function resolveCompactRoutePulseFit(pressureScore, altRouteTag, compactPu
         return "W"
     end
     return "W"
+end
+
+local function resolveCompactPulseFlare(compactPulseMode, compactPulseFit)
+    if compactPulseMode ~= "X" then
+        return nil
+    end
+    if compactPulseFit == "B" or compactPulseFit == "R" then
+        return "+"
+    end
+    return nil
 end
 
 local function resolveRouteVibe(routeTag)
@@ -564,7 +583,7 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
@@ -576,6 +595,9 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
     end
     if compactPulseFit then
         prompt = string.format("%s  PULSE FIT:%s", prompt, compactPulseFit)
+    end
+    if compactPulseFlare then
+        prompt = string.format("%s  PULSE FLARE:%s", prompt, compactPulseFlare)
     end
     if altRouteTag then
         prompt = string.format("%s  ALT:%s", prompt, altRouteTag)
@@ -694,7 +716,11 @@ function Portal.getTransitionPrompt(maxChars, context)
         if isRoutePulseFitCompactPromptExperimentEnabled() then
             compactPulseFit = resolveCompactRoutePulseFit(pressureScore, altRouteTag, compactPulseMode, compactPulseLink)
         end
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit)
+        local compactPulseFlare = nil
+        if isRoutePulseFlareCompactPromptExperimentEnabled() then
+            compactPulseFlare = resolveCompactPulseFlare(compactPulseMode, compactPulseFit)
+        end
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare)
     end
     return prompt
 end

@@ -1137,3 +1137,10 @@
   2) Mid-risk (combat/vfx): add compact pulse-flare token `PULSE FLARE:+` when mode is `X` and fit degrades.
   3) High-risk (systems/design): adaptive compact token budget switch (`FIT-first` vs `MODE-first`) under severe width pressure.
 - Shipped slice: compact prompt now emits `PULSE FIT:*` when `DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT` is enabled.
+
+## 2026-03-23 10:04 KST
+- Task: Cycle BG compact pulse-flare warning slice (`PULSE FLARE:+`) behind `DOTPIO_EXPERIMENT_ROUTE_PULSE_FLARE_PROMPT`.
+- Decision: Emit compact flare token only when `PULSE MODE:X` and fit is downgrade band (`B|R`), preserving compact prompt budget and keeping default behavior unchanged when flag is off.
+- Evidence: `src/portal.lua`, `scripts/regression_portal_prompt_pulse_flare.lua`, `scripts/regression_portal_prompt_pulse_mode.lua`, `scripts/regression_portal_prompt_pulse_fit.lua`.
+- Verification: `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 lua scripts/regression_portal_prompt_pulse_fit.lua`; `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FIT_PROMPT=1 DOTPIO_EXPERIMENT_ROUTE_PULSE_FLARE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_flare.lua`.
+- Follow-up: Next highest-priority unchecked item remains Systems/UX token-priority mode (`FIT-FIRST|MODE-FIRST`).
