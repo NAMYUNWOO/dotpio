@@ -1324,3 +1324,8 @@
 
 ## 2026-03-24 07:12 KST — Combat-facing confidence telemetry update
 - Added weekly family-churn observability for compact confidence alias `RGFXWRIWC` and long label counterpart.
+
+## 2026-03-24 08:03 KST — Cycle CC combat readability continuity
+- Rail-intensity rationale confidence parity token introduced as optional detailed mirror for combat-facing prompt scanability.
+- Confidence tier mapping logic (`LOW|MID|HIGH`) is unchanged, preserving existing combat pressure interpretation.
+- No combat mechanics/stat tuning changes in this cycle.

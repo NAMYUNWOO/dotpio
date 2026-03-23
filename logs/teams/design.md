@@ -1432,3 +1432,8 @@
 
 ## 2026-03-24 07:12 KST — Design decision (Cycle CC)
 - Chose low-risk digest instrumentation over copy/behavior changes; injected two next-step experiments for future cycle.
+
+## 2026-03-24 08:03 KST — Cycle CC UX/Design parity closure
+- Closed UX/Design parity label task for rail-intensity rationale confidence.
+- Detailed wording now mirrors compact confidence signal exactly (`LOW|MID|HIGH`) for prompt readability parity.
+- No visual hierarchy regressions observed in compact token chain order.

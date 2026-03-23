@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 07:12 KST
+Last updated: 2026-03-24 08:03 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed highest-priority in-progress TASKS/POST_RC item: `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF:LOW|MID|HIGH` parity label now ships behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_PARITY` in `src/portal.lua` while preserving compact confidence tokens.
+- Added regression guardrail `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_parity.lua`; baseline confidence/parity regressions continue to pass.
+- Remaining unchecked queue item is the Game Director high-risk follow-up: drift-adaptive confidence copy policy for `RGFXWRI WHY CONF`.
 
 - All previously queued ACTION_ITEMS/TASKS/POST_RC work items were cleared, triggering Game Director Cycle CC.
 - Cycle CC generated 3 ideas and selected low-risk Systems/QA slice: weekly digest now tracks confidence-alias family churn for `RGFXWRI WHY CONF:` + `RGFXWRIWC:` via `routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias`.

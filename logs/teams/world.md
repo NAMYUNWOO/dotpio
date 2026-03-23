@@ -1397,3 +1397,8 @@
 ## 2026-03-24 07:12 KST — Game Director cycle outcome sync
 - Selected CC experiment was telemetry-only confidence alias family coverage; no world logic mutation.
 - Backlog injected with parity-label and adaptive-confidence follow-ups.
+
+## 2026-03-24 08:03 KST — Cycle CC world/portal prompt parity note
+- Portal prompt detailed parity lane now includes confidence-level parity token for rail-intensity rationale under explicit flag.
+- World-facing route prompt semantics remain unchanged; this is readability parity only.
+- Next world/design follow-up continues in backlog via drift-adaptive confidence policy candidate.

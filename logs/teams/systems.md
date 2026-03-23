@@ -2055,3 +2055,8 @@
 ## 2026-03-24 07:12 KST — Cycle CC Game Director slice (digest confidence-alias churn)
 - Executed Game Director review cycle (3 ideas), selected low-risk Systems/QA slice.
 - Added weekly digest alias-family coverage for `RGFXWRI WHY CONF:` + `RGFXWRIWC:` (`routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias`).
+
+## 2026-03-24 08:03 KST — Cycle CC parity confidence label shipped
+- Completed flagged parity wiring for rail-intensity rationale confidence in `src/portal.lua`.
+- Added `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_PARITY` gate to emit detailed token `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF:<LOW|MID|HIGH>` while preserving compact/default token output.
+- Follow-up queue remains: drift-adaptive confidence copy policy (`RGFXWRI WHY CONF`) still unchecked.

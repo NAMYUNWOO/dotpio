@@ -2565,3 +2565,11 @@
 ## 2026-03-24 07:12 KST — Weekly digest regression expansion (confidence alias family)
 - Regression now asserts new payload family key + markdown rows: `RGFXWRI WHY CONF FAMILY CHURN`, `RGFXWRIWC + RGFXWRI WHY CONF:`.
 - Full verification matrix PASS (portal regressions + weekly digest regressions + artifact generation).
+
+## 2026-03-24 08:03 KST — Cycle CC regression evidence (why-conf parity)
+- Added regression `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_parity.lua`.
+- Verification passes:
+  - `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_parity.lua`
+  - `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf.lua`
+  - `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_parity.lua`
+- Coverage confirms detailed parity token appears only when parity flag is enabled and preserves baseline token behavior.

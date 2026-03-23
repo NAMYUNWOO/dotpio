@@ -1623,3 +1623,8 @@
 
 ## 2026-03-24 07:12 KST — UX backlog refresh
 - Confidence alias digest triage shipped; next UX item queued: detailed parity label for `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF`.
+
+## 2026-03-24 08:03 KST — Cycle CC prompt readability update
+- Prompt now can surface detailed confidence parity token `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF:<tier>` behind parity flag.
+- Existing compact/legacy confidence token (`RGFXWRI WHY CONF` or `RGFXWRIWC`) remains first-class and unchanged.
+- Verified compact ordering stability around `RGFXWRI`, `RGFXWRI WHY`, and confidence suffix tokens.
