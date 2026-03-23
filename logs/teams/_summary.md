@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 02:34 KST
+Last updated: 2026-03-24 04:09 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -2307,3 +2307,8 @@ Compact decision memory for AI context efficiency.
 - Shipped: `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_MODE` emits `RGFXWRM:LOCK|FLEX` when rail token exists; deterministic mapping `SPIKE+SURGE -> LOCK`, else `FLEX`.
 - Verification: new regression `scripts/regression_portal_route_glow_fx_conf_why_rail_mode.lua` + existing rail regressions pass.
 - Backlog injection: added Cycle BZ tasks in `TASKS.md` + `POST_RC_BACKLOG.md` (digest coverage, intensity accent token, rationale copy guard).
+
+- Closed Cycle BZ Systems/QA item: weekly readability digest now tracks rail-mode token-family churn for `RGFXWRM:` via new `routeGlowFxConfidenceWhyRailMode` payload family.
+- Added dedicated drift telemetry keys `routeGlowFxConfWhyRailModeCompactBudgetDrift` + `routeGlowFxConfWhyRailModeCompactBudgetDriftSignals`; markdown now includes `ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT`.
+- Regression contract expanded (`scripts/regression_weekly_portal_prompt_readability_drift.py`) for token totals, family schema, payload drift keys, and markdown rows; regression + digest generation pass.
+- Backlog state updated: Cycle BY rail-family digest item marked complete; Cycle BZ rail-mode digest item marked complete. Remaining highest-priority unchecked tasks are `RGFXWRI` intensity accent and rail-mode wording guard.

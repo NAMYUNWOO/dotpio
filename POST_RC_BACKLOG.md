@@ -475,10 +475,10 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-24 Cycle BY)
 - [x] UX/World Team: Add compact alias token for route-glow rationale rail (`RGFXWR:<STEADY|SPIKE>`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_COMPACT` while preserving detailed fallback
-- [ ] Systems/QA Team: Add weekly digest token-family coverage for route-glow rationale rail churn (`ROUTE GLOW FX CONF WHY RAIL:` + `RGFXWR:`)
+- [x] Systems/QA Team: Add weekly digest token-family coverage for route-glow rationale rail churn (`ROUTE GLOW FX CONF WHY RAIL:` + `RGFXWR:`) *(lifecycle: [ ] -> [~] -> [x])*
 - [x] Design/UX Team: Prototype confidence-adaptive rail compression token (`RGFXWRM:LOCK|FLEX`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_MODE` for pressure readability under compact budgets *(lifecycle: [ ] -> [x])* 
 
 ## P1 (Game Director Injection — 2026-03-24 Cycle BZ)
-- [ ] Systems/QA Team: Add weekly digest token-family coverage for rail-mode churn (`RGFXWRM:`) with compact-budget drift note
+- [x] Systems/QA Team: Add weekly digest token-family coverage for rail-mode churn (`RGFXWRM:`) with compact-budget drift note
 - [ ] Combat/VFX Team: Prototype rail-mode intensity accent token (`RGFXWRI:SOFT|HARD`) keyed off `LOCK|FLEX` for stronger overdrive feel
 - [ ] AI Content/Design Team: Add rationale copy guard so rail-mode `LOCK|FLEX` wording remains deterministic with `RGFXW` mappings

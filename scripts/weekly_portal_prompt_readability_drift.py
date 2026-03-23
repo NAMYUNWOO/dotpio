@@ -26,8 +26,8 @@ PORTAL_PATH_HINTS = (
 )
 
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 
@@ -40,7 +40,7 @@ for _tokens in TOKEN_GROUPS.values():
 PRESSURE_TOKENS = ["PRESSURE:", "P:"]
 
 TOKEN_FAMILIES = {
-    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:"],
+    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:"],
     "alt": ["ALT:", "ALT ROUTE:", "ALT DELTA:", "ADEL:", "ALT PLAN:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:"],
     "pressure": ["PRESSURE:", "P:"],
 }
@@ -58,6 +58,7 @@ TOKEN_ALIAS_FAMILIES = {
     "routeGlowFxConfidenceAlias": ["ROUTE GLOW FX CONF:", "RGFXC:"],
     "routeGlowFxConfidenceWhyAlias": ["ROUTE GLOW FX CONF WHY:", "RGFXW:"],
     "routeGlowFxConfidenceWhyRailAlias": ["ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:"],
+    "routeGlowFxConfidenceWhyRailMode": ["RGFXWRM:"],
 }
 
 ROUTE_VIBE_PATTERNS = {
@@ -235,6 +236,38 @@ def route_glow_fx_compact_budget_drift(
     else:
         level = "STABLE"
         reason = "route-glow-fx churn remains minor in compact prompt budget"
+
+    return level, {
+        "reason": reason,
+        "compactNet": compact_net,
+        "familyNet": net,
+        "familyChurn": churn,
+        "absFamilyNet": abs(net),
+        "absCompactNet": compact_pressure,
+    }
+
+
+def route_glow_fx_conf_why_rail_mode_compact_budget_drift(
+    *,
+    route_glow_fx_conf_why_rail_mode_family: dict[str, object],
+    compact_net: int,
+) -> tuple[str, dict[str, object]]:
+    churn = int(route_glow_fx_conf_why_rail_mode_family.get("churn", 0) or 0)
+    net = int(route_glow_fx_conf_why_rail_mode_family.get("net", 0) or 0)
+    compact_pressure = abs(compact_net)
+
+    if churn == 0:
+        level = "STABLE"
+        reason = "no route-glow rationale rail-mode churn in window"
+    elif abs(net) >= 3 or (churn >= 4 and compact_pressure >= 8):
+        level = "SPIKE"
+        reason = "rail-mode churn is likely competing with compact prompt budget"
+    elif abs(net) >= 1 or churn >= 2:
+        level = "WATCH"
+        reason = "rail-mode churn is noticeable in compact prompt budget"
+    else:
+        level = "STABLE"
+        reason = "rail-mode churn remains minor in compact prompt budget"
 
     return level, {
         "reason": reason,
@@ -5197,6 +5230,10 @@ def main() -> int:
         route_glow_fx_family=token_family_totals["routeGlowFxAlias"],
         compact_net=totals["net"]["compact"],
     )
+    route_glow_fx_conf_why_rail_mode_compact_budget_drift_level, route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals = route_glow_fx_conf_why_rail_mode_compact_budget_drift(
+        route_glow_fx_conf_why_rail_mode_family=token_family_totals["routeGlowFxConfidenceWhyRailMode"],
+        compact_net=totals["net"]["compact"],
+    )
     route_vibe_totals = {
         "added": {
             vibe: sum(r["routeVibeEdits"]["added"][vibe] for r in touched)
@@ -6080,6 +6117,8 @@ def main() -> int:
         "pulseHeatFxCompactBudgetDriftSignals": pulse_heat_fx_compact_budget_drift_signals,
         "routeGlowFxCompactBudgetDrift": route_glow_fx_compact_budget_drift_level,
         "routeGlowFxCompactBudgetDriftSignals": route_glow_fx_compact_budget_drift_signals,
+        "routeGlowFxConfWhyRailModeCompactBudgetDrift": route_glow_fx_conf_why_rail_mode_compact_budget_drift_level,
+        "routeGlowFxConfWhyRailModeCompactBudgetDriftSignals": route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals,
         "routeVibeTotals": route_vibe_totals,
         "stickyTokens": {
             "count": len(sticky_tokens),
@@ -6237,8 +6276,10 @@ def main() -> int:
         f"- ROUTE GLOW FX CONF FAMILY CHURN: **net {token_family_totals['routeGlowFxConfidenceAlias']['net']:+d}** (added={token_family_totals['routeGlowFxConfidenceAlias']['added']} removed={token_family_totals['routeGlowFxConfidenceAlias']['removed']} churn={token_family_totals['routeGlowFxConfidenceAlias']['churn']} coverage={token_family_totals['routeGlowFxConfidenceAlias']['coverage']})",
         f"- ROUTE GLOW FX CONF WHY FAMILY CHURN: **net {token_family_totals['routeGlowFxConfidenceWhyAlias']['net']:+d}** (added={token_family_totals['routeGlowFxConfidenceWhyAlias']['added']} removed={token_family_totals['routeGlowFxConfidenceWhyAlias']['removed']} churn={token_family_totals['routeGlowFxConfidenceWhyAlias']['churn']} coverage={token_family_totals['routeGlowFxConfidenceWhyAlias']['coverage']})",
         f"- ROUTE GLOW FX CONF WHY RAIL FAMILY CHURN: **net {token_family_totals['routeGlowFxConfidenceWhyRailAlias']['net']:+d}** (added={token_family_totals['routeGlowFxConfidenceWhyRailAlias']['added']} removed={token_family_totals['routeGlowFxConfidenceWhyRailAlias']['removed']} churn={token_family_totals['routeGlowFxConfidenceWhyRailAlias']['churn']} coverage={token_family_totals['routeGlowFxConfidenceWhyRailAlias']['coverage']})",
+        f"- ROUTE GLOW FX CONF WHY RAIL MODE FAMILY CHURN: **net {token_family_totals['routeGlowFxConfidenceWhyRailMode']['net']:+d}** (added={token_family_totals['routeGlowFxConfidenceWhyRailMode']['added']} removed={token_family_totals['routeGlowFxConfidenceWhyRailMode']['removed']} churn={token_family_totals['routeGlowFxConfidenceWhyRailMode']['churn']} coverage={token_family_totals['routeGlowFxConfidenceWhyRailMode']['coverage']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: **{pulse_heat_fx_compact_budget_drift_level}** ({pulse_heat_fx_compact_budget_drift_signals['reason']}; compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d} churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **{route_glow_fx_compact_budget_drift_level}** ({route_glow_fx_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
+        f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **{route_glow_fx_conf_why_rail_mode_compact_budget_drift_level}** ({route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",
@@ -6273,8 +6314,10 @@ def main() -> int:
         f"- ROUTE GLOW FX CONF + RGFXC: +{token_family_totals['routeGlowFxConfidenceAlias']['added']} / -{token_family_totals['routeGlowFxConfidenceAlias']['removed']} / net {token_family_totals['routeGlowFxConfidenceAlias']['net']} (churn={token_family_totals['routeGlowFxConfidenceAlias']['churn']} coverage={token_family_totals['routeGlowFxConfidenceAlias']['coverage']})",
         f"- ROUTE GLOW FX CONF WHY + RGFXW: +{token_family_totals['routeGlowFxConfidenceWhyAlias']['added']} / -{token_family_totals['routeGlowFxConfidenceWhyAlias']['removed']} / net {token_family_totals['routeGlowFxConfidenceWhyAlias']['net']} (churn={token_family_totals['routeGlowFxConfidenceWhyAlias']['churn']} coverage={token_family_totals['routeGlowFxConfidenceWhyAlias']['coverage']})",
         f"- ROUTE GLOW FX CONF WHY RAIL + RGFXWR: +{token_family_totals['routeGlowFxConfidenceWhyRailAlias']['added']} / -{token_family_totals['routeGlowFxConfidenceWhyRailAlias']['removed']} / net {token_family_totals['routeGlowFxConfidenceWhyRailAlias']['net']} (churn={token_family_totals['routeGlowFxConfidenceWhyRailAlias']['churn']} coverage={token_family_totals['routeGlowFxConfidenceWhyRailAlias']['coverage']})",
+        f"- RGFXWRM RAIL MODE: +{token_family_totals['routeGlowFxConfidenceWhyRailMode']['added']} / -{token_family_totals['routeGlowFxConfidenceWhyRailMode']['removed']} / net {token_family_totals['routeGlowFxConfidenceWhyRailMode']['net']} (churn={token_family_totals['routeGlowFxConfidenceWhyRailMode']['churn']} coverage={token_family_totals['routeGlowFxConfidenceWhyRailMode']['coverage']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: {pulse_heat_fx_compact_budget_drift_level} (compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d}, churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: {route_glow_fx_compact_budget_drift_level} (compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
+        f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: {route_glow_fx_conf_why_rail_mode_compact_budget_drift_level} (compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",
         "",
         "## Route Vibe Drift (added/removed/net)",
         f"- CALM: +{route_vibe_totals['added']['CALM']} / -{route_vibe_totals['removed']['CALM']} / net {route_vibe_totals['net']['CALM']}",

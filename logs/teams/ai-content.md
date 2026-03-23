@@ -1280,3 +1280,39 @@
 - Reviewed route-glow rationale token mapping continuity after rail additions.
 - Confirmed existing rationale mapping remains deterministic (`SOFT->STABLE`, `SHARP->PRESSURE`, `SURGE->OVERDRIVE`) and rail token is a compression layer only.
 - Follow-up queued: evaluate confidence-adaptive rail mode token wording (`LOCK|FLEX`) for operator clarity.
+
+## 2026-03-24 04:07 KST
+- Task: Cycle BZ Systems/QA rail-mode digest coverage () + compact-budget drift note.
+- Commit: HEAD (this run)
+- Files: 
+  - 
+  - 
+  - 
+  - 
+- Verification:
+  -  ✅
+  - [PASS] weekly portal prompt readability drift regression checks ✅
+  - [PASS] weekly portal prompt drift status=ok -> /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.json /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.md ✅
+- Decision notes:
+  - Added token-family coverage for  and surfaced a dedicated compact-budget drift signal in digest payload + markdown.
+  - Kept all logic deterministic and additive (no gameplay/combat/world behavior changes).
+- Risks / Follow-ups:
+  - Next highest unchecked items remain Cycle BZ combat/VFX intensity accent () and AI-content deterministic wording guard.
+
+## 2026-03-24 04:09 KST
+- Task: Cycle BZ Systems/QA rail-mode digest coverage (`RGFXWRM:`) + compact-budget drift note.
+- Commit: HEAD (this run)
+- Files:
+  - `scripts/weekly_portal_prompt_readability_drift.py`
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `TASKS.md`
+  - `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+- Decision notes:
+  - Added token-family coverage for `RGFXWRM:` and a dedicated rail-mode compact-budget drift signal in weekly digest payload + markdown.
+  - Kept change additive; no gameplay/combat/world behavior changes.
+- Risks / Follow-ups:
+  - Next highest unchecked items are `RGFXWRI:SOFT|HARD` (Combat/VFX) and deterministic rail-mode wording guard (AI Content/Design).

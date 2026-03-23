@@ -1,35 +1,35 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-23T17:05:27.689532Z
+- GeneratedAt(UTC): 2026-03-23T19:07:56.379534Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
-- Portal prompt commits: 37
-- Dominant mode commits: compact=10, detailed=0, neutral=27
+- Portal prompt commits: 41
+- Dominant mode commits: compact=10, detailed=0, neutral=31
 - MODE TREND: **COMPACT**
 - PRESSURE BAND: **HIGH** (edits +14 / -6 / net 8)
 - DRIFT RISK: **HIGH** (score=28 | imbalance=20 | pressure=8)
-- FOCUS: **PORTAL** (portal=75 | alt=33 | pressure=8)
-- FOCUS STREAK: **9**
+- FOCUS: **PORTAL** (portal=101 | alt=33 | pressure=8)
+- FOCUS STREAK: **13**
 - FOCUS SHIFT: **ALT->PORTAL**
-- FOCUS VOL: **STEADY** (switches=1/14 ratio=0.071)
+- FOCUS VOL: **STEADY** (switches=1/18 ratio=0.056)
 - ROUTE ACTION: **PORTAL_AUDIT** (portal-family tokens dominate top movers)
-- ACTION CONF: **LOW** (dom=0.647 spread=42 driftSpread=12)
-- FOCUS BAL: **65%** (top=75 total=116 dom=0.647)
-- FOCUS ENTROPY: **HIGH** (norm=0.75 raw=1.189 max=1.585)
+- ACTION CONF: **LOW** (dom=0.711 spread=68 driftSpread=12)
+- FOCUS BAL: **71%** (top=101 total=142 dom=0.711)
+- FOCUS ENTROPY: **HIGH** (norm=0.677 raw=1.073 max=1.585)
 - ACTION GUARD: **LOCK** (high-drift-low-confidence; risk=HIGH conf=LOW)
-- LANE LOCK: **PORTALx9** (threshold=3 lane=PORTAL streak=9)
-- ROUTE SANDBOX: **OFF** (lane-lock-armed-but-flag-disabled; flag=DOTPIO_EXPERIMENT_ROUTE_SANDBOX enabled=False laneLock=PORTALx9)
+- LANE LOCK: **PORTALx13** (threshold=3 lane=PORTAL streak=13)
+- ROUTE SANDBOX: **OFF** (lane-lock-armed-but-flag-disabled; flag=DOTPIO_EXPERIMENT_ROUTE_SANDBOX enabled=False laneLock=PORTALx13)
 - SANDBOX PLAN: **PREPARE** (high-risk-waiting-on-sandbox-flag; guard=LOCK risk=HIGH)
-- SANDBOX TARGET: **NONE** (sandbox-inactive; lane=PORTAL armed=True streak=9)
+- SANDBOX TARGET: **NONE** (sandbox-inactive; lane=PORTAL armed=True streak=13)
 - TARGET SRC: **NONE** (sandbox=OFF target=NONE)
-- SANDBOX TARGET CONF: **LOW** (no-single-lane-target; routeConf=LOW lock=Truex9)
-- SANDBOX READY: **PRIMED** (preconditions-forming; sandbox=OFF conf=LOW guard=LOCK lock=Truex9)
+- SANDBOX TARGET CONF: **LOW** (no-single-lane-target; routeConf=LOW lock=Truex13)
+- SANDBOX READY: **PRIMED** (preconditions-forming; sandbox=OFF conf=LOW guard=LOCK lock=Truex13)
 - TARGET SHIFT: **NONE->NONE** (target-stable; changed=False priorLoaded=True)
 - SANDBOX COOLOFF: **0** (no-prior-on-cycle; active=False prior=OFF:0)
-- DRIFT MOMENTUM: **FLAT** (recent=1.474 older=0.0 delta=1.474)
+- DRIFT MOMENTUM: **FLAT** (recent=0.571 older=0.8 delta=-0.229)
 - ACTION STABILITY: **WATCH** (retune-watch-needed; conf=LOW vol=STEADY momentum=FLAT)
-- PRESSURE LAG: **SLOW** (churn=8 momentum=FLAT |Δ|=1.474)
+- PRESSURE LAG: **SLOW** (churn=8 momentum=FLAT |Δ|=0.229)
 - ACTION PACE: **BRAKE** (guard-locked; guard=LOCK stability=WATCH lag=SLOW)
 - PACE DRIFT: **+0** (pace-stable; current=BRAKE(-1) prior=BRAKE(-1) loaded=True)
 - ACTION PACE WINDOW: **CLOSE** (guard-or-brake-closing-window; pace=BRAKE guard=LOCK drift=+0)
@@ -57,9 +57,9 @@
 - ROUTE PULSE LINK STREAK: **0** (link-off-reset; current=OFF prior=OFF priorStreak=0 loaded=True)
 - ROUTE PULSE LINK MODE: **IDLE** (link-disabled; link=OFF streak=0 drift=+0)
 - ROUTE PULSE LINK MODE Δ: **+0** (mode-stable; current=IDLE(0) prior=IDLE(0) loaded=True)
-- ROUTE PULSE LINK MODE STREAK: **21** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=20 loaded=True)
+- ROUTE PULSE LINK MODE STREAK: **29** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=28 loaded=True)
 - ROUTE PULSE LINK MODE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY enabled=False mode=IDLE link=OFF drift=+0 streak=0)
-- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=21)
+- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=29)
 - ROUTE PULSE LINK MODE FIT Δ: **+0** (fit-stable; current=SYNC(2) prior=SYNC(2) loaded=True)
 - ROUTE PULSE TOKEN PRIORITY: **OFF** (priority-mode-disabled; configured=OFF drift=+0 prior=OFF loaded=True guard=False)
 - ACTION PACE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_WHY enabled=False pace=BRAKE guard=LOCK stability=WATCH lag=SLOW drift=+0)
@@ -75,7 +75,7 @@
 - WHAT-IF FALLBACK WHY: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_WHY enabled=False fallback=OFF conf=LOW fit=EVEN pressure=HIGH)
 - WHAT-IF FALLBACK ALIGN: **SYNC** (no-actionable-fallback; fallback=OFF focus=PORTAL actionable=False)
 - WHAT-IF FALLBACK MAG: **SMALL** (flag-disabled; fallback=OFF delta=-3 |Δ|=3 enabled=False)
-- WHAT-IF FALLBACK ALT2: **NONE** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2 enabled=False fallback=NONE scores=portal:75 alt:33 pressure:8)
+- WHAT-IF FALLBACK ALT2: **NONE** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2 enabled=False fallback=NONE scores=portal:101 alt:33 pressure:8)
 - WHAT-IF FALLBACK ALT2 CONF: **LOW** (flag-disabled; alt2=NONE fallback=NONE top=0 second=0 gap=0 enabled=False)
 - WHAT-IF FALLBACK PLAN: **HOLD** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN enabled=False primary=OFF(LOW) secondary=NONE(LOW))
 - WHAT-IF PLAN FIT: **EVEN** (hold-or-no-actionable-secondary; plan=HOLD lane=HOLD pressure=HIGH projected=HIGH)
@@ -138,26 +138,30 @@
 - VTA FAMILY CHURN: **net +10** (added=10 removed=0 churn=10 coverage=2/2)
 - PULSE HEAT FX FAMILY CHURN: **net +7** (added=7 removed=0 churn=7 coverage=1/1)
 - ROUTE GLOW FX FAMILY CHURN: **net +15** (added=15 removed=0 churn=15 coverage=2/2)
-- ROUTE GLOW CONF FAMILY CHURN: **net +3** (added=3 removed=0 churn=3 coverage=1/1)
-- ROUTE GLOW FX CONF FAMILY CHURN: **net +7** (added=7 removed=0 churn=7 coverage=1/2)
-- PULSE HEAT FX COMPACT-BUDGET DRIFT: **SPIKE** (pulse-heat-fx churn is likely competing with compact prompt budget; compactNet=+115 familyNet=+7 churn=7)
-- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **SPIKE** (route-glow-fx churn is likely competing with compact prompt budget; compactNet=+115 familyNet=+15 churn=15)
-- STICKY TOKENS: **8**
-- ANOMALY: **ON** (sticky=8/3 pressure=8/5)
-- ANOMALY CONF: **HIGH** (triggers=2 gap=8)
+- ROUTE GLOW CONF FAMILY CHURN: **net +5** (added=6 removed=1 churn=7 coverage=2/2)
+- ROUTE GLOW FX CONF FAMILY CHURN: **net +13** (added=13 removed=0 churn=13 coverage=1/2)
+- ROUTE GLOW FX CONF WHY FAMILY CHURN: **net +9** (added=9 removed=0 churn=9 coverage=2/2)
+- ROUTE GLOW FX CONF WHY RAIL FAMILY CHURN: **net +5** (added=5 removed=0 churn=5 coverage=2/2)
+- ROUTE GLOW FX CONF WHY RAIL MODE FAMILY CHURN: **net +4** (added=4 removed=0 churn=4 coverage=1/1)
+- PULSE HEAT FX COMPACT-BUDGET DRIFT: **SPIKE** (pulse-heat-fx churn is likely competing with compact prompt budget; compactNet=+141 familyNet=+7 churn=7)
+- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **SPIKE** (route-glow-fx churn is likely competing with compact prompt budget; compactNet=+141 familyNet=+15 churn=15)
+- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **SPIKE** (rail-mode churn is likely competing with compact prompt budget; compactNet=+141 familyNet=+4 churn=4)
+- STICKY TOKENS: **9**
+- ANOMALY: **ON** (sticky=9/3 pressure=8/5)
+- ANOMALY CONF: **HIGH** (triggers=2 gap=9)
 - ROUTE VIBE DRIFT: **CALM +3 | EDGE +0 | DOOM +3**
 
 ## Token Totals (added/removed/net)
-- Compact: +124 / -9 / net 115
-- Detailed: +104 / -9 / net 95
+- Compact: +151 / -10 / net 141
+- Detailed: +131 / -10 / net 121
 - Shared: +12 / -12 / net 0
 
 ## Top Token Movers (net ±)
 - `ROUTE GLOW FX:` net +13 (added 13, removed 0)
+- `RGFXC:` net +13 (added 13, removed 0)
 - `ROUTE GLOW:` net +9 (added 9, removed 0)
 - `P:` net +8 (added 11, removed 3)
 - `ALT STEP:` net +8 (added 8, removed 0)
-- `VIBE TRAIL WHY:` net +7 (added 7, removed 0)
 
 ## Token Family Coverage
 - VTW + VIBE TRAIL WHY: +8 / -0 / net 8 (churn=8 coverage=2/2)
@@ -167,10 +171,14 @@
 - VTA + VIBE TRAIL ARC: +10 / -0 / net 10 (churn=10 coverage=2/2)
 - PULSE HEAT FX: +7 / -0 / net 7 (churn=7 coverage=1/1)
 - ROUTE GLOW FX + RGFX: +15 / -0 / net 15 (churn=15 coverage=2/2)
-- ROUTE GLOW CONF: +3 / -0 / net 3 (churn=3 coverage=1/1)
-- ROUTE GLOW FX CONF + RGFXC: +7 / -0 / net 7 (churn=7 coverage=1/2)
-- PULSE HEAT FX COMPACT-BUDGET DRIFT: SPIKE (compactNet=+115, familyNet=+7, churn=7)
-- ROUTE GLOW FX COMPACT-BUDGET DRIFT: SPIKE (compactNet=+115, familyNet=+15, churn=15)
+- ROUTE GLOW CONF: +6 / -1 / net 5 (churn=7 coverage=2/2)
+- ROUTE GLOW FX CONF + RGFXC: +13 / -0 / net 13 (churn=13 coverage=1/2)
+- ROUTE GLOW FX CONF WHY + RGFXW: +9 / -0 / net 9 (churn=9 coverage=2/2)
+- ROUTE GLOW FX CONF WHY RAIL + RGFXWR: +5 / -0 / net 5 (churn=5 coverage=2/2)
+- RGFXWRM RAIL MODE: +4 / -0 / net 4 (churn=4 coverage=1/1)
+- PULSE HEAT FX COMPACT-BUDGET DRIFT: SPIKE (compactNet=+141, familyNet=+7, churn=7)
+- ROUTE GLOW FX COMPACT-BUDGET DRIFT: SPIKE (compactNet=+141, familyNet=+15, churn=15)
+- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: SPIKE (compactNet=+141, familyNet=+4, churn=4)
 
 ## Route Vibe Drift (added/removed/net)
 - CALM: +3 / -0 / net 3
@@ -178,9 +186,13 @@
 - DOOM: +3 / -0 / net 3
 
 ## Sticky Tokens
-- `NEXT:`, `P:`, `ALT STEP WHY CONF:`, `ALT WHY GLYPH MODE:`, `NEXT ROUTE:`, `PRESSURE:`, `ENTER:JUMP`, `COACH:`
+- `NEXT:`, `P:`, `ALT STEP WHY CONF:`, `ALT WHY GLYPH MODE:`, `ROUTE GLOW CONF:`, `NEXT ROUTE:`, `PRESSURE:`, `ENTER:JUMP`, `COACH:`
 
 ## Commit-level digest
+- `f0887fd` feat(portal): add route-glow rail mode lock/flex token | mode=neutral | compact net=4 detailed net=4 shared net=0
+- `fd8f271` Add route-glow rationale churn coverage and rail alias slice | mode=neutral | compact net=8 detailed net=8 shared net=0
+- `ccfde66` Add route-glow FX confidence rationale token and compact alias | mode=neutral | compact net=12 detailed net=12 shared net=0
+- `a8f0f44` feat: add RGC compact route-glow confidence alias | mode=neutral | compact net=2 detailed net=2 shared net=0
 - `271bc65` feat(portal): add route glow FX confidence token experiment | mode=neutral | compact net=13 detailed net=13 shared net=0
 - `cb57786` feat(portal): add route glow fx overdrive + compact alias cycle BV | mode=neutral | compact net=15 detailed net=15 shared net=0
 - `1222b27` Add route glow confidence token for compact portal prompts | mode=neutral | compact net=3 detailed net=3 shared net=0
