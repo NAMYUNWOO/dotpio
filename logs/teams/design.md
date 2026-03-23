@@ -1251,3 +1251,8 @@
 ## 2026-03-23 19:01 KST — Readability telemetry note
 - Added durable weekly readability signal for vibe-trail rationale alias churn (`VTW` + `VIBE TRAIL WHY`) in digest output.
 - Decision: keep both summary line and dedicated section so triage stays glanceable.
+
+## 2026-03-23 19:37 KST — Prompt readability decision
+- Chose compact alias `VTWC` instead of full confidence label in compact mode to preserve DOS-width budget.
+- Durable style rule: detailed prompt keeps full semantic label, compact prompt uses deterministic short alias.
+- Next design follow-up queued: confidence micro-rationale token for operator trust context.

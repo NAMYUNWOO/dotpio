@@ -1229,3 +1229,8 @@
 ## 2026-03-23 19:01 KST — Cross-lane note
 - No world/map topology changes in this slice; portal/map data untouched.
 - Consumed systems telemetry update only (digest token-family observability).
+
+## 2026-03-23 19:37 KST — Portal prompt world-lane note
+- No portal topology/layout changes in this slice.
+- Prompt surface now exposes rationale-confidence token parity (`VIBE TRAIL WHY CONF` / `VTWC`) tied to existing calm/ash cooloff context.
+- Follow-up queued: UX world rail token for confidence pacing readability.

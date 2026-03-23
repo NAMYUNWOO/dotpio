@@ -1156,3 +1156,7 @@
 
 ## 2026-03-23 19:01 KST — Cross-lane note
 - No combat behavior/balance changes in this slice.
+
+## 2026-03-23 19:37 KST — Combat lane sync
+- No combat balance/mechanics edits in this cycle.
+- Confirmed portal prompt confidence additions are post-fade readability metadata only; no combat-loop impact.

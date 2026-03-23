@@ -1182,3 +1182,10 @@
 
 ## 2026-03-23 19:01 KST — Cross-lane note
 - No AI content copy generation changes in this slice; digest alias telemetry only.
+
+## 2026-03-23 19:37 KST — Vibe-trail rationale confidence token shipped
+- Implemented deterministic rationale-confidence mapping for vibe-trail narrative token:
+  - `CALM -> MID`
+  - `ASH -> HIGH`
+- Added detailed token `VIBE TRAIL WHY CONF:<tier>` and compact alias `VTWC:<L|M|H>` behind experiment flag.
+- Follow-up queued: micro-rationale token `VIBE TRAIL WHY CONF WHY:<short>`.

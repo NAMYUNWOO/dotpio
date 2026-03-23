@@ -1454,3 +1454,8 @@
 ## 2026-03-23 19:01 KST — UX digest readability update
 - Weekly markdown now explicitly surfaces `VTW FAMILY CHURN` and `Token Family Coverage` section for alias-family drift visibility.
 - No prompt-surface copy changes this cycle; digest/readability only.
+
+## 2026-03-23 19:37 KST — Portal UX confidence readability
+- Added compact confidence token `VTWC:<L|M|H>` adjacent to `VIBE TRAIL WHY/VTW` for glanceable trust signal.
+- Retained detailed label `VIBE TRAIL WHY CONF` to support non-compact diagnostics.
+- Follow-up queued: optional confidence rail token (`STEADY|SPIKE`) for faster pre-jump parsing.

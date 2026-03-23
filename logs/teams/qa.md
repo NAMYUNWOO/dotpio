@@ -2361,3 +2361,13 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
 - Follow-up: next unchecked item is lane-cadence force-flag digest trigger (`ACTION_ITEMS/TASKS`).
+
+## 2026-03-23 19:37 KST — Regression evidence for vibe-trail rationale confidence
+- Updated `scripts/regression_portal_vibe_trail.lua` assertions for detailed/compact rationale-confidence tokens and invalid-input suppression.
+- Updated weekly digest regression schema checks for `VIBE TRAIL WHY CONF`, `VTWC`, and `vibeTrailWhyConfidenceAlias` family.
+- PASS evidence:
+  - `luac -p src/portal.lua scripts/regression_portal_vibe_trail.lua`
+  - `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF=1 lua scripts/regression_portal_vibe_trail.lua`
+  - `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_COMPACT_ALIAS=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF=1 lua scripts/regression_portal_vibe_trail_why_compact_alias.lua`
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`

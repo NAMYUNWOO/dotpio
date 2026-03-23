@@ -2169,3 +2169,19 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` PASS
 - Follow-up: continue ACTION_ITEMS/TASKS priority with lane-cadence force-flag trigger item.
+
+## 2026-03-23 19:37 KST — Cycle BP closure + Game Director Cycle BQ injection
+- Completed queued item: `VIBE TRAIL WHY CONF:LOW|MID|HIGH` with compact alias `VTWC:<L|M|H>` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF`.
+- Runtime prompt updates:
+  - detailed: `VIBE TRAIL WHY CONF:<tier>`
+  - compact: `VTWC:<L|M|H>`
+  - deterministic mapping: `CALM -> MID`, `ASH -> HIGH`.
+- Weekly digest updates:
+  - token catalogs/families now track `VIBE TRAIL WHY CONF:` + `VTWC:`
+  - new alias-family totals key: `vibeTrailWhyConfidenceAlias`
+  - markdown triage rows: `VTWC FAMILY CHURN` + token-family coverage line.
+- Verification PASS: portal vibe-trail regression, compact-alias regression, weekly digest regression, Lua/Python compile checks.
+- Game Director review cycle (BQ):
+  - Generated ideas: (1) confidence-alias churn coverage, (2) confidence rail token, (3) confidence micro-rationale token.
+  - Chosen minimal vertical slice: (1) confidence-alias churn coverage (implemented).
+  - Backlog injected: queued (2) `VIBE TRAIL CONF RAIL:<STEADY|SPIKE>` and (3) `VIBE TRAIL WHY CONF WHY:<short>`.

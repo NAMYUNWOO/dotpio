@@ -710,9 +710,22 @@ def main() -> int:
         assert "tokenTotals" in payload, payload
         assert "VIBE TRAIL CONF:" in payload["tokenTotals"]["net"], payload
         assert "VTC:" in payload["tokenTotals"]["net"], payload
+        assert "VIBE TRAIL WHY CONF:" in payload["tokenTotals"]["net"], payload
+        assert "VTWC:" in payload["tokenTotals"]["net"], payload
         assert "tokenFamilyTotals" in payload, payload
         assert "vibeTrailWhyAlias" in payload["tokenFamilyTotals"], payload
+        assert "vibeTrailWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["vibeTrailWhyConfidenceAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1091,6 +1104,7 @@ def main() -> int:
         assert "Top Token Movers" in md_text
         assert "Token Family Coverage" in md_text
         assert "VTW FAMILY CHURN" in md_text
+        assert "VTWC FAMILY CHURN" in md_text
         assert "MODE TREND" in md_text
         assert "PRESSURE BAND" in md_text
         assert "DRIFT RISK" in md_text

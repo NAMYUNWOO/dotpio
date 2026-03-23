@@ -1853,3 +1853,8 @@
 - Output now includes JSON `tokenFamilyTotals.vibeTrailWhyAlias` and markdown rows `VTW FAMILY CHURN` + `Token Family Coverage` for quick churn triage.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Follow-up: next unchecked Cycle BP item is lane-cadence force-flag digest trigger (`ACTION_ITEMS/TASKS`).
+
+## 2026-03-23 19:37 KST — Cycle BP/BQ rationale-confidence alias telemetry
+- Added digest token-catalog + family coverage for `VIBE TRAIL WHY CONF` detailed token and compact alias `VTWC`.
+- Decision: keep confidence-alias family (`vibeTrailWhyConfidenceAlias`) distinct from rationale family (`vibeTrailWhyAlias`) to avoid mixed churn attribution.
+- Follow-up queued: rail token (`VIBE TRAIL CONF RAIL`) for compact jump triage.

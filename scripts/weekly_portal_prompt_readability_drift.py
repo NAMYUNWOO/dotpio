@@ -26,8 +26,8 @@ PORTAL_PATH_HINTS = (
 )
 
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VIBE TRAIL WHY:", "VTW:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL WHY:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VIBE TRAIL WHY:", "VTW:", "VTWC:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 
@@ -40,13 +40,14 @@ for _tokens in TOKEN_GROUPS.values():
 PRESSURE_TOKENS = ["PRESSURE:", "P:"]
 
 TOKEN_FAMILIES = {
-    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VTC:", "VIBE TRAIL WHY:", "VTW:"],
+    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VTC:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:"],
     "alt": ["ALT:", "ALT ROUTE:", "ALT DELTA:", "ADEL:", "ALT PLAN:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:"],
     "pressure": ["PRESSURE:", "P:"],
 }
 
 TOKEN_ALIAS_FAMILIES = {
     "vibeTrailWhyAlias": ["VIBE TRAIL WHY:", "VTW:"],
+    "vibeTrailWhyConfidenceAlias": ["VIBE TRAIL WHY CONF:", "VTWC:"],
 }
 
 ROUTE_VIBE_PATTERNS = {
@@ -6140,6 +6141,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF WHY: **{what_if_split_esc_recover_veto_rearm_coach_handoff_why}** ({what_if_split_esc_recover_veto_rearm_coach_handoff_why_signals['reason']}; flag={what_if_split_esc_recover_veto_rearm_coach_handoff_why_signals['flagName']} enabled={what_if_split_esc_recover_veto_rearm_coach_handoff_why_signals['flagEnabled']} handoff={what_if_split_esc_recover_veto_rearm_coach_handoff_why_signals['splitEscRecoverVetoRearmCoachHandoff']} fit={what_if_split_esc_recover_veto_rearm_coach_handoff_why_signals['splitEscRecoverVetoRearmCoachHandoffFit']} conf={what_if_split_esc_recover_veto_rearm_coach_handoff_why_signals['splitEscRecoverVetoRearmCoachConfidence']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
         f"- VTW FAMILY CHURN: **net {token_family_totals['vibeTrailWhyAlias']['net']:+d}** (added={token_family_totals['vibeTrailWhyAlias']['added']} removed={token_family_totals['vibeTrailWhyAlias']['removed']} churn={token_family_totals['vibeTrailWhyAlias']['churn']} coverage={token_family_totals['vibeTrailWhyAlias']['coverage']})",
+        f"- VTWC FAMILY CHURN: **net {token_family_totals['vibeTrailWhyConfidenceAlias']['net']:+d}** (added={token_family_totals['vibeTrailWhyConfidenceAlias']['added']} removed={token_family_totals['vibeTrailWhyConfidenceAlias']['removed']} churn={token_family_totals['vibeTrailWhyConfidenceAlias']['churn']} coverage={token_family_totals['vibeTrailWhyConfidenceAlias']['coverage']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",
@@ -6164,6 +6166,7 @@ def main() -> int:
         "",
         "## Token Family Coverage",
         f"- VTW + VIBE TRAIL WHY: +{token_family_totals['vibeTrailWhyAlias']['added']} / -{token_family_totals['vibeTrailWhyAlias']['removed']} / net {token_family_totals['vibeTrailWhyAlias']['net']} (churn={token_family_totals['vibeTrailWhyAlias']['churn']} coverage={token_family_totals['vibeTrailWhyAlias']['coverage']})",
+        f"- VTWC + VIBE TRAIL WHY CONF: +{token_family_totals['vibeTrailWhyConfidenceAlias']['added']} / -{token_family_totals['vibeTrailWhyConfidenceAlias']['removed']} / net {token_family_totals['vibeTrailWhyConfidenceAlias']['net']} (churn={token_family_totals['vibeTrailWhyConfidenceAlias']['churn']} coverage={token_family_totals['vibeTrailWhyConfidenceAlias']['coverage']})",
         "",
         "## Route Vibe Drift (added/removed/net)",
         f"- CALM: +{route_vibe_totals['added']['CALM']} / -{route_vibe_totals['removed']['CALM']} / net {route_vibe_totals['net']['CALM']}",
