@@ -462,3 +462,8 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/World Team: Prototype compact route-glow FX alias token (`RGFX:<S|H|X>`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_COMPACT` for tighter DOS prompt budget
 - [x] Systems/QA Team: Add weekly digest token-family coverage for route-glow FX churn (`ROUTE GLOW FX:` + `RGFX:`) with compact-budget drift note
 - [x] Combat/VFX Team: Prototype route-glow FX confidence token (`ROUTE GLOW FX CONF:LOW|MID|HIGH`, compact `RGFXC:<L|M|H>`) behind flag for overdrive cue trust readability
+
+## Next Up (Game Director Injection — 2026-03-24 Cycle BW)
+- [x] Systems/QA Team: Add weekly digest token-family coverage for route-glow FX confidence churn (`ROUTE GLOW FX CONF:` + `RGFXC:`) with compact-budget drift note
+- [ ] UX/World Team: Prototype compact route-glow confidence alias token (`RGC:<L|M|H>`) behind flag for tighter DOS prompt budget
+- [ ] Design/AI Content Team: Prototype route-glow confidence rationale token (`ROUTE GLOW FX CONF WHY:<short>`) behind flag for trust context

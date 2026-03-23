@@ -1300,3 +1300,9 @@
 - Scope touched: `src/portal.lua`, `scripts/regression_portal_route_glow_fx_conf.lua`, backlog sync in `TASKS.md` + `POST_RC_BACKLOG.md`.
 - Verification: new confidence regression + existing route-glow FX and compact-alias regressions pass.
 - Follow-up: monitor compact prompt budget/churn; queue digest token-family coverage for `ROUTE GLOW FX CONF` if token volume rises.
+
+## 2026-03-24 02:10 KST — Cycle BW systems/qa slice
+- Completed task: weekly digest token-family coverage for route-glow FX confidence churn (`ROUTE GLOW FX CONF:` + `RGFXC:`).
+- Scope touched: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` all PASS.
+- Follow-up: remaining Cycle BW backlog items are `RGC:<L|M|H>` alias prototype and flagged `ROUTE GLOW FX CONF WHY:<short>` rationale token.

@@ -26,8 +26,8 @@ PORTAL_PATH_HINTS = (
 )
 
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "ROUTE GLOW FX CONF:", "RGFXC:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "ROUTE GLOW FX CONF:", "RGFXC:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 
@@ -40,7 +40,7 @@ for _tokens in TOKEN_GROUPS.values():
 PRESSURE_TOKENS = ["PRESSURE:", "P:"]
 
 TOKEN_FAMILIES = {
-    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:"],
+    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "ROUTE GLOW FX CONF:", "RGFXC:"],
     "alt": ["ALT:", "ALT ROUTE:", "ALT DELTA:", "ADEL:", "ALT PLAN:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:"],
     "pressure": ["PRESSURE:", "P:"],
 }
@@ -55,6 +55,7 @@ TOKEN_ALIAS_FAMILIES = {
     "routeGlowFxAlias": ["ROUTE GLOW FX:", "RGFX:"],
     "routeGlowAlias": ["ROUTE GLOW:"],
     "routeGlowConfidenceAlias": ["ROUTE GLOW CONF:"],
+    "routeGlowFxConfidenceAlias": ["ROUTE GLOW FX CONF:", "RGFXC:"],
 }
 
 ROUTE_VIBE_PATTERNS = {
@@ -6231,6 +6232,7 @@ def main() -> int:
         f"- PULSE HEAT FX FAMILY CHURN: **net {token_family_totals['pulseHeatFxAlias']['net']:+d}** (added={token_family_totals['pulseHeatFxAlias']['added']} removed={token_family_totals['pulseHeatFxAlias']['removed']} churn={token_family_totals['pulseHeatFxAlias']['churn']} coverage={token_family_totals['pulseHeatFxAlias']['coverage']})",
         f"- ROUTE GLOW FX FAMILY CHURN: **net {token_family_totals['routeGlowFxAlias']['net']:+d}** (added={token_family_totals['routeGlowFxAlias']['added']} removed={token_family_totals['routeGlowFxAlias']['removed']} churn={token_family_totals['routeGlowFxAlias']['churn']} coverage={token_family_totals['routeGlowFxAlias']['coverage']})",
         f"- ROUTE GLOW CONF FAMILY CHURN: **net {token_family_totals['routeGlowConfidenceAlias']['net']:+d}** (added={token_family_totals['routeGlowConfidenceAlias']['added']} removed={token_family_totals['routeGlowConfidenceAlias']['removed']} churn={token_family_totals['routeGlowConfidenceAlias']['churn']} coverage={token_family_totals['routeGlowConfidenceAlias']['coverage']})",
+        f"- ROUTE GLOW FX CONF FAMILY CHURN: **net {token_family_totals['routeGlowFxConfidenceAlias']['net']:+d}** (added={token_family_totals['routeGlowFxConfidenceAlias']['added']} removed={token_family_totals['routeGlowFxConfidenceAlias']['removed']} churn={token_family_totals['routeGlowFxConfidenceAlias']['churn']} coverage={token_family_totals['routeGlowFxConfidenceAlias']['coverage']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: **{pulse_heat_fx_compact_budget_drift_level}** ({pulse_heat_fx_compact_budget_drift_signals['reason']}; compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d} churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **{route_glow_fx_compact_budget_drift_level}** ({route_glow_fx_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
@@ -6264,6 +6266,7 @@ def main() -> int:
         f"- PULSE HEAT FX: +{token_family_totals['pulseHeatFxAlias']['added']} / -{token_family_totals['pulseHeatFxAlias']['removed']} / net {token_family_totals['pulseHeatFxAlias']['net']} (churn={token_family_totals['pulseHeatFxAlias']['churn']} coverage={token_family_totals['pulseHeatFxAlias']['coverage']})",
         f"- ROUTE GLOW FX + RGFX: +{token_family_totals['routeGlowFxAlias']['added']} / -{token_family_totals['routeGlowFxAlias']['removed']} / net {token_family_totals['routeGlowFxAlias']['net']} (churn={token_family_totals['routeGlowFxAlias']['churn']} coverage={token_family_totals['routeGlowFxAlias']['coverage']})",
         f"- ROUTE GLOW CONF: +{token_family_totals['routeGlowConfidenceAlias']['added']} / -{token_family_totals['routeGlowConfidenceAlias']['removed']} / net {token_family_totals['routeGlowConfidenceAlias']['net']} (churn={token_family_totals['routeGlowConfidenceAlias']['churn']} coverage={token_family_totals['routeGlowConfidenceAlias']['coverage']})",
+        f"- ROUTE GLOW FX CONF + RGFXC: +{token_family_totals['routeGlowFxConfidenceAlias']['added']} / -{token_family_totals['routeGlowFxConfidenceAlias']['removed']} / net {token_family_totals['routeGlowFxConfidenceAlias']['net']} (churn={token_family_totals['routeGlowFxConfidenceAlias']['churn']} coverage={token_family_totals['routeGlowFxConfidenceAlias']['coverage']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: {pulse_heat_fx_compact_budget_drift_level} (compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d}, churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: {route_glow_fx_compact_budget_drift_level} (compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         "",

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 00:06 KST
+Last updated: 2026-03-24 02:10 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,9 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle BW Systems/QA item: weekly readability digest now tracks route-glow FX confidence alias-family churn for `ROUTE GLOW FX CONF:` + `RGFXC:` via new `routeGlowFxConfidenceAlias` payload key and markdown triage rows (`ROUTE GLOW FX CONF FAMILY CHURN`, `ROUTE GLOW FX CONF + RGFXC:`).
+- Cycle BW backlog injected after full-check trigger (3 ideas generated); selected/implemented the digest alias-family coverage slice, with remaining queued items `RGC:<L|M|H>` compact alias and flagged `ROUTE GLOW FX CONF WHY:<short>` rationale token.
 
 - Closed Cycle BU Systems/QA item: weekly readability digest now tracks token-family churn coverage for `ROUTE GLOW CONF:` via new `routeGlowConfidenceAlias` payload row and markdown triage lines (`ROUTE GLOW CONF FAMILY CHURN`, `ROUTE GLOW CONF:`).
 - Token catalogs/families now include `ROUTE GLOW CONF:` in compact+detailed totals and portal lane scoring, with regression schema assertions expanded accordingly.
