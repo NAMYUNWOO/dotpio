@@ -1520,3 +1520,9 @@
 - Completed Systems/QA backlog slice: weekly digest now tracks 'ROUTE GLOW FX:' + 'RGFX:' token-family churn plus compact-budget drift.
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py and python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 both PASS.
 - Follow-up: remaining unchecked item is Combat/VFX 'ROUTE GLOW FX CONF' token experiment.
+
+## 2026-03-24 01:42 KST — Cycle BV route-glow FX confidence token
+- Completed task: prototype `ROUTE GLOW FX CONF:LOW|MID|HIGH` (compact `RGFXC:<L|M|H>`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF`.
+- Scope touched: `src/portal.lua`, `scripts/regression_portal_route_glow_fx_conf.lua`, backlog sync in `TASKS.md` + `POST_RC_BACKLOG.md`.
+- Verification: new confidence regression + existing route-glow FX and compact-alias regressions pass.
+- Follow-up: monitor compact prompt budget/churn; queue digest token-family coverage for `ROUTE GLOW FX CONF` if token volume rises.

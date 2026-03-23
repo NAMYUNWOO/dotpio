@@ -2270,3 +2270,10 @@ Compact decision memory for AI context efficiency.
 - Closed queued Systems/QA follow-up from Cycle BV by adding route-glow FX alias family coverage in weekly digest ('ROUTE GLOW FX:' + 'RGFX:').
 - Added new digest outputs: 'ROUTE GLOW FX FAMILY CHURN' and 'ROUTE GLOW FX COMPACT-BUDGET DRIFT' in JSON + markdown report.
 - Durable decision: keep FX alias churn tracked separately from 'ROUTE GLOW CONF' so trust/overdrive readability regressions stay independently triaged.
+
+## 2026-03-24 01:42 KST — Cycle BV Combat/VFX confidence slice shipped
+- Closed remaining Cycle BV item by adding flagged compact trust cue `RGFXC:<L|M|H>` (task label `ROUTE GLOW FX CONF:LOW|MID|HIGH`).
+- Implemented in `src/portal.lua` with deterministic mapping from route-glow FX tier: `SOFT->LOW`, `SHARP->MID`, `SURGE->HIGH`.
+- Added regression `scripts/regression_portal_route_glow_fx_conf.lua` and revalidated prior coverage (`regression_portal_route_glow_fx.lua`, `regression_portal_route_glow_fx_compact_alias.lua`).
+- Backlog sync complete: Cycle BV confidence item marked done in both `TASKS.md` and `POST_RC_BACKLOG.md`.
+- Durable decision: keep confidence cue flag-gated until weekly digest proves stable compact prompt budget headroom.

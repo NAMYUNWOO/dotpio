@@ -974,6 +974,15 @@ local function isRouteGlowFxCompactPromptExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isRouteGlowFxConfidenceCompactPromptExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function isRouteGlowFxCompactAliasExperimentEnabled()
     local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_COMPACT")
     if not raw then
@@ -1036,6 +1045,28 @@ local function resolveCompactRouteGlowFx(compactRouteGlow, compactPulseHeat)
         return "SOFT"
     end
     return "SHARP"
+end
+
+local function resolveRouteGlowFxConfidence(compactRouteGlowFx)
+    if compactRouteGlowFx == "SURGE" then
+        return "HIGH"
+    elseif compactRouteGlowFx == "SHARP" then
+        return "MID"
+    elseif compactRouteGlowFx == "SOFT" then
+        return "LOW"
+    end
+    return nil
+end
+
+local function resolveCompactRouteGlowFxConfidence(routeGlowFxConfidence)
+    if routeGlowFxConfidence == "HIGH" then
+        return "H"
+    elseif routeGlowFxConfidence == "MID" then
+        return "M"
+    elseif routeGlowFxConfidence == "LOW" then
+        return "L"
+    end
+    return nil
 end
 
 local function resolveVibeTrailConfidence(vibeTrail)
@@ -1184,7 +1215,7 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, altStepWhyGlyphMode, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, compactPulseHeat, compactPulseHeatFx, compactVibeTrail, compactVibeTrailConfidence, compactVibeTrailConfidenceRail, vibeTrailWhy, compactVibeTrailArc, compactRouteGlow, compactRouteGlowConfidence, compactRouteGlowFx, compactVibeTrailWhyConfidence, vibeTrailWhyConfidenceWhy, compactVibeTrailWhyConfidenceWhyConfidence, compactVibeTrailWhyConfidenceWhyRail, maxChars)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, altStepWhyGlyphMode, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, compactPulseHeat, compactPulseHeatFx, compactVibeTrail, compactVibeTrailConfidence, compactVibeTrailConfidenceRail, vibeTrailWhy, compactVibeTrailArc, compactRouteGlow, compactRouteGlowConfidence, compactRouteGlowFx, compactRouteGlowFxConfidence, compactVibeTrailWhyConfidence, vibeTrailWhyConfidenceWhy, compactVibeTrailWhyConfidenceWhyConfidence, compactVibeTrailWhyConfidenceWhyRail, maxChars)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
@@ -1251,6 +1282,9 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
                     if compactRouteGlowFx then
                         local routeGlowFxTokenLabel = isRouteGlowFxCompactAliasExperimentEnabled() and "RGFX" or "ROUTE GLOW FX"
                         appendToken(string.format("%s:%s", routeGlowFxTokenLabel, compactRouteGlowFx), false)
+                        if compactRouteGlowFxConfidence then
+                            appendToken(string.format("RGFXC:%s", compactRouteGlowFxConfidence), false)
+                        end
                     end
                 end
             end
@@ -1512,10 +1546,14 @@ function Portal.getTransitionPrompt(maxChars, context)
         if isRouteGlowFxCompactPromptExperimentEnabled() then
             compactRouteGlowFx = resolveCompactRouteGlowFx(compactRouteGlow, compactPulseHeat)
         end
+        local compactRouteGlowFxConfidence = nil
+        if isRouteGlowFxConfidenceCompactPromptExperimentEnabled() then
+            compactRouteGlowFxConfidence = resolveCompactRouteGlowFxConfidence(resolveRouteGlowFxConfidence(compactRouteGlowFx))
+        end
         local compactVibeTrailWhyConfidence = resolveCompactVibeTrailWhyConfidence(vibeTrailWhyConfidence)
         local compactVibeTrailWhyConfidenceWhyConfidence = resolveCompactVibeTrailWhyConfidenceWhyConfidence(vibeTrailWhyConfidenceWhyConfidence)
         local compactVibeTrailWhyConfidenceWhyRail = resolveCompactVibeTrailWhyConfidenceWhyRail(vibeTrailWhyConfidenceWhyRail)
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, altStepWhyGlyphMode, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, compactPulseHeat, compactPulseHeatFx, compactVibeTrail, compactVibeTrailConfidence, compactVibeTrailConfidenceRail, vibeTrailWhy, compactVibeTrailArc, compactRouteGlow, compactRouteGlowConfidence, compactRouteGlowFx, compactVibeTrailWhyConfidence, vibeTrailWhyConfidenceWhy, compactVibeTrailWhyConfidenceWhyConfidence, compactVibeTrailWhyConfidenceWhyRail, budget)
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, altStepWhyGlyphMode, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, compactPulseHeat, compactPulseHeatFx, compactVibeTrail, compactVibeTrailConfidence, compactVibeTrailConfidenceRail, vibeTrailWhy, compactVibeTrailArc, compactRouteGlow, compactRouteGlowConfidence, compactRouteGlowFx, compactRouteGlowFxConfidence, compactVibeTrailWhyConfidence, vibeTrailWhyConfidenceWhy, compactVibeTrailWhyConfidenceWhyConfidence, compactVibeTrailWhyConfidenceWhyRail, budget)
     end
     return prompt
 end
