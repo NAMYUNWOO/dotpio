@@ -1114,3 +1114,10 @@
 ## 2026-03-23 15:04 KST — Cross-lane note (no combat logic change)
 - Reviewed compact prompt alias slice (`AWGM`) for compatibility with combat threat/readability tokens.
 - Result: no combat behavior/tuning changes required; token budget headroom improved for shared prompt line.
+
+## 2026-03-23 15:31 KST
+- No combat logic/stat/tuning changes.
+- Confirmed digest confidence-token addition is telemetry/readability-only and does not alter combat cadence behavior.
+
+## 2026-03-23 15:39 KST
+- No combat behavior/tuning changes; digest confidence-drift token is non-gameplay telemetry.

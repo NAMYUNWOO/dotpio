@@ -1417,3 +1417,10 @@
 - Compact portal prompt now supports `AWGM:<S|K>` when glyph-mode compact alias experiment is enabled.
 - Kept detailed prompt unchanged (`ALT WHY GLYPH MODE:<...>`) to avoid readability regressions in full-width mode.
 - Verified compact prompt no longer duplicates full mode label when alias flag is active.
+
+## 2026-03-23 15:31 KST
+- Added digest row `ALT WHY GLYPH MODE CONF` adjacent to mode drift line to improve at-a-glance operator interpretation.
+- No prompt-surface copy changes beyond digest reporting.
+
+## 2026-03-23 15:39 KST
+- Added digest readability companion row `ALT WHY GLYPH MODE CONF Δ` under confidence block for faster stability scan.

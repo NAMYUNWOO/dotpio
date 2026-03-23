@@ -1191,3 +1191,10 @@
 ## 2026-03-23 15:04 KST — Portal prompt compact alias handoff
 - Synced portal transition copy with design/ux change: compact mode can emit `AWGM` token under flag while preserving existing route readability cues.
 - No portal graph/pathing behavior changes in this slice.
+
+## 2026-03-23 15:31 KST
+- No world/map/route graph changes this slice.
+- Cross-lane note: added digest-only confidence token for glyph-mode drift readability (`ALT WHY GLYPH MODE CONF`).
+
+## 2026-03-23 15:39 KST
+- No world-content changes; this cycle remained digest telemetry-only.

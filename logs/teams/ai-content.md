@@ -1145,3 +1145,10 @@
 - Added compact token alias `AWGM` for glyph rationale cadence (`STEADY|SPIKE`) under explicit experiment flag.
 - Rationale: keep operator-intent signal while reducing compact prompt width pressure.
 - Follow-up: add digest confidence tier for glyph-mode drift to stabilize interpretation.
+
+## 2026-03-23 15:31 KST
+- AI content semantics unchanged; this slice adds confidence labeling for existing glyph-mode drift telemetry.
+- Token added to digest output: `ALT WHY GLYPH MODE CONF:LOW|MID|HIGH`.
+
+## 2026-03-23 15:39 KST
+- No new AI behavior tokens in runtime prompt; added weekly confidence-drift reporting only.

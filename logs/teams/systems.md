@@ -1804,3 +1804,12 @@
 - Added `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE_COMPACT` gate in `src/portal.lua` and compact token switcher (`AWGM` vs full label).
 - Updated weekly drift token catalogs (`TOKEN_GROUPS`, `TOKEN_FAMILIES`) so compact alias usage remains observable in digest analysis.
 - Follow-up: implement BL confidence token for glyph-mode drift (`ALT WHY GLYPH MODE CONF`).
+
+## 2026-03-23 15:31 KST — Cycle BL glyph-mode confidence token
+- Completed Systems/QA backlog item: added `ALT WHY GLYPH MODE CONF:LOW|MID|HIGH` to weekly readability digest.
+- Implemented `alt_why_glyph_mode_confidence_from_signals(...)` with prior-window guard + drift/net-based tiering.
+- Wired JSON payload fields (`altWhyGlyphModeConfidence`, `altWhyGlyphModeConfidenceSignals`) and markdown line for triage scanability.
+
+## 2026-03-23 15:39 KST — Cycle BM selected slice
+- Added confidence stability drift metric: `ALT WHY GLYPH MODE CONF Δ:+n|-n`.
+- Implemented `alt_why_glyph_mode_confidence_drift_from_prior(...)` and wired JSON+markdown output.

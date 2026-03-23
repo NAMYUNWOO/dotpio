@@ -2086,3 +2086,15 @@ Compact decision memory for AI context efficiency.
 - Updated drift digest token catalogs to include `AWGM:` in compact/alt token families.
 - Verification: `regression_portal_alt_why_glyph_compact.lua` + `regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Next priority item: `ALT WHY GLYPH MODE CONF:LOW|MID|HIGH` (Systems/QA, Cycle BL).
+
+## 2026-03-23 15:31 KST — Cycle BL complete (glyph-mode confidence)
+- Completed backlog item: `ALT WHY GLYPH MODE CONF:LOW|MID|HIGH` in weekly digest.
+- Durable decision: confidence stays `LOW` when prior window is unavailable; escalates via drift magnitude + current net activity.
+- Implementation files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, backlog tracking docs.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-23 15:39 KST — Game Director Cycle BM
+- Ideas: (1) CONF drift token, (2) compact confidence alias, (3) confidence rationale micro-token.
+- Selected/implemented experiment: (1) `ALT WHY GLYPH MODE CONF Δ:+n|-n` minimal vertical slice.
+- New backlog injected: queued items (2) `AWGMC:<L|M|H>` and (3) `ALT WHY GLYPH MODE CONF WHY:<short>`.
+- Verification: weekly digest regression PASS.

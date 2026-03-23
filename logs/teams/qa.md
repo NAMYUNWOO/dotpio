@@ -2308,3 +2308,15 @@
 - Ran: `DOTPIO_EXPERIMENT_ALT_STEP_CUE=1 DOTPIO_EXPERIMENT_ALT_STEP_CONF=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY_CONF=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_COMPACT=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE_COMPACT=1 lua scripts/regression_portal_alt_why_glyph_compact.lua`
 - Ran: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Result: PASS. Compact prompt emits `AWGM:SPIKE` and digest regression remains green.
+
+## 2026-03-23 15:31 KST — Verification: glyph-mode confidence token
+- Regression updates:
+  - Added JSON schema assertions for `altWhyGlyphModeConfidence` + `altWhyGlyphModeConfidenceSignals`.
+  - Added markdown assertion for `ALT WHY GLYPH MODE CONF` row.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-23 15:39 KST — Regression expansion (Cycle BM)
+- Added schema assertions for `altWhyGlyphModeConfidenceDrift` + `altWhyGlyphModeConfidenceDriftSignals`.
+- Added markdown assertion for `ALT WHY GLYPH MODE CONF Δ`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

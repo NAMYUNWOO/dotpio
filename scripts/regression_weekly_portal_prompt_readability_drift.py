@@ -882,6 +882,24 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert payload.get("altWhyGlyphModeConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("altWhyGlyphModeConfidenceSignals", {}).keys()) == {
+            "altWhyGlyphModeDrift",
+            "absAltWhyGlyphModeDrift",
+            "currentAltWhyGlyphModeNet",
+            "priorAltWhyGlyphModeNet",
+            "priorLoaded",
+            "reason",
+        }, payload
+        assert isinstance(payload.get("altWhyGlyphModeConfidenceDrift"), int), payload
+        assert set(payload.get("altWhyGlyphModeConfidenceDriftSignals", {}).keys()) == {
+            "currentAltWhyGlyphModeConfidence",
+            "currentScore",
+            "priorAltWhyGlyphModeConfidence",
+            "priorScore",
+            "priorLoaded",
+            "reason",
+        }, payload
         assert payload.get("actionPaceAltWindowUrgency") in {"OFF", "NOW", "SOON", "LATER"}, payload
         assert set(payload.get("actionPaceAltWindowUrgencySignals", {}).keys()) == {
             "flagName",
@@ -1082,6 +1100,8 @@ def main() -> int:
         assert "ALT STEP WHY CONF Δ" in md_text
         assert "ALT WHY GLYPH Δ" in md_text
         assert "ALT WHY GLYPH MODE Δ" in md_text
+        assert "ALT WHY GLYPH MODE CONF" in md_text
+        assert "ALT WHY GLYPH MODE CONF Δ" in md_text
         assert "ACTION PACE ALT WINDOW FIT" in md_text
         assert "ACTION PACE ALT WINDOW WHY" in md_text
         assert "ACTION PACE ALT WINDOW URGENCY" in md_text

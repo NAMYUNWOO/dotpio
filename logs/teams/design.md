@@ -1202,3 +1202,14 @@
 - Completed task: prototype compact glyph-mode alias token `AWGM:<S|K>` behind flag.
 - Decision: preserve detailed prompt token `ALT WHY GLYPH MODE` for clarity; compact prompt can switch to `AWGM` for DOS-width headroom.
 - Follow-up: remaining BL item is Systems/QA digest confidence token `ALT WHY GLYPH MODE CONF:LOW|MID|HIGH`.
+
+## 2026-03-23 15:31 KST — Cycle BL closure
+- Completed remaining BL item: digest confidence token `ALT WHY GLYPH MODE CONF` now grades glyph-mode drift readability trust.
+- Design intent: prevent overreacting to small/first-window drift by keeping no-prior state LOW confidence.
+
+## 2026-03-23 15:39 KST — Cycle BM ideation + pick
+- Game Director ideas generated:
+  1) `ALT WHY GLYPH MODE CONF Δ` (selected, low risk)
+  2) `AWGMC:<L|M|H>` compact alias (queued)
+  3) `ALT WHY GLYPH MODE CONF WHY:<short>` rationale token (queued)
+- Selected #1 for minimal vertical slice and stable rollback surface.
