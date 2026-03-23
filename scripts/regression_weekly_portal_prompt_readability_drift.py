@@ -708,6 +708,8 @@ def main() -> int:
         }, payload
         assert set(payload["pressureEdits"].keys()) == {"added", "removed", "net"}, payload
         assert "tokenTotals" in payload, payload
+        assert "VIBE TRAIL CONF:" in payload["tokenTotals"]["net"], payload
+        assert "VTC:" in payload["tokenTotals"]["net"], payload
         assert "stickyTokens" in payload, payload
         assert set(payload["stickyTokens"].keys()) == {"count", "tokens"}, payload
         assert payload["stickyTokens"]["count"] == len(payload["stickyTokens"]["tokens"]), payload

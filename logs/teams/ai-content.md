@@ -1171,3 +1171,7 @@
 ## 2026-03-23 17:34 KST — Cycle BO AI-content contract note
 - Token vocabulary extended for portal cooloff readability with deterministic confidence tiers (`VIBE TRAIL CONF`, compact `VTC`).
 - No AI generation behavior or content policy changes in this slice.
+
+## 2026-03-23 18:04 KST — AI content lane sync on confidence-token telemetry
+- Confirmed digest now accounts for `VIBE TRAIL CONF` churn via token-family coverage, improving prompt-token observability for confidence phrasing changes.
+- Next AI-content task remains queued: implement flagged `VIBE TRAIL WHY:<short>` rationale token.

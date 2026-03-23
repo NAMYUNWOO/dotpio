@@ -2147,3 +2147,9 @@ Compact decision memory for AI context efficiency.
   - Added `scripts/regression_portal_vibe_trail.lua`.
   - Updated `scripts/regression_weekly_snapshot.py` for new lane-gap detail contract.
   - PASS: portal vibe-trail regression, baseline route-vibe regression, weekly snapshot regression.
+
+## 2026-03-23 18:04 KST — Cycle BO shipped (`VIBE TRAIL CONF` token-family coverage)
+- Completed Systems/QA backlog item: weekly portal readability digest now includes `VIBE TRAIL CONF:` and compact alias `VTC:` in token catalogs/families.
+- This makes confidence-token churn visible in token totals/top movers/lane-focus scoring for drift triage.
+- Regression updated (`scripts/regression_weekly_portal_prompt_readability_drift.py`) with payload-key assertions for both tokens; PASS.
+- Queue head now: Design/AI Content `VIBE TRAIL WHY:<short>` flagged rationale token.

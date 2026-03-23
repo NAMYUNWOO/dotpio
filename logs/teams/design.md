@@ -1239,3 +1239,7 @@
 ## 2026-03-23 17:34 KST — Cycle BO design note
 - Chose low-risk readability slice to reinforce post-fade fantasy handoff without altering route mechanics.
 - Confidence wording constrained to short tiers (`MID|HIGH`) to preserve DOS-width scanability and avoid noisy prose.
+
+## 2026-03-23 18:04 KST — Design readability telemetry sync
+- Confidence cue tokens (`VIBE TRAIL CONF`/`VTC`) are now included in weekly token-family churn accounting, improving readability drift triage for portal prompt hierarchy.
+- Next design-facing backlog item: `VIBE TRAIL WHY:<short>` compact rationale token (flag-gated).

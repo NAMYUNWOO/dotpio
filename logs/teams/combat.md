@@ -1145,3 +1145,7 @@
 ## 2026-03-23 17:34 KST — Cycle BO combat continuity check
 - Portal vibe-trail confidence token consumes existing post-fade context only; no combat stat/AI cadence changes.
 - Existing combat regressions remain unaffected (`regression_portal_route_vibe.lua` pass).
+
+## 2026-03-23 18:04 KST — Combat lane observability note
+- No combat tuning changes this slice; cadence update only.
+- Weekly portal digest now captures post-berserk handoff confidence token churn (`VIBE TRAIL CONF`), preserving combat→portal recovery readability telemetry.

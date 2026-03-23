@@ -1216,3 +1216,8 @@
 - Completed selected Game Director vertical slice: portal prompt now adds `VIBE TRAIL CONF:LOW|MID|HIGH` (compact `VTC:<L|M|H>`) behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF`.
 - Mapping is deterministic and low-risk for readability: `CALM -> MID`, `ASH -> HIGH` (no token emitted without valid trail context).
 - Verification: `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF=1 lua scripts/regression_portal_vibe_trail.lua` PASS.
+
+## 2026-03-23 18:04 KST — Portal readability observability sync
+- Weekly drift digest now tracks world-facing vibe confidence cues (`VIBE TRAIL CONF` / `VTC`) as first-class token-family members.
+- Outcome: post-fade portal handoff confidence churn is now auditable across weekly diffs.
+- Follow-up: pair with pending rationale micro-token (`VIBE TRAIL WHY`) for operator context.

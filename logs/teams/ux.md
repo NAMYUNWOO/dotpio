@@ -1442,3 +1442,7 @@
 ## 2026-03-23 17:34 KST — Cycle BO prompt readability update
 - Added trust-weight companion token for portal cooloff cue: `VIBE TRAIL CONF` in detailed prompt and `VTC` alias in compact prompt.
 - Kept copy compact and reversible via dedicated experiment flag to avoid default prompt-contract churn.
+
+## 2026-03-23 18:04 KST — UX digest clarity follow-through
+- Landed telemetry support so weekly digest tracks confidence cue token churn (`VIBE TRAIL CONF`, `VTC`) used in portal prompts.
+- Effect: operator can detect confidence-label drift without combing raw prompt diffs.

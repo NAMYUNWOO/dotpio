@@ -1837,3 +1837,9 @@
 ## 2026-03-23 17:34 KST — Cycle BO systems note
 - Added new portal experiment gate parser `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF` in `src/portal.lua`.
 - Change is prompt-layer only; no economy/combat/runtime progression logic altered.
+
+## 2026-03-23 18:04 KST — Cycle BO closure (`VIBE TRAIL CONF` token-family coverage)
+- Completed highest-priority unchecked Systems/QA item by extending weekly digest token catalogs/families with `VIBE TRAIL CONF:` (detailed) and compact alias `VTC:`.
+- Churn now contributes to token totals/top movers/family lane scoring, so portal-lane drift triage sees confidence-token movement without manual inspection.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: next queue head is Design/AI Content `VIBE TRAIL WHY:<short>` flagged rationale token.
