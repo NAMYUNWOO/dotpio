@@ -858,6 +858,16 @@ def main() -> int:
             "sandboxReadiness",
             "reason",
         }, payload
+        assert isinstance(payload.get("altStepWhyConfidenceDrift"), int), payload
+        assert set(payload.get("altStepWhyConfidenceDriftSignals", {}).keys()) == {
+            "currentAltStepWhy",
+            "currentAltStepWhyConfidence",
+            "currentScore",
+            "priorAltStepWhyConfidence",
+            "priorScore",
+            "priorLoaded",
+            "reason",
+        }, payload
         assert payload.get("actionPaceAltWindowUrgency") in {"OFF", "NOW", "SOON", "LATER"}, payload
         assert set(payload.get("actionPaceAltWindowUrgencySignals", {}).keys()) == {
             "flagName",
@@ -1055,6 +1065,7 @@ def main() -> int:
         assert "ACTION PACE ALT WINDOW" in md_text
         assert "ACTION PACE ALT WINDOW CONF" in md_text
         assert "ALT STEP CONF Δ" in md_text
+        assert "ALT STEP WHY CONF Δ" in md_text
         assert "ACTION PACE ALT WINDOW FIT" in md_text
         assert "ACTION PACE ALT WINDOW WHY" in md_text
         assert "ACTION PACE ALT WINDOW URGENCY" in md_text

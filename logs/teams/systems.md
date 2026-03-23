@@ -1774,3 +1774,8 @@
 ## 2026-03-23 12:36 KST — Cycle BJ systems note
 - No economy/combat balance mechanics changed this cycle.
 - Scope intentionally constrained to portal prompt metadata and experiment gating for safe vertical-slice rollout.
+
+## 2026-03-23 13:04 KST — Cycle BJ digest drift token update
+- Completed: Added weekly digest token `ALT STEP WHY CONF Δ:+n|-n` with prior-window comparison signals for fallback-rationale stability triage.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; weekly digest regeneration PASS.
+- Follow-up: Remaining BJ item is `ALT WHY GLYPH:<sigil>` prototype behind flag.

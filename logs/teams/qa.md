@@ -2267,3 +2267,8 @@
   - `DOTPIO_EXPERIMENT_ALT_STEP_CUE=1 DOTPIO_EXPERIMENT_ALT_STEP_CONF=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY=1 lua scripts/regression_portal_alt_step_why.lua`
   - `DOTPIO_EXPERIMENT_ALT_STEP_CUE=1 DOTPIO_EXPERIMENT_ALT_STEP_CONF=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY_CONF=1 lua scripts/regression_portal_alt_step_why_confidence.lua`
 - Result: pass/pass, no regressions observed in touched prompt path.
+
+## 2026-03-23 13:04 KST — Cycle BJ digest drift token update
+- Completed: Added weekly digest token `ALT STEP WHY CONF Δ:+n|-n` with prior-window comparison signals for fallback-rationale stability triage.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; weekly digest regeneration PASS.
+- Follow-up: Remaining BJ item is `ALT WHY GLYPH:<sigil>` prototype behind flag.

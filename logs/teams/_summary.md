@@ -2048,3 +2048,9 @@ Compact decision memory for AI context efficiency.
 - Backlog injection recorded as Cycle BJ (1 done, 2 queued):
   - Done: `ALT STEP WHY CONF`
   - Next: `ALT STEP WHY CONF Δ` (digest drift), `ALT WHY GLYPH` (compact rationale sigil)
+
+## 2026-03-23 13:04 KST — Cycle BJ systems/QA slice shipped
+- Shipped `ALT STEP WHY CONF Δ:+n|-n` in weekly portal prompt readability digest (JSON + markdown) with prior-window confidence drift signals.
+- Expanded digest token catalog/family coverage to include `ALT STEP WHY CONF:` so lane-focus and token-mover math now account for rationale-confidence token churn.
+- Regression status: weekly digest regression + py_compile + digest regeneration PASS.
+- Backlog sync: TASKS + POST_RC marked done for the Systems/QA BJ item; next unchecked priority is Design/World `ALT WHY GLYPH:<sigil>` prototype.
