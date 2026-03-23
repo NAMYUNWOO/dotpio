@@ -2235,3 +2235,9 @@ Compact decision memory for AI context efficiency.
 - Files: `src/portal.lua`, `scripts/regression_portal_route_glow.lua`.
 - Verification: new route-glow regression pass + existing vibe-trail regression pass.
 - Backlog sync: marked Cycle BT route-afterglow item done in `TASKS.md` and `POST_RC_BACKLOG.md`.
+- Game Director Cycle BU executed after ACTION_ITEMS/TASKS/POST_RC actionable queues were fully checked.
+- Cycle BU ideas generated (low/mid/high): (1) route-afterglow confidence token, (2) weekly digest churn coverage for route-glow confidence, (3) pulse-overdrive route-glow FX prototype.
+- Selected/shipped low-risk vertical slice: compact portal prompt now emits `ROUTE GLOW CONF:LOW|MID|HIGH` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_CONF` when `ROUTE GLOW` is present.
+- Deterministic confidence mapping is arc-driven (`RECOVER->MID`, `SCAR->HIGH`, `MIXED->LOW`) and does not alter gameplay systems.
+- Regression updated: `scripts/regression_portal_route_glow.lua` now asserts glow-confidence emission; route-glow + vibe-trail regressions pass.
+- Cycle BU backlog injected in `TASKS.md` + `POST_RC_BACKLOG.md`; selected item closed and two follow-ups queued.

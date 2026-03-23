@@ -1496,3 +1496,7 @@
 - Inserted `ROUTE GLOW:SOFT|SHARP` immediately after `VTA:*` in compact portal prompt for post-jump fantasy scanability.
 - Preserved existing compact token order and no changes to non-compact wording.
 - Validation: route-glow regression + full vibe-trail regression both passing.
+
+## 2026-03-23 23:31 KST — Compact prompt UX pass
+- Compact portal prompt now emits `ROUTE GLOW CONF:<tier>` immediately after `ROUTE GLOW:<state>` for paired interpretation.
+- Ordering preserved to avoid scan regressions.

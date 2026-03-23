@@ -1197,3 +1197,6 @@
 - Reviewed route-afterglow prototype scope: UI token only, no threat/pulse/berserker logic changed.
 - Existing combat-facing pulse/vibe cues remain untouched; regression suite unaffected.
 - Next combat/vfx priority remains Post-RC pulse-heat digest churn closure.
+
+## 2026-03-23 23:31 KST — Combat guardrail check
+- Confirmed route-glow confidence slice is UX-only and does not modify threat, pulse-heat, or berserker mechanics.

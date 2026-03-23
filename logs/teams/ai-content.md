@@ -1225,3 +1225,7 @@
 - Route-afterglow cue derives deterministically from `VIBE TRAIL ARC` and does not alter generation inputs.
 - Mapping kept low-ambiguity (`RECOVER -> SOFT`, `SCAR/MIXED -> SHARP`) for downstream prompt parsing stability.
 - Follow-up: evaluate if MIXED requires distinct glow state in later experiment cycle.
+
+## 2026-03-23 23:31 KST — Prompt semantics continuity
+- Added deterministic confidence wording for route-afterglow token (`LOW|MID|HIGH`) to keep parser-friendly short labels.
+- No model/generation policy changes.

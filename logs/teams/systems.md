@@ -1914,3 +1914,8 @@
 - Added new experiment gate `DOTPIO_EXPERIMENT_ROUTE_GLOW` in `src/portal.lua`.
 - No economy/combat mechanics touched; prompt-only output on compact branch.
 - Next systems task: close remaining digest churn backlog items for arc/heat token families.
+
+## 2026-03-23 23:31 KST — Cycle BU route-glow confidence slice
+- Completed selected Game Director vertical slice: compact portal token `ROUTE GLOW CONF:LOW|MID|HIGH` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_CONF`.
+- Deterministic mapping from vibe-trail arc: `RECOVER->MID`, `SCAR->HIGH`, `MIXED->LOW`.
+- Verification: `luac -p src/portal.lua scripts/regression_portal_route_glow.lua` plus flag-on route-glow/vibe-trail regressions PASS.

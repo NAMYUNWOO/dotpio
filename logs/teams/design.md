@@ -1299,3 +1299,7 @@
 - Decision: Implemented compact portal afterglow cue `ROUTE GLOW:SOFT|SHARP` tied to `VIBE TRAIL ARC` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW`.
 - Scope: `src/portal.lua`, `scripts/regression_portal_route_glow.lua`.
 - Follow-up: Sync remaining Post-RC QA digest backlog items (`VIBE TRAIL ARC` churn + `PULSE HEAT FX` churn) in next cycle.
+
+## 2026-03-23 23:31 KST — Cycle BU design rationale
+- Chosen low-risk slice: `ROUTE GLOW CONF` improves post-jump trust readability without adding new fantasy nouns.
+- Confidence kept three-tier to preserve DOS-width scan speed.

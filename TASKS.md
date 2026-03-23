@@ -612,3 +612,8 @@ See project-level plans:
   - [x] Add regression coverage for COOL/WARM/HOT FX token emission (`scripts/regression_portal_pulse_heat_fx.lua`)
 - [x] Design/World Team: Prototype compact route afterglow cue (`ROUTE GLOW:SOFT|SHARP`) tied to `VIBE TRAIL ARC` for post-jump fantasy readability
 - [x] Systems/QA Team: Add weekly digest token-family coverage for pulse-heat FX churn (`PULSE HEAT FX:`) with compact-budget drift note
+
+## Next Up (Game Director Injection — 2026-03-23 Cycle BU)
+- [x] UX/World Team: Prototype route-afterglow confidence token (`ROUTE GLOW CONF:LOW|MID|HIGH`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_CONF` for post-jump handoff trust readability *(lifecycle: [~] -> [x])*
+- [ ] Systems/QA Team: Add weekly digest token-family coverage for route-afterglow confidence churn (`ROUTE GLOW CONF:`)
+- [ ] Combat/VFX Team: Prototype route-glow pulse-overdrive token (`ROUTE GLOW FX:SOFT|SHARP|SURGE`) behind flag when pulse-heat reaches `HOT`

@@ -1270,3 +1270,7 @@
 - Added compact route-fantasy cue `ROUTE GLOW` mapped from portal vibe arc (`RECOVER -> SOFT`, `SCAR/MIXED -> SHARP`).
 - Token only emits in compact prompt path when vibe arc exists and `DOTPIO_EXPERIMENT_ROUTE_GLOW` is enabled.
 - Verification: `scripts/regression_portal_route_glow.lua` pass.
+
+## 2026-03-23 23:31 KST — Route afterglow trust readability
+- Added compact trust companion token `ROUTE GLOW CONF` next to `ROUTE GLOW` when afterglow is present.
+- Scope is prompt readability only; no map topology or route-tag metadata changes.
