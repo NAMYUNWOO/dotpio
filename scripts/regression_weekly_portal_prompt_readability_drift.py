@@ -716,6 +716,7 @@ def main() -> int:
         assert "VTWC:" in payload["tokenTotals"]["net"], payload
         assert "VIBE TRAIL WHY CONF WHY:" in payload["tokenTotals"]["net"], payload
         assert "VTCW:" in payload["tokenTotals"]["net"], payload
+        assert "ROUTE GLOW CONF:" in payload["tokenTotals"]["net"], payload
         assert "tokenFamilyTotals" in payload, payload
         assert "vibeTrailWhyAlias" in payload["tokenFamilyTotals"], payload
         assert "vibeTrailWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
@@ -723,6 +724,7 @@ def main() -> int:
         assert "vibeTrailWhyConfidenceWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert "vibeTrailArcAlias" in payload["tokenFamilyTotals"], payload
         assert "pulseHeatFxAlias" in payload["tokenFamilyTotals"], payload
+        assert "routeGlowConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
@@ -782,6 +784,25 @@ def main() -> int:
             "net",
             "churn",
             "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["routeGlowConfidenceAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert payload.get("pulseHeatFxCompactBudgetDrift") in {"STABLE", "WATCH", "SPIKE"}, payload
+        assert set(payload.get("pulseHeatFxCompactBudgetDriftSignals", {}).keys()) == {
+            "reason",
+            "compactNet",
+            "familyNet",
+            "familyChurn",
+            "absFamilyNet",
+            "absCompactNet",
         }, payload
         assert "stickyTokens" in payload, payload
         assert set(payload["stickyTokens"].keys()) == {"count", "tokens"}, payload
@@ -1159,6 +1180,9 @@ def main() -> int:
         assert "VTCWC FAMILY CHURN" in md_text
         assert "VTA FAMILY CHURN" in md_text
         assert "PULSE HEAT FX FAMILY CHURN" in md_text
+        assert "ROUTE GLOW CONF FAMILY CHURN" in md_text
+        assert "ROUTE GLOW CONF:" in md_text
+        assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text
         assert "MODE TREND" in md_text
         assert "PRESSURE BAND" in md_text
         assert "DRIFT RISK" in md_text

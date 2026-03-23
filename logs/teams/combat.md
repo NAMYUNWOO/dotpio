@@ -1200,3 +1200,11 @@
 
 ## 2026-03-23 23:31 KST — Combat guardrail check
 - Confirmed route-glow confidence slice is UX-only and does not modify threat, pulse-heat, or berserker mechanics.
+
+- Date/Time (KST): 2026-03-24 00:06 KST
+- Task: Cycle BU Systems/QA token-family coverage for `ROUTE GLOW CONF:`
+- Commit hash: ceb526e
+- Files changed: TASKS.md, POST_RC_BACKLOG.md, scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py
+- Verification performed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ([PASS])
+- Decision notes: Added `routeGlowConfidenceAlias` family coverage and markdown triage rows so weekly digest audits route-afterglow confidence churn explicitly.
+- Risks / Follow-ups: Remaining Cycle BU unchecked item is Combat/VFX `ROUTE GLOW FX:SOFT|SHARP|SURGE` prototype.

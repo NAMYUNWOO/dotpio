@@ -1303,3 +1303,11 @@
 ## 2026-03-23 23:31 KST — Cycle BU design rationale
 - Chosen low-risk slice: `ROUTE GLOW CONF` improves post-jump trust readability without adding new fantasy nouns.
 - Confidence kept three-tier to preserve DOS-width scan speed.
+
+- Date/Time (KST): 2026-03-24 00:06 KST
+- Task: Cycle BU Systems/QA token-family coverage for `ROUTE GLOW CONF:`
+- Commit hash: ceb526e
+- Files changed: TASKS.md, POST_RC_BACKLOG.md, scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py
+- Verification performed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ([PASS])
+- Decision notes: Added `routeGlowConfidenceAlias` family coverage and markdown triage rows so weekly digest audits route-afterglow confidence churn explicitly.
+- Risks / Follow-ups: Remaining Cycle BU unchecked item is Combat/VFX `ROUTE GLOW FX:SOFT|SHARP|SURGE` prototype.

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-23 22:06 KST
+Last updated: 2026-03-24 00:06 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle BU Systems/QA item: weekly readability digest now tracks token-family churn coverage for `ROUTE GLOW CONF:` via new `routeGlowConfidenceAlias` payload row and markdown triage lines (`ROUTE GLOW CONF FAMILY CHURN`, `ROUTE GLOW CONF:`).
+- Token catalogs/families now include `ROUTE GLOW CONF:` in compact+detailed totals and portal lane scoring, with regression schema assertions expanded accordingly.
+- Remaining highest-priority unchecked backlog item: Combat/VFX `ROUTE GLOW FX:SOFT|SHARP|SURGE` prototype (Cycle BU).
 
 - Closed Cycle BS/BT remaining Systems/QA digest tasks: weekly readability digest now tracks alias-family churn for `VIBE TRAIL ARC:` + `VTA:` and churn coverage for `PULSE HEAT FX:`.
 - `scripts/weekly_portal_prompt_readability_drift.py` now includes `vibeTrailArcAlias` and `pulseHeatFxAlias` in `tokenFamilyTotals`, with markdown rows (`VTA FAMILY CHURN`, `PULSE HEAT FX FAMILY CHURN`) plus Token Family Coverage entries.
