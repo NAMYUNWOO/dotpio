@@ -1398,3 +1398,10 @@
 - Completed: Added weekly digest token `ALT STEP WHY CONF Δ:+n|-n` with prior-window comparison signals for fallback-rationale stability triage.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; weekly digest regeneration PASS.
 - Follow-up: Remaining BJ item is `ALT WHY GLYPH:<sigil>` prototype behind flag.
+
+## 2026-03-23 13:31 KST — Cycle BK compact glyph alias slice
+- Completed task: `AWG:<sigil>` compact alias for `ALT WHY GLYPH` behind `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_COMPACT`.
+- Decision: keep detailed prompt on full token (`ALT WHY GLYPH`) while compact prompt can switch to alias for DOS-width headroom.
+- Evidence: `src/portal.lua`, `scripts/regression_portal_alt_why_glyph_compact.lua`.
+- Verification: compact alias regression PASS with existing glyph baseline regression.
+- Follow-up: add weekly digest drift token for `ALT WHY GLYPH` as next Systems/QA item.

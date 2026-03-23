@@ -13,6 +13,12 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed Cycle BJ final unchecked item: portal prompts now emit `ALT WHY GLYPH:<sigil>` behind `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH` in both detailed and compact modes.
+- ACTION_ITEMS/TASKS/POST_RC actionable queues were fully checked after BJ closure, so Game Director Cycle BK executed (3 ideas generated).
+- Selected/shipped Cycle BK minimal slice: compact prompt can now emit alias token `AWG:<sigil>` behind `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_COMPACT` while detailed mode keeps full `ALT WHY GLYPH` label.
+- Added regression guardrail `scripts/regression_portal_alt_why_glyph_compact.lua`; glyph baseline + weekly digest regression remain passing.
+- Cycle BK backlog injected: next queued items are `ALT WHY GLYPH Δ:+n|-n` (Systems/QA) and flagged `ALT WHY GLYPH MODE:STEADY|SPIKE` (Design/AI Content).
+
 - Closed Cycle BG combat/vfx slice: compact portal prompts now emit flag-gated pulse flare warning `PULSE FLARE:+` (`DOTPIO_EXPERIMENT_ROUTE_PULSE_FLARE_PROMPT`) only when `PULSE MODE:X` and pulse-fit downgrades (`B|R`).
 - Added QA guardrail `scripts/regression_portal_prompt_pulse_flare.lua`; pulse mode/fit regressions remain green under required flags.
 - Updated backlog state: Cycle BG combat/vfx item is complete with lifecycle trace (`[~] -> [x]`); next highest-priority unchecked item is Systems/UX token-priority mode (`FIT-FIRST|MODE-FIRST`).

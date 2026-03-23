@@ -1174,3 +1174,9 @@
 - Completed: Added weekly digest token `ALT STEP WHY CONF Δ:+n|-n` with prior-window comparison signals for fallback-rationale stability triage.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; weekly digest regeneration PASS.
 - Follow-up: Remaining BJ item is `ALT WHY GLYPH:<sigil>` prototype behind flag.
+
+## 2026-03-23 13:31 KST — Cycle BK design/world readability handoff
+- Added compact portal rationale glyph alias (`AWG`) to improve scanability when prompt width is constrained.
+- Preserved detailed-mode semantics (`ALT WHY GLYPH`) for operator clarity; compact alias is flag-gated and reversible.
+- Evidence: `src/portal.lua`, `scripts/regression_portal_alt_why_glyph_compact.lua`.
+- Follow-up: monitor prompt-budget behavior and add digest drift triage token in Systems/QA lane.

@@ -1182,3 +1182,11 @@
 - Completed: Added weekly digest token `ALT STEP WHY CONF Δ:+n|-n` with prior-window comparison signals for fallback-rationale stability triage.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; weekly digest regeneration PASS.
 - Follow-up: Remaining BJ item is `ALT WHY GLYPH:<sigil>` prototype behind flag.
+
+## 2026-03-23 13:31 KST — Cycle BK selected vertical slice (`AWG` alias)
+- Game Director ideation (3 ideas):
+  1) Low-risk UX/world (selected): compact alias `AWG:<sigil>` for `ALT WHY GLYPH`.
+  2) Mid-risk systems/qa: weekly digest `ALT WHY GLYPH Δ:+n|-n`.
+  3) High-risk design/ai-content: `ALT WHY GLYPH MODE:STEADY|SPIKE` prototype.
+- Selected #1 to ship minimal reversible readability gain without changing gameplay logic.
+- Evidence: `src/portal.lua`, `scripts/regression_portal_alt_why_glyph_compact.lua`.

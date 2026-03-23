@@ -1779,3 +1779,9 @@
 - Completed: Added weekly digest token `ALT STEP WHY CONF Δ:+n|-n` with prior-window comparison signals for fallback-rationale stability triage.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; weekly digest regeneration PASS.
 - Follow-up: Remaining BJ item is `ALT WHY GLYPH:<sigil>` prototype behind flag.
+
+## 2026-03-23 13:31 KST — Cycle BK backlog injection sync
+- Backlog injection completed in `TASKS.md` + `POST_RC_BACKLOG.md` (Cycle BK):
+  - Done: `AWG:<sigil>` compact alias slice.
+  - Queued: `ALT WHY GLYPH Δ:+n|-n` and `ALT WHY GLYPH MODE:STEADY|SPIKE`.
+- Decision: keep alias opt-in via `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_COMPACT` to preserve default prompt contract.
