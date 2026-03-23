@@ -2158,3 +2158,14 @@ Compact decision memory for AI context efficiency.
 - Selected/shipped Cycle BP minimal vertical slice: compact prompt can now emit alias token `VTW:<short>` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_COMPACT_ALIAS` while detailed mode keeps full `VIBE TRAIL WHY` label.
 - Added QA guardrail `scripts/regression_portal_vibe_trail_why_compact_alias.lua`; vibe-trail + weekly digest regressions remain passing.
 - Cycle BP backlog injected: next queued items are digest alias churn coverage (`VTW:` + `VIBE TRAIL WHY:`) and flagged rationale-confidence token (`VIBE TRAIL WHY CONF`, compact `VTWC`).
+
+## 2026-03-23 19:01 KST — Cycle BP closure: VTW alias-family churn coverage
+- Completed item: `Systems/QA Team: Add weekly digest token family coverage for compact vibe-trail rationale alias churn (VTW + VIBE TRAIL WHY)`.
+- Durable decisions:
+  - Added alias-family aggregator (`tokenFamilyTotals.vibeTrailWhyAlias`) in weekly digest payload.
+  - Added markdown triage lines (`VTW FAMILY CHURN`) + dedicated `Token Family Coverage` section.
+  - Regression now asserts new payload schema and markdown presence.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` PASS
+- Follow-up: continue ACTION_ITEMS/TASKS priority with lane-cadence force-flag trigger item.

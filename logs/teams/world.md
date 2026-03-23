@@ -1225,3 +1225,7 @@
 - 2026-03-23 18:36 KST | Cycle BP implemented: compact portal prompt now supports vibe-trail rationale alias `VTW:<short>` under `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_COMPACT_ALIAS`.
   - Decision: preserve detailed label `VIBE TRAIL WHY:<short>` for full-context readability while shrinking compact mode.
   - Follow-up: consider compact confidence companion token `VTWC` after usability pass.
+
+## 2026-03-23 19:01 KST — Cross-lane note
+- No world/map topology changes in this slice; portal/map data untouched.
+- Consumed systems telemetry update only (digest token-family observability).

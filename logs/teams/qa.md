@@ -2355,3 +2355,9 @@
 - 2026-03-23 18:36 KST | Cycle BP QA pass complete.
   - Evidence: `scripts/regression_portal_vibe_trail.lua` PASS, `scripts/regression_portal_vibe_trail_why_compact_alias.lua` PASS, `scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
   - Follow-up: add dedicated digest assertion for `VTW:` churn row in next cycle.
+
+## 2026-03-23 19:01 KST — Cycle BP QA verification
+- Task: Add weekly digest token-family coverage for compact vibe-trail rationale alias churn (`VTW:` + `VIBE TRAIL WHY:`).
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
+- Follow-up: next unchecked item is lane-cadence force-flag digest trigger (`ACTION_ITEMS/TASKS`).

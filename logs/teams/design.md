@@ -1247,3 +1247,7 @@
 - 2026-03-23 18:36 KST | Cycle BP design call: selected low-risk readability slice (compact alias `VTW`) for DOS-width scanability.
   - Decision: short alias must be flag-gated and non-destructive to detailed prompt semantics.
   - Follow-up: evaluate glyph alternative if alias still over budget in stacked token scenarios.
+
+## 2026-03-23 19:01 KST — Readability telemetry note
+- Added durable weekly readability signal for vibe-trail rationale alias churn (`VTW` + `VIBE TRAIL WHY`) in digest output.
+- Decision: keep both summary line and dedicated section so triage stays glanceable.

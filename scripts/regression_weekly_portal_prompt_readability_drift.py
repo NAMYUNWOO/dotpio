@@ -710,6 +710,18 @@ def main() -> int:
         assert "tokenTotals" in payload, payload
         assert "VIBE TRAIL CONF:" in payload["tokenTotals"]["net"], payload
         assert "VTC:" in payload["tokenTotals"]["net"], payload
+        assert "tokenFamilyTotals" in payload, payload
+        assert "vibeTrailWhyAlias" in payload["tokenFamilyTotals"], payload
+        assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
         assert "stickyTokens" in payload, payload
         assert set(payload["stickyTokens"].keys()) == {"count", "tokens"}, payload
         assert payload["stickyTokens"]["count"] == len(payload["stickyTokens"]["tokens"]), payload
@@ -1077,6 +1089,8 @@ def main() -> int:
         md_text = out_md.read_text(encoding="utf-8")
         assert "Token Totals" in md_text
         assert "Top Token Movers" in md_text
+        assert "Token Family Coverage" in md_text
+        assert "VTW FAMILY CHURN" in md_text
         assert "MODE TREND" in md_text
         assert "PRESSURE BAND" in md_text
         assert "DRIFT RISK" in md_text

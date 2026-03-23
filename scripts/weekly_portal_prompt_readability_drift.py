@@ -45,6 +45,10 @@ TOKEN_FAMILIES = {
     "pressure": ["PRESSURE:", "P:"],
 }
 
+TOKEN_ALIAS_FAMILIES = {
+    "vibeTrailWhyAlias": ["VIBE TRAIL WHY:", "VTW:"],
+}
+
 ROUTE_VIBE_PATTERNS = {
     "CALM": ("ROUTE VIBE:CALM", "VIBE:C"),
     "EDGE": ("ROUTE VIBE:EDGE", "VIBE:E"),
@@ -141,6 +145,30 @@ def lane_focus_from_token_totals(token_totals: dict[str, dict[str, int]]) -> tup
     elif leader == "pressure":
         lane = "PRESSURE"
     return lane, family_scores
+
+
+def token_family_coverage(token_totals: dict[str, dict[str, int]]) -> dict[str, dict[str, object]]:
+    families: dict[str, dict[str, object]] = {}
+    for family, aliases in TOKEN_ALIAS_FAMILIES.items():
+        added = sum(token_totals["added"].get(alias, 0) for alias in aliases)
+        removed = sum(token_totals["removed"].get(alias, 0) for alias in aliases)
+        net = sum(token_totals["net"].get(alias, 0) for alias in aliases)
+        aliases_touched = [
+            alias
+            for alias in aliases
+            if token_totals["added"].get(alias, 0) > 0 or token_totals["removed"].get(alias, 0) > 0
+        ]
+        families[family] = {
+            "aliases": aliases,
+            "aliasesTouched": aliases_touched,
+            "aliasesTouchedCount": len(aliases_touched),
+            "added": added,
+            "removed": removed,
+            "net": net,
+            "churn": added + removed,
+            "coverage": f"{len(aliases_touched)}/{len(aliases)}",
+        }
+    return families
 
 
 def route_action_from_focus(*, lane_focus: str, drift_risk: str) -> tuple[str, str]:
@@ -5085,6 +5113,7 @@ def main() -> int:
         "removed": {token: sum(r["tokenEdits"]["removed"][token] for r in touched) for token in TOKEN_CATALOG},
         "net": {token: sum(r["tokenEdits"]["net"][token] for r in touched) for token in TOKEN_CATALOG},
     }
+    token_family_totals = token_family_coverage(token_totals)
     route_vibe_totals = {
         "added": {
             vibe: sum(r["routeVibeEdits"]["added"][vibe] for r in touched)
@@ -5963,6 +5992,7 @@ def main() -> int:
         },
         "totals": totals,
         "tokenTotals": token_totals,
+        "tokenFamilyTotals": token_family_totals,
         "routeVibeTotals": route_vibe_totals,
         "stickyTokens": {
             "count": len(sticky_tokens),
@@ -6109,6 +6139,7 @@ def main() -> int:
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF FIT: **{what_if_split_esc_recover_veto_rearm_coach_handoff_fit}** ({what_if_split_esc_recover_veto_rearm_coach_handoff_fit_signals['reason']}; handoff={what_if_split_esc_recover_veto_rearm_coach_handoff_fit_signals['splitEscRecoverVetoRearmCoachHandoff']} pressure={what_if_split_esc_recover_veto_rearm_coach_handoff_fit_signals['splitEscPressure']})",
         f"- WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF WHY: **{what_if_split_esc_recover_veto_rearm_coach_handoff_why}** ({what_if_split_esc_recover_veto_rearm_coach_handoff_why_signals['reason']}; flag={what_if_split_esc_recover_veto_rearm_coach_handoff_why_signals['flagName']} enabled={what_if_split_esc_recover_veto_rearm_coach_handoff_why_signals['flagEnabled']} handoff={what_if_split_esc_recover_veto_rearm_coach_handoff_why_signals['splitEscRecoverVetoRearmCoachHandoff']} fit={what_if_split_esc_recover_veto_rearm_coach_handoff_why_signals['splitEscRecoverVetoRearmCoachHandoffFit']} conf={what_if_split_esc_recover_veto_rearm_coach_handoff_why_signals['splitEscRecoverVetoRearmCoachConfidence']})",
         f"- WHAT-IF SPLIT ESC RECOVER ΔCONF: **{what_if_split_esc_recover_confidence_delta}** ({what_if_split_esc_recover_confidence_delta_signals['reason']}; current={what_if_split_esc_recover_confidence_delta_signals['currentConfidence']} prior={what_if_split_esc_recover_confidence_delta_signals['priorConfidence']} loaded={what_if_split_esc_recover_confidence_delta_signals['priorLoaded']})",
+        f"- VTW FAMILY CHURN: **net {token_family_totals['vibeTrailWhyAlias']['net']:+d}** (added={token_family_totals['vibeTrailWhyAlias']['added']} removed={token_family_totals['vibeTrailWhyAlias']['removed']} churn={token_family_totals['vibeTrailWhyAlias']['churn']} coverage={token_family_totals['vibeTrailWhyAlias']['coverage']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",
@@ -6130,6 +6161,9 @@ def main() -> int:
             )
 
     md.extend([
+        "",
+        "## Token Family Coverage",
+        f"- VTW + VIBE TRAIL WHY: +{token_family_totals['vibeTrailWhyAlias']['added']} / -{token_family_totals['vibeTrailWhyAlias']['removed']} / net {token_family_totals['vibeTrailWhyAlias']['net']} (churn={token_family_totals['vibeTrailWhyAlias']['churn']} coverage={token_family_totals['vibeTrailWhyAlias']['coverage']})",
         "",
         "## Route Vibe Drift (added/removed/net)",
         f"- CALM: +{route_vibe_totals['added']['CALM']} / -{route_vibe_totals['removed']['CALM']} / net {route_vibe_totals['net']['CALM']}",

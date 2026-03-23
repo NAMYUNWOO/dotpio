@@ -1450,3 +1450,7 @@
 - 2026-03-23 18:36 KST | Cycle BP UX update: compact prompt shows `VTW:RECOVER|SCAR`; detailed prompt keeps `VIBE TRAIL WHY`.
   - Verification: regression covers alias-only compact behavior without duplicated full label.
   - Follow-up: run player-facing readability check once `VTWC` confidence token is prototyped.
+
+## 2026-03-23 19:01 KST — UX digest readability update
+- Weekly markdown now explicitly surfaces `VTW FAMILY CHURN` and `Token Family Coverage` section for alias-family drift visibility.
+- No prompt-surface copy changes this cycle; digest/readability only.

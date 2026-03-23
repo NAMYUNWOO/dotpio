@@ -1847,3 +1847,9 @@
 - 2026-03-23 18:36 KST | Cycle BP support: updated `scripts/weekly_portal_prompt_readability_drift.py` token groups/families to include `VTW:` and `VIBE TRAIL WHY:` for portal readability drift accounting.
   - Decision: treat compact alias as same family to keep churn analytics comparable.
   - Follow-up: add explicit alias churn delta row in digest payload (queued).
+
+## 2026-03-23 19:01 KST — Weekly digest token-family coverage (VTW/VIBE TRAIL WHY)
+- Completed Cycle BP Systems/QA item: added alias-family coverage aggregation for `VTW:` + `VIBE TRAIL WHY:` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Output now includes JSON `tokenFamilyTotals.vibeTrailWhyAlias` and markdown rows `VTW FAMILY CHURN` + `Token Family Coverage` for quick churn triage.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up: next unchecked Cycle BP item is lane-cadence force-flag digest trigger (`ACTION_ITEMS/TASKS`).
