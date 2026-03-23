@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-23 21:41 KST
+Last updated: 2026-03-23 22:06 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,10 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed Cycle BS/BT remaining Systems/QA digest tasks: weekly readability digest now tracks alias-family churn for `VIBE TRAIL ARC:` + `VTA:` and churn coverage for `PULSE HEAT FX:`.
+- `scripts/weekly_portal_prompt_readability_drift.py` now includes `vibeTrailArcAlias` and `pulseHeatFxAlias` in `tokenFamilyTotals`, with markdown rows (`VTA FAMILY CHURN`, `PULSE HEAT FX FAMILY CHURN`) plus Token Family Coverage entries.
+- Regression contract updated in `scripts/regression_weekly_portal_prompt_readability_drift.py`; full regression passes.
+- Remaining top unchecked item: Design/World `ROUTE GLOW:SOFT|SHARP` prototype (Cycle BT).
 
 - Closed Cycle BQ UX/World item: portal prompts now emit confidence-rail token `VIBE TRAIL CONF RAIL:STEADY|SPIKE` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF_RAIL`.
 - Compact parity shipped with alias `VTCR:S|X`; calm contexts resolve to `STEADY/S`, ash contexts to `SPIKE/X`.

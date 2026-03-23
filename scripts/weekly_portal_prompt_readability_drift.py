@@ -26,8 +26,8 @@ PORTAL_PATH_HINTS = (
 )
 
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "PULSE HEAT FX:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "PULSE HEAT FX:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 
@@ -50,6 +50,8 @@ TOKEN_ALIAS_FAMILIES = {
     "vibeTrailWhyConfidenceAlias": ["VIBE TRAIL WHY CONF:", "VTWC:"],
     "vibeTrailWhyConfidenceWhyAlias": ["VIBE TRAIL WHY CONF WHY:", "VTCW:"],
     "vibeTrailWhyConfidenceWhyConfidenceAlias": ["VIBE TRAIL WHY CONF WHY CONF:", "VTCWC:"],
+    "vibeTrailArcAlias": ["VIBE TRAIL ARC:", "VTA:"],
+    "pulseHeatFxAlias": ["PULSE HEAT FX:"],
 }
 
 ROUTE_VIBE_PATTERNS = {
@@ -6146,6 +6148,8 @@ def main() -> int:
         f"- VTWC FAMILY CHURN: **net {token_family_totals['vibeTrailWhyConfidenceAlias']['net']:+d}** (added={token_family_totals['vibeTrailWhyConfidenceAlias']['added']} removed={token_family_totals['vibeTrailWhyConfidenceAlias']['removed']} churn={token_family_totals['vibeTrailWhyConfidenceAlias']['churn']} coverage={token_family_totals['vibeTrailWhyConfidenceAlias']['coverage']})",
         f"- VTCW FAMILY CHURN: **net {token_family_totals['vibeTrailWhyConfidenceWhyAlias']['net']:+d}** (added={token_family_totals['vibeTrailWhyConfidenceWhyAlias']['added']} removed={token_family_totals['vibeTrailWhyConfidenceWhyAlias']['removed']} churn={token_family_totals['vibeTrailWhyConfidenceWhyAlias']['churn']} coverage={token_family_totals['vibeTrailWhyConfidenceWhyAlias']['coverage']})",
         f"- VTCWC FAMILY CHURN: **net {token_family_totals['vibeTrailWhyConfidenceWhyConfidenceAlias']['net']:+d}** (added={token_family_totals['vibeTrailWhyConfidenceWhyConfidenceAlias']['added']} removed={token_family_totals['vibeTrailWhyConfidenceWhyConfidenceAlias']['removed']} churn={token_family_totals['vibeTrailWhyConfidenceWhyConfidenceAlias']['churn']} coverage={token_family_totals['vibeTrailWhyConfidenceWhyConfidenceAlias']['coverage']})",
+        f"- VTA FAMILY CHURN: **net {token_family_totals['vibeTrailArcAlias']['net']:+d}** (added={token_family_totals['vibeTrailArcAlias']['added']} removed={token_family_totals['vibeTrailArcAlias']['removed']} churn={token_family_totals['vibeTrailArcAlias']['churn']} coverage={token_family_totals['vibeTrailArcAlias']['coverage']})",
+        f"- PULSE HEAT FX FAMILY CHURN: **net {token_family_totals['pulseHeatFxAlias']['net']:+d}** (added={token_family_totals['pulseHeatFxAlias']['added']} removed={token_family_totals['pulseHeatFxAlias']['removed']} churn={token_family_totals['pulseHeatFxAlias']['churn']} coverage={token_family_totals['pulseHeatFxAlias']['coverage']})",
         f"- STICKY TOKENS: **{len(sticky_tokens)}**",
         f"- ANOMALY: **{anomaly_pulse}** (sticky={anomaly_pulse_signals['stickyCount']}/{anomaly_pulse_signals['stickyThreshold']} pressure={anomaly_pulse_signals['pressureChurn']}/{anomaly_pulse_signals['pressureThreshold']})",
         f"- ANOMALY CONF: **{anomaly_confidence}** (triggers={anomaly_pulse_signals['triggerCount']} gap={anomaly_pulse_signals['combinedGap']})",
@@ -6173,6 +6177,8 @@ def main() -> int:
         f"- VTWC + VIBE TRAIL WHY CONF: +{token_family_totals['vibeTrailWhyConfidenceAlias']['added']} / -{token_family_totals['vibeTrailWhyConfidenceAlias']['removed']} / net {token_family_totals['vibeTrailWhyConfidenceAlias']['net']} (churn={token_family_totals['vibeTrailWhyConfidenceAlias']['churn']} coverage={token_family_totals['vibeTrailWhyConfidenceAlias']['coverage']})",
         f"- VTCW + VIBE TRAIL WHY CONF WHY: +{token_family_totals['vibeTrailWhyConfidenceWhyAlias']['added']} / -{token_family_totals['vibeTrailWhyConfidenceWhyAlias']['removed']} / net {token_family_totals['vibeTrailWhyConfidenceWhyAlias']['net']} (churn={token_family_totals['vibeTrailWhyConfidenceWhyAlias']['churn']} coverage={token_family_totals['vibeTrailWhyConfidenceWhyAlias']['coverage']})",
         f"- VTCWC + VIBE TRAIL WHY CONF WHY CONF: +{token_family_totals['vibeTrailWhyConfidenceWhyConfidenceAlias']['added']} / -{token_family_totals['vibeTrailWhyConfidenceWhyConfidenceAlias']['removed']} / net {token_family_totals['vibeTrailWhyConfidenceWhyConfidenceAlias']['net']} (churn={token_family_totals['vibeTrailWhyConfidenceWhyConfidenceAlias']['churn']} coverage={token_family_totals['vibeTrailWhyConfidenceWhyConfidenceAlias']['coverage']})",
+        f"- VTA + VIBE TRAIL ARC: +{token_family_totals['vibeTrailArcAlias']['added']} / -{token_family_totals['vibeTrailArcAlias']['removed']} / net {token_family_totals['vibeTrailArcAlias']['net']} (churn={token_family_totals['vibeTrailArcAlias']['churn']} coverage={token_family_totals['vibeTrailArcAlias']['coverage']})",
+        f"- PULSE HEAT FX: +{token_family_totals['pulseHeatFxAlias']['added']} / -{token_family_totals['pulseHeatFxAlias']['removed']} / net {token_family_totals['pulseHeatFxAlias']['net']} (churn={token_family_totals['pulseHeatFxAlias']['churn']} coverage={token_family_totals['pulseHeatFxAlias']['coverage']})",
         "",
         "## Route Vibe Drift (added/removed/net)",
         f"- CALM: +{route_vibe_totals['added']['CALM']} / -{route_vibe_totals['removed']['CALM']} / net {route_vibe_totals['net']['CALM']}",

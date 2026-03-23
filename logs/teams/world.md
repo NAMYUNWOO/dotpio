@@ -1260,3 +1260,8 @@
 ## 2026-03-23 21:41 KST — Cycle BT world lane note
 - No map/portal topology changes in this cycle.
 - Follow-up queued: `ROUTE GLOW:SOFT|SHARP` world/design readability token tied to vibe-trail arc.
+
+## 2026-03-23 22:06:31 KST
+- Cross-lane note: Weekly digest coverage extended for `VIBE TRAIL ARC` alias churn (`VIBE TRAIL ARC:` + `VTA:`) and `PULSE HEAT FX:` churn.
+- Impact: No gameplay/runtime behavior changes; telemetry/readability audit surface only.
+- Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

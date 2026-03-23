@@ -1486,3 +1486,8 @@
 ## 2026-03-23 21:41 KST — Cycle BT compact UX note
 - Compact transition prompt now supports `PULSE HEAT FX:<tier>` when pulse-heat cues are active and FX flag is on.
 - Token order preserved after `PULSE HEAT` to maintain scan consistency.
+
+## 2026-03-23 22:06:31 KST
+- Cross-lane note: Weekly digest coverage extended for `VIBE TRAIL ARC` alias churn (`VIBE TRAIL ARC:` + `VTA:`) and `PULSE HEAT FX:` churn.
+- Impact: No gameplay/runtime behavior changes; telemetry/readability audit surface only.
+- Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

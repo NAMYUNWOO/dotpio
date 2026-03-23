@@ -721,6 +721,8 @@ def main() -> int:
         assert "vibeTrailWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert "vibeTrailWhyConfidenceWhyAlias" in payload["tokenFamilyTotals"], payload
         assert "vibeTrailWhyConfidenceWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
+        assert "vibeTrailArcAlias" in payload["tokenFamilyTotals"], payload
+        assert "pulseHeatFxAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
@@ -752,6 +754,26 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyConfidenceWhyConfidenceAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["vibeTrailArcAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["pulseHeatFxAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1129,10 +1151,14 @@ def main() -> int:
         assert "Token Totals" in md_text
         assert "Top Token Movers" in md_text
         assert "Token Family Coverage" in md_text
+        assert "VTA + VIBE TRAIL ARC" in md_text
+        assert "PULSE HEAT FX:" in md_text
         assert "VTW FAMILY CHURN" in md_text
         assert "VTWC FAMILY CHURN" in md_text
         assert "VTCW FAMILY CHURN" in md_text
         assert "VTCWC FAMILY CHURN" in md_text
+        assert "VTA FAMILY CHURN" in md_text
+        assert "PULSE HEAT FX FAMILY CHURN" in md_text
         assert "MODE TREND" in md_text
         assert "PRESSURE BAND" in md_text
         assert "DRIFT RISK" in md_text

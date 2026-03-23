@@ -1187,3 +1187,8 @@
 ## 2026-03-23 21:41 KST — Cycle BT combat readability note
 - Added compact cue `PULSE HEAT FX` (CALM/SPARK/BLAZE) mapped from existing pulse-heat tiers.
 - No combat damage/speed/aggro tuning changes; token is pre-jump readability only.
+
+## 2026-03-23 22:06:31 KST
+- Cross-lane note: Weekly digest coverage extended for `VIBE TRAIL ARC` alias churn (`VIBE TRAIL ARC:` + `VTA:`) and `PULSE HEAT FX:` churn.
+- Impact: No gameplay/runtime behavior changes; telemetry/readability audit surface only.
+- Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

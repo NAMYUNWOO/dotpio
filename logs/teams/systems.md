@@ -1899,3 +1899,13 @@
 - Coverage audit over last 10 completions shows systems/ops at 60% (6/10), exceeding 40% cap.
 - Forced-lane policy applied: deferred systems-first queue item and executed combat/vfx slice.
 - Injected follow-up systems/qa item: weekly digest token-family coverage for `PULSE HEAT FX` churn.
+
+## 2026-03-23 22:06:31 KST
+- Task: Cycle BS/BT weekly digest coverage pass for `VIBE TRAIL ARC` alias churn + `PULSE HEAT FX` churn.
+- Commit: HEAD (pending)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Extended token catalog/groups so `VIBE TRAIL ARC:`/`VTA:` and `PULSE HEAT FX:` are counted in weekly token totals.
+  - Added alias-family coverage rows (`vibeTrailArcAlias`, `pulseHeatFxAlias`) to JSON + markdown for stable drift triage.
