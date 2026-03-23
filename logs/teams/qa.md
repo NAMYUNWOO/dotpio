@@ -2437,3 +2437,8 @@
 
 ## 2026-03-24 00:37 KST — Cycle BV regression evidence
 - Added `scripts/regression_portal_route_glow_fx_compact_alias.lua` and validated alias emission/non-emission behavior.
+
+## 2026-03-24 01:05 KST — Cycle BV digest churn coverage (route glow FX)
+- Completed Systems/QA backlog slice: weekly digest now tracks 'ROUTE GLOW FX:' + 'RGFX:' token-family churn plus compact-budget drift.
+- Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py and python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 both PASS.
+- Follow-up: remaining unchecked item is Combat/VFX 'ROUTE GLOW FX CONF' token experiment.

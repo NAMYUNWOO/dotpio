@@ -2265,3 +2265,8 @@ Compact decision memory for AI context efficiency.
   - `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_ARC=1 DOTPIO_EXPERIMENT_ROUTE_GLOW=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX=1 DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 lua scripts/regression_portal_route_glow_fx.lua`
   - `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_ARC=1 DOTPIO_EXPERIMENT_ROUTE_GLOW=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_COMPACT=1 DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 lua scripts/regression_portal_route_glow_fx_compact_alias.lua`
 - Backlog injection: added Cycle BV tasks in `TASKS.md` + `POST_RC_BACKLOG.md` (selected item done, two follow-ups queued).
+
+## 2026-03-24 01:05 KST — Cycle BV Systems/QA follow-through
+- Closed queued Systems/QA follow-up from Cycle BV by adding route-glow FX alias family coverage in weekly digest ('ROUTE GLOW FX:' + 'RGFX:').
+- Added new digest outputs: 'ROUTE GLOW FX FAMILY CHURN' and 'ROUTE GLOW FX COMPACT-BUDGET DRIFT' in JSON + markdown report.
+- Durable decision: keep FX alias churn tracked separately from 'ROUTE GLOW CONF' so trust/overdrive readability regressions stay independently triaged.

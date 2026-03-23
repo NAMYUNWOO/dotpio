@@ -724,6 +724,7 @@ def main() -> int:
         assert "vibeTrailWhyConfidenceWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert "vibeTrailArcAlias" in payload["tokenFamilyTotals"], payload
         assert "pulseHeatFxAlias" in payload["tokenFamilyTotals"], payload
+        assert "routeGlowFxAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
@@ -785,6 +786,16 @@ def main() -> int:
             "churn",
             "coverage",
         }, payload
+        assert set(payload["tokenFamilyTotals"]["routeGlowFxAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
         assert set(payload["tokenFamilyTotals"]["routeGlowConfidenceAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
@@ -797,6 +808,15 @@ def main() -> int:
         }, payload
         assert payload.get("pulseHeatFxCompactBudgetDrift") in {"STABLE", "WATCH", "SPIKE"}, payload
         assert set(payload.get("pulseHeatFxCompactBudgetDriftSignals", {}).keys()) == {
+            "reason",
+            "compactNet",
+            "familyNet",
+            "familyChurn",
+            "absFamilyNet",
+            "absCompactNet",
+        }, payload
+        assert payload.get("routeGlowFxCompactBudgetDrift") in {"STABLE", "WATCH", "SPIKE"}, payload
+        assert set(payload.get("routeGlowFxCompactBudgetDriftSignals", {}).keys()) == {
             "reason",
             "compactNet",
             "familyNet",
@@ -1180,9 +1200,12 @@ def main() -> int:
         assert "VTCWC FAMILY CHURN" in md_text
         assert "VTA FAMILY CHURN" in md_text
         assert "PULSE HEAT FX FAMILY CHURN" in md_text
+        assert "ROUTE GLOW FX FAMILY CHURN" in md_text
         assert "ROUTE GLOW CONF FAMILY CHURN" in md_text
+        assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text
         assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text
+        assert "ROUTE GLOW FX COMPACT-BUDGET DRIFT" in md_text
         assert "MODE TREND" in md_text
         assert "PRESSURE BAND" in md_text
         assert "DRIFT RISK" in md_text

@@ -1243,3 +1243,8 @@
 
 ## 2026-03-24 00:37 KST — Cycle BV ideation lane note
 - Game Director ideas reviewed; no AI-content generation mechanic changed in selected alias slice.
+
+## 2026-03-24 01:05 KST — Cycle BV digest churn coverage (route glow FX)
+- Completed Systems/QA backlog slice: weekly digest now tracks 'ROUTE GLOW FX:' + 'RGFX:' token-family churn plus compact-budget drift.
+- Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py and python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 both PASS.
+- Follow-up: remaining unchecked item is Combat/VFX 'ROUTE GLOW FX CONF' token experiment.
