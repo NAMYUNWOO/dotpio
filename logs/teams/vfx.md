@@ -76,3 +76,10 @@
 
 ## 2026-03-24 00:37 KST — Cycle BV FX token compact mode
 - Route glow FX token now supports compact alias for prompt-budget preservation without changing FX tier mapping.
+
+## 2026-03-24 03:47 KST — Cycle BZ combat/vfx rail-mode readability slice (forced-lane rebalance)
+- Coverage check (last 10 completed items by lane): systems=5, world=2, ux=2, combat/vfx=1, design=0, ai-content=0, qa=0.
+- Lane cap breach detected (`systems` 50% > 40%), so experiment pick was forced into underrepresented lanes.
+- Shipped compact pressure-readability token `RGFXWRM:LOCK|FLEX` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_MODE`.
+- Mapping keeps VFX intent deterministic: `SPIKE+SURGE -> LOCK`; all other rail-present states -> `FLEX`.
+- Follow-up candidate injected: `RGFXWRI:SOFT|HARD` intensity accent token for stronger overdrive fantasy.

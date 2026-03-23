@@ -2295,3 +2295,15 @@ Compact decision memory for AI context efficiency.
 - Full-check trigger executed Game Director review cycle (Cycle BY): generated 3 ideas (low/mid/high), selected low-risk slice and shipped compact alias `RGFXWR:<STEADY|SPIKE>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_COMPACT`.
 - Durable decision: preserve deterministic rationale->rail mapping (`STABLE->STEADY`, `PRESSURE|OVERDRIVE->SPIKE`) and keep long-label fallback when compact alias flag is off.
 - Injected follow-up backlog tasks: rail-family digest coverage and confidence-adaptive rail-mode token experiment.
+
+## 2026-03-24 03:47 KST — Cycle BZ forced-lane combat/vfx rail-mode slice
+- Coverage check over last 10 completed items (lane counts): systems=5, world=2, ux=2, combat/vfx=1, design=0, ai-content=0, qa=0.
+- Lane-cap rule triggered (`systems` 50% > 40%), so experiment was forced to underrepresented lanes.
+- Candidate fun-factor ideas:
+  1) Low-risk combat/vfx: add compact rail-mode token (`RGFXWRM:LOCK|FLEX`) to make surge lock state instantly readable.
+  2) Mid-risk design/world: adaptive rail fallback copy (`STEADY->FLEX`, `SPIKE->LOCK`) with optional long-label parity row.
+  3) High-risk ai-content/combat: inject dynamic overdrive hype copy variant tied to `RGFXW` rationale family.
+- Selected experiment: Idea #1.
+- Shipped: `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_MODE` emits `RGFXWRM:LOCK|FLEX` when rail token exists; deterministic mapping `SPIKE+SURGE -> LOCK`, else `FLEX`.
+- Verification: new regression `scripts/regression_portal_route_glow_fx_conf_why_rail_mode.lua` + existing rail regressions pass.
+- Backlog injection: added Cycle BZ tasks in `TASKS.md` + `POST_RC_BACKLOG.md` (digest coverage, intensity accent token, rationale copy guard).

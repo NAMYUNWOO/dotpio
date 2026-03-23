@@ -1251,3 +1251,8 @@
 ## 2026-03-24 03:31 KST — Cycle BY combat-lane impact review
 - Route-glow rationale/rail updates are prompt-readability only; no combat math, enemy behavior, or threat formulas changed.
 - Verified `SPIKE` rail semantics align with pressure-heavy states and do not alter combat resolution paths.
+
+## 2026-03-24 03:47 KST — Cycle BZ combat-pressure cue update
+- Added `RGFXWRM:LOCK|FLEX` token emission in compact portal prompt to clarify when route-glow rationale rail is hard-locked during surge pressure.
+- Behavior-only scope: no combat stat changes, enemy behavior changes, or threat formula edits.
+- Verification aligned with route-glow rationale rail regressions (mode + compact alias passes).

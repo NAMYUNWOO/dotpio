@@ -1355,3 +1355,8 @@
 - Adopted compact alias `RGFXWR` to reduce portal prompt width while keeping detailed fallback label for debuggability.
 - Durable UI copy decision: keep rail vocabulary binary (`STEADY|SPIKE`) for glanceable cadence interpretation.
 - Injected design follow-up candidate: `ROUTE GLOW FX CONF WHY RAIL MODE:LOCK|FLEX` behind flag.
+
+## 2026-03-24 03:47 KST — Cycle BY/BZ rail-mode copy decision
+- Implemented compact rail-mode token label `RGFXWRM` to avoid long-label prompt bloat while preserving semantic readability (`LOCK|FLEX`).
+- Decision: keep mode values full words (not single-letter aliases) to preserve glance clarity in DOS prompt scans.
+- Backlog injected: add deterministic copy guard between `RGFXW` rationale values and `RGFXWRM` mode wording.
