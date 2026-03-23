@@ -1438,3 +1438,7 @@
 ## 2026-03-23 17:01 KST — Cycle BN UX readability note
 - Added compact portal parity token `VTR:C|A` when prompt compacts under width budget; detailed prompt shows `VIBE TRAIL:CALM|ASH`.
 - Weekly snapshot markdown now includes `LANE GAP DETAIL` row for forced-lane audit scanability.
+
+## 2026-03-23 17:34 KST — Cycle BO prompt readability update
+- Added trust-weight companion token for portal cooloff cue: `VIBE TRAIL CONF` in detailed prompt and `VTC` alias in compact prompt.
+- Kept copy compact and reversible via dedicated experiment flag to avoid default prompt-contract churn.

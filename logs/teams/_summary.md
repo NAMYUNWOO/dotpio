@@ -13,6 +13,13 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Game Director Cycle BO executed after ACTION_ITEMS + TASKS + POST_RC remained fully checked.
+- Cycle BO generated 3 ideas (low/mid/high) and selected low-risk UX/world vertical slice: portal vibe-trail confidence token.
+- Shipped `VIBE TRAIL CONF:LOW|MID|HIGH` + compact alias `VTC:<L|M|H>` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF`.
+- Mapping is deterministic (`CALM -> MID`, `ASH -> HIGH`) and emits only when valid vibe-trail context exists.
+- Regression guardrail updated: `scripts/regression_portal_vibe_trail.lua` now validates detailed/compact confidence tokens and invalid-context suppression.
+- Follow-up backlog injected (Cycle BO): weekly digest token-family coverage for `VIBE TRAIL CONF` and flagged `VIBE TRAIL WHY:<short>` rationale token.
+
 - Closed Cycle BJ final unchecked item: portal prompts now emit `ALT WHY GLYPH:<sigil>` behind `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH` in both detailed and compact modes.
 - ACTION_ITEMS/TASKS/POST_RC actionable queues were fully checked after BJ closure, so Game Director Cycle BK executed (3 ideas generated).
 - Selected/shipped Cycle BK minimal slice: compact prompt can now emit alias token `AWG:<sigil>` behind `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_COMPACT` while detailed mode keeps full `ALT WHY GLYPH` label.

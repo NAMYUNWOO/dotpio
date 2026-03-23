@@ -1167,3 +1167,7 @@
 ## 2026-03-23 17:01 KST — Cycle BN ai-content contract note
 - Added deterministic token vocabulary for cooloff lane (`CALM|ASH`) and compact alias (`VTR`) without changing generation model behavior.
 - Verification references: portal vibe trail regression PASS; weekly snapshot regression PASS.
+
+## 2026-03-23 17:34 KST — Cycle BO AI-content contract note
+- Token vocabulary extended for portal cooloff readability with deterministic confidence tiers (`VIBE TRAIL CONF`, compact `VTC`).
+- No AI generation behavior or content policy changes in this slice.

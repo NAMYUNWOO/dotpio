@@ -1235,3 +1235,7 @@
 ## 2026-03-23 17:01 KST — Cycle BN design readability closure
 - Completed remaining BN readability task by surfacing post-fade portal mood cue `VIBE TRAIL:CALM|ASH` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL`.
 - Intent: reinforce recovery fantasy immediately after berserk cooldown release while keeping prompt copy compact.
+
+## 2026-03-23 17:34 KST — Cycle BO design note
+- Chose low-risk readability slice to reinforce post-fade fantasy handoff without altering route mechanics.
+- Confidence wording constrained to short tiers (`MID|HIGH`) to preserve DOS-width scanability and avoid noisy prose.

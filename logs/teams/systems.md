@@ -1833,3 +1833,7 @@
 ## 2026-03-23 17:01 KST — Cycle BN systems/ops cadence detail slice
 - Completed: added `LANE GAP DETAIL` to weekly economy snapshot with `combat/vfx` last-touch age (`laneCadence.laneGapDetail`, `combatVfxLastTouchAgeHours`, `sourceLatestAgeHours`).
 - Verification: `python3 scripts/regression_weekly_snapshot.py` PASS; py_compile PASS.
+
+## 2026-03-23 17:34 KST — Cycle BO systems note
+- Added new portal experiment gate parser `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF` in `src/portal.lua`.
+- Change is prompt-layer only; no economy/combat/runtime progression logic altered.

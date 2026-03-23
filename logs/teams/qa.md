@@ -2336,3 +2336,13 @@
 - Added regression `scripts/regression_portal_vibe_trail.lua` for detailed/compact vibe-trail tokens + invalid-input guard.
 - Extended weekly snapshot regression checks to require `laneGapDetail`, `combatVfxLastTouchAgeHours`, `sourceLatestAgeHours`, and markdown `LANE GAP DETAIL` line.
 - PASS: `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 lua scripts/regression_portal_vibe_trail.lua`; `lua scripts/regression_portal_route_vibe.lua`; `python3 scripts/regression_weekly_snapshot.py`.
+
+## 2026-03-23 17:34 KST — Cycle BO verification
+- Updated `scripts/regression_portal_vibe_trail.lua` to assert confidence token behavior:
+  - detailed: `VIBE TRAIL CONF:MID|HIGH`
+  - compact: `VTC:M|H`
+  - invalid trail context emits no confidence token.
+- Verification PASS:
+  - `luac -p src/portal.lua scripts/regression_portal_vibe_trail.lua`
+  - `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF=1 lua scripts/regression_portal_vibe_trail.lua`
+  - `lua scripts/regression_portal_route_vibe.lua`

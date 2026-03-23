@@ -1211,3 +1211,8 @@
 ## 2026-03-23 17:01 KST — Cycle BN world follow-up: portal cooloff vibe trail
 - Completed: portal transition prompt now supports flagged cooloff token `VIBE TRAIL:CALM|ASH` (compact `VTR:C|A`) when context supplies post-fade trail cue.
 - Verification: `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 lua scripts/regression_portal_vibe_trail.lua` PASS; `lua scripts/regression_portal_route_vibe.lua` PASS.
+
+## 2026-03-23 17:34 KST — Cycle BO world/ux slice: vibe-trail confidence token
+- Completed selected Game Director vertical slice: portal prompt now adds `VIBE TRAIL CONF:LOW|MID|HIGH` (compact `VTC:<L|M|H>`) behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF`.
+- Mapping is deterministic and low-risk for readability: `CALM -> MID`, `ASH -> HIGH` (no token emitted without valid trail context).
+- Verification: `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF=1 lua scripts/regression_portal_vibe_trail.lua` PASS.

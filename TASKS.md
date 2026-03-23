@@ -298,7 +298,7 @@ See project-level plans:
   - [x] Gate token behind `DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE` to keep default prompt contract stable
   - [x] Add regression coverage for detailed/compact token visibility when flag enabled
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle K)
+## Next Up (Game Director Injection - 2026-03-21 Cycle K)
 - [x] Add digest drift-risk token (`DRIFT RISK:LOW|MID|HIGH`) from compact/detailed imbalance + pressure churn for quick triage
   - [x] Add drift-risk classifier helper in weekly digest script from mode-imbalance + pressure churn signals
   - [x] Surface `driftRisk` + `driftRiskSignals` in JSON and `DRIFT RISK` line in markdown output
@@ -306,262 +306,262 @@ See project-level plans:
 - [x] Add prompt-token persistence token (`STICKY TOKENS:<n>`) counting tokens present in both added/removed sets over window
 - [x] Add digest lane-focus token (`FOCUS:PORTAL|ALT|PRESSURE|MIXED`) from top mover families for action routing
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle L)
+## Next Up (Game Director Injection - 2026-03-21 Cycle L)
 - [x] Add digest route-action token (`ROUTE ACTION:PORTAL_AUDIT|ALT_TUNE|PRESSURE_REBASE|BALANCE_PASS|WATCH`) from `FOCUS + DRIFT RISK`
 - [x] Add lane-focus streak token (`FOCUS STREAK:<n>`) to flag single-lane churn persistence across digest windows
 - [x] Add lane-focus transition token (`FOCUS SHIFT:<FROM->TO>`) for weekly routing handoff clarity
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle M)
+## Next Up (Game Director Injection - 2026-03-21 Cycle M)
 - [x] Add lane-focus volatility token (`FOCUS VOL:STEADY|SWING`) from lane-switch ratio over touched commits
 - [x] Add route-action confidence token (`ACTION CONF:LOW|MID|HIGH`) from focus dominance + drift-risk spread
 - [x] Prototype digest anomaly pulse (`ANOMALY:ON`) when sticky token count and pressure churn spike simultaneously
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle N)
+## Next Up (Game Director Injection - 2026-03-21 Cycle N)
 - [x] Add route-action confidence telemetry line in markdown + JSON (`ACTION CONF`, confidence signals)
 - [x] Add anomaly confidence tier (`ANOMALY CONF:LOW|MID|HIGH`) to avoid binary over-alerting
 - [x] Add lane-lock alert token (`LANE LOCK:<lane>x<n>`) for prolonged single-lane drift streaks
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle O)
+## Next Up (Game Director Injection - 2026-03-21 Cycle O)
 - [x] Add digest drift-momentum token (`DRIFT MOMENTUM:RISING|COOLING|FLAT`) comparing early-vs-late window risk score averages
 - [x] Add route-action guardrail token (`ACTION GUARD:LOCK|SOFT`) when confidence is LOW under HIGH drift risk
 - [x] Add lane-focus entropy token (`FOCUS ENTROPY:LOW|MID|HIGH`) from normalized lane score spread
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle P)
+## Next Up (Game Director Injection - 2026-03-21 Cycle P)
 - [x] Add focus-balance token (`FOCUS BAL:<n>%`) to weekly digest for quick lane dominance readability
 - [x] Add pressure-latency token (`PRESSURE LAG:FAST|STABLE|SLOW`) comparing pressure churn against drift momentum
 - [x] Prototype adaptive route sandbox mode (`ROUTE SANDBOX:ON`) behind flag when digest enters sustained lane lock
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle Q)
+## Next Up (Game Director Injection - 2026-03-21 Cycle Q)
 - [x] Add route-sandbox action-plan token (`SANDBOX PLAN:SIMULATE|PROBE|PREPARE|HOLD`) from `ROUTE SANDBOX + ACTION GUARD + DRIFT RISK`
 - [x] Add route-sandbox cooloff token (`SANDBOX COOLOFF:<n>`) counting consecutive non-armed windows after an ON cycle
 - [x] Add sandbox lane-target token (`SANDBOX TARGET:<lane>`) to pin which lane-lock family should be tested when sandbox is active
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle R)
+## Next Up (Game Director Injection - 2026-03-21 Cycle R)
 - [x] Add sandbox-target confidence token (`SANDBOX TARGET CONF:LOW|MID|HIGH`) for lane-target handoff quality
 - [x] Add sandbox-target source token (`TARGET SRC:LOCK|MIXED|NONE`) for quick audit of lane-target derivation path
 - [x] Add sandbox-target history token (`TARGET SHIFT:<FROM->TO>`) to highlight lane-target changes across digest windows
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle S)
+## Next Up (Game Director Injection - 2026-03-21 Cycle S)
 - [x] Add sandbox readiness tier token (`SANDBOX READY:IDLE|PRIMED|ARMED`) from `ROUTE SANDBOX + TARGET CONF + ACTION GUARD` for faster go/no-go triage
 - [x] Add route-action stability token (`ACTION STABILITY:LOCKED|WATCH`) from `ACTION CONF + FOCUS VOL + DRIFT MOMENTUM` to reduce whiplash retunes
 - [x] Prototype digest what-if token (`WHAT-IF ALT:<lane> ΔRISK:<n>`) behind flag for low-cost alternate-lane planning
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle T)
+## Next Up (Game Director Injection - 2026-03-21 Cycle T)
 - [x] Add what-if confidence token (`WHAT-IF CONF:LOW|MID|HIGH`) so flagged alternate-lane projection trust is glanceable
 - [x] Add what-if alignment token (`WHAT-IF ALIGN:ALIGNED|DIVERGED`) comparing `ALT LANE` against current `ROUTE ACTION`
 - [x] Add what-if impact-band token (`WHAT-IF BAND:GAIN|NEUTRAL|LOSS`) from projected risk delta
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle U)
+## Next Up (Game Director Injection - 2026-03-21 Cycle U)
 - [x] Add what-if delta-magnitude token (`WHAT-IF MAG:SMALL|MED|LARGE`) from `|ΔRISK|` for glanceable planning confidence
 - [x] Add what-if pressure-fit token (`WHAT-IF FIT:SAFE|EVEN|TENSE`) combining projected risk with pressure band
 - [x] Prototype what-if lane fallback token (`WHAT-IF FALLBACK:<lane>`) behind flag when alternate lane diverges from route action
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle V)
+## Next Up (Game Director Injection - 2026-03-21 Cycle V)
 - [x] Add what-if fallback confidence token (`WHAT-IF FALLBACK CONF:LOW|MID|HIGH`) from divergence strength + route confidence
 - [x] Add what-if fallback pressure-safety token (`WHAT-IF FALLBACK FIT:SAFE|EVEN|TENSE`) comparing fallback lane projection vs pressure band
 - [x] Prototype what-if fallback rationale token (`WHAT-IF FALLBACK WHY:<short>`) behind flag for quick operator context
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle W)
+## Next Up (Game Director Injection - 2026-03-21 Cycle W)
 - [x] Add fallback-lane alignment token (`WHAT-IF FALLBACK ALIGN:SYNC|ASYNC`) comparing fallback lane vs digest lane-focus for routing coherence
 - [x] Add fallback-delta magnitude band token (`WHAT-IF FALLBACK MAG:SMALL|MED|LARGE`) for rollback impact sizing
 - [x] Prototype secondary fallback candidate token (`WHAT-IF FALLBACK ALT2:<lane>`) behind flag for dual-path planning
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle X)
+## Next Up (Game Director Injection - 2026-03-21 Cycle X)
 - [x] Add secondary fallback quality gate (emit `ALT2` only when lane-focus score is strong + non-ambiguous)
 - [x] Add secondary fallback confidence token (`WHAT-IF FALLBACK ALT2 CONF:LOW|MID|HIGH`) for dual-path trust readability
 - [x] Prototype dual-path merge hint token (`WHAT-IF FALLBACK PLAN:PRIMARY|SECONDARY|HOLD`) behind flag
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle Y)
+## Next Up (Game Director Injection - 2026-03-21 Cycle Y)
 - [x] Add digest merge-plan rationale token (`WHAT-IF PLAN WHY:<short>`) for quick operator context (low-risk UX)
 - [x] Add digest merge-plan pressure-fit token (`WHAT-IF PLAN FIT:SAFE|EVEN|TENSE`) from selected merge path projection (mid-risk systems)
 - [x] Prototype dual-route split recommendation token (`WHAT-IF SPLIT:ON`) behind flag when primary/secondary plans diverge strongly (high-risk novelty)
 
-## Next Up (Game Director Injection — 2026-03-21 Cycle Z)
+## Next Up (Game Director Injection - 2026-03-21 Cycle Z)
 - [x] Add split-recommendation confidence token (`WHAT-IF SPLIT CONF:LOW|MID|HIGH`) behind flag for operator trust readability
 - [x] Add split route-pair token (`WHAT-IF SPLIT LANES:<primary>/<secondary>`) for handoff clarity in compact digest copy
 - [x] Prototype split-safe-mode token (`WHAT-IF SPLIT SAFE:ON`) behind flag when split suggests non-escalating dual-path plans
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AA)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AA)
 - [x] Add split posture token (`WHAT-IF SPLIT POSTURE:SAFE|WATCH|HOLD`) to digest from split armed/safe/confidence trio *(lifecycle: [~] -> [x])*
 - [x] Add split cooloff token (`WHAT-IF SPLIT COOLOFF:<n>`) counting consecutive OFF windows after split ON cycle
 - [x] Prototype split escalation sentinel (`WHAT-IF SPLIT ESCALATE:ON`) behind flag when split lanes remain divergent under `TENSE` fit
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AB)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AB)
 - [x] Add split escalation confidence token (`WHAT-IF SPLIT ESC CONF:LOW|MID|HIGH`) from split confidence + plan-fit pressure context
 - [x] Add split escalation route-pair readability token (`WHAT-IF SPLIT ESC LANES:<primary>/<secondary>`) for escalation handoff clarity
 - [x] Prototype split escalation cooldown pressure token (`WHAT-IF SPLIT ESC COOL:<n>`) behind flag when escalation recently disarmed
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AC)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AC)
 - [x] Add split escalation state token (`WHAT-IF SPLIT ESC STATE:ARMED|COOLING|IDLE`) for faster digest triage
 - [x] Add split escalation cooldown pressure-band token (`WHAT-IF SPLIT ESC PRESSURE:LOW|MID|HIGH`) behind flag for cooldown risk context
 - [x] Prototype split escalation recovery route hint (`WHAT-IF SPLIT ESC RECOVER:<lane>`) behind flag for post-escalation planning
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AD)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AD)
 - [x] Add split escalation recovery route hint (`WHAT-IF SPLIT ESC RECOVER:<lane>`) behind flag with lowest-pressure lane selection for post-escalation planning
 - [x] Add split escalation recovery confidence token (`WHAT-IF SPLIT ESC RECOVER CONF:LOW|MID|HIGH`) from lane divergence + state + pressure easing
 - [x] Prototype split escalation dual-lane recovery fallback token (`WHAT-IF SPLIT ESC RECOVER ALT:<lane>`) behind flag for contingency planning
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AE)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AE)
 - [x] Add split escalation recovery ALT confidence token (`WHAT-IF SPLIT ESC RECOVER ALT CONF:LOW|MID|HIGH`) for contingency-lane trust readability
 - [x] Add split escalation recovery route decision token (`WHAT-IF SPLIT ESC RECOVER PLAN:PRIMARY|ALT|HOLD`) from recover/recover-alt availability
 - [x] Prototype split escalation recovery rationale token (`WHAT-IF SPLIT ESC RECOVER WHY:<short>`) behind flag for operator context
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AF)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AF)
 - [x] Add split escalation recovery tempo token (`WHAT-IF SPLIT ESC RECOVER TEMPO:FAST|STEADY|DEFER`) for operator pacing readability *(lifecycle: [~] -> [x])*
 - [x] Add split escalation recovery confidence-delta token (`WHAT-IF SPLIT ESC RECOVER ΔCONF:+n|-n`) comparing against prior digest window
 - [x] Prototype split escalation recovery veto sentinel (`WHAT-IF SPLIT ESC RECOVER VETO:ON`) behind flag when pressure remains HIGH under low confidence
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AG)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AG)
 - [x] Add split escalation recovery veto confidence token (`WHAT-IF SPLIT ESC RECOVER VETO CONF:LOW|MID|HIGH`) for operator trust readability
 - [x] Add split escalation recovery veto rationale token (`WHAT-IF SPLIT ESC RECOVER VETO WHY:<short>`) behind flag for compact triage context
 - [x] Prototype split escalation recovery veto cooloff token (`WHAT-IF SPLIT ESC RECOVER VETO COOLOFF:<n>`) behind flag after veto disarm
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AH)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AH)
 - [x] Add split escalation recovery veto state token (`WHAT-IF SPLIT ESC RECOVER VETO STATE:ARMED|COOLING|IDLE`) for rapid cooldown triage
 - [x] Add split escalation recovery veto dwell token (`WHAT-IF SPLIT ESC RECOVER VETO DWELL:<n>`) to count consecutive ARMED windows
 - [x] Prototype split escalation veto release cue token (`WHAT-IF SPLIT ESC RECOVER VETO RELEASE:<short>`) behind flag when state transitions `COOLING -> IDLE`
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AI)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AI)
 - [x] Add split escalation veto release confidence token (`WHAT-IF SPLIT ESC RECOVER VETO RELEASE CONF:LOW|MID|HIGH`) for release-cue trust readability *(lifecycle: [~] -> [x])*
 - [x] Add split escalation veto release route token (`WHAT-IF SPLIT ESC RECOVER VETO RELEASE ROUTE:<lane>`) for post-cooldown handoff clarity
 - [x] Prototype split escalation veto release timer token (`WHAT-IF SPLIT ESC RECOVER VETO RELEASE TICK:<n>`) behind flag for idle-window pacing
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AJ)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AJ)
 - [x] Add split escalation veto release pacing phase token (`WHAT-IF SPLIT ESC RECOVER VETO RELEASE PHASE:IDLE|EARLY|MID|LATE`) for glanceable idle-window pacing
 - [x] Add split escalation veto release cadence token (`WHAT-IF SPLIT ESC RECOVER VETO RELEASE CADENCE:ACCEL|STEADY|DECAY`) from tick deltas over prior window
 - [x] Prototype split escalation auto-rearm warning token (`WHAT-IF SPLIT ESC RECOVER VETO REARM:WATCH`) behind flag when release tick remains late under HIGH pressure
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AK)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AK)
 - [x] Add split escalation auto-rearm confidence token (`WHAT-IF SPLIT ESC RECOVER VETO REARM CONF:LOW|MID|HIGH`) for trust weighting of WATCH cues
 - [x] Add split escalation auto-rearm rationale token (`WHAT-IF SPLIT ESC RECOVER VETO REARM WHY:<short>`) for concise operator context *(lifecycle: [~] -> [x])*
 - [x] Prototype split escalation auto-rearm cooloff token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF:<n>`) behind flag after WATCH disarms
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AL)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AL)
 - [x] Add split escalation auto-rearm cooloff state token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COOLOFF STATE:ACTIVE|IDLE`) for rapid cooldown triage
 - [x] Add split escalation auto-rearm pressure-relief fit token (`WHAT-IF SPLIT ESC RECOVER VETO REARM FIT:RELIEF|EVEN|TENSE`) from cooloff + pressure context
 - [x] Prototype split escalation auto-rearm nudge token (`WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE:<short>`) behind flag for operator handoff
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AM)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AM)
 - [x] Add split escalation auto-rearm nudge confidence token (`WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE CONF:LOW|MID|HIGH`) for handoff trust readability
 - [x] Add split escalation auto-rearm nudge window token (`WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WINDOW:ARMED|COOLING|IDLE`) from rearm + cooloff-state context
 - [x] Prototype split escalation auto-rearm nudge rationale token (`WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE WHY:<short>`) behind flag for compact operator coaching
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AN)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AN)
 - [x] Add split escalation nudge impact-band token (`WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE IMPACT:DEFENSIVE|CAUTIOUS|NEUTRAL`) from nudge + window + fit signals
 - [x] Add nudge drift token (`WHAT-IF SPLIT ESC RECOVER VETO REARM NUDGE DRIFT:STABLE|SHIFTING`) from current/prior nudge rationale changes
 - [x] Prototype dual-lane coach snapshot (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH:<primary>|<backup>`) behind flag for contingency readability
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AO)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AO)
 - [x] Add dual-lane coach confidence token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH CONF:LOW|MID|HIGH`) for contingency snapshot trust weighting
 - [x] Add dual-lane coach posture token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH MODE:PRIMARY|BALANCED|BACKUP`) from coach lane selection mix
 - [x] Prototype coach fallback reason token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH WHY:<short>`) behind flag for operator context
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AP)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AP)
 - [x] Add dual-lane coach handoff token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF:LOCKED|FLEX|NONE`) for at-a-glance routing readiness
 - [x] Add coach handoff pressure-fit token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF FIT:SAFE|EVEN|TENSE`) from handoff + pressure context
 - [x] Prototype coach handoff rationale token (`WHAT-IF SPLIT ESC RECOVER VETO REARM COACH HANDOFF WHY:<short>`) behind flag for compact operator coaching
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AQ)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AQ)
 - [x] Add portal transition FX cue token (`FX:CALM|FLICKER|SURGE`, compact `FX:C|F|S`) from route pressure score for player-facing jump readability *(forced lane rebalance: vfx/world + systems)*
 - [x] Add combat hit-rhythm warning pulse token (`BERSERK FX:PULSE`) when `THREAT Δ:+` persists for 2+ turns (combat/vfx readability follow-up)
 - [x] Prototype route-tag ASCII vignette in portal prompt (`ROUTE VIGNETTE:<glyph>`) behind flag for stronger world-choice fantasy
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AR)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AR)
 - [x] Add route-vibe coaching token in portal prompt (`ROUTE VIBE:CALM|EDGE|DOOM`, compact `VIBE:C|E|D`) for faster emotional read on jump choice
 - [x] Add route-vibe drift telemetry snapshot (count by vibe per weekly digest window) for readability tuning cadence
 - [x] Prototype route-vibe conflict warning (`VIBE CONFLICT:ON`) behind flag when route tag and threat tier imply opposing pacing cues
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AS)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AS)
 - [x] Add route-vibe conflict rationale token (`VIBE WHY:<vibe>vs<tier>`, compact `VCWHY:<vibe>/<tier>`) behind flag for faster operator triage *(lifecycle: [~] -> [x])*
 - [x] Prototype conflict-aware coach override token (`COACH OVERRIDE:DE-ESCALATE`) behind flag when `VIBE CONFLICT:ON` and adaptive ALT exists *(lifecycle: [~] -> [x])*
 - [x] Prototype vibe-consistency reward hint (`VIBE SYNC:+1`) behind flag when route vibe aligns with threat tier for 3 consecutive transitions
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AT)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AT)
 - [x] Add vibe-sync streak progress token in portal prompt (`VIBE CHAIN:<n>/3`, compact `VSC:<n>/3`) behind flag for pre-reward readability
 - [x] Prototype sync-threshold dodge charge handoff (`VIBE SYNC DODGE:+1`) behind flag when `VIBE SYNC:+1` triggers
 - [x] Prototype route-vibe snapback warning (`VIBE SNAPBACK:ON`) behind flag on immediate post-sync misalignment
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AU)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AU)
 - [x] Add post-snapback recovery cue token (`VIBE RECOVER:READY`, compact `VR:OK`) behind flag on first re-aligned transition
 - [x] Add route-vibe resilience streak token (`VIBE RESILIENCE:<n>`) behind flag for consecutive recoveries after snapback
 - [x] Prototype route-vibe drift alarm token (`VIBE DRIFT:WIDE`) behind flag when conflict + snapback co-occur in short window
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AV)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AV)
 - [x] Add berserker cooldown relief token (`BERSERK FX:FADE`) when pulse streak breaks after sustained rise (combat/vfx cadence guard)
 - [x] Add lane-coverage watchdog token in weekly digest (`LANE CADENCE:OK|GAP`) to flag missing combat-vfx/design-world/systems-ops buckets over trailing 24h (systems/ops)
 - [x] Prototype route-vibe drift alarm token (`VIBE DRIFT:WIDE`) with escalating glyph cue (`DRIFT GLYPH:<...>`) behind flag for world/design readability
 
-## Next Up (Game Director Injection — 2026-03-22 Cycle AW)
+## Next Up (Game Director Injection - 2026-03-22 Cycle AW)
 - [x] Add digest action-pace token (`ACTION PACE:ACCEL|STEADY|BRAKE`) from `ACTION GUARD + ACTION STABILITY + PRESSURE LAG` for quicker route-operation cadence triage *(lifecycle: [~] -> [x])*
 - [x] Add digest pace-drift token (`PACE DRIFT:+n|-n`) by comparing current/prior `ACTION PACE` windows
 - [x] Prototype flagged pace coach rationale token (`ACTION PACE WHY:<short>`) for compact operator context *(lifecycle: [ ] -> [~] -> [x])*
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle AX)
+## Next Up (Game Director Injection - 2026-03-23 Cycle AX)
 - [x] Add digest pace-window token (`ACTION PACE WINDOW:OPEN|HOLD|CLOSE`) from `ACTION PACE + PACE DRIFT + ACTION GUARD` for operator go/no-go timing
 - [x] Add digest pace-window confidence token (`ACTION PACE WINDOW CONF:LOW|MID|HIGH`) from window stability + drift continuity
 - [x] Prototype flagged pace-window fallback token (`ACTION PACE ALT WINDOW:<short>`) when primary pace window is `CLOSE` but sandbox lane is `ON`
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle AY)
+## Next Up (Game Director Injection - 2026-03-23 Cycle AY)
 - [x] Add flagged pace-window fallback confidence token (`ACTION PACE ALT WINDOW CONF:LOW|MID|HIGH`) from fallback readiness + sandbox target quality
 - [x] Add flagged fallback fit token (`ACTION PACE ALT WINDOW FIT:SAFE|EVEN|TENSE`) for pressure-aware alternate pacing guidance
 - [x] Prototype fallback rationale micro-token (`ACTION PACE ALT WINDOW WHY:<short>`) for operator handoff clarity
 
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle AZ)
+## Next Up (Game Director Injection - 2026-03-23 Cycle AZ)
 - [x] UX/Systems Team: Prototype fallback urgency token (`ACTION PACE ALT WINDOW URGENCY:NOW|SOON|LATER`) from fallback window + fit/confidence for quicker operator handoff
 - [x] QA/Systems Team: Add fallback urgency drift token (`ACTION PACE ALT WINDOW URGENCY Δ:+n|-n`) comparing current/prior urgency band
 - [x] Design/AI Content Team: Prototype compact fallback step token (`ACTION PACE ALT WINDOW STEP:<verb>`) for one-action operator nudges
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle BA)
+## Next Up (Game Director Injection - 2026-03-23 Cycle BA)
 - [x] Design/UX Team: Add compact fallback step glyph token (`ACTION PACE ALT WINDOW STEP GLYPH:<sigil>`) behind flag for DOS-width scanability
 - [x] Systems/QA Team: Prototype fallback step drift token (`ACTION PACE ALT WINDOW STEP Δ:<n>`) against prior digest snapshot
 - [x] Combat/VFX Team: Prototype fallback cadence pulse token (`ACTION PACE ALT WINDOW PULSE:COOL|LIVE|HOT`) for pressure readability
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle BB)
+## Next Up (Game Director Injection - 2026-03-23 Cycle BB)
 - [x] Combat/VFX Team: Ship fallback cadence pulse token (`ACTION PACE ALT WINDOW PULSE:COOL|LIVE|HOT`) with flag + digest schema + markdown wiring
 - [x] Systems/QA Team: Add pulse drift token (`ACTION PACE ALT WINDOW PULSE Δ:+n|-n`) comparing current/prior pulse bands
 - [x] Design/World Team: Prototype pulse-aware portal handoff cue (`ROUTE PULSE LINK:SOFT|SHARP`) behind flag for cross-surface readability
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle BC)
+## Next Up (Game Director Injection - 2026-03-23 Cycle BC)
 - [x] Design/World Team: Add pulse-aware portal handoff confidence token (`ROUTE PULSE LINK CONF:LOW|MID|HIGH`) for operator trust readability
 - [x] UX/World Team: Prototype compact portal prompt pulse cue (`PULSE LINK:S|H`) behind flag for in-run route cadence readability
 - [x] Systems/QA Team: Prototype pulse-link drift streak token (`ROUTE PULSE LINK STREAK:<n>`) in weekly digest for persistence triage
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle BD)
+## Next Up (Game Director Injection - 2026-03-23 Cycle BD)
 - [x] UX/Systems Team: Add route pulse-link mode token (`ROUTE PULSE LINK MODE:IDLE|SUSTAIN|SURGE`) from link + streak + pulse drift for faster cadence triage
 - [x] Systems/QA Team: Add route pulse-link mode drift token (`ROUTE PULSE LINK MODE Δ:+n|-n`) versus prior digest window
 - [x] Design/World Team: Prototype compact portal mode cue (`PULSE MODE:I|S|X`) behind flag for in-run route readability parity
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle BE)
+## Next Up (Game Director Injection - 2026-03-23 Cycle BE)
 - [x] UX/Systems Team: Add route pulse-link mode rationale micro-token (`ROUTE PULSE LINK MODE WHY:<short>`) behind flag for compact triage context
 - [x] Systems/QA Team: Add route pulse-link mode stability streak token (`ROUTE PULSE LINK MODE STREAK:<n>`) across digest windows
 - [x] Design/World Team: Prototype detailed portal pulse mode cue (`ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE`) behind flag for full-prompt parity
-## Next Up (Game Director Injection — 2026-03-23 Cycle BF)
+## Next Up (Game Director Injection - 2026-03-23 Cycle BF)
 - [x] UX/Systems Team: Add route pulse-link mode fit token (`ROUTE PULSE LINK MODE FIT:SYNC|WATCH|BREAK|RESET`) for handoff stability triage *(lifecycle: [~] -> [x])*
 - [x] QA/Systems Team: Add route pulse-link mode fit drift token (`ROUTE PULSE LINK MODE FIT Δ:+n|-n`) against prior digest window
 - [x] Design/World Team: Prototype compact portal pulse fit cue (`PULSE FIT:Y|W|B|R`) behind flag for in-run readability parity
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle BG)
+## Next Up (Game Director Injection - 2026-03-23 Cycle BG)
 - [x] Design/World Team: Prototype compact portal pulse-fit cue (`PULSE FIT:Y|W|B|R`) behind flag for in-run readability parity
 - [x] Combat/VFX Team: Prototype compact pulse-flare warning token (`PULSE FLARE:+`) when `PULSE MODE:X` and fit downgrades (`B|R`) *(lifecycle: [~] -> [x])*
 - [x] Systems/UX Team: Prototype compact prompt token-priority mode (`FIT-FIRST|MODE-FIRST`) behind flag under strict DOS width budget
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle BH)
+## Next Up (Game Director Injection - 2026-03-23 Cycle BH)
 - [x] UX/Systems Team: Prototype compact pulse-priority cue token (`PRI:F|M`) tied to token-priority mode so operators can instantly read active ordering
 - [x] QA/Systems Team: Add weekly digest token for compact pulse-priority mode usage (`ROUTE PULSE TOKEN PRIORITY:FIT-FIRST|MODE-FIRST|OFF`) with drift guard
 - [x] Design/World Team: Prototype portal fallback micro-cue (`ALT STEP:<SAFE|BAIT|PUSH>`) behind flag for faster branch intent scan
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle BI)
+## Next Up (Game Director Injection - 2026-03-23 Cycle BI)
 - [x] UX/World Team: Prototype fallback micro-cue confidence token (`ALT STEP CONF:LOW|MID|HIGH`) behind flag for branch-intent trust readability
 - [x] Systems/QA Team: Add fallback micro-cue confidence drift token (`ALT STEP CONF Δ:+n|-n`) to weekly digest for stability triage
 - [x] Design/AI Content Team: Prototype compact fallback intent rationale token (`ALT STEP WHY:<short>`) behind flag for operator context
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle BJ)
+## Next Up (Game Director Injection - 2026-03-23 Cycle BJ)
 - [x] UX/AI Content Team: Prototype fallback rationale confidence token (`ALT STEP WHY CONF:LOW|MID|HIGH`) behind flag for trust readability
 - [x] Systems/QA Team: Add fallback rationale confidence drift token (`ALT STEP WHY CONF Δ:+n|-n`) in weekly digest for stability triage
 - [x] Design/World Team: Prototype compact rationale glyph token (`ALT WHY GLYPH:<sigil>`) behind flag for DOS-width scanability
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle BK)
+## Next Up (Game Director Injection - 2026-03-23 Cycle BK)
 - [x] UX/World Team: Prototype compact rationale glyph alias token (`AWG:<sigil>`) behind flag for stricter DOS-width prompt scanability
 - [x] Systems/QA Team: Add compact rationale glyph drift token (`ALT WHY GLYPH Δ:+n|-n`) in weekly digest for stability triage
 - [x] Design/AI Content Team: Prototype glyph rationale cadence token (`ALT WHY GLYPH MODE:STEADY|SPIKE`) behind flag for operator readability
@@ -571,12 +571,17 @@ See project-level plans:
 - [x] Design/AI Content Team: Prototype compact prompt alias for glyph mode token (`AWGM:<S|K>`) behind flag
 - [x] Systems/QA Team: Add digest confidence token for glyph-mode drift (`ALT WHY GLYPH MODE CONF:LOW|MID|HIGH`)
 
-## Next Up (Game Director Injection — 2026-03-23 Cycle BM)
+## Next Up (Game Director Injection - 2026-03-23 Cycle BM)
 - [x] Systems/QA Team: Add glyph-mode confidence drift token (`ALT WHY GLYPH MODE CONF Δ:+n|-n`) to weekly digest for confidence stability triage
 - [x] UX/World Team: Prototype compact confidence alias token (`AWGMC:<L|M|H>`) behind flag for prompt-width budget
 - [x] Design/AI Content Team: Prototype glyph-mode confidence rationale micro-token (`ALT WHY GLYPH MODE CONF WHY:<short>`) behind flag
 
 ## Next Up (Game Director Injection — 2026-03-23 Cycle BN, forced-lane rebalance)
 - [x] Combat/VFX Team: Add berserker cooldown intensity tier token to status feed (`BERSERK FX:FADE(SOFT|HARD)`) using threat-drop severity for clearer post-spike readability
-- [x] Design/World Team: Prototype portal cooloff vibe trail token (`VIBE TRAIL:CALM|ASH`) behind flag after berserk fade events to reinforce recovery fantasy *(lifecycle: [~] -> [x])*
+- [x] Design/World Team: Prototype portal cooloff vibe trail token (`VIBE TRAIL:CALM|ASH`) behind flag after berserk fade events to reinforce recovery fantasy *(lifecycle: [~] -> [x])* 
 - [x] Systems/Ops Team: Add weekly cadence watchdog detail row (`LANE GAP DETAIL`) with combat/vfx last-touch age so forced-lane triggers become auditable
+
+## Next Up (Game Director Injection — 2026-03-23 Cycle BO)
+- [x] UX/World Team: Prototype portal vibe-trail confidence token (`VIBE TRAIL CONF:LOW|MID|HIGH`, compact `VTC:<L|M|H>`) behind flag for post-fade handoff trust readability *(lifecycle: [ ] -> [~] -> [x])*
+- [ ] Systems/QA Team: Add weekly digest token family coverage for vibe-trail confidence token churn (`VIBE TRAIL CONF`) for drift triage
+- [ ] Design/AI Content Team: Prototype compact vibe-trail rationale token (`VIBE TRAIL WHY:<short>`) behind flag for operator context
