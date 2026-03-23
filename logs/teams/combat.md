@@ -1208,3 +1208,10 @@
 - Verification performed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ([PASS])
 - Decision notes: Added `routeGlowConfidenceAlias` family coverage and markdown triage rows so weekly digest audits route-afterglow confidence churn explicitly.
 - Risks / Follow-ups: Remaining Cycle BU unchecked item is Combat/VFX `ROUTE GLOW FX:SOFT|SHARP|SURGE` prototype.
+
+## 2026-03-24 00:34 KST — Pulse-overdrive readability cue
+- Added combat-adjacent portal cue `ROUTE GLOW FX:SOFT|SHARP|SURGE` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX`.
+- `SURGE` now fires when `PULSE HEAT:HOT`, improving escalation readability before jump choice.
+
+## 2026-03-24 00:37 KST — Cycle BV combat/vfx hypothesis
+- Kept overdrive semantics stable (`SURGE` at HOT) while reducing prompt width via alias token for faster high-pressure read.

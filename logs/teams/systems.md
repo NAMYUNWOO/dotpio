@@ -1927,3 +1927,11 @@
 - Verification performed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ([PASS])
 - Decision notes: Added `routeGlowConfidenceAlias` family coverage and markdown triage rows so weekly digest audits route-afterglow confidence churn explicitly.
 - Risks / Follow-ups: Remaining Cycle BU unchecked item is Combat/VFX `ROUTE GLOW FX:SOFT|SHARP|SURGE` prototype.
+
+## 2026-03-24 00:34 KST — Route glow pulse-overdrive wiring
+- Added compact prompt resolver path for `ROUTE GLOW FX` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX`.
+- Deterministic mapping: `HOT -> SURGE`, otherwise mirrors route glow baseline (`SOFT|SHARP`).
+- Follow-up: monitor token-budget drift in weekly digest before default-enable.
+
+## 2026-03-24 00:37 KST — Cycle BV backlog injection
+- Injected follow-up tasks for route-glow FX digest churn tracking and confidence token exploration after shipping compact alias slice.

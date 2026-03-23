@@ -1311,3 +1311,10 @@
 - Verification performed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ([PASS])
 - Decision notes: Added `routeGlowConfidenceAlias` family coverage and markdown triage rows so weekly digest audits route-afterglow confidence churn explicitly.
 - Risks / Follow-ups: Remaining Cycle BU unchecked item is Combat/VFX `ROUTE GLOW FX:SOFT|SHARP|SURGE` prototype.
+
+## 2026-03-24 00:34 KST — Route fantasy polish
+- Extended route-afterglow language with FX layer so visual fantasy escalates from base glow (`SOFT/SHARP`) to overdrive (`SURGE`) under high pulse heat.
+- Preserved compact DOS token style and existing label consistency.
+
+## 2026-03-24 00:37 KST — Cycle BV prompt readability
+- Preserved meaning parity between `ROUTE GLOW FX` and compact alias `RGFX` to maintain DOS scan consistency.

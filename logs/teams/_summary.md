@@ -2245,3 +2245,23 @@ Compact decision memory for AI context efficiency.
 - Deterministic confidence mapping is arc-driven (`RECOVER->MID`, `SCAR->HIGH`, `MIXED->LOW`) and does not alter gameplay systems.
 - Regression updated: `scripts/regression_portal_route_glow.lua` now asserts glow-confidence emission; route-glow + vibe-trail regressions pass.
 - Cycle BU backlog injected in `TASKS.md` + `POST_RC_BACKLOG.md`; selected item closed and two follow-ups queued.
+
+## 2026-03-24 00:34 KST — Cycle BU route-glow pulse-overdrive slice shipped
+- Closed remaining unchecked backlog item by shipping compact portal token `ROUTE GLOW FX:SOFT|SHARP|SURGE` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX`.
+- Implementation detail: token is emitted only when `ROUTE GLOW` exists; HOT pulse-heat upgrades FX to `SURGE`, otherwise FX mirrors baseline glow (`SOFT|SHARP`).
+- Added regression: `scripts/regression_portal_route_glow_fx.lua` (LOW/MED/HIGH paths + HOT overdrive assertion).
+- Verification reruns: `regression_portal_route_glow.lua`, `regression_portal_pulse_heat_fx.lua` both pass.
+- Durable decision: keep route-glow FX flag-gated until weekly digest/token-budget trend confirms stable prompt readability headroom.
+
+## 2026-03-24 00:37 KST — Game Director Cycle BV (post-queue immediate cycle)
+- Trigger reason: ACTION_ITEMS + TASKS + POST_RC_BACKLOG actionable items were fully checked, so immediate Game Director review cycle executed.
+- Candidate ideas:
+  1) Low-risk UX/world: compact alias token for route-glow FX (`RGFX`) to save prompt width.
+  2) Mid-risk systems/qa: weekly digest token-family churn coverage for route-glow FX labels.
+  3) High-risk combat/vfx: route-glow FX confidence token family for overdrive trust readability.
+- Selected experiment: Idea #1 (low-risk) for minimal vertical slice.
+- Shipped: `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_COMPACT` toggles compact token label from `ROUTE GLOW FX` to `RGFX` in compact portal prompt.
+- Verification:
+  - `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_ARC=1 DOTPIO_EXPERIMENT_ROUTE_GLOW=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX=1 DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 lua scripts/regression_portal_route_glow_fx.lua`
+  - `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_ARC=1 DOTPIO_EXPERIMENT_ROUTE_GLOW=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_COMPACT=1 DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 lua scripts/regression_portal_route_glow_fx_compact_alias.lua`
+- Backlog injection: added Cycle BV tasks in `TASKS.md` + `POST_RC_BACKLOG.md` (selected item done, two follow-ups queued).

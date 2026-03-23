@@ -2430,3 +2430,10 @@
 - Verification performed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ([PASS])
 - Decision notes: Added `routeGlowConfidenceAlias` family coverage and markdown triage rows so weekly digest audits route-afterglow confidence churn explicitly.
 - Risks / Follow-ups: Remaining Cycle BU unchecked item is Combat/VFX `ROUTE GLOW FX:SOFT|SHARP|SURGE` prototype.
+
+## 2026-03-24 00:34 KST — Regression coverage: route glow FX
+- Added `scripts/regression_portal_route_glow_fx.lua` covering LOW/MED/HIGH pressure cases and hot overdrive assertion (`SURGE`).
+- Re-ran related guards: `regression_portal_route_glow.lua`, `regression_portal_pulse_heat_fx.lua` (all PASS).
+
+## 2026-03-24 00:37 KST — Cycle BV regression evidence
+- Added `scripts/regression_portal_route_glow_fx_compact_alias.lua` and validated alias emission/non-emission behavior.

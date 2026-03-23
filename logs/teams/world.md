@@ -1282,3 +1282,10 @@
 - Verification performed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ([PASS])
 - Decision notes: Added `routeGlowConfidenceAlias` family coverage and markdown triage rows so weekly digest audits route-afterglow confidence churn explicitly.
 - Risks / Follow-ups: Remaining Cycle BU unchecked item is Combat/VFX `ROUTE GLOW FX:SOFT|SHARP|SURGE` prototype.
+
+## 2026-03-24 00:34 KST — Portal readability follow-up (route glow FX)
+- Portal compact prompt now supports overdrive route-afterglow signaling (`ROUTE GLOW FX`) when pulse heat spikes.
+- Kept behavior flag-gated and non-mechanical (presentation-only).
+
+## 2026-03-24 00:37 KST — Cycle BV selected experiment
+- Selected low-risk UX/world slice: compact route-glow FX alias token `RGFX` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_COMPACT`.

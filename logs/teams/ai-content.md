@@ -1237,3 +1237,9 @@
 - Verification performed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ([PASS])
 - Decision notes: Added `routeGlowConfidenceAlias` family coverage and markdown triage rows so weekly digest audits route-afterglow confidence churn explicitly.
 - Risks / Follow-ups: Remaining Cycle BU unchecked item is Combat/VFX `ROUTE GLOW FX:SOFT|SHARP|SURGE` prototype.
+
+## 2026-03-24 00:34 KST — No AI content generation rule change
+- This slice touched portal prompt readability tokens only; no AI generation constraints or prompt safety logic changed.
+
+## 2026-03-24 00:37 KST — Cycle BV ideation lane note
+- Game Director ideas reviewed; no AI-content generation mechanic changed in selected alias slice.

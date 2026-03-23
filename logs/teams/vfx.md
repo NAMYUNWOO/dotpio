@@ -69,3 +69,10 @@
 - Shipped compact pressure-fantasy cue `PULSE HEAT FX:CALM|SPARK|BLAZE` behind `DOTPIO_EXPERIMENT_PULSE_HEAT_FX`.
 - Scope remains readability-only; no combat stats, AI cadence, economy, or routing logic changed.
 - Verification: `DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 DOTPIO_EXPERIMENT_PULSE_HEAT_FX=1 lua scripts/regression_portal_pulse_heat_fx.lua` PASS.
+
+## 2026-03-24 00:34 KST — Route glow FX token prototype
+- Added prompt-level VFX cue token `ROUTE GLOW FX` mapped to pulse-heat pressure state.
+- Mapping: calm/warm retain tonal FX (`SOFT/SHARP`), hot elevates to `SURGE` for overdrive readability.
+
+## 2026-03-24 00:37 KST — Cycle BV FX token compact mode
+- Route glow FX token now supports compact alias for prompt-budget preservation without changing FX tier mapping.

@@ -1508,3 +1508,10 @@
 - Verification performed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ([PASS])
 - Decision notes: Added `routeGlowConfidenceAlias` family coverage and markdown triage rows so weekly digest audits route-afterglow confidence churn explicitly.
 - Risks / Follow-ups: Remaining Cycle BU unchecked item is Combat/VFX `ROUTE GLOW FX:SOFT|SHARP|SURGE` prototype.
+
+## 2026-03-24 00:34 KST — Compact prompt scanability update
+- Inserted `ROUTE GLOW FX` directly after `ROUTE GLOW/CONF` to preserve token adjacency and quick scan order.
+- Verified compact prompt still emits required pulse + glow tokens under width pressure regression cases.
+
+## 2026-03-24 00:37 KST — Cycle BV compact alias shipped
+- Added compact alias mode: `RGFX:<SOFT|SHARP|SURGE>` replaces long `ROUTE GLOW FX` label when alias flag enabled.
