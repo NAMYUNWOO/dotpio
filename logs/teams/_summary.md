@@ -2022,3 +2022,16 @@ Compact decision memory for AI context efficiency.
 - Added JSON payload fields: `routePulseTokenPriority`, `routePulseTokenPrioritySignals`.
 - Regression coverage updated in `scripts/regression_weekly_portal_prompt_readability_drift.py` (payload schema + markdown line assertions).
 - Remaining highest-priority unchecked backlog item: `ALT STEP:<SAFE|BAIT|PUSH>` portal fallback micro-cue prototype.
+
+## 2026-03-23 11:31 KST — Cycle BH completion (Design/World)
+- Shipped flagged portal fallback micro-cue: `ALT STEP:<SAFE|BAIT|PUSH>` (`DOTPIO_EXPERIMENT_ALT_STEP_CUE`) in both detailed and compact transition prompts.
+- Added resolver semantics to classify fallback intent from pressure/alt-route context (SAFE=strong de-escalation, BAIT=high-pressure soft fallback, PUSH=limited relief fallback).
+- Added regression: `scripts/regression_portal_alt_step_cue.lua` and kept ALT token observability in weekly digest by adding `ALT STEP:` token family coverage.
+- Verification passes: `regression_portal_alt_step_cue`, `regression_portal_alt_plan_nudge`, `regression_weekly_portal_prompt_readability_drift`.
+
+## 2026-03-23 11:31 KST — Game Director Cycle BI (executed)
+- Coverage-driven ideation generated 3 ideas (UX trust token, systems drift token, AI/design rationale token) and selected UX trust token as minimal vertical slice.
+- Shipped flagged portal trust micro-cue: `ALT STEP CONF:LOW|MID|HIGH` (`DOTPIO_EXPERIMENT_ALT_STEP_CONF`) paired with `ALT STEP` in detailed+compact prompts.
+- Added confidence resolver and weekly digest token observability (`ALT STEP CONF:` in token groups/families).
+- New regression: `scripts/regression_portal_alt_step_confidence.lua`; verification suite passes.
+- Backlog injected (Cycle BI): remaining tasks are confidence drift token + compact rationale token.

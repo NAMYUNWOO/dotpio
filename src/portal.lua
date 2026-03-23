@@ -206,8 +206,58 @@ local function resolveAdaptiveAltPressureDelta(routeTag, altRouteTag, threatTier
     return delta
 end
 
+local function resolveAltStepCue(pressureScore, altRouteTag, altDelta)
+    if not altRouteTag then
+        return nil
+    end
+    if altRouteTag == "SAFE" or (altDelta and altDelta <= -2) then
+        return "SAFE"
+    end
+    if altRouteTag == "RISK" then
+        if pressureScore >= 5 then
+            return "BAIT"
+        end
+        return "PUSH"
+    end
+    return "PUSH"
+end
+
+local function resolveAltStepConfidence(pressureScore, altStepCue, altDelta)
+    if not altStepCue then
+        return nil
+    end
+    if altStepCue == "SAFE" then
+        if altDelta and altDelta <= -2 then
+            return "HIGH"
+        end
+        return pressureScore >= 5 and "MID" or "HIGH"
+    end
+    if altStepCue == "BAIT" then
+        return pressureScore >= 5 and "MID" or "LOW"
+    end
+    return "LOW"
+end
+
 local function isAltPlanExperimentEnabled()
     local raw = os.getenv("DOTPIO_EXPERIMENT_ALT_PLAN_NUDGE")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
+local function isAltStepMicroCueExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ALT_STEP_CUE")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
+local function isAltStepConfidenceExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ALT_STEP_CONF")
     if not raw then
         return false
     end
@@ -543,7 +593,7 @@ local function resolveRouteVignetteGlyph(routeTag)
     return "???"
 end
 
-local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph, routePulseMode)
+local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph, routePulseMode)
     local fxCue = resolvePortalFxCue(pressureScore)
     local routeVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s  ROUTE VIBE:%s", routeTag, coach, pressureScore, fxCue, routeVibe)
@@ -557,6 +607,12 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
         end
         if altPlanNudge then
             prompt = string.format("%s  ALT PLAN:LOWER RISK", prompt)
+        end
+        if altStepCue then
+            prompt = string.format("%s  ALT STEP:%s", prompt, altStepCue)
+            if altStepConfidence then
+                prompt = string.format("%s  ALT STEP CONF:%s", prompt, altStepConfidence)
+            end
         end
     end
     if routeVignette then
@@ -595,7 +651,7 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, maxChars)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, maxChars)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
@@ -643,6 +699,12 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
         end
         if altPlanNudge then
             prompt = string.format("%s  AP:LOW", prompt)
+        end
+        if altStepCue then
+            prompt = string.format("%s  ALT STEP:%s", prompt, altStepCue)
+            if altStepConfidence then
+                prompt = string.format("%s  ALT STEP CONF:%s", prompt, altStepConfidence)
+            end
         end
     end
     if routeVignette then
@@ -692,6 +754,14 @@ function Portal.getTransitionPrompt(maxChars, context)
     local altRouteTag = resolveAdaptiveAltRoute(routeTag, pressureScore, threatTier, pendingTransition.reachableTargetMaps)
     local altDelta = resolveAdaptiveAltPressureDelta(routeTag, altRouteTag, threatTier)
     local altPlanNudge = isAltPlanExperimentEnabled() and altRouteTag ~= nil
+    local altStepCue = nil
+    if isAltStepMicroCueExperimentEnabled() then
+        altStepCue = resolveAltStepCue(pressureScore, altRouteTag, altDelta)
+    end
+    local altStepConfidence = nil
+    if isAltStepConfidenceExperimentEnabled() then
+        altStepConfidence = resolveAltStepConfidence(pressureScore, altStepCue, altDelta)
+    end
     local routeVignette = nil
     if isRouteVignetteExperimentEnabled() then
         routeVignette = resolveRouteVignetteGlyph(routeTag)
@@ -709,6 +779,12 @@ function Portal.getTransitionPrompt(maxChars, context)
         altRouteTag = resolveAdaptiveAltRoute(routeTag, 4, threatTier, pendingTransition.reachableTargetMaps)
         altDelta = resolveAdaptiveAltPressureDelta(routeTag, altRouteTag, threatTier)
         altPlanNudge = isAltPlanExperimentEnabled() and altRouteTag ~= nil
+        if isAltStepMicroCueExperimentEnabled() then
+            altStepCue = resolveAltStepCue(pressureScore, altRouteTag, altDelta)
+        end
+        if isAltStepConfidenceExperimentEnabled() then
+            altStepConfidence = resolveAltStepConfidence(pressureScore, altStepCue, altDelta)
+        end
     end
     local routeVibeAligned = isRouteVibeThreatAligned(routeTag, threatTier)
     pendingTransition.routeVibeAligned = routeVibeAligned
@@ -738,7 +814,7 @@ function Portal.getTransitionPrompt(maxChars, context)
     if isRoutePulseModeCompactPromptExperimentEnabled() then
         routePulseMode = resolveRoutePulseMode(pressureScore, altRouteTag)
     end
-    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph, routePulseMode)
+    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph, routePulseMode)
     local budget = tonumber(maxChars) or 76
     if budget > 0 and #prompt > budget then
         local compactPulseLink = nil
@@ -757,7 +833,7 @@ function Portal.getTransitionPrompt(maxChars, context)
         if isRoutePulseFlareCompactPromptExperimentEnabled() then
             compactPulseFlare = resolveCompactPulseFlare(compactPulseMode, compactPulseFit)
         end
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, budget)
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, budget)
     end
     return prompt
 end

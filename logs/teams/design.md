@@ -1158,3 +1158,15 @@
 ## 2026-03-23 11:12 KST — Routing handoff semantics
 - Confirmed token naming uses stable triad (`FIT-FIRST|MODE-FIRST|OFF`) to match portal prompt priority semantics.
 - No prompt-copy changes this slice; digest-only addition.
+
+## 2026-03-23 11:31 KST — Cycle BH portal fallback micro-cue prototype
+- Decision: Add flagged portal fallback intent token `ALT STEP:<SAFE|BAIT|PUSH>` for faster branch-intent scan when adaptive fallback exists.
+- Rationale: Preserve existing route/alt context while adding one-glance intent semantics.
+- Follow-up: Validate readability in compact prompts under strict width settings.
+
+## 2026-03-23 11:31 KST — Game Director Cycle BI ideation + pick
+- Candidate ideas generated:
+  1) Low-risk UX: `ALT STEP CONF` trust token in portal fallback prompts.
+  2) Mid-risk systems/QA: digest drift token `ALT STEP CONF Δ` for confidence stability.
+  3) High-risk novelty: `ALT STEP WHY:<short>` micro-rationale for adaptive branch coaching.
+- Selected experiment: idea #1 (minimal vertical slice, high readability leverage, reversible via flag).

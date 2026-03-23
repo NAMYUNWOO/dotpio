@@ -1378,3 +1378,13 @@
 ## 2026-03-23 11:12 KST — Digest readability update
 - Added operator-facing markdown line `ROUTE PULSE TOKEN PRIORITY` with guard/status context (`configured`, `prior`, `guard`).
 - Outcome: compact pulse-ordering state is now glanceable in weekly digest.
+
+## 2026-03-23 11:31 KST — Prompt readability micro-cue pass
+- Added explicit `ALT STEP` token in compact portal prompt path for branch intent scanning parity.
+- Kept token behind experiment flag to avoid default copy contract churn.
+- Follow-up: evaluate whether compact alias should be introduced if budget regressions appear.
+
+## 2026-03-23 11:31 KST — Cycle BI fallback confidence cue slice
+- Implemented flagged trust token `ALT STEP CONF:LOW|MID|HIGH` in detailed/compact portal prompts.
+- Confidence maps from fallback-intent + pressure context (`SAFE` strong, `BAIT` pressure-weighted, `PUSH` low trust).
+- Follow-up: tune confidence band thresholds after digest drift review.

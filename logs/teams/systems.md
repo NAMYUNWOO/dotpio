@@ -1755,3 +1755,12 @@
 - Decision: Weekly digest now persists `routePulseTokenPriority` and applies guard-hold when mode flips without supporting `routePulseLinkModeFitDrift` movement.
 - Rationale: reduce operator whiplash from env-mode toggles during steady fit windows.
 - Follow-up: evaluate whether guard threshold should require multi-window confirmation.
+
+## 2026-03-23 11:31 KST — Experiment flag + cue resolver
+- Added `DOTPIO_EXPERIMENT_ALT_STEP_CUE` gate and `resolveAltStepCue` resolver in portal routing flow.
+- Extended weekly drift token catalog/family to include `ALT STEP:` for digest visibility.
+- Follow-up: monitor lane-focus skew after ALT-family token growth.
+
+## 2026-03-23 11:31 KST — ALT STEP confidence resolver
+- Added `DOTPIO_EXPERIMENT_ALT_STEP_CONF` gate + `resolveAltStepConfidence` helper in portal flow.
+- Updated weekly readability drift token catalogs/families with `ALT STEP CONF:`.

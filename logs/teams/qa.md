@@ -2246,3 +2246,12 @@
 - Completed: Added weekly digest token `ROUTE PULSE TOKEN PRIORITY:FIT-FIRST|MODE-FIRST|OFF` with prior-window drift guard.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: keep monitoring token flip frequency once `ALT STEP` lane lands.
+
+## 2026-03-23 11:31 KST — Regression coverage for ALT STEP micro-cue
+- Added `scripts/regression_portal_alt_step_cue.lua` covering detailed + compact token emission.
+- Verification: new regression pass + existing ALT PLAN regression pass + weekly portal drift regression pass.
+- Follow-up: add SAFE/PUSH fixture variants if mapping thresholds change.
+
+## 2026-03-23 11:31 KST — ALT STEP confidence regression
+- Added `scripts/regression_portal_alt_step_confidence.lua` for detailed/compact emission checks.
+- Verified passes with cue + confidence flags and weekly drift regression suite.

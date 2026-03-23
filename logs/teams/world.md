@@ -1156,3 +1156,12 @@
 ## 2026-03-23 11:12 KST — Lane checkpoint
 - No world/map geometry changes in this slice.
 - Dependency: pending `ALT STEP:<SAFE|BAIT|PUSH>` portal micro-cue task remains next world/design item.
+
+## 2026-03-23 11:31 KST — Portal prompt fallback-intent wiring
+- Implemented fallback micro-cue emission in detailed/compact portal prompts when `DOTPIO_EXPERIMENT_ALT_STEP_CUE` is enabled.
+- Mapping shipped: SAFE (strong de-escalation), BAIT (high-pressure soft fallback), PUSH (limited relief fallback).
+- Follow-up: tune cue thresholds with live playtest pressure bands.
+
+## 2026-03-23 11:31 KST — Branch-intent trust readability
+- Portal fallback intent now ships paired trust cue (`ALT STEP` + `ALT STEP CONF`) when experiment flags enabled.
+- Keeps branch scan actionable under high-pressure route choice moments.

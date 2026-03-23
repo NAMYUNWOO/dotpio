@@ -1083,3 +1083,10 @@
 ## 2026-03-23 11:12 KST — Lane checkpoint
 - No combat balance or behavior changes in this slice.
 - Pulse-priority telemetry remains available for future combat readability correlation.
+
+## 2026-03-23 11:31 KST — Lane note (no combat tuning change)
+- No combat behavior/tuning edits this cycle.
+- Noted fallback `ALT STEP` cue can support pressure-state coaching in future combat-facing portal choices.
+
+## 2026-03-23 11:31 KST — Lane observation
+- No combat code changes; fallback confidence cue can later sync with threat coaching cadence.
