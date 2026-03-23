@@ -1962,3 +1962,9 @@
 - Implemented compact alias token `RGC:<LOW|MID|HIGH>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_CONF_COMPACT`.
 - Default compact token remains `ROUTE GLOW CONF:<LOW|MID|HIGH>` when alias flag is disabled.
 - Verification evidence: `luac -p src/portal.lua`, `lua scripts/regression_portal_route_glow_conf_compact_alias.lua` (with required flags), `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-24 03:06 KST — Cycle BW/BX route-glow confidence rationale
+- Completed task: shipped `ROUTE GLOW FX CONF WHY:<short>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY` and compact alias `RGFXW:<O|P|S>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_COMPACT`.
+- Implementation: `src/portal.lua` now emits rationale tokens only when `RGFXC` is active, with deterministic mapping `SOFT->STABLE(S)`, `SHARP->PRESSURE(P)`, `SURGE->OVERDRIVE(O)`.
+- Verification: `scripts/regression_portal_route_glow_fx_conf.lua`, `scripts/regression_portal_route_glow_fx_conf_why.lua`, `scripts/regression_portal_route_glow_fx_conf_why_compact_alias.lua` all passed.
+- Follow-up: queued Cycle BX digest family coverage (`ROUTE GLOW FX CONF WHY:` + `RGFXW:`) and rationale rail readability token.
