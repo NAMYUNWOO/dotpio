@@ -2325,3 +2325,9 @@
 - Added regression: `scripts/regression_portal_alt_why_glyph_mode_confidence_compact.lua`.
 - PASS: compact prompt emits `AWGMC:MID` and omits full `ALT STEP WHY CONF` label when alias flag is enabled.
 - PASS: `scripts/regression_portal_alt_why_glyph_compact.lua` (AWG/AWGM baseline) and `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-23 16:35 KST — Regression coverage update for BM token
+- Updated regression assertions for new payload keys and markdown presence.
+- Validation command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Result: PASS.
+- Follow-up: Add explicit flag-enabled branch assertion if downstream toggles begin using token in ops.

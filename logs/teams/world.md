@@ -1203,3 +1203,7 @@
 - Added compact alias `AWGMC:<L|M|H>` for fallback confidence token in compact portal prompt path.
 - Detailed prompt remains unchanged (`ALT STEP WHY CONF:<tier>`) to preserve clarity outside compact mode.
 - Evidence: `scripts/regression_portal_alt_why_glyph_mode_confidence_compact.lua`.
+
+## 2026-03-23 16:35 KST — No world/map data changes (BM cycle)
+- Scope check: This cycle touched digest analytics only; no map/portal topology edits.
+- Follow-up: Next unchecked lane item remains portal cooloff vibe trail (`VIBE TRAIL`) prototype.

@@ -2118,3 +2118,11 @@ Compact decision memory for AI context efficiency.
   - `scripts/regression_portal_alt_why_glyph_mode_confidence_compact.lua`
   - `scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Next highest-priority unchecked item: `ALT WHY GLYPH MODE CONF WHY:<short>` (Design/AI Content, flag-gated).
+
+## 2026-03-23 16:35 KST — Cycle BM shipped (`ALT WHY GLYPH MODE CONF WHY`)
+- Implemented flagged digest micro-token `ALT WHY GLYPH MODE CONF WHY:<short>` via `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE_CONF_WHY`.
+- Added rationale derivation from glyph-mode confidence + drift/net signals with deterministic short outputs for triage.
+- Extended JSON schema with `altWhyGlyphModeConfidenceWhy` and `altWhyGlyphModeConfidenceWhySignals`.
+- Extended markdown digest with `ALT WHY GLYPH MODE CONF WHY` diagnostics row.
+- Regression updated and passing: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Next unchecked queue head: BN world token `VIBE TRAIL:CALM|ASH` prototype (flagged) then systems `LANE GAP DETAIL` watchdog row.

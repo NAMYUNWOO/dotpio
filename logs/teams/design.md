@@ -1225,3 +1225,9 @@
 - Selected/implemented idea: compact confidence alias token `AWGMC:<L|M|H>` behind flag for tighter DOS-width prompt scanability.
 - Pass criterion met: compact prompt emits `AWGMC`, detailed prompt keeps full label, regressions pass.
 - Queued next experiment candidate: `ALT WHY GLYPH MODE CONF WHY:<short>` rationale micro-token.
+
+## 2026-03-23 16:35 KST — Cycle BM micro-copy rationale alignment
+- Task support: Confirm rationale micro-token language stays DOS-width and decision-oriented.
+- Decision: Standardized short directives (`SPIKE VERIFY`, `WATCH MODE`, `LOW SIGNAL`) for scanability.
+- Evidence: Markdown digest line `ALT WHY GLYPH MODE CONF WHY` now emitted with flag context.
+- Follow-up: Evaluate whether portal-side cue parity is needed after digest-only trial.

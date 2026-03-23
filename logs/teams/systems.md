@@ -1823,3 +1823,9 @@
 - Updated token catalogs in weekly drift digest script to recognize `AWGMC:` in compact + alt-family scans.
 - Verification: portal alias regressions + weekly readability digest regression passed.
 - Follow-up: next unchecked BM item is `ALT WHY GLYPH MODE CONF WHY:<short>` behind flag.
+
+## 2026-03-23 16:35 KST — Digest schema extension (BM)
+- Added payload fields: `altWhyGlyphModeConfidenceWhy`, `altWhyGlyphModeConfidenceWhySignals`.
+- Added markdown row: `ALT WHY GLYPH MODE CONF WHY` with confidence/drift/net/priorLoaded diagnostics.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Follow-up: Keep token behind flag until multi-run stability review.

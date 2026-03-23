@@ -1429,3 +1429,8 @@
 - Compact portal prompt now emits `AWGMC:<tier>` when `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE_CONF_COMPACT=1`.
 - Kept non-compact copy stable and explicit (`ALT STEP WHY CONF:<tier>`).
 - Added dedicated regression coverage for alias behavior and no-duplication constraints.
+
+## 2026-03-23 16:35 KST — Digest readability pass (BM)
+- Added compact rationale row in digest for faster operator interpretation of glyph-mode confidence.
+- Copy remains short-form and stateful (`FLAG OFF` fallback when experiment disabled).
+- Follow-up: If token gets enabled broadly, consider compact alias for tighter summary surfaces.

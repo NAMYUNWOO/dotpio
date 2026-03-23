@@ -1157,3 +1157,9 @@
 - Completed BM low-risk UX slice: compact confidence alias `AWGMC` now available under dedicated experiment flag.
 - Intent preserved: confidence semantics (LOW/MID/HIGH) unchanged, only token label compacted.
 - Next AI-content follow-up remains: rationale micro-token `ALT WHY GLYPH MODE CONF WHY:<short>`.
+
+## 2026-03-23 16:35 KST — Cycle BM glyph-mode confidence rationale micro-token
+- Task: Prototype `ALT WHY GLYPH MODE CONF WHY:<short>` behind flag in weekly digest pipeline.
+- Decision: Added `alt_why_glyph_mode_confidence_why_from_signals` with env flag `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE_CONF_WHY` and compact rationale outputs (`FLAG OFF`, `SEED BASE`, `SPIKE VERIFY`, etc.).
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, regression pass.
+- Follow-up: If enabled in ops, monitor rationale churn and add drift token in next cycle if signal becomes noisy.

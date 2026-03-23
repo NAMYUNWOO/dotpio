@@ -1133,3 +1133,7 @@
 - Reviewed compact token alias impact: `AWGMC` change is portal prompt-only and does not alter threat/combat scoring.
 - Regression suite remained green after alias addition.
 - No combat tuning changes required this cycle.
+
+## 2026-03-23 16:35 KST — No combat tuning changes (BM cycle)
+- Scope check: No combat runtime constants/AI behavior touched.
+- Follow-up: Maintain cooldown readability cadence alignment with pending BN lane tasks.
