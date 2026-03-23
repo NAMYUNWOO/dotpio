@@ -1813,3 +1813,7 @@
 ## 2026-03-23 15:39 KST — Cycle BM selected slice
 - Added confidence stability drift metric: `ALT WHY GLYPH MODE CONF Δ:+n|-n`.
 - Implemented `alt_why_glyph_mode_confidence_drift_from_prior(...)` and wired JSON+markdown output.
+
+## 2026-03-23 15:41 KST — Cycle BN systems note
+- Added helper `HUD.getBerserkerFxFadeTier(previousScore, threatDelta)` and integrated it into main-loop status emission for deterministic fade severity copy.
+- Injected next systems/ops backlog candidate: weekly lane watchdog detail token (`LANE GAP DETAIL`) to expose combat/vfx last-touch age.

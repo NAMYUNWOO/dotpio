@@ -106,6 +106,15 @@ function HUD.shouldTriggerBerserkerFxFade(previousScore, threatDelta, previousRi
     return riseStreak >= 2 and prevScore > 0 and delta <= 0
 end
 
+function HUD.getBerserkerFxFadeTier(previousScore, threatDelta)
+    local prevScore = math.max(0, math.floor(tonumber(previousScore) or 0))
+    local delta = tonumber(threatDelta) or 0
+    if prevScore >= 6 or delta <= -2 then
+        return "HARD"
+    end
+    return "SOFT"
+end
+
 function HUD.getRunSummaryOverclockGlossary()
     return "GLOSSARY: DWELL=EXPOSURE sec(L/M/H)  EFF=SRL/EXPOSED sec  PROFILE=COMMIT TIER"
 end

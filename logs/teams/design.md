@@ -1213,3 +1213,10 @@
   2) `AWGMC:<L|M|H>` compact alias (queued)
   3) `ALT WHY GLYPH MODE CONF WHY:<short>` rationale token (queued)
 - Selected #1 for minimal vertical slice and stable rollback surface.
+
+## 2026-03-23 15:41 KST — Cycle BN ideation handoff
+- Generated 3 concrete ideas for forced-lane cycle:
+  1) low-risk (chosen): berserker fade intensity tier token,
+  2) mid-risk: portal cooloff vibe trail token (`VIBE TRAIL:CALM|ASH`),
+  3) high-risk systems/ops: lane-gap detail watchdog.
+- Queued #2 as next design/world follow-up after combat/vfx rebalance slice.

@@ -52,6 +52,9 @@ expect(HUD.shouldTriggerBerserkerFxFade(5, -2, 3) == true, "fade trigger should 
 expect(HUD.shouldTriggerBerserkerFxFade(0, -1, 3) == false, "fade trigger should not fire when prior threat score is already zero")
 expect(HUD.shouldTriggerBerserkerFxFade(6, 1, 3) == false, "fade trigger should not fire while threat is still rising")
 expect(HUD.shouldTriggerBerserkerFxFade(6, -1, 1) == false, "fade trigger should require sustained prior rise streak")
+expect(HUD.getBerserkerFxFadeTier(7, -1) == "HARD", "fade tier should be HARD when prior threat was high")
+expect(HUD.getBerserkerFxFadeTier(4, -2) == "HARD", "fade tier should be HARD on steep cooldown delta")
+expect(HUD.getBerserkerFxFadeTier(4, -1) == "SOFT", "fade tier should be SOFT on mild cooldown")
 
 local lowR, lowG, lowB, lowA = HUD.getBerserkerThreatColor(2)
 expect(lowR == 0.5 and lowG == 1 and lowB == 0.62 and lowA == 1, "LOW tier color should be green")

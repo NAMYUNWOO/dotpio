@@ -2098,3 +2098,11 @@ Compact decision memory for AI context efficiency.
 - Selected/implemented experiment: (1) `ALT WHY GLYPH MODE CONF Δ:+n|-n` minimal vertical slice.
 - New backlog injected: queued items (2) `AWGMC:<L|M|H>` and (3) `ALT WHY GLYPH MODE CONF WHY:<short>`.
 - Verification: weekly digest regression PASS.
+
+## 2026-03-23 15:41 KST — Cycle BN forced-lane rebalance (combat/vfx)
+- Coverage check over last 10 completed items by lane: `systems/qa=6`, `design/world=4`, `combat/vfx=0`, others `0`; systems exceeded 40% cap.
+- Mandatory rebalance applied: selected underrepresented combat/vfx slice.
+- Shipped minimal vertical slice: status feed now emits `BERSERK FX:FADE(SOFT|HARD)` based on cooldown severity (`src/hud.lua`, `main.lua`).
+- Verification PASS: `lua scripts/regression_hud_berserker_counters.lua`, `lua scripts/regression_enemy_behavior_variants.lua`, `luac -p main.lua src/hud.lua`.
+- 24h cadence check: now explicitly covered `combat/vfx` (this slice), `design/world` (BM/BL portal glyph work), and `systems/ops` (digest + cadence watchdog lineages).
+- Backlog injected (Cycle BN): queued `VIBE TRAIL:CALM|ASH` (design/world) and `LANE GAP DETAIL` (systems/ops).

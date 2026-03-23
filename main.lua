@@ -282,7 +282,8 @@ function love.update(dt)
         InventoryUI.setStatus(string.format("BERSERK FX:PULSE  [THREAT Δ:%s]", pulseDelta))
     elseif berserkFxFadeTriggered then
         local fadeDelta = threatDelta > 0 and ("+" .. threatDelta) or tostring(threatDelta)
-        InventoryUI.setStatus(string.format("BERSERK FX:FADE   [THREAT Δ:%s]", fadeDelta))
+        local fadeTier = HUD.getBerserkerFxFadeTier(previousThreatScore, threatDelta)
+        InventoryUI.setStatus(string.format("BERSERK FX:FADE(%s)  [THREAT Δ:%s]", fadeTier, fadeDelta))
     end
 
     Camera.update(Player.visualX, Player.visualY)

@@ -51,3 +51,10 @@
 ## 2026-03-23 11:12 KST — Lane checkpoint
 - No VFX token behavior changes this cycle.
 - Digest now tracks priority mode context adjacent to pulse/link signals for post-run review.
+
+## 2026-03-23 15:41 KST — Cycle BN VFX cooldown readability
+- Added fade-intensity readability tier for berserker pressure cooldown messaging:
+  - `BERSERK FX:FADE(SOFT)` for mild drop
+  - `BERSERK FX:FADE(HARD)` for high-pressure or steep drop releases.
+- Goal: make post-spike VFX feedback feel less binary and improve threat-relief legibility.
+- Implemented helper in HUD (`getBerserkerFxFadeTier`) to keep severity mapping deterministic and regression-testable.

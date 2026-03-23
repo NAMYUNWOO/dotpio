@@ -1121,3 +1121,10 @@
 
 ## 2026-03-23 15:39 KST
 - No combat behavior/tuning changes; digest confidence-drift token is non-gameplay telemetry.
+
+## 2026-03-23 15:41 KST — Cycle BN forced-lane combat/vfx slice
+- Coverage guardrail check (last 10 completions) showed lane skew: systems/qa=6, design/world=4, combat/vfx=0.
+- Forced-lane policy applied: selected underrepresented combat/vfx experiment over queued BM UX/design follow-ups.
+- Shipped readability-only cooldown intensity tier in status feed: `BERSERK FX:FADE(SOFT|HARD)` based on prior threat pressure and fade delta severity.
+- No enemy stat/cadence tuning changes; this is feedback-layer only.
+- Verification: `lua scripts/regression_hud_berserker_counters.lua`, `lua scripts/regression_enemy_behavior_variants.lua`, `luac -p main.lua src/hud.lua`.
