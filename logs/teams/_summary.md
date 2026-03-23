@@ -2312,3 +2312,9 @@ Compact decision memory for AI context efficiency.
 - Added dedicated drift telemetry keys `routeGlowFxConfWhyRailModeCompactBudgetDrift` + `routeGlowFxConfWhyRailModeCompactBudgetDriftSignals`; markdown now includes `ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT`.
 - Regression contract expanded (`scripts/regression_weekly_portal_prompt_readability_drift.py`) for token totals, family schema, payload drift keys, and markdown rows; regression + digest generation pass.
 - Backlog state updated: Cycle BY rail-family digest item marked complete; Cycle BZ rail-mode digest item marked complete. Remaining highest-priority unchecked tasks are `RGFXWRI` intensity accent and rail-mode wording guard.
+
+## 2026-03-24 04:34 KST — Cycle BZ combat/vfx slice shipped (`RGFXWRI`)
+- Closed highest-priority unchecked backlog item: compact portal prompt now emits `RGFXWRI:SOFT|HARD` under `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY`.
+- Durable mapping decision: intensity is keyed to existing rail mode only (`RGFXWRM:LOCK=>HARD`, `RGFXWRM:FLEX=>SOFT`) to avoid introducing extra state divergence.
+- Added regression `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity.lua`; retained baseline rail-mode regression coverage.
+- Queue head now: remaining unchecked Cycle BZ item — AI Content/Design deterministic rationale-copy guard (`RGFXW` with `LOCK|FLEX` mappings).

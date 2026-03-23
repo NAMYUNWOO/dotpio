@@ -83,3 +83,8 @@
 - Shipped compact pressure-readability token `RGFXWRM:LOCK|FLEX` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_MODE`.
 - Mapping keeps VFX intent deterministic: `SPIKE+SURGE -> LOCK`; all other rail-present states -> `FLEX`.
 - Follow-up candidate injected: `RGFXWRI:SOFT|HARD` intensity accent token for stronger overdrive fantasy.
+
+## 2026-03-24 04:34 KST — Cycle BZ rail-intensity accent
+- Added compact overdrive accent token `RGFXWRI:SOFT|HARD` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY`.
+- Mapping aligns with rail lock semantics for stronger feel without changing routing logic: `LOCK=>HARD`, `FLEX=>SOFT`.
+- Regression evidence: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity.lua` PASS.

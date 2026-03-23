@@ -480,5 +480,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-24 Cycle BZ)
 - [x] Systems/QA Team: Add weekly digest token-family coverage for rail-mode churn (`RGFXWRM:`) with compact-budget drift note
-- [ ] Combat/VFX Team: Prototype rail-mode intensity accent token (`RGFXWRI:SOFT|HARD`) keyed off `LOCK|FLEX` for stronger overdrive feel
+- [x] Combat/VFX Team: Prototype rail-mode intensity accent token (`RGFXWRI:SOFT|HARD`) keyed off `LOCK|FLEX` for stronger overdrive feel
 - [ ] AI Content/Design Team: Add rationale copy guard so rail-mode `LOCK|FLEX` wording remains deterministic with `RGFXW` mappings
