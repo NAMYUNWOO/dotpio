@@ -445,5 +445,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## Next Up (Game Director Injection - 2026-03-23 Cycle BS)
 - [x] UX/Design Team: Prototype portal vibe-trail arc token (`VIBE TRAIL ARC:RECOVER|SCAR|MIXED`, compact `VTA:<R|S|M>`) behind flag for route fantasy readability *(lifecycle: [~] -> [x])*
-- [ ] Combat/VFX Team: Prototype pulse-heat cue token (`PULSE HEAT:COOL|WARM|HOT`) in compact prompt behind flag for pressure readability
+- [x] Combat/VFX Team: Prototype pulse-heat cue token (`PULSE HEAT:COOL|WARM|HOT`) in compact prompt behind flag for pressure readability
 - [ ] QA/Systems Team: Add weekly digest token-family coverage for vibe-trail arc alias churn (`VIBE TRAIL ARC:` + `VTA:`)

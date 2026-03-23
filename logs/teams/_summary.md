@@ -2212,3 +2212,10 @@ Compact decision memory for AI context efficiency.
 - Cycle BS ideas generated: (low) portal vibe-trail arc cue, (mid) compact pulse-heat cue, (high) adaptive route-echo remix token.
 - Selected/implemented low-risk vertical slice: `VIBE TRAIL ARC:RECOVER|SCAR|MIXED` + compact `VTA:R|S|M` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_ARC`.
 - Cycle BS backlog injected with follow-ups: compact `PULSE HEAT` cue and weekly digest alias-churn coverage for `VIBE TRAIL ARC` + `VTA`.
+
+## 2026-03-23 21:31 KST — Cycle BS pulse-heat cue shipped
+- Completed queued Cycle BS combat/vfx slice: compact portal prompt token `PULSE HEAT:COOL|WARM|HOT` behind `DOTPIO_EXPERIMENT_PULSE_HEAT_CUE`.
+- Code path: `src/portal.lua` now resolves heat tier from pressure/pulse mode and appends compact token when flag enabled.
+- Added regression evidence: `scripts/regression_portal_pulse_heat.lua` (COOL/WARM/HOT coverage) + pulse-mode non-regression pass.
+- Durable decision: keep pulse-heat cue flag-gated until digest/token-budget follow-up lands.
+- Next priority item remains: QA/Systems token-family coverage for vibe-trail arc alias churn (`VIBE TRAIL ARC:` + `VTA:`).

@@ -1208,3 +1208,6 @@
 
 ## 2026-03-23 21:32:00 KST
 - Arc mapping follows rationale semantics: `RECOVER -> RECOVER`, `SCAR -> SCAR`, fallback rationale -> `MIXED`.
+
+## 2026-03-23 21:31 KST — AI-content lane note
+- No generator/prompt-model policy changes this slice; compact portal cue update is runtime UX-only.

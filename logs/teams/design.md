@@ -1278,3 +1278,7 @@
   - Mid: compact pressure pulse-heat cue.
   - High: adaptive route-echo remix.
 - Picked low-risk arc cue for this cycle and shipped behind flag.
+
+## 2026-03-23 21:31 KST — Prompt readability token pass
+- Added compact semantic heat tier token (`PULSE HEAT`) to reinforce pressure fantasy without changing core routing logic.
+- Kept output constrained to three stable labels (COOL/WARM/HOT) for DOS-width readability.

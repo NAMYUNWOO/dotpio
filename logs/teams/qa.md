@@ -2390,3 +2390,10 @@
 
 ## 2026-03-23 21:32:00 KST
 - Regression coverage expanded for arc token emission/suppression in both detailed (`VIBE TRAIL ARC`) and compact (`VTA`) prompt variants.
+
+## 2026-03-23 21:31 KST — Regression coverage: pulse-heat cue
+- Added `scripts/regression_portal_pulse_heat.lua` covering COOL/WARM/HOT compact cue emission.
+- Cross-check regression: existing pulse-mode prompt regression still passes.
+- Commands:
+  - `DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 lua scripts/regression_portal_pulse_heat.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua`

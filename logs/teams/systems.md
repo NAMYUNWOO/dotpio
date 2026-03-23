@@ -1889,3 +1889,8 @@
 - Verification:
   - `luac -p src/portal.lua scripts/regression_portal_vibe_trail.lua` ✅
   - `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_ARC=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY_CONF=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY_RAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF_RAIL=1 lua scripts/regression_portal_vibe_trail.lua` ✅
+
+## 2026-03-23 21:31 KST — Pulse-heat compact cue wiring
+- Decision: added compact prompt experiment flag `DOTPIO_EXPERIMENT_PULSE_HEAT_CUE` to expose `PULSE HEAT:COOL|WARM|HOT` from pressure/mode context for faster route-pressure scanability.
+- Implementation: `src/portal.lua` adds flag gate + resolver + compact prompt token injection (`PULSE HEAT`).
+- Follow-up: monitor prompt-width pressure as additional compact tokens land.

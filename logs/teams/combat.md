@@ -1178,3 +1178,8 @@
 
 ## 2026-03-23 21:32:00 KST
 - Cycle BS queued combat follow-up remains open: compact `PULSE HEAT` readability cue.
+
+## 2026-03-23 21:31 KST — Pulse-heat cue prototype (Cycle BS)
+- Completed: compact pressure readability cue `PULSE HEAT:COOL|WARM|HOT` behind `DOTPIO_EXPERIMENT_PULSE_HEAT_CUE`.
+- Intent: improve at-a-glance pressure comprehension before portal jump when cadence is heating up.
+- Verification: `DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 lua scripts/regression_portal_pulse_heat.lua` PASS.

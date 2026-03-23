@@ -1478,3 +1478,7 @@
 
 ## 2026-03-23 21:32:00 KST
 - Added compact arc alias `VTA:R|S|M` so short-width prompts can preserve vibe-trail narrative direction.
+
+## 2026-03-23 21:31 KST — Compact portal cue clarity
+- Added `PULSE HEAT:<tier>` in compact transition prompt under explicit experiment flag.
+- Chosen wording optimized for immediate risk parsing while preserving existing compact token order.

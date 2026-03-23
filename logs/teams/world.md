@@ -1253,3 +1253,6 @@
 
 ## 2026-03-23 21:32:00 KST
 - Portal copy now exposes story direction (`RECOVER` vs `SCAR`) via `VIBE TRAIL ARC` when flag enabled.
+
+## 2026-03-23 21:31 KST — World lane note
+- No portal graph/layout mutation this slice; change is prompt-only readability tied to existing pressure routing.
