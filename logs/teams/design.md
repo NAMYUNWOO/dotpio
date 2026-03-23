@@ -1422,3 +1422,13 @@
   2) Mid-risk confidence token for rationale trust,
   3) High-risk adaptive rationale from weekly drift signals.
 - Selected idea #2 as minimal vertical slice for immediate implementation and verification.
+
+## 2026-03-24 07:04 KST — Design readability continuity (`RGFXWRI WHY`)
+- Completed digest family-churn row for rail-intensity rationale wording to preserve design copy observability.
+- Added markdown triage + token-family coverage entries for quick scan.
+
+## 2026-03-24 07:07 KST — Design token compression decision
+- Kept detailed semantics unchanged while compressing compact confidence label to `RGFXWRIWC` behind flag.
+
+## 2026-03-24 07:12 KST — Design decision (Cycle CC)
+- Chose low-risk digest instrumentation over copy/behavior changes; injected two next-step experiments for future cycle.

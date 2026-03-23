@@ -1064,6 +1064,15 @@ local function isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceExperimentEna
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceCompactAliasExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_COMPACT")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function isRouteGlowFxCompactAliasExperimentEnabled()
     local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_COMPACT")
     if not raw then
@@ -1484,7 +1493,8 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
                                             if routeGlowFxConfidenceWhyRailIntensityWhy then
                                                 appendToken(string.format("RGFXWRI WHY:%s", routeGlowFxConfidenceWhyRailIntensityWhy), false)
                                                 if routeGlowFxConfidenceWhyRailIntensityWhyConfidence then
-                                                    appendToken(string.format("RGFXWRI WHY CONF:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfidence), false)
+                                                    local routeGlowFxConfidenceWhyRailIntensityWhyConfLabel = isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceCompactAliasExperimentEnabled() and "RGFXWRIWC" or "RGFXWRI WHY CONF"
+                                                    appendToken(string.format("%s:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfLabel, routeGlowFxConfidenceWhyRailIntensityWhyConfidence), false)
                                                 end
                                             end
                                         end

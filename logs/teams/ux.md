@@ -1613,3 +1613,13 @@
 ## 2026-03-24 06:01 KST — Cycle CB UX continuity
 - Prompt now can append `RGFXWRI WHY CONF` directly after `RGFXWRI WHY` when flag-enabled, preserving compact token ordering.
 - Added next UX queue item for optional alias compression (`RGFXWRIWC`).
+
+## 2026-03-24 07:04 KST — UX triage row completion (`RGFXWRI WHY`)
+- Added explicit weekly markdown triage row `RGFXWRI WHY FAMILY CHURN`.
+- Added token-family coverage row `RGFXWRI WHY:` for compact scanability in operator review.
+
+## 2026-03-24 07:07 KST — UX compact cue update
+- Compact portal prompt now supports `RGFXWRIWC` for confidence readability under tight DOS budgets.
+
+## 2026-03-24 07:12 KST — UX backlog refresh
+- Confidence alias digest triage shipped; next UX item queued: detailed parity label for `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF`.

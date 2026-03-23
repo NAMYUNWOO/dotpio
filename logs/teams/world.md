@@ -1385,3 +1385,15 @@
 
 ## 2026-03-24 06:01 KST — Cycle CB follow-up queue injection
 - Added UX/World follow-up candidate: compact confidence alias `RGFXWRIWC:<L|M|H>` for quick DOS-width scanning.
+
+## 2026-03-24 07:04 KST — Route-glow rationale observability sync
+- World-facing rail-intensity rationale (`RGFXWRI WHY`) now has explicit digest family-churn observability for ops triage.
+- No world logic tuning changed; telemetry/readability only.
+
+## 2026-03-24 07:07 KST — UX/world compact-readability completion
+- Added DOS-width compact alias `RGFXWRIWC` for rail-intensity rationale confidence token.
+- No world/system tuning changes; label compression only.
+
+## 2026-03-24 07:12 KST — Game Director cycle outcome sync
+- Selected CC experiment was telemetry-only confidence alias family coverage; no world logic mutation.
+- Backlog injected with parity-label and adaptive-confidence follow-ups.

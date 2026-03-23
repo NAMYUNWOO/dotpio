@@ -1314,3 +1314,13 @@
 ## 2026-03-24 06:01 KST — Cycle CB combat/design slice shipped
 - Implemented `RGFXWRI WHY CONF:LOW|MID|HIGH` to communicate overdrive trust confidence alongside rail-intensity rationale.
 - Behavior remains additive + flagged; no core combat tuning changed.
+
+## 2026-03-24 07:04 KST — Combat readability telemetry note
+- Combat-adjacent rail-intensity rationale token (`RGFXWRI WHY`) now appears in weekly digest family coverage.
+- Change is telemetry-only; no combat balance/behavior modifications.
+
+## 2026-03-24 07:07 KST — Overdrive confidence cue parity
+- Rail-intensity rationale confidence now has compact parity alias (`RGFXWRIWC`) for combat-facing prompt scanability.
+
+## 2026-03-24 07:12 KST — Combat-facing confidence telemetry update
+- Added weekly family-churn observability for compact confidence alias `RGFXWRIWC` and long label counterpart.

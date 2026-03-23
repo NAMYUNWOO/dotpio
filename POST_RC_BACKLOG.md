@@ -488,5 +488,14 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/World Team: Prototype detailed parity cue for rail intensity (`ROUTE GLOW FX CONF WHY RAIL INTENSITY:SOFT|HARD`) behind flag while preserving compact `RGFXWRI` *(lifecycle: [ ] -> [~] -> [x])*
 - [x] Design/AI Content Team: Prototype flagged rail-intensity rationale token (`RGFXWRI WHY:<short>`) for overdrive readability context *(lifecycle: [ ] -> [~] -> [x])*
 - [x] Combat/Design Team: Prototype rail-intensity rationale confidence token (`RGFXWRI WHY CONF:LOW|MID|HIGH`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF` for overdrive trust readability *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] Systems/QA Team: Add weekly digest token-family coverage for rail-intensity rationale churn (`RGFXWRI WHY:`) with markdown triage row
-- [ ] UX/World Team: Prototype compact rail-intensity rationale confidence alias (`RGFXWRIWC:<L|M|H>`) behind flag for DOS-width scanability
+- [x] Systems/QA Team: Add weekly digest token-family coverage for rail-intensity rationale churn (`RGFXWRI WHY:`) with markdown triage row *(lifecycle: [ ] -> [~] -> [x])*
+- [x] UX/World Team: Prototype compact rail-intensity rationale confidence alias (`RGFXWRIWC:<L|M|H>`) behind flag for DOS-width scanability *(lifecycle: [ ] -> [~] -> [x])*
+
+## Cycle CC - Game Director Review (2026-03-24 07:10 KST)
+- Idea 1 (low risk, Systems/QA): Add weekly digest alias-family churn coverage for `RGFXWRI WHY CONF:` + `RGFXWRIWC:`.
+- Idea 2 (mid risk, UX/Design): Add detailed parity label `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF:LOW|MID|HIGH` behind flag.
+- Idea 3 (high risk, AI Content/Systems): Auto-tune `RGFXWRI WHY CONF` from weekly drift risk level.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add weekly digest token-family coverage for rail-intensity rationale confidence alias churn (`RGFXWRI WHY CONF:` + `RGFXWRIWC:`) *(lifecycle: [ ] -> [~] -> [x])*
+- [ ] UX/Design Team: Prototype detailed parity label for rail-intensity rationale confidence (`ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF:LOW|MID|HIGH`) behind flag
+- [ ] AI Content/Systems Team: Prototype drift-adaptive confidence copy policy for `RGFXWRI WHY CONF` (offline recommendation only)

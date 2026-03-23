@@ -1346,3 +1346,14 @@
   - `LOCK PUSH` path -> `HIGH`
   - `PRESSURE HOLD` path -> `MID`
   - `STABLE HOLD` path -> `LOW`
+
+## 2026-03-24 07:04 KST — Rationale token drift visibility update
+- Added digest family coverage for `RGFXWRI WHY:` so AI-content rationale churn is auditable week-over-week.
+- Keeps rationale token lifecycle deterministic while improving drift triage surface.
+
+## 2026-03-24 07:07 KST — Rationale-confidence compact alias
+- Introduced compact confidence alias `RGFXWRIWC:<L|M|H>` to preserve rationale trust signal in constrained prompts.
+
+## 2026-03-24 07:12 KST — AI-content follow-up injection
+- Confidence-alias digest coverage shipped for `RGFXWRI WHY CONF`/`RGFXWRIWC`.
+- New queued follow-up: drift-adaptive confidence copy policy exploration (offline recommendation only).

@@ -2042,3 +2042,16 @@
 - Game Director cycle ran after queues cleared: generated 3 ideas (low: compact confidence alias, mid: rationale confidence token, high: adaptive rationale-from-drift).
 - Selected mid-risk vertical slice for this cycle: `RGFXWRI WHY CONF:LOW|MID|HIGH` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF`.
 - Injected new queued follow-ups: digest churn coverage for `RGFXWRI WHY:` and compact alias `RGFXWRIWC:<L|M|H>`.
+
+## 2026-03-24 07:04 KST — Cycle CB systems/qa digest coverage closure (`RGFXWRI WHY`)
+- Closed queued Systems/QA item by adding token-family coverage for `RGFXWRI WHY:` in weekly readability digest.
+- Added alias-family key `routeGlowFxConfidenceWhyRailIntensityWhy` to digest payload and markdown rows (`RGFXWRI WHY FAMILY CHURN`, `RGFXWRI WHY` in Token Family Coverage).
+- Verification: `python3 -m py_compile ...` PASS, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS, digest generation PASS.
+
+## 2026-03-24 07:07 KST — Cycle CB compact alias closure (`RGFXWRIWC`)
+- Shipped compact confidence alias `RGFXWRIWC:<L|M|H>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_COMPACT`.
+- Weekly digest token catalogs now track `RGFXWRI WHY CONF:` + `RGFXWRIWC:` for churn visibility.
+
+## 2026-03-24 07:12 KST — Cycle CC Game Director slice (digest confidence-alias churn)
+- Executed Game Director review cycle (3 ideas), selected low-risk Systems/QA slice.
+- Added weekly digest alias-family coverage for `RGFXWRI WHY CONF:` + `RGFXWRIWC:` (`routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias`).

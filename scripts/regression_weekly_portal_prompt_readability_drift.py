@@ -739,6 +739,8 @@ def main() -> int:
         assert "routeGlowFxConfidenceWhyRailAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailMode" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailIntensity" in payload["tokenFamilyTotals"], payload
+        assert "routeGlowFxConfidenceWhyRailIntensityWhy" in payload["tokenFamilyTotals"], payload
+        assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
@@ -860,6 +862,26 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["routeGlowFxConfidenceWhyRailIntensity"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["routeGlowFxConfidenceWhyRailIntensityWhy"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1279,6 +1301,8 @@ def main() -> int:
         assert "ROUTE GLOW FX CONF WHY RAIL FAMILY CHURN" in md_text
         assert "ROUTE GLOW FX CONF WHY RAIL MODE FAMILY CHURN" in md_text
         assert "ROUTE GLOW FX CONF WHY RAIL INTENSITY FAMILY CHURN" in md_text
+        assert "RGFXWRI WHY FAMILY CHURN" in md_text
+        assert "RGFXWRI WHY CONF FAMILY CHURN" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text
         assert "ROUTE GLOW FX CONF + RGFXC:" in md_text
@@ -1286,6 +1310,8 @@ def main() -> int:
         assert "ROUTE GLOW FX CONF WHY RAIL + RGFXWR:" in md_text
         assert "RGFXWRM RAIL MODE:" in md_text
         assert "RGFXWRI RAIL INTENSITY:" in md_text
+        assert "RGFXWRI WHY:" in md_text
+        assert "RGFXWRIWC + RGFXWRI WHY CONF:" in md_text
         assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT" in md_text

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 06:01 KST
+Last updated: 2026-03-24 07:12 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,15 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- All previously queued ACTION_ITEMS/TASKS/POST_RC work items were cleared, triggering Game Director Cycle CC.
+- Cycle CC generated 3 ideas and selected low-risk Systems/QA slice: weekly digest now tracks confidence-alias family churn for `RGFXWRI WHY CONF:` + `RGFXWRIWC:` via `routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias`.
+- Added compact confidence alias behavior in `src/portal.lua` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_COMPACT`, with regression `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_compact_alias.lua`.
+- Cycle CC injected new backlog tasks: detailed parity confidence label and drift-adaptive confidence copy policy.
+
+- Closed Cycle CB Systems/QA follow-up item: weekly digest now tracks rail-intensity rationale alias-family churn for `RGFXWRI WHY:` via new payload key `routeGlowFxConfidenceWhyRailIntensityWhy`.
+- Markdown triage now includes `RGFXWRI WHY FAMILY CHURN` and Token Family Coverage includes `RGFXWRI WHY:` for operator scanability.
+- Regression contract extended in `scripts/regression_weekly_portal_prompt_readability_drift.py` to enforce payload schema and markdown rows for the new family.
 
 - Closed final remaining unchecked TASKS/POST_RC item: compact portal prompts now emit flagged rail-intensity rationale token `RGFXWRI WHY:<short>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY`.
 - Rationale mapping is deterministic and tied to existing rail-mode contract in `src/portal.lua`: `OVERDRIVE+LOCK -> LOCK PUSH`, `PRESSURE+FLEX -> PRESSURE HOLD`, `STABLE+FLEX -> STABLE HOLD`.

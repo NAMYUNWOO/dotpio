@@ -2552,3 +2552,16 @@
 ## 2026-03-24 06:01 KST — Cycle CB QA evidence
 - Added regression: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf.lua`.
 - Verified deterministic LOW/MID/HIGH mapping across SAFE/RISK/SPIKE scenarios with required flags enabled.
+
+## 2026-03-24 07:04 KST — Regression contract update (`RGFXWRI WHY` family)
+- Extended weekly digest regression schema checks with `tokenFamilyTotals.routeGlowFxConfidenceWhyRailIntensityWhy`.
+- Added markdown assertions for `RGFXWRI WHY FAMILY CHURN` and `RGFXWRI WHY:` coverage line.
+- Full weekly digest regression suite PASS.
+
+## 2026-03-24 07:07 KST — QA guardrail for `RGFXWRIWC`
+- Added regression `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_compact_alias.lua`.
+- Verified long-label suppression and LOW/MID/HIGH compact alias mapping under flag-on path.
+
+## 2026-03-24 07:12 KST — Weekly digest regression expansion (confidence alias family)
+- Regression now asserts new payload family key + markdown rows: `RGFXWRI WHY CONF FAMILY CHURN`, `RGFXWRIWC + RGFXWRI WHY CONF:`.
+- Full verification matrix PASS (portal regressions + weekly digest regressions + artifact generation).
