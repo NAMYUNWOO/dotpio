@@ -1163,3 +1163,7 @@
 - Decision: Added `alt_why_glyph_mode_confidence_why_from_signals` with env flag `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE_CONF_WHY` and compact rationale outputs (`FLAG OFF`, `SEED BASE`, `SPIKE VERIFY`, etc.).
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, regression pass.
 - Follow-up: If enabled in ops, monitor rationale churn and add drift token in next cycle if signal becomes noisy.
+
+## 2026-03-23 17:01 KST — Cycle BN ai-content contract note
+- Added deterministic token vocabulary for cooloff lane (`CALM|ASH`) and compact alias (`VTR`) without changing generation model behavior.
+- Verification references: portal vibe trail regression PASS; weekly snapshot regression PASS.

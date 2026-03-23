@@ -417,9 +417,9 @@ Last updated: 2026-03-21 02:31 KST
 ### Game Director Cycle BM (2026-03-23)
 - [x] Systems/QA Team: Add glyph-mode confidence drift token (`ALT WHY GLYPH MODE CONF Δ:+n|-n`) to weekly digest for confidence stability triage
 - [x] UX/World Team: Prototype compact confidence alias token (`AWGMC:<L|M|H>`) behind flag for prompt-width budget
-- [ ] Design/AI Content Team: Prototype glyph-mode confidence rationale micro-token (`ALT WHY GLYPH MODE CONF WHY:<short>`) behind flag
+- [x] Design/AI Content Team: Prototype glyph-mode confidence rationale micro-token (`ALT WHY GLYPH MODE CONF WHY:<short>`) behind flag
 
 ### Game Director Cycle BN (2026-03-23, forced-lane rebalance)
 - [x] Combat/VFX Team: Add berserker cooldown intensity tier token to status feed (`BERSERK FX:FADE(SOFT|HARD)`) from threat-drop severity for clearer post-spike readability
-- [ ] Design/World Team: Prototype portal cooloff vibe trail token (`VIBE TRAIL:CALM|ASH`) behind flag after berserk fade events to reinforce recovery fantasy
-- [ ] Systems/Ops Team: Add weekly cadence watchdog detail row (`LANE GAP DETAIL`) with combat/vfx last-touch age for forced-lane auditability
+- [x] Design/World Team: Prototype portal cooloff vibe trail token (`VIBE TRAIL:CALM|ASH`) behind flag after berserk fade events to reinforce recovery fantasy *(lifecycle: [~] -> [x])*
+- [x] Systems/Ops Team: Add weekly cadence watchdog detail row (`LANE GAP DETAIL`) with combat/vfx last-touch age for forced-lane auditability

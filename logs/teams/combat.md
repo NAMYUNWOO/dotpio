@@ -1137,3 +1137,7 @@
 ## 2026-03-23 16:35 KST — No combat tuning changes (BM cycle)
 - Scope check: No combat runtime constants/AI behavior touched.
 - Follow-up: Maintain cooldown readability cadence alignment with pending BN lane tasks.
+
+## 2026-03-23 17:01 KST — Cycle BN combat continuity check
+- Cooloff vibe-trail wiring consumes existing `BERSERK FX:FADE(SOFT|HARD)` signal only; no combat stat/cadence tuning changes.
+- Verification: baseline route-vibe regression PASS; no combat behavior regressions observed in this slice.

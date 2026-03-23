@@ -39,6 +39,8 @@ local lastPlayerX, lastPlayerY = 0, 0
 local missionUnlockAnnounced = false
 local threatScoreLastTick = 0
 local threatRiseWindow = 0
+local portalVibeTrail = nil
+local portalVibeTrailTimer = 0
 local berserkerThreatRiseStreak = 0
 
 local function resetRunState()
@@ -48,6 +50,8 @@ local function resetRunState()
     missionUnlockAnnounced = false
     threatScoreLastTick = 0
     threatRiseWindow = 0
+    portalVibeTrail = nil
+    portalVibeTrailTimer = 0
     berserkerThreatRiseStreak = 0
 end
 
@@ -194,6 +198,12 @@ function love.update(dt)
     end
 
     threatRiseWindow = math.max(0, threatRiseWindow - dt)
+    if portalVibeTrailTimer > 0 then
+        portalVibeTrailTimer = math.max(0, portalVibeTrailTimer - dt)
+        if portalVibeTrailTimer <= 0 then
+            portalVibeTrail = nil
+        end
+    end
 
     Player.update(dt, Camera)
     FOV.calculate(Player.x, Player.y, Player.aimAngle)
@@ -283,6 +293,8 @@ function love.update(dt)
     elseif berserkFxFadeTriggered then
         local fadeDelta = threatDelta > 0 and ("+" .. threatDelta) or tostring(threatDelta)
         local fadeTier = HUD.getBerserkerFxFadeTier(previousThreatScore, threatDelta)
+        portalVibeTrail = fadeTier == "HARD" and "ASH" or "CALM"
+        portalVibeTrailTimer = 8
         InventoryUI.setStatus(string.format("BERSERK FX:FADE(%s)  [THREAT Δ:%s]", fadeTier, fadeDelta))
     end
 
@@ -436,7 +448,7 @@ end
 local function drawPortalTransitionPrompt()
     local threatCounters = HUD.collectCombatThreatCounters(Entities.enemies)
     local threatTier = HUD.getBerserkerThreatTier(threatCounters.berserkerThreatScore or 0)
-    local prompt = Portal.getTransitionPrompt(nil, { threatTier = threatTier })
+    local prompt = Portal.getTransitionPrompt(nil, { threatTier = threatTier, vibeTrail = portalVibeTrail })
     if not prompt then
         return
     end

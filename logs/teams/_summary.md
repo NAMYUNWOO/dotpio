@@ -2126,3 +2126,17 @@ Compact decision memory for AI context efficiency.
 - Extended markdown digest with `ALT WHY GLYPH MODE CONF WHY` diagnostics row.
 - Regression updated and passing: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Next unchecked queue head: BN world token `VIBE TRAIL:CALM|ASH` prototype (flagged) then systems `LANE GAP DETAIL` watchdog row.
+
+## 2026-03-23 17:01 KST — Cycle BN closure (world + systems/ops)
+- Closed remaining forced-lane BN items in TASKS/POST_RC:
+  - `VIBE TRAIL:CALM|ASH` prototype behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL`.
+  - `LANE GAP DETAIL` row in weekly cadence watchdog with combat/vfx last-touch age.
+- Runtime integration:
+  - `main.lua` now carries short-lived portal cooloff context from berserker fade events (`SOFT -> CALM`, `HARD -> ASH`, 8s window).
+  - `src/portal.lua` renders detailed `VIBE TRAIL:*` and compact `VTR:*` token parity when flag is enabled.
+- Ops artifact integration:
+  - `scripts/economy_weekly_snapshot.py` now emits `laneCadence.laneGapDetail`, `combatVfxLastTouchAgeHours`, and `sourceLatestAgeHours`; markdown includes `LANE GAP DETAIL`.
+- Regression/evidence:
+  - Added `scripts/regression_portal_vibe_trail.lua`.
+  - Updated `scripts/regression_weekly_snapshot.py` for new lane-gap detail contract.
+  - PASS: portal vibe-trail regression, baseline route-vibe regression, weekly snapshot regression.

@@ -1207,3 +1207,7 @@
 ## 2026-03-23 16:35 KST — No world/map data changes (BM cycle)
 - Scope check: This cycle touched digest analytics only; no map/portal topology edits.
 - Follow-up: Next unchecked lane item remains portal cooloff vibe trail (`VIBE TRAIL`) prototype.
+
+## 2026-03-23 17:01 KST — Cycle BN world follow-up: portal cooloff vibe trail
+- Completed: portal transition prompt now supports flagged cooloff token `VIBE TRAIL:CALM|ASH` (compact `VTR:C|A`) when context supplies post-fade trail cue.
+- Verification: `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 lua scripts/regression_portal_vibe_trail.lua` PASS; `lua scripts/regression_portal_route_vibe.lua` PASS.

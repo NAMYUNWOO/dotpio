@@ -45,6 +45,14 @@ def parse_team_log_latest_timestamp(path: Path) -> datetime | None:
     return latest
 
 
+
+
+def format_last_touch_age_hours(reference_kst: datetime, ts: datetime | None) -> int | None:
+    if ts is None:
+        return None
+    delta = reference_kst - ts
+    return max(0, int(delta.total_seconds() // 3600))
+
 def lane_activity_within_24h(window_end_utc: datetime) -> dict[str, Any]:
     kst = timezone(timedelta(hours=9))
     window_start_utc = window_end_utc - timedelta(hours=24)
@@ -58,6 +66,7 @@ def lane_activity_within_24h(window_end_utc: datetime) -> dict[str, Any]:
     }
 
     source_latest: dict[str, str | None] = {}
+    source_latest_age_hours: dict[str, int | None] = {}
     bucket_coverage: dict[str, bool] = {}
     missing_buckets: list[str] = []
 
@@ -66,13 +75,18 @@ def lane_activity_within_24h(window_end_utc: datetime) -> dict[str, Any]:
         for filename in files:
             ts = parse_team_log_latest_timestamp(TEAM_LOGS_DIR / filename)
             source_latest[filename] = ts.isoformat() if ts else None
+            source_latest_age_hours[filename] = format_last_touch_age_hours(window_end_kst, ts)
             if ts and window_start_kst <= ts <= window_end_kst:
                 covered = True
         bucket_coverage[bucket] = covered
         if not covered:
             missing_buckets.append(bucket)
 
+    combat_vfx_ages = [source_latest_age_hours.get("combat.md"), source_latest_age_hours.get("vfx.md")]
+    combat_vfx_last_touch_age_hours = min((age for age in combat_vfx_ages if age is not None), default=None)
+
     status = "OK" if not missing_buckets else "GAP"
+    lane_gap_detail = f"combat/vfx last-touch {combat_vfx_last_touch_age_hours}h" if combat_vfx_last_touch_age_hours is not None else "combat/vfx last-touch unknown"
     return {
         "windowStart": window_start_utc.isoformat().replace("+00:00", "Z"),
         "windowEnd": window_end_utc.isoformat().replace("+00:00", "Z"),
@@ -81,6 +95,9 @@ def lane_activity_within_24h(window_end_utc: datetime) -> dict[str, Any]:
         "status": status,
         "token": f"LANE CADENCE:{status}",
         "sourceLatest": source_latest,
+        "sourceLatestAgeHours": source_latest_age_hours,
+        "laneGapDetail": lane_gap_detail,
+        "combatVfxLastTouchAgeHours": combat_vfx_last_touch_age_hours,
     }
 
 
@@ -202,6 +219,7 @@ def main() -> int:
         md.append(f"- Lane cadence gaps: {', '.join(lane_cadence['missingBuckets'])}")
     else:
         md.append("- Lane cadence gaps: none")
+    md.append(f"- LANE GAP DETAIL: {lane_cadence['laneGapDetail']}")
 
     md.extend(
         [

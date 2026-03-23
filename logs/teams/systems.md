@@ -1829,3 +1829,7 @@
 - Added markdown row: `ALT WHY GLYPH MODE CONF WHY` with confidence/drift/net/priorLoaded diagnostics.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Follow-up: Keep token behind flag until multi-run stability review.
+
+## 2026-03-23 17:01 KST — Cycle BN systems/ops cadence detail slice
+- Completed: added `LANE GAP DETAIL` to weekly economy snapshot with `combat/vfx` last-touch age (`laneCadence.laneGapDetail`, `combatVfxLastTouchAgeHours`, `sourceLatestAgeHours`).
+- Verification: `python3 scripts/regression_weekly_snapshot.py` PASS; py_compile PASS.

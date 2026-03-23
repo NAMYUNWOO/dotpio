@@ -1434,3 +1434,7 @@
 - Added compact rationale row in digest for faster operator interpretation of glyph-mode confidence.
 - Copy remains short-form and stateful (`FLAG OFF` fallback when experiment disabled).
 - Follow-up: If token gets enabled broadly, consider compact alias for tighter summary surfaces.
+
+## 2026-03-23 17:01 KST — Cycle BN UX readability note
+- Added compact portal parity token `VTR:C|A` when prompt compacts under width budget; detailed prompt shows `VIBE TRAIL:CALM|ASH`.
+- Weekly snapshot markdown now includes `LANE GAP DETAIL` row for forced-lane audit scanability.

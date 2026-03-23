@@ -1231,3 +1231,7 @@
 - Decision: Standardized short directives (`SPIKE VERIFY`, `WATCH MODE`, `LOW SIGNAL`) for scanability.
 - Evidence: Markdown digest line `ALT WHY GLYPH MODE CONF WHY` now emitted with flag context.
 - Follow-up: Evaluate whether portal-side cue parity is needed after digest-only trial.
+
+## 2026-03-23 17:01 KST — Cycle BN design readability closure
+- Completed remaining BN readability task by surfacing post-fade portal mood cue `VIBE TRAIL:CALM|ASH` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL`.
+- Intent: reinforce recovery fantasy immediately after berserk cooldown release while keeping prompt copy compact.

@@ -58,3 +58,7 @@
   - `BERSERK FX:FADE(HARD)` for high-pressure or steep drop releases.
 - Goal: make post-spike VFX feedback feel less binary and improve threat-relief legibility.
 - Implemented helper in HUD (`getBerserkerFxFadeTier`) to keep severity mapping deterministic and regression-testable.
+
+## 2026-03-23 17:01 KST — Cycle BN vfx handoff
+- Cross-surface tie-in shipped: berserker fade intensity now feeds portal cooloff trail semantics (`SOFT->CALM`, `HARD->ASH`).
+- Verification: portal vibe-trail regression PASS under flag.

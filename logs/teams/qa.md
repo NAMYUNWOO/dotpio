@@ -2331,3 +2331,8 @@
 - Validation command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Result: PASS.
 - Follow-up: Add explicit flag-enabled branch assertion if downstream toggles begin using token in ops.
+
+## 2026-03-23 17:01 KST — Cycle BN regression evidence
+- Added regression `scripts/regression_portal_vibe_trail.lua` for detailed/compact vibe-trail tokens + invalid-input guard.
+- Extended weekly snapshot regression checks to require `laneGapDetail`, `combatVfxLastTouchAgeHours`, `sourceLatestAgeHours`, and markdown `LANE GAP DETAIL` line.
+- PASS: `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 lua scripts/regression_portal_vibe_trail.lua`; `lua scripts/regression_portal_route_vibe.lua`; `python3 scripts/regression_weekly_snapshot.py`.

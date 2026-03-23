@@ -76,6 +76,17 @@ def main() -> int:
         for expected in ("combat-vfx", "design-world", "systems-ops"):
             if expected not in buckets:
                 raise AssertionError(f"Missing lane cadence bucket: {expected}")
+        lane_gap_detail = lane_cadence.get("laneGapDetail")
+        if not isinstance(lane_gap_detail, str) or "combat/vfx" not in lane_gap_detail:
+            raise AssertionError(f"Unexpected lane gap detail: {lane_gap_detail}")
+        if "combatVfxLastTouchAgeHours" not in lane_cadence:
+            raise AssertionError("Missing combatVfxLastTouchAgeHours in lane cadence payload")
+        if "sourceLatestAgeHours" not in lane_cadence:
+            raise AssertionError("Missing sourceLatestAgeHours in lane cadence payload")
+
+        md_text = out_md.read_text(encoding="utf-8")
+        if "LANE GAP DETAIL:" not in md_text:
+            raise AssertionError("Missing LANE GAP DETAIL line in markdown snapshot")
 
         delta = second["deltaFromPrevious"]
         if delta["telemetryEventCount"] != 0:
