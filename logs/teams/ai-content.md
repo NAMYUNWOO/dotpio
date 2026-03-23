@@ -1205,3 +1205,6 @@
 ## 2026-03-23 21:18:00 KST
 - Micro-rationale confidence lane completed: `VIBE TRAIL WHY CONF WHY CONF:LOW|MID|HIGH` + compact `VTCWC:<L|M|H>`.
 - Confidence mapping remains deterministic off `VIBE TRAIL WHY CONF WHY` state (`LOCKED -> HIGH`, `TREND -> MID`, fallback -> LOW).
+
+## 2026-03-23 21:32:00 KST
+- Arc mapping follows rationale semantics: `RECOVER -> RECOVER`, `SCAR -> SCAR`, fallback rationale -> `MIXED`.

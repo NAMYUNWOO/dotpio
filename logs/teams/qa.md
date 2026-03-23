@@ -2387,3 +2387,6 @@
 ## 2026-03-23 21:18:00 KST
 - Added regression expectations for new vibe-trail micro-rationale tokens (`VTCWC`, `VTCWR`, detailed rail label).
 - Weekly digest regression now asserts `vibeTrailWhyConfidenceWhyConfidenceAlias` family presence and markdown churn row.
+
+## 2026-03-23 21:32:00 KST
+- Regression coverage expanded for arc token emission/suppression in both detailed (`VIBE TRAIL ARC`) and compact (`VTA`) prompt variants.

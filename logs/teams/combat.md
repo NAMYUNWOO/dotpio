@@ -1175,3 +1175,6 @@
 
 ## 2026-03-23 21:18:00 KST
 - No combat tuning this cycle; kept combat surface stable while closing UX/world readability backlog on portal handoff tokens.
+
+## 2026-03-23 21:32:00 KST
+- Cycle BS queued combat follow-up remains open: compact `PULSE HEAT` readability cue.

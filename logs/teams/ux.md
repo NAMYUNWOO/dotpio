@@ -1475,3 +1475,6 @@
 ## 2026-03-23 21:18:00 KST
 - Compact portal readability now carries full micro-rationale chain: `VTCW`, `VTCWC`, and rail cue `VTCWR` for fast-width triage.
 - Regression coverage expanded for invalid-context suppression to avoid noisy token spill.
+
+## 2026-03-23 21:32:00 KST
+- Added compact arc alias `VTA:R|S|M` so short-width prompts can preserve vibe-trail narrative direction.

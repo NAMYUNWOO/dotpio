@@ -442,3 +442,8 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Systems/AI Content Team: Prototype micro-rationale confidence token (`VIBE TRAIL WHY CONF WHY CONF:LOW|MID|HIGH`, compact `VTCWC:<L|M|H>`) behind flag for trust readability *(lifecycle: [~] -> [x])*
 - [x] UX/World Team: Prototype portal micro-rationale rail token (`VIBE TRAIL WHY CONF WHY RAIL:STEADY|SPIKE`) behind flag for fast route triage *(lifecycle: [~] -> [x])*
 - [x] QA/Systems Team: Add weekly digest token-family coverage for micro-rationale confidence alias churn (`VTCWC:` + detailed label) *(lifecycle: [ ] -> [x])*
+
+## Next Up (Game Director Injection - 2026-03-23 Cycle BS)
+- [x] UX/Design Team: Prototype portal vibe-trail arc token (`VIBE TRAIL ARC:RECOVER|SCAR|MIXED`, compact `VTA:<R|S|M>`) behind flag for route fantasy readability *(lifecycle: [~] -> [x])*
+- [ ] Combat/VFX Team: Prototype pulse-heat cue token (`PULSE HEAT:COOL|WARM|HOT`) in compact prompt behind flag for pressure readability
+- [ ] QA/Systems Team: Add weekly digest token-family coverage for vibe-trail arc alias churn (`VIBE TRAIL ARC:` + `VTA:`)

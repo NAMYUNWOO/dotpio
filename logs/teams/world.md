@@ -1250,3 +1250,6 @@
 ## 2026-03-23 21:18:00 KST
 - Portal vibe-trail copy now includes micro-rationale rail cues (`STEADY|SPIKE`) behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY_RAIL`.
 - Calm routes bias rail to `STEADY`; ash routes bias rail to `SPIKE`.
+
+## 2026-03-23 21:32:00 KST
+- Portal copy now exposes story direction (`RECOVER` vs `SCAR`) via `VIBE TRAIL ARC` when flag enabled.
