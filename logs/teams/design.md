@@ -1131,3 +1131,7 @@
 ## 2026-03-23 09:05 KST — Cycle BF coordination note
 - Approved token semantics: `SYNC` (stable), `WATCH` (transitional), `BREAK` (escalating), `RESET` (cooldown).
 - Follow-up: align compact glyph mapping for in-run portal parity in next prototype slice.
+
+## 2026-03-23 09:35 KST — Digest affordance update
+- Decision: add explicit delta line for mode-fit drift to improve scannability in weekly markdown reports.
+- Follow-up: evaluate symbol/label parity with other drift rows for visual consistency.

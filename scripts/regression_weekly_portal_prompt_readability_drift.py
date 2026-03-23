@@ -24,6 +24,7 @@ from weekly_portal_prompt_readability_drift import (
     route_pulse_link_mode_drift_from_prior,
     route_pulse_link_mode_stability_streak_from_prior,
     route_pulse_link_mode_fit_from_signals,
+    route_pulse_link_mode_fit_drift_from_prior,
     action_pace_window_confidence_from_signals,
     pace_drift_from_prior,
     sandbox_cooloff_from_prior,
@@ -973,6 +974,15 @@ def main() -> int:
             "routePulseLinkModeStabilityStreak",
             "reason",
         }, payload
+        assert isinstance(payload.get("routePulseLinkModeFitDrift"), int), payload
+        assert set(payload.get("routePulseLinkModeFitDriftSignals", {}).keys()) == {
+            "currentFit",
+            "currentScore",
+            "priorFit",
+            "priorScore",
+            "priorLoaded",
+            "reason",
+        }, payload
         assert isinstance(payload.get("actionPaceWhy"), str), payload
         assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
             "flagName",
@@ -1050,6 +1060,7 @@ def main() -> int:
         assert "ROUTE PULSE LINK MODE STREAK" in md_text
         assert "ROUTE PULSE LINK MODE WHY" in md_text
         assert "ROUTE PULSE LINK MODE FIT" in md_text
+        assert "ROUTE PULSE LINK MODE FIT Δ" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
@@ -1240,6 +1251,22 @@ def main() -> int:
         )
         assert route_pulse_mode_fit_break == "BREAK", (route_pulse_mode_fit_break, route_pulse_mode_fit_break_signals)
         assert route_pulse_mode_fit_break_signals["reason"] == "surge-intensifying", route_pulse_mode_fit_break_signals
+
+        route_pulse_mode_fit_drift_zero, route_pulse_mode_fit_drift_zero_signals = route_pulse_link_mode_fit_drift_from_prior(
+            current_route_pulse_link_mode_fit="WATCH",
+            prior_json_path=repo / "missing-route-pulse-mode-fit-prior.json",
+        )
+        assert route_pulse_mode_fit_drift_zero == 0, (route_pulse_mode_fit_drift_zero, route_pulse_mode_fit_drift_zero_signals)
+        assert route_pulse_mode_fit_drift_zero_signals["reason"] == "no-prior-fit", route_pulse_mode_fit_drift_zero_signals
+
+        route_pulse_mode_fit_prior = repo / "prior-route-pulse-mode-fit.json"
+        route_pulse_mode_fit_prior.write_text(json.dumps({"routePulseLinkModeFit": "WATCH"}), encoding="utf-8")
+        route_pulse_mode_fit_drift_up, route_pulse_mode_fit_drift_up_signals = route_pulse_link_mode_fit_drift_from_prior(
+            current_route_pulse_link_mode_fit="BREAK",
+            prior_json_path=route_pulse_mode_fit_prior,
+        )
+        assert route_pulse_mode_fit_drift_up == 2, (route_pulse_mode_fit_drift_up, route_pulse_mode_fit_drift_up_signals)
+        assert route_pulse_mode_fit_drift_up_signals["reason"] == "fit-intensified", route_pulse_mode_fit_drift_up_signals
 
         pace_conf_high, pace_conf_high_signals = action_pace_window_confidence_from_signals(
             action_pace_window="HOLD",

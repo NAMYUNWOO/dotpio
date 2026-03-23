@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-23 07:20 KST
+Last updated: 2026-03-23 09:35 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,9 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed Cycle BF drift task: weekly digest now emits `ROUTE PULSE LINK MODE FIT Δ:+n|-n` with prior-window context (`current/prior/loaded`).
+- Payload contract extended with `routePulseLinkModeFitDrift` + `routePulseLinkModeFitDriftSignals`; markdown now includes `ROUTE PULSE LINK MODE FIT Δ` row.
+- Regression coverage expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` for new payload keys, markdown token presence, and prior-window drift math.
 - Closed remaining unchecked compact portal parity item: `PULSE MODE:I|S|X` now ships behind `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT` in compact transition prompts.
 - Compact pulse mode mapping contract is deterministic and regression-covered: `X` (surge/high pressure), `S` (sustain/elevated), `I` (idle/low).
 - Added QA guardrail `scripts/regression_portal_prompt_pulse_mode.lua`; existing compact and pulse-link prompt regressions remain passing.

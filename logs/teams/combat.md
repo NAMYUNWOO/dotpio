@@ -1063,3 +1063,7 @@
 ## 2026-03-23 09:05 KST — Cycle BF coordination note
 - No combat runtime tuning touched.
 - Monitoring impact via digest-only pulse-link fit telemetry before combat-side integration.
+
+## 2026-03-23 09:35 KST — Combat lane unaffected
+- Impact: no combat parameter or behavior changes.
+- Follow-up: consume new digest delta as a stability signal when future combat pressure tuning overlaps portal pacing.

@@ -1353,3 +1353,7 @@
 - Decision: Added markdown surfacing line `ROUTE PULSE LINK MODE FIT` to improve one-glance operator handoff stability read.
 - Verification: regression includes markdown presence assertion for token.
 - Follow-up: evaluate compact in-run parity cue (`PULSE FIT`) behind flag.
+
+## 2026-03-23 09:35 KST — UX telemetry clarity gain
+- Decision: include `current/prior/loaded` context on fit-drift row so operators can interpret trend confidence quickly.
+- Follow-up: consider grouping pulse-link rows into a compact subsection after backlog cue tasks complete.

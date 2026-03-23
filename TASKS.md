@@ -538,5 +538,5 @@ See project-level plans:
 - [x] Design/World Team: Prototype detailed portal pulse mode cue (`ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE`) behind flag for full-prompt parity
 ## Next Up (Game Director Injection — 2026-03-23 Cycle BF)
 - [x] UX/Systems Team: Add route pulse-link mode fit token (`ROUTE PULSE LINK MODE FIT:SYNC|WATCH|BREAK|RESET`) for handoff stability triage *(lifecycle: [~] -> [x])*
-- [ ] QA/Systems Team: Add route pulse-link mode fit drift token (`ROUTE PULSE LINK MODE FIT Δ:+n|-n`) against prior digest window
+- [x] QA/Systems Team: Add route pulse-link mode fit drift token (`ROUTE PULSE LINK MODE FIT Δ:+n|-n`) against prior digest window
 - [ ] Design/World Team: Prototype compact portal pulse fit cue (`PULSE FIT:Y|W|B|R`) behind flag for in-run readability parity

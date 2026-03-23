@@ -1718,3 +1718,8 @@
 - Decision: Added `ROUTE PULSE LINK MODE FIT` classifier to weekly digest (`SYNC|WATCH|BREAK|RESET`) based on mode+drift+streak stability signals.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Follow-up: implement `ROUTE PULSE LINK MODE FIT Δ` drift token next cycle.
+
+## 2026-03-23 09:35 KST — Route pulse-link mode fit drift token shipped
+- Decision: added `routePulseLinkModeFitDrift` + signals to weekly portal prompt digest payload and markdown output.
+- Scope: `scripts/weekly_portal_prompt_readability_drift.py` + regression coverage.
+- Follow-up: apply same drift-token scaffold to compact prompt cue lane (`PULSE MODE FIT Δ`) next.

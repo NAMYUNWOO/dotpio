@@ -1,22 +1,22 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-22T23:05:01.383633Z
+- GeneratedAt(UTC): 2026-03-23T00:35:43.924766Z
 - Status: **OK**
-- Window: last 7 days (max 120 commits)
-- Checked commits: 120
-- Portal prompt commits: 21
-- Dominant mode commits: compact=2, detailed=4, neutral=15
+- Window: last 14 days (max 200 commits)
+- Checked commits: 200
+- Portal prompt commits: 24
+- Dominant mode commits: compact=2, detailed=5, neutral=17
 - MODE TREND: **DETAILED**
 - PRESSURE BAND: **HIGH** (edits +23 / -8 / net 15)
-- DRIFT RISK: **HIGH** (score=16 | imbalance=1 | pressure=15)
-- FOCUS: **PORTAL** (portal=28 | alt=23 | pressure=15)
+- DRIFT RISK: **HIGH** (score=19 | imbalance=4 | pressure=15)
+- FOCUS: **PORTAL** (portal=35 | alt=23 | pressure=15)
 - FOCUS STREAK: **0**
 - FOCUS SHIFT: **ALT->PORTAL**
-- FOCUS VOL: **SWING** (switches=5/6 ratio=0.833)
+- FOCUS VOL: **SWING** (switches=5/8 ratio=0.625)
 - ROUTE ACTION: **PORTAL_AUDIT** (portal-family tokens dominate top movers)
-- ACTION CONF: **LOW** (dom=0.424 spread=5 driftSpread=14)
-- FOCUS BAL: **42%** (top=28 total=66 dom=0.424)
-- FOCUS ENTROPY: **HIGH** (norm=0.972 raw=1.541 max=1.585)
+- ACTION CONF: **LOW** (dom=0.479 spread=12 driftSpread=11)
+- FOCUS BAL: **48%** (top=35 total=73 dom=0.479)
+- FOCUS ENTROPY: **HIGH** (norm=0.948 raw=1.503 max=1.585)
 - ACTION GUARD: **LOCK** (high-drift-low-confidence; risk=HIGH conf=LOW)
 - LANE LOCK: **NONE** (threshold=3 lane=PORTAL streak=0)
 - ROUTE SANDBOX: **OFF** (flag-disabled-and-lane-lock-not-armed; flag=DOTPIO_EXPERIMENT_ROUTE_SANDBOX enabled=False laneLock=PORTALx0)
@@ -27,9 +27,9 @@
 - SANDBOX READY: **PRIMED** (preconditions-forming; sandbox=OFF conf=LOW guard=LOCK lock=Falsex0)
 - TARGET SHIFT: **NONE->NONE** (target-stable; changed=False priorLoaded=True)
 - SANDBOX COOLOFF: **0** (no-prior-on-cycle; active=False prior=OFF:0)
-- DRIFT MOMENTUM: **COOLING** (recent=0.0 older=3.4 delta=-3.4)
+- DRIFT MOMENTUM: **COOLING** (recent=0.0 older=3.083 delta=-3.083)
 - ACTION STABILITY: **WATCH** (retune-watch-needed; conf=LOW vol=SWING momentum=COOLING)
-- PRESSURE LAG: **SLOW** (churn=15 momentum=COOLING |Δ|=3.4)
+- PRESSURE LAG: **SLOW** (churn=15 momentum=COOLING |Δ|=3.083)
 - ACTION PACE: **BRAKE** (guard-locked; guard=LOCK stability=WATCH lag=SLOW)
 - PACE DRIFT: **+0** (pace-stable; current=BRAKE(-1) prior=BRAKE(-1) loaded=True)
 - ACTION PACE WINDOW: **CLOSE** (guard-or-brake-closing-window; pace=BRAKE guard=LOCK drift=+0)
@@ -50,27 +50,29 @@
 - ROUTE PULSE LINK STREAK: **0** (link-off-reset; current=OFF prior=OFF priorStreak=0 loaded=True)
 - ROUTE PULSE LINK MODE: **IDLE** (link-disabled; link=OFF streak=0 drift=+0)
 - ROUTE PULSE LINK MODE Δ: **+0** (mode-stable; current=IDLE(0) prior=IDLE(0) loaded=True)
-- ROUTE PULSE LINK MODE STREAK: **2** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=0 loaded=True)
+- ROUTE PULSE LINK MODE STREAK: **3** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=2 loaded=True)
 - ROUTE PULSE LINK MODE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY enabled=False mode=IDLE link=OFF drift=+0 streak=0)
+- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=3)
+- ROUTE PULSE LINK MODE FIT Δ: **+1** (fit-intensified; current=SYNC(2) prior=WATCH(1) loaded=True)
 - ACTION PACE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_WHY enabled=False pace=BRAKE guard=LOCK stability=WATCH lag=SLOW drift=+0)
-- WHAT-IF: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_ALT enabled=False current=PORTAL alt=ALT risk=16->14)
-- WHAT-IF CONF: **LOW** (flag-disabled; delta=-2 routeConf=LOW current=PORTAL alt=ALT)
+- WHAT-IF: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_ALT enabled=False current=PORTAL alt=ALT risk=19->16)
+- WHAT-IF CONF: **LOW** (flag-disabled; delta=-3 routeConf=LOW current=PORTAL alt=ALT)
 - WHAT-IF ALIGN: **DIVERGED** (flag-disabled; route=PORTAL_AUDIT lane=PORTAL alt=ALT)
-- WHAT-IF BAND: **NEUTRAL** (flag-disabled; delta=-2 current=PORTAL alt=ALT enabled=False)
-- WHAT-IF MAG: **SMALL** (flag-disabled; delta=-2 |Δ|=2 enabled=False)
-- WHAT-IF FIT: **EVEN** (flag-disabled; pressure=HIGH projected=HIGH risk=14 enabled=False)
+- WHAT-IF BAND: **NEUTRAL** (flag-disabled; delta=-3 current=PORTAL alt=ALT enabled=False)
+- WHAT-IF MAG: **SMALL** (flag-disabled; delta=-3 |Δ|=3 enabled=False)
+- WHAT-IF FIT: **EVEN** (flag-disabled; pressure=HIGH projected=HIGH risk=16 enabled=False)
 - WHAT-IF FALLBACK: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK enabled=False align=DIVERGED route=PORTAL_AUDIT->PORTAL alt=ALT)
-- WHAT-IF FALLBACK CONF: **LOW** (flag-disabled; fallback=OFF align=DIVERGED delta=-2 routeConf=LOW enabled=False)
-- WHAT-IF FALLBACK FIT: **EVEN** (fallback-flag-disabled; fallback=OFF pressure=HIGH projected=HIGH risk=16 enabled=False)
+- WHAT-IF FALLBACK CONF: **LOW** (flag-disabled; fallback=OFF align=DIVERGED delta=-3 routeConf=LOW enabled=False)
+- WHAT-IF FALLBACK FIT: **EVEN** (fallback-flag-disabled; fallback=OFF pressure=HIGH projected=HIGH risk=19 enabled=False)
 - WHAT-IF FALLBACK WHY: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_WHY enabled=False fallback=OFF conf=LOW fit=EVEN pressure=HIGH)
 - WHAT-IF FALLBACK ALIGN: **SYNC** (no-actionable-fallback; fallback=OFF focus=PORTAL actionable=False)
-- WHAT-IF FALLBACK MAG: **SMALL** (flag-disabled; fallback=OFF delta=-2 |Δ|=2 enabled=False)
-- WHAT-IF FALLBACK ALT2: **NONE** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2 enabled=False fallback=NONE scores=portal:28 alt:23 pressure:15)
+- WHAT-IF FALLBACK MAG: **SMALL** (flag-disabled; fallback=OFF delta=-3 |Δ|=3 enabled=False)
+- WHAT-IF FALLBACK ALT2: **NONE** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2 enabled=False fallback=NONE scores=portal:35 alt:23 pressure:15)
 - WHAT-IF FALLBACK ALT2 CONF: **LOW** (flag-disabled; alt2=NONE fallback=NONE top=0 second=0 gap=0 enabled=False)
 - WHAT-IF FALLBACK PLAN: **HOLD** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN enabled=False primary=OFF(LOW) secondary=NONE(LOW))
 - WHAT-IF PLAN FIT: **EVEN** (hold-or-no-actionable-secondary; plan=HOLD lane=HOLD pressure=HIGH projected=HIGH)
 - WHAT-IF PLAN WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN_WHY enabled=False plan=HOLD fit=EVEN)
-- WHAT-IF SPLIT: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT enabled=False lanes=OFF->NONE conf=LOW/LOW |Δ|=2)
+- WHAT-IF SPLIT: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT enabled=False lanes=OFF->NONE conf=LOW/LOW |Δ|=3)
 - WHAT-IF SPLIT LANES: **NONE/NONE** (no-actionable-lanes; actionable=False/False)
 - WHAT-IF SPLIT CONF: **LOW** (flag-disabled; split=OFF conf=LOW/LOW strong=False delta=False)
 - WHAT-IF SPLIT SAFE: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_SPLIT_SAFE enabled=False split=OFF fit=EVEN alt2Conf=LOW)
@@ -128,15 +130,15 @@
 
 ## Token Totals (added/removed/net)
 - Compact: +34 / -9 / net 25
-- Detailed: +37 / -11 / net 26
-- Shared: +39 / -24 / net 15
+- Detailed: +41 / -12 / net 29
+- Shared: +44 / -25 / net 19
 
 ## Top Token Movers (net ±)
-- `COACH:` net +9 (added 21, removed 12)
+- `COACH:` net +12 (added 24, removed 12)
+- `NEXT ROUTE:` net +10 (added 18, removed 8)
 - `P:` net +8 (added 12, removed 4)
 - `PRESSURE:` net +7 (added 11, removed 4)
-- `NEXT ROUTE:` net +7 (added 14, removed 7)
-- `NEXT:` net +6 (added 11, removed 5)
+- `ENTER:JUMP` net +7 (added 20, removed 13)
 
 ## Route Vibe Drift (added/removed/net)
 - CALM: +3 / -0 / net 3
@@ -147,6 +149,7 @@
 - `NEXT:`, `P:`, `NEXT ROUTE:`, `PRESSURE:`, `ENTER:JUMP`, `COACH:`
 
 ## Commit-level digest
+- `73be1bb` Add detailed route pulse mode cue parity in portal prompt | mode=neutral | compact net=0 detailed net=0 shared net=0
 - `31d09e6` Add compact portal pulse-mode cue with regression | mode=neutral | compact net=0 detailed net=0 shared net=0
 - `007466c` feat(portal): add compact pulse-link cue behind experiment flag | mode=neutral | compact net=0 detailed net=0 shared net=0
 - `ced8caa` feat(portal): add drift glyph escalation cue behind experiment flag | mode=neutral | compact net=0 detailed net=0 shared net=0
@@ -168,3 +171,5 @@
 - `cbd5289` qa: add portal transition prompt token-order linter + budget parser | mode=neutral | compact net=4 detailed net=4 shared net=6
 - `721a173` feat(portal): add route-pressure transition token with threat context | mode=detailed | compact net=2 detailed net=5 shared net=0
 - `a02ee9c` feat: add portal prompt copy-budget audit and compact fallback | mode=detailed | compact net=2 detailed net=3 shared net=6
+- `534c6a6` feat: add route-tag distribution audit and portal route coaching cue | mode=neutral | compact net=0 detailed net=0 shared net=3
+- `1b83237` feat: add portal transition route preview prompt | mode=detailed | compact net=0 detailed net=3 shared net=1

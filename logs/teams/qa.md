@@ -2204,3 +2204,8 @@
 - Added schema assertions for `routePulseLinkModeFit` + signal keys and unit checks for `SYNC` / `BREAK` outcomes.
 - Command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Result: PASS.
+
+## 2026-03-23 09:35 KST — Regression gate passed
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
+- Added checks: payload keys for `routePulseLinkModeFitDrift*`, markdown token presence, and prior-window drift behavior.
+- Follow-up: keep digest regression green while adding compact prompt cue drift token.

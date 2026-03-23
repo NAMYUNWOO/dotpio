@@ -1451,6 +1451,51 @@ def route_pulse_link_mode_fit_from_signals(
     }
 
 
+def route_pulse_link_mode_fit_drift_from_prior(
+    *,
+    current_route_pulse_link_mode_fit: str,
+    prior_json_path: Path,
+) -> tuple[int, dict[str, str | int | bool]]:
+    """Track route pulse-link mode fit drift against prior digest window."""
+    score_map = {"RESET": 0, "WATCH": 1, "SYNC": 2, "BREAK": 3}
+    current_fit = str(current_route_pulse_link_mode_fit).upper()
+    current_score = score_map.get(current_fit, 0)
+
+    prior_fit = "WATCH"
+    prior_score = score_map[prior_fit]
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_fit = str(prior.get("routePulseLinkModeFit", prior_fit)).upper()
+            prior_score = score_map.get(prior_fit, 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, OSError, TypeError, ValueError):
+            prior_loaded = False
+            prior_fit = "WATCH"
+            prior_score = score_map[prior_fit]
+
+    drift = current_score - prior_score
+    if drift > 0:
+        reason = "fit-intensified"
+    elif drift < 0:
+        reason = "fit-deescalated"
+    elif prior_loaded:
+        reason = "fit-stable"
+    else:
+        reason = "no-prior-fit"
+
+    return drift, {
+        "currentFit": current_fit,
+        "currentScore": current_score,
+        "priorFit": prior_fit,
+        "priorScore": prior_score,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def route_action_guardrail_from_signals(*, drift_risk: str, route_action_confidence: str) -> tuple[str, dict[str, str | bool]]:
     lock = drift_risk == "HIGH" and route_action_confidence == "LOW"
     token = "LOCK" if lock else "SOFT"
@@ -4900,6 +4945,10 @@ def main() -> int:
         route_pulse_link_mode_drift=route_pulse_link_mode_drift,
         route_pulse_link_mode_stability_streak=route_pulse_link_mode_stability_streak,
     )
+    route_pulse_link_mode_fit_drift, route_pulse_link_mode_fit_drift_signals = route_pulse_link_mode_fit_drift_from_prior(
+        current_route_pulse_link_mode_fit=route_pulse_link_mode_fit,
+        prior_json_path=args.out_json,
+    )
     action_pace_why, action_pace_why_signals = action_pace_why_from_signals(
         action_pace=action_pace,
         action_guard=action_guard,
@@ -5338,6 +5387,8 @@ def main() -> int:
         "routePulseLinkModeWhySignals": route_pulse_link_mode_why_signals,
         "routePulseLinkModeFit": route_pulse_link_mode_fit,
         "routePulseLinkModeFitSignals": route_pulse_link_mode_fit_signals,
+        "routePulseLinkModeFitDrift": route_pulse_link_mode_fit_drift,
+        "routePulseLinkModeFitDriftSignals": route_pulse_link_mode_fit_drift_signals,
         "actionPaceWhy": action_pace_why,
         "actionPaceWhySignals": action_pace_why_signals,
         "whatIfAlt": what_if_alt,
@@ -5554,6 +5605,7 @@ def main() -> int:
         f"- ROUTE PULSE LINK MODE STREAK: **{route_pulse_link_mode_stability_streak}** ({route_pulse_link_mode_stability_streak_signals['reason']}; current={route_pulse_link_mode_stability_streak_signals['currentMode']} prior={route_pulse_link_mode_stability_streak_signals['priorMode']} priorStreak={route_pulse_link_mode_stability_streak_signals['priorStreak']} loaded={route_pulse_link_mode_stability_streak_signals['priorLoaded']})",
         f"- ROUTE PULSE LINK MODE WHY: **{route_pulse_link_mode_why}** ({route_pulse_link_mode_why_signals['reason']}; flag={route_pulse_link_mode_why_signals['flagName']} enabled={route_pulse_link_mode_why_signals['flagEnabled']} mode={route_pulse_link_mode_why_signals['routePulseLinkMode']} link={route_pulse_link_mode_why_signals['routePulseLink']} drift={route_pulse_link_mode_why_signals['routePulseLinkModeDrift']:+d} streak={route_pulse_link_mode_why_signals['routePulseLinkStreak']})",
         f"- ROUTE PULSE LINK MODE FIT: **{route_pulse_link_mode_fit}** ({route_pulse_link_mode_fit_signals['reason']}; mode={route_pulse_link_mode_fit_signals['routePulseLinkMode']} drift={route_pulse_link_mode_fit_signals['routePulseLinkModeDrift']:+d} streak={route_pulse_link_mode_fit_signals['routePulseLinkModeStabilityStreak']})",
+        f"- ROUTE PULSE LINK MODE FIT Δ: **{route_pulse_link_mode_fit_drift:+d}** ({route_pulse_link_mode_fit_drift_signals['reason']}; current={route_pulse_link_mode_fit_drift_signals['currentFit']}({route_pulse_link_mode_fit_drift_signals['currentScore']}) prior={route_pulse_link_mode_fit_drift_signals['priorFit']}({route_pulse_link_mode_fit_drift_signals['priorScore']}) loaded={route_pulse_link_mode_fit_drift_signals['priorLoaded']})",
         f"- ACTION PACE WHY: **{action_pace_why}** ({action_pace_why_signals['reason']}; flag={action_pace_why_signals['flagName']} enabled={action_pace_why_signals['flagEnabled']} pace={action_pace_why_signals['actionPace']} guard={action_pace_why_signals['actionGuard']} stability={action_pace_why_signals['actionStability']} lag={action_pace_why_signals['pressureLag']} drift={action_pace_why_signals['paceDrift']:+d})",
         f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
         f"- WHAT-IF CONF: **{what_if_confidence}** ({what_if_confidence_signals['reason']}; delta={what_if_confidence_signals['deltaRisk']} routeConf={what_if_confidence_signals['routeActionConfidence']} current={what_if_confidence_signals['currentLane']} alt={what_if_confidence_signals['altLane']})",

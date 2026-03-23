@@ -1092,3 +1092,7 @@
 ## 2026-03-23 09:05 KST — Cycle BF coordination note
 - No prompt-generation lane changes this cycle.
 - Follow-up queued: evaluate concise fit rationale copy once fit-drift token lands.
+
+## 2026-03-23 09:35 KST — Prompt telemetry readability increment
+- Decision: expose fit-drift delta (`ROUTE PULSE LINK MODE FIT Δ`) to make prompt-state transitions auditable across windows.
+- Follow-up: mirror token in compact transition prompt cue pass to reduce operator ambiguity.
