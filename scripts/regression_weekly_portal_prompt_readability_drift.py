@@ -983,6 +983,16 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert payload.get("routePulseTokenPriority") in {"FIT-FIRST", "MODE-FIRST", "OFF"}, payload
+        assert set(payload.get("routePulseTokenPrioritySignals", {}).keys()) == {
+            "envName",
+            "configuredMode",
+            "routePulseLinkModeFitDrift",
+            "priorMode",
+            "priorLoaded",
+            "guardHeld",
+            "reason",
+        }, payload
         assert isinstance(payload.get("actionPaceWhy"), str), payload
         assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
             "flagName",
@@ -1061,6 +1071,7 @@ def main() -> int:
         assert "ROUTE PULSE LINK MODE WHY" in md_text
         assert "ROUTE PULSE LINK MODE FIT" in md_text
         assert "ROUTE PULSE LINK MODE FIT Δ" in md_text
+        assert "ROUTE PULSE TOKEN PRIORITY" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text

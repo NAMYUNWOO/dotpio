@@ -1750,3 +1750,8 @@
 ## 2026-03-23 10:31 KST — Cycle BH vertical slice shipped
 - Added compact pulse-priority cue token (`PRI:F|M`) gated by `DOTPIO_EXPERIMENT_ROUTE_PULSE_TOKEN_PRIORITY`.
 - Scope: prompt composition only; no pressure-score/mode-fit logic changed.
+
+## 2026-03-23 11:12 KST — Pulse token-priority drift guard
+- Decision: Weekly digest now persists `routePulseTokenPriority` and applies guard-hold when mode flips without supporting `routePulseLinkModeFitDrift` movement.
+- Rationale: reduce operator whiplash from env-mode toggles during steady fit windows.
+- Follow-up: evaluate whether guard threshold should require multi-window confirmation.

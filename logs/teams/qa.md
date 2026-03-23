@@ -2241,3 +2241,8 @@
 
 ## 2026-03-23 10:31 KST — Cycle BH QA note
 - Updated token-priority regression to assert `PRI:F|M` emission and keep/drop behavior under 100-char compact budget path.
+
+## 2026-03-23 11:12 KST — Cycle BH (ROUTE PULSE TOKEN PRIORITY)
+- Completed: Added weekly digest token `ROUTE PULSE TOKEN PRIORITY:FIT-FIRST|MODE-FIRST|OFF` with prior-window drift guard.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: keep monitoring token flip frequency once `ALT STEP` lane lands.

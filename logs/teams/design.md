@@ -1154,3 +1154,7 @@
 
 ## 2026-03-23 10:31 KST — Cycle BH idea pipeline
 - Kept high-risk `ALT STEP:<SAFE|BAIT|PUSH>` as queued follow-up to avoid overloading current compact prompt slice.
+
+## 2026-03-23 11:12 KST — Routing handoff semantics
+- Confirmed token naming uses stable triad (`FIT-FIRST|MODE-FIRST|OFF`) to match portal prompt priority semantics.
+- No prompt-copy changes this slice; digest-only addition.

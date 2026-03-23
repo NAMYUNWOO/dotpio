@@ -2015,3 +2015,10 @@ Compact decision memory for AI context efficiency.
   - `src/portal.lua`: compact prompt now emits `PRI:F|M` when `DOTPIO_EXPERIMENT_ROUTE_PULSE_TOKEN_PRIORITY` is active.
   - `scripts/regression_portal_prompt_pulse_token_priority.lua`: verifies FIT-FIRST and MODE-FIRST cue+drop behavior under constrained budget.
 - Backlog injection recorded in `TASKS.md` and `POST_RC_BACKLOG.md` as **Cycle BH** (1 done, 2 queued).
+
+### 2026-03-23 11:12 KST — Cycle BH QA/Systems shipped
+- Shipped weekly digest token `ROUTE PULSE TOKEN PRIORITY` with values `FIT-FIRST|MODE-FIRST|OFF`.
+- Added drift guard: if configured mode flips but `ROUTE PULSE LINK MODE FIT Δ` is neutral, digest holds prior priority mode for stability.
+- Added JSON payload fields: `routePulseTokenPriority`, `routePulseTokenPrioritySignals`.
+- Regression coverage updated in `scripts/regression_weekly_portal_prompt_readability_drift.py` (payload schema + markdown line assertions).
+- Remaining highest-priority unchecked backlog item: `ALT STEP:<SAFE|BAIT|PUSH>` portal fallback micro-cue prototype.

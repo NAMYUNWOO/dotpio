@@ -1079,3 +1079,7 @@
 - Combat lane reviewed compact pulse token priority behavior under high-threat portal prompts.
 - Result: `MODE-FIRST` preserves immediate cadence-state read (`PULSE MODE`) when constrained; `FIT-FIRST` preserves handoff-stability cue.
 - No combat rule or threat-math changes in this slice.
+
+## 2026-03-23 11:12 KST — Lane checkpoint
+- No combat balance or behavior changes in this slice.
+- Pulse-priority telemetry remains available for future combat readability correlation.

@@ -1496,6 +1496,64 @@ def route_pulse_link_mode_fit_drift_from_prior(
     }
 
 
+def route_pulse_token_priority_from_signals(
+    *,
+    route_pulse_link_mode_fit_drift: int,
+    prior_json_path: Path,
+) -> tuple[str, dict[str, str | int | bool]]:
+    """Emit compact pulse-token priority mode with drift guard to avoid noisy flips."""
+    env_name = "DOTPIO_EXPERIMENT_ROUTE_PULSE_TOKEN_PRIORITY"
+    raw_mode = os.environ.get(env_name)
+    configured_mode = str(raw_mode or "").upper()
+    if configured_mode not in {"FIT-FIRST", "MODE-FIRST"}:
+        configured_mode = "OFF"
+
+    prior_mode = "OFF"
+    prior_loaded = False
+    if prior_json_path.is_file():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_mode = str(prior.get("routePulseTokenPriority", prior_mode)).upper()
+            if prior_mode not in {"FIT-FIRST", "MODE-FIRST", "OFF"}:
+                prior_mode = "OFF"
+            prior_loaded = True
+        except (json.JSONDecodeError, OSError, TypeError, ValueError):
+            prior_loaded = False
+
+    drift = int(route_pulse_link_mode_fit_drift)
+    guard_held = (
+        prior_loaded
+        and configured_mode in {"FIT-FIRST", "MODE-FIRST"}
+        and prior_mode in {"FIT-FIRST", "MODE-FIRST"}
+        and configured_mode != prior_mode
+        and drift == 0
+    )
+
+    if guard_held:
+        mode = prior_mode
+        reason = "guard-held-prior-mode"
+    else:
+        mode = configured_mode
+        if mode == "OFF":
+            reason = "priority-mode-disabled"
+        elif prior_loaded and mode != prior_mode:
+            reason = "priority-mode-shift-accepted"
+        elif prior_loaded:
+            reason = "priority-mode-stable"
+        else:
+            reason = "priority-mode-initialized"
+
+    return mode, {
+        "envName": env_name,
+        "configuredMode": configured_mode,
+        "routePulseLinkModeFitDrift": drift,
+        "priorMode": prior_mode,
+        "priorLoaded": prior_loaded,
+        "guardHeld": guard_held,
+        "reason": reason,
+    }
+
+
 def route_action_guardrail_from_signals(*, drift_risk: str, route_action_confidence: str) -> tuple[str, dict[str, str | bool]]:
     lock = drift_risk == "HIGH" and route_action_confidence == "LOW"
     token = "LOCK" if lock else "SOFT"
@@ -4949,6 +5007,10 @@ def main() -> int:
         current_route_pulse_link_mode_fit=route_pulse_link_mode_fit,
         prior_json_path=args.out_json,
     )
+    route_pulse_token_priority, route_pulse_token_priority_signals = route_pulse_token_priority_from_signals(
+        route_pulse_link_mode_fit_drift=route_pulse_link_mode_fit_drift,
+        prior_json_path=args.out_json,
+    )
     action_pace_why, action_pace_why_signals = action_pace_why_from_signals(
         action_pace=action_pace,
         action_guard=action_guard,
@@ -5389,6 +5451,8 @@ def main() -> int:
         "routePulseLinkModeFitSignals": route_pulse_link_mode_fit_signals,
         "routePulseLinkModeFitDrift": route_pulse_link_mode_fit_drift,
         "routePulseLinkModeFitDriftSignals": route_pulse_link_mode_fit_drift_signals,
+        "routePulseTokenPriority": route_pulse_token_priority,
+        "routePulseTokenPrioritySignals": route_pulse_token_priority_signals,
         "actionPaceWhy": action_pace_why,
         "actionPaceWhySignals": action_pace_why_signals,
         "whatIfAlt": what_if_alt,
@@ -5606,6 +5670,7 @@ def main() -> int:
         f"- ROUTE PULSE LINK MODE WHY: **{route_pulse_link_mode_why}** ({route_pulse_link_mode_why_signals['reason']}; flag={route_pulse_link_mode_why_signals['flagName']} enabled={route_pulse_link_mode_why_signals['flagEnabled']} mode={route_pulse_link_mode_why_signals['routePulseLinkMode']} link={route_pulse_link_mode_why_signals['routePulseLink']} drift={route_pulse_link_mode_why_signals['routePulseLinkModeDrift']:+d} streak={route_pulse_link_mode_why_signals['routePulseLinkStreak']})",
         f"- ROUTE PULSE LINK MODE FIT: **{route_pulse_link_mode_fit}** ({route_pulse_link_mode_fit_signals['reason']}; mode={route_pulse_link_mode_fit_signals['routePulseLinkMode']} drift={route_pulse_link_mode_fit_signals['routePulseLinkModeDrift']:+d} streak={route_pulse_link_mode_fit_signals['routePulseLinkModeStabilityStreak']})",
         f"- ROUTE PULSE LINK MODE FIT Δ: **{route_pulse_link_mode_fit_drift:+d}** ({route_pulse_link_mode_fit_drift_signals['reason']}; current={route_pulse_link_mode_fit_drift_signals['currentFit']}({route_pulse_link_mode_fit_drift_signals['currentScore']}) prior={route_pulse_link_mode_fit_drift_signals['priorFit']}({route_pulse_link_mode_fit_drift_signals['priorScore']}) loaded={route_pulse_link_mode_fit_drift_signals['priorLoaded']})",
+        f"- ROUTE PULSE TOKEN PRIORITY: **{route_pulse_token_priority}** ({route_pulse_token_priority_signals['reason']}; configured={route_pulse_token_priority_signals['configuredMode']} drift={route_pulse_token_priority_signals['routePulseLinkModeFitDrift']:+d} prior={route_pulse_token_priority_signals['priorMode']} loaded={route_pulse_token_priority_signals['priorLoaded']} guard={route_pulse_token_priority_signals['guardHeld']})",
         f"- ACTION PACE WHY: **{action_pace_why}** ({action_pace_why_signals['reason']}; flag={action_pace_why_signals['flagName']} enabled={action_pace_why_signals['flagEnabled']} pace={action_pace_why_signals['actionPace']} guard={action_pace_why_signals['actionGuard']} stability={action_pace_why_signals['actionStability']} lag={action_pace_why_signals['pressureLag']} drift={action_pace_why_signals['paceDrift']:+d})",
         f"- WHAT-IF: **{what_if_alt}** ({what_if_alt_signals['reason']}; flag={what_if_alt_signals['flagName']} enabled={what_if_alt_signals['flagEnabled']} current={what_if_alt_signals['currentLane']} alt={what_if_alt_signals['altLane']} risk={what_if_alt_signals['baselineRisk']}->{what_if_alt_signals['projectedRisk']})",
         f"- WHAT-IF CONF: **{what_if_confidence}** ({what_if_confidence_signals['reason']}; delta={what_if_confidence_signals['deltaRisk']} routeConf={what_if_confidence_signals['routeActionConfidence']} current={what_if_confidence_signals['currentLane']} alt={what_if_confidence_signals['altLane']})",

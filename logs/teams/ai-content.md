@@ -1108,3 +1108,7 @@
 - AI-content lane review: token-priority prototype stays deterministic and flag-gated.
 - No generative prompt schema changes required; compact token vocabulary unchanged.
 - Noted for future digest coaching: expose chosen priority mode in operator-facing summaries if needed.
+
+## 2026-03-23 11:12 KST — Lane checkpoint
+- No AI content generation logic changed.
+- Digest token update is compatible with existing prompt-readability analytics pipeline.

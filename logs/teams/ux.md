@@ -1374,3 +1374,7 @@
 
 ## 2026-03-23 10:31 KST — Cycle BH UX cue result
 - Added minimal cue `PRI:F|M` so compact prompt communicates active token-order policy even when secondary pulse token is dropped.
+
+## 2026-03-23 11:12 KST — Digest readability update
+- Added operator-facing markdown line `ROUTE PULSE TOKEN PRIORITY` with guard/status context (`configured`, `prior`, `guard`).
+- Outcome: compact pulse-ordering state is now glanceable in weekly digest.
