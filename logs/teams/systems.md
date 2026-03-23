@@ -1713,3 +1713,8 @@
 - Added detailed-mode classifier helper in portal prompt pipeline (`resolveRoutePulseMode`) and gated emission under existing flag `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT`.
 - Full prompt now carries `ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE` for parity with compact `PULSE MODE:I|S|X` cue.
 - Verification: [PASS] portal detailed+compact pulse-mode prompt regression validated PASS.
+
+## 2026-03-23 09:05 KST — Cycle BF shipped
+- Decision: Added `ROUTE PULSE LINK MODE FIT` classifier to weekly digest (`SYNC|WATCH|BREAK|RESET`) based on mode+drift+streak stability signals.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Follow-up: implement `ROUTE PULSE LINK MODE FIT Δ` drift token next cycle.

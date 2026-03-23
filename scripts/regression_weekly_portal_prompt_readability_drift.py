@@ -23,6 +23,7 @@ from weekly_portal_prompt_readability_drift import (
     route_pulse_link_mode_from_signals,
     route_pulse_link_mode_drift_from_prior,
     route_pulse_link_mode_stability_streak_from_prior,
+    route_pulse_link_mode_fit_from_signals,
     action_pace_window_confidence_from_signals,
     pace_drift_from_prior,
     sandbox_cooloff_from_prior,
@@ -965,6 +966,13 @@ def main() -> int:
             "routePulseLinkStreak",
             "reason",
         }, payload
+        assert payload.get("routePulseLinkModeFit") in {"SYNC", "WATCH", "BREAK", "RESET"}, payload
+        assert set(payload.get("routePulseLinkModeFitSignals", {}).keys()) == {
+            "routePulseLinkMode",
+            "routePulseLinkModeDrift",
+            "routePulseLinkModeStabilityStreak",
+            "reason",
+        }, payload
         assert isinstance(payload.get("actionPaceWhy"), str), payload
         assert set(payload.get("actionPaceWhySignals", {}).keys()) == {
             "flagName",
@@ -1041,6 +1049,7 @@ def main() -> int:
         assert "ROUTE PULSE LINK MODE Δ" in md_text
         assert "ROUTE PULSE LINK MODE STREAK" in md_text
         assert "ROUTE PULSE LINK MODE WHY" in md_text
+        assert "ROUTE PULSE LINK MODE FIT" in md_text
         assert "ACTION PACE WHY" in md_text
         assert "WHAT-IF" in md_text
         assert "WHAT-IF CONF" in md_text
@@ -1215,6 +1224,22 @@ def main() -> int:
         )
         assert route_pulse_mode_streak_up == 5, (route_pulse_mode_streak_up, route_pulse_mode_streak_up_signals)
         assert route_pulse_mode_streak_up_signals["reason"] == "mode-stable-extended", route_pulse_mode_streak_up_signals
+
+        route_pulse_mode_fit_sync, route_pulse_mode_fit_sync_signals = route_pulse_link_mode_fit_from_signals(
+            route_pulse_link_mode="SUSTAIN",
+            route_pulse_link_mode_drift=0,
+            route_pulse_link_mode_stability_streak=4,
+        )
+        assert route_pulse_mode_fit_sync == "SYNC", (route_pulse_mode_fit_sync, route_pulse_mode_fit_sync_signals)
+        assert route_pulse_mode_fit_sync_signals["reason"] == "mode-stable-multi-window", route_pulse_mode_fit_sync_signals
+
+        route_pulse_mode_fit_break, route_pulse_mode_fit_break_signals = route_pulse_link_mode_fit_from_signals(
+            route_pulse_link_mode="SURGE",
+            route_pulse_link_mode_drift=1,
+            route_pulse_link_mode_stability_streak=1,
+        )
+        assert route_pulse_mode_fit_break == "BREAK", (route_pulse_mode_fit_break, route_pulse_mode_fit_break_signals)
+        assert route_pulse_mode_fit_break_signals["reason"] == "surge-intensifying", route_pulse_mode_fit_break_signals
 
         pace_conf_high, pace_conf_high_signals = action_pace_window_confidence_from_signals(
             action_pace_window="HOLD",

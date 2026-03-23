@@ -1059,3 +1059,7 @@
 - Detailed portal pulse-mode token is now available in non-compact prompts; combat pacing math remains unchanged.
 - Threat-tier driven mode mapping () improves pre-jump readability without altering encounters.
 - Regression checks passed; no combat rebalance action required in this slice.
+
+## 2026-03-23 09:05 KST — Cycle BF coordination note
+- No combat runtime tuning touched.
+- Monitoring impact via digest-only pulse-link fit telemetry before combat-side integration.

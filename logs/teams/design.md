@@ -1127,3 +1127,7 @@
 - Closed remaining BE parity task by adding full-width portal token `ROUTE PULSE MODE:IDLE|SUSTAIN|SURGE` under flag.
 - Copy mirrors compact cue semantics (`I/S/X`) to keep mental model consistent across prompt budgets.
 - Design decision: retain identical trigger thresholds to avoid split behavior between compact and detailed UI states.
+
+## 2026-03-23 09:05 KST — Cycle BF coordination note
+- Approved token semantics: `SYNC` (stable), `WATCH` (transitional), `BREAK` (escalating), `RESET` (cooldown).
+- Follow-up: align compact glyph mapping for in-run portal parity in next prototype slice.

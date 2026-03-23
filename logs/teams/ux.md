@@ -1348,3 +1348,8 @@
 - Detailed portal prompt now includes `ROUTE PULSE MODE` so users see cadence mode even when prompt budget is not compacted.
 - Regression now validates both detailed and compact variants in a single script for parity safety.
 - Verified no compact prompt regressions (`PULSE MODE` and `PULSE LINK` checks remain PASS).
+
+## 2026-03-23 09:05 KST — Cycle BF readability pass
+- Decision: Added markdown surfacing line `ROUTE PULSE LINK MODE FIT` to improve one-glance operator handoff stability read.
+- Verification: regression includes markdown presence assertion for token.
+- Follow-up: evaluate compact in-run parity cue (`PULSE FIT`) behind flag.

@@ -1976,3 +1976,9 @@ Compact decision memory for AI context efficiency.
 - Regression upgrade: `scripts/regression_portal_prompt_pulse_mode.lua` now validates both detailed (`ROUTE PULSE MODE:*`) and compact (`PULSE MODE:*`) outputs across HIGH/MED/LOW fixtures.
 - Verification PASS: `[PASS] portal detailed+compact pulse-mode prompt regression validated`; `[PASS] portal compact pulse-link prompt regression validated`.
 - Backlog state: `TASKS.md` and `POST_RC_BACKLOG.md` Cycle BE items are now fully checked.
+
+## 2026-03-23 09:05 KST — Game Director Cycle BF
+- Shipped vertical slice: weekly digest token `ROUTE PULSE LINK MODE FIT:SYNC|WATCH|BREAK|RESET`.
+- Durable decision: fit classification should be derived from route pulse mode + drift + stability streak to avoid binary handoff signals.
+- Verification locked by regression schema, markdown presence checks, and helper behavior tests.
+- Backlog injected: remaining Cycle BF tasks are fit drift token and compact portal cue prototype.

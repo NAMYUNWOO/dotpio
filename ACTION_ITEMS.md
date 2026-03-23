@@ -77,3 +77,4 @@ Tracking rule:
 - Daily: ship at least 1 meaningful commit
 - Daily: post progress report (task, commit, verification, next)
 - Weekly: rebalance SRL economy based on telemetry snapshot
+- [x] Inject Cycle BF: add `ROUTE PULSE LINK MODE FIT` digest token and queue follow-up drift/prototype tasks

@@ -2199,3 +2199,8 @@
 - Verification commands PASS:
   - `[PASS] portal detailed+compact pulse-mode prompt regression validated`
   - `[PASS] portal compact pulse-link prompt regression validated`
+
+## 2026-03-23 09:05 KST — Cycle BF regression extension
+- Added schema assertions for `routePulseLinkModeFit` + signal keys and unit checks for `SYNC` / `BREAK` outcomes.
+- Command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Result: PASS.
