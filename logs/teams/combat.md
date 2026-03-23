@@ -1090,3 +1090,7 @@
 
 ## 2026-03-23 11:31 KST — Lane observation
 - No combat code changes; fallback confidence cue can later sync with threat coaching cadence.
+
+## 2026-03-23 12:36 KST — Cycle BJ combat note
+- No combat behavior/damage window updates in this slice.
+- Kept lane rotation healthy by leaving combat tasks queued for subsequent injection cycles.

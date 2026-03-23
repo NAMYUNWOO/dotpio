@@ -1770,3 +1770,7 @@
 - Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now derives `altStepConfidenceDrift` / `altStepConfidenceDriftSignals` by comparing current `altStepConfidence` vs prior snapshot (`LOW=0, MID=1, HIGH=2`).
 - Digest wiring: markdown now includes `ALT STEP CONF Δ` adjacent to `ACTION PACE ALT WINDOW CONF` for stability triage continuity.
 - Follow-up: remaining Cycle BI unchecked item is `ALT STEP WHY:<short>` behind flag.
+
+## 2026-03-23 12:36 KST — Cycle BJ systems note
+- No economy/combat balance mechanics changed this cycle.
+- Scope intentionally constrained to portal prompt metadata and experiment gating for safe vertical-slice rollout.

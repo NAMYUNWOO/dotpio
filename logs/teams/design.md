@@ -1170,3 +1170,10 @@
   2) Mid-risk systems/QA: digest drift token `ALT STEP CONF Δ` for confidence stability.
   3) High-risk novelty: `ALT STEP WHY:<short>` micro-rationale for adaptive branch coaching.
 - Selected experiment: idea #1 (minimal vertical slice, high readability leverage, reversible via flag).
+
+## 2026-03-23 12:36 KST — Cycle BJ design call
+- Generated Cycle BJ idea set (low/mid/high risk):
+  1) `ALT STEP WHY CONF` trust token (low risk, reversible) — selected.
+  2) `ALT STEP WHY CONF Δ` digest drift signal (mid risk).
+  3) `ALT WHY GLYPH` compact sigil token (high novelty).
+- Chosen experiment rationale: preserve operator context quality while staying within existing token family semantics.

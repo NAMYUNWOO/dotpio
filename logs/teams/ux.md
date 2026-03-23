@@ -1388,3 +1388,8 @@
 - Implemented flagged trust token `ALT STEP CONF:LOW|MID|HIGH` in detailed/compact portal prompts.
 - Confidence maps from fallback-intent + pressure context (`SAFE` strong, `BAIT` pressure-weighted, `PUSH` low trust).
 - Follow-up: tune confidence band thresholds after digest drift review.
+
+## 2026-03-23 12:36 KST — Cycle BJ UX update
+- Prompt readability pass now surfaces `ALT STEP WHY CONF` adjacent to `ALT STEP WHY` in detailed and compact portal prompts.
+- Goal: make fallback intent rationale trust glanceable without opening weekly digest.
+- Validation: regression scripts for `ALT STEP WHY` and new `ALT STEP WHY CONF` passed.

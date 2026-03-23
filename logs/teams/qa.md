@@ -2260,3 +2260,10 @@
 - Added markdown presence assertion for `ALT STEP CONF Δ` in weekly digest output contract.
 - Added direct unit regression coverage for `alt_step_confidence_drift_from_prior` (`no-prior -> 0`, `LOW->HIGH -> +2`).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-23 12:36 KST — Cycle BJ verification
+- Added regression `scripts/regression_portal_alt_step_why_confidence.lua` for flag-gated `ALT STEP WHY CONF` output in detailed+compact prompts.
+- Verification commands:
+  - `DOTPIO_EXPERIMENT_ALT_STEP_CUE=1 DOTPIO_EXPERIMENT_ALT_STEP_CONF=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY=1 lua scripts/regression_portal_alt_step_why.lua`
+  - `DOTPIO_EXPERIMENT_ALT_STEP_CUE=1 DOTPIO_EXPERIMENT_ALT_STEP_CONF=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY_CONF=1 lua scripts/regression_portal_alt_step_why_confidence.lua`
+- Result: pass/pass, no regressions observed in touched prompt path.

@@ -1165,3 +1165,7 @@
 ## 2026-03-23 11:31 KST — Branch-intent trust readability
 - Portal fallback intent now ships paired trust cue (`ALT STEP` + `ALT STEP CONF`) when experiment flags enabled.
 - Keeps branch scan actionable under high-pressure route choice moments.
+
+## 2026-03-23 12:36 KST — Cycle BJ world note
+- No map topology or portal graph wiring changes.
+- Portal transition copy gained rationale confidence token only; route selection logic remains unchanged.

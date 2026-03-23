@@ -2039,3 +2039,12 @@ Compact decision memory for AI context efficiency.
 - Added payload fields `altStepConfidenceDrift` + `altStepConfidenceDriftSignals` and markdown row `ALT STEP CONF Δ` (current/prior confidence score with loaded-state reason).
 - Regression coverage extended: markdown contract assertion + `alt_step_confidence_drift_from_prior` behavioral checks in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Remaining highest-priority unchecked backlog item: `ALT STEP WHY:<short>` (Design/AI Content, flag-gated).
+
+## 2026-03-23 12:36 KST — Game Director Cycle BJ (executed)
+- Triggered immediate Game Director review cycle after clearing prior unchecked task; generated 3 ideas (low/mid/high risk) and selected low-risk trust-readability slice.
+- Shipped vertical slice: `ALT STEP WHY CONF:LOW|MID|HIGH` behind `DOTPIO_EXPERIMENT_ALT_STEP_WHY_CONF` in detailed+compact portal transition prompts.
+- Added helper `resolveAltStepWhyConfidence(...)` and kept output deterministic for parser stability.
+- Added regression `scripts/regression_portal_alt_step_why_confidence.lua`; paired run with existing `regression_portal_alt_step_why.lua` passes.
+- Backlog injection recorded as Cycle BJ (1 done, 2 queued):
+  - Done: `ALT STEP WHY CONF`
+  - Next: `ALT STEP WHY CONF Δ` (digest drift), `ALT WHY GLYPH` (compact rationale sigil)

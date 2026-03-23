@@ -554,4 +554,9 @@ See project-level plans:
 ## Next Up (Game Director Injection — 2026-03-23 Cycle BI)
 - [x] UX/World Team: Prototype fallback micro-cue confidence token (`ALT STEP CONF:LOW|MID|HIGH`) behind flag for branch-intent trust readability
 - [x] Systems/QA Team: Add fallback micro-cue confidence drift token (`ALT STEP CONF Δ:+n|-n`) to weekly digest for stability triage
-- [ ] Design/AI Content Team: Prototype compact fallback intent rationale token (`ALT STEP WHY:<short>`) behind flag for operator context
+- [x] Design/AI Content Team: Prototype compact fallback intent rationale token (`ALT STEP WHY:<short>`) behind flag for operator context
+
+## Next Up (Game Director Injection — 2026-03-23 Cycle BJ)
+- [x] UX/AI Content Team: Prototype fallback rationale confidence token (`ALT STEP WHY CONF:LOW|MID|HIGH`) behind flag for trust readability
+- [ ] Systems/QA Team: Add fallback rationale confidence drift token (`ALT STEP WHY CONF Δ:+n|-n`) in weekly digest for stability triage
+- [ ] Design/World Team: Prototype compact rationale glyph token (`ALT WHY GLYPH:<sigil>`) behind flag for DOS-width scanability

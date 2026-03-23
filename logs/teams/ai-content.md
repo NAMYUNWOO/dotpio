@@ -1119,3 +1119,8 @@
 
 ## 2026-03-23 11:31 KST — Ideation lane seed
 - Added future cue rationale concept (`ALT STEP WHY`) to backlog for operator-context experimentation.
+
+## 2026-03-23 12:36 KST — Cycle BJ (ALT STEP WHY CONF vertical slice)
+- Completed: flagged fallback rationale trust token `ALT STEP WHY CONF:LOW|MID|HIGH` for operator readability.
+- Decision: map rationale labels to deterministic trust bands (`RISK-DROP|STABILIZE=HIGH`, `PRESSURE|SOFTEN=MID`, others default low unless inherited confidence supports mid).
+- Follow-up injected: rationale confidence drift token + compact rationale glyph token remain queued.
