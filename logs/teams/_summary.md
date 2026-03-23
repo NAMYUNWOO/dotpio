@@ -2106,3 +2106,15 @@ Compact decision memory for AI context efficiency.
 - Verification PASS: `lua scripts/regression_hud_berserker_counters.lua`, `lua scripts/regression_enemy_behavior_variants.lua`, `luac -p main.lua src/hud.lua`.
 - 24h cadence check: now explicitly covered `combat/vfx` (this slice), `design/world` (BM/BL portal glyph work), and `systems/ops` (digest + cadence watchdog lineages).
 - Backlog injected (Cycle BN): queued `VIBE TRAIL:CALM|ASH` (design/world) and `LANE GAP DETAIL` (systems/ops).
+
+## 2026-03-23 16:09 KST — Cycle BM: AWGMC compact confidence alias
+- Completed highest-priority unchecked item from TASKS/POST_RC_BACKLOG: `AWGMC:<L|M|H>` compact confidence alias behind flag.
+- Implementation:
+  - `src/portal.lua`: added `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE_CONF_COMPACT` gate and compact token label switch (`ALT STEP WHY CONF` -> `AWGMC`).
+  - `scripts/weekly_portal_prompt_readability_drift.py`: token catalogs/families updated to track `AWGMC:`.
+  - `scripts/regression_portal_alt_why_glyph_mode_confidence_compact.lua`: new regression for alias behavior.
+- Verification passed:
+  - `scripts/regression_portal_alt_why_glyph_compact.lua`
+  - `scripts/regression_portal_alt_why_glyph_mode_confidence_compact.lua`
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Next highest-priority unchecked item: `ALT WHY GLYPH MODE CONF WHY:<short>` (Design/AI Content, flag-gated).

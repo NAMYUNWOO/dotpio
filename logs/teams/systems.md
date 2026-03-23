@@ -1817,3 +1817,9 @@
 ## 2026-03-23 15:41 KST — Cycle BN systems note
 - Added helper `HUD.getBerserkerFxFadeTier(previousScore, threatDelta)` and integrated it into main-loop status emission for deterministic fade severity copy.
 - Injected next systems/ops backlog candidate: weekly lane watchdog detail token (`LANE GAP DETAIL`) to expose combat/vfx last-touch age.
+
+## 2026-03-23 16:09 KST — Cycle BM compact confidence alias plumbing
+- Completed vertical slice: compact portal prompt can alias `ALT STEP WHY CONF` as `AWGMC` behind `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE_CONF_COMPACT`.
+- Updated token catalogs in weekly drift digest script to recognize `AWGMC:` in compact + alt-family scans.
+- Verification: portal alias regressions + weekly readability digest regression passed.
+- Follow-up: next unchecked BM item is `ALT WHY GLYPH MODE CONF WHY:<short>` behind flag.

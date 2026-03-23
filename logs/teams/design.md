@@ -1220,3 +1220,8 @@
   2) mid-risk: portal cooloff vibe trail token (`VIBE TRAIL:CALM|ASH`),
   3) high-risk systems/ops: lane-gap detail watchdog.
 - Queued #2 as next design/world follow-up after combat/vfx rebalance slice.
+
+## 2026-03-23 16:09 KST — Cycle BM selected slice shipped
+- Selected/implemented idea: compact confidence alias token `AWGMC:<L|M|H>` behind flag for tighter DOS-width prompt scanability.
+- Pass criterion met: compact prompt emits `AWGMC`, detailed prompt keeps full label, regressions pass.
+- Queued next experiment candidate: `ALT WHY GLYPH MODE CONF WHY:<short>` rationale micro-token.

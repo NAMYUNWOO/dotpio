@@ -2320,3 +2320,8 @@
 - Added schema assertions for `altWhyGlyphModeConfidenceDrift` + `altWhyGlyphModeConfidenceDriftSignals`.
 - Added markdown assertion for `ALT WHY GLYPH MODE CONF Δ`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-23 16:09 KST — Verification: AWGMC compact confidence alias
+- Added regression: `scripts/regression_portal_alt_why_glyph_mode_confidence_compact.lua`.
+- PASS: compact prompt emits `AWGMC:MID` and omits full `ALT STEP WHY CONF` label when alias flag is enabled.
+- PASS: `scripts/regression_portal_alt_why_glyph_compact.lua` (AWG/AWGM baseline) and `scripts/regression_weekly_portal_prompt_readability_drift.py`.

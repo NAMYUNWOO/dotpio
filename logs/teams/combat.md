@@ -1128,3 +1128,8 @@
 - Shipped readability-only cooldown intensity tier in status feed: `BERSERK FX:FADE(SOFT|HARD)` based on prior threat pressure and fade delta severity.
 - No enemy stat/cadence tuning changes; this is feedback-layer only.
 - Verification: `lua scripts/regression_hud_berserker_counters.lua`, `lua scripts/regression_enemy_behavior_variants.lua`, `luac -p main.lua src/hud.lua`.
+
+## 2026-03-23 16:09 KST — Cross-lane verification note
+- Reviewed compact token alias impact: `AWGMC` change is portal prompt-only and does not alter threat/combat scoring.
+- Regression suite remained green after alias addition.
+- No combat tuning changes required this cycle.

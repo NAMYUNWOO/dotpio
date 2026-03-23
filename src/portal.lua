@@ -379,6 +379,15 @@ local function isAltStepWhyGlyphModeCompactAliasExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isAltStepWhyGlyphModeConfidenceCompactAliasExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE_CONF_COMPACT")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function isRoutePulseLinkCompactPromptExperimentEnabled()
     local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_PROMPT")
     if not raw then
@@ -834,7 +843,8 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
             if altStepWhy then
                 prompt = string.format("%s  ALT STEP WHY:%s", prompt, altStepWhy)
                 if altStepWhyConfidence then
-                    prompt = string.format("%s  ALT STEP WHY CONF:%s", prompt, altStepWhyConfidence)
+                    local altStepWhyConfTokenLabel = isAltStepWhyGlyphModeConfidenceCompactAliasExperimentEnabled() and "AWGMC" or "ALT STEP WHY CONF"
+                    prompt = string.format("%s  %s:%s", prompt, altStepWhyConfTokenLabel, altStepWhyConfidence)
                 end
                 if altStepWhyGlyph then
                     local glyphTokenLabel = isAltStepWhyGlyphCompactAliasExperimentEnabled() and "AWG" or "ALT WHY GLYPH"

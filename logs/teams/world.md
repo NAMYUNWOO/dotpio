@@ -1198,3 +1198,8 @@
 
 ## 2026-03-23 15:39 KST
 - No world-content changes; this cycle remained digest telemetry-only.
+
+## 2026-03-23 16:09 KST — Portal copy budget slice (AWGMC)
+- Added compact alias `AWGMC:<L|M|H>` for fallback confidence token in compact portal prompt path.
+- Detailed prompt remains unchanged (`ALT STEP WHY CONF:<tier>`) to preserve clarity outside compact mode.
+- Evidence: `scripts/regression_portal_alt_why_glyph_mode_confidence_compact.lua`.

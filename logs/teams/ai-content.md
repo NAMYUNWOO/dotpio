@@ -1152,3 +1152,8 @@
 
 ## 2026-03-23 15:39 KST
 - No new AI behavior tokens in runtime prompt; added weekly confidence-drift reporting only.
+
+## 2026-03-23 16:09 KST — Fallback rationale confidence readability
+- Completed BM low-risk UX slice: compact confidence alias `AWGMC` now available under dedicated experiment flag.
+- Intent preserved: confidence semantics (LOW/MID/HIGH) unchanged, only token label compacted.
+- Next AI-content follow-up remains: rationale micro-token `ALT WHY GLYPH MODE CONF WHY:<short>`.

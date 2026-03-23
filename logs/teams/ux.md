@@ -1424,3 +1424,8 @@
 
 ## 2026-03-23 15:39 KST
 - Added digest readability companion row `ALT WHY GLYPH MODE CONF Δ` under confidence block for faster stability scan.
+
+## 2026-03-23 16:09 KST — Compact confidence alias readability pass
+- Compact portal prompt now emits `AWGMC:<tier>` when `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE_CONF_COMPACT=1`.
+- Kept non-compact copy stable and explicit (`ALT STEP WHY CONF:<tier>`).
+- Added dedicated regression coverage for alias behavior and no-duplication constraints.

@@ -573,7 +573,7 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — 2026-03-23 Cycle BM)
 - [x] Systems/QA Team: Add glyph-mode confidence drift token (`ALT WHY GLYPH MODE CONF Δ:+n|-n`) to weekly digest for confidence stability triage
-- [ ] UX/World Team: Prototype compact confidence alias token (`AWGMC:<L|M|H>`) behind flag for prompt-width budget
+- [x] UX/World Team: Prototype compact confidence alias token (`AWGMC:<L|M|H>`) behind flag for prompt-width budget
 - [ ] Design/AI Content Team: Prototype glyph-mode confidence rationale micro-token (`ALT WHY GLYPH MODE CONF WHY:<short>`) behind flag
 
 ## Next Up (Game Director Injection — 2026-03-23 Cycle BN, forced-lane rebalance)
