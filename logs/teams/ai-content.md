@@ -1220,3 +1220,8 @@
 - Cross-lane note: Weekly digest coverage extended for `VIBE TRAIL ARC` alias churn (`VIBE TRAIL ARC:` + `VTA:`) and `PULSE HEAT FX:` churn.
 - Impact: No gameplay/runtime behavior changes; telemetry/readability audit surface only.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-23 22:35 KST — Prompt semantics continuity
+- Route-afterglow cue derives deterministically from `VIBE TRAIL ARC` and does not alter generation inputs.
+- Mapping kept low-ambiguity (`RECOVER -> SOFT`, `SCAR/MIXED -> SHARP`) for downstream prompt parsing stability.
+- Follow-up: evaluate if MIXED requires distinct glow state in later experiment cycle.

@@ -450,5 +450,5 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-23 Cycle BT)
 - [x] Combat/VFX Team: Add compact pulse-heat FX cue token (`PULSE HEAT FX:CALM|SPARK|BLAZE`) behind `DOTPIO_EXPERIMENT_PULSE_HEAT_FX`
-- [ ] Design/World Team: Prototype compact route afterglow cue (`ROUTE GLOW:SOFT|SHARP`) tied to `VIBE TRAIL ARC`
+- [x] Design/World Team: Prototype compact route afterglow cue (`ROUTE GLOW:SOFT|SHARP`) tied to `VIBE TRAIL ARC`
 - [ ] Systems/QA Team: Add weekly digest token-family coverage for pulse-heat FX churn (`PULSE HEAT FX:`) with compact-budget drift note

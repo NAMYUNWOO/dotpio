@@ -1909,3 +1909,8 @@
 - Decisions:
   - Extended token catalog/groups so `VIBE TRAIL ARC:`/`VTA:` and `PULSE HEAT FX:` are counted in weekly token totals.
   - Added alias-family coverage rows (`vibeTrailArcAlias`, `pulseHeatFxAlias`) to JSON + markdown for stable drift triage.
+
+## 2026-03-23 22:35 KST — Experiment wiring note (route glow)
+- Added new experiment gate `DOTPIO_EXPERIMENT_ROUTE_GLOW` in `src/portal.lua`.
+- No economy/combat mechanics touched; prompt-only output on compact branch.
+- Next systems task: close remaining digest churn backlog items for arc/heat token families.

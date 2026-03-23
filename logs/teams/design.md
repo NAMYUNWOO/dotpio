@@ -1294,3 +1294,8 @@
 - Cross-lane note: Weekly digest coverage extended for `VIBE TRAIL ARC` alias churn (`VIBE TRAIL ARC:` + `VTA:`) and `PULSE HEAT FX:` churn.
 - Impact: No gameplay/runtime behavior changes; telemetry/readability audit surface only.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-23 22:35 KST — Cycle BT route-afterglow compact cue
+- Decision: Implemented compact portal afterglow cue `ROUTE GLOW:SOFT|SHARP` tied to `VIBE TRAIL ARC` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW`.
+- Scope: `src/portal.lua`, `scripts/regression_portal_route_glow.lua`.
+- Follow-up: Sync remaining Post-RC QA digest backlog items (`VIBE TRAIL ARC` churn + `PULSE HEAT FX` churn) in next cycle.

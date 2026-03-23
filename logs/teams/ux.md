@@ -1491,3 +1491,8 @@
 - Cross-lane note: Weekly digest coverage extended for `VIBE TRAIL ARC` alias churn (`VIBE TRAIL ARC:` + `VTA:`) and `PULSE HEAT FX:` churn.
 - Impact: No gameplay/runtime behavior changes; telemetry/readability audit surface only.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-23 22:35 KST — Compact readability pass
+- Inserted `ROUTE GLOW:SOFT|SHARP` immediately after `VTA:*` in compact portal prompt for post-jump fantasy scanability.
+- Preserved existing compact token order and no changes to non-compact wording.
+- Validation: route-glow regression + full vibe-trail regression both passing.

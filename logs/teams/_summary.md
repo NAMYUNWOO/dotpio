@@ -2228,3 +2228,10 @@ Compact decision memory for AI context efficiency.
 - Shipped compact pulse-fantasy cue `PULSE HEAT FX:CALM|SPARK|BLAZE` behind `DOTPIO_EXPERIMENT_PULSE_HEAT_FX`; existing `PULSE HEAT` tiers now carry stronger emotional readability.
 - Added QA guardrail `scripts/regression_portal_pulse_heat_fx.lua`; pulse-heat and pulse-mode regressions remain passing.
 - Injected next backlog set (Cycle BT): world/design `ROUTE GLOW:SOFT|SHARP` prototype and systems/qa digest token-family coverage for `PULSE HEAT FX` churn.
+
+### 2026-03-23 22:35 KST — Cycle BT route-afterglow slice shipped
+- Shipped compact portal afterglow cue behind `DOTPIO_EXPERIMENT_ROUTE_GLOW`.
+- Behavior: emit `ROUTE GLOW:SOFT` for `VIBE TRAIL ARC:RECOVER`, `ROUTE GLOW:SHARP` for `SCAR|MIXED`.
+- Files: `src/portal.lua`, `scripts/regression_portal_route_glow.lua`.
+- Verification: new route-glow regression pass + existing vibe-trail regression pass.
+- Backlog sync: marked Cycle BT route-afterglow item done in `TASKS.md` and `POST_RC_BACKLOG.md`.

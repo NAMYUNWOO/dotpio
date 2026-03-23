@@ -610,5 +610,5 @@ See project-level plans:
   - [x] Add deterministic heat-to-fx mapper wired to existing pulse-heat tiers (`COOL/WARM/HOT`)
   - [x] Render compact prompt token without altering route pressure/combat mechanics
   - [x] Add regression coverage for COOL/WARM/HOT FX token emission (`scripts/regression_portal_pulse_heat_fx.lua`)
-- [ ] Design/World Team: Prototype compact route afterglow cue (`ROUTE GLOW:SOFT|SHARP`) tied to `VIBE TRAIL ARC` for post-jump fantasy readability
+- [x] Design/World Team: Prototype compact route afterglow cue (`ROUTE GLOW:SOFT|SHARP`) tied to `VIBE TRAIL ARC` for post-jump fantasy readability
 - [x] Systems/QA Team: Add weekly digest token-family coverage for pulse-heat FX churn (`PULSE HEAT FX:`) with compact-budget drift note

@@ -2409,3 +2409,10 @@
 - Cross-lane note: Weekly digest coverage extended for `VIBE TRAIL ARC` alias churn (`VIBE TRAIL ARC:` + `VTA:`) and `PULSE HEAT FX:` churn.
 - Impact: No gameplay/runtime behavior changes; telemetry/readability audit surface only.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-23 22:35 KST — Route glow regression coverage
+- Added regression: `scripts/regression_portal_route_glow.lua`.
+- Pass evidence:
+  - `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_ARC=1 DOTPIO_EXPERIMENT_ROUTE_GLOW=1 lua scripts/regression_portal_route_glow.lua`
+  - `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_ARC=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY_CONF=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY_RAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF_RAIL=1 lua scripts/regression_portal_vibe_trail.lua`
+- Follow-up: Add digest token-family churn row for `VIBE TRAIL ARC:` + `VTA:` in Post-RC queue.
