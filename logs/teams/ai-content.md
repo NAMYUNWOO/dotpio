@@ -1275,3 +1275,8 @@
 - Implementation: `src/portal.lua` now emits rationale tokens only when `RGFXC` is active, with deterministic mapping `SOFT->STABLE(S)`, `SHARP->PRESSURE(P)`, `SURGE->OVERDRIVE(O)`.
 - Verification: `scripts/regression_portal_route_glow_fx_conf.lua`, `scripts/regression_portal_route_glow_fx_conf_why.lua`, `scripts/regression_portal_route_glow_fx_conf_why_compact_alias.lua` all passed.
 - Follow-up: queued Cycle BX digest family coverage (`ROUTE GLOW FX CONF WHY:` + `RGFXW:`) and rationale rail readability token.
+
+## 2026-03-24 03:31 KST — Cycle BY rationale token semantics check
+- Reviewed route-glow rationale token mapping continuity after rail additions.
+- Confirmed existing rationale mapping remains deterministic (`SOFT->STABLE`, `SHARP->PRESSURE`, `SURGE->OVERDRIVE`) and rail token is a compression layer only.
+- Follow-up queued: evaluate confidence-adaptive rail mode token wording (`LOCK|FLEX`) for operator clarity.

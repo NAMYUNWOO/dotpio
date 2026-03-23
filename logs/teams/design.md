@@ -1350,3 +1350,8 @@
 - Implementation: `src/portal.lua` now emits rationale tokens only when `RGFXC` is active, with deterministic mapping `SOFT->STABLE(S)`, `SHARP->PRESSURE(P)`, `SURGE->OVERDRIVE(O)`.
 - Verification: `scripts/regression_portal_route_glow_fx_conf.lua`, `scripts/regression_portal_route_glow_fx_conf_why.lua`, `scripts/regression_portal_route_glow_fx_conf_why_compact_alias.lua` all passed.
 - Follow-up: queued Cycle BX digest family coverage (`ROUTE GLOW FX CONF WHY:` + `RGFXW:`) and rationale rail readability token.
+
+## 2026-03-24 03:31 KST — Cycle BY readability direction
+- Adopted compact alias `RGFXWR` to reduce portal prompt width while keeping detailed fallback label for debuggability.
+- Durable UI copy decision: keep rail vocabulary binary (`STEADY|SPIKE`) for glanceable cadence interpretation.
+- Injected design follow-up candidate: `ROUTE GLOW FX CONF WHY RAIL MODE:LOCK|FLEX` behind flag.

@@ -720,6 +720,10 @@ def main() -> int:
         assert "RGC:" in payload["tokenTotals"]["net"], payload
         assert "ROUTE GLOW FX CONF:" in payload["tokenTotals"]["net"], payload
         assert "RGFXC:" in payload["tokenTotals"]["net"], payload
+        assert "ROUTE GLOW FX CONF WHY:" in payload["tokenTotals"]["net"], payload
+        assert "RGFXW:" in payload["tokenTotals"]["net"], payload
+        assert "ROUTE GLOW FX CONF WHY RAIL:" in payload["tokenTotals"]["net"], payload
+        assert "RGFXWR:" in payload["tokenTotals"]["net"], payload
         assert "tokenFamilyTotals" in payload, payload
         assert "vibeTrailWhyAlias" in payload["tokenFamilyTotals"], payload
         assert "vibeTrailWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
@@ -730,6 +734,8 @@ def main() -> int:
         assert "routeGlowFxAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceAlias" in payload["tokenFamilyTotals"], payload
+        assert "routeGlowFxConfidenceWhyAlias" in payload["tokenFamilyTotals"], payload
+        assert "routeGlowFxConfidenceWhyRailAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
@@ -811,6 +817,26 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["routeGlowFxConfidenceAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["routeGlowFxConfidenceWhyAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["routeGlowFxConfidenceWhyRailAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1217,9 +1243,13 @@ def main() -> int:
         assert "ROUTE GLOW FX FAMILY CHURN" in md_text
         assert "ROUTE GLOW CONF FAMILY CHURN" in md_text
         assert "ROUTE GLOW FX CONF FAMILY CHURN" in md_text
+        assert "ROUTE GLOW FX CONF WHY FAMILY CHURN" in md_text
+        assert "ROUTE GLOW FX CONF WHY RAIL FAMILY CHURN" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text
         assert "ROUTE GLOW FX CONF + RGFXC:" in md_text
+        assert "ROUTE GLOW FX CONF WHY + RGFXW:" in md_text
+        assert "ROUTE GLOW FX CONF WHY RAIL + RGFXWR:" in md_text
         assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX COMPACT-BUDGET DRIFT" in md_text
         assert "MODE TREND" in md_text

@@ -2287,3 +2287,11 @@ Compact decision memory for AI context efficiency.
 - Immediate full-check trigger executed Game Director review cycle (Cycle BX): generated 3 ideas, selected low-risk vertical slice and shipped compact alias `RGFXW:<O|P|S>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_COMPACT`.
 - Durable mapping decision: route-glow FX rationale remains deterministic and pressure-linked (`SOFT->STABLE`, `SHARP->PRESSURE`, `SURGE->OVERDRIVE`) to keep trust cues stable across compact/detailed prompt modes.
 - Injected follow-up backlog tasks for Systems/QA digest coverage (`ROUTE GLOW FX CONF WHY:` + `RGFXW:`) and UX rationale-rail readability token.
+
+## 2026-03-24 03:31 KST — Cycle BX/BY rationale coverage + compact rail alias
+- Closed remaining unchecked backlog items from Cycle BX by shipping:
+  - Systems/QA digest token-family coverage for `ROUTE GLOW FX CONF WHY:` + `RGFXW:`.
+  - UX/World rationale rail token `ROUTE GLOW FX CONF WHY RAIL:STEADY|SPIKE` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL`.
+- Full-check trigger executed Game Director review cycle (Cycle BY): generated 3 ideas (low/mid/high), selected low-risk slice and shipped compact alias `RGFXWR:<STEADY|SPIKE>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_COMPACT`.
+- Durable decision: preserve deterministic rationale->rail mapping (`STABLE->STEADY`, `PRESSURE|OVERDRIVE->SPIKE`) and keep long-label fallback when compact alias flag is off.
+- Injected follow-up backlog tasks: rail-family digest coverage and confidence-adaptive rail-mode token experiment.

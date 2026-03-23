@@ -1247,3 +1247,7 @@
 - Implementation: `src/portal.lua` now emits rationale tokens only when `RGFXC` is active, with deterministic mapping `SOFT->STABLE(S)`, `SHARP->PRESSURE(P)`, `SURGE->OVERDRIVE(O)`.
 - Verification: `scripts/regression_portal_route_glow_fx_conf.lua`, `scripts/regression_portal_route_glow_fx_conf_why.lua`, `scripts/regression_portal_route_glow_fx_conf_why_compact_alias.lua` all passed.
 - Follow-up: queued Cycle BX digest family coverage (`ROUTE GLOW FX CONF WHY:` + `RGFXW:`) and rationale rail readability token.
+
+## 2026-03-24 03:31 KST — Cycle BY combat-lane impact review
+- Route-glow rationale/rail updates are prompt-readability only; no combat math, enemy behavior, or threat formulas changed.
+- Verified `SPIKE` rail semantics align with pressure-heavy states and do not alter combat resolution paths.

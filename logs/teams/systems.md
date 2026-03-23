@@ -1968,3 +1968,13 @@
 - Implementation: `src/portal.lua` now emits rationale tokens only when `RGFXC` is active, with deterministic mapping `SOFT->STABLE(S)`, `SHARP->PRESSURE(P)`, `SURGE->OVERDRIVE(O)`.
 - Verification: `scripts/regression_portal_route_glow_fx_conf.lua`, `scripts/regression_portal_route_glow_fx_conf_why.lua`, `scripts/regression_portal_route_glow_fx_conf_why_compact_alias.lua` all passed.
 - Follow-up: queued Cycle BX digest family coverage (`ROUTE GLOW FX CONF WHY:` + `RGFXW:`) and rationale rail readability token.
+
+## 2026-03-24 03:31 KST — Cycle BX/BY route-glow rationale digest + rail slice
+- Completed Systems/QA backlog item: weekly digest now tracks `ROUTE GLOW FX CONF WHY:` + `RGFXW:` token-family churn (JSON + markdown rows + regression contract updates).
+- Game Director Cycle BY (ideas generated low/mid/high):
+  1) Low-risk UX/world: compact alias for rationale rail token (`RGFXWR`).
+  2) Mid-risk systems/qa: digest token-family churn for rationale rail labels.
+  3) High-risk design/ux: confidence-adaptive rail compression mode token.
+- Selected/implemented low-risk vertical slice: added `RGFXWR:<STEADY|SPIKE>` alias behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_COMPACT` with long-label fallback.
+- Verification: route-glow rationale regressions + weekly digest regression pass (see QA log entry).
+- Follow-up injected: rail-family digest coverage + rail mode token prototype remain queued.

@@ -1321,3 +1321,9 @@
 - Implementation: `src/portal.lua` now emits rationale tokens only when `RGFXC` is active, with deterministic mapping `SOFT->STABLE(S)`, `SHARP->PRESSURE(P)`, `SURGE->OVERDRIVE(O)`.
 - Verification: `scripts/regression_portal_route_glow_fx_conf.lua`, `scripts/regression_portal_route_glow_fx_conf_why.lua`, `scripts/regression_portal_route_glow_fx_conf_why_compact_alias.lua` all passed.
 - Follow-up: queued Cycle BX digest family coverage (`ROUTE GLOW FX CONF WHY:` + `RGFXW:`) and rationale rail readability token.
+
+## 2026-03-24 03:31 KST — Cycle BY route-glow rationale rail readability
+- Added compact route-glow rationale rail token support (`ROUTE GLOW FX CONF WHY RAIL:STEADY|SPIKE`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL`.
+- Added compact alias path `RGFXWR:<STEADY|SPIKE>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_COMPACT` while preserving long-label fallback.
+- Rail mapping decision: `STABLE -> STEADY`, `PRESSURE/OVERDRIVE -> SPIKE` for deterministic trust pacing semantics.
+- No map graph/progression data changed.

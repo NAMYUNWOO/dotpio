@@ -630,5 +630,10 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — 2026-03-24 Cycle BX)
 - [x] Design/AI Content Team: Prototype compact route-glow FX confidence rationale alias token (`RGFXW:<O|P|S>`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_COMPACT` while preserving detailed token fallback *(lifecycle: [~] -> [x])*
-- [ ] Systems/QA Team: Add weekly digest token-family coverage for route-glow FX confidence rationale token churn (`ROUTE GLOW FX CONF WHY:` + `RGFXW:`)
-- [ ] UX/World Team: Prototype compact route-glow rationale rail token (`ROUTE GLOW FX CONF WHY RAIL:STEADY|SPIKE`) behind flag for trust pacing readability
+- [x] Systems/QA Team: Add weekly digest token-family coverage for route-glow FX confidence rationale token churn (`ROUTE GLOW FX CONF WHY:` + `RGFXW:`)
+- [x] UX/World Team: Prototype compact route-glow rationale rail token (`ROUTE GLOW FX CONF WHY RAIL:STEADY|SPIKE`) behind flag for trust pacing readability
+
+## Next Up (Game Director Injection — 2026-03-24 Cycle BY)
+- [x] UX/World Team: Add compact alias token for route-glow rationale rail (`RGFXWR:<STEADY|SPIKE>`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_COMPACT` while preserving detailed fallback
+- [ ] Systems/QA Team: Add weekly digest token-family coverage for route-glow rationale rail churn (`ROUTE GLOW FX CONF WHY RAIL:` + `RGFXWR:`)
+- [ ] Design/UX Team: Prototype confidence-adaptive rail compression token (`ROUTE GLOW FX CONF WHY RAIL MODE:LOCK|FLEX`) behind flag for prompt-budget resilience
