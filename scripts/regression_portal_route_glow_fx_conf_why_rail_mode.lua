@@ -1,5 +1,5 @@
 -- Regression: route-glow FX confidence rationale rail mode token (`RGFXWRM:LOCK|FLEX`) when enabled.
--- Run: DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_ARC=1 DOTPIO_EXPERIMENT_ROUTE_GLOW=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_MODE=1 DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 lua scripts/regression_portal_route_glow_fx_conf_why_rail_mode.lua
+-- Run: DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_ARC=1 DOTPIO_EXPERIMENT_ROUTE_GLOW=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_COMPACT=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL=1 DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_MODE=1 DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 lua scripts/regression_portal_route_glow_fx_conf_why_rail_mode.lua
 
 package.path = package.path .. ";./?.lua;./?/init.lua"
 
@@ -25,11 +25,26 @@ Portal.check(10, 10, {
 
 local promptLow = Portal.getTransitionPrompt(150, { threatTier = "LOW", vibeTrail = "CALM" })
 expect(type(promptLow) == "string", "low-pressure prompt should exist")
-expect(promptLow:find("RGFXWRM:FLEX", 1, true), "SOFT/STEADY path should emit FLEX rail mode")
+expect(promptLow:find("RGFXW:S", 1, true), "low-pressure path should emit rationale alias RGFXW:S")
+expect(promptLow:find("RGFXWRM:FLEX", 1, true), "RGFXW:S (STABLE) must deterministically map to FLEX rail mode")
 Portal.cancelTransition()
+
+Portal.resetCooldown()
+Portal._setRouteTagOverride("02", "RISK")
+Portal.check(10, 10, {
+    getPortalAt = function(_, _)
+        return { targetMap = "02", targetPortal = "01" }
+    end,
+})
+
+local promptMid = Portal.getTransitionPrompt(160, { threatTier = "MED", vibeTrail = "ASH" })
+expect(type(promptMid) == "string", "mid-pressure prompt should exist")
+expect(promptMid:find("RGFXW:P", 1, true), "mid-pressure path should emit rationale alias RGFXW:P")
+expect(promptMid:find("RGFXWRM:FLEX", 1, true), "RGFXW:P (PRESSURE) must deterministically map to FLEX rail mode")
+Portal.cancelTransition()
+
 Portal.resetCooldown()
 Portal._setRouteTagOverride("02", "SPIKE")
-
 Portal.check(10, 10, {
     getPortalAt = function(_, _)
         return { targetMap = "02", targetPortal = "01" }
@@ -38,7 +53,8 @@ Portal.check(10, 10, {
 
 local promptHigh = Portal.getTransitionPrompt(170, { threatTier = "HIGH", vibeTrail = "ASH" })
 expect(type(promptHigh) == "string", "high-pressure prompt should exist")
-expect(promptHigh:find("RGFXWRM:LOCK", 1, true), "SURGE/SPIKE path should emit LOCK rail mode")
+expect(promptHigh:find("RGFXW:O", 1, true), "high-pressure path should emit rationale alias RGFXW:O")
+expect(promptHigh:find("RGFXWRM:LOCK", 1, true), "RGFXW:O (OVERDRIVE) must deterministically map to LOCK rail mode")
 Portal.cancelTransition()
 Portal._setRouteTagOverride("02", nil)
 

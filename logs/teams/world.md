@@ -1369,3 +1369,7 @@
 - Rule is deterministic and reversible: `RGFXWRM:LOCK -> RGFXWRI:HARD`, `RGFXWRM:FLEX -> RGFXWRI:SOFT` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY`.
 - Verification: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity.lua` PASS; baseline rail-mode regression PASS.
 - Follow-up: remaining queue head is Cycle BZ AI Content/Design deterministic wording guard for `RGFXW` + `RGFXWRM` mapping stability.
+
+## 2026-03-24 05:01 KST — Cycle CA injection (world follow-up queued)
+- BZ deterministic copy guard completed and regression-covered (rail mode now deterministic with rationale aliases).
+- Game Director Cycle CA injected next world-facing follow-up: detailed parity cue for rail intensity (`ROUTE GLOW FX CONF WHY RAIL INTENSITY:SOFT|HARD`) while keeping compact `RGFXWRI`.

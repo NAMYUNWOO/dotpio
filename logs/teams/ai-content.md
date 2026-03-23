@@ -1322,3 +1322,10 @@
 - Rule is deterministic and reversible: `RGFXWRM:LOCK -> RGFXWRI:HARD`, `RGFXWRM:FLEX -> RGFXWRI:SOFT` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY`.
 - Verification: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity.lua` PASS; baseline rail-mode regression PASS.
 - Follow-up: remaining queue head is Cycle BZ AI Content/Design deterministic wording guard for `RGFXW` + `RGFXWRM` mapping stability.
+
+## 2026-03-24 05:01 KST — BZ rationale copy guard completed
+- Implemented deterministic rationale-copy guard in `src/portal.lua` so `RGFXW` alias semantics cannot drift from rail-mode wording:
+  - `RGFXW:O (OVERDRIVE)` -> `RGFXWRM:LOCK`
+  - `RGFXW:P/S (PRESSURE/STABLE)` -> `RGFXWRM:FLEX`
+- Regression now explicitly checks all three rationale aliases for stable mode outcomes.
+- Cycle CA queued AI-content follow-up: flagged `RGFXWRI WHY:<short>` prototype.

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 04:09 KST
+Last updated: 2026-03-24 05:01 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle BZ final AI Content/Design item: `RGFXW` rationale aliases now deterministically guard rail-mode wording in `src/portal.lua` (`OVERDRIVE->LOCK`, `PRESSURE/STABLE->FLEX`) before fallback inference.
+- Regression guardrail upgraded: `scripts/regression_portal_route_glow_fx_conf_why_rail_mode.lua` now asserts alias+mode pairings for `RGFXW:S/P/O` so rationale copy cannot silently drift from `RGFXWRM` outputs.
+- Actionable queues were cleared, so Game Director Cycle CA executed (3 ideas); selected and shipped low-risk Systems/QA slice: weekly digest token-family churn coverage for `RGFXWRI:` with markdown triage rows (`ROUTE GLOW FX CONF WHY RAIL INTENSITY FAMILY CHURN`, `RGFXWRI RAIL INTENSITY`).
+- Cycle CA backlog injected with two queued follow-ups: detailed parity cue `ROUTE GLOW FX CONF WHY RAIL INTENSITY:SOFT|HARD` and flagged rationale token `RGFXWRI WHY:<short>`.
 
 - Closed Cycle BW UX/World item: compact portal prompts now support route-glow confidence alias token `RGC:<LOW|MID|HIGH>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_CONF_COMPACT`; default long label `ROUTE GLOW CONF:` is preserved when flag is off.
 - Weekly readability digest token catalogs/families now treat `RGC:` as part of `routeGlowConfidenceAlias` coverage (alongside `ROUTE GLOW CONF:`), with regression assertions updated for token totals.

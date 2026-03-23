@@ -1163,10 +1163,20 @@ local function resolveRouteGlowFxConfidenceWhyRail(routeGlowFxConfidenceWhy)
     return nil
 end
 
-local function resolveRouteGlowFxConfidenceWhyRailMode(routeGlowFxConfidenceWhyRail, compactRouteGlowFx)
+local function resolveRouteGlowFxConfidenceWhyRailMode(routeGlowFxConfidenceWhyRail, compactRouteGlowFx, routeGlowFxConfidenceWhy)
     if routeGlowFxConfidenceWhyRail == nil then
         return nil
     end
+
+    -- Rationale-copy guard: rail mode should stay deterministic with RGFXW mappings.
+    -- OVERDRIVE => LOCK, PRESSURE/STABLE => FLEX.
+    if routeGlowFxConfidenceWhy == "OVERDRIVE" then
+        return "LOCK"
+    elseif routeGlowFxConfidenceWhy == "PRESSURE" or routeGlowFxConfidenceWhy == "STABLE" then
+        return "FLEX"
+    end
+
+    -- Legacy fallback keeps behavior stable if rationale token is unavailable.
     if routeGlowFxConfidenceWhyRail == "SPIKE" and compactRouteGlowFx == "SURGE" then
         return "LOCK"
     end
@@ -1693,7 +1703,7 @@ function Portal.getTransitionPrompt(maxChars, context)
         end
         local routeGlowFxConfidenceWhyRailMode = nil
         if isRouteGlowFxConfidenceWhyRailModeExperimentEnabled() then
-            routeGlowFxConfidenceWhyRailMode = resolveRouteGlowFxConfidenceWhyRailMode(routeGlowFxConfidenceWhyRail, compactRouteGlowFx)
+            routeGlowFxConfidenceWhyRailMode = resolveRouteGlowFxConfidenceWhyRailMode(routeGlowFxConfidenceWhyRail, compactRouteGlowFx, routeGlowFxConfidenceWhy)
         end
         local routeGlowFxConfidenceWhyRailIntensity = nil
         if isRouteGlowFxConfidenceWhyRailIntensityExperimentEnabled() then

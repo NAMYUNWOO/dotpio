@@ -1402,3 +1402,8 @@
 - Rule is deterministic and reversible: `RGFXWRM:LOCK -> RGFXWRI:HARD`, `RGFXWRM:FLEX -> RGFXWRI:SOFT` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY`.
 - Verification: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity.lua` PASS; baseline rail-mode regression PASS.
 - Follow-up: remaining queue head is Cycle BZ AI Content/Design deterministic wording guard for `RGFXW` + `RGFXWRM` mapping stability.
+
+## 2026-03-24 05:01 KST — Deterministic wording guard locked
+- Final BZ design/ai-content backlog item closed: rail-mode wording now deterministic with rationale alias mapping (`RGFXW`).
+- Reduced copy ambiguity risk by prioritizing rationale-token contract over inferred rail/fx fallback path.
+- Cycle CA backlog injected with two remaining design/world readability experiments.
