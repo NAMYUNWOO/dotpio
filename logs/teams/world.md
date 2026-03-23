@@ -1180,3 +1180,7 @@
 - Preserved detailed-mode semantics (`ALT WHY GLYPH`) for operator clarity; compact alias is flag-gated and reversible.
 - Evidence: `src/portal.lua`, `scripts/regression_portal_alt_why_glyph_compact.lua`.
 - Follow-up: monitor prompt-budget behavior and add digest drift triage token in Systems/QA lane.
+
+## 2026-03-23 14:31 KST
+- No route topology or map/world schema changes this slice.
+- Kept world-facing impact limited to portal prompt readability tokenization.

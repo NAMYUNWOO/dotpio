@@ -352,6 +352,15 @@ local function isAltStepWhyGlyphExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isAltStepWhyGlyphModeExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function isAltStepWhyGlyphCompactAliasExperimentEnabled()
     local raw = os.getenv("DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_COMPACT")
     if not raw then
@@ -689,7 +698,7 @@ local function resolveRouteVignetteGlyph(routeTag)
     return "???"
 end
 
-local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph, routePulseMode)
+local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, altStepWhyGlyphMode, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph, routePulseMode)
     local fxCue = resolvePortalFxCue(pressureScore)
     local routeVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s  ROUTE VIBE:%s", routeTag, coach, pressureScore, fxCue, routeVibe)
@@ -716,6 +725,9 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
                 end
                 if altStepWhyGlyph then
                     prompt = string.format("%s  ALT WHY GLYPH:%s", prompt, altStepWhyGlyph)
+                end
+                if altStepWhyGlyphMode then
+                    prompt = string.format("%s  ALT WHY GLYPH MODE:%s", prompt, altStepWhyGlyphMode)
                 end
             end
         end
@@ -756,7 +768,7 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag
     return prompt
 end
 
-local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, maxChars)
+local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, altStepWhyGlyphMode, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, maxChars)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
@@ -818,6 +830,9 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
                 if altStepWhyGlyph then
                     local glyphTokenLabel = isAltStepWhyGlyphCompactAliasExperimentEnabled() and "AWG" or "ALT WHY GLYPH"
                     prompt = string.format("%s  %s:%s", prompt, glyphTokenLabel, altStepWhyGlyph)
+                end
+                if altStepWhyGlyphMode then
+                    prompt = string.format("%s  ALT WHY GLYPH MODE:%s", prompt, altStepWhyGlyphMode)
                 end
             end
         end
@@ -889,6 +904,10 @@ function Portal.getTransitionPrompt(maxChars, context)
     if isAltStepWhyGlyphExperimentEnabled() then
         altStepWhyGlyph = resolveAltStepWhyGlyph(altStepWhy)
     end
+    local altStepWhyGlyphMode = nil
+    if isAltStepWhyGlyphModeExperimentEnabled() and altStepWhyGlyph then
+        altStepWhyGlyphMode = altStepWhy == "PRESSURE" and "SPIKE" or "STEADY"
+    end
     local routeVignette = nil
     if isRouteVignetteExperimentEnabled() then
         routeVignette = resolveRouteVignetteGlyph(routeTag)
@@ -921,6 +940,9 @@ function Portal.getTransitionPrompt(maxChars, context)
         if isAltStepWhyGlyphExperimentEnabled() then
             altStepWhyGlyph = resolveAltStepWhyGlyph(altStepWhy)
         end
+        if isAltStepWhyGlyphModeExperimentEnabled() and altStepWhyGlyph then
+            altStepWhyGlyphMode = altStepWhy == "PRESSURE" and "SPIKE" or "STEADY"
+        end
     end
     local routeVibeAligned = isRouteVibeThreatAligned(routeTag, threatTier)
     pendingTransition.routeVibeAligned = routeVibeAligned
@@ -950,7 +972,7 @@ function Portal.getTransitionPrompt(maxChars, context)
     if isRoutePulseModeCompactPromptExperimentEnabled() then
         routePulseMode = resolveRoutePulseMode(pressureScore, altRouteTag)
     end
-    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph, routePulseMode)
+    local prompt = buildTransitionPrompt(routeTag, coach, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, altStepWhyGlyphMode, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph, routePulseMode)
     local budget = tonumber(maxChars) or 76
     if budget > 0 and #prompt > budget then
         local compactPulseLink = nil
@@ -969,7 +991,7 @@ function Portal.getTransitionPrompt(maxChars, context)
         if isRoutePulseFlareCompactPromptExperimentEnabled() then
             compactPulseFlare = resolveCompactPulseFlare(compactPulseMode, compactPulseFit)
         end
-        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, budget)
+        return buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, altStepWhyGlyphMode, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, budget)
     end
     return prompt
 end

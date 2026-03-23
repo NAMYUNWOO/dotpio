@@ -1405,3 +1405,7 @@
 - Evidence: `src/portal.lua`, `scripts/regression_portal_alt_why_glyph_compact.lua`.
 - Verification: compact alias regression PASS with existing glyph baseline regression.
 - Follow-up: add weekly digest drift token for `ALT WHY GLYPH` as next Systems/QA item.
+
+## 2026-03-23 14:31 KST
+- Detailed + compact portal prompts now include `ALT WHY GLYPH MODE` when glyph rationale is active and mode flag enabled.
+- Retained existing compact alias behavior (`AWG`) while keeping mode label fully spelled for clarity.

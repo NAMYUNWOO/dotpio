@@ -1190,3 +1190,7 @@
   3) High-risk design/ai-content: `ALT WHY GLYPH MODE:STEADY|SPIKE` prototype.
 - Selected #1 to ship minimal reversible readability gain without changing gameplay logic.
 - Evidence: `src/portal.lua`, `scripts/regression_portal_alt_why_glyph_compact.lua`.
+
+## 2026-03-23 14:31 KST
+- Completed queued design/AI item for glyph rationale cadence readability (`STEADY|SPIKE`).
+- Decision: keep token explicit (no compact alias yet) for easier cross-surface interpretation.

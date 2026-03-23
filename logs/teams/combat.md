@@ -1103,3 +1103,7 @@
 ## 2026-03-23 13:31 KST — Cross-lane note
 - Cycle BK change is prompt-readability only (portal text token alias); no combat pacing/behavior/mechanics changed.
 - Combat regressions were not required beyond existing shared prompt checks.
+
+## 2026-03-23 14:31 KST
+- No combat logic/stat tuning changes.
+- Only prompt-level fallback rationale cadence labeling updated.

@@ -1791,3 +1791,7 @@
 - Implemented `alt_why_glyph_drift_from_prior(...)` in `scripts/weekly_portal_prompt_readability_drift.py` using current-vs-prior `ALT WHY GLYPH:` net activity.
 - Wired payload output (`altWhyGlyphDrift`, `altWhyGlyphDriftSignals`) and markdown digest line for compact triage readability.
 - Follow-up: remaining unchecked Cycle BK item is Design/AI glyph cadence token (`ALT WHY GLYPH MODE:STEADY|SPIKE`) behind flag.
+
+## 2026-03-23 14:31 KST
+- Added env-flagged mode signal `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE` and threaded token rendering through portal detailed/compact prompt builders.
+- Mode mapping currently uses fallback rationale: `PRESSURE -> SPIKE`, otherwise `STEADY`.

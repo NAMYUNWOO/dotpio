@@ -1133,3 +1133,7 @@
 ## 2026-03-23 13:31 KST — Cycle BK planning note
 - Logged upcoming high-risk candidate: `ALT WHY GLYPH MODE:STEADY|SPIKE` as a compact operator-readability cue.
 - Current cycle shipped only the low-risk alias slice to maintain reversible scope.
+
+## 2026-03-23 14:31 KST
+- Added rationale cadence token `ALT WHY GLYPH MODE:STEADY|SPIKE` to pair with existing `ALT WHY GLYPH` signal under explicit flag.
+- Intent: improve operator parsing of fallback-why urgency without expanding prose.

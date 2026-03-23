@@ -2066,3 +2066,10 @@ Compact decision memory for AI context efficiency.
 - Added prior-aware drift computation to weekly readability digest (`scripts/weekly_portal_prompt_readability_drift.py`) with JSON fields `altWhyGlyphDrift` + `altWhyGlyphDriftSignals`.
 - Regression coverage updated in `scripts/regression_weekly_portal_prompt_readability_drift.py`; markdown digest now emits `ALT WHY GLYPH Δ` line for quick stability triage.
 - Backlog sync: marked `ALT WHY GLYPH Δ` item done in `TASKS.md` and `POST_RC_BACKLOG.md`; next unchecked item is `ALT WHY GLYPH MODE:STEADY|SPIKE` prototype.
+
+## 2026-03-23 14:31 KST — Cycle BK follow-up: ALT WHY GLYPH MODE token
+- Completed backlog item: `ALT WHY GLYPH MODE:STEADY|SPIKE` behind `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE`.
+- Updated portal prompt rendering (detailed + compact) and regression coverage for glyph-mode token visibility.
+- Updated weekly readability digest token catalogs (`TOKEN_GROUPS` / `TOKEN_FAMILIES`) to track `ALT WHY GLYPH MODE` churn.
+- Verification: glyph regressions + digest py_compile PASS.
+- Follow-up: next unchecked queue item is Systems/QA `ALT WHY GLYPH compact alias drift token` in TASKS/POST_RC.
