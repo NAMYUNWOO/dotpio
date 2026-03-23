@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-23 20:12 KST
+Last updated: 2026-03-23 21:41 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -2219,3 +2219,8 @@ Compact decision memory for AI context efficiency.
 - Added regression evidence: `scripts/regression_portal_pulse_heat.lua` (COOL/WARM/HOT coverage) + pulse-mode non-regression pass.
 - Durable decision: keep pulse-heat cue flag-gated until digest/token-budget follow-up lands.
 - Next priority item remains: QA/Systems token-family coverage for vibe-trail arc alias churn (`VIBE TRAIL ARC:` + `VTA:`).
+
+- Closed Cycle BT combat/vfx vertical slice after lane-coverage check over last 10 completions: systems/ops=6, design/world=3, combat/vfx=1 (others=0), so over-40% skew forced underrepresented-lane selection.
+- Shipped compact pulse-fantasy cue `PULSE HEAT FX:CALM|SPARK|BLAZE` behind `DOTPIO_EXPERIMENT_PULSE_HEAT_FX`; existing `PULSE HEAT` tiers now carry stronger emotional readability.
+- Added QA guardrail `scripts/regression_portal_pulse_heat_fx.lua`; pulse-heat and pulse-mode regressions remain passing.
+- Injected next backlog set (Cycle BT): world/design `ROUTE GLOW:SOFT|SHARP` prototype and systems/qa digest token-family coverage for `PULSE HEAT FX` churn.

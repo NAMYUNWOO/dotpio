@@ -1282,3 +1282,10 @@
 ## 2026-03-23 21:31 KST — Prompt readability token pass
 - Added compact semantic heat tier token (`PULSE HEAT`) to reinforce pressure fantasy without changing core routing logic.
 - Kept output constrained to three stable labels (COOL/WARM/HOT) for DOS-width readability.
+
+## 2026-03-23 21:41 KST — Cycle BT ideation + selection
+- Idea set generated:
+  1) Low risk (selected): `PULSE HEAT FX:CALM|SPARK|BLAZE` compact cue for pressure fantasy reinforcement.
+  2) Mid risk: `ROUTE GLOW:SOFT|SHARP` tied to `VIBE TRAIL ARC` for post-jump mood handoff.
+  3) High risk: adaptive `PRESSURE SYNC REMIX` token that reorders compact pulse/vibe cues by threat band.
+- Selection rationale: low-risk reversible vertical slice, immediate player-facing readability lift, minimal rollback surface.

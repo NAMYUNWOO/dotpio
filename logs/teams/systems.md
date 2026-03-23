@@ -1894,3 +1894,8 @@
 - Decision: added compact prompt experiment flag `DOTPIO_EXPERIMENT_PULSE_HEAT_CUE` to expose `PULSE HEAT:COOL|WARM|HOT` from pressure/mode context for faster route-pressure scanability.
 - Implementation: `src/portal.lua` adds flag gate + resolver + compact prompt token injection (`PULSE HEAT`).
 - Follow-up: monitor prompt-width pressure as additional compact tokens land.
+
+## 2026-03-23 21:41 KST — Cycle BT systems cadence note
+- Coverage audit over last 10 completions shows systems/ops at 60% (6/10), exceeding 40% cap.
+- Forced-lane policy applied: deferred systems-first queue item and executed combat/vfx slice.
+- Injected follow-up systems/qa item: weekly digest token-family coverage for `PULSE HEAT FX` churn.

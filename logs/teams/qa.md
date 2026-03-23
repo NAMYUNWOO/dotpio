@@ -2397,3 +2397,10 @@
 - Commands:
   - `DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 lua scripts/regression_portal_pulse_heat.lua`
   - `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua`
+
+## 2026-03-23 21:41 KST — Cycle BT regression evidence
+- Added `scripts/regression_portal_pulse_heat_fx.lua` for compact `PULSE HEAT FX` tier assertions.
+- PASS commands:
+  - `DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 lua scripts/regression_portal_pulse_heat.lua`
+  - `DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 DOTPIO_EXPERIMENT_PULSE_HEAT_FX=1 lua scripts/regression_portal_pulse_heat_fx.lua`
+  - `DOTPIO_EXPERIMENT_ROUTE_PULSE_MODE_PROMPT=1 lua scripts/regression_portal_prompt_pulse_mode.lua`

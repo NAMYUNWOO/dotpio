@@ -1211,3 +1211,7 @@
 
 ## 2026-03-23 21:31 KST — AI-content lane note
 - No generator/prompt-model policy changes this slice; compact portal cue update is runtime UX-only.
+
+## 2026-03-23 21:41 KST — Cycle BT AI-content note
+- No generation-policy or content-model changes this slice.
+- High-risk idea parked: adaptive pressure-sync compact token remix for future flagged trial.

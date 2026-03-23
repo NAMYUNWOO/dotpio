@@ -1183,3 +1183,7 @@
 - Completed: compact pressure readability cue `PULSE HEAT:COOL|WARM|HOT` behind `DOTPIO_EXPERIMENT_PULSE_HEAT_CUE`.
 - Intent: improve at-a-glance pressure comprehension before portal jump when cadence is heating up.
 - Verification: `DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 lua scripts/regression_portal_pulse_heat.lua` PASS.
+
+## 2026-03-23 21:41 KST — Cycle BT combat readability note
+- Added compact cue `PULSE HEAT FX` (CALM/SPARK/BLAZE) mapped from existing pulse-heat tiers.
+- No combat damage/speed/aggro tuning changes; token is pre-jump readability only.

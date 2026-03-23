@@ -1482,3 +1482,7 @@
 ## 2026-03-23 21:31 KST — Compact portal cue clarity
 - Added `PULSE HEAT:<tier>` in compact transition prompt under explicit experiment flag.
 - Chosen wording optimized for immediate risk parsing while preserving existing compact token order.
+
+## 2026-03-23 21:41 KST — Cycle BT compact UX note
+- Compact transition prompt now supports `PULSE HEAT FX:<tier>` when pulse-heat cues are active and FX flag is on.
+- Token order preserved after `PULSE HEAT` to maintain scan consistency.

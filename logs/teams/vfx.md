@@ -62,3 +62,10 @@
 ## 2026-03-23 17:01 KST — Cycle BN vfx handoff
 - Cross-surface tie-in shipped: berserker fade intensity now feeds portal cooloff trail semantics (`SOFT->CALM`, `HARD->ASH`).
 - Verification: portal vibe-trail regression PASS under flag.
+
+## 2026-03-23 21:41 KST — Cycle BT combat/vfx vertical slice (forced-lane)
+- Coverage check (last 10 completed items): systems/ops=6, design/world=3, combat/vfx=1, ai-content=0, ux=0, qa=0.
+- Lane cap breached (`systems/ops` 60% > 40%), so this cycle forced an underrepresented lane pick.
+- Shipped compact pressure-fantasy cue `PULSE HEAT FX:CALM|SPARK|BLAZE` behind `DOTPIO_EXPERIMENT_PULSE_HEAT_FX`.
+- Scope remains readability-only; no combat stats, AI cadence, economy, or routing logic changed.
+- Verification: `DOTPIO_EXPERIMENT_PULSE_HEAT_CUE=1 DOTPIO_EXPERIMENT_PULSE_HEAT_FX=1 lua scripts/regression_portal_pulse_heat_fx.lua` PASS.

@@ -604,3 +604,11 @@ See project-level plans:
 - [x] UX/Design Team: Prototype portal vibe-trail arc token (`VIBE TRAIL ARC:RECOVER|SCAR|MIXED`, compact `VTA:<R|S|M>`) behind flag for route fantasy readability *(lifecycle: [~] -> [x])*
 - [x] Combat/VFX Team: Prototype pulse-heat cue token (`PULSE HEAT:COOL|WARM|HOT`) in compact prompt behind flag for pressure readability
 - [ ] QA/Systems Team: Add weekly digest token-family coverage for vibe-trail arc alias churn (`VIBE TRAIL ARC:` + `VTA:`)
+
+## Next Up (Game Director Injection — 2026-03-23 Cycle BT)
+- [x] Combat/VFX Team: Add compact pulse-heat FX cue token (`PULSE HEAT FX:CALM|SPARK|BLAZE`) behind `DOTPIO_EXPERIMENT_PULSE_HEAT_FX`
+  - [x] Add deterministic heat-to-fx mapper wired to existing pulse-heat tiers (`COOL/WARM/HOT`)
+  - [x] Render compact prompt token without altering route pressure/combat mechanics
+  - [x] Add regression coverage for COOL/WARM/HOT FX token emission (`scripts/regression_portal_pulse_heat_fx.lua`)
+- [ ] Design/World Team: Prototype compact route afterglow cue (`ROUTE GLOW:SOFT|SHARP`) tied to `VIBE TRAIL ARC` for post-jump fantasy readability
+- [ ] Systems/QA Team: Add weekly digest token-family coverage for pulse-heat FX churn (`PULSE HEAT FX:`) with compact-budget drift note
