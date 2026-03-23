@@ -2255,3 +2255,8 @@
 ## 2026-03-23 11:31 KST — ALT STEP confidence regression
 - Added `scripts/regression_portal_alt_step_confidence.lua` for detailed/compact emission checks.
 - Verified passes with cue + confidence flags and weekly drift regression suite.
+
+## 2026-03-23 12:06 KST — Regression expansion for `ALT STEP CONF Δ`
+- Added markdown presence assertion for `ALT STEP CONF Δ` in weekly digest output contract.
+- Added direct unit regression coverage for `alt_step_confidence_drift_from_prior` (`no-prior -> 0`, `LOW->HIGH -> +2`).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

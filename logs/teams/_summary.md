@@ -2035,3 +2035,7 @@ Compact decision memory for AI context efficiency.
 - Added confidence resolver and weekly digest token observability (`ALT STEP CONF:` in token groups/families).
 - New regression: `scripts/regression_portal_alt_step_confidence.lua`; verification suite passes.
 - Backlog injected (Cycle BI): remaining tasks are confidence drift token + compact rationale token.
+- 2026-03-23 12:06 KST: Closed Cycle BI Systems/QA drift item by shipping `ALT STEP CONF Δ:+n|-n` in weekly portal readability digest.
+- Added payload fields `altStepConfidenceDrift` + `altStepConfidenceDriftSignals` and markdown row `ALT STEP CONF Δ` (current/prior confidence score with loaded-state reason).
+- Regression coverage extended: markdown contract assertion + `alt_step_confidence_drift_from_prior` behavioral checks in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Remaining highest-priority unchecked backlog item: `ALT STEP WHY:<short>` (Design/AI Content, flag-gated).

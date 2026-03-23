@@ -1764,3 +1764,9 @@
 ## 2026-03-23 11:31 KST — ALT STEP confidence resolver
 - Added `DOTPIO_EXPERIMENT_ALT_STEP_CONF` gate + `resolveAltStepConfidence` helper in portal flow.
 - Updated weekly readability drift token catalogs/families with `ALT STEP CONF:`.
+
+## 2026-03-23 12:06 KST — Cycle BI follow-up closure (`ALT STEP CONF Δ`)
+- Completed highest-priority unchecked Systems/QA item by adding digest drift token `ALT STEP CONF Δ:+n|-n`.
+- Implementation: `scripts/weekly_portal_prompt_readability_drift.py` now derives `altStepConfidenceDrift` / `altStepConfidenceDriftSignals` by comparing current `altStepConfidence` vs prior snapshot (`LOW=0, MID=1, HIGH=2`).
+- Digest wiring: markdown now includes `ALT STEP CONF Δ` adjacent to `ACTION PACE ALT WINDOW CONF` for stability triage continuity.
+- Follow-up: remaining Cycle BI unchecked item is `ALT STEP WHY:<short>` behind flag.

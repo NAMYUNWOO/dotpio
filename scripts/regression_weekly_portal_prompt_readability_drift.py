@@ -16,6 +16,7 @@ from weekly_portal_prompt_readability_drift import (
     action_pace_alt_window_urgency_drift_from_prior,
     action_pace_alt_window_step_from_signals,
     action_pace_alt_window_step_drift_from_prior,
+    alt_step_confidence_drift_from_prior,
     action_pace_alt_window_step_glyph_from_signals,
     action_pace_alt_window_pulse_drift_from_prior,
     action_pace_alt_window_from_signals,
@@ -1053,6 +1054,7 @@ def main() -> int:
         assert "ACTION PACE WINDOW CONF" in md_text
         assert "ACTION PACE ALT WINDOW" in md_text
         assert "ACTION PACE ALT WINDOW CONF" in md_text
+        assert "ALT STEP CONF Δ" in md_text
         assert "ACTION PACE ALT WINDOW FIT" in md_text
         assert "ACTION PACE ALT WINDOW WHY" in md_text
         assert "ACTION PACE ALT WINDOW URGENCY" in md_text
@@ -1344,6 +1346,22 @@ def main() -> int:
             )
             assert alt_conf_low == "LOW", (alt_conf_low, alt_conf_low_signals)
             assert alt_conf_low_signals["reason"] == "fallback-not-actionable", alt_conf_low_signals
+
+            alt_conf_drift_zero, alt_conf_drift_zero_signals = alt_step_confidence_drift_from_prior(
+                current_alt_step_confidence="MID",
+                prior_json_path=repo / "missing-alt-step-conf-prior.json",
+            )
+            assert alt_conf_drift_zero == 0, (alt_conf_drift_zero, alt_conf_drift_zero_signals)
+            assert alt_conf_drift_zero_signals["reason"] == "no-prior-alt-step-confidence", alt_conf_drift_zero_signals
+
+            alt_conf_prior = repo / "prior-alt-step-conf.json"
+            alt_conf_prior.write_text(json.dumps({"altStepConfidence": "LOW"}), encoding="utf-8")
+            alt_conf_drift_up, alt_conf_drift_up_signals = alt_step_confidence_drift_from_prior(
+                current_alt_step_confidence="HIGH",
+                prior_json_path=alt_conf_prior,
+            )
+            assert alt_conf_drift_up == 2, (alt_conf_drift_up, alt_conf_drift_up_signals)
+            assert alt_conf_drift_up_signals["reason"] == "alt-step-confidence-increased", alt_conf_drift_up_signals
 
             alt_fit_safe, alt_fit_safe_signals = action_pace_alt_window_fit_from_signals(
                 action_pace_alt_window=alt_window_probe,

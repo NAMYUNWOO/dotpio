@@ -1009,6 +1009,51 @@ def action_pace_alt_window_step_drift_from_prior(
 
 
 
+def alt_step_confidence_drift_from_prior(
+    *,
+    current_alt_step_confidence: str,
+    prior_json_path: Path,
+) -> tuple[int, dict[str, str | int | bool]]:
+    """Compare current/prior fallback micro-cue confidence and emit signed drift delta."""
+    confidence_scores = {"LOW": 0, "MID": 1, "HIGH": 2}
+
+    current_confidence = str(current_alt_step_confidence).upper()
+    current_score = confidence_scores.get(current_confidence, 0)
+    prior_confidence = "LOW"
+    prior_score = confidence_scores[prior_confidence]
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_confidence = str(prior.get("altStepConfidence", prior_confidence)).upper()
+            prior_score = confidence_scores.get(prior_confidence, 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, OSError, ValueError):
+            prior_loaded = False
+
+    drift = current_score - prior_score
+
+    if not prior_loaded:
+        drift = 0
+        reason = "no-prior-alt-step-confidence"
+    elif drift > 0:
+        reason = "alt-step-confidence-increased"
+    elif drift < 0:
+        reason = "alt-step-confidence-decreased"
+    else:
+        reason = "alt-step-confidence-stable"
+
+    return drift, {
+        "currentAltStepConfidence": current_confidence,
+        "currentScore": current_score,
+        "priorAltStepConfidence": prior_confidence,
+        "priorScore": prior_score,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def action_pace_alt_window_step_glyph_from_signals(
     *,
     action_pace_alt_window_step: str,
@@ -4920,6 +4965,10 @@ def main() -> int:
         action_pace_alt_window_signals=action_pace_alt_window_signals,
         action_pace_window_confidence=action_pace_window_confidence,
     )
+    alt_step_confidence_drift, alt_step_confidence_drift_signals = alt_step_confidence_drift_from_prior(
+        current_alt_step_confidence=action_pace_alt_window_confidence,
+        prior_json_path=args.out_json,
+    )
     action_pace_alt_window_fit, action_pace_alt_window_fit_signals = action_pace_alt_window_fit_from_signals(
         action_pace_alt_window=action_pace_alt_window,
         action_pace_alt_window_signals=action_pace_alt_window_signals,
@@ -5415,6 +5464,9 @@ def main() -> int:
         "actionPaceAltWindowSignals": action_pace_alt_window_signals,
         "actionPaceAltWindowConfidence": action_pace_alt_window_confidence,
         "actionPaceAltWindowConfidenceSignals": action_pace_alt_window_confidence_signals,
+        "altStepConfidence": action_pace_alt_window_confidence,
+        "altStepConfidenceDrift": alt_step_confidence_drift,
+        "altStepConfidenceDriftSignals": alt_step_confidence_drift_signals,
         "actionPaceAltWindowFit": action_pace_alt_window_fit,
         "actionPaceAltWindowFitSignals": action_pace_alt_window_fit_signals,
         "actionPaceAltWindowWhy": action_pace_alt_window_why,
@@ -5652,6 +5704,7 @@ def main() -> int:
         f"- ACTION PACE WINDOW CONF: **{action_pace_window_confidence}** ({action_pace_window_confidence_signals['reason']}; window={action_pace_window_confidence_signals['actionPaceWindow']} stability={action_pace_window_confidence_signals['actionStability']} continuity={action_pace_window_confidence_signals['driftContinuity']} drift={action_pace_window_confidence_signals['paceDrift']:+d} loaded={action_pace_window_confidence_signals['priorLoaded']})",
         f"- ACTION PACE ALT WINDOW: **{action_pace_alt_window}** ({action_pace_alt_window_signals['reason']}; flag={action_pace_alt_window_signals['flagName']} enabled={action_pace_alt_window_signals['flagEnabled']} primary={action_pace_alt_window_signals['actionPaceWindow']} sandbox={action_pace_alt_window_signals['routeSandbox']} target={action_pace_alt_window_signals['sandboxTarget']} ready={action_pace_alt_window_signals['sandboxReadiness']})",
         f"- ACTION PACE ALT WINDOW CONF: **{action_pace_alt_window_confidence}** ({action_pace_alt_window_confidence_signals['reason']}; base={action_pace_alt_window_confidence_signals['actionPaceWindowConfidence']} flag={action_pace_alt_window_confidence_signals['flagEnabled']} sandbox={action_pace_alt_window_confidence_signals['routeSandbox']} target={action_pace_alt_window_confidence_signals['sandboxTarget']} ready={action_pace_alt_window_confidence_signals['sandboxReadiness']})",
+        f"- ALT STEP CONF Δ: **{alt_step_confidence_drift:+d}** ({alt_step_confidence_drift_signals['reason']}; current={alt_step_confidence_drift_signals['currentAltStepConfidence']}({alt_step_confidence_drift_signals['currentScore']}) prior={alt_step_confidence_drift_signals['priorAltStepConfidence']}({alt_step_confidence_drift_signals['priorScore']}) loaded={alt_step_confidence_drift_signals['priorLoaded']})",
         f"- ACTION PACE ALT WINDOW FIT: **{action_pace_alt_window_fit}** ({action_pace_alt_window_fit_signals['reason']}; flag={action_pace_alt_window_fit_signals['flagName']} enabled={action_pace_alt_window_fit_signals['flagEnabled']} pressure={action_pace_alt_window_fit_signals['pressureBand']} sandbox={action_pace_alt_window_fit_signals['routeSandbox']} target={action_pace_alt_window_fit_signals['sandboxTarget']} ready={action_pace_alt_window_fit_signals['sandboxReadiness']})",
         f"- ACTION PACE ALT WINDOW WHY: **{action_pace_alt_window_why}** ({action_pace_alt_window_why_signals['reason']}; flag={action_pace_alt_window_why_signals['flagName']} enabled={action_pace_alt_window_why_signals['flagEnabled']} alt={action_pace_alt_window_why_signals['actionPaceAltWindow']} conf={action_pace_alt_window_why_signals['actionPaceAltWindowConfidence']} fit={action_pace_alt_window_why_signals['actionPaceAltWindowFit']} sandbox={action_pace_alt_window_why_signals['routeSandbox']} target={action_pace_alt_window_why_signals['sandboxTarget']} ready={action_pace_alt_window_why_signals['sandboxReadiness']})",
         f"- ACTION PACE ALT WINDOW URGENCY: **{action_pace_alt_window_urgency}** ({action_pace_alt_window_urgency_signals['reason']}; flag={action_pace_alt_window_urgency_signals['flagName']} enabled={action_pace_alt_window_urgency_signals['flagEnabled']} alt={action_pace_alt_window_urgency_signals['actionPaceAltWindow']} conf={action_pace_alt_window_urgency_signals['actionPaceAltWindowConfidence']} fit={action_pace_alt_window_urgency_signals['actionPaceAltWindowFit']} why={action_pace_alt_window_urgency_signals['actionPaceAltWindowWhy']})",
