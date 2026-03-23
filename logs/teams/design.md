@@ -1243,3 +1243,7 @@
 ## 2026-03-23 18:04 KST — Design readability telemetry sync
 - Confidence cue tokens (`VIBE TRAIL CONF`/`VTC`) are now included in weekly token-family churn accounting, improving readability drift triage for portal prompt hierarchy.
 - Next design-facing backlog item: `VIBE TRAIL WHY:<short>` compact rationale token (flag-gated).
+
+- 2026-03-23 18:36 KST | Cycle BP design call: selected low-risk readability slice (compact alias `VTW`) for DOS-width scanability.
+  - Decision: short alias must be flag-gated and non-destructive to detailed prompt semantics.
+  - Follow-up: evaluate glyph alternative if alias still over budget in stacked token scenarios.

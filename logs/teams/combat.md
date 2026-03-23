@@ -1149,3 +1149,7 @@
 ## 2026-03-23 18:04 KST — Combat lane observability note
 - No combat tuning changes this slice; cadence update only.
 - Weekly portal digest now captures post-berserk handoff confidence token churn (`VIBE TRAIL CONF`), preserving combat→portal recovery readability telemetry.
+
+- 2026-03-23 18:36 KST | Cycle BP review: no combat mechanics changed; verified vibe-trail rationale copy remains downstream of berserker fade signals only.
+  - Decision: keep combat lane stable this cycle to avoid confounding readability validation.
+  - Follow-up: revisit if vibe-trail confidence mapping needs threat-drop weighting.

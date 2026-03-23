@@ -2351,3 +2351,7 @@
 - Added regression assertions requiring `tokenTotals.net` keys for `VIBE TRAIL CONF:` and `VTC:` in weekly digest payload schema.
 - Validation: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Risk note: schema-only expansion; no gameplay loop regression surface added.
+
+- 2026-03-23 18:36 KST | Cycle BP QA pass complete.
+  - Evidence: `scripts/regression_portal_vibe_trail.lua` PASS, `scripts/regression_portal_vibe_trail_why_compact_alias.lua` PASS, `scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+  - Follow-up: add dedicated digest assertion for `VTW:` churn row in next cycle.

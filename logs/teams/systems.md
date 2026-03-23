@@ -1843,3 +1843,7 @@
 - Churn now contributes to token totals/top movers/family lane scoring, so portal-lane drift triage sees confidence-token movement without manual inspection.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: next queue head is Design/AI Content `VIBE TRAIL WHY:<short>` flagged rationale token.
+
+- 2026-03-23 18:36 KST | Cycle BP support: updated `scripts/weekly_portal_prompt_readability_drift.py` token groups/families to include `VTW:` and `VIBE TRAIL WHY:` for portal readability drift accounting.
+  - Decision: treat compact alias as same family to keep churn analytics comparable.
+  - Follow-up: add explicit alias churn delta row in digest payload (queued).

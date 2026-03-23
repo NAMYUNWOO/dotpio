@@ -1221,3 +1221,7 @@
 - Weekly drift digest now tracks world-facing vibe confidence cues (`VIBE TRAIL CONF` / `VTC`) as first-class token-family members.
 - Outcome: post-fade portal handoff confidence churn is now auditable across weekly diffs.
 - Follow-up: pair with pending rationale micro-token (`VIBE TRAIL WHY`) for operator context.
+
+- 2026-03-23 18:36 KST | Cycle BP implemented: compact portal prompt now supports vibe-trail rationale alias `VTW:<short>` under `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_COMPACT_ALIAS`.
+  - Decision: preserve detailed label `VIBE TRAIL WHY:<short>` for full-context readability while shrinking compact mode.
+  - Follow-up: consider compact confidence companion token `VTWC` after usability pass.

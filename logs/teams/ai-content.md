@@ -1175,3 +1175,7 @@
 ## 2026-03-23 18:04 KST — AI content lane sync on confidence-token telemetry
 - Confirmed digest now accounts for `VIBE TRAIL CONF` churn via token-family coverage, improving prompt-token observability for confidence phrasing changes.
 - Next AI-content task remains queued: implement flagged `VIBE TRAIL WHY:<short>` rationale token.
+
+- 2026-03-23 18:36 KST | Cycle BP ideation: proposed rationale-confidence follow-up (`VIBE TRAIL WHY CONF`) to improve operator trust in narrative cue intent.
+  - Decision: keep confidence token as follow-up backlog item, not in this minimal slice.
+  - Follow-up: define deterministic mapping from vibe trail + pressure history.

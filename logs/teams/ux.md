@@ -1446,3 +1446,7 @@
 ## 2026-03-23 18:04 KST — UX digest clarity follow-through
 - Landed telemetry support so weekly digest tracks confidence cue token churn (`VIBE TRAIL CONF`, `VTC`) used in portal prompts.
 - Effect: operator can detect confidence-label drift without combing raw prompt diffs.
+
+- 2026-03-23 18:36 KST | Cycle BP UX update: compact prompt shows `VTW:RECOVER|SCAR`; detailed prompt keeps `VIBE TRAIL WHY`.
+  - Verification: regression covers alias-only compact behavior without duplicated full label.
+  - Follow-up: run player-facing readability check once `VTWC` confidence token is prototyped.

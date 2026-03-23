@@ -427,4 +427,8 @@ Last updated: 2026-03-21 02:31 KST
 ### Game Director Cycle BO (2026-03-23)
 - [x] UX/World Team: Prototype portal vibe-trail confidence token (`VIBE TRAIL CONF:LOW|MID|HIGH`, compact `VTC:<L|M|H>`) behind flag for post-fade handoff trust readability *(lifecycle: [ ] -> [~] -> [x])*
 - [x] Systems/QA Team: Add weekly digest token family coverage for vibe-trail confidence token churn (`VIBE TRAIL CONF`) for drift triage
-- [ ] Design/AI Content Team: Prototype compact vibe-trail rationale token (`VIBE TRAIL WHY:<short>`) behind flag for operator context
+- [x] Design/AI Content Team: Prototype compact vibe-trail rationale token (`VIBE TRAIL WHY:<short>`) behind flag for operator context
+### Game Director Cycle BP (2026-03-23)
+- [x] UX/World Team: Add compact vibe-trail rationale alias token (`VTW:<short>`) behind flag for DOS-width scanability while keeping detailed `VIBE TRAIL WHY` label *(lifecycle: [~] -> [x])*
+- [ ] Systems/QA Team: Add weekly digest token family coverage for compact vibe-trail rationale alias churn (`VTW:` + `VIBE TRAIL WHY:`)
+- [ ] Design/AI Content Team: Prototype vibe-trail rationale confidence token (`VIBE TRAIL WHY CONF:LOW|MID|HIGH`, compact `VTWC:<L|M|H>`) behind flag

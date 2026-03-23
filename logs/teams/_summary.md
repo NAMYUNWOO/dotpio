@@ -2153,3 +2153,8 @@ Compact decision memory for AI context efficiency.
 - This makes confidence-token churn visible in token totals/top movers/lane-focus scoring for drift triage.
 - Regression updated (`scripts/regression_weekly_portal_prompt_readability_drift.py`) with payload-key assertions for both tokens; PASS.
 - Queue head now: Design/AI Content `VIBE TRAIL WHY:<short>` flagged rationale token.
+- Closed final unchecked Cycle BO item: portal prompts now emit flag-gated rationale token `VIBE TRAIL WHY:RECOVER|SCAR` (`DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY`) in detailed + compact paths when valid vibe trail context is present.
+- ACTION_ITEMS/TASKS/POST_RC actionable queues were fully checked after BO closure, so Game Director Cycle BP executed (3 ideas generated).
+- Selected/shipped Cycle BP minimal vertical slice: compact prompt can now emit alias token `VTW:<short>` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_COMPACT_ALIAS` while detailed mode keeps full `VIBE TRAIL WHY` label.
+- Added QA guardrail `scripts/regression_portal_vibe_trail_why_compact_alias.lua`; vibe-trail + weekly digest regressions remain passing.
+- Cycle BP backlog injected: next queued items are digest alias churn coverage (`VTW:` + `VIBE TRAIL WHY:`) and flagged rationale-confidence token (`VIBE TRAIL WHY CONF`, compact `VTWC`).
