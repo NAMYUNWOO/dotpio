@@ -2544,3 +2544,11 @@
 - Regression pass (baseline): `DOTPIO_EXPERIMENT_..._RAIL_INTENSITY=1 lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity.lua`
 - Regression pass (parity enabled): `DOTPIO_EXPERIMENT_..._RAIL_INTENSITY_PARITY=1 lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_parity.lua`
 - Assertions cover: compact token always present; detailed parity token absent by default; detailed parity token present when flagged.
+
+## 2026-03-24 06:01 KST — QA verification for RGFXWRI WHY
+- Added new regression: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why.lua`.
+- Verification pass: new WHY regression + existing rail-intensity + parity regressions all PASS.
+
+## 2026-03-24 06:01 KST — Cycle CB QA evidence
+- Added regression: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf.lua`.
+- Verified deterministic LOW/MID/HIGH mapping across SAFE/RISK/SPIKE scenarios with required flags enabled.

@@ -1378,3 +1378,10 @@
 - Added world-facing detailed parity token for rail intensity readability: `ROUTE GLOW FX CONF WHY RAIL INTENSITY:<SOFT|HARD>`.
 - Compact prompt remains intact (`RGFXWRI`) to preserve DOS token budget; parity cue is opt-in via experiment flag.
 - Added dedicated regression script to lock detailed/compact coexistence behavior.
+
+## 2026-03-24 06:01 KST — World readability cue finalized
+- Added compact-facing rationale follow-up token `RGFXWRI WHY:<short>` to explain rail-intensity tone during portal jump prompts.
+- Token remains experiment-gated to protect default DOS prompt width and only appears when rail-intensity pipeline is active.
+
+## 2026-03-24 06:01 KST — Cycle CB follow-up queue injection
+- Added UX/World follow-up candidate: compact confidence alias `RGFXWRIWC:<L|M|H>` for quick DOS-width scanning.

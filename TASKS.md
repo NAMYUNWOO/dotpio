@@ -646,4 +646,7 @@ See project-level plans:
 ## Next Up (Game Director Injection — 2026-03-24 Cycle CA)
 - [x] Systems/QA Team: Add weekly digest token-family coverage for rail-intensity churn (`RGFXWRI:`) with markdown triage rows
 - [x] UX/World Team: Prototype detailed parity cue for rail intensity (`ROUTE GLOW FX CONF WHY RAIL INTENSITY:SOFT|HARD`) behind flag while preserving compact `RGFXWRI` *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] Design/AI Content Team: Prototype flagged rail-intensity rationale token (`RGFXWRI WHY:<short>`) for overdrive readability context
+- [x] Design/AI Content Team: Prototype flagged rail-intensity rationale token (`RGFXWRI WHY:<short>`) for overdrive readability context *(lifecycle: [ ] -> [~] -> [x])*
+- [x] Combat/Design Team: Prototype rail-intensity rationale confidence token (`RGFXWRI WHY CONF:LOW|MID|HIGH`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF` for overdrive trust readability *(lifecycle: [ ] -> [~] -> [x])*
+- [ ] Systems/QA Team: Add weekly digest token-family coverage for rail-intensity rationale churn (`RGFXWRI WHY:`) with markdown triage row
+- [ ] UX/World Team: Prototype compact rail-intensity rationale confidence alias (`RGFXWRIWC:<L|M|H>`) behind flag for DOS-width scanability

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 05:01 KST
+Last updated: 2026-03-24 06:01 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,13 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed final remaining unchecked TASKS/POST_RC item: compact portal prompts now emit flagged rail-intensity rationale token `RGFXWRI WHY:<short>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY`.
+- Rationale mapping is deterministic and tied to existing rail-mode contract in `src/portal.lua`: `OVERDRIVE+LOCK -> LOCK PUSH`, `PRESSURE+FLEX -> PRESSURE HOLD`, `STABLE+FLEX -> STABLE HOLD`.
+- Added regression coverage `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why.lua`; baseline rail-intensity and parity regressions still pass.
+- Actionable queues cleared triggered Game Director Cycle CB: generated 3 ideas and selected mid-risk combat/design experiment for implementation.
+- Shipped minimal vertical slice `RGFXWRI WHY CONF:LOW|MID|HIGH` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF`, with deterministic mapping `HIGH/MID/LOW` from lock/pressure/stable rationale paths.
+- Added regression `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf.lua` and injected follow-up backlog tasks (`RGFXWRI WHY` digest coverage + compact alias `RGFXWRIWC`).
 
 - Closed Cycle BZ final AI Content/Design item: `RGFXW` rationale aliases now deterministically guard rail-mode wording in `src/portal.lua` (`OVERDRIVE->LOCK`, `PRESSURE/STABLE->FLEX`) before fallback inference.
 - Regression guardrail upgraded: `scripts/regression_portal_route_glow_fx_conf_why_rail_mode.lua` now asserts alias+mode pairings for `RGFXW:S/P/O` so rationale copy cannot silently drift from `RGFXWRM` outputs.

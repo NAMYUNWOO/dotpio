@@ -1333,3 +1333,16 @@
 ## 2026-03-24 05:31 KST — Rail-intensity language stability checkpoint
 - Confirmed parity cue wording is deterministic (`SOFT|HARD`) and mapped directly from existing rail-mode intensity resolver (no new semantic branch).
 - Next AI-content task remains queued: add concise rationale token `RGFXWRI WHY:<short>` for context.
+
+## 2026-03-24 06:01 KST — AI-content rationale token shipped
+- Implemented concise rationale token `RGFXWRI WHY:<short>` with deterministic text mapping:
+  - `OVERDRIVE + LOCK` -> `LOCK PUSH`
+  - `PRESSURE + FLEX` -> `PRESSURE HOLD`
+  - `STABLE + FLEX` -> `STABLE HOLD`
+- Added regression coverage for SAFE/RISK/SPIKE route-tag paths.
+
+## 2026-03-24 06:01 KST — Cycle CB rationale confidence mapping
+- Added confidence tier tied to rationale/mode pair for `RGFXWRI WHY CONF`:
+  - `LOCK PUSH` path -> `HIGH`
+  - `PRESSURE HOLD` path -> `MID`
+  - `STABLE HOLD` path -> `LOW`

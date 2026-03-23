@@ -2032,3 +2032,13 @@
 - Implementation keeps compact token `RGFXWRI:<SOFT|HARD>` as the canonical compact signal and appends `ROUTE GLOW FX CONF WHY RAIL INTENSITY:<SOFT|HARD>` only when parity flag is enabled.
 - Verification: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity.lua` + new parity regression both PASS.
 - Follow-up queue head: `RGFXWRI WHY:<short>` flagged rationale token.
+
+## 2026-03-24 06:01 KST — Cycle CA closure: RGFXWRI WHY token
+- Closed remaining unchecked queue item by shipping flagged rationale token `RGFXWRI WHY:<short>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY`.
+- Added deterministic resolver mapping tied to existing rationale/mode contract (`OVERDRIVE->LOCK PUSH`, `PRESSURE->PRESSURE HOLD`, `STABLE->STABLE HOLD`).
+- Added regression `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why.lua` and re-ran rail-intensity baseline/parity regressions (all PASS).
+
+## 2026-03-24 06:01 KST — Cycle CB Game Director review
+- Game Director cycle ran after queues cleared: generated 3 ideas (low: compact confidence alias, mid: rationale confidence token, high: adaptive rationale-from-drift).
+- Selected mid-risk vertical slice for this cycle: `RGFXWRI WHY CONF:LOW|MID|HIGH` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF`.
+- Injected new queued follow-ups: digest churn coverage for `RGFXWRI WHY:` and compact alias `RGFXWRIWC:<L|M|H>`.

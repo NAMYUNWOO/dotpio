@@ -1411,3 +1411,14 @@
 ## 2026-03-24 05:31 KST — Design parity token decision
 - Approved explicit parity label `ROUTE GLOW FX CONF WHY RAIL INTENSITY` to mirror compact `RGFXWRI` without replacing it.
 - Decision: detailed token remains gated by dedicated parity flag to avoid default prompt-width regression.
+
+## 2026-03-24 06:01 KST — Design closure for CA follow-up
+- Closed Design/AI-content follow-up by adding short-form rationale text coupled to rail intensity.
+- Decision kept explicit and deterministic to avoid copy drift across compact intensity surfaces.
+
+## 2026-03-24 06:01 KST — Cycle CB experiment selection record
+- Candidate ideas generated:
+  1) Low-risk UX alias for rail-intensity rationale confidence,
+  2) Mid-risk confidence token for rationale trust,
+  3) High-risk adaptive rationale from weekly drift signals.
+- Selected idea #2 as minimal vertical slice for immediate implementation and verification.
