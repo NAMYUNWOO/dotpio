@@ -2060,3 +2060,9 @@ Compact decision memory for AI context efficiency.
 - Expanded digest token catalog/family coverage to include `ALT STEP WHY CONF:` so lane-focus and token-mover math now account for rationale-confidence token churn.
 - Regression status: weekly digest regression + py_compile + digest regeneration PASS.
 - Backlog sync: TASKS + POST_RC marked done for the Systems/QA BJ item; next unchecked priority is Design/World `ALT WHY GLYPH:<sigil>` prototype.
+
+## 2026-03-23 14:05 KST — Cycle BK Systems/QA slice completed
+- Shipped compact rationale glyph drift digest token: `ALT WHY GLYPH Δ:+n|-n`.
+- Added prior-aware drift computation to weekly readability digest (`scripts/weekly_portal_prompt_readability_drift.py`) with JSON fields `altWhyGlyphDrift` + `altWhyGlyphDriftSignals`.
+- Regression coverage updated in `scripts/regression_weekly_portal_prompt_readability_drift.py`; markdown digest now emits `ALT WHY GLYPH Δ` line for quick stability triage.
+- Backlog sync: marked `ALT WHY GLYPH Δ` item done in `TASKS.md` and `POST_RC_BACKLOG.md`; next unchecked item is `ALT WHY GLYPH MODE:STEADY|SPIKE` prototype.

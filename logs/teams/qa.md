@@ -2281,3 +2281,12 @@
   - `DOTPIO_EXPERIMENT_ALT_STEP_CUE=1 DOTPIO_EXPERIMENT_ALT_STEP_CONF=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY_CONF=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_COMPACT=1 lua scripts/regression_portal_alt_why_glyph_compact.lua`
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Result: PASS.
+
+## 2026-03-23 14:05 KST — Verification: ALT WHY GLYPH drift token
+- Verified regression schema coverage for new digest fields:
+  - `altWhyGlyphDrift`
+  - `altWhyGlyphDriftSignals{currentAltWhyGlyphNet, priorAltWhyGlyphNet, priorLoaded, reason}`
+- Verification commands:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/playtests/weekly_portal_prompt_readability_drift.json --out-md logs/playtests/weekly_portal_prompt_readability_drift.md`
+- Result: PASS, digest artifacts include `ALT WHY GLYPH Δ` markdown line and JSON payload drift metadata.
