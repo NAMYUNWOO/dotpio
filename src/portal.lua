@@ -992,6 +992,15 @@ local function isRouteGlowFxCompactAliasExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isRouteGlowConfidenceCompactAliasExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_GLOW_CONF_COMPACT")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function resolveVibeTrailArc(vibeTrailWhy)
     if vibeTrailWhy == "RECOVER" then
         return "RECOVER"
@@ -1277,7 +1286,8 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
                 if compactRouteGlow then
                     appendToken(string.format("ROUTE GLOW:%s", compactRouteGlow), false)
                     if compactRouteGlowConfidence then
-                        appendToken(string.format("ROUTE GLOW CONF:%s", compactRouteGlowConfidence), false)
+                        local routeGlowConfidenceTokenLabel = isRouteGlowConfidenceCompactAliasExperimentEnabled() and "RGC" or "ROUTE GLOW CONF"
+                        appendToken(string.format("%s:%s", routeGlowConfidenceTokenLabel, compactRouteGlowConfidence), false)
                     end
                     if compactRouteGlowFx then
                         local routeGlowFxTokenLabel = isRouteGlowFxCompactAliasExperimentEnabled() and "RGFX" or "ROUTE GLOW FX"

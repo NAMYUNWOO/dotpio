@@ -2454,3 +2454,14 @@
 - Scope touched: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` all PASS.
 - Follow-up: remaining Cycle BW backlog items are `RGC:<L|M|H>` alias prototype and flagged `ROUTE GLOW FX CONF WHY:<short>` rationale token.
+
+## 2026-03-24 02:33 KST — Verification pass for route-glow confidence alias
+- PASS: 
+- PASS: [PASS] portal route glow confidence compact alias regression validated
+- PASS: [PASS] weekly portal prompt readability drift regression checks
+- Result: route-glow confidence alias behavior + digest contract stable.
+
+## 2026-03-24 02:34 KST — Correction: Cycle BW route-glow confidence alias details
+- Implemented compact alias token `RGC:<LOW|MID|HIGH>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_CONF_COMPACT`.
+- Default compact token remains `ROUTE GLOW CONF:<LOW|MID|HIGH>` when alias flag is disabled.
+- Verification evidence: `luac -p src/portal.lua`, `lua scripts/regression_portal_route_glow_conf_compact_alias.lua` (with required flags), `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.

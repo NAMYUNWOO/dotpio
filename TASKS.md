@@ -625,5 +625,5 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — 2026-03-24 Cycle BW)
 - [x] Systems/QA Team: Add weekly digest token-family coverage for route-glow FX confidence churn (`ROUTE GLOW FX CONF:` + `RGFXC:`) with compact-budget drift note
-- [ ] UX/World Team: Prototype compact route-glow confidence alias token (`RGC:<L|M|H>`) behind flag for tighter DOS prompt budget
+- [x] UX/World Team: Prototype compact route-glow confidence alias token (`RGC:<L|M|H>`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_CONF_COMPACT` for tighter DOS prompt budget *(lifecycle: [ ] -> [~] -> [x])*
 - [ ] Design/AI Content Team: Prototype route-glow confidence rationale token (`ROUTE GLOW FX CONF WHY:<short>`) behind flag for trust context

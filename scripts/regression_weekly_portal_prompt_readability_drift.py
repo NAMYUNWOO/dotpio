@@ -717,6 +717,7 @@ def main() -> int:
         assert "VIBE TRAIL WHY CONF WHY:" in payload["tokenTotals"]["net"], payload
         assert "VTCW:" in payload["tokenTotals"]["net"], payload
         assert "ROUTE GLOW CONF:" in payload["tokenTotals"]["net"], payload
+        assert "RGC:" in payload["tokenTotals"]["net"], payload
         assert "ROUTE GLOW FX CONF:" in payload["tokenTotals"]["net"], payload
         assert "RGFXC:" in payload["tokenTotals"]["net"], payload
         assert "tokenFamilyTotals" in payload, payload
