@@ -714,9 +714,13 @@ def main() -> int:
         assert "VTCR:" in payload["tokenTotals"]["net"], payload
         assert "VIBE TRAIL WHY CONF:" in payload["tokenTotals"]["net"], payload
         assert "VTWC:" in payload["tokenTotals"]["net"], payload
+        assert "VIBE TRAIL WHY CONF WHY:" in payload["tokenTotals"]["net"], payload
+        assert "VTCW:" in payload["tokenTotals"]["net"], payload
         assert "tokenFamilyTotals" in payload, payload
         assert "vibeTrailWhyAlias" in payload["tokenFamilyTotals"], payload
         assert "vibeTrailWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
+        assert "vibeTrailWhyConfidenceWhyAlias" in payload["tokenFamilyTotals"], payload
+        assert "vibeTrailWhyConfidenceWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
@@ -728,6 +732,26 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyConfidenceAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["vibeTrailWhyConfidenceWhyAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["vibeTrailWhyConfidenceWhyConfidenceAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1107,6 +1131,8 @@ def main() -> int:
         assert "Token Family Coverage" in md_text
         assert "VTW FAMILY CHURN" in md_text
         assert "VTWC FAMILY CHURN" in md_text
+        assert "VTCW FAMILY CHURN" in md_text
+        assert "VTCWC FAMILY CHURN" in md_text
         assert "MODE TREND" in md_text
         assert "PRESSURE BAND" in md_text
         assert "DRIFT RISK" in md_text

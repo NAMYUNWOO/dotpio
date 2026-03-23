@@ -1465,3 +1465,13 @@
 - Prompt contract: detailed emits `VIBE TRAIL CONF RAIL:*` and compact emits `VTCR:S|X` alongside existing `VTC` token.
 - Regression: `scripts/regression_portal_vibe_trail.lua` expanded for calm/ash rail assertions and invalid-context suppression.
 - Verification: portal vibe-trail regression + weekly digest regression PASS.
+
+## 2026-03-23 20:38 KST — Cycle BQ rationale-confidence micro-rationale slice
+- Task: Prototype `VIBE TRAIL WHY CONF WHY:<short>` behind flag for portal prompt trust context.
+- Decision: Added flag `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY`; emit detailed token `VIBE TRAIL WHY CONF WHY` and compact alias `VTCW` when rationale-confidence is present.
+- Verification: [PASS] portal vibe trail regression validated; [PASS] weekly portal prompt readability drift regression checks.
+- Follow-up: Track VTCW churn in weekly digest and observe if operator confidence triage stabilizes.
+
+## 2026-03-23 21:18:00 KST
+- Compact portal readability now carries full micro-rationale chain: `VTCW`, `VTCWC`, and rail cue `VTCWR` for fast-width triage.
+- Regression coverage expanded for invalid-context suppression to avoid noisy token spill.

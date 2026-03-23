@@ -1864,3 +1864,21 @@
 - Prompt contract: detailed emits `VIBE TRAIL CONF RAIL:*` and compact emits `VTCR:S|X` alongside existing `VTC` token.
 - Regression: `scripts/regression_portal_vibe_trail.lua` expanded for calm/ash rail assertions and invalid-context suppression.
 - Verification: portal vibe-trail regression + weekly digest regression PASS.
+
+## 2026-03-23 20:38 KST — Cycle BQ rationale-confidence micro-rationale slice
+- Task: Prototype `VIBE TRAIL WHY CONF WHY:<short>` behind flag for portal prompt trust context.
+- Decision: Added flag `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY`; emit detailed token `VIBE TRAIL WHY CONF WHY` and compact alias `VTCW` when rationale-confidence is present.
+- Verification: [PASS] portal vibe trail regression validated; [PASS] weekly portal prompt readability drift regression checks.
+- Follow-up: Track VTCW churn in weekly digest and observe if operator confidence triage stabilizes.
+
+## 2026-03-23 21:18:00 KST
+- Task: Close portal micro-rationale confidence+rail slice (TASKS/POST_RC items for `VTCWC` + rail + digest coverage).
+- Commit: pending (this run)
+- Files: `src/portal.lua`, `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `scripts/regression_portal_vibe_trail.lua`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY_CONF=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY_RAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF_RAIL=1 lua scripts/regression_portal_vibe_trail.lua` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Hooked `VIBE TRAIL WHY CONF WHY CONF` end-to-end in prompt construction (detailed+compact).
+  - Added flag-gated micro-rationale rail token (`VIBE TRAIL WHY CONF WHY RAIL`, compact `VTCWR`).
+  - Added digest token-family coverage for `VTCWC` + detailed alias family.

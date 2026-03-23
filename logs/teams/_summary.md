@@ -2191,3 +2191,19 @@ Compact decision memory for AI context efficiency.
   - Generated ideas: (1) confidence-alias churn coverage, (2) confidence rail token, (3) confidence micro-rationale token.
   - Chosen minimal vertical slice: (1) confidence-alias churn coverage (implemented).
   - Backlog injected: queued (2) `VIBE TRAIL CONF RAIL:<STEADY|SPIKE>` and (3) `VIBE TRAIL WHY CONF WHY:<short>`.
+
+## 2026-03-23 20:38 KST — Cycle BQ complete: vibe-trail rationale-confidence micro-rationale
+- Completed item: Design/AI Content prototype `VIBE TRAIL WHY CONF WHY:<short>` behind `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY`.
+- Implementation:
+  - `src/portal.lua` now emits detailed `VIBE TRAIL WHY CONF WHY:<short>` and compact `VTCW:<short>` whenever `VIBE TRAIL WHY CONF` is available.
+  - Added resolver mapping for initial micro-rationale terms (`LOCKED`, `TREND`, fallback tiers).
+  - Updated weekly digest token tracking/family churn coverage for `VIBE TRAIL WHY CONF WHY:` + `VTCW:`.
+- Verification:
+  - `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_WHY_CONF_WHY=1 DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL_CONF_RAIL=1 lua scripts/regression_portal_vibe_trail.lua`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Durable decision: keep micro-rationale token behind flag until churn + readability indicate stable operator value.
+
+- Closed vibe-trail micro-rationale backlog slice: confidence token (`VIBE TRAIL WHY CONF WHY CONF`/`VTCWC`) is now wired through portal prompts and covered by regressions.
+- Added flagged rail cue `VIBE TRAIL WHY CONF WHY RAIL:STEADY|SPIKE` with compact alias `VTCWR:S|X` for fast route triage.
+- Weekly digest token-family coverage now includes `VTCWC + VIBE TRAIL WHY CONF WHY CONF` churn/coverage metrics.
+- TASKS + POST_RC items for micro-rationale confidence, rail, and digest coverage are now marked complete.

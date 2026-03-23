@@ -436,4 +436,9 @@ Last updated: 2026-03-21 02:31 KST
 ## Next Up (Game Director Injection - 2026-03-23 Cycle BQ)
 - [x] Systems/QA Team: Add weekly digest token-family coverage for rationale-confidence alias churn (`VIBE TRAIL WHY CONF:` + `VTWC:`) with markdown triage row
 - [x] UX/World Team: Prototype compact portal rationale-confidence rail token (`VIBE TRAIL CONF RAIL:<STEADY|SPIKE>`) behind flag for faster jump triage
-- [ ] Design/AI Content Team: Prototype rationale-confidence micro-rationale token (`VIBE TRAIL WHY CONF WHY:<short>`) behind flag for operator trust context
+- [x] Design/AI Content Team: Prototype rationale-confidence micro-rationale token (`VIBE TRAIL WHY CONF WHY:<short>`) behind flag for operator trust context
+
+## Next Up (Game Director Injection - 2026-03-23 Cycle BR)
+- [x] Systems/AI Content Team: Prototype micro-rationale confidence token (`VIBE TRAIL WHY CONF WHY CONF:LOW|MID|HIGH`, compact `VTCWC:<L|M|H>`) behind flag for trust readability *(lifecycle: [~] -> [x])*
+- [x] UX/World Team: Prototype portal micro-rationale rail token (`VIBE TRAIL WHY CONF WHY RAIL:STEADY|SPIKE`) behind flag for fast route triage *(lifecycle: [~] -> [x])*
+- [x] QA/Systems Team: Add weekly digest token-family coverage for micro-rationale confidence alias churn (`VTCWC:` + detailed label) *(lifecycle: [ ] -> [x])*
