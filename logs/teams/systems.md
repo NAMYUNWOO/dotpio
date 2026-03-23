@@ -1922,7 +1922,7 @@
 
 - Date/Time (KST): 2026-03-24 00:06 KST
 - Task: Cycle BU Systems/QA token-family coverage for `ROUTE GLOW CONF:`
-- Commit hash: ceb526e
+- Commit hash: e7b2be4
 - Files changed: TASKS.md, POST_RC_BACKLOG.md, scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py
 - Verification performed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ([PASS])
 - Decision notes: Added `routeGlowConfidenceAlias` family coverage and markdown triage rows so weekly digest audits route-afterglow confidence churn explicitly.
