@@ -1409,3 +1409,6 @@
 ## 2026-03-23 14:31 KST
 - Detailed + compact portal prompts now include `ALT WHY GLYPH MODE` when glyph rationale is active and mode flag enabled.
 - Retained existing compact alias behavior (`AWG`) while keeping mode label fully spelled for clarity.
+
+## 2026-03-23 14:44 KST
+- Weekly digest now keeps glyph rationale stack readable with adjacent lines: `ALT WHY GLYPH Δ` + `ALT WHY GLYPH MODE Δ`.

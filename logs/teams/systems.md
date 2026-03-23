@@ -1795,3 +1795,7 @@
 ## 2026-03-23 14:31 KST
 - Added env-flagged mode signal `DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE` and threaded token rendering through portal detailed/compact prompt builders.
 - Mode mapping currently uses fallback rationale: `PRESSURE -> SPIKE`, otherwise `STEADY`.
+
+## 2026-03-23 14:44 KST
+- Added prior-window drift reducer `alt_why_glyph_mode_drift_from_prior` in weekly digest pipeline.
+- Payload now emits `altWhyGlyphModeDrift` and `altWhyGlyphModeDriftSignals`.

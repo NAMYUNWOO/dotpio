@@ -1107,3 +1107,6 @@
 ## 2026-03-23 14:31 KST
 - No combat logic/stat tuning changes.
 - Only prompt-level fallback rationale cadence labeling updated.
+
+## 2026-03-23 14:44 KST
+- No combat mechanics touched (telemetry/reporting-only update).

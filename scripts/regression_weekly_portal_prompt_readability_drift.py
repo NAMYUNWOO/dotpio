@@ -875,6 +875,13 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert isinstance(payload.get("altWhyGlyphModeDrift"), int), payload
+        assert set(payload.get("altWhyGlyphModeDriftSignals", {}).keys()) == {
+            "currentAltWhyGlyphModeNet",
+            "priorAltWhyGlyphModeNet",
+            "priorLoaded",
+            "reason",
+        }, payload
         assert payload.get("actionPaceAltWindowUrgency") in {"OFF", "NOW", "SOON", "LATER"}, payload
         assert set(payload.get("actionPaceAltWindowUrgencySignals", {}).keys()) == {
             "flagName",
@@ -1074,6 +1081,7 @@ def main() -> int:
         assert "ALT STEP CONF Δ" in md_text
         assert "ALT STEP WHY CONF Δ" in md_text
         assert "ALT WHY GLYPH Δ" in md_text
+        assert "ALT WHY GLYPH MODE Δ" in md_text
         assert "ACTION PACE ALT WINDOW FIT" in md_text
         assert "ACTION PACE ALT WINDOW WHY" in md_text
         assert "ACTION PACE ALT WINDOW URGENCY" in md_text

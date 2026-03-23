@@ -1154,6 +1154,44 @@ def alt_why_glyph_drift_from_prior(
     }
 
 
+def alt_why_glyph_mode_drift_from_prior(
+    *,
+    current_alt_why_glyph_mode_net: int,
+    prior_json_path: Path,
+) -> tuple[int, dict[str, int | bool | str]]:
+    """Compare current/prior ALT WHY GLYPH MODE net activity and emit signed drift delta."""
+    current_net = int(current_alt_why_glyph_mode_net)
+    prior_net = 0
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_net = int(prior.get("altWhyGlyphModeDriftSignals", {}).get("currentAltWhyGlyphModeNet", prior_net))
+            prior_loaded = True
+        except (json.JSONDecodeError, OSError, ValueError, TypeError, AttributeError):
+            prior_loaded = False
+
+    drift = current_net - prior_net
+
+    if not prior_loaded:
+        drift = 0
+        reason = "no-prior-alt-why-glyph-mode-net"
+    elif drift > 0:
+        reason = "alt-why-glyph-mode-net-increased"
+    elif drift < 0:
+        reason = "alt-why-glyph-mode-net-decreased"
+    else:
+        reason = "alt-why-glyph-mode-net-stable"
+
+    return drift, {
+        "currentAltWhyGlyphModeNet": current_net,
+        "priorAltWhyGlyphModeNet": prior_net,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def action_pace_alt_window_step_glyph_from_signals(
     *,
     action_pace_alt_window_step: str,
@@ -4970,6 +5008,10 @@ def main() -> int:
         current_alt_why_glyph_net=token_totals["net"].get("ALT WHY GLYPH:", 0),
         prior_json_path=args.out_json,
     )
+    alt_why_glyph_mode_drift, alt_why_glyph_mode_drift_signals = alt_why_glyph_mode_drift_from_prior(
+        current_alt_why_glyph_mode_net=token_totals["net"].get("ALT WHY GLYPH MODE:", 0),
+        prior_json_path=args.out_json,
+    )
     lane_focus, lane_focus_scores = lane_focus_from_token_totals(token_totals)
     commit_focuses = [r["laneFocus"] for r in touched if r["laneFocus"] != "MIXED"]
     focus_streak, focus_shift = focus_streak_and_shift(
@@ -5581,6 +5623,8 @@ def main() -> int:
         "altStepWhyConfidenceDriftSignals": alt_step_why_confidence_drift_signals,
         "altWhyGlyphDrift": alt_why_glyph_drift,
         "altWhyGlyphDriftSignals": alt_why_glyph_drift_signals,
+        "altWhyGlyphModeDrift": alt_why_glyph_mode_drift,
+        "altWhyGlyphModeDriftSignals": alt_why_glyph_mode_drift_signals,
         "actionPaceAltWindowFit": action_pace_alt_window_fit,
         "actionPaceAltWindowFitSignals": action_pace_alt_window_fit_signals,
         "actionPaceAltWindowWhy": action_pace_alt_window_why,
@@ -5821,6 +5865,7 @@ def main() -> int:
         f"- ALT STEP CONF Δ: **{alt_step_confidence_drift:+d}** ({alt_step_confidence_drift_signals['reason']}; current={alt_step_confidence_drift_signals['currentAltStepConfidence']}({alt_step_confidence_drift_signals['currentScore']}) prior={alt_step_confidence_drift_signals['priorAltStepConfidence']}({alt_step_confidence_drift_signals['priorScore']}) loaded={alt_step_confidence_drift_signals['priorLoaded']})",
         f"- ALT STEP WHY CONF Δ: **{alt_step_why_confidence_drift:+d}** ({alt_step_why_confidence_drift_signals['reason']}; why={alt_step_why_confidence_drift_signals['currentAltStepWhy']} current={alt_step_why_confidence_drift_signals['currentAltStepWhyConfidence']}({alt_step_why_confidence_drift_signals['currentScore']}) prior={alt_step_why_confidence_drift_signals['priorAltStepWhyConfidence']}({alt_step_why_confidence_drift_signals['priorScore']}) loaded={alt_step_why_confidence_drift_signals['priorLoaded']})",
         f"- ALT WHY GLYPH Δ: **{alt_why_glyph_drift:+d}** ({alt_why_glyph_drift_signals['reason']}; currentNet={alt_why_glyph_drift_signals['currentAltWhyGlyphNet']} priorNet={alt_why_glyph_drift_signals['priorAltWhyGlyphNet']} loaded={alt_why_glyph_drift_signals['priorLoaded']})",
+        f"- ALT WHY GLYPH MODE Δ: **{alt_why_glyph_mode_drift:+d}** ({alt_why_glyph_mode_drift_signals['reason']}; currentNet={alt_why_glyph_mode_drift_signals['currentAltWhyGlyphModeNet']} priorNet={alt_why_glyph_mode_drift_signals['priorAltWhyGlyphModeNet']} loaded={alt_why_glyph_mode_drift_signals['priorLoaded']})",
         f"- ACTION PACE ALT WINDOW FIT: **{action_pace_alt_window_fit}** ({action_pace_alt_window_fit_signals['reason']}; flag={action_pace_alt_window_fit_signals['flagName']} enabled={action_pace_alt_window_fit_signals['flagEnabled']} pressure={action_pace_alt_window_fit_signals['pressureBand']} sandbox={action_pace_alt_window_fit_signals['routeSandbox']} target={action_pace_alt_window_fit_signals['sandboxTarget']} ready={action_pace_alt_window_fit_signals['sandboxReadiness']})",
         f"- ACTION PACE ALT WINDOW WHY: **{action_pace_alt_window_why}** ({action_pace_alt_window_why_signals['reason']}; flag={action_pace_alt_window_why_signals['flagName']} enabled={action_pace_alt_window_why_signals['flagEnabled']} alt={action_pace_alt_window_why_signals['actionPaceAltWindow']} conf={action_pace_alt_window_why_signals['actionPaceAltWindowConfidence']} fit={action_pace_alt_window_why_signals['actionPaceAltWindowFit']} sandbox={action_pace_alt_window_why_signals['routeSandbox']} target={action_pace_alt_window_why_signals['sandboxTarget']} ready={action_pace_alt_window_why_signals['sandboxReadiness']})",
         f"- ACTION PACE ALT WINDOW URGENCY: **{action_pace_alt_window_urgency}** ({action_pace_alt_window_urgency_signals['reason']}; flag={action_pace_alt_window_urgency_signals['flagName']} enabled={action_pace_alt_window_urgency_signals['flagEnabled']} alt={action_pace_alt_window_urgency_signals['actionPaceAltWindow']} conf={action_pace_alt_window_urgency_signals['actionPaceAltWindowConfidence']} fit={action_pace_alt_window_urgency_signals['actionPaceAltWindowFit']} why={action_pace_alt_window_urgency_signals['actionPaceAltWindowWhy']})",

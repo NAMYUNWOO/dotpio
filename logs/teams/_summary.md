@@ -2073,3 +2073,9 @@ Compact decision memory for AI context efficiency.
 - Updated weekly readability digest token catalogs (`TOKEN_GROUPS` / `TOKEN_FAMILIES`) to track `ALT WHY GLYPH MODE` churn.
 - Verification: glyph regressions + digest py_compile PASS.
 - Follow-up: next unchecked queue item is Systems/QA `ALT WHY GLYPH compact alias drift token` in TASKS/POST_RC.
+
+## 2026-03-23 14:44 KST — Game Director Cycle BL (weekly digest glyph-mode drift)
+- Ideas generated: (1) glyph-mode drift token, (2) compact mode alias `AWGM`, (3) glyph-mode confidence tier.
+- Selected experiment: (1) `ALT WHY GLYPH MODE Δ:+n|-n` for minimal reversible slice.
+- Implemented in weekly digest script + regression; backlog updated with remaining BL queue items.
+- Verification: py_compile + weekly drift regression PASS.

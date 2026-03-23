@@ -408,3 +408,8 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/World Team: Prototype compact rationale glyph alias token (`AWG:<sigil>`) behind flag for stricter DOS-width prompt scanability
 - [x] Systems/QA Team: Add compact rationale glyph drift token (`ALT WHY GLYPH Δ:+n|-n`) in weekly digest for stability triage
 - [x] Design/AI Content Team: Prototype glyph rationale cadence token (`ALT WHY GLYPH MODE:STEADY|SPIKE`) behind flag for operator readability
+
+### Game Director Cycle BL (2026-03-23)
+- [x] QA/Systems Team: Add weekly digest drift token `ALT WHY GLYPH MODE Δ:+n|-n` with prior-window signals
+- [ ] Design/AI Content Team: Prototype compact prompt alias for glyph mode token (`AWGM:<S|K>`) behind flag
+- [ ] Systems/QA Team: Add digest confidence token for glyph-mode drift (`ALT WHY GLYPH MODE CONF:LOW|MID|HIGH`)

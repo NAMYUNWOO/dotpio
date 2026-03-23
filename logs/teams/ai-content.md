@@ -1137,3 +1137,6 @@
 ## 2026-03-23 14:31 KST
 - Added rationale cadence token `ALT WHY GLYPH MODE:STEADY|SPIKE` to pair with existing `ALT WHY GLYPH` signal under explicit flag.
 - Intent: improve operator parsing of fallback-why urgency without expanding prose.
+
+## 2026-03-23 14:44 KST
+- Added operator-facing markdown line `ALT WHY GLYPH MODE Δ` to track cadence-mode churn across weekly windows.

@@ -1194,3 +1194,6 @@
 ## 2026-03-23 14:31 KST
 - Completed queued design/AI item for glyph rationale cadence readability (`STEADY|SPIKE`).
 - Decision: keep token explicit (no compact alias yet) for easier cross-surface interpretation.
+
+## 2026-03-23 14:44 KST
+- Game Director Cycle BL queued two follow-ups after selected drift-signal slice: compact alias (`AWGM`) and confidence tier token.

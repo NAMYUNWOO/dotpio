@@ -2297,3 +2297,9 @@
   - `DOTPIO_EXPERIMENT_ALT_STEP_CUE=1 DOTPIO_EXPERIMENT_ALT_STEP_CONF=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY_CONF=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE=1 lua scripts/regression_portal_alt_why_glyph.lua` ✅
   - `DOTPIO_EXPERIMENT_ALT_STEP_CUE=1 DOTPIO_EXPERIMENT_ALT_STEP_CONF=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY=1 DOTPIO_EXPERIMENT_ALT_STEP_WHY_CONF=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_MODE=1 DOTPIO_EXPERIMENT_ALT_WHY_GLYPH_COMPACT=1 lua scripts/regression_portal_alt_why_glyph_compact.lua` ✅
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-23 14:44 KST
+- Regression expanded to assert new JSON keys and markdown row for glyph-mode drift token.
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
