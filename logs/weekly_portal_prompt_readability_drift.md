@@ -1,11 +1,11 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-24T21:35:08.020662Z
+- GeneratedAt(UTC): 2026-03-24T22:03:35.853728Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
-- Portal prompt commits: 53
-- Dominant mode commits: compact=20, detailed=1, neutral=32
+- Portal prompt commits: 52
+- Dominant mode commits: compact=20, detailed=1, neutral=31
 - MODE TREND: **COMPACT**
 - PRESSURE BAND: **HIGH** (edits +25 / -2 / net 23)
 - DRIFT RISK: **HIGH** (score=91 | imbalance=68 | pressure=23)
@@ -16,6 +16,7 @@
 - AMBIENT RAMP WHY REC PARITY: **LOCK** (high-pressure-or-volatile-window; rec=HOLD_SAFE_WHY conf=MID churn=10 net=+10 pressure=HIGH)
 - AMBIENT RAMP WHY AUTO-REMAP PLAN: **HOLD_SAFE_BASELINE** (safety-lock-from-confidence-or-parity; rec=HOLD_SAFE_WHY conf=MID parity=LOCK drift=HIGH pressure=HIGH offlineOnly=True)
 - ARW AUTO PLAN: **HOLD** (full=HOLD_SAFE_BASELINE)
+- ARW AUTO WHY: **SAFE_LOCK** (offline compact rationale shorthand)
 - ARW AUTO PLAN Δ: **+0** (auto-plan-held-vs-prior-window; current=HOLD_SAFE_BASELINE(0) prior=HOLD_SAFE_BASELINE(0) loaded=True)
 - ARW AUTO PLAN CONF: **HIGH** (safety-locked-plan-selection; recConf=MID parity=LOCK driftRisk=HIGH pressure=HIGH Δ=+0)
 - URGENCY STACK PRUNING REC: **PARITY>FX>DETAIL** (protect-core-detailed-under-high-drift; parityChurn=9 fxChurn=9 detailedChurn=13 offlineOnly=True)
@@ -41,9 +42,9 @@
 - SANDBOX READY: **PRIMED** (preconditions-forming; sandbox=OFF conf=LOW guard=LOCK lock=Falsex2)
 - TARGET SHIFT: **NONE->NONE** (target-stable; changed=False priorLoaded=True)
 - SANDBOX COOLOFF: **0** (no-prior-on-cycle; active=False prior=OFF:0)
-- DRIFT MOMENTUM: **FLAT** (recent=2.481 older=1.077 delta=1.405)
+- DRIFT MOMENTUM: **FLAT** (recent=2.577 older=1.077 delta=1.5)
 - ACTION STABILITY: **WATCH** (retune-watch-needed; conf=LOW vol=STEADY momentum=FLAT)
-- PRESSURE LAG: **SLOW** (churn=23 momentum=FLAT |Δ|=1.405)
+- PRESSURE LAG: **SLOW** (churn=23 momentum=FLAT |Δ|=1.5)
 - ACTION PACE: **BRAKE** (guard-locked; guard=LOCK stability=WATCH lag=SLOW)
 - PACE DRIFT: **+0** (pace-stable; current=BRAKE(-1) prior=BRAKE(-1) loaded=True)
 - ACTION PACE WINDOW: **CLOSE** (guard-or-brake-closing-window; pace=BRAKE guard=LOCK drift=+0)
@@ -71,9 +72,9 @@
 - ROUTE PULSE LINK STREAK: **0** (link-off-reset; current=OFF prior=OFF priorStreak=0 loaded=True)
 - ROUTE PULSE LINK MODE: **IDLE** (link-disabled; link=OFF streak=0 drift=+0)
 - ROUTE PULSE LINK MODE Δ: **+0** (mode-stable; current=IDLE(0) prior=IDLE(0) loaded=True)
-- ROUTE PULSE LINK MODE STREAK: **40** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=39 loaded=True)
+- ROUTE PULSE LINK MODE STREAK: **41** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=40 loaded=True)
 - ROUTE PULSE LINK MODE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY enabled=False mode=IDLE link=OFF drift=+0 streak=0)
-- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=40)
+- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=41)
 - ROUTE PULSE LINK MODE FIT Δ: **+0** (fit-stable; current=SYNC(2) prior=SYNC(2) loaded=True)
 - ROUTE PULSE TOKEN PRIORITY: **OFF** (priority-mode-disabled; configured=OFF drift=+0 prior=OFF loaded=True guard=False)
 - ACTION PACE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_WHY enabled=False pace=BRAKE guard=LOCK stability=WATCH lag=SLOW drift=+0)
@@ -207,6 +208,7 @@
 - ARW + AMBIENT RAMP WHY: +10 / -0 / net 10 (churn=10 coverage=2/2)
 - ARW REC PARITY: LOCK (rec=HOLD_SAFE_WHY conf=MID churn=10 net=+10 pressure=HIGH)
 - ARW AUTO PLAN: HOLD (full=HOLD_SAFE_BASELINE)
+- ARW AUTO WHY: SAFE_LOCK (offline shorthand)
 - ARW AUTO PLAN FAMILY: +0 / -0 / net 0 (churn=0 coverage=0/2 drift=+0)
 - PULSE HEAT FX: +7 / -0 / net 7 (churn=7 coverage=1/1)
 - ROUTE GLOW FX + RGFX: +15 / -0 / net 15 (churn=15 coverage=2/2)
@@ -297,4 +299,3 @@
 - `73be1bb` Add detailed route pulse mode cue parity in portal prompt | mode=neutral | compact net=0 detailed net=0 shared net=0
 - `31d09e6` Add compact portal pulse-mode cue with regression | mode=neutral | compact net=0 detailed net=0 shared net=0
 - `007466c` feat(portal): add compact pulse-link cue behind experiment flag | mode=neutral | compact net=0 detailed net=0 shared net=0
-- `ced8caa` feat(portal): add drift glyph escalation cue behind experiment flag | mode=neutral | compact net=0 detailed net=0 shared net=0

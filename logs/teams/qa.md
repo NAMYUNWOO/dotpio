@@ -2913,3 +2913,10 @@
 - Completed: Added weekly digest token `ARW AUTO PLAN CONF:LOW|MID|HIGH` with payload signals and regression lock.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
 - Notes: offline-only observability enhancement; no runtime prompt/mechanics coupling changed.
+
+## 2026-03-25 07:03 KST — Cycle DE regression lock update
+- Added regression assertions for `ambientRampWhyAutoRemapWhyCompact` payload contract and markdown visibility `ARW AUTO WHY`.
+- Verification commands:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py` ✅
+- Result: digest/sandbox schema drift guarded for ARW auto-rationale shorthand.

@@ -1493,6 +1493,7 @@ def main() -> int:
         }, payload
         assert isinstance(payload.get("ambientRampWhyAutoRemapPlan"), str), payload
         assert isinstance(payload.get("ambientRampWhyAutoRemapPlanCompact"), str), payload
+        assert isinstance(payload.get("ambientRampWhyAutoRemapWhyCompact"), str), payload
         assert set(payload.get("ambientRampWhyAutoRemapPlanSignals", {}).keys()) == {
             "recommendation",
             "confidence",
@@ -1604,6 +1605,7 @@ def main() -> int:
         assert "AMBIENT RAMP WHY REC PARITY" in md_text
         assert "AMBIENT RAMP WHY AUTO-REMAP PLAN" in md_text
         assert "ARW AUTO PLAN" in md_text
+        assert "ARW AUTO WHY" in md_text
         assert "ARW AUTO PLAN Δ" in md_text
         assert "ARW AUTO PLAN CONF" in md_text
         assert "ARW AUTO PLAN FAMILY CHURN" in md_text

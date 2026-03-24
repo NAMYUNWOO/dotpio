@@ -1570,3 +1570,9 @@
 - Completed: Added weekly digest token `ARW AUTO PLAN CONF:LOW|MID|HIGH` with payload signals and regression lock.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
 - Notes: offline-only observability enhancement; no runtime prompt/mechanics coupling changed.
+
+## 2026-03-25 07:03 KST — Cycle DE ARW auto rationale shorthand slice
+- Completed queued UX/AI-content task by adding compact offline rationale shorthand token `ARW AUTO WHY:<SAFE_LOCK|PRESSURE_HOLD|OPEN_WINDOW>`.
+- Scope kept offline-only: sandbox artifact + weekly digest payload/markdown; no runtime portal prompt coupling.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS, `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: remaining unchecked item is AI Content/Systems confidence-streak suppression policy (offline-only).

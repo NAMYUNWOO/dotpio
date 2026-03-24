@@ -5534,6 +5534,21 @@ def ambient_ramp_why_auto_remap_plan_alias(plan: str) -> str:
     return alias_map.get(plan, "HOLD")
 
 
+def ambient_ramp_why_auto_remap_rationale_short(*, selected_plan: str, plan_signals: dict[str, object]) -> str:
+    """Compact shorthand for offline ambient auto-remap rationale handoff."""
+    rationale = str(plan_signals.get("rationale", "")).strip().lower()
+    recommendation = str(plan_signals.get("recommendation", "")).strip().upper()
+    parity = str(plan_signals.get("parity", "")).strip().upper()
+
+    if "safety-lock" in rationale or parity == "LOCK":
+        return "SAFE_LOCK"
+    if selected_plan == "SHADOW_PRESSURE_REMIX" or recommendation == "PRESSURE_GATED_WHY":
+        return "PRESSURE_HOLD"
+    if selected_plan == "LIMITED_CONTEXT_EXPANSION" or recommendation == "OPEN_CONTEXTUAL_WHY":
+        return "OPEN_WINDOW"
+    return "SAFE_LOCK"
+
+
 def ambient_ramp_why_auto_remap_plan_drift_from_prior(
     *,
     current_plan: str,
@@ -5913,6 +5928,10 @@ def main() -> int:
         recommendation_signals=ambient_ramp_why_recommendation_signals,
     )
     ambient_ramp_why_auto_remap_plan_compact = ambient_ramp_why_auto_remap_plan_alias(ambient_ramp_why_auto_remap_plan)
+    ambient_ramp_why_auto_remap_why = ambient_ramp_why_auto_remap_rationale_short(
+        selected_plan=ambient_ramp_why_auto_remap_plan,
+        plan_signals=ambient_ramp_why_auto_remap_plan_signals,
+    )
     ambient_ramp_why_auto_remap_plan_drift, ambient_ramp_why_auto_remap_plan_drift_signals = ambient_ramp_why_auto_remap_plan_drift_from_prior(
         current_plan=ambient_ramp_why_auto_remap_plan,
         prior_json_path=args.out_json,
@@ -6619,6 +6638,7 @@ def main() -> int:
         },
         "selectedPlan": ambient_ramp_why_auto_remap_plan,
         "selectedPlanCompact": ambient_ramp_why_auto_remap_plan_compact,
+        "selectedPlanWhyCompact": ambient_ramp_why_auto_remap_why,
         "selectedPlanSignals": ambient_ramp_why_auto_remap_plan_signals,
         "candidates": ambient_ramp_why_auto_remap_plan_candidates,
     }
@@ -6637,6 +6657,7 @@ def main() -> int:
         f"- Recommendation Parity: **{ambient_ramp_why_recommendation_parity}**",
         f"- Selected Plan: **{ambient_ramp_why_auto_remap_plan}**",
         f"- Compact Alias: **ARW AUTO PLAN:{ambient_ramp_why_auto_remap_plan_compact}**",
+        f"- Compact Rationale: **ARW AUTO WHY:{ambient_ramp_why_auto_remap_why}**",
         f"- Rationale: {ambient_ramp_why_auto_remap_plan_signals['rationale']}",
         f"- Next Action: {ambient_ramp_why_auto_remap_plan_signals['nextAction']}",
         "",
@@ -6683,6 +6704,7 @@ def main() -> int:
         "ambientRampWhyRecommendationParitySignals": ambient_ramp_why_recommendation_parity_signals,
         "ambientRampWhyAutoRemapPlan": ambient_ramp_why_auto_remap_plan,
         "ambientRampWhyAutoRemapPlanCompact": ambient_ramp_why_auto_remap_plan_compact,
+        "ambientRampWhyAutoRemapWhyCompact": ambient_ramp_why_auto_remap_why,
         "ambientRampWhyAutoRemapPlanSignals": ambient_ramp_why_auto_remap_plan_signals,
         "ambientRampWhyAutoRemapPlanDrift": ambient_ramp_why_auto_remap_plan_drift,
         "ambientRampWhyAutoRemapPlanDriftSignals": ambient_ramp_why_auto_remap_plan_drift_signals,
@@ -6988,6 +7010,7 @@ def main() -> int:
         f"- AMBIENT RAMP WHY REC PARITY: **{ambient_ramp_why_recommendation_parity}** ({ambient_ramp_why_recommendation_parity_signals['rationale']}; rec={ambient_ramp_why_recommendation_parity_signals['recommendation']} conf={ambient_ramp_why_recommendation_parity_signals['confidence']} churn={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyChurn']} net={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyNet']:+d} pressure={ambient_ramp_why_recommendation_parity_signals['pressureBand']})",
         f"- AMBIENT RAMP WHY AUTO-REMAP PLAN: **{ambient_ramp_why_auto_remap_plan}** ({ambient_ramp_why_auto_remap_plan_signals['rationale']}; rec={ambient_ramp_why_auto_remap_plan_signals['recommendation']} conf={ambient_ramp_why_auto_remap_plan_signals['confidence']} parity={ambient_ramp_why_auto_remap_plan_signals['parity']} drift={ambient_ramp_why_auto_remap_plan_signals['driftRisk']} pressure={ambient_ramp_why_auto_remap_plan_signals['pressureBand']} offlineOnly={ambient_ramp_why_auto_remap_plan_signals['offlineOnly']})",
         f"- ARW AUTO PLAN: **{ambient_ramp_why_auto_remap_plan_compact}** (full={ambient_ramp_why_auto_remap_plan})",
+        f"- ARW AUTO WHY: **{ambient_ramp_why_auto_remap_why}** (offline compact rationale shorthand)",
         f"- ARW AUTO PLAN Δ: **{ambient_ramp_why_auto_remap_plan_drift:+d}** ({ambient_ramp_why_auto_remap_plan_drift_signals['reason']}; current={ambient_ramp_why_auto_remap_plan_drift_signals['currentPlan']}({ambient_ramp_why_auto_remap_plan_drift_signals['currentScore']}) prior={ambient_ramp_why_auto_remap_plan_drift_signals['priorPlan']}({ambient_ramp_why_auto_remap_plan_drift_signals['priorScore']}) loaded={ambient_ramp_why_auto_remap_plan_drift_signals['priorLoaded']})",
         f"- ARW AUTO PLAN CONF: **{ambient_ramp_why_auto_remap_plan_confidence}** ({ambient_ramp_why_auto_remap_plan_confidence_signals['rationale']}; recConf={ambient_ramp_why_auto_remap_plan_confidence_signals['recommendationConfidence']} parity={ambient_ramp_why_auto_remap_plan_confidence_signals['parity']} driftRisk={ambient_ramp_why_auto_remap_plan_confidence_signals['driftRisk']} pressure={ambient_ramp_why_auto_remap_plan_confidence_signals['pressureBand']} Δ={ambient_ramp_why_auto_remap_plan_confidence_signals['planDrift']:+d})",
         f"- URGENCY STACK PRUNING REC: **{urgency_stack_pruning_order_recommendation}** ({urgency_stack_pruning_order_recommendation_signals['rationale']}; parityChurn={urgency_stack_pruning_order_recommendation_signals['parityCompactChurn']} fxChurn={urgency_stack_pruning_order_recommendation_signals['urgencyFxChurn']} detailedChurn={urgency_stack_pruning_order_recommendation_signals['urgencyDetailedChurn']} offlineOnly={urgency_stack_pruning_order_recommendation_signals['offlineOnly']})",
@@ -7184,6 +7207,7 @@ def main() -> int:
         f"- ARW + AMBIENT RAMP WHY: +{token_family_totals['ambientRampWhyAlias']['added']} / -{token_family_totals['ambientRampWhyAlias']['removed']} / net {token_family_totals['ambientRampWhyAlias']['net']} (churn={token_family_totals['ambientRampWhyAlias']['churn']} coverage={token_family_totals['ambientRampWhyAlias']['coverage']})",
         f"- ARW REC PARITY: {ambient_ramp_why_recommendation_parity} (rec={ambient_ramp_why_recommendation_parity_signals['recommendation']} conf={ambient_ramp_why_recommendation_parity_signals['confidence']} churn={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyChurn']} net={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyNet']:+d} pressure={ambient_ramp_why_recommendation_parity_signals['pressureBand']})",
         f"- ARW AUTO PLAN: {ambient_ramp_why_auto_remap_plan_compact} (full={ambient_ramp_why_auto_remap_plan})",
+        f"- ARW AUTO WHY: {ambient_ramp_why_auto_remap_why} (offline shorthand)",
         f"- ARW AUTO PLAN FAMILY: +{token_family_totals['ambientRampWhyAutoRemapPlanAlias']['added']} / -{token_family_totals['ambientRampWhyAutoRemapPlanAlias']['removed']} / net {token_family_totals['ambientRampWhyAutoRemapPlanAlias']['net']} (churn={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['churn']} coverage={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['coverage']} drift={ambient_ramp_why_auto_remap_plan_drift:+d})",
         f"- PULSE HEAT FX: +{token_family_totals['pulseHeatFxAlias']['added']} / -{token_family_totals['pulseHeatFxAlias']['removed']} / net {token_family_totals['pulseHeatFxAlias']['net']} (churn={token_family_totals['pulseHeatFxAlias']['churn']} coverage={token_family_totals['pulseHeatFxAlias']['coverage']})",
         f"- ROUTE GLOW FX + RGFX: +{token_family_totals['routeGlowFxAlias']['added']} / -{token_family_totals['routeGlowFxAlias']['removed']} / net {token_family_totals['routeGlowFxAlias']['net']} (churn={token_family_totals['routeGlowFxAlias']['churn']} coverage={token_family_totals['routeGlowFxAlias']['coverage']})",

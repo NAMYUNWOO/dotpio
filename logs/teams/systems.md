@@ -2370,3 +2370,11 @@
 - Completed: Added weekly digest token `ARW AUTO PLAN CONF:LOW|MID|HIGH` with payload signals and regression lock.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
 - Notes: offline-only observability enhancement; no runtime prompt/mechanics coupling changed.
+
+## 2026-03-25 07:03 KST — Cycle DE systems wiring (ARW AUTO WHY)
+- Wired deterministic helper `ambient_ramp_why_auto_remap_rationale_short(...)` and persisted outputs:
+  - payload key: `ambientRampWhyAutoRemapWhyCompact`
+  - sandbox artifact key: `selectedPlanWhyCompact`
+  - markdown rows: `ARW AUTO WHY`
+- No runtime gameplay/system behavior changed; reporting-only lane.
+- Regression lock extended in `scripts/regression_weekly_portal_prompt_readability_drift.py`.

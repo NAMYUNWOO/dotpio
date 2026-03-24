@@ -1547,3 +1547,7 @@
 - Completed: Added weekly digest token `ARW AUTO PLAN CONF:LOW|MID|HIGH` with payload signals and regression lock.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
 - Notes: offline-only observability enhancement; no runtime prompt/mechanics coupling changed.
+
+## 2026-03-25 07:03 KST — Combat lane guard check
+- Verified ARW auto-rationale shorthand slice touches digest/offline artifacts only.
+- No combat token/runtime behavior changes (`DMGNUM*`, `DMG GLYPH*`) in this cycle.

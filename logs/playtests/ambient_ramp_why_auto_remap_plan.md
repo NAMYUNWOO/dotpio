@@ -1,11 +1,12 @@
 # Ambient Ramp Why Auto-Remap Sandbox Plan
 
-- GeneratedAt(UTC): 2026-03-24T21:35:08.020662Z
+- GeneratedAt(UTC): 2026-03-24T22:03:35.853728Z
 - Recommendation: **HOLD_SAFE_WHY**
 - Recommendation Confidence: **MID**
 - Recommendation Parity: **LOCK**
 - Selected Plan: **HOLD_SAFE_BASELINE**
 - Compact Alias: **ARW AUTO PLAN:HOLD**
+- Compact Rationale: **ARW AUTO WHY:SAFE_LOCK**
 - Rationale: safety-lock-from-confidence-or-parity
 - Next Action: Generate sandbox table + review notes; keep runtime contract unchanged.
 

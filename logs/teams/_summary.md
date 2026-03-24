@@ -2677,3 +2677,9 @@ Compact decision memory for AI context efficiency.
 - Shipped weekly digest token `ARW AUTO PLAN CONF:LOW|MID|HIGH` with payload keys `ambientRampWhyAutoRemapPlanConfidence` + `ambientRampWhyAutoRemapPlanConfidenceSignals`.
 - Markdown digest now includes `ARW AUTO PLAN CONF` line; regression contract updated in `scripts/regression_weekly_portal_prompt_readability_drift.py` and passing.
 - Backlog injected and synced: Cycle DD selected item completed (`[~] -> [x]`); remaining queued ideas are `ARW AUTO WHY:<short>` and confidence-streak suppression policy (offline-only).
+
+## 2026-03-25 07:03 KST — Cycle DE: ARW auto-rationale shorthand
+- Closed highest-priority unchecked TASKS/POST_RC item: shipped compact offline ambient auto-remap rationale shorthand token `ARW AUTO WHY:<SAFE_LOCK|PRESSURE_HOLD|OPEN_WINDOW>`.
+- Added deterministic helper + payload key `ambientRampWhyAutoRemapWhyCompact` and sandbox artifact key `selectedPlanWhyCompact`; markdown digest/sandbox now include `ARW AUTO WHY` line.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS.
+- Remaining unchecked queue item: AI Content/Systems confidence-streak suppression policy for auto-remap candidates (offline-only).
