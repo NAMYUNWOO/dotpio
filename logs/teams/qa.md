@@ -2815,3 +2815,5 @@
 - Synced queue lifecycle for Cycle CS/current tail item ([~] -> [x]) by shipping offline-only recommendation `AMBIENT RAMP CONF REC` in weekly readability digest.
 - Added JSON payload contract keys `ambientRampConfidenceRecommendation` + `ambientRampConfidenceRecommendationSignals` and markdown digest line for operator triage.
 - Verification: [PASS] weekly portal prompt readability drift regression checks PASS; digest regeneration PASS.
+- 2026-03-25 00:31 KST — Added regression `scripts/regression_combat_damage_number_life_token.lua`; validates baseline/no-number behavior plus EARLY->MID->LATE progression and expiry reset.
+  - Verification: PASS ([PASS] combat damage-number lifecycle token regression validated).

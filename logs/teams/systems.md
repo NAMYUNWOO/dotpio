@@ -2272,3 +2272,5 @@
 - Synced queue lifecycle for Cycle CS/current tail item ([~] -> [x]) by shipping offline-only recommendation `AMBIENT RAMP CONF REC` in weekly readability digest.
 - Added JSON payload contract keys `ambientRampConfidenceRecommendation` + `ambientRampConfidenceRecommendationSignals` and markdown digest line for operator triage.
 - Verification: [PASS] weekly portal prompt readability drift regression checks PASS; digest regeneration PASS.
+- 2026-03-25 00:31 KST — Supported Combat/VFX Cycle CT by wiring deterministic lifecycle-phase thresholds (EARLY>=0.67, MID, LATE<=0.33 remaining) in HUD resolver; additive, flag-gated, reversible.
+  - Follow-up: if duration constant changes in `src/combat.lua`, sync HUD expected duration (currently 0.6s).

@@ -1501,3 +1501,5 @@
 - Synced queue lifecycle for Cycle CS/current tail item ([~] -> [x]) by shipping offline-only recommendation `AMBIENT RAMP CONF REC` in weekly readability digest.
 - Added JSON payload contract keys `ambientRampConfidenceRecommendation` + `ambientRampConfidenceRecommendationSignals` and markdown digest line for operator triage.
 - Verification: [PASS] weekly portal prompt readability drift regression checks PASS; digest regeneration PASS.
+- 2026-03-25 00:31 KST — Captured high-risk idea (offline drift-aware damage-number fade-curve remap recommendation) but deferred this cycle in favor of low-risk vertical slice.
+  - Follow-up: revisit only after `DMGNUM LIFE:` token churn evidence exists.

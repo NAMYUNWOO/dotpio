@@ -803,3 +803,11 @@ See project-level plans:
   - [x] Add regression coverage script `scripts/regression_portal_ambient_ramp_confidence.lua`
 - [x] Systems/QA Team: Add weekly digest token-family churn coverage for `AMBIENT RAMP CONF:` + `ARC:` and lock with regression. *(lifecycle: [ ] -> [~] -> [x])*
 - [x] AI Content/World Team: Prototype drift-aware ambient confidence recommendation policy (offline recommendation only). *(lifecycle: [~] -> [x])*
+
+## Cycle CT - Game Director Review (2026-03-25 00:31 KST)
+- Coverage check (last 10 completions): systems/qa drift tooling remained dense while combat/vfx readability has fewer fresh debug affordances; prioritize a combat-facing low-risk slice.
+- Idea 1 (low risk, Combat/VFX): Add compact floating-number lifecycle token (`DMGNUM LIFE:EARLY|MID|LATE`) behind debug flag for instant combat feedback-phase triage.
+- Idea 2 (mid risk, Systems/QA): Add weekly digest token-family churn coverage for `DMGNUM LIFE:` with markdown triage row.
+- Idea 3 (high risk, AI Content/VFX): Prototype offline drift-aware damage-number fade-curve remap recommendation policy.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Combat/VFX Team: Add compact floating-number lifecycle token (`DMGNUM LIFE:EARLY|MID|LATE`) behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_DEBUG` with regression lock.

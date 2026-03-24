@@ -1482,3 +1482,5 @@
 - Synced queue lifecycle for Cycle CS/current tail item ([~] -> [x]) by shipping offline-only recommendation `AMBIENT RAMP CONF REC` in weekly readability digest.
 - Added JSON payload contract keys `ambientRampConfidenceRecommendation` + `ambientRampConfidenceRecommendationSignals` and markdown digest line for operator triage.
 - Verification: [PASS] weekly portal prompt readability drift regression checks PASS; digest regeneration PASS.
+- 2026-03-25 00:31 KST — Cycle CT shipped: added debug lifecycle token `DMGNUM LIFE:EARLY|MID|LATE` (flag: `DOTPIO_EXPERIMENT_DMGNUM_LIFE_DEBUG`) to classify floating damage-number phase for combat readability triage. Evidence: `scripts/regression_combat_damage_number_life_token.lua` pass.
+  - Follow-up: pair with digest family coverage if churn starts appearing in debug prompt sets.

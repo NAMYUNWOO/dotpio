@@ -1568,3 +1568,5 @@
 - Synced queue lifecycle for Cycle CS/current tail item ([~] -> [x]) by shipping offline-only recommendation `AMBIENT RAMP CONF REC` in weekly readability digest.
 - Added JSON payload contract keys `ambientRampConfidenceRecommendation` + `ambientRampConfidenceRecommendationSignals` and markdown digest line for operator triage.
 - Verification: [PASS] weekly portal prompt readability drift regression checks PASS; digest regeneration PASS.
+- 2026-03-25 00:31 KST — Readability intent logged for Cycle CT: lifecycle token should clarify combat feedback pacing without changing player-facing production copy.
+  - Follow-up: consider non-debug player-facing variant only if repeated QA confusion appears.

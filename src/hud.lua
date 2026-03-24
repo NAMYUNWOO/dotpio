@@ -290,6 +290,13 @@ local function isDamageFxPlanDebugExperimentEnabled()
     return v == "1" or v == "true" or v == "yes" or v == "on"
 end
 
+local function isDamageNumberLifeDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMGNUM_LIFE_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
 function HUD.resolveDamageGlyphLiveToken()
     if not isDamageGlyphLiveDebugExperimentEnabled() then
         return nil
@@ -346,6 +353,32 @@ function HUD.resolveDamageFxPlanToken()
         plan = "SYNC_WITH_GLYPH"
     end
     return string.format("DMG FX PLAN:%s", plan)
+end
+
+function HUD.resolveDamageNumberLifeToken()
+    if not isDamageNumberLifeDebugExperimentEnabled() then
+        return nil
+    end
+
+    local numbers = Combat.debugGetDamageNumbers and Combat.debugGetDamageNumbers() or {}
+    local latest = numbers[#numbers]
+    if not latest then
+        return "DMGNUM LIFE:EARLY"
+    end
+
+    -- Keep in sync with src/combat.lua DMGNUM_DURATION (0.6s).
+    local expectedDuration = 0.6
+    local timer = tonumber(latest.timer) or expectedDuration
+    local ratioRemaining = timer / expectedDuration
+
+    local phase = "MID"
+    if ratioRemaining >= 0.67 then
+        phase = "EARLY"
+    elseif ratioRemaining <= 0.33 then
+        phase = "LATE"
+    end
+
+    return string.format("DMGNUM LIFE:%s", phase)
 end
 
 function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary, onboardingHint)
@@ -450,6 +483,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if damageFxPlanToken then
         love.graphics.setColor(0.78, 0.92, 1.0, 0.9)
         love.graphics.print(damageFxPlanToken, 640, 690)
+    end
+
+    local damageNumberLifeToken = HUD.resolveDamageNumberLifeToken()
+    if damageNumberLifeToken then
+        love.graphics.setColor(0.9, 0.9, 0.64, 0.9)
+        love.graphics.print(damageNumberLifeToken, 890, 690)
     end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)

@@ -2558,3 +2558,10 @@ Compact decision memory for AI context efficiency.
 - Weekly digest payload contract now includes `ambientRampConfidenceRecommendation` + `ambientRampConfidenceRecommendationSignals` with drift-risk/pressure/churn diagnostics and guidance text.
 - Markdown digest now emits `AMBIENT RAMP CONF REC` triage line; regression contract updated in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification PASS: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+
+## 2026-03-25 00:31 KST — Cycle CT (Game Director)
+- Backlog state check: ACTION_ITEMS + TASKS + POST_RC_BACKLOG actionable queues were fully checked, so Game Director review cycle executed.
+- Implemented minimal vertical slice (Combat/VFX): added debug HUD lifecycle token `DMGNUM LIFE:EARLY|MID|LATE` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_DEBUG`.
+- Deterministic phase thresholds: EARLY (remaining ratio >=0.67), MID, LATE (<=0.33) using current combat damage-number duration baseline (0.6s).
+- Verification: `DOTPIO_EXPERIMENT_DMGNUM_LIFE_DEBUG=1 lua scripts/regression_combat_damage_number_life_token.lua` plus guard regressions for `DMG FX PLAN` and `DMG GLYPH FX LIVE` all PASS.
+- Follow-up candidate: add weekly digest token-family churn coverage for `DMGNUM LIFE:` when debug-token churn becomes non-trivial.
