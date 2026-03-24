@@ -1576,3 +1576,8 @@
 - Decision: Prioritized low-risk Systems/QA slice to close observability gap for `DMGNUM LIFE:` token-family churn in weekly digest artifacts.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up: Keep mid/high-risk CU ideas queued (`DMGNUM LIFE CONF`, fade-curve remap recommendation) for future cycle selection.
+
+## 2026-03-25 01:34 KST — Cycle CV
+- Review sync: ACTION_ITEMS/TASKS/POST_RC_BACKLOG remained fully checked; executed Game Director cycle CV.
+- Decision: selected low-risk UX/Combat vertical slice (`DMGNUM LIFE CONF`) to improve live damage-number readability triage.
+- Follow-up: keep mid/high-risk ideas queued (digest churn coverage, offline confidence remap policy) for later cycles.

@@ -819,3 +819,11 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/VFX): Prototype offline drift-aware damage-number fade-curve remap recommendation policy.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add weekly digest token-family churn coverage for `DMGNUM LIFE:` and lock via regression.
+
+## Cycle CV - Game Director Review (2026-03-25 01:31 KST)
+- Coverage check (last 10 completions): systems/qa observability slices are stable; selected combat-facing readability follow-up to keep debug feedback actionable during live tuning.
+- Idea 1 (low risk, UX/Combat): Add compact damage-number lifecycle confidence token (`DMGNUM LIFE CONF:LOW|MID|HIGH`) behind debug flag.
+- Idea 2 (mid risk, Systems/QA): Add weekly digest token-family churn coverage for `DMGNUM LIFE CONF:` with markdown triage row.
+- Idea 3 (high risk, AI Content/VFX): Prototype offline drift-aware damage-number confidence remap recommendation policy.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Combat Team: Add compact damage-number lifecycle confidence token (`DMGNUM LIFE CONF:LOW|MID|HIGH`) behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG` with deterministic phase mapping and regression lock. *(lifecycle: [ ] -> [~] -> [x])*

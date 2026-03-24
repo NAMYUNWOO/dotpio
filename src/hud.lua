@@ -297,6 +297,13 @@ local function isDamageNumberLifeDebugExperimentEnabled()
     return v == "1" or v == "true" or v == "yes" or v == "on"
 end
 
+local function isDamageNumberLifeConfidenceDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
 function HUD.resolveDamageGlyphLiveToken()
     if not isDamageGlyphLiveDebugExperimentEnabled() then
         return nil
@@ -355,15 +362,11 @@ function HUD.resolveDamageFxPlanToken()
     return string.format("DMG FX PLAN:%s", plan)
 end
 
-function HUD.resolveDamageNumberLifeToken()
-    if not isDamageNumberLifeDebugExperimentEnabled() then
-        return nil
-    end
-
+local function resolveDamageNumberLifePhase()
     local numbers = Combat.debugGetDamageNumbers and Combat.debugGetDamageNumbers() or {}
     local latest = numbers[#numbers]
     if not latest then
-        return "DMGNUM LIFE:EARLY"
+        return "EARLY"
     end
 
     -- Keep in sync with src/combat.lua DMGNUM_DURATION (0.6s).
@@ -377,8 +380,30 @@ function HUD.resolveDamageNumberLifeToken()
     elseif ratioRemaining <= 0.33 then
         phase = "LATE"
     end
+    return phase
+end
 
-    return string.format("DMGNUM LIFE:%s", phase)
+function HUD.resolveDamageNumberLifeToken()
+    if not isDamageNumberLifeDebugExperimentEnabled() then
+        return nil
+    end
+    return string.format("DMGNUM LIFE:%s", resolveDamageNumberLifePhase())
+end
+
+function HUD.resolveDamageNumberLifeConfidenceToken()
+    if not isDamageNumberLifeConfidenceDebugExperimentEnabled() then
+        return nil
+    end
+
+    local phase = resolveDamageNumberLifePhase()
+    local confidence = "MID"
+    if phase == "EARLY" then
+        confidence = "HIGH"
+    elseif phase == "LATE" then
+        confidence = "LOW"
+    end
+
+    return string.format("DMGNUM LIFE CONF:%s", confidence)
 end
 
 function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary, onboardingHint)
@@ -489,6 +514,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if damageNumberLifeToken then
         love.graphics.setColor(0.9, 0.9, 0.64, 0.9)
         love.graphics.print(damageNumberLifeToken, 890, 690)
+    end
+
+    local damageNumberLifeConfidenceToken = HUD.resolveDamageNumberLifeConfidenceToken()
+    if damageNumberLifeConfidenceToken then
+        love.graphics.setColor(0.74, 0.96, 0.8, 0.9)
+        love.graphics.print(damageNumberLifeConfidenceToken, 1060, 690)
     end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)

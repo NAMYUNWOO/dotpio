@@ -2575,3 +2575,10 @@ Compact decision memory for AI context efficiency.
   - Extended weekly digest regression assertions for token totals, `tokenFamilyTotals.dmgnumLifeAlias`, and markdown output expectations.
 - Verification: weekly digest regression PASS; combat lifecycle token regression PASS when debug flag enabled.
 - Next queue candidates from CU: `DMGNUM LIFE CONF` debug token (mid risk), drift-aware fade-curve remap recommendation (high risk/offline).
+
+## 2026-03-25 01:34 KST — Cycle CV durable decision
+- Trigger: ACTION_ITEMS + TASKS + POST_RC_BACKLOG actionable queues were fully checked; ran Game Director review cycle immediately.
+- Implemented minimal vertical slice (UX/Combat): added compact debug token `DMGNUM LIFE CONF:LOW|MID|HIGH` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG`.
+- Deterministic mapping policy (from existing life phase): `EARLY->HIGH`, `MID->MID`, `LATE->LOW`; baseline with no active numbers remains `HIGH`.
+- Verification PASS: `luac -p src/hud.lua`, `DOTPIO_EXPERIMENT_DMGNUM_LIFE_DEBUG=1 lua scripts/regression_combat_damage_number_life_token.lua`, `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 lua scripts/regression_combat_damage_number_life_confidence_token.lua`.
+- Next queued candidates: weekly digest churn coverage for `DMGNUM LIFE CONF:` (mid risk) and offline confidence remap recommendation policy (high risk).
