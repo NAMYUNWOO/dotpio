@@ -1698,3 +1698,6 @@
 ## 2026-03-24 17:12 KST — Cycle CL completion
 - Shipped compact urgency-stack confidence rail token behind `DOTPIO_EXPERIMENT_URGENCY_STACK_RAIL`.
 - Behavior: `TIGHT` stack pressure -> `SPIKE`; otherwise `STEADY` unless urgency tier escalates to `HIGH`.
+
+## 2026-03-24 17:31:00 KST
+- Note: Weekly digest now surfaces explicit `URGENCY STACK RAIL REC` line to improve scanability during compact-budget triage.

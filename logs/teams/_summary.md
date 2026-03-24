@@ -13,6 +13,10 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed highest-priority unchecked TASKS/POST_RC item: weekly digest now emits drift-adaptive **offline-only** urgency-stack rail recommendation `URGENCY STACK RAIL REC` with payload keys `urgencyStackRailRecommendation` and `urgencyStackRailRecommendationSignals`.
+- Recommendation maps deterministic posture bands (`STEADY-FIRST`, `SPIKE-WHEN-CONFIRMED`, `BALANCED`) from `DRIFT RISK` + `URG STACK RAIL` churn/net vs `URG STACK` trend signals.
+- Regression contract extended in `scripts/regression_weekly_portal_prompt_readability_drift.py`; digest regression passes.
+
 - Closed Cycle CH remaining unchecked TASKS/POST_RC item: weekly digest now emits drift-aware **offline-only** urgency-stack pruning recommendation `URGENCY STACK PRUNING REC` with payload keys `urgencyStackPruningOrderRecommendation` and `urgencyStackPruningOrderRecommendationSignals`.
 - Recommendation logic is trend-driven from urgency-family churn/net (`RGFXWRIUP`, `RGFXWRIUFX`, detailed urgency token) and currently returns deterministic order tokens (`PARITY>FX>DETAIL` or `FX>PARITY>DETAIL`) without changing runtime prompt behavior.
 - Regression contract extended in `scripts/regression_weekly_portal_prompt_readability_drift.py`; full digest regression passes.

@@ -2699,3 +2699,8 @@
 ## 2026-03-24 17:12 KST — Cycle CL verification
 - PASS `lua scripts/regression_portal_urgency_stack_rail.lua` (with required experiment env flags).
 - PASS `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-24 17:31:00 KST
+- Task: Extend digest regression contract for urgency-stack rail recommendation payload + markdown row.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decision: Locked schema keys for `urgencyStackRailRecommendationSignals` and markdown token `URGENCY STACK RAIL REC`.

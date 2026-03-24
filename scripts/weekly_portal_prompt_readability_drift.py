@@ -5288,6 +5288,47 @@ def urgency_stack_pruning_order_recommendation_from_trends(
     return recommendation, signals
 
 
+def urgency_stack_rail_recommendation_from_trends(
+    *,
+    drift_risk: str,
+    urgency_stack_rail_family: dict[str, int],
+    urgency_stack_tier_family: dict[str, int],
+) -> tuple[str, dict[str, object]]:
+    """Recommend offline urgency-stack rail posture from weekly churn trends."""
+    rail_churn = int(urgency_stack_rail_family.get("churn", 0))
+    rail_net = int(urgency_stack_rail_family.get("net", 0))
+    rail_coverage = str(urgency_stack_rail_family.get("coverage", "0/0"))
+
+    tier_churn = int(urgency_stack_tier_family.get("churn", 0))
+    tier_net = int(urgency_stack_tier_family.get("net", 0))
+
+    if drift_risk == "HIGH" or rail_churn >= 4:
+        recommendation = "STEADY-FIRST"
+        rationale = "high-risk-or-rail-churn"
+        guidance = "Favor STEADY rail under pressure until rail churn cools below alert threshold."
+    elif rail_net > tier_net and rail_churn >= 2:
+        recommendation = "SPIKE-WHEN-CONFIRMED"
+        rationale = "rail-leading-churn-window"
+        guidance = "Permit SPIKE rail only with corroborating urgency-stack tier + parity cues."
+    else:
+        recommendation = "BALANCED"
+        rationale = "stable-rail-window"
+        guidance = "Keep deterministic STEADY/SPIKE mapping; monitor weekly churn before tightening."
+
+    signals: dict[str, object] = {
+        "driftRisk": drift_risk,
+        "urgencyStackRailChurn": rail_churn,
+        "urgencyStackRailNet": rail_net,
+        "urgencyStackRailCoverage": rail_coverage,
+        "urgencyStackTierChurn": tier_churn,
+        "urgencyStackTierNet": tier_net,
+        "rationale": rationale,
+        "offlineOnly": True,
+        "guidance": guidance,
+    }
+    return recommendation, signals
+
+
 def main() -> int:
     args = parse_args()
     root = args.repo_root.resolve()
@@ -5364,6 +5405,11 @@ def main() -> int:
         parity_compact_family=token_family_totals["routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAlias"],
         urgency_fx_family=token_family_totals["routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias"],
         urgency_detailed_family=token_family_totals["routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyDetailed"],
+    )
+    urgency_stack_rail_recommendation, urgency_stack_rail_recommendation_signals = urgency_stack_rail_recommendation_from_trends(
+        drift_risk=drift_risk,
+        urgency_stack_rail_family=token_family_totals["urgencyStackRailAlias"],
+        urgency_stack_tier_family=token_family_totals["urgencyStackTierAlias"],
     )
 
     token_movers = [
@@ -5961,6 +6007,8 @@ def main() -> int:
         "rgfxwriWhyConfPolicyRecommendationSignals": rgfxwri_why_conf_policy_signals,
         "urgencyStackPruningOrderRecommendation": urgency_stack_pruning_order_recommendation,
         "urgencyStackPruningOrderRecommendationSignals": urgency_stack_pruning_order_recommendation_signals,
+        "urgencyStackRailRecommendation": urgency_stack_rail_recommendation,
+        "urgencyStackRailRecommendationSignals": urgency_stack_rail_recommendation_signals,
         "laneFocus": lane_focus,
         "laneFocusScores": lane_focus_scores,
         "focusStreak": focus_streak,
@@ -6246,6 +6294,7 @@ def main() -> int:
         f"- DRIFT RISK: **{drift_risk}** (score={drift_risk_signals['score']} | imbalance={drift_risk_signals['imbalance']} | pressure={drift_risk_signals['pressureChurn']})",
         f"- RGFXWRI WHY CONF POLICY REC: **{rgfxwri_why_conf_policy}** ({rgfxwri_why_conf_policy_signals['rationale']}; churn={rgfxwri_why_conf_policy_signals['familyChurn']} net={rgfxwri_why_conf_policy_signals['familyNet']} coverage={rgfxwri_why_conf_policy_signals['familyCoverage']} offlineOnly={rgfxwri_why_conf_policy_signals['offlineOnly']})",
         f"- URGENCY STACK PRUNING REC: **{urgency_stack_pruning_order_recommendation}** ({urgency_stack_pruning_order_recommendation_signals['rationale']}; parityChurn={urgency_stack_pruning_order_recommendation_signals['parityCompactChurn']} fxChurn={urgency_stack_pruning_order_recommendation_signals['urgencyFxChurn']} detailedChurn={urgency_stack_pruning_order_recommendation_signals['urgencyDetailedChurn']} offlineOnly={urgency_stack_pruning_order_recommendation_signals['offlineOnly']})",
+        f"- URGENCY STACK RAIL REC: **{urgency_stack_rail_recommendation}** ({urgency_stack_rail_recommendation_signals['rationale']}; railChurn={urgency_stack_rail_recommendation_signals['urgencyStackRailChurn']} railNet={urgency_stack_rail_recommendation_signals['urgencyStackRailNet']} tierChurn={urgency_stack_rail_recommendation_signals['urgencyStackTierChurn']} offlineOnly={urgency_stack_rail_recommendation_signals['offlineOnly']})",
         f"- FOCUS: **{lane_focus}** (portal={lane_focus_scores['portal']} | alt={lane_focus_scores['alt']} | pressure={lane_focus_scores['pressure']})",
         f"- FOCUS STREAK: **{focus_streak}**",
         f"- FOCUS SHIFT: **{focus_shift}**",

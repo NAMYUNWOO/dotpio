@@ -1426,3 +1426,9 @@
 
 ## 2026-03-24 17:12 KST — Cycle CL backlog injection
 - Added follow-up backlog item to prototype drift-adaptive urgency-stack rail recommendation policy from weekly digest trends (not implemented this slice).
+
+## 2026-03-24 17:31:00 KST
+- Task: Drift-adaptive urgency-stack rail recommendation copy policy prototype (offline digest).
+- Decision: Added deterministic recommendation bands (`STEADY-FIRST`, `SPIKE-WHEN-CONFIRMED`, `BALANCED`) with rationale/guidance strings tied to weekly drift/churn signals.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Follow-up: Tune recommendation thresholds only after observing at least one full weekly window of rail-family churn.

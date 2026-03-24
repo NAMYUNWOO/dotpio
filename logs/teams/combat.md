@@ -1394,3 +1394,6 @@
 
 ## 2026-03-24 17:12 KST — Cycle CL note
 - No combat logic changes in this slice; maintained corpse-fade/damage-number behavior from prior cycles.
+
+## 2026-03-24 17:31:00 KST
+- Note: No combat tuning changes this cycle; urgency-stack rail recommendation remains offline policy output only.

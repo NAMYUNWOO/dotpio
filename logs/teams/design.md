@@ -1509,3 +1509,6 @@
 
 ## 2026-03-24 17:12 KST — Cycle CL note
 - Kept token copy compact and deterministic (`URG STACK RAIL:STEADY|SPIKE`) to preserve DOS prompt readability budget.
+
+## 2026-03-24 17:31:00 KST
+- Note: Reviewed urgency-stack rail recommendation copy; guidance wording remains deterministic and operator-facing only.

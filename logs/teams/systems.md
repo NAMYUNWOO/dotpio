@@ -2174,3 +2174,16 @@
 ## 2026-03-24 17:12 KST — Cycle CL support
 - Added `DOTPIO_EXPERIMENT_URGENCY_STACK_RAIL` wiring in `src/portal.lua` and deterministic resolver (`STEADY|SPIKE`) tied to urgency-stack tier/urgency pressure.
 - Follow-up injected: weekly digest family-churn coverage for `URG STACK RAIL:`.
+
+## 2026-03-24 17:31:00 KST
+- Task: Cycle CH follow-up — prototype drift-adaptive urgency-stack rail recommendation policy in weekly digest.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added offline-only digest recommendation `URGENCY STACK RAIL REC: STEADY-FIRST|SPIKE-WHEN-CONFIRMED|BALANCED` driven by drift risk + `URG STACK RAIL` family churn/net.
+  - Persisted payload keys `urgencyStackRailRecommendation` and `urgencyStackRailRecommendationSignals` for operator automation.
+  - Kept runtime portal prompt behavior unchanged (recommendation-only scope).
+- Follow-up:
+  - Remaining top unchecked item: Systems/QA digest regression lock for `URG STACK RAIL` churn row.

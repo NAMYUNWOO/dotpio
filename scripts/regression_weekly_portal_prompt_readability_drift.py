@@ -152,6 +152,18 @@ def main() -> int:
             "offlineOnly",
             "guidance",
         }, payload
+        assert payload.get("urgencyStackRailRecommendation") in {"STEADY-FIRST", "SPIKE-WHEN-CONFIRMED", "BALANCED"}, payload
+        assert set(payload.get("urgencyStackRailRecommendationSignals", {}).keys()) == {
+            "driftRisk",
+            "urgencyStackRailChurn",
+            "urgencyStackRailNet",
+            "urgencyStackRailCoverage",
+            "urgencyStackTierChurn",
+            "urgencyStackTierNet",
+            "rationale",
+            "offlineOnly",
+            "guidance",
+        }, payload
         assert set(payload.get("routeVibeTotals", {}).keys()) == {"added", "removed", "net"}, payload
         assert set(payload["routeVibeTotals"]["added"].keys()) == {"CALM", "EDGE", "DOOM"}, payload
         assert payload["routeVibeTotals"]["added"]["EDGE"] >= 1, payload
@@ -1383,6 +1395,7 @@ def main() -> int:
         assert "DRIFT RISK" in md_text
         assert "RGFXWRI WHY CONF POLICY REC" in md_text
         assert "URGENCY STACK PRUNING REC" in md_text
+        assert "URGENCY STACK RAIL REC" in md_text
         assert "ROUTE VIBE DRIFT" in md_text
         assert "Route Vibe Drift (added/removed/net)" in md_text
         assert "FOCUS" in md_text
