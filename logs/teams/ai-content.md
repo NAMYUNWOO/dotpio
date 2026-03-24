@@ -1554,3 +1554,13 @@
   - Remaining unchecked backlog item targets AI-content/systems: offline ambient rationale auto-remap sandbox artifact (no runtime coupling).
 - Follow-up:
   - Implement sandbox artifact generation in next cycle and wire digest references.
+
+## 2026-03-25 05:35 KST — Ambient rationale auto-remap sandbox prototype delivered
+- Implemented offline planning lane for `AMBIENT RAMP WHY` recommendation stream with deterministic plan selection (`HOLD_SAFE_BASELINE|SHADOW_PRESSURE_REMIX|LIMITED_CONTEXT_EXPANSION`).
+- Added explicit safety note and next-action guidance in sandbox artifact; runtime rationale mapping remains unchanged.
+- Follow-up: Use artifact to evaluate remap experiments in review-only workflow before any gameplay coupling.
+
+## 2026-03-25 05:35 KST — Cycle DC ideation and vertical slice
+- Generated cycle ideas (low/mid/high risk) and selected low-risk compact alias experiment for ambient auto-remap workflow.
+- Added alias mapping helper + payload field `ambientRampWhyAutoRemapPlanCompact`; kept runtime prompt pipeline untouched.
+- Follow-up queued: drift-aware candidate re-ranking policy as offline-only sandbox artifact.

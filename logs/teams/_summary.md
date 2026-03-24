@@ -2664,3 +2664,9 @@ Compact decision memory for AI context efficiency.
 - ACTION_ITEMS/TASKS/POST_RC are now fully checked; next autonomous loop should execute a new Game Director review cycle.
 
 - Game Director Cycle DB executed (queues cleared): selected low-risk Systems/QA slice and shipped `AMBIENT RAMP WHY REC CONF` digest confidence token with regression lock; injected two follow-up backlog tasks (UX parity summary + AI Content offline auto-remap plan).
+
+- 2026-03-25 05:35 KST: Closed final unchecked TASKS/POST_RC item by shipping offline ambient rationale auto-remap sandbox artifacts (`logs/playtests/ambient_ramp_why_auto_remap_plan.json/.md`) generated from weekly digest signals; runtime portal prompt logic unchanged.
+- Added digest summary line `AMBIENT RAMP WHY AUTO-REMAP PLAN` + payload keys `ambientRampWhyAutoRemapPlan` / `ambientRampWhyAutoRemapPlanSignals` for durable decision traceability.
+- Regression harness now validates the new plan schema/markdown contract and routes artifact outputs into temp paths for isolation.
+
+- Game Director Cycle DC executed after queue-clear trigger: generated 3 ideas, selected low-risk UX/AI-content slice, shipped compact alias `ARW AUTO PLAN:HOLD|SHADOW|OPEN` in digest + sandbox artifact payload, and injected two follow-up backlog tasks (QA churn/drift coverage + AI-content re-ranking policy prototype).

@@ -2898,3 +2898,12 @@
   - Added assertions for `AMBIENT RAMP WHY REC PARITY` and `ARW REC PARITY:` to prevent digest/report drift.
 - Follow-up:
   - Extend fixture checks once AI-content sandbox artifact lands.
+
+## 2026-03-25 05:35 KST — QA lock for ambient auto-remap sandbox artifact
+- Extended regression harness to pass explicit output paths for all generated artifacts (digest JSON/MD, FX candidates, ambient auto-remap plan).
+- Added schema assertions for `ambientRampWhyAutoRemapPlan` + `ambientRampWhyAutoRemapPlanSignals` and markdown-row assertion for `AMBIENT RAMP WHY AUTO-REMAP PLAN`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-25 05:35 KST — Cycle DC verification
+- Regression assertions expanded to require `ambientRampWhyAutoRemapPlanCompact` and markdown visibility of `ARW AUTO PLAN`.
+- Verification command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).

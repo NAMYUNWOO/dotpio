@@ -1621,3 +1621,10 @@
   - Approved compact parity vocabulary (`SYNC/WATCH/LOCK`) for scanability under DOS-width constraints.
 - Follow-up:
   - Revisit labels if auto-remap sandbox recommends different coaching semantics.
+
+## 2026-03-25 05:35 KST — Design review note: ambient rationale planning artifact
+- Added offline candidate-table artifact for ambient rationale remap planning with clear risk/scope wording for review workflows.
+- Kept copy deterministic and reversible; no player-facing prompt text contract changed this cycle.
+
+## 2026-03-25 05:35 KST — Cycle DC design note
+- Compact alias preserves deterministic wording while improving digest scanability under dense operator reports.

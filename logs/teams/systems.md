@@ -2354,3 +2354,13 @@
   - Added deterministic mapper (`SYNC|WATCH|LOCK`) from recommendation/confidence/churn/pressure.
 - Follow-up:
   - Keep runtime decoupled; parity remains offline digest guidance only.
+
+## 2026-03-25 05:35 KST — Cycle DB follow-up closure (ambient auto-remap sandbox)
+- Task: Close remaining AI Content/Systems backlog item by wiring digest-driven offline ambient rationale auto-remap plan artifact generation.
+- Decision: Keep plan strictly offline (no runtime coupling); emit candidate-table artifacts for operator review only.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py` now writes `ambient_ramp_why_auto_remap_plan.json/.md`; regression lock added in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up: Next cycle can consume sandbox plan in Game Director idea ranking without touching runtime prompt mapping.
+
+## 2026-03-25 05:35 KST — Cycle DC systems wiring
+- Added compact alias derivation function for ambient auto-remap plan and persisted it into digest payload + sandbox artifact schema.
+- Follow-up queued for QA: explicit churn/drift coverage row for `ARW AUTO PLAN:` lane in weekly digest.

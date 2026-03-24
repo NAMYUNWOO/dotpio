@@ -1534,3 +1534,10 @@
   - No combat-token modifications; lane held stable while systems/world digest parity item shipped.
 - Follow-up:
   - Keep next Game Director cycle eligible for combat/vfx slice if lane cadence dips.
+
+## 2026-03-25 05:35 KST — Combat lane validation during ambient sandbox closure
+- Confirmed ambient auto-remap sandbox plan does not touch combat debug token families (`DMGNUM*`, `DMG GLYPH*`) or hit-feedback runtime code paths.
+- Regression run stayed green, preserving combat readability telemetry contracts.
+
+## 2026-03-25 05:35 KST — Cycle DC combat impact check
+- No combat/system balance contract changes; digest-only alias update verified as non-invasive to combat feedback loop.

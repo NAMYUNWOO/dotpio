@@ -1829,3 +1829,11 @@
   - Kept parity deterministic from recommendation/confidence/churn signals (offline digest-only).
 - Follow-up:
   - Next unchecked item: AI Content/Systems offline ambient rationale auto-remap sandbox artifact.
+
+## 2026-03-25 05:35 KST — UX audit: ambient rationale auto-remap plan reporting
+- Weekly digest now surfaces `AMBIENT RAMP WHY AUTO-REMAP PLAN` summary line for fast operator triage.
+- Separate markdown artifact includes ranked candidate table to reduce ambiguity during handoff.
+
+## 2026-03-25 05:35 KST — Cycle DC selected experiment shipped
+- Implemented compact digest alias token `ARW AUTO PLAN:HOLD|SHADOW|OPEN` for ambient auto-remap sandbox plan readability.
+- Hypothesis: operators can triage ambient plan posture faster without scanning full verbose plan label each cycle.

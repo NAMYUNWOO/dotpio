@@ -18,6 +18,8 @@ DEFAULT_JSON = ROOT / "logs" / "weekly_portal_prompt_readability_drift.json"
 DEFAULT_MD = ROOT / "logs" / "weekly_portal_prompt_readability_drift.md"
 DEFAULT_DMG_GLYPH_FX_REMAP_CANDIDATES_JSON = ROOT / "logs" / "playtests" / "dmg_glyph_fx_remap_candidates.json"
 DEFAULT_DMG_GLYPH_FX_REMAP_CANDIDATES_MD = ROOT / "logs" / "playtests" / "dmg_glyph_fx_remap_candidates.md"
+DEFAULT_AMBIENT_RAMP_WHY_AUTO_REMAP_PLAN_JSON = ROOT / "logs" / "playtests" / "ambient_ramp_why_auto_remap_plan.json"
+DEFAULT_AMBIENT_RAMP_WHY_AUTO_REMAP_PLAN_MD = ROOT / "logs" / "playtests" / "ambient_ramp_why_auto_remap_plan.md"
 
 PORTAL_PATH_HINTS = (
     "src/portal.lua",
@@ -106,6 +108,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--out-md", type=Path, default=DEFAULT_MD)
     p.add_argument("--out-fx-remap-candidates-json", type=Path, default=DEFAULT_DMG_GLYPH_FX_REMAP_CANDIDATES_JSON)
     p.add_argument("--out-fx-remap-candidates-md", type=Path, default=DEFAULT_DMG_GLYPH_FX_REMAP_CANDIDATES_MD)
+    p.add_argument("--out-ambient-why-auto-remap-plan-json", type=Path, default=DEFAULT_AMBIENT_RAMP_WHY_AUTO_REMAP_PLAN_JSON)
+    p.add_argument("--out-ambient-why-auto-remap-plan-md", type=Path, default=DEFAULT_AMBIENT_RAMP_WHY_AUTO_REMAP_PLAN_MD)
     return p.parse_args()
 
 
@@ -5399,6 +5403,86 @@ def ambient_ramp_why_recommendation_parity_summary(
     return summary, signals
 
 
+def ambient_ramp_why_auto_remap_plan_from_signals(
+    *,
+    recommendation: str,
+    confidence: str,
+    parity: str,
+    recommendation_signals: dict[str, object],
+) -> tuple[str, dict[str, object], list[dict[str, object]]]:
+    """Build offline-only ambient rationale auto-remap plan candidates for sandbox review."""
+    drift_risk = str(recommendation_signals.get("driftRisk", "LOW"))
+    pressure_band = str(recommendation_signals.get("pressureBand", "LOW"))
+    churn = int(recommendation_signals.get("ambientRampWhyChurn", 0))
+    net = int(recommendation_signals.get("ambientRampWhyNet", 0))
+
+    candidates = [
+        {
+            "rank": 1,
+            "plan": "HOLD_SAFE_BASELINE",
+            "summary": "Keep ambient rationale on SAFE-first deterministic wording with no runtime remap coupling.",
+            "when": "Use by default in HIGH drift, HIGH pressure, or parity LOCK windows.",
+            "risk": "LOW",
+            "offlineOnly": True,
+            "changeScope": "digest + sandbox notes only",
+        },
+        {
+            "rank": 2,
+            "plan": "SHADOW_PRESSURE_REMIX",
+            "summary": "Draft offline pressure-gated rationale remap table for manual review before any runtime use.",
+            "when": "Use in MID risk windows when recommendation is PRESSURE_GATED_WHY and confidence is not LOW.",
+            "risk": "MID",
+            "offlineOnly": True,
+            "changeScope": "sandbox artifact + playtest checklist",
+        },
+        {
+            "rank": 3,
+            "plan": "LIMITED_CONTEXT_EXPANSION",
+            "summary": "Prepare small contextual rationale variants for CALM windows with rollback checklist.",
+            "when": "Use only in LOW drift + LOW pressure windows with HIGH confidence and SYNC parity.",
+            "risk": "MID",
+            "offlineOnly": True,
+            "changeScope": "sandbox draft variants (no runtime wiring)",
+        },
+    ]
+
+    plan_by_recommendation = {
+        "HOLD_SAFE_WHY": "HOLD_SAFE_BASELINE",
+        "PRESSURE_GATED_WHY": "SHADOW_PRESSURE_REMIX",
+        "OPEN_CONTEXTUAL_WHY": "LIMITED_CONTEXT_EXPANSION",
+    }
+    selected_plan = plan_by_recommendation.get(recommendation, "HOLD_SAFE_BASELINE")
+    if confidence == "LOW" or parity == "LOCK":
+        selected_plan = "HOLD_SAFE_BASELINE"
+
+    rationale = "recommendation-aligned-offline-plan"
+    if selected_plan == "HOLD_SAFE_BASELINE" and (confidence == "LOW" or parity == "LOCK"):
+        rationale = "safety-lock-from-confidence-or-parity"
+
+    signals: dict[str, object] = {
+        "recommendation": recommendation,
+        "confidence": confidence,
+        "parity": parity,
+        "driftRisk": drift_risk,
+        "pressureBand": pressure_band,
+        "ambientRampWhyChurn": churn,
+        "ambientRampWhyNet": net,
+        "offlineOnly": True,
+        "rationale": rationale,
+        "nextAction": "Generate sandbox table + review notes; keep runtime contract unchanged.",
+    }
+    return selected_plan, signals, candidates
+
+
+def ambient_ramp_why_auto_remap_plan_alias(plan: str) -> str:
+    alias_map = {
+        "HOLD_SAFE_BASELINE": "HOLD",
+        "SHADOW_PRESSURE_REMIX": "SHADOW",
+        "LIMITED_CONTEXT_EXPANSION": "OPEN",
+    }
+    return alias_map.get(plan, "HOLD")
+
+
 def urgency_stack_pruning_order_recommendation_from_trends(
     *,
     drift_risk: str,
@@ -5687,6 +5771,13 @@ def main() -> int:
         confidence=ambient_ramp_why_recommendation_confidence,
         recommendation_signals=ambient_ramp_why_recommendation_signals,
     )
+    ambient_ramp_why_auto_remap_plan, ambient_ramp_why_auto_remap_plan_signals, ambient_ramp_why_auto_remap_plan_candidates = ambient_ramp_why_auto_remap_plan_from_signals(
+        recommendation=ambient_ramp_why_recommendation,
+        confidence=ambient_ramp_why_recommendation_confidence,
+        parity=ambient_ramp_why_recommendation_parity,
+        recommendation_signals=ambient_ramp_why_recommendation_signals,
+    )
+    ambient_ramp_why_auto_remap_plan_compact = ambient_ramp_why_auto_remap_plan_alias(ambient_ramp_why_auto_remap_plan)
     urgency_stack_pruning_order_recommendation, urgency_stack_pruning_order_recommendation_signals = urgency_stack_pruning_order_recommendation_from_trends(
         drift_risk=drift_risk,
         parity_compact_family=token_family_totals["routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAlias"],
@@ -6368,6 +6459,58 @@ def main() -> int:
     args.out_fx_remap_candidates_md.parent.mkdir(parents=True, exist_ok=True)
     args.out_fx_remap_candidates_md.write_text("\n".join(fx_candidate_md).strip() + "\n", encoding="utf-8")
 
+    ambient_why_auto_remap_payload = {
+        "generatedAt": now,
+        "window": {
+            "sinceDays": args.since_days,
+            "maxCommits": args.max_commits,
+            "checkedCommits": len(rows),
+            "touchedCommits": len(touched),
+        },
+        "recommendation": {
+            "ambientRampWhyRecommendation": ambient_ramp_why_recommendation,
+            "ambientRampWhyRecommendationConfidence": ambient_ramp_why_recommendation_confidence,
+            "ambientRampWhyRecommendationParity": ambient_ramp_why_recommendation_parity,
+        },
+        "selectedPlan": ambient_ramp_why_auto_remap_plan,
+        "selectedPlanCompact": ambient_ramp_why_auto_remap_plan_compact,
+        "selectedPlanSignals": ambient_ramp_why_auto_remap_plan_signals,
+        "candidates": ambient_ramp_why_auto_remap_plan_candidates,
+    }
+    args.out_ambient_why_auto_remap_plan_json.parent.mkdir(parents=True, exist_ok=True)
+    args.out_ambient_why_auto_remap_plan_json.write_text(
+        json.dumps(ambient_why_auto_remap_payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+    ambient_why_plan_md = [
+        "# Ambient Ramp Why Auto-Remap Sandbox Plan",
+        "",
+        f"- GeneratedAt(UTC): {now}",
+        f"- Recommendation: **{ambient_ramp_why_recommendation}**",
+        f"- Recommendation Confidence: **{ambient_ramp_why_recommendation_confidence}**",
+        f"- Recommendation Parity: **{ambient_ramp_why_recommendation_parity}**",
+        f"- Selected Plan: **{ambient_ramp_why_auto_remap_plan}**",
+        f"- Compact Alias: **ARW AUTO PLAN:{ambient_ramp_why_auto_remap_plan_compact}**",
+        f"- Rationale: {ambient_ramp_why_auto_remap_plan_signals['rationale']}",
+        f"- Next Action: {ambient_ramp_why_auto_remap_plan_signals['nextAction']}",
+        "",
+        "## Candidate Table",
+        "",
+        "| Rank | Plan | Risk | Offline Only | Scope | Summary | When to use |",
+        "| --- | --- | --- | --- | --- | --- | --- |",
+    ]
+    for candidate in ambient_ramp_why_auto_remap_plan_candidates:
+        ambient_why_plan_md.append(
+            f"| {candidate['rank']} | {candidate['plan']} | {candidate['risk']} | {str(candidate['offlineOnly']).upper()} | {candidate['changeScope']} | {candidate['summary']} | {candidate['when']} |"
+        )
+    ambient_why_plan_md.extend([
+        "",
+        "- Safety note: artifact is digest/sandbox guidance only; runtime ambient rationale mapping remains unchanged.",
+    ])
+    args.out_ambient_why_auto_remap_plan_md.parent.mkdir(parents=True, exist_ok=True)
+    args.out_ambient_why_auto_remap_plan_md.write_text("\n".join(ambient_why_plan_md).strip() + "\n", encoding="utf-8")
+
     payload = {
         "generatedAt": now,
         "status": status,
@@ -6393,6 +6536,9 @@ def main() -> int:
         "ambientRampWhyRecommendationConfidenceSignals": ambient_ramp_why_recommendation_confidence_signals,
         "ambientRampWhyRecommendationParity": ambient_ramp_why_recommendation_parity,
         "ambientRampWhyRecommendationParitySignals": ambient_ramp_why_recommendation_parity_signals,
+        "ambientRampWhyAutoRemapPlan": ambient_ramp_why_auto_remap_plan,
+        "ambientRampWhyAutoRemapPlanCompact": ambient_ramp_why_auto_remap_plan_compact,
+        "ambientRampWhyAutoRemapPlanSignals": ambient_ramp_why_auto_remap_plan_signals,
         "urgencyStackPruningOrderRecommendation": urgency_stack_pruning_order_recommendation,
         "urgencyStackPruningOrderRecommendationSignals": urgency_stack_pruning_order_recommendation_signals,
         "urgencyStackRailRecommendation": urgency_stack_rail_recommendation,
@@ -6691,6 +6837,8 @@ def main() -> int:
         f"- AMBIENT RAMP WHY REC: **{ambient_ramp_why_recommendation}** ({ambient_ramp_why_recommendation_signals['rationale']}; churn={ambient_ramp_why_recommendation_signals['ambientRampWhyChurn']} net={ambient_ramp_why_recommendation_signals['ambientRampWhyNet']} coverage={ambient_ramp_why_recommendation_signals['ambientRampWhyCoverage']} pressure={ambient_ramp_why_recommendation_signals['pressureBand']} offlineOnly={ambient_ramp_why_recommendation_signals['offlineOnly']})",
         f"- AMBIENT RAMP WHY REC CONF: **{ambient_ramp_why_recommendation_confidence}** ({ambient_ramp_why_recommendation_confidence_signals['rationale']}; rec={ambient_ramp_why_recommendation_confidence_signals['recommendation']} churn={ambient_ramp_why_recommendation_confidence_signals['ambientRampWhyChurn']} drift={ambient_ramp_why_recommendation_confidence_signals['driftRisk']} pressure={ambient_ramp_why_recommendation_confidence_signals['pressureBand']})",
         f"- AMBIENT RAMP WHY REC PARITY: **{ambient_ramp_why_recommendation_parity}** ({ambient_ramp_why_recommendation_parity_signals['rationale']}; rec={ambient_ramp_why_recommendation_parity_signals['recommendation']} conf={ambient_ramp_why_recommendation_parity_signals['confidence']} churn={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyChurn']} net={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyNet']:+d} pressure={ambient_ramp_why_recommendation_parity_signals['pressureBand']})",
+        f"- AMBIENT RAMP WHY AUTO-REMAP PLAN: **{ambient_ramp_why_auto_remap_plan}** ({ambient_ramp_why_auto_remap_plan_signals['rationale']}; rec={ambient_ramp_why_auto_remap_plan_signals['recommendation']} conf={ambient_ramp_why_auto_remap_plan_signals['confidence']} parity={ambient_ramp_why_auto_remap_plan_signals['parity']} drift={ambient_ramp_why_auto_remap_plan_signals['driftRisk']} pressure={ambient_ramp_why_auto_remap_plan_signals['pressureBand']} offlineOnly={ambient_ramp_why_auto_remap_plan_signals['offlineOnly']})",
+        f"- ARW AUTO PLAN: **{ambient_ramp_why_auto_remap_plan_compact}** (full={ambient_ramp_why_auto_remap_plan})",
         f"- URGENCY STACK PRUNING REC: **{urgency_stack_pruning_order_recommendation}** ({urgency_stack_pruning_order_recommendation_signals['rationale']}; parityChurn={urgency_stack_pruning_order_recommendation_signals['parityCompactChurn']} fxChurn={urgency_stack_pruning_order_recommendation_signals['urgencyFxChurn']} detailedChurn={urgency_stack_pruning_order_recommendation_signals['urgencyDetailedChurn']} offlineOnly={urgency_stack_pruning_order_recommendation_signals['offlineOnly']})",
         f"- URGENCY STACK RAIL REC: **{urgency_stack_rail_recommendation}** ({urgency_stack_rail_recommendation_signals['rationale']}; railChurn={urgency_stack_rail_recommendation_signals['urgencyStackRailChurn']} railNet={urgency_stack_rail_recommendation_signals['urgencyStackRailNet']} tierChurn={urgency_stack_rail_recommendation_signals['urgencyStackTierChurn']} offlineOnly={urgency_stack_rail_recommendation_signals['offlineOnly']})",
         f"- DMG GLYPH SHAPE REMAP REC: **{dmg_glyph_shape_remap_recommendation}** ({dmg_glyph_shape_remap_recommendation_signals['rationale']}; glyphChurn={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphChurn']} glyphNet={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphNet']} railChurn={dmg_glyph_shape_remap_recommendation_signals['urgencyStackRailChurn']} offlineOnly={dmg_glyph_shape_remap_recommendation_signals['offlineOnly']})",
@@ -6883,6 +7031,7 @@ def main() -> int:
         f"- ARC + AMBIENT RAMP CONF: +{token_family_totals['ambientRampConfidenceAlias']['added']} / -{token_family_totals['ambientRampConfidenceAlias']['removed']} / net {token_family_totals['ambientRampConfidenceAlias']['net']} (churn={token_family_totals['ambientRampConfidenceAlias']['churn']} coverage={token_family_totals['ambientRampConfidenceAlias']['coverage']})",
         f"- ARW + AMBIENT RAMP WHY: +{token_family_totals['ambientRampWhyAlias']['added']} / -{token_family_totals['ambientRampWhyAlias']['removed']} / net {token_family_totals['ambientRampWhyAlias']['net']} (churn={token_family_totals['ambientRampWhyAlias']['churn']} coverage={token_family_totals['ambientRampWhyAlias']['coverage']})",
         f"- ARW REC PARITY: {ambient_ramp_why_recommendation_parity} (rec={ambient_ramp_why_recommendation_parity_signals['recommendation']} conf={ambient_ramp_why_recommendation_parity_signals['confidence']} churn={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyChurn']} net={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyNet']:+d} pressure={ambient_ramp_why_recommendation_parity_signals['pressureBand']})",
+        f"- ARW AUTO PLAN: {ambient_ramp_why_auto_remap_plan_compact} (full={ambient_ramp_why_auto_remap_plan})",
         f"- PULSE HEAT FX: +{token_family_totals['pulseHeatFxAlias']['added']} / -{token_family_totals['pulseHeatFxAlias']['removed']} / net {token_family_totals['pulseHeatFxAlias']['net']} (churn={token_family_totals['pulseHeatFxAlias']['churn']} coverage={token_family_totals['pulseHeatFxAlias']['coverage']})",
         f"- ROUTE GLOW FX + RGFX: +{token_family_totals['routeGlowFxAlias']['added']} / -{token_family_totals['routeGlowFxAlias']['removed']} / net {token_family_totals['routeGlowFxAlias']['net']} (churn={token_family_totals['routeGlowFxAlias']['churn']} coverage={token_family_totals['routeGlowFxAlias']['coverage']})",
         f"- ROUTE GLOW CONF: +{token_family_totals['routeGlowConfidenceAlias']['added']} / -{token_family_totals['routeGlowConfidenceAlias']['removed']} / net {token_family_totals['routeGlowConfidenceAlias']['net']} (churn={token_family_totals['routeGlowConfidenceAlias']['churn']} coverage={token_family_totals['routeGlowConfidenceAlias']['coverage']})",

@@ -103,6 +103,10 @@ def main() -> int:
 
         out_json = repo / "out.json"
         out_md = repo / "out.md"
+        out_fx_candidates_json = repo / "out_fx_candidates.json"
+        out_fx_candidates_md = repo / "out_fx_candidates.md"
+        out_ambient_auto_remap_json = repo / "out_ambient_auto_remap.json"
+        out_ambient_auto_remap_md = repo / "out_ambient_auto_remap.md"
 
         run_output(
             [
@@ -116,6 +120,14 @@ def main() -> int:
                 str(out_json),
                 "--out-md",
                 str(out_md),
+                "--out-fx-remap-candidates-json",
+                str(out_fx_candidates_json),
+                "--out-fx-remap-candidates-md",
+                str(out_fx_candidates_md),
+                "--out-ambient-why-auto-remap-plan-json",
+                str(out_ambient_auto_remap_json),
+                "--out-ambient-why-auto-remap-plan-md",
+                str(out_ambient_auto_remap_md),
             ],
             repo,
         )
@@ -1479,6 +1491,22 @@ def main() -> int:
             "splitEscRecoverVetoRearmCoachConfidence",
             "reason",
         }, payload
+        assert isinstance(payload.get("ambientRampWhyAutoRemapPlan"), str), payload
+        assert isinstance(payload.get("ambientRampWhyAutoRemapPlanCompact"), str), payload
+        assert set(payload.get("ambientRampWhyAutoRemapPlanSignals", {}).keys()) == {
+            "recommendation",
+            "confidence",
+            "parity",
+            "driftRisk",
+            "pressureBand",
+            "ambientRampWhyChurn",
+            "ambientRampWhyNet",
+            "offlineOnly",
+            "rationale",
+            "nextAction",
+        }, payload
+        assert out_ambient_auto_remap_json.exists()
+        assert out_ambient_auto_remap_md.exists()
         md_text = out_md.read_text(encoding="utf-8")
         assert "Token Totals" in md_text
         assert "Top Token Movers" in md_text
@@ -1552,6 +1580,8 @@ def main() -> int:
         assert "AMBIENT RAMP WHY REC" in md_text
         assert "AMBIENT RAMP WHY REC CONF" in md_text
         assert "AMBIENT RAMP WHY REC PARITY" in md_text
+        assert "AMBIENT RAMP WHY AUTO-REMAP PLAN" in md_text
+        assert "ARW AUTO PLAN" in md_text
         assert "URGENCY STACK PRUNING REC" in md_text
         assert "URGENCY STACK RAIL REC" in md_text
         assert "DMG GLYPH SHAPE REMAP REC" in md_text
