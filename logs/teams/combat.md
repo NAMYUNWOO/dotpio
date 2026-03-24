@@ -1505,3 +1505,8 @@
 ## 2026-03-25 03:04 KST — Cycle CY combat sync
 - No combat runtime/token emission changes this cycle.
 - Added digest observability for existing combat debug token family `DMGNUM LIFE CONF Δ:`.
+
+## 2026-03-25 03:35 KST — Cycle CZ damage-number trend token
+- Added HUD debug token `DMGNUM LIFE TREND:UP|HOLD|DOWN` derived from lifecycle-confidence delta.
+- Mapping: delta>0 => `UP`, delta<0 => `DOWN`, zero => `HOLD`.
+- Follow-up: monitor if trend needs smoothing (single-sample jitter) before enabling outside debug mode.

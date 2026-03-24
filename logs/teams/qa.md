@@ -2854,3 +2854,8 @@
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+
+## 2026-03-25 03:35 KST — Cycle CZ regression additions
+- Added `scripts/regression_combat_damage_number_life_trend_token.lua` for trend token phase transitions.
+- Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` assertions for `DMGNUM LIFE TREND:` token coverage.
+- Verification executed locally: both regressions passed.

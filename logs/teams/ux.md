@@ -1796,3 +1796,8 @@
 
 ## 2026-03-25 03:04 KST — Cycle CY UX sync
 - HUD/debug strip remained unchanged; this cycle focused on weekly digest parity so UX can monitor confidence-delta token churn.
+
+## 2026-03-25 03:35 KST — Cycle CZ compact combat readability pass
+- Surfaced `DMGNUM LIFE TREND` in HUD debug lane next to confidence/delta tokens for glanceable phase direction.
+- Kept token compact and deterministic for DOS-width coexistence.
+- Follow-up: screenshot budget check in next multi-token combat debug run.

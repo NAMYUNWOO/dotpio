@@ -2623,3 +2623,5 @@ Compact decision memory for AI context efficiency.
   - Locked regression assertions for JSON token totals/family schema + markdown presence.
 - Verification: py_compile + weekly digest regression + digest generation PASS.
 - Durable decision: keep runtime behavior unchanged; prioritize observability-first closure before introducing new combat debug tokens.
+
+- 2026-03-25 03:35 KST (Cycle CZ): Added HUD debug token `DMGNUM LIFE TREND:UP|HOLD|DOWN` (flag: `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG`), wired weekly digest token-family coverage for `DMGNUM LIFE TREND:`, and locked with combat + digest regression updates.

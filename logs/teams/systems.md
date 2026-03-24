@@ -2309,3 +2309,8 @@
 - Scope: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, backlog sync (`TASKS.md`, `POST_RC_BACKLOG.md`).
 - Verification: py_compile + weekly digest regression + digest generation all PASS.
 - Follow-up: keep mid/high-risk ideas queued (`DMGNUM LIFE TREND`, offline confidence-delta smoothing policy).
+
+## 2026-03-25 03:35 KST — Cycle CZ digest token-family extension
+- Extended weekly readability digest token catalog/groups/families with `DMGNUM LIFE TREND:`.
+- Added markdown churn row + summary family row coverage.
+- Follow-up: validate churn appears in next weekly digest artifact generation.

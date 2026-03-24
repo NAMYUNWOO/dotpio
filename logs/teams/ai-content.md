@@ -1522,3 +1522,7 @@
 ## 2026-03-25 03:04 KST — Cycle CY AI-content sync
 - Deferred high-risk idea (offline confidence-delta smoothing recommendation policy).
 - Current cycle intentionally limited to deterministic Systems/QA digest-family instrumentation.
+
+## 2026-03-25 03:35 KST — Cycle CZ offline recommendation note
+- Logged offline-only high-risk idea: lifecycle-trend smoothing recommendation policy from drift windows.
+- Decision: defer runtime adaptation; keep deterministic trend mapping for now.

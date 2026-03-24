@@ -851,3 +851,13 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/VFX): Prototype offline confidence-delta smoothing recommendation policy from digest drift signals.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add weekly digest token-family churn coverage for `DMGNUM LIFE CONF Δ:` and lock via regression. *(lifecycle: [~] -> [x])*
+
+## Cycle CZ - Game Director Review (2026-03-25 03:31 KST)
+- Coverage check (last 10 completions): systems/qa observability remains represented; selected combat-facing debug readability slice to keep player-facing cadence visible.
+- Idea 1 (low risk, UX/Combat): Add compact lifecycle-confidence trend token (`DMGNUM LIFE TREND:UP|HOLD|DOWN`) behind debug flag.
+- Idea 2 (mid risk, Systems/QA): Add weekly digest token-family churn coverage for `DMGNUM LIFE TREND:` with markdown triage row + regression lock.
+- Idea 3 (high risk, AI Content/VFX): Prototype offline lifecycle-trend smoothing recommendation policy from digest drift windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Combat Team: Add compact lifecycle-confidence trend token (`DMGNUM LIFE TREND:UP|HOLD|DOWN`) behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG` with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
+- [x] Systems/QA Team: Add weekly digest token-family churn coverage for `DMGNUM LIFE TREND:` and lock via regression. *(lifecycle: [ ] -> [~] -> [x])*
+- [x] AI Content/VFX Team: Prototype offline lifecycle-trend smoothing recommendation policy (offline recommendation only). *(lifecycle: [ ] -> [~] -> [x])*

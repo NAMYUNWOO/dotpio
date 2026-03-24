@@ -311,6 +311,13 @@ local function isDamageNumberLifeConfidenceDeltaDebugExperimentEnabled()
     return v == "1" or v == "true" or v == "yes" or v == "on"
 end
 
+local function isDamageNumberLifeTrendDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
 local function confidenceToScore(confidence)
     if confidence == "HIGH" then
         return 2
@@ -445,6 +452,29 @@ function HUD.resolveDamageNumberLifeConfidenceDeltaToken()
     return string.format("DMGNUM LIFE CONF Δ:%+d", delta)
 end
 
+function HUD.resolveDamageNumberLifeTrendToken()
+    if not isDamageNumberLifeTrendDebugExperimentEnabled() then
+        HUD._lastDamageNumberLifeConfidenceDeltaValue = nil
+        return nil
+    end
+
+    local deltaToken = HUD.resolveDamageNumberLifeConfidenceDeltaToken()
+    if not deltaToken then
+        return nil
+    end
+
+    local delta = tonumber(deltaToken:match("DMGNUM LIFE CONF Δ:([+-]?%d+)")) or 0
+    local trend = "HOLD"
+    if delta > 0 then
+        trend = "UP"
+    elseif delta < 0 then
+        trend = "DOWN"
+    end
+
+    HUD._lastDamageNumberLifeConfidenceDeltaValue = delta
+    return string.format("DMGNUM LIFE TREND:%s", trend)
+end
+
 function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary, onboardingHint)
     love.graphics.setColor(0,0,0,0.7)
     love.graphics.rectangle("fill", 8, 8, 240, 92)
@@ -565,6 +595,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if damageNumberLifeConfidenceDeltaToken then
         love.graphics.setColor(0.96, 0.82, 0.96, 0.9)
         love.graphics.print(damageNumberLifeConfidenceDeltaToken, 1240, 690)
+    end
+
+    local damageNumberLifeTrendToken = HUD.resolveDamageNumberLifeTrendToken()
+    if damageNumberLifeTrendToken then
+        love.graphics.setColor(0.82, 0.94, 1.0, 0.9)
+        love.graphics.print(damageNumberLifeTrendToken, 1420, 690)
     end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)

@@ -808,6 +808,7 @@ def main() -> int:
         assert "DMGNUM LIFE:" in payload["tokenTotals"]["net"], payload
         assert "DMGNUM LIFE CONF:" in payload["tokenTotals"]["net"], payload
         assert "DMGNUM LIFE CONF Δ:" in payload["tokenTotals"]["net"], payload
+        assert "DMGNUM LIFE TREND:" in payload["tokenTotals"]["net"], payload
         assert "DMG GLYPH:" in payload["tokenTotals"]["net"], payload
         assert "DMG GLYPH FX LIVE:" in payload["tokenTotals"]["net"], payload
         assert "tokenFamilyTotals" in payload, payload
@@ -1491,6 +1492,7 @@ def main() -> int:
         assert "DMGNUM LIFE FAMILY CHURN" in md_text
         assert "DMGNUM LIFE CONF FAMILY CHURN" in md_text
         assert "DMGNUM LIFE CONF Δ FAMILY CHURN" in md_text
+        assert "DMGNUM LIFE TREND FAMILY CHURN" in md_text
         assert "DMG GLYPH FAMILY CHURN" in md_text
         assert "DMG GLYPH FX LIVE FAMILY CHURN" in md_text
         assert "LANE CADENCE SUMMARY" in md_text
@@ -1513,6 +1515,7 @@ def main() -> int:
         assert "DMGNUM LIFE:" in md_text
         assert "DMGNUM LIFE CONF:" in md_text
         assert "DMGNUM LIFE CONF Δ:" in md_text
+        assert "DMGNUM LIFE TREND:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
         assert "LANE CADENCE SUMMARY: SYSTEMS/OPS" in md_text
