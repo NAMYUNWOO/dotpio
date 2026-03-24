@@ -5695,6 +5695,51 @@ def ambient_ramp_why_auto_remap_plan_confidence_from_signals(
     }
 
 
+def ambient_ramp_why_auto_remap_plan_confidence_drift_from_prior(
+    *,
+    current_confidence: str,
+    prior_json_path: Path,
+) -> tuple[int, dict[str, object]]:
+    """Track ARW AUTO PLAN confidence tier drift versus prior digest window."""
+    score_map = {
+        "LOW": 0,
+        "MID": 1,
+        "HIGH": 2,
+    }
+
+    current = str(current_confidence).strip().upper() or "LOW"
+    prior = current
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior = str(prior_payload.get("ambientRampWhyAutoRemapPlanConfidence", current)).strip().upper() or current
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    current_score = score_map.get(current, 0)
+    prior_score = score_map.get(prior, current_score)
+    drift = current_score - prior_score
+
+    if drift > 0:
+        reason = "auto-plan-confidence-increased-vs-prior-window"
+    elif drift < 0:
+        reason = "auto-plan-confidence-decreased-vs-prior-window"
+    else:
+        reason = "auto-plan-confidence-held-vs-prior-window"
+
+    return drift, {
+        "currentConfidence": current,
+        "currentScore": current_score,
+        "priorConfidence": prior,
+        "priorScore": prior_score,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def urgency_stack_pruning_order_recommendation_from_trends(
     *,
     drift_risk: str,
@@ -6009,6 +6054,10 @@ def main() -> int:
         plan_signals=ambient_ramp_why_auto_remap_plan_signals,
         plan_drift=ambient_ramp_why_auto_remap_plan_drift,
         plan_drift_signals=ambient_ramp_why_auto_remap_plan_drift_signals,
+    )
+    ambient_ramp_why_auto_remap_plan_confidence_drift, ambient_ramp_why_auto_remap_plan_confidence_drift_signals = ambient_ramp_why_auto_remap_plan_confidence_drift_from_prior(
+        current_confidence=ambient_ramp_why_auto_remap_plan_confidence,
+        prior_json_path=args.out_json,
     )
     urgency_stack_pruning_order_recommendation, urgency_stack_pruning_order_recommendation_signals = urgency_stack_pruning_order_recommendation_from_trends(
         drift_risk=drift_risk,
@@ -6782,6 +6831,8 @@ def main() -> int:
         "ambientRampWhyAutoRemapPlanDriftSignals": ambient_ramp_why_auto_remap_plan_drift_signals,
         "ambientRampWhyAutoRemapPlanConfidence": ambient_ramp_why_auto_remap_plan_confidence,
         "ambientRampWhyAutoRemapPlanConfidenceSignals": ambient_ramp_why_auto_remap_plan_confidence_signals,
+        "ambientRampWhyAutoRemapPlanConfidenceDrift": ambient_ramp_why_auto_remap_plan_confidence_drift,
+        "ambientRampWhyAutoRemapPlanConfidenceDriftSignals": ambient_ramp_why_auto_remap_plan_confidence_drift_signals,
         "urgencyStackPruningOrderRecommendation": urgency_stack_pruning_order_recommendation,
         "urgencyStackPruningOrderRecommendationSignals": urgency_stack_pruning_order_recommendation_signals,
         "urgencyStackRailRecommendation": urgency_stack_rail_recommendation,
@@ -7085,6 +7136,7 @@ def main() -> int:
         f"- ARW AUTO WHY: **{ambient_ramp_why_auto_remap_why}** (offline compact rationale shorthand)",
         f"- ARW AUTO PLAN Δ: **{ambient_ramp_why_auto_remap_plan_drift:+d}** ({ambient_ramp_why_auto_remap_plan_drift_signals['reason']}; current={ambient_ramp_why_auto_remap_plan_drift_signals['currentPlan']}({ambient_ramp_why_auto_remap_plan_drift_signals['currentScore']}) prior={ambient_ramp_why_auto_remap_plan_drift_signals['priorPlan']}({ambient_ramp_why_auto_remap_plan_drift_signals['priorScore']}) loaded={ambient_ramp_why_auto_remap_plan_drift_signals['priorLoaded']})",
         f"- ARW AUTO PLAN CONF: **{ambient_ramp_why_auto_remap_plan_confidence}** ({ambient_ramp_why_auto_remap_plan_confidence_signals['rationale']}; recConf={ambient_ramp_why_auto_remap_plan_confidence_signals['recommendationConfidence']} parity={ambient_ramp_why_auto_remap_plan_confidence_signals['parity']} driftRisk={ambient_ramp_why_auto_remap_plan_confidence_signals['driftRisk']} pressure={ambient_ramp_why_auto_remap_plan_confidence_signals['pressureBand']} Δ={ambient_ramp_why_auto_remap_plan_confidence_signals['planDrift']:+d})",
+        f"- ARW AUTO PLAN CONF Δ: **{ambient_ramp_why_auto_remap_plan_confidence_drift:+d}** ({ambient_ramp_why_auto_remap_plan_confidence_drift_signals['reason']}; current={ambient_ramp_why_auto_remap_plan_confidence_drift_signals['currentConfidence']}({ambient_ramp_why_auto_remap_plan_confidence_drift_signals['currentScore']}) prior={ambient_ramp_why_auto_remap_plan_confidence_drift_signals['priorConfidence']}({ambient_ramp_why_auto_remap_plan_confidence_drift_signals['priorScore']}) loaded={ambient_ramp_why_auto_remap_plan_confidence_drift_signals['priorLoaded']})",
         f"- AMBIENT RAMP WHY REC CONF STREAK: **{ambient_ramp_why_recommendation_confidence_streak}** (suppress={str(ambient_ramp_why_recommendation_confidence_streak_signals.get('suppress', False)).upper()} threshold={ambient_ramp_why_recommendation_confidence_streak_signals.get('threshold', 3)} reason={ambient_ramp_why_recommendation_confidence_streak_signals.get('reason', 'n/a')})",
         f"- URGENCY STACK PRUNING REC: **{urgency_stack_pruning_order_recommendation}** ({urgency_stack_pruning_order_recommendation_signals['rationale']}; parityChurn={urgency_stack_pruning_order_recommendation_signals['parityCompactChurn']} fxChurn={urgency_stack_pruning_order_recommendation_signals['urgencyFxChurn']} detailedChurn={urgency_stack_pruning_order_recommendation_signals['urgencyDetailedChurn']} offlineOnly={urgency_stack_pruning_order_recommendation_signals['offlineOnly']})",
         f"- URGENCY STACK RAIL REC: **{urgency_stack_rail_recommendation}** ({urgency_stack_rail_recommendation_signals['rationale']}; railChurn={urgency_stack_rail_recommendation_signals['urgencyStackRailChurn']} railNet={urgency_stack_rail_recommendation_signals['urgencyStackRailNet']} tierChurn={urgency_stack_rail_recommendation_signals['urgencyStackTierChurn']} offlineOnly={urgency_stack_rail_recommendation_signals['offlineOnly']})",

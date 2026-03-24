@@ -2380,3 +2380,10 @@
 - Regression lock extended in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 
 - 2026-03-25 07:35 KST — Added offline confidence-streak suppression policy for ambient auto-remap candidates in weekly portal readability digest (streak >=3 on AMBIENT RAMP WHY REC CONF LOW/HIGH => candidate pool suppressed to HOLD_SAFE_BASELINE; surfaced in JSON + markdown tokens for operator triage). Verified via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-25 08:04 KST — Cycle DE (Systems)
+- Task: Added weekly digest confidence drift token for ambient auto-remap plan confidence (`ARW AUTO PLAN CONF Δ:+n|-n`).
+- Scope: `scripts/weekly_portal_prompt_readability_drift.py`
+- Decision: Use deterministic confidence score mapping (`LOW=0, MID=1, HIGH=2`) and prior JSON payload fallback to compute signed drift with explainable reason strings.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile ...` PASS.
+- Follow-up: Keep Cycle DE mid/high-risk ideas queued (`ARW APC` alias + confidence momentum policy).

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-25 05:05 KST
+Last updated: 2026-03-25 08:04 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Cycle DE executed after actionable backlog clear: generated 3 ideas and selected low-risk Systems/QA vertical slice.
+- Shipped `ARW AUTO PLAN CONF Δ:+n|-n` in weekly digest using deterministic confidence-band drift vs prior window, with JSON signals for `current/prior/loaded` auditability.
+- Regression contract updated (`scripts/regression_weekly_portal_prompt_readability_drift.py`) to assert new payload keys + markdown line; digest regression and py_compile checks pass.
+- Cycle DE follow-ups queued in backlog: compact alias `ARW APC:<L|M|H>` and offline confidence momentum freeze policy.
 
 - Closed highest-priority unchecked TASKS/POST_RC UX/World item: weekly portal readability digest now emits compact ambient-rationale parity summary lines (`AMBIENT RAMP WHY REC PARITY` and token-family `ARW REC PARITY`) for faster triage.
 - Added deterministic parity classifier (`SYNC|WATCH|LOCK`) derived from ambient rationale recommendation + confidence + churn/pressure signals; surfaced in JSON payload as `ambientRampWhyRecommendationParity` + `ambientRampWhyRecommendationParitySignals`.

@@ -2922,3 +2922,11 @@
 - Result: digest/sandbox schema drift guarded for ARW auto-rationale shorthand.
 
 - 2026-03-25 07:35 KST — Added offline confidence-streak suppression policy for ambient auto-remap candidates in weekly portal readability digest (streak >=3 on AMBIENT RAMP WHY REC CONF LOW/HIGH => candidate pool suppressed to HOLD_SAFE_BASELINE; surfaced in JSON + markdown tokens for operator triage). Verified via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-25 08:04 KST — Cycle DE (QA)
+- Added regression assertions for new payload keys:
+  - `ambientRampWhyAutoRemapPlanConfidenceDrift`
+  - `ambientRampWhyAutoRemapPlanConfidenceDriftSignals`
+- Added markdown contract assertion for `ARW AUTO PLAN CONF Δ` line.
+- Verification run:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

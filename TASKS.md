@@ -893,3 +893,13 @@ See project-level plans:
 - [x] Systems/QA Team: Add ambient auto-remap plan confidence token (`ARW AUTO PLAN CONF:LOW|MID|HIGH`) with regression lock. *(lifecycle: [~] -> [x])*
 - [x] UX/AI Content Team: Prototype compact ambient auto-remap rationale shorthand (`ARW AUTO WHY:<short>`) in offline artifact. *(lifecycle: [~] -> [x])*
 - [x] AI Content/Systems Team: Prototype confidence-streak suppression policy for auto-remap candidates (offline-only). *(lifecycle: [ ] -> [~] -> [x])*
+
+## Cycle DE - Game Director Review (2026-03-25 08:01 KST)
+- Idea 1 (low risk, Systems/QA): Add ambient auto-remap confidence drift token (`ARW AUTO PLAN CONF Δ:+n|-n`) from prior digest window to make trust changes auditable.
+- Idea 2 (mid risk, UX/World): Add compact ambient auto-remap confidence band alias (`ARW APC:<L|M|H>`) behind flag in digest summary for tight scanability.
+- Idea 3 (high risk, AI Content/Systems): Prototype offline confidence momentum policy that recommends plan freeze when confidence oscillates across windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add ambient auto-remap confidence drift token (`ARW AUTO PLAN CONF Δ:+n|-n`) and lock via regression. *(lifecycle: [~] -> [x])*
+- [ ] UX/World Team: Prototype compact ambient auto-remap confidence band alias (`ARW APC:<L|M|H>`) behind flag in digest summary.
+- [ ] AI Content/Systems Team: Prototype offline confidence momentum policy for auto-remap freeze recommendation.
+

@@ -1540,6 +1540,15 @@ def main() -> int:
             "priorLoaded",
             "rationale",
         }, payload
+        assert isinstance(payload.get("ambientRampWhyAutoRemapPlanConfidenceDrift"), int), payload
+        assert set(payload.get("ambientRampWhyAutoRemapPlanConfidenceDriftSignals", {}).keys()) == {
+            "currentConfidence",
+            "currentScore",
+            "priorConfidence",
+            "priorScore",
+            "priorLoaded",
+            "reason",
+        }, payload
         assert out_ambient_auto_remap_json.exists()
         assert out_ambient_auto_remap_md.exists()
         md_text = out_md.read_text(encoding="utf-8")
@@ -1620,6 +1629,7 @@ def main() -> int:
         assert "ARW AUTO WHY" in md_text
         assert "ARW AUTO PLAN Δ" in md_text
         assert "ARW AUTO PLAN CONF" in md_text
+        assert "ARW AUTO PLAN CONF Δ" in md_text
         assert "AMBIENT RAMP WHY REC CONF STREAK" in md_text
         assert "ARW AUTO PLAN FAMILY CHURN" in md_text
         assert "ARW AUTO PLAN CANDIDATE SUPPRESS" in md_text
