@@ -1484,3 +1484,9 @@
 - Verification: [PASS] weekly portal prompt readability drift regression checks PASS; digest regeneration PASS.
 - 2026-03-25 00:31 KST — Cycle CT shipped: added debug lifecycle token `DMGNUM LIFE:EARLY|MID|LATE` (flag: `DOTPIO_EXPERIMENT_DMGNUM_LIFE_DEBUG`) to classify floating damage-number phase for combat readability triage. Evidence: `scripts/regression_combat_damage_number_life_token.lua` pass.
   - Follow-up: pair with digest family coverage if churn starts appearing in debug prompt sets.
+
+## 2026-03-25 01:01 KST — Cycle CU
+- Context: All ACTION_ITEMS/TASKS/POST_RC_BACKLOG items were checked; executed Game Director review cycle CU.
+- Decision: Prioritized low-risk Systems/QA slice to close observability gap for `DMGNUM LIFE:` token-family churn in weekly digest artifacts.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up: Keep mid/high-risk CU ideas queued (`DMGNUM LIFE CONF`, fade-curve remap recommendation) for future cycle selection.

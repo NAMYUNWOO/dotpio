@@ -1503,3 +1503,9 @@
 - Verification: [PASS] weekly portal prompt readability drift regression checks PASS; digest regeneration PASS.
 - 2026-03-25 00:31 KST — Captured high-risk idea (offline drift-aware damage-number fade-curve remap recommendation) but deferred this cycle in favor of low-risk vertical slice.
   - Follow-up: revisit only after `DMGNUM LIFE:` token churn evidence exists.
+
+## 2026-03-25 01:01 KST — Cycle CU
+- Context: All ACTION_ITEMS/TASKS/POST_RC_BACKLOG items were checked; executed Game Director review cycle CU.
+- Decision: Prioritized low-risk Systems/QA slice to close observability gap for `DMGNUM LIFE:` token-family churn in weekly digest artifacts.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up: Keep mid/high-risk CU ideas queued (`DMGNUM LIFE CONF`, fade-curve remap recommendation) for future cycle selection.

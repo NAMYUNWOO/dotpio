@@ -805,6 +805,7 @@ def main() -> int:
         assert "RGFXWRM:" in payload["tokenTotals"]["net"], payload
         assert "RGFXWRIUFX:" in payload["tokenTotals"]["net"], payload
         assert "DMGNUM STACK CAP:" in payload["tokenTotals"]["net"], payload
+        assert "DMGNUM LIFE:" in payload["tokenTotals"]["net"], payload
         assert "DMG GLYPH:" in payload["tokenTotals"]["net"], payload
         assert "DMG GLYPH FX LIVE:" in payload["tokenTotals"]["net"], payload
         assert "tokenFamilyTotals" in payload, payload
@@ -1012,6 +1013,16 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["dmgnumStackCapAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["dmgnumLifeAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1452,6 +1463,7 @@ def main() -> int:
         assert "URG STACK FAMILY CHURN" in md_text
         assert "URG STACK RAIL FAMILY CHURN" in md_text
         assert "DMGNUM STACK CAP FAMILY CHURN" in md_text
+        assert "DMGNUM LIFE FAMILY CHURN" in md_text
         assert "DMG GLYPH FAMILY CHURN" in md_text
         assert "DMG GLYPH FX LIVE FAMILY CHURN" in md_text
         assert "LANE CADENCE SUMMARY" in md_text
@@ -1471,6 +1483,7 @@ def main() -> int:
         assert "URG STACK:" in md_text
         assert "URG STACK RAIL:" in md_text
         assert "DMGNUM STACK CAP:" in md_text
+        assert "DMGNUM LIFE:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
         assert "LANE CADENCE SUMMARY: SYSTEMS/OPS" in md_text

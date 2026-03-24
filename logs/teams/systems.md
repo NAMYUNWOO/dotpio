@@ -2274,3 +2274,9 @@
 - Verification: [PASS] weekly portal prompt readability drift regression checks PASS; digest regeneration PASS.
 - 2026-03-25 00:31 KST — Supported Combat/VFX Cycle CT by wiring deterministic lifecycle-phase thresholds (EARLY>=0.67, MID, LATE<=0.33 remaining) in HUD resolver; additive, flag-gated, reversible.
   - Follow-up: if duration constant changes in `src/combat.lua`, sync HUD expected duration (currently 0.6s).
+
+## 2026-03-25 01:01 KST — Cycle CU
+- Context: All ACTION_ITEMS/TASKS/POST_RC_BACKLOG items were checked; executed Game Director review cycle CU.
+- Decision: Prioritized low-risk Systems/QA slice to close observability gap for `DMGNUM LIFE:` token-family churn in weekly digest artifacts.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up: Keep mid/high-risk CU ideas queued (`DMGNUM LIFE CONF`, fade-curve remap recommendation) for future cycle selection.

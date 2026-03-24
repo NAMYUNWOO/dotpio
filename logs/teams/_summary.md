@@ -2565,3 +2565,13 @@ Compact decision memory for AI context efficiency.
 - Deterministic phase thresholds: EARLY (remaining ratio >=0.67), MID, LATE (<=0.33) using current combat damage-number duration baseline (0.6s).
 - Verification: `DOTPIO_EXPERIMENT_DMGNUM_LIFE_DEBUG=1 lua scripts/regression_combat_damage_number_life_token.lua` plus guard regressions for `DMG FX PLAN` and `DMG GLYPH FX LIVE` all PASS.
 - Follow-up candidate: add weekly digest token-family churn coverage for `DMGNUM LIFE:` when debug-token churn becomes non-trivial.
+
+## 2026-03-25 — Cycle CU durable summary
+- Trigger: ACTION_ITEMS + TASKS + POST_RC_BACKLOG were fully checked, so Game Director review cycle executed immediately.
+- Selected experiment (Idea 1, low risk Systems/QA): Added weekly digest token-family coverage for `DMGNUM LIFE:`.
+- Durable implementation details:
+  - Added `DMGNUM LIFE:` into weekly digest token catalogs/families (`compact`, `detailed`, `portal`, `dmgnumLifeAlias`).
+  - Added markdown churn rows for `DMGNUM LIFE` in both digest report sections.
+  - Extended weekly digest regression assertions for token totals, `tokenFamilyTotals.dmgnumLifeAlias`, and markdown output expectations.
+- Verification: weekly digest regression PASS; combat lifecycle token regression PASS when debug flag enabled.
+- Next queue candidates from CU: `DMGNUM LIFE CONF` debug token (mid risk), drift-aware fade-curve remap recommendation (high risk/offline).
