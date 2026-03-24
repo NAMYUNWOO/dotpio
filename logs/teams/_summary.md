@@ -2415,3 +2415,9 @@ Compact decision memory for AI context efficiency.
 - Markdown triage + Token Family Coverage now include explicit `RGFXWRIUP` rows, separating compact-parity alias drift from detailed urgency parity label churn.
 - Regression/verification PASS: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; digest generation PASS (`scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`).
 - Backlog injection/state: Cycle CH selected item marked done (`[~] -> [x]`); queued follow-ups remain unchecked (`URG STACK` compact debug token, drift-aware pruning recommendation).
+
+## 2026-03-24 14:33 KST — Cycle CI floating damage-number slice complete
+- Closed TASKS Cycle CI in-progress item: floating damage numbers now render for melee + magic hits with upward drift and fade lifecycle.
+- Durable implementation decision: keep effect additive/reversible in `src/combat.lua` with compact tile-centered text; avoid extra particle/camera layers in this pass.
+- Added regression guardrail `scripts/regression_combat_damage_numbers.lua` (melee emit, decay/expiry, magic emit).
+- Remaining unchecked priority items in TASKS: `URG STACK:TIGHT|MID|LOOSE` compact debug token; drift-aware urgency-stack pruning recommendation.

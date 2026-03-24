@@ -2667,3 +2667,8 @@
 - Verification set:
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-24 14:33 KST — Regression coverage for floating damage numbers
+- Added `scripts/regression_combat_damage_numbers.lua`.
+- Verified lifecycle assertions: spawn on melee/magic hit, timer decay across updates, expiry after duration.
+- Ran targeted portal readability regression to ensure no unrelated breakage from this cycle.

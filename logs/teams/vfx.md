@@ -101,3 +101,8 @@
 
 ## 2026-03-24 13:45 KST
 - VFX lane note: no new FX mappings this slice; digest now cleanly separates urgency parity compact alias churn (`RGFXWRIUP`) from urgency FX churn (`RGFXWRIUFX`).
+
+## 2026-03-24 14:33 KST — Cycle CI hit-feedback readability pass
+- Added floating hit-number visual feedback hook for both melee and magic impacts (drift + fade).
+- Palette decision: melee = warm gold, magic = arcane violet for quick channel differentiation without extra glyph clutter.
+- No camera shake or particle layering added in this slice to keep DOS readability stable.

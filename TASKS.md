@@ -705,3 +705,11 @@ See project-level plans:
 - [x] Systems/QA Team: Add weekly digest token-family churn coverage for compact urgency-parity alias (`RGFXWRIUP:`) and lock via regression. *(lifecycle: [~] -> [x])*
 - [ ] UX/World Team: Prototype compact urgency-stack pruning tier token (`URG STACK:TIGHT|MID|LOOSE`) behind flag for prompt-debug readability.
 - [ ] AI Content/Systems Team: Prototype drift-aware urgency-stack pruning order recommendation from weekly digest trends.
+
+
+## Cycle CI - Game Director Review (2026-03-24 14:30 KST)
+- Idea 1 (low risk, VFX/Combat): Add floating damage numbers on hit for combat feedback readability.
+- Idea 2 (mid risk, World/Design): Add map-zone ambient color tint to differentiate dungeon areas visually.
+- Idea 3 (high risk, AI Content/VFX): Elemental damage type visual differentiation for projectiles based on player elemental stats.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] VFX/Combat Team: Add floating damage numbers on melee and magic hit with upward drift + fade animation.

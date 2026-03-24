@@ -1367,3 +1367,9 @@
 
 ## 2026-03-24 13:45 KST
 - Combat lane check: no combat logic/balance changes; telemetry-only digest slice for compact urgency-parity alias visibility.
+
+## 2026-03-24 14:33 KST — Cycle CI floating damage numbers shipped
+- Completed minimal vertical slice from Cycle CI: melee and magic hits now enqueue floating damage numbers with upward drift and fade lifecycle.
+- Added combat state lifecycle support in `src/combat.lua` for damage-number decay and rendering color split (physical vs magic).
+- Added regression `scripts/regression_combat_damage_numbers.lua` covering melee emit, timer decay/expiry, and magic-impact emit.
+- Follow-up: consider crit/element styling only after baseline readability metrics are captured.

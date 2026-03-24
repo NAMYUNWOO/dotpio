@@ -2147,3 +2147,7 @@
 - Cycle CH selected/implemented low-risk Systems/QA slice: weekly digest token-family churn coverage for compact urgency-parity alias `RGFXWRIUP:`.
 - Updated `scripts/weekly_portal_prompt_readability_drift.py` token catalogs/families so compact alias churn is explicit in JSON+markdown (`routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAlias`).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-24 14:33 KST — Combat effect-state update
+- Added `damageNumbers` state container in combat runtime with deterministic update decay and reset behavior.
+- Exposed `Combat.debugGetDamageNumbers()` for regression-only state inspection.

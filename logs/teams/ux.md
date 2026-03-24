@@ -1670,3 +1670,7 @@
 ## 2026-03-24 13:45 KST
 - UX readability note: compact urgency-parity alias (`RGFXWRIUP`) now has dedicated weekly digest churn visibility, improving prompt-budget triage traceability.
 - No runtime prompt copy changes in this slice (telemetry/readability instrumentation only).
+
+## 2026-03-24 14:33 KST — Combat readability note
+- Combat feedback now includes transient numeric hit cues with center-tile placement and fade trajectory.
+- Kept text compact and centered per tile to avoid overlapping HUD strip in dense combat scenes.

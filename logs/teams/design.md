@@ -1484,3 +1484,7 @@
 
 ## 2026-03-24 13:45 KST
 - Design triage support improved: digest now separates compact urgency-parity alias churn from detailed parity label churn, reducing ambiguity during compact-budget tuning reviews.
+
+## 2026-03-24 14:33 KST — CI readability decision
+- Approved low-risk readability-first slice over broader ambient tint/elemental differentiation options.
+- Rationale: immediate per-hit clarity gain with reversible, additive implementation and minimal systemic risk.
