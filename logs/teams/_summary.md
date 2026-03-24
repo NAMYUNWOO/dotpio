@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 20:44 KST
+Last updated: 2026-03-24 21:52 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,10 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Cycle CQ coverage check (last 10 completions) returned lane skew: systems=5/10 (50%) > 40% cap; forced-lane policy triggered for underrepresented lanes.
+- Shipped forced-lane UX/Combat/VFX vertical slice: new HUD debug token `DMG FX PLAN:HOLD_FX|MICRO_TUNE_FX|SYNC_WITH_GLYPH` behind `DOTPIO_EXPERIMENT_DMG_FX_PLAN_DEBUG` in `src/hud.lua`.
+- Added regression guardrail `scripts/regression_combat_damage_fx_plan_token.lua`; baseline `DMG GLYPH FX LIVE` token regression rerun passed.
+- Cycle CQ backlog injected with underrepresented-lane follow-ups: World/Design ambient-ramp hint token and Systems/Ops offline remap-candidate table artifact.
 
 - Game Director Cycle CO executed after actionable-backlog clear: generated 3 ideas (low/mid/high), selected low-risk combat/vfx vertical slice for lane balance.
 - Shipped new flag-gated HUD debug token `DMG GLYPH FX LIVE:CALM|SPARK|BLAZE` (`DOTPIO_EXPERIMENT_DMG_GLYPH_FX_LIVE_DEBUG`) with deterministic map from latest glyph band (`BASIC/SPIKE/OVERDRIVE`).

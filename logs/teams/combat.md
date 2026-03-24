@@ -1452,3 +1452,8 @@
 - Scope: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, backlog checkbox sync in `TASKS.md` + `POST_RC_BACKLOG.md`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: remaining unchecked queue item is AI Content/VFX offline glyph FX remap recommendation policy tied to drift risk.
+
+## 2026-03-24 21:52 KST — Cycle CQ combat readability handoff
+- Added debug-only combat HUD token `DMG FX PLAN` to surface current glyph-FX remap stance during live hits.
+- Decision: keep plan resolver tied to existing `glyphBand` contract (BASIC/SPIKE/OVERDRIVE) so debug output cannot drift from combat damage-band state.
+- Verification: `DOTPIO_EXPERIMENT_DMG_FX_PLAN_DEBUG=1 lua scripts/regression_combat_damage_fx_plan_token.lua` PASS; baseline FX live token regression still PASS.

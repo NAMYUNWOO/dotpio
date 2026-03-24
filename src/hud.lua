@@ -283,6 +283,13 @@ local function isDamageGlyphFxLiveDebugExperimentEnabled()
     return v == "1" or v == "true" or v == "yes" or v == "on"
 end
 
+local function isDamageFxPlanDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMG_FX_PLAN_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
 function HUD.resolveDamageGlyphLiveToken()
     if not isDamageGlyphLiveDebugExperimentEnabled() then
         return nil
@@ -318,6 +325,27 @@ function HUD.resolveDamageGlyphFxLiveToken()
         fx = "BLAZE"
     end
     return string.format("DMG GLYPH FX LIVE:%s", fx)
+end
+
+function HUD.resolveDamageFxPlanToken()
+    if not isDamageFxPlanDebugExperimentEnabled() then
+        return nil
+    end
+
+    local numbers = Combat.debugGetDamageNumbers and Combat.debugGetDamageNumbers() or {}
+    local latest = numbers[#numbers]
+    if not latest then
+        return "DMG FX PLAN:HOLD_FX"
+    end
+
+    local band = tostring(latest.glyphBand or "BASIC")
+    local plan = "HOLD_FX"
+    if band == "SPIKE" then
+        plan = "MICRO_TUNE_FX"
+    elseif band == "OVERDRIVE" then
+        plan = "SYNC_WITH_GLYPH"
+    end
+    return string.format("DMG FX PLAN:%s", plan)
 end
 
 function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary, onboardingHint)
@@ -416,6 +444,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if damageGlyphFxLiveToken then
         love.graphics.setColor(1.0, 0.82, 0.64, 0.92)
         love.graphics.print(damageGlyphFxLiveToken, 420, 690)
+    end
+
+    local damageFxPlanToken = HUD.resolveDamageFxPlanToken()
+    if damageFxPlanToken then
+        love.graphics.setColor(0.78, 0.92, 1.0, 0.9)
+        love.graphics.print(damageFxPlanToken, 640, 690)
     end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)

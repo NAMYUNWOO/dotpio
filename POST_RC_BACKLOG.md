@@ -600,5 +600,10 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-24 Cycle CP)
 - [x] Systems/QA Team: Add offline digest confidence token for glyph FX remap recommendation (`DMG GLYPH FX REMAP CONF:LOW|MID|HIGH`) with regression lock. *(lifecycle: [~] -> [x])*
-- [ ] UX/Combat Team: Prototype compact HUD debug token for glyph FX remap stance (`DMG FX PLAN:<mode>`) behind flag.
+- [x] UX/Combat Team: Prototype compact HUD debug token for glyph FX remap stance (`DMG FX PLAN:<mode>`) behind flag. *(lifecycle: [ ] -> [~] -> [x])*
 - [ ] AI Content/VFX Team: Prototype offline digest-generated FX remap candidate table artifact for review workflows.
+
+## P1 (Game Director Injection — 2026-03-24 Cycle CQ)
+- [x] UX/Combat Team: Add compact HUD debug remap-plan token (`DMG FX PLAN:HOLD_FX|MICRO_TUNE_FX|SYNC_WITH_GLYPH`) behind `DOTPIO_EXPERIMENT_DMG_FX_PLAN_DEBUG`. *(lifecycle: [ ] -> [~] -> [x])*
+- [ ] World/Design Team: Prototype portal ambient-ramp hint token (`AMBIENT RAMP:CALM|TENSE`) behind flag for readability cadence.
+- [ ] Systems/Ops Team: Add offline glyph FX remap candidate table artifact generation (`logs/playtests/dmg_glyph_fx_remap_candidates.{md,json}`).

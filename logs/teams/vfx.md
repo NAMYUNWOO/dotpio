@@ -141,3 +141,9 @@
 - Added digest-level recommendation output `DMG GLYPH FX REMAP REC` to guide future FX remap proposals without touching live effects.
 - Policy consumes drift risk + `DMG GLYPH FX LIVE` family churn + `DMG GLYPH` churn for cross-lane pacing context.
 - Runtime VFX behavior intentionally unchanged this slice (advisory/offline-only).
+
+## 2026-03-24 21:52 KST — Cycle CQ VFX debug-plan cue
+- Shipped compact VFX debug-plan cue `DMG FX PLAN:HOLD_FX|MICRO_TUNE_FX|SYNC_WITH_GLYPH` behind `DOTPIO_EXPERIMENT_DMG_FX_PLAN_DEBUG`.
+- Purpose: make offline remap recommendation posture visible in-run without enabling automatic FX remap.
+- Mapping stays deterministic from latest glyph intensity band; this is readability telemetry only.
+- Evidence: `scripts/regression_combat_damage_fx_plan_token.lua` PASS with flag enabled.

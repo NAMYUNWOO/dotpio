@@ -775,5 +775,16 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/VFX): Prototype digest-driven auto-generated FX remap candidate table (offline sandbox artifact).
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add offline digest confidence token for glyph FX remap recommendation (`DMG GLYPH FX REMAP CONF:LOW|MID|HIGH`) with regression lock. *(lifecycle: [~] -> [x])*
-- [ ] UX/Combat Team: Prototype compact HUD debug token for glyph FX remap stance (`DMG FX PLAN:<mode>`) behind flag.
+- [x] UX/Combat Team: Prototype compact HUD debug token for glyph FX remap stance (`DMG FX PLAN:<mode>`) behind flag. *(lifecycle: [ ] -> [~] -> [x])*
 - [ ] AI Content/VFX Team: Prototype offline digest-generated FX remap candidate table artifact for review workflows.
+
+## Cycle CQ - Game Director Review (2026-03-24 21:52 KST)
+- Coverage check (last 10 completions by lane): systems=5, ai-content=2, combat=1, vfx=1, ux=1, world=0, design=0, qa=0.
+- Lane cap breach: systems (50%) > 40%; forced priority to underrepresented lanes (world/design + combat/vfx) this cycle.
+- Idea 1 (low risk, UX/Combat/VFX): Add compact HUD debug remap-plan token (`DMG FX PLAN:HOLD_FX|MICRO_TUNE_FX|SYNC_WITH_GLYPH`) for live readability.
+- Idea 2 (mid risk, World/Design): Add route-side ambient ramp hint token (`AMBIENT RAMP:CALM|TENSE`) in portal preview under flag.
+- Idea 3 (high risk, Systems/Ops): Build offline FX remap candidate table artifact (`logs/playtests/dmg_glyph_fx_remap_candidates.{md,json}`).
+- Selected experiment: Idea 1 (minimal vertical slice, forced-lane compliant).
+- [x] UX/Combat Team: Add compact HUD debug remap-plan token (`DMG FX PLAN:<mode>`) behind `DOTPIO_EXPERIMENT_DMG_FX_PLAN_DEBUG`. *(lifecycle: [ ] -> [~] -> [x])*
+- [ ] World/Design Team: Prototype portal ambient-ramp hint token (`AMBIENT RAMP:CALM|TENSE`) behind flag for readability cadence.
+- [ ] Systems/Ops Team: Add offline glyph FX remap candidate table artifact generation for review workflows.

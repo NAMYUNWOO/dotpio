@@ -2235,3 +2235,8 @@
 - Added digest confidence classifier for offline `DMG GLYPH FX REMAP REC` output: `LOW|MID|HIGH` from drift risk + combined glyph/fx churn score.
 - Scope: `scripts/weekly_portal_prompt_readability_drift.py` only; no runtime gameplay path changes.
 - Decision: keep thresholds deterministic and inspectable (`HIGH risk or score>=7 => LOW`, `MID risk or score>=4 => MID`, else `HIGH`).
+
+## 2026-03-24 21:52 KST — Cycle CQ systems/ops backlog injection
+- Coverage check over last 10 completions showed systems-heavy skew (5/10 = 50% > 40% cap), so this cycle forced underrepresented-lane implementation.
+- Systems/Ops follow-up kept queued (unchecked): generate offline glyph FX remap candidate table artifact (`logs/playtests/dmg_glyph_fx_remap_candidates.{md,json}`) for review workflows.
+- Immediate shipped code remained runtime UX/combat debug-only to rebalance lane cadence.

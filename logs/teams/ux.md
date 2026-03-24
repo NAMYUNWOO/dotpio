@@ -1740,3 +1740,12 @@
 - Scope: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, backlog checkbox sync in `TASKS.md` + `POST_RC_BACKLOG.md`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: remaining unchecked queue item is AI Content/VFX offline glyph FX remap recommendation policy tied to drift risk.
+
+## 2026-03-24 21:52 KST — Cycle CQ HUD debug remap-plan token
+- Completed forced-lane UX/Combat slice: added compact HUD debug token `DMG FX PLAN:<mode>` behind `DOTPIO_EXPERIMENT_DMG_FX_PLAN_DEBUG`.
+- Token mapping is deterministic from latest glyph band for readability-only auditing:
+  - `BASIC -> HOLD_FX`
+  - `SPIKE -> MICRO_TUNE_FX`
+  - `OVERDRIVE -> SYNC_WITH_GLYPH`
+- Scope is non-invasive/debug-only; no combat tuning or economy changes.
+- Evidence: `luac -p src/hud.lua scripts/regression_combat_damage_fx_plan_token.lua` and `DOTPIO_EXPERIMENT_DMG_FX_PLAN_DEBUG=1 lua scripts/regression_combat_damage_fx_plan_token.lua` PASS.
