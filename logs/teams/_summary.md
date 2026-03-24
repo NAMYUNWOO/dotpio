@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 19:31 KST
+Last updated: 2026-03-24 20:32 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,10 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+
+- Closed final remaining unchecked POST_RC item from Cycle CN: `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` is now backlog-complete and regression-locked behind `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG` (HUD debug-only surface, no portal budget impact).
+- Verification rerun passed: `scripts/regression_combat_damage_glyph_live_token.lua` + `scripts/regression_combat_damage_glyph_burst.lua`.
+- ACTION_ITEMS/TASKS/POST_RC are now fully checked again; next cycle should trigger Game Director review loop (3 ideas -> select 1 -> minimal vertical slice).
 - Closed Cycle CN UX/Combat unchecked item: HUD now supports compact live glyph-band debug token `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` behind `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG`.
 - Added regression guardrail `scripts/regression_combat_damage_glyph_live_token.lua`; verified alongside baseline `scripts/regression_combat_damage_glyph_burst.lua` (both passing).
 - Remaining highest-priority unchecked queue item: AI Content/VFX drift-aware glyph-shape remap recommendation policy (offline-only).

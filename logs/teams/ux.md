@@ -1724,3 +1724,9 @@
 - Outcome: policy surfaced in digest as `DMG GLYPH SHAPE REMAP REC` with deterministic recommendation bands and guidance; runtime combat mapping unchanged.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: monitor churn/risk windows; only consider runtime remap if recommendation remains stable across multiple windows.
+
+## 2026-03-24 20:32 KST — Debug readability lock
+- Task: close UX/Combat backlog item for compact live glyph token readability.
+- Decision: preserve explicit `DMG GLYPH LIVE:` prefix for operator scanability in DOS HUD.
+- Verification: HUD token contract regression passed (`regression_combat_damage_glyph_live_token.lua`).
+- Follow-up: if additional compact debug tokens are added, keep this token in stable row order near coordinate line.

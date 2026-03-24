@@ -1449,3 +1449,7 @@
 - Outcome: policy surfaced in digest as `DMG GLYPH SHAPE REMAP REC` with deterministic recommendation bands and guidance; runtime combat mapping unchanged.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: monitor churn/risk windows; only consider runtime remap if recommendation remains stable across multiple windows.
+
+## 2026-03-24 20:32 KST — AI-content lane note
+- No runtime AI-content prompt changes this cycle.
+- Existing offline glyph-shape remap recommendation policy remains untouched while combat debug token item is closed.

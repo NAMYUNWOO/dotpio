@@ -2746,3 +2746,10 @@
 - Outcome: policy surfaced in digest as `DMG GLYPH SHAPE REMAP REC` with deterministic recommendation bands and guidance; runtime combat mapping unchanged.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: monitor churn/risk windows; only consider runtime remap if recommendation remains stable across multiple windows.
+
+## 2026-03-24 20:32 KST — Regression evidence for CN follow-up
+- Executed:
+  - `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG=1 lua scripts/regression_combat_damage_glyph_live_token.lua`
+  - `DOTPIO_EXPERIMENT_DAMAGE_GLYPH_BURST=1 lua scripts/regression_combat_damage_glyph_burst.lua`
+- Result: PASS/PASS.
+- Notes: live debug token remains aligned with glyph-band producer logic.

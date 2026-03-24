@@ -585,5 +585,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/VFX): Drift-aware glyph-shape remap recommendation policy from digest trends.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add weekly digest token-family coverage for `DMG GLYPH:` churn and lock via regression.
-- [ ] UX/Combat Team: Prototype compact debug token `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` behind flag.
+- [x] UX/Combat Team: Prototype compact debug token `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` behind flag.
 - [x] AI Content/VFX Team: Prototype drift-aware glyph-shape remap recommendation policy (offline recommendation only). *(lifecycle: [ ] -> [~] -> [x])*

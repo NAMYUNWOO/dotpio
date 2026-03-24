@@ -1434,3 +1434,9 @@
 - Outcome: policy surfaced in digest as `DMG GLYPH SHAPE REMAP REC` with deterministic recommendation bands and guidance; runtime combat mapping unchanged.
 - Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: monitor churn/risk windows; only consider runtime remap if recommendation remains stable across multiple windows.
+
+## 2026-03-24 20:32 KST — Cycle CN follow-up completion
+- Task: finalize compact combat debug token `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` behind `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG`.
+- Decision: keep token HUD-only debug surface at bottom row (`src/hud.lua`) to avoid portal prompt budget regressions.
+- Verification: `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG=1 lua scripts/regression_combat_damage_glyph_live_token.lua` ✅
+- Follow-up: keep combat glyph burst mapping synced with live token bands (`BASIC/SPIKE/OVERDRIVE`).
