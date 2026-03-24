@@ -106,3 +106,4 @@
 - Added floating hit-number visual feedback hook for both melee and magic impacts (drift + fade).
 - Palette decision: melee = warm gold, magic = arcane violet for quick channel differentiation without extra glyph clutter.
 - No camera shake or particle layering added in this slice to keep DOS readability stable.
+- 2026-03-24 16:01 KST — Added corpse fade visual pass (pink-tinted sprite fade over 0.4s) so hit numbers and kill confirmation read as one beat. Follow-up: consider alternate tint per biome/theme.

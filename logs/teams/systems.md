@@ -2164,3 +2164,4 @@
 - Decision: Added `urgencyStackPruningOrderRecommendation` + signal payload and markdown row `URGENCY STACK PRUNING REC` to guide parity/FX/detail pruning from weekly churn trends.
 - Follow-up: Use recommendation in future ops review; keep runtime prompt behavior unchanged (reporting only).
 
+- 2026-03-24 16:01 KST — Confirmed death fade state is non-interactive (`enemyAt` ignores dead enemies) and timer auto-clears to avoid stale state accumulation.

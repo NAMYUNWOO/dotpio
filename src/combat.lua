@@ -34,6 +34,7 @@ function Combat.meleeAttack(player, enemyAtFn)
         damageNumbers[#damageNumbers+1] = {x=tx, y=ty, amount=finalDmg, timer=DMGNUM_DURATION, magic=false}
         if e.hp <= 0 and e.alive then
             e.alive = false
+            e.deathTimer = 0.4
             killCount = killCount + 1
         end
     end
@@ -70,6 +71,7 @@ function Combat.update(dt, enemyAtFn)
                     damageNumbers[#damageNumbers+1] = {x=p.targetX, y=p.targetY, amount=finalDmg, timer=DMGNUM_DURATION, magic=true}
                     if e.hp <= 0 and e.alive then
                         e.alive = false
+                        e.deathTimer = 0.4
                         killCount = killCount + 1
                     end
                 end

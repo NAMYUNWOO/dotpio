@@ -1454,3 +1454,4 @@
 - Decision: Added `urgencyStackPruningOrderRecommendation` + signal payload and markdown row `URGENCY STACK PRUNING REC` to guide parity/FX/detail pruning from weekly churn trends.
 - Follow-up: Use recommendation in future ops review; keep runtime prompt behavior unchanged (reporting only).
 
+- 2026-03-24 16:01 KST — No map/progression routing changes this cycle; approved combat readability-only slice with zero portal impact.

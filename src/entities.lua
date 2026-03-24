@@ -249,18 +249,25 @@ end
 function Entities.update(dt, player, damageFlashFn)
     local events = { hits = 0, dodges = 0, berserkerLungeTelegraphs = 0, berserkerLungeRecoveries = 0 }
     for i, e in ipairs(Entities.enemies) do
-        local result = EnemyAI.update(e, i, dt, player, Entities.enemies)
-        if result == "hit_player" then
-            events.hits = events.hits + 1
-            if damageFlashFn then
-                damageFlashFn(player.x, player.y)
+        if e.alive then
+            local result = EnemyAI.update(e, i, dt, player, Entities.enemies)
+            if result == "hit_player" then
+                events.hits = events.hits + 1
+                if damageFlashFn then
+                    damageFlashFn(player.x, player.y)
+                end
+            elseif result == "dodged_player" then
+                events.dodges = events.dodges + 1
+            elseif result == "berserker_lunge_telegraph" then
+                events.berserkerLungeTelegraphs = events.berserkerLungeTelegraphs + 1
+            elseif result == "berserker_lunge_recovery" then
+                events.berserkerLungeRecoveries = events.berserkerLungeRecoveries + 1
             end
-        elseif result == "dodged_player" then
-            events.dodges = events.dodges + 1
-        elseif result == "berserker_lunge_telegraph" then
-            events.berserkerLungeTelegraphs = events.berserkerLungeTelegraphs + 1
-        elseif result == "berserker_lunge_recovery" then
-            events.berserkerLungeRecoveries = events.berserkerLungeRecoveries + 1
+        elseif e.deathTimer then
+            e.deathTimer = e.deathTimer - dt
+            if e.deathTimer <= 0 then
+                e.deathTimer = nil
+            end
         end
     end
     return events
@@ -292,16 +299,22 @@ function Entities.drawEnemies(fov, tileset)
     local TILE = Config.TILE
     local img = tileset.getImage()
     for _, e in ipairs(Entities.enemies) do
-        if e.alive and fov.isVisible(e.x, e.y) then
+        if fov.isVisible(e.x, e.y) then
             local vx, vy = e.visualX or e.x, e.visualY or e.y
             local alpha = Map.isOverlayOpaque(e.x, e.y) and 0.45 or 1
-            love.graphics.setColor(1,1,1,alpha)
-            love.graphics.draw(img, tileset.getQuad(e.gid), (vx-1)*TILE, (vy-1)*TILE)
-            local bx, by = (vx-1)*TILE, (vy-1)*TILE - 3
-            love.graphics.setColor(0.3,0,0,alpha)
-            love.graphics.rectangle("fill", bx, by, TILE, 2)
-            love.graphics.setColor(1,0,0,alpha)
-            love.graphics.rectangle("fill", bx, by, TILE*(e.hp/e.maxHp), 2)
+            if e.alive then
+                love.graphics.setColor(1,1,1,alpha)
+                love.graphics.draw(img, tileset.getQuad(e.gid), (vx-1)*TILE, (vy-1)*TILE)
+                local bx, by = (vx-1)*TILE, (vy-1)*TILE - 3
+                love.graphics.setColor(0.3,0,0,alpha)
+                love.graphics.rectangle("fill", bx, by, TILE, 2)
+                love.graphics.setColor(1,0,0,alpha)
+                love.graphics.rectangle("fill", bx, by, TILE*(e.hp/e.maxHp), 2)
+            elseif e.deathTimer and e.deathTimer > 0 then
+                local fade = math.max(0, math.min(1, e.deathTimer / 0.4))
+                love.graphics.setColor(1, 0.5, 0.5, alpha * 0.75 * fade)
+                love.graphics.draw(img, tileset.getQuad(e.gid), (vx-1)*TILE, (vy-1)*TILE)
+            end
         end
     end
 end

@@ -1418,3 +1418,4 @@
 - Decision: Added `urgencyStackPruningOrderRecommendation` + signal payload and markdown row `URGENCY STACK PRUNING REC` to guide parity/FX/detail pruning from weekly churn trends.
 - Follow-up: Use recommendation in future ops review; keep runtime prompt behavior unchanged (reporting only).
 
+- 2026-03-24 16:01 KST — No prompt-token schema changes this cycle; backlog remains stable while combat readability slice shipped.

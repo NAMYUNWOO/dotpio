@@ -1386,3 +1386,4 @@
 - Decision: Added `urgencyStackPruningOrderRecommendation` + signal payload and markdown row `URGENCY STACK PRUNING REC` to guide parity/FX/detail pruning from weekly churn trends.
 - Follow-up: Use recommendation in future ops review; keep runtime prompt behavior unchanged (reporting only).
 
+- 2026-03-24 16:01 KST — Cycle CJ shipped: dead enemies now keep a 0.4s non-interactive fade window after lethal hit to stabilize combat readability around floating damage numbers. Follow-up: evaluate whether fade should scale with enemy tier.

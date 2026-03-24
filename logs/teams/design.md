@@ -1501,3 +1501,4 @@
 - Decision: Added `urgencyStackPruningOrderRecommendation` + signal payload and markdown row `URGENCY STACK PRUNING REC` to guide parity/FX/detail pruning from weekly churn trends.
 - Follow-up: Use recommendation in future ops review; keep runtime prompt behavior unchanged (reporting only).
 
+- 2026-03-24 16:01 KST — Approved short corpse fade to improve visual continuity between impact and removal while preserving DOS clarity.

@@ -713,3 +713,11 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/VFX): Elemental damage type visual differentiation for projectiles based on player elemental stats.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] VFX/Combat Team: Add floating damage numbers on melee and magic hit with upward drift + fade animation.
+
+## Cycle CJ - Game Director Review (2026-03-24 16:01 KST)
+- Coverage check (last 10 completions): systems=5, world=3, design=2, combat=2, vfx=1, ai-content=2, ux=3, qa=4. Bucket rollup: systems/ops=50%, design/world=50%, combat/vfx=20%.
+- Idea 1 (low risk, Combat/VFX): Keep slain enemies visible for 0.4s with fade-out so floating damage numbers have clear visual anchor.
+- Idea 2 (mid risk, Systems/QA): Add floating-number stack cap token + digest telemetry for high-action turns.
+- Idea 3 (high risk, AI Content/VFX): Add procedural glyph burst variants based on damage magnitude bands.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Combat/VFX Team: Add short corpse fade window (`deathTimer`) with non-interactive draw-state + regression coverage.

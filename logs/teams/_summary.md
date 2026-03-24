@@ -2431,3 +2431,13 @@ Compact decision memory for AI context efficiency.
 - Implementation lives in `src/portal.lua` compact transition prompt urgency path; tiering keyed by compact budget (`<=140 TIGHT`, `<=170 MID`, else `LOOSE`).
 - Added regression coverage: `scripts/regression_portal_urgency_stack_tier.lua`.
 - Next priority item remains: AI Content/Systems drift-aware urgency-stack pruning order recommendation from weekly digest trends.
+
+## 2026-03-24 16:01 KST — Cycle CJ corpse-fade readability slice
+- Actionable queues were fully checked, so Game Director Cycle CJ executed (3 ideas generated; low-risk Combat/VFX slice selected).
+- Shipped minimal vertical slice: dead enemies now persist for 0.4s with fade-out (`deathTimer`) so floating damage numbers retain a clear kill anchor.
+- Durable decision: keep corpse fade non-interactive (`enemyAt` still filters to alive targets) and auto-clear timer state after expiry.
+- Verification PASS:
+  - `lua scripts/regression_combat_damage_numbers.lua`
+  - `lua scripts/regression_enemy_death_fade.lua`
+- Backlog/task state updated: Cycle CJ selected item moved `[~] -> [x]` in both `TASKS.md` and `POST_RC_BACKLOG.md`.
+- Next injected priority candidate: map-zone ambient tint prototype (World/Design, mid-risk) for broader player-facing readability cadence.
