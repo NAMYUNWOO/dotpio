@@ -2552,3 +2552,9 @@ Compact decision memory for AI context efficiency.
 - Injected backlog updates in `TASKS.md` + `POST_RC_BACKLOG.md` under Cycle CR with selected experiment recorded and completed.
 
 - 2026-03-24 23:04 KST (Cycle CS): Added portal ambient-ramp confidence readability slice (`AMBIENT RAMP CONF:*`, compact `ARC:*`) behind new experiment flags; regression coverage added via `scripts/regression_portal_ambient_ramp_confidence.lua`; next injections queued for digest churn coverage and offline drift recommendation policy.
+
+## 2026-03-25 00:05 KST — Ambient confidence recommendation policy closure
+- Closed remaining unchecked TASKS/POST_RC item by shipping offline-only weekly digest recommendation `AMBIENT RAMP CONF REC` (`PIN_HIGH_CONF|GUARD_HIGH_CONF|ALLOW_BALANCED_CONF`).
+- Weekly digest payload contract now includes `ambientRampConfidenceRecommendation` + `ambientRampConfidenceRecommendationSignals` with drift-risk/pressure/churn diagnostics and guidance text.
+- Markdown digest now emits `AMBIENT RAMP CONF REC` triage line; regression contract updated in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification PASS: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.

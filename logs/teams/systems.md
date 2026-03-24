@@ -2267,3 +2267,8 @@
 - Decisions:
   - Added `ambientRampConfidenceAlias` family with detailed+compact aliases (`AMBIENT RAMP CONF:` + `ARC:`).
   - Extended digest markdown rows (family churn + token coverage section) for ambient-ramp confidence visibility.
+
+## 2026-03-25 00:05 KST — Ambient confidence recommendation policy digest update
+- Synced queue lifecycle for Cycle CS/current tail item ([~] -> [x]) by shipping offline-only recommendation `AMBIENT RAMP CONF REC` in weekly readability digest.
+- Added JSON payload contract keys `ambientRampConfidenceRecommendation` + `ambientRampConfidenceRecommendationSignals` and markdown digest line for operator triage.
+- Verification: [PASS] weekly portal prompt readability drift regression checks PASS; digest regeneration PASS.

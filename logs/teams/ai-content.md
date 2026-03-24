@@ -1496,3 +1496,8 @@
 ## 2026-03-24 23:31:00 KST
 - Coordination: Systems/QA completed ambient confidence alias-family digest instrumentation (`ambientRampConfidenceAlias`).
 - Impact: AI-content follow-up policy task now has deterministic churn/coverage inputs for offline recommendation prototyping.
+
+## 2026-03-25 00:05 KST — Ambient confidence recommendation policy digest update
+- Synced queue lifecycle for Cycle CS/current tail item ([~] -> [x]) by shipping offline-only recommendation `AMBIENT RAMP CONF REC` in weekly readability digest.
+- Added JSON payload contract keys `ambientRampConfidenceRecommendation` + `ambientRampConfidenceRecommendationSignals` and markdown digest line for operator triage.
+- Verification: [PASS] weekly portal prompt readability drift regression checks PASS; digest regeneration PASS.

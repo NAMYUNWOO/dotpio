@@ -139,6 +139,17 @@ def main() -> int:
             "offlineOnly",
             "guidance",
         }, payload
+        assert payload.get("ambientRampConfidenceRecommendation") in {"PIN_HIGH_CONF", "GUARD_HIGH_CONF", "ALLOW_BALANCED_CONF"}, payload
+        assert set(payload.get("ambientRampConfidenceRecommendationSignals", {}).keys()) == {
+            "driftRisk",
+            "pressureBand",
+            "ambientRampConfidenceChurn",
+            "ambientRampConfidenceNet",
+            "ambientRampConfidenceCoverage",
+            "rationale",
+            "offlineOnly",
+            "guidance",
+        }, payload
         assert payload.get("urgencyStackPruningOrderRecommendation") in {"PARITY>FX>DETAIL", "FX>PARITY>DETAIL"}, payload
         assert set(payload.get("urgencyStackPruningOrderRecommendationSignals", {}).keys()) == {
             "driftRisk",
@@ -1470,6 +1481,7 @@ def main() -> int:
         assert "PRESSURE BAND" in md_text
         assert "DRIFT RISK" in md_text
         assert "RGFXWRI WHY CONF POLICY REC" in md_text
+        assert "AMBIENT RAMP CONF REC" in md_text
         assert "URGENCY STACK PRUNING REC" in md_text
         assert "URGENCY STACK RAIL REC" in md_text
         assert "DMG GLYPH SHAPE REMAP REC" in md_text
