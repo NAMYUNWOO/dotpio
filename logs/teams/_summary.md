@@ -16,6 +16,8 @@ Compact decision memory for AI context efficiency.
 - Closed highest-priority unchecked TASKS/POST_RC follow-up for urgency parity: portal prompts now support detailed urgency token `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:<LOW|MID|HIGH>` behind dedicated flag `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_PARITY`.
 - Added regression guardrail `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_parity.lua` and re-validated urgency FX baseline (`..._urgency_fx.lua`), both passing.
 - Cycle CD/CE duplicate backlog entries for urgency parity were normalized to done in `TASKS.md` and `POST_RC_BACKLOG.md` after verification.
+- Actionable queues reached full-check, so Game Director Cycle CF ran: generated 3 ideas, selected low-risk Systems/QA slice, and shipped digest parity-family visibility (`routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyDetailed`) with regression assertions.
+- Cycle CF injected follow-up backlog tasks for Design/Combat coach token and UX compact-budget validation under urgency parity + urgency FX.
 
 - Cycle CE coverage check (last 10 completions) found lane skew: design/world=60%, systems/ops=40%, combat/vfx=10%; forced-lane rule triggered and underrepresented combat/vfx was prioritized.
 - Shipped combat/vfx minimal vertical slice in `src/portal.lua`: new flag-gated compact urgency FX token `RGFXWRIUFX:CALM|SPARK|BLAZE` (`DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_FX`) mapped deterministically from urgency tier.

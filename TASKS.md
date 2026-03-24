@@ -681,3 +681,12 @@ See project-level plans:
 - [x] Design/World Team: Prototype detailed parity urgency label (`ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:<LOW|MID|HIGH`) behind dedicated flag.
 - [x] Systems/Ops Team: Add weekly digest token-family coverage for urgency FX alias churn (`RGFXWRIUFX:`) plus lane cadence summary row.
 
+
+## Cycle CF - Game Director Review (triggered after actionable backlog clear)
+- Coverage check (last 10 completions): design/world heavy trend remained >40%; selected Systems/QA low-risk slice for balance.
+- Ideas generated:
+  - Low-risk (Systems/QA): add dedicated weekly digest family row for detailed urgency parity label churn.
+  - Mid-risk (Design/Combat): urgency parity-conditioned coach suffix token for spike routes.
+  - High-risk (Novelty): adaptive prompt budget swap that replaces route-glow family with urgency glyph burst under overload.
+- Selected experiment: low-risk Systems/QA digest parity-family coverage.
+- [x] Systems/QA Team: Add dedicated digest family churn row for detailed urgency parity label and lock via regression.

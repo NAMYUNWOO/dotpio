@@ -1317,6 +1317,7 @@ def main() -> int:
         assert "RGFXWRI WHY FAMILY CHURN" in md_text
         assert "RGFXWRI WHY CONF FAMILY CHURN" in md_text
         assert "RGFXWRIU URGENCY FAMILY CHURN" in md_text
+        assert "URGENCY PARITY LABEL FAMILY CHURN" in md_text
         assert "RGFXWRIUFX URGENCY FX FAMILY CHURN" in md_text
         assert "LANE CADENCE SUMMARY" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
@@ -1329,6 +1330,7 @@ def main() -> int:
         assert "RGFXWRI WHY:" in md_text
         assert "RGFXWRIWC + RGFXWRI WHY CONF:" in md_text
         assert "RGFXWRIU + ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:" in md_text
+        assert "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY PARITY:" in md_text
         assert "RGFXWRIUFX URGENCY FX:" in md_text
         assert "LANE CADENCE SUMMARY: SYSTEMS/OPS" in md_text
         assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text

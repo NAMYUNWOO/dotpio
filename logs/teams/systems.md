@@ -2104,3 +2104,14 @@
   - Detailed urgency label emits only when urgency alias path is active and parity flag is enabled.
 - Follow-up:
   - Consider adding digest-level family row for urgency parity detailed label if churn review demands it.
+
+## 2026-03-24 11:01 KST (Cycle CF)
+- Task: Game Director-selected Systems/QA slice — dedicated digest churn row for urgency parity detailed label.
+- Commit: pending (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added dedicated alias-family key `routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyDetailed` for parity-label-only visibility.
+  - Added markdown coverage rows for parity family churn in both triage summary and token-family coverage block.

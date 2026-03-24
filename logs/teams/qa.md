@@ -2622,3 +2622,12 @@
   - Confirmed no regression on urgency FX token path.
 - Follow-up:
   - Keep parity test in portal prompt regression bundle.
+
+## 2026-03-24 11:01 KST (Cycle CF)
+- Task: Verify weekly digest parity-family churn instrumentation.
+- Commit: pending (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Regression now asserts `URGENCY PARITY LABEL FAMILY CHURN` and token-family coverage row presence.

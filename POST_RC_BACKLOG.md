@@ -521,3 +521,7 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Design/World Team: Prototype detailed parity urgency label (`ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:<LOW|MID|HIGH`) behind dedicated flag.
 - [x] Systems/Ops Team: Add weekly digest token-family coverage for urgency FX alias churn (`RGFXWRIUFX:`) plus lane cadence summary row.
 
+
+## Cycle CF follow-ups (injected)
+- [ ] Design/Combat Team: Prototype `RGFXWRIU COACH:<STEADY|SPIKE>` hint token behind dedicated flag when urgency parity is enabled.
+- [ ] UX Team: Validate compact prompt budget impact when urgency parity + urgency FX are enabled simultaneously; publish screenshot/playtest notes.
