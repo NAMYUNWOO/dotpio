@@ -1513,6 +1513,17 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
         prompt = prompt .. chunk
     end
 
+    local function appendBudgetedTokenCandidates(candidates)
+        if not candidates then
+            return
+        end
+        for _, candidate in ipairs(candidates) do
+            if candidate then
+                appendToken(candidate, true)
+            end
+        end
+    end
+
     if compactPulseLink then
         appendToken(string.format("PULSE LINK:%s", compactPulseLink), false)
     end
@@ -1594,24 +1605,38 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
                                                         local routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency = resolveRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgency(routeGlowFxConfidenceWhyRailIntensityWhyConfidence)
                                                         if routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency then
                                                             appendToken(string.format("RGFXWRIU:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency), false)
+
+                                                            local urgencyParityToken = nil
+                                                            local urgencyCoachToken = nil
                                                             if isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityExperimentEnabled() then
                                                                 if isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAliasExperimentEnabled() then
-                                                                    appendToken(string.format("RGFXWRIUP:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency), false)
+                                                                    urgencyParityToken = string.format("RGFXWRIUP:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency)
                                                                 else
-                                                                    appendToken(string.format("ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency), false)
+                                                                    urgencyParityToken = string.format("ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency)
                                                                 end
                                                                 if isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyCoachExperimentEnabled() then
                                                                     local routeGlowFxConfidenceWhyRailIntensityWhyConfUrgencyCoach = resolveRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyCoach(routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency)
                                                                     if routeGlowFxConfidenceWhyRailIntensityWhyConfUrgencyCoach then
-                                                                        appendToken(string.format("RGFXWRIU COACH:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgencyCoach), false)
+                                                                        urgencyCoachToken = string.format("RGFXWRIU COACH:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgencyCoach)
                                                                     end
                                                                 end
                                                             end
+
+                                                            local urgencyFxToken = nil
                                                             if isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxExperimentEnabled() then
                                                                 local routeGlowFxConfidenceWhyRailIntensityWhyConfUrgencyFx = resolveRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFx(routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency)
                                                                 if routeGlowFxConfidenceWhyRailIntensityWhyConfUrgencyFx then
-                                                                    appendToken(string.format("RGFXWRIUFX:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgencyFx), false)
+                                                                    urgencyFxToken = string.format("RGFXWRIUFX:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgencyFx)
                                                                 end
+                                                            end
+
+                                                            local remainingBudget = budget > 0 and (budget - #prompt) or 999
+                                                            if budget > 0 and remainingBudget <= 20 then
+                                                                appendBudgetedTokenCandidates({ urgencyFxToken, urgencyParityToken, urgencyCoachToken })
+                                                            elseif budget > 0 and remainingBudget <= 36 then
+                                                                appendBudgetedTokenCandidates({ urgencyParityToken, urgencyFxToken, urgencyCoachToken })
+                                                            else
+                                                                appendBudgetedTokenCandidates({ urgencyParityToken, urgencyCoachToken, urgencyFxToken })
                                                             end
                                                         end
                                                     end

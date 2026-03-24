@@ -1394,3 +1394,7 @@
 ## 2026-03-24 12:06 KST
 - Context: Prompt token wording remains deterministic with new compact parity alias (`RGFXWRIUP`) while preserving existing urgency bands.
 - Follow-up: prototype deterministic headroom-based token pruning order for stacked urgency tokens.
+
+## 2026-03-24 13:01 KST
+- Deterministic copy-pruning policy landed for urgency stack extensions: parity and FX are now budget-gated while base urgency label remains stable.
+- Rationale: preserve minimum actionable urgency semantics under constrained compact prompt budgets.

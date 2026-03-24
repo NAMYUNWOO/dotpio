@@ -2403,3 +2403,7 @@ Compact decision memory for AI context efficiency.
 - Compact unknown-route prompts now prefer `COACH:NO DATA` when budget headroom allows, and downgrade to `COACH:UNK` only when required to stay within compact budget.
 - Added regression guardrail `scripts/regression_portal_unknown_compact_coach.lua`; baseline `scripts/regression_portal_route_preview.lua` remains passing.
 - Remaining highest-priority unchecked queue item: Systems/AI deterministic budget-headroom token-pruning order for urgency parity/FX stacks.
+
+- Closed Cycle CG Systems/AI item: deterministic budget-headroom token-pruning order implemented for urgency parity/FX stack in compact portal prompt flow.
+- Durable decision:  is required baseline; parity/coach/FX urgency extensions are appended via deterministic budget-gated ordering.
+- Added guardrail regression:  (PASS).

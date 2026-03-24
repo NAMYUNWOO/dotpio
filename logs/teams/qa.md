@@ -2657,3 +2657,7 @@
   - `lua scripts/regression_portal_route_preview.lua` ✅
 - Decision: Added explicit dual-budget assertions to lock expected behavior (`COACH:NO DATA` with headroom, `COACH:UNK` when constrained).
 - Follow-up: Extend digest-oriented regression set once deterministic pruning order task lands.
+
+## 2026-03-24 13:01 KST
+- Added regression coverage for urgency-stack budget pruning order.
+- Verification:  ✅

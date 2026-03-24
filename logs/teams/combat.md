@@ -1361,3 +1361,6 @@
 ## 2026-03-24 12:06 KST
 - Cross-lane sync: urgency FX token path (`RGFXWRIUFX`) remained stable while compact urgency-parity alias landed.
 - Verification reference: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_fx.lua` PASS.
+
+## 2026-03-24 13:01 KST
+- Combat readability note: urgency coach/fx extras are now safely pruned when compact budget saturates, preventing token spillover while retaining baseline urgency cue.

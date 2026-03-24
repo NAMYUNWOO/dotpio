@@ -2136,3 +2136,9 @@
   - Added compact coach resolver preference toggle so unknown routes can emit long fallback text when budget permits.
   - Compact prompt builder now evaluates unknown-route base-line fit against budget before selecting `NO DATA` vs `UNK`.
 - Follow-up: Next highest unchecked item is deterministic budget-headroom token-pruning order for urgency parity/FX stacks.
+
+## 2026-03-24 13:01 KST
+- Task: deterministic budget-headroom pruning order for route-glow urgency parity/FX stack in compact prompt mode.
+- Decision: keep core urgency token () always-on, then budget-gate parity/coach/FX tokens in deterministic order with explicit headroom tiers.
+- Files: , , , .
+- Verification:  ✅

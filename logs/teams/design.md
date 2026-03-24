@@ -1478,3 +1478,6 @@
 - Decision: Unknown compact coach now prefers `COACH:NO DATA` when budget allows and automatically falls back to `COACH:UNK` when tight-budget rendering would overflow.
 - Evidence: `src/portal.lua`, `scripts/regression_portal_unknown_compact_coach.lua`.
 - Follow-up: Keep the remaining Cycle CG Systems/AI task focused on deterministic pruning order for urgency parity/FX stacks.
+
+## 2026-03-24 13:01 KST
+- Design decision: under tight compact budgets, prioritize deterministic urgency core token over decorative parity/FX stack tokens.

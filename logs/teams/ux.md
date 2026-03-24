@@ -1663,3 +1663,6 @@
 - Decision: Prioritized clearer unknown-route coach copy (`NO DATA`) in compact mode with automatic budget-safe downgrade (`UNK`) under tighter prompt limits.
 - Verification: `lua scripts/regression_portal_unknown_compact_coach.lua` ✅
 - Follow-up: Validate unknown-route copy remains stable when additional compact tokens are enabled.
+
+## 2026-03-24 13:01 KST
+- UX decision: compact prompt now uses deterministic urgency-stack pruning tiers (tight/medium/loose headroom) to avoid non-deterministic token overflow behavior.
