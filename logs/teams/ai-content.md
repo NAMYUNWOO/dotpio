@@ -1565,3 +1565,8 @@
 - Added alias mapping helper + payload field `ambientRampWhyAutoRemapPlanCompact`; kept runtime prompt pipeline untouched.
 - Follow-up queued: drift-aware candidate re-ranking policy as offline-only sandbox artifact.
 - [2026-03-25 06:01 KST] Implemented drift-aware ambient auto-remap candidate re-ranking (offline/sandbox only) with deterministic safety lock fallback.
+
+## 2026-03-25 06:31 KST — Cycle DD ARW auto-plan confidence slice
+- Completed: Added weekly digest token `ARW AUTO PLAN CONF:LOW|MID|HIGH` with payload signals and regression lock.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
+- Notes: offline-only observability enhancement; no runtime prompt/mechanics coupling changed.

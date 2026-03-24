@@ -1588,3 +1588,8 @@
 ## 2026-03-25 05:35 KST — Cycle DC world impact check
 - Confirmed `ARW AUTO PLAN` alias remains reporting-only metadata and does not alter world/portal runtime cues.
 - [2026-03-25 06:01 KST] Confirmed ARW AUTO PLAN compact/detailed token visibility in portal digest outputs for world readability audits.
+
+## 2026-03-25 06:31 KST — Cycle DD ARW auto-plan confidence slice
+- Completed: Added weekly digest token `ARW AUTO PLAN CONF:LOW|MID|HIGH` with payload signals and regression lock.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
+- Notes: offline-only observability enhancement; no runtime prompt/mechanics coupling changed.

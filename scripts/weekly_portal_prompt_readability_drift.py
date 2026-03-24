@@ -5579,6 +5579,45 @@ def ambient_ramp_why_auto_remap_plan_drift_from_prior(
     }
 
 
+def ambient_ramp_why_auto_remap_plan_confidence_from_signals(
+    *,
+    selected_plan: str,
+    plan_signals: dict[str, object],
+    plan_drift: int,
+    plan_drift_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Resolve confidence tier for ambient auto-remap plan selection readability."""
+    drift_risk = str(plan_signals.get("driftRisk", "LOW"))
+    recommendation_conf = str(plan_signals.get("confidence", "LOW"))
+    parity = str(plan_signals.get("parity", "LOCK"))
+    pressure_band = str(plan_signals.get("pressureBand", "LOW"))
+    prior_loaded = bool(plan_drift_signals.get("priorLoaded", False))
+
+    if parity == "LOCK" or recommendation_conf == "LOW":
+        confidence = "HIGH"
+        rationale = "safety-locked-plan-selection"
+    elif drift_risk == "LOW" and pressure_band == "LOW" and recommendation_conf == "HIGH" and abs(plan_drift) <= 1:
+        confidence = "HIGH"
+        rationale = "stable-low-pressure-window"
+    elif drift_risk == "HIGH" and abs(plan_drift) >= 2 and prior_loaded:
+        confidence = "LOW"
+        rationale = "high-drift-large-plan-shift"
+    else:
+        confidence = "MID"
+        rationale = "guarded-offline-selection"
+
+    return confidence, {
+        "selectedPlan": selected_plan,
+        "recommendationConfidence": recommendation_conf,
+        "parity": parity,
+        "driftRisk": drift_risk,
+        "pressureBand": pressure_band,
+        "planDrift": int(plan_drift),
+        "priorLoaded": prior_loaded,
+        "rationale": rationale,
+    }
+
+
 def urgency_stack_pruning_order_recommendation_from_trends(
     *,
     drift_risk: str,
@@ -5877,6 +5916,12 @@ def main() -> int:
     ambient_ramp_why_auto_remap_plan_drift, ambient_ramp_why_auto_remap_plan_drift_signals = ambient_ramp_why_auto_remap_plan_drift_from_prior(
         current_plan=ambient_ramp_why_auto_remap_plan,
         prior_json_path=args.out_json,
+    )
+    ambient_ramp_why_auto_remap_plan_confidence, ambient_ramp_why_auto_remap_plan_confidence_signals = ambient_ramp_why_auto_remap_plan_confidence_from_signals(
+        selected_plan=ambient_ramp_why_auto_remap_plan,
+        plan_signals=ambient_ramp_why_auto_remap_plan_signals,
+        plan_drift=ambient_ramp_why_auto_remap_plan_drift,
+        plan_drift_signals=ambient_ramp_why_auto_remap_plan_drift_signals,
     )
     urgency_stack_pruning_order_recommendation, urgency_stack_pruning_order_recommendation_signals = urgency_stack_pruning_order_recommendation_from_trends(
         drift_risk=drift_risk,
@@ -6641,6 +6686,8 @@ def main() -> int:
         "ambientRampWhyAutoRemapPlanSignals": ambient_ramp_why_auto_remap_plan_signals,
         "ambientRampWhyAutoRemapPlanDrift": ambient_ramp_why_auto_remap_plan_drift,
         "ambientRampWhyAutoRemapPlanDriftSignals": ambient_ramp_why_auto_remap_plan_drift_signals,
+        "ambientRampWhyAutoRemapPlanConfidence": ambient_ramp_why_auto_remap_plan_confidence,
+        "ambientRampWhyAutoRemapPlanConfidenceSignals": ambient_ramp_why_auto_remap_plan_confidence_signals,
         "urgencyStackPruningOrderRecommendation": urgency_stack_pruning_order_recommendation,
         "urgencyStackPruningOrderRecommendationSignals": urgency_stack_pruning_order_recommendation_signals,
         "urgencyStackRailRecommendation": urgency_stack_rail_recommendation,
@@ -6942,6 +6989,7 @@ def main() -> int:
         f"- AMBIENT RAMP WHY AUTO-REMAP PLAN: **{ambient_ramp_why_auto_remap_plan}** ({ambient_ramp_why_auto_remap_plan_signals['rationale']}; rec={ambient_ramp_why_auto_remap_plan_signals['recommendation']} conf={ambient_ramp_why_auto_remap_plan_signals['confidence']} parity={ambient_ramp_why_auto_remap_plan_signals['parity']} drift={ambient_ramp_why_auto_remap_plan_signals['driftRisk']} pressure={ambient_ramp_why_auto_remap_plan_signals['pressureBand']} offlineOnly={ambient_ramp_why_auto_remap_plan_signals['offlineOnly']})",
         f"- ARW AUTO PLAN: **{ambient_ramp_why_auto_remap_plan_compact}** (full={ambient_ramp_why_auto_remap_plan})",
         f"- ARW AUTO PLAN Δ: **{ambient_ramp_why_auto_remap_plan_drift:+d}** ({ambient_ramp_why_auto_remap_plan_drift_signals['reason']}; current={ambient_ramp_why_auto_remap_plan_drift_signals['currentPlan']}({ambient_ramp_why_auto_remap_plan_drift_signals['currentScore']}) prior={ambient_ramp_why_auto_remap_plan_drift_signals['priorPlan']}({ambient_ramp_why_auto_remap_plan_drift_signals['priorScore']}) loaded={ambient_ramp_why_auto_remap_plan_drift_signals['priorLoaded']})",
+        f"- ARW AUTO PLAN CONF: **{ambient_ramp_why_auto_remap_plan_confidence}** ({ambient_ramp_why_auto_remap_plan_confidence_signals['rationale']}; recConf={ambient_ramp_why_auto_remap_plan_confidence_signals['recommendationConfidence']} parity={ambient_ramp_why_auto_remap_plan_confidence_signals['parity']} driftRisk={ambient_ramp_why_auto_remap_plan_confidence_signals['driftRisk']} pressure={ambient_ramp_why_auto_remap_plan_confidence_signals['pressureBand']} Δ={ambient_ramp_why_auto_remap_plan_confidence_signals['planDrift']:+d})",
         f"- URGENCY STACK PRUNING REC: **{urgency_stack_pruning_order_recommendation}** ({urgency_stack_pruning_order_recommendation_signals['rationale']}; parityChurn={urgency_stack_pruning_order_recommendation_signals['parityCompactChurn']} fxChurn={urgency_stack_pruning_order_recommendation_signals['urgencyFxChurn']} detailedChurn={urgency_stack_pruning_order_recommendation_signals['urgencyDetailedChurn']} offlineOnly={urgency_stack_pruning_order_recommendation_signals['offlineOnly']})",
         f"- URGENCY STACK RAIL REC: **{urgency_stack_rail_recommendation}** ({urgency_stack_rail_recommendation_signals['rationale']}; railChurn={urgency_stack_rail_recommendation_signals['urgencyStackRailChurn']} railNet={urgency_stack_rail_recommendation_signals['urgencyStackRailNet']} tierChurn={urgency_stack_rail_recommendation_signals['urgencyStackTierChurn']} offlineOnly={urgency_stack_rail_recommendation_signals['offlineOnly']})",
         f"- DMG GLYPH SHAPE REMAP REC: **{dmg_glyph_shape_remap_recommendation}** ({dmg_glyph_shape_remap_recommendation_signals['rationale']}; glyphChurn={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphChurn']} glyphNet={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphNet']} railChurn={dmg_glyph_shape_remap_recommendation_signals['urgencyStackRailChurn']} offlineOnly={dmg_glyph_shape_remap_recommendation_signals['offlineOnly']})",

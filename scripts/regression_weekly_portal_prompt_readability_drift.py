@@ -1516,6 +1516,17 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert payload.get("ambientRampWhyAutoRemapPlanConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("ambientRampWhyAutoRemapPlanConfidenceSignals", {}).keys()) == {
+            "selectedPlan",
+            "recommendationConfidence",
+            "parity",
+            "driftRisk",
+            "pressureBand",
+            "planDrift",
+            "priorLoaded",
+            "rationale",
+        }, payload
         assert out_ambient_auto_remap_json.exists()
         assert out_ambient_auto_remap_md.exists()
         md_text = out_md.read_text(encoding="utf-8")
@@ -1594,6 +1605,7 @@ def main() -> int:
         assert "AMBIENT RAMP WHY AUTO-REMAP PLAN" in md_text
         assert "ARW AUTO PLAN" in md_text
         assert "ARW AUTO PLAN Δ" in md_text
+        assert "ARW AUTO PLAN CONF" in md_text
         assert "ARW AUTO PLAN FAMILY CHURN" in md_text
         assert "URGENCY STACK PRUNING REC" in md_text
         assert "URGENCY STACK RAIL REC" in md_text

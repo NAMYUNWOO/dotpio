@@ -2365,3 +2365,8 @@
 - Added compact alias derivation function for ambient auto-remap plan and persisted it into digest payload + sandbox artifact schema.
 - Follow-up queued for QA: explicit churn/drift coverage row for `ARW AUTO PLAN:` lane in weekly digest.
 - [2026-03-25 06:01 KST] Added ARW AUTO PLAN token-family coverage + prior-window drift delta plumbing in weekly digest payload/markdown; ensured offline-only candidate rerank policy metadata is explicit.
+
+## 2026-03-25 06:31 KST — Cycle DD ARW auto-plan confidence slice
+- Completed: Added weekly digest token `ARW AUTO PLAN CONF:LOW|MID|HIGH` with payload signals and regression lock.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
+- Notes: offline-only observability enhancement; no runtime prompt/mechanics coupling changed.

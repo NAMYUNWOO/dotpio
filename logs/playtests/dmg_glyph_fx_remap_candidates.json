@@ -1,39 +1,39 @@
 {
-  "generatedAt": "2026-03-24T19:36:22.457718Z",
+  "generatedAt": "2026-03-24T21:35:08.020662Z",
   "window": {
-    "sinceDays": 3650,
-    "maxCommits": 20,
-    "checkedCommits": 2,
-    "touchedCommits": 2
+    "sinceDays": 7,
+    "maxCommits": 120,
+    "checkedCommits": 120,
+    "touchedCommits": 53
   },
   "recommendation": {
-    "mode": "MICRO_TUNE_FX",
-    "confidence": "MID",
+    "mode": "HOLD_FX",
+    "confidence": "LOW",
     "signals": {
-      "driftRisk": "MID",
+      "driftRisk": "HIGH",
       "dmgGlyphFxLiveChurn": 0,
       "dmgGlyphFxLiveNet": 0,
       "dmgGlyphFxLiveCoverage": "0/1",
       "dmgGlyphChurn": 0,
       "dmgGlyphNet": 0,
-      "rationale": "stable-fx-window",
+      "rationale": "high-risk-or-fx-churn",
       "offlineOnly": true,
-      "guidance": "Allow small offline-only FX remap suggestions; keep live mapping unchanged until validated."
+      "guidance": "Keep CALM/SPARK/BLAZE mapping pinned; collect one more stable digest window before proposing FX remap."
     },
     "confidenceSignals": {
-      "driftRisk": "MID",
+      "driftRisk": "HIGH",
       "dmgGlyphFxLiveChurn": 0,
       "dmgGlyphChurn": 0,
       "churnScore": 0,
-      "rationale": "mixed-risk-window"
+      "rationale": "high-risk-or-high-churn"
     }
   },
   "selectedCandidate": {
-    "rank": 2,
-    "mode": "MICRO_TUNE_FX",
-    "summary": "Draft small offline FX remap options that keep glyph-band thresholds unchanged.",
-    "when": "Use in stable windows with moderate churn.",
-    "risk": "MID",
+    "rank": 1,
+    "mode": "HOLD_FX",
+    "summary": "Pin CALM/SPARK/BLAZE mapping and defer runtime remap edits.",
+    "when": "Use during HIGH drift or high FX churn windows.",
+    "risk": "LOW",
     "offlineOnly": true
   },
   "candidates": [

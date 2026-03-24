@@ -2671,3 +2671,9 @@ Compact decision memory for AI context efficiency.
 
 - Game Director Cycle DC executed after queue-clear trigger: generated 3 ideas, selected low-risk UX/AI-content slice, shipped compact alias `ARW AUTO PLAN:HOLD|SHADOW|OPEN` in digest + sandbox artifact payload, and injected two follow-up backlog tasks (QA churn/drift coverage + AI-content re-ranking policy prototype).
 - [2026-03-25 06:01 KST] Completed TASKS/POST-RC ambient pair: (1) ARW AUTO PLAN family churn/drift coverage, (2) offline drift-aware candidate reranking; regression green.
+
+## 2026-03-25 06:31 KST — Cycle DD: ARW auto-plan confidence token
+- ACTION_ITEMS/TASKS/POST_RC were fully checked, so Game Director Cycle DD executed (3 ideas) and selected low-risk Systems/QA slice.
+- Shipped weekly digest token `ARW AUTO PLAN CONF:LOW|MID|HIGH` with payload keys `ambientRampWhyAutoRemapPlanConfidence` + `ambientRampWhyAutoRemapPlanConfidenceSignals`.
+- Markdown digest now includes `ARW AUTO PLAN CONF` line; regression contract updated in `scripts/regression_weekly_portal_prompt_readability_drift.py` and passing.
+- Backlog injected and synced: Cycle DD selected item completed (`[~] -> [x]`); remaining queued ideas are `ARW AUTO WHY:<short>` and confidence-streak suppression policy (offline-only).

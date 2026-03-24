@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-03-24T21:35:08.020662Z",
+  "window": {
+    "sinceDays": 7,
+    "maxCommits": 120,
+    "checkedCommits": 120,
+    "touchedCommits": 53
+  },
+  "recommendation": {
+    "ambientRampWhyRecommendation": "HOLD_SAFE_WHY",
+    "ambientRampWhyRecommendationConfidence": "MID",
+    "ambientRampWhyRecommendationParity": "LOCK"
+  },
+  "selectedPlan": "HOLD_SAFE_BASELINE",
+  "selectedPlanCompact": "HOLD",
+  "selectedPlanSignals": {
+    "recommendation": "HOLD_SAFE_WHY",
+    "confidence": "MID",
+    "parity": "LOCK",
+    "driftRisk": "HIGH",
+    "pressureBand": "HIGH",
+    "ambientRampWhyChurn": 10,
+    "ambientRampWhyNet": 10,
+    "offlineOnly": true,
+    "rationale": "safety-lock-from-confidence-or-parity",
+    "nextAction": "Generate sandbox table + review notes; keep runtime contract unchanged.",
+    "rerankPolicy": "drift-aware-offline-candidate-priority",
+    "candidateCount": 3
+  },
+  "candidates": [
+    {
+      "baseRank": 1,
+      "plan": "HOLD_SAFE_BASELINE",
+      "summary": "Keep ambient rationale on SAFE-first deterministic wording with no runtime remap coupling.",
+      "when": "Use by default in HIGH drift, HIGH pressure, or parity LOCK windows.",
+      "risk": "LOW",
+      "offlineOnly": true,
+      "changeScope": "digest + sandbox notes only",
+      "score": 10,
+      "rank": 1
+    },
+    {
+      "baseRank": 2,
+      "plan": "SHADOW_PRESSURE_REMIX",
+      "summary": "Draft offline pressure-gated rationale remap table for manual review before any runtime use.",
+      "when": "Use in MID risk windows when recommendation is PRESSURE_GATED_WHY and confidence is not LOW.",
+      "risk": "MID",
+      "offlineOnly": true,
+      "changeScope": "sandbox artifact + playtest checklist",
+      "score": 2,
+      "rank": 2
+    },
+    {
+      "baseRank": 3,
+      "plan": "LIMITED_CONTEXT_EXPANSION",
+      "summary": "Prepare small contextual rationale variants for CALM windows with rollback checklist.",
+      "when": "Use only in LOW drift + LOW pressure windows with HIGH confidence and SYNC parity.",
+      "risk": "MID",
+      "offlineOnly": true,
+      "changeScope": "sandbox draft variants (no runtime wiring)",
+      "score": -4,
+      "rank": 3
+    }
+  ]
+}

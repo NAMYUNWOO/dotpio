@@ -697,3 +697,12 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/AI Content Team: Add compact ambient auto-remap plan alias token (`ARW AUTO PLAN:HOLD|SHADOW|OPEN`) in weekly digest + sandbox artifact payload.
 - [x] Systems/QA Team: Add weekly digest token-family churn/drift coverage for `ARW AUTO PLAN:` and lock via regression. *(lifecycle: [ ] -> [~] -> [x])*
 - [x] AI Content/Systems Team: Prototype offline drift-aware ambient auto-remap candidate re-ranking policy (sandbox artifact only, no runtime coupling). *(lifecycle: [ ] -> [x])*
+
+## Cycle DD - Game Director Review (2026-03-25 06:31 KST)
+- Idea 1 (low risk, Systems/QA): Add ambient auto-remap plan confidence token (`ARW AUTO PLAN CONF:LOW|MID|HIGH`) to weekly digest for quicker operator trust triage.
+- Idea 2 (mid risk, UX/AI Content): Add compact ambient auto-remap rationale shorthand (`ARW AUTO WHY:<short>`) in offline artifact for handoff clarity.
+- Idea 3 (high risk, AI Content/Systems): Prototype drift-adaptive auto-remap candidate suppression policy when confidence remains LOW for 3+ windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add ambient auto-remap plan confidence token (`ARW AUTO PLAN CONF:LOW|MID|HIGH`) with regression lock. *(lifecycle: [~] -> [x])*
+- [ ] UX/AI Content Team: Prototype compact ambient auto-remap rationale shorthand (`ARW AUTO WHY:<short>`) in offline artifact.
+- [ ] AI Content/Systems Team: Prototype confidence-streak suppression policy for auto-remap candidates (offline-only).

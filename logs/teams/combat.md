@@ -1542,3 +1542,8 @@
 ## 2026-03-25 05:35 KST — Cycle DC combat impact check
 - No combat/system balance contract changes; digest-only alias update verified as non-invasive to combat feedback loop.
 - [2026-03-25 06:01 KST] No combat runtime coupling introduced; verified change remains digest-only telemetry/triage.
+
+## 2026-03-25 06:31 KST — Cycle DD ARW auto-plan confidence slice
+- Completed: Added weekly digest token `ARW AUTO PLAN CONF:LOW|MID|HIGH` with payload signals and regression lock.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
+- Notes: offline-only observability enhancement; no runtime prompt/mechanics coupling changed.

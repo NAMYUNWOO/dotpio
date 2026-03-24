@@ -1629,3 +1629,8 @@
 ## 2026-03-25 05:35 KST — Cycle DC design note
 - Compact alias preserves deterministic wording while improving digest scanability under dense operator reports.
 - [2026-03-25 06:01 KST] Updated ambient rationale plan presentation to include ARW AUTO PLAN family churn + drift signal for design triage.
+
+## 2026-03-25 06:31 KST — Cycle DD ARW auto-plan confidence slice
+- Completed: Added weekly digest token `ARW AUTO PLAN CONF:LOW|MID|HIGH` with payload signals and regression lock.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
+- Notes: offline-only observability enhancement; no runtime prompt/mechanics coupling changed.
