@@ -2587,3 +2587,9 @@
   - `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf.lua`
   - `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency.lua`
 
+
+## 2026-03-24 09:41 KST — Cycle CE QA verification
+- Added regression: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_fx.lua`.
+- Verification PASS:
+  - `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency.lua`
+  - `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_fx.lua`

@@ -1091,6 +1091,15 @@ local function isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyExperi
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_FX")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function isRouteGlowFxCompactAliasExperimentEnabled()
     local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_COMPACT")
     if not raw then
@@ -1281,6 +1290,17 @@ local function resolveRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgency(
         return "MID"
     elseif routeGlowFxConfidenceWhyRailIntensityWhyConfidence == "LOW" then
         return "LOW"
+    end
+    return nil
+end
+
+local function resolveRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFx(routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency)
+    if routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency == "HIGH" then
+        return "BLAZE"
+    elseif routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency == "MID" then
+        return "SPARK"
+    elseif routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency == "LOW" then
+        return "CALM"
     end
     return nil
 end
@@ -1528,6 +1548,12 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
                                                         local routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency = resolveRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgency(routeGlowFxConfidenceWhyRailIntensityWhyConfidence)
                                                         if routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency then
                                                             appendToken(string.format("RGFXWRIU:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency), false)
+                                                            if isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxExperimentEnabled() then
+                                                                local routeGlowFxConfidenceWhyRailIntensityWhyConfUrgencyFx = resolveRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFx(routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency)
+                                                                if routeGlowFxConfidenceWhyRailIntensityWhyConfUrgencyFx then
+                                                                    appendToken(string.format("RGFXWRIUFX:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgencyFx), false)
+                                                                end
+                                                            end
                                                         end
                                                     end
                                                     if isRouteGlowFxConfidenceWhyRailIntensityWhyConfParityExperimentEnabled() then

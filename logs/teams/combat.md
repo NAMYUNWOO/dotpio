@@ -1338,3 +1338,7 @@
 - Added compact urgency signal `RGFXWRIU` adjacent to `RGFXWRI WHY CONF` for faster pressure read in portal prompts.
 - Token is readability-only; no combat stats, AI, or threat calculations changed.
 
+
+## 2026-03-24 09:41 KST — Cycle CE combat readability
+- Shipped compact combat-facing urgency FX cue `RGFXWRIUFX` to increase overdrive readability in portal prompt chains.
+- Scope remained readability-only; no threat, AI, or combat balance tuning changed.

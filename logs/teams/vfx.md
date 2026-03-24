@@ -93,3 +93,8 @@
 - New urgency token sits on top of existing route-glow confidence/intensity stack for faster cue parsing.
 - No VFX tier mapping (`SOFT|HARD`, `CALM|SPARK|BLAZE`) changed in this cycle.
 
+
+## 2026-03-24 09:41 KST — Cycle CE forced-lane combat/vfx slice
+- Coverage rebalance trigger hit (`design/world` dominated last 10 completions), so this cycle forced combat/vfx execution.
+- Added flag-gated urgency FX token `RGFXWRIUFX:CALM|SPARK|BLAZE` via `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_FX`.
+- Deterministic mapping mirrors urgency tier only (`LOW->CALM`, `MID->SPARK`, `HIGH->BLAZE`) with no mechanics or damage model changes.

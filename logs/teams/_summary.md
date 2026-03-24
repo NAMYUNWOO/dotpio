@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 08:31 KST
+Last updated: 2026-03-24 09:41 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Cycle CE coverage check (last 10 completions) found lane skew: design/world=60%, systems/ops=40%, combat/vfx=10%; forced-lane rule triggered and underrepresented combat/vfx was prioritized.
+- Shipped combat/vfx minimal vertical slice in `src/portal.lua`: new flag-gated compact urgency FX token `RGFXWRIUFX:CALM|SPARK|BLAZE` (`DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_FX`) mapped deterministically from urgency tier.
+- Added regression guardrail `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_fx.lua`; urgency and urgency-FX regressions pass.
 
 - Closed highest-priority unchecked TASKS/POST_RC item: drift-adaptive confidence copy policy prototype for `RGFXWRI WHY CONF` is now emitted as **offline-only** weekly digest recommendation (`RGFXWRI WHY CONF POLICY REC: FREEZE|GUARDED|RELAXED`) with deterministic signals (`driftRisk + alias-family churn`).
 - Added payload contract keys `rgfxwriWhyConfPolicyRecommendation` and `rgfxwriWhyConfPolicyRecommendationSignals` plus markdown row coverage in weekly digest regression.

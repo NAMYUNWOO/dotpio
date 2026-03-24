@@ -1447,3 +1447,7 @@
 - Urgency token intentionally mirrors existing confidence tiers to avoid introducing ambiguous semantics.
 - Remaining injected design follow-up: detailed parity urgency label under flag.
 
+
+## 2026-03-24 09:41 KST — Cycle CE design lane planning
+- Generated 3 ideas and chose forced-lane combat/vfx vertical slice due to lane coverage imbalance.
+- Injected design/world follow-up: detailed urgency parity label for readability parity in full prompt mode.
