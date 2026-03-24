@@ -2704,3 +2704,9 @@
 - Task: Extend digest regression contract for urgency-stack rail recommendation payload + markdown row.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decision: Locked schema keys for `urgencyStackRailRecommendationSignals` and markdown token `URGENCY STACK RAIL REC`.
+
+## 2026-03-24 18:01 KST — Combat floating-number lethal-state regression
+- Extended `scripts/regression_combat_damage_numbers.lua` to assert lethal-state contract:
+  - non-lethal melee/magic entries keep `lethal=false`
+  - lethal melee/magic entries set `lethal=true`
+- Safety check: lifecycle and expiry assertions retained to prevent stale damage-number regressions.

@@ -735,5 +735,15 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Systems): Add drift-adaptive urgency-stack rail recommendation policy from weekly digest trend windows.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/World Team: Add compact urgency-stack confidence rail token (`URG STACK RAIL:STEADY|SPIKE`) behind `DOTPIO_EXPERIMENT_URGENCY_STACK_RAIL`.
-- [ ] Systems/QA Team: Add weekly digest token-family coverage for `URG STACK RAIL:` churn and markdown triage row; lock with regression.
+- [x] Systems/QA Team: Add weekly digest token-family coverage for `URG STACK RAIL:` churn and markdown triage row; lock with regression. *(lifecycle: [~] -> [x])*
 - [x] AI Content/Systems Team: Prototype drift-adaptive urgency-stack rail recommendation policy from weekly digest trend windows.
+
+## Cycle CM - Game Director Review (2026-03-24 18:01 KST)
+- Coverage check (last 10 completions): systems/qa dominant; combat/vfx underrepresented, so lane rebalance prioritized combat-facing slice.
+- Idea 1 (low risk, Combat/VFX): Add lethal-hit floating damage accent (`<damage>!` + red tint) so kill confirmation reads instantly during high-action turns.
+- Idea 2 (mid risk, Systems/QA): Add capped floating-number stack telemetry token in weekly digest for dense combat turns.
+- Idea 3 (high risk, AI Content/VFX): Add procedural glyph burst families keyed off damage bands and urgency rail mode.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Combat/VFX Team: Add lethal-hit floating damage accent (`<damage>!` + red tint) with debug-state exposure + regression lock. *(lifecycle: [~] -> [x])*
+- [ ] Systems/QA Team: Add floating-number stack-cap telemetry token to weekly digest (`DMGNUM STACK CAP:`) with churn row + regression lock.
+- [ ] AI Content/VFX Team: Prototype damage-band glyph burst variants behind flag (`DMG GLYPH:BASIC|SPIKE|OVERDRIVE`).

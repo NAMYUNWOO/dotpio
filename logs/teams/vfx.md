@@ -111,3 +111,8 @@
 ## 2026-03-24 16:31 KST — Cycle CK (VFX sync)
 - No new VFX token or rendering changes in this cycle.
 - VFX lane remains available for next forced-lane rebalance if cadence drops.
+
+## 2026-03-24 18:01 KST — Lethal floating-number readability
+- Added lethal-hit emphasis style for floating numbers: red tint + exclamation suffix (`!`).
+- Rationale: preserve quick kill-anchor readability after corpse-fade addition without increasing effect clutter.
+- Validation path: `lua scripts/regression_combat_damage_numbers.lua` + `lua scripts/regression_enemy_death_fade.lua`.

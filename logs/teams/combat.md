@@ -1397,3 +1397,9 @@
 
 ## 2026-03-24 17:31:00 KST
 - Note: No combat tuning changes this cycle; urgency-stack rail recommendation remains offline policy output only.
+
+## 2026-03-24 18:01 KST — Cycle CM lethal-hit accent slice
+- Task: add clearer kill confirmation for floating damage numbers during dense combat turns.
+- Decision: mark lethal hits in `src/combat.lua` with `lethal=true`, render `<damage>!` and red tint to distinguish kill-confirm events from standard hits.
+- Scope: additive/reversible visual cue only; no combat math or HP/timing changes.
+- Follow-up: evaluate stack-cap telemetry (`DMGNUM STACK CAP`) before introducing additional VFX complexity.

@@ -30,9 +30,10 @@ function Combat.meleeAttack(player, enemyAtFn)
         local finalDmg = math.max(1, math.floor(dmg + 0.5))
         e.hp = e.hp - finalDmg
         e.alerted = true
+        local lethal = e.hp <= 0 and e.alive
         damageFlash[#damageFlash+1] = {x=tx, y=ty, timer=0.3}
-        damageNumbers[#damageNumbers+1] = {x=tx, y=ty, amount=finalDmg, timer=DMGNUM_DURATION, magic=false}
-        if e.hp <= 0 and e.alive then
+        damageNumbers[#damageNumbers+1] = {x=tx, y=ty, amount=finalDmg, timer=DMGNUM_DURATION, magic=false, lethal=lethal}
+        if lethal then
             e.alive = false
             e.deathTimer = 0.4
             killCount = killCount + 1
@@ -68,8 +69,9 @@ function Combat.update(dt, enemyAtFn)
                     local finalDmg = math.max(1, math.floor(dmg + 0.5))
                     e.hp = e.hp - finalDmg
                     e.alerted = true
-                    damageNumbers[#damageNumbers+1] = {x=p.targetX, y=p.targetY, amount=finalDmg, timer=DMGNUM_DURATION, magic=true}
-                    if e.hp <= 0 and e.alive then
+                    local lethal = e.hp <= 0 and e.alive
+                    damageNumbers[#damageNumbers+1] = {x=p.targetX, y=p.targetY, amount=finalDmg, timer=DMGNUM_DURATION, magic=true, lethal=lethal}
+                    if lethal then
                         e.alive = false
                         e.deathTimer = 0.4
                         killCount = killCount + 1
@@ -131,12 +133,17 @@ function Combat.drawEffects()
             local alpha = 1 - progress
             local px = (n.x - 1) * TILE + TILE * 0.5
             local py = (n.y - 1) * TILE + TILE * 0.28 - (progress * DMGNUM_RISE)
+            local label = tostring(n.amount)
             if n.magic then
                 love.graphics.setColor(0.72, 0.58, 1.0, alpha)
             else
                 love.graphics.setColor(1.0, 0.86, 0.38, alpha)
             end
-            love.graphics.printf(tostring(n.amount), px - TILE * 0.5, py, TILE, "center")
+            if n.lethal then
+                label = label .. "!"
+                love.graphics.setColor(1.0, 0.35, 0.35, alpha)
+            end
+            love.graphics.printf(label, px - TILE * 0.5, py, TILE, "center")
         end
     end
 end
@@ -157,6 +164,7 @@ function Combat.debugGetDamageNumbers()
             amount = n.amount,
             timer = n.timer,
             magic = n.magic == true,
+            lethal = n.lethal == true,
         }
     end
     return out

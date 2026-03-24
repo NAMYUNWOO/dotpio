@@ -2187,3 +2187,7 @@
   - Kept runtime portal prompt behavior unchanged (recommendation-only scope).
 - Follow-up:
   - Remaining top unchecked item: Systems/QA digest regression lock for `URG STACK RAIL` churn row.
+
+## 2026-03-24 18:01 KST — Cycle CM backlog injection
+- Injected follow-up Systems/QA task: weekly digest token `DMGNUM STACK CAP:` with churn-row + regression lock.
+- Guardrail: keep runtime combat untouched until telemetry confirms stack-density pressure in real playtest traces.

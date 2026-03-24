@@ -2456,3 +2456,14 @@ Compact decision memory for AI context efficiency.
 - Completed selected UX/World experiment: added `URG STACK RAIL:STEADY|SPIKE` compact portal token behind `DOTPIO_EXPERIMENT_URGENCY_STACK_RAIL` in `src/portal.lua`.
 - Verification PASS: `lua scripts/regression_portal_urgency_stack_rail.lua` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Backlog updates: marked Cycle CL selected item done (`[~] -> [x]`), injected next tasks for Systems/QA digest family coverage and AI Content drift-adaptive rail recommendation.
+
+### 2026-03-24 18:01 KST — Cycle CM lethal-hit readability vertical slice
+- Trigger: ACTION_ITEMS + TASKS + POST_RC_BACKLOG actionable item set cleared; executed immediate Game Director review cycle.
+- Ideas generated: low-risk lethal-hit accent, mid-risk stack-cap telemetry, high-risk glyph-burst variants.
+- Selected/implemented: low-risk Combat/VFX slice — lethal floating damage numbers now render as red `<damage>!` with `lethal` debug-state flag.
+- Verification PASS:
+  - `lua scripts/regression_combat_damage_numbers.lua`
+  - `lua scripts/regression_enemy_death_fade.lua`
+- Backlog updates:
+  - Completed Cycle CL pending Systems/QA digest row (`URG STACK RAIL`) now marked done in `TASKS.md` + `POST_RC_BACKLOG.md`.
+  - Injected Cycle CM follow-ups: `DMGNUM STACK CAP` digest telemetry + `DMG GLYPH` prototype tasks.

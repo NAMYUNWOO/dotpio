@@ -35,6 +35,7 @@ Combat.meleeAttack(player, enemyAt)
 local afterMelee = Combat.debugGetDamageNumbers()
 expect(#afterMelee == 1, "melee hit should emit one floating damage number")
 expect(afterMelee[1].magic == false, "melee hit damage number should be flagged non-magic")
+expect(afterMelee[1].lethal == false, "non-lethal melee hit should not mark lethal damage number")
 expect(afterMelee[1].amount >= 1, "melee floating damage amount should be positive")
 
 Combat.update(0.31, enemyAt)
@@ -58,6 +59,20 @@ Combat.update(0.16, enemyAt)
 local afterMagic = Combat.debugGetDamageNumbers()
 expect(#afterMagic == 1, "magic projectile impact should emit one floating damage number")
 expect(afterMagic[1].magic == true, "magic hit damage number should be flagged magic")
+expect(afterMagic[1].lethal == false, "non-lethal magic hit should not mark lethal damage number")
 expect(afterMagic[1].amount >= 1, "magic floating damage amount should be positive")
+
+enemy = { hp = 1, alive = true }
+Combat.meleeAttack(player, enemyAt)
+local lethalMelee = Combat.debugGetDamageNumbers()
+expect(#lethalMelee == 2, "lethal melee hit should append another damage number entry")
+expect(lethalMelee[#lethalMelee].lethal == true, "lethal melee hit should mark floating number as lethal")
+
+enemy = { hp = 1, alive = true }
+Combat.castMagic(mage, 2, 1)
+Combat.update(0.16, enemyAt)
+local lethalMagic = Combat.debugGetDamageNumbers()
+expect(lethalMagic[#lethalMagic].magic == true, "latest lethal magic hit should remain magic-typed")
+expect(lethalMagic[#lethalMagic].lethal == true, "lethal magic hit should mark floating number as lethal")
 
 print("[PASS] combat floating damage-number lifecycle regression validated")
