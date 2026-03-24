@@ -1373,3 +1373,16 @@
 - No mutation to rationale wording (`RGFXWRI WHY`) or confidence resolver logic.
 - Keeps experimentation reversible behind a dedicated flag.
 
+
+## 2026-03-24 11:01 KST
+- Task: Cycle CE/CD follow-up — detailed urgency parity label for route-glow rail-intensity confidence token.
+- Commit: pending (this run)
+- Files: `src/portal.lua`, `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_parity.lua`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_parity.lua` ✅
+  - `lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_fx.lua` ✅
+- Decisions:
+  - Added dedicated flag `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_PARITY` for detailed urgency label emission.
+  - Kept compact alias `RGFXWRIU:*` unchanged for DOS-width safety.
+- Follow-up:
+  - Keep urgency parity off by default; monitor prompt width impact in weekly digest.

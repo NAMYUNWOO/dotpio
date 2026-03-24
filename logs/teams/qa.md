@@ -2609,3 +2609,16 @@
   - markdown rows: `RGFXWRIUFX URGENCY FX FAMILY CHURN` + `LANE CADENCE SUMMARY`
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: add dedicated regression once detailed urgency parity label flag is implemented.
+
+## 2026-03-24 11:01 KST
+- Task: Regression verification for urgency parity detailed token.
+- Commit: pending (this run)
+- Files: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_parity.lua`, `src/portal.lua`
+- Verification:
+  - `DOTPIO_EXPERIMENT_* lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_parity.lua` ✅
+  - `DOTPIO_EXPERIMENT_* lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_fx.lua` ✅
+- Decisions:
+  - Added dedicated regression to lock detailed urgency parity output for SAFE/RISK/SPIKE scenarios.
+  - Confirmed no regression on urgency FX token path.
+- Follow-up:
+  - Keep parity test in portal prompt regression bundle.

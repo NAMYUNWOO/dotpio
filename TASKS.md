@@ -667,7 +667,7 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/World Team: Add compact rail-intensity confidence urgency token (`RGFXWRIU:LOW|MID|HIGH`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY`.
 - [x] Systems/QA Team: Add weekly digest token-family coverage for urgency alias churn (`RGFXWRIU:` + detailed label).
-- [ ] AI Content/Design Team: Prototype detailed parity label for urgency token (`ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:<LOW|MID|HIGH`) behind flag.
+- [x] AI Content/Design Team: Prototype detailed parity label for urgency token (`ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:<LOW|MID|HIGH`) behind flag.
 
 ## Cycle CE - Game Director Review (2026-03-24 09:41 KST, forced lane rebalance)
 - Coverage check (last 10 completed): systems=4, world=3, design=3, combat=1, vfx=0, ai-content=2, ux=4, qa=3. Bucket rollup: design/world=6 (60%), systems/ops=4 (40%), combat/vfx=1 (10%).
@@ -678,6 +678,6 @@ See project-level plans:
 - Idea 3 (high risk, Systems/Ops): Add weekly digest urgency-family coverage + cadence watch row (`RGFXWRIUFX:` drift + lane-bucket reminder) for operator auditability.
 - Selected experiment: Idea 1 (minimal vertical slice, additive + reversible).
 - [x] Combat/VFX Team: Add compact urgency FX token (`RGFXWRIUFX:CALM|SPARK|BLAZE`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_FX`.
-- [ ] Design/World Team: Prototype detailed parity urgency label (`ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:<LOW|MID|HIGH`) behind dedicated flag.
+- [x] Design/World Team: Prototype detailed parity urgency label (`ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:<LOW|MID|HIGH`) behind dedicated flag.
 - [x] Systems/Ops Team: Add weekly digest token-family coverage for urgency FX alias churn (`RGFXWRIUFX:`) plus lane cadence summary row.
 

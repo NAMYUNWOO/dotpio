@@ -2091,3 +2091,16 @@
 - Added weekly digest token catalog + alias-family coverage for `RGFXWRIUFX:` in `scripts/weekly_portal_prompt_readability_drift.py`.
 - Added lane cadence summary row keyed to urgency-FX alias touch count for Systems/Ops audit visibility.
 - Follow-up: keep `RGFXWRIUFX` in digest compact-budget reviews as detailed parity urgency label work lands.
+
+## 2026-03-24 11:01 KST
+- Task: Systems flag wiring for urgency parity token.
+- Commit: pending (this run)
+- Files: `src/portal.lua`
+- Verification:
+  - `lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_parity.lua` ✅
+  - `lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_fx.lua` ✅
+- Decisions:
+  - Added env gate `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_PARITY`.
+  - Detailed urgency label emits only when urgency alias path is active and parity flag is enabled.
+- Follow-up:
+  - Consider adding digest-level family row for urgency parity detailed label if churn review demands it.

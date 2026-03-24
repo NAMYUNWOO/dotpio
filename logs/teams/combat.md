@@ -1342,3 +1342,13 @@
 ## 2026-03-24 09:41 KST — Cycle CE combat readability
 - Shipped compact combat-facing urgency FX cue `RGFXWRIUFX` to increase overdrive readability in portal prompt chains.
 - Scope remained readability-only; no threat, AI, or combat balance tuning changed.
+
+## 2026-03-24 11:01 KST
+- Task: Combat lane sanity check for urgency parity token integration.
+- Commit: pending (this run)
+- Files reviewed: `src/portal.lua`
+- Verification: urgency tiers still map LOW/MID/HIGH consistently with existing pressure states.
+- Decisions:
+  - No combat behavior or balance parameter changes in this cycle; prompt-only instrumentation update.
+- Follow-up:
+  - Revisit if urgency parity copy drives pacing misreads in live playtests.

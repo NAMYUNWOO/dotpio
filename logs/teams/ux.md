@@ -1637,3 +1637,13 @@
 - Compact portal chain now supports `RGFXWRIU:<LOW|MID|HIGH>` after rail-intensity confidence token when flag-enabled.
 - Ordering remains stable and additive; existing compact aliases remain unchanged.
 
+
+## 2026-03-24 11:01 KST
+- Task: Compact-vs-detailed portal prompt UX validation for urgency parity.
+- Commit: pending (this run)
+- Files reviewed: `src/portal.lua`
+- Verification: regression confirms compact alias `RGFXWRIU:*` remains and detailed urgency label is additive behind flag.
+- Decisions:
+  - UX contract preserved: default compact prompt unaffected unless parity flag is explicitly enabled.
+- Follow-up:
+  - Add screenshot/playtest capture only if parity flag becomes default-on in future cycle.

@@ -1412,3 +1412,14 @@
 - Mapping mirrors existing confidence tier (`LOW->LOW`, `MID->MID`, `HIGH->HIGH`) for deterministic glance readability.
 - No map topology or routing-logic changes in this slice.
 
+
+## 2026-03-24 11:01 KST
+- Task: Portal prompt readability parity sync for urgency lane.
+- Commit: pending (this run)
+- Files checked: `src/portal.lua`
+- Verification: portal prompt regression PASS for SAFE/RISK/SPIKE route tags.
+- Decisions:
+  - Detailed urgency parity token added without changing route-tag selection logic.
+  - No map or portal topology changes required.
+- Follow-up:
+  - None (world geometry unaffected).

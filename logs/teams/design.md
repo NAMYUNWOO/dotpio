@@ -1451,3 +1451,14 @@
 ## 2026-03-24 09:41 KST — Cycle CE design lane planning
 - Generated 3 ideas and chose forced-lane combat/vfx vertical slice due to lane coverage imbalance.
 - Injected design/world follow-up: detailed urgency parity label for readability parity in full prompt mode.
+
+## 2026-03-24 11:01 KST
+- Task: Route-glow urgency parity copy pass (Design/World + AI Content alignment).
+- Commit: pending (this run)
+- Files: `src/portal.lua`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: parity regression PASS (`scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_parity.lua`).
+- Decisions:
+  - Detailed label copy fixed to deterministic enum `LOW|MID|HIGH` under dedicated flag.
+  - Backlog duplicates for urgency parity were resolved and marked complete.
+- Follow-up:
+  - Evaluate whether detailed urgency token should appear only in non-compact prompt profiles.
