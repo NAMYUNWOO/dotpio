@@ -2363,3 +2363,9 @@ Compact decision memory for AI context efficiency.
 - Added regression `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency.lua`; confidence baseline regression remains passing.
 - Cycle CD backlog injected with remaining follow-ups: digest urgency-family coverage and optional detailed parity urgency label.
 
+
+### 2026-03-24 10:03 KST — Cycle CD urgency alias-family coverage shipped
+- Completed TASKS Cycle CD Systems/QA lane item by adding digest token-family coverage for urgency alias churn (`RGFXWRIU:` + detailed urgency label).
+- Weekly digest now tracks urgency alias family in both `Token Family Coverage` and markdown churn rows, enabling parity drift audit before/after detailed label rollout.
+- Regression gate: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Next prioritized unchecked item: detailed urgency parity label prototype (`ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:<LOW|MID|HIGH`) behind dedicated flag.

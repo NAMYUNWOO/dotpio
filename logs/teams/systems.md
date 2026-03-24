@@ -2079,3 +2079,10 @@
 - Ran coverage check on last 10 completed items: design/world=60%, systems/ops=40%, combat/vfx=10%.
 - Applied mandatory forced-lane rule and selected underrepresented combat/vfx implementation.
 - Injected systems/ops follow-up for weekly digest urgency-FX family coverage + cadence row.
+
+## 2026-03-24 10:03 KST — Cycle CD urgency alias-family coverage
+- Task: Add weekly digest token-family churn coverage for urgency alias pair (`RGFXWRIU:` + `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:`).
+- Scope: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`.
+- Decision: Treat urgency as a first-class alias family in digest token catalogs + markdown churn summaries so compact/detailed parity drift can be audited even before detailed runtime token ships.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` → PASS.
+- Follow-up: Next priority remains detailed urgency parity label prototype in `TASKS.md` Cycle CD.

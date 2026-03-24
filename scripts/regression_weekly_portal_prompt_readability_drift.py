@@ -1313,6 +1313,7 @@ def main() -> int:
         assert "ROUTE GLOW FX CONF WHY RAIL INTENSITY FAMILY CHURN" in md_text
         assert "RGFXWRI WHY FAMILY CHURN" in md_text
         assert "RGFXWRI WHY CONF FAMILY CHURN" in md_text
+        assert "RGFXWRIU URGENCY FAMILY CHURN" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text
         assert "ROUTE GLOW FX CONF + RGFXC:" in md_text
@@ -1322,6 +1323,7 @@ def main() -> int:
         assert "RGFXWRI RAIL INTENSITY:" in md_text
         assert "RGFXWRI WHY:" in md_text
         assert "RGFXWRIWC + RGFXWRI WHY CONF:" in md_text
+        assert "RGFXWRIU + ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:" in md_text
         assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT" in md_text

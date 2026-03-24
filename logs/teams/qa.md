@@ -2593,3 +2593,11 @@
 - Verification PASS:
   - `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency.lua`
   - `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_fx.lua`
+
+## 2026-03-24 10:03 KST — Digest urgency alias churn regression gate
+- Added regression expectations for urgency family churn headings and token-family coverage row:
+  - `RGFXWRIU URGENCY FAMILY CHURN`
+  - `RGFXWRIU + ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:`
+- Command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Result: PASS (weekly digest schema + markdown coverage intact after alias-family expansion).
+- Risk note: Detailed urgency label token is still prototype/backlog; coverage now tolerates 0/2 presence and surfaces drift when enabled.
