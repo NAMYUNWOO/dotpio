@@ -1564,3 +1564,4 @@
 - Generated cycle ideas (low/mid/high risk) and selected low-risk compact alias experiment for ambient auto-remap workflow.
 - Added alias mapping helper + payload field `ambientRampWhyAutoRemapPlanCompact`; kept runtime prompt pipeline untouched.
 - Follow-up queued: drift-aware candidate re-ranking policy as offline-only sandbox artifact.
+- [2026-03-25 06:01 KST] Implemented drift-aware ambient auto-remap candidate re-ranking (offline/sandbox only) with deterministic safety lock fallback.

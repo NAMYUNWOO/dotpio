@@ -2907,3 +2907,4 @@
 ## 2026-03-25 05:35 KST — Cycle DC verification
 - Regression assertions expanded to require `ambientRampWhyAutoRemapPlanCompact` and markdown visibility of `ARW AUTO PLAN`.
 - Verification command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- [2026-03-25 06:01 KST] Extended regression to lock ARW AUTO PLAN family coverage, drift signals, and rerank signal shape; full regression passes.

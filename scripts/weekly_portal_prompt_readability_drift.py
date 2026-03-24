@@ -32,8 +32,8 @@ PORTAL_PATH_HINTS = (
 )
 
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 
@@ -46,7 +46,7 @@ for _tokens in TOKEN_GROUPS.values():
 PRESSURE_TOKENS = ["PRESSURE:", "P:"]
 
 TOKEN_FAMILIES = {
-    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:"],
+    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW AUTO PLAN:"],
     "alt": ["ALT:", "ALT ROUTE:", "ALT DELTA:", "ADEL:", "ALT PLAN:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:"],
     "pressure": ["PRESSURE:", "P:"],
 }
@@ -59,6 +59,7 @@ TOKEN_ALIAS_FAMILIES = {
     "vibeTrailArcAlias": ["VIBE TRAIL ARC:", "VTA:"],
     "ambientRampConfidenceAlias": ["AMBIENT RAMP CONF:", "ARC:"],
     "ambientRampWhyAlias": ["AMBIENT RAMP WHY:", "ARW:"],
+    "ambientRampWhyAutoRemapPlanAlias": ["AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW AUTO PLAN:"],
     "pulseHeatFxAlias": ["PULSE HEAT FX:"],
     "routeGlowFxAlias": ["ROUTE GLOW FX:", "RGFX:"],
     "routeGlowAlias": ["ROUTE GLOW:"],
@@ -5418,7 +5419,7 @@ def ambient_ramp_why_auto_remap_plan_from_signals(
 
     candidates = [
         {
-            "rank": 1,
+            "baseRank": 1,
             "plan": "HOLD_SAFE_BASELINE",
             "summary": "Keep ambient rationale on SAFE-first deterministic wording with no runtime remap coupling.",
             "when": "Use by default in HIGH drift, HIGH pressure, or parity LOCK windows.",
@@ -5427,7 +5428,7 @@ def ambient_ramp_why_auto_remap_plan_from_signals(
             "changeScope": "digest + sandbox notes only",
         },
         {
-            "rank": 2,
+            "baseRank": 2,
             "plan": "SHADOW_PRESSURE_REMIX",
             "summary": "Draft offline pressure-gated rationale remap table for manual review before any runtime use.",
             "when": "Use in MID risk windows when recommendation is PRESSURE_GATED_WHY and confidence is not LOW.",
@@ -5436,7 +5437,7 @@ def ambient_ramp_why_auto_remap_plan_from_signals(
             "changeScope": "sandbox artifact + playtest checklist",
         },
         {
-            "rank": 3,
+            "baseRank": 3,
             "plan": "LIMITED_CONTEXT_EXPANSION",
             "summary": "Prepare small contextual rationale variants for CALM windows with rollback checklist.",
             "when": "Use only in LOW drift + LOW pressure windows with HIGH confidence and SYNC parity.",
@@ -5451,11 +5452,59 @@ def ambient_ramp_why_auto_remap_plan_from_signals(
         "PRESSURE_GATED_WHY": "SHADOW_PRESSURE_REMIX",
         "OPEN_CONTEXTUAL_WHY": "LIMITED_CONTEXT_EXPANSION",
     }
-    selected_plan = plan_by_recommendation.get(recommendation, "HOLD_SAFE_BASELINE")
+
+    recommendation_rank = {
+        "HOLD_SAFE_BASELINE": 3 if recommendation == "HOLD_SAFE_WHY" else 1,
+        "SHADOW_PRESSURE_REMIX": 3 if recommendation == "PRESSURE_GATED_WHY" else 1,
+        "LIMITED_CONTEXT_EXPANSION": 3 if recommendation == "OPEN_CONTEXTUAL_WHY" else 1,
+    }
+    confidence_bias = {
+        "HOLD_SAFE_BASELINE": 2 if confidence == "LOW" else 0,
+        "SHADOW_PRESSURE_REMIX": 1 if confidence == "MID" else 0,
+        "LIMITED_CONTEXT_EXPANSION": 2 if confidence == "HIGH" else -1,
+    }
+    parity_bias = {
+        "HOLD_SAFE_BASELINE": 2 if parity == "LOCK" else 0,
+        "SHADOW_PRESSURE_REMIX": 1 if parity == "WATCH" else 0,
+        "LIMITED_CONTEXT_EXPANSION": 1 if parity == "SYNC" else -1,
+    }
+    drift_bias = {
+        "HOLD_SAFE_BASELINE": 2 if drift_risk == "HIGH" else 0,
+        "SHADOW_PRESSURE_REMIX": 1 if drift_risk == "MID" else 0,
+        "LIMITED_CONTEXT_EXPANSION": 1 if drift_risk == "LOW" else -1,
+    }
+    pressure_bias = {
+        "HOLD_SAFE_BASELINE": 2 if pressure_band == "HIGH" else 0,
+        "SHADOW_PRESSURE_REMIX": 1 if pressure_band == "MID" else 0,
+        "LIMITED_CONTEXT_EXPANSION": 1 if pressure_band == "LOW" else -1,
+    }
+    churn_bias = {
+        "HOLD_SAFE_BASELINE": 1 if churn >= 4 else 0,
+        "SHADOW_PRESSURE_REMIX": 1 if 2 <= churn <= 5 else 0,
+        "LIMITED_CONTEXT_EXPANSION": 1 if churn <= 2 and net >= 0 else -1,
+    }
+
+    for candidate in candidates:
+        plan = str(candidate["plan"])
+        score = (
+            recommendation_rank.get(plan, 0)
+            + confidence_bias.get(plan, 0)
+            + parity_bias.get(plan, 0)
+            + drift_bias.get(plan, 0)
+            + pressure_bias.get(plan, 0)
+            + churn_bias.get(plan, 0)
+        )
+        candidate["score"] = score
+
+    candidates.sort(key=lambda c: (int(c.get("score", 0)), -int(c.get("baseRank", 99))), reverse=True)
+    for i, candidate in enumerate(candidates, start=1):
+        candidate["rank"] = i
+
+    selected_plan = str(candidates[0]["plan"]) if candidates else plan_by_recommendation.get(recommendation, "HOLD_SAFE_BASELINE")
     if confidence == "LOW" or parity == "LOCK":
         selected_plan = "HOLD_SAFE_BASELINE"
 
-    rationale = "recommendation-aligned-offline-plan"
+    rationale = "drift-aware-candidate-rerank"
     if selected_plan == "HOLD_SAFE_BASELINE" and (confidence == "LOW" or parity == "LOCK"):
         rationale = "safety-lock-from-confidence-or-parity"
 
@@ -5470,6 +5519,8 @@ def ambient_ramp_why_auto_remap_plan_from_signals(
         "offlineOnly": True,
         "rationale": rationale,
         "nextAction": "Generate sandbox table + review notes; keep runtime contract unchanged.",
+        "rerankPolicy": "drift-aware-offline-candidate-priority",
+        "candidateCount": len(candidates),
     }
     return selected_plan, signals, candidates
 
@@ -5481,6 +5532,51 @@ def ambient_ramp_why_auto_remap_plan_alias(plan: str) -> str:
         "LIMITED_CONTEXT_EXPANSION": "OPEN",
     }
     return alias_map.get(plan, "HOLD")
+
+
+def ambient_ramp_why_auto_remap_plan_drift_from_prior(
+    *,
+    current_plan: str,
+    prior_json_path: Path,
+) -> tuple[int, dict[str, object]]:
+    """Track selected ambient auto-remap plan drift versus prior digest window."""
+    plan_scores = {
+        "HOLD_SAFE_BASELINE": 0,
+        "SHADOW_PRESSURE_REMIX": 1,
+        "LIMITED_CONTEXT_EXPANSION": 2,
+    }
+
+    current = str(current_plan).strip().upper() or "HOLD_SAFE_BASELINE"
+    prior = current
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior = str(prior_payload.get("ambientRampWhyAutoRemapPlan", current)).strip().upper() or current
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    current_score = plan_scores.get(current, 0)
+    prior_score = plan_scores.get(prior, current_score)
+    drift = current_score - prior_score
+
+    if drift > 0:
+        reason = "auto-plan-expanded-vs-prior-window"
+    elif drift < 0:
+        reason = "auto-plan-tightened-vs-prior-window"
+    else:
+        reason = "auto-plan-held-vs-prior-window"
+
+    return drift, {
+        "currentPlan": current,
+        "currentScore": current_score,
+        "priorPlan": prior,
+        "priorScore": prior_score,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
 
 
 def urgency_stack_pruning_order_recommendation_from_trends(
@@ -5778,6 +5874,10 @@ def main() -> int:
         recommendation_signals=ambient_ramp_why_recommendation_signals,
     )
     ambient_ramp_why_auto_remap_plan_compact = ambient_ramp_why_auto_remap_plan_alias(ambient_ramp_why_auto_remap_plan)
+    ambient_ramp_why_auto_remap_plan_drift, ambient_ramp_why_auto_remap_plan_drift_signals = ambient_ramp_why_auto_remap_plan_drift_from_prior(
+        current_plan=ambient_ramp_why_auto_remap_plan,
+        prior_json_path=args.out_json,
+    )
     urgency_stack_pruning_order_recommendation, urgency_stack_pruning_order_recommendation_signals = urgency_stack_pruning_order_recommendation_from_trends(
         drift_risk=drift_risk,
         parity_compact_family=token_family_totals["routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAlias"],
@@ -6539,6 +6639,8 @@ def main() -> int:
         "ambientRampWhyAutoRemapPlan": ambient_ramp_why_auto_remap_plan,
         "ambientRampWhyAutoRemapPlanCompact": ambient_ramp_why_auto_remap_plan_compact,
         "ambientRampWhyAutoRemapPlanSignals": ambient_ramp_why_auto_remap_plan_signals,
+        "ambientRampWhyAutoRemapPlanDrift": ambient_ramp_why_auto_remap_plan_drift,
+        "ambientRampWhyAutoRemapPlanDriftSignals": ambient_ramp_why_auto_remap_plan_drift_signals,
         "urgencyStackPruningOrderRecommendation": urgency_stack_pruning_order_recommendation,
         "urgencyStackPruningOrderRecommendationSignals": urgency_stack_pruning_order_recommendation_signals,
         "urgencyStackRailRecommendation": urgency_stack_rail_recommendation,
@@ -6839,6 +6941,7 @@ def main() -> int:
         f"- AMBIENT RAMP WHY REC PARITY: **{ambient_ramp_why_recommendation_parity}** ({ambient_ramp_why_recommendation_parity_signals['rationale']}; rec={ambient_ramp_why_recommendation_parity_signals['recommendation']} conf={ambient_ramp_why_recommendation_parity_signals['confidence']} churn={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyChurn']} net={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyNet']:+d} pressure={ambient_ramp_why_recommendation_parity_signals['pressureBand']})",
         f"- AMBIENT RAMP WHY AUTO-REMAP PLAN: **{ambient_ramp_why_auto_remap_plan}** ({ambient_ramp_why_auto_remap_plan_signals['rationale']}; rec={ambient_ramp_why_auto_remap_plan_signals['recommendation']} conf={ambient_ramp_why_auto_remap_plan_signals['confidence']} parity={ambient_ramp_why_auto_remap_plan_signals['parity']} drift={ambient_ramp_why_auto_remap_plan_signals['driftRisk']} pressure={ambient_ramp_why_auto_remap_plan_signals['pressureBand']} offlineOnly={ambient_ramp_why_auto_remap_plan_signals['offlineOnly']})",
         f"- ARW AUTO PLAN: **{ambient_ramp_why_auto_remap_plan_compact}** (full={ambient_ramp_why_auto_remap_plan})",
+        f"- ARW AUTO PLAN Δ: **{ambient_ramp_why_auto_remap_plan_drift:+d}** ({ambient_ramp_why_auto_remap_plan_drift_signals['reason']}; current={ambient_ramp_why_auto_remap_plan_drift_signals['currentPlan']}({ambient_ramp_why_auto_remap_plan_drift_signals['currentScore']}) prior={ambient_ramp_why_auto_remap_plan_drift_signals['priorPlan']}({ambient_ramp_why_auto_remap_plan_drift_signals['priorScore']}) loaded={ambient_ramp_why_auto_remap_plan_drift_signals['priorLoaded']})",
         f"- URGENCY STACK PRUNING REC: **{urgency_stack_pruning_order_recommendation}** ({urgency_stack_pruning_order_recommendation_signals['rationale']}; parityChurn={urgency_stack_pruning_order_recommendation_signals['parityCompactChurn']} fxChurn={urgency_stack_pruning_order_recommendation_signals['urgencyFxChurn']} detailedChurn={urgency_stack_pruning_order_recommendation_signals['urgencyDetailedChurn']} offlineOnly={urgency_stack_pruning_order_recommendation_signals['offlineOnly']})",
         f"- URGENCY STACK RAIL REC: **{urgency_stack_rail_recommendation}** ({urgency_stack_rail_recommendation_signals['rationale']}; railChurn={urgency_stack_rail_recommendation_signals['urgencyStackRailChurn']} railNet={urgency_stack_rail_recommendation_signals['urgencyStackRailNet']} tierChurn={urgency_stack_rail_recommendation_signals['urgencyStackTierChurn']} offlineOnly={urgency_stack_rail_recommendation_signals['offlineOnly']})",
         f"- DMG GLYPH SHAPE REMAP REC: **{dmg_glyph_shape_remap_recommendation}** ({dmg_glyph_shape_remap_recommendation_signals['rationale']}; glyphChurn={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphChurn']} glyphNet={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphNet']} railChurn={dmg_glyph_shape_remap_recommendation_signals['urgencyStackRailChurn']} offlineOnly={dmg_glyph_shape_remap_recommendation_signals['offlineOnly']})",
@@ -6973,6 +7076,7 @@ def main() -> int:
         f"- VTA FAMILY CHURN: **net {token_family_totals['vibeTrailArcAlias']['net']:+d}** (added={token_family_totals['vibeTrailArcAlias']['added']} removed={token_family_totals['vibeTrailArcAlias']['removed']} churn={token_family_totals['vibeTrailArcAlias']['churn']} coverage={token_family_totals['vibeTrailArcAlias']['coverage']})",
         f"- AMBIENT RAMP CONF FAMILY CHURN: **net {token_family_totals['ambientRampConfidenceAlias']['net']:+d}** (added={token_family_totals['ambientRampConfidenceAlias']['added']} removed={token_family_totals['ambientRampConfidenceAlias']['removed']} churn={token_family_totals['ambientRampConfidenceAlias']['churn']} coverage={token_family_totals['ambientRampConfidenceAlias']['coverage']})",
         f"- AMBIENT RAMP WHY FAMILY CHURN: **net {token_family_totals['ambientRampWhyAlias']['net']:+d}** (added={token_family_totals['ambientRampWhyAlias']['added']} removed={token_family_totals['ambientRampWhyAlias']['removed']} churn={token_family_totals['ambientRampWhyAlias']['churn']} coverage={token_family_totals['ambientRampWhyAlias']['coverage']})",
+        f"- ARW AUTO PLAN FAMILY CHURN: **net {token_family_totals['ambientRampWhyAutoRemapPlanAlias']['net']:+d}** (added={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['added']} removed={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['removed']} churn={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['churn']} coverage={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['coverage']} drift={ambient_ramp_why_auto_remap_plan_drift:+d})",
         f"- PULSE HEAT FX FAMILY CHURN: **net {token_family_totals['pulseHeatFxAlias']['net']:+d}** (added={token_family_totals['pulseHeatFxAlias']['added']} removed={token_family_totals['pulseHeatFxAlias']['removed']} churn={token_family_totals['pulseHeatFxAlias']['churn']} coverage={token_family_totals['pulseHeatFxAlias']['coverage']})",
         f"- ROUTE GLOW FX FAMILY CHURN: **net {token_family_totals['routeGlowFxAlias']['net']:+d}** (added={token_family_totals['routeGlowFxAlias']['added']} removed={token_family_totals['routeGlowFxAlias']['removed']} churn={token_family_totals['routeGlowFxAlias']['churn']} coverage={token_family_totals['routeGlowFxAlias']['coverage']})",
         f"- ROUTE GLOW CONF FAMILY CHURN: **net {token_family_totals['routeGlowConfidenceAlias']['net']:+d}** (added={token_family_totals['routeGlowConfidenceAlias']['added']} removed={token_family_totals['routeGlowConfidenceAlias']['removed']} churn={token_family_totals['routeGlowConfidenceAlias']['churn']} coverage={token_family_totals['routeGlowConfidenceAlias']['coverage']})",
@@ -7032,6 +7136,7 @@ def main() -> int:
         f"- ARW + AMBIENT RAMP WHY: +{token_family_totals['ambientRampWhyAlias']['added']} / -{token_family_totals['ambientRampWhyAlias']['removed']} / net {token_family_totals['ambientRampWhyAlias']['net']} (churn={token_family_totals['ambientRampWhyAlias']['churn']} coverage={token_family_totals['ambientRampWhyAlias']['coverage']})",
         f"- ARW REC PARITY: {ambient_ramp_why_recommendation_parity} (rec={ambient_ramp_why_recommendation_parity_signals['recommendation']} conf={ambient_ramp_why_recommendation_parity_signals['confidence']} churn={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyChurn']} net={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyNet']:+d} pressure={ambient_ramp_why_recommendation_parity_signals['pressureBand']})",
         f"- ARW AUTO PLAN: {ambient_ramp_why_auto_remap_plan_compact} (full={ambient_ramp_why_auto_remap_plan})",
+        f"- ARW AUTO PLAN FAMILY: +{token_family_totals['ambientRampWhyAutoRemapPlanAlias']['added']} / -{token_family_totals['ambientRampWhyAutoRemapPlanAlias']['removed']} / net {token_family_totals['ambientRampWhyAutoRemapPlanAlias']['net']} (churn={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['churn']} coverage={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['coverage']} drift={ambient_ramp_why_auto_remap_plan_drift:+d})",
         f"- PULSE HEAT FX: +{token_family_totals['pulseHeatFxAlias']['added']} / -{token_family_totals['pulseHeatFxAlias']['removed']} / net {token_family_totals['pulseHeatFxAlias']['net']} (churn={token_family_totals['pulseHeatFxAlias']['churn']} coverage={token_family_totals['pulseHeatFxAlias']['coverage']})",
         f"- ROUTE GLOW FX + RGFX: +{token_family_totals['routeGlowFxAlias']['added']} / -{token_family_totals['routeGlowFxAlias']['removed']} / net {token_family_totals['routeGlowFxAlias']['net']} (churn={token_family_totals['routeGlowFxAlias']['churn']} coverage={token_family_totals['routeGlowFxAlias']['coverage']})",
         f"- ROUTE GLOW CONF: +{token_family_totals['routeGlowConfidenceAlias']['added']} / -{token_family_totals['routeGlowConfidenceAlias']['removed']} / net {token_family_totals['routeGlowConfidenceAlias']['net']} (churn={token_family_totals['routeGlowConfidenceAlias']['churn']} coverage={token_family_totals['routeGlowConfidenceAlias']['coverage']})",

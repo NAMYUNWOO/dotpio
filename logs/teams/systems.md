@@ -2364,3 +2364,4 @@
 ## 2026-03-25 05:35 KST — Cycle DC systems wiring
 - Added compact alias derivation function for ambient auto-remap plan and persisted it into digest payload + sandbox artifact schema.
 - Follow-up queued for QA: explicit churn/drift coverage row for `ARW AUTO PLAN:` lane in weekly digest.
+- [2026-03-25 06:01 KST] Added ARW AUTO PLAN token-family coverage + prior-window drift delta plumbing in weekly digest payload/markdown; ensured offline-only candidate rerank policy metadata is explicit.

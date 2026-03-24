@@ -1587,3 +1587,4 @@
 
 ## 2026-03-25 05:35 KST — Cycle DC world impact check
 - Confirmed `ARW AUTO PLAN` alias remains reporting-only metadata and does not alter world/portal runtime cues.
+- [2026-03-25 06:01 KST] Confirmed ARW AUTO PLAN compact/detailed token visibility in portal digest outputs for world readability audits.

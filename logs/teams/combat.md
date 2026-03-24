@@ -1541,3 +1541,4 @@
 
 ## 2026-03-25 05:35 KST — Cycle DC combat impact check
 - No combat/system balance contract changes; digest-only alias update verified as non-invasive to combat feedback loop.
+- [2026-03-25 06:01 KST] No combat runtime coupling introduced; verified change remains digest-only telemetry/triage.

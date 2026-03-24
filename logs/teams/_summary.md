@@ -2670,3 +2670,4 @@ Compact decision memory for AI context efficiency.
 - Regression harness now validates the new plan schema/markdown contract and routes artifact outputs into temp paths for isolation.
 
 - Game Director Cycle DC executed after queue-clear trigger: generated 3 ideas, selected low-risk UX/AI-content slice, shipped compact alias `ARW AUTO PLAN:HOLD|SHADOW|OPEN` in digest + sandbox artifact payload, and injected two follow-up backlog tasks (QA churn/drift coverage + AI-content re-ranking policy prototype).
+- [2026-03-25 06:01 KST] Completed TASKS/POST-RC ambient pair: (1) ARW AUTO PLAN family churn/drift coverage, (2) offline drift-aware candidate reranking; regression green.

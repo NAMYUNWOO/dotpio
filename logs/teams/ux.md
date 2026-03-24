@@ -1837,3 +1837,4 @@
 ## 2026-03-25 05:35 KST — Cycle DC selected experiment shipped
 - Implemented compact digest alias token `ARW AUTO PLAN:HOLD|SHADOW|OPEN` for ambient auto-remap sandbox plan readability.
 - Hypothesis: operators can triage ambient plan posture faster without scanning full verbose plan label each cycle.
+- [2026-03-25 06:01 KST] Improved operator scanability by surfacing ARW AUTO PLAN Δ and family coverage in digest summaries.

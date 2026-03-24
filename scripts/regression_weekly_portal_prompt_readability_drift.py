@@ -1504,6 +1504,17 @@ def main() -> int:
             "offlineOnly",
             "rationale",
             "nextAction",
+            "rerankPolicy",
+            "candidateCount",
+        }, payload
+        assert isinstance(payload.get("ambientRampWhyAutoRemapPlanDrift"), int), payload
+        assert set(payload.get("ambientRampWhyAutoRemapPlanDriftSignals", {}).keys()) == {
+            "currentPlan",
+            "currentScore",
+            "priorPlan",
+            "priorScore",
+            "priorLoaded",
+            "reason",
         }, payload
         assert out_ambient_auto_remap_json.exists()
         assert out_ambient_auto_remap_md.exists()
@@ -1582,6 +1593,8 @@ def main() -> int:
         assert "AMBIENT RAMP WHY REC PARITY" in md_text
         assert "AMBIENT RAMP WHY AUTO-REMAP PLAN" in md_text
         assert "ARW AUTO PLAN" in md_text
+        assert "ARW AUTO PLAN Δ" in md_text
+        assert "ARW AUTO PLAN FAMILY CHURN" in md_text
         assert "URGENCY STACK PRUNING REC" in md_text
         assert "URGENCY STACK RAIL REC" in md_text
         assert "DMG GLYPH SHAPE REMAP REC" in md_text

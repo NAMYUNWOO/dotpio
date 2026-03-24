@@ -1628,3 +1628,4 @@
 
 ## 2026-03-25 05:35 KST — Cycle DC design note
 - Compact alias preserves deterministic wording while improving digest scanability under dense operator reports.
+- [2026-03-25 06:01 KST] Updated ambient rationale plan presentation to include ARW AUTO PLAN family churn + drift signal for design triage.
