@@ -1567,3 +1567,5 @@
 ## 2026-03-25 04:31 KST
 - Cross-lane sync: Ambient-rationale recommendation work completed in weekly digest (offline-only); no map/portal topology edits required.
 - Impact: World-facing portal prompt runtime remains unchanged; only ops digest guidance expanded.
+
+- Cycle DB follow-up queued with UX: compact parity summary for ambient-rationale digest readability (no runtime map edits).

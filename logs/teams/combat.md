@@ -1524,3 +1524,5 @@
 ## 2026-03-25 04:31 KST
 - Cross-lane sync: Ambient-rationale recommendation slice was digest-only; no combat runtime token/FX behavior changed.
 - Impact: Combat/VFX telemetry and HUD contracts remain stable in this run.
+
+- Cycle DB cross-lane note: digest-only recommendation confidence addition; combat runtime unaffected.

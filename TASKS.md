@@ -866,3 +866,12 @@ See project-level plans:
 - [x] World/Design Team: Add portal ambient-ramp rationale token (`AMBIENT RAMP WHY`) with compact alias (`ARW`) for confidence-context readability.
 - [x] Combat/VFX Team: Add optional trend-accent color mapping for `DMGNUM LIFE TREND` debug token (`UP`/`HOLD`/`DOWN`) and verify DOS contrast budget.
 - [x] AI-Content/VFX Team: Prototype offline ambient-rationale recommendation policy (`AMBIENT RAMP WHY REC`) in weekly digest from churn + pressure signals. *(lifecycle: [ ] -> [~] -> [x])*
+
+## Cycle DB - Game Director Review (2026-03-25 04:45 KST)
+- Idea 1 (low risk, Systems/QA): Add offline confidence tier token for ambient-rationale recommendation (`AMBIENT RAMP WHY REC CONF:LOW|MID|HIGH`) in weekly digest.
+- Idea 2 (mid risk, UX/World): Add compact parity summary line for ambient-rationale recommendation in digest token-family section.
+- Idea 3 (high risk, AI Content/Systems): Prototype drift-adaptive runtime auto-remap from ambient-rationale recommendation outputs.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add offline confidence tier token for ambient-rationale recommendation (`AMBIENT RAMP WHY REC CONF:LOW|MID|HIGH`) in weekly digest with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
+- [ ] UX/World Team: Prototype compact parity summary line for ambient-rationale recommendation in digest token-family section.
+- [ ] AI Content/Systems Team: Prototype digest-driven ambient rationale auto-remap plan as offline sandbox artifact (no runtime coupling).

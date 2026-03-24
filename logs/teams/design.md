@@ -1611,3 +1611,5 @@
 ## 2026-03-25 04:31 KST
 - Cross-lane sync: Added offline digest guidance token `AMBIENT RAMP WHY REC` for design triage; no in-run copy contract changes.
 - Impact: Existing portal rationale wording remains deterministic at runtime.
+
+- Cycle DB context: recommendation-confidence cue shipped offline-only; runtime portal rationale copy remains unchanged.

@@ -1815,3 +1815,5 @@
 ## 2026-03-25 04:31 KST
 - Cross-lane sync: Weekly digest markdown now includes `AMBIENT RAMP WHY REC` for operator readability.
 - Impact: No HUD/layout changes in this slice; UX surface change is digest-text only.
+
+- Cycle DB follow-up queued: compact ambient-rationale recommendation parity summary line in digest token-family section (not implemented this run).

@@ -1544,3 +1544,5 @@
 - Decisions:
   - Policy output is recommendation-only (offline), preserving runtime prompt determinism.
   - Added three deterministic stances for operator planning: `HOLD_SAFE_WHY`, `PRESSURE_GATED_WHY`, `OPEN_CONTEXTUAL_WHY`.
+
+- Cycle DB follow-up queued: offline sandbox artifact for digest-driven ambient rationale auto-remap planning (no runtime coupling).

@@ -2340,3 +2340,5 @@
 - Decisions:
   - Added deterministic offline policy output `ambientRampWhyRecommendation` + signal payload from drift/pressure/churn.
   - Markdown digest now prints `AMBIENT RAMP WHY REC` for operator triage parity with confidence recommendation.
+
+- Cycle DB: implemented low-risk digest confidence tier `AMBIENT RAMP WHY REC CONF` with payload keys `ambientRampWhyRecommendationConfidence*` and regression assertions.

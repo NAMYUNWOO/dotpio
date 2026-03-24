@@ -2885,3 +2885,5 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decisions:
   - Regression now asserts new JSON keys (`ambientRampWhyRecommendation*`) and markdown row visibility (`AMBIENT RAMP WHY REC`).
+
+- Cycle DB verification: weekly digest regression now asserts `AMBIENT RAMP WHY REC CONF` markdown row and confidence schema keys (pass).
