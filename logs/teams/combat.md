@@ -1446,3 +1446,9 @@
 - Mapping contract: BASIC->CALM, SPIKE->SPARK, OVERDRIVE->BLAZE (derived from latest damage-number glyph band).
 - Verification: `regression_combat_damage_glyph_fx_live_token.lua` + baseline live/burst regressions all pass.
 - Follow-up queued: digest coverage for `DMG GLYPH FX LIVE:` churn and offline recommendation policy.
+
+## 2026-03-24 21:01 KST — Cycle CO follow-up closure (DMG GLYPH FX LIVE digest churn)
+- Completed Systems/QA backlog slice: weekly readability digest now tracks token-family churn for `DMG GLYPH FX LIVE:` via new alias family `dmgGlyphFxLiveAlias`.
+- Scope: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, backlog checkbox sync in `TASKS.md` + `POST_RC_BACKLOG.md`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: remaining unchecked queue item is AI Content/VFX offline glyph FX remap recommendation policy tied to drift risk.

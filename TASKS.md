@@ -765,5 +765,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/VFX): Add drift-aware runtime glyph FX remap policy from digest recommendations.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Add compact combat FX live token (`DMG GLYPH FX LIVE:CALM|SPARK|BLAZE`) behind `DOTPIO_EXPERIMENT_DMG_GLYPH_FX_LIVE_DEBUG`.
-- [ ] Systems/QA Team: Add weekly digest token-family coverage for `DMG GLYPH FX LIVE:` churn + regression lock.
+- [x] Systems/QA Team: Add weekly digest token-family coverage for `DMG GLYPH FX LIVE:` churn + regression lock.
 - [ ] AI Content/VFX Team: Prototype offline-only glyph FX remap recommendation policy tied to drift risk.

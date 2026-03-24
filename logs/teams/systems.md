@@ -2224,3 +2224,9 @@
 ## 2026-03-24 20:44 KST — Cycle CO systems note
 - Reused existing `glyphBand` state; no new combat schema/state added.
 - Experimental FX token remains flag-gated and debug-only (non-mechanical).
+
+## 2026-03-24 21:01 KST — Cycle CO follow-up closure (DMG GLYPH FX LIVE digest churn)
+- Completed Systems/QA backlog slice: weekly readability digest now tracks token-family churn for `DMG GLYPH FX LIVE:` via new alias family `dmgGlyphFxLiveAlias`.
+- Scope: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, backlog checkbox sync in `TASKS.md` + `POST_RC_BACKLOG.md`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: remaining unchecked queue item is AI Content/VFX offline glyph FX remap recommendation policy tied to drift risk.

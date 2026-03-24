@@ -2505,3 +2505,10 @@ Compact decision memory for AI context efficiency.
 - `scripts/weekly_portal_prompt_readability_drift.py` now emits `DMG GLYPH SHAPE REMAP REC` with signals keyed by drift risk + DMG GLYPH churn + urgency-stack rail churn; flagged `offlineOnly=True`.
 - Regression updated in `scripts/regression_weekly_portal_prompt_readability_drift.py` (JSON key coverage + markdown token assertion); py_compile + regression PASS.
 - Backlog state: ACTION_ITEMS and TASKS fully checked; POST_RC_BACKLOG now has only UX/Combat `DMG GLYPH LIVE` line still unchecked (mirror drift from prior cycle).
+
+## 2026-03-24 21:01 KST — Cycle CO follow-up complete (DMG GLYPH FX LIVE digest coverage)
+- Closed highest-priority unchecked TASKS/POST_RC item: weekly digest now tracks `DMG GLYPH FX LIVE:` token-family churn via `dmgGlyphFxLiveAlias`.
+- Updated `scripts/weekly_portal_prompt_readability_drift.py` token groups/families + markdown coverage rows (`DMG GLYPH FX LIVE FAMILY CHURN`, token-family coverage entry, lane-cadence line includes FX live family).
+- Regression lock expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` for payload token totals/family keys + markdown assertions.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Remaining unchecked backlog item: AI Content/VFX offline glyph FX remap recommendation policy tied to drift risk.

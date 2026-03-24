@@ -775,6 +775,7 @@ def main() -> int:
         assert "RGFXWRIUFX:" in payload["tokenTotals"]["net"], payload
         assert "DMGNUM STACK CAP:" in payload["tokenTotals"]["net"], payload
         assert "DMG GLYPH:" in payload["tokenTotals"]["net"], payload
+        assert "DMG GLYPH FX LIVE:" in payload["tokenTotals"]["net"], payload
         assert "tokenFamilyTotals" in payload, payload
         assert "vibeTrailWhyAlias" in payload["tokenFamilyTotals"], payload
         assert "vibeTrailWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
@@ -797,6 +798,7 @@ def main() -> int:
         assert "urgencyStackTierAlias" in payload["tokenFamilyTotals"], payload
         assert "urgencyStackRailAlias" in payload["tokenFamilyTotals"], payload
         assert "dmgnumStackCapAlias" in payload["tokenFamilyTotals"], payload
+        assert "dmgGlyphFxLiveAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
@@ -968,6 +970,16 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["dmgnumStackCapAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["dmgGlyphFxLiveAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1397,6 +1409,7 @@ def main() -> int:
         assert "URG STACK RAIL FAMILY CHURN" in md_text
         assert "DMGNUM STACK CAP FAMILY CHURN" in md_text
         assert "DMG GLYPH FAMILY CHURN" in md_text
+        assert "DMG GLYPH FX LIVE FAMILY CHURN" in md_text
         assert "LANE CADENCE SUMMARY" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text
@@ -1415,6 +1428,7 @@ def main() -> int:
         assert "URG STACK RAIL:" in md_text
         assert "DMGNUM STACK CAP:" in md_text
         assert "DMG GLYPH:" in md_text
+        assert "DMG GLYPH FX LIVE:" in md_text
         assert "LANE CADENCE SUMMARY: SYSTEMS/OPS" in md_text
         assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX COMPACT-BUDGET DRIFT" in md_text
