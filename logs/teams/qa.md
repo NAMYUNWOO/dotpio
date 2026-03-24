@@ -2828,3 +2828,17 @@
 - Review sync: ACTION_ITEMS/TASKS/POST_RC_BACKLOG remained fully checked; executed Game Director cycle CV.
 - Decision: selected low-risk UX/Combat vertical slice (`DMGNUM LIFE CONF`) to improve live damage-number readability triage.
 - Follow-up: keep mid/high-risk ideas queued (digest churn coverage, offline confidence remap policy) for later cycles.
+
+## 2026-03-25 02:04:04 KST
+- Task: Validate Cycle CW digest-family coverage for `DMGNUM LIFE CONF:`.
+- Commit: HEAD (this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+- Decisions:
+  - Regression contract now explicitly requires `DMGNUM LIFE CONF:` token totals + `dmgnumLifeConfidenceAlias` family presence and markdown rows.
+  - No gameplay/runtime behavior changes; no screenshot or portal validator needed.
+- Follow-up:
+  - If `DMGNUM LIFE CONF Δ` ships, extend digest regression with confidence-drift family assertions.

@@ -1,13 +1,13 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-24T15:04:42.129695Z
+- GeneratedAt(UTC): 2026-03-24T17:03:47.837622Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
-- Portal prompt commits: 62
-- Dominant mode commits: compact=20, detailed=1, neutral=41
+- Portal prompt commits: 61
+- Dominant mode commits: compact=20, detailed=1, neutral=40
 - MODE TREND: **COMPACT**
-- PRESSURE BAND: **HIGH** (edits +27 / -4 / net 23)
+- PRESSURE BAND: **HIGH** (edits +25 / -2 / net 23)
 - DRIFT RISK: **HIGH** (score=91 | imbalance=68 | pressure=23)
 - RGFXWRI WHY CONF POLICY REC: **FREEZE** (high-risk-high-churn; churn=18 net=16 coverage=2/2 offlineOnly=True)
 - AMBIENT RAMP CONF REC: **PIN_HIGH_CONF** (high-risk-or-high-pressure; churn=14 net=14 coverage=2/2 pressure=HIGH offlineOnly=True)
@@ -34,9 +34,9 @@
 - SANDBOX READY: **PRIMED** (preconditions-forming; sandbox=OFF conf=LOW guard=LOCK lock=Falsex1)
 - TARGET SHIFT: **NONE->NONE** (target-stable; changed=False priorLoaded=True)
 - SANDBOX COOLOFF: **0** (no-prior-on-cycle; active=False prior=OFF:0)
-- DRIFT MOMENTUM: **FLAT** (recent=2.226 older=0.839 delta=1.387)
+- DRIFT MOMENTUM: **FLAT** (recent=2.226 older=0.867 delta=1.359)
 - ACTION STABILITY: **WATCH** (retune-watch-needed; conf=LOW vol=STEADY momentum=FLAT)
-- PRESSURE LAG: **SLOW** (churn=23 momentum=FLAT |Δ|=1.387)
+- PRESSURE LAG: **SLOW** (churn=23 momentum=FLAT |Δ|=1.359)
 - ACTION PACE: **BRAKE** (guard-locked; guard=LOCK stability=WATCH lag=SLOW)
 - PACE DRIFT: **+0** (pace-stable; current=BRAKE(-1) prior=BRAKE(-1) loaded=True)
 - ACTION PACE WINDOW: **CLOSE** (guard-or-brake-closing-window; pace=BRAKE guard=LOCK drift=+0)
@@ -64,9 +64,9 @@
 - ROUTE PULSE LINK STREAK: **0** (link-off-reset; current=OFF prior=OFF priorStreak=0 loaded=True)
 - ROUTE PULSE LINK MODE: **IDLE** (link-disabled; link=OFF streak=0 drift=+0)
 - ROUTE PULSE LINK MODE Δ: **+0** (mode-stable; current=IDLE(0) prior=IDLE(0) loaded=True)
-- ROUTE PULSE LINK MODE STREAK: **37** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=36 loaded=True)
+- ROUTE PULSE LINK MODE STREAK: **38** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=37 loaded=True)
 - ROUTE PULSE LINK MODE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY enabled=False mode=IDLE link=OFF drift=+0 streak=0)
-- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=37)
+- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=38)
 - ROUTE PULSE LINK MODE FIT Δ: **+0** (fit-stable; current=SYNC(2) prior=SYNC(2) loaded=True)
 - ROUTE PULSE TOKEN PRIORITY: **OFF** (priority-mode-disabled; configured=OFF drift=+0 prior=OFF loaded=True guard=False)
 - ACTION PACE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_WHY enabled=False pace=BRAKE guard=LOCK stability=WATCH lag=SLOW drift=+0)
@@ -161,24 +161,26 @@
 - URG STACK FAMILY CHURN: **net +12** (added=12 removed=0 churn=12 coverage=1/1)
 - URG STACK RAIL FAMILY CHURN: **net +6** (added=6 removed=0 churn=6 coverage=1/1)
 - DMGNUM STACK CAP FAMILY CHURN: **net +1** (added=1 removed=0 churn=1 coverage=1/1)
+- DMGNUM LIFE FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
+- DMGNUM LIFE CONF FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - DMG GLYPH FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - DMG GLYPH FX LIVE FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - LANE CADENCE SUMMARY: **SYSTEMS/OPS OK** (RGFXWRIUFX coverage=1/1 churn=9 | DMG GLYPH coverage=0/1 churn=0 | DMG GLYPH FX LIVE coverage=0/1 churn=0)
 - PULSE HEAT FX COMPACT-BUDGET DRIFT: **SPIKE** (pulse-heat-fx churn is likely competing with compact prompt budget; compactNet=+266 familyNet=+7 churn=7)
 - ROUTE GLOW FX COMPACT-BUDGET DRIFT: **SPIKE** (route-glow-fx churn is likely competing with compact prompt budget; compactNet=+266 familyNet=+15 churn=15)
 - ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **SPIKE** (rail-mode churn is likely competing with compact prompt budget; compactNet=+266 familyNet=+5 churn=9)
-- STICKY TOKENS: **14**
-- ANOMALY: **ON** (sticky=14/3 pressure=23/5)
-- ANOMALY CONF: **HIGH** (triggers=2 gap=29)
-- ROUTE VIBE DRIFT: **CALM +3 | EDGE +0 | DOOM +3**
+- STICKY TOKENS: **12**
+- ANOMALY: **ON** (sticky=12/3 pressure=23/5)
+- ANOMALY CONF: **HIGH** (triggers=2 gap=27)
+- ROUTE VIBE DRIFT: **CALM +3 | EDGE +0 | DOOM +0**
 
 ## Token Totals (added/removed/net)
-- Compact: +280 / -14 / net 266
-- Detailed: +209 / -11 / net 198
-- Shared: +17 / -7 / net 10
+- Compact: +278 / -12 / net 266
+- Detailed: +207 / -9 / net 198
+- Shared: +13 / -3 / net 10
 
 ## Top Token Movers (net ±)
-- `P:` net +23 (added 26, removed 3)
+- `P:` net +23 (added 25, removed 2)
 - `RGFXWRIU:` net +16 (added 16, removed 0)
 - `ROUTE GLOW FX:` net +13 (added 13, removed 0)
 - `RGFXC:` net +13 (added 13, removed 0)
@@ -208,6 +210,8 @@
 - URG STACK: +12 / -0 / net 12 (churn=12 coverage=1/1)
 - URG STACK RAIL: +6 / -0 / net 6 (churn=6 coverage=1/1)
 - DMGNUM STACK CAP: +1 / -0 / net 1 (churn=1 coverage=1/1)
+- DMGNUM LIFE: +0 / -0 / net 0 (churn=0 coverage=0/1)
+- DMGNUM LIFE CONF: +0 / -0 / net 0 (churn=0 coverage=0/1)
 - DMG GLYPH: +0 / -0 / net 0 (churn=0 coverage=0/1)
 - DMG GLYPH FX LIVE: +0 / -0 / net 0 (churn=0 coverage=0/1)
 - LANE CADENCE SUMMARY: SYSTEMS/OPS OK (RGFXWRIUFX coverage=1/1, churn=9 | DMG GLYPH coverage=0/1, churn=0 | DMG GLYPH FX LIVE coverage=0/1, churn=0)
@@ -218,10 +222,10 @@
 ## Route Vibe Drift (added/removed/net)
 - CALM: +3 / -0 / net 3
 - EDGE: +0 / -0 / net 0
-- DOOM: +3 / -0 / net 3
+- DOOM: +0 / -0 / net 0
 
 ## Sticky Tokens
-- `NEXT:`, `P:`, `ALT STEP WHY CONF:`, `ALT WHY GLYPH MODE:`, `ROUTE GLOW CONF:`, `RGFXWRM:`, `RGFXWRI WHY CONF:`, `RGFXWRIUP:`, `RGFXWRIUFX:`, `NEXT ROUTE:`, `PRESSURE:`, `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:`, `ENTER:JUMP`, `COACH:`
+- `NEXT:`, `P:`, `ALT STEP WHY CONF:`, `ALT WHY GLYPH MODE:`, `ROUTE GLOW CONF:`, `RGFXWRM:`, `RGFXWRI WHY CONF:`, `RGFXWRIUP:`, `RGFXWRIUFX:`, `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:`, `ENTER:JUMP`, `COACH:`
 
 ## Commit-level digest
 - `8e6a7c8` feat(portal): add ambient-ramp confidence prompt tokens | mode=neutral | compact net=10 detailed net=10 shared net=0
@@ -285,4 +289,3 @@
 - `fd01002` feat(portal): add vibe-sync hint experiment for 3 aligned transitions | mode=neutral | compact net=0 detailed net=0 shared net=0
 - `3d0feef` feat(portal): add conflict-aware coach override prompt token | mode=neutral | compact net=0 detailed net=0 shared net=0
 - `a3df04c` feat: add route vibe conflict cues and reason tokens | mode=neutral | compact net=0 detailed net=0 shared net=0
-- `2e5ee1a` feat(portal): add route vibe token and ascii vignette experiment | mode=neutral | compact net=0 detailed net=0 shared net=0

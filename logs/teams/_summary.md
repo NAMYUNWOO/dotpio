@@ -2582,3 +2582,14 @@ Compact decision memory for AI context efficiency.
 - Deterministic mapping policy (from existing life phase): `EARLY->HIGH`, `MID->MID`, `LATE->LOW`; baseline with no active numbers remains `HIGH`.
 - Verification PASS: `luac -p src/hud.lua`, `DOTPIO_EXPERIMENT_DMGNUM_LIFE_DEBUG=1 lua scripts/regression_combat_damage_number_life_token.lua`, `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 lua scripts/regression_combat_damage_number_life_confidence_token.lua`.
 - Next queued candidates: weekly digest churn coverage for `DMGNUM LIFE CONF:` (mid risk) and offline confidence remap recommendation policy (high risk).
+
+## 2026-03-25 02:04 KST — Cycle CW durable decision
+- Trigger: ACTION_ITEMS + TASKS + POST_RC_BACKLOG actionable queues were fully checked; executed Game Director cycle immediately.
+- Ideas generated:
+  - Low risk (Systems/QA): add weekly digest token-family churn coverage for `DMGNUM LIFE CONF:`.
+  - Mid risk (UX/Combat): add compact lifecycle confidence drift token `DMGNUM LIFE CONF Δ:+n|-n`.
+  - High risk (AI Content/VFX): prototype offline confidence remap recommendation policy.
+- Selected experiment: low-risk Systems/QA slice.
+- Shipped: weekly digest now tracks `DMGNUM LIFE CONF:` in token catalogs + alias-family totals (`dmgnumLifeConfidenceAlias`) and emits markdown churn rows for rapid triage.
+- Verification PASS: py_compile + weekly digest regression + weekly digest generation command.
+- Next item: mid-risk UX/Combat confidence-drift token experiment.
