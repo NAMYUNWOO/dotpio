@@ -2887,3 +2887,14 @@
   - Regression now asserts new JSON keys (`ambientRampWhyRecommendation*`) and markdown row visibility (`AMBIENT RAMP WHY REC`).
 
 - Cycle DB verification: weekly digest regression now asserts `AMBIENT RAMP WHY REC CONF` markdown row and confidence schema keys (pass).
+
+## 2026-03-25 05:05 KST
+- Task: Regression lock for ambient-rationale parity summary lines.
+- Commit: pending (this run)
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added assertions for `AMBIENT RAMP WHY REC PARITY` and `ARW REC PARITY:` to prevent digest/report drift.
+- Follow-up:
+  - Extend fixture checks once AI-content sandbox artifact lands.

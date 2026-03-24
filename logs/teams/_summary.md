@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 23:31 KST
+Last updated: 2026-03-25 05:05 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed highest-priority unchecked TASKS/POST_RC UX/World item: weekly portal readability digest now emits compact ambient-rationale parity summary lines (`AMBIENT RAMP WHY REC PARITY` and token-family `ARW REC PARITY`) for faster triage.
+- Added deterministic parity classifier (`SYNC|WATCH|LOCK`) derived from ambient rationale recommendation + confidence + churn/pressure signals; surfaced in JSON payload as `ambientRampWhyRecommendationParity` + `ambientRampWhyRecommendationParitySignals`.
+- Regression lock extended in `scripts/regression_weekly_portal_prompt_readability_drift.py` to assert both parity lines; full digest regression passes.
+- Remaining highest-priority unchecked queue item: AI Content/Systems offline ambient rationale auto-remap sandbox artifact (no runtime coupling).
 
 - Closed highest-priority unchecked TASKS/POST_RC Combat/VFX item: HUD now supports optional trend-accent color mapping for `DMGNUM LIFE TREND:UP|HOLD|DOWN` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_COLOR_DEBUG`.
 - Added regression guardrail `scripts/regression_combat_damage_number_life_trend_color.lua` with DOS contrast-budget assertions (>=4.5:1 against black HUD backdrop for UP/HOLD/DOWN accents).

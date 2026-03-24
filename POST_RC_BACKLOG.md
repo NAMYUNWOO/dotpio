@@ -686,5 +686,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/Systems): Prototype drift-adaptive runtime auto-remap from ambient-rationale recommendation outputs.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add offline confidence tier token for ambient-rationale recommendation (`AMBIENT RAMP WHY REC CONF:LOW|MID|HIGH`) in weekly digest with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] UX/World Team: Prototype compact parity summary line for ambient-rationale recommendation in digest token-family section.
+- [x] UX/World Team: Prototype compact parity summary line for ambient-rationale recommendation in digest token-family section.
 - [ ] AI Content/Systems Team: Prototype digest-driven ambient rationale auto-remap plan as offline sandbox artifact (no runtime coupling).

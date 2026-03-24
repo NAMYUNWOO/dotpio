@@ -1526,3 +1526,11 @@
 - Impact: Combat/VFX telemetry and HUD contracts remain stable in this run.
 
 - Cycle DB cross-lane note: digest-only recommendation confidence addition; combat runtime unaffected.
+
+## 2026-03-25 05:05 KST
+- Task: Combat lane status check during Cycle DB follow-up.
+- Commit: n/a (no combat code changes this run)
+- Decisions:
+  - No combat-token modifications; lane held stable while systems/world digest parity item shipped.
+- Follow-up:
+  - Keep next Game Director cycle eligible for combat/vfx slice if lane cadence dips.

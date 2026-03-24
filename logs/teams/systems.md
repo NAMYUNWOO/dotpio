@@ -2342,3 +2342,15 @@
   - Markdown digest now prints `AMBIENT RAMP WHY REC` for operator triage parity with confidence recommendation.
 
 - Cycle DB: implemented low-risk digest confidence tier `AMBIENT RAMP WHY REC CONF` with payload keys `ambientRampWhyRecommendationConfidence*` and regression assertions.
+
+## 2026-03-25 05:05 KST
+- Task: Systems wiring for ambient-rationale parity summary token in weekly digest.
+- Commit: pending (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added payload keys `ambientRampWhyRecommendationParity` + `ambientRampWhyRecommendationParitySignals`.
+  - Added deterministic mapper (`SYNC|WATCH|LOCK`) from recommendation/confidence/churn/pressure.
+- Follow-up:
+  - Keep runtime decoupled; parity remains offline digest guidance only.

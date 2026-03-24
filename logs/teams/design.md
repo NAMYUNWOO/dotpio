@@ -1613,3 +1613,11 @@
 - Impact: Existing portal rationale wording remains deterministic at runtime.
 
 - Cycle DB context: recommendation-confidence cue shipped offline-only; runtime portal rationale copy remains unchanged.
+
+## 2026-03-25 05:05 KST
+- Task: Design review note for ambient-rationale parity readability token.
+- Commit: pending (this run)
+- Decisions:
+  - Approved compact parity vocabulary (`SYNC/WATCH/LOCK`) for scanability under DOS-width constraints.
+- Follow-up:
+  - Revisit labels if auto-remap sandbox recommends different coaching semantics.

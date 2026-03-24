@@ -1485,6 +1485,8 @@ def main() -> int:
         assert "Token Family Coverage" in md_text
         assert "VTA + VIBE TRAIL ARC" in md_text
         assert "ARC + AMBIENT RAMP CONF" in md_text
+        assert "ARW + AMBIENT RAMP WHY" in md_text
+        assert "ARW REC PARITY:" in md_text
         assert "PULSE HEAT FX:" in md_text
         assert "VTW FAMILY CHURN" in md_text
         assert "VTWC FAMILY CHURN" in md_text
@@ -1549,6 +1551,7 @@ def main() -> int:
         assert "AMBIENT RAMP CONF REC" in md_text
         assert "AMBIENT RAMP WHY REC" in md_text
         assert "AMBIENT RAMP WHY REC CONF" in md_text
+        assert "AMBIENT RAMP WHY REC PARITY" in md_text
         assert "URGENCY STACK PRUNING REC" in md_text
         assert "URGENCY STACK RAIL REC" in md_text
         assert "DMG GLYPH SHAPE REMAP REC" in md_text

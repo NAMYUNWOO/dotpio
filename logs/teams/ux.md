@@ -1817,3 +1817,15 @@
 - Impact: No HUD/layout changes in this slice; UX surface change is digest-text only.
 
 - Cycle DB follow-up queued: compact ambient-rationale recommendation parity summary line in digest token-family section (not implemented this run).
+
+## 2026-03-25 05:05 KST
+- Task: Cycle DB follow-up — compact ambient-rationale parity summary in weekly digest token-family section.
+- Commit: pending (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added compact line `ARW REC PARITY:<SYNC|WATCH|LOCK>` into `## Token Family Coverage` and mirrored top digest summary line `AMBIENT RAMP WHY REC PARITY`.
+  - Kept parity deterministic from recommendation/confidence/churn signals (offline digest-only).
+- Follow-up:
+  - Next unchecked item: AI Content/Systems offline ambient rationale auto-remap sandbox artifact.

@@ -5367,6 +5367,38 @@ def ambient_ramp_why_recommendation_confidence_from_signals(
     }
 
 
+def ambient_ramp_why_recommendation_parity_summary(
+    *,
+    recommendation: str,
+    confidence: str,
+    recommendation_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Compact parity summary for ambient-rationale recommendation lane in token-family digest."""
+    churn = int(recommendation_signals.get("ambientRampWhyChurn", 0))
+    net = int(recommendation_signals.get("ambientRampWhyNet", 0))
+    pressure_band = str(recommendation_signals.get("pressureBand", "LOW"))
+
+    if confidence == "HIGH" and recommendation == "OPEN_CONTEXTUAL_WHY" and churn <= 1:
+        summary = "SYNC"
+        rationale = "stable-open-context-window"
+    elif confidence == "MID" and churn <= 3 and pressure_band != "HIGH":
+        summary = "WATCH"
+        rationale = "moderate-churn-mixed-context"
+    else:
+        summary = "LOCK"
+        rationale = "high-pressure-or-volatile-window"
+
+    signals: dict[str, object] = {
+        "recommendation": recommendation,
+        "confidence": confidence,
+        "ambientRampWhyChurn": churn,
+        "ambientRampWhyNet": net,
+        "pressureBand": pressure_band,
+        "rationale": rationale,
+    }
+    return summary, signals
+
+
 def urgency_stack_pruning_order_recommendation_from_trends(
     *,
     drift_risk: str,
@@ -5648,6 +5680,11 @@ def main() -> int:
     )
     ambient_ramp_why_recommendation_confidence, ambient_ramp_why_recommendation_confidence_signals = ambient_ramp_why_recommendation_confidence_from_signals(
         recommendation=ambient_ramp_why_recommendation,
+        recommendation_signals=ambient_ramp_why_recommendation_signals,
+    )
+    ambient_ramp_why_recommendation_parity, ambient_ramp_why_recommendation_parity_signals = ambient_ramp_why_recommendation_parity_summary(
+        recommendation=ambient_ramp_why_recommendation,
+        confidence=ambient_ramp_why_recommendation_confidence,
         recommendation_signals=ambient_ramp_why_recommendation_signals,
     )
     urgency_stack_pruning_order_recommendation, urgency_stack_pruning_order_recommendation_signals = urgency_stack_pruning_order_recommendation_from_trends(
@@ -6354,6 +6391,8 @@ def main() -> int:
         "ambientRampWhyRecommendationSignals": ambient_ramp_why_recommendation_signals,
         "ambientRampWhyRecommendationConfidence": ambient_ramp_why_recommendation_confidence,
         "ambientRampWhyRecommendationConfidenceSignals": ambient_ramp_why_recommendation_confidence_signals,
+        "ambientRampWhyRecommendationParity": ambient_ramp_why_recommendation_parity,
+        "ambientRampWhyRecommendationParitySignals": ambient_ramp_why_recommendation_parity_signals,
         "urgencyStackPruningOrderRecommendation": urgency_stack_pruning_order_recommendation,
         "urgencyStackPruningOrderRecommendationSignals": urgency_stack_pruning_order_recommendation_signals,
         "urgencyStackRailRecommendation": urgency_stack_rail_recommendation,
@@ -6651,6 +6690,7 @@ def main() -> int:
         f"- AMBIENT RAMP CONF REC: **{ambient_ramp_confidence_recommendation}** ({ambient_ramp_confidence_recommendation_signals['rationale']}; churn={ambient_ramp_confidence_recommendation_signals['ambientRampConfidenceChurn']} net={ambient_ramp_confidence_recommendation_signals['ambientRampConfidenceNet']} coverage={ambient_ramp_confidence_recommendation_signals['ambientRampConfidenceCoverage']} pressure={ambient_ramp_confidence_recommendation_signals['pressureBand']} offlineOnly={ambient_ramp_confidence_recommendation_signals['offlineOnly']})",
         f"- AMBIENT RAMP WHY REC: **{ambient_ramp_why_recommendation}** ({ambient_ramp_why_recommendation_signals['rationale']}; churn={ambient_ramp_why_recommendation_signals['ambientRampWhyChurn']} net={ambient_ramp_why_recommendation_signals['ambientRampWhyNet']} coverage={ambient_ramp_why_recommendation_signals['ambientRampWhyCoverage']} pressure={ambient_ramp_why_recommendation_signals['pressureBand']} offlineOnly={ambient_ramp_why_recommendation_signals['offlineOnly']})",
         f"- AMBIENT RAMP WHY REC CONF: **{ambient_ramp_why_recommendation_confidence}** ({ambient_ramp_why_recommendation_confidence_signals['rationale']}; rec={ambient_ramp_why_recommendation_confidence_signals['recommendation']} churn={ambient_ramp_why_recommendation_confidence_signals['ambientRampWhyChurn']} drift={ambient_ramp_why_recommendation_confidence_signals['driftRisk']} pressure={ambient_ramp_why_recommendation_confidence_signals['pressureBand']})",
+        f"- AMBIENT RAMP WHY REC PARITY: **{ambient_ramp_why_recommendation_parity}** ({ambient_ramp_why_recommendation_parity_signals['rationale']}; rec={ambient_ramp_why_recommendation_parity_signals['recommendation']} conf={ambient_ramp_why_recommendation_parity_signals['confidence']} churn={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyChurn']} net={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyNet']:+d} pressure={ambient_ramp_why_recommendation_parity_signals['pressureBand']})",
         f"- URGENCY STACK PRUNING REC: **{urgency_stack_pruning_order_recommendation}** ({urgency_stack_pruning_order_recommendation_signals['rationale']}; parityChurn={urgency_stack_pruning_order_recommendation_signals['parityCompactChurn']} fxChurn={urgency_stack_pruning_order_recommendation_signals['urgencyFxChurn']} detailedChurn={urgency_stack_pruning_order_recommendation_signals['urgencyDetailedChurn']} offlineOnly={urgency_stack_pruning_order_recommendation_signals['offlineOnly']})",
         f"- URGENCY STACK RAIL REC: **{urgency_stack_rail_recommendation}** ({urgency_stack_rail_recommendation_signals['rationale']}; railChurn={urgency_stack_rail_recommendation_signals['urgencyStackRailChurn']} railNet={urgency_stack_rail_recommendation_signals['urgencyStackRailNet']} tierChurn={urgency_stack_rail_recommendation_signals['urgencyStackTierChurn']} offlineOnly={urgency_stack_rail_recommendation_signals['offlineOnly']})",
         f"- DMG GLYPH SHAPE REMAP REC: **{dmg_glyph_shape_remap_recommendation}** ({dmg_glyph_shape_remap_recommendation_signals['rationale']}; glyphChurn={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphChurn']} glyphNet={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphNet']} railChurn={dmg_glyph_shape_remap_recommendation_signals['urgencyStackRailChurn']} offlineOnly={dmg_glyph_shape_remap_recommendation_signals['offlineOnly']})",
@@ -6842,6 +6882,7 @@ def main() -> int:
         f"- VTA + VIBE TRAIL ARC: +{token_family_totals['vibeTrailArcAlias']['added']} / -{token_family_totals['vibeTrailArcAlias']['removed']} / net {token_family_totals['vibeTrailArcAlias']['net']} (churn={token_family_totals['vibeTrailArcAlias']['churn']} coverage={token_family_totals['vibeTrailArcAlias']['coverage']})",
         f"- ARC + AMBIENT RAMP CONF: +{token_family_totals['ambientRampConfidenceAlias']['added']} / -{token_family_totals['ambientRampConfidenceAlias']['removed']} / net {token_family_totals['ambientRampConfidenceAlias']['net']} (churn={token_family_totals['ambientRampConfidenceAlias']['churn']} coverage={token_family_totals['ambientRampConfidenceAlias']['coverage']})",
         f"- ARW + AMBIENT RAMP WHY: +{token_family_totals['ambientRampWhyAlias']['added']} / -{token_family_totals['ambientRampWhyAlias']['removed']} / net {token_family_totals['ambientRampWhyAlias']['net']} (churn={token_family_totals['ambientRampWhyAlias']['churn']} coverage={token_family_totals['ambientRampWhyAlias']['coverage']})",
+        f"- ARW REC PARITY: {ambient_ramp_why_recommendation_parity} (rec={ambient_ramp_why_recommendation_parity_signals['recommendation']} conf={ambient_ramp_why_recommendation_parity_signals['confidence']} churn={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyChurn']} net={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyNet']:+d} pressure={ambient_ramp_why_recommendation_parity_signals['pressureBand']})",
         f"- PULSE HEAT FX: +{token_family_totals['pulseHeatFxAlias']['added']} / -{token_family_totals['pulseHeatFxAlias']['removed']} / net {token_family_totals['pulseHeatFxAlias']['net']} (churn={token_family_totals['pulseHeatFxAlias']['churn']} coverage={token_family_totals['pulseHeatFxAlias']['coverage']})",
         f"- ROUTE GLOW FX + RGFX: +{token_family_totals['routeGlowFxAlias']['added']} / -{token_family_totals['routeGlowFxAlias']['removed']} / net {token_family_totals['routeGlowFxAlias']['net']} (churn={token_family_totals['routeGlowFxAlias']['churn']} coverage={token_family_totals['routeGlowFxAlias']['coverage']})",
         f"- ROUTE GLOW CONF: +{token_family_totals['routeGlowConfidenceAlias']['added']} / -{token_family_totals['routeGlowConfidenceAlias']['removed']} / net {token_family_totals['routeGlowConfidenceAlias']['net']} (churn={token_family_totals['routeGlowConfidenceAlias']['churn']} coverage={token_family_totals['routeGlowConfidenceAlias']['coverage']})",

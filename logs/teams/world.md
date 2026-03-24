@@ -1569,3 +1569,14 @@
 - Impact: World-facing portal prompt runtime remains unchanged; only ops digest guidance expanded.
 
 - Cycle DB follow-up queued with UX: compact parity summary for ambient-rationale digest readability (no runtime map edits).
+
+## 2026-03-25 05:05 KST
+- Task: World readability handoff update for ambient-rationale digest parity line.
+- Commit: pending (this run)
+- Files observed: `scripts/weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - World-facing ambient rationale lane now has compact parity readout in token-family section for faster portal readability triage.
+- Follow-up:
+  - Validate parity signal behavior against future ambient-rationale auto-remap sandbox outputs.
