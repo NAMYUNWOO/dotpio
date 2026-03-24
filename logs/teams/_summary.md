@@ -2512,3 +2512,16 @@ Compact decision memory for AI context efficiency.
 - Regression lock expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` for payload token totals/family keys + markdown assertions.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Remaining unchecked backlog item: AI Content/VFX offline glyph FX remap recommendation policy tied to drift risk.
+
+## 2026-03-24 21:34 KST — Cycle CO closure (offline glyph FX remap recommendation)
+- Closed last unchecked TASKS/POST_RC item: AI Content/VFX offline glyph FX remap recommendation policy tied to drift risk.
+- `scripts/weekly_portal_prompt_readability_drift.py` now emits `DMG GLYPH FX REMAP REC` + signal payload (`HOLD_FX|SYNC_WITH_GLYPH|MICRO_TUNE_FX`, `offlineOnly=True`).
+- Regression lock updated in `scripts/regression_weekly_portal_prompt_readability_drift.py` for JSON keys and markdown line presence; regression PASS.
+- Actionable backlog status: ACTION_ITEMS + TASKS + POST_RC_BACKLOG are fully checked after this cycle.
+
+## 2026-03-24 21:34 KST — Cycle CP complete (Game Director review + vertical slice)
+- Triggered Game Director cycle after ACTION_ITEMS/TASKS/POST_RC actionable rows reached fully checked state.
+- Generated 3 ideas (low/mid/high), selected low-risk Systems/QA experiment.
+- Shipped: `DMG GLYPH FX REMAP CONF:LOW|MID|HIGH` in weekly digest markdown + JSON, tied to drift risk and glyph/fx churn score.
+- Verification PASS: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Injected backlog follow-ups (unchecked): HUD debug token `DMG FX PLAN:<mode>` and offline FX remap candidate table artifact.

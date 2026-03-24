@@ -596,4 +596,9 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Add compact combat FX live token (`DMG GLYPH FX LIVE:CALM|SPARK|BLAZE`) behind `DOTPIO_EXPERIMENT_DMG_GLYPH_FX_LIVE_DEBUG`.
 - [x] Systems/QA Team: Add weekly digest token-family coverage for `DMG GLYPH FX LIVE:` churn + regression lock.
-- [ ] AI Content/VFX Team: Prototype offline-only glyph FX remap recommendation policy tied to drift risk.
+- [x] AI Content/VFX Team: Prototype offline-only glyph FX remap recommendation policy tied to drift risk. *(lifecycle: [~] -> [x])*
+
+## P1 (Game Director Injection — 2026-03-24 Cycle CP)
+- [x] Systems/QA Team: Add offline digest confidence token for glyph FX remap recommendation (`DMG GLYPH FX REMAP CONF:LOW|MID|HIGH`) with regression lock. *(lifecycle: [~] -> [x])*
+- [ ] UX/Combat Team: Prototype compact HUD debug token for glyph FX remap stance (`DMG FX PLAN:<mode>`) behind flag.
+- [ ] AI Content/VFX Team: Prototype offline digest-generated FX remap candidate table artifact for review workflows.

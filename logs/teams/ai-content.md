@@ -1462,3 +1462,14 @@
 - Scope: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, backlog checkbox sync in `TASKS.md` + `POST_RC_BACKLOG.md`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: remaining unchecked queue item is AI Content/VFX offline glyph FX remap recommendation policy tied to drift risk.
+
+## 2026-03-24 21:34 KST — Cycle CO high-risk follow-up (offline glyph FX remap policy)
+- Completed queued AI Content/VFX item: added offline-only `DMG GLYPH FX REMAP REC` recommendation policy tied to weekly drift risk.
+- Recommendation bands: `HOLD_FX` (high risk/high churn), `SYNC_WITH_GLYPH` (glyph momentum sync window), `MICRO_TUNE_FX` (stable window).
+- Guardrail: policy is advisory only (`offlineOnly=True`); runtime CALM/SPARK/BLAZE mapping remains unchanged.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-24 21:34 KST — Cycle CP injection follow-up
+- Added next AI Content/VFX backlog candidate: offline digest-generated glyph FX remap candidate table artifact (review-only, no runtime apply).
+- Purpose: convert recommendation bands into reviewable proposal sets while preserving offline-only guardrails.

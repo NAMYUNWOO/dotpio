@@ -176,6 +176,26 @@ def main() -> int:
             "offlineOnly",
             "guidance",
         }, payload
+        assert payload.get("dmgGlyphFxRemapRecommendation") in {"HOLD_FX", "SYNC_WITH_GLYPH", "MICRO_TUNE_FX"}, payload
+        assert set(payload.get("dmgGlyphFxRemapRecommendationSignals", {}).keys()) == {
+            "driftRisk",
+            "dmgGlyphFxLiveChurn",
+            "dmgGlyphFxLiveNet",
+            "dmgGlyphFxLiveCoverage",
+            "dmgGlyphChurn",
+            "dmgGlyphNet",
+            "rationale",
+            "offlineOnly",
+            "guidance",
+        }, payload
+        assert payload.get("dmgGlyphFxRemapConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("dmgGlyphFxRemapConfidenceSignals", {}).keys()) == {
+            "driftRisk",
+            "dmgGlyphFxLiveChurn",
+            "dmgGlyphChurn",
+            "churnScore",
+            "rationale",
+        }, payload
         assert set(payload.get("routeVibeTotals", {}).keys()) == {"added", "removed", "net"}, payload
         assert set(payload["routeVibeTotals"]["added"].keys()) == {"CALM", "EDGE", "DOOM"}, payload
         assert payload["routeVibeTotals"]["added"]["EDGE"] >= 1, payload
@@ -1440,6 +1460,8 @@ def main() -> int:
         assert "URGENCY STACK PRUNING REC" in md_text
         assert "URGENCY STACK RAIL REC" in md_text
         assert "DMG GLYPH SHAPE REMAP REC" in md_text
+        assert "DMG GLYPH FX REMAP REC" in md_text
+        assert "DMG GLYPH FX REMAP CONF" in md_text
         assert "ROUTE VIBE DRIFT" in md_text
         assert "Route Vibe Drift (added/removed/net)" in md_text
         assert "FOCUS" in md_text

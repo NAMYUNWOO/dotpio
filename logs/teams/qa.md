@@ -2764,3 +2764,17 @@
 - Scope: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, backlog checkbox sync in `TASKS.md` + `POST_RC_BACKLOG.md`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: remaining unchecked queue item is AI Content/VFX offline glyph FX remap recommendation policy tied to drift risk.
+
+## 2026-03-24 21:34 KST — Verification: offline glyph FX remap recommendation
+- Updated regression expectations for new digest outputs:
+  - JSON: `dmgGlyphFxRemapRecommendation`, `dmgGlyphFxRemapRecommendationSignals`
+  - Markdown: `DMG GLYPH FX REMAP REC`
+- Verification command:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-24 21:34 KST — Cycle CP regression lock
+- Added regression assertions for:
+  - `dmgGlyphFxRemapConfidence`
+  - `dmgGlyphFxRemapConfidenceSignals`
+  - markdown row `DMG GLYPH FX REMAP CONF`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

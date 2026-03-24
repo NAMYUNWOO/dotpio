@@ -136,3 +136,8 @@
 - Scope: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, backlog checkbox sync in `TASKS.md` + `POST_RC_BACKLOG.md`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: remaining unchecked queue item is AI Content/VFX offline glyph FX remap recommendation policy tied to drift risk.
+
+## 2026-03-24 21:34 KST — Offline FX remap recommendation lane
+- Added digest-level recommendation output `DMG GLYPH FX REMAP REC` to guide future FX remap proposals without touching live effects.
+- Policy consumes drift risk + `DMG GLYPH FX LIVE` family churn + `DMG GLYPH` churn for cross-lane pacing context.
+- Runtime VFX behavior intentionally unchanged this slice (advisory/offline-only).

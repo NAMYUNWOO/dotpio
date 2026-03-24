@@ -2230,3 +2230,8 @@
 - Scope: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, backlog checkbox sync in `TASKS.md` + `POST_RC_BACKLOG.md`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: remaining unchecked queue item is AI Content/VFX offline glyph FX remap recommendation policy tied to drift risk.
+
+## 2026-03-24 21:34 KST — Cycle CP selected slice (glyph FX remap confidence)
+- Added digest confidence classifier for offline `DMG GLYPH FX REMAP REC` output: `LOW|MID|HIGH` from drift risk + combined glyph/fx churn score.
+- Scope: `scripts/weekly_portal_prompt_readability_drift.py` only; no runtime gameplay path changes.
+- Decision: keep thresholds deterministic and inspectable (`HIGH risk or score>=7 => LOW`, `MID risk or score>=4 => MID`, else `HIGH`).
