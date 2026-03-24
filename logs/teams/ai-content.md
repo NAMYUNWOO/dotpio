@@ -1492,3 +1492,7 @@
 - Evidence: `src/portal.lua`, `scripts/regression_portal_ambient_ramp_confidence.lua`.
 - Verification: ambient-ramp regressions pass (base/compact/confidence).
 - Follow-up: add digest churn coverage + offline drift recommendation tasks.
+
+## 2026-03-24 23:31:00 KST
+- Coordination: Systems/QA completed ambient confidence alias-family digest instrumentation (`ambientRampConfidenceAlias`).
+- Impact: AI-content follow-up policy task now has deterministic churn/coverage inputs for offline recommendation prototyping.

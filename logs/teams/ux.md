@@ -1766,3 +1766,7 @@
 - Evidence: `src/portal.lua`, `scripts/regression_portal_ambient_ramp_confidence.lua`.
 - Verification: ambient-ramp regressions pass (base/compact/confidence).
 - Follow-up: add digest churn coverage + offline drift recommendation tasks.
+
+## 2026-03-24 23:31:00 KST
+- Coordination: Weekly digest now reports ambient confidence alias churn (`ARC + AMBIENT RAMP CONF`) for operator scanability.
+- UX implication: compact-vs-detailed ambient confidence drift can be triaged without opening raw git diffs.

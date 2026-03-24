@@ -1513,3 +1513,7 @@
 - Evidence: `src/portal.lua`, `scripts/regression_portal_ambient_ramp_confidence.lua`.
 - Verification: ambient-ramp regressions pass (base/compact/confidence).
 - Follow-up: add digest churn coverage + offline drift recommendation tasks.
+
+## 2026-03-24 23:31:00 KST
+- Coordination: Ambient-ramp confidence telemetry visibility landed in weekly digest (`AMBIENT RAMP CONF:` + `ARC:` family tracking).
+- Impact: World-facing ambient readability drift can now be audited in weekly churn reports before tuning copy/policies.

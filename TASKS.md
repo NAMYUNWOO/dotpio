@@ -801,5 +801,5 @@ See project-level plans:
   - [x] Add ambient-ramp confidence resolver with deterministic thresholds (CALM->HIGH, RISK/TENSE->MID, SPIKE/TENSE->LOW)
   - [x] Surface full prompt token `AMBIENT RAMP CONF:*` and compact alias `ARC:*`
   - [x] Add regression coverage script `scripts/regression_portal_ambient_ramp_confidence.lua`
-- [ ] Systems/QA Team: Add weekly digest token-family churn coverage for `AMBIENT RAMP CONF:` + `ARC:` and lock with regression.
+- [x] Systems/QA Team: Add weekly digest token-family churn coverage for `AMBIENT RAMP CONF:` + `ARC:` and lock with regression. *(lifecycle: [ ] -> [~] -> [x])*
 - [ ] AI Content/World Team: Prototype drift-aware ambient confidence recommendation policy (offline recommendation only).

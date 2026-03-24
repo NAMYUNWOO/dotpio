@@ -2800,3 +2800,13 @@
 - Evidence: `src/portal.lua`, `scripts/regression_portal_ambient_ramp_confidence.lua`.
 - Verification: ambient-ramp regressions pass (base/compact/confidence).
 - Follow-up: add digest churn coverage + offline drift recommendation tasks.
+
+## 2026-03-24 23:31:00 KST
+- Task: Regression lock for ambient-ramp confidence token-family digest coverage.
+- Commit: pending (this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Regression assertions now require payload family `ambientRampConfidenceAlias` and markdown rows `AMBIENT RAMP CONF FAMILY CHURN` + `ARC + AMBIENT RAMP CONF`.

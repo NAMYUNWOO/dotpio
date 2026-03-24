@@ -802,6 +802,7 @@ def main() -> int:
         assert "vibeTrailWhyConfidenceWhyAlias" in payload["tokenFamilyTotals"], payload
         assert "vibeTrailWhyConfidenceWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert "vibeTrailArcAlias" in payload["tokenFamilyTotals"], payload
+        assert "ambientRampConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert "pulseHeatFxAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowConfidenceAlias" in payload["tokenFamilyTotals"], payload
@@ -860,6 +861,16 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailArcAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["ambientRampConfidenceAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1405,12 +1416,14 @@ def main() -> int:
         assert "Top Token Movers" in md_text
         assert "Token Family Coverage" in md_text
         assert "VTA + VIBE TRAIL ARC" in md_text
+        assert "ARC + AMBIENT RAMP CONF" in md_text
         assert "PULSE HEAT FX:" in md_text
         assert "VTW FAMILY CHURN" in md_text
         assert "VTWC FAMILY CHURN" in md_text
         assert "VTCW FAMILY CHURN" in md_text
         assert "VTCWC FAMILY CHURN" in md_text
         assert "VTA FAMILY CHURN" in md_text
+        assert "AMBIENT RAMP CONF FAMILY CHURN" in md_text
         assert "PULSE HEAT FX FAMILY CHURN" in md_text
         assert "ROUTE GLOW FX FAMILY CHURN" in md_text
         assert "ROUTE GLOW CONF FAMILY CHURN" in md_text

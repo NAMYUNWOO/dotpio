@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 21:52 KST
+Last updated: 2026-03-24 23:31 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed highest-priority unchecked TASKS/POST_RC Systems/QA item: weekly digest now tracks ambient confidence alias-family churn for `AMBIENT RAMP CONF:` + `ARC:` via `ambientRampConfidenceAlias`.
+- Markdown output now includes explicit rows `AMBIENT RAMP CONF FAMILY CHURN` and `ARC + AMBIENT RAMP CONF` to make compact-vs-detailed ambient confidence drift triageable.
+- Regression contract extended in `scripts/regression_weekly_portal_prompt_readability_drift.py`; digest regression + py_compile checks pass.
+- Remaining highest-priority unchecked queue item: AI Content/World drift-aware ambient confidence recommendation policy (offline-only).
 
 - Cycle CQ coverage check (last 10 completions) returned lane skew: systems=5/10 (50%) > 40% cap; forced-lane policy triggered for underrepresented lanes.
 - Shipped forced-lane UX/Combat/VFX vertical slice: new HUD debug token `DMG FX PLAN:HOLD_FX|MICRO_TUNE_FX|SYNC_WITH_GLYPH` behind `DOTPIO_EXPERIMENT_DMG_FX_PLAN_DEBUG` in `src/hud.lua`.

@@ -2256,3 +2256,14 @@
 - Evidence: `src/portal.lua`, `scripts/regression_portal_ambient_ramp_confidence.lua`.
 - Verification: ambient-ramp regressions pass (base/compact/confidence).
 - Follow-up: add digest churn coverage + offline drift recommendation tasks.
+
+## 2026-03-24 23:31:00 KST
+- Task: Add weekly digest token-family churn coverage for `AMBIENT RAMP CONF:` + `ARC:`.
+- Commit: pending (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added `ambientRampConfidenceAlias` family with detailed+compact aliases (`AMBIENT RAMP CONF:` + `ARC:`).
+  - Extended digest markdown rows (family churn + token coverage section) for ambient-ramp confidence visibility.
