@@ -2170,3 +2170,7 @@
 - Added `urgencyStackTierAlias` family (`URG STACK:`) to weekly portal readability digest token-family accounting.
 - Extended compact/detailed/portal token catalogs to keep urgency-stack churn visible in digest windows.
 - Follow-up: if `URG STACK:` churn rises, evaluate whether compact budget pruning guidance needs reordering.
+
+## 2026-03-24 17:12 KST — Cycle CL support
+- Added `DOTPIO_EXPERIMENT_URGENCY_STACK_RAIL` wiring in `src/portal.lua` and deterministic resolver (`STEADY|SPIKE`) tied to urgency-stack tier/urgency pressure.
+- Follow-up injected: weekly digest family-churn coverage for `URG STACK RAIL:`.

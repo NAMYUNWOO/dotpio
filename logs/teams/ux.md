@@ -1694,3 +1694,7 @@
 ## 2026-03-24 16:31 KST — Cycle CK (UX sync)
 - No in-run prompt token added this cycle; update is telemetry/readability-digest only.
 - UX follow-up remains compact urgency-stack rail exploration when budget headroom allows.
+
+## 2026-03-24 17:12 KST — Cycle CL completion
+- Shipped compact urgency-stack confidence rail token behind `DOTPIO_EXPERIMENT_URGENCY_STACK_RAIL`.
+- Behavior: `TIGHT` stack pressure -> `SPIKE`; otherwise `STEADY` unless urgency tier escalates to `HIGH`.

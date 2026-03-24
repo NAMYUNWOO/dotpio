@@ -1506,3 +1506,6 @@
 ## 2026-03-24 16:31 KST — Cycle CK (Design sync)
 - Preserved token naming consistency by retaining canonical `URG STACK:` label in digest outputs.
 - Deferred new urgency-rail visual language (`URG STACK RAIL`) to a future mid-risk cycle.
+
+## 2026-03-24 17:12 KST — Cycle CL note
+- Kept token copy compact and deterministic (`URG STACK RAIL:STEADY|SPIKE`) to preserve DOS prompt readability budget.

@@ -2447,3 +2447,8 @@ Compact decision memory for AI context efficiency.
 - Durable change: `weekly_portal_prompt_readability_drift.py` now tracks `urgencyStackTierAlias` in `tokenFamilyTotals` and publishes explicit markdown churn lines.
 - Guardrail: regression now asserts both JSON family presence and markdown visibility (`URG STACK FAMILY CHURN`, `URG STACK:`).
 - Result: urgency-stack compact pruning drift is now auditable without adding runtime gameplay risk.
+
+### 2026-03-24 17:12 KST — Cycle CL urgency-stack rail token slice
+- Completed selected UX/World experiment: added `URG STACK RAIL:STEADY|SPIKE` compact portal token behind `DOTPIO_EXPERIMENT_URGENCY_STACK_RAIL` in `src/portal.lua`.
+- Verification PASS: `lua scripts/regression_portal_urgency_stack_rail.lua` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Backlog updates: marked Cycle CL selected item done (`[~] -> [x]`), injected next tasks for Systems/QA digest family coverage and AI Content drift-adaptive rail recommendation.

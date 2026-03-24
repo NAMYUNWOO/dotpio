@@ -728,3 +728,12 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Systems): Add drift-adaptive urgency-stack tier recommendation from weekly digest trend windows.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add token-family coverage + markdown triage row for `URG STACK:` in weekly digest and lock via regression.
+
+## Cycle CL - Game Director Review (2026-03-24 17:05 KST)
+- Idea 1 (low risk, UX/World): Add compact urgency-stack confidence rail token (`URG STACK RAIL:STEADY|SPIKE`) behind `DOTPIO_EXPERIMENT_URGENCY_STACK_RAIL` for prompt-debug pacing readability.
+- Idea 2 (mid risk, Systems/QA): Add weekly digest token-family coverage for `URG STACK RAIL:` churn with markdown triage row + regression lock.
+- Idea 3 (high risk, AI Content/Systems): Add drift-adaptive urgency-stack rail recommendation policy from weekly digest trend windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/World Team: Add compact urgency-stack confidence rail token (`URG STACK RAIL:STEADY|SPIKE`) behind `DOTPIO_EXPERIMENT_URGENCY_STACK_RAIL`.
+- [ ] Systems/QA Team: Add weekly digest token-family coverage for `URG STACK RAIL:` churn and markdown triage row; lock with regression.
+- [ ] AI Content/Systems Team: Prototype drift-adaptive urgency-stack rail recommendation policy from weekly digest trend windows.

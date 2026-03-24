@@ -1139,6 +1139,15 @@ local function isUrgencyStackPruningTierExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isUrgencyStackRailExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_URGENCY_STACK_RAIL")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function isRouteGlowFxCompactAliasExperimentEnabled()
     local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_COMPACT")
     if not raw then
@@ -1351,6 +1360,16 @@ local function resolveRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyC
         return "SPIKE"
     end
     return nil
+end
+
+local function resolveUrgencyStackRail(urgencyStackTier, routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency)
+    if urgencyStackTier == "TIGHT" then
+        return "SPIKE"
+    end
+    if routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency == "HIGH" then
+        return "SPIKE"
+    end
+    return "STEADY"
 end
 
 local function resolveVibeTrailConfidence(vibeTrail)
@@ -1650,6 +1669,10 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
                                                                     end
                                                                 end
                                                                 appendToken(string.format("URG STACK:%s", urgencyStackTier), false)
+                                                                if isUrgencyStackRailExperimentEnabled() then
+                                                                    local urgencyStackRail = resolveUrgencyStackRail(urgencyStackTier, routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency)
+                                                                    appendToken(string.format("URG STACK RAIL:%s", urgencyStackRail), false)
+                                                                end
                                                             end
                                                             if budget > 0 and remainingBudget <= 20 then
                                                                 appendBudgetedTokenCandidates({ urgencyFxToken, urgencyParityToken, urgencyCoachToken })

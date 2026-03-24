@@ -2695,3 +2695,7 @@
 - Locked new urgency-stack family coverage with regression assertions (`tokenFamilyTotals['urgencyStackTierAlias']`).
 - Added markdown regression checks for `URG STACK FAMILY CHURN` and `URG STACK:` summary rows.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-24 17:12 KST — Cycle CL verification
+- PASS `lua scripts/regression_portal_urgency_stack_rail.lua` (with required experiment env flags).
+- PASS `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.

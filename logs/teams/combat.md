@@ -1391,3 +1391,6 @@
 ## 2026-03-24 16:31 KST — Cycle CK (Combat sync)
 - No combat behavior or balance deltas shipped in this digest-focused cycle.
 - Last combat-visible change (corpse fade) remains baseline for next combat/VFX cadence pass.
+
+## 2026-03-24 17:12 KST — Cycle CL note
+- No combat logic changes in this slice; maintained corpse-fade/damage-number behavior from prior cycles.

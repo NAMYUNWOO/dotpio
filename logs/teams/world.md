@@ -1459,3 +1459,6 @@
 ## 2026-03-24 16:31 KST — Cycle CK (World sync)
 - No world-map topology change this cycle.
 - Consumed digest-only update; world lane remains unchanged pending next route readability slice.
+
+## 2026-03-24 17:12 KST — Cycle CL UX/World slice
+- Portal compact prompt now includes `URG STACK RAIL:<STEADY|SPIKE>` when urgency stack experiments are enabled, improving route-debug pacing readability.
