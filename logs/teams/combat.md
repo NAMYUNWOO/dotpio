@@ -1373,3 +1373,7 @@
 - Added combat state lifecycle support in `src/combat.lua` for damage-number decay and rendering color split (physical vs magic).
 - Added regression `scripts/regression_combat_damage_numbers.lua` covering melee emit, timer decay/expiry, and magic-impact emit.
 - Follow-up: consider crit/element styling only after baseline readability metrics are captured.
+
+## 2026-03-24 15:05 KST — Lane sync note
+- No combat mechanic changes this cycle.
+- Combat lane remains unaffected while portal urgency readability instrumentation was added.

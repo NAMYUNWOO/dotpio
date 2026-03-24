@@ -2151,3 +2151,7 @@
 ## 2026-03-24 14:33 KST — Combat effect-state update
 - Added `damageNumbers` state container in combat runtime with deterministic update decay and reset behavior.
 - Exposed `Combat.debugGetDamageNumbers()` for regression-only state inspection.
+
+## 2026-03-24 15:05 KST — Prompt budget tiering hook
+- Added experiment-gated budget-tier classifier (`DOTPIO_EXPERIMENT_URGENCY_STACK_TIER`) in portal compact prompt path.
+- Tier mapping intentionally simple/reversible for follow-up tuning: `<=140` tight, `<=170` mid, else loose.

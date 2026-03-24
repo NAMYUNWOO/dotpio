@@ -1130,6 +1130,15 @@ local function isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParity
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isUrgencyStackPruningTierExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_URGENCY_STACK_TIER")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function isRouteGlowFxCompactAliasExperimentEnabled()
     local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_COMPACT")
     if not raw then
@@ -1631,6 +1640,17 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
                                                             end
 
                                                             local remainingBudget = budget > 0 and (budget - #prompt) or 999
+                                                            if isUrgencyStackPruningTierExperimentEnabled() then
+                                                                local urgencyStackTier = "LOOSE"
+                                                                if budget > 0 then
+                                                                    if budget <= 140 then
+                                                                        urgencyStackTier = "TIGHT"
+                                                                    elseif budget <= 170 then
+                                                                        urgencyStackTier = "MID"
+                                                                    end
+                                                                end
+                                                                appendToken(string.format("URG STACK:%s", urgencyStackTier), false)
+                                                            end
                                                             if budget > 0 and remainingBudget <= 20 then
                                                                 appendBudgetedTokenCandidates({ urgencyFxToken, urgencyParityToken, urgencyCoachToken })
                                                             elseif budget > 0 and remainingBudget <= 36 then

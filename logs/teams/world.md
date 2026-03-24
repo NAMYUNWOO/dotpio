@@ -1441,3 +1441,7 @@
 ## 2026-03-24 14:33 KST — Lane sync (no world edits)
 - Cycle CI selected combat/vfx vertical slice; map/world routing files unchanged this cycle.
 - Deferred ambient zone tint idea (Cycle CI Idea 2) pending future world/design lane allocation.
+
+## 2026-03-24 15:05 KST — Portal prompt readability update
+- Synced on compact portal prompt readability lane: added `URG STACK` indicator for urgency-stack pruning visibility.
+- No map/portal topology changes in this slice.

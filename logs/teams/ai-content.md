@@ -1405,3 +1405,7 @@
 ## 2026-03-24 14:33 KST — Lane sync (no AI-content schema edits)
 - Cycle CI focused on combat feedback readability; no AI generation prompt/schema changes were required.
 - Deferred elemental projectile differentiation concept (Cycle CI Idea 3) for separate high-risk experiment gate.
+
+## 2026-03-24 15:05 KST — Prompt token stack observability
+- Captured new compact token (`URG STACK`) to make urgency-stack pruning behavior interpretable during AI prompt tuning.
+- No generation policy/rationale remap logic changed in this slice.

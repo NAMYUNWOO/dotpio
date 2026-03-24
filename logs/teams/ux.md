@@ -1674,3 +1674,9 @@
 ## 2026-03-24 14:33 KST — Combat readability note
 - Combat feedback now includes transient numeric hit cues with center-tile placement and fade trajectory.
 - Kept text compact and centered per tile to avoid overlapping HUD strip in dense combat scenes.
+
+## 2026-03-24 15:05 KST — Cycle CH follow-up: URG STACK compact token
+- Decision: shipped `URG STACK:TIGHT|MID|LOOSE` compact debug token behind `DOTPIO_EXPERIMENT_URGENCY_STACK_TIER`.
+- Implementation: token emitted in compact portal prompt urgency stack path (budget-tier based: `<=140 TIGHT`, `<=170 MID`, else `LOOSE`).
+- Verification: `DOTPIO_EXPERIMENT_PORTAL_VIBE_TRAIL=1 ... DOTPIO_EXPERIMENT_URGENCY_STACK_TIER=1 lua scripts/regression_portal_urgency_stack_tier.lua` → PASS.
+- Follow-up: wire weekly digest drift recommendation task for urgency-stack ordering (remaining CH unchecked item).

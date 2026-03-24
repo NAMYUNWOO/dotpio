@@ -2421,3 +2421,9 @@ Compact decision memory for AI context efficiency.
 - Durable implementation decision: keep effect additive/reversible in `src/combat.lua` with compact tile-centered text; avoid extra particle/camera layers in this pass.
 - Added regression guardrail `scripts/regression_combat_damage_numbers.lua` (melee emit, decay/expiry, magic emit).
 - Remaining unchecked priority items in TASKS: `URG STACK:TIGHT|MID|LOOSE` compact debug token; drift-aware urgency-stack pruning recommendation.
+
+## 2026-03-24 15:05 KST — Cycle CH follow-up shipped
+- Completed TASKS/POST_RC item: `URG STACK:TIGHT|MID|LOOSE` compact urgency-stack pruning tier token behind `DOTPIO_EXPERIMENT_URGENCY_STACK_TIER`.
+- Implementation lives in `src/portal.lua` compact transition prompt urgency path; tiering keyed by compact budget (`<=140 TIGHT`, `<=170 MID`, else `LOOSE`).
+- Added regression coverage: `scripts/regression_portal_urgency_stack_tier.lua`.
+- Next priority item remains: AI Content/Systems drift-aware urgency-stack pruning order recommendation from weekly digest trends.

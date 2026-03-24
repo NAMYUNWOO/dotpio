@@ -1488,3 +1488,7 @@
 ## 2026-03-24 14:33 KST — CI readability decision
 - Approved low-risk readability-first slice over broader ambient tint/elemental differentiation options.
 - Rationale: immediate per-hit clarity gain with reversible, additive implementation and minimal systemic risk.
+
+## 2026-03-24 15:05 KST — DOS prompt readability cue
+- Approved concise debug-style token label (`URG STACK`) for compact prompt-debug scans.
+- Kept additive + reversible via dedicated experiment flag.
