@@ -1,3 +1,5 @@
+local Combat = require("src.combat")
+
 local HUD = {
     _lastThreatScore = 0,
     _auxThreatHint = nil,
@@ -267,6 +269,29 @@ local function drawRunSummary(runSummary)
     love.graphics.printf("Press R / Enter / Esc to close", 0, h - 148, w, "center")
 end
 
+local function isDamageGlyphLiveDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
+function HUD.resolveDamageGlyphLiveToken()
+    if not isDamageGlyphLiveDebugExperimentEnabled() then
+        return nil
+    end
+    local numbers = Combat.debugGetDamageNumbers and Combat.debugGetDamageNumbers() or {}
+    local latest = numbers[#numbers]
+    if not latest then
+        return "DMG GLYPH LIVE:BASIC"
+    end
+    local band = tostring(latest.glyphBand or "BASIC")
+    if band ~= "BASIC" and band ~= "SPIKE" and band ~= "OVERDRIVE" then
+        band = "BASIC"
+    end
+    return string.format("DMG GLYPH LIVE:%s", band)
+end
+
 function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary, onboardingHint)
     love.graphics.setColor(0,0,0,0.7)
     love.graphics.rectangle("fill", 8, 8, 240, 92)
@@ -352,6 +377,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
 
     love.graphics.setColor(0.5,0.5,0.5,0.8)
     love.graphics.print(string.format("Pos: %d,%d", player.x, player.y), 16, 690)
+
+    local damageGlyphLiveToken = HUD.resolveDamageGlyphLiveToken()
+    if damageGlyphLiveToken then
+        love.graphics.setColor(0.86, 0.8, 1.0, 0.92)
+        love.graphics.print(damageGlyphLiveToken, 160, 690)
+    end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)
 

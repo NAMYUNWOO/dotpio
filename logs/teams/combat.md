@@ -1421,3 +1421,10 @@
 
 ## 2026-03-24 19:12 KST — Cycle CN lane sync
 - No additional combat runtime mechanics changed in Cycle CN; slice focused on systems/qa digest observability for `DMG GLYPH:` token family churn.
+
+## 2026-03-24 19:31 KST
+- Task: Cycle CN UX/Combat follow-up — compact live glyph-band debug token for combat readability audits.
+- Decision: Added HUD token resolver `DMG GLYPH LIVE:<BASIC|SPIKE|OVERDRIVE>` gated by `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG`.
+- Evidence: `src/hud.lua`, `scripts/regression_combat_damage_glyph_live_token.lua`.
+- Verification: `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG=1 lua scripts/regression_combat_damage_glyph_live_token.lua` ✅
+- Follow-up: Next unchecked priority remains AI Content/VFX drift-aware glyph-shape remap recommendation (offline only).

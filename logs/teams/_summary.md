@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 18:31 KST
+Last updated: 2026-03-24 19:31 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle CN UX/Combat unchecked item: HUD now supports compact live glyph-band debug token `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` behind `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG`.
+- Added regression guardrail `scripts/regression_combat_damage_glyph_live_token.lua`; verified alongside baseline `scripts/regression_combat_damage_glyph_burst.lua` (both passing).
+- Remaining highest-priority unchecked queue item: AI Content/VFX drift-aware glyph-shape remap recommendation policy (offline-only).
 
 - Closed Cycle CM Systems/QA unchecked item: weekly digest now tracks `DMGNUM STACK CAP:` alias-family churn (`dmgnumStackCapAlias`) with markdown triage rows in both summary and Token Family Coverage sections.
 - Weekly digest scope now includes combat touchpoints (`src/combat.lua`, `scripts/regression_combat_damage_numbers.lua`) so stack-cap token churn is auditable in drift runs.

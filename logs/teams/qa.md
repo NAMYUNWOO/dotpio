@@ -2732,3 +2732,11 @@
 - Verification commands:
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-24 19:31 KST
+- Task: Regression lock for compact combat glyph-live debug token.
+- Files: `src/hud.lua`, `scripts/regression_combat_damage_glyph_live_token.lua`.
+- Verification:
+  - `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG=1 lua scripts/regression_combat_damage_glyph_live_token.lua` ✅
+  - `DOTPIO_EXPERIMENT_DAMAGE_GLYPH_BURST=1 lua scripts/regression_combat_damage_glyph_burst.lua` ✅
+- Decisions: Token defaults to `BASIC` when no active floating damage numbers exist, preventing nil/empty HUD debug states.

@@ -755,5 +755,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/VFX): Add dynamic glyph-shape remap policy from weekly drift pressure bands.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add weekly digest token-family coverage for `DMG GLYPH:` churn and lock via regression.
-- [ ] UX/Combat Team: Prototype compact debug token `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` behind flag for live-readability audits.
+- [x] UX/Combat Team: Prototype compact debug token `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` behind flag for live-readability audits. *(lifecycle: [ ] -> [~] -> [x])*
 - [ ] AI Content/VFX Team: Prototype drift-aware glyph-shape remap recommendation policy (offline only).

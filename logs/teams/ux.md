@@ -1711,3 +1711,10 @@
 
 ## 2026-03-24 19:12 KST — Backlog injection note
 - Injected UX/Combat follow-up task: `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` compact debug token behind flag for live readability audits.
+
+## 2026-03-24 19:31 KST
+- Task: Prototype compact combat debug token `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` behind feature flag.
+- Decision: Surfaced token in HUD footer (`x=160,y=690`) so live glyph burst band is visible without opening extra debug UI.
+- Flag: `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG`.
+- Evidence: `src/hud.lua`, `scripts/regression_combat_damage_glyph_live_token.lua`.
+- Verification: token regression pass + baseline glyph burst regression pass.
