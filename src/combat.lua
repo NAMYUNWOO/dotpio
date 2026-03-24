@@ -13,6 +13,32 @@ local DMGNUM_DURATION = 0.6
 local DMGNUM_RISE = 12  -- pixels to float upward
 local DMGNUM_STACK_CAP = 8  -- DMGNUM STACK CAP: max concurrent floating numbers
 
+local function isDamageGlyphBurstExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DAMAGE_GLYPH_BURST")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
+local function damageGlyphBandFromAmount(amount, lethal)
+    local dmg = tonumber(amount) or 0
+    if lethal and dmg >= 4 then
+        return "OVERDRIVE"
+    end
+    if dmg >= 8 then
+        return "OVERDRIVE"
+    elseif dmg >= 4 then
+        return "SPIKE"
+    end
+    return "BASIC"
+end
+
+local function damageGlyphVisualFromBand(band)
+    if band == "OVERDRIVE" then return "✹" end
+    if band == "SPIKE" then return "✦" end
+    return "·"
+end
+
 local function pushDamageNumber(entry)
     damageNumbers[#damageNumbers + 1] = entry
     while #damageNumbers > DMGNUM_STACK_CAP do
@@ -39,8 +65,9 @@ function Combat.meleeAttack(player, enemyAtFn)
         e.hp = e.hp - finalDmg
         e.alerted = true
         local lethal = e.hp <= 0 and e.alive
+        local glyphBand = damageGlyphBandFromAmount(finalDmg, lethal)
         damageFlash[#damageFlash+1] = {x=tx, y=ty, timer=0.3}
-        pushDamageNumber({x=tx, y=ty, amount=finalDmg, timer=DMGNUM_DURATION, magic=false, lethal=lethal})
+        pushDamageNumber({x=tx, y=ty, amount=finalDmg, timer=DMGNUM_DURATION, magic=false, lethal=lethal, glyphBand=glyphBand})
         if lethal then
             e.alive = false
             e.deathTimer = 0.4
@@ -78,7 +105,8 @@ function Combat.update(dt, enemyAtFn)
                     e.hp = e.hp - finalDmg
                     e.alerted = true
                     local lethal = e.hp <= 0 and e.alive
-                    pushDamageNumber({x=p.targetX, y=p.targetY, amount=finalDmg, timer=DMGNUM_DURATION, magic=true, lethal=lethal})
+                    local glyphBand = damageGlyphBandFromAmount(finalDmg, lethal)
+                    pushDamageNumber({x=p.targetX, y=p.targetY, amount=finalDmg, timer=DMGNUM_DURATION, magic=true, lethal=lethal, glyphBand=glyphBand})
                     if lethal then
                         e.alive = false
                         e.deathTimer = 0.4
@@ -151,6 +179,11 @@ function Combat.drawEffects()
                 label = label .. "!"
                 love.graphics.setColor(1.0, 0.35, 0.35, alpha)
             end
+            if isDamageGlyphBurstExperimentEnabled() then
+                local glyphBand = n.glyphBand or damageGlyphBandFromAmount(n.amount, n.lethal == true)
+                local glyph = damageGlyphVisualFromBand(glyphBand)
+                label = string.format("%s %s", label, glyph)
+            end
             love.graphics.printf(label, px - TILE * 0.5, py, TILE, "center")
         end
     end
@@ -173,6 +206,7 @@ function Combat.debugGetDamageNumbers()
             timer = n.timer,
             magic = n.magic == true,
             lethal = n.lethal == true,
+            glyphBand = n.glyphBand,
         }
     end
     return out

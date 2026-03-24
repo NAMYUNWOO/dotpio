@@ -1515,3 +1515,10 @@
 
 ## 2026-03-24 18:31:00 KST
 - Sync note: Design token taxonomy unchanged; `DMGNUM STACK CAP` added as telemetry-only digest family (no runtime copy changes).
+
+## 2026-03-24 19:01 KST — Combat readability sign-off (glyph burst)
+- Approved compact burst-glyph progression (`· -> ✦ -> ✹`) for quick damage intensity scan in DOS presentation.
+- Constraint kept: glyphs are optional via experiment flag and do not replace existing numeric readability.
+
+## 2026-03-24 19:12 KST — Design sync
+- No new design token/copy changes in Cycle CN; retained existing combat glyph visual vocabulary while systems/qa added audit coverage.

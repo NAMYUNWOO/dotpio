@@ -1412,3 +1412,12 @@
 - Decisions:
   - Introduced `DMGNUM_STACK_CAP=8` with FIFO trimming (`pushDamageNumber`) to prevent unbounded floating-number growth.
   - Added debug accessor `debugGetDamageNumberStackCap()` for deterministic regression checks.
+
+## 2026-03-24 19:01 KST — Cycle CM follow-up: DMG GLYPH prototype shipped
+- Completed unchecked AI Content/VFX follow-up: damage-band glyph burst metadata wired for floating damage numbers.
+- Added deterministic banding helper in `src/combat.lua`: `BASIC|SPIKE|OVERDRIVE` from damage amount/lethal context.
+- Runtime rendering now appends glyph cue (`·`, `✦`, `✹`) only when `DOTPIO_EXPERIMENT_DAMAGE_GLYPH_BURST` is enabled.
+- Added regression: `scripts/regression_combat_damage_glyph_burst.lua`.
+
+## 2026-03-24 19:12 KST — Cycle CN lane sync
+- No additional combat runtime mechanics changed in Cycle CN; slice focused on systems/qa digest observability for `DMG GLYPH:` token family churn.

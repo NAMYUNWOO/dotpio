@@ -116,3 +116,11 @@
 - Added lethal-hit emphasis style for floating numbers: red tint + exclamation suffix (`!`).
 - Rationale: preserve quick kill-anchor readability after corpse-fade addition without increasing effect clutter.
 - Validation path: `lua scripts/regression_combat_damage_numbers.lua` + `lua scripts/regression_enemy_death_fade.lua`.
+
+## 2026-03-24 19:01 KST — DMG GLYPH burst prototype
+- Added flag-gated floating-number glyph accents tied to burst band (`·`, `✦`, `✹`) under `DOTPIO_EXPERIMENT_DAMAGE_GLYPH_BURST`.
+- Kept additive/reversible scope: default visuals unchanged when flag is off.
+- Verified lethal accent (`!` + red tint) still composes with glyph output.
+
+## 2026-03-24 19:12 KST — VFX sync
+- No new runtime VFX logic in Cycle CN; this cycle added digest tracking for `DMG GLYPH:` churn to improve effect-lane auditability.

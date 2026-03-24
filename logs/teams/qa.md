@@ -2718,3 +2718,17 @@
 - Verification:
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `lua scripts/regression_combat_damage_numbers.lua` ✅
+
+## 2026-03-24 19:01 KST — Verification: combat damage glyph burst
+- Ran syntax gate:
+  - `luac -p src/combat.lua scripts/regression_combat_damage_numbers.lua scripts/regression_combat_damage_glyph_burst.lua`
+- Ran regressions:
+  - `lua scripts/regression_combat_damage_numbers.lua` ✅
+  - `DOTPIO_EXPERIMENT_DAMAGE_GLYPH_BURST=1 lua scripts/regression_combat_damage_glyph_burst.lua` ✅
+- Result: floating-number lifecycle remained stable; glyph band mapping assertions passed (`BASIC`, `SPIKE`, `OVERDRIVE`).
+
+## 2026-03-24 19:12 KST — Verification: Cycle CN digest DMG GLYPH coverage
+- Added regression assertions for `DMG GLYPH:` in weekly digest payload + markdown output.
+- Verification commands:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

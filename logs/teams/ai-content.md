@@ -1435,3 +1435,11 @@
 
 ## 2026-03-24 18:31:00 KST
 - Sync note: AI-content scope unchanged this pass; next queued item remains `DMG GLYPH:BASIC|SPIKE|OVERDRIVE` prototype.
+
+## 2026-03-24 19:01 KST — Damage-band glyph semantics
+- Finalized compact semantic ladder for burst cues: `BASIC` (chip), `SPIKE` (meaningful burst), `OVERDRIVE` (finisher threat punctuation).
+- Guardrail: mapping is deterministic and local to combat damage metadata; no portal-prompt token surface changes in this slice.
+- Follow-up recommendation: if readability holds, consider optional prompt-debug mirror token in a later systems digest cycle.
+
+## 2026-03-24 19:12 KST — Backlog injection note
+- Injected high-risk prototype task: drift-aware glyph-shape remap recommendation policy (offline only) for future AI-content/vfx experimentation.

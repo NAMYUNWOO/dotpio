@@ -2472,3 +2472,17 @@ Compact decision memory for AI context efficiency.
 - Backlog updates:
   - Completed Cycle CL pending Systems/QA digest row (`URG STACK RAIL`) now marked done in `TASKS.md` + `POST_RC_BACKLOG.md`.
   - Injected Cycle CM follow-ups: `DMGNUM STACK CAP` digest telemetry + `DMG GLYPH` prototype tasks.
+
+## 2026-03-24 19:01 KST — Cycle CM follow-up complete (DMG GLYPH)
+- Closed remaining unchecked TASKS/POST_RC item: `DMG GLYPH:BASIC|SPIKE|OVERDRIVE` prototype behind `DOTPIO_EXPERIMENT_DAMAGE_GLYPH_BURST`.
+- `src/combat.lua` now computes deterministic `glyphBand` per hit and renders additive glyph accents only when flag-enabled.
+- Added regression lock `scripts/regression_combat_damage_glyph_burst.lua`; existing lifecycle regression still passes.
+- Backlog state: ACTION_ITEMS/TASKS/POST_RC are now fully checked as of this cycle.
+
+## 2026-03-24 19:12 KST — Cycle CN complete (Game Director low-risk systems slice)
+- Generated 3 ideas (low/mid/high) and selected low-risk Systems/QA experiment.
+- Shipped digest observability update: `scripts/weekly_portal_prompt_readability_drift.py` now tracks `DMG GLYPH:` in token catalogs, alias-family churn, and markdown summary rows.
+- Regression lock added/updated in `scripts/regression_weekly_portal_prompt_readability_drift.py`; py_compile + regression PASS.
+- Injected next backlog tasks:
+  - UX/Combat: `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` compact debug token (flagged)
+  - AI Content/VFX: drift-aware glyph-shape remap recommendation policy (offline)

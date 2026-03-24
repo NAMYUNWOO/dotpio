@@ -2200,3 +2200,13 @@
 - Decisions:
   - Added `dmgnumStackCapAlias` family and markdown churn rows for `DMGNUM STACK CAP` in digest output.
   - Extended path hints to include combat files so stack-cap token churn is visible in weekly drift runs.
+
+## 2026-03-24 19:01 KST — Backlog closure wiring
+- Closed last unchecked item from TASKS/POST_RC (`DMG GLYPH:BASIC|SPIKE|OVERDRIVE`) with flag-gated combat implementation.
+- Added debug-state field `glyphBand` in `Combat.debugGetDamageNumbers()` to support deterministic regression coverage.
+- No economy/progression/map systems touched in this slice.
+
+## 2026-03-24 19:12 KST — Cycle CN selected slice (digest observability)
+- Ran Game Director review cycle (3 ideas) and selected low-risk Systems/QA slice.
+- Extended weekly digest token catalogs/families to include `DMG GLYPH:`.
+- Updated lane cadence summary logic so Systems/Ops can count either urgency-FX churn or DMG-GLYPH churn as valid lane-touch evidence.

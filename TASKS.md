@@ -746,4 +746,14 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Add lethal-hit floating damage accent (`<damage>!` + red tint) with debug-state exposure + regression lock. *(lifecycle: [~] -> [x])*
 - [x] Systems/QA Team: Add floating-number stack-cap telemetry token to weekly digest (`DMGNUM STACK CAP:`) with churn row + regression lock. *(lifecycle: [~] -> [x])*
-- [ ] AI Content/VFX Team: Prototype damage-band glyph burst variants behind flag (`DMG GLYPH:BASIC|SPIKE|OVERDRIVE`).
+- [x] AI Content/VFX Team: Prototype damage-band glyph burst variants behind flag (`DMG GLYPH:BASIC|SPIKE|OVERDRIVE`).
+
+## Cycle CN - Game Director Review (2026-03-24 19:12 KST)
+- Coverage check (last 10 completions): combat/vfx recovered in prior cycle; systems/qa now selected for low-risk observability follow-up.
+- Idea 1 (low risk, Systems/QA): Add weekly digest token-family churn coverage for combat burst token family (`DMG GLYPH:`) with markdown triage row + regression lock.
+- Idea 2 (mid risk, UX/Combat): Add compact combat prompt/debug token for active glyph burst band (`DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE`) behind flag.
+- Idea 3 (high risk, AI Content/VFX): Add dynamic glyph-shape remap policy from weekly drift pressure bands.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add weekly digest token-family coverage for `DMG GLYPH:` churn and lock via regression.
+- [ ] UX/Combat Team: Prototype compact debug token `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` behind flag for live-readability audits.
+- [ ] AI Content/VFX Team: Prototype drift-aware glyph-shape remap recommendation policy (offline only).

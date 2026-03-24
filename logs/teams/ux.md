@@ -1704,3 +1704,10 @@
 
 ## 2026-03-24 18:31:00 KST
 - Sync note: UX-facing prompt/readability strings unchanged; this cycle shipped backend telemetry + combat stack-cap guardrail.
+
+## 2026-03-24 19:01 KST — UX note: optional burst glyphs
+- Added optional glyph suffix to floating damage numbers under `DOTPIO_EXPERIMENT_DAMAGE_GLYPH_BURST` for denser combat readability.
+- Baseline UX preserved: with flag off, damage numbers remain unchanged from previous release behavior.
+
+## 2026-03-24 19:12 KST — Backlog injection note
+- Injected UX/Combat follow-up task: `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` compact debug token behind flag for live readability audits.
