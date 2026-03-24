@@ -2842,3 +2842,8 @@
   - No gameplay/runtime behavior changes; no screenshot or portal validator needed.
 - Follow-up:
   - If `DMGNUM LIFE CONF Δ` ships, extend digest regression with confidence-drift family assertions.
+
+## 2026-03-25 02:31 KST — Cycle CX regression lock
+- Added regression: `scripts/regression_combat_damage_number_life_confidence_delta_token.lua`.
+- Verified confidence-delta transitions: baseline `+0`, HIGH->MID `-1`, MID->LOW `-1`, LOW->HIGH reset `+2`.
+- Existing confidence regression still passes alongside new delta regression.

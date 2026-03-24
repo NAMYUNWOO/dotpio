@@ -2593,3 +2593,19 @@ Compact decision memory for AI context efficiency.
 - Shipped: weekly digest now tracks `DMGNUM LIFE CONF:` in token catalogs + alias-family totals (`dmgnumLifeConfidenceAlias`) and emits markdown churn rows for rapid triage.
 - Verification PASS: py_compile + weekly digest regression + weekly digest generation command.
 - Next item: mid-risk UX/Combat confidence-drift token experiment.
+
+## 2026-03-25 02:31 KST — Cycle CX shipped (Game Director review loop)
+- Trigger context: ACTION_ITEMS/TASKS/POST_RC_BACKLOG actionable boxes were fully closed, so Game Director cycle executed per protocol.
+- Ideas generated:
+  - Low risk (Systems/QA): add weekly digest churn coverage for `DMGNUM LIFE CONF Δ:`.
+  - Mid risk (UX/Combat): add compact debug drift token `DMGNUM LIFE CONF Δ:+n|-n`.
+  - High risk (AI Content/VFX): prototype offline confidence-delta smoothing policy.
+- Selected experiment: **Idea 2** (minimal vertical slice, player-facing debug readability).
+- Shipped:
+  - HUD now exposes `DMGNUM LIFE CONF Δ:+n|-n` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG`.
+  - Drift score is deterministic (`HIGH=2, MID=1, LOW=0`) and compares current vs prior sample.
+  - Added regression script `scripts/regression_combat_damage_number_life_confidence_delta_token.lua`.
+- Verification:
+  - `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 lua scripts/regression_combat_damage_number_life_confidence_token.lua`
+  - `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 lua scripts/regression_combat_damage_number_life_confidence_delta_token.lua`
+- Next queued item: Systems/QA digest family churn coverage for `DMGNUM LIFE CONF Δ:`.

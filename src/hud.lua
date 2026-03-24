@@ -304,6 +304,22 @@ local function isDamageNumberLifeConfidenceDebugExperimentEnabled()
     return v == "1" or v == "true" or v == "yes" or v == "on"
 end
 
+local function isDamageNumberLifeConfidenceDeltaDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
+local function confidenceToScore(confidence)
+    if confidence == "HIGH" then
+        return 2
+    elseif confidence == "LOW" then
+        return 0
+    end
+    return 1
+end
+
 function HUD.resolveDamageGlyphLiveToken()
     if not isDamageGlyphLiveDebugExperimentEnabled() then
         return nil
@@ -404,6 +420,29 @@ function HUD.resolveDamageNumberLifeConfidenceToken()
     end
 
     return string.format("DMGNUM LIFE CONF:%s", confidence)
+end
+
+function HUD.resolveDamageNumberLifeConfidenceDeltaToken()
+    if not isDamageNumberLifeConfidenceDeltaDebugExperimentEnabled() then
+        HUD._lastDamageNumberLifeConfidenceScore = nil
+        return nil
+    end
+
+    local confidenceToken = HUD.resolveDamageNumberLifeConfidenceToken()
+    if not confidenceToken then
+        return nil
+    end
+
+    local confidence = confidenceToken:match("DMGNUM LIFE CONF:(%u+)") or "MID"
+    local currentScore = confidenceToScore(confidence)
+    local previousScore = HUD._lastDamageNumberLifeConfidenceScore
+    local delta = 0
+    if previousScore ~= nil then
+        delta = currentScore - previousScore
+    end
+    HUD._lastDamageNumberLifeConfidenceScore = currentScore
+
+    return string.format("DMGNUM LIFE CONF Δ:%+d", delta)
 end
 
 function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary, onboardingHint)
@@ -520,6 +559,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if damageNumberLifeConfidenceToken then
         love.graphics.setColor(0.74, 0.96, 0.8, 0.9)
         love.graphics.print(damageNumberLifeConfidenceToken, 1060, 690)
+    end
+
+    local damageNumberLifeConfidenceDeltaToken = HUD.resolveDamageNumberLifeConfidenceDeltaToken()
+    if damageNumberLifeConfidenceDeltaToken then
+        love.graphics.setColor(0.96, 0.82, 0.96, 0.9)
+        love.graphics.print(damageNumberLifeConfidenceDeltaToken, 1240, 690)
     end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)

@@ -1788,3 +1788,8 @@
 - Review sync: ACTION_ITEMS/TASKS/POST_RC_BACKLOG remained fully checked; executed Game Director cycle CV.
 - Decision: selected low-risk UX/Combat vertical slice (`DMGNUM LIFE CONF`) to improve live damage-number readability triage.
 - Follow-up: keep mid/high-risk ideas queued (digest churn coverage, offline confidence remap policy) for later cycles.
+
+## 2026-03-25 02:31 KST — Cycle CX HUD debug readability follow-up
+- Added compact drift cue token `DMGNUM LIFE CONF Δ:+n|-n` to bottom HUD debug lane.
+- Kept additive/flag-gated behavior to avoid default HUD noise (`DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG`).
+- Color chosen as light magenta for separation from confidence token while retaining DOS contrast.

@@ -651,3 +651,10 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/VFX): Prototype offline confidence remap recommendation policy from drift-risk + churn.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add weekly digest token-family churn coverage for `DMGNUM LIFE CONF:` and lock via regression. *(lifecycle: [ ] -> [~] -> [x])*
+
+## Cycle CX - Game Director Review (2026-03-25 02:31 KST)
+- Idea 1 (low risk, Systems/QA): Add weekly digest token-family churn coverage for lifecycle-confidence drift token (`DMGNUM LIFE CONF Δ:`) with markdown triage row.
+- Idea 2 (mid risk, UX/Combat): Add compact lifecycle-confidence drift token (`DMGNUM LIFE CONF Δ:+n|-n`) behind debug flag.
+- Idea 3 (high risk, AI Content/VFX): Prototype offline drift-aware confidence-delta smoothing policy for damage-number fades.
+- Selected experiment: Idea 2 (minimal vertical slice).
+- [x] UX/Combat Team: Add compact lifecycle-confidence drift token (`DMGNUM LIFE CONF Δ:+n|-n`) behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG` with regression lock. *(lifecycle: [ ] -> [~] -> [x])*

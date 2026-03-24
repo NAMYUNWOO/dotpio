@@ -1495,3 +1495,9 @@
 - Review sync: ACTION_ITEMS/TASKS/POST_RC_BACKLOG remained fully checked; executed Game Director cycle CV.
 - Decision: selected low-risk UX/Combat vertical slice (`DMGNUM LIFE CONF`) to improve live damage-number readability triage.
 - Follow-up: keep mid/high-risk ideas queued (digest churn coverage, offline confidence remap policy) for later cycles.
+
+## 2026-03-25 02:31 KST — Cycle CX lifecycle-confidence drift token
+- Completed UX/Combat minimal vertical slice: added compact debug token `DMGNUM LIFE CONF Δ:+n|-n` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG`.
+- Mapping: confidence band score delta (`HIGH=2, MID=1, LOW=0`) versus previous frame sample for glanceable trend.
+- Evidence: `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 lua scripts/regression_combat_damage_number_life_confidence_delta_token.lua`.
+- Follow-up: if churn appears in weekly digest, add Systems/QA family coverage for `DMGNUM LIFE CONF Δ:`.
