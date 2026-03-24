@@ -2220,3 +2220,7 @@
 ## 2026-03-24 20:32 KST — Token contract stability note
 - Reviewed glyph-band contract (`BASIC/SPIKE/OVERDRIVE`) between combat damage number state and HUD debug token.
 - No schema change required; existing enum guard in `HUD.resolveDamageGlyphLiveToken()` is sufficient.
+
+## 2026-03-24 20:44 KST — Cycle CO systems note
+- Reused existing `glyphBand` state; no new combat schema/state added.
+- Experimental FX token remains flag-gated and debug-only (non-mechanical).

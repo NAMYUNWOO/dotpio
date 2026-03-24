@@ -276,6 +276,13 @@ local function isDamageGlyphLiveDebugExperimentEnabled()
     return v == "1" or v == "true" or v == "yes" or v == "on"
 end
 
+local function isDamageGlyphFxLiveDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMG_GLYPH_FX_LIVE_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
 function HUD.resolveDamageGlyphLiveToken()
     if not isDamageGlyphLiveDebugExperimentEnabled() then
         return nil
@@ -290,6 +297,27 @@ function HUD.resolveDamageGlyphLiveToken()
         band = "BASIC"
     end
     return string.format("DMG GLYPH LIVE:%s", band)
+end
+
+function HUD.resolveDamageGlyphFxLiveToken()
+    if not isDamageGlyphFxLiveDebugExperimentEnabled() then
+        return nil
+    end
+
+    local numbers = Combat.debugGetDamageNumbers and Combat.debugGetDamageNumbers() or {}
+    local latest = numbers[#numbers]
+    if not latest then
+        return "DMG GLYPH FX LIVE:CALM"
+    end
+
+    local band = tostring(latest.glyphBand or "BASIC")
+    local fx = "CALM"
+    if band == "SPIKE" then
+        fx = "SPARK"
+    elseif band == "OVERDRIVE" then
+        fx = "BLAZE"
+    end
+    return string.format("DMG GLYPH FX LIVE:%s", fx)
 end
 
 function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary, onboardingHint)
@@ -382,6 +410,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if damageGlyphLiveToken then
         love.graphics.setColor(0.86, 0.8, 1.0, 0.92)
         love.graphics.print(damageGlyphLiveToken, 160, 690)
+    end
+
+    local damageGlyphFxLiveToken = HUD.resolveDamageGlyphFxLiveToken()
+    if damageGlyphFxLiveToken then
+        love.graphics.setColor(1.0, 0.82, 0.64, 0.92)
+        love.graphics.print(damageGlyphFxLiveToken, 420, 690)
     end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)

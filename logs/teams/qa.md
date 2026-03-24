@@ -2753,3 +2753,8 @@
   - `DOTPIO_EXPERIMENT_DAMAGE_GLYPH_BURST=1 lua scripts/regression_combat_damage_glyph_burst.lua`
 - Result: PASS/PASS.
 - Notes: live debug token remains aligned with glyph-band producer logic.
+
+## 2026-03-24 20:44 KST — Cycle CO validation
+- PASS: `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG=1 lua scripts/regression_combat_damage_glyph_live_token.lua`
+- PASS: `DOTPIO_EXPERIMENT_DMG_GLYPH_FX_LIVE_DEBUG=1 lua scripts/regression_combat_damage_glyph_fx_live_token.lua`
+- PASS: `DOTPIO_EXPERIMENT_DAMAGE_GLYPH_BURST=1 lua scripts/regression_combat_damage_glyph_burst.lua`

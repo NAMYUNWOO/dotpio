@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 20:32 KST
+Last updated: 2026-03-24 20:44 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,11 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+
+- Game Director Cycle CO executed after actionable-backlog clear: generated 3 ideas (low/mid/high), selected low-risk combat/vfx vertical slice for lane balance.
+- Shipped new flag-gated HUD debug token `DMG GLYPH FX LIVE:CALM|SPARK|BLAZE` (`DOTPIO_EXPERIMENT_DMG_GLYPH_FX_LIVE_DEBUG`) with deterministic map from latest glyph band (`BASIC/SPIKE/OVERDRIVE`).
+- Added regression guardrail `scripts/regression_combat_damage_glyph_fx_live_token.lua`; live-token + burst baselines re-validated (all passing).
+- Cycle CO injected follow-up backlog items: digest churn coverage for `DMG GLYPH FX LIVE:` and offline-only drift-aware remap policy.
 
 - Closed final remaining unchecked POST_RC item from Cycle CN: `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` is now backlog-complete and regression-locked behind `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG` (HUD debug-only surface, no portal budget impact).
 - Verification rerun passed: `scripts/regression_combat_damage_glyph_live_token.lua` + `scripts/regression_combat_damage_glyph_burst.lua`.

@@ -1440,3 +1440,9 @@
 - Decision: keep token HUD-only debug surface at bottom row (`src/hud.lua`) to avoid portal prompt budget regressions.
 - Verification: `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG=1 lua scripts/regression_combat_damage_glyph_live_token.lua` ✅
 - Follow-up: keep combat glyph burst mapping synced with live token bands (`BASIC/SPIKE/OVERDRIVE`).
+
+## 2026-03-24 20:44 KST — Cycle CO vertical slice shipped
+- Task complete: `DMG GLYPH FX LIVE:CALM|SPARK|BLAZE` debug token behind `DOTPIO_EXPERIMENT_DMG_GLYPH_FX_LIVE_DEBUG`.
+- Mapping contract: BASIC->CALM, SPIKE->SPARK, OVERDRIVE->BLAZE (derived from latest damage-number glyph band).
+- Verification: `regression_combat_damage_glyph_fx_live_token.lua` + baseline live/burst regressions all pass.
+- Follow-up queued: digest coverage for `DMG GLYPH FX LIVE:` churn and offline recommendation policy.

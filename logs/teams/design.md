@@ -1532,3 +1532,7 @@
 ## 2026-03-24 20:32 KST — Copy consistency check
 - Confirmed compact debug copy remains deterministic: `DMG GLYPH LIVE:<BASIC|SPIKE|OVERDRIVE>`.
 - No additional copy variants introduced.
+
+## 2026-03-24 20:44 KST — Token copy consistency
+- New debug token copy stabilized as `DMG GLYPH FX LIVE:<CALM|SPARK|BLAZE>`.
+- Kept deterministic tri-band vocabulary to align with current combat burst readability language.

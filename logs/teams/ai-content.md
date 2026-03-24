@@ -1453,3 +1453,6 @@
 ## 2026-03-24 20:32 KST — AI-content lane note
 - No runtime AI-content prompt changes this cycle.
 - Existing offline glyph-shape remap recommendation policy remains untouched while combat debug token item is closed.
+
+## 2026-03-24 20:44 KST — Backlog injection note
+- Queued offline-only follow-up: drift-aware glyph FX remap recommendation policy (no runtime behavior changes this cycle).

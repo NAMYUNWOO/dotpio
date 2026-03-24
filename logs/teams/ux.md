@@ -1730,3 +1730,7 @@
 - Decision: preserve explicit `DMG GLYPH LIVE:` prefix for operator scanability in DOS HUD.
 - Verification: HUD token contract regression passed (`regression_combat_damage_glyph_live_token.lua`).
 - Follow-up: if additional compact debug tokens are added, keep this token in stable row order near coordinate line.
+
+## 2026-03-24 20:44 KST — Combat debug readability
+- Added secondary combat debug line `DMG GLYPH FX LIVE:*` on HUD bottom row to keep glyph-band intensity readable at a glance.
+- Color choice kept warm/amber to distinguish from existing violet `DMG GLYPH LIVE` band token.
