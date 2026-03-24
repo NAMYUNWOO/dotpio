@@ -2859,3 +2859,9 @@
 - Added `scripts/regression_combat_damage_number_life_trend_token.lua` for trend token phase transitions.
 - Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` assertions for `DMGNUM LIFE TREND:` token coverage.
 - Verification executed locally: both regressions passed.
+
+## 2026-03-25 03:45 KST — Cycle DA regression lock
+- Added regression `scripts/regression_portal_ambient_ramp_why.lua` covering detailed and compact ambient rationale tokens.
+- Validation run:
+  - `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP=1 DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_CONF=1 DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_WHY=1 DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_COMPACT=1 DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_CONF_COMPACT=1 DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_WHY_COMPACT=1 lua scripts/regression_portal_ambient_ramp_why.lua` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

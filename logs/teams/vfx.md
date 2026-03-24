@@ -154,3 +154,8 @@
 - Follow-up: Keep runtime mapping unchanged; use candidate table for next AI Content/VFX review cycle.
 - 2026-03-25 00:31 KST — Cycle CT combat-feedback readability pass: floating damage-number lifecycle token now exposes EARLY/MID/LATE fade stage in HUD debug lane.
   - Follow-up: evaluate whether phase transitions need color accents after playtest captures.
+
+## 2026-03-25 03:45 KST — Cycle DA vfx lane sync
+- No runtime VFX shader/effect behavior changes this cycle.
+- Confirmed new ambient rationale tokens remain prompt-only readability metadata and do not alter damage glyph/FX pipelines.
+- Kept VFX lane explicitly logged for 24h cadence traceability.

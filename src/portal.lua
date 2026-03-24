@@ -593,6 +593,33 @@ local function resolveCompactAmbientRampConfidence(ambientRampConfidence)
     return nil
 end
 
+local function resolveAmbientRampWhy(routeTag, ambientRampConfidence)
+    if ambientRampConfidence == nil then
+        return nil
+    end
+    if routeTag == "SAFE" and ambientRampConfidence == "HIGH" then
+        return "SAFE LOCK"
+    elseif routeTag == "RISK" and ambientRampConfidence == "MID" then
+        return "PRESSURE HOLD"
+    elseif routeTag == "SPIKE" or ambientRampConfidence == "LOW" then
+        return "SPIKE PRESSURE"
+    end
+    return "MIXED PRESSURE"
+end
+
+local function resolveCompactAmbientRampWhy(ambientRampWhy)
+    if ambientRampWhy == "SAFE LOCK" then
+        return "SL"
+    elseif ambientRampWhy == "PRESSURE HOLD" then
+        return "PH"
+    elseif ambientRampWhy == "SPIKE PRESSURE" then
+        return "SP"
+    elseif ambientRampWhy == "MIXED PRESSURE" then
+        return "MP"
+    end
+    return nil
+end
+
 local function isRouteVignetteExperimentEnabled()
     local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_VIGNETTE_ASCII")
     if not raw then
@@ -1224,6 +1251,24 @@ local function isPortalAmbientRampConfidenceCompactExperimentEnabled()
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isPortalAmbientRampWhyExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_WHY")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
+local function isPortalAmbientRampWhyCompactExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_WHY_COMPACT")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function isRouteGlowFxCompactAliasExperimentEnabled()
     local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_COMPACT")
     if not raw then
@@ -1498,6 +1543,10 @@ local function resolveRouteVignetteGlyph(routeTag)
 end
 
 local function buildTransitionPrompt(routeTag, coach, pressureScore, ambientRamp, ambientRampConfidence, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, altStepWhyGlyphMode, routeVignette, routeVibeConflict, routeVibeConflictReason, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyph, routePulseMode, vibeTrail, vibeTrailConfidence, vibeTrailConfidenceRail, vibeTrailWhy, vibeTrailArc, vibeTrailWhyConfidence, vibeTrailWhyConfidenceWhy, vibeTrailWhyConfidenceWhyConfidence, vibeTrailWhyConfidenceWhyRail)
+    local ambientRampWhy = nil
+    if isPortalAmbientRampWhyExperimentEnabled() then
+        ambientRampWhy = resolveAmbientRampWhy(routeTag, ambientRampConfidence)
+    end
     local fxCue = resolvePortalFxCue(pressureScore)
     local routeVibe = resolveRouteVibe(routeTag)
     local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT ROUTE:%s  COACH:%s  PRESSURE:%d  FX:%s  ROUTE VIBE:%s", routeTag, coach, pressureScore, fxCue, routeVibe)
@@ -1505,6 +1554,9 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, ambientRamp
         prompt = string.format("%s  AMBIENT RAMP:%s", prompt, ambientRamp)
         if ambientRampConfidence then
             prompt = string.format("%s  AMBIENT RAMP CONF:%s", prompt, ambientRampConfidence)
+            if ambientRampWhy then
+                prompt = string.format("%s  AMBIENT RAMP WHY:%s", prompt, ambientRampWhy)
+            end
         end
     end
     if routePulseMode then
@@ -1601,6 +1653,11 @@ local function buildTransitionPrompt(routeTag, coach, pressureScore, ambientRamp
 end
 
 local function buildCompactTransitionPrompt(routeTag, pressureScore, compactAmbientRamp, compactAmbientRampConfidence, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, altStepWhyGlyphMode, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, compactPulseHeat, compactPulseHeatFx, compactVibeTrail, compactVibeTrailConfidence, compactVibeTrailConfidenceRail, vibeTrailWhy, compactVibeTrailArc, compactRouteGlow, compactRouteGlowConfidence, compactRouteGlowFx, compactRouteGlowFxConfidence, routeGlowFxConfidenceWhy, routeGlowFxConfidenceWhyRail, routeGlowFxConfidenceWhyRailMode, routeGlowFxConfidenceWhyRailIntensity, routeGlowFxConfidenceWhyRailIntensityWhy, routeGlowFxConfidenceWhyRailIntensityWhyConfidence, compactVibeTrailWhyConfidence, vibeTrailWhyConfidenceWhy, compactVibeTrailWhyConfidenceWhyConfidence, compactVibeTrailWhyConfidenceWhyRail, maxChars)
+    local compactAmbientRampWhy = nil
+    if isPortalAmbientRampWhyCompactExperimentEnabled() and compactAmbientRampConfidence then
+        local ambientRampConfidence = compactAmbientRampConfidence == "H" and "HIGH" or (compactAmbientRampConfidence == "M" and "MID" or (compactAmbientRampConfidence == "L" and "LOW" or nil))
+        compactAmbientRampWhy = resolveCompactAmbientRampWhy(resolveAmbientRampWhy(routeTag, ambientRampConfidence))
+    end
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
     local budget = tonumber(maxChars) or 0
@@ -1638,6 +1695,9 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, compactAmbi
         appendToken(string.format("AR:%s", compactAmbientRamp), false)
         if compactAmbientRampConfidence then
             appendToken(string.format("ARC:%s", compactAmbientRampConfidence), false)
+            if compactAmbientRampWhy then
+                appendToken(string.format("ARW:%s", compactAmbientRampWhy), false)
+            end
         end
     end
 

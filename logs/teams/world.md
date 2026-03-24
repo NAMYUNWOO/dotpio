@@ -1547,3 +1547,9 @@
 ## 2026-03-25 03:35 KST — Cycle CZ lane check
 - No world/map changes in this cycle.
 - Lane cadence retained while combat readability/debug instrumentation was prioritized.
+
+## 2026-03-25 03:45 KST — Cycle DA world/design ambient rationale slice
+- Coverage check (last 10 completions) showed Systems/QA dominance >40%, so cycle was forced to underrepresented lanes.
+- Shipped world-facing prompt readability token `AMBIENT RAMP WHY:SAFE LOCK|PRESSURE HOLD|SPIKE PRESSURE` behind `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_WHY`.
+- Added compact alias `ARW:SL|PH|SP` for budget-constrained portal prompts (`DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_WHY_COMPACT`).
+- Verification: `lua scripts/regression_portal_ambient_ramp_why.lua` PASS with ambient/conf flags enabled.

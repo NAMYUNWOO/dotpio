@@ -2314,3 +2314,8 @@
 - Extended weekly readability digest token catalog/groups/families with `DMGNUM LIFE TREND:`.
 - Added markdown churn row + summary family row coverage.
 - Follow-up: validate churn appears in next weekly digest artifact generation.
+
+## 2026-03-25 03:45 KST — Cycle DA systems observability sync
+- Updated weekly digest token catalogs/families to track new ambient rationale token family (`AMBIENT RAMP WHY:` + `ARW:`).
+- Extended markdown digest summaries with ambient rationale family churn rows for audit parity with existing ambient confidence coverage.
+- Verification: py_compile + weekly digest regression PASS.

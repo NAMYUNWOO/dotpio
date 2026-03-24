@@ -1592,3 +1592,8 @@
 ## 2026-03-25 03:35 KST — Cycle CZ readability note
 - Confirmed new `DMGNUM LIFE TREND` token stays compact and semantically aligned with existing confidence/delta pair.
 - No typography/layout changes required this cycle.
+
+## 2026-03-25 03:45 KST — Cycle DA design readability decision
+- Selected low-risk Design/World idea to rebalance lane coverage after Systems/QA exceeded 40% of recent completions.
+- Added deterministic rationale wording to ambient ramp confidence output (`SAFE LOCK`, `PRESSURE HOLD`, `SPIKE PRESSURE`) for faster player/operator interpretation.
+- Compact alias kept within DOS token budget: `ARW:SL|PH|SP`.

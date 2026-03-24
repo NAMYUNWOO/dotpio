@@ -2625,3 +2625,25 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep runtime behavior unchanged; prioritize observability-first closure before introducing new combat debug tokens.
 
 - 2026-03-25 03:35 KST (Cycle CZ): Added HUD debug token `DMGNUM LIFE TREND:UP|HOLD|DOWN` (flag: `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG`), wired weekly digest token-family coverage for `DMGNUM LIFE TREND:`, and locked with combat + digest regression updates.
+
+## 2026-03-25 03:45 KST — Cycle DA (Game Director review loop)
+- Coverage check (last 10 completed items by lane):
+  - systems/ops: 5
+  - combat: 3
+  - ux: 1
+  - world/design: 1
+  - ai-content: 0, vfx: 0, qa: 0 (paired with systems in prior slices)
+- Enforcement: systems/ops exceeded 40% (50%), so this cycle was forced to underrepresented lanes.
+- 24h cadence check: satisfied with at least one combat/vfx item, one design/world item, and one systems/ops item.
+- Ideas generated:
+  1) Low risk (Design/World): add `AMBIENT RAMP WHY` rationale token + compact alias for portal readability.
+  2) Mid risk (Combat/VFX): add danger-color accent mapping for `DMGNUM LIFE TREND` transitions.
+  3) High risk (AI Content/VFX): offline adaptive ambient-rationale remap policy from weekly drift windows.
+- Selected experiment: Idea 1 (forced underrepresented lane + reversible prompt-only slice).
+- Shipped:
+  - Detailed token `AMBIENT RAMP WHY:SAFE LOCK|PRESSURE HOLD|SPIKE PRESSURE` behind `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_WHY`.
+  - Compact token `ARW:SL|PH|SP` behind `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_WHY_COMPACT`.
+  - Weekly digest token-family tracking + churn rows for `AMBIENT RAMP WHY`/`ARW`.
+  - New regression: `scripts/regression_portal_ambient_ramp_why.lua`.
+- Verification PASS: py_compile + new portal regression + weekly digest regression.
+- Next experiment candidate: mid-risk Combat/VFX color-accent readability pass for `DMGNUM LIFE TREND`.
