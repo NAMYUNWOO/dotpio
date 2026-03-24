@@ -98,3 +98,6 @@
 - Coverage rebalance trigger hit (`design/world` dominated last 10 completions), so this cycle forced combat/vfx execution.
 - Added flag-gated urgency FX token `RGFXWRIUFX:CALM|SPARK|BLAZE` via `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_FX`.
 - Deterministic mapping mirrors urgency tier only (`LOW->CALM`, `MID->SPARK`, `HIGH->BLAZE`) with no mechanics or damage model changes.
+
+## 2026-03-24 13:45 KST
+- VFX lane note: no new FX mappings this slice; digest now cleanly separates urgency parity compact alias churn (`RGFXWRIUP`) from urgency FX churn (`RGFXWRIUFX`).

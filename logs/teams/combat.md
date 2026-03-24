@@ -1364,3 +1364,6 @@
 
 ## 2026-03-24 13:01 KST
 - Combat readability note: urgency coach/fx extras are now safely pruned when compact budget saturates, preventing token spillover while retaining baseline urgency cue.
+
+## 2026-03-24 13:45 KST
+- Combat lane check: no combat logic/balance changes; telemetry-only digest slice for compact urgency-parity alias visibility.

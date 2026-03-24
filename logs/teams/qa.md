@@ -2661,3 +2661,9 @@
 ## 2026-03-24 13:01 KST
 - Added regression coverage for urgency-stack budget pruning order.
 - Verification:  ✅
+
+## 2026-03-24 13:45 KST
+- Added regression contract assertions for new compact urgency-parity alias family key and markdown rows (`RGFXWRIUP URGENCY PARITY COMPACT`).
+- Verification set:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

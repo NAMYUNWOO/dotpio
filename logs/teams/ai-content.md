@@ -1398,3 +1398,6 @@
 ## 2026-03-24 13:01 KST
 - Deterministic copy-pruning policy landed for urgency stack extensions: parity and FX are now budget-gated while base urgency label remains stable.
 - Rationale: preserve minimum actionable urgency semantics under constrained compact prompt budgets.
+
+## 2026-03-24 13:45 KST
+- Copy-policy continuity: this cycle only adds digest observability for `RGFXWRIUP` alias churn; no runtime wording or deterministic mapping changes.

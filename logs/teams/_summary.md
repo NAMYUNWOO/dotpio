@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 11:01 KST
+Last updated: 2026-03-24 13:45 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -2407,3 +2407,11 @@ Compact decision memory for AI context efficiency.
 - Closed Cycle CG Systems/AI item: deterministic budget-headroom token-pruning order implemented for urgency parity/FX stack in compact portal prompt flow.
 - Durable decision:  is required baseline; parity/coach/FX urgency extensions are appended via deterministic budget-gated ordering.
 - Added guardrail regression:  (PASS).
+
+
+## 2026-03-24 13:45 KST — Cycle CH Game Director slice
+- ACTION_ITEMS/TASKS/POST_RC actionable queues were fully checked, so Game Director Cycle CH executed (3 ideas generated, low-risk Systems/QA experiment selected).
+- Shipped minimal vertical slice: weekly portal readability digest now tracks compact urgency-parity alias family churn for `RGFXWRIUP:` via `routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAlias`.
+- Markdown triage + Token Family Coverage now include explicit `RGFXWRIUP` rows, separating compact-parity alias drift from detailed urgency parity label churn.
+- Regression/verification PASS: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; digest generation PASS (`scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`).
+- Backlog injection/state: Cycle CH selected item marked done (`[~] -> [x]`); queued follow-ups remain unchecked (`URG STACK` compact debug token, drift-aware pruning recommendation).

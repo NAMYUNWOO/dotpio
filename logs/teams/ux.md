@@ -1666,3 +1666,7 @@
 
 ## 2026-03-24 13:01 KST
 - UX decision: compact prompt now uses deterministic urgency-stack pruning tiers (tight/medium/loose headroom) to avoid non-deterministic token overflow behavior.
+
+## 2026-03-24 13:45 KST
+- UX readability note: compact urgency-parity alias (`RGFXWRIUP`) now has dedicated weekly digest churn visibility, improving prompt-budget triage traceability.
+- No runtime prompt copy changes in this slice (telemetry/readability instrumentation only).

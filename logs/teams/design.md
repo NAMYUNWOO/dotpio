@@ -1481,3 +1481,6 @@
 
 ## 2026-03-24 13:01 KST
 - Design decision: under tight compact budgets, prioritize deterministic urgency core token over decorative parity/FX stack tokens.
+
+## 2026-03-24 13:45 KST
+- Design triage support improved: digest now separates compact urgency-parity alias churn from detailed parity label churn, reducing ambiguity during compact-budget tuning reviews.

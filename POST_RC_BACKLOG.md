@@ -534,3 +534,13 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/Systems Team: Add compact urgency-parity alias token (`RGFXWRIUP:<LOW|MID|HIGH>`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_PARITY_COMPACT`.
 - [x] Design/UX Team: Add budget-aware unknown-route coach fallback (`COACH:NO DATA` short form) in compact prompt mode.
 - [x] Systems/AI Content Team: Prototype deterministic budget-headroom token-pruning order for urgency parity/FX stacks. *(lifecycle: [ ] -> [~] -> [x])*
+
+
+## Cycle CH - Game Director Review (2026-03-24 13:40 KST)
+- Idea 1 (low risk, Systems/QA): Add weekly digest token-family churn coverage for compact urgency-parity alias (`RGFXWRIUP:`) with markdown triage row.
+- Idea 2 (mid risk, UX/World): Prototype compact urgency-stack pruning tier token (`URG STACK:TIGHT|MID|LOOSE`) behind flag for prompt-debug readability.
+- Idea 3 (high risk, AI Content/Systems): Prototype drift-aware urgency-stack pruning order recommendation from weekly digest trends.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add weekly digest token-family churn coverage for compact urgency-parity alias (`RGFXWRIUP:`) and lock via regression. *(lifecycle: [~] -> [x])*
+- [ ] UX/World Team: Prototype compact urgency-stack pruning tier token (`URG STACK:TIGHT|MID|LOOSE`) behind flag for prompt-debug readability.
+- [ ] AI Content/Systems Team: Prototype drift-aware urgency-stack pruning order recommendation from weekly digest trends.

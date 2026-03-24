@@ -2142,3 +2142,8 @@
 - Decision: keep core urgency token () always-on, then budget-gate parity/coach/FX tokens in deterministic order with explicit headroom tiers.
 - Files: , , , .
 - Verification:  ✅
+
+## 2026-03-24 13:45 KST
+- Cycle CH selected/implemented low-risk Systems/QA slice: weekly digest token-family churn coverage for compact urgency-parity alias `RGFXWRIUP:`.
+- Updated `scripts/weekly_portal_prompt_readability_drift.py` token catalogs/families so compact alias churn is explicit in JSON+markdown (`routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAlias`).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

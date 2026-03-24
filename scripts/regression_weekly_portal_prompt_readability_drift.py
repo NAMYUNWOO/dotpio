@@ -753,6 +753,7 @@ def main() -> int:
         assert "routeGlowFxConfidenceWhyRailIntensityWhy" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyAlias" in payload["tokenFamilyTotals"], payload
+        assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
@@ -1317,6 +1318,7 @@ def main() -> int:
         assert "RGFXWRI WHY FAMILY CHURN" in md_text
         assert "RGFXWRI WHY CONF FAMILY CHURN" in md_text
         assert "RGFXWRIU URGENCY FAMILY CHURN" in md_text
+        assert "RGFXWRIUP URGENCY PARITY COMPACT FAMILY CHURN" in md_text
         assert "URGENCY PARITY LABEL FAMILY CHURN" in md_text
         assert "RGFXWRIUFX URGENCY FX FAMILY CHURN" in md_text
         assert "LANE CADENCE SUMMARY" in md_text
@@ -1330,6 +1332,7 @@ def main() -> int:
         assert "RGFXWRI WHY:" in md_text
         assert "RGFXWRIWC + RGFXWRI WHY CONF:" in md_text
         assert "RGFXWRIU + ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:" in md_text
+        assert "RGFXWRIUP URGENCY PARITY COMPACT:" in md_text
         assert "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY PARITY:" in md_text
         assert "RGFXWRIUFX URGENCY FX:" in md_text
         assert "LANE CADENCE SUMMARY: SYSTEMS/OPS" in md_text
