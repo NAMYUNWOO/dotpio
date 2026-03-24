@@ -1,36 +1,41 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-24T04:34:02.913051Z
+- GeneratedAt(UTC): 2026-03-24T13:02:54.574003Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
-- Portal prompt commits: 54
-- Dominant mode commits: compact=18, detailed=1, neutral=35
+- Portal prompt commits: 61
+- Dominant mode commits: compact=19, detailed=1, neutral=41
 - MODE TREND: **COMPACT**
-- PRESSURE BAND: **HIGH** (edits +24 / -8 / net 16)
-- DRIFT RISK: **HIGH** (score=76 | imbalance=60 | pressure=16)
+- PRESSURE BAND: **HIGH** (edits +25 / -8 / net 17)
+- DRIFT RISK: **HIGH** (score=79 | imbalance=62 | pressure=17)
 - RGFXWRI WHY CONF POLICY REC: **FREEZE** (high-risk-high-churn; churn=18 net=16 coverage=2/2 offlineOnly=True)
-- FOCUS: **PORTAL** (portal=196 | alt=33 | pressure=16)
-- FOCUS STREAK: **26**
+- URGENCY STACK PRUNING REC: **PARITY>FX>DETAIL** (protect-core-detailed-under-high-drift; parityChurn=9 fxChurn=9 detailedChurn=13 offlineOnly=True)
+- URGENCY STACK RAIL REC: **STEADY-FIRST** (high-risk-or-rail-churn; railChurn=6 railNet=6 tierChurn=12 offlineOnly=True)
+- DMG GLYPH SHAPE REMAP REC: **PIN_BANDS** (high-risk-or-glyph-churn; glyphChurn=0 glyphNet=0 railChurn=6 offlineOnly=True)
+- DMG GLYPH FX REMAP REC: **HOLD_FX** (high-risk-or-fx-churn; fxChurn=0 fxNet=0 glyphChurn=0 offlineOnly=True)
+- DMG GLYPH FX REMAP CONF: **LOW** (high-risk-or-high-churn; churnScore=0 drift=HIGH)
+- FOCUS: **PORTAL** (portal=215 | alt=34 | pressure=17)
+- FOCUS STREAK: **28**
 - FOCUS SHIFT: **ALT->PORTAL**
-- FOCUS VOL: **STEADY** (switches=1/31 ratio=0.032)
+- FOCUS VOL: **STEADY** (switches=1/33 ratio=0.03)
 - ROUTE ACTION: **PORTAL_AUDIT** (portal-family tokens dominate top movers)
-- ACTION CONF: **LOW** (dom=0.8 spread=163 driftSpread=44)
-- FOCUS BAL: **80%** (top=196 total=245 dom=0.8)
-- FOCUS ENTROPY: **MID** (norm=0.57 raw=0.904 max=1.585)
+- ACTION CONF: **LOW** (dom=0.808 spread=181 driftSpread=45)
+- FOCUS BAL: **81%** (top=215 total=266 dom=0.808)
+- FOCUS ENTROPY: **MID** (norm=0.556 raw=0.881 max=1.585)
 - ACTION GUARD: **LOCK** (high-drift-low-confidence; risk=HIGH conf=LOW)
-- LANE LOCK: **PORTALx26** (threshold=3 lane=PORTAL streak=26)
-- ROUTE SANDBOX: **OFF** (lane-lock-armed-but-flag-disabled; flag=DOTPIO_EXPERIMENT_ROUTE_SANDBOX enabled=False laneLock=PORTALx26)
+- LANE LOCK: **PORTALx28** (threshold=3 lane=PORTAL streak=28)
+- ROUTE SANDBOX: **OFF** (lane-lock-armed-but-flag-disabled; flag=DOTPIO_EXPERIMENT_ROUTE_SANDBOX enabled=False laneLock=PORTALx28)
 - SANDBOX PLAN: **PREPARE** (high-risk-waiting-on-sandbox-flag; guard=LOCK risk=HIGH)
-- SANDBOX TARGET: **NONE** (sandbox-inactive; lane=PORTAL armed=True streak=26)
+- SANDBOX TARGET: **NONE** (sandbox-inactive; lane=PORTAL armed=True streak=28)
 - TARGET SRC: **NONE** (sandbox=OFF target=NONE)
-- SANDBOX TARGET CONF: **LOW** (no-single-lane-target; routeConf=LOW lock=Truex26)
-- SANDBOX READY: **PRIMED** (preconditions-forming; sandbox=OFF conf=LOW guard=LOCK lock=Truex26)
+- SANDBOX TARGET CONF: **LOW** (no-single-lane-target; routeConf=LOW lock=Truex28)
+- SANDBOX READY: **PRIMED** (preconditions-forming; sandbox=OFF conf=LOW guard=LOCK lock=Truex28)
 - TARGET SHIFT: **NONE->NONE** (target-stable; changed=False priorLoaded=True)
 - SANDBOX COOLOFF: **0** (no-prior-on-cycle; active=False prior=OFF:0)
-- DRIFT MOMENTUM: **FLAT** (recent=2.148 older=0.815 delta=1.333)
+- DRIFT MOMENTUM: **FLAT** (recent=1.839 older=0.867 delta=0.972)
 - ACTION STABILITY: **WATCH** (retune-watch-needed; conf=LOW vol=STEADY momentum=FLAT)
-- PRESSURE LAG: **SLOW** (churn=16 momentum=FLAT |Δ|=1.333)
+- PRESSURE LAG: **SLOW** (churn=17 momentum=FLAT |Δ|=0.972)
 - ACTION PACE: **BRAKE** (guard-locked; guard=LOCK stability=WATCH lag=SLOW)
 - PACE DRIFT: **+0** (pace-stable; current=BRAKE(-1) prior=BRAKE(-1) loaded=True)
 - ACTION PACE WINDOW: **CLOSE** (guard-or-brake-closing-window; pace=BRAKE guard=LOCK drift=+0)
@@ -58,25 +63,25 @@
 - ROUTE PULSE LINK STREAK: **0** (link-off-reset; current=OFF prior=OFF priorStreak=0 loaded=True)
 - ROUTE PULSE LINK MODE: **IDLE** (link-disabled; link=OFF streak=0 drift=+0)
 - ROUTE PULSE LINK MODE Δ: **+0** (mode-stable; current=IDLE(0) prior=IDLE(0) loaded=True)
-- ROUTE PULSE LINK MODE STREAK: **35** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=34 loaded=True)
+- ROUTE PULSE LINK MODE STREAK: **36** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=35 loaded=True)
 - ROUTE PULSE LINK MODE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY enabled=False mode=IDLE link=OFF drift=+0 streak=0)
-- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=35)
+- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=36)
 - ROUTE PULSE LINK MODE FIT Δ: **+0** (fit-stable; current=SYNC(2) prior=SYNC(2) loaded=True)
 - ROUTE PULSE TOKEN PRIORITY: **OFF** (priority-mode-disabled; configured=OFF drift=+0 prior=OFF loaded=True guard=False)
 - ACTION PACE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_WHY enabled=False pace=BRAKE guard=LOCK stability=WATCH lag=SLOW drift=+0)
-- WHAT-IF: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_ALT enabled=False current=PORTAL alt=ALT risk=76->73)
+- WHAT-IF: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_ALT enabled=False current=PORTAL alt=ALT risk=79->76)
 - WHAT-IF CONF: **LOW** (flag-disabled; delta=-3 routeConf=LOW current=PORTAL alt=ALT)
 - WHAT-IF ALIGN: **DIVERGED** (flag-disabled; route=PORTAL_AUDIT lane=PORTAL alt=ALT)
 - WHAT-IF BAND: **NEUTRAL** (flag-disabled; delta=-3 current=PORTAL alt=ALT enabled=False)
 - WHAT-IF MAG: **SMALL** (flag-disabled; delta=-3 |Δ|=3 enabled=False)
-- WHAT-IF FIT: **EVEN** (flag-disabled; pressure=HIGH projected=HIGH risk=73 enabled=False)
+- WHAT-IF FIT: **EVEN** (flag-disabled; pressure=HIGH projected=HIGH risk=76 enabled=False)
 - WHAT-IF FALLBACK: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK enabled=False align=DIVERGED route=PORTAL_AUDIT->PORTAL alt=ALT)
 - WHAT-IF FALLBACK CONF: **LOW** (flag-disabled; fallback=OFF align=DIVERGED delta=-3 routeConf=LOW enabled=False)
-- WHAT-IF FALLBACK FIT: **EVEN** (fallback-flag-disabled; fallback=OFF pressure=HIGH projected=HIGH risk=76 enabled=False)
+- WHAT-IF FALLBACK FIT: **EVEN** (fallback-flag-disabled; fallback=OFF pressure=HIGH projected=HIGH risk=79 enabled=False)
 - WHAT-IF FALLBACK WHY: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_WHY enabled=False fallback=OFF conf=LOW fit=EVEN pressure=HIGH)
 - WHAT-IF FALLBACK ALIGN: **SYNC** (no-actionable-fallback; fallback=OFF focus=PORTAL actionable=False)
 - WHAT-IF FALLBACK MAG: **SMALL** (flag-disabled; fallback=OFF delta=-3 |Δ|=3 enabled=False)
-- WHAT-IF FALLBACK ALT2: **NONE** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2 enabled=False fallback=NONE scores=portal:196 alt:33 pressure:16)
+- WHAT-IF FALLBACK ALT2: **NONE** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2 enabled=False fallback=NONE scores=portal:215 alt:34 pressure:17)
 - WHAT-IF FALLBACK ALT2 CONF: **LOW** (flag-disabled; alt2=NONE fallback=NONE top=0 second=0 gap=0 enabled=False)
 - WHAT-IF FALLBACK PLAN: **HOLD** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN enabled=False primary=OFF(LOW) secondary=NONE(LOW))
 - WHAT-IF PLAN FIT: **EVEN** (hold-or-no-actionable-secondary; plan=HOLD lane=HOLD pressure=HIGH projected=HIGH)
@@ -151,26 +156,31 @@
 - RGFXWRIUP URGENCY PARITY COMPACT FAMILY CHURN: **net +7** (added=8 removed=1 churn=9 coverage=1/1)
 - URGENCY PARITY LABEL FAMILY CHURN: **net +9** (added=11 removed=2 churn=13 coverage=1/1)
 - RGFXWRIUFX URGENCY FX FAMILY CHURN: **net +7** (added=8 removed=1 churn=9 coverage=1/1)
-- LANE CADENCE SUMMARY: **SYSTEMS/OPS OK** (RGFXWRIUFX coverage=1/1 churn=9)
-- PULSE HEAT FX COMPACT-BUDGET DRIFT: **SPIKE** (pulse-heat-fx churn is likely competing with compact prompt budget; compactNet=+225 familyNet=+7 churn=7)
-- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **SPIKE** (route-glow-fx churn is likely competing with compact prompt budget; compactNet=+225 familyNet=+15 churn=15)
-- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **SPIKE** (rail-mode churn is likely competing with compact prompt budget; compactNet=+225 familyNet=+5 churn=9)
+- URG STACK FAMILY CHURN: **net +12** (added=12 removed=0 churn=12 coverage=1/1)
+- URG STACK RAIL FAMILY CHURN: **net +6** (added=6 removed=0 churn=6 coverage=1/1)
+- DMGNUM STACK CAP FAMILY CHURN: **net +1** (added=1 removed=0 churn=1 coverage=1/1)
+- DMG GLYPH FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
+- DMG GLYPH FX LIVE FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
+- LANE CADENCE SUMMARY: **SYSTEMS/OPS OK** (RGFXWRIUFX coverage=1/1 churn=9 | DMG GLYPH coverage=0/1 churn=0 | DMG GLYPH FX LIVE coverage=0/1 churn=0)
+- PULSE HEAT FX COMPACT-BUDGET DRIFT: **SPIKE** (pulse-heat-fx churn is likely competing with compact prompt budget; compactNet=+246 familyNet=+7 churn=7)
+- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **SPIKE** (route-glow-fx churn is likely competing with compact prompt budget; compactNet=+246 familyNet=+15 churn=15)
+- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **SPIKE** (rail-mode churn is likely competing with compact prompt budget; compactNet=+246 familyNet=+5 churn=9)
 - STICKY TOKENS: **14**
-- ANOMALY: **ON** (sticky=14/3 pressure=16/5)
-- ANOMALY CONF: **HIGH** (triggers=2 gap=22)
+- ANOMALY: **ON** (sticky=14/3 pressure=17/5)
+- ANOMALY CONF: **HIGH** (triggers=2 gap=23)
 - ROUTE VIBE DRIFT: **CALM +3 | EDGE +0 | DOOM +3**
 
 ## Token Totals (added/removed/net)
-- Compact: +243 / -18 / net 225
-- Detailed: +180 / -15 / net 165
+- Compact: +264 / -18 / net 246
+- Detailed: +199 / -15 / net 184
 - Shared: +25 / -15 / net 10
 
 ## Top Token Movers (net ±)
+- `P:` net +17 (added 22, removed 5)
 - `RGFXWRIU:` net +16 (added 16, removed 0)
-- `P:` net +16 (added 21, removed 5)
 - `ROUTE GLOW FX:` net +13 (added 13, removed 0)
 - `RGFXC:` net +13 (added 13, removed 0)
-- `RGFXWRI WHY CONF:` net +12 (added 13, removed 1)
+- `URG STACK:` net +12 (added 12, removed 0)
 
 ## Token Family Coverage
 - VTW + VIBE TRAIL WHY: +8 / -0 / net 8 (churn=8 coverage=2/2)
@@ -192,10 +202,15 @@
 - RGFXWRIUP URGENCY PARITY COMPACT: +8 / -1 / net 7 (churn=9 coverage=1/1)
 - ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY PARITY: +11 / -2 / net 9 (churn=13 coverage=1/1)
 - RGFXWRIUFX URGENCY FX: +8 / -1 / net 7 (churn=9 coverage=1/1)
-- LANE CADENCE SUMMARY: SYSTEMS/OPS OK (RGFXWRIUFX coverage=1/1, churn=9)
-- PULSE HEAT FX COMPACT-BUDGET DRIFT: SPIKE (compactNet=+225, familyNet=+7, churn=7)
-- ROUTE GLOW FX COMPACT-BUDGET DRIFT: SPIKE (compactNet=+225, familyNet=+15, churn=15)
-- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: SPIKE (compactNet=+225, familyNet=+5, churn=9)
+- URG STACK: +12 / -0 / net 12 (churn=12 coverage=1/1)
+- URG STACK RAIL: +6 / -0 / net 6 (churn=6 coverage=1/1)
+- DMGNUM STACK CAP: +1 / -0 / net 1 (churn=1 coverage=1/1)
+- DMG GLYPH: +0 / -0 / net 0 (churn=0 coverage=0/1)
+- DMG GLYPH FX LIVE: +0 / -0 / net 0 (churn=0 coverage=0/1)
+- LANE CADENCE SUMMARY: SYSTEMS/OPS OK (RGFXWRIUFX coverage=1/1, churn=9 | DMG GLYPH coverage=0/1, churn=0 | DMG GLYPH FX LIVE coverage=0/1, churn=0)
+- PULSE HEAT FX COMPACT-BUDGET DRIFT: SPIKE (compactNet=+246, familyNet=+7, churn=7)
+- ROUTE GLOW FX COMPACT-BUDGET DRIFT: SPIKE (compactNet=+246, familyNet=+15, churn=15)
+- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: SPIKE (compactNet=+246, familyNet=+5, churn=9)
 
 ## Route Vibe Drift (added/removed/net)
 - CALM: +3 / -0 / net 3
@@ -206,6 +221,13 @@
 - `NEXT:`, `P:`, `ALT STEP WHY CONF:`, `ALT WHY GLYPH MODE:`, `ROUTE GLOW CONF:`, `RGFXWRM:`, `RGFXWRI WHY CONF:`, `RGFXWRIUP:`, `RGFXWRIUFX:`, `NEXT ROUTE:`, `PRESSURE:`, `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:`, `ENTER:JUMP`, `COACH:`
 
 ## Commit-level digest
+- `80c8473` feat(combat,digest): add damage glyph burst prototype and cycle CN digest coverage | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `80e6b96` feat: add DMGNUM stack-cap digest telemetry and combat cap guardrail | mode=compact | compact net=3 detailed net=1 shared net=0
+- `bec9fcb` feat: add lethal-hit floating damage accent and close urgency-stack rail digest task | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `42b9399` feat: add urgency-stack rail token experiment and backlog cycle CL | mode=neutral | compact net=10 detailed net=10 shared net=0
+- `6eaa2ba` feat(combat): add corpse fade window after lethal hits | mode=neutral | compact net=0 detailed net=0 shared net=0
+- `5fc1b8e` feat(portal): add URG STACK compact urgency pruning tier token | mode=neutral | compact net=8 detailed net=8 shared net=0
+- `6d4efb9` feat(combat): add floating damage numbers with regression | mode=neutral | compact net=0 detailed net=0 shared net=0
 - `eb163f6` Add deterministic urgency stack budget pruning in compact prompts | mode=compact | compact net=8 detailed net=2 shared net=1
 - `57eaef0` feat(portal): add budget-aware unknown coach fallback in compact prompt | mode=compact | compact net=3 detailed net=0 shared net=4
 - `d922a9b` Validate urgency parity+FX budget and add compact parity alias | mode=compact | compact net=10 detailed net=1 shared net=0

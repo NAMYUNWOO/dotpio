@@ -1457,3 +1457,8 @@
 - Added debug-only combat HUD token `DMG FX PLAN` to surface current glyph-FX remap stance during live hits.
 - Decision: keep plan resolver tied to existing `glyphBand` contract (BASIC/SPIKE/OVERDRIVE) so debug output cannot drift from combat damage-band state.
 - Verification: `DOTPIO_EXPERIMENT_DMG_FX_PLAN_DEBUG=1 lua scripts/regression_combat_damage_fx_plan_token.lua` PASS; baseline FX live token regression still PASS.
+
+## 2026-03-24 22:03 KST — Cycle CR follow-up (offline FX remap candidates)
+- Decision: Completed offline digest-generated FX remap candidate table artifact handoff for review workflows.
+- Evidence: `logs/playtests/dmg_glyph_fx_remap_candidates.json`, `logs/playtests/dmg_glyph_fx_remap_candidates.md`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: Keep runtime mapping unchanged; use candidate table for next AI Content/VFX review cycle.

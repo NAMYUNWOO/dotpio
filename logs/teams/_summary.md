@@ -2529,3 +2529,9 @@ Compact decision memory for AI context efficiency.
 - Shipped: `DMG GLYPH FX REMAP CONF:LOW|MID|HIGH` in weekly digest markdown + JSON, tied to drift risk and glyph/fx churn score.
 - Verification PASS: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Injected backlog follow-ups (unchecked): HUD debug token `DMG FX PLAN:<mode>` and offline FX remap candidate table artifact.
+
+## 2026-03-24 22:03 KST — Cycle CR durable decision
+- Completed queued AI Content/VFX artifact task: offline glyph FX remap candidate table generation now emitted by weekly digest script.
+- New artifacts: `logs/playtests/dmg_glyph_fx_remap_candidates.json` and `logs/playtests/dmg_glyph_fx_remap_candidates.md`.
+- Policy lock: recommendations remain offline-only (`HOLD_FX|MICRO_TUNE_FX|SYNC_WITH_GLYPH`); runtime CALM/SPARK/BLAZE mapping unchanged pending manual review.
+- Verification locked by existing regression: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.

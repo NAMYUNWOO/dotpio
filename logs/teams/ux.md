@@ -1749,3 +1749,8 @@
   - `OVERDRIVE -> SYNC_WITH_GLYPH`
 - Scope is non-invasive/debug-only; no combat tuning or economy changes.
 - Evidence: `luac -p src/hud.lua scripts/regression_combat_damage_fx_plan_token.lua` and `DOTPIO_EXPERIMENT_DMG_FX_PLAN_DEBUG=1 lua scripts/regression_combat_damage_fx_plan_token.lua` PASS.
+
+## 2026-03-24 22:03 KST — Cycle CR follow-up (offline FX remap candidates)
+- Decision: Completed offline digest-generated FX remap candidate table artifact handoff for review workflows.
+- Evidence: `logs/playtests/dmg_glyph_fx_remap_candidates.json`, `logs/playtests/dmg_glyph_fx_remap_candidates.md`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: Keep runtime mapping unchanged; use candidate table for next AI Content/VFX review cycle.

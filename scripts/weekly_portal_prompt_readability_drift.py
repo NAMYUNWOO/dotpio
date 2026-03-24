@@ -16,6 +16,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_JSON = ROOT / "logs" / "weekly_portal_prompt_readability_drift.json"
 DEFAULT_MD = ROOT / "logs" / "weekly_portal_prompt_readability_drift.md"
+DEFAULT_DMG_GLYPH_FX_REMAP_CANDIDATES_JSON = ROOT / "logs" / "playtests" / "dmg_glyph_fx_remap_candidates.json"
+DEFAULT_DMG_GLYPH_FX_REMAP_CANDIDATES_MD = ROOT / "logs" / "playtests" / "dmg_glyph_fx_remap_candidates.md"
 
 PORTAL_PATH_HINTS = (
     "src/portal.lua",
@@ -96,6 +98,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--repo-root", type=Path, default=Path.cwd())
     p.add_argument("--out-json", type=Path, default=DEFAULT_JSON)
     p.add_argument("--out-md", type=Path, default=DEFAULT_MD)
+    p.add_argument("--out-fx-remap-candidates-json", type=Path, default=DEFAULT_DMG_GLYPH_FX_REMAP_CANDIDATES_JSON)
+    p.add_argument("--out-fx-remap-candidates-md", type=Path, default=DEFAULT_DMG_GLYPH_FX_REMAP_CANDIDATES_MD)
     return p.parse_args()
 
 
@@ -6119,6 +6123,85 @@ def main() -> int:
     status = "ok"
     if touched and totals["net"]["compact"] < 0 and totals["net"]["detailed"] > 0:
         status = "warn"
+
+    fx_remap_candidates = [
+        {
+            "rank": 1,
+            "mode": "HOLD_FX",
+            "summary": "Pin CALM/SPARK/BLAZE mapping and defer runtime remap edits.",
+            "when": "Use during HIGH drift or high FX churn windows.",
+            "risk": "LOW",
+            "offlineOnly": True,
+        },
+        {
+            "rank": 2,
+            "mode": "MICRO_TUNE_FX",
+            "summary": "Draft small offline FX remap options that keep glyph-band thresholds unchanged.",
+            "when": "Use in stable windows with moderate churn.",
+            "risk": "MID",
+            "offlineOnly": True,
+        },
+        {
+            "rank": 3,
+            "mode": "SYNC_WITH_GLYPH",
+            "summary": "Draft offline FX remap candidates aligned to glyph-band momentum shifts.",
+            "when": "Use when glyph churn rises while drift risk is not HIGH.",
+            "risk": "MID",
+            "offlineOnly": True,
+        },
+    ]
+    selected_fx_remap_candidate = next(
+        (candidate for candidate in fx_remap_candidates if candidate["mode"] == dmg_glyph_fx_remap_recommendation),
+        fx_remap_candidates[0],
+    )
+    fx_remap_candidates_payload = {
+        "generatedAt": now,
+        "window": {
+            "sinceDays": args.since_days,
+            "maxCommits": args.max_commits,
+            "checkedCommits": len(rows),
+            "touchedCommits": len(touched),
+        },
+        "recommendation": {
+            "mode": dmg_glyph_fx_remap_recommendation,
+            "confidence": dmg_glyph_fx_remap_confidence,
+            "signals": dmg_glyph_fx_remap_recommendation_signals,
+            "confidenceSignals": dmg_glyph_fx_remap_confidence_signals,
+        },
+        "selectedCandidate": selected_fx_remap_candidate,
+        "candidates": fx_remap_candidates,
+    }
+
+    args.out_fx_remap_candidates_json.parent.mkdir(parents=True, exist_ok=True)
+    args.out_fx_remap_candidates_json.write_text(
+        json.dumps(fx_remap_candidates_payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+    fx_candidate_md = [
+        "# DMG Glyph FX Remap Candidates",
+        "",
+        f"- GeneratedAt(UTC): {now}",
+        f"- Recommendation: **{dmg_glyph_fx_remap_recommendation}**",
+        f"- Confidence: **{dmg_glyph_fx_remap_confidence}**",
+        f"- Rationale: {dmg_glyph_fx_remap_recommendation_signals['rationale']}",
+        f"- Guidance: {dmg_glyph_fx_remap_recommendation_signals['guidance']}",
+        "",
+        "## Candidate Table",
+        "",
+        "| Rank | Mode | Risk | Offline Only | Summary | When to use |",
+        "| --- | --- | --- | --- | --- | --- |",
+    ]
+    for candidate in fx_remap_candidates:
+        fx_candidate_md.append(
+            f"| {candidate['rank']} | {candidate['mode']} | {candidate['risk']} | {str(candidate['offlineOnly']).upper()} | {candidate['summary']} | {candidate['when']} |"
+        )
+    fx_candidate_md.extend([
+        "",
+        f"- Selected candidate this window: **{selected_fx_remap_candidate['mode']}**",
+    ])
+    args.out_fx_remap_candidates_md.parent.mkdir(parents=True, exist_ok=True)
+    args.out_fx_remap_candidates_md.write_text("\n".join(fx_candidate_md).strip() + "\n", encoding="utf-8")
 
     payload = {
         "generatedAt": now,

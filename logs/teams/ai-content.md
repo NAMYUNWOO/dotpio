@@ -1473,3 +1473,8 @@
 ## 2026-03-24 21:34 KST — Cycle CP injection follow-up
 - Added next AI Content/VFX backlog candidate: offline digest-generated glyph FX remap candidate table artifact (review-only, no runtime apply).
 - Purpose: convert recommendation bands into reviewable proposal sets while preserving offline-only guardrails.
+
+## 2026-03-24 22:03 KST — Cycle CR follow-up (offline FX remap candidates)
+- Decision: Completed offline digest-generated FX remap candidate table artifact handoff for review workflows.
+- Evidence: `logs/playtests/dmg_glyph_fx_remap_candidates.json`, `logs/playtests/dmg_glyph_fx_remap_candidates.md`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: Keep runtime mapping unchanged; use candidate table for next AI Content/VFX review cycle.

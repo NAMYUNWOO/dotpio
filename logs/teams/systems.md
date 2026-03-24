@@ -2240,3 +2240,8 @@
 - Coverage check over last 10 completions showed systems-heavy skew (5/10 = 50% > 40% cap), so this cycle forced underrepresented-lane implementation.
 - Systems/Ops follow-up kept queued (unchecked): generate offline glyph FX remap candidate table artifact (`logs/playtests/dmg_glyph_fx_remap_candidates.{md,json}`) for review workflows.
 - Immediate shipped code remained runtime UX/combat debug-only to rebalance lane cadence.
+
+## 2026-03-24 22:03 KST — Cycle CR follow-up (offline FX remap candidates)
+- Decision: Completed offline digest-generated FX remap candidate table artifact handoff for review workflows.
+- Evidence: `logs/playtests/dmg_glyph_fx_remap_candidates.json`, `logs/playtests/dmg_glyph_fx_remap_candidates.md`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: Keep runtime mapping unchanged; use candidate table for next AI Content/VFX review cycle.
