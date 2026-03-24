@@ -2329,3 +2329,14 @@
   - lua scripts/regression_combat_damage_number_life_trend_token.lua
   - lua scripts/regression_combat_damage_number_life_trend_color.lua
 - Follow-up: Next highest-priority unchecked item remains AI-Content/VFX offline ambient rationale recommendation (`AMBIENT RAMP WHY REC`).
+
+## 2026-03-25 04:31 KST
+- Task: Close remaining AI-Content/VFX backlog item via weekly digest offline recommendation plumbing (`AMBIENT RAMP WHY REC`).
+- Commit: pending (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added deterministic offline policy output `ambientRampWhyRecommendation` + signal payload from drift/pressure/churn.
+  - Markdown digest now prints `AMBIENT RAMP WHY REC` for operator triage parity with confidence recommendation.

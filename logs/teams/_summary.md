@@ -2652,3 +2652,8 @@ Compact decision memory for AI context efficiency.
   - New regression: `scripts/regression_portal_ambient_ramp_why.lua`.
 - Verification PASS: py_compile + new portal regression + weekly digest regression.
 - Next experiment candidate: mid-risk Combat/VFX color-accent readability pass for `DMGNUM LIFE TREND`.
+
+- Closed highest-priority unchecked TASKS/POST_RC item: weekly digest now emits offline ambient-rationale recommendation `AMBIENT RAMP WHY REC` with payload keys `ambientRampWhyRecommendation` + `ambientRampWhyRecommendationSignals`.
+- Recommendation posture is deterministic from drift-risk + pressure-band + `AMBIENT RAMP WHY` alias-family churn (`HOLD_SAFE_WHY|PRESSURE_GATED_WHY|OPEN_CONTEXTUAL_WHY`) and does not alter runtime portal behavior.
+- Regression contract extended in `scripts/regression_weekly_portal_prompt_readability_drift.py` to lock JSON schema + markdown row (`AMBIENT RAMP WHY REC`).
+- ACTION_ITEMS/TASKS/POST_RC are now fully checked; next autonomous loop should execute a new Game Director review cycle.

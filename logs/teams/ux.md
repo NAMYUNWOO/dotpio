@@ -1811,3 +1811,7 @@
   - lua scripts/regression_combat_damage_number_life_trend_token.lua
   - lua scripts/regression_combat_damage_number_life_trend_color.lua
 - Follow-up: Next highest-priority unchecked item remains AI-Content/VFX offline ambient rationale recommendation (`AMBIENT RAMP WHY REC`).
+
+## 2026-03-25 04:31 KST
+- Cross-lane sync: Weekly digest markdown now includes `AMBIENT RAMP WHY REC` for operator readability.
+- Impact: No HUD/layout changes in this slice; UX surface change is digest-text only.

@@ -1607,3 +1607,7 @@
   - lua scripts/regression_combat_damage_number_life_trend_token.lua
   - lua scripts/regression_combat_damage_number_life_trend_color.lua
 - Follow-up: Next highest-priority unchecked item remains AI-Content/VFX offline ambient rationale recommendation (`AMBIENT RAMP WHY REC`).
+
+## 2026-03-25 04:31 KST
+- Cross-lane sync: Added offline digest guidance token `AMBIENT RAMP WHY REC` for design triage; no in-run copy contract changes.
+- Impact: Existing portal rationale wording remains deterministic at runtime.

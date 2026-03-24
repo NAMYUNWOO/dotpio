@@ -150,6 +150,17 @@ def main() -> int:
             "offlineOnly",
             "guidance",
         }, payload
+        assert payload.get("ambientRampWhyRecommendation") in {"HOLD_SAFE_WHY", "PRESSURE_GATED_WHY", "OPEN_CONTEXTUAL_WHY"}, payload
+        assert set(payload.get("ambientRampWhyRecommendationSignals", {}).keys()) == {
+            "driftRisk",
+            "pressureBand",
+            "ambientRampWhyChurn",
+            "ambientRampWhyNet",
+            "ambientRampWhyCoverage",
+            "rationale",
+            "offlineOnly",
+            "guidance",
+        }, payload
         assert payload.get("urgencyStackPruningOrderRecommendation") in {"PARITY>FX>DETAIL", "FX>PARITY>DETAIL"}, payload
         assert set(payload.get("urgencyStackPruningOrderRecommendationSignals", {}).keys()) == {
             "driftRisk",
@@ -1527,6 +1538,7 @@ def main() -> int:
         assert "DRIFT RISK" in md_text
         assert "RGFXWRI WHY CONF POLICY REC" in md_text
         assert "AMBIENT RAMP CONF REC" in md_text
+        assert "AMBIENT RAMP WHY REC" in md_text
         assert "URGENCY STACK PRUNING REC" in md_text
         assert "URGENCY STACK RAIL REC" in md_text
         assert "DMG GLYPH SHAPE REMAP REC" in md_text

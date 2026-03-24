@@ -1536,3 +1536,11 @@
   - lua scripts/regression_combat_damage_number_life_trend_token.lua
   - lua scripts/regression_combat_damage_number_life_trend_color.lua
 - Follow-up: Next highest-priority unchecked item remains AI-Content/VFX offline ambient rationale recommendation (`AMBIENT RAMP WHY REC`).
+
+## 2026-03-25 04:31 KST
+- Task: AI-Content/VFX offline policy prototype for ambient rationale recommendation (`AMBIENT RAMP WHY REC`).
+- Commit: pending (this run)
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Decisions:
+  - Policy output is recommendation-only (offline), preserving runtime prompt determinism.
+  - Added three deterministic stances for operator planning: `HOLD_SAFE_WHY`, `PRESSURE_GATED_WHY`, `OPEN_CONTEXTUAL_WHY`.

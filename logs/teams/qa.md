@@ -2875,3 +2875,13 @@
   - lua scripts/regression_combat_damage_number_life_trend_token.lua
   - lua scripts/regression_combat_damage_number_life_trend_color.lua
 - Follow-up: Next highest-priority unchecked item remains AI-Content/VFX offline ambient rationale recommendation (`AMBIENT RAMP WHY REC`).
+
+## 2026-03-25 04:31 KST
+- Task: Verify ambient-rationale recommendation digest slice (`AMBIENT RAMP WHY REC`) and schema lock.
+- Commit: pending (this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Regression now asserts new JSON keys (`ambientRampWhyRecommendation*`) and markdown row visibility (`AMBIENT RAMP WHY REC`).

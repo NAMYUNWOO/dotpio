@@ -5296,6 +5296,43 @@ def ambient_ramp_confidence_recommendation_from_trends(
     return recommendation, signals
 
 
+def ambient_ramp_why_recommendation_from_trends(
+    *,
+    drift_risk: str,
+    ambient_ramp_why_family: dict[str, int],
+    pressure_band: str,
+) -> tuple[str, dict[str, object]]:
+    """Recommend offline-only ambient-rationale copy posture from drift + pressure trends."""
+    churn = int(ambient_ramp_why_family.get("churn", 0))
+    net = int(ambient_ramp_why_family.get("net", 0))
+    coverage = str(ambient_ramp_why_family.get("coverage", "0/0"))
+
+    if drift_risk == "HIGH" or pressure_band == "HIGH" or churn >= 4:
+        recommendation = "HOLD_SAFE_WHY"
+        rationale = "high-risk-or-high-pressure"
+        guidance = "Prefer SAFE LOCK rationale defaults; only emit pressure-forward rationale under sustained corroboration."
+    elif drift_risk == "MID" or pressure_band == "MID" or churn >= 2:
+        recommendation = "PRESSURE_GATED_WHY"
+        rationale = "mixed-risk-window"
+        guidance = "Allow PRESSURE HOLD rationale only when pressure band remains MID/HIGH with stable confidence context."
+    else:
+        recommendation = "OPEN_CONTEXTUAL_WHY"
+        rationale = "stable-low-pressure-window"
+        guidance = "Keep deterministic SAFE/PRESSURE rationale mapping and monitor churn weekly before tightening."
+
+    signals: dict[str, object] = {
+        "driftRisk": drift_risk,
+        "pressureBand": pressure_band,
+        "ambientRampWhyChurn": churn,
+        "ambientRampWhyNet": net,
+        "ambientRampWhyCoverage": coverage,
+        "rationale": rationale,
+        "offlineOnly": True,
+        "guidance": guidance,
+    }
+    return recommendation, signals
+
+
 
 def urgency_stack_pruning_order_recommendation_from_trends(
     *,
@@ -5569,6 +5606,11 @@ def main() -> int:
     ambient_ramp_confidence_recommendation, ambient_ramp_confidence_recommendation_signals = ambient_ramp_confidence_recommendation_from_trends(
         drift_risk=drift_risk,
         ambient_ramp_confidence_family=token_family_totals["ambientRampConfidenceAlias"],
+        pressure_band=pressure_band,
+    )
+    ambient_ramp_why_recommendation, ambient_ramp_why_recommendation_signals = ambient_ramp_why_recommendation_from_trends(
+        drift_risk=drift_risk,
+        ambient_ramp_why_family=token_family_totals["ambientRampWhyAlias"],
         pressure_band=pressure_band,
     )
     urgency_stack_pruning_order_recommendation, urgency_stack_pruning_order_recommendation_signals = urgency_stack_pruning_order_recommendation_from_trends(
@@ -6271,6 +6313,8 @@ def main() -> int:
         "rgfxwriWhyConfPolicyRecommendationSignals": rgfxwri_why_conf_policy_signals,
         "ambientRampConfidenceRecommendation": ambient_ramp_confidence_recommendation,
         "ambientRampConfidenceRecommendationSignals": ambient_ramp_confidence_recommendation_signals,
+        "ambientRampWhyRecommendation": ambient_ramp_why_recommendation,
+        "ambientRampWhyRecommendationSignals": ambient_ramp_why_recommendation_signals,
         "urgencyStackPruningOrderRecommendation": urgency_stack_pruning_order_recommendation,
         "urgencyStackPruningOrderRecommendationSignals": urgency_stack_pruning_order_recommendation_signals,
         "urgencyStackRailRecommendation": urgency_stack_rail_recommendation,
@@ -6566,6 +6610,7 @@ def main() -> int:
         f"- DRIFT RISK: **{drift_risk}** (score={drift_risk_signals['score']} | imbalance={drift_risk_signals['imbalance']} | pressure={drift_risk_signals['pressureChurn']})",
         f"- RGFXWRI WHY CONF POLICY REC: **{rgfxwri_why_conf_policy}** ({rgfxwri_why_conf_policy_signals['rationale']}; churn={rgfxwri_why_conf_policy_signals['familyChurn']} net={rgfxwri_why_conf_policy_signals['familyNet']} coverage={rgfxwri_why_conf_policy_signals['familyCoverage']} offlineOnly={rgfxwri_why_conf_policy_signals['offlineOnly']})",
         f"- AMBIENT RAMP CONF REC: **{ambient_ramp_confidence_recommendation}** ({ambient_ramp_confidence_recommendation_signals['rationale']}; churn={ambient_ramp_confidence_recommendation_signals['ambientRampConfidenceChurn']} net={ambient_ramp_confidence_recommendation_signals['ambientRampConfidenceNet']} coverage={ambient_ramp_confidence_recommendation_signals['ambientRampConfidenceCoverage']} pressure={ambient_ramp_confidence_recommendation_signals['pressureBand']} offlineOnly={ambient_ramp_confidence_recommendation_signals['offlineOnly']})",
+        f"- AMBIENT RAMP WHY REC: **{ambient_ramp_why_recommendation}** ({ambient_ramp_why_recommendation_signals['rationale']}; churn={ambient_ramp_why_recommendation_signals['ambientRampWhyChurn']} net={ambient_ramp_why_recommendation_signals['ambientRampWhyNet']} coverage={ambient_ramp_why_recommendation_signals['ambientRampWhyCoverage']} pressure={ambient_ramp_why_recommendation_signals['pressureBand']} offlineOnly={ambient_ramp_why_recommendation_signals['offlineOnly']})",
         f"- URGENCY STACK PRUNING REC: **{urgency_stack_pruning_order_recommendation}** ({urgency_stack_pruning_order_recommendation_signals['rationale']}; parityChurn={urgency_stack_pruning_order_recommendation_signals['parityCompactChurn']} fxChurn={urgency_stack_pruning_order_recommendation_signals['urgencyFxChurn']} detailedChurn={urgency_stack_pruning_order_recommendation_signals['urgencyDetailedChurn']} offlineOnly={urgency_stack_pruning_order_recommendation_signals['offlineOnly']})",
         f"- URGENCY STACK RAIL REC: **{urgency_stack_rail_recommendation}** ({urgency_stack_rail_recommendation_signals['rationale']}; railChurn={urgency_stack_rail_recommendation_signals['urgencyStackRailChurn']} railNet={urgency_stack_rail_recommendation_signals['urgencyStackRailNet']} tierChurn={urgency_stack_rail_recommendation_signals['urgencyStackTierChurn']} offlineOnly={urgency_stack_rail_recommendation_signals['offlineOnly']})",
         f"- DMG GLYPH SHAPE REMAP REC: **{dmg_glyph_shape_remap_recommendation}** ({dmg_glyph_shape_remap_recommendation_signals['rationale']}; glyphChurn={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphChurn']} glyphNet={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphNet']} railChurn={dmg_glyph_shape_remap_recommendation_signals['urgencyStackRailChurn']} offlineOnly={dmg_glyph_shape_remap_recommendation_signals['offlineOnly']})",
