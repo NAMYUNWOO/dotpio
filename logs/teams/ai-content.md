@@ -1409,3 +1409,12 @@
 ## 2026-03-24 15:05 KST — Prompt token stack observability
 - Captured new compact token (`URG STACK`) to make urgency-stack pruning behavior interpretable during AI prompt tuning.
 - No generation policy/rationale remap logic changed in this slice.
+
+## 2026-03-24 15:36:00 KST
+- Task: Cycle CH high-risk follow-up — drift-aware urgency-stack pruning-order recommendation (weekly digest, offline-only).
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (pass)
+- Decision: Added `urgencyStackPruningOrderRecommendation` + signal payload and markdown row `URGENCY STACK PRUNING REC` to guide parity/FX/detail pruning from weekly churn trends.
+- Follow-up: Use recommendation in future ops review; keep runtime prompt behavior unchanged (reporting only).
+

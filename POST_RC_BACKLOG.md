@@ -543,4 +543,4 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add weekly digest token-family churn coverage for compact urgency-parity alias (`RGFXWRIUP:`) and lock via regression. *(lifecycle: [~] -> [x])*
 - [x] UX/World Team: Prototype compact urgency-stack pruning tier token (`URG STACK:TIGHT|MID|LOOSE`) behind flag for prompt-debug readability.
-- [ ] AI Content/Systems Team: Prototype drift-aware urgency-stack pruning order recommendation from weekly digest trends.
+- [x] AI Content/Systems Team: Prototype drift-aware urgency-stack pruning order recommendation from weekly digest trends.

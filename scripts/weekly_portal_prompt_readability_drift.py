@@ -5242,6 +5242,50 @@ def rgfxwri_why_conf_policy_recommendation(
     return recommendation, signals
 
 
+def urgency_stack_pruning_order_recommendation_from_trends(
+    *,
+    drift_risk: str,
+    parity_compact_family: dict[str, int],
+    urgency_fx_family: dict[str, int],
+    urgency_detailed_family: dict[str, int],
+) -> tuple[str, dict[str, object]]:
+    """Recommend offline urgency-stack pruning order from weekly churn trends."""
+    parity_churn = int(parity_compact_family.get("churn", 0))
+    fx_churn = int(urgency_fx_family.get("churn", 0))
+    detailed_churn = int(urgency_detailed_family.get("churn", 0))
+
+    parity_net = int(parity_compact_family.get("net", 0))
+    fx_net = int(urgency_fx_family.get("net", 0))
+    detailed_net = int(urgency_detailed_family.get("net", 0))
+
+    if drift_risk == "HIGH" or parity_churn >= 4:
+        recommendation = "PARITY>FX>DETAIL"
+        rationale = "protect-core-detailed-under-high-drift"
+        guidance = "Prune RGFXWRIUP first, then RGFXWRIUFX, keep detailed urgency token longest."
+    elif fx_churn > parity_churn and fx_net >= parity_net:
+        recommendation = "FX>PARITY>DETAIL"
+        rationale = "fx-churn-dominant"
+        guidance = "Trim RGFXWRIUFX before RGFXWRIUP when FX churn dominates this window."
+    else:
+        recommendation = "PARITY>FX>DETAIL"
+        rationale = "default-deterministic-order"
+        guidance = "Keep deterministic parity-first stack pruning unless drift trends clearly invert."
+
+    signals: dict[str, object] = {
+        "driftRisk": drift_risk,
+        "parityCompactChurn": parity_churn,
+        "urgencyFxChurn": fx_churn,
+        "urgencyDetailedChurn": detailed_churn,
+        "parityCompactNet": parity_net,
+        "urgencyFxNet": fx_net,
+        "urgencyDetailedNet": detailed_net,
+        "rationale": rationale,
+        "offlineOnly": True,
+        "guidance": guidance,
+    }
+    return recommendation, signals
+
+
 def main() -> int:
     args = parse_args()
     root = args.repo_root.resolve()
@@ -5312,6 +5356,12 @@ def main() -> int:
     rgfxwri_why_conf_policy, rgfxwri_why_conf_policy_signals = rgfxwri_why_conf_policy_recommendation(
         drift_risk=drift_risk,
         family_totals=token_family_totals["routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias"],
+    )
+    urgency_stack_pruning_order_recommendation, urgency_stack_pruning_order_recommendation_signals = urgency_stack_pruning_order_recommendation_from_trends(
+        drift_risk=drift_risk,
+        parity_compact_family=token_family_totals["routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAlias"],
+        urgency_fx_family=token_family_totals["routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias"],
+        urgency_detailed_family=token_family_totals["routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyDetailed"],
     )
 
     token_movers = [
@@ -5907,6 +5957,8 @@ def main() -> int:
         "driftRiskSignals": drift_risk_signals,
         "rgfxwriWhyConfPolicyRecommendation": rgfxwri_why_conf_policy,
         "rgfxwriWhyConfPolicyRecommendationSignals": rgfxwri_why_conf_policy_signals,
+        "urgencyStackPruningOrderRecommendation": urgency_stack_pruning_order_recommendation,
+        "urgencyStackPruningOrderRecommendationSignals": urgency_stack_pruning_order_recommendation_signals,
         "laneFocus": lane_focus,
         "laneFocusScores": lane_focus_scores,
         "focusStreak": focus_streak,
@@ -6191,6 +6243,7 @@ def main() -> int:
         f"- PRESSURE BAND: **{pressure_band}** (edits +{pressure_added} / -{pressure_removed} / net {pressure_net})",
         f"- DRIFT RISK: **{drift_risk}** (score={drift_risk_signals['score']} | imbalance={drift_risk_signals['imbalance']} | pressure={drift_risk_signals['pressureChurn']})",
         f"- RGFXWRI WHY CONF POLICY REC: **{rgfxwri_why_conf_policy}** ({rgfxwri_why_conf_policy_signals['rationale']}; churn={rgfxwri_why_conf_policy_signals['familyChurn']} net={rgfxwri_why_conf_policy_signals['familyNet']} coverage={rgfxwri_why_conf_policy_signals['familyCoverage']} offlineOnly={rgfxwri_why_conf_policy_signals['offlineOnly']})",
+        f"- URGENCY STACK PRUNING REC: **{urgency_stack_pruning_order_recommendation}** ({urgency_stack_pruning_order_recommendation_signals['rationale']}; parityChurn={urgency_stack_pruning_order_recommendation_signals['parityCompactChurn']} fxChurn={urgency_stack_pruning_order_recommendation_signals['urgencyFxChurn']} detailedChurn={urgency_stack_pruning_order_recommendation_signals['urgencyDetailedChurn']} offlineOnly={urgency_stack_pruning_order_recommendation_signals['offlineOnly']})",
         f"- FOCUS: **{lane_focus}** (portal={lane_focus_scores['portal']} | alt={lane_focus_scores['alt']} | pressure={lane_focus_scores['pressure']})",
         f"- FOCUS STREAK: **{focus_streak}**",
         f"- FOCUS SHIFT: **{focus_shift}**",

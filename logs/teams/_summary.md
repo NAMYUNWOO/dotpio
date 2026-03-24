@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 13:45 KST
+Last updated: 2026-03-24 15:36 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle CH remaining unchecked TASKS/POST_RC item: weekly digest now emits drift-aware **offline-only** urgency-stack pruning recommendation `URGENCY STACK PRUNING REC` with payload keys `urgencyStackPruningOrderRecommendation` and `urgencyStackPruningOrderRecommendationSignals`.
+- Recommendation logic is trend-driven from urgency-family churn/net (`RGFXWRIUP`, `RGFXWRIUFX`, detailed urgency token) and currently returns deterministic order tokens (`PARITY>FX>DETAIL` or `FX>PARITY>DETAIL`) without changing runtime prompt behavior.
+- Regression contract extended in `scripts/regression_weekly_portal_prompt_readability_drift.py`; full digest regression passes.
 
 - Closed highest-priority unchecked TASKS/POST_RC follow-up for urgency parity: portal prompts now support detailed urgency token `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:<LOW|MID|HIGH>` behind dedicated flag `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_PARITY`.
 - Added regression guardrail `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_parity.lua` and re-validated urgency FX baseline (`..._urgency_fx.lua`), both passing.

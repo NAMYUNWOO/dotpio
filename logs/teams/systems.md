@@ -2155,3 +2155,12 @@
 ## 2026-03-24 15:05 KST — Prompt budget tiering hook
 - Added experiment-gated budget-tier classifier (`DOTPIO_EXPERIMENT_URGENCY_STACK_TIER`) in portal compact prompt path.
 - Tier mapping intentionally simple/reversible for follow-up tuning: `<=140` tight, `<=170` mid, else loose.
+
+## 2026-03-24 15:36:00 KST
+- Task: Cycle CH high-risk follow-up — drift-aware urgency-stack pruning-order recommendation (weekly digest, offline-only).
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (pass)
+- Decision: Added `urgencyStackPruningOrderRecommendation` + signal payload and markdown row `URGENCY STACK PRUNING REC` to guide parity/FX/detail pruning from weekly churn trends.
+- Follow-up: Use recommendation in future ops review; keep runtime prompt behavior unchanged (reporting only).
+
