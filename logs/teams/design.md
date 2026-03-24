@@ -1462,3 +1462,9 @@
   - Backlog duplicates for urgency parity were resolved and marked complete.
 - Follow-up:
   - Evaluate whether detailed urgency token should appear only in non-compact prompt profiles.
+
+## 2026-03-24 11:34 KST — Cycle CF follow-up (urgency coach cue)
+- Completed: Prototype `RGFXWRIU COACH:<STEADY|SPIKE>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_COACH`.
+- Decision: keep mapping deterministic for readability (`LOW -> STEADY`, `MID/HIGH -> SPIKE`) and gate emission behind urgency parity path.
+- Evidence: `src/portal.lua`, `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_coach.lua`.
+- Follow-up: UX compact-budget validation with urgency parity + urgency FX still pending.

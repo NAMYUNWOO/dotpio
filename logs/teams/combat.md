@@ -1352,3 +1352,8 @@
   - No combat behavior or balance parameter changes in this cycle; prompt-only instrumentation update.
 - Follow-up:
   - Revisit if urgency parity copy drives pacing misreads in live playtests.
+
+## 2026-03-24 11:34 KST — Cycle CF follow-up (urgency coach combat readability)
+- Added combat-facing cue token `RGFXWRIU COACH` to strengthen overdrive pacing read in portal prompt.
+- Mapping aligns with urgency tiers: `STEADY` for low pressure, `SPIKE` for medium/high pressure.
+- No combat simulation logic changed; prompt-only additive slice.

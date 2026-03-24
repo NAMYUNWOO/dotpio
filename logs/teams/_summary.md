@@ -2384,3 +2384,10 @@ Compact decision memory for AI context efficiency.
   - markdown rows added: `RGFXWRIUFX URGENCY FX FAMILY CHURN` and `LANE CADENCE SUMMARY` (Systems/Ops).
 - QA regression updated and passing: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Remaining unchecked high-priority task: Design/World detailed urgency parity label behind dedicated flag.
+
+## 2026-03-24 11:34 KST — Cycle CF follow-up (urgency coach token)
+- Completed Post-RC Cycle CF first follow-up: added `RGFXWRIU COACH:<STEADY|SPIKE>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_COACH`.
+- Emission is intentionally scoped to urgency parity branch, preserving baseline compact prompt output when parity is off.
+- Deterministic mapping shipped for readability: `LOW -> STEADY`, `MID/HIGH -> SPIKE`.
+- Verification: new coach regression + existing urgency regression both PASS.
+- Remaining highest-priority unchecked item: UX compact budget validation with urgency parity + urgency FX enabled.

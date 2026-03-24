@@ -523,5 +523,5 @@ Last updated: 2026-03-21 02:31 KST
 
 
 ## Cycle CF follow-ups (injected)
-- [ ] Design/Combat Team: Prototype `RGFXWRIU COACH:<STEADY|SPIKE>` hint token behind dedicated flag when urgency parity is enabled.
+- [x] Design/Combat Team: Prototype `RGFXWRIU COACH:<STEADY|SPIKE>` hint token behind dedicated flag when urgency parity is enabled.
 - [ ] UX Team: Validate compact prompt budget impact when urgency parity + urgency FX are enabled simultaneously; publish screenshot/playtest notes.

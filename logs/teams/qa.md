@@ -2631,3 +2631,8 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decisions:
   - Regression now asserts `URGENCY PARITY LABEL FAMILY CHURN` and token-family coverage row presence.
+
+## 2026-03-24 11:34 KST — Cycle CF follow-up verification
+- Ran: `... lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_coach.lua` (PASS)
+- Ran: `... lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency.lua` (PASS)
+- Result: urgency coach token is emitted only when urgency parity path is active and dedicated coach flag is enabled.

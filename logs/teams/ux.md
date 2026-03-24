@@ -1647,3 +1647,7 @@
   - UX contract preserved: default compact prompt unaffected unless parity flag is explicitly enabled.
 - Follow-up:
   - Add screenshot/playtest capture only if parity flag becomes default-on in future cycle.
+
+## 2026-03-24 11:34 KST — Cycle CF UX note
+- Prompt readability updated with concise coach hint token `RGFXWRIU COACH:<STEADY|SPIKE>`.
+- Outstanding: run compact prompt budget validation when urgency parity + urgency FX are both enabled.

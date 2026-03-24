@@ -2115,3 +2115,7 @@
 - Decisions:
   - Added dedicated alias-family key `routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyDetailed` for parity-label-only visibility.
   - Added markdown coverage rows for parity family churn in both triage summary and token-family coverage block.
+
+## 2026-03-24 11:34 KST — Cycle CF follow-up systems note
+- Added new experiment gate: `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_COACH`.
+- Gate nesting preserves current behavior unless urgency + parity experiments are already enabled.
