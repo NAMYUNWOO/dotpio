@@ -735,6 +735,7 @@ def main() -> int:
         assert "ROUTE GLOW FX CONF WHY RAIL:" in payload["tokenTotals"]["net"], payload
         assert "RGFXWR:" in payload["tokenTotals"]["net"], payload
         assert "RGFXWRM:" in payload["tokenTotals"]["net"], payload
+        assert "RGFXWRIUFX:" in payload["tokenTotals"]["net"], payload
         assert "tokenFamilyTotals" in payload, payload
         assert "vibeTrailWhyAlias" in payload["tokenFamilyTotals"], payload
         assert "vibeTrailWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
@@ -751,6 +752,8 @@ def main() -> int:
         assert "routeGlowFxConfidenceWhyRailIntensity" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhy" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
+        assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyAlias" in payload["tokenFamilyTotals"], payload
+        assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
@@ -1314,6 +1317,8 @@ def main() -> int:
         assert "RGFXWRI WHY FAMILY CHURN" in md_text
         assert "RGFXWRI WHY CONF FAMILY CHURN" in md_text
         assert "RGFXWRIU URGENCY FAMILY CHURN" in md_text
+        assert "RGFXWRIUFX URGENCY FX FAMILY CHURN" in md_text
+        assert "LANE CADENCE SUMMARY" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text
         assert "ROUTE GLOW FX CONF + RGFXC:" in md_text
@@ -1324,6 +1329,8 @@ def main() -> int:
         assert "RGFXWRI WHY:" in md_text
         assert "RGFXWRIWC + RGFXWRI WHY CONF:" in md_text
         assert "RGFXWRIU + ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:" in md_text
+        assert "RGFXWRIUFX URGENCY FX:" in md_text
+        assert "LANE CADENCE SUMMARY: SYSTEMS/OPS" in md_text
         assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT" in md_text

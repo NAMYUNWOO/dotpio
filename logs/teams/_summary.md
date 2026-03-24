@@ -2369,3 +2369,12 @@ Compact decision memory for AI context efficiency.
 - Weekly digest now tracks urgency alias family in both `Token Family Coverage` and markdown churn rows, enabling parity drift audit before/after detailed label rollout.
 - Regression gate: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Next prioritized unchecked item: detailed urgency parity label prototype (`ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:<LOW|MID|HIGH`) behind dedicated flag.
+
+## 2026-03-24 10:31 KST — Cycle CE Systems/Ops urgency-FX digest slice
+- Completed Cycle CE Systems/Ops backlog item: weekly digest now tracks urgency-FX alias churn for `RGFXWRIUFX:`.
+- `scripts/weekly_portal_prompt_readability_drift.py` updates:
+  - token catalogs/families include `RGFXWRIUFX:`
+  - new alias family `routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias`
+  - markdown rows added: `RGFXWRIUFX URGENCY FX FAMILY CHURN` and `LANE CADENCE SUMMARY` (Systems/Ops).
+- QA regression updated and passing: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Remaining unchecked high-priority task: Design/World detailed urgency parity label behind dedicated flag.

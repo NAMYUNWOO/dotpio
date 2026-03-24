@@ -519,5 +519,5 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice, additive + reversible).
 - [x] Combat/VFX Team: Add compact urgency FX token (`RGFXWRIUFX:CALM|SPARK|BLAZE`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_FX`.
 - [ ] Design/World Team: Prototype detailed parity urgency label (`ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:<LOW|MID|HIGH`) behind dedicated flag.
-- [ ] Systems/Ops Team: Add weekly digest token-family coverage for urgency FX alias churn (`RGFXWRIUFX:`) plus lane cadence summary row.
+- [x] Systems/Ops Team: Add weekly digest token-family coverage for urgency FX alias churn (`RGFXWRIUFX:`) plus lane cadence summary row.
 

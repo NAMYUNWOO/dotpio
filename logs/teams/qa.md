@@ -2601,3 +2601,11 @@
 - Command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Result: PASS (weekly digest schema + markdown coverage intact after alias-family expansion).
 - Risk note: Detailed urgency label token is still prototype/backlog; coverage now tolerates 0/2 presence and surfaces drift when enabled.
+
+## 2026-03-24 10:31 KST — Cycle CE QA validation (urgency-FX digest)
+- Extended regression expectations in `scripts/regression_weekly_portal_prompt_readability_drift.py` for:
+  - `RGFXWRIUFX:` token totals presence
+  - `routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias` family key
+  - markdown rows: `RGFXWRIUFX URGENCY FX FAMILY CHURN` + `LANE CADENCE SUMMARY`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: add dedicated regression once detailed urgency parity label flag is implemented.

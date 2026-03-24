@@ -2086,3 +2086,8 @@
 - Decision: Treat urgency as a first-class alias family in digest token catalogs + markdown churn summaries so compact/detailed parity drift can be audited even before detailed runtime token ships.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` → PASS.
 - Follow-up: Next priority remains detailed urgency parity label prototype in `TASKS.md` Cycle CD.
+
+## 2026-03-24 10:31 KST — Cycle CE Systems/Ops urgency-FX digest coverage
+- Added weekly digest token catalog + alias-family coverage for `RGFXWRIUFX:` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Added lane cadence summary row keyed to urgency-FX alias touch count for Systems/Ops audit visibility.
+- Follow-up: keep `RGFXWRIUFX` in digest compact-budget reviews as detailed parity urgency label work lands.
