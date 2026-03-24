@@ -1387,3 +1387,7 @@
 - Follow-up: Use recommendation in future ops review; keep runtime prompt behavior unchanged (reporting only).
 
 - 2026-03-24 16:01 KST — Cycle CJ shipped: dead enemies now keep a 0.4s non-interactive fade window after lethal hit to stabilize combat readability around floating damage numbers. Follow-up: evaluate whether fade should scale with enemy tier.
+
+## 2026-03-24 16:31 KST — Cycle CK (Combat sync)
+- No combat behavior or balance deltas shipped in this digest-focused cycle.
+- Last combat-visible change (corpse fade) remains baseline for next combat/VFX cadence pass.

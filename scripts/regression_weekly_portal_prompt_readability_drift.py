@@ -768,6 +768,7 @@ def main() -> int:
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias" in payload["tokenFamilyTotals"], payload
+        assert "urgencyStackTierAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
@@ -909,6 +910,16 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["urgencyStackTierAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1334,6 +1345,7 @@ def main() -> int:
         assert "RGFXWRIUP URGENCY PARITY COMPACT FAMILY CHURN" in md_text
         assert "URGENCY PARITY LABEL FAMILY CHURN" in md_text
         assert "RGFXWRIUFX URGENCY FX FAMILY CHURN" in md_text
+        assert "URG STACK FAMILY CHURN" in md_text
         assert "LANE CADENCE SUMMARY" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text
@@ -1348,6 +1360,7 @@ def main() -> int:
         assert "RGFXWRIUP URGENCY PARITY COMPACT:" in md_text
         assert "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY PARITY:" in md_text
         assert "RGFXWRIUFX URGENCY FX:" in md_text
+        assert "URG STACK:" in md_text
         assert "LANE CADENCE SUMMARY: SYSTEMS/OPS" in md_text
         assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX COMPACT-BUDGET DRIFT" in md_text

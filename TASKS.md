@@ -721,3 +721,10 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/VFX): Add procedural glyph burst variants based on damage magnitude bands.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Add short corpse fade window (`deathTimer`) with non-interactive draw-state + regression coverage.
+
+## Cycle CK - Game Director Review (2026-03-24 16:31 KST)
+- Idea 1 (low risk, Systems/QA): Add weekly digest token-family coverage for urgency-stack tier cue (`URG STACK:`) so compact pruning guidance drift is auditable.
+- Idea 2 (mid risk, UX/World): Add compact urgency-stack confidence rail token (`URG STACK RAIL:STEADY|SPIKE`) behind flag for prompt-debug pacing.
+- Idea 3 (high risk, AI Content/Systems): Add drift-adaptive urgency-stack tier recommendation from weekly digest trend windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add token-family coverage + markdown triage row for `URG STACK:` in weekly digest and lock via regression.

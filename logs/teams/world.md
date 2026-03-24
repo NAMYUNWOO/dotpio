@@ -1455,3 +1455,7 @@
 - Follow-up: Use recommendation in future ops review; keep runtime prompt behavior unchanged (reporting only).
 
 - 2026-03-24 16:01 KST — No map/progression routing changes this cycle; approved combat readability-only slice with zero portal impact.
+
+## 2026-03-24 16:31 KST — Cycle CK (World sync)
+- No world-map topology change this cycle.
+- Consumed digest-only update; world lane remains unchanged pending next route readability slice.

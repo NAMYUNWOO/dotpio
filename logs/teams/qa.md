@@ -2690,3 +2690,8 @@
   - lua scripts/regression_combat_damage_numbers.lua ✅
   - lua scripts/regression_enemy_death_fade.lua ✅
   Follow-up: add smoke capture in future visual test harness.
+
+## 2026-03-24 16:31 KST — Cycle CK (QA)
+- Locked new urgency-stack family coverage with regression assertions (`tokenFamilyTotals['urgencyStackTierAlias']`).
+- Added markdown regression checks for `URG STACK FAMILY CHURN` and `URG STACK:` summary rows.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

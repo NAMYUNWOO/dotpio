@@ -1502,3 +1502,7 @@
 - Follow-up: Use recommendation in future ops review; keep runtime prompt behavior unchanged (reporting only).
 
 - 2026-03-24 16:01 KST — Approved short corpse fade to improve visual continuity between impact and removal while preserving DOS clarity.
+
+## 2026-03-24 16:31 KST — Cycle CK (Design sync)
+- Preserved token naming consistency by retaining canonical `URG STACK:` label in digest outputs.
+- Deferred new urgency-rail visual language (`URG STACK RAIL`) to a future mid-risk cycle.

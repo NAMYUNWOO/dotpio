@@ -2441,3 +2441,9 @@ Compact decision memory for AI context efficiency.
   - `lua scripts/regression_enemy_death_fade.lua`
 - Backlog/task state updated: Cycle CJ selected item moved `[~] -> [x]` in both `TASKS.md` and `POST_RC_BACKLOG.md`.
 - Next injected priority candidate: map-zone ambient tint prototype (World/Design, mid-risk) for broader player-facing readability cadence.
+
+### 2026-03-24 16:31 KST — Cycle CK decision snapshot
+- Selected low-risk Systems/QA slice from Game Director cycle CK: add digest token-family coverage for `URG STACK:`.
+- Durable change: `weekly_portal_prompt_readability_drift.py` now tracks `urgencyStackTierAlias` in `tokenFamilyTotals` and publishes explicit markdown churn lines.
+- Guardrail: regression now asserts both JSON family presence and markdown visibility (`URG STACK FAMILY CHURN`, `URG STACK:`).
+- Result: urgency-stack compact pruning drift is now auditable without adding runtime gameplay risk.

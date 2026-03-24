@@ -2165,3 +2165,8 @@
 - Follow-up: Use recommendation in future ops review; keep runtime prompt behavior unchanged (reporting only).
 
 - 2026-03-24 16:01 KST — Confirmed death fade state is non-interactive (`enemyAt` ignores dead enemies) and timer auto-clears to avoid stale state accumulation.
+
+## 2026-03-24 16:31 KST — Cycle CK (Systems)
+- Added `urgencyStackTierAlias` family (`URG STACK:`) to weekly portal readability digest token-family accounting.
+- Extended compact/detailed/portal token catalogs to keep urgency-stack churn visible in digest windows.
+- Follow-up: if `URG STACK:` churn rises, evaluate whether compact budget pruning guidance needs reordering.

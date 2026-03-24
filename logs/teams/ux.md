@@ -1690,3 +1690,7 @@
 - Follow-up: Use recommendation in future ops review; keep runtime prompt behavior unchanged (reporting only).
 
 - 2026-03-24 16:01 KST — Confirmed kill feedback readability improved: floating number + short corpse persistence reduces blink disappearance confusion.
+
+## 2026-03-24 16:31 KST — Cycle CK (UX sync)
+- No in-run prompt token added this cycle; update is telemetry/readability-digest only.
+- UX follow-up remains compact urgency-stack rail exploration when budget headroom allows.
