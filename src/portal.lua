@@ -105,13 +105,16 @@ local function resolveRouteCoach(routeTag)
     return "NO DATA"
 end
 
-local function resolveCompactCoach(routeTag)
+local function resolveCompactCoach(routeTag, preferUnknownLong)
     if routeTag == "SAFE" then
         return "LOW"
     elseif routeTag == "RISK" then
         return "MID"
     elseif routeTag == "SPIKE" then
         return "HIGH"
+    end
+    if preferUnknownLong then
+        return "NO DATA"
     end
     return "UNK"
 end
@@ -1490,8 +1493,15 @@ end
 local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag, altDelta, altPlanNudge, altStepCue, altStepConfidence, altStepWhy, altStepWhyConfidence, altStepWhyGlyph, altStepWhyGlyphMode, routeVignette, routeVibeConflict, routeVibeConflictReasonCompact, coachOverride, vibeSyncHint, vibeSyncChain, vibeSnapback, vibeRecovery, vibeResilience, vibeDriftWide, vibeDriftGlyphCompact, compactPulseLink, compactPulseMode, compactPulseFit, compactPulseFlare, compactPulseHeat, compactPulseHeatFx, compactVibeTrail, compactVibeTrailConfidence, compactVibeTrailConfidenceRail, vibeTrailWhy, compactVibeTrailArc, compactRouteGlow, compactRouteGlowConfidence, compactRouteGlowFx, compactRouteGlowFxConfidence, routeGlowFxConfidenceWhy, routeGlowFxConfidenceWhyRail, routeGlowFxConfidenceWhyRailMode, routeGlowFxConfidenceWhyRailIntensity, routeGlowFxConfidenceWhyRailIntensityWhy, routeGlowFxConfidenceWhyRailIntensityWhyConfidence, compactVibeTrailWhyConfidence, vibeTrailWhyConfidenceWhy, compactVibeTrailWhyConfidenceWhyConfidence, compactVibeTrailWhyConfidenceWhyRail, maxChars)
     local _, compactFxCue = resolvePortalFxCue(pressureScore)
     local _, compactRouteVibe = resolveRouteVibe(routeTag)
-    local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, resolveCompactCoach(routeTag), pressureScore, compactFxCue, compactRouteVibe)
     local budget = tonumber(maxChars) or 0
+    local compactCoach = resolveCompactCoach(routeTag, true)
+    if routeTag ~= "SAFE" and routeTag ~= "RISK" and routeTag ~= "SPIKE" and budget > 0 then
+        local longUnknownCandidate = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, compactCoach, pressureScore, compactFxCue, compactRouteVibe)
+        if #longUnknownCandidate > budget then
+            compactCoach = resolveCompactCoach(routeTag, false)
+        end
+    end
+    local prompt = string.format("PORTAL READY -> ENTER:JUMP  N:CANCEL  NEXT:%s  COACH:%s  P:%d  FX:%s  VIBE:%s", routeTag, compactCoach, pressureScore, compactFxCue, compactRouteVibe)
     local function appendToken(token, enforceBudget)
         if not token then
             return

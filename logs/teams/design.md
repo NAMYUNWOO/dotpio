@@ -1472,3 +1472,9 @@
 ## 2026-03-24 12:06 KST
 - Validation outcome: compact prompt budget still WARN at 76-char threshold under current route/coach baseline copy.
 - Next design target: compact unknown-route coach fallback (`COACH:NO DATA` short form) to relieve baseline overflow.
+
+## 2026-03-24 12:38 KST
+- Task: Cycle CG Design/UX backlog item — budget-aware unknown-route coach fallback in compact portal prompt mode.
+- Decision: Unknown compact coach now prefers `COACH:NO DATA` when budget allows and automatically falls back to `COACH:UNK` when tight-budget rendering would overflow.
+- Evidence: `src/portal.lua`, `scripts/regression_portal_unknown_compact_coach.lua`.
+- Follow-up: Keep the remaining Cycle CG Systems/AI task focused on deterministic pruning order for urgency parity/FX stacks.

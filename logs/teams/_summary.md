@@ -2398,3 +2398,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: introduced compact urgency-parity alias `RGFXWRIUP:<LOW|MID|HIGH>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_PARITY_COMPACT` to preserve urgency readability under compact-width pressure.
 - Current risk posture: 76-char budget still WARN (20/20 over-budget) driven by baseline route preview copy, not by urgency alias regression behavior.
 - Injected next tasks (Cycle CG): unknown-route coach short-form fallback + deterministic budget-headroom token-pruning order.
+
+- Closed Cycle CG Design/UX backlog item: compact portal unknown-route coach fallback is now budget-aware in `src/portal.lua`.
+- Compact unknown-route prompts now prefer `COACH:NO DATA` when budget headroom allows, and downgrade to `COACH:UNK` only when required to stay within compact budget.
+- Added regression guardrail `scripts/regression_portal_unknown_compact_coach.lua`; baseline `scripts/regression_portal_route_preview.lua` remains passing.
+- Remaining highest-priority unchecked queue item: Systems/AI deterministic budget-headroom token-pruning order for urgency parity/FX stacks.

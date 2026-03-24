@@ -2648,3 +2648,12 @@
   - Budget overflow persists in baseline route-preview copy path (known warning).
 - Follow-up:
   - Validate unknown-route coach short-form fallback once implemented.
+
+## 2026-03-24 12:38 KST
+- Task: Regression coverage for compact unknown-route coach fallback.
+- Files: `scripts/regression_portal_unknown_compact_coach.lua`, `src/portal.lua`.
+- Verification:
+  - `lua scripts/regression_portal_unknown_compact_coach.lua` ✅
+  - `lua scripts/regression_portal_route_preview.lua` ✅
+- Decision: Added explicit dual-budget assertions to lock expected behavior (`COACH:NO DATA` with headroom, `COACH:UNK` when constrained).
+- Follow-up: Extend digest-oriented regression set once deterministic pruning order task lands.

@@ -2125,3 +2125,14 @@
 - Files: `src/portal.lua`, `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_parity_compact_alias.lua`.
 - Verification: parity-compact alias regression + urgency FX regression + prompt budget audit all PASS/WARN-as-expected.
 - Follow-up: budget-headroom token-pruning experiment remains queued.
+
+## 2026-03-24 12:38 KST
+- Task: Implement budget-aware unknown-route coach resolver path in compact portal prompt builder.
+- Files: `src/portal.lua`, `scripts/regression_portal_unknown_compact_coach.lua`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification:
+  - `lua scripts/regression_portal_unknown_compact_coach.lua` ✅
+  - `lua scripts/regression_portal_route_preview.lua` ✅
+- Decisions:
+  - Added compact coach resolver preference toggle so unknown routes can emit long fallback text when budget permits.
+  - Compact prompt builder now evaluates unknown-route base-line fit against budget before selecting `NO DATA` vs `UNK`.
+- Follow-up: Next highest unchecked item is deterministic budget-headroom token-pruning order for urgency parity/FX stacks.

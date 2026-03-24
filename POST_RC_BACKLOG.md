@@ -532,5 +532,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, Systems/AI Content): Prototype dynamic token-pruning policy by remaining budget headroom to preserve top-priority urgency/fx cues under heavy prompt stacks.
 - Selected experiment: Idea 1 (minimal vertical slice, additive + reversible).
 - [x] UX/Systems Team: Add compact urgency-parity alias token (`RGFXWRIUP:<LOW|MID|HIGH>`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_PARITY_COMPACT`.
-- [ ] Design/UX Team: Add budget-aware unknown-route coach fallback (`COACH:NO DATA` short form) in compact prompt mode.
+- [x] Design/UX Team: Add budget-aware unknown-route coach fallback (`COACH:NO DATA` short form) in compact prompt mode.
 - [ ] Systems/AI Content Team: Prototype deterministic budget-headroom token-pruning order for urgency parity/FX stacks.

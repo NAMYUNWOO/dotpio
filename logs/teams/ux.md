@@ -1657,3 +1657,9 @@
 - Evidence: `logs/playtests/urgency_parity_fx_budget_playtest.md`, `logs/playtests/portal_prompt_copy_budget.{md,json}`.
 - Decision: Added compact urgency-parity alias (`RGFXWRIUP`) experiment path to reduce compact prompt width pressure while keeping urgency signal readable.
 - Follow-up: Evaluate unknown-route coach short-form fallback in next cycle.
+
+## 2026-03-24 12:38 KST
+- Task: Compact prompt readability pass for unknown-route coach fallback.
+- Decision: Prioritized clearer unknown-route coach copy (`NO DATA`) in compact mode with automatic budget-safe downgrade (`UNK`) under tighter prompt limits.
+- Verification: `lua scripts/regression_portal_unknown_compact_coach.lua` ✅
+- Follow-up: Validate unknown-route copy remains stable when additional compact tokens are enabled.
