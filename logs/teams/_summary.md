@@ -2609,3 +2609,17 @@ Compact decision memory for AI context efficiency.
   - `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 lua scripts/regression_combat_damage_number_life_confidence_token.lua`
   - `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 lua scripts/regression_combat_damage_number_life_confidence_delta_token.lua`
 - Next queued item: Systems/QA digest family churn coverage for `DMGNUM LIFE CONF Δ:`.
+
+## 2026-03-25 03:04 KST — Cycle CY
+- Trigger: ACTION_ITEMS/TASKS/POST_RC_BACKLOG were fully checked; executed Game Director review cycle.
+- Ideas generated:
+  1) Low risk (Systems/QA): weekly digest token-family churn coverage for `DMGNUM LIFE CONF Δ:`.
+  2) Mid risk (UX/Combat): compact `DMGNUM LIFE TREND:UP|HOLD|DOWN` debug token.
+  3) High risk (AI Content/VFX): offline confidence-delta smoothing recommendation policy.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- Delivered:
+  - Added `DMGNUM LIFE CONF Δ:` to compact/detailed/portal token catalogs and new family `dmgnumLifeConfidenceDeltaAlias`.
+  - Extended digest markdown family-churn and token-coverage sections with dedicated `DMGNUM LIFE CONF Δ` rows.
+  - Locked regression assertions for JSON token totals/family schema + markdown presence.
+- Verification: py_compile + weekly digest regression + digest generation PASS.
+- Durable decision: keep runtime behavior unchanged; prioritize observability-first closure before introducing new combat debug tokens.

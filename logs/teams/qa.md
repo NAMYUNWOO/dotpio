@@ -2847,3 +2847,10 @@
 - Added regression: `scripts/regression_combat_damage_number_life_confidence_delta_token.lua`.
 - Verified confidence-delta transitions: baseline `+0`, HIGH->MID `-1`, MID->LOW `-1`, LOW->HIGH reset `+2`.
 - Existing confidence regression still passes alongside new delta regression.
+
+## 2026-03-25 03:04 KST — Cycle CY regression lock
+- Added regression expectations for `DMGNUM LIFE CONF Δ:` token totals, token-family schema (`dmgnumLifeConfidenceDeltaAlias`), and markdown triage rows.
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅

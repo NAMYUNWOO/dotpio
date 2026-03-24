@@ -1585,3 +1585,6 @@
 ## 2026-03-25 02:31 KST — Cycle CX design sync
 - Approved additive compact token form `DMGNUM LIFE CONF Δ:+n|-n` for debug readability.
 - Kept wording deterministic and short-form to respect DOS width constraints in debug strip.
+
+## 2026-03-25 03:04 KST — Cycle CY design sync
+- Accepted additive reporting slice for `DMGNUM LIFE CONF Δ:` to improve auditability before any further player-facing copy variants.

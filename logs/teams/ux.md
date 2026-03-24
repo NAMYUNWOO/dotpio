@@ -1793,3 +1793,6 @@
 - Added compact drift cue token `DMGNUM LIFE CONF Δ:+n|-n` to bottom HUD debug lane.
 - Kept additive/flag-gated behavior to avoid default HUD noise (`DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG`).
 - Color chosen as light magenta for separation from confidence token while retaining DOS contrast.
+
+## 2026-03-25 03:04 KST — Cycle CY UX sync
+- HUD/debug strip remained unchanged; this cycle focused on weekly digest parity so UX can monitor confidence-delta token churn.

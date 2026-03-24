@@ -1501,3 +1501,7 @@
 - Mapping: confidence band score delta (`HIGH=2, MID=1, LOW=0`) versus previous frame sample for glanceable trend.
 - Evidence: `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 lua scripts/regression_combat_damage_number_life_confidence_delta_token.lua`.
 - Follow-up: if churn appears in weekly digest, add Systems/QA family coverage for `DMGNUM LIFE CONF Δ:`.
+
+## 2026-03-25 03:04 KST — Cycle CY combat sync
+- No combat runtime/token emission changes this cycle.
+- Added digest observability for existing combat debug token family `DMGNUM LIFE CONF Δ:`.
