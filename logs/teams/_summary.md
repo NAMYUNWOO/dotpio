@@ -2391,3 +2391,10 @@ Compact decision memory for AI context efficiency.
 - Deterministic mapping shipped for readability: `LOW -> STEADY`, `MID/HIGH -> SPIKE`.
 - Verification: new coach regression + existing urgency regression both PASS.
 - Remaining highest-priority unchecked item: UX compact budget validation with urgency parity + urgency FX enabled.
+
+## 2026-03-24 12:06 KST — Urgency parity+FX budget validation + Cycle CG slice
+- Completed previously-open UX validation item: compact prompt budget impact check with urgency parity + urgency FX enabled.
+- Validation artifacts published: `logs/playtests/urgency_parity_fx_budget_playtest.md` and refreshed `logs/playtests/portal_prompt_copy_budget.{md,json}`.
+- Durable decision: introduced compact urgency-parity alias `RGFXWRIUP:<LOW|MID|HIGH>` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_PARITY_COMPACT` to preserve urgency readability under compact-width pressure.
+- Current risk posture: 76-char budget still WARN (20/20 over-budget) driven by baseline route preview copy, not by urgency alias regression behavior.
+- Injected next tasks (Cycle CG): unknown-route coach short-form fallback + deterministic budget-headroom token-pruning order.

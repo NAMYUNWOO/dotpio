@@ -1427,3 +1427,7 @@
 ## 2026-03-24 11:34 KST — Cycle CF world lane note
 - No map/portal topology changes this slice; portal prompt token stack only.
 - Keep next world-facing follow-up tied to UX compact-budget verification artifacts.
+
+## 2026-03-24 12:06 KST
+- Playtest note: portal transition prompt snapshots captured for SAFE/RISK/SPIKE contexts under urgency parity+FX stacks.
+- Artifact: `logs/playtests/urgency_parity_fx_budget_playtest.md`.

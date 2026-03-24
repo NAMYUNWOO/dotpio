@@ -1357,3 +1357,7 @@
 - Added combat-facing cue token `RGFXWRIU COACH` to strengthen overdrive pacing read in portal prompt.
 - Mapping aligns with urgency tiers: `STEADY` for low pressure, `SPIKE` for medium/high pressure.
 - No combat simulation logic changed; prompt-only additive slice.
+
+## 2026-03-24 12:06 KST
+- Cross-lane sync: urgency FX token path (`RGFXWRIUFX`) remained stable while compact urgency-parity alias landed.
+- Verification reference: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_fx.lua` PASS.

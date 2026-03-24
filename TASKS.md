@@ -690,3 +690,8 @@ See project-level plans:
   - High-risk (Novelty): adaptive prompt budget swap that replaces route-glow family with urgency glyph burst under overload.
 - Selected experiment: low-risk Systems/QA digest parity-family coverage.
 - [x] Systems/QA Team: Add dedicated digest family churn row for detailed urgency parity label and lock via regression.
+
+## Next Up (Game Director Injection — 2026-03-24 Cycle CG)
+- [x] UX/Systems Team: Add compact urgency-parity alias token (`RGFXWRIUP:<LOW|MID|HIGH>`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_PARITY_COMPACT`.
+- [ ] Design/UX Team: Add budget-aware unknown-route coach fallback (`COACH:NO DATA` short form) in compact prompt mode.
+- [ ] Systems/AI Content Team: Prototype deterministic budget-headroom token-pruning order for urgency parity/FX stacks.

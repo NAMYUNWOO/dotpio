@@ -1651,3 +1651,9 @@
 ## 2026-03-24 11:34 KST — Cycle CF UX note
 - Prompt readability updated with concise coach hint token `RGFXWRIU COACH:<STEADY|SPIKE>`.
 - Outstanding: run compact prompt budget validation when urgency parity + urgency FX are both enabled.
+
+## 2026-03-24 12:06 KST
+- Task: Validate compact prompt budget impact with urgency parity + urgency FX enabled and publish playtest notes.
+- Evidence: `logs/playtests/urgency_parity_fx_budget_playtest.md`, `logs/playtests/portal_prompt_copy_budget.{md,json}`.
+- Decision: Added compact urgency-parity alias (`RGFXWRIUP`) experiment path to reduce compact prompt width pressure while keeping urgency signal readable.
+- Follow-up: Evaluate unknown-route coach short-form fallback in next cycle.

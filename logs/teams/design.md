@@ -1468,3 +1468,7 @@
 - Decision: keep mapping deterministic for readability (`LOW -> STEADY`, `MID/HIGH -> SPIKE`) and gate emission behind urgency parity path.
 - Evidence: `src/portal.lua`, `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_coach.lua`.
 - Follow-up: UX compact-budget validation with urgency parity + urgency FX still pending.
+
+## 2026-03-24 12:06 KST
+- Validation outcome: compact prompt budget still WARN at 76-char threshold under current route/coach baseline copy.
+- Next design target: compact unknown-route coach fallback (`COACH:NO DATA` short form) to relieve baseline overflow.

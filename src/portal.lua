@@ -1118,6 +1118,15 @@ local function isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyCoachE
     return value == "1" or value == "true" or value == "on" or value == "yes"
 end
 
+local function isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAliasExperimentEnabled()
+    local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_PARITY_COMPACT")
+    if not raw then
+        return false
+    end
+    local value = string.lower(tostring(raw))
+    return value == "1" or value == "true" or value == "on" or value == "yes"
+end
+
 local function isRouteGlowFxCompactAliasExperimentEnabled()
     local raw = os.getenv("DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_COMPACT")
     if not raw then
@@ -1576,7 +1585,11 @@ local function buildCompactTransitionPrompt(routeTag, pressureScore, altRouteTag
                                                         if routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency then
                                                             appendToken(string.format("RGFXWRIU:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency), false)
                                                             if isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityExperimentEnabled() then
-                                                                appendToken(string.format("ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency), false)
+                                                                if isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAliasExperimentEnabled() then
+                                                                    appendToken(string.format("RGFXWRIUP:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency), false)
+                                                                else
+                                                                    appendToken(string.format("ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:%s", routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency), false)
+                                                                end
                                                                 if isRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyCoachExperimentEnabled() then
                                                                     local routeGlowFxConfidenceWhyRailIntensityWhyConfUrgencyCoach = resolveRouteGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyCoach(routeGlowFxConfidenceWhyRailIntensityWhyConfUrgency)
                                                                     if routeGlowFxConfidenceWhyRailIntensityWhyConfUrgencyCoach then

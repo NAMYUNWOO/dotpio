@@ -2636,3 +2636,15 @@
 - Ran: `... lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_coach.lua` (PASS)
 - Ran: `... lua scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency.lua` (PASS)
 - Result: urgency coach token is emitted only when urgency parity path is active and dedicated coach flag is enabled.
+
+## 2026-03-24 12:06 KST
+- Task: QA verification for urgency parity + urgency FX compact budget validation and Cycle CG alias slice.
+- Verification:
+  - `... regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_parity_compact_alias.lua` ✅
+  - `... regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_fx.lua` ✅
+  - `... check_portal_prompt_copy_budget.lua 76` ✅ (`status=WARN`, max=87, warnings=20)
+- Decisions:
+  - New compact parity alias behaves correctly and suppresses detailed urgency parity label when flag-enabled.
+  - Budget overflow persists in baseline route-preview copy path (known warning).
+- Follow-up:
+  - Validate unknown-route coach short-form fallback once implemented.

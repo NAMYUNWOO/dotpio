@@ -2119,3 +2119,9 @@
 ## 2026-03-24 11:34 KST — Cycle CF follow-up systems note
 - Added new experiment gate: `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_COACH`.
 - Gate nesting preserves current behavior unless urgency + parity experiments are already enabled.
+
+## 2026-03-24 12:06 KST
+- Task: Implement Cycle CG selected slice for urgency-parity compact alias.
+- Files: `src/portal.lua`, `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency_parity_compact_alias.lua`.
+- Verification: parity-compact alias regression + urgency FX regression + prompt budget audit all PASS/WARN-as-expected.
+- Follow-up: budget-headroom token-pruning experiment remains queued.

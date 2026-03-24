@@ -1390,3 +1390,7 @@
 ## 2026-03-24 11:34 KST — Cycle CF AI-content note
 - New coach token remains deterministic and label-driven (`STEADY|SPIKE`), no generative policy remap.
 - Drift-adaptive confidence policy remains offline recommendation only.
+
+## 2026-03-24 12:06 KST
+- Context: Prompt token wording remains deterministic with new compact parity alias (`RGFXWRIUP`) while preserving existing urgency bands.
+- Follow-up: prototype deterministic headroom-based token pruning order for stacked urgency tokens.

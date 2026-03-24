@@ -524,4 +524,13 @@ Last updated: 2026-03-21 02:31 KST
 
 ## Cycle CF follow-ups (injected)
 - [x] Design/Combat Team: Prototype `RGFXWRIU COACH:<STEADY|SPIKE>` hint token behind dedicated flag when urgency parity is enabled.
-- [ ] UX Team: Validate compact prompt budget impact when urgency parity + urgency FX are enabled simultaneously; publish screenshot/playtest notes.
+- [x] UX Team: Validate compact prompt budget impact when urgency parity + urgency FX are enabled simultaneously; publish screenshot/playtest notes.
+
+## Cycle CG - Game Director Review (2026-03-24 12:10 KST)
+- Idea 1 (low risk, UX/Systems): Add compact urgency-parity alias token (`RGFXWRIUP:<LOW|MID|HIGH>`) to reduce prompt-width pressure when urgency parity + urgency FX are both enabled.
+- Idea 2 (mid risk, Design/UX): Add budget-aware fallback copy for unknown-route coach string (`COACH:NO DATA` -> compact short form) when compact budget is constrained.
+- Idea 3 (high risk, Systems/AI Content): Prototype dynamic token-pruning policy by remaining budget headroom to preserve top-priority urgency/fx cues under heavy prompt stacks.
+- Selected experiment: Idea 1 (minimal vertical slice, additive + reversible).
+- [x] UX/Systems Team: Add compact urgency-parity alias token (`RGFXWRIUP:<LOW|MID|HIGH>`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY_PARITY_COMPACT`.
+- [ ] Design/UX Team: Add budget-aware unknown-route coach fallback (`COACH:NO DATA` short form) in compact prompt mode.
+- [ ] Systems/AI Content Team: Prototype deterministic budget-headroom token-pruning order for urgency parity/FX stacks.
