@@ -2490,3 +2490,9 @@ Compact decision memory for AI context efficiency.
 - Injected next backlog tasks:
   - UX/Combat: `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` compact debug token (flagged)
   - AI Content/VFX: drift-aware glyph-shape remap recommendation policy (offline)
+
+## 2026-03-24 20:05 KST — Cycle CN high-risk follow-up complete (offline glyph remap policy)
+- Closed remaining unchecked TASKS priority item: AI Content/VFX offline `DMG GLYPH` shape remap recommendation policy.
+- `scripts/weekly_portal_prompt_readability_drift.py` now emits `DMG GLYPH SHAPE REMAP REC` with signals keyed by drift risk + DMG GLYPH churn + urgency-stack rail churn; flagged `offlineOnly=True`.
+- Regression updated in `scripts/regression_weekly_portal_prompt_readability_drift.py` (JSON key coverage + markdown token assertion); py_compile + regression PASS.
+- Backlog state: ACTION_ITEMS and TASKS fully checked; POST_RC_BACKLOG now has only UX/Combat `DMG GLYPH LIVE` line still unchecked (mirror drift from prior cycle).

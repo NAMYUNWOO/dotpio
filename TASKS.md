@@ -756,4 +756,4 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add weekly digest token-family coverage for `DMG GLYPH:` churn and lock via regression.
 - [x] UX/Combat Team: Prototype compact debug token `DMG GLYPH LIVE:BASIC|SPIKE|OVERDRIVE` behind flag for live-readability audits. *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] AI Content/VFX Team: Prototype drift-aware glyph-shape remap recommendation policy (offline only).
+- [x] AI Content/VFX Team: Prototype drift-aware glyph-shape remap recommendation policy (offline only). *(lifecycle: [ ] -> [~] -> [x])*

@@ -164,6 +164,18 @@ def main() -> int:
             "offlineOnly",
             "guidance",
         }, payload
+        assert payload.get("dmgGlyphShapeRemapRecommendation") in {"PIN_BANDS", "RAIL_SYNC", "MICRO_TUNE"}, payload
+        assert set(payload.get("dmgGlyphShapeRemapRecommendationSignals", {}).keys()) == {
+            "driftRisk",
+            "dmgGlyphChurn",
+            "dmgGlyphNet",
+            "dmgGlyphCoverage",
+            "urgencyStackRailChurn",
+            "urgencyStackRailNet",
+            "rationale",
+            "offlineOnly",
+            "guidance",
+        }, payload
         assert set(payload.get("routeVibeTotals", {}).keys()) == {"added", "removed", "net"}, payload
         assert set(payload["routeVibeTotals"]["added"].keys()) == {"CALM", "EDGE", "DOOM"}, payload
         assert payload["routeVibeTotals"]["added"]["EDGE"] >= 1, payload
@@ -1413,6 +1425,7 @@ def main() -> int:
         assert "RGFXWRI WHY CONF POLICY REC" in md_text
         assert "URGENCY STACK PRUNING REC" in md_text
         assert "URGENCY STACK RAIL REC" in md_text
+        assert "DMG GLYPH SHAPE REMAP REC" in md_text
         assert "ROUTE VIBE DRIFT" in md_text
         assert "Route Vibe Drift (added/removed/net)" in md_text
         assert "FOCUS" in md_text

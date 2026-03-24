@@ -5333,6 +5333,47 @@ def urgency_stack_rail_recommendation_from_trends(
     return recommendation, signals
 
 
+
+
+def damage_glyph_shape_remap_recommendation_from_trends(
+    *,
+    drift_risk: str,
+    dmg_glyph_family: dict[str, int],
+    urgency_stack_rail_family: dict[str, int],
+) -> tuple[str, dict[str, object]]:
+    """Recommend offline-only glyph-shape remap posture from digest churn trends."""
+    glyph_churn = int(dmg_glyph_family.get("churn", 0))
+    glyph_net = int(dmg_glyph_family.get("net", 0))
+    glyph_coverage = str(dmg_glyph_family.get("coverage", "0/0"))
+
+    rail_churn = int(urgency_stack_rail_family.get("churn", 0))
+    rail_net = int(urgency_stack_rail_family.get("net", 0))
+
+    if drift_risk == "HIGH" or glyph_churn >= 4:
+        recommendation = "PIN_BANDS"
+        rationale = "high-risk-or-glyph-churn"
+        guidance = "Hold current BASIC/SPIKE/OVERDRIVE mapping; avoid shape remap changes until churn cools."
+    elif rail_churn >= 3 and rail_net > 0:
+        recommendation = "RAIL_SYNC"
+        rationale = "rail-pressure-sync-window"
+        guidance = "Prototype remap candidates that emphasize rail-aligned transitions while preserving deterministic band thresholds."
+    else:
+        recommendation = "MICRO_TUNE"
+        rationale = "stable-glyph-window"
+        guidance = "Allow small offline glyph-shape tuning proposals; keep runtime mapping unchanged pending validation."
+
+    signals: dict[str, object] = {
+        "driftRisk": drift_risk,
+        "dmgGlyphChurn": glyph_churn,
+        "dmgGlyphNet": glyph_net,
+        "dmgGlyphCoverage": glyph_coverage,
+        "urgencyStackRailChurn": rail_churn,
+        "urgencyStackRailNet": rail_net,
+        "rationale": rationale,
+        "offlineOnly": True,
+        "guidance": guidance,
+    }
+    return recommendation, signals
 def main() -> int:
     args = parse_args()
     root = args.repo_root.resolve()
@@ -5414,6 +5455,11 @@ def main() -> int:
         drift_risk=drift_risk,
         urgency_stack_rail_family=token_family_totals["urgencyStackRailAlias"],
         urgency_stack_tier_family=token_family_totals["urgencyStackTierAlias"],
+    )
+    dmg_glyph_shape_remap_recommendation, dmg_glyph_shape_remap_recommendation_signals = damage_glyph_shape_remap_recommendation_from_trends(
+        drift_risk=drift_risk,
+        dmg_glyph_family=token_family_totals["dmgGlyphAlias"],
+        urgency_stack_rail_family=token_family_totals["urgencyStackRailAlias"],
     )
 
     token_movers = [
@@ -6013,6 +6059,8 @@ def main() -> int:
         "urgencyStackPruningOrderRecommendationSignals": urgency_stack_pruning_order_recommendation_signals,
         "urgencyStackRailRecommendation": urgency_stack_rail_recommendation,
         "urgencyStackRailRecommendationSignals": urgency_stack_rail_recommendation_signals,
+        "dmgGlyphShapeRemapRecommendation": dmg_glyph_shape_remap_recommendation,
+        "dmgGlyphShapeRemapRecommendationSignals": dmg_glyph_shape_remap_recommendation_signals,
         "laneFocus": lane_focus,
         "laneFocusScores": lane_focus_scores,
         "focusStreak": focus_streak,
@@ -6299,6 +6347,7 @@ def main() -> int:
         f"- RGFXWRI WHY CONF POLICY REC: **{rgfxwri_why_conf_policy}** ({rgfxwri_why_conf_policy_signals['rationale']}; churn={rgfxwri_why_conf_policy_signals['familyChurn']} net={rgfxwri_why_conf_policy_signals['familyNet']} coverage={rgfxwri_why_conf_policy_signals['familyCoverage']} offlineOnly={rgfxwri_why_conf_policy_signals['offlineOnly']})",
         f"- URGENCY STACK PRUNING REC: **{urgency_stack_pruning_order_recommendation}** ({urgency_stack_pruning_order_recommendation_signals['rationale']}; parityChurn={urgency_stack_pruning_order_recommendation_signals['parityCompactChurn']} fxChurn={urgency_stack_pruning_order_recommendation_signals['urgencyFxChurn']} detailedChurn={urgency_stack_pruning_order_recommendation_signals['urgencyDetailedChurn']} offlineOnly={urgency_stack_pruning_order_recommendation_signals['offlineOnly']})",
         f"- URGENCY STACK RAIL REC: **{urgency_stack_rail_recommendation}** ({urgency_stack_rail_recommendation_signals['rationale']}; railChurn={urgency_stack_rail_recommendation_signals['urgencyStackRailChurn']} railNet={urgency_stack_rail_recommendation_signals['urgencyStackRailNet']} tierChurn={urgency_stack_rail_recommendation_signals['urgencyStackTierChurn']} offlineOnly={urgency_stack_rail_recommendation_signals['offlineOnly']})",
+        f"- DMG GLYPH SHAPE REMAP REC: **{dmg_glyph_shape_remap_recommendation}** ({dmg_glyph_shape_remap_recommendation_signals['rationale']}; glyphChurn={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphChurn']} glyphNet={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphNet']} railChurn={dmg_glyph_shape_remap_recommendation_signals['urgencyStackRailChurn']} offlineOnly={dmg_glyph_shape_remap_recommendation_signals['offlineOnly']})",
         f"- FOCUS: **{lane_focus}** (portal={lane_focus_scores['portal']} | alt={lane_focus_scores['alt']} | pressure={lane_focus_scores['pressure']})",
         f"- FOCUS STREAK: **{focus_streak}**",
         f"- FOCUS SHIFT: **{focus_shift}**",

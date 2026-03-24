@@ -1718,3 +1718,9 @@
 - Flag: `DOTPIO_EXPERIMENT_DMG_GLYPH_LIVE_DEBUG`.
 - Evidence: `src/hud.lua`, `scripts/regression_combat_damage_glyph_live_token.lua`.
 - Verification: token regression pass + baseline glyph burst regression pass.
+
+## 2026-03-24 20:05 KST — Cycle CN follow-up (DMG glyph remap policy)
+- Synced on offline-only recommendation lane for `DMG GLYPH` shape remap policy derived from weekly digest trend signals.
+- Outcome: policy surfaced in digest as `DMG GLYPH SHAPE REMAP REC` with deterministic recommendation bands and guidance; runtime combat mapping unchanged.
+- Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: monitor churn/risk windows; only consider runtime remap if recommendation remains stable across multiple windows.
