@@ -1754,3 +1754,8 @@
 - Decision: Completed offline digest-generated FX remap candidate table artifact handoff for review workflows.
 - Evidence: `logs/playtests/dmg_glyph_fx_remap_candidates.json`, `logs/playtests/dmg_glyph_fx_remap_candidates.md`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Keep runtime mapping unchanged; use candidate table for next AI Content/VFX review cycle.
+
+## [2026-03-24 22:37 KST] Compact prompt budget pass
+- Added compact alias `AR:<C|T>` so ambient cadence remains visible under DOS-width constraints.
+- Verified compact emission with 76-char budget regression.
+- Decision: alias emits only when compact ambient flag is on; no default prompt expansion.

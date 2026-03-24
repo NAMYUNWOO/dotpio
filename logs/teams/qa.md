@@ -2783,3 +2783,13 @@
 - Decision: Completed offline digest-generated FX remap candidate table artifact handoff for review workflows.
 - Evidence: `logs/playtests/dmg_glyph_fx_remap_candidates.json`, `logs/playtests/dmg_glyph_fx_remap_candidates.md`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Keep runtime mapping unchanged; use candidate table for next AI Content/VFX review cycle.
+
+## [2026-03-24 22:37 KST] Regression evidence
+- Added regressions:
+  - `scripts/regression_portal_ambient_ramp.lua`
+  - `scripts/regression_portal_ambient_ramp_compact.lua`
+- Verification:
+  - `luac -p src/portal.lua`
+  - `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP=1 lua scripts/regression_portal_ambient_ramp.lua`
+  - `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP=1 DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_COMPACT=1 lua scripts/regression_portal_ambient_ramp_compact.lua`
+- Result: PASS.

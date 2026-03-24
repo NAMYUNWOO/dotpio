@@ -1547,3 +1547,8 @@
 - Decision: Completed offline digest-generated FX remap candidate table artifact handoff for review workflows.
 - Evidence: `logs/playtests/dmg_glyph_fx_remap_candidates.json`, `logs/playtests/dmg_glyph_fx_remap_candidates.md`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Keep runtime mapping unchanged; use candidate table for next AI Content/VFX review cycle.
+
+## [2026-03-24 22:37 KST] Portal readability cadence
+- Approved ambient-ramp copy shape for route preview readability: `AMBIENT RAMP` (detailed) and `AR` (compact).
+- Rationale: preserve emotional cadence cue without replacing existing FX/VIBE lines.
+- Follow-up: revisit if prompt budget pressure increases in future stacks.

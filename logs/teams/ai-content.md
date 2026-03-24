@@ -1478,3 +1478,10 @@
 - Decision: Completed offline digest-generated FX remap candidate table artifact handoff for review workflows.
 - Evidence: `logs/playtests/dmg_glyph_fx_remap_candidates.json`, `logs/playtests/dmg_glyph_fx_remap_candidates.md`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Keep runtime mapping unchanged; use candidate table for next AI Content/VFX review cycle.
+
+## [2026-03-24 22:37 KST] Offline ideation note (Cycle CR)
+- Game Director ideas generated for ambient cadence lane:
+  1) compact alias token (selected + shipped)
+  2) weekly digest churn coverage for `AMBIENT RAMP:`
+  3) drift-aware ambient recommendation policy (deferred)
+- No runtime copy-randomization introduced in this slice.

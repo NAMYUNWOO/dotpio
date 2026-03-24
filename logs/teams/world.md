@@ -1499,3 +1499,10 @@
 - Decision: Completed offline digest-generated FX remap candidate table artifact handoff for review workflows.
 - Evidence: `logs/playtests/dmg_glyph_fx_remap_candidates.json`, `logs/playtests/dmg_glyph_fx_remap_candidates.md`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: Keep runtime mapping unchanged; use candidate table for next AI Content/VFX review cycle.
+
+## [2026-03-24 22:37 KST] Cycle CQ close + CR slice
+- Delivered portal prompt ambient cadence hint behind flag:
+  - Detailed token: `AMBIENT RAMP:CALM|TENSE` via `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP`.
+  - Compact alias: `AR:C|T` via `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_COMPACT`.
+- Decision: keep ramp deterministic from route pressure posture (SAFE+low pressure => CALM; else TENSE).
+- Follow-up: consider pairing with weekly token-family churn coverage if operator drift appears.

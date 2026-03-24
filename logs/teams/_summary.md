@@ -2535,3 +2535,13 @@ Compact decision memory for AI context efficiency.
 - New artifacts: `logs/playtests/dmg_glyph_fx_remap_candidates.json` and `logs/playtests/dmg_glyph_fx_remap_candidates.md`.
 - Policy lock: recommendations remain offline-only (`HOLD_FX|MICRO_TUNE_FX|SYNC_WITH_GLYPH`); runtime CALM/SPARK/BLAZE mapping unchanged pending manual review.
 - Verification locked by existing regression: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-24 22:37 KST — Cycle CQ closure + Cycle CR review slice
+- Closed remaining unchecked World/Design item by shipping portal ambient cadence hint behind flag:
+  - Detailed prompt token: `AMBIENT RAMP:CALM|TENSE` (`DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP`).
+  - Deterministic mapping: `SAFE + low pressure => CALM`, else `TENSE`.
+- Triggered immediate Game Director review cycle (CR) once actionable backlog returned to fully checked.
+- Generated 3 ideas (low/mid/high), selected low-risk UX/World vertical slice, implemented compact alias token:
+  - `AR:<C|T>` behind `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_COMPACT`.
+- Verification: `luac -p src/portal.lua`; `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP=1 lua scripts/regression_portal_ambient_ramp.lua`; `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP=1 DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_COMPACT=1 lua scripts/regression_portal_ambient_ramp_compact.lua` (all PASS).
+- Injected backlog updates in `TASKS.md` + `POST_RC_BACKLOG.md` under Cycle CR with selected experiment recorded and completed.

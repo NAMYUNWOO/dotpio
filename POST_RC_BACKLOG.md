@@ -605,5 +605,12 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-24 Cycle CQ)
 - [x] UX/Combat Team: Add compact HUD debug remap-plan token (`DMG FX PLAN:HOLD_FX|MICRO_TUNE_FX|SYNC_WITH_GLYPH`) behind `DOTPIO_EXPERIMENT_DMG_FX_PLAN_DEBUG`. *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] World/Design Team: Prototype portal ambient-ramp hint token (`AMBIENT RAMP:CALM|TENSE`) behind flag for readability cadence.
+- [x] World/Design Team: Prototype portal ambient-ramp hint token (`AMBIENT RAMP:CALM|TENSE`) behind flag for readability cadence.
 - [x] Systems/Ops Team: Add offline glyph FX remap candidate table artifact generation (`logs/playtests/dmg_glyph_fx_remap_candidates.{md,json}`).
+
+## Cycle CR - Game Director Review (2026-03-24 22:31 KST)
+- Idea 1 (low risk, UX/World): Add compact ambient-ramp alias token (`AR:<C|T>`) behind flag for DOS-width readability.
+- Idea 2 (mid risk, Systems/QA): Add weekly digest token-family churn coverage for `AMBIENT RAMP:`.
+- Idea 3 (high risk, AI Content/World): Drift-aware ambient ramp recommendation policy from weekly prompt pressure trends.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/World Team: Add compact ambient-ramp alias token (`AR:<C|T>`) behind `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_COMPACT`.
