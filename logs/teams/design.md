@@ -1638,3 +1638,5 @@
 ## 2026-03-25 07:03 KST — Design copy check for ARW auto rationale
 - Approved compact rationale vocabulary for digest handoff: `SAFE_LOCK`, `PRESSURE_HOLD`, `OPEN_WINDOW`.
 - Rationale copy remains deterministic and scoped to offline recommendation artifacts.
+
+- 2026-03-25 07:35 KST — Added offline confidence-streak suppression policy for ambient auto-remap candidates in weekly portal readability digest (streak >=3 on AMBIENT RAMP WHY REC CONF LOW/HIGH => candidate pool suppressed to HOLD_SAFE_BASELINE; surfaced in JSON + markdown tokens for operator triage). Verified via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.

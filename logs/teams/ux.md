@@ -1848,3 +1848,5 @@
 - Added compact readability token `ARW AUTO WHY` for faster ambient auto-remap triage in digest summaries.
 - Added matching line in sandbox plan markdown (`Compact Rationale`) to keep artifact parity with weekly digest output.
 - Validation: weekly digest regression + script run PASS.
+
+- 2026-03-25 07:35 KST — Added offline confidence-streak suppression policy for ambient auto-remap candidates in weekly portal readability digest (streak >=3 on AMBIENT RAMP WHY REC CONF LOW/HIGH => candidate pool suppressed to HOLD_SAFE_BASELINE; surfaced in JSON + markdown tokens for operator triage). Verified via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.

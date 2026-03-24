@@ -182,6 +182,16 @@ def main() -> int:
             "rationale",
             "offlineOnly",
         }, payload
+        assert isinstance(payload.get("ambientRampWhyRecommendationConfidenceStreak"), int), payload
+        assert set(payload.get("ambientRampWhyRecommendationConfidenceStreakSignals", {}).keys()) == {
+            "currentConfidence",
+            "priorConfidence",
+            "priorStreak",
+            "priorLoaded",
+            "threshold",
+            "suppress",
+            "reason",
+        }, payload
         assert payload.get("urgencyStackPruningOrderRecommendation") in {"PARITY>FX>DETAIL", "FX>PARITY>DETAIL"}, payload
         assert set(payload.get("urgencyStackPruningOrderRecommendationSignals", {}).keys()) == {
             "driftRisk",
@@ -1507,6 +1517,8 @@ def main() -> int:
             "nextAction",
             "rerankPolicy",
             "candidateCount",
+            "confidenceStreak",
+            "candidateSuppressed",
         }, payload
         assert isinstance(payload.get("ambientRampWhyAutoRemapPlanDrift"), int), payload
         assert set(payload.get("ambientRampWhyAutoRemapPlanDriftSignals", {}).keys()) == {
@@ -1608,7 +1620,9 @@ def main() -> int:
         assert "ARW AUTO WHY" in md_text
         assert "ARW AUTO PLAN Δ" in md_text
         assert "ARW AUTO PLAN CONF" in md_text
+        assert "AMBIENT RAMP WHY REC CONF STREAK" in md_text
         assert "ARW AUTO PLAN FAMILY CHURN" in md_text
+        assert "ARW AUTO PLAN CANDIDATE SUPPRESS" in md_text
         assert "URGENCY STACK PRUNING REC" in md_text
         assert "URGENCY STACK RAIL REC" in md_text
         assert "DMG GLYPH SHAPE REMAP REC" in md_text

@@ -5372,6 +5372,47 @@ def ambient_ramp_why_recommendation_confidence_from_signals(
     }
 
 
+def ambient_ramp_why_recommendation_confidence_streak_from_prior(
+    *,
+    current_confidence: str,
+    prior_json_path: Path,
+) -> tuple[int, dict[str, object]]:
+    """Track consecutive windows with unchanged AMBIENT RAMP WHY REC CONF."""
+    current = str(current_confidence).strip().upper() or "LOW"
+    prior_confidence = current
+    prior_streak = 0
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_confidence = str(prior_payload.get("ambientRampWhyRecommendationConfidence", current)).strip().upper() or current
+            prior_streak = int(prior_payload.get("ambientRampWhyRecommendationConfidenceStreak", 0) or 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    if prior_loaded and prior_confidence == current:
+        streak = max(1, prior_streak) + 1
+        reason = "confidence-streak-extended"
+    else:
+        streak = 1
+        reason = "confidence-streak-reset"
+
+    suppress_threshold = 3
+    suppress = streak >= suppress_threshold and current in {"LOW", "HIGH"}
+
+    return streak, {
+        "currentConfidence": current,
+        "priorConfidence": prior_confidence,
+        "priorStreak": prior_streak,
+        "priorLoaded": prior_loaded,
+        "threshold": suppress_threshold,
+        "suppress": suppress,
+        "reason": reason,
+    }
+
+
 def ambient_ramp_why_recommendation_parity_summary(
     *,
     recommendation: str,
@@ -5410,6 +5451,8 @@ def ambient_ramp_why_auto_remap_plan_from_signals(
     confidence: str,
     parity: str,
     recommendation_signals: dict[str, object],
+    confidence_streak: int = 1,
+    suppress_candidates: bool = False,
 ) -> tuple[str, dict[str, object], list[dict[str, object]]]:
     """Build offline-only ambient rationale auto-remap plan candidates for sandbox review."""
     drift_risk = str(recommendation_signals.get("driftRisk", "LOW"))
@@ -5500,12 +5543,29 @@ def ambient_ramp_why_auto_remap_plan_from_signals(
     for i, candidate in enumerate(candidates, start=1):
         candidate["rank"] = i
 
+    if suppress_candidates:
+        candidates = [candidate for candidate in candidates if str(candidate.get("plan", "")) == "HOLD_SAFE_BASELINE"]
+        if not candidates:
+            candidates = [{
+                "baseRank": 1,
+                "plan": "HOLD_SAFE_BASELINE",
+                "summary": "Keep ambient rationale on SAFE-first deterministic wording with no runtime remap coupling.",
+                "when": "Confidence streak suppression active.",
+                "risk": "LOW",
+                "offlineOnly": True,
+                "changeScope": "digest + sandbox notes only",
+                "score": 0,
+                "rank": 1,
+            }]
+
     selected_plan = str(candidates[0]["plan"]) if candidates else plan_by_recommendation.get(recommendation, "HOLD_SAFE_BASELINE")
-    if confidence == "LOW" or parity == "LOCK":
+    if confidence == "LOW" or parity == "LOCK" or suppress_candidates:
         selected_plan = "HOLD_SAFE_BASELINE"
 
     rationale = "drift-aware-candidate-rerank"
-    if selected_plan == "HOLD_SAFE_BASELINE" and (confidence == "LOW" or parity == "LOCK"):
+    if suppress_candidates:
+        rationale = "confidence-streak-suppression"
+    elif selected_plan == "HOLD_SAFE_BASELINE" and (confidence == "LOW" or parity == "LOCK"):
         rationale = "safety-lock-from-confidence-or-parity"
 
     signals: dict[str, object] = {
@@ -5521,6 +5581,8 @@ def ambient_ramp_why_auto_remap_plan_from_signals(
         "nextAction": "Generate sandbox table + review notes; keep runtime contract unchanged.",
         "rerankPolicy": "drift-aware-offline-candidate-priority",
         "candidateCount": len(candidates),
+        "confidenceStreak": int(confidence_streak),
+        "candidateSuppressed": bool(suppress_candidates),
     }
     return selected_plan, signals, candidates
 
@@ -5921,11 +5983,17 @@ def main() -> int:
         confidence=ambient_ramp_why_recommendation_confidence,
         recommendation_signals=ambient_ramp_why_recommendation_signals,
     )
+    ambient_ramp_why_recommendation_confidence_streak, ambient_ramp_why_recommendation_confidence_streak_signals = ambient_ramp_why_recommendation_confidence_streak_from_prior(
+        current_confidence=ambient_ramp_why_recommendation_confidence,
+        prior_json_path=args.out_json,
+    )
     ambient_ramp_why_auto_remap_plan, ambient_ramp_why_auto_remap_plan_signals, ambient_ramp_why_auto_remap_plan_candidates = ambient_ramp_why_auto_remap_plan_from_signals(
         recommendation=ambient_ramp_why_recommendation,
         confidence=ambient_ramp_why_recommendation_confidence,
         parity=ambient_ramp_why_recommendation_parity,
         recommendation_signals=ambient_ramp_why_recommendation_signals,
+        confidence_streak=ambient_ramp_why_recommendation_confidence_streak,
+        suppress_candidates=bool(ambient_ramp_why_recommendation_confidence_streak_signals.get("suppress", False)),
     )
     ambient_ramp_why_auto_remap_plan_compact = ambient_ramp_why_auto_remap_plan_alias(ambient_ramp_why_auto_remap_plan)
     ambient_ramp_why_auto_remap_why = ambient_ramp_why_auto_remap_rationale_short(
@@ -6634,6 +6702,8 @@ def main() -> int:
         "recommendation": {
             "ambientRampWhyRecommendation": ambient_ramp_why_recommendation,
             "ambientRampWhyRecommendationConfidence": ambient_ramp_why_recommendation_confidence,
+            "ambientRampWhyRecommendationConfidenceStreak": ambient_ramp_why_recommendation_confidence_streak,
+            "ambientRampWhyRecommendationConfidenceStreakSignals": ambient_ramp_why_recommendation_confidence_streak_signals,
             "ambientRampWhyRecommendationParity": ambient_ramp_why_recommendation_parity,
         },
         "selectedPlan": ambient_ramp_why_auto_remap_plan,
@@ -6700,6 +6770,8 @@ def main() -> int:
         "ambientRampWhyRecommendationSignals": ambient_ramp_why_recommendation_signals,
         "ambientRampWhyRecommendationConfidence": ambient_ramp_why_recommendation_confidence,
         "ambientRampWhyRecommendationConfidenceSignals": ambient_ramp_why_recommendation_confidence_signals,
+        "ambientRampWhyRecommendationConfidenceStreak": ambient_ramp_why_recommendation_confidence_streak,
+        "ambientRampWhyRecommendationConfidenceStreakSignals": ambient_ramp_why_recommendation_confidence_streak_signals,
         "ambientRampWhyRecommendationParity": ambient_ramp_why_recommendation_parity,
         "ambientRampWhyRecommendationParitySignals": ambient_ramp_why_recommendation_parity_signals,
         "ambientRampWhyAutoRemapPlan": ambient_ramp_why_auto_remap_plan,
@@ -7013,6 +7085,7 @@ def main() -> int:
         f"- ARW AUTO WHY: **{ambient_ramp_why_auto_remap_why}** (offline compact rationale shorthand)",
         f"- ARW AUTO PLAN Δ: **{ambient_ramp_why_auto_remap_plan_drift:+d}** ({ambient_ramp_why_auto_remap_plan_drift_signals['reason']}; current={ambient_ramp_why_auto_remap_plan_drift_signals['currentPlan']}({ambient_ramp_why_auto_remap_plan_drift_signals['currentScore']}) prior={ambient_ramp_why_auto_remap_plan_drift_signals['priorPlan']}({ambient_ramp_why_auto_remap_plan_drift_signals['priorScore']}) loaded={ambient_ramp_why_auto_remap_plan_drift_signals['priorLoaded']})",
         f"- ARW AUTO PLAN CONF: **{ambient_ramp_why_auto_remap_plan_confidence}** ({ambient_ramp_why_auto_remap_plan_confidence_signals['rationale']}; recConf={ambient_ramp_why_auto_remap_plan_confidence_signals['recommendationConfidence']} parity={ambient_ramp_why_auto_remap_plan_confidence_signals['parity']} driftRisk={ambient_ramp_why_auto_remap_plan_confidence_signals['driftRisk']} pressure={ambient_ramp_why_auto_remap_plan_confidence_signals['pressureBand']} Δ={ambient_ramp_why_auto_remap_plan_confidence_signals['planDrift']:+d})",
+        f"- AMBIENT RAMP WHY REC CONF STREAK: **{ambient_ramp_why_recommendation_confidence_streak}** (suppress={str(ambient_ramp_why_recommendation_confidence_streak_signals.get('suppress', False)).upper()} threshold={ambient_ramp_why_recommendation_confidence_streak_signals.get('threshold', 3)} reason={ambient_ramp_why_recommendation_confidence_streak_signals.get('reason', 'n/a')})",
         f"- URGENCY STACK PRUNING REC: **{urgency_stack_pruning_order_recommendation}** ({urgency_stack_pruning_order_recommendation_signals['rationale']}; parityChurn={urgency_stack_pruning_order_recommendation_signals['parityCompactChurn']} fxChurn={urgency_stack_pruning_order_recommendation_signals['urgencyFxChurn']} detailedChurn={urgency_stack_pruning_order_recommendation_signals['urgencyDetailedChurn']} offlineOnly={urgency_stack_pruning_order_recommendation_signals['offlineOnly']})",
         f"- URGENCY STACK RAIL REC: **{urgency_stack_rail_recommendation}** ({urgency_stack_rail_recommendation_signals['rationale']}; railChurn={urgency_stack_rail_recommendation_signals['urgencyStackRailChurn']} railNet={urgency_stack_rail_recommendation_signals['urgencyStackRailNet']} tierChurn={urgency_stack_rail_recommendation_signals['urgencyStackTierChurn']} offlineOnly={urgency_stack_rail_recommendation_signals['offlineOnly']})",
         f"- DMG GLYPH SHAPE REMAP REC: **{dmg_glyph_shape_remap_recommendation}** ({dmg_glyph_shape_remap_recommendation_signals['rationale']}; glyphChurn={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphChurn']} glyphNet={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphNet']} railChurn={dmg_glyph_shape_remap_recommendation_signals['urgencyStackRailChurn']} offlineOnly={dmg_glyph_shape_remap_recommendation_signals['offlineOnly']})",
@@ -7148,6 +7221,7 @@ def main() -> int:
         f"- AMBIENT RAMP CONF FAMILY CHURN: **net {token_family_totals['ambientRampConfidenceAlias']['net']:+d}** (added={token_family_totals['ambientRampConfidenceAlias']['added']} removed={token_family_totals['ambientRampConfidenceAlias']['removed']} churn={token_family_totals['ambientRampConfidenceAlias']['churn']} coverage={token_family_totals['ambientRampConfidenceAlias']['coverage']})",
         f"- AMBIENT RAMP WHY FAMILY CHURN: **net {token_family_totals['ambientRampWhyAlias']['net']:+d}** (added={token_family_totals['ambientRampWhyAlias']['added']} removed={token_family_totals['ambientRampWhyAlias']['removed']} churn={token_family_totals['ambientRampWhyAlias']['churn']} coverage={token_family_totals['ambientRampWhyAlias']['coverage']})",
         f"- ARW AUTO PLAN FAMILY CHURN: **net {token_family_totals['ambientRampWhyAutoRemapPlanAlias']['net']:+d}** (added={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['added']} removed={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['removed']} churn={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['churn']} coverage={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['coverage']} drift={ambient_ramp_why_auto_remap_plan_drift:+d})",
+        f"- ARW AUTO PLAN CANDIDATE SUPPRESS: **{str(ambient_ramp_why_auto_remap_plan_signals.get('candidateSuppressed', False)).upper()}** (streak={ambient_ramp_why_auto_remap_plan_signals.get('confidenceStreak', 1)} threshold={ambient_ramp_why_recommendation_confidence_streak_signals.get('threshold', 3)})",
         f"- PULSE HEAT FX FAMILY CHURN: **net {token_family_totals['pulseHeatFxAlias']['net']:+d}** (added={token_family_totals['pulseHeatFxAlias']['added']} removed={token_family_totals['pulseHeatFxAlias']['removed']} churn={token_family_totals['pulseHeatFxAlias']['churn']} coverage={token_family_totals['pulseHeatFxAlias']['coverage']})",
         f"- ROUTE GLOW FX FAMILY CHURN: **net {token_family_totals['routeGlowFxAlias']['net']:+d}** (added={token_family_totals['routeGlowFxAlias']['added']} removed={token_family_totals['routeGlowFxAlias']['removed']} churn={token_family_totals['routeGlowFxAlias']['churn']} coverage={token_family_totals['routeGlowFxAlias']['coverage']})",
         f"- ROUTE GLOW CONF FAMILY CHURN: **net {token_family_totals['routeGlowConfidenceAlias']['net']:+d}** (added={token_family_totals['routeGlowConfidenceAlias']['added']} removed={token_family_totals['routeGlowConfidenceAlias']['removed']} churn={token_family_totals['routeGlowConfidenceAlias']['churn']} coverage={token_family_totals['routeGlowConfidenceAlias']['coverage']})",

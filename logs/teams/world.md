@@ -1597,3 +1597,5 @@
 ## 2026-03-25 07:03 KST — World readability note (offline ambient auto-rationale)
 - Confirmed new `ARW AUTO WHY` shorthand is digest/sandbox-only metadata and does not alter portal world prompt runtime tokens.
 - World lane impact: faster operator triage for ambient rationale plan context with no map/portal behavior changes.
+
+- 2026-03-25 07:35 KST — Added offline confidence-streak suppression policy for ambient auto-remap candidates in weekly portal readability digest (streak >=3 on AMBIENT RAMP WHY REC CONF LOW/HIGH => candidate pool suppressed to HOLD_SAFE_BASELINE; surfaced in JSON + markdown tokens for operator triage). Verified via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
