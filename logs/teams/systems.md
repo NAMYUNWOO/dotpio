@@ -2191,3 +2191,12 @@
 ## 2026-03-24 18:01 KST — Cycle CM backlog injection
 - Injected follow-up Systems/QA task: weekly digest token `DMGNUM STACK CAP:` with churn-row + regression lock.
 - Guardrail: keep runtime combat untouched until telemetry confirms stack-density pressure in real playtest traces.
+
+## 2026-03-24 18:31:00 KST
+- Task: Cycle CM Systems/QA — add weekly digest telemetry token family for `DMGNUM STACK CAP:` and close backlog item.
+- Commit: HEAD (pending)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added `dmgnumStackCapAlias` family and markdown churn rows for `DMGNUM STACK CAP` in digest output.
+  - Extended path hints to include combat files so stack-cap token churn is visible in weekly drift runs.

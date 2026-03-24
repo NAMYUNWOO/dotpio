@@ -745,5 +745,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/VFX): Add procedural glyph burst families keyed off damage bands and urgency rail mode.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Add lethal-hit floating damage accent (`<damage>!` + red tint) with debug-state exposure + regression lock. *(lifecycle: [~] -> [x])*
-- [ ] Systems/QA Team: Add floating-number stack-cap telemetry token to weekly digest (`DMGNUM STACK CAP:`) with churn row + regression lock.
+- [x] Systems/QA Team: Add floating-number stack-cap telemetry token to weekly digest (`DMGNUM STACK CAP:`) with churn row + regression lock. *(lifecycle: [~] -> [x])*
 - [ ] AI Content/VFX Team: Prototype damage-band glyph burst variants behind flag (`DMG GLYPH:BASIC|SPIKE|OVERDRIVE`).

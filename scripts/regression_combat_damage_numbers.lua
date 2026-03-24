@@ -75,4 +75,15 @@ local lethalMagic = Combat.debugGetDamageNumbers()
 expect(lethalMagic[#lethalMagic].magic == true, "latest lethal magic hit should remain magic-typed")
 expect(lethalMagic[#lethalMagic].lethal == true, "lethal magic hit should mark floating number as lethal")
 
+local stackCap = Combat.debugGetDamageNumberStackCap()
+expect(stackCap >= 1, "damage-number stack cap should be a positive integer")
+
+enemy = { hp = 9999, alive = true }
+for _ = 1, stackCap + 4 do
+    Combat.meleeAttack(player, enemyAt)
+end
+local cappedNumbers = Combat.debugGetDamageNumbers()
+expect(#cappedNumbers == stackCap, "damage-number stack should clamp to configured cap")
+expect(cappedNumbers[#cappedNumbers].magic == false, "latest capped entry should preserve newest melee damage number")
+
 print("[PASS] combat floating damage-number lifecycle regression validated")

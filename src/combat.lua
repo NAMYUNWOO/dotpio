@@ -11,6 +11,14 @@ local killCount = 0
 
 local DMGNUM_DURATION = 0.6
 local DMGNUM_RISE = 12  -- pixels to float upward
+local DMGNUM_STACK_CAP = 8  -- DMGNUM STACK CAP: max concurrent floating numbers
+
+local function pushDamageNumber(entry)
+    damageNumbers[#damageNumbers + 1] = entry
+    while #damageNumbers > DMGNUM_STACK_CAP do
+        table.remove(damageNumbers, 1)
+    end
+end
 
 function Combat.reset()
     projectiles = {}
@@ -32,7 +40,7 @@ function Combat.meleeAttack(player, enemyAtFn)
         e.alerted = true
         local lethal = e.hp <= 0 and e.alive
         damageFlash[#damageFlash+1] = {x=tx, y=ty, timer=0.3}
-        damageNumbers[#damageNumbers+1] = {x=tx, y=ty, amount=finalDmg, timer=DMGNUM_DURATION, magic=false, lethal=lethal}
+        pushDamageNumber({x=tx, y=ty, amount=finalDmg, timer=DMGNUM_DURATION, magic=false, lethal=lethal})
         if lethal then
             e.alive = false
             e.deathTimer = 0.4
@@ -70,7 +78,7 @@ function Combat.update(dt, enemyAtFn)
                     e.hp = e.hp - finalDmg
                     e.alerted = true
                     local lethal = e.hp <= 0 and e.alive
-                    damageNumbers[#damageNumbers+1] = {x=p.targetX, y=p.targetY, amount=finalDmg, timer=DMGNUM_DURATION, magic=true, lethal=lethal}
+                    pushDamageNumber({x=p.targetX, y=p.targetY, amount=finalDmg, timer=DMGNUM_DURATION, magic=true, lethal=lethal})
                     if lethal then
                         e.alive = false
                         e.deathTimer = 0.4
@@ -168,6 +176,10 @@ function Combat.debugGetDamageNumbers()
         }
     end
     return out
+end
+
+function Combat.debugGetDamageNumberStackCap()
+    return DMGNUM_STACK_CAP
 end
 
 return Combat

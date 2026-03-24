@@ -1403,3 +1403,12 @@
 - Decision: mark lethal hits in `src/combat.lua` with `lethal=true`, render `<damage>!` and red tint to distinguish kill-confirm events from standard hits.
 - Scope: additive/reversible visual cue only; no combat math or HP/timing changes.
 - Follow-up: evaluate stack-cap telemetry (`DMGNUM STACK CAP`) before introducing additional VFX complexity.
+
+## 2026-03-24 18:31:00 KST
+- Task: Add floating damage-number stack cap guardrail for dense combat turns.
+- Commit: HEAD (pending)
+- Files: `src/combat.lua`, `scripts/regression_combat_damage_numbers.lua`
+- Verification: `lua scripts/regression_combat_damage_numbers.lua` ✅
+- Decisions:
+  - Introduced `DMGNUM_STACK_CAP=8` with FIFO trimming (`pushDamageNumber`) to prevent unbounded floating-number growth.
+  - Added debug accessor `debugGetDamageNumberStackCap()` for deterministic regression checks.

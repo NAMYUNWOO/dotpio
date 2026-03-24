@@ -2710,3 +2710,11 @@
   - non-lethal melee/magic entries keep `lethal=false`
   - lethal melee/magic entries set `lethal=true`
 - Safety check: lifecycle and expiry assertions retained to prevent stale damage-number regressions.
+
+## 2026-03-24 18:31:00 KST
+- Task: Regression lock for `DMGNUM STACK CAP` weekly digest coverage + floating-number cap behavior.
+- Commit: HEAD (pending)
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `scripts/regression_combat_damage_numbers.lua`, `src/combat.lua`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `lua scripts/regression_combat_damage_numbers.lua` ✅

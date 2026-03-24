@@ -1512,3 +1512,6 @@
 
 ## 2026-03-24 17:31:00 KST
 - Note: Reviewed urgency-stack rail recommendation copy; guidance wording remains deterministic and operator-facing only.
+
+## 2026-03-24 18:31:00 KST
+- Sync note: Design token taxonomy unchanged; `DMGNUM STACK CAP` added as telemetry-only digest family (no runtime copy changes).

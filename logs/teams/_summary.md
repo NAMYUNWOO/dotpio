@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-24 15:36 KST
+Last updated: 2026-03-24 18:31 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle CM Systems/QA unchecked item: weekly digest now tracks `DMGNUM STACK CAP:` alias-family churn (`dmgnumStackCapAlias`) with markdown triage rows in both summary and Token Family Coverage sections.
+- Weekly digest scope now includes combat touchpoints (`src/combat.lua`, `scripts/regression_combat_damage_numbers.lua`) so stack-cap token churn is auditable in drift runs.
+- Combat runtime now enforces floating damage-number cap (`DMGNUM_STACK_CAP=8`) via FIFO trim helper, with regression lock to prevent unbounded high-action stack growth.
+- Regression contract expanded and passing: `scripts/regression_weekly_portal_prompt_readability_drift.py` + `scripts/regression_combat_damage_numbers.lua`.
 
 - Closed highest-priority unchecked TASKS/POST_RC item: weekly digest now emits drift-adaptive **offline-only** urgency-stack rail recommendation `URGENCY STACK RAIL REC` with payload keys `urgencyStackRailRecommendation` and `urgencyStackRailRecommendationSignals`.
 - Recommendation maps deterministic posture bands (`STEADY-FIRST`, `SPIKE-WHEN-CONFIRMED`, `BALANCED`) from `DRIFT RISK` + `URG STACK RAIL` churn/net vs `URG STACK` trend signals.

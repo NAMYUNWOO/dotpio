@@ -1701,3 +1701,6 @@
 
 ## 2026-03-24 17:31:00 KST
 - Note: Weekly digest now surfaces explicit `URGENCY STACK RAIL REC` line to improve scanability during compact-budget triage.
+
+## 2026-03-24 18:31:00 KST
+- Sync note: UX-facing prompt/readability strings unchanged; this cycle shipped backend telemetry + combat stack-cap guardrail.
