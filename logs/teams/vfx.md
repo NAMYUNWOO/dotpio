@@ -88,3 +88,8 @@
 - Added compact overdrive accent token `RGFXWRI:SOFT|HARD` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY`.
 - Mapping aligns with rail lock semantics for stronger feel without changing routing logic: `LOCK=>HARD`, `FLEX=>SOFT`.
 - Regression evidence: `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity.lua` PASS.
+
+## 2026-03-24 09:01 KST — Cycle CD vfx readability continuity
+- New urgency token sits on top of existing route-glow confidence/intensity stack for faster cue parsing.
+- No VFX tier mapping (`SOFT|HARD`, `CALM|SPARK|BLAZE`) changed in this cycle.
+

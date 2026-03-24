@@ -1406,3 +1406,9 @@
 ## 2026-03-24 08:31 KST — Lane heartbeat
 - No world/map topology change in this cycle.
 - Follow-up remains tied to next injected Game Director world/design candidate.
+
+## 2026-03-24 09:01 KST — Cycle CD world readability
+- Portal prompt can now emit `RGFXWRIU:LOW|MID|HIGH` when urgency experiment is enabled.
+- Mapping mirrors existing confidence tier (`LOW->LOW`, `MID->MID`, `HIGH->HIGH`) for deterministic glance readability.
+- No map topology or routing-logic changes in this slice.
+

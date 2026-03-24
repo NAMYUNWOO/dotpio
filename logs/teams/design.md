@@ -1441,3 +1441,9 @@
 ## 2026-03-24 08:31 KST — Lane heartbeat
 - No new player-facing visual token added in this cycle; change is digest recommendation-only.
 - Next design pass should be selected from injected backlog in Game Director cycle.
+
+## 2026-03-24 09:01 KST — Cycle CD design decision
+- Selected low-risk UX/world idea to preserve DOS budget while increasing trust scanability.
+- Urgency token intentionally mirrors existing confidence tiers to avoid introducing ambiguous semantics.
+- Remaining injected design follow-up: detailed parity urgency label under flag.
+

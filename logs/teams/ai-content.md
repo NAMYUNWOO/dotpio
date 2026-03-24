@@ -1367,3 +1367,9 @@
 - Reviewed `RGFXWRI WHY CONF` drift behavior and added offline recommendation policy output to avoid live wording drift.
 - Recommendation policy maps weekly churn/risk to `FREEZE|GUARDED|RELAXED` and ships guidance text for human/operator review only.
 - No in-game token wording was changed in this slice.
+
+## 2026-03-24 09:01 KST — Cycle CD copy contract
+- Added urgency token with deterministic, non-generative mapping from existing confidence tier to prevent copy drift.
+- No mutation to rationale wording (`RGFXWRI WHY`) or confidence resolver logic.
+- Keeps experimentation reversible behind a dedicated flag.
+

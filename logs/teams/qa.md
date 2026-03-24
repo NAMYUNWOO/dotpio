@@ -2580,3 +2580,10 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`
 - Result: PASS (schema + markdown contract + artifact refresh).
+
+## 2026-03-24 09:01 KST — Cycle CD QA verification
+- Added regression `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency.lua`.
+- Verification PASS:
+  - `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf.lua`
+  - `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency.lua`
+

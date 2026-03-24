@@ -2068,3 +2068,9 @@
 - Guardrail: Recommendation is explicitly `offlineOnly=true`; runtime portal prompt tokens remain unchanged.
 - Verification: weekly digest regression PASS + digest artifact refresh PASS.
 - Next: ACTION_ITEMS/TASKS/POST_RC are fully checked; next cycle should run Game Director ideation/injection.
+
+## 2026-03-24 09:01 KST — Cycle CD systems note
+- Ran Game Director review (3 ideas) and selected low-risk vertical slice: compact urgency token `RGFXWRIU` for rail-intensity rationale confidence.
+- Runtime scope kept additive + flag-gated (`DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY`) to avoid baseline contract drift.
+- Follow-up queue remains injected: digest family coverage + detailed parity urgency label.
+

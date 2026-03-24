@@ -1333,3 +1333,8 @@
 ## 2026-03-24 08:31 KST — Lane heartbeat
 - No combat balance/runtime combat-event changes in this cycle.
 - Monitoring pending next forced-lane or injected combat/vfx item.
+
+## 2026-03-24 09:01 KST — Cycle CD combat-facing prompt cue
+- Added compact urgency signal `RGFXWRIU` adjacent to `RGFXWRI WHY CONF` for faster pressure read in portal prompts.
+- Token is readability-only; no combat stats, AI, or threat calculations changed.
+

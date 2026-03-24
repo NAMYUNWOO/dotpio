@@ -499,3 +499,13 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Systems/QA Team: Add weekly digest token-family coverage for rail-intensity rationale confidence alias churn (`RGFXWRI WHY CONF:` + `RGFXWRIWC:`) *(lifecycle: [ ] -> [~] -> [x])*
 - [x] UX/Design Team: Prototype detailed parity label for rail-intensity rationale confidence (`ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF:LOW|MID|HIGH`) behind flag *(lifecycle: [~] -> [x])*
 - [x] AI Content/Systems Team: Prototype drift-adaptive confidence copy policy for `RGFXWRI WHY CONF` (offline recommendation only) *(lifecycle: [ ] -> [~] -> [x])*
+
+## Cycle CD - Game Director Review (2026-03-24 09:01 KST)
+- Idea 1 (low risk, UX/World): Add compact rail-intensity confidence urgency token (`RGFXWRIU:LOW|MID|HIGH`) behind flag for faster prompt triage.
+- Idea 2 (mid risk, Systems/Combat): Add one-step confidence trend token (`RGFXWRI WHY CONF Δ:+n|-n`) using prior transition state.
+- Idea 3 (high risk, AI Content/Systems): Runtime adaptive confidence remap from weekly drift recommendation policy.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/World Team: Add compact rail-intensity confidence urgency token (`RGFXWRIU:LOW|MID|HIGH`) behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY`.
+- [ ] Systems/QA Team: Add weekly digest token-family coverage for urgency alias churn (`RGFXWRIU:` + detailed label).
+- [ ] AI Content/Design Team: Prototype detailed parity label for urgency token (`ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:<LOW|MID|HIGH`) behind flag.
+

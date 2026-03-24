@@ -2353,3 +2353,9 @@ Compact decision memory for AI context efficiency.
 - Compact token `RGFXWRI:<SOFT|HARD>` remains preserved and emitted regardless of parity flag, preventing compact prompt regressions.
 - Added regression coverage with new script `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_parity.lua`; baseline + parity-enabled regressions both PASS.
 - Next highest unchecked backlog item: Design/AI Content flagged rationale token `RGFXWRI WHY:<short>`.
+
+- Game Director Cycle CD executed after backlog-full-check state; generated 3 ideas and selected low-risk UX/World vertical slice.
+- Shipped flagged compact urgency token `RGFXWRIU:LOW|MID|HIGH` in `src/portal.lua` behind `DOTPIO_EXPERIMENT_ROUTE_GLOW_FX_CONF_WHY_RAIL_INTENSITY_WHY_CONF_URGENCY` (deterministic mirror of existing confidence tiers).
+- Added regression `scripts/regression_portal_route_glow_fx_conf_why_rail_intensity_why_conf_urgency.lua`; confidence baseline regression remains passing.
+- Cycle CD backlog injected with remaining follow-ups: digest urgency-family coverage and optional detailed parity urgency label.
+

@@ -1632,3 +1632,8 @@
 ## 2026-03-24 08:31 KST — Lane heartbeat
 - UX surface unchanged in runtime prompts for this cycle (offline report-only recommendation).
 - Keep monitoring compact prompt readability drift via weekly digest rows.
+
+## 2026-03-24 09:01 KST — Cycle CD UX compact token pass
+- Compact portal chain now supports `RGFXWRIU:<LOW|MID|HIGH>` after rail-intensity confidence token when flag-enabled.
+- Ordering remains stable and additive; existing compact aliases remain unchanged.
+
