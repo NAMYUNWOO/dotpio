@@ -1526,3 +1526,13 @@
 ## 2026-03-25 03:35 KST — Cycle CZ offline recommendation note
 - Logged offline-only high-risk idea: lifecycle-trend smoothing recommendation policy from drift windows.
 - Decision: defer runtime adaptation; keep deterministic trend mapping for now.
+
+## 2026-03-25 04:03 KST
+- Task: Cycle DA follow-up execution sync (DMGNUM LIFE TREND optional color accents).
+- Decision: Combat/VFX shipped flag-gated trend-accent color mapping in HUD; non-owner lanes acknowledge no scope changes this cycle.
+- Evidence: 
+  - src/hud.lua
+  - scripts/regression_combat_damage_number_life_trend_color.lua
+  - lua scripts/regression_combat_damage_number_life_trend_token.lua
+  - lua scripts/regression_combat_damage_number_life_trend_color.lua
+- Follow-up: Next highest-priority unchecked item remains AI-Content/VFX offline ambient rationale recommendation (`AMBIENT RAMP WHY REC`).

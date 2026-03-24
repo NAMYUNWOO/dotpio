@@ -2865,3 +2865,13 @@
 - Validation run:
   - `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP=1 DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_CONF=1 DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_WHY=1 DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_COMPACT=1 DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_CONF_COMPACT=1 DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_WHY_COMPACT=1 lua scripts/regression_portal_ambient_ramp_why.lua` ✅
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-25 04:03 KST
+- Task: Cycle DA follow-up execution sync (DMGNUM LIFE TREND optional color accents).
+- Decision: Combat/VFX shipped flag-gated trend-accent color mapping in HUD; non-owner lanes acknowledge no scope changes this cycle.
+- Evidence: 
+  - src/hud.lua
+  - scripts/regression_combat_damage_number_life_trend_color.lua
+  - lua scripts/regression_combat_damage_number_life_trend_token.lua
+  - lua scripts/regression_combat_damage_number_life_trend_color.lua
+- Follow-up: Next highest-priority unchecked item remains AI-Content/VFX offline ambient rationale recommendation (`AMBIENT RAMP WHY REC`).

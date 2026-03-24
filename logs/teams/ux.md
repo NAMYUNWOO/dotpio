@@ -1801,3 +1801,13 @@
 - Surfaced `DMGNUM LIFE TREND` in HUD debug lane next to confidence/delta tokens for glanceable phase direction.
 - Kept token compact and deterministic for DOS-width coexistence.
 - Follow-up: screenshot budget check in next multi-token combat debug run.
+
+## 2026-03-25 04:03 KST
+- Task: Cycle DA follow-up execution sync (DMGNUM LIFE TREND optional color accents).
+- Decision: Combat/VFX shipped flag-gated trend-accent color mapping in HUD; non-owner lanes acknowledge no scope changes this cycle.
+- Evidence: 
+  - src/hud.lua
+  - scripts/regression_combat_damage_number_life_trend_color.lua
+  - lua scripts/regression_combat_damage_number_life_trend_token.lua
+  - lua scripts/regression_combat_damage_number_life_trend_color.lua
+- Follow-up: Next highest-priority unchecked item remains AI-Content/VFX offline ambient rationale recommendation (`AMBIENT RAMP WHY REC`).

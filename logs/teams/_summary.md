@@ -13,6 +13,11 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed highest-priority unchecked TASKS/POST_RC Combat/VFX item: HUD now supports optional trend-accent color mapping for `DMGNUM LIFE TREND:UP|HOLD|DOWN` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_COLOR_DEBUG`.
+- Added regression guardrail `scripts/regression_combat_damage_number_life_trend_color.lua` with DOS contrast-budget assertions (>=4.5:1 against black HUD backdrop for UP/HOLD/DOWN accents).
+- Re-validated existing trend token contract with `scripts/regression_combat_damage_number_life_trend_token.lua`; both regressions pass.
+- Remaining highest-priority unchecked queue item: AI-Content/VFX offline ambient rationale recommendation policy (`AMBIENT RAMP WHY REC`).
+
 - Closed highest-priority unchecked TASKS/POST_RC Systems/QA item: weekly digest now tracks ambient confidence alias-family churn for `AMBIENT RAMP CONF:` + `ARC:` via `ambientRampConfidenceAlias`.
 - Markdown output now includes explicit rows `AMBIENT RAMP CONF FAMILY CHURN` and `ARC + AMBIENT RAMP CONF` to make compact-vs-detailed ambient confidence drift triageable.
 - Regression contract extended in `scripts/regression_weekly_portal_prompt_readability_drift.py`; digest regression + py_compile checks pass.

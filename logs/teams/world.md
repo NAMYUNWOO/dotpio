@@ -1553,3 +1553,13 @@
 - Shipped world-facing prompt readability token `AMBIENT RAMP WHY:SAFE LOCK|PRESSURE HOLD|SPIKE PRESSURE` behind `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_WHY`.
 - Added compact alias `ARW:SL|PH|SP` for budget-constrained portal prompts (`DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_WHY_COMPACT`).
 - Verification: `lua scripts/regression_portal_ambient_ramp_why.lua` PASS with ambient/conf flags enabled.
+
+## 2026-03-25 04:03 KST
+- Task: Cycle DA follow-up execution sync (DMGNUM LIFE TREND optional color accents).
+- Decision: Combat/VFX shipped flag-gated trend-accent color mapping in HUD; non-owner lanes acknowledge no scope changes this cycle.
+- Evidence: 
+  - src/hud.lua
+  - scripts/regression_combat_damage_number_life_trend_color.lua
+  - lua scripts/regression_combat_damage_number_life_trend_token.lua
+  - lua scripts/regression_combat_damage_number_life_trend_color.lua
+- Follow-up: Next highest-priority unchecked item remains AI-Content/VFX offline ambient rationale recommendation (`AMBIENT RAMP WHY REC`).

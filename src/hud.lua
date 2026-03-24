@@ -318,6 +318,13 @@ local function isDamageNumberLifeTrendDebugExperimentEnabled()
     return v == "1" or v == "true" or v == "yes" or v == "on"
 end
 
+local function isDamageNumberLifeTrendColorDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_COLOR_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
 local function confidenceToScore(confidence)
     if confidence == "HIGH" then
         return 2
@@ -475,6 +482,21 @@ function HUD.resolveDamageNumberLifeTrendToken()
     return string.format("DMGNUM LIFE TREND:%s", trend)
 end
 
+function HUD.resolveDamageNumberLifeTrendColor(token)
+    if not isDamageNumberLifeTrendColorDebugExperimentEnabled() then
+        return 0.82, 0.94, 1.0, 0.9
+    end
+
+    local trendToken = token or HUD.resolveDamageNumberLifeTrendToken() or ""
+    local trend = trendToken:match("DMGNUM LIFE TREND:(%u+)") or "HOLD"
+    if trend == "UP" then
+        return 0.46, 0.96, 0.52, 0.92
+    elseif trend == "DOWN" then
+        return 1.0, 0.46, 0.46, 0.92
+    end
+    return 1.0, 0.83, 0.32, 0.92
+end
+
 function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary, onboardingHint)
     love.graphics.setColor(0,0,0,0.7)
     love.graphics.rectangle("fill", 8, 8, 240, 92)
@@ -599,7 +621,7 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
 
     local damageNumberLifeTrendToken = HUD.resolveDamageNumberLifeTrendToken()
     if damageNumberLifeTrendToken then
-        love.graphics.setColor(0.82, 0.94, 1.0, 0.9)
+        love.graphics.setColor(HUD.resolveDamageNumberLifeTrendColor(damageNumberLifeTrendToken))
         love.graphics.print(damageNumberLifeTrendToken, 1420, 690)
     end
 
