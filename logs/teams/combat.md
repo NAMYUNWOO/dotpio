@@ -1466,3 +1466,10 @@
 ## [2026-03-24 22:37 KST] Lane check-in
 - No combat behavior/mechanics changed in ambient-ramp slice.
 - Existing combat readability tokens remain unchanged.
+
+### 2026-03-24 23:04 KST — Cycle CS ambient-ramp confidence slice
+- Decision: Ship Idea 1 from Cycle CS as minimal vertical slice.
+- Change: Added portal prompt confidence token `AMBIENT RAMP CONF:HIGH|MID|LOW` plus compact alias `ARC:<H|M|L>` behind `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_CONF` and `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_CONF_COMPACT`.
+- Evidence: `src/portal.lua`, `scripts/regression_portal_ambient_ramp_confidence.lua`.
+- Verification: ambient-ramp regressions pass (base/compact/confidence).
+- Follow-up: add digest churn coverage + offline drift recommendation tasks.

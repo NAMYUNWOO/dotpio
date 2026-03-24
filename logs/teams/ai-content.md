@@ -1485,3 +1485,10 @@
   2) weekly digest churn coverage for `AMBIENT RAMP:`
   3) drift-aware ambient recommendation policy (deferred)
 - No runtime copy-randomization introduced in this slice.
+
+### 2026-03-24 23:04 KST — Cycle CS ambient-ramp confidence slice
+- Decision: Ship Idea 1 from Cycle CS as minimal vertical slice.
+- Change: Added portal prompt confidence token `AMBIENT RAMP CONF:HIGH|MID|LOW` plus compact alias `ARC:<H|M|L>` behind `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_CONF` and `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_CONF_COMPACT`.
+- Evidence: `src/portal.lua`, `scripts/regression_portal_ambient_ramp_confidence.lua`.
+- Verification: ambient-ramp regressions pass (base/compact/confidence).
+- Follow-up: add digest churn coverage + offline drift recommendation tasks.

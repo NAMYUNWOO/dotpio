@@ -795,3 +795,11 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/World): Drift-aware ambient ramp recommendation policy from weekly prompt pressure trends.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/World Team: Add compact ambient-ramp alias token (`AR:<C|T>`) behind `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_COMPACT`.
+
+## Next Up (Post-RC portal readability wave)
+- [x] UX/World Team: Add portal ambient-ramp confidence readability token (`AMBIENT RAMP CONF:HIGH|MID|LOW`, compact `ARC:<H|M|L>`) behind `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_CONF` + `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_CONF_COMPACT`. *(lifecycle: [~] -> [x])*
+  - [x] Add ambient-ramp confidence resolver with deterministic thresholds (CALM->HIGH, RISK/TENSE->MID, SPIKE/TENSE->LOW)
+  - [x] Surface full prompt token `AMBIENT RAMP CONF:*` and compact alias `ARC:*`
+  - [x] Add regression coverage script `scripts/regression_portal_ambient_ramp_confidence.lua`
+- [ ] Systems/QA Team: Add weekly digest token-family churn coverage for `AMBIENT RAMP CONF:` + `ARC:` and lock with regression.
+- [ ] AI Content/World Team: Prototype drift-aware ambient confidence recommendation policy (offline recommendation only).

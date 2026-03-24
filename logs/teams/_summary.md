@@ -2545,3 +2545,5 @@ Compact decision memory for AI context efficiency.
   - `AR:<C|T>` behind `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_COMPACT`.
 - Verification: `luac -p src/portal.lua`; `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP=1 lua scripts/regression_portal_ambient_ramp.lua`; `DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP=1 DOTPIO_EXPERIMENT_PORTAL_AMBIENT_RAMP_COMPACT=1 lua scripts/regression_portal_ambient_ramp_compact.lua` (all PASS).
 - Injected backlog updates in `TASKS.md` + `POST_RC_BACKLOG.md` under Cycle CR with selected experiment recorded and completed.
+
+- 2026-03-24 23:04 KST (Cycle CS): Added portal ambient-ramp confidence readability slice (`AMBIENT RAMP CONF:*`, compact `ARC:*`) behind new experiment flags; regression coverage added via `scripts/regression_portal_ambient_ramp_confidence.lua`; next injections queued for digest churn coverage and offline drift recommendation policy.
