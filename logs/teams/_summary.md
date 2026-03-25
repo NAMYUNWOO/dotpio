@@ -2793,3 +2793,9 @@ Compact decision memory for AI context efficiency.
 - Executed Game Director review cycle after backlog clear: 3 ideas generated, low-risk experiment selected and shipped.
 - Shipped: adaptive hysteresis floor/ceiling learning + digest token `LPR HYS WINDOW:TIGHT|BASE|WIDE` with regression lock.
 - Injected next tasks: `LPR HYS WINDOW Δ` compact drift token (UX/Systems) and volatility-regime memory prototype (AI Content/Systems).
+
+## 2026-03-25 15:41 KST — Cycle DM forced-lane combat/vfx slice
+- Coverage check (last 10 completions) showed systems skew (`systems=8/10`) with combat/vfx at 0, breaching 40% cap and forcing an underrepresented lane pick.
+- Shipped minimal combat/vfx vertical slice: HUD debug token `DMGNUM LIFE TREND FX PULSE:COAST|RUSH|BURST` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG` in `src/hud.lua`.
+- Added regression guardrail `scripts/regression_combat_damage_number_life_trend_fx_pulse_token.lua`; baseline trend-FX regression rerun remains passing.
+- Injected next backlog tasks for cadence continuity: Design/World `ARW ARC PULSE:SOFT|LIVE|HOT` and Systems/Ops `LANE CADENCE RECENCY:<ok|warn>`.

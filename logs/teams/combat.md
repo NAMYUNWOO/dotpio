@@ -1601,3 +1601,11 @@
 
 ## 2026-03-25 15:34 KST — Cycle DL combat status
 - Combat/vfx runtime untouched in this cycle; maintained existing debug/readability contracts.
+
+## 2026-03-25 15:41 KST — Cycle DM combat/vfx rebalance slice
+- Coverage check over latest 10 completions showed systems-lane dominance (`8/10`) and zero recent combat/vfx completions, so forced-lane policy routed this cycle to combat/vfx.
+- Shipped new HUD debug token `DMGNUM LIFE TREND FX PULSE:COAST|RUSH|BURST` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG`.
+- Pulse mapping is deterministic from absolute confidence-delta magnitude (`0->COAST`, `1->RUSH`, `>=2->BURST`), preserving existing trend/fx contracts.
+- Verification PASS:
+  - `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_DEBUG=1 lua scripts/regression_combat_damage_number_life_trend_fx_token.lua`
+  - `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG=1 lua scripts/regression_combat_damage_number_life_trend_fx_pulse_token.lua`

@@ -179,3 +179,8 @@
 
 ## 2026-03-25 15:34 KST — Cycle DL vfx status
 - No VFX behavior/token updates; offline digest-only experiment.
+
+## 2026-03-25 15:41 KST — Cycle DM VFX pulse readability token
+- Added additive debug-only VFX pacing token `DMGNUM LIFE TREND FX PULSE:COAST|RUSH|BURST` (`DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG`).
+- Token complements existing `DMGNUM LIFE TREND FX` by exposing pulse intensity band for fade pacing inspection without changing runtime combat logic.
+- Regression coverage added in `scripts/regression_combat_damage_number_life_trend_fx_pulse_token.lua` and passing.

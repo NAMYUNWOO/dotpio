@@ -787,3 +787,15 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Systems/QA Team: Add digest triage token (`LPR HYS WINDOW:TIGHT|BASE|WIDE`) from adaptive floor/ceiling span + regression lock.
 - [ ] UX/Systems Team: Prototype compact adaptive-window drift token (`LPR HYS WINDOW Δ:+n|-n`) for multi-window stability scanability.
 - [ ] AI Content/Systems Team: Prototype offline volatility-regime memory (`CALM|SWING|SPIKE`) for adaptive floor/ceiling step-size tuning.
+
+## Cycle DM - Game Director Review (2026-03-25 15:41 KST, forced-lane rebalance)
+- Coverage check (last 10 completions by lane): systems=8, ai-content=3, ux=2, world=2, combat=0, vfx=0, design=0, qa=0.
+- Lane cap breach: systems (80%) > 40%, so this cycle forced underrepresented lane selection.
+- 24h cadence guardrail status: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low risk, Combat/VFX): Add debug token `DMGNUM LIFE TREND FX PULSE:COAST|RUSH|BURST` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG`.
+- Idea 2 (mid risk, Design/World): Add compact ambient momentum pulse alias (`ARW ARC PULSE:SOFT|LIVE|HOT`) behind flag in digest summary.
+- Idea 3 (high risk, Systems/Ops): Add digest row `LANE CADENCE RECENCY:<ok|warn>` from bucket-age + delta drift.
+- Selected experiment: Idea 1 (minimal vertical slice, combat/vfx lane rebalancing).
+- [x] Combat/VFX Team: Add debug token `DMGNUM LIFE TREND FX PULSE:COAST|RUSH|BURST` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG` with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
+- [ ] Design/World Team: Prototype compact ambient momentum pulse alias (`ARW ARC PULSE:SOFT|LIVE|HOT`) behind flag in digest summary.
+- [ ] Systems/Ops Team: Prototype digest row `LANE CADENCE RECENCY:<ok|warn>` from bucket-age + delta drift.

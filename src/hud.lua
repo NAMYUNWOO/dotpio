@@ -325,6 +325,13 @@ local function isDamageNumberLifeTrendFxDebugExperimentEnabled()
     return v == "1" or v == "true" or v == "yes" or v == "on"
 end
 
+local function isDamageNumberLifeTrendFxPulseDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
 local function isDamageNumberLifeTrendColorDebugExperimentEnabled()
     local v = os.getenv("DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_COLOR_DEBUG")
     if not v then return false end
@@ -509,6 +516,26 @@ function HUD.resolveDamageNumberLifeTrendFxToken()
     return string.format("DMGNUM LIFE TREND FX:%s", fx)
 end
 
+function HUD.resolveDamageNumberLifeTrendFxPulseToken()
+    if not isDamageNumberLifeTrendFxPulseDebugExperimentEnabled() then
+        return nil
+    end
+
+    local trendToken = HUD.resolveDamageNumberLifeTrendToken()
+    if not trendToken then
+        return nil
+    end
+
+    local delta = math.abs(tonumber(HUD._lastDamageNumberLifeConfidenceDeltaValue) or 0)
+    local pulse = "COAST"
+    if delta >= 2 then
+        pulse = "BURST"
+    elseif delta >= 1 then
+        pulse = "RUSH"
+    end
+    return string.format("DMGNUM LIFE TREND FX PULSE:%s", pulse)
+end
+
 function HUD.resolveDamageNumberLifeTrendColor(token)
     if not isDamageNumberLifeTrendColorDebugExperimentEnabled() then
         return 0.82, 0.94, 1.0, 0.9
@@ -656,6 +683,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if damageNumberLifeTrendFxToken then
         love.graphics.setColor(1.0, 0.78, 0.58, 0.92)
         love.graphics.print(damageNumberLifeTrendFxToken, 1420, 708)
+    end
+
+    local damageNumberLifeTrendFxPulseToken = HUD.resolveDamageNumberLifeTrendFxPulseToken()
+    if damageNumberLifeTrendFxPulseToken then
+        love.graphics.setColor(0.98, 0.72, 0.92, 0.9)
+        love.graphics.print(damageNumberLifeTrendFxPulseToken, 1420, 726)
     end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)
