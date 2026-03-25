@@ -292,6 +292,9 @@ def main() -> int:
         }, payload
         assert isinstance(payload.get("laneLock"), str), payload
         assert set(payload.get("laneLockSignals", {}).keys()) == {"threshold", "armed", "lane", "streak"}, payload
+        assert isinstance(payload.get("laneBucketAge"), str), payload
+        assert payload.get("laneBucketAgeStatus") in {"OK", "GAP"}, payload
+        assert isinstance(payload.get("laneBucketAgeHours"), dict), payload
         assert payload.get("routeSandbox") in {"ON", "OFF"}, payload
         assert set(payload.get("routeSandboxSignals", {}).keys()) == {
             "flagName",
@@ -1619,6 +1622,7 @@ def main() -> int:
         assert "DMG GLYPH FAMILY CHURN" in md_text
         assert "DMG GLYPH FX LIVE FAMILY CHURN" in md_text
         assert "LANE CADENCE SUMMARY" in md_text
+        assert "LANE BUCKET AGE:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text
         assert "ROUTE GLOW FX CONF + RGFXC:" in md_text

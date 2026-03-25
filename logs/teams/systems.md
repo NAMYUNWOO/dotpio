@@ -2447,3 +2447,9 @@
 ## 2026-03-25 10:36 KST — Digest schema update (ambient momentum arc)
 - Extended weekly digest payload with `ambientRampWhyAutoRemapMomentumArc` + signals and flag metadata.
 - Added token catalog/family registration for `ARW MOMENTUM ARC:` so churn tracking remains auditable.
+
+## 2026-03-25 11:06 KST — Cycle DG Systems/Ops: lane bucket freshness watchdog
+- Shipped digest watchdog token `LANE BUCKET AGE:<hours>` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Added bucket-age computation over touched commits for 24h cadence buckets: `systems/ops`, `design/world`, `combat/vfx`.
+- Exposed JSON payload fields: `laneBucketAge`, `laneBucketAgeStatus`, `laneBucketAgeHours`, `laneBucketAgeWindowHours`, `laneBucketAgeMaxHours`.
+- Follow-up: If bucket age repeatedly exceeds 24h in live snapshots, prioritize corresponding lane in next Game Director cycle.

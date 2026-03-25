@@ -2718,3 +2718,8 @@ Compact decision memory for AI context efficiency.
 - Weekly digest output updated across JSON payload, summary lines, and token-family churn sections (`ARW MOMENTUM ARC FAMILY CHURN`).
 - Regression locked via `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Remaining top unchecked backlog item: Systems/Ops `LANE BUCKET AGE:<hours>` watchdog row.
+
+## 2026-03-25 11:06 KST — Added 24h lane bucket freshness watchdog
+- Closed remaining unchecked Cycle DG Systems/Ops item by adding digest row `LANE BUCKET AGE:<hours>` for cadence auditability.
+- Weekly digest now reports per-bucket freshness ages (`systems/ops`, `design/world`, `combat/vfx`) and `OK|GAP` status against a 24h window.
+- Regression contract updated + passing, and TASKS/POST_RC item marked complete.

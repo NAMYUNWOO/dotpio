@@ -2980,3 +2980,11 @@
 ## 2026-03-25 10:36 KST — Regression lock for ARW momentum arc
 - Updated `scripts/regression_weekly_portal_prompt_readability_drift.py` assertions for `ARW MOMENTUM ARC` and its family churn row.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-25 11:06 KST — Regression lock for lane bucket age watchdog
+- Extended `scripts/regression_weekly_portal_prompt_readability_drift.py`:
+  - asserts new JSON keys for lane bucket age payload
+  - asserts markdown includes `LANE BUCKET AGE:` row
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py` ✅

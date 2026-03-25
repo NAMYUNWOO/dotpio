@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-24T22:03:35.853728Z",
+  "generatedAt": "2026-03-25T02:05:33.734142Z",
   "window": {
     "sinceDays": 7,
     "maxCommits": 120,
@@ -9,6 +9,16 @@
   "recommendation": {
     "ambientRampWhyRecommendation": "HOLD_SAFE_WHY",
     "ambientRampWhyRecommendationConfidence": "MID",
+    "ambientRampWhyRecommendationConfidenceStreak": 2,
+    "ambientRampWhyRecommendationConfidenceStreakSignals": {
+      "currentConfidence": "MID",
+      "priorConfidence": "MID",
+      "priorStreak": 0,
+      "priorLoaded": true,
+      "threshold": 3,
+      "suppress": false,
+      "reason": "confidence-streak-extended"
+    },
     "ambientRampWhyRecommendationParity": "LOCK"
   },
   "selectedPlan": "HOLD_SAFE_BASELINE",
@@ -26,7 +36,9 @@
     "rationale": "safety-lock-from-confidence-or-parity",
     "nextAction": "Generate sandbox table + review notes; keep runtime contract unchanged.",
     "rerankPolicy": "drift-aware-offline-candidate-priority",
-    "candidateCount": 3
+    "candidateCount": 3,
+    "confidenceStreak": 2,
+    "candidateSuppressed": false
   },
   "candidates": [
     {

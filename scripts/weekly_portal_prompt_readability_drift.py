@@ -216,6 +216,104 @@ def token_family_coverage(token_totals: dict[str, dict[str, int]]) -> dict[str, 
     return families
 
 
+def lane_bucket_age_hours(rows: list[dict[str, object]], *, now_utc: datetime) -> dict[str, object]:
+    """Return 24h freshness ages for lane cadence buckets from touched commits.
+
+    Buckets follow Team Operating Protocol cadence: combat/vfx, design/world, systems/ops.
+    """
+    bucket_alias_families = {
+        "combat/vfx": [
+            "pulseHeatFxAlias",
+            "dmgnumStackCapAlias",
+            "dmgnumLifeAlias",
+            "dmgnumLifeConfidenceAlias",
+            "dmgnumLifeConfidenceDeltaAlias",
+            "dmgnumLifeTrendAlias",
+            "dmgGlyphAlias",
+            "dmgGlyphFxLiveAlias",
+            "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias",
+        ],
+        "design/world": [
+            "vibeTrailWhyAlias",
+            "vibeTrailWhyConfidenceAlias",
+            "vibeTrailWhyConfidenceWhyAlias",
+            "vibeTrailWhyConfidenceWhyConfidenceAlias",
+            "vibeTrailArcAlias",
+            "ambientRampConfidenceAlias",
+            "ambientRampWhyAlias",
+            "routeGlowAlias",
+            "routeGlowFxAlias",
+            "routeGlowConfidenceAlias",
+            "routeGlowFxConfidenceAlias",
+            "routeGlowFxConfidenceWhyAlias",
+            "routeGlowFxConfidenceWhyRailAlias",
+            "routeGlowFxConfidenceWhyRailMode",
+            "routeGlowFxConfidenceWhyRailIntensity",
+            "routeGlowFxConfidenceWhyRailIntensityWhy",
+            "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias",
+            "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyAlias",
+            "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAlias",
+            "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyDetailed",
+            "urgencyStackTierAlias",
+            "urgencyStackRailAlias",
+        ],
+        "systems/ops": [
+            "ambientRampWhyAutoRemapPlanAlias",
+            "ambientRampWhyAutoRemapConfidenceBandAlias",
+            "ambientRampWhyAutoRemapConfidenceMomentumAlias",
+            "ambientRampWhyAutoRemapConfidenceMomentumCompactAlias",
+            "ambientRampWhyAutoRemapMomentumArcAlias",
+        ],
+    }
+
+    freshest: dict[str, datetime | None] = {bucket: None for bucket in bucket_alias_families}
+    for row in rows:
+        if not row.get("touchedPortalPrompt"):
+            continue
+        committed_at = str(row.get("committedAt", "")).strip()
+        if not committed_at:
+            continue
+        try:
+            committed_dt = datetime.fromisoformat(committed_at.replace("Z", "+00:00")).astimezone(timezone.utc)
+        except ValueError:
+            continue
+        token_edits = row.get("tokenEdits")
+        if not isinstance(token_edits, dict):
+            continue
+        added = token_edits.get("added", {})
+        removed = token_edits.get("removed", {})
+        if not isinstance(added, dict) or not isinstance(removed, dict):
+            continue
+
+        for bucket, families in bucket_alias_families.items():
+            touched_bucket = False
+            for family in families:
+                aliases = TOKEN_ALIAS_FAMILIES.get(family, [])
+                if any(int(added.get(alias, 0)) > 0 or int(removed.get(alias, 0)) > 0 for alias in aliases):
+                    touched_bucket = True
+                    break
+            if touched_bucket and (freshest[bucket] is None or committed_dt > freshest[bucket]):
+                freshest[bucket] = committed_dt
+
+    age_hours: dict[str, int] = {}
+    for bucket, latest in freshest.items():
+        if latest is None:
+            age_hours[bucket] = 999
+            continue
+        delta = now_utc - latest
+        age_hours[bucket] = max(0, int(delta.total_seconds() // 3600))
+
+    cadence_ok = all(age_hours[bucket] <= 24 for bucket in bucket_alias_families)
+    compact = f"SYSTEMS/OPS {age_hours['systems/ops']}H | DESIGN/WORLD {age_hours['design/world']}H | COMBAT/VFX {age_hours['combat/vfx']}H"
+    return {
+        "token": f"LANE BUCKET AGE:{compact}",
+        "status": "OK" if cadence_ok else "GAP",
+        "ageHours": age_hours,
+        "maxAgeHours": max(age_hours.values()) if age_hours else 999,
+        "windowHours": 24,
+    }
+
+
 def pulse_heat_fx_compact_budget_drift(
     *,
     pulse_heat_fx_family: dict[str, object],
@@ -6073,12 +6171,14 @@ def damage_glyph_fx_remap_confidence_from_signals(
 def main() -> int:
     args = parse_args()
     root = args.repo_root.resolve()
-    now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    now_dt = datetime.now(timezone.utc)
+    now = now_dt.isoformat().replace("+00:00", "Z")
 
     revs = git(root, "rev-list", f"--since={args.since_days}.days", f"--max-count={args.max_commits}", "HEAD")
     commits = [c for c in revs.splitlines() if c.strip()]
     rows = [commit_stats(root, c) for c in commits]
     touched = [r for r in rows if r["touchedPortalPrompt"]]
+    lane_bucket_age = lane_bucket_age_hours(rows, now_utc=now_dt)
 
     totals = {
         "added": {k: sum(r["added"][k] for r in touched) for k in TOKEN_GROUPS},
@@ -7018,6 +7118,11 @@ def main() -> int:
         "dmgGlyphFxRemapRecommendationSignals": dmg_glyph_fx_remap_recommendation_signals,
         "dmgGlyphFxRemapConfidence": dmg_glyph_fx_remap_confidence,
         "dmgGlyphFxRemapConfidenceSignals": dmg_glyph_fx_remap_confidence_signals,
+        "laneBucketAge": lane_bucket_age["token"],
+        "laneBucketAgeStatus": lane_bucket_age["status"],
+        "laneBucketAgeHours": lane_bucket_age["ageHours"],
+        "laneBucketAgeWindowHours": lane_bucket_age["windowHours"],
+        "laneBucketAgeMaxHours": lane_bucket_age["maxAgeHours"],
         "laneFocus": lane_focus,
         "laneFocusScores": lane_focus_scores,
         "focusStreak": focus_streak,
@@ -7482,6 +7587,7 @@ def main() -> int:
         f"- DMG GLYPH FAMILY CHURN: **net {token_family_totals['dmgGlyphAlias']['net']:+d}** (added={token_family_totals['dmgGlyphAlias']['added']} removed={token_family_totals['dmgGlyphAlias']['removed']} churn={token_family_totals['dmgGlyphAlias']['churn']} coverage={token_family_totals['dmgGlyphAlias']['coverage']})",
         f"- DMG GLYPH FX LIVE FAMILY CHURN: **net {token_family_totals['dmgGlyphFxLiveAlias']['net']:+d}** (added={token_family_totals['dmgGlyphFxLiveAlias']['added']} removed={token_family_totals['dmgGlyphFxLiveAlias']['removed']} churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']})",
         f"- LANE CADENCE SUMMARY: **SYSTEMS/OPS {'OK' if (token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphFxLiveAlias']['aliasesTouchedCount'] > 0) else 'GAP'}** (RGFXWRIUFX coverage={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['coverage']} churn={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['churn']} | DMG GLYPH coverage={token_family_totals['dmgGlyphAlias']['coverage']} churn={token_family_totals['dmgGlyphAlias']['churn']} | DMG GLYPH FX LIVE coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']} churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']})",
+        f"- LANE BUCKET AGE: **{lane_bucket_age['token'].split(':', 1)[1]}** (status={lane_bucket_age['status']} window={lane_bucket_age['windowHours']}h)",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: **{pulse_heat_fx_compact_budget_drift_level}** ({pulse_heat_fx_compact_budget_drift_signals['reason']}; compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d} churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **{route_glow_fx_compact_budget_drift_level}** ({route_glow_fx_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **{route_glow_fx_conf_why_rail_mode_compact_budget_drift_level}** ({route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",
@@ -7552,6 +7658,7 @@ def main() -> int:
         f"- DMG GLYPH: +{token_family_totals['dmgGlyphAlias']['added']} / -{token_family_totals['dmgGlyphAlias']['removed']} / net {token_family_totals['dmgGlyphAlias']['net']} (churn={token_family_totals['dmgGlyphAlias']['churn']} coverage={token_family_totals['dmgGlyphAlias']['coverage']})",
         f"- DMG GLYPH FX LIVE: +{token_family_totals['dmgGlyphFxLiveAlias']['added']} / -{token_family_totals['dmgGlyphFxLiveAlias']['removed']} / net {token_family_totals['dmgGlyphFxLiveAlias']['net']} (churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']})",
         f"- LANE CADENCE SUMMARY: SYSTEMS/OPS {'OK' if (token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphFxLiveAlias']['aliasesTouchedCount'] > 0) else 'GAP'} (RGFXWRIUFX coverage={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['coverage']}, churn={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['churn']} | DMG GLYPH coverage={token_family_totals['dmgGlyphAlias']['coverage']}, churn={token_family_totals['dmgGlyphAlias']['churn']} | DMG GLYPH FX LIVE coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']}, churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']})",
+        f"- LANE BUCKET AGE: {lane_bucket_age['token'].split(':', 1)[1]} (status={lane_bucket_age['status']}, window={lane_bucket_age['windowHours']}h)",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: {pulse_heat_fx_compact_budget_drift_level} (compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d}, churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: {route_glow_fx_compact_budget_drift_level} (compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: {route_glow_fx_conf_why_rail_mode_compact_budget_drift_level} (compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",
