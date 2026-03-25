@@ -374,8 +374,21 @@ def main() -> int:
             "adaptiveFloor",
             "adaptiveCeiling",
             "priorAdaptiveWindowLoaded",
+            "volatilityRegime",
+            "priorVolatilityRegime",
+            "volatilityRegimeMemory",
+            "volatilityRegimeReason",
+            "stepSizes",
             "learningReason",
             "reason",
+        }, payload
+        assert payload.get("lanePriorityVolatilityRegimeMemory") in {"LPR VOL REGIME:CALM", "LPR VOL REGIME:SWING", "LPR VOL REGIME:SPIKE"}, payload
+        assert set(payload.get("lanePriorityVolatilityRegimeMemorySignals", {}).keys()) == {
+            "currentRegime",
+            "priorRegime",
+            "memoryRegime",
+            "reason",
+            "stepSizes",
         }, payload
         assert payload.get("lanePriorityHysteresisThresholdCompactAlias") in {"OFF", "LPR HYS THR:L", "LPR HYS THR:H", "LPR HYS THR:R"}, payload
         assert set(payload.get("lanePriorityHysteresisThresholdCompactAliasSignals", {}).keys()) == {
@@ -391,6 +404,16 @@ def main() -> int:
             "span",
             "band",
             "reason",
+        }, payload
+        assert payload.get("lanePriorityHysteresisWindowDelta") in {"LPR HYS WINDOW Δ:-2", "LPR HYS WINDOW Δ:-1", "LPR HYS WINDOW Δ:+0", "LPR HYS WINDOW Δ:+1", "LPR HYS WINDOW Δ:+2"}, payload
+        assert payload.get("lanePriorityHysteresisWindowDeltaValue") in {-2, -1, 0, 1, 2}, payload
+        assert set(payload.get("lanePriorityHysteresisWindowDeltaSignals", {}).keys()) == {
+            "currentBand",
+            "priorBand",
+            "currentScore",
+            "priorScore",
+            "delta",
+            "priorLoaded",
         }, payload
         assert payload.get("routeSandbox") in {"ON", "OFF"}, payload
         assert set(payload.get("routeSandboxSignals", {}).keys()) == {
@@ -954,6 +977,7 @@ def main() -> int:
         assert "DMG GLYPH:" in payload["tokenTotals"]["net"], payload
         assert "DMG GLYPH FX LIVE:" in payload["tokenTotals"]["net"], payload
         assert "LPR HYS THR:" in payload["tokenTotals"]["net"], payload
+        assert "LPR HYS WINDOW Δ:" in payload["tokenTotals"]["net"], payload
         assert "tokenFamilyTotals" in payload, payload
         assert "vibeTrailWhyAlias" in payload["tokenFamilyTotals"], payload
         assert "vibeTrailWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
@@ -982,6 +1006,7 @@ def main() -> int:
         assert "dmgnumLifeConfidenceDeltaAlias" in payload["tokenFamilyTotals"], payload
         assert "dmgGlyphFxLiveAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisThresholdAlias" in payload["tokenFamilyTotals"], payload
+        assert "lanePriorityHysteresisWindowDeltaAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
@@ -1213,6 +1238,16 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["lanePriorityHysteresisThresholdAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["lanePriorityHysteresisWindowDeltaAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1731,6 +1766,7 @@ def main() -> int:
         assert "DMG GLYPH FAMILY CHURN" in md_text
         assert "DMG GLYPH FX LIVE FAMILY CHURN" in md_text
         assert "LPR HYS THR FAMILY CHURN" in md_text
+        assert "LPR HYS WINDOW Δ FAMILY CHURN" in md_text
         assert "LANE CADENCE SUMMARY" in md_text
         assert "LBA:" in md_text
         assert "LANE BUCKET AGE:" in md_text
@@ -1740,8 +1776,10 @@ def main() -> int:
         assert "LPR HYS:" in md_text
         assert "LPR HYS RAIL:" in md_text
         assert "LPR HYS THRESH REC:" in md_text
+        assert "LPR VOL REGIME:" in md_text
         assert "LPR HYS THR:" in md_text
         assert "LPR HYS WINDOW:" in md_text
+        assert "LPR HYS WINDOW Δ:" in md_text
         assert "LANE PRIORITY REC CONF:" in md_text
         assert "LANE PRIORITY REC HYSTERESIS:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
@@ -1767,7 +1805,9 @@ def main() -> int:
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
         assert "LPR HYS THR:" in md_text
+        assert "LPR VOL REGIME:" in md_text
         assert "LPR HYS WINDOW:" in md_text
+        assert "LPR HYS WINDOW Δ:" in md_text
         assert "LANE CADENCE SUMMARY: SYSTEMS/OPS" in md_text
         assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX COMPACT-BUDGET DRIFT" in md_text

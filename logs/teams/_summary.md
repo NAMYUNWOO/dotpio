@@ -2799,3 +2799,14 @@ Compact decision memory for AI context efficiency.
 - Shipped minimal combat/vfx vertical slice: HUD debug token `DMGNUM LIFE TREND FX PULSE:COAST|RUSH|BURST` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG` in `src/hud.lua`.
 - Added regression guardrail `scripts/regression_combat_damage_number_life_trend_fx_pulse_token.lua`; baseline trend-FX regression rerun remains passing.
 - Injected next backlog tasks for cadence continuity: Design/World `ARW ARC PULSE:SOFT|LIVE|HOT` and Systems/Ops `LANE CADENCE RECENCY:<ok|warn>`.
+
+## 2026-03-25 16:01 KST — Cycle DL follow-up shipped: LPR HYS WINDOW Δ
+- Closed highest-priority unchecked TASKS/POST_RC item by shipping compact drift token `LPR HYS WINDOW Δ:+n|-n` derived from prior/current adaptive hysteresis window bands (`TIGHT|BASE|WIDE`).
+- Added digest payload + markdown reporting + token-family churn coverage (`lanePriorityHysteresisWindowDeltaAlias`) and locked with regression updates.
+- Verification PASS: py_compile + weekly portal drift regression suite.
+- Remaining unchecked queue: AI Content/Systems volatility-regime memory, Design/World `ARW ARC PULSE`, Systems/Ops `LANE CADENCE RECENCY`.
+
+- Cycle DL follow-up closed: shipped offline volatility-regime memory (`LPR VOL REGIME:CALM|SWING|SPIKE`) to tune adaptive hysteresis floor/ceiling step sizes with prior-window damping for hard calm/spike flips.
+- Weekly digest payload now includes `lanePriorityVolatilityRegimeMemory` + signal bundle (`currentRegime`, `priorRegime`, `memoryRegime`, `stepSizes`) and markdown `LPR VOL REGIME` rows.
+- Regression contract updated and passing via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Next highest-priority unchecked queue item is Design/World compact ambient momentum pulse alias (`ARW ARC PULSE:SOFT|LIVE|HOT`).

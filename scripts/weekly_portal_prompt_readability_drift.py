@@ -32,8 +32,8 @@ PORTAL_PATH_HINTS = (
 )
 
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "LPR HYS THR:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "LPR HYS THR:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 
@@ -46,7 +46,7 @@ for _tokens in TOKEN_GROUPS.values():
 PRESSURE_TOKENS = ["PRESSURE:", "P:"]
 
 TOKEN_FAMILIES = {
-    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "LPR HYS THR:"],
+    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
     "alt": ["ALT:", "ALT ROUTE:", "ALT DELTA:", "ADEL:", "ALT PLAN:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:"],
     "pressure": ["PRESSURE:", "P:"],
 }
@@ -89,6 +89,7 @@ TOKEN_ALIAS_FAMILIES = {
     "dmgGlyphAlias": ["DMG GLYPH:"],
     "dmgGlyphFxLiveAlias": ["DMG GLYPH FX LIVE:"],
     "lanePriorityHysteresisThresholdAlias": ["LPR HYS THR:"],
+    "lanePriorityHysteresisWindowDeltaAlias": ["LPR HYS WINDOW Δ:"],
 }
 
 ROUTE_VIBE_PATTERNS = {
@@ -444,6 +445,7 @@ def resolve_lane_priority_hysteresis_threshold_tuning(
     prior_floor = 8
     prior_ceiling = 18
     prior_loaded = False
+    prior_regime = "SWING"
     try:
         if prior_json_path.exists():
             prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
@@ -452,6 +454,10 @@ def resolve_lane_priority_hysteresis_threshold_tuning(
                 prior_floor = int(prior_tuning.get("adaptiveFloor", prior_floor) or prior_floor)
                 prior_ceiling = int(prior_tuning.get("adaptiveCeiling", prior_ceiling) or prior_ceiling)
                 prior_loaded = True
+
+            prior_regime_token = str(prior_payload.get("lanePriorityVolatilityRegimeMemory", "") or "")
+            if ":" in prior_regime_token:
+                prior_regime = prior_regime_token.split(":", 1)[1].strip().upper() or "SWING"
     except (json.JSONDecodeError, OSError, TypeError, ValueError):
         prior_loaded = False
 
@@ -463,13 +469,34 @@ def resolve_lane_priority_hysteresis_threshold_tuning(
     low_volatility = max_abs_momentum <= 4 and volatility_span <= 6 and age_spread <= 12
 
     if high_volatility:
-        floor = min(floor + 1, 14)
-        ceiling = min(max(ceiling + 2, floor + 4), 24)
-        learning_reason = "high volatility widened window upward to reduce flap risk"
+        current_regime = "SPIKE"
     elif low_volatility:
-        floor = max(floor - 1, 6)
-        ceiling = max(min(ceiling - 1, 24), floor + 4)
-        learning_reason = "low volatility tightened window downward for faster adaptation"
+        current_regime = "CALM"
+    else:
+        current_regime = "SWING"
+
+    if (prior_regime == "CALM" and current_regime == "SPIKE") or (prior_regime == "SPIKE" and current_regime == "CALM"):
+        regime_memory = "SWING"
+        regime_reason = "hard regime flip damped through swing memory"
+    else:
+        regime_memory = current_regime
+        regime_reason = "regime memory follows current volatility"
+
+    step_sizes = {
+        "CALM": {"raise_floor": 1, "raise_ceiling": 1, "lower_floor": 2, "lower_ceiling": 2},
+        "SWING": {"raise_floor": 1, "raise_ceiling": 2, "lower_floor": 1, "lower_ceiling": 1},
+        "SPIKE": {"raise_floor": 2, "raise_ceiling": 3, "lower_floor": 0, "lower_ceiling": 0},
+    }
+    steps = step_sizes.get(regime_memory, step_sizes["SWING"])
+
+    if high_volatility:
+        floor = min(floor + steps["raise_floor"], 14)
+        ceiling = min(max(ceiling + steps["raise_ceiling"], floor + 4), 24)
+        learning_reason = "high volatility widened window using regime step-size memory"
+    elif low_volatility:
+        floor = max(floor - steps["lower_floor"], 6)
+        ceiling = max(min(ceiling - steps["lower_ceiling"], 24), floor + 4)
+        learning_reason = "low volatility tightened window using regime step-size memory"
 
     tuned_threshold = max(floor, min(ceiling, base_threshold))
     mode = "HOLD"
@@ -495,6 +522,16 @@ def resolve_lane_priority_hysteresis_threshold_tuning(
         "adaptiveFloor": floor,
         "adaptiveCeiling": ceiling,
         "priorAdaptiveWindowLoaded": prior_loaded,
+        "volatilityRegime": current_regime,
+        "priorVolatilityRegime": prior_regime,
+        "volatilityRegimeMemory": regime_memory,
+        "volatilityRegimeReason": regime_reason,
+        "stepSizes": {
+            "raiseFloor": steps["raise_floor"],
+            "raiseCeiling": steps["raise_ceiling"],
+            "lowerFloor": steps["lower_floor"],
+            "lowerCeiling": steps["lower_ceiling"],
+        },
         "learningReason": learning_reason,
         "reason": reason,
     }
@@ -544,6 +581,40 @@ def resolve_lane_priority_hysteresis_window_band(*, tuning_signals: dict[str, ob
         "band": band,
         "reason": reason,
     }
+
+
+def resolve_lane_priority_hysteresis_window_delta(*, current_band: str, prior_json_path: Path) -> tuple[str, int, dict[str, object]]:
+    """Compare adaptive-window band against prior digest for compact stability drift triage."""
+    band_score = {"TIGHT": -1, "BASE": 0, "WIDE": 1}
+    current_band_upper = str(current_band or "BASE").upper()
+    current_score = band_score.get(current_band_upper, 0)
+
+    prior_loaded = False
+    prior_band = current_band_upper
+    prior_score = current_score
+    if prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_token = str(prior_payload.get("lanePriorityHysteresisWindowBand", "") or "")
+            prior_band = prior_token.split(":", 1)[1].strip().upper() if ":" in prior_token else current_band_upper
+            prior_score = band_score.get(prior_band, current_score)
+            prior_loaded = True
+        except (json.JSONDecodeError, OSError, TypeError, ValueError):
+            prior_loaded = False
+            prior_band = current_band_upper
+            prior_score = current_score
+
+    delta = current_score - prior_score
+    token = f"LPR HYS WINDOW Δ:{delta:+d}"
+    signals = {
+        "currentBand": current_band_upper,
+        "priorBand": prior_band,
+        "currentScore": current_score,
+        "priorScore": prior_score,
+        "delta": delta,
+        "priorLoaded": prior_loaded,
+    }
+    return token, delta, signals
 
 
 def lane_priority_recommendation_from_bucket_age_momentum(
@@ -6594,6 +6665,10 @@ def main() -> int:
     lane_priority_hysteresis_window_band, lane_priority_hysteresis_window_band_signals = resolve_lane_priority_hysteresis_window_band(
         tuning_signals=lane_priority_hysteresis_threshold_tuning_signals,
     )
+    lane_priority_hysteresis_window_delta_token, lane_priority_hysteresis_window_delta, lane_priority_hysteresis_window_delta_signals = resolve_lane_priority_hysteresis_window_delta(
+        current_band=str(lane_priority_hysteresis_window_band_signals.get("band", "BASE")),
+        prior_json_path=args.out_json,
+    )
 
     totals = {
         "added": {k: sum(r["added"][k] for r in touched) for k in TOKEN_GROUPS},
@@ -7554,10 +7629,21 @@ def main() -> int:
         "lanePriorityHysteresisRailSignals": lane_priority_hysteresis_rail_signals,
         "lanePriorityHysteresisThresholdTuning": lane_priority_hysteresis_threshold_tuning,
         "lanePriorityHysteresisThresholdTuningSignals": lane_priority_hysteresis_threshold_tuning_signals,
+        "lanePriorityVolatilityRegimeMemory": f"LPR VOL REGIME:{lane_priority_hysteresis_threshold_tuning_signals['volatilityRegimeMemory']}",
+        "lanePriorityVolatilityRegimeMemorySignals": {
+            "currentRegime": lane_priority_hysteresis_threshold_tuning_signals["volatilityRegime"],
+            "priorRegime": lane_priority_hysteresis_threshold_tuning_signals["priorVolatilityRegime"],
+            "memoryRegime": lane_priority_hysteresis_threshold_tuning_signals["volatilityRegimeMemory"],
+            "reason": lane_priority_hysteresis_threshold_tuning_signals["volatilityRegimeReason"],
+            "stepSizes": lane_priority_hysteresis_threshold_tuning_signals["stepSizes"],
+        },
         "lanePriorityHysteresisThresholdCompactAlias": lane_priority_hysteresis_threshold_compact_alias,
         "lanePriorityHysteresisThresholdCompactAliasSignals": lane_priority_hysteresis_threshold_compact_alias_signals,
         "lanePriorityHysteresisWindowBand": lane_priority_hysteresis_window_band,
         "lanePriorityHysteresisWindowBandSignals": lane_priority_hysteresis_window_band_signals,
+        "lanePriorityHysteresisWindowDelta": lane_priority_hysteresis_window_delta_token,
+        "lanePriorityHysteresisWindowDeltaValue": lane_priority_hysteresis_window_delta,
+        "lanePriorityHysteresisWindowDeltaSignals": lane_priority_hysteresis_window_delta_signals,
         "laneFocus": lane_focus,
         "laneFocusScores": lane_focus_scores,
         "focusStreak": focus_streak,
@@ -8022,6 +8108,7 @@ def main() -> int:
         f"- DMG GLYPH FAMILY CHURN: **net {token_family_totals['dmgGlyphAlias']['net']:+d}** (added={token_family_totals['dmgGlyphAlias']['added']} removed={token_family_totals['dmgGlyphAlias']['removed']} churn={token_family_totals['dmgGlyphAlias']['churn']} coverage={token_family_totals['dmgGlyphAlias']['coverage']})",
         f"- DMG GLYPH FX LIVE FAMILY CHURN: **net {token_family_totals['dmgGlyphFxLiveAlias']['net']:+d}** (added={token_family_totals['dmgGlyphFxLiveAlias']['added']} removed={token_family_totals['dmgGlyphFxLiveAlias']['removed']} churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']})",
         f"- LPR HYS THR FAMILY CHURN: **net {token_family_totals['lanePriorityHysteresisThresholdAlias']['net']:+d}** (added={token_family_totals['lanePriorityHysteresisThresholdAlias']['added']} removed={token_family_totals['lanePriorityHysteresisThresholdAlias']['removed']} churn={token_family_totals['lanePriorityHysteresisThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisThresholdAlias']['coverage']})",
+        f"- LPR HYS WINDOW Δ FAMILY CHURN: **net {token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['net']:+d}** (added={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['added']} removed={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['removed']} churn={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['coverage']})",
         f"- LANE CADENCE SUMMARY: **SYSTEMS/OPS {'OK' if (token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphFxLiveAlias']['aliasesTouchedCount'] > 0) else 'GAP'}** (RGFXWRIUFX coverage={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['coverage']} churn={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['churn']} | DMG GLYPH coverage={token_family_totals['dmgGlyphAlias']['coverage']} churn={token_family_totals['dmgGlyphAlias']['churn']} | DMG GLYPH FX LIVE coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']} churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']})",
         f"- LBA: **{lane_bucket_age_compact_alias}** (flag={lane_bucket_age_compact_alias_signals['flagName']} enabled={lane_bucket_age_compact_alias_signals['flagEnabled']} sys={lane_bucket_age_compact_alias_signals['systemsOpsHours']}h dw={lane_bucket_age_compact_alias_signals['designWorldHours']}h cv={lane_bucket_age_compact_alias_signals['combatVfxHours']}h)",
         f"- LANE BUCKET AGE: **{lane_bucket_age['token'].split(':', 1)[1]}** (status={lane_bucket_age['status']} window={lane_bucket_age['windowHours']}h)",
@@ -8033,8 +8120,10 @@ def main() -> int:
         f"- LANE PRIORITY REC CONF: **{lane_priority_recommendation_confidence_level}** (worstAge={lane_priority_recommendation_confidence_signals['worstAgeHours']}h momentumGap={lane_priority_recommendation_confidence_signals['momentumGapHours']}h reason={lane_priority_recommendation_confidence_signals['reason']})",
         f"- LANE PRIORITY REC HYSTERESIS: **{'HOLD' if lane_priority_recommendation_signals['hysteresisApplied'] else 'SHIFT'}** (prior={lane_priority_recommendation_signals['priorRecommendation']} raw={lane_priority_recommendation_signals['rawRecommendation']} gap={lane_priority_recommendation_signals['hysteresisScoreGap']} threshold={lane_priority_recommendation_signals['hysteresisThreshold']} reason={lane_priority_recommendation_signals['hysteresisReason']})",
         f"- LPR HYS THRESH REC: **{lane_priority_hysteresis_threshold_tuning}** (base={lane_priority_hysteresis_threshold_tuning_signals['baseThreshold']} rec={lane_priority_hysteresis_threshold_tuning_signals['recommendedThreshold']} floor={lane_priority_hysteresis_threshold_tuning_signals['adaptiveFloor']} ceil={lane_priority_hysteresis_threshold_tuning_signals['adaptiveCeiling']} priorWindow={lane_priority_hysteresis_threshold_tuning_signals['priorAdaptiveWindowLoaded']} volSpan={lane_priority_hysteresis_threshold_tuning_signals['momentumVolatilitySpanHours']} maxAbsMom={lane_priority_hysteresis_threshold_tuning_signals['maxAbsMomentumHours']} ageSpread={lane_priority_hysteresis_threshold_tuning_signals['ageSpreadHours']} learn={lane_priority_hysteresis_threshold_tuning_signals['learningReason']} reason={lane_priority_hysteresis_threshold_tuning_signals['reason']})",
+        f"- LPR VOL REGIME: **{lane_priority_hysteresis_threshold_tuning_signals['volatilityRegimeMemory']}** (current={lane_priority_hysteresis_threshold_tuning_signals['volatilityRegime']} prior={lane_priority_hysteresis_threshold_tuning_signals['priorVolatilityRegime']} reason={lane_priority_hysteresis_threshold_tuning_signals['volatilityRegimeReason']} steps={lane_priority_hysteresis_threshold_tuning_signals['stepSizes']})",
         f"- LPR HYS THR: **{lane_priority_hysteresis_threshold_compact_alias}** (flag={lane_priority_hysteresis_threshold_compact_alias_signals['flagName']} enabled={lane_priority_hysteresis_threshold_compact_alias_signals['flagEnabled']} alias={lane_priority_hysteresis_threshold_compact_alias_signals['alias']} rec={lane_priority_hysteresis_threshold_compact_alias_signals['recommendation']})",
         f"- LPR HYS WINDOW: **{lane_priority_hysteresis_window_band}** (floor={lane_priority_hysteresis_window_band_signals['adaptiveFloor']} ceil={lane_priority_hysteresis_window_band_signals['adaptiveCeiling']} span={lane_priority_hysteresis_window_band_signals['span']} reason={lane_priority_hysteresis_window_band_signals['reason']})",
+        f"- LPR HYS WINDOW Δ: **{lane_priority_hysteresis_window_delta:+d}** (current={lane_priority_hysteresis_window_delta_signals['currentBand']} prior={lane_priority_hysteresis_window_delta_signals['priorBand']} loaded={lane_priority_hysteresis_window_delta_signals['priorLoaded']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: **{pulse_heat_fx_compact_budget_drift_level}** ({pulse_heat_fx_compact_budget_drift_signals['reason']}; compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d} churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **{route_glow_fx_compact_budget_drift_level}** ({route_glow_fx_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **{route_glow_fx_conf_why_rail_mode_compact_budget_drift_level}** ({route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",
@@ -8105,6 +8194,7 @@ def main() -> int:
         f"- DMG GLYPH: +{token_family_totals['dmgGlyphAlias']['added']} / -{token_family_totals['dmgGlyphAlias']['removed']} / net {token_family_totals['dmgGlyphAlias']['net']} (churn={token_family_totals['dmgGlyphAlias']['churn']} coverage={token_family_totals['dmgGlyphAlias']['coverage']})",
         f"- DMG GLYPH FX LIVE: +{token_family_totals['dmgGlyphFxLiveAlias']['added']} / -{token_family_totals['dmgGlyphFxLiveAlias']['removed']} / net {token_family_totals['dmgGlyphFxLiveAlias']['net']} (churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']})",
         f"- LPR HYS THR: +{token_family_totals['lanePriorityHysteresisThresholdAlias']['added']} / -{token_family_totals['lanePriorityHysteresisThresholdAlias']['removed']} / net {token_family_totals['lanePriorityHysteresisThresholdAlias']['net']} (churn={token_family_totals['lanePriorityHysteresisThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisThresholdAlias']['coverage']})",
+        f"- LPR HYS WINDOW Δ: +{token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['added']} / -{token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['removed']} / net {token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['net']} (churn={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['coverage']})",
         f"- LANE CADENCE SUMMARY: SYSTEMS/OPS {'OK' if (token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphFxLiveAlias']['aliasesTouchedCount'] > 0) else 'GAP'} (RGFXWRIUFX coverage={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['coverage']}, churn={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['churn']} | DMG GLYPH coverage={token_family_totals['dmgGlyphAlias']['coverage']}, churn={token_family_totals['dmgGlyphAlias']['churn']} | DMG GLYPH FX LIVE coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']}, churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']})",
         f"- LBA: {lane_bucket_age_compact_alias} (flag={lane_bucket_age_compact_alias_signals['flagName']}, enabled={lane_bucket_age_compact_alias_signals['flagEnabled']}, sys={lane_bucket_age_compact_alias_signals['systemsOpsHours']}h, dw={lane_bucket_age_compact_alias_signals['designWorldHours']}h, cv={lane_bucket_age_compact_alias_signals['combatVfxHours']}h)",
         f"- LANE BUCKET AGE: {lane_bucket_age['token'].split(':', 1)[1]} (status={lane_bucket_age['status']}, window={lane_bucket_age['windowHours']}h)",
@@ -8116,8 +8206,10 @@ def main() -> int:
         f"- LANE PRIORITY REC CONF: {lane_priority_recommendation_confidence_level} (worstAge={lane_priority_recommendation_confidence_signals['worstAgeHours']}h, momentumGap={lane_priority_recommendation_confidence_signals['momentumGapHours']}h, reason={lane_priority_recommendation_confidence_signals['reason']})",
         f"- LANE PRIORITY REC HYSTERESIS: {'HOLD' if lane_priority_recommendation_signals['hysteresisApplied'] else 'SHIFT'} (prior={lane_priority_recommendation_signals['priorRecommendation']}, raw={lane_priority_recommendation_signals['rawRecommendation']}, gap={lane_priority_recommendation_signals['hysteresisScoreGap']}, threshold={lane_priority_recommendation_signals['hysteresisThreshold']}, reason={lane_priority_recommendation_signals['hysteresisReason']})",
         f"- LPR HYS THRESH REC: {lane_priority_hysteresis_threshold_tuning} (base={lane_priority_hysteresis_threshold_tuning_signals['baseThreshold']}, rec={lane_priority_hysteresis_threshold_tuning_signals['recommendedThreshold']}, floor={lane_priority_hysteresis_threshold_tuning_signals['adaptiveFloor']}, ceil={lane_priority_hysteresis_threshold_tuning_signals['adaptiveCeiling']}, priorWindow={lane_priority_hysteresis_threshold_tuning_signals['priorAdaptiveWindowLoaded']}, volSpan={lane_priority_hysteresis_threshold_tuning_signals['momentumVolatilitySpanHours']}, maxAbsMom={lane_priority_hysteresis_threshold_tuning_signals['maxAbsMomentumHours']}, ageSpread={lane_priority_hysteresis_threshold_tuning_signals['ageSpreadHours']}, learn={lane_priority_hysteresis_threshold_tuning_signals['learningReason']}, reason={lane_priority_hysteresis_threshold_tuning_signals['reason']})",
+        f"- LPR VOL REGIME: {lane_priority_hysteresis_threshold_tuning_signals['volatilityRegimeMemory']} (current={lane_priority_hysteresis_threshold_tuning_signals['volatilityRegime']}, prior={lane_priority_hysteresis_threshold_tuning_signals['priorVolatilityRegime']}, reason={lane_priority_hysteresis_threshold_tuning_signals['volatilityRegimeReason']}, steps={lane_priority_hysteresis_threshold_tuning_signals['stepSizes']})",
         f"- LPR HYS THR: {lane_priority_hysteresis_threshold_compact_alias} (flag={lane_priority_hysteresis_threshold_compact_alias_signals['flagName']}, enabled={lane_priority_hysteresis_threshold_compact_alias_signals['flagEnabled']}, alias={lane_priority_hysteresis_threshold_compact_alias_signals['alias']}, rec={lane_priority_hysteresis_threshold_compact_alias_signals['recommendation']})",
         f"- LPR HYS WINDOW: {lane_priority_hysteresis_window_band} (floor={lane_priority_hysteresis_window_band_signals['adaptiveFloor']}, ceil={lane_priority_hysteresis_window_band_signals['adaptiveCeiling']}, span={lane_priority_hysteresis_window_band_signals['span']}, reason={lane_priority_hysteresis_window_band_signals['reason']})",
+        f"- LPR HYS WINDOW Δ: {lane_priority_hysteresis_window_delta:+d} (current={lane_priority_hysteresis_window_delta_signals['currentBand']}, prior={lane_priority_hysteresis_window_delta_signals['priorBand']}, loaded={lane_priority_hysteresis_window_delta_signals['priorLoaded']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: {pulse_heat_fx_compact_budget_drift_level} (compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d}, churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: {route_glow_fx_compact_budget_drift_level} (compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: {route_glow_fx_conf_why_rail_mode_compact_budget_drift_level} (compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",

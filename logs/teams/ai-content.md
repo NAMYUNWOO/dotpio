@@ -1651,3 +1651,20 @@
 ## 2026-03-25 15:34 KST — Cycle DL selected experiment shipped
 - Game Director cycle generated 3 ideas (low/mid/high risk) and selected low-risk adaptive floor/ceiling learning slice.
 - Added offline adaptive hysteresis window learning from prior digest outcomes; no runtime coupling.
+
+## 2026-03-25 16:01 KST — Offline policy coordination
+- No new AI-content runtime coupling introduced; `LPR HYS WINDOW Δ` remains offline digest observability only.
+- Kept volatility-regime memory (`CALM|SWING|SPIKE`) as active next AI-content/system prototype task.
+
+## 2026-03-25 16:35:44 KST
+- Task: Cycle DL AI Content/Systems follow-up — prototype offline volatility-regime memory (`CALM|SWING|SPIKE`) for adaptive hysteresis window step-size tuning.
+- Commit: pending (this run)
+- Files changed: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added regime memory smoothing for hard `CALM↔SPIKE` flips by routing transition through `SWING`.
+  - Wired regime-specific raise/lower step sizes into adaptive floor/ceiling tuning while preserving offline-only behavior.
+  - Exposed digest payload token `LPR VOL REGIME:<CALM|SWING|SPIKE>` with signals and markdown rows for triage.
+- Follow-up:
+  - Next highest-priority unchecked TASKS item: Design/World compact ambient momentum pulse alias (`ARW ARC PULSE:SOFT|LIVE|HOT`).

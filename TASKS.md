@@ -975,8 +975,8 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] AI Content/Systems Team: Prototype offline adaptive hysteresis-threshold floor/ceiling learning policy from volatility outcomes.
 - [x] Systems/QA Team: Add digest triage token (`LPR HYS WINDOW:TIGHT|BASE|WIDE`) from adaptive floor/ceiling span + regression lock.
-- [ ] UX/Systems Team: Prototype compact adaptive-window drift token (`LPR HYS WINDOW Δ:+n|-n`) for multi-window stability scanability.
-- [ ] AI Content/Systems Team: Prototype offline volatility-regime memory (`CALM|SWING|SPIKE`) for adaptive floor/ceiling step-size tuning.
+- [x] UX/Systems Team: Prototype compact adaptive-window drift token (`LPR HYS WINDOW Δ:+n|-n`) for multi-window stability scanability.
+- [x] AI Content/Systems Team: Prototype offline volatility-regime memory (`CALM|SWING|SPIKE`) for adaptive floor/ceiling step-size tuning. *(lifecycle: [ ] -> [~] -> [x])*
 
 ## Cycle DM - Game Director Review (2026-03-25 15:41 KST, forced-lane rebalance)
 - Coverage check (last 10 completions by lane): systems=8, ai-content=3, ux=2, world=2, combat=0, vfx=0, design=0, qa=0.

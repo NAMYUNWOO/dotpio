@@ -1609,3 +1609,10 @@
 - Verification PASS:
   - `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_DEBUG=1 lua scripts/regression_combat_damage_number_life_trend_fx_token.lua`
   - `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG=1 lua scripts/regression_combat_damage_number_life_trend_fx_pulse_token.lua`
+
+## 2026-03-25 16:01 KST — Lane balance status
+- No combat mechanics changed in this cycle; prior DM forced-lane combat/vfx slice remains latest player-facing update.
+- Verified new digest drift token does not touch combat runtime paths.
+
+## 2026-03-25 16:35:44 KST
+- Coordination note: combat lane unchanged this cycle; no combat-token or HUD runtime adjustments required.

@@ -2506,3 +2506,19 @@
 ## 2026-03-25 15:34 KST — Cycle DL systems follow-up
 - Added digest triage token `LPR HYS WINDOW:TIGHT|BASE|WIDE` from adaptive floor/ceiling span.
 - Injected follow-up backlog items for window drift token and volatility-regime memory prototype.
+
+## 2026-03-25 16:01 KST — Cycle DL follow-up: hysteresis window drift token
+- Implemented offline digest drift token `LPR HYS WINDOW Δ:+n|-n` from prior/current adaptive window bands (`TIGHT|BASE|WIDE`).
+- Added payload fields: `lanePriorityHysteresisWindowDelta`, `lanePriorityHysteresisWindowDeltaValue`, `lanePriorityHysteresisWindowDeltaSignals`.
+- Follow-up: keep Systems/Ops cadence row (`LANE CADENCE RECENCY`) as next unchecked systems item.
+
+## 2026-03-25 16:35:44 KST
+- Task: Integrate offline volatility-regime memory into lane-priority hysteresis threshold tuning step-size logic.
+- Commit: pending (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added prior-window regime memory load from digest JSON and deterministic transition damping.
+  - Added regime-dependent adaptive-window step-size table to tune floor/ceiling movement.
+- Follow-up:
+  - Consider adding compact alias for `LPR VOL REGIME` only if digest budget pressure rises.

@@ -1908,3 +1908,10 @@
 
 ## 2026-03-25 15:34 KST — Cycle DL UX follow-up queue
 - Injected UX/Systems follow-up: compact adaptive-window drift token (`LPR HYS WINDOW Δ:+n|-n`) for digest trend scanability.
+
+## 2026-03-25 16:01 KST — UX/Systems task completion
+- Completed compact adaptive-window drift token: `LPR HYS WINDOW Δ:+n|-n` for multi-window stability scanability.
+- Surfaced row in markdown digest (detailed + compact sections) with prior/current band context and load state.
+
+## 2026-03-25 16:35:44 KST
+- Coordination note: digest readability gained new summary row `LPR VOL REGIME` for faster operator scanability.

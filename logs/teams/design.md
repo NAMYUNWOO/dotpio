@@ -1684,3 +1684,10 @@
 
 ## 2026-03-25 15:34 KST — Cycle DL readability note
 - Added digest-level `LPR HYS WINDOW` line for quicker operator scan of adaptive threshold range posture.
+
+## 2026-03-25 16:01 KST — Readability governance
+- Reviewed compact token naming consistency for `LPR HYS WINDOW Δ` to preserve DOS-width scanability and deterministic semantics.
+- No visual/layout regressions introduced; design/world pulse alias remains queued.
+
+## 2026-03-25 16:35:44 KST
+- Coordination note: queued next design/world priority item remains `ARW ARC PULSE:SOFT|LIVE|HOT` digest alias prototype.

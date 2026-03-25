@@ -3053,3 +3053,19 @@
 ## 2026-03-25 15:34 KST — Cycle DL QA evidence
 - Regression contract expanded with `lanePriorityHysteresisWindowBand` payload + markdown presence assertion.
 - PASS: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-25 16:01 KST — Regression evidence
+- Extended regression contract for `LPR HYS WINDOW Δ` payload schema, token totals, token-family coverage, and markdown rows.
+- Verification PASS: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-25 16:35:44 KST
+- Task: Regression lock for volatility-regime memory payload + markdown contract.
+- Commit: pending (this run)
+- Files checked: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Extended assertions for regime-memory payload keys/signals and markdown `LPR VOL REGIME:` row.
+  - No portal validator/screenshot run required (no map/UI runtime asset changes).
+- Follow-up:
+  - Keep weekly digest regression as gate for subsequent lane-cadence token experiments.

@@ -184,3 +184,7 @@
 - Added additive debug-only VFX pacing token `DMGNUM LIFE TREND FX PULSE:COAST|RUSH|BURST` (`DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG`).
 - Token complements existing `DMGNUM LIFE TREND FX` by exposing pulse intensity band for fade pacing inspection without changing runtime combat logic.
 - Regression coverage added in `scripts/regression_combat_damage_number_life_trend_fx_pulse_token.lua` and passing.
+
+## 2026-03-25 16:01 KST — VFX lane heartbeat
+- No VFX token or effect mapping changes this cycle.
+- Existing `DMGNUM LIFE TREND FX PULSE` debug slice remains baseline for next combat/vfx checks.
