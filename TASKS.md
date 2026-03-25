@@ -1038,4 +1038,14 @@ See project-level plans:
 - Selected experiment: Idea 2 (minimal vertical slice, additive + reversible).
 - [x] AI Content/VFX Team: Ship offline suppression-escalation recommendation token (`PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK`) plus compact alias (`PRSP:<H|A|L>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SUPPRESSION_PLAN_ALIAS` with regression lock.
 - [x] Design/World Team: Prototype ambient scene-reactive pulse-remap flavor mapping (`CALM|BRACE|LOCK`) for digest readability copy.
-- [ ] Systems/Ops Team: Add lane-cadence guardrail row for suppression-plan family churn drift (`PRSP FAMILY TREND`) with prior-window context.
+- [x] Systems/Ops Team: Add lane-cadence guardrail row for suppression-plan family churn drift (`PRSP FAMILY TREND`) with prior-window context. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-25 22:35 KST)*
+
+## Cycle DS - Game Director Review (2026-03-25 22:42 KST)
+- Coverage check (last 10 completions): systems/qa lane remained dominant, so this cycle prioritized a design/world-facing readability cue while keeping the slice additive.
+- Idea 1 (low risk, Design/World): Add digest confidence cue for suppression scene mapping (PULSE REMAP SCENE CONF:LOW|MED|HIGH).
+- Idea 2 (mid risk, Combat/UX): Add compact suppression posture warning token for combat readability handoff.
+- Idea 3 (high risk, AI Content/World): Prototype scene-reactive narrative microline generator from suppression-plan cadence memory (offline artifact).
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Design/World Team: Add suppression-scene confidence cue token (PULSE REMAP SCENE CONF:LOW|MED|HIGH) with payload signals and regression lock. *(lifecycle: [ ] -> [~] -> [x])*
+- [ ] Combat/UX Team: Prototype compact suppression posture warning token for combat readability handoff (offline-only, gated).
+- [ ] AI Content/World Team: Prototype scene-reactive narrative microline generator from suppression-plan cadence memory (offline artifact).

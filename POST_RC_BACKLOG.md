@@ -844,4 +844,6 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 2 (AI Content/VFX) — `PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK` + compact `PRSP:<H|A|L>`.
 - [x] AI Content/VFX Team: Ship offline suppression-escalation recommendation token + compact alias behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SUPPRESSION_PLAN_ALIAS` with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
 - [x] Design/World Team: Prototype ambient scene-reactive pulse-remap flavor mapping (`CALM|BRACE|LOCK`) for digest readability copy.
-- [ ] Systems/Ops Team: Add suppression-plan family churn trend row (`PRSP FAMILY TREND`) with prior-window drift context.
+- [x] Systems/Ops Team: Add suppression-plan family churn trend row (`PRSP FAMILY TREND`) with prior-window drift context. *(completed: 2026-03-25 22:35 KST via weekly portal drift digest update)*
+- [ ] Combat/UX Team: Prototype compact suppression posture warning token for combat readability handoff (offline-only, gated).
+- [ ] AI Content/World Team: Prototype scene-reactive narrative microline generator from suppression-plan cadence memory (offline artifact).

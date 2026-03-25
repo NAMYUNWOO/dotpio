@@ -2602,3 +2602,17 @@
 - Evidence: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py.
 - Verification: python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py && python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS).
 - Follow-up: Remaining unchecked queue item is Systems/Ops PRSP FAMILY TREND drift row.
+
+## 2026-03-25 22:35 KST — Cycle DR Systems/Ops PRSP family trend guardrail
+- Task: Closed remaining Systems/Ops unchecked item by adding PRSP FAMILY TREND row with prior-window drift context for lane-cadence guardrail visibility.
+- Change: Weekly digest now emits PRSP FAMILY TREND in both detailed triage and token-family coverage sections using pulseRemapSuppressionPlanAlias net drift (Δnet, currentNet, priorNet, loaded, reason).
+- Evidence: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md.
+- Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS).
+- Follow-up: Re-scan backlog for next unchecked priority item; if none remain, run next Game Director idea/experiment cycle.
+
+## 2026-03-25 22:42 KST — Cycle DS Game Director slice
+- Game Director cycle executed after TASKS + POST_RC queue reached full check state.
+- Ideas generated (3): (1) suppression-scene confidence cue, (2) combat/ux warning token prototype, (3) ai-content/world narrative microline prototype.
+- Selected/implemented: Idea 1, adding PULSE REMAP SCENE CONF (LOW|MED|HIGH) as an offline digest cue with payload signals and markdown rows.
+- Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS).
+- Backlog injection: added two new unchecked follow-ups for Combat/UX and AI Content/World in TASKS.md + POST_RC_BACKLOG.md.

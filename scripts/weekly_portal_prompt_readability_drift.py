@@ -6992,6 +6992,46 @@ def pulse_remap_suppression_family_trend_from_prior(
     }
 
 
+def pulse_remap_suppression_plan_family_trend_from_prior(
+    *,
+    current_family_totals: dict[str, int],
+    prior_json_path: Path,
+) -> tuple[int, dict[str, object]]:
+    """Track PRSP family net drift against prior digest window for lane-cadence guardrails."""
+    current_net = int(current_family_totals.get("net", 0) or 0)
+    prior_net = 0
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_families = prior_payload.get("tokenFamilyTotals", {})
+            prior_family = prior_families.get("pulseRemapSuppressionPlanAlias", {}) if isinstance(prior_families, dict) else {}
+            prior_net = int(prior_family.get("net", 0) or 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    drift = current_net - prior_net
+    if drift > 0:
+        trend = "UP"
+        reason = "suppression-plan-family-net-increased-vs-prior-window"
+    elif drift < 0:
+        trend = "DOWN"
+        reason = "suppression-plan-family-net-decreased-vs-prior-window"
+    else:
+        trend = "FLAT"
+        reason = "suppression-plan-family-net-unchanged-vs-prior-window"
+
+    return drift, {
+        "trend": trend,
+        "currentNet": current_net,
+        "priorNet": prior_net,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def main() -> int:
     args = parse_args()
     root = args.repo_root.resolve()
@@ -7256,6 +7296,10 @@ def main() -> int:
         current_family_totals=token_family_totals["pulseRemapMomentumSuppressionAlias"],
         prior_json_path=args.out_json,
     )
+    pulse_remap_suppression_plan_family_trend_drift, pulse_remap_suppression_plan_family_trend_signals = pulse_remap_suppression_plan_family_trend_from_prior(
+        current_family_totals=token_family_totals["pulseRemapSuppressionPlanAlias"],
+        prior_json_path=args.out_json,
+    )
     pulse_remap_suppression_escalation_plan, pulse_remap_suppression_escalation_plan_signals = pulse_remap_suppression_escalation_plan_from_signals(
         suppression=pulse_remap_momentum_suppression,
         suppression_signals=pulse_remap_momentum_suppression_signals,
@@ -7268,6 +7312,22 @@ def main() -> int:
         suppression_plan_signals=pulse_remap_suppression_escalation_plan_signals,
         pressure_band=pressure_band,
     )
+    if pulse_remap_suppression_escalation_plan == "LOCK" or drift_risk == "HIGH":
+        pulse_remap_scene_confidence = "HIGH"
+        pulse_remap_scene_confidence_reason = "lock-or-high-drift-risk"
+    elif pulse_remap_suppression_escalation_plan == "ARM" or pressure_band == "RAISE":
+        pulse_remap_scene_confidence = "MED"
+        pulse_remap_scene_confidence_reason = "arm-or-raise-pressure"
+    else:
+        pulse_remap_scene_confidence = "LOW"
+        pulse_remap_scene_confidence_reason = "hold-without-elevated-drift"
+    pulse_remap_scene_confidence_signals = {
+        "suppressionPlan": pulse_remap_suppression_escalation_plan,
+        "driftRisk": drift_risk,
+        "pressureBand": pressure_band,
+        "reason": pulse_remap_scene_confidence_reason,
+        "offlineOnly": True,
+    }
     pulse_remap_suppression_escalation_plan_alias = resolve_pulse_remap_suppression_plan_alias(pulse_remap_suppression_escalation_plan)
     pulse_remap_suppression_plan_alias_flag_name = "DOTPIO_EXPERIMENT_PULSE_REMAP_SUPPRESSION_PLAN_ALIAS"
     pulse_remap_suppression_plan_alias_flag_enabled = os.environ.get(pulse_remap_suppression_plan_alias_flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
@@ -8057,10 +8117,14 @@ def main() -> int:
         "pulseRemapMomentumSuppressionAliasSignals": {"flagName": pulse_remap_momentum_suppression_alias_flag_name, "flagEnabled": pulse_remap_momentum_suppression_alias_flag_enabled},
         "pulseRemapSuppressionFamilyTrendDrift": pulse_remap_suppression_family_trend_drift,
         "pulseRemapSuppressionFamilyTrendSignals": pulse_remap_suppression_family_trend_signals,
+        "pulseRemapSuppressionPlanFamilyTrendDrift": pulse_remap_suppression_plan_family_trend_drift,
+        "pulseRemapSuppressionPlanFamilyTrendSignals": pulse_remap_suppression_plan_family_trend_signals,
         "pulseRemapSuppressionEscalationPlan": pulse_remap_suppression_escalation_plan,
         "pulseRemapSuppressionEscalationPlanSignals": pulse_remap_suppression_escalation_plan_signals,
         "pulseRemapSuppressionSceneFlavor": pulse_remap_suppression_scene_flavor,
         "pulseRemapSuppressionSceneFlavorSignals": pulse_remap_suppression_scene_flavor_signals,
+        "pulseRemapSceneConfidence": pulse_remap_scene_confidence,
+        "pulseRemapSceneConfidenceSignals": pulse_remap_scene_confidence_signals,
         "pulseRemapSuppressionEscalationPlanAlias": pulse_remap_suppression_escalation_plan_alias,
         "pulseRemapSuppressionEscalationPlanAliasSignals": {"flagName": pulse_remap_suppression_plan_alias_flag_name, "flagEnabled": pulse_remap_suppression_plan_alias_flag_enabled},
         "pulseRemapMomentumAlias": pulse_remap_momentum_alias,
@@ -8417,6 +8481,7 @@ def main() -> int:
         f"- PULSE REMAP SUPPRESS PLAN: **{pulse_remap_suppression_escalation_plan}** ({pulse_remap_suppression_escalation_plan_signals['reason']}; suppression={pulse_remap_suppression_escalation_plan_signals['suppression']} momentum={pulse_remap_suppression_escalation_plan_signals['momentum']} streak={pulse_remap_suppression_escalation_plan_signals['freezeStreak']} driftRisk={pulse_remap_suppression_escalation_plan_signals['driftRisk']} cadence={pulse_remap_suppression_escalation_plan_signals['laneCadenceRecency']} offlineOnly={pulse_remap_suppression_escalation_plan_signals['offlineOnly']})",
         f"- PRSP: **{pulse_remap_suppression_escalation_plan_alias if pulse_remap_suppression_plan_alias_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_suppression_plan_alias_flag_name} enabled={pulse_remap_suppression_plan_alias_flag_enabled} full={pulse_remap_suppression_escalation_plan})",
         f"- PULSE REMAP SCENE: **{pulse_remap_suppression_scene_flavor}** ({pulse_remap_suppression_scene_flavor_signals['reason']}; plan={pulse_remap_suppression_scene_flavor_signals['suppressionPlan']} driftRisk={pulse_remap_suppression_scene_flavor_signals['driftRisk']} pressure={pulse_remap_suppression_scene_flavor_signals['pressureBand']} cadence={pulse_remap_suppression_scene_flavor_signals['laneCadenceRecency']} offlineOnly={pulse_remap_suppression_scene_flavor_signals['offlineOnly']})",
+        f"- PULSE REMAP SCENE CONF: **{pulse_remap_scene_confidence}** ({pulse_remap_scene_confidence_signals['reason']}; plan={pulse_remap_scene_confidence_signals['suppressionPlan']} driftRisk={pulse_remap_scene_confidence_signals['driftRisk']} pressure={pulse_remap_scene_confidence_signals['pressureBand']} offlineOnly={pulse_remap_scene_confidence_signals['offlineOnly']})",
         f"- PRM: **{pulse_remap_momentum_alias if pulse_remap_momentum_alias_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_momentum_alias_flag_name} enabled={pulse_remap_momentum_alias_flag_enabled})",
         f"- FOCUS: **{lane_focus}** (portal={lane_focus_scores['portal']} | alt={lane_focus_scores['alt']} | pressure={lane_focus_scores['pressure']})",
         f"- FOCUS STREAK: **{focus_streak}**",
@@ -8582,6 +8647,7 @@ def main() -> int:
         f"- PULSE REMAP SUPPRESS FAMILY CHURN: **net {token_family_totals['pulseRemapMomentumSuppressionAlias']['net']:+d}** (added={token_family_totals['pulseRemapMomentumSuppressionAlias']['added']} removed={token_family_totals['pulseRemapMomentumSuppressionAlias']['removed']} churn={token_family_totals['pulseRemapMomentumSuppressionAlias']['churn']} coverage={token_family_totals['pulseRemapMomentumSuppressionAlias']['coverage']})",
         f"- PULSE REMAP SUPPRESS PLAN FAMILY CHURN: **net {token_family_totals['pulseRemapSuppressionPlanAlias']['net']:+d}** (added={token_family_totals['pulseRemapSuppressionPlanAlias']['added']} removed={token_family_totals['pulseRemapSuppressionPlanAlias']['removed']} churn={token_family_totals['pulseRemapSuppressionPlanAlias']['churn']} coverage={token_family_totals['pulseRemapSuppressionPlanAlias']['coverage']})",
         f"- PRMS FAMILY TREND: **{pulse_remap_suppression_family_trend_signals['trend']}** (Δnet={pulse_remap_suppression_family_trend_drift:+d} currentNet={pulse_remap_suppression_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_family_trend_signals['priorLoaded']} reason={pulse_remap_suppression_family_trend_signals['reason']})",
+        f"- PRSP FAMILY TREND: **{pulse_remap_suppression_plan_family_trend_signals['trend']}** (Δnet={pulse_remap_suppression_plan_family_trend_drift:+d} currentNet={pulse_remap_suppression_plan_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_plan_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_plan_family_trend_signals['priorLoaded']} reason={pulse_remap_suppression_plan_family_trend_signals['reason']})",
         f"- DMG GLYPH FAMILY CHURN: **net {token_family_totals['dmgGlyphAlias']['net']:+d}** (added={token_family_totals['dmgGlyphAlias']['added']} removed={token_family_totals['dmgGlyphAlias']['removed']} churn={token_family_totals['dmgGlyphAlias']['churn']} coverage={token_family_totals['dmgGlyphAlias']['coverage']})",
         f"- DMG GLYPH FX LIVE FAMILY CHURN: **net {token_family_totals['dmgGlyphFxLiveAlias']['net']:+d}** (added={token_family_totals['dmgGlyphFxLiveAlias']['added']} removed={token_family_totals['dmgGlyphFxLiveAlias']['removed']} churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']})",
         f"- LPR HYS THR FAMILY CHURN: **net {token_family_totals['lanePriorityHysteresisThresholdAlias']['net']:+d}** (added={token_family_totals['lanePriorityHysteresisThresholdAlias']['added']} removed={token_family_totals['lanePriorityHysteresisThresholdAlias']['removed']} churn={token_family_totals['lanePriorityHysteresisThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisThresholdAlias']['coverage']})",
@@ -8678,7 +8744,9 @@ def main() -> int:
         f"- PRMS + PULSE REMAP MOMENTUM SUPPRESS: +{token_family_totals['pulseRemapMomentumSuppressionAlias']['added']} / -{token_family_totals['pulseRemapMomentumSuppressionAlias']['removed']} / net {token_family_totals['pulseRemapMomentumSuppressionAlias']['net']} (churn={token_family_totals['pulseRemapMomentumSuppressionAlias']['churn']} coverage={token_family_totals['pulseRemapMomentumSuppressionAlias']['coverage']})",
         f"- PRSP + PULSE REMAP SUPPRESS PLAN: +{token_family_totals['pulseRemapSuppressionPlanAlias']['added']} / -{token_family_totals['pulseRemapSuppressionPlanAlias']['removed']} / net {token_family_totals['pulseRemapSuppressionPlanAlias']['net']} (churn={token_family_totals['pulseRemapSuppressionPlanAlias']['churn']} coverage={token_family_totals['pulseRemapSuppressionPlanAlias']['coverage']})",
         f"- PULSE REMAP SCENE: {pulse_remap_suppression_scene_flavor} (plan={pulse_remap_suppression_scene_flavor_signals['suppressionPlan']} driftRisk={pulse_remap_suppression_scene_flavor_signals['driftRisk']} pressure={pulse_remap_suppression_scene_flavor_signals['pressureBand']} cadence={pulse_remap_suppression_scene_flavor_signals['laneCadenceRecency']})",
+        f"- PULSE REMAP SCENE CONF: {pulse_remap_scene_confidence} (plan={pulse_remap_scene_confidence_signals['suppressionPlan']} driftRisk={pulse_remap_scene_confidence_signals['driftRisk']} pressure={pulse_remap_scene_confidence_signals['pressureBand']} reason={pulse_remap_scene_confidence_signals['reason']})",
         f"- PRMS FAMILY TREND: {pulse_remap_suppression_family_trend_signals['trend']} (Δnet={pulse_remap_suppression_family_trend_drift:+d} currentNet={pulse_remap_suppression_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_family_trend_signals['priorLoaded']})",
+        f"- PRSP FAMILY TREND: {pulse_remap_suppression_plan_family_trend_signals['trend']} (Δnet={pulse_remap_suppression_plan_family_trend_drift:+d} currentNet={pulse_remap_suppression_plan_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_plan_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_plan_family_trend_signals['priorLoaded']})",
         f"- DMG GLYPH: +{token_family_totals['dmgGlyphAlias']['added']} / -{token_family_totals['dmgGlyphAlias']['removed']} / net {token_family_totals['dmgGlyphAlias']['net']} (churn={token_family_totals['dmgGlyphAlias']['churn']} coverage={token_family_totals['dmgGlyphAlias']['coverage']})",
         f"- DMG GLYPH FX LIVE: +{token_family_totals['dmgGlyphFxLiveAlias']['added']} / -{token_family_totals['dmgGlyphFxLiveAlias']['removed']} / net {token_family_totals['dmgGlyphFxLiveAlias']['net']} (churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']})",
         f"- LPR HYS THR: +{token_family_totals['lanePriorityHysteresisThresholdAlias']['added']} / -{token_family_totals['lanePriorityHysteresisThresholdAlias']['removed']} / net {token_family_totals['lanePriorityHysteresisThresholdAlias']['net']} (churn={token_family_totals['lanePriorityHysteresisThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisThresholdAlias']['coverage']})",

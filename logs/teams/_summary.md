@@ -2897,3 +2897,16 @@ Compact decision memory for AI context efficiency.
 - Added payload contract keys `pulseRemapSuppressionSceneFlavor` and `pulseRemapSuppressionSceneFlavorSignals`; markdown digest now includes explicit `PULSE REMAP SCENE` row for readability triage.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Remaining unchecked queue item: Systems/Ops `PRSP FAMILY TREND` prior-window drift row.
+
+## 2026-03-25 22:35 KST — PRSP FAMILY TREND lane-cadence guardrail shipped
+- Shipped Systems/Ops guardrail row PRSP FAMILY TREND with prior-window drift context in weekly digest markdown + payload contract.
+- Added dedicated plan-family drift calculation (pulseRemapSuppressionPlanFamilyTrendDrift/Signals) tied to pulseRemapSuppressionPlanAlias token family net movement.
+- Regression contract expanded to assert new payload keys and markdown rows; [PASS] weekly portal prompt readability drift regression checks passes.
+- Queue updates: marked Cycle DR Systems/Ops task done in TASKS.md and mirrored completion in POST_RC_BACKLOG.md.
+
+## 2026-03-25 22:42 KST — Cycle DS director review + new vertical slice
+- Trigger: ACTION_ITEMS/TASKS/POST_RC all checked, so Game Director review cycle executed immediately per protocol.
+- Candidate ideas generated (low/mid/high risk), selected low-risk Design/World experiment for minimal reversible slice.
+- Shipped PULSE REMAP SCENE CONF token (LOW|MED|HIGH) plus payload contract (pulseRemapSceneConfidence + Signals) to expose confidence of suppression scene mapping.
+- Regression updated and passing: python3 scripts/regression_weekly_portal_prompt_readability_drift.py.
+- New backlog injected: Combat/UX warning-token prototype + AI Content/World narrative microline prototype (both unchecked).

@@ -310,6 +310,15 @@ def main() -> int:
             "reason",
         }, payload
         assert payload["pulseRemapSuppressionFamilyTrendSignals"]["trend"] in {"UP", "DOWN", "FLAT"}, payload
+        assert isinstance(payload.get("pulseRemapSuppressionPlanFamilyTrendDrift"), int), payload
+        assert set(payload.get("pulseRemapSuppressionPlanFamilyTrendSignals", {}).keys()) == {
+            "trend",
+            "currentNet",
+            "priorNet",
+            "priorLoaded",
+            "reason",
+        }, payload
+        assert payload["pulseRemapSuppressionPlanFamilyTrendSignals"]["trend"] in {"UP", "DOWN", "FLAT"}, payload
         assert payload.get("pulseRemapSuppressionEscalationPlan") in {"HOLD", "ARM", "LOCK"}, payload
         assert set(payload.get("pulseRemapSuppressionEscalationPlanSignals", {}).keys()) == {
             "suppression",
@@ -328,6 +337,14 @@ def main() -> int:
             "driftRisk",
             "pressureBand",
             "laneCadenceRecency",
+            "reason",
+            "offlineOnly",
+        }, payload
+        assert payload.get("pulseRemapSceneConfidence") in {"LOW", "MED", "HIGH"}, payload
+        assert set(payload.get("pulseRemapSceneConfidenceSignals", {}).keys()) == {
+            "suppressionPlan",
+            "driftRisk",
+            "pressureBand",
             "reason",
             "offlineOnly",
         }, payload
@@ -1981,12 +1998,14 @@ def main() -> int:
         assert "PULSE REMAP MOMENTUM SUPPRESS:" in md_text
         assert "PULSE REMAP SUPPRESS PLAN:" in md_text
         assert "PULSE REMAP SCENE:" in md_text
+        assert "PULSE REMAP SCENE CONF:" in md_text
         assert "PRMS:" in md_text
         assert "PRSP:" in md_text
         assert "PRM + PULSE REMAP MOMENTUM:" in md_text
         assert "PRMS + PULSE REMAP MOMENTUM SUPPRESS:" in md_text
         assert "PRSP + PULSE REMAP SUPPRESS PLAN:" in md_text
         assert "PRMS FAMILY TREND:" in md_text
+        assert "PRSP FAMILY TREND:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
         assert "LPR HYS THR:" in md_text
