@@ -2765,3 +2765,9 @@ Compact decision memory for AI context efficiency.
 - Added compact alias token `LPR HYS:H|S` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_ALIAS` and surfaced detailed `LANE PRIORITY REC HYSTERESIS` row in markdown digest.
 - Regression lock updated and passing (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).
 - Injected next tasks: `LPR HYS RAIL` compact trend token (mid-risk) and adaptive hysteresis-threshold recommendation policy (high-risk, offline-only).
+
+## 2026-03-25 14:04 KST — Cycle DJ closure: LPR hysteresis rail token
+- Closed highest-priority unchecked TASKS/POST_RC item: `LPR HYS RAIL:STEADY|SPIKE` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_RAIL`.
+- Weekly digest now emits payload fields `lanePriorityHysteresisRail` and `lanePriorityHysteresisRailSignals`, plus markdown rows in detailed/compact sections.
+- Classification is deterministic/offline-only (SPIKE when hysteresis active or confidence/gap unstable; otherwise STEADY); no gameplay runtime impact.
+- Regression and generation checks pass; remaining unchecked backlog item is adaptive hysteresis-threshold tuning policy.

@@ -1627,3 +1627,7 @@
 ## 2026-03-25 13:31 KST — Cycle DJ World/UX follow-up queued
 - No map/runtime world mutation this cycle; scope stayed in weekly digest recommendation stability.
 - Queued next experiment: compact hysteresis confidence rail token (`LPR HYS RAIL:STEADY|SPIKE`) for digest scanability.
+
+## 2026-03-25 14:04 KST — Cycle DJ World/UX readability note
+- Completed world-facing digest rail cue `LPR HYS RAIL` for lane-priority stability scanability.
+- No map or portal runtime behavior changed.

@@ -346,6 +346,18 @@ def main() -> int:
             "hysteresisApplied",
             "alias",
         }, payload
+        assert payload.get("lanePriorityHysteresisRail") in {"OFF", "LPR HYS RAIL:STEADY", "LPR HYS RAIL:SPIKE"}, payload
+        assert set(payload.get("lanePriorityHysteresisRailSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "confidence",
+            "hysteresisApplied",
+            "scoreGap",
+            "threshold",
+            "closeGapThreshold",
+            "rail",
+            "reason",
+        }, payload
         assert payload.get("routeSandbox") in {"ON", "OFF"}, payload
         assert set(payload.get("routeSandboxSignals", {}).keys()) == {
             "flagName",
@@ -1679,6 +1691,7 @@ def main() -> int:
         assert "LANE PRIORITY REC:" in md_text
         assert "LPR:" in md_text
         assert "LPR HYS:" in md_text
+        assert "LPR HYS RAIL:" in md_text
         assert "LANE PRIORITY REC CONF:" in md_text
         assert "LANE PRIORITY REC HYSTERESIS:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text

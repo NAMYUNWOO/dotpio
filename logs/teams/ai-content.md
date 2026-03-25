@@ -1627,3 +1627,7 @@
 - Shipped offline lane-priority hysteresis policy: recommendation holds prior lane when challenger score-gap is below threshold and severe staleness bypass is not active.
 - Policy remains offline-only in weekly digest output; no runtime gameplay coupling.
 - Follow-up candidate: volatility-aware adaptive threshold recommendation as offline artifact.
+
+## 2026-03-25 14:04 KST — Cycle DJ AI-content note
+- No AI generation/runtime behavior changes.
+- Added offline-only recommendation readability signal (`LPR HYS RAIL`) to support operator triage.

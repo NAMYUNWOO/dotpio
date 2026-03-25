@@ -954,5 +954,5 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] AI Content/Systems Team: Prototype offline lane-priority hysteresis suppression policy for recommendation flapping.
 - [x] Systems/QA Team: Add compact hysteresis alias token (`LPR HYS:H|S`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_ALIAS` with payload + markdown wiring.
-- [ ] UX/World Team: Prototype compact hysteresis confidence rail token (`LPR HYS RAIL:STEADY|SPIKE`) behind flag.
+- [x] UX/World Team: Prototype compact hysteresis confidence rail token (`LPR HYS RAIL:STEADY|SPIKE`) behind flag. *(lifecycle: [ ] -> [~] -> [x])*
 - [ ] Systems/QA Team: Prototype adaptive hysteresis-threshold tuning policy from lane-age volatility windows (offline recommendation only).

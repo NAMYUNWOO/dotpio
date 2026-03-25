@@ -2480,3 +2480,9 @@
 - Added compact alias token `LPR HYS:H|S` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_ALIAS` with JSON payload + markdown row wiring.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: prototype confidence rail (`LPR HYS RAIL`) and adaptive threshold policy from volatility windows.
+
+## 2026-03-25 14:04 KST — Cycle DJ Systems/UX: hysteresis rail token
+- Completed: added offline digest token `LPR HYS RAIL:STEADY|SPIKE` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_RAIL`.
+- Decision: classify `SPIKE` when hysteresis is active, confidence is LOW, or lane-score gap is near threshold; otherwise `STEADY`.
+- Scope: `scripts/weekly_portal_prompt_readability_drift.py` JSON+markdown output plus regression schema checks; no gameplay/runtime coupling.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

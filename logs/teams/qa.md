@@ -3024,3 +3024,11 @@
 - Extended regression contract for lane-priority recommendation signals with hysteresis fields (`priorRecommendation`, `rawRecommendation`, `hysteresisApplied`, `hysteresisThreshold`, `hysteresisScoreGap`, `hysteresisReason`).
 - Added assertions for `LPR HYS:` and `LANE PRIORITY REC HYSTERESIS:` rows in markdown output and payload alias-signal keys.
 - Verification command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` → PASS.
+
+## 2026-03-25 14:04 KST — Cycle DJ QA validation (hysteresis rail)
+- Extended regression schema assertions for `lanePriorityHysteresisRail` and `lanePriorityHysteresisRailSignals`.
+- Added markdown assertion for `LPR HYS RAIL:` presence.
+- Verification PASS:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_RAIL=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`

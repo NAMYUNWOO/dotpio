@@ -1663,3 +1663,7 @@
 ## 2026-03-25 13:31 KST — Cycle DJ Design note
 - Maintained operator readability contract by adding concise hysteresis status row (`LANE PRIORITY REC HYSTERESIS`) and compact alias (`LPR HYS`).
 - Copy stays deterministic and offline-only to avoid player-facing confusion.
+
+## 2026-03-25 14:04 KST — Cycle DJ Design readability update
+- Added compact digest token `LPR HYS RAIL:STEADY|SPIKE` (flag-gated) to improve quick scan of recommendation stability.
+- Copy kept deterministic and offline-only.

@@ -390,6 +390,34 @@ def resolve_lane_priority_hysteresis_alias(*, hysteresis_applied: bool) -> tuple
     }
 
 
+def resolve_lane_priority_hysteresis_rail(*, confidence: str, hysteresis_applied: bool, score_gap: int, threshold: int) -> tuple[str, dict[str, object]]:
+    flag_name = "DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_RAIL"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    confidence_upper = str(confidence or "LOW").upper()
+    close_gap_threshold = max(2, int(threshold or 0) // 3)
+    if hysteresis_applied or confidence_upper == "LOW" or int(score_gap or 0) <= close_gap_threshold:
+        rail = "SPIKE"
+        reason = "hysteresis-applied-or-low-confidence-gap"
+    else:
+        rail = "STEADY"
+        reason = "confidence-stable-gap-clear"
+
+    token = f"LPR HYS RAIL:{rail}"
+    return (token if flag_enabled else "OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "confidence": confidence_upper,
+        "hysteresisApplied": bool(hysteresis_applied),
+        "scoreGap": int(score_gap or 0),
+        "threshold": int(threshold or 0),
+        "closeGapThreshold": close_gap_threshold,
+        "rail": rail,
+        "reason": reason,
+    }
+
+
 def lane_priority_recommendation_from_bucket_age_momentum(
     *,
     age_hours: dict[str, int],
@@ -6422,6 +6450,12 @@ def main() -> int:
     lane_priority_hysteresis_compact_alias, lane_priority_hysteresis_compact_alias_signals = resolve_lane_priority_hysteresis_alias(
         hysteresis_applied=bool(lane_priority_recommendation_signals.get("hysteresisApplied", False)),
     )
+    lane_priority_hysteresis_rail, lane_priority_hysteresis_rail_signals = resolve_lane_priority_hysteresis_rail(
+        confidence=lane_priority_recommendation_confidence_level,
+        hysteresis_applied=bool(lane_priority_recommendation_signals.get("hysteresisApplied", False)),
+        score_gap=int(lane_priority_recommendation_signals.get("hysteresisScoreGap", 0) or 0),
+        threshold=int(lane_priority_recommendation_signals.get("hysteresisThreshold", 0) or 0),
+    )
 
     totals = {
         "added": {k: sum(r["added"][k] for r in touched) for k in TOKEN_GROUPS},
@@ -7378,6 +7412,8 @@ def main() -> int:
         "lanePriorityRecommendationCompactAliasSignals": lane_priority_recommendation_compact_alias_signals,
         "lanePriorityHysteresisCompactAlias": lane_priority_hysteresis_compact_alias,
         "lanePriorityHysteresisCompactAliasSignals": lane_priority_hysteresis_compact_alias_signals,
+        "lanePriorityHysteresisRail": lane_priority_hysteresis_rail,
+        "lanePriorityHysteresisRailSignals": lane_priority_hysteresis_rail_signals,
         "laneFocus": lane_focus,
         "laneFocusScores": lane_focus_scores,
         "focusStreak": focus_streak,
@@ -7848,6 +7884,7 @@ def main() -> int:
         f"- LANE PRIORITY REC: **{lane_priority_recommendation}** (reason={lane_priority_recommendation_signals['reason']} worstAge={lane_priority_recommendation_signals['worstAgeHours']}h offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- LPR: **{lane_priority_recommendation_compact_alias}** (flag={lane_priority_recommendation_compact_alias_signals['flagName']} enabled={lane_priority_recommendation_compact_alias_signals['flagEnabled']} rec={lane_priority_recommendation_compact_alias_signals['recommendation']} alias={lane_priority_recommendation_compact_alias_signals['alias']})",
         f"- LPR HYS: **{lane_priority_hysteresis_compact_alias}** (flag={lane_priority_hysteresis_compact_alias_signals['flagName']} enabled={lane_priority_hysteresis_compact_alias_signals['flagEnabled']} applied={lane_priority_hysteresis_compact_alias_signals['hysteresisApplied']} alias={lane_priority_hysteresis_compact_alias_signals['alias']})",
+        f"- LPR HYS RAIL: **{lane_priority_hysteresis_rail}** (flag={lane_priority_hysteresis_rail_signals['flagName']} enabled={lane_priority_hysteresis_rail_signals['flagEnabled']} conf={lane_priority_hysteresis_rail_signals['confidence']} gap={lane_priority_hysteresis_rail_signals['scoreGap']} threshold={lane_priority_hysteresis_rail_signals['threshold']} reason={lane_priority_hysteresis_rail_signals['reason']})",
         f"- LANE PRIORITY REC CONF: **{lane_priority_recommendation_confidence_level}** (worstAge={lane_priority_recommendation_confidence_signals['worstAgeHours']}h momentumGap={lane_priority_recommendation_confidence_signals['momentumGapHours']}h reason={lane_priority_recommendation_confidence_signals['reason']})",
         f"- LANE PRIORITY REC HYSTERESIS: **{'HOLD' if lane_priority_recommendation_signals['hysteresisApplied'] else 'SHIFT'}** (prior={lane_priority_recommendation_signals['priorRecommendation']} raw={lane_priority_recommendation_signals['rawRecommendation']} gap={lane_priority_recommendation_signals['hysteresisScoreGap']} threshold={lane_priority_recommendation_signals['hysteresisThreshold']} reason={lane_priority_recommendation_signals['hysteresisReason']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: **{pulse_heat_fx_compact_budget_drift_level}** ({pulse_heat_fx_compact_budget_drift_signals['reason']}; compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d} churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
@@ -7926,6 +7963,7 @@ def main() -> int:
         f"- LANE PRIORITY REC: {lane_priority_recommendation} (reason={lane_priority_recommendation_signals['reason']}, worstAge={lane_priority_recommendation_signals['worstAgeHours']}h, offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- LPR: {lane_priority_recommendation_compact_alias} (flag={lane_priority_recommendation_compact_alias_signals['flagName']}, enabled={lane_priority_recommendation_compact_alias_signals['flagEnabled']}, rec={lane_priority_recommendation_compact_alias_signals['recommendation']}, alias={lane_priority_recommendation_compact_alias_signals['alias']})",
         f"- LPR HYS: {lane_priority_hysteresis_compact_alias} (flag={lane_priority_hysteresis_compact_alias_signals['flagName']}, enabled={lane_priority_hysteresis_compact_alias_signals['flagEnabled']}, applied={lane_priority_hysteresis_compact_alias_signals['hysteresisApplied']}, alias={lane_priority_hysteresis_compact_alias_signals['alias']})",
+        f"- LPR HYS RAIL: {lane_priority_hysteresis_rail} (flag={lane_priority_hysteresis_rail_signals['flagName']}, enabled={lane_priority_hysteresis_rail_signals['flagEnabled']}, conf={lane_priority_hysteresis_rail_signals['confidence']}, gap={lane_priority_hysteresis_rail_signals['scoreGap']}, threshold={lane_priority_hysteresis_rail_signals['threshold']}, reason={lane_priority_hysteresis_rail_signals['reason']})",
         f"- LANE PRIORITY REC CONF: {lane_priority_recommendation_confidence_level} (worstAge={lane_priority_recommendation_confidence_signals['worstAgeHours']}h, momentumGap={lane_priority_recommendation_confidence_signals['momentumGapHours']}h, reason={lane_priority_recommendation_confidence_signals['reason']})",
         f"- LANE PRIORITY REC HYSTERESIS: {'HOLD' if lane_priority_recommendation_signals['hysteresisApplied'] else 'SHIFT'} (prior={lane_priority_recommendation_signals['priorRecommendation']}, raw={lane_priority_recommendation_signals['rawRecommendation']}, gap={lane_priority_recommendation_signals['hysteresisScoreGap']}, threshold={lane_priority_recommendation_signals['hysteresisThreshold']}, reason={lane_priority_recommendation_signals['hysteresisReason']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: {pulse_heat_fx_compact_budget_drift_level} (compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d}, churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",

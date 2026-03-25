@@ -1581,3 +1581,7 @@
 ## 2026-03-25 13:31 KST — Cycle DJ Combat lane note
 - No combat behavior/VFX gameplay state changed in this cycle.
 - Lane priority remains for next visible player-facing cadence slice after digest hysteresis stabilization.
+
+## 2026-03-25 14:04 KST — Cycle DJ Combat lane note
+- No combat/VFX runtime adjustments in this slice.
+- Work focused on digest observability token for lane-priority hysteresis stability.
