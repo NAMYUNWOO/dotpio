@@ -3005,3 +3005,10 @@
 - Verification PASS:
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`
+
+## 2026-03-25 12:35 KST — Cycle DI verification
+- Verification PASS:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`
+- Follow-up: Extend regression with lane-priority confidence contract once added.

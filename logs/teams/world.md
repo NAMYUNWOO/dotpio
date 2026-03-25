@@ -1619,3 +1619,7 @@
 
 ## 2026-03-25 12:04 KST — No world/map runtime changes this cycle
 - Scope remained offline digest analytics only (`LANE PRIORITY REC`), so world lane had no gameplay/map mutation.
+
+## 2026-03-25 12:35 KST — Cycle DI world/readability handoff
+- Decision: Keep lane-priority compact alias world-facing (design/world readability lane) and flag-gated for reversible rollout.
+- Follow-up: Validate whether `LPR` shorthand remains legible in dense digest snapshots once confidence companion token lands.

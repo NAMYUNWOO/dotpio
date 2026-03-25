@@ -1877,3 +1877,8 @@
 ## 2026-03-25 12:04 KST — UX lane note
 - UX impact is limited to weekly operator digest readability (`LANE PRIORITY REC` line + reason context).
 - Player-facing UX untouched.
+
+## 2026-03-25 12:35 KST — Cycle DI compact lane-priority alias
+- Decision: Added digest summary compact alias `LPR:<BAL|SYS|DW|CV>` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_ALIAS` to reduce scan friction in weekly routing review.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up: Pair with confidence token (`LANE PRIORITY REC CONF`) to improve operator trust calibration.

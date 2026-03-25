@@ -318,6 +318,13 @@ def main() -> int:
             "worstAgeHours",
             "reason",
         }, payload
+        assert isinstance(payload.get("lanePriorityRecommendationCompactAlias"), str), payload
+        assert set(payload.get("lanePriorityRecommendationCompactAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "recommendation",
+            "alias",
+        }, payload
         assert payload.get("routeSandbox") in {"ON", "OFF"}, payload
         assert set(payload.get("routeSandboxSignals", {}).keys()) == {
             "flagName",
@@ -1649,6 +1656,7 @@ def main() -> int:
         assert "LANE BUCKET AGE:" in md_text
         assert "LANE BUCKET AGE Δ:" in md_text
         assert "LANE PRIORITY REC:" in md_text
+        assert "LPR:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text
         assert "ROUTE GLOW FX CONF + RGFXC:" in md_text

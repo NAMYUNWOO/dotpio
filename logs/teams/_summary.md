@@ -2741,3 +2741,14 @@ Compact decision memory for AI context efficiency.
 - Weekly digest now emits `LANE PRIORITY REC` with auditable signals (`current/prior ages`, `momentum`, `priority scores`, `offlineOnly`).
 - Regression contract updated and passing for payload + markdown token (`scripts/regression_weekly_portal_prompt_readability_drift.py`).
 - Backlog sync: `TASKS.md` + `POST_RC_BACKLOG.md` item moved `[~] -> [x]`.
+
+## 2026-03-25 12:35 KST — Cycle DI shipped (Game Director review loop)
+- Trigger: ACTION_ITEMS/TASKS/POST_RC actionable queues were fully checked, so Game Director cycle executed.
+- Ideas generated:
+  1) Low risk (UX/World): compact lane-priority alias `LPR:<BAL|SYS|DW|CV>` behind flag.
+  2) Mid risk (Systems/QA): lane-priority confidence token `LANE PRIORITY REC CONF:LOW|MID|HIGH`.
+  3) High risk (AI Content/Systems): offline hysteresis policy for lane-priority flapping suppression.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- Shipped: weekly digest now emits `LPR:` line plus payload keys `lanePriorityRecommendationCompactAlias` and `lanePriorityRecommendationCompactAliasSignals` (flag `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_ALIAS`).
+- Verification PASS: py_compile + weekly drift regression + weekly digest generation.
+- Backlog injected: confidence-token and hysteresis-policy tasks remain queued in TASKS/POST_RC.

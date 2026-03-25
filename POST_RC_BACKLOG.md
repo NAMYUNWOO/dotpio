@@ -747,3 +747,13 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Systems/Ops Team: Add lane-bucket freshness drift token (`LANE BUCKET AGE Δ:+n|-n`) to weekly digest + regression lock.
 - [x] UX/World Team: Prototype compact lane freshness alias token (`LBA:<sys>/<dw>/<cv>`) behind flag.
 - [x] AI Content/Systems Team: Prototype offline lane-priority recommendation policy from bucket-age momentum.
+
+## Cycle DI - Game Director Review (2026-03-25 12:31 KST, forced underrepresented-lane pick)
+- Coverage check (last 10 completions): systems/ops-heavy digest observability still dominates; underrepresented design/world + combat/vfx lanes should be favored this cycle.
+- Idea 1 (low risk, UX/World): Add compact lane-priority recommendation alias token (`LPR:<BAL|SYS|DW|CV>`) behind flag for digest summary scanability.
+- Idea 2 (mid risk, Systems/QA): Add lane-priority recommendation confidence token (`LANE PRIORITY REC CONF:LOW|MID|HIGH`) derived from age spread + momentum gap.
+- Idea 3 (high risk, AI Content/Systems): Prototype offline lane-priority hysteresis policy to suppress recommendation flapping.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/World Team: Add compact lane-priority recommendation alias token (`LPR:<BAL|SYS|DW|CV>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_ALIAS` with regression lock. *(lifecycle: [~] -> [x])*
+- [ ] Systems/QA Team: Add lane-priority recommendation confidence token (`LANE PRIORITY REC CONF:LOW|MID|HIGH`) with payload + markdown contract.
+- [ ] AI Content/Systems Team: Prototype offline lane-priority hysteresis suppression policy for recommendation flapping.

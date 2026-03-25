@@ -1573,3 +1573,7 @@
 
 ## 2026-03-25 12:04 KST — No combat runtime changes this cycle
 - Scope remained offline digest analytics only (`LANE PRIORITY REC`), combat pacing/AI behavior unchanged.
+
+## 2026-03-25 12:35 KST — Cycle DI cadence checkpoint
+- Decision: No combat-token mutation this cycle; held combat lane stable while shipping digest routing readability patch.
+- Follow-up: Prioritize next cycle combat/vfx-facing item if systems observability remains overrepresented.

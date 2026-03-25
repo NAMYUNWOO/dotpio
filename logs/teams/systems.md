@@ -2464,3 +2464,7 @@
 - Added helper `lane_priority_recommendation_from_bucket_age_momentum(...)` in `scripts/weekly_portal_prompt_readability_drift.py`.
 - Score policy: `priority = currentAgeHours + 2*max(momentumHours, 0)` per lane; stale/fast-rising lanes are prioritized.
 - Digest now emits `LANE PRIORITY REC` row and JSON recommendation signals for auditability.
+
+## 2026-03-25 12:35 KST — Cycle DI systems note
+- Decision: Exposed `lanePriorityRecommendationCompactAlias` + signals in digest JSON payload for downstream automation without changing recommendation logic.
+- Follow-up: Next systems slice should add deterministic confidence tier for recommendation stability triage.

@@ -1655,3 +1655,7 @@
 ## 2026-03-25 12:04 KST — Digest readability addition validated
 - Added compact operator-facing row `LANE PRIORITY REC` in weekly markdown digest for quick backlog-priority triage.
 - No in-game UI/prompt copy changes in this slice.
+
+## 2026-03-25 12:35 KST — Cycle DI design readability update
+- Decision: Adopted terse `LPR` shorthand to preserve DOS-width digest readability while keeping full `LANE PRIORITY REC` line intact.
+- Follow-up: Monitor abbreviation clarity after confidence/fallback companion tokens are added.

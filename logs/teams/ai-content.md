@@ -1618,3 +1618,7 @@
 - Decision: keep recommendation strictly **offline-only** in weekly digest outputs (`LANE PRIORITY REC`) with deterministic scoring from lane bucket age + positive momentum boost.
 - Added payload contract in weekly digest JSON: `lanePriorityRecommendation` + `lanePriorityRecommendationSignals`.
 - Follow-up: use recommendation as planning input only; no runtime gameplay coupling.
+
+## 2026-03-25 12:35 KST — Cycle DI backlog injection
+- Decision: Deferred high-risk hysteresis policy to backlog; no runtime AI-content behavior changed in this slice.
+- Follow-up: Prototype offline recommendation flapping suppression after confidence token exists.
