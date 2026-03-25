@@ -2558,3 +2558,20 @@
 - Added payload fields: `dmgnumLifeTrendFxPulseRemapRecommendation` + `...Signals` (offline-only guidance).
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
 - Follow-up: monitor one digest window for recommendation stability before considering any runtime coupling.
+
+## 2026-03-25 19:31 KST — Systems
+- Added weekly digest token-family coverage for  and new  alias family () in .
+- Decision: keep momentum policy offline-only and deterministic (no runtime coupling).
+- Follow-up: evaluate  drift token (Cycle DP Idea 2).
+
+## 2026-03-25 20:01 KST — Systems/QA momentum drift token
+- Completed Cycle DP mid-risk item by adding  drift output using prior digest window state.
+- Added payload contract fields:  + .
+- Decision: score map , ,  to keep drift sign intuitive for tightening vs relaxing posture.
+- Verification:  and [PASS] weekly portal prompt readability drift regression checks ✅.
+
+## 2026-03-25 20:01 KST — Systems/QA momentum drift token
+- Completed Cycle DP mid-risk item by adding `PULSE REMAP MOMENTUM Δ:+n|-n` drift output using prior digest window state.
+- Added payload contract fields: `pulseRemapMomentumDrift` + `pulseRemapMomentumDriftSignals`.
+- Decision: score map `FREEZE=-1`, `WATCH=0`, `ALLOW=+1` to keep drift sign intuitive for tightening vs relaxing posture.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.

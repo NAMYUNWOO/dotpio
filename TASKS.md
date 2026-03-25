@@ -1007,5 +1007,14 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/VFX): Prototype offline pulse-remap confidence momentum policy (`PULSE REMAP MOMENTUM:FREEZE|WATCH|ALLOW`) from multi-window churn + cadence pressure.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Add compact pulse remap-plan token (`DMGNUM LIFE TREND FX PULSE REMAP PLAN:HOLD|TUNE|SYNC`) behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_REMAP_PLAN_DEBUG` with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] Systems/QA Team: Add weekly digest token-family churn coverage for `DMGNUM LIFE TREND FX PULSE REMAP PLAN:` with regression lock.
-- [ ] AI Content/VFX Team: Prototype offline pulse-remap confidence momentum policy (`PULSE REMAP MOMENTUM:FREEZE|WATCH|ALLOW`) from drift-risk + cadence pressure windows.
+- [x] Systems/QA Team: Add weekly digest token-family churn coverage for `DMGNUM LIFE TREND FX PULSE REMAP PLAN:` with regression lock.
+- [x] AI Content/VFX Team: Prototype offline pulse-remap confidence momentum policy (`PULSE REMAP MOMENTUM:FREEZE|WATCH|ALLOW`) from drift-risk + cadence pressure windows.
+
+## Cycle DP - Game Director Review (2026-03-25 19:31 KST)
+- Idea 1 (low risk, UX/Combat): Add compact pulse-remap momentum alias token (`PRM:<F|W|A>`) behind flag for digest scanability.
+- Idea 2 (mid risk, Systems/QA): Add momentum drift token (`PULSE REMAP MOMENTUM Δ:+n|-n`) using prior digest window.
+- Idea 3 (high risk, AI Content/VFX): Prototype offline momentum-streak suppression policy when `FREEZE` repeats across windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Combat Team: Add compact pulse-remap momentum alias token (`PRM:<F|W|A>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_MOMENTUM_ALIAS` with regression lock.
+- [x] Systems/QA Team: Add momentum drift token (`PULSE REMAP MOMENTUM Δ:+n|-n`) using prior digest window.
+- [ ] AI Content/VFX Team: Prototype offline momentum-streak suppression policy when `FREEZE` repeats across windows.

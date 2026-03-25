@@ -2845,3 +2845,19 @@ Compact decision memory for AI context efficiency.
 - Game Director Cycle DO executed immediately after queue clear: generated 3 ideas (low/mid/high), selected low-risk Combat/VFX slice, and shipped `DMGNUM LIFE TREND FX PULSE REMAP PLAN:HOLD|TUNE|SYNC` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_REMAP_PLAN_DEBUG`.
 - Regression lock added via `scripts/regression_combat_damage_number_life_trend_fx_pulse_remap_plan_token.lua` (PASS).
 - Newly injected backlog items: Systems/QA digest family coverage for remap-plan token + AI Content/VFX offline pulse-remap momentum policy.
+
+## 2026-03-25 20:01 KST — Cycle DP Systems/QA item complete
+- Shipped  derived from prior digest window via new helper .
+- Durable decision: drift scoring is ordinal (, , ) so positive Δ means posture relaxed, negative Δ means tightened.
+- Added JSON payload fields (, ) and markdown row .
+- Regression lock updated in ; validation PASS.
+- Backlog sync: Systems/QA momentum-drift item marked  in both  and .
+- Next highest-priority unchecked item: AI Content/VFX momentum-streak suppression policy for repeated  windows.
+
+## 2026-03-25 20:01 KST — Cycle DP Systems/QA item complete
+- Shipped `PULSE REMAP MOMENTUM Δ:+n|-n` derived from prior digest window via helper `pulse_remap_momentum_drift_from_prior(...)`.
+- Durable decision: drift scoring is ordinal (`FREEZE=-1`, `WATCH=0`, `ALLOW=+1`) so positive Δ means posture relaxed, negative Δ means tightened.
+- Added JSON payload fields (`pulseRemapMomentumDrift`, `pulseRemapMomentumDriftSignals`) and markdown row `PULSE REMAP MOMENTUM Δ:`.
+- Regression lock updated in `scripts/regression_weekly_portal_prompt_readability_drift.py`; validation PASS.
+- Backlog sync: Systems/QA momentum-drift item marked `[~] -> [x]` in both `TASKS.md` and `POST_RC_BACKLOG.md`.
+- Next highest-priority unchecked item: AI Content/VFX momentum-streak suppression policy for repeated `FREEZE` windows.

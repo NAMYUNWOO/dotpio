@@ -1715,3 +1715,13 @@
 - Task: Design lane status sync.
 - Notes:
   - No design-token copy changes in this cycle; digest coverage expansion kept terminology unchanged.
+
+## 2026-03-25 19:31 KST — Design
+- Chose compact alias form  to keep digest readability under tight DOS-style width budgets.
+- Maintained explicit long-form parity line () for audit clarity.
+
+## 2026-03-25 20:01 KST — Design sync
+- Kept compact token readability by adding explicit drift row  without changing existing alias syntax.
+
+## 2026-03-25 20:01 KST — Design sync
+- Kept compact token readability by adding explicit drift row `PULSE REMAP MOMENTUM Δ:` without changing existing alias syntax.

@@ -264,6 +264,30 @@ def main() -> int:
             "offlineOnly",
             "guidance",
         }, payload
+        assert payload.get("pulseRemapMomentumRecommendation") in {"FREEZE", "WATCH", "ALLOW"}, payload
+        assert set(payload.get("pulseRemapMomentumRecommendationSignals", {}).keys()) == {
+            "recommendation",
+            "driftRisk",
+            "pressureBand",
+            "laneCadenceRecency",
+            "planChurn",
+            "planNet",
+            "planCoverage",
+            "freezeBias",
+            "rationale",
+            "offlineOnly",
+        }, payload
+        assert isinstance(payload.get("pulseRemapMomentumDrift"), int), payload
+        assert set(payload.get("pulseRemapMomentumDriftSignals", {}).keys()) == {
+            "currentMomentum",
+            "currentScore",
+            "priorMomentum",
+            "priorScore",
+            "priorLoaded",
+            "reason",
+        }, payload
+        assert isinstance(payload.get("pulseRemapMomentumAlias"), str) and payload["pulseRemapMomentumAlias"].startswith("PRM:"), payload
+        assert set(payload.get("pulseRemapMomentumAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert set(payload.get("routeVibeTotals", {}).keys()) == {"added", "removed", "net"}, payload
         assert set(payload["routeVibeTotals"]["added"].keys()) == {"CALM", "EDGE", "DOOM"}, payload
         assert payload["routeVibeTotals"]["added"]["EDGE"] >= 1, payload
@@ -1026,6 +1050,8 @@ def main() -> int:
         assert "dmgnumLifeTrendAlias" in payload["tokenFamilyTotals"], payload
         assert "dmgnumLifeTrendFxPulseAlias" in payload["tokenFamilyTotals"], payload
         assert "dmgnumLifeTrendFxPulseConfidenceAlias" in payload["tokenFamilyTotals"], payload
+        assert "dmgnumLifeTrendFxPulseRemapPlanAlias" in payload["tokenFamilyTotals"], payload
+        assert "pulseRemapMomentumAlias" in payload["tokenFamilyTotals"], payload
         assert "dmgGlyphFxLiveAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisThresholdAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisWindowDeltaAlias" in payload["tokenFamilyTotals"], payload
@@ -1270,6 +1296,26 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["dmgnumLifeTrendFxPulseConfidenceAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["dmgnumLifeTrendFxPulseRemapPlanAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["pulseRemapMomentumAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1817,6 +1863,8 @@ def main() -> int:
         assert "DMGNUM LIFE TREND FAMILY CHURN" in md_text
         assert "DMGNUM LIFE TREND FX PULSE FAMILY CHURN" in md_text
         assert "DMGNUM LIFE TREND FX PULSE CONF FAMILY CHURN" in md_text
+        assert "DMGNUM LIFE TREND FX PULSE REMAP PLAN FAMILY CHURN" in md_text
+        assert "PULSE REMAP MOMENTUM FAMILY CHURN" in md_text
         assert "DMG GLYPH FAMILY CHURN" in md_text
         assert "DMG GLYPH FX LIVE FAMILY CHURN" in md_text
         assert "LPR HYS THR FAMILY CHURN" in md_text
@@ -1859,6 +1907,9 @@ def main() -> int:
         assert "DMGNUM LIFE TREND:" in md_text
         assert "DMGNUM LIFE TREND FX PULSE:" in md_text
         assert "DMGNUM LIFE TREND FX PULSE CONF:" in md_text
+        assert "DMGNUM LIFE TREND FX PULSE REMAP PLAN:" in md_text
+        assert "PULSE REMAP MOMENTUM Δ:" in md_text
+        assert "PRM + PULSE REMAP MOMENTUM:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
         assert "LPR HYS THR:" in md_text
@@ -1901,6 +1952,8 @@ def main() -> int:
         assert "DMG GLYPH FX REMAP REC" in md_text
         assert "DMG GLYPH FX REMAP CONF" in md_text
         assert "DMGNUM LIFE TREND FX PULSE CONF REMAP REC" in md_text
+        assert "PULSE REMAP MOMENTUM" in md_text
+        assert "PRM:" in md_text
         assert "ROUTE VIBE DRIFT" in md_text
         assert "Route Vibe Drift (added/removed/net)" in md_text
         assert "FOCUS" in md_text

@@ -203,3 +203,13 @@
 - Added HUD debug readability cue for pulse planning: `DMGNUM LIFE TREND FX PULSE REMAP PLAN:HOLD|TUNE|SYNC`.
 - Visual intent: keep pulse-confidence interpretation glanceable during dense combat telemetry without changing live FX behavior.
 - Verification synchronized with combat regression suite.
+
+## 2026-03-25 19:31 KST — VFX
+- No runtime VFX behavior changes this cycle; combat pulse visual mapping remains unchanged.
+- Consumed offline momentum recommendation output for future remap tuning workflow.
+
+## 2026-03-25 20:01 KST — VFX sync
+- No live VFX behavior changes; momentum drift token is offline digest instrumentation only.
+
+## 2026-03-25 20:01 KST — VFX sync
+- No live VFX behavior changes; momentum drift token is offline digest instrumentation only.

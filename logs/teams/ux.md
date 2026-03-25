@@ -1939,3 +1939,13 @@
 - Task: UX lane status sync.
 - Notes:
   - No UI layout/hint copy changes shipped; only backend digest markdown coverage rows were added for operator readability.
+
+## 2026-03-25 19:31 KST — UX
+- Shipped compact momentum alias token () behind .
+- Regression updated to assert both detailed and compact render paths in weekly digest output.
+
+## 2026-03-25 20:01 KST — UX sync
+- Digest scanability improved with dedicated drift row () while preserving existing  compact alias path.
+
+## 2026-03-25 20:01 KST — UX sync
+- Digest scanability improved with dedicated drift row (`PULSE REMAP MOMENTUM Δ`) while preserving existing `PRM` compact alias path.

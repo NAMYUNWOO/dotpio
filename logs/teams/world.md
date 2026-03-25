@@ -1679,3 +1679,13 @@
 - Task: World lane status sync.
 - Notes:
   - No map/portal routing updates in this cycle; work stayed in weekly observability tooling.
+
+## 2026-03-25 19:31 KST — World
+- No map/portal topology changes this cycle.
+- Reviewed Cycle DP lane balance; world lane deferred to next idea queue while combat-facing readability slice shipped.
+
+## 2026-03-25 20:01 KST — World sync
+- No map/portal topology changes; work remained telemetry/digest-side.
+
+## 2026-03-25 20:01 KST — World sync
+- No map/portal topology changes; work remained telemetry/digest-side.

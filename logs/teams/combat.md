@@ -1650,3 +1650,13 @@
   - `HIGH -> SYNC`
 - Scope kept additive/reversible with no combat balance coupling.
 - Verification: `lua scripts/regression_combat_damage_number_life_trend_fx_pulse_remap_plan_token.lua` ✅.
+
+## 2026-03-25 19:31 KST — Combat
+- Verified existing remap-plan debug token regression still passes with digest-side momentum additions.
+- Evidence:  PASS under debug flags.
+
+## 2026-03-25 20:01 KST — Combat sync
+- No combat runtime tuning shipped; change stayed in offline weekly digest analysis.
+
+## 2026-03-25 20:01 KST — Combat sync
+- No combat runtime tuning shipped; change stayed in offline weekly digest analysis.

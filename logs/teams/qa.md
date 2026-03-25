@@ -3106,3 +3106,22 @@
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Result: PASS.
+
+## 2026-03-25 19:31 KST — QA
+- Expanded weekly digest regression coverage:
+  - 
+  - 
+  - markdown assertions for , , and family churn rows
+- Validation: [PASS] weekly portal prompt readability drift regression checks PASS.
+
+## 2026-03-25 20:01 KST — QA regression lock (momentum drift)
+- Expanded weekly digest regression coverage for momentum drift:
+  - payload assertions for  + 
+  - markdown assertion for  visibility
+- Validation PASS: [PASS] weekly portal prompt readability drift regression checks.
+
+## 2026-03-25 20:01 KST — QA regression lock (momentum drift)
+- Expanded weekly digest regression coverage for momentum drift:
+  - payload assertions for `pulseRemapMomentumDrift` + `pulseRemapMomentumDriftSignals`
+  - markdown assertion for `PULSE REMAP MOMENTUM Δ:` visibility
+- Validation PASS: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
