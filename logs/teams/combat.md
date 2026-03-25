@@ -1635,3 +1635,9 @@
 - Follow-ups injected:
   - Systems/QA: digest token-family churn coverage for pulse + pulse-conf token families.
   - AI Content/VFX: offline pulse-intensity remap recommendation policy.
+
+## 2026-03-25 18:31:00 KST
+- Task: Combat/VFX observability follow-through for pulse debug token families (no runtime behavior change).
+- Commit: pending (this run)
+- Notes:
+  - No combat logic/hud rendering modifications in this slice; only weekly digest/reporting coverage was expanded for existing pulse tokens.

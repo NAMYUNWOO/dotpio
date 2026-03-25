@@ -2542,3 +2542,12 @@
 - Follow-ups injected:
   - Systems/QA: digest token-family churn coverage for pulse + pulse-conf token families.
   - AI Content/VFX: offline pulse-intensity remap recommendation policy.
+
+## 2026-03-25 18:31:00 KST
+- Task: Cycle DN Systems/QA digest coverage for `DMGNUM LIFE TREND FX PULSE` families.
+- Commit: pending (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Extended token catalog/family alias coverage to include `DMGNUM LIFE TREND FX PULSE:` and `DMGNUM LIFE TREND FX PULSE CONF:`.
+  - Added markdown family-churn + coverage rows and regression assertions to keep schema stable.

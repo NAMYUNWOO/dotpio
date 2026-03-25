@@ -997,5 +997,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/VFX): Prototype offline pulse-intensity remap recommendation policy from weekly drift + lane pressure signals.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Add compact pulse-intensity confidence token (`DMGNUM LIFE TREND FX PULSE CONF:LOW|MID|HIGH`) behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_CONF_DEBUG`. *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] Systems/QA Team: Add weekly digest token-family churn coverage for `DMGNUM LIFE TREND FX PULSE:` + `DMGNUM LIFE TREND FX PULSE CONF:` with regression lock.
+- [x] Systems/QA Team: Add weekly digest token-family churn coverage for `DMGNUM LIFE TREND FX PULSE:` + `DMGNUM LIFE TREND FX PULSE CONF:` with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
 - [ ] AI Content/VFX Team: Prototype offline pulse-intensity remap recommendation policy from drift-risk + cadence pressure bands.

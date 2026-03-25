@@ -3090,3 +3090,12 @@
 - Follow-ups injected:
   - Systems/QA: digest token-family churn coverage for pulse + pulse-conf token families.
   - AI Content/VFX: offline pulse-intensity remap recommendation policy.
+
+## 2026-03-25 18:31:00 KST
+- Task: Verify weekly digest regression lock for new DMGNUM pulse families.
+- Commit: pending (this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Regression now asserts tokenTotals, tokenFamilyTotals keys, and markdown rows for pulse + pulse-conf family churn coverage.

@@ -976,6 +976,8 @@ def main() -> int:
         assert "DMGNUM LIFE CONF:" in payload["tokenTotals"]["net"], payload
         assert "DMGNUM LIFE CONF Δ:" in payload["tokenTotals"]["net"], payload
         assert "DMGNUM LIFE TREND:" in payload["tokenTotals"]["net"], payload
+        assert "DMGNUM LIFE TREND FX PULSE:" in payload["tokenTotals"]["net"], payload
+        assert "DMGNUM LIFE TREND FX PULSE CONF:" in payload["tokenTotals"]["net"], payload
         assert "DMG GLYPH:" in payload["tokenTotals"]["net"], payload
         assert "DMG GLYPH FX LIVE:" in payload["tokenTotals"]["net"], payload
         assert "LPR HYS THR:" in payload["tokenTotals"]["net"], payload
@@ -1006,6 +1008,9 @@ def main() -> int:
         assert "dmgnumLifeAlias" in payload["tokenFamilyTotals"], payload
         assert "dmgnumLifeConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert "dmgnumLifeConfidenceDeltaAlias" in payload["tokenFamilyTotals"], payload
+        assert "dmgnumLifeTrendAlias" in payload["tokenFamilyTotals"], payload
+        assert "dmgnumLifeTrendFxPulseAlias" in payload["tokenFamilyTotals"], payload
+        assert "dmgnumLifeTrendFxPulseConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert "dmgGlyphFxLiveAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisThresholdAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisWindowDeltaAlias" in payload["tokenFamilyTotals"], payload
@@ -1220,6 +1225,36 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["dmgnumLifeConfidenceDeltaAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["dmgnumLifeTrendAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["dmgnumLifeTrendFxPulseAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["dmgnumLifeTrendFxPulseConfidenceAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1765,6 +1800,8 @@ def main() -> int:
         assert "DMGNUM LIFE CONF FAMILY CHURN" in md_text
         assert "DMGNUM LIFE CONF Δ FAMILY CHURN" in md_text
         assert "DMGNUM LIFE TREND FAMILY CHURN" in md_text
+        assert "DMGNUM LIFE TREND FX PULSE FAMILY CHURN" in md_text
+        assert "DMGNUM LIFE TREND FX PULSE CONF FAMILY CHURN" in md_text
         assert "DMG GLYPH FAMILY CHURN" in md_text
         assert "DMG GLYPH FX LIVE FAMILY CHURN" in md_text
         assert "LPR HYS THR FAMILY CHURN" in md_text
@@ -1805,6 +1842,8 @@ def main() -> int:
         assert "DMGNUM LIFE CONF:" in md_text
         assert "DMGNUM LIFE CONF Δ:" in md_text
         assert "DMGNUM LIFE TREND:" in md_text
+        assert "DMGNUM LIFE TREND FX PULSE:" in md_text
+        assert "DMGNUM LIFE TREND FX PULSE CONF:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
         assert "LPR HYS THR:" in md_text

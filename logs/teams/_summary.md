@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-25 17:36 KST
+Last updated: 2026-03-25 18:31 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle DN Systems/QA unchecked item: weekly portal readability digest now tracks `DMGNUM LIFE TREND FX PULSE:` and `DMGNUM LIFE TREND FX PULSE CONF:` as first-class token families (token totals + family coverage + churn rows).
+- Regression contract in `scripts/regression_weekly_portal_prompt_readability_drift.py` now locks JSON family keys, token totals, and markdown lines for the new pulse families; full regression passes.
+- Remaining actionable queue item from Cycle DN: AI Content/VFX offline pulse-intensity remap recommendation policy.
 
 - Closed highest-priority unchecked Systems/Ops backlog item: weekly portal readability digest now emits `LANE CADENCE RECENCY:<ok|warn>` derived from lane freshness (`LANE BUCKET AGE`) plus prior-window drift (`LANE BUCKET AGE Δ`).
 - Added durable payload contract keys `laneCadenceRecency` and `laneCadenceRecencySignals` and mirrored markdown row in both summary and coverage sections.

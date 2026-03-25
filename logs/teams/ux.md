@@ -1934,3 +1934,8 @@
 - Follow-ups injected:
   - Systems/QA: digest token-family churn coverage for pulse + pulse-conf token families.
   - AI Content/VFX: offline pulse-intensity remap recommendation policy.
+
+## 2026-03-25 18:31:00 KST
+- Task: UX lane status sync.
+- Notes:
+  - No UI layout/hint copy changes shipped; only backend digest markdown coverage rows were added for operator readability.
