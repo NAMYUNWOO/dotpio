@@ -1833,3 +1833,4 @@
 ## 2026-03-26 06:23 KST — Cycle EA combo readability micro-slice
 - Decision: keep combo token compact (`DMG COMBO:<n>x<HOT|WARM|COLD>`) to fit existing DOS debug lane without panel growth.
 - Follow-up: watch overlap budget if additional combat debug rows are introduced.
+- [2026-03-26 06:52 KST] Cycle EB: closed DMG COMBO observability slice (family churn + offline combo-window retune recommendation) and shipped compact alias token `DCR:<T|H|E>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_ALIAS` with regression lock.

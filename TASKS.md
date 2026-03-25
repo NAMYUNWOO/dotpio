@@ -1131,5 +1131,15 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Combat): Prototype offline combo-window retune recommendation policy from kill-cadence volatility + threat pressure.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Add compact kill-combo cadence debug token (`DMG COMBO:<n>x<HOT|WARM|COLD>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG` with regression coverage. *(lifecycle: [~] -> [x]; completed: 2026-03-26 06:22 KST)*
-- [ ] Systems/QA Team: Add weekly digest token-family churn coverage for `DMG COMBO:` with markdown triage row + regression lock.
-- [ ] AI Content/Combat Team: Prototype offline combo-window retune recommendation policy from kill-cadence volatility + threat pressure (offline-only).
+- [x] Systems/QA Team: Add weekly digest token-family churn coverage for `DMG COMBO:` with markdown triage row + regression lock. *(lifecycle: [~] -> [x]; completed: 2026-03-26 06:40 KST)*
+- [x] AI Content/Combat Team: Prototype offline combo-window retune recommendation policy from kill-cadence volatility + threat pressure (offline-only). *(lifecycle: [ ] -> [x]; completed: 2026-03-26 06:40 KST)*
+
+## Cycle EB - Game Director Review (2026-03-26 06:52 KST)
+- Coverage check (last 10 completions): Systems/QA + combat instrumentation dominate; selected a player-facing readability pass with reversible flagging to keep combat/debug lane scanable.
+- Idea 1 (low risk, Combat/UX): Add compact alias token for combo-window recommendation (`DCR:<T|H|E>`) to improve one-glance digest scanability.
+- Idea 2 (mid risk, Systems/QA): Add confidence-band token-family churn coverage for combo-window recommendation confidence (`DMG COMBO WINDOW RETUNE CONF:` + compact alias).
+- Idea 3 (high risk, AI Content/Combat): Prototype offline combo-chain narrative coach line linked to combo-window retune recommendation + pressure trend.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Combat/UX Team: Add compact combo-window retune alias (`DCR:<T|H|E>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_ALIAS` with digest markdown row + token-family churn coverage + regression lock. *(lifecycle: [ ] -> [x]; completed: 2026-03-26 06:52 KST)*
+- [ ] Systems/QA Team: Add combo-window retune confidence token-family churn coverage (`DMG COMBO WINDOW RETUNE CONF:` + compact alias) with regression lock.
+- [ ] AI Content/Combat Team: Prototype offline combo-chain narrative coach line tied to combo-window retune + pressure trend (offline-only).

@@ -2052,3 +2052,4 @@
 - Update: Added `PRSFX:<S|V|P>` mapping (`SOFT|VOID|SPIKE`) with env flag `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_FX_GLINT_ALIAS`; threaded through digest payload + markdown outputs and regression expectations.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
 - [2026-03-26 06:23 KST] HUD debug lane updated with combo token placement at y=780; copy kept single-line to avoid overlap with existing trend/fx diagnostics.
+- [2026-03-26 06:52 KST] Cycle EB: closed DMG COMBO observability slice (family churn + offline combo-window retune recommendation) and shipped compact alias token `DCR:<T|H|E>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_ALIAS` with regression lock.

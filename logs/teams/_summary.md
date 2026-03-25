@@ -3004,3 +3004,5 @@ Compact decision memory for AI context efficiency.
 - Implemented token: `PULSE REMAP SCENE COPY PALETTE REC` with values `COOL|ASH|SCAR` mapped from scene flavor + glint + posture confidence.
 - Rationale: Gives Design/World quick copy palette guidance aligned with suppression pressure without destabilizing gameplay systems.
 - Verification lock: regression suite updated and passing (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).
+- 2026-03-26 06:52 KST: Closed remaining Cycle EA items by adding DMG COMBO family churn coverage + offline combo-window retune recommendation in weekly digest (with regression lock), then executed Game Director Cycle EB (3 ideas) and shipped Idea 1: compact alias `DCR:<T|H|E>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_ALIAS` with markdown + token-family coverage.
+- Injected follow-up backlog: (1) combo-window retune confidence token-family churn coverage, (2) offline combo-chain narrative coach line tied to retune+pressure trend.
