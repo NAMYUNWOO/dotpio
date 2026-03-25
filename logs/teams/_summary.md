@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-26 05:01 KST
+Last updated: 2026-03-26 06:24 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Cycle EA Game Director review executed because ACTION_ITEMS/TASKS/POST_RC were fully checked; generated 3 ideas and selected low-risk Combat/VFX vertical slice.
+- Shipped additive gameplay-debug slice: combat runtime now tracks/decays kill combo windows (`COMBO_WINDOW=3.0s`) and HUD exposes flag-gated token `DMG COMBO:<n>x<HOT|WARM|COLD>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG`.
+- Added regression guardrail `scripts/regression_combat_damage_combo_token.lua` validating baseline/cooldown/hot states; existing damage-number regression still passes.
+- Injected next backlog candidates: weekly digest family coverage for `DMG COMBO:` and offline combo-window retune recommendation policy.
 
 - Closed highest-priority unchecked Combat/VFX item from TASKS/POST_RC: weekly digest now supports compact glint alias `PRSFX:<S|V|P>` mapped from `PULSE REMAP SCENE FX GLINT:SOFT|VOID|SPIKE`.
 - Alias is flag-gated via `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_FX_GLINT_ALIAS` and now appears in markdown, payload (`pulseRemapSceneFxGlintAlias` + signals), and token-family accounting (`PRSFX + PULSE REMAP SCENE FX GLINT`).

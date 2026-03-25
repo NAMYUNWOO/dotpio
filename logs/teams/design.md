@@ -1829,3 +1829,7 @@
 - Task: PRSFX compact glint alias slice (flag-gated) for weekly portal readability digest.
 - Update: Added `PRSFX:<S|V|P>` mapping (`SOFT|VOID|SPIKE`) with env flag `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_FX_GLINT_ALIAS`; threaded through digest payload + markdown outputs and regression expectations.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
+
+## 2026-03-26 06:23 KST — Cycle EA combo readability micro-slice
+- Decision: keep combo token compact (`DMG COMBO:<n>x<HOT|WARM|COLD>`) to fit existing DOS debug lane without panel growth.
+- Follow-up: watch overlap budget if additional combat debug rows are introduced.

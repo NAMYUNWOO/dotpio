@@ -353,6 +353,13 @@ local function isDamageNumberLifeTrendColorDebugExperimentEnabled()
     return v == "1" or v == "true" or v == "yes" or v == "on"
 end
 
+local function isDamageComboDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
 local function confidenceToScore(confidence)
     if confidence == "HIGH" then
         return 2
@@ -605,6 +612,25 @@ function HUD.resolveDamageNumberLifeTrendColor(token)
     return 1.0, 0.83, 0.32, 0.92
 end
 
+function HUD.resolveDamageComboToken()
+    if not isDamageComboDebugExperimentEnabled() then
+        return nil
+    end
+
+    local combo = Combat.debugGetKillComboState and Combat.debugGetKillComboState() or nil
+    if not combo then
+        return "DMG COMBO:0xCOLD"
+    end
+
+    local count = math.max(0, tonumber(combo.comboCount) or 0)
+    local heat = tostring(combo.heat or "COLD")
+    if heat ~= "HOT" and heat ~= "WARM" and heat ~= "COLD" then
+        heat = "COLD"
+    end
+
+    return string.format("DMG COMBO:%dx%s", count, heat)
+end
+
 function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary, onboardingHint)
     love.graphics.setColor(0,0,0,0.7)
     love.graphics.rectangle("fill", 8, 8, 240, 92)
@@ -755,6 +781,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if damageNumberLifeTrendFxPulseRemapPlanToken then
         love.graphics.setColor(0.86, 0.94, 0.76, 0.9)
         love.graphics.print(damageNumberLifeTrendFxPulseRemapPlanToken, 1420, 762)
+    end
+
+    local damageComboToken = HUD.resolveDamageComboToken()
+    if damageComboToken then
+        love.graphics.setColor(1.0, 0.9, 0.66, 0.92)
+        love.graphics.print(damageComboToken, 1420, 780)
     end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)

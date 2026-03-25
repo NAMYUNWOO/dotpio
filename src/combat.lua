@@ -13,6 +13,12 @@ local DMGNUM_DURATION = 0.6
 local DMGNUM_RISE = 12  -- pixels to float upward
 local DMGNUM_STACK_CAP = 8  -- DMGNUM STACK CAP: max concurrent floating numbers
 
+-- Kill streak combo tracking
+local COMBO_WINDOW = 3.0  -- seconds between kills to maintain combo
+local comboCount = 0
+local comboTimer = 0
+local comboPeakThisCombat = 0
+
 local function isDamageGlyphBurstExperimentEnabled()
     local v = os.getenv("DOTPIO_EXPERIMENT_DAMAGE_GLYPH_BURST")
     if not v then return false end
@@ -46,11 +52,23 @@ local function pushDamageNumber(entry)
     end
 end
 
+local function registerKill()
+    killCount = killCount + 1
+    comboCount = comboCount + 1
+    comboTimer = COMBO_WINDOW
+    if comboCount > comboPeakThisCombat then
+        comboPeakThisCombat = comboCount
+    end
+end
+
 function Combat.reset()
     projectiles = {}
     damageFlash = {}
     damageNumbers = {}
     killCount = 0
+    comboCount = 0
+    comboTimer = 0
+    comboPeakThisCombat = 0
 end
 
 function Combat.meleeAttack(player, enemyAtFn)
@@ -71,7 +89,7 @@ function Combat.meleeAttack(player, enemyAtFn)
         if lethal then
             e.alive = false
             e.deathTimer = 0.4
-            killCount = killCount + 1
+            registerKill()
         end
     end
 end
@@ -92,6 +110,13 @@ function Combat.castMagic(player, targetTileX, targetTileY)
 end
 
 function Combat.update(dt, enemyAtFn)
+    if comboTimer > 0 then
+        comboTimer = math.max(0, comboTimer - dt)
+        if comboTimer <= 0 then
+            comboCount = 0
+        end
+    end
+
     for _, p in ipairs(projectiles) do
         if p.alive then
             p.timer = p.timer + dt
@@ -110,7 +135,7 @@ function Combat.update(dt, enemyAtFn)
                     if lethal then
                         e.alive = false
                         e.deathTimer = 0.4
-                        killCount = killCount + 1
+                        registerKill()
                     end
                 end
             end
@@ -214,6 +239,21 @@ end
 
 function Combat.debugGetDamageNumberStackCap()
     return DMGNUM_STACK_CAP
+end
+
+function Combat.debugGetKillComboState()
+    local heat = "COLD"
+    if comboCount >= 3 then
+        heat = "HOT"
+    elseif comboCount >= 2 then
+        heat = "WARM"
+    end
+    return {
+        comboCount = comboCount,
+        comboTimer = comboTimer,
+        comboPeak = comboPeakThisCombat,
+        heat = heat,
+    }
 end
 
 return Combat

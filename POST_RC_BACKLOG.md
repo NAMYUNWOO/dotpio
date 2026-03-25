@@ -898,3 +898,12 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Systems/QA Team: Add prior-window trend drift row for glint token family with regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 04:05 KST)*
 - [x] Design/World Team: Prototype glint-linked scene-copy palette recommendation (`COOL|ASH|SCAR`) as offline digest recommendation.
 - [x] Combat/VFX Team: Prototype compact glint alias (`PRSFX:<S|V|P>`) behind flag for digest scanability.
+
+## Cycle EA - Game Director Review (2026-03-26 06:15 KST)
+- Idea 1 (low risk, Combat/VFX): Add compact kill-combo cadence debug token (`DMG COMBO:<n>x<HOT|WARM|COLD>`) behind flag for one-glance multi-kill pacing readability.
+- Idea 2 (mid risk, Systems/QA): Add weekly digest token-family churn coverage for `DMG COMBO:` with markdown triage row + regression lock.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline combo-window retune recommendation policy from kill-cadence volatility + threat pressure.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Combat/VFX Team: Add compact kill-combo cadence debug token (`DMG COMBO:<n>x<HOT|WARM|COLD>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG` with regression coverage. *(lifecycle: [~] -> [x]; completed: 2026-03-26 06:22 KST)*
+- [ ] Systems/QA Team: Add weekly digest token-family churn coverage for `DMG COMBO:` with markdown triage row + regression lock.
+- [ ] AI Content/Combat Team: Prototype offline combo-window retune recommendation policy from kill-cadence volatility + threat pressure (offline-only).

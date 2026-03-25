@@ -259,3 +259,4 @@
 - Added payload contract keys `pulseRemapSceneFxGlint` and `pulseRemapSceneFxGlintSignals` + family churn row for `PULSE REMAP SCENE FX GLINT`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (PASS).
 - Follow-up injected: Systems/QA trend row for FX glint family drift, Combat/VFX compact alias candidate, Design/World copy palette recommendation tied to FX glint.
+- [2026-03-26 06:23 KST] Cycle EA visual/debug readability slice: added  debug token render line for rapid combo heat scan during combat effect tuning.
