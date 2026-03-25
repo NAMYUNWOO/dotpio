@@ -2943,3 +2943,15 @@ Compact decision memory for AI context efficiency.
 - Added token-family observability for `PULSE REMAP SCENE MICROLINE VARIANT PACK:` with weekly churn triage row and regression lock.
 - Game Director review executed (3 ideas generated; selected low-risk Systems/QA slice). New injected backlog items: `PRSMV` compact alias (UX/World) and offline microline-style diversification policy (AI Content/World).
 - 2026-03-26 01:37 KST — Decision: adopt compact variant-pack alias `PRSMV:PRI|ALT|FBK` for pulse-remap scene microline selection reporting, gated by `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_VARIANT_PACK_SELECTION_ALIAS`. Added payload signals + markdown/report rows + token-family churn coverage + regression assertions.
+
+## 2026-03-26 02:02 KST — Cycle DU closure (AI Content/World)
+- Shipped offline diversification recommendation for suppression scene microlines: `PULSE REMAP SCENE MICROLINE STYLE POLICY:ANCHOR|BLEND|DIVERSIFY`.
+- Deterministic signals now include cadence-memory volatility (`priorNet`, `currentNet`, `cadenceVolatility`, `cadenceTrend`, `laneCadenceRecency`) and remain `offlineOnly=True`.
+- Weekly digest payload/markdown updated with policy row; regression now asserts payload schema and markdown presence.
+- Backlog state synced: final unchecked Cycle DU item marked complete in `TASKS.md` and `POST_RC_BACKLOG.md`.
+
+## 2026-03-26 02:08 KST — Cycle DV Game Director review
+- 3 ideas generated (UX/World low-risk alias, Systems/QA churn coverage, AI Content/World smoothing policy); selected Idea 1 for minimal vertical slice.
+- Shipped compact style-policy alias token `PRSMP:<A|B|D>` with feature flag `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_STYLE_POLICY_ALIAS`.
+- Payload + markdown + regression lock updated to cover `pulseRemapSceneMicrolineStylePolicyAlias` and `PRSMP:` row.
+- Injected next tasks (unchecked): Systems/QA churn coverage for style policy + PRSMP, AI Content/World cadence-volatility smoothing prototype.

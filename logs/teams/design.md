@@ -1790,3 +1790,15 @@
 - Verification: [PASS] weekly portal prompt readability drift regression checks passed after adding payload contract + markdown assertions.
 - Backlog: injected Cycle DU ideas; shipped Systems/QA churn coverage slice, queued UX/World compact alias + AI Content/World diversification policy.
 - 2026-03-26 01:37 KST — Design scanability pass completed: added explicit compact alias row (`PRSMV`) and flag gating for reversible rollout. Follow-up: review token clutter threshold during next digest polish cycle.
+
+## 2026-03-26 02:02 KST — Cycle DU follow-up (offline microline diversification policy)
+- Completed: added offline policy token `PULSE REMAP SCENE MICROLINE STYLE POLICY:ANCHOR|BLEND|DIVERSIFY` derived from cadence-memory volatility (`priorNet/currentNet` delta + trend + lane cadence recency).
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py` + regression lock updates in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up: if all actionable backlog items remain complete, trigger next Game Director cycle injection with 3 ideas and one selected vertical slice.
+
+## 2026-03-26 02:08 KST — Cycle DV Game Director slice
+- Review executed: generated 3 ideas (low/mid/high), selected low-risk compact alias experiment.
+- Completed slice: `PRSMP:<A|B|D>` compact alias for `PULSE REMAP SCENE MICROLINE STYLE POLICY`, gated by `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_STYLE_POLICY_ALIAS`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Next backlog injection: token-family churn coverage for `PRSMP` and offline cadence-volatility smoothing policy.

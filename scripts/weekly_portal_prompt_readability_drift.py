@@ -32,8 +32,8 @@ PORTAL_PATH_HINTS = (
 )
 
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 
@@ -46,7 +46,7 @@ for _tokens in TOKEN_GROUPS.values():
 PRESSURE_TOKENS = ["PRESSURE:", "P:"]
 
 TOKEN_FAMILIES = {
-    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
+    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
     "alt": ["ALT:", "ALT ROUTE:", "ALT DELTA:", "ADEL:", "ALT PLAN:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:"],
     "pressure": ["PRESSURE:", "P:"],
 }
@@ -95,6 +95,7 @@ TOKEN_ALIAS_FAMILIES = {
     "pulseRemapSuppressionPlanAlias": ["PULSE REMAP SUPPRESS PLAN:", "PRSP:"],
     "pulseRemapSceneMicrolineVariantPackAlias": ["PULSE REMAP SCENE MICROLINE VARIANT PACK:"],
     "pulseRemapSceneMicrolineVariantPackSelectionAlias": ["PRSMV:"],
+    "pulseRemapSceneMicrolineStylePolicyAlias": ["PRSMP:"],
     "pulseRemapSceneMicrolineCadenceAlias": ["PULSE REMAP SCENE MICROLINE CADENCE:"],
     "pulseRemapSuppressionPostureWarningAlias": ["PRPW:"],
     "dmgGlyphAlias": ["DMG GLYPH:"],
@@ -6799,6 +6800,15 @@ def resolve_pulse_remap_scene_microline_variant_pack_selection_alias(selected_mo
     return f"PRSMV:{mapping.get(selected_mode, 'ALT')}"
 
 
+def resolve_pulse_remap_scene_microline_style_policy_alias(policy: str) -> str:
+    mapping = {
+        "ANCHOR": "A",
+        "BLEND": "B",
+        "DIVERSIFY": "D",
+    }
+    return f"PRSMP:{mapping.get(policy, 'B')}"
+
+
 def pulse_remap_suppression_escalation_plan_from_signals(
     *,
     suppression: str,
@@ -6973,6 +6983,47 @@ def pulse_remap_scene_microline_variant_pack_from_signals(
         "cadenceTrend": cadence_trend,
         "selectedMode": selected_mode,
         "reason": "low-confidence-fallback" if selected_mode == "FALLBACK" else "confidence-aware-dual-line-selection",
+        "offlineOnly": True,
+    }
+
+
+def pulse_remap_scene_microline_style_diversification_policy_from_signals(
+    *,
+    suppression_plan: str,
+    scene_confidence: str,
+    lane_cadence_recency: str,
+    suppression_plan_family_trend_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Prototype offline microline-style diversification policy from cadence-memory volatility windows."""
+    plan = str(suppression_plan).strip().upper() or "ARM"
+    confidence = str(scene_confidence).strip().upper() or "MED"
+    cadence = str(lane_cadence_recency).strip().lower() or "ok"
+    trend = str(suppression_plan_family_trend_signals.get("trend", "FLAT")).strip().upper() or "FLAT"
+    prior_loaded = bool(suppression_plan_family_trend_signals.get("priorLoaded", False))
+    prior_net = int(suppression_plan_family_trend_signals.get("priorNet", 0) or 0)
+    current_net = int(suppression_plan_family_trend_signals.get("currentNet", 0) or 0)
+    volatility = abs(current_net - prior_net)
+
+    if plan == "LOCK" or cadence == "warn" or volatility >= 3:
+        policy = "ANCHOR"
+        reason = "lock-or-volatile-cadence-memory"
+    elif trend == "DOWN" and cadence == "ok" and confidence in {"LOW", "MED"} and volatility <= 1:
+        policy = "DIVERSIFY"
+        reason = "cooling-cadence-window-supports-style-expansion"
+    else:
+        policy = "BLEND"
+        reason = "moderate-cadence-memory-window"
+
+    return policy, {
+        "suppressionPlan": plan,
+        "sceneConfidence": confidence,
+        "laneCadenceRecency": cadence,
+        "cadenceTrend": trend,
+        "priorNet": prior_net,
+        "currentNet": current_net,
+        "cadenceVolatility": volatility,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
         "offlineOnly": True,
     }
 
@@ -7539,6 +7590,20 @@ def main() -> int:
         lane_cadence_recency=lane_cadence_recency,
         suppression_plan_family_trend_signals=pulse_remap_suppression_plan_family_trend_signals,
     )
+    pulse_remap_scene_microline_style_diversification_policy, pulse_remap_scene_microline_style_diversification_policy_signals = pulse_remap_scene_microline_style_diversification_policy_from_signals(
+        suppression_plan=pulse_remap_suppression_escalation_plan,
+        scene_confidence=pulse_remap_scene_confidence,
+        lane_cadence_recency=lane_cadence_recency,
+        suppression_plan_family_trend_signals=pulse_remap_suppression_plan_family_trend_signals,
+    )
+    pulse_remap_scene_microline_style_policy_alias = resolve_pulse_remap_scene_microline_style_policy_alias(
+        pulse_remap_scene_microline_style_diversification_policy
+    )
+    pulse_remap_scene_microline_style_policy_alias_flag_name = "DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_STYLE_POLICY_ALIAS"
+    pulse_remap_scene_microline_style_policy_alias_flag_enabled = os.environ.get(
+        pulse_remap_scene_microline_style_policy_alias_flag_name,
+        "",
+    ).strip().lower() in {"1", "true", "yes", "on"}
     pulse_remap_scene_microline_cadence, pulse_remap_scene_microline_cadence_signals = pulse_remap_scene_microline_cadence_from_signals(
         suppression_plan=pulse_remap_suppression_escalation_plan,
         scene_confidence=pulse_remap_scene_confidence,
@@ -8393,6 +8458,13 @@ def main() -> int:
             "flagName": pulse_remap_scene_microline_variant_pack_selection_alias_flag_name,
             "flagEnabled": pulse_remap_scene_microline_variant_pack_selection_alias_flag_enabled,
         },
+        "pulseRemapSceneMicrolineStyleDiversificationPolicy": pulse_remap_scene_microline_style_diversification_policy,
+        "pulseRemapSceneMicrolineStyleDiversificationPolicySignals": pulse_remap_scene_microline_style_diversification_policy_signals,
+        "pulseRemapSceneMicrolineStylePolicyAlias": pulse_remap_scene_microline_style_policy_alias,
+        "pulseRemapSceneMicrolineStylePolicyAliasSignals": {
+            "flagName": pulse_remap_scene_microline_style_policy_alias_flag_name,
+            "flagEnabled": pulse_remap_scene_microline_style_policy_alias_flag_enabled,
+        },
         "pulseRemapSceneMicrolineCadence": pulse_remap_scene_microline_cadence,
         "pulseRemapSceneMicrolineCadenceSignals": pulse_remap_scene_microline_cadence_signals,
         "pulseRemapSuppressionPostureWarning": pulse_remap_suppression_posture_warning,
@@ -8758,6 +8830,8 @@ def main() -> int:
         f"- PULSE REMAP SCENE CONF: **{pulse_remap_scene_confidence}** ({pulse_remap_scene_confidence_signals['reason']}; plan={pulse_remap_scene_confidence_signals['suppressionPlan']} driftRisk={pulse_remap_scene_confidence_signals['driftRisk']} pressure={pulse_remap_scene_confidence_signals['pressureBand']} offlineOnly={pulse_remap_scene_confidence_signals['offlineOnly']})",
         f"- PULSE REMAP SCENE MICROLINE: **{pulse_remap_suppression_scene_microline}** ({pulse_remap_suppression_scene_microline_signals['reason']}; plan={pulse_remap_suppression_scene_microline_signals['suppressionPlan']} flavor={pulse_remap_suppression_scene_microline_signals['sceneFlavor']} conf={pulse_remap_suppression_scene_microline_signals['sceneConfidence']} cadence={pulse_remap_suppression_scene_microline_signals['laneCadenceRecency']} memory={pulse_remap_suppression_scene_microline_signals['cadenceMemory']} offlineOnly={pulse_remap_suppression_scene_microline_signals['offlineOnly']})",
         f"- PULSE REMAP SCENE MICROLINE VARIANT PACK: **{pulse_remap_scene_microline_variant_pack['selectedMode']}** (selected={pulse_remap_scene_microline_variant_pack['selected']} | primary={pulse_remap_scene_microline_variant_pack['primary']} | alt={pulse_remap_scene_microline_variant_pack['alternate']} | fallback={pulse_remap_scene_microline_variant_pack['fallback']} | reason={pulse_remap_scene_microline_variant_pack_signals['reason']} offlineOnly={pulse_remap_scene_microline_variant_pack_signals['offlineOnly']})",
+        f"- PULSE REMAP SCENE MICROLINE STYLE POLICY: **{pulse_remap_scene_microline_style_diversification_policy}** ({pulse_remap_scene_microline_style_diversification_policy_signals['reason']}; plan={pulse_remap_scene_microline_style_diversification_policy_signals['suppressionPlan']} conf={pulse_remap_scene_microline_style_diversification_policy_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_style_diversification_policy_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_style_diversification_policy_signals['cadenceTrend']} volatility={pulse_remap_scene_microline_style_diversification_policy_signals['cadenceVolatility']} prior={pulse_remap_scene_microline_style_diversification_policy_signals['priorNet']:+d} current={pulse_remap_scene_microline_style_diversification_policy_signals['currentNet']:+d} offlineOnly={pulse_remap_scene_microline_style_diversification_policy_signals['offlineOnly']})",
+        f"- PRSMP: **{pulse_remap_scene_microline_style_policy_alias if pulse_remap_scene_microline_style_policy_alias_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_scene_microline_style_policy_alias_flag_name} enabled={pulse_remap_scene_microline_style_policy_alias_flag_enabled} full={pulse_remap_scene_microline_style_diversification_policy})",
         f"- PRSMV: **{pulse_remap_scene_microline_variant_pack_selection_alias if pulse_remap_scene_microline_variant_pack_selection_alias_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_scene_microline_variant_pack_selection_alias_flag_name} enabled={pulse_remap_scene_microline_variant_pack_selection_alias_flag_enabled} full={pulse_remap_scene_microline_variant_pack['selectedMode']})",
         f"- PULSE REMAP SCENE MICROLINE CADENCE: **{pulse_remap_scene_microline_cadence}** ({pulse_remap_scene_microline_cadence_signals['reason']}; plan={pulse_remap_scene_microline_cadence_signals['suppressionPlan']} conf={pulse_remap_scene_microline_cadence_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_cadence_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_cadence_signals['cadenceTrend']} offlineOnly={pulse_remap_scene_microline_cadence_signals['offlineOnly']})",
         f"- PRPW: **{pulse_remap_suppression_posture_warning_alias if pulse_remap_suppression_posture_warning_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_suppression_posture_warning_flag_name} enabled={pulse_remap_suppression_posture_warning_flag_enabled} posture={pulse_remap_suppression_posture_warning}; reason={pulse_remap_suppression_posture_warning_signals['reason']})",
@@ -9028,6 +9102,8 @@ def main() -> int:
         f"- PULSE REMAP SCENE: {pulse_remap_suppression_scene_flavor} (plan={pulse_remap_suppression_scene_flavor_signals['suppressionPlan']} driftRisk={pulse_remap_suppression_scene_flavor_signals['driftRisk']} pressure={pulse_remap_suppression_scene_flavor_signals['pressureBand']} cadence={pulse_remap_suppression_scene_flavor_signals['laneCadenceRecency']})",
         f"- PULSE REMAP SCENE CONF: {pulse_remap_scene_confidence} (plan={pulse_remap_scene_confidence_signals['suppressionPlan']} driftRisk={pulse_remap_scene_confidence_signals['driftRisk']} pressure={pulse_remap_scene_confidence_signals['pressureBand']} reason={pulse_remap_scene_confidence_signals['reason']})",
         f"- PULSE REMAP SCENE MICROLINE VARIANT PACK: {pulse_remap_scene_microline_variant_pack['selectedMode']} (selected={pulse_remap_scene_microline_variant_pack['selected']} reason={pulse_remap_scene_microline_variant_pack_signals['reason']} conf={pulse_remap_scene_microline_variant_pack_signals['sceneConfidence']} trend={pulse_remap_scene_microline_variant_pack_signals['cadenceTrend']})",
+        f"- PULSE REMAP SCENE MICROLINE STYLE POLICY: {pulse_remap_scene_microline_style_diversification_policy} (plan={pulse_remap_scene_microline_style_diversification_policy_signals['suppressionPlan']} conf={pulse_remap_scene_microline_style_diversification_policy_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_style_diversification_policy_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_style_diversification_policy_signals['cadenceTrend']} vol={pulse_remap_scene_microline_style_diversification_policy_signals['cadenceVolatility']} reason={pulse_remap_scene_microline_style_diversification_policy_signals['reason']})",
+        f"- PRSMP: {pulse_remap_scene_microline_style_policy_alias if pulse_remap_scene_microline_style_policy_alias_flag_enabled else 'FLAG OFF'} (policy={pulse_remap_scene_microline_style_diversification_policy} flag={pulse_remap_scene_microline_style_policy_alias_flag_name} enabled={pulse_remap_scene_microline_style_policy_alias_flag_enabled})",
         f"- PRSMV: {pulse_remap_scene_microline_variant_pack_selection_alias if pulse_remap_scene_microline_variant_pack_selection_alias_flag_enabled else 'FLAG OFF'} (selectedMode={pulse_remap_scene_microline_variant_pack['selectedMode']} flag={pulse_remap_scene_microline_variant_pack_selection_alias_flag_name} enabled={pulse_remap_scene_microline_variant_pack_selection_alias_flag_enabled})",
         f"- PULSE REMAP SCENE MICROLINE CADENCE: {pulse_remap_scene_microline_cadence} (plan={pulse_remap_scene_microline_cadence_signals['suppressionPlan']} conf={pulse_remap_scene_microline_cadence_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_cadence_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_cadence_signals['cadenceTrend']} reason={pulse_remap_scene_microline_cadence_signals['reason']})",
         f"- PRPW: {pulse_remap_suppression_posture_warning_alias if pulse_remap_suppression_posture_warning_flag_enabled else 'FLAG OFF'} (posture={pulse_remap_suppression_posture_warning} reason={pulse_remap_suppression_posture_warning_signals['reason']} flag={pulse_remap_suppression_posture_warning_flag_name} enabled={pulse_remap_suppression_posture_warning_flag_enabled})",
