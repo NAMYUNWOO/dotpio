@@ -2581,3 +2581,8 @@
 - Decision: emit `PULSE REMAP MOMENTUM SUPPRESS: SUPPRESS|ARM|OFF` with persisted `pulseRemapMomentumFreezeStreak` and threshold=2 (offline-only; no runtime behavior changes).
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
 - Follow-up: if consecutive FREEZE windows persist, consider escalating to additional offline recommendation rails before any runtime coupling.
+
+## 2026-03-25 21:06 KST — Cycle DQ support (Systems)
+- Decision: Added digest payload + markdown plumbing for new suppression compact alias (`PRMS`) under env flag.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up: Add dedicated `PRMS FAMILY TREND` triage row with prior-window drift context.

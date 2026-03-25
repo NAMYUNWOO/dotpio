@@ -299,6 +299,8 @@ def main() -> int:
             "reason",
         }, payload
         assert isinstance(payload.get("pulseRemapMomentumFreezeStreak"), int) and payload["pulseRemapMomentumFreezeStreak"] >= 0, payload
+        assert isinstance(payload.get("pulseRemapMomentumSuppressionAlias"), str) and payload["pulseRemapMomentumSuppressionAlias"].startswith("PRMS:"), payload
+        assert set(payload.get("pulseRemapMomentumSuppressionAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert isinstance(payload.get("pulseRemapMomentumAlias"), str) and payload["pulseRemapMomentumAlias"].startswith("PRM:"), payload
         assert set(payload.get("pulseRemapMomentumAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert set(payload.get("routeVibeTotals", {}).keys()) == {"added", "removed", "net"}, payload
@@ -1065,6 +1067,7 @@ def main() -> int:
         assert "dmgnumLifeTrendFxPulseConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert "dmgnumLifeTrendFxPulseRemapPlanAlias" in payload["tokenFamilyTotals"], payload
         assert "pulseRemapMomentumAlias" in payload["tokenFamilyTotals"], payload
+        assert "pulseRemapMomentumSuppressionAlias" in payload["tokenFamilyTotals"], payload
         assert "dmgGlyphFxLiveAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisThresholdAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisWindowDeltaAlias" in payload["tokenFamilyTotals"], payload
@@ -1329,6 +1332,16 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["pulseRemapMomentumAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["pulseRemapMomentumSuppressionAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1878,6 +1891,7 @@ def main() -> int:
         assert "DMGNUM LIFE TREND FX PULSE CONF FAMILY CHURN" in md_text
         assert "DMGNUM LIFE TREND FX PULSE REMAP PLAN FAMILY CHURN" in md_text
         assert "PULSE REMAP MOMENTUM FAMILY CHURN" in md_text
+        assert "PULSE REMAP SUPPRESS FAMILY CHURN" in md_text
         assert "DMG GLYPH FAMILY CHURN" in md_text
         assert "DMG GLYPH FX LIVE FAMILY CHURN" in md_text
         assert "LPR HYS THR FAMILY CHURN" in md_text
@@ -1923,7 +1937,9 @@ def main() -> int:
         assert "DMGNUM LIFE TREND FX PULSE REMAP PLAN:" in md_text
         assert "PULSE REMAP MOMENTUM Δ:" in md_text
         assert "PULSE REMAP MOMENTUM SUPPRESS:" in md_text
+        assert "PRMS:" in md_text
         assert "PRM + PULSE REMAP MOMENTUM:" in md_text
+        assert "PRMS + PULSE REMAP MOMENTUM SUPPRESS:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
         assert "LPR HYS THR:" in md_text

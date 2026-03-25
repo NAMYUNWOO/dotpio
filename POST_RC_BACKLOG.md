@@ -828,3 +828,12 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/Combat Team: Add compact pulse-remap momentum alias token (`PRM:<F|W|A>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_MOMENTUM_ALIAS` with regression lock.
 - [x] Systems/QA Team: Add momentum drift token (`PULSE REMAP MOMENTUM Δ:+n|-n`) using prior digest window.
 - [x] AI Content/VFX Team: Prototype offline momentum-streak suppression policy when `FREEZE` repeats across windows. *(lifecycle: [ ] -> [~] -> [x])*
+
+## Cycle DQ - Game Director Review (2026-03-25 21:06 KST)
+- Idea 1 (low risk, UX/Systems): Add compact pulse-remap suppression alias token (`PRMS:<S|A|O>`) behind flag for digest scanability.
+- Idea 2 (mid risk, Systems/QA): Add weekly digest token-family churn coverage for suppression alias (`PRMS:` + `PULSE REMAP MOMENTUM SUPPRESS:`) with regression lock.
+- Idea 3 (high risk, AI Content/VFX): Prototype offline suppression-escalation recommendation policy from freeze-streak + drift-risk windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Systems Team: Add compact pulse-remap suppression alias token (`PRMS:<S|A|O>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_MOMENTUM_SUPPRESSION_ALIAS` in digest payload/markdown with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
+- [ ] Systems/QA Team: Add dedicated digest family churn triage note for suppression alias trend (`PRMS FAMILY TREND`) with prior-window drift context.
+- [ ] AI Content/VFX Team: Prototype offline suppression-escalation recommendation policy (`PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK`) without runtime coupling.

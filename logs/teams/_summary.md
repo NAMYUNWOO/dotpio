@@ -2871,3 +2871,10 @@ Compact decision memory for AI context efficiency.
 - Markdown digest now includes `PULSE REMAP MOMENTUM SUPPRESS` row; regression contract expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` to lock payload schema + markdown token.
 - Verification PASS: py_compile + digest regression + weekly digest generation.
 - Backlog sync: `TASKS.md` and `POST_RC_BACKLOG.md` item moved `[ ] -> [~] -> [x]` with lifecycle trace.
+
+## 2026-03-25 21:06 KST — Cycle DQ completion
+- Backlog clear triggered Game Director cycle DQ (3 ideas generated; selected low-risk UX/Systems slice).
+- Shipped compact suppression alias token `PRMS:<S|A|O>` for `PULSE REMAP MOMENTUM SUPPRESS` behind `DOTPIO_EXPERIMENT_PULSE_REMAP_MOMENTUM_SUPPRESSION_ALIAS`.
+- Durable decision: suppression-state aliasing uses deterministic mapping `SUPPRESS->S`, `ARM->A`, `OFF->O` for parity with existing `PRM` compact pattern.
+- Regression lock updated to cover payload fields, markdown rows, and token-family coverage for `PRMS`.
+- Injected follow-up backlog tasks: (1) Systems/QA suppression-family trend row, (2) AI Content/VFX offline suppression-escalation recommendation policy.

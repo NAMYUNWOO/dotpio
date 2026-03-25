@@ -1955,3 +1955,8 @@
 - Decision: emit `PULSE REMAP MOMENTUM SUPPRESS: SUPPRESS|ARM|OFF` with persisted `pulseRemapMomentumFreezeStreak` and threshold=2 (offline-only; no runtime behavior changes).
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
 - Follow-up: if consecutive FREEZE windows persist, consider escalating to additional offline recommendation rails before any runtime coupling.
+
+## 2026-03-25 21:06 KST — Cycle DQ shipped slice (UX)
+- Shipped compact readability alias `PRMS:<S|A|O>` for `PULSE REMAP MOMENTUM SUPPRESS` behind `DOTPIO_EXPERIMENT_PULSE_REMAP_MOMENTUM_SUPPRESSION_ALIAS`.
+- Rationale: Faster scanability in digest summary without changing runtime gameplay behavior.
+- Verification: Weekly digest regression PASS.
