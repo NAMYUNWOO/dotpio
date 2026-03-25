@@ -2711,3 +2711,10 @@ Compact decision memory for AI context efficiency.
 - Weekly digest JSON now exposes `ambientRampWhyAutoRemapConfidenceMomentumScore` plus audit signals payload for operator-facing triage and future tuning.
 - Regression contract expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` to lock score range, signal schema, and markdown line presence; full digest regression passes.
 - Remaining highest-priority unchecked items now come from Cycle DG: Design/World `ARW MOMENTUM ARC:CALM|TENSE`, then Systems/Ops `LANE BUCKET AGE:<hours>` watchdog.
+
+## 2026-03-25 10:36 KST — Cycle DG follow-up shipped (`ARW MOMENTUM ARC`)
+- Completed Design/World unchecked item from Cycle DG by adding digest token `ARW MOMENTUM ARC:CALM|TENSE` behind `DOTPIO_EXPERIMENT_ARW_MOMENTUM_ARC`.
+- Deterministic resolver uses existing momentum recommendation + pressure/drift/score signals (`FREEZE` or high-risk/high-pressure/high-score => `TENSE`, else `CALM`).
+- Weekly digest output updated across JSON payload, summary lines, and token-family churn sections (`ARW MOMENTUM ARC FAMILY CHURN`).
+- Regression locked via `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Remaining top unchecked backlog item: Systems/Ops `LANE BUCKET AGE:<hours>` watchdog row.

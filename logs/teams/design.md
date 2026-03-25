@@ -1646,3 +1646,7 @@
 - Scope: Weekly portal readability digest now maps `ARW AUTO PLAN CONF MOMENTUM` → compact alias (`FREEZE→F`, `WATCH→W`, `ALLOW→A`) and emits flag-state-safe summary rows.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 
+
+## 2026-03-25 10:36 KST — Momentum Arc readability pass
+- Added digest-facing momentum arc cue (`ARW MOMENTUM ARC`) to compress confidence+pressure into one emotional read.
+- Rationale: avoid burying ambient rationale momentum state inside long confidence lines.

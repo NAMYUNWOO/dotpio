@@ -735,5 +735,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, Systems/Ops): Add digest watchdog row for 24h bucket freshness (`LANE BUCKET AGE:<hours>`) to harden cadence audits.
 - Selected experiment: Idea 1 (minimal vertical slice, additive + reversible).
 - [x] Combat/VFX Team: Add compact damage-number trend-FX token (`DMGNUM LIFE TREND FX:CALM|SPARK|BLAZE`) behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_DEBUG` with regression lock.
-- [ ] Design/World Team: Prototype compact ambient rationale momentum token (`ARW MOMENTUM ARC:CALM|TENSE`) behind dedicated flag.
+- [x] Design/World Team: Prototype compact ambient rationale momentum token (`ARW MOMENTUM ARC:CALM|TENSE`) behind dedicated flag.
 - [ ] Systems/Ops Team: Add digest 24h bucket-freshness watchdog row (`LANE BUCKET AGE:<hours>`) for cadence auditability.

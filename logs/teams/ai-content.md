@@ -1608,3 +1608,6 @@
   - Score factors intentionally deterministic and auditable in payload signals to support future policy tuning.
 - Follow-up:
   - Pair with upcoming `ARW MOMENTUM ARC` token so design lane can read momentum posture at a glance.
+
+## 2026-03-25 10:36 KST — Ambient rationale momentum context
+- Offline recommendation lane now includes arc-level emotional state (`CALM|TENSE`) to support future narrative tuning decisions.

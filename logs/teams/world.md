@@ -1610,3 +1610,8 @@
 - No world runtime token shipped in this slice (forced-lane combat/vfx execution).
 - Injected next world/design candidate: `ARW MOMENTUM ARC:CALM|TENSE` (flag-gated digest summary token) for ambient rationale pacing readability.
 - Cadence note: design/world bucket remains covered within 24h window; task stays queued for next balanced cycle.
+
+## 2026-03-25 10:36 KST — Cycle DG follow-up (Design/World)
+- Shipped compact ambient rationale momentum token in weekly digest: `ARW MOMENTUM ARC:CALM|TENSE` behind `DOTPIO_EXPERIMENT_ARW_MOMENTUM_ARC`.
+- Decision: keep mapping deterministic (`FREEZE/high risk/high pressure/high score => TENSE`, else `CALM`) for fast triage.
+- Follow-up: keep Systems/Ops backlog item (`LANE BUCKET AGE:<hours>`) as next highest unchecked.

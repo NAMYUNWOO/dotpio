@@ -2976,3 +2976,7 @@
   - Added markdown presence assertion for `ARW MOMENTUM SCORE` line.
 - Follow-up:
   - Keep offline-only boundary explicit while expanding ARW momentum family tokens.
+
+## 2026-03-25 10:36 KST — Regression lock for ARW momentum arc
+- Updated `scripts/regression_weekly_portal_prompt_readability_drift.py` assertions for `ARW MOMENTUM ARC` and its family churn row.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

@@ -2443,3 +2443,7 @@
   - Surfaced digest markdown line `ARW MOMENTUM SCORE` for quick triage without changing runtime behavior.
 - Follow-up:
   - Next highest-priority unchecked item: Design/World `ARW MOMENTUM ARC:CALM|TENSE` flag-gated digest token.
+
+## 2026-03-25 10:36 KST — Digest schema update (ambient momentum arc)
+- Extended weekly digest payload with `ambientRampWhyAutoRemapMomentumArc` + signals and flag metadata.
+- Added token catalog/family registration for `ARW MOMENTUM ARC:` so churn tracking remains auditable.

@@ -165,3 +165,6 @@
 - Added compact HUD debug token `DMGNUM LIFE TREND FX:CALM|SPARK|BLAZE` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_DEBUG`.
 - Purpose: make floating-number lifecycle trend feel legible at a glance (`DOWN=CALM`, `HOLD=SPARK`, `UP=BLAZE`) without touching damage math or fade timings.
 - Verification: `lua scripts/regression_combat_damage_number_life_trend_fx_token.lua` (with required trend flags) + baseline trend regression PASS.
+
+## 2026-03-25 10:36 KST — No VFX runtime change
+- No VFX token/runtime modifications in this slice; digest-only ambient momentum arc instrumentation.

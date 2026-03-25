@@ -1565,3 +1565,7 @@
 - Lane rationale: forced rebalance after last-10 coverage showed systems 70% and combat/vfx 0%.
 - Mapping: `UP->BLAZE`, `HOLD->SPARK`, `DOWN->CALM` (readability-only, no combat stat changes).
 - Verification: `luac -p src/hud.lua scripts/regression_combat_damage_number_life_trend_fx_token.lua`; `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_DEBUG=1 lua scripts/regression_combat_damage_number_life_trend_fx_token.lua`; `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG=1 lua scripts/regression_combat_damage_number_life_trend_token.lua`.
+
+## 2026-03-25 10:36 KST — No combat runtime change
+- This cycle touched weekly digest readability only (ambient rationale momentum arc).
+- Combat/VFX runtime behavior unchanged.
