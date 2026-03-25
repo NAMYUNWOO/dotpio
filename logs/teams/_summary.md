@@ -2923,3 +2923,9 @@ Compact decision memory for AI context efficiency.
 - Durable outputs: new digest JSON keys (`pulseRemapSuppressionSceneMicroline*`) + markdown row (`PULSE REMAP SCENE MICROLINE:`) with cadence memory context.
 - QA regression updated and passing (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).
 - Backlog sync complete: TASKS.md + POST_RC_BACKLOG.md moved target item `[~] -> [x]`.
+
+## 2026-03-26 00:01 KST — Cycle DT suppression microline cadence slice
+- ACTION_ITEMS/TASKS/POST_RC actionable queue was fully checked, so Game Director review cycle ran (3 ideas generated) and selected low-risk Combat/UX vertical slice.
+- Weekly digest now emits `PULSE REMAP SCENE MICROLINE CADENCE:RISE|HOLD|COOL` via `pulseRemapSceneMicrolineCadence` + `pulseRemapSceneMicrolineCadenceSignals` (offline-only, additive, reversible).
+- Markdown now includes dedicated cadence row in both detailed and compact summary blocks; regression contract extended for payload keys and markdown token presence.
+- Verification passes with `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; follow-ups injected: `PRSMC FAMILY TREND` and dual-line microline variant pack.

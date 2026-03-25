@@ -6912,6 +6912,39 @@ def pulse_remap_scene_microline_from_signals(
     }
 
 
+def pulse_remap_scene_microline_cadence_from_signals(
+    *,
+    suppression_plan: str,
+    scene_confidence: str,
+    lane_cadence_recency: str,
+    suppression_plan_family_trend_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Offline-only cadence posture for scene microline handoff readability."""
+    plan = str(suppression_plan).strip().upper() or "ARM"
+    confidence = str(scene_confidence).strip().upper() or "MED"
+    cadence = str(lane_cadence_recency).strip().lower() or "ok"
+    cadence_trend = str(suppression_plan_family_trend_signals.get("trend", "FLAT")).strip().upper() or "FLAT"
+
+    if plan == "LOCK" or (confidence == "HIGH" and cadence in {"warn", "gap"}):
+        cadence_posture = "RISE"
+        reason = "lock-or-high-confidence-warning"
+    elif cadence_trend == "DOWN" and cadence == "ok":
+        cadence_posture = "COOL"
+        reason = "downtrend-with-healthy-cadence"
+    else:
+        cadence_posture = "HOLD"
+        reason = "default-hold-window"
+
+    return cadence_posture, {
+        "suppressionPlan": plan,
+        "sceneConfidence": confidence,
+        "laneCadenceRecency": cadence,
+        "cadenceTrend": cadence_trend,
+        "reason": reason,
+        "offlineOnly": True,
+    }
+
+
 def pulse_remap_momentum_drift_from_prior(
     *,
     current_momentum: str,
@@ -7386,6 +7419,12 @@ def main() -> int:
     pulse_remap_suppression_scene_microline, pulse_remap_suppression_scene_microline_signals = pulse_remap_scene_microline_from_signals(
         suppression_plan=pulse_remap_suppression_escalation_plan,
         scene_flavor=pulse_remap_suppression_scene_flavor,
+        scene_confidence=pulse_remap_scene_confidence,
+        lane_cadence_recency=lane_cadence_recency,
+        suppression_plan_family_trend_signals=pulse_remap_suppression_plan_family_trend_signals,
+    )
+    pulse_remap_scene_microline_cadence, pulse_remap_scene_microline_cadence_signals = pulse_remap_scene_microline_cadence_from_signals(
+        suppression_plan=pulse_remap_suppression_escalation_plan,
         scene_confidence=pulse_remap_scene_confidence,
         lane_cadence_recency=lane_cadence_recency,
         suppression_plan_family_trend_signals=pulse_remap_suppression_plan_family_trend_signals,
@@ -8221,6 +8260,8 @@ def main() -> int:
         "pulseRemapSceneConfidenceSignals": pulse_remap_scene_confidence_signals,
         "pulseRemapSuppressionSceneMicroline": pulse_remap_suppression_scene_microline,
         "pulseRemapSuppressionSceneMicrolineSignals": pulse_remap_suppression_scene_microline_signals,
+        "pulseRemapSceneMicrolineCadence": pulse_remap_scene_microline_cadence,
+        "pulseRemapSceneMicrolineCadenceSignals": pulse_remap_scene_microline_cadence_signals,
         "pulseRemapSuppressionPostureWarning": pulse_remap_suppression_posture_warning,
         "pulseRemapSuppressionPostureWarningSignals": pulse_remap_suppression_posture_warning_signals,
         "pulseRemapSuppressionPostureWarningAlias": pulse_remap_suppression_posture_warning_alias,
@@ -8583,6 +8624,7 @@ def main() -> int:
         f"- PULSE REMAP SCENE: **{pulse_remap_suppression_scene_flavor}** ({pulse_remap_suppression_scene_flavor_signals['reason']}; plan={pulse_remap_suppression_scene_flavor_signals['suppressionPlan']} driftRisk={pulse_remap_suppression_scene_flavor_signals['driftRisk']} pressure={pulse_remap_suppression_scene_flavor_signals['pressureBand']} cadence={pulse_remap_suppression_scene_flavor_signals['laneCadenceRecency']} offlineOnly={pulse_remap_suppression_scene_flavor_signals['offlineOnly']})",
         f"- PULSE REMAP SCENE CONF: **{pulse_remap_scene_confidence}** ({pulse_remap_scene_confidence_signals['reason']}; plan={pulse_remap_scene_confidence_signals['suppressionPlan']} driftRisk={pulse_remap_scene_confidence_signals['driftRisk']} pressure={pulse_remap_scene_confidence_signals['pressureBand']} offlineOnly={pulse_remap_scene_confidence_signals['offlineOnly']})",
         f"- PULSE REMAP SCENE MICROLINE: **{pulse_remap_suppression_scene_microline}** ({pulse_remap_suppression_scene_microline_signals['reason']}; plan={pulse_remap_suppression_scene_microline_signals['suppressionPlan']} flavor={pulse_remap_suppression_scene_microline_signals['sceneFlavor']} conf={pulse_remap_suppression_scene_microline_signals['sceneConfidence']} cadence={pulse_remap_suppression_scene_microline_signals['laneCadenceRecency']} memory={pulse_remap_suppression_scene_microline_signals['cadenceMemory']} offlineOnly={pulse_remap_suppression_scene_microline_signals['offlineOnly']})",
+        f"- PULSE REMAP SCENE MICROLINE CADENCE: **{pulse_remap_scene_microline_cadence}** ({pulse_remap_scene_microline_cadence_signals['reason']}; plan={pulse_remap_scene_microline_cadence_signals['suppressionPlan']} conf={pulse_remap_scene_microline_cadence_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_cadence_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_cadence_signals['cadenceTrend']} offlineOnly={pulse_remap_scene_microline_cadence_signals['offlineOnly']})",
         f"- PRPW: **{pulse_remap_suppression_posture_warning_alias if pulse_remap_suppression_posture_warning_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_suppression_posture_warning_flag_name} enabled={pulse_remap_suppression_posture_warning_flag_enabled} posture={pulse_remap_suppression_posture_warning}; reason={pulse_remap_suppression_posture_warning_signals['reason']})",
         f"- PRM: **{pulse_remap_momentum_alias if pulse_remap_momentum_alias_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_momentum_alias_flag_name} enabled={pulse_remap_momentum_alias_flag_enabled})",
         f"- FOCUS: **{lane_focus}** (portal={lane_focus_scores['portal']} | alt={lane_focus_scores['alt']} | pressure={lane_focus_scores['pressure']})",
@@ -8847,6 +8889,7 @@ def main() -> int:
         f"- PRSP + PULSE REMAP SUPPRESS PLAN: +{token_family_totals['pulseRemapSuppressionPlanAlias']['added']} / -{token_family_totals['pulseRemapSuppressionPlanAlias']['removed']} / net {token_family_totals['pulseRemapSuppressionPlanAlias']['net']} (churn={token_family_totals['pulseRemapSuppressionPlanAlias']['churn']} coverage={token_family_totals['pulseRemapSuppressionPlanAlias']['coverage']})",
         f"- PULSE REMAP SCENE: {pulse_remap_suppression_scene_flavor} (plan={pulse_remap_suppression_scene_flavor_signals['suppressionPlan']} driftRisk={pulse_remap_suppression_scene_flavor_signals['driftRisk']} pressure={pulse_remap_suppression_scene_flavor_signals['pressureBand']} cadence={pulse_remap_suppression_scene_flavor_signals['laneCadenceRecency']})",
         f"- PULSE REMAP SCENE CONF: {pulse_remap_scene_confidence} (plan={pulse_remap_scene_confidence_signals['suppressionPlan']} driftRisk={pulse_remap_scene_confidence_signals['driftRisk']} pressure={pulse_remap_scene_confidence_signals['pressureBand']} reason={pulse_remap_scene_confidence_signals['reason']})",
+        f"- PULSE REMAP SCENE MICROLINE CADENCE: {pulse_remap_scene_microline_cadence} (plan={pulse_remap_scene_microline_cadence_signals['suppressionPlan']} conf={pulse_remap_scene_microline_cadence_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_cadence_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_cadence_signals['cadenceTrend']} reason={pulse_remap_scene_microline_cadence_signals['reason']})",
         f"- PRPW: {pulse_remap_suppression_posture_warning_alias if pulse_remap_suppression_posture_warning_flag_enabled else 'FLAG OFF'} (posture={pulse_remap_suppression_posture_warning} reason={pulse_remap_suppression_posture_warning_signals['reason']} flag={pulse_remap_suppression_posture_warning_flag_name} enabled={pulse_remap_suppression_posture_warning_flag_enabled})",
         f"- PRMS FAMILY TREND: {pulse_remap_suppression_family_trend_signals['trend']} (Δnet={pulse_remap_suppression_family_trend_drift:+d} currentNet={pulse_remap_suppression_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_family_trend_signals['priorLoaded']})",
         f"- PRSP FAMILY TREND: {pulse_remap_suppression_plan_family_trend_signals['trend']} (Δnet={pulse_remap_suppression_plan_family_trend_drift:+d} currentNet={pulse_remap_suppression_plan_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_plan_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_plan_family_trend_signals['priorLoaded']})",

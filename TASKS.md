@@ -1049,3 +1049,13 @@ See project-level plans:
 - [x] Design/World Team: Add suppression-scene confidence cue token (PULSE REMAP SCENE CONF:LOW|MED|HIGH) with payload signals and regression lock. *(lifecycle: [ ] -> [~] -> [x])*
 - [x] Combat/UX Team: Prototype compact suppression posture warning token for combat readability handoff (offline-only, gated). *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-25 23:01 KST)*
 - [x] AI Content/World Team: Prototype scene-reactive narrative microline generator from suppression-plan cadence memory (offline artifact).
+
+## Cycle DT - Game Director Review (2026-03-26 00:01 KST)
+- Coverage check (last 10 completions): suppression-readability work remained systems/qa-heavy; this cycle forced an underrepresented Combat/UX handoff-facing slice while staying offline-only.
+- Idea 1 (low risk, Combat/UX): Add suppression microline cadence token (`PULSE REMAP SCENE MICROLINE CADENCE:RISE|HOLD|COOL`) for one-glance warning posture scan.
+- Idea 2 (mid risk, Systems/QA): Add cadence token-family trend drift row (`PRSMC FAMILY TREND`) with prior-window context.
+- Idea 3 (high risk, AI Content/World): Prototype dual-line narrative microline variant pack with confidence-aware fallback copy.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Combat/UX Team: Add suppression microline cadence token (`PULSE REMAP SCENE MICROLINE CADENCE:RISE|HOLD|COOL`) with payload signals + markdown rows + regression lock. *(lifecycle: [ ] -> [~] -> [x])*
+- [ ] Systems/QA Team: Add cadence token-family trend drift row (`PRSMC FAMILY TREND`) with prior-window context.
+- [ ] AI Content/World Team: Prototype dual-line narrative microline variant pack with confidence-aware fallback copy (offline-only).
