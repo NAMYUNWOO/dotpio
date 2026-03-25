@@ -1696,3 +1696,9 @@
 - Selected/implemented: Idea 1, adding PULSE REMAP SCENE CONF (LOW|MED|HIGH) as an offline digest cue with payload signals and markdown rows.
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS).
 - Backlog injection: added two new unchecked follow-ups for Combat/UX and AI Content/World in TASKS.md + POST_RC_BACKLOG.md.
+
+## 2026-03-25 23:01 KST — Suppression posture warning token prototype
+- Task: Ship compact suppression posture warning handoff token for combat readability.
+- Decision: posture tiers map deterministically as `STEADY|CAUTION|ALERT`, exposed via compact alias `PRPW:<S|C|A>` behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SUPPRESSION_POSTURE_WARNING`.
+- Signals: suppression plan, suppression state, scene confidence, drift risk, pressure band.
+- Follow-up: validate narrative microline layer can consume posture state without conflicting with combat handoff readability.

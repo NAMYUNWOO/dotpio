@@ -1725,3 +1725,8 @@
 - Selected/implemented: Idea 1, adding PULSE REMAP SCENE CONF (LOW|MED|HIGH) as an offline digest cue with payload signals and markdown rows.
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS).
 - Backlog injection: added two new unchecked follow-ups for Combat/UX and AI Content/World in TASKS.md + POST_RC_BACKLOG.md.
+
+## 2026-03-25 23:01 KST — World readability handoff note
+- Suppression posture warning token positioned as cross-lane handoff cue so world-facing scene flavor rows can stay narrative-focused.
+- No map/portal graph changes required; this cycle is telemetry/readability-only.
+- Follow-up dependency: scene-reactive narrative microline generator should reference posture signal without replacing scene flavor token.

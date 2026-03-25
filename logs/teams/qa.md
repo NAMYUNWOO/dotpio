@@ -3162,3 +3162,13 @@
 - Selected/implemented: Idea 1, adding PULSE REMAP SCENE CONF (LOW|MED|HIGH) as an offline digest cue with payload signals and markdown rows.
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS).
 - Backlog injection: added two new unchecked follow-ups for Combat/UX and AI Content/World in TASKS.md + POST_RC_BACKLOG.md.
+
+## 2026-03-25 23:01 KST — Regression expansion for PRPW posture token
+- Expanded weekly digest regression to assert new payload keys:
+  - `pulseRemapSuppressionPostureWarning`
+  - `pulseRemapSuppressionPostureWarningSignals`
+  - `pulseRemapSuppressionPostureWarningAlias`
+  - `pulseRemapSuppressionPostureWarningAliasSignals`
+- Added token-family coverage assertion for `pulseRemapSuppressionPostureWarningAlias`.
+- Added markdown assertions for `PRPW:` rows.
+- Verification: `[PASS] weekly portal prompt readability drift regression checks`.

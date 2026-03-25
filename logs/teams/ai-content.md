@@ -1753,3 +1753,8 @@
 - Selected/implemented: Idea 1, adding PULSE REMAP SCENE CONF (LOW|MED|HIGH) as an offline digest cue with payload signals and markdown rows.
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS).
 - Backlog injection: added two new unchecked follow-ups for Combat/UX and AI Content/World in TASKS.md + POST_RC_BACKLOG.md.
+
+## 2026-03-25 23:01 KST — AI-content follow-through prep
+- Documented posture warning signal contract for upcoming scene-reactive microline prototype.
+- Intended consumption path: combine `PULSE REMAP SCENE`, `PULSE REMAP SCENE CONF`, and posture warning tier to synthesize short narrative microline offline.
+- Next backlog target remains: AI Content/World scene-reactive microline generator.

@@ -2910,3 +2910,10 @@ Compact decision memory for AI context efficiency.
 - Shipped PULSE REMAP SCENE CONF token (LOW|MED|HIGH) plus payload contract (pulseRemapSceneConfidence + Signals) to expose confidence of suppression scene mapping.
 - Regression updated and passing: python3 scripts/regression_weekly_portal_prompt_readability_drift.py.
 - New backlog injected: Combat/UX warning-token prototype + AI Content/World narrative microline prototype (both unchecked).
+
+## 2026-03-25 23:01 KST — Cycle DS follow-up slice: suppression posture warning token
+- Closed highest-priority unchecked TASKS item by shipping compact combat handoff warning alias `PRPW:<S|C|A>` behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SUPPRESSION_POSTURE_WARNING` (offline-only).
+- Added posture warning contract to digest payload/markdown with deterministic tiers: `STEADY|CAUTION|ALERT` derived from suppression plan/state + scene confidence + drift/pressure signals.
+- Extended token catalogs + token-family coverage with `pulseRemapSuppressionPostureWarningAlias` for churn accounting continuity.
+- Regression expanded and passing (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`); syntax check passed (`python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py`).
+- Backlog sync: `TASKS.md` and `POST_RC_BACKLOG.md` item moved `[ ] -> [~] -> [x]`; next unchecked priority is AI Content/World microline generator prototype.

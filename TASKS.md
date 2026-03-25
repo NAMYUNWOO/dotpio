@@ -1047,5 +1047,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/World): Prototype scene-reactive narrative microline generator from suppression-plan cadence memory (offline artifact).
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Design/World Team: Add suppression-scene confidence cue token (PULSE REMAP SCENE CONF:LOW|MED|HIGH) with payload signals and regression lock. *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] Combat/UX Team: Prototype compact suppression posture warning token for combat readability handoff (offline-only, gated).
+- [x] Combat/UX Team: Prototype compact suppression posture warning token for combat readability handoff (offline-only, gated). *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-25 23:01 KST)*
 - [ ] AI Content/World Team: Prototype scene-reactive narrative microline generator from suppression-plan cadence memory (offline artifact).

@@ -1986,3 +1986,8 @@
 - Selected/implemented: Idea 1, adding PULSE REMAP SCENE CONF (LOW|MED|HIGH) as an offline digest cue with payload signals and markdown rows.
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS).
 - Backlog injection: added two new unchecked follow-ups for Combat/UX and AI Content/World in TASKS.md + POST_RC_BACKLOG.md.
+
+## 2026-03-25 23:01 KST — Compact handoff warning readability slice
+- Added compact warning alias `PRPW` to keep suppression posture visibility within DOS-width budget.
+- Alias is gated; when flag is off markdown still reports posture status without enabling compact operator token.
+- UX rationale: one-glance handoff warning state avoids overloading `PRSP`/`PRMS` rows during pressure spikes.

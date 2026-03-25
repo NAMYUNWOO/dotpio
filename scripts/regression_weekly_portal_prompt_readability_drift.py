@@ -348,6 +348,18 @@ def main() -> int:
             "reason",
             "offlineOnly",
         }, payload
+        assert payload.get("pulseRemapSuppressionPostureWarning") in {"STEADY", "CAUTION", "ALERT"}, payload
+        assert set(payload.get("pulseRemapSuppressionPostureWarningSignals", {}).keys()) == {
+            "suppressionPlan",
+            "suppression",
+            "sceneConfidence",
+            "driftRisk",
+            "pressureBand",
+            "reason",
+            "offlineOnly",
+        }, payload
+        assert isinstance(payload.get("pulseRemapSuppressionPostureWarningAlias"), str) and payload["pulseRemapSuppressionPostureWarningAlias"].startswith("PRPW:"), payload
+        assert set(payload.get("pulseRemapSuppressionPostureWarningAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert isinstance(payload.get("pulseRemapMomentumAlias"), str) and payload["pulseRemapMomentumAlias"].startswith("PRM:"), payload
         assert set(payload.get("pulseRemapMomentumAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert set(payload.get("routeVibeTotals", {}).keys()) == {"added", "removed", "net"}, payload
@@ -1116,6 +1128,7 @@ def main() -> int:
         assert "pulseRemapMomentumAlias" in payload["tokenFamilyTotals"], payload
         assert "pulseRemapMomentumSuppressionAlias" in payload["tokenFamilyTotals"], payload
         assert "pulseRemapSuppressionPlanAlias" in payload["tokenFamilyTotals"], payload
+        assert "pulseRemapSuppressionPostureWarningAlias" in payload["tokenFamilyTotals"], payload
         assert "dmgGlyphFxLiveAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisThresholdAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisWindowDeltaAlias" in payload["tokenFamilyTotals"], payload
@@ -1400,6 +1413,16 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["pulseRemapSuppressionPlanAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["pulseRemapSuppressionPostureWarningAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -2001,6 +2024,7 @@ def main() -> int:
         assert "PULSE REMAP SCENE CONF:" in md_text
         assert "PRMS:" in md_text
         assert "PRSP:" in md_text
+        assert "PRPW:" in md_text
         assert "PRM + PULSE REMAP MOMENTUM:" in md_text
         assert "PRMS + PULSE REMAP MOMENTUM SUPPRESS:" in md_text
         assert "PRSP + PULSE REMAP SUPPRESS PLAN:" in md_text
