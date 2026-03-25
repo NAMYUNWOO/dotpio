@@ -188,3 +188,13 @@
 ## 2026-03-25 16:01 KST — VFX lane heartbeat
 - No VFX token or effect mapping changes this cycle.
 - Existing `DMGNUM LIFE TREND FX PULSE` debug slice remains baseline for next combat/vfx checks.
+
+## 2026-03-25 18:05 KST — Cycle DN update
+- Game Director cycle executed after ACTION_ITEMS/TASKS/POST_RC actionable queue reached all-checked state.
+- Ideas generated (low/mid/high risk) and selected low-risk minimal vertical slice: `DMGNUM LIFE TREND FX PULSE CONF:LOW|MID|HIGH` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_CONF_DEBUG`.
+- Verification PASS:
+  - `lua scripts/regression_combat_damage_number_life_trend_fx_pulse_token.lua`
+  - `lua scripts/regression_combat_damage_number_life_trend_fx_pulse_conf_token.lua`
+- Follow-ups injected:
+  - Systems/QA: digest token-family churn coverage for pulse + pulse-conf token families.
+  - AI Content/VFX: offline pulse-intensity remap recommendation policy.

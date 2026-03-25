@@ -332,6 +332,13 @@ local function isDamageNumberLifeTrendFxPulseDebugExperimentEnabled()
     return v == "1" or v == "true" or v == "yes" or v == "on"
 end
 
+local function isDamageNumberLifeTrendFxPulseConfidenceDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_CONF_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
 local function isDamageNumberLifeTrendColorDebugExperimentEnabled()
     local v = os.getenv("DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_COLOR_DEBUG")
     if not v then return false end
@@ -536,6 +543,26 @@ function HUD.resolveDamageNumberLifeTrendFxPulseToken()
     return string.format("DMGNUM LIFE TREND FX PULSE:%s", pulse)
 end
 
+function HUD.resolveDamageNumberLifeTrendFxPulseConfidenceToken()
+    if not isDamageNumberLifeTrendFxPulseConfidenceDebugExperimentEnabled() then
+        return nil
+    end
+
+    local pulseToken = HUD.resolveDamageNumberLifeTrendFxPulseToken()
+    if not pulseToken then
+        return nil
+    end
+
+    local pulse = pulseToken:match("DMGNUM LIFE TREND FX PULSE:(%u+)") or "COAST"
+    local confidence = "LOW"
+    if pulse == "BURST" then
+        confidence = "HIGH"
+    elseif pulse == "RUSH" then
+        confidence = "MID"
+    end
+    return string.format("DMGNUM LIFE TREND FX PULSE CONF:%s", confidence)
+end
+
 function HUD.resolveDamageNumberLifeTrendColor(token)
     if not isDamageNumberLifeTrendColorDebugExperimentEnabled() then
         return 0.82, 0.94, 1.0, 0.9
@@ -689,6 +716,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if damageNumberLifeTrendFxPulseToken then
         love.graphics.setColor(0.98, 0.72, 0.92, 0.9)
         love.graphics.print(damageNumberLifeTrendFxPulseToken, 1420, 726)
+    end
+
+    local damageNumberLifeTrendFxPulseConfidenceToken = HUD.resolveDamageNumberLifeTrendFxPulseConfidenceToken()
+    if damageNumberLifeTrendFxPulseConfidenceToken then
+        love.graphics.setColor(0.76, 0.9, 1.0, 0.9)
+        love.graphics.print(damageNumberLifeTrendFxPulseConfidenceToken, 1420, 744)
     end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)

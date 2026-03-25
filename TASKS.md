@@ -989,3 +989,13 @@ See project-level plans:
 - [x] Combat/VFX Team: Add debug token `DMGNUM LIFE TREND FX PULSE:COAST|RUSH|BURST` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG` with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
 - [x] Design/World Team: Prototype compact ambient momentum pulse alias (`ARW ARC PULSE:SOFT|LIVE|HOT`) behind flag in digest summary.
 - [x] Systems/Ops Team: Prototype digest row `LANE CADENCE RECENCY:<ok|warn>` from bucket-age + delta drift. *(lifecycle: [ ] -> [~] -> [x])*
+
+## Cycle DN - Game Director Review (2026-03-25 18:20 KST)
+- Coverage check (last 10 completions): systems/ops + digest observability remained dense; selected a combat/vfx debug-readability slice to keep player-facing cadence cues fresh.
+- Idea 1 (low risk, Combat/VFX): Add compact confidence token for pulse intensity (`DMGNUM LIFE TREND FX PULSE CONF:LOW|MID|HIGH`) behind debug flag.
+- Idea 2 (mid risk, Systems/QA): Add weekly digest token-family churn coverage for `DMGNUM LIFE TREND FX PULSE:` and confidence token family.
+- Idea 3 (high risk, AI Content/VFX): Prototype offline pulse-intensity remap recommendation policy from weekly drift + lane pressure signals.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Combat/VFX Team: Add compact pulse-intensity confidence token (`DMGNUM LIFE TREND FX PULSE CONF:LOW|MID|HIGH`) behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_CONF_DEBUG`. *(lifecycle: [ ] -> [~] -> [x])*
+- [ ] Systems/QA Team: Add weekly digest token-family churn coverage for `DMGNUM LIFE TREND FX PULSE:` + `DMGNUM LIFE TREND FX PULSE CONF:` with regression lock.
+- [ ] AI Content/VFX Team: Prototype offline pulse-intensity remap recommendation policy from drift-risk + cadence pressure bands.

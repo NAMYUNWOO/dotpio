@@ -1664,3 +1664,13 @@
 - Completed top unchecked backlog item: weekly digest now emits `LANE CADENCE RECENCY:<ok|warn>` from `LANE BUCKET AGE` + `LANE BUCKET AGE Δ` signals.
 - Implementation is digest-only (no runtime gameplay/map behavior changes); payload includes `laneCadenceRecency` + signal diagnostics.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/economy_weekly_snapshot.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-25 18:05 KST — Cycle DN update
+- Game Director cycle executed after ACTION_ITEMS/TASKS/POST_RC actionable queue reached all-checked state.
+- Ideas generated (low/mid/high risk) and selected low-risk minimal vertical slice: `DMGNUM LIFE TREND FX PULSE CONF:LOW|MID|HIGH` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_CONF_DEBUG`.
+- Verification PASS:
+  - `lua scripts/regression_combat_damage_number_life_trend_fx_pulse_token.lua`
+  - `lua scripts/regression_combat_damage_number_life_trend_fx_pulse_conf_token.lua`
+- Follow-ups injected:
+  - Systems/QA: digest token-family churn coverage for pulse + pulse-conf token families.
+  - AI Content/VFX: offline pulse-intensity remap recommendation policy.

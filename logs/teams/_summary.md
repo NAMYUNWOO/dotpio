@@ -2820,3 +2820,16 @@ Compact decision memory for AI context efficiency.
 - Deterministic mapping: `CALM->SOFT`, `TENSE->HOT`, fallback `LIVE`; additive + reversible (digest-only).
 - Observability updated: payload keys, token catalog/family coverage, markdown family churn rows, and regression assertions.
 - Remaining top unchecked item: `LANE CADENCE RECENCY:<ok|warn>` (Systems/Ops) from lane-bucket age + drift.
+
+## 2026-03-25 18:05 KST — Cycle DN shipped (Game Director review loop)
+- Trigger: ACTION_ITEMS/TASKS/POST_RC actionable queues were fully checked, so Game Director review cycle executed immediately.
+- Ideas generated:
+  1) Low risk (Combat/VFX): pulse-intensity confidence token `DMGNUM LIFE TREND FX PULSE CONF:LOW|MID|HIGH` behind debug flag.
+  2) Mid risk (Systems/QA): weekly digest token-family churn coverage for `DMGNUM LIFE TREND FX PULSE:` + `DMGNUM LIFE TREND FX PULSE CONF:`.
+  3) High risk (AI Content/VFX): offline pulse-intensity remap recommendation policy from drift + cadence pressure.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- Shipped: HUD debug token emitter `HUD.resolveDamageNumberLifeTrendFxPulseConfidenceToken()` + env gate `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_CONF_DEBUG`; added on-screen debug row output.
+- Verification PASS:
+  - `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG=1 lua scripts/regression_combat_damage_number_life_trend_fx_pulse_token.lua`
+  - `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_CONF_DEBUG=1 lua scripts/regression_combat_damage_number_life_trend_fx_pulse_conf_token.lua`
+- Backlog sync: selected item marked `[~] -> [x]` in `TASKS.md` + `POST_RC_BACKLOG.md`; follow-up mid/high-risk tasks injected as unchecked.
