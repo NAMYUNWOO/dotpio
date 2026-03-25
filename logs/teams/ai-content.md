@@ -1578,3 +1578,15 @@
 - Follow-up: remaining unchecked item is AI Content/Systems confidence-streak suppression policy (offline-only).
 
 - 2026-03-25 07:35 KST — Added offline confidence-streak suppression policy for ambient auto-remap candidates in weekly portal readability digest (streak >=3 on AMBIENT RAMP WHY REC CONF LOW/HIGH => candidate pool suppressed to HOLD_SAFE_BASELINE; surfaced in JSON + markdown tokens for operator triage). Verified via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-25 09:02:58 KST
+- Task: Cycle DE follow-up — prototype offline confidence momentum freeze policy for ambient auto-remap planning.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added offline-only recommendation lane `ARW AUTO PLAN CONF MOMENTUM:FREEZE|WATCH|ALLOW` from confidence drift/streak + plan drift/risk signals.
+  - Freeze policy is deterministic and non-runtime-coupled (digest artifact only) to preserve gameplay stability.
+- Follow-up:
+  - Use recommendation trend over future windows before considering any runtime coupling.

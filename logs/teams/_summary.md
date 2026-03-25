@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-25 08:04 KST
+Last updated: 2026-03-25 09:03 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed remaining Cycle DE follow-ups: compact ambient auto-remap confidence alias `ARW APC:<L|M|H>` (flag-gated) and offline confidence momentum recommendation (`ARW AUTO PLAN CONF MOMENTUM:FREEZE|WATCH|ALLOW`) now ship in weekly digest artifacts.
+- Weekly digest schema/tokens updated with `ARW APC:` family coverage + recommendation signal payloads; regression + py_compile checks pass.
+- `TASKS.md` and `POST_RC_BACKLOG.md` now have all items checked again, so next execution should enter Game Director review cycle immediately.
 
 - Cycle DE executed after actionable backlog clear: generated 3 ideas and selected low-risk Systems/QA vertical slice.
 - Shipped `ARW AUTO PLAN CONF Δ:+n|-n` in weekly digest using deterministic confidence-band drift vs prior window, with JSON signals for `current/prior/loaded` auditability.

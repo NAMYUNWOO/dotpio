@@ -2387,3 +2387,16 @@
 - Decision: Use deterministic confidence score mapping (`LOW=0, MID=1, HIGH=2`) and prior JSON payload fallback to compute signed drift with explainable reason strings.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile ...` PASS.
 - Follow-up: Keep Cycle DE mid/high-risk ideas queued (`ARW APC` alias + confidence momentum policy).
+
+## 2026-03-25 09:02:58 KST
+- Task: Systems support for Cycle DE closures (digest schema + token family wiring).
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Extended token catalogs/families with `ARW APC:` so alias churn/coverage remains auditable in digest outputs.
+  - Added JSON payload keys for alias signals and offline momentum-freeze recommendation signals for downstream tooling.
+- Follow-up:
+  - Next run should execute Game Director review loop because actionable backlog is clear.

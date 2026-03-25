@@ -2930,3 +2930,16 @@
 - Added markdown contract assertion for `ARW AUTO PLAN CONF Δ` line.
 - Verification run:
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-25 09:02:58 KST
+- Task: Verify Cycle DE follow-up digest updates (`ARW APC` alias + momentum-freeze recommendation).
+- Commit: HEAD (this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - No portal validator run (no map/portal topology changes).
+  - No screenshot refresh (digest/reporting-only change).
+- Follow-up:
+  - Proceed to Game Director cycle (3 ideas -> select 1 -> minimal vertical slice) now that backlog items are all checked.

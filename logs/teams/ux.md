@@ -1850,3 +1850,16 @@
 - Validation: weekly digest regression + script run PASS.
 
 - 2026-03-25 07:35 KST — Added offline confidence-streak suppression policy for ambient auto-remap candidates in weekly portal readability digest (streak >=3 on AMBIENT RAMP WHY REC CONF LOW/HIGH => candidate pool suppressed to HOLD_SAFE_BASELINE; surfaced in JSON + markdown tokens for operator triage). Verified via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-25 09:02:58 KST
+- Task: Cycle DE follow-up — close compact ambient auto-remap confidence band alias (`ARW APC:<L|M|H>`) in weekly digest summary.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added compact confidence-band alias emission (`ARW APC`) gated by `DOTPIO_EXPERIMENT_ARW_APC_ALIAS` so default output contract stays stable when flag is off.
+  - Kept summary markdown explicit (`ARW APC: FLAG OFF|<L|M|H>`) to support quick operator triage.
+- Follow-up:
+  - Actionable TASKS/POST_RC queues now fully checked; trigger next Game Director review cycle.

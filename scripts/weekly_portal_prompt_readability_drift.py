@@ -32,7 +32,7 @@ PORTAL_PATH_HINTS = (
 )
 
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:"],
     "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
@@ -46,7 +46,7 @@ for _tokens in TOKEN_GROUPS.values():
 PRESSURE_TOKENS = ["PRESSURE:", "P:"]
 
 TOKEN_FAMILIES = {
-    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW AUTO PLAN:"],
+    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW AUTO PLAN:", "ARW APC:"],
     "alt": ["ALT:", "ALT ROUTE:", "ALT DELTA:", "ADEL:", "ALT PLAN:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:"],
     "pressure": ["PRESSURE:", "P:"],
 }
@@ -60,6 +60,7 @@ TOKEN_ALIAS_FAMILIES = {
     "ambientRampConfidenceAlias": ["AMBIENT RAMP CONF:", "ARC:"],
     "ambientRampWhyAlias": ["AMBIENT RAMP WHY:", "ARW:"],
     "ambientRampWhyAutoRemapPlanAlias": ["AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW AUTO PLAN:"],
+    "ambientRampWhyAutoRemapConfidenceBandAlias": ["ARW APC:"],
     "pulseHeatFxAlias": ["PULSE HEAT FX:"],
     "routeGlowFxAlias": ["ROUTE GLOW FX:", "RGFX:"],
     "routeGlowAlias": ["ROUTE GLOW:"],
@@ -5596,6 +5597,53 @@ def ambient_ramp_why_auto_remap_plan_alias(plan: str) -> str:
     return alias_map.get(plan, "HOLD")
 
 
+def ambient_ramp_auto_remap_confidence_band_alias(confidence: str) -> str:
+    alias_map = {"LOW": "L", "MID": "M", "HIGH": "H"}
+    return alias_map.get(str(confidence).strip().upper(), "L")
+
+
+def ambient_ramp_auto_remap_confidence_momentum_freeze_recommendation(
+    *,
+    current_confidence: str,
+    confidence_drift: int,
+    confidence_streak: int,
+    plan_drift: int,
+    plan_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Offline-only recommendation to freeze remap when confidence momentum oscillates."""
+    parity = str(plan_signals.get("parity", "LOCK")).upper()
+    drift_risk = str(plan_signals.get("driftRisk", "LOW")).upper()
+    suppress = bool(plan_signals.get("candidateSuppressed", False))
+    oscillating = confidence_drift != 0 and confidence_streak <= 1
+    elevated = abs(plan_drift) >= 1 or drift_risk == "HIGH"
+
+    if parity == "LOCK" or suppress:
+        recommendation = "FREEZE"
+        reason = "lock-or-candidate-suppressed"
+    elif oscillating and elevated:
+        recommendation = "FREEZE"
+        reason = "oscillating-confidence-with-drift"
+    elif oscillating:
+        recommendation = "WATCH"
+        reason = "oscillating-confidence-low-drift"
+    else:
+        recommendation = "ALLOW"
+        reason = "stable-confidence-momentum"
+
+    return recommendation, {
+        "currentConfidence": str(current_confidence).upper(),
+        "confidenceDrift": int(confidence_drift),
+        "confidenceStreak": int(confidence_streak),
+        "planDrift": int(plan_drift),
+        "parity": parity,
+        "driftRisk": drift_risk,
+        "candidateSuppressed": suppress,
+        "oscillating": oscillating,
+        "offlineOnly": True,
+        "reason": reason,
+    }
+
+
 def ambient_ramp_why_auto_remap_rationale_short(*, selected_plan: str, plan_signals: dict[str, object]) -> str:
     """Compact shorthand for offline ambient auto-remap rationale handoff."""
     rationale = str(plan_signals.get("rationale", "")).strip().lower()
@@ -6058,6 +6106,18 @@ def main() -> int:
     ambient_ramp_why_auto_remap_plan_confidence_drift, ambient_ramp_why_auto_remap_plan_confidence_drift_signals = ambient_ramp_why_auto_remap_plan_confidence_drift_from_prior(
         current_confidence=ambient_ramp_why_auto_remap_plan_confidence,
         prior_json_path=args.out_json,
+    )
+    arw_apc_flag_name = "DOTPIO_EXPERIMENT_ARW_APC_ALIAS"
+    arw_apc_flag_enabled = os.environ.get(arw_apc_flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
+    ambient_ramp_why_auto_remap_plan_confidence_band_alias = ambient_ramp_auto_remap_confidence_band_alias(
+        ambient_ramp_why_auto_remap_plan_confidence
+    )
+    ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_recommendation, ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals = ambient_ramp_auto_remap_confidence_momentum_freeze_recommendation(
+        current_confidence=ambient_ramp_why_auto_remap_plan_confidence,
+        confidence_drift=ambient_ramp_why_auto_remap_plan_confidence_drift,
+        confidence_streak=ambient_ramp_why_recommendation_confidence_streak,
+        plan_drift=ambient_ramp_why_auto_remap_plan_drift,
+        plan_signals=ambient_ramp_why_auto_remap_plan_signals,
     )
     urgency_stack_pruning_order_recommendation, urgency_stack_pruning_order_recommendation_signals = urgency_stack_pruning_order_recommendation_from_trends(
         drift_risk=drift_risk,
@@ -6833,6 +6893,10 @@ def main() -> int:
         "ambientRampWhyAutoRemapPlanConfidenceSignals": ambient_ramp_why_auto_remap_plan_confidence_signals,
         "ambientRampWhyAutoRemapPlanConfidenceDrift": ambient_ramp_why_auto_remap_plan_confidence_drift,
         "ambientRampWhyAutoRemapPlanConfidenceDriftSignals": ambient_ramp_why_auto_remap_plan_confidence_drift_signals,
+        "ambientRampWhyAutoRemapConfidenceBandAlias": ambient_ramp_why_auto_remap_plan_confidence_band_alias,
+        "ambientRampWhyAutoRemapConfidenceBandAliasSignals": {"flagName": arw_apc_flag_name, "flagEnabled": arw_apc_flag_enabled},
+        "ambientRampWhyAutoRemapConfidenceMomentumFreezeRecommendation": ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_recommendation,
+        "ambientRampWhyAutoRemapConfidenceMomentumFreezeRecommendationSignals": ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals,
         "urgencyStackPruningOrderRecommendation": urgency_stack_pruning_order_recommendation,
         "urgencyStackPruningOrderRecommendationSignals": urgency_stack_pruning_order_recommendation_signals,
         "urgencyStackRailRecommendation": urgency_stack_rail_recommendation,
@@ -7137,6 +7201,8 @@ def main() -> int:
         f"- ARW AUTO PLAN Δ: **{ambient_ramp_why_auto_remap_plan_drift:+d}** ({ambient_ramp_why_auto_remap_plan_drift_signals['reason']}; current={ambient_ramp_why_auto_remap_plan_drift_signals['currentPlan']}({ambient_ramp_why_auto_remap_plan_drift_signals['currentScore']}) prior={ambient_ramp_why_auto_remap_plan_drift_signals['priorPlan']}({ambient_ramp_why_auto_remap_plan_drift_signals['priorScore']}) loaded={ambient_ramp_why_auto_remap_plan_drift_signals['priorLoaded']})",
         f"- ARW AUTO PLAN CONF: **{ambient_ramp_why_auto_remap_plan_confidence}** ({ambient_ramp_why_auto_remap_plan_confidence_signals['rationale']}; recConf={ambient_ramp_why_auto_remap_plan_confidence_signals['recommendationConfidence']} parity={ambient_ramp_why_auto_remap_plan_confidence_signals['parity']} driftRisk={ambient_ramp_why_auto_remap_plan_confidence_signals['driftRisk']} pressure={ambient_ramp_why_auto_remap_plan_confidence_signals['pressureBand']} Δ={ambient_ramp_why_auto_remap_plan_confidence_signals['planDrift']:+d})",
         f"- ARW AUTO PLAN CONF Δ: **{ambient_ramp_why_auto_remap_plan_confidence_drift:+d}** ({ambient_ramp_why_auto_remap_plan_confidence_drift_signals['reason']}; current={ambient_ramp_why_auto_remap_plan_confidence_drift_signals['currentConfidence']}({ambient_ramp_why_auto_remap_plan_confidence_drift_signals['currentScore']}) prior={ambient_ramp_why_auto_remap_plan_confidence_drift_signals['priorConfidence']}({ambient_ramp_why_auto_remap_plan_confidence_drift_signals['priorScore']}) loaded={ambient_ramp_why_auto_remap_plan_confidence_drift_signals['priorLoaded']})",
+        f"- ARW APC: **{ambient_ramp_why_auto_remap_plan_confidence_band_alias if arw_apc_flag_enabled else 'FLAG OFF'}** (flag={arw_apc_flag_name} enabled={arw_apc_flag_enabled} conf={ambient_ramp_why_auto_remap_plan_confidence})",
+        f"- ARW AUTO PLAN CONF MOMENTUM: **{ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_recommendation}** ({ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['reason']}; oscillating={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['oscillating']} streak={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['confidenceStreak']} confΔ={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['confidenceDrift']:+d} planΔ={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['planDrift']:+d} driftRisk={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['driftRisk']} offlineOnly={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['offlineOnly']})",
         f"- AMBIENT RAMP WHY REC CONF STREAK: **{ambient_ramp_why_recommendation_confidence_streak}** (suppress={str(ambient_ramp_why_recommendation_confidence_streak_signals.get('suppress', False)).upper()} threshold={ambient_ramp_why_recommendation_confidence_streak_signals.get('threshold', 3)} reason={ambient_ramp_why_recommendation_confidence_streak_signals.get('reason', 'n/a')})",
         f"- URGENCY STACK PRUNING REC: **{urgency_stack_pruning_order_recommendation}** ({urgency_stack_pruning_order_recommendation_signals['rationale']}; parityChurn={urgency_stack_pruning_order_recommendation_signals['parityCompactChurn']} fxChurn={urgency_stack_pruning_order_recommendation_signals['urgencyFxChurn']} detailedChurn={urgency_stack_pruning_order_recommendation_signals['urgencyDetailedChurn']} offlineOnly={urgency_stack_pruning_order_recommendation_signals['offlineOnly']})",
         f"- URGENCY STACK RAIL REC: **{urgency_stack_rail_recommendation}** ({urgency_stack_rail_recommendation_signals['rationale']}; railChurn={urgency_stack_rail_recommendation_signals['urgencyStackRailChurn']} railNet={urgency_stack_rail_recommendation_signals['urgencyStackRailNet']} tierChurn={urgency_stack_rail_recommendation_signals['urgencyStackTierChurn']} offlineOnly={urgency_stack_rail_recommendation_signals['offlineOnly']})",
@@ -7334,6 +7400,8 @@ def main() -> int:
         f"- ARW REC PARITY: {ambient_ramp_why_recommendation_parity} (rec={ambient_ramp_why_recommendation_parity_signals['recommendation']} conf={ambient_ramp_why_recommendation_parity_signals['confidence']} churn={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyChurn']} net={ambient_ramp_why_recommendation_parity_signals['ambientRampWhyNet']:+d} pressure={ambient_ramp_why_recommendation_parity_signals['pressureBand']})",
         f"- ARW AUTO PLAN: {ambient_ramp_why_auto_remap_plan_compact} (full={ambient_ramp_why_auto_remap_plan})",
         f"- ARW AUTO WHY: {ambient_ramp_why_auto_remap_why} (offline shorthand)",
+        f"- ARW APC: {ambient_ramp_why_auto_remap_plan_confidence_band_alias if arw_apc_flag_enabled else 'FLAG OFF'} (flag={arw_apc_flag_name} enabled={arw_apc_flag_enabled})",
+        f"- ARW AUTO PLAN CONF MOMENTUM: {ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_recommendation} (reason={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['reason']} confΔ={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['confidenceDrift']:+d})",
         f"- ARW AUTO PLAN FAMILY: +{token_family_totals['ambientRampWhyAutoRemapPlanAlias']['added']} / -{token_family_totals['ambientRampWhyAutoRemapPlanAlias']['removed']} / net {token_family_totals['ambientRampWhyAutoRemapPlanAlias']['net']} (churn={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['churn']} coverage={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['coverage']} drift={ambient_ramp_why_auto_remap_plan_drift:+d})",
         f"- PULSE HEAT FX: +{token_family_totals['pulseHeatFxAlias']['added']} / -{token_family_totals['pulseHeatFxAlias']['removed']} / net {token_family_totals['pulseHeatFxAlias']['net']} (churn={token_family_totals['pulseHeatFxAlias']['churn']} coverage={token_family_totals['pulseHeatFxAlias']['coverage']})",
         f"- ROUTE GLOW FX + RGFX: +{token_family_totals['routeGlowFxAlias']['added']} / -{token_family_totals['routeGlowFxAlias']['removed']} / net {token_family_totals['routeGlowFxAlias']['net']} (churn={token_family_totals['routeGlowFxAlias']['churn']} coverage={token_family_totals['routeGlowFxAlias']['coverage']})",

@@ -900,6 +900,6 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Systems): Prototype offline confidence momentum policy that recommends plan freeze when confidence oscillates across windows.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add ambient auto-remap confidence drift token (`ARW AUTO PLAN CONF Δ:+n|-n`) and lock via regression. *(lifecycle: [~] -> [x])*
-- [ ] UX/World Team: Prototype compact ambient auto-remap confidence band alias (`ARW APC:<L|M|H>`) behind flag in digest summary.
-- [ ] AI Content/Systems Team: Prototype offline confidence momentum policy for auto-remap freeze recommendation.
+- [x] UX/World Team: Prototype compact ambient auto-remap confidence band alias (`ARW APC:<L|M|H>`) behind flag in digest summary. *(lifecycle: [~] -> [x])* 
+- [x] AI Content/Systems Team: Prototype offline confidence momentum policy for auto-remap freeze recommendation. *(lifecycle: [ ] -> [~] -> [x])*
 
