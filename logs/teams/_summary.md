@@ -2779,3 +2779,7 @@ Compact decision memory for AI context efficiency.
 - New backlog injected (Cycle DK):
   1) Systems/QA low-risk follow-up: token-family churn coverage for `LPR HYS THR:`.
   2) AI Content/Systems high-risk follow-up: offline adaptive hysteresis floor/ceiling learning policy.
+- 2026-03-25 15:04 KST: Closed highest-priority unchecked Systems/QA item by adding weekly digest token-family churn coverage for `LPR HYS THR:` via `lanePriorityHysteresisThresholdAlias`.
+- `scripts/weekly_portal_prompt_readability_drift.py` now tracks `LPR HYS THR:` in token catalogs/families and emits explicit churn rows in both summary and Token Family Coverage markdown sections.
+- Regression contract updated in `scripts/regression_weekly_portal_prompt_readability_drift.py` to lock payload token totals + family schema and markdown presence for `LPR HYS THR` churn reporting.
+- Verification PASS: py_compile + weekly digest regression + weekly digest generation.

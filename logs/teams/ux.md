@@ -1895,3 +1895,9 @@
 - Added compact digest cue LPR HYS THR:<L|H|R> to reduce scan cost while preserving detailed LPR HYS THRESH REC row.
 - Decision: keep compact alias flag-gated to avoid forcing output contract shifts.
 - Follow-up: add churn coverage row once token family tracking is wired.
+
+## 2026-03-25 15:04 KST — Cycle DK follow-up closure (LPR HYS THR family churn)
+- Completed Systems/QA item: weekly digest now tracks token-family churn for `LPR HYS THR:` via new alias family `lanePriorityHysteresisThresholdAlias`.
+- Updated `scripts/weekly_portal_prompt_readability_drift.py` token catalogs/families and markdown sections (summary + Token Family Coverage) to emit explicit `LPR HYS THR` churn rows.
+- Regression lock added in `scripts/regression_weekly_portal_prompt_readability_drift.py` for payload token totals/family keys and markdown presence assertions.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS.

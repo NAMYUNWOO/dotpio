@@ -941,6 +941,7 @@ def main() -> int:
         assert "DMGNUM LIFE TREND:" in payload["tokenTotals"]["net"], payload
         assert "DMG GLYPH:" in payload["tokenTotals"]["net"], payload
         assert "DMG GLYPH FX LIVE:" in payload["tokenTotals"]["net"], payload
+        assert "LPR HYS THR:" in payload["tokenTotals"]["net"], payload
         assert "tokenFamilyTotals" in payload, payload
         assert "vibeTrailWhyAlias" in payload["tokenFamilyTotals"], payload
         assert "vibeTrailWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
@@ -968,6 +969,7 @@ def main() -> int:
         assert "dmgnumLifeConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert "dmgnumLifeConfidenceDeltaAlias" in payload["tokenFamilyTotals"], payload
         assert "dmgGlyphFxLiveAlias" in payload["tokenFamilyTotals"], payload
+        assert "lanePriorityHysteresisThresholdAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
@@ -1189,6 +1191,16 @@ def main() -> int:
             "coverage",
         }, payload
         assert set(payload["tokenFamilyTotals"]["dmgGlyphFxLiveAlias"].keys()) == {
+            "aliases",
+            "aliasesTouched",
+            "aliasesTouchedCount",
+            "added",
+            "removed",
+            "net",
+            "churn",
+            "coverage",
+        }, payload
+        assert set(payload["tokenFamilyTotals"]["lanePriorityHysteresisThresholdAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
             "aliasesTouchedCount",
@@ -1706,6 +1718,7 @@ def main() -> int:
         assert "DMGNUM LIFE TREND FAMILY CHURN" in md_text
         assert "DMG GLYPH FAMILY CHURN" in md_text
         assert "DMG GLYPH FX LIVE FAMILY CHURN" in md_text
+        assert "LPR HYS THR FAMILY CHURN" in md_text
         assert "LANE CADENCE SUMMARY" in md_text
         assert "LBA:" in md_text
         assert "LANE BUCKET AGE:" in md_text
@@ -1740,6 +1753,7 @@ def main() -> int:
         assert "DMGNUM LIFE TREND:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
+        assert "LPR HYS THR:" in md_text
         assert "LANE CADENCE SUMMARY: SYSTEMS/OPS" in md_text
         assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX COMPACT-BUDGET DRIFT" in md_text

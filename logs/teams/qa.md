@@ -3037,3 +3037,9 @@
 - Extended regression contract with new payload keys: lanePriorityHysteresisThresholdTuning and compact alias lanePriorityHysteresisThresholdCompactAlias.
 - Added markdown presence checks for LPR HYS THRESH REC: and LPR HYS THR:.
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py PASS.
+
+## 2026-03-25 15:04 KST — Cycle DK follow-up closure (LPR HYS THR family churn)
+- Completed Systems/QA item: weekly digest now tracks token-family churn for `LPR HYS THR:` via new alias family `lanePriorityHysteresisThresholdAlias`.
+- Updated `scripts/weekly_portal_prompt_readability_drift.py` token catalogs/families and markdown sections (summary + Token Family Coverage) to emit explicit `LPR HYS THR` churn rows.
+- Regression lock added in `scripts/regression_weekly_portal_prompt_readability_drift.py` for payload token totals/family keys and markdown presence assertions.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS.
