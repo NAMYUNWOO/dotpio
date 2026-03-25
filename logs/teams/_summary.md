@@ -2861,3 +2861,13 @@ Compact decision memory for AI context efficiency.
 - Regression lock updated in `scripts/regression_weekly_portal_prompt_readability_drift.py`; validation PASS.
 - Backlog sync: Systems/QA momentum-drift item marked `[~] -> [x]` in both `TASKS.md` and `POST_RC_BACKLOG.md`.
 - Next highest-priority unchecked item: AI Content/VFX momentum-streak suppression policy for repeated `FREEZE` windows.
+
+## 2026-03-25 20:35 KST — Cycle DP closure: momentum-streak suppression policy
+- Closed the remaining unchecked Cycle DP AI Content/VFX item by adding an offline suppression policy for repeated `PULSE REMAP MOMENTUM:FREEZE` windows.
+- Weekly digest now emits:
+  - `pulseRemapMomentumSuppression` (`SUPPRESS|ARM|OFF`)
+  - `pulseRemapMomentumSuppressionSignals` (prior/current momentum, streak, threshold, suppress flag, reason)
+  - `pulseRemapMomentumFreezeStreak` (persisted streak counter for next window).
+- Markdown digest now includes `PULSE REMAP MOMENTUM SUPPRESS` row; regression contract expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` to lock payload schema + markdown token.
+- Verification PASS: py_compile + digest regression + weekly digest generation.
+- Backlog sync: `TASKS.md` and `POST_RC_BACKLOG.md` item moved `[ ] -> [~] -> [x]` with lifecycle trace.

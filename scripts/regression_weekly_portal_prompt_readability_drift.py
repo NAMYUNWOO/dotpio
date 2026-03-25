@@ -286,6 +286,19 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert payload.get("pulseRemapMomentumSuppression") in {"SUPPRESS", "ARM", "OFF"}, payload
+        assert set(payload.get("pulseRemapMomentumSuppressionSignals", {}).keys()) == {
+            "currentMomentum",
+            "priorMomentum",
+            "priorLoaded",
+            "priorFreezeStreak",
+            "freezeStreak",
+            "threshold",
+            "suppress",
+            "offlineOnly",
+            "reason",
+        }, payload
+        assert isinstance(payload.get("pulseRemapMomentumFreezeStreak"), int) and payload["pulseRemapMomentumFreezeStreak"] >= 0, payload
         assert isinstance(payload.get("pulseRemapMomentumAlias"), str) and payload["pulseRemapMomentumAlias"].startswith("PRM:"), payload
         assert set(payload.get("pulseRemapMomentumAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert set(payload.get("routeVibeTotals", {}).keys()) == {"added", "removed", "net"}, payload
@@ -1909,6 +1922,7 @@ def main() -> int:
         assert "DMGNUM LIFE TREND FX PULSE CONF:" in md_text
         assert "DMGNUM LIFE TREND FX PULSE REMAP PLAN:" in md_text
         assert "PULSE REMAP MOMENTUM Δ:" in md_text
+        assert "PULSE REMAP MOMENTUM SUPPRESS:" in md_text
         assert "PRM + PULSE REMAP MOMENTUM:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text

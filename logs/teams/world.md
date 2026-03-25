@@ -1689,3 +1689,9 @@
 
 ## 2026-03-25 20:01 KST — World sync
 - No map/portal topology changes; work remained telemetry/digest-side.
+
+## 2026-03-25 20:35 KST — Cycle DP momentum-streak suppression prototype
+- Completed: offline `FREEZE` repeat suppression policy for pulse-remap momentum in weekly digest.
+- Decision: emit `PULSE REMAP MOMENTUM SUPPRESS: SUPPRESS|ARM|OFF` with persisted `pulseRemapMomentumFreezeStreak` and threshold=2 (offline-only; no runtime behavior changes).
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` PASS.
+- Follow-up: if consecutive FREEZE windows persist, consider escalating to additional offline recommendation rails before any runtime coupling.

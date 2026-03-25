@@ -827,4 +827,4 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Combat Team: Add compact pulse-remap momentum alias token (`PRM:<F|W|A>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_MOMENTUM_ALIAS` with regression lock.
 - [x] Systems/QA Team: Add momentum drift token (`PULSE REMAP MOMENTUM Δ:+n|-n`) using prior digest window.
-- [ ] AI Content/VFX Team: Prototype offline momentum-streak suppression policy when `FREEZE` repeats across windows.
+- [x] AI Content/VFX Team: Prototype offline momentum-streak suppression policy when `FREEZE` repeats across windows. *(lifecycle: [ ] -> [~] -> [x])*

@@ -6811,6 +6811,56 @@ def pulse_remap_momentum_drift_from_prior(
     }
 
 
+def pulse_remap_momentum_streak_suppression_from_prior(
+    *,
+    current_momentum: str,
+    prior_json_path: Path,
+) -> tuple[str, dict[str, object]]:
+    """Prototype offline suppression policy when FREEZE repeats across digest windows."""
+    current = str(current_momentum).strip().upper() or "WATCH"
+    prior = current
+    prior_streak = 0
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior = str(prior_payload.get("pulseRemapMomentumRecommendation", current)).strip().upper() or current
+            prior_streak = max(0, int(prior_payload.get("pulseRemapMomentumFreezeStreak", 0) or 0))
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    if current == "FREEZE":
+        freeze_streak = prior_streak + 1 if prior_loaded and prior == "FREEZE" else 1
+    else:
+        freeze_streak = 0
+
+    threshold = 2
+    suppress = current == "FREEZE" and freeze_streak >= threshold
+    if suppress:
+        policy = "SUPPRESS"
+        reason = "freeze-streak-threshold-met"
+    elif current == "FREEZE":
+        policy = "ARM"
+        reason = "freeze-streak-building"
+    else:
+        policy = "OFF"
+        reason = "momentum-not-freeze"
+
+    return policy, {
+        "currentMomentum": current,
+        "priorMomentum": prior,
+        "priorLoaded": prior_loaded,
+        "priorFreezeStreak": prior_streak,
+        "freezeStreak": freeze_streak,
+        "threshold": threshold,
+        "suppress": suppress,
+        "offlineOnly": True,
+        "reason": reason,
+    }
+
+
 def main() -> int:
     args = parse_args()
     root = args.repo_root.resolve()
@@ -7059,6 +7109,10 @@ def main() -> int:
     )
     pulse_remap_momentum_alias = resolve_pulse_remap_momentum_alias(pulse_remap_momentum_recommendation)
     pulse_remap_momentum_drift, pulse_remap_momentum_drift_signals = pulse_remap_momentum_drift_from_prior(
+        current_momentum=pulse_remap_momentum_recommendation,
+        prior_json_path=args.out_json,
+    )
+    pulse_remap_momentum_suppression, pulse_remap_momentum_suppression_signals = pulse_remap_momentum_streak_suppression_from_prior(
         current_momentum=pulse_remap_momentum_recommendation,
         prior_json_path=args.out_json,
     )
@@ -7843,6 +7897,9 @@ def main() -> int:
         "pulseRemapMomentumRecommendationSignals": pulse_remap_momentum_recommendation_signals,
         "pulseRemapMomentumDrift": pulse_remap_momentum_drift,
         "pulseRemapMomentumDriftSignals": pulse_remap_momentum_drift_signals,
+        "pulseRemapMomentumSuppression": pulse_remap_momentum_suppression,
+        "pulseRemapMomentumSuppressionSignals": pulse_remap_momentum_suppression_signals,
+        "pulseRemapMomentumFreezeStreak": int(pulse_remap_momentum_suppression_signals.get("freezeStreak", 0)),
         "pulseRemapMomentumAlias": pulse_remap_momentum_alias,
         "pulseRemapMomentumAliasSignals": {"flagName": pulse_remap_momentum_alias_flag_name, "flagEnabled": pulse_remap_momentum_alias_flag_enabled},
         "laneBucketAge": lane_bucket_age["token"],
@@ -8192,6 +8249,7 @@ def main() -> int:
         f"- DMGNUM LIFE TREND FX PULSE CONF REMAP REC: **{dmgnum_life_trend_fx_pulse_remap_recommendation}** ({dmgnum_life_trend_fx_pulse_remap_recommendation_signals['rationale']}; pulseChurn={dmgnum_life_trend_fx_pulse_remap_recommendation_signals['dmgnumLifeTrendFxPulseChurn']} pulseConfChurn={dmgnum_life_trend_fx_pulse_remap_recommendation_signals['dmgnumLifeTrendFxPulseConfChurn']} pressure={dmgnum_life_trend_fx_pulse_remap_recommendation_signals['pressureBand']} cadence={dmgnum_life_trend_fx_pulse_remap_recommendation_signals['laneCadenceRecency']} offlineOnly={dmgnum_life_trend_fx_pulse_remap_recommendation_signals['offlineOnly']})",
         f"- PULSE REMAP MOMENTUM: **{pulse_remap_momentum_recommendation}** ({pulse_remap_momentum_recommendation_signals['rationale']}; rec={pulse_remap_momentum_recommendation_signals['recommendation']} driftRisk={pulse_remap_momentum_recommendation_signals['driftRisk']} pressure={pulse_remap_momentum_recommendation_signals['pressureBand']} cadence={pulse_remap_momentum_recommendation_signals['laneCadenceRecency']} planChurn={pulse_remap_momentum_recommendation_signals['planChurn']} planNet={pulse_remap_momentum_recommendation_signals['planNet']:+d} offlineOnly={pulse_remap_momentum_recommendation_signals['offlineOnly']})",
         f"- PULSE REMAP MOMENTUM Δ: **{pulse_remap_momentum_drift:+d}** ({pulse_remap_momentum_drift_signals['reason']}; current={pulse_remap_momentum_drift_signals['currentMomentum']}({pulse_remap_momentum_drift_signals['currentScore']:+d}) prior={pulse_remap_momentum_drift_signals['priorMomentum']}({pulse_remap_momentum_drift_signals['priorScore']:+d}) loaded={pulse_remap_momentum_drift_signals['priorLoaded']})",
+        f"- PULSE REMAP MOMENTUM SUPPRESS: **{pulse_remap_momentum_suppression}** ({pulse_remap_momentum_suppression_signals['reason']}; streak={pulse_remap_momentum_suppression_signals['freezeStreak']} threshold={pulse_remap_momentum_suppression_signals['threshold']} suppress={str(pulse_remap_momentum_suppression_signals['suppress']).upper()} offlineOnly={pulse_remap_momentum_suppression_signals['offlineOnly']})",
         f"- PRM: **{pulse_remap_momentum_alias if pulse_remap_momentum_alias_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_momentum_alias_flag_name} enabled={pulse_remap_momentum_alias_flag_enabled})",
         f"- FOCUS: **{lane_focus}** (portal={lane_focus_scores['portal']} | alt={lane_focus_scores['alt']} | pressure={lane_focus_scores['pressure']})",
         f"- FOCUS STREAK: **{focus_streak}**",
