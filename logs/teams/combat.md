@@ -1641,3 +1641,12 @@
 - Commit: pending (this run)
 - Notes:
   - No combat logic/hud rendering modifications in this slice; only weekly digest/reporting coverage was expanded for existing pulse tokens.
+
+## 2026-03-25 19:05 KST — Cycle DO selected experiment (Combat/VFX)
+- Implemented compact debug token: `DMGNUM LIFE TREND FX PULSE REMAP PLAN:HOLD|TUNE|SYNC` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_REMAP_PLAN_DEBUG`.
+- Deterministic mapping from pulse-confidence token:
+  - `LOW -> HOLD`
+  - `MID -> TUNE`
+  - `HIGH -> SYNC`
+- Scope kept additive/reversible with no combat balance coupling.
+- Verification: `lua scripts/regression_combat_damage_number_life_trend_fx_pulse_remap_plan_token.lua` ✅.

@@ -198,3 +198,8 @@
 - Follow-ups injected:
   - Systems/QA: digest token-family churn coverage for pulse + pulse-conf token families.
   - AI Content/VFX: offline pulse-intensity remap recommendation policy.
+
+## 2026-03-25 19:05 KST — Cycle DO pulse remap-plan readability cue
+- Added HUD debug readability cue for pulse planning: `DMGNUM LIFE TREND FX PULSE REMAP PLAN:HOLD|TUNE|SYNC`.
+- Visual intent: keep pulse-confidence interpretation glanceable during dense combat telemetry without changing live FX behavior.
+- Verification synchronized with combat regression suite.

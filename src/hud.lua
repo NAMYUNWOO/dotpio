@@ -339,6 +339,13 @@ local function isDamageNumberLifeTrendFxPulseConfidenceDebugExperimentEnabled()
     return v == "1" or v == "true" or v == "yes" or v == "on"
 end
 
+local function isDamageNumberLifeTrendFxPulseRemapPlanDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_REMAP_PLAN_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
 local function isDamageNumberLifeTrendColorDebugExperimentEnabled()
     local v = os.getenv("DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_COLOR_DEBUG")
     if not v then return false end
@@ -563,6 +570,26 @@ function HUD.resolveDamageNumberLifeTrendFxPulseConfidenceToken()
     return string.format("DMGNUM LIFE TREND FX PULSE CONF:%s", confidence)
 end
 
+function HUD.resolveDamageNumberLifeTrendFxPulseRemapPlanToken()
+    if not isDamageNumberLifeTrendFxPulseRemapPlanDebugExperimentEnabled() then
+        return nil
+    end
+
+    local confToken = HUD.resolveDamageNumberLifeTrendFxPulseConfidenceToken()
+    if not confToken then
+        return nil
+    end
+
+    local confidence = confToken:match("DMGNUM LIFE TREND FX PULSE CONF:(%u+)") or "LOW"
+    local plan = "HOLD"
+    if confidence == "HIGH" then
+        plan = "SYNC"
+    elseif confidence == "MID" then
+        plan = "TUNE"
+    end
+    return string.format("DMGNUM LIFE TREND FX PULSE REMAP PLAN:%s", plan)
+end
+
 function HUD.resolveDamageNumberLifeTrendColor(token)
     if not isDamageNumberLifeTrendColorDebugExperimentEnabled() then
         return 0.82, 0.94, 1.0, 0.9
@@ -722,6 +749,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if damageNumberLifeTrendFxPulseConfidenceToken then
         love.graphics.setColor(0.76, 0.9, 1.0, 0.9)
         love.graphics.print(damageNumberLifeTrendFxPulseConfidenceToken, 1420, 744)
+    end
+
+    local damageNumberLifeTrendFxPulseRemapPlanToken = HUD.resolveDamageNumberLifeTrendFxPulseRemapPlanToken()
+    if damageNumberLifeTrendFxPulseRemapPlanToken then
+        love.graphics.setColor(0.86, 0.94, 0.76, 0.9)
+        love.graphics.print(damageNumberLifeTrendFxPulseRemapPlanToken, 1420, 762)
     end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)

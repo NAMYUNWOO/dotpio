@@ -3099,3 +3099,10 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decisions:
   - Regression now asserts tokenTotals, tokenFamilyTotals keys, and markdown rows for pulse + pulse-conf family churn coverage.
+
+## 2026-03-25 19:05 KST — Cycle DN regression lock refresh
+- Added regression contract checks for `dmgnumLifeTrendFxPulseRemapRecommendation` payload keys and markdown line `DMGNUM LIFE TREND FX PULSE CONF REMAP REC`.
+- Verification run:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Result: PASS.

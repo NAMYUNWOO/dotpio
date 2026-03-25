@@ -6651,6 +6651,53 @@ def damage_glyph_fx_remap_confidence_from_signals(
     }
 
 
+def dmgnum_life_trend_fx_pulse_remap_recommendation_from_trends(
+    *,
+    drift_risk: str,
+    pressure_band: str,
+    lane_cadence_recency: str,
+    pulse_family: dict[str, int],
+    pulse_confidence_family: dict[str, int],
+) -> tuple[str, dict[str, object]]:
+    """Recommend offline pulse-intensity remap posture from drift risk + cadence pressure bands."""
+    pulse_churn = int(pulse_family.get("churn", 0))
+    pulse_net = int(pulse_family.get("net", 0))
+    pulse_coverage = str(pulse_family.get("coverage", "0/0"))
+
+    pulse_conf_churn = int(pulse_confidence_family.get("churn", 0))
+    pulse_conf_net = int(pulse_confidence_family.get("net", 0))
+    pulse_conf_coverage = str(pulse_confidence_family.get("coverage", "0/0"))
+
+    if drift_risk == "HIGH" or pressure_band == "HIGH" or lane_cadence_recency == "warn" or pulse_conf_churn >= 4:
+        recommendation = "HOLD_PULSE_CONF"
+        rationale = "high-risk-or-cadence-pressure"
+        guidance = "Keep COAST/RUSH/BURST confidence mapping pinned while cadence pressure cools."
+    elif pulse_churn >= 3 or (pulse_conf_churn >= 2 and pulse_net > 0):
+        recommendation = "MICRO_TUNE_PULSE_CONF"
+        rationale = "active-pulse-churn-window"
+        guidance = "Draft offline confidence remap candidates; do not couple changes to runtime debug defaults yet."
+    else:
+        recommendation = "SYNC_WITH_TREND"
+        rationale = "stable-pulse-window"
+        guidance = "Keep deterministic confidence mapping and only align wording with trend-FX telemetry deltas."
+
+    signals: dict[str, object] = {
+        "driftRisk": drift_risk,
+        "pressureBand": pressure_band,
+        "laneCadenceRecency": lane_cadence_recency,
+        "dmgnumLifeTrendFxPulseChurn": pulse_churn,
+        "dmgnumLifeTrendFxPulseNet": pulse_net,
+        "dmgnumLifeTrendFxPulseCoverage": pulse_coverage,
+        "dmgnumLifeTrendFxPulseConfChurn": pulse_conf_churn,
+        "dmgnumLifeTrendFxPulseConfNet": pulse_conf_net,
+        "dmgnumLifeTrendFxPulseConfCoverage": pulse_conf_coverage,
+        "rationale": rationale,
+        "offlineOnly": True,
+        "guidance": guidance,
+    }
+    return recommendation, signals
+
+
 def main() -> int:
     args = parse_args()
     root = args.repo_root.resolve()
@@ -6884,6 +6931,13 @@ def main() -> int:
     dmg_glyph_fx_remap_confidence, dmg_glyph_fx_remap_confidence_signals = damage_glyph_fx_remap_confidence_from_signals(
         drift_risk=drift_risk,
         dmg_glyph_fx_remap_recommendation_signals=dmg_glyph_fx_remap_recommendation_signals,
+    )
+    dmgnum_life_trend_fx_pulse_remap_recommendation, dmgnum_life_trend_fx_pulse_remap_recommendation_signals = dmgnum_life_trend_fx_pulse_remap_recommendation_from_trends(
+        drift_risk=drift_risk,
+        pressure_band=pressure_band,
+        lane_cadence_recency=lane_cadence_recency,
+        pulse_family=token_family_totals["dmgnumLifeTrendFxPulseAlias"],
+        pulse_confidence_family=token_family_totals["dmgnumLifeTrendFxPulseConfidenceAlias"],
     )
 
     token_movers = [
@@ -7658,6 +7712,8 @@ def main() -> int:
         "dmgGlyphFxRemapRecommendationSignals": dmg_glyph_fx_remap_recommendation_signals,
         "dmgGlyphFxRemapConfidence": dmg_glyph_fx_remap_confidence,
         "dmgGlyphFxRemapConfidenceSignals": dmg_glyph_fx_remap_confidence_signals,
+        "dmgnumLifeTrendFxPulseRemapRecommendation": dmgnum_life_trend_fx_pulse_remap_recommendation,
+        "dmgnumLifeTrendFxPulseRemapRecommendationSignals": dmgnum_life_trend_fx_pulse_remap_recommendation_signals,
         "laneBucketAge": lane_bucket_age["token"],
         "laneBucketAgeStatus": lane_bucket_age["status"],
         "laneBucketAgeHours": lane_bucket_age["ageHours"],
@@ -8002,6 +8058,7 @@ def main() -> int:
         f"- DMG GLYPH SHAPE REMAP REC: **{dmg_glyph_shape_remap_recommendation}** ({dmg_glyph_shape_remap_recommendation_signals['rationale']}; glyphChurn={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphChurn']} glyphNet={dmg_glyph_shape_remap_recommendation_signals['dmgGlyphNet']} railChurn={dmg_glyph_shape_remap_recommendation_signals['urgencyStackRailChurn']} offlineOnly={dmg_glyph_shape_remap_recommendation_signals['offlineOnly']})",
         f"- DMG GLYPH FX REMAP REC: **{dmg_glyph_fx_remap_recommendation}** ({dmg_glyph_fx_remap_recommendation_signals['rationale']}; fxChurn={dmg_glyph_fx_remap_recommendation_signals['dmgGlyphFxLiveChurn']} fxNet={dmg_glyph_fx_remap_recommendation_signals['dmgGlyphFxLiveNet']} glyphChurn={dmg_glyph_fx_remap_recommendation_signals['dmgGlyphChurn']} offlineOnly={dmg_glyph_fx_remap_recommendation_signals['offlineOnly']})",
         f"- DMG GLYPH FX REMAP CONF: **{dmg_glyph_fx_remap_confidence}** ({dmg_glyph_fx_remap_confidence_signals['rationale']}; churnScore={dmg_glyph_fx_remap_confidence_signals['churnScore']} drift={dmg_glyph_fx_remap_confidence_signals['driftRisk']})",
+        f"- DMGNUM LIFE TREND FX PULSE CONF REMAP REC: **{dmgnum_life_trend_fx_pulse_remap_recommendation}** ({dmgnum_life_trend_fx_pulse_remap_recommendation_signals['rationale']}; pulseChurn={dmgnum_life_trend_fx_pulse_remap_recommendation_signals['dmgnumLifeTrendFxPulseChurn']} pulseConfChurn={dmgnum_life_trend_fx_pulse_remap_recommendation_signals['dmgnumLifeTrendFxPulseConfChurn']} pressure={dmgnum_life_trend_fx_pulse_remap_recommendation_signals['pressureBand']} cadence={dmgnum_life_trend_fx_pulse_remap_recommendation_signals['laneCadenceRecency']} offlineOnly={dmgnum_life_trend_fx_pulse_remap_recommendation_signals['offlineOnly']})",
         f"- FOCUS: **{lane_focus}** (portal={lane_focus_scores['portal']} | alt={lane_focus_scores['alt']} | pressure={lane_focus_scores['pressure']})",
         f"- FOCUS STREAK: **{focus_streak}**",
         f"- FOCUS SHIFT: **{focus_shift}**",

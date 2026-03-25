@@ -2551,3 +2551,10 @@
 - Decisions:
   - Extended token catalog/family alias coverage to include `DMGNUM LIFE TREND FX PULSE:` and `DMGNUM LIFE TREND FX PULSE CONF:`.
   - Added markdown family-churn + coverage rows and regression assertions to keep schema stable.
+
+## 2026-03-25 19:05 KST — Cycle DN follow-up (Systems)
+- Completed remaining digest observability closure for Cycle DN + AI follow-up wiring.
+- Added offline recommendation token in weekly digest: `DMGNUM LIFE TREND FX PULSE CONF REMAP REC` derived from drift risk + pressure band + lane cadence recency.
+- Added payload fields: `dmgnumLifeTrendFxPulseRemapRecommendation` + `...Signals` (offline-only guidance).
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
+- Follow-up: monitor one digest window for recommendation stability before considering any runtime coupling.

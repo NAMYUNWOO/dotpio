@@ -2837,3 +2837,11 @@ Compact decision memory for AI context efficiency.
   - `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG=1 lua scripts/regression_combat_damage_number_life_trend_fx_pulse_token.lua`
   - `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_CONF_DEBUG=1 lua scripts/regression_combat_damage_number_life_trend_fx_pulse_conf_token.lua`
 - Backlog sync: selected item marked `[~] -> [x]` in `TASKS.md` + `POST_RC_BACKLOG.md`; follow-up mid/high-risk tasks injected as unchecked.
+
+## 2026-03-25 19:05 KST — Cycle DN backlog fully closed
+- Closed final unchecked TASKS/POST_RC item by shipping offline digest recommendation: `DMGNUM LIFE TREND FX PULSE CONF REMAP REC` (drift-risk + pressure-band + cadence-recency driven, offline-only).
+- Regression suite updated to lock payload schema + markdown visibility for the new recommendation token.
+- Backlog status: Cycle DN systems/qa + ai-content follow-ups now marked complete in `TASKS.md` and `POST_RC_BACKLOG.md`.
+- Game Director Cycle DO executed immediately after queue clear: generated 3 ideas (low/mid/high), selected low-risk Combat/VFX slice, and shipped `DMGNUM LIFE TREND FX PULSE REMAP PLAN:HOLD|TUNE|SYNC` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_REMAP_PLAN_DEBUG`.
+- Regression lock added via `scripts/regression_combat_damage_number_life_trend_fx_pulse_remap_plan_token.lua` (PASS).
+- Newly injected backlog items: Systems/QA digest family coverage for remap-plan token + AI Content/VFX offline pulse-remap momentum policy.

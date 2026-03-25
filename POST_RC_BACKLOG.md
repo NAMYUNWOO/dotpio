@@ -807,5 +807,15 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/VFX): Prototype offline pulse-intensity remap recommendation policy from weekly drift + lane pressure signals.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Add compact pulse-intensity confidence token (`DMGNUM LIFE TREND FX PULSE CONF:LOW|MID|HIGH`) behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_CONF_DEBUG`. *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] Systems/QA Team: Add weekly digest token-family churn coverage for `DMGNUM LIFE TREND FX PULSE:` + `DMGNUM LIFE TREND FX PULSE CONF:` with regression lock.
-- [ ] AI Content/VFX Team: Prototype offline pulse-intensity remap recommendation policy from drift-risk + cadence pressure bands.
+- [x] Systems/QA Team: Add weekly digest token-family churn coverage for `DMGNUM LIFE TREND FX PULSE:` + `DMGNUM LIFE TREND FX PULSE CONF:` with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
+- [x] AI Content/VFX Team: Prototype offline pulse-intensity remap recommendation policy from drift-risk + cadence pressure bands. *(lifecycle: [ ] -> [~] -> [x])*
+
+## Cycle DO - Game Director Review (2026-03-25 19:05 KST)
+- Coverage check (last 10 completions): systems/qa + ai-content digest lane still dominant, so this cycle prioritized a visible combat/vfx-facing debug readability slice.
+- Idea 1 (low risk, Combat/VFX): Add compact pulse remap-plan token (`DMGNUM LIFE TREND FX PULSE REMAP PLAN:HOLD|TUNE|SYNC`) behind debug flag.
+- Idea 2 (mid risk, Systems/QA): Add weekly digest token-family churn coverage for `DMGNUM LIFE TREND FX PULSE REMAP PLAN:` with regression lock.
+- Idea 3 (high risk, AI Content/VFX): Prototype offline pulse-remap confidence momentum policy (`PULSE REMAP MOMENTUM:FREEZE|WATCH|ALLOW`) from multi-window churn + cadence pressure.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Combat/VFX Team: Add compact pulse remap-plan token (`DMGNUM LIFE TREND FX PULSE REMAP PLAN:HOLD|TUNE|SYNC`) behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_REMAP_PLAN_DEBUG` with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
+- [ ] Systems/QA Team: Add weekly digest token-family churn coverage for `DMGNUM LIFE TREND FX PULSE REMAP PLAN:` with regression lock.
+- [ ] AI Content/VFX Team: Prototype offline pulse-remap confidence momentum policy (`PULSE REMAP MOMENTUM:FREEZE|WATCH|ALLOW`) from drift-risk + cadence pressure windows.

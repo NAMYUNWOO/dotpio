@@ -249,6 +249,21 @@ def main() -> int:
             "churnScore",
             "rationale",
         }, payload
+        assert payload.get("dmgnumLifeTrendFxPulseRemapRecommendation") in {"HOLD_PULSE_CONF", "MICRO_TUNE_PULSE_CONF", "SYNC_WITH_TREND"}, payload
+        assert set(payload.get("dmgnumLifeTrendFxPulseRemapRecommendationSignals", {}).keys()) == {
+            "driftRisk",
+            "pressureBand",
+            "laneCadenceRecency",
+            "dmgnumLifeTrendFxPulseChurn",
+            "dmgnumLifeTrendFxPulseNet",
+            "dmgnumLifeTrendFxPulseCoverage",
+            "dmgnumLifeTrendFxPulseConfChurn",
+            "dmgnumLifeTrendFxPulseConfNet",
+            "dmgnumLifeTrendFxPulseConfCoverage",
+            "rationale",
+            "offlineOnly",
+            "guidance",
+        }, payload
         assert set(payload.get("routeVibeTotals", {}).keys()) == {"added", "removed", "net"}, payload
         assert set(payload["routeVibeTotals"]["added"].keys()) == {"CALM", "EDGE", "DOOM"}, payload
         assert payload["routeVibeTotals"]["added"]["EDGE"] >= 1, payload
@@ -1885,6 +1900,7 @@ def main() -> int:
         assert "DMG GLYPH SHAPE REMAP REC" in md_text
         assert "DMG GLYPH FX REMAP REC" in md_text
         assert "DMG GLYPH FX REMAP CONF" in md_text
+        assert "DMGNUM LIFE TREND FX PULSE CONF REMAP REC" in md_text
         assert "ROUTE VIBE DRIFT" in md_text
         assert "Route Vibe Drift (added/removed/net)" in md_text
         assert "FOCUS" in md_text
