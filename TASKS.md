@@ -965,4 +965,15 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact hysteresis-threshold recommendation alias token (`LPR HYS THR:<L|H|R>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_THRESHOLD_ALIAS` with payload + markdown + regression lock. *(lifecycle: [ ] -> [~] -> [x])* 
 - [x] Systems/QA Team: Add weekly digest token-family churn coverage for `LPR HYS THR:` with markdown triage row + regression lock. *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] AI Content/Systems Team: Prototype offline adaptive hysteresis-threshold floor/ceiling learning policy from volatility outcomes.
+- [x] AI Content/Systems Team: Prototype offline adaptive hysteresis-threshold floor/ceiling learning policy from volatility outcomes.
+
+## Cycle DL - Game Director Review (2026-03-25 15:34 KST)
+- Coverage check (last 10 completions): systems/qa and offline observability still dominant; selected low-risk AI Content/Systems vertical slice that remains offline and reversible.
+- Idea 1 (low risk, AI Content/Systems): Add adaptive hysteresis-threshold floor/ceiling learning policy from prior-window volatility outcomes.
+- Idea 2 (mid risk, UX/Systems): Add compact adaptive-window drift token (`LPR HYS WINDOW Δ:+n|-n`) in digest summary for trend triage.
+- Idea 3 (high risk, AI Content/Systems): Prototype offline volatility-regime memory (`CALM|SWING|SPIKE`) to auto-tune floor/ceiling step sizes.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] AI Content/Systems Team: Prototype offline adaptive hysteresis-threshold floor/ceiling learning policy from volatility outcomes.
+- [x] Systems/QA Team: Add digest triage token (`LPR HYS WINDOW:TIGHT|BASE|WIDE`) from adaptive floor/ceiling span + regression lock.
+- [ ] UX/Systems Team: Prototype compact adaptive-window drift token (`LPR HYS WINDOW Δ:+n|-n`) for multi-window stability scanability.
+- [ ] AI Content/Systems Team: Prototype offline volatility-regime memory (`CALM|SWING|SPIKE`) for adaptive floor/ceiling step-size tuning.

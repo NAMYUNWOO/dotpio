@@ -2783,3 +2783,13 @@ Compact decision memory for AI context efficiency.
 - `scripts/weekly_portal_prompt_readability_drift.py` now tracks `LPR HYS THR:` in token catalogs/families and emits explicit churn rows in both summary and Token Family Coverage markdown sections.
 - Regression contract updated in `scripts/regression_weekly_portal_prompt_readability_drift.py` to lock payload token totals + family schema and markdown presence for `LPR HYS THR` churn reporting.
 - Verification PASS: py_compile + weekly digest regression + weekly digest generation.
+
+## 2026-03-25 15:34 KST — Cycle DK backlog closure
+- Closed last unchecked TASKS/POST_RC item: offline adaptive hysteresis-threshold floor/ceiling learning policy.
+- `scripts/weekly_portal_prompt_readability_drift.py` now learns adaptive hysteresis window bounds from prior digest + current volatility outcomes; remains offline-only.
+- Regression contract expanded for new signals (`adaptiveFloor`, `adaptiveCeiling`, `priorAdaptiveWindowLoaded`, `learningReason`) and all checks PASS.
+
+## 2026-03-25 15:34 KST — Cycle DL summary
+- Executed Game Director review cycle after backlog clear: 3 ideas generated, low-risk experiment selected and shipped.
+- Shipped: adaptive hysteresis floor/ceiling learning + digest token `LPR HYS WINDOW:TIGHT|BASE|WIDE` with regression lock.
+- Injected next tasks: `LPR HYS WINDOW Δ` compact drift token (UX/Systems) and volatility-regime memory prototype (AI Content/Systems).

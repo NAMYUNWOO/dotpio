@@ -419,8 +419,15 @@ def resolve_lane_priority_hysteresis_rail(*, confidence: str, hysteresis_applied
     }
 
 
-def resolve_lane_priority_hysteresis_threshold_tuning(*, lane_priority_recommendation_signals: dict[str, object]) -> tuple[str, dict[str, object]]:
-    """Offline-only recommendation for hysteresis threshold tuning from lane-age volatility windows."""
+def resolve_lane_priority_hysteresis_threshold_tuning(
+    *,
+    lane_priority_recommendation_signals: dict[str, object],
+    prior_json_path: Path,
+) -> tuple[str, dict[str, object]]:
+    """Offline-only recommendation for hysteresis threshold tuning from lane-age volatility windows.
+
+    Includes adaptive floor/ceiling learning based on prior-window volatility outcomes.
+    """
     momentum_hours_raw = lane_priority_recommendation_signals.get("momentumHours", {})
     momentum_hours = momentum_hours_raw if isinstance(momentum_hours_raw, dict) else {}
     momentum_values = [int(v or 0) for v in momentum_hours.values()]
@@ -433,16 +440,47 @@ def resolve_lane_priority_hysteresis_threshold_tuning(*, lane_priority_recommend
     age_spread = (max(age_values) - min(age_values)) if age_values else 0
 
     base_threshold = int(lane_priority_recommendation_signals.get("hysteresisThreshold", 12) or 12)
-    tuned_threshold = base_threshold
+
+    prior_floor = 8
+    prior_ceiling = 18
+    prior_loaded = False
+    try:
+        if prior_json_path.exists():
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_tuning = prior_payload.get("lanePriorityHysteresisThresholdTuningSignals", {})
+            if isinstance(prior_tuning, dict):
+                prior_floor = int(prior_tuning.get("adaptiveFloor", prior_floor) or prior_floor)
+                prior_ceiling = int(prior_tuning.get("adaptiveCeiling", prior_ceiling) or prior_ceiling)
+                prior_loaded = True
+    except (json.JSONDecodeError, OSError, TypeError, ValueError):
+        prior_loaded = False
+
+    floor = max(6, min(14, prior_floor))
+    ceiling = max(floor + 4, min(24, prior_ceiling))
+    learning_reason = "baseline floor/ceiling window"
+
+    high_volatility = max_abs_momentum >= 24 or volatility_span >= 18 or age_spread >= 36
+    low_volatility = max_abs_momentum <= 4 and volatility_span <= 6 and age_spread <= 12
+
+    if high_volatility:
+        floor = min(floor + 1, 14)
+        ceiling = min(max(ceiling + 2, floor + 4), 24)
+        learning_reason = "high volatility widened window upward to reduce flap risk"
+    elif low_volatility:
+        floor = max(floor - 1, 6)
+        ceiling = max(min(ceiling - 1, 24), floor + 4)
+        learning_reason = "low volatility tightened window downward for faster adaptation"
+
+    tuned_threshold = max(floor, min(ceiling, base_threshold))
     mode = "HOLD"
     reason = "volatility signals near baseline; keep hysteresis threshold"
 
-    if max_abs_momentum >= 24 or volatility_span >= 18 or age_spread >= 36:
-        tuned_threshold = base_threshold + 4
+    if high_volatility:
+        tuned_threshold = min(ceiling, max(base_threshold + 4, floor))
         mode = "RAISE"
         reason = "lane-age volatility is high; raise threshold to suppress flapping"
-    elif max_abs_momentum <= 4 and volatility_span <= 6 and age_spread <= 12:
-        tuned_threshold = max(8, base_threshold - 2)
+    elif low_volatility:
+        tuned_threshold = max(floor, min(base_threshold - 2, ceiling))
         mode = "LOWER"
         reason = "lane-age volatility is calm; lower threshold for quicker adaptation"
 
@@ -454,6 +492,10 @@ def resolve_lane_priority_hysteresis_threshold_tuning(*, lane_priority_recommend
         "maxAbsMomentumHours": max_abs_momentum,
         "momentumVolatilitySpanHours": volatility_span,
         "ageSpreadHours": age_spread,
+        "adaptiveFloor": floor,
+        "adaptiveCeiling": ceiling,
+        "priorAdaptiveWindowLoaded": prior_loaded,
+        "learningReason": learning_reason,
         "reason": reason,
     }
 
@@ -476,6 +518,31 @@ def resolve_lane_priority_hysteresis_threshold_compact_alias(*, recommendation: 
         "flagEnabled": flag_enabled,
         "recommendation": mode_upper,
         "alias": alias,
+    }
+
+
+def resolve_lane_priority_hysteresis_window_band(*, tuning_signals: dict[str, object]) -> tuple[str, dict[str, object]]:
+    """Classify adaptive hysteresis floor/ceiling span for quick offline triage."""
+    floor = int(tuning_signals.get("adaptiveFloor", 8) or 8)
+    ceiling = int(tuning_signals.get("adaptiveCeiling", 18) or 18)
+    span = max(0, ceiling - floor)
+
+    if span <= 8:
+        band = "TIGHT"
+        reason = "adaptive window is narrow for fast recommendation shifts"
+    elif span >= 12:
+        band = "WIDE"
+        reason = "adaptive window is wide to suppress lane-priority flapping"
+    else:
+        band = "BASE"
+        reason = "adaptive window remains near baseline spread"
+
+    return f"LPR HYS WINDOW:{band}", {
+        "adaptiveFloor": floor,
+        "adaptiveCeiling": ceiling,
+        "span": span,
+        "band": band,
+        "reason": reason,
     }
 
 
@@ -6519,9 +6586,13 @@ def main() -> int:
     )
     lane_priority_hysteresis_threshold_tuning, lane_priority_hysteresis_threshold_tuning_signals = resolve_lane_priority_hysteresis_threshold_tuning(
         lane_priority_recommendation_signals=lane_priority_recommendation_signals,
+        prior_json_path=args.out_json,
     )
     lane_priority_hysteresis_threshold_compact_alias, lane_priority_hysteresis_threshold_compact_alias_signals = resolve_lane_priority_hysteresis_threshold_compact_alias(
         recommendation=lane_priority_hysteresis_threshold_tuning,
+    )
+    lane_priority_hysteresis_window_band, lane_priority_hysteresis_window_band_signals = resolve_lane_priority_hysteresis_window_band(
+        tuning_signals=lane_priority_hysteresis_threshold_tuning_signals,
     )
 
     totals = {
@@ -7485,6 +7556,8 @@ def main() -> int:
         "lanePriorityHysteresisThresholdTuningSignals": lane_priority_hysteresis_threshold_tuning_signals,
         "lanePriorityHysteresisThresholdCompactAlias": lane_priority_hysteresis_threshold_compact_alias,
         "lanePriorityHysteresisThresholdCompactAliasSignals": lane_priority_hysteresis_threshold_compact_alias_signals,
+        "lanePriorityHysteresisWindowBand": lane_priority_hysteresis_window_band,
+        "lanePriorityHysteresisWindowBandSignals": lane_priority_hysteresis_window_band_signals,
         "laneFocus": lane_focus,
         "laneFocusScores": lane_focus_scores,
         "focusStreak": focus_streak,
@@ -7959,8 +8032,9 @@ def main() -> int:
         f"- LPR HYS RAIL: **{lane_priority_hysteresis_rail}** (flag={lane_priority_hysteresis_rail_signals['flagName']} enabled={lane_priority_hysteresis_rail_signals['flagEnabled']} conf={lane_priority_hysteresis_rail_signals['confidence']} gap={lane_priority_hysteresis_rail_signals['scoreGap']} threshold={lane_priority_hysteresis_rail_signals['threshold']} reason={lane_priority_hysteresis_rail_signals['reason']})",
         f"- LANE PRIORITY REC CONF: **{lane_priority_recommendation_confidence_level}** (worstAge={lane_priority_recommendation_confidence_signals['worstAgeHours']}h momentumGap={lane_priority_recommendation_confidence_signals['momentumGapHours']}h reason={lane_priority_recommendation_confidence_signals['reason']})",
         f"- LANE PRIORITY REC HYSTERESIS: **{'HOLD' if lane_priority_recommendation_signals['hysteresisApplied'] else 'SHIFT'}** (prior={lane_priority_recommendation_signals['priorRecommendation']} raw={lane_priority_recommendation_signals['rawRecommendation']} gap={lane_priority_recommendation_signals['hysteresisScoreGap']} threshold={lane_priority_recommendation_signals['hysteresisThreshold']} reason={lane_priority_recommendation_signals['hysteresisReason']})",
-        f"- LPR HYS THRESH REC: **{lane_priority_hysteresis_threshold_tuning}** (base={lane_priority_hysteresis_threshold_tuning_signals['baseThreshold']} rec={lane_priority_hysteresis_threshold_tuning_signals['recommendedThreshold']} volSpan={lane_priority_hysteresis_threshold_tuning_signals['momentumVolatilitySpanHours']} maxAbsMom={lane_priority_hysteresis_threshold_tuning_signals['maxAbsMomentumHours']} ageSpread={lane_priority_hysteresis_threshold_tuning_signals['ageSpreadHours']} reason={lane_priority_hysteresis_threshold_tuning_signals['reason']})",
+        f"- LPR HYS THRESH REC: **{lane_priority_hysteresis_threshold_tuning}** (base={lane_priority_hysteresis_threshold_tuning_signals['baseThreshold']} rec={lane_priority_hysteresis_threshold_tuning_signals['recommendedThreshold']} floor={lane_priority_hysteresis_threshold_tuning_signals['adaptiveFloor']} ceil={lane_priority_hysteresis_threshold_tuning_signals['adaptiveCeiling']} priorWindow={lane_priority_hysteresis_threshold_tuning_signals['priorAdaptiveWindowLoaded']} volSpan={lane_priority_hysteresis_threshold_tuning_signals['momentumVolatilitySpanHours']} maxAbsMom={lane_priority_hysteresis_threshold_tuning_signals['maxAbsMomentumHours']} ageSpread={lane_priority_hysteresis_threshold_tuning_signals['ageSpreadHours']} learn={lane_priority_hysteresis_threshold_tuning_signals['learningReason']} reason={lane_priority_hysteresis_threshold_tuning_signals['reason']})",
         f"- LPR HYS THR: **{lane_priority_hysteresis_threshold_compact_alias}** (flag={lane_priority_hysteresis_threshold_compact_alias_signals['flagName']} enabled={lane_priority_hysteresis_threshold_compact_alias_signals['flagEnabled']} alias={lane_priority_hysteresis_threshold_compact_alias_signals['alias']} rec={lane_priority_hysteresis_threshold_compact_alias_signals['recommendation']})",
+        f"- LPR HYS WINDOW: **{lane_priority_hysteresis_window_band}** (floor={lane_priority_hysteresis_window_band_signals['adaptiveFloor']} ceil={lane_priority_hysteresis_window_band_signals['adaptiveCeiling']} span={lane_priority_hysteresis_window_band_signals['span']} reason={lane_priority_hysteresis_window_band_signals['reason']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: **{pulse_heat_fx_compact_budget_drift_level}** ({pulse_heat_fx_compact_budget_drift_signals['reason']}; compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d} churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **{route_glow_fx_compact_budget_drift_level}** ({route_glow_fx_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **{route_glow_fx_conf_why_rail_mode_compact_budget_drift_level}** ({route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",
@@ -8041,8 +8115,9 @@ def main() -> int:
         f"- LPR HYS RAIL: {lane_priority_hysteresis_rail} (flag={lane_priority_hysteresis_rail_signals['flagName']}, enabled={lane_priority_hysteresis_rail_signals['flagEnabled']}, conf={lane_priority_hysteresis_rail_signals['confidence']}, gap={lane_priority_hysteresis_rail_signals['scoreGap']}, threshold={lane_priority_hysteresis_rail_signals['threshold']}, reason={lane_priority_hysteresis_rail_signals['reason']})",
         f"- LANE PRIORITY REC CONF: {lane_priority_recommendation_confidence_level} (worstAge={lane_priority_recommendation_confidence_signals['worstAgeHours']}h, momentumGap={lane_priority_recommendation_confidence_signals['momentumGapHours']}h, reason={lane_priority_recommendation_confidence_signals['reason']})",
         f"- LANE PRIORITY REC HYSTERESIS: {'HOLD' if lane_priority_recommendation_signals['hysteresisApplied'] else 'SHIFT'} (prior={lane_priority_recommendation_signals['priorRecommendation']}, raw={lane_priority_recommendation_signals['rawRecommendation']}, gap={lane_priority_recommendation_signals['hysteresisScoreGap']}, threshold={lane_priority_recommendation_signals['hysteresisThreshold']}, reason={lane_priority_recommendation_signals['hysteresisReason']})",
-        f"- LPR HYS THRESH REC: {lane_priority_hysteresis_threshold_tuning} (base={lane_priority_hysteresis_threshold_tuning_signals['baseThreshold']}, rec={lane_priority_hysteresis_threshold_tuning_signals['recommendedThreshold']}, volSpan={lane_priority_hysteresis_threshold_tuning_signals['momentumVolatilitySpanHours']}, maxAbsMom={lane_priority_hysteresis_threshold_tuning_signals['maxAbsMomentumHours']}, ageSpread={lane_priority_hysteresis_threshold_tuning_signals['ageSpreadHours']}, reason={lane_priority_hysteresis_threshold_tuning_signals['reason']})",
+        f"- LPR HYS THRESH REC: {lane_priority_hysteresis_threshold_tuning} (base={lane_priority_hysteresis_threshold_tuning_signals['baseThreshold']}, rec={lane_priority_hysteresis_threshold_tuning_signals['recommendedThreshold']}, floor={lane_priority_hysteresis_threshold_tuning_signals['adaptiveFloor']}, ceil={lane_priority_hysteresis_threshold_tuning_signals['adaptiveCeiling']}, priorWindow={lane_priority_hysteresis_threshold_tuning_signals['priorAdaptiveWindowLoaded']}, volSpan={lane_priority_hysteresis_threshold_tuning_signals['momentumVolatilitySpanHours']}, maxAbsMom={lane_priority_hysteresis_threshold_tuning_signals['maxAbsMomentumHours']}, ageSpread={lane_priority_hysteresis_threshold_tuning_signals['ageSpreadHours']}, learn={lane_priority_hysteresis_threshold_tuning_signals['learningReason']}, reason={lane_priority_hysteresis_threshold_tuning_signals['reason']})",
         f"- LPR HYS THR: {lane_priority_hysteresis_threshold_compact_alias} (flag={lane_priority_hysteresis_threshold_compact_alias_signals['flagName']}, enabled={lane_priority_hysteresis_threshold_compact_alias_signals['flagEnabled']}, alias={lane_priority_hysteresis_threshold_compact_alias_signals['alias']}, rec={lane_priority_hysteresis_threshold_compact_alias_signals['recommendation']})",
+        f"- LPR HYS WINDOW: {lane_priority_hysteresis_window_band} (floor={lane_priority_hysteresis_window_band_signals['adaptiveFloor']}, ceil={lane_priority_hysteresis_window_band_signals['adaptiveCeiling']}, span={lane_priority_hysteresis_window_band_signals['span']}, reason={lane_priority_hysteresis_window_band_signals['reason']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: {pulse_heat_fx_compact_budget_drift_level} (compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d}, churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: {route_glow_fx_compact_budget_drift_level} (compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: {route_glow_fx_conf_why_rail_mode_compact_budget_drift_level} (compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",

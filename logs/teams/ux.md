@@ -1901,3 +1901,10 @@
 - Updated `scripts/weekly_portal_prompt_readability_drift.py` token catalogs/families and markdown sections (summary + Token Family Coverage) to emit explicit `LPR HYS THR` churn rows.
 - Regression lock added in `scripts/regression_weekly_portal_prompt_readability_drift.py` for payload token totals/family keys and markdown presence assertions.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-25 15:34 KST — UX digest scanability note
+- Extended digest copy for `LPR HYS THRESH REC` with adaptive window context (`floor/ceil/priorWindow/learn`) to improve operator triage clarity.
+- Compact in-run HUD/prompt aliases unchanged.
+
+## 2026-03-25 15:34 KST — Cycle DL UX follow-up queue
+- Injected UX/Systems follow-up: compact adaptive-window drift token (`LPR HYS WINDOW Δ:+n|-n`) for digest trend scanability.

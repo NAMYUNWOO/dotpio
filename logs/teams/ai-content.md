@@ -1641,3 +1641,13 @@
 - Updated `scripts/weekly_portal_prompt_readability_drift.py` token catalogs/families and markdown sections (summary + Token Family Coverage) to emit explicit `LPR HYS THR` churn rows.
 - Regression lock added in `scripts/regression_weekly_portal_prompt_readability_drift.py` for payload token totals/family keys and markdown presence assertions.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-25 15:34 KST — Cycle DK high-risk closure (adaptive hysteresis threshold window learning)
+- Completed item: Prototype offline adaptive hysteresis-threshold floor/ceiling learning policy from volatility outcomes.
+- Decision: `resolve_lane_priority_hysteresis_threshold_tuning` now learns adaptive floor/ceiling bounds from prior digest output (`lanePriorityHysteresisThresholdTuningSignals`) and current volatility signals, while keeping output offline-only.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` PASS.
+- Follow-up: watch multi-window stability; if threshold alias flaps despite learned window, tune bound step sizes (`+1/-1`, `+2/-1`) offline.
+
+## 2026-03-25 15:34 KST — Cycle DL selected experiment shipped
+- Game Director cycle generated 3 ideas (low/mid/high risk) and selected low-risk adaptive floor/ceiling learning slice.
+- Added offline adaptive hysteresis window learning from prior digest outcomes; no runtime coupling.

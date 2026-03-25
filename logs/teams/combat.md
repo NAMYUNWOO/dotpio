@@ -1594,3 +1594,10 @@
 - Updated `scripts/weekly_portal_prompt_readability_drift.py` token catalogs/families and markdown sections (summary + Token Family Coverage) to emit explicit `LPR HYS THR` churn rows.
 - Regression lock added in `scripts/regression_weekly_portal_prompt_readability_drift.py` for payload token totals/family keys and markdown presence assertions.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-25 15:34 KST — Combat lane status
+- This slice stayed offline in digest recommendation logic; no combat pacing/mechanics modified.
+- Next combat-facing candidate can resume from DMGNUM/FX debug readability chain.
+
+## 2026-03-25 15:34 KST — Cycle DL combat status
+- Combat/vfx runtime untouched in this cycle; maintained existing debug/readability contracts.

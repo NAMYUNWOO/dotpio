@@ -172,3 +172,10 @@
 ## 2026-03-25 13:31 KST — Cycle DJ VFX lane note
 - No VFX runtime changes in this cycle (offline digest observability slice).
 - Keep VFX lane queued for next player-facing cadence pass per rotation policy.
+
+## 2026-03-25 15:34 KST — VFX lane status
+- No VFX runtime token or effect changes in this cycle.
+- Offline recommendation policy update should not alter VFX debug token semantics.
+
+## 2026-03-25 15:34 KST — Cycle DL vfx status
+- No VFX behavior/token updates; offline digest-only experiment.

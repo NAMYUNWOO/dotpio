@@ -2497,3 +2497,12 @@
 - Updated `scripts/weekly_portal_prompt_readability_drift.py` token catalogs/families and markdown sections (summary + Token Family Coverage) to emit explicit `LPR HYS THR` churn rows.
 - Regression lock added in `scripts/regression_weekly_portal_prompt_readability_drift.py` for payload token totals/family keys and markdown presence assertions.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-25 15:34 KST — Offline hysteresis-threshold learning support
+- Wired prior-window adaptive bounds load (`adaptiveFloor`, `adaptiveCeiling`) into weekly digest threshold tuning path.
+- Added output signals for auditability: `adaptiveFloor`, `adaptiveCeiling`, `priorAdaptiveWindowLoaded`, `learningReason`.
+- Runtime impact: none (digest/offline only).
+
+## 2026-03-25 15:34 KST — Cycle DL systems follow-up
+- Added digest triage token `LPR HYS WINDOW:TIGHT|BASE|WIDE` from adaptive floor/ceiling span.
+- Injected follow-up backlog items for window drift token and volatility-regime memory prototype.

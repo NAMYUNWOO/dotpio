@@ -371,6 +371,10 @@ def main() -> int:
             "maxAbsMomentumHours",
             "momentumVolatilitySpanHours",
             "ageSpreadHours",
+            "adaptiveFloor",
+            "adaptiveCeiling",
+            "priorAdaptiveWindowLoaded",
+            "learningReason",
             "reason",
         }, payload
         assert payload.get("lanePriorityHysteresisThresholdCompactAlias") in {"OFF", "LPR HYS THR:L", "LPR HYS THR:H", "LPR HYS THR:R"}, payload
@@ -379,6 +383,14 @@ def main() -> int:
             "flagEnabled",
             "recommendation",
             "alias",
+        }, payload
+        assert payload.get("lanePriorityHysteresisWindowBand") in {"LPR HYS WINDOW:TIGHT", "LPR HYS WINDOW:BASE", "LPR HYS WINDOW:WIDE"}, payload
+        assert set(payload.get("lanePriorityHysteresisWindowBandSignals", {}).keys()) == {
+            "adaptiveFloor",
+            "adaptiveCeiling",
+            "span",
+            "band",
+            "reason",
         }, payload
         assert payload.get("routeSandbox") in {"ON", "OFF"}, payload
         assert set(payload.get("routeSandboxSignals", {}).keys()) == {
@@ -1729,6 +1741,7 @@ def main() -> int:
         assert "LPR HYS RAIL:" in md_text
         assert "LPR HYS THRESH REC:" in md_text
         assert "LPR HYS THR:" in md_text
+        assert "LPR HYS WINDOW:" in md_text
         assert "LANE PRIORITY REC CONF:" in md_text
         assert "LANE PRIORITY REC HYSTERESIS:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
@@ -1754,6 +1767,7 @@ def main() -> int:
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
         assert "LPR HYS THR:" in md_text
+        assert "LPR HYS WINDOW:" in md_text
         assert "LANE CADENCE SUMMARY: SYSTEMS/OPS" in md_text
         assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX COMPACT-BUDGET DRIFT" in md_text

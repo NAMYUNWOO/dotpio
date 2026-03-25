@@ -1677,3 +1677,10 @@
 - Updated `scripts/weekly_portal_prompt_readability_drift.py` token catalogs/families and markdown sections (summary + Token Family Coverage) to emit explicit `LPR HYS THR` churn rows.
 - Regression lock added in `scripts/regression_weekly_portal_prompt_readability_drift.py` for payload token totals/family keys and markdown presence assertions.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-25 15:34 KST — Design readability guard (offline)
+- Kept digest readability by extending `LPR HYS THRESH REC` summary/details with floor/ceiling + learning rationale fields.
+- No prompt-token budget contract changes to in-run portal prompt.
+
+## 2026-03-25 15:34 KST — Cycle DL readability note
+- Added digest-level `LPR HYS WINDOW` line for quicker operator scan of adaptive threshold range posture.
