@@ -432,6 +432,8 @@ def main() -> int:
             "reason",
             "offlineOnly",
         }, payload
+        assert isinstance(payload.get("pulseRemapSceneFxGlintAlias"), str) and payload["pulseRemapSceneFxGlintAlias"].startswith("PRSFX:"), payload
+        assert set(payload.get("pulseRemapSceneFxGlintAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert payload.get("pulseRemapSceneCopyPaletteRecommendation") in {"COOL", "ASH", "SCAR"}, payload
         assert set(payload.get("pulseRemapSceneCopyPaletteRecommendationSignals", {}).keys()) == {
             "sceneFlavor",
@@ -2148,6 +2150,7 @@ def main() -> int:
         assert "PULSE REMAP SCENE MICROLINE STYLE POLICY SMOOTH:" in md_text
         assert "PULSE REMAP SCENE MICROLINE STYLE POSTURE:" in md_text
         assert "PULSE REMAP SCENE FX GLINT:" in md_text
+        assert "PRSFX:" in md_text
         assert "PULSE REMAP SCENE COPY PALETTE REC:" in md_text
         assert "PRSMPP:" in md_text
         assert "PRSMP:" in md_text
@@ -2162,6 +2165,7 @@ def main() -> int:
         assert "PRSMV + PULSE REMAP SCENE MICROLINE VARIANT PACK:" in md_text
         assert "PRSMP + PULSE REMAP SCENE MICROLINE STYLE POLICY:" in md_text
         assert "PRSMPP + PULSE REMAP SCENE MICROLINE STYLE POSTURE:" in md_text
+        assert "PRSFX + PULSE REMAP SCENE FX GLINT:" in md_text
         assert "PULSE REMAP SCENE FX GLINT:" in md_text
         assert "PRMS FAMILY TREND:" in md_text
         assert "PRSP FAMILY TREND:" in md_text

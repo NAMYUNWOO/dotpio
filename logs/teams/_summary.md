@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-25 18:31 KST
+Last updated: 2026-03-26 05:01 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed highest-priority unchecked Combat/VFX item from TASKS/POST_RC: weekly digest now supports compact glint alias `PRSFX:<S|V|P>` mapped from `PULSE REMAP SCENE FX GLINT:SOFT|VOID|SPIKE`.
+- Alias is flag-gated via `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_FX_GLINT_ALIAS` and now appears in markdown, payload (`pulseRemapSceneFxGlintAlias` + signals), and token-family accounting (`PRSFX + PULSE REMAP SCENE FX GLINT`).
+- Regression contract expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py`; digest regression + `py_compile` pass.
 
 - Closed Cycle DN Systems/QA unchecked item: weekly portal readability digest now tracks `DMGNUM LIFE TREND FX PULSE:` and `DMGNUM LIFE TREND FX PULSE CONF:` as first-class token families (token totals + family coverage + churn rows).
 - Regression contract in `scripts/regression_weekly_portal_prompt_readability_drift.py` now locks JSON family keys, token totals, and markdown lines for the new pulse families; full regression passes.

@@ -1824,3 +1824,8 @@
 ## [2026-03-26 04:31 KST] Cycle DZ - scene-copy palette recommendation prototype
 - Synced: Added offline digest signal `PULSE REMAP SCENE COPY PALETTE REC: COOL|ASH|SCAR` derived from scene flavor + FX glint + posture confidence in `scripts/weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+
+## 2026-03-26 05:01 KST
+- Task: PRSFX compact glint alias slice (flag-gated) for weekly portal readability digest.
+- Update: Added `PRSFX:<S|V|P>` mapping (`SOFT|VOID|SPIKE`) with env flag `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_FX_GLINT_ALIAS`; threaded through digest payload + markdown outputs and regression expectations.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
