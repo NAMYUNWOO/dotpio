@@ -855,5 +855,14 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/World): Prototype dual-line narrative microline variant pack with confidence-aware fallback copy.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/UX Team: Add suppression microline cadence token (`PULSE REMAP SCENE MICROLINE CADENCE:RISE|HOLD|COOL`) with payload signals + markdown rows + regression lock. *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] Systems/QA Team: Add cadence token-family trend drift row (`PRSMC FAMILY TREND`) with prior-window context.
-- [ ] AI Content/World Team: Prototype dual-line narrative microline variant pack with confidence-aware fallback copy (offline-only).
+- [x] Systems/QA Team: Add cadence token-family trend drift row (`PRSMC FAMILY TREND`) with prior-window context. *(lifecycle: [ ] -> [~] -> [x])*
+- [x] AI Content/World Team: Prototype dual-line narrative microline variant pack with confidence-aware fallback copy (offline-only). *(lifecycle: [ ] -> [~] -> [x])*
+
+## Cycle DU - Game Director Review (2026-03-26 01:01 KST)
+- Idea 1 (low risk, Systems/QA): Add weekly digest token-family churn coverage for `PULSE REMAP SCENE MICROLINE VARIANT PACK:` with markdown triage row + regression lock.
+- Idea 2 (mid risk, UX/World): Add compact variant-pack selection alias (`PRSMV:PRI|ALT|FBK`) behind flag for digest scanability.
+- Idea 3 (high risk, AI Content/World): Prototype offline microline-style diversification policy from cadence-memory volatility windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add weekly digest token-family churn coverage for `PULSE REMAP SCENE MICROLINE VARIANT PACK:` and lock via regression. *(lifecycle: [ ] -> [~] -> [x])* 
+- [ ] UX/World Team: Prototype compact variant-pack selection alias (`PRSMV:PRI|ALT|FBK`) behind flag for digest scanability.
+- [ ] AI Content/World Team: Prototype offline microline-style diversification policy from cadence-memory volatility windows.

@@ -368,6 +368,24 @@ def main() -> int:
             "reason",
             "offlineOnly",
         }, payload
+        assert set(payload.get("pulseRemapSceneMicrolineVariantPack", {}).keys()) == {
+            "primary",
+            "alternate",
+            "fallback",
+            "selected",
+            "selectedMode",
+        }, payload
+        assert payload["pulseRemapSceneMicrolineVariantPack"]["selectedMode"] in {"PRIMARY", "ALTERNATE", "FALLBACK"}, payload
+        assert set(payload.get("pulseRemapSceneMicrolineVariantPackSignals", {}).keys()) == {
+            "suppressionPlan",
+            "sceneFlavor",
+            "sceneConfidence",
+            "laneCadenceRecency",
+            "cadenceTrend",
+            "selectedMode",
+            "reason",
+            "offlineOnly",
+        }, payload
         assert payload.get("pulseRemapSceneMicrolineCadence") in {"RISE", "HOLD", "COOL"}, payload
         assert set(payload.get("pulseRemapSceneMicrolineCadenceSignals", {}).keys()) == {
             "suppressionPlan",
@@ -2003,6 +2021,7 @@ def main() -> int:
         assert "PULSE REMAP MOMENTUM FAMILY CHURN" in md_text
         assert "PULSE REMAP SUPPRESS FAMILY CHURN" in md_text
         assert "PULSE REMAP SUPPRESS PLAN FAMILY CHURN" in md_text
+        assert "PULSE REMAP SCENE MICROLINE VARIANT PACK FAMILY CHURN" in md_text
         assert "DMG GLYPH FAMILY CHURN" in md_text
         assert "DMG GLYPH FX LIVE FAMILY CHURN" in md_text
         assert "LPR HYS THR FAMILY CHURN" in md_text
@@ -2052,6 +2071,7 @@ def main() -> int:
         assert "PULSE REMAP SCENE:" in md_text
         assert "PULSE REMAP SCENE CONF:" in md_text
         assert "PULSE REMAP SCENE MICROLINE:" in md_text
+        assert "PULSE REMAP SCENE MICROLINE VARIANT PACK:" in md_text
         assert "PULSE REMAP SCENE MICROLINE CADENCE:" in md_text
         assert "PRMS:" in md_text
         assert "PRSP:" in md_text

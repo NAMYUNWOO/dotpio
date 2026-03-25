@@ -2937,3 +2937,8 @@ Compact decision memory for AI context efficiency.
 - Added token family coverage hook for `PULSE REMAP SCENE MICROLINE CADENCE:` (`pulseRemapSceneMicrolineCadenceAlias`) and included token in compact/detailed parsing groups.
 - Regression lock updated and passing (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).
 - Backlog progress: Cycle DT now has 1 remaining unchecked task (AI Content/World offline dual-line microline variant pack).
+
+## 2026-03-26 01:01 KST — Cycle DU: microline variant-pack vertical slice
+- Closed prior unchecked AI Content/World backlog item by shipping confidence-aware dual-line microline variant pack (`primary/alternate/fallback/selected`) as offline digest payload + markdown row.
+- Added token-family observability for `PULSE REMAP SCENE MICROLINE VARIANT PACK:` with weekly churn triage row and regression lock.
+- Game Director review executed (3 ideas generated; selected low-risk Systems/QA slice). New injected backlog items: `PRSMV` compact alias (UX/World) and offline microline-style diversification policy (AI Content/World).
