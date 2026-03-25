@@ -2453,3 +2453,8 @@
 - Added bucket-age computation over touched commits for 24h cadence buckets: `systems/ops`, `design/world`, `combat/vfx`.
 - Exposed JSON payload fields: `laneBucketAge`, `laneBucketAgeStatus`, `laneBucketAgeHours`, `laneBucketAgeWindowHours`, `laneBucketAgeMaxHours`.
 - Follow-up: If bucket age repeatedly exceeds 24h in live snapshots, prioritize corresponding lane in next Game Director cycle.
+
+## 2026-03-25 11:14 KST — Cycle DH Systems/Ops: lane bucket age drift
+- Added digest drift token `LANE BUCKET AGE Δ:+n|-n` from prior snapshot `laneBucketAgeMaxHours`.
+- Added payload fields: `laneBucketAgeDrift` and `laneBucketAgeDriftSignals` for auditability.
+- Kept change additive/offline-only (digest/reporting only; no gameplay/runtime behavior changes).

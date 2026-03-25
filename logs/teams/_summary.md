@@ -2723,3 +2723,8 @@ Compact decision memory for AI context efficiency.
 - Closed remaining unchecked Cycle DG Systems/Ops item by adding digest row `LANE BUCKET AGE:<hours>` for cadence auditability.
 - Weekly digest now reports per-bucket freshness ages (`systems/ops`, `design/world`, `combat/vfx`) and `OK|GAP` status against a 24h window.
 - Regression contract updated + passing, and TASKS/POST_RC item marked complete.
+
+## 2026-03-25 11:14 KST — Game Director Cycle DH shipped
+- Generated 3 ideas (low/mid/high) and selected low-risk Systems/Ops slice.
+- Implemented `LANE BUCKET AGE Δ:+n|-n` drift token to show freshness momentum versus prior digest window.
+- Updated TASKS/POST_RC cycle block (`[~] -> [x]`) and injected follow-up backlog items (`LBA` compact alias, lane-priority policy prototype).

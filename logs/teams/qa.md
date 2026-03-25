@@ -2988,3 +2988,11 @@
 - Verification:
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-25 11:14 KST — Cycle DH regression lock
+- Regression extended to assert:
+  - JSON: `laneBucketAgeDrift` + `laneBucketAgeDriftSignals`
+  - Markdown: `LANE BUCKET AGE Δ:` row
+- Verification PASS:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py`

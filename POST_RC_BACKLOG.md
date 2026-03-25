@@ -737,3 +737,13 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Combat/VFX Team: Add compact damage-number trend-FX token (`DMGNUM LIFE TREND FX:CALM|SPARK|BLAZE`) behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_DEBUG` with regression lock.
 - [x] Design/World Team: Prototype compact ambient rationale momentum token (`ARW MOMENTUM ARC:CALM|TENSE`) behind dedicated flag.
 - [x] Systems/Ops Team: Add digest 24h bucket-freshness watchdog row (`LANE BUCKET AGE:<hours>`) for cadence auditability.
+
+## Cycle DH - Game Director Review (2026-03-25 11:10 KST)
+- Coverage check (last 10 completions): systems/qa regained momentum; choose low-risk observability slice with no runtime gameplay coupling.
+- Idea 1 (low risk, Systems/Ops): Add lane-bucket freshness drift token (`LANE BUCKET AGE Δ:+n|-n`) versus prior digest window.
+- Idea 2 (mid risk, UX/World): Add compact lane freshness alias token (`LBA:<sys>/<dw>/<cv>`) behind flag for summary scanability.
+- Idea 3 (high risk, AI Content/Systems): Prototype offline lane-priority recommendation policy from bucket-age momentum.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/Ops Team: Add lane-bucket freshness drift token (`LANE BUCKET AGE Δ:+n|-n`) to weekly digest + regression lock.
+- [ ] UX/World Team: Prototype compact lane freshness alias token (`LBA:<sys>/<dw>/<cv>`) behind flag.
+- [ ] AI Content/Systems Team: Prototype offline lane-priority recommendation policy from bucket-age momentum.

@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-25T02:05:33.734142Z
+- GeneratedAt(UTC): 2026-03-25T02:09:15.942695Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
@@ -21,11 +21,11 @@
 - ARW AUTO PLAN CONF: **HIGH** (safety-locked-plan-selection; recConf=MID parity=LOCK driftRisk=HIGH pressure=HIGH Δ=+0)
 - ARW AUTO PLAN CONF Δ: **+0** (auto-plan-confidence-held-vs-prior-window; current=HIGH(2) prior=HIGH(2) loaded=True)
 - ARW APC: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_ARW_APC_ALIAS enabled=False conf=HIGH)
-- ARW AUTO PLAN CONF MOMENTUM: **FREEZE** (lock-or-candidate-suppressed; oscillating=False streak=2 confΔ=+0 planΔ=+0 driftRisk=HIGH offlineOnly=True)
+- ARW AUTO PLAN CONF MOMENTUM: **FREEZE** (lock-or-candidate-suppressed; oscillating=False streak=3 confΔ=+0 planΔ=+0 driftRisk=HIGH offlineOnly=True)
 - ARW MOMENTUM: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_ARW_MOMENTUM_ALIAS enabled=False full=FREEZE)
-- ARW MOMENTUM SCORE: **100** (base=85 confΔ=+0 planΔ=+0 streak=2 driftRisk=HIGH parity=LOCK)
+- ARW MOMENTUM SCORE: **100** (base=85 confΔ=+0 planΔ=+0 streak=3 driftRisk=HIGH parity=LOCK)
 - ARW MOMENTUM ARC: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_ARW_MOMENTUM_ARC enabled=False reason=freeze-or-high-risk-pressure rec=FREEZE pressure=HIGH drift=HIGH score=100)
-- AMBIENT RAMP WHY REC CONF STREAK: **2** (suppress=FALSE threshold=3 reason=confidence-streak-extended)
+- AMBIENT RAMP WHY REC CONF STREAK: **3** (suppress=FALSE threshold=3 reason=confidence-streak-extended)
 - URGENCY STACK PRUNING REC: **PARITY>FX>DETAIL** (protect-core-detailed-under-high-drift; parityChurn=9 fxChurn=9 detailedChurn=13 offlineOnly=True)
 - URGENCY STACK RAIL REC: **STEADY-FIRST** (high-risk-or-rail-churn; railChurn=6 railNet=6 tierChurn=12 offlineOnly=True)
 - DMG GLYPH SHAPE REMAP REC: **PIN_BANDS** (high-risk-or-glyph-churn; glyphChurn=0 glyphNet=0 railChurn=6 offlineOnly=True)
@@ -79,9 +79,9 @@
 - ROUTE PULSE LINK STREAK: **0** (link-off-reset; current=OFF prior=OFF priorStreak=0 loaded=True)
 - ROUTE PULSE LINK MODE: **IDLE** (link-disabled; link=OFF streak=0 drift=+0)
 - ROUTE PULSE LINK MODE Δ: **+0** (mode-stable; current=IDLE(0) prior=IDLE(0) loaded=True)
-- ROUTE PULSE LINK MODE STREAK: **42** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=41 loaded=True)
+- ROUTE PULSE LINK MODE STREAK: **43** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=42 loaded=True)
 - ROUTE PULSE LINK MODE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY enabled=False mode=IDLE link=OFF drift=+0 streak=0)
-- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=42)
+- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=43)
 - ROUTE PULSE LINK MODE FIT Δ: **+0** (fit-stable; current=SYNC(2) prior=SYNC(2) loaded=True)
 - ROUTE PULSE TOKEN PRIORITY: **OFF** (priority-mode-disabled; configured=OFF drift=+0 prior=OFF loaded=True guard=False)
 - ACTION PACE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_WHY enabled=False pace=BRAKE guard=LOCK stability=WATCH lag=SLOW drift=+0)
@@ -165,7 +165,7 @@
 - ARW AUTO PLAN CONF MOMENTUM FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - ARW MOMENTUM FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - ARW MOMENTUM ARC FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
-- ARW AUTO PLAN CANDIDATE SUPPRESS: **FALSE** (streak=2 threshold=3)
+- ARW AUTO PLAN CANDIDATE SUPPRESS: **FALSE** (streak=3 threshold=3)
 - PULSE HEAT FX FAMILY CHURN: **net +7** (added=7 removed=0 churn=7 coverage=1/1)
 - ROUTE GLOW FX FAMILY CHURN: **net +15** (added=15 removed=0 churn=15 coverage=2/2)
 - ROUTE GLOW CONF FAMILY CHURN: **net +5** (added=6 removed=1 churn=7 coverage=2/2)
@@ -191,6 +191,7 @@
 - DMG GLYPH FX LIVE FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - LANE CADENCE SUMMARY: **SYSTEMS/OPS OK** (RGFXWRIUFX coverage=1/1 churn=9 | DMG GLYPH coverage=0/1 churn=0 | DMG GLYPH FX LIVE coverage=0/1 churn=0)
 - LANE BUCKET AGE: **SYSTEMS/OPS 999H | DESIGN/WORLD 7H | COMBAT/VFX 16H** (status=GAP window=24h)
+- LANE BUCKET AGE Δ: **+0h** (currentMax=999 priorMax=999 loaded=True)
 - PULSE HEAT FX COMPACT-BUDGET DRIFT: **SPIKE** (pulse-heat-fx churn is likely competing with compact prompt budget; compactNet=+278 familyNet=+7 churn=7)
 - ROUTE GLOW FX COMPACT-BUDGET DRIFT: **SPIKE** (route-glow-fx churn is likely competing with compact prompt budget; compactNet=+278 familyNet=+15 churn=15)
 - ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **SPIKE** (rail-mode churn is likely competing with compact prompt budget; compactNet=+278 familyNet=+5 churn=9)
@@ -257,6 +258,7 @@
 - DMG GLYPH FX LIVE: +0 / -0 / net 0 (churn=0 coverage=0/1)
 - LANE CADENCE SUMMARY: SYSTEMS/OPS OK (RGFXWRIUFX coverage=1/1, churn=9 | DMG GLYPH coverage=0/1, churn=0 | DMG GLYPH FX LIVE coverage=0/1, churn=0)
 - LANE BUCKET AGE: SYSTEMS/OPS 999H | DESIGN/WORLD 7H | COMBAT/VFX 16H (status=GAP, window=24h)
+- LANE BUCKET AGE Δ: +0h (currentMax=999, priorMax=999, loaded=True)
 - PULSE HEAT FX COMPACT-BUDGET DRIFT: SPIKE (compactNet=+278, familyNet=+7, churn=7)
 - ROUTE GLOW FX COMPACT-BUDGET DRIFT: SPIKE (compactNet=+278, familyNet=+15, churn=15)
 - ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: SPIKE (compactNet=+278, familyNet=+5, churn=9)
