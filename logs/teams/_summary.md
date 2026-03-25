@@ -2989,3 +2989,9 @@ Compact decision memory for AI context efficiency.
 - Injected next backlog tasks: Combat/VFX compact glint alias prototype, Systems/QA glint family trend drift row, Design/World glint-linked narrative palette recommendation.
 
 - 2026-03-26 04:05 KST: Completed POST_RC Systems/QA task for glint-family prior-window drift. Weekly digest now emits `PRSFX FAMILY TREND` with Δnet/current/prior/loaded/reason, payload persists `pulseRemapSceneFxGlintFamilyTrend*`, and regression suite enforces schema + markdown presence.
+
+## 2026-03-26 — Cycle DZ scene-copy palette cue
+- Decision: Keep scene-copy palette recommendation offline-only in weekly readability digest (no runtime UI binding).
+- Implemented token: `PULSE REMAP SCENE COPY PALETTE REC` with values `COOL|ASH|SCAR` mapped from scene flavor + glint + posture confidence.
+- Rationale: Gives Design/World quick copy palette guidance aligned with suppression pressure without destabilizing gameplay systems.
+- Verification lock: regression suite updated and passing (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).

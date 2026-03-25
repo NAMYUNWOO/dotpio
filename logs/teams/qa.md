@@ -3225,3 +3225,7 @@
 - Follow-up: Consider churn-family trend row for `PRSMPP` if alias volatility increases.
 
 - 2026-03-26 04:05 KST: Completed Systems/QA slice for prior-window glint drift visibility. Added `PRSFX FAMILY TREND` (UP|FLAT|DOWN) from `pulseRemapSceneFxGlintAlias` prior-net delta, wired payload keys (`pulseRemapSceneFxGlintFamilyTrendDrift` + `pulseRemapSceneFxGlintFamilyTrendSignals`), and locked via regression assertions.
+
+## [2026-03-26 04:31 KST] Cycle DZ - scene-copy palette recommendation prototype
+- Synced: Added offline digest signal `PULSE REMAP SCENE COPY PALETTE REC: COOL|ASH|SCAR` derived from scene flavor + FX glint + posture confidence in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).

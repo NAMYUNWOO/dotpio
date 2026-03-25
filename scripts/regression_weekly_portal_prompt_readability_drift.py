@@ -432,6 +432,15 @@ def main() -> int:
             "reason",
             "offlineOnly",
         }, payload
+        assert payload.get("pulseRemapSceneCopyPaletteRecommendation") in {"COOL", "ASH", "SCAR"}, payload
+        assert set(payload.get("pulseRemapSceneCopyPaletteRecommendationSignals", {}).keys()) == {
+            "sceneFlavor",
+            "sceneConfidence",
+            "sceneFxGlint",
+            "stylePosture",
+            "reason",
+            "offlineOnly",
+        }, payload
         assert payload.get("pulseRemapSceneMicrolineCadence") in {"RISE", "HOLD", "COOL"}, payload
         assert set(payload.get("pulseRemapSceneMicrolineCadenceSignals", {}).keys()) == {
             "suppressionPlan",
@@ -2139,6 +2148,7 @@ def main() -> int:
         assert "PULSE REMAP SCENE MICROLINE STYLE POLICY SMOOTH:" in md_text
         assert "PULSE REMAP SCENE MICROLINE STYLE POSTURE:" in md_text
         assert "PULSE REMAP SCENE FX GLINT:" in md_text
+        assert "PULSE REMAP SCENE COPY PALETTE REC:" in md_text
         assert "PRSMPP:" in md_text
         assert "PRSMP:" in md_text
         assert "PULSE REMAP SCENE MICROLINE CADENCE:" in md_text

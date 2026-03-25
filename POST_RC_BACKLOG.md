@@ -896,5 +896,5 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (Combat/VFX) — `PULSE REMAP SCENE FX GLINT:SOFT|VOID|SPIKE` (offline digest-only).
 - [x] Combat/VFX Team: Ship offline digest glint cue token (`PULSE REMAP SCENE FX GLINT:SOFT|VOID|SPIKE`) with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 03:45 KST)*
 - [x] Systems/QA Team: Add prior-window trend drift row for glint token family with regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 04:05 KST)*
-- [ ] Design/World Team: Prototype glint-linked scene-copy palette recommendation (`COOL|ASH|SCAR`) as offline digest recommendation.
+- [x] Design/World Team: Prototype glint-linked scene-copy palette recommendation (`COOL|ASH|SCAR`) as offline digest recommendation.
 - [ ] Combat/VFX Team: Prototype compact glint alias (`PRSFX:<S|V|P>`) behind flag for digest scanability.
