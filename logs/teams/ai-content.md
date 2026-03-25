@@ -1611,3 +1611,4 @@
 
 ## 2026-03-25 10:36 KST — Ambient rationale momentum context
 - Offline recommendation lane now includes arc-level emotional state (`CALM|TENSE`) to support future narrative tuning decisions.
+- 2026-03-25 11:31 KST: Cycle DH UX/world lane-freshness alias vertical slice shipped (`LBA:<sys>/<dw>/<cv>`) in weekly digest behind `DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS`; regression + digest generation PASS.

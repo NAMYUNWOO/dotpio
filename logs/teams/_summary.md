@@ -2728,3 +2728,10 @@ Compact decision memory for AI context efficiency.
 - Generated 3 ideas (low/mid/high) and selected low-risk Systems/Ops slice.
 - Implemented `LANE BUCKET AGE Δ:+n|-n` drift token to show freshness momentum versus prior digest window.
 - Updated TASKS/POST_RC cycle block (`[~] -> [x]`) and injected follow-up backlog items (`LBA` compact alias, lane-priority policy prototype).
+
+## 2026-03-25 11:31 KST — Cycle DH UX/world lane-freshness alias
+- Completed highest-priority unchecked item: compact lane freshness alias token `LBA:<sys>/<dw>/<cv>` in weekly portal readability digest.
+- Durable decision: alias is flag-gated by `DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS`; when disabled it emits `OFF` but still records lane-hour signals for auditability.
+- Payload + markdown contract extended: `laneBucketAgeCompactAlias`, `laneBucketAgeCompactAliasSignals`, and `LBA:` rows in digest output.
+- Verification PASS: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Remaining top unchecked queue item: `AI Content/Systems Team: Prototype offline lane-priority recommendation policy from bucket-age momentum`.

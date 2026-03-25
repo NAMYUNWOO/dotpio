@@ -745,5 +745,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/Systems): Prototype offline lane-priority recommendation policy from bucket-age momentum.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/Ops Team: Add lane-bucket freshness drift token (`LANE BUCKET AGE Δ:+n|-n`) to weekly digest + regression lock.
-- [ ] UX/World Team: Prototype compact lane freshness alias token (`LBA:<sys>/<dw>/<cv>`) behind flag.
+- [x] UX/World Team: Prototype compact lane freshness alias token (`LBA:<sys>/<dw>/<cv>`) behind flag.
 - [ ] AI Content/Systems Team: Prototype offline lane-priority recommendation policy from bucket-age momentum.

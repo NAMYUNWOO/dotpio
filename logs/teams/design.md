@@ -1650,3 +1650,4 @@
 ## 2026-03-25 10:36 KST — Momentum Arc readability pass
 - Added digest-facing momentum arc cue (`ARW MOMENTUM ARC`) to compress confidence+pressure into one emotional read.
 - Rationale: avoid burying ambient rationale momentum state inside long confidence lines.
+- 2026-03-25 11:31 KST: Cycle DH UX/world lane-freshness alias vertical slice shipped (`LBA:<sys>/<dw>/<cv>`) in weekly digest behind `DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS`; regression + digest generation PASS.

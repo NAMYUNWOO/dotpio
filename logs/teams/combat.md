@@ -1569,3 +1569,4 @@
 ## 2026-03-25 10:36 KST — No combat runtime change
 - This cycle touched weekly digest readability only (ambient rationale momentum arc).
 - Combat/VFX runtime behavior unchanged.
+- 2026-03-25 11:31 KST: Cycle DH UX/world lane-freshness alias vertical slice shipped (`LBA:<sys>/<dw>/<cv>`) in weekly digest behind `DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS`; regression + digest generation PASS.

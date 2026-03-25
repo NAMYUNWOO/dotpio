@@ -297,6 +297,14 @@ def main() -> int:
         assert isinstance(payload.get("laneBucketAgeHours"), dict), payload
         assert isinstance(payload.get("laneBucketAgeDrift"), int), payload
         assert set(payload.get("laneBucketAgeDriftSignals", {}).keys()) == {"currentMaxAgeHours", "priorMaxAgeHours", "priorLoaded"}, payload
+        assert isinstance(payload.get("laneBucketAgeCompactAlias"), str), payload
+        assert set(payload.get("laneBucketAgeCompactAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "systemsOpsHours",
+            "designWorldHours",
+            "combatVfxHours",
+        }, payload
         assert payload.get("routeSandbox") in {"ON", "OFF"}, payload
         assert set(payload.get("routeSandboxSignals", {}).keys()) == {
             "flagName",
@@ -1624,6 +1632,7 @@ def main() -> int:
         assert "DMG GLYPH FAMILY CHURN" in md_text
         assert "DMG GLYPH FX LIVE FAMILY CHURN" in md_text
         assert "LANE CADENCE SUMMARY" in md_text
+        assert "LBA:" in md_text
         assert "LANE BUCKET AGE:" in md_text
         assert "LANE BUCKET AGE Δ:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text

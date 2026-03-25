@@ -1615,3 +1615,4 @@
 - Shipped compact ambient rationale momentum token in weekly digest: `ARW MOMENTUM ARC:CALM|TENSE` behind `DOTPIO_EXPERIMENT_ARW_MOMENTUM_ARC`.
 - Decision: keep mapping deterministic (`FREEZE/high risk/high pressure/high score => TENSE`, else `CALM`) for fast triage.
 - Follow-up: keep Systems/Ops backlog item (`LANE BUCKET AGE:<hours>`) as next highest unchecked.
+- 2026-03-25 11:31 KST: Cycle DH UX/world lane-freshness alias vertical slice shipped (`LBA:<sys>/<dw>/<cv>`) in weekly digest behind `DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS`; regression + digest generation PASS.

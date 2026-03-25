@@ -2458,3 +2458,4 @@
 - Added digest drift token `LANE BUCKET AGE Δ:+n|-n` from prior snapshot `laneBucketAgeMaxHours`.
 - Added payload fields: `laneBucketAgeDrift` and `laneBucketAgeDriftSignals` for auditability.
 - Kept change additive/offline-only (digest/reporting only; no gameplay/runtime behavior changes).
+- 2026-03-25 11:31 KST: Cycle DH UX/world lane-freshness alias vertical slice shipped (`LBA:<sys>/<dw>/<cv>`) in weekly digest behind `DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS`; regression + digest generation PASS.
