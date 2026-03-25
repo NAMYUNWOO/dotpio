@@ -1770,3 +1770,4 @@
 ## 2026-03-26 08:03 KST — Cycle EE
 - No combat tuning change this cycle (digest-only hygiene).
 - Existing combat debug token contracts remain unchanged.
+- 2026-03-26 08:33 KST — Cycle EF shipped combat debug readability slice: new flag-gated token `DMG COMBO CONF:LOW|MID|HIGH` (`DOTPIO_EXPERIMENT_DMG_COMBO_CONF_DEBUG`) mapped from combo heat/count (`HOT>=3 -> HIGH`, `HOT/WARM -> MID`, else `LOW`); regression `scripts/regression_combat_damage_combo_confidence_token.lua` added/passing.

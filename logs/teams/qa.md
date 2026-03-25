@@ -3243,3 +3243,4 @@
 - Added regression guard for `PRSMP FAMILY TREND` multiplicity.
 - Assertion now enforces `count == 2` (summary + token-family coverage).
 - Regression pass evidence: `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- 2026-03-26 08:33 KST — Validation pass: `luac -p src/hud.lua scripts/regression_combat_damage_combo_token.lua scripts/regression_combat_damage_combo_confidence_token.lua`, `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`, `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 DOTPIO_EXPERIMENT_DMG_COMBO_CONF_DEBUG=1 lua scripts/regression_combat_damage_combo_confidence_token.lua`.

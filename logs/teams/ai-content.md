@@ -1826,3 +1826,4 @@
 ## 2026-03-26 08:03 KST — Cycle EE
 - No AI-content runtime/policy mutation in this cycle.
 - Kept offline recommendation surfaces stable while systems/qa digest hygiene landed.
+- 2026-03-26 08:33 KST — Deferred high-risk follow-up: offline combo-confidence coach recommendation policy remains queued in Cycle EF (`TASKS.md`/`POST_RC_BACKLOG.md`).

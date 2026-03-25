@@ -360,6 +360,13 @@ local function isDamageComboDebugExperimentEnabled()
     return v == "1" or v == "true" or v == "yes" or v == "on"
 end
 
+local function isDamageComboConfidenceDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMG_COMBO_CONF_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
 local function confidenceToScore(confidence)
     if confidence == "HIGH" then
         return 2
@@ -631,6 +638,28 @@ function HUD.resolveDamageComboToken()
     return string.format("DMG COMBO:%dx%s", count, heat)
 end
 
+function HUD.resolveDamageComboConfidenceToken()
+    if not isDamageComboConfidenceDebugExperimentEnabled() then
+        return nil
+    end
+
+    local comboToken = HUD.resolveDamageComboToken()
+    if not comboToken then
+        return nil
+    end
+
+    local count = tonumber(comboToken:match("DMG COMBO:(%d+)x")) or 0
+    local heat = comboToken:match("x(%u+)") or "COLD"
+    local confidence = "LOW"
+    if heat == "HOT" and count >= 3 then
+        confidence = "HIGH"
+    elseif heat == "HOT" or heat == "WARM" then
+        confidence = "MID"
+    end
+
+    return string.format("DMG COMBO CONF:%s", confidence)
+end
+
 function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary, onboardingHint)
     love.graphics.setColor(0,0,0,0.7)
     love.graphics.rectangle("fill", 8, 8, 240, 92)
@@ -787,6 +816,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if damageComboToken then
         love.graphics.setColor(1.0, 0.9, 0.66, 0.92)
         love.graphics.print(damageComboToken, 1420, 780)
+    end
+
+    local damageComboConfidenceToken = HUD.resolveDamageComboConfidenceToken()
+    if damageComboConfidenceToken then
+        love.graphics.setColor(0.76, 0.92, 1.0, 0.9)
+        love.graphics.print(damageComboConfidenceToken, 1420, 798)
     end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)

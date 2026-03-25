@@ -13,6 +13,11 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Cycle EF Game Director review executed after actionable queue clear; generated 3 ideas and selected low-risk Combat/UX vertical slice.
+- Shipped additive HUD debug token `DMG COMBO CONF:LOW|MID|HIGH` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_DEBUG`, derived from existing combo cadence (`HOT>=3 => HIGH`, `HOT/WARM => MID`, else `LOW`).
+- Added regression guardrail `scripts/regression_combat_damage_combo_confidence_token.lua`; syntax + combo baseline regression reruns pass.
+- Injected next backlog tasks: Systems/QA digest family coverage for `DMG COMBO CONF:` and AI Content/Combat offline combo-confidence coach recommendation policy.
+
 - Cycle EA Game Director review executed because ACTION_ITEMS/TASKS/POST_RC were fully checked; generated 3 ideas and selected low-risk Combat/VFX vertical slice.
 - Shipped additive gameplay-debug slice: combat runtime now tracks/decays kill combo windows (`COMBO_WINDOW=3.0s`) and HUD exposes flag-gated token `DMG COMBO:<n>x<HOT|WARM|COLD>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG`.
 - Added regression guardrail `scripts/regression_combat_damage_combo_token.lua` validating baseline/cooldown/hot states; existing damage-number regression still passes.

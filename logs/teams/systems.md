@@ -2699,3 +2699,4 @@
 - Decision: Keep exactly two intentional `PRSMP FAMILY TREND` occurrences (main digest trend row + token-family coverage section); removed accidental extra duplicate in main digest section.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Follow-up: Continue low-risk digest hygiene slices before next lane-forced experiment.
+- 2026-03-26 08:33 KST — Cycle EF backlog/contracts updated: selected low-risk combat slice completed; queued follow-ups for `DMG COMBO CONF` digest family churn + offline coach recommendation retained unchecked.

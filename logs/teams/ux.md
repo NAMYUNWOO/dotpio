@@ -2059,3 +2059,4 @@
 ## 2026-03-26 08:03 KST — Cycle EE
 - UX impact: weekly digest markdown scanability improved by removing duplicated `PRSMP FAMILY TREND` line.
 - No prompt-budget token additions or removals.
+- 2026-03-26 08:33 KST — Added one-glance combo trust cue under existing combo row (`DMG COMBO CONF`) to improve high-action combat readability without expanding core HUD lanes.

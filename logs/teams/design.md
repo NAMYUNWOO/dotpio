@@ -1840,3 +1840,4 @@
 ## 2026-03-26 08:03 KST — Cycle EE
 - No design token/copy additions in this slice.
 - Readability contract improved indirectly via duplicate-trend-row removal.
+- 2026-03-26 08:33 KST — Maintained compact DOS readability by keeping combo-confidence output as a short categorical label (`LOW|MID|HIGH`) aligned with existing debug token grammar.
