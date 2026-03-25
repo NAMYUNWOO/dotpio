@@ -2698,3 +2698,6 @@ Compact decision memory for AI context efficiency.
 - Remaining unchecked queue item: AI Content/Systems confidence-streak suppression policy for auto-remap candidates (offline-only).
 
 - 2026-03-25: Ambient auto-remap now applies offline confidence-streak suppression: if `AMBIENT RAMP WHY REC CONF` remains LOW/HIGH for 3+ consecutive windows, candidate remap list is suppressed to SAFE baseline (`HOLD_SAFE_BASELINE`) to avoid churny oscillation. Added streak/suppression telemetry to digest JSON + markdown.
+
+- 2026-03-25 09:31 KST: Closed Cycle DF UX/World slice by adding `ARW MOMENTUM:<F|W|A>` alias behind `DOTPIO_EXPERIMENT_ARW_MOMENTUM_ALIAS`; weekly digest/regression now lock compact momentum alias + family churn visibility while preserving default contract when flag is off.
+

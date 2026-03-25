@@ -723,5 +723,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/Systems): Prototype offline confidence-oscillation dampening score (`ARW MOMENTUM SCORE:<n>`) from multi-window confidence drift.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add weekly digest token-family churn coverage for `ARW APC:` + `ARW AUTO PLAN CONF MOMENTUM:` and lock via regression. *(lifecycle: [~] -> [x])*
-- [ ] UX/World Team: Prototype compact digest momentum alias token (`ARW MOMENTUM:<F|W|A>`) behind flag for tighter scanability.
+- [x] UX/World Team: Prototype compact digest momentum alias token (`ARW MOMENTUM:<F|W|A>`) behind flag for tighter scanability.
 - [ ] AI Content/Systems Team: Prototype offline confidence-oscillation dampening score (`ARW MOMENTUM SCORE:<n>`) from multi-window confidence drift.

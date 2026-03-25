@@ -1863,3 +1863,9 @@
   - Kept summary markdown explicit (`ARW APC: FLAG OFF|<L|M|H>`) to support quick operator triage.
 - Follow-up:
   - Actionable TASKS/POST_RC queues now fully checked; trigger next Game Director review cycle.
+
+## 2026-03-25 09:31 KST (Cycle DF follow-up)
+- Completed: Shipped compact digest momentum alias token `ARW MOMENTUM:<F|W|A>` behind `DOTPIO_EXPERIMENT_ARW_MOMENTUM_ALIAS`.
+- Scope: Weekly portal readability digest now maps `ARW AUTO PLAN CONF MOMENTUM` → compact alias (`FREEZE→F`, `WATCH→W`, `ALLOW→A`) and emits flag-state-safe summary rows.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+

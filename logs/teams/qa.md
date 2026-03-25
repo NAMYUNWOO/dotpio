@@ -2956,3 +2956,9 @@
   - No portal validator/screenshot refresh required (reporting-only Python/docs change).
 - Follow-up:
   - Next Cycle DF candidates remain queued in backlog (`ARW MOMENTUM:<F|W|A>`, `ARW MOMENTUM SCORE:<n>`).
+
+## 2026-03-25 09:31 KST (Cycle DF follow-up)
+- Completed: Shipped compact digest momentum alias token `ARW MOMENTUM:<F|W|A>` behind `DOTPIO_EXPERIMENT_ARW_MOMENTUM_ALIAS`.
+- Scope: Weekly portal readability digest now maps `ARW AUTO PLAN CONF MOMENTUM` → compact alias (`FREEZE→F`, `WATCH→W`, `ALLOW→A`) and emits flag-state-safe summary rows.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+

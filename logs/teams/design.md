@@ -1640,3 +1640,9 @@
 - Rationale copy remains deterministic and scoped to offline recommendation artifacts.
 
 - 2026-03-25 07:35 KST — Added offline confidence-streak suppression policy for ambient auto-remap candidates in weekly portal readability digest (streak >=3 on AMBIENT RAMP WHY REC CONF LOW/HIGH => candidate pool suppressed to HOLD_SAFE_BASELINE; surfaced in JSON + markdown tokens for operator triage). Verified via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-25 09:31 KST (Cycle DF follow-up)
+- Completed: Shipped compact digest momentum alias token `ARW MOMENTUM:<F|W|A>` behind `DOTPIO_EXPERIMENT_ARW_MOMENTUM_ALIAS`.
+- Scope: Weekly portal readability digest now maps `ARW AUTO PLAN CONF MOMENTUM` → compact alias (`FREEZE→F`, `WATCH→W`, `ALLOW→A`) and emits flag-state-safe summary rows.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+
