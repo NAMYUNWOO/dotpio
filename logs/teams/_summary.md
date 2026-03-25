@@ -2929,3 +2929,11 @@ Compact decision memory for AI context efficiency.
 - Weekly digest now emits `PULSE REMAP SCENE MICROLINE CADENCE:RISE|HOLD|COOL` via `pulseRemapSceneMicrolineCadence` + `pulseRemapSceneMicrolineCadenceSignals` (offline-only, additive, reversible).
 - Markdown now includes dedicated cadence row in both detailed and compact summary blocks; regression contract extended for payload keys and markdown token presence.
 - Verification passes with `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; follow-ups injected: `PRSMC FAMILY TREND` and dual-line microline variant pack.
+
+## 2026-03-26 00:36 KST — Cycle DT Systems/QA completion
+- Shipped `PRSMC FAMILY TREND` in weekly digest output with prior-window drift math and payload fields:
+  - `pulseRemapSceneMicrolineCadenceFamilyTrendDrift`
+  - `pulseRemapSceneMicrolineCadenceFamilyTrendSignals`
+- Added token family coverage hook for `PULSE REMAP SCENE MICROLINE CADENCE:` (`pulseRemapSceneMicrolineCadenceAlias`) and included token in compact/detailed parsing groups.
+- Regression lock updated and passing (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).
+- Backlog progress: Cycle DT now has 1 remaining unchecked task (AI Content/World offline dual-line microline variant pack).

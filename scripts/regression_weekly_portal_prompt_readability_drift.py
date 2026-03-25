@@ -319,6 +319,15 @@ def main() -> int:
             "reason",
         }, payload
         assert payload["pulseRemapSuppressionPlanFamilyTrendSignals"]["trend"] in {"UP", "DOWN", "FLAT"}, payload
+        assert isinstance(payload.get("pulseRemapSceneMicrolineCadenceFamilyTrendDrift"), int), payload
+        assert set(payload.get("pulseRemapSceneMicrolineCadenceFamilyTrendSignals", {}).keys()) == {
+            "trend",
+            "currentNet",
+            "priorNet",
+            "priorLoaded",
+            "reason",
+        }, payload
+        assert payload["pulseRemapSceneMicrolineCadenceFamilyTrendSignals"]["trend"] in {"UP", "DOWN", "FLAT"}, payload
         assert payload.get("pulseRemapSuppressionEscalationPlan") in {"HOLD", "ARM", "LOCK"}, payload
         assert set(payload.get("pulseRemapSuppressionEscalationPlanSignals", {}).keys()) == {
             "suppression",
@@ -2052,6 +2061,7 @@ def main() -> int:
         assert "PRSP + PULSE REMAP SUPPRESS PLAN:" in md_text
         assert "PRMS FAMILY TREND:" in md_text
         assert "PRSP FAMILY TREND:" in md_text
+        assert "PRSMC FAMILY TREND:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
         assert "LPR HYS THR:" in md_text

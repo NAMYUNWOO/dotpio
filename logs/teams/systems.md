@@ -2632,3 +2632,8 @@
 - Injected Cycle DT ideas (low/mid/high) and selected low-risk Combat/UX vertical slice: `PULSE REMAP SCENE MICROLINE CADENCE`.
 - Verification target: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Follow-up queue preserved in backlog: `PRSMC FAMILY TREND` (Systems/QA) and dual-line microline variant pack (AI Content/World).
+
+## 2026-03-26 00:36 KST
+- Completed Cycle DT Systems/QA slice: added `PRSMC FAMILY TREND` prior-window drift coverage in weekly digest (`scripts/weekly_portal_prompt_readability_drift.py`) and regression lock (`scripts/regression_weekly_portal_prompt_readability_drift.py`).
+- Decision: track `pulseRemapSceneMicrolineCadenceAlias` family net drift with the same triage contract used by PRMS/PRSP (`trend/currentNet/priorNet/priorLoaded/reason`) for operator parity.
+- Follow-up: remaining unchecked item is AI Content/World dual-line microline variant pack (offline-only).

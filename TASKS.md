@@ -1057,5 +1057,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/World): Prototype dual-line narrative microline variant pack with confidence-aware fallback copy.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/UX Team: Add suppression microline cadence token (`PULSE REMAP SCENE MICROLINE CADENCE:RISE|HOLD|COOL`) with payload signals + markdown rows + regression lock. *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] Systems/QA Team: Add cadence token-family trend drift row (`PRSMC FAMILY TREND`) with prior-window context.
+- [x] Systems/QA Team: Add cadence token-family trend drift row (`PRSMC FAMILY TREND`) with prior-window context.
 - [ ] AI Content/World Team: Prototype dual-line narrative microline variant pack with confidence-aware fallback copy (offline-only).
