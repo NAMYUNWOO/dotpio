@@ -2706,3 +2706,8 @@ Compact decision memory for AI context efficiency.
 
 - 2026-03-25 09:31 KST: Closed Cycle DF UX/World slice by adding `ARW MOMENTUM:<F|W|A>` alias behind `DOTPIO_EXPERIMENT_ARW_MOMENTUM_ALIAS`; weekly digest/regression now lock compact momentum alias + family churn visibility while preserving default contract when flag is off.
 
+
+- Closed highest-priority unchecked TASKS/POST_RC item from Cycle DF: shipped offline dampening score token `ARW MOMENTUM SCORE:<n>` in weekly digest (`0~100`, deterministic from confidence drift/streak + plan drift + risk/parity suppressors).
+- Weekly digest JSON now exposes `ambientRampWhyAutoRemapConfidenceMomentumScore` plus audit signals payload for operator-facing triage and future tuning.
+- Regression contract expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` to lock score range, signal schema, and markdown line presence; full digest regression passes.
+- Remaining highest-priority unchecked items now come from Cycle DG: Design/World `ARW MOMENTUM ARC:CALM|TENSE`, then Systems/Ops `LANE BUCKET AGE:<hours>` watchdog.

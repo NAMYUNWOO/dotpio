@@ -2962,3 +2962,17 @@
 - Scope: Weekly portal readability digest now maps `ARW AUTO PLAN CONF MOMENTUM` → compact alias (`FREEZE→F`, `WATCH→W`, `ALLOW→A`) and emits flag-state-safe summary rows.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 
+
+## 2026-03-25 10:01:00 KST
+- Task: Regression lock for new `ARW MOMENTUM SCORE` digest contract.
+- Commit: HEAD (this run)
+- Files checked:
+  - `scripts/weekly_portal_prompt_readability_drift.py`
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+- Decisions:
+  - Added payload contract checks for score value/range and score signal keys.
+  - Added markdown presence assertion for `ARW MOMENTUM SCORE` line.
+- Follow-up:
+  - Keep offline-only boundary explicit while expanding ARW momentum family tokens.

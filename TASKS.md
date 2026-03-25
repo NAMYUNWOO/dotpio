@@ -912,7 +912,7 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add weekly digest token-family churn coverage for `ARW APC:` + `ARW AUTO PLAN CONF MOMENTUM:` and lock via regression. *(lifecycle: [~] -> [x])*
 - [x] UX/World Team: Prototype compact digest momentum alias token (`ARW MOMENTUM:<F|W|A>`) behind flag for tighter scanability.
-- [ ] AI Content/Systems Team: Prototype offline confidence-oscillation dampening score (`ARW MOMENTUM SCORE:<n>`) from multi-window confidence drift.
+- [x] AI Content/Systems Team: Prototype offline confidence-oscillation dampening score (`ARW MOMENTUM SCORE:<n>`) from multi-window confidence drift.
 
 ## Cycle DG - Game Director Review (2026-03-25 09:41 KST, forced-lane rebalance)
 - Coverage check (last 10 completions): systems=7, world=2, ux=3, qa=4, ai-content=3, combat=0, vfx=0, design=0.

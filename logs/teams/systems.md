@@ -2426,3 +2426,20 @@
 - Decision: systems >40% cap (70%) triggered forced underrepresented-lane selection; dispatched combat/vfx minimal slice this cycle.
 - Cadence guardrail (24h buckets): combat/vfx ✅, design/world ✅, systems/ops ✅.
 - Backlog injection: queued Design/World `ARW MOMENTUM ARC` and Systems/Ops `LANE BUCKET AGE` watchdog for next cycle.
+
+## 2026-03-25 10:01:00 KST
+- Task: Cycle DF follow-up — prototype offline confidence-oscillation dampening score (`ARW MOMENTUM SCORE:<n>`) from multi-window confidence drift.
+- Commit: HEAD (this run)
+- Files:
+  - `scripts/weekly_portal_prompt_readability_drift.py`
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `TASKS.md`
+  - `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added deterministic offline score model (0~100) from recommendation baseline + confidence drift + plan drift + streak + risk/parity suppressors.
+  - Exposed score and signal payload in weekly digest JSON (`ambientRampWhyAutoRemapConfidenceMomentumScore*`).
+  - Surfaced digest markdown line `ARW MOMENTUM SCORE` for quick triage without changing runtime behavior.
+- Follow-up:
+  - Next highest-priority unchecked item: Design/World `ARW MOMENTUM ARC:CALM|TENSE` flag-gated digest token.

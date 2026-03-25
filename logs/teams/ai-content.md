@@ -1596,3 +1596,15 @@
 - Scope: Weekly portal readability digest now maps `ARW AUTO PLAN CONF MOMENTUM` → compact alias (`FREEZE→F`, `WATCH→W`, `ALLOW→A`) and emits flag-state-safe summary rows.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 
+
+## 2026-03-25 10:01:00 KST
+- Task: Offline ambient auto-remap confidence momentum dampening prototype (`ARW MOMENTUM SCORE:<n>`).
+- Commit: HEAD (this run)
+- Scope: weekly digest/sandbox recommendation layer only (no runtime prompt coupling).
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Kept recommendation contract (`FREEZE|WATCH|ALLOW`) intact; added numeric score as ranking aid for operator triage.
+  - Score factors intentionally deterministic and auditable in payload signals to support future policy tuning.
+- Follow-up:
+  - Pair with upcoming `ARW MOMENTUM ARC` token so design lane can read momentum posture at a glance.

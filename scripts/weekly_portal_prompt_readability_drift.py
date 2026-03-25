@@ -5651,6 +5651,53 @@ def ambient_ramp_auto_remap_confidence_momentum_freeze_recommendation(
     }
 
 
+def ambient_ramp_auto_remap_confidence_momentum_score(
+    *,
+    recommendation: str,
+    confidence_drift: int,
+    confidence_streak: int,
+    plan_drift: int,
+    plan_signals: dict[str, object],
+) -> tuple[int, dict[str, object]]:
+    """Offline dampening score (0-100) from confidence oscillation and drift pressure."""
+    drift_risk = str(plan_signals.get("driftRisk", "LOW")).upper()
+    parity = str(plan_signals.get("parity", "LOCK")).upper()
+    candidate_suppressed = bool(plan_signals.get("candidateSuppressed", False))
+
+    base_by_recommendation = {"FREEZE": 85, "WATCH": 60, "ALLOW": 35}
+    base = base_by_recommendation.get(str(recommendation).upper(), 50)
+
+    score = base
+    score += min(abs(int(confidence_drift)) * 8, 24)
+    score += min(abs(int(plan_drift)) * 6, 18)
+    if int(confidence_streak) <= 1:
+        score += 8
+    elif int(confidence_streak) >= 4:
+        score -= 8
+
+    if drift_risk == "HIGH":
+        score += 10
+    elif drift_risk == "MID":
+        score += 5
+
+    if parity == "LOCK":
+        score += 6
+    if candidate_suppressed:
+        score += 6
+
+    score = max(0, min(100, score))
+    return score, {
+        "recommendation": str(recommendation).upper(),
+        "base": base,
+        "confidenceDrift": int(confidence_drift),
+        "confidenceStreak": int(confidence_streak),
+        "planDrift": int(plan_drift),
+        "driftRisk": drift_risk,
+        "parity": parity,
+        "candidateSuppressed": candidate_suppressed,
+    }
+
+
 def ambient_ramp_why_auto_remap_rationale_short(*, selected_plan: str, plan_signals: dict[str, object]) -> str:
     """Compact shorthand for offline ambient auto-remap rationale handoff."""
     rationale = str(plan_signals.get("rationale", "")).strip().lower()
@@ -6130,6 +6177,13 @@ def main() -> int:
     arw_momentum_flag_enabled = os.environ.get(arw_momentum_flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
     ambient_ramp_why_auto_remap_plan_confidence_momentum_alias = ambient_ramp_auto_remap_confidence_momentum_alias(
         ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_recommendation
+    )
+    ambient_ramp_why_auto_remap_plan_confidence_momentum_score, ambient_ramp_why_auto_remap_plan_confidence_momentum_score_signals = ambient_ramp_auto_remap_confidence_momentum_score(
+        recommendation=ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_recommendation,
+        confidence_drift=ambient_ramp_why_auto_remap_plan_confidence_drift,
+        confidence_streak=ambient_ramp_why_recommendation_confidence_streak,
+        plan_drift=ambient_ramp_why_auto_remap_plan_drift,
+        plan_signals=ambient_ramp_why_auto_remap_plan_signals,
     )
     urgency_stack_pruning_order_recommendation, urgency_stack_pruning_order_recommendation_signals = urgency_stack_pruning_order_recommendation_from_trends(
         drift_risk=drift_risk,
@@ -6911,6 +6965,8 @@ def main() -> int:
         "ambientRampWhyAutoRemapConfidenceMomentumFreezeRecommendationSignals": ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals,
         "ambientRampWhyAutoRemapConfidenceMomentumAlias": ambient_ramp_why_auto_remap_plan_confidence_momentum_alias,
         "ambientRampWhyAutoRemapConfidenceMomentumAliasSignals": {"flagName": arw_momentum_flag_name, "flagEnabled": arw_momentum_flag_enabled},
+        "ambientRampWhyAutoRemapConfidenceMomentumScore": ambient_ramp_why_auto_remap_plan_confidence_momentum_score,
+        "ambientRampWhyAutoRemapConfidenceMomentumScoreSignals": ambient_ramp_why_auto_remap_plan_confidence_momentum_score_signals,
         "urgencyStackPruningOrderRecommendation": urgency_stack_pruning_order_recommendation,
         "urgencyStackPruningOrderRecommendationSignals": urgency_stack_pruning_order_recommendation_signals,
         "urgencyStackRailRecommendation": urgency_stack_rail_recommendation,
@@ -7218,6 +7274,7 @@ def main() -> int:
         f"- ARW APC: **{ambient_ramp_why_auto_remap_plan_confidence_band_alias if arw_apc_flag_enabled else 'FLAG OFF'}** (flag={arw_apc_flag_name} enabled={arw_apc_flag_enabled} conf={ambient_ramp_why_auto_remap_plan_confidence})",
         f"- ARW AUTO PLAN CONF MOMENTUM: **{ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_recommendation}** ({ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['reason']}; oscillating={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['oscillating']} streak={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['confidenceStreak']} confΔ={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['confidenceDrift']:+d} planΔ={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['planDrift']:+d} driftRisk={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['driftRisk']} offlineOnly={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['offlineOnly']})",
         f"- ARW MOMENTUM: **{ambient_ramp_why_auto_remap_plan_confidence_momentum_alias if arw_momentum_flag_enabled else 'FLAG OFF'}** (flag={arw_momentum_flag_name} enabled={arw_momentum_flag_enabled} full={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_recommendation})",
+        f"- ARW MOMENTUM SCORE: **{ambient_ramp_why_auto_remap_plan_confidence_momentum_score}** (base={ambient_ramp_why_auto_remap_plan_confidence_momentum_score_signals['base']} confΔ={ambient_ramp_why_auto_remap_plan_confidence_momentum_score_signals['confidenceDrift']:+d} planΔ={ambient_ramp_why_auto_remap_plan_confidence_momentum_score_signals['planDrift']:+d} streak={ambient_ramp_why_auto_remap_plan_confidence_momentum_score_signals['confidenceStreak']} driftRisk={ambient_ramp_why_auto_remap_plan_confidence_momentum_score_signals['driftRisk']} parity={ambient_ramp_why_auto_remap_plan_confidence_momentum_score_signals['parity']})",
         f"- AMBIENT RAMP WHY REC CONF STREAK: **{ambient_ramp_why_recommendation_confidence_streak}** (suppress={str(ambient_ramp_why_recommendation_confidence_streak_signals.get('suppress', False)).upper()} threshold={ambient_ramp_why_recommendation_confidence_streak_signals.get('threshold', 3)} reason={ambient_ramp_why_recommendation_confidence_streak_signals.get('reason', 'n/a')})",
         f"- URGENCY STACK PRUNING REC: **{urgency_stack_pruning_order_recommendation}** ({urgency_stack_pruning_order_recommendation_signals['rationale']}; parityChurn={urgency_stack_pruning_order_recommendation_signals['parityCompactChurn']} fxChurn={urgency_stack_pruning_order_recommendation_signals['urgencyFxChurn']} detailedChurn={urgency_stack_pruning_order_recommendation_signals['urgencyDetailedChurn']} offlineOnly={urgency_stack_pruning_order_recommendation_signals['offlineOnly']})",
         f"- URGENCY STACK RAIL REC: **{urgency_stack_rail_recommendation}** ({urgency_stack_rail_recommendation_signals['rationale']}; railChurn={urgency_stack_rail_recommendation_signals['urgencyStackRailChurn']} railNet={urgency_stack_rail_recommendation_signals['urgencyStackRailNet']} tierChurn={urgency_stack_rail_recommendation_signals['urgencyStackTierChurn']} offlineOnly={urgency_stack_rail_recommendation_signals['offlineOnly']})",
@@ -7421,6 +7478,7 @@ def main() -> int:
         f"- ARW APC: {ambient_ramp_why_auto_remap_plan_confidence_band_alias if arw_apc_flag_enabled else 'FLAG OFF'} (flag={arw_apc_flag_name} enabled={arw_apc_flag_enabled})",
         f"- ARW AUTO PLAN CONF MOMENTUM: {ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_recommendation} (reason={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['reason']} confΔ={ambient_ramp_why_auto_remap_plan_confidence_momentum_freeze_signals['confidenceDrift']:+d})",
         f"- ARW MOMENTUM: {ambient_ramp_why_auto_remap_plan_confidence_momentum_alias if arw_momentum_flag_enabled else 'FLAG OFF'} (flag={arw_momentum_flag_name} enabled={arw_momentum_flag_enabled})",
+        f"- ARW MOMENTUM SCORE: {ambient_ramp_why_auto_remap_plan_confidence_momentum_score} (base={ambient_ramp_why_auto_remap_plan_confidence_momentum_score_signals['base']} confΔ={ambient_ramp_why_auto_remap_plan_confidence_momentum_score_signals['confidenceDrift']:+d})",
         f"- ARW AUTO PLAN FAMILY: +{token_family_totals['ambientRampWhyAutoRemapPlanAlias']['added']} / -{token_family_totals['ambientRampWhyAutoRemapPlanAlias']['removed']} / net {token_family_totals['ambientRampWhyAutoRemapPlanAlias']['net']} (churn={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['churn']} coverage={token_family_totals['ambientRampWhyAutoRemapPlanAlias']['coverage']} drift={ambient_ramp_why_auto_remap_plan_drift:+d})",
         f"- ARW APC FAMILY: +{token_family_totals['ambientRampWhyAutoRemapConfidenceBandAlias']['added']} / -{token_family_totals['ambientRampWhyAutoRemapConfidenceBandAlias']['removed']} / net {token_family_totals['ambientRampWhyAutoRemapConfidenceBandAlias']['net']} (churn={token_family_totals['ambientRampWhyAutoRemapConfidenceBandAlias']['churn']} coverage={token_family_totals['ambientRampWhyAutoRemapConfidenceBandAlias']['coverage']})",
         f"- ARW AUTO PLAN CONF MOMENTUM FAMILY: +{token_family_totals['ambientRampWhyAutoRemapConfidenceMomentumAlias']['added']} / -{token_family_totals['ambientRampWhyAutoRemapConfidenceMomentumAlias']['removed']} / net {token_family_totals['ambientRampWhyAutoRemapConfidenceMomentumAlias']['net']} (churn={token_family_totals['ambientRampWhyAutoRemapConfidenceMomentumAlias']['churn']} coverage={token_family_totals['ambientRampWhyAutoRemapConfidenceMomentumAlias']['coverage']})",

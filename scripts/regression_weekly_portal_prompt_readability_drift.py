@@ -1566,6 +1566,18 @@ def main() -> int:
         }, payload
         assert payload.get("ambientRampWhyAutoRemapConfidenceMomentumAlias") in {"F", "W", "A"}, payload
         assert set(payload.get("ambientRampWhyAutoRemapConfidenceMomentumAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
+        assert isinstance(payload.get("ambientRampWhyAutoRemapConfidenceMomentumScore"), int), payload
+        assert 0 <= payload.get("ambientRampWhyAutoRemapConfidenceMomentumScore") <= 100, payload
+        assert set(payload.get("ambientRampWhyAutoRemapConfidenceMomentumScoreSignals", {}).keys()) == {
+            "recommendation",
+            "base",
+            "confidenceDrift",
+            "confidenceStreak",
+            "planDrift",
+            "driftRisk",
+            "parity",
+            "candidateSuppressed",
+        }, payload
         assert out_ambient_auto_remap_json.exists()
         assert out_ambient_auto_remap_md.exists()
         md_text = out_md.read_text(encoding="utf-8")
@@ -1652,6 +1664,7 @@ def main() -> int:
         assert "ARW APC FAMILY CHURN" in md_text
         assert "ARW AUTO PLAN CONF MOMENTUM FAMILY CHURN" in md_text
         assert "ARW MOMENTUM" in md_text
+        assert "ARW MOMENTUM SCORE" in md_text
         assert "ARW MOMENTUM FAMILY CHURN" in md_text
         assert "ARW AUTO PLAN CANDIDATE SUPPRESS" in md_text
         assert "URGENCY STACK PRUNING REC" in md_text
