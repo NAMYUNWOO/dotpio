@@ -1026,4 +1026,16 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact pulse-remap suppression alias token (`PRMS:<S|A|O>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_MOMENTUM_SUPPRESSION_ALIAS` in digest payload/markdown with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
 - [x] Systems/QA Team: Add dedicated digest family churn triage note for suppression alias trend (`PRMS FAMILY TREND`) with prior-window drift context.
-- [ ] AI Content/VFX Team: Prototype offline suppression-escalation recommendation policy (`PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK`) without runtime coupling.
+- [x] AI Content/VFX Team: Prototype offline suppression-escalation recommendation policy (`PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK`) without runtime coupling. *(lifecycle: [ ] -> [~] -> [x])*
+
+## Cycle DR - Game Director Review (2026-03-25 21:50 KST, lane-cap forced underrepresented pick)
+- Coverage check (last 10 completions by lane): systems=5, qa=4, vfx=4, ai-content=3, combat=2, ux=2, world=0, design=0.
+- Lane cap breach: systems (50%) > 40%; forced next experiment into an underrepresented lane family.
+- 24h cadence guardrail status: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low risk, UX/VFX): Add compact suppression-plan alias token (`PRSP:<H|A|L>`) for faster digest scanability.
+- Idea 2 (mid risk, AI Content/VFX): Add offline suppression-escalation recommendation token (`PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK`) from suppression streak + drift-risk + lane cadence.
+- Idea 3 (high risk, Design/World): Prototype ambient scene-reactive pulse remap flavor text remap table for portal narration (offline artifact only).
+- Selected experiment: Idea 2 (minimal vertical slice, additive + reversible).
+- [x] AI Content/VFX Team: Ship offline suppression-escalation recommendation token (`PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK`) plus compact alias (`PRSP:<H|A|L>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SUPPRESSION_PLAN_ALIAS` with regression lock.
+- [x] Design/World Team: Prototype ambient scene-reactive pulse-remap flavor mapping (`CALM|BRACE|LOCK`) for digest readability copy.
+- [ ] Systems/Ops Team: Add lane-cadence guardrail row for suppression-plan family churn drift (`PRSP FAMILY TREND`) with prior-window context.

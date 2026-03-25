@@ -224,3 +224,12 @@
 - Decision: Added dedicated weekly-digest triage note `PRMS FAMILY TREND` with prior-window drift context (`Δnet`, `currentNet`, `priorNet`, `loaded`).
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` both pass.
 - Follow-up: Remaining Cycle DQ unchecked item is AI Content/VFX offline suppression-escalation recommendation (`PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK`).
+
+## 2026-03-25 21:50 KST — Cycle DR VFX cadence note
+- Extended pulse-remap readability surface with escalation plan token (`PULSE REMAP SUPPRESS PLAN`) and compact alias (`PRSP`) to clarify when VFX remap posture should hold, arm, or lock.
+- This keeps combat/VFX tuning handoff readable without altering live FX behavior.
+
+## 2026-03-25 22:12 KST — Cycle DR follow-up: pulse-remap scene flavor mapping (VFX note)
+- Readability-only handoff: digest now includes `PULSE REMAP SCENE:CALM|BRACE|LOCK` derived from suppression-plan state.
+- No runtime FX shader or combat particle behavior changed in this slice.
+- Verification reference: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

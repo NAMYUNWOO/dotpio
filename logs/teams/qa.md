@@ -3141,3 +3141,10 @@
 - Decision: Added dedicated weekly-digest triage note `PRMS FAMILY TREND` with prior-window drift context (`Δnet`, `currentNet`, `priorNet`, `loaded`).
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` both pass.
 - Follow-up: Remaining Cycle DQ unchecked item is AI Content/VFX offline suppression-escalation recommendation (`PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK`).
+
+## 2026-03-25 22:12 KST — Cycle DR follow-up: pulse-remap scene flavor mapping
+- Task: Closed Design/World unchecked backlog item by adding digest readability flavor mapping for suppression posture.
+- Change: Weekly digest now emits PULSE REMAP SCENE:CALM|BRACE|LOCK derived from suppression plan + drift risk + pressure band (offline-only).
+- Evidence: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py.
+- Verification: python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py && python3 scripts/regression_weekly_portal_prompt_readability_drift.py (PASS).
+- Follow-up: Remaining unchecked queue item is Systems/Ops PRSP FAMILY TREND drift row.

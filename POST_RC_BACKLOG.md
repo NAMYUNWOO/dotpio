@@ -835,5 +835,13 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/VFX): Prototype offline suppression-escalation recommendation policy from freeze-streak + drift-risk windows.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact pulse-remap suppression alias token (`PRMS:<S|A|O>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_MOMENTUM_SUPPRESSION_ALIAS` in digest payload/markdown with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] Systems/QA Team: Add dedicated digest family churn triage note for suppression alias trend (`PRMS FAMILY TREND`) with prior-window drift context.
-- [ ] AI Content/VFX Team: Prototype offline suppression-escalation recommendation policy (`PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK`) without runtime coupling.
+- [x] Systems/QA Team: Add dedicated digest family churn triage note for suppression alias trend (`PRMS FAMILY TREND`) with prior-window drift context. *(lifecycle: [ ] -> [~] -> [x])*
+- [x] AI Content/VFX Team: Prototype offline suppression-escalation recommendation policy (`PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK`) without runtime coupling. *(lifecycle: [ ] -> [~] -> [x])*
+
+## Cycle DR - Game Director Review (2026-03-25 21:50 KST, lane-cap forced underrepresented pick)
+- Coverage check (last 10 completions by lane): systems=5, qa=4, vfx=4, ai-content=3, combat=2, ux=2, world=0, design=0.
+- Lane cap breach: systems (50%) > 40%; forced next experiment into underrepresented lanes.
+- Selected experiment: Idea 2 (AI Content/VFX) — `PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK` + compact `PRSP:<H|A|L>`.
+- [x] AI Content/VFX Team: Ship offline suppression-escalation recommendation token + compact alias behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SUPPRESSION_PLAN_ALIAS` with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
+- [x] Design/World Team: Prototype ambient scene-reactive pulse-remap flavor mapping (`CALM|BRACE|LOCK`) for digest readability copy.
+- [ ] Systems/Ops Team: Add suppression-plan family churn trend row (`PRSP FAMILY TREND`) with prior-window drift context.

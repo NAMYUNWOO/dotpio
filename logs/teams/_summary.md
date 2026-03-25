@@ -2885,3 +2885,15 @@ Compact decision memory for AI context efficiency.
 - Regression contract expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` for new payload fields and `PRMS FAMILY TREND:` markdown presence.
 - Verification passed: py_compile + weekly digest regression suite.
 - Next priority item remains unchecked in TASKS: AI Content/VFX offline suppression-escalation recommendation plan token (`PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK`).
+
+## 2026-03-25 21:50 KST — Cycle DR shipped: suppression escalation plan token
+- Coverage check (last 10 completions by lane): systems=5, qa=4, vfx=4, ai-content=3, combat=2, ux=2, world=0, design=0; systems breached 40% cap, so cycle forced an underrepresented-lane experiment path.
+- Implemented minimal vertical slice: offline recommendation token `PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK` + compact alias `PRSP:<H|A|L>` (flag `DOTPIO_EXPERIMENT_PULSE_REMAP_SUPPRESSION_PLAN_ALIAS`).
+- Added payload fields/signals for escalation-plan reasoning and token-family churn coverage for suppression-plan alias family.
+- Verification PASS: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Backlog injected: Design/World flavor mapping follow-up + Systems/Ops `PRSP FAMILY TREND` drift row.
+
+- 2026-03-25 22:12 KST: Closed highest-priority unchecked Design/World backlog item by shipping offline digest flavor mapping `PULSE REMAP SCENE:CALM|BRACE|LOCK` from suppression plan + drift-risk + pressure-band signals.
+- Added payload contract keys `pulseRemapSuppressionSceneFlavor` and `pulseRemapSuppressionSceneFlavorSignals`; markdown digest now includes explicit `PULSE REMAP SCENE` row for readability triage.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Remaining unchecked queue item: Systems/Ops `PRSP FAMILY TREND` prior-window drift row.
