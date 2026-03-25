@@ -1834,3 +1834,4 @@
 - Decision: keep combo token compact (`DMG COMBO:<n>x<HOT|WARM|COLD>`) to fit existing DOS debug lane without panel growth.
 - Follow-up: watch overlap budget if additional combat debug rows are introduced.
 - [2026-03-26 06:52 KST] Cycle EB: closed DMG COMBO observability slice (family churn + offline combo-window retune recommendation) and shipped compact alias token `DCR:<T|H|E>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_ALIAS` with regression lock.
+- [2026-03-26 07:01 KST] Cycle EB follow-up: closed Systems/QA backlog item by adding `DMG COMBO WINDOW RETUNE CONF:LOW|MID|HIGH` + compact alias `DCRC:<L|M|H>` token-family churn coverage in weekly digest payload/markdown, wired flag `DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_CONF_ALIAS`, and locked with regression (`scripts/regression_weekly_portal_prompt_readability_drift.py`).

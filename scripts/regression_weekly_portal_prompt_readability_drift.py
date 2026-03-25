@@ -2093,6 +2093,7 @@ def main() -> int:
         assert "DMGNUM LIFE TREND FX PULSE REMAP PLAN FAMILY CHURN" in md_text
         assert "DMG COMBO FAMILY CHURN" in md_text
         assert "DMG COMBO RETUNE + DCR FAMILY CHURN" in md_text
+        assert "DMG COMBO RETUNE CONF + DCRC FAMILY CHURN" in md_text
         assert "PULSE REMAP MOMENTUM FAMILY CHURN" in md_text
         assert "PULSE REMAP SUPPRESS FAMILY CHURN" in md_text
         assert "PULSE REMAP SUPPRESS PLAN FAMILY CHURN" in md_text
@@ -2143,6 +2144,7 @@ def main() -> int:
         assert "DMGNUM LIFE TREND FX PULSE REMAP PLAN:" in md_text
         assert "DMG COMBO:" in md_text
         assert "DCR + DMG COMBO WINDOW RETUNE REC:" in md_text
+        assert "DCRC + DMG COMBO WINDOW RETUNE CONF:" in md_text
         assert "PULSE REMAP MOMENTUM Δ:" in md_text
         assert "PULSE REMAP MOMENTUM SUPPRESS:" in md_text
         assert "PULSE REMAP SUPPRESS PLAN:" in md_text
@@ -2193,6 +2195,8 @@ def main() -> int:
         assert "AMBIENT RAMP CONF REC" in md_text
         assert "DMG COMBO WINDOW RETUNE REC" in md_text
         assert "DCR:" in md_text
+        assert "DMG COMBO WINDOW RETUNE CONF" in md_text
+        assert "DCRC:" in md_text
         assert "AMBIENT RAMP WHY REC" in md_text
         assert "AMBIENT RAMP WHY REC CONF" in md_text
         assert "AMBIENT RAMP WHY REC PARITY" in md_text
