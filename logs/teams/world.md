@@ -1605,3 +1605,8 @@
 - Scope: Weekly portal readability digest now maps `ARW AUTO PLAN CONF MOMENTUM` → compact alias (`FREEZE→F`, `WATCH→W`, `ALLOW→A`) and emits flag-state-safe summary rows.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 
+
+## 2026-03-25 09:41 KST — Cycle DG world/design queue injection
+- No world runtime token shipped in this slice (forced-lane combat/vfx execution).
+- Injected next world/design candidate: `ARW MOMENTUM ARC:CALM|TENSE` (flag-gated digest summary token) for ambient rationale pacing readability.
+- Cadence note: design/world bucket remains covered within 24h window; task stays queued for next balanced cycle.

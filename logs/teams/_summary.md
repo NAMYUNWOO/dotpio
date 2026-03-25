@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-25 09:08 KST
+Last updated: 2026-03-25 09:41 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Cycle DG coverage check over last 10 completions showed systems-lane skew (`systems=7/10`, combat/vfx=0), breaching the 40% cap and triggering forced underrepresented-lane routing.
+- Selected/implemented low-risk Combat/VFX slice: new flag-gated HUD debug token `DMGNUM LIFE TREND FX:CALM|SPARK|BLAZE` (`DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_DEBUG`) mapped from `DMGNUM LIFE TREND` (`UP/HOLD/DOWN`).
+- Added regression guardrail `scripts/regression_combat_damage_number_life_trend_fx_token.lua`; baseline trend token regression rerun remains passing.
+- Injected next backlog tasks for lane cadence: Design/World `ARW MOMENTUM ARC:CALM|TENSE` and Systems/Ops `LANE BUCKET AGE:<hours>` watchdog row.
 
 - Cycle DF triggered after actionable queue clear: generated 3 ideas, selected low-risk Systems/QA vertical slice, and shipped family-churn observability for `ARW APC` + `ARW AUTO PLAN CONF MOMENTUM`.
 - Weekly digest now emits dedicated family rows (`ARW APC FAMILY CHURN`, `ARW AUTO PLAN CONF MOMENTUM FAMILY CHURN`) plus Token Family Coverage rows for both families.

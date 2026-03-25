@@ -1559,3 +1559,9 @@
 - Scope: Weekly portal readability digest now maps `ARW AUTO PLAN CONF MOMENTUM` → compact alias (`FREEZE→F`, `WATCH→W`, `ALLOW→A`) and emits flag-state-safe summary rows.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 
+
+## 2026-03-25 09:41 KST — Cycle DG combat/vfx forced-lane slice
+- Task: Add compact trend-FX debug token `DMGNUM LIFE TREND FX:CALM|SPARK|BLAZE` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_DEBUG`.
+- Lane rationale: forced rebalance after last-10 coverage showed systems 70% and combat/vfx 0%.
+- Mapping: `UP->BLAZE`, `HOLD->SPARK`, `DOWN->CALM` (readability-only, no combat stat changes).
+- Verification: `luac -p src/hud.lua scripts/regression_combat_damage_number_life_trend_fx_token.lua`; `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_DEBUG=1 lua scripts/regression_combat_damage_number_life_trend_fx_token.lua`; `DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_CONF_DELTA_DEBUG=1 DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_DEBUG=1 lua scripts/regression_combat_damage_number_life_trend_token.lua`.

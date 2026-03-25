@@ -913,3 +913,15 @@ See project-level plans:
 - [x] Systems/QA Team: Add weekly digest token-family churn coverage for `ARW APC:` + `ARW AUTO PLAN CONF MOMENTUM:` and lock via regression. *(lifecycle: [~] -> [x])*
 - [x] UX/World Team: Prototype compact digest momentum alias token (`ARW MOMENTUM:<F|W|A>`) behind flag for tighter scanability.
 - [ ] AI Content/Systems Team: Prototype offline confidence-oscillation dampening score (`ARW MOMENTUM SCORE:<n>`) from multi-window confidence drift.
+
+## Cycle DG - Game Director Review (2026-03-25 09:41 KST, forced-lane rebalance)
+- Coverage check (last 10 completions): systems=7, world=2, ux=3, qa=4, ai-content=3, combat=0, vfx=0, design=0.
+- Lane cap breach: systems (70%) > 40%, so this cycle forced an underrepresented-lane pick (combat/vfx prioritized).
+- 24h cadence guardrail status: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low risk, Combat/VFX): Add compact damage-number trend-FX token (`DMGNUM LIFE TREND FX:CALM|SPARK|BLAZE`) behind debug flag for instant pacing-readability.
+- Idea 2 (mid risk, Design/World): Add compact ambient rationale momentum token (`ARW MOMENTUM ARC:CALM|TENSE`) behind flag in digest summary.
+- Idea 3 (high risk, Systems/Ops): Add digest watchdog row for 24h bucket freshness (`LANE BUCKET AGE:<hours>`) to harden cadence audits.
+- Selected experiment: Idea 1 (minimal vertical slice, additive + reversible).
+- [x] Combat/VFX Team: Add compact damage-number trend-FX token (`DMGNUM LIFE TREND FX:CALM|SPARK|BLAZE`) behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_DEBUG` with regression lock.
+- [ ] Design/World Team: Prototype compact ambient rationale momentum token (`ARW MOMENTUM ARC:CALM|TENSE`) behind dedicated flag.
+- [ ] Systems/Ops Team: Add digest 24h bucket-freshness watchdog row (`LANE BUCKET AGE:<hours>`) for cadence auditability.

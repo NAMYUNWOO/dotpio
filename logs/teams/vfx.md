@@ -159,3 +159,9 @@
 - No runtime VFX shader/effect behavior changes this cycle.
 - Confirmed new ambient rationale tokens remain prompt-only readability metadata and do not alter damage glyph/FX pipelines.
 - Kept VFX lane explicitly logged for 24h cadence traceability.
+
+## 2026-03-25 09:41 KST — Cycle DG trend-FX readability cue
+- Forced-lane rebalance selected combat/vfx after systems-heavy streak in last-10 completions.
+- Added compact HUD debug token `DMGNUM LIFE TREND FX:CALM|SPARK|BLAZE` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_DEBUG`.
+- Purpose: make floating-number lifecycle trend feel legible at a glance (`DOWN=CALM`, `HOLD=SPARK`, `UP=BLAZE`) without touching damage math or fade timings.
+- Verification: `lua scripts/regression_combat_damage_number_life_trend_fx_token.lua` (with required trend flags) + baseline trend regression PASS.

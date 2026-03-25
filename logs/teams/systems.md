@@ -2419,3 +2419,10 @@
 - Scope: Weekly portal readability digest now maps `ARW AUTO PLAN CONF MOMENTUM` → compact alias (`FREEZE→F`, `WATCH→W`, `ALLOW→A`) and emits flag-state-safe summary rows.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 
+
+## 2026-03-25 09:41:00 KST
+- Task: Cycle DG lane-coverage audit + forced-lane dispatch.
+- Coverage (last 10 completed): systems=7, world=2, ux=3, qa=4, ai-content=3, combat=0, vfx=0, design=0.
+- Decision: systems >40% cap (70%) triggered forced underrepresented-lane selection; dispatched combat/vfx minimal slice this cycle.
+- Cadence guardrail (24h buckets): combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Backlog injection: queued Design/World `ARW MOMENTUM ARC` and Systems/Ops `LANE BUCKET AGE` watchdog for next cycle.

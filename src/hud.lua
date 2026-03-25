@@ -318,6 +318,13 @@ local function isDamageNumberLifeTrendDebugExperimentEnabled()
     return v == "1" or v == "true" or v == "yes" or v == "on"
 end
 
+local function isDamageNumberLifeTrendFxDebugExperimentEnabled()
+    local v = os.getenv("DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_DEBUG")
+    if not v then return false end
+    v = string.lower(v)
+    return v == "1" or v == "true" or v == "yes" or v == "on"
+end
+
 local function isDamageNumberLifeTrendColorDebugExperimentEnabled()
     local v = os.getenv("DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_COLOR_DEBUG")
     if not v then return false end
@@ -482,6 +489,26 @@ function HUD.resolveDamageNumberLifeTrendToken()
     return string.format("DMGNUM LIFE TREND:%s", trend)
 end
 
+function HUD.resolveDamageNumberLifeTrendFxToken()
+    if not isDamageNumberLifeTrendFxDebugExperimentEnabled() then
+        return nil
+    end
+
+    local trendToken = HUD.resolveDamageNumberLifeTrendToken()
+    if not trendToken then
+        return nil
+    end
+
+    local trend = trendToken:match("DMGNUM LIFE TREND:(%u+)") or "HOLD"
+    local fx = "SPARK"
+    if trend == "UP" then
+        fx = "BLAZE"
+    elseif trend == "DOWN" then
+        fx = "CALM"
+    end
+    return string.format("DMGNUM LIFE TREND FX:%s", fx)
+end
+
 function HUD.resolveDamageNumberLifeTrendColor(token)
     if not isDamageNumberLifeTrendColorDebugExperimentEnabled() then
         return 0.82, 0.94, 1.0, 0.9
@@ -623,6 +650,12 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if damageNumberLifeTrendToken then
         love.graphics.setColor(HUD.resolveDamageNumberLifeTrendColor(damageNumberLifeTrendToken))
         love.graphics.print(damageNumberLifeTrendToken, 1420, 690)
+    end
+
+    local damageNumberLifeTrendFxToken = HUD.resolveDamageNumberLifeTrendFxToken()
+    if damageNumberLifeTrendFxToken then
+        love.graphics.setColor(1.0, 0.78, 0.58, 0.92)
+        love.graphics.print(damageNumberLifeTrendFxToken, 1420, 708)
     end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)
