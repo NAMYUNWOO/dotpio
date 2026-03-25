@@ -2997,3 +2997,11 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/weekly_portal_prompt_readability_drift.py`
 - 2026-03-25 11:31 KST: Cycle DH UX/world lane-freshness alias vertical slice shipped (`LBA:<sys>/<dw>/<cv>`) in weekly digest behind `DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS`; regression + digest generation PASS.
+
+## 2026-03-25 12:04 KST — Regression lock for lane-priority recommendation
+- Extended `scripts/regression_weekly_portal_prompt_readability_drift.py`:
+  - schema assertions for `lanePriorityRecommendation` + `lanePriorityRecommendationSignals`
+  - markdown presence assertion for `LANE PRIORITY REC`
+- Verification PASS:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`

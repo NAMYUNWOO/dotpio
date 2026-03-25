@@ -2735,3 +2735,9 @@ Compact decision memory for AI context efficiency.
 - Payload + markdown contract extended: `laneBucketAgeCompactAlias`, `laneBucketAgeCompactAliasSignals`, and `LBA:` rows in digest output.
 - Verification PASS: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Remaining top unchecked queue item: `AI Content/Systems Team: Prototype offline lane-priority recommendation policy from bucket-age momentum`.
+
+## 2026-03-25 12:04 KST — Cycle DH high-risk AI Content/Systems item closed
+- Closed remaining unchecked TASKS/POST_RC item: offline lane-priority recommendation policy from bucket-age momentum.
+- Weekly digest now emits `LANE PRIORITY REC` with auditable signals (`current/prior ages`, `momentum`, `priority scores`, `offlineOnly`).
+- Regression contract updated and passing for payload + markdown token (`scripts/regression_weekly_portal_prompt_readability_drift.py`).
+- Backlog sync: `TASKS.md` + `POST_RC_BACKLOG.md` item moved `[~] -> [x]`.

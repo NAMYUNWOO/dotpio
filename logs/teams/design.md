@@ -1651,3 +1651,7 @@
 - Added digest-facing momentum arc cue (`ARW MOMENTUM ARC`) to compress confidence+pressure into one emotional read.
 - Rationale: avoid burying ambient rationale momentum state inside long confidence lines.
 - 2026-03-25 11:31 KST: Cycle DH UX/world lane-freshness alias vertical slice shipped (`LBA:<sys>/<dw>/<cv>`) in weekly digest behind `DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS`; regression + digest generation PASS.
+
+## 2026-03-25 12:04 KST — Digest readability addition validated
+- Added compact operator-facing row `LANE PRIORITY REC` in weekly markdown digest for quick backlog-priority triage.
+- No in-game UI/prompt copy changes in this slice.

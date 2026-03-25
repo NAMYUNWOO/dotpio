@@ -1612,3 +1612,9 @@
 ## 2026-03-25 10:36 KST — Ambient rationale momentum context
 - Offline recommendation lane now includes arc-level emotional state (`CALM|TENSE`) to support future narrative tuning decisions.
 - 2026-03-25 11:31 KST: Cycle DH UX/world lane-freshness alias vertical slice shipped (`LBA:<sys>/<dw>/<cv>`) in weekly digest behind `DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS`; regression + digest generation PASS.
+
+## 2026-03-25 12:04 KST — Cycle DH high-risk slice completed (offline lane-priority policy)
+- Completed item: `Prototype offline lane-priority recommendation policy from bucket-age momentum`.
+- Decision: keep recommendation strictly **offline-only** in weekly digest outputs (`LANE PRIORITY REC`) with deterministic scoring from lane bucket age + positive momentum boost.
+- Added payload contract in weekly digest JSON: `lanePriorityRecommendation` + `lanePriorityRecommendationSignals`.
+- Follow-up: use recommendation as planning input only; no runtime gameplay coupling.

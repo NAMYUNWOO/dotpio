@@ -355,6 +355,73 @@ def lane_bucket_age_alias(*, lane_bucket_age: dict[str, object]) -> tuple[str, d
     }
 
 
+def lane_priority_recommendation_from_bucket_age_momentum(
+    *,
+    age_hours: dict[str, int],
+    prior_json_path: Path,
+) -> tuple[str, dict[str, object]]:
+    prior_loaded = False
+    prior_age_hours: dict[str, int] = {
+        "systems/ops": int(age_hours.get("systems/ops", 999) or 999),
+        "design/world": int(age_hours.get("design/world", 999) or 999),
+        "combat/vfx": int(age_hours.get("combat/vfx", 999) or 999),
+    }
+    if prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_age_raw = prior_payload.get("laneBucketAgeHours", {})
+            if isinstance(prior_age_raw, dict):
+                for lane in prior_age_hours:
+                    prior_age_hours[lane] = int(prior_age_raw.get(lane, prior_age_hours[lane]) or prior_age_hours[lane])
+            prior_loaded = True
+        except (json.JSONDecodeError, OSError, TypeError, ValueError):
+            prior_loaded = False
+
+    current_age_hours = {
+        lane: int(age_hours.get(lane, 999) or 999)
+        for lane in prior_age_hours
+    }
+    momentum_hours = {
+        lane: current_age_hours[lane] - prior_age_hours[lane]
+        for lane in current_age_hours
+    }
+    momentum_boost = {
+        lane: max(0, momentum_hours[lane]) * 2
+        for lane in current_age_hours
+    }
+    priority_scores = {
+        lane: current_age_hours[lane] + momentum_boost[lane]
+        for lane in current_age_hours
+    }
+
+    worst_age = max(current_age_hours.values()) if current_age_hours else 0
+    stale_lanes = [lane for lane, hours in current_age_hours.items() if hours > 24]
+    hottest_lane = max(priority_scores, key=priority_scores.get) if priority_scores else "systems/ops"
+
+    if worst_age <= 24 and all(delta <= 0 for delta in momentum_hours.values()):
+        recommendation = "BALANCED"
+        reason = "all lane buckets are within 24h and momentum is non-increasing"
+    elif stale_lanes:
+        recommendation = hottest_lane.upper()
+        reason = "stale lane bucket requires offline priority intervention"
+    else:
+        recommendation = hottest_lane.upper()
+        reason = "bucket-age momentum is rising and should be preemptively prioritized"
+
+    return recommendation, {
+        "offlineOnly": True,
+        "priorLoaded": prior_loaded,
+        "currentAgeHours": current_age_hours,
+        "priorAgeHours": prior_age_hours,
+        "momentumHours": momentum_hours,
+        "momentumBoost": momentum_boost,
+        "priorityScores": priority_scores,
+        "staleLanes": [lane.upper() for lane in stale_lanes],
+        "worstAgeHours": worst_age,
+        "reason": reason,
+    }
+
+
 def pulse_heat_fx_compact_budget_drift(
     *,
     pulse_heat_fx_family: dict[str, object],
@@ -6227,6 +6294,14 @@ def main() -> int:
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
         lane_bucket_age=lane_bucket_age,
     )
+    lane_priority_recommendation, lane_priority_recommendation_signals = lane_priority_recommendation_from_bucket_age_momentum(
+        age_hours={
+            "systems/ops": int(lane_bucket_age["ageHours"].get("systems/ops", 999) or 999),
+            "design/world": int(lane_bucket_age["ageHours"].get("design/world", 999) or 999),
+            "combat/vfx": int(lane_bucket_age["ageHours"].get("combat/vfx", 999) or 999),
+        },
+        prior_json_path=args.out_json,
+    )
 
     totals = {
         "added": {k: sum(r["added"][k] for r in touched) for k in TOKEN_GROUPS},
@@ -7175,6 +7250,8 @@ def main() -> int:
         "laneBucketAgeDriftSignals": lane_bucket_age_drift_signals,
         "laneBucketAgeCompactAlias": lane_bucket_age_compact_alias,
         "laneBucketAgeCompactAliasSignals": lane_bucket_age_compact_alias_signals,
+        "lanePriorityRecommendation": lane_priority_recommendation,
+        "lanePriorityRecommendationSignals": lane_priority_recommendation_signals,
         "laneFocus": lane_focus,
         "laneFocusScores": lane_focus_scores,
         "focusStreak": focus_streak,
@@ -7642,6 +7719,7 @@ def main() -> int:
         f"- LBA: **{lane_bucket_age_compact_alias}** (flag={lane_bucket_age_compact_alias_signals['flagName']} enabled={lane_bucket_age_compact_alias_signals['flagEnabled']} sys={lane_bucket_age_compact_alias_signals['systemsOpsHours']}h dw={lane_bucket_age_compact_alias_signals['designWorldHours']}h cv={lane_bucket_age_compact_alias_signals['combatVfxHours']}h)",
         f"- LANE BUCKET AGE: **{lane_bucket_age['token'].split(':', 1)[1]}** (status={lane_bucket_age['status']} window={lane_bucket_age['windowHours']}h)",
         f"- LANE BUCKET AGE Δ: **{lane_bucket_age_delta:+d}h** (currentMax={lane_bucket_age_drift_signals['currentMaxAgeHours']} priorMax={lane_bucket_age_drift_signals['priorMaxAgeHours']} loaded={lane_bucket_age_drift_signals['priorLoaded']})",
+        f"- LANE PRIORITY REC: **{lane_priority_recommendation}** (reason={lane_priority_recommendation_signals['reason']} worstAge={lane_priority_recommendation_signals['worstAgeHours']}h offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: **{pulse_heat_fx_compact_budget_drift_level}** ({pulse_heat_fx_compact_budget_drift_signals['reason']}; compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d} churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **{route_glow_fx_compact_budget_drift_level}** ({route_glow_fx_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **{route_glow_fx_conf_why_rail_mode_compact_budget_drift_level}** ({route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",
@@ -7715,6 +7793,7 @@ def main() -> int:
         f"- LBA: {lane_bucket_age_compact_alias} (flag={lane_bucket_age_compact_alias_signals['flagName']}, enabled={lane_bucket_age_compact_alias_signals['flagEnabled']}, sys={lane_bucket_age_compact_alias_signals['systemsOpsHours']}h, dw={lane_bucket_age_compact_alias_signals['designWorldHours']}h, cv={lane_bucket_age_compact_alias_signals['combatVfxHours']}h)",
         f"- LANE BUCKET AGE: {lane_bucket_age['token'].split(':', 1)[1]} (status={lane_bucket_age['status']}, window={lane_bucket_age['windowHours']}h)",
         f"- LANE BUCKET AGE Δ: {lane_bucket_age_delta:+d}h (currentMax={lane_bucket_age_drift_signals['currentMaxAgeHours']}, priorMax={lane_bucket_age_drift_signals['priorMaxAgeHours']}, loaded={lane_bucket_age_drift_signals['priorLoaded']})",
+        f"- LANE PRIORITY REC: {lane_priority_recommendation} (reason={lane_priority_recommendation_signals['reason']}, worstAge={lane_priority_recommendation_signals['worstAgeHours']}h, offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: {pulse_heat_fx_compact_budget_drift_level} (compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d}, churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: {route_glow_fx_compact_budget_drift_level} (compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: {route_glow_fx_conf_why_rail_mode_compact_budget_drift_level} (compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",

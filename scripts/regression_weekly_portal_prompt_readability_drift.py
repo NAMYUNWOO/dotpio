@@ -305,6 +305,19 @@ def main() -> int:
             "designWorldHours",
             "combatVfxHours",
         }, payload
+        assert payload.get("lanePriorityRecommendation") in {"BALANCED", "SYSTEMS/OPS", "DESIGN/WORLD", "COMBAT/VFX"}, payload
+        assert set(payload.get("lanePriorityRecommendationSignals", {}).keys()) == {
+            "offlineOnly",
+            "priorLoaded",
+            "currentAgeHours",
+            "priorAgeHours",
+            "momentumHours",
+            "momentumBoost",
+            "priorityScores",
+            "staleLanes",
+            "worstAgeHours",
+            "reason",
+        }, payload
         assert payload.get("routeSandbox") in {"ON", "OFF"}, payload
         assert set(payload.get("routeSandboxSignals", {}).keys()) == {
             "flagName",
@@ -1635,6 +1648,7 @@ def main() -> int:
         assert "LBA:" in md_text
         assert "LANE BUCKET AGE:" in md_text
         assert "LANE BUCKET AGE Δ:" in md_text
+        assert "LANE PRIORITY REC:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text
         assert "ROUTE GLOW FX CONF + RGFXC:" in md_text

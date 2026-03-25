@@ -2459,3 +2459,8 @@
 - Added payload fields: `laneBucketAgeDrift` and `laneBucketAgeDriftSignals` for auditability.
 - Kept change additive/offline-only (digest/reporting only; no gameplay/runtime behavior changes).
 - 2026-03-25 11:31 KST: Cycle DH UX/world lane-freshness alias vertical slice shipped (`LBA:<sys>/<dw>/<cv>`) in weekly digest behind `DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS`; regression + digest generation PASS.
+
+## 2026-03-25 12:04 KST — Lane bucket momentum priority policy wired
+- Added helper `lane_priority_recommendation_from_bucket_age_momentum(...)` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Score policy: `priority = currentAgeHours + 2*max(momentumHours, 0)` per lane; stale/fast-rising lanes are prioritized.
+- Digest now emits `LANE PRIORITY REC` row and JSON recommendation signals for auditability.
