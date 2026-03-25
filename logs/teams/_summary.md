@@ -2955,3 +2955,9 @@ Compact decision memory for AI context efficiency.
 - Shipped compact style-policy alias token `PRSMP:<A|B|D>` with feature flag `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_STYLE_POLICY_ALIAS`.
 - Payload + markdown + regression lock updated to cover `pulseRemapSceneMicrolineStylePolicyAlias` and `PRSMP:` row.
 - Injected next tasks (unchecked): Systems/QA churn coverage for style policy + PRSMP, AI Content/World cadence-volatility smoothing prototype.
+
+## 2026-03-26 02:34 KST — Pulse remap style-policy stabilization
+- Added token-family churn coverage for `PULSE REMAP SCENE MICROLINE STYLE POLICY:` + `PRSMP:` under `pulseRemapSceneMicrolineStylePolicyAlias`.
+- Added offline smoothing guard `pulseRemapSceneMicrolineStylePolicySmoothed` to damp low-volatility policy oscillation using prior digest memory.
+- Added `PRSMP FAMILY TREND` (prior-window net drift) so cadence/style instability is visible in digest triage alongside PRMS/PRSP/PRSMC.
+- Regression coverage updated in `scripts/regression_weekly_portal_prompt_readability_drift.py`; full suite passes.

@@ -1735,3 +1735,9 @@
 - Completed slice: `PRSMP:<A|B|D>` compact alias for `PULSE REMAP SCENE MICROLINE STYLE POLICY`, gated by `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_STYLE_POLICY_ALIAS`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Next backlog injection: token-family churn coverage for `PRSMP` and offline cadence-volatility smoothing policy.
+
+## 2026-03-26 02:34 KST
+- Cycle DW follow-up logged.
+- Systems/QA slice shipped: added PRSMP/style-policy family churn + family trend visibility and smoothing signal coverage in weekly drift digest.
+- Verification: [PASS] weekly portal prompt readability drift regression checks PASS.
+- Follow-up: monitor whether PRSMP trend stays FLAT after smoothing adoption; escalate only if sustained UP with high churn.

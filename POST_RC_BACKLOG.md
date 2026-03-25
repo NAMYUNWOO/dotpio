@@ -873,5 +873,12 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/World): Prototype offline cadence-memory volatility smoothing policy to reduce style-policy oscillation across windows.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/World Team: Add compact style-policy alias token (`PRSMP:<A|B|D>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_STYLE_POLICY_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 02:08 KST)*
-- [ ] Systems/QA Team: Add weekly digest token-family churn coverage for `PULSE REMAP SCENE MICROLINE STYLE POLICY:` + `PRSMP:`.
-- [ ] AI Content/World Team: Prototype offline cadence-memory volatility smoothing policy for style-policy oscillation control.
+- [x] Systems/QA Team: Add weekly digest token-family churn coverage for `PULSE REMAP SCENE MICROLINE STYLE POLICY:` + `PRSMP:`. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 02:33 KST)*
+- [x] AI Content/World Team: Prototype offline cadence-memory volatility smoothing policy for style-policy oscillation control. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 02:33 KST)*
+
+## Cycle DW - Game Director Review (2026-03-26 02:34 KST)
+- Idea 1 (low risk, Systems/QA): Add style-policy family trend drift row (`PRSMP FAMILY TREND`) with prior-window context.
+- Idea 2 (mid risk, AI Content/World): Add style-policy smoothing parity token (`PULSE REMAP SCENE MICROLINE STYLE POLICY SMOOTH`) for oscillation visibility.
+- Idea 3 (high risk, Combat/UX): Prototype style-policy-aware posture warning escalation hook for readability pacing.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add style-policy family trend drift row (`PRSMP FAMILY TREND`) with prior-window context + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 02:34 KST)*

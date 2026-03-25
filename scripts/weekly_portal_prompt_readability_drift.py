@@ -95,7 +95,7 @@ TOKEN_ALIAS_FAMILIES = {
     "pulseRemapSuppressionPlanAlias": ["PULSE REMAP SUPPRESS PLAN:", "PRSP:"],
     "pulseRemapSceneMicrolineVariantPackAlias": ["PULSE REMAP SCENE MICROLINE VARIANT PACK:"],
     "pulseRemapSceneMicrolineVariantPackSelectionAlias": ["PRSMV:"],
-    "pulseRemapSceneMicrolineStylePolicyAlias": ["PRSMP:"],
+    "pulseRemapSceneMicrolineStylePolicyAlias": ["PULSE REMAP SCENE MICROLINE STYLE POLICY:", "PRSMP:"],
     "pulseRemapSceneMicrolineCadenceAlias": ["PULSE REMAP SCENE MICROLINE CADENCE:"],
     "pulseRemapSuppressionPostureWarningAlias": ["PRPW:"],
     "dmgGlyphAlias": ["DMG GLYPH:"],
@@ -7028,6 +7028,48 @@ def pulse_remap_scene_microline_style_diversification_policy_from_signals(
     }
 
 
+def pulse_remap_scene_microline_style_policy_smoothed_from_prior(
+    *,
+    policy: str,
+    policy_signals: dict[str, object],
+    prior_json_path: Path,
+) -> tuple[str, dict[str, object]]:
+    """Offline-only volatility smoothing guard for style-policy oscillation control."""
+    current_policy = str(policy).strip().upper() or "BLEND"
+    volatility = int(policy_signals.get("cadenceVolatility", 0) or 0)
+
+    prior_policy = current_policy
+    prior_loaded = False
+    if prior_json_path.is_file():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_policy = str(
+                prior_payload.get(
+                    "pulseRemapSceneMicrolineStylePolicySmoothed",
+                    prior_payload.get("pulseRemapSceneMicrolineStyleDiversificationPolicy", current_policy),
+                )
+            ).strip().upper() or current_policy
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    if prior_loaded and current_policy != prior_policy and volatility <= 1:
+        smoothed_policy = prior_policy
+        reason = "hold-prior-policy-on-low-volatility"
+    else:
+        smoothed_policy = current_policy
+        reason = "adopt-current-policy"
+
+    return smoothed_policy, {
+        "currentPolicy": current_policy,
+        "priorPolicy": prior_policy,
+        "priorLoaded": prior_loaded,
+        "cadenceVolatility": volatility,
+        "reason": reason,
+        "offlineOnly": True,
+    }
+
+
 def pulse_remap_scene_microline_cadence_from_signals(
     *,
     suppression_plan: str,
@@ -7266,6 +7308,46 @@ def pulse_remap_scene_microline_cadence_family_trend_from_prior(
     else:
         trend = "FLAT"
         reason = "scene-microline-cadence-family-net-unchanged-vs-prior-window"
+
+    return drift, {
+        "trend": trend,
+        "currentNet": current_net,
+        "priorNet": prior_net,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
+def pulse_remap_scene_microline_style_policy_family_trend_from_prior(
+    *,
+    current_family_totals: dict[str, int],
+    prior_json_path: Path,
+) -> tuple[int, dict[str, object]]:
+    """Track PRSMP/style-policy family net drift against prior digest window."""
+    current_net = int(current_family_totals.get("net", 0) or 0)
+    prior_net = 0
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_families = prior_payload.get("tokenFamilyTotals", {})
+            prior_family = prior_families.get("pulseRemapSceneMicrolineStylePolicyAlias", {}) if isinstance(prior_families, dict) else {}
+            prior_net = int(prior_family.get("net", 0) or 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    drift = current_net - prior_net
+    if drift > 0:
+        trend = "UP"
+        reason = "scene-microline-style-policy-family-net-increased-vs-prior-window"
+    elif drift < 0:
+        trend = "DOWN"
+        reason = "scene-microline-style-policy-family-net-decreased-vs-prior-window"
+    else:
+        trend = "FLAT"
+        reason = "scene-microline-style-policy-family-net-unchanged-vs-prior-window"
 
     return drift, {
         "trend": trend,
@@ -7548,6 +7630,10 @@ def main() -> int:
         current_family_totals=token_family_totals["pulseRemapSceneMicrolineCadenceAlias"],
         prior_json_path=args.out_json,
     )
+    pulse_remap_scene_microline_style_policy_family_trend_drift, pulse_remap_scene_microline_style_policy_family_trend_signals = pulse_remap_scene_microline_style_policy_family_trend_from_prior(
+        current_family_totals=token_family_totals["pulseRemapSceneMicrolineStylePolicyAlias"],
+        prior_json_path=args.out_json,
+    )
     pulse_remap_suppression_escalation_plan, pulse_remap_suppression_escalation_plan_signals = pulse_remap_suppression_escalation_plan_from_signals(
         suppression=pulse_remap_momentum_suppression,
         suppression_signals=pulse_remap_momentum_suppression_signals,
@@ -7595,6 +7681,11 @@ def main() -> int:
         scene_confidence=pulse_remap_scene_confidence,
         lane_cadence_recency=lane_cadence_recency,
         suppression_plan_family_trend_signals=pulse_remap_suppression_plan_family_trend_signals,
+    )
+    pulse_remap_scene_microline_style_policy_smoothed, pulse_remap_scene_microline_style_policy_smoothed_signals = pulse_remap_scene_microline_style_policy_smoothed_from_prior(
+        policy=pulse_remap_scene_microline_style_diversification_policy,
+        policy_signals=pulse_remap_scene_microline_style_diversification_policy_signals,
+        prior_json_path=args.out_json,
     )
     pulse_remap_scene_microline_style_policy_alias = resolve_pulse_remap_scene_microline_style_policy_alias(
         pulse_remap_scene_microline_style_diversification_policy
@@ -8443,6 +8534,8 @@ def main() -> int:
         "pulseRemapSuppressionPlanFamilyTrendSignals": pulse_remap_suppression_plan_family_trend_signals,
         "pulseRemapSceneMicrolineCadenceFamilyTrendDrift": pulse_remap_scene_microline_cadence_family_trend_drift,
         "pulseRemapSceneMicrolineCadenceFamilyTrendSignals": pulse_remap_scene_microline_cadence_family_trend_signals,
+        "pulseRemapSceneMicrolineStylePolicyFamilyTrendDrift": pulse_remap_scene_microline_style_policy_family_trend_drift,
+        "pulseRemapSceneMicrolineStylePolicyFamilyTrendSignals": pulse_remap_scene_microline_style_policy_family_trend_signals,
         "pulseRemapSuppressionEscalationPlan": pulse_remap_suppression_escalation_plan,
         "pulseRemapSuppressionEscalationPlanSignals": pulse_remap_suppression_escalation_plan_signals,
         "pulseRemapSuppressionSceneFlavor": pulse_remap_suppression_scene_flavor,
@@ -8460,6 +8553,8 @@ def main() -> int:
         },
         "pulseRemapSceneMicrolineStyleDiversificationPolicy": pulse_remap_scene_microline_style_diversification_policy,
         "pulseRemapSceneMicrolineStyleDiversificationPolicySignals": pulse_remap_scene_microline_style_diversification_policy_signals,
+        "pulseRemapSceneMicrolineStylePolicySmoothed": pulse_remap_scene_microline_style_policy_smoothed,
+        "pulseRemapSceneMicrolineStylePolicySmoothedSignals": pulse_remap_scene_microline_style_policy_smoothed_signals,
         "pulseRemapSceneMicrolineStylePolicyAlias": pulse_remap_scene_microline_style_policy_alias,
         "pulseRemapSceneMicrolineStylePolicyAliasSignals": {
             "flagName": pulse_remap_scene_microline_style_policy_alias_flag_name,
@@ -8831,6 +8926,7 @@ def main() -> int:
         f"- PULSE REMAP SCENE MICROLINE: **{pulse_remap_suppression_scene_microline}** ({pulse_remap_suppression_scene_microline_signals['reason']}; plan={pulse_remap_suppression_scene_microline_signals['suppressionPlan']} flavor={pulse_remap_suppression_scene_microline_signals['sceneFlavor']} conf={pulse_remap_suppression_scene_microline_signals['sceneConfidence']} cadence={pulse_remap_suppression_scene_microline_signals['laneCadenceRecency']} memory={pulse_remap_suppression_scene_microline_signals['cadenceMemory']} offlineOnly={pulse_remap_suppression_scene_microline_signals['offlineOnly']})",
         f"- PULSE REMAP SCENE MICROLINE VARIANT PACK: **{pulse_remap_scene_microline_variant_pack['selectedMode']}** (selected={pulse_remap_scene_microline_variant_pack['selected']} | primary={pulse_remap_scene_microline_variant_pack['primary']} | alt={pulse_remap_scene_microline_variant_pack['alternate']} | fallback={pulse_remap_scene_microline_variant_pack['fallback']} | reason={pulse_remap_scene_microline_variant_pack_signals['reason']} offlineOnly={pulse_remap_scene_microline_variant_pack_signals['offlineOnly']})",
         f"- PULSE REMAP SCENE MICROLINE STYLE POLICY: **{pulse_remap_scene_microline_style_diversification_policy}** ({pulse_remap_scene_microline_style_diversification_policy_signals['reason']}; plan={pulse_remap_scene_microline_style_diversification_policy_signals['suppressionPlan']} conf={pulse_remap_scene_microline_style_diversification_policy_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_style_diversification_policy_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_style_diversification_policy_signals['cadenceTrend']} volatility={pulse_remap_scene_microline_style_diversification_policy_signals['cadenceVolatility']} prior={pulse_remap_scene_microline_style_diversification_policy_signals['priorNet']:+d} current={pulse_remap_scene_microline_style_diversification_policy_signals['currentNet']:+d} offlineOnly={pulse_remap_scene_microline_style_diversification_policy_signals['offlineOnly']})",
+        f"- PULSE REMAP SCENE MICROLINE STYLE POLICY SMOOTH: **{pulse_remap_scene_microline_style_policy_smoothed}** ({pulse_remap_scene_microline_style_policy_smoothed_signals['reason']}; current={pulse_remap_scene_microline_style_policy_smoothed_signals['currentPolicy']} prior={pulse_remap_scene_microline_style_policy_smoothed_signals['priorPolicy']} volatility={pulse_remap_scene_microline_style_policy_smoothed_signals['cadenceVolatility']} loaded={pulse_remap_scene_microline_style_policy_smoothed_signals['priorLoaded']} offlineOnly={pulse_remap_scene_microline_style_policy_smoothed_signals['offlineOnly']})",
         f"- PRSMP: **{pulse_remap_scene_microline_style_policy_alias if pulse_remap_scene_microline_style_policy_alias_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_scene_microline_style_policy_alias_flag_name} enabled={pulse_remap_scene_microline_style_policy_alias_flag_enabled} full={pulse_remap_scene_microline_style_diversification_policy})",
         f"- PRSMV: **{pulse_remap_scene_microline_variant_pack_selection_alias if pulse_remap_scene_microline_variant_pack_selection_alias_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_scene_microline_variant_pack_selection_alias_flag_name} enabled={pulse_remap_scene_microline_variant_pack_selection_alias_flag_enabled} full={pulse_remap_scene_microline_variant_pack['selectedMode']})",
         f"- PULSE REMAP SCENE MICROLINE CADENCE: **{pulse_remap_scene_microline_cadence}** ({pulse_remap_scene_microline_cadence_signals['reason']}; plan={pulse_remap_scene_microline_cadence_signals['suppressionPlan']} conf={pulse_remap_scene_microline_cadence_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_cadence_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_cadence_signals['cadenceTrend']} offlineOnly={pulse_remap_scene_microline_cadence_signals['offlineOnly']})",
@@ -9000,9 +9096,12 @@ def main() -> int:
         f"- PULSE REMAP SUPPRESS FAMILY CHURN: **net {token_family_totals['pulseRemapMomentumSuppressionAlias']['net']:+d}** (added={token_family_totals['pulseRemapMomentumSuppressionAlias']['added']} removed={token_family_totals['pulseRemapMomentumSuppressionAlias']['removed']} churn={token_family_totals['pulseRemapMomentumSuppressionAlias']['churn']} coverage={token_family_totals['pulseRemapMomentumSuppressionAlias']['coverage']})",
         f"- PULSE REMAP SUPPRESS PLAN FAMILY CHURN: **net {token_family_totals['pulseRemapSuppressionPlanAlias']['net']:+d}** (added={token_family_totals['pulseRemapSuppressionPlanAlias']['added']} removed={token_family_totals['pulseRemapSuppressionPlanAlias']['removed']} churn={token_family_totals['pulseRemapSuppressionPlanAlias']['churn']} coverage={token_family_totals['pulseRemapSuppressionPlanAlias']['coverage']})",
         f"- PULSE REMAP SCENE MICROLINE VARIANT PACK FAMILY CHURN: **net {token_family_totals['pulseRemapSceneMicrolineVariantPackAlias']['net']:+d}** (added={token_family_totals['pulseRemapSceneMicrolineVariantPackAlias']['added']} removed={token_family_totals['pulseRemapSceneMicrolineVariantPackAlias']['removed']} churn={token_family_totals['pulseRemapSceneMicrolineVariantPackAlias']['churn']} coverage={token_family_totals['pulseRemapSceneMicrolineVariantPackAlias']['coverage']})",
+        f"- PULSE REMAP SCENE MICROLINE STYLE POLICY + PRSMP FAMILY CHURN: **net {token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['net']:+d}** (added={token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['added']} removed={token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['removed']} churn={token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['churn']} coverage={token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['coverage']})",
         f"- PRMS FAMILY TREND: **{pulse_remap_suppression_family_trend_signals['trend']}** (Δnet={pulse_remap_suppression_family_trend_drift:+d} currentNet={pulse_remap_suppression_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_family_trend_signals['priorLoaded']} reason={pulse_remap_suppression_family_trend_signals['reason']})",
         f"- PRSP FAMILY TREND: **{pulse_remap_suppression_plan_family_trend_signals['trend']}** (Δnet={pulse_remap_suppression_plan_family_trend_drift:+d} currentNet={pulse_remap_suppression_plan_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_plan_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_plan_family_trend_signals['priorLoaded']} reason={pulse_remap_suppression_plan_family_trend_signals['reason']})",
         f"- PRSMC FAMILY TREND: **{pulse_remap_scene_microline_cadence_family_trend_signals['trend']}** (Δnet={pulse_remap_scene_microline_cadence_family_trend_drift:+d} currentNet={pulse_remap_scene_microline_cadence_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_scene_microline_cadence_family_trend_signals['priorNet']:+d} loaded={pulse_remap_scene_microline_cadence_family_trend_signals['priorLoaded']} reason={pulse_remap_scene_microline_cadence_family_trend_signals['reason']})",
+        f"- PRSMP FAMILY TREND: **{pulse_remap_scene_microline_style_policy_family_trend_signals['trend']}** (Δnet={pulse_remap_scene_microline_style_policy_family_trend_drift:+d} currentNet={pulse_remap_scene_microline_style_policy_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_scene_microline_style_policy_family_trend_signals['priorNet']:+d} loaded={pulse_remap_scene_microline_style_policy_family_trend_signals['priorLoaded']} reason={pulse_remap_scene_microline_style_policy_family_trend_signals['reason']})",
+        f"- PRSMP FAMILY TREND: **{pulse_remap_scene_microline_style_policy_family_trend_signals['trend']}** (Δnet={pulse_remap_scene_microline_style_policy_family_trend_drift:+d} currentNet={pulse_remap_scene_microline_style_policy_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_scene_microline_style_policy_family_trend_signals['priorNet']:+d} loaded={pulse_remap_scene_microline_style_policy_family_trend_signals['priorLoaded']} reason={pulse_remap_scene_microline_style_policy_family_trend_signals['reason']})",
         f"- DMG GLYPH FAMILY CHURN: **net {token_family_totals['dmgGlyphAlias']['net']:+d}** (added={token_family_totals['dmgGlyphAlias']['added']} removed={token_family_totals['dmgGlyphAlias']['removed']} churn={token_family_totals['dmgGlyphAlias']['churn']} coverage={token_family_totals['dmgGlyphAlias']['coverage']})",
         f"- DMG GLYPH FX LIVE FAMILY CHURN: **net {token_family_totals['dmgGlyphFxLiveAlias']['net']:+d}** (added={token_family_totals['dmgGlyphFxLiveAlias']['added']} removed={token_family_totals['dmgGlyphFxLiveAlias']['removed']} churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']})",
         f"- LPR HYS THR FAMILY CHURN: **net {token_family_totals['lanePriorityHysteresisThresholdAlias']['net']:+d}** (added={token_family_totals['lanePriorityHysteresisThresholdAlias']['added']} removed={token_family_totals['lanePriorityHysteresisThresholdAlias']['removed']} churn={token_family_totals['lanePriorityHysteresisThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisThresholdAlias']['coverage']})",
@@ -9099,10 +9198,12 @@ def main() -> int:
         f"- PRMS + PULSE REMAP MOMENTUM SUPPRESS: +{token_family_totals['pulseRemapMomentumSuppressionAlias']['added']} / -{token_family_totals['pulseRemapMomentumSuppressionAlias']['removed']} / net {token_family_totals['pulseRemapMomentumSuppressionAlias']['net']} (churn={token_family_totals['pulseRemapMomentumSuppressionAlias']['churn']} coverage={token_family_totals['pulseRemapMomentumSuppressionAlias']['coverage']})",
         f"- PRSP + PULSE REMAP SUPPRESS PLAN: +{token_family_totals['pulseRemapSuppressionPlanAlias']['added']} / -{token_family_totals['pulseRemapSuppressionPlanAlias']['removed']} / net {token_family_totals['pulseRemapSuppressionPlanAlias']['net']} (churn={token_family_totals['pulseRemapSuppressionPlanAlias']['churn']} coverage={token_family_totals['pulseRemapSuppressionPlanAlias']['coverage']})",
         f"- PRSMV + PULSE REMAP SCENE MICROLINE VARIANT PACK: +{token_family_totals['pulseRemapSceneMicrolineVariantPackSelectionAlias']['added']} / -{token_family_totals['pulseRemapSceneMicrolineVariantPackSelectionAlias']['removed']} / net {token_family_totals['pulseRemapSceneMicrolineVariantPackSelectionAlias']['net']} (churn={token_family_totals['pulseRemapSceneMicrolineVariantPackSelectionAlias']['churn']} coverage={token_family_totals['pulseRemapSceneMicrolineVariantPackSelectionAlias']['coverage']})",
+        f"- PRSMP + PULSE REMAP SCENE MICROLINE STYLE POLICY: +{token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['added']} / -{token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['removed']} / net {token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['net']} (churn={token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['churn']} coverage={token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['coverage']})",
         f"- PULSE REMAP SCENE: {pulse_remap_suppression_scene_flavor} (plan={pulse_remap_suppression_scene_flavor_signals['suppressionPlan']} driftRisk={pulse_remap_suppression_scene_flavor_signals['driftRisk']} pressure={pulse_remap_suppression_scene_flavor_signals['pressureBand']} cadence={pulse_remap_suppression_scene_flavor_signals['laneCadenceRecency']})",
         f"- PULSE REMAP SCENE CONF: {pulse_remap_scene_confidence} (plan={pulse_remap_scene_confidence_signals['suppressionPlan']} driftRisk={pulse_remap_scene_confidence_signals['driftRisk']} pressure={pulse_remap_scene_confidence_signals['pressureBand']} reason={pulse_remap_scene_confidence_signals['reason']})",
         f"- PULSE REMAP SCENE MICROLINE VARIANT PACK: {pulse_remap_scene_microline_variant_pack['selectedMode']} (selected={pulse_remap_scene_microline_variant_pack['selected']} reason={pulse_remap_scene_microline_variant_pack_signals['reason']} conf={pulse_remap_scene_microline_variant_pack_signals['sceneConfidence']} trend={pulse_remap_scene_microline_variant_pack_signals['cadenceTrend']})",
         f"- PULSE REMAP SCENE MICROLINE STYLE POLICY: {pulse_remap_scene_microline_style_diversification_policy} (plan={pulse_remap_scene_microline_style_diversification_policy_signals['suppressionPlan']} conf={pulse_remap_scene_microline_style_diversification_policy_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_style_diversification_policy_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_style_diversification_policy_signals['cadenceTrend']} vol={pulse_remap_scene_microline_style_diversification_policy_signals['cadenceVolatility']} reason={pulse_remap_scene_microline_style_diversification_policy_signals['reason']})",
+        f"- PULSE REMAP SCENE MICROLINE STYLE POLICY SMOOTH: {pulse_remap_scene_microline_style_policy_smoothed} (current={pulse_remap_scene_microline_style_policy_smoothed_signals['currentPolicy']} prior={pulse_remap_scene_microline_style_policy_smoothed_signals['priorPolicy']} volatility={pulse_remap_scene_microline_style_policy_smoothed_signals['cadenceVolatility']} reason={pulse_remap_scene_microline_style_policy_smoothed_signals['reason']})",
         f"- PRSMP: {pulse_remap_scene_microline_style_policy_alias if pulse_remap_scene_microline_style_policy_alias_flag_enabled else 'FLAG OFF'} (policy={pulse_remap_scene_microline_style_diversification_policy} flag={pulse_remap_scene_microline_style_policy_alias_flag_name} enabled={pulse_remap_scene_microline_style_policy_alias_flag_enabled})",
         f"- PRSMV: {pulse_remap_scene_microline_variant_pack_selection_alias if pulse_remap_scene_microline_variant_pack_selection_alias_flag_enabled else 'FLAG OFF'} (selectedMode={pulse_remap_scene_microline_variant_pack['selectedMode']} flag={pulse_remap_scene_microline_variant_pack_selection_alias_flag_name} enabled={pulse_remap_scene_microline_variant_pack_selection_alias_flag_enabled})",
         f"- PULSE REMAP SCENE MICROLINE CADENCE: {pulse_remap_scene_microline_cadence} (plan={pulse_remap_scene_microline_cadence_signals['suppressionPlan']} conf={pulse_remap_scene_microline_cadence_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_cadence_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_cadence_signals['cadenceTrend']} reason={pulse_remap_scene_microline_cadence_signals['reason']})",
@@ -9110,6 +9211,7 @@ def main() -> int:
         f"- PRMS FAMILY TREND: {pulse_remap_suppression_family_trend_signals['trend']} (Δnet={pulse_remap_suppression_family_trend_drift:+d} currentNet={pulse_remap_suppression_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_family_trend_signals['priorLoaded']})",
         f"- PRSP FAMILY TREND: {pulse_remap_suppression_plan_family_trend_signals['trend']} (Δnet={pulse_remap_suppression_plan_family_trend_drift:+d} currentNet={pulse_remap_suppression_plan_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_plan_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_plan_family_trend_signals['priorLoaded']})",
         f"- PRSMC FAMILY TREND: {pulse_remap_scene_microline_cadence_family_trend_signals['trend']} (Δnet={pulse_remap_scene_microline_cadence_family_trend_drift:+d} currentNet={pulse_remap_scene_microline_cadence_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_scene_microline_cadence_family_trend_signals['priorNet']:+d} loaded={pulse_remap_scene_microline_cadence_family_trend_signals['priorLoaded']})",
+        f"- PRSMP FAMILY TREND: {pulse_remap_scene_microline_style_policy_family_trend_signals['trend']} (Δnet={pulse_remap_scene_microline_style_policy_family_trend_drift:+d} currentNet={pulse_remap_scene_microline_style_policy_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_scene_microline_style_policy_family_trend_signals['priorNet']:+d} loaded={pulse_remap_scene_microline_style_policy_family_trend_signals['priorLoaded']})",
         f"- DMG GLYPH: +{token_family_totals['dmgGlyphAlias']['added']} / -{token_family_totals['dmgGlyphAlias']['removed']} / net {token_family_totals['dmgGlyphAlias']['net']} (churn={token_family_totals['dmgGlyphAlias']['churn']} coverage={token_family_totals['dmgGlyphAlias']['coverage']})",
         f"- DMG GLYPH FX LIVE: +{token_family_totals['dmgGlyphFxLiveAlias']['added']} / -{token_family_totals['dmgGlyphFxLiveAlias']['removed']} / net {token_family_totals['dmgGlyphFxLiveAlias']['net']} (churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']})",
         f"- LPR HYS THR: +{token_family_totals['lanePriorityHysteresisThresholdAlias']['added']} / -{token_family_totals['lanePriorityHysteresisThresholdAlias']['removed']} / net {token_family_totals['lanePriorityHysteresisThresholdAlias']['net']} (churn={token_family_totals['lanePriorityHysteresisThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisThresholdAlias']['coverage']})",

@@ -401,6 +401,15 @@ def main() -> int:
             "reason",
             "offlineOnly",
         }, payload
+        assert payload.get("pulseRemapSceneMicrolineStylePolicySmoothed") in {"ANCHOR", "BLEND", "DIVERSIFY"}, payload
+        assert set(payload.get("pulseRemapSceneMicrolineStylePolicySmoothedSignals", {}).keys()) == {
+            "currentPolicy",
+            "priorPolicy",
+            "priorLoaded",
+            "cadenceVolatility",
+            "reason",
+            "offlineOnly",
+        }, payload
         assert isinstance(payload.get("pulseRemapSceneMicrolineStylePolicyAlias"), str) and payload["pulseRemapSceneMicrolineStylePolicyAlias"].startswith("PRSMP:"), payload
         assert set(payload.get("pulseRemapSceneMicrolineStylePolicyAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert payload.get("pulseRemapSceneMicrolineCadence") in {"RISE", "HOLD", "COOL"}, payload
@@ -411,6 +420,14 @@ def main() -> int:
             "cadenceTrend",
             "reason",
             "offlineOnly",
+        }, payload
+        assert isinstance(payload.get("pulseRemapSceneMicrolineStylePolicyFamilyTrendDrift"), int), payload
+        assert set(payload.get("pulseRemapSceneMicrolineStylePolicyFamilyTrendSignals", {}).keys()) == {
+            "trend",
+            "currentNet",
+            "priorNet",
+            "priorLoaded",
+            "reason",
         }, payload
         assert payload.get("pulseRemapSuppressionPostureWarning") in {"STEADY", "CAUTION", "ALERT"}, payload
         assert set(payload.get("pulseRemapSuppressionPostureWarningSignals", {}).keys()) == {
@@ -2039,6 +2056,7 @@ def main() -> int:
         assert "PULSE REMAP SUPPRESS FAMILY CHURN" in md_text
         assert "PULSE REMAP SUPPRESS PLAN FAMILY CHURN" in md_text
         assert "PULSE REMAP SCENE MICROLINE VARIANT PACK FAMILY CHURN" in md_text
+        assert "PULSE REMAP SCENE MICROLINE STYLE POLICY + PRSMP FAMILY CHURN" in md_text
         assert "DMG GLYPH FAMILY CHURN" in md_text
         assert "DMG GLYPH FX LIVE FAMILY CHURN" in md_text
         assert "LPR HYS THR FAMILY CHURN" in md_text
@@ -2090,6 +2108,7 @@ def main() -> int:
         assert "PULSE REMAP SCENE MICROLINE:" in md_text
         assert "PULSE REMAP SCENE MICROLINE VARIANT PACK:" in md_text
         assert "PULSE REMAP SCENE MICROLINE STYLE POLICY:" in md_text
+        assert "PULSE REMAP SCENE MICROLINE STYLE POLICY SMOOTH:" in md_text
         assert "PRSMP:" in md_text
         assert "PULSE REMAP SCENE MICROLINE CADENCE:" in md_text
         assert "PRMS:" in md_text
@@ -2100,9 +2119,11 @@ def main() -> int:
         assert "PRMS + PULSE REMAP MOMENTUM SUPPRESS:" in md_text
         assert "PRSP + PULSE REMAP SUPPRESS PLAN:" in md_text
         assert "PRSMV + PULSE REMAP SCENE MICROLINE VARIANT PACK:" in md_text
+        assert "PRSMP + PULSE REMAP SCENE MICROLINE STYLE POLICY:" in md_text
         assert "PRMS FAMILY TREND:" in md_text
         assert "PRSP FAMILY TREND:" in md_text
         assert "PRSMC FAMILY TREND:" in md_text
+        assert "PRSMP FAMILY TREND:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
         assert "LPR HYS THR:" in md_text
