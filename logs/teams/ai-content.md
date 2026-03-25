@@ -1801,3 +1801,9 @@
 ## 2026-03-26 03:01 KST — Cycle DX AI-content lane note
 - Posture hook remains offline-only recommendation metadata (no runtime narrative coupling).
 - High-risk idea (style-policy-aware combat warning coupling) deferred.
+
+## [2026-03-26 03:36 KST] Cycle DY - PRSMPP compact style-posture alias
+- Task: Add `PRSMPP:<C|W|A>` alias for `PULSE REMAP SCENE MICROLINE STYLE POSTURE` in weekly digest (flag-gated).
+- Decision: Keep runtime untouched; scope limited to digest tokening/payload/markdown/regression.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
+- Follow-up: Consider churn-family trend row for `PRSMPP` if alias volatility increases.

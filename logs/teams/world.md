@@ -1773,3 +1773,9 @@
 ## 2026-03-26 03:01 KST — Cycle DX world/design cadence sync
 - Scope remained offline weekly digest analytics; no portal topology/map asset changes.
 - Posture token consumes existing lane-cadence + trend signals for route-ops readability.
+
+## [2026-03-26 03:36 KST] Cycle DY - PRSMPP compact style-posture alias
+- Task: Add `PRSMPP:<C|W|A>` alias for `PULSE REMAP SCENE MICROLINE STYLE POSTURE` in weekly digest (flag-gated).
+- Decision: Keep runtime untouched; scope limited to digest tokening/payload/markdown/regression.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
+- Follow-up: Consider churn-family trend row for `PRSMPP` if alias volatility increases.

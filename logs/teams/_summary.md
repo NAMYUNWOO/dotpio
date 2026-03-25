@@ -2968,3 +2968,10 @@ Compact decision memory for AI context efficiency.
 - Added payload contract keys `pulseRemapSceneMicrolineStylePolicyPostureHook` and `pulseRemapSceneMicrolineStylePolicyPostureHookSignals` plus markdown row coverage in weekly digest regression.
 - Verification PASS: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Next injected candidates: compact alias `PRSMP POSTURE:<C|W|A>` (mid risk) and style-policy-aware combat-warning coupling (high risk, offline-first).
+
+## 2026-03-26 03:36 KST — Cycle DY
+- Selected experiment: **Idea 2 (mid risk, UX/World)** from Game Director review.
+- Shipped: compact style-posture alias token `PRSMPP:<C|W|A>` for `PULSE REMAP SCENE MICROLINE STYLE POSTURE`, gated by `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_STYLE_POSTURE_ALIAS`.
+- Durable decision: keep this slice digest-only (no runtime gameplay coupling) and preserve deterministic posture mapping (`CALM/WARN/ALERT -> C/W/A`).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up candidate: add explicit `PRSMPP` family trend row if churn becomes non-flat over consecutive windows.

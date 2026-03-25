@@ -1091,3 +1091,10 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Combat): Prototype style-policy-aware suppression posture escalation hook for combat warning copy coupling.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add offline style-policy posture token (`PULSE REMAP SCENE MICROLINE STYLE POSTURE:CALM|WARN|ALERT`) to weekly digest payload + markdown + regression lock. *(lifecycle: [ ] -> [~] -> [x])*
+
+## Cycle DY - Game Director Review (2026-03-26 03:31 KST)
+- Idea 1 (low risk, Systems/QA): Add weekly digest token-family churn coverage for style-posture alias (`PRSMPP:`) with markdown triage row + regression lock.
+- Idea 2 (mid risk, UX/World): Add compact style-posture alias token (`PRSMPP:<C|W|A>`) behind flag for tighter digest scanability.
+- Idea 3 (high risk, AI Content/Combat): Prototype style-posture-aware suppression escalation hook recommendation policy from trend momentum.
+- Selected experiment: Idea 2 (minimal vertical slice).
+- [x] UX/World Team: Add compact style-posture alias token (`PRSMPP:<C|W|A>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_STYLE_POSTURE_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 03:36 KST)*

@@ -422,6 +422,8 @@ def main() -> int:
         }, payload
         assert isinstance(payload.get("pulseRemapSceneMicrolineStylePolicyAlias"), str) and payload["pulseRemapSceneMicrolineStylePolicyAlias"].startswith("PRSMP:"), payload
         assert set(payload.get("pulseRemapSceneMicrolineStylePolicyAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
+        assert isinstance(payload.get("pulseRemapSceneMicrolineStylePostureAlias"), str) and payload["pulseRemapSceneMicrolineStylePostureAlias"].startswith("PRSMPP:"), payload
+        assert set(payload.get("pulseRemapSceneMicrolineStylePostureAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert payload.get("pulseRemapSceneMicrolineCadence") in {"RISE", "HOLD", "COOL"}, payload
         assert set(payload.get("pulseRemapSceneMicrolineCadenceSignals", {}).keys()) == {
             "suppressionPlan",
@@ -2120,6 +2122,7 @@ def main() -> int:
         assert "PULSE REMAP SCENE MICROLINE STYLE POLICY:" in md_text
         assert "PULSE REMAP SCENE MICROLINE STYLE POLICY SMOOTH:" in md_text
         assert "PULSE REMAP SCENE MICROLINE STYLE POSTURE:" in md_text
+        assert "PRSMPP:" in md_text
         assert "PRSMP:" in md_text
         assert "PULSE REMAP SCENE MICROLINE CADENCE:" in md_text
         assert "PRMS:" in md_text
@@ -2131,6 +2134,7 @@ def main() -> int:
         assert "PRSP + PULSE REMAP SUPPRESS PLAN:" in md_text
         assert "PRSMV + PULSE REMAP SCENE MICROLINE VARIANT PACK:" in md_text
         assert "PRSMP + PULSE REMAP SCENE MICROLINE STYLE POLICY:" in md_text
+        assert "PRSMPP + PULSE REMAP SCENE MICROLINE STYLE POSTURE:" in md_text
         assert "PRMS FAMILY TREND:" in md_text
         assert "PRSP FAMILY TREND:" in md_text
         assert "PRSMC FAMILY TREND:" in md_text

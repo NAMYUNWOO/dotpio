@@ -245,3 +245,9 @@
 - Completed slice: `PRSMP:<A|B|D>` compact alias for `PULSE REMAP SCENE MICROLINE STYLE POLICY`, gated by `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_STYLE_POLICY_ALIAS`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Next backlog injection: token-family churn coverage for `PRSMP` and offline cadence-volatility smoothing policy.
+
+## [2026-03-26 03:36 KST] Cycle DY - PRSMPP compact style-posture alias
+- Task: Add `PRSMPP:<C|W|A>` alias for `PULSE REMAP SCENE MICROLINE STYLE POSTURE` in weekly digest (flag-gated).
+- Decision: Keep runtime untouched; scope limited to digest tokening/payload/markdown/regression.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
+- Follow-up: Consider churn-family trend row for `PRSMPP` if alias volatility increases.
