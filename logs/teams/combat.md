@@ -1766,3 +1766,7 @@
 - [2026-03-26 06:52 KST] Cycle EB: closed DMG COMBO observability slice (family churn + offline combo-window retune recommendation) and shipped compact alias token `DCR:<T|H|E>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_ALIAS` with regression lock.
 - [2026-03-26 07:01 KST] Cycle EB follow-up: closed Systems/QA backlog item by adding `DMG COMBO WINDOW RETUNE CONF:LOW|MID|HIGH` + compact alias `DCRC:<L|M|H>` token-family churn coverage in weekly digest payload/markdown, wired flag `DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_CONF_ALIAS`, and locked with regression (`scripts/regression_weekly_portal_prompt_readability_drift.py`).
 - [2026-03-26 07:31 KST] Cycle EB follow-up closeout: shipped offline `DMG COMBO CHAIN COACH:` narrative line tied to combo-window retune recommendation + pressure/drift cadence signals in `scripts/weekly_portal_prompt_readability_drift.py`; locked via regression (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).
+
+## 2026-03-26 08:03 KST — Cycle EE
+- No combat tuning change this cycle (digest-only hygiene).
+- Existing combat debug token contracts remain unchanged.

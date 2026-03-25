@@ -1143,3 +1143,11 @@ See project-level plans:
 - [x] Combat/UX Team: Add compact combo-window retune alias (`DCR:<T|H|E>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_ALIAS` with digest markdown row + token-family churn coverage + regression lock. *(lifecycle: [ ] -> [x]; completed: 2026-03-26 06:52 KST)*
 - [x] Systems/QA Team: Add combo-window retune confidence token-family churn coverage (`DMG COMBO WINDOW RETUNE CONF:` + compact alias) with regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 07:01 KST)*
 - [x] AI Content/Combat Team: Prototype offline combo-chain narrative coach line tied to combo-window retune + pressure trend (offline-only). *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 07:31 KST)*
+
+## Cycle EE - Game Director Review (2026-03-26 08:02 KST)
+- Coverage check (last 10 completions): systems/qa and combat instrumentation remain dominant; selected a low-risk systems/qa hygiene slice to harden digest readability contracts.
+- Idea 1 (low risk, Systems/QA): Remove duplicate `PRSMP FAMILY TREND` markdown row and lock uniqueness with regression assertion.
+- Idea 2 (mid risk, UX/World): Add compact style-posture family trend row (`PRSMPP FAMILY TREND`) for parity with style-policy trend visibility.
+- Idea 3 (high risk, AI Content/Systems): Prototype offline de-dup normalizer that auto-collapses repeated digest lines before publish.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: De-duplicate `PRSMP FAMILY TREND` markdown emission and add regression guard (`count == 2` digest occurrences: summary + token-family section). *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 08:03 KST)*

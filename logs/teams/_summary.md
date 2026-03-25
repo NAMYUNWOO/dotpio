@@ -3013,3 +3013,10 @@ Compact decision memory for AI context efficiency.
 - Added token-family observability for coach copy (`dmgComboChainCoachAlias`) with family churn rows in digest markdown summaries.
 - Regression lock extended to require `DMG COMBO CHAIN COACH` + coach family-churn rows; verification PASS via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 -m py_compile ...`.
 - Durable decision: keep coach line offline-only and deterministic; no gameplay/runtime coupling.
+
+### 2026-03-26 08:03 KST — Cycle EE (Systems/QA digest hygiene)
+- All actionable backlog checklists remained fully checked; triggered Game Director review cycle.
+- Selected Idea 1 (low risk): remove accidental duplicate `PRSMP FAMILY TREND` row from weekly digest markdown output.
+- Durable contract: `PRSMP FAMILY TREND` should appear exactly **2** times in digest markdown (main trend line + token-family coverage section).
+- Verification lock: `scripts/regression_weekly_portal_prompt_readability_drift.py` now asserts `md_text.count("PRSMP FAMILY TREND:") == 2`.
+- Impact: reduced operator scan noise without changing gameplay/runtime behavior.

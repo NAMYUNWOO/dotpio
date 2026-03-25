@@ -2179,6 +2179,7 @@ def main() -> int:
         assert "PRSP FAMILY TREND:" in md_text
         assert "PRSMC FAMILY TREND:" in md_text
         assert "PRSMP FAMILY TREND:" in md_text
+        assert md_text.count("PRSMP FAMILY TREND:") == 2, md_text
         assert "PRSFX FAMILY TREND:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
