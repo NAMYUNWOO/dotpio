@@ -903,3 +903,13 @@ See project-level plans:
 - [x] UX/World Team: Prototype compact ambient auto-remap confidence band alias (`ARW APC:<L|M|H>`) behind flag in digest summary. *(lifecycle: [~] -> [x])* 
 - [x] AI Content/Systems Team: Prototype offline confidence momentum policy for auto-remap freeze recommendation. *(lifecycle: [ ] -> [~] -> [x])*
 
+
+## Cycle DF - Game Director Review (2026-03-25 09:06 KST)
+- Coverage check (last 10 completions): systems/qa-heavy observability trend persists while combat/vfx and world/design remain represented; choose a low-risk systems slice to lock newly added ambient remap aliases.
+- Idea 1 (low risk, Systems/QA): Add weekly digest token-family churn coverage for `ARW APC:` + momentum recommendation line (`ARW AUTO PLAN CONF MOMENTUM:`) with markdown triage rows + regression lock.
+- Idea 2 (mid risk, UX/World): Add compact digest debug token for confidence momentum state (`ARW MOMENTUM:FREEZE|WATCH|ALLOW`) behind flag.
+- Idea 3 (high risk, AI Content/Systems): Prototype offline confidence-oscillation dampening score (`ARW MOMENTUM SCORE:<n>`) from multi-window confidence drift.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add weekly digest token-family churn coverage for `ARW APC:` + `ARW AUTO PLAN CONF MOMENTUM:` and lock via regression. *(lifecycle: [~] -> [x])*
+- [ ] UX/World Team: Prototype compact digest momentum alias token (`ARW MOMENTUM:<F|W|A>`) behind flag for tighter scanability.
+- [ ] AI Content/Systems Team: Prototype offline confidence-oscillation dampening score (`ARW MOMENTUM SCORE:<n>`) from multi-window confidence drift.

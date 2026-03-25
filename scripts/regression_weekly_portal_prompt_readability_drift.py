@@ -1549,6 +1549,21 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert payload.get("ambientRampWhyAutoRemapConfidenceBandAlias") in {"L", "M", "H"}, payload
+        assert set(payload.get("ambientRampWhyAutoRemapConfidenceBandAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
+        assert payload.get("ambientRampWhyAutoRemapConfidenceMomentumFreezeRecommendation") in {"FREEZE", "WATCH", "ALLOW"}, payload
+        assert set(payload.get("ambientRampWhyAutoRemapConfidenceMomentumFreezeRecommendationSignals", {}).keys()) == {
+            "currentConfidence",
+            "confidenceDrift",
+            "confidenceStreak",
+            "planDrift",
+            "parity",
+            "driftRisk",
+            "candidateSuppressed",
+            "oscillating",
+            "offlineOnly",
+            "reason",
+        }, payload
         assert out_ambient_auto_remap_json.exists()
         assert out_ambient_auto_remap_md.exists()
         md_text = out_md.read_text(encoding="utf-8")
@@ -1632,6 +1647,8 @@ def main() -> int:
         assert "ARW AUTO PLAN CONF Δ" in md_text
         assert "AMBIENT RAMP WHY REC CONF STREAK" in md_text
         assert "ARW AUTO PLAN FAMILY CHURN" in md_text
+        assert "ARW APC FAMILY CHURN" in md_text
+        assert "ARW AUTO PLAN CONF MOMENTUM FAMILY CHURN" in md_text
         assert "ARW AUTO PLAN CANDIDATE SUPPRESS" in md_text
         assert "URGENCY STACK PRUNING REC" in md_text
         assert "URGENCY STACK RAIL REC" in md_text

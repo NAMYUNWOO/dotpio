@@ -2943,3 +2943,16 @@
   - No screenshot refresh (digest/reporting-only change).
 - Follow-up:
   - Proceed to Game Director cycle (3 ideas -> select 1 -> minimal vertical slice) now that backlog items are all checked.
+
+## 2026-03-25 09:08:10 KST
+- Task: Verify Cycle DF systems/qa digest-family coverage slice (`ARW APC`, `ARW AUTO PLAN CONF MOMENTUM`).
+- Commit: HEAD (this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Regression contract now asserts new JSON keys/signals and markdown family-churn rows for ARW APC/momentum tokens.
+  - No portal validator/screenshot refresh required (reporting-only Python/docs change).
+- Follow-up:
+  - Next Cycle DF candidates remain queued in backlog (`ARW MOMENTUM:<F|W|A>`, `ARW MOMENTUM SCORE:<n>`).

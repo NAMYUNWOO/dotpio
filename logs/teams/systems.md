@@ -2400,3 +2400,16 @@
   - Added JSON payload keys for alias signals and offline momentum-freeze recommendation signals for downstream tooling.
 - Follow-up:
   - Next run should execute Game Director review loop because actionable backlog is clear.
+
+## 2026-03-25 09:08:10 KST
+- Task: Cycle DF selected experiment — add digest family churn rows for `ARW APC` and `ARW AUTO PLAN CONF MOMENTUM`.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added dedicated alias family metrics (`ambientRampWhyAutoRemapConfidenceBandAlias`, `ambientRampWhyAutoRemapConfidenceMomentumAlias`) so ARW APC and momentum recommendation churn are explicitly auditable.
+  - Added markdown triage rows and token-family coverage rows to keep operator scans consistent with prior digest families.
+- Follow-up:
+  - Remaining Cycle DF queued items: compact momentum alias token + offline momentum score prototype.

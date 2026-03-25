@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-25 09:03 KST
+Last updated: 2026-03-25 09:08 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Cycle DF triggered after actionable queue clear: generated 3 ideas, selected low-risk Systems/QA vertical slice, and shipped family-churn observability for `ARW APC` + `ARW AUTO PLAN CONF MOMENTUM`.
+- Weekly digest now emits dedicated family rows (`ARW APC FAMILY CHURN`, `ARW AUTO PLAN CONF MOMENTUM FAMILY CHURN`) plus Token Family Coverage rows for both families.
+- Regression contract now locks new JSON signal keys and markdown rows for the ARW APC/momentum families.
 
 - Closed remaining Cycle DE follow-ups: compact ambient auto-remap confidence alias `ARW APC:<L|M|H>` (flag-gated) and offline confidence momentum recommendation (`ARW AUTO PLAN CONF MOMENTUM:FREEZE|WATCH|ALLOW`) now ship in weekly digest artifacts.
 - Weekly digest schema/tokens updated with `ARW APC:` family coverage + recommendation signal payloads; regression + py_compile checks pass.
