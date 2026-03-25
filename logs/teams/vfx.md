@@ -251,3 +251,11 @@
 - Decision: Keep runtime untouched; scope limited to digest tokening/payload/markdown/regression.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
 - Follow-up: Consider churn-family trend row for `PRSMPP` if alias volatility increases.
+
+## 2026-03-26 03:45 KST — Cycle DZ (forced underrepresented lane pick)
+- Coverage check over last 10 completed items: systems=4, qa=4, world=5, ux=3, ai-content=3, combat=0, design=0, vfx=0.
+- Lane-cap trigger: world at 50% (>40%), so this cycle forced a combat/vfx-facing experiment.
+- Shipped minimal vertical slice: offline digest cue `PULSE REMAP SCENE FX GLINT:SOFT|VOID|SPIKE` derived from style posture + suppression warning + scene confidence.
+- Added payload contract keys `pulseRemapSceneFxGlint` and `pulseRemapSceneFxGlintSignals` + family churn row for `PULSE REMAP SCENE FX GLINT`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (PASS).
+- Follow-up injected: Systems/QA trend row for FX glint family drift, Combat/VFX compact alias candidate, Design/World copy palette recommendation tied to FX glint.

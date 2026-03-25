@@ -2975,3 +2975,15 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep this slice digest-only (no runtime gameplay coupling) and preserve deterministic posture mapping (`CALM/WARN/ALERT -> C/W/A`).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up candidate: add explicit `PRSMPP` family trend row if churn becomes non-flat over consecutive windows.
+
+## 2026-03-26 03:45 KST — Cycle DZ complete
+- Coverage check (last 10 completions): systems=4, qa=4, world=5, ux=3, ai-content=3, combat=0, design=0, vfx=0.
+- Lane-cap enforcement: world exceeded 40% (50%), so next experiment was forced into underrepresented lanes; picked **Combat/VFX** slice.
+- Candidate ideas generated:
+  - Low risk (Combat/VFX): add offline glint cue token from style posture/warning pressure for one-glance combat readability.
+  - Mid risk (Design/World): add digest copy palette recommendation keyed by glint tier for scene flavor consistency.
+  - High risk (Systems/Ops + VFX): add glint-family prior-window drift trend row with lane-cadence escalation guardrail.
+- Selected/implemented: low-risk Combat/VFX `PULSE REMAP SCENE FX GLINT:SOFT|VOID|SPIKE` + payload signals + token-family churn visibility.
+- Verification PASS: py_compile + weekly regression + digest generation.
+- 24h cadence guardrail status after this cycle: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Injected next backlog tasks: Combat/VFX compact glint alias prototype, Systems/QA glint family trend drift row, Design/World glint-linked narrative palette recommendation.

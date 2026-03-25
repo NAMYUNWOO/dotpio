@@ -889,3 +889,12 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/Combat): Prototype style-policy-aware suppression posture escalation hook for combat warning copy coupling.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add offline style-policy posture token (`PULSE REMAP SCENE MICROLINE STYLE POSTURE:CALM|WARN|ALERT`) to weekly digest payload + markdown + regression lock. *(lifecycle: [ ] -> [~] -> [x])*
+
+## Cycle DZ - Game Director Review (2026-03-26 03:45 KST, lane-cap forced underrepresented pick)
+- Coverage check (last 10 completions by lane): systems=4, qa=4, world=5, ux=3, ai-content=3, combat=0, design=0, vfx=0.
+- Lane cap breach: world (50%) > 40%; forced next experiment into underrepresented lanes.
+- Selected experiment: Idea 1 (Combat/VFX) — `PULSE REMAP SCENE FX GLINT:SOFT|VOID|SPIKE` (offline digest-only).
+- [x] Combat/VFX Team: Ship offline digest glint cue token (`PULSE REMAP SCENE FX GLINT:SOFT|VOID|SPIKE`) with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 03:45 KST)*
+- [ ] Systems/QA Team: Add prior-window trend drift row for glint token family with regression lock.
+- [ ] Design/World Team: Prototype glint-linked scene-copy palette recommendation (`COOL|ASH|SCAR`) as offline digest recommendation.
+- [ ] Combat/VFX Team: Prototype compact glint alias (`PRSFX:<S|V|P>`) behind flag for digest scanability.

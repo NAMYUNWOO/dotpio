@@ -2673,3 +2673,8 @@
 - Decision: Keep runtime untouched; scope limited to digest tokening/payload/markdown/regression.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
 - Follow-up: Consider churn-family trend row for `PRSMPP` if alias volatility increases.
+
+## 2026-03-26 03:45 KST — Cycle DZ regression + contract lock
+- Added payload schema assertions for `pulseRemapSceneFxGlint` and `pulseRemapSceneFxGlintSignals` in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Added markdown contract assertion for `PULSE REMAP SCENE FX GLINT:` presence in digest output.
+- Full weekly digest regression suite passes.

@@ -1098,3 +1098,28 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Combat): Prototype style-posture-aware suppression escalation hook recommendation policy from trend momentum.
 - Selected experiment: Idea 2 (minimal vertical slice).
 - [x] UX/World Team: Add compact style-posture alias token (`PRSMPP:<C|W|A>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_STYLE_POSTURE_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 03:36 KST)*
+
+## Cycle DZ - Game Director Review (2026-03-26 03:45 KST, lane-cap forced underrepresented pick)
+- Coverage check (last 10 completions by lane): systems=4, qa=4, world=5, ux=3, ai-content=3, combat=0, design=0, vfx=0.
+- Lane cap breach: world (50%) > 40%; forced next experiment into underrepresented lanes (combat/design/vfx).
+- 24h cadence guardrail status: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low risk, Combat/VFX): Add offline glint cue token (`PULSE REMAP SCENE FX GLINT:SOFT|VOID|SPIKE`) from style posture + suppression warning + scene confidence.
+  - Player fantasy target: "my warnings visually breathe with danger level".
+  - Expected impact metric: faster one-glance triage in digest playtest reviews; reduce ambiguous warning rows.
+  - Scope: S | Risk: low | Rollback: remove token row + payload keys.
+  - Pass/fail: pass if regression and digest generation stay green and token row appears in markdown + JSON.
+- Idea 2 (mid risk, Design/World): Add glint-linked narrative palette recommendation (`COOL|ASH|SCAR`) for scene-copy flavor parity.
+  - Player fantasy target: atmospheric scene tone coherence.
+  - Metric: higher copy-consistency in offline review notes.
+  - Scope: M | Risk: medium | Rollback: keep recommendation offline-only behind digest field.
+  - Pass/fail: pass if deterministic mapping survives regression without churn spike.
+- Idea 3 (high risk, Systems/Ops + VFX): Add prior-window drift trend row for glint family with lane-cadence escalation hook.
+  - Player fantasy target: predictable FX stability over long sessions.
+  - Metric: reduced oscillation incidents in weekly drift snapshots.
+  - Scope: M | Risk: high | Rollback: quarantine as optional trend row.
+  - Pass/fail: pass if trend row remains stable and does not trigger false alerts.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Combat/VFX Team: Ship offline digest glint cue token (`PULSE REMAP SCENE FX GLINT:SOFT|VOID|SPIKE`) with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 03:45 KST)*
+- [ ] Systems/QA Team: Add prior-window trend drift row for `PULSE REMAP SCENE FX GLINT` token family with regression lock.
+- [ ] Design/World Team: Prototype glint-linked scene-copy palette recommendation (`COOL|ASH|SCAR`) as offline digest recommendation.
+- [ ] Combat/VFX Team: Prototype compact glint alias (`PRSFX:<S|V|P>`) behind flag for DOS-width scanability.
