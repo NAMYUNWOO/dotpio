@@ -1741,3 +1741,7 @@
 - Systems/QA slice shipped: added PRSMP/style-policy family churn + family trend visibility and smoothing signal coverage in weekly drift digest.
 - Verification: [PASS] weekly portal prompt readability drift regression checks PASS.
 - Follow-up: monitor whether PRSMP trend stays FLAT after smoothing adoption; escalate only if sustained UP with high churn.
+
+## 2026-03-26 03:01 KST — Cycle DX combat/vfx lane note
+- No combat runtime behavior changes this cycle.
+- Digest posture token can inform future combat-warning escalation experiments without coupling today.

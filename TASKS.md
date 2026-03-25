@@ -1084,3 +1084,10 @@ See project-level plans:
 - Idea 3 (high risk, Combat/UX): Prototype style-policy-aware posture warning escalation hook for readability pacing.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add style-policy family trend drift row (`PRSMP FAMILY TREND`) with prior-window context + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 02:34 KST)*
+
+## Cycle DX - Game Director Review (2026-03-26 03:01 KST)
+- Idea 1 (low risk, Systems/QA): Add offline style-policy posture token (`PULSE REMAP SCENE MICROLINE STYLE POSTURE:CALM|WARN|ALERT`) from smoothed style policy + family-trend drift for one-glance pacing triage.
+- Idea 2 (mid risk, UX/World): Add compact alias (`PRSMP POSTURE:<C|W|A>`) behind flag for tighter digest scanability.
+- Idea 3 (high risk, AI Content/Combat): Prototype style-policy-aware suppression posture escalation hook for combat warning copy coupling.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add offline style-policy posture token (`PULSE REMAP SCENE MICROLINE STYLE POSTURE:CALM|WARN|ALERT`) to weekly digest payload + markdown + regression lock. *(lifecycle: [ ] -> [~] -> [x])*

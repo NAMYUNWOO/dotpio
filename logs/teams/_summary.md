@@ -2961,3 +2961,10 @@ Compact decision memory for AI context efficiency.
 - Added offline smoothing guard `pulseRemapSceneMicrolineStylePolicySmoothed` to damp low-volatility policy oscillation using prior digest memory.
 - Added `PRSMP FAMILY TREND` (prior-window net drift) so cadence/style instability is visible in digest triage alongside PRMS/PRSP/PRSMC.
 - Regression coverage updated in `scripts/regression_weekly_portal_prompt_readability_drift.py`; full suite passes.
+
+## 2026-03-26 03:01 KST — Cycle DX style-policy posture slice shipped
+- Actionable queues were fully checked, so Game Director review cycle executed (3 ideas generated; low-risk Systems/QA slice selected).
+- Shipped offline digest token `PULSE REMAP SCENE MICROLINE STYLE POSTURE:CALM|WARN|ALERT` from smoothed style policy + PRSMP family-trend signals.
+- Added payload contract keys `pulseRemapSceneMicrolineStylePolicyPostureHook` and `pulseRemapSceneMicrolineStylePolicyPostureHookSignals` plus markdown row coverage in weekly digest regression.
+- Verification PASS: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Next injected candidates: compact alias `PRSMP POSTURE:<C|W|A>` (mid risk) and style-policy-aware combat-warning coupling (high risk, offline-first).

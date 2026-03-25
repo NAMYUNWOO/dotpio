@@ -2030,3 +2030,7 @@
 - Systems/QA slice shipped: added PRSMP/style-policy family churn + family trend visibility and smoothing signal coverage in weekly drift digest.
 - Verification: [PASS] weekly portal prompt readability drift regression checks PASS.
 - Follow-up: monitor whether PRSMP trend stays FLAT after smoothing adoption; escalate only if sustained UP with high churn.
+
+## 2026-03-26 03:01 KST — Cycle DX readability note
+- New digest posture line (`PULSE REMAP SCENE MICROLINE STYLE POSTURE`) improves one-glance triage between calm/warn/alert without runtime UI coupling.
+- No in-run HUD/copy changes this cycle (offline digest only).

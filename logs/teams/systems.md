@@ -2661,3 +2661,9 @@
 - Systems/QA slice shipped: added PRSMP/style-policy family churn + family trend visibility and smoothing signal coverage in weekly drift digest.
 - Verification: [PASS] weekly portal prompt readability drift regression checks PASS.
 - Follow-up: monitor whether PRSMP trend stays FLAT after smoothing adoption; escalate only if sustained UP with high churn.
+
+## 2026-03-26 03:01 KST — Cycle DX style-policy posture token (weekly digest)
+- Task: Ship offline digest token `PULSE REMAP SCENE MICROLINE STYLE POSTURE:CALM|WARN|ALERT` derived from smoothed style policy + PRSMP family trend.
+- Change: Added posture resolver + payload keys `pulseRemapSceneMicrolineStylePolicyPostureHook` and `pulseRemapSceneMicrolineStylePolicyPostureHookSignals` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Verification: [PASS] weekly portal prompt readability drift regression checks PASS.
+- Follow-up: Consider compact alias (`PRSMP POSTURE`) behind flag if scan budget pressure increases.

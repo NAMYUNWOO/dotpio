@@ -7070,6 +7070,40 @@ def pulse_remap_scene_microline_style_policy_smoothed_from_prior(
     }
 
 
+def pulse_remap_scene_microline_style_policy_posture_hook_from_signals(
+    *,
+    smoothed_policy: str,
+    style_policy_family_trend_signals: dict[str, object],
+    lane_cadence_recency: str,
+) -> tuple[str, dict[str, object]]:
+    """Offline-only posture hook from style-policy smoothing + family drift context."""
+    policy = str(smoothed_policy).strip().upper() or "BLEND"
+    trend = str(style_policy_family_trend_signals.get("trend", "FLAT")).strip().upper() or "FLAT"
+    current_net = int(style_policy_family_trend_signals.get("currentNet", 0) or 0)
+    prior_net = int(style_policy_family_trend_signals.get("priorNet", 0) or 0)
+    cadence = str(lane_cadence_recency).strip().lower() or "ok"
+
+    if policy == "ANCHOR" and (trend == "UP" or cadence == "warn"):
+        posture = "ALERT"
+        reason = "anchor-policy-under-rising-or-warning-cadence"
+    elif policy == "DIVERSIFY" and trend == "DOWN" and cadence == "ok":
+        posture = "CALM"
+        reason = "diversify-policy-in-cooling-cadence-window"
+    else:
+        posture = "WARN"
+        reason = "mixed-style-policy-signals"
+
+    return posture, {
+        "smoothedPolicy": policy,
+        "styleTrend": trend,
+        "currentNet": current_net,
+        "priorNet": prior_net,
+        "laneCadenceRecency": cadence,
+        "reason": reason,
+        "offlineOnly": True,
+    }
+
+
 def pulse_remap_scene_microline_cadence_from_signals(
     *,
     suppression_plan: str,
@@ -7686,6 +7720,11 @@ def main() -> int:
         policy=pulse_remap_scene_microline_style_diversification_policy,
         policy_signals=pulse_remap_scene_microline_style_diversification_policy_signals,
         prior_json_path=args.out_json,
+    )
+    pulse_remap_scene_microline_style_policy_posture_hook, pulse_remap_scene_microline_style_policy_posture_hook_signals = pulse_remap_scene_microline_style_policy_posture_hook_from_signals(
+        smoothed_policy=pulse_remap_scene_microline_style_policy_smoothed,
+        style_policy_family_trend_signals=pulse_remap_scene_microline_style_policy_family_trend_signals,
+        lane_cadence_recency=lane_cadence_recency,
     )
     pulse_remap_scene_microline_style_policy_alias = resolve_pulse_remap_scene_microline_style_policy_alias(
         pulse_remap_scene_microline_style_diversification_policy
@@ -8555,6 +8594,8 @@ def main() -> int:
         "pulseRemapSceneMicrolineStyleDiversificationPolicySignals": pulse_remap_scene_microline_style_diversification_policy_signals,
         "pulseRemapSceneMicrolineStylePolicySmoothed": pulse_remap_scene_microline_style_policy_smoothed,
         "pulseRemapSceneMicrolineStylePolicySmoothedSignals": pulse_remap_scene_microline_style_policy_smoothed_signals,
+        "pulseRemapSceneMicrolineStylePolicyPostureHook": pulse_remap_scene_microline_style_policy_posture_hook,
+        "pulseRemapSceneMicrolineStylePolicyPostureHookSignals": pulse_remap_scene_microline_style_policy_posture_hook_signals,
         "pulseRemapSceneMicrolineStylePolicyAlias": pulse_remap_scene_microline_style_policy_alias,
         "pulseRemapSceneMicrolineStylePolicyAliasSignals": {
             "flagName": pulse_remap_scene_microline_style_policy_alias_flag_name,
@@ -8927,6 +8968,7 @@ def main() -> int:
         f"- PULSE REMAP SCENE MICROLINE VARIANT PACK: **{pulse_remap_scene_microline_variant_pack['selectedMode']}** (selected={pulse_remap_scene_microline_variant_pack['selected']} | primary={pulse_remap_scene_microline_variant_pack['primary']} | alt={pulse_remap_scene_microline_variant_pack['alternate']} | fallback={pulse_remap_scene_microline_variant_pack['fallback']} | reason={pulse_remap_scene_microline_variant_pack_signals['reason']} offlineOnly={pulse_remap_scene_microline_variant_pack_signals['offlineOnly']})",
         f"- PULSE REMAP SCENE MICROLINE STYLE POLICY: **{pulse_remap_scene_microline_style_diversification_policy}** ({pulse_remap_scene_microline_style_diversification_policy_signals['reason']}; plan={pulse_remap_scene_microline_style_diversification_policy_signals['suppressionPlan']} conf={pulse_remap_scene_microline_style_diversification_policy_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_style_diversification_policy_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_style_diversification_policy_signals['cadenceTrend']} volatility={pulse_remap_scene_microline_style_diversification_policy_signals['cadenceVolatility']} prior={pulse_remap_scene_microline_style_diversification_policy_signals['priorNet']:+d} current={pulse_remap_scene_microline_style_diversification_policy_signals['currentNet']:+d} offlineOnly={pulse_remap_scene_microline_style_diversification_policy_signals['offlineOnly']})",
         f"- PULSE REMAP SCENE MICROLINE STYLE POLICY SMOOTH: **{pulse_remap_scene_microline_style_policy_smoothed}** ({pulse_remap_scene_microline_style_policy_smoothed_signals['reason']}; current={pulse_remap_scene_microline_style_policy_smoothed_signals['currentPolicy']} prior={pulse_remap_scene_microline_style_policy_smoothed_signals['priorPolicy']} volatility={pulse_remap_scene_microline_style_policy_smoothed_signals['cadenceVolatility']} loaded={pulse_remap_scene_microline_style_policy_smoothed_signals['priorLoaded']} offlineOnly={pulse_remap_scene_microline_style_policy_smoothed_signals['offlineOnly']})",
+        f"- PULSE REMAP SCENE MICROLINE STYLE POSTURE: **{pulse_remap_scene_microline_style_policy_posture_hook}** ({pulse_remap_scene_microline_style_policy_posture_hook_signals['reason']}; policy={pulse_remap_scene_microline_style_policy_posture_hook_signals['smoothedPolicy']} trend={pulse_remap_scene_microline_style_policy_posture_hook_signals['styleTrend']} current={pulse_remap_scene_microline_style_policy_posture_hook_signals['currentNet']:+d} prior={pulse_remap_scene_microline_style_policy_posture_hook_signals['priorNet']:+d} cadence={pulse_remap_scene_microline_style_policy_posture_hook_signals['laneCadenceRecency']} offlineOnly={pulse_remap_scene_microline_style_policy_posture_hook_signals['offlineOnly']})",
         f"- PRSMP: **{pulse_remap_scene_microline_style_policy_alias if pulse_remap_scene_microline_style_policy_alias_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_scene_microline_style_policy_alias_flag_name} enabled={pulse_remap_scene_microline_style_policy_alias_flag_enabled} full={pulse_remap_scene_microline_style_diversification_policy})",
         f"- PRSMV: **{pulse_remap_scene_microline_variant_pack_selection_alias if pulse_remap_scene_microline_variant_pack_selection_alias_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_scene_microline_variant_pack_selection_alias_flag_name} enabled={pulse_remap_scene_microline_variant_pack_selection_alias_flag_enabled} full={pulse_remap_scene_microline_variant_pack['selectedMode']})",
         f"- PULSE REMAP SCENE MICROLINE CADENCE: **{pulse_remap_scene_microline_cadence}** ({pulse_remap_scene_microline_cadence_signals['reason']}; plan={pulse_remap_scene_microline_cadence_signals['suppressionPlan']} conf={pulse_remap_scene_microline_cadence_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_cadence_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_cadence_signals['cadenceTrend']} offlineOnly={pulse_remap_scene_microline_cadence_signals['offlineOnly']})",
@@ -9204,6 +9246,7 @@ def main() -> int:
         f"- PULSE REMAP SCENE MICROLINE VARIANT PACK: {pulse_remap_scene_microline_variant_pack['selectedMode']} (selected={pulse_remap_scene_microline_variant_pack['selected']} reason={pulse_remap_scene_microline_variant_pack_signals['reason']} conf={pulse_remap_scene_microline_variant_pack_signals['sceneConfidence']} trend={pulse_remap_scene_microline_variant_pack_signals['cadenceTrend']})",
         f"- PULSE REMAP SCENE MICROLINE STYLE POLICY: {pulse_remap_scene_microline_style_diversification_policy} (plan={pulse_remap_scene_microline_style_diversification_policy_signals['suppressionPlan']} conf={pulse_remap_scene_microline_style_diversification_policy_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_style_diversification_policy_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_style_diversification_policy_signals['cadenceTrend']} vol={pulse_remap_scene_microline_style_diversification_policy_signals['cadenceVolatility']} reason={pulse_remap_scene_microline_style_diversification_policy_signals['reason']})",
         f"- PULSE REMAP SCENE MICROLINE STYLE POLICY SMOOTH: {pulse_remap_scene_microline_style_policy_smoothed} (current={pulse_remap_scene_microline_style_policy_smoothed_signals['currentPolicy']} prior={pulse_remap_scene_microline_style_policy_smoothed_signals['priorPolicy']} volatility={pulse_remap_scene_microline_style_policy_smoothed_signals['cadenceVolatility']} reason={pulse_remap_scene_microline_style_policy_smoothed_signals['reason']})",
+        f"- PULSE REMAP SCENE MICROLINE STYLE POSTURE: {pulse_remap_scene_microline_style_policy_posture_hook} (policy={pulse_remap_scene_microline_style_policy_posture_hook_signals['smoothedPolicy']} trend={pulse_remap_scene_microline_style_policy_posture_hook_signals['styleTrend']} current={pulse_remap_scene_microline_style_policy_posture_hook_signals['currentNet']:+d} prior={pulse_remap_scene_microline_style_policy_posture_hook_signals['priorNet']:+d} cadence={pulse_remap_scene_microline_style_policy_posture_hook_signals['laneCadenceRecency']} reason={pulse_remap_scene_microline_style_policy_posture_hook_signals['reason']})",
         f"- PRSMP: {pulse_remap_scene_microline_style_policy_alias if pulse_remap_scene_microline_style_policy_alias_flag_enabled else 'FLAG OFF'} (policy={pulse_remap_scene_microline_style_diversification_policy} flag={pulse_remap_scene_microline_style_policy_alias_flag_name} enabled={pulse_remap_scene_microline_style_policy_alias_flag_enabled})",
         f"- PRSMV: {pulse_remap_scene_microline_variant_pack_selection_alias if pulse_remap_scene_microline_variant_pack_selection_alias_flag_enabled else 'FLAG OFF'} (selectedMode={pulse_remap_scene_microline_variant_pack['selectedMode']} flag={pulse_remap_scene_microline_variant_pack_selection_alias_flag_name} enabled={pulse_remap_scene_microline_variant_pack_selection_alias_flag_enabled})",
         f"- PULSE REMAP SCENE MICROLINE CADENCE: {pulse_remap_scene_microline_cadence} (plan={pulse_remap_scene_microline_cadence_signals['suppressionPlan']} conf={pulse_remap_scene_microline_cadence_signals['sceneConfidence']} cadence={pulse_remap_scene_microline_cadence_signals['laneCadenceRecency']} trend={pulse_remap_scene_microline_cadence_signals['cadenceTrend']} reason={pulse_remap_scene_microline_cadence_signals['reason']})",

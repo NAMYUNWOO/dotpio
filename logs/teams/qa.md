@@ -3212,3 +3212,8 @@
 - Systems/QA slice shipped: added PRSMP/style-policy family churn + family trend visibility and smoothing signal coverage in weekly drift digest.
 - Verification: [PASS] weekly portal prompt readability drift regression checks PASS.
 - Follow-up: monitor whether PRSMP trend stays FLAT after smoothing adoption; escalate only if sustained UP with high churn.
+
+## 2026-03-26 03:01 KST — Cycle DX regression lock (style-policy posture)
+- Added regression assertions for `pulseRemapSceneMicrolineStylePolicyPostureHook` schema and markdown presence (`PULSE REMAP SCENE MICROLINE STYLE POSTURE:`).
+- Verification matrix: py_compile + weekly digest regression PASS.
+- Result: PASS, no schema regressions.

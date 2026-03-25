@@ -410,6 +410,16 @@ def main() -> int:
             "reason",
             "offlineOnly",
         }, payload
+        assert payload.get("pulseRemapSceneMicrolineStylePolicyPostureHook") in {"CALM", "WARN", "ALERT"}, payload
+        assert set(payload.get("pulseRemapSceneMicrolineStylePolicyPostureHookSignals", {}).keys()) == {
+            "smoothedPolicy",
+            "styleTrend",
+            "currentNet",
+            "priorNet",
+            "laneCadenceRecency",
+            "reason",
+            "offlineOnly",
+        }, payload
         assert isinstance(payload.get("pulseRemapSceneMicrolineStylePolicyAlias"), str) and payload["pulseRemapSceneMicrolineStylePolicyAlias"].startswith("PRSMP:"), payload
         assert set(payload.get("pulseRemapSceneMicrolineStylePolicyAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert payload.get("pulseRemapSceneMicrolineCadence") in {"RISE", "HOLD", "COOL"}, payload
@@ -2109,6 +2119,7 @@ def main() -> int:
         assert "PULSE REMAP SCENE MICROLINE VARIANT PACK:" in md_text
         assert "PULSE REMAP SCENE MICROLINE STYLE POLICY:" in md_text
         assert "PULSE REMAP SCENE MICROLINE STYLE POLICY SMOOTH:" in md_text
+        assert "PULSE REMAP SCENE MICROLINE STYLE POSTURE:" in md_text
         assert "PRSMP:" in md_text
         assert "PULSE REMAP SCENE MICROLINE CADENCE:" in md_text
         assert "PRMS:" in md_text
