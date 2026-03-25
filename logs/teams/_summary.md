@@ -2752,3 +2752,10 @@ Compact decision memory for AI context efficiency.
 - Shipped: weekly digest now emits `LPR:` line plus payload keys `lanePriorityRecommendationCompactAlias` and `lanePriorityRecommendationCompactAliasSignals` (flag `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_ALIAS`).
 - Verification PASS: py_compile + weekly drift regression + weekly digest generation.
 - Backlog injected: confidence-token and hysteresis-policy tasks remain queued in TASKS/POST_RC.
+
+## 2026-03-25 13:01 KST — Cycle DI systems/qa follow-up closed
+- Completed queued mid-risk item from Cycle DI: added `LANE PRIORITY REC CONF:LOW|MID|HIGH` to weekly digest with deterministic confidence mapping from lane bucket age spread + momentum gap.
+- Payload contract added: `lanePriorityRecommendationConfidence` and `lanePriorityRecommendationConfidenceSignals` (recommendation/worstAgeHours/momentumGapHours/maxMomentumHours/reason).
+- Regression contract updated and passing (`scripts/regression_weekly_portal_prompt_readability_drift.py`), including markdown row assertion for `LANE PRIORITY REC CONF:`.
+- Backlog sync: TASKS + POST_RC updated `[~] -> [x]` for the Systems/QA confidence-token item.
+- Next highest unchecked item: `AI Content/Systems Team: Prototype offline lane-priority hysteresis suppression policy for recommendation flapping`.

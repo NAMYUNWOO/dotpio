@@ -3012,3 +3012,10 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`
 - Follow-up: Extend regression with lane-priority confidence contract once added.
+
+## 2026-03-25 13:01 KST — Regression lock for lane-priority confidence token
+- Extended `scripts/regression_weekly_portal_prompt_readability_drift.py` assertions:
+  - payload: `lanePriorityRecommendationConfidence`, `lanePriorityRecommendationConfidenceSignals`
+  - markdown: `LANE PRIORITY REC CONF:` presence
+- Verification PASS:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`

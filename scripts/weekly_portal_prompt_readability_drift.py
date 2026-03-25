@@ -443,6 +443,39 @@ def lane_priority_recommendation_from_bucket_age_momentum(
     }
 
 
+def lane_priority_recommendation_confidence(
+    *,
+    lane_priority_recommendation: str,
+    lane_priority_recommendation_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    worst_age_hours = int(lane_priority_recommendation_signals.get("worstAgeHours", 0) or 0)
+    momentum_hours_raw = lane_priority_recommendation_signals.get("momentumHours", {})
+    momentum_hours = momentum_hours_raw if isinstance(momentum_hours_raw, dict) else {}
+    max_momentum = max((int(v or 0) for v in momentum_hours.values()), default=0)
+    momentum_gap = max_momentum
+
+    if str(lane_priority_recommendation).upper() == "BALANCED":
+        confidence = "HIGH"
+        reason = "all lane buckets are fresh and momentum is stable"
+    elif worst_age_hours >= 72 or momentum_gap >= 24:
+        confidence = "HIGH"
+        reason = "lane priority signal is strongly separated by age/momentum"
+    elif worst_age_hours >= 36 or momentum_gap >= 12:
+        confidence = "MID"
+        reason = "lane priority signal has moderate separation"
+    else:
+        confidence = "LOW"
+        reason = "lane priority signal is weakly separated"
+
+    return confidence, {
+        "recommendation": str(lane_priority_recommendation).upper(),
+        "worstAgeHours": worst_age_hours,
+        "momentumGapHours": momentum_gap,
+        "maxMomentumHours": max_momentum,
+        "reason": reason,
+    }
+
+
 def pulse_heat_fx_compact_budget_drift(
     *,
     pulse_heat_fx_family: dict[str, object],
@@ -6326,6 +6359,10 @@ def main() -> int:
     lane_priority_recommendation_compact_alias, lane_priority_recommendation_compact_alias_signals = resolve_lane_priority_recommendation_compact_alias(
         lane_priority_recommendation,
     )
+    lane_priority_recommendation_confidence_level, lane_priority_recommendation_confidence_signals = lane_priority_recommendation_confidence(
+        lane_priority_recommendation=lane_priority_recommendation,
+        lane_priority_recommendation_signals=lane_priority_recommendation_signals,
+    )
 
     totals = {
         "added": {k: sum(r["added"][k] for r in touched) for k in TOKEN_GROUPS},
@@ -7276,6 +7313,8 @@ def main() -> int:
         "laneBucketAgeCompactAliasSignals": lane_bucket_age_compact_alias_signals,
         "lanePriorityRecommendation": lane_priority_recommendation,
         "lanePriorityRecommendationSignals": lane_priority_recommendation_signals,
+        "lanePriorityRecommendationConfidence": lane_priority_recommendation_confidence_level,
+        "lanePriorityRecommendationConfidenceSignals": lane_priority_recommendation_confidence_signals,
         "lanePriorityRecommendationCompactAlias": lane_priority_recommendation_compact_alias,
         "lanePriorityRecommendationCompactAliasSignals": lane_priority_recommendation_compact_alias_signals,
         "laneFocus": lane_focus,
@@ -7747,6 +7786,7 @@ def main() -> int:
         f"- LANE BUCKET AGE Δ: **{lane_bucket_age_delta:+d}h** (currentMax={lane_bucket_age_drift_signals['currentMaxAgeHours']} priorMax={lane_bucket_age_drift_signals['priorMaxAgeHours']} loaded={lane_bucket_age_drift_signals['priorLoaded']})",
         f"- LANE PRIORITY REC: **{lane_priority_recommendation}** (reason={lane_priority_recommendation_signals['reason']} worstAge={lane_priority_recommendation_signals['worstAgeHours']}h offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- LPR: **{lane_priority_recommendation_compact_alias}** (flag={lane_priority_recommendation_compact_alias_signals['flagName']} enabled={lane_priority_recommendation_compact_alias_signals['flagEnabled']} rec={lane_priority_recommendation_compact_alias_signals['recommendation']} alias={lane_priority_recommendation_compact_alias_signals['alias']})",
+        f"- LANE PRIORITY REC CONF: **{lane_priority_recommendation_confidence_level}** (worstAge={lane_priority_recommendation_confidence_signals['worstAgeHours']}h momentumGap={lane_priority_recommendation_confidence_signals['momentumGapHours']}h reason={lane_priority_recommendation_confidence_signals['reason']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: **{pulse_heat_fx_compact_budget_drift_level}** ({pulse_heat_fx_compact_budget_drift_signals['reason']}; compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d} churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **{route_glow_fx_compact_budget_drift_level}** ({route_glow_fx_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **{route_glow_fx_conf_why_rail_mode_compact_budget_drift_level}** ({route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",
@@ -7822,6 +7862,7 @@ def main() -> int:
         f"- LANE BUCKET AGE Δ: {lane_bucket_age_delta:+d}h (currentMax={lane_bucket_age_drift_signals['currentMaxAgeHours']}, priorMax={lane_bucket_age_drift_signals['priorMaxAgeHours']}, loaded={lane_bucket_age_drift_signals['priorLoaded']})",
         f"- LANE PRIORITY REC: {lane_priority_recommendation} (reason={lane_priority_recommendation_signals['reason']}, worstAge={lane_priority_recommendation_signals['worstAgeHours']}h, offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- LPR: {lane_priority_recommendation_compact_alias} (flag={lane_priority_recommendation_compact_alias_signals['flagName']}, enabled={lane_priority_recommendation_compact_alias_signals['flagEnabled']}, rec={lane_priority_recommendation_compact_alias_signals['recommendation']}, alias={lane_priority_recommendation_compact_alias_signals['alias']})",
+        f"- LANE PRIORITY REC CONF: {lane_priority_recommendation_confidence_level} (worstAge={lane_priority_recommendation_confidence_signals['worstAgeHours']}h, momentumGap={lane_priority_recommendation_confidence_signals['momentumGapHours']}h, reason={lane_priority_recommendation_confidence_signals['reason']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: {pulse_heat_fx_compact_budget_drift_level} (compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d}, churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: {route_glow_fx_compact_budget_drift_level} (compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: {route_glow_fx_conf_why_rail_mode_compact_budget_drift_level} (compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",

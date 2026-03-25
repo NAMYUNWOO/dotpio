@@ -2468,3 +2468,9 @@
 ## 2026-03-25 12:35 KST — Cycle DI systems note
 - Decision: Exposed `lanePriorityRecommendationCompactAlias` + signals in digest JSON payload for downstream automation without changing recommendation logic.
 - Follow-up: Next systems slice should add deterministic confidence tier for recommendation stability triage.
+
+## 2026-03-25 13:01 KST — Cycle DI systems/qa confidence token shipped
+- Added deterministic lane-priority confidence resolver in `scripts/weekly_portal_prompt_readability_drift.py` and surfaced `LANE PRIORITY REC CONF:LOW|MID|HIGH` in markdown digest output.
+- JSON payload now includes `lanePriorityRecommendationConfidence` + `lanePriorityRecommendationConfidenceSignals` (`recommendation`, `worstAgeHours`, `momentumGapHours`, `maxMomentumHours`, `reason`).
+- Confidence uses existing offline signals (worst bucket age + momentum gap) so behavior remains additive and non-runtime.
+- Follow-up remains: AI Content/Systems hysteresis suppression policy for recommendation flapping.

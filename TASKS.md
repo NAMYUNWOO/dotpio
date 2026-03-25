@@ -943,5 +943,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Systems): Prototype offline lane-priority hysteresis policy to suppress recommendation flapping.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/World Team: Add compact lane-priority recommendation alias token (`LPR:<BAL|SYS|DW|CV>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_ALIAS` with regression lock. *(lifecycle: [~] -> [x])*
-- [ ] Systems/QA Team: Add lane-priority recommendation confidence token (`LANE PRIORITY REC CONF:LOW|MID|HIGH`) with payload + markdown contract.
+- [x] Systems/QA Team: Add lane-priority recommendation confidence token (`LANE PRIORITY REC CONF:LOW|MID|HIGH`) with payload + markdown contract. *(lifecycle: [~] -> [x])*
 - [ ] AI Content/Systems Team: Prototype offline lane-priority hysteresis suppression policy for recommendation flapping.
