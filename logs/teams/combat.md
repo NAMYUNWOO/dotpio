@@ -1722,3 +1722,4 @@
 - Completed: weekly digest now emits PULSE REMAP SCENE MICROLINE VARIANT PACK payload + markdown rows with confidence-aware selected/primary/alternate/fallback lines (offline-only).
 - Verification: [PASS] weekly portal prompt readability drift regression checks passed after adding payload contract + markdown assertions.
 - Backlog: injected Cycle DU ideas; shipped Systems/QA churn coverage slice, queued UX/World compact alias + AI Content/World diversification policy.
+- 2026-03-26 01:37 KST — Combat-facing digest compactness updated with `PRSMV` line so suppression posture snapshots remain one-glance in mixed lane reviews. Follow-up: ensure cadence/posture warnings remain balanced with alias density.

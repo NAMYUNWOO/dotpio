@@ -2011,3 +2011,4 @@
 - Completed: weekly digest now emits PULSE REMAP SCENE MICROLINE VARIANT PACK payload + markdown rows with confidence-aware selected/primary/alternate/fallback lines (offline-only).
 - Verification: [PASS] weekly portal prompt readability drift regression checks passed after adding payload contract + markdown assertions.
 - Backlog: injected Cycle DU ideas; shipped Systems/QA churn coverage slice, queued UX/World compact alias + AI Content/World diversification policy.
+- 2026-03-26 01:37 KST — UX task shipped: compact variant-pack selection alias (`PRSMV:PRI|ALT|FBK`) added behind feature flag with markdown visibility + summary reporting. Follow-up: verify flag-off copy remains clear in reports.

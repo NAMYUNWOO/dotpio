@@ -1066,5 +1066,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/World): Prototype offline microline-style diversification policy from cadence-memory volatility windows.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add weekly digest token-family churn coverage for `PULSE REMAP SCENE MICROLINE VARIANT PACK:` and lock via regression. *(lifecycle: [ ] -> [~] -> [x])* 
-- [ ] UX/World Team: Prototype compact variant-pack selection alias (`PRSMV:PRI|ALT|FBK`) behind flag for digest scanability.
+- [x] UX/World Team: Prototype compact variant-pack selection alias (`PRSMV:PRI|ALT|FBK`) behind flag for digest scanability. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 01:37 KST)*
 - [ ] AI Content/World Team: Prototype offline microline-style diversification policy from cadence-memory volatility windows.

@@ -1789,3 +1789,4 @@
 - Completed: weekly digest now emits PULSE REMAP SCENE MICROLINE VARIANT PACK payload + markdown rows with confidence-aware selected/primary/alternate/fallback lines (offline-only).
 - Verification: [PASS] weekly portal prompt readability drift regression checks passed after adding payload contract + markdown assertions.
 - Backlog: injected Cycle DU ideas; shipped Systems/QA churn coverage slice, queued UX/World compact alias + AI Content/World diversification policy.
+- 2026-03-26 01:37 KST — Design scanability pass completed: added explicit compact alias row (`PRSMV`) and flag gating for reversible rollout. Follow-up: review token clutter threshold during next digest polish cycle.

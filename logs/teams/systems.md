@@ -2642,3 +2642,4 @@
 - Completed: weekly digest now emits PULSE REMAP SCENE MICROLINE VARIANT PACK payload + markdown rows with confidence-aware selected/primary/alternate/fallback lines (offline-only).
 - Verification: [PASS] weekly portal prompt readability drift regression checks passed after adding payload contract + markdown assertions.
 - Backlog: injected Cycle DU ideas; shipped Systems/QA churn coverage slice, queued UX/World compact alias + AI Content/World diversification policy.
+- 2026-03-26 01:37 KST — Added PRSMV alias token plumbing in weekly readability drift digest (`PRSMV:PRI|ALT|FBK`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_VARIANT_PACK_SELECTION_ALIAS`; wired token-family coverage for churn reporting. Follow-up: monitor churn/coverage after next weekly run.

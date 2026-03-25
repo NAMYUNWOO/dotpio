@@ -386,6 +386,8 @@ def main() -> int:
             "reason",
             "offlineOnly",
         }, payload
+        assert isinstance(payload.get("pulseRemapSceneMicrolineVariantPackSelectionAlias"), str) and payload["pulseRemapSceneMicrolineVariantPackSelectionAlias"].startswith("PRSMV:"), payload
+        assert set(payload.get("pulseRemapSceneMicrolineVariantPackSelectionAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert payload.get("pulseRemapSceneMicrolineCadence") in {"RISE", "HOLD", "COOL"}, payload
         assert set(payload.get("pulseRemapSceneMicrolineCadenceSignals", {}).keys()) == {
             "suppressionPlan",
@@ -2075,10 +2077,12 @@ def main() -> int:
         assert "PULSE REMAP SCENE MICROLINE CADENCE:" in md_text
         assert "PRMS:" in md_text
         assert "PRSP:" in md_text
+        assert "PRSMV:" in md_text
         assert "PRPW:" in md_text
         assert "PRM + PULSE REMAP MOMENTUM:" in md_text
         assert "PRMS + PULSE REMAP MOMENTUM SUPPRESS:" in md_text
         assert "PRSP + PULSE REMAP SUPPRESS PLAN:" in md_text
+        assert "PRSMV + PULSE REMAP SCENE MICROLINE VARIANT PACK:" in md_text
         assert "PRMS FAMILY TREND:" in md_text
         assert "PRSP FAMILY TREND:" in md_text
         assert "PRSMC FAMILY TREND:" in md_text
