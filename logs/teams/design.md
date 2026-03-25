@@ -1691,3 +1691,7 @@
 
 ## 2026-03-25 16:35:44 KST
 - Coordination note: queued next design/world priority item remains `ARW ARC PULSE:SOFT|LIVE|HOT` digest alias prototype.
+
+## 2026-03-25 17:06 KST — Digest readability decision (ambient momentum pulse)
+- Added compact token `ARW ARC PULSE` to improve scanability for ambient momentum arc state in weekly digest summaries.
+- Kept token flag-gated and alias-only (no runtime gameplay coupling).

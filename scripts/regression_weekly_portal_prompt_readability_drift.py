@@ -1833,8 +1833,10 @@ def main() -> int:
         assert "ARW MOMENTUM" in md_text
         assert "ARW MOMENTUM SCORE" in md_text
         assert "ARW MOMENTUM ARC" in md_text
+        assert "ARW ARC PULSE" in md_text
         assert "ARW MOMENTUM FAMILY CHURN" in md_text
         assert "ARW MOMENTUM ARC FAMILY CHURN" in md_text
+        assert "ARW ARC PULSE FAMILY CHURN" in md_text
         assert "ARW AUTO PLAN CANDIDATE SUPPRESS" in md_text
         assert "URGENCY STACK PRUNING REC" in md_text
         assert "URGENCY STACK RAIL REC" in md_text

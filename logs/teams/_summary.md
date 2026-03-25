@@ -2810,3 +2810,9 @@ Compact decision memory for AI context efficiency.
 - Weekly digest payload now includes `lanePriorityVolatilityRegimeMemory` + signal bundle (`currentRegime`, `priorRegime`, `memoryRegime`, `stepSizes`) and markdown `LPR VOL REGIME` rows.
 - Regression contract updated and passing via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Next highest-priority unchecked queue item is Design/World compact ambient momentum pulse alias (`ARW ARC PULSE:SOFT|LIVE|HOT`).
+
+## 2026-03-25 17:06 KST — Cycle DM follow-up shipped
+- Completed: `ARW ARC PULSE:SOFT|LIVE|HOT` compact alias behind `DOTPIO_EXPERIMENT_ARW_MOMENTUM_ARC_PULSE_ALIAS` in weekly portal readability digest.
+- Deterministic mapping: `CALM->SOFT`, `TENSE->HOT`, fallback `LIVE`; additive + reversible (digest-only).
+- Observability updated: payload keys, token catalog/family coverage, markdown family churn rows, and regression assertions.
+- Remaining top unchecked item: `LANE CADENCE RECENCY:<ok|warn>` (Systems/Ops) from lane-bucket age + drift.

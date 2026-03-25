@@ -1668,3 +1668,7 @@
   - Exposed digest payload token `LPR VOL REGIME:<CALM|SWING|SPIKE>` with signals and markdown rows for triage.
 - Follow-up:
   - Next highest-priority unchecked TASKS item: Design/World compact ambient momentum pulse alias (`ARW ARC PULSE:SOFT|LIVE|HOT`).
+
+## 2026-03-25 17:06 KST — Offline recommendation lane note
+- Ambient momentum pulse alias remains digest-only guidance and does not alter recommendation policy logic.
+- Keep monitoring whether `ARW MOMENTUM ARC` + `ARW ARC PULSE` improve triage speed in review workflow.

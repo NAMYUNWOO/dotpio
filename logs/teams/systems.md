@@ -2522,3 +2522,8 @@
   - Added regime-dependent adaptive-window step-size table to tune floor/ceiling movement.
 - Follow-up:
   - Consider adding compact alias for `LPR VOL REGIME` only if digest budget pressure rises.
+
+## 2026-03-25 17:06 KST — Digest schema wiring update
+- Added payload fields for `ambientRampWhyAutoRemapMomentumArcPulseAlias` + signal metadata.
+- Extended token catalogs/families so churn/drift accounting tracks `ARW ARC PULSE:` consistently.
+- Next systems task: implement `LANE CADENCE RECENCY:<ok|warn>` digest row from lane age + drift.

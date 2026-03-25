@@ -1654,3 +1654,8 @@
 
 ## 2026-03-25 16:35:44 KST
 - Coordination note: no map/portal content change this cycle; world lane reserved for next unchecked digest alias experiment.
+
+## 2026-03-25 17:06 KST — Cycle DM follow-up: ARW ARC PULSE alias shipped
+- Completed backlog item: `ARW ARC PULSE:SOFT|LIVE|HOT` compact digest alias behind `DOTPIO_EXPERIMENT_ARW_MOMENTUM_ARC_PULSE_ALIAS`.
+- Mapping is deterministic and reversible: `CALM->SOFT`, `TENSE->HOT`, fallback `LIVE`.
+- Follow-up: remaining Cycle DM Systems/Ops item (`LANE CADENCE RECENCY:<ok|warn>`) is now top priority.

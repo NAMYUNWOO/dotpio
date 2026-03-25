@@ -1915,3 +1915,7 @@
 
 ## 2026-03-25 16:35:44 KST
 - Coordination note: digest readability gained new summary row `LPR VOL REGIME` for faster operator scanability.
+
+## 2026-03-25 17:06 KST — Compact token readability pass
+- Confirmed `ARW ARC PULSE` stays DOS-width friendly and matches existing compact naming style.
+- Alias is concise enough for dense digest summaries without replacing detailed context lines.

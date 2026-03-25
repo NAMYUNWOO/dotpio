@@ -1616,3 +1616,7 @@
 
 ## 2026-03-25 16:35:44 KST
 - Coordination note: combat lane unchanged this cycle; no combat-token or HUD runtime adjustments required.
+
+## 2026-03-25 17:06 KST — Cross-lane status note
+- No combat runtime mechanic changes this slice.
+- Combat lane remains recently covered by `DMGNUM LIFE TREND FX PULSE`; monitor lane cadence while Systems/Ops backlog closes.

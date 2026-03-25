@@ -3069,3 +3069,9 @@
   - No portal validator/screenshot run required (no map/UI runtime asset changes).
 - Follow-up:
   - Keep weekly digest regression as gate for subsequent lane-cadence token experiments.
+
+## 2026-03-25 17:06 KST — Regression lock updated for ARW ARC PULSE
+- Updated weekly digest regression checks to assert `ARW ARC PULSE` and its family churn row.
+- Verification PASS:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`
