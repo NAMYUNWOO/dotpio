@@ -297,6 +297,8 @@ def main() -> int:
         assert isinstance(payload.get("laneBucketAgeHours"), dict), payload
         assert isinstance(payload.get("laneBucketAgeDrift"), int), payload
         assert set(payload.get("laneBucketAgeDriftSignals", {}).keys()) == {"currentMaxAgeHours", "priorMaxAgeHours", "priorLoaded"}, payload
+        assert payload.get("laneCadenceRecency") in {"LANE CADENCE RECENCY:ok", "LANE CADENCE RECENCY:warn"}, payload
+        assert set(payload.get("laneCadenceRecencySignals", {}).keys()) == {"status", "maxAgeHours", "deltaHours", "windowHours", "reason"}, payload
         assert isinstance(payload.get("laneBucketAgeCompactAlias"), str), payload
         assert set(payload.get("laneBucketAgeCompactAliasSignals", {}).keys()) == {
             "flagName",
@@ -1771,6 +1773,7 @@ def main() -> int:
         assert "LBA:" in md_text
         assert "LANE BUCKET AGE:" in md_text
         assert "LANE BUCKET AGE Δ:" in md_text
+        assert "LANE CADENCE RECENCY:" in md_text
         assert "LANE PRIORITY REC:" in md_text
         assert "LPR:" in md_text
         assert "LPR HYS:" in md_text

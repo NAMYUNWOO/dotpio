@@ -1620,3 +1620,8 @@
 ## 2026-03-25 17:06 KST — Cross-lane status note
 - No combat runtime mechanic changes this slice.
 - Combat lane remains recently covered by `DMGNUM LIFE TREND FX PULSE`; monitor lane cadence while Systems/Ops backlog closes.
+
+## 2026-03-25 17:36 KST — Cycle DM Systems/Ops closure sync
+- Completed top unchecked backlog item: weekly digest now emits `LANE CADENCE RECENCY:<ok|warn>` from `LANE BUCKET AGE` + `LANE BUCKET AGE Δ` signals.
+- Implementation is digest-only (no runtime gameplay/map behavior changes); payload includes `laneCadenceRecency` + signal diagnostics.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/economy_weekly_snapshot.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py`.

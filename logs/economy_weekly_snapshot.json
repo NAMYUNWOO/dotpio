@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T13:34:02.050108Z",
+  "generatedAt": "2026-03-25T08:35:04.245934Z",
   "windowStart": "2026-03-12T13:29:45Z",
   "windowEnd": "2026-03-19T13:29:45Z",
   "telemetryEventCount": 41,
@@ -22,8 +22,8 @@
     "totalSrlSpent": 0
   },
   "laneCadence": {
-    "windowStart": "2026-03-21T13:34:02.037642Z",
-    "windowEnd": "2026-03-22T13:34:02.037642Z",
+    "windowStart": "2026-03-24T08:35:04.224290Z",
+    "windowEnd": "2026-03-25T08:35:04.224290Z",
     "bucketCoverage": {
       "combat-vfx": true,
       "design-world": true,
@@ -33,12 +33,22 @@
     "status": "OK",
     "token": "LANE CADENCE:OK",
     "sourceLatest": {
-      "combat.md": "2026-03-22T22:05:00+09:00",
-      "vfx.md": "2026-03-22T21:46:00+09:00",
-      "design.md": "2026-03-22T22:05:00+09:00",
-      "world.md": "2026-03-22T22:05:00+09:00",
-      "systems.md": "2026-03-22T22:05:00+09:00",
+      "combat.md": "2026-03-25T17:06:00+09:00",
+      "vfx.md": "2026-03-25T16:01:00+09:00",
+      "design.md": "2026-03-25T17:06:00+09:00",
+      "world.md": "2026-03-25T17:06:00+09:00",
+      "systems.md": "2026-03-25T17:06:00+09:00",
       "ops.md": null
-    }
+    },
+    "sourceLatestAgeHours": {
+      "combat.md": 0,
+      "vfx.md": 1,
+      "design.md": 0,
+      "world.md": 0,
+      "systems.md": 0,
+      "ops.md": null
+    },
+    "laneGapDetail": "combat/vfx last-touch 0h",
+    "combatVfxLastTouchAgeHours": 0
   }
 }

@@ -988,4 +988,4 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice, combat/vfx lane rebalancing).
 - [x] Combat/VFX Team: Add debug token `DMGNUM LIFE TREND FX PULSE:COAST|RUSH|BURST` behind `DOTPIO_EXPERIMENT_DMGNUM_LIFE_TREND_FX_PULSE_DEBUG` with regression lock. *(lifecycle: [ ] -> [~] -> [x])*
 - [x] Design/World Team: Prototype compact ambient momentum pulse alias (`ARW ARC PULSE:SOFT|LIVE|HOT`) behind flag in digest summary.
-- [ ] Systems/Ops Team: Prototype digest row `LANE CADENCE RECENCY:<ok|warn>` from bucket-age + delta drift.
+- [x] Systems/Ops Team: Prototype digest row `LANE CADENCE RECENCY:<ok|warn>` from bucket-age + delta drift. *(lifecycle: [ ] -> [~] -> [x])*

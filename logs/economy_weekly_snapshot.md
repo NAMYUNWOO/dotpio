@@ -1,6 +1,6 @@
 # Weekly SRL Economy Snapshot
 
-- GeneratedAt(UTC): 2026-03-22T13:34:02.050108Z
+- GeneratedAt(UTC): 2026-03-25T08:35:04.245934Z
 - Window: 2026-03-12T13:29:45Z ~ 2026-03-19T13:29:45Z
 - Telemetry events: 41
 - Event counts: {'build': 29, 'disassemble': 12}
@@ -11,6 +11,7 @@
 - Lane cadence watchdog: LANE CADENCE:OK
 - Delta vs previous snapshot: events +0, total SRL spent +0
 - Lane cadence gaps: none
+- LANE GAP DETAIL: combat/vfx last-touch 0h
 
 ## Rebalance Decision
 - Decision: **NO_CURVE_CHANGE**

@@ -1919,3 +1919,8 @@
 ## 2026-03-25 17:06 KST — Compact token readability pass
 - Confirmed `ARW ARC PULSE` stays DOS-width friendly and matches existing compact naming style.
 - Alias is concise enough for dense digest summaries without replacing detailed context lines.
+
+## 2026-03-25 17:36 KST — Cycle DM Systems/Ops closure sync
+- Completed top unchecked backlog item: weekly digest now emits `LANE CADENCE RECENCY:<ok|warn>` from `LANE BUCKET AGE` + `LANE BUCKET AGE Δ` signals.
+- Implementation is digest-only (no runtime gameplay/map behavior changes); payload includes `laneCadenceRecency` + signal diagnostics.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/economy_weekly_snapshot.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py`.
