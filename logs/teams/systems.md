@@ -2586,3 +2586,8 @@
 - Decision: Added digest payload + markdown plumbing for new suppression compact alias (`PRMS`) under env flag.
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Follow-up: Add dedicated `PRMS FAMILY TREND` triage row with prior-window drift context.
+
+## 2026-03-25 21:40 KST — Cycle DQ Systems/QA PRMS trend triage
+- Decision: Added dedicated weekly-digest triage note `PRMS FAMILY TREND` with prior-window drift context (`Δnet`, `currentNet`, `priorNet`, `loaded`).
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` both pass.
+- Follow-up: Remaining Cycle DQ unchecked item is AI Content/VFX offline suppression-escalation recommendation (`PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK`).

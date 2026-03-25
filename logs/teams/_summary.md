@@ -2878,3 +2878,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: suppression-state aliasing uses deterministic mapping `SUPPRESS->S`, `ARM->A`, `OFF->O` for parity with existing `PRM` compact pattern.
 - Regression lock updated to cover payload fields, markdown rows, and token-family coverage for `PRMS`.
 - Injected follow-up backlog tasks: (1) Systems/QA suppression-family trend row, (2) AI Content/VFX offline suppression-escalation recommendation policy.
+
+## 2026-03-25 21:40 KST — Cycle DQ Systems/QA slice shipped
+- Closed highest-priority unchecked TASKS item by shipping dedicated digest triage line `PRMS FAMILY TREND` with prior-window drift context.
+- Updated `scripts/weekly_portal_prompt_readability_drift.py` with `pulseRemapSuppressionFamilyTrendDrift/Signals` payload fields and markdown rows (summary + token-family coverage).
+- Regression contract expanded in `scripts/regression_weekly_portal_prompt_readability_drift.py` for new payload fields and `PRMS FAMILY TREND:` markdown presence.
+- Verification passed: py_compile + weekly digest regression suite.
+- Next priority item remains unchecked in TASKS: AI Content/VFX offline suppression-escalation recommendation plan token (`PULSE REMAP SUPPRESS PLAN:HOLD|ARM|LOCK`).

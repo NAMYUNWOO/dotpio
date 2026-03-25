@@ -301,6 +301,15 @@ def main() -> int:
         assert isinstance(payload.get("pulseRemapMomentumFreezeStreak"), int) and payload["pulseRemapMomentumFreezeStreak"] >= 0, payload
         assert isinstance(payload.get("pulseRemapMomentumSuppressionAlias"), str) and payload["pulseRemapMomentumSuppressionAlias"].startswith("PRMS:"), payload
         assert set(payload.get("pulseRemapMomentumSuppressionAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
+        assert isinstance(payload.get("pulseRemapSuppressionFamilyTrendDrift"), int), payload
+        assert set(payload.get("pulseRemapSuppressionFamilyTrendSignals", {}).keys()) == {
+            "trend",
+            "currentNet",
+            "priorNet",
+            "priorLoaded",
+            "reason",
+        }, payload
+        assert payload["pulseRemapSuppressionFamilyTrendSignals"]["trend"] in {"UP", "DOWN", "FLAT"}, payload
         assert isinstance(payload.get("pulseRemapMomentumAlias"), str) and payload["pulseRemapMomentumAlias"].startswith("PRM:"), payload
         assert set(payload.get("pulseRemapMomentumAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert set(payload.get("routeVibeTotals", {}).keys()) == {"added", "removed", "net"}, payload
@@ -1940,6 +1949,7 @@ def main() -> int:
         assert "PRMS:" in md_text
         assert "PRM + PULSE REMAP MOMENTUM:" in md_text
         assert "PRMS + PULSE REMAP MOMENTUM SUPPRESS:" in md_text
+        assert "PRMS FAMILY TREND:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
         assert "LPR HYS THR:" in md_text

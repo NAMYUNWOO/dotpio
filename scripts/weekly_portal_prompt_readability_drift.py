@@ -6871,6 +6871,46 @@ def pulse_remap_momentum_streak_suppression_from_prior(
     }
 
 
+def pulse_remap_suppression_family_trend_from_prior(
+    *,
+    current_family_totals: dict[str, int],
+    prior_json_path: Path,
+) -> tuple[int, dict[str, object]]:
+    """Track PRMS family net drift against prior digest window for triage."""
+    current_net = int(current_family_totals.get("net", 0) or 0)
+    prior_net = 0
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_families = prior_payload.get("tokenFamilyTotals", {})
+            prior_family = prior_families.get("pulseRemapMomentumSuppressionAlias", {}) if isinstance(prior_families, dict) else {}
+            prior_net = int(prior_family.get("net", 0) or 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    drift = current_net - prior_net
+    if drift > 0:
+        trend = "UP"
+        reason = "suppression-family-net-increased-vs-prior-window"
+    elif drift < 0:
+        trend = "DOWN"
+        reason = "suppression-family-net-decreased-vs-prior-window"
+    else:
+        trend = "FLAT"
+        reason = "suppression-family-net-unchanged-vs-prior-window"
+
+    return drift, {
+        "trend": trend,
+        "currentNet": current_net,
+        "priorNet": prior_net,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def main() -> int:
     args = parse_args()
     root = args.repo_root.resolve()
@@ -7131,6 +7171,10 @@ def main() -> int:
     pulse_remap_momentum_alias_flag_enabled = os.environ.get(pulse_remap_momentum_alias_flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
     pulse_remap_momentum_suppression_alias_flag_name = "DOTPIO_EXPERIMENT_PULSE_REMAP_MOMENTUM_SUPPRESSION_ALIAS"
     pulse_remap_momentum_suppression_alias_flag_enabled = os.environ.get(pulse_remap_momentum_suppression_alias_flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
+    pulse_remap_suppression_family_trend_drift, pulse_remap_suppression_family_trend_signals = pulse_remap_suppression_family_trend_from_prior(
+        current_family_totals=token_family_totals["pulseRemapMomentumSuppressionAlias"],
+        prior_json_path=args.out_json,
+    )
 
     token_movers = [
         {
@@ -7915,6 +7959,8 @@ def main() -> int:
         "pulseRemapMomentumFreezeStreak": int(pulse_remap_momentum_suppression_signals.get("freezeStreak", 0)),
         "pulseRemapMomentumSuppressionAlias": pulse_remap_momentum_suppression_alias,
         "pulseRemapMomentumSuppressionAliasSignals": {"flagName": pulse_remap_momentum_suppression_alias_flag_name, "flagEnabled": pulse_remap_momentum_suppression_alias_flag_enabled},
+        "pulseRemapSuppressionFamilyTrendDrift": pulse_remap_suppression_family_trend_drift,
+        "pulseRemapSuppressionFamilyTrendSignals": pulse_remap_suppression_family_trend_signals,
         "pulseRemapMomentumAlias": pulse_remap_momentum_alias,
         "pulseRemapMomentumAliasSignals": {"flagName": pulse_remap_momentum_alias_flag_name, "flagEnabled": pulse_remap_momentum_alias_flag_enabled},
         "laneBucketAge": lane_bucket_age["token"],
@@ -8429,6 +8475,7 @@ def main() -> int:
         f"- DMGNUM LIFE TREND FX PULSE REMAP PLAN FAMILY CHURN: **net {token_family_totals['dmgnumLifeTrendFxPulseRemapPlanAlias']['net']:+d}** (added={token_family_totals['dmgnumLifeTrendFxPulseRemapPlanAlias']['added']} removed={token_family_totals['dmgnumLifeTrendFxPulseRemapPlanAlias']['removed']} churn={token_family_totals['dmgnumLifeTrendFxPulseRemapPlanAlias']['churn']} coverage={token_family_totals['dmgnumLifeTrendFxPulseRemapPlanAlias']['coverage']})",
         f"- PULSE REMAP MOMENTUM FAMILY CHURN: **net {token_family_totals['pulseRemapMomentumAlias']['net']:+d}** (added={token_family_totals['pulseRemapMomentumAlias']['added']} removed={token_family_totals['pulseRemapMomentumAlias']['removed']} churn={token_family_totals['pulseRemapMomentumAlias']['churn']} coverage={token_family_totals['pulseRemapMomentumAlias']['coverage']})",
         f"- PULSE REMAP SUPPRESS FAMILY CHURN: **net {token_family_totals['pulseRemapMomentumSuppressionAlias']['net']:+d}** (added={token_family_totals['pulseRemapMomentumSuppressionAlias']['added']} removed={token_family_totals['pulseRemapMomentumSuppressionAlias']['removed']} churn={token_family_totals['pulseRemapMomentumSuppressionAlias']['churn']} coverage={token_family_totals['pulseRemapMomentumSuppressionAlias']['coverage']})",
+        f"- PRMS FAMILY TREND: **{pulse_remap_suppression_family_trend_signals['trend']}** (Δnet={pulse_remap_suppression_family_trend_drift:+d} currentNet={pulse_remap_suppression_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_family_trend_signals['priorLoaded']} reason={pulse_remap_suppression_family_trend_signals['reason']})",
         f"- DMG GLYPH FAMILY CHURN: **net {token_family_totals['dmgGlyphAlias']['net']:+d}** (added={token_family_totals['dmgGlyphAlias']['added']} removed={token_family_totals['dmgGlyphAlias']['removed']} churn={token_family_totals['dmgGlyphAlias']['churn']} coverage={token_family_totals['dmgGlyphAlias']['coverage']})",
         f"- DMG GLYPH FX LIVE FAMILY CHURN: **net {token_family_totals['dmgGlyphFxLiveAlias']['net']:+d}** (added={token_family_totals['dmgGlyphFxLiveAlias']['added']} removed={token_family_totals['dmgGlyphFxLiveAlias']['removed']} churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']})",
         f"- LPR HYS THR FAMILY CHURN: **net {token_family_totals['lanePriorityHysteresisThresholdAlias']['net']:+d}** (added={token_family_totals['lanePriorityHysteresisThresholdAlias']['added']} removed={token_family_totals['lanePriorityHysteresisThresholdAlias']['removed']} churn={token_family_totals['lanePriorityHysteresisThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisThresholdAlias']['coverage']})",
@@ -8523,6 +8570,7 @@ def main() -> int:
         f"- DMGNUM LIFE TREND FX PULSE REMAP PLAN: +{token_family_totals['dmgnumLifeTrendFxPulseRemapPlanAlias']['added']} / -{token_family_totals['dmgnumLifeTrendFxPulseRemapPlanAlias']['removed']} / net {token_family_totals['dmgnumLifeTrendFxPulseRemapPlanAlias']['net']} (churn={token_family_totals['dmgnumLifeTrendFxPulseRemapPlanAlias']['churn']} coverage={token_family_totals['dmgnumLifeTrendFxPulseRemapPlanAlias']['coverage']})",
         f"- PRM + PULSE REMAP MOMENTUM: +{token_family_totals['pulseRemapMomentumAlias']['added']} / -{token_family_totals['pulseRemapMomentumAlias']['removed']} / net {token_family_totals['pulseRemapMomentumAlias']['net']} (churn={token_family_totals['pulseRemapMomentumAlias']['churn']} coverage={token_family_totals['pulseRemapMomentumAlias']['coverage']})",
         f"- PRMS + PULSE REMAP MOMENTUM SUPPRESS: +{token_family_totals['pulseRemapMomentumSuppressionAlias']['added']} / -{token_family_totals['pulseRemapMomentumSuppressionAlias']['removed']} / net {token_family_totals['pulseRemapMomentumSuppressionAlias']['net']} (churn={token_family_totals['pulseRemapMomentumSuppressionAlias']['churn']} coverage={token_family_totals['pulseRemapMomentumSuppressionAlias']['coverage']})",
+        f"- PRMS FAMILY TREND: {pulse_remap_suppression_family_trend_signals['trend']} (Δnet={pulse_remap_suppression_family_trend_drift:+d} currentNet={pulse_remap_suppression_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_family_trend_signals['priorLoaded']})",
         f"- DMG GLYPH: +{token_family_totals['dmgGlyphAlias']['added']} / -{token_family_totals['dmgGlyphAlias']['removed']} / net {token_family_totals['dmgGlyphAlias']['net']} (churn={token_family_totals['dmgGlyphAlias']['churn']} coverage={token_family_totals['dmgGlyphAlias']['coverage']})",
         f"- DMG GLYPH FX LIVE: +{token_family_totals['dmgGlyphFxLiveAlias']['added']} / -{token_family_totals['dmgGlyphFxLiveAlias']['removed']} / net {token_family_totals['dmgGlyphFxLiveAlias']['net']} (churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']})",
         f"- LPR HYS THR: +{token_family_totals['lanePriorityHysteresisThresholdAlias']['added']} / -{token_family_totals['lanePriorityHysteresisThresholdAlias']['removed']} / net {token_family_totals['lanePriorityHysteresisThresholdAlias']['net']} (churn={token_family_totals['lanePriorityHysteresisThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisThresholdAlias']['coverage']})",
