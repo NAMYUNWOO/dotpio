@@ -2771,3 +2771,11 @@ Compact decision memory for AI context efficiency.
 - Weekly digest now emits payload fields `lanePriorityHysteresisRail` and `lanePriorityHysteresisRailSignals`, plus markdown rows in detailed/compact sections.
 - Classification is deterministic/offline-only (SPIKE when hysteresis active or confidence/gap unstable; otherwise STEADY); no gameplay runtime impact.
 - Regression and generation checks pass; remaining unchecked backlog item is adaptive hysteresis-threshold tuning policy.
+
+## 2026-03-25 14:24 KST — Cycle DK shipped: adaptive hysteresis-threshold tuning + compact alias
+- Closed highest-priority unchecked TASKS/POST_RC item by adding offline recommendation token `LPR HYS THRESH REC:LOWER|HOLD|RAISE` derived from lane-age volatility windows (momentum span, max abs momentum, age spread).
+- Added compact alias token `LPR HYS THR:<L|H|R>` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_THRESHOLD_ALIAS` for dense digest scanability while preserving detailed row.
+- Regression contract expanded for payload + markdown checks; verification passed via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- New backlog injected (Cycle DK):
+  1) Systems/QA low-risk follow-up: token-family churn coverage for `LPR HYS THR:`.
+  2) AI Content/Systems high-risk follow-up: offline adaptive hysteresis floor/ceiling learning policy.

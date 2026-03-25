@@ -1585,3 +1585,6 @@
 ## 2026-03-25 14:04 KST — Cycle DJ Combat lane note
 - No combat/VFX runtime adjustments in this slice.
 - Work focused on digest observability token for lane-priority hysteresis stability.
+
+## 2026-03-25 14:24 KST — Cycle DK Combat note
+- No combat loop tuning in this slice; work constrained to offline lane-priority hysteresis observability.

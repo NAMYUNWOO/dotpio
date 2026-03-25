@@ -2486,3 +2486,8 @@
 - Decision: classify `SPIKE` when hysteresis is active, confidence is LOW, or lane-score gap is near threshold; otherwise `STEADY`.
 - Scope: `scripts/weekly_portal_prompt_readability_drift.py` JSON+markdown output plus regression schema checks; no gameplay/runtime coupling.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-25 14:24 KST — Cycle DK Systems: adaptive hysteresis threshold tuning + compact alias
+- Completed highest-priority unchecked backlog item: offline adaptive hysteresis-threshold tuning recommendation (LPR HYS THRESH REC:LOWER|HOLD|RAISE) from lane-age volatility windows.
+- Added compact alias token LPR HYS THR:<L|H|R> behind DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_THRESHOLD_ALIAS with payload/markdown wiring.
+- Follow-up queued: token-family churn coverage for LPR HYS THR:.

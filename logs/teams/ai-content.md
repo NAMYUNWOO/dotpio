@@ -1631,3 +1631,7 @@
 ## 2026-03-25 14:04 KST — Cycle DJ AI-content note
 - No AI generation/runtime behavior changes.
 - Added offline-only recommendation readability signal (`LPR HYS RAIL`) to support operator triage.
+
+## 2026-03-25 14:24 KST — Cycle DK AI Content note
+- Adaptive hysteresis-threshold output remains offline recommendation only (weekly digest analytics); no runtime AI content behavior changed.
+- Next high-risk lane candidate: learn floor/ceiling threshold policy from multi-window outcomes.

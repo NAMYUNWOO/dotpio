@@ -3032,3 +3032,8 @@
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_RAIL=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md`
+
+## 2026-03-25 14:24 KST — Cycle DK QA validation (hysteresis threshold tuning)
+- Extended regression contract with new payload keys: lanePriorityHysteresisThresholdTuning and compact alias lanePriorityHysteresisThresholdCompactAlias.
+- Added markdown presence checks for LPR HYS THRESH REC: and LPR HYS THR:.
+- Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py PASS.

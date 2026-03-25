@@ -358,6 +358,28 @@ def main() -> int:
             "rail",
             "reason",
         }, payload
+        assert payload.get("lanePriorityHysteresisThresholdTuning") in {
+            "LPR HYS THRESH REC:LOWER",
+            "LPR HYS THRESH REC:HOLD",
+            "LPR HYS THRESH REC:RAISE",
+        }, payload
+        assert set(payload.get("lanePriorityHysteresisThresholdTuningSignals", {}).keys()) == {
+            "offlineOnly",
+            "baseThreshold",
+            "recommendedThreshold",
+            "mode",
+            "maxAbsMomentumHours",
+            "momentumVolatilitySpanHours",
+            "ageSpreadHours",
+            "reason",
+        }, payload
+        assert payload.get("lanePriorityHysteresisThresholdCompactAlias") in {"OFF", "LPR HYS THR:L", "LPR HYS THR:H", "LPR HYS THR:R"}, payload
+        assert set(payload.get("lanePriorityHysteresisThresholdCompactAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "recommendation",
+            "alias",
+        }, payload
         assert payload.get("routeSandbox") in {"ON", "OFF"}, payload
         assert set(payload.get("routeSandboxSignals", {}).keys()) == {
             "flagName",
@@ -1692,6 +1714,8 @@ def main() -> int:
         assert "LPR:" in md_text
         assert "LPR HYS:" in md_text
         assert "LPR HYS RAIL:" in md_text
+        assert "LPR HYS THRESH REC:" in md_text
+        assert "LPR HYS THR:" in md_text
         assert "LANE PRIORITY REC CONF:" in md_text
         assert "LANE PRIORITY REC HYSTERESIS:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text

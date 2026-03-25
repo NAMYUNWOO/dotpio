@@ -955,4 +955,14 @@ See project-level plans:
 - [x] AI Content/Systems Team: Prototype offline lane-priority hysteresis suppression policy for recommendation flapping.
 - [x] Systems/QA Team: Add compact hysteresis alias token (`LPR HYS:H|S`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_ALIAS` with payload + markdown wiring.
 - [x] UX/World Team: Prototype compact hysteresis confidence rail token (`LPR HYS RAIL:STEADY|SPIKE`) behind flag. *(lifecycle: [ ] -> [~] -> [x])*
-- [ ] Systems/QA Team: Prototype adaptive hysteresis-threshold tuning policy from lane-age volatility windows (offline recommendation only).
+- [x] Systems/QA Team: Prototype adaptive hysteresis-threshold tuning policy from lane-age volatility windows (offline recommendation only).
+
+## Cycle DK - Game Director Review (2026-03-25 14:24 KST)
+- Coverage check (last 10 completions): systems/qa digest observability remained dominant; selected low-risk compact-readability follow-up on the new hysteresis-threshold tuning output.
+- Idea 1 (low risk, UX/Systems): Add compact hysteresis-threshold recommendation alias token (`LPR HYS THR:<L|H|R>`) behind flag for tight digest scanability.
+- Idea 2 (mid risk, Systems/QA): Add weekly digest token-family churn coverage for `LPR HYS THR:` + regression lock.
+- Idea 3 (high risk, AI Content/Systems): Prototype adaptive hysteresis-threshold floor/ceiling learning policy from multi-window volatility outcomes.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Systems Team: Add compact hysteresis-threshold recommendation alias token (`LPR HYS THR:<L|H|R>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_THRESHOLD_ALIAS` with payload + markdown + regression lock. *(lifecycle: [ ] -> [~] -> [x])* 
+- [ ] Systems/QA Team: Add weekly digest token-family churn coverage for `LPR HYS THR:` with markdown triage row + regression lock.
+- [ ] AI Content/Systems Team: Prototype offline adaptive hysteresis-threshold floor/ceiling learning policy from volatility outcomes.

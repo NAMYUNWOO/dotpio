@@ -1890,3 +1890,8 @@
 ## 2026-03-25 14:04 KST — Cycle DJ UX compact rail token
 - Completed compact confidence rail token `LPR HYS RAIL` for lane-priority hysteresis readability behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_RAIL`.
 - Added markdown rows in both detailed and compact digest sections.
+
+## 2026-03-25 14:24 KST — Cycle DK UX: compact digest readability for threshold tuning
+- Added compact digest cue LPR HYS THR:<L|H|R> to reduce scan cost while preserving detailed LPR HYS THRESH REC row.
+- Decision: keep compact alias flag-gated to avoid forcing output contract shifts.
+- Follow-up: add churn coverage row once token family tracking is wired.

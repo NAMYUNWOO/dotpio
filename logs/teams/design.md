@@ -1667,3 +1667,7 @@
 ## 2026-03-25 14:04 KST — Cycle DJ Design readability update
 - Added compact digest token `LPR HYS RAIL:STEADY|SPIKE` (flag-gated) to improve quick scan of recommendation stability.
 - Copy kept deterministic and offline-only.
+
+## 2026-03-25 14:24 KST — Cycle DK Design note
+- Preserved dense digest readability by pairing detailed recommendation row with compact alias row.
+- Copy contract remains deterministic (LOWER|HOLD|RAISE <-> L|H|R).

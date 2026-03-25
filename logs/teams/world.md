@@ -1631,3 +1631,6 @@
 ## 2026-03-25 14:04 KST — Cycle DJ World/UX readability note
 - Completed world-facing digest rail cue `LPR HYS RAIL` for lane-priority stability scanability.
 - No map or portal runtime behavior changed.
+
+## 2026-03-25 14:24 KST — Cycle DK World note
+- Scope remained digest-only (LPR HYS THRESH REC + LPR HYS THR); no map/portal runtime changes.
