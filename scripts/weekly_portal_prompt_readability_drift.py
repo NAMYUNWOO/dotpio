@@ -32,8 +32,8 @@ PORTAL_PATH_HINTS = (
 )
 
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 
@@ -46,7 +46,7 @@ for _tokens in TOKEN_GROUPS.values():
 PRESSURE_TOKENS = ["PRESSURE:", "P:"]
 
 TOKEN_FAMILIES = {
-    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
+    "portal": ["ENTER:JUMP", "NEXT:", "NEXT ROUTE:", "COACH:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VIBE TRAIL WHY CONF:", "VTWC:", "VIBE TRAIL WHY CONF WHY:", "VTCW:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:"],
     "alt": ["ALT:", "ALT ROUTE:", "ALT DELTA:", "ADEL:", "ALT PLAN:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:"],
     "pressure": ["PRESSURE:", "P:"],
 }
@@ -93,6 +93,7 @@ TOKEN_ALIAS_FAMILIES = {
     "dmgComboAlias": ["DMG COMBO:"],
     "dmgComboRetuneAlias": ["DCR:", "DMG COMBO WINDOW RETUNE REC:"],
     "dmgComboRetuneConfidenceAlias": ["DCRC:", "DMG COMBO WINDOW RETUNE CONF:"],
+    "dmgComboChainCoachAlias": ["DMG COMBO CHAIN COACH:"],
     "pulseRemapMomentumAlias": ["PULSE REMAP MOMENTUM:", "PRM:"],
     "pulseRemapMomentumSuppressionAlias": ["PULSE REMAP MOMENTUM SUPPRESS:", "PRMS:"],
     "pulseRemapSuppressionPlanAlias": ["PULSE REMAP SUPPRESS PLAN:", "PRSP:"],
@@ -7584,6 +7585,53 @@ def combo_window_retune_confidence_from_signals(
         "offlineOnly": True,
     }
 
+
+def combo_chain_narrative_coach_line_from_signals(
+    *,
+    combo_window_retune_recommendation: str,
+    combo_window_retune_confidence: str,
+    combo_window_retune_recommendation_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Offline-only narrative coach line tied to combo-window retune + pressure trend."""
+    recommendation = str(combo_window_retune_recommendation).upper()
+    confidence = str(combo_window_retune_confidence).upper()
+    pressure_band = str(combo_window_retune_recommendation_signals.get("pressureBand", "LOW") or "LOW").upper()
+    drift_risk = str(combo_window_retune_recommendation_signals.get("driftRisk", "LOW") or "LOW").upper()
+    lane_cadence_recency = str(combo_window_retune_recommendation_signals.get("laneCadenceRecency", "ok") or "ok").lower()
+
+    if recommendation == "TIGHTEN":
+        line = "LOCK CHAINS, CASH BURSTS."
+        reason = "tighten-retune-prioritizes-secure-finish-rhythm"
+    elif recommendation == "HOLD" and pressure_band == "HIGH":
+        line = "HOLD RHYTHM, BAIT THE SPIKE."
+        reason = "hold-retune-under-high-pressure"
+    elif recommendation == "HOLD":
+        line = "KEEP TEMPO, SCAN FOR OPENINGS."
+        reason = "hold-retune-under-moderate-pressure"
+    else:
+        line = "EXTEND STRING, FARM MOMENTUM."
+        reason = "expand-retune-with-stable-pressure"
+
+    if confidence == "LOW" and recommendation != "TIGHTEN":
+        line = "KEEP IT CLEAN, NO GREED."
+        reason = "low-confidence-guardrail-copy"
+    elif drift_risk == "HIGH" and recommendation != "TIGHTEN":
+        line = "SHORT CHAINS, RESET EARLY."
+        reason = "high-drift-risk-guardrail-copy"
+    elif lane_cadence_recency == "warn" and recommendation == "EXPAND":
+        line = "EXTEND LIGHT, WATCH ROTATION."
+        reason = "expand-retune-with-lane-cadence-warning"
+
+    return line, {
+        "reason": reason,
+        "recommendation": recommendation,
+        "confidence": confidence,
+        "pressureBand": pressure_band,
+        "driftRisk": drift_risk,
+        "laneCadenceRecency": lane_cadence_recency,
+        "offlineOnly": True,
+    }
+
 def main() -> int:
     args = parse_args()
     root = args.repo_root.resolve()
@@ -7827,6 +7875,11 @@ def main() -> int:
     combo_window_retune_confidence, combo_window_retune_confidence_signals = combo_window_retune_confidence_from_signals(
         recommendation=combo_window_retune_recommendation,
         recommendation_signals=combo_window_retune_recommendation_signals,
+    )
+    combo_chain_narrative_coach_line, combo_chain_narrative_coach_line_signals = combo_chain_narrative_coach_line_from_signals(
+        combo_window_retune_recommendation=combo_window_retune_recommendation,
+        combo_window_retune_confidence=combo_window_retune_confidence,
+        combo_window_retune_recommendation_signals=combo_window_retune_recommendation_signals,
     )
     dmg_combo_retune_alias_flag_name = "DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_ALIAS"
     dmg_combo_retune_alias_flag_enabled = os.environ.get(dmg_combo_retune_alias_flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
@@ -9163,6 +9216,8 @@ def main() -> int:
         "comboWindowRetuneConfidenceSignals": combo_window_retune_confidence_signals,
         "comboWindowRetuneConfidenceAlias": dmg_combo_retune_conf_alias if dmg_combo_retune_conf_alias_flag_enabled else "FLAG OFF",
         "comboWindowRetuneConfidenceAliasSignals": {"flagName": dmg_combo_retune_conf_alias_flag_name, "flagEnabled": dmg_combo_retune_conf_alias_flag_enabled, "confidence": combo_window_retune_confidence, "alias": dmg_combo_retune_conf_alias},
+        "comboChainNarrativeCoachLine": combo_chain_narrative_coach_line,
+        "comboChainNarrativeCoachLineSignals": combo_chain_narrative_coach_line_signals,
         "pulseHeatFxCompactBudgetDrift": pulse_heat_fx_compact_budget_drift_level,
         "pulseHeatFxCompactBudgetDriftSignals": pulse_heat_fx_compact_budget_drift_signals,
         "routeGlowFxCompactBudgetDrift": route_glow_fx_compact_budget_drift_level,
@@ -9221,6 +9276,7 @@ def main() -> int:
         f"- DCR: **{dmg_combo_retune_alias if dmg_combo_retune_alias_flag_enabled else "FLAG OFF"}** (flag={dmg_combo_retune_alias_flag_name} enabled={dmg_combo_retune_alias_flag_enabled} full={combo_window_retune_recommendation})",
         f"- DMG COMBO WINDOW RETUNE CONF: **{combo_window_retune_confidence}** ({combo_window_retune_confidence_signals['rationale']}; rec={combo_window_retune_confidence_signals['recommendation']} churn={combo_window_retune_confidence_signals['comboChurn']} net={combo_window_retune_confidence_signals['comboNet']:+d} drift={combo_window_retune_confidence_signals['driftRisk']} pressure={combo_window_retune_confidence_signals['pressureBand']} offlineOnly={combo_window_retune_confidence_signals['offlineOnly']})",
         f"- DCRC: **{dmg_combo_retune_conf_alias if dmg_combo_retune_conf_alias_flag_enabled else 'FLAG OFF'}** (flag={dmg_combo_retune_conf_alias_flag_name} enabled={dmg_combo_retune_conf_alias_flag_enabled} full={combo_window_retune_confidence})",
+        f"- DMG COMBO CHAIN COACH: **{combo_chain_narrative_coach_line}** ({combo_chain_narrative_coach_line_signals['reason']}; rec={combo_chain_narrative_coach_line_signals['recommendation']} conf={combo_chain_narrative_coach_line_signals['confidence']} pressure={combo_chain_narrative_coach_line_signals['pressureBand']} drift={combo_chain_narrative_coach_line_signals['driftRisk']} cadence={combo_chain_narrative_coach_line_signals['laneCadenceRecency']} offlineOnly={combo_chain_narrative_coach_line_signals['offlineOnly']})",
         f"- PULSE REMAP MOMENTUM: **{pulse_remap_momentum_recommendation}** ({pulse_remap_momentum_recommendation_signals['rationale']}; rec={pulse_remap_momentum_recommendation_signals['recommendation']} driftRisk={pulse_remap_momentum_recommendation_signals['driftRisk']} pressure={pulse_remap_momentum_recommendation_signals['pressureBand']} cadence={pulse_remap_momentum_recommendation_signals['laneCadenceRecency']} planChurn={pulse_remap_momentum_recommendation_signals['planChurn']} planNet={pulse_remap_momentum_recommendation_signals['planNet']:+d} offlineOnly={pulse_remap_momentum_recommendation_signals['offlineOnly']})",
         f"- PULSE REMAP MOMENTUM Δ: **{pulse_remap_momentum_drift:+d}** ({pulse_remap_momentum_drift_signals['reason']}; current={pulse_remap_momentum_drift_signals['currentMomentum']}({pulse_remap_momentum_drift_signals['currentScore']:+d}) prior={pulse_remap_momentum_drift_signals['priorMomentum']}({pulse_remap_momentum_drift_signals['priorScore']:+d}) loaded={pulse_remap_momentum_drift_signals['priorLoaded']})",
         f"- PULSE REMAP MOMENTUM SUPPRESS: **{pulse_remap_momentum_suppression}** ({pulse_remap_momentum_suppression_signals['reason']}; streak={pulse_remap_momentum_suppression_signals['freezeStreak']} threshold={pulse_remap_momentum_suppression_signals['threshold']} suppress={str(pulse_remap_momentum_suppression_signals['suppress']).upper()} offlineOnly={pulse_remap_momentum_suppression_signals['offlineOnly']})",
@@ -9406,6 +9462,7 @@ def main() -> int:
         f"- DMG COMBO FAMILY CHURN: **net {token_family_totals['dmgComboAlias']['net']:+d}** (added={token_family_totals['dmgComboAlias']['added']} removed={token_family_totals['dmgComboAlias']['removed']} churn={token_family_totals['dmgComboAlias']['churn']} coverage={token_family_totals['dmgComboAlias']['coverage']})",
         f"- DMG COMBO RETUNE + DCR FAMILY CHURN: **net {token_family_totals['dmgComboRetuneAlias']['net']:+d}** (added={token_family_totals['dmgComboRetuneAlias']['added']} removed={token_family_totals['dmgComboRetuneAlias']['removed']} churn={token_family_totals['dmgComboRetuneAlias']['churn']} coverage={token_family_totals['dmgComboRetuneAlias']['coverage']})",
         f"- DMG COMBO RETUNE CONF + DCRC FAMILY CHURN: **net {token_family_totals['dmgComboRetuneConfidenceAlias']['net']:+d}** (added={token_family_totals['dmgComboRetuneConfidenceAlias']['added']} removed={token_family_totals['dmgComboRetuneConfidenceAlias']['removed']} churn={token_family_totals['dmgComboRetuneConfidenceAlias']['churn']} coverage={token_family_totals['dmgComboRetuneConfidenceAlias']['coverage']})",
+        f"- DMG COMBO CHAIN COACH FAMILY CHURN: **net {token_family_totals['dmgComboChainCoachAlias']['net']:+d}** (added={token_family_totals['dmgComboChainCoachAlias']['added']} removed={token_family_totals['dmgComboChainCoachAlias']['removed']} churn={token_family_totals['dmgComboChainCoachAlias']['churn']} coverage={token_family_totals['dmgComboChainCoachAlias']['coverage']})",
         f"- PULSE REMAP MOMENTUM FAMILY CHURN: **net {token_family_totals['pulseRemapMomentumAlias']['net']:+d}** (added={token_family_totals['pulseRemapMomentumAlias']['added']} removed={token_family_totals['pulseRemapMomentumAlias']['removed']} churn={token_family_totals['pulseRemapMomentumAlias']['churn']} coverage={token_family_totals['pulseRemapMomentumAlias']['coverage']})",
         f"- PULSE REMAP SUPPRESS FAMILY CHURN: **net {token_family_totals['pulseRemapMomentumSuppressionAlias']['net']:+d}** (added={token_family_totals['pulseRemapMomentumSuppressionAlias']['added']} removed={token_family_totals['pulseRemapMomentumSuppressionAlias']['removed']} churn={token_family_totals['pulseRemapMomentumSuppressionAlias']['churn']} coverage={token_family_totals['pulseRemapMomentumSuppressionAlias']['coverage']})",
         f"- PULSE REMAP SUPPRESS PLAN FAMILY CHURN: **net {token_family_totals['pulseRemapSuppressionPlanAlias']['net']:+d}** (added={token_family_totals['pulseRemapSuppressionPlanAlias']['added']} removed={token_family_totals['pulseRemapSuppressionPlanAlias']['removed']} churn={token_family_totals['pulseRemapSuppressionPlanAlias']['churn']} coverage={token_family_totals['pulseRemapSuppressionPlanAlias']['coverage']})",
@@ -9514,6 +9571,7 @@ def main() -> int:
         f"- DMG COMBO: +{token_family_totals['dmgComboAlias']['added']} / -{token_family_totals['dmgComboAlias']['removed']} / net {token_family_totals['dmgComboAlias']['net']} (churn={token_family_totals['dmgComboAlias']['churn']} coverage={token_family_totals['dmgComboAlias']['coverage']})",
         f"- DCR + DMG COMBO WINDOW RETUNE REC: +{token_family_totals['dmgComboRetuneAlias']['added']} / -{token_family_totals['dmgComboRetuneAlias']['removed']} / net {token_family_totals['dmgComboRetuneAlias']['net']} (churn={token_family_totals['dmgComboRetuneAlias']['churn']} coverage={token_family_totals['dmgComboRetuneAlias']['coverage']})",
         f"- DCRC + DMG COMBO WINDOW RETUNE CONF: +{token_family_totals['dmgComboRetuneConfidenceAlias']['added']} / -{token_family_totals['dmgComboRetuneConfidenceAlias']['removed']} / net {token_family_totals['dmgComboRetuneConfidenceAlias']['net']} (churn={token_family_totals['dmgComboRetuneConfidenceAlias']['churn']} coverage={token_family_totals['dmgComboRetuneConfidenceAlias']['coverage']})",
+        f"- DMG COMBO CHAIN COACH: +{token_family_totals['dmgComboChainCoachAlias']['added']} / -{token_family_totals['dmgComboChainCoachAlias']['removed']} / net {token_family_totals['dmgComboChainCoachAlias']['net']} (churn={token_family_totals['dmgComboChainCoachAlias']['churn']} coverage={token_family_totals['dmgComboChainCoachAlias']['coverage']})",
         f"- PRM + PULSE REMAP MOMENTUM: +{token_family_totals['pulseRemapMomentumAlias']['added']} / -{token_family_totals['pulseRemapMomentumAlias']['removed']} / net {token_family_totals['pulseRemapMomentumAlias']['net']} (churn={token_family_totals['pulseRemapMomentumAlias']['churn']} coverage={token_family_totals['pulseRemapMomentumAlias']['coverage']})",
         f"- PRMS + PULSE REMAP MOMENTUM SUPPRESS: +{token_family_totals['pulseRemapMomentumSuppressionAlias']['added']} / -{token_family_totals['pulseRemapMomentumSuppressionAlias']['removed']} / net {token_family_totals['pulseRemapMomentumSuppressionAlias']['net']} (churn={token_family_totals['pulseRemapMomentumSuppressionAlias']['churn']} coverage={token_family_totals['pulseRemapMomentumSuppressionAlias']['coverage']})",
         f"- PRSP + PULSE REMAP SUPPRESS PLAN: +{token_family_totals['pulseRemapSuppressionPlanAlias']['added']} / -{token_family_totals['pulseRemapSuppressionPlanAlias']['removed']} / net {token_family_totals['pulseRemapSuppressionPlanAlias']['net']} (churn={token_family_totals['pulseRemapSuppressionPlanAlias']['churn']} coverage={token_family_totals['pulseRemapSuppressionPlanAlias']['coverage']})",

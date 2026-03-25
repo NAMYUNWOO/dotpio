@@ -3009,3 +3009,7 @@ Compact decision memory for AI context efficiency.
 - 2026-03-26 07:01 KST: Completed Cycle EB Systems/QA follow-up by adding combo-window retune confidence observability (`DMG COMBO WINDOW RETUNE CONF` + compact `DCRC`) into weekly digest payload + markdown token-family churn sections with gated alias flag `DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_CONF_ALIAS`; regression coverage extended in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Durable decision: keep combo-window confidence as offline digest telemetry only (no runtime coupling), mirroring prior recommendation signal handling.
 - Next queued item: AI Content/Combat offline combo-chain narrative coach line tied to combo-window retune + pressure trend.
+- 2026-03-26 07:31 KST: Completed AI Content/Combat follow-up by adding offline digest token `DMG COMBO CHAIN COACH:` derived from combo-window retune recommendation + confidence + pressure/drift/cadence signals (`comboChainNarrativeCoachLine*` in payload).
+- Added token-family observability for coach copy (`dmgComboChainCoachAlias`) with family churn rows in digest markdown summaries.
+- Regression lock extended to require `DMG COMBO CHAIN COACH` + coach family-churn rows; verification PASS via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 -m py_compile ...`.
+- Durable decision: keep coach line offline-only and deterministic; no gameplay/runtime coupling.
