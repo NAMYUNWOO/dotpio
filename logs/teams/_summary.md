@@ -2987,3 +2987,5 @@ Compact decision memory for AI context efficiency.
 - Verification PASS: py_compile + weekly regression + digest generation.
 - 24h cadence guardrail status after this cycle: combat/vfx ✅, design/world ✅, systems/ops ✅.
 - Injected next backlog tasks: Combat/VFX compact glint alias prototype, Systems/QA glint family trend drift row, Design/World glint-linked narrative palette recommendation.
+
+- 2026-03-26 04:05 KST: Completed POST_RC Systems/QA task for glint-family prior-window drift. Weekly digest now emits `PRSFX FAMILY TREND` with Δnet/current/prior/loaded/reason, payload persists `pulseRemapSceneFxGlintFamilyTrend*`, and regression suite enforces schema + markdown presence.

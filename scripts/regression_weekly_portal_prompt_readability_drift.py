@@ -449,6 +449,14 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert isinstance(payload.get("pulseRemapSceneFxGlintFamilyTrendDrift"), int), payload
+        assert set(payload.get("pulseRemapSceneFxGlintFamilyTrendSignals", {}).keys()) == {
+            "trend",
+            "currentNet",
+            "priorNet",
+            "priorLoaded",
+            "reason",
+        }, payload
         assert payload.get("pulseRemapSuppressionPostureWarning") in {"STEADY", "CAUTION", "ALERT"}, payload
         assert set(payload.get("pulseRemapSuppressionPostureWarningSignals", {}).keys()) == {
             "suppressionPlan",
@@ -2149,6 +2157,7 @@ def main() -> int:
         assert "PRSP FAMILY TREND:" in md_text
         assert "PRSMC FAMILY TREND:" in md_text
         assert "PRSMP FAMILY TREND:" in md_text
+        assert "PRSFX FAMILY TREND:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
         assert "LPR HYS THR:" in md_text

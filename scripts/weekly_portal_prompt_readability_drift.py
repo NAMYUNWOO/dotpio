@@ -7393,6 +7393,46 @@ def pulse_remap_scene_microline_cadence_family_trend_from_prior(
     }
 
 
+def pulse_remap_scene_fx_glint_family_trend_from_prior(
+    *,
+    current_family_totals: dict[str, int],
+    prior_json_path: Path,
+) -> tuple[int, dict[str, object]]:
+    """Track PRSFX/glint family net drift against prior digest window."""
+    current_net = int(current_family_totals.get("net", 0) or 0)
+    prior_net = 0
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_families = prior_payload.get("tokenFamilyTotals", {})
+            prior_family = prior_families.get("pulseRemapSceneFxGlintAlias", {}) if isinstance(prior_families, dict) else {}
+            prior_net = int(prior_family.get("net", 0) or 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    drift = current_net - prior_net
+    if drift > 0:
+        trend = "UP"
+        reason = "scene-fx-glint-family-net-increased-vs-prior-window"
+    elif drift < 0:
+        trend = "DOWN"
+        reason = "scene-fx-glint-family-net-decreased-vs-prior-window"
+    else:
+        trend = "FLAT"
+        reason = "scene-fx-glint-family-net-unchanged-vs-prior-window"
+
+    return drift, {
+        "trend": trend,
+        "currentNet": current_net,
+        "priorNet": prior_net,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def pulse_remap_scene_microline_style_policy_family_trend_from_prior(
     *,
     current_family_totals: dict[str, int],
@@ -7707,6 +7747,10 @@ def main() -> int:
     )
     pulse_remap_scene_microline_style_policy_family_trend_drift, pulse_remap_scene_microline_style_policy_family_trend_signals = pulse_remap_scene_microline_style_policy_family_trend_from_prior(
         current_family_totals=token_family_totals["pulseRemapSceneMicrolineStylePolicyAlias"],
+        prior_json_path=args.out_json,
+    )
+    pulse_remap_scene_fx_glint_family_trend_drift, pulse_remap_scene_fx_glint_family_trend_signals = pulse_remap_scene_fx_glint_family_trend_from_prior(
+        current_family_totals=token_family_totals["pulseRemapSceneFxGlintAlias"],
         prior_json_path=args.out_json,
     )
     pulse_remap_suppression_escalation_plan, pulse_remap_suppression_escalation_plan_signals = pulse_remap_suppression_escalation_plan_from_signals(
@@ -8629,6 +8673,8 @@ def main() -> int:
         "pulseRemapSceneMicrolineCadenceFamilyTrendSignals": pulse_remap_scene_microline_cadence_family_trend_signals,
         "pulseRemapSceneMicrolineStylePolicyFamilyTrendDrift": pulse_remap_scene_microline_style_policy_family_trend_drift,
         "pulseRemapSceneMicrolineStylePolicyFamilyTrendSignals": pulse_remap_scene_microline_style_policy_family_trend_signals,
+        "pulseRemapSceneFxGlintFamilyTrendDrift": pulse_remap_scene_fx_glint_family_trend_drift,
+        "pulseRemapSceneFxGlintFamilyTrendSignals": pulse_remap_scene_fx_glint_family_trend_signals,
         "pulseRemapSuppressionEscalationPlan": pulse_remap_suppression_escalation_plan,
         "pulseRemapSuppressionEscalationPlanSignals": pulse_remap_suppression_escalation_plan_signals,
         "pulseRemapSuppressionSceneFlavor": pulse_remap_suppression_scene_flavor,
@@ -9204,6 +9250,7 @@ def main() -> int:
         f"- PULSE REMAP SCENE MICROLINE STYLE POLICY + PRSMP FAMILY CHURN: **net {token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['net']:+d}** (added={token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['added']} removed={token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['removed']} churn={token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['churn']} coverage={token_family_totals['pulseRemapSceneMicrolineStylePolicyAlias']['coverage']})",
         f"- PULSE REMAP SCENE MICROLINE STYLE POSTURE + PRSMPP FAMILY CHURN: **net {token_family_totals['pulseRemapSceneMicrolineStylePostureAlias']['net']:+d}** (added={token_family_totals['pulseRemapSceneMicrolineStylePostureAlias']['added']} removed={token_family_totals['pulseRemapSceneMicrolineStylePostureAlias']['removed']} churn={token_family_totals['pulseRemapSceneMicrolineStylePostureAlias']['churn']} coverage={token_family_totals['pulseRemapSceneMicrolineStylePostureAlias']['coverage']})",
         f"- PULSE REMAP SCENE FX GLINT FAMILY CHURN: **net {token_family_totals['pulseRemapSceneFxGlintAlias']['net']:+d}** (added={token_family_totals['pulseRemapSceneFxGlintAlias']['added']} removed={token_family_totals['pulseRemapSceneFxGlintAlias']['removed']} churn={token_family_totals['pulseRemapSceneFxGlintAlias']['churn']} coverage={token_family_totals['pulseRemapSceneFxGlintAlias']['coverage']})",
+        f"- PRSFX FAMILY TREND: **{pulse_remap_scene_fx_glint_family_trend_signals['trend']}** (Δnet={pulse_remap_scene_fx_glint_family_trend_drift:+d} currentNet={pulse_remap_scene_fx_glint_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_scene_fx_glint_family_trend_signals['priorNet']:+d} loaded={pulse_remap_scene_fx_glint_family_trend_signals['priorLoaded']} reason={pulse_remap_scene_fx_glint_family_trend_signals['reason']})",
         f"- PRMS FAMILY TREND: **{pulse_remap_suppression_family_trend_signals['trend']}** (Δnet={pulse_remap_suppression_family_trend_drift:+d} currentNet={pulse_remap_suppression_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_family_trend_signals['priorLoaded']} reason={pulse_remap_suppression_family_trend_signals['reason']})",
         f"- PRSP FAMILY TREND: **{pulse_remap_suppression_plan_family_trend_signals['trend']}** (Δnet={pulse_remap_suppression_plan_family_trend_drift:+d} currentNet={pulse_remap_suppression_plan_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_suppression_plan_family_trend_signals['priorNet']:+d} loaded={pulse_remap_suppression_plan_family_trend_signals['priorLoaded']} reason={pulse_remap_suppression_plan_family_trend_signals['reason']})",
         f"- PRSMC FAMILY TREND: **{pulse_remap_scene_microline_cadence_family_trend_signals['trend']}** (Δnet={pulse_remap_scene_microline_cadence_family_trend_drift:+d} currentNet={pulse_remap_scene_microline_cadence_family_trend_signals['currentNet']:+d} priorNet={pulse_remap_scene_microline_cadence_family_trend_signals['priorNet']:+d} loaded={pulse_remap_scene_microline_cadence_family_trend_signals['priorLoaded']} reason={pulse_remap_scene_microline_cadence_family_trend_signals['reason']})",

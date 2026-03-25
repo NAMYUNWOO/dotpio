@@ -1120,6 +1120,6 @@ See project-level plans:
   - Pass/fail: pass if trend row remains stable and does not trigger false alerts.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Ship offline digest glint cue token (`PULSE REMAP SCENE FX GLINT:SOFT|VOID|SPIKE`) with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 03:45 KST)*
-- [ ] Systems/QA Team: Add prior-window trend drift row for `PULSE REMAP SCENE FX GLINT` token family with regression lock.
+- [x] Systems/QA Team: Add prior-window trend drift row for `PULSE REMAP SCENE FX GLINT` token family with regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 04:05 KST)*
 - [ ] Design/World Team: Prototype glint-linked scene-copy palette recommendation (`COOL|ASH|SCAR`) as offline digest recommendation.
 - [ ] Combat/VFX Team: Prototype compact glint alias (`PRSFX:<S|V|P>`) behind flag for DOS-width scanability.
