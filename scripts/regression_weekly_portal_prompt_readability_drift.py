@@ -348,6 +348,17 @@ def main() -> int:
             "reason",
             "offlineOnly",
         }, payload
+        assert isinstance(payload.get("pulseRemapSuppressionSceneMicroline"), str) and len(payload["pulseRemapSuppressionSceneMicroline"]) > 0, payload
+        assert set(payload.get("pulseRemapSuppressionSceneMicrolineSignals", {}).keys()) == {
+            "suppressionPlan",
+            "sceneFlavor",
+            "sceneConfidence",
+            "laneCadenceRecency",
+            "cadenceTrend",
+            "cadenceMemory",
+            "reason",
+            "offlineOnly",
+        }, payload
         assert payload.get("pulseRemapSuppressionPostureWarning") in {"STEADY", "CAUTION", "ALERT"}, payload
         assert set(payload.get("pulseRemapSuppressionPostureWarningSignals", {}).keys()) == {
             "suppressionPlan",
@@ -2022,6 +2033,7 @@ def main() -> int:
         assert "PULSE REMAP SUPPRESS PLAN:" in md_text
         assert "PULSE REMAP SCENE:" in md_text
         assert "PULSE REMAP SCENE CONF:" in md_text
+        assert "PULSE REMAP SCENE MICROLINE:" in md_text
         assert "PRMS:" in md_text
         assert "PRSP:" in md_text
         assert "PRPW:" in md_text

@@ -1991,3 +1991,7 @@
 - Added compact warning alias `PRPW` to keep suppression posture visibility within DOS-width budget.
 - Alias is gated; when flag is off markdown still reports posture status without enabling compact operator token.
 - UX rationale: one-glance handoff warning state avoids overloading `PRSP`/`PRMS` rows during pressure spikes.
+
+## 2026-03-25 23:34 KST — UX digest scanability update
+- Added dedicated digest row `PULSE REMAP SCENE MICROLINE` to provide one-line narrative interpretation next to scene/confidence rows.
+- Row includes compact memory hint (`trend:prior->current`) to reduce operator context switching across windows.

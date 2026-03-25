@@ -1702,3 +1702,7 @@
 - Decision: posture tiers map deterministically as `STEADY|CAUTION|ALERT`, exposed via compact alias `PRPW:<S|C|A>` behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SUPPRESSION_POSTURE_WARNING`.
 - Signals: suppression plan, suppression state, scene confidence, drift risk, pressure band.
 - Follow-up: validate narrative microline layer can consume posture state without conflicting with combat handoff readability.
+
+## 2026-03-25 23:34 KST — Combat handoff compatibility check
+- Verified new microline is descriptive-only and does not override combat-oriented `PRSP/PRMS/PRPW` semantics.
+- Handoff remains stable: microline consumes suppression telemetry but introduces no additional combat token families.

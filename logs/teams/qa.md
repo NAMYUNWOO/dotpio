@@ -3172,3 +3172,8 @@
 - Added token-family coverage assertion for `pulseRemapSuppressionPostureWarningAlias`.
 - Added markdown assertions for `PRPW:` rows.
 - Verification: `[PASS] weekly portal prompt readability drift regression checks`.
+
+## 2026-03-25 23:34 KST — Regression coverage for microline payload/markdown
+- Extended weekly digest regression to assert new JSON keys and microline signal schema.
+- Added markdown assertion for `PULSE REMAP SCENE MICROLINE:` row presence.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.

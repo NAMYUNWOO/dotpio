@@ -2621,3 +2621,8 @@
 - Wired new offline posture warning derivation into digest pipeline immediately after suppression scene confidence resolution.
 - Included deterministic fallback mapping (`PRPW:C`) to preserve parser stability on unknown posture labels.
 - Extended token catalogs/family mappings so churn accounting includes `PRPW:` in compact/detailed/portal contexts.
+
+## 2026-03-25 23:34 KST — Suppression cadence microline offline wiring
+- Implemented `pulse_remap_scene_microline_from_signals(...)` in weekly digest pipeline to synthesize scene-reactive narrative microline from suppression plan + cadence memory trend (`priorNet->currentNet`).
+- Surfaced new JSON outputs: `pulseRemapSuppressionSceneMicroline`, `pulseRemapSuppressionSceneMicrolineSignals`.
+- Surfaced new markdown row: `PULSE REMAP SCENE MICROLINE:` with plan/flavor/confidence/cadence-memory context for operator scanability.

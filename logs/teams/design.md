@@ -1769,3 +1769,7 @@
 - Chosen posture wording hierarchy: `STEADY` (safe), `CAUTION` (arming/suppression pressure), `ALERT` (lock/high-risk).
 - Keeps existing suppression-plan semantics (`HOLD|ARM|LOCK`) while adding player-facing readability cue.
 - Decision is additive/reversible and remains offline-only in digest outputs.
+
+## 2026-03-25 23:34 KST — Design decision: cadence-memory microline contract
+- Decision: keep microline offline-only and deterministic, derived from existing suppression + cadence trend signals.
+- Constraint held: reversible/additive copy layer, no runtime behavior changes.

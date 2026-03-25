@@ -6858,6 +6858,60 @@ def pulse_remap_scene_flavor_from_signals(
     }
 
 
+def pulse_remap_scene_microline_from_signals(
+    *,
+    suppression_plan: str,
+    scene_flavor: str,
+    scene_confidence: str,
+    lane_cadence_recency: str,
+    suppression_plan_family_trend_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Prototype scene-reactive microline copy from suppression-plan cadence memory (offline-only)."""
+    plan = str(suppression_plan).strip().upper() or "ARM"
+    flavor = str(scene_flavor).strip().upper() or "BRACE"
+    confidence = str(scene_confidence).strip().upper() or "MED"
+    cadence = str(lane_cadence_recency).strip().lower() or "ok"
+    cadence_trend = str(suppression_plan_family_trend_signals.get("trend", "FLAT")).strip().upper() or "FLAT"
+    prior_loaded = bool(suppression_plan_family_trend_signals.get("priorLoaded", False))
+    prior_net = int(suppression_plan_family_trend_signals.get("priorNet", 0) or 0)
+    current_net = int(suppression_plan_family_trend_signals.get("currentNet", 0) or 0)
+    cadence_memory = (
+        f"{cadence_trend}:{prior_net:+d}->{current_net:+d}"
+        if prior_loaded
+        else f"{cadence_trend}:cold-start"
+    )
+
+    if plan == "LOCK" and cadence == "warn":
+        microline = "Lock the pulse; cadence debt is still hot."
+        reason = "lock-with-cadence-warning"
+    elif plan == "LOCK":
+        microline = "Lock the pulse and let the route settle before remap chatter."
+        reason = "lock-plan-stability"
+    elif plan == "ARM" and cadence == "warn":
+        microline = "Brace the pulse; cadence memory says hold the line."
+        reason = "arm-plan-cadence-warning"
+    elif plan == "ARM" and cadence_trend == "UP":
+        microline = "Brace softly; suppression pressure is rising window to window."
+        reason = "arm-plan-uptrend"
+    elif flavor == "CALM" and confidence == "LOW":
+        microline = "Calm window confirmed; keep narration lean and steady."
+        reason = "calm-low-risk-window"
+    else:
+        microline = "Pulse stays watchful while cadence memory normalizes."
+        reason = "default-watchful-window"
+
+    return microline, {
+        "suppressionPlan": plan,
+        "sceneFlavor": flavor,
+        "sceneConfidence": confidence,
+        "laneCadenceRecency": cadence,
+        "cadenceTrend": cadence_trend,
+        "cadenceMemory": cadence_memory,
+        "reason": reason,
+        "offlineOnly": True,
+    }
+
+
 def pulse_remap_momentum_drift_from_prior(
     *,
     current_momentum: str,
@@ -7329,6 +7383,13 @@ def main() -> int:
         "reason": pulse_remap_scene_confidence_reason,
         "offlineOnly": True,
     }
+    pulse_remap_suppression_scene_microline, pulse_remap_suppression_scene_microline_signals = pulse_remap_scene_microline_from_signals(
+        suppression_plan=pulse_remap_suppression_escalation_plan,
+        scene_flavor=pulse_remap_suppression_scene_flavor,
+        scene_confidence=pulse_remap_scene_confidence,
+        lane_cadence_recency=lane_cadence_recency,
+        suppression_plan_family_trend_signals=pulse_remap_suppression_plan_family_trend_signals,
+    )
     if pulse_remap_suppression_escalation_plan == "LOCK" or pulse_remap_scene_confidence == "HIGH":
         pulse_remap_suppression_posture_warning = "ALERT"
         pulse_remap_suppression_posture_warning_reason = "lock-plan-or-high-confidence-risk"
@@ -8158,6 +8219,8 @@ def main() -> int:
         "pulseRemapSuppressionSceneFlavorSignals": pulse_remap_suppression_scene_flavor_signals,
         "pulseRemapSceneConfidence": pulse_remap_scene_confidence,
         "pulseRemapSceneConfidenceSignals": pulse_remap_scene_confidence_signals,
+        "pulseRemapSuppressionSceneMicroline": pulse_remap_suppression_scene_microline,
+        "pulseRemapSuppressionSceneMicrolineSignals": pulse_remap_suppression_scene_microline_signals,
         "pulseRemapSuppressionPostureWarning": pulse_remap_suppression_posture_warning,
         "pulseRemapSuppressionPostureWarningSignals": pulse_remap_suppression_posture_warning_signals,
         "pulseRemapSuppressionPostureWarningAlias": pulse_remap_suppression_posture_warning_alias,
@@ -8519,6 +8582,7 @@ def main() -> int:
         f"- PRSP: **{pulse_remap_suppression_escalation_plan_alias if pulse_remap_suppression_plan_alias_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_suppression_plan_alias_flag_name} enabled={pulse_remap_suppression_plan_alias_flag_enabled} full={pulse_remap_suppression_escalation_plan})",
         f"- PULSE REMAP SCENE: **{pulse_remap_suppression_scene_flavor}** ({pulse_remap_suppression_scene_flavor_signals['reason']}; plan={pulse_remap_suppression_scene_flavor_signals['suppressionPlan']} driftRisk={pulse_remap_suppression_scene_flavor_signals['driftRisk']} pressure={pulse_remap_suppression_scene_flavor_signals['pressureBand']} cadence={pulse_remap_suppression_scene_flavor_signals['laneCadenceRecency']} offlineOnly={pulse_remap_suppression_scene_flavor_signals['offlineOnly']})",
         f"- PULSE REMAP SCENE CONF: **{pulse_remap_scene_confidence}** ({pulse_remap_scene_confidence_signals['reason']}; plan={pulse_remap_scene_confidence_signals['suppressionPlan']} driftRisk={pulse_remap_scene_confidence_signals['driftRisk']} pressure={pulse_remap_scene_confidence_signals['pressureBand']} offlineOnly={pulse_remap_scene_confidence_signals['offlineOnly']})",
+        f"- PULSE REMAP SCENE MICROLINE: **{pulse_remap_suppression_scene_microline}** ({pulse_remap_suppression_scene_microline_signals['reason']}; plan={pulse_remap_suppression_scene_microline_signals['suppressionPlan']} flavor={pulse_remap_suppression_scene_microline_signals['sceneFlavor']} conf={pulse_remap_suppression_scene_microline_signals['sceneConfidence']} cadence={pulse_remap_suppression_scene_microline_signals['laneCadenceRecency']} memory={pulse_remap_suppression_scene_microline_signals['cadenceMemory']} offlineOnly={pulse_remap_suppression_scene_microline_signals['offlineOnly']})",
         f"- PRPW: **{pulse_remap_suppression_posture_warning_alias if pulse_remap_suppression_posture_warning_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_suppression_posture_warning_flag_name} enabled={pulse_remap_suppression_posture_warning_flag_enabled} posture={pulse_remap_suppression_posture_warning}; reason={pulse_remap_suppression_posture_warning_signals['reason']})",
         f"- PRM: **{pulse_remap_momentum_alias if pulse_remap_momentum_alias_flag_enabled else 'FLAG OFF'}** (flag={pulse_remap_momentum_alias_flag_name} enabled={pulse_remap_momentum_alias_flag_enabled})",
         f"- FOCUS: **{lane_focus}** (portal={lane_focus_scores['portal']} | alt={lane_focus_scores['alt']} | pressure={lane_focus_scores['pressure']})",

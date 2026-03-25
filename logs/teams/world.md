@@ -1730,3 +1730,7 @@
 - Suppression posture warning token positioned as cross-lane handoff cue so world-facing scene flavor rows can stay narrative-focused.
 - No map/portal graph changes required; this cycle is telemetry/readability-only.
 - Follow-up dependency: scene-reactive narrative microline generator should reference posture signal without replacing scene flavor token.
+
+## 2026-03-25 23:34 KST — World-facing microline readability pass
+- Added narrative microline layer that references suppression cadence memory without changing runtime world mapping.
+- Microline stays additive to `PULSE REMAP SCENE` + `PULSE REMAP SCENE CONF`, preserving existing scene flavor readability contract.
