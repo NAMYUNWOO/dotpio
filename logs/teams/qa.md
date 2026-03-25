@@ -3019,3 +3019,8 @@
   - markdown: `LANE PRIORITY REC CONF:` presence
 - Verification PASS:
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+
+## 2026-03-25 13:31 KST — Cycle DJ QA validation
+- Extended regression contract for lane-priority recommendation signals with hysteresis fields (`priorRecommendation`, `rawRecommendation`, `hysteresisApplied`, `hysteresisThreshold`, `hysteresisScoreGap`, `hysteresisReason`).
+- Added assertions for `LPR HYS:` and `LANE PRIORITY REC HYSTERESIS:` rows in markdown output and payload alias-signal keys.
+- Verification command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` → PASS.

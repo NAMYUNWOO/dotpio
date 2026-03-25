@@ -2759,3 +2759,9 @@ Compact decision memory for AI context efficiency.
 - Regression contract updated and passing (`scripts/regression_weekly_portal_prompt_readability_drift.py`), including markdown row assertion for `LANE PRIORITY REC CONF:`.
 - Backlog sync: TASKS + POST_RC updated `[~] -> [x]` for the Systems/QA confidence-token item.
 - Next highest unchecked item: `AI Content/Systems Team: Prototype offline lane-priority hysteresis suppression policy for recommendation flapping`.
+
+## 2026-03-25 13:31 KST — Cycle DJ shipped: lane-priority hysteresis suppression
+- Completed queued AI Content/Systems backlog item: offline hysteresis suppression for `LANE PRIORITY REC` to reduce flapping across weekly digest windows.
+- Added compact alias token `LPR HYS:H|S` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_ALIAS` and surfaced detailed `LANE PRIORITY REC HYSTERESIS` row in markdown digest.
+- Regression lock updated and passing (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).
+- Injected next tasks: `LPR HYS RAIL` compact trend token (mid-risk) and adaptive hysteresis-threshold recommendation policy (high-risk, offline-only).

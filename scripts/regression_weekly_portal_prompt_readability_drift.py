@@ -309,6 +309,12 @@ def main() -> int:
         assert set(payload.get("lanePriorityRecommendationSignals", {}).keys()) == {
             "offlineOnly",
             "priorLoaded",
+            "priorRecommendation",
+            "rawRecommendation",
+            "hysteresisApplied",
+            "hysteresisThreshold",
+            "hysteresisScoreGap",
+            "hysteresisReason",
             "currentAgeHours",
             "priorAgeHours",
             "momentumHours",
@@ -331,6 +337,13 @@ def main() -> int:
             "flagName",
             "flagEnabled",
             "recommendation",
+            "alias",
+        }, payload
+        assert isinstance(payload.get("lanePriorityHysteresisCompactAlias"), str), payload
+        assert set(payload.get("lanePriorityHysteresisCompactAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "hysteresisApplied",
             "alias",
         }, payload
         assert payload.get("routeSandbox") in {"ON", "OFF"}, payload
@@ -1665,7 +1678,9 @@ def main() -> int:
         assert "LANE BUCKET AGE Δ:" in md_text
         assert "LANE PRIORITY REC:" in md_text
         assert "LPR:" in md_text
+        assert "LPR HYS:" in md_text
         assert "LANE PRIORITY REC CONF:" in md_text
+        assert "LANE PRIORITY REC HYSTERESIS:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text
         assert "ROUTE GLOW FX CONF + RGFXC:" in md_text

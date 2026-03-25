@@ -1577,3 +1577,7 @@
 ## 2026-03-25 12:35 KST — Cycle DI cadence checkpoint
 - Decision: No combat-token mutation this cycle; held combat lane stable while shipping digest routing readability patch.
 - Follow-up: Prioritize next cycle combat/vfx-facing item if systems observability remains overrepresented.
+
+## 2026-03-25 13:31 KST — Cycle DJ Combat lane note
+- No combat behavior/VFX gameplay state changed in this cycle.
+- Lane priority remains for next visible player-facing cadence slice after digest hysteresis stabilization.

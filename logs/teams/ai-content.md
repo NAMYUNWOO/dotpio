@@ -1622,3 +1622,8 @@
 ## 2026-03-25 12:35 KST — Cycle DI backlog injection
 - Decision: Deferred high-risk hysteresis policy to backlog; no runtime AI-content behavior changed in this slice.
 - Follow-up: Prototype offline recommendation flapping suppression after confidence token exists.
+
+## 2026-03-25 13:31 KST — Cycle DJ AI Content/Systems: hysteresis policy prototype
+- Shipped offline lane-priority hysteresis policy: recommendation holds prior lane when challenger score-gap is below threshold and severe staleness bypass is not active.
+- Policy remains offline-only in weekly digest output; no runtime gameplay coupling.
+- Follow-up candidate: volatility-aware adaptive threshold recommendation as offline artifact.

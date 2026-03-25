@@ -1623,3 +1623,7 @@
 ## 2026-03-25 12:35 KST — Cycle DI world/readability handoff
 - Decision: Keep lane-priority compact alias world-facing (design/world readability lane) and flag-gated for reversible rollout.
 - Follow-up: Validate whether `LPR` shorthand remains legible in dense digest snapshots once confidence companion token lands.
+
+## 2026-03-25 13:31 KST — Cycle DJ World/UX follow-up queued
+- No map/runtime world mutation this cycle; scope stayed in weekly digest recommendation stability.
+- Queued next experiment: compact hysteresis confidence rail token (`LPR HYS RAIL:STEADY|SPIKE`) for digest scanability.

@@ -1882,3 +1882,7 @@
 - Decision: Added digest summary compact alias `LPR:<BAL|SYS|DW|CV>` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_ALIAS` to reduce scan friction in weekly routing review.
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Follow-up: Pair with confidence token (`LANE PRIORITY REC CONF`) to improve operator trust calibration.
+
+## 2026-03-25 13:31 KST — Cycle DJ UX note
+- Added compact digest token `LPR HYS` behind flag for faster recommendation-state triage in narrow text layouts.
+- Next UX follow-up: add optional rail token to encode hysteresis stability trend (`STEADY|SPIKE`).

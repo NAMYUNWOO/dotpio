@@ -1659,3 +1659,7 @@
 ## 2026-03-25 12:35 KST — Cycle DI design readability update
 - Decision: Adopted terse `LPR` shorthand to preserve DOS-width digest readability while keeping full `LANE PRIORITY REC` line intact.
 - Follow-up: Monitor abbreviation clarity after confidence/fallback companion tokens are added.
+
+## 2026-03-25 13:31 KST — Cycle DJ Design note
+- Maintained operator readability contract by adding concise hysteresis status row (`LANE PRIORITY REC HYSTERESIS`) and compact alias (`LPR HYS`).
+- Copy stays deterministic and offline-only to avoid player-facing confusion.

@@ -756,4 +756,14 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/World Team: Add compact lane-priority recommendation alias token (`LPR:<BAL|SYS|DW|CV>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_ALIAS` with regression lock. *(lifecycle: [~] -> [x])*
 - [x] Systems/QA Team: Add lane-priority recommendation confidence token (`LANE PRIORITY REC CONF:LOW|MID|HIGH`) with payload + markdown contract. *(lifecycle: [~] -> [x])*
-- [ ] AI Content/Systems Team: Prototype offline lane-priority hysteresis suppression policy for recommendation flapping.
+- [x] AI Content/Systems Team: Prototype offline lane-priority hysteresis suppression policy for recommendation flapping.
+
+## Cycle DJ - Game Director Review (2026-03-25 13:31 KST)
+- Idea 1 (low risk, AI Content/Systems): Add offline lane-priority hysteresis suppression policy so recommendation flips only when score-gap clears threshold.
+- Idea 2 (mid risk, UX/World): Add compact hysteresis confidence rail token (`LPR HYS RAIL:STEADY|SPIKE`) behind flag.
+- Idea 3 (high risk, Systems/QA): Prototype adaptive hysteresis-threshold tuning policy from lane-age volatility windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] AI Content/Systems Team: Prototype offline lane-priority hysteresis suppression policy for recommendation flapping.
+- [x] Systems/QA Team: Add compact hysteresis alias token (`LPR HYS:H|S`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_ALIAS` with payload + markdown wiring.
+- [ ] UX/World Team: Prototype compact hysteresis confidence rail token (`LPR HYS RAIL:STEADY|SPIKE`) behind flag.
+- [ ] Systems/QA Team: Prototype adaptive hysteresis-threshold tuning policy from lane-age volatility windows (offline recommendation only).

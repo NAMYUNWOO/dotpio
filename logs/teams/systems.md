@@ -2474,3 +2474,9 @@
 - JSON payload now includes `lanePriorityRecommendationConfidence` + `lanePriorityRecommendationConfidenceSignals` (`recommendation`, `worstAgeHours`, `momentumGapHours`, `maxMomentumHours`, `reason`).
 - Confidence uses existing offline signals (worst bucket age + momentum gap) so behavior remains additive and non-runtime.
 - Follow-up remains: AI Content/Systems hysteresis suppression policy for recommendation flapping.
+
+## 2026-03-25 13:31 KST — Cycle DJ Systems/QA: lane-priority hysteresis + compact alias
+- Implemented offline hysteresis suppression in `scripts/weekly_portal_prompt_readability_drift.py` for `LANE PRIORITY REC` to reduce recommendation flapping across adjacent windows.
+- Added compact alias token `LPR HYS:H|S` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_ALIAS` with JSON payload + markdown row wiring.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: prototype confidence rail (`LPR HYS RAIL`) and adaptive threshold policy from volatility windows.

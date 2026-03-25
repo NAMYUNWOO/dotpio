@@ -168,3 +168,7 @@
 
 ## 2026-03-25 10:36 KST — No VFX runtime change
 - No VFX token/runtime modifications in this slice; digest-only ambient momentum arc instrumentation.
+
+## 2026-03-25 13:31 KST — Cycle DJ VFX lane note
+- No VFX runtime changes in this cycle (offline digest observability slice).
+- Keep VFX lane queued for next player-facing cadence pass per rotation policy.
