@@ -1254,3 +1254,13 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Combat): Prototype offline adaptive hysteresis confidence floor by lane-cadence miss risk.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Combat Team: Add compact hysteresis alias token (`DCCFXH:<H|A><L|M|H>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 18:31 KST; completed: 2026-03-26 18:37 KST)*
+
+## Cycle EO - Game Director Review (2026-03-26 19:10 KST)
+- Coverage check (last 10 completions): digest-heavy systems/ux cadence continued; selected low-risk systems/ops observability slice that stays reversible and supports faster scan.
+- Idea 1 (low risk, Systems/Ops): Add compact lane cadence miss-risk alias (`LCMR:<L|M|H>`) behind flag for dense digest scanability.
+- Idea 2 (mid risk, QA/Design): Add contract/order lock ensuring `LCMR` remains adjacent to `LANE CADENCE MISS RISK` in both markdown sections.
+- Idea 3 (high risk, AI Content/Systems): Prototype offline adaptive lane-priority hysteresis floor tied to sustained `LCMR:H` streaks.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/Ops Team: Add compact lane cadence miss-risk alias (`LCMR:<L|M|H>`) behind `DOTPIO_EXPERIMENT_LANE_CADENCE_MISS_RISK_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 19:03 KST; completed: 2026-03-26 19:10 KST)*
+- [x] QA/Design Team: Add explicit adjacency/order regression lock for `LANE CADENCE MISS RISK` -> `LCMR` in summary + token-coverage sections. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 19:32 KST; completed: 2026-03-26 19:34 KST)*
+- [ ] AI Content/Systems Team: Prototype offline `LCMR` streak-aware lane-priority hysteresis floor recommendation (`LPR HYS FLOOR REC:HOLD|RAISE`) with rollback-safe digest-only wiring.

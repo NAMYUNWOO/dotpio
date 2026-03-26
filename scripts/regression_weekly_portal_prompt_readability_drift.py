@@ -2204,6 +2204,7 @@ def main() -> int:
         assert "LANE BUCKET AGE Δ:" in md_text
         assert "LANE CADENCE RECENCY:" in md_text
         assert "LANE CADENCE MISS RISK:" in md_text
+        assert "LCMR:" in md_text
         assert "LANE PRIORITY REC:" in md_text
         assert "LPR:" in md_text
         assert "LPR HYS:" in md_text
@@ -2347,6 +2348,12 @@ def main() -> int:
                     return idx
             raise AssertionError(f"missing line prefix: {prefix}")
 
+        def _find_line_indices(prefix: str) -> list[int]:
+            indices = [idx for idx, line in enumerate(md_lines) if line.startswith(prefix)]
+            if not indices:
+                raise AssertionError(f"missing line prefix: {prefix}")
+            return indices
+
         combo_conf_rec_idx = _find_line_index("- DMG COMBO CONF COACH REC:")
         combo_conf_fallback_idx = _find_line_index("- DMG COMBO CONF COACH FALLBACK:")
         combo_conf_scene_arc_idx = _find_line_index("- DMG COMBO CONF COACH SCENE ARC:")
@@ -2363,6 +2370,9 @@ def main() -> int:
         combo_conf_copy_swap_family_trend_idx = _find_line_index("- DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND:")
         prsmc_family_trend_idx = _find_line_index("- PRSMC FAMILY TREND:")
         prsmc_family_churn_idx = _find_line_index("- PRSMC FAMILY CHURN:")
+
+        lane_cadence_miss_risk_indices = _find_line_indices("- LANE CADENCE MISS RISK:")
+        lane_cadence_miss_risk_alias_indices = _find_line_indices("- LCMR:")
 
         assert combo_conf_fallback_idx == combo_conf_rec_idx + 1, (
             "expected DMG COMBO CONF COACH FALLBACK row directly after COACH REC row"
@@ -2414,6 +2424,19 @@ def main() -> int:
         assert combo_conf_copy_swap_family_trend_idx == combo_conf_copy_swap_dccst_family_churn_idx + 1, (
             "expected DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND row directly after DCCST FAMILY CHURN row"
         )
+        assert len(lane_cadence_miss_risk_indices) == 2, (
+            "expected exactly two LANE CADENCE MISS RISK rows (summary + token-coverage sections)"
+        )
+        assert len(lane_cadence_miss_risk_alias_indices) == 2, (
+            "expected exactly two LCMR alias rows (summary + token-coverage sections)"
+        )
+        for section_idx, (miss_risk_idx, alias_idx) in enumerate(
+            zip(lane_cadence_miss_risk_indices, lane_cadence_miss_risk_alias_indices),
+            start=1,
+        ):
+            assert alias_idx == miss_risk_idx + 1, (
+                f"expected LCMR row directly after LANE CADENCE MISS RISK row in section {section_idx}"
+            )
         assert prsmc_family_churn_idx == prsmc_family_trend_idx + 1, (
             "expected PRSMC FAMILY CHURN row directly after PRSMC FAMILY TREND row"
         )

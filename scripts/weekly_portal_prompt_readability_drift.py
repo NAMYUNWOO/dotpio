@@ -430,6 +430,27 @@ def lane_bucket_age_alias(*, lane_bucket_age: dict[str, object]) -> tuple[str, d
         "combatVfxHours": combat,
     }
 
+def lane_cadence_miss_risk_alias(*, lane_cadence_miss_risk_signals: dict[str, object]) -> tuple[str, dict[str, object]]:
+    flag_name = "DOTPIO_EXPERIMENT_LANE_CADENCE_MISS_RISK_ALIAS"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    risk = str(lane_cadence_miss_risk_signals.get("risk", "MID") or "MID").upper()
+    alias_map = {
+        "LOW": "L",
+        "MID": "M",
+        "HIGH": "H",
+    }
+    alias = alias_map.get(risk, "M")
+    token = f"LCMR:{alias}"
+
+    return (token if flag_enabled else "OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "risk": risk,
+        "alias": alias,
+    }
+
 
 def resolve_lane_priority_recommendation_compact_alias(recommendation: str) -> tuple[str, dict[str, object]]:
     flag_name = "DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_ALIAS"
@@ -8144,6 +8165,9 @@ def main() -> int:
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
         lane_bucket_age=lane_bucket_age,
     )
+    lane_cadence_miss_risk_alias_token, lane_cadence_miss_risk_alias_signals = lane_cadence_miss_risk_alias(
+        lane_cadence_miss_risk_signals=lane_cadence_miss_risk_signals,
+    )
     lane_priority_recommendation, lane_priority_recommendation_signals = lane_priority_recommendation_from_bucket_age_momentum(
         age_hours={
             "systems/ops": int(lane_bucket_age["ageHours"].get("systems/ops", 999) or 999),
@@ -9526,6 +9550,8 @@ def main() -> int:
         "laneCadenceRecencySignals": lane_cadence_recency_signals,
         "laneCadenceMissRisk": lane_cadence_miss_risk_token,
         "laneCadenceMissRiskSignals": lane_cadence_miss_risk_signals,
+        "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,
+        "laneCadenceMissRiskAliasSignals": lane_cadence_miss_risk_alias_signals,
         "laneBucketAgeCompactAlias": lane_bucket_age_compact_alias,
         "laneBucketAgeCompactAliasSignals": lane_bucket_age_compact_alias_signals,
         "lanePriorityRecommendation": lane_priority_recommendation,
@@ -10165,6 +10191,7 @@ def main() -> int:
         f"- LANE BUCKET AGE Δ: **{lane_bucket_age_delta:+d}h** (currentMax={lane_bucket_age_drift_signals['currentMaxAgeHours']} priorMax={lane_bucket_age_drift_signals['priorMaxAgeHours']} loaded={lane_bucket_age_drift_signals['priorLoaded']})",
         f"- LANE CADENCE RECENCY: **{lane_cadence_recency}** (status={lane_cadence_recency_signals['status']} max={lane_cadence_recency_signals['maxAgeHours']}h Δ={lane_cadence_recency_signals['deltaHours']:+d}h window={lane_cadence_recency_signals['windowHours']}h reason={lane_cadence_recency_signals['reason']})",
         f"- LANE CADENCE MISS RISK: **{lane_cadence_miss_risk_token}** (risk={lane_cadence_miss_risk_signals['risk']} max={lane_cadence_miss_risk_signals['maxAgeHours']}h Δ={lane_cadence_miss_risk_signals['deltaHours']:+d}h window={lane_cadence_miss_risk_signals['windowHours']}h reason={lane_cadence_miss_risk_signals['reason']})",
+        f"- LCMR: **{lane_cadence_miss_risk_alias_token}** (flag={lane_cadence_miss_risk_alias_signals['flagName']} enabled={lane_cadence_miss_risk_alias_signals['flagEnabled']} risk={lane_cadence_miss_risk_alias_signals['risk']} alias={lane_cadence_miss_risk_alias_signals['alias']})",
         f"- LANE PRIORITY REC: **{lane_priority_recommendation}** (reason={lane_priority_recommendation_signals['reason']} worstAge={lane_priority_recommendation_signals['worstAgeHours']}h offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- LPR: **{lane_priority_recommendation_compact_alias}** (flag={lane_priority_recommendation_compact_alias_signals['flagName']} enabled={lane_priority_recommendation_compact_alias_signals['flagEnabled']} rec={lane_priority_recommendation_compact_alias_signals['recommendation']} alias={lane_priority_recommendation_compact_alias_signals['alias']})",
         f"- LPR HYS: **{lane_priority_hysteresis_compact_alias}** (flag={lane_priority_hysteresis_compact_alias_signals['flagName']} enabled={lane_priority_hysteresis_compact_alias_signals['flagEnabled']} applied={lane_priority_hysteresis_compact_alias_signals['hysteresisApplied']} alias={lane_priority_hysteresis_compact_alias_signals['alias']})",
@@ -10305,6 +10332,7 @@ def main() -> int:
         f"- LANE BUCKET AGE Δ: {lane_bucket_age_delta:+d}h (currentMax={lane_bucket_age_drift_signals['currentMaxAgeHours']}, priorMax={lane_bucket_age_drift_signals['priorMaxAgeHours']}, loaded={lane_bucket_age_drift_signals['priorLoaded']})",
         f"- LANE CADENCE RECENCY: {lane_cadence_recency} (status={lane_cadence_recency_signals['status']}, max={lane_cadence_recency_signals['maxAgeHours']}h, Δ={lane_cadence_recency_signals['deltaHours']:+d}h, window={lane_cadence_recency_signals['windowHours']}h, reason={lane_cadence_recency_signals['reason']})",
         f"- LANE CADENCE MISS RISK: {lane_cadence_miss_risk_token} (risk={lane_cadence_miss_risk_signals['risk']}, max={lane_cadence_miss_risk_signals['maxAgeHours']}h, Δ={lane_cadence_miss_risk_signals['deltaHours']:+d}h, window={lane_cadence_miss_risk_signals['windowHours']}h, reason={lane_cadence_miss_risk_signals['reason']})",
+        f"- LCMR: {lane_cadence_miss_risk_alias_token} (flag={lane_cadence_miss_risk_alias_signals['flagName']}, enabled={lane_cadence_miss_risk_alias_signals['flagEnabled']}, risk={lane_cadence_miss_risk_alias_signals['risk']}, alias={lane_cadence_miss_risk_alias_signals['alias']})",
         f"- LANE PRIORITY REC: {lane_priority_recommendation} (reason={lane_priority_recommendation_signals['reason']}, worstAge={lane_priority_recommendation_signals['worstAgeHours']}h, offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- LPR: {lane_priority_recommendation_compact_alias} (flag={lane_priority_recommendation_compact_alias_signals['flagName']}, enabled={lane_priority_recommendation_compact_alias_signals['flagEnabled']}, rec={lane_priority_recommendation_compact_alias_signals['recommendation']}, alias={lane_priority_recommendation_compact_alias_signals['alias']})",
         f"- LPR HYS: {lane_priority_hysteresis_compact_alias} (flag={lane_priority_hysteresis_compact_alias_signals['flagName']}, enabled={lane_priority_hysteresis_compact_alias_signals['flagEnabled']}, applied={lane_priority_hysteresis_compact_alias_signals['hysteresisApplied']}, alias={lane_priority_hysteresis_compact_alias_signals['alias']})",
