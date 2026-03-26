@@ -1871,3 +1871,7 @@
 
 ## 2026-03-26 21:35 KST — Combat lane note
 - Change scope remained digest telemetry/readability (`LPR HF T` compact alias); no combat tuning, damage, or pacing logic changed.
+
+## 2026-03-26 21:41 KST — Cycle ER combat observability note
+- Added digest-only volatility shorthand `DCCFXV:<C|S|P>` so combo-confidence accent context can be scanned faster during combat postmortems.
+- No runtime combat damage/timing logic changed.

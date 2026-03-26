@@ -3168,3 +3168,10 @@ Compact decision memory for AI context efficiency.
   - `scripts/regression_weekly_portal_prompt_readability_drift.py`: payload assertions + markdown presence assertions for `LPR HF T:`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Remaining backlog from active cycle: AI Content/Systems synthesis row for `LCMR + LPR HYS FLOOR REC + family trend`.
+
+## 2026-03-26 21:41 KST — Cycle ER (lane-cap forced underrepresented pick)
+- Coverage check (last 10 completions): systems=6, world=0, ai-content=3, combat=2, design=2, vfx=0, ux=3, qa=3, ops=1.
+- Lane-cap trigger: systems at 60% (>40%), so experiment forced into underrepresented lanes; prioritized combat/vfx due to vfx=0.
+- Selected/implemented Idea 1: compact FX volatility alias `DCCFXV:<C|S|P>` (CALM/SWING/SPIKE) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (PASS).
+- Injected follow-ups: `DCCFXV FAMILY CHURN` row (Systems/QA) and alias legend linkage in design/world docs.

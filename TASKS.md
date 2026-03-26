@@ -1274,3 +1274,8 @@ See project-level plans:
 - [x] UX/Systems Team: Add compact hysteresis-floor recommendation alias token (`LPR HYS FLOOR:<H|R>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_FLOOR_REC_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 20:01 KST)*
 - [x] Systems/QA Team: Add token-family churn coverage row for `LPR HYS FLOOR REC:` + `LPR HYS FLOOR:` with regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 21:12 KST)*
 - [x] AI Content/Systems Team: Prototype offline adaptive `LPR HYS FLOOR REC` threshold policy from `LCMR` streak momentum + lane volatility regime (digest-only). *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 21:16 KST)*
+
+## Cycle ER - Game Director Injection (2026-03-26 21:41 KST)
+- [x] Combat/VFX Team: Add compact FX volatility alias token (`DCCFXV:<C|S|P>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS` with payload/markdown wiring + regression lock. *(completed: 2026-03-26 21:41 KST)*
+- [ ] Systems/QA Team: Add `DCCFXV FAMILY CHURN` markdown/token-coverage row with adjacency lock after `DCCFXH` rail.
+- [ ] Design/World Team: Add legend/readability annotation for `DCCFXV` mapping (`C=CALM`, `S=SWING`, `P=SPIKE`) in digest docs.

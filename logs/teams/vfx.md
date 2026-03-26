@@ -297,3 +297,8 @@
 - Scope: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md.
 - Verification: python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py; python3 scripts/regression_weekly_portal_prompt_readability_drift.py ([PASS]).
 - Follow-up: Queue Systems/QA churn row for LPR HYS FLOOR REC + LPR HYS FLOOR, and AI Content adaptive threshold policy from streak momentum.
+
+## 2026-03-26 21:41 KST — Cycle ER combat/vfx slice [DONE]
+- Shipped compact FX volatility alias `DCCFXV:<C|S|P>` for `CALM|SWING|SPIKE` regime visibility in weekly digest.
+- Gated by `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS`; additive/reversible digest-only change.
+- Verification: weekly regression + digest generation both PASS.

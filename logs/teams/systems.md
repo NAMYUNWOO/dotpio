@@ -2835,3 +2835,8 @@
 - Completed POST-RC UX/Design backlog slice: added compact trend alias token `LPR HF T:<U|F|D>` for `LPR HYS FLOOR FAMILY TREND` in weekly digest.
 - Added payload contract fields `lanePriorityHysteresisFloorFamilyTrendAlias` + `lanePriorityHysteresisFloorFamilyTrendAliasSignals` and family coverage key `lanePriorityHysteresisFloorFamilyTrendAlias`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+
+## 2026-03-26 21:41 KST — Cycle ER systems contract note
+- Extended payload contract with `comboConfidenceFxAccentVolatilityAlias` + `comboConfidenceFxAccentVolatilityAliasSignals` for DCCFXV rail.
+- Regression locks now enforce DCCFXV payload schema + markdown order (`DCCFXT -> DCCFXH -> DCCFXV -> DCCSR FAMILY CHURN`).
+- Follow-up queued: explicit `DCCFXV FAMILY CHURN` row to isolate alias drift from trend rails.

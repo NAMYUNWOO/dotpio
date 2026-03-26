@@ -1939,3 +1939,7 @@
 ## 2026-03-26 21:35 KST — LPR HF T readability shorthand
 - Shipped compact operator shorthand `LPR HF T` mapped to floor-family trend states (`U|F|D`) without removing full descriptive row.
 - Decision: keep alias behind experiment flag `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_FLOOR_FAMILY_TREND_ALIAS` for reversible rollout.
+
+## 2026-03-26 21:41 KST — Cycle ER design readability note
+- Approved compact volatility shorthand `DCCFXV` (`C/S/P`) to preserve digest width while keeping full regime semantics.
+- Follow-up retained: add writer-facing legend linkage to scene-arc guidance docs for scan consistency.

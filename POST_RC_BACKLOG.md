@@ -1028,3 +1028,19 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Systems/QA Team: Add `LPR HYS FLOOR FAMILY TREND` markdown row + JSON drift signals (`currentNet`, `priorNet`, `Δnet`, `reason`) with regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 21:20 KST; completed: 2026-03-26 21:24 KST)*
 - [x] UX/Design Team: Prototype compact floor-family trend alias token (`LPR HF T:<U|F|D>`) behind experiment flag + digest wiring. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 21:31 KST; completed: 2026-03-26 21:35 KST)*
 - [ ] AI Content/Systems Team: Prototype offline confidence guard policy for lane-priority recommendation when floor-trend/regime diverges across consecutive windows.
+
+## Cycle ER - Game Director Review (2026-03-26 21:41 KST, lane-cap forced underrepresented pick)
+- Coverage check (last 10 completions by lane): systems=6, world=0, ai-content=3, combat=2, design=2, vfx=0, ux=3, qa=3, ops=1.
+- Lane cap breach: systems at 60% (>40%); forced next experiment into underrepresented lanes (combat/vfx or design/world), prioritizing vfx (0).
+- 24h cadence guardrail status: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low risk, Combat/VFX): Add compact FX volatility alias token (`DCCFXV:<C|S|P>`) behind flag so operators can one-glance read CALM/SWING/SPIKE regime alongside DCCFX trend hysteresis.
+  - Player fantasy target: post-fight coaching and VFX mood read as a single coherent pulse.
+  - Expected impact metric: fewer ambiguous notes about when accent changes are noise vs intended pacing.
+  - Scope: S | Risk: low | Rollback: disable/remove alias flag + payload row.
+  - Pass/fail: pass if markdown/json expose deterministic alias and regression remains green.
+- Idea 2 (mid risk, Design/World): Add scene-arc copy annotation row that mirrors volatility regime for writer-facing readability.
+- Idea 3 (high risk, AI Content/Combat): Prototype adaptive confidence guard when DCCFX trend hysteresis contradicts volatility regime across consecutive windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Combat/VFX Team: Add compact FX volatility alias token (`DCCFXV:<C|S|P>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 21:41 KST)*
+- [ ] Systems/QA Team: Add `DCCFXV FAMILY CHURN` row so volatility alias drift is isolated from DCCFXT/DCCFXH trend rails.
+- [ ] Design/World Team: Add readability contract note linking `DCCFXV` legend (`C/S/P`) to scene arc guidance in digest docs.
