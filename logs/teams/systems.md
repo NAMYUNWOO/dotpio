@@ -2852,3 +2852,16 @@
 - Added payload contract `lanePriorityRecommendationConfidenceGuardSignals` and digest row `LANE PRIORITY REC CONF GUARD`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and digest run pass.
 - Follow-up queued: add churn coverage for `LPRCG` + confidence-guard family row.
+
+## 2026-03-26 23:33:00 KST
+- Task: Cycle ES Systems/QA follow-up — add token-family churn coverage row for `LPRCG:` + `LANE PRIORITY REC CONF GUARD:`.
+- Commit: HEAD (pending commit in this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Registered `lanePriorityRecommendationConfidenceGuardAlias` in token-family alias map so `LPRCG` and detailed guard line are tracked together.
+  - Added explicit family churn row in summary + token-coverage sections for clearer drift triage.
+- Follow-up:
+  - Remaining highest-priority unchecked item: AI Content/Systems adaptive divergence-streak threshold policy under `SWING` volatility memory (offline-only).

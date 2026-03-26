@@ -1052,5 +1052,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/Systems): Prototype adaptive guard-floor policy that raises divergence streak threshold under `SWING` volatility memory.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact lane-priority confidence-guard alias (`LPRCG:<H|A>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 22:44 KST)*
-- [ ] Systems/QA Team: Add token-family churn coverage row for `LPRCG:` + `LANE PRIORITY REC CONF GUARD:` with regression lock.
+- [x] Systems/QA Team: Add token-family churn coverage row for `LPRCG:` + `LANE PRIORITY REC CONF GUARD:` with regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 23:31 KST; completed: 2026-03-26 23:33 KST)*
 - [ ] AI Content/Systems Team: Prototype adaptive divergence-streak threshold policy for confidence guard under `SWING` volatility memory (offline-only).

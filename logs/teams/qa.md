@@ -3403,3 +3403,16 @@
 - Extended regression contract for lane-priority confidence guard payload keys + markdown presence (`LANE PRIORITY REC CONF GUARD`, `LPRCG`).
 - Guard rails remain offline-only; no runtime coupling introduced.
 - Follow-up: add explicit token-family churn row assertions for `LPRCG` family in next cycle.
+
+## 2026-03-26 23:33:00 KST
+- Task: Verify Cycle ES Systems/QA churn-coverage follow-up for `LPRCG` guard family.
+- Commit: HEAD (pending commit in this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+- Decisions:
+  - No portal validation required (no map changes).
+  - No screenshot refresh required (digest/report-only changes).
+- Follow-up:
+  - Next queue item remains AI Content/Systems offline divergence-threshold adaptation for confidence guard.

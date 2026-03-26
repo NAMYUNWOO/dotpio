@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-26 18:37 KST
+Last updated: 2026-03-26 23:33 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed highest-priority unchecked POST_RC item from Cycle ES: added token-family churn coverage for `LPRCG:` + `LANE PRIORITY REC CONF GUARD:` in weekly digest summary and token-coverage sections.
+- Added `lanePriorityRecommendationConfidenceGuardAlias` to `TOKEN_ALIAS_FAMILIES` so guard rows are tracked as a single alias family with deterministic churn metrics.
+- Verification gates pass (`python3 -m py_compile ...`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`), and `POST_RC_BACKLOG.md` now marks the Systems/QA follow-up done.
+- Remaining actionable unchecked backlog item is AI Content/Systems offline adaptive divergence-streak threshold policy under `SWING` volatility memory.
 
 - Cycle EN review executed (all ACTION_ITEMS/TASKS/POST_RC checked): generated 3 ideas and selected low-risk UX/Combat vertical slice.
 - Shipped compact hysteresis alias `DCCFXH:<H|A><L|M|H>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS`; digest payload now exposes `comboConfidenceFxAccentTrendHysteresisAlias` + signals and markdown includes `DCCFXH`/`DCCFXH ALIAS` rows.
