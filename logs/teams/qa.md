@@ -3284,3 +3284,8 @@
   - Alias contract is flag-gated and deterministic (`ASH|IRON|EMBER -> DCCSA:A|I|E`).
   - No portal/map validator required (digest/offline script only).
 - Follow-up: Validate next Cycle EH Systems/Ops miss-risk token with regression coverage.
+
+## 2026-03-26 11:31 KST — Cycle EH QA
+- Added regression assertions for  payload keys and markdown row .
+- Result: weekly digest regression suite PASS.
+- Follow-up: implement scene-arc adjacency ordering contract check (backlog item still open).

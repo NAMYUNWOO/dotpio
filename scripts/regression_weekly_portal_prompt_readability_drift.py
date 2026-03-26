@@ -2110,6 +2110,7 @@ def main() -> int:
         assert "LANE BUCKET AGE:" in md_text
         assert "LANE BUCKET AGE Δ:" in md_text
         assert "LANE CADENCE RECENCY:" in md_text
+        assert "LANE CADENCE MISS RISK:" in md_text
         assert "LANE PRIORITY REC:" in md_text
         assert "LPR:" in md_text
         assert "LPR HYS:" in md_text

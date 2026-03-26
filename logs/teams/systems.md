@@ -2727,3 +2727,9 @@
 - Follow-up: Remaining unchecked items are Cycle EG AI-content fallback narrative + Cycle EH backlog trio.
 - 2026-03-26 10:34 KST — Extended weekly digest JSON contract with `comboConfidenceCoachRecommendationStreak`, `comboConfidenceCoachRecommendationStreakDrift`, and `comboConfidenceCoachFallbackNarrative` (+ signal payloads).
 - Contract remains offline-only and sourced from prior digest JSON for deterministic streak drift computation.
+
+## 2026-03-26 11:31 KST — Cycle EH Systems/Ops
+- Completed: Added offline digest token  derived from lane-bucket max-age + drift.
+- Scope:  payload/markdown contract only (no runtime gameplay coupling).
+- Verification:  and [PASS] weekly portal prompt readability drift regression checks PASS.
+- Follow-up: QA/Design adjacency contract for  remains next backlog priority.

@@ -1835,3 +1835,7 @@
 - 2026-03-26 10:34 KST — Closed Cycle EG follow-up: added offline combo-confidence coach fallback narrative line (`DMG COMBO CONF COACH FALLBACK`) in weekly digest, tied to recommendation streak drift + kill-heat volatility regime (`CALM|SWING|SPIKE`).
 - Decision: keep fallback narrative offline-only and adjacent to combo coach rows to preserve scan order and avoid runtime gameplay coupling.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-26 11:31 KST — Cycle EH AI Content
+- Confirmed new miss-risk token is telemetry-only and does not alter narrative generation/runtime outputs.
+- Recommendation: keep recommendation text deterministic to avoid churn noise across windows.

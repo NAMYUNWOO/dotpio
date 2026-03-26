@@ -3054,3 +3054,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep fallback narrative offline digest-only (no runtime gameplay coupling) until scanability and stability are validated over additional windows.
 - Backlog sync: marked POST_RC item `AI Content/Combat Team: ... fallback narrative line` done.
 - Next priority item (POST_RC): `Combat/VFX Team: Prototype compact scene-arc alias token (DCCSA:<A|I|E>)`.
+
+## 2026-03-26 11:31 KST — Cycle EH Systems/Ops closure: lane cadence miss-risk token
+- Shipped `LANE CADENCE MISS RISK:LOW|MID|HIGH` in weekly portal readability digest (`scripts/weekly_portal_prompt_readability_drift.py`).
+- Classifier uses lane-bucket max-age + delta over 24h window; outputs both token and structured signals for auditability.
+- Extended regression coverage in `scripts/regression_weekly_portal_prompt_readability_drift.py` for payload schema and markdown contract.
+- Verification: py_compile + weekly digest regression PASS.
+- Backlog progression: Cycle EH miss-risk item moved `[~] -> [x]`; next highest unchecked item is scene-arc adjacency contract.

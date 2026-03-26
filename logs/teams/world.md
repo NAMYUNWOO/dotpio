@@ -1809,3 +1809,8 @@
 - Mapping stays deterministic and reversible: GUARD/high drift -> ASH, STEADY/high pressure -> IRON, SURGE/low drift -> EMBER.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - 2026-03-26 10:34 KST — Scene-arc line remains adjacent to new combo-confidence fallback narrative, preserving world-tone continuity (`DMG COMBO CONF COACH SCENE ARC`).
+
+## 2026-03-26 11:31 KST — Cycle EH World
+- Lane cadence risk signal now available in offline digest for route/lane planning triage.
+- No map/portal runtime behavior changed in this slice.
+- Monitoring: use miss-risk band during next lane-balancing review.

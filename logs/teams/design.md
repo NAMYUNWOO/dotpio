@@ -1852,3 +1852,8 @@
 - Vocabulary constrained to short readable bands (`ASH|IRON|EMBER`) to preserve DOS digest scanability.
 - Offline-only scope retained (no runtime combat/UI mutation).
 - 2026-03-26 10:34 KST — Added fallback narrative row directly between combo-confidence recommendation and scene-arc rows to keep digest scan flow coherent (coach -> fallback -> arc).
+
+## 2026-03-26 11:31 KST — Cycle EH Design
+- Reviewed Systems/Ops miss-risk token wording; kept deterministic language () and operator-facing reason strings.
+- No runtime copy change to player-facing UI; digest-only readability improvement accepted.
+- Next design task: enforce scene-arc adjacency contract in digest scan order (pending).

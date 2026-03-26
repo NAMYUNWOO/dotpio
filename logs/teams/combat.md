@@ -1786,3 +1786,7 @@
 - Decision: Added deterministic alias mapping from `DMG COMBO CONF COACH SCENE ARC` (`ASH|IRON|EMBER`) to compact initials (`A|I|E`) with flag-gated markdown/payload surfacing.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
 - Follow-up: Next unchecked Cycle EH item is `LANE CADENCE MISS RISK:LOW|MID|HIGH` (Systems/Ops).
+
+## 2026-03-26 11:31 KST — Cycle EH Combat
+- No combat runtime changes this cycle.
+- Consumed new lane miss-risk telemetry for planning cadence (combat lane freshness guard).
