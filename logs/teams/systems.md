@@ -2777,3 +2777,8 @@
 ## 2026-03-26 17:20 KST — Cycle EM
 - Cycle EM selected/implemented: added DCCFX FAMILY TREND derivation (prior-window Δnet) and wired payload signals + markdown row in weekly digest.
 - Follow-up: monitor digest trend stability over next window.
+
+## 2026-03-26 17:31 KST — DCCFXT trend alias wiring [DONE]
+- Added compact FX-accent trend alias rail `DCCFXT:<U|F|D>` derived from `DCCFX FAMILY TREND` direction.
+- Wired env flag `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_ALIAS` and payload keys `comboConfidenceFxAccentTrendAlias(+Signals)`.
+- Extended markdown digest/status sections with `DCCFXT` + `DCCFXT ALIAS` rows for dense triage.

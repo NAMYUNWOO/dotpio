@@ -3122,3 +3122,4 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep slice offline/reporting-only and additive; postpone runtime or alias expansion until at least one additional digest window confirms stability.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 120`.
 - Next candidate: `DCCFXT` compact trend alias behind flag, then volatility-aware DCCFX hysteresis policy.
+- 2026-03-26 17:31 KST: Closed UX/Combat priority item by shipping compact FX-accent trend alias `DCCFXT:<U|F|D>` (flag: `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_ALIAS`) with payload + markdown wiring and regression ordering lock (`DCCFX FAMILY TREND -> DCCFXT -> DCCSR FAMILY CHURN`).

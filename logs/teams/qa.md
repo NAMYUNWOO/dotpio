@@ -3335,3 +3335,8 @@
 ## 2026-03-26 17:20 KST — Cycle EM
 - Extended regression contract to require DCCFX FAMILY TREND presence + ordering (DCCFX CHURN -> DCCFX TREND -> DCCSR CHURN). Regression pass confirmed.
 - Follow-up: monitor digest trend stability over next window.
+
+## 2026-03-26 17:31 KST — Regression lock for DCCFXT alias [DONE]
+- Updated weekly digest regression assertions to require `DCCFXT:` and `DCCFXT ALIAS:` visibility.
+- Ordering contract now enforces `DCCFX FAMILY TREND -> DCCFXT -> DCCSR FAMILY CHURN`.
+- Verification pass: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.

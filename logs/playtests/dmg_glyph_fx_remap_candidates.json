@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-26T07:05:35.519321Z",
+  "generatedAt": "2026-03-26T08:35:57.632457Z",
   "window": {
     "sinceDays": 7,
     "maxCommits": 120,
     "checkedCommits": 120,
-    "touchedCommits": 20
+    "touchedCommits": 17
   },
   "recommendation": {
     "mode": "HOLD_FX",

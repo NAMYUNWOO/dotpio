@@ -2095,3 +2095,7 @@
 ## 2026-03-26 17:20 KST — Cycle EM
 - Cycle EM sync: no code ownership change in this lane; reviewed Systems/QA slice as additive offline digest-only and left follow-up candidates queued (DCCFXT alias, volatility-aware hysteresis).
 - Follow-up: monitor digest trend stability over next window.
+
+## 2026-03-26 17:31 KST — Dense digest scanability upgrade (DCCFXT) [DONE]
+- Added one-glance row `DCCFXT` after `DCCFX FAMILY TREND` to expose direction without long-form trend text.
+- Added summary rail `DCCFXT ALIAS` for footer-level quick audit.
