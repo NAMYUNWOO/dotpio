@@ -2584,6 +2584,9 @@ def main() -> int:
         assert "DCCFXCW SCENE PULSE ARC LEGEND:" in md_text
         assert "DCCFXCPA:" in md_text
         assert "DCCFXCPA LEGEND:" in md_text
+        assert "DCCFXCPA FAMILY CHURN" in md_text
+        assert "DCCFXCPA COPY:" in md_text
+        assert "DCCFXCPA COPY LEGEND:" in md_text
         assert "DCCFXV FAMILY CHURN" in md_text
         assert "DCCFXC FAMILY CHURN" in md_text
         assert "DCCFXCW FAMILY CHURN" in md_text
@@ -2638,6 +2641,9 @@ def main() -> int:
         combo_conf_dccfxcw_scene_pulse_arc_legend_idx = _find_line_index("- DCCFXCW SCENE PULSE ARC LEGEND:")
         combo_conf_dccfxcpa_alias_idx = _find_line_index("- DCCFXCPA:")
         combo_conf_dccfxcpa_legend_idx = _find_line_index("- DCCFXCPA LEGEND:")
+        combo_conf_dccfxcpa_family_churn_idx = _find_line_index("- DCCFXCPA FAMILY CHURN:")
+        combo_conf_dccfxcpa_copy_idx = _find_line_index("- DCCFXCPA COPY:")
+        combo_conf_dccfxcpa_copy_legend_idx = _find_line_index("- DCCFXCPA COPY LEGEND:")
         combo_conf_dccfxv_family_churn_idx = _find_line_index("- DCCFXV FAMILY CHURN:")
         combo_conf_dccfxc_family_churn_idx = _find_line_index("- DCCFXC FAMILY CHURN:")
         combo_conf_dccfxcw_family_churn_idx = _find_line_index("- DCCFXCW FAMILY CHURN:")
@@ -2730,6 +2736,9 @@ def main() -> int:
         coverage_dccfxcw_scene_pulse_arc_legend_idx = _find_in_range("- DCCFXCW SCENE PULSE ARC LEGEND:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcpa_alias_idx = _find_in_range("- DCCFXCPA:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcpa_legend_idx = _find_in_range("- DCCFXCPA LEGEND:", coverage_start, coverage_end, "token coverage")
+        coverage_dccfxcpa_family_churn_idx = _find_in_range("- DCCFXCPA FAMILY CHURN:", coverage_start, coverage_end, "token coverage")
+        coverage_dccfxcpa_copy_idx = _find_in_range("- DCCFXCPA COPY:", coverage_start, coverage_end, "token coverage")
+        coverage_dccfxcpa_copy_legend_idx = _find_in_range("- DCCFXCPA COPY LEGEND:", coverage_start, coverage_end, "token coverage")
         assert coverage_dccfxc_idx == coverage_dccfxv_idx + 1, (
             "expected DCCFXC row directly after DCCFXV row in token-coverage section"
         )
@@ -2763,6 +2772,15 @@ def main() -> int:
         assert coverage_dccfxcpa_legend_idx == coverage_dccfxcpa_alias_idx + 1, (
             "expected DCCFXCPA LEGEND row directly after DCCFXCPA row in token-coverage section"
         )
+        assert coverage_dccfxcpa_family_churn_idx == coverage_dccfxcpa_legend_idx + 1, (
+            "expected DCCFXCPA FAMILY CHURN row directly after DCCFXCPA LEGEND row in token-coverage section"
+        )
+        assert coverage_dccfxcpa_copy_idx == coverage_dccfxcpa_family_churn_idx + 1, (
+            "expected DCCFXCPA COPY row directly after DCCFXCPA FAMILY CHURN row in token-coverage section"
+        )
+        assert coverage_dccfxcpa_copy_legend_idx == coverage_dccfxcpa_copy_idx + 1, (
+            "expected DCCFXCPA COPY LEGEND row directly after DCCFXCPA COPY row in token-coverage section"
+        )
         assert combo_conf_dccfxcw_scene_palette_idx == combo_conf_dccfxcw_alias_idx + 1, (
             "expected DCCFXCW SCENE PALETTE row directly after DCCFXCW row"
         )
@@ -2790,8 +2808,17 @@ def main() -> int:
         assert combo_conf_dccfxcpa_legend_idx == combo_conf_dccfxcpa_alias_idx + 1, (
             "expected DCCFXCPA LEGEND row directly after DCCFXCPA row"
         )
-        assert combo_conf_dccfxv_family_churn_idx == combo_conf_dccfxcpa_legend_idx + 1, (
-            "expected DCCFXV FAMILY CHURN row directly after DCCFXCPA LEGEND row"
+        assert combo_conf_dccfxcpa_family_churn_idx == combo_conf_dccfxcpa_legend_idx + 1, (
+            "expected DCCFXCPA FAMILY CHURN row directly after DCCFXCPA LEGEND row"
+        )
+        assert combo_conf_dccfxcpa_copy_idx == combo_conf_dccfxcpa_family_churn_idx + 1, (
+            "expected DCCFXCPA COPY row directly after DCCFXCPA FAMILY CHURN row"
+        )
+        assert combo_conf_dccfxcpa_copy_legend_idx == combo_conf_dccfxcpa_copy_idx + 1, (
+            "expected DCCFXCPA COPY LEGEND row directly after DCCFXCPA COPY row"
+        )
+        assert combo_conf_dccfxv_family_churn_idx == combo_conf_dccfxcpa_copy_legend_idx + 1, (
+            "expected DCCFXV FAMILY CHURN row directly after DCCFXCPA COPY LEGEND row"
         )
         assert combo_conf_dccfxc_family_churn_idx == combo_conf_dccfxv_family_churn_idx + 1, (
             "expected DCCFXC FAMILY CHURN row directly after DCCFXV FAMILY CHURN row"

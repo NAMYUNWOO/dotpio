@@ -2269,3 +2269,7 @@
 - Added digest decode helper row `DCCFXCPA LEGEND: R=RECOVER, B=BRACE, E=ERUPT` in summary + token-coverage.
 - Goal: reduce lookup cost when scanning compact arc alias under dense token stacks.
 - Follow-up queued: add `DCCFXCPA FAMILY CHURN` row once enough windows accumulate.
+- [2026-03-27 08:23 KST] Cycle FB/FC close: shipped DCCFXCPA expansion in weekly readability digest.
+  - Added summary + token-coverage rows: `DCCFXCPA FAMILY CHURN`, `DCCFXCPA COPY`, and `DCCFXCPA COPY LEGEND`.
+  - Verified deterministic ordering contracts in regression and kept adjacency stable around DCCFXCPA rails.
+  - Follow-up: implement `DCCFXCPA COPY FAMILY CHURN` and evaluate optional `DCCFXCPA COPY ALT` fallback token (Cycle FC backlog).

@@ -3009,3 +3009,7 @@
 - Wired payload/signal surfaces for `comboConfidenceFxCoachCueWhyScenePulseArc` and alias signals.
 - Ensured summary + token-coverage markdown include pulse-arc row, legend, and alias in deterministic sequence.
 - Follow-up: keep family adjacency contract stable as additional scene-pulse tokens are injected.
+- [2026-03-27 08:23 KST] Cycle FB/FC close: shipped DCCFXCPA expansion in weekly readability digest.
+  - Added summary + token-coverage rows: `DCCFXCPA FAMILY CHURN`, `DCCFXCPA COPY`, and `DCCFXCPA COPY LEGEND`.
+  - Verified deterministic ordering contracts in regression and kept adjacency stable around DCCFXCPA rails.
+  - Follow-up: implement `DCCFXCPA COPY FAMILY CHURN` and evaluate optional `DCCFXCPA COPY ALT` fallback token (Cycle FC backlog).

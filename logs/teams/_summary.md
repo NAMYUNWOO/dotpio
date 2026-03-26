@@ -3301,3 +3301,6 @@ Compact decision memory for AI context efficiency.
 - Shipped `DCCFXCPA LEGEND` row in both digest sections to decode arc alias quickly.
 - Durable contract: adjacency is now `... DCCFXCW SCENE PULSE ARC LEGEND -> DCCFXCPA -> DCCFXCPA LEGEND -> DCCFXV FAMILY CHURN`.
 - Backlog injected for next cycles: `DCCFXCPA FAMILY CHURN` (Systems/QA), `DCCFXCPA COPY` prototype (AI Content/World).
+- 2026-03-27 08:23 KST — Closed remaining Cycle FB backlog items by shipping `DCCFXCPA FAMILY CHURN` (with prior-window drift context) and `DCCFXCPA COPY` recommendation token (`CLEAR|HOLD|SURGE`) in weekly digest payload + markdown surfaces.
+- Regression contract now requires DCCFXCPA block adjacency in both summary and token-coverage sections, including `DCCFXCPA COPY LEGEND` after `DCCFXCPA COPY`.
+- Game Director Cycle FC executed immediately after queue-clear: selected low-risk UX/AI-content slice and shipped `DCCFXCPA COPY LEGEND`; injected follow-ups for `DCCFXCPA COPY FAMILY CHURN` and `DCCFXCPA COPY ALT`.

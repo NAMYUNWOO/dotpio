@@ -2064,3 +2064,7 @@
 ## 2026-03-27 07:34 KST — Cycle FB selected slice (Design)
 - Kept pulse-arc vocabulary deterministic (`RECOVER|BRACE|ERUPT`) and mirrored it with explicit alias legend.
 - Decision: legend remains adjacent to `DCCFXCPA` row to preserve digest readability contracts.
+- [2026-03-27 08:23 KST] Cycle FB/FC close: shipped DCCFXCPA expansion in weekly readability digest.
+  - Added summary + token-coverage rows: `DCCFXCPA FAMILY CHURN`, `DCCFXCPA COPY`, and `DCCFXCPA COPY LEGEND`.
+  - Verified deterministic ordering contracts in regression and kept adjacency stable around DCCFXCPA rails.
+  - Follow-up: implement `DCCFXCPA COPY FAMILY CHURN` and evaluate optional `DCCFXCPA COPY ALT` fallback token (Cycle FC backlog).

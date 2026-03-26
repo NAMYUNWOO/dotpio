@@ -2040,3 +2040,7 @@
 - Shipped: `DCCFXCW SCENE PULSE LEGEND` row in summary + token-coverage markdown and regression adjacency lock (`SCENE PULSE -> LEGEND`).
 - Verification: py_compile + weekly drift regression + digest generation all passed.
 - Backlog injected: keep unchecked `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT` narrative companion token.
+- [2026-03-27 08:23 KST] Cycle FB/FC close: shipped DCCFXCPA expansion in weekly readability digest.
+  - Added summary + token-coverage rows: `DCCFXCPA FAMILY CHURN`, `DCCFXCPA COPY`, and `DCCFXCPA COPY LEGEND`.
+  - Verified deterministic ordering contracts in regression and kept adjacency stable around DCCFXCPA rails.
+  - Follow-up: implement `DCCFXCPA COPY FAMILY CHURN` and evaluate optional `DCCFXCPA COPY ALT` fallback token (Cycle FC backlog).

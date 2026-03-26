@@ -1364,5 +1364,15 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/World): Prototype offline arc-to-copy recommendation token (`DCCFXCPA COPY:CLEAR|HOLD|SURGE`) from pulse-arc + volatility trend.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Design Team: Add `DCCFXCPA LEGEND` row in summary + token-coverage with deterministic adjacency regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 07:31 KST; completed: 2026-03-27 07:34 KST)*
-- [ ] Systems/QA Team: Add `DCCFXCPA FAMILY CHURN` row with prior-window drift context.
-- [ ] AI Content/World Team: Prototype offline arc-to-copy recommendation token (`DCCFXCPA COPY:CLEAR|HOLD|SURGE`).
+- [x] Systems/QA Team: Add `DCCFXCPA FAMILY CHURN` row with prior-window drift context. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 08:05 KST; completed: 2026-03-27 08:12 KST)*
+- [x] AI Content/World Team: Prototype offline arc-to-copy recommendation token (`DCCFXCPA COPY:CLEAR|HOLD|SURGE`). *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 08:06 KST; completed: 2026-03-27 08:12 KST)*
+
+## Cycle FC - Game Director Review (2026-03-27 08:18 KST)
+- Coverage check (last 10 completions): systems/qa and ux lanes dominate; inject an AI-content readability slice that still remains reversible.
+- Idea 1 (low risk, UX/Design): Add `DCCFXCPA COPY LEGEND` row to summary + token-coverage for one-glance decode.
+- Idea 2 (mid risk, Systems/QA): Add dedicated family-churn rail for `DCCFXCPA COPY:` (`DCCFXCPA COPY FAMILY CHURN`) with adjacency lock.
+- Idea 3 (high risk, Combat/World): Add volatility-sensitive fallback narrative rail (`DCCFXCPA COPY ALT`) for surge suppression cases.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/AI Content Team: Add `DCCFXCPA COPY LEGEND` row in summary + token-coverage and extend regression adjacency lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 08:18 KST; completed: 2026-03-27 08:22 KST)*
+- [ ] Systems/QA Team: Add `DCCFXCPA COPY FAMILY CHURN` row with prior-window drift context and deterministic ordering guard.
+- [ ] Combat/World Team: Prototype `DCCFXCPA COPY ALT` fallback token for surge-suppression mismatch windows.
