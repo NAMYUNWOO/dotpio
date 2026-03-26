@@ -1092,5 +1092,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/World): Prototype flagged rationale token `LPRCG COACH COPY WHY:<short>`.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact coach-copy alias token (`LPRCGCN:<R|B|A|N>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_COPY_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 03:10 KST; completed: 2026-03-27 03:12 KST)*
-- [ ] Systems/QA Team: Add token-family churn coverage + adjacency lock for `LPRCG COACH COPY:` + `LPRCGCN:` rows in summary and token-coverage sections.
+- [x] Systems/QA Team: Add token-family churn coverage + adjacency lock for `LPRCG COACH COPY:` + `LPRCGCN:` rows in summary and token-coverage sections. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 03:31 KST; completed: 2026-03-27 03:50 KST)*
 - [ ] AI Content/World Team: Prototype flagged rationale token `LPRCG COACH COPY WHY:<short>` for offline coaching context.

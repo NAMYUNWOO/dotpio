@@ -2364,6 +2364,7 @@ def main() -> int:
         assert "LPRCG THRESH FAMILY CHURN" in md_text
         assert "LPRCG COACH + LPRCGC FAMILY CHURN" in md_text
         assert "LPRCG COACH PACK + LPRCGCP FAMILY CHURN" in md_text
+        assert "LPRCG COACH COPY + LPRCGCN FAMILY CHURN" in md_text
 
         summary_lines = md_text.splitlines()
         summary_coach_idx = next(
@@ -2373,6 +2374,14 @@ def main() -> int:
             idx for idx, line in enumerate(summary_lines) if line.startswith("- LPRCGC:")
         )
         assert summary_alias_idx == summary_coach_idx + 1
+
+        summary_coach_copy_idx = next(
+            idx for idx, line in enumerate(summary_lines) if line.startswith("- LPRCG COACH COPY:")
+        )
+        summary_coach_copy_alias_idx = next(
+            idx for idx, line in enumerate(summary_lines) if line.startswith("- LPRCGCN:")
+        )
+        assert summary_coach_copy_alias_idx == summary_coach_copy_idx + 1
 
         token_coverage_start_idx = next(
             idx
@@ -2387,6 +2396,14 @@ def main() -> int:
             idx for idx, line in enumerate(token_coverage_lines) if line.startswith("- LPRCGC:")
         )
         assert coverage_alias_idx == coverage_coach_idx + 1
+
+        coverage_coach_copy_idx = next(
+            idx for idx, line in enumerate(token_coverage_lines) if line.startswith("- LPRCG COACH COPY:")
+        )
+        coverage_coach_copy_alias_idx = next(
+            idx for idx, line in enumerate(token_coverage_lines) if line.startswith("- LPRCGCN:")
+        )
+        assert coverage_coach_copy_alias_idx == coverage_coach_copy_idx + 1
 
         assert "LANE PRIORITY REC HYSTERESIS:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text

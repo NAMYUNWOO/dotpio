@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-27 00:34 KST
+Last updated: 2026-03-27 03:50 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle EW Systems/QA backlog follow-up: weekly digest now tracks `LPRCG COACH COPY:` + `LPRCGCN:` as dedicated alias family `lanePriorityRecommendationConfidenceGuardCoachCopyAlias`.
+- Added deterministic churn rows `LPRCG COACH COPY + LPRCGCN FAMILY CHURN` in both summary and token-coverage sections.
+- Regression contract now locks adjacency/order for `LPRCG COACH COPY` -> `LPRCGCN` in both sections and asserts family-churn row presence; verification passed (`py_compile` + weekly drift regression).
+- TASKS + POST_RC updated to mark this Systems/QA item complete with lifecycle annotation.
 
 - Closed Cycle ET Systems/QA follow-up from TASKS/POST_RC: digest now tracks `LPRCG THRESH:` as its own token family via `lanePriorityRecommendationConfidenceGuardThresholdAlias`.
 - Weekly markdown now emits adjacent rows `LPRCG + LANE PRIORITY REC CONF GUARD FAMILY CHURN` and `LPRCG THRESH FAMILY CHURN` in both summary and token-coverage sections for deterministic scan order.

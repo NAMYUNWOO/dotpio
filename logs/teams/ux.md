@@ -2214,3 +2214,15 @@
 - Game Director cycle executed (3 ideas) and selected low-risk vertical slice: compact alias token `LPRCGCN:<R|B|A|N>` for coach-copy scanability.
 - Added payload contract keys `lanePriorityRecommendationConfidenceGuardPersistenceCoachCopyAlias` + signals, and markdown rows in summary + token-coverage sections.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (PASS).
+
+## 2026-03-27 03:50 KST
+- Task: Cycle EW Systems/QA follow-up — add token-family churn coverage + adjacency lock for `LPRCG COACH COPY:` + `LPRCGCN:` rows.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added alias-family key `lanePriorityRecommendationConfidenceGuardCoachCopyAlias` so `LPRCG COACH COPY` + `LPRCGCN` churn is tracked deterministically.
+  - Added markdown family-churn row `LPRCG COACH COPY + LPRCGCN FAMILY CHURN` in both summary and token-coverage sections.
+  - Locked ordering contract so `LPRCG COACH COPY` is immediately followed by `LPRCGCN` in both sections.
