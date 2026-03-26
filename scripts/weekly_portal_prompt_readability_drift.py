@@ -7499,6 +7499,7 @@ def combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior(
     current_net = int(current_family_totals.get("net", 0) or 0)
     prior_net = 0
     prior_loaded = False
+    prior_trend = "FLAT"
 
     if prior_json_path.is_file():
         try:
@@ -7506,26 +7507,39 @@ def combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior(
             prior_families = prior_payload.get("tokenFamilyTotals", {})
             prior_family = prior_families.get(prior_family_key, {}) if isinstance(prior_families, dict) else {}
             prior_net = int(prior_family.get("net", 0) or 0)
+            prior_signals = prior_payload.get("comboConfidenceCoachCopySwapRecommendationFamilyTrendSignals", {})
+            if isinstance(prior_signals, dict):
+                prior_trend = str(prior_signals.get("trend", "FLAT") or "FLAT").upper()
             prior_loaded = True
         except (json.JSONDecodeError, TypeError, ValueError):
             pass
 
-    drift = current_net - prior_net
-    if drift > 0:
+    raw_drift = current_net - prior_net
+    if raw_drift > 0:
         trend = "UP"
         reason = "combo-confidence-copy-swap-family-net-increased-vs-prior-window"
-    elif drift < 0:
+    elif raw_drift < 0:
         trend = "DOWN"
         reason = "combo-confidence-copy-swap-family-net-decreased-vs-prior-window"
     else:
         trend = "FLAT"
         reason = "combo-confidence-copy-swap-family-net-unchanged-vs-prior-window"
 
-    return drift, {
+    hysteresis_applied = False
+    hysteresis_threshold = 1
+    if prior_loaded and prior_trend in {"UP", "DOWN"} and trend in {"UP", "DOWN"} and prior_trend != trend and abs(raw_drift) <= hysteresis_threshold:
+        trend = "FLAT"
+        reason = "copy-swap-trend-hysteresis-suppressed-small-direction-flip"
+        hysteresis_applied = True
+
+    return raw_drift, {
         "trend": trend,
         "currentNet": current_net,
         "priorNet": prior_net,
         "priorLoaded": prior_loaded,
+        "priorTrend": prior_trend,
+        "hysteresisApplied": hysteresis_applied,
+        "hysteresisThreshold": hysteresis_threshold,
         "reason": reason,
     }
 

@@ -3330,3 +3330,4 @@
 - Added assertions for `DCCSA FAMILY CHURN` and `DCCFX FAMILY CHURN` presence.
 - Added strict adjacency checks: `DCCSA FAMILY CHURN` -> `DCCFX FAMILY CHURN` -> `DCCSR FAMILY CHURN` -> `DCCST FAMILY CHURN`.
 - Added targeted hysteresis regression: prior accent `EMBER` + SWING regime retains `EMBER` and marks `hysteresisApplied=True`.
+- Added regression scenario for copy-swap trend hysteresis: prior `DOWN` + small positive drift now resolves to `FLAT` with `hysteresisApplied=True`.

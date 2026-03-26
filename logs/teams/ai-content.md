@@ -1862,3 +1862,4 @@
 - Implemented offline accent hysteresis for `DMG COMBO CONF FX ACCENT` under `SWING` regime: when prior accent and current accent bounce between `STEEL/EMBER`, hold prior accent to damp oscillation.
 - Signals now expose `priorAccent` and `hysteresisApplied` for auditability.
 - Verification: regression suite PASS including dedicated hysteresis assertion.
+- Follow-up extension: added offline copy-swap trend hysteresis (`UP/DOWN` small-flip suppression) in `combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior` to reduce oscillation noise across adjacent windows.

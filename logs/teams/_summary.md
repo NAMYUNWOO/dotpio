@@ -3109,3 +3109,4 @@ Compact decision memory for AI context efficiency.
   - `scripts/regression_weekly_portal_prompt_readability_drift.py`
     - added hysteresis assertion and new family-churn ordering assertions.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Added second hysteresis guard: copy-swap family trend now suppresses small `UP/DOWN` flips into `FLAT` when prior trend opposes current drift within threshold.

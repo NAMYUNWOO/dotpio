@@ -63,6 +63,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_rearm_coach_handoff_why_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
     combo_confidence_fx_accent_from_signals,
+    combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -153,6 +154,26 @@ def main() -> int:
         assert hysteresis_accent == "EMBER", hysteresis_signals
         assert hysteresis_signals["hysteresisApplied"] is True, hysteresis_signals
         assert hysteresis_signals["priorAccent"] == "EMBER", hysteresis_signals
+
+        copy_swap_prior = repo / "copy_swap_prior.json"
+        copy_swap_prior.write_text(
+            json.dumps(
+                {
+                    "tokenFamilyTotals": {
+                        "dmgComboConfidenceCoachCopySwapRecommendationAlias": {"net": 10}
+                    },
+                    "comboConfidenceCoachCopySwapRecommendationFamilyTrendSignals": {"trend": "DOWN"},
+                }
+            ),
+            encoding="utf-8",
+        )
+        copy_swap_drift, copy_swap_signals = combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior(
+            current_family_totals={"net": 11},
+            prior_json_path=copy_swap_prior,
+        )
+        assert copy_swap_drift == 1, copy_swap_signals
+        assert copy_swap_signals["trend"] == "FLAT", copy_swap_signals
+        assert copy_swap_signals["hysteresisApplied"] is True, copy_swap_signals
         assert payload.get("rgfxwriWhyConfPolicyRecommendation") in {"FREEZE", "GUARDED", "RELAXED"}, payload
         assert set(payload.get("rgfxwriWhyConfPolicyRecommendationSignals", {}).keys()) == {
             "driftRisk",

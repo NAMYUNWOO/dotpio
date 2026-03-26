@@ -2772,3 +2772,4 @@
 - Added explicit split churn rails in weekly digest markdown: `DCCSA FAMILY CHURN` and `DCCFX FAMILY CHURN` to isolate scene-arc vs FX-accent volatility.
 - Updated regression contract to require both rows and adjacency ordering (`DCCSA -> DCCFX -> DCCSR -> DCCST`).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Added copy-swap trend hysteresis metadata (`priorTrend`, `hysteresisApplied`, `hysteresisThreshold`) to family-trend signals for deterministic drift auditability.
