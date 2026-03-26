@@ -2070,3 +2070,8 @@
 - Digest scanability improved with explicit  row adjacent to cadence recency lines.
 - No in-game HUD/prompt width impact (offline report-only).
 - 2026-03-26 12:39 KST — Cycle EI shipped compact cadence alias token `PRSMC:<R|H|C>` behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_CADENCE_ALIAS` for tighter digest scanability; follow-up: validate alias readability under compact budgets.
+
+## 2026-03-26 13:31 KST — Cycle EJ UX scanability
+- Added/validated digest row `DMG COMBO CONF COACH COPY SWAP REC` plus family churn companion row for one-glance triage.
+- Compact wording preserved for DOS-width reports; no HUD/runtime overlay changes.
+- Verification inherited from weekly digest regression + generation pass.

@@ -1858,3 +1858,8 @@
 - No runtime copy change to player-facing UI; digest-only readability improvement accepted.
 - Next design task: enforce scene-arc adjacency contract in digest scan order (pending).
 - 2026-03-26 12:39 KST — Cycle EI compact token design approved: `PRSMC` uses deterministic R/H/C mapping to preserve DOS-width readability.
+
+## 2026-03-26 13:31 KST — Cycle EJ design readability contract
+- Approved compact deterministic recommendation vocabulary for swap posture: `HOLD_COPY|ARM_SWAP|SWAP_NOW`.
+- Decision: keep copy-swap policy offline-only in weekly digest; no runtime UI text mutation.
+- Follow-up: evaluate compact alias if digest budget pressure increases.

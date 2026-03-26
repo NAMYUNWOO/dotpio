@@ -3076,3 +3076,11 @@ Compact decision memory for AI context efficiency.
 - Added regression contract to enforce adjacency (`PRSMC FAMILY TREND` -> `PRSMC FAMILY CHURN`) and presence.
 - Verification green: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Remaining top unchecked work: AI Content/Combat offline cadence-reactive coach-copy swap recommendation policy (`PRSMC` churn + lane cadence miss risk).
+
+### 2026-03-26 13:31 KST — Cycle EJ cadence-reactive coach-copy swap policy
+- Trigger: ACTION_ITEMS/TASKS/POST_RC were fully checked, so Game Director review cycle executed (3 ideas) and selected Idea 1 minimal slice.
+- Shipped: offline digest token `DMG COMBO CONF COACH COPY SWAP REC:HOLD_COPY|ARM_SWAP|SWAP_NOW` derived from `PRSMC` churn/trend + `LANE CADENCE MISS RISK`.
+- Contract hardening: added markdown row `DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN` and regression assertions for payload + markdown presence/adjacency.
+- Durable decision: keep swap recommendation strictly offline/reporting-only (no runtime combat/HUD coupling) and keep deterministic compact vocabulary for DOS-width scans.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 120`.
+- Next injection candidates queued: (1) compact swap-alias token for budgeted digests, (2) prior-window drift trend row for swap family, (3) rationale microline when swap oscillates across windows.

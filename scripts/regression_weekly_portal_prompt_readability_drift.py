@@ -468,6 +468,14 @@ def main() -> int:
             "priorLoaded",
             "reason",
         }, payload
+        assert isinstance(payload.get("pulseRemapSceneCopyPaletteRecommendationFamilyTrendDrift"), int), payload
+        assert set(payload.get("pulseRemapSceneCopyPaletteRecommendationFamilyTrendSignals", {}).keys()) == {
+            "trend",
+            "currentNet",
+            "priorNet",
+            "priorLoaded",
+            "reason",
+        }, payload
         assert payload.get("pulseRemapSuppressionPostureWarning") in {"STEADY", "CAUTION", "ALERT"}, payload
         assert set(payload.get("pulseRemapSuppressionPostureWarningSignals", {}).keys()) == {
             "suppressionPlan",
@@ -480,6 +488,8 @@ def main() -> int:
         }, payload
         assert isinstance(payload.get("pulseRemapSuppressionPostureWarningAlias"), str) and payload["pulseRemapSuppressionPostureWarningAlias"].startswith("PRPW:"), payload
         assert set(payload.get("pulseRemapSuppressionPostureWarningAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
+        assert isinstance(payload.get("pulseRemapSceneCopyPaletteRecommendationAlias"), str) and payload["pulseRemapSceneCopyPaletteRecommendationAlias"].startswith("PRSCP:"), payload
+        assert set(payload.get("pulseRemapSceneCopyPaletteRecommendationAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert isinstance(payload.get("pulseRemapMomentumAlias"), str) and payload["pulseRemapMomentumAlias"].startswith("PRM:"), payload
         assert set(payload.get("pulseRemapMomentumAliasSignals", {}).keys()) == {"flagName", "flagEnabled"}, payload
         assert set(payload.get("routeVibeTotals", {}).keys()) == {"added", "removed", "net"}, payload
@@ -2169,6 +2179,7 @@ def main() -> int:
         assert "PULSE REMAP SCENE FX GLINT:" in md_text
         assert "PRSFX:" in md_text
         assert "PULSE REMAP SCENE COPY PALETTE REC:" in md_text
+        assert "PRSCP:" in md_text
         assert "PRSMPP:" in md_text
         assert "PRSMP:" in md_text
         assert "PULSE REMAP SCENE MICROLINE CADENCE:" in md_text
@@ -2185,6 +2196,7 @@ def main() -> int:
         assert "PRSMPP + PULSE REMAP SCENE MICROLINE STYLE POSTURE:" in md_text
         assert "PRSMC + PULSE REMAP SCENE MICROLINE CADENCE:" in md_text
         assert "PRSFX + PULSE REMAP SCENE FX GLINT:" in md_text
+        assert "PRSCP + PULSE REMAP SCENE COPY PALETTE REC:" in md_text
         assert "PULSE REMAP SCENE FX GLINT:" in md_text
         assert "PRMS FAMILY TREND:" in md_text
         assert "PRSP FAMILY TREND:" in md_text
@@ -2193,6 +2205,7 @@ def main() -> int:
         assert "PRSMP FAMILY TREND:" in md_text
         assert md_text.count("PRSMP FAMILY TREND:") == 2, md_text
         assert "PRSFX FAMILY TREND:" in md_text
+        assert "PRSCP FAMILY TREND:" in md_text
         assert "DMG GLYPH:" in md_text
         assert "DMG GLYPH FX LIVE:" in md_text
         assert "LPR HYS THR:" in md_text

@@ -1202,3 +1202,13 @@ See project-level plans:
 - [x] UX/World Team: Add compact cadence alias token (`PRSMC:<R|H|C>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_CADENCE_ALIAS`, wire payload/markdown rows, and lock via regression. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 12:31 KST; completed: 2026-03-26 12:39 KST)*
 - [x] Systems/QA Team: Add explicit cadence-alias family trend markdown triage row (`PRSMC FAMILY CHURN`) adjacent to `PRSMC FAMILY TREND` in weekly digest summary.
 - [x] AI Content/Combat Team: Prototype offline cadence-reactive coach-copy swap recommendation policy from `PRSMC` family churn + lane cadence miss risk.
+
+## Cycle EJ - Game Director Review (2026-03-26 13:31 KST)
+- Coverage check (last 10 completions): cadence alias observability landed; best low-risk closure was AI Content/Combat policy wiring using existing digest signals.
+- Idea 1 (low risk, AI Content/Combat): Add offline cadence-reactive coach-copy swap recommendation token (`DMG COMBO CONF COACH COPY SWAP REC:HOLD_COPY|ARM_SWAP|SWAP_NOW`) derived from `PRSMC` churn + lane cadence miss risk.
+- Idea 2 (mid risk, Systems/QA): Add dedicated token-family churn summary row for swap recommendation family in digest markdown.
+- Idea 3 (high risk, UX/Design): Prototype compact swap rationale microline alias for dense digest budgets.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] AI Content/Combat Team: Add offline cadence-reactive coach-copy swap recommendation policy from `PRSMC` churn + lane cadence miss risk with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 13:24 KST; completed: 2026-03-26 13:31 KST)*
+- [x] Systems/QA Team: Add swap-recommendation token-family churn row (`DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN`) and keep it adjacent to recommendation trend lines. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 13:31 KST)*
+- [x] UX/Design Team: Keep recommendation vocabulary compact (`HOLD_COPY|ARM_SWAP|SWAP_NOW`) for DOS-width digest readability while staying offline-only.

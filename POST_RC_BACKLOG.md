@@ -952,3 +952,8 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/World Team: Add compact cadence alias token (`PRSMC:<R|H|C>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_CADENCE_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 12:39 KST)*
 - [x] Systems/QA Team: Add dedicated cadence alias-family churn triage row (`PRSMC FAMILY CHURN`) near cadence trend output.
 - [x] AI Content/Combat Team: Prototype offline cadence-reactive coach-copy swap recommendation policy from `PRSMC` churn + lane cadence miss risk.
+
+## P1 (Game Director Injection — 2026-03-26 Cycle EJ)
+- [x] AI Content/Combat Team: Add offline cadence-reactive coach-copy swap recommendation token (`DMG COMBO CONF COACH COPY SWAP REC:HOLD_COPY|ARM_SWAP|SWAP_NOW`) from `PRSMC` churn + lane cadence miss risk. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 13:31 KST)*
+- [x] Systems/QA Team: Add dedicated swap-recommendation family churn row (`DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN`) with regression lock.
+- [x] UX/Design Team: Constrain swap posture vocabulary to compact deterministic bands for digest scanability (`HOLD_COPY|ARM_SWAP|SWAP_NOW`).
