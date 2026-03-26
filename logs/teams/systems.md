@@ -2877,3 +2877,15 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Notes: Added dedicated alias family `lanePriorityRecommendationConfidenceGuardThresholdAlias` and emitted `LPRCG THRESH FAMILY CHURN` rows in summary + token-coverage sections.
+
+## 2026-03-27 01:08 KST
+- Task: Cycle EU selected slice — compact guard-persistence coach alias `LPRCGC:<R|W|S>`.
+- Commit: HEAD (pending)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added flag-gated alias `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_ALIAS` while preserving detailed `LPRCG COACH:` fallback row.
+  - Added dedicated token-family churn row `LPRCG COACH + LPRCGC FAMILY CHURN` in summary + token-coverage sections.
+- Follow-up:
+  - Add deterministic adjacency/order regression lock for `LPRCG COACH` -> `LPRCGC`.

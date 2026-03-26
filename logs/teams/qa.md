@@ -3427,3 +3427,14 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Notes: Added dedicated alias family `lanePriorityRecommendationConfidenceGuardThresholdAlias` and emitted `LPRCG THRESH FAMILY CHURN` rows in summary + token-coverage sections.
+
+## 2026-03-27 01:08 KST
+- Task: Validate Cycle ET/EU guard-persistence coaching additions.
+- Commit: HEAD (pending)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Regression now asserts `LPRCG COACH`, `LPRCGC`, and `LPRCG COACH + LPRCGC FAMILY CHURN` presence.
+- Follow-up:
+  - Add strict line-order/adjacency lock for coach + alias rows.

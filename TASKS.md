@@ -1288,4 +1288,14 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Design Team: Add digest token `LPRCG THRESH:<n>` from adaptive confidence-guard threshold policy with payload+markdown wiring and regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 00:06 KST; completed: 2026-03-27 00:10 KST)*
 - [x] Systems/QA Team: Add token-family churn coverage for `LPRCG THRESH:` and keep adjacency with `LPRCG` rows. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 00:31 KST; completed: 2026-03-27 00:33 KST)*
-- [ ] AI Content/World Team: Prototype offline guard-persistence coaching cue when `LPRCG` remains `APPLY` for consecutive windows.
+- [x] AI Content/World Team: Prototype offline guard-persistence coaching cue when `LPRCG` remains `APPLY` for consecutive windows. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 01:03 KST; completed: 2026-03-27 01:05 KST)*
+
+## Cycle EU - Game Director Review (2026-03-27 01:08 KST)
+- Coverage check (last 10 completions): systems/qa cadence remained dominant, so this cycle forced a lightweight AI Content/World readability slice to keep lane coaching actionable in dense digests.
+- Idea 1 (low risk, UX/Systems): Add compact guard-persistence coach alias token (`LPRCGC:<R|W|S>`) behind flag for digest scanability.
+- Idea 2 (mid risk, Systems/QA): Add token-family churn coverage/order lock for `LPRCG COACH:` + `LPRCGC:` rows.
+- Idea 3 (high risk, AI Content/World): Prototype offline adaptive coach-copy variant pack tied to prolonged `LPRCG:APPLY` streak + volatility regime transitions.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Systems Team: Add compact guard-persistence coach alias token (`LPRCGC:<R|W|S>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 01:06 KST; completed: 2026-03-27 01:08 KST)*
+- [ ] Systems/QA Team: Add explicit adjacency/order regression lock for `LPRCG COACH` -> `LPRCGC` in summary + token-coverage sections.
+- [ ] AI Content/World Team: Prototype offline adaptive guard-persistence coach copy variant-pack policy from sustained `LPRCG:APPLY` streak depth.

@@ -729,6 +729,23 @@ def main() -> int:
             "threshold",
             "policy",
         }, payload
+        assert isinstance(payload.get("lanePriorityRecommendationConfidenceGuardPersistenceCoach"), str), payload
+        assert set(payload.get("lanePriorityRecommendationConfidenceGuardPersistenceCoachSignals", {}).keys()) == {
+            "guardAction",
+            "priorConsecutiveApplyWindows",
+            "consecutiveApplyWindows",
+            "triggered",
+            "priorLoaded",
+            "reason",
+            "offlineOnly",
+        }, payload
+        assert isinstance(payload.get("lanePriorityRecommendationConfidenceGuardPersistenceCoachAlias"), str), payload
+        assert set(payload.get("lanePriorityRecommendationConfidenceGuardPersistenceCoachAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "coachToken",
+            "alias",
+        }, payload
         assert isinstance(payload.get("lanePriorityRecommendationCompactAlias"), str), payload
         assert set(payload.get("lanePriorityRecommendationCompactAliasSignals", {}).keys()) == {
             "flagName",
@@ -2298,7 +2315,10 @@ def main() -> int:
         assert "LANE PRIORITY REC CONF GUARD:" in md_text
         assert "LPRCG:" in md_text
         assert "LPRCG THRESH:" in md_text
+        assert "LPRCG COACH:" in md_text
+        assert "LPRCGC:" in md_text
         assert "LPRCG THRESH FAMILY CHURN" in md_text
+        assert "LPRCG COACH + LPRCGC FAMILY CHURN" in md_text
         assert "LANE PRIORITY REC HYSTERESIS:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text

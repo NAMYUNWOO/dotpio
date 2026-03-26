@@ -1963,3 +1963,8 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Notes: Added dedicated alias family `lanePriorityRecommendationConfidenceGuardThresholdAlias` and emitted `LPRCG THRESH FAMILY CHURN` rows in summary + token-coverage sections.
+
+## 2026-03-27 01:08 KST
+- Task: Cycle EU readability polish for lane-priority confidence-guard coaching cues.
+- Decision: Kept detailed copy (`LPRCG COACH`) plus compact alias (`LPRCGC`) for DOS-width readability without losing explanation depth.
+- Follow-up: design review for adaptive copy variant-pack if APPLY streaks persist across multiple windows.

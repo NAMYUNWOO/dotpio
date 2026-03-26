@@ -1943,3 +1943,14 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Notes: Added dedicated alias family `lanePriorityRecommendationConfidenceGuardThresholdAlias` and emitted `LPRCG THRESH FAMILY CHURN` rows in summary + token-coverage sections.
+
+## 2026-03-27 01:08 KST
+- Task: Cycle ET closeout + Cycle EU slice for guard-persistence coaching readability.
+- Commit: HEAD (pending)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added offline `LPRCG COACH:` streak-aware cue (`RESET|WATCH|STABILIZE`) and compact alias `LPRCGC:<R|W|S>` behind flag.
+- Follow-up:
+  - Prototype adaptive coach-copy variant-pack policy for sustained APPLY streak depth.

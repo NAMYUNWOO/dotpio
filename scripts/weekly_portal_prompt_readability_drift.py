@@ -121,6 +121,7 @@ TOKEN_ALIAS_FAMILIES = {
     "lanePriorityHysteresisFloorFamilyTrendAlias": ["LPR HYS FLOOR FAMILY TREND:", "LPR HF T:"],
     "lanePriorityRecommendationConfidenceGuardAlias": ["LPRCG:", "LANE PRIORITY REC CONF GUARD:"],
     "lanePriorityRecommendationConfidenceGuardThresholdAlias": ["LPRCG THRESH:"],
+    "lanePriorityRecommendationConfidenceGuardCoachAlias": ["LPRCG COACH:", "LPRCGC:"],
 }
 
 ROUTE_VIBE_PATTERNS = {
@@ -1039,6 +1040,72 @@ def lane_priority_recommendation_confidence_guard_threshold_token(*, guard_signa
     return f"LPRCG THRESH:{threshold}", {
         "threshold": threshold,
         "policy": policy,
+    }
+
+
+def lane_priority_recommendation_confidence_guard_persistence_coach(
+    *,
+    guard_signals: dict[str, object],
+    prior_json_path: Path,
+) -> tuple[str, dict[str, object]]:
+    """Offline coaching cue when `LPRCG` stays APPLY across consecutive digest windows."""
+    prior_streak = 0
+    prior_loaded = False
+    if prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_signals = prior_payload.get("lanePriorityRecommendationConfidenceGuardPersistenceCoachSignals", {})
+            if isinstance(prior_signals, dict):
+                prior_streak = int(prior_signals.get("consecutiveApplyWindows", 0) or 0)
+                prior_loaded = True
+        except (json.JSONDecodeError, OSError, TypeError, ValueError):
+            prior_streak = 0
+            prior_loaded = False
+
+    guard_action = "APPLY" if bool(guard_signals.get("guardApplied", False)) else "HOLD"
+    consecutive_apply_windows = prior_streak + 1 if guard_action == "APPLY" else 0
+
+    if guard_action == "APPLY" and consecutive_apply_windows >= 2:
+        cue = "LPRCG COACH:STABILIZE"
+        reason = "guard-remains-apply-across-consecutive-windows"
+    elif guard_action == "APPLY":
+        cue = "LPRCG COACH:WATCH"
+        reason = "guard-apply-is-fresh-this-window"
+    else:
+        cue = "LPRCG COACH:RESET"
+        reason = "guard-not-applied-this-window"
+
+    return cue, {
+        "guardAction": guard_action,
+        "priorConsecutiveApplyWindows": prior_streak,
+        "consecutiveApplyWindows": consecutive_apply_windows,
+        "triggered": guard_action == "APPLY" and consecutive_apply_windows >= 2,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+        "offlineOnly": True,
+    }
+
+
+def resolve_lane_priority_recommendation_confidence_guard_persistence_coach_alias(
+    *,
+    coach_token: str,
+) -> tuple[str, dict[str, object]]:
+    """Compact alias for guard-persistence coaching cue (`LPRCGC:<R|W|S>`)."""
+    flag_name = "DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_ALIAS"
+    flag_enabled = os.environ.get(flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
+
+    alias_map = {
+        "LPRCG COACH:RESET": "R",
+        "LPRCG COACH:WATCH": "W",
+        "LPRCG COACH:STABILIZE": "S",
+    }
+    alias = alias_map.get(coach_token, "W")
+    token = f"LPRCGC:{alias}"
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "coachToken": coach_token,
+        "alias": alias,
     }
 
 
@@ -8788,6 +8855,13 @@ def main() -> int:
     lane_priority_recommendation_confidence_guard_threshold, lane_priority_recommendation_confidence_guard_threshold_signals = lane_priority_recommendation_confidence_guard_threshold_token(
         guard_signals=lane_priority_recommendation_confidence_guard_signals,
     )
+    lane_priority_recommendation_confidence_guard_persistence_coach_token, lane_priority_recommendation_confidence_guard_persistence_coach_signals = lane_priority_recommendation_confidence_guard_persistence_coach(
+        guard_signals=lane_priority_recommendation_confidence_guard_signals,
+        prior_json_path=args.out_json,
+    )
+    lane_priority_recommendation_confidence_guard_persistence_coach_alias, lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals = resolve_lane_priority_recommendation_confidence_guard_persistence_coach_alias(
+        coach_token=lane_priority_recommendation_confidence_guard_persistence_coach_token,
+    )
     pulse_remap_suppression_escalation_plan, pulse_remap_suppression_escalation_plan_signals = pulse_remap_suppression_escalation_plan_from_signals(
         suppression=pulse_remap_momentum_suppression,
         suppression_signals=pulse_remap_momentum_suppression_signals,
@@ -9838,6 +9912,10 @@ def main() -> int:
         "lanePriorityRecommendationConfidenceGuardAliasSignals": lane_priority_recommendation_confidence_guard_alias_signals,
         "lanePriorityRecommendationConfidenceGuardThreshold": lane_priority_recommendation_confidence_guard_threshold,
         "lanePriorityRecommendationConfidenceGuardThresholdSignals": lane_priority_recommendation_confidence_guard_threshold_signals,
+        "lanePriorityRecommendationConfidenceGuardPersistenceCoach": lane_priority_recommendation_confidence_guard_persistence_coach_token,
+        "lanePriorityRecommendationConfidenceGuardPersistenceCoachSignals": lane_priority_recommendation_confidence_guard_persistence_coach_signals,
+        "lanePriorityRecommendationConfidenceGuardPersistenceCoachAlias": lane_priority_recommendation_confidence_guard_persistence_coach_alias,
+        "lanePriorityRecommendationConfidenceGuardPersistenceCoachAliasSignals": lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals,
         "lanePriorityRecommendationCompactAlias": lane_priority_recommendation_compact_alias,
         "lanePriorityRecommendationCompactAliasSignals": lane_priority_recommendation_compact_alias_signals,
         "lanePriorityHysteresisCompactAlias": lane_priority_hysteresis_compact_alias,
@@ -10487,7 +10565,10 @@ def main() -> int:
         f"- LANE PRIORITY REC CONF GUARD: **{'APPLY' if lane_priority_recommendation_confidence_guard_signals['guardApplied'] else 'HOLD'}** (base={lane_priority_recommendation_confidence_guard_signals['baseConfidence']} guarded={lane_priority_recommendation_confidence_guard_signals['guardedConfidence']} trend={lane_priority_recommendation_confidence_guard_signals['trend']} regime={lane_priority_recommendation_confidence_guard_signals['volatilityRegime']} streak={lane_priority_recommendation_confidence_guard_signals['divergenceStreak']} priorLoaded={lane_priority_recommendation_confidence_guard_signals['priorLoaded']} reason={lane_priority_recommendation_confidence_guard_signals['reason']})",
         f"- LPRCG: **{lane_priority_recommendation_confidence_guard_alias}** (flag={lane_priority_recommendation_confidence_guard_alias_signals['flagName']} enabled={lane_priority_recommendation_confidence_guard_alias_signals['flagEnabled']} action={lane_priority_recommendation_confidence_guard_alias_signals['action']})",
         f"- LPRCG THRESH: **{lane_priority_recommendation_confidence_guard_threshold}** (policy={lane_priority_recommendation_confidence_guard_threshold_signals['policy']})",
+        f"- LPRCG COACH: **{lane_priority_recommendation_confidence_guard_persistence_coach_token}** (reason={lane_priority_recommendation_confidence_guard_persistence_coach_signals['reason']} action={lane_priority_recommendation_confidence_guard_persistence_coach_signals['guardAction']} consecutive={lane_priority_recommendation_confidence_guard_persistence_coach_signals['consecutiveApplyWindows']} priorLoaded={lane_priority_recommendation_confidence_guard_persistence_coach_signals['priorLoaded']} offlineOnly={lane_priority_recommendation_confidence_guard_persistence_coach_signals['offlineOnly']})",
+        f"- LPRCGC: **{lane_priority_recommendation_confidence_guard_persistence_coach_alias}** (flag={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['flagName']} enabled={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['flagEnabled']} coach={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['coachToken']} alias={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['alias']})",
         f"- LPRCG + LANE PRIORITY REC CONF GUARD FAMILY CHURN: **net {token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['net']:+d}** (added={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['added']} removed={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['removed']} churn={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['coverage']})",
+        f"- LPRCG COACH + LPRCGC FAMILY CHURN: **net {token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['net']:+d}** (added={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['added']} removed={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['removed']} churn={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['coverage']})",
         f"- LPRCG THRESH FAMILY CHURN: **net {token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['net']:+d}** (added={token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['added']} removed={token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['removed']} churn={token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['coverage']})",
         f"- LANE PRIORITY REC HYSTERESIS: **{'HOLD' if lane_priority_recommendation_signals['hysteresisApplied'] else 'SHIFT'}** (prior={lane_priority_recommendation_signals['priorRecommendation']} raw={lane_priority_recommendation_signals['rawRecommendation']} gap={lane_priority_recommendation_signals['hysteresisScoreGap']} threshold={lane_priority_recommendation_signals['hysteresisThreshold']} reason={lane_priority_recommendation_signals['hysteresisReason']})",
         f"- LPR HYS THRESH REC: **{lane_priority_hysteresis_threshold_tuning}** (base={lane_priority_hysteresis_threshold_tuning_signals['baseThreshold']} rec={lane_priority_hysteresis_threshold_tuning_signals['recommendedThreshold']} floor={lane_priority_hysteresis_threshold_tuning_signals['adaptiveFloor']} ceil={lane_priority_hysteresis_threshold_tuning_signals['adaptiveCeiling']} priorWindow={lane_priority_hysteresis_threshold_tuning_signals['priorAdaptiveWindowLoaded']} volSpan={lane_priority_hysteresis_threshold_tuning_signals['momentumVolatilitySpanHours']} maxAbsMom={lane_priority_hysteresis_threshold_tuning_signals['maxAbsMomentumHours']} ageSpread={lane_priority_hysteresis_threshold_tuning_signals['ageSpreadHours']} learn={lane_priority_hysteresis_threshold_tuning_signals['learningReason']} reason={lane_priority_hysteresis_threshold_tuning_signals['reason']})",
@@ -10641,7 +10722,10 @@ def main() -> int:
         f"- LANE PRIORITY REC CONF GUARD: {'APPLY' if lane_priority_recommendation_confidence_guard_signals['guardApplied'] else 'HOLD'} (base={lane_priority_recommendation_confidence_guard_signals['baseConfidence']}, guarded={lane_priority_recommendation_confidence_guard_signals['guardedConfidence']}, trend={lane_priority_recommendation_confidence_guard_signals['trend']}, regime={lane_priority_recommendation_confidence_guard_signals['volatilityRegime']}, streak={lane_priority_recommendation_confidence_guard_signals['divergenceStreak']}, priorLoaded={lane_priority_recommendation_confidence_guard_signals['priorLoaded']}, reason={lane_priority_recommendation_confidence_guard_signals['reason']})",
         f"- LPRCG: {lane_priority_recommendation_confidence_guard_alias} (flag={lane_priority_recommendation_confidence_guard_alias_signals['flagName']}, enabled={lane_priority_recommendation_confidence_guard_alias_signals['flagEnabled']}, action={lane_priority_recommendation_confidence_guard_alias_signals['action']})",
         f"- LPRCG THRESH: {lane_priority_recommendation_confidence_guard_threshold} (policy={lane_priority_recommendation_confidence_guard_threshold_signals['policy']})",
+        f"- LPRCG COACH: {lane_priority_recommendation_confidence_guard_persistence_coach_token} (reason={lane_priority_recommendation_confidence_guard_persistence_coach_signals['reason']}, action={lane_priority_recommendation_confidence_guard_persistence_coach_signals['guardAction']}, consecutive={lane_priority_recommendation_confidence_guard_persistence_coach_signals['consecutiveApplyWindows']}, priorLoaded={lane_priority_recommendation_confidence_guard_persistence_coach_signals['priorLoaded']}, offlineOnly={lane_priority_recommendation_confidence_guard_persistence_coach_signals['offlineOnly']})",
+        f"- LPRCGC: {lane_priority_recommendation_confidence_guard_persistence_coach_alias} (flag={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['flagName']}, enabled={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['flagEnabled']}, coach={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['coachToken']}, alias={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['alias']})",
         f"- LPRCG + LANE PRIORITY REC CONF GUARD: +{token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['added']} / -{token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['removed']} / net {token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['net']} (churn={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['coverage']})",
+        f"- LPRCG COACH + LPRCGC: +{token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['added']} / -{token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['removed']} / net {token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['net']} (churn={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['coverage']})",
         f"- LPRCG THRESH FAMILY CHURN: +{token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['added']} / -{token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['removed']} / net {token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['net']} (churn={token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['coverage']})",
         f"- LANE PRIORITY REC HYSTERESIS: {'HOLD' if lane_priority_recommendation_signals['hysteresisApplied'] else 'SHIFT'} (prior={lane_priority_recommendation_signals['priorRecommendation']}, raw={lane_priority_recommendation_signals['rawRecommendation']}, gap={lane_priority_recommendation_signals['hysteresisScoreGap']}, threshold={lane_priority_recommendation_signals['hysteresisThreshold']}, reason={lane_priority_recommendation_signals['hysteresisReason']})",
         f"- LPR HYS THRESH REC: {lane_priority_hysteresis_threshold_tuning} (base={lane_priority_hysteresis_threshold_tuning_signals['baseThreshold']}, rec={lane_priority_hysteresis_threshold_tuning_signals['recommendedThreshold']}, floor={lane_priority_hysteresis_threshold_tuning_signals['adaptiveFloor']}, ceil={lane_priority_hysteresis_threshold_tuning_signals['adaptiveCeiling']}, priorWindow={lane_priority_hysteresis_threshold_tuning_signals['priorAdaptiveWindowLoaded']}, volSpan={lane_priority_hysteresis_threshold_tuning_signals['momentumVolatilitySpanHours']}, maxAbsMom={lane_priority_hysteresis_threshold_tuning_signals['maxAbsMomentumHours']}, ageSpread={lane_priority_hysteresis_threshold_tuning_signals['ageSpreadHours']}, learn={lane_priority_hysteresis_threshold_tuning_signals['learningReason']}, reason={lane_priority_hysteresis_threshold_tuning_signals['reason']})",

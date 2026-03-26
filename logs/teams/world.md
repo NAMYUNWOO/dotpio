@@ -1912,3 +1912,8 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Notes: Added dedicated alias family `lanePriorityRecommendationConfidenceGuardThresholdAlias` and emitted `LPRCG THRESH FAMILY CHURN` rows in summary + token-coverage sections.
+
+## 2026-03-27 01:08 KST
+- Cross-lane update: Cycle EU shipped digest-only guard-persistence coach alias (`LPRCGC`) to improve world/route handoff readability when lane confidence guard remains active.
+- Impact: No runtime map/content mutation; offline digest context is denser and easier to scan.
+- Follow-up: evaluate adaptive copy variant-pack policy for prolonged `LPRCG:APPLY` streaks.
