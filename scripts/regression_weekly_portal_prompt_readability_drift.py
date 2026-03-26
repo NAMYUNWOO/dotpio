@@ -2092,6 +2092,7 @@ def main() -> int:
         assert "DMGNUM LIFE TREND FX PULSE CONF FAMILY CHURN" in md_text
         assert "DMGNUM LIFE TREND FX PULSE REMAP PLAN FAMILY CHURN" in md_text
         assert "DMG COMBO FAMILY CHURN" in md_text
+        assert "DMG COMBO CONF FAMILY CHURN" in md_text
         assert "DMG COMBO RETUNE + DCR FAMILY CHURN" in md_text
         assert "DMG COMBO RETUNE CONF + DCRC FAMILY CHURN" in md_text
         assert "DMG COMBO CHAIN COACH FAMILY CHURN" in md_text
@@ -2144,6 +2145,7 @@ def main() -> int:
         assert "DMGNUM LIFE TREND FX PULSE CONF:" in md_text
         assert "DMGNUM LIFE TREND FX PULSE REMAP PLAN:" in md_text
         assert "DMG COMBO:" in md_text
+        assert "DMG COMBO CONF:" in md_text
         assert "DCR + DMG COMBO WINDOW RETUNE REC:" in md_text
         assert "DCRC + DMG COMBO WINDOW RETUNE CONF:" in md_text
         assert "DMG COMBO CHAIN COACH:" in md_text

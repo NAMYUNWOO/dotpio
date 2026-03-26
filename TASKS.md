@@ -1159,5 +1159,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Combat): Prototype offline combo-confidence coach recommendation policy from kill heat volatility + pressure drift.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/UX Team: Add compact combo-confidence debug token (`DMG COMBO CONF:LOW|MID|HIGH`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_DEBUG` with regression coverage. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 08:33 KST)*
-- [ ] Systems/QA Team: Add weekly digest token-family churn coverage for `DMG COMBO CONF:` with markdown triage row + regression lock.
+- [x] Systems/QA Team: Add weekly digest token-family churn coverage for `DMG COMBO CONF:` with markdown triage row + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 09:01 KST)*
 - [ ] AI Content/Combat Team: Prototype offline combo-confidence coach recommendation policy from kill heat volatility + pressure drift.

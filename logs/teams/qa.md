@@ -3244,3 +3244,9 @@
 - Assertion now enforces `count == 2` (summary + token-family coverage).
 - Regression pass evidence: `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - 2026-03-26 08:33 KST — Validation pass: `luac -p src/hud.lua scripts/regression_combat_damage_combo_token.lua scripts/regression_combat_damage_combo_confidence_token.lua`, `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`, `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 DOTPIO_EXPERIMENT_DMG_COMBO_CONF_DEBUG=1 lua scripts/regression_combat_damage_combo_confidence_token.lua`.
+## 2026-03-26 09:05 KST — Regression lock for DMG COMBO CONF digest coverage
+- Added assertions for `DMG COMBO CONF FAMILY CHURN` and `DMG COMBO CONF:` markdown rows in weekly digest regression.
+- Validation run:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 DOTPIO_EXPERIMENT_DMG_COMBO_CONF_DEBUG=1 lua scripts/regression_combat_damage_combo_confidence_token.lua` ✅
+- Risk check: no runtime gameplay path changes; digest/reporting contract only.

@@ -3025,3 +3025,9 @@ Compact decision memory for AI context efficiency.
 - Durable contract: `PRSMP FAMILY TREND` should appear exactly **2** times in digest markdown (main trend line + token-family coverage section).
 - Verification lock: `scripts/regression_weekly_portal_prompt_readability_drift.py` now asserts `md_text.count("PRSMP FAMILY TREND:") == 2`.
 - Impact: reduced operator scan noise without changing gameplay/runtime behavior.
+
+### 2026-03-26 09:05 KST — Systems/QA digest coverage closure
+- Closed Cycle EF Systems/QA item: weekly digest now tracks `DMG COMBO CONF:` token-family churn (`DMG COMBO CONF FAMILY CHURN`) with regression lock.
+- Durable decision: combo-confidence additions stay offline digest observability only; avoid runtime coupling until AI Content policy slice is validated.
+- Verification: weekly digest regression PASS + combo-confidence HUD token regression PASS (with required debug flags).
+- Next prioritized backlog item: AI Content/Combat offline combo-confidence coach recommendation policy from kill-heat volatility + pressure drift.

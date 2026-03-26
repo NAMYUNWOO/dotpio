@@ -2700,3 +2700,10 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Follow-up: Continue low-risk digest hygiene slices before next lane-forced experiment.
 - 2026-03-26 08:33 KST — Cycle EF backlog/contracts updated: selected low-risk combat slice completed; queued follow-ups for `DMG COMBO CONF` digest family churn + offline coach recommendation retained unchecked.
+## 2026-03-26 09:05 KST — Cycle EF follow-up (Systems/QA)
+- Completed: Added weekly digest token-family churn coverage for `DMG COMBO CONF:`.
+- Implementation: extended `TOKEN_FAMILY_ALIASES` with `dmgComboConfidenceAlias`, wired markdown family rows in both summary and token-family sections.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Notes: kept scope additive and offline-only (digest observability only, no gameplay/runtime coupling).
+- Next hook: AI Content/Combat offline combo-confidence coach recommendation policy.
