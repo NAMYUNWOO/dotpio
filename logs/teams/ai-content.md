@@ -1857,3 +1857,8 @@
 
 ## 2026-03-26 16:12 KST — Cycle EL AI-content note
 - No narrative policy mutation; consumed existing fallback volatility regime as deterministic signal source for digest-only FX accent.
+
+## 2026-03-26 16:40 KST — Cycle EL follow-up closure (AI Content/Combat) [DONE]
+- Implemented offline accent hysteresis for `DMG COMBO CONF FX ACCENT` under `SWING` regime: when prior accent and current accent bounce between `STEEL/EMBER`, hold prior accent to damp oscillation.
+- Signals now expose `priorAccent` and `hysteresisApplied` for auditability.
+- Verification: regression suite PASS including dedicated hysteresis assertion.

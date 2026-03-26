@@ -1222,7 +1222,7 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Design Team: Add compact copy-swap trend alias token (`DCCST:<U|F|D>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_COPY_SWAP_TREND_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 15:48 KST; completed: 2026-03-26 15:52 KST)*
 - [x] Systems/QA Team: Add split family churn rows (`DCCSR FAMILY CHURN`, `DCCST FAMILY CHURN`) for recommendation-vs-trend triage.
-- [ ] AI Content/Combat Team: Prototype offline copy-swap trend hysteresis policy for `UP/DOWN` oscillation dampening.
+- [x] AI Content/Combat Team: Prototype offline copy-swap trend hysteresis policy for `UP/DOWN` oscillation dampening.
 ## Cycle EL - Game Director Review (2026-03-26 16:12 KST, lane-cap forced underrepresented pick)
 - Coverage check (last 10 completions by lane): systems=3, world=2, ai-content=2, combat=2, design=5, vfx=0, ux=5, qa=2.
 - Lane cap breach: design/ux at 50% (>40%); forced next experiment into underrepresented lane family (combat/vfx first, with vfx at 0%).
@@ -1236,5 +1236,5 @@ See project-level plans:
 - Idea 3 (high risk, Design/World): Prototype scene-arc-to-palette narrative harmonizer that mutates fallback lines by lane cadence pressure.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Ship offline `DMG COMBO CONF FX ACCENT:SMOKE|STEEL|EMBER` token plus compact alias `DCCFX:<S|T|E>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_ALIAS` (digest-only, reversible) with regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 16:12 KST)*
-- [ ] Systems/QA Team: Add split family churn rows for `DCCSA` vs `DCCFX` to isolate scene-arc vs fx-accent noise.
+- [x] Systems/QA Team: Add split family churn rows for `DCCSA` vs `DCCFX` to isolate scene-arc vs fx-accent noise.
 - [ ] AI Content/Combat Team: Prototype offline accent hysteresis rule to reduce STEEL/EMBER bounce during SWING volatility windows.

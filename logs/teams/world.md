@@ -1831,3 +1831,6 @@
 
 ## 2026-03-26 16:12 KST — Cycle EL world lane note
 - Reused existing scene-arc mood cues as inputs to FX accent mapping; no map/portal topology changes.
+
+## 2026-03-26 16:40 KST — World-tone observability handoff [DONE]
+- Scene-arc (`DCCSA`) churn is now isolated from FX-accent (`DCCFX`) churn in weekly digest, improving tone-vs-accent diagnostics.

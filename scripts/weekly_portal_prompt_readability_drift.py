@@ -7829,6 +7829,7 @@ def combo_confidence_fx_accent_from_signals(
     *,
     scene_arc: str,
     fallback_narrative_signals: dict[str, object],
+    prior_json_path: Path | None = None,
 ) -> tuple[str, dict[str, object]]:
     """Offline combat/vfx accent token for combo-confidence coaching readability."""
     volatility_regime = str(fallback_narrative_signals.get("volatilityRegime", "CALM") or "CALM").upper()
@@ -7851,11 +7852,27 @@ def combo_confidence_fx_accent_from_signals(
         accent = "STEEL"
         reason = "swing-regime-tempers-ember-to-steel"
 
+    prior_accent = ""
+    if prior_json_path and prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_accent = str(prior_payload.get("comboConfidenceFxAccent", "") or "").upper()
+        except Exception:
+            prior_accent = ""
+
+    hysteresis_applied = False
+    if volatility_regime == "SWING" and prior_accent in {"STEEL", "EMBER"} and accent in {"STEEL", "EMBER"} and prior_accent != accent:
+        accent = prior_accent
+        reason = f"swing-hysteresis-holds-prior-{prior_accent.lower()}"
+        hysteresis_applied = True
+
     return accent, {
         "reason": reason,
         "sceneArc": scene_arc,
         "volatilityRegime": volatility_regime,
         "recommendation": recommendation,
+        "priorAccent": prior_accent or "NONE",
+        "hysteresisApplied": hysteresis_applied,
         "offlineOnly": True,
     }
 
@@ -8261,6 +8278,7 @@ def main() -> int:
     combo_confidence_fx_accent, combo_confidence_fx_accent_signals = combo_confidence_fx_accent_from_signals(
         scene_arc=combo_confidence_coach_scene_arc,
         fallback_narrative_signals=combo_confidence_coach_fallback_narrative_signals,
+        prior_json_path=args.out_json,
     )
     dmg_combo_conf_fx_accent_alias_flag_name = "DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_ALIAS"
     dmg_combo_conf_fx_accent_alias_flag_enabled = os.environ.get(dmg_combo_conf_fx_accent_alias_flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
@@ -9949,7 +9967,8 @@ def main() -> int:
         f"- DMG COMBO RETUNE CONF + DCRC FAMILY CHURN: **net {token_family_totals['dmgComboRetuneConfidenceAlias']['net']:+d}** (added={token_family_totals['dmgComboRetuneConfidenceAlias']['added']} removed={token_family_totals['dmgComboRetuneConfidenceAlias']['removed']} churn={token_family_totals['dmgComboRetuneConfidenceAlias']['churn']} coverage={token_family_totals['dmgComboRetuneConfidenceAlias']['coverage']})",
         f"- DMG COMBO CHAIN COACH FAMILY CHURN: **net {token_family_totals['dmgComboChainCoachAlias']['net']:+d}** (added={token_family_totals['dmgComboChainCoachAlias']['added']} removed={token_family_totals['dmgComboChainCoachAlias']['removed']} churn={token_family_totals['dmgComboChainCoachAlias']['churn']} coverage={token_family_totals['dmgComboChainCoachAlias']['coverage']})",
         f"- DMG COMBO CONF COACH REC + DCCR FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceCoachAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceCoachAlias']['added']} removed={token_family_totals['dmgComboConfidenceCoachAlias']['removed']} churn={token_family_totals['dmgComboConfidenceCoachAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachAlias']['coverage']})",
-        f"- DMG COMBO CONF FX ACCENT + DCCFX FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceFxAccentAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceFxAccentAlias']['added']} removed={token_family_totals['dmgComboConfidenceFxAccentAlias']['removed']} churn={token_family_totals['dmgComboConfidenceFxAccentAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxAccentAlias']['coverage']})",
+        f"- DCCSA FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['added']} removed={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['removed']} churn={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['coverage']})",
+        f"- DCCFX FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceFxAccentAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceFxAccentAlias']['added']} removed={token_family_totals['dmgComboConfidenceFxAccentAlias']['removed']} churn={token_family_totals['dmgComboConfidenceFxAccentAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxAccentAlias']['coverage']})",
         f"- DCCSR FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['added']} removed={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['removed']} churn={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['coverage']})",
         f"- DCCST FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['added']} removed={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['removed']} churn={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['coverage']})",
         f"- DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND: **{combo_confidence_coach_copy_swap_recommendation_family_trend_signals['trend']}** (Δnet={combo_confidence_coach_copy_swap_recommendation_family_trend_drift:+d} currentNet={combo_confidence_coach_copy_swap_recommendation_family_trend_signals['currentNet']:+d} priorNet={combo_confidence_coach_copy_swap_recommendation_family_trend_signals['priorNet']:+d} loaded={combo_confidence_coach_copy_swap_recommendation_family_trend_signals['priorLoaded']} reason={combo_confidence_coach_copy_swap_recommendation_family_trend_signals['reason']})",

@@ -2767,3 +2767,8 @@
 - Implementation: `TOKEN_FAMILIES` now maps `dmgComboConfidenceCoachCopySwapRecommendationAlias` -> `DMG COMBO CONF COACH COPY SWAP REC` + `DCCSR`, and new `dmgComboConfidenceCoachCopySwapTrendAlias` -> `DCCST`.
 - Digest contract: Added dedicated markdown rows `DCCSR FAMILY CHURN` and `DCCST FAMILY CHURN` in the status section; token-family coverage section now reports separate `DCCST` totals and keeps trend interpretation on `DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND`.
 - Follow-up: Keep Cycle EL queued (`DCCSA` vs `DCCFX` churn split) for scene-arc vs accent noise isolation.
+
+## 2026-03-26 16:40 KST — Cycle EL follow-up closure (Systems/QA) [DONE]
+- Added explicit split churn rails in weekly digest markdown: `DCCSA FAMILY CHURN` and `DCCFX FAMILY CHURN` to isolate scene-arc vs FX-accent volatility.
+- Updated regression contract to require both rows and adjacency ordering (`DCCSA -> DCCFX -> DCCSR -> DCCST`).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).

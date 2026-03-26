@@ -1809,3 +1809,7 @@
 ## 2026-03-26 16:12 KST — Cycle EL combat readability handoff
 - Added offline combo-confidence FX accent cue (`SMOKE|STEEL|EMBER`) to align coach tone with post-fight visual tuning language.
 - Scope remains digest-only (no combat timing/HUD behavior changes).
+
+## 2026-03-26 16:40 KST — Combo-confidence accent hysteresis pass [DONE]
+- Offline combat/VFX readability policy now applies SWING-window hysteresis to reduce `STEEL <-> EMBER` flicker across digest windows.
+- No runtime combat mechanics changed (digest-only policy).

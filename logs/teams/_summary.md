@@ -3097,3 +3097,15 @@ Compact decision memory for AI context efficiency.
 - Next experiment injected: DCCSA vs DCCFX split churn rows (Systems/QA) or accent hysteresis damping (AI Content/Combat).
 - 2026-03-26 16:06 KST: Closed Systems/QA Cycle EK item by splitting copy-swap churn reporting into `DCCSR FAMILY CHURN` (recommendation rail) and `DCCST FAMILY CHURN` (trend rail); regression updated with adjacency lock and digest rerun verified.
 - Next priority remains Cycle EL Systems/QA: split `DCCSA` vs `DCCFX` family churn rows for scene-arc vs fx-accent triage.
+
+## 2026-03-26 16:40 KST — Closed remaining Cycle EL follow-ups
+- Closed TASKS/ACTION priority leftovers tied to Cycle EL:
+  - Systems/QA: split family churn rows for `DCCSA` vs `DCCFX`.
+  - AI Content/Combat: offline accent hysteresis rule to damp `STEEL/EMBER` bounce in `SWING` volatility windows.
+- Implementation:
+  - `scripts/weekly_portal_prompt_readability_drift.py`
+    - `combo_confidence_fx_accent_from_signals(..., prior_json_path)` now reads prior digest accent and applies SWING-window hysteresis (`priorAccent`, `hysteresisApplied` signals).
+    - token-family markdown now emits dedicated `DCCSA FAMILY CHURN` and `DCCFX FAMILY CHURN` rows.
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`
+    - added hysteresis assertion and new family-churn ordering assertions.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

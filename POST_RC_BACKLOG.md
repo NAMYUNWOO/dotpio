@@ -981,5 +981,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, Design/World): Prototype scene-arc-to-palette narrative harmonizer that mutates fallback lines by lane cadence pressure.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Ship offline `DMG COMBO CONF FX ACCENT:SMOKE|STEEL|EMBER` token plus compact alias `DCCFX:<S|T|E>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_ALIAS` (digest-only, reversible) with regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 16:12 KST)*
-- [ ] Systems/QA Team: Add split family churn rows for `DCCSA` vs `DCCFX` to isolate scene-arc vs fx-accent noise.
-- [ ] AI Content/Combat Team: Prototype offline accent hysteresis rule to reduce STEEL/EMBER bounce during SWING volatility windows.
+- [x] Systems/QA Team: Add split family churn rows for `DCCSA` vs `DCCFX` to isolate scene-arc vs fx-accent noise.
+- [x] AI Content/Combat Team: Prototype offline accent hysteresis rule to reduce STEEL/EMBER bounce during SWING volatility windows.

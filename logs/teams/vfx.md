@@ -283,3 +283,7 @@
 - Added compact alias `DCCFX:<S|T|E>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_ALIAS`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; digest generation PASS with alias flag enabled.
 - Follow-up: split DCCSA/DCCFX churn rows to isolate mood-vs-accent volatility.
+
+## 2026-03-26 16:40 KST — FX accent stability follow-up [DONE]
+- Added hysteresis hold for `DMG COMBO CONF FX ACCENT` in SWING volatility windows to reduce frame-to-frame palette churn in analysis output.
+- Preserved SPIKE guardrail override (`SMOKE`) behavior.

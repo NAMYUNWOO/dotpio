@@ -2087,3 +2087,7 @@
 
 ## 2026-03-26 16:12 KST — Cycle EL UX scanability
 - Added `DCCFX` compact alias rail for one-glance coach-scene/accent reading in dense digest outputs.
+
+## 2026-03-26 16:40 KST — Digest scanline clarity pass [DONE]
+- Added dedicated `DCCSA FAMILY CHURN` and `DCCFX FAMILY CHURN` lines so operators can read arc/accent volatility separately before copy-swap rails.
+- Maintains compact one-glance ordering in token-family section.

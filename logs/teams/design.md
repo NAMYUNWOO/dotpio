@@ -1877,3 +1877,7 @@
 ## 2026-03-26 16:12 KST — Cycle EL design note
 - FX accent vocabulary constrained to deterministic compact bands (`SMOKE|STEEL|EMBER`) for digest readability parity.
 - No player-facing copy mutation in this slice.
+
+## 2026-03-26 16:40 KST — Readability contract split (DCCSA vs DCCFX) [DONE]
+- Digest now reports separate family churn rows for scene-arc and FX-accent rails, improving triage clarity when tone and accent diverge.
+- Ordering contract locked in regression for scan consistency.

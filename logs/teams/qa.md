@@ -3325,3 +3325,8 @@
 - Verification:
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+
+## 2026-03-26 16:40 KST — Regression lock expansion for DCCSA/DCCFX split [DONE]
+- Added assertions for `DCCSA FAMILY CHURN` and `DCCFX FAMILY CHURN` presence.
+- Added strict adjacency checks: `DCCSA FAMILY CHURN` -> `DCCFX FAMILY CHURN` -> `DCCSR FAMILY CHURN` -> `DCCST FAMILY CHURN`.
+- Added targeted hysteresis regression: prior accent `EMBER` + SWING regime retains `EMBER` and marks `hysteresisApplied=True`.
