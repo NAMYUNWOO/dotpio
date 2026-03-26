@@ -3039,3 +3039,10 @@ Compact decision memory for AI context efficiency.
 - Injected follow-ups into backlog: (1) Systems/QA churn coverage for `DMG COMBO CONF COACH REC`/`DCCR`; (2) AI Content fallback narrative line tied to recommendation streak drift.
 
 - 2026-03-26 10:08 KST — Cycle EH: lane-cap forced underrepresented pick after last-10 coverage (combat=6/10 > 40%). Shipped Design/World offline token `DMG COMBO CONF COACH SCENE ARC:ASH|IRON|EMBER` (payload + markdown + regression lock), kept runtime gameplay untouched.
+
+### 2026-03-26 10:03 KST — Cycle EG Systems/QA closure
+- Closed backlog item: weekly digest token-family churn coverage for `DMG COMBO CONF COACH REC` (+ `DCCR`).
+- Implementation detail: introduced `dmgComboConfidenceCoachAlias` family in digest alias map and surfaced both detailed churn row + compact rollup row.
+- Regression lock extended in `scripts/regression_weekly_portal_prompt_readability_drift.py` to assert both rows.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Next priority remains unchecked AI-content fallback narrative (Cycle EG) unless lane-forced Cycle EH item is intentionally promoted.

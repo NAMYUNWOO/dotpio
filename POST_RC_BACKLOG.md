@@ -935,7 +935,7 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/Combat): Prototype offline confidence-coach fallback narrative line tied to recommendation streak drift.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/UX Team: Add compact combo-confidence coach alias (`DCCR:<G|S|U>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_ALIAS` with digest markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 09:46 KST; completed: 2026-03-26 09:50 KST)*
-- [ ] Systems/QA Team: Add token-family churn coverage row for `DMG COMBO CONF COACH REC` (+ alias) in weekly digest with regression lock.
+- [x] Systems/QA Team: Add token-family churn coverage row for `DMG COMBO CONF COACH REC` (+ alias) in weekly digest with regression lock.
 - [ ] AI Content/Combat Team: Prototype offline confidence-coach fallback narrative line tied to recommendation streak drift and volatility regime.
 
 

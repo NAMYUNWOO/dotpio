@@ -2718,3 +2718,10 @@
 - Recomputed last-10 completion coverage before experiment pick: combat=6, systems=4, qa=4, ux=3, ai-content=3, world/design/vfx=0.
 - Lane-cap enforcement applied: combat exceeded 40%, so next slice forced into underrepresented design/world/vfx lanes.
 - 24h cadence check passed for combat/vfx, design/world, systems/ops buckets.
+
+## 2026-03-26 10:03 KST — Cycle EG follow-up (Systems)
+- Task: Added weekly digest token-family churn coverage row for `DMG COMBO CONF COACH REC` + `DCCR` alias.
+- Scope: `scripts/weekly_portal_prompt_readability_drift.py` token-family registry + markdown summaries.
+- Decision: Track coach recommendation + compact alias as one family (`dmgComboConfidenceCoachAlias`) to keep churn audits aligned with compact/debug parity.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Follow-up: Remaining unchecked items are Cycle EG AI-content fallback narrative + Cycle EH backlog trio.

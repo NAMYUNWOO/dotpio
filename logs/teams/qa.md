@@ -3264,3 +3264,10 @@
 - Verification commands:
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-26 10:03 KST — Cycle EG follow-up regression lock (QA)
+- Added regression assertions for:
+  - `DMG COMBO CONF COACH REC + DCCR FAMILY CHURN`
+  - compact rollup row `DCCR + DMG COMBO CONF COACH REC:`
+- Validation command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Result: PASS (no contract drift in weekly digest output).
