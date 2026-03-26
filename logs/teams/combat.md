@@ -1863,3 +1863,8 @@
 - Scope: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md.
 - Verification: python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py; python3 scripts/regression_weekly_portal_prompt_readability_drift.py ([PASS]).
 - Follow-up: Queue Systems/QA churn row for LPR HYS FLOOR REC + LPR HYS FLOOR, and AI Content adaptive threshold policy from streak momentum.
+
+## 2026-03-26 21:24 KST — Combat lane note
+- No direct combat tuning changes this cycle.
+- Maintained combat observability compatibility by keeping digest contract stable while adding floor-family trend row.
+- Follow-up: revisit combat/vfx lane cadence enforcement in next underrepresented-lane cycle.

@@ -1326,6 +1326,9 @@ def main() -> int:
         assert "routeGlowFxConfidenceWhyRailIntensityWhy" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyAlias" in payload["tokenFamilyTotals"], payload
+        assert "lanePriorityHysteresisFloorRecommendationAlias" in payload["tokenFamilyTotals"], payload
+        assert "lanePriorityHysteresisFloorFamilyTrendDrift" in payload, payload
+        assert "lanePriorityHysteresisFloorFamilyTrendSignals" in payload, payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias" in payload["tokenFamilyTotals"], payload
         assert "urgencyStackTierAlias" in payload["tokenFamilyTotals"], payload
@@ -2198,6 +2201,8 @@ def main() -> int:
         assert "DMG GLYPH FX LIVE FAMILY CHURN" in md_text
         assert "LPR HYS THR FAMILY CHURN" in md_text
         assert "LPR HYS WINDOW Δ FAMILY CHURN" in md_text
+        assert "LPR HYS FLOOR REC + LPR HYS FLOOR FAMILY CHURN" in md_text
+        assert "LPR HYS FLOOR FAMILY TREND" in md_text
         assert "LANE CADENCE SUMMARY" in md_text
         assert "LBA:" in md_text
         assert "LANE BUCKET AGE:" in md_text
@@ -2300,6 +2305,8 @@ def main() -> int:
         assert "LPR VOL REGIME:" in md_text
         assert "LPR HYS WINDOW:" in md_text
         assert "LPR HYS WINDOW Δ:" in md_text
+        assert "LPR HYS FLOOR REC + LPR HYS FLOOR:" in md_text
+        assert "LPR HYS FLOOR FAMILY TREND:" in md_text
         assert "LANE CADENCE SUMMARY: SYSTEMS/OPS" in md_text
         assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX COMPACT-BUDGET DRIFT" in md_text

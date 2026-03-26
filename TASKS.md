@@ -1272,5 +1272,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Systems): Prototype offline adaptive floor-raise threshold policy from `LCMR` streak momentum + lane volatility regime.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact hysteresis-floor recommendation alias token (`LPR HYS FLOOR:<H|R>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_FLOOR_REC_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 20:01 KST)*
-- [ ] Systems/QA Team: Add token-family churn coverage row for `LPR HYS FLOOR REC:` + `LPR HYS FLOOR:` with regression lock.
-- [ ] AI Content/Systems Team: Prototype offline adaptive `LPR HYS FLOOR REC` threshold policy from `LCMR` streak momentum + lane volatility regime (digest-only).
+- [x] Systems/QA Team: Add token-family churn coverage row for `LPR HYS FLOOR REC:` + `LPR HYS FLOOR:` with regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 21:12 KST)*
+- [x] AI Content/Systems Team: Prototype offline adaptive `LPR HYS FLOOR REC` threshold policy from `LCMR` streak momentum + lane volatility regime (digest-only). *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 21:16 KST)*

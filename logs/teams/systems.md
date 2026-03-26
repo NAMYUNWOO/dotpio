@@ -2824,3 +2824,9 @@
 - Scope: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md.
 - Verification: python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py; python3 scripts/regression_weekly_portal_prompt_readability_drift.py ([PASS]).
 - Follow-up: Queue Systems/QA churn row for LPR HYS FLOOR REC + LPR HYS FLOOR, and AI Content adaptive threshold policy from streak momentum.
+
+## 2026-03-26 21:24 KST — Cycle EQ floor-family trend slice
+- Decision: Added `lanePriorityHysteresisFloorRecommendationAlias` family trend drift computation against prior digest (`UP|FLAT|DOWN`).
+- Rationale: Churn totals alone masked directionality for floor recommendation movement.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, regression pass.
+- Follow-up: evaluate compact alias (`LPR HF T:<U|F|D>`) if digest width pressure increases.

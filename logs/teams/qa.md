@@ -3382,3 +3382,9 @@
 - Scope: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md.
 - Verification: python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py; python3 scripts/regression_weekly_portal_prompt_readability_drift.py ([PASS]).
 - Follow-up: Queue Systems/QA churn row for LPR HYS FLOOR REC + LPR HYS FLOOR, and AI Content adaptive threshold policy from streak momentum.
+
+## 2026-03-26 21:24 KST — Regression lock for floor-family trend
+- Verified payload now exports `lanePriorityHysteresisFloorFamilyTrendDrift` and `lanePriorityHysteresisFloorFamilyTrendSignals`.
+- Added markdown assertions for detailed/compact `LPR HYS FLOOR FAMILY TREND` rows.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` [PASS].
+- Follow-up: add targeted unit scenario with non-zero floor-family net deltas.

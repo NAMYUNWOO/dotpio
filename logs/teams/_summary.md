@@ -3141,3 +3141,21 @@ Compact decision memory for AI context efficiency.
 - Game Director Cycle EP executed (3 ideas generated, Idea 1 selected): shipped compact alias `LPR HYS FLOOR:<H|R>` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_FLOOR_REC_ALIAS` for digest-width scanability.
 - Updated payload + markdown contracts and regression assertions; verification gates pass (`py_compile`, `scripts/regression_weekly_portal_prompt_readability_drift.py`).
 - Injected follow-ups into TASKS/POST_RC: Systems/QA churn row for floor-rec family and AI Content adaptive threshold policy.
+
+## 2026-03-26 21:24 KST — Cycle EP closure + Cycle EQ vertical slice
+- Closed remaining Cycle EP items:
+  - Systems/QA: added token-family churn coverage row for `LPR HYS FLOOR REC:` + `LPR HYS FLOOR:`.
+  - AI Content/Systems: adaptive `LPR HYS FLOOR REC` threshold now driven by prior volatility regime (`CALM=1`, `SWING=2`, `SPIKE=3`) with momentum fast-path.
+- Triggered Game Director Cycle EQ once ACTION_ITEMS/TASKS/POST_RC were fully checked.
+- Ideas generated:
+  1) Low-risk Systems/QA: `LPR HYS FLOOR FAMILY TREND` row + payload drift signals.
+  2) Mid-risk UX/Design: compact floor-family trend alias (`LPR HF T:<U|F|D>`).
+  3) High-risk AI Content/Systems: confidence guard when floor-trend diverges from volatility regime.
+- Selected/implemented: Idea 1 minimal vertical slice.
+- Shipped:
+  - New function `lane_priority_hysteresis_floor_family_trend_from_prior` with prior-window drift signals.
+  - Payload keys: `lanePriorityHysteresisFloorFamilyTrendDrift`, `lanePriorityHysteresisFloorFamilyTrendSignals`.
+  - Markdown rows (detailed + compact): `LPR HYS FLOOR FAMILY TREND`.
+  - Regression locks updated for payload key presence + markdown row presence.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Backlog injection: added two new unchecked follow-ups (compact alias + divergence confidence guard) under Cycle EQ.

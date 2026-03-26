@@ -1913,3 +1913,8 @@
 - Scope: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md.
 - Verification: python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py; python3 scripts/regression_weekly_portal_prompt_readability_drift.py ([PASS]).
 - Follow-up: Queue Systems/QA churn row for LPR HYS FLOOR REC + LPR HYS FLOOR, and AI Content adaptive threshold policy from streak momentum.
+
+## 2026-03-26 21:24 KST — Adaptive floor-threshold policy shipped
+- Decision: `LPR HYS FLOOR REC` threshold now adapts by prior volatility regime (`CALM=1`, `SWING=2`, `SPIKE=3`) with momentum fast-path.
+- Rationale: avoid over-triggering in spike regimes while remaining responsive during calm windows.
+- Follow-up: collect two-window divergence data before adding confidence guard experiment.

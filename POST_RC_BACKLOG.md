@@ -1016,5 +1016,15 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/Systems): Prototype offline adaptive floor-raise threshold policy from `LCMR` streak momentum + lane volatility regime.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact hysteresis-floor recommendation alias token (`LPR HYS FLOOR:<H|R>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_FLOOR_REC_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 20:01 KST)*
-- [ ] Systems/QA Team: Add token-family churn coverage row for `LPR HYS FLOOR REC:` + `LPR HYS FLOOR:` with regression lock.
-- [ ] AI Content/Systems Team: Prototype offline adaptive `LPR HYS FLOOR REC` threshold policy from `LCMR` streak momentum + lane volatility regime (digest-only).
+- [x] Systems/QA Team: Add token-family churn coverage row for `LPR HYS FLOOR REC:` + `LPR HYS FLOOR:` with regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 21:12 KST)*
+- [x] AI Content/Systems Team: Prototype offline adaptive `LPR HYS FLOOR REC` threshold policy from `LCMR` streak momentum + lane volatility regime (digest-only). *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 21:16 KST)*
+
+## Cycle EQ - Game Director Review (2026-03-26 21:24 KST)
+- Coverage check (last 10 completions): systems/qa lane remained >40%; forced a player-facing digest readability slice with QA visibility to avoid lane overfitting.
+- Idea 1 (low risk, Systems/QA): Add `LPR HYS FLOOR FAMILY TREND` (`UP|FLAT|DOWN`) row + payload drift signals so floor-family movement is auditable beyond churn totals.
+- Idea 2 (mid risk, UX/Design): Add compact floor-family trend alias token (`LPR HF T:<U|F|D>`) behind flag for dense operator scans.
+- Idea 3 (high risk, AI Content/Systems): Prototype adaptive lane-priority recommendation confidence guard when floor-trend and lane-volatility regime diverge for 2+ windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add `LPR HYS FLOOR FAMILY TREND` markdown row + JSON drift signals (`currentNet`, `priorNet`, `Δnet`, `reason`) with regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 21:20 KST; completed: 2026-03-26 21:24 KST)*
+- [ ] UX/Design Team: Prototype compact floor-family trend alias token (`LPR HF T:<U|F|D>`) behind experiment flag + digest wiring.
+- [ ] AI Content/Systems Team: Prototype offline confidence guard policy for lane-priority recommendation when floor-trend/regime diverges across consecutive windows.

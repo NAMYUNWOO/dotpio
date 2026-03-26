@@ -2141,3 +2141,8 @@
 - Scope: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md.
 - Verification: python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py; python3 scripts/regression_weekly_portal_prompt_readability_drift.py ([PASS]).
 - Follow-up: Queue Systems/QA churn row for LPR HYS FLOOR REC + LPR HYS FLOOR, and AI Content adaptive threshold policy from streak momentum.
+
+## 2026-03-26 21:24 KST — Operator scan ergonomics update
+- Added explicit floor-family trend line in both detailed and compact markdown blocks.
+- UX impact hypothesis: reduces cognitive load when auditing floor recommendation movement across windows.
+- Follow-up: if row volume grows, prototype alias with hover/legend pairing.

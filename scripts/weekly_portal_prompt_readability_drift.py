@@ -116,6 +116,7 @@ TOKEN_ALIAS_FAMILIES = {
     "dmgGlyphFxLiveAlias": ["DMG GLYPH FX LIVE:"],
     "lanePriorityHysteresisThresholdAlias": ["LPR HYS THR:"],
     "lanePriorityHysteresisWindowDeltaAlias": ["LPR HYS WINDOW Δ:"],
+    "lanePriorityHysteresisFloorRecommendationAlias": ["LPR HYS FLOOR REC:", "LPR HYS FLOOR:"],
 }
 
 ROUTE_VIBE_PATTERNS = {
@@ -476,16 +477,30 @@ def lane_priority_hysteresis_floor_recommendation_from_lcmr_streak(
         except (json.JSONDecodeError, OSError, TypeError, ValueError):
             prior_loaded = False
 
+    prior_volatility_regime = "UNKNOWN"
+    if prior_loaded:
+        prior_regime_token = str(prior_payload.get("lanePriorityVolatilityRegimeMemory", "") or "")
+        if ":" in prior_regime_token:
+            prior_volatility_regime = prior_regime_token.split(":", 1)[1].strip().upper()
+
     high_streak = prior_high_streak + 1 if current_risk == "HIGH" else 0
     strong_momentum = current_risk == "HIGH" and current_delta > 0
 
-    threshold = 2
+    threshold_by_regime = {
+        "CALM": 1,
+        "SWING": 2,
+        "SPIKE": 3,
+    }
+    threshold = threshold_by_regime.get(prior_volatility_regime, 2)
+    if strong_momentum and threshold > 1:
+        threshold -= 1
+
     if high_streak >= threshold or strong_momentum:
         recommendation = "RAISE"
-        reason = "sustained-or-escalating-high-lcmr-risk"
+        reason = "lcmr-streak-cleared-adaptive-threshold"
     else:
         recommendation = "HOLD"
-        reason = "lcmr-risk-not-sustained"
+        reason = "lcmr-streak-below-adaptive-threshold"
 
     return f"LPR HYS FLOOR REC:{recommendation}", {
         "offlineOnly": True,
@@ -496,6 +511,8 @@ def lane_priority_hysteresis_floor_recommendation_from_lcmr_streak(
         "priorHighStreak": prior_high_streak,
         "highStreak": high_streak,
         "streakThreshold": threshold,
+        "streakThresholdByRegime": threshold_by_regime,
+        "priorVolatilityRegime": prior_volatility_regime,
         "strongMomentum": strong_momentum,
         "recommendation": recommendation,
         "reason": reason,
@@ -7778,6 +7795,46 @@ def pulse_remap_scene_fx_glint_family_trend_from_prior(
     }
 
 
+def lane_priority_hysteresis_floor_family_trend_from_prior(
+    *,
+    current_family_totals: dict[str, int],
+    prior_json_path: Path,
+) -> tuple[int, dict[str, object]]:
+    """Track LPR HYS FLOOR REC/HYS FLOOR family net drift against prior digest window."""
+    current_net = int(current_family_totals.get("net", 0) or 0)
+    prior_net = 0
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_families = prior_payload.get("tokenFamilyTotals", {})
+            prior_family = prior_families.get("lanePriorityHysteresisFloorRecommendationAlias", {}) if isinstance(prior_families, dict) else {}
+            prior_net = int(prior_family.get("net", 0) or 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    drift = current_net - prior_net
+    if drift > 0:
+        trend = "UP"
+        reason = "lane-hys-floor-family-net-increased-vs-prior-window"
+    elif drift < 0:
+        trend = "DOWN"
+        reason = "lane-hys-floor-family-net-decreased-vs-prior-window"
+    else:
+        trend = "FLAT"
+        reason = "lane-hys-floor-family-net-unchanged-vs-prior-window"
+
+    return drift, {
+        "trend": trend,
+        "currentNet": current_net,
+        "priorNet": prior_net,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def pulse_remap_scene_copy_palette_recommendation_family_trend_from_prior(
     *,
     current_family_totals: dict[str, int],
@@ -8602,6 +8659,10 @@ def main() -> int:
     )
     pulse_remap_scene_copy_palette_recommendation_family_trend_drift, pulse_remap_scene_copy_palette_recommendation_family_trend_signals = pulse_remap_scene_copy_palette_recommendation_family_trend_from_prior(
         current_family_totals=token_family_totals["pulseRemapSceneCopyPaletteRecommendationAlias"],
+        prior_json_path=args.out_json,
+    )
+    lane_priority_hysteresis_floor_family_trend_drift, lane_priority_hysteresis_floor_family_trend_signals = lane_priority_hysteresis_floor_family_trend_from_prior(
+        current_family_totals=token_family_totals["lanePriorityHysteresisFloorRecommendationAlias"],
         prior_json_path=args.out_json,
     )
     pulse_remap_suppression_escalation_plan, pulse_remap_suppression_escalation_plan_signals = pulse_remap_suppression_escalation_plan_from_signals(
@@ -9633,6 +9694,8 @@ def main() -> int:
         "lanePriorityHysteresisFloorRecommendationSignals": lane_priority_hysteresis_floor_recommendation_signals,
         "lanePriorityHysteresisFloorRecommendationAlias": lane_priority_hysteresis_floor_recommendation_alias,
         "lanePriorityHysteresisFloorRecommendationAliasSignals": lane_priority_hysteresis_floor_recommendation_alias_signals,
+        "lanePriorityHysteresisFloorFamilyTrendDrift": lane_priority_hysteresis_floor_family_trend_drift,
+        "lanePriorityHysteresisFloorFamilyTrendSignals": lane_priority_hysteresis_floor_family_trend_signals,
         "laneCadenceMissRiskHighStreak": lane_priority_hysteresis_floor_recommendation_signals["highStreak"],
         "laneBucketAgeCompactAlias": lane_bucket_age_compact_alias,
         "laneBucketAgeCompactAliasSignals": lane_bucket_age_compact_alias_signals,
@@ -10267,6 +10330,8 @@ def main() -> int:
         f"- DMG GLYPH FX LIVE FAMILY CHURN: **net {token_family_totals['dmgGlyphFxLiveAlias']['net']:+d}** (added={token_family_totals['dmgGlyphFxLiveAlias']['added']} removed={token_family_totals['dmgGlyphFxLiveAlias']['removed']} churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']})",
         f"- LPR HYS THR FAMILY CHURN: **net {token_family_totals['lanePriorityHysteresisThresholdAlias']['net']:+d}** (added={token_family_totals['lanePriorityHysteresisThresholdAlias']['added']} removed={token_family_totals['lanePriorityHysteresisThresholdAlias']['removed']} churn={token_family_totals['lanePriorityHysteresisThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisThresholdAlias']['coverage']})",
         f"- LPR HYS WINDOW Δ FAMILY CHURN: **net {token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['net']:+d}** (added={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['added']} removed={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['removed']} churn={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['coverage']})",
+        f"- LPR HYS FLOOR REC + LPR HYS FLOOR FAMILY CHURN: **net {token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['net']:+d}** (added={token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['added']} removed={token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['removed']} churn={token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['coverage']})",
+        f"- LPR HYS FLOOR FAMILY TREND: **{lane_priority_hysteresis_floor_family_trend_signals['trend']}** (Δnet={lane_priority_hysteresis_floor_family_trend_drift:+d} currentNet={lane_priority_hysteresis_floor_family_trend_signals['currentNet']:+d} priorNet={lane_priority_hysteresis_floor_family_trend_signals['priorNet']:+d} loaded={lane_priority_hysteresis_floor_family_trend_signals['priorLoaded']} reason={lane_priority_hysteresis_floor_family_trend_signals['reason']})",
         f"- LANE CADENCE SUMMARY: **SYSTEMS/OPS {'OK' if (token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphFxLiveAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgComboAlias']['aliasesTouchedCount'] > 0) else 'GAP'}** (RGFXWRIUFX coverage={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['coverage']} churn={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['churn']} | DMG GLYPH coverage={token_family_totals['dmgGlyphAlias']['coverage']} churn={token_family_totals['dmgGlyphAlias']['churn']} | DMG GLYPH FX LIVE coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']} churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} | DMG COMBO coverage={token_family_totals['dmgComboAlias']['coverage']} churn={token_family_totals['dmgComboAlias']['churn']})",
         f"- LBA: **{lane_bucket_age_compact_alias}** (flag={lane_bucket_age_compact_alias_signals['flagName']} enabled={lane_bucket_age_compact_alias_signals['flagEnabled']} sys={lane_bucket_age_compact_alias_signals['systemsOpsHours']}h dw={lane_bucket_age_compact_alias_signals['designWorldHours']}h cv={lane_bucket_age_compact_alias_signals['combatVfxHours']}h)",
         f"- LANE BUCKET AGE: **{lane_bucket_age['token'].split(':', 1)[1]}** (status={lane_bucket_age['status']} window={lane_bucket_age['windowHours']}h)",
@@ -10410,6 +10475,8 @@ def main() -> int:
         f"- DMG GLYPH FX LIVE: +{token_family_totals['dmgGlyphFxLiveAlias']['added']} / -{token_family_totals['dmgGlyphFxLiveAlias']['removed']} / net {token_family_totals['dmgGlyphFxLiveAlias']['net']} (churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']})",
         f"- LPR HYS THR: +{token_family_totals['lanePriorityHysteresisThresholdAlias']['added']} / -{token_family_totals['lanePriorityHysteresisThresholdAlias']['removed']} / net {token_family_totals['lanePriorityHysteresisThresholdAlias']['net']} (churn={token_family_totals['lanePriorityHysteresisThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisThresholdAlias']['coverage']})",
         f"- LPR HYS WINDOW Δ: +{token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['added']} / -{token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['removed']} / net {token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['net']} (churn={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['coverage']})",
+        f"- LPR HYS FLOOR REC + LPR HYS FLOOR: +{token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['added']} / -{token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['removed']} / net {token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['net']} (churn={token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['coverage']})",
+        f"- LPR HYS FLOOR FAMILY TREND: {lane_priority_hysteresis_floor_family_trend_signals['trend']} (Δnet={lane_priority_hysteresis_floor_family_trend_drift:+d} currentNet={lane_priority_hysteresis_floor_family_trend_signals['currentNet']:+d} priorNet={lane_priority_hysteresis_floor_family_trend_signals['priorNet']:+d} loaded={lane_priority_hysteresis_floor_family_trend_signals['priorLoaded']})",
         f"- LANE CADENCE SUMMARY: SYSTEMS/OPS {'OK' if (token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphFxLiveAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgComboAlias']['aliasesTouchedCount'] > 0) else 'GAP'} (RGFXWRIUFX coverage={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['coverage']}, churn={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['churn']} | DMG GLYPH coverage={token_family_totals['dmgGlyphAlias']['coverage']}, churn={token_family_totals['dmgGlyphAlias']['churn']} | DMG GLYPH FX LIVE coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']}, churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} | DMG COMBO coverage={token_family_totals['dmgComboAlias']['coverage']}, churn={token_family_totals['dmgComboAlias']['churn']})",
         f"- LBA: {lane_bucket_age_compact_alias} (flag={lane_bucket_age_compact_alias_signals['flagName']}, enabled={lane_bucket_age_compact_alias_signals['flagEnabled']}, sys={lane_bucket_age_compact_alias_signals['systemsOpsHours']}h, dw={lane_bucket_age_compact_alias_signals['designWorldHours']}h, cv={lane_bucket_age_compact_alias_signals['combatVfxHours']}h)",
         f"- LANE BUCKET AGE: {lane_bucket_age['token'].split(':', 1)[1]} (status={lane_bucket_age['status']}, window={lane_bucket_age['windowHours']}h)",
