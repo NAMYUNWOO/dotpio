@@ -3376,3 +3376,9 @@
 - Decisions: added deterministic prefix-index assertions for both duplicated sections (exactly two `LANE CADENCE MISS RISK` rows, exactly two `LCMR` rows, each alias row must immediately follow risk row).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: next priority remains AI Content/Systems `LCMR` streak-aware lane-priority hysteresis-floor recommendation slice.
+
+## 2026-03-26 20:01 KST — LCMR streak floor recommendation + compact alias [DONE]
+- Task: Closed pending AI Content/Systems backlog item by shipping offline LPR HYS FLOOR REC:HOLD|RAISE from LCMR streak memory, then completed Game Director Cycle EP selected slice with compact alias LPR HYS FLOOR:<H|R>.
+- Scope: scripts/weekly_portal_prompt_readability_drift.py, scripts/regression_weekly_portal_prompt_readability_drift.py, TASKS.md, POST_RC_BACKLOG.md.
+- Verification: python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py; python3 scripts/regression_weekly_portal_prompt_readability_drift.py ([PASS]).
+- Follow-up: Queue Systems/QA churn row for LPR HYS FLOOR REC + LPR HYS FLOOR, and AI Content adaptive threshold policy from streak momentum.

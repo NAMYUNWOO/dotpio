@@ -2214,6 +2214,8 @@ def main() -> int:
         assert "LPR HYS THR:" in md_text
         assert "LPR HYS WINDOW:" in md_text
         assert "LPR HYS WINDOW Δ:" in md_text
+        assert "LPR HYS FLOOR REC:" in md_text
+        assert "LPR HYS FLOOR:" in md_text
         assert "LANE PRIORITY REC CONF:" in md_text
         assert "LANE PRIORITY REC HYSTERESIS:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text

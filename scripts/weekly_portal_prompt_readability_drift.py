@@ -452,6 +452,76 @@ def lane_cadence_miss_risk_alias(*, lane_cadence_miss_risk_signals: dict[str, ob
     }
 
 
+def lane_priority_hysteresis_floor_recommendation_from_lcmr_streak(
+    *,
+    lane_cadence_miss_risk_signals: dict[str, object],
+    prior_json_path: Path,
+) -> tuple[str, dict[str, object]]:
+    """Offline-only recommendation to hold/raise hysteresis floor from LCMR streak memory."""
+    current_risk = str(lane_cadence_miss_risk_signals.get("risk", "MID") or "MID").upper()
+    current_delta = int(lane_cadence_miss_risk_signals.get("deltaHours", 0) or 0)
+
+    prior_loaded = False
+    prior_risk = "UNKNOWN"
+    prior_high_streak = 0
+
+    if prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_risk_token = str(prior_payload.get("laneCadenceMissRisk", "") or "")
+            if ":" in prior_risk_token:
+                prior_risk = prior_risk_token.split(":", 1)[1].strip().upper()
+            prior_high_streak = int(prior_payload.get("laneCadenceMissRiskHighStreak", 0) or 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, OSError, TypeError, ValueError):
+            prior_loaded = False
+
+    high_streak = prior_high_streak + 1 if current_risk == "HIGH" else 0
+    strong_momentum = current_risk == "HIGH" and current_delta > 0
+
+    threshold = 2
+    if high_streak >= threshold or strong_momentum:
+        recommendation = "RAISE"
+        reason = "sustained-or-escalating-high-lcmr-risk"
+    else:
+        recommendation = "HOLD"
+        reason = "lcmr-risk-not-sustained"
+
+    return f"LPR HYS FLOOR REC:{recommendation}", {
+        "offlineOnly": True,
+        "currentRisk": current_risk,
+        "priorRisk": prior_risk,
+        "currentDeltaHours": current_delta,
+        "priorLoaded": prior_loaded,
+        "priorHighStreak": prior_high_streak,
+        "highStreak": high_streak,
+        "streakThreshold": threshold,
+        "strongMomentum": strong_momentum,
+        "recommendation": recommendation,
+        "reason": reason,
+    }
+
+
+def resolve_lane_priority_hysteresis_floor_recommendation_alias(*, recommendation_token: str) -> tuple[str, dict[str, object]]:
+    flag_name = "DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_FLOOR_REC_ALIAS"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    rec_upper = str(recommendation_token or "LPR HYS FLOOR REC:HOLD").upper()
+    if rec_upper.endswith(":RAISE"):
+        alias = "R"
+    else:
+        alias = "H"
+
+    token = f"LPR HYS FLOOR:{alias}"
+    return (token if flag_enabled else "OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "recommendation": rec_upper,
+        "alias": alias,
+    }
+
+
 def resolve_lane_priority_recommendation_compact_alias(recommendation: str) -> tuple[str, dict[str, object]]:
     flag_name = "DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_ALIAS"
     flag_value = os.environ.get(flag_name, "")
@@ -8168,6 +8238,13 @@ def main() -> int:
     lane_cadence_miss_risk_alias_token, lane_cadence_miss_risk_alias_signals = lane_cadence_miss_risk_alias(
         lane_cadence_miss_risk_signals=lane_cadence_miss_risk_signals,
     )
+    lane_priority_hysteresis_floor_recommendation, lane_priority_hysteresis_floor_recommendation_signals = lane_priority_hysteresis_floor_recommendation_from_lcmr_streak(
+        lane_cadence_miss_risk_signals=lane_cadence_miss_risk_signals,
+        prior_json_path=args.out_json,
+    )
+    lane_priority_hysteresis_floor_recommendation_alias, lane_priority_hysteresis_floor_recommendation_alias_signals = resolve_lane_priority_hysteresis_floor_recommendation_alias(
+        recommendation_token=lane_priority_hysteresis_floor_recommendation,
+    )
     lane_priority_recommendation, lane_priority_recommendation_signals = lane_priority_recommendation_from_bucket_age_momentum(
         age_hours={
             "systems/ops": int(lane_bucket_age["ageHours"].get("systems/ops", 999) or 999),
@@ -9552,6 +9629,11 @@ def main() -> int:
         "laneCadenceMissRiskSignals": lane_cadence_miss_risk_signals,
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,
         "laneCadenceMissRiskAliasSignals": lane_cadence_miss_risk_alias_signals,
+        "lanePriorityHysteresisFloorRecommendation": lane_priority_hysteresis_floor_recommendation,
+        "lanePriorityHysteresisFloorRecommendationSignals": lane_priority_hysteresis_floor_recommendation_signals,
+        "lanePriorityHysteresisFloorRecommendationAlias": lane_priority_hysteresis_floor_recommendation_alias,
+        "lanePriorityHysteresisFloorRecommendationAliasSignals": lane_priority_hysteresis_floor_recommendation_alias_signals,
+        "laneCadenceMissRiskHighStreak": lane_priority_hysteresis_floor_recommendation_signals["highStreak"],
         "laneBucketAgeCompactAlias": lane_bucket_age_compact_alias,
         "laneBucketAgeCompactAliasSignals": lane_bucket_age_compact_alias_signals,
         "lanePriorityRecommendation": lane_priority_recommendation,
@@ -10203,6 +10285,8 @@ def main() -> int:
         f"- LPR HYS THR: **{lane_priority_hysteresis_threshold_compact_alias}** (flag={lane_priority_hysteresis_threshold_compact_alias_signals['flagName']} enabled={lane_priority_hysteresis_threshold_compact_alias_signals['flagEnabled']} alias={lane_priority_hysteresis_threshold_compact_alias_signals['alias']} rec={lane_priority_hysteresis_threshold_compact_alias_signals['recommendation']})",
         f"- LPR HYS WINDOW: **{lane_priority_hysteresis_window_band}** (floor={lane_priority_hysteresis_window_band_signals['adaptiveFloor']} ceil={lane_priority_hysteresis_window_band_signals['adaptiveCeiling']} span={lane_priority_hysteresis_window_band_signals['span']} reason={lane_priority_hysteresis_window_band_signals['reason']})",
         f"- LPR HYS WINDOW Δ: **{lane_priority_hysteresis_window_delta:+d}** (current={lane_priority_hysteresis_window_delta_signals['currentBand']} prior={lane_priority_hysteresis_window_delta_signals['priorBand']} loaded={lane_priority_hysteresis_window_delta_signals['priorLoaded']})",
+        f"- LPR HYS FLOOR REC: **{lane_priority_hysteresis_floor_recommendation}** (streak={lane_priority_hysteresis_floor_recommendation_signals['highStreak']} threshold={lane_priority_hysteresis_floor_recommendation_signals['streakThreshold']} currentRisk={lane_priority_hysteresis_floor_recommendation_signals['currentRisk']} priorRisk={lane_priority_hysteresis_floor_recommendation_signals['priorRisk']} Δ={lane_priority_hysteresis_floor_recommendation_signals['currentDeltaHours']:+d} strongMomentum={lane_priority_hysteresis_floor_recommendation_signals['strongMomentum']} reason={lane_priority_hysteresis_floor_recommendation_signals['reason']})",
+        f"- LPR HYS FLOOR: **{lane_priority_hysteresis_floor_recommendation_alias}** (flag={lane_priority_hysteresis_floor_recommendation_alias_signals['flagName']} enabled={lane_priority_hysteresis_floor_recommendation_alias_signals['flagEnabled']} alias={lane_priority_hysteresis_floor_recommendation_alias_signals['alias']} rec={lane_priority_hysteresis_floor_recommendation_alias_signals['recommendation']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: **{pulse_heat_fx_compact_budget_drift_level}** ({pulse_heat_fx_compact_budget_drift_signals['reason']}; compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d} churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **{route_glow_fx_compact_budget_drift_level}** ({route_glow_fx_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **{route_glow_fx_conf_why_rail_mode_compact_budget_drift_level}** ({route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['reason']}; compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d} familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d} churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",
@@ -10344,6 +10428,8 @@ def main() -> int:
         f"- LPR HYS THR: {lane_priority_hysteresis_threshold_compact_alias} (flag={lane_priority_hysteresis_threshold_compact_alias_signals['flagName']}, enabled={lane_priority_hysteresis_threshold_compact_alias_signals['flagEnabled']}, alias={lane_priority_hysteresis_threshold_compact_alias_signals['alias']}, rec={lane_priority_hysteresis_threshold_compact_alias_signals['recommendation']})",
         f"- LPR HYS WINDOW: {lane_priority_hysteresis_window_band} (floor={lane_priority_hysteresis_window_band_signals['adaptiveFloor']}, ceil={lane_priority_hysteresis_window_band_signals['adaptiveCeiling']}, span={lane_priority_hysteresis_window_band_signals['span']}, reason={lane_priority_hysteresis_window_band_signals['reason']})",
         f"- LPR HYS WINDOW Δ: {lane_priority_hysteresis_window_delta:+d} (current={lane_priority_hysteresis_window_delta_signals['currentBand']}, prior={lane_priority_hysteresis_window_delta_signals['priorBand']}, loaded={lane_priority_hysteresis_window_delta_signals['priorLoaded']})",
+        f"- LPR HYS FLOOR REC: {lane_priority_hysteresis_floor_recommendation} (streak={lane_priority_hysteresis_floor_recommendation_signals['highStreak']}, threshold={lane_priority_hysteresis_floor_recommendation_signals['streakThreshold']}, currentRisk={lane_priority_hysteresis_floor_recommendation_signals['currentRisk']}, priorRisk={lane_priority_hysteresis_floor_recommendation_signals['priorRisk']}, Δ={lane_priority_hysteresis_floor_recommendation_signals['currentDeltaHours']:+d}, strongMomentum={lane_priority_hysteresis_floor_recommendation_signals['strongMomentum']}, reason={lane_priority_hysteresis_floor_recommendation_signals['reason']})",
+        f"- LPR HYS FLOOR: {lane_priority_hysteresis_floor_recommendation_alias} (flag={lane_priority_hysteresis_floor_recommendation_alias_signals['flagName']}, enabled={lane_priority_hysteresis_floor_recommendation_alias_signals['flagEnabled']}, alias={lane_priority_hysteresis_floor_recommendation_alias_signals['alias']}, rec={lane_priority_hysteresis_floor_recommendation_alias_signals['recommendation']})",
         f"- PULSE HEAT FX COMPACT-BUDGET DRIFT: {pulse_heat_fx_compact_budget_drift_level} (compactNet={pulse_heat_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={pulse_heat_fx_compact_budget_drift_signals['familyNet']:+d}, churn={pulse_heat_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX COMPACT-BUDGET DRIFT: {route_glow_fx_compact_budget_drift_level} (compactNet={route_glow_fx_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_compact_budget_drift_signals['familyChurn']})",
         f"- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: {route_glow_fx_conf_why_rail_mode_compact_budget_drift_level} (compactNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['compactNet']:+d}, familyNet={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyNet']:+d}, churn={route_glow_fx_conf_why_rail_mode_compact_budget_drift_signals['familyChurn']})",

@@ -3135,3 +3135,9 @@ Compact decision memory for AI context efficiency.
 - 2026-03-26 19:34 KST: Added hard order contract for lane cadence miss-risk rows in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
   - New lock: summary + token-coverage sections each require `- LANE CADENCE MISS RISK:` immediately followed by `- LCMR:`.
   - Guard also enforces duplicate-section count integrity (2 risk rows + 2 alias rows), preventing silent row drift/reorder regressions.
+
+## 2026-03-26 20:01 KST — LCMR streak floor recommendation + Cycle EP alias slice
+- Closed highest-priority unchecked item by shipping offline digest token `LPR HYS FLOOR REC:HOLD|RAISE` derived from `LCMR` streak memory (`laneCadenceMissRiskHighStreak`) with deterministic `RAISE` trigger on sustained/escalating HIGH risk.
+- Game Director Cycle EP executed (3 ideas generated, Idea 1 selected): shipped compact alias `LPR HYS FLOOR:<H|R>` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_FLOOR_REC_ALIAS` for digest-width scanability.
+- Updated payload + markdown contracts and regression assertions; verification gates pass (`py_compile`, `scripts/regression_weekly_portal_prompt_readability_drift.py`).
+- Injected follow-ups into TASKS/POST_RC: Systems/QA churn row for floor-rec family and AI Content adaptive threshold policy.

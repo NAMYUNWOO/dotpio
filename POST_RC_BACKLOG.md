@@ -1007,4 +1007,14 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/Ops Team: Add compact lane cadence miss-risk alias (`LCMR:<L|M|H>`) behind `DOTPIO_EXPERIMENT_LANE_CADENCE_MISS_RISK_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 19:10 KST)*
 - [x] QA/Design Team: Add summary/token-coverage ordering contract for `LANE CADENCE MISS RISK` followed by `LCMR`. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 19:32 KST; completed: 2026-03-26 19:34 KST)*
-- [ ] AI Content/Systems Team: Prototype offline recommendation `LPR HYS FLOOR REC:HOLD|RAISE` from `LCMR` streak memory (digest-only, reversible).
+- [x] AI Content/Systems Team: Prototype offline recommendation `LPR HYS FLOOR REC:HOLD|RAISE` from `LCMR` streak memory (digest-only, reversible).
+
+## Cycle EP - Game Director Review (2026-03-26 20:01 KST)
+- Coverage check (last 10 completions): systems/qa + ai-content observability remained dominant; selected a compact UX-facing digest readability slice to keep lane handoff scanable.
+- Idea 1 (low risk, UX/Systems): Add compact alias token for hysteresis-floor recommendation (`LPR HYS FLOOR:<H|R>`) behind flag for digest density control.
+- Idea 2 (mid risk, Systems/QA): Add token-family churn coverage row for `LPR HYS FLOOR REC:` + alias with regression lock.
+- Idea 3 (high risk, AI Content/Systems): Prototype offline adaptive floor-raise threshold policy from `LCMR` streak momentum + lane volatility regime.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Systems Team: Add compact hysteresis-floor recommendation alias token (`LPR HYS FLOOR:<H|R>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_FLOOR_REC_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 20:01 KST)*
+- [ ] Systems/QA Team: Add token-family churn coverage row for `LPR HYS FLOOR REC:` + `LPR HYS FLOOR:` with regression lock.
+- [ ] AI Content/Systems Team: Prototype offline adaptive `LPR HYS FLOOR REC` threshold policy from `LCMR` streak momentum + lane volatility regime (digest-only).
