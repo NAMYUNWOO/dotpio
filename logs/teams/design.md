@@ -2055,3 +2055,12 @@
 - Shipped: `DCCFXCW SCENE PULSE LEGEND` row in summary + token-coverage markdown and regression adjacency lock (`SCENE PULSE -> LEGEND`).
 - Verification: py_compile + weekly drift regression + digest generation all passed.
 - Backlog injected: keep unchecked `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT` narrative companion token.
+
+## 2026-03-27 07:31 KST — Cycle FA follow-up closure (Design)
+- Closed previously unchecked FA item by shipping digest-only narrative companion token `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT`.
+- Kept change additive + reversible behind flags; no gameplay/runtime coupling.
+- Follow-up: maintain deterministic legend/alias ordering in digest sections to preserve scanability.
+
+## 2026-03-27 07:34 KST — Cycle FB selected slice (Design)
+- Kept pulse-arc vocabulary deterministic (`RECOVER|BRACE|ERUPT`) and mirrored it with explicit alias legend.
+- Decision: legend remains adjacent to `DCCFXCPA` row to preserve digest readability contracts.

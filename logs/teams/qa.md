@@ -3552,3 +3552,16 @@
 - Shipped: `DCCFXCW SCENE PULSE LEGEND` row in summary + token-coverage markdown and regression adjacency lock (`SCENE PULSE -> LEGEND`).
 - Verification: py_compile + weekly drift regression + digest generation all passed.
 - Backlog injected: keep unchecked `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT` narrative companion token.
+
+## 2026-03-27 07:31 KST — Cycle FA follow-up closure (QA)
+- Extended regression contract for new pulse-arc token family:
+  - payload schema keys + signal keysets
+  - summary/token-coverage presence checks
+  - adjacency order lock: `...SCENE PULSE LEGEND -> SCENE PULSE ARC -> SCENE PULSE ARC LEGEND -> DCCFXCPA -> DCCFXV FAMILY CHURN`
+- Verification: `python3 -m py_compile ...` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+
+## 2026-03-27 07:34 KST — Cycle FB verification (QA)
+- Regression updated to require `DCCFXCPA LEGEND` presence and adjacency in summary + token-coverage sections.
+- Validation commands passed:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`

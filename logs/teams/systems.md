@@ -3004,3 +3004,8 @@
 - Shipped: `DCCFXCW SCENE PULSE LEGEND` row in summary + token-coverage markdown and regression adjacency lock (`SCENE PULSE -> LEGEND`).
 - Verification: py_compile + weekly drift regression + digest generation all passed.
 - Backlog injected: keep unchecked `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT` narrative companion token.
+
+## 2026-03-27 07:31 KST — Cycle FA follow-up closure (Systems)
+- Wired payload/signal surfaces for `comboConfidenceFxCoachCueWhyScenePulseArc` and alias signals.
+- Ensured summary + token-coverage markdown include pulse-arc row, legend, and alias in deterministic sequence.
+- Follow-up: keep family adjacency contract stable as additional scene-pulse tokens are injected.

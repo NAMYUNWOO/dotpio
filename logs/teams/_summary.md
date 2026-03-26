@@ -3289,3 +3289,15 @@ Compact decision memory for AI context efficiency.
 - Selected + implemented Idea 1 as minimal vertical slice; digest now emits `DCCFXCW SCENE PULSE LEGEND: SOFT=COOL+CALM, HARD=MIXED PRESSURE, SURGE=SCAR|SPIKE` in summary + token-coverage sections.
 - Regression contract expanded to lock adjacency `DCCFXCW SCENE PALETTE -> LEGEND -> TREND -> SCENE PULSE -> SCENE PULSE LEGEND -> DCCFXV FAMILY CHURN`.
 - Injected next backlog item: Design/World prototype `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT` (unchecked).
+
+## 2026-03-27 07:31 KST — Cycle FA closure (Design/World + Systems/QA)
+- Completed the last unchecked backlog item from Cycle FA: shipped digest-only `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT` with compact alias `DCCFXCPA:<R|B|E>`.
+- Durable mapping decision: `SOFT=>RECOVER`, `SURGE + (HEATING trend or SPIKE regime)=>ERUPT`, otherwise `BRACE`.
+- Contract decision: keep deterministic order in both summary and token-coverage sections: `SCENE PULSE` -> `SCENE PULSE LEGEND` -> `SCENE PULSE ARC` -> `SCENE PULSE ARC LEGEND` -> `DCCFXCPA` -> family churn rows.
+- Verification locked by regression + py_compile; all checks passed.
+
+## 2026-03-27 07:34 KST — Cycle FB minimal slice shipped
+- Executed Game Director cycle after full-check state; generated 3 ideas and selected low-risk UX/Design readability slice.
+- Shipped `DCCFXCPA LEGEND` row in both digest sections to decode arc alias quickly.
+- Durable contract: adjacency is now `... DCCFXCW SCENE PULSE ARC LEGEND -> DCCFXCPA -> DCCFXCPA LEGEND -> DCCFXV FAMILY CHURN`.
+- Backlog injected for next cycles: `DCCFXCPA FAMILY CHURN` (Systems/QA), `DCCFXCPA COPY` prototype (AI Content/World).

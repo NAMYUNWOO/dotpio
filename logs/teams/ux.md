@@ -2264,3 +2264,8 @@
 - Shipped: `DCCFXCW SCENE PULSE LEGEND` row in summary + token-coverage markdown and regression adjacency lock (`SCENE PULSE -> LEGEND`).
 - Verification: py_compile + weekly drift regression + digest generation all passed.
 - Backlog injected: keep unchecked `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT` narrative companion token.
+
+## 2026-03-27 07:34 KST — Cycle FB selected slice (UX)
+- Added digest decode helper row `DCCFXCPA LEGEND: R=RECOVER, B=BRACE, E=ERUPT` in summary + token-coverage.
+- Goal: reduce lookup cost when scanning compact arc alias under dense token stacks.
+- Follow-up queued: add `DCCFXCPA FAMILY CHURN` row once enough windows accumulate.

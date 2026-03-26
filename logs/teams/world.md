@@ -2002,3 +2002,8 @@
 - Shipped: `DCCFXCW SCENE PULSE LEGEND` row in summary + token-coverage markdown and regression adjacency lock (`SCENE PULSE -> LEGEND`).
 - Verification: py_compile + weekly drift regression + digest generation all passed.
 - Backlog injected: keep unchecked `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT` narrative companion token.
+
+## 2026-03-27 07:31 KST — Cycle FA follow-up closure (World)
+- Added scene pulse arc mapping for route/combat postmortem readability: `SOFT->RECOVER`, `SURGE+HEATING|SPIKE->ERUPT`, fallback `BRACE`.
+- Added compact alias channel `DCCFXCPA:<R|B|E>` for tight digest width budgets.
+- Follow-up: watch churn/family trend before enabling by default.

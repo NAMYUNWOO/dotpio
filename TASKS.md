@@ -1355,4 +1355,14 @@ See project-level plans:
 ## Game Director Cycle FA — injected 2026-03-27 06:56 KST
 - [x] UX/Combat Team: Add `DCCFXCW SCENE PULSE LEGEND` row in summary + token-coverage for one-glance decode. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 06:56 KST; completed: 2026-03-27 07:00 KST)*
 - [x] Systems/QA Team: Extend regression ordering lock for `DCCFXCW SCENE PULSE -> LEGEND` adjacency in both sections. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 06:56 KST; completed: 2026-03-27 07:00 KST)*
-- [ ] Design/World Team: Prototype `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT` narrative companion token (digest-only, flagged).
+- [x] Design/World Team: Prototype `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT` narrative companion token (digest-only, flagged). *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 07:06 KST; completed: 2026-03-27 07:13 KST)*
+
+## Cycle FB - Game Director Review (2026-03-27 07:31 KST)
+- Coverage check (last 10 completions): systems/qa digest contract work remains dense; choose a low-risk UX/readability slice that improves decode speed without runtime coupling.
+- Idea 1 (low risk, UX/Design): Add compact legend row for pulse-arc alias (`DCCFXCPA LEGEND: R=RECOVER, B=BRACE, E=ERUPT`) in summary + token-coverage.
+- Idea 2 (mid risk, Systems/QA): Add token-family churn row for `DCCFXCPA:` with adjacency lock after arc legend.
+- Idea 3 (high risk, AI Content/World): Prototype offline arc-to-copy recommendation token (`DCCFXCPA COPY:CLEAR|HOLD|SURGE`) from pulse-arc + volatility trend.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Design Team: Add `DCCFXCPA LEGEND` row in summary + token-coverage with deterministic adjacency regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 07:31 KST; completed: 2026-03-27 07:34 KST)*
+- [ ] Systems/QA Team: Add `DCCFXCPA FAMILY CHURN` row with prior-window drift context.
+- [ ] AI Content/World Team: Prototype offline arc-to-copy recommendation token (`DCCFXCPA COPY:CLEAR|HOLD|SURGE`).
