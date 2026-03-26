@@ -2773,3 +2773,7 @@
 - Updated regression contract to require both rows and adjacency ordering (`DCCSA -> DCCFX -> DCCSR -> DCCST`).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Added copy-swap trend hysteresis metadata (`priorTrend`, `hysteresisApplied`, `hysteresisThreshold`) to family-trend signals for deterministic drift auditability.
+
+## 2026-03-26 17:20 KST — Cycle EM
+- Cycle EM selected/implemented: added DCCFX FAMILY TREND derivation (prior-window Δnet) and wired payload signals + markdown row in weekly digest.
+- Follow-up: monitor digest trend stability over next window.

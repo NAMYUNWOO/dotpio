@@ -3110,3 +3110,15 @@ Compact decision memory for AI context efficiency.
     - added hysteresis assertion and new family-churn ordering assertions.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Added second hysteresis guard: copy-swap family trend now suppresses small `UP/DOWN` flips into `FLAT` when prior trend opposes current drift within threshold.
+
+## 2026-03-26 17:20 KST — Cycle EM (Game Director)
+- Trigger: ACTION_ITEMS/TASKS/POST_RC all checked; executed Game Director review cycle.
+- Ideas generated:
+  1) Low-risk Systems/QA: add `DCCFX FAMILY TREND` prior-window drift row.
+  2) Mid-risk UX/Combat: add compact alias `DCCFXT:<U|F|D>` behind flag.
+  3) High-risk AI Content/Combat: volatility-aware accent trend hysteresis policy.
+- Selected/implemented: Idea 1 minimal vertical slice.
+- Shipped: weekly digest now emits `DCCFX FAMILY TREND` in markdown and JSON (`comboConfidenceFxAccentFamilyTrendDrift`, `comboConfidenceFxAccentFamilyTrendSignals`).
+- Durable decision: keep slice offline/reporting-only and additive; postpone runtime or alias expansion until at least one additional digest window confirms stability.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 120`.
+- Next candidate: `DCCFXT` compact trend alias behind flag, then volatility-aware DCCFX hysteresis policy.

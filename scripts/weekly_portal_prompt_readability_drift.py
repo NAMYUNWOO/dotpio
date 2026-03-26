@@ -7544,6 +7544,46 @@ def combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior(
     }
 
 
+def combo_confidence_fx_accent_family_trend_from_prior(
+    *,
+    current_family_totals: dict[str, int],
+    prior_json_path: Path,
+) -> tuple[int, dict[str, object]]:
+    """Track DCCFX/combo-confidence-fx-accent family net drift against prior digest window."""
+    current_net = int(current_family_totals.get("net", 0) or 0)
+    prior_net = 0
+    prior_loaded = False
+
+    if prior_json_path.is_file():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_families = prior_payload.get("tokenFamilyTotals", {})
+            prior_family = prior_families.get("dmgComboConfidenceFxAccentAlias", {}) if isinstance(prior_families, dict) else {}
+            prior_net = int(prior_family.get("net", 0) or 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+
+    drift = current_net - prior_net
+    if drift > 0:
+        trend = "UP"
+        reason = "combo-confidence-fx-accent-family-net-increased-vs-prior-window"
+    elif drift < 0:
+        trend = "DOWN"
+        reason = "combo-confidence-fx-accent-family-net-decreased-vs-prior-window"
+    else:
+        trend = "FLAT"
+        reason = "combo-confidence-fx-accent-family-net-unchanged-vs-prior-window"
+
+    return drift, {
+        "trend": trend,
+        "currentNet": current_net,
+        "priorNet": prior_net,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
+
 def pulse_remap_scene_fx_glint_family_trend_from_prior(
     *,
     current_family_totals: dict[str, int],
@@ -8356,6 +8396,10 @@ def main() -> int:
         coach_recommendation=combo_confidence_coach_recommendation,
     )
     dmg_combo_conf_coach_copy_swap_alias = f"DCCSR:{combo_confidence_coach_copy_swap_recommendation[:1]}"
+    combo_confidence_fx_accent_family_trend_drift, combo_confidence_fx_accent_family_trend_signals = combo_confidence_fx_accent_family_trend_from_prior(
+        current_family_totals=token_family_totals["dmgComboConfidenceFxAccentAlias"],
+        prior_json_path=args.out_json,
+    )
     combo_confidence_coach_copy_swap_recommendation_family_trend_drift, combo_confidence_coach_copy_swap_recommendation_family_trend_signals = combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior(
         current_family_totals=token_family_totals["dmgComboConfidenceCoachCopySwapRecommendationAlias"],
         prior_json_path=args.out_json,
@@ -9713,6 +9757,8 @@ def main() -> int:
         "comboConfidenceFxAccentSignals": combo_confidence_fx_accent_signals,
         "comboConfidenceFxAccentAlias": dmg_combo_conf_fx_accent_alias if dmg_combo_conf_fx_accent_alias_flag_enabled else "FLAG OFF",
         "comboConfidenceFxAccentAliasSignals": {"flagName": dmg_combo_conf_fx_accent_alias_flag_name, "flagEnabled": dmg_combo_conf_fx_accent_alias_flag_enabled, "accent": combo_confidence_fx_accent, "alias": dmg_combo_conf_fx_accent_alias},
+        "comboConfidenceFxAccentFamilyTrendDrift": combo_confidence_fx_accent_family_trend_drift,
+        "comboConfidenceFxAccentFamilyTrendSignals": combo_confidence_fx_accent_family_trend_signals,
         "comboConfidenceCoachCopySwapRecommendation": combo_confidence_coach_copy_swap_recommendation,
         "comboConfidenceCoachCopySwapRecommendationAlias": dmg_combo_conf_coach_copy_swap_alias if dmg_combo_conf_coach_copy_swap_alias_flag_enabled else "FLAG OFF",
         "comboConfidenceCoachCopySwapRecommendationAliasSignals": {"flagName": dmg_combo_conf_coach_copy_swap_alias_flag_name, "flagEnabled": dmg_combo_conf_coach_copy_swap_alias_flag_enabled, "recommendation": combo_confidence_coach_copy_swap_recommendation, "alias": dmg_combo_conf_coach_copy_swap_alias},
@@ -9983,6 +10029,7 @@ def main() -> int:
         f"- DMG COMBO CONF COACH REC + DCCR FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceCoachAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceCoachAlias']['added']} removed={token_family_totals['dmgComboConfidenceCoachAlias']['removed']} churn={token_family_totals['dmgComboConfidenceCoachAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachAlias']['coverage']})",
         f"- DCCSA FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['added']} removed={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['removed']} churn={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['coverage']})",
         f"- DCCFX FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceFxAccentAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceFxAccentAlias']['added']} removed={token_family_totals['dmgComboConfidenceFxAccentAlias']['removed']} churn={token_family_totals['dmgComboConfidenceFxAccentAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxAccentAlias']['coverage']})",
+        f"- DCCFX FAMILY TREND: **{combo_confidence_fx_accent_family_trend_signals['trend']}** (Δnet={combo_confidence_fx_accent_family_trend_drift:+d} currentNet={combo_confidence_fx_accent_family_trend_signals['currentNet']:+d} priorNet={combo_confidence_fx_accent_family_trend_signals['priorNet']:+d} loaded={combo_confidence_fx_accent_family_trend_signals['priorLoaded']} reason={combo_confidence_fx_accent_family_trend_signals['reason']})",
         f"- DCCSR FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['added']} removed={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['removed']} churn={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['coverage']})",
         f"- DCCST FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['added']} removed={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['removed']} churn={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['coverage']})",
         f"- DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND: **{combo_confidence_coach_copy_swap_recommendation_family_trend_signals['trend']}** (Δnet={combo_confidence_coach_copy_swap_recommendation_family_trend_drift:+d} currentNet={combo_confidence_coach_copy_swap_recommendation_family_trend_signals['currentNet']:+d} priorNet={combo_confidence_coach_copy_swap_recommendation_family_trend_signals['priorNet']:+d} loaded={combo_confidence_coach_copy_swap_recommendation_family_trend_signals['priorLoaded']} reason={combo_confidence_coach_copy_swap_recommendation_family_trend_signals['reason']})",
@@ -10102,6 +10149,7 @@ def main() -> int:
         f"- DCCR + DMG COMBO CONF COACH REC: +{token_family_totals['dmgComboConfidenceCoachAlias']['added']} / -{token_family_totals['dmgComboConfidenceCoachAlias']['removed']} / net {token_family_totals['dmgComboConfidenceCoachAlias']['net']} (churn={token_family_totals['dmgComboConfidenceCoachAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachAlias']['coverage']})",
         f"- DCCSA + DMG COMBO CONF COACH SCENE ARC: +{token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['added']} / -{token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['removed']} / net {token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['net']} (churn={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['coverage']})",
         f"- DCCFX + DMG COMBO CONF FX ACCENT: +{token_family_totals['dmgComboConfidenceFxAccentAlias']['added']} / -{token_family_totals['dmgComboConfidenceFxAccentAlias']['removed']} / net {token_family_totals['dmgComboConfidenceFxAccentAlias']['net']} (churn={token_family_totals['dmgComboConfidenceFxAccentAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxAccentAlias']['coverage']})",
+        f"- DCCFX FAMILY TREND: {combo_confidence_fx_accent_family_trend_signals['trend']} (Δnet={combo_confidence_fx_accent_family_trend_drift:+d} currentNet={combo_confidence_fx_accent_family_trend_signals['currentNet']:+d} priorNet={combo_confidence_fx_accent_family_trend_signals['priorNet']:+d} loaded={combo_confidence_fx_accent_family_trend_signals['priorLoaded']})",
         f"- DCCSR + DMG COMBO CONF COACH COPY SWAP REC: +{token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['added']} / -{token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['removed']} / net {token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['net']} (churn={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['coverage']})",
         f"- DCCST: +{token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['added']} / -{token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['removed']} / net {token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['net']} (churn={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['coverage']})",
         f"- DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND: {combo_confidence_coach_copy_swap_recommendation_family_trend_signals['trend']} (Δnet={combo_confidence_coach_copy_swap_recommendation_family_trend_drift:+d} currentNet={combo_confidence_coach_copy_swap_recommendation_family_trend_signals['currentNet']:+d} priorNet={combo_confidence_coach_copy_swap_recommendation_family_trend_signals['priorNet']:+d} loaded={combo_confidence_coach_copy_swap_recommendation_family_trend_signals['priorLoaded']})",

@@ -1863,3 +1863,7 @@
 - Signals now expose `priorAccent` and `hysteresisApplied` for auditability.
 - Verification: regression suite PASS including dedicated hysteresis assertion.
 - Follow-up extension: added offline copy-swap trend hysteresis (`UP/DOWN` small-flip suppression) in `combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior` to reduce oscillation noise across adjacent windows.
+
+## 2026-03-26 17:20 KST — Cycle EM
+- Cycle EM sync: no code ownership change in this lane; reviewed Systems/QA slice as additive offline digest-only and left follow-up candidates queued (DCCFXT alias, volatility-aware hysteresis).
+- Follow-up: monitor digest trend stability over next window.

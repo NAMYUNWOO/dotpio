@@ -2277,6 +2277,7 @@ def main() -> int:
         assert "DCCFX + DMG COMBO CONF FX ACCENT:" in md_text
         assert "DCCSA FAMILY CHURN" in md_text
         assert "DCCFX FAMILY CHURN" in md_text
+        assert "DCCFX FAMILY TREND" in md_text
         assert "DCCSR FAMILY CHURN" in md_text
         assert "DCCST FAMILY CHURN" in md_text
         assert "DCCSR + DMG COMBO CONF COACH COPY SWAP REC:" in md_text
@@ -2298,6 +2299,7 @@ def main() -> int:
         combo_conf_copy_swap_idx = _find_line_index("- DMG COMBO CONF COACH COPY SWAP REC:")
         combo_conf_dccsa_family_churn_idx = _find_line_index("- DCCSA FAMILY CHURN:")
         combo_conf_dccfx_family_churn_idx = _find_line_index("- DCCFX FAMILY CHURN:")
+        combo_conf_dccfx_family_trend_idx = _find_line_index("- DCCFX FAMILY TREND:")
         combo_conf_copy_swap_dccsr_family_churn_idx = _find_line_index("- DCCSR FAMILY CHURN:")
         combo_conf_copy_swap_dccst_family_churn_idx = _find_line_index("- DCCST FAMILY CHURN:")
         combo_conf_copy_swap_family_trend_idx = _find_line_index("- DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND:")
@@ -2333,8 +2335,11 @@ def main() -> int:
         assert combo_conf_dccfx_family_churn_idx == combo_conf_dccsa_family_churn_idx + 1, (
             "expected DCCFX FAMILY CHURN row directly after DCCSA FAMILY CHURN row"
         )
-        assert combo_conf_copy_swap_dccsr_family_churn_idx == combo_conf_dccfx_family_churn_idx + 1, (
-            "expected DCCSR FAMILY CHURN row directly after DCCFX FAMILY CHURN row"
+        assert combo_conf_dccfx_family_trend_idx == combo_conf_dccfx_family_churn_idx + 1, (
+            "expected DCCFX FAMILY TREND row directly after DCCFX FAMILY CHURN row"
+        )
+        assert combo_conf_copy_swap_dccsr_family_churn_idx == combo_conf_dccfx_family_trend_idx + 1, (
+            "expected DCCSR FAMILY CHURN row directly after DCCFX FAMILY TREND row"
         )
         assert combo_conf_copy_swap_dccst_family_churn_idx == combo_conf_copy_swap_dccsr_family_churn_idx + 1, (
             "expected DCCST FAMILY CHURN row directly after DCCSR FAMILY CHURN row"

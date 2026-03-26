@@ -1813,3 +1813,7 @@
 ## 2026-03-26 16:40 KST — Combo-confidence accent hysteresis pass [DONE]
 - Offline combat/VFX readability policy now applies SWING-window hysteresis to reduce `STEEL <-> EMBER` flicker across digest windows.
 - No runtime combat mechanics changed (digest-only policy).
+
+## 2026-03-26 17:20 KST — Cycle EM
+- Cycle EM sync: no code ownership change in this lane; reviewed Systems/QA slice as additive offline digest-only and left follow-up candidates queued (DCCFXT alias, volatility-aware hysteresis).
+- Follow-up: monitor digest trend stability over next window.

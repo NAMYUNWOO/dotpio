@@ -983,3 +983,12 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Combat/VFX Team: Ship offline `DMG COMBO CONF FX ACCENT:SMOKE|STEEL|EMBER` token plus compact alias `DCCFX:<S|T|E>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_ALIAS` (digest-only, reversible) with regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 16:12 KST)*
 - [x] Systems/QA Team: Add split family churn rows for `DCCSA` vs `DCCFX` to isolate scene-arc vs fx-accent noise.
 - [x] AI Content/Combat Team: Prototype offline accent hysteresis rule to reduce STEEL/EMBER bounce during SWING volatility windows.
+
+## Cycle EM - Game Director Review (2026-03-26 17:10 KST)
+- Idea 1 (low risk, Systems/QA): Add `DCCFX FAMILY TREND` prior-window drift row so FX-accent direction (`UP|DOWN|FLAT`) is auditable, not just churn.
+- Idea 2 (mid risk, UX/Combat): Add compact FX-accent trend alias token (`DCCFXT:<U|F|D>`) behind flag for digest scanability.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline accent trend hysteresis policy that adapts threshold by volatility regime.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add `DCCFX FAMILY TREND` markdown + JSON signals (`currentNet`, `priorNet`, `Δnet`, `reason`) with regression lock. *(lifecycle: [~] -> [x]; completed: 2026-03-26 17:18 KST)*
+- [ ] UX/Combat Team: Prototype compact FX-accent trend alias (`DCCFXT:<U|F|D>`) behind flag for dense digest budgets.
+- [ ] AI Content/Combat Team: Prototype volatility-aware accent trend hysteresis policy (offline-only).

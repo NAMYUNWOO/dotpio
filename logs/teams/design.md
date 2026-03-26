@@ -1881,3 +1881,7 @@
 ## 2026-03-26 16:40 KST — Readability contract split (DCCSA vs DCCFX) [DONE]
 - Digest now reports separate family churn rows for scene-arc and FX-accent rails, improving triage clarity when tone and accent diverge.
 - Ordering contract locked in regression for scan consistency.
+
+## 2026-03-26 17:20 KST — Cycle EM
+- Cycle EM sync: no code ownership change in this lane; reviewed Systems/QA slice as additive offline digest-only and left follow-up candidates queued (DCCFXT alias, volatility-aware hysteresis).
+- Follow-up: monitor digest trend stability over next window.

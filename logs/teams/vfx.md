@@ -287,3 +287,7 @@
 ## 2026-03-26 16:40 KST — FX accent stability follow-up [DONE]
 - Added hysteresis hold for `DMG COMBO CONF FX ACCENT` in SWING volatility windows to reduce frame-to-frame palette churn in analysis output.
 - Preserved SPIKE guardrail override (`SMOKE`) behavior.
+
+## 2026-03-26 17:20 KST — Cycle EM
+- Cycle EM sync: no code ownership change in this lane; reviewed Systems/QA slice as additive offline digest-only and left follow-up candidates queued (DCCFXT alias, volatility-aware hysteresis).
+- Follow-up: monitor digest trend stability over next window.
