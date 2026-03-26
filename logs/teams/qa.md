@@ -3526,3 +3526,16 @@
 ## 2026-03-27 05:47 KST — DCCFXCW scene palette legend slice [DONE]
 - Verified Cycle EZ slice via py_compile + weekly drift regression.
 - New assertions validate `DCCFXCW SCENE PALETTE LEGEND` presence and strict adjacency ordering in summary and token-coverage sections.
+
+## 2026-03-27 06:05:08 KST
+- Task: Regression lock update for `DCCFXCW SCENE PALETTE TREND` rail in weekly digest.
+- Commit: HEAD (this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Ordering contracts now require `DCCFXCW SCENE PALETTE -> LEGEND -> TREND` in summary + token-coverage sections.
+  - Updated assertions to keep `DCCFXV FAMILY CHURN` anchored directly after the new trend row.
+- Follow-up:
+  - Add regression/order lock for upcoming `DCCFXCW SCENE PULSE` cue once implemented.

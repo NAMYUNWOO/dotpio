@@ -2557,6 +2557,7 @@ def main() -> int:
         assert "DCCFXCW:" in md_text
         assert "DCCFXCW SCENE PALETTE:" in md_text
         assert "DCCFXCW SCENE PALETTE LEGEND:" in md_text
+        assert "DCCFXCW SCENE PALETTE TREND:" in md_text
         assert "DCCFXV FAMILY CHURN" in md_text
         assert "DCCFXC FAMILY CHURN" in md_text
         assert "DCCFXCW FAMILY CHURN" in md_text
@@ -2604,6 +2605,7 @@ def main() -> int:
         combo_conf_dccfxcw_alias_indices = _find_line_indices("- DCCFXCW:")
         combo_conf_dccfxcw_scene_palette_idx = _find_line_index("- DCCFXCW SCENE PALETTE:")
         combo_conf_dccfxcw_scene_palette_legend_idx = _find_line_index("- DCCFXCW SCENE PALETTE LEGEND:")
+        combo_conf_dccfxcw_scene_palette_trend_idx = _find_line_index("- DCCFXCW SCENE PALETTE TREND:")
         combo_conf_dccfxv_family_churn_idx = _find_line_index("- DCCFXV FAMILY CHURN:")
         combo_conf_dccfxc_family_churn_idx = _find_line_index("- DCCFXC FAMILY CHURN:")
         combo_conf_dccfxcw_family_churn_idx = _find_line_index("- DCCFXCW FAMILY CHURN:")
@@ -2689,6 +2691,7 @@ def main() -> int:
         coverage_dccfxcw_idx = _find_in_range("- DCCFXCW ALIAS:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcw_scene_palette_idx = _find_in_range("- DCCFXCW SCENE PALETTE:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcw_scene_palette_legend_idx = _find_in_range("- DCCFXCW SCENE PALETTE LEGEND:", coverage_start, coverage_end, "token coverage")
+        coverage_dccfxcw_scene_palette_trend_idx = _find_in_range("- DCCFXCW SCENE PALETTE TREND:", coverage_start, coverage_end, "token coverage")
         assert coverage_dccfxc_idx == coverage_dccfxv_idx + 1, (
             "expected DCCFXC row directly after DCCFXV row in token-coverage section"
         )
@@ -2701,14 +2704,20 @@ def main() -> int:
         assert coverage_dccfxcw_scene_palette_legend_idx == coverage_dccfxcw_scene_palette_idx + 1, (
             "expected DCCFXCW SCENE PALETTE LEGEND row directly after DCCFXCW SCENE PALETTE row in token-coverage section"
         )
+        assert coverage_dccfxcw_scene_palette_trend_idx == coverage_dccfxcw_scene_palette_legend_idx + 1, (
+            "expected DCCFXCW SCENE PALETTE TREND row directly after DCCFXCW SCENE PALETTE LEGEND row in token-coverage section"
+        )
         assert combo_conf_dccfxcw_scene_palette_idx == combo_conf_dccfxcw_alias_idx + 1, (
             "expected DCCFXCW SCENE PALETTE row directly after DCCFXCW row"
         )
         assert combo_conf_dccfxcw_scene_palette_legend_idx == combo_conf_dccfxcw_scene_palette_idx + 1, (
             "expected DCCFXCW SCENE PALETTE LEGEND row directly after DCCFXCW SCENE PALETTE row"
         )
-        assert combo_conf_dccfxv_family_churn_idx == combo_conf_dccfxcw_scene_palette_legend_idx + 1, (
-            "expected DCCFXV FAMILY CHURN row directly after DCCFXCW SCENE PALETTE LEGEND row"
+        assert combo_conf_dccfxcw_scene_palette_trend_idx == combo_conf_dccfxcw_scene_palette_legend_idx + 1, (
+            "expected DCCFXCW SCENE PALETTE TREND row directly after DCCFXCW SCENE PALETTE LEGEND row"
+        )
+        assert combo_conf_dccfxv_family_churn_idx == combo_conf_dccfxcw_scene_palette_trend_idx + 1, (
+            "expected DCCFXV FAMILY CHURN row directly after DCCFXCW SCENE PALETTE TREND row"
         )
         assert combo_conf_dccfxc_family_churn_idx == combo_conf_dccfxv_family_churn_idx + 1, (
             "expected DCCFXC FAMILY CHURN row directly after DCCFXV FAMILY CHURN row"

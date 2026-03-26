@@ -2977,3 +2977,17 @@
 ## 2026-03-27 05:47 KST — DCCFXCW scene palette legend slice [DONE]
 - Wired summary/token-coverage output to emit `DCCFXCW SCENE PALETTE LEGEND` deterministically after scene palette token.
 - Updated regression for adjacency in both sections; no runtime gameplay logic changed.
+
+## 2026-03-27 06:05:08 KST
+- Task: Cycle EZ Systems/QA follow-up — add `DCCFXCW SCENE PALETTE TREND` rail (`COOLING|STABLE|HEATING`) with prior-window delta snapshot.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added dedicated token family `dmgComboConfidenceFxCoachCueWhyScenePaletteAlias` (`DCCFXCW SCENE PALETTE:`) for auditable trend drift.
+  - Introduced prior-window trend calc in digest payload (`...FamilyTrendDrift` + `...FamilyTrendSignals`).
+  - Added deterministic markdown rows for `DCCFXCW SCENE PALETTE TREND` in summary + token-coverage sections.
+- Follow-up:
+  - Next unchecked item remains Combat/VFX prototype: `DCCFXCW SCENE PULSE:<SOFT|HARD|SURGE>`.
