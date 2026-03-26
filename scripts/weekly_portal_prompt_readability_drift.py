@@ -124,6 +124,7 @@ TOKEN_ALIAS_FAMILIES = {
     "lanePriorityRecommendationConfidenceGuardCoachAlias": ["LPRCG COACH:", "LPRCGC:"],
     "lanePriorityRecommendationConfidenceGuardCoachPackAlias": ["LPRCG COACH PACK:", "LPRCGCP:"],
     "lanePriorityRecommendationConfidenceGuardCoachCopyAlias": ["LPRCG COACH COPY:", "LPRCGCN:"],
+    "lanePriorityRecommendationConfidenceGuardCoachCopyWhy": ["LPRCG COACH COPY WHY:"],
 }
 
 ROUTE_VIBE_PATTERNS = {
@@ -1187,6 +1188,36 @@ def lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrati
         "consecutiveApplyWindows": consecutive,
         "divergenceStreak": divergence_streak,
         "reason": reason,
+        "offlineOnly": True,
+    }
+
+
+
+
+def lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_token(
+    *,
+    coach_copy_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Flag-gated rationale shorthand for coach-copy narrative context (`LPRCG COACH COPY WHY:<short>`)."""
+    flag_name = "DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_COPY_WHY"
+    flag_enabled = os.environ.get(flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
+
+    reason = str(coach_copy_signals.get("reason", "baseline-pack") or "baseline-pack").strip().lower()
+    mapping = {
+        "guard-hold": "HOLD RESET",
+        "anchor-pack-with-spike-regime": "SPIKE ANCHOR",
+        "anchor-pack": "ANCHOR RHYTHM",
+        "adaptive-pack-with-regime-transition": "REGIME SHIFT",
+        "adaptive-pack-stable-regime": "FLEX WATCH",
+        "baseline-pack": "BASELINE WATCH",
+    }
+    short = mapping.get(reason, "BASELINE WATCH")
+    token = f"LPRCG COACH COPY WHY:{short}"
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "reason": reason,
+        "short": short,
         "offlineOnly": True,
     }
 
@@ -9030,6 +9061,9 @@ def main() -> int:
     lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias, lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias_signals = resolve_lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias(
         coach_copy_token=lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative,
     )
+    lane_priority_recommendation_confidence_guard_persistence_coach_copy_why, lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_signals = lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_token(
+        coach_copy_signals=lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals,
+    )
     pulse_remap_suppression_escalation_plan, pulse_remap_suppression_escalation_plan_signals = pulse_remap_suppression_escalation_plan_from_signals(
         suppression=pulse_remap_momentum_suppression,
         suppression_signals=pulse_remap_momentum_suppression_signals,
@@ -10092,6 +10126,8 @@ def main() -> int:
         "lanePriorityRecommendationConfidenceGuardPersistenceCoachCopyNarrativeSignals": lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals,
         "lanePriorityRecommendationConfidenceGuardPersistenceCoachCopyAlias": lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias,
         "lanePriorityRecommendationConfidenceGuardPersistenceCoachCopyAliasSignals": lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias_signals,
+        "lanePriorityRecommendationConfidenceGuardPersistenceCoachCopyWhy": lane_priority_recommendation_confidence_guard_persistence_coach_copy_why,
+        "lanePriorityRecommendationConfidenceGuardPersistenceCoachCopyWhySignals": lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_signals,
         "lanePriorityRecommendationCompactAlias": lane_priority_recommendation_compact_alias,
         "lanePriorityRecommendationCompactAliasSignals": lane_priority_recommendation_compact_alias_signals,
         "lanePriorityHysteresisCompactAlias": lane_priority_hysteresis_compact_alias,
@@ -10747,6 +10783,7 @@ def main() -> int:
         f"- LPRCGCP: **{lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias}** (flag={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['flagName']} enabled={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['flagEnabled']} pack={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['packToken']} alias={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['alias']})",
         f"- LPRCG COACH COPY: **{lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative}** (reason={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['reason']} pack={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['pack']} action={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['guardAction']} regime={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['volatilityRegime']} priorRegime={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['priorVolatilityRegime']} regimeChanged={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['regimeChanged']} consecutive={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['consecutiveApplyWindows']} divergenceStreak={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['divergenceStreak']} offlineOnly={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['offlineOnly']})",
         f"- LPRCGCN: **{lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias}** (flag={lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias_signals['flagName']} enabled={lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias_signals['flagEnabled']} coachCopy={lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias_signals['coachCopyToken']} alias={lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias_signals['alias']})",
+        f"- LPRCG COACH COPY WHY: **{lane_priority_recommendation_confidence_guard_persistence_coach_copy_why}** (flag={lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_signals['flagName']} enabled={lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_signals['flagEnabled']} reason={lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_signals['reason']} short={lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_signals['short']} offlineOnly={lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_signals['offlineOnly']})",
         f"- LPRCG + LANE PRIORITY REC CONF GUARD FAMILY CHURN: **net {token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['net']:+d}** (added={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['added']} removed={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['removed']} churn={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['coverage']})",
         f"- LPRCG COACH + LPRCGC FAMILY CHURN: **net {token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['net']:+d}** (added={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['added']} removed={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['removed']} churn={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['coverage']})",
         f"- LPRCG COACH PACK + LPRCGCP FAMILY CHURN: **net {token_family_totals['lanePriorityRecommendationConfidenceGuardCoachPackAlias']['net']:+d}** (added={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachPackAlias']['added']} removed={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachPackAlias']['removed']} churn={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachPackAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachPackAlias']['coverage']})",
@@ -10910,6 +10947,7 @@ def main() -> int:
         f"- LPRCGCP: {lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias} (flag={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['flagName']}, enabled={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['flagEnabled']}, pack={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['packToken']}, alias={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['alias']})",
         f"- LPRCG COACH COPY: {lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative} (reason={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['reason']}, pack={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['pack']}, action={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['guardAction']}, regime={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['volatilityRegime']}, priorRegime={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['priorVolatilityRegime']}, regimeChanged={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['regimeChanged']}, consecutive={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['consecutiveApplyWindows']}, divergenceStreak={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['divergenceStreak']}, offlineOnly={lane_priority_recommendation_confidence_guard_persistence_coach_copy_narrative_signals['offlineOnly']})",
         f"- LPRCGCN: {lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias} (flag={lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias_signals['flagName']}, enabled={lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias_signals['flagEnabled']}, coachCopy={lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias_signals['coachCopyToken']}, alias={lane_priority_recommendation_confidence_guard_persistence_coach_copy_alias_signals['alias']})",
+        f"- LPRCG COACH COPY WHY: {lane_priority_recommendation_confidence_guard_persistence_coach_copy_why} (flag={lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_signals['flagName']}, enabled={lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_signals['flagEnabled']}, reason={lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_signals['reason']}, short={lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_signals['short']}, offlineOnly={lane_priority_recommendation_confidence_guard_persistence_coach_copy_why_signals['offlineOnly']})",
         f"- LPRCG + LANE PRIORITY REC CONF GUARD: +{token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['added']} / -{token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['removed']} / net {token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['net']} (churn={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['coverage']})",
         f"- LPRCG COACH + LPRCGC: +{token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['added']} / -{token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['removed']} / net {token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['net']} (churn={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['coverage']})",
         f"- LPRCG COACH PACK + LPRCGCP FAMILY CHURN: +{token_family_totals['lanePriorityRecommendationConfidenceGuardCoachPackAlias']['added']} / -{token_family_totals['lanePriorityRecommendationConfidenceGuardCoachPackAlias']['removed']} / net {token_family_totals['lanePriorityRecommendationConfidenceGuardCoachPackAlias']['net']} (churn={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachPackAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachPackAlias']['coverage']})",

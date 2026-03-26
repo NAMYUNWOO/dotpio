@@ -785,6 +785,14 @@ def main() -> int:
             "coachCopyToken",
             "alias",
         }, payload
+        assert isinstance(payload.get("lanePriorityRecommendationConfidenceGuardPersistenceCoachCopyWhy"), str), payload
+        assert set(payload.get("lanePriorityRecommendationConfidenceGuardPersistenceCoachCopyWhySignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "reason",
+            "short",
+            "offlineOnly",
+        }, payload
         assert isinstance(payload.get("lanePriorityRecommendationCompactAlias"), str), payload
         assert set(payload.get("lanePriorityRecommendationCompactAliasSignals", {}).keys()) == {
             "flagName",
@@ -2361,6 +2369,7 @@ def main() -> int:
         assert "LPRCGCP:" in md_text
         assert "LPRCG COACH COPY:" in md_text
         assert "LPRCGCN:" in md_text
+        assert "LPRCG COACH COPY WHY:" in md_text
         assert "LPRCG THRESH FAMILY CHURN" in md_text
         assert "LPRCG COACH + LPRCGC FAMILY CHURN" in md_text
         assert "LPRCG COACH PACK + LPRCGCP FAMILY CHURN" in md_text

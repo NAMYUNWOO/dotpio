@@ -1093,4 +1093,16 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact coach-copy alias token (`LPRCGCN:<R|B|A|N>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_COPY_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 03:10 KST; completed: 2026-03-27 03:12 KST)*
 - [x] Systems/QA Team: Add token-family churn coverage + adjacency lock for `LPRCG COACH COPY:` + `LPRCGCN:` rows in summary and token-coverage sections. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 03:31 KST; completed: 2026-03-27 03:50 KST)*
-- [ ] AI Content/World Team: Prototype flagged rationale token `LPRCG COACH COPY WHY:<short>` for offline coaching context.
+- [x] AI Content/World Team: Prototype flagged rationale token `LPRCG COACH COPY WHY:<short>` for offline coaching context. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 03:55 KST; completed: 2026-03-27 04:03 KST)*
+
+
+## Cycle EX - Game Director Review (2026-03-27 04:03 KST)
+- Coverage check (last 10 completions): systems=6, qa=4, ai-content=3, world=2, ux=2, combat=1, design=1, vfx=1. Systems exceeded 40%, so this cycle forced underrepresented lane selection.
+- 24h cadence check: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low risk, AI Content/World): Ship flagged rationale token `LPRCG COACH COPY WHY:<short>` to explain coach-copy intent at scan speed.
+- Idea 2 (mid risk, Combat/VFX): Add compact flash cue alias from `DCCFX` + volatility (`DCCFXC:<H|T|M>`), digest-only + flag gated.
+- Idea 3 (high risk, Design/World): Add scene-arc text palette recommendation from `LPRCG COACH COPY WHY` + regime transitions.
+- Selected experiment: Idea 1 (forced underrepresented lane, minimal vertical slice).
+- [x] AI Content/World Team: Implement flagged `LPRCG COACH COPY WHY:<short>` token + payload signals + markdown rows + regression assertions.
+- [ ] Systems/QA Team: Add adjacency/order lock so `LPRCG COACH COPY:` → `LPRCGCN:` → `LPRCG COACH COPY WHY:` is deterministic in summary + token coverage.
+- [ ] Combat/VFX Team: Prototype optional compact cue alias from `DCCFX` volatility to bridge coach-copy rationale and FX accent triage.

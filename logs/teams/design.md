@@ -2011,3 +2011,8 @@
   - Added alias-family key `lanePriorityRecommendationConfidenceGuardCoachCopyAlias` so `LPRCG COACH COPY` + `LPRCGCN` churn is tracked deterministically.
   - Added markdown family-churn row `LPRCG COACH COPY + LPRCGCN FAMILY CHURN` in both summary and token-coverage sections.
   - Locked ordering contract so `LPRCG COACH COPY` is immediately followed by `LPRCGCN` in both sections.
+
+
+## 2026-03-27 04:03 KST — Cycle EX design note
+- New rationale shorthand improves dense digest readability by exposing why coach-copy switched modes in one short token.
+- Design/world follow-up remains: scene-arc palette recommendation line using rationale + regime transitions.

@@ -1997,3 +1997,9 @@
   - Added alias-family key `lanePriorityRecommendationConfidenceGuardCoachCopyAlias` so `LPRCG COACH COPY` + `LPRCGCN` churn is tracked deterministically.
   - Added markdown family-churn row `LPRCG COACH COPY + LPRCGCN FAMILY CHURN` in both summary and token-coverage sections.
   - Locked ordering contract so `LPRCG COACH COPY` is immediately followed by `LPRCGCN` in both sections.
+
+
+## 2026-03-27 04:03 KST — Cycle EX rationale token slice [DONE]
+- Shipped flagged offline rationale shorthand `LPRCG COACH COPY WHY:<short>` mapped from coach-copy reason states for faster narrative intent scan.
+- Flag: `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_COPY_WHY` (reversible; defaults off).
+- No runtime gameplay mutation; digest/reporting only.

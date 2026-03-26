@@ -3493,3 +3493,8 @@
   - Added alias-family key `lanePriorityRecommendationConfidenceGuardCoachCopyAlias` so `LPRCG COACH COPY` + `LPRCGCN` churn is tracked deterministically.
   - Added markdown family-churn row `LPRCG COACH COPY + LPRCGCN FAMILY CHURN` in both summary and token-coverage sections.
   - Locked ordering contract so `LPRCG COACH COPY` is immediately followed by `LPRCGCN` in both sections.
+
+
+## 2026-03-27 04:03 KST — Cycle EX QA check
+- Added regression coverage for new payload keys and markdown presence of `LPRCG COACH COPY WHY:`.
+- Verification bundle passed (py_compile, regression, weekly digest with flag enabled).

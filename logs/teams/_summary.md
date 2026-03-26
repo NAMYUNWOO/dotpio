@@ -3234,3 +3234,15 @@ Compact decision memory for AI context efficiency.
 - 2026-03-27 02:31 KST: Closed highest-priority unchecked Cycle EV Systems/QA item by adding `LPRCG COACH PACK + LPRCGCP FAMILY CHURN` coverage to weekly digest summary and token-family sections.
 - Digest contract update: registered `lanePriorityRecommendationConfidenceGuardCoachPackAlias` in `TOKEN_FAMILY_ALIASES`; regression now also asserts coach-pack family key + markdown row presence.
 - TASKS/POST_RC status updated to done for Systems/QA follow-up; remaining unchecked item is AI Content/World narrative-line prototype from coach-pack + volatility regime transitions.
+
+
+## 2026-03-27 04:03 KST — Cycle EX (forced underrepresented lane pick)
+- Coverage check (last 10 completions): systems=6, qa=4, ai-content=3, world=2, ux=2, combat=1, design=1, vfx=1. Systems exceeded 40%, so underrepresented lane was forced.
+- 24h cadence check: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Ideas generated:
+  1) Low-risk AI Content/World: `LPRCG COACH COPY WHY:<short>` flagged rationale token.
+  2) Mid-risk Combat/VFX: compact FX cue alias from `DCCFX` + volatility.
+  3) High-risk Design/World: scene-arc copy palette recommendation from rationale + regime transitions.
+- Selected/implemented: Idea 1 vertical slice (`LPRCG COACH COPY WHY`) with flag `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_COPY_WHY`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_COPY_WHY=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (PASS).
+- Injected follow-ups: (a) Systems/QA adjacency lock for `LPRCG COACH COPY -> LPRCGCN -> WHY`, (b) Combat/VFX compact cue alias experiment for FX triage bridge.

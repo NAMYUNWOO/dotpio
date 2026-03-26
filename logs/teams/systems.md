@@ -2944,3 +2944,8 @@
   - Added alias-family key `lanePriorityRecommendationConfidenceGuardCoachCopyAlias` so `LPRCG COACH COPY` + `LPRCGCN` churn is tracked deterministically.
   - Added markdown family-churn row `LPRCG COACH COPY + LPRCGCN FAMILY CHURN` in both summary and token-coverage sections.
   - Locked ordering contract so `LPRCG COACH COPY` is immediately followed by `LPRCGCN` in both sections.
+
+
+## 2026-03-27 04:03 KST — Cycle EX systems verification note
+- Integrated new payload keys for coach-copy rationale token/signals and kept contract additive + flag-gated.
+- Regression + digest generation passed; next systems/qa follow-up is deterministic adjacency lock for coach-copy triple row.

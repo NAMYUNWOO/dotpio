@@ -1942,3 +1942,8 @@
   - Added alias-family key `lanePriorityRecommendationConfidenceGuardCoachCopyAlias` so `LPRCG COACH COPY` + `LPRCGCN` churn is tracked deterministically.
   - Added markdown family-churn row `LPRCG COACH COPY + LPRCGCN FAMILY CHURN` in both summary and token-coverage sections.
   - Locked ordering contract so `LPRCG COACH COPY` is immediately followed by `LPRCGCN` in both sections.
+
+
+## 2026-03-27 04:03 KST — Cycle EX combat lane note
+- This slice remained offline digest-only and did not alter combat timing/damage logic.
+- Combat/VFX follow-up injected: compact FX cue alias experiment tied to volatility + accent rails.

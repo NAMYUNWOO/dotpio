@@ -302,3 +302,8 @@
 - Shipped compact FX volatility alias `DCCFXV:<C|S|P>` for `CALM|SWING|SPIKE` regime visibility in weekly digest.
 - Gated by `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS`; additive/reversible digest-only change.
 - Verification: weekly regression + digest generation both PASS.
+
+
+## 2026-03-27 04:03 KST — Cycle EX VFX cadence log
+- No runtime VFX mutation this cycle; maintained 24h cadence compliance via prior combat/vfx slices while underrepresented-lane force targeted AI/world rationale readability.
+- Follow-up queued: compact Combat/VFX cue alias bridging `DCCFX` volatility and coach-copy rationale for faster FX triage.
