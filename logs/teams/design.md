@@ -1845,3 +1845,9 @@
 - Decision: recommendation vocabulary constrained to short, interpretable verbs (`GUARD|STEADY|SURGE`).
 - Follow-up: if future alias is added, keep 1-token compact grammar parity with existing combo rows.
 - 2026-03-26 09:50 KST — Alias grammar kept consistent with existing compact digest token style (`PREFIX:<single-letter-band>`).
+
+
+## 2026-03-26 10:08 KST — Cycle EH design readability pass
+- Shipped compact world-tone row `DMG COMBO CONF COACH SCENE ARC` adjacent to combo-confidence coach recommendation for one-glance emotional framing.
+- Vocabulary constrained to short readable bands (`ASH|IRON|EMBER`) to preserve DOS digest scanability.
+- Offline-only scope retained (no runtime combat/UI mutation).

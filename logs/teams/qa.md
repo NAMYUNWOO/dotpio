@@ -3257,3 +3257,10 @@
 - Follow-up: add JSON field assertions for combo-confidence coach payload if schema lock scope expands.
 - 2026-03-26 09:50 KST — Regression lock expanded to require `DCCR:` token alongside `DMG COMBO CONF COACH REC` in weekly digest markdown.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+
+## 2026-03-26 10:08 KST — Cycle EH regression lock update
+- Extended weekly digest regression contract to require `DMG COMBO CONF COACH SCENE ARC` markdown row.
+- Verification commands:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

@@ -937,3 +937,9 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Combat/UX Team: Add compact combo-confidence coach alias (`DCCR:<G|S|U>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_ALIAS` with digest markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 09:46 KST; completed: 2026-03-26 09:50 KST)*
 - [ ] Systems/QA Team: Add token-family churn coverage row for `DMG COMBO CONF COACH REC` (+ alias) in weekly digest with regression lock.
 - [ ] AI Content/Combat Team: Prototype offline confidence-coach fallback narrative line tied to recommendation streak drift and volatility regime.
+
+
+## P1 (Game Director Injection — 2026-03-26 Cycle EH)
+- [ ] Combat/VFX Team: Prototype compact scene-arc alias token (`DCCSA:<A|I|E>`) behind flag for digest density control.
+- [ ] Systems/Ops Team: Prototype 24h lane cadence miss-risk token (`LANE CADENCE MISS RISK:LOW|MID|HIGH`) from rolling completion spread.
+- [ ] QA/Design Team: Add contract check ensuring `DMG COMBO CONF COACH SCENE ARC` remains adjacent to combo-confidence coach rows for scan order stability.

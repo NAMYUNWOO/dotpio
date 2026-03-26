@@ -1169,3 +1169,26 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Combat): Prototype offline confidence-coach fallback narrative line chained to recommendation streak drift.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/UX Team: Add compact combo-confidence coach alias (`DCCR:<G|S|U>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_ALIAS` with digest markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 09:46 KST; completed: 2026-03-26 09:50 KST)*
+
+
+## Cycle EH - Game Director Review (2026-03-26 10:08 KST, lane-cap forced underrepresented pick)
+- Coverage check (last 10 completions by lane): combat=6, systems=4, qa=4, ux=3, ai-content=3, world=0, design=0, vfx=0.
+- Lane cap breach: combat (60%) > 40%; forced next experiment into underrepresented lanes (design/world/vfx).
+- 24h cadence guardrail status: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low risk, Design/World): Add offline scene-arc cue token (`DMG COMBO CONF COACH SCENE ARC:ASH|IRON|EMBER`) mapped from combo-confidence coach recommendation + pressure/drift.
+  - Player fantasy target: combat guidance reads like world tone, not raw telemetry.
+  - Expected impact metric: fewer ambiguous coach rows in digest triage notes.
+  - Scope: S | Risk: low | Rollback: remove row + payload keys (offline-only).
+  - Pass/fail: pass if digest markdown/json include deterministic scene-arc cue and regression stays green.
+- Idea 2 (mid risk, Combat/VFX): Add compact coach-scene alias (`DCCSA:<A|I|E>`) behind flag for dense digest scanability.
+  - Player fantasy target: instant one-token mood read in combat review.
+  - Expected impact metric: faster parse time in playtest postmortems.
+  - Scope: S | Risk: medium | Rollback: disable/remove flag-gated alias.
+  - Pass/fail: pass if alias appears only when flag enabled and contracts remain stable.
+- Idea 3 (high risk, Systems/Ops): Add 24h lane-cadence miss predictor (`LANE CADENCE MISS RISK:LOW|MID|HIGH`) from rolling completion spread.
+  - Player fantasy target: maintain variety rhythm without manual policing.
+  - Expected impact metric: reduced cadence misses across daily cycles.
+  - Scope: M | Risk: high | Rollback: quarantine as optional digest advisory.
+  - Pass/fail: pass if predictor is stable across prior-window replay without false HIGH spikes.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Design/World Team: Add offline scene-arc cue token (`DMG COMBO CONF COACH SCENE ARC:ASH|IRON|EMBER`) with payload + markdown + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 10:01 KST; completed: 2026-03-26 10:08 KST)*

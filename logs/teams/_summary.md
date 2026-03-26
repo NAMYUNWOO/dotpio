@@ -3037,3 +3037,5 @@ Compact decision memory for AI context efficiency.
 - Backlog sync: marked TASKS + POST_RC_BACKLOG combo-confidence coach item done.
 - 2026-03-26 09:50 KST — Game Director Cycle EG completed: implemented low-risk experiment Idea 1 (`DCCR` compact alias for combo-confidence coach recommendation) with regression lock.
 - Injected follow-ups into backlog: (1) Systems/QA churn coverage for `DMG COMBO CONF COACH REC`/`DCCR`; (2) AI Content fallback narrative line tied to recommendation streak drift.
+
+- 2026-03-26 10:08 KST — Cycle EH: lane-cap forced underrepresented pick after last-10 coverage (combat=6/10 > 40%). Shipped Design/World offline token `DMG COMBO CONF COACH SCENE ARC:ASH|IRON|EMBER` (payload + markdown + regression lock), kept runtime gameplay untouched.

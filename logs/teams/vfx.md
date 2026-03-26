@@ -264,3 +264,9 @@
 ## 2026-03-26 08:03 KST — Cycle EE
 - No VFX-facing gameplay or debug token changes in this cycle.
 - Current FX telemetry/readability tokens unaffected.
+
+
+## 2026-03-26 10:08 KST — Cycle EH VFX cadence note
+- No shader/runtime FX changes this cycle.
+- Logged lane-cap forced pick toward underrepresented design/world lane to keep combat-heavy streak from starving visual/world readability cadence.
+- Follow-up candidate retained: optional flag-gated compact scene-arc alias (`DCCSA`) if digest density increases.

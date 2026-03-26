@@ -1802,3 +1802,9 @@
 - 2026-03-26 09:39 KST — No map/portal topology changes this cycle; world lane observed to keep cadence record in sync with combat/ai-content experiment cycle.
 - Follow-up: prioritize next world/design lane task if untouched-window exceeds cadence target.
 - 2026-03-26 09:50 KST — No world/map edits this cycle; world lane remains queued for upcoming cadence rebalance task.
+
+
+## 2026-03-26 10:08 KST — Cycle EH world/design slice
+- Added offline digest cue `DMG COMBO CONF COACH SCENE ARC:ASH|IRON|EMBER` to align combo-confidence coaching with world-tone arc.
+- Mapping stays deterministic and reversible: GUARD/high drift -> ASH, STEADY/high pressure -> IRON, SURGE/low drift -> EMBER.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

@@ -7671,6 +7671,32 @@ def combo_confidence_coach_recommendation_from_signals(
         "offlineOnly": True,
     }
 
+def combo_confidence_coach_scene_arc_from_signals(
+    *,
+    recommendation: str,
+    pressure_band: str,
+    drift_risk: str,
+) -> tuple[str, dict[str, object]]:
+    """Design/world-facing offline scene-arc cue from combo-confidence coach posture."""
+    if recommendation == "GUARD" or drift_risk == "HIGH":
+        scene_arc = "ASH"
+        reason = "guardrail-or-high-drift"
+    elif recommendation == "STEADY" or pressure_band == "HIGH":
+        scene_arc = "IRON"
+        reason = "steady-pressure-bridge"
+    else:
+        scene_arc = "EMBER"
+        reason = "surge-low-drift-push"
+
+    return scene_arc, {
+        "reason": reason,
+        "recommendation": recommendation,
+        "pressureBand": pressure_band,
+        "driftRisk": drift_risk,
+        "offlineOnly": True,
+    }
+
+
 def main() -> int:
     args = parse_args()
     root = args.repo_root.resolve()
@@ -7923,6 +7949,11 @@ def main() -> int:
     combo_confidence_coach_recommendation, combo_confidence_coach_recommendation_signals = combo_confidence_coach_recommendation_from_signals(
         combo_family=token_family_totals["dmgComboAlias"],
         combo_confidence_family=token_family_totals["dmgComboConfidenceAlias"],
+        pressure_band=pressure_band,
+        drift_risk=drift_risk,
+    )
+    combo_confidence_coach_scene_arc, combo_confidence_coach_scene_arc_signals = combo_confidence_coach_scene_arc_from_signals(
+        recommendation=combo_confidence_coach_recommendation,
         pressure_band=pressure_band,
         drift_risk=drift_risk,
     )
@@ -9270,6 +9301,8 @@ def main() -> int:
         "comboConfidenceCoachRecommendationSignals": combo_confidence_coach_recommendation_signals,
         "comboConfidenceCoachAlias": dmg_combo_conf_coach_alias if dmg_combo_conf_coach_alias_flag_enabled else "FLAG OFF",
         "comboConfidenceCoachAliasSignals": {"flagName": dmg_combo_conf_coach_alias_flag_name, "flagEnabled": dmg_combo_conf_coach_alias_flag_enabled, "recommendation": combo_confidence_coach_recommendation, "alias": dmg_combo_conf_coach_alias},
+        "comboConfidenceCoachSceneArc": combo_confidence_coach_scene_arc,
+        "comboConfidenceCoachSceneArcSignals": combo_confidence_coach_scene_arc_signals,
         "pulseHeatFxCompactBudgetDrift": pulse_heat_fx_compact_budget_drift_level,
         "pulseHeatFxCompactBudgetDriftSignals": pulse_heat_fx_compact_budget_drift_signals,
         "routeGlowFxCompactBudgetDrift": route_glow_fx_compact_budget_drift_level,
@@ -9331,6 +9364,7 @@ def main() -> int:
         f"- DMG COMBO CHAIN COACH: **{combo_chain_narrative_coach_line}** ({combo_chain_narrative_coach_line_signals['reason']}; rec={combo_chain_narrative_coach_line_signals['recommendation']} conf={combo_chain_narrative_coach_line_signals['confidence']} pressure={combo_chain_narrative_coach_line_signals['pressureBand']} drift={combo_chain_narrative_coach_line_signals['driftRisk']} cadence={combo_chain_narrative_coach_line_signals['laneCadenceRecency']} offlineOnly={combo_chain_narrative_coach_line_signals['offlineOnly']})",
         f"- DMG COMBO CONF COACH REC: **{combo_confidence_coach_recommendation}** ({combo_confidence_coach_recommendation_signals['reason']}; killHeatVol={combo_confidence_coach_recommendation_signals['killHeatVolatility']} comboChurn={combo_confidence_coach_recommendation_signals['comboChurn']} comboNet={combo_confidence_coach_recommendation_signals['comboNet']:+d} confChurn={combo_confidence_coach_recommendation_signals['comboConfidenceChurn']} confNet={combo_confidence_coach_recommendation_signals['comboConfidenceNet']:+d} pressure={combo_confidence_coach_recommendation_signals['pressureBand']} drift={combo_confidence_coach_recommendation_signals['driftRisk']} offlineOnly={combo_confidence_coach_recommendation_signals['offlineOnly']})",
         f"- DCCR: **{dmg_combo_conf_coach_alias if dmg_combo_conf_coach_alias_flag_enabled else 'FLAG OFF'}** (flag={dmg_combo_conf_coach_alias_flag_name} enabled={dmg_combo_conf_coach_alias_flag_enabled} full={combo_confidence_coach_recommendation})",
+        f"- DMG COMBO CONF COACH SCENE ARC: **{combo_confidence_coach_scene_arc}** ({combo_confidence_coach_scene_arc_signals['reason']}; rec={combo_confidence_coach_scene_arc_signals['recommendation']} pressure={combo_confidence_coach_scene_arc_signals['pressureBand']} drift={combo_confidence_coach_scene_arc_signals['driftRisk']} offlineOnly={combo_confidence_coach_scene_arc_signals['offlineOnly']})",
         f"- PULSE REMAP MOMENTUM: **{pulse_remap_momentum_recommendation}** ({pulse_remap_momentum_recommendation_signals['rationale']}; rec={pulse_remap_momentum_recommendation_signals['recommendation']} driftRisk={pulse_remap_momentum_recommendation_signals['driftRisk']} pressure={pulse_remap_momentum_recommendation_signals['pressureBand']} cadence={pulse_remap_momentum_recommendation_signals['laneCadenceRecency']} planChurn={pulse_remap_momentum_recommendation_signals['planChurn']} planNet={pulse_remap_momentum_recommendation_signals['planNet']:+d} offlineOnly={pulse_remap_momentum_recommendation_signals['offlineOnly']})",
         f"- PULSE REMAP MOMENTUM Δ: **{pulse_remap_momentum_drift:+d}** ({pulse_remap_momentum_drift_signals['reason']}; current={pulse_remap_momentum_drift_signals['currentMomentum']}({pulse_remap_momentum_drift_signals['currentScore']:+d}) prior={pulse_remap_momentum_drift_signals['priorMomentum']}({pulse_remap_momentum_drift_signals['priorScore']:+d}) loaded={pulse_remap_momentum_drift_signals['priorLoaded']})",
         f"- PULSE REMAP MOMENTUM SUPPRESS: **{pulse_remap_momentum_suppression}** ({pulse_remap_momentum_suppression_signals['reason']}; streak={pulse_remap_momentum_suppression_signals['freezeStreak']} threshold={pulse_remap_momentum_suppression_signals['threshold']} suppress={str(pulse_remap_momentum_suppression_signals['suppress']).upper()} offlineOnly={pulse_remap_momentum_suppression_signals['offlineOnly']})",
