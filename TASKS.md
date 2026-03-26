@@ -1297,5 +1297,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/World): Prototype offline adaptive coach-copy variant pack tied to prolonged `LPRCG:APPLY` streak + volatility regime transitions.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact guard-persistence coach alias token (`LPRCGC:<R|W|S>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 01:06 KST; completed: 2026-03-27 01:08 KST)*
-- [ ] Systems/QA Team: Add explicit adjacency/order regression lock for `LPRCG COACH` -> `LPRCGC` in summary + token-coverage sections.
+- [x] Systems/QA Team: Add explicit adjacency/order regression lock for `LPRCG COACH` -> `LPRCGC` in summary + token-coverage sections. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 01:20 KST)*
 - [ ] AI Content/World Team: Prototype offline adaptive guard-persistence coach copy variant-pack policy from sustained `LPRCG:APPLY` streak depth.

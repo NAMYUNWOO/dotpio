@@ -2319,6 +2319,30 @@ def main() -> int:
         assert "LPRCGC:" in md_text
         assert "LPRCG THRESH FAMILY CHURN" in md_text
         assert "LPRCG COACH + LPRCGC FAMILY CHURN" in md_text
+
+        summary_lines = md_text.splitlines()
+        summary_coach_idx = next(
+            idx for idx, line in enumerate(summary_lines) if line.startswith("- LPRCG COACH:")
+        )
+        summary_alias_idx = next(
+            idx for idx, line in enumerate(summary_lines) if line.startswith("- LPRCGC:")
+        )
+        assert summary_alias_idx == summary_coach_idx + 1
+
+        token_coverage_start_idx = next(
+            idx
+            for idx, line in enumerate(summary_lines)
+            if line.strip() == "## Token Family Coverage"
+        )
+        token_coverage_lines = summary_lines[token_coverage_start_idx:]
+        coverage_coach_idx = next(
+            idx for idx, line in enumerate(token_coverage_lines) if line.startswith("- LPRCG COACH:")
+        )
+        coverage_alias_idx = next(
+            idx for idx, line in enumerate(token_coverage_lines) if line.startswith("- LPRCGC:")
+        )
+        assert coverage_alias_idx == coverage_coach_idx + 1
+
         assert "LANE PRIORITY REC HYSTERESIS:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text

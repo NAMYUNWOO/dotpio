@@ -3208,3 +3208,9 @@ Compact decision memory for AI context efficiency.
 - Because ACTION_ITEMS/TASKS/POST_RC were fully checked, executed Game Director Cycle EU (3 ideas) and shipped selected low-risk UX/Systems slice: compact alias `LPRCGC:<R|W|S>` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_ALIAS`.
 - Added payload contract keys `lanePriorityRecommendationConfidenceGuardPersistenceCoachAlias` + signals, plus markdown/token-coverage row `LPRCG COACH + LPRCGC FAMILY CHURN`; weekly drift regression passes.
 - Injected next backlog tasks: Systems/QA adjacency/order lock for `LPRCG COACH` -> `LPRCGC` and AI Content/World adaptive coach copy variant-pack policy for sustained APPLY streak depth.
+
+## 2026-03-27 01:20 KST
+- Closed Cycle EU Systems/QA follow-up: added explicit regression adjacency lock for `LPRCG COACH` -> `LPRCGC` in both weekly digest summary and token-family coverage sections.
+- Durable decision: ordering contracts now enforced via index-based assertions scoped by markdown section boundaries (prevents accidental reorder drift while avoiding cross-section false matches).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Backlog sync: marked TASKS + POST_RC entries complete for adjacency/order lock; remaining unchecked item is AI Content/World adaptive guard-persistence coach variant-pack policy.

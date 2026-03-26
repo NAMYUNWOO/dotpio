@@ -3438,3 +3438,15 @@
   - Regression now asserts `LPRCG COACH`, `LPRCGC`, and `LPRCG COACH + LPRCGC FAMILY CHURN` presence.
 - Follow-up:
   - Add strict line-order/adjacency lock for coach + alias rows.
+
+## 2026-03-27 01:20 KST
+- Task: Verify adjacency/order lock for `LPRCG COACH` -> `LPRCGC` in weekly digest markdown outputs.
+- Commit: HEAD (this run)
+- Files checked: `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+- Decisions:
+  - Regression now fails if summary ordering or token-coverage ordering drifts for `LPRCG COACH` and `LPRCGC`.
+  - No gameplay/runtime changes; no portal validator/screenshot refresh required.
+- Follow-up:
+  - Continue with AI Content/World offline adaptive guard-persistence coach copy variant-pack policy.

@@ -2889,3 +2889,15 @@
   - Added dedicated token-family churn row `LPRCG COACH + LPRCGC FAMILY CHURN` in summary + token-coverage sections.
 - Follow-up:
   - Add deterministic adjacency/order regression lock for `LPRCG COACH` -> `LPRCGC`.
+
+## 2026-03-27 01:20 KST
+- Task: Add explicit adjacency/order regression lock for `LPRCG COACH` -> `LPRCGC` in weekly digest summary + token-coverage sections.
+- Commit: HEAD (this run)
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added deterministic adjacency assertions for both markdown sections by locating line indices and requiring `LPRCGC` immediately after `LPRCG COACH`.
+  - Scoped token-coverage check from `## Token Family Coverage` heading to avoid false positives from summary section rows.
+- Follow-up:
+  - Next highest unchecked item: AI Content/World adaptive guard-persistence coach variant-pack policy.
