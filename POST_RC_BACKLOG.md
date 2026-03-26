@@ -1083,4 +1083,14 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact guard-persistence coach-pack alias token (`LPRCGCP:<B|A|N>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_PACK_ALIAS` with payload/markdown wiring + regression lock.
 - [x] Systems/QA Team: Add token-family churn coverage row for `LPRCG COACH PACK:` + `LPRCGCP:` with regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 02:31 KST)*
-- [ ] AI Content/World Team: Prototype offline adaptive coach-copy narrative line from coach-pack + volatility regime transitions.
+- [x] AI Content/World Team: Prototype offline adaptive coach-copy narrative line from coach-pack + volatility regime transitions. *(started: 2026-03-27 03:01 KST, completed: 2026-03-27 03:08 KST)*
+
+## Cycle EW - Game Director Review (2026-03-27 03:12 KST)
+- Coverage check (last 10 completions): systems/qa + ai-content digest-policy lane remains dominant; selected low-risk compact readability slice to keep newly-added coach-copy cue scanable.
+- Idea 1 (low risk, UX/Systems): Add compact coach-copy alias token (`LPRCGCN:<R|B|A|N>`) behind flag for dense digest scanning.
+- Idea 2 (mid risk, Systems/QA): Add family-churn coverage row/order lock for `LPRCG COACH COPY:` + alias.
+- Idea 3 (high risk, AI Content/World): Prototype flagged rationale token `LPRCG COACH COPY WHY:<short>`.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Systems Team: Add compact coach-copy alias token (`LPRCGCN:<R|B|A|N>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_COPY_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 03:10 KST; completed: 2026-03-27 03:12 KST)*
+- [ ] Systems/QA Team: Add token-family churn coverage + adjacency lock for `LPRCG COACH COPY:` + `LPRCGCN:` rows in summary and token-coverage sections.
+- [ ] AI Content/World Team: Prototype flagged rationale token `LPRCG COACH COPY WHY:<short>` for offline coaching context.

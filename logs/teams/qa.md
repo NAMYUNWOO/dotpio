@@ -3469,3 +3469,15 @@
 - Implementation: added `lanePriorityRecommendationConfidenceGuardCoachPackAlias` to `TOKEN_FAMILY_ALIASES`, emitted `LPRCG COACH PACK + LPRCGCP FAMILY CHURN` rows in both summary and token-family coverage sections.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
 - Follow-up: remaining unchecked queue item is AI Content/World narrative-line prototype from coach-pack + volatility-regime transitions.
+
+
+## 2026-03-27 03:08 KST — LPRCG coach-copy narrative line prototype completed
+- Completed item: offline adaptive coach-copy narrative line derived from `LPRCG COACH PACK` + volatility regime transitions.
+- Implementation: weekly digest now emits `LPRCG COACH COPY:<line>` plus JSON payload `lanePriorityRecommendationConfidenceGuardPersistenceCoachCopyNarrative` and signals.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (all PASS).
+
+
+## 2026-03-27 03:12 KST — Cycle EW selected slice shipped (`LPRCGCN`)
+- Game Director cycle executed (3 ideas) and selected low-risk vertical slice: compact alias token `LPRCGCN:<R|B|A|N>` for coach-copy scanability.
+- Added payload contract keys `lanePriorityRecommendationConfidenceGuardPersistenceCoachCopyAlias` + signals, and markdown rows in summary + token-coverage sections.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (PASS).

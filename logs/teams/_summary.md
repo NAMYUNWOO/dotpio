@@ -16,7 +16,12 @@ Compact decision memory for AI context efficiency.
 - Closed Cycle ET Systems/QA follow-up from TASKS/POST_RC: digest now tracks `LPRCG THRESH:` as its own token family via `lanePriorityRecommendationConfidenceGuardThresholdAlias`.
 - Weekly markdown now emits adjacent rows `LPRCG + LANE PRIORITY REC CONF GUARD FAMILY CHURN` and `LPRCG THRESH FAMILY CHURN` in both summary and token-coverage sections for deterministic scan order.
 - Regression contract expanded to require the new family key and `LPRCG THRESH FAMILY CHURN` row; verification passed (`py_compile` + weekly drift regression).
-- Remaining actionable unchecked queue item is now AI Content/World: offline guard-persistence coaching cue when `LPRCG` remains `APPLY` for consecutive windows.
+- Closed remaining actionable unchecked queue item: AI Content/World offline guard-persistence coaching cue now ships as `LPRCG COACH COPY:<line>` derived from coach-pack + volatility regime transition signals.
+- Weekly digest payload now includes `lanePriorityRecommendationConfidenceGuardPersistenceCoachCopyNarrative` + signals for offline operator narrative guidance.
+- Regression lock expanded for new payload schema + markdown row (`LPRCG COACH COPY`); verification passed (`py_compile` + weekly drift regression + digest generation).
+- Triggered Game Director Cycle EW after full-check state: generated 3 ideas and shipped selected low-risk vertical slice `LPRCGCN:<R|B|A|N>` (compact coach-copy alias behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_COPY_ALIAS`).
+- Regression contract expanded to include `lanePriorityRecommendationConfidenceGuardPersistenceCoachCopyAlias` (+ signals) and markdown `LPRCGCN` coverage.
+- Cycle EW follow-ups now queued as unchecked: Systems/QA family-churn/order lock for `LPRCG COACH COPY + LPRCGCN`, and AI Content/World flagged rationale token `LPRCG COACH COPY WHY:<short>`.
 
 - Closed final unchecked POST_RC item from Cycle ES: lane-priority confidence guard now uses adaptive divergence thresholding under `SWING` volatility memory (`divergenceThreshold=3` when swing-memory hold/smoothing is active, otherwise baseline 2).
 - Confidence guard payload now exposes `divergenceThreshold` + `thresholdPolicy`, and regression contracts lock the expanded schema plus adaptive behavior cases.
