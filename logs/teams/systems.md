@@ -2955,3 +2955,10 @@
 - Decision: Keep ordering contract explicit in regression assertions instead of generator-side hard sort (low-risk, reversible, contract-first).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` → PASS.
 - Follow-up: Remaining Cycle EX item is combat/vfx optional compact cue alias prototype.
+
+## 2026-03-27 04:49 KST — Cycle EY Combat/VFX bridge cue alias slice
+- Closed Cycle EX remaining Combat/VFX follow-up by shipping compact cue alias `DCCFXC:<H|T|M>` (mode from DCC volatility + coach-copy rationale short).
+- Triggered Game Director Cycle EY after full-check state and shipped selected low-risk vertical slice: `DCCFXCW:<R|S|F|B>` compact rationale alias derived from `LPRCG COACH COPY WHY`.
+- Wiring: added payload keys/signals, summary rows, token-coverage aliases+legends, and token-family churn coverage for `DCCFXC`/`DCCFXCW`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Next backlog hooks injected: (1) Systems/QA adjacency lock for `DCCFXV -> DCCFXC -> DCCFXCW`, (2) Design/World scene copy palette hint token from `DCCFXCW` transitions.

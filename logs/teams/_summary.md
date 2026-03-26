@@ -3251,3 +3251,7 @@ Compact decision memory for AI context efficiency.
 - Change is assertion-only (no runtime gameplay impact) and keeps digest ordering deterministic for operator scanability.
 - Verification passed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Remaining unchecked queue item is Cycle EX Combat/VFX optional compact cue alias prototype.
+- 2026-03-27 04:49 KST: Closed Cycle EX Combat/VFX follow-up by adding compact FX-bridge alias `DCCFXC:<H|T|M>` (flag-gated) plus payload/signals and family-churn reporting.
+- Full-check trigger executed Game Director Cycle EY (3 ideas) and shipped selected minimal vertical slice `DCCFXCW:<R|S|F|B>` to bridge coach-copy rationale into FX triage scan cues.
+- Weekly digest summary + token-coverage now include `DCCFXC`/`DCCFXCW` rows, legends, and family churn metrics; regression suite remains green.
+- Injected next tasks: Systems/QA ordering lock (`DCCFXV -> DCCFXC -> DCCFXCW`) and Design/World scene copy palette hint token driven by `DCCFXCW` transitions.

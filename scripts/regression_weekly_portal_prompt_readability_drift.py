@@ -237,6 +237,8 @@ def main() -> int:
         assert payload.get("comboConfidenceFxAccentTrendHysteresisConfidence") in {"LOW", "MID", "HIGH"}, payload
         assert payload.get("comboConfidenceFxAccentTrendHysteresisAlias") in {"FLAG OFF", "DCCFXH:HL", "DCCFXH:HM", "DCCFXH:HH", "DCCFXH:AL", "DCCFXH:AM", "DCCFXH:AH"}, payload
         assert payload.get("comboConfidenceFxAccentVolatilityAlias") in {"FLAG OFF", "DCCFXV:C", "DCCFXV:S", "DCCFXV:P"}, payload
+        assert payload.get("dmgComboConfidenceFxCoachCueAlias") in {"DCCFXC:H", "DCCFXC:T", "DCCFXC:M"}, payload
+        assert payload.get("dmgComboConfidenceFxCoachCueWhyAlias") in {"DCCFXCW:R", "DCCFXCW:S", "DCCFXCW:F", "DCCFXCW:B"}, payload
         assert set(payload.get("comboConfidenceFxAccentTrendHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",
@@ -2550,10 +2552,18 @@ def main() -> int:
         assert "DCCFXT ALIAS:" in md_text
         assert "DCCFXH:" in md_text
         assert "DCCFXV:" in md_text
+        assert "DCCFXC:" in md_text
+        assert "DCCFXCW:" in md_text
         assert "DCCFXV FAMILY CHURN" in md_text
+        assert "DCCFXC FAMILY CHURN" in md_text
+        assert "DCCFXCW FAMILY CHURN" in md_text
         assert "DCCFXH ALIAS:" in md_text
         assert "DCCFXV ALIAS:" in md_text
+        assert "DCCFXC ALIAS:" in md_text
+        assert "DCCFXCW ALIAS:" in md_text
         assert "DCCFXV LEGEND:" in md_text
+        assert "DCCFXC LEGEND:" in md_text
+        assert "DCCFXCW LEGEND:" in md_text
         assert "DCCFXV + DMG COMBO CONF FX ACCENT VOLATILITY:" in md_text
         assert "DCCST ALIAS:" in md_text
         assert "DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND" in md_text
@@ -2584,7 +2594,11 @@ def main() -> int:
         combo_conf_dccfxt_alias_idx = _find_line_index("- DCCFXT:")
         combo_conf_dccfxh_alias_idx = _find_line_index("- DCCFXH:")
         combo_conf_dccfxv_alias_idx = _find_line_index("- DCCFXV:")
+        combo_conf_dccfxc_alias_idx = _find_line_index("- DCCFXC:")
+        combo_conf_dccfxcw_alias_idx = _find_line_index("- DCCFXCW:")
         combo_conf_dccfxv_family_churn_idx = _find_line_index("- DCCFXV FAMILY CHURN:")
+        combo_conf_dccfxc_family_churn_idx = _find_line_index("- DCCFXC FAMILY CHURN:")
+        combo_conf_dccfxcw_family_churn_idx = _find_line_index("- DCCFXCW FAMILY CHURN:")
         combo_conf_copy_swap_dccsr_family_churn_idx = _find_line_index("- DCCSR FAMILY CHURN:")
         combo_conf_copy_swap_dccst_family_churn_idx = _find_line_index("- DCCST FAMILY CHURN:")
         combo_conf_copy_swap_family_trend_idx = _find_line_index("- DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND:")
@@ -2638,11 +2652,23 @@ def main() -> int:
         assert combo_conf_dccfxv_alias_idx == combo_conf_dccfxh_alias_idx + 1, (
             "expected DCCFXV row directly after DCCFXH row"
         )
-        assert combo_conf_dccfxv_family_churn_idx == combo_conf_dccfxv_alias_idx + 1, (
-            "expected DCCFXV FAMILY CHURN row directly after DCCFXV row"
+        assert combo_conf_dccfxc_alias_idx == combo_conf_dccfxv_alias_idx + 1, (
+            "expected DCCFXC row directly after DCCFXV row"
         )
-        assert combo_conf_copy_swap_dccsr_family_churn_idx == combo_conf_dccfxv_family_churn_idx + 1, (
-            "expected DCCSR FAMILY CHURN row directly after DCCFXV FAMILY CHURN row"
+        assert combo_conf_dccfxcw_alias_idx == combo_conf_dccfxc_alias_idx + 1, (
+            "expected DCCFXCW row directly after DCCFXC row"
+        )
+        assert combo_conf_dccfxv_family_churn_idx == combo_conf_dccfxcw_alias_idx + 1, (
+            "expected DCCFXV FAMILY CHURN row directly after DCCFXCW row"
+        )
+        assert combo_conf_dccfxc_family_churn_idx == combo_conf_dccfxv_family_churn_idx + 1, (
+            "expected DCCFXC FAMILY CHURN row directly after DCCFXV FAMILY CHURN row"
+        )
+        assert combo_conf_dccfxcw_family_churn_idx == combo_conf_dccfxc_family_churn_idx + 1, (
+            "expected DCCFXCW FAMILY CHURN row directly after DCCFXC FAMILY CHURN row"
+        )
+        assert combo_conf_copy_swap_dccsr_family_churn_idx == combo_conf_dccfxcw_family_churn_idx + 1, (
+            "expected DCCSR FAMILY CHURN row directly after DCCFXCW FAMILY CHURN row"
         )
         assert combo_conf_copy_swap_dccst_family_churn_idx == combo_conf_copy_swap_dccsr_family_churn_idx + 1, (
             "expected DCCST FAMILY CHURN row directly after DCCSR FAMILY CHURN row"

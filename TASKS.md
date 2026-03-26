@@ -1330,4 +1330,14 @@ See project-level plans:
 - Selected experiment: Idea 1 (forced underrepresented lane, minimal vertical slice).
 - [x] AI Content/World Team: Implement flagged `LPRCG COACH COPY WHY:<short>` token + payload signals + markdown rows + regression assertions.
 - [x] Systems/QA Team: Add adjacency/order lock so `LPRCG COACH COPY:` → `LPRCGCN:` → `LPRCG COACH COPY WHY:` is deterministic in summary + token coverage.
-- [ ] Combat/VFX Team: Prototype optional compact cue alias from `DCCFX` volatility to bridge coach-copy rationale and FX accent triage.
+- [x] Combat/VFX Team: Prototype optional compact cue alias from `DCCFX` volatility to bridge coach-copy rationale and FX accent triage. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 04:34 KST; completed: 2026-03-27 04:40 KST)*
+
+## Cycle EY - Game Director Review (2026-03-27 04:41 KST)
+- Coverage check (last 10 completions): systems/qa still leads; force player-facing combat/vfx readability slice this cycle.
+- Idea 1 (low risk, Combat/VFX): Add compact bridge rationale alias `DCCFXCW:<R|S|F|B>` derived from `LPRCG COACH COPY WHY` for FX triage scan speed.
+- Idea 2 (mid risk, Systems/QA): Lock adjacency `DCCFXV -> DCCFXC -> DCCFXCW` in summary + token coverage.
+- Idea 3 (high risk, Design/World): Generate scene copy palette hints from DCC cue mode + volatility transitions.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Combat/VFX Team: Add compact bridge rationale alias token `DCCFXCW:<R|S|F|B>` with payload + markdown wiring + regression coverage. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 04:41 KST; completed: 2026-03-27 04:48 KST)*
+- [ ] Systems/QA Team: Add deterministic adjacency/order lock for `DCCFXV` -> `DCCFXC` -> `DCCFXCW` rows in summary + token coverage.
+- [ ] Design/World Team: Prototype scene copy palette hint token driven by `DCCFXCW` transitions.
