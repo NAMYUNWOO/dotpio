@@ -3255,3 +3255,10 @@ Compact decision memory for AI context efficiency.
 - Full-check trigger executed Game Director Cycle EY (3 ideas) and shipped selected minimal vertical slice `DCCFXCW:<R|S|F|B>` to bridge coach-copy rationale into FX triage scan cues.
 - Weekly digest summary + token-coverage now include `DCCFXC`/`DCCFXCW` rows, legends, and family churn metrics; regression suite remains green.
 - Injected next tasks: Systems/QA ordering lock (`DCCFXV -> DCCFXC -> DCCFXCW`) and Design/World scene copy palette hint token driven by `DCCFXCW` transitions.
+
+## 2026-03-27 05:08 KST — Cycle EY follow-up (Design/World)
+- Shipped offline digest token `DCCFXCW SCENE PALETTE:COOL|ASH|SCAR` derived from `DCCFXCW` transition state (prev -> current alias).
+- Added feature flag: `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PALETTE`.
+- Mapping decision: `R=>COOL`, `B/F=>ASH`, `S or transition-into F/S=>SCAR` for stronger scene-copy intensity handoff.
+- Regression lock updated to enforce summary row order: `DCCFXCW` -> `DCCFXCW SCENE PALETTE` -> `DCCFXV FAMILY CHURN`.
+- Remaining EY unchecked item: Systems/QA adjacency lock in token-coverage (`DCCFXV -> DCCFXC -> DCCFXCW`).

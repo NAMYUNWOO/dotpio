@@ -239,6 +239,7 @@ def main() -> int:
         assert payload.get("comboConfidenceFxAccentVolatilityAlias") in {"FLAG OFF", "DCCFXV:C", "DCCFXV:S", "DCCFXV:P"}, payload
         assert payload.get("dmgComboConfidenceFxCoachCueAlias") in {"DCCFXC:H", "DCCFXC:T", "DCCFXC:M"}, payload
         assert payload.get("dmgComboConfidenceFxCoachCueWhyAlias") in {"DCCFXCW:R", "DCCFXCW:S", "DCCFXCW:F", "DCCFXCW:B"}, payload
+        assert payload.get("comboConfidenceFxCoachCueWhyScenePaletteHint") in {"FLAG OFF", "DCCFXCW SCENE PALETTE:COOL", "DCCFXCW SCENE PALETTE:ASH", "DCCFXCW SCENE PALETTE:SCAR"}, payload
         assert set(payload.get("comboConfidenceFxAccentTrendHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",
@@ -2554,6 +2555,7 @@ def main() -> int:
         assert "DCCFXV:" in md_text
         assert "DCCFXC:" in md_text
         assert "DCCFXCW:" in md_text
+        assert "DCCFXCW SCENE PALETTE:" in md_text
         assert "DCCFXV FAMILY CHURN" in md_text
         assert "DCCFXC FAMILY CHURN" in md_text
         assert "DCCFXCW FAMILY CHURN" in md_text
@@ -2596,6 +2598,7 @@ def main() -> int:
         combo_conf_dccfxv_alias_idx = _find_line_index("- DCCFXV:")
         combo_conf_dccfxc_alias_idx = _find_line_index("- DCCFXC:")
         combo_conf_dccfxcw_alias_idx = _find_line_index("- DCCFXCW:")
+        combo_conf_dccfxcw_scene_palette_idx = _find_line_index("- DCCFXCW SCENE PALETTE:")
         combo_conf_dccfxv_family_churn_idx = _find_line_index("- DCCFXV FAMILY CHURN:")
         combo_conf_dccfxc_family_churn_idx = _find_line_index("- DCCFXC FAMILY CHURN:")
         combo_conf_dccfxcw_family_churn_idx = _find_line_index("- DCCFXCW FAMILY CHURN:")
@@ -2658,8 +2661,11 @@ def main() -> int:
         assert combo_conf_dccfxcw_alias_idx == combo_conf_dccfxc_alias_idx + 1, (
             "expected DCCFXCW row directly after DCCFXC row"
         )
-        assert combo_conf_dccfxv_family_churn_idx == combo_conf_dccfxcw_alias_idx + 1, (
-            "expected DCCFXV FAMILY CHURN row directly after DCCFXCW row"
+        assert combo_conf_dccfxcw_scene_palette_idx == combo_conf_dccfxcw_alias_idx + 1, (
+            "expected DCCFXCW SCENE PALETTE row directly after DCCFXCW row"
+        )
+        assert combo_conf_dccfxv_family_churn_idx == combo_conf_dccfxcw_scene_palette_idx + 1, (
+            "expected DCCFXV FAMILY CHURN row directly after DCCFXCW SCENE PALETTE row"
         )
         assert combo_conf_dccfxc_family_churn_idx == combo_conf_dccfxv_family_churn_idx + 1, (
             "expected DCCFXC FAMILY CHURN row directly after DCCFXV FAMILY CHURN row"

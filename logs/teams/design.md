@@ -2028,3 +2028,5 @@
 - Wiring: added payload keys/signals, summary rows, token-coverage aliases+legends, and token-family churn coverage for `DCCFXC`/`DCCFXCW`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Next backlog hooks injected: (1) Systems/QA adjacency lock for `DCCFXV -> DCCFXC -> DCCFXCW`, (2) Design/World scene copy palette hint token from `DCCFXCW` transitions.
+
+- [2026-03-27 05:08 KST] Scene-copy palette hint mapping landed for `DCCFXCW` transitions (`R->COOL`, `F/B->ASH`, `S or shift->SCAR`) to improve narrative readability in digest triage.

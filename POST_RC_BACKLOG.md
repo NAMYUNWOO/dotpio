@@ -1115,4 +1115,4 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Add compact bridge rationale alias token `DCCFXCW:<R|S|F|B>` with payload + markdown wiring + regression coverage. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 04:41 KST; completed: 2026-03-27 04:48 KST)*
 - [ ] Systems/QA Team: Add deterministic adjacency/order lock for `DCCFXV` -> `DCCFXC` -> `DCCFXCW` rows in summary + token coverage.
-- [ ] Design/World Team: Prototype scene copy palette hint token driven by `DCCFXCW` transitions.
+- [x] Design/World Team: Prototype scene copy palette hint token driven by `DCCFXCW` transitions. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 05:02 KST; completed: 2026-03-27 05:08 KST)*
