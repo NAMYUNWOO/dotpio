@@ -1820,3 +1820,4 @@
 - No map/portal topology changes in this slice.
 - Consumed cadence-reactive coach-copy swap recommendation output as offline planning signal only.
 - World follow-up remains readability alignment (scene cadence + route tone) in next injection cycle.
+- 2026-03-26 15:01 KST — No world-content token additions this slice; kept world tone stable while improving digest observability for copy-swap coaching drift.

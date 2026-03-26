@@ -1846,3 +1846,4 @@
 - Decision: Swap policy tiers (`HOLD_COPY|ARM_SWAP|SWAP_NOW`) are now driven by `PRSMC` churn/trend + lane cadence miss risk; guard posture escalates HOLD→ARM when needed.
 - Scope: Digest/offline guidance only (no runtime combat coupling).
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- 2026-03-26 15:01 KST — Offline AI-content coaching telemetry improved: copy-swap recommendation family now carries prior-window trend context (`UP|DOWN|FLAT`) alongside churn totals.

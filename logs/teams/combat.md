@@ -1797,3 +1797,4 @@
 - Impact: Combat coach copy handoff now includes cadence-aware swap posture from `PRSMC` volatility + lane cadence miss risk.
 - Safety: Offline/reporting only; no runtime combo timing or HUD behavior changes.
 - Verification linkage: weekly digest regression + generation pass.
+- 2026-03-26 15:01 KST — Combat-facing offline coach-copy swap telemetry now exposes prior-window trend drift, clarifying whether recommendation family pressure is rising or settling.

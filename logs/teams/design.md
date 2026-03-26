@@ -1863,3 +1863,4 @@
 - Approved compact deterministic recommendation vocabulary for swap posture: `HOLD_COPY|ARM_SWAP|SWAP_NOW`.
 - Decision: keep copy-swap policy offline-only in weekly digest; no runtime UI text mutation.
 - Follow-up: evaluate compact alias if digest budget pressure increases.
+- 2026-03-26 15:01 KST — Digest readability pass: copy-swap coaching now shows both magnitude (`FAMILY CHURN`) and directional drift (`FAMILY TREND`) to reduce triage ambiguity.

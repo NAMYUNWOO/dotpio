@@ -2747,3 +2747,4 @@
 - Change: `scripts/weekly_portal_prompt_readability_drift.py` now computes `comboConfidenceCoachCopySwapRecommendation` from `pulseRemapSceneMicrolineCadenceAlias` churn/trend + `LANE CADENCE MISS RISK` signals.
 - Output contract: added digest token `DMG COMBO CONF COACH COPY SWAP REC` (JSON + markdown) and token-family churn row `DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN`.
 - Verification: `python3 -m py_compile ...` PASS, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS, digest generation PASS.
+- 2026-03-26 15:01 KST — Added prior-window drift tracker for `dmgComboConfidenceCoachCopySwapRecommendationAlias` so weekly digest separates current churn (`FAMILY CHURN`) from directionality (`FAMILY TREND`); payload now emits `comboConfidenceCoachCopySwapRecommendationFamilyTrend*` fields.

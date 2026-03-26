@@ -2075,3 +2075,4 @@
 - Added/validated digest row `DMG COMBO CONF COACH COPY SWAP REC` plus family churn companion row for one-glance triage.
 - Compact wording preserved for DOS-width reports; no HUD/runtime overlay changes.
 - Verification inherited from weekly digest regression + generation pass.
+- 2026-03-26 15:01 KST — UX scanline update: added explicit `DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND` row to keep one-glance digest interpretation (magnitude vs direction) deterministic.

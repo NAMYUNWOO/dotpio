@@ -3304,3 +3304,4 @@
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 120` ✅
+- 2026-03-26 15:01 KST — Regression lock expanded for copy-swap coach family: require `DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND` row and adjacency after `DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN` in weekly digest markdown.
