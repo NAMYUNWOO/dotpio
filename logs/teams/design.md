@@ -1889,3 +1889,19 @@
 ## 2026-03-26 17:31 KST — Cycle EN selected experiment (DCCFXT) [DONE]
 - Chosen idea: mid-risk UX/Combat compact FX-accent trend alias for dense digest readability.
 - Implemented minimal vertical slice with rollback via `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_ALIAS`.
+
+## 2026-03-26 18:07 KST
+- Task: Cycle EM follow-up — prototype volatility-aware accent trend hysteresis policy (offline-only) for `DCCFXT`.
+- Commit: HEAD (pending in this run)
+- Files:
+  - `scripts/weekly_portal_prompt_readability_drift.py`
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `TASKS.md`
+  - `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added volatility-regime-aware trend hysteresis (`CALM=1`, `SWING=2`, `SPIKE=3`) for `DCCFX` family trend flips.
+  - Exposed digest JSON recommendation/confidence payloads (`comboConfidenceFxAccentTrendHysteresisRecommendation`, `...Confidence`) and markdown row `DCCFX TREND HYS`.
+- Follow-up:
+  - Monitor whether `HOLD` recommendation over-triggers in low-drift windows; retune thresholds if weekly drift deltas show suppression bias.

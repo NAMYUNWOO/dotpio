@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-26 11:04 KST
+Last updated: 2026-03-26 18:07 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed highest-priority unchecked AI Content/Combat item from TASKS/POST_RC: shipped offline volatility-aware `DCCFX` trend hysteresis policy for weekly digest (`CALM=1`, `SWING=2`, `SPIKE=3` threshold map).
+- Weekly digest JSON now exposes explicit recommendation + confidence contracts (`comboConfidenceFxAccentTrendHysteresisRecommendation` / `...Confidence` + `...Signals`) and markdown adds `DCCFX TREND HYS` row directly before `DCCFXT`.
+- Regression contract updated in `scripts/regression_weekly_portal_prompt_readability_drift.py` (new unit-style hysteresis check, payload schema assertions, markdown row-order assertion) and passes.
 
 - Closed highest-priority unchecked TASKS/POST_RC item (AI Content/Combat): shipped offline token `DMG COMBO CONF COACH COPY SWAP REC: HOLD_COPY|ARM_SWAP|SWAP_NOW` from `PRSMC` churn/trend + `LANE CADENCE MISS RISK`.
 - Weekly digest payload now includes `comboConfidenceCoachCopySwapRecommendation` + signals; markdown adds recommendation row and family-churn row `DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN`.

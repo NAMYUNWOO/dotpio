@@ -7549,11 +7549,13 @@ def combo_confidence_fx_accent_family_trend_from_prior(
     *,
     current_family_totals: dict[str, int],
     prior_json_path: Path,
+    volatility_regime: str = "CALM",
 ) -> tuple[int, dict[str, object]]:
     """Track DCCFX/combo-confidence-fx-accent family net drift against prior digest window."""
     current_net = int(current_family_totals.get("net", 0) or 0)
     prior_net = 0
     prior_loaded = False
+    prior_trend = "FLAT"
 
     if prior_json_path.is_file():
         try:
@@ -7561,27 +7563,87 @@ def combo_confidence_fx_accent_family_trend_from_prior(
             prior_families = prior_payload.get("tokenFamilyTotals", {})
             prior_family = prior_families.get("dmgComboConfidenceFxAccentAlias", {}) if isinstance(prior_families, dict) else {}
             prior_net = int(prior_family.get("net", 0) or 0)
+            prior_trend_payload = prior_payload.get("comboConfidenceFxAccentFamilyTrendSignals", {})
+            if isinstance(prior_trend_payload, dict):
+                prior_trend = str(prior_trend_payload.get("trend", "FLAT") or "FLAT").upper()
             prior_loaded = True
         except (json.JSONDecodeError, TypeError, ValueError):
             pass
 
     drift = current_net - prior_net
-    if drift > 0:
+    raw_drift = drift
+    if raw_drift > 0:
         trend = "UP"
         reason = "combo-confidence-fx-accent-family-net-increased-vs-prior-window"
-    elif drift < 0:
+    elif raw_drift < 0:
         trend = "DOWN"
         reason = "combo-confidence-fx-accent-family-net-decreased-vs-prior-window"
     else:
         trend = "FLAT"
         reason = "combo-confidence-fx-accent-family-net-unchanged-vs-prior-window"
 
+    regime = str(volatility_regime or "CALM").upper()
+    threshold_by_regime = {
+        "SPIKE": 3,
+        "SWING": 2,
+        "CALM": 1,
+    }
+    hysteresis_threshold = threshold_by_regime.get(regime, 1)
+    hysteresis_applied = False
+    if (
+        prior_loaded
+        and prior_trend in {"UP", "DOWN"}
+        and trend in {"UP", "DOWN"}
+        and prior_trend != trend
+        and abs(raw_drift) <= hysteresis_threshold
+    ):
+        trend = "FLAT"
+        reason = "fx-accent-trend-hysteresis-suppressed-small-direction-flip"
+        hysteresis_applied = True
+
+    if not prior_loaded:
+        recommendation = "ALLOW"
+        recommendation_reason = "no-prior-window"
+    elif trend == "FLAT" and raw_drift != 0:
+        recommendation = "HOLD"
+        recommendation_reason = "hysteresis-suppressed-direction-flip"
+    elif abs(raw_drift) >= hysteresis_threshold + 2:
+        recommendation = "ALLOW"
+        recommendation_reason = "drift-cleared-hysteresis-buffer"
+    elif regime in {"SWING", "SPIKE"}:
+        recommendation = "HOLD"
+        recommendation_reason = "volatile-regime-prefers-stability"
+    else:
+        recommendation = "ALLOW"
+        recommendation_reason = "calm-regime-allows-adaptation"
+
+    magnitude = abs(raw_drift)
+    if magnitude >= hysteresis_threshold + 2:
+        confidence = "HIGH"
+        confidence_reason = "drift-magnitude-clearly-above-threshold"
+    elif magnitude >= hysteresis_threshold:
+        confidence = "MID"
+        confidence_reason = "drift-magnitude-near-threshold"
+    else:
+        confidence = "LOW"
+        confidence_reason = "drift-magnitude-below-threshold"
+
     return drift, {
         "trend": trend,
         "currentNet": current_net,
         "priorNet": prior_net,
         "priorLoaded": prior_loaded,
+        "priorTrend": prior_trend,
+        "rawDrift": raw_drift,
+        "volatilityRegime": regime,
+        "hysteresisApplied": hysteresis_applied,
+        "hysteresisThreshold": hysteresis_threshold,
+        "trendHysteresisRecommendation": recommendation,
+        "trendHysteresisRecommendationReason": recommendation_reason,
+        "trendHysteresisConfidence": confidence,
+        "trendHysteresisConfidenceReason": confidence_reason,
         "reason": reason,
+        "offlineOnly": True,
     }
 
 
@@ -8400,6 +8462,7 @@ def main() -> int:
     combo_confidence_fx_accent_family_trend_drift, combo_confidence_fx_accent_family_trend_signals = combo_confidence_fx_accent_family_trend_from_prior(
         current_family_totals=token_family_totals["dmgComboConfidenceFxAccentAlias"],
         prior_json_path=args.out_json,
+        volatility_regime=str(combo_confidence_coach_fallback_narrative_signals.get("volatilityRegime", "CALM") or "CALM"),
     )
     combo_confidence_coach_copy_swap_recommendation_family_trend_drift, combo_confidence_coach_copy_swap_recommendation_family_trend_signals = combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior(
         current_family_totals=token_family_totals["dmgComboConfidenceCoachCopySwapRecommendationAlias"],
@@ -9764,6 +9827,24 @@ def main() -> int:
         "comboConfidenceFxAccentAliasSignals": {"flagName": dmg_combo_conf_fx_accent_alias_flag_name, "flagEnabled": dmg_combo_conf_fx_accent_alias_flag_enabled, "accent": combo_confidence_fx_accent, "alias": dmg_combo_conf_fx_accent_alias},
         "comboConfidenceFxAccentFamilyTrendDrift": combo_confidence_fx_accent_family_trend_drift,
         "comboConfidenceFxAccentFamilyTrendSignals": combo_confidence_fx_accent_family_trend_signals,
+        "comboConfidenceFxAccentTrendHysteresisRecommendation": combo_confidence_fx_accent_family_trend_signals["trendHysteresisRecommendation"],
+        "comboConfidenceFxAccentTrendHysteresisRecommendationSignals": {
+            "recommendation": combo_confidence_fx_accent_family_trend_signals["trendHysteresisRecommendation"],
+            "reason": combo_confidence_fx_accent_family_trend_signals["trendHysteresisRecommendationReason"],
+            "volatilityRegime": combo_confidence_fx_accent_family_trend_signals["volatilityRegime"],
+            "hysteresisThreshold": combo_confidence_fx_accent_family_trend_signals["hysteresisThreshold"],
+            "hysteresisApplied": combo_confidence_fx_accent_family_trend_signals["hysteresisApplied"],
+            "rawDrift": combo_confidence_fx_accent_family_trend_signals["rawDrift"],
+            "offlineOnly": True,
+        },
+        "comboConfidenceFxAccentTrendHysteresisConfidence": combo_confidence_fx_accent_family_trend_signals["trendHysteresisConfidence"],
+        "comboConfidenceFxAccentTrendHysteresisConfidenceSignals": {
+            "confidence": combo_confidence_fx_accent_family_trend_signals["trendHysteresisConfidence"],
+            "reason": combo_confidence_fx_accent_family_trend_signals["trendHysteresisConfidenceReason"],
+            "hysteresisThreshold": combo_confidence_fx_accent_family_trend_signals["hysteresisThreshold"],
+            "rawDrift": combo_confidence_fx_accent_family_trend_signals["rawDrift"],
+            "offlineOnly": True,
+        },
         "comboConfidenceCoachCopySwapRecommendation": combo_confidence_coach_copy_swap_recommendation,
         "comboConfidenceCoachCopySwapRecommendationAlias": dmg_combo_conf_coach_copy_swap_alias if dmg_combo_conf_coach_copy_swap_alias_flag_enabled else "FLAG OFF",
         "comboConfidenceCoachCopySwapRecommendationAliasSignals": {"flagName": dmg_combo_conf_coach_copy_swap_alias_flag_name, "flagEnabled": dmg_combo_conf_coach_copy_swap_alias_flag_enabled, "recommendation": combo_confidence_coach_copy_swap_recommendation, "alias": dmg_combo_conf_coach_copy_swap_alias},
@@ -10037,6 +10118,7 @@ def main() -> int:
         f"- DCCSA FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['added']} removed={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['removed']} churn={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['coverage']})",
         f"- DCCFX FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceFxAccentAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceFxAccentAlias']['added']} removed={token_family_totals['dmgComboConfidenceFxAccentAlias']['removed']} churn={token_family_totals['dmgComboConfidenceFxAccentAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxAccentAlias']['coverage']})",
         f"- DCCFX FAMILY TREND: **{combo_confidence_fx_accent_family_trend_signals['trend']}** (Δnet={combo_confidence_fx_accent_family_trend_drift:+d} currentNet={combo_confidence_fx_accent_family_trend_signals['currentNet']:+d} priorNet={combo_confidence_fx_accent_family_trend_signals['priorNet']:+d} loaded={combo_confidence_fx_accent_family_trend_signals['priorLoaded']} reason={combo_confidence_fx_accent_family_trend_signals['reason']})",
+        f"- DCCFX TREND HYS: **{combo_confidence_fx_accent_family_trend_signals['trendHysteresisRecommendation']} / {combo_confidence_fx_accent_family_trend_signals['trendHysteresisConfidence']}** (reason={combo_confidence_fx_accent_family_trend_signals['trendHysteresisRecommendationReason']} confReason={combo_confidence_fx_accent_family_trend_signals['trendHysteresisConfidenceReason']} regime={combo_confidence_fx_accent_family_trend_signals['volatilityRegime']} thr={combo_confidence_fx_accent_family_trend_signals['hysteresisThreshold']} rawDrift={combo_confidence_fx_accent_family_trend_signals['rawDrift']:+d} applied={combo_confidence_fx_accent_family_trend_signals['hysteresisApplied']} offlineOnly={combo_confidence_fx_accent_family_trend_signals['offlineOnly']})",
         f"- DCCFXT: **{dmg_combo_conf_fx_accent_trend_alias if dmg_combo_conf_fx_accent_trend_alias_flag_enabled else 'FLAG OFF'}** (flag={dmg_combo_conf_fx_accent_trend_alias_flag_name} enabled={dmg_combo_conf_fx_accent_trend_alias_flag_enabled} trend={combo_confidence_fx_accent_trend})",
         f"- DCCSR FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['added']} removed={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['removed']} churn={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['coverage']})",
         f"- DCCST FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['added']} removed={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['removed']} churn={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['coverage']})",
@@ -10158,6 +10240,7 @@ def main() -> int:
         f"- DCCSA + DMG COMBO CONF COACH SCENE ARC: +{token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['added']} / -{token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['removed']} / net {token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['net']} (churn={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachSceneArcAlias']['coverage']})",
         f"- DCCFX + DMG COMBO CONF FX ACCENT: +{token_family_totals['dmgComboConfidenceFxAccentAlias']['added']} / -{token_family_totals['dmgComboConfidenceFxAccentAlias']['removed']} / net {token_family_totals['dmgComboConfidenceFxAccentAlias']['net']} (churn={token_family_totals['dmgComboConfidenceFxAccentAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxAccentAlias']['coverage']})",
         f"- DCCFX FAMILY TREND: {combo_confidence_fx_accent_family_trend_signals['trend']} (Δnet={combo_confidence_fx_accent_family_trend_drift:+d} currentNet={combo_confidence_fx_accent_family_trend_signals['currentNet']:+d} priorNet={combo_confidence_fx_accent_family_trend_signals['priorNet']:+d} loaded={combo_confidence_fx_accent_family_trend_signals['priorLoaded']})",
+        f"- DCCFX TREND HYS: {combo_confidence_fx_accent_family_trend_signals['trendHysteresisRecommendation']}/{combo_confidence_fx_accent_family_trend_signals['trendHysteresisConfidence']} (regime={combo_confidence_fx_accent_family_trend_signals['volatilityRegime']} thr={combo_confidence_fx_accent_family_trend_signals['hysteresisThreshold']} rawDrift={combo_confidence_fx_accent_family_trend_signals['rawDrift']:+d} applied={combo_confidence_fx_accent_family_trend_signals['hysteresisApplied']})",
         f"- DCCFXT ALIAS: {dmg_combo_conf_fx_accent_trend_alias if dmg_combo_conf_fx_accent_trend_alias_flag_enabled else 'FLAG OFF'} (trend={combo_confidence_fx_accent_trend} flag={dmg_combo_conf_fx_accent_trend_alias_flag_name} enabled={dmg_combo_conf_fx_accent_trend_alias_flag_enabled})",
         f"- DCCSR + DMG COMBO CONF COACH COPY SWAP REC: +{token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['added']} / -{token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['removed']} / net {token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['net']} (churn={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachCopySwapRecommendationAlias']['coverage']})",
         f"- DCCST: +{token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['added']} / -{token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['removed']} / net {token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['net']} (churn={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceCoachCopySwapTrendAlias']['coverage']})",

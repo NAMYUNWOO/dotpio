@@ -63,6 +63,7 @@ from weekly_portal_prompt_readability_drift import (
     what_if_split_escalate_recover_veto_rearm_coach_handoff_why_from_signals,
     what_if_split_escalate_recover_confidence_delta_from_prior,
     combo_confidence_fx_accent_from_signals,
+    combo_confidence_fx_accent_family_trend_from_prior,
     combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior,
 )
 
@@ -155,6 +156,29 @@ def main() -> int:
         assert hysteresis_signals["hysteresisApplied"] is True, hysteresis_signals
         assert hysteresis_signals["priorAccent"] == "EMBER", hysteresis_signals
 
+        dccfxt_prior = repo / "dccfxt_prior.json"
+        dccfxt_prior.write_text(
+            json.dumps(
+                {
+                    "tokenFamilyTotals": {
+                        "dmgComboConfidenceFxAccentAlias": {"net": 8}
+                    },
+                    "comboConfidenceFxAccentFamilyTrendSignals": {"trend": "UP"},
+                }
+            ),
+            encoding="utf-8",
+        )
+        dccfxt_drift, dccfxt_signals = combo_confidence_fx_accent_family_trend_from_prior(
+            current_family_totals={"net": 6},
+            prior_json_path=dccfxt_prior,
+            volatility_regime="SWING",
+        )
+        assert dccfxt_drift == -2, dccfxt_signals
+        assert dccfxt_signals["hysteresisApplied"] is True, dccfxt_signals
+        assert dccfxt_signals["trend"] == "FLAT", dccfxt_signals
+        assert dccfxt_signals["trendHysteresisRecommendation"] == "HOLD", dccfxt_signals
+        assert dccfxt_signals["trendHysteresisConfidence"] in {"MID", "HIGH"}, dccfxt_signals
+
         copy_swap_prior = repo / "copy_swap_prior.json"
         copy_swap_prior.write_text(
             json.dumps(
@@ -174,6 +198,24 @@ def main() -> int:
         assert copy_swap_drift == 1, copy_swap_signals
         assert copy_swap_signals["trend"] == "FLAT", copy_swap_signals
         assert copy_swap_signals["hysteresisApplied"] is True, copy_swap_signals
+        assert payload.get("comboConfidenceFxAccentTrendHysteresisRecommendation") in {"HOLD", "ALLOW"}, payload
+        assert payload.get("comboConfidenceFxAccentTrendHysteresisConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert set(payload.get("comboConfidenceFxAccentTrendHysteresisRecommendationSignals", {}).keys()) == {
+            "recommendation",
+            "reason",
+            "volatilityRegime",
+            "hysteresisThreshold",
+            "hysteresisApplied",
+            "rawDrift",
+            "offlineOnly",
+        }, payload
+        assert set(payload.get("comboConfidenceFxAccentTrendHysteresisConfidenceSignals", {}).keys()) == {
+            "confidence",
+            "reason",
+            "hysteresisThreshold",
+            "rawDrift",
+            "offlineOnly",
+        }, payload
         assert payload.get("rgfxwriWhyConfPolicyRecommendation") in {"FREEZE", "GUARDED", "RELAXED"}, payload
         assert set(payload.get("rgfxwriWhyConfPolicyRecommendationSignals", {}).keys()) == {
             "driftRisk",
@@ -2279,6 +2321,7 @@ def main() -> int:
         assert "DCCSA FAMILY CHURN" in md_text
         assert "DCCFX FAMILY CHURN" in md_text
         assert "DCCFX FAMILY TREND" in md_text
+        assert "DCCFX TREND HYS" in md_text
         assert "DCCSR FAMILY CHURN" in md_text
         assert "DCCST FAMILY CHURN" in md_text
         assert "DCCSR + DMG COMBO CONF COACH COPY SWAP REC:" in md_text
@@ -2302,6 +2345,7 @@ def main() -> int:
         combo_conf_dccsa_family_churn_idx = _find_line_index("- DCCSA FAMILY CHURN:")
         combo_conf_dccfx_family_churn_idx = _find_line_index("- DCCFX FAMILY CHURN:")
         combo_conf_dccfx_family_trend_idx = _find_line_index("- DCCFX FAMILY TREND:")
+        combo_conf_dccfx_trend_hys_idx = _find_line_index("- DCCFX TREND HYS:")
         combo_conf_dccfxt_alias_idx = _find_line_index("- DCCFXT:")
         combo_conf_copy_swap_dccsr_family_churn_idx = _find_line_index("- DCCSR FAMILY CHURN:")
         combo_conf_copy_swap_dccst_family_churn_idx = _find_line_index("- DCCST FAMILY CHURN:")
@@ -2341,8 +2385,11 @@ def main() -> int:
         assert combo_conf_dccfx_family_trend_idx == combo_conf_dccfx_family_churn_idx + 1, (
             "expected DCCFX FAMILY TREND row directly after DCCFX FAMILY CHURN row"
         )
-        assert combo_conf_dccfxt_alias_idx == combo_conf_dccfx_family_trend_idx + 1, (
-            "expected DCCFXT row directly after DCCFX FAMILY TREND row"
+        assert combo_conf_dccfx_trend_hys_idx == combo_conf_dccfx_family_trend_idx + 1, (
+            "expected DCCFX TREND HYS row directly after DCCFX FAMILY TREND row"
+        )
+        assert combo_conf_dccfxt_alias_idx == combo_conf_dccfx_trend_hys_idx + 1, (
+            "expected DCCFXT row directly after DCCFX TREND HYS row"
         )
         assert combo_conf_copy_swap_dccsr_family_churn_idx == combo_conf_dccfxt_alias_idx + 1, (
             "expected DCCSR FAMILY CHURN row directly after DCCFXT row"

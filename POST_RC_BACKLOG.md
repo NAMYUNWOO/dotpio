@@ -991,4 +991,4 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add `DCCFX FAMILY TREND` markdown + JSON signals (`currentNet`, `priorNet`, `Δnet`, `reason`) with regression lock. *(lifecycle: [~] -> [x]; completed: 2026-03-26 17:18 KST)*
 - [x] UX/Combat Team: Prototype compact FX-accent trend alias (`DCCFXT:<U|F|D>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 17:31 KST)*
-- [ ] AI Content/Combat Team: Prototype volatility-aware accent trend hysteresis policy (offline-only).
+- [x] AI Content/Combat Team: Prototype volatility-aware accent trend hysteresis policy (offline-only). *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 18:01 KST; completed: 2026-03-26 18:07 KST)*
