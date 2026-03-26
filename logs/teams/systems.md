@@ -2799,7 +2799,10 @@
 - Follow-up:
   - Monitor whether `HOLD` recommendation over-triggers in low-drift windows; retune thresholds if weekly drift deltas show suppression bias.
 
-## 2026-03-26 18:37 KST\n- Task: Cycle EN selected slice — compact DCCFX hysteresis alias token.\n- Shipped `DCCFXH:<H|A><L|M|H>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS` with payload/markdown wiring and regression/order lock.\n- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅\n
+## 2026-03-26 18:37 KST
+- Task: Cycle EN selected slice — compact DCCFX hysteresis alias token.
+- Shipped `DCCFXH:<H|A><L|M|H>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS` with payload/markdown wiring and regression/order lock.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅\n
 
 ## 2026-03-26 19:10 KST — Cycle EO lane cadence miss-risk alias slice [DONE]
 - Task: Game Director Cycle EO selected low-risk Systems/Ops vertical slice ( alias for ).
@@ -2964,3 +2967,13 @@
 - Next backlog hooks injected: (1) Systems/QA adjacency lock for `DCCFXV -> DCCFXC -> DCCFXCW`, (2) Design/World scene copy palette hint token from `DCCFXCW` transitions.
 
 - [2026-03-27 05:08 KST] Cycle EY follow-up: wired offline payload/export for `DCCFXCW SCENE PALETTE` derived from `DCCFXCW` transition state (`INIT/prev -> current`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PALETTE`. Follow-up: keep Systems/QA adjacency lock item pending.
+
+## 2026-03-27 05:38 KST — DCCFXV/DCCFXC/DCCFXCW adjacency lock [DONE]
+- Closed Cycle EY remaining Systems/QA queue item by hardening regression order checks for DCCFX rails in both summary and token-coverage sections.
+- Added section-scoped assertions: summary uses DCCFXV/DCCFXC/DCCFXCW rows; token coverage uses DCCFXV ALIAS/DCCFXC ALIAS/DCCFXCW ALIAS rows with direct adjacency constraints.
+- Verification: py_compile + scripts/regression_weekly_portal_prompt_readability_drift.py [PASS].
+- Follow-up: trigger next Game Director cycle on next run (all checkboxes currently complete).
+
+## 2026-03-27 05:47 KST — DCCFXCW scene palette legend slice [DONE]
+- Wired summary/token-coverage output to emit `DCCFXCW SCENE PALETTE LEGEND` deterministically after scene palette token.
+- Updated regression for adjacency in both sections; no runtime gameplay logic changed.

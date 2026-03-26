@@ -2116,7 +2116,10 @@
 - Follow-up:
   - Monitor whether `HOLD` recommendation over-triggers in low-drift windows; retune thresholds if weekly drift deltas show suppression bias.
 
-## 2026-03-26 18:37 KST\n- Task: Cycle EN selected slice — compact DCCFX hysteresis alias token.\n- Shipped `DCCFXH:<H|A><L|M|H>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS` with payload/markdown wiring and regression/order lock.\n- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅\n
+## 2026-03-26 18:37 KST
+- Task: Cycle EN selected slice — compact DCCFX hysteresis alias token.
+- Shipped `DCCFXH:<H|A><L|M|H>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS` with payload/markdown wiring and regression/order lock.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅\n
 
 ## 2026-03-26 19:10 KST — Cycle EO lane cadence miss-risk alias slice [DONE]
 - Task: Game Director Cycle EO selected low-risk Systems/Ops vertical slice ( alias for ).
@@ -2240,3 +2243,11 @@
 - Next backlog hooks injected: (1) Systems/QA adjacency lock for `DCCFXV -> DCCFXC -> DCCFXCW`, (2) Design/World scene copy palette hint token from `DCCFXCW` transitions.
 
 - [2026-03-27 05:08 KST] Digest scanability improved with explicit `DCCFXCW SCENE PALETTE` row in summary/token-coverage sections; no HUD prompt width impact (offline digest-only).
+
+## 2026-03-27 05:38 KST — DCCFXV/DCCFXC/DCCFXCW adjacency lock [DONE]
+- UX digest scan path stabilized with explicit adjacency assertions for DCCFXV/DCCFXC/DCCFXCW rails (plus alias rows in coverage).
+- Outcome: lower token hunt cost in weekly report review.
+
+## 2026-03-27 05:47 KST — DCCFXCW scene palette legend slice [DONE]
+- Added readable legend row for scene-palette shorthand in both digest sections to reduce operator decoding overhead.
+- Preserved compact DOS-style phrasing while clarifying token semantics.

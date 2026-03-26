@@ -1906,7 +1906,10 @@
 - Follow-up:
   - Monitor whether `HOLD` recommendation over-triggers in low-drift windows; retune thresholds if weekly drift deltas show suppression bias.
 
-## 2026-03-26 18:37 KST\n- Task: Cycle EN selected slice — compact DCCFX hysteresis alias token.\n- Shipped `DCCFXH:<H|A><L|M|H>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS` with payload/markdown wiring and regression/order lock.\n- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅\n
+## 2026-03-26 18:37 KST
+- Task: Cycle EN selected slice — compact DCCFX hysteresis alias token.
+- Shipped `DCCFXH:<H|A><L|M|H>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS` with payload/markdown wiring and regression/order lock.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅\n
 
 ## 2026-03-26 19:10 KST — Cycle EO lane cadence miss-risk alias slice [DONE]
 - Task: Game Director Cycle EO selected low-risk Systems/Ops vertical slice ( alias for ).
@@ -2030,3 +2033,12 @@
 - Next backlog hooks injected: (1) Systems/QA adjacency lock for `DCCFXV -> DCCFXC -> DCCFXCW`, (2) Design/World scene copy palette hint token from `DCCFXCW` transitions.
 
 - [2026-03-27 05:08 KST] Scene-copy palette hint mapping landed for `DCCFXCW` transitions (`R->COOL`, `F/B->ASH`, `S or shift->SCAR`) to improve narrative readability in digest triage.
+
+## 2026-03-27 05:38 KST — DCCFXV/DCCFXC/DCCFXCW adjacency lock [DONE]
+- Design readability baseline updated: DCCFX compact token sequence is now deterministic across summary + coverage sections, reducing scan ambiguity.
+- No UI layout changes required.
+
+## 2026-03-27 05:47 KST — DCCFXCW scene palette legend slice [DONE]
+- Implemented selected Cycle EZ low-risk slice: added `DCCFXCW SCENE PALETTE LEGEND` row to digest summary + token coverage.
+- Goal: faster semantic decode for palette tokens (COOL=RESET/HOLD, ASH=BASELINE/FLEX, SCAR=SHIFT/SPIKE).
+- Regression order lock updated to require legend adjacency after scene-palette row in both sections.

@@ -3262,3 +3262,9 @@ Compact decision memory for AI context efficiency.
 - Mapping decision: `R=>COOL`, `B/F=>ASH`, `S or transition-into F/S=>SCAR` for stronger scene-copy intensity handoff.
 - Regression lock updated to enforce summary row order: `DCCFXCW` -> `DCCFXCW SCENE PALETTE` -> `DCCFXV FAMILY CHURN`.
 - Remaining EY unchecked item: Systems/QA adjacency lock in token-coverage (`DCCFXV -> DCCFXC -> DCCFXCW`).
+- 2026-03-27 05:38 KST: Closed remaining unchecked Cycle EY item (Systems/QA) by enforcing deterministic DCCFX ordering in both digest sections.
+- Regression now asserts summary adjacency `DCCFXV -> DCCFXC -> DCCFXCW` and token-coverage adjacency `DCCFXV ALIAS -> DCCFXC ALIAS -> DCCFXCW ALIAS`.
+- Verification green: `python3 -m py_compile scripts/regression_weekly_portal_prompt_readability_drift.py scripts/weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- 2026-03-27 05:47 KST: Executed Game Director Cycle EZ after full-check state; generated 3 ideas and shipped selected Idea 1 (Design/UX minimal vertical slice).
+- Added `DCCFXCW SCENE PALETTE LEGEND` to digest summary + token-coverage sections for quick shorthand decode (`COOL=RESET/HOLD`, `ASH=BASELINE/FLEX`, `SCAR=SHIFT/SPIKE`).
+- Regression now locks legend adjacency after scene-palette row in both sections; verification remains green (`py_compile` + weekly drift regression).
