@@ -1212,3 +1212,5 @@ See project-level plans:
 - [x] AI Content/Combat Team: Add offline cadence-reactive coach-copy swap recommendation policy from `PRSMC` churn + lane cadence miss risk with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 13:24 KST; completed: 2026-03-26 13:31 KST)*
 - [x] Systems/QA Team: Add swap-recommendation token-family churn row (`DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN`) and keep it adjacent to recommendation trend lines. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 13:31 KST)*
 - [x] UX/Design Team: Keep recommendation vocabulary compact (`HOLD_COPY|ARM_SWAP|SWAP_NOW`) for DOS-width digest readability while staying offline-only.
+- [ ] Systems/QA Team: Add prior-window drift trend row for `DMG COMBO CONF COACH COPY SWAP REC` family to separate net direction vs churn magnitude.
+- [ ] UX/Design Team: Prototype compact swap alias token (`DCCSR:<H|A|S>`) behind experiment flag for dense digest budgets.
