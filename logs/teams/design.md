@@ -1956,3 +1956,10 @@
 - Closed Cycle ES final AI Content/Systems item by shipping adaptive divergence-streak guard threshold behavior under SWING volatility memory in weekly digest confidence-guard policy.
 - Executed Cycle ET Game Director review (3 ideas) and shipped selected UX/Design vertical slice: `LPRCG THRESH:<n>` digest token + payload signals + markdown row with regression lock.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
+
+## 2026-03-27 00:34 KST
+- Task: Cycle ET Systems/QA follow-up — token-family churn coverage for `LPRCG THRESH:` with adjacency preserved beside `LPRCG` rows.
+- Commit: pending (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Notes: Added dedicated alias family `lanePriorityRecommendationConfidenceGuardThresholdAlias` and emitted `LPRCG THRESH FAMILY CHURN` rows in summary + token-coverage sections.

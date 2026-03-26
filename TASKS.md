@@ -1287,5 +1287,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/World): Prototype narrative lane coach line when confidence guard stays armed across ≥3 windows.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Design Team: Add digest token `LPRCG THRESH:<n>` from adaptive confidence-guard threshold policy with payload+markdown wiring and regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 00:06 KST; completed: 2026-03-27 00:10 KST)*
-- [ ] Systems/QA Team: Add token-family churn coverage for `LPRCG THRESH:` and keep adjacency with `LPRCG` rows.
+- [x] Systems/QA Team: Add token-family churn coverage for `LPRCG THRESH:` and keep adjacency with `LPRCG` rows. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 00:31 KST; completed: 2026-03-27 00:33 KST)*
 - [ ] AI Content/World Team: Prototype offline guard-persistence coaching cue when `LPRCG` remains `APPLY` for consecutive windows.

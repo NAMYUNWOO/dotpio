@@ -1420,6 +1420,7 @@ def main() -> int:
         assert "dmgGlyphFxLiveAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisThresholdAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisWindowDeltaAlias" in payload["tokenFamilyTotals"], payload
+        assert "lanePriorityRecommendationConfidenceGuardThresholdAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
@@ -2297,6 +2298,7 @@ def main() -> int:
         assert "LANE PRIORITY REC CONF GUARD:" in md_text
         assert "LPRCG:" in md_text
         assert "LPRCG THRESH:" in md_text
+        assert "LPRCG THRESH FAMILY CHURN" in md_text
         assert "LANE PRIORITY REC HYSTERESIS:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-26 23:33 KST
+Last updated: 2026-03-27 00:34 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle ET Systems/QA follow-up from TASKS/POST_RC: digest now tracks `LPRCG THRESH:` as its own token family via `lanePriorityRecommendationConfidenceGuardThresholdAlias`.
+- Weekly markdown now emits adjacent rows `LPRCG + LANE PRIORITY REC CONF GUARD FAMILY CHURN` and `LPRCG THRESH FAMILY CHURN` in both summary and token-coverage sections for deterministic scan order.
+- Regression contract expanded to require the new family key and `LPRCG THRESH FAMILY CHURN` row; verification passed (`py_compile` + weekly drift regression).
+- Remaining actionable unchecked queue item is now AI Content/World: offline guard-persistence coaching cue when `LPRCG` remains `APPLY` for consecutive windows.
 
 - Closed final unchecked POST_RC item from Cycle ES: lane-priority confidence guard now uses adaptive divergence thresholding under `SWING` volatility memory (`divergenceThreshold=3` when swing-memory hold/smoothing is active, otherwise baseline 2).
 - Confidence guard payload now exposes `divergenceThreshold` + `thresholdPolicy`, and regression contracts lock the expanded schema plus adaptive behavior cases.

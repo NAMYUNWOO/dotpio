@@ -3420,3 +3420,10 @@
 ## 2026-03-27 00:10 KST
 - Cycle ET sync: no direct code changes in this lane this pass; tracked for forced-lane balancing as systems/qa remains overrepresented.
 - Follow-up queued in backlog for cross-lane coordination (`LPRCG THRESH` churn coverage + guard-persistence coaching cue).
+
+## 2026-03-27 00:34 KST
+- Task: Cycle ET Systems/QA follow-up — token-family churn coverage for `LPRCG THRESH:` with adjacency preserved beside `LPRCG` rows.
+- Commit: pending (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Notes: Added dedicated alias family `lanePriorityRecommendationConfidenceGuardThresholdAlias` and emitted `LPRCG THRESH FAMILY CHURN` rows in summary + token-coverage sections.
