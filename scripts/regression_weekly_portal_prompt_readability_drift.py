@@ -240,6 +240,7 @@ def main() -> int:
         assert payload.get("dmgComboConfidenceFxCoachCueAlias") in {"DCCFXC:H", "DCCFXC:T", "DCCFXC:M"}, payload
         assert payload.get("dmgComboConfidenceFxCoachCueWhyAlias") in {"DCCFXCW:R", "DCCFXCW:S", "DCCFXCW:F", "DCCFXCW:B"}, payload
         assert payload.get("comboConfidenceFxCoachCueWhyScenePaletteHint") in {"FLAG OFF", "DCCFXCW SCENE PALETTE:COOL", "DCCFXCW SCENE PALETTE:ASH", "DCCFXCW SCENE PALETTE:SCAR"}, payload
+        assert payload.get("comboConfidenceFxCoachCueWhyScenePulse") in {"FLAG OFF", "DCCFXCW SCENE PULSE:SOFT", "DCCFXCW SCENE PULSE:HARD", "DCCFXCW SCENE PULSE:SURGE"}, payload
         assert set(payload.get("comboConfidenceFxAccentTrendHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",
@@ -2558,6 +2559,7 @@ def main() -> int:
         assert "DCCFXCW SCENE PALETTE:" in md_text
         assert "DCCFXCW SCENE PALETTE LEGEND:" in md_text
         assert "DCCFXCW SCENE PALETTE TREND:" in md_text
+        assert "DCCFXCW SCENE PULSE:" in md_text
         assert "DCCFXV FAMILY CHURN" in md_text
         assert "DCCFXC FAMILY CHURN" in md_text
         assert "DCCFXCW FAMILY CHURN" in md_text
@@ -2606,6 +2608,7 @@ def main() -> int:
         combo_conf_dccfxcw_scene_palette_idx = _find_line_index("- DCCFXCW SCENE PALETTE:")
         combo_conf_dccfxcw_scene_palette_legend_idx = _find_line_index("- DCCFXCW SCENE PALETTE LEGEND:")
         combo_conf_dccfxcw_scene_palette_trend_idx = _find_line_index("- DCCFXCW SCENE PALETTE TREND:")
+        combo_conf_dccfxcw_scene_pulse_idx = _find_line_index("- DCCFXCW SCENE PULSE:")
         combo_conf_dccfxv_family_churn_idx = _find_line_index("- DCCFXV FAMILY CHURN:")
         combo_conf_dccfxc_family_churn_idx = _find_line_index("- DCCFXC FAMILY CHURN:")
         combo_conf_dccfxcw_family_churn_idx = _find_line_index("- DCCFXCW FAMILY CHURN:")
@@ -2692,6 +2695,7 @@ def main() -> int:
         coverage_dccfxcw_scene_palette_idx = _find_in_range("- DCCFXCW SCENE PALETTE:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcw_scene_palette_legend_idx = _find_in_range("- DCCFXCW SCENE PALETTE LEGEND:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcw_scene_palette_trend_idx = _find_in_range("- DCCFXCW SCENE PALETTE TREND:", coverage_start, coverage_end, "token coverage")
+        coverage_dccfxcw_scene_pulse_idx = _find_in_range("- DCCFXCW SCENE PULSE:", coverage_start, coverage_end, "token coverage")
         assert coverage_dccfxc_idx == coverage_dccfxv_idx + 1, (
             "expected DCCFXC row directly after DCCFXV row in token-coverage section"
         )
@@ -2707,6 +2711,9 @@ def main() -> int:
         assert coverage_dccfxcw_scene_palette_trend_idx == coverage_dccfxcw_scene_palette_legend_idx + 1, (
             "expected DCCFXCW SCENE PALETTE TREND row directly after DCCFXCW SCENE PALETTE LEGEND row in token-coverage section"
         )
+        assert coverage_dccfxcw_scene_pulse_idx == coverage_dccfxcw_scene_palette_trend_idx + 1, (
+            "expected DCCFXCW SCENE PULSE row directly after DCCFXCW SCENE PALETTE TREND row in token-coverage section"
+        )
         assert combo_conf_dccfxcw_scene_palette_idx == combo_conf_dccfxcw_alias_idx + 1, (
             "expected DCCFXCW SCENE PALETTE row directly after DCCFXCW row"
         )
@@ -2716,8 +2723,11 @@ def main() -> int:
         assert combo_conf_dccfxcw_scene_palette_trend_idx == combo_conf_dccfxcw_scene_palette_legend_idx + 1, (
             "expected DCCFXCW SCENE PALETTE TREND row directly after DCCFXCW SCENE PALETTE LEGEND row"
         )
-        assert combo_conf_dccfxv_family_churn_idx == combo_conf_dccfxcw_scene_palette_trend_idx + 1, (
-            "expected DCCFXV FAMILY CHURN row directly after DCCFXCW SCENE PALETTE TREND row"
+        assert combo_conf_dccfxcw_scene_pulse_idx == combo_conf_dccfxcw_scene_palette_trend_idx + 1, (
+            "expected DCCFXCW SCENE PULSE row directly after DCCFXCW SCENE PALETTE TREND row"
+        )
+        assert combo_conf_dccfxv_family_churn_idx == combo_conf_dccfxcw_scene_pulse_idx + 1, (
+            "expected DCCFXV FAMILY CHURN row directly after DCCFXCW SCENE PULSE row"
         )
         assert combo_conf_dccfxc_family_churn_idx == combo_conf_dccfxv_family_churn_idx + 1, (
             "expected DCCFXC FAMILY CHURN row directly after DCCFXV FAMILY CHURN row"

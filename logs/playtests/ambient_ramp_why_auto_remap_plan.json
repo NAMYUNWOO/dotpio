@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-03-26T13:06:03.171457Z",
+  "generatedAt": "2026-03-26T21:37:12.273912Z",
   "window": {
     "sinceDays": 7,
     "maxCommits": 120,
     "checkedCommits": 120,
-    "touchedCommits": 12
+    "touchedCommits": 4
   },
   "recommendation": {
     "ambientRampWhyRecommendation": "HOLD_SAFE_WHY",
     "ambientRampWhyRecommendationConfidence": "MID",
-    "ambientRampWhyRecommendationConfidenceStreak": 35,
+    "ambientRampWhyRecommendationConfidenceStreak": 48,
     "ambientRampWhyRecommendationConfidenceStreakSignals": {
       "currentConfidence": "MID",
       "priorConfidence": "MID",
-      "priorStreak": 34,
+      "priorStreak": 47,
       "priorLoaded": true,
       "threshold": 3,
       "suppress": false,
@@ -29,7 +29,7 @@
     "confidence": "MID",
     "parity": "LOCK",
     "driftRisk": "HIGH",
-    "pressureBand": "HIGH",
+    "pressureBand": "MID",
     "ambientRampWhyChurn": 10,
     "ambientRampWhyNet": 10,
     "offlineOnly": true,
@@ -37,7 +37,7 @@
     "nextAction": "Generate sandbox table + review notes; keep runtime contract unchanged.",
     "rerankPolicy": "drift-aware-offline-candidate-priority",
     "candidateCount": 3,
-    "confidenceStreak": 35,
+    "confidenceStreak": 48,
     "candidateSuppressed": false
   },
   "candidates": [
@@ -49,7 +49,7 @@
       "risk": "LOW",
       "offlineOnly": true,
       "changeScope": "digest + sandbox notes only",
-      "score": 10,
+      "score": 8,
       "rank": 1
     },
     {
@@ -60,7 +60,7 @@
       "risk": "MID",
       "offlineOnly": true,
       "changeScope": "sandbox artifact + playtest checklist",
-      "score": 2,
+      "score": 3,
       "rank": 2
     },
     {

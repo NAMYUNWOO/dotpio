@@ -1350,4 +1350,4 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Design/UX Team: Add `DCCFXCW SCENE PALETTE LEGEND` row to summary + token-coverage and lock ordering in regression. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 05:42 KST; completed: 2026-03-27 05:47 KST)*
 - [x] Systems/QA Team: Add `DCCFXCW SCENE PALETTE TREND` rail (`COOLING|STABLE|HEATING`) with prior-window delta snapshot in summary + token-coverage.
-- [ ] Combat/VFX Team: Prototype digest-only `DCCFXCW SCENE PULSE:<SOFT|HARD|SURGE>` cue derived from scene palette + volatility for postmortem pacing triage.
+- [x] Combat/VFX Team: Prototype digest-only `DCCFXCW SCENE PULSE:<SOFT|HARD|SURGE>` cue derived from scene palette + volatility for postmortem pacing triage. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 06:37 KST; completed: 2026-03-27 06:45 KST)*

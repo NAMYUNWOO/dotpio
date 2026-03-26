@@ -3273,3 +3273,9 @@ Compact decision memory for AI context efficiency.
 - 2026-03-27 05:47 KST: Executed Game Director Cycle EZ after full-check state; generated 3 ideas and shipped selected Idea 1 (Design/UX minimal vertical slice).
 - Added `DCCFXCW SCENE PALETTE LEGEND` to digest summary + token-coverage sections for quick shorthand decode (`COOL=RESET/HOLD`, `ASH=BASELINE/FLEX`, `SCAR=SHIFT/SPIKE`).
 - Regression now locks legend adjacency after scene-palette row in both sections; verification remains green (`py_compile` + weekly drift regression).
+
+## 2026-03-27 06:46 KST — DCCFXCW scene pulse slice shipped
+- Closed Cycle EZ remaining unchecked Combat/VFX item: weekly digest now emits flagged token `DCCFXCW SCENE PULSE:SOFT|HARD|SURGE` derived from `DCCFXCW SCENE PALETTE` + `DCCFXV` volatility regime.
+- Deterministic mapping: `SCAR|SPIKE -> SURGE`, `COOL+CALM -> SOFT`, else `HARD`; payload exports `dmgComboConfidenceFxCoachCueWhyScenePulse` and signal block (flag/palette/regime/reason).
+- Markdown contract updated in summary + token-coverage sections; regression order now locks `DCCFXCW SCENE PALETTE -> LEGEND -> TREND -> SCENE PULSE -> DCCFXV FAMILY CHURN`.
+- Verification passed: `py_compile`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, and digest generation (`--out-md/--out-json`).

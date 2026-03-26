@@ -2991,3 +2991,9 @@
   - Added deterministic markdown rows for `DCCFXCW SCENE PALETTE TREND` in summary + token-coverage sections.
 - Follow-up:
   - Next unchecked item remains Combat/VFX prototype: `DCCFXCW SCENE PULSE:<SOFT|HARD|SURGE>`.
+
+## 2026-03-27 06:46 KST — DCCFXCW scene pulse digest slice [DONE]
+- Task: Cycle EZ remaining Combat/VFX prototype DCCFXCW SCENE PULSE:SOFT|HARD|SURGE derived from scene palette + volatility.
+- Change: scripts/weekly_portal_prompt_readability_drift.py now emits flagged token DCCFXCW SCENE PULSE with deterministic mapping (SCAR|SPIKE -> SURGE, COOL+CALM -> SOFT, else HARD) and payload signals.
+- Verification: python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py; python3 scripts/regression_weekly_portal_prompt_readability_drift.py; python3 scripts/weekly_portal_prompt_readability_drift.py --out-md logs/weekly_portal_prompt_readability_drift.md --out-json logs/weekly_portal_prompt_readability_drift.json.
+- Follow-up: keep ordering contract DCCFXCW SCENE PALETTE -> LEGEND -> TREND -> SCENE PULSE -> DCCFXV FAMILY CHURN stable.
