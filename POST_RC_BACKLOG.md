@@ -1126,3 +1126,8 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Design/UX Team: Add `DCCFXCW SCENE PALETTE LEGEND` row to summary + token-coverage and lock ordering in regression. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 05:42 KST; completed: 2026-03-27 05:47 KST)*
 - [x] Systems/QA Team: Add `DCCFXCW SCENE PALETTE TREND` rail (`COOLING|STABLE|HEATING`) with prior-window delta snapshot in summary + token-coverage.
 - [x] Combat/VFX Team: Prototype digest-only `DCCFXCW SCENE PULSE:<SOFT|HARD|SURGE>` cue derived from scene palette + volatility for postmortem pacing triage. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 06:37 KST; completed: 2026-03-27 06:45 KST)*
+
+## Game Director Cycle FA — injected 2026-03-27 06:56 KST
+- [x] UX/Combat Team: Add `DCCFXCW SCENE PULSE LEGEND` row in summary + token-coverage for one-glance decode. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 06:56 KST; completed: 2026-03-27 07:00 KST)*
+- [x] Systems/QA Team: Extend regression ordering lock for `DCCFXCW SCENE PULSE -> LEGEND` adjacency in both sections. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 06:56 KST; completed: 2026-03-27 07:00 KST)*
+- [ ] Design/World Team: Prototype `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT` narrative companion token (digest-only, flagged).

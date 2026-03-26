@@ -3279,3 +3279,13 @@ Compact decision memory for AI context efficiency.
 - Deterministic mapping: `SCAR|SPIKE -> SURGE`, `COOL+CALM -> SOFT`, else `HARD`; payload exports `dmgComboConfidenceFxCoachCueWhyScenePulse` and signal block (flag/palette/regime/reason).
 - Markdown contract updated in summary + token-coverage sections; regression order now locks `DCCFXCW SCENE PALETTE -> LEGEND -> TREND -> SCENE PULSE -> DCCFXV FAMILY CHURN`.
 - Verification passed: `py_compile`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, and digest generation (`--out-md/--out-json`).
+
+## 2026-03-27 07:01 KST — Game Director Cycle FA review + experiment
+- Ran Game Director review cycle (all TASKS + POST_RC backlog items were checked at cycle start).
+- Candidate ideas:
+  1) Low-risk UX/game-feel: add `DCCFXCW SCENE PULSE LEGEND` decode row.
+  2) Mid-risk systems/design: add `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT` narrative rail.
+  3) High-risk novelty: adaptive pulse-to-audio sync recommendation lane.
+- Selected + implemented Idea 1 as minimal vertical slice; digest now emits `DCCFXCW SCENE PULSE LEGEND: SOFT=COOL+CALM, HARD=MIXED PRESSURE, SURGE=SCAR|SPIKE` in summary + token-coverage sections.
+- Regression contract expanded to lock adjacency `DCCFXCW SCENE PALETTE -> LEGEND -> TREND -> SCENE PULSE -> SCENE PULSE LEGEND -> DCCFXV FAMILY CHURN`.
+- Injected next backlog item: Design/World prototype `DCCFXCW SCENE PULSE ARC:RECOVER|BRACE|ERUPT` (unchecked).
