@@ -3388,3 +3388,7 @@
 - Added markdown assertions for detailed/compact `LPR HYS FLOOR FAMILY TREND` rows.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` [PASS].
 - Follow-up: add targeted unit scenario with non-zero floor-family net deltas.
+
+## 2026-03-26 21:35 KST — Regression lock for LPR HF T
+- Extended regression contract to assert `LPR HF T:` presence and alias payload keys/signals.
+- Validation run passed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.

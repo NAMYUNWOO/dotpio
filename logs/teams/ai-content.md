@@ -1918,3 +1918,7 @@
 - Decision: `LPR HYS FLOOR REC` threshold now adapts by prior volatility regime (`CALM=1`, `SWING=2`, `SPIKE=3`) with momentum fast-path.
 - Rationale: avoid over-triggering in spike regimes while remaining responsive during calm windows.
 - Follow-up: collect two-window divergence data before adding confidence guard experiment.
+
+## 2026-03-26 21:35 KST — Offline telemetry alias extension
+- Expanded offline digest telemetry with compact trend alias `LPR HF T` tied to lane hysteresis floor family trend.
+- No runtime gameplay behavior changed; analytics/digest-only surface.

@@ -117,6 +117,7 @@ TOKEN_ALIAS_FAMILIES = {
     "lanePriorityHysteresisThresholdAlias": ["LPR HYS THR:"],
     "lanePriorityHysteresisWindowDeltaAlias": ["LPR HYS WINDOW Δ:"],
     "lanePriorityHysteresisFloorRecommendationAlias": ["LPR HYS FLOOR REC:", "LPR HYS FLOOR:"],
+    "lanePriorityHysteresisFloorFamilyTrendAlias": ["LPR HYS FLOOR FAMILY TREND:", "LPR HF T:"],
 }
 
 ROUTE_VIBE_PATTERNS = {
@@ -8665,6 +8666,12 @@ def main() -> int:
         current_family_totals=token_family_totals["lanePriorityHysteresisFloorRecommendationAlias"],
         prior_json_path=args.out_json,
     )
+    lane_priority_hysteresis_floor_family_trend_alias_flag_name = "DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_FLOOR_FAMILY_TREND_ALIAS"
+    lane_priority_hysteresis_floor_family_trend_alias_flag_enabled = os.environ.get(lane_priority_hysteresis_floor_family_trend_alias_flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
+    lane_priority_hysteresis_floor_family_trend_alias_map = {"UP": "U", "FLAT": "F", "DOWN": "D"}
+    lane_priority_hysteresis_floor_family_trend_alias = (
+        f"LPR HF T:{lane_priority_hysteresis_floor_family_trend_alias_map.get(str(lane_priority_hysteresis_floor_family_trend_signals.get('trend', 'FLAT')).upper(), 'F')}"
+    )
     pulse_remap_suppression_escalation_plan, pulse_remap_suppression_escalation_plan_signals = pulse_remap_suppression_escalation_plan_from_signals(
         suppression=pulse_remap_momentum_suppression,
         suppression_signals=pulse_remap_momentum_suppression_signals,
@@ -9696,6 +9703,13 @@ def main() -> int:
         "lanePriorityHysteresisFloorRecommendationAliasSignals": lane_priority_hysteresis_floor_recommendation_alias_signals,
         "lanePriorityHysteresisFloorFamilyTrendDrift": lane_priority_hysteresis_floor_family_trend_drift,
         "lanePriorityHysteresisFloorFamilyTrendSignals": lane_priority_hysteresis_floor_family_trend_signals,
+        "lanePriorityHysteresisFloorFamilyTrendAlias": lane_priority_hysteresis_floor_family_trend_alias,
+        "lanePriorityHysteresisFloorFamilyTrendAliasSignals": {
+            "flagName": lane_priority_hysteresis_floor_family_trend_alias_flag_name,
+            "flagEnabled": lane_priority_hysteresis_floor_family_trend_alias_flag_enabled,
+            "trend": lane_priority_hysteresis_floor_family_trend_signals["trend"],
+            "alias": lane_priority_hysteresis_floor_family_trend_alias,
+        },
         "laneCadenceMissRiskHighStreak": lane_priority_hysteresis_floor_recommendation_signals["highStreak"],
         "laneBucketAgeCompactAlias": lane_bucket_age_compact_alias,
         "laneBucketAgeCompactAliasSignals": lane_bucket_age_compact_alias_signals,
@@ -10332,6 +10346,7 @@ def main() -> int:
         f"- LPR HYS WINDOW Δ FAMILY CHURN: **net {token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['net']:+d}** (added={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['added']} removed={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['removed']} churn={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['coverage']})",
         f"- LPR HYS FLOOR REC + LPR HYS FLOOR FAMILY CHURN: **net {token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['net']:+d}** (added={token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['added']} removed={token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['removed']} churn={token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['coverage']})",
         f"- LPR HYS FLOOR FAMILY TREND: **{lane_priority_hysteresis_floor_family_trend_signals['trend']}** (Δnet={lane_priority_hysteresis_floor_family_trend_drift:+d} currentNet={lane_priority_hysteresis_floor_family_trend_signals['currentNet']:+d} priorNet={lane_priority_hysteresis_floor_family_trend_signals['priorNet']:+d} loaded={lane_priority_hysteresis_floor_family_trend_signals['priorLoaded']} reason={lane_priority_hysteresis_floor_family_trend_signals['reason']})",
+        f"- LPR HF T: **{lane_priority_hysteresis_floor_family_trend_alias}** (flag={lane_priority_hysteresis_floor_family_trend_alias_flag_name} enabled={lane_priority_hysteresis_floor_family_trend_alias_flag_enabled} trend={lane_priority_hysteresis_floor_family_trend_signals['trend']})",
         f"- LANE CADENCE SUMMARY: **SYSTEMS/OPS {'OK' if (token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphFxLiveAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgComboAlias']['aliasesTouchedCount'] > 0) else 'GAP'}** (RGFXWRIUFX coverage={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['coverage']} churn={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['churn']} | DMG GLYPH coverage={token_family_totals['dmgGlyphAlias']['coverage']} churn={token_family_totals['dmgGlyphAlias']['churn']} | DMG GLYPH FX LIVE coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']} churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} | DMG COMBO coverage={token_family_totals['dmgComboAlias']['coverage']} churn={token_family_totals['dmgComboAlias']['churn']})",
         f"- LBA: **{lane_bucket_age_compact_alias}** (flag={lane_bucket_age_compact_alias_signals['flagName']} enabled={lane_bucket_age_compact_alias_signals['flagEnabled']} sys={lane_bucket_age_compact_alias_signals['systemsOpsHours']}h dw={lane_bucket_age_compact_alias_signals['designWorldHours']}h cv={lane_bucket_age_compact_alias_signals['combatVfxHours']}h)",
         f"- LANE BUCKET AGE: **{lane_bucket_age['token'].split(':', 1)[1]}** (status={lane_bucket_age['status']} window={lane_bucket_age['windowHours']}h)",
@@ -10477,6 +10492,7 @@ def main() -> int:
         f"- LPR HYS WINDOW Δ: +{token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['added']} / -{token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['removed']} / net {token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['net']} (churn={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisWindowDeltaAlias']['coverage']})",
         f"- LPR HYS FLOOR REC + LPR HYS FLOOR: +{token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['added']} / -{token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['removed']} / net {token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['net']} (churn={token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['churn']} coverage={token_family_totals['lanePriorityHysteresisFloorRecommendationAlias']['coverage']})",
         f"- LPR HYS FLOOR FAMILY TREND: {lane_priority_hysteresis_floor_family_trend_signals['trend']} (Δnet={lane_priority_hysteresis_floor_family_trend_drift:+d} currentNet={lane_priority_hysteresis_floor_family_trend_signals['currentNet']:+d} priorNet={lane_priority_hysteresis_floor_family_trend_signals['priorNet']:+d} loaded={lane_priority_hysteresis_floor_family_trend_signals['priorLoaded']})",
+        f"- LPR HF T: {lane_priority_hysteresis_floor_family_trend_alias} (flag={lane_priority_hysteresis_floor_family_trend_alias_flag_name}, enabled={lane_priority_hysteresis_floor_family_trend_alias_flag_enabled}, trend={lane_priority_hysteresis_floor_family_trend_signals['trend']})",
         f"- LANE CADENCE SUMMARY: SYSTEMS/OPS {'OK' if (token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgGlyphFxLiveAlias']['aliasesTouchedCount'] > 0 or token_family_totals['dmgComboAlias']['aliasesTouchedCount'] > 0) else 'GAP'} (RGFXWRIUFX coverage={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['coverage']}, churn={token_family_totals['routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias']['churn']} | DMG GLYPH coverage={token_family_totals['dmgGlyphAlias']['coverage']}, churn={token_family_totals['dmgGlyphAlias']['churn']} | DMG GLYPH FX LIVE coverage={token_family_totals['dmgGlyphFxLiveAlias']['coverage']}, churn={token_family_totals['dmgGlyphFxLiveAlias']['churn']} | DMG COMBO coverage={token_family_totals['dmgComboAlias']['coverage']}, churn={token_family_totals['dmgComboAlias']['churn']})",
         f"- LBA: {lane_bucket_age_compact_alias} (flag={lane_bucket_age_compact_alias_signals['flagName']}, enabled={lane_bucket_age_compact_alias_signals['flagEnabled']}, sys={lane_bucket_age_compact_alias_signals['systemsOpsHours']}h, dw={lane_bucket_age_compact_alias_signals['designWorldHours']}h, cv={lane_bucket_age_compact_alias_signals['combatVfxHours']}h)",
         f"- LANE BUCKET AGE: {lane_bucket_age['token'].split(':', 1)[1]} (status={lane_bucket_age['status']}, window={lane_bucket_age['windowHours']}h)",

@@ -3159,3 +3159,12 @@ Compact decision memory for AI context efficiency.
   - Regression locks updated for payload key presence + markdown row presence.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Backlog injection: added two new unchecked follow-ups (compact alias + divergence confidence guard) under Cycle EQ.
+
+## 2026-03-26 21:35 KST — POST-RC item completion (LPR HF T)
+- Completed highest-priority remaining POST-RC UX/Design task: compact alias token `LPR HF T:<U|F|D>` for `LPR HYS FLOOR FAMILY TREND`.
+- Durable decision: preserve both verbose and compact rows; compact alias is experiment-flagged (`DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_FLOOR_FAMILY_TREND_ALIAS`) for rollback safety.
+- Contract updates:
+  - `scripts/weekly_portal_prompt_readability_drift.py`: token family map + alias row (detailed/compact) + payload keys/signals.
+  - `scripts/regression_weekly_portal_prompt_readability_drift.py`: payload assertions + markdown presence assertions for `LPR HF T:`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Remaining backlog from active cycle: AI Content/Systems synthesis row for `LCMR + LPR HYS FLOOR REC + family trend`.

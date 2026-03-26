@@ -2830,3 +2830,8 @@
 - Rationale: Churn totals alone masked directionality for floor recommendation movement.
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, regression pass.
 - Follow-up: evaluate compact alias (`LPR HF T:<U|F|D>`) if digest width pressure increases.
+
+## 2026-03-26 21:35 KST — LPR HF T compact alias slice
+- Completed POST-RC UX/Design backlog slice: added compact trend alias token `LPR HF T:<U|F|D>` for `LPR HYS FLOOR FAMILY TREND` in weekly digest.
+- Added payload contract fields `lanePriorityHysteresisFloorFamilyTrendAlias` + `lanePriorityHysteresisFloorFamilyTrendAliasSignals` and family coverage key `lanePriorityHysteresisFloorFamilyTrendAlias`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.

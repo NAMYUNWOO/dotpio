@@ -2146,3 +2146,7 @@
 - Added explicit floor-family trend line in both detailed and compact markdown blocks.
 - UX impact hypothesis: reduces cognitive load when auditing floor recommendation movement across windows.
 - Follow-up: if row volume grows, prototype alias with hover/legend pairing.
+
+## 2026-03-26 21:35 KST — Digest scan density update
+- Added `LPR HF T` compact row to detailed and compact digest sections to reduce scan latency for operator triage.
+- Maintained full `LPR HYS FLOOR FAMILY TREND` row to preserve semantic readability.

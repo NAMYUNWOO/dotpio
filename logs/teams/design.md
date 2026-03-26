@@ -1935,3 +1935,7 @@
 ## 2026-03-26 21:24 KST — Digest readability posture
 - Accepted explicit `LPR HYS FLOOR FAMILY TREND` row to improve scan clarity over hidden payload-only drift.
 - Follow-up: evaluate compact alias (`LPR HF T`) for dense operator mode without losing legibility.
+
+## 2026-03-26 21:35 KST — LPR HF T readability shorthand
+- Shipped compact operator shorthand `LPR HF T` mapped to floor-family trend states (`U|F|D`) without removing full descriptive row.
+- Decision: keep alias behind experiment flag `DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_FLOOR_FAMILY_TREND_ALIAS` for reversible rollout.

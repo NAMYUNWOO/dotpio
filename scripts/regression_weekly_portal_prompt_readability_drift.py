@@ -1327,8 +1327,11 @@ def main() -> int:
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisFloorRecommendationAlias" in payload["tokenFamilyTotals"], payload
+        assert "lanePriorityHysteresisFloorFamilyTrendAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisFloorFamilyTrendDrift" in payload, payload
         assert "lanePriorityHysteresisFloorFamilyTrendSignals" in payload, payload
+        assert "lanePriorityHysteresisFloorFamilyTrendAlias" in payload, payload
+        assert "lanePriorityHysteresisFloorFamilyTrendAliasSignals" in payload, payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyParityCompactAlias" in payload["tokenFamilyTotals"], payload
         assert "routeGlowFxConfidenceWhyRailIntensityWhyConfidenceUrgencyFxAlias" in payload["tokenFamilyTotals"], payload
         assert "urgencyStackTierAlias" in payload["tokenFamilyTotals"], payload
@@ -2307,6 +2310,8 @@ def main() -> int:
         assert "LPR HYS WINDOW Δ:" in md_text
         assert "LPR HYS FLOOR REC + LPR HYS FLOOR:" in md_text
         assert "LPR HYS FLOOR FAMILY TREND:" in md_text
+        assert "LPR HF T:" in md_text
+        assert md_text.count("LPR HF T:") >= 2, md_text
         assert "LANE CADENCE SUMMARY: SYSTEMS/OPS" in md_text
         assert "PULSE HEAT FX COMPACT-BUDGET DRIFT" in md_text
         assert "ROUTE GLOW FX COMPACT-BUDGET DRIFT" in md_text

@@ -1868,3 +1868,6 @@
 - No direct combat tuning changes this cycle.
 - Maintained combat observability compatibility by keeping digest contract stable while adding floor-family trend row.
 - Follow-up: revisit combat/vfx lane cadence enforcement in next underrepresented-lane cycle.
+
+## 2026-03-26 21:35 KST — Combat lane note
+- Change scope remained digest telemetry/readability (`LPR HF T` compact alias); no combat tuning, damage, or pacing logic changed.

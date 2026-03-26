@@ -1026,5 +1026,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/Systems): Prototype adaptive lane-priority recommendation confidence guard when floor-trend and lane-volatility regime diverge for 2+ windows.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add `LPR HYS FLOOR FAMILY TREND` markdown row + JSON drift signals (`currentNet`, `priorNet`, `Δnet`, `reason`) with regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 21:20 KST; completed: 2026-03-26 21:24 KST)*
-- [ ] UX/Design Team: Prototype compact floor-family trend alias token (`LPR HF T:<U|F|D>`) behind experiment flag + digest wiring.
+- [x] UX/Design Team: Prototype compact floor-family trend alias token (`LPR HF T:<U|F|D>`) behind experiment flag + digest wiring. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 21:31 KST; completed: 2026-03-26 21:35 KST)*
 - [ ] AI Content/Systems Team: Prototype offline confidence guard policy for lane-priority recommendation when floor-trend/regime diverges across consecutive windows.
