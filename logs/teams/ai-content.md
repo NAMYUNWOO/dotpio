@@ -1827,3 +1827,7 @@
 - No AI-content runtime/policy mutation in this cycle.
 - Kept offline recommendation surfaces stable while systems/qa digest hygiene landed.
 - 2026-03-26 08:33 KST — Deferred high-risk follow-up: offline combo-confidence coach recommendation policy remains queued in Cycle EF (`TASKS.md`/`POST_RC_BACKLOG.md`).
+- 2026-03-26 09:39 KST — Cycle EF high-risk follow-up completed: added offline combo-confidence coach recommendation policy derived from kill-heat volatility + pressure drift in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Decision: keep policy offline-only (`DMG COMBO CONF COACH REC`) with no runtime gameplay coupling; recommendation bands = `GUARD|STEADY|SURGE`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: if `GUARD` streak dominates in future snapshots, inject a compact alias experiment before runtime HUD exposure.

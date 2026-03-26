@@ -7633,6 +7633,44 @@ def combo_chain_narrative_coach_line_from_signals(
         "offlineOnly": True,
     }
 
+
+def combo_confidence_coach_recommendation_from_signals(
+    *,
+    combo_family: dict[str, object],
+    combo_confidence_family: dict[str, object],
+    pressure_band: str,
+    drift_risk: str,
+) -> tuple[str, dict[str, object]]:
+    """Offline-only coach recommendation from kill-heat volatility + pressure drift."""
+    combo_churn = int(combo_family.get("churn", 0) or 0)
+    combo_net = int(combo_family.get("net", 0) or 0)
+    conf_churn = int(combo_confidence_family.get("churn", 0) or 0)
+    conf_net = int(combo_confidence_family.get("net", 0) or 0)
+
+    kill_heat_volatility = combo_churn + conf_churn + abs(combo_net) + abs(conf_net)
+
+    if drift_risk == "HIGH" or kill_heat_volatility >= 9:
+        recommendation = "GUARD"
+        reason = "high-pressure-drift-or-high-kill-heat-volatility"
+    elif pressure_band == "HIGH" or kill_heat_volatility >= 5:
+        recommendation = "STEADY"
+        reason = "moderate-volatility-or-high-pressure"
+    else:
+        recommendation = "SURGE"
+        reason = "low-volatility-and-stable-pressure"
+
+    return recommendation, {
+        "reason": reason,
+        "killHeatVolatility": kill_heat_volatility,
+        "comboChurn": combo_churn,
+        "comboNet": combo_net,
+        "comboConfidenceChurn": conf_churn,
+        "comboConfidenceNet": conf_net,
+        "pressureBand": pressure_band,
+        "driftRisk": drift_risk,
+        "offlineOnly": True,
+    }
+
 def main() -> int:
     args = parse_args()
     root = args.repo_root.resolve()
@@ -7881,6 +7919,12 @@ def main() -> int:
         combo_window_retune_recommendation=combo_window_retune_recommendation,
         combo_window_retune_confidence=combo_window_retune_confidence,
         combo_window_retune_recommendation_signals=combo_window_retune_recommendation_signals,
+    )
+    combo_confidence_coach_recommendation, combo_confidence_coach_recommendation_signals = combo_confidence_coach_recommendation_from_signals(
+        combo_family=token_family_totals["dmgComboAlias"],
+        combo_confidence_family=token_family_totals["dmgComboConfidenceAlias"],
+        pressure_band=pressure_band,
+        drift_risk=drift_risk,
     )
     dmg_combo_retune_alias_flag_name = "DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_ALIAS"
     dmg_combo_retune_alias_flag_enabled = os.environ.get(dmg_combo_retune_alias_flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
@@ -9219,6 +9263,8 @@ def main() -> int:
         "comboWindowRetuneConfidenceAliasSignals": {"flagName": dmg_combo_retune_conf_alias_flag_name, "flagEnabled": dmg_combo_retune_conf_alias_flag_enabled, "confidence": combo_window_retune_confidence, "alias": dmg_combo_retune_conf_alias},
         "comboChainNarrativeCoachLine": combo_chain_narrative_coach_line,
         "comboChainNarrativeCoachLineSignals": combo_chain_narrative_coach_line_signals,
+        "comboConfidenceCoachRecommendation": combo_confidence_coach_recommendation,
+        "comboConfidenceCoachRecommendationSignals": combo_confidence_coach_recommendation_signals,
         "pulseHeatFxCompactBudgetDrift": pulse_heat_fx_compact_budget_drift_level,
         "pulseHeatFxCompactBudgetDriftSignals": pulse_heat_fx_compact_budget_drift_signals,
         "routeGlowFxCompactBudgetDrift": route_glow_fx_compact_budget_drift_level,
@@ -9278,6 +9324,7 @@ def main() -> int:
         f"- DMG COMBO WINDOW RETUNE CONF: **{combo_window_retune_confidence}** ({combo_window_retune_confidence_signals['rationale']}; rec={combo_window_retune_confidence_signals['recommendation']} churn={combo_window_retune_confidence_signals['comboChurn']} net={combo_window_retune_confidence_signals['comboNet']:+d} drift={combo_window_retune_confidence_signals['driftRisk']} pressure={combo_window_retune_confidence_signals['pressureBand']} offlineOnly={combo_window_retune_confidence_signals['offlineOnly']})",
         f"- DCRC: **{dmg_combo_retune_conf_alias if dmg_combo_retune_conf_alias_flag_enabled else 'FLAG OFF'}** (flag={dmg_combo_retune_conf_alias_flag_name} enabled={dmg_combo_retune_conf_alias_flag_enabled} full={combo_window_retune_confidence})",
         f"- DMG COMBO CHAIN COACH: **{combo_chain_narrative_coach_line}** ({combo_chain_narrative_coach_line_signals['reason']}; rec={combo_chain_narrative_coach_line_signals['recommendation']} conf={combo_chain_narrative_coach_line_signals['confidence']} pressure={combo_chain_narrative_coach_line_signals['pressureBand']} drift={combo_chain_narrative_coach_line_signals['driftRisk']} cadence={combo_chain_narrative_coach_line_signals['laneCadenceRecency']} offlineOnly={combo_chain_narrative_coach_line_signals['offlineOnly']})",
+        f"- DMG COMBO CONF COACH REC: **{combo_confidence_coach_recommendation}** ({combo_confidence_coach_recommendation_signals['reason']}; killHeatVol={combo_confidence_coach_recommendation_signals['killHeatVolatility']} comboChurn={combo_confidence_coach_recommendation_signals['comboChurn']} comboNet={combo_confidence_coach_recommendation_signals['comboNet']:+d} confChurn={combo_confidence_coach_recommendation_signals['comboConfidenceChurn']} confNet={combo_confidence_coach_recommendation_signals['comboConfidenceNet']:+d} pressure={combo_confidence_coach_recommendation_signals['pressureBand']} drift={combo_confidence_coach_recommendation_signals['driftRisk']} offlineOnly={combo_confidence_coach_recommendation_signals['offlineOnly']})",
         f"- PULSE REMAP MOMENTUM: **{pulse_remap_momentum_recommendation}** ({pulse_remap_momentum_recommendation_signals['rationale']}; rec={pulse_remap_momentum_recommendation_signals['recommendation']} driftRisk={pulse_remap_momentum_recommendation_signals['driftRisk']} pressure={pulse_remap_momentum_recommendation_signals['pressureBand']} cadence={pulse_remap_momentum_recommendation_signals['laneCadenceRecency']} planChurn={pulse_remap_momentum_recommendation_signals['planChurn']} planNet={pulse_remap_momentum_recommendation_signals['planNet']:+d} offlineOnly={pulse_remap_momentum_recommendation_signals['offlineOnly']})",
         f"- PULSE REMAP MOMENTUM Δ: **{pulse_remap_momentum_drift:+d}** ({pulse_remap_momentum_drift_signals['reason']}; current={pulse_remap_momentum_drift_signals['currentMomentum']}({pulse_remap_momentum_drift_signals['currentScore']:+d}) prior={pulse_remap_momentum_drift_signals['priorMomentum']}({pulse_remap_momentum_drift_signals['priorScore']:+d}) loaded={pulse_remap_momentum_drift_signals['priorLoaded']})",
         f"- PULSE REMAP MOMENTUM SUPPRESS: **{pulse_remap_momentum_suppression}** ({pulse_remap_momentum_suppression_signals['reason']}; streak={pulse_remap_momentum_suppression_signals['freezeStreak']} threshold={pulse_remap_momentum_suppression_signals['threshold']} suppress={str(pulse_remap_momentum_suppression_signals['suppress']).upper()} offlineOnly={pulse_remap_momentum_suppression_signals['offlineOnly']})",

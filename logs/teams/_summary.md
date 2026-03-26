@@ -3031,3 +3031,7 @@ Compact decision memory for AI context efficiency.
 - Durable decision: combo-confidence additions stay offline digest observability only; avoid runtime coupling until AI Content policy slice is validated.
 - Verification: weekly digest regression PASS + combo-confidence HUD token regression PASS (with required debug flags).
 - Next prioritized backlog item: AI Content/Combat offline combo-confidence coach recommendation policy from kill-heat volatility + pressure drift.
+- 2026-03-26 09:39 KST — Closed Cycle EF AI Content/Combat follow-up: shipped offline `DMG COMBO CONF COACH REC` policy from kill-heat volatility + pressure drift.
+- Durable decision: keep combo-confidence coach recommendation offline digest only (no runtime behavior change) until distribution telemetry indicates stable thresholds.
+- Verification snapshot: weekly drift regression PASS + Python compile check PASS after contract update.
+- Backlog sync: marked TASKS + POST_RC_BACKLOG combo-confidence coach item done.

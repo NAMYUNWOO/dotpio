@@ -1841,3 +1841,6 @@
 - No design token/copy additions in this slice.
 - Readability contract improved indirectly via duplicate-trend-row removal.
 - 2026-03-26 08:33 KST — Maintained compact DOS readability by keeping combo-confidence output as a short categorical label (`LOW|MID|HIGH`) aligned with existing debug token grammar.
+- 2026-03-26 09:39 KST — Preserved DOS readability by adding one concise digest row (`DMG COMBO CONF COACH REC`) adjacent to existing combo-retune/coach lines.
+- Decision: recommendation vocabulary constrained to short, interpretable verbs (`GUARD|STEADY|SURGE`).
+- Follow-up: if future alias is added, keep 1-token compact grammar parity with existing combo rows.

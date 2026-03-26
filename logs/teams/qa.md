@@ -3250,3 +3250,8 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 DOTPIO_EXPERIMENT_DMG_COMBO_CONF_DEBUG=1 lua scripts/regression_combat_damage_combo_confidence_token.lua` ✅
 - Risk check: no runtime gameplay path changes; digest/reporting contract only.
+- 2026-03-26 09:39 KST — Added regression expectations for `DMG COMBO CONF COACH REC` markdown output in weekly drift regression script.
+- Verification commands:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` → PASS
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` → PASS
+- Follow-up: add JSON field assertions for combo-confidence coach payload if schema lock scope expands.

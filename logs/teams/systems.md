@@ -2707,3 +2707,7 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Notes: kept scope additive and offline-only (digest observability only, no gameplay/runtime coupling).
 - Next hook: AI Content/Combat offline combo-confidence coach recommendation policy.
+- 2026-03-26 09:39 KST — Extended weekly digest data contract with `comboConfidenceCoachRecommendation` + signals payload (offline-only) and markdown row `DMG COMBO CONF COACH REC`.
+- Decision: reuse existing token-family totals (`dmgComboAlias`, `dmgComboConfidenceAlias`) to avoid introducing new parsers.
+- Verification: regression lock updated in `scripts/regression_weekly_portal_prompt_readability_drift.py` and passing.
+- Follow-up: add token-family churn row only if alias/runtime surface is introduced.
