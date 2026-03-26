@@ -1947,3 +1947,8 @@
 ## 2026-03-27 04:03 KST — Cycle EX combat lane note
 - This slice remained offline digest-only and did not alter combat timing/damage logic.
 - Combat/VFX follow-up injected: compact FX cue alias experiment tied to volatility + accent rails.
+
+## 2026-03-27 04:02 KST — Cycle EX follow-up sync
+- No lane-specific code changes in this slice.
+- Synced on Systems/QA ordering lock completion for `LPRCG COACH COPY -> LPRCGCN -> LPRCG COACH COPY WHY` regression contract.
+- Follow-up remains queued: optional combat/vfx compact cue alias prototype.

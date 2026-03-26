@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-27 03:50 KST
+Last updated: 2026-03-27 04:02 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -3246,3 +3246,8 @@ Compact decision memory for AI context efficiency.
 - Selected/implemented: Idea 1 vertical slice (`LPRCG COACH COPY WHY`) with flag `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_COPY_WHY`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_COPY_WHY=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (PASS).
 - Injected follow-ups: (a) Systems/QA adjacency lock for `LPRCG COACH COPY -> LPRCGCN -> WHY`, (b) Combat/VFX compact cue alias experiment for FX triage bridge.
+
+- Closed highest-priority unchecked TASKS item from Cycle EX (Systems/QA): regression contract now enforces strict adjacency/order `LPRCG COACH COPY` -> `LPRCGCN` -> `LPRCG COACH COPY WHY` in both summary and token-coverage sections.
+- Change is assertion-only (no runtime gameplay impact) and keeps digest ordering deterministic for operator scanability.
+- Verification passed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Remaining unchecked queue item is Cycle EX Combat/VFX optional compact cue alias prototype.

@@ -1329,5 +1329,5 @@ See project-level plans:
 - Idea 3 (high risk, Design/World): Add scene-arc text palette recommendation from `LPRCG COACH COPY WHY` + regime transitions.
 - Selected experiment: Idea 1 (forced underrepresented lane, minimal vertical slice).
 - [x] AI Content/World Team: Implement flagged `LPRCG COACH COPY WHY:<short>` token + payload signals + markdown rows + regression assertions.
-- [ ] Systems/QA Team: Add adjacency/order lock so `LPRCG COACH COPY:` → `LPRCGCN:` → `LPRCG COACH COPY WHY:` is deterministic in summary + token coverage.
+- [x] Systems/QA Team: Add adjacency/order lock so `LPRCG COACH COPY:` → `LPRCGCN:` → `LPRCG COACH COPY WHY:` is deterministic in summary + token coverage.
 - [ ] Combat/VFX Team: Prototype optional compact cue alias from `DCCFX` volatility to bridge coach-copy rationale and FX accent triage.

@@ -2949,3 +2949,9 @@
 ## 2026-03-27 04:03 KST — Cycle EX systems verification note
 - Integrated new payload keys for coach-copy rationale token/signals and kept contract additive + flag-gated.
 - Regression + digest generation passed; next systems/qa follow-up is deterministic adjacency lock for coach-copy triple row.
+
+## 2026-03-27 04:02 KST — Cycle EX follow-up (LPRCG coach-copy ordering lock)
+- Task: Enforce deterministic adjacency/order for `LPRCG COACH COPY` block in weekly digest summary + token coverage sections.
+- Decision: Keep ordering contract explicit in regression assertions instead of generator-side hard sort (low-risk, reversible, contract-first).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` → PASS.
+- Follow-up: Remaining Cycle EX item is combat/vfx optional compact cue alias prototype.

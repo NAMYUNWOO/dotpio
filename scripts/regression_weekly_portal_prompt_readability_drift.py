@@ -2390,7 +2390,11 @@ def main() -> int:
         summary_coach_copy_alias_idx = next(
             idx for idx, line in enumerate(summary_lines) if line.startswith("- LPRCGCN:")
         )
+        summary_coach_copy_why_idx = next(
+            idx for idx, line in enumerate(summary_lines) if line.startswith("- LPRCG COACH COPY WHY:")
+        )
         assert summary_coach_copy_alias_idx == summary_coach_copy_idx + 1
+        assert summary_coach_copy_why_idx == summary_coach_copy_alias_idx + 1
 
         token_coverage_start_idx = next(
             idx
@@ -2412,7 +2416,13 @@ def main() -> int:
         coverage_coach_copy_alias_idx = next(
             idx for idx, line in enumerate(token_coverage_lines) if line.startswith("- LPRCGCN:")
         )
+        coverage_coach_copy_why_idx = next(
+            idx
+            for idx, line in enumerate(token_coverage_lines)
+            if line.startswith("- LPRCG COACH COPY WHY:")
+        )
         assert coverage_coach_copy_alias_idx == coverage_coach_copy_idx + 1
+        assert coverage_coach_copy_why_idx == coverage_coach_copy_alias_idx + 1
 
         assert "LANE PRIORITY REC HYSTERESIS:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text

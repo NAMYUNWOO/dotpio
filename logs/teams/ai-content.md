@@ -2003,3 +2003,8 @@
 - Shipped flagged offline rationale shorthand `LPRCG COACH COPY WHY:<short>` mapped from coach-copy reason states for faster narrative intent scan.
 - Flag: `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_COPY_WHY` (reversible; defaults off).
 - No runtime gameplay mutation; digest/reporting only.
+
+## 2026-03-27 04:02 KST — Cycle EX follow-up sync
+- No lane-specific code changes in this slice.
+- Synced on Systems/QA ordering lock completion for `LPRCG COACH COPY -> LPRCGCN -> LPRCG COACH COPY WHY` regression contract.
+- Follow-up remains queued: optional combat/vfx compact cue alias prototype.

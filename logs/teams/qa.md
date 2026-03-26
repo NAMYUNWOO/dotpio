@@ -3498,3 +3498,11 @@
 ## 2026-03-27 04:03 KST — Cycle EX QA check
 - Added regression coverage for new payload keys and markdown presence of `LPRCG COACH COPY WHY:`.
 - Verification bundle passed (py_compile, regression, weekly digest with flag enabled).
+
+## 2026-03-27 04:02 KST — Regression lock expansion for LPRCG coach-copy rationale ordering
+- Added assertions for deterministic sequence in both sections:
+  - `LPRCG COACH COPY:`
+  - `LPRCGCN:`
+  - `LPRCG COACH COPY WHY:`
+- Regression status: `scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Risk: low (assert-only contract guard).

@@ -1965,3 +1965,8 @@
 ## 2026-03-27 04:03 KST — Cycle EX world readability note
 - Added offline rationale shorthand (`LPRCG COACH COPY WHY`) to improve world-facing narrative handoff readability during volatility regime transitions.
 - No world runtime/data mutation in this slice.
+
+## 2026-03-27 04:02 KST — Cycle EX follow-up sync
+- No lane-specific code changes in this slice.
+- Synced on Systems/QA ordering lock completion for `LPRCG COACH COPY -> LPRCGCN -> LPRCG COACH COPY WHY` regression contract.
+- Follow-up remains queued: optional combat/vfx compact cue alias prototype.

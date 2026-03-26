@@ -2016,3 +2016,8 @@
 ## 2026-03-27 04:03 KST — Cycle EX design note
 - New rationale shorthand improves dense digest readability by exposing why coach-copy switched modes in one short token.
 - Design/world follow-up remains: scene-arc palette recommendation line using rationale + regime transitions.
+
+## 2026-03-27 04:02 KST — Cycle EX follow-up sync
+- No lane-specific code changes in this slice.
+- Synced on Systems/QA ordering lock completion for `LPRCG COACH COPY -> LPRCGCN -> LPRCG COACH COPY WHY` regression contract.
+- Follow-up remains queued: optional combat/vfx compact cue alias prototype.
