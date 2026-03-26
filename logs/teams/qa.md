@@ -3450,3 +3450,16 @@
   - No gameplay/runtime changes; no portal validator/screenshot refresh required.
 - Follow-up:
   - Continue with AI Content/World offline adaptive guard-persistence coach copy variant-pack policy.
+
+## 2026-03-27 02:04 KST — Cycle EU AI Content/World follow-up closeout
+- Task: Prototype offline adaptive guard-persistence coach copy variant-pack policy from sustained `LPRCG:APPLY` streak depth.
+- Delivered: Added digest token `LPRCG COACH PACK:BASELINE|ADAPTIVE|ANCHOR` with prior-window regime/streak-aware mapping in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up: If backlog remains fully checked, trigger next Game Director review cycle and inject next experiment tasks.
+
+## 2026-03-27 02:14 KST — Cycle EV selected slice shipped
+- Game Director review completed (3 ideas) and selected low-risk UX/Systems slice.
+- Shipped compact guard-persistence coach-pack alias token `LPRCGCP:<B|A|N>` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_PACK_ALIAS`.
+- Wiring: payload keys + markdown rows added for `LPRCG COACH PACK`/`LPRCGCP`; regression contract updated.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Next backlog hooks injected: (1) `LPRCG COACH PACK` family churn row, (2) adaptive coach-copy narrative line from pack+regime transitions.

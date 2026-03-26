@@ -1298,4 +1298,14 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact guard-persistence coach alias token (`LPRCGC:<R|W|S>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 01:06 KST; completed: 2026-03-27 01:08 KST)*
 - [x] Systems/QA Team: Add explicit adjacency/order regression lock for `LPRCG COACH` -> `LPRCGC` in summary + token-coverage sections. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 01:20 KST)*
-- [ ] AI Content/World Team: Prototype offline adaptive guard-persistence coach copy variant-pack policy from sustained `LPRCG:APPLY` streak depth.
+- [x] AI Content/World Team: Prototype offline adaptive guard-persistence coach copy variant-pack policy from sustained `LPRCG:APPLY` streak depth.
+
+## Cycle EV - Game Director Review (2026-03-27 02:10 KST)
+- Coverage check (last 10 completions): systems/qa + ai-content digest policy lane remained dominant; selected compact UX/systems readability slice to keep new coach-pack signal scanable.
+- Idea 1 (low risk, UX/Systems): Add compact guard-persistence coach-pack alias token (`LPRCGCP:<B|A|N>`) behind flag for dense digest scanability.
+- Idea 2 (mid risk, Systems/QA): Add token-family churn coverage row for `LPRCG COACH PACK:` + alias and lock with regression.
+- Idea 3 (high risk, AI Content/World): Prototype offline adaptive coach-copy narrative line from coach-pack + volatility-regime transitions.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Systems Team: Add compact guard-persistence coach-pack alias token (`LPRCGCP:<B|A|N>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_PACK_ALIAS` with payload/markdown wiring + regression lock.
+- [ ] Systems/QA Team: Add token-family churn coverage row for `LPRCG COACH PACK:` + `LPRCGCP:` with regression lock.
+- [ ] AI Content/World Team: Prototype offline adaptive coach-copy narrative line from coach-pack + volatility regime transitions.

@@ -3214,3 +3214,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: ordering contracts now enforced via index-based assertions scoped by markdown section boundaries (prevents accidental reorder drift while avoiding cross-section false matches).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Backlog sync: marked TASKS + POST_RC entries complete for adjacency/order lock; remaining unchecked item is AI Content/World adaptive guard-persistence coach variant-pack policy.
+- Closed remaining unchecked ACTION_ITEMS/TASKS/POST_RC item (Cycle EU AI Content/World follow-up): added offline adaptive guard-persistence coach variant-pack token `LPRCG COACH PACK:BASELINE|ADAPTIVE|ANCHOR` with streak-depth + volatility-regime transition logic.
+- Weekly digest payload now includes `lanePriorityRecommendationConfidenceGuardPersistenceCoachVariantPack` and detailed signals (`pack/priorPack/regimeChanged/...`) for auditable offline coaching policy evolution.
+- Regression contract expanded to assert new payload keys and markdown row (`LPRCG COACH PACK:`); verification passed (`py_compile` + weekly drift regression).
+- All previously unchecked ACTION_ITEMS/TASKS/POST_RC work was closed; immediately executed Game Director Cycle EV per protocol.
+- Cycle EV generated 3 ideas and shipped selected minimal slice: compact alias `LPRCGCP:<B|A|N>` for `LPRCG COACH PACK` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_PACK_ALIAS`.
+- Added payload contract fields `lanePriorityRecommendationConfidenceGuardPersistenceCoachVariantPackAlias`(+signals) and markdown/token-coverage rows for `LPRCGCP`; regression assertions expanded and passing.
+- Injected next tasks into TASKS/POST_RC: (a) Systems/QA churn coverage for `LPRCG COACH PACK` + `LPRCGCP`, (b) AI Content/World adaptive narrative copy line from pack + regime transitions.

@@ -746,6 +746,26 @@ def main() -> int:
             "coachToken",
             "alias",
         }, payload
+        assert isinstance(payload.get("lanePriorityRecommendationConfidenceGuardPersistenceCoachVariantPack"), str), payload
+        assert set(payload.get("lanePriorityRecommendationConfidenceGuardPersistenceCoachVariantPackSignals", {}).keys()) == {
+            "pack",
+            "priorPack",
+            "guardAction",
+            "consecutiveApplyWindows",
+            "volatilityRegime",
+            "priorVolatilityRegime",
+            "regimeChanged",
+            "priorLoaded",
+            "reason",
+            "offlineOnly",
+        }, payload
+        assert isinstance(payload.get("lanePriorityRecommendationConfidenceGuardPersistenceCoachVariantPackAlias"), str), payload
+        assert set(payload.get("lanePriorityRecommendationConfidenceGuardPersistenceCoachVariantPackAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "packToken",
+            "alias",
+        }, payload
         assert isinstance(payload.get("lanePriorityRecommendationCompactAlias"), str), payload
         assert set(payload.get("lanePriorityRecommendationCompactAliasSignals", {}).keys()) == {
             "flagName",
@@ -2317,6 +2337,8 @@ def main() -> int:
         assert "LPRCG THRESH:" in md_text
         assert "LPRCG COACH:" in md_text
         assert "LPRCGC:" in md_text
+        assert "LPRCG COACH PACK:" in md_text
+        assert "LPRCGCP:" in md_text
         assert "LPRCG THRESH FAMILY CHURN" in md_text
         assert "LPRCG COACH + LPRCGC FAMILY CHURN" in md_text
 

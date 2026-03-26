@@ -1086,6 +1086,85 @@ def lane_priority_recommendation_confidence_guard_persistence_coach(
     }
 
 
+def lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack(
+    *,
+    coach_signals: dict[str, object],
+    guard_signals: dict[str, object],
+    prior_json_path: Path,
+) -> tuple[str, dict[str, object]]:
+    """Offline adaptive coach-copy variant-pack policy from sustained `LPRCG:APPLY` streak depth."""
+    prior_pack = "BASELINE"
+    prior_regime = "CALM"
+    prior_loaded = False
+    if prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_signals = prior_payload.get("lanePriorityRecommendationConfidenceGuardPersistenceCoachVariantPackSignals", {})
+            if isinstance(prior_signals, dict):
+                prior_pack = str(prior_signals.get("pack", "BASELINE") or "BASELINE").upper()
+                prior_regime = str(prior_signals.get("volatilityRegime", "CALM") or "CALM").upper()
+                prior_loaded = True
+        except (json.JSONDecodeError, OSError, TypeError, ValueError):
+            prior_pack = "BASELINE"
+            prior_regime = "CALM"
+            prior_loaded = False
+
+    streak = int(coach_signals.get("consecutiveApplyWindows", 0) or 0)
+    action = str(coach_signals.get("guardAction", "HOLD") or "HOLD").upper()
+    regime = str(guard_signals.get("volatilityRegime", "CALM") or "CALM").upper()
+    regime_changed = prior_loaded and regime != prior_regime
+
+    if action != "APPLY":
+        pack = "BASELINE"
+        reason = "guard-not-applied"
+    elif streak >= 4 or (regime == "SPIKE" and streak >= 2):
+        pack = "ANCHOR"
+        reason = "sustained-apply-streak-or-spike-pressure"
+    elif streak >= 2 or regime_changed:
+        pack = "ADAPTIVE"
+        reason = "apply-streak-building-or-regime-transition"
+    else:
+        pack = "BASELINE"
+        reason = "fresh-apply-window"
+
+    token = f"LPRCG COACH PACK:{pack}"
+    return token, {
+        "pack": pack,
+        "priorPack": prior_pack,
+        "guardAction": action,
+        "consecutiveApplyWindows": streak,
+        "volatilityRegime": regime,
+        "priorVolatilityRegime": prior_regime,
+        "regimeChanged": regime_changed,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+        "offlineOnly": True,
+    }
+
+
+def resolve_lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias(
+    *,
+    pack_token: str,
+) -> tuple[str, dict[str, object]]:
+    """Compact alias for guard-persistence coach-pack token (`LPRCGCP:<B|A|N>`)."""
+    flag_name = "DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_PACK_ALIAS"
+    flag_enabled = os.environ.get(flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
+
+    alias_map = {
+        "LPRCG COACH PACK:BASELINE": "B",
+        "LPRCG COACH PACK:ADAPTIVE": "A",
+        "LPRCG COACH PACK:ANCHOR": "N",
+    }
+    alias = alias_map.get(pack_token, "B")
+    token = f"LPRCGCP:{alias}"
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "packToken": pack_token,
+        "alias": alias,
+    }
+
+
 def resolve_lane_priority_recommendation_confidence_guard_persistence_coach_alias(
     *,
     coach_token: str,
@@ -8862,6 +8941,14 @@ def main() -> int:
     lane_priority_recommendation_confidence_guard_persistence_coach_alias, lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals = resolve_lane_priority_recommendation_confidence_guard_persistence_coach_alias(
         coach_token=lane_priority_recommendation_confidence_guard_persistence_coach_token,
     )
+    lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_token, lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals = lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack(
+        coach_signals=lane_priority_recommendation_confidence_guard_persistence_coach_signals,
+        guard_signals=lane_priority_recommendation_confidence_guard_signals,
+        prior_json_path=args.out_json,
+    )
+    lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias, lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals = resolve_lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias(
+        pack_token=lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_token,
+    )
     pulse_remap_suppression_escalation_plan, pulse_remap_suppression_escalation_plan_signals = pulse_remap_suppression_escalation_plan_from_signals(
         suppression=pulse_remap_momentum_suppression,
         suppression_signals=pulse_remap_momentum_suppression_signals,
@@ -9916,6 +10003,10 @@ def main() -> int:
         "lanePriorityRecommendationConfidenceGuardPersistenceCoachSignals": lane_priority_recommendation_confidence_guard_persistence_coach_signals,
         "lanePriorityRecommendationConfidenceGuardPersistenceCoachAlias": lane_priority_recommendation_confidence_guard_persistence_coach_alias,
         "lanePriorityRecommendationConfidenceGuardPersistenceCoachAliasSignals": lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals,
+        "lanePriorityRecommendationConfidenceGuardPersistenceCoachVariantPack": lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_token,
+        "lanePriorityRecommendationConfidenceGuardPersistenceCoachVariantPackSignals": lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals,
+        "lanePriorityRecommendationConfidenceGuardPersistenceCoachVariantPackAlias": lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias,
+        "lanePriorityRecommendationConfidenceGuardPersistenceCoachVariantPackAliasSignals": lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals,
         "lanePriorityRecommendationCompactAlias": lane_priority_recommendation_compact_alias,
         "lanePriorityRecommendationCompactAliasSignals": lane_priority_recommendation_compact_alias_signals,
         "lanePriorityHysteresisCompactAlias": lane_priority_hysteresis_compact_alias,
@@ -10567,6 +10658,8 @@ def main() -> int:
         f"- LPRCG THRESH: **{lane_priority_recommendation_confidence_guard_threshold}** (policy={lane_priority_recommendation_confidence_guard_threshold_signals['policy']})",
         f"- LPRCG COACH: **{lane_priority_recommendation_confidence_guard_persistence_coach_token}** (reason={lane_priority_recommendation_confidence_guard_persistence_coach_signals['reason']} action={lane_priority_recommendation_confidence_guard_persistence_coach_signals['guardAction']} consecutive={lane_priority_recommendation_confidence_guard_persistence_coach_signals['consecutiveApplyWindows']} priorLoaded={lane_priority_recommendation_confidence_guard_persistence_coach_signals['priorLoaded']} offlineOnly={lane_priority_recommendation_confidence_guard_persistence_coach_signals['offlineOnly']})",
         f"- LPRCGC: **{lane_priority_recommendation_confidence_guard_persistence_coach_alias}** (flag={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['flagName']} enabled={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['flagEnabled']} coach={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['coachToken']} alias={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['alias']})",
+        f"- LPRCG COACH PACK: **{lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_token}** (reason={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['reason']} action={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['guardAction']} consecutive={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['consecutiveApplyWindows']} regime={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['volatilityRegime']} regimeChanged={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['regimeChanged']} priorLoaded={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['priorLoaded']} offlineOnly={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['offlineOnly']})",
+        f"- LPRCGCP: **{lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias}** (flag={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['flagName']} enabled={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['flagEnabled']} pack={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['packToken']} alias={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['alias']})",
         f"- LPRCG + LANE PRIORITY REC CONF GUARD FAMILY CHURN: **net {token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['net']:+d}** (added={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['added']} removed={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['removed']} churn={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['coverage']})",
         f"- LPRCG COACH + LPRCGC FAMILY CHURN: **net {token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['net']:+d}** (added={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['added']} removed={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['removed']} churn={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['coverage']})",
         f"- LPRCG THRESH FAMILY CHURN: **net {token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['net']:+d}** (added={token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['added']} removed={token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['removed']} churn={token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['coverage']})",
@@ -10724,6 +10817,8 @@ def main() -> int:
         f"- LPRCG THRESH: {lane_priority_recommendation_confidence_guard_threshold} (policy={lane_priority_recommendation_confidence_guard_threshold_signals['policy']})",
         f"- LPRCG COACH: {lane_priority_recommendation_confidence_guard_persistence_coach_token} (reason={lane_priority_recommendation_confidence_guard_persistence_coach_signals['reason']}, action={lane_priority_recommendation_confidence_guard_persistence_coach_signals['guardAction']}, consecutive={lane_priority_recommendation_confidence_guard_persistence_coach_signals['consecutiveApplyWindows']}, priorLoaded={lane_priority_recommendation_confidence_guard_persistence_coach_signals['priorLoaded']}, offlineOnly={lane_priority_recommendation_confidence_guard_persistence_coach_signals['offlineOnly']})",
         f"- LPRCGC: {lane_priority_recommendation_confidence_guard_persistence_coach_alias} (flag={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['flagName']}, enabled={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['flagEnabled']}, coach={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['coachToken']}, alias={lane_priority_recommendation_confidence_guard_persistence_coach_alias_signals['alias']})",
+        f"- LPRCG COACH PACK: {lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_token} (reason={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['reason']}, action={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['guardAction']}, consecutive={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['consecutiveApplyWindows']}, regime={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['volatilityRegime']}, regimeChanged={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['regimeChanged']}, priorLoaded={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['priorLoaded']}, offlineOnly={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_signals['offlineOnly']})",
+        f"- LPRCGCP: {lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias} (flag={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['flagName']}, enabled={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['flagEnabled']}, pack={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['packToken']}, alias={lane_priority_recommendation_confidence_guard_persistence_coach_variant_pack_alias_signals['alias']})",
         f"- LPRCG + LANE PRIORITY REC CONF GUARD: +{token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['added']} / -{token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['removed']} / net {token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['net']} (churn={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['coverage']})",
         f"- LPRCG COACH + LPRCGC: +{token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['added']} / -{token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['removed']} / net {token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['net']} (churn={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardCoachAlias']['coverage']})",
         f"- LPRCG THRESH FAMILY CHURN: +{token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['added']} / -{token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['removed']} / net {token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['net']} (churn={token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardThresholdAlias']['coverage']})",
