@@ -3569,3 +3569,5 @@
   - Added summary + token-coverage rows: `DCCFXCPA FAMILY CHURN`, `DCCFXCPA COPY`, and `DCCFXCPA COPY LEGEND`.
   - Verified deterministic ordering contracts in regression and kept adjacency stable around DCCFXCPA rails.
   - Follow-up: implement `DCCFXCPA COPY FAMILY CHURN` and evaluate optional `DCCFXCPA COPY ALT` fallback token (Cycle FC backlog).
+- [2026-03-27 08:39 KST] Regression hardening: require `DCCFXCPA COPY FAMILY CHURN` presence and deterministic adjacency in both summary and token-coverage sections (`... COPY -> COPY LEGEND -> COPY FAMILY CHURN -> DCCFXV FAMILY CHURN`).
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.

@@ -3304,3 +3304,6 @@ Compact decision memory for AI context efficiency.
 - 2026-03-27 08:23 KST — Closed remaining Cycle FB backlog items by shipping `DCCFXCPA FAMILY CHURN` (with prior-window drift context) and `DCCFXCPA COPY` recommendation token (`CLEAR|HOLD|SURGE`) in weekly digest payload + markdown surfaces.
 - Regression contract now requires DCCFXCPA block adjacency in both summary and token-coverage sections, including `DCCFXCPA COPY LEGEND` after `DCCFXCPA COPY`.
 - Game Director Cycle FC executed immediately after queue-clear: selected low-risk UX/AI-content slice and shipped `DCCFXCPA COPY LEGEND`; injected follow-ups for `DCCFXCPA COPY FAMILY CHURN` and `DCCFXCPA COPY ALT`.
+- 2026-03-27 08:39 KST — Closed highest-priority unchecked TASKS/POST_RC item (Systems/QA): shipped `DCCFXCPA COPY FAMILY CHURN` with prior-window drift context in weekly digest summary + token-coverage.
+- Payload contract now includes `comboConfidenceFxCoachCueWhyScenePulseArcCopyFamilyTrendDrift/Signals`; regression locks adjacency `DCCFXCPA COPY -> COPY LEGEND -> COPY FAMILY CHURN -> DCCFXV FAMILY CHURN` in both sections.
+- Verification passed: `py_compile` + `scripts/regression_weekly_portal_prompt_readability_drift.py`.

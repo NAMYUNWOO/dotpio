@@ -2273,3 +2273,4 @@
   - Added summary + token-coverage rows: `DCCFXCPA FAMILY CHURN`, `DCCFXCPA COPY`, and `DCCFXCPA COPY LEGEND`.
   - Verified deterministic ordering contracts in regression and kept adjacency stable around DCCFXCPA rails.
   - Follow-up: implement `DCCFXCPA COPY FAMILY CHURN` and evaluate optional `DCCFXCPA COPY ALT` fallback token (Cycle FC backlog).
+- [2026-03-27 08:39 KST] UX readability pass: inserted `DCCFXCPA COPY FAMILY CHURN` with drift/trend context; keeps compact narrative copy rails auditable without widening prompt surface.

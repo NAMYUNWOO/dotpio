@@ -2011,3 +2011,4 @@
   - Added summary + token-coverage rows: `DCCFXCPA FAMILY CHURN`, `DCCFXCPA COPY`, and `DCCFXCPA COPY LEGEND`.
   - Verified deterministic ordering contracts in regression and kept adjacency stable around DCCFXCPA rails.
   - Follow-up: implement `DCCFXCPA COPY FAMILY CHURN` and evaluate optional `DCCFXCPA COPY ALT` fallback token (Cycle FC backlog).
+- [2026-03-27 08:39 KST] Coordination note: digest ordering contract expanded around pulse-arc copy rails; world-facing scene-pulse decode now keeps copy-family churn immediately after legend for stable scan order.

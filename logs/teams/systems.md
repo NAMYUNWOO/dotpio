@@ -3013,3 +3013,5 @@
   - Added summary + token-coverage rows: `DCCFXCPA FAMILY CHURN`, `DCCFXCPA COPY`, and `DCCFXCPA COPY LEGEND`.
   - Verified deterministic ordering contracts in regression and kept adjacency stable around DCCFXCPA rails.
   - Follow-up: implement `DCCFXCPA COPY FAMILY CHURN` and evaluate optional `DCCFXCPA COPY ALT` fallback token (Cycle FC backlog).
+- [2026-03-27 08:39 KST] Closed Cycle FC Systems/QA item: added `DCCFXCPA COPY FAMILY CHURN` in weekly digest summary + token-coverage with prior-window drift context (`drift/trend/loaded`) from `dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias`.
+- Updated payload contract with `comboConfidenceFxCoachCueWhyScenePulseArcCopyFamilyTrendDrift/Signals` for durable downstream triage.

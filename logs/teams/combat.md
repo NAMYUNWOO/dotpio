@@ -1988,3 +1988,4 @@
   - Added summary + token-coverage rows: `DCCFXCPA FAMILY CHURN`, `DCCFXCPA COPY`, and `DCCFXCPA COPY LEGEND`.
   - Verified deterministic ordering contracts in regression and kept adjacency stable around DCCFXCPA rails.
   - Follow-up: implement `DCCFXCPA COPY FAMILY CHURN` and evaluate optional `DCCFXCPA COPY ALT` fallback token (Cycle FC backlog).
+- [2026-03-27 08:39 KST] Combat readability telemetry update: added deterministic `DCCFXCPA COPY FAMILY CHURN` rail so pulse-arc copy volatility is separated from `DCCFXV/DCCFXC/DCCFXCW` families.

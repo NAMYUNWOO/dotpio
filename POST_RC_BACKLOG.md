@@ -1149,5 +1149,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, Combat/World): Add volatility-sensitive fallback narrative rail (`DCCFXCPA COPY ALT`) for surge suppression cases.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/AI Content Team: Add `DCCFXCPA COPY LEGEND` row in summary + token-coverage and extend regression adjacency lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 08:18 KST; completed: 2026-03-27 08:22 KST)*
-- [ ] Systems/QA Team: Add `DCCFXCPA COPY FAMILY CHURN` row with prior-window drift context and deterministic ordering guard.
+- [x] Systems/QA Team: Add `DCCFXCPA COPY FAMILY CHURN` row with prior-window drift context and deterministic ordering guard. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 08:31 KST; completed: 2026-03-27 08:39 KST)*
 - [ ] Combat/World Team: Prototype `DCCFXCPA COPY ALT` fallback token for surge-suppression mismatch windows.
