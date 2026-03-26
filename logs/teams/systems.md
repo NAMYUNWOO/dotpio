@@ -2725,3 +2725,5 @@
 - Decision: Track coach recommendation + compact alias as one family (`dmgComboConfidenceCoachAlias`) to keep churn audits aligned with compact/debug parity.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Follow-up: Remaining unchecked items are Cycle EG AI-content fallback narrative + Cycle EH backlog trio.
+- 2026-03-26 10:34 KST — Extended weekly digest JSON contract with `comboConfidenceCoachRecommendationStreak`, `comboConfidenceCoachRecommendationStreakDrift`, and `comboConfidenceCoachFallbackNarrative` (+ signal payloads).
+- Contract remains offline-only and sourced from prior digest JSON for deterministic streak drift computation.

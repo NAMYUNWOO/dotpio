@@ -3046,3 +3046,7 @@ Compact decision memory for AI context efficiency.
 - Regression lock extended in `scripts/regression_weekly_portal_prompt_readability_drift.py` to assert both rows.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Next priority remains unchecked AI-content fallback narrative (Cycle EG) unless lane-forced Cycle EH item is intentionally promoted.
+- 2026-03-26 10:34 KST — Completed POST_RC Cycle EG follow-up: shipped offline `DMG COMBO CONF COACH FALLBACK` narrative line driven by combo-confidence recommendation streak drift + kill-heat volatility regime.
+- Durable decision: keep fallback narrative offline digest-only (no runtime gameplay coupling) until scanability and stability are validated over additional windows.
+- Backlog sync: marked POST_RC item `AI Content/Combat Team: ... fallback narrative line` done.
+- Next priority item (POST_RC): `Combat/VFX Team: Prototype compact scene-arc alias token (DCCSA:<A|I|E>)`.

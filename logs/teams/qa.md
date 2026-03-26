@@ -3271,3 +3271,5 @@
   - compact rollup row `DCCR + DMG COMBO CONF COACH REC:`
 - Validation command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Result: PASS (no contract drift in weekly digest output).
+- 2026-03-26 10:34 KST — Regression lock expanded for combo-confidence coach family: require `DMG COMBO CONF COACH FALLBACK` markdown row in weekly digest regression.
+- Verification run: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.

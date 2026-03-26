@@ -2064,3 +2064,4 @@
 - Decision: keep explanatory payload machine-readable while retaining a compact human scan path.
 - Follow-up: evaluate whether confidence coach row should appear in compact-only digest views.
 - 2026-03-26 09:50 KST — Added one-glance alias row `DCCR:` to reduce scan load for combo-confidence coach recommendations in dense weekly digest output.
+- 2026-03-26 10:34 KST — Preserved compact readability by keeping fallback narrative as a single deterministic line with streak/regime metadata in parentheses for quick triage.

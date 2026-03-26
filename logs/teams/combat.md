@@ -1777,3 +1777,5 @@
 - Follow-up: monitor recommendation distribution in next digest to calibrate volatility cutoffs.
 - 2026-03-26 09:50 KST — Cycle EG minimal slice shipped: compact alias `DCCR:<G|S|U>` now mirrors `DMG COMBO CONF COACH REC` recommendation when `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_ALIAS` is enabled.
 - Decision: alias is digest-only and reversible via env flag; full recommendation row remains canonical.
+- 2026-03-26 10:34 KST — Added combat-facing fallback coaching copy for combo-confidence recommendations: guard/surge/steady lines now escalate with streak persistence and volatility regime.
+- Follow-up: evaluate if fallback lines reduce ambiguous postmortem notes before considering runtime HUD exposure.

@@ -2150,6 +2150,7 @@ def main() -> int:
         assert "DCRC + DMG COMBO WINDOW RETUNE CONF:" in md_text
         assert "DMG COMBO CHAIN COACH:" in md_text
         assert "DMG COMBO CONF COACH REC:" in md_text
+        assert "DMG COMBO CONF COACH FALLBACK:" in md_text
         assert "DCCR:" in md_text
         assert "DMG COMBO CONF COACH SCENE ARC" in md_text
         assert "PULSE REMAP MOMENTUM Δ:" in md_text
@@ -2207,6 +2208,7 @@ def main() -> int:
         assert "DCRC:" in md_text
         assert "DMG COMBO CHAIN COACH:" in md_text
         assert "DMG COMBO CONF COACH REC" in md_text
+        assert "DMG COMBO CONF COACH FALLBACK" in md_text
         assert "DCCR:" in md_text
         assert "DCCR + DMG COMBO CONF COACH REC:" in md_text
         assert "DMG COMBO CONF COACH REC + DCCR FAMILY CHURN" in md_text

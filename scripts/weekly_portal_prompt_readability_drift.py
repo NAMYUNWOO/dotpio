@@ -7698,6 +7698,88 @@ def combo_confidence_coach_scene_arc_from_signals(
     }
 
 
+def combo_confidence_coach_recommendation_streak_from_prior(
+    *,
+    current_recommendation: str,
+    prior_json_path: Path,
+) -> tuple[int, int, dict[str, object]]:
+    """Track recommendation streak + drift delta for offline fallback narrative pacing."""
+    prior_recommendation = ""
+    prior_streak = 0
+
+    if prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_recommendation = str(prior_payload.get("comboConfidenceCoachRecommendation", "") or "").upper()
+            prior_streak = int(prior_payload.get("comboConfidenceCoachRecommendationStreak", 0) or 0)
+        except Exception:
+            prior_recommendation = ""
+            prior_streak = 0
+
+    if prior_recommendation == current_recommendation and prior_streak > 0:
+        current_streak = prior_streak + 1
+        reason = "same-recommendation-streak-extended"
+    else:
+        current_streak = 1
+        reason = "recommendation-shift-reset"
+
+    streak_drift = current_streak - prior_streak
+    signals = {
+        "reason": reason,
+        "currentRecommendation": current_recommendation,
+        "priorRecommendation": prior_recommendation or "NONE",
+        "priorStreak": prior_streak,
+        "currentStreak": current_streak,
+        "streakDrift": streak_drift,
+        "offlineOnly": True,
+    }
+    return current_streak, streak_drift, signals
+
+
+def combo_confidence_coach_fallback_narrative_from_signals(
+    *,
+    recommendation: str,
+    recommendation_streak: int,
+    recommendation_streak_drift: int,
+    recommendation_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Offline fallback narrative line tied to recommendation streak drift + volatility regime."""
+    kill_heat_volatility = int(recommendation_signals.get("killHeatVolatility", 0) or 0)
+    if kill_heat_volatility >= 9:
+        volatility_regime = "SPIKE"
+    elif kill_heat_volatility >= 5:
+        volatility_regime = "SWING"
+    else:
+        volatility_regime = "CALM"
+
+    if recommendation == "GUARD" or volatility_regime == "SPIKE":
+        line = "LOCK YOUR BREATH. BANK SAFE HITS."
+        reason = "guard-or-spike-volatility-regime"
+    elif recommendation == "STEADY" or volatility_regime == "SWING":
+        line = "HOLD THE DRUMBEAT. CUT WHEN IT OPENS."
+        reason = "steady-with-swing-volatility-regime"
+    else:
+        line = "KEEP PRESSURE CLEAN. CASH THE HEAT."
+        reason = "surge-with-calm-volatility-regime"
+
+    if recommendation_streak >= 3 and recommendation_streak_drift > 0:
+        line = f"{line} SAME CALL x{recommendation_streak}."
+        reason = "streak-rising-lock-in-reminder"
+    elif recommendation_streak_drift < 0:
+        line = "NEW READ. RESET THE RHYTHM FIRST."
+        reason = "streak-drop-reset-reminder"
+
+    return line, {
+        "reason": reason,
+        "recommendation": recommendation,
+        "recommendationStreak": recommendation_streak,
+        "recommendationStreakDrift": recommendation_streak_drift,
+        "volatilityRegime": volatility_regime,
+        "killHeatVolatility": kill_heat_volatility,
+        "offlineOnly": True,
+    }
+
+
 def main() -> int:
     args = parse_args()
     root = args.repo_root.resolve()
@@ -7952,6 +8034,16 @@ def main() -> int:
         combo_confidence_family=token_family_totals["dmgComboConfidenceAlias"],
         pressure_band=pressure_band,
         drift_risk=drift_risk,
+    )
+    combo_confidence_coach_recommendation_streak, combo_confidence_coach_recommendation_streak_drift, combo_confidence_coach_recommendation_streak_signals = combo_confidence_coach_recommendation_streak_from_prior(
+        current_recommendation=combo_confidence_coach_recommendation,
+        prior_json_path=args.out_json,
+    )
+    combo_confidence_coach_fallback_narrative, combo_confidence_coach_fallback_narrative_signals = combo_confidence_coach_fallback_narrative_from_signals(
+        recommendation=combo_confidence_coach_recommendation,
+        recommendation_streak=combo_confidence_coach_recommendation_streak,
+        recommendation_streak_drift=combo_confidence_coach_recommendation_streak_drift,
+        recommendation_signals=combo_confidence_coach_recommendation_signals,
     )
     combo_confidence_coach_scene_arc, combo_confidence_coach_scene_arc_signals = combo_confidence_coach_scene_arc_from_signals(
         recommendation=combo_confidence_coach_recommendation,
@@ -9300,6 +9392,11 @@ def main() -> int:
         "comboChainNarrativeCoachLineSignals": combo_chain_narrative_coach_line_signals,
         "comboConfidenceCoachRecommendation": combo_confidence_coach_recommendation,
         "comboConfidenceCoachRecommendationSignals": combo_confidence_coach_recommendation_signals,
+        "comboConfidenceCoachRecommendationStreak": combo_confidence_coach_recommendation_streak,
+        "comboConfidenceCoachRecommendationStreakDrift": combo_confidence_coach_recommendation_streak_drift,
+        "comboConfidenceCoachRecommendationStreakSignals": combo_confidence_coach_recommendation_streak_signals,
+        "comboConfidenceCoachFallbackNarrative": combo_confidence_coach_fallback_narrative,
+        "comboConfidenceCoachFallbackNarrativeSignals": combo_confidence_coach_fallback_narrative_signals,
         "comboConfidenceCoachAlias": dmg_combo_conf_coach_alias if dmg_combo_conf_coach_alias_flag_enabled else "FLAG OFF",
         "comboConfidenceCoachAliasSignals": {"flagName": dmg_combo_conf_coach_alias_flag_name, "flagEnabled": dmg_combo_conf_coach_alias_flag_enabled, "recommendation": combo_confidence_coach_recommendation, "alias": dmg_combo_conf_coach_alias},
         "comboConfidenceCoachSceneArc": combo_confidence_coach_scene_arc,
@@ -9364,6 +9461,7 @@ def main() -> int:
         f"- DCRC: **{dmg_combo_retune_conf_alias if dmg_combo_retune_conf_alias_flag_enabled else 'FLAG OFF'}** (flag={dmg_combo_retune_conf_alias_flag_name} enabled={dmg_combo_retune_conf_alias_flag_enabled} full={combo_window_retune_confidence})",
         f"- DMG COMBO CHAIN COACH: **{combo_chain_narrative_coach_line}** ({combo_chain_narrative_coach_line_signals['reason']}; rec={combo_chain_narrative_coach_line_signals['recommendation']} conf={combo_chain_narrative_coach_line_signals['confidence']} pressure={combo_chain_narrative_coach_line_signals['pressureBand']} drift={combo_chain_narrative_coach_line_signals['driftRisk']} cadence={combo_chain_narrative_coach_line_signals['laneCadenceRecency']} offlineOnly={combo_chain_narrative_coach_line_signals['offlineOnly']})",
         f"- DMG COMBO CONF COACH REC: **{combo_confidence_coach_recommendation}** ({combo_confidence_coach_recommendation_signals['reason']}; killHeatVol={combo_confidence_coach_recommendation_signals['killHeatVolatility']} comboChurn={combo_confidence_coach_recommendation_signals['comboChurn']} comboNet={combo_confidence_coach_recommendation_signals['comboNet']:+d} confChurn={combo_confidence_coach_recommendation_signals['comboConfidenceChurn']} confNet={combo_confidence_coach_recommendation_signals['comboConfidenceNet']:+d} pressure={combo_confidence_coach_recommendation_signals['pressureBand']} drift={combo_confidence_coach_recommendation_signals['driftRisk']} offlineOnly={combo_confidence_coach_recommendation_signals['offlineOnly']})",
+        f"- DMG COMBO CONF COACH FALLBACK: **{combo_confidence_coach_fallback_narrative}** ({combo_confidence_coach_fallback_narrative_signals['reason']}; streak={combo_confidence_coach_fallback_narrative_signals['recommendationStreak']} streakDelta={combo_confidence_coach_fallback_narrative_signals['recommendationStreakDrift']:+d} regime={combo_confidence_coach_fallback_narrative_signals['volatilityRegime']} killHeatVol={combo_confidence_coach_fallback_narrative_signals['killHeatVolatility']} offlineOnly={combo_confidence_coach_fallback_narrative_signals['offlineOnly']})",
         f"- DCCR: **{dmg_combo_conf_coach_alias if dmg_combo_conf_coach_alias_flag_enabled else 'FLAG OFF'}** (flag={dmg_combo_conf_coach_alias_flag_name} enabled={dmg_combo_conf_coach_alias_flag_enabled} full={combo_confidence_coach_recommendation})",
         f"- DMG COMBO CONF COACH SCENE ARC: **{combo_confidence_coach_scene_arc}** ({combo_confidence_coach_scene_arc_signals['reason']}; rec={combo_confidence_coach_scene_arc_signals['recommendation']} pressure={combo_confidence_coach_scene_arc_signals['pressureBand']} drift={combo_confidence_coach_scene_arc_signals['driftRisk']} offlineOnly={combo_confidence_coach_scene_arc_signals['offlineOnly']})",
         f"- PULSE REMAP MOMENTUM: **{pulse_remap_momentum_recommendation}** ({pulse_remap_momentum_recommendation_signals['rationale']}; rec={pulse_remap_momentum_recommendation_signals['recommendation']} driftRisk={pulse_remap_momentum_recommendation_signals['driftRisk']} pressure={pulse_remap_momentum_recommendation_signals['pressureBand']} cadence={pulse_remap_momentum_recommendation_signals['laneCadenceRecency']} planChurn={pulse_remap_momentum_recommendation_signals['planChurn']} planNet={pulse_remap_momentum_recommendation_signals['planNet']:+d} offlineOnly={pulse_remap_momentum_recommendation_signals['offlineOnly']})",

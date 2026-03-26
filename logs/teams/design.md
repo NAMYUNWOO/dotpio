@@ -1851,3 +1851,4 @@
 - Shipped compact world-tone row `DMG COMBO CONF COACH SCENE ARC` adjacent to combo-confidence coach recommendation for one-glance emotional framing.
 - Vocabulary constrained to short readable bands (`ASH|IRON|EMBER`) to preserve DOS digest scanability.
 - Offline-only scope retained (no runtime combat/UI mutation).
+- 2026-03-26 10:34 KST — Added fallback narrative row directly between combo-confidence recommendation and scene-arc rows to keep digest scan flow coherent (coach -> fallback -> arc).

@@ -1808,3 +1808,4 @@
 - Added offline digest cue `DMG COMBO CONF COACH SCENE ARC:ASH|IRON|EMBER` to align combo-confidence coaching with world-tone arc.
 - Mapping stays deterministic and reversible: GUARD/high drift -> ASH, STEADY/high pressure -> IRON, SURGE/low drift -> EMBER.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- 2026-03-26 10:34 KST — Scene-arc line remains adjacent to new combo-confidence fallback narrative, preserving world-tone continuity (`DMG COMBO CONF COACH SCENE ARC`).

@@ -1832,3 +1832,6 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: if `GUARD` streak dominates in future snapshots, inject a compact alias experiment before runtime HUD exposure.
 - 2026-03-26 09:50 KST — Maintained offline recommendation semantics while adding compact delivery alias; no model/runtime behavior changes.
+- 2026-03-26 10:34 KST — Closed Cycle EG follow-up: added offline combo-confidence coach fallback narrative line (`DMG COMBO CONF COACH FALLBACK`) in weekly digest, tied to recommendation streak drift + kill-heat volatility regime (`CALM|SWING|SPIKE`).
+- Decision: keep fallback narrative offline-only and adjacent to combo coach rows to preserve scan order and avoid runtime gameplay coupling.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
