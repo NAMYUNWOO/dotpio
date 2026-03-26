@@ -2235,10 +2235,14 @@ def main() -> int:
         assert "DCCR + DMG COMBO CONF COACH REC:" in md_text
         assert "DMG COMBO CONF COACH REC + DCCR FAMILY CHURN" in md_text
         assert "DMG COMBO CONF COACH SCENE ARC" in md_text
+        assert "DMG COMBO CONF FX ACCENT" in md_text
         assert "DMG COMBO CONF COACH COPY SWAP REC" in md_text
         assert "DCCSR:" in md_text
         assert "DCCST:" in md_text
+        assert "DCCFX:" in md_text
         assert "DCCSA + DMG COMBO CONF COACH SCENE ARC:" in md_text
+        assert "DCCFX + DMG COMBO CONF FX ACCENT:" in md_text
+        assert "DMG COMBO CONF FX ACCENT + DCCFX FAMILY CHURN" in md_text
         assert "DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN" in md_text
         assert "DCCSR + DMG COMBO CONF COACH COPY SWAP REC:" in md_text
         assert "DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND" in md_text
@@ -2254,6 +2258,7 @@ def main() -> int:
         combo_conf_rec_idx = _find_line_index("- DMG COMBO CONF COACH REC:")
         combo_conf_fallback_idx = _find_line_index("- DMG COMBO CONF COACH FALLBACK:")
         combo_conf_scene_arc_idx = _find_line_index("- DMG COMBO CONF COACH SCENE ARC:")
+        combo_conf_fx_accent_idx = _find_line_index("- DMG COMBO CONF FX ACCENT:")
         combo_conf_copy_swap_idx = _find_line_index("- DMG COMBO CONF COACH COPY SWAP REC:")
         combo_conf_copy_swap_family_churn_idx = _find_line_index("- DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN:")
         combo_conf_copy_swap_family_trend_idx = _find_line_index("- DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND:")
@@ -2268,8 +2273,11 @@ def main() -> int:
             combo_conf_fallback_idx + 2,
             combo_conf_fallback_idx + 3,
         }, "expected DMG COMBO CONF COACH SCENE ARC row adjacent to combo-confidence coach rows"
-        assert combo_conf_copy_swap_idx == combo_conf_scene_arc_idx + 1, (
-            "expected COACH COPY SWAP row directly after COACH SCENE ARC row"
+        assert combo_conf_fx_accent_idx == combo_conf_scene_arc_idx + 1, (
+            "expected FX ACCENT row directly after COACH SCENE ARC row"
+        )
+        assert combo_conf_copy_swap_idx == combo_conf_fx_accent_idx + 1, (
+            "expected COACH COPY SWAP row directly after FX ACCENT row"
         )
 
         if combo_conf_scene_arc_idx == combo_conf_fallback_idx + 2:

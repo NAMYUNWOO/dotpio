@@ -3314,3 +3314,7 @@
 ## 2026-03-26 15:53 KST — DCCST regression lock [DONE]
 - Updated regression assertions to require `DCCST:` visibility in digest output.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-26 16:12 KST — Cycle EL regression lock
+- Regression now asserts `DMG COMBO CONF FX ACCENT` and `DCCFX` rows plus summary churn presence.
+- Ordering contract updated: `COACH SCENE ARC -> FX ACCENT -> COACH COPY SWAP`.

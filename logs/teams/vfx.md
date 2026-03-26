@@ -276,3 +276,10 @@
 - Kept change additive + reversible (digest-only, no runtime combat stat changes).
 - Evidence: weekly digest regression suite pass.
 - 2026-03-26 12:39 KST — Cycle EI no VFX behavior change; cadence alias remains analytics-copy only and does not alter player-facing FX output.
+
+## 2026-03-26 16:12 KST — Cycle EL combat/vfx forced slice [DONE]
+- Coverage trigger: last-10 lane check showed design/ux saturation (>40%) and vfx at 0%, forcing underrepresented combat/vfx pick.
+- Shipped digest-only FX accent token `DMG COMBO CONF FX ACCENT:SMOKE|STEEL|EMBER` derived from scene arc + fallback volatility regime.
+- Added compact alias `DCCFX:<S|T|E>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_ALIAS`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; digest generation PASS with alias flag enabled.
+- Follow-up: split DCCSA/DCCFX churn rows to isolate mood-vs-accent volatility.

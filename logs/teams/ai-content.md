@@ -1854,3 +1854,6 @@
 
 ## 2026-03-26 15:53 KST — Follow-up queued (hysteresis)
 - Logged high-risk next-up: offline copy-swap trend hysteresis policy to damp `UP/DOWN` oscillation.
+
+## 2026-03-26 16:12 KST — Cycle EL AI-content note
+- No narrative policy mutation; consumed existing fallback volatility regime as deterministic signal source for digest-only FX accent.

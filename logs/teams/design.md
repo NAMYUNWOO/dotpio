@@ -1873,3 +1873,7 @@
 ## 2026-03-26 15:53 KST — Cycle EK selected experiment (DCCST) [DONE]
 - Added compact copy-swap trend alias `DCCST:<U|F|D>` for faster digest trend scan.
 - Flag: `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_COPY_SWAP_TREND_ALIAS`.
+
+## 2026-03-26 16:12 KST — Cycle EL design note
+- FX accent vocabulary constrained to deterministic compact bands (`SMOKE|STEEL|EMBER`) for digest readability parity.
+- No player-facing copy mutation in this slice.

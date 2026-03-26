@@ -2757,3 +2757,7 @@
 ## 2026-03-26 15:53 KST — DCCST payload/contract wiring [DONE]
 - Wired trend alias into digest payload and markdown contract alongside copy-swap family trend.
 - Added token catalog/group registration so family accounting includes `DCCST:`.
+
+## 2026-03-26 16:12 KST — Cycle EL systems contract note
+- Wired payload contract keys for combo-confidence FX accent + alias signals; no runtime coupling.
+- Next systems/qa item queued: split DCCSA vs DCCFX churn rows for cleaner observability.

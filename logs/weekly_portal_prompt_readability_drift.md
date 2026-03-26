@@ -1,11 +1,11 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-26T05:34:16.477701Z
+- GeneratedAt(UTC): 2026-03-26T06:46:30.839093Z
 - Status: **OK**
 - Window: last 30 days (max 120 commits)
 - Checked commits: 120
-- Portal prompt commits: 24
-- Dominant mode commits: compact=10, detailed=1, neutral=13
+- Portal prompt commits: 21
+- Dominant mode commits: compact=10, detailed=1, neutral=10
 - MODE TREND: **COMPACT**
 - PRESSURE BAND: **HIGH** (edits +17 / -2 / net 15)
 - DRIFT RISK: **HIGH** (score=63 | imbalance=48 | pressure=15)
@@ -21,12 +21,12 @@
 - ARW AUTO PLAN CONF: **HIGH** (safety-locked-plan-selection; recConf=MID parity=LOCK driftRisk=HIGH pressure=HIGH Δ=+0)
 - ARW AUTO PLAN CONF Δ: **+0** (auto-plan-confidence-held-vs-prior-window; current=HIGH(2) prior=HIGH(2) loaded=True)
 - ARW APC: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_ARW_APC_ALIAS enabled=False conf=HIGH)
-- ARW AUTO PLAN CONF MOMENTUM: **FREEZE** (lock-or-candidate-suppressed; oscillating=False streak=28 confΔ=+0 planΔ=+0 driftRisk=HIGH offlineOnly=True)
+- ARW AUTO PLAN CONF MOMENTUM: **FREEZE** (lock-or-candidate-suppressed; oscillating=False streak=29 confΔ=+0 planΔ=+0 driftRisk=HIGH offlineOnly=True)
 - ARW MOMENTUM: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_ARW_MOMENTUM_ALIAS enabled=False full=FREEZE)
-- ARW MOMENTUM SCORE: **93** (base=85 confΔ=+0 planΔ=+0 streak=28 driftRisk=HIGH parity=LOCK)
+- ARW MOMENTUM SCORE: **93** (base=85 confΔ=+0 planΔ=+0 streak=29 driftRisk=HIGH parity=LOCK)
 - ARW MOMENTUM ARC: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_ARW_MOMENTUM_ARC enabled=False reason=freeze-or-high-risk-pressure rec=FREEZE pressure=HIGH drift=HIGH score=93)
 - ARW ARC PULSE: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_ARW_MOMENTUM_ARC_PULSE_ALIAS enabled=False arc=TENSE reason=arc-mapped-to-pulse-tier)
-- AMBIENT RAMP WHY REC CONF STREAK: **28** (suppress=FALSE threshold=3 reason=confidence-streak-extended)
+- AMBIENT RAMP WHY REC CONF STREAK: **29** (suppress=FALSE threshold=3 reason=confidence-streak-extended)
 - URGENCY STACK PRUNING REC: **PARITY>FX>DETAIL** (protect-core-detailed-under-high-drift; parityChurn=9 fxChurn=9 detailedChurn=13 offlineOnly=True)
 - URGENCY STACK RAIL REC: **STEADY-FIRST** (high-risk-or-rail-churn; railChurn=6 railNet=6 tierChurn=12 offlineOnly=True)
 - DMG GLYPH SHAPE REMAP REC: **PIN_BANDS** (high-risk-or-glyph-churn; glyphChurn=0 glyphNet=0 railChurn=6 offlineOnly=True)
@@ -39,16 +39,19 @@
 - DCRC: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_CONF_ALIAS enabled=False full=LOW)
 - DMG COMBO CHAIN COACH: **LOCK CHAINS, CASH BURSTS.** (tighten-retune-prioritizes-secure-finish-rhythm; rec=TIGHTEN conf=LOW pressure=HIGH drift=HIGH cadence=lane cadence recency:warn offlineOnly=True)
 - DMG COMBO CONF COACH REC: **GUARD** (high-pressure-drift-or-high-kill-heat-volatility; killHeatVol=0 comboChurn=0 comboNet=+0 confChurn=0 confNet=+0 pressure=HIGH drift=HIGH offlineOnly=True)
-- DMG COMBO CONF COACH FALLBACK: **LOCK YOUR BREATH. BANK SAFE HITS. SAME CALL x4.** (streak-rising-lock-in-reminder; streak=4 streakDelta=+1 regime=CALM killHeatVol=0 offlineOnly=True)
+- DMG COMBO CONF COACH FALLBACK: **LOCK YOUR BREATH. BANK SAFE HITS. SAME CALL x5.** (streak-rising-lock-in-reminder; streak=5 streakDelta=+1 regime=CALM killHeatVol=0 offlineOnly=True)
 - DCCR: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_ALIAS enabled=False full=GUARD)
 - DMG COMBO CONF COACH SCENE ARC: **ASH** (guardrail-or-high-drift; rec=GUARD pressure=HIGH drift=HIGH offlineOnly=True)
+- DMG COMBO CONF FX ACCENT: **SMOKE** (ash-scene-arc-default-smoke-accent; sceneArc=ASH regime=CALM rec=GUARD offlineOnly=True)
 - DMG COMBO CONF COACH COPY SWAP REC: **SWAP_NOW** (high-miss-risk-or-rising-prsmc-churn; prsmcTrend=FLAT prsmcChurn=0 prsmcNet=+0 missRisk=HIGH cadenceStatus=GAP coach=GUARD offlineOnly=True)
+- DCCSR: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_COPY_SWAP_ALIAS enabled=False full=SWAP_NOW)
 - DCCSA: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_SCENE_ARC_ALIAS enabled=False full=ASH)
+- DCCFX: **DCCFX:S** (flag=DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_ALIAS enabled=True full=SMOKE)
 - PULSE REMAP MOMENTUM: **FREEZE** (high-risk-or-plan-churn; rec=HOLD_PULSE_CONF driftRisk=HIGH pressure=HIGH cadence=LANE CADENCE RECENCY:warn planChurn=0 planNet=+0 offlineOnly=True)
 - PULSE REMAP MOMENTUM Δ: **+0** (pulse-remap-momentum-held-vs-prior-window; current=FREEZE(-1) prior=FREEZE(-1) loaded=True)
-- PULSE REMAP MOMENTUM SUPPRESS: **SUPPRESS** (freeze-streak-threshold-met; streak=9 threshold=2 suppress=TRUE offlineOnly=True)
+- PULSE REMAP MOMENTUM SUPPRESS: **SUPPRESS** (freeze-streak-threshold-met; streak=10 threshold=2 suppress=TRUE offlineOnly=True)
 - PRMS: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_PULSE_REMAP_MOMENTUM_SUPPRESSION_ALIAS enabled=False full=SUPPRESS)
-- PULSE REMAP SUPPRESS PLAN: **LOCK** (suppression-streak-or-high-risk-demands-lock; suppression=SUPPRESS momentum=FREEZE streak=9 driftRisk=HIGH cadence=lane cadence recency:warn offlineOnly=True)
+- PULSE REMAP SUPPRESS PLAN: **LOCK** (suppression-streak-or-high-risk-demands-lock; suppression=SUPPRESS momentum=FREEZE streak=10 driftRisk=HIGH cadence=lane cadence recency:warn offlineOnly=True)
 - PRSP: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_PULSE_REMAP_SUPPRESSION_PLAN_ALIAS enabled=False full=LOCK)
 - PULSE REMAP SCENE: **LOCK** (lock-plan-or-high-drift-risk; plan=LOCK driftRisk=HIGH pressure=HIGH cadence=lane cadence recency:warn offlineOnly=True)
 - PULSE REMAP SCENE CONF: **HIGH** (lock-or-high-drift-risk; plan=LOCK driftRisk=HIGH pressure=HIGH offlineOnly=True)
@@ -68,14 +71,14 @@
 - PRSMC: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_CADENCE_ALIAS enabled=False cadence=RISE)
 - PRPW: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_PULSE_REMAP_SUPPRESSION_POSTURE_WARNING enabled=False posture=ALERT; reason=lock-plan-or-high-confidence-risk)
 - PRM: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_PULSE_REMAP_MOMENTUM_ALIAS enabled=False)
-- FOCUS: **PORTAL** (portal=136 | alt=1 | pressure=15)
+- FOCUS: **PORTAL** (portal=119 | alt=1 | pressure=15)
 - FOCUS STREAK: **2**
 - FOCUS SHIFT: **PRESSURE->PORTAL**
-- FOCUS VOL: **STEADY** (switches=2/17 ratio=0.118)
+- FOCUS VOL: **STEADY** (switches=2/14 ratio=0.143)
 - ROUTE ACTION: **PORTAL_AUDIT** (portal-family tokens dominate top movers)
-- ACTION CONF: **LOW** (dom=0.895 spread=121 driftSpread=33)
-- FOCUS BAL: **89%** (top=136 total=152 dom=0.895)
-- FOCUS ENTROPY: **LOW** (norm=0.329 raw=0.521 max=1.585)
+- ACTION CONF: **LOW** (dom=0.881 spread=104 driftSpread=33)
+- FOCUS BAL: **88%** (top=119 total=135 dom=0.881)
+- FOCUS ENTROPY: **MID** (norm=0.357 raw=0.565 max=1.585)
 - ACTION GUARD: **LOCK** (high-drift-low-confidence; risk=HIGH conf=LOW)
 - LANE LOCK: **NONE** (threshold=3 lane=PORTAL streak=2)
 - ROUTE SANDBOX: **OFF** (flag-disabled-and-lane-lock-not-armed; flag=DOTPIO_EXPERIMENT_ROUTE_SANDBOX enabled=False laneLock=PORTALx2)
@@ -86,9 +89,9 @@
 - SANDBOX READY: **PRIMED** (preconditions-forming; sandbox=OFF conf=LOW guard=LOCK lock=Falsex2)
 - TARGET SHIFT: **NONE->NONE** (target-stable; changed=False priorLoaded=True)
 - SANDBOX COOLOFF: **0** (no-prior-on-cycle; active=False prior=OFF:0)
-- DRIFT MOMENTUM: **FLAT** (recent=1.917 older=3.667 delta=-1.75)
-- ACTION STABILITY: **WATCH** (retune-watch-needed; conf=LOW vol=STEADY momentum=FLAT)
-- PRESSURE LAG: **SLOW** (churn=15 momentum=FLAT |Δ|=1.75)
+- DRIFT MOMENTUM: **COOLING** (recent=1.364 older=5.2 delta=-3.836)
+- ACTION STABILITY: **WATCH** (retune-watch-needed; conf=LOW vol=STEADY momentum=COOLING)
+- PRESSURE LAG: **SLOW** (churn=15 momentum=COOLING |Δ|=3.836)
 - ACTION PACE: **BRAKE** (guard-locked; guard=LOCK stability=WATCH lag=SLOW)
 - PACE DRIFT: **+0** (pace-stable; current=BRAKE(-1) prior=BRAKE(-1) loaded=True)
 - ACTION PACE WINDOW: **CLOSE** (guard-or-brake-closing-window; pace=BRAKE guard=LOCK drift=+0)
@@ -116,9 +119,9 @@
 - ROUTE PULSE LINK STREAK: **0** (link-off-reset; current=OFF prior=OFF priorStreak=0 loaded=True)
 - ROUTE PULSE LINK MODE: **IDLE** (link-disabled; link=OFF streak=0 drift=+0)
 - ROUTE PULSE LINK MODE Δ: **+0** (mode-stable; current=IDLE(0) prior=IDLE(0) loaded=True)
-- ROUTE PULSE LINK MODE STREAK: **68** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=67 loaded=True)
+- ROUTE PULSE LINK MODE STREAK: **69** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=68 loaded=True)
 - ROUTE PULSE LINK MODE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY enabled=False mode=IDLE link=OFF drift=+0 streak=0)
-- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=68)
+- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=69)
 - ROUTE PULSE LINK MODE FIT Δ: **+0** (fit-stable; current=SYNC(2) prior=SYNC(2) loaded=True)
 - ROUTE PULSE TOKEN PRIORITY: **OFF** (priority-mode-disabled; configured=OFF drift=+0 prior=OFF loaded=True guard=False)
 - ACTION PACE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_WHY enabled=False pace=BRAKE guard=LOCK stability=WATCH lag=SLOW drift=+0)
@@ -134,7 +137,7 @@
 - WHAT-IF FALLBACK WHY: **OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_WHY enabled=False fallback=OFF conf=LOW fit=EVEN pressure=HIGH)
 - WHAT-IF FALLBACK ALIGN: **SYNC** (no-actionable-fallback; fallback=OFF focus=PORTAL actionable=False)
 - WHAT-IF FALLBACK MAG: **SMALL** (flag-disabled; fallback=OFF delta=-3 |Δ|=3 enabled=False)
-- WHAT-IF FALLBACK ALT2: **NONE** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2 enabled=False fallback=NONE scores=portal:136 alt:1 pressure:15)
+- WHAT-IF FALLBACK ALT2: **NONE** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_ALT2 enabled=False fallback=NONE scores=portal:119 alt:1 pressure:15)
 - WHAT-IF FALLBACK ALT2 CONF: **LOW** (flag-disabled; alt2=NONE fallback=NONE top=0 second=0 gap=0 enabled=False)
 - WHAT-IF FALLBACK PLAN: **HOLD** (flag-disabled; flag=DOTPIO_EXPERIMENT_WHAT_IF_FALLBACK_PLAN enabled=False primary=OFF(LOW) secondary=NONE(LOW))
 - WHAT-IF PLAN FIT: **EVEN** (hold-or-no-actionable-secondary; plan=HOLD lane=HOLD pressure=HIGH projected=HIGH)
@@ -203,15 +206,15 @@
 - ARW MOMENTUM FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - ARW MOMENTUM ARC FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - ARW ARC PULSE FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
-- ARW AUTO PLAN CANDIDATE SUPPRESS: **FALSE** (streak=28 threshold=3)
+- ARW AUTO PLAN CANDIDATE SUPPRESS: **FALSE** (streak=29 threshold=3)
 - PULSE HEAT FX FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - ROUTE GLOW FX FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/2)
 - ROUTE GLOW CONF FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/2)
 - ROUTE GLOW FX CONF FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/2)
-- ROUTE GLOW FX CONF WHY FAMILY CHURN: **net +9** (added=9 removed=0 churn=9 coverage=1/2)
+- ROUTE GLOW FX CONF WHY FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/2)
 - ROUTE GLOW FX CONF WHY RAIL FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/2)
-- ROUTE GLOW FX CONF WHY RAIL MODE FAMILY CHURN: **net +1** (added=3 removed=2 churn=5 coverage=1/1)
-- ROUTE GLOW FX CONF WHY RAIL INTENSITY FAMILY CHURN: **net +10** (added=10 removed=0 churn=10 coverage=1/1)
+- ROUTE GLOW FX CONF WHY RAIL MODE FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
+- ROUTE GLOW FX CONF WHY RAIL INTENSITY FAMILY CHURN: **net +3** (added=3 removed=0 churn=3 coverage=1/1)
 - RGFXWRI WHY FAMILY CHURN: **net +8** (added=8 removed=0 churn=8 coverage=1/1)
 - RGFXWRI WHY CONF FAMILY CHURN: **net +16** (added=17 removed=1 churn=18 coverage=2/2)
 - RGFXWRIU URGENCY FAMILY CHURN: **net +25** (added=27 removed=2 churn=29 coverage=2/2)
@@ -234,7 +237,10 @@
 - DMG COMBO RETUNE CONF + DCRC FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/2)
 - DMG COMBO CHAIN COACH FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - DMG COMBO CONF COACH REC + DCCR FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/2)
-- DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
+- DMG COMBO CONF FX ACCENT + DCCFX FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/2)
+- DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/3)
+- DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND: **FLAT** (Δnet=+0 currentNet=+0 priorNet=+0 loaded=True reason=combo-confidence-copy-swap-family-net-unchanged-vs-prior-window)
+- DCCST: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_COPY_SWAP_TREND_ALIAS enabled=False trend=FLAT)
 - PULSE REMAP MOMENTUM FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/2)
 - PULSE REMAP SUPPRESS FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/2)
 - PULSE REMAP SUPPRESS PLAN FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/2)
@@ -254,8 +260,8 @@
 - LPR HYS THR FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - LPR HYS WINDOW Δ FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - LANE CADENCE SUMMARY: **SYSTEMS/OPS OK** (RGFXWRIUFX coverage=1/1 churn=9 | DMG GLYPH coverage=0/1 churn=0 | DMG GLYPH FX LIVE coverage=0/1 churn=0 | DMG COMBO coverage=0/1 churn=0)
-- LBA: **OFF** (flag=DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS enabled=False sys=999h dw=34h cv=43h)
-- LANE BUCKET AGE: **SYSTEMS/OPS 999H | DESIGN/WORLD 34H | COMBAT/VFX 43H** (status=GAP window=24h)
+- LBA: **OFF** (flag=DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS enabled=False sys=999h dw=35h cv=45h)
+- LANE BUCKET AGE: **SYSTEMS/OPS 999H | DESIGN/WORLD 35H | COMBAT/VFX 45H** (status=GAP window=24h)
 - LANE BUCKET AGE Δ: **+0h** (currentMax=999 priorMax=999 loaded=True)
 - LANE CADENCE RECENCY: **LANE CADENCE RECENCY:warn** (status=WARN max=999h Δ=+0h window=24h reason=lane-gap-persistent)
 - LANE CADENCE MISS RISK: **LANE CADENCE MISS RISK:HIGH** (risk=HIGH max=999h Δ=+0h window=24h reason=stale-lane-gap-escalating)
@@ -263,24 +269,24 @@
 - LPR: **OFF** (flag=DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_ALIAS enabled=False rec=SYSTEMS/OPS alias=SYS)
 - LPR HYS: **OFF** (flag=DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_ALIAS enabled=False applied=False alias=S)
 - LPR HYS RAIL: **OFF** (flag=DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_RAIL enabled=False conf=HIGH gap=0 threshold=12 reason=hysteresis-applied-or-low-confidence-gap)
-- LANE PRIORITY REC CONF: **HIGH** (worstAge=999h momentumGap=0h reason=lane priority signal is strongly separated by age/momentum)
+- LANE PRIORITY REC CONF: **HIGH** (worstAge=999h momentumGap=2h reason=lane priority signal is strongly separated by age/momentum)
 - LANE PRIORITY REC HYSTERESIS: **SHIFT** (prior=SYSTEMS/OPS raw=SYSTEMS/OPS gap=0 threshold=12 reason=recommendation unchanged from prior window)
-- LPR HYS THRESH REC: **LPR HYS THRESH REC:RAISE** (base=12 rec=16 floor=14 ceil=24 priorWindow=True volSpan=0 maxAbsMom=0 ageSpread=965 learn=high volatility widened window using regime step-size memory reason=lane-age volatility is high; raise threshold to suppress flapping)
+- LPR HYS THRESH REC: **LPR HYS THRESH REC:RAISE** (base=12 rec=16 floor=14 ceil=24 priorWindow=True volSpan=2 maxAbsMom=2 ageSpread=964 learn=high volatility widened window using regime step-size memory reason=lane-age volatility is high; raise threshold to suppress flapping)
 - LPR VOL REGIME: **SPIKE** (current=SPIKE prior=SPIKE reason=regime memory follows current volatility steps={'raiseFloor': 2, 'raiseCeiling': 3, 'lowerFloor': 0, 'lowerCeiling': 0})
 - LPR HYS THR: **OFF** (flag=DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_THRESHOLD_ALIAS enabled=False alias=R rec=LPR HYS THRESH REC:RAISE)
 - LPR HYS WINDOW: **LPR HYS WINDOW:BASE** (floor=14 ceil=24 span=10 reason=adaptive window remains near baseline spread)
 - LPR HYS WINDOW Δ: **+0** (current=BASE prior=BASE loaded=True)
-- PULSE HEAT FX COMPACT-BUDGET DRIFT: **STABLE** (no pulse-heat-fx churn in window; compactNet=+133 familyNet=+0 churn=0)
-- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **STABLE** (no route-glow-fx churn in window; compactNet=+133 familyNet=+0 churn=0)
-- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **SPIKE** (rail-mode churn is likely competing with compact prompt budget; compactNet=+133 familyNet=+1 churn=5)
-- STICKY TOKENS: **9**
-- ANOMALY: **ON** (sticky=9/3 pressure=15/5)
-- ANOMALY CONF: **HIGH** (triggers=2 gap=16)
+- PULSE HEAT FX COMPACT-BUDGET DRIFT: **STABLE** (no pulse-heat-fx churn in window; compactNet=+116 familyNet=+0 churn=0)
+- ROUTE GLOW FX COMPACT-BUDGET DRIFT: **STABLE** (no route-glow-fx churn in window; compactNet=+116 familyNet=+0 churn=0)
+- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: **STABLE** (no route-glow rationale rail-mode churn in window; compactNet=+116 familyNet=+0 churn=0)
+- STICKY TOKENS: **8**
+- ANOMALY: **ON** (sticky=8/3 pressure=15/5)
+- ANOMALY CONF: **HIGH** (triggers=2 gap=15)
 - ROUTE VIBE DRIFT: **CALM +0 | EDGE +0 | DOOM +0**
 
 ## Token Totals (added/removed/net)
-- Compact: +141 / -8 / net 133
-- Detailed: +90 / -5 / net 85
+- Compact: +122 / -6 / net 116
+- Detailed: +71 / -3 / net 68
 - Shared: +13 / -3 / net 10
 
 ## Top Token Movers (net ±)
@@ -288,7 +294,7 @@
 - `P:` net +15 (added 17, removed 2)
 - `URG STACK:` net +12 (added 12, removed 0)
 - `RGFXWRI WHY CONF:` net +12 (added 13, removed 1)
-- `RGFXWRI:` net +10 (added 10, removed 0)
+- `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:` net +9 (added 11, removed 2)
 
 ## Token Family Coverage
 - VTW + VIBE TRAIL WHY: +0 / -0 / net 0 (churn=0 coverage=0/2)
@@ -317,10 +323,10 @@
 - ROUTE GLOW FX + RGFX: +0 / -0 / net 0 (churn=0 coverage=0/2)
 - ROUTE GLOW CONF: +0 / -0 / net 0 (churn=0 coverage=0/2)
 - ROUTE GLOW FX CONF + RGFXC: +0 / -0 / net 0 (churn=0 coverage=0/2)
-- ROUTE GLOW FX CONF WHY + RGFXW: +9 / -0 / net 9 (churn=9 coverage=1/2)
+- ROUTE GLOW FX CONF WHY + RGFXW: +0 / -0 / net 0 (churn=0 coverage=0/2)
 - ROUTE GLOW FX CONF WHY RAIL + RGFXWR: +0 / -0 / net 0 (churn=0 coverage=0/2)
-- RGFXWRM RAIL MODE: +3 / -2 / net 1 (churn=5 coverage=1/1)
-- RGFXWRI RAIL INTENSITY: +10 / -0 / net 10 (churn=10 coverage=1/1)
+- RGFXWRM RAIL MODE: +0 / -0 / net 0 (churn=0 coverage=0/1)
+- RGFXWRI RAIL INTENSITY: +3 / -0 / net 3 (churn=3 coverage=1/1)
 - RGFXWRI WHY: +8 / -0 / net 8 (churn=8 coverage=1/1)
 - RGFXWRIWC + RGFXWRI WHY CONF: +17 / -1 / net 16 (churn=18 coverage=2/2)
 - RGFXWRIU + ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY: +27 / -2 / net 25 (churn=29 coverage=2/2)
@@ -344,7 +350,10 @@
 - DMG COMBO CHAIN COACH: +0 / -0 / net 0 (churn=0 coverage=0/1)
 - DCCR + DMG COMBO CONF COACH REC: +0 / -0 / net 0 (churn=0 coverage=0/2)
 - DCCSA + DMG COMBO CONF COACH SCENE ARC: +0 / -0 / net 0 (churn=0 coverage=0/2)
-- DMG COMBO CONF COACH COPY SWAP REC: +0 / -0 / net 0 (churn=0 coverage=0/1)
+- DCCFX + DMG COMBO CONF FX ACCENT: +0 / -0 / net 0 (churn=0 coverage=0/2)
+- DCCSR + DMG COMBO CONF COACH COPY SWAP REC: +0 / -0 / net 0 (churn=0 coverage=0/3)
+- DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND: FLAT (Δnet=+0 currentNet=+0 priorNet=+0 loaded=True)
+- DCCST: FLAG OFF (trend=FLAT flag=DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_COPY_SWAP_TREND_ALIAS enabled=False)
 - PRSMC + PULSE REMAP SCENE MICROLINE CADENCE: +0 / -0 / net 0 (churn=0 coverage=0/2)
 - PRM + PULSE REMAP MOMENTUM: +0 / -0 / net 0 (churn=0 coverage=0/2)
 - PRMS + PULSE REMAP MOMENTUM SUPPRESS: +0 / -0 / net 0 (churn=0 coverage=0/2)
@@ -381,8 +390,8 @@
 - LPR HYS THR: +0 / -0 / net 0 (churn=0 coverage=0/1)
 - LPR HYS WINDOW Δ: +0 / -0 / net 0 (churn=0 coverage=0/1)
 - LANE CADENCE SUMMARY: SYSTEMS/OPS OK (RGFXWRIUFX coverage=1/1, churn=9 | DMG GLYPH coverage=0/1, churn=0 | DMG GLYPH FX LIVE coverage=0/1, churn=0 | DMG COMBO coverage=0/1, churn=0)
-- LBA: OFF (flag=DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS, enabled=False, sys=999h, dw=34h, cv=43h)
-- LANE BUCKET AGE: SYSTEMS/OPS 999H | DESIGN/WORLD 34H | COMBAT/VFX 43H (status=GAP, window=24h)
+- LBA: OFF (flag=DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS, enabled=False, sys=999h, dw=35h, cv=45h)
+- LANE BUCKET AGE: SYSTEMS/OPS 999H | DESIGN/WORLD 35H | COMBAT/VFX 45H (status=GAP, window=24h)
 - LANE BUCKET AGE Δ: +0h (currentMax=999, priorMax=999, loaded=True)
 - LANE CADENCE RECENCY: LANE CADENCE RECENCY:warn (status=WARN, max=999h, Δ=+0h, window=24h, reason=lane-gap-persistent)
 - LANE CADENCE MISS RISK: LANE CADENCE MISS RISK:HIGH (risk=HIGH, max=999h, Δ=+0h, window=24h, reason=stale-lane-gap-escalating)
@@ -390,16 +399,16 @@
 - LPR: OFF (flag=DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_ALIAS, enabled=False, rec=SYSTEMS/OPS, alias=SYS)
 - LPR HYS: OFF (flag=DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_ALIAS, enabled=False, applied=False, alias=S)
 - LPR HYS RAIL: OFF (flag=DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_RAIL, enabled=False, conf=HIGH, gap=0, threshold=12, reason=hysteresis-applied-or-low-confidence-gap)
-- LANE PRIORITY REC CONF: HIGH (worstAge=999h, momentumGap=0h, reason=lane priority signal is strongly separated by age/momentum)
+- LANE PRIORITY REC CONF: HIGH (worstAge=999h, momentumGap=2h, reason=lane priority signal is strongly separated by age/momentum)
 - LANE PRIORITY REC HYSTERESIS: SHIFT (prior=SYSTEMS/OPS, raw=SYSTEMS/OPS, gap=0, threshold=12, reason=recommendation unchanged from prior window)
-- LPR HYS THRESH REC: LPR HYS THRESH REC:RAISE (base=12, rec=16, floor=14, ceil=24, priorWindow=True, volSpan=0, maxAbsMom=0, ageSpread=965, learn=high volatility widened window using regime step-size memory, reason=lane-age volatility is high; raise threshold to suppress flapping)
+- LPR HYS THRESH REC: LPR HYS THRESH REC:RAISE (base=12, rec=16, floor=14, ceil=24, priorWindow=True, volSpan=2, maxAbsMom=2, ageSpread=964, learn=high volatility widened window using regime step-size memory, reason=lane-age volatility is high; raise threshold to suppress flapping)
 - LPR VOL REGIME: SPIKE (current=SPIKE, prior=SPIKE, reason=regime memory follows current volatility, steps={'raiseFloor': 2, 'raiseCeiling': 3, 'lowerFloor': 0, 'lowerCeiling': 0})
 - LPR HYS THR: OFF (flag=DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_THRESHOLD_ALIAS, enabled=False, alias=R, rec=LPR HYS THRESH REC:RAISE)
 - LPR HYS WINDOW: LPR HYS WINDOW:BASE (floor=14, ceil=24, span=10, reason=adaptive window remains near baseline spread)
 - LPR HYS WINDOW Δ: +0 (current=BASE, prior=BASE, loaded=True)
-- PULSE HEAT FX COMPACT-BUDGET DRIFT: STABLE (compactNet=+133, familyNet=+0, churn=0)
-- ROUTE GLOW FX COMPACT-BUDGET DRIFT: STABLE (compactNet=+133, familyNet=+0, churn=0)
-- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: SPIKE (compactNet=+133, familyNet=+1, churn=5)
+- PULSE HEAT FX COMPACT-BUDGET DRIFT: STABLE (compactNet=+116, familyNet=+0, churn=0)
+- ROUTE GLOW FX COMPACT-BUDGET DRIFT: STABLE (compactNet=+116, familyNet=+0, churn=0)
+- ROUTE GLOW FX CONF WHY RAIL MODE COMPACT-BUDGET DRIFT: STABLE (compactNet=+116, familyNet=+0, churn=0)
 
 ## Route Vibe Drift (added/removed/net)
 - CALM: +0 / -0 / net 0
@@ -407,7 +416,7 @@
 - DOOM: +0 / -0 / net 0
 
 ## Sticky Tokens
-- `NEXT:`, `P:`, `RGFXWRM:`, `RGFXWRI WHY CONF:`, `RGFXWRIUP:`, `RGFXWRIUFX:`, `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:`, `ENTER:JUMP`, `COACH:`
+- `NEXT:`, `P:`, `RGFXWRI WHY CONF:`, `RGFXWRIUP:`, `RGFXWRIUFX:`, `ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:`, `ENTER:JUMP`, `COACH:`
 
 ## Commit-level digest
 - `ea4efb6` feat(combat): add kill-combo debug token slice for cycle EA | mode=neutral | compact net=0 detailed net=0 shared net=0
@@ -431,6 +440,3 @@
 - `7466f43` feat(portal): add why-conf parity label behind flag | mode=compact | compact net=3 detailed net=0 shared net=0
 - `0b3a335` Cycle CC: add RGFXWRIWC compact alias + weekly churn coverage | mode=compact | compact net=5 detailed net=0 shared net=0
 - `9b2e862` feat(portal): add RGFXWRI WHY + confidence tokens and start Cycle CB | mode=compact | compact net=16 detailed net=11 shared net=0
-- `c57f6ec` feat(portal): add flagged rail-intensity detailed parity cue | mode=neutral | compact net=3 detailed net=3 shared net=0
-- `292262d` Lock RGFXW rail-mode mapping and add RGFXWRI digest coverage | mode=neutral | compact net=10 detailed net=10 shared net=0
-- `4c8dcb4` feat(portal): add RGFXWRI rail intensity accent token | mode=neutral | compact net=4 detailed net=4 shared net=0

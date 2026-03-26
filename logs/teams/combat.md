@@ -1805,3 +1805,7 @@
 
 ## 2026-03-26 15:53 KST — Combat coaching readability continuity
 - Trend alias is offline digest-only; no runtime combat behavior changed.
+
+## 2026-03-26 16:12 KST — Cycle EL combat readability handoff
+- Added offline combo-confidence FX accent cue (`SMOKE|STEEL|EMBER`) to align coach tone with post-fight visual tuning language.
+- Scope remains digest-only (no combat timing/HUD behavior changes).

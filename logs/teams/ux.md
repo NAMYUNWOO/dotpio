@@ -2084,3 +2084,6 @@
 
 ## 2026-03-26 15:53 KST — Digest scanability lane update [DONE]
 - Kept trend alias single-letter encoding (`U/F/D`) to preserve compact DOS-width readability near swap recommendation block.
+
+## 2026-03-26 16:12 KST — Cycle EL UX scanability
+- Added `DCCFX` compact alias rail for one-glance coach-scene/accent reading in dense digest outputs.
