@@ -3221,3 +3221,6 @@ Compact decision memory for AI context efficiency.
 - Cycle EV generated 3 ideas and shipped selected minimal slice: compact alias `LPRCGCP:<B|A|N>` for `LPRCG COACH PACK` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_PACK_ALIAS`.
 - Added payload contract fields `lanePriorityRecommendationConfidenceGuardPersistenceCoachVariantPackAlias`(+signals) and markdown/token-coverage rows for `LPRCGCP`; regression assertions expanded and passing.
 - Injected next tasks into TASKS/POST_RC: (a) Systems/QA churn coverage for `LPRCG COACH PACK` + `LPRCGCP`, (b) AI Content/World adaptive narrative copy line from pack + regime transitions.
+- 2026-03-27 02:31 KST: Closed highest-priority unchecked Cycle EV Systems/QA item by adding `LPRCG COACH PACK + LPRCGCP FAMILY CHURN` coverage to weekly digest summary and token-family sections.
+- Digest contract update: registered `lanePriorityRecommendationConfidenceGuardCoachPackAlias` in `TOKEN_FAMILY_ALIASES`; regression now also asserts coach-pack family key + markdown row presence.
+- TASKS/POST_RC status updated to done for Systems/QA follow-up; remaining unchecked item is AI Content/World narrative-line prototype from coach-pack + volatility regime transitions.

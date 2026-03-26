@@ -1082,5 +1082,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/World): Prototype offline adaptive coach-copy narrative line from coach-pack + volatility-regime transitions.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact guard-persistence coach-pack alias token (`LPRCGCP:<B|A|N>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_COACH_PACK_ALIAS` with payload/markdown wiring + regression lock.
-- [ ] Systems/QA Team: Add token-family churn coverage row for `LPRCG COACH PACK:` + `LPRCGCP:` with regression lock.
+- [x] Systems/QA Team: Add token-family churn coverage row for `LPRCG COACH PACK:` + `LPRCGCP:` with regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 02:31 KST)*
 - [ ] AI Content/World Team: Prototype offline adaptive coach-copy narrative line from coach-pack + volatility regime transitions.

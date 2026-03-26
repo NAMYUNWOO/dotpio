@@ -1458,6 +1458,7 @@ def main() -> int:
         assert "lanePriorityHysteresisThresholdAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityHysteresisWindowDeltaAlias" in payload["tokenFamilyTotals"], payload
         assert "lanePriorityRecommendationConfidenceGuardThresholdAlias" in payload["tokenFamilyTotals"], payload
+        assert "lanePriorityRecommendationConfidenceGuardCoachPackAlias" in payload["tokenFamilyTotals"], payload
         assert set(payload["tokenFamilyTotals"]["vibeTrailWhyAlias"].keys()) == {
             "aliases",
             "aliasesTouched",
@@ -2341,6 +2342,7 @@ def main() -> int:
         assert "LPRCGCP:" in md_text
         assert "LPRCG THRESH FAMILY CHURN" in md_text
         assert "LPRCG COACH + LPRCGC FAMILY CHURN" in md_text
+        assert "LPRCG COACH PACK + LPRCGCP FAMILY CHURN" in md_text
 
         summary_lines = md_text.splitlines()
         summary_coach_idx = next(

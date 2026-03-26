@@ -1930,3 +1930,9 @@
 - Wiring: payload keys + markdown rows added for `LPRCG COACH PACK`/`LPRCGCP`; regression contract updated.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Next backlog hooks injected: (1) `LPRCG COACH PACK` family churn row, (2) adaptive coach-copy narrative line from pack+regime transitions.
+
+## 2026-03-27 02:31 KST — Cycle EV Systems/QA follow-up closeout (`LPRCG COACH PACK` family churn)
+- Closed highest-priority unchecked TASKS/POST_RC item by wiring token-family churn coverage for `LPRCG COACH PACK:` + `LPRCGCP:` in weekly digest outputs.
+- Implementation: added `lanePriorityRecommendationConfidenceGuardCoachPackAlias` to `TOKEN_FAMILY_ALIASES`, emitted `LPRCG COACH PACK + LPRCGCP FAMILY CHURN` rows in both summary and token-family coverage sections.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
+- Follow-up: remaining unchecked queue item is AI Content/World narrative-line prototype from coach-pack + volatility-regime transitions.
