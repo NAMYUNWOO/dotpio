@@ -1200,5 +1200,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Combat): Prototype offline cadence-reactive coach-copy swap policy tied to `PRSMC` trend volatility.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/World Team: Add compact cadence alias token (`PRSMC:<R|H|C>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_CADENCE_ALIAS`, wire payload/markdown rows, and lock via regression. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 12:31 KST; completed: 2026-03-26 12:39 KST)*
-- [ ] Systems/QA Team: Add explicit cadence-alias family trend markdown triage row (`PRSMC FAMILY CHURN`) adjacent to `PRSMC FAMILY TREND` in weekly digest summary.
+- [x] Systems/QA Team: Add explicit cadence-alias family trend markdown triage row (`PRSMC FAMILY CHURN`) adjacent to `PRSMC FAMILY TREND` in weekly digest summary.
 - [ ] AI Content/Combat Team: Prototype offline cadence-reactive coach-copy swap recommendation policy from `PRSMC` family churn + lane cadence miss risk.

@@ -2734,3 +2734,10 @@
 - Verification:  and [PASS] weekly portal prompt readability drift regression checks PASS.
 - Follow-up: QA/Design adjacency contract for  remains next backlog priority.
 - 2026-03-26 12:39 KST — Cycle EI payload contract extended with `pulseRemapSceneMicrolineCadenceAlias` + flag signals; next: add dedicated alias-family churn row near cadence trend summary.
+
+## 2026-03-26 13:04 KST — PRSMC cadence alias churn triage row
+- Task: Added explicit `PRSMC FAMILY CHURN` markdown row adjacent to `PRSMC FAMILY TREND` in weekly portal prompt digest summary surfaces.
+- Decision: Keep churn and trend both visible for cadence alias triage so operators can separate net direction (trend) from activity magnitude (churn).
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS)
+- Follow-up: Next unchecked item is AI Content/Combat offline cadence-reactive coach-copy swap recommendation policy.

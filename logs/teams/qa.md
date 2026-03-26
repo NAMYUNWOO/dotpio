@@ -3290,3 +3290,9 @@
 - Result: weekly digest regression suite PASS.
 - Follow-up: implement scene-arc adjacency ordering contract check (backlog item still open).
 - 2026-03-26 12:39 KST — Cycle EI regression contract updated for cadence alias presence + family coverage row (`PRSMC + PULSE REMAP SCENE MICROLINE CADENCE`); verify with weekly digest regression suite.
+
+## 2026-03-26 13:04 KST — Regression guard for PRSMC churn adjacency
+- Added regression assertions for `PRSMC FAMILY CHURN:` presence and adjacency immediately after `PRSMC FAMILY TREND:`.
+- Validation command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Result: PASS
+- Notes: Guard prevents future digest formatting drift where cadence churn row could be omitted or relocated away from trend context.

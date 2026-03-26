@@ -2188,6 +2188,7 @@ def main() -> int:
         assert "PRMS FAMILY TREND:" in md_text
         assert "PRSP FAMILY TREND:" in md_text
         assert "PRSMC FAMILY TREND:" in md_text
+        assert "PRSMC FAMILY CHURN:" in md_text
         assert "PRSMP FAMILY TREND:" in md_text
         assert md_text.count("PRSMP FAMILY TREND:") == 2, md_text
         assert "PRSFX FAMILY TREND:" in md_text
@@ -2231,6 +2232,8 @@ def main() -> int:
         combo_conf_rec_idx = _find_line_index("- DMG COMBO CONF COACH REC:")
         combo_conf_fallback_idx = _find_line_index("- DMG COMBO CONF COACH FALLBACK:")
         combo_conf_scene_arc_idx = _find_line_index("- DMG COMBO CONF COACH SCENE ARC:")
+        prsmc_family_trend_idx = _find_line_index("- PRSMC FAMILY TREND:")
+        prsmc_family_churn_idx = _find_line_index("- PRSMC FAMILY CHURN:")
 
         assert combo_conf_fallback_idx == combo_conf_rec_idx + 1, (
             "expected DMG COMBO CONF COACH FALLBACK row directly after COACH REC row"
@@ -2244,6 +2247,9 @@ def main() -> int:
             assert md_lines[combo_conf_fallback_idx + 1].startswith("- DCCR:"), (
                 "only compact DCCR alias row may appear between COACH FALLBACK and SCENE ARC rows"
             )
+        assert prsmc_family_churn_idx == prsmc_family_trend_idx + 1, (
+            "expected PRSMC FAMILY CHURN row directly after PRSMC FAMILY TREND row"
+        )
         assert "AMBIENT RAMP WHY REC" in md_text
         assert "AMBIENT RAMP WHY REC CONF" in md_text
         assert "AMBIENT RAMP WHY REC PARITY" in md_text

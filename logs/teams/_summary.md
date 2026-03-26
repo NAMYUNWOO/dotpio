@@ -3066,3 +3066,9 @@ Compact decision memory for AI context efficiency.
 - Extended regression coverage in `scripts/regression_weekly_portal_prompt_readability_drift.py` for payload schema and markdown contract.
 - Verification: py_compile + weekly digest regression PASS.
 - Backlog progression: Cycle EH miss-risk item moved `[~] -> [x]`; next highest unchecked item is scene-arc adjacency contract.
+
+### 2026-03-26 13:04 KST — Cadence alias digest triage hardening
+- Completed Systems/QA backlog item: added explicit `PRSMC FAMILY CHURN` row next to `PRSMC FAMILY TREND` in weekly portal prompt readability digest.
+- Added regression contract to enforce adjacency (`PRSMC FAMILY TREND` -> `PRSMC FAMILY CHURN`) and presence.
+- Verification green: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Remaining top unchecked work: AI Content/Combat offline cadence-reactive coach-copy swap recommendation policy (`PRSMC` churn + lane cadence miss risk).
