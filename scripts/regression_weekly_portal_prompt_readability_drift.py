@@ -200,6 +200,14 @@ def main() -> int:
         assert copy_swap_signals["hysteresisApplied"] is True, copy_swap_signals
         assert payload.get("comboConfidenceFxAccentTrendHysteresisRecommendation") in {"HOLD", "ALLOW"}, payload
         assert payload.get("comboConfidenceFxAccentTrendHysteresisConfidence") in {"LOW", "MID", "HIGH"}, payload
+        assert payload.get("comboConfidenceFxAccentTrendHysteresisAlias") in {"FLAG OFF", "DCCFXH:HL", "DCCFXH:HM", "DCCFXH:HH", "DCCFXH:AL", "DCCFXH:AM", "DCCFXH:AH"}, payload
+        assert set(payload.get("comboConfidenceFxAccentTrendHysteresisAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "recommendation",
+            "confidence",
+            "alias",
+        }, payload
         assert set(payload.get("comboConfidenceFxAccentTrendHysteresisRecommendationSignals", {}).keys()) == {
             "recommendation",
             "reason",
@@ -2326,6 +2334,8 @@ def main() -> int:
         assert "DCCST FAMILY CHURN" in md_text
         assert "DCCSR + DMG COMBO CONF COACH COPY SWAP REC:" in md_text
         assert "DCCFXT ALIAS:" in md_text
+        assert "DCCFXH:" in md_text
+        assert "DCCFXH ALIAS:" in md_text
         assert "DCCST ALIAS:" in md_text
         assert "DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND" in md_text
 
@@ -2347,6 +2357,7 @@ def main() -> int:
         combo_conf_dccfx_family_trend_idx = _find_line_index("- DCCFX FAMILY TREND:")
         combo_conf_dccfx_trend_hys_idx = _find_line_index("- DCCFX TREND HYS:")
         combo_conf_dccfxt_alias_idx = _find_line_index("- DCCFXT:")
+        combo_conf_dccfxh_alias_idx = _find_line_index("- DCCFXH:")
         combo_conf_copy_swap_dccsr_family_churn_idx = _find_line_index("- DCCSR FAMILY CHURN:")
         combo_conf_copy_swap_dccst_family_churn_idx = _find_line_index("- DCCST FAMILY CHURN:")
         combo_conf_copy_swap_family_trend_idx = _find_line_index("- DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND:")
@@ -2391,8 +2402,11 @@ def main() -> int:
         assert combo_conf_dccfxt_alias_idx == combo_conf_dccfx_trend_hys_idx + 1, (
             "expected DCCFXT row directly after DCCFX TREND HYS row"
         )
-        assert combo_conf_copy_swap_dccsr_family_churn_idx == combo_conf_dccfxt_alias_idx + 1, (
-            "expected DCCSR FAMILY CHURN row directly after DCCFXT row"
+        assert combo_conf_dccfxh_alias_idx == combo_conf_dccfxt_alias_idx + 1, (
+            "expected DCCFXH row directly after DCCFXT row"
+        )
+        assert combo_conf_copy_swap_dccsr_family_churn_idx == combo_conf_dccfxh_alias_idx + 1, (
+            "expected DCCSR FAMILY CHURN row directly after DCCFXH row"
         )
         assert combo_conf_copy_swap_dccst_family_churn_idx == combo_conf_copy_swap_dccsr_family_churn_idx + 1, (
             "expected DCCST FAMILY CHURN row directly after DCCSR FAMILY CHURN row"

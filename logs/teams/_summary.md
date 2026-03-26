@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-26 18:07 KST
+Last updated: 2026-03-26 18:37 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Cycle EN review executed (all ACTION_ITEMS/TASKS/POST_RC checked): generated 3 ideas and selected low-risk UX/Combat vertical slice.
+- Shipped compact hysteresis alias `DCCFXH:<H|A><L|M|H>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS`; digest payload now exposes `comboConfidenceFxAccentTrendHysteresisAlias` + signals and markdown includes `DCCFXH`/`DCCFXH ALIAS` rows.
+- Regression contract/order lock extended so `DCCFXH` sits between `DCCFXT` and `DCCSR FAMILY CHURN`; digest + regression passes.
 
 - Closed highest-priority unchecked AI Content/Combat item from TASKS/POST_RC: shipped offline volatility-aware `DCCFX` trend hysteresis policy for weekly digest (`CALM=1`, `SWING=2`, `SPIKE=3` threshold map).
 - Weekly digest JSON now exposes explicit recommendation + confidence contracts (`comboConfidenceFxAccentTrendHysteresisRecommendation` / `...Confidence` + `...Signals`) and markdown adds `DCCFX TREND HYS` row directly before `DCCFXT`.

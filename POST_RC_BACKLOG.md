@@ -992,3 +992,10 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Systems/QA Team: Add `DCCFX FAMILY TREND` markdown + JSON signals (`currentNet`, `priorNet`, `Δnet`, `reason`) with regression lock. *(lifecycle: [~] -> [x]; completed: 2026-03-26 17:18 KST)*
 - [x] UX/Combat Team: Prototype compact FX-accent trend alias (`DCCFXT:<U|F|D>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 17:31 KST)*
 - [x] AI Content/Combat Team: Prototype volatility-aware accent trend hysteresis policy (offline-only). *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 18:01 KST; completed: 2026-03-26 18:07 KST)*
+
+## Cycle EN - Game Director Review (2026-03-26 18:31 KST)
+- Idea 1 (low risk, UX/Combat): Add compact hysteresis alias token (`DCCFXH:<H|A><L|M|H>`) behind flag for one-glance digest scanability.
+- Idea 2 (mid risk, Systems/QA): Add dedicated token-family churn coverage row for hysteresis recommendation/confidence pair.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline adaptive hysteresis confidence floor by lane-cadence miss risk.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Combat Team: Add compact hysteresis alias token (`DCCFXH:<H|A><L|M|H>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_TREND_HYS_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 18:31 KST; completed: 2026-03-26 18:37 KST)*
