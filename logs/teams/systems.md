@@ -2741,3 +2741,9 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS)
 - Follow-up: Next unchecked item is AI Content/Combat offline cadence-reactive coach-copy swap recommendation policy.
+
+## 2026-03-26 13:31 KST — Cycle EJ systems/qa cadence policy wiring
+- Task: Implement offline cadence-reactive coach-copy swap recommendation policy from `PRSMC` churn + lane cadence miss risk.
+- Change: `scripts/weekly_portal_prompt_readability_drift.py` now computes `comboConfidenceCoachCopySwapRecommendation` from `pulseRemapSceneMicrolineCadenceAlias` churn/trend + `LANE CADENCE MISS RISK` signals.
+- Output contract: added digest token `DMG COMBO CONF COACH COPY SWAP REC` (JSON + markdown) and token-family churn row `DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN`.
+- Verification: `python3 -m py_compile ...` PASS, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS, digest generation PASS.

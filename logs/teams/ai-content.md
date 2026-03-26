@@ -1840,3 +1840,9 @@
 - Confirmed new miss-risk token is telemetry-only and does not alter narrative generation/runtime outputs.
 - Recommendation: keep recommendation text deterministic to avoid churn noise across windows.
 - 2026-03-26 12:39 KST — Cycle EI injected backlog follow-up: prototype offline cadence-reactive coach-copy swap recommendation from `PRSMC` family churn + lane cadence miss risk.
+
+## 2026-03-26 13:31 KST
+- Task: Closed AI Content/Combat backlog item for offline cadence-reactive coach-copy swap recommendation.
+- Decision: Swap policy tiers (`HOLD_COPY|ARM_SWAP|SWAP_NOW`) are now driven by `PRSMC` churn/trend + lane cadence miss risk; guard posture escalates HOLD→ARM when needed.
+- Scope: Digest/offline guidance only (no runtime combat coupling).
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.

@@ -1791,3 +1791,9 @@
 - No combat runtime changes this cycle.
 - Consumed new lane miss-risk telemetry for planning cadence (combat lane freshness guard).
 - 2026-03-26 12:39 KST — Cycle EI no combat runtime mechanic change; digest-only cadence alias keeps combat review readability additive/reversible.
+
+## 2026-03-26 13:31 KST
+- Task: Added offline combo-confidence coach copy swap recommendation line to weekly digest.
+- Impact: Combat coach copy handoff now includes cadence-aware swap posture from `PRSMC` volatility + lane cadence miss risk.
+- Safety: Offline/reporting only; no runtime combo timing or HUD behavior changes.
+- Verification linkage: weekly digest regression + generation pass.

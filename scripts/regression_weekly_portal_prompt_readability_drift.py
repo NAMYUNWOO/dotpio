@@ -2154,6 +2154,7 @@ def main() -> int:
         assert "DMG COMBO CONF COACH FALLBACK:" in md_text
         assert "DCCR:" in md_text
         assert "DMG COMBO CONF COACH SCENE ARC" in md_text
+        assert "DMG COMBO CONF COACH COPY SWAP REC" in md_text
         assert "DCCSA:" in md_text
         assert "PULSE REMAP MOMENTUM Δ:" in md_text
         assert "PULSE REMAP MOMENTUM SUPPRESS:" in md_text
@@ -2219,7 +2220,9 @@ def main() -> int:
         assert "DCCR + DMG COMBO CONF COACH REC:" in md_text
         assert "DMG COMBO CONF COACH REC + DCCR FAMILY CHURN" in md_text
         assert "DMG COMBO CONF COACH SCENE ARC" in md_text
+        assert "DMG COMBO CONF COACH COPY SWAP REC" in md_text
         assert "DCCSA + DMG COMBO CONF COACH SCENE ARC:" in md_text
+        assert "DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN" in md_text
 
         md_lines = md_text.splitlines()
 
@@ -2232,6 +2235,7 @@ def main() -> int:
         combo_conf_rec_idx = _find_line_index("- DMG COMBO CONF COACH REC:")
         combo_conf_fallback_idx = _find_line_index("- DMG COMBO CONF COACH FALLBACK:")
         combo_conf_scene_arc_idx = _find_line_index("- DMG COMBO CONF COACH SCENE ARC:")
+        combo_conf_copy_swap_idx = _find_line_index("- DMG COMBO CONF COACH COPY SWAP REC:")
         prsmc_family_trend_idx = _find_line_index("- PRSMC FAMILY TREND:")
         prsmc_family_churn_idx = _find_line_index("- PRSMC FAMILY CHURN:")
 
@@ -2241,11 +2245,22 @@ def main() -> int:
         assert combo_conf_scene_arc_idx in {
             combo_conf_fallback_idx + 1,
             combo_conf_fallback_idx + 2,
+            combo_conf_fallback_idx + 3,
         }, "expected DMG COMBO CONF COACH SCENE ARC row adjacent to combo-confidence coach rows"
+        assert combo_conf_copy_swap_idx == combo_conf_scene_arc_idx + 1, (
+            "expected COACH COPY SWAP row directly after COACH SCENE ARC row"
+        )
 
         if combo_conf_scene_arc_idx == combo_conf_fallback_idx + 2:
             assert md_lines[combo_conf_fallback_idx + 1].startswith("- DCCR:"), (
                 "only compact DCCR alias row may appear between COACH FALLBACK and SCENE ARC rows"
+            )
+        if combo_conf_scene_arc_idx == combo_conf_fallback_idx + 3:
+            assert md_lines[combo_conf_fallback_idx + 1].startswith("- DCCR:"), (
+                "expected DCCR row as first alias spacer before SCENE ARC"
+            )
+            assert md_lines[combo_conf_fallback_idx + 2].startswith("- DCCSA:"), (
+                "expected DCCSA row as second alias spacer before SCENE ARC"
             )
         assert prsmc_family_churn_idx == prsmc_family_trend_idx + 1, (
             "expected PRSMC FAMILY CHURN row directly after PRSMC FAMILY TREND row"

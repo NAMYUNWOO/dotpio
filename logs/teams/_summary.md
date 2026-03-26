@@ -13,6 +13,10 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed highest-priority unchecked TASKS/POST_RC item (AI Content/Combat): shipped offline token `DMG COMBO CONF COACH COPY SWAP REC: HOLD_COPY|ARM_SWAP|SWAP_NOW` from `PRSMC` churn/trend + `LANE CADENCE MISS RISK`.
+- Weekly digest payload now includes `comboConfidenceCoachCopySwapRecommendation` + signals; markdown adds recommendation row and family-churn row `DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN`.
+- Regression contract updated in `scripts/regression_weekly_portal_prompt_readability_drift.py`; verification gates pass (`py_compile`, weekly digest regression, digest generation).
+
 - Cycle EI Game Director review executed (all ACTION_ITEMS/TASKS/POST_RC work was previously checked): generated 3 ideas and selected low-risk UX/World compact-readability slice.
 - Shipped compact cadence alias token `PRSMC:<R|H|C>` behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_CADENCE_ALIAS`; weekly digest payload now includes `pulseRemapSceneMicrolineCadenceAlias` + flag signals.
 - Token-family coverage row now emits `PRSMC + PULSE REMAP SCENE MICROLINE CADENCE` and regression assertions were extended accordingly.

@@ -3296,3 +3296,11 @@
 - Validation command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Result: PASS
 - Notes: Guard prevents future digest formatting drift where cadence churn row could be omitted or relocated away from trend context.
+
+## 2026-03-26 13:31 KST
+- Task: Verify cadence-reactive coach-copy swap recommendation integration in weekly digest.
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `logs/weekly_portal_prompt_readability_drift.{json,md}`.
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 120` ✅
