@@ -940,6 +940,6 @@ Last updated: 2026-03-21 02:31 KST
 
 
 ## P1 (Game Director Injection — 2026-03-26 Cycle EH)
-- [ ] Combat/VFX Team: Prototype compact scene-arc alias token (`DCCSA:<A|I|E>`) behind flag for digest density control.
+- [x] Combat/VFX Team: Prototype compact scene-arc alias token (`DCCSA:<A|I|E>`) behind flag for digest density control. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 11:04 KST)*
 - [ ] Systems/Ops Team: Prototype 24h lane cadence miss-risk token (`LANE CADENCE MISS RISK:LOW|MID|HIGH`) from rolling completion spread.
 - [ ] QA/Design Team: Add contract check ensuring `DMG COMBO CONF COACH SCENE ARC` remains adjacent to combo-confidence coach rows for scan order stability.

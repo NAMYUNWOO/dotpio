@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-26 06:24 KST
+Last updated: 2026-03-26 11:04 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed highest-priority unchecked POST_RC item (Cycle EH, Combat/VFX): shipped compact scene-arc alias `DCCSA:<A|I|E>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_SCENE_ARC_ALIAS` for digest density control.
+- Weekly digest now exposes `comboConfidenceCoachSceneArcAlias` + flag signals and markdown row `DCCSA` adjacent to `DMG COMBO CONF COACH SCENE ARC` to preserve scan order.
+- Regression + syntax gates pass (`py_compile`, `scripts/regression_weekly_portal_prompt_readability_drift.py`). Next queue item: Systems/Ops `LANE CADENCE MISS RISK`.
 
 - Cycle EF Game Director review executed after actionable queue clear; generated 3 ideas and selected low-risk Combat/UX vertical slice.
 - Shipped additive HUD debug token `DMG COMBO CONF:LOW|MID|HIGH` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_DEBUG`, derived from existing combo cadence (`HOT>=3 => HIGH`, `HOT/WARM => MID`, else `LOW`).

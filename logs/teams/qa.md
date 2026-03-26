@@ -3273,3 +3273,14 @@
 - Result: PASS (no contract drift in weekly digest output).
 - 2026-03-26 10:34 KST — Regression lock expanded for combo-confidence coach family: require `DMG COMBO CONF COACH FALLBACK` markdown row in weekly digest regression.
 - Verification run: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
+
+## 2026-03-26 11:04 KST
+- Task: Verify Cycle EH compact scene-arc alias token (`DCCSA:<A|I|E>`) integration.
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`.
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Alias contract is flag-gated and deterministic (`ASH|IRON|EMBER -> DCCSA:A|I|E`).
+  - No portal/map validator required (digest/offline script only).
+- Follow-up: Validate next Cycle EH Systems/Ops miss-risk token with regression coverage.

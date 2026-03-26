@@ -270,3 +270,8 @@
 - No shader/runtime FX changes this cycle.
 - Logged lane-cap forced pick toward underrepresented design/world lane to keep combat-heavy streak from starving visual/world readability cadence.
 - Follow-up candidate retained: optional flag-gated compact scene-arc alias (`DCCSA`) if digest density increases.
+
+## 2026-03-26 11:04 KST — Cycle EH combat/vfx readability slice
+- Added compact alias rail for combo-confidence coach scene arc: `DCCSA:<A|I|E>` (ASH/IRON/EMBER) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_SCENE_ARC_ALIAS`.
+- Kept change additive + reversible (digest-only, no runtime combat stat changes).
+- Evidence: weekly digest regression suite pass.

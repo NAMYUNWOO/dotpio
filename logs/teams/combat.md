@@ -1779,3 +1779,10 @@
 - Decision: alias is digest-only and reversible via env flag; full recommendation row remains canonical.
 - 2026-03-26 10:34 KST — Added combat-facing fallback coaching copy for combo-confidence recommendations: guard/surge/steady lines now escalate with streak persistence and volatility regime.
 - Follow-up: evaluate if fallback lines reduce ambiguous postmortem notes before considering runtime HUD exposure.
+
+## 2026-03-26 11:04 KST — Cycle EH compact scene-arc alias (injected)
+- Task: Prototype compact scene-arc alias token `DCCSA:<A|I|E>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_SCENE_ARC_ALIAS`.
+- Scope: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`.
+- Decision: Added deterministic alias mapping from `DMG COMBO CONF COACH SCENE ARC` (`ASH|IRON|EMBER`) to compact initials (`A|I|E`) with flag-gated markdown/payload surfacing.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
+- Follow-up: Next unchecked Cycle EH item is `LANE CADENCE MISS RISK:LOW|MID|HIGH` (Systems/Ops).
