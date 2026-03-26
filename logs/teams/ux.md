@@ -2155,3 +2155,8 @@
 - Added digest legend line for compact alias (`DCCFXV LEGEND`) to avoid operator decode friction.
 - Added dedicated volatility family coverage row in token coverage section.
 - Regression lock now ensures these readability rows persist.
+
+## 2026-03-26 22:44 KST — Compact guard alias readability slice [DONE]
+- Game Director Cycle ES selected low-risk UX/Systems slice.
+- Shipped compact alias `LPRCG:<H|A>` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_ALIAS` for dense digest scanability without changing runtime gameplay behavior.
+- Verification: regression suite + flag-on digest generation pass.

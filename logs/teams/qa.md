@@ -3398,3 +3398,8 @@
 - Executed: `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
 - Verified adjacency lock now enforces `DCCFXH -> DCCFXV -> DCCFXV FAMILY CHURN -> DCCSR FAMILY CHURN`.
 - Critical blockers introduced: 0.
+
+## 2026-03-26 22:44 KST — Confidence guard regression lock [DONE]
+- Extended regression contract for lane-priority confidence guard payload keys + markdown presence (`LANE PRIORITY REC CONF GUARD`, `LPRCG`).
+- Guard rails remain offline-only; no runtime coupling introduced.
+- Follow-up: add explicit token-family churn row assertions for `LPRCG` family in next cycle.

@@ -1948,3 +1948,6 @@
 - Added explicit `DCCFXV` legend/readability note in token coverage docs to reduce shorthand ambiguity during operator scan.
 - Readability contract now ties volatility shorthand (`C/S/P`) to scene-arc interpretation cues.
 - QA partner check: regression asserts both `DCCFXV LEGEND` and volatility family coverage row presence.
+
+## 2026-03-26 22:44 KST — Readability contract note
+- Confirmed `LANE PRIORITY REC CONF` -> `LANE PRIORITY REC CONF GUARD` -> `LPRCG` ordering keeps triage semantics readable in dense markdown summaries.

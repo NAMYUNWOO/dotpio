@@ -667,6 +667,26 @@ def main() -> int:
             "maxMomentumHours",
             "reason",
         }, payload
+        assert set(payload.get("lanePriorityRecommendationConfidenceGuardSignals", {}).keys()) == {
+            "baseConfidence",
+            "guardedConfidence",
+            "trend",
+            "volatilityRegime",
+            "diverged",
+            "priorStreak",
+            "divergenceStreak",
+            "guardApplied",
+            "priorLoaded",
+            "reason",
+            "offlineOnly",
+        }, payload
+        assert isinstance(payload.get("lanePriorityRecommendationConfidenceGuardAlias"), str), payload
+        assert set(payload.get("lanePriorityRecommendationConfidenceGuardAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "action",
+            "alias",
+        }, payload
         assert isinstance(payload.get("lanePriorityRecommendationCompactAlias"), str), payload
         assert set(payload.get("lanePriorityRecommendationCompactAliasSignals", {}).keys()) == {
             "flagName",
@@ -2232,6 +2252,8 @@ def main() -> int:
         assert "LPR HYS FLOOR REC:" in md_text
         assert "LPR HYS FLOOR:" in md_text
         assert "LANE PRIORITY REC CONF:" in md_text
+        assert "LANE PRIORITY REC CONF GUARD:" in md_text
+        assert "LPRCG:" in md_text
         assert "LANE PRIORITY REC HYSTERESIS:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text

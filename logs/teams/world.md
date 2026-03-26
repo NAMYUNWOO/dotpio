@@ -1898,3 +1898,6 @@
 - Decision: Added explicit legend contract in token coverage section: `DCCFXV LEGEND: C=CALM, S=SWING, P=SPIKE` with guidance (`CALM=stabilize`, `SWING=monitor oscillation`, `SPIKE=pressure cue`).
 - Verification: weekly digest regenerated with alias flag enabled; legend row visible in markdown output.
 - Follow-up: keep future compact alias additions paired with one-line legend when semantic mapping is non-obvious.
+
+## 2026-03-26 22:44 KST — Lane-priority digest review
+- Reviewed new lane-priority confidence guard outputs for world-lane planning safety; no map/runtime world mutation required (digest-only).

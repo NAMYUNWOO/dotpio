@@ -2846,3 +2846,9 @@
 - Changes: Updated weekly digest generator + regression ordering contract to insert `DCCFXV FAMILY CHURN` directly after `DCCFXV` and before `DCCSR FAMILY CHURN`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
 - Follow-up: next unchecked backlog item is offline confidence guard policy for lane-priority recommendation divergence.
+
+## 2026-03-26 22:44 KST — Lane-priority confidence guard shipped [DONE]
+- Completed unchecked POST-RC item: offline confidence guard policy now downgrades lane-priority confidence by one band when `LPR HYS FLOOR FAMILY TREND` and `LPR VOL REGIME` diverge for 2+ consecutive windows.
+- Added payload contract `lanePriorityRecommendationConfidenceGuardSignals` and digest row `LANE PRIORITY REC CONF GUARD`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and digest run pass.
+- Follow-up queued: add churn coverage for `LPRCG` + confidence-guard family row.

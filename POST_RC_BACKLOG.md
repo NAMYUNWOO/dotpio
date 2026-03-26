@@ -1027,7 +1027,7 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add `LPR HYS FLOOR FAMILY TREND` markdown row + JSON drift signals (`currentNet`, `priorNet`, `Δnet`, `reason`) with regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 21:20 KST; completed: 2026-03-26 21:24 KST)*
 - [x] UX/Design Team: Prototype compact floor-family trend alias token (`LPR HF T:<U|F|D>`) behind experiment flag + digest wiring. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 21:31 KST; completed: 2026-03-26 21:35 KST)*
-- [ ] AI Content/Systems Team: Prototype offline confidence guard policy for lane-priority recommendation when floor-trend/regime diverges across consecutive windows.
+- [x] AI Content/Systems Team: Prototype offline confidence guard policy for lane-priority recommendation when floor-trend/regime diverges across consecutive windows. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 22:38 KST)*
 
 ## Cycle ER - Game Director Review (2026-03-26 21:41 KST, lane-cap forced underrepresented pick)
 - Coverage check (last 10 completions by lane): systems=6, world=0, ai-content=3, combat=2, design=2, vfx=0, ux=3, qa=3, ops=1.
@@ -1044,3 +1044,13 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Combat/VFX Team: Add compact FX volatility alias token (`DCCFXV:<C|S|P>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 21:41 KST)*
 - [x] Systems/QA Team: Add `DCCFXV FAMILY CHURN` row so volatility alias drift is isolated from DCCFXT/DCCFXH trend rails.
 - [x] Design/World Team: Add readability contract note linking `DCCFXV` legend (`C/S/P`) to scene arc guidance in digest docs.
+
+## Cycle ES - Game Director Review (2026-03-26 22:44 KST)
+- Coverage check (last 10 completions): systems/qa observability still heavy; selected a compact UX-facing readability slice to keep operator scan speed high while preserving offline-only safety.
+- Idea 1 (low risk, UX/Systems): Add compact lane-priority confidence-guard alias (`LPRCG:<H|A>`) behind flag for dense digest scans.
+- Idea 2 (mid risk, Systems/QA): Add token-family churn coverage row for `LPRCG:` + `LANE PRIORITY REC CONF GUARD:` with regression lock.
+- Idea 3 (high risk, AI Content/Systems): Prototype adaptive guard-floor policy that raises divergence streak threshold under `SWING` volatility memory.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Systems Team: Add compact lane-priority confidence-guard alias (`LPRCG:<H|A>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 22:44 KST)*
+- [ ] Systems/QA Team: Add token-family churn coverage row for `LPRCG:` + `LANE PRIORITY REC CONF GUARD:` with regression lock.
+- [ ] AI Content/Systems Team: Prototype adaptive divergence-streak threshold policy for confidence guard under `SWING` volatility memory (offline-only).

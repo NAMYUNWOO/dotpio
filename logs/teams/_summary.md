@@ -3181,3 +3181,9 @@ Compact decision memory for AI context efficiency.
 - Regression contract tightened: adjacency now locks `DCCFXH -> DCCFXV -> DCCFXV FAMILY CHURN -> DCCSR FAMILY CHURN`.
 - Closed paired Design/World doc task: token-coverage section now includes `DCCFXV LEGEND: C=CALM, S=SWING, P=SPIKE` with scene-arc guidance note.
 - Backlog sync: marked both corresponding TASKS + POST_RC items complete; next unchecked priority is AI Content/Systems offline confidence guard policy for lane-priority divergence.
+
+## 2026-03-26 22:44 KST — Confidence guard + Game Director Cycle ES
+- Shipped offline lane-priority confidence guard: if `LPR HYS FLOOR FAMILY TREND` diverges from volatility regime (`UP+CALM` or `DOWN+SPIKE`) for 2+ consecutive windows, confidence degrades one band (`HIGH→MID`, `MID→LOW`).
+- Added digest + payload contract rows: `LANE PRIORITY REC CONF GUARD` and compact alias `LPRCG:<H|A>` behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_ALIAS`.
+- Regression coverage updated and green (`scripts/regression_weekly_portal_prompt_readability_drift.py`).
+- Backlog updated: Cycle ES completed selected vertical slice; queued follow-ups for `LPRCG` family churn row + adaptive divergence threshold policy.

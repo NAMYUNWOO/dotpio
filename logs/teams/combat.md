@@ -1880,3 +1880,6 @@
 - Confirmed DCCFXV additions are telemetry/digest-only (`weekly_portal_prompt_readability_drift.py`) and do not alter combat runtime behavior.
 - Combat readability impact: faster scan of volatility churn vs trend rails.
 - Follow-up unchanged: continue prioritizing player-facing combat readability slices each cycle window.
+
+## 2026-03-26 22:44 KST — Cross-lane note
+- No combat runtime changes this cycle; validated digest-only confidence guard does not touch combat state/output paths.
