@@ -3035,3 +3035,5 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep combo-confidence coach recommendation offline digest only (no runtime behavior change) until distribution telemetry indicates stable thresholds.
 - Verification snapshot: weekly drift regression PASS + Python compile check PASS after contract update.
 - Backlog sync: marked TASKS + POST_RC_BACKLOG combo-confidence coach item done.
+- 2026-03-26 09:50 KST — Game Director Cycle EG completed: implemented low-risk experiment Idea 1 (`DCCR` compact alias for combo-confidence coach recommendation) with regression lock.
+- Injected follow-ups into backlog: (1) Systems/QA churn coverage for `DMG COMBO CONF COACH REC`/`DCCR`; (2) AI Content fallback narrative line tied to recommendation streak drift.

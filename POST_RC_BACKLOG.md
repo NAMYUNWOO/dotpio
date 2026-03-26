@@ -927,3 +927,13 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Combat/UX Team: Add compact combo-confidence debug token (`DMG COMBO CONF:LOW|MID|HIGH`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_DEBUG` with regression coverage. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 08:33 KST)*
 - [x] Systems/QA Team: Add weekly digest token-family churn coverage for `DMG COMBO CONF:` with markdown triage row + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 09:01 KST)*
 - [x] AI Content/Combat Team: Prototype offline combo-confidence coach recommendation policy from kill heat volatility + pressure drift. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 09:39 KST)*
+
+## Cycle EG - Game Director Review (2026-03-26 09:46 KST)
+- Coverage check (last 10 completions): AI-content/combat + systems digest observability dominated; selected a low-risk readability slice for recommendation scan speed.
+- Idea 1 (low risk, Combat/UX): Add compact alias token for combo-confidence coach recommendation (`DCCR:<G|S|U>`) behind flag.
+- Idea 2 (mid risk, Systems/QA): Add weekly digest token-family churn coverage row for `DMG COMBO CONF COACH REC` + alias.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline confidence-coach fallback narrative line tied to recommendation streak drift.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Combat/UX Team: Add compact combo-confidence coach alias (`DCCR:<G|S|U>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_ALIAS` with digest markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 09:46 KST; completed: 2026-03-26 09:50 KST)*
+- [ ] Systems/QA Team: Add token-family churn coverage row for `DMG COMBO CONF COACH REC` (+ alias) in weekly digest with regression lock.
+- [ ] AI Content/Combat Team: Prototype offline confidence-coach fallback narrative line tied to recommendation streak drift and volatility regime.

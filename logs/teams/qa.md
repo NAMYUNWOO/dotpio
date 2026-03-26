@@ -3255,3 +3255,5 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` → PASS
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` → PASS
 - Follow-up: add JSON field assertions for combo-confidence coach payload if schema lock scope expands.
+- 2026-03-26 09:50 KST — Regression lock expanded to require `DCCR:` token alongside `DMG COMBO CONF COACH REC` in weekly digest markdown.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

@@ -1775,3 +1775,5 @@
 - Decision: thresholds tuned for conservative guardrail (`>=9 or HIGH drift -> GUARD`, `>=5 or HIGH pressure -> STEADY`, else `SURGE`) to prevent over-aggressive coaching under unstable windows.
 - Verification: weekly digest regression PASS after markdown contract update.
 - Follow-up: monitor recommendation distribution in next digest to calibrate volatility cutoffs.
+- 2026-03-26 09:50 KST — Cycle EG minimal slice shipped: compact alias `DCCR:<G|S|U>` now mirrors `DMG COMBO CONF COACH REC` recommendation when `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_ALIAS` is enabled.
+- Decision: alias is digest-only and reversible via env flag; full recommendation row remains canonical.

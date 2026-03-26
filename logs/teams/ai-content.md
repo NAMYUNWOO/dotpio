@@ -1831,3 +1831,4 @@
 - Decision: keep policy offline-only (`DMG COMBO CONF COACH REC`) with no runtime gameplay coupling; recommendation bands = `GUARD|STEADY|SURGE`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: if `GUARD` streak dominates in future snapshots, inject a compact alias experiment before runtime HUD exposure.
+- 2026-03-26 09:50 KST — Maintained offline recommendation semantics while adding compact delivery alias; no model/runtime behavior changes.

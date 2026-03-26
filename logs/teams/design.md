@@ -1844,3 +1844,4 @@
 - 2026-03-26 09:39 KST — Preserved DOS readability by adding one concise digest row (`DMG COMBO CONF COACH REC`) adjacent to existing combo-retune/coach lines.
 - Decision: recommendation vocabulary constrained to short, interpretable verbs (`GUARD|STEADY|SURGE`).
 - Follow-up: if future alias is added, keep 1-token compact grammar parity with existing combo rows.
+- 2026-03-26 09:50 KST — Alias grammar kept consistent with existing compact digest token style (`PREFIX:<single-letter-band>`).
