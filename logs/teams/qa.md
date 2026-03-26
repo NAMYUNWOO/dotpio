@@ -3305,3 +3305,12 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 30 --max-commits 120` ✅
 - 2026-03-26 15:01 KST — Regression lock expanded for copy-swap coach family: require `DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND` row and adjacency after `DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN` in weekly digest markdown.
+
+## 2026-03-26 15:46 KST — Regression lock for DCCSR alias [DONE]
+- Coverage: Added assertions for `DCCSR:` and `DCCSR + DMG COMBO CONF COACH COPY SWAP REC:` summary row.
+- Result: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
+- Follow-up: Keep ordering invariants for coach rows and copy-swap family trend rows.
+
+## 2026-03-26 15:53 KST — DCCST regression lock [DONE]
+- Updated regression assertions to require `DCCST:` visibility in digest output.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

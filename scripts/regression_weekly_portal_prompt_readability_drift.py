@@ -2165,6 +2165,8 @@ def main() -> int:
         assert "DCCR:" in md_text
         assert "DMG COMBO CONF COACH SCENE ARC" in md_text
         assert "DMG COMBO CONF COACH COPY SWAP REC" in md_text
+        assert "DCCSR:" in md_text
+        assert "DCCST:" in md_text
         assert "DCCSA:" in md_text
         assert "PULSE REMAP MOMENTUM Δ:" in md_text
         assert "PULSE REMAP MOMENTUM SUPPRESS:" in md_text
@@ -2234,8 +2236,11 @@ def main() -> int:
         assert "DMG COMBO CONF COACH REC + DCCR FAMILY CHURN" in md_text
         assert "DMG COMBO CONF COACH SCENE ARC" in md_text
         assert "DMG COMBO CONF COACH COPY SWAP REC" in md_text
+        assert "DCCSR:" in md_text
+        assert "DCCST:" in md_text
         assert "DCCSA + DMG COMBO CONF COACH SCENE ARC:" in md_text
         assert "DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN" in md_text
+        assert "DCCSR + DMG COMBO CONF COACH COPY SWAP REC:" in md_text
         assert "DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND" in md_text
 
         md_lines = md_text.splitlines()

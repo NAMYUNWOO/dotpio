@@ -2076,3 +2076,11 @@
 - Compact wording preserved for DOS-width reports; no HUD/runtime overlay changes.
 - Verification inherited from weekly digest regression + generation pass.
 - 2026-03-26 15:01 KST — UX scanline update: added explicit `DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND` row to keep one-glance digest interpretation (magnitude vs direction) deterministic.
+
+## 2026-03-26 15:46 KST — Compact scanability pass (DCCSR) [DONE]
+- Decision: Keep swap posture shorthand deterministic (`H|A|S`) to preserve DOS-width readability.
+- Verification: Weekly portal drift regression passed with alias row visible in markdown contract.
+- Follow-up: Keep alias placement adjacent to coach/swap cluster for one-glance parsing.
+
+## 2026-03-26 15:53 KST — Digest scanability lane update [DONE]
+- Kept trend alias single-letter encoding (`U/F/D`) to preserve compact DOS-width readability near swap recommendation block.

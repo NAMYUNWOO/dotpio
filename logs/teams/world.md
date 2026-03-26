@@ -1821,3 +1821,10 @@
 - Consumed cadence-reactive coach-copy swap recommendation output as offline planning signal only.
 - World follow-up remains readability alignment (scene cadence + route tone) in next injection cycle.
 - 2026-03-26 15:01 KST — No world-content token additions this slice; kept world tone stable while improving digest observability for copy-swap coaching drift.
+
+## 2026-03-26 15:46 KST — No world-map mutation (digest alias cycle)
+- Decision: World lane unchanged this slice; no portal/map data edits required.
+- Follow-up: Resume world-facing lane in next forced rebalance window if cadence watchdog requests it.
+
+## 2026-03-26 15:53 KST — Lane note
+- World lane untouched this cycle; no map/portal state mutation.

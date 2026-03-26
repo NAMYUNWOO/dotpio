@@ -1864,3 +1864,12 @@
 - Decision: keep copy-swap policy offline-only in weekly digest; no runtime UI text mutation.
 - Follow-up: evaluate compact alias if digest budget pressure increases.
 - 2026-03-26 15:01 KST — Digest readability pass: copy-swap coaching now shows both magnitude (`FAMILY CHURN`) and directional drift (`FAMILY TREND`) to reduce triage ambiguity.
+
+## 2026-03-26 15:46 KST — Cycle EJ follow-up (DCCSR compact alias) [DONE]
+- Decision: Added compact swap alias token `DCCSR:<H|A|S>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_COPY_SWAP_ALIAS` for digest-width fallback.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up: Observe `DCCSR` family churn in next weekly digest run; rebalance only if alias churn outpaces base swap token family.
+
+## 2026-03-26 15:53 KST — Cycle EK selected experiment (DCCST) [DONE]
+- Added compact copy-swap trend alias `DCCST:<U|F|D>` for faster digest trend scan.
+- Flag: `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_COPY_SWAP_TREND_ALIAS`.

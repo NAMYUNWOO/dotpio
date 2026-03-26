@@ -1847,3 +1847,10 @@
 - Scope: Digest/offline guidance only (no runtime combat coupling).
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - 2026-03-26 15:01 KST — Offline AI-content coaching telemetry improved: copy-swap recommendation family now carries prior-window trend context (`UP|DOWN|FLAT`) alongside churn totals.
+
+## 2026-03-26 15:46 KST — Offline policy parity check
+- Decision: No change to offline recommendation logic (`HOLD_COPY|ARM_SWAP|SWAP_NOW`); alias is presentation-only.
+- Follow-up: Maintain deterministic mapping to avoid policy-wording drift.
+
+## 2026-03-26 15:53 KST — Follow-up queued (hysteresis)
+- Logged high-risk next-up: offline copy-swap trend hysteresis policy to damp `UP/DOWN` oscillation.

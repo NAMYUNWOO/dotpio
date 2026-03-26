@@ -1798,3 +1798,10 @@
 - Safety: Offline/reporting only; no runtime combo timing or HUD behavior changes.
 - Verification linkage: weekly digest regression + generation pass.
 - 2026-03-26 15:01 KST — Combat-facing offline coach-copy swap telemetry now exposes prior-window trend drift, clarifying whether recommendation family pressure is rising or settling.
+
+## 2026-03-26 15:46 KST — Combat-readability handoff context
+- Decision: Preserved existing combo-confidence swap recommendation semantics; only added compact digest alias for operator scan speed.
+- Follow-up: Re-evaluate combat-facing impact if swap recommendation churn increases over next windows.
+
+## 2026-03-26 15:53 KST — Combat coaching readability continuity
+- Trend alias is offline digest-only; no runtime combat behavior changed.

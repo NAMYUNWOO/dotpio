@@ -958,4 +958,13 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Systems/QA Team: Add dedicated swap-recommendation family churn row (`DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN`) with regression lock.
 - [x] UX/Design Team: Constrain swap posture vocabulary to compact deterministic bands for digest scanability (`HOLD_COPY|ARM_SWAP|SWAP_NOW`).
 - [x] Systems/QA Team: Add prior-window trend drift row for `DMG COMBO CONF COACH COPY SWAP REC` family with regression lock.
-- [ ] UX/Design Team: Prototype compact swap alias token (`DCCSR:<H|A|S>`) behind experiment flag for digest-width fallback.
+- [x] UX/Design Team: Prototype compact swap alias token (`DCCSR:<H|A|S>`) behind experiment flag for digest-width fallback. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 15:42 KST; completed: 2026-03-26 15:46 KST)*
+
+## Cycle EK - Game Director Review (2026-03-26 15:52 KST)
+- Idea 1 (low risk, UX/Design): Add compact copy-swap trend alias token (`DCCST:<U|F|D>`) behind flag for faster digest trend scanability.
+- Idea 2 (mid risk, Systems/QA): Add dedicated token-family churn split row for `DCCSR` vs `DCCST` to separate recommendation-vs-trend noise.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline copy-swap trend hysteresis policy to suppress rapid `UP/DOWN` oscillation.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Design Team: Add compact copy-swap trend alias token (`DCCST:<U|F|D>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_COPY_SWAP_TREND_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 15:48 KST; completed: 2026-03-26 15:52 KST)*
+- [ ] Systems/QA Team: Add split family churn rows (`DCCSR FAMILY CHURN`, `DCCST FAMILY CHURN`) for recommendation-vs-trend triage.
+- [ ] AI Content/Combat Team: Prototype offline copy-swap trend hysteresis policy for `UP/DOWN` oscillation dampening.
