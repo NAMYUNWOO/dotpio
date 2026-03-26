@@ -2243,8 +2243,10 @@ def main() -> int:
         assert "DCCSA + DMG COMBO CONF COACH SCENE ARC:" in md_text
         assert "DCCFX + DMG COMBO CONF FX ACCENT:" in md_text
         assert "DMG COMBO CONF FX ACCENT + DCCFX FAMILY CHURN" in md_text
-        assert "DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN" in md_text
+        assert "DCCSR FAMILY CHURN" in md_text
+        assert "DCCST FAMILY CHURN" in md_text
         assert "DCCSR + DMG COMBO CONF COACH COPY SWAP REC:" in md_text
+        assert "DCCST ALIAS:" in md_text
         assert "DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND" in md_text
 
         md_lines = md_text.splitlines()
@@ -2260,7 +2262,8 @@ def main() -> int:
         combo_conf_scene_arc_idx = _find_line_index("- DMG COMBO CONF COACH SCENE ARC:")
         combo_conf_fx_accent_idx = _find_line_index("- DMG COMBO CONF FX ACCENT:")
         combo_conf_copy_swap_idx = _find_line_index("- DMG COMBO CONF COACH COPY SWAP REC:")
-        combo_conf_copy_swap_family_churn_idx = _find_line_index("- DMG COMBO CONF COACH COPY SWAP REC FAMILY CHURN:")
+        combo_conf_copy_swap_dccsr_family_churn_idx = _find_line_index("- DCCSR FAMILY CHURN:")
+        combo_conf_copy_swap_dccst_family_churn_idx = _find_line_index("- DCCST FAMILY CHURN:")
         combo_conf_copy_swap_family_trend_idx = _find_line_index("- DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND:")
         prsmc_family_trend_idx = _find_line_index("- PRSMC FAMILY TREND:")
         prsmc_family_churn_idx = _find_line_index("- PRSMC FAMILY CHURN:")
@@ -2291,8 +2294,11 @@ def main() -> int:
             assert md_lines[combo_conf_fallback_idx + 2].startswith("- DCCSA:"), (
                 "expected DCCSA row as second alias spacer before SCENE ARC"
             )
-        assert combo_conf_copy_swap_family_trend_idx == combo_conf_copy_swap_family_churn_idx + 1, (
-            "expected DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND row directly after FAMILY CHURN row"
+        assert combo_conf_copy_swap_dccst_family_churn_idx == combo_conf_copy_swap_dccsr_family_churn_idx + 1, (
+            "expected DCCST FAMILY CHURN row directly after DCCSR FAMILY CHURN row"
+        )
+        assert combo_conf_copy_swap_family_trend_idx == combo_conf_copy_swap_dccst_family_churn_idx + 1, (
+            "expected DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND row directly after DCCST FAMILY CHURN row"
         )
         assert prsmc_family_churn_idx == prsmc_family_trend_idx + 1, (
             "expected PRSMC FAMILY CHURN row directly after PRSMC FAMILY TREND row"

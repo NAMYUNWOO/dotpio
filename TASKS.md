@@ -1221,7 +1221,7 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Combat): Prototype offline copy-swap trend hysteresis policy to suppress rapid `UP/DOWN` oscillation.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Design Team: Add compact copy-swap trend alias token (`DCCST:<U|F|D>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_COPY_SWAP_TREND_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 15:48 KST; completed: 2026-03-26 15:52 KST)*
-- [ ] Systems/QA Team: Add split family churn rows (`DCCSR FAMILY CHURN`, `DCCST FAMILY CHURN`) for recommendation-vs-trend triage.
+- [x] Systems/QA Team: Add split family churn rows (`DCCSR FAMILY CHURN`, `DCCST FAMILY CHURN`) for recommendation-vs-trend triage.
 - [ ] AI Content/Combat Team: Prototype offline copy-swap trend hysteresis policy for `UP/DOWN` oscillation dampening.
 ## Cycle EL - Game Director Review (2026-03-26 16:12 KST, lane-cap forced underrepresented pick)
 - Coverage check (last 10 completions by lane): systems=3, world=2, ai-content=2, combat=2, design=5, vfx=0, ux=5, qa=2.

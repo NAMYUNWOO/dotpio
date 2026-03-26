@@ -2761,3 +2761,9 @@
 ## 2026-03-26 16:12 KST — Cycle EL systems contract note
 - Wired payload contract keys for combo-confidence FX accent + alias signals; no runtime coupling.
 - Next systems/qa item queued: split DCCSA vs DCCFX churn rows for cleaner observability.
+
+## 2026-03-26 16:06 KST — Split copy-swap family churn rails (DCCSR vs DCCST) [DONE]
+- Decision: Separated copy-swap recommendation family accounting from trend alias accounting so digest churn triage can isolate recommendation volatility (`DCCSR`) from trend volatility (`DCCST`).
+- Implementation: `TOKEN_FAMILIES` now maps `dmgComboConfidenceCoachCopySwapRecommendationAlias` -> `DMG COMBO CONF COACH COPY SWAP REC` + `DCCSR`, and new `dmgComboConfidenceCoachCopySwapTrendAlias` -> `DCCST`.
+- Digest contract: Added dedicated markdown rows `DCCSR FAMILY CHURN` and `DCCST FAMILY CHURN` in the status section; token-family coverage section now reports separate `DCCST` totals and keeps trend interpretation on `DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND`.
+- Follow-up: Keep Cycle EL queued (`DCCSA` vs `DCCFX` churn split) for scene-arc vs accent noise isolation.

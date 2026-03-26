@@ -3095,3 +3095,5 @@ Compact decision memory for AI context efficiency.
 - Shipped minimal vertical slice: offline `DMG COMBO CONF FX ACCENT:SMOKE|STEEL|EMBER` + alias `DCCFX:<S|T|E>` (flag-gated).
 - Verification: py_compile PASS; weekly digest regression PASS; digest generation PASS with `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_ALIAS=1`.
 - Next experiment injected: DCCSA vs DCCFX split churn rows (Systems/QA) or accent hysteresis damping (AI Content/Combat).
+- 2026-03-26 16:06 KST: Closed Systems/QA Cycle EK item by splitting copy-swap churn reporting into `DCCSR FAMILY CHURN` (recommendation rail) and `DCCST FAMILY CHURN` (trend rail); regression updated with adjacency lock and digest rerun verified.
+- Next priority remains Cycle EL Systems/QA: split `DCCSA` vs `DCCFX` family churn rows for scene-arc vs fx-accent triage.

@@ -3318,3 +3318,10 @@
 ## 2026-03-26 16:12 KST — Cycle EL regression lock
 - Regression now asserts `DMG COMBO CONF FX ACCENT` and `DCCFX` rows plus summary churn presence.
 - Ordering contract updated: `COACH SCENE ARC -> FX ACCENT -> COACH COPY SWAP`.
+
+## 2026-03-26 16:06 KST — Regression lock for split DCCSR/DCCST family churn rows [DONE]
+- Coverage: Updated weekly digest regression to require `DCCSR FAMILY CHURN` and `DCCST FAMILY CHURN` rows plus strict adjacency before `DMG COMBO CONF COACH COPY SWAP REC FAMILY TREND`.
+- Additional assertions: Require `DCCST ALIAS:` row in token-family coverage output to preserve trend-alias visibility after churn split.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
