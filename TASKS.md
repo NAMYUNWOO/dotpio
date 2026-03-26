@@ -1277,5 +1277,5 @@ See project-level plans:
 
 ## Cycle ER - Game Director Injection (2026-03-26 21:41 KST)
 - [x] Combat/VFX Team: Add compact FX volatility alias token (`DCCFXV:<C|S|P>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS` with payload/markdown wiring + regression lock. *(completed: 2026-03-26 21:41 KST)*
-- [ ] Systems/QA Team: Add `DCCFXV FAMILY CHURN` markdown/token-coverage row with adjacency lock after `DCCFXH` rail.
-- [ ] Design/World Team: Add legend/readability annotation for `DCCFXV` mapping (`C=CALM`, `S=SWING`, `P=SPIKE`) in digest docs.
+- [x] Systems/QA Team: Add `DCCFXV FAMILY CHURN` markdown/token-coverage row with adjacency lock after `DCCFXH` rail.
+- [x] Design/World Team: Add legend/readability annotation for `DCCFXV` mapping (`C=CALM`, `S=SWING`, `P=SPIKE`) in digest docs.

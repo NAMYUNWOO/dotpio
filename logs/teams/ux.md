@@ -2150,3 +2150,8 @@
 ## 2026-03-26 21:35 KST — Digest scan density update
 - Added `LPR HF T` compact row to detailed and compact digest sections to reduce scan latency for operator triage.
 - Maintained full `LPR HYS FLOOR FAMILY TREND` row to preserve semantic readability.
+
+## 2026-03-26 22:06 KST — UX digest scanability polish [DONE]
+- Added digest legend line for compact alias (`DCCFXV LEGEND`) to avoid operator decode friction.
+- Added dedicated volatility family coverage row in token coverage section.
+- Regression lock now ensures these readability rows persist.

@@ -1042,5 +1042,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/Combat): Prototype adaptive confidence guard when DCCFX trend hysteresis contradicts volatility regime across consecutive windows.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Add compact FX volatility alias token (`DCCFXV:<C|S|P>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 21:41 KST)*
-- [ ] Systems/QA Team: Add `DCCFXV FAMILY CHURN` row so volatility alias drift is isolated from DCCFXT/DCCFXH trend rails.
-- [ ] Design/World Team: Add readability contract note linking `DCCFXV` legend (`C/S/P`) to scene arc guidance in digest docs.
+- [x] Systems/QA Team: Add `DCCFXV FAMILY CHURN` row so volatility alias drift is isolated from DCCFXT/DCCFXH trend rails.
+- [x] Design/World Team: Add readability contract note linking `DCCFXV` legend (`C/S/P`) to scene arc guidance in digest docs.

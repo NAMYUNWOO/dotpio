@@ -2840,3 +2840,9 @@
 - Extended payload contract with `comboConfidenceFxAccentVolatilityAlias` + `comboConfidenceFxAccentVolatilityAliasSignals` for DCCFXV rail.
 - Regression locks now enforce DCCFXV payload schema + markdown order (`DCCFXT -> DCCFXH -> DCCFXV -> DCCSR FAMILY CHURN`).
 - Follow-up queued: explicit `DCCFXV FAMILY CHURN` row to isolate alias drift from trend rails.
+
+## 2026-03-26 22:06 KST — DCCFXV family churn rail + adjacency lock [DONE]
+- Task: Add dedicated `DCCFXV FAMILY CHURN` row so volatility alias drift is isolated from `DCCFXT/DCCFXH` rails.
+- Changes: Updated weekly digest generator + regression ordering contract to insert `DCCFXV FAMILY CHURN` directly after `DCCFXV` and before `DCCSR FAMILY CHURN`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+- Follow-up: next unchecked backlog item is offline confidence guard policy for lane-priority recommendation divergence.

@@ -3175,3 +3175,9 @@ Compact decision memory for AI context efficiency.
 - Selected/implemented Idea 1: compact FX volatility alias `DCCFXV:<C|S|P>` (CALM/SWING/SPIKE) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` (PASS).
 - Injected follow-ups: `DCCFXV FAMILY CHURN` row (Systems/QA) and alias legend linkage in design/world docs.
+
+## 2026-03-26 22:06 KST
+- Closed highest-priority unchecked TASKS item: added `DCCFXV FAMILY CHURN` to weekly digest status rails, isolating volatility alias drift from `DCCFXT/DCCFXH` trend rails.
+- Regression contract tightened: adjacency now locks `DCCFXH -> DCCFXV -> DCCFXV FAMILY CHURN -> DCCSR FAMILY CHURN`.
+- Closed paired Design/World doc task: token-coverage section now includes `DCCFXV LEGEND: C=CALM, S=SWING, P=SPIKE` with scene-arc guidance note.
+- Backlog sync: marked both corresponding TASKS + POST_RC items complete; next unchecked priority is AI Content/Systems offline confidence guard policy for lane-priority divergence.

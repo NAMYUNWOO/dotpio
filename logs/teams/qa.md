@@ -3392,3 +3392,9 @@
 ## 2026-03-26 21:35 KST — Regression lock for LPR HF T
 - Extended regression contract to assert `LPR HF T:` presence and alias payload keys/signals.
 - Validation run passed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-26 22:06 KST — Verification pass (DCCFXV churn/legend slice)
+- Executed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Executed: `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+- Verified adjacency lock now enforces `DCCFXH -> DCCFXV -> DCCFXV FAMILY CHURN -> DCCSR FAMILY CHURN`.
+- Critical blockers introduced: 0.

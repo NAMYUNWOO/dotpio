@@ -1875,3 +1875,8 @@
 ## 2026-03-26 21:41 KST — Cycle ER combat observability note
 - Added digest-only volatility shorthand `DCCFXV:<C|S|P>` so combo-confidence accent context can be scanned faster during combat postmortems.
 - No runtime combat damage/timing logic changed.
+
+## 2026-03-26 22:06 KST — Lane sync (no combat runtime mutation)
+- Confirmed DCCFXV additions are telemetry/digest-only (`weekly_portal_prompt_readability_drift.py`) and do not alter combat runtime behavior.
+- Combat readability impact: faster scan of volatility churn vs trend rails.
+- Follow-up unchanged: continue prioritizing player-facing combat readability slices each cycle window.

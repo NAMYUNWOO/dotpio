@@ -1943,3 +1943,8 @@
 ## 2026-03-26 21:41 KST — Cycle ER design readability note
 - Approved compact volatility shorthand `DCCFXV` (`C/S/P`) to preserve digest width while keeping full regime semantics.
 - Follow-up retained: add writer-facing legend linkage to scene-arc guidance docs for scan consistency.
+
+## 2026-03-26 22:06 KST — Digest readability annotation update [DONE]
+- Added explicit `DCCFXV` legend/readability note in token coverage docs to reduce shorthand ambiguity during operator scan.
+- Readability contract now ties volatility shorthand (`C/S/P`) to scene-arc interpretation cues.
+- QA partner check: regression asserts both `DCCFXV LEGEND` and volatility family coverage row presence.
