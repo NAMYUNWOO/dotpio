@@ -1790,3 +1790,4 @@
 ## 2026-03-26 11:31 KST — Cycle EH Combat
 - No combat runtime changes this cycle.
 - Consumed new lane miss-risk telemetry for planning cadence (combat lane freshness guard).
+- 2026-03-26 12:39 KST — Cycle EI no combat runtime mechanic change; digest-only cadence alias keeps combat review readability additive/reversible.

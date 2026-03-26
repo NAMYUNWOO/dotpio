@@ -2171,6 +2171,7 @@ def main() -> int:
         assert "PRSMPP:" in md_text
         assert "PRSMP:" in md_text
         assert "PULSE REMAP SCENE MICROLINE CADENCE:" in md_text
+        assert "PRSMC:" in md_text
         assert "PRMS:" in md_text
         assert "PRSP:" in md_text
         assert "PRSMV:" in md_text
@@ -2181,6 +2182,7 @@ def main() -> int:
         assert "PRSMV + PULSE REMAP SCENE MICROLINE VARIANT PACK:" in md_text
         assert "PRSMP + PULSE REMAP SCENE MICROLINE STYLE POLICY:" in md_text
         assert "PRSMPP + PULSE REMAP SCENE MICROLINE STYLE POSTURE:" in md_text
+        assert "PRSMC + PULSE REMAP SCENE MICROLINE CADENCE:" in md_text
         assert "PRSFX + PULSE REMAP SCENE FX GLINT:" in md_text
         assert "PULSE REMAP SCENE FX GLINT:" in md_text
         assert "PRMS FAMILY TREND:" in md_text
@@ -2217,6 +2219,31 @@ def main() -> int:
         assert "DMG COMBO CONF COACH REC + DCCR FAMILY CHURN" in md_text
         assert "DMG COMBO CONF COACH SCENE ARC" in md_text
         assert "DCCSA + DMG COMBO CONF COACH SCENE ARC:" in md_text
+
+        md_lines = md_text.splitlines()
+
+        def _find_line_index(prefix: str) -> int:
+            for idx, line in enumerate(md_lines):
+                if line.startswith(prefix):
+                    return idx
+            raise AssertionError(f"missing line prefix: {prefix}")
+
+        combo_conf_rec_idx = _find_line_index("- DMG COMBO CONF COACH REC:")
+        combo_conf_fallback_idx = _find_line_index("- DMG COMBO CONF COACH FALLBACK:")
+        combo_conf_scene_arc_idx = _find_line_index("- DMG COMBO CONF COACH SCENE ARC:")
+
+        assert combo_conf_fallback_idx == combo_conf_rec_idx + 1, (
+            "expected DMG COMBO CONF COACH FALLBACK row directly after COACH REC row"
+        )
+        assert combo_conf_scene_arc_idx in {
+            combo_conf_fallback_idx + 1,
+            combo_conf_fallback_idx + 2,
+        }, "expected DMG COMBO CONF COACH SCENE ARC row adjacent to combo-confidence coach rows"
+
+        if combo_conf_scene_arc_idx == combo_conf_fallback_idx + 2:
+            assert md_lines[combo_conf_fallback_idx + 1].startswith("- DCCR:"), (
+                "only compact DCCR alias row may appear between COACH FALLBACK and SCENE ARC rows"
+            )
         assert "AMBIENT RAMP WHY REC" in md_text
         assert "AMBIENT RAMP WHY REC CONF" in md_text
         assert "AMBIENT RAMP WHY REC PARITY" in md_text

@@ -1814,3 +1814,4 @@
 - Lane cadence risk signal now available in offline digest for route/lane planning triage.
 - No map/portal runtime behavior changed in this slice.
 - Monitoring: use miss-risk band during next lane-balancing review.
+- 2026-03-26 12:39 KST — Cycle EI world readability pass: cadence alias `PRSMC` mirrors microline cadence mood in compact digest copy without changing runtime mechanics; follow-up: monitor arc/cadence adjacency in triage reviews.

@@ -942,4 +942,13 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-26 Cycle EH)
 - [x] Combat/VFX Team: Prototype compact scene-arc alias token (`DCCSA:<A|I|E>`) behind flag for digest density control. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 11:04 KST)*
 - [x] Systems/Ops Team: Prototype 24h lane cadence miss-risk token (`LANE CADENCE MISS RISK:LOW|MID|HIGH`) from rolling completion spread. *(lifecycle: [~] -> [x]; completed: 2026-03-26 11:31 KST)*
-- [ ] QA/Design Team: Add contract check ensuring `DMG COMBO CONF COACH SCENE ARC` remains adjacent to combo-confidence coach rows for scan order stability.
+- [x] QA/Design Team: Add contract check ensuring `DMG COMBO CONF COACH SCENE ARC` remains adjacent to combo-confidence coach rows for scan order stability. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 12:01 KST)*
+
+## Cycle EI - Game Director Review (2026-03-26 12:31 KST)
+- Idea 1 (low risk, UX/World): Add compact cadence alias token (`PRSMC:<R|H|C>`) behind flag for digest scanability.
+- Idea 2 (mid risk, Systems/QA): Add cadence alias-family churn coverage row (`PRSMC + PULSE REMAP SCENE MICROLINE CADENCE`) with regression lock.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline cadence-reactive coach-copy swap policy from alias-family volatility.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/World Team: Add compact cadence alias token (`PRSMC:<R|H|C>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_CADENCE_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 12:39 KST)*
+- [ ] Systems/QA Team: Add dedicated cadence alias-family churn triage row (`PRSMC FAMILY CHURN`) near cadence trend output.
+- [ ] AI Content/Combat Team: Prototype offline cadence-reactive coach-copy swap recommendation policy from `PRSMC` churn + lane cadence miss risk.

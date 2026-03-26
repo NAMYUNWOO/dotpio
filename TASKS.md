@@ -1192,3 +1192,13 @@ See project-level plans:
   - Pass/fail: pass if predictor is stable across prior-window replay without false HIGH spikes.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Design/World Team: Add offline scene-arc cue token (`DMG COMBO CONF COACH SCENE ARC:ASH|IRON|EMBER`) with payload + markdown + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 10:01 KST; completed: 2026-03-26 10:08 KST)*
+
+## Cycle EI - Game Director Review (2026-03-26 12:31 KST)
+- Coverage check (last 10 completions): world/design readability tokens progressed while systems/qa digest contract parity remained the lowest-risk closure lane.
+- Idea 1 (low risk, UX/World): Add compact cadence alias token (`PRSMC:<R|H|C>`) behind flag for one-glance scanability of `PULSE REMAP SCENE MICROLINE CADENCE`.
+- Idea 2 (mid risk, Systems/QA): Add weekly digest token-family churn coverage row for cadence alias family (`PRSMC + PULSE REMAP SCENE MICROLINE CADENCE`) with regression lock.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline cadence-reactive coach-copy swap policy tied to `PRSMC` trend volatility.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/World Team: Add compact cadence alias token (`PRSMC:<R|H|C>`) behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_CADENCE_ALIAS`, wire payload/markdown rows, and lock via regression. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 12:31 KST; completed: 2026-03-26 12:39 KST)*
+- [ ] Systems/QA Team: Add explicit cadence-alias family trend markdown triage row (`PRSMC FAMILY CHURN`) adjacent to `PRSMC FAMILY TREND` in weekly digest summary.
+- [ ] AI Content/Combat Team: Prototype offline cadence-reactive coach-copy swap recommendation policy from `PRSMC` family churn + lane cadence miss risk.

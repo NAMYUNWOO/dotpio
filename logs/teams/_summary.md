@@ -13,6 +13,11 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Cycle EI Game Director review executed (all ACTION_ITEMS/TASKS/POST_RC work was previously checked): generated 3 ideas and selected low-risk UX/World compact-readability slice.
+- Shipped compact cadence alias token `PRSMC:<R|H|C>` behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_CADENCE_ALIAS`; weekly digest payload now includes `pulseRemapSceneMicrolineCadenceAlias` + flag signals.
+- Token-family coverage row now emits `PRSMC + PULSE REMAP SCENE MICROLINE CADENCE` and regression assertions were extended accordingly.
+- Injected follow-up backlog tasks: Systems/QA dedicated `PRSMC FAMILY CHURN` row and AI Content/Combat offline cadence-reactive coach-copy swap recommendation policy.
+
 - Closed highest-priority unchecked POST_RC item (Cycle EH, Combat/VFX): shipped compact scene-arc alias `DCCSA:<A|I|E>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_SCENE_ARC_ALIAS` for digest density control.
 - Weekly digest now exposes `comboConfidenceCoachSceneArcAlias` + flag signals and markdown row `DCCSA` adjacent to `DMG COMBO CONF COACH SCENE ARC` to preserve scan order.
 - Regression + syntax gates pass (`py_compile`, `scripts/regression_weekly_portal_prompt_readability_drift.py`). Next queue item: Systems/Ops `LANE CADENCE MISS RISK`.

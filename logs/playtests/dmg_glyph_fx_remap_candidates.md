@@ -1,6 +1,6 @@
 # DMG Glyph FX Remap Candidates
 
-- GeneratedAt(UTC): 2026-03-25T18:45:16.973381Z
+- GeneratedAt(UTC): 2026-03-26T02:35:01.682748Z
 - Recommendation: **HOLD_FX**
 - Confidence: **LOW**
 - Rationale: high-risk-or-fx-churn

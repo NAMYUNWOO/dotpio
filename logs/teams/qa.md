@@ -3289,3 +3289,4 @@
 - Added regression assertions for  payload keys and markdown row .
 - Result: weekly digest regression suite PASS.
 - Follow-up: implement scene-arc adjacency ordering contract check (backlog item still open).
+- 2026-03-26 12:39 KST — Cycle EI regression contract updated for cadence alias presence + family coverage row (`PRSMC + PULSE REMAP SCENE MICROLINE CADENCE`); verify with weekly digest regression suite.

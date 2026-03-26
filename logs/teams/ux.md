@@ -2069,3 +2069,4 @@
 ## 2026-03-26 11:31 KST — Cycle EH UX
 - Digest scanability improved with explicit  row adjacent to cadence recency lines.
 - No in-game HUD/prompt width impact (offline report-only).
+- 2026-03-26 12:39 KST — Cycle EI shipped compact cadence alias token `PRSMC:<R|H|C>` behind `DOTPIO_EXPERIMENT_PULSE_REMAP_SCENE_MICROLINE_CADENCE_ALIAS` for tighter digest scanability; follow-up: validate alias readability under compact budgets.

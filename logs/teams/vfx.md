@@ -275,3 +275,4 @@
 - Added compact alias rail for combo-confidence coach scene arc: `DCCSA:<A|I|E>` (ASH/IRON/EMBER) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_SCENE_ARC_ALIAS`.
 - Kept change additive + reversible (digest-only, no runtime combat stat changes).
 - Evidence: weekly digest regression suite pass.
+- 2026-03-26 12:39 KST — Cycle EI no VFX behavior change; cadence alias remains analytics-copy only and does not alter player-facing FX output.

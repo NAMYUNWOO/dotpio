@@ -1857,3 +1857,4 @@
 - Reviewed Systems/Ops miss-risk token wording; kept deterministic language () and operator-facing reason strings.
 - No runtime copy change to player-facing UI; digest-only readability improvement accepted.
 - Next design task: enforce scene-arc adjacency contract in digest scan order (pending).
+- 2026-03-26 12:39 KST — Cycle EI compact token design approved: `PRSMC` uses deterministic R/H/C mapping to preserve DOS-width readability.

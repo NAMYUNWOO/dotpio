@@ -2733,3 +2733,4 @@
 - Scope:  payload/markdown contract only (no runtime gameplay coupling).
 - Verification:  and [PASS] weekly portal prompt readability drift regression checks PASS.
 - Follow-up: QA/Design adjacency contract for  remains next backlog priority.
+- 2026-03-26 12:39 KST — Cycle EI payload contract extended with `pulseRemapSceneMicrolineCadenceAlias` + flag signals; next: add dedicated alias-family churn row near cadence trend summary.
