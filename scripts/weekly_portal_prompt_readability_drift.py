@@ -955,7 +955,11 @@ def lane_priority_recommendation_confidence_guard(
     trend = str(floor_family_trend_signals.get("trend", "FLAT") or "FLAT").upper()
     regime = str(lane_priority_hysteresis_threshold_tuning_signals.get("volatilityRegimeMemory", "SWING") or "SWING").upper()
 
-    diverged = (trend == "UP" and regime == "CALM") or (trend == "DOWN" and regime == "SPIKE")
+    diverged = (
+        (trend == "UP" and regime == "CALM")
+        or (trend == "DOWN" and regime == "SPIKE")
+        or (regime == "SWING" and trend in {"UP", "DOWN"})
+    )
 
     prior_streak = 0
     prior_loaded = False
@@ -970,8 +974,17 @@ def lane_priority_recommendation_confidence_guard(
             prior_streak = 0
             prior_loaded = False
 
+    swing_memory_active = regime == "SWING" and str(
+        lane_priority_hysteresis_threshold_tuning_signals.get("volatilityRegimeReason", "") or ""
+    ).strip().lower() in {
+        "memory-hold-from-prior-regime",
+        "memory-smooth-regime-shift",
+    }
+    divergence_threshold = 3 if swing_memory_active else 2
+    threshold_policy = "SWING_MEMORY_GUARD_RAISED" if swing_memory_active else "BASELINE"
+
     divergence_streak = prior_streak + 1 if diverged else 0
-    guard_applied = divergence_streak >= 2
+    guard_applied = divergence_streak >= divergence_threshold
 
     confidence_order = ["LOW", "MID", "HIGH"]
     confidence_upper = str(confidence or "LOW").upper()
@@ -982,7 +995,7 @@ def lane_priority_recommendation_confidence_guard(
         reason = "floor-trend-regime-divergence-streak-triggered-confidence-guard"
     else:
         guarded_confidence = confidence_upper
-        reason = "no-consecutive-divergence-detected"
+        reason = "divergence-streak-below-adaptive-threshold"
 
     return guarded_confidence, {
         "baseConfidence": confidence_upper,
@@ -992,6 +1005,8 @@ def lane_priority_recommendation_confidence_guard(
         "diverged": diverged,
         "priorStreak": prior_streak,
         "divergenceStreak": divergence_streak,
+        "divergenceThreshold": divergence_threshold,
+        "thresholdPolicy": threshold_policy,
         "guardApplied": guard_applied,
         "priorLoaded": prior_loaded,
         "reason": reason,
@@ -1012,6 +1027,17 @@ def resolve_lane_priority_recommendation_confidence_guard_alias(*, guard_signals
         "flagEnabled": flag_enabled,
         "action": action,
         "alias": alias,
+    }
+
+
+def lane_priority_recommendation_confidence_guard_threshold_token(*, guard_signals: dict[str, object]) -> tuple[str, dict[str, object]]:
+    """Compact threshold token for digest scanability (`LPRCG THRESH:<n>`)."""
+    threshold = int(guard_signals.get("divergenceThreshold", 2) or 2)
+    threshold = min(5, max(1, threshold))
+    policy = str(guard_signals.get("thresholdPolicy", "BASELINE") or "BASELINE").upper()
+    return f"LPRCG THRESH:{threshold}", {
+        "threshold": threshold,
+        "policy": policy,
     }
 
 
@@ -8758,6 +8784,9 @@ def main() -> int:
     lane_priority_recommendation_confidence_guard_alias, lane_priority_recommendation_confidence_guard_alias_signals = resolve_lane_priority_recommendation_confidence_guard_alias(
         guard_signals=lane_priority_recommendation_confidence_guard_signals,
     )
+    lane_priority_recommendation_confidence_guard_threshold, lane_priority_recommendation_confidence_guard_threshold_signals = lane_priority_recommendation_confidence_guard_threshold_token(
+        guard_signals=lane_priority_recommendation_confidence_guard_signals,
+    )
     pulse_remap_suppression_escalation_plan, pulse_remap_suppression_escalation_plan_signals = pulse_remap_suppression_escalation_plan_from_signals(
         suppression=pulse_remap_momentum_suppression,
         suppression_signals=pulse_remap_momentum_suppression_signals,
@@ -9806,6 +9835,8 @@ def main() -> int:
         "lanePriorityRecommendationConfidenceGuardSignals": lane_priority_recommendation_confidence_guard_signals,
         "lanePriorityRecommendationConfidenceGuardAlias": lane_priority_recommendation_confidence_guard_alias,
         "lanePriorityRecommendationConfidenceGuardAliasSignals": lane_priority_recommendation_confidence_guard_alias_signals,
+        "lanePriorityRecommendationConfidenceGuardThreshold": lane_priority_recommendation_confidence_guard_threshold,
+        "lanePriorityRecommendationConfidenceGuardThresholdSignals": lane_priority_recommendation_confidence_guard_threshold_signals,
         "lanePriorityRecommendationCompactAlias": lane_priority_recommendation_compact_alias,
         "lanePriorityRecommendationCompactAliasSignals": lane_priority_recommendation_compact_alias_signals,
         "lanePriorityHysteresisCompactAlias": lane_priority_hysteresis_compact_alias,
@@ -10454,6 +10485,7 @@ def main() -> int:
         f"- LANE PRIORITY REC CONF: **{lane_priority_recommendation_confidence_level}** (worstAge={lane_priority_recommendation_confidence_signals['worstAgeHours']}h momentumGap={lane_priority_recommendation_confidence_signals['momentumGapHours']}h reason={lane_priority_recommendation_confidence_signals['reason']})",
         f"- LANE PRIORITY REC CONF GUARD: **{'APPLY' if lane_priority_recommendation_confidence_guard_signals['guardApplied'] else 'HOLD'}** (base={lane_priority_recommendation_confidence_guard_signals['baseConfidence']} guarded={lane_priority_recommendation_confidence_guard_signals['guardedConfidence']} trend={lane_priority_recommendation_confidence_guard_signals['trend']} regime={lane_priority_recommendation_confidence_guard_signals['volatilityRegime']} streak={lane_priority_recommendation_confidence_guard_signals['divergenceStreak']} priorLoaded={lane_priority_recommendation_confidence_guard_signals['priorLoaded']} reason={lane_priority_recommendation_confidence_guard_signals['reason']})",
         f"- LPRCG: **{lane_priority_recommendation_confidence_guard_alias}** (flag={lane_priority_recommendation_confidence_guard_alias_signals['flagName']} enabled={lane_priority_recommendation_confidence_guard_alias_signals['flagEnabled']} action={lane_priority_recommendation_confidence_guard_alias_signals['action']})",
+        f"- LPRCG THRESH: **{lane_priority_recommendation_confidence_guard_threshold}** (policy={lane_priority_recommendation_confidence_guard_threshold_signals['policy']})",
         f"- LPRCG + LANE PRIORITY REC CONF GUARD FAMILY CHURN: **net {token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['net']:+d}** (added={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['added']} removed={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['removed']} churn={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['coverage']})",
         f"- LANE PRIORITY REC HYSTERESIS: **{'HOLD' if lane_priority_recommendation_signals['hysteresisApplied'] else 'SHIFT'}** (prior={lane_priority_recommendation_signals['priorRecommendation']} raw={lane_priority_recommendation_signals['rawRecommendation']} gap={lane_priority_recommendation_signals['hysteresisScoreGap']} threshold={lane_priority_recommendation_signals['hysteresisThreshold']} reason={lane_priority_recommendation_signals['hysteresisReason']})",
         f"- LPR HYS THRESH REC: **{lane_priority_hysteresis_threshold_tuning}** (base={lane_priority_hysteresis_threshold_tuning_signals['baseThreshold']} rec={lane_priority_hysteresis_threshold_tuning_signals['recommendedThreshold']} floor={lane_priority_hysteresis_threshold_tuning_signals['adaptiveFloor']} ceil={lane_priority_hysteresis_threshold_tuning_signals['adaptiveCeiling']} priorWindow={lane_priority_hysteresis_threshold_tuning_signals['priorAdaptiveWindowLoaded']} volSpan={lane_priority_hysteresis_threshold_tuning_signals['momentumVolatilitySpanHours']} maxAbsMom={lane_priority_hysteresis_threshold_tuning_signals['maxAbsMomentumHours']} ageSpread={lane_priority_hysteresis_threshold_tuning_signals['ageSpreadHours']} learn={lane_priority_hysteresis_threshold_tuning_signals['learningReason']} reason={lane_priority_hysteresis_threshold_tuning_signals['reason']})",
@@ -10606,6 +10638,7 @@ def main() -> int:
         f"- LANE PRIORITY REC CONF: {lane_priority_recommendation_confidence_level} (worstAge={lane_priority_recommendation_confidence_signals['worstAgeHours']}h, momentumGap={lane_priority_recommendation_confidence_signals['momentumGapHours']}h, reason={lane_priority_recommendation_confidence_signals['reason']})",
         f"- LANE PRIORITY REC CONF GUARD: {'APPLY' if lane_priority_recommendation_confidence_guard_signals['guardApplied'] else 'HOLD'} (base={lane_priority_recommendation_confidence_guard_signals['baseConfidence']}, guarded={lane_priority_recommendation_confidence_guard_signals['guardedConfidence']}, trend={lane_priority_recommendation_confidence_guard_signals['trend']}, regime={lane_priority_recommendation_confidence_guard_signals['volatilityRegime']}, streak={lane_priority_recommendation_confidence_guard_signals['divergenceStreak']}, priorLoaded={lane_priority_recommendation_confidence_guard_signals['priorLoaded']}, reason={lane_priority_recommendation_confidence_guard_signals['reason']})",
         f"- LPRCG: {lane_priority_recommendation_confidence_guard_alias} (flag={lane_priority_recommendation_confidence_guard_alias_signals['flagName']}, enabled={lane_priority_recommendation_confidence_guard_alias_signals['flagEnabled']}, action={lane_priority_recommendation_confidence_guard_alias_signals['action']})",
+        f"- LPRCG THRESH: {lane_priority_recommendation_confidence_guard_threshold} (policy={lane_priority_recommendation_confidence_guard_threshold_signals['policy']})",
         f"- LPRCG + LANE PRIORITY REC CONF GUARD: +{token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['added']} / -{token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['removed']} / net {token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['net']} (churn={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['churn']} coverage={token_family_totals['lanePriorityRecommendationConfidenceGuardAlias']['coverage']})",
         f"- LANE PRIORITY REC HYSTERESIS: {'HOLD' if lane_priority_recommendation_signals['hysteresisApplied'] else 'SHIFT'} (prior={lane_priority_recommendation_signals['priorRecommendation']}, raw={lane_priority_recommendation_signals['rawRecommendation']}, gap={lane_priority_recommendation_signals['hysteresisScoreGap']}, threshold={lane_priority_recommendation_signals['hysteresisThreshold']}, reason={lane_priority_recommendation_signals['hysteresisReason']})",
         f"- LPR HYS THRESH REC: {lane_priority_hysteresis_threshold_tuning} (base={lane_priority_hysteresis_threshold_tuning_signals['baseThreshold']}, rec={lane_priority_hysteresis_threshold_tuning_signals['recommendedThreshold']}, floor={lane_priority_hysteresis_threshold_tuning_signals['adaptiveFloor']}, ceil={lane_priority_hysteresis_threshold_tuning_signals['adaptiveCeiling']}, priorWindow={lane_priority_hysteresis_threshold_tuning_signals['priorAdaptiveWindowLoaded']}, volSpan={lane_priority_hysteresis_threshold_tuning_signals['momentumVolatilitySpanHours']}, maxAbsMom={lane_priority_hysteresis_threshold_tuning_signals['maxAbsMomentumHours']}, ageSpread={lane_priority_hysteresis_threshold_tuning_signals['ageSpreadHours']}, learn={lane_priority_hysteresis_threshold_tuning_signals['learningReason']}, reason={lane_priority_hysteresis_threshold_tuning_signals['reason']})",

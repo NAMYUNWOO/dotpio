@@ -1901,3 +1901,7 @@
 
 ## 2026-03-26 22:44 KST — Lane-priority digest review
 - Reviewed new lane-priority confidence guard outputs for world-lane planning safety; no map/runtime world mutation required (digest-only).
+
+## 2026-03-27 00:10 KST
+- Cycle ET sync: no direct code changes in this lane this pass; tracked for forced-lane balancing as systems/qa remains overrepresented.
+- Follow-up queued in backlog for cross-lane coordination (`LPRCG THRESH` churn coverage + guard-persistence coaching cue).

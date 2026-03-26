@@ -1053,4 +1053,14 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact lane-priority confidence-guard alias (`LPRCG:<H|A>`) behind `DOTPIO_EXPERIMENT_LANE_PRIORITY_REC_CONF_GUARD_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-26 22:44 KST)*
 - [x] Systems/QA Team: Add token-family churn coverage row for `LPRCG:` + `LANE PRIORITY REC CONF GUARD:` with regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-26 23:31 KST; completed: 2026-03-26 23:33 KST)*
-- [ ] AI Content/Systems Team: Prototype adaptive divergence-streak threshold policy for confidence guard under `SWING` volatility memory (offline-only).
+- [x] AI Content/Systems Team: Prototype adaptive divergence-streak threshold policy for confidence guard under `SWING` volatility memory (offline-only). *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 00:01 KST; completed: 2026-03-27 00:09 KST)*
+
+## Cycle ET - Game Director Review (2026-03-27 00:10 KST)
+- Coverage check (last 10 completions): systems/qa remained overrepresented, so this cycle prioritized a lightweight UX/readability slice that exposes guard-threshold posture without runtime coupling.
+- Idea 1 (low risk, UX/Design): Surface compact guard-threshold token (`LPRCG THRESH:<n>`) in weekly digest for faster operator triage.
+- Idea 2 (mid risk, Systems/QA): Add token-family churn coverage for `LPRCG THRESH:` with compact alias wiring and regression lock.
+- Idea 3 (high risk, AI Content/World): Prototype narrative lane coach line when confidence guard stays armed across ≥3 windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Design Team: Add digest token `LPRCG THRESH:<n>` from adaptive confidence-guard threshold policy with payload+markdown wiring and regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 00:06 KST; completed: 2026-03-27 00:10 KST)*
+- [ ] Systems/QA Team: Add token-family churn coverage for `LPRCG THRESH:` and keep adjacency with `LPRCG` rows.
+- [ ] AI Content/World Team: Prototype offline guard-persistence coaching cue when `LPRCG` remains `APPLY` for consecutive windows.

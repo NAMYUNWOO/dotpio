@@ -65,6 +65,7 @@ from weekly_portal_prompt_readability_drift import (
     combo_confidence_fx_accent_from_signals,
     combo_confidence_fx_accent_family_trend_from_prior,
     combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior,
+    lane_priority_recommendation_confidence_guard,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -198,6 +199,40 @@ def main() -> int:
         assert copy_swap_drift == 1, copy_swap_signals
         assert copy_swap_signals["trend"] == "FLAT", copy_swap_signals
         assert copy_swap_signals["hysteresisApplied"] is True, copy_swap_signals
+
+        lprcg_prior = repo / "lprcg_prior.json"
+        lprcg_prior.write_text(
+            json.dumps({"lanePriorityRecommendationConfidenceGuardSignals": {"divergenceStreak": 2}}),
+            encoding="utf-8",
+        )
+        swing_guard_conf, swing_guard_signals = lane_priority_recommendation_confidence_guard(
+            confidence="HIGH",
+            floor_family_trend_signals={"trend": "UP"},
+            lane_priority_hysteresis_threshold_tuning_signals={
+                "volatilityRegimeMemory": "SWING",
+                "volatilityRegimeReason": "memory-hold-from-prior-regime",
+            },
+            prior_json_path=lprcg_prior,
+        )
+        assert swing_guard_conf == "MID", swing_guard_signals
+        assert swing_guard_signals["divergenceThreshold"] == 3, swing_guard_signals
+        assert swing_guard_signals["thresholdPolicy"] == "SWING_MEMORY_GUARD_RAISED", swing_guard_signals
+        assert swing_guard_signals["guardApplied"] is True, swing_guard_signals
+
+        baseline_guard_conf, baseline_guard_signals = lane_priority_recommendation_confidence_guard(
+            confidence="MID",
+            floor_family_trend_signals={"trend": "UP"},
+            lane_priority_hysteresis_threshold_tuning_signals={
+                "volatilityRegimeMemory": "CALM",
+                "volatilityRegimeReason": "fresh-calm-regime",
+            },
+            prior_json_path=repo / "missing_lprcg_prior.json",
+        )
+        assert baseline_guard_conf == "MID", baseline_guard_signals
+        assert baseline_guard_signals["divergenceThreshold"] == 2, baseline_guard_signals
+        assert baseline_guard_signals["thresholdPolicy"] == "BASELINE", baseline_guard_signals
+        assert baseline_guard_signals["guardApplied"] is False, baseline_guard_signals
+
         assert payload.get("comboConfidenceFxAccentTrendHysteresisRecommendation") in {"HOLD", "ALLOW"}, payload
         assert payload.get("comboConfidenceFxAccentTrendHysteresisConfidence") in {"LOW", "MID", "HIGH"}, payload
         assert payload.get("comboConfidenceFxAccentTrendHysteresisAlias") in {"FLAG OFF", "DCCFXH:HL", "DCCFXH:HM", "DCCFXH:HH", "DCCFXH:AL", "DCCFXH:AM", "DCCFXH:AH"}, payload
@@ -675,6 +710,8 @@ def main() -> int:
             "diverged",
             "priorStreak",
             "divergenceStreak",
+            "divergenceThreshold",
+            "thresholdPolicy",
             "guardApplied",
             "priorLoaded",
             "reason",
@@ -686,6 +723,11 @@ def main() -> int:
             "flagEnabled",
             "action",
             "alias",
+        }, payload
+        assert isinstance(payload.get("lanePriorityRecommendationConfidenceGuardThreshold"), str), payload
+        assert set(payload.get("lanePriorityRecommendationConfidenceGuardThresholdSignals", {}).keys()) == {
+            "threshold",
+            "policy",
         }, payload
         assert isinstance(payload.get("lanePriorityRecommendationCompactAlias"), str), payload
         assert set(payload.get("lanePriorityRecommendationCompactAliasSignals", {}).keys()) == {
@@ -2254,6 +2296,7 @@ def main() -> int:
         assert "LANE PRIORITY REC CONF:" in md_text
         assert "LANE PRIORITY REC CONF GUARD:" in md_text
         assert "LPRCG:" in md_text
+        assert "LPRCG THRESH:" in md_text
         assert "LANE PRIORITY REC HYSTERESIS:" in md_text
         assert "ROUTE GLOW FX + RGFX:" in md_text
         assert "ROUTE GLOW CONF:" in md_text

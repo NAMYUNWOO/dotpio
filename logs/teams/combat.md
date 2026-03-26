@@ -1883,3 +1883,7 @@
 
 ## 2026-03-26 22:44 KST — Cross-lane note
 - No combat runtime changes this cycle; validated digest-only confidence guard does not touch combat state/output paths.
+
+## 2026-03-27 00:10 KST
+- Cycle ET sync: no direct code changes in this lane this pass; tracked for forced-lane balancing as systems/qa remains overrepresented.
+- Follow-up queued in backlog for cross-lane coordination (`LPRCG THRESH` churn coverage + guard-persistence coaching cue).

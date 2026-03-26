@@ -1279,3 +1279,13 @@ See project-level plans:
 - [x] Combat/VFX Team: Add compact FX volatility alias token (`DCCFXV:<C|S|P>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_ACCENT_VOLATILITY_ALIAS` with payload/markdown wiring + regression lock. *(completed: 2026-03-26 21:41 KST)*
 - [x] Systems/QA Team: Add `DCCFXV FAMILY CHURN` markdown/token-coverage row with adjacency lock after `DCCFXH` rail.
 - [x] Design/World Team: Add legend/readability annotation for `DCCFXV` mapping (`C=CALM`, `S=SWING`, `P=SPIKE`) in digest docs.
+
+## Cycle ET - Game Director Review (2026-03-27 00:10 KST)
+- Coverage check (last 10 completions): systems/qa remained overrepresented, so this cycle prioritized a lightweight UX/readability slice that exposes guard-threshold posture without runtime coupling.
+- Idea 1 (low risk, UX/Design): Surface compact guard-threshold token (`LPRCG THRESH:<n>`) in weekly digest for faster operator triage.
+- Idea 2 (mid risk, Systems/QA): Add token-family churn coverage for `LPRCG THRESH:` with compact alias wiring and regression lock.
+- Idea 3 (high risk, AI Content/World): Prototype narrative lane coach line when confidence guard stays armed across ≥3 windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Design Team: Add digest token `LPRCG THRESH:<n>` from adaptive confidence-guard threshold policy with payload+markdown wiring and regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 00:06 KST; completed: 2026-03-27 00:10 KST)*
+- [ ] Systems/QA Team: Add token-family churn coverage for `LPRCG THRESH:` and keep adjacency with `LPRCG` rows.
+- [ ] AI Content/World Team: Prototype offline guard-persistence coaching cue when `LPRCG` remains `APPLY` for consecutive windows.

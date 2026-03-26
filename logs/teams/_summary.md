@@ -13,6 +13,11 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed final unchecked POST_RC item from Cycle ES: lane-priority confidence guard now uses adaptive divergence thresholding under `SWING` volatility memory (`divergenceThreshold=3` when swing-memory hold/smoothing is active, otherwise baseline 2).
+- Confidence guard payload now exposes `divergenceThreshold` + `thresholdPolicy`, and regression contracts lock the expanded schema plus adaptive behavior cases.
+- Because ACTION_ITEMS/TASKS/POST_RC were clear after the above closeout, executed Game Director Cycle ET (3 ideas) and shipped selected UX/Design vertical slice: digest token `LPRCG THRESH:<n>` with payload+markdown wiring and regression lock.
+- Injected next backlog tasks: Systems/QA churn coverage for `LPRCG THRESH:` and AI Content/World guard-persistence coaching cue.
+
 - Closed highest-priority unchecked POST_RC item from Cycle ES: added token-family churn coverage for `LPRCG:` + `LANE PRIORITY REC CONF GUARD:` in weekly digest summary and token-coverage sections.
 - Added `lanePriorityRecommendationConfidenceGuardAlias` to `TOKEN_ALIAS_FAMILIES` so guard rows are tracked as a single alias family with deterministic churn metrics.
 - Verification gates pass (`python3 -m py_compile ...`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`), and `POST_RC_BACKLOG.md` now marks the Systems/QA follow-up done.
