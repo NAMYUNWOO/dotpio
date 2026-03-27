@@ -2062,3 +2062,9 @@
 - Selected low-risk Combat/VFX experiment: ship compact alias `DCCFXCPAP:<H|B|R|A>` for `DCCFXCPA COPY ALT PACK` under dedicated flag.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up backlog injected: Systems/QA adjacency+churn lock for `DCCFXCPAP`, AI Content/Combat `DCCFXCPAP COACH:<short>` prototype.
+
+## 2026-03-27 13:47 KST — Cycle FE follow-up close (DCCFXCPAP COACH) [DONE]
+- Shipped offline pack-to-coach microline token `DCCFXCPAP COACH:<HOLD LINE|STAGE SWAP|RELEASE PUSH|KEEP BASE>` behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK_COACH`.
+- Mapping is deterministic from `DCCFXCPA COPY ALT PACK` signals (`SHIELD/BUFFER/RECOVER/BASE`) to keep mismatch-window handoff copy stable.
+- Wired payload + markdown summary/token-coverage rows so coach context is auditable without runtime coupling.
+- Follow-up: keep token digest-only; no in-run combat behavior changes.

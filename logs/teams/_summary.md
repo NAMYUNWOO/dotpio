@@ -3330,3 +3330,10 @@ Compact decision memory for AI context efficiency.
 - Durable contract update: summary + token-coverage now keep `COPY ALT PACK -> DCCFXCPAP -> COPY ALT LEGEND` adjacency, with payload signals and flag gating.
 - Verification passed: py_compile + weekly digest regression.
 - Next backlog items remain unchecked: Systems/QA churn+adjacency hardening for `DCCFXCPAP`, AI Content/Combat `DCCFXCPAP COACH` prototype.
+
+## 2026-03-27 13:47 KST — Closed FE remaining backlog (`DCCFXCPAP COACH`)
+- Completed the last unchecked FE follow-up item by shipping digest-only `DCCFXCPAP COACH` token with deterministic pack-to-coach mapping and dedicated flag gating.
+- Durable ordering contract now enforced in both digest sections:
+  - `DCCFXCPA COPY ALT PACK -> DCCFXCPAP -> DCCFXCPAP COACH -> DCCFXCPAP FAMILY CHURN`.
+- Verification passed: weekly drift regression + digest generation smoke run.
+- TASKS / POST_RC_BACKLOG updated to `[x]` for the `DCCFXCPAP COACH` item.

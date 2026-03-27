@@ -3600,3 +3600,11 @@
 - Selected low-risk Combat/VFX experiment: ship compact alias `DCCFXCPAP:<H|B|R|A>` for `DCCFXCPA COPY ALT PACK` under dedicated flag.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up backlog injected: Systems/QA adjacency+churn lock for `DCCFXCPAP`, AI Content/Combat `DCCFXCPAP COACH:<short>` prototype.
+
+## 2026-03-27 13:47 KST — Regression lock for DCCFXCPAP COACH
+- Extended regression expectations to require `DCCFXCPAP COACH:` row in both summary and token-coverage sections.
+- Strengthened deterministic ordering contracts:
+  - `DCCFXCPA COPY ALT PACK -> DCCFXCPAP -> DCCFXCPAP COACH -> DCCFXCPAP FAMILY CHURN`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py ...` smoke output ✅

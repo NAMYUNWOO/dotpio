@@ -1170,5 +1170,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/Combat): Prototype offline pack-to-coach microline (`DCCFXCPAP COACH:<short>`) from suppression + mismatch windows.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Combat/VFX Team: Add compact copy-alt-pack alias token (`DCCFXCPAP:<H|B|R|A>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK_COMPACT_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 11:31 KST; completed: 2026-03-27 11:41 KST)*
-- [ ] Systems/QA Team: Add token-family churn coverage + adjacency lock for `DCCFXCPAP:` around COPY ALT PACK rows.
-- [ ] AI Content/Combat Team: Prototype offline pack-to-coach microline token (`DCCFXCPAP COACH:<short>`) for mismatch-window handoff clarity.
+- [x] Systems/QA Team: Add token-family churn coverage + adjacency lock for `DCCFXCPAP:` around COPY ALT PACK rows.
+- [x] AI Content/Combat Team: Prototype offline pack-to-coach microline token (`DCCFXCPAP COACH:<short>`) for mismatch-window handoff clarity. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 13:41 KST; completed: 2026-03-27 13:47 KST)*
