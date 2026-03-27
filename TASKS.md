@@ -1446,5 +1446,15 @@ See project-level plans:
 
 ## Cycle FK - Game Director Review (2026-03-27 20:02 KST)
 - [x] Systems/UX (selected low-risk slice): Add offline hysteresis recommendation alias token `CVCWHR:HOLD|RELAX` from coach-why hysteresis + miss-risk signals. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 20:03 KST)*
-- [ ] Systems/QA: Add markdown/token-coverage row + adjacency lock for `CVCWHR` family churn.
-- [ ] AI Content/Combat: Prototype adaptive `CVCWHR CONF:LOW|MID|HIGH` confidence tier from recovery slope + volatility memory.
+- [x] Systems/QA: Add markdown/token-coverage row + adjacency lock for `CVCWHR` family churn. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 20:26 KST)*
+- [x] AI Content/Combat: Prototype adaptive `CVCWHR CONF:LOW|MID|HIGH` confidence tier from recovery slope + volatility memory. *(lifecycle: [ ] -> [x]; completed: 2026-03-27 20:26 KST)*
+
+## Cycle FL - Game Director Review (2026-03-27 20:28 KST)
+- Coverage check (last 10 completions): systems/qa + combat/vfx cadence digest cluster remains dense; selected a compact UX-facing alias slice to keep newly added confidence tier scanable.
+- Idea 1 (low risk, UX/Systems): Add compact recommendation-confidence alias token (`CVCWHRC:<L|M|H>`) for `CVCWHR CONF` behind flag.
+- Idea 2 (mid risk, Systems/QA): Add deterministic family-churn row + adjacency lock for `CVCWHR CONF` + compact alias in summary/token-coverage sections.
+- Idea 3 (high risk, AI Content/Combat): Prototype adaptive confidence floor recommendation policy from miss-risk recovery slope + volatility persistence windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Systems Team: Add compact recommendation-confidence alias token (`CVCWHRC:<L|M|H>`) behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 20:34 KST)*
+- [x] Systems/QA Team: Add deterministic family-churn row + adjacency/order lock for `CVCWHR CONF` + `CVCWHRC` rows in summary + token-coverage. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 20:51 KST; completed: 2026-03-27 20:56 KST)*
+- [ ] AI Content/Combat Team: Prototype adaptive confidence floor recommendation policy from miss-risk recovery slope + volatility persistence windows (offline-only).

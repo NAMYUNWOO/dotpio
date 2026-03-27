@@ -2112,3 +2112,8 @@
 - Game Director review executed (3 ideas); selected low-risk vertical slice.
 - Shipped digest-only token `CVCWHR:HOLD|RELAX` from coach-why hysteresis + miss-risk signals (offline-only).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-27 20:56 KST — Queue handoff note
+- Systems/QA completed the merged churn/ordering contract for `CVCWHR CONF` + `CVCWHRC`.
+- AI Content/Combat follow-up remains open: prototype adaptive confidence-floor recommendation policy from miss-risk recovery slope + volatility persistence windows (offline-only).
+- No AI-content runtime copy changes shipped in this slice.

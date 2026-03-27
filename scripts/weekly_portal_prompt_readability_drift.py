@@ -27,8 +27,8 @@ PORTAL_PATH_HINTS = (
     "scripts/regression_combat_damage_numbers.lua",
 )
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCC:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCC:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCC:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCC:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 TOKEN_CATALOG: list[str] = []
@@ -129,6 +129,8 @@ TOKEN_ALIAS_FAMILIES = {
     "combatVfxCadenceCoachWhy": ["COMBAT/VFX CADENCE COACH WHY:", "CVCW:"],
     "combatVfxCadenceCoachWhyHysteresisAlias": ["CVCWH:"],
     "combatVfxCadenceCoachWhyHysteresisRecommendationAlias": ["CVCWHR:"],
+    "combatVfxCadenceCoachWhyHysteresisRecommendationConfidence": ["CVCWHR CONF:"],
+    "combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceAlias": ["CVCWHRC:"],
 }
 ROUTE_VIBE_PATTERNS = {
     "CALM": ("ROUTE VIBE:CALM", "VIBE:C"),
@@ -637,6 +639,57 @@ def resolve_combat_vfx_cadence_coach_why_hysteresis_recommendation_alias(*, coac
         "deltaHours": delta_hours,
         "hysteresisApplied": hysteresis_applied,
         "reason": "volatile-or-high-risk" if hold else "calm-recovery-window",
+    }
+
+
+def resolve_combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence(*, coach_why_signals: dict[str, object], recommendation_signals: dict[str, object], lane_cadence_miss_risk_signals: dict[str, object]) -> tuple[str, dict[str, object]]:
+    """Offline confidence tier for `CVCWHR` recommendation stability."""
+    volatility = str(recommendation_signals.get("volatility", coach_why_signals.get("watchdogStreakTrendVolatility", "CALM")) or "CALM").upper()
+    risk = str(recommendation_signals.get("risk", lane_cadence_miss_risk_signals.get("risk", "MID")) or "MID").upper()
+    delta_hours = float(recommendation_signals.get("deltaHours", lane_cadence_miss_risk_signals.get("deltaHours", 0.0)) or 0.0)
+    hysteresis_applied = bool(recommendation_signals.get("hysteresisApplied", coach_why_signals.get("hysteresisApplied", False)))
+    recovery_slope = float(coach_why_signals.get("laneCadenceDeltaHours", 0.0) or 0.0)
+
+    confidence = "MID"
+    reason = "balanced-signals"
+    if hysteresis_applied and risk == "HIGH":
+        confidence = "HIGH"
+        reason = "sticky-high-risk"
+    elif volatility in {"SPIKE", "SWING"} and (risk == "HIGH" or delta_hours >= -2.0):
+        confidence = "HIGH"
+        reason = "volatile-pressure"
+    elif volatility == "CALM" and risk == "LOW" and recovery_slope <= -4.0 and delta_hours <= -4.0:
+        confidence = "LOW"
+        reason = "calm-recovery"
+
+    token = f"CVCWHR CONF:{confidence}"
+    return token, {
+        "confidence": confidence,
+        "volatility": volatility,
+        "risk": risk,
+        "deltaHours": delta_hours,
+        "recoverySlopeHours": recovery_slope,
+        "hysteresisApplied": hysteresis_applied,
+        "reason": reason,
+    }
+
+
+def resolve_combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias(*, confidence_token: str) -> tuple[str, dict[str, object]]:
+    """Compact alias for `CVCWHR CONF` (`CVCWHRC:<L|M|H>`)."""
+    flag_name = "DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_ALIAS"
+    flag_enabled = os.environ.get(flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
+    alias_map = {
+        "CVCWHR CONF:LOW": "L",
+        "CVCWHR CONF:MID": "M",
+        "CVCWHR CONF:HIGH": "H",
+    }
+    alias = alias_map.get(confidence_token, "M")
+    token = f"CVCWHRC:{alias}"
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "confidenceToken": confidence_token,
+        "alias": alias,
     }
 
 
@@ -8412,6 +8465,14 @@ def main() -> int:
         coach_why_signals=combat_vfx_cadence_coach_why_signals,
         lane_cadence_miss_risk_signals=lane_cadence_miss_risk_signals,
     )
+    combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_token, combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals = resolve_combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence(
+        coach_why_signals=combat_vfx_cadence_coach_why_signals,
+        recommendation_signals=combat_vfx_cadence_coach_why_hysteresis_recommendation_signals,
+        lane_cadence_miss_risk_signals=lane_cadence_miss_risk_signals,
+    )
+    combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_token, combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_signals = resolve_combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias(
+        confidence_token=combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_token,
+    )
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
         lane_bucket_age=lane_bucket_age,
     )
@@ -9998,6 +10059,10 @@ def main() -> int:
         "combatVfxCadenceCoachWhyHysteresisAliasSignals": combat_vfx_cadence_coach_why_hysteresis_alias_signals,
         "combatVfxCadenceCoachWhyHysteresisRecommendationAlias": combat_vfx_cadence_coach_why_hysteresis_recommendation_token,
         "combatVfxCadenceCoachWhyHysteresisRecommendationAliasSignals": combat_vfx_cadence_coach_why_hysteresis_recommendation_signals,
+        "combatVfxCadenceCoachWhyHysteresisRecommendationConfidence": combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_token,
+        "combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceSignals": combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals,
+        "combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceAlias": combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_token,
+        "combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceAliasSignals": combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,
         "combatVfxCadenceCoachAliasSignals": combat_vfx_cadence_coach_alias_signals,
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,
@@ -10830,7 +10895,12 @@ def main() -> int:
         f"- COMBAT/VFX CADENCE COACH WHY: **{combat_vfx_cadence_coach_why_token}** (short={combat_vfx_cadence_coach_why_signals['short']} trend={combat_vfx_cadence_coach_why_signals['watchdogStreakTrend']} streakΔ={combat_vfx_cadence_coach_why_signals['watchdogStreakDelta']:+d} missRisk={combat_vfx_cadence_coach_why_signals['laneCadenceMissRisk']} missΔ={combat_vfx_cadence_coach_why_signals['laneCadenceDeltaHours']:+.1f}h reason={combat_vfx_cadence_coach_why_signals['reason']} offlineOnly={combat_vfx_cadence_coach_why_signals['offlineOnly']})",
         f"- CVCW: **{combat_vfx_cadence_coach_why_alias_token if combat_vfx_cadence_coach_why_alias_signals['flagEnabled'] else 'FLAG OFF'}** (flag={combat_vfx_cadence_coach_why_alias_signals['flagName']} enabled={combat_vfx_cadence_coach_why_alias_signals['flagEnabled']} coachWhy={combat_vfx_cadence_coach_why_alias_signals['coachWhyToken']} alias={combat_vfx_cadence_coach_why_alias_signals['alias']})",
         f"- CVCWH: **{combat_vfx_cadence_coach_why_hysteresis_alias_token if combat_vfx_cadence_coach_why_hysteresis_alias_signals['flagEnabled'] else 'FLAG OFF'}** (flag={combat_vfx_cadence_coach_why_hysteresis_alias_signals['flagName']} enabled={combat_vfx_cadence_coach_why_hysteresis_alias_signals['flagEnabled']} applied={combat_vfx_cadence_coach_why_hysteresis_alias_signals['hysteresisApplied']} alias={combat_vfx_cadence_coach_why_hysteresis_alias_signals['alias']})",
+        f"- CVCWHR: **{combat_vfx_cadence_coach_why_hysteresis_recommendation_token}** (risk={combat_vfx_cadence_coach_why_hysteresis_recommendation_signals['risk']} volatility={combat_vfx_cadence_coach_why_hysteresis_recommendation_signals['volatility']} Δ={combat_vfx_cadence_coach_why_hysteresis_recommendation_signals['deltaHours']:+.1f}h reason={combat_vfx_cadence_coach_why_hysteresis_recommendation_signals['reason']})",
+        f"- CVCWHR CONF: **{combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_token}** (confidence={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals['confidence']} risk={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals['risk']} volatility={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals['volatility']} recovery={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals['recoverySlopeHours']:+.1f}h reason={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals['reason']})",
+        f"- CVCWHRC: **{combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_token if combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_signals['flagEnabled'] else 'FLAG OFF'}** (flag={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_signals['flagName']} enabled={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_signals['flagEnabled']} token={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_signals['confidenceToken']} alias={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_signals['alias']})",
         f"- CVCWH FAMILY CHURN: **net {token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['net']:+d}** (added={token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['added']} removed={token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['removed']} churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['coverage']})",
+        f"- CVCWHR FAMILY CHURN: **net {token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['net']:+d}** (added={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['added']} removed={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['removed']} churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['coverage']})",
+        f"- CVCWHR CONF + CVCWHRC FAMILY CHURN: **net {(token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidence']['net'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceAlias']['net']):+d}** (added={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidence']['added'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceAlias']['added']} removed={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidence']['removed'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceAlias']['removed']} churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidence']['churn'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidence']['coverage']}+{token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceAlias']['coverage']})",
         f"- COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN: **net {token_family_totals['combatVfxCadenceCoachWhy']['net']:+d}** (added={token_family_totals['combatVfxCadenceCoachWhy']['added']} removed={token_family_totals['combatVfxCadenceCoachWhy']['removed']} churn={token_family_totals['combatVfxCadenceCoachWhy']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhy']['coverage']})",
         f"- CVCC: **{combat_vfx_cadence_coach_alias_token if combat_vfx_cadence_coach_alias_signals['flagEnabled'] else 'FLAG OFF'}** (flag={combat_vfx_cadence_coach_alias_signals['flagName']} enabled={combat_vfx_cadence_coach_alias_signals['flagEnabled']} coach={combat_vfx_cadence_coach_alias_signals['coachToken']} alias={combat_vfx_cadence_coach_alias_signals['alias']})",
         f"- COMBAT/VFX CADENCE COACH + CVCC FAMILY CHURN: **net {token_family_totals['combatVfxCadenceCoachAlias']['net']:+d}** (added={token_family_totals['combatVfxCadenceCoachAlias']['added']} removed={token_family_totals['combatVfxCadenceCoachAlias']['removed']} churn={token_family_totals['combatVfxCadenceCoachAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachAlias']['coverage']})",
@@ -11038,7 +11108,12 @@ def main() -> int:
         f"- COMBAT/VFX CADENCE COACH WHY: {combat_vfx_cadence_coach_why_token} (short={combat_vfx_cadence_coach_why_signals['short']}, trend={combat_vfx_cadence_coach_why_signals['watchdogStreakTrend']}, streakΔ={combat_vfx_cadence_coach_why_signals['watchdogStreakDelta']:+d}, missRisk={combat_vfx_cadence_coach_why_signals['laneCadenceMissRisk']}, missΔ={combat_vfx_cadence_coach_why_signals['laneCadenceDeltaHours']:+.1f}h, reason={combat_vfx_cadence_coach_why_signals['reason']}, offlineOnly={combat_vfx_cadence_coach_why_signals['offlineOnly']})",
         f"- CVCW: {combat_vfx_cadence_coach_why_alias_token if combat_vfx_cadence_coach_why_alias_signals['flagEnabled'] else 'FLAG OFF'} (flag={combat_vfx_cadence_coach_why_alias_signals['flagName']}, enabled={combat_vfx_cadence_coach_why_alias_signals['flagEnabled']}, coachWhy={combat_vfx_cadence_coach_why_alias_signals['coachWhyToken']}, alias={combat_vfx_cadence_coach_why_alias_signals['alias']})",
         f"- CVCWH: {combat_vfx_cadence_coach_why_hysteresis_alias_token if combat_vfx_cadence_coach_why_hysteresis_alias_signals['flagEnabled'] else 'FLAG OFF'} (flag={combat_vfx_cadence_coach_why_hysteresis_alias_signals['flagName']}, enabled={combat_vfx_cadence_coach_why_hysteresis_alias_signals['flagEnabled']}, applied={combat_vfx_cadence_coach_why_hysteresis_alias_signals['hysteresisApplied']}, alias={combat_vfx_cadence_coach_why_hysteresis_alias_signals['alias']})",
+        f"- CVCWHR: {combat_vfx_cadence_coach_why_hysteresis_recommendation_token} (risk={combat_vfx_cadence_coach_why_hysteresis_recommendation_signals['risk']}, volatility={combat_vfx_cadence_coach_why_hysteresis_recommendation_signals['volatility']}, Δ={combat_vfx_cadence_coach_why_hysteresis_recommendation_signals['deltaHours']:+.1f}h, reason={combat_vfx_cadence_coach_why_hysteresis_recommendation_signals['reason']})",
+        f"- CVCWHR CONF: {combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_token} (confidence={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals['confidence']}, risk={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals['risk']}, volatility={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals['volatility']}, recovery={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals['recoverySlopeHours']:+.1f}h, reason={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals['reason']})",
+        f"- CVCWHRC: {combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_token if combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_signals['flagEnabled'] else 'FLAG OFF'} (flag={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_signals['flagName']}, enabled={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_signals['flagEnabled']}, token={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_signals['confidenceToken']}, alias={combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_alias_signals['alias']})",
         f"- CVCWH FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['added']} / -{token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['removed']} / net {token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['net']} (churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['coverage']})",
+        f"- CVCWHR FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['added']} / -{token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['removed']} / net {token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['net']} (churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['coverage']})",
+        f"- CVCWHR CONF + CVCWHRC FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidence']['added'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceAlias']['added']} / -{token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidence']['removed'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceAlias']['removed']} / net {token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidence']['net'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceAlias']['net']} (churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidence']['churn'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidence']['coverage']}+{token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationConfidenceAlias']['coverage']})",
         f"- COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachWhy']['added']} / -{token_family_totals['combatVfxCadenceCoachWhy']['removed']} / net {token_family_totals['combatVfxCadenceCoachWhy']['net']} (churn={token_family_totals['combatVfxCadenceCoachWhy']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhy']['coverage']})",
         f"- CVCC: {combat_vfx_cadence_coach_alias_token if combat_vfx_cadence_coach_alias_signals['flagEnabled'] else 'FLAG OFF'} (flag={combat_vfx_cadence_coach_alias_signals['flagName']}, enabled={combat_vfx_cadence_coach_alias_signals['flagEnabled']}, coach={combat_vfx_cadence_coach_alias_signals['coachToken']}, alias={combat_vfx_cadence_coach_alias_signals['alias']})",
         f"- COMBAT/VFX CADENCE COACH + CVCC FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachAlias']['added']} / -{token_family_totals['combatVfxCadenceCoachAlias']['removed']} / net {token_family_totals['combatVfxCadenceCoachAlias']['net']} (churn={token_family_totals['combatVfxCadenceCoachAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachAlias']['coverage']})",

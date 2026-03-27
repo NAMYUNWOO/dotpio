@@ -3431,3 +3431,9 @@ Compact decision memory for AI context efficiency.
   3) High-risk: `CVCWHR CONF:LOW|MID|HIGH` adaptive confidence token.
 - Selected implementation: shipped low-risk digest-only alias and injected remaining two tasks into `TASKS.md` + `POST_RC_BACKLOG.md`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 20:56 KST — Cycle FL Systems/QA follow-up closed (`CVCWHR CONF + CVCWHRC`)
+- Completed queued Systems/QA item: digest now emits merged churn row `CVCWHR CONF + CVCWHRC FAMILY CHURN` in both summary + token-coverage sections.
+- Regression contract updated accordingly (presence/count/order assertions now reference the merged row label and keep cadence-cluster adjacency deterministic).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Queue status: remaining unchecked item in Cycle FL is AI Content/Combat adaptive confidence-floor recommendation policy (offline-only).
