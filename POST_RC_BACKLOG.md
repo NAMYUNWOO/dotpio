@@ -1264,5 +1264,15 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, Combat/Design): Prototype volatility-regime copy pack rotation (`terse|directive|narrative`) from lane miss-risk momentum deltas.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] AI Content/UX Team: Ship offline confidence token `CVCWHR FX LEGEND REC CONF:LOW|MID|HIGH` with digest payload + markdown wiring. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 00:03 KST; completed: 2026-03-28 00:08 KST)*
-- [ ] Systems/QA Team (Cycle FP follow-up): Add deterministic family churn row + ordering lock for `CVCWHR FX LEGEND REC` and `CVCWHR FX LEGEND REC CONF` in summary + token-coverage.
-- [ ] Combat/Design Team (Cycle FP follow-up): Prototype offline volatility-regime copy pack recommendation (`TERSE|DIRECTIVE|NARRATIVE`) keyed by miss-risk momentum deltas.
+- [x] Systems/QA Team (Cycle FP follow-up): Add deterministic family churn row + ordering lock for `CVCWHR FX LEGEND REC` and `CVCWHR FX LEGEND REC CONF` in summary + token-coverage. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 00:21 KST; completed: 2026-03-28 00:23 KST)*
+- [x] Combat/Design Team (Cycle FP follow-up): Prototype offline volatility-regime copy pack recommendation (`TERSE|DIRECTIVE|NARRATIVE`) keyed by miss-risk momentum deltas. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 00:51 KST; completed: 2026-03-28 00:59 KST)*
+
+## Cycle FQ - Game Director Review (2026-03-28 01:08 KST)
+- Coverage check (last 10 completions): cadence legend cluster just gained copy-pack recommendation; selected a low-risk systems/qa observability follow-up for deterministic drift triage.
+- Idea 1 (low risk, Systems/QA): Add dedicated family churn row for `CVCWHR FX LEGEND COPY PACK:` in summary + token-coverage sections.
+- Idea 2 (mid risk, UX/Design): Add compact copy-pack alias token (`CVCWHR FX LEGEND CP:<T|D|N>`) behind flag for dense scanability.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline copy-pack drift trend policy (`COPY PACK TREND:STABLE|SHIFTING`) from prior-window momentum shifts.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/QA Team: Add `CVCWHR FX LEGEND COPY PACK FAMILY CHURN` row in summary + token-coverage sections with existing alias-family totals. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 01:01 KST; completed: 2026-03-28 01:08 KST)*
+- [x] UX/Design Team: Prototype compact copy-pack alias token (`CVCWHR FX LEGEND CP:<T|D|N>`) behind flag. *(started: 2026-03-28 01:22 KST; completed: 2026-03-28 01:27 KST)*
+- [ ] AI Content/Combat Team: Prototype offline copy-pack drift trend policy (`COPY PACK TREND:STABLE|SHIFTING`) from prior-window momentum shifts.

@@ -2087,3 +2087,17 @@
 
 ## 2026-03-28 00:08 KST — Cycle FP note
 - Maintained cadence bridge adjacency while inserting `CVCWHR FX LEGEND REC CONF` after legend recommendation row.
+
+## 2026-03-28 00:23 KST
+- Cross-lane note: No world/map/layout schema changes this cycle; cadence digest-only update.
+- Impact: Portal/map progression contracts unchanged.
+
+## 2026-03-28 00:59:00 KST
+- Coordination note: No map/layout content change in this slice.
+- Impact: Weekly readability digest now carries stronger cadence copy-pack context for downstream world/scene review.
+
+## 2026-03-28 01:27 KST
+- Task: Close UX/Design alias backlog item by adding compact token   `CVCWHR FX LEGEND CP:<T|D|N>` behind experiment flag.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Notes: Alias preserves offline deterministic copy-pack mapping while enabling compact digest/readability scans.

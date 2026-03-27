@@ -2152,3 +2152,18 @@
 
 ## 2026-03-28 00:08 KST — Cycle FP backlog injection
 - Queued combat/design experiment for volatility-regime copy pack recommendation to improve legend tone coherence.
+
+## 2026-03-28 00:23 KST
+- Design readability note: grouped legend recommendation + confidence churn into one deterministic row to reduce scan ambiguity.
+- Decision: keep cluster order strict: `... FX LEGEND REC -> FX LEGEND REC CONF -> FAMILY CHURN -> CADENCE BRIDGE ...`.
+
+## 2026-03-28 00:59:00 KST
+- Task: Close Cycle FP copy-language follow-up.
+- Decision: Keep copy-pack recommendation semantics as offline guidance only (no runtime prompt coupling).
+- Output token: `CVCWHR FX LEGEND COPY PACK:TERSE|DIRECTIVE|NARRATIVE`.
+
+## 2026-03-28 01:27 KST
+- Task: Close UX/Design alias backlog item by adding compact token   `CVCWHR FX LEGEND CP:<T|D|N>` behind experiment flag.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Notes: Alias preserves offline deterministic copy-pack mapping while enabling compact digest/readability scans.

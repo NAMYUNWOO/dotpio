@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-27 22:57 KST
+Last updated: 2026-03-28 00:59 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,15 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle FP Combat/Design follow-up: weekly digest now emits offline token `CVCWHR FX LEGEND COPY PACK:TERSE|DIRECTIVE|NARRATIVE` derived from miss-risk momentum delta + volatility/confidence context.
+- Copy-pack row is present in both summary and token-coverage sections, and payload now includes `combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPack` + signals for downstream review tooling.
+- TASKS + POST_RC synchronized to done with lifecycle annotation (`[ ] -> [~] -> [x]`), and lane logs updated across systems/world/ai-content/combat/design/ux/qa.
+
+- Closed Cycle FP Systems/QA follow-up item: weekly digest now tracks dedicated family aliases for `CVCWHR FX LEGEND REC:` and `CVCWHR FX LEGEND REC CONF:`.
+- Added deterministic churn row `CVCWHR FX LEGEND REC + CVCWHR FX LEGEND REC CONF FAMILY CHURN` in both summary and token-coverage sections.
+- Ordering lock now enforces `... CVCWHR FX LEGEND REC -> CVCWHR FX LEGEND REC CONF -> FAMILY CHURN -> CADENCE BRIDGE ...` in both sections; local generated artifact verification passed.
+- TASKS + POST_RC updated: Cycle FP Systems/QA follow-up marked complete with lifecycle timestamps.
 
 - Closed Cycle FN Combat/VFX item: weekly digest now emits `CVCWHR FX PULSE:SOFT|EDGE|HARD` from confidence-floor recommendation (`RAISE->HARD`, `RELAX+HIGH->SOFT`, else `EDGE`) with offline signal payload.
 - Added dedicated cadence-cluster row + family churn coverage (`CVCWHR FX PULSE FAMILY CHURN`) in summary and token-coverage sections.
@@ -3484,3 +3493,10 @@ Compact decision memory for AI context efficiency.
 - Ideas generated: (1) low-risk confidence token for legend recommendation (**selected**), (2) mid-risk churn/order contract, (3) high-risk volatility copy-pack rotation.
 - Shipped minimal slice: digest now emits `CVCWHR FX LEGEND REC CONF:LOW|MID|HIGH` directly after `CVCWHR FX LEGEND REC` in summary + token-coverage.
 - Injected backlog: Systems/QA churn+adjacency contract for new token family, Combat/Design copy-pack recommendation prototype.
+
+## 2026-03-28 01:27 KST — UX/Design backlog closeout (`CVCWHR FX LEGEND CP` alias)
+- Completed backlog item: Added compact alias token `CVCWHR FX LEGEND CP:<T|D|N>` behind flag `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_FX_LEGEND_COPY_PACK_ALIAS`.
+- Durable decision: Keep long-form token (`CVCWHR FX LEGEND COPY PACK:*`) as canonical source-of-truth; compact alias is optional/flagged projection for readability-only workflows.
+- Contract updates: payload now includes alias token + alias signals; markdown summary and token-coverage sections include explicit `CVCWHR FX LEGEND CP` row.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up posture: next unchecked queue item remains Combat/VFX pulse token (`CVCWHR FX PULSE:SOFT|EDGE|HARD`).

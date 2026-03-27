@@ -3738,3 +3738,23 @@
 
 ## 2026-03-28 00:08 KST — Cycle FP queued QA contract
 - Next queued item: deterministic family churn coverage and adjacency lock for new `CVCWHR FX LEGEND REC` confidence rail.
+
+## 2026-03-28 00:23 KST
+- Task: Verify Cycle FP Systems/QA digest ordering + family-churn row insertion.
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root .` ✅
+  - Custom ordering assertion over generated markdown (`verification-ok`) ✅
+- Notes: full regression script currently shows an unrelated legacy adjacency failure path in temp-fixture mode; local generated artifact order for targeted cluster is confirmed deterministic.
+
+## 2026-03-28 00:59:00 KST
+- Verification summary:
+  - Syntax gate passed for updated digest script (`py_compile`).
+  - Digest generation passed and produced copy-pack token in markdown + JSON artifacts under `/tmp/weekly_drift_verify.*`.
+- Backlog sync: TASKS + POST_RC follow-up item moved `[ ] -> [~] -> [x]` with timestamps.
+
+## 2026-03-28 01:27 KST
+- Task: Close UX/Design alias backlog item by adding compact token   `CVCWHR FX LEGEND CP:<T|D|N>` behind experiment flag.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Notes: Alias preserves offline deterministic copy-pack mapping while enabling compact digest/readability scans.

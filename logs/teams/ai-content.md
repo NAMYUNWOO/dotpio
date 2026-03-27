@@ -2144,3 +2144,20 @@
 
 ## 2026-03-28 00:08 KST — Cycle FP selected slice shipped
 - Added offline confidence token `CVCWHR FX LEGEND REC CONF` from variant/risk/volatility alignment heuristics.
+
+## 2026-03-28 00:23 KST
+- Cross-lane note: AI-content token semantics unchanged; this cycle focused on Systems/QA digest ordering/churn instrumentation.
+- Follow-up: keep next AI-content prototype queue item as-is.
+
+## 2026-03-28 00:59:00 KST
+- Task: Offline copy-pack recommendation policy for cadence legend (`TERSE|DIRECTIVE|NARRATIVE`).
+- Policy notes:
+  - `TERSE`: high-risk rising momentum under volatile regimes (or low-confidence spike).
+  - `NARRATIVE`: low-risk cooling momentum under calm regime + high confidence.
+  - `DIRECTIVE`: balanced/default fallback.
+
+## 2026-03-28 01:27 KST
+- Task: Close UX/Design alias backlog item by adding compact token   `CVCWHR FX LEGEND CP:<T|D|N>` behind experiment flag.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Notes: Alias preserves offline deterministic copy-pack mapping while enabling compact digest/readability scans.

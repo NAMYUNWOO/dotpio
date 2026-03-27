@@ -2073,3 +2073,17 @@
 
 ## 2026-03-28 00:08 KST — Cycle FP backlog injection
 - Queued high-risk follow-up: volatility-regime copy pack recommendation (`TERSE|DIRECTIVE|NARRATIVE`) from miss-risk momentum deltas.
+
+## 2026-03-28 00:23 KST
+- Cross-lane note: No combat runtime/balance changes; cadence observability row added in offline weekly digest only.
+- Impact: Gameplay behavior unchanged.
+
+## 2026-03-28 00:59:00 KST
+- Task: Combat/Design follow-up completed for cadence legend copy-pack prototype.
+- Result: Digest now emits `CVCWHR FX LEGEND COPY PACK:*` adjacent to legend recommendation confidence rows for postmortem triage.
+
+## 2026-03-28 01:27 KST
+- Task: Close UX/Design alias backlog item by adding compact token   `CVCWHR FX LEGEND CP:<T|D|N>` behind experiment flag.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Notes: Alias preserves offline deterministic copy-pack mapping while enabling compact digest/readability scans.

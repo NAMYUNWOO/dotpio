@@ -2355,3 +2355,17 @@
 
 ## 2026-03-28 00:08 KST — Cycle FP readability pass
 - Added confidence rail row for legend recommendation to reduce ambiguity in digest scanning.
+
+## 2026-03-28 00:23 KST
+- UX copy note: Added explicit combined family-churn line for legend recommendation confidence pair to keep digest parsing legible.
+- Impact: No gameplay UI panel changes; weekly digest readability only.
+
+## 2026-03-28 00:59:00 KST
+- UX readability note: Added explicit copy-pack row near `CVCWHR FX LEGEND REC` lines to improve one-glance tone selection.
+- Row placement updated in both summary and token-coverage sections.
+
+## 2026-03-28 01:27 KST
+- Task: Close UX/Design alias backlog item by adding compact token   `CVCWHR FX LEGEND CP:<T|D|N>` behind experiment flag.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Notes: Alias preserves offline deterministic copy-pack mapping while enabling compact digest/readability scans.

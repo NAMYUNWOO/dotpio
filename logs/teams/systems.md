@@ -3175,3 +3175,29 @@
 
 ## 2026-03-28 00:08 KST — Cycle FP follow-up queue injected
 - Queued Systems/QA contract task: add churn row + order lock for `CVCWHR FX LEGEND REC` and `... REC CONF` token family.
+
+## 2026-03-28 00:23 KST
+- Task: Cycle FP Systems/QA follow-up — add deterministic family-churn coverage + ordering lock for CVCWHR FX legend recommendation confidence cluster.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 -m py_compile ...` + digest regeneration + ordering assertion script (`verification-ok`).
+- Decisions:
+  - Added new token-family aliases for `CVCWHR FX LEGEND REC` and `CVCWHR FX LEGEND REC CONF`.
+  - Added deterministic row `CVCWHR FX LEGEND REC + CVCWHR FX LEGEND REC CONF FAMILY CHURN` in summary + token-coverage.
+
+## 2026-03-28 00:59:00 KST
+- Task: Cycle FP follow-up closeout — add offline `CVCWHR FX LEGEND COPY PACK:TERSE|DIRECTIVE|NARRATIVE` recommendation to weekly digest.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 30 --out-json /tmp/weekly_drift_verify.json --out-md /tmp/weekly_drift_verify.md` ✅
+  - `rg -n "CVCWHR FX LEGEND COPY PACK" /tmp/weekly_drift_verify.md /tmp/weekly_drift_verify.json` ✅
+- Decisions:
+  - Kept recommendation offline-only and deterministic (risk/momentum/volatility/confidence mapped to `TERSE|DIRECTIVE|NARRATIVE`).
+  - Added payload contract keys for copy-pack token + signals and surfaced rows in summary/token-coverage markdown sections.
+
+## 2026-03-28 01:27 KST
+- Task: Close UX/Design alias backlog item by adding compact token   `CVCWHR FX LEGEND CP:<T|D|N>` behind experiment flag.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Notes: Alias preserves offline deterministic copy-pack mapping while enabling compact digest/readability scans.
