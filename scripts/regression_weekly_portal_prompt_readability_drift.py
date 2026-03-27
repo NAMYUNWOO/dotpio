@@ -3309,6 +3309,37 @@ def main() -> int:
         assert len(cadence_bridge_glyph_legend_indices) == 2, (
             "expected exactly two CADENCE BRIDGE GLYPH LEGEND rows (summary + token-coverage sections)"
         )
+        token_totals_heading_idx = md_lines.index("## Token Totals (added/removed/net)")
+        token_family_coverage_heading_idx = md_lines.index("## Token Family Coverage")
+        route_vibe_drift_heading_idx = md_lines.index("## Route Vibe Drift (added/removed/net)")
+
+        first_conf_legend_idx, second_conf_legend_idx = cadence_bridge_glyph_conf_legend_indices
+        assert first_conf_legend_idx < token_totals_heading_idx, (
+            "expected first CADENCE BRIDGE GLYPH CONF LEGEND row in summary section before token totals"
+        )
+        assert token_family_coverage_heading_idx < second_conf_legend_idx < route_vibe_drift_heading_idx, (
+            "expected second CADENCE BRIDGE GLYPH CONF LEGEND row in token-coverage section"
+        )
+
+        for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
+            zip(
+                cadence_bridge_glyph_indices,
+                cadence_bridge_glyph_conf_indices,
+                cadence_bridge_glyph_conf_legend_indices,
+                cadence_bridge_glyph_legend_indices,
+            ),
+            start=1,
+        ):
+            assert glyph_conf_idx == glyph_idx + 1, (
+                f"expected CADENCE BRIDGE GLYPH CONF row directly after CADENCE BRIDGE GLYPH row in section {section_idx}"
+            )
+            assert glyph_conf_legend_idx == glyph_conf_idx + 1, (
+                f"expected CADENCE BRIDGE GLYPH CONF LEGEND row directly after CADENCE BRIDGE GLYPH CONF row in section {section_idx}"
+            )
+            assert glyph_legend_idx == glyph_conf_legend_idx + 1, (
+                f"expected CADENCE BRIDGE GLYPH LEGEND row directly after CADENCE BRIDGE GLYPH CONF LEGEND row in section {section_idx}"
+            )
+
         assert len(combat_vfx_cadence_coach_why_hysteresis_family_churn_indices) == 2, (
             "expected exactly two CVCWH FAMILY CHURN rows (summary + token-coverage sections)"
         )

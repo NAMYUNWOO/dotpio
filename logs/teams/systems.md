@@ -3254,3 +3254,10 @@
 - Decision: Shipped `CADENCE BRIDGE GLYPH CONF LEGEND` row in summary/token-coverage and queued next follow-ups (Systems/QA adjacency lock, AI Content/World volatility-regime confidence policy).
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
 - Follow-up: Execute highest-priority unchecked Cycle FW Systems/QA lock task next.
+
+## 2026-03-28 06:31 KST — Cycle FW Systems/QA lock closure (`CADENCE BRIDGE GLYPH CONF LEGEND`)
+- Closed highest-priority unchecked item by extending deterministic regression contract for `CADENCE BRIDGE GLYPH CONF LEGEND`.
+- Added section-aware guardrails: first conf-legend row must stay in summary (before `## Token Totals`), second must stay in token-coverage (between `## Token Family Coverage` and `## Route Vibe Drift`).
+- Added strict adjacency rail in both sections: `CADENCE BRIDGE GLYPH -> CADENCE BRIDGE GLYPH CONF -> CADENCE BRIDGE GLYPH CONF LEGEND -> CADENCE BRIDGE GLYPH LEGEND`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile ...` PASS.
+- Follow-up: next unchecked item is AI Content/World volatility-regime confidence policy (`CADENCE BRIDGE GLYPH CONF` 2-window spike memory).

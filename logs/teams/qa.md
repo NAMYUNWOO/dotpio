@@ -3797,3 +3797,11 @@
 - Decision: Shipped `CADENCE BRIDGE GLYPH CONF LEGEND` row in summary/token-coverage and queued next follow-ups (Systems/QA adjacency lock, AI Content/World volatility-regime confidence policy).
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
 - Follow-up: Execute highest-priority unchecked Cycle FW Systems/QA lock task next.
+
+## 2026-03-28 06:31 KST — Cycle FW QA regression contract (`CADENCE BRIDGE GLYPH CONF LEGEND`)
+- Regression now deterministically locks conf-legend placement by digest section and local adjacency ordering in both summary + token-coverage slices.
+- New checks ensure count=2 remains meaningful (not just global count) by anchoring row locations relative to section headings.
+- Verification evidence:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 -m py_compile scripts/regression_weekly_portal_prompt_readability_drift.py scripts/weekly_portal_prompt_readability_drift.py` ✅
+- Risk posture: low (test-only behavior + backlog status sync).

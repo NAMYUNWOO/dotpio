@@ -1547,5 +1547,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/World): Prototype volatility-regime-aware confidence policy (`LOW` threshold tightening when volatility spikes across 2+ windows).
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Design Team: Add `CADENCE BRIDGE GLYPH CONF LEGEND` row in summary + token-coverage for dense digest readability. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 06:03 KST; completed: 2026-03-28 06:03 KST)*
-- [ ] Systems/QA Team (Cycle FW follow-up): Add deterministic regression lock for `CADENCE BRIDGE GLYPH CONF LEGEND` presence/count + adjacency in summary/token-coverage sections. *(injected: 2026-03-28 06:03 KST)*
+- [x] Systems/QA Team (Cycle FW follow-up): Add deterministic regression lock for `CADENCE BRIDGE GLYPH CONF LEGEND` presence/count + adjacency in summary/token-coverage sections. *(injected: 2026-03-28 06:03 KST)*
 - [ ] AI Content/World Team (Cycle FW follow-up): Prototype volatility-regime-aware confidence policy for `CADENCE BRIDGE GLYPH CONF` using 2-window spike memory. *(injected: 2026-03-28 06:03 KST)*

@@ -3548,3 +3548,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep glyph + legend as first-class dual-row readability contract in both summary and token-coverage sections (exactly two occurrences each).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed after contract update.
 - Remaining unchecked queue now starts with AI Content/World prototype: `CADENCE BRIDGE GLYPH CONF:LOW|MID|HIGH`.
+
+## 2026-03-28 06:31 KST — Cycle FW follow-up completed (`CADENCE BRIDGE GLYPH CONF LEGEND` lock)
+- Closed Systems/QA follow-up by hard-locking `CADENCE BRIDGE GLYPH CONF LEGEND` section placement and adjacency order in regression.
+- Durable contract now requires per-section sequence: `GLYPH -> GLYPH CONF -> GLYPH CONF LEGEND -> GLYPH LEGEND` (summary + token-coverage).
+- Added heading-bound checks to prevent accidental relocation while still passing global count assertions.
+- Verification: regression + py_compile both pass.
+- Queue status: only remaining unchecked injected FW item is AI Content/World volatility-regime confidence policy prototype.
