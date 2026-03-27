@@ -2068,3 +2068,7 @@
 - Mapping is deterministic from `DCCFXCPA COPY ALT PACK` signals (`SHIELD/BUFFER/RECOVER/BASE`) to keep mismatch-window handoff copy stable.
 - Wired payload + markdown summary/token-coverage rows so coach context is auditable without runtime coupling.
 - Follow-up: keep token digest-only; no in-run combat behavior changes.
+
+## 2026-03-27 15:55 KST — Cycle FG narrative decode support sync
+- Synced AI-content lane with new `DCCFXCPAP FX CUE LEGEND` wording (`SOFT/SHARP/SURGE/STEADY`) to keep coach copy and FX cue semantics aligned.
+- Confirmed change remains digest-only and reversible behind existing cue flags.

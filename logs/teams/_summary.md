@@ -3360,3 +3360,11 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK=1 DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK_COMPACT_ALIAS=1 DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK_COACH=1 DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK_FX_CUE=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`
 - Backlog injected: design/world `DCCFXCPAP FX CUE LEGEND` and systems/ops combat/vfx cadence watchdog metadata token.
+
+## 2026-03-27 15:55 KST — Cycle FG backlog fully closed (legend + cadence watchdog)
+- Completed remaining unchecked TASKS/POST_RC items:
+  - Design/World: shipped `DCCFXCPAP FX CUE LEGEND` row with deterministic adjacency after `DCCFXCPAP FX CUE`.
+  - Systems/Ops: shipped `COMBAT/VFX CADENCE WATCHDOG:OK|BREACH` metadata token for >24h combat/vfx recency breach visibility.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: py_compile + weekly portal drift regression PASS.
+- Next hook: ACTION_ITEMS/TASKS/POST_RC now fully checked; proceed to Game Director review cycle injection next run.

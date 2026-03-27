@@ -3051,3 +3051,9 @@
 ## 2026-03-27 15:41 KST — Cycle FG systems/ops coordination
 - Updated weekly digest regression ordering contract to include new `DCCFXCPAP FX CUE` row without breaking existing DCCFXCPAP adjacency guarantees.
 - Injected follow-up ops backlog item: cadence watchdog metadata/token for combat/vfx recency breach (>24h).
+
+## 2026-03-27 15:55 KST — Cycle FG systems/ops cadence watchdog [DONE]
+- Task: add weekly digest metadata note/token for combat/vfx recency breach (>24h).
+- Changes: `scripts/weekly_portal_prompt_readability_drift.py` now emits `COMBAT/VFX CADENCE WATCHDOG:OK|BREACH` in summary + token-coverage, plus payload keys `combatVfxCadenceWatchdog`/`combatVfxCadenceWatchdogSignals`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: next cycle can start Game Director review since TASKS+POST_RC backlog are fully checked.

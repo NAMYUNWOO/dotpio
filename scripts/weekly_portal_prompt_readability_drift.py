@@ -388,6 +388,22 @@ def lane_cadence_miss_risk(*, lane_bucket_age: dict[str, object], lane_bucket_ag
         "windowHours": window_hours,
         "reason": reason,
     }
+
+
+def combat_vfx_cadence_watchdog(*, lane_bucket_age: dict[str, object]) -> tuple[str, dict[str, object]]:
+    age_hours_raw = lane_bucket_age.get("ageHours", {})
+    age_hours = age_hours_raw if isinstance(age_hours_raw, dict) else {}
+    combat_age_hours = int(age_hours.get("combat/vfx", 999) or 999)
+    window_hours = int(lane_bucket_age.get("windowHours", 24) or 24)
+    breached = combat_age_hours > window_hours
+    status = "BREACH" if breached else "OK"
+    reason = "combat-vfx-recency-breached" if breached else "combat-vfx-recency-healthy"
+    return f"COMBAT/VFX CADENCE WATCHDOG:{status}", {
+        "status": status,
+        "combatVfxAgeHours": combat_age_hours,
+        "windowHours": window_hours,
+        "reason": reason,
+    }
 def lane_bucket_age_alias(*, lane_bucket_age: dict[str, object]) -> tuple[str, dict[str, object]]:
     flag_name = "DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS"
     flag_value = os.environ.get(flag_name, "")
@@ -8131,6 +8147,9 @@ def main() -> int:
         lane_bucket_age=lane_bucket_age,
         lane_bucket_age_delta=lane_bucket_age_delta,
     )
+    combat_vfx_cadence_watchdog_token, combat_vfx_cadence_watchdog_signals = combat_vfx_cadence_watchdog(
+        lane_bucket_age=lane_bucket_age,
+    )
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
         lane_bucket_age=lane_bucket_age,
     )
@@ -9702,6 +9721,8 @@ def main() -> int:
         "laneCadenceRecencySignals": lane_cadence_recency_signals,
         "laneCadenceMissRisk": lane_cadence_miss_risk_token,
         "laneCadenceMissRiskSignals": lane_cadence_miss_risk_signals,
+        "combatVfxCadenceWatchdog": combat_vfx_cadence_watchdog_token,
+        "combatVfxCadenceWatchdogSignals": combat_vfx_cadence_watchdog_signals,
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,
         "laneCadenceMissRiskAliasSignals": lane_cadence_miss_risk_alias_signals,
         "lanePriorityHysteresisFloorRecommendation": lane_priority_hysteresis_floor_recommendation,
@@ -10482,6 +10503,7 @@ def main() -> int:
         f"- DCCFXCPAP COACH FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCoachAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCoachAlias']['added']} removed={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCoachAlias']['removed']} churn={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCoachAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCoachAlias']['coverage']})",
         f"- DCCFXCPAP FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCompactAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCompactAlias']['added']} removed={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCompactAlias']['removed']} churn={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCompactAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCompactAlias']['coverage']})",
         f"- DCCFXCPAP FX CUE: **{dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue if dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue_flag_enabled else 'FLAG OFF'}** (flag={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue_flag_name} enabled={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue_flag_enabled} coach={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue_signals['coach']} cue={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue_signals['cue']} reason={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue_signals['reason']})",
+        "- DCCFXCPAP FX CUE LEGEND: SOFT=steady hold, SHARP=staged pressure, SURGE=forward release, STEADY=baseline cadence",
         "- DCCFXCPA COPY ALT LEGEND: SURGE+SUPPRESS=>HOLD, CLEAR+SUPPRESS=>HOLD, MATCH=>KEEP",
         "- DCCFXCPA COPY ALT PACK LEGEND: SHIELD=suppress+hold, BUFFER=mismatch fallback, RECOVER=clear path, BASE=steady",
         "- DCCFXCPA COPY LEGEND: CLEAR=COOL RESET, HOLD=STEADY BRACE, SURGE=SPIKE PUSH",
@@ -10525,6 +10547,7 @@ def main() -> int:
         f"- LANE CADENCE RECENCY: **{lane_cadence_recency}** (status={lane_cadence_recency_signals['status']} max={lane_cadence_recency_signals['maxAgeHours']}h Δ={lane_cadence_recency_signals['deltaHours']:+d}h window={lane_cadence_recency_signals['windowHours']}h reason={lane_cadence_recency_signals['reason']})",
         f"- LANE CADENCE MISS RISK: **{lane_cadence_miss_risk_token}** (risk={lane_cadence_miss_risk_signals['risk']} max={lane_cadence_miss_risk_signals['maxAgeHours']}h Δ={lane_cadence_miss_risk_signals['deltaHours']:+d}h window={lane_cadence_miss_risk_signals['windowHours']}h reason={lane_cadence_miss_risk_signals['reason']})",
         f"- LCMR: **{lane_cadence_miss_risk_alias_token}** (flag={lane_cadence_miss_risk_alias_signals['flagName']} enabled={lane_cadence_miss_risk_alias_signals['flagEnabled']} risk={lane_cadence_miss_risk_alias_signals['risk']} alias={lane_cadence_miss_risk_alias_signals['alias']})",
+        f"- COMBAT/VFX CADENCE WATCHDOG: **{combat_vfx_cadence_watchdog_token}** (status={combat_vfx_cadence_watchdog_signals['status']} age={combat_vfx_cadence_watchdog_signals['combatVfxAgeHours']}h window={combat_vfx_cadence_watchdog_signals['windowHours']}h reason={combat_vfx_cadence_watchdog_signals['reason']})",
         f"- LANE PRIORITY REC: **{lane_priority_recommendation}** (reason={lane_priority_recommendation_signals['reason']} worstAge={lane_priority_recommendation_signals['worstAgeHours']}h offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- LPR: **{lane_priority_recommendation_compact_alias}** (flag={lane_priority_recommendation_compact_alias_signals['flagName']} enabled={lane_priority_recommendation_compact_alias_signals['flagEnabled']} rec={lane_priority_recommendation_compact_alias_signals['recommendation']} alias={lane_priority_recommendation_compact_alias_signals['alias']})",
         f"- LPR HYS: **{lane_priority_hysteresis_compact_alias}** (flag={lane_priority_hysteresis_compact_alias_signals['flagName']} enabled={lane_priority_hysteresis_compact_alias_signals['flagEnabled']} applied={lane_priority_hysteresis_compact_alias_signals['hysteresisApplied']} alias={lane_priority_hysteresis_compact_alias_signals['alias']})",
@@ -10657,6 +10680,7 @@ def main() -> int:
         f"- DCCFXCPAP COACH FAMILY CHURN: +{token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCoachAlias']['added']} / -{token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCoachAlias']['removed']} / net {token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCoachAlias']['net']} (churn={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCoachAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCoachAlias']['coverage']})",
         f"- DCCFXCPAP FAMILY CHURN: +{token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCompactAlias']['added']} / -{token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCompactAlias']['removed']} / net {token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCompactAlias']['net']} (churn={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCompactAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCompactAlias']['coverage']})",
         f"- DCCFXCPAP FX CUE: {dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue if dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue_flag_enabled else 'FLAG OFF'} (coach={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue_signals['coach']} cue={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue_signals['cue']} reason={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue_signals['reason']} flag={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue_flag_name} enabled={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_pack_fx_cue_flag_enabled})",
+        "- DCCFXCPAP FX CUE LEGEND: SOFT=steady hold, SHARP=staged pressure, SURGE=forward release, STEADY=baseline cadence",
         "- DCCFXCPA COPY ALT LEGEND: SURGE+SUPPRESS=>HOLD, CLEAR+SUPPRESS=>HOLD, MATCH=>KEEP",
         "- DCCFXCPA COPY ALT PACK LEGEND: SHIELD=suppress+hold, BUFFER=mismatch fallback, RECOVER=clear path, BASE=steady",
         "- DCCFXCPA COPY LEGEND: CLEAR=COOL RESET, HOLD=STEADY BRACE, SURGE=SPIKE PUSH",
@@ -10721,6 +10745,7 @@ def main() -> int:
         f"- LANE CADENCE RECENCY: {lane_cadence_recency} (status={lane_cadence_recency_signals['status']}, max={lane_cadence_recency_signals['maxAgeHours']}h, Δ={lane_cadence_recency_signals['deltaHours']:+d}h, window={lane_cadence_recency_signals['windowHours']}h, reason={lane_cadence_recency_signals['reason']})",
         f"- LANE CADENCE MISS RISK: {lane_cadence_miss_risk_token} (risk={lane_cadence_miss_risk_signals['risk']}, max={lane_cadence_miss_risk_signals['maxAgeHours']}h, Δ={lane_cadence_miss_risk_signals['deltaHours']:+d}h, window={lane_cadence_miss_risk_signals['windowHours']}h, reason={lane_cadence_miss_risk_signals['reason']})",
         f"- LCMR: {lane_cadence_miss_risk_alias_token} (flag={lane_cadence_miss_risk_alias_signals['flagName']}, enabled={lane_cadence_miss_risk_alias_signals['flagEnabled']}, risk={lane_cadence_miss_risk_alias_signals['risk']}, alias={lane_cadence_miss_risk_alias_signals['alias']})",
+        f"- COMBAT/VFX CADENCE WATCHDOG: {combat_vfx_cadence_watchdog_token} (status={combat_vfx_cadence_watchdog_signals['status']}, age={combat_vfx_cadence_watchdog_signals['combatVfxAgeHours']}h, window={combat_vfx_cadence_watchdog_signals['windowHours']}h, reason={combat_vfx_cadence_watchdog_signals['reason']})",
         f"- LANE PRIORITY REC: {lane_priority_recommendation} (reason={lane_priority_recommendation_signals['reason']}, worstAge={lane_priority_recommendation_signals['worstAgeHours']}h, offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- LPR: {lane_priority_recommendation_compact_alias} (flag={lane_priority_recommendation_compact_alias_signals['flagName']}, enabled={lane_priority_recommendation_compact_alias_signals['flagEnabled']}, rec={lane_priority_recommendation_compact_alias_signals['recommendation']}, alias={lane_priority_recommendation_compact_alias_signals['alias']})",
         f"- LPR HYS: {lane_priority_hysteresis_compact_alias} (flag={lane_priority_hysteresis_compact_alias_signals['flagName']}, enabled={lane_priority_hysteresis_compact_alias_signals['flagEnabled']}, applied={lane_priority_hysteresis_compact_alias_signals['hysteresisApplied']}, alias={lane_priority_hysteresis_compact_alias_signals['alias']})",

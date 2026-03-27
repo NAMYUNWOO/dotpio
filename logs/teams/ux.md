@@ -2286,3 +2286,7 @@
 - Completed in-progress Cycle FF item by adding `DCCFXCPAP COACH LEGEND` to both summary and token-coverage sections.
 - Added explicit `DCCFXCPAP COACH FAMILY CHURN` row so coach-token drift is readable separately from compact alias churn.
 - Readability contract kept deterministic around coach block for dense digest scans.
+
+## 2026-03-27 15:55 KST — Cycle FG digest scanability pass
+- Added concise `DCCFXCPAP FX CUE LEGEND` copy to reduce cue interpretation latency in dense weekly digests.
+- Added combat/vfx cadence watchdog row to keep lane-health alerts visible in the same metadata cluster as miss-risk rows.

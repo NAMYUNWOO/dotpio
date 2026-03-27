@@ -3621,3 +3621,8 @@
 - Extended ordering assertions to include `DCCFXCPAP FX CUE` row in both summary and token-coverage sections.
 - New expected chain: `DCCFXCPAP COACH FAMILY CHURN -> DCCFXCPAP FAMILY CHURN -> DCCFXCPAP FX CUE -> DCCFXCPA COPY ALT LEGEND`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
+
+## 2026-03-27 15:55 KST — Regression contract update for Cycle FG closure
+- Extended regression assertions to require: `DCCFXCPAP FX CUE LEGEND` presence + adjacency in summary/token-coverage sections.
+- Added assertions for `COMBAT/VFX CADENCE WATCHDOG` presence (2 rows) and ordering (`LANE CADENCE MISS RISK -> LCMR -> COMBAT/VFX CADENCE WATCHDOG`).
+- Verification command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

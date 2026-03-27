@@ -1185,5 +1185,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, Systems/Ops): Add lane-balance watchdog token that warns when combat/vfx cadence drops below 24h minimum.
 - Selected experiment: Idea 1 (minimal vertical slice, player-facing combat/vfx readability).
 - [x] Combat/VFX Team: Ship flagged `DCCFXCPAP FX CUE` token with payload + summary/token-coverage markdown wiring and regression ordering updates. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 15:26 KST; completed: 2026-03-27 15:41 KST)*
-- [ ] Design/World Team: Add `DCCFXCPAP FX CUE LEGEND` row and adjacency lock after `DCCFXCPAP FX CUE` for one-glance narrative decode.
-- [ ] Systems/Ops Team: Add cadence watchdog note/token for combat/vfx recency breach (>24h) in weekly digest metadata.
+- [x] Design/World Team: Add `DCCFXCPAP FX CUE LEGEND` row and adjacency lock after `DCCFXCPAP FX CUE` for one-glance narrative decode.
+- [x] Systems/Ops Team: Add cadence watchdog note/token for combat/vfx recency breach (>24h) in weekly digest metadata.

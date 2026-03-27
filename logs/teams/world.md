@@ -2019,3 +2019,8 @@
 - Selected low-risk Combat/VFX experiment: ship compact alias `DCCFXCPAP:<H|B|R|A>` for `DCCFXCPA COPY ALT PACK` under dedicated flag.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up backlog injected: Systems/QA adjacency+churn lock for `DCCFXCPAP`, AI Content/Combat `DCCFXCPAP COACH:<short>` prototype.
+
+## 2026-03-27 15:55 KST — Cycle FG design/world legend completion [DONE]
+- Added `DCCFXCPAP FX CUE LEGEND` row directly after `DCCFXCPAP FX CUE` in summary + token-coverage sections for one-glance narrative decode.
+- Adjacency lock extended in regression so ordering stays deterministic.
+- Follow-up: maintain narrative legend consistency if future cue mappings change.

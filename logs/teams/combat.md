@@ -2006,3 +2006,7 @@
 - Consumed AI Content follow-up by surfacing digest-only `DCCFXCPAP COACH` handoff copy mapped from copy-alt pack posture.
 - No runtime combat tuning changed; this remains a postmortem/readability signal only.
 - Verification dependency: weekly drift regression and digest generation pass.
+
+## 2026-03-27 15:55 KST — Cycle FG combat/vfx cadence visibility
+- Added explicit `COMBAT/VFX CADENCE WATCHDOG:OK|BREACH` token in weekly digest metadata so >24h recency breaches are immediately visible.
+- Guardrail intent: catch cadence drift early before player-facing combat/vfx quality gaps persist.

@@ -2086,3 +2086,7 @@
 ## 2026-03-27 15:41 KST — Cycle FG design/world backlog injection
 - Reserved next design/world follow-up to add `DCCFXCPAP FX CUE LEGEND` immediately after the new cue row.
 - Goal: one-glance narrative readability for scene reviewers without widening compact prompt surface.
+
+## 2026-03-27 15:55 KST — Cycle FG cue legend readability lock
+- Implemented `DCCFXCPAP FX CUE LEGEND` in summary + token-coverage for consistent narrative decode of FX cue states.
+- Regression adjacency contract now requires `DCCFXCPAP FX CUE -> DCCFXCPAP FX CUE LEGEND -> DCCFXCPA COPY ALT LEGEND`.

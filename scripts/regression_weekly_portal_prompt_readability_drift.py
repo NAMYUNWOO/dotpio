@@ -2370,6 +2370,7 @@ def main() -> int:
         assert "LANE BUCKET AGE Δ:" in md_text
         assert "LANE CADENCE RECENCY:" in md_text
         assert "LANE CADENCE MISS RISK:" in md_text
+        assert "COMBAT/VFX CADENCE WATCHDOG:" in md_text
         assert "LCMR:" in md_text
         assert "LANE PRIORITY REC:" in md_text
         assert "LPR:" in md_text
@@ -2594,6 +2595,7 @@ def main() -> int:
         assert "DCCFXCPAP COACH FAMILY CHURN" in md_text
         assert "DCCFXCPAP FAMILY CHURN" in md_text
         assert "DCCFXCPAP FX CUE:" in md_text
+        assert "DCCFXCPAP FX CUE LEGEND:" in md_text
         assert "DCCFXCPA COPY ALT LEGEND:" in md_text
         assert "DCCFXCPA COPY ALT PACK LEGEND:" in md_text
         assert "DCCFXCPA COPY LEGEND:" in md_text
@@ -2666,6 +2668,7 @@ def main() -> int:
         combo_conf_dccfxcpap_coach_family_churn_idx = _find_line_index("- DCCFXCPAP COACH FAMILY CHURN:")
         combo_conf_dccfxcpap_family_churn_idx = _find_line_index("- DCCFXCPAP FAMILY CHURN:")
         combo_conf_dccfxcpap_fx_cue_idx = _find_line_index("- DCCFXCPAP FX CUE:")
+        combo_conf_dccfxcpap_fx_cue_legend_idx = _find_line_index("- DCCFXCPAP FX CUE LEGEND:")
         combo_conf_dccfxcpa_copy_alt_legend_idx = _find_line_index("- DCCFXCPA COPY ALT LEGEND:")
         combo_conf_dccfxcpa_copy_alt_pack_legend_idx = _find_line_index("- DCCFXCPA COPY ALT PACK LEGEND:")
         combo_conf_dccfxcpa_copy_legend_idx = _find_line_index("- DCCFXCPA COPY LEGEND:")
@@ -2685,6 +2688,7 @@ def main() -> int:
 
         lane_cadence_miss_risk_indices = _find_line_indices("- LANE CADENCE MISS RISK:")
         lane_cadence_miss_risk_alias_indices = _find_line_indices("- LCMR:")
+        combat_vfx_watchdog_indices = _find_line_indices("- COMBAT/VFX CADENCE WATCHDOG:")
 
         assert combo_conf_fallback_idx == combo_conf_rec_idx + 1, (
             "expected DMG COMBO CONF COACH FALLBACK row directly after COACH REC row"
@@ -2776,6 +2780,7 @@ def main() -> int:
         coverage_dccfxcpap_coach_family_churn_idx = _find_in_range("- DCCFXCPAP COACH FAMILY CHURN:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcpap_family_churn_idx = _find_in_range("- DCCFXCPAP FAMILY CHURN:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcpap_fx_cue_idx = _find_in_range("- DCCFXCPAP FX CUE:", coverage_start, coverage_end, "token coverage")
+        coverage_dccfxcpap_fx_cue_legend_idx = _find_in_range("- DCCFXCPAP FX CUE LEGEND:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcpa_copy_alt_legend_idx = _find_in_range("- DCCFXCPA COPY ALT LEGEND:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcpa_copy_alt_pack_legend_idx = _find_in_range("- DCCFXCPA COPY ALT PACK LEGEND:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcpa_copy_legend_idx = _find_in_range("- DCCFXCPA COPY LEGEND:", coverage_start, coverage_end, "token coverage")
@@ -2847,8 +2852,11 @@ def main() -> int:
         assert coverage_dccfxcpap_fx_cue_idx == coverage_dccfxcpap_family_churn_idx + 1, (
             "expected DCCFXCPAP FX CUE row directly after DCCFXCPAP FAMILY CHURN row in token-coverage section"
         )
-        assert coverage_dccfxcpa_copy_alt_legend_idx == coverage_dccfxcpap_fx_cue_idx + 1, (
-            "expected DCCFXCPA COPY ALT LEGEND row directly after DCCFXCPAP FX CUE row in token-coverage section"
+        assert coverage_dccfxcpap_fx_cue_legend_idx == coverage_dccfxcpap_fx_cue_idx + 1, (
+            "expected DCCFXCPAP FX CUE LEGEND row directly after DCCFXCPAP FX CUE row in token-coverage section"
+        )
+        assert coverage_dccfxcpa_copy_alt_legend_idx == coverage_dccfxcpap_fx_cue_legend_idx + 1, (
+            "expected DCCFXCPA COPY ALT LEGEND row directly after DCCFXCPAP FX CUE LEGEND row in token-coverage section"
         )
         assert coverage_dccfxcpa_copy_alt_pack_legend_idx == coverage_dccfxcpa_copy_alt_legend_idx + 1, (
             "expected DCCFXCPA COPY ALT PACK LEGEND row directly after DCCFXCPA COPY ALT LEGEND row in token-coverage section"
@@ -2928,8 +2936,11 @@ def main() -> int:
         assert combo_conf_dccfxcpap_fx_cue_idx == combo_conf_dccfxcpap_family_churn_idx + 1, (
             "expected DCCFXCPAP FX CUE row directly after DCCFXCPAP FAMILY CHURN row"
         )
-        assert combo_conf_dccfxcpa_copy_alt_legend_idx == combo_conf_dccfxcpap_fx_cue_idx + 1, (
-            "expected DCCFXCPA COPY ALT LEGEND row directly after DCCFXCPAP FX CUE row"
+        assert combo_conf_dccfxcpap_fx_cue_legend_idx == combo_conf_dccfxcpap_fx_cue_idx + 1, (
+            "expected DCCFXCPAP FX CUE LEGEND row directly after DCCFXCPAP FX CUE row"
+        )
+        assert combo_conf_dccfxcpa_copy_alt_legend_idx == combo_conf_dccfxcpap_fx_cue_legend_idx + 1, (
+            "expected DCCFXCPA COPY ALT LEGEND row directly after DCCFXCPAP FX CUE LEGEND row"
         )
         assert combo_conf_dccfxcpa_copy_alt_pack_legend_idx == combo_conf_dccfxcpa_copy_alt_legend_idx + 1, (
             "expected DCCFXCPA COPY ALT PACK LEGEND row directly after DCCFXCPA COPY ALT LEGEND row"
@@ -2976,12 +2987,18 @@ def main() -> int:
         assert len(lane_cadence_miss_risk_alias_indices) == 2, (
             "expected exactly two LCMR alias rows (summary + token-coverage sections)"
         )
-        for section_idx, (miss_risk_idx, alias_idx) in enumerate(
-            zip(lane_cadence_miss_risk_indices, lane_cadence_miss_risk_alias_indices),
+        assert len(combat_vfx_watchdog_indices) == 2, (
+            "expected exactly two COMBAT/VFX CADENCE WATCHDOG rows (summary + token-coverage sections)"
+        )
+        for section_idx, (miss_risk_idx, alias_idx, watchdog_idx) in enumerate(
+            zip(lane_cadence_miss_risk_indices, lane_cadence_miss_risk_alias_indices, combat_vfx_watchdog_indices),
             start=1,
         ):
             assert alias_idx == miss_risk_idx + 1, (
                 f"expected LCMR row directly after LANE CADENCE MISS RISK row in section {section_idx}"
+            )
+            assert watchdog_idx == alias_idx + 1, (
+                f"expected COMBAT/VFX CADENCE WATCHDOG row directly after LCMR row in section {section_idx}"
             )
         assert prsmc_family_churn_idx == prsmc_family_trend_idx + 1, (
             "expected PRSMC FAMILY CHURN row directly after PRSMC FAMILY TREND row"
