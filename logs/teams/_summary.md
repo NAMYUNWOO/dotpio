@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 03:58 KST
+Last updated: 2026-03-28 06:03 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle FV AI Content/World follow-up: weekly digest now emits offline confidence recommendation token `CADENCE BRIDGE GLYPH CONF:LOW|MID|HIGH` from prior-window freshness-gap volatility memory.
+- Payload contract now carries `cadenceBridgeGlyphConfidence` + `cadenceBridgeGlyphConfidenceSignals` (`currentGapHours`, `priorGapHours`, `gapDriftHours`, `gapVolatilityHours`, `priorLoaded`) for offline audit tooling.
+- Executed Game Director Cycle FW after full-check state and shipped selected UX/Design slice: `CADENCE BRIDGE GLYPH CONF LEGEND` row now appears in summary + token-coverage sections for glanceable confidence decode.
+- Injected next backlog tasks (unchecked): Systems/QA adjacency lock for glyph-confidence legend ordering and AI Content/World volatility-regime confidence policy prototype.
 
 - Closed Cycle FT AI Content/Combat slice: weekly digest now emits `CVCWHR FX LEGEND CPTC OVERRIDE:ON|OFF` when copy-pack trend direction and CPTC confidence diverge across 2+ consecutive windows.
 - Payload now carries `combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackTrendConfidenceOverride` + signals (`diverged`, `mismatchStreak`, `expectedConfidence`, `priorMismatchStreak`) for sustained mismatch triage.

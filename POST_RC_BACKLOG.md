@@ -1298,4 +1298,15 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Design/World Team (Cycle FT forced lane): Prototype `CADENCE BRIDGE GLYPH:CALM|TENSE` from bridge token + design/world freshness gap for next-cycle readability. *(lifecycle: [ ] -> [~] -> [x]; injected: 2026-03-28 03:58 KST; started: 2026-03-28 04:59 KST; completed: 2026-03-28 05:05 KST)*
 - [x] UX/Design Team (Cycle FV selected): Add `CADENCE BRIDGE GLYPH LEGEND` row in summary + token-coverage sections for `CALM|TENSE` readability. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 05:12 KST; completed: 2026-03-28 05:14 KST)*
 - [x] Systems/QA Team (Cycle FV follow-up): Add regression presence/count lock for `CADENCE BRIDGE GLYPH` + `CADENCE BRIDGE GLYPH LEGEND` rows. *(injected: 2026-03-28 05:12 KST; started: 2026-03-28 05:29 KST; completed: 2026-03-28 05:31 KST)*
-- [ ] AI Content/World Team (Cycle FV follow-up): Prototype offline glyph-confidence recommendation token (`CADENCE BRIDGE GLYPH CONF:LOW|MID|HIGH`) from freshness-gap volatility. *(injected: 2026-03-28 05:12 KST)*
+- [x] AI Content/World Team (Cycle FV follow-up): Prototype offline glyph-confidence recommendation token (`CADENCE BRIDGE GLYPH CONF:LOW|MID|HIGH`) from freshness-gap volatility. *(lifecycle: [ ] -> [~] -> [x]; injected: 2026-03-28 05:12 KST; started: 2026-03-28 06:00 KST; completed: 2026-03-28 06:01 KST)*
+
+
+## Cycle FW - Game Director Review (2026-03-28 06:03 KST)
+- Coverage check (last 10 completions): AI-content/world + systems/qa cadence lane now healthy; selected low-risk UX/design readability slice to keep newly added glyph-confidence token glanceable.
+- Idea 1 (low risk, UX/Design): Add `CADENCE BRIDGE GLYPH CONF LEGEND` row in summary + token-coverage (`LOW|MID|HIGH` mapping) with deterministic adjacency after `CADENCE BRIDGE GLYPH CONF`.
+- Idea 2 (mid risk, Systems/QA): Extend regression ordering lock to enforce `CADENCE BRIDGE GLYPH -> CADENCE BRIDGE GLYPH CONF -> CADENCE BRIDGE GLYPH CONF LEGEND -> CADENCE BRIDGE GLYPH LEGEND`.
+- Idea 3 (high risk, AI Content/World): Prototype volatility-regime-aware confidence policy (`LOW` threshold tightening when volatility spikes across 2+ windows).
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Design Team: Add `CADENCE BRIDGE GLYPH CONF LEGEND` row in summary + token-coverage for dense digest readability. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 06:03 KST; completed: 2026-03-28 06:03 KST)*
+- [ ] Systems/QA Team (Cycle FW follow-up): Add deterministic regression lock for `CADENCE BRIDGE GLYPH CONF LEGEND` presence/count + adjacency in summary/token-coverage sections. *(injected: 2026-03-28 06:03 KST)*
+- [ ] AI Content/World Team (Cycle FW follow-up): Prototype volatility-regime-aware confidence policy for `CADENCE BRIDGE GLYPH CONF` using 2-window spike memory. *(injected: 2026-03-28 06:03 KST)*
