@@ -2413,6 +2413,7 @@ def main() -> int:
         assert "CVCWHR FX LEGEND REC:" in md_text
         assert "CVCWHR FX LEGEND REC CONF:" in md_text
         assert "CVCWHR FX LEGEND CP:" in md_text
+        assert "CVCWHR FX LEGEND COPY PACK TREND:" in md_text
         assert "CADENCE BRIDGE:" in md_text
         assert "CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN:" in md_text
         assert "CADENCE BRIDGE FAMILY CHURN:" in md_text
@@ -2504,6 +2505,18 @@ def main() -> int:
             "flagEnabled",
             "copyPackToken",
             "alias",
+        }, payload
+        assert payload.get("combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackTrend") in {"COPY PACK TREND:STABLE", "COPY PACK TREND:SHIFTING"}, payload
+        assert set(payload.get("combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackTrendSignals", {}).keys()) == {
+            "trend",
+            "copyPack",
+            "priorCopyPack",
+            "deltaHours",
+            "priorDeltaHours",
+            "momentumShiftHours",
+            "priorLoaded",
+            "reason",
+            "offlineOnly",
         }, payload
         assert payload.get("cadenceBridge") in {"CADENCE BRIDGE:SCOUT", "CADENCE BRIDGE:PRESS", "CADENCE BRIDGE:HOLD"}, payload
         assert set(payload.get("cadenceBridgeSignals", {}).keys()) == {"bridge", "confidenceFloorRecommendation", "designWorldAgeHours", "systemsOpsAgeHours", "combatVfxAgeHours", "windowHours", "reason", "offlineOnly"}, payload
@@ -2828,6 +2841,7 @@ def main() -> int:
         combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_rec_conf_indices = _find_line_indices("- CVCWHR FX LEGEND REC CONF:")
         combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_indices = _find_line_indices("- CVCWHR FX LEGEND COPY PACK:")
         combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_alias_indices = _find_line_indices("- CVCWHR FX LEGEND CP:")
+        combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_trend_indices = _find_line_indices("- CVCWHR FX LEGEND COPY PACK TREND:")
         cadence_bridge_indices = _find_line_indices("- CADENCE BRIDGE:")
         combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_family_churn_indices = _find_line_indices("- CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN:")
         combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_family_churn_indices = _find_line_indices("- CVCWHR FX PULSE FAMILY CHURN:")
@@ -3192,6 +3206,9 @@ def main() -> int:
         assert len(combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_alias_indices) == 2, (
             "expected exactly two CVCWHR FX LEGEND CP alias rows (summary + token-coverage sections)"
         )
+        assert len(combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_trend_indices) == 2, (
+            "expected exactly two CVCWHR FX LEGEND COPY PACK TREND rows (summary + token-coverage sections)"
+        )
         assert len(cadence_bridge_indices) == 2, (
             "expected exactly two CADENCE BRIDGE rows (summary + token-coverage sections)"
         )
@@ -3313,6 +3330,7 @@ def main() -> int:
             coach_why_hyst_rec_conf_floor_fx_pulse_legend_rec_conf_idx = combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_rec_conf_indices[section_idx - 1]
             coach_why_hyst_rec_conf_floor_fx_pulse_legend_copy_pack_idx = combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_indices[section_idx - 1]
             coach_why_hyst_rec_conf_floor_fx_pulse_legend_copy_pack_alias_idx = combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_alias_indices[section_idx - 1]
+            coach_why_hyst_rec_conf_floor_fx_pulse_legend_copy_pack_trend_idx = combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_trend_indices[section_idx - 1]
             assert coach_why_hyst_rec_conf_floor_fx_pulse_legend_rec_conf_idx == coach_why_hyst_rec_conf_floor_fx_pulse_legend_rec_idx + 1, (
                 f"expected CVCWHR FX LEGEND REC CONF row directly after CVCWHR FX LEGEND REC row in section {section_idx}"
             )
@@ -3322,8 +3340,11 @@ def main() -> int:
             assert coach_why_hyst_rec_conf_floor_fx_pulse_legend_copy_pack_alias_idx == coach_why_hyst_rec_conf_floor_fx_pulse_legend_copy_pack_idx + 1, (
                 f"expected CVCWHR FX LEGEND CP alias row directly after CVCWHR FX LEGEND COPY PACK row in section {section_idx}"
             )
-            assert cadence_bridge_idx >= coach_why_hyst_rec_conf_floor_fx_pulse_legend_copy_pack_alias_idx + 1, (
-                f"expected CADENCE BRIDGE row after CVCWHR FX LEGEND CP row in section {section_idx}"
+            assert coach_why_hyst_rec_conf_floor_fx_pulse_legend_copy_pack_trend_idx == coach_why_hyst_rec_conf_floor_fx_pulse_legend_copy_pack_alias_idx + 1, (
+                f"expected CVCWHR FX LEGEND COPY PACK TREND row directly after CVCWHR FX LEGEND CP row in section {section_idx}"
+            )
+            assert cadence_bridge_idx >= coach_why_hyst_rec_conf_floor_fx_pulse_legend_copy_pack_trend_idx + 1, (
+                f"expected CADENCE BRIDGE row after CVCWHR FX LEGEND COPY PACK TREND row in section {section_idx}"
             )
             assert coach_why_hyst_rec_conf_floor_family_churn_idx == cadence_bridge_idx + 1, (
                 f"expected CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN row directly after CADENCE BRIDGE row in section {section_idx}"

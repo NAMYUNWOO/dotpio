@@ -1497,4 +1497,4 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/QA Team: Add `CVCWHR FX LEGEND COPY PACK FAMILY CHURN` row in summary + token-coverage sections with existing alias-family totals. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 01:01 KST; completed: 2026-03-28 01:08 KST)*
 - [x] UX/Design Team: Prototype compact copy-pack alias token (`CVCWHR FX LEGEND CP:<T|D|N>`) behind flag. *(started: 2026-03-28 01:22 KST; completed: 2026-03-28 01:27 KST)*
-- [ ] AI Content/Combat Team: Prototype offline copy-pack drift trend policy (`COPY PACK TREND:STABLE|SHIFTING`) from prior-window momentum shifts.
+- [x] AI Content/Combat Team: Prototype offline copy-pack drift trend policy (`COPY PACK TREND:STABLE|SHIFTING`) from prior-window momentum shifts. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 01:51 KST; completed: 2026-03-28 01:56 KST)*

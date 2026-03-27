@@ -3500,3 +3500,8 @@ Compact decision memory for AI context efficiency.
 - Contract updates: payload now includes alias token + alias signals; markdown summary and token-coverage sections include explicit `CVCWHR FX LEGEND CP` row.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up posture: next unchecked queue item remains Combat/VFX pulse token (`CVCWHR FX PULSE:SOFT|EDGE|HARD`).
+
+## 2026-03-28 01:56 KST — Cycle FQ copy-pack trend policy shipped
+- Added offline token `COPY PACK TREND:STABLE|SHIFTING` for `CVCWHR FX LEGEND COPY PACK` using prior-window comparisons (copy-pack change + `deltaHours` momentum shift threshold).
+- Wired token + signals into digest payload, summary section, and token-coverage section with fixed adjacency (`CVCWHR FX LEGEND COPY PACK` -> `CVCWHR FX LEGEND CP` -> `CVCWHR FX LEGEND COPY PACK TREND` -> `CADENCE BRIDGE`).
+- Extended regression contract to enforce presence, payload shape/value domain, row counts, and section ordering for the new trend row.
