@@ -3075,3 +3075,8 @@
 - Decisions:
   - Coach posture now derives from watchdog streak + `LANE CADENCE MISS RISK` (`NUDGE|ARM|ESCALATE`, offline only).
   - Added flag-gated compact alias `CVCC:<N|A|E>` for dense digest scans.
+
+## 2026-03-27 17:23 KST
+- Task: Added cadence-coach token-family churn row for `COMBAT/VFX CADENCE COACH` + `CVCC` in summary and token-coverage sections.
+- Decision: Keep deterministic ordering `... COACH -> CVCC -> COACH+CVCC FAMILY CHURN -> WATCHDOG LEGEND` in both sections.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).

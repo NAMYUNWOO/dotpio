@@ -2021,3 +2021,6 @@
 ## 2026-03-27 17:10:00 KST
 - Added combat/VFX cadence triage token `COMBAT/VFX CADENCE COACH` plus `CVCC` compact alias for operator scans.
 - Escalation policy: BREACH+HIGH (or long streak) => `ESCALATE`; pressure-only => `ARM`; healthy => `NUDGE`.
+
+## 2026-03-27 17:23 KST
+- Combat cadence telemetry now includes `COMBAT/VFX CADENCE COACH + CVCC FAMILY CHURN` so operators can spot coach-token drift at a glance.

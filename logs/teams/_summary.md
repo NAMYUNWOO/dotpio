@@ -3386,3 +3386,9 @@ Compact decision memory for AI context efficiency.
 - Completed: Design/World watchdog legend task (`COMBAT/VFX CADENCE WATCHDOG LEGEND`) with deterministic adjacency after streak rows in summary + token-coverage.
 - Regression: extended ordering/presence checks for legend rows; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Backlog state: FH now has one open item remaining (AI Content/Combat cadence escalation coach token).
+
+## 2026-03-27 17:23 KST — Cycle FI progress
+- Completed: Systems/QA cadence-coach churn contract (`COMBAT/VFX CADENCE COACH + CVCC FAMILY CHURN`) in weekly digest summary + token-coverage.
+- Durable decision: cadence coach cluster order is now fixed as `WATCHDOG STREAK -> COACH -> CVCC -> COACH+CVCC FAMILY CHURN -> WATCHDOG LEGEND`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Remaining FI item: AI Content/Combat offline rationale token `COMBAT/VFX CADENCE COACH WHY:<short>`.

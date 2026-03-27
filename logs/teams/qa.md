@@ -3643,3 +3643,9 @@
   - payload schema checks (`combatVfxCadenceCoach*`)
   - ordering lock `WATCHDOG STREAK -> COACH -> CVCC -> LEGEND` in summary + token coverage.
 - Verification passed (`py_compile`, weekly drift regression).
+
+## 2026-03-27 17:23 KST
+- Regression lock extended for cadence coach stack:
+  - exactly two `COMBAT/VFX CADENCE COACH + CVCC FAMILY CHURN` rows (summary + token coverage)
+  - strict adjacency `COACH -> CVCC -> FAMILY CHURN -> WATCHDOG LEGEND` in both sections.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

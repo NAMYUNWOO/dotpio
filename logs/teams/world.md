@@ -2037,3 +2037,7 @@
 ## 2026-03-27 17:10:00 KST
 - Digest readability update: Added compact `CVCC` lane-coach shorthand so world-facing dashboards can scan cadence posture in one token.
 - Outcome: summary + token-coverage sections now keep deterministic order `... WATCHDOG STREAK -> COACH -> CVCC -> LEGEND`.
+
+## 2026-03-27 17:23 KST
+- No world-content copy changes this slice.
+- Confirmed cadence coach family-churn row keeps dashboard readability adjacent to cadence legend rows.

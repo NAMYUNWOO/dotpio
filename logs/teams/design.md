@@ -2102,3 +2102,6 @@
 ## 2026-03-27 17:10:00 KST
 - Introduced compact alias naming for cadence coach (`CVCC`) to reduce digest width while preserving semantic parity with full coach token.
 - Kept legend adjacency stable for predictable visual parsing.
+
+## 2026-03-27 17:23 KST
+- Preserved digest scan order by locking cadence coach family-churn row directly before watchdog legend in both sections.

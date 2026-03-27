@@ -2300,3 +2300,6 @@
 ## 2026-03-27 17:10:00 KST
 - UX density pass: inserted `CVCC:<N|A|E>` row directly after cadence coach row in both summary and token-coverage sections.
 - Benefit: quick triage without scanning full prose token.
+
+## 2026-03-27 17:23 KST
+- UX scanability update: added one-line `COACH + CVCC FAMILY CHURN` triage row to reduce context switches during cadence audits.

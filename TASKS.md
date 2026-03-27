@@ -1422,5 +1422,5 @@ See project-level plans:
 
 ## Cycle FI - Game Director Review (2026-03-27 17:03 KST)
 - [x] UX/Systems Team: Add compact cadence-coach alias token (`CVCC:<N|A|E>`) behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 17:03 KST; completed: 2026-03-27 17:10 KST)*
-- [ ] Systems/QA Team: Add token-family churn coverage + adjacency/order lock for `COMBAT/VFX CADENCE COACH:` (+ alias row) in summary/token-coverage sections.
+- [x] Systems/QA Team: Add token-family churn coverage + adjacency/order lock for `COMBAT/VFX CADENCE COACH:` (+ alias row) in summary/token-coverage sections. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 17:21 KST; completed: 2026-03-27 17:23 KST)*
 - [ ] AI Content/Combat Team: Prototype offline escalation rationale token (`COMBAT/VFX CADENCE COACH WHY:<short>`) derived from miss-risk delta + streak trend.
