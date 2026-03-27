@@ -1458,3 +1458,19 @@ See project-level plans:
 - [x] UX/Systems Team: Add compact recommendation-confidence alias token (`CVCWHRC:<L|M|H>`) behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 20:34 KST)*
 - [x] Systems/QA Team: Add deterministic family-churn row + adjacency/order lock for `CVCWHR CONF` + `CVCWHRC` rows in summary + token-coverage. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 20:51 KST; completed: 2026-03-27 20:56 KST)*
 - [x] AI Content/Combat Team: Prototype adaptive confidence floor recommendation policy from miss-risk recovery slope + volatility persistence windows (offline-only). *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 21:21 KST; completed: 2026-03-27 21:29 KST)*
+
+
+## Cycle FM - Game Director Review (2026-03-27 21:36 KST)
+- Coverage check (last 10 completions): systems/qa + cadence-contract rows still dense; selected a low-risk UX/readability slice to keep new confidence-floor policy scanable.
+- Idea 1 (low risk, UX/Systems): Add compact confidence-floor recommendation alias token (`CVCWHRF:<K|R|X>`) behind flag for dense digest scans.
+- Idea 2 (mid risk, Systems/QA): Add token-family churn + adjacency lock for `CVCWHR CONF FLOOR REC:` + `CVCWHRF:` in summary/token-coverage.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline adaptive floor policy that biases `RAISE` when volatility stays `SWING` for 3+ windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Systems Team: Add compact confidence-floor recommendation alias token (`CVCWHRF:<K|R|X>`) behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_FLOOR_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [~] -> [x]; completed: 2026-03-27 21:46 KST)*
+- [x] Systems/QA Team: Add token-family churn coverage + adjacency lock for `CVCWHR CONF FLOOR REC:` + `CVCWHRF:` rows in summary/token-coverage. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 21:52 KST)*
+- [x] AI Content/Combat Team: Prototype offline persistence-window bias policy for confidence-floor `RAISE` recommendations under sustained `SWING` volatility. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 21:52 KST)*
+
+## Cycle FN - Forced Lane Rebalance Queue (2026-03-27 21:54 KST)
+- [ ] Design/World Team: Prototype compact cadence narrative bridge token (`CADENCE BRIDGE:SCOUT|PRESS|HOLD`) from `CVCWHR` floor recommendation + lane freshness for underrepresented design/world readability.
+- [ ] Systems/Ops Team: Add 24h lane-cadence hard-check row (`LANE CADENCE 24H CHECK:PASS|FAIL`) in weekly digest to enforce combat/vfx + design/world + systems/ops minimum-touch contract.
+- [ ] Combat/VFX Team: Prototype cadence floor FX pulse token (`CVCWHR FX PULSE:SOFT|EDGE|HARD`) mapped from `CVCWHR CONF FLOOR REC` for postmortem feel triage continuity.

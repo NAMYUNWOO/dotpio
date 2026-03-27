@@ -2122,3 +2122,8 @@
 - Completed offline adaptive confidence-floor recommendation policy from miss-risk recovery slope + volatility persistence windows.
 - Wired new digest token `CVCWHR CONF FLOOR REC:KEEP|RAISE|RELAX` with payload signals (risk/volatility/recovery/persistence/delta/reason).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 21:52 KST — Cycle FM offline persistence-window bias prototype
+- Upgraded offline confidence-floor policy so sustained `SWING` volatility for 3+ windows biases recommendation toward `CVCWHR CONF FLOOR REC:RAISE`.
+- Added explicit signal `swingPersistenceBiasApplied` for auditability in digest payload and markdown rows.
+- Policy remains offline-only/reversible (no runtime gameplay coupling).

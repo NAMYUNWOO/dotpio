@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-27 19:21 KST
+Last updated: 2026-03-27 21:54 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle FM (selected UX/Systems slice): weekly digest now emits compact confidence-floor alias `CVCWHRF:<K|R|X>` behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_FLOOR_ALIAS`.
+- Closed Cycle FM Systems/QA follow-up: added deterministic churn row `CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN` and adjacency lock (`... FLOOR REC -> CVCWHRF -> FLOOR FAMILY CHURN -> CVCWH FAMILY CHURN ...`) in summary + token-coverage.
+- Closed Cycle FM AI Content/Combat follow-up: offline confidence-floor policy now applies sustained `SWING` persistence bias (3+ windows => favor `RAISE`) with explicit signal `swingPersistenceBiasApplied`.
+- Coverage check (last 10 completions) shows systems-lane saturation (>40%); queued forced-lane FN backlog for underrepresented lanes (design/world + systems/ops + combat/vfx).
 
 - Closed Cycle FK Systems/QA follow-up item: weekly digest now emits dedicated `CVCWH FAMILY CHURN` rows (summary + token-coverage) from `combatVfxCadenceCoachWhyHysteresisAlias` family totals.
 - Regression contract now hard-locks cadence rationale ordering as `... COACH WHY -> CVCW -> CVCWH -> CVCWH FAMILY CHURN -> COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN -> CVCC ...`; verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).

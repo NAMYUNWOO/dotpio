@@ -313,3 +313,7 @@
 - New experiment flag: `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK_FX_CUE`.
 - Mapping kept deterministic/reversible (`HOLD LINE→SOFT`, `STAGE SWAP→SHARP`, `RELEASE PUSH→SURGE`, `KEEP BASE→STEADY`).
 - Verification: weekly digest regression + py_compile + flagged digest generation PASS.
+
+## 2026-03-27 21:54 KST — Cadence compliance touch (no runtime VFX mutation)
+- Logged FM completion and queued forced-lane follow-up `CVCWHR FX PULSE:SOFT|EDGE|HARD` for next cycle to maintain combat/vfx freshness.
+- This cycle made no runtime VFX render changes; impact is digest/readability-layer only.

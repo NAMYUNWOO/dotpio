@@ -3141,3 +3141,8 @@
 - Completed offline adaptive confidence-floor recommendation policy from miss-risk recovery slope + volatility persistence windows.
 - Wired new digest token `CVCWHR CONF FLOOR REC:KEEP|RAISE|RELAX` with payload signals (risk/volatility/recovery/persistence/delta/reason).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 21:52 KST — Cycle FM Systems/QA closure
+- Added dedicated churn contract row `CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN` in summary + token-coverage sections.
+- Extended regression ordering to enforce: `... CVCWHR CONF FLOOR REC -> CVCWHRF -> CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN -> CVCWH FAMILY CHURN ...`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

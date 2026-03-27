@@ -2335,3 +2335,8 @@
 - Completed offline adaptive confidence-floor recommendation policy from miss-risk recovery slope + volatility persistence windows.
 - Wired new digest token `CVCWHR CONF FLOOR REC:KEEP|RAISE|RELAX` with payload signals (risk/volatility/recovery/persistence/delta/reason).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 21:52 KST — Cycle FM compact floor-confidence alias shipped
+- Shipped compact digest alias `CVCWHRF:<K|R|X>` for `CVCWHR CONF FLOOR REC` behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_FLOOR_ALIAS`.
+- Alias preserves dense scanability while keeping detailed floor-recommendation row intact.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
