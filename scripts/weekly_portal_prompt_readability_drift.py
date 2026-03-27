@@ -27,8 +27,8 @@ PORTAL_PATH_HINTS = (
     "scripts/regression_combat_damage_numbers.lua",
 )
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCC:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCC:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCC:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCC:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 TOKEN_CATALOG: list[str] = []
@@ -128,6 +128,7 @@ TOKEN_ALIAS_FAMILIES = {
     "combatVfxCadenceCoachAlias": ["COMBAT/VFX CADENCE COACH:", "CVCC:"],
     "combatVfxCadenceCoachWhy": ["COMBAT/VFX CADENCE COACH WHY:", "CVCW:"],
     "combatVfxCadenceCoachWhyHysteresisAlias": ["CVCWH:"],
+    "combatVfxCadenceCoachWhyHysteresisRecommendationAlias": ["CVCWHR:"],
 }
 ROUTE_VIBE_PATTERNS = {
     "CALM": ("ROUTE VIBE:CALM", "VIBE:C"),
@@ -614,6 +615,28 @@ def resolve_combat_vfx_cadence_coach_why_hysteresis_alias(*, coach_why_signals: 
         "flagEnabled": flag_enabled,
         "hysteresisApplied": hysteresis_applied,
         "alias": token,
+    }
+
+
+def resolve_combat_vfx_cadence_coach_why_hysteresis_recommendation_alias(*, coach_why_signals: dict[str, object], lane_cadence_miss_risk_signals: dict[str, object]) -> tuple[str, dict[str, object]]:
+    """Offline recommendation alias for adaptive coach-why hysteresis posture.
+
+    `CVCWHR:HOLD` suggests sticky behavior should remain conservative; `CVCWHR:RELAX`
+    suggests release conditions are recovering.
+    """
+    volatility = str(coach_why_signals.get("watchdogStreakTrendVolatility", "CALM") or "CALM").upper()
+    risk = str(lane_cadence_miss_risk_signals.get("risk", "MID") or "MID").upper()
+    delta_hours = float(lane_cadence_miss_risk_signals.get("deltaHours", 0.0) or 0.0)
+    hysteresis_applied = bool(coach_why_signals.get("hysteresisApplied", False))
+
+    hold = hysteresis_applied or volatility in {"SWING", "SPIKE"} or (risk == "HIGH" and delta_hours >= -4.0)
+    recommendation = "CVCWHR:HOLD" if hold else "CVCWHR:RELAX"
+    return recommendation, {
+        "volatility": volatility,
+        "risk": risk,
+        "deltaHours": delta_hours,
+        "hysteresisApplied": hysteresis_applied,
+        "reason": "volatile-or-high-risk" if hold else "calm-recovery-window",
     }
 
 
@@ -8385,6 +8408,10 @@ def main() -> int:
     combat_vfx_cadence_coach_why_hysteresis_alias_token, combat_vfx_cadence_coach_why_hysteresis_alias_signals = resolve_combat_vfx_cadence_coach_why_hysteresis_alias(
         coach_why_signals=combat_vfx_cadence_coach_why_signals,
     )
+    combat_vfx_cadence_coach_why_hysteresis_recommendation_token, combat_vfx_cadence_coach_why_hysteresis_recommendation_signals = resolve_combat_vfx_cadence_coach_why_hysteresis_recommendation_alias(
+        coach_why_signals=combat_vfx_cadence_coach_why_signals,
+        lane_cadence_miss_risk_signals=lane_cadence_miss_risk_signals,
+    )
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
         lane_bucket_age=lane_bucket_age,
     )
@@ -9969,6 +9996,8 @@ def main() -> int:
         "combatVfxCadenceCoachWhyAliasSignals": combat_vfx_cadence_coach_why_alias_signals,
         "combatVfxCadenceCoachWhyHysteresisAlias": combat_vfx_cadence_coach_why_hysteresis_alias_token,
         "combatVfxCadenceCoachWhyHysteresisAliasSignals": combat_vfx_cadence_coach_why_hysteresis_alias_signals,
+        "combatVfxCadenceCoachWhyHysteresisRecommendationAlias": combat_vfx_cadence_coach_why_hysteresis_recommendation_token,
+        "combatVfxCadenceCoachWhyHysteresisRecommendationAliasSignals": combat_vfx_cadence_coach_why_hysteresis_recommendation_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,
         "combatVfxCadenceCoachAliasSignals": combat_vfx_cadence_coach_alias_signals,
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,

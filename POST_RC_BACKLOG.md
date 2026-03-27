@@ -1221,3 +1221,8 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/Systems Team: Ship `CVCWH:<H|S>` alias for coach-why hysteresis floor behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_ALIAS` with payload/markdown wiring + regression coverage. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 19:00 KST; completed: 2026-03-27 19:07 KST)*
 - [x] Systems/QA Team: Add dedicated `CVCWH` family-churn row + hard ordering contract next to cadence coach rationale cluster. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 19:21 KST)*
 - [x] AI Content/Combat Team: Prototype adaptive coach-why sticky-window length recommendation from miss-risk recovery slope + streak volatility memory (offline-only). *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 19:52 KST; completed: 2026-03-27 19:55 KST)*
+
+## Cycle FK - Game Director Review (2026-03-27 20:02 KST)
+- [x] Systems/UX (selected low-risk slice): Add offline hysteresis recommendation alias token `CVCWHR:HOLD|RELAX` from coach-why hysteresis + miss-risk signals. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 20:03 KST)*
+- [ ] Systems/QA: Add markdown/token-coverage row + adjacency lock for `CVCWHR` family churn.
+- [ ] AI Content/Combat: Prototype adaptive `CVCWHR CONF:LOW|MID|HIGH` confidence tier from recovery slope + volatility memory.

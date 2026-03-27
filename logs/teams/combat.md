@@ -2042,3 +2042,8 @@
 - `RED HOLD` hysteresis now uses adaptive floor threshold from risk severity + recovery slope + volatility memory.
 - Goal: reduce premature downshift during volatile streak transitions while allowing faster release in calm recovery windows.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-27 20:03 KST — Cycle FK selected slice (`CVCWHR`)
+- Game Director review executed (3 ideas); selected low-risk vertical slice.
+- Shipped digest-only token `CVCWHR:HOLD|RELAX` from coach-why hysteresis + miss-risk signals (offline-only).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

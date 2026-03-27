@@ -3423,3 +3423,11 @@ Compact decision memory for AI context efficiency.
 - Durable decision: replace fixed RED HOLD hysteresis floor (`-6h`) with adaptive floor hours derived from risk severity, recovery slope (`deltaHours`), and prior-window volatility memory to reduce oscillation during `SWING|SPIKE` streaks.
 - Scope: digest/regression layer only (`scripts/weekly_portal_prompt_readability_drift.py`); no runtime gameplay coupling.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 20:03 KST — Cycle FK Game Director slice (`CVCWHR`)
+- Ideas generated:
+  1) Low-risk (selected): `CVCWHR:HOLD|RELAX` recommendation alias.
+  2) Mid-risk: `CVCWHR FAMILY CHURN` markdown adjacency lock.
+  3) High-risk: `CVCWHR CONF:LOW|MID|HIGH` adaptive confidence token.
+- Selected implementation: shipped low-risk digest-only alias and injected remaining two tasks into `TASKS.md` + `POST_RC_BACKLOG.md`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

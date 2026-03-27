@@ -3694,3 +3694,8 @@
 ## 2026-03-27 19:55 KST — Regression pass for adaptive hysteresis
 - Ran: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Result: PASS, including coach-why signal schema + hysteresis behavior checks.
+
+## 2026-03-27 20:03 KST — Cycle FK selected slice (`CVCWHR`)
+- Game Director review executed (3 ideas); selected low-risk vertical slice.
+- Shipped digest-only token `CVCWHR:HOLD|RELAX` from coach-why hysteresis + miss-risk signals (offline-only).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

@@ -2320,3 +2320,8 @@
 ## 2026-03-27 19:55 KST — UX stability note (digest)
 - Adaptive sticky-window recommendation improves cadence-coach signal stability in volatile windows.
 - No new UI tokens introduced; existing digest/readability surfaces remain schema-compatible.
+
+## 2026-03-27 20:03 KST — Cycle FK selected slice (`CVCWHR`)
+- Game Director review executed (3 ideas); selected low-risk vertical slice.
+- Shipped digest-only token `CVCWHR:HOLD|RELAX` from coach-why hysteresis + miss-risk signals (offline-only).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

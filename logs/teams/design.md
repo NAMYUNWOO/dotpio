@@ -2121,3 +2121,8 @@
 ## 2026-03-27 19:55 KST — Readability contract note
 - Kept existing rationale labels intact (`RED HOLD` etc.) and maintained deterministic concise wording.
 - Change is behavioral thresholding only; no new operator vocabulary introduced.
+
+## 2026-03-27 20:03 KST — Cycle FK selected slice (`CVCWHR`)
+- Game Director review executed (3 ideas); selected low-risk vertical slice.
+- Shipped digest-only token `CVCWHR:HOLD|RELAX` from coach-why hysteresis + miss-risk signals (offline-only).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
