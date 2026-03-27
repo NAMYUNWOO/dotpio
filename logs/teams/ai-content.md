@@ -2167,3 +2167,4 @@
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS), `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Follow-up: Keep cadence-cluster ordering deterministic (`COPY PACK -> CP alias -> COPY PACK TREND -> CADENCE BRIDGE`) and monitor first live digest deltas.
+- 2026-03-28 02:32 KST — FR confidence rationale now explicit (`LOW|MID|HIGH`) for copy-pack trend, with reason strings to support offline coaching interpretation.

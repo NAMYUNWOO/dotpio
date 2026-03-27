@@ -1276,3 +1276,11 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Systems/QA Team: Add `CVCWHR FX LEGEND COPY PACK FAMILY CHURN` row in summary + token-coverage sections with existing alias-family totals. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 01:01 KST; completed: 2026-03-28 01:08 KST)*
 - [x] UX/Design Team: Prototype compact copy-pack alias token (`CVCWHR FX LEGEND CP:<T|D|N>`) behind flag. *(started: 2026-03-28 01:22 KST; completed: 2026-03-28 01:27 KST)*
 - [x] AI Content/Combat Team: Prototype offline copy-pack drift trend policy (`COPY PACK TREND:STABLE|SHIFTING`) from prior-window momentum shifts. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 01:51 KST; completed: 2026-03-28 01:56 KST)*
+
+## Cycle FR - Game Director Review (2026-03-28 02:21 KST)
+- Coverage check (last 10 completions): cadence copy-pack cluster has trend + alias, but no explicit confidence readability cue; selected low-risk UX/Systems slice to reduce operator ambiguity.
+- Idea 1 (low risk, UX/Systems): Add trend-confidence token (`CVCWHR FX LEGEND COPY PACK TREND CONF:LOW|MID|HIGH`) plus compact alias (`CVCWHR FX LEGEND CPTC:<L|M|H>`).
+- Idea 2 (mid risk, Systems/QA): Add dedicated family churn row + adjacency lock for trend-confidence token family.
+- Idea 3 (high risk, AI Content/Combat): Prototype adaptive confidence smoothing policy from 3-window momentum decay and volatility regime.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Systems Team: Add copy-pack trend-confidence token + compact alias (`CVCWHR FX LEGEND COPY PACK TREND CONF`, `CVCWHR FX LEGEND CPTC`) with payload/markdown wiring and regression ordering updates. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 02:21 KST; completed: 2026-03-28 02:32 KST)*

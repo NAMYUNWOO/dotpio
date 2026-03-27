@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 00:59 KST
+Last updated: 2026-03-28 02:32 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle FR UX/Systems slice: weekly digest now emits `CVCWHR FX LEGEND COPY PACK TREND CONF:LOW|MID|HIGH` plus compact alias `CVCWHR FX LEGEND CPTC:<L|M|H>` for copy-pack trend readability.
+- Payload contract now includes `combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackTrendConfidence` + signals (`confidence`, `momentumShiftHours`, alias flag metadata) for downstream audits.
+- Regression contract expanded to require the new confidence rows in both summary/token-coverage sections, assert schema, and lock adjacency `... CPT -> TREND CONF -> CPTC -> CADENCE BRIDGE ...`.
+- TASKS + POST_RC synchronized with Cycle FR completion (`[ ] -> [~] -> [x]`), and team logs updated across systems/world/ai-content/combat/design/ux/qa.
 
 - Closed Cycle FP Combat/Design follow-up: weekly digest now emits offline token `CVCWHR FX LEGEND COPY PACK:TERSE|DIRECTIVE|NARRATIVE` derived from miss-risk momentum delta + volatility/confidence context.
 - Copy-pack row is present in both summary and token-coverage sections, and payload now includes `combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPack` + signals for downstream review tooling.
