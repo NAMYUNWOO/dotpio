@@ -2092,3 +2092,10 @@
 - Closed AI Content/Combat rationale-token follow-up by shipping offline `COMBAT/VFX CADENCE COACH WHY:<short>` (miss-risk delta + watchdog streak trend).
 - Executed Game Director Cycle FJ (3 ideas) and selected low-risk vertical slice: compact alias `CVCW:<R|H|P|C|B>` behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_ALIAS`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
+
+## 2026-03-27 18:58 KST — Cycle FJ closure: coach-why hysteresis floor
+- Task: Prototype `RED HOLD` sticky-window hysteresis for `COMBAT/VFX CADENCE COACH WHY` from miss-risk delta + streak trend volatility.
+- Decision: Added one-window floor when prior rationale was `RED HOLD`, current downgrade candidate is non-red, streak volatility is `SWING|SPIKE`, and miss-risk delta remains within de-escalation guard band (>= -6h).
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 -m py_compile ...` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: If all queues remain checked, trigger next Game Director 3-idea experiment cycle.

@@ -3666,3 +3666,10 @@
   - No gameplay/runtime coupling introduced (digest-only observability change).
 - Follow-up:
   - Queue next unchecked AI Content/Combat hysteresis-floor prototype after this commit lands.
+
+## 2026-03-27 18:58 KST — Regression extension for RED HOLD floor
+- Added deterministic unit-path assertion that prior `COMBAT/VFX CADENCE COACH WHY:RED HOLD` + `SWING` streak delta keeps `RED HOLD` and sets `hysteresisApplied=True`.
+- Expanded payload key contract for `combatVfxCadenceCoachWhySignals` to include volatility + prior-window metadata.
+- Verification commands passed:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`

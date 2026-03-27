@@ -66,6 +66,7 @@ from weekly_portal_prompt_readability_drift import (
     combo_confidence_fx_accent_family_trend_from_prior,
     combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior,
     lane_priority_recommendation_confidence_guard,
+    combat_vfx_cadence_coach_why,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -232,6 +233,21 @@ def main() -> int:
         assert baseline_guard_signals["divergenceThreshold"] == 2, baseline_guard_signals
         assert baseline_guard_signals["thresholdPolicy"] == "BASELINE", baseline_guard_signals
         assert baseline_guard_signals["guardApplied"] is False, baseline_guard_signals
+
+        coach_why_prior = repo / "coach_why_prior.json"
+        coach_why_prior.write_text(
+            json.dumps({"combatVfxCadenceCoachWhy": "COMBAT/VFX CADENCE COACH WHY:RED HOLD"}),
+            encoding="utf-8",
+        )
+        coach_why_token, coach_why_signals = combat_vfx_cadence_coach_why(
+            combat_vfx_cadence_watchdog_streak_signals={"streak": 4, "priorStreak": 3},
+            lane_cadence_miss_risk_signals={"risk": "MID", "deltaHours": -2.0},
+            prior_json_path=coach_why_prior,
+        )
+        assert coach_why_token == "COMBAT/VFX CADENCE COACH WHY:RED HOLD", coach_why_signals
+        assert coach_why_signals["hysteresisApplied"] is True, coach_why_signals
+        assert coach_why_signals["priorShort"] == "RED HOLD", coach_why_signals
+        assert coach_why_signals["watchdogStreakTrendVolatility"] == "SWING", coach_why_signals
 
         assert payload.get("comboConfidenceFxAccentTrendHysteresisRecommendation") in {"HOLD", "ALLOW"}, payload
         assert payload.get("comboConfidenceFxAccentTrendHysteresisConfidence") in {"LOW", "MID", "HIGH"}, payload
@@ -2428,6 +2444,10 @@ def main() -> int:
             "priorWatchdogStreak",
             "watchdogStreakDelta",
             "watchdogStreakTrend",
+            "watchdogStreakTrendVolatility",
+            "priorShort",
+            "priorLoaded",
+            "hysteresisApplied",
             "offlineOnly",
         }, payload
         assert payload.get("combatVfxCadenceCoachWhyAlias") in {"FLAG OFF", "CVCW:R", "CVCW:H", "CVCW:P", "CVCW:C", "CVCW:B"}, payload

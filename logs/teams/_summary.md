@@ -3402,3 +3402,9 @@ Compact decision memory for AI context efficiency.
 - Added flag-gated compact alias `CVCW:<R|H|P|C|B>` via `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_ALIAS` with payload fields `combatVfxCadenceCoachWhyAlias` + `combatVfxCadenceCoachWhyAliasSignals`.
 - Locked markdown adjacency in both digest sections: `... WATCHDOG STREAK -> COACH -> COACH WHY -> CVCW -> CVCC -> COACH+CVCC FAMILY CHURN -> WATCHDOG LEGEND`.
 - Follow-up backlog injected: (1) add coach-why family churn row for `COMBAT/VFX CADENCE COACH WHY + CVCW`; (2) prototype coach-why hysteresis floor (`RED HOLD` sticky window).
+
+## 2026-03-27 18:58 KST — Cycle FJ completion: coach-why hysteresis floor shipped
+- Closed remaining unchecked TASKS/POST_RC item by implementing volatility-gated `RED HOLD` sticky window in `combat_vfx_cadence_coach_why`.
+- Durable decision: allow one-window `RED HOLD` persistence only when prior short was `RED HOLD`, streak trend volatility is `SWING|SPIKE`, and miss-risk delta has not recovered beyond `-6h`.
+- Payload contract expanded with `watchdogStreakTrendVolatility`, `priorShort`, `priorLoaded`, `hysteresisApplied`; regression assertions updated and passing.
+- Queue status: ACTION_ITEMS/TASKS/POST_RC now fully checked; next loop should start Game Director review cycle (3 ideas -> choose 1 -> minimal vertical slice).

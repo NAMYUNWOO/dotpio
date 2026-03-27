@@ -3097,3 +3097,8 @@
   - Preserved deterministic row order: `... COACH WHY -> CVCW -> COACH WHY + CVCW FAMILY CHURN -> CVCC -> COACH + CVCC FAMILY CHURN`.
 - Follow-up:
   - Next highest unchecked item is AI Content/Combat coach-why hysteresis floor prototype (`RED HOLD` sticky window).
+
+## 2026-03-27 18:58 KST — Coach-why hysteresis floor wiring
+- Updated `combat_vfx_cadence_coach_why(..., prior_json_path)` to read prior digest token and apply volatility-gated floor.
+- Durable rule: `RED HOLD` may persist for one additional window only under `SWING|SPIKE` streak volatility with bounded miss-risk recovery (`deltaHours >= -6`).
+- Regression updated to assert floor activation path and new signal keys.

@@ -467,14 +467,25 @@ def combat_vfx_cadence_coach(*, combat_vfx_cadence_watchdog_streak_signals: dict
 
 
 
-def combat_vfx_cadence_coach_why(*, combat_vfx_cadence_watchdog_streak_signals: dict[str, object], lane_cadence_miss_risk_signals: dict[str, object]) -> tuple[str, dict[str, object]]:
-    """Compact rationale token derived from miss-risk delta and watchdog streak trend."""
+def combat_vfx_cadence_coach_why(*, combat_vfx_cadence_watchdog_streak_signals: dict[str, object], lane_cadence_miss_risk_signals: dict[str, object], prior_json_path: Path | None = None) -> tuple[str, dict[str, object]]:
+    """Compact rationale token derived from miss-risk delta and watchdog streak trend.
+
+    Includes a one-window RED HOLD hysteresis floor so volatile streak transitions do not
+    instantly downshift rationale after a high-risk hold.
+    """
     risk = str(lane_cadence_miss_risk_signals.get("risk", "MID") or "MID").upper()
     delta_hours = float(lane_cadence_miss_risk_signals.get("deltaHours", 0.0) or 0.0)
     streak = int(combat_vfx_cadence_watchdog_streak_signals.get("streak", 0) or 0)
     prior_streak = int(combat_vfx_cadence_watchdog_streak_signals.get("priorStreak", 0) or 0)
     streak_delta = streak - prior_streak
     streak_trend = "RISING" if streak_delta > 0 else ("FALLING" if streak_delta < 0 else "FLAT")
+
+    if abs(streak_delta) >= 2:
+        streak_trend_volatility = "SPIKE"
+    elif abs(streak_delta) == 1:
+        streak_trend_volatility = "SWING"
+    else:
+        streak_trend_volatility = "CALM"
 
     if risk == "HIGH" and streak_trend == "RISING":
         short = "RED CLIMB"
@@ -492,6 +503,29 @@ def combat_vfx_cadence_coach_why(*, combat_vfx_cadence_watchdog_streak_signals: 
         short = "BASELINE WATCH"
         reason = "stable-miss-risk-delta-and-flat-streak"
 
+    prior_short = "UNKNOWN"
+    prior_loaded = False
+    hysteresis_applied = False
+    if prior_json_path is not None and prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_short_token = str(prior_payload.get("combatVfxCadenceCoachWhy", "") or "").strip()
+            if prior_short_token.startswith("COMBAT/VFX CADENCE COACH WHY:"):
+                prior_short = prior_short_token.split(":", 1)[1].strip().upper()
+                prior_loaded = True
+        except (OSError, json.JSONDecodeError):
+            prior_loaded = False
+
+    if (
+        prior_short == "RED HOLD"
+        and short != "RED HOLD"
+        and streak_trend_volatility in {"SWING", "SPIKE"}
+        and delta_hours >= -6.0
+    ):
+        short = "RED HOLD"
+        reason = "red-hold-hysteresis-floor-on-volatile-streak"
+        hysteresis_applied = True
+
     token = f"COMBAT/VFX CADENCE COACH WHY:{short}"
     return token, {
         "short": short,
@@ -502,6 +536,10 @@ def combat_vfx_cadence_coach_why(*, combat_vfx_cadence_watchdog_streak_signals: 
         "priorWatchdogStreak": prior_streak,
         "watchdogStreakDelta": streak_delta,
         "watchdogStreakTrend": streak_trend,
+        "watchdogStreakTrendVolatility": streak_trend_volatility,
+        "priorShort": prior_short,
+        "priorLoaded": prior_loaded,
+        "hysteresisApplied": hysteresis_applied,
         "offlineOnly": True,
     }
 
@@ -8303,6 +8341,7 @@ def main() -> int:
     combat_vfx_cadence_coach_why_token, combat_vfx_cadence_coach_why_signals = combat_vfx_cadence_coach_why(
         combat_vfx_cadence_watchdog_streak_signals=combat_vfx_cadence_watchdog_streak_signals,
         lane_cadence_miss_risk_signals=lane_cadence_miss_risk_signals,
+        prior_json_path=args.out_json,
     )
     combat_vfx_cadence_coach_why_alias_token, combat_vfx_cadence_coach_why_alias_signals = resolve_combat_vfx_cadence_coach_why_alias(
         coach_why_token=combat_vfx_cadence_coach_why_token,

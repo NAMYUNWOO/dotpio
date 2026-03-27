@@ -1210,4 +1210,4 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Ship compact coach-why alias `CVCW:<R|H|P|C|B>` behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_ALIAS` with payload/markdown wiring + ordering regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 17:58 KST; completed: 2026-03-27 18:04 KST)*
 - [x] Systems/QA Team: Add `COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN` row adjacent to cadence coach cluster in both digest sections. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 18:12 KST; completed: 2026-03-27 18:24 KST)*
-- [ ] AI Content/Combat Team: Prototype coach-why hysteresis floor (`RED HOLD` sticky window) from miss-risk delta + streak trend volatility.
+- [x] AI Content/Combat Team: Prototype coach-why hysteresis floor (`RED HOLD` sticky window) from miss-risk delta + streak trend volatility. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 18:51 KST; completed: 2026-03-27 18:58 KST)*
