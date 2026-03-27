@@ -2093,3 +2093,8 @@
 
 ## 2026-03-27 15:58 KST — Cycle FH follow-up injected
 - New queued design/world follow-up: add `COMBAT/VFX CADENCE WATCHDOG LEGEND` row directly after streak row for decode clarity.
+
+## 2026-03-27 16:26 KST — Watchdog legend readability contract
+- Added design/readability legend for `COMBAT/VFX CADENCE WATCHDOG` immediately after streak rows.
+- Copy contract: `OK=recent touch`, `BREACH=stale >24h`, `STREAK=consecutive BREACH windows`.
+- Rationale: remove ambiguity during dense digest triage.

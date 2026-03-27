@@ -2027,3 +2027,9 @@
 
 ## 2026-03-27 15:58 KST — Cycle FH backlog routing
 - Routed mid-risk follow-up to Design/World lane for watchdog legend readability + adjacency lock.
+
+## 2026-03-27 16:26 KST — Cycle FH follow-up (watchdog legend)
+- Task: Added `COMBAT/VFX CADENCE WATCHDOG LEGEND` row in weekly digest summary + token-coverage sections.
+- Decision: Keep wording deterministic (`OK=recent touch, BREACH=stale >24h, STREAK=consecutive BREACH windows`) for stable decode and regression assertions.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, regression pass via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up: Remaining FH item is AI Content/Combat cadence coach token (`COMBAT/VFX CADENCE COACH`).

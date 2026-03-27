@@ -2372,6 +2372,7 @@ def main() -> int:
         assert "LANE CADENCE MISS RISK:" in md_text
         assert "COMBAT/VFX CADENCE WATCHDOG:" in md_text
         assert "COMBAT/VFX CADENCE WATCHDOG STREAK:" in md_text
+        assert "COMBAT/VFX CADENCE WATCHDOG LEGEND:" in md_text
         assert "LCMR:" in md_text
         assert "LANE PRIORITY REC:" in md_text
         assert "LPR:" in md_text
@@ -2691,6 +2692,7 @@ def main() -> int:
         lane_cadence_miss_risk_alias_indices = _find_line_indices("- LCMR:")
         combat_vfx_watchdog_indices = _find_line_indices("- COMBAT/VFX CADENCE WATCHDOG:")
         combat_vfx_watchdog_streak_indices = _find_line_indices("- COMBAT/VFX CADENCE WATCHDOG STREAK:")
+        combat_vfx_watchdog_legend_indices = _find_line_indices("- COMBAT/VFX CADENCE WATCHDOG LEGEND:")
 
         assert combo_conf_fallback_idx == combo_conf_rec_idx + 1, (
             "expected DMG COMBO CONF COACH FALLBACK row directly after COACH REC row"
@@ -2995,8 +2997,17 @@ def main() -> int:
         assert len(combat_vfx_watchdog_streak_indices) == 2, (
             "expected exactly two COMBAT/VFX CADENCE WATCHDOG STREAK rows (summary + token-coverage sections)"
         )
-        for section_idx, (miss_risk_idx, alias_idx, watchdog_idx, watchdog_streak_idx) in enumerate(
-            zip(lane_cadence_miss_risk_indices, lane_cadence_miss_risk_alias_indices, combat_vfx_watchdog_indices, combat_vfx_watchdog_streak_indices),
+        assert len(combat_vfx_watchdog_legend_indices) == 2, (
+            "expected exactly two COMBAT/VFX CADENCE WATCHDOG LEGEND rows (summary + token-coverage sections)"
+        )
+        for section_idx, (miss_risk_idx, alias_idx, watchdog_idx, watchdog_streak_idx, watchdog_legend_idx) in enumerate(
+            zip(
+                lane_cadence_miss_risk_indices,
+                lane_cadence_miss_risk_alias_indices,
+                combat_vfx_watchdog_indices,
+                combat_vfx_watchdog_streak_indices,
+                combat_vfx_watchdog_legend_indices,
+            ),
             start=1,
         ):
             assert alias_idx == miss_risk_idx + 1, (
@@ -3007,6 +3018,9 @@ def main() -> int:
             )
             assert watchdog_streak_idx == watchdog_idx + 1, (
                 f"expected COMBAT/VFX CADENCE WATCHDOG STREAK row directly after COMBAT/VFX CADENCE WATCHDOG row in section {section_idx}"
+            )
+            assert watchdog_legend_idx == watchdog_streak_idx + 1, (
+                f"expected COMBAT/VFX CADENCE WATCHDOG LEGEND row directly after COMBAT/VFX CADENCE WATCHDOG STREAK row in section {section_idx}"
             )
         assert prsmc_family_churn_idx == prsmc_family_trend_idx + 1, (
             "expected PRSMC FAMILY CHURN row directly after PRSMC FAMILY TREND row"

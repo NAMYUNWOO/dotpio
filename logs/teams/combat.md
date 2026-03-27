@@ -2013,3 +2013,7 @@
 
 ## 2026-03-27 15:58 KST — Cycle FH cadence guardrail continuity
 - Combat/VFX cadence monitoring now includes consecutive breach depth (`WATCHDOG STREAK`) to prioritize overdue lane touches.
+
+## 2026-03-27 16:27 KST — Cadence coach queue note
+- Combat-facing cadence coach token remains queued (`COMBAT/VFX CADENCE COACH`).
+- This slice delivered the decode legend needed for faster coach-row interpretation once shipped.

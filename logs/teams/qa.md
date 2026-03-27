@@ -3631,3 +3631,8 @@
 - Added coverage/assertions for `COMBAT/VFX CADENCE WATCHDOG STREAK` presence (summary + token-coverage) and adjacency after watchdog rows.
 - Added payload contract assertions for streak token + numeric streak count.
 - Verification: weekly portal drift regression PASS.
+
+## 2026-03-27 16:27 KST — Regression lock extension for watchdog legend
+- Extended weekly digest regression to require `COMBAT/VFX CADENCE WATCHDOG LEGEND` rows in both summary + token-coverage sections.
+- Added ordering guard: `LANE CADENCE MISS RISK -> LCMR -> WATCHDOG -> WATCHDOG STREAK -> WATCHDOG LEGEND`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

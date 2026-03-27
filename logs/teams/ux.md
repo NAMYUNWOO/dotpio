@@ -2293,3 +2293,6 @@
 
 ## 2026-03-27 15:58 KST — Cycle FH scanability note
 - Watchdog streak row placed in same metadata cluster as miss-risk rows to keep lane-health scanning contiguous.
+
+## 2026-03-27 16:27 KST — Digest scanability pass
+- Added explicit watchdog legend row after streak rows to reduce operator decode latency in compact weekly digest review.

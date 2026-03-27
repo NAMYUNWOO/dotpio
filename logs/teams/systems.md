@@ -3062,3 +3062,7 @@
 - Implemented digest token `COMBAT/VFX CADENCE WATCHDOG STREAK:<n>` using prior-window carryover from JSON artifacts.
 - Added payload fields: `combatVfxCadenceWatchdogStreak`, `combatVfxCadenceWatchdogStreakSignals`, `combatVfxCadenceWatchdogStreakCount`.
 - Ordering lock now enforces `LANE CADENCE MISS RISK -> LCMR -> COMBAT/VFX CADENCE WATCHDOG -> COMBAT/VFX CADENCE WATCHDOG STREAK`.
+
+## 2026-03-27 16:27 KST — Digest schema/order maintenance
+- Updated digest markdown emission to include `COMBAT/VFX CADENCE WATCHDOG LEGEND` adjacent to watchdog streak rows.
+- No payload schema changes (markdown/readability only).
