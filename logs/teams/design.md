@@ -2188,3 +2188,7 @@
 ## 2026-03-28 05:14 KST — Cycle FV UX/Design legend slice (`CADENCE BRIDGE GLYPH LEGEND`)
 - Added explicit legend row (`CALM|TENSE`) immediately after glyph diagnostics in summary + token-coverage sections for faster operator decode.
 - Injected follow-ups: regression lock for glyph/legend pair and offline glyph-confidence recommendation prototype.
+
+## 2026-03-28 05:31 KST — Cycle FV design sync (`CADENCE BRIDGE GLYPH LEGEND`)
+- Verified the newly added glyph legend row is now protected by explicit count locks in regression (2 rows each section pair).
+- Durable readability decision stands: keep glyph semantics legend-first and stable before introducing confidence-tier overlays.

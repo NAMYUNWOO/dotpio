@@ -2120,3 +2120,7 @@
 - Kept glyph detached from gameplay/runtime systems (digest-only readability artifact).
 ## 2026-03-28 05:14 KST — Cycle FV world readability
 - Added explicit legend semantics for world-facing bridge glyph to keep `CALM|TENSE` interpretation stable across handoff reviews.
+
+## 2026-03-28 05:31 KST — Cycle FV world sync (`CADENCE BRIDGE GLYPH` contract)
+- Consumed QA contract update: glyph + legend rows are now count-locked in weekly digest regression, protecting world readability token continuity.
+- World lane remains queued on next experiment candidate: `CADENCE BRIDGE GLYPH CONF` offline recommendation tier.

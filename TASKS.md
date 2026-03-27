@@ -1536,5 +1536,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/World): Prototype offline glyph confidence recommendation (`CADENCE BRIDGE GLYPH CONF:LOW|MID|HIGH`) from gap volatility memory.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Design Team: Add `CADENCE BRIDGE GLYPH LEGEND` row in summary + token-coverage sections. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 05:12 KST; completed: 2026-03-28 05:14 KST)*
-- [ ] Systems/QA Team (Cycle FV follow-up): Add regression presence/count lock for `CADENCE BRIDGE GLYPH` + legend rows. *(injected: 2026-03-28 05:12 KST)*
+- [x] Systems/QA Team (Cycle FV follow-up): Add regression presence/count lock for `CADENCE BRIDGE GLYPH` + legend rows. *(injected: 2026-03-28 05:12 KST; started: 2026-03-28 05:29 KST; completed: 2026-03-28 05:31 KST)*
 - [ ] AI Content/World Team (Cycle FV follow-up): Prototype offline glyph-confidence recommendation token (`CADENCE BRIDGE GLYPH CONF:LOW|MID|HIGH`) from freshness-gap volatility. *(injected: 2026-03-28 05:12 KST)*

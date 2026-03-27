@@ -3242,3 +3242,8 @@
 - Preserved existing regression-critical cadence ordering by placing glyph row outside locked adjacency rails.
 ## 2026-03-28 05:14 KST — Cycle FV systems sync
 - Wired static glyph legend row into both markdown sections without touching payload schema or cadence adjacency rails.
+
+## 2026-03-28 05:31 KST — Cycle FV Systems/QA lock closure (`CADENCE BRIDGE GLYPH`)
+- Closed queued follow-up by extending weekly digest regression with explicit dual-section count assertions for `CADENCE BRIDGE GLYPH` and `CADENCE BRIDGE GLYPH LEGEND` rows.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Next queued unchecked task remains AI Content/World prototype: `CADENCE BRIDGE GLYPH CONF:LOW|MID|HIGH`.

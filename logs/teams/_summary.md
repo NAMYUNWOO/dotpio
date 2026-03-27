@@ -3537,3 +3537,9 @@ Compact decision memory for AI context efficiency.
 - Full-check trigger executed Game Director review cycle (3 ideas) and shipped selected low-risk experiment: `CADENCE BRIDGE GLYPH LEGEND` row in summary + token-coverage.
 - Durable readability decision: keep legend adjacent to glyph diagnostics while deferring strict glyph/legend regression adjacency lock to follow-up to avoid disrupting existing cadence contracts in same slice.
 - Backlog injection completed: Systems/QA regression lock for glyph+legend pair, AI Content/World offline glyph-confidence prototype.
+
+## 2026-03-28 05:31 KST — Cycle FV follow-up completion (`CADENCE BRIDGE GLYPH` count lock)
+- Closed highest-priority unchecked TASKS item by adding deterministic regression presence/count checks for `CADENCE BRIDGE GLYPH` and `CADENCE BRIDGE GLYPH LEGEND` rows.
+- Durable decision: keep glyph + legend as first-class dual-row readability contract in both summary and token-coverage sections (exactly two occurrences each).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed after contract update.
+- Remaining unchecked queue now starts with AI Content/World prototype: `CADENCE BRIDGE GLYPH CONF:LOW|MID|HIGH`.

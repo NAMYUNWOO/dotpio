@@ -2388,3 +2388,7 @@
 - Copy format mirrors existing cadence diagnostics (flag + bridge + freshness gap) for low-hop operator parsing.
 ## 2026-03-28 05:14 KST — Cycle FV UX legibility follow-up
 - Added `CADENCE BRIDGE GLYPH LEGEND` row in both digest sections to reduce ambiguity of `CALM|TENSE` scan token.
+
+## 2026-03-28 05:31 KST — Cycle FV UX scanability sync
+- QA lock now enforces `CADENCE BRIDGE GLYPH` + `CADENCE BRIDGE GLYPH LEGEND` dual-section presence/count, preventing silent row loss in dense digest budgets.
+- UX follow-up unchanged: await confidence-tier prototype before adding compact alias treatment.

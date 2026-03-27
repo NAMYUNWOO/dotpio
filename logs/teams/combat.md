@@ -2106,3 +2106,7 @@
 - Cross-lane note: bridge urgency now carries an explicit `CALM|TENSE` scenery cue in digest audits.
 ## 2026-03-28 05:14 KST — Cycle FV combat sync
 - Combat lane consumed glyph legend readability upgrade for postmortem cadence scans; no combat-runtime delta.
+
+## 2026-03-28 05:31 KST — Cycle FV combat sync
+- No combat runtime logic changed this slice; consumed QA regression guard upgrade for `CADENCE BRIDGE GLYPH` readability rails.
+- Cadence stack remains stable after pass run (`regression_weekly_portal_prompt_readability_drift`).

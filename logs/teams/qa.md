@@ -3785,3 +3785,8 @@
 - Verification passed: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 ## 2026-03-28 05:14 KST — Cycle FV QA note
 - Verified legend-row insertion preserves existing regression contracts; dedicated glyph+legend lock intentionally queued as follow-up item.
+
+## 2026-03-28 05:31 KST — Cycle FV QA contract update (`CADENCE BRIDGE GLYPH LEGEND`)
+- Added deterministic presence/count guard: regression now requires exactly 2x `CADENCE BRIDGE GLYPH` and 2x `CADENCE BRIDGE GLYPH LEGEND` rows (summary + token-coverage).
+- This closes the pending Cycle FV Systems/QA follow-up item in TASKS.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
