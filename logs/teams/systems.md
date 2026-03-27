@@ -3209,3 +3209,15 @@
 - Follow-up: Keep cadence-cluster ordering deterministic (`COPY PACK -> CP alias -> COPY PACK TREND -> CADENCE BRIDGE`) and monitor first live digest deltas.
 - 2026-03-28 02:32 KST — Cycle FR shipped: added copy-pack trend confidence token (`CVCWHR FX LEGEND COPY PACK TREND CONF:LOW|MID|HIGH`) + compact alias (`CVCWHR FX LEGEND CPTC:<L|M|H>`), with payload schema + markdown rows wired.
 - 2026-03-28 03:36 KST — Cycle FS: Added `CVCWHR FX LEGEND CPTC LEGEND` decode row in both digest sections; maintained CPTC-to-CADENCE-BRIDGE scan order; regression pass confirmed.
+
+## 2026-03-28 03:55 KST — Cycle FT systems instrumentation slice
+- Task: Wire persistent mismatch streak logic for CVCWHR copy-pack trend-confidence contract.
+- Decision:
+  - Added offline resolver `resolve_combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_note`.
+  - Persisted payload keys `combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackTrendConfidenceOverride` + `...Signals`.
+  - Extended markdown summary/token-coverage rows with `CVCWHR FX LEGEND CPTC OVERRIDE` diagnostics.
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` ✅
+- Follow-up: add explicit systems/ops regression lock item queued in TASKS/POST_RC.

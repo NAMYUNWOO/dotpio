@@ -317,3 +317,8 @@
 ## 2026-03-27 21:54 KST — Cadence compliance touch (no runtime VFX mutation)
 - Logged FM completion and queued forced-lane follow-up `CVCWHR FX PULSE:SOFT|EDGE|HARD` for next cycle to maintain combat/vfx freshness.
 - This cycle made no runtime VFX render changes; impact is digest/readability-layer only.
+
+## 2026-03-28 03:55 KST — Cycle FT cross-lane VFX note
+- No direct visual FX-state remap this slice; shipped digest-side override guard token `CVCWHR FX LEGEND CPTC OVERRIDE:ON|OFF` for confidence/trend mismatch continuity.
+- Purpose: prevent copy-pack confidence alias from silently drifting against trend direction over multiple windows.
+- Follow-up: next forced lane remains Design/World (`CADENCE BRIDGE GLYPH`) to satisfy 24h cadence contract.

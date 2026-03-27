@@ -1515,4 +1515,16 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Design Team: Add `CVCWHR FX LEGEND CPTC LEGEND` row in summary + token-coverage and wire deterministic adjacency for dense digest scans. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 03:29 KST; completed: 2026-03-28 03:36 KST)*
 - [ ] Systems/QA Team: Extend adjacency/order regression lock to assert `CVCWHR FX LEGEND COPY PACK TREND CONF -> CVCWHR FX LEGEND CPTC -> CVCWHR FX LEGEND CPTC LEGEND -> CADENCE BRIDGE` in both summary + token-coverage sections. *(injected: 2026-03-28 03:36 KST)*
-- [ ] AI Content/Combat Team: Prototype offline confidence-mismatch copy override note when CPTC confidence diverges from trend direction for 2+ windows. *(injected: 2026-03-28 03:36 KST)*
+- [x] AI Content/Combat Team: Prototype offline confidence-mismatch copy override note when CPTC confidence diverges from trend direction for 2+ windows. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 03:48 KST; completed: 2026-03-28 03:55 KST)*
+
+## Cycle FT - Game Director Review (2026-03-28 03:58 KST)
+- Coverage check (last 10 completions, primary lane tags): systems=3, ai-content=3, ux=3, combat=1, world=0, design=0, vfx=0, qa=0.
+- Lane cap rule: no single lane exceeded 40%, so no cap-forced reroute this cycle.
+- 24h cadence hard-check: systems/ops and combat/vfx had coverage, design/world had 0 direct completions; queued forced next experiment from design/world.
+- Idea 1 (low risk, AI Content/Combat): Add offline mismatch override note token (`CVCWHR FX LEGEND CPTC OVERRIDE:ON|OFF`) when trend-confidence divergence persists 2+ windows.
+- Idea 2 (mid risk, Systems/Ops): Add schema/order regression coverage for CPTC override note in summary + token-coverage rails.
+- Idea 3 (high risk, Design/World): Prototype compact cadence-bridge scenery cue (`CADENCE BRIDGE GLYPH:CALM|TENSE`) to visualize underrepresented lane urgency.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] AI Content/Combat Team: Ship `CVCWHR FX LEGEND CPTC OVERRIDE:ON|OFF` with prior-window mismatch streak signals (`mismatchStreak`) and markdown payload wiring. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 03:48 KST; completed: 2026-03-28 03:55 KST)*
+- [ ] Systems/Ops Team: Add deterministic regression lock for `CVCWHR FX LEGEND CPTC OVERRIDE` schema + markdown row presence in both summary/token-coverage sections. *(injected: 2026-03-28 03:58 KST)*
+- [ ] Design/World Team (forced by 24h cadence gate): Prototype `CADENCE BRIDGE GLYPH:CALM|TENSE` from bridge token + design/world freshness gap for next cycle. *(injected: 2026-03-28 03:58 KST)*

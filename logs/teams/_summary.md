@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 02:32 KST
+Last updated: 2026-03-28 03:58 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle FT AI Content/Combat slice: weekly digest now emits `CVCWHR FX LEGEND CPTC OVERRIDE:ON|OFF` when copy-pack trend direction and CPTC confidence diverge across 2+ consecutive windows.
+- Payload now carries `combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackTrendConfidenceOverride` + signals (`diverged`, `mismatchStreak`, `expectedConfidence`, `priorMismatchStreak`) for sustained mismatch triage.
+- Coverage check (last 10 completions, primary-lane tags): systems=3, ai-content=3, ux=3, combat=1, world=0, design=0, vfx=0, qa=0; no lane exceeded 40%, but 24h cadence forced next injection toward Design/World.
 
 - Closed Cycle FR UX/Systems slice: weekly digest now emits `CVCWHR FX LEGEND COPY PACK TREND CONF:LOW|MID|HIGH` plus compact alias `CVCWHR FX LEGEND CPTC:<L|M|H>` for copy-pack trend readability.
 - Payload contract now includes `combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackTrendConfidence` + signals (`confidence`, `momentumShiftHours`, alias flag metadata) for downstream audits.

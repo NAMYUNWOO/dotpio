@@ -2169,3 +2169,10 @@
 - Follow-up: Keep cadence-cluster ordering deterministic (`COPY PACK -> CP alias -> COPY PACK TREND -> CADENCE BRIDGE`) and monitor first live digest deltas.
 - 2026-03-28 02:32 KST — FR confidence rationale now explicit (`LOW|MID|HIGH`) for copy-pack trend, with reason strings to support offline coaching interpretation.
 - 2026-03-28 03:36 KST — Cycle FS: Added `CVCWHR FX LEGEND CPTC LEGEND` decode row in both digest sections; maintained CPTC-to-CADENCE-BRIDGE scan order; regression pass confirmed.
+
+## 2026-03-28 03:55 KST — Cycle FT AI Content/Combat mismatch override note
+- Task: Prototype offline confidence-mismatch override note when `CVCWHR FX LEGEND CPTC` confidence diverges from trend direction for 2+ windows.
+- Decision: Added token `CVCWHR FX LEGEND CPTC OVERRIDE:ON|OFF` with prior-window streak memory (`mismatchStreak`) so override only fires on sustained divergence, not one-off jitter.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Follow-up: Keep Design/World forced next due 24h cadence gap.

@@ -2418,6 +2418,7 @@ def main() -> int:
         assert "CVCWHR FX LEGEND COPY PACK TREND CONF:" in md_text
         assert "CVCWHR FX LEGEND CPTC:" in md_text
         assert "CVCWHR FX LEGEND CPTC LEGEND:" in md_text
+        assert "CVCWHR FX LEGEND CPTC OVERRIDE:" in md_text
         assert "CADENCE BRIDGE:" in md_text
         assert "CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN:" in md_text
         assert "CADENCE BRIDGE FAMILY CHURN:" in md_text
@@ -2546,6 +2547,22 @@ def main() -> int:
             "alias",
             "flagName",
             "flagEnabled",
+        }, payload
+        assert payload.get("combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackTrendConfidenceOverride") in {
+            "CVCWHR FX LEGEND CPTC OVERRIDE:ON",
+            "CVCWHR FX LEGEND CPTC OVERRIDE:OFF",
+        }, payload
+        assert set(payload.get("combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackTrendConfidenceOverrideSignals", {}).keys()) == {
+            "override",
+            "trend",
+            "confidence",
+            "expectedConfidence",
+            "diverged",
+            "mismatchStreak",
+            "priorMismatchStreak",
+            "priorLoaded",
+            "reason",
+            "offlineOnly",
         }, payload
         assert payload.get("cadenceBridge") in {"CADENCE BRIDGE:SCOUT", "CADENCE BRIDGE:PRESS", "CADENCE BRIDGE:HOLD"}, payload
         assert set(payload.get("cadenceBridgeSignals", {}).keys()) == {"bridge", "confidenceFloorRecommendation", "designWorldAgeHours", "systemsOpsAgeHours", "combatVfxAgeHours", "windowHours", "reason", "offlineOnly"}, payload
