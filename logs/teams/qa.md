@@ -3766,3 +3766,6 @@
 - Follow-up: Keep cadence-cluster ordering deterministic (`COPY PACK -> CP alias -> COPY PACK TREND -> CADENCE BRIDGE`) and monitor first live digest deltas.
 - 2026-03-28 02:32 KST — Regression contract extended for new rows (`CVCWHR FX LEGEND COPY PACK TREND CONF`, `CVCWHR FX LEGEND CPTC`): presence, payload schema, count==2, and deterministic adjacency before `CADENCE BRIDGE`.
 - 2026-03-28 03:36 KST — Cycle FS: Added `CVCWHR FX LEGEND CPTC LEGEND` decode row in both digest sections; maintained CPTC-to-CADENCE-BRIDGE scan order; regression pass confirmed.
+- 2026-03-28 04:07 KST — Verified updated cadence adjacency contract passes end-to-end (`py_compile` + weekly drift regression).
+- Assertions now enforce direct adjacency from `... TREND CONF -> CPTC -> CPTC LEGEND -> CADENCE BRIDGE ...` per section.
+- Follow-up: add explicit deterministic lock for relocated `CVCWHR FX LEGEND CPTC OVERRIDE` row in next cycle.

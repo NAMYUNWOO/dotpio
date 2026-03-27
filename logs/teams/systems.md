@@ -3221,3 +3221,6 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` ✅
 - Follow-up: add explicit systems/ops regression lock item queued in TASKS/POST_RC.
+- 2026-03-28 04:07 KST — Cycle FT Systems/QA closure: tightened regression adjacency lock to require `CVCWHR FX LEGEND COPY PACK TREND CONF -> CVCWHR FX LEGEND CPTC -> CVCWHR FX LEGEND CPTC LEGEND -> CADENCE BRIDGE` in both summary + token-coverage sections.
+- Implementation note: moved `CVCWHR FX LEGEND CPTC OVERRIDE` and `CVCWHR FX LEGEND COPY PACK FAMILY CHURN` rows out of the cadence bridge adjacency rail to keep deterministic ordering contracts intact.
+- Follow-up: next unchecked Systems/Ops item is override schema+presence/order hardening.

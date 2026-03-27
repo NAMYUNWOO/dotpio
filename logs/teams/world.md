@@ -2109,3 +2109,5 @@
 - Follow-up: Keep cadence-cluster ordering deterministic (`COPY PACK -> CP alias -> COPY PACK TREND -> CADENCE BRIDGE`) and monitor first live digest deltas.
 - 2026-03-28 02:32 KST — Reviewed cadence-bridge adjacency after FR insertion; kept narrative bridge ordering intact after new trend-confidence rows for stable world-readability scan path.
 - 2026-03-28 03:36 KST — Cycle FS: Added `CVCWHR FX LEGEND CPTC LEGEND` decode row in both digest sections; maintained CPTC-to-CADENCE-BRIDGE scan order; regression pass confirmed.
+- 2026-03-28 04:07 KST — Synced world lane on cadence-cluster ordering contract update; `CADENCE BRIDGE` now stays immediately after `CPTC LEGEND` for scan consistency.
+- Follow-up remains forced design/world queue item: `CADENCE BRIDGE GLYPH:CALM|TENSE` prototype.

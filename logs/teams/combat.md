@@ -2095,3 +2095,5 @@
 - Follow-up: Keep cadence-cluster ordering deterministic (`COPY PACK -> CP alias -> COPY PACK TREND -> CADENCE BRIDGE`) and monitor first live digest deltas.
 - 2026-03-28 02:32 KST — Combat cadence legend cluster now exposes copy-pack trend confidence, reducing ambiguity when trend flips under miss-risk pressure.
 - 2026-03-28 03:36 KST — Cycle FS: Added `CVCWHR FX LEGEND CPTC LEGEND` decode row in both digest sections; maintained CPTC-to-CADENCE-BRIDGE scan order; regression pass confirmed.
+- 2026-03-28 04:07 KST — Combat lane consumed Systems/QA contract update; cadence bridge now appears immediately after CPTC legend for deterministic postmortem scanning.
+- No combat tuning changes this slice; regression-only hardening shipped.

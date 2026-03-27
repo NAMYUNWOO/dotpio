@@ -2175,3 +2175,5 @@
 - Follow-up: Keep cadence-cluster ordering deterministic (`COPY PACK -> CP alias -> COPY PACK TREND -> CADENCE BRIDGE`) and monitor first live digest deltas.
 - 2026-03-28 02:32 KST — Added dense-scan alias `CVCWHR FX LEGEND CPTC` to preserve digest readability while retaining detailed confidence label.
 - 2026-03-28 03:36 KST — Cycle FS: Added `CVCWHR FX LEGEND CPTC LEGEND` decode row in both digest sections; maintained CPTC-to-CADENCE-BRIDGE scan order; regression pass confirmed.
+- 2026-03-28 04:07 KST — Design readability note: CPTC confidence legend now guaranteed immediately before `CADENCE BRIDGE`, reducing operator scan hops.
+- Follow-up: execute forced design/world `CADENCE BRIDGE GLYPH:CALM|TENSE` prototype in next cycle.

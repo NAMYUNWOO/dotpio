@@ -2176,3 +2176,5 @@
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Follow-up: Keep Design/World forced next due 24h cadence gap.
+- 2026-03-28 04:07 KST — Confirmed readability contract now keeps confidence-trend decode contiguous (`TREND CONF -> CPTC -> CPTC LEGEND`) before bridge decision row.
+- Follow-up: coordinate with Systems/Ops on override-row lock to preserve mismatch diagnostics without breaking cadence rail adjacency.

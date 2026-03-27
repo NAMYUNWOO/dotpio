@@ -2377,3 +2377,5 @@
 - Follow-up: Keep cadence-cluster ordering deterministic (`COPY PACK -> CP alias -> COPY PACK TREND -> CADENCE BRIDGE`) and monitor first live digest deltas.
 - 2026-03-28 02:32 KST — UX pass: trend confidence row + compact alias inserted directly after `CVCWHR FX LEGEND CPT` to preserve operator eye-flow before `CADENCE BRIDGE`.
 - 2026-03-28 03:36 KST — Cycle FS: Added `CVCWHR FX LEGEND CPTC LEGEND` decode row in both digest sections; maintained CPTC-to-CADENCE-BRIDGE scan order; regression pass confirmed.
+- 2026-03-28 04:07 KST — UX scan-flow updated: confidence cluster (`... TREND CONF -> CPTC -> CPTC LEGEND`) is now hard-locked directly into `CADENCE BRIDGE` with regression enforcement.
+- Mismatch override and copy-pack churn rows were repositioned away from this adjacency path to avoid scan interruption.

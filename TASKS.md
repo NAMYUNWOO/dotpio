@@ -1514,7 +1514,7 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Combat): Prototype offline confidence-mismatch copy override note when alias confidence diverges from trend direction.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Design Team: Add `CVCWHR FX LEGEND CPTC LEGEND` row in summary + token-coverage and wire deterministic adjacency for dense digest scans. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 03:29 KST; completed: 2026-03-28 03:36 KST)*
-- [ ] Systems/QA Team: Extend adjacency/order regression lock to assert `CVCWHR FX LEGEND COPY PACK TREND CONF -> CVCWHR FX LEGEND CPTC -> CVCWHR FX LEGEND CPTC LEGEND -> CADENCE BRIDGE` in both summary + token-coverage sections. *(injected: 2026-03-28 03:36 KST)*
+- [x] Systems/QA Team: Extend adjacency/order regression lock to assert `CVCWHR FX LEGEND COPY PACK TREND CONF -> CVCWHR FX LEGEND CPTC -> CVCWHR FX LEGEND CPTC LEGEND -> CADENCE BRIDGE` in both summary + token-coverage sections. *(lifecycle: [ ] -> [~] -> [x]; injected: 2026-03-28 03:36 KST; started: 2026-03-28 04:00 KST; completed: 2026-03-28 04:07 KST)*
 - [x] AI Content/Combat Team: Prototype offline confidence-mismatch copy override note when CPTC confidence diverges from trend direction for 2+ windows. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 03:48 KST; completed: 2026-03-28 03:55 KST)*
 
 ## Cycle FT - Game Director Review (2026-03-28 03:58 KST)

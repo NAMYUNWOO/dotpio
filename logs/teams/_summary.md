@@ -3522,3 +3522,6 @@ Compact decision memory for AI context efficiency.
 - Contract updates: token-prefix catalogs include `CVCWHR FX LEGEND CPTC LEGEND:` so compact/detailed parsing keeps the row first-class.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Backlog injected: Systems/QA adjacency-lock extension and AI Content/Combat confidence-mismatch override-note prototype.
+- 2026-03-28 04:07 KST — Closed highest-priority unchecked Systems/QA task from Cycle FS: regression now enforces direct adjacency `CVCWHR FX LEGEND COPY PACK TREND CONF -> CVCWHR FX LEGEND CPTC -> CVCWHR FX LEGEND CPTC LEGEND -> CADENCE BRIDGE` in summary + token-coverage.
+- Durable ordering decision: keep `CVCWHR FX LEGEND CPTC OVERRIDE` diagnostics and `CVCWHR FX LEGEND COPY PACK FAMILY CHURN` outside the cadence bridge adjacency rail so contract remains strict and readable.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (pass).

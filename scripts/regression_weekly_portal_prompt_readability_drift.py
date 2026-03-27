@@ -3421,8 +3421,8 @@ def main() -> int:
             assert coach_why_hyst_rec_conf_floor_fx_pulse_legend_copy_pack_trend_conf_alias_legend_idx == coach_why_hyst_rec_conf_floor_fx_pulse_legend_copy_pack_trend_conf_alias_idx + 1, (
                 f"expected CVCWHR FX LEGEND CPTC LEGEND row directly after CVCWHR FX LEGEND CPTC row in section {section_idx}"
             )
-            assert cadence_bridge_idx >= coach_why_hyst_rec_conf_floor_fx_pulse_legend_copy_pack_trend_conf_alias_legend_idx + 1, (
-                f"expected CADENCE BRIDGE row after CVCWHR FX LEGEND CPTC LEGEND row in section {section_idx}"
+            assert cadence_bridge_idx == coach_why_hyst_rec_conf_floor_fx_pulse_legend_copy_pack_trend_conf_alias_legend_idx + 1, (
+                f"expected CADENCE BRIDGE row directly after CVCWHR FX LEGEND CPTC LEGEND row in section {section_idx}"
             )
             assert coach_why_hyst_rec_conf_floor_family_churn_idx == cadence_bridge_idx + 1, (
                 f"expected CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN row directly after CADENCE BRIDGE row in section {section_idx}"
