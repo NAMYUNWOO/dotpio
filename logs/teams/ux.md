@@ -2410,3 +2410,15 @@
 - Decision: Regression now conditionally asserts `CBGC:` row presence/count and adjacency when alias flag is enabled, and enforces absence when disabled.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
 - Follow-up: Remaining highest-priority unchecked item is AI Content/UX compact legend hint (`CBGC LEGEND`).
+
+## 2026-03-28 08:03 KST — Cycle FX follow-up completed (`CBGC LEGEND` compact onboarding hint)
+- Task: UX readability follow-up for compact `CBGC` confidence alias onboarding in dense digest layouts.
+- Decision: Inserted `CBGC LEGEND` directly after `CADENCE BRIDGE GLYPH CONF` (or `CBGC` alias when enabled) in summary + token-coverage sections for scan-time decode parity.
+- Evidence: regression pass on weekly portal prompt readability drift contract.
+- Follow-up: Keep compact legend wording deterministic (`L/M/H`) to preserve DOS-width stability.
+
+## 2026-03-28 08:11 KST — Game Director Cycle FY vertical slice (`CBGCL`)
+- Ran FY ideation set (low/mid/high risk) and selected low-risk UX/AI-content experiment.
+- Shipped compact legend alias row `CBGCL:LMH` adjacent to `CBGC LEGEND` in summary + token-coverage sections, including payload signal wiring.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Follow-up queue injected: (1) Systems/QA adjacency hard-lock for `CBGC LEGEND -> CBGCL`, (2) Design/World narrative short-form variant.

@@ -3570,3 +3570,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: regression now dual-path validates `CBGC:` — enforced adjacency (`CADENCE BRIDGE GLYPH CONF -> CBGC -> CADENCE BRIDGE GLYPH CONF LEGEND`) when enabled, and strict absence when disabled.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Next queued unchecked item: AI Content/UX compact legend hint (`CBGC LEGEND`).
+
+## 2026-03-28 08:11 KST — Game Director Cycle FY vertical slice (`CBGCL` compact legend alias)
+- All prior ACTION_ITEMS/TASKS/POST_RC checkboxes were closed, so FY cycle executed immediately per protocol.
+- Generated 3 ideas (UX low-risk, Systems mid-risk, Design/World high-risk), selected Idea 1, and shipped `CBGCL:LMH` compact legend alias row next to `CBGC LEGEND` in summary + token-coverage sections.
+- Durable decision: keep confidence-cluster onboarding rails in fixed deterministic order (`CADENCE BRIDGE GLYPH CONF -> [CBGC] -> CBGC LEGEND -> CBGCL -> CADENCE BRIDGE GLYPH CONF LEGEND`) to preserve DOS-scan consistency.
+- Verification evidence: `[PASS] weekly portal prompt readability drift regression checks`.
+- Backlog injection: queued Systems/QA adjacency contract hard-lock + Design/World narrative short-form legend variant.

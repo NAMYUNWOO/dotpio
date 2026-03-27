@@ -1314,4 +1314,13 @@ Last updated: 2026-03-21 02:31 KST
 ### Game Director Cycle FX (2026-03-28 07:08 KST)
 - [x] UX/AI Content Team (Cycle FX experiment): Add compact confidence alias token for cadence bridge glyph confidence (`CBGC:<L|M|H>`) behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_ALIAS` and surface it in digest summary/token-coverage rows. *(lifecycle: [~] 2026-03-28 07:05 KST -> [x] 2026-03-28 07:08 KST)*
 - [x] Systems/QA Team (Cycle FX follow-up): Add deterministic markdown coverage assertion for `CBGC:` alias presence in both summary and token-coverage sections when alias flag is enabled. *(lifecycle: [~] started: 2026-03-28 07:29 KST -> [x] completed: 2026-03-28 07:33 KST)*
-- [ ] AI Content/UX Team (Cycle FX follow-up): Prototype compact legend hint (`CBGC LEGEND`) for operator onboarding under strict DOS widths.
+- [x] AI Content/UX Team (Cycle FX follow-up): Prototype compact legend hint (`CBGC LEGEND`) for operator onboarding under strict DOS widths. *(lifecycle: [~] started: 2026-03-28 08:01 KST -> [x] completed: 2026-03-28 08:03 KST)*
+
+### Game Director Cycle FY (2026-03-28 08:11 KST)
+- Idea 1 (low risk, UX/AI Content): Add compact legend alias token `CBGCL:LMH` to mirror `CBGC LEGEND` in ultra-dense digest scans. Fantasy: instant decode under tight DOS width. Metric: operator parse-time reduction in manual review. Scope: S. Risk: low; rollback by removing row + payload alias keys. Pass/Fail: pass if summary+token-coverage each include deterministic `CBGCL` row with regression lock.
+- Idea 2 (mid risk, Systems/QA): Add width-budget guard that flags when confidence-cluster rows exceed DOS-safe character budget. Fantasy: avoid readability cliffs. Metric: budget breaches/week. Scope: M. Risk: medium; rollback by disabling guard assertion. Pass/Fail: pass if guard emits deterministic status row + regression fixture.
+- Idea 3 (high risk, Design/World novelty): Adaptive legend ordering that prioritizes currently active confidence regime (`LOW|MID|HIGH`) first. Fantasy: context-first cognition. Metric: reduced scan hops in playtest notes. Scope: M/L. Risk: high due ordering churn; rollback to fixed order. Pass/Fail: pass if dynamic ordering improves recall in 3 manual reviews without regression drift.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/AI Content Team (Cycle FY experiment): Add `CBGCL:LMH` compact alias row for cadence-bridge confidence legend in summary + token-coverage rails with payload signals + deterministic regression ordering lock. *(lifecycle: [~] started: 2026-03-28 08:06 KST -> [x] completed: 2026-03-28 08:11 KST)*
+- [ ] Systems/QA Team (Cycle FY follow-up): Add explicit markdown contract asserting `CBGCL` remains adjacent to `CBGC LEGEND` in both sections under future alias-rail insertions.
+- [ ] Design/World Team (Cycle FY follow-up): Prototype short-form narrative copy variant for `CBGC LEGEND` (`steady/swing/spike`) while preserving compact alias decode row.
