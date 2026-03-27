@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-27 17:10 KST
+Last updated: 2026-03-27 18:24 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle FJ Systems/QA follow-up item: weekly digest now emits `COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN` in both summary and token-coverage sections.
+- Regression contract now locks coach-cluster adjacency as `... COACH WHY -> CVCW -> COACH WHY + CVCW FAMILY CHURN -> CVCC -> COACH + CVCC FAMILY CHURN`; verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).
+- TASKS + POST_RC updated: Systems/QA item is complete with lifecycle annotation; remaining unchecked item is AI Content/Combat coach-why hysteresis floor prototype (`RED HOLD` sticky window).
 
 - Closed Cycle FH AI Content/Combat follow-up item: weekly digest now emits offline cadence escalation token `COMBAT/VFX CADENCE COACH:NUDGE|ARM|ESCALATE` derived from watchdog streak + lane miss-risk context.
 - Triggered Game Director Cycle FI after full-check state: generated 3 ideas and shipped selected low-risk vertical slice `CVCC:<N|A|E>` (compact cadence-coach alias) behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_ALIAS`.
@@ -3392,3 +3396,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: cadence coach cluster order is now fixed as `WATCHDOG STREAK -> COACH -> CVCC -> COACH+CVCC FAMILY CHURN -> WATCHDOG LEGEND`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Remaining FI item: AI Content/Combat offline rationale token `COMBAT/VFX CADENCE COACH WHY:<short>`.
+
+## 2026-03-27 18:04 KST — Cadence coach rationale + alias contract
+- Added offline rationale token `COMBAT/VFX CADENCE COACH WHY:<short>` derived from lane miss-risk delta (`deltaHours`) and watchdog streak trend (`RISING|FLAT|FALLING`).
+- Added flag-gated compact alias `CVCW:<R|H|P|C|B>` via `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_ALIAS` with payload fields `combatVfxCadenceCoachWhyAlias` + `combatVfxCadenceCoachWhyAliasSignals`.
+- Locked markdown adjacency in both digest sections: `... WATCHDOG STREAK -> COACH -> COACH WHY -> CVCW -> CVCC -> COACH+CVCC FAMILY CHURN -> WATCHDOG LEGEND`.
+- Follow-up backlog injected: (1) add coach-why family churn row for `COMBAT/VFX CADENCE COACH WHY + CVCW`; (2) prototype coach-why hysteresis floor (`RED HOLD` sticky window).

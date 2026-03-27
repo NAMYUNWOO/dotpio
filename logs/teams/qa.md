@@ -3649,3 +3649,20 @@
   - exactly two `COMBAT/VFX CADENCE COACH + CVCC FAMILY CHURN` rows (summary + token coverage)
   - strict adjacency `COACH -> CVCC -> FAMILY CHURN -> WATCHDOG LEGEND` in both sections.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 18:04 KST — Cycle FJ coach-why alias slice [DONE]
+- Closed AI Content/Combat rationale-token follow-up by shipping offline `COMBAT/VFX CADENCE COACH WHY:<short>` (miss-risk delta + watchdog streak trend).
+- Executed Game Director Cycle FJ (3 ideas) and selected low-risk vertical slice: compact alias `CVCW:<R|H|P|C|B>` behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_ALIAS`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
+
+## 2026-03-27 18:24 KST
+- Task: Validate Cycle FJ Systems/QA family-churn row for `COMBAT/VFX CADENCE COACH WHY + CVCW`.
+- Commit: HEAD (this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+- Decisions:
+  - Regression now asserts row presence/count and strict adjacency for coach rationale cluster in both summary and token-coverage sections.
+  - No gameplay/runtime coupling introduced (digest-only observability change).
+- Follow-up:
+  - Queue next unchecked AI Content/Combat hysteresis-floor prototype after this commit lands.

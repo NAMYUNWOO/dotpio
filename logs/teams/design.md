@@ -2105,3 +2105,8 @@
 
 ## 2026-03-27 17:23 KST
 - Preserved digest scan order by locking cadence coach family-churn row directly before watchdog legend in both sections.
+
+## 2026-03-27 18:04 KST — Cycle FJ coach-why alias slice [DONE]
+- Closed AI Content/Combat rationale-token follow-up by shipping offline `COMBAT/VFX CADENCE COACH WHY:<short>` (miss-risk delta + watchdog streak trend).
+- Executed Game Director Cycle FJ (3 ideas) and selected low-risk vertical slice: compact alias `CVCW:<R|H|P|C|B>` behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_ALIAS`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.

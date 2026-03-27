@@ -1201,4 +1201,13 @@ Last updated: 2026-03-21 02:31 KST
 ## Cycle FI - Game Director Review (2026-03-27 17:03 KST)
 - [x] UX/Systems Team: Add compact cadence-coach alias token (`CVCC:<N|A|E>`) behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 17:03 KST; completed: 2026-03-27 17:10 KST)*
 - [x] Systems/QA Team: Add token-family churn coverage + adjacency/order lock for `COMBAT/VFX CADENCE COACH:` (+ alias row) in summary/token-coverage sections. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 17:21 KST; completed: 2026-03-27 17:23 KST)*
-- [ ] AI Content/Combat Team: Prototype offline escalation rationale token (`COMBAT/VFX CADENCE COACH WHY:<short>`) derived from miss-risk delta + streak trend.
+- [x] AI Content/Combat Team: Prototype offline escalation rationale token (`COMBAT/VFX CADENCE COACH WHY:<short>`) derived from miss-risk delta + streak trend. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 17:51 KST; completed: 2026-03-27 17:58 KST)*
+
+## Cycle FJ - Game Director Review (2026-03-27 17:58 KST)
+- Idea 1 (low risk, UX/Systems): Add compact rationale alias token (`CVCW:<R|H|P|C|B>`) for `COMBAT/VFX CADENCE COACH WHY` to speed dense digest scans.
+- Idea 2 (mid risk, Systems/QA): Add deterministic family-churn row for `COMBAT/VFX CADENCE COACH WHY + CVCW` in summary/token-coverage sections.
+- Idea 3 (high risk, AI Content/Combat): Prototype adaptive coach-why hysteresis smoothing to suppress single-window rationale flips (`RISING->FLAT` jitter).
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Systems Team: Ship compact coach-why alias `CVCW:<R|H|P|C|B>` behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_ALIAS` with payload/markdown wiring + ordering regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 17:58 KST; completed: 2026-03-27 18:04 KST)*
+- [x] Systems/QA Team: Add `COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN` row adjacent to cadence coach cluster in both digest sections. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 18:12 KST; completed: 2026-03-27 18:24 KST)*
+- [ ] AI Content/Combat Team: Prototype coach-why hysteresis floor (`RED HOLD` sticky window) from miss-risk delta + streak trend volatility.

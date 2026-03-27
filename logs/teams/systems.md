@@ -3080,3 +3080,20 @@
 - Task: Added cadence-coach token-family churn row for `COMBAT/VFX CADENCE COACH` + `CVCC` in summary and token-coverage sections.
 - Decision: Keep deterministic ordering `... COACH -> CVCC -> COACH+CVCC FAMILY CHURN -> WATCHDOG LEGEND` in both sections.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+
+## 2026-03-27 18:04 KST — Cycle FJ coach-why alias slice [DONE]
+- Closed AI Content/Combat rationale-token follow-up by shipping offline `COMBAT/VFX CADENCE COACH WHY:<short>` (miss-risk delta + watchdog streak trend).
+- Executed Game Director Cycle FJ (3 ideas) and selected low-risk vertical slice: compact alias `CVCW:<R|H|P|C|B>` behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_ALIAS`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
+
+## 2026-03-27 18:24 KST
+- Task: Cycle FJ Systems/QA follow-up — add `COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN` digest row adjacent to cadence coach cluster.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added dedicated coach-why alias family churn row in both summary and token-coverage sections.
+  - Preserved deterministic row order: `... COACH WHY -> CVCW -> COACH WHY + CVCW FAMILY CHURN -> CVCC -> COACH + CVCC FAMILY CHURN`.
+- Follow-up:
+  - Next highest unchecked item is AI Content/Combat coach-why hysteresis floor prototype (`RED HOLD` sticky window).

@@ -27,8 +27,8 @@ PORTAL_PATH_HINTS = (
     "scripts/regression_combat_damage_numbers.lua",
 )
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "CVCC:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "CVCC:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCC:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCC:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 TOKEN_CATALOG: list[str] = []
@@ -126,6 +126,7 @@ TOKEN_ALIAS_FAMILIES = {
     "lanePriorityRecommendationConfidenceGuardCoachCopyAlias": ["LPRCG COACH COPY:", "LPRCGCN:"],
     "lanePriorityRecommendationConfidenceGuardCoachCopyWhy": ["LPRCG COACH COPY WHY:"],
     "combatVfxCadenceCoachAlias": ["COMBAT/VFX CADENCE COACH:", "CVCC:"],
+    "combatVfxCadenceCoachWhy": ["COMBAT/VFX CADENCE COACH WHY:", "CVCW:"],
 }
 ROUTE_VIBE_PATTERNS = {
     "CALM": ("ROUTE VIBE:CALM", "VIBE:C"),
@@ -464,6 +465,66 @@ def combat_vfx_cadence_coach(*, combat_vfx_cadence_watchdog_streak_signals: dict
     }
 
 
+
+
+def combat_vfx_cadence_coach_why(*, combat_vfx_cadence_watchdog_streak_signals: dict[str, object], lane_cadence_miss_risk_signals: dict[str, object]) -> tuple[str, dict[str, object]]:
+    """Compact rationale token derived from miss-risk delta and watchdog streak trend."""
+    risk = str(lane_cadence_miss_risk_signals.get("risk", "MID") or "MID").upper()
+    delta_hours = float(lane_cadence_miss_risk_signals.get("deltaHours", 0.0) or 0.0)
+    streak = int(combat_vfx_cadence_watchdog_streak_signals.get("streak", 0) or 0)
+    prior_streak = int(combat_vfx_cadence_watchdog_streak_signals.get("priorStreak", 0) or 0)
+    streak_delta = streak - prior_streak
+    streak_trend = "RISING" if streak_delta > 0 else ("FALLING" if streak_delta < 0 else "FLAT")
+
+    if risk == "HIGH" and streak_trend == "RISING":
+        short = "RED CLIMB"
+        reason = "high-risk-delta-with-rising-breach-streak"
+    elif risk == "HIGH":
+        short = "RED HOLD"
+        reason = "high-risk-delta-with-flat-or-falling-streak"
+    elif streak_trend == "RISING" and delta_hours >= 0:
+        short = "AMBER PUSH"
+        reason = "miss-risk-delta-nonnegative-with-rising-streak"
+    elif streak_trend == "FALLING":
+        short = "COOLING"
+        reason = "streak-trend-falling"
+    else:
+        short = "BASELINE WATCH"
+        reason = "stable-miss-risk-delta-and-flat-streak"
+
+    token = f"COMBAT/VFX CADENCE COACH WHY:{short}"
+    return token, {
+        "short": short,
+        "reason": reason,
+        "laneCadenceMissRisk": risk,
+        "laneCadenceDeltaHours": delta_hours,
+        "watchdogStreak": streak,
+        "priorWatchdogStreak": prior_streak,
+        "watchdogStreakDelta": streak_delta,
+        "watchdogStreakTrend": streak_trend,
+        "offlineOnly": True,
+    }
+
+
+def resolve_combat_vfx_cadence_coach_why_alias(*, coach_why_token: str) -> tuple[str, dict[str, object]]:
+    """Compact alias for cadence coach rationale (`CVCW:<R|H|P|C|B>`)."""
+    flag_name = "DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_ALIAS"
+    flag_enabled = os.environ.get(flag_name, "").strip().lower() in {"1", "true", "yes", "on"}
+    alias_map = {
+        "COMBAT/VFX CADENCE COACH WHY:RED CLIMB": "R",
+        "COMBAT/VFX CADENCE COACH WHY:RED HOLD": "H",
+        "COMBAT/VFX CADENCE COACH WHY:AMBER PUSH": "P",
+        "COMBAT/VFX CADENCE COACH WHY:COOLING": "C",
+        "COMBAT/VFX CADENCE COACH WHY:BASELINE WATCH": "B",
+    }
+    alias = alias_map.get(coach_why_token, "B")
+    token = f"CVCW:{alias}"
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "coachWhyToken": coach_why_token,
+        "alias": token,
+    }
 
 
 def resolve_combat_vfx_cadence_coach_alias(*, coach_token: str) -> tuple[str, dict[str, object]]:
@@ -8239,6 +8300,13 @@ def main() -> int:
         combat_vfx_cadence_watchdog_streak_signals=combat_vfx_cadence_watchdog_streak_signals,
         lane_cadence_miss_risk_signals=lane_cadence_miss_risk_signals,
     )
+    combat_vfx_cadence_coach_why_token, combat_vfx_cadence_coach_why_signals = combat_vfx_cadence_coach_why(
+        combat_vfx_cadence_watchdog_streak_signals=combat_vfx_cadence_watchdog_streak_signals,
+        lane_cadence_miss_risk_signals=lane_cadence_miss_risk_signals,
+    )
+    combat_vfx_cadence_coach_why_alias_token, combat_vfx_cadence_coach_why_alias_signals = resolve_combat_vfx_cadence_coach_why_alias(
+        coach_why_token=combat_vfx_cadence_coach_why_token,
+    )
     combat_vfx_cadence_coach_alias_token, combat_vfx_cadence_coach_alias_signals = resolve_combat_vfx_cadence_coach_alias(
         coach_token=combat_vfx_cadence_coach_token,
     )
@@ -9820,6 +9888,10 @@ def main() -> int:
         "combatVfxCadenceWatchdogStreakCount": int(combat_vfx_cadence_watchdog_streak_signals["streak"]),
         "combatVfxCadenceCoach": combat_vfx_cadence_coach_token,
         "combatVfxCadenceCoachSignals": combat_vfx_cadence_coach_signals,
+        "combatVfxCadenceCoachWhy": combat_vfx_cadence_coach_why_token,
+        "combatVfxCadenceCoachWhySignals": combat_vfx_cadence_coach_why_signals,
+        "combatVfxCadenceCoachWhyAlias": combat_vfx_cadence_coach_why_alias_token,
+        "combatVfxCadenceCoachWhyAliasSignals": combat_vfx_cadence_coach_why_alias_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,
         "combatVfxCadenceCoachAliasSignals": combat_vfx_cadence_coach_alias_signals,
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,
@@ -10649,6 +10721,9 @@ def main() -> int:
         f"- COMBAT/VFX CADENCE WATCHDOG: **{combat_vfx_cadence_watchdog_token}** (status={combat_vfx_cadence_watchdog_signals['status']} age={combat_vfx_cadence_watchdog_signals['combatVfxAgeHours']}h window={combat_vfx_cadence_watchdog_signals['windowHours']}h reason={combat_vfx_cadence_watchdog_signals['reason']})",
         f"- COMBAT/VFX CADENCE WATCHDOG STREAK: **{combat_vfx_cadence_watchdog_streak_token}** (status={combat_vfx_cadence_watchdog_streak_signals['status']} streak={combat_vfx_cadence_watchdog_streak_signals['streak']} prior={combat_vfx_cadence_watchdog_streak_signals['priorStatus']}:{combat_vfx_cadence_watchdog_streak_signals['priorStreak']} loaded={combat_vfx_cadence_watchdog_streak_signals['priorLoaded']} reason={combat_vfx_cadence_watchdog_streak_signals['reason']})",
         f"- COMBAT/VFX CADENCE COACH: **{combat_vfx_cadence_coach_token}** (coach={combat_vfx_cadence_coach_signals['coach']} status={combat_vfx_cadence_coach_signals['watchdogStatus']} streak={combat_vfx_cadence_coach_signals['watchdogStreak']} missRisk={combat_vfx_cadence_coach_signals['laneCadenceMissRisk']} reason={combat_vfx_cadence_coach_signals['reason']} offlineOnly={combat_vfx_cadence_coach_signals['offlineOnly']})",
+        f"- COMBAT/VFX CADENCE COACH WHY: **{combat_vfx_cadence_coach_why_token}** (short={combat_vfx_cadence_coach_why_signals['short']} trend={combat_vfx_cadence_coach_why_signals['watchdogStreakTrend']} streakΔ={combat_vfx_cadence_coach_why_signals['watchdogStreakDelta']:+d} missRisk={combat_vfx_cadence_coach_why_signals['laneCadenceMissRisk']} missΔ={combat_vfx_cadence_coach_why_signals['laneCadenceDeltaHours']:+.1f}h reason={combat_vfx_cadence_coach_why_signals['reason']} offlineOnly={combat_vfx_cadence_coach_why_signals['offlineOnly']})",
+        f"- CVCW: **{combat_vfx_cadence_coach_why_alias_token if combat_vfx_cadence_coach_why_alias_signals['flagEnabled'] else 'FLAG OFF'}** (flag={combat_vfx_cadence_coach_why_alias_signals['flagName']} enabled={combat_vfx_cadence_coach_why_alias_signals['flagEnabled']} coachWhy={combat_vfx_cadence_coach_why_alias_signals['coachWhyToken']} alias={combat_vfx_cadence_coach_why_alias_signals['alias']})",
+        f"- COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN: **net {token_family_totals['combatVfxCadenceCoachWhy']['net']:+d}** (added={token_family_totals['combatVfxCadenceCoachWhy']['added']} removed={token_family_totals['combatVfxCadenceCoachWhy']['removed']} churn={token_family_totals['combatVfxCadenceCoachWhy']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhy']['coverage']})",
         f"- CVCC: **{combat_vfx_cadence_coach_alias_token if combat_vfx_cadence_coach_alias_signals['flagEnabled'] else 'FLAG OFF'}** (flag={combat_vfx_cadence_coach_alias_signals['flagName']} enabled={combat_vfx_cadence_coach_alias_signals['flagEnabled']} coach={combat_vfx_cadence_coach_alias_signals['coachToken']} alias={combat_vfx_cadence_coach_alias_signals['alias']})",
         f"- COMBAT/VFX CADENCE COACH + CVCC FAMILY CHURN: **net {token_family_totals['combatVfxCadenceCoachAlias']['net']:+d}** (added={token_family_totals['combatVfxCadenceCoachAlias']['added']} removed={token_family_totals['combatVfxCadenceCoachAlias']['removed']} churn={token_family_totals['combatVfxCadenceCoachAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachAlias']['coverage']})",
         "- COMBAT/VFX CADENCE WATCHDOG LEGEND: **OK=recent touch, BREACH=stale >24h, STREAK=consecutive BREACH windows**",
@@ -10852,6 +10927,9 @@ def main() -> int:
         f"- COMBAT/VFX CADENCE WATCHDOG: {combat_vfx_cadence_watchdog_token} (status={combat_vfx_cadence_watchdog_signals['status']}, age={combat_vfx_cadence_watchdog_signals['combatVfxAgeHours']}h, window={combat_vfx_cadence_watchdog_signals['windowHours']}h, reason={combat_vfx_cadence_watchdog_signals['reason']})",
         f"- COMBAT/VFX CADENCE WATCHDOG STREAK: {combat_vfx_cadence_watchdog_streak_token} (status={combat_vfx_cadence_watchdog_streak_signals['status']}, streak={combat_vfx_cadence_watchdog_streak_signals['streak']}, prior={combat_vfx_cadence_watchdog_streak_signals['priorStatus']}:{combat_vfx_cadence_watchdog_streak_signals['priorStreak']}, loaded={combat_vfx_cadence_watchdog_streak_signals['priorLoaded']}, reason={combat_vfx_cadence_watchdog_streak_signals['reason']})",
         f"- COMBAT/VFX CADENCE COACH: {combat_vfx_cadence_coach_token} (coach={combat_vfx_cadence_coach_signals['coach']}, status={combat_vfx_cadence_coach_signals['watchdogStatus']}, streak={combat_vfx_cadence_coach_signals['watchdogStreak']}, missRisk={combat_vfx_cadence_coach_signals['laneCadenceMissRisk']}, reason={combat_vfx_cadence_coach_signals['reason']}, offlineOnly={combat_vfx_cadence_coach_signals['offlineOnly']})",
+        f"- COMBAT/VFX CADENCE COACH WHY: {combat_vfx_cadence_coach_why_token} (short={combat_vfx_cadence_coach_why_signals['short']}, trend={combat_vfx_cadence_coach_why_signals['watchdogStreakTrend']}, streakΔ={combat_vfx_cadence_coach_why_signals['watchdogStreakDelta']:+d}, missRisk={combat_vfx_cadence_coach_why_signals['laneCadenceMissRisk']}, missΔ={combat_vfx_cadence_coach_why_signals['laneCadenceDeltaHours']:+.1f}h, reason={combat_vfx_cadence_coach_why_signals['reason']}, offlineOnly={combat_vfx_cadence_coach_why_signals['offlineOnly']})",
+        f"- CVCW: {combat_vfx_cadence_coach_why_alias_token if combat_vfx_cadence_coach_why_alias_signals['flagEnabled'] else 'FLAG OFF'} (flag={combat_vfx_cadence_coach_why_alias_signals['flagName']}, enabled={combat_vfx_cadence_coach_why_alias_signals['flagEnabled']}, coachWhy={combat_vfx_cadence_coach_why_alias_signals['coachWhyToken']}, alias={combat_vfx_cadence_coach_why_alias_signals['alias']})",
+        f"- COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachWhy']['added']} / -{token_family_totals['combatVfxCadenceCoachWhy']['removed']} / net {token_family_totals['combatVfxCadenceCoachWhy']['net']} (churn={token_family_totals['combatVfxCadenceCoachWhy']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhy']['coverage']})",
         f"- CVCC: {combat_vfx_cadence_coach_alias_token if combat_vfx_cadence_coach_alias_signals['flagEnabled'] else 'FLAG OFF'} (flag={combat_vfx_cadence_coach_alias_signals['flagName']}, enabled={combat_vfx_cadence_coach_alias_signals['flagEnabled']}, coach={combat_vfx_cadence_coach_alias_signals['coachToken']}, alias={combat_vfx_cadence_coach_alias_signals['alias']})",
         f"- COMBAT/VFX CADENCE COACH + CVCC FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachAlias']['added']} / -{token_family_totals['combatVfxCadenceCoachAlias']['removed']} / net {token_family_totals['combatVfxCadenceCoachAlias']['net']} (churn={token_family_totals['combatVfxCadenceCoachAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachAlias']['coverage']})",
         "- COMBAT/VFX CADENCE WATCHDOG LEGEND: OK=recent touch, BREACH=stale >24h, STREAK=consecutive BREACH windows",
