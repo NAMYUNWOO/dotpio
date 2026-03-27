@@ -1397,3 +1397,15 @@ See project-level plans:
 - [x] Combat/VFX Team: Add compact copy-alt-pack alias token (`DCCFXCPAP:<H|B|R|A>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK_COMPACT_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 11:31 KST; completed: 2026-03-27 11:41 KST)*
 - [x] Systems/QA Team: Add token-family churn coverage + adjacency lock for `DCCFXCPAP:` around COPY ALT PACK rows.
 - [x] AI Content/Combat Team: Prototype offline pack-to-coach microline token (`DCCFXCPAP COACH:<short>`) for mismatch-window handoff clarity. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 13:41 KST; completed: 2026-03-27 13:47 KST)*
+
+## Cycle FG - Game Director Review (2026-03-27 15:41 KST)
+- Coverage check (last 10 completions): systems=3, world=2, ai-content=4, combat=4, design=1, vfx=1, ux=2, qa=3.
+- Lane-cap check: no lane exceeded 40% (ai-content/combat at 40% each), so no forced lane override required.
+- 24h cadence check: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low risk, Combat/VFX): Add digest-only FX cue token `DCCFXCPAP FX CUE:<SOFT|SHARP|SURGE|STEADY>` mapped from `DCCFXCPAP COACH` for faster postmortem feel triage.
+- Idea 2 (mid risk, Design/World): Add `DCCFXCPAP FX CUE LEGEND` + scene framing copy block to reduce decode latency for narrative reviewers.
+- Idea 3 (high risk, Systems/Ops): Add lane-balance watchdog token that warns when combat/vfx cadence drops below 24h minimum.
+- Selected experiment: Idea 1 (minimal vertical slice, player-facing combat/vfx readability).
+- [x] Combat/VFX Team: Ship flagged `DCCFXCPAP FX CUE` token with payload + summary/token-coverage markdown wiring and regression ordering updates. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 15:26 KST; completed: 2026-03-27 15:41 KST)*
+- [ ] Design/World Team: Add `DCCFXCPAP FX CUE LEGEND` row and adjacency lock after `DCCFXCPAP FX CUE` for one-glance narrative decode.
+- [ ] Systems/Ops Team: Add cadence watchdog note/token for combat/vfx recency breach (>24h) in weekly digest metadata.

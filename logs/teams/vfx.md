@@ -307,3 +307,9 @@
 ## 2026-03-27 04:03 KST — Cycle EX VFX cadence log
 - No runtime VFX mutation this cycle; maintained 24h cadence compliance via prior combat/vfx slices while underrepresented-lane force targeted AI/world rationale readability.
 - Follow-up queued: compact Combat/VFX cue alias bridging `DCCFX` volatility and coach-copy rationale for faster FX triage.
+
+## 2026-03-27 15:41 KST — Cycle FG combat/vfx slice [DONE]
+- Shipped digest-only token `DCCFXCPAP FX CUE:<SOFT|SHARP|SURGE|STEADY>` derived from `DCCFXCPAP COACH` posture for faster feel triage.
+- New experiment flag: `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK_FX_CUE`.
+- Mapping kept deterministic/reversible (`HOLD LINE→SOFT`, `STAGE SWAP→SHARP`, `RELEASE PUSH→SURGE`, `KEEP BASE→STEADY`).
+- Verification: weekly digest regression + py_compile + flagged digest generation PASS.

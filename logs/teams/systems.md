@@ -3047,3 +3047,7 @@
 - Added dedicated coach-family churn emission (`dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCoachAlias`) in token-coverage output.
 - Maintained separate compact-alias churn row (`DCCFXCPAP FAMILY CHURN`) to avoid conflating coach-copy movement with pack-alias movement.
 - Regression harness updated and green to lock this split contract.
+
+## 2026-03-27 15:41 KST — Cycle FG systems/ops coordination
+- Updated weekly digest regression ordering contract to include new `DCCFXCPAP FX CUE` row without breaking existing DCCFXCPAP adjacency guarantees.
+- Injected follow-up ops backlog item: cadence watchdog metadata/token for combat/vfx recency breach (>24h).

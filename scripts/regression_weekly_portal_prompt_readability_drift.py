@@ -2593,6 +2593,7 @@ def main() -> int:
         assert "DCCFXCPAP COACH LEGEND:" in md_text
         assert "DCCFXCPAP COACH FAMILY CHURN" in md_text
         assert "DCCFXCPAP FAMILY CHURN" in md_text
+        assert "DCCFXCPAP FX CUE:" in md_text
         assert "DCCFXCPA COPY ALT LEGEND:" in md_text
         assert "DCCFXCPA COPY ALT PACK LEGEND:" in md_text
         assert "DCCFXCPA COPY LEGEND:" in md_text
@@ -2664,6 +2665,7 @@ def main() -> int:
         combo_conf_dccfxcpap_coach_legend_idx = _find_line_index("- DCCFXCPAP COACH LEGEND:")
         combo_conf_dccfxcpap_coach_family_churn_idx = _find_line_index("- DCCFXCPAP COACH FAMILY CHURN:")
         combo_conf_dccfxcpap_family_churn_idx = _find_line_index("- DCCFXCPAP FAMILY CHURN:")
+        combo_conf_dccfxcpap_fx_cue_idx = _find_line_index("- DCCFXCPAP FX CUE:")
         combo_conf_dccfxcpa_copy_alt_legend_idx = _find_line_index("- DCCFXCPA COPY ALT LEGEND:")
         combo_conf_dccfxcpa_copy_alt_pack_legend_idx = _find_line_index("- DCCFXCPA COPY ALT PACK LEGEND:")
         combo_conf_dccfxcpa_copy_legend_idx = _find_line_index("- DCCFXCPA COPY LEGEND:")
@@ -2773,6 +2775,7 @@ def main() -> int:
         coverage_dccfxcpap_coach_legend_idx = _find_in_range("- DCCFXCPAP COACH LEGEND:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcpap_coach_family_churn_idx = _find_in_range("- DCCFXCPAP COACH FAMILY CHURN:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcpap_family_churn_idx = _find_in_range("- DCCFXCPAP FAMILY CHURN:", coverage_start, coverage_end, "token coverage")
+        coverage_dccfxcpap_fx_cue_idx = _find_in_range("- DCCFXCPAP FX CUE:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcpa_copy_alt_legend_idx = _find_in_range("- DCCFXCPA COPY ALT LEGEND:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcpa_copy_alt_pack_legend_idx = _find_in_range("- DCCFXCPA COPY ALT PACK LEGEND:", coverage_start, coverage_end, "token coverage")
         coverage_dccfxcpa_copy_legend_idx = _find_in_range("- DCCFXCPA COPY LEGEND:", coverage_start, coverage_end, "token coverage")
@@ -2841,8 +2844,11 @@ def main() -> int:
         assert coverage_dccfxcpap_family_churn_idx == coverage_dccfxcpap_coach_family_churn_idx + 1, (
             "expected DCCFXCPAP FAMILY CHURN row directly after DCCFXCPAP COACH FAMILY CHURN row in token-coverage section"
         )
-        assert coverage_dccfxcpa_copy_alt_legend_idx == coverage_dccfxcpap_family_churn_idx + 1, (
-            "expected DCCFXCPA COPY ALT LEGEND row directly after DCCFXCPAP FAMILY CHURN row in token-coverage section"
+        assert coverage_dccfxcpap_fx_cue_idx == coverage_dccfxcpap_family_churn_idx + 1, (
+            "expected DCCFXCPAP FX CUE row directly after DCCFXCPAP FAMILY CHURN row in token-coverage section"
+        )
+        assert coverage_dccfxcpa_copy_alt_legend_idx == coverage_dccfxcpap_fx_cue_idx + 1, (
+            "expected DCCFXCPA COPY ALT LEGEND row directly after DCCFXCPAP FX CUE row in token-coverage section"
         )
         assert coverage_dccfxcpa_copy_alt_pack_legend_idx == coverage_dccfxcpa_copy_alt_legend_idx + 1, (
             "expected DCCFXCPA COPY ALT PACK LEGEND row directly after DCCFXCPA COPY ALT LEGEND row in token-coverage section"
@@ -2919,8 +2925,11 @@ def main() -> int:
         assert combo_conf_dccfxcpap_family_churn_idx == combo_conf_dccfxcpap_coach_family_churn_idx + 1, (
             "expected DCCFXCPAP FAMILY CHURN row directly after DCCFXCPAP COACH FAMILY CHURN row"
         )
-        assert combo_conf_dccfxcpa_copy_alt_legend_idx == combo_conf_dccfxcpap_family_churn_idx + 1, (
-            "expected DCCFXCPA COPY ALT LEGEND row directly after DCCFXCPAP FAMILY CHURN row"
+        assert combo_conf_dccfxcpap_fx_cue_idx == combo_conf_dccfxcpap_family_churn_idx + 1, (
+            "expected DCCFXCPAP FX CUE row directly after DCCFXCPAP FAMILY CHURN row"
+        )
+        assert combo_conf_dccfxcpa_copy_alt_legend_idx == combo_conf_dccfxcpap_fx_cue_idx + 1, (
+            "expected DCCFXCPA COPY ALT LEGEND row directly after DCCFXCPAP FX CUE row"
         )
         assert combo_conf_dccfxcpa_copy_alt_pack_legend_idx == combo_conf_dccfxcpa_copy_alt_legend_idx + 1, (
             "expected DCCFXCPA COPY ALT PACK LEGEND row directly after DCCFXCPA COPY ALT LEGEND row"

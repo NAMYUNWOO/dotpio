@@ -3616,3 +3616,8 @@
 - Enforced ordering chain:
   - `DCCFXCPA COPY ALT PACK -> DCCFXCPAP -> DCCFXCPAP COACH -> DCCFXCPAP COACH LEGEND -> DCCFXCPAP COACH FAMILY CHURN -> DCCFXCPAP FAMILY CHURN`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+
+## 2026-03-27 15:41 KST — Cycle FG regression contract update
+- Extended ordering assertions to include `DCCFXCPAP FX CUE` row in both summary and token-coverage sections.
+- New expected chain: `DCCFXCPAP COACH FAMILY CHURN -> DCCFXCPAP FAMILY CHURN -> DCCFXCPAP FX CUE -> DCCFXCPA COPY ALT LEGEND`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.

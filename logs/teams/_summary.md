@@ -3345,3 +3345,18 @@ Compact decision memory for AI context efficiency.
 - Updated both digest sections (summary + token coverage) to preserve deterministic row ordering around the coach block.
 - Regression contract strengthened in `scripts/regression_weekly_portal_prompt_readability_drift.py` for new row presence and adjacency.
 - Verification passed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-27 15:41 KST — Cycle FG shipped (combat/vfx fun-factor cue)
+- Coverage check over last 10 completed items: systems=3, world=2, ai-content=4, combat=4, design=1, vfx=1, ux=2, qa=3 (no lane >40%; ai-content/combat at cap).
+- 24h cadence guard satisfied: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Generated 3 ideas (low combat/vfx cue, mid design/world legend, high systems/ops cadence watchdog) and selected low-risk player-facing readability slice.
+- Shipped flagged digest token `DCCFXCPAP FX CUE:<SOFT|SHARP|SURGE|STEADY>` mapped from `DCCFXCPAP COACH` posture.
+- Contract updates:
+  - Added payload fields for FX cue + signals in JSON output.
+  - Added summary/token-coverage rows for `DCCFXCPAP FX CUE`.
+  - Updated regression ordering chain to include the new cue row after `DCCFXCPAP FAMILY CHURN`.
+- Verification passed:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK=1 DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK_COMPACT_ALIAS=1 DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK_COACH=1 DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK_FX_CUE=1 python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`
+- Backlog injected: design/world `DCCFXCPAP FX CUE LEGEND` and systems/ops combat/vfx cadence watchdog metadata token.

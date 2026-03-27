@@ -2082,3 +2082,7 @@
   - HOLD LINE=shield-hold, STAGE SWAP=buffer-swap prep, RELEASE PUSH=recover-forward, KEEP BASE=steady.
 - Decision: keep legend directly adjacent to coach row in both digest sections to reduce operator lookup cost.
 - Follow-up: preserve concise vocabulary and avoid widening beyond DOS-friendly decode length.
+
+## 2026-03-27 15:41 KST — Cycle FG design/world backlog injection
+- Reserved next design/world follow-up to add `DCCFXCPAP FX CUE LEGEND` immediately after the new cue row.
+- Goal: one-glance narrative readability for scene reviewers without widening compact prompt surface.
