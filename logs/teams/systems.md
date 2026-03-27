@@ -3236,3 +3236,9 @@
   - Added deterministic adjacency lock: `WATCHDOG LEGEND -> CPTC OVERRIDE -> COPY PACK FAMILY CHURN` in both sections.
 - Follow-up:
   - Next highest-priority unchecked item: `CADENCE BRIDGE GLYPH:CALM|TENSE` prototype (Design/World forced lane).
+## 2026-03-28 05:05 KST — Cycle FU systems wiring (`CADENCE BRIDGE GLYPH`)
+- Implemented `cadence_bridge_glyph_from_bridge_and_freshness_gap(...)` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Added payload keys `cadenceBridgeGlyph` / `cadenceBridgeGlyphSignals` and markdown rows in summary + token-coverage sections.
+- Preserved existing regression-critical cadence ordering by placing glyph row outside locked adjacency rails.
+## 2026-03-28 05:14 KST — Cycle FV systems sync
+- Wired static glyph legend row into both markdown sections without touching payload schema or cadence adjacency rails.

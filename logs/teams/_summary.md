@@ -3529,3 +3529,11 @@ Compact decision memory for AI context efficiency.
 - Closed Cycle FT Systems/Ops follow-up: regression contract now hard-locks `CVCWHR FX LEGEND CPTC OVERRIDE` schema + markdown placement in both summary/token-coverage sections.
 - Added deterministic assertions for row counts (`CVCWHR FX LEGEND CPTC OVERRIDE`, `CVCWHR FX LEGEND COPY PACK FAMILY CHURN`) and adjacency `WATCHDOG LEGEND -> CPTC OVERRIDE -> COPY PACK FAMILY CHURN` per section.
 - Verification passed via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; TASKS + POST_RC item moved from in-progress to done next.
+## 2026-03-28 05:05 KST — Cycle FU Forced Design/World completion (`CADENCE BRIDGE GLYPH`)
+- Closed highest-priority forced lane item by shipping flagged digest token `CADENCE BRIDGE GLYPH:CALM|TENSE` from `CADENCE BRIDGE` + design/world freshness gap vs freshest non-design lane.
+- Payload contract now includes `cadenceBridgeGlyph` + `cadenceBridgeGlyphSignals`; regression now validates glyph value domain/schema and markdown presence in summary + token-coverage sections.
+- Durable ordering decision: kept glyph row outside strict cadence adjacency rails so existing regression lock (`... CPTC LEGEND -> CADENCE BRIDGE -> CVCWHR CONF FLOOR ...`) remains intact.
+## 2026-03-28 05:14 KST — Cycle FV Game Director vertical slice (`CADENCE BRIDGE GLYPH LEGEND`)
+- Full-check trigger executed Game Director review cycle (3 ideas) and shipped selected low-risk experiment: `CADENCE BRIDGE GLYPH LEGEND` row in summary + token-coverage.
+- Durable readability decision: keep legend adjacent to glyph diagnostics while deferring strict glyph/legend regression adjacency lock to follow-up to avoid disrupting existing cadence contracts in same slice.
+- Backlog injection completed: Systems/QA regression lock for glyph+legend pair, AI Content/World offline glyph-confidence prototype.

@@ -3780,3 +3780,8 @@
   - Regression now enforces two-row presence (summary/token-coverage) and deterministic adjacency around the new override row.
 - Follow-up:
   - Keep weekly digest artifact generation in pre-merge checks when cadence-cluster rows are touched.
+## 2026-03-28 05:05 KST — Cycle FU QA contract update (`CADENCE BRIDGE GLYPH`)
+- Extended weekly regression to assert glyph payload schema/value domain and markdown presence in both digest sections.
+- Verification passed: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+## 2026-03-28 05:14 KST — Cycle FV QA note
+- Verified legend-row insertion preserves existing regression contracts; dedicated glyph+legend lock intentionally queued as follow-up item.

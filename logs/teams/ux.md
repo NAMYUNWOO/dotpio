@@ -2383,3 +2383,8 @@
 ## 2026-03-28 04:31 KST
 - Sync note: No lane-specific code change this cycle; reviewed FT completion + updated cross-lane context for next forced Design/World item (CADENCE BRIDGE GLYPH).
 - Dependency consumed: Systems/QA regression contract now hard-locks CVCWHR FX LEGEND CPTC OVERRIDE placement in both digest sections.
+## 2026-03-28 05:05 KST — Cycle FU UX scanability note (`CADENCE BRIDGE GLYPH`)
+- Added compact scan row `CADENCE BRIDGE GLYPH` in both digest sections to make bridge urgency visually readable at a glance.
+- Copy format mirrors existing cadence diagnostics (flag + bridge + freshness gap) for low-hop operator parsing.
+## 2026-03-28 05:14 KST — Cycle FV UX legibility follow-up
+- Added `CADENCE BRIDGE GLYPH LEGEND` row in both digest sections to reduce ambiguity of `CALM|TENSE` scan token.

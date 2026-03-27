@@ -2101,3 +2101,8 @@
 ## 2026-03-28 04:31 KST
 - Sync note: No lane-specific code change this cycle; reviewed FT completion + updated cross-lane context for next forced Design/World item (CADENCE BRIDGE GLYPH).
 - Dependency consumed: Systems/QA regression contract now hard-locks CVCWHR FX LEGEND CPTC OVERRIDE placement in both digest sections.
+## 2026-03-28 05:05 KST — Cycle FU combat lane sync (`CADENCE BRIDGE GLYPH`)
+- Consumed design/world glyph readability slice for cadence triage; combat runtime behavior unchanged.
+- Cross-lane note: bridge urgency now carries an explicit `CALM|TENSE` scenery cue in digest audits.
+## 2026-03-28 05:14 KST — Cycle FV combat sync
+- Combat lane consumed glyph legend readability upgrade for postmortem cadence scans; no combat-runtime delta.

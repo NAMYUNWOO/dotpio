@@ -2420,6 +2420,7 @@ def main() -> int:
         assert "CVCWHR FX LEGEND CPTC LEGEND:" in md_text
         assert "CVCWHR FX LEGEND CPTC OVERRIDE:" in md_text
         assert "CADENCE BRIDGE:" in md_text
+        assert "CADENCE BRIDGE GLYPH:" in md_text
         assert "CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN:" in md_text
         assert "CADENCE BRIDGE FAMILY CHURN:" in md_text
         assert "CVCWH FAMILY CHURN:" in md_text
@@ -2566,6 +2567,8 @@ def main() -> int:
         }, payload
         assert payload.get("cadenceBridge") in {"CADENCE BRIDGE:SCOUT", "CADENCE BRIDGE:PRESS", "CADENCE BRIDGE:HOLD"}, payload
         assert set(payload.get("cadenceBridgeSignals", {}).keys()) == {"bridge", "confidenceFloorRecommendation", "designWorldAgeHours", "systemsOpsAgeHours", "combatVfxAgeHours", "windowHours", "reason", "offlineOnly"}, payload
+        assert payload.get("cadenceBridgeGlyph") in {"FLAG OFF", "CADENCE BRIDGE GLYPH:CALM", "CADENCE BRIDGE GLYPH:TENSE"}, payload
+        assert set(payload.get("cadenceBridgeGlyphSignals", {}).keys()) == {"flagName", "flagEnabled", "bridge", "glyph", "designWorldAgeHours", "systemsOpsAgeHours", "combatVfxAgeHours", "freshestOtherAgeHours", "designWorldGapHours", "reason", "offlineOnly"}, payload
         assert set(payload.get("combatVfxCadenceCoachWhyHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",
@@ -2897,6 +2900,7 @@ def main() -> int:
         combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_family_churn_indices = _find_line_indices("- CVCWHR FX PULSE FAMILY CHURN:")
         combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_family_trend_indices = _find_line_indices("- CVCWHR FX PULSE FAMILY TREND:")
         cadence_bridge_family_churn_indices = _find_line_indices("- CADENCE BRIDGE FAMILY CHURN:")
+        cadence_bridge_glyph_indices = _find_line_indices("- CADENCE BRIDGE GLYPH:")
         combat_vfx_cadence_coach_why_hysteresis_family_churn_indices = _find_line_indices("- CVCWH FAMILY CHURN:")
         combat_vfx_cadence_coach_why_hysteresis_recommendation_family_churn_indices = _find_line_indices("- CVCWHR FAMILY CHURN:")
         combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_family_churn_indices = _find_line_indices("- CVCWHR CONF + CVCWHRC FAMILY CHURN:")
@@ -3287,6 +3291,9 @@ def main() -> int:
         )
         assert len(cadence_bridge_family_churn_indices) == 2, (
             "expected exactly two CADENCE BRIDGE FAMILY CHURN rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_indices) == 2, (
+            "expected exactly two CADENCE BRIDGE GLYPH rows (summary + token-coverage sections)"
         )
         assert len(combat_vfx_cadence_coach_why_hysteresis_family_churn_indices) == 2, (
             "expected exactly two CVCWH FAMILY CHURN rows (summary + token-coverage sections)"

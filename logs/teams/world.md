@@ -2115,3 +2115,8 @@
 ## 2026-03-28 04:31 KST
 - Sync note: No lane-specific code change this cycle; reviewed FT completion + updated cross-lane context for next forced Design/World item (CADENCE BRIDGE GLYPH).
 - Dependency consumed: Systems/QA regression contract now hard-locks CVCWHR FX LEGEND CPTC OVERRIDE placement in both digest sections.
+## 2026-03-28 05:05 KST — Cycle FU world readability sync (`CADENCE BRIDGE GLYPH`)
+- Added world-facing bridge scenery cue `CADENCE BRIDGE GLYPH:CALM|TENSE` (flagged) from bridge mode + design/world freshness gap.
+- Kept glyph detached from gameplay/runtime systems (digest-only readability artifact).
+## 2026-03-28 05:14 KST — Cycle FV world readability
+- Added explicit legend semantics for world-facing bridge glyph to keep `CALM|TENSE` interpretation stable across handoff reviews.

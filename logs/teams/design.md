@@ -2181,3 +2181,10 @@
 ## 2026-03-28 04:31 KST
 - Sync note: No lane-specific code change this cycle; reviewed FT completion + updated cross-lane context for next forced Design/World item (CADENCE BRIDGE GLYPH).
 - Dependency consumed: Systems/QA regression contract now hard-locks CVCWHR FX LEGEND CPTC OVERRIDE placement in both digest sections.
+## 2026-03-28 05:05 KST — Cycle FU Design/World slice (`CADENCE BRIDGE GLYPH`)
+- Closed forced Design/World queue item by adding flagged digest token `CADENCE BRIDGE GLYPH:CALM|TENSE` derived from `CADENCE BRIDGE` + design/world freshness gap against freshest non-design lane.
+- Wiring: payload now emits `cadenceBridgeGlyph` + `cadenceBridgeGlyphSignals`; summary + token-coverage sections now include `CADENCE BRIDGE GLYPH` row without violating existing cadence-cluster adjacency contracts.
+- Durable decision: keep glyph as readability-only (`DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH`) and preserve strict `... CPTC LEGEND -> CADENCE BRIDGE -> CVCWHR CONF FLOOR ...` ordering.
+## 2026-03-28 05:14 KST — Cycle FV UX/Design legend slice (`CADENCE BRIDGE GLYPH LEGEND`)
+- Added explicit legend row (`CALM|TENSE`) immediately after glyph diagnostics in summary + token-coverage sections for faster operator decode.
+- Injected follow-ups: regression lock for glyph/legend pair and offline glyph-confidence recommendation prototype.

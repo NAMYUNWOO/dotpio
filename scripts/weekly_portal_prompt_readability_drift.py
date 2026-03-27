@@ -27,8 +27,8 @@ PORTAL_PATH_HINTS = (
     "scripts/regression_combat_damage_numbers.lua",
 )
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCWHR CONF FLOOR REC:", "CVCWHRF:", "CVCWHR FX PULSE:", "CVCWHR FX LEGEND COPY PACK:", "CVCWHR FX LEGEND CP:", "CVCWHR FX LEGEND COPY PACK TREND:", "CVCWHR FX LEGEND CPT:", "CVCWHR FX LEGEND COPY PACK TREND CONF:", "CVCWHR FX LEGEND CPTC:", "CVCWHR FX LEGEND CPTC LEGEND:", "CVCWHR FX LEGEND CPTC OVERRIDE:", "CADENCE BRIDGE:", "CVCC:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCWHR CONF FLOOR REC:", "CVCWHRF:", "CVCWHR FX PULSE:", "CVCWHR FX LEGEND COPY PACK:", "CVCWHR FX LEGEND CP:", "CVCWHR FX LEGEND COPY PACK TREND:", "CVCWHR FX LEGEND CPT:", "CVCWHR FX LEGEND COPY PACK TREND CONF:", "CVCWHR FX LEGEND CPTC:", "CVCWHR FX LEGEND CPTC LEGEND:", "CVCWHR FX LEGEND CPTC OVERRIDE:", "CADENCE BRIDGE:", "CVCC:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCWHR CONF FLOOR REC:", "CVCWHRF:", "CVCWHR FX PULSE:", "CVCWHR FX LEGEND COPY PACK:", "CVCWHR FX LEGEND CP:", "CVCWHR FX LEGEND COPY PACK TREND:", "CVCWHR FX LEGEND CPT:", "CVCWHR FX LEGEND COPY PACK TREND CONF:", "CVCWHR FX LEGEND CPTC:", "CVCWHR FX LEGEND CPTC LEGEND:", "CVCWHR FX LEGEND CPTC OVERRIDE:", "CADENCE BRIDGE:", "CADENCE BRIDGE GLYPH:", "CVCC:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCWHR CONF FLOOR REC:", "CVCWHRF:", "CVCWHR FX PULSE:", "CVCWHR FX LEGEND COPY PACK:", "CVCWHR FX LEGEND CP:", "CVCWHR FX LEGEND COPY PACK TREND:", "CVCWHR FX LEGEND CPT:", "CVCWHR FX LEGEND COPY PACK TREND CONF:", "CVCWHR FX LEGEND CPTC:", "CVCWHR FX LEGEND CPTC LEGEND:", "CVCWHR FX LEGEND CPTC OVERRIDE:", "CADENCE BRIDGE:", "CADENCE BRIDGE GLYPH:", "CVCC:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 TOKEN_CATALOG: list[str] = []
@@ -140,6 +140,7 @@ TOKEN_ALIAS_FAMILIES = {
     "combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackTrendConfidenceAlias": ["CVCWHR FX LEGEND COPY PACK TREND CONF:", "CVCWHR FX LEGEND CPTC:"],
     "combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackTrendConfidenceOverrideAlias": ["CVCWHR FX LEGEND CPTC OVERRIDE:"],
     "cadenceBridgeAlias": ["CADENCE BRIDGE:"],
+    "cadenceBridgeGlyphAlias": ["CADENCE BRIDGE GLYPH:"],
 }
 ROUTE_VIBE_PATTERNS = {
     "CALM": ("ROUTE VIBE:CALM", "VIBE:C"),
@@ -1096,6 +1097,43 @@ def cadence_bridge_from_cvcwhr_floor_and_lane_freshness(*, confidence_floor_reco
         "systemsOpsAgeHours": systems_ops_age,
         "combatVfxAgeHours": combat_vfx_age,
         "windowHours": int(lane_bucket_age.get("windowHours", 24) or 24),
+        "reason": reason,
+        "offlineOnly": True,
+    }
+
+
+def cadence_bridge_glyph_from_bridge_and_freshness_gap(*, cadence_bridge_token: str, lane_bucket_age: dict[str, object]) -> tuple[str, dict[str, object]]:
+    """Flagged design/world readability glyph from cadence bridge + freshness gap."""
+    flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    age_hours_raw = lane_bucket_age.get("ageHours", {})
+    age_hours = age_hours_raw if isinstance(age_hours_raw, dict) else {}
+    design_world_age = int(age_hours.get("design/world", 999) or 999)
+    systems_ops_age = int(age_hours.get("systems/ops", 999) or 999)
+    combat_vfx_age = int(age_hours.get("combat/vfx", 999) or 999)
+    freshest_other_age = min(systems_ops_age, combat_vfx_age)
+    design_world_gap = design_world_age - freshest_other_age
+
+    bridge = cadence_bridge_token.split(":", 1)[-1].strip().upper()
+    glyph = "CALM"
+    reason = "bridge-hold-or-balanced-gap"
+    if bridge == "PRESS" or design_world_gap >= 6:
+        glyph = "TENSE"
+        reason = "press-bridge-or-large-design-world-gap"
+
+    token = f"CADENCE BRIDGE GLYPH:{glyph}"
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "bridge": bridge,
+        "glyph": glyph,
+        "designWorldAgeHours": design_world_age,
+        "systemsOpsAgeHours": systems_ops_age,
+        "combatVfxAgeHours": combat_vfx_age,
+        "freshestOtherAgeHours": freshest_other_age,
+        "designWorldGapHours": design_world_gap,
         "reason": reason,
         "offlineOnly": True,
     }
@@ -8969,6 +9007,10 @@ def main() -> int:
         confidence_floor_recommendation_token=combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_token,
         lane_bucket_age=lane_bucket_age,
     )
+    cadence_bridge_glyph_token, cadence_bridge_glyph_signals = cadence_bridge_glyph_from_bridge_and_freshness_gap(
+        cadence_bridge_token=cadence_bridge_token,
+        lane_bucket_age=lane_bucket_age,
+    )
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
         lane_bucket_age=lane_bucket_age,
     )
@@ -10591,6 +10633,8 @@ def main() -> int:
         "combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseFamilyTrendSignals": combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_signals,
         "cadenceBridge": cadence_bridge_token,
         "cadenceBridgeSignals": cadence_bridge_signals,
+        "cadenceBridgeGlyph": cadence_bridge_glyph_token,
+        "cadenceBridgeGlyphSignals": cadence_bridge_glyph_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,
         "combatVfxCadenceCoachAliasSignals": combat_vfx_cadence_coach_alias_signals,
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,
@@ -11455,6 +11499,8 @@ def main() -> int:
         "- COMBAT/VFX CADENCE WATCHDOG LEGEND: **OK=recent touch, BREACH=stale >24h, STREAK=consecutive BREACH windows**",
         f"- CVCWHR FX LEGEND CPTC OVERRIDE: **{combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_token}** (diverged={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['diverged']} streak={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['mismatchStreak']} expected={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['expectedConfidence']} reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['reason']})",
         f"- CVCWHR FX LEGEND COPY PACK FAMILY CHURN: **net {token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['net']:+d}** (added={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['added']} removed={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['removed']} churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['coverage']})",
+        f"- CADENCE BRIDGE GLYPH: **{cadence_bridge_glyph_token}** (flag={cadence_bridge_glyph_signals['flagName']} enabled={cadence_bridge_glyph_signals['flagEnabled']} glyph={cadence_bridge_glyph_signals['glyph']} bridge={cadence_bridge_glyph_signals['bridge']} gap={cadence_bridge_glyph_signals['designWorldGapHours']:+d}h dw={cadence_bridge_glyph_signals['designWorldAgeHours']}h freshestOther={cadence_bridge_glyph_signals['freshestOtherAgeHours']}h reason={cadence_bridge_glyph_signals['reason']} offlineOnly={cadence_bridge_glyph_signals['offlineOnly']})",
+        "- CADENCE BRIDGE GLYPH LEGEND: CALM=design/world cadence is aligned, TENSE=design/world freshness pressure needs visible follow-up",
         f"- LANE PRIORITY REC: **{lane_priority_recommendation}** (reason={lane_priority_recommendation_signals['reason']} worstAge={lane_priority_recommendation_signals['worstAgeHours']}h offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- LPR: **{lane_priority_recommendation_compact_alias}** (flag={lane_priority_recommendation_compact_alias_signals['flagName']} enabled={lane_priority_recommendation_compact_alias_signals['flagEnabled']} rec={lane_priority_recommendation_compact_alias_signals['recommendation']} alias={lane_priority_recommendation_compact_alias_signals['alias']})",
         f"- LPR HYS: **{lane_priority_hysteresis_compact_alias}** (flag={lane_priority_hysteresis_compact_alias_signals['flagName']} enabled={lane_priority_hysteresis_compact_alias_signals['flagEnabled']} applied={lane_priority_hysteresis_compact_alias_signals['hysteresisApplied']} alias={lane_priority_hysteresis_compact_alias_signals['alias']})",
@@ -11690,6 +11736,8 @@ def main() -> int:
         "- COMBAT/VFX CADENCE WATCHDOG LEGEND: OK=recent touch, BREACH=stale >24h, STREAK=consecutive BREACH windows",
         f"- CVCWHR FX LEGEND CPTC OVERRIDE: {combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_token} (diverged={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['diverged']}, streak={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['mismatchStreak']}, expected={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['expectedConfidence']}, reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['reason']})",
         f"- CVCWHR FX LEGEND COPY PACK FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['added']} / -{token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['removed']} / net {token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['net']} (churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['coverage']})",
+        f"- CADENCE BRIDGE GLYPH: {cadence_bridge_glyph_token} (flag={cadence_bridge_glyph_signals['flagName']}, enabled={cadence_bridge_glyph_signals['flagEnabled']}, glyph={cadence_bridge_glyph_signals['glyph']}, bridge={cadence_bridge_glyph_signals['bridge']}, gap={cadence_bridge_glyph_signals['designWorldGapHours']:+d}h, dw={cadence_bridge_glyph_signals['designWorldAgeHours']}h, freshestOther={cadence_bridge_glyph_signals['freshestOtherAgeHours']}h, reason={cadence_bridge_glyph_signals['reason']}, offlineOnly={cadence_bridge_glyph_signals['offlineOnly']})",
+        "- CADENCE BRIDGE GLYPH LEGEND: CALM=design/world cadence is aligned, TENSE=design/world freshness pressure needs visible follow-up",
         f"- LANE PRIORITY REC: {lane_priority_recommendation} (reason={lane_priority_recommendation_signals['reason']}, worstAge={lane_priority_recommendation_signals['worstAgeHours']}h, offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- LPR: {lane_priority_recommendation_compact_alias} (flag={lane_priority_recommendation_compact_alias_signals['flagName']}, enabled={lane_priority_recommendation_compact_alias_signals['flagEnabled']}, rec={lane_priority_recommendation_compact_alias_signals['recommendation']}, alias={lane_priority_recommendation_compact_alias_signals['alias']})",
         f"- LPR HYS: {lane_priority_hysteresis_compact_alias} (flag={lane_priority_hysteresis_compact_alias_signals['flagName']}, enabled={lane_priority_hysteresis_compact_alias_signals['flagEnabled']}, applied={lane_priority_hysteresis_compact_alias_signals['hysteresisApplied']}, alias={lane_priority_hysteresis_compact_alias_signals['alias']})",

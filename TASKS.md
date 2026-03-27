@@ -1527,4 +1527,14 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] AI Content/Combat Team: Ship `CVCWHR FX LEGEND CPTC OVERRIDE:ON|OFF` with prior-window mismatch streak signals (`mismatchStreak`) and markdown payload wiring. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 03:48 KST; completed: 2026-03-28 03:55 KST)*
 - [x] Systems/Ops Team: Add deterministic regression lock for `CVCWHR FX LEGEND CPTC OVERRIDE` schema + markdown row presence in both summary/token-coverage sections. *(injected: 2026-03-28 03:58 KST; started: 2026-03-28 04:29 KST; completed: 2026-03-28 04:31 KST)*
-- [ ] Design/World Team (forced by 24h cadence gate): Prototype `CADENCE BRIDGE GLYPH:CALM|TENSE` from bridge token + design/world freshness gap for next cycle. *(injected: 2026-03-28 03:58 KST)*
+- [x] Design/World Team (forced by 24h cadence gate): Prototype `CADENCE BRIDGE GLYPH:CALM|TENSE` from bridge token + design/world freshness gap for next cycle. *(lifecycle: [ ] -> [~] -> [x]; injected: 2026-03-28 03:58 KST; started: 2026-03-28 04:59 KST; completed: 2026-03-28 05:05 KST)*
+
+## Cycle FV - Game Director Review (2026-03-28 05:12 KST)
+- Coverage check (last 10 completions): cadence readability stack recently added `CADENCE BRIDGE GLYPH`; selected low-risk UX/design legibility slice to keep new token decodeable at glance.
+- Idea 1 (low risk, UX/Design): Add `CADENCE BRIDGE GLYPH LEGEND` row in summary + token-coverage so `CALM|TENSE` mapping is explicit.
+- Idea 2 (mid risk, Systems/QA): Add deterministic regression lock for glyph row adjacency (`COPY PACK FAMILY CHURN -> GLYPH -> GLYPH LEGEND`).
+- Idea 3 (high risk, AI Content/World): Prototype offline glyph confidence recommendation (`CADENCE BRIDGE GLYPH CONF:LOW|MID|HIGH`) from gap volatility memory.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Design Team: Add `CADENCE BRIDGE GLYPH LEGEND` row in summary + token-coverage sections. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 05:12 KST; completed: 2026-03-28 05:14 KST)*
+- [ ] Systems/QA Team (Cycle FV follow-up): Add regression presence/count lock for `CADENCE BRIDGE GLYPH` + legend rows. *(injected: 2026-03-28 05:12 KST)*
+- [ ] AI Content/World Team (Cycle FV follow-up): Prototype offline glyph-confidence recommendation token (`CADENCE BRIDGE GLYPH CONF:LOW|MID|HIGH`) from freshness-gap volatility. *(injected: 2026-03-28 05:12 KST)*
