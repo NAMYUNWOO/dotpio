@@ -1211,3 +1211,13 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/Systems Team: Ship compact coach-why alias `CVCW:<R|H|P|C|B>` behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_ALIAS` with payload/markdown wiring + ordering regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 17:58 KST; completed: 2026-03-27 18:04 KST)*
 - [x] Systems/QA Team: Add `COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN` row adjacent to cadence coach cluster in both digest sections. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 18:12 KST; completed: 2026-03-27 18:24 KST)*
 - [x] AI Content/Combat Team: Prototype coach-why hysteresis floor (`RED HOLD` sticky window) from miss-risk delta + streak trend volatility. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 18:51 KST; completed: 2026-03-27 18:58 KST)*
+
+## Cycle FK - Game Director Review (2026-03-27 19:07 KST)
+- Coverage check (last 10 completions): combat/ai-content cadence digest work remained dense; selected low-risk UX/Systems readability slice while injecting deeper follow-ups.
+- Idea 1 (low risk, UX/Systems): Add compact coach-why hysteresis state alias (`CVCWH:<H|S>`) behind flag for one-glance sticky-window auditing.
+- Idea 2 (mid risk, Systems/QA): Add deterministic adjacency/order lock asserting `CVCW -> CVCWH -> COACH WHY + CVCW FAMILY CHURN` in summary + token-coverage sections.
+- Idea 3 (high risk, AI Content/Combat): Prototype adaptive sticky-window length recommendation (`0|1|2` windows) from miss-risk recovery slope + streak volatility memory.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Systems Team: Ship `CVCWH:<H|S>` alias for coach-why hysteresis floor behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_ALIAS` with payload/markdown wiring + regression coverage. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 19:00 KST; completed: 2026-03-27 19:07 KST)*
+- [ ] Systems/QA Team: Add dedicated `CVCWH` family-churn row + hard ordering contract next to cadence coach rationale cluster.
+- [ ] AI Content/Combat Team: Prototype adaptive coach-why sticky-window length recommendation from miss-risk recovery slope + streak volatility memory (offline-only).

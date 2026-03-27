@@ -2312,3 +2312,7 @@
 ## 2026-03-27 18:58 KST — UX digest continuity
 - Added rationale stability metadata (`hysteresisApplied`, volatility/prior fields) to improve operator trust during brief cadence recoveries.
 - Existing compact alias `CVCW` remains unchanged and backward-compatible.
+
+## 2026-03-27 19:07 KST — Cycle FK experiment shipped (`CVCWH`)
+- Added compact hysteresis-state alias `CVCWH:<H|S>` for cadence coach-why sticky-window visibility in dense digest scans.
+- Flag: `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_ALIAS` (off by default).

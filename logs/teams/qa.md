@@ -3673,3 +3673,7 @@
 - Verification commands passed:
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+
+## 2026-03-27 19:07 KST — Cycle FK regression update
+- Extended cadence coach-cluster ordering assertions to enforce `COACH WHY -> CVCW -> CVCWH -> COACH WHY + CVCW FAMILY CHURN`.
+- Added payload contract assertions for `CVCWH` alias fields.

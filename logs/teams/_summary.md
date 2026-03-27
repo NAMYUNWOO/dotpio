@@ -3408,3 +3408,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: allow one-window `RED HOLD` persistence only when prior short was `RED HOLD`, streak trend volatility is `SWING|SPIKE`, and miss-risk delta has not recovered beyond `-6h`.
 - Payload contract expanded with `watchdogStreakTrendVolatility`, `priorShort`, `priorLoaded`, `hysteresisApplied`; regression assertions updated and passing.
 - Queue status: ACTION_ITEMS/TASKS/POST_RC now fully checked; next loop should start Game Director review cycle (3 ideas -> choose 1 -> minimal vertical slice).
+
+## 2026-03-27 19:07 KST — Cycle FK (Game Director) shipped `CVCWH` alias
+- Executed Game Director review cycle after queue clear: generated 3 ideas, selected low-risk UX/Systems experiment, shipped `CVCWH:<H|S>` alias for cadence coach-why hysteresis state.
+- Durable order contract now includes `... COACH WHY -> CVCW -> CVCWH -> COACH WHY + CVCW FAMILY CHURN -> CVCC ...` in summary + token-coverage.
+- Injected next tasks: (1) Systems/QA `CVCWH` family-churn row + hard ordering lock, (2) AI Content/Combat adaptive sticky-window length prototype.

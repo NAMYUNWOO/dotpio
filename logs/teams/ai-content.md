@@ -2099,3 +2099,6 @@
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
 - Verification: `python3 -m py_compile ...` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: If all queues remain checked, trigger next Game Director 3-idea experiment cycle.
+
+## 2026-03-27 19:07 KST — Backlog injection note
+- Injected high-risk follow-up: adaptive coach-why sticky-window length recommendation from miss-risk recovery slope + streak volatility memory (offline-only).

@@ -2034,3 +2034,6 @@
 - Impact: Digest-only cadence rationale now resists single-window de-escalation jitter after high-risk hold via `RED HOLD` sticky logic.
 - Signal contract: emitted `watchdogStreakTrendVolatility`, `priorShort`, `priorLoaded`, and `hysteresisApplied` for postmortem triage.
 - Verification: weekly portal drift regression PASS.
+
+## 2026-03-27 19:07 KST — Combat telemetry readability follow-up
+- `CVCWH` alias gives quick visibility into whether RED HOLD hysteresis was active during cadence rationale generation.

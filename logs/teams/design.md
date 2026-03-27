@@ -2114,3 +2114,6 @@
 ## 2026-03-27 18:58 KST — Design readability note (cadence coach why)
 - `RED HOLD` sticky behavior reduces abrupt rationale tone flips in dense digest scans.
 - No markdown row-order changes required; existing coach-cluster adjacency remains intact.
+
+## 2026-03-27 19:07 KST — Digest readability note
+- New compact `CVCWH` token keeps rationale cluster legible without expanding row width.

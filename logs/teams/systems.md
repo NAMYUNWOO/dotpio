@@ -3102,3 +3102,7 @@
 - Updated `combat_vfx_cadence_coach_why(..., prior_json_path)` to read prior digest token and apply volatility-gated floor.
 - Durable rule: `RED HOLD` may persist for one additional window only under `SWING|SPIKE` streak volatility with bounded miss-risk recovery (`deltaHours >= -6`).
 - Regression updated to assert floor activation path and new signal keys.
+
+## 2026-03-27 19:07 KST — Systems wiring for `CVCWH`
+- Added resolver `resolve_combat_vfx_cadence_coach_why_hysteresis_alias` and payload fields `combatVfxCadenceCoachWhyHysteresisAlias(+Signals)`.
+- Markdown summary/token-coverage now emit `CVCWH` row between `CVCW` and family churn rows.
