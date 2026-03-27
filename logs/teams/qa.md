@@ -3812,3 +3812,9 @@
 ## 2026-03-28 07:08 KST — Cycle FX verification
 - Regression assertions expanded for new compact alias payload keys/value domain.
 - Verification PASS: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-28 07:33 KST — Cycle FX follow-up closure (CBGC markdown coverage assertion)
+- Task: Systems/QA follow-up to enforce deterministic markdown coverage for `CBGC:` alias in weekly digest summary + token-coverage sections.
+- Decision: Regression now conditionally asserts `CBGC:` row presence/count and adjacency when alias flag is enabled, and enforces absence when disabled.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
+- Follow-up: Remaining highest-priority unchecked item is AI Content/UX compact legend hint (`CBGC LEGEND`).

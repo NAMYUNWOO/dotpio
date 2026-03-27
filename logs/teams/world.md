@@ -2136,3 +2136,9 @@
 - No map/portal runtime data schema changes required.
 ## 2026-03-28 07:08 KST — World lane note
 - No cadence-gap logic changes in this slice; world/design freshness semantics unchanged.
+
+## 2026-03-28 07:33 KST — Cycle FX follow-up closure (CBGC markdown coverage assertion)
+- Task: Systems/QA follow-up to enforce deterministic markdown coverage for `CBGC:` alias in weekly digest summary + token-coverage sections.
+- Decision: Regression now conditionally asserts `CBGC:` row presence/count and adjacency when alias flag is enabled, and enforces absence when disabled.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
+- Follow-up: Remaining highest-priority unchecked item is AI Content/UX compact legend hint (`CBGC LEGEND`).

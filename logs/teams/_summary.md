@@ -3565,3 +3565,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: embed alias inline in existing `CADENCE BRIDGE GLYPH CONF` rows to preserve strict section ordering guarantees.
 - Payload + token-family coverage now include dedicated alias keys/patterns; follow-ups injected for explicit markdown presence lock + compact legend onboarding hint.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+## 2026-03-28 07:33 KST — Cycle FX follow-up completed (`CBGC` markdown coverage assertion)
+- Closed highest-priority unchecked item by adding deterministic markdown assertions for `CBGC:` alias row presence/count in both summary and token-coverage sections when alias flag is enabled.
+- Durable decision: regression now dual-path validates `CBGC:` — enforced adjacency (`CADENCE BRIDGE GLYPH CONF -> CBGC -> CADENCE BRIDGE GLYPH CONF LEGEND`) when enabled, and strict absence when disabled.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Next queued unchecked item: AI Content/UX compact legend hint (`CBGC LEGEND`).

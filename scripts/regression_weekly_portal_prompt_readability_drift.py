@@ -2908,6 +2908,12 @@ def main() -> int:
         cadence_bridge_family_churn_indices = _find_line_indices("- CADENCE BRIDGE FAMILY CHURN:")
         cadence_bridge_glyph_indices = _find_line_indices("- CADENCE BRIDGE GLYPH:")
         cadence_bridge_glyph_conf_indices = _find_line_indices("- CADENCE BRIDGE GLYPH CONF:")
+        cadence_bridge_glyph_conf_compact_alias_enabled = bool(
+            payload.get("cadenceBridgeGlyphConfidenceCompactAliasSignals", {}).get("flagEnabled", False)
+        )
+        cadence_bridge_glyph_conf_compact_alias_indices = (
+            _find_line_indices("- CBGC:") if cadence_bridge_glyph_conf_compact_alias_enabled else []
+        )
         cadence_bridge_glyph_conf_legend_indices = _find_line_indices("- CADENCE BRIDGE GLYPH CONF LEGEND:")
         cadence_bridge_glyph_legend_indices = _find_line_indices("- CADENCE BRIDGE GLYPH LEGEND:")
         combat_vfx_cadence_coach_why_hysteresis_family_churn_indices = _find_line_indices("- CVCWH FAMILY CHURN:")
@@ -3307,6 +3313,14 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_indices) == 2, (
             "expected exactly two CADENCE BRIDGE GLYPH CONF rows (summary + token-coverage sections)"
         )
+        if cadence_bridge_glyph_conf_compact_alias_enabled:
+            assert len(cadence_bridge_glyph_conf_compact_alias_indices) == 2, (
+                "expected exactly two CBGC alias rows (summary + token-coverage sections)"
+            )
+        else:
+            assert len(cadence_bridge_glyph_conf_compact_alias_indices) == 0, (
+                "expected no CBGC alias rows when compact alias flag is disabled"
+            )
         assert len(cadence_bridge_glyph_conf_legend_indices) == 2, (
             "expected exactly two CADENCE BRIDGE GLYPH CONF LEGEND rows (summary + token-coverage sections)"
         )
@@ -3325,24 +3339,48 @@ def main() -> int:
             "expected second CADENCE BRIDGE GLYPH CONF LEGEND row in token-coverage section"
         )
 
-        for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
-            zip(
-                cadence_bridge_glyph_indices,
-                cadence_bridge_glyph_conf_indices,
-                cadence_bridge_glyph_conf_legend_indices,
-                cadence_bridge_glyph_legend_indices,
-            ),
-            start=1,
-        ):
-            assert glyph_conf_idx == glyph_idx + 1, (
-                f"expected CADENCE BRIDGE GLYPH CONF row directly after CADENCE BRIDGE GLYPH row in section {section_idx}"
-            )
-            assert glyph_conf_legend_idx == glyph_conf_idx + 1, (
-                f"expected CADENCE BRIDGE GLYPH CONF LEGEND row directly after CADENCE BRIDGE GLYPH CONF row in section {section_idx}"
-            )
-            assert glyph_legend_idx == glyph_conf_legend_idx + 1, (
-                f"expected CADENCE BRIDGE GLYPH LEGEND row directly after CADENCE BRIDGE GLYPH CONF LEGEND row in section {section_idx}"
-            )
+        if cadence_bridge_glyph_conf_compact_alias_enabled:
+            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
+                zip(
+                    cadence_bridge_glyph_indices,
+                    cadence_bridge_glyph_conf_indices,
+                    cadence_bridge_glyph_conf_compact_alias_indices,
+                    cadence_bridge_glyph_conf_legend_indices,
+                    cadence_bridge_glyph_legend_indices,
+                ),
+                start=1,
+            ):
+                assert glyph_conf_idx == glyph_idx + 1, (
+                    f"expected CADENCE BRIDGE GLYPH CONF row directly after CADENCE BRIDGE GLYPH row in section {section_idx}"
+                )
+                assert glyph_conf_alias_idx == glyph_conf_idx + 1, (
+                    f"expected CBGC alias row directly after CADENCE BRIDGE GLYPH CONF row in section {section_idx}"
+                )
+                assert glyph_conf_legend_idx == glyph_conf_alias_idx + 1, (
+                    f"expected CADENCE BRIDGE GLYPH CONF LEGEND row directly after CBGC alias row in section {section_idx}"
+                )
+                assert glyph_legend_idx == glyph_conf_legend_idx + 1, (
+                    f"expected CADENCE BRIDGE GLYPH LEGEND row directly after CADENCE BRIDGE GLYPH CONF LEGEND row in section {section_idx}"
+                )
+        else:
+            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
+                zip(
+                    cadence_bridge_glyph_indices,
+                    cadence_bridge_glyph_conf_indices,
+                    cadence_bridge_glyph_conf_legend_indices,
+                    cadence_bridge_glyph_legend_indices,
+                ),
+                start=1,
+            ):
+                assert glyph_conf_idx == glyph_idx + 1, (
+                    f"expected CADENCE BRIDGE GLYPH CONF row directly after CADENCE BRIDGE GLYPH row in section {section_idx}"
+                )
+                assert glyph_conf_legend_idx == glyph_conf_idx + 1, (
+                    f"expected CADENCE BRIDGE GLYPH CONF LEGEND row directly after CADENCE BRIDGE GLYPH CONF row in section {section_idx}"
+                )
+                assert glyph_legend_idx == glyph_conf_legend_idx + 1, (
+                    f"expected CADENCE BRIDGE GLYPH LEGEND row directly after CADENCE BRIDGE GLYPH CONF LEGEND row in section {section_idx}"
+                )
 
         assert len(combat_vfx_cadence_coach_why_hysteresis_family_churn_indices) == 2, (
             "expected exactly two CVCWH FAMILY CHURN rows (summary + token-coverage sections)"
