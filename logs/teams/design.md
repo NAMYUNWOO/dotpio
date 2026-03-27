@@ -2199,3 +2199,7 @@
 - Decision: Shipped `CADENCE BRIDGE GLYPH CONF LEGEND` row in summary/token-coverage and queued next follow-ups (Systems/QA adjacency lock, AI Content/World volatility-regime confidence policy).
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
 - Follow-up: Execute highest-priority unchecked Cycle FW Systems/QA lock task next.
+## 2026-03-28 07:03 KST — Design lane status
+- No direct design copy changes this cycle; confidence model update preserves existing glyph legend/readability contract.
+## 2026-03-28 07:08 KST — Design lane status
+- Compact alias introduced for readability in constrained DOS-width summaries; no legend row added yet.

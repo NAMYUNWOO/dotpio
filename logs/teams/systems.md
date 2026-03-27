@@ -3261,3 +3261,9 @@
 - Added strict adjacency rail in both sections: `CADENCE BRIDGE GLYPH -> CADENCE BRIDGE GLYPH CONF -> CADENCE BRIDGE GLYPH CONF LEGEND -> CADENCE BRIDGE GLYPH LEGEND`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 -m py_compile ...` PASS.
 - Follow-up: next unchecked item is AI Content/World volatility-regime confidence policy (`CADENCE BRIDGE GLYPH CONF` 2-window spike memory).
+## 2026-03-28 07:03 KST — Systems lane note (digest policy wiring)
+- Updated weekly digest confidence policy internals to carry prior-window volatility memory and expose deterministic regime fields.
+- Maintained additive payload schema extension; no destructive key removals.
+## 2026-03-28 07:08 KST — Cycle FX implementation note
+- Extended digest payload contract with `cadenceBridgeGlyphConfidenceCompactAlias` + signals.
+- Registered `CBGC:` in token coverage families to preserve churn analytics.

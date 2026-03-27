@@ -3805,3 +3805,10 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 -m py_compile scripts/regression_weekly_portal_prompt_readability_drift.py scripts/weekly_portal_prompt_readability_drift.py` ✅
 - Risk posture: low (test-only behavior + backlog status sync).
+## 2026-03-28 07:03 KST — QA verification (cadence glyph confidence policy)
+- Extended regression schema assertions for `cadenceBridgeGlyphConfidenceSignals` with new volatility-memory fields.
+- Added guard assertions for `volatilityRegime` enum + `spikeMemoryWindows` range.
+- Result: PASS (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).
+## 2026-03-28 07:08 KST — Cycle FX verification
+- Regression assertions expanded for new compact alias payload keys/value domain.
+- Verification PASS: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.

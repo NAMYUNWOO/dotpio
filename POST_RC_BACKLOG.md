@@ -1309,4 +1309,9 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Design Team: Add `CADENCE BRIDGE GLYPH CONF LEGEND` row in summary + token-coverage for dense digest readability. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 06:03 KST; completed: 2026-03-28 06:03 KST)*
 - [x] Systems/QA Team (Cycle FW follow-up): Add deterministic regression lock for `CADENCE BRIDGE GLYPH CONF LEGEND` presence/count + adjacency in summary/token-coverage sections. *(injected: 2026-03-28 06:03 KST)*
-- [ ] AI Content/World Team (Cycle FW follow-up): Prototype volatility-regime-aware confidence policy for `CADENCE BRIDGE GLYPH CONF` using 2-window spike memory. *(injected: 2026-03-28 06:03 KST)*
+- [x] AI Content/World Team (Cycle FW follow-up): Prototype volatility-regime-aware confidence policy for `CADENCE BRIDGE GLYPH CONF` using 2-window spike memory. *(injected: 2026-03-28 06:03 KST; started: 2026-03-28 06:59 KST; completed: 2026-03-28 07:03 KST)*
+
+### Game Director Cycle FX (2026-03-28 07:08 KST)
+- [x] UX/AI Content Team (Cycle FX experiment): Add compact confidence alias token for cadence bridge glyph confidence (`CBGC:<L|M|H>`) behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_ALIAS` and surface it in digest summary/token-coverage rows. *(lifecycle: [~] 2026-03-28 07:05 KST -> [x] 2026-03-28 07:08 KST)*
+- [ ] Systems/QA Team (Cycle FX follow-up): Add deterministic markdown coverage assertion for `CBGC:` alias presence in both summary and token-coverage sections when alias flag is enabled.
+- [ ] AI Content/UX Team (Cycle FX follow-up): Prototype compact legend hint (`CBGC LEGEND`) for operator onboarding under strict DOS widths.

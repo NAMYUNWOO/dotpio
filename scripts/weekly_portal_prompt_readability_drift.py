@@ -27,8 +27,8 @@ PORTAL_PATH_HINTS = (
     "scripts/regression_combat_damage_numbers.lua",
 )
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCWHR CONF FLOOR REC:", "CVCWHRF:", "CVCWHR FX PULSE:", "CVCWHR FX LEGEND COPY PACK:", "CVCWHR FX LEGEND CP:", "CVCWHR FX LEGEND COPY PACK TREND:", "CVCWHR FX LEGEND CPT:", "CVCWHR FX LEGEND COPY PACK TREND CONF:", "CVCWHR FX LEGEND CPTC:", "CVCWHR FX LEGEND CPTC LEGEND:", "CVCWHR FX LEGEND CPTC OVERRIDE:", "CADENCE BRIDGE:", "CADENCE BRIDGE GLYPH:", "CADENCE BRIDGE GLYPH CONF:", "CADENCE BRIDGE GLYPH CONF LEGEND:", "CVCC:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCWHR CONF FLOOR REC:", "CVCWHRF:", "CVCWHR FX PULSE:", "CVCWHR FX LEGEND COPY PACK:", "CVCWHR FX LEGEND CP:", "CVCWHR FX LEGEND COPY PACK TREND:", "CVCWHR FX LEGEND CPT:", "CVCWHR FX LEGEND COPY PACK TREND CONF:", "CVCWHR FX LEGEND CPTC:", "CVCWHR FX LEGEND CPTC LEGEND:", "CVCWHR FX LEGEND CPTC OVERRIDE:", "CADENCE BRIDGE:", "CADENCE BRIDGE GLYPH:", "CADENCE BRIDGE GLYPH CONF:", "CADENCE BRIDGE GLYPH CONF LEGEND:", "CVCC:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCWHR CONF FLOOR REC:", "CVCWHRF:", "CVCWHR FX PULSE:", "CVCWHR FX LEGEND COPY PACK:", "CVCWHR FX LEGEND CP:", "CVCWHR FX LEGEND COPY PACK TREND:", "CVCWHR FX LEGEND CPT:", "CVCWHR FX LEGEND COPY PACK TREND CONF:", "CVCWHR FX LEGEND CPTC:", "CVCWHR FX LEGEND CPTC LEGEND:", "CVCWHR FX LEGEND CPTC OVERRIDE:", "CADENCE BRIDGE:", "CADENCE BRIDGE GLYPH:", "CADENCE BRIDGE GLYPH CONF:", "CBGC:", "CADENCE BRIDGE GLYPH CONF LEGEND:", "CVCC:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCWHR CONF FLOOR REC:", "CVCWHRF:", "CVCWHR FX PULSE:", "CVCWHR FX LEGEND COPY PACK:", "CVCWHR FX LEGEND CP:", "CVCWHR FX LEGEND COPY PACK TREND:", "CVCWHR FX LEGEND CPT:", "CVCWHR FX LEGEND COPY PACK TREND CONF:", "CVCWHR FX LEGEND CPTC:", "CVCWHR FX LEGEND CPTC LEGEND:", "CVCWHR FX LEGEND CPTC OVERRIDE:", "CADENCE BRIDGE:", "CADENCE BRIDGE GLYPH:", "CADENCE BRIDGE GLYPH CONF:", "CBGC:", "CADENCE BRIDGE GLYPH CONF LEGEND:", "CVCC:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 TOKEN_CATALOG: list[str] = []
@@ -142,6 +142,7 @@ TOKEN_ALIAS_FAMILIES = {
     "cadenceBridgeAlias": ["CADENCE BRIDGE:"],
     "cadenceBridgeGlyphAlias": ["CADENCE BRIDGE GLYPH:"],
     "cadenceBridgeGlyphConfidenceAlias": ["CADENCE BRIDGE GLYPH CONF:"],
+    "cadenceBridgeGlyphConfidenceCompactAlias": ["CBGC:"],
 }
 ROUTE_VIBE_PATTERNS = {
     "CALM": ("ROUTE VIBE:CALM", "VIBE:C"),
@@ -1141,7 +1142,11 @@ def cadence_bridge_glyph_from_bridge_and_freshness_gap(*, cadence_bridge_token: 
 
 
 def cadence_bridge_glyph_confidence_from_gap_volatility(*, cadence_bridge_glyph_signals: dict[str, object], prior_json_path: Path) -> tuple[str, dict[str, object]]:
-    """Offline recommendation confidence for cadence-bridge glyph from gap volatility memory."""
+    """Offline recommendation confidence for cadence-bridge glyph from gap volatility memory.
+
+    Cycle FW follow-up: add volatility-regime awareness with a 2-window spike memory so
+    repeated spike windows keep confidence LOW until pressure cools.
+    """
     flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF"
     flag_value = os.environ.get(flag_name, "")
     flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
@@ -1150,12 +1155,18 @@ def cadence_bridge_glyph_confidence_from_gap_volatility(*, cadence_bridge_glyph_
     prior_loaded = False
     prior_gap = 0
     prior_gap_token = ""
+    prior_gap_volatility = 0
+    prior_spike_memory_windows = 0
     if prior_json_path.exists():
         try:
             prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
             prior_signals = prior_payload.get("cadenceBridgeGlyphSignals", {})
             if isinstance(prior_signals, dict):
                 prior_gap = int(prior_signals.get("designWorldGapHours", 0) or 0)
+            prior_conf_signals = prior_payload.get("cadenceBridgeGlyphConfidenceSignals", {})
+            if isinstance(prior_conf_signals, dict):
+                prior_gap_volatility = int(prior_conf_signals.get("gapVolatilityHours", 0) or 0)
+                prior_spike_memory_windows = max(0, min(2, int(prior_conf_signals.get("spikeMemoryWindows", 0) or 0)))
             prior_gap_token = str(prior_payload.get("cadenceBridgeGlyph", "") or "")
             prior_loaded = True
         except (json.JSONDecodeError, OSError, TypeError, ValueError):
@@ -1163,17 +1174,36 @@ def cadence_bridge_glyph_confidence_from_gap_volatility(*, cadence_bridge_glyph_
 
     gap_drift = current_gap - prior_gap
     gap_volatility = abs(gap_drift)
+    current_spike = gap_volatility >= 6 or abs(current_gap) >= 18
+    if current_spike:
+        spike_memory_windows = min(2, prior_spike_memory_windows + 1)
+    else:
+        # cool down memory gradually to avoid one-window whiplash.
+        spike_memory_windows = max(0, prior_spike_memory_windows - 1)
+
+    volatility_regime = "CALM"
+    if current_spike or spike_memory_windows >= 2:
+        volatility_regime = "SPIKE"
+    elif gap_volatility >= 3 or abs(current_gap) >= 12 or prior_gap_volatility >= 3:
+        volatility_regime = "SWING"
+
     confidence = "MID"
     reason = "default-mid-no-prior-volatility"
-    if gap_volatility <= 1:
-        confidence = "HIGH"
-        reason = "stable-gap-low-volatility"
-    elif gap_volatility >= 6 or abs(current_gap) >= 18:
-        confidence = "LOW"
-        reason = "volatile-or-extreme-gap"
-    elif not prior_loaded:
+    if not prior_loaded:
         confidence = "MID"
         reason = "no-prior-gap-memory"
+    elif spike_memory_windows >= 2:
+        confidence = "LOW"
+        reason = "two-window-spike-memory"
+    elif current_spike:
+        confidence = "LOW"
+        reason = "volatile-or-extreme-gap"
+    elif gap_volatility <= 1 and abs(current_gap) <= 10 and volatility_regime == "CALM":
+        confidence = "HIGH"
+        reason = "stable-gap-low-volatility"
+    elif volatility_regime == "SWING":
+        confidence = "MID"
+        reason = "swing-regime-hold-mid"
 
     token = f"CADENCE BRIDGE GLYPH CONF:{confidence}"
     return (token if flag_enabled else "FLAG OFF"), {
@@ -1184,10 +1214,36 @@ def cadence_bridge_glyph_confidence_from_gap_volatility(*, cadence_bridge_glyph_
         "priorGapHours": prior_gap,
         "gapDriftHours": gap_drift,
         "gapVolatilityHours": gap_volatility,
+        "priorGapVolatilityHours": prior_gap_volatility,
+        "currentSpike": current_spike,
+        "spikeMemoryWindows": spike_memory_windows,
+        "priorSpikeMemoryWindows": prior_spike_memory_windows,
+        "volatilityRegime": volatility_regime,
         "priorLoaded": prior_loaded,
         "priorGlyphToken": prior_gap_token,
         "reason": reason,
         "offlineOnly": True,
+    }
+
+
+def resolve_cadence_bridge_glyph_confidence_alias(*, confidence_token: str) -> tuple[str, dict[str, object]]:
+    """Compact alias for CADENCE BRIDGE GLYPH CONF (`CBGC:<L|M|H>`)."""
+    flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_ALIAS"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    confidence = "MID"
+    if ":" in confidence_token:
+        confidence = confidence_token.rsplit(":", 1)[-1].strip().upper() or "MID"
+    alias_map = {"LOW": "L", "MID": "M", "HIGH": "H"}
+    alias = alias_map.get(confidence, "M")
+    token = f"CBGC:{alias}"
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "confidence": confidence,
+        "alias": alias,
+        "aliasToken": token,
     }
 
 
@@ -9067,6 +9123,9 @@ def main() -> int:
         cadence_bridge_glyph_signals=cadence_bridge_glyph_signals,
         prior_json_path=args.out_json,
     )
+    cadence_bridge_glyph_confidence_compact_alias, cadence_bridge_glyph_confidence_compact_alias_signals = resolve_cadence_bridge_glyph_confidence_alias(
+        confidence_token=cadence_bridge_glyph_confidence_token,
+    )
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
         lane_bucket_age=lane_bucket_age,
     )
@@ -10693,6 +10752,8 @@ def main() -> int:
         "cadenceBridgeGlyphSignals": cadence_bridge_glyph_signals,
         "cadenceBridgeGlyphConfidence": cadence_bridge_glyph_confidence_token,
         "cadenceBridgeGlyphConfidenceSignals": cadence_bridge_glyph_confidence_signals,
+        "cadenceBridgeGlyphConfidenceCompactAlias": cadence_bridge_glyph_confidence_compact_alias,
+        "cadenceBridgeGlyphConfidenceCompactAliasSignals": cadence_bridge_glyph_confidence_compact_alias_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,
         "combatVfxCadenceCoachAliasSignals": combat_vfx_cadence_coach_alias_signals,
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,
@@ -11558,7 +11619,7 @@ def main() -> int:
         f"- CVCWHR FX LEGEND CPTC OVERRIDE: **{combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_token}** (diverged={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['diverged']} streak={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['mismatchStreak']} expected={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['expectedConfidence']} reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['reason']})",
         f"- CVCWHR FX LEGEND COPY PACK FAMILY CHURN: **net {token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['net']:+d}** (added={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['added']} removed={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['removed']} churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['coverage']})",
         f"- CADENCE BRIDGE GLYPH: **{cadence_bridge_glyph_token}** (flag={cadence_bridge_glyph_signals['flagName']} enabled={cadence_bridge_glyph_signals['flagEnabled']} glyph={cadence_bridge_glyph_signals['glyph']} bridge={cadence_bridge_glyph_signals['bridge']} gap={cadence_bridge_glyph_signals['designWorldGapHours']:+d}h dw={cadence_bridge_glyph_signals['designWorldAgeHours']}h freshestOther={cadence_bridge_glyph_signals['freshestOtherAgeHours']}h reason={cadence_bridge_glyph_signals['reason']} offlineOnly={cadence_bridge_glyph_signals['offlineOnly']})",
-        f"- CADENCE BRIDGE GLYPH CONF: **{cadence_bridge_glyph_confidence_token}** (flag={cadence_bridge_glyph_confidence_signals['flagName']} enabled={cadence_bridge_glyph_confidence_signals['flagEnabled']} conf={cadence_bridge_glyph_confidence_signals['confidence']} gap={cadence_bridge_glyph_confidence_signals['currentGapHours']:+d}h priorGap={cadence_bridge_glyph_confidence_signals['priorGapHours']:+d}h drift={cadence_bridge_glyph_confidence_signals['gapDriftHours']:+d}h volatility={cadence_bridge_glyph_confidence_signals['gapVolatilityHours']}h priorLoaded={cadence_bridge_glyph_confidence_signals['priorLoaded']} reason={cadence_bridge_glyph_confidence_signals['reason']} offlineOnly={cadence_bridge_glyph_confidence_signals['offlineOnly']})",
+        f"- CADENCE BRIDGE GLYPH CONF: **{cadence_bridge_glyph_confidence_token}** (flag={cadence_bridge_glyph_confidence_signals['flagName']} enabled={cadence_bridge_glyph_confidence_signals['flagEnabled']} conf={cadence_bridge_glyph_confidence_signals['confidence']} alias={cadence_bridge_glyph_confidence_compact_alias if cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled'] else 'FLAG OFF'} aliasFlag={cadence_bridge_glyph_confidence_compact_alias_signals['flagName']} aliasEnabled={cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled']} gap={cadence_bridge_glyph_confidence_signals['currentGapHours']:+d}h priorGap={cadence_bridge_glyph_confidence_signals['priorGapHours']:+d}h drift={cadence_bridge_glyph_confidence_signals['gapDriftHours']:+d}h volatility={cadence_bridge_glyph_confidence_signals['gapVolatilityHours']}h spikeMem={cadence_bridge_glyph_confidence_signals['spikeMemoryWindows']} regime={cadence_bridge_glyph_confidence_signals['volatilityRegime']} priorLoaded={cadence_bridge_glyph_confidence_signals['priorLoaded']} reason={cadence_bridge_glyph_confidence_signals['reason']} offlineOnly={cadence_bridge_glyph_confidence_signals['offlineOnly']})",
         "- CADENCE BRIDGE GLYPH CONF LEGEND: LOW=high volatility/extreme gap, MID=moderate or cold-start volatility, HIGH=stable low-volatility gap",
         "- CADENCE BRIDGE GLYPH LEGEND: CALM=design/world cadence is aligned, TENSE=design/world freshness pressure needs visible follow-up",
         f"- LANE PRIORITY REC: **{lane_priority_recommendation}** (reason={lane_priority_recommendation_signals['reason']} worstAge={lane_priority_recommendation_signals['worstAgeHours']}h offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
@@ -11797,7 +11858,7 @@ def main() -> int:
         f"- CVCWHR FX LEGEND CPTC OVERRIDE: {combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_token} (diverged={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['diverged']}, streak={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['mismatchStreak']}, expected={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['expectedConfidence']}, reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_signals['reason']})",
         f"- CVCWHR FX LEGEND COPY PACK FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['added']} / -{token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['removed']} / net {token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['net']} (churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['coverage']})",
         f"- CADENCE BRIDGE GLYPH: {cadence_bridge_glyph_token} (flag={cadence_bridge_glyph_signals['flagName']}, enabled={cadence_bridge_glyph_signals['flagEnabled']}, glyph={cadence_bridge_glyph_signals['glyph']}, bridge={cadence_bridge_glyph_signals['bridge']}, gap={cadence_bridge_glyph_signals['designWorldGapHours']:+d}h, dw={cadence_bridge_glyph_signals['designWorldAgeHours']}h, freshestOther={cadence_bridge_glyph_signals['freshestOtherAgeHours']}h, reason={cadence_bridge_glyph_signals['reason']}, offlineOnly={cadence_bridge_glyph_signals['offlineOnly']})",
-        f"- CADENCE BRIDGE GLYPH CONF: {cadence_bridge_glyph_confidence_token} (flag={cadence_bridge_glyph_confidence_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_signals['flagEnabled']}, confidence={cadence_bridge_glyph_confidence_signals['confidence']}, gap={cadence_bridge_glyph_confidence_signals['currentGapHours']:+d}h, priorGap={cadence_bridge_glyph_confidence_signals['priorGapHours']:+d}h, drift={cadence_bridge_glyph_confidence_signals['gapDriftHours']:+d}h, volatility={cadence_bridge_glyph_confidence_signals['gapVolatilityHours']}h, priorLoaded={cadence_bridge_glyph_confidence_signals['priorLoaded']}, reason={cadence_bridge_glyph_confidence_signals['reason']}, offlineOnly={cadence_bridge_glyph_confidence_signals['offlineOnly']})",
+        f"- CADENCE BRIDGE GLYPH CONF: {cadence_bridge_glyph_confidence_token} (flag={cadence_bridge_glyph_confidence_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_signals['flagEnabled']}, confidence={cadence_bridge_glyph_confidence_signals['confidence']}, alias={cadence_bridge_glyph_confidence_compact_alias if cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled'] else 'FLAG OFF'}, aliasFlag={cadence_bridge_glyph_confidence_compact_alias_signals['flagName']}, aliasEnabled={cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled']}, gap={cadence_bridge_glyph_confidence_signals['currentGapHours']:+d}h, priorGap={cadence_bridge_glyph_confidence_signals['priorGapHours']:+d}h, drift={cadence_bridge_glyph_confidence_signals['gapDriftHours']:+d}h, volatility={cadence_bridge_glyph_confidence_signals['gapVolatilityHours']}h, spikeMem={cadence_bridge_glyph_confidence_signals['spikeMemoryWindows']}, regime={cadence_bridge_glyph_confidence_signals['volatilityRegime']}, priorLoaded={cadence_bridge_glyph_confidence_signals['priorLoaded']}, reason={cadence_bridge_glyph_confidence_signals['reason']}, offlineOnly={cadence_bridge_glyph_confidence_signals['offlineOnly']})",
         "- CADENCE BRIDGE GLYPH CONF LEGEND: LOW=high volatility/extreme gap, MID=moderate or cold-start volatility, HIGH=stable low-volatility gap",
         "- CADENCE BRIDGE GLYPH LEGEND: CALM=design/world cadence is aligned, TENSE=design/world freshness pressure needs visible follow-up",
         f"- LANE PRIORITY REC: {lane_priority_recommendation} (reason={lane_priority_recommendation_signals['reason']}, worstAge={lane_priority_recommendation_signals['worstAgeHours']}h, offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",

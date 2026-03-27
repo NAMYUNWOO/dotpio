@@ -2399,3 +2399,8 @@
 - Decision: Shipped `CADENCE BRIDGE GLYPH CONF LEGEND` row in summary/token-coverage and queued next follow-ups (Systems/QA adjacency lock, AI Content/World volatility-regime confidence policy).
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
 - Follow-up: Execute highest-priority unchecked Cycle FW Systems/QA lock task next.
+## 2026-03-28 07:03 KST — UX lane status
+- No UI layout/token-order changes this cycle; summary readability sequence remains unchanged.
+## 2026-03-28 07:08 KST — Cycle FX experiment shipped (`CBGC` compact alias)
+- Added compact confidence alias `CBGC:<L|M|H>` for cadence-bridge glyph confidence in summary + token-coverage prose.
+- Kept placement inline on existing confidence row to avoid section-order regressions.

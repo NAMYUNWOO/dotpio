@@ -2570,7 +2570,11 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyph") in {"FLAG OFF", "CADENCE BRIDGE GLYPH:CALM", "CADENCE BRIDGE GLYPH:TENSE"}, payload
         assert set(payload.get("cadenceBridgeGlyphSignals", {}).keys()) == {"flagName", "flagEnabled", "bridge", "glyph", "designWorldAgeHours", "systemsOpsAgeHours", "combatVfxAgeHours", "freshestOtherAgeHours", "designWorldGapHours", "reason", "offlineOnly"}, payload
         assert payload.get("cadenceBridgeGlyphConfidence") in {"FLAG OFF", "CADENCE BRIDGE GLYPH CONF:LOW", "CADENCE BRIDGE GLYPH CONF:MID", "CADENCE BRIDGE GLYPH CONF:HIGH"}, payload
-        assert set(payload.get("cadenceBridgeGlyphConfidenceSignals", {}).keys()) == {"flagName", "flagEnabled", "confidence", "currentGapHours", "priorGapHours", "gapDriftHours", "gapVolatilityHours", "priorLoaded", "priorGlyphToken", "reason", "offlineOnly"}, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceSignals", {}).keys()) == {"flagName", "flagEnabled", "confidence", "currentGapHours", "priorGapHours", "gapDriftHours", "gapVolatilityHours", "priorGapVolatilityHours", "currentSpike", "spikeMemoryWindows", "priorSpikeMemoryWindows", "volatilityRegime", "priorLoaded", "priorGlyphToken", "reason", "offlineOnly"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceSignals", {}).get("volatilityRegime") in {"CALM", "SWING", "SPIKE"}, payload
+        assert int(payload.get("cadenceBridgeGlyphConfidenceSignals", {}).get("spikeMemoryWindows", -1)) in {0, 1, 2}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceCompactAlias") in {"FLAG OFF", "CBGC:L", "CBGC:M", "CBGC:H"}, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceCompactAliasSignals", {}).keys()) == {"flagName", "flagEnabled", "confidence", "alias", "aliasToken"}, payload
         assert set(payload.get("combatVfxCadenceCoachWhyHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",

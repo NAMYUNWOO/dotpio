@@ -3555,3 +3555,13 @@ Compact decision memory for AI context efficiency.
 - Added heading-bound checks to prevent accidental relocation while still passing global count assertions.
 - Verification: regression + py_compile both pass.
 - Queue status: only remaining unchecked injected FW item is AI Content/World volatility-regime confidence policy prototype.
+## 2026-03-28 07:03 KST — Cycle FW follow-up completed (`CADENCE BRIDGE GLYPH CONF` volatility policy)
+- Closed last unchecked FW follow-up by upgrading `CADENCE BRIDGE GLYPH CONF` to volatility-regime-aware confidence with 2-window spike memory.
+- Durable contract decision: confidence remains digest-only + flagged, but payload now persists `spikeMemoryWindows` and `volatilityRegime` for deterministic multi-window behavior.
+- Regression contract extended to lock new schema keys and value domain (`volatilityRegime`, `spikeMemoryWindows` range) without changing summary/token-order placement.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+## 2026-03-28 07:08 KST — Game Director Cycle FX vertical slice (`CBGC` compact alias)
+- Ran cycle ideation and shipped selected low-risk UX/AI-content experiment: `CBGC:<L|M|H>` compact alias for cadence-bridge glyph confidence.
+- Durable decision: embed alias inline in existing `CADENCE BRIDGE GLYPH CONF` rows to preserve strict section ordering guarantees.
+- Payload + token-family coverage now include dedicated alias keys/patterns; follow-ups injected for explicit markdown presence lock + compact legend onboarding hint.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

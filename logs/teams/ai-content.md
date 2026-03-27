@@ -2198,3 +2198,11 @@
 - Decision: Shipped `CADENCE BRIDGE GLYPH CONF LEGEND` row in summary/token-coverage and queued next follow-ups (Systems/QA adjacency lock, AI Content/World volatility-regime confidence policy).
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
 - Follow-up: Execute highest-priority unchecked Cycle FW Systems/QA lock task next.
+## 2026-03-28 07:03 KST — Cycle FW follow-up completed (`CADENCE BRIDGE GLYPH CONF` volatility policy)
+- Implemented offline volatility-regime-aware confidence policy with 2-window spike memory for `CADENCE BRIDGE GLYPH CONF`.
+- Added persistent spike-memory signals (`spikeMemoryWindows`, `priorSpikeMemoryWindows`) and regime tagging (`CALM|SWING|SPIKE`) to payload contract.
+- Decision: keep policy digest-only and reversible behind existing confidence flag.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` pass.
+## 2026-03-28 07:08 KST — Cycle FX experiment note (`CBGC`)
+- Added compact alias resolver for cadence bridge glyph confidence with deterministic LOW/MID/HIGH -> L/M/H mapping.
+- Alias remains optional behind dedicated experiment flag for safe rollout.

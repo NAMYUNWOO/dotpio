@@ -2117,3 +2117,7 @@
 - Decision: Shipped `CADENCE BRIDGE GLYPH CONF LEGEND` row in summary/token-coverage and queued next follow-ups (Systems/QA adjacency lock, AI Content/World volatility-regime confidence policy).
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
 - Follow-up: Execute highest-priority unchecked Cycle FW Systems/QA lock task next.
+## 2026-03-28 07:03 KST — Combat lane status
+- No direct combat logic changes this cycle; cadence confidence policy update remains digest/offline-only.
+## 2026-03-28 07:08 KST — Combat lane status
+- No combat-side mechanics touched; digest alias addition only.
