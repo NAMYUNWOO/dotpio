@@ -2066,3 +2066,10 @@
 - Task: Prototype digest token `CVCWHR FX PULSE:SOFT|EDGE|HARD` for postmortem feel triage continuity.
 - Decision: pulse intensity is now directly anchored to confidence-floor recommendation to stabilize combat/VFX cadence interpretation.
 - Verification: weekly drift regression green.
+- Game Director Cycle FO result: cadence-floor pulse legend now clarifies combat triage meaning (`SOFT|EDGE|HARD`) in digest outputs.
+
+## 2026-03-27 23:59 KST — Pulse-legend variant recommendation prototype
+- Added `CVCWHR FX LEGEND REC` recommendation to map volatility regimes into copy variant lanes for postmortem combat cadence readability.
+
+## 2026-03-28 00:08 KST — Cycle FP backlog injection
+- Queued high-risk follow-up: volatility-regime copy pack recommendation (`TERSE|DIRECTIVE|NARRATIVE`) from miss-risk momentum deltas.

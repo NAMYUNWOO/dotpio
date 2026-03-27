@@ -1474,3 +1474,17 @@ See project-level plans:
 - [x] Design/World Team: Prototype compact cadence narrative bridge token (`CADENCE BRIDGE:SCOUT|PRESS|HOLD`) from `CVCWHR` floor recommendation + lane freshness for underrepresented design/world readability. *(lifecycle: [~] -> [x]; started: 2026-03-27 21:54 KST; completed: 2026-03-27 22:00 KST)*
 - [x] Systems/Ops Team: Add 24h lane-cadence hard-check row (`LANE CADENCE 24H CHECK:PASS|FAIL`) in weekly digest to enforce combat/vfx + design/world + systems/ops minimum-touch contract. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 22:06 KST; completed: 2026-03-27 22:24 KST)*
 - [x] Combat/VFX Team: Prototype cadence floor FX pulse token (`CVCWHR FX PULSE:SOFT|EDGE|HARD`) mapped from `CVCWHR CONF FLOOR REC` for postmortem feel triage continuity. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 22:51 KST)*
+- [x] UX/Design Team (Game Director Cycle FO): Add `CVCWHR FX PULSE LEGEND` row in summary + token-coverage with deterministic adjacency lock for cadence-floor pulse scanability. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 22:54 KST; completed: 2026-03-27 22:57 KST)*
+- [x] Systems/QA Team (Cycle FO follow-up): Add token-family trend drift row (`CVCWHR FX PULSE FAMILY TREND`) with prior-window context in summary + token-coverage. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 23:21 KST; completed: 2026-03-27 23:27 KST)*
+- [x] AI Content/Combat Team (Cycle FO follow-up): Prototype offline pulse-legend copy variant recommendation keyed by lane miss-risk volatility regime (digest-only). *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 23:52 KST; completed: 2026-03-27 23:59 KST)*
+
+
+## Cycle FP - Game Director Review (2026-03-28 00:08 KST)
+- Coverage check (last 10 completions): cadence digest cluster remains combat/systems-heavy; selected low-risk readability/confidence slice to keep AI-content recommendation interpretable while preserving lane cadence ordering.
+- Idea 1 (low risk, AI Content/UX): Add offline confidence token for pulse-legend variant recommendation (`CVCWHR FX LEGEND REC CONF:LOW|MID|HIGH`).
+- Idea 2 (mid risk, Systems/QA): Add dedicated family churn row and adjacency lock for `CVCWHR FX LEGEND REC` + confidence token.
+- Idea 3 (high risk, Combat/Design): Prototype volatility-regime copy pack rotation (`terse|directive|narrative`) from lane miss-risk momentum deltas.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] AI Content/UX Team: Ship offline confidence token `CVCWHR FX LEGEND REC CONF:LOW|MID|HIGH` with digest payload + markdown wiring. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 00:03 KST; completed: 2026-03-28 00:08 KST)*
+- [ ] Systems/QA Team (Cycle FP follow-up): Add deterministic family churn row + ordering lock for `CVCWHR FX LEGEND REC` and `CVCWHR FX LEGEND REC CONF` in summary + token-coverage.
+- [ ] Combat/Design Team (Cycle FP follow-up): Prototype offline volatility-regime copy pack recommendation (`TERSE|DIRECTIVE|NARRATIVE`) keyed by miss-risk momentum deltas.

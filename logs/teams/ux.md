@@ -2348,3 +2348,10 @@
 ## 2026-03-27 22:51 KST
 - UX note: Summary and token-coverage now show `CVCWHR FX PULSE` immediately after `CVCWHRF` to preserve cadence-cluster readability.
 - Regression now locks adjacency so scan order remains stable under future token growth.
+- Game Director Cycle FO UX slice shipped: deterministic adjacency now enforces `CVCWHR FX PULSE -> LEGEND -> CADENCE BRIDGE`.
+
+## 2026-03-27 23:59 KST — HUD digest copy variant follow-up
+- Added deterministic `CVCWHR FX LEGEND REC` row ordering in summary/token-coverage sections for stable scan flow.
+
+## 2026-03-28 00:08 KST — Cycle FP readability pass
+- Added confidence rail row for legend recommendation to reduce ambiguity in digest scanning.

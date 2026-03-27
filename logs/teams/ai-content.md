@@ -2136,3 +2136,11 @@
 - Task support: Added offline rationale mapping for cadence floor pulse token.
 - Decision: keep conservative default `EDGE` and only soften on `RELAX` with `HIGH` confidence to avoid over-relaxing feedback under uncertain recovery.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Game Director Cycle FO backlog injection: queued offline pulse-legend copy variant recommendation by volatility regime.
+
+## 2026-03-27 23:59 KST — Cycle FO follow-up closed (`CVCWHR FX LEGEND REC`)
+- Prototyped offline digest token `CVCWHR FX LEGEND REC:CALM|STANDARD|SHARP|URGENT` keyed by lane miss-risk volatility regime (risk + volatility + pulse).
+- Added rationale payload (`risk`, `volatility`, `pulse`, `reason`, `offlineOnly`) so copy-variant recommendation stays auditable.
+
+## 2026-03-28 00:08 KST — Cycle FP selected slice shipped
+- Added offline confidence token `CVCWHR FX LEGEND REC CONF` from variant/risk/volatility alignment heuristics.

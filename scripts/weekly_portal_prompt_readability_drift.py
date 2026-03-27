@@ -810,6 +810,64 @@ def resolve_combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse(*,
     }
 
 
+def resolve_combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation(*, lane_cadence_miss_risk_signals: dict[str, object], recommendation_confidence_signals: dict[str, object], fx_pulse_signals: dict[str, object]) -> tuple[str, dict[str, object]]:
+    """Offline copy-variant recommendation for `CVCWHR FX PULSE LEGEND` keyed by miss-risk volatility regime."""
+    risk = str(lane_cadence_miss_risk_signals.get("risk", "MID") or "MID").upper()
+    volatility = str(recommendation_confidence_signals.get("volatility", "CALM") or "CALM").upper()
+    pulse = str(fx_pulse_signals.get("pulse", "EDGE") or "EDGE").upper()
+
+    variant = "STANDARD"
+    reason = "balanced-risk-volatility"
+    if risk == "HIGH" and volatility in {"SWING", "SPIKE"}:
+        variant = "URGENT"
+        reason = "high-risk-volatile-regime"
+    elif risk == "LOW" and volatility == "CALM":
+        variant = "CALM"
+        reason = "low-risk-stable-regime"
+    elif pulse == "HARD" or volatility == "SPIKE":
+        variant = "SHARP"
+        reason = "pulse-hard-or-spike-volatility"
+
+    token = f"CVCWHR FX LEGEND REC:{variant}"
+    return token, {
+        "variant": variant,
+        "risk": risk,
+        "volatility": volatility,
+        "pulse": pulse,
+        "reason": reason,
+        "offlineOnly": True,
+    }
+
+
+def resolve_combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence(*, legend_variant_signals: dict[str, object]) -> tuple[str, dict[str, object]]:
+    """Offline confidence tier for `CVCWHR FX LEGEND REC` recommendation."""
+    risk = str(legend_variant_signals.get("risk", "MID") or "MID").upper()
+    volatility = str(legend_variant_signals.get("volatility", "CALM") or "CALM").upper()
+    variant = str(legend_variant_signals.get("variant", "STANDARD") or "STANDARD").upper()
+
+    confidence = "MID"
+    reason = "balanced-confidence"
+    if variant == "URGENT" and risk == "HIGH" and volatility in {"SWING", "SPIKE"}:
+        confidence = "HIGH"
+        reason = "urgent-high-risk-volatile-alignment"
+    elif variant == "CALM" and risk == "LOW" and volatility == "CALM":
+        confidence = "HIGH"
+        reason = "calm-low-risk-stable-alignment"
+    elif volatility == "SPIKE" and variant != "URGENT":
+        confidence = "LOW"
+        reason = "spike-volatility-non-urgent-mismatch"
+
+    token = f"CVCWHR FX LEGEND REC CONF:{confidence}"
+    return token, {
+        "confidence": confidence,
+        "variant": variant,
+        "risk": risk,
+        "volatility": volatility,
+        "reason": reason,
+        "offlineOnly": True,
+    }
+
+
 def cadence_bridge_from_cvcwhr_floor_and_lane_freshness(*, confidence_floor_recommendation_token: str, lane_bucket_age: dict[str, object]) -> tuple[str, dict[str, object]]:
     """Compact design/world bridge token from confidence-floor cadence state + lane freshness."""
     age_hours_raw = lane_bucket_age.get("ageHours", {})
@@ -7956,6 +8014,42 @@ def pulse_remap_scene_microline_cadence_family_trend_from_prior(
         "reason": reason,
     }
 
+def combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_from_prior(
+    *,
+    current_family_totals: dict[str, int],
+    prior_json_path: Path,
+) -> tuple[int, dict[str, object]]:
+    """Track CVCWHR FX PULSE family net drift against prior digest window."""
+    current_net = int(current_family_totals.get("net", 0) or 0)
+    prior_net = 0
+    prior_loaded = False
+    if prior_json_path.is_file():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_families = prior_payload.get("tokenFamilyTotals", {})
+            prior_family = prior_families.get("combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseAlias", {}) if isinstance(prior_families, dict) else {}
+            prior_net = int(prior_family.get("net", 0) or 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, TypeError, ValueError):
+            pass
+    drift = current_net - prior_net
+    if drift > 0:
+        trend = "UP"
+        reason = "cvcwhr-fx-pulse-family-net-increased-vs-prior-window"
+    elif drift < 0:
+        trend = "DOWN"
+        reason = "cvcwhr-fx-pulse-family-net-decreased-vs-prior-window"
+    else:
+        trend = "FLAT"
+        reason = "cvcwhr-fx-pulse-family-net-unchanged-vs-prior-window"
+    return drift, {
+        "trend": trend,
+        "currentNet": current_net,
+        "priorNet": prior_net,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
+
 def combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior(
     *,
     current_family_totals: dict[str, int],
@@ -8636,6 +8730,14 @@ def main() -> int:
         confidence_floor_recommendation_token=combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_token,
         recommendation_confidence_signals=combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals,
     )
+    combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_token, combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals = resolve_combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation(
+        lane_cadence_miss_risk_signals=lane_cadence_miss_risk_signals,
+        recommendation_confidence_signals=combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_signals,
+        fx_pulse_signals=combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_signals,
+    )
+    combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_token, combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals = resolve_combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence(
+        legend_variant_signals=combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals,
+    )
     cadence_bridge_token, cadence_bridge_signals = cadence_bridge_from_cvcwhr_floor_and_lane_freshness(
         confidence_floor_recommendation_token=combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_token,
         lane_bucket_age=lane_bucket_age,
@@ -8955,6 +9057,10 @@ def main() -> int:
     )
     pulse_remap_scene_microline_cadence_family_trend_drift, pulse_remap_scene_microline_cadence_family_trend_signals = pulse_remap_scene_microline_cadence_family_trend_from_prior(
         current_family_totals=token_family_totals["pulseRemapSceneMicrolineCadenceAlias"],
+        prior_json_path=args.out_json,
+    )
+    combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_drift, combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_signals = combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_from_prior(
+        current_family_totals=token_family_totals["combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseAlias"],
         prior_json_path=args.out_json,
     )
     combo_confidence_coach_copy_swap_recommendation, combo_confidence_coach_copy_swap_recommendation_signals = combo_confidence_coach_copy_swap_recommendation_from_signals(
@@ -10238,6 +10344,12 @@ def main() -> int:
         "combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendationAliasSignals": combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_alias_signals,
         "combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulse": combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_token,
         "combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseSignals": combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_signals,
+        "combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendVariantRecommendation": combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_token,
+        "combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendVariantRecommendationSignals": combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals,
+        "combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendVariantConfidence": combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_token,
+        "combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendVariantConfidenceSignals": combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals,
+        "combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseFamilyTrendDrift": combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_drift,
+        "combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseFamilyTrendSignals": combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_signals,
         "cadenceBridge": cadence_bridge_token,
         "cadenceBridgeSignals": cadence_bridge_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,
@@ -11079,9 +11191,13 @@ def main() -> int:
         f"- CVCWHR CONF FLOOR REC: **{combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_token}** (risk={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['risk']} volatility={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['volatility']} recovery={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['recoverySlopeHours']:+.1f}h windows={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['persistenceWindows']} Δ={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['deltaHours']:+.1f}h reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['reason']} swingBias={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['swingPersistenceBiasApplied']} offlineOnly={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['offlineOnly']})",
         f"- CVCWHRF: **{combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_alias_token if combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_alias_signals['flagEnabled'] else 'FLAG OFF'}** (flag={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_alias_signals['flagName']} enabled={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_alias_signals['flagEnabled']} token={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_alias_signals['recommendationToken']} alias={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_alias_signals['alias']})",
         f"- CVCWHR FX PULSE: **{combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_token}** (pulse={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_signals['pulse']} floor={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_signals['confidenceFloorRecommendation']} conf={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_signals['recommendationConfidence']} reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_signals['reason']} offlineOnly={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_signals['offlineOnly']})",
+        "- CVCWHR FX PULSE LEGEND: SOFT=stabilize cadence feel, EDGE=hold current intensity, HARD=escalate urgency pulse",
+        f"- CVCWHR FX LEGEND REC: **{combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_token}** (variant={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals['variant']} risk={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals['risk']} volatility={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals['volatility']} pulse={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals['pulse']} reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals['reason']} offlineOnly={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals['offlineOnly']})",
+        f"- CVCWHR FX LEGEND REC CONF: **{combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_token}** (confidence={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals['confidence']} variant={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals['variant']} risk={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals['risk']} volatility={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals['volatility']} reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals['reason']} offlineOnly={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals['offlineOnly']})",
         f"- CADENCE BRIDGE: **{cadence_bridge_token}** (bridge={cadence_bridge_signals['bridge']} floor={cadence_bridge_signals['confidenceFloorRecommendation']} dw={cadence_bridge_signals['designWorldAgeHours']}h sys={cadence_bridge_signals['systemsOpsAgeHours']}h cv={cadence_bridge_signals['combatVfxAgeHours']}h reason={cadence_bridge_signals['reason']} offlineOnly={cadence_bridge_signals['offlineOnly']})",
         f"- CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN: **net {(token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendation']['net'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendationAlias']['net']):+d}** (added={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendation']['added'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendationAlias']['added']} removed={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendation']['removed'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendationAlias']['removed']} churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendation']['churn'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendationAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendation']['coverage']}+{token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendationAlias']['coverage']})",
         f"- CVCWHR FX PULSE FAMILY CHURN: **net {token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseAlias']['net']:+d}** (added={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseAlias']['added']} removed={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseAlias']['removed']} churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseAlias']['coverage']})",
+        f"- CVCWHR FX PULSE FAMILY TREND: **{combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_signals['trend']}** (Δnet={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_drift:+d} currentNet={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_signals['currentNet']:+d} priorNet={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_signals['priorNet']:+d} loaded={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_signals['priorLoaded']} reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_signals['reason']})",
         f"- CADENCE BRIDGE FAMILY CHURN: **net {token_family_totals['cadenceBridgeAlias']['net']:+d}** (added={token_family_totals['cadenceBridgeAlias']['added']} removed={token_family_totals['cadenceBridgeAlias']['removed']} churn={token_family_totals['cadenceBridgeAlias']['churn']} coverage={token_family_totals['cadenceBridgeAlias']['coverage']})",
         f"- CVCWH FAMILY CHURN: **net {token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['net']:+d}** (added={token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['added']} removed={token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['removed']} churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['coverage']})",
         f"- CVCWHR FAMILY CHURN: **net {token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['net']:+d}** (added={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['added']} removed={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['removed']} churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['coverage']})",
@@ -11300,9 +11416,13 @@ def main() -> int:
         f"- CVCWHR CONF FLOOR REC: {combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_token} (risk={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['risk']}, volatility={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['volatility']}, recovery={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['recoverySlopeHours']:+.1f}h, windows={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['persistenceWindows']}, Δ={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['deltaHours']:+.1f}h, reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['reason']}, swingBias={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['swingPersistenceBiasApplied']}, offlineOnly={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_signals['offlineOnly']})",
         f"- CVCWHRF: {combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_alias_token if combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_alias_signals['flagEnabled'] else 'FLAG OFF'} (flag={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_alias_signals['flagName']}, enabled={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_alias_signals['flagEnabled']}, token={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_alias_signals['recommendationToken']}, alias={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_recommendation_alias_signals['alias']})",
         f"- CVCWHR FX PULSE: {combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_token} (pulse={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_signals['pulse']}, floor={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_signals['confidenceFloorRecommendation']}, conf={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_signals['recommendationConfidence']}, reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_signals['reason']}, offlineOnly={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_signals['offlineOnly']})",
+        "- CVCWHR FX PULSE LEGEND: SOFT=stabilize cadence feel, EDGE=hold current intensity, HARD=escalate urgency pulse",
+        f"- CVCWHR FX LEGEND REC: {combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_token} (variant={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals['variant']}, risk={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals['risk']}, volatility={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals['volatility']}, pulse={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals['pulse']}, reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals['reason']}, offlineOnly={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_recommendation_signals['offlineOnly']})",
+        f"- CVCWHR FX LEGEND REC CONF: {combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_token} (confidence={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals['confidence']}, variant={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals['variant']}, risk={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals['risk']}, volatility={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals['volatility']}, reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals['reason']}, offlineOnly={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_legend_variant_confidence_signals['offlineOnly']})",
         f"- CADENCE BRIDGE: {cadence_bridge_token} (bridge={cadence_bridge_signals['bridge']}, floor={cadence_bridge_signals['confidenceFloorRecommendation']}, dw={cadence_bridge_signals['designWorldAgeHours']}h, sys={cadence_bridge_signals['systemsOpsAgeHours']}h, cv={cadence_bridge_signals['combatVfxAgeHours']}h, reason={cadence_bridge_signals['reason']}, offlineOnly={cadence_bridge_signals['offlineOnly']})",
         f"- CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendation']['added'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendationAlias']['added']} / -{token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendation']['removed'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendationAlias']['removed']} / net {token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendation']['net'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendationAlias']['net']} (churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendation']['churn'] + token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendationAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendation']['coverage']}+{token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorRecommendationAlias']['coverage']})",
         f"- CVCWHR FX PULSE FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseAlias']['added']} / -{token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseAlias']['removed']} / net {token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseAlias']['net']} (churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseAlias']['coverage']})",
+        f"- CVCWHR FX PULSE FAMILY TREND: {combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_signals['trend']} (Δnet={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_drift:+d}, currentNet={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_signals['currentNet']:+d}, priorNet={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_signals['priorNet']:+d}, loaded={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_signals['priorLoaded']}, reason={combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_signals['reason']})",
         f"- CADENCE BRIDGE FAMILY CHURN: +{token_family_totals['cadenceBridgeAlias']['added']} / -{token_family_totals['cadenceBridgeAlias']['removed']} / net {token_family_totals['cadenceBridgeAlias']['net']} (churn={token_family_totals['cadenceBridgeAlias']['churn']} coverage={token_family_totals['cadenceBridgeAlias']['coverage']})",
         f"- CVCWH FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['added']} / -{token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['removed']} / net {token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['net']} (churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisAlias']['coverage']})",
         f"- CVCWHR FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['added']} / -{token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['removed']} / net {token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['net']} (churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisRecommendationAlias']['coverage']})",

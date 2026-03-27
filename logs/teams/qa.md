@@ -3730,3 +3730,11 @@
   - Presence checks for `CVCWHR FX PULSE`.
   - Ordering contract: `CVCWHRF -> CVCWHR FX PULSE -> CADENCE BRIDGE`.
   - Churn adjacency: `CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN -> CVCWHR FX PULSE FAMILY CHURN -> CADENCE BRIDGE FAMILY CHURN`.
+- Game Director Cycle FO QA: regression lock expanded for pulse legend adjacency; weekly drift regression remains green.
+
+## 2026-03-27 23:59 KST — Regression coverage update (`CVCWHR FX LEGEND REC`)
+- Extended weekly prompt regression checks for presence/count/order of `CVCWHR FX LEGEND REC` between `CVCWHR FX PULSE LEGEND` and `CADENCE BRIDGE`.
+- Verification: `python3 scripts/weekly_portal_prompt_readability_drift.py --out-md /tmp/w.md --out-json /tmp/w.json` + adjacency spot-check with `rg`.
+
+## 2026-03-28 00:08 KST — Cycle FP queued QA contract
+- Next queued item: deterministic family churn coverage and adjacency lock for new `CVCWHR FX LEGEND REC` confidence rail.

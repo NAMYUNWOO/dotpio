@@ -2145,3 +2145,10 @@
 ## 2026-03-27 22:51 KST
 - Design note: Added explicit pulse intensity lane (`SOFT|EDGE|HARD`) between floor recommendation alias and cadence bridge for one-glance operator scan.
 - Rationale: keeps confidence-floor policy legible before lane-bridge recommendation is interpreted.
+- Game Director Cycle FO decision: selected low-risk readability experiment (legend row) over higher-risk adaptive copy variants this cycle.
+
+## 2026-03-27 23:59 KST — Digest readability variant rail
+- Added compact `CVCWHR FX LEGEND REC` row directly after pulse legend so copy variant guidance is scanable before `CADENCE BRIDGE`.
+
+## 2026-03-28 00:08 KST — Cycle FP backlog injection
+- Queued combat/design experiment for volatility-regime copy pack recommendation to improve legend tone coherence.

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-27 22:51 KST
+Last updated: 2026-03-27 22:57 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -3467,3 +3467,20 @@ Compact decision memory for AI context efficiency.
 - Regression contract expanded for presence/count/order in both summary and token-coverage sections (`MISS RISK -> LCMR -> 24H CHECK -> WATCHDOG`).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Queue status: remaining unchecked item is Combat/VFX `CVCWHR FX PULSE:SOFT|EDGE|HARD`.
+
+- Game Director Cycle FO executed after full-check state.
+  - Idea A (low-risk UX/game-feel): Add `CVCWHR FX PULSE LEGEND` row with hard ordering lock for scanability. **Selected**
+  - Idea B (mid-risk systems/combat): Add `CVCWHR FX PULSE FAMILY TREND` prior-window drift rail.
+  - Idea C (high-risk novelty): Adaptive pulse-legend copy variants keyed by volatility regime.
+- FO slice shipped: legend row added in summary + token-coverage and regression now locks `CVCWHR FX PULSE -> LEGEND -> CADENCE BRIDGE`.
+- Injected follow-up backlog items: (1) Systems/QA trend rail for pulse family, (2) AI Content/Combat offline pulse-legend variant recommendation.
+
+## 2026-03-27 23:59 KST — Cycle FO AI Content/Combat follow-up closed (`CVCWHR FX LEGEND REC`)
+- Shipped offline copy-variant recommendation token `CVCWHR FX LEGEND REC:CALM|STANDARD|SHARP|URGENT` keyed by lane miss-risk volatility regime.
+- Summary/token-coverage now render row order: `CVCWHR FX PULSE -> CVCWHR FX PULSE LEGEND -> CVCWHR FX LEGEND REC -> CADENCE BRIDGE`.
+- Verification evidence: `python3 scripts/weekly_portal_prompt_readability_drift.py --out-md /tmp/w.md --out-json /tmp/w.json` and adjacency checks via `rg` on `/tmp/w.md`.
+
+## 2026-03-28 00:08 KST — Cycle FP Game Director slice (`CVCWHR FX LEGEND REC CONF`)
+- Ideas generated: (1) low-risk confidence token for legend recommendation (**selected**), (2) mid-risk churn/order contract, (3) high-risk volatility copy-pack rotation.
+- Shipped minimal slice: digest now emits `CVCWHR FX LEGEND REC CONF:LOW|MID|HIGH` directly after `CVCWHR FX LEGEND REC` in summary + token-coverage.
+- Injected backlog: Systems/QA churn+adjacency contract for new token family, Combat/Design copy-pack recommendation prototype.

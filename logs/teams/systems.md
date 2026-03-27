@@ -3168,3 +3168,10 @@
   - Added offline-only pulse mapping (`RAISE->HARD`, `RELAX+HIGH->SOFT`, else `EDGE`) with rationale signals.
   - Wired token into payload + summary/token-coverage markdown and added dedicated family-churn row.
   - Extended regression ordering lock for `CVCWHRF -> CVCWHR FX PULSE -> CADENCE BRIDGE` and churn-row adjacency.
+- Game Director Cycle FO coverage note: lane balance maintained via UX/design slice; queued systems follow-up `CVCWHR FX PULSE FAMILY TREND` as next actionable.
+
+## 2026-03-27 23:59 KST — Systems wiring for legend variant recommendation
+- Wired `combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendVariantRecommendation` token/signals into weekly digest JSON payload.
+
+## 2026-03-28 00:08 KST — Cycle FP follow-up queue injected
+- Queued Systems/QA contract task: add churn row + order lock for `CVCWHR FX LEGEND REC` and `... REC CONF` token family.
