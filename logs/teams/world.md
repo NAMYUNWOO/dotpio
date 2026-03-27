@@ -2076,3 +2076,7 @@
 ## 2026-03-27 22:00 KST — Cycle FN Design/World cadence bridge sync
 - Synced new offline digest bridge token `CADENCE BRIDGE:SCOUT|PRESS|HOLD` to make design/world underrepresentation immediately visible beside cadence-floor rails.
 - No runtime world/content mutation; change is analytics/readability only in weekly digest artifacts.
+
+## 2026-03-27 22:51 KST
+- Cross-lane sync: cadence floor FX pulse cue now bridges combat postmortem pacing with world-facing cadence bridge rows.
+- Impact: no world/map data changes; digest-level readability context improved for triage handoff.

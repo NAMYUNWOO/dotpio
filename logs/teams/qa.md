@@ -3721,3 +3721,12 @@
   - added markdown presence checks
   - extended adjacency/order contract to require `MISS RISK -> LCMR -> 24H CHECK -> WATCHDOG`
 - Verification result: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+
+## 2026-03-27 22:51 KST
+- QA task: Extend weekly digest regression for new cadence floor pulse row + churn row.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Assertions added:
+  - Presence checks for `CVCWHR FX PULSE`.
+  - Ordering contract: `CVCWHRF -> CVCWHR FX PULSE -> CADENCE BRIDGE`.
+  - Churn adjacency: `CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN -> CVCWHR FX PULSE FAMILY CHURN -> CADENCE BRIDGE FAMILY CHURN`.

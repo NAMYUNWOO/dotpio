@@ -2061,3 +2061,8 @@
 ## 2026-03-27 22:00 KST — Cycle FN combat lane telemetry handoff
 - Added cadence companion rail `CADENCE BRIDGE` adjacent to `CVCWHR` floor cluster so postmortem cadence scans include design/world bridge intent.
 - Combat runtime unaffected; digest/reporting only.
+
+## 2026-03-27 22:51 KST
+- Task: Prototype digest token `CVCWHR FX PULSE:SOFT|EDGE|HARD` for postmortem feel triage continuity.
+- Decision: pulse intensity is now directly anchored to confidence-floor recommendation to stabilize combat/VFX cadence interpretation.
+- Verification: weekly drift regression green.

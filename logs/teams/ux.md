@@ -2344,3 +2344,7 @@
 ## 2026-03-27 22:00 KST — Cycle FN UX readability note (`CADENCE BRIDGE`)
 - Added compact bridge token row plus family churn row in both digest sections to preserve glanceable cadence block ordering.
 - Regression ordering contract updated and passing with new row inserted after `CVCWHRF`.
+
+## 2026-03-27 22:51 KST
+- UX note: Summary and token-coverage now show `CVCWHR FX PULSE` immediately after `CVCWHRF` to preserve cadence-cluster readability.
+- Regression now locks adjacency so scan order remains stable under future token growth.

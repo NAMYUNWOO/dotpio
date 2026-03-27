@@ -3157,3 +3157,14 @@
 - Decision: Enforce explicit 24h contract status independent of miss-risk scoring to make lane SLA breaches audit-friendly.
 - Verification hook: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Follow-up: Remaining Cycle FN item is combat/vfx `CVCWHR FX PULSE:SOFT|EDGE|HARD`.
+
+## 2026-03-27 22:51 KST
+- Task: Combat/VFX cadence floor FX pulse prototype (`CVCWHR FX PULSE:SOFT|EDGE|HARD`) from `CVCWHR CONF FLOOR REC`.
+- Commit: HEAD (pending)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added offline-only pulse mapping (`RAISE->HARD`, `RELAX+HIGH->SOFT`, else `EDGE`) with rationale signals.
+  - Wired token into payload + summary/token-coverage markdown and added dedicated family-churn row.
+  - Extended regression ordering lock for `CVCWHRF -> CVCWHR FX PULSE -> CADENCE BRIDGE` and churn-row adjacency.

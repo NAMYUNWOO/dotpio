@@ -2131,3 +2131,8 @@
 ## 2026-03-27 22:00 KST — Cycle FN AI Content coordination (`CADENCE BRIDGE`)
 - Confirmed bridge policy keeps output offline-only and deterministic from existing cadence-floor + lane-age signals; no runtime AI-content behavior changes.
 - Follow-up context: next queued Forced Lane item remains Systems/Ops `LANE CADENCE 24H CHECK:PASS|FAIL`.
+
+## 2026-03-27 22:51 KST
+- Task support: Added offline rationale mapping for cadence floor pulse token.
+- Decision: keep conservative default `EDGE` and only soften on `RELAX` with `HIGH` confidence to avoid over-relaxing feedback under uncertain recovery.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

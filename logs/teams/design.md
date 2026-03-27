@@ -2141,3 +2141,7 @@
 - Completed forced-rebalance item: added digest token `CADENCE BRIDGE:SCOUT|PRESS|HOLD` derived from `CVCWHR CONF FLOOR REC` + lane freshness (`design/world`, `systems/ops`, `combat/vfx`).
 - Wiring: payload now emits `cadenceBridge` + `cadenceBridgeSignals`; markdown includes `CADENCE BRIDGE` and `CADENCE BRIDGE FAMILY CHURN` in summary + token-coverage sections.
 - Verification: `py_compile`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, and digest generation PASS.
+
+## 2026-03-27 22:51 KST
+- Design note: Added explicit pulse intensity lane (`SOFT|EDGE|HARD`) between floor recommendation alias and cadence bridge for one-glance operator scan.
+- Rationale: keeps confidence-floor policy legible before lane-bridge recommendation is interpreted.

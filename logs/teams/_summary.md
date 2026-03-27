@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-27 21:54 KST
+Last updated: 2026-03-27 22:51 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle FN Combat/VFX item: weekly digest now emits `CVCWHR FX PULSE:SOFT|EDGE|HARD` from confidence-floor recommendation (`RAISE->HARD`, `RELAX+HIGH->SOFT`, else `EDGE`) with offline signal payload.
+- Added dedicated cadence-cluster row + family churn coverage (`CVCWHR FX PULSE FAMILY CHURN`) in summary and token-coverage sections.
+- Regression contract expanded to lock ordering `CVCWHRF -> CVCWHR FX PULSE -> CADENCE BRIDGE` and related churn adjacency; verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).
+- TASKS + POST_RC updated: Combat/VFX pulse prototype item completed with lifecycle stamps.
 
 - Closed Cycle FM (selected UX/Systems slice): weekly digest now emits compact confidence-floor alias `CVCWHRF:<K|R|X>` behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_FLOOR_ALIAS`.
 - Closed Cycle FM Systems/QA follow-up: added deterministic churn row `CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN` and adjacency lock (`... FLOOR REC -> CVCWHRF -> FLOOR FAMILY CHURN -> CVCWH FAMILY CHURN ...`) in summary + token-coverage.
