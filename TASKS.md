@@ -1384,5 +1384,5 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Combat): Prototype suppression-aware alternate microcopy pack token (`DCCFXCPA COPY ALT PACK`).
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Design Team: Add `DCCFXCPA COPY ALT LEGEND` row in summary + token-coverage with deterministic adjacency regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 09:16 KST; completed: 2026-03-27 09:20 KST)*
-- [ ] Systems/QA Team: Add `DCCFXCPA COPY ALT FAMILY TREND` rail with prior-window drift context.
+- [x] Systems/QA Team: Add `DCCFXCPA COPY ALT FAMILY TREND` rail with prior-window drift context. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 09:20 KST; completed: 2026-03-27 10:02 KST)*
 - [ ] AI Content/Combat Team: Prototype suppression-aware `DCCFXCPA COPY ALT PACK` token (digest-only, flagged).

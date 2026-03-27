@@ -3572,3 +3572,16 @@
 - [2026-03-27 08:39 KST] Regression hardening: require `DCCFXCPA COPY FAMILY CHURN` presence and deterministic adjacency in both summary and token-coverage sections (`... COPY -> COPY LEGEND -> COPY FAMILY CHURN -> DCCFXV FAMILY CHURN`).
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - [2026-03-27 09:21 KST] Cycle FD + fallback closure: shipped `DCCFXCPA COPY ALT` mismatch rail (`SURGE/CLEAR` under suppression -> `HOLD`) plus `DCCFXCPA COPY ALT LEGEND` in summary/token-coverage with deterministic regression adjacency lock; kept follow-up backlog items for ALT family trend and ALT pack prototype.
+
+## 2026-03-27 10:02:00 KST
+- Task: Verify Cycle FD Systems/QA drift-rail closeout (`DCCFXCPA COPY ALT FAMILY TREND`).
+- Commit: HEAD (this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - No portal validator run (no map/portal data changed).
+  - No screenshot regen (digest/readability pipeline only; no player-facing HUD/layout asset edits).
+- Follow-up:
+  - Continue with remaining unchecked AI Content/Combat backlog item (`DCCFXCPA COPY ALT PACK`) next cycle.

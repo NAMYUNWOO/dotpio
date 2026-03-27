@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-27 06:05 KST
+Last updated: 2026-03-27 10:02 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle FD Systems/QA follow-up item: weekly digest now emits dedicated rail `DCCFXCPA COPY ALT FAMILY TREND` with prior-window trend metadata (`Δnet`, `currentNet`, `priorNet`, `loaded`, `reason`) in both summary and token-coverage sections.
+- Payload contract now includes `comboConfidenceFxCoachCueWhyScenePulseArcCopyAltFamilyTrendDrift` + `...Signals` so alternate-copy drift can be audited independently from churn rows.
+- Regression ordering lock now requires deterministic adjacency `DCCFXCPA COPY ALT FAMILY CHURN -> DCCFXCPA COPY ALT FAMILY TREND -> DCCFXV FAMILY CHURN`; verification passed (`py_compile` + weekly drift regression).
+- TASKS + POST_RC updated: Systems/QA trend-rail item marked complete; remaining actionable unchecked queue item is AI Content/Combat `DCCFXCPA COPY ALT PACK` prototype.
 
 - Closed Cycle EZ Systems/QA follow-up item: weekly digest now emits `DCCFXCW SCENE PALETTE TREND:COOLING|STABLE|HEATING` with prior-window delta signals (`currentNet`, `priorNet`, `Δnet`, `reason`) in summary + token-coverage sections.
 - Added dedicated token-family key `dmgComboConfidenceFxCoachCueWhyScenePaletteAlias` (`DCCFXCW SCENE PALETTE:`) so trend drift is auditable independently from `DCCFXCW` alias churn.

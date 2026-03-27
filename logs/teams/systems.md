@@ -3016,3 +3016,17 @@
 - [2026-03-27 08:39 KST] Closed Cycle FC Systems/QA item: added `DCCFXCPA COPY FAMILY CHURN` in weekly digest summary + token-coverage with prior-window drift context (`drift/trend/loaded`) from `dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias`.
 - Updated payload contract with `comboConfidenceFxCoachCueWhyScenePulseArcCopyFamilyTrendDrift/Signals` for durable downstream triage.
 - [2026-03-27 09:21 KST] Cycle FD + fallback closure: shipped `DCCFXCPA COPY ALT` mismatch rail (`SURGE/CLEAR` under suppression -> `HOLD`) plus `DCCFXCPA COPY ALT LEGEND` in summary/token-coverage with deterministic regression adjacency lock; kept follow-up backlog items for ALT family trend and ALT pack prototype.
+
+## 2026-03-27 10:02:00 KST
+- Task: Close Cycle FD Systems/QA follow-up by shipping `DCCFXCPA COPY ALT FAMILY TREND` digest rail with prior-window drift context.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+- Decisions:
+  - Added a dedicated summary/token-coverage row `DCCFXCPA COPY ALT FAMILY TREND` so alternate-copy drift is scanned independently from churn.
+  - Extended digest payload contract with `comboConfidenceFxCoachCueWhyScenePulseArcCopyAltFamilyTrendDrift` + `...Signals` to keep prior-window auditability explicit.
+  - Locked deterministic adjacency in regression (`COPY ALT FAMILY CHURN -> COPY ALT FAMILY TREND -> DCCFXV FAMILY CHURN`) to prevent ordering regressions.
+- Follow-up:
+  - Next highest-priority unchecked queue item: AI Content/Combat `DCCFXCPA COPY ALT PACK` prototype (digest-only, flagged).
