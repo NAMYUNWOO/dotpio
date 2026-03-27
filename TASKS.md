@@ -1457,4 +1457,4 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add compact recommendation-confidence alias token (`CVCWHRC:<L|M|H>`) behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 20:34 KST)*
 - [x] Systems/QA Team: Add deterministic family-churn row + adjacency/order lock for `CVCWHR CONF` + `CVCWHRC` rows in summary + token-coverage. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 20:51 KST; completed: 2026-03-27 20:56 KST)*
-- [ ] AI Content/Combat Team: Prototype adaptive confidence floor recommendation policy from miss-risk recovery slope + volatility persistence windows (offline-only).
+- [x] AI Content/Combat Team: Prototype adaptive confidence floor recommendation policy from miss-risk recovery slope + volatility persistence windows (offline-only). *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 21:21 KST; completed: 2026-03-27 21:29 KST)*

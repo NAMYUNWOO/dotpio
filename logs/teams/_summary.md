@@ -3437,3 +3437,9 @@ Compact decision memory for AI context efficiency.
 - Regression contract updated accordingly (presence/count/order assertions now reference the merged row label and keep cadence-cluster adjacency deterministic).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Queue status: remaining unchecked item in Cycle FL is AI Content/Combat adaptive confidence-floor recommendation policy (offline-only).
+
+## 2026-03-27 21:30 KST — Cycle FL AI Content/Combat follow-up closed (`CVCWHR CONF FLOOR REC`)
+- Closed remaining FL unchecked item by adding offline adaptive confidence-floor recommendation policy driven by miss-risk recovery slope + volatility persistence windows.
+- New digest token: `CVCWHR CONF FLOOR REC:KEEP|RAISE|RELAX` plus payload signals (`risk`, `volatility`, `recoverySlopeHours`, `persistenceWindows`, `deltaHours`, `reason`, `offlineOnly`).
+- Regression updated for presence/order of `CVCWHR CONF FLOOR REC` in summary + token-coverage sections.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

@@ -2330,3 +2330,8 @@
 - Completed supporting Systems/QA follow-up by consolidating confidence-family churn readability into one row: `CVCWHR CONF + CVCWHRC FAMILY CHURN`.
 - Deterministic adjacency remains intact for compact scan order in both summary and token-coverage sections.
 - No additional UX prompt token introduced in this slice.
+
+## 2026-03-27 21:30 KST — Cycle FL AI Content/Combat follow-up (`CVCWHR CONF FLOOR REC`)
+- Completed offline adaptive confidence-floor recommendation policy from miss-risk recovery slope + volatility persistence windows.
+- Wired new digest token `CVCWHR CONF FLOOR REC:KEEP|RAISE|RELAX` with payload signals (risk/volatility/recovery/persistence/delta/reason).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

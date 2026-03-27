@@ -2117,3 +2117,8 @@
 - Systems/QA completed the merged churn/ordering contract for `CVCWHR CONF` + `CVCWHRC`.
 - AI Content/Combat follow-up remains open: prototype adaptive confidence-floor recommendation policy from miss-risk recovery slope + volatility persistence windows (offline-only).
 - No AI-content runtime copy changes shipped in this slice.
+
+## 2026-03-27 21:30 KST — Cycle FL AI Content/Combat follow-up (`CVCWHR CONF FLOOR REC`)
+- Completed offline adaptive confidence-floor recommendation policy from miss-risk recovery slope + volatility persistence windows.
+- Wired new digest token `CVCWHR CONF FLOOR REC:KEEP|RAISE|RELAX` with payload signals (risk/volatility/recovery/persistence/delta/reason).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
