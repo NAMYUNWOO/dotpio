@@ -2392,6 +2392,7 @@ def main() -> int:
         assert "COMBAT/VFX CADENCE COACH WHY:" in md_text
         assert "CVCW:" in md_text
         assert "CVCWH:" in md_text
+        assert "CVCWH FAMILY CHURN:" in md_text
         assert "COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN:" in md_text
         assert "CVCC:" in md_text
         assert "COMBAT/VFX CADENCE WATCHDOG LEGEND:" in md_text
@@ -2768,6 +2769,7 @@ def main() -> int:
         combat_vfx_cadence_coach_why_indices = _find_line_indices("- COMBAT/VFX CADENCE COACH WHY:")
         combat_vfx_cadence_coach_why_alias_indices = _find_line_indices("- CVCW:")
         combat_vfx_cadence_coach_why_hysteresis_alias_indices = _find_line_indices("- CVCWH:")
+        combat_vfx_cadence_coach_why_hysteresis_family_churn_indices = _find_line_indices("- CVCWH FAMILY CHURN:")
         combat_vfx_cadence_coach_alias_indices = _find_line_indices("- CVCC:")
         combat_vfx_cadence_coach_why_family_churn_indices = _find_line_indices("- COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN:")
         combat_vfx_cadence_coach_family_churn_indices = _find_line_indices("- COMBAT/VFX CADENCE COACH + CVCC FAMILY CHURN:")
@@ -3088,6 +3090,9 @@ def main() -> int:
         assert len(combat_vfx_cadence_coach_why_hysteresis_alias_indices) == 2, (
             "expected exactly two CVCWH alias rows (summary + token-coverage sections)"
         )
+        assert len(combat_vfx_cadence_coach_why_hysteresis_family_churn_indices) == 2, (
+            "expected exactly two CVCWH FAMILY CHURN rows (summary + token-coverage sections)"
+        )
         assert len(combat_vfx_cadence_coach_alias_indices) == 2, (
             "expected exactly two CVCC alias rows (summary + token-coverage sections)"
         )
@@ -3100,7 +3105,7 @@ def main() -> int:
         assert len(combat_vfx_watchdog_legend_indices) == 2, (
             "expected exactly two COMBAT/VFX CADENCE WATCHDOG LEGEND rows (summary + token-coverage sections)"
         )
-        for section_idx, (miss_risk_idx, alias_idx, watchdog_idx, watchdog_streak_idx, coach_idx, coach_why_idx, coach_why_alias_idx, coach_why_hyst_alias_idx, coach_why_family_churn_idx, coach_alias_idx, coach_family_churn_idx, watchdog_legend_idx) in enumerate(
+        for section_idx, (miss_risk_idx, alias_idx, watchdog_idx, watchdog_streak_idx, coach_idx, coach_why_idx, coach_why_alias_idx, coach_why_hyst_alias_idx, coach_why_hyst_family_churn_idx, coach_why_family_churn_idx, coach_alias_idx, coach_family_churn_idx, watchdog_legend_idx) in enumerate(
             zip(
                 lane_cadence_miss_risk_indices,
                 lane_cadence_miss_risk_alias_indices,
@@ -3110,6 +3115,7 @@ def main() -> int:
                 combat_vfx_cadence_coach_why_indices,
                 combat_vfx_cadence_coach_why_alias_indices,
                 combat_vfx_cadence_coach_why_hysteresis_alias_indices,
+                combat_vfx_cadence_coach_why_hysteresis_family_churn_indices,
                 combat_vfx_cadence_coach_why_family_churn_indices,
                 combat_vfx_cadence_coach_alias_indices,
                 combat_vfx_cadence_coach_family_churn_indices,
@@ -3138,8 +3144,11 @@ def main() -> int:
             assert coach_why_hyst_alias_idx == coach_why_alias_idx + 1, (
                 f"expected CVCWH alias row directly after CVCW row in section {section_idx}"
             )
-            assert coach_why_family_churn_idx == coach_why_hyst_alias_idx + 1, (
-                f"expected COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN row directly after CVCWH row in section {section_idx}"
+            assert coach_why_hyst_family_churn_idx == coach_why_hyst_alias_idx + 1, (
+                f"expected CVCWH FAMILY CHURN row directly after CVCWH row in section {section_idx}"
+            )
+            assert coach_why_family_churn_idx == coach_why_hyst_family_churn_idx + 1, (
+                f"expected COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN row directly after CVCWH FAMILY CHURN row in section {section_idx}"
             )
             assert coach_alias_idx == coach_why_family_churn_idx + 1, (
                 f"expected CVCC alias row directly after COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN row in section {section_idx}"

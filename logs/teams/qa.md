@@ -3677,3 +3677,16 @@
 ## 2026-03-27 19:07 KST — Cycle FK regression update
 - Extended cadence coach-cluster ordering assertions to enforce `COACH WHY -> CVCW -> CVCWH -> COACH WHY + CVCW FAMILY CHURN`.
 - Added payload contract assertions for `CVCWH` alias fields.
+
+## 2026-03-27 19:21:00 KST
+- Task: Verify Cycle FK Systems/QA cadence rationale churn/ordering hardening (`CVCWH FAMILY CHURN`).
+- Commit: HEAD (this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+- Decisions:
+  - Regression suite now requires two `CVCWH FAMILY CHURN` rows (summary + token coverage) and enforces deterministic cadence cluster ordering.
+  - No portal validator run (no map/portal changes).
+  - No screenshot regeneration (digest contract and test-only changes).
+- Follow-up:
+  - Keep AI Content/Combat sticky-window recommendation as next unchecked backlog item.

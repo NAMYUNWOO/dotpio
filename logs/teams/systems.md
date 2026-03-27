@@ -3106,3 +3106,16 @@
 ## 2026-03-27 19:07 KST — Systems wiring for `CVCWH`
 - Added resolver `resolve_combat_vfx_cadence_coach_why_hysteresis_alias` and payload fields `combatVfxCadenceCoachWhyHysteresisAlias(+Signals)`.
 - Markdown summary/token-coverage now emit `CVCWH` row between `CVCW` and family churn rows.
+
+## 2026-03-27 19:21:00 KST
+- Task: Cycle FK Systems/QA follow-up — add dedicated `CVCWH FAMILY CHURN` digest row and enforce cadence rationale ordering contract.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added explicit `CVCWH FAMILY CHURN` row in both summary and token-coverage sections, backed by `combatVfxCadenceCoachWhyHysteresisAlias` token-family totals.
+  - Extended regression ordering contract to require `CVCW -> CVCWH -> CVCWH FAMILY CHURN -> COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN -> CVCC` adjacency in both sections.
+  - Marked the Systems/QA Cycle FK backlog item complete in `TASKS.md` and `POST_RC_BACKLOG.md` with lifecycle annotation.
+- Follow-up:
+  - Next highest unchecked queue item remains AI Content/Combat: adaptive coach-why sticky-window length recommendation (offline-only).

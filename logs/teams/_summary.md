@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-27 18:24 KST
+Last updated: 2026-03-27 19:21 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle FK Systems/QA follow-up item: weekly digest now emits dedicated `CVCWH FAMILY CHURN` rows (summary + token-coverage) from `combatVfxCadenceCoachWhyHysteresisAlias` family totals.
+- Regression contract now hard-locks cadence rationale ordering as `... COACH WHY -> CVCW -> CVCWH -> CVCWH FAMILY CHURN -> COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN -> CVCC ...`; verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).
+- TASKS + POST_RC updated: Cycle FK Systems/QA item marked done with lifecycle annotation; next unchecked item is AI Content/Combat sticky-window recommendation prototype.
 
 - Closed Cycle FJ Systems/QA follow-up item: weekly digest now emits `COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN` in both summary and token-coverage sections.
 - Regression contract now locks coach-cluster adjacency as `... COACH WHY -> CVCW -> COACH WHY + CVCW FAMILY CHURN -> CVCC -> COACH + CVCC FAMILY CHURN`; verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`).
