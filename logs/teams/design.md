@@ -2136,3 +2136,8 @@
 - Completed offline adaptive confidence-floor recommendation policy from miss-risk recovery slope + volatility persistence windows.
 - Wired new digest token `CVCWHR CONF FLOOR REC:KEEP|RAISE|RELAX` with payload signals (risk/volatility/recovery/persistence/delta/reason).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 22:00 KST — Cycle FN Design/World slice (`CADENCE BRIDGE`)
+- Completed forced-rebalance item: added digest token `CADENCE BRIDGE:SCOUT|PRESS|HOLD` derived from `CVCWHR CONF FLOOR REC` + lane freshness (`design/world`, `systems/ops`, `combat/vfx`).
+- Wiring: payload now emits `cadenceBridge` + `cadenceBridgeSignals`; markdown includes `CADENCE BRIDGE` and `CADENCE BRIDGE FAMILY CHURN` in summary + token-coverage sections.
+- Verification: `py_compile`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, and digest generation PASS.

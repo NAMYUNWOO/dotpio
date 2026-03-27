@@ -3710,3 +3710,7 @@
 - Completed offline adaptive confidence-floor recommendation policy from miss-risk recovery slope + volatility persistence windows.
 - Wired new digest token `CVCWHR CONF FLOOR REC:KEEP|RAISE|RELAX` with payload signals (risk/volatility/recovery/persistence/delta/reason).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 22:00 KST — Cycle FN QA contract update (`CADENCE BRIDGE`)
+- Extended weekly digest regression to require `CADENCE BRIDGE`/`CADENCE BRIDGE FAMILY CHURN` presence, payload schema keys, and adjacency ordering in both summary + token-coverage sections.
+- Verification matrix PASS: py_compile + weekly digest regression + digest generation.

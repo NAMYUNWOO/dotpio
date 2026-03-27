@@ -2340,3 +2340,7 @@
 - Shipped compact digest alias `CVCWHRF:<K|R|X>` for `CVCWHR CONF FLOOR REC` behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_FLOOR_ALIAS`.
 - Alias preserves dense scanability while keeping detailed floor-recommendation row intact.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 22:00 KST — Cycle FN UX readability note (`CADENCE BRIDGE`)
+- Added compact bridge token row plus family churn row in both digest sections to preserve glanceable cadence block ordering.
+- Regression ordering contract updated and passing with new row inserted after `CVCWHRF`.

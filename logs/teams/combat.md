@@ -2057,3 +2057,7 @@
 - Completed offline adaptive confidence-floor recommendation policy from miss-risk recovery slope + volatility persistence windows.
 - Wired new digest token `CVCWHR CONF FLOOR REC:KEEP|RAISE|RELAX` with payload signals (risk/volatility/recovery/persistence/delta/reason).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 22:00 KST — Cycle FN combat lane telemetry handoff
+- Added cadence companion rail `CADENCE BRIDGE` adjacent to `CVCWHR` floor cluster so postmortem cadence scans include design/world bridge intent.
+- Combat runtime unaffected; digest/reporting only.

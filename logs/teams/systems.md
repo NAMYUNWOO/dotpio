@@ -3146,3 +3146,8 @@
 - Added dedicated churn contract row `CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN` in summary + token-coverage sections.
 - Extended regression ordering to enforce: `... CVCWHR CONF FLOOR REC -> CVCWHRF -> CVCWHR CONF FLOOR + CVCWHRF FAMILY CHURN -> CVCWH FAMILY CHURN ...`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 22:00 KST — Cycle FN Systems/Ops implementation (`CADENCE BRIDGE`)
+- Implemented `cadence_bridge_from_cvcwhr_floor_and_lane_freshness(...)` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Added token catalog + alias family coverage (`cadenceBridgeAlias`) and payload contract (`cadenceBridge`, `cadenceBridgeSignals`).
+- Added markdown rows `CADENCE BRIDGE` + `CADENCE BRIDGE FAMILY CHURN` in summary and token-family sections; regression locks updated accordingly.

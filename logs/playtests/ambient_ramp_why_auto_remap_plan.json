@@ -1,39 +1,39 @@
 {
-  "generatedAt": "2026-03-27T02:37:46.254862Z",
+  "generatedAt": "2026-03-27T12:55:35.344537Z",
   "window": {
     "sinceDays": 7,
     "maxCommits": 120,
     "checkedCommits": 120,
-    "touchedCommits": 2
+    "touchedCommits": 1
   },
   "recommendation": {
-    "ambientRampWhyRecommendation": "HOLD_SAFE_WHY",
-    "ambientRampWhyRecommendationConfidence": "LOW",
+    "ambientRampWhyRecommendation": "OPEN_CONTEXTUAL_WHY",
+    "ambientRampWhyRecommendationConfidence": "HIGH",
     "ambientRampWhyRecommendationConfidenceStreak": 1,
     "ambientRampWhyRecommendationConfidenceStreakSignals": {
-      "currentConfidence": "LOW",
-      "priorConfidence": "MID",
-      "priorStreak": 49,
+      "currentConfidence": "HIGH",
+      "priorConfidence": "LOW",
+      "priorStreak": 2,
       "priorLoaded": true,
       "threshold": 3,
       "suppress": false,
       "reason": "confidence-streak-reset"
     },
-    "ambientRampWhyRecommendationParity": "LOCK"
+    "ambientRampWhyRecommendationParity": "SYNC"
   },
-  "selectedPlan": "HOLD_SAFE_BASELINE",
-  "selectedPlanCompact": "HOLD",
-  "selectedPlanWhyCompact": "SAFE_LOCK",
+  "selectedPlan": "LIMITED_CONTEXT_EXPANSION",
+  "selectedPlanCompact": "OPEN",
+  "selectedPlanWhyCompact": "OPEN_WINDOW",
   "selectedPlanSignals": {
-    "recommendation": "HOLD_SAFE_WHY",
-    "confidence": "LOW",
-    "parity": "LOCK",
+    "recommendation": "OPEN_CONTEXTUAL_WHY",
+    "confidence": "HIGH",
+    "parity": "SYNC",
     "driftRisk": "LOW",
     "pressureBand": "LOW",
-    "ambientRampWhyChurn": 10,
-    "ambientRampWhyNet": 10,
+    "ambientRampWhyChurn": 0,
+    "ambientRampWhyNet": 0,
     "offlineOnly": true,
-    "rationale": "safety-lock-from-confidence-or-parity",
+    "rationale": "drift-aware-candidate-rerank",
     "nextAction": "Generate sandbox table + review notes; keep runtime contract unchanged.",
     "rerankPolicy": "drift-aware-offline-candidate-priority",
     "candidateCount": 3,
@@ -42,6 +42,17 @@
   },
   "candidates": [
     {
+      "baseRank": 3,
+      "plan": "LIMITED_CONTEXT_EXPANSION",
+      "summary": "Prepare small contextual rationale variants for CALM windows with rollback checklist.",
+      "when": "Use only in LOW drift + LOW pressure windows with HIGH confidence and SYNC parity.",
+      "risk": "MID",
+      "offlineOnly": true,
+      "changeScope": "sandbox draft variants (no runtime wiring)",
+      "score": 9,
+      "rank": 1
+    },
+    {
       "baseRank": 1,
       "plan": "HOLD_SAFE_BASELINE",
       "summary": "Keep ambient rationale on SAFE-first deterministic wording with no runtime remap coupling.",
@@ -49,8 +60,8 @@
       "risk": "LOW",
       "offlineOnly": true,
       "changeScope": "digest + sandbox notes only",
-      "score": 8,
-      "rank": 1
+      "score": 1,
+      "rank": 2
     },
     {
       "baseRank": 2,
@@ -61,17 +72,6 @@
       "offlineOnly": true,
       "changeScope": "sandbox artifact + playtest checklist",
       "score": 1,
-      "rank": 2
-    },
-    {
-      "baseRank": 3,
-      "plan": "LIMITED_CONTEXT_EXPANSION",
-      "summary": "Prepare small contextual rationale variants for CALM windows with rollback checklist.",
-      "when": "Use only in LOW drift + LOW pressure windows with HIGH confidence and SYNC parity.",
-      "risk": "MID",
-      "offlineOnly": true,
-      "changeScope": "sandbox draft variants (no runtime wiring)",
-      "score": 0,
       "rank": 3
     }
   ]

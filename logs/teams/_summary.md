@@ -3448,3 +3448,9 @@ Compact decision memory for AI context efficiency.
 - New digest token: `CVCWHR CONF FLOOR REC:KEEP|RAISE|RELAX` plus payload signals (`risk`, `volatility`, `recoverySlopeHours`, `persistenceWindows`, `deltaHours`, `reason`, `offlineOnly`).
 - Regression updated for presence/order of `CVCWHR CONF FLOOR REC` in summary + token-coverage sections.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 22:00 KST — Cycle FN Forced Lane queue progress (`CADENCE BRIDGE`)
+- Closed highest-priority unchecked Cycle FN Design/World item by shipping `CADENCE BRIDGE:SCOUT|PRESS|HOLD` from `CVCWHR CONF FLOOR REC` + lane freshness signals.
+- Payload contract now includes `cadenceBridge` + `cadenceBridgeSignals`; digest now includes `CADENCE BRIDGE` and `CADENCE BRIDGE FAMILY CHURN` in summary + token-coverage sections.
+- Regression/order guards expanded to enforce cadence-cluster adjacency with the new bridge row; verification passed (`py_compile`, weekly digest regression, digest generation).
+- Remaining forced-lane queue items: `LANE CADENCE 24H CHECK:PASS|FAIL` (Systems/Ops), `CVCWHR FX PULSE:SOFT|EDGE|HARD` (Combat/VFX).

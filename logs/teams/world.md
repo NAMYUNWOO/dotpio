@@ -2072,3 +2072,7 @@
 - Completed offline adaptive confidence-floor recommendation policy from miss-risk recovery slope + volatility persistence windows.
 - Wired new digest token `CVCWHR CONF FLOOR REC:KEEP|RAISE|RELAX` with payload signals (risk/volatility/recovery/persistence/delta/reason).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 22:00 KST — Cycle FN Design/World cadence bridge sync
+- Synced new offline digest bridge token `CADENCE BRIDGE:SCOUT|PRESS|HOLD` to make design/world underrepresentation immediately visible beside cadence-floor rails.
+- No runtime world/content mutation; change is analytics/readability only in weekly digest artifacts.
