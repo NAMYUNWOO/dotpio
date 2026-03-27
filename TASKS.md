@@ -1385,4 +1385,15 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Design Team: Add `DCCFXCPA COPY ALT LEGEND` row in summary + token-coverage with deterministic adjacency regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 09:16 KST; completed: 2026-03-27 09:20 KST)*
 - [x] Systems/QA Team: Add `DCCFXCPA COPY ALT FAMILY TREND` rail with prior-window drift context. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 09:20 KST; completed: 2026-03-27 10:02 KST)*
-- [ ] AI Content/Combat Team: Prototype suppression-aware `DCCFXCPA COPY ALT PACK` token (digest-only, flagged).
+- [x] AI Content/Combat Team: Prototype suppression-aware `DCCFXCPA COPY ALT PACK` token (digest-only, flagged). *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 10:58 KST; completed: 2026-03-27 11:01 KST)*
+
+
+## Cycle FE - Game Director Review (2026-03-27 11:31 KST)
+- Coverage check (last 10 completions): systems/qa + ai-content digest policy lanes remain dense; prioritize a lightweight combat/vfx readability slice for compact postmortem scan speed.
+- Idea 1 (low risk, Combat/VFX): Surface compact copy-alt-pack alias token (`DCCFXCPAP:<H|B|R|A>`) behind flag to mirror `DCCFXCPA COPY ALT PACK` without widening digest rows.
+- Idea 2 (mid risk, Systems/QA): Add token-family churn coverage + adjacency lock for `DCCFXCPAP:` next to COPY ALT PACK rows.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline pack-to-coach microline (`DCCFXCPAP COACH:<short>`) from suppression + mismatch windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Combat/VFX Team: Add compact copy-alt-pack alias token (`DCCFXCPAP:<H|B|R|A>`) behind `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK_COMPACT_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 11:31 KST; completed: 2026-03-27 11:41 KST)*
+- [ ] Systems/QA Team: Add token-family churn coverage + adjacency lock for `DCCFXCPAP:` around COPY ALT PACK rows.
+- [ ] AI Content/Combat Team: Prototype offline pack-to-coach microline token (`DCCFXCPAP COACH:<short>`) for mismatch-window handoff clarity.

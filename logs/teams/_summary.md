@@ -3315,3 +3315,18 @@ Compact decision memory for AI context efficiency.
 - 2026-03-27 09:21 KST — Closed Cycle FC Combat/World backlog by shipping `DCCFXCPA COPY ALT` fallback rail and immediately executed Game Director Cycle FD (Idea 1) to add `DCCFXCPA COPY ALT LEGEND` with ordering regressions.
 - Injected follow-up backlog items: `DCCFXCPA COPY ALT FAMILY TREND` (Systems/QA) and `DCCFXCPA COPY ALT PACK` (AI Content/Combat).
 - Digest contract now includes `DCCFXCPA COPY ALT` + `DCCFXCPA COPY ALT LEGEND` + `DCCFXCPA COPY ALT FAMILY CHURN`, locked in both summary and token-coverage blocks.
+
+## 2026-03-27 11:01 KST — Closed remaining unchecked TASK (Cycle FD)
+- Completed AI Content/Combat backlog item: shipped suppression-aware `DCCFXCPA COPY ALT PACK` token (digest-only, flagged) with deterministic pack mapping and payload signals.
+- Regression suite updated to lock row presence + adjacency for COPY ALT PACK block across summary/token-coverage sections.
+- Verification passed:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Backlog/task state updated: Cycle FD `DCCFXCPA COPY ALT PACK` moved `[~] -> [x]`.
+
+## 2026-03-27 11:41 KST — Cycle FE shipped (combat/vfx readability lane)
+- Trigger: ACTION_ITEMS + TASKS + POST_RC_BACKLOG fully checked, so executed Game Director review cycle immediately.
+- Generated 3 ideas (low combat/vfx alias, mid systems/qa contract lock, high ai-content microline) and shipped selected minimal slice: `DCCFXCPAP:<H|B|R|A>` compact alias for `DCCFXCPA COPY ALT PACK`.
+- Durable contract update: summary + token-coverage now keep `COPY ALT PACK -> DCCFXCPAP -> COPY ALT LEGEND` adjacency, with payload signals and flag gating.
+- Verification passed: py_compile + weekly digest regression.
+- Next backlog items remain unchecked: Systems/QA churn+adjacency hardening for `DCCFXCPAP`, AI Content/Combat `DCCFXCPAP COACH` prototype.

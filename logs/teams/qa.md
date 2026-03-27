@@ -3585,3 +3585,18 @@
   - No screenshot regen (digest/readability pipeline only; no player-facing HUD/layout asset edits).
 - Follow-up:
   - Continue with remaining unchecked AI Content/Combat backlog item (`DCCFXCPA COPY ALT PACK`) next cycle.
+
+## 2026-03-27 11:01 KST — Regression lock update for COPY ALT PACK
+- Extended regression expectations to include new rows:
+  - `DCCFXCPA COPY ALT PACK`
+  - `DCCFXCPA COPY ALT PACK LEGEND`
+  - `DCCFXCPA COPY ALT PACK FAMILY CHURN`
+  - `DCCFXCPA COPY ALT PACK FAMILY TREND`
+- Updated deterministic ordering contracts in summary + token-coverage sections so COPY ALT PACK block remains stable between COPY ALT and downstream family-churn rails.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+
+## 2026-03-27 11:41 KST — Cycle FE compact copy-alt-pack alias slice [DONE]
+- Ran Game Director cycle after TASKS/ACTION_ITEMS/POST_RC reached fully checked state.
+- Selected low-risk Combat/VFX experiment: ship compact alias `DCCFXCPAP:<H|B|R|A>` for `DCCFXCPA COPY ALT PACK` under dedicated flag.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up backlog injected: Systems/QA adjacency+churn lock for `DCCFXCPAP`, AI Content/Combat `DCCFXCPAP COACH:<short>` prototype.

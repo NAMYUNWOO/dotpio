@@ -1,8 +1,8 @@
 # Ambient Ramp Why Auto-Remap Sandbox Plan
 
-- GeneratedAt(UTC): 2026-03-26T21:40:18.881776Z
+- GeneratedAt(UTC): 2026-03-27T02:37:46.254862Z
 - Recommendation: **HOLD_SAFE_WHY**
-- Recommendation Confidence: **MID**
+- Recommendation Confidence: **LOW**
 - Recommendation Parity: **LOCK**
 - Selected Plan: **HOLD_SAFE_BASELINE**
 - Compact Alias: **ARW AUTO PLAN:HOLD**

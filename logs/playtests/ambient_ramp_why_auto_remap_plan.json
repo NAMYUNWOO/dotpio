@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-03-26T21:40:18.881776Z",
+  "generatedAt": "2026-03-27T02:37:46.254862Z",
   "window": {
     "sinceDays": 7,
     "maxCommits": 120,
     "checkedCommits": 120,
-    "touchedCommits": 4
+    "touchedCommits": 2
   },
   "recommendation": {
     "ambientRampWhyRecommendation": "HOLD_SAFE_WHY",
-    "ambientRampWhyRecommendationConfidence": "MID",
-    "ambientRampWhyRecommendationConfidenceStreak": 49,
+    "ambientRampWhyRecommendationConfidence": "LOW",
+    "ambientRampWhyRecommendationConfidenceStreak": 1,
     "ambientRampWhyRecommendationConfidenceStreakSignals": {
-      "currentConfidence": "MID",
+      "currentConfidence": "LOW",
       "priorConfidence": "MID",
-      "priorStreak": 48,
+      "priorStreak": 49,
       "priorLoaded": true,
       "threshold": 3,
       "suppress": false,
-      "reason": "confidence-streak-extended"
+      "reason": "confidence-streak-reset"
     },
     "ambientRampWhyRecommendationParity": "LOCK"
   },
@@ -26,10 +26,10 @@
   "selectedPlanWhyCompact": "SAFE_LOCK",
   "selectedPlanSignals": {
     "recommendation": "HOLD_SAFE_WHY",
-    "confidence": "MID",
+    "confidence": "LOW",
     "parity": "LOCK",
-    "driftRisk": "HIGH",
-    "pressureBand": "MID",
+    "driftRisk": "LOW",
+    "pressureBand": "LOW",
     "ambientRampWhyChurn": 10,
     "ambientRampWhyNet": 10,
     "offlineOnly": true,
@@ -37,7 +37,7 @@
     "nextAction": "Generate sandbox table + review notes; keep runtime contract unchanged.",
     "rerankPolicy": "drift-aware-offline-candidate-priority",
     "candidateCount": 3,
-    "confidenceStreak": 49,
+    "confidenceStreak": 1,
     "candidateSuppressed": false
   },
   "candidates": [
@@ -60,7 +60,7 @@
       "risk": "MID",
       "offlineOnly": true,
       "changeScope": "sandbox artifact + playtest checklist",
-      "score": 3,
+      "score": 1,
       "rank": 2
     },
     {
@@ -71,7 +71,7 @@
       "risk": "MID",
       "offlineOnly": true,
       "changeScope": "sandbox draft variants (no runtime wiring)",
-      "score": -4,
+      "score": 0,
       "rank": 3
     }
   ]

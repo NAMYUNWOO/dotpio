@@ -3030,3 +3030,15 @@
   - Locked deterministic adjacency in regression (`COPY ALT FAMILY CHURN -> COPY ALT FAMILY TREND -> DCCFXV FAMILY CHURN`) to prevent ordering regressions.
 - Follow-up:
   - Next highest-priority unchecked queue item: AI Content/Combat `DCCFXCPA COPY ALT PACK` prototype (digest-only, flagged).
+
+## 2026-03-27 11:01 KST — Digest contract extension (COPY ALT PACK)
+- Added token alias family registration for `DCCFXCPA COPY ALT PACK:` to weekly churn accounting.
+- Added family trend drift signals for copy-alt-pack alias (`currentNet/priorNet/Δnet/trend`) and exposed them in payload + markdown rows.
+- Added experiment flag: `DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT_PACK`.
+- Constraint preserved: offline digest instrumentation only, reversible via flag.
+
+## 2026-03-27 11:41 KST — Cycle FE compact copy-alt-pack alias slice [DONE]
+- Ran Game Director cycle after TASKS/ACTION_ITEMS/POST_RC reached fully checked state.
+- Selected low-risk Combat/VFX experiment: ship compact alias `DCCFXCPAP:<H|B|R|A>` for `DCCFXCPA COPY ALT PACK` under dedicated flag.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up backlog injected: Systems/QA adjacency+churn lock for `DCCFXCPAP`, AI Content/Combat `DCCFXCPAP COACH:<short>` prototype.

@@ -2070,3 +2070,9 @@
   - Follow-up: implement `DCCFXCPA COPY FAMILY CHURN` and evaluate optional `DCCFXCPA COPY ALT` fallback token (Cycle FC backlog).
 - [2026-03-27 08:39 KST] Design contract update: decode block now explicitly includes `DCCFXCPA COPY FAMILY CHURN` after copy legend, preserving deterministic digest rhythm for operator scans.
 - [2026-03-27 09:21 KST] Cycle FD + fallback closure: shipped `DCCFXCPA COPY ALT` mismatch rail (`SURGE/CLEAR` under suppression -> `HOLD`) plus `DCCFXCPA COPY ALT LEGEND` in summary/token-coverage with deterministic regression adjacency lock; kept follow-up backlog items for ALT family trend and ALT pack prototype.
+
+## 2026-03-27 11:41 KST — Cycle FE compact copy-alt-pack alias slice [DONE]
+- Ran Game Director cycle after TASKS/ACTION_ITEMS/POST_RC reached fully checked state.
+- Selected low-risk Combat/VFX experiment: ship compact alias `DCCFXCPAP:<H|B|R|A>` for `DCCFXCPA COPY ALT PACK` under dedicated flag.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Follow-up backlog injected: Systems/QA adjacency+churn lock for `DCCFXCPAP`, AI Content/Combat `DCCFXCPAP COACH:<short>` prototype.

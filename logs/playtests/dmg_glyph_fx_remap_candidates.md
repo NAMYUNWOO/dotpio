@@ -1,10 +1,10 @@
 # DMG Glyph FX Remap Candidates
 
-- GeneratedAt(UTC): 2026-03-26T21:40:18.881776Z
-- Recommendation: **HOLD_FX**
-- Confidence: **LOW**
-- Rationale: high-risk-or-fx-churn
-- Guidance: Keep CALM/SPARK/BLAZE mapping pinned; collect one more stable digest window before proposing FX remap.
+- GeneratedAt(UTC): 2026-03-27T02:37:46.254862Z
+- Recommendation: **MICRO_TUNE_FX**
+- Confidence: **HIGH**
+- Rationale: stable-fx-window
+- Guidance: Allow small offline-only FX remap suggestions; keep live mapping unchanged until validated.
 
 ## Candidate Table
 
@@ -14,4 +14,4 @@
 | 2 | MICRO_TUNE_FX | MID | TRUE | Draft small offline FX remap options that keep glyph-band thresholds unchanged. | Use in stable windows with moderate churn. |
 | 3 | SYNC_WITH_GLYPH | MID | TRUE | Draft offline FX remap candidates aligned to glyph-band momentum shifts. | Use when glyph churn rises while drift risk is not HIGH. |
 
-- Selected candidate this window: **HOLD_FX**
+- Selected candidate this window: **MICRO_TUNE_FX**
