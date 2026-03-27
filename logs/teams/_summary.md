@@ -3510,3 +3510,11 @@ Compact decision memory for AI context efficiency.
 - Added offline token `COPY PACK TREND:STABLE|SHIFTING` for `CVCWHR FX LEGEND COPY PACK` using prior-window comparisons (copy-pack change + `deltaHours` momentum shift threshold).
 - Wired token + signals into digest payload, summary section, and token-coverage section with fixed adjacency (`CVCWHR FX LEGEND COPY PACK` -> `CVCWHR FX LEGEND CP` -> `CVCWHR FX LEGEND COPY PACK TREND` -> `CADENCE BRIDGE`).
 - Extended regression contract to enforce presence, payload shape/value domain, row counts, and section ordering for the new trend row.
+
+## 2026-03-28 03:36 KST — Cycle FS CPTC legend readability slice
+- Trigger: ACTION_ITEMS/TASKS/POST_RC were fully checked, so Game Director review cycle executed immediately.
+- Ideas generated: (1) add `CVCWHR FX LEGEND CPTC LEGEND` readability row (**selected**), (2) harden explicit adjacency lock to include legend row, (3) prototype offline confidence-mismatch copy override note.
+- Shipped minimal vertical slice: summary + token-coverage sections now include `CVCWHR FX LEGEND CPTC LEGEND: L=LOW confidence, M=MID confidence, H=HIGH confidence` directly after `CVCWHR FX LEGEND CPTC`.
+- Contract updates: token-prefix catalogs include `CVCWHR FX LEGEND CPTC LEGEND:` so compact/detailed parsing keeps the row first-class.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Backlog injected: Systems/QA adjacency-lock extension and AI Content/Combat confidence-mismatch override-note prototype.

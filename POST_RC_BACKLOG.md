@@ -1284,3 +1284,13 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, AI Content/Combat): Prototype adaptive confidence smoothing policy from 3-window momentum decay and volatility regime.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Add copy-pack trend-confidence token + compact alias (`CVCWHR FX LEGEND COPY PACK TREND CONF`, `CVCWHR FX LEGEND CPTC`) with payload/markdown wiring and regression ordering updates. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 02:21 KST; completed: 2026-03-28 02:32 KST)*
+
+## Cycle FS - Game Director Review (2026-03-28 03:29 KST)
+- Coverage check (last 10 completions): systems/qa + ux compact-alias lanes still dominate; selected a low-risk legend readability slice to reduce operator decode latency on new `CPTC` confidence alias.
+- Idea 1 (low risk, UX/Design): Add `CVCWHR FX LEGEND CPTC LEGEND` row (`L=LOW`, `M=MID`, `H=HIGH`) in summary + token-coverage with deterministic adjacency after `CVCWHR FX LEGEND CPTC`.
+- Idea 2 (mid risk, Systems/QA): Extend regression ordering lock to enforce `... TREND CONF -> CPTC -> CPTC LEGEND -> CADENCE BRIDGE`.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline confidence-mismatch copy override note when alias confidence diverges from trend direction.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Design Team: Add `CVCWHR FX LEGEND CPTC LEGEND` row in summary + token-coverage and wire deterministic adjacency for dense digest scans. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 03:29 KST; completed: 2026-03-28 03:36 KST)*
+- [ ] Systems/QA Team: Extend adjacency/order regression lock to assert `CVCWHR FX LEGEND COPY PACK TREND CONF -> CVCWHR FX LEGEND CPTC -> CVCWHR FX LEGEND CPTC LEGEND -> CADENCE BRIDGE` in both summary + token-coverage sections. *(injected: 2026-03-28 03:36 KST)*
+- [ ] AI Content/Combat Team: Prototype offline confidence-mismatch copy override note when CPTC confidence diverges from trend direction for 2+ windows. *(injected: 2026-03-28 03:36 KST)*
