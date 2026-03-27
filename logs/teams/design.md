@@ -2090,3 +2090,6 @@
 ## 2026-03-27 15:55 KST — Cycle FG cue legend readability lock
 - Implemented `DCCFXCPAP FX CUE LEGEND` in summary + token-coverage for consistent narrative decode of FX cue states.
 - Regression adjacency contract now requires `DCCFXCPAP FX CUE -> DCCFXCPAP FX CUE LEGEND -> DCCFXCPA COPY ALT LEGEND`.
+
+## 2026-03-27 15:58 KST — Cycle FH follow-up injected
+- New queued design/world follow-up: add `COMBAT/VFX CADENCE WATCHDOG LEGEND` row directly after streak row for decode clarity.

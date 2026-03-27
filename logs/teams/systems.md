@@ -3057,3 +3057,8 @@
 - Changes: `scripts/weekly_portal_prompt_readability_drift.py` now emits `COMBAT/VFX CADENCE WATCHDOG:OK|BREACH` in summary + token-coverage, plus payload keys `combatVfxCadenceWatchdog`/`combatVfxCadenceWatchdogSignals`.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: next cycle can start Game Director review since TASKS+POST_RC backlog are fully checked.
+
+## 2026-03-27 15:58 KST — Cycle FH selected slice shipped (watchdog streak)
+- Implemented digest token `COMBAT/VFX CADENCE WATCHDOG STREAK:<n>` using prior-window carryover from JSON artifacts.
+- Added payload fields: `combatVfxCadenceWatchdogStreak`, `combatVfxCadenceWatchdogStreakSignals`, `combatVfxCadenceWatchdogStreakCount`.
+- Ordering lock now enforces `LANE CADENCE MISS RISK -> LCMR -> COMBAT/VFX CADENCE WATCHDOG -> COMBAT/VFX CADENCE WATCHDOG STREAK`.

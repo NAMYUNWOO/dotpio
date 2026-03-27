@@ -2072,3 +2072,6 @@
 ## 2026-03-27 15:55 KST — Cycle FG narrative decode support sync
 - Synced AI-content lane with new `DCCFXCPAP FX CUE LEGEND` wording (`SOFT/SHARP/SURGE/STEADY`) to keep coach copy and FX cue semantics aligned.
 - Confirmed change remains digest-only and reversible behind existing cue flags.
+
+## 2026-03-27 15:58 KST — Cycle FH AI-content follow-up injected
+- Added high-risk offline prototype task: cadence escalation coach token from watchdog streak depth + miss-risk.

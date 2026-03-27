@@ -2290,3 +2290,6 @@
 ## 2026-03-27 15:55 KST — Cycle FG digest scanability pass
 - Added concise `DCCFXCPAP FX CUE LEGEND` copy to reduce cue interpretation latency in dense weekly digests.
 - Added combat/vfx cadence watchdog row to keep lane-health alerts visible in the same metadata cluster as miss-risk rows.
+
+## 2026-03-27 15:58 KST — Cycle FH scanability note
+- Watchdog streak row placed in same metadata cluster as miss-risk rows to keep lane-health scanning contiguous.

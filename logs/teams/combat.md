@@ -2010,3 +2010,6 @@
 ## 2026-03-27 15:55 KST — Cycle FG combat/vfx cadence visibility
 - Added explicit `COMBAT/VFX CADENCE WATCHDOG:OK|BREACH` token in weekly digest metadata so >24h recency breaches are immediately visible.
 - Guardrail intent: catch cadence drift early before player-facing combat/vfx quality gaps persist.
+
+## 2026-03-27 15:58 KST — Cycle FH cadence guardrail continuity
+- Combat/VFX cadence monitoring now includes consecutive breach depth (`WATCHDOG STREAK`) to prioritize overdue lane touches.

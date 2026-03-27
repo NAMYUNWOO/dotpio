@@ -2024,3 +2024,6 @@
 - Added `DCCFXCPAP FX CUE LEGEND` row directly after `DCCFXCPAP FX CUE` in summary + token-coverage sections for one-glance narrative decode.
 - Adjacency lock extended in regression so ordering stays deterministic.
 - Follow-up: maintain narrative legend consistency if future cue mappings change.
+
+## 2026-03-27 15:58 KST — Cycle FH backlog routing
+- Routed mid-risk follow-up to Design/World lane for watchdog legend readability + adjacency lock.

@@ -1187,3 +1187,13 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Combat/VFX Team: Ship flagged `DCCFXCPAP FX CUE` token with payload + summary/token-coverage markdown wiring and regression ordering updates. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 15:26 KST; completed: 2026-03-27 15:41 KST)*
 - [x] Design/World Team: Add `DCCFXCPAP FX CUE LEGEND` row and adjacency lock after `DCCFXCPAP FX CUE` for one-glance narrative decode.
 - [x] Systems/Ops Team: Add cadence watchdog note/token for combat/vfx recency breach (>24h) in weekly digest metadata.
+
+## Cycle FH - Game Director Review (2026-03-27 15:58 KST)
+- Coverage check (last 10 completions): systems/qa + combat/vfx digest-contract work remained dense; selected a low-risk systems/ops observability slice that improves cadence triage without runtime coupling.
+- Idea 1 (low risk, Systems/Ops): Add `COMBAT/VFX CADENCE WATCHDOG STREAK:<n>` token (summary + token-coverage + payload) to track consecutive breach windows.
+- Idea 2 (mid risk, Design/World): Add compact alert legend row for watchdog semantics (`OK=recent touch`, `BREACH=stale >24h`) with adjacency lock.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline cadence escalation coach token when watchdog streak reaches 2+ windows.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] Systems/Ops Team: Add `COMBAT/VFX CADENCE WATCHDOG STREAK:<n>` token + payload signals/count with regression ordering lock (`MISS RISK -> LCMR -> WATCHDOG -> STREAK`).
+- [ ] Design/World Team: Add `COMBAT/VFX CADENCE WATCHDOG LEGEND` row with deterministic adjacency after watchdog streak rows.
+- [ ] AI Content/Combat Team: Prototype offline cadence escalation coach token (`COMBAT/VFX CADENCE COACH:NUDGE|ARM|ESCALATE`) from watchdog streak depth + miss-risk level.

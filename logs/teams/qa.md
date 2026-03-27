@@ -3626,3 +3626,8 @@
 - Extended regression assertions to require: `DCCFXCPAP FX CUE LEGEND` presence + adjacency in summary/token-coverage sections.
 - Added assertions for `COMBAT/VFX CADENCE WATCHDOG` presence (2 rows) and ordering (`LANE CADENCE MISS RISK -> LCMR -> COMBAT/VFX CADENCE WATCHDOG`).
 - Verification command: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 15:58 KST — Cycle FH regression extension
+- Added coverage/assertions for `COMBAT/VFX CADENCE WATCHDOG STREAK` presence (summary + token-coverage) and adjacency after watchdog rows.
+- Added payload contract assertions for streak token + numeric streak count.
+- Verification: weekly portal drift regression PASS.

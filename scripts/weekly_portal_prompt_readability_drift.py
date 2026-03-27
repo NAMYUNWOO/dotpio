@@ -404,6 +404,37 @@ def combat_vfx_cadence_watchdog(*, lane_bucket_age: dict[str, object]) -> tuple[
         "windowHours": window_hours,
         "reason": reason,
     }
+
+
+def combat_vfx_cadence_watchdog_streak(*, combat_vfx_cadence_watchdog_signals: dict[str, object], prior_json_path: Path) -> tuple[str, dict[str, object]]:
+    current_status = str(combat_vfx_cadence_watchdog_signals.get("status", "OK") or "OK").upper()
+    prior_loaded = False
+    prior_status = "OK"
+    prior_streak = 0
+    if prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_status_token = str(prior_payload.get("combatVfxCadenceWatchdog", "COMBAT/VFX CADENCE WATCHDOG:OK") or "COMBAT/VFX CADENCE WATCHDOG:OK")
+            prior_status = prior_status_token.split(":")[-1].upper()
+            prior_streak = int(prior_payload.get("combatVfxCadenceWatchdogStreakCount", 0) or 0)
+            prior_loaded = True
+        except (json.JSONDecodeError, OSError, ValueError, TypeError):
+            prior_status = "OK"
+            prior_streak = 0
+    if current_status == "BREACH":
+        streak = prior_streak + 1 if prior_status == "BREACH" else 1
+        reason = "breach-streak-extended" if prior_status == "BREACH" else "new-breach-started"
+    else:
+        streak = 0
+        reason = "breach-cleared" if prior_status == "BREACH" else "healthy-stable"
+    return f"COMBAT/VFX CADENCE WATCHDOG STREAK:{streak}", {
+        "status": current_status,
+        "streak": streak,
+        "priorStatus": prior_status,
+        "priorStreak": prior_streak,
+        "priorLoaded": prior_loaded,
+        "reason": reason,
+    }
 def lane_bucket_age_alias(*, lane_bucket_age: dict[str, object]) -> tuple[str, dict[str, object]]:
     flag_name = "DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS"
     flag_value = os.environ.get(flag_name, "")
@@ -8150,6 +8181,10 @@ def main() -> int:
     combat_vfx_cadence_watchdog_token, combat_vfx_cadence_watchdog_signals = combat_vfx_cadence_watchdog(
         lane_bucket_age=lane_bucket_age,
     )
+    combat_vfx_cadence_watchdog_streak_token, combat_vfx_cadence_watchdog_streak_signals = combat_vfx_cadence_watchdog_streak(
+        combat_vfx_cadence_watchdog_signals=combat_vfx_cadence_watchdog_signals,
+        prior_json_path=args.out_json,
+    )
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
         lane_bucket_age=lane_bucket_age,
     )
@@ -9723,6 +9758,9 @@ def main() -> int:
         "laneCadenceMissRiskSignals": lane_cadence_miss_risk_signals,
         "combatVfxCadenceWatchdog": combat_vfx_cadence_watchdog_token,
         "combatVfxCadenceWatchdogSignals": combat_vfx_cadence_watchdog_signals,
+        "combatVfxCadenceWatchdogStreak": combat_vfx_cadence_watchdog_streak_token,
+        "combatVfxCadenceWatchdogStreakSignals": combat_vfx_cadence_watchdog_streak_signals,
+        "combatVfxCadenceWatchdogStreakCount": int(combat_vfx_cadence_watchdog_streak_signals["streak"]),
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,
         "laneCadenceMissRiskAliasSignals": lane_cadence_miss_risk_alias_signals,
         "lanePriorityHysteresisFloorRecommendation": lane_priority_hysteresis_floor_recommendation,
@@ -10548,6 +10586,7 @@ def main() -> int:
         f"- LANE CADENCE MISS RISK: **{lane_cadence_miss_risk_token}** (risk={lane_cadence_miss_risk_signals['risk']} max={lane_cadence_miss_risk_signals['maxAgeHours']}h Δ={lane_cadence_miss_risk_signals['deltaHours']:+d}h window={lane_cadence_miss_risk_signals['windowHours']}h reason={lane_cadence_miss_risk_signals['reason']})",
         f"- LCMR: **{lane_cadence_miss_risk_alias_token}** (flag={lane_cadence_miss_risk_alias_signals['flagName']} enabled={lane_cadence_miss_risk_alias_signals['flagEnabled']} risk={lane_cadence_miss_risk_alias_signals['risk']} alias={lane_cadence_miss_risk_alias_signals['alias']})",
         f"- COMBAT/VFX CADENCE WATCHDOG: **{combat_vfx_cadence_watchdog_token}** (status={combat_vfx_cadence_watchdog_signals['status']} age={combat_vfx_cadence_watchdog_signals['combatVfxAgeHours']}h window={combat_vfx_cadence_watchdog_signals['windowHours']}h reason={combat_vfx_cadence_watchdog_signals['reason']})",
+        f"- COMBAT/VFX CADENCE WATCHDOG STREAK: **{combat_vfx_cadence_watchdog_streak_token}** (status={combat_vfx_cadence_watchdog_streak_signals['status']} streak={combat_vfx_cadence_watchdog_streak_signals['streak']} prior={combat_vfx_cadence_watchdog_streak_signals['priorStatus']}:{combat_vfx_cadence_watchdog_streak_signals['priorStreak']} loaded={combat_vfx_cadence_watchdog_streak_signals['priorLoaded']} reason={combat_vfx_cadence_watchdog_streak_signals['reason']})",
         f"- LANE PRIORITY REC: **{lane_priority_recommendation}** (reason={lane_priority_recommendation_signals['reason']} worstAge={lane_priority_recommendation_signals['worstAgeHours']}h offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- LPR: **{lane_priority_recommendation_compact_alias}** (flag={lane_priority_recommendation_compact_alias_signals['flagName']} enabled={lane_priority_recommendation_compact_alias_signals['flagEnabled']} rec={lane_priority_recommendation_compact_alias_signals['recommendation']} alias={lane_priority_recommendation_compact_alias_signals['alias']})",
         f"- LPR HYS: **{lane_priority_hysteresis_compact_alias}** (flag={lane_priority_hysteresis_compact_alias_signals['flagName']} enabled={lane_priority_hysteresis_compact_alias_signals['flagEnabled']} applied={lane_priority_hysteresis_compact_alias_signals['hysteresisApplied']} alias={lane_priority_hysteresis_compact_alias_signals['alias']})",
@@ -10746,6 +10785,7 @@ def main() -> int:
         f"- LANE CADENCE MISS RISK: {lane_cadence_miss_risk_token} (risk={lane_cadence_miss_risk_signals['risk']}, max={lane_cadence_miss_risk_signals['maxAgeHours']}h, Δ={lane_cadence_miss_risk_signals['deltaHours']:+d}h, window={lane_cadence_miss_risk_signals['windowHours']}h, reason={lane_cadence_miss_risk_signals['reason']})",
         f"- LCMR: {lane_cadence_miss_risk_alias_token} (flag={lane_cadence_miss_risk_alias_signals['flagName']}, enabled={lane_cadence_miss_risk_alias_signals['flagEnabled']}, risk={lane_cadence_miss_risk_alias_signals['risk']}, alias={lane_cadence_miss_risk_alias_signals['alias']})",
         f"- COMBAT/VFX CADENCE WATCHDOG: {combat_vfx_cadence_watchdog_token} (status={combat_vfx_cadence_watchdog_signals['status']}, age={combat_vfx_cadence_watchdog_signals['combatVfxAgeHours']}h, window={combat_vfx_cadence_watchdog_signals['windowHours']}h, reason={combat_vfx_cadence_watchdog_signals['reason']})",
+        f"- COMBAT/VFX CADENCE WATCHDOG STREAK: {combat_vfx_cadence_watchdog_streak_token} (status={combat_vfx_cadence_watchdog_streak_signals['status']}, streak={combat_vfx_cadence_watchdog_streak_signals['streak']}, prior={combat_vfx_cadence_watchdog_streak_signals['priorStatus']}:{combat_vfx_cadence_watchdog_streak_signals['priorStreak']}, loaded={combat_vfx_cadence_watchdog_streak_signals['priorLoaded']}, reason={combat_vfx_cadence_watchdog_streak_signals['reason']})",
         f"- LANE PRIORITY REC: {lane_priority_recommendation} (reason={lane_priority_recommendation_signals['reason']}, worstAge={lane_priority_recommendation_signals['worstAgeHours']}h, offlineOnly={lane_priority_recommendation_signals['offlineOnly']})",
         f"- LPR: {lane_priority_recommendation_compact_alias} (flag={lane_priority_recommendation_compact_alias_signals['flagName']}, enabled={lane_priority_recommendation_compact_alias_signals['flagEnabled']}, rec={lane_priority_recommendation_compact_alias_signals['recommendation']}, alias={lane_priority_recommendation_compact_alias_signals['alias']})",
         f"- LPR HYS: {lane_priority_hysteresis_compact_alias} (flag={lane_priority_hysteresis_compact_alias_signals['flagName']}, enabled={lane_priority_hysteresis_compact_alias_signals['flagEnabled']}, applied={lane_priority_hysteresis_compact_alias_signals['hysteresisApplied']}, alias={lane_priority_hysteresis_compact_alias_signals['alias']})",
