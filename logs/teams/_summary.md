@@ -3454,3 +3454,11 @@ Compact decision memory for AI context efficiency.
 - Payload contract now includes `cadenceBridge` + `cadenceBridgeSignals`; digest now includes `CADENCE BRIDGE` and `CADENCE BRIDGE FAMILY CHURN` in summary + token-coverage sections.
 - Regression/order guards expanded to enforce cadence-cluster adjacency with the new bridge row; verification passed (`py_compile`, weekly digest regression, digest generation).
 - Remaining forced-lane queue items: `LANE CADENCE 24H CHECK:PASS|FAIL` (Systems/Ops), `CVCWHR FX PULSE:SOFT|EDGE|HARD` (Combat/VFX).
+
+## 2026-03-27 22:24 KST — Cycle FN Systems/Ops hard-check closed (`LANE CADENCE 24H CHECK`)
+- Completed queued Systems/Ops item by shipping digest hard-check token `LANE CADENCE 24H CHECK:PASS|FAIL` from lane bucket ages (systems/ops, design/world, combat/vfx) against 24h window.
+- Durable decision: keep hard-check status explicit and separate from `LANE CADENCE MISS RISK` so contract compliance is directly auditable even when risk remains `MID`.
+- Payload contract expanded with `laneCadence24hCheck` + `laneCadence24hCheckSignals` (status/window + per-lane ages + reason).
+- Regression contract expanded for presence/count/order in both summary and token-coverage sections (`MISS RISK -> LCMR -> 24H CHECK -> WATCHDOG`).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Queue status: remaining unchecked item is Combat/VFX `CVCWHR FX PULSE:SOFT|EDGE|HARD`.

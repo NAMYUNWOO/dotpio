@@ -3151,3 +3151,9 @@
 - Implemented `cadence_bridge_from_cvcwhr_floor_and_lane_freshness(...)` in `scripts/weekly_portal_prompt_readability_drift.py`.
 - Added token catalog + alias family coverage (`cadenceBridgeAlias`) and payload contract (`cadenceBridge`, `cadenceBridgeSignals`).
 - Added markdown rows `CADENCE BRIDGE` + `CADENCE BRIDGE FAMILY CHURN` in summary and token-family sections; regression locks updated accordingly.
+
+## 2026-03-27 22:24 KST — Systems/Ops
+- Completed: Added `LANE CADENCE 24H CHECK:PASS|FAIL` hard-check token to weekly portal prompt digest (`scripts/weekly_portal_prompt_readability_drift.py`).
+- Decision: Enforce explicit 24h contract status independent of miss-risk scoring to make lane SLA breaches audit-friendly.
+- Verification hook: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up: Remaining Cycle FN item is combat/vfx `CVCWHR FX PULSE:SOFT|EDGE|HARD`.

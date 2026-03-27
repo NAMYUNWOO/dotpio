@@ -3714,3 +3714,10 @@
 ## 2026-03-27 22:00 KST — Cycle FN QA contract update (`CADENCE BRIDGE`)
 - Extended weekly digest regression to require `CADENCE BRIDGE`/`CADENCE BRIDGE FAMILY CHURN` presence, payload schema keys, and adjacency ordering in both summary + token-coverage sections.
 - Verification matrix PASS: py_compile + weekly digest regression + digest generation.
+
+## 2026-03-27 22:24 KST — QA
+- Regression updated for new hard-check row + payload contract:
+  - added payload key assertions (`laneCadence24hCheck`, `laneCadence24hCheckSignals`)
+  - added markdown presence checks
+  - extended adjacency/order contract to require `MISS RISK -> LCMR -> 24H CHECK -> WATCHDOG`
+- Verification result: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.

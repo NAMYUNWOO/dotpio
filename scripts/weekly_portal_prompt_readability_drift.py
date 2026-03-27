@@ -399,6 +399,34 @@ def lane_cadence_miss_risk(*, lane_bucket_age: dict[str, object], lane_bucket_ag
     }
 
 
+def lane_cadence_24h_check(*, lane_bucket_age: dict[str, object]) -> tuple[str, dict[str, object]]:
+    """Hard 24h cadence contract check across systems/ops, design/world, combat/vfx buckets."""
+    age_hours_raw = lane_bucket_age.get("ageHours", {})
+    age_hours = age_hours_raw if isinstance(age_hours_raw, dict) else {}
+    window_hours = int(lane_bucket_age.get("windowHours", 24) or 24)
+
+    systems_ops_age = int(age_hours.get("systems/ops", 999) or 999)
+    design_world_age = int(age_hours.get("design/world", 999) or 999)
+    combat_vfx_age = int(age_hours.get("combat/vfx", 999) or 999)
+
+    pass_check = (
+        systems_ops_age <= window_hours
+        and design_world_age <= window_hours
+        and combat_vfx_age <= window_hours
+    )
+    status = "PASS" if pass_check else "FAIL"
+    reason = "all-lane-buckets-within-24h" if pass_check else "one-or-more-lane-buckets-stale"
+
+    return f"LANE CADENCE 24H CHECK:{status}", {
+        "status": status,
+        "windowHours": window_hours,
+        "systemsOpsAgeHours": systems_ops_age,
+        "designWorldAgeHours": design_world_age,
+        "combatVfxAgeHours": combat_vfx_age,
+        "reason": reason,
+    }
+
+
 def combat_vfx_cadence_watchdog(*, lane_bucket_age: dict[str, object]) -> tuple[str, dict[str, object]]:
     age_hours_raw = lane_bucket_age.get("ageHours", {})
     age_hours = age_hours_raw if isinstance(age_hours_raw, dict) else {}
@@ -8531,6 +8559,9 @@ def main() -> int:
         lane_bucket_age=lane_bucket_age,
         lane_bucket_age_delta=lane_bucket_age_delta,
     )
+    lane_cadence_24h_check_token, lane_cadence_24h_check_signals = lane_cadence_24h_check(
+        lane_bucket_age=lane_bucket_age,
+    )
     combat_vfx_cadence_watchdog_token, combat_vfx_cadence_watchdog_signals = combat_vfx_cadence_watchdog(
         lane_bucket_age=lane_bucket_age,
     )
@@ -10151,6 +10182,8 @@ def main() -> int:
         "laneCadenceRecencySignals": lane_cadence_recency_signals,
         "laneCadenceMissRisk": lane_cadence_miss_risk_token,
         "laneCadenceMissRiskSignals": lane_cadence_miss_risk_signals,
+        "laneCadence24hCheck": lane_cadence_24h_check_token,
+        "laneCadence24hCheckSignals": lane_cadence_24h_check_signals,
         "combatVfxCadenceWatchdog": combat_vfx_cadence_watchdog_token,
         "combatVfxCadenceWatchdogSignals": combat_vfx_cadence_watchdog_signals,
         "combatVfxCadenceWatchdogStreak": combat_vfx_cadence_watchdog_streak_token,
@@ -11002,6 +11035,7 @@ def main() -> int:
         f"- LANE CADENCE RECENCY: **{lane_cadence_recency}** (status={lane_cadence_recency_signals['status']} max={lane_cadence_recency_signals['maxAgeHours']}h Δ={lane_cadence_recency_signals['deltaHours']:+d}h window={lane_cadence_recency_signals['windowHours']}h reason={lane_cadence_recency_signals['reason']})",
         f"- LANE CADENCE MISS RISK: **{lane_cadence_miss_risk_token}** (risk={lane_cadence_miss_risk_signals['risk']} max={lane_cadence_miss_risk_signals['maxAgeHours']}h Δ={lane_cadence_miss_risk_signals['deltaHours']:+d}h window={lane_cadence_miss_risk_signals['windowHours']}h reason={lane_cadence_miss_risk_signals['reason']})",
         f"- LCMR: **{lane_cadence_miss_risk_alias_token}** (flag={lane_cadence_miss_risk_alias_signals['flagName']} enabled={lane_cadence_miss_risk_alias_signals['flagEnabled']} risk={lane_cadence_miss_risk_alias_signals['risk']} alias={lane_cadence_miss_risk_alias_signals['alias']})",
+        f"- LANE CADENCE 24H CHECK: **{lane_cadence_24h_check_token}** (status={lane_cadence_24h_check_signals['status']} window={lane_cadence_24h_check_signals['windowHours']}h sys={lane_cadence_24h_check_signals['systemsOpsAgeHours']}h dw={lane_cadence_24h_check_signals['designWorldAgeHours']}h cv={lane_cadence_24h_check_signals['combatVfxAgeHours']}h reason={lane_cadence_24h_check_signals['reason']})",
         f"- COMBAT/VFX CADENCE WATCHDOG: **{combat_vfx_cadence_watchdog_token}** (status={combat_vfx_cadence_watchdog_signals['status']} age={combat_vfx_cadence_watchdog_signals['combatVfxAgeHours']}h window={combat_vfx_cadence_watchdog_signals['windowHours']}h reason={combat_vfx_cadence_watchdog_signals['reason']})",
         f"- COMBAT/VFX CADENCE WATCHDOG STREAK: **{combat_vfx_cadence_watchdog_streak_token}** (status={combat_vfx_cadence_watchdog_streak_signals['status']} streak={combat_vfx_cadence_watchdog_streak_signals['streak']} prior={combat_vfx_cadence_watchdog_streak_signals['priorStatus']}:{combat_vfx_cadence_watchdog_streak_signals['priorStreak']} loaded={combat_vfx_cadence_watchdog_streak_signals['priorLoaded']} reason={combat_vfx_cadence_watchdog_streak_signals['reason']})",
         f"- COMBAT/VFX CADENCE COACH: **{combat_vfx_cadence_coach_token}** (coach={combat_vfx_cadence_coach_signals['coach']} status={combat_vfx_cadence_coach_signals['watchdogStatus']} streak={combat_vfx_cadence_coach_signals['watchdogStreak']} missRisk={combat_vfx_cadence_coach_signals['laneCadenceMissRisk']} reason={combat_vfx_cadence_coach_signals['reason']} offlineOnly={combat_vfx_cadence_coach_signals['offlineOnly']})",
@@ -11220,6 +11254,7 @@ def main() -> int:
         f"- LANE CADENCE RECENCY: {lane_cadence_recency} (status={lane_cadence_recency_signals['status']}, max={lane_cadence_recency_signals['maxAgeHours']}h, Δ={lane_cadence_recency_signals['deltaHours']:+d}h, window={lane_cadence_recency_signals['windowHours']}h, reason={lane_cadence_recency_signals['reason']})",
         f"- LANE CADENCE MISS RISK: {lane_cadence_miss_risk_token} (risk={lane_cadence_miss_risk_signals['risk']}, max={lane_cadence_miss_risk_signals['maxAgeHours']}h, Δ={lane_cadence_miss_risk_signals['deltaHours']:+d}h, window={lane_cadence_miss_risk_signals['windowHours']}h, reason={lane_cadence_miss_risk_signals['reason']})",
         f"- LCMR: {lane_cadence_miss_risk_alias_token} (flag={lane_cadence_miss_risk_alias_signals['flagName']}, enabled={lane_cadence_miss_risk_alias_signals['flagEnabled']}, risk={lane_cadence_miss_risk_alias_signals['risk']}, alias={lane_cadence_miss_risk_alias_signals['alias']})",
+        f"- LANE CADENCE 24H CHECK: {lane_cadence_24h_check_token} (status={lane_cadence_24h_check_signals['status']}, window={lane_cadence_24h_check_signals['windowHours']}h, sys={lane_cadence_24h_check_signals['systemsOpsAgeHours']}h, dw={lane_cadence_24h_check_signals['designWorldAgeHours']}h, cv={lane_cadence_24h_check_signals['combatVfxAgeHours']}h, reason={lane_cadence_24h_check_signals['reason']})",
         f"- COMBAT/VFX CADENCE WATCHDOG: {combat_vfx_cadence_watchdog_token} (status={combat_vfx_cadence_watchdog_signals['status']}, age={combat_vfx_cadence_watchdog_signals['combatVfxAgeHours']}h, window={combat_vfx_cadence_watchdog_signals['windowHours']}h, reason={combat_vfx_cadence_watchdog_signals['reason']})",
         f"- COMBAT/VFX CADENCE WATCHDOG STREAK: {combat_vfx_cadence_watchdog_streak_token} (status={combat_vfx_cadence_watchdog_streak_signals['status']}, streak={combat_vfx_cadence_watchdog_streak_signals['streak']}, prior={combat_vfx_cadence_watchdog_streak_signals['priorStatus']}:{combat_vfx_cadence_watchdog_streak_signals['priorStreak']}, loaded={combat_vfx_cadence_watchdog_streak_signals['priorLoaded']}, reason={combat_vfx_cadence_watchdog_streak_signals['reason']})",
         f"- COMBAT/VFX CADENCE COACH: {combat_vfx_cadence_coach_token} (coach={combat_vfx_cadence_coach_signals['coach']}, status={combat_vfx_cadence_coach_signals['watchdogStatus']}, streak={combat_vfx_cadence_coach_signals['watchdogStreak']}, missRisk={combat_vfx_cadence_coach_signals['laneCadenceMissRisk']}, reason={combat_vfx_cadence_coach_signals['reason']}, offlineOnly={combat_vfx_cadence_coach_signals['offlineOnly']})",
