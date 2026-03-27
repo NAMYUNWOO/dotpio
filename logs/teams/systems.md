@@ -3015,3 +3015,4 @@
   - Follow-up: implement `DCCFXCPA COPY FAMILY CHURN` and evaluate optional `DCCFXCPA COPY ALT` fallback token (Cycle FC backlog).
 - [2026-03-27 08:39 KST] Closed Cycle FC Systems/QA item: added `DCCFXCPA COPY FAMILY CHURN` in weekly digest summary + token-coverage with prior-window drift context (`drift/trend/loaded`) from `dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias`.
 - Updated payload contract with `comboConfidenceFxCoachCueWhyScenePulseArcCopyFamilyTrendDrift/Signals` for durable downstream triage.
+- [2026-03-27 09:21 KST] Cycle FD + fallback closure: shipped `DCCFXCPA COPY ALT` mismatch rail (`SURGE/CLEAR` under suppression -> `HOLD`) plus `DCCFXCPA COPY ALT LEGEND` in summary/token-coverage with deterministic regression adjacency lock; kept follow-up backlog items for ALT family trend and ALT pack prototype.

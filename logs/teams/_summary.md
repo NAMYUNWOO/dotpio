@@ -3307,3 +3307,6 @@ Compact decision memory for AI context efficiency.
 - 2026-03-27 08:39 KST — Closed highest-priority unchecked TASKS/POST_RC item (Systems/QA): shipped `DCCFXCPA COPY FAMILY CHURN` with prior-window drift context in weekly digest summary + token-coverage.
 - Payload contract now includes `comboConfidenceFxCoachCueWhyScenePulseArcCopyFamilyTrendDrift/Signals`; regression locks adjacency `DCCFXCPA COPY -> COPY LEGEND -> COPY FAMILY CHURN -> DCCFXV FAMILY CHURN` in both sections.
 - Verification passed: `py_compile` + `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- 2026-03-27 09:21 KST — Closed Cycle FC Combat/World backlog by shipping `DCCFXCPA COPY ALT` fallback rail and immediately executed Game Director Cycle FD (Idea 1) to add `DCCFXCPA COPY ALT LEGEND` with ordering regressions.
+- Injected follow-up backlog items: `DCCFXCPA COPY ALT FAMILY TREND` (Systems/QA) and `DCCFXCPA COPY ALT PACK` (AI Content/Combat).
+- Digest contract now includes `DCCFXCPA COPY ALT` + `DCCFXCPA COPY ALT LEGEND` + `DCCFXCPA COPY ALT FAMILY CHURN`, locked in both summary and token-coverage blocks.

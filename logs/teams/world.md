@@ -2012,3 +2012,4 @@
   - Verified deterministic ordering contracts in regression and kept adjacency stable around DCCFXCPA rails.
   - Follow-up: implement `DCCFXCPA COPY FAMILY CHURN` and evaluate optional `DCCFXCPA COPY ALT` fallback token (Cycle FC backlog).
 - [2026-03-27 08:39 KST] Coordination note: digest ordering contract expanded around pulse-arc copy rails; world-facing scene-pulse decode now keeps copy-family churn immediately after legend for stable scan order.
+- [2026-03-27 09:21 KST] Cycle FD + fallback closure: shipped `DCCFXCPA COPY ALT` mismatch rail (`SURGE/CLEAR` under suppression -> `HOLD`) plus `DCCFXCPA COPY ALT LEGEND` in summary/token-coverage with deterministic regression adjacency lock; kept follow-up backlog items for ALT family trend and ALT pack prototype.

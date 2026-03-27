@@ -1375,4 +1375,14 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/AI Content Team: Add `DCCFXCPA COPY LEGEND` row in summary + token-coverage and extend regression adjacency lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 08:18 KST; completed: 2026-03-27 08:22 KST)*
 - [x] Systems/QA Team: Add `DCCFXCPA COPY FAMILY CHURN` row with prior-window drift context and deterministic ordering guard. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 08:31 KST; completed: 2026-03-27 08:39 KST)*
-- [ ] Combat/World Team: Prototype `DCCFXCPA COPY ALT` fallback token for surge-suppression mismatch windows.
+- [x] Combat/World Team: Prototype `DCCFXCPA COPY ALT` fallback token for surge-suppression mismatch windows. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 09:05 KST; completed: 2026-03-27 09:14 KST)*
+
+## Cycle FD - Game Director Review (2026-03-27 09:16 KST)
+- Coverage check (last 10 completions): combat/systems rails are dense; use low-risk UX decode slice and inject two follow-up experiments.
+- Idea 1 (low risk, UX/Design): Add `DCCFXCPA COPY ALT LEGEND` row to summary + token-coverage for one-glance mismatch decode.
+- Idea 2 (mid risk, Systems/QA): Add `DCCFXCPA COPY ALT FAMILY TREND` rail with prior-window drift context.
+- Idea 3 (high risk, AI Content/Combat): Prototype suppression-aware alternate microcopy pack token (`DCCFXCPA COPY ALT PACK`).
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Design Team: Add `DCCFXCPA COPY ALT LEGEND` row in summary + token-coverage with deterministic adjacency regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 09:16 KST; completed: 2026-03-27 09:20 KST)*
+- [ ] Systems/QA Team: Add `DCCFXCPA COPY ALT FAMILY TREND` rail with prior-window drift context.
+- [ ] AI Content/Combat Team: Prototype suppression-aware `DCCFXCPA COPY ALT PACK` token (digest-only, flagged).

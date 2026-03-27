@@ -105,6 +105,7 @@ TOKEN_ALIAS_FAMILIES = {
     "dmgComboConfidenceFxCoachCueWhyScenePaletteAlias": ["DCCFXCW SCENE PALETTE:"],
     "dmgComboConfidenceFxCoachCueWhyScenePulseArcAlias": ["DCCFXCPA:"],
     "dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias": ["DCCFXCPA COPY:"],
+    "dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltAlias": ["DCCFXCPA COPY ALT:"],
     "dmgComboConfidenceCoachCopySwapRecommendationAlias": ["DMG COMBO CONF COACH COPY SWAP REC:", "DCCSR:"],
     "dmgComboConfidenceCoachCopySwapTrendAlias": ["DCCST:"],
     "pulseRemapMomentumAlias": ["PULSE REMAP MOMENTUM:", "PRM:"],
@@ -7546,6 +7547,41 @@ def combo_confidence_fx_coach_cue_why_scene_pulse_arc_copy_from_signals(
     }
 
 
+def combo_confidence_fx_coach_cue_why_scene_pulse_arc_copy_alt_from_signals(
+    *,
+    scene_pulse_arc_copy: str,
+    scene_pulse_arc_copy_signals: dict[str, object],
+    pulse_remap_momentum_suppression: str,
+    pulse_remap_suppression_escalation_plan: str,
+) -> tuple[str, dict[str, object]]:
+    """Fallback copy token for surge-vs-suppression mismatch windows (digest-only)."""
+    copy_value = str(scene_pulse_arc_copy).strip().upper()
+    copy = copy_value.split(":", 1)[1] if ":" in copy_value else str(scene_pulse_arc_copy_signals.get("copy", "HOLD")).strip().upper()
+    suppression = str(pulse_remap_momentum_suppression).strip().upper() or "ARM"
+    suppression_plan = str(pulse_remap_suppression_escalation_plan).strip().upper() or "ARM"
+
+    mismatch_window = copy == "SURGE" and (suppression == "SUPPRESS" or suppression_plan in {"LOCK", "ARM"})
+    if mismatch_window:
+        alt = "HOLD"
+        reason = "surge-copy-mismatches-suppression-window-fallback-hold"
+    elif copy == "CLEAR" and suppression == "SUPPRESS":
+        alt = "HOLD"
+        reason = "clear-copy-buffered-during-active-suppression"
+    else:
+        alt = copy
+        reason = "copy-aligns-with-suppression-posture"
+
+    return f"DCCFXCPA COPY ALT:{alt}", {
+        "copy": copy,
+        "alt": alt,
+        "suppression": suppression,
+        "suppressionPlan": suppression_plan,
+        "mismatchWindow": mismatch_window,
+        "reason": reason,
+        "offlineOnly": True,
+    }
+
+
 def pulse_remap_suppression_escalation_plan_from_signals(
     *,
     suppression: str,
@@ -9342,6 +9378,11 @@ def main() -> int:
         dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_flag_name,
         "",
     ).strip().lower() in {"1", "true", "yes", "on"}
+    dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_name = "DOTPIO_EXPERIMENT_DMG_COMBO_CONF_FX_COACH_CUE_WHY_SCENE_PULSE_ARC_COPY_ALT"
+    dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_enabled = os.environ.get(
+        dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_name,
+        "",
+    ).strip().lower() in {"1", "true", "yes", "on"}
     dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_family_trend_drift, dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_family_trend_signals = combo_confidence_fx_accent_family_trend_from_prior(
         current_family_totals=token_family_totals["dmgComboConfidenceFxCoachCueWhyScenePulseArcAlias"],
         prior_json_path=args.out_json,
@@ -9350,12 +9391,22 @@ def main() -> int:
         current_family_totals=token_family_totals["dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias"],
         prior_json_path=args.out_json,
     )
+    dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_family_trend_drift, dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_family_trend_signals = combo_confidence_fx_accent_family_trend_from_prior(
+        current_family_totals=token_family_totals["dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltAlias"],
+        prior_json_path=args.out_json,
+    )
     pulse_remap_suppression_escalation_plan, pulse_remap_suppression_escalation_plan_signals = pulse_remap_suppression_escalation_plan_from_signals(
         suppression=pulse_remap_momentum_suppression,
         suppression_signals=pulse_remap_momentum_suppression_signals,
         momentum=pulse_remap_momentum_recommendation,
         drift_risk=drift_risk,
         lane_cadence_recency=lane_cadence_recency,
+    )
+    dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt, dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_signals = combo_confidence_fx_coach_cue_why_scene_pulse_arc_copy_alt_from_signals(
+        scene_pulse_arc_copy=dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy,
+        scene_pulse_arc_copy_signals=dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_signals,
+        pulse_remap_momentum_suppression=pulse_remap_momentum_suppression,
+        pulse_remap_suppression_escalation_plan=pulse_remap_suppression_escalation_plan,
     )
     pulse_remap_suppression_scene_flavor, pulse_remap_suppression_scene_flavor_signals = pulse_remap_scene_flavor_from_signals(
         suppression_plan=pulse_remap_suppression_escalation_plan,
@@ -10466,6 +10517,12 @@ def main() -> int:
             "flagEnabled": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_flag_enabled,
             **dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_signals,
         },
+        "dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlt": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt,
+        "dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltSignals": {
+            "flagName": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_name,
+            "flagEnabled": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_enabled,
+            **dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_signals,
+        },
         "lanePriorityRecommendationCompactAlias": lane_priority_recommendation_compact_alias,
         "lanePriorityRecommendationCompactAliasSignals": lane_priority_recommendation_compact_alias_signals,
         "lanePriorityHysteresisCompactAlias": lane_priority_hysteresis_compact_alias,
@@ -10819,6 +10876,8 @@ def main() -> int:
         "comboConfidenceFxCoachCueWhyScenePulseArcAliasSignals": {"flagName": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_alias_flag_name, "flagEnabled": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_alias_flag_enabled, "arc": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_signals["arc"], "alias": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_alias, "offlineOnly": True},
         "comboConfidenceFxCoachCueWhyScenePulseArcCopy": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy if dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_flag_enabled else "FLAG OFF",
         "comboConfidenceFxCoachCueWhyScenePulseArcCopySignals": {"flagName": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_flag_name, "flagEnabled": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_flag_enabled, **dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_signals},
+        "comboConfidenceFxCoachCueWhyScenePulseArcCopyAlt": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt if dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_enabled else "FLAG OFF",
+        "comboConfidenceFxCoachCueWhyScenePulseArcCopyAltSignals": {"flagName": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_name, "flagEnabled": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_enabled, **dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_signals},
         "comboConfidenceFxCoachCueWhyScenePulseArcCopyFamilyTrendDrift": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_family_trend_drift,
         "comboConfidenceFxCoachCueWhyScenePulseArcCopyFamilyTrendSignals": dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_family_trend_signals,
         "comboConfidenceCoachSceneArcAlias": dmg_combo_conf_coach_scene_arc_alias if dmg_combo_conf_coach_scene_arc_alias_flag_enabled else "FLAG OFF",
@@ -11101,8 +11160,11 @@ def main() -> int:
         "- DCCFXCPA LEGEND: R=RECOVER, B=BRACE, E=ERUPT",
         f"- DCCFXCPA FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcAlias']['added']} removed={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcAlias']['removed']} churn={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcAlias']['coverage']} drift={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_family_trend_drift:+d} trend={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_family_trend_signals['trend']} loaded={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_family_trend_signals['priorLoaded']})",
         f"- DCCFXCPA COPY: **{dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy if dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_flag_enabled else 'FLAG OFF'}** (flag={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_flag_name} enabled={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_flag_enabled} arc={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_signals['arc']} trend={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_signals['trend']} regime={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_signals['volatilityRegime']} reason={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_signals['reason']})",
+        f"- DCCFXCPA COPY ALT: **{dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt if dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_enabled else 'FLAG OFF'}** (flag={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_name} enabled={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_enabled} copy={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_signals['copy']} suppression={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_signals['suppression']} plan={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_signals['suppressionPlan']} mismatch={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_signals['mismatchWindow']} reason={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_signals['reason']})",
+        "- DCCFXCPA COPY ALT LEGEND: SURGE+SUPPRESS=>HOLD, CLEAR+SUPPRESS=>HOLD, MATCH=>KEEP",
         "- DCCFXCPA COPY LEGEND: CLEAR=COOL RESET, HOLD=STEADY BRACE, SURGE=SPIKE PUSH",
         f"- DCCFXCPA COPY FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias']['added']} removed={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias']['removed']} churn={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias']['coverage']} drift={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_family_trend_drift:+d} trend={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_family_trend_signals['trend']} loaded={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_family_trend_signals['priorLoaded']})",
+        f"- DCCFXCPA COPY ALT FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltAlias']['added']} removed={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltAlias']['removed']} churn={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltAlias']['coverage']} drift={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_family_trend_drift:+d} trend={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_family_trend_signals['trend']} loaded={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_family_trend_signals['priorLoaded']})",
         f"- DCCFXV FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceFxAccentVolatilityAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceFxAccentVolatilityAlias']['added']} removed={token_family_totals['dmgComboConfidenceFxAccentVolatilityAlias']['removed']} churn={token_family_totals['dmgComboConfidenceFxAccentVolatilityAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxAccentVolatilityAlias']['coverage']})",
         f"- DCCFXC FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceFxCoachCueAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceFxCoachCueAlias']['added']} removed={token_family_totals['dmgComboConfidenceFxCoachCueAlias']['removed']} churn={token_family_totals['dmgComboConfidenceFxCoachCueAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxCoachCueAlias']['coverage']})",
         f"- DCCFXCW FAMILY CHURN: **net {token_family_totals['dmgComboConfidenceFxCoachCueWhyAlias']['net']:+d}** (added={token_family_totals['dmgComboConfidenceFxCoachCueWhyAlias']['added']} removed={token_family_totals['dmgComboConfidenceFxCoachCueWhyAlias']['removed']} churn={token_family_totals['dmgComboConfidenceFxCoachCueWhyAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxCoachCueWhyAlias']['coverage']})",
@@ -11263,8 +11325,11 @@ def main() -> int:
         "- DCCFXCPA LEGEND: R=RECOVER, B=BRACE, E=ERUPT",
         f"- DCCFXCPA FAMILY CHURN: +{token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcAlias']['added']} / -{token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcAlias']['removed']} / net {token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcAlias']['net']} (churn={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcAlias']['coverage']})",
         f"- DCCFXCPA COPY: {dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy if dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_flag_enabled else 'FLAG OFF'} (arc={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_signals['arc']} trend={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_signals['trend']} regime={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_signals['volatilityRegime']} reason={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_signals['reason']} flag={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_flag_name} enabled={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_flag_enabled})",
+        f"- DCCFXCPA COPY ALT: {dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt if dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_enabled else 'FLAG OFF'} (copy={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_signals['copy']} suppression={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_signals['suppression']} plan={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_signals['suppressionPlan']} mismatch={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_signals['mismatchWindow']} reason={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_signals['reason']} flag={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_name} enabled={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_flag_enabled})",
+        "- DCCFXCPA COPY ALT LEGEND: SURGE+SUPPRESS=>HOLD, CLEAR+SUPPRESS=>HOLD, MATCH=>KEEP",
         "- DCCFXCPA COPY LEGEND: CLEAR=COOL RESET, HOLD=STEADY BRACE, SURGE=SPIKE PUSH",
         f"- DCCFXCPA COPY FAMILY CHURN: +{token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias']['added']} / -{token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias']['removed']} / net {token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias']['net']} (churn={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAlias']['coverage']} drift={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_family_trend_drift:+d} trend={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_family_trend_signals['trend']} loaded={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_family_trend_signals['priorLoaded']})",
+        f"- DCCFXCPA COPY ALT FAMILY CHURN: +{token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltAlias']['added']} / -{token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltAlias']['removed']} / net {token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltAlias']['net']} (churn={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltAlias']['churn']} coverage={token_family_totals['dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltAlias']['coverage']} drift={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_family_trend_drift:+d} trend={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_family_trend_signals['trend']} loaded={dmg_combo_conf_fx_coach_cue_why_scene_pulse_arc_copy_alt_family_trend_signals['priorLoaded']})",
         "- DCCFXV LEGEND: C=CALM, S=SWING, P=SPIKE (scene-arc guidance: CALM=stabilize, SWING=monitor oscillation, SPIKE=pressure cue)",
         "- DCCFXC LEGEND: H=HOT, T=TENSE, M=MUTE (bridge cue for coach-copy rationale + FX triage)",
         "- DCCFXCW LEGEND: R=RESET/HOLD, S=SHIFT/SPIKE, F=FLEX, B=BASELINE",
