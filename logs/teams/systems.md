@@ -3119,3 +3119,9 @@
   - Marked the Systems/QA Cycle FK backlog item complete in `TASKS.md` and `POST_RC_BACKLOG.md` with lifecycle annotation.
 - Follow-up:
   - Next highest unchecked queue item remains AI Content/Combat: adaptive coach-why sticky-window length recommendation (offline-only).
+
+## 2026-03-27 19:55 KST — Adaptive RED HOLD hysteresis floor tuning (offline)
+- Completed backlog item: adaptive coach-why sticky-window recommendation from miss-risk recovery slope + streak volatility memory.
+- Scope: `scripts/weekly_portal_prompt_readability_drift.py` only (offline digest logic; no runtime coupling).
+- Decision: upgraded fixed hysteresis floor to adaptive floor hours using miss-risk severity + delta recovery slope + current/prior streak volatility memory.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

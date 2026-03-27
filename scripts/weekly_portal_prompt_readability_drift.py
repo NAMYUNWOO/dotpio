@@ -471,8 +471,9 @@ def combat_vfx_cadence_coach(*, combat_vfx_cadence_watchdog_streak_signals: dict
 def combat_vfx_cadence_coach_why(*, combat_vfx_cadence_watchdog_streak_signals: dict[str, object], lane_cadence_miss_risk_signals: dict[str, object], prior_json_path: Path | None = None) -> tuple[str, dict[str, object]]:
     """Compact rationale token derived from miss-risk delta and watchdog streak trend.
 
-    Includes a one-window RED HOLD hysteresis floor so volatile streak transitions do not
-    instantly downshift rationale after a high-risk hold.
+    Uses an adaptive RED HOLD hysteresis window (offline-only) so volatile streak transitions
+    do not instantly downshift rationale after a high-risk hold. The window is widened when
+    miss-risk recovery is shallow and streak volatility memory remains elevated.
     """
     risk = str(lane_cadence_miss_risk_signals.get("risk", "MID") or "MID").upper()
     delta_hours = float(lane_cadence_miss_risk_signals.get("deltaHours", 0.0) or 0.0)
@@ -506,6 +507,7 @@ def combat_vfx_cadence_coach_why(*, combat_vfx_cadence_watchdog_streak_signals: 
 
     prior_short = "UNKNOWN"
     prior_loaded = False
+    prior_volatility_memory = "CALM"
     hysteresis_applied = False
     if prior_json_path is not None and prior_json_path.exists():
         try:
@@ -514,14 +516,30 @@ def combat_vfx_cadence_coach_why(*, combat_vfx_cadence_watchdog_streak_signals: 
             if prior_short_token.startswith("COMBAT/VFX CADENCE COACH WHY:"):
                 prior_short = prior_short_token.split(":", 1)[1].strip().upper()
                 prior_loaded = True
+
+            prior_signals = prior_payload.get("combatVfxCadenceCoachWhySignals", {})
+            if isinstance(prior_signals, dict):
+                prior_volatility_memory = str(
+                    prior_signals.get("watchdogStreakTrendVolatility", prior_volatility_memory) or prior_volatility_memory
+                ).upper()
         except (OSError, json.JSONDecodeError):
             prior_loaded = False
+
+    adaptive_floor_hours = -6.0
+    if risk == "HIGH":
+        adaptive_floor_hours += 2.0
+    if abs(delta_hours) <= 1.5:
+        adaptive_floor_hours += 2.0
+    if streak_trend_volatility == "SPIKE" or prior_volatility_memory == "SPIKE":
+        adaptive_floor_hours += 4.0
+    elif streak_trend_volatility == "SWING" or prior_volatility_memory == "SWING":
+        adaptive_floor_hours += 2.0
 
     if (
         prior_short == "RED HOLD"
         and short != "RED HOLD"
         and streak_trend_volatility in {"SWING", "SPIKE"}
-        and delta_hours >= -6.0
+        and delta_hours >= adaptive_floor_hours
     ):
         short = "RED HOLD"
         reason = "red-hold-hysteresis-floor-on-volatile-streak"

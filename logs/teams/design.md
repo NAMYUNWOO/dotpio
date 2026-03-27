@@ -2117,3 +2117,7 @@
 
 ## 2026-03-27 19:07 KST — Digest readability note
 - New compact `CVCWH` token keeps rationale cluster legible without expanding row width.
+
+## 2026-03-27 19:55 KST — Readability contract note
+- Kept existing rationale labels intact (`RED HOLD` etc.) and maintained deterministic concise wording.
+- Change is behavioral thresholding only; no new operator vocabulary introduced.

@@ -2102,3 +2102,8 @@
 
 ## 2026-03-27 19:07 KST — Backlog injection note
 - Injected high-risk follow-up: adaptive coach-why sticky-window length recommendation from miss-risk recovery slope + streak volatility memory (offline-only).
+
+## 2026-03-27 19:55 KST — Adaptive cadence-coach why hysteresis recommendation shipped
+- Closed queued AI Content/Combat follow-up: adaptive sticky-window length recommendation for `COMBAT/VFX CADENCE COACH WHY`.
+- Rationale remains deterministic/offline-only; no generative model/runtime behavior changes.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

@@ -3690,3 +3690,7 @@
   - No screenshot regeneration (digest contract and test-only changes).
 - Follow-up:
   - Keep AI Content/Combat sticky-window recommendation as next unchecked backlog item.
+
+## 2026-03-27 19:55 KST — Regression pass for adaptive hysteresis
+- Ran: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Result: PASS, including coach-why signal schema + hysteresis behavior checks.

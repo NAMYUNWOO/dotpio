@@ -3417,3 +3417,9 @@ Compact decision memory for AI context efficiency.
 - Executed Game Director review cycle after queue clear: generated 3 ideas, selected low-risk UX/Systems experiment, shipped `CVCWH:<H|S>` alias for cadence coach-why hysteresis state.
 - Durable order contract now includes `... COACH WHY -> CVCW -> CVCWH -> COACH WHY + CVCW FAMILY CHURN -> CVCC ...` in summary + token-coverage.
 - Injected next tasks: (1) Systems/QA `CVCWH` family-churn row + hard ordering lock, (2) AI Content/Combat adaptive sticky-window length prototype.
+
+## 2026-03-27 19:55 KST — Adaptive coach-why hysteresis recommendation (offline)
+- Completed item: adaptive sticky-window recommendation for `COMBAT/VFX CADENCE COACH WHY` from miss-risk recovery slope + streak volatility memory.
+- Durable decision: replace fixed RED HOLD hysteresis floor (`-6h`) with adaptive floor hours derived from risk severity, recovery slope (`deltaHours`), and prior-window volatility memory to reduce oscillation during `SWING|SPIKE` streaks.
+- Scope: digest/regression layer only (`scripts/weekly_portal_prompt_readability_drift.py`); no runtime gameplay coupling.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

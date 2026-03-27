@@ -2037,3 +2037,8 @@
 
 ## 2026-03-27 19:07 KST — Combat telemetry readability follow-up
 - `CVCWH` alias gives quick visibility into whether RED HOLD hysteresis was active during cadence rationale generation.
+
+## 2026-03-27 19:55 KST — Combat/VFX cadence coach hysteresis adaptation
+- `RED HOLD` hysteresis now uses adaptive floor threshold from risk severity + recovery slope + volatility memory.
+- Goal: reduce premature downshift during volatile streak transitions while allowing faster release in calm recovery windows.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

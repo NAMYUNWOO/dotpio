@@ -1442,4 +1442,4 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Systems Team: Ship `CVCWH:<H|S>` alias for coach-why hysteresis floor behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_ALIAS` with payload/markdown wiring + regression coverage. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 19:00 KST; completed: 2026-03-27 19:07 KST)*
 - [x] Systems/QA Team: Add dedicated `CVCWH` family-churn row + hard ordering contract next to cadence coach rationale cluster. *(lifecycle: [ ] -> [~] -> [x]; completed: 2026-03-27 19:21 KST)*
-- [ ] AI Content/Combat Team: Prototype adaptive coach-why sticky-window length recommendation from miss-risk recovery slope + streak volatility memory (offline-only).
+- [x] AI Content/Combat Team: Prototype adaptive coach-why sticky-window length recommendation from miss-risk recovery slope + streak volatility memory (offline-only). *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 19:52 KST; completed: 2026-03-27 19:55 KST)*
