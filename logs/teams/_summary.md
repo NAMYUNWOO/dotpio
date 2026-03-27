@@ -3337,3 +3337,11 @@ Compact decision memory for AI context efficiency.
   - `DCCFXCPA COPY ALT PACK -> DCCFXCPAP -> DCCFXCPAP COACH -> DCCFXCPAP FAMILY CHURN`.
 - Verification passed: weekly drift regression + digest generation smoke run.
 - TASKS / POST_RC_BACKLOG updated to `[x]` for the `DCCFXCPAP COACH` item.
+
+## 2026-03-27 15:21 KST — Cycle FF backlog item closed (`DCCFXCPAP COACH LEGEND` + churn visibility)
+- Completed the only in-progress backlog item in `POST_RC_BACKLOG.md` by shipping coach decode/support rows:
+  - `DCCFXCPAP COACH LEGEND`
+  - `DCCFXCPAP COACH FAMILY CHURN`
+- Updated both digest sections (summary + token coverage) to preserve deterministic row ordering around the coach block.
+- Regression contract strengthened in `scripts/regression_weekly_portal_prompt_readability_drift.py` for new row presence and adjacency.
+- Verification passed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.

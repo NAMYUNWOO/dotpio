@@ -3608,3 +3608,11 @@
 - Verification:
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py ...` smoke output ✅
+
+## 2026-03-27 15:21 KST — Regression ordering checks updated for Cycle FF
+- Extended weekly digest regression to require:
+  - `DCCFXCPAP COACH LEGEND` presence in token-coverage.
+  - `DCCFXCPAP COACH FAMILY CHURN` ordering in summary + token-coverage.
+- Enforced ordering chain:
+  - `DCCFXCPA COPY ALT PACK -> DCCFXCPAP -> DCCFXCPAP COACH -> DCCFXCPAP COACH LEGEND -> DCCFXCPAP COACH FAMILY CHURN -> DCCFXCPAP FAMILY CHURN`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.

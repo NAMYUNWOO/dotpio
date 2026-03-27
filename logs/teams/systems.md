@@ -3042,3 +3042,8 @@
 - Selected low-risk Combat/VFX experiment: ship compact alias `DCCFXCPAP:<H|B|R|A>` for `DCCFXCPA COPY ALT PACK` under dedicated flag.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up backlog injected: Systems/QA adjacency+churn lock for `DCCFXCPAP`, AI Content/Combat `DCCFXCPAP COACH:<short>` prototype.
+
+## 2026-03-27 15:21 KST — Cycle FF digest telemetry split
+- Added dedicated coach-family churn emission (`dmgComboConfidenceFxCoachCueWhyScenePulseArcCopyAltPackCoachAlias`) in token-coverage output.
+- Maintained separate compact-alias churn row (`DCCFXCPAP FAMILY CHURN`) to avoid conflating coach-copy movement with pack-alias movement.
+- Regression harness updated and green to lock this split contract.

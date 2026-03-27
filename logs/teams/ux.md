@@ -2281,3 +2281,8 @@
 - Selected low-risk Combat/VFX experiment: ship compact alias `DCCFXCPAP:<H|B|R|A>` for `DCCFXCPA COPY ALT PACK` under dedicated flag.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up backlog injected: Systems/QA adjacency+churn lock for `DCCFXCPAP`, AI Content/Combat `DCCFXCPAP COACH:<short>` prototype.
+
+## 2026-03-27 15:21 KST — Cycle FF closure (coach decode visibility)
+- Completed in-progress Cycle FF item by adding `DCCFXCPAP COACH LEGEND` to both summary and token-coverage sections.
+- Added explicit `DCCFXCPAP COACH FAMILY CHURN` row so coach-token drift is readable separately from compact alias churn.
+- Readability contract kept deterministic around coach block for dense digest scans.

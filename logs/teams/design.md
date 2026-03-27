@@ -2076,3 +2076,9 @@
 - Selected low-risk Combat/VFX experiment: ship compact alias `DCCFXCPAP:<H|B|R|A>` for `DCCFXCPA COPY ALT PACK` under dedicated flag.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Follow-up backlog injected: Systems/QA adjacency+churn lock for `DCCFXCPAP`, AI Content/Combat `DCCFXCPAP COACH:<short>` prototype.
+
+## 2026-03-27 15:21 KST — Cycle FF design decode contract finalized
+- Added/kept deterministic legend copy for `DCCFXCPAP COACH` mappings:
+  - HOLD LINE=shield-hold, STAGE SWAP=buffer-swap prep, RELEASE PUSH=recover-forward, KEEP BASE=steady.
+- Decision: keep legend directly adjacent to coach row in both digest sections to reduce operator lookup cost.
+- Follow-up: preserve concise vocabulary and avoid widening beyond DOS-friendly decode length.
