@@ -3224,3 +3224,15 @@
 - 2026-03-28 04:07 KST — Cycle FT Systems/QA closure: tightened regression adjacency lock to require `CVCWHR FX LEGEND COPY PACK TREND CONF -> CVCWHR FX LEGEND CPTC -> CVCWHR FX LEGEND CPTC LEGEND -> CADENCE BRIDGE` in both summary + token-coverage sections.
 - Implementation note: moved `CVCWHR FX LEGEND CPTC OVERRIDE` and `CVCWHR FX LEGEND COPY PACK FAMILY CHURN` rows out of the cadence bridge adjacency rail to keep deterministic ordering contracts intact.
 - Follow-up: next unchecked Systems/Ops item is override schema+presence/order hardening.
+
+## 2026-03-28 04:31 KST
+- Task: Cycle FT follow-up — lock deterministic regression contract for `CVCWHR FX LEGEND CPTC OVERRIDE` schema + dual-section markdown presence.
+- Commit: HEAD (this run)
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added hard count assertions for `CVCWHR FX LEGEND CPTC OVERRIDE` and `CVCWHR FX LEGEND COPY PACK FAMILY CHURN` rows (must appear exactly twice: summary + token coverage).
+  - Added deterministic adjacency lock: `WATCHDOG LEGEND -> CPTC OVERRIDE -> COPY PACK FAMILY CHURN` in both sections.
+- Follow-up:
+  - Next highest-priority unchecked item: `CADENCE BRIDGE GLYPH:CALM|TENSE` prototype (Design/World forced lane).

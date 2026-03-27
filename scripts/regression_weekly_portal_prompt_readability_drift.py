@@ -2904,6 +2904,8 @@ def main() -> int:
         combat_vfx_cadence_coach_why_family_churn_indices = _find_line_indices("- COMBAT/VFX CADENCE COACH WHY + CVCW FAMILY CHURN:")
         combat_vfx_cadence_coach_family_churn_indices = _find_line_indices("- COMBAT/VFX CADENCE COACH + CVCC FAMILY CHURN:")
         combat_vfx_watchdog_legend_indices = _find_line_indices("- COMBAT/VFX CADENCE WATCHDOG LEGEND:")
+        combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_indices = _find_line_indices("- CVCWHR FX LEGEND CPTC OVERRIDE:")
+        combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_family_churn_indices = _find_line_indices("- CVCWHR FX LEGEND COPY PACK FAMILY CHURN:")
 
         assert combo_conf_fallback_idx == combo_conf_rec_idx + 1, (
             "expected DMG COMBO CONF COACH FALLBACK row directly after COACH REC row"
@@ -3307,6 +3309,26 @@ def main() -> int:
         assert len(combat_vfx_watchdog_legend_indices) == 2, (
             "expected exactly two COMBAT/VFX CADENCE WATCHDOG LEGEND rows (summary + token-coverage sections)"
         )
+        assert len(combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_indices) == 2, (
+            "expected exactly two CVCWHR FX LEGEND CPTC OVERRIDE rows (summary + token-coverage sections)"
+        )
+        assert len(combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_family_churn_indices) == 2, (
+            "expected exactly two CVCWHR FX LEGEND COPY PACK FAMILY CHURN rows (summary + token-coverage sections)"
+        )
+        for section_idx, (watchdog_legend_idx, cptc_override_idx, copy_pack_family_churn_idx) in enumerate(
+            zip(
+                combat_vfx_watchdog_legend_indices,
+                combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_trend_confidence_override_indices,
+                combat_vfx_cadence_coach_why_hysteresis_recommendation_confidence_floor_fx_pulse_legend_copy_pack_family_churn_indices,
+            )
+        ):
+            assert cptc_override_idx == watchdog_legend_idx + 1, (
+                f"expected CVCWHR FX LEGEND CPTC OVERRIDE row directly after WATCHDOG LEGEND in section {section_idx}"
+            )
+            assert copy_pack_family_churn_idx == cptc_override_idx + 1, (
+                f"expected CVCWHR FX LEGEND COPY PACK FAMILY CHURN row directly after CPTC OVERRIDE row in section {section_idx}"
+            )
+
         for section_idx, (miss_risk_idx, alias_idx, cadence_24h_idx, watchdog_idx, watchdog_streak_idx, coach_idx, coach_why_idx, coach_why_alias_idx, coach_why_hyst_alias_idx, coach_why_hyst_rec_idx, coach_why_hyst_rec_conf_idx, coach_why_hyst_rec_conf_alias_idx, coach_why_hyst_rec_conf_floor_idx, coach_why_hyst_rec_conf_floor_alias_idx, coach_why_hyst_rec_conf_floor_fx_pulse_idx, coach_why_hyst_rec_conf_floor_fx_pulse_legend_idx, cadence_bridge_idx, coach_why_hyst_rec_conf_floor_family_churn_idx, coach_why_hyst_rec_conf_floor_fx_pulse_family_churn_idx, coach_why_hyst_rec_conf_floor_fx_pulse_family_trend_idx, cadence_bridge_family_churn_idx, coach_why_hyst_family_churn_idx, coach_why_hyst_rec_family_churn_idx, coach_why_hyst_rec_conf_family_churn_idx, coach_why_family_churn_idx, coach_alias_idx, coach_family_churn_idx, watchdog_legend_idx) in enumerate(
             zip(
                 lane_cadence_miss_risk_indices,

@@ -3525,3 +3525,7 @@ Compact decision memory for AI context efficiency.
 - 2026-03-28 04:07 KST — Closed highest-priority unchecked Systems/QA task from Cycle FS: regression now enforces direct adjacency `CVCWHR FX LEGEND COPY PACK TREND CONF -> CVCWHR FX LEGEND CPTC -> CVCWHR FX LEGEND CPTC LEGEND -> CADENCE BRIDGE` in summary + token-coverage.
 - Durable ordering decision: keep `CVCWHR FX LEGEND CPTC OVERRIDE` diagnostics and `CVCWHR FX LEGEND COPY PACK FAMILY CHURN` outside the cadence bridge adjacency rail so contract remains strict and readable.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (pass).
+
+- Closed Cycle FT Systems/Ops follow-up: regression contract now hard-locks `CVCWHR FX LEGEND CPTC OVERRIDE` schema + markdown placement in both summary/token-coverage sections.
+- Added deterministic assertions for row counts (`CVCWHR FX LEGEND CPTC OVERRIDE`, `CVCWHR FX LEGEND COPY PACK FAMILY CHURN`) and adjacency `WATCHDOG LEGEND -> CPTC OVERRIDE -> COPY PACK FAMILY CHURN` per section.
+- Verification passed via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; TASKS + POST_RC item moved from in-progress to done next.

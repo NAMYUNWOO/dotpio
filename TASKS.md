@@ -1526,5 +1526,5 @@ See project-level plans:
 - Idea 3 (high risk, Design/World): Prototype compact cadence-bridge scenery cue (`CADENCE BRIDGE GLYPH:CALM|TENSE`) to visualize underrepresented lane urgency.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] AI Content/Combat Team: Ship `CVCWHR FX LEGEND CPTC OVERRIDE:ON|OFF` with prior-window mismatch streak signals (`mismatchStreak`) and markdown payload wiring. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-28 03:48 KST; completed: 2026-03-28 03:55 KST)*
-- [ ] Systems/Ops Team: Add deterministic regression lock for `CVCWHR FX LEGEND CPTC OVERRIDE` schema + markdown row presence in both summary/token-coverage sections. *(injected: 2026-03-28 03:58 KST)*
+- [x] Systems/Ops Team: Add deterministic regression lock for `CVCWHR FX LEGEND CPTC OVERRIDE` schema + markdown row presence in both summary/token-coverage sections. *(injected: 2026-03-28 03:58 KST; started: 2026-03-28 04:29 KST; completed: 2026-03-28 04:31 KST)*
 - [ ] Design/World Team (forced by 24h cadence gate): Prototype `CADENCE BRIDGE GLYPH:CALM|TENSE` from bridge token + design/world freshness gap for next cycle. *(injected: 2026-03-28 03:58 KST)*

@@ -3769,3 +3769,14 @@
 - 2026-03-28 04:07 KST — Verified updated cadence adjacency contract passes end-to-end (`py_compile` + weekly drift regression).
 - Assertions now enforce direct adjacency from `... TREND CONF -> CPTC -> CPTC LEGEND -> CADENCE BRIDGE ...` per section.
 - Follow-up: add explicit deterministic lock for relocated `CVCWHR FX LEGEND CPTC OVERRIDE` row in next cycle.
+
+## 2026-03-28 04:31 KST
+- Task: Validate FT regression lock extension for CPTC override schema + markdown ordering.
+- Commit: HEAD (this run)
+- Files checked: `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+- Decisions:
+  - Regression now enforces two-row presence (summary/token-coverage) and deterministic adjacency around the new override row.
+- Follow-up:
+  - Keep weekly digest artifact generation in pre-merge checks when cadence-cluster rows are touched.
