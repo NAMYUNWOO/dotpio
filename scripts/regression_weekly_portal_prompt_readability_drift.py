@@ -3349,6 +3349,17 @@ def main() -> int:
             "expected second CADENCE BRIDGE GLYPH CONF LEGEND row in token-coverage section"
         )
 
+        # Explicit markdown contract for future alias-rail insertions:
+        # keep CBGC LEGEND and CBGCL adjacent in both summary and token-coverage sections.
+        for section_name, legend_idx, compact_alias_idx in zip(
+            ("summary", "token-coverage"),
+            cadence_bridge_glyph_conf_compact_alias_legend_indices,
+            cadence_bridge_glyph_conf_compact_legend_alias_indices,
+        ):
+            assert compact_alias_idx == legend_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCL row directly after CBGC LEGEND row under future alias-rail insertions"
+            )
+
         if cadence_bridge_glyph_conf_compact_alias_enabled:
             for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_idx, glyph_conf_alias_legend_idx, glyph_conf_legend_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
                 zip(

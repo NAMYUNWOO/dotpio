@@ -3285,3 +3285,9 @@
 - Shipped compact legend alias row `CBGCL:LMH` adjacent to `CBGC LEGEND` in summary + token-coverage sections, including payload signal wiring.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Follow-up queue injected: (1) Systems/QA adjacency hard-lock for `CBGC LEGEND -> CBGCL`, (2) Design/World narrative short-form variant.
+
+## 2026-03-28 08:31 KST — Cycle FY follow-up completed (`CBGC LEGEND` ↔ `CBGCL` markdown contract)
+- Task: Add explicit regression contract so `CBGCL` must remain adjacent to `CBGC LEGEND` in both summary and token-coverage markdown sections, even after future alias-rail insertions.
+- Decision: Added dedicated section-scoped assertion loop with contract-specific failure text in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` → `[PASS]`.
+- Follow-up: Next highest-priority unchecked item is Design/World short-form narrative copy variant for `CBGC LEGEND` (`steady/swing/spike`).

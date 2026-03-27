@@ -2224,3 +2224,7 @@
 - Shipped compact legend alias row `CBGCL:LMH` adjacent to `CBGC LEGEND` in summary + token-coverage sections, including payload signal wiring.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Follow-up queue injected: (1) Systems/QA adjacency hard-lock for `CBGC LEGEND -> CBGCL`, (2) Design/World narrative short-form variant.
+
+## 2026-03-28 08:31 KST — Cross-lane update (alias adjacency contract)
+- Systems/QA shipped explicit markdown contract: `CBGC LEGEND` must be directly followed by `CBGCL` in both digest sections.
+- AI-content alias decode assumptions remain deterministic for downstream copy experiments.

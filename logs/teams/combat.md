@@ -2139,3 +2139,7 @@
 - Shipped compact legend alias row `CBGCL:LMH` adjacent to `CBGC LEGEND` in summary + token-coverage sections, including payload signal wiring.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Follow-up queue injected: (1) Systems/QA adjacency hard-lock for `CBGC LEGEND -> CBGCL`, (2) Design/World narrative short-form variant.
+
+## 2026-03-28 08:31 KST — Cross-lane note (digest contract hardening)
+- Regression contract now guarantees confidence-legend alias adjacency (`CBGC LEGEND -> CBGCL`) across summary/token-coverage rails.
+- Combat postmortem scan order remains deterministic; no lane action required.

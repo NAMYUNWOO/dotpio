@@ -2221,3 +2221,7 @@
 - Shipped compact legend alias row `CBGCL:LMH` adjacent to `CBGC LEGEND` in summary + token-coverage sections, including payload signal wiring.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Follow-up queue injected: (1) Systems/QA adjacency hard-lock for `CBGC LEGEND -> CBGCL`, (2) Design/World narrative short-form variant.
+
+## 2026-03-28 08:31 KST — Cross-lane note (prep for narrative legend variant)
+- Systems/QA locked `CBGC LEGEND -> CBGCL` adjacency contract in markdown regressions.
+- Design can iterate short-form narrative legend copy (`steady/swing/spike`) without risking alias rail drift.

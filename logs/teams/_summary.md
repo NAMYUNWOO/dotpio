@@ -3577,3 +3577,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep confidence-cluster onboarding rails in fixed deterministic order (`CADENCE BRIDGE GLYPH CONF -> [CBGC] -> CBGC LEGEND -> CBGCL -> CADENCE BRIDGE GLYPH CONF LEGEND`) to preserve DOS-scan consistency.
 - Verification evidence: `[PASS] weekly portal prompt readability drift regression checks`.
 - Backlog injection: queued Systems/QA adjacency contract hard-lock + Design/World narrative short-form legend variant.
+
+## 2026-03-28 08:31 KST — Cycle FY follow-up completed (`CBGC LEGEND` adjacency contract)
+- Completed Systems/QA follow-up: added explicit markdown contract assertion that `CBGCL` remains directly adjacent to `CBGC LEGEND` in both summary and token-coverage sections under future alias-rail insertions.
+- Durable decision: treat `CBGC LEGEND -> CBGCL` adjacency as a first-class contract with section-specific failure messaging, separate from broader cadence-bridge ordering checks.
+- Verification evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Next queued item: Design/World Team (Cycle FY follow-up) short-form `CBGC LEGEND` narrative copy variant (`steady/swing/spike`).
