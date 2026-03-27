@@ -3636,3 +3636,10 @@
 - Extended weekly digest regression to require `COMBAT/VFX CADENCE WATCHDOG LEGEND` rows in both summary + token-coverage sections.
 - Added ordering guard: `LANE CADENCE MISS RISK -> LCMR -> WATCHDOG -> WATCHDOG STREAK -> WATCHDOG LEGEND`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-27 17:10:00 KST
+- Regression contract expanded for cadence coach stack:
+  - presence checks for `COMBAT/VFX CADENCE COACH` and `CVCC`
+  - payload schema checks (`combatVfxCadenceCoach*`)
+  - ordering lock `WATCHDOG STREAK -> COACH -> CVCC -> LEGEND` in summary + token coverage.
+- Verification passed (`py_compile`, weekly drift regression).

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-27 10:02 KST
+Last updated: 2026-03-27 17:10 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle FH AI Content/Combat follow-up item: weekly digest now emits offline cadence escalation token `COMBAT/VFX CADENCE COACH:NUDGE|ARM|ESCALATE` derived from watchdog streak + lane miss-risk context.
+- Triggered Game Director Cycle FI after full-check state: generated 3 ideas and shipped selected low-risk vertical slice `CVCC:<N|A|E>` (compact cadence-coach alias) behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_ALIAS`.
+- Regression contract now locks cadence row ordering `LANE CADENCE MISS RISK -> LCMR -> WATCHDOG -> WATCHDOG STREAK -> COACH -> CVCC -> LEGEND` in summary + token-coverage sections; verification passed (`py_compile` + weekly drift regression).
+- Cycle FI follow-ups injected as new unchecked backlog items: (1) Systems/QA family-churn coverage for cadence coach + alias and (2) AI Content/Combat `COMBAT/VFX CADENCE COACH WHY:<short>` rationale token.
 
 - Closed Cycle FD Systems/QA follow-up item: weekly digest now emits dedicated rail `DCCFXCPA COPY ALT FAMILY TREND` with prior-window trend metadata (`Δnet`, `currentNet`, `priorNet`, `loaded`, `reason`) in both summary and token-coverage sections.
 - Payload contract now includes `comboConfidenceFxCoachCueWhyScenePulseArcCopyAltFamilyTrendDrift` + `...Signals` so alternate-copy drift can be audited independently from churn rows.

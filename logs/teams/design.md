@@ -2098,3 +2098,7 @@
 - Added design/readability legend for `COMBAT/VFX CADENCE WATCHDOG` immediately after streak rows.
 - Copy contract: `OK=recent touch`, `BREACH=stale >24h`, `STREAK=consecutive BREACH windows`.
 - Rationale: remove ambiguity during dense digest triage.
+
+## 2026-03-27 17:10:00 KST
+- Introduced compact alias naming for cadence coach (`CVCC`) to reduce digest width while preserving semantic parity with full coach token.
+- Kept legend adjacency stable for predictable visual parsing.

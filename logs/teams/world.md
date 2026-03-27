@@ -2033,3 +2033,7 @@
 - Decision: Keep wording deterministic (`OK=recent touch, BREACH=stale >24h, STREAK=consecutive BREACH windows`) for stable decode and regression assertions.
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, regression pass via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Follow-up: Remaining FH item is AI Content/Combat cadence coach token (`COMBAT/VFX CADENCE COACH`).
+
+## 2026-03-27 17:10:00 KST
+- Digest readability update: Added compact `CVCC` lane-coach shorthand so world-facing dashboards can scan cadence posture in one token.
+- Outcome: summary + token-coverage sections now keep deterministic order `... WATCHDOG STREAK -> COACH -> CVCC -> LEGEND`.

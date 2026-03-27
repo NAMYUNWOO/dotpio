@@ -3066,3 +3066,12 @@
 ## 2026-03-27 16:27 KST — Digest schema/order maintenance
 - Updated digest markdown emission to include `COMBAT/VFX CADENCE WATCHDOG LEGEND` adjacent to watchdog streak rows.
 - No payload schema changes (markdown/readability only).
+
+## 2026-03-27 17:10:00 KST
+- Task: Added `COMBAT/VFX CADENCE COACH` + compact alias `CVCC` to weekly digest and payload contracts.
+- Commit: HEAD (pending commit in this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 -m py_compile ...` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (pass)
+- Decisions:
+  - Coach posture now derives from watchdog streak + `LANE CADENCE MISS RISK` (`NUDGE|ARM|ESCALATE`, offline only).
+  - Added flag-gated compact alias `CVCC:<N|A|E>` for dense digest scans.

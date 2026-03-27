@@ -2017,3 +2017,7 @@
 ## 2026-03-27 16:27 KST — Cadence coach queue note
 - Combat-facing cadence coach token remains queued (`COMBAT/VFX CADENCE COACH`).
 - This slice delivered the decode legend needed for faster coach-row interpretation once shipped.
+
+## 2026-03-27 17:10:00 KST
+- Added combat/VFX cadence triage token `COMBAT/VFX CADENCE COACH` plus `CVCC` compact alias for operator scans.
+- Escalation policy: BREACH+HIGH (or long streak) => `ESCALATE`; pressure-only => `ARM`; healthy => `NUDGE`.

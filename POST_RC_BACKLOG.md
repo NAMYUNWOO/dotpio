@@ -1196,4 +1196,9 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] Systems/Ops Team: Add `COMBAT/VFX CADENCE WATCHDOG STREAK:<n>` token + payload signals/count with regression ordering lock (`MISS RISK -> LCMR -> WATCHDOG -> STREAK`).
 - [x] Design/World Team: Add `COMBAT/VFX CADENCE WATCHDOG LEGEND` row with deterministic adjacency after watchdog streak rows. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 16:21 KST; completed: 2026-03-27 16:26 KST)*
-- [ ] AI Content/Combat Team: Prototype offline cadence escalation coach token (`COMBAT/VFX CADENCE COACH:NUDGE|ARM|ESCALATE`) from watchdog streak depth + miss-risk level.
+- [x] AI Content/Combat Team: Prototype offline cadence escalation coach token (`COMBAT/VFX CADENCE COACH:NUDGE|ARM|ESCALATE`) from watchdog streak depth + miss-risk level. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 16:51 KST; completed: 2026-03-27 16:58 KST)*
+
+## Cycle FI - Game Director Review (2026-03-27 17:03 KST)
+- [x] UX/Systems Team: Add compact cadence-coach alias token (`CVCC:<N|A|E>`) behind `DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_ALIAS` with payload/markdown wiring + regression lock. *(lifecycle: [ ] -> [~] -> [x]; started: 2026-03-27 17:03 KST; completed: 2026-03-27 17:10 KST)*
+- [ ] Systems/QA Team: Add token-family churn coverage + adjacency/order lock for `COMBAT/VFX CADENCE COACH:` (+ alias row) in summary/token-coverage sections.
+- [ ] AI Content/Combat Team: Prototype offline escalation rationale token (`COMBAT/VFX CADENCE COACH WHY:<short>`) derived from miss-risk delta + streak trend.

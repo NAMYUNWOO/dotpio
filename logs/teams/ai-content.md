@@ -2079,3 +2079,7 @@
 ## 2026-03-27 16:27 KST — FH tracking note
 - No AI-content code shipped in this slice.
 - Next queued FH follow-up: offline `COMBAT/VFX CADENCE COACH:NUDGE|ARM|ESCALATE` from watchdog streak depth + miss-risk.
+
+## 2026-03-27 17:10:00 KST
+- Authored cadence escalation coach mapping (`COMBAT/VFX CADENCE COACH:NUDGE|ARM|ESCALATE`) from breach streak depth + miss-risk context.
+- Rationale: keeps offline guidance explicit without coupling runtime behavior.

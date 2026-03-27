@@ -2296,3 +2296,7 @@
 
 ## 2026-03-27 16:27 KST — Digest scanability pass
 - Added explicit watchdog legend row after streak rows to reduce operator decode latency in compact weekly digest review.
+
+## 2026-03-27 17:10:00 KST
+- UX density pass: inserted `CVCC:<N|A|E>` row directly after cadence coach row in both summary and token-coverage sections.
+- Benefit: quick triage without scanning full prose token.

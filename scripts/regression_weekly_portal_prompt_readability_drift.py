@@ -2372,6 +2372,8 @@ def main() -> int:
         assert "LANE CADENCE MISS RISK:" in md_text
         assert "COMBAT/VFX CADENCE WATCHDOG:" in md_text
         assert "COMBAT/VFX CADENCE WATCHDOG STREAK:" in md_text
+        assert "COMBAT/VFX CADENCE COACH:" in md_text
+        assert "CVCC:" in md_text
         assert "COMBAT/VFX CADENCE WATCHDOG LEGEND:" in md_text
         assert "LCMR:" in md_text
         assert "LANE PRIORITY REC:" in md_text
@@ -2400,6 +2402,26 @@ def main() -> int:
         assert "LPRCG COACH + LPRCGC FAMILY CHURN" in md_text
         assert "LPRCG COACH PACK + LPRCGCP FAMILY CHURN" in md_text
         assert "LPRCG COACH COPY + LPRCGCN FAMILY CHURN" in md_text
+        assert payload.get("combatVfxCadenceCoach") in {
+            "COMBAT/VFX CADENCE COACH:NUDGE",
+            "COMBAT/VFX CADENCE COACH:ARM",
+            "COMBAT/VFX CADENCE COACH:ESCALATE",
+        }, payload
+        assert set(payload.get("combatVfxCadenceCoachSignals", {}).keys()) == {
+            "coach",
+            "watchdogStatus",
+            "watchdogStreak",
+            "laneCadenceMissRisk",
+            "reason",
+            "offlineOnly",
+        }, payload
+        assert payload.get("combatVfxCadenceCoachAlias") in {"FLAG OFF", "CVCC:N", "CVCC:A", "CVCC:E"}, payload
+        assert set(payload.get("combatVfxCadenceCoachAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "coachToken",
+            "alias",
+        }, payload
 
         summary_lines = md_text.splitlines()
         summary_coach_idx = next(
@@ -2692,6 +2714,8 @@ def main() -> int:
         lane_cadence_miss_risk_alias_indices = _find_line_indices("- LCMR:")
         combat_vfx_watchdog_indices = _find_line_indices("- COMBAT/VFX CADENCE WATCHDOG:")
         combat_vfx_watchdog_streak_indices = _find_line_indices("- COMBAT/VFX CADENCE WATCHDOG STREAK:")
+        combat_vfx_cadence_coach_indices = _find_line_indices("- COMBAT/VFX CADENCE COACH:")
+        combat_vfx_cadence_coach_alias_indices = _find_line_indices("- CVCC:")
         combat_vfx_watchdog_legend_indices = _find_line_indices("- COMBAT/VFX CADENCE WATCHDOG LEGEND:")
 
         assert combo_conf_fallback_idx == combo_conf_rec_idx + 1, (
@@ -2997,15 +3021,23 @@ def main() -> int:
         assert len(combat_vfx_watchdog_streak_indices) == 2, (
             "expected exactly two COMBAT/VFX CADENCE WATCHDOG STREAK rows (summary + token-coverage sections)"
         )
+        assert len(combat_vfx_cadence_coach_indices) == 2, (
+            "expected exactly two COMBAT/VFX CADENCE COACH rows (summary + token-coverage sections)"
+        )
+        assert len(combat_vfx_cadence_coach_alias_indices) == 2, (
+            "expected exactly two CVCC alias rows (summary + token-coverage sections)"
+        )
         assert len(combat_vfx_watchdog_legend_indices) == 2, (
             "expected exactly two COMBAT/VFX CADENCE WATCHDOG LEGEND rows (summary + token-coverage sections)"
         )
-        for section_idx, (miss_risk_idx, alias_idx, watchdog_idx, watchdog_streak_idx, watchdog_legend_idx) in enumerate(
+        for section_idx, (miss_risk_idx, alias_idx, watchdog_idx, watchdog_streak_idx, coach_idx, coach_alias_idx, watchdog_legend_idx) in enumerate(
             zip(
                 lane_cadence_miss_risk_indices,
                 lane_cadence_miss_risk_alias_indices,
                 combat_vfx_watchdog_indices,
                 combat_vfx_watchdog_streak_indices,
+                combat_vfx_cadence_coach_indices,
+                combat_vfx_cadence_coach_alias_indices,
                 combat_vfx_watchdog_legend_indices,
             ),
             start=1,
@@ -3019,8 +3051,14 @@ def main() -> int:
             assert watchdog_streak_idx == watchdog_idx + 1, (
                 f"expected COMBAT/VFX CADENCE WATCHDOG STREAK row directly after COMBAT/VFX CADENCE WATCHDOG row in section {section_idx}"
             )
-            assert watchdog_legend_idx == watchdog_streak_idx + 1, (
-                f"expected COMBAT/VFX CADENCE WATCHDOG LEGEND row directly after COMBAT/VFX CADENCE WATCHDOG STREAK row in section {section_idx}"
+            assert coach_idx == watchdog_streak_idx + 1, (
+                f"expected COMBAT/VFX CADENCE COACH row directly after COMBAT/VFX CADENCE WATCHDOG STREAK row in section {section_idx}"
+            )
+            assert coach_alias_idx == coach_idx + 1, (
+                f"expected CVCC alias row directly after COMBAT/VFX CADENCE COACH row in section {section_idx}"
+            )
+            assert watchdog_legend_idx == coach_alias_idx + 1, (
+                f"expected COMBAT/VFX CADENCE WATCHDOG LEGEND row directly after CVCC row in section {section_idx}"
             )
         assert prsmc_family_churn_idx == prsmc_family_trend_idx + 1, (
             "expected PRSMC FAMILY CHURN row directly after PRSMC FAMILY TREND row"
