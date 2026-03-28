@@ -1647,5 +1647,5 @@ See project-level plans:
 - Idea 3 (high-risk, novelty): Inject rotating narrative lexicon mutation for hint copy families with anti-staleness entropy budget. Scope=L, risk=high, rollback=quarantine behind offline shadow flag.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/World Team: Ship compact world-tone alias token `CBGCFXW:<S|J|B|N>` from `narrativeCurrent` (`steady|swing|spike|unknown`) while preserving `CBGCFXH:<W|T|P>` decode contract. *(lifecycle: [ ] -> [~] started: 2026-03-28 16:40 KST -> [x] completed: 2026-03-28 16:47 KST)*
-- [ ] Systems/QA Team: Add explicit adjacency/count regression lock for `CBGCFXW` + `CBGCFXW FAMILY CHURN` immediately before `CBGCI` in both digest sections.
-- [ ] AI Content/Design Team: Prototype optional `CBGCFXW LEGEND` copy row (payload/markdown) for compact decode readability under DOS-width constraints.
+- [x] Systems/QA Team: Add explicit adjacency/count regression lock for `CBGCFXW` + `CBGCFXW FAMILY CHURN` immediately before `CBGCI` in both digest sections. *(lifecycle: [ ] -> [~] started: 2026-03-28 17:30 KST -> [x] completed: 2026-03-28 17:35 KST)*
+- [x] AI Content/Design Team: Prototype optional `CBGCFXW LEGEND` copy row (payload/markdown) for compact decode readability under DOS-width constraints. *(lifecycle: [ ] -> [x] reconciled from POST_RC_BACKLOG: completed 2026-03-28 17:08 KST)*

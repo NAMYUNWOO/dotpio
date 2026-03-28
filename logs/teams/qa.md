@@ -3964,3 +3964,16 @@
 - Decision: Kept legend behind dedicated flag `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_LEGEND` and preserved existing digest ordering rails.
 - Evidence: updated weekly/regression scripts + runtime smoke (`weekly_portal_prompt_readability_drift.py`) + regression harness pass.
 - Follow-up: address remaining Systems/QA backlog item for explicit CBGCFXW adjacency lock checkbox reconciliation.
+
+
+## 2026-03-28 17:35 KST — Explicit CBGCFXW adjacency/count regression lock
+- Task: Replace magic `+ 4` offset with explicit per-row adjacency assertions for `CBGCFXW` + `CBGCFXW FAMILY CHURN` + `CBGCFXW LEGEND` → `CBGCI` in both `enumerate(zip(...))` loops of regression script.
+- Commit: HEAD (this run)
+- Files changed: `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+- Decisions:
+  - Added CBGCFXW index arrays to both zip() loops (compact-alias-enabled and else branches).
+  - Each loop now asserts: `CBGCFXH FAMILY CHURN +1 → CBGCFXW +1 → CBGCFXW FAMILY CHURN +1 → CBGCFXW LEGEND +1 → CBGCI`.
+  - No more implicit offset gaps — full adjacency chain is explicit and deterministic.
+- Follow-up: none; completes last unchecked Cycle GH backlog item.

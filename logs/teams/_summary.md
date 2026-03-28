@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 16:12 KST
+Last updated: 2026-03-28 17:35 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -3711,3 +3711,9 @@ Compact decision memory for AI context efficiency.
 - Extended token family registry to include `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneLegend` for coverage accounting.
 - Regression contract now tracks `CBGCFXW LEGEND` count + adjacency (`CBGCFXW` -> `CBGCFXW FAMILY CHURN` -> `CBGCFXW LEGEND` -> `CBGCI`) in both digest sections.
 - Verification: `python3 -m py_compile ...`, weekly script smoke pass, and full `scripts/regression_weekly_portal_prompt_readability_drift.py` pass.
+
+### 2026-03-28 17:35 KST — Explicit CBGCFXW adjacency/count regression lock
+- Replaced magic `+ 4` offset with explicit per-row adjacency assertions for `CBGCFXW` / `CBGCFXW FAMILY CHURN` / `CBGCFXW LEGEND` in both `enumerate(zip(...))` digest-section loops.
+- Durable decision: full CBGCFXH→CBGCFXW→CBGCFXW FAMILY CHURN→CBGCFXW LEGEND→CBGCI adjacency chain now has zero implicit gaps.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Status: completes last unchecked Cycle GH backlog item; ACTION_ITEMS + TASKS + POST_RC_BACKLOG now fully checked.
