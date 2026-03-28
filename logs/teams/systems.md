@@ -3380,3 +3380,15 @@
 - Added markdown rows in summary + token-coverage sections (`CBGC FX HINT`, `CBGC FX HINT FAMILY CHURN`) with deterministic cluster placement before `CBGCI`.
 
 - 2026-03-28 15:59 KST — Cycle GG follow-up queued: add deterministic `CBGCFXH` family-churn rail + adjacency lock beside `CBGC FX HINT` in summary/token-coverage sections.
+
+## 2026-03-28 16:12:00 KST
+- Task: Cycle GG Systems/QA follow-up — add deterministic `CBGCFXH` family-churn coverage + adjacency lock in weekly digest rails.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added `CBGCFXH FAMILY CHURN` rows in both summary and token-coverage sections using `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias` family totals.
+  - Expanded regression contracts to require exactly two `CBGCFXH FAMILY CHURN` rows and enforce adjacency `CBGCFXH -> CBGCFXH FAMILY CHURN -> CBGCI` in both sections.
+- Follow-up:
+  - Next unchecked queue item: Design/World world-tone variant pack for `CBGC FX HINT` while preserving compact alias decode.

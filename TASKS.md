@@ -1638,5 +1638,5 @@ See project-level plans:
 - Idea 3 (high risk, Design/World): Prototype offline world-tone variant pack for `CBGC FX HINT` (`watch|tune|push` flavored by cadence posture) while preserving compact alias decode. Fantasy: richer thematic coaching without widening rails. Metric: operator action-latency in manual review notes. Scope: M. Rollback: revert to current static hint map. Pass/Fail: pass if reviewers prefer variant copy in 3 spot checks and width/regression budgets remain stable.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Combat Team: Add compact microcopy hint alias token (`CBGCFXH:<W|T|P>`) behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_HINT_ALIAS` with payload/markdown wiring. *(lifecycle: [ ] -> [~] started: 2026-03-28 15:52 KST -> [x] completed: 2026-03-28 15:59 KST)*
-- [ ] Systems/QA Team: Add deterministic family-churn coverage + adjacency lock for `CBGCFXH:` in summary/token-coverage sections.
+- [x] Systems/QA Team: Add deterministic family-churn coverage + adjacency lock for `CBGCFXH:` in summary/token-coverage sections. *(lifecycle: [ ] -> [~] started: 2026-03-28 16:05 KST -> [x] completed: 2026-03-28 16:12 KST)*
 - [ ] Design/World Team: Prototype offline visual-language variant pack for `CBGC FX HINT` (watch/tune/push world-tone swap) while preserving compact alias decode.

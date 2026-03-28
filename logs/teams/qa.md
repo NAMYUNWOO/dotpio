@@ -3932,3 +3932,15 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 
 - 2026-03-28 15:59 KST — Cycle GG regression scope expanded: payload/schema + markdown coverage now includes `CBGCFXH` alias and signal contract; adjacency hard-lock remains queued as dedicated systems/qa follow-up.
+
+## 2026-03-28 16:12:00 KST
+- Task: Verify `CBGCFXH` family-churn + adjacency contract expansion.
+- Commit: HEAD (this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+- Decisions:
+  - Locked deterministic row-count contract for new `CBGCFXH FAMILY CHURN` rows (summary + token-coverage).
+  - Locked adjacency chain for microcopy hint cluster: `CBGC FX HINT -> CBGC FX HINT FAMILY CHURN -> CBGCFXH -> CBGCFXH FAMILY CHURN -> CBGCI`.
+- Follow-up:
+  - Validate forthcoming Design/World `CBGC FX HINT` world-tone variant pack keeps alias/ordering contracts stable.

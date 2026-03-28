@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 15:59 KST
+Last updated: 2026-03-28 16:12 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle GG Systems/QA follow-up: weekly digest now emits `CBGCFXH FAMILY CHURN` in both summary and token-coverage sections, sourced from `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias` family totals.
+- Regression contracts now require exactly two `CBGCFXH FAMILY CHURN` rows and lock adjacency `CBGC FX HINT -> CBGC FX HINT FAMILY CHURN -> CBGCFXH -> CBGCFXH FAMILY CHURN -> CBGCI` across both sections.
+- TASKS synchronized to done with lifecycle timestamps; next remaining unchecked queue item is Design/World world-tone variant pack for `CBGC FX HINT`.
 
 - Closed Cycle GG selected experiment (Combat/VFX): weekly digest now emits compact microcopy hint alias `CBGCFXH:<W|T|P>` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_HINT_ALIAS`, mapped from aggressiveness mode for dense scan readability.
 - Payload contract expanded with `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias` + signals (`flagName`, `flagEnabled`, `aggressivenessMode`, `alias`, `aliasToken`, `sourceToken`) and markdown now includes `CBGCFXH` rows in summary + token-coverage sections.
