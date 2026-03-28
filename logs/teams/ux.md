@@ -2544,3 +2544,7 @@
 ## 2026-03-28 22:07 KST — Cycle GO UX/readability
 - Payload now exposes `CVARC` shorthand alongside `COHERENCE ARC` for compact HUD/log surfaces without expanding markdown rails.
 - No UI copy regressions observed in weekly digest output generation.
+
+## 2026-03-28 22:36 KST — UX signal decoding update
+- ARC signal now includes `arcSource` provenance (`fresh|stale`) so operators can quickly distinguish guarded vs live SWAY.
+- Regression now enforces stale windows as `LOCK` to prevent misleading UI interpretation.

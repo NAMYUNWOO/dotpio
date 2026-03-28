@@ -2277,3 +2277,8 @@
 ## 2026-03-28 22:07 KST — Cycle GO context
 - No world-layout changes; consumed new `COHERENCE ARC` compact alias (`CVARC`) for future world-tone postmortem overlays.
 - Follow-up: design/world microline pair for LOCK/SWAY coaching copy remains queued.
+
+## 2026-03-28 22:36 KST — World lane handoff note
+- Consumed new ARC provenance signal (`arcSource:fresh|stale`) for postmortem world-tone interpretation.
+- Readability impact: snapshot-gap windows now retain `COHERENCE ARC:LOCK` guard instead of transient SWAY flips.
+- Next world/design task remains LOCK/SWAY coaching microline pair.

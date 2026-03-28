@@ -2279,3 +2279,7 @@
 ## 2026-03-28 22:07 KST — Cycle GO completion
 - Shipped compact combat-facing alias `CVARC:<L|S>` (flag-gated) as payload-only mirror for `COHERENCE ARC:LOCK|SWAY`.
 - Kept markdown row order unchanged per task constraint; alias is payload-only for overlay consumers.
+
+## 2026-03-28 22:36 KST — Combat digest stability note
+- ARC provenance guard is payload-only; no runtime combat logic changed.
+- Dense overlay consumers can now gate SWAY interpretation on `arcSource=fresh`.

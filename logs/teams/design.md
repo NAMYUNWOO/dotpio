@@ -2354,3 +2354,7 @@
 ## 2026-03-28 22:07 KST — Cycle GO design note
 - Added compact arc state channel (`CVARC`) for denser digest readability while preserving `COHERENCE ARC` narrative cue.
 - Follow-up: craft LOCK/SWAY coaching microline pair for A/B readability pass.
+
+## 2026-03-28 22:36 KST — Design readability note
+- Added deterministic stale-window behavior for `COHERENCE ARC` signals to reduce false narrative churn after snapshot gaps.
+- Keeps LOCK/SWAY semantics trustworthy before upcoming coaching microline A/B.

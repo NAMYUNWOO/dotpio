@@ -4034,3 +4034,8 @@
 - Passed `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Passed smoke run `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Validated payload keys/signals for `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcAlias*`.
+
+## 2026-03-28 22:36 KST — QA verification (stale-prior ARC guard)
+- Passed `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Passed `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Confirmed ARC signals include `arcSource` and stale-mode lock assertion (`arc=LOCK`, reason=`stale-prior-guard-lock`).

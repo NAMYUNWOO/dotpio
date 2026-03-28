@@ -3791,3 +3791,9 @@ Compact decision memory for AI context efficiency.
 - Preserved markdown ordering (no new digest rows) to honor no-row-order-churn requirement.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Next highest-priority unchecked item: Systems/Ops stale-prior guard (`arcSource:fresh|stale`) for ARC signal stability after snapshot gaps.
+
+### 2026-03-28 22:36 KST — Systems/Ops stale-prior ARC guard complete
+- Completed highest-priority unchecked TASKS item: added `arcSource:fresh|stale` to `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcSignals`.
+- Durable decision: ARC transitions are now provenance-aware; when prior snapshots are missing/stale, ARC is guard-locked (`LOCK`) with reason `stale-prior-guard-lock` to avoid false SWAY flips.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `[PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Next highest-priority unchecked item: Design/World payload-only LOCK/SWAY coaching microline pair.

@@ -2857,6 +2857,7 @@ def main() -> int:
             "status",
             "driftStreak",
             "momentum",
+            "arcSource",
             "arc",
             "token",
             "reason",
@@ -2865,7 +2866,11 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcSignals", {}).get("status") in {"OK", "DRIFT"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcSignals", {}).get("driftStreak") in {0, 1, 2}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcSignals", {}).get("momentum") in {"STABLE", "WOBBLE"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcSignals", {}).get("arcSource") in {"fresh", "stale"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcSignals", {}).get("arc") in {"LOCK", "SWAY"}, payload
+        if payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcSignals", {}).get("arcSource") == "stale":
+            assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcSignals", {}).get("arc") == "LOCK", payload
+            assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcSignals", {}).get("reason") == "stale-prior-guard-lock", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcSignals", {}).get("token", "").startswith("COHERENCE ARC:"), payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcSignals", {}).get("offlineOnly") is True, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcAlias", "").startswith(("FLAG OFF", "CVARC:")), payload

@@ -2349,3 +2349,7 @@
 ## 2026-03-28 22:07 KST — Cycle GO signal readability pass
 - Confirmed `COHERENCE ARC` narrative token now has compact mirror `CVARC:<L|S>` to reduce parser branching in dense digest consumers.
 - Follow-up: evaluate copy microline payload-only variants after systems stale-prior guard lands.
+
+## 2026-03-28 22:36 KST — AI-content contract sync
+- Updated payload contract expectations for ARC signals to include provenance key `arcSource`.
+- Guard behavior documented in regression: stale priors must emit `arc=LOCK` + reason `stale-prior-guard-lock`.

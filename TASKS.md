@@ -1676,5 +1676,5 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — 2026-03-28 Cycle GO)
 - [x] Combat/VFX Team: Prototype compact ARC alias (`CVARC:<L|S>`) for dense combat digest overlays with no row-order churn. *(lifecycle: [ ] -> [~] started: 2026-03-28 22:02 KST -> [x] completed: 2026-03-28 22:07 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
-- [ ] Systems/Ops Team: Add offline stale-prior guard (`arcSource:fresh|stale`) to ARC signals to prevent false SWAY flips after snapshot gaps.
+- [x] Systems/Ops Team: Add offline stale-prior guard (`arcSource:fresh|stale`) to ARC signals to prevent false SWAY flips after snapshot gaps. *(lifecycle: [ ] -> [~] started: 2026-03-28 22:33 KST -> [x] completed: 2026-03-28 22:36 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
 - [ ] Design/World Team: Draft copy microline pair for LOCK/SWAY coaching text (payload-only) for future readability A/B.

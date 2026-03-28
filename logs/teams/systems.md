@@ -3481,3 +3481,15 @@
 ## 2026-03-28 22:07 KST — Cycle GO follow-through (CVARC payload alias)
 - Synced payload contract additions for `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcAlias*` in weekly drift digest.
 - Follow-up: implement stale-prior `arcSource:fresh|stale` guard (Next Up #2).
+
+## 2026-03-28 22:36 KST — Systems/Ops stale-prior ARC guard shipped
+- Task: Add `arcSource:fresh|stale` guard to coherence ARC signal computation to suppress false SWAY flips after snapshot gaps.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Decisions:
+  - ARC now emits `arcSource` based on both coherence/momentum prior availability (`fresh` only when both priors loaded).
+  - When `arcSource=stale`, ARC is pinned to `LOCK` with reason `stale-prior-guard-lock`.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+- Follow-up:
+  - Next highest-priority unchecked item: Design/World LOCK/SWAY payload microline pair.

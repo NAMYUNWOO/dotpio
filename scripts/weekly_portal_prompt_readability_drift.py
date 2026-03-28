@@ -1758,10 +1758,15 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     status = str(coherence_signals.get("status", "OK") or "OK").strip().upper()
     drift_streak = int(coherence_signals.get("driftStreak", 0) or 0)
     momentum = str(coherence_momentum_signals.get("momentum", "STABLE") or "STABLE").strip().upper()
+    coherence_prior_loaded = bool(coherence_signals.get("priorLoaded", False))
+    momentum_prior_loaded = bool(coherence_momentum_signals.get("priorLoaded", False))
+    arc_source = "fresh" if coherence_prior_loaded and momentum_prior_loaded else "stale"
 
     arc = "LOCK"
     reason = "coherent-and-stable"
-    if status == "DRIFT" or momentum == "WOBBLE" or drift_streak >= 1:
+    if arc_source == "stale":
+        reason = "stale-prior-guard-lock"
+    elif status == "DRIFT" or momentum == "WOBBLE" or drift_streak >= 1:
         arc = "SWAY"
         reason = "drift-or-wobble-detected"
 
@@ -1772,6 +1777,7 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         "status": status,
         "driftStreak": drift_streak,
         "momentum": momentum,
+        "arcSource": arc_source,
         "arc": arc,
         "token": token,
         "reason": reason,
