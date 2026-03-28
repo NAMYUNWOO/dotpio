@@ -3299,3 +3299,8 @@
 ## 2026-03-28 09:49 KST — Cycle GB systems/ops follow-up queue
 - Injected Systems/QA task to hard-lock payload schema/domain for `cadenceBridgeGlyphConfidenceFxPulse` and `...FxPulseSignals`.
 - Intent: keep downstream automation deterministic before any markdown-surface expansion.
+## 2026-03-28 10:02 KST — Cycle GA Systems/QA follow-up completed (intent-cue payload contract)
+- Extended deterministic regression payload contract for `cadenceBridgeGlyphConfidenceNarrativeIntentCue` and `cadenceBridgeGlyphConfidenceNarrativeSignals.intentCueMap`.
+- Added domain assertions for cue map keys (`steady|swing|spike|unknown`) and values (`H|P|T|U`), plus coherence checks tying `current`, `intentCue`, and top-level cue field.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Next highest-priority unchecked item: Design/World tone-pack variant for `CBGC LEGEND` intent microcopy.

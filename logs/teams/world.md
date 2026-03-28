@@ -2165,3 +2165,8 @@
 - 2026-03-28 09:42 KST — Noted next-world pass: evaluate alternative intent verbs (anchor/brace/stabilize) against DOS compactness for cadence-bridge legend narrative.
 ## 2026-03-28 09:49 KST — Cycle GB world note
 - World lane queued for next iteration via alternate intent-verb tone pack trial tied to cadence-pressure transitions.
+## 2026-03-28 10:02 KST — Cross-lane sync (Cycle GA payload contract lock)
+- Synced Systems/QA completion: regression now hard-locks `cadenceBridgeGlyphConfidenceNarrativeIntentCue` and `intentCueMap` schema/domain coherence.
+- Impact: downstream lane tooling can rely on deterministic `steady|swing|spike|unknown -> H|P|T|U` intent cue mapping.
+- Verification reference: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up remains: Design/World alternate tone-pack microcopy prototype under DOS width constraints.

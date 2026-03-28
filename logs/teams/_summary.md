@@ -3609,3 +3609,8 @@ Compact decision memory for AI context efficiency.
 - Shipped minimal slice: weekly digest payload now emits `cadenceBridgeGlyphConfidenceFxPulse` + signals (deterministic cue map `H->SOFT`, `P/U->EDGE`, `T->HARD`, offline-only).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` PASS.
 - Backlog injected: (1) Systems/QA schema/domain lock for `cadenceBridgeGlyphConfidenceFxPulse*`, (2) Design/World tone-pack variant trial preserving DOS width.
+## 2026-03-28 10:02 KST — Cycle GA follow-up shipped (intent-cue payload contract lock)
+- Completed Systems/QA backlog item by extending weekly digest regression contract for `cadenceBridgeGlyphConfidenceNarrativeIntentCue` and nested `intentCueMap`.
+- Durable decision: treat cue-map domain (`steady|swing|spike|unknown -> H|P|T|U`) as immutable schema contract with coherence checks between `current`, `intentCue`, and top-level cue field.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Queue head now points to Design/World tone-pack variant and subsequent Systems/QA lock for `cadenceBridgeGlyphConfidenceFxPulse*`.

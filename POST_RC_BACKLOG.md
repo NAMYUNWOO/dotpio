@@ -1340,7 +1340,7 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, Design/World novelty): Add adaptive intent verb swap (`hold|brace|stabilize`) based on cadence-bridge pressure transitions.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/AI Content Team (Cycle GA experiment): Add `cue=H|P|T|U` metadata to `CBGC LEGEND` rows (summary + token-coverage) and persist `cadenceBridgeGlyphConfidenceNarrativeIntentCue` in payload/signals.
-- [ ] Systems/QA Team (Cycle GA follow-up): Extend deterministic regression payload contract for `cadenceBridgeGlyphConfidenceNarrativeIntentCue` + `intentCueMap` keys/value domain.
+- [x] Systems/QA Team (Cycle GA follow-up): Extend deterministic regression payload contract for `cadenceBridgeGlyphConfidenceNarrativeIntentCue` + `intentCueMap` keys/value domain. *(lifecycle: [~] started: 2026-03-28 10:00 KST -> [x] completed: 2026-03-28 10:02 KST)*
 - [ ] Design/World Team (Cycle GA follow-up): Prototype alternate action-verb tone pack for `CBGC LEGEND` intent microcopy (`steady:hold|anchor`, `swing:prep|brace`, `spike:triage|stabilize`) while preserving DOS width.
 
 ## Cycle GB - Game Director Review (2026-03-28 09:49 KST)

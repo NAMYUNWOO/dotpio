@@ -2580,6 +2580,14 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceNarrative") in {"steady", "swing", "spike", "unknown"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentCue") in {"H", "P", "T", "U"}, payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).keys()) == {"map", "current", "confidence", "intentCueMap", "intentCue", "flagName", "flagEnabled"}, payload
+        intent_cue_map = payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("intentCueMap")
+        assert isinstance(intent_cue_map, dict), payload
+        assert set(intent_cue_map.keys()) == {"steady", "swing", "spike", "unknown"}, payload
+        assert set(intent_cue_map.values()) == {"H", "P", "T", "U"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("intentCue") == payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentCue"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current") in {"steady", "swing", "spike", "unknown"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current") in intent_cue_map, payload
+        assert intent_cue_map[payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current")] == payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentCue"), payload
         assert set(payload.get("combatVfxCadenceCoachWhyHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",

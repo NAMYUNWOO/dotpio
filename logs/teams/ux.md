@@ -2433,3 +2433,8 @@
 - 2026-03-28 09:42 KST — Implemented one-character intent cue (`cue=H|P|T|U`) in `CBGC LEGEND` rows to reduce scan latency under compact terminal width.
 ## 2026-03-28 09:49 KST — Cycle GB ux note
 - Kept UX surface unchanged this slice (payload-only) to avoid disrupting locked confidence-cluster markdown adjacency contracts.
+## 2026-03-28 10:02 KST — Cross-lane sync (Cycle GA payload contract lock)
+- Synced Systems/QA completion: regression now hard-locks `cadenceBridgeGlyphConfidenceNarrativeIntentCue` and `intentCueMap` schema/domain coherence.
+- Impact: downstream lane tooling can rely on deterministic `steady|swing|spike|unknown -> H|P|T|U` intent cue mapping.
+- Verification reference: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up remains: Design/World alternate tone-pack microcopy prototype under DOS width constraints.

@@ -2151,3 +2151,8 @@
 ## 2026-03-28 09:49 KST — Cycle GB combat note
 - Confirmed new `CBGC FX PULSE` payload signal preserves combat/vfx triage continuity without changing runtime combat mechanics.
 - Mapping remains metadata-only and deterministic from confidence intent cues.
+## 2026-03-28 10:02 KST — Cross-lane sync (Cycle GA payload contract lock)
+- Synced Systems/QA completion: regression now hard-locks `cadenceBridgeGlyphConfidenceNarrativeIntentCue` and `intentCueMap` schema/domain coherence.
+- Impact: downstream lane tooling can rely on deterministic `steady|swing|spike|unknown -> H|P|T|U` intent cue mapping.
+- Verification reference: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up remains: Design/World alternate tone-pack microcopy prototype under DOS width constraints.
