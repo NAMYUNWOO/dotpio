@@ -3930,3 +3930,5 @@
   - enforced adjacency: `CBGCFXA FAMILY CHURN -> CBGC FX HINT -> CBGC FX HINT FAMILY CHURN -> CBGCI`
 - Verification:
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+- 2026-03-28 15:59 KST — Cycle GG regression scope expanded: payload/schema + markdown coverage now includes `CBGCFXH` alias and signal contract; adjacency hard-lock remains queued as dedicated systems/qa follow-up.

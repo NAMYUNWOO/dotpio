@@ -2219,3 +2219,5 @@
 - Outcome: `CBGC FX HINT` now mirrors the current aggressiveness posture (`CAUTIOUS|BASELINE|AGGRESSIVE`) while preserving stable pulse output (`SOFT|EDGE|HARD`).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decision: Keep hint offline-only and reversible via dedicated flag `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_HINT`.
+
+- 2026-03-28 15:59 KST — Cycle GG selected slice shipped: compact microcopy hint alias `CBGCFXH:<W|T|P>` now mirrors `CBGC FX HINT` for dense combat triage scans; mapping follows aggressiveness mode (`CAUTIOUS->W`, `BASELINE->T`, `AGGRESSIVE->P`).

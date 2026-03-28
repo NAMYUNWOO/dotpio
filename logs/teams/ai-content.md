@@ -2288,3 +2288,5 @@
 - Added token-family coverage mapping for `cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias` (`CBGCFXA:`) and mirrored rows in summary + token-coverage sections.
 - Hardened regression contracts to require exactly two `CBGCFXA`/`CBGCFXA FAMILY CHURN` rows and enforce ordering across both sections.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py`.
+
+- 2026-03-28 15:59 KST — Cycle GG idea slate retained high-risk adaptive verb-pack concept, but cadence requirement routed open follow-up to design/world this cycle.

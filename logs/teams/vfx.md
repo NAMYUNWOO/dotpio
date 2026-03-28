@@ -337,3 +337,5 @@
 - Generated 3 ideas (low-risk alias, mid-risk markdown churn rail, high-risk adaptive aggressiveness learning) and selected the low-risk vertical slice for immediate integration.
 - Shipped payload-only compact alias `cadenceBridgeGlyphConfidenceFxPulseRegimeAlias` (`CBGCFXR:<C|S|P>`) with deterministic signals (`volatilityRegime`, `alias`, `aliasToken`, flag state).
 - Injected next backlog tasks: (1) Systems/QA markdown family churn + adjacency rail for `CBGCFXR`, (2) Combat/VFX adaptive remap-aggressiveness prototype from cue↔pulse disagreement streak memory.
+
+- 2026-03-28 15:59 KST — Cycle GG combat/vfx readability pass: weekly digest now emits compact FX-hint alias `CBGCFXH` so FX posture (`watch/tune/push`) is legible in one token under DOS-width pressure.

@@ -3378,3 +3378,5 @@
   - `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals`
 - Added token-family coverage key `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintAlias` (`CBGC FX HINT:`).
 - Added markdown rows in summary + token-coverage sections (`CBGC FX HINT`, `CBGC FX HINT FAMILY CHURN`) with deterministic cluster placement before `CBGCI`.
+
+- 2026-03-28 15:59 KST — Cycle GG follow-up queued: add deterministic `CBGCFXH` family-churn rail + adjacency lock beside `CBGC FX HINT` in summary/token-coverage sections.

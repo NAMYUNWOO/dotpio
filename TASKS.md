@@ -1628,3 +1628,15 @@ See project-level plans:
 - [x] UX/Combat Team (Cycle GF experiment): Ship payload-only compact adaptive remap alias `cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias` (`CBGCFXA:<C|B|A>`) + signals. *(lifecycle: [~] started: 2026-03-28 14:37 KST -> [x] completed: 2026-03-28 14:44 KST)*
 - [x] Systems/QA Team (Cycle GF follow-up): Add markdown/token-coverage `CBGCFXA` rail + ordering regression lock adjacent to `CBGCFXR` cluster. *(lifecycle: [ ] -> [~] started: 2026-03-28 15:07 KST -> [x] completed: 2026-03-28 15:15 KST)*
 - [x] Design/Combat Team (Cycle GF follow-up): Prototype offline `CBGC FX PULSE` microcopy hint derived from `aggressivenessMode` for human-readable triage context. *(lifecycle: [~] -> [x]; completed: 2026-03-28 15:40 KST)*
+
+### Game Director Cycle GG (2026-03-28 15:55 KST)
+- Coverage check (last 10 completed, primary-lane tags): ux=4, systems=3, combat=2, design=1, world=0, ai-content=0, vfx=0, qa=0.
+- Lane cap rule: no lane exceeded 40% (ux=40%), so cap-forced reroute was not required this cycle.
+- 24h cadence gate: combat/vfx satisfied by selected UX/Combat slice; systems/ops and design/world are explicitly queued as follow-ups to keep lane minimums intact.
+- Idea 1 (low risk, UX/Combat): Add compact microcopy hint alias (`CBGCFXH:<W|T|P>`) derived from `CBGC FX HINT` for dense digest scans. Fantasy: one-glance combat FX posture read under DOS width pressure. Metric: hint decode hops/review. Scope: S. Rollback: remove alias row+payload keys. Pass/Fail: pass if summary/token-coverage both emit deterministic `CBGCFXH` and regressions stay green.
+- Idea 2 (mid risk, Systems/QA): Add token-family churn/ordering rail for `CBGCFXH:` next to `CBGC FX HINT` rows. Fantasy: drift triage with fewer row-hunt errors. Metric: ordering regression incidents/week. Scope: S/M. Rollback: keep payload-only alias. Pass/Fail: pass if deterministic adjacency + churn rows are locked.
+- Idea 3 (high risk, Design/World): Prototype offline world-tone variant pack for `CBGC FX HINT` (`watch|tune|push` flavored by cadence posture) while preserving compact alias decode. Fantasy: richer thematic coaching without widening rails. Metric: operator action-latency in manual review notes. Scope: M. Rollback: revert to current static hint map. Pass/Fail: pass if reviewers prefer variant copy in 3 spot checks and width/regression budgets remain stable.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/Combat Team: Add compact microcopy hint alias token (`CBGCFXH:<W|T|P>`) behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_HINT_ALIAS` with payload/markdown wiring. *(lifecycle: [ ] -> [~] started: 2026-03-28 15:52 KST -> [x] completed: 2026-03-28 15:59 KST)*
+- [ ] Systems/QA Team: Add deterministic family-churn coverage + adjacency lock for `CBGCFXH:` in summary/token-coverage sections.
+- [ ] Design/World Team: Prototype offline visual-language variant pack for `CBGC FX HINT` (watch/tune/push world-tone swap) while preserving compact alias decode.

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 14:44 KST
+Last updated: 2026-03-28 15:59 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle GG selected experiment (Combat/VFX): weekly digest now emits compact microcopy hint alias `CBGCFXH:<W|T|P>` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_HINT_ALIAS`, mapped from aggressiveness mode for dense scan readability.
+- Payload contract expanded with `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias` + signals (`flagName`, `flagEnabled`, `aggressivenessMode`, `alias`, `aliasToken`, `sourceToken`) and markdown now includes `CBGCFXH` rows in summary + token-coverage sections.
+- Injected next backlog tasks (unchecked): Systems/QA `CBGCFXH` family-churn adjacency lock rail, Design/World world-tone variant pack for `CBGC FX HINT` while preserving compact alias decode.
 
 - Executed Game Director Cycle GF after all tracked queues were fully checked; generated 3 ideas and shipped selected low-risk UX/Combat vertical slice.
 - Added compact payload alias `cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias` (`CBGCFXA:<C|B|A>`) + signals for adaptive remap posture decoding without expanding markdown rail density.
