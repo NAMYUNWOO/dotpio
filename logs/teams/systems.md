@@ -3406,3 +3406,9 @@
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Backlog injected (unchecked): (1) Systems/QA strict adjacency/count lock for `CBGCFXW` rows, (2) AI Content/Design optional `CBGCFXW LEGEND` readability row.
 
+
+## 2026-03-28 17:08 KST — CBGCFXW LEGEND vertical slice
+- Task: Add optional `CBGCFXW LEGEND` payload/markdown row to improve compact world-tone alias decode readability.
+- Decision: Kept legend behind dedicated flag `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_LEGEND` and preserved existing digest ordering rails.
+- Evidence: updated weekly/regression scripts + runtime smoke (`weekly_portal_prompt_readability_drift.py`) + regression harness pass.
+- Follow-up: address remaining Systems/QA backlog item for explicit CBGCFXW adjacency lock checkbox reconciliation.

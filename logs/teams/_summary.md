@@ -3705,3 +3705,9 @@ Compact decision memory for AI context efficiency.
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Backlog injected (unchecked): (1) Systems/QA strict adjacency/count lock for `CBGCFXW` rows, (2) AI Content/Design optional `CBGCFXW LEGEND` readability row.
 
+
+### 2026-03-28 17:08 KST — CBGCFXW LEGEND slice shipped
+- Added optional `CBGCFXW LEGEND` token/row path (payload + summary + token-coverage markdown) under `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_LEGEND`.
+- Extended token family registry to include `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneLegend` for coverage accounting.
+- Regression contract now tracks `CBGCFXW LEGEND` count + adjacency (`CBGCFXW` -> `CBGCFXW FAMILY CHURN` -> `CBGCFXW LEGEND` -> `CBGCI`) in both digest sections.
+- Verification: `python3 -m py_compile ...`, weekly script smoke pass, and full `scripts/regression_weekly_portal_prompt_readability_drift.py` pass.

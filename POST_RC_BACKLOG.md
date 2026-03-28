@@ -1403,4 +1403,4 @@ Last updated: 2026-03-21 02:31 KST
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/World Team: Ship compact world-tone alias token `CBGCFXW:<S|J|B|N>` from `narrativeCurrent` (`steady|swing|spike|unknown`) while preserving `CBGCFXH:<W|T|P>` decode contract. *(lifecycle: [ ] -> [~] started: 2026-03-28 16:40 KST -> [x] completed: 2026-03-28 16:47 KST)*
 - [ ] Systems/QA Team: Add explicit adjacency/count regression lock for `CBGCFXW` + `CBGCFXW FAMILY CHURN` immediately before `CBGCI` in both digest sections.
-- [ ] AI Content/Design Team: Prototype optional `CBGCFXW LEGEND` copy row (payload/markdown) for compact decode readability under DOS-width constraints.
+- [x] AI Content/Design Team: Prototype optional `CBGCFXW LEGEND` copy row (payload/markdown) for compact decode readability under DOS-width constraints. *(lifecycle: [ ] -> [~] started: 2026-03-28 16:59 KST -> [x] completed: 2026-03-28 17:08 KST)*
