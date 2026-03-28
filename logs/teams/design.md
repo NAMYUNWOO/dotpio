@@ -2340,3 +2340,7 @@
 - 2026-03-28 20:05 KST — Cycle GK UX/Design slice shipped: added compact coherence legend row `CBGCFXWC LEGEND:O=OK,D=DRIFT` in weekly digest summary + token-coverage, behind alias flag semantics (`FLAG OFF` when disabled).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS; ordering contract now enforces `CBGCFXW COHERENCE -> CBGCFXWC -> CBGCFXWC LEGEND -> CBGCFXWC FAMILY CHURN -> CBGCFXW DRIFT`.
 - Next: AI Content/Combat follow-up `CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE` from coherence streak deltas.
+
+- 2026-03-28 20:35 KST — Cycle GK AI Content/Combat follow-up completed: added offline `CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE` token from coherence streak deltas (new payload keys + summary/token-coverage rows) and updated ordering/schema regression contract.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
+- Follow-up: queue optional family-churn rail for `CBGCFXW COHERENCE MOMENTUM:` if drift triage noise grows.

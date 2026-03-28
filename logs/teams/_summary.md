@@ -3757,3 +3757,9 @@ Compact decision memory for AI context efficiency.
 - Updated regression contract to require deterministic order: `CBGCFXW LEGEND -> CBGCFXW COHERENCE -> CBGCFXWC -> CBGCFXWC LEGEND -> CBGCFXWC FAMILY CHURN -> CBGCFXW DRIFT`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Next priority remains Cycle GK AI Content/Combat: `CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE`.
+
+### 2026-03-28 20:35 KST — Cycle GK closed (`CBGCFXW COHERENCE MOMENTUM`)
+- Completed remaining unchecked POST_RC item by shipping offline coherence momentum token `CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE` from coherence streak deltas (`driftStreakDelta`) behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_MOMENTUM`.
+- Wired payload + digest markdown in both summary/token-coverage sections; ordering contract now enforces `CBGCFXW COHERENCE -> CBGCFXW COHERENCE MOMENTUM -> CBGCFXWC -> CBGCFXWC LEGEND -> CBGCFXWC FAMILY CHURN -> CBGCFXW DRIFT`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
+- Next priority: all ACTION_ITEMS/TASKS/POST_RC entries are checked; run next Game Director review cycle (3 ideas -> select 1 -> minimal vertical slice).

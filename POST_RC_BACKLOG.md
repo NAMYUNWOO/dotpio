@@ -1425,4 +1425,4 @@ Last updated: 2026-03-21 02:31 KST
 ## Next Up (Game Director Injection — 2026-03-28 Cycle GK)
 - [x] Systems/QA Team: Add optional token-family churn rail for `CBGCFXWC:` in summary/token-coverage with strict adjacency contract near `CBGCFXW COHERENCE`.
 - [x] UX/Design Team: Prototype compact coherence legend row (`CBGCFXWC LEGEND:O=OK,D=DRIFT`) behind flag for dense operator decode.
-- [ ] AI Content/Combat Team: Prototype offline coherence momentum token (`CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE`) from coherence streak deltas.
+- [x] AI Content/Combat Team: Prototype offline coherence momentum token (`CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE`) from coherence streak deltas. *(lifecycle: [ ] -> [~] started: 2026-03-28 20:29 KST -> [x] completed: 2026-03-28 20:35 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*

@@ -153,6 +153,7 @@ TOKEN_ALIAS_FAMILIES = {
     "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneLegend": ["CBGCFXW LEGEND:"],
     "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneDrift": ["CBGCFXW DRIFT:"],
     "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherence": ["CBGCFXW COHERENCE:"],
+    "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherenceMomentum": ["CBGCFXW COHERENCE MOMENTUM:"],
     "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherenceAlias": ["CBGCFXWC:"],
 }
 ROUTE_VIBE_PATTERNS = {
@@ -1662,6 +1663,53 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         "priorStatus": prior_status,
         "priorLoaded": prior_loaded,
         "driftStreak": drift_streak,
+        "token": token,
+        "offlineOnly": True,
+    }
+
+
+def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum(
+    *,
+    coherence_signals: dict[str, object],
+    prior_json_path: Path,
+) -> tuple[str, dict[str, object]]:
+    """Offline coherence-momentum token from coherence streak deltas."""
+    flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_MOMENTUM"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    current_status = str(coherence_signals.get("status", "OK") or "OK").strip().upper()
+    current_drift_streak = int(coherence_signals.get("driftStreak", 0) or 0)
+
+    prior_loaded = False
+    prior_status = "OK"
+    prior_drift_streak = 0
+    if prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_signals = prior_payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {})
+            if isinstance(prior_signals, dict):
+                prior_status = str(prior_signals.get("status", "OK") or "OK").strip().upper()
+                prior_drift_streak = int(prior_signals.get("driftStreak", 0) or 0)
+                prior_loaded = True
+        except (json.JSONDecodeError, OSError, ValueError, TypeError):
+            prior_status = "OK"
+            prior_drift_streak = 0
+
+    drift_streak_delta = current_drift_streak - prior_drift_streak
+    momentum = "STABLE" if (not prior_loaded or drift_streak_delta == 0) else "WOBBLE"
+    token = f"CBGCFXW COHERENCE MOMENTUM:{momentum}"
+
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "momentum": momentum,
+        "currentStatus": current_status,
+        "priorStatus": prior_status,
+        "currentDriftStreak": current_drift_streak,
+        "priorDriftStreak": prior_drift_streak,
+        "driftStreakDelta": drift_streak_delta,
+        "priorLoaded": prior_loaded,
         "token": token,
         "offlineOnly": True,
     }
@@ -9696,6 +9744,10 @@ def main() -> int:
         aggressiveness_alias_signals=cadence_bridge_glyph_confidence_fx_pulse_aggressiveness_alias_signals,
         prior_json_path=args.out_json,
     )
+    cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum(
+        coherence_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals,
+        prior_json_path=args.out_json,
+    )
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias(
         coherence_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals,
     )
@@ -11357,6 +11409,8 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDriftSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_drift_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherence": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceMomentum": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceMomentumSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,
@@ -12241,6 +12295,7 @@ def main() -> int:
         f"- CBGCFXW FAMILY CHURN: **net {token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['net']:+d}** (added={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['added']} removed={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['removed']} churn={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['churn']} coverage={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['coverage']})",
         f"- CBGCFXW LEGEND: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_legend}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_legend_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_legend_signals['flagEnabled']} active={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_legend_signals['activeAlias']} source={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_legend_signals['sourceToken']})",
         f"- CBGCFXW COHERENCE: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['flagEnabled']} narrative={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['narrativeCurrent']} aggressivenessMode={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['aggressivenessMode']} expectedMode={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['expectedAggressivenessMode']} status={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['status']} priorStatus={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['priorStatus']} driftStreak={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['driftStreak']})",
+        f"- CBGCFXW COHERENCE MOMENTUM: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals['flagEnabled']} momentum={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals['momentum']} currentStatus={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals['currentStatus']} priorStatus={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals['priorStatus']} driftDelta={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals['driftStreakDelta']})",
         f"- CBGCFXWC: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['flagEnabled']} status={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['status']} alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['alias']})",
         f"- CBGCFXWC LEGEND: **{'O=OK,D=DRIFT' if cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['flagEnabled'] else 'FLAG OFF'}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['flagEnabled']} decode=O:OK,D:DRIFT)",
         f"- CBGCFXWC FAMILY CHURN: **net {token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherenceAlias']['net']:+d}** (added={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherenceAlias']['added']} removed={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherenceAlias']['removed']} churn={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherenceAlias']['churn']} coverage={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherenceAlias']['coverage']})",
@@ -12504,6 +12559,7 @@ def main() -> int:
         f"- CBGCFXW FAMILY CHURN: +{token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['added']} / -{token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['removed']} / net {token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['net']} (churn={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['churn']} coverage={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['coverage']})",
         f"- CBGCFXW LEGEND: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_legend} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_legend_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_legend_signals['flagEnabled']}, active={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_legend_signals['activeAlias']}, source={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_legend_signals['sourceToken']})",
         f"- CBGCFXW COHERENCE: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['flagEnabled']}, narrative={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['narrativeCurrent']}, aggressivenessMode={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['aggressivenessMode']}, expectedMode={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['expectedAggressivenessMode']}, status={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['status']}, priorStatus={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['priorStatus']}, driftStreak={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals['driftStreak']})",
+        f"- CBGCFXW COHERENCE MOMENTUM: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals['flagEnabled']}, momentum={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals['momentum']}, currentStatus={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals['currentStatus']}, priorStatus={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals['priorStatus']}, driftDelta={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_momentum_signals['driftStreakDelta']})",
         f"- CBGCFXWC: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['flagEnabled']}, status={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['status']}, alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['alias']})",
         f"- CBGCFXWC LEGEND: {'O=OK,D=DRIFT' if cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['flagEnabled'] else 'FLAG OFF'} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals['flagEnabled']}, decode=O:OK,D:DRIFT)",
         f"- CBGCFXWC FAMILY CHURN: +{token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherenceAlias']['added']} / -{token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherenceAlias']['removed']} / net {token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherenceAlias']['net']} (churn={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherenceAlias']['churn']} coverage={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherenceAlias']['coverage']})",
