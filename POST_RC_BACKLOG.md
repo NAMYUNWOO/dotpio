@@ -1359,4 +1359,13 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, Combat/VFX novelty): Drive `CBGC FX PULSE` thresholds from confidence-volatility hysteresis and tone-pack state (rather than cue-only mapping) for richer postmortem feel arcs. Fantasy: more expressive pulse language. Metric: postmortem triage agreement rate. Scope: M. Risk: medium/high; rollback to static cue map.
 - [x] Design/World Team (Cycle GC experiment): Ship payload contract `cadenceBridgeGlyphConfidenceNarrativeIntentTonePack` + nested `intentTonePackMap`/`intentTonePack` signals while preserving fixed `CBGC LEGEND` markdown ordering. *(lifecycle: [ ] -> [~] started: 2026-03-28 11:00 KST -> [x] completed: 2026-03-28 11:01 KST)*
 - [x] Systems/QA Team (Cycle GC follow-up): Extend regression fixture/docs to include explicit key-order and value-domain lock for `intentTonePackMap` plus coherence check with `current` narrative. *(lifecycle: [ ] -> [~] started: 2026-03-28 11:29 KST -> [x] completed: 2026-03-28 11:30 KST)*
-- [ ] UX/Design Team (Cycle GC follow-up): Prototype compact alias candidate (`CBGCI`) for alternate tone-pack decode in token-coverage section without violating confidence-cluster ordering.
+- [x] UX/Design Team (Cycle GC follow-up): Prototype compact alias candidate (`CBGCI`) for alternate tone-pack decode in token-coverage section without violating confidence-cluster ordering. *(lifecycle: [ ] -> [~] started: 2026-03-28 11:53 KST -> [x] completed: 2026-03-28 11:58 KST)*
+
+### Game Director Cycle GD (2026-03-28 12:40 KST)
+- Idea 1 (low risk, UX/AI Content): Add active compact intent alias token (`CBGCIA:<H|P|T|U>`) in weekly digest payload/signals so downstream tooling can read currently selected tone-pack cue without parsing full legend rows.
+- Idea 2 (mid risk, Systems/QA): Add deterministic markdown rails for `CBGCIA` in summary/token-coverage with adjacency lock next to `CBGCI`.
+- Idea 3 (high risk, Combat/VFX): Map `CBGC FX PULSE` from `CBGCIA` + volatility-regime memory to enrich cue dynamics.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/AI Content Team (Cycle GD experiment): Ship payload-only active intent alias (`CBGCIA:<H|P|T|U>`) via `cadenceBridgeGlyphConfidenceNarrativeIntentTonePackActiveAlias` + signals with deterministic regression schema/domain/coherence checks. *(lifecycle: [ ] -> [~] started: 2026-03-28 12:33 KST -> [x] completed: 2026-03-28 12:40 KST)*
+- [ ] Systems/QA Team (Cycle GD follow-up): Add optional markdown/token-coverage family churn rail for `CBGCIA` when/if surfaced in digest rows.
+- [ ] Combat/VFX Team (Cycle GD follow-up): Prototype offline `CBGC FX PULSE` remap policy using `CBGCIA` + volatility-regime memory.

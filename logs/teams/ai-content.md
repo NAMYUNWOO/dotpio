@@ -2257,3 +2257,5 @@
 - Added coherence assertion so `cadenceBridgeGlyphConfidenceNarrativeSignals.current` deterministically selects matching `intentTonePack` value.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Next unchecked queue item: UX/Design compact alias candidate (`CBGCI`) in token-coverage section.
+- [2026-03-28 11:58 KST] Added compact alternate tone-pack decode rail (`CBGCI:HPTU`) to preserve intent readability under dense token-coverage scans.
+- 2026-03-28 12:40 KST — Cycle GD: added payload-only CBGCIA active intent alias contract (follow-up queue tracked in TASKS/POST_RC).

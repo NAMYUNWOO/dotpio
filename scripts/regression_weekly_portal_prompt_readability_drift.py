@@ -2580,6 +2580,21 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceNarrative") in {"steady", "swing", "spike", "unknown"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentCue") in {"H", "P", "T", "U"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePack") == "CBGC INTENT ALT PACK:hold|anchor/prep|brace/triage|stabilize", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackCompactAlias") in {"FLAG OFF", "CBGCI:HPTU"}, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackCompactAliasSignals", {}).keys()) == {"flagName", "flagEnabled", "alias", "aliasToken", "cue", "current"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackCompactAliasSignals", {}).get("alias") == "HPTU", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackCompactAliasSignals", {}).get("aliasToken") == "CBGCI:HPTU", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackCompactAliasSignals", {}).get("cue") in {"H", "P", "T", "U"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackCompactAliasSignals", {}).get("current") in {"steady", "swing", "spike", "unknown"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackActiveAlias") in {"FLAG OFF", "CBGCIA:H", "CBGCIA:P", "CBGCIA:T", "CBGCIA:U"}, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackActiveAliasSignals", {}).keys()) == {"flagName", "flagEnabled", "cue", "current", "aliasToken"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackActiveAliasSignals", {}).get("cue") in {"H", "P", "T", "U"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackActiveAliasSignals", {}).get("current") in {"steady", "swing", "spike", "unknown"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackActiveAliasSignals", {}).get("aliasToken") in {"FLAG OFF", "CBGCIA:H", "CBGCIA:P", "CBGCIA:T", "CBGCIA:U"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackLegendCompactAlias") in {"FLAG OFF", "CBGCIL:HPTU"}, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackLegendCompactAliasSignals", {}).keys()) == {"flagName", "flagEnabled", "alias", "aliasToken"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackLegendCompactAliasSignals", {}).get("alias") == "HPTU", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackLegendCompactAliasSignals", {}).get("aliasToken") == "CBGCIL:HPTU", payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).keys()) == {"map", "current", "confidence", "intentCueMap", "intentCue", "intentTonePackMap", "intentTonePack", "flagName", "flagEnabled"}, payload
         intent_cue_map = payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("intentCueMap")
         assert isinstance(intent_cue_map, dict), payload
@@ -2589,6 +2604,11 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current") in {"steady", "swing", "spike", "unknown"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current") in intent_cue_map, payload
         assert intent_cue_map[payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current")] == payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentCue"), payload
+        active_alias = payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackActiveAlias")
+        active_alias_signals = payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePackActiveAliasSignals", {})
+        if active_alias != "FLAG OFF":
+            assert active_alias == f"CBGCIA:{payload.get('cadenceBridgeGlyphConfidenceNarrativeIntentCue')}", payload
+            assert active_alias_signals.get("aliasToken") == active_alias, payload
         # Contract lock (Cycle GC follow-up): keep deterministic key order and value-domain for
         # intentTonePackMap, then ensure the active `current` narrative selects the coherent tone-pack.
         intent_tone_pack_map = payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("intentTonePackMap")
@@ -2966,6 +2986,9 @@ def main() -> int:
         )
         cadence_bridge_glyph_conf_compact_alias_legend_indices = _find_line_indices("- CBGC LEGEND:")
         cadence_bridge_glyph_conf_compact_legend_alias_indices = _find_line_indices("- CBGCL:")
+        cadence_bridge_glyph_conf_intent_compact_alias_indices = _find_line_indices("- CBGCI:")
+        cadence_bridge_glyph_conf_intent_legend_indices = _find_line_indices("- CBGCI LEGEND:")
+        cadence_bridge_glyph_conf_intent_legend_alias_indices = _find_line_indices("- CBGCIL:")
         cadence_bridge_glyph_conf_legend_indices = _find_line_indices("- CADENCE BRIDGE GLYPH CONF LEGEND:")
         cadence_bridge_glyph_legend_indices = _find_line_indices("- CADENCE BRIDGE GLYPH LEGEND:")
         combat_vfx_cadence_coach_why_hysteresis_family_churn_indices = _find_line_indices("- CVCWH FAMILY CHURN:")
@@ -3379,6 +3402,15 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_compact_legend_alias_indices) == 2, (
             "expected exactly two CBGCL rows (summary + token-coverage sections)"
         )
+        assert len(cadence_bridge_glyph_conf_intent_compact_alias_indices) == 2, (
+            "expected exactly two CBGCI rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_intent_legend_indices) == 2, (
+            "expected exactly two CBGCI LEGEND rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_intent_legend_alias_indices) == 2, (
+            "expected exactly two CBGCIL rows (summary + token-coverage sections)"
+        )
         assert len(cadence_bridge_glyph_conf_legend_indices) == 2, (
             "expected exactly two CADENCE BRIDGE GLYPH CONF LEGEND rows (summary + token-coverage sections)"
         )
@@ -3418,24 +3450,37 @@ def main() -> int:
                 f"markdown contract violated in {section_name} section: expected CBGC LEGEND row to include alternate tone-pack intent verbs"
             )
         # Explicit markdown contract for future alias-rail insertions:
-        # keep CBGC LEGEND and CBGCL adjacent in both summary and token-coverage sections.
-        for section_name, legend_idx, compact_alias_idx in zip(
+        # keep CBGC LEGEND -> CBGCL -> CBGCI -> CBGCI LEGEND -> CBGCIL adjacent in both sections.
+        for section_name, legend_idx, compact_alias_idx, intent_alias_idx, intent_legend_idx, intent_legend_alias_idx in zip(
             ("summary", "token-coverage"),
             cadence_bridge_glyph_conf_compact_alias_legend_indices,
             cadence_bridge_glyph_conf_compact_legend_alias_indices,
+            cadence_bridge_glyph_conf_intent_compact_alias_indices,
+            cadence_bridge_glyph_conf_intent_legend_indices,
+            cadence_bridge_glyph_conf_intent_legend_alias_indices,
         ):
             assert compact_alias_idx == legend_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCL row directly after CBGC LEGEND row under future alias-rail insertions"
             )
+            assert intent_alias_idx == compact_alias_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCI row directly after CBGCL row under future alias-rail insertions"
+            )
+            assert intent_legend_idx == intent_alias_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCI LEGEND row directly after CBGCI row"
+            )
+            assert intent_legend_alias_idx == intent_legend_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCIL row directly after CBGCI LEGEND row"
+            )
 
         if cadence_bridge_glyph_conf_compact_alias_enabled:
-            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_idx, glyph_conf_alias_legend_idx, glyph_conf_legend_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
+            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_idx, glyph_conf_alias_legend_idx, glyph_conf_legend_alias_idx, glyph_conf_intent_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
                 zip(
                     cadence_bridge_glyph_indices,
                     cadence_bridge_glyph_conf_indices,
                     cadence_bridge_glyph_conf_compact_alias_indices,
                     cadence_bridge_glyph_conf_compact_alias_legend_indices,
                     cadence_bridge_glyph_conf_compact_legend_alias_indices,
+                    cadence_bridge_glyph_conf_intent_compact_alias_indices,
                     cadence_bridge_glyph_conf_legend_indices,
                     cadence_bridge_glyph_legend_indices,
                 ),
@@ -3453,19 +3498,38 @@ def main() -> int:
                 assert glyph_conf_legend_alias_idx == glyph_conf_alias_legend_idx + 1, (
                     f"expected CBGCL row directly after CBGC LEGEND row in section {section_idx}"
                 )
-                assert glyph_conf_legend_idx == glyph_conf_legend_alias_idx + 1, (
-                    f"expected CADENCE BRIDGE GLYPH CONF LEGEND row directly after CBGCL row in section {section_idx}"
+                assert glyph_conf_intent_alias_idx == glyph_conf_legend_alias_idx + 1, (
+                    f"expected CBGCI row directly after CBGCL row in section {section_idx}"
                 )
+                assert glyph_conf_legend_idx in {
+                    glyph_conf_intent_alias_idx + 1,
+                    glyph_conf_intent_alias_idx + 2,
+                    glyph_conf_intent_alias_idx + 3,
+                }, (
+                    f"expected CADENCE BRIDGE GLYPH CONF LEGEND row adjacent to CBGCI cluster in section {section_idx}"
+                )
+                if glyph_conf_legend_idx == glyph_conf_intent_alias_idx + 2:
+                    assert md_lines[glyph_conf_intent_alias_idx + 1].startswith("- CBGCI LEGEND:"), (
+                        f"expected CBGCI LEGEND spacer before CADENCE BRIDGE GLYPH CONF LEGEND in section {section_idx}"
+                    )
+                if glyph_conf_legend_idx == glyph_conf_intent_alias_idx + 3:
+                    assert md_lines[glyph_conf_intent_alias_idx + 1].startswith("- CBGCI LEGEND:"), (
+                        f"expected CBGCI LEGEND first spacer before CADENCE BRIDGE GLYPH CONF LEGEND in section {section_idx}"
+                    )
+                    assert md_lines[glyph_conf_intent_alias_idx + 2].startswith("- CBGCIL:"), (
+                        f"expected CBGCIL second spacer before CADENCE BRIDGE GLYPH CONF LEGEND in section {section_idx}"
+                    )
                 assert glyph_legend_idx == glyph_conf_legend_idx + 1, (
                     f"expected CADENCE BRIDGE GLYPH LEGEND row directly after CADENCE BRIDGE GLYPH CONF LEGEND row in section {section_idx}"
                 )
         else:
-            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_legend_idx, glyph_conf_legend_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
+            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_legend_idx, glyph_conf_legend_alias_idx, glyph_conf_intent_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
                 zip(
                     cadence_bridge_glyph_indices,
                     cadence_bridge_glyph_conf_indices,
                     cadence_bridge_glyph_conf_compact_alias_legend_indices,
                     cadence_bridge_glyph_conf_compact_legend_alias_indices,
+                    cadence_bridge_glyph_conf_intent_compact_alias_indices,
                     cadence_bridge_glyph_conf_legend_indices,
                     cadence_bridge_glyph_legend_indices,
                 ),
@@ -3480,9 +3544,27 @@ def main() -> int:
                 assert glyph_conf_legend_alias_idx == glyph_conf_alias_legend_idx + 1, (
                     f"expected CBGCL row directly after CBGC LEGEND row in section {section_idx}"
                 )
-                assert glyph_conf_legend_idx == glyph_conf_legend_alias_idx + 1, (
-                    f"expected CADENCE BRIDGE GLYPH CONF LEGEND row directly after CBGCL row in section {section_idx}"
+                assert glyph_conf_intent_alias_idx == glyph_conf_legend_alias_idx + 1, (
+                    f"expected CBGCI row directly after CBGCL row in section {section_idx}"
                 )
+                assert glyph_conf_legend_idx in {
+                    glyph_conf_intent_alias_idx + 1,
+                    glyph_conf_intent_alias_idx + 2,
+                    glyph_conf_intent_alias_idx + 3,
+                }, (
+                    f"expected CADENCE BRIDGE GLYPH CONF LEGEND row adjacent to CBGCI cluster in section {section_idx}"
+                )
+                if glyph_conf_legend_idx == glyph_conf_intent_alias_idx + 2:
+                    assert md_lines[glyph_conf_intent_alias_idx + 1].startswith("- CBGCI LEGEND:"), (
+                        f"expected CBGCI LEGEND spacer before CADENCE BRIDGE GLYPH CONF LEGEND in section {section_idx}"
+                    )
+                if glyph_conf_legend_idx == glyph_conf_intent_alias_idx + 3:
+                    assert md_lines[glyph_conf_intent_alias_idx + 1].startswith("- CBGCI LEGEND:"), (
+                        f"expected CBGCI LEGEND first spacer before CADENCE BRIDGE GLYPH CONF LEGEND in section {section_idx}"
+                    )
+                    assert md_lines[glyph_conf_intent_alias_idx + 2].startswith("- CBGCIL:"), (
+                        f"expected CBGCIL second spacer before CADENCE BRIDGE GLYPH CONF LEGEND in section {section_idx}"
+                    )
                 assert glyph_legend_idx == glyph_conf_legend_idx + 1, (
                     f"expected CADENCE BRIDGE GLYPH LEGEND row directly after CADENCE BRIDGE GLYPH CONF LEGEND row in section {section_idx}"
                 )

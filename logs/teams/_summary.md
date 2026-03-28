@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 10:31 KST
+Last updated: 2026-03-28 12:40 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,15 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle GD selected experiment: weekly digest payload now emits active compact intent alias `CBGCIA:<H|P|T|U>` so downstream tooling can consume the currently active tone-pack cue without parsing markdown legend rows.
+- Payload contract extended with `cadenceBridgeGlyphConfidenceNarrativeIntentTonePackActiveAlias` + `...Signals` (`flagName`, `flagEnabled`, `cue`, `current`, `aliasToken`) and deterministic regression schema/domain/coherence checks.
+- Injected next-cycle backlog items (unchecked): Systems/QA optional `CBGCIA` family churn rail, Combat/VFX offline FX-pulse remap policy using `CBGCIA` + volatility memory.
+
+- Closed Cycle GC UX/Design follow-up: weekly digest now emits compact alternate tone-pack decode alias `CBGCI:HPTU` in both summary and token-coverage confidence clusters.
+- Payload contract expanded with `cadenceBridgeGlyphConfidenceNarrativeIntentTonePackCompactAlias` + `...Signals` (`flagName`, `flagEnabled`, `alias`, `aliasToken`, `cue`, `current`) for downstream compact decoding.
+- Regression/order locks now require exactly two `CBGCI` rows and enforce adjacency `CBGC LEGEND -> CBGCL -> CBGCI -> CADENCE BRIDGE GLYPH CONF LEGEND` in both sections.
+- TASKS + POST_RC synchronized to complete with lifecycle timestamps; ACTION_ITEMS/TASKS/POST_RC are now fully checked and ready for next Game Director cycle trigger.
 
 - Closed Cycle GB Systems/QA follow-up: regression contract now hard-locks `cadenceBridgeGlyphConfidenceFxPulse` domain (`CBGC FX PULSE:SOFT|EDGE|HARD`) and `cadenceBridgeGlyphConfidenceFxPulseSignals` schema/value domains.
 - Added deterministic mapping guard: regression asserts payload pulse token equals `intentCue -> map` resolution (`H/P/T/U -> SOFT/EDGE/HARD/EDGE`) to prevent silent drift.
