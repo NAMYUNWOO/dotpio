@@ -1426,3 +1426,21 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Systems/QA Team: Add optional token-family churn rail for `CBGCFXWC:` in summary/token-coverage with strict adjacency contract near `CBGCFXW COHERENCE`.
 - [x] UX/Design Team: Prototype compact coherence legend row (`CBGCFXWC LEGEND:O=OK,D=DRIFT`) behind flag for dense operator decode.
 - [x] AI Content/Combat Team: Prototype offline coherence momentum token (`CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE`) from coherence streak deltas. *(lifecycle: [ ] -> [~] started: 2026-03-28 20:29 KST -> [x] completed: 2026-03-28 20:35 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+
+## Game Director Cycle GL - 2026-03-28 20:44 KST
+- Coverage check (last 10 completions): coherence-cluster systems/qa + ux lanes remain dense; choose a small AI-content/combat follow-up that improves drift triage readability without runtime coupling.
+- Idea 1 (low risk, AI Content/Combat): Add compact momentum alias token (`CBGCFXWM:<S|W>`) for `CBGCFXW COHERENCE MOMENTUM` to improve dense digest scanability.
+- Idea 2 (mid risk, Systems/QA): Add token-family churn rail + adjacency lock for `CBGCFXW COHERENCE MOMENTUM:` + alias.
+- Idea 3 (high risk, Design/World): Prototype offline coherence-momentum narrative cue (`COHERENCE ARC:LOCK|SWAY`) from streak-delta persistence.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] AI Content/Combat Team: Add compact coherence-momentum alias token (`CBGCFXWM:<S|W>`) behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_MOMENTUM_ALIAS` with payload+markdown wiring and regression lock. *(lifecycle: [~] started: 2026-03-28 20:44 KST -> [x] completed: 2026-03-28 21:02 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+
+## Game Director Cycle GM - 2026-03-28 21:04 KST
+- Coverage check (last 10 completions): coherence-cluster systems/qa + ux/ai-content rails remain dense; select a lightweight readability slice that improves alias decode speed without runtime coupling.
+- Idea 1 (low risk, UX/AI Content): Add compact momentum-alias legend row (`CBGCFXWM LEGEND:S=STABLE,W=WOBBLE`) beside `CBGCFXWM` for dense digest scanability.
+- Idea 2 (mid risk, Systems/QA): Add explicit adjacency lock `CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC` in both digest sections.
+- Idea 3 (high risk, Design/World): Prototype offline coherence-arc narrative cue (`COHERENCE ARC:LOCK|SWAY`) from momentum-streak persistence.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/AI Content Team: Add compact momentum-alias legend row (`CBGCFXWM LEGEND:S=STABLE,W=WOBBLE`) in summary/token-coverage with deterministic ordering. *(lifecycle: [~] started: 2026-03-28 21:04 KST -> [x] completed: 2026-03-28 21:10 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+- [ ] Systems/QA Team: Add explicit adjacency/order regression lock for `CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC` in both digest sections.
+- [ ] Design/World Team: Prototype offline coherence-arc narrative cue token (`COHERENCE ARC:LOCK|SWAY`) from momentum-streak persistence for postmortem readability.

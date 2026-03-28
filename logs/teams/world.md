@@ -2267,3 +2267,6 @@
 - 2026-03-28 20:35 KST — Cycle GK AI Content/Combat follow-up completed: added offline `CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE` token from coherence streak deltas (new payload keys + summary/token-coverage rows) and updated ordering/schema regression contract.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
 - Follow-up: queue optional family-churn rail for `CBGCFXW COHERENCE MOMENTUM:` if drift triage noise grows.
+
+## 2026-03-28 21:10 KST — Cycle GM world lane queue note
+- World/readability follow-up injected: coherence-arc narrative cue remains offline-only and reversible.

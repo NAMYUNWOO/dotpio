@@ -2337,3 +2337,11 @@
 - 2026-03-28 20:35 KST — Cycle GK AI Content/Combat follow-up completed: added offline `CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE` token from coherence streak deltas (new payload keys + summary/token-coverage rows) and updated ordering/schema regression contract.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
 - Follow-up: queue optional family-churn rail for `CBGCFXW COHERENCE MOMENTUM:` if drift triage noise grows.
+
+## 2026-03-28 21:01 KST — Cycle GL completion (`CBGCFXWM`)
+- Completed compact coherence-momentum alias token `CBGCFXWM:<S|W>` (payload + summary/token-coverage rows) behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_MOMENTUM_ALIAS`.
+- Decision: keep alias strictly derived from `CBGCFXW COHERENCE MOMENTUM` (`STABLE->S`, `WOBBLE->W`) to avoid introducing extra state complexity.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-28 21:10 KST — Cycle GM AI-content note
+- Maintained deterministic momentum semantics (`STABLE|WOBBLE`) while improving operator decode via explicit legend row.

@@ -3763,3 +3763,12 @@ Compact decision memory for AI context efficiency.
 - Wired payload + digest markdown in both summary/token-coverage sections; ordering contract now enforces `CBGCFXW COHERENCE -> CBGCFXW COHERENCE MOMENTUM -> CBGCFXWC -> CBGCFXWC LEGEND -> CBGCFXWC FAMILY CHURN -> CBGCFXW DRIFT`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
 - Next priority: all ACTION_ITEMS/TASKS/POST_RC entries are checked; run next Game Director review cycle (3 ideas -> select 1 -> minimal vertical slice).
+
+### 2026-03-28 21:10 KST — Cycle GL closed + Cycle GM vertical slice shipped
+- Closed prior in-progress backlog task by shipping compact coherence-momentum alias `CBGCFXWM:<S|W>` (payload + digest rows) with deterministic regression coverage.
+- Executed new Game Director Cycle GM (3-idea review) and selected low-risk readability slice: `CBGCFXWM LEGEND:S=STABLE,W=WOBBLE` row added in summary/token-coverage.
+- Durable ordering contract now: `CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC` before coherence legend/churn rails.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Backlog injected (unchecked):
+  - Systems/QA adjacency lock hardening for new `CBGCFXWM LEGEND` chain.
+  - Design/World offline `COHERENCE ARC:LOCK|SWAY` narrative cue prototype.

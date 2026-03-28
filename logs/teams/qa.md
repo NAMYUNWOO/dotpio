@@ -4009,3 +4009,11 @@
 - 2026-03-28 20:35 KST — Cycle GK AI Content/Combat follow-up completed: added offline `CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE` token from coherence streak deltas (new payload keys + summary/token-coverage rows) and updated ordering/schema regression contract.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
 - Follow-up: queue optional family-churn rail for `CBGCFXW COHERENCE MOMENTUM:` if drift triage noise grows.
+
+## 2026-03-28 21:01 KST — Validation evidence (Cycle GL)
+- Ran `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Result: PASS after adjacency contract fix for new `CBGCFXWM` row.
+- Guardrail: explicit assertion now enforces `COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWC` sequence.
+
+## 2026-03-28 21:10 KST — Cycle GM verification
+- Regression pass confirms new legend row does not break weekly digest contract: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
