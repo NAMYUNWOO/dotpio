@@ -3751,3 +3751,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep coherence alias churn readable in markdown (not JSON-only) and enforce ordering in regression to prevent rail drift.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Next item: `UX/Design Team` compact coherence legend row (`CBGCFXWC LEGEND:O=OK,D=DRIFT`) behind flag.
+
+### 2026-03-28 20:05 KST — Cycle GK UX/Design completed (`CBGCFXWC LEGEND`)
+- Completed backlog item: added compact coherence legend row `CBGCFXWC LEGEND:O=OK,D=DRIFT` to both weekly digest sections (summary + token coverage) with flag-aware fallback (`FLAG OFF`).
+- Updated regression contract to require deterministic order: `CBGCFXW LEGEND -> CBGCFXW COHERENCE -> CBGCFXWC -> CBGCFXWC LEGEND -> CBGCFXWC FAMILY CHURN -> CBGCFXW DRIFT`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Next priority remains Cycle GK AI Content/Combat: `CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE`.

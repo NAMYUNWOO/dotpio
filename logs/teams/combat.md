@@ -2260,3 +2260,7 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Notes: Added summary + token-coverage rows (`CBGCFXW COHERENCE`, `CBGCFXWC`, `CBGCFXWC FAMILY CHURN`) and expanded adjacency assertions to lock ordering before `CBGCFXW DRIFT`.
+
+- 2026-03-28 20:05 KST — Cycle GK UX/Design slice shipped: added compact coherence legend row `CBGCFXWC LEGEND:O=OK,D=DRIFT` in weekly digest summary + token-coverage, behind alias flag semantics (`FLAG OFF` when disabled).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS; ordering contract now enforces `CBGCFXW COHERENCE -> CBGCFXWC -> CBGCFXWC LEGEND -> CBGCFXWC FAMILY CHURN -> CBGCFXW DRIFT`.
+- Next: AI Content/Combat follow-up `CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE` from coherence streak deltas.
