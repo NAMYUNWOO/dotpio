@@ -2577,6 +2577,9 @@ def main() -> int:
         assert set(payload.get("cadenceBridgeGlyphConfidenceCompactAliasSignals", {}).keys()) == {"flagName", "flagEnabled", "confidence", "alias", "aliasToken"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceLegendCompactAlias") in {"FLAG OFF", "CBGCL:LMH"}, payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceLegendCompactAliasSignals", {}).keys()) == {"flagName", "flagEnabled", "alias", "aliasToken"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrative") in {"steady", "swing", "spike", "unknown"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentCue") in {"H", "P", "T", "U"}, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).keys()) == {"map", "current", "confidence", "intentCueMap", "intentCue", "flagName", "flagEnabled"}, payload
         assert set(payload.get("combatVfxCadenceCoachWhyHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",
@@ -3349,6 +3352,23 @@ def main() -> int:
             "expected second CADENCE BRIDGE GLYPH CONF LEGEND row in token-coverage section"
         )
 
+
+        # CBGC LEGEND narrative metadata contract (Cycle FZ follow-up):
+        # both summary + token-coverage rows must keep narrative map and active cue fields.
+        for section_name, legend_idx in zip(
+            ("summary", "token-coverage"),
+            cadence_bridge_glyph_conf_compact_alias_legend_indices,
+        ):
+            legend_line = md_lines[legend_idx]
+            assert "narrative=steady/swing/spike" in legend_line, (
+                f"markdown contract violated in {section_name} section: expected CBGC LEGEND row to include narrative=steady/swing/spike metadata"
+            )
+            assert "current=" in legend_line, (
+                f"markdown contract violated in {section_name} section: expected CBGC LEGEND row to include current=<steady|swing|spike> metadata"
+            )
+            assert "cue=" in legend_line, (
+                f"markdown contract violated in {section_name} section: expected CBGC LEGEND row to include cue=<H|P|T|U> metadata"
+            )
         # Explicit markdown contract for future alias-rail insertions:
         # keep CBGC LEGEND and CBGCL adjacent in both summary and token-coverage sections.
         for section_name, legend_idx, compact_alias_idx in zip(

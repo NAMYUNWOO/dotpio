@@ -2147,3 +2147,4 @@
 - No combat tuning changed this cycle; reviewed cadence narrative additions for compatibility with combat/vfx cadence coach rails.
 - Decision: keep combat lane untouched to avoid accidental token-order coupling.
 - Follow-up: monitor whether confidence narrative cues reduce combat-related triage scan time in digest reviews.
+- 2026-03-28 09:42 KST — Verified cadence-bridge legend intent cue changes are metadata-only and do not alter combat/vfx trend token ordering contracts.

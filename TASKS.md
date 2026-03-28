@@ -1570,5 +1570,14 @@ See project-level plans:
 - Idea 3 (high risk, Design/World novelty): Swap legend microcopy dynamically based on cadence pressure transitions to emphasize recovery coaching. Fantasy: adaptive tactical narration. Metric: operator action latency after pressure spikes. Scope: M/L. Risk: high ordering churn; rollback to static copy. Pass/Fail: pass if manual playtest logs show faster corrective routing without token drift regressions.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Design Team (Cycle FZ experiment): Add active narrative cue in `CBGC LEGEND` metadata (`current=steady|swing|spike`) and persist cue signals in weekly digest JSON payload for downstream tooling. *(lifecycle: [ ] -> [~] started: 2026-03-28 09:04 KST -> [x] completed: 2026-03-28 09:08 KST)*
-- [ ] Systems/QA Team (Cycle FZ follow-up): Add deterministic regression assertion for `CBGC LEGEND` narrative metadata (`current=` + `narrative=steady/swing/spike`) in summary + token-coverage sections.
-- [ ] AI Content/World Team (Cycle FZ follow-up): Prototype microcopy tone variant for `CBGC LEGEND` narrative cue that keeps DOS compactness while clarifying operator action intent.
+- [x] Systems/QA Team (Cycle FZ follow-up): Add deterministic regression assertion for `CBGC LEGEND` narrative metadata (`current=` + `narrative=steady/swing/spike`) in summary + token-coverage sections. *(lifecycle: [~] started: 2026-03-28 09:29 KST -> [x] completed: 2026-03-28 09:36 KST)*
+- [x] AI Content/World Team (Cycle FZ follow-up): Prototype microcopy tone variant for `CBGC LEGEND` narrative cue that keeps DOS compactness while clarifying operator action intent. *(lifecycle: [~] started: 2026-03-28 09:34 KST -> [x] completed: 2026-03-28 09:36 KST; intent microcopy: steady:hold/swing:prep/spike:triage)*
+
+### Game Director Cycle GA (2026-03-28 09:42 KST)
+- Idea 1 (low risk, UX/AI Content): Add one-character intent cue (`cue=H|P|T`) to `CBGC LEGEND` metadata so action posture is parseable without decoding full intent text.
+- Idea 2 (mid risk, Systems/QA): Add deterministic payload-schema lock for narrative intent cue fields in weekly digest JSON.
+- Idea 3 (high risk, Design/World novelty): Add adaptive intent verb swap (`hold|brace|stabilize`) based on cadence-bridge pressure transitions.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/AI Content Team (Cycle GA experiment): Add `cue=H|P|T|U` metadata to `CBGC LEGEND` rows (summary + token-coverage) and persist `cadenceBridgeGlyphConfidenceNarrativeIntentCue` in payload/signals.
+- [ ] Systems/QA Team (Cycle GA follow-up): Extend deterministic regression payload contract for `cadenceBridgeGlyphConfidenceNarrativeIntentCue` + `intentCueMap` keys/value domain.
+- [ ] Design/World Team (Cycle GA follow-up): Prototype alternate action-verb tone pack for `CBGC LEGEND` intent microcopy (`steady:hold|anchor`, `swing:prep|brace`, `spike:triage|stabilize`) while preserving DOS width.

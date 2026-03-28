@@ -3839,3 +3839,4 @@
 - Ran `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` after narrative cue + payload changes.
 - Result: PASS (no ordering/count regressions).
 - Follow-up queued: lock `CBGC LEGEND` narrative metadata contract with explicit markdown assertions.
+- 2026-03-28 09:42 KST — Added deterministic regression checks for `CBGC LEGEND` metadata presence (`narrative=...`, `current=...`, `cue=...`) in summary and token-coverage sections.

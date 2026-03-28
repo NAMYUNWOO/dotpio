@@ -3590,3 +3590,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: preserve fixed confidence-cluster row order; embed narrative context inside existing legend row instead of introducing additional rows.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Injected follow-ups: (1) Systems/QA metadata contract assertions for `CBGC LEGEND` narrative fields, (2) AI Content/World microcopy tone variant prototype.
+
+## 2026-03-28 09:42 KST — Cycle GA vertical slice (`CBGC LEGEND` intent cue)
+- Cleared remaining FZ follow-ups first: Systems/QA contract lock for `CBGC LEGEND` narrative metadata and AI Content microcopy intent variant (`steady:hold/swing:prep/spike:triage`).
+- Full-check trigger executed Game Director cycle GA (3 ideas), selected low-risk Idea 1, and shipped compact intent cue metadata `cue=H|P|T|U` in both summary + token-coverage `CBGC LEGEND` rows.
+- Payload now persists `cadenceBridgeGlyphConfidenceNarrativeIntentCue` plus narrative signal keys (`intentCueMap`, `intentCue`) for downstream tooling.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Injected backlog follow-ups: (1) Systems/QA payload schema hard-lock for intent cue keys/value domain, (2) Design/World alternate action-verb tone pack prototype.

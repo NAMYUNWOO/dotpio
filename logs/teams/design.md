@@ -2229,3 +2229,4 @@
 - Landed short-form posture narrative in `CBGC LEGEND` row (`L=LOW(spike), M=MID(swing), H=HIGH(steady)` + `current=<cue>`).
 - Decision: keep decode mapping inline in existing legend row to avoid section-order churn and preserve DOS scan rhythm.
 - Follow-up: evaluate microcopy tone variants that keep compactness while improving action intent.
+- 2026-03-28 09:42 KST — Captured follow-up concept: tone-pack variant for CBGC intent verbs preserving fixed legend ordering and DOS-width readability.

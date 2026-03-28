@@ -3295,3 +3295,4 @@
 - Extended weekly digest payload with `cadenceBridgeGlyphConfidenceNarrative` + `...NarrativeSignals` for downstream automation hooks.
 - Decision: keep narrative derivation deterministic from `CADENCE BRIDGE GLYPH CONF` (`LOW->spike`, `MID->swing`, `HIGH->steady`).
 - Follow-up: consider optional width-budget guard for confidence cluster rows before adding new alias rails.
+- 2026-03-28 09:42 KST — Added payload intent-cue persistence for CBGC narrative (`cadenceBridgeGlyphConfidenceNarrativeIntentCue`) and schema-safe signal keys (`intentCue`, `intentCueMap`) in weekly digest pipeline.

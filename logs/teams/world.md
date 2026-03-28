@@ -2162,3 +2162,4 @@
 - Narrative posture wording aligned to design/world freshness pressure framing: `steady` (stable), `swing` (moderate), `spike` (volatile).
 - Decision: keep world-facing pressure semantics encoded only in legend metadata, not new row insertions.
 - Follow-up: test tone alternatives that better suggest operator response under stale design/world cadence.
+- 2026-03-28 09:42 KST — Noted next-world pass: evaluate alternative intent verbs (anchor/brace/stabilize) against DOS compactness for cadence-bridge legend narrative.

@@ -2232,3 +2232,4 @@
 - Updated compact narrative copy pack for confidence decode using `steady/swing/spike` lexicon in `CBGC LEGEND`.
 - Decision: map remains alias-safe and reversible (`L/M/H` decode preserved).
 - Follow-up: prototype alternate concise narration with explicit action hints (watch/stabilize/escalate).
+- 2026-03-28 09:42 KST — Shipped microcopy refinement in `CBGC LEGEND`: `intent=steady:hold/swing:prep/spike:triage` with new compact cue code (`H|P|T|U`) for faster operator decoding.
