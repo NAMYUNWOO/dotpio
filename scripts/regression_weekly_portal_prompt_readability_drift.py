@@ -2788,6 +2788,32 @@ def main() -> int:
         assert isinstance(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDriftSignals", {}).get("shifted"), bool), payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDriftSignals", {}).get("driftToken", "").startswith("CBGCFXW DRIFT:"), payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDriftSignals", {}).get("offlineOnly") is True, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherence", "").startswith(("FLAG OFF", "CBGCFXW COHERENCE:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "status",
+            "narrativeCurrent",
+            "aggressivenessMode",
+            "expectedAggressivenessMode",
+            "isUnknownNarrative",
+            "coherent",
+            "priorStatus",
+            "priorLoaded",
+            "driftStreak",
+            "token",
+            "offlineOnly",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).get("status") in {"OK", "DRIFT"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).get("narrativeCurrent") in {"steady", "swing", "spike", "unknown"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).get("aggressivenessMode") in {"CAUTIOUS", "BASELINE", "AGGRESSIVE"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).get("expectedAggressivenessMode") in {"CAUTIOUS", "BASELINE", "AGGRESSIVE"}, payload
+        assert isinstance(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).get("coherent"), bool), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).get("priorStatus") in {"OK", "DRIFT"}, payload
+        assert isinstance(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).get("priorLoaded"), bool), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).get("driftStreak") in {0, 1, 2}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).get("token", "").startswith("CBGCFXW COHERENCE:"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).get("offlineOnly") is True, payload
         assert set(payload.get("combatVfxCadenceCoachWhyHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",

@@ -2315,3 +2315,9 @@
 - Shipped `CBGCFXW DRIFT:<prev>><curr>` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_DRIFT` for prior-window world-tone transition readability.
 - Durable decision: drift token reads from prior JSON `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAliasSignals.alias`; adjacency locked between `CBGCFXW LEGEND` and `CBGCI` in both digest sections.
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-28 18:29 KST — Cycle GI Design/World follow-up: CBGCFXW coherence token (payload slice)
+- Completed POST_RC backlog follow-up by adding offline cross-signal coherence token `CBGCFXW COHERENCE:OK|DRIFT`.
+- New resolver compares world-tone narrative posture (`steady|swing|spike|unknown`) against aggressiveness mode (`CAUTIOUS|BASELINE|AGGRESSIVE`) and persists prior-window status for drift streak context.
+- Contract locked in regression: payload key + signals domain/type checks added (`status`, `expectedAggressivenessMode`, `priorStatus`, `driftStreak`, `coherent`).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.

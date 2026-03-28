@@ -3723,3 +3723,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: full CBGCFXH→CBGCFXW→CBGCFXW FAMILY CHURN→CBGCFXW LEGEND→CBGCI adjacency chain now has zero implicit gaps.
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Status: completes last unchecked Cycle GH backlog item; ACTION_ITEMS + TASKS + POST_RC_BACKLOG now fully checked.
+
+### 2026-03-28 18:29 KST — Cycle GI Design/World follow-up shipped (`CBGCFXW COHERENCE` payload token)
+- Closed remaining Design/World follow-up from Cycle GI by adding payload-level coherence token `CBGCFXW COHERENCE:OK|DRIFT` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE`.
+- Durable decision: coherence is derived from cross-signal alignment (`narrativeCurrent` posture ↔ `aggressivenessMode`) with conservative mapping `steady→CAUTIOUS`, `swing→BASELINE`, `spike→AGGRESSIVE`, `unknown→BASELINE`; unknown posture is treated as non-punitive (`OK`).
+- Added prior-window memory in `...WorldToneCoherenceSignals` (`priorStatus`, `priorLoaded`, `driftStreak`) for lightweight multi-window context without widening markdown rails.
+- Regression contract expanded to lock new payload/signal schema and value domains; verification green via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.

@@ -152,6 +152,7 @@ TOKEN_ALIAS_FAMILIES = {
     "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias": ["CBGCFXW:"],
     "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneLegend": ["CBGCFXW LEGEND:"],
     "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneDrift": ["CBGCFXW DRIFT:"],
+    "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneCoherence": ["CBGCFXW COHERENCE:"],
 }
 ROUTE_VIBE_PATTERNS = {
     "CALM": ("ROUTE VIBE:CALM", "VIBE:C"),
@@ -1602,6 +1603,65 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_drift(
         "priorLoaded": prior_loaded,
         "shifted": shifted,
         "driftToken": token,
+        "offlineOnly": True,
+    }
+
+
+def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence(
+    *,
+    world_tone_alias_signals: dict[str, object],
+    aggressiveness_alias_signals: dict[str, object],
+    prior_json_path: Path,
+) -> tuple[str, dict[str, object]]:
+    """Offline coherence token between world-tone posture and aggressiveness mode."""
+    flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    narrative_current = str(world_tone_alias_signals.get("narrativeCurrent", "unknown") or "unknown").strip().lower()
+    aggressiveness_mode = str(aggressiveness_alias_signals.get("aggressivenessMode", "BASELINE") or "BASELINE").strip().upper()
+
+    expected_mode_by_narrative = {
+        "steady": "CAUTIOUS",
+        "swing": "BASELINE",
+        "spike": "AGGRESSIVE",
+        "unknown": "BASELINE",
+    }
+    expected_mode = expected_mode_by_narrative.get(narrative_current, "BASELINE")
+    is_unknown = narrative_current == "unknown"
+    coherent = is_unknown or aggressiveness_mode == expected_mode
+    status = "OK" if coherent else "DRIFT"
+
+    prior_status = "OK"
+    prior_loaded = False
+    if prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_signals = prior_payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {})
+            if isinstance(prior_signals, dict):
+                prior_status = str(prior_signals.get("status", "OK") or "OK").strip().upper()
+                prior_loaded = True
+        except (json.JSONDecodeError, OSError, ValueError, TypeError):
+            prior_status = "OK"
+
+    drift_streak = 0
+    if status == "DRIFT":
+        drift_streak = 2 if prior_loaded and prior_status == "DRIFT" else 1
+
+    token = f"CBGCFXW COHERENCE:{status}"
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "status": status,
+        "narrativeCurrent": narrative_current,
+        "aggressivenessMode": aggressiveness_mode,
+        "expectedAggressivenessMode": expected_mode,
+        "isUnknownNarrative": is_unknown,
+        "coherent": coherent,
+        "priorStatus": prior_status,
+        "priorLoaded": prior_loaded,
+        "driftStreak": drift_streak,
+        "token": token,
         "offlineOnly": True,
     }
 
@@ -9603,6 +9663,11 @@ def main() -> int:
         world_tone_alias_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias_signals,
         prior_json_path=args.out_json,
     )
+    cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence(
+        world_tone_alias_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias_signals,
+        aggressiveness_alias_signals=cadence_bridge_glyph_confidence_fx_pulse_aggressiveness_alias_signals,
+        prior_json_path=args.out_json,
+    )
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
         lane_bucket_age=lane_bucket_age,
     )
@@ -11259,6 +11324,8 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneLegendSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_legend_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDrift": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_drift,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDriftSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_drift_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherence": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,
         "combatVfxCadenceCoachAliasSignals": combat_vfx_cadence_coach_alias_signals,
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,

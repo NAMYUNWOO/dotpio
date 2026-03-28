@@ -3427,3 +3427,9 @@
   - Payload schema asserts key set + value domain for drift signals.
 - Follow-up:
   - Next unchecked items: Systems/QA strict adjacency lock for CBGCFXW DRIFT family churn, Design/World coherence check prototype.
+
+## 2026-03-28 18:29 KST — Cycle GI Design/World follow-up: CBGCFXW coherence token (payload slice)
+- Completed POST_RC backlog follow-up by adding offline cross-signal coherence token `CBGCFXW COHERENCE:OK|DRIFT`.
+- New resolver compares world-tone narrative posture (`steady|swing|spike|unknown`) against aggressiveness mode (`CAUTIOUS|BASELINE|AGGRESSIVE`) and persists prior-window status for drift streak context.
+- Contract locked in regression: payload key + signals domain/type checks added (`status`, `expectedAggressivenessMode`, `priorStatus`, `driftStreak`, `coherent`).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
