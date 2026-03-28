@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 12:40 KST
+Last updated: 2026-03-28 14:08 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle GE Systems/QA follow-up: weekly digest markdown now emits `CBGCFXR` + `CBGCFXR FAMILY CHURN` rows in both summary and token-coverage sections.
+- Added dedicated token-family tracking for `cadenceBridgeGlyphConfidenceFxPulseRegimeAlias` (`CBGCFXR:`) and locked deterministic adjacency `CBGCIA FAMILY CHURN -> CBGCFXR -> CBGCFXR FAMILY CHURN -> CBGCI` via regression contracts.
+- TASKS + POST_RC synchronized to done with lifecycle annotation (`[ ] -> [~] -> [x]`), and lane logs updated across systems/world/ai-content/combat/design/ux/qa.
 
 - Closed Cycle GD selected experiment: weekly digest payload now emits active compact intent alias `CBGCIA:<H|P|T|U>` so downstream tooling can consume the currently active tone-pack cue without parsing markdown legend rows.
 - Payload contract extended with `cadenceBridgeGlyphConfidenceNarrativeIntentTonePackActiveAlias` + `...Signals` (`flagName`, `flagEnabled`, `cue`, `current`, `aliasToken`) and deterministic regression schema/domain/coherence checks.

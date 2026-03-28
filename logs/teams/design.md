@@ -2266,3 +2266,8 @@
 - Generated 3 ideas (low-risk alias, mid-risk markdown churn rail, high-risk adaptive aggressiveness learning) and selected the low-risk vertical slice for immediate integration.
 - Shipped payload-only compact alias `cadenceBridgeGlyphConfidenceFxPulseRegimeAlias` (`CBGCFXR:<C|S|P>`) with deterministic signals (`volatilityRegime`, `alias`, `aliasToken`, flag state).
 - Injected next backlog tasks: (1) Systems/QA markdown family churn + adjacency rail for `CBGCFXR`, (2) Combat/VFX adaptive remap-aggressiveness prototype from cue↔pulse disagreement streak memory.
+
+## 2026-03-28 14:08 KST — Cycle GE CBGCFXR family-churn rail
+- Decision: Added `CBGCFXR` + `CBGCFXR FAMILY CHURN` rows to both summary and token-coverage CBGC clusters with fixed adjacency (`CBGCIA FAMILY CHURN -> CBGCFXR -> CBGCFXR FAMILY CHURN -> CBGCI`).
+- Evidence: updated `scripts/weekly_portal_prompt_readability_drift.py` and regression contract checks in `scripts/regression_weekly_portal_prompt_readability_drift.py`; regression run passed.
+- Follow-up: Continue next unchecked TASKS item (Cycle GF release-note + telemetry contract sync).

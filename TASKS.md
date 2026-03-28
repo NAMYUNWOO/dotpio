@@ -1617,5 +1617,5 @@ See project-level plans:
 - Idea 2 (mid risk, Systems/QA): Add markdown/token-coverage family churn rail for `CBGCFXR` and lock adjacency near `CBGCIA` + `CBGC FX PULSE` rows.
 - Idea 3 (high risk, Combat/VFX novelty): Prototype adaptive `CBGC FX PULSE` regime-learning policy that auto-tunes remap aggressiveness from prior-window cue/pulse disagreement streak.
 - [x] UX/Combat Team (Cycle GE experiment): Ship payload-only compact remap-regime alias (`cadenceBridgeGlyphConfidenceFxPulseRegimeAlias`, `CBGCFXR:<C|S|P>`) with deterministic regression coverage. *(lifecycle: [ ] -> [~] started: 2026-03-28 13:33 KST -> [x] completed: 2026-03-28 13:37 KST)*
-- [ ] Systems/QA Team (Cycle GE follow-up): Add optional markdown/token-coverage family churn rail for `CBGCFXR` with fixed adjacency in the CBGC cluster.
+- [x] Systems/QA Team (Cycle GE follow-up): Add optional markdown/token-coverage family churn rail for `CBGCFXR` with fixed adjacency in the CBGC cluster. *(lifecycle: [ ] -> [~] started: 2026-03-28 14:00 KST -> [x] completed: 2026-03-28 14:08 KST)*
 - [ ] Combat/VFX Team (Cycle GE follow-up): Prototype offline adaptive remap-aggressiveness policy for `CBGC FX PULSE` using prior-window cue↔pulse disagreement streak memory.
