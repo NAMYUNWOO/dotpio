@@ -2248,3 +2248,9 @@
 - Added payload contract key `cadenceBridgeGlyphConfidenceNarrativeIntentTonePack` and extended narrative signals with `intentTonePackMap`/`intentTonePack` for downstream tooling.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Next: Systems/QA contract hardening for tone-pack key-order/domain + UX/Design `CBGCI` compact alias prototype.
+
+## 2026-03-28 11:30 KST — Cycle GC follow-up completion (intentTonePackMap contract lock)
+- Closed Systems/QA follow-up by hardening regression contract for `intentTonePackMap` with explicit key-order lock (`steady,swing,spike,unknown`) and strict value-domain assertions.
+- Added coherence assertion so `cadenceBridgeGlyphConfidenceNarrativeSignals.current` deterministically selects matching `intentTonePack` value.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Next unchecked queue item: UX/Design compact alias candidate (`CBGCI`) in token-coverage section.

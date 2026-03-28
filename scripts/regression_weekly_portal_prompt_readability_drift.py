@@ -2589,13 +2589,20 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current") in {"steady", "swing", "spike", "unknown"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current") in intent_cue_map, payload
         assert intent_cue_map[payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current")] == payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentCue"), payload
+        # Contract lock (Cycle GC follow-up): keep deterministic key order and value-domain for
+        # intentTonePackMap, then ensure the active `current` narrative selects the coherent tone-pack.
         intent_tone_pack_map = payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("intentTonePackMap")
         assert isinstance(intent_tone_pack_map, dict), payload
-        assert set(intent_tone_pack_map.keys()) == {"steady", "swing", "spike", "unknown"}, payload
+        assert list(intent_tone_pack_map.keys()) == ["steady", "swing", "spike", "unknown"], payload
+        assert set(intent_tone_pack_map.values()) == {"hold|anchor", "prep|brace", "triage|stabilize"}, payload
         assert intent_tone_pack_map["steady"] == "hold|anchor", payload
         assert intent_tone_pack_map["swing"] == "prep|brace", payload
         assert intent_tone_pack_map["spike"] == "triage|stabilize", payload
-        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("intentTonePack") in set(intent_tone_pack_map.values()), payload
+        assert intent_tone_pack_map["unknown"] == "hold|anchor", payload
+        current_narrative = payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current")
+        current_tone_pack = payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("intentTonePack")
+        assert current_narrative in intent_tone_pack_map, payload
+        assert current_tone_pack == intent_tone_pack_map[current_narrative], payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulse") in {
             "CBGC FX PULSE:SOFT",
             "CBGC FX PULSE:EDGE",

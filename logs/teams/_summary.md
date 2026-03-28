@@ -3624,3 +3624,10 @@ Compact decision memory for AI context efficiency.
 - Executed Game Director Cycle GC (3 ideas) and selected low-risk Design/World payload slice; shipped `cadenceBridgeGlyphConfidenceNarrativeIntentTonePack` plus narrative signal extensions (`intentTonePackMap`, `intentTonePack`) as a reversible vertical slice.
 - Regression lock extended for markdown contract + payload domains; verification green via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Injected next backlog tasks: (1) Systems/QA explicit key-order/domain lock for `intentTonePackMap` coherence, (2) UX/Design compact `CBGCI` alias prototype under DOS-width/order constraints.
+
+## 2026-03-28 11:30 KST — Cycle GC follow-up completed (tone-pack map order/coherence lock)
+- Completed Systems/QA follow-up task by extending regression fixture/docs contract for `cadenceBridgeGlyphConfidenceNarrativeSignals.intentTonePackMap`.
+- Durable decision: lock `intentTonePackMap` key order to `steady -> swing -> spike -> unknown`; keep value domain constrained to `hold|anchor`, `prep|brace`, `triage|stabilize` (with `unknown` mirroring `steady` fallback).
+- Durable decision: enforce coherence contract `intentTonePack == intentTonePackMap[current]` so active narrative and selected tone-pack cannot drift.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Queue head now points to UX/Design follow-up: `CBGCI` compact alias prototype.
