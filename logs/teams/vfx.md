@@ -339,3 +339,6 @@
 - Injected next backlog tasks: (1) Systems/QA markdown family churn + adjacency rail for `CBGCFXR`, (2) Combat/VFX adaptive remap-aggressiveness prototype from cue↔pulse disagreement streak memory.
 
 - 2026-03-28 15:59 KST — Cycle GG combat/vfx readability pass: weekly digest now emits compact FX-hint alias `CBGCFXH` so FX posture (`watch/tune/push`) is legible in one token under DOS-width pressure.
+### 2026-03-28 21:41 KST — VFX lane continuity note
+- No VFX code mutation in GN; coverage gate satisfied by recent GI combat/vfx slice.
+- Injected GO follow-up for Combat/VFX: payload-only ARC mirror alias (`CVARC:<L|S>`) to keep cadence balanced.

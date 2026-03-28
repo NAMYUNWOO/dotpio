@@ -2347,3 +2347,6 @@
 
 ## 2026-03-28 21:10 KST — Cycle GM design follow-up queued
 - Queued offline `COHERENCE ARC:LOCK|SWAY` narrative cue prototype to connect momentum alias transitions to postmortem readability.
+### 2026-03-28 21:41 KST — Cycle GN experiment shipped (Design/World)
+- Delivered payload-only `COHERENCE ARC:LOCK|SWAY` derived from coherence status + momentum (`STABLE/WOBBLE`) for postmortem readability without markdown-row churn.
+- Signals include status, driftStreak, momentum, arc, reason, token, and offline-only contract for deterministic downstream parsing.

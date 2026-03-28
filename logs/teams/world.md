@@ -2270,3 +2270,6 @@
 
 ## 2026-03-28 21:10 KST — Cycle GM world lane queue note
 - World/readability follow-up injected: coherence-arc narrative cue remains offline-only and reversible.
+### 2026-03-28 21:41 KST — Coherence arc narrative cue (Cycle GN)
+- Added offline world-tone narrative cue token `COHERENCE ARC:LOCK|SWAY` to reflect stability vs sway transitions for digest readers.
+- Kept slice payload-only to preserve existing digest rail ordering contracts.

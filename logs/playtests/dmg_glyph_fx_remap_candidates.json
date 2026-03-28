@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-28T08:42:51.186996Z",
+  "generatedAt": "2026-03-28T12:47:39.417995Z",
   "window": {
     "sinceDays": 7,
     "maxCommits": 120,
     "checkedCommits": 120,
-    "touchedCommits": 1
+    "touchedCommits": 0
   },
   "recommendation": {
     "mode": "MICRO_TUNE_FX",

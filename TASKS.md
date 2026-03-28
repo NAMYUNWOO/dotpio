@@ -1664,3 +1664,17 @@ See project-level plans:
 - Idea 3 (high risk, AI Content/Combat): Prototype offline coherence momentum token (`CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE`) from prior-window streak memory.
 - [x] UX/Systems Team: Add payload-only coherence compact alias `CBGCFXWC:<O|D>` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ALIAS` with deterministic payload signals. *(lifecycle: [ ] -> [~] started: 2026-03-28 19:10 KST -> [x] completed: 2026-03-28 19:18 KST)*
 - [x] Systems/QA Team: Extend regression payload contract for coherence alias fields (`cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias*`) and value-domain lock. *(lifecycle: [ ] -> [~] started: 2026-03-28 19:12 KST -> [x] completed: 2026-03-28 19:18 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+
+## Game Director Cycle GN - 2026-03-28 21:41 KST
+- Coverage check (last 10 completions, primary-lane tags): systems=5, ux=2, design=2, ai-content=2, combat=1, world=1, vfx=1, qa=3.
+- Lane cap rule: systems exceeded 40% (50%), so this cycle was forced into an underrepresented lane (design/world) for the selected experiment.
+- 24h cadence gate: combat/vfx ✅ (GI), design/world ✅ (this cycle), systems/ops ✅ (GJ/GM); injected next tasks keep all three buckets active.
+- Idea 1 (low risk, Design/World): Ship payload-only `COHERENCE ARC:LOCK|SWAY` cue derived from coherence status + momentum for faster postmortem narrative scan. **Selected.**
+- Idea 2 (mid risk, Combat/VFX): Add compact `CVARC:<L|S>` mirror alias and optional markdown rail for combat digest overlays.
+- Idea 3 (high risk, Systems/Ops): Add stale-window suppressor that dampens ARC changes on missing prior snapshots.
+- [x] Design/World Team (Cycle GN experiment): Add payload-only `COHERENCE ARC:LOCK|SWAY` + deterministic signals behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC`. *(lifecycle: [ ] -> [~] started: 2026-03-28 21:34 KST -> [x] completed: 2026-03-28 21:41 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — 2026-03-28 Cycle GO)
+- [ ] Combat/VFX Team: Prototype compact ARC alias (`CVARC:<L|S>`) for dense combat digest overlays with no row-order churn.
+- [ ] Systems/Ops Team: Add offline stale-prior guard (`arcSource:fresh|stale`) to ARC signals to prevent false SWAY flips after snapshot gaps.
+- [ ] Design/World Team: Draft copy microline pair for LOCK/SWAY coaching text (payload-only) for future readability A/B.

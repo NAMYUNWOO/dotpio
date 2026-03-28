@@ -1444,3 +1444,13 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/AI Content Team: Add compact momentum-alias legend row (`CBGCFXWM LEGEND:S=STABLE,W=WOBBLE`) in summary/token-coverage with deterministic ordering. *(lifecycle: [~] started: 2026-03-28 21:04 KST -> [x] completed: 2026-03-28 21:10 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
 - [x] Systems/QA Team: Add explicit adjacency/order regression lock for `CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC` in both digest sections. *(lifecycle: [~] started: 2026-03-28 21:29 KST -> [x] completed: 2026-03-28 21:31 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
 - [ ] Design/World Team: Prototype offline coherence-arc narrative cue token (`COHERENCE ARC:LOCK|SWAY`) from momentum-streak persistence for postmortem readability.
+
+## Game Director Cycle GN - 2026-03-28 21:41 KST
+- Coverage check (last 10 completions): systems=5/10 (50%) -> forced underrepresented-lane pick.
+- Selected experiment: Idea 1 (Design/World) payload-only `COHERENCE ARC:LOCK|SWAY` cue from coherence+momentum.
+- [x] Design/World Team: Prototype offline coherence-arc narrative cue token (`COHERENCE ARC:LOCK|SWAY`) from momentum-streak persistence for postmortem readability. *(lifecycle: [ ] -> [~] started: 2026-03-28 21:34 KST -> [x] completed: 2026-03-28 21:41 KST; verification: regression + weekly script smoke pass)*
+
+## Next Up (Game Director Injection — Cycle GO)
+- [ ] Combat/VFX Team: Add compact alias `CVARC:<L|S>` mirror for `COHERENCE ARC` (payload-only first).
+- [ ] Systems/Ops Team: Add `arcSource:fresh|stale` guard in ARC signals when prior payload is unavailable/stale.
+- [ ] Design/World Team: Add payload-only LOCK/SWAY coaching microline pair for readability review.

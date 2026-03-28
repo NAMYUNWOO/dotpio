@@ -3776,3 +3776,9 @@ Compact decision memory for AI context efficiency.
 - Backlog injected (unchecked):
   - Systems/QA adjacency lock hardening for new `CBGCFXWM LEGEND` chain.
   - Design/World offline `COHERENCE ARC:LOCK|SWAY` narrative cue prototype.
+
+### 2026-03-28 21:41 KST — Cycle GN complete (forced underrepresented lane)
+- Coverage (last 10): systems=5/10 (50%) exceeded 40% cap -> forced next experiment to underrepresented lane.
+- Chosen slice: Design/World payload-only `COHERENCE ARC:LOCK|SWAY` derived from coherence + momentum, with deterministic signal contract and no markdown rail churn.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `[PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Injected Cycle GO tasks to preserve 24h cadence buckets: Combat/VFX alias, Systems/Ops stale-prior guard, Design/World coaching microline.
