@@ -2635,9 +2635,15 @@ def main() -> int:
             "volatilityRegime",
             "priorVolatilityRegime",
             "priorResolvedPulse",
+            "priorExpectedPulse",
             "priorLoaded",
             "map",
+            "expectedPulse",
             "resolvedPulse",
+            "disagreement",
+            "disagreementStreak",
+            "adaptiveStepThreshold",
+            "aggressivenessMode",
             "hysteresisApplied",
             "reason",
             "offlineOnly",
@@ -2648,13 +2654,20 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("volatilityRegime") in {"CALM", "SWING", "SPIKE"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("priorVolatilityRegime") in {"CALM", "SWING", "SPIKE", "UNKNOWN"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("priorResolvedPulse") in {"SOFT", "EDGE", "HARD", "UNKNOWN"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("priorExpectedPulse") in {"SOFT", "EDGE", "HARD", "UNKNOWN"}, payload
         assert isinstance(payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("priorLoaded"), bool), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("expectedPulse") in {"SOFT", "EDGE", "HARD"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("resolvedPulse") in {"SOFT", "EDGE", "HARD"}, payload
+        assert isinstance(payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("disagreement"), bool), payload
+        assert isinstance(payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("disagreementStreak"), int), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("adaptiveStepThreshold") in {1, 2}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("aggressivenessMode") in {"CAUTIOUS", "BASELINE", "AGGRESSIVE"}, payload
         assert isinstance(payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("hysteresisApplied"), bool), payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("reason") in {
             "regime-map-base",
-            "volatility-memory-step-clamp",
+            "volatility-memory-adaptive-step-clamp",
             "volatility-memory-stable",
+            "volatility-memory-disagreement-escalation",
         }, payload
         fx_pulse_map = payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("map")
         assert isinstance(fx_pulse_map, dict), payload
@@ -2674,6 +2687,17 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseRegimeAliasSignals", {}).get("volatilityRegime") in {"CALM", "SWING", "SPIKE"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseRegimeAliasSignals", {}).get("alias") in {"C", "S", "P"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseRegimeAliasSignals", {}).get("aliasToken") in {"CBGCFXR:C", "CBGCFXR:S", "CBGCFXR:P"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias") in {"FLAG OFF", "CBGCFXA:C", "CBGCFXA:B", "CBGCFXA:A"}, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseAggressivenessAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "aggressivenessMode",
+            "alias",
+            "aliasToken",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseAggressivenessAliasSignals", {}).get("aggressivenessMode") in {"CAUTIOUS", "BASELINE", "AGGRESSIVE"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseAggressivenessAliasSignals", {}).get("alias") in {"C", "B", "A"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseAggressivenessAliasSignals", {}).get("aliasToken") in {"CBGCFXA:C", "CBGCFXA:B", "CBGCFXA:A"}, payload
         assert set(payload.get("combatVfxCadenceCoachWhyHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",

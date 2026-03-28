@@ -2271,3 +2271,11 @@
 - Decision: Added `CBGCFXR` + `CBGCFXR FAMILY CHURN` rows to both summary and token-coverage CBGC clusters with fixed adjacency (`CBGCIA FAMILY CHURN -> CBGCFXR -> CBGCFXR FAMILY CHURN -> CBGCI`).
 - Evidence: updated `scripts/weekly_portal_prompt_readability_drift.py` and regression contract checks in `scripts/regression_weekly_portal_prompt_readability_drift.py`; regression run passed.
 - Follow-up: Continue next unchecked TASKS item (Cycle GF release-note + telemetry contract sync).
+
+## 2026-03-28 14:36 KST
+- Cross-lane note: No direct design token-row addition this cycle.
+- Decision: Maintain existing CBGC legend/order rails; rely on expanded payload diagnostics for next design-facing cue tuning experiment.
+
+## 2026-03-28 14:44 KST
+- Task: Cycle GF design-lane review.
+- Decision: Deferred microcopy layer to follow-up task; shipped compact alias first to keep vertical slice reversible.

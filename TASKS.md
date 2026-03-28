@@ -1618,4 +1618,13 @@ See project-level plans:
 - Idea 3 (high risk, Combat/VFX novelty): Prototype adaptive `CBGC FX PULSE` regime-learning policy that auto-tunes remap aggressiveness from prior-window cue/pulse disagreement streak.
 - [x] UX/Combat Team (Cycle GE experiment): Ship payload-only compact remap-regime alias (`cadenceBridgeGlyphConfidenceFxPulseRegimeAlias`, `CBGCFXR:<C|S|P>`) with deterministic regression coverage. *(lifecycle: [ ] -> [~] started: 2026-03-28 13:33 KST -> [x] completed: 2026-03-28 13:37 KST)*
 - [x] Systems/QA Team (Cycle GE follow-up): Add optional markdown/token-coverage family churn rail for `CBGCFXR` with fixed adjacency in the CBGC cluster. *(lifecycle: [ ] -> [~] started: 2026-03-28 14:00 KST -> [x] completed: 2026-03-28 14:08 KST)*
-- [ ] Combat/VFX Team (Cycle GE follow-up): Prototype offline adaptive remap-aggressiveness policy for `CBGC FX PULSE` using prior-window cue↔pulse disagreement streak memory.
+- [x] Combat/VFX Team (Cycle GE follow-up): Prototype offline adaptive remap-aggressiveness policy for `CBGC FX PULSE` using prior-window cue↔pulse disagreement streak memory. *(lifecycle: [ ] -> [~] started: 2026-03-28 14:29 KST -> [x] completed: 2026-03-28 14:36 KST)*
+
+## Game Director Cycle GF — 2026-03-28 14:36 KST
+- Idea 1 (low risk, UX/Combat): Add compact payload alias `CBGCFXA:<C|B|A>` for `cadenceBridgeGlyphConfidenceFxPulseSignals.aggressivenessMode` so operators can parse adaptive remap posture at a glance. Fantasy: cleaner postmortem triage handoff. Metric: payload decode hops/session. Scope: S. Risk: low; rollback by removing alias field. **Selected**
+- Idea 2 (mid risk, Systems/QA): Add markdown rail + family churn coverage for `CBGCFXA` near `CBGCFXR` and lock adjacency contracts. Fantasy: easier drift audits. Metric: row-order regressions/week. Scope: S/M. Risk: medium; rollback to payload-only alias.
+- Idea 3 (high risk, Design/Combat novelty): Drive adaptive copy variants from aggressiveness mode to contextualize volatility transitions. Fantasy: expressive cadence narrative. Metric: triage agreement in playtest notes. Scope: M. Risk: medium/high; rollback to static tone pack.
+
+- [x] UX/Combat Team (Cycle GF experiment): Ship payload-only compact adaptive remap alias `cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias` (`CBGCFXA:<C|B|A>`) + signals. *(lifecycle: [~] started: 2026-03-28 14:37 KST -> [x] completed: 2026-03-28 14:44 KST)*
+- [ ] Systems/QA Team (Cycle GF follow-up): Add markdown/token-coverage `CBGCFXA` rail + ordering regression lock adjacent to `CBGCFXR` cluster.
+- [ ] Design/Combat Team (Cycle GF follow-up): Prototype offline `CBGC FX PULSE` microcopy hint derived from `aggressivenessMode` for human-readable triage context.

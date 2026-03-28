@@ -1293,12 +1293,39 @@ def cadence_bridge_glyph_confidence_fx_pulse_from_active_alias(
         except (json.JSONDecodeError, OSError, TypeError, ValueError):
             prior_loaded = False
 
-    resolved_pulse = str(active_map.get(intent_cue, "EDGE") or "EDGE").upper()
+    expected_pulse = str(active_map.get(intent_cue, "EDGE") or "EDGE").upper()
+    resolved_pulse = expected_pulse
     reason = "regime-map-base"
     hysteresis_applied = False
 
     pulse_rank = {"SOFT": 1, "EDGE": 2, "HARD": 3}
     inverse_rank = {v: k for k, v in pulse_rank.items()}
+
+    prior_disagreement_streak = 0
+    prior_expected_pulse = "UNKNOWN"
+    if prior_loaded:
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_signals = prior_payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {})
+            if isinstance(prior_signals, dict):
+                prior_disagreement_streak = int(prior_signals.get("disagreementStreak", 0) or 0)
+                prior_expected_pulse = str(prior_signals.get("expectedPulse", "UNKNOWN") or "UNKNOWN").strip().upper()
+        except (json.JSONDecodeError, OSError, TypeError, ValueError):
+            prior_disagreement_streak = 0
+            prior_expected_pulse = "UNKNOWN"
+
+    disagreement = bool(prior_loaded and prior_pulse in pulse_rank and expected_pulse in pulse_rank and prior_pulse != expected_pulse)
+    disagreement_streak = (prior_disagreement_streak + 1) if disagreement else 0
+
+    adaptive_step_threshold = 1
+    aggressiveness_mode = "BASELINE"
+    if volatility_regime == "CALM":
+        adaptive_step_threshold = 1
+        aggressiveness_mode = "CAUTIOUS"
+    elif disagreement_streak >= 2:
+        adaptive_step_threshold = 2
+        aggressiveness_mode = "AGGRESSIVE"
+
     if (
         prior_loaded
         and prior_regime in {"SWING", "SPIKE"}
@@ -1308,11 +1335,13 @@ def cadence_bridge_glyph_confidence_fx_pulse_from_active_alias(
     ):
         desired_rank = pulse_rank[resolved_pulse]
         prior_rank = pulse_rank[prior_pulse]
-        if abs(desired_rank - prior_rank) > 1:
+        if abs(desired_rank - prior_rank) > adaptive_step_threshold:
             desired_rank = prior_rank + (1 if desired_rank > prior_rank else -1)
             resolved_pulse = inverse_rank.get(desired_rank, resolved_pulse)
             hysteresis_applied = True
-            reason = "volatility-memory-step-clamp"
+            reason = "volatility-memory-adaptive-step-clamp"
+        elif disagreement_streak >= 2:
+            reason = "volatility-memory-disagreement-escalation"
         else:
             reason = "volatility-memory-stable"
 
@@ -1324,9 +1353,15 @@ def cadence_bridge_glyph_confidence_fx_pulse_from_active_alias(
         "volatilityRegime": volatility_regime,
         "priorVolatilityRegime": prior_regime,
         "priorResolvedPulse": prior_pulse,
+        "priorExpectedPulse": prior_expected_pulse,
         "priorLoaded": prior_loaded,
         "map": active_map,
+        "expectedPulse": expected_pulse,
         "resolvedPulse": resolved_pulse,
+        "disagreement": disagreement,
+        "disagreementStreak": disagreement_streak,
+        "adaptiveStepThreshold": adaptive_step_threshold,
+        "aggressivenessMode": aggressiveness_mode,
         "hysteresisApplied": hysteresis_applied,
         "reason": reason,
         "offlineOnly": True,
@@ -1350,6 +1385,28 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_regime_alias(
         "flagName": flag_name,
         "flagEnabled": flag_enabled,
         "volatilityRegime": regime,
+        "alias": alias,
+        "aliasToken": token,
+    }
+
+
+def resolve_cadence_bridge_glyph_confidence_fx_pulse_aggressiveness_alias(
+    *,
+    fx_pulse_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Compact adaptive aggressiveness alias for CBGC FX pulse remap posture (`CBGCFXA:<C|B|A>`)."""
+    flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_AGGRESSIVENESS_ALIAS"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    mode = str(fx_pulse_signals.get("aggressivenessMode", "BASELINE") or "BASELINE").strip().upper()
+    alias_map = {"CAUTIOUS": "C", "BASELINE": "B", "AGGRESSIVE": "A"}
+    alias = alias_map.get(mode, "B")
+    token = f"CBGCFXA:{alias}"
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "aggressivenessMode": mode,
         "alias": alias,
         "aliasToken": token,
     }
@@ -9332,6 +9389,9 @@ def main() -> int:
     cadence_bridge_glyph_confidence_fx_pulse_regime_alias, cadence_bridge_glyph_confidence_fx_pulse_regime_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_regime_alias(
         fx_pulse_signals=cadence_bridge_glyph_confidence_fx_pulse_signals,
     )
+    cadence_bridge_glyph_confidence_fx_pulse_aggressiveness_alias, cadence_bridge_glyph_confidence_fx_pulse_aggressiveness_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_aggressiveness_alias(
+        fx_pulse_signals=cadence_bridge_glyph_confidence_fx_pulse_signals,
+    )
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
         lane_bucket_age=lane_bucket_age,
     )
@@ -10976,6 +11036,8 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceFxPulseSignals": cadence_bridge_glyph_confidence_fx_pulse_signals,
         "cadenceBridgeGlyphConfidenceFxPulseRegimeAlias": cadence_bridge_glyph_confidence_fx_pulse_regime_alias,
         "cadenceBridgeGlyphConfidenceFxPulseRegimeAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_regime_alias_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias": cadence_bridge_glyph_confidence_fx_pulse_aggressiveness_alias,
+        "cadenceBridgeGlyphConfidenceFxPulseAggressivenessAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_aggressiveness_alias_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,
         "combatVfxCadenceCoachAliasSignals": combat_vfx_cadence_coach_alias_signals,
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 14:08 KST
+Last updated: 2026-03-28 14:44 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,14 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Executed Game Director Cycle GF after all tracked queues were fully checked; generated 3 ideas and shipped selected low-risk UX/Combat vertical slice.
+- Added compact payload alias `cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias` (`CBGCFXA:<C|B|A>`) + signals for adaptive remap posture decoding without expanding markdown rail density.
+- Injected next backlog tasks (unchecked): Systems/QA `CBGCFXA` markdown+order lock rail, Design/Combat aggressiveness-driven microcopy hint prototype.
+
+- Closed Cycle GE Combat/VFX follow-up: weekly digest `cadenceBridgeGlyphConfidenceFxPulseSignals` now includes adaptive remap-aggressiveness memory from cue↔pulse disagreement streaks (`disagreement`, `disagreementStreak`, `adaptiveStepThreshold`, `aggressivenessMode`).
+- Policy remains deterministic and offline-only: output token domain is unchanged (`CBGC FX PULSE:SOFT|EDGE|HARD`) while remap hysteresis now uses volatility+streak-aware clamping (`volatility-memory-adaptive-step-clamp` / `...-disagreement-escalation`).
+- Regression contract updated to lock expanded signal schema and reason domain; TASKS + POST_RC synchronized to done with lifecycle annotation (`[ ] -> [~] -> [x]`).
 
 - Closed Cycle GE Systems/QA follow-up: weekly digest markdown now emits `CBGCFXR` + `CBGCFXR FAMILY CHURN` rows in both summary and token-coverage sections.
 - Added dedicated token-family tracking for `cadenceBridgeGlyphConfidenceFxPulseRegimeAlias` (`CBGCFXR:`) and locked deterministic adjacency `CBGCIA FAMILY CHURN -> CBGCFXR -> CBGCFXR FAMILY CHURN -> CBGCI` via regression contracts.

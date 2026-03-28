@@ -3898,3 +3898,18 @@
 - Decision: Added `CBGCFXR` + `CBGCFXR FAMILY CHURN` rows to both summary and token-coverage CBGC clusters with fixed adjacency (`CBGCIA FAMILY CHURN -> CBGCFXR -> CBGCFXR FAMILY CHURN -> CBGCI`).
 - Evidence: updated `scripts/weekly_portal_prompt_readability_drift.py` and regression contract checks in `scripts/regression_weekly_portal_prompt_readability_drift.py`; regression run passed.
 - Follow-up: Continue next unchecked TASKS item (Cycle GF release-note + telemetry contract sync).
+
+## 2026-03-28 14:36 KST
+- Task: Regression contract update for adaptive CBGC FX remap policy.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added schema/domain assertions for new FX pulse signal fields and updated allowed reason set.
+  - Kept strict validation that final token equals resolved pulse mapping.
+
+## 2026-03-28 14:44 KST
+- Task: Cycle GF verification pass.
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py` ✅

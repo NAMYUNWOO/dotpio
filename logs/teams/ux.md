@@ -2472,3 +2472,12 @@
 - Decision: Added `CBGCFXR` + `CBGCFXR FAMILY CHURN` rows to both summary and token-coverage CBGC clusters with fixed adjacency (`CBGCIA FAMILY CHURN -> CBGCFXR -> CBGCFXR FAMILY CHURN -> CBGCI`).
 - Evidence: updated `scripts/weekly_portal_prompt_readability_drift.py` and regression contract checks in `scripts/regression_weekly_portal_prompt_readability_drift.py`; regression run passed.
 - Follow-up: Continue next unchecked TASKS item (Cycle GF release-note + telemetry contract sync).
+
+## 2026-03-28 14:36 KST
+- Cross-lane note: No new UI row introduced; compact readability preserved.
+- Decision: Keep scan surface stable while improving hidden adaptive behavior signals for future UX debug overlays.
+
+## 2026-03-28 14:44 KST
+- Task: Cycle GF selected experiment — payload compact alias `CBGCFXA:<C|B|A>` for adaptive CBGC FX remap aggressiveness mode.
+- Decision: Kept experiment payload-only (no markdown row) to preserve existing confidence-cluster scan density.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
