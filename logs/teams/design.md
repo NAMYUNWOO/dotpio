@@ -2350,3 +2350,7 @@
 ### 2026-03-28 21:41 KST — Cycle GN experiment shipped (Design/World)
 - Delivered payload-only `COHERENCE ARC:LOCK|SWAY` derived from coherence status + momentum (`STABLE/WOBBLE`) for postmortem readability without markdown-row churn.
 - Signals include status, driftStreak, momentum, arc, reason, token, and offline-only contract for deterministic downstream parsing.
+
+## 2026-03-28 22:07 KST — Cycle GO design note
+- Added compact arc state channel (`CVARC`) for denser digest readability while preserving `COHERENCE ARC` narrative cue.
+- Follow-up: craft LOCK/SWAY coaching microline pair for A/B readability pass.

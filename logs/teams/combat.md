@@ -2275,3 +2275,7 @@
 
 ## 2026-03-28 21:10 KST — Cycle GM combat handoff
 - No runtime combat tuning changed; readability-only digest additions preserve current combat feedback behavior.
+
+## 2026-03-28 22:07 KST — Cycle GO completion
+- Shipped compact combat-facing alias `CVARC:<L|S>` (flag-gated) as payload-only mirror for `COHERENCE ARC:LOCK|SWAY`.
+- Kept markdown row order unchanged per task constraint; alias is payload-only for overlay consumers.

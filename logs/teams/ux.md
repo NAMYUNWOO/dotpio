@@ -2540,3 +2540,7 @@
 
 ## 2026-03-28 21:10 KST — Cycle GM UX slice (`CBGCFXWM LEGEND`)
 - Added compact legend row `CBGCFXWM LEGEND:S=STABLE,W=WOBBLE` in summary/token-coverage for faster alias decode under dense rails.
+
+## 2026-03-28 22:07 KST — Cycle GO UX/readability
+- Payload now exposes `CVARC` shorthand alongside `COHERENCE ARC` for compact HUD/log surfaces without expanding markdown rails.
+- No UI copy regressions observed in weekly digest output generation.

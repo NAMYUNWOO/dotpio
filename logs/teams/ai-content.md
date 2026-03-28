@@ -2345,3 +2345,7 @@
 
 ## 2026-03-28 21:10 KST — Cycle GM AI-content note
 - Maintained deterministic momentum semantics (`STABLE|WOBBLE`) while improving operator decode via explicit legend row.
+
+## 2026-03-28 22:07 KST — Cycle GO signal readability pass
+- Confirmed `COHERENCE ARC` narrative token now has compact mirror `CVARC:<L|S>` to reduce parser branching in dense digest consumers.
+- Follow-up: evaluate copy microline payload-only variants after systems stale-prior guard lands.

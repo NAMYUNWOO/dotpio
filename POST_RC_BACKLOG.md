@@ -1451,6 +1451,6 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Design/World Team: Prototype offline coherence-arc narrative cue token (`COHERENCE ARC:LOCK|SWAY`) from momentum-streak persistence for postmortem readability. *(lifecycle: [ ] -> [~] started: 2026-03-28 21:34 KST -> [x] completed: 2026-03-28 21:41 KST; verification: regression + weekly script smoke pass)*
 
 ## Next Up (Game Director Injection — Cycle GO)
-- [ ] Combat/VFX Team: Add compact alias `CVARC:<L|S>` mirror for `COHERENCE ARC` (payload-only first).
+- [x] Combat/VFX Team: Add compact alias `CVARC:<L|S>` mirror for `COHERENCE ARC` (payload-only first). *(lifecycle: [ ] -> [~] started: 2026-03-28 22:02 KST -> [x] completed: 2026-03-28 22:07 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
 - [ ] Systems/Ops Team: Add `arcSource:fresh|stale` guard in ARC signals when prior payload is unavailable/stale.
 - [ ] Design/World Team: Add payload-only LOCK/SWAY coaching microline pair for readability review.

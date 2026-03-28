@@ -3782,3 +3782,12 @@ Compact decision memory for AI context efficiency.
 - Chosen slice: Design/World payload-only `COHERENCE ARC:LOCK|SWAY` derived from coherence + momentum, with deterministic signal contract and no markdown rail churn.
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `[PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Injected Cycle GO tasks to preserve 24h cadence buckets: Combat/VFX alias, Systems/Ops stale-prior guard, Design/World coaching microline.
+
+### 2026-03-28 22:07 KST — Cycle GO closed (`CVARC` alias)
+- Completed Next Up Combat/VFX item: added payload-only compact alias `CVARC:<L|S>` mirroring `COHERENCE ARC:LOCK|SWAY` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_ALIAS`.
+- Added deterministic payload/signals contract fields:
+  - `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcAlias`
+  - `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcAliasSignals`
+- Preserved markdown ordering (no new digest rows) to honor no-row-order-churn requirement.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Next highest-priority unchecked item: Systems/Ops stale-prior guard (`arcSource:fresh|stale`) for ARC signal stability after snapshot gaps.
