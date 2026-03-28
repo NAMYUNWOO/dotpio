@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 06:03 KST
+Last updated: 2026-03-28 10:31 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle GB Systems/QA follow-up: regression contract now hard-locks `cadenceBridgeGlyphConfidenceFxPulse` domain (`CBGC FX PULSE:SOFT|EDGE|HARD`) and `cadenceBridgeGlyphConfidenceFxPulseSignals` schema/value domains.
+- Added deterministic mapping guard: regression asserts payload pulse token equals `intentCue -> map` resolution (`H/P/T/U -> SOFT/EDGE/HARD/EDGE`) to prevent silent drift.
+- TASKS + POST_RC synchronized to complete with lifecycle stamps (`[ ] -> [~] -> [x]`); next unchecked queue item is Design/World `CBGC LEGEND` alternate intent-verb tone pack.
 
 - Closed Cycle FV AI Content/World follow-up: weekly digest now emits offline confidence recommendation token `CADENCE BRIDGE GLYPH CONF:LOW|MID|HIGH` from prior-window freshness-gap volatility memory.
 - Payload contract now carries `cadenceBridgeGlyphConfidence` + `cadenceBridgeGlyphConfidenceSignals` (`currentGapHours`, `priorGapHours`, `gapDriftHours`, `gapVolatilityHours`, `priorLoaded`) for offline audit tooling.

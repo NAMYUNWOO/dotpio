@@ -2237,3 +2237,8 @@
 - Impact: downstream lane tooling can rely on deterministic `steady|swing|spike|unknown -> H|P|T|U` intent cue mapping.
 - Verification reference: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Follow-up remains: Design/World alternate tone-pack microcopy prototype under DOS width constraints.
+
+## 2026-03-28 10:31 KST — cross-lane sync note
+- Context: Systems/QA follow-up completed for Cycle GB (`cadenceBridgeGlyphConfidenceFxPulse*` regression lock).
+- Impact: Design can iterate `CBGC LEGEND` tone variants on top of a stable FX pulse telemetry contract.
+- Follow-up: Next unchecked item is Design/World alternate intent-verb tone pack prototype.

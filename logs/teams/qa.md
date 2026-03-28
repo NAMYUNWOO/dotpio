@@ -3847,3 +3847,16 @@
 - Impact: downstream lane tooling can rely on deterministic `steady|swing|spike|unknown -> H|P|T|U` intent cue mapping.
 - Verification reference: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Follow-up remains: Design/World alternate tone-pack microcopy prototype under DOS width constraints.
+
+## 2026-03-28 10:31 KST
+- Task: Verify Cycle GB Systems/QA payload-contract lock for `cadenceBridgeGlyphConfidenceFxPulse*`.
+- Commit: HEAD (pending)
+- Files checked: `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+- Decisions:
+  - Regression now enforces FX pulse key schema + value domain and map consistency against intent cue.
+  - No portal validator run (no map/portal changes).
+  - No screenshot regen (no UI rendering/layout changes).
+- Follow-up:
+  - Continue with next unchecked Design/World tone-pack experiment.

@@ -3304,3 +3304,15 @@
 - Added domain assertions for cue map keys (`steady|swing|spike|unknown`) and values (`H|P|T|U`), plus coherence checks tying `current`, `intentCue`, and top-level cue field.
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Next highest-priority unchecked item: Design/World tone-pack variant for `CBGC LEGEND` intent microcopy.
+
+## 2026-03-28 10:31 KST
+- Task: Cycle GB Systems/QA follow-up — lock `cadenceBridgeGlyphConfidenceFxPulse*` payload schema/domain in weekly digest regression.
+- Commit: HEAD (pending)
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added deterministic contract checks for `cadenceBridgeGlyphConfidenceFxPulse` domain (`SOFT|EDGE|HARD`) and signal schema keys.
+  - Locked cue->pulse mapping integrity by asserting pulse token equals mapped value from `intentCue` in payload signals.
+- Follow-up:
+  - Next unchecked queue item remains Design/World tone-pack prototype for `CBGC LEGEND` intent verbs.

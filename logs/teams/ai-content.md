@@ -2240,3 +2240,8 @@
 - Impact: downstream lane tooling can rely on deterministic `steady|swing|spike|unknown -> H|P|T|U` intent cue mapping.
 - Verification reference: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Follow-up remains: Design/World alternate tone-pack microcopy prototype under DOS width constraints.
+
+## 2026-03-28 10:31 KST — cross-lane sync note
+- Context: Systems/QA completed deterministic lock for `cadenceBridgeGlyphConfidenceFxPulse` payload + signals.
+- Impact: AI-content consumers can safely read pulse posture (`SOFT|EDGE|HARD`) without schema drift risk.
+- Follow-up: Keep pending Design/World verb-tone prototype aligned with fixed FX pulse contract.

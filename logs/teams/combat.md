@@ -2156,3 +2156,8 @@
 - Impact: downstream lane tooling can rely on deterministic `steady|swing|spike|unknown -> H|P|T|U` intent cue mapping.
 - Verification reference: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Follow-up remains: Design/World alternate tone-pack microcopy prototype under DOS width constraints.
+
+## 2026-03-28 10:31 KST — cross-lane sync note
+- Context: Regression now hard-locks `CBGC FX PULSE` payload domain/signals.
+- Impact: Combat/VFX pulse token introduced in Cycle GB is contract-stable for analytics and coach routing.
+- Follow-up: No combat logic changes required in this pass.

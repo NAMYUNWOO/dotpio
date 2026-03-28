@@ -2588,6 +2588,28 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current") in {"steady", "swing", "spike", "unknown"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current") in intent_cue_map, payload
         assert intent_cue_map[payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current")] == payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentCue"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulse") in {
+            "CBGC FX PULSE:SOFT",
+            "CBGC FX PULSE:EDGE",
+            "CBGC FX PULSE:HARD",
+        }, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).keys()) == {
+            "intentCue",
+            "narrative",
+            "confidence",
+            "map",
+            "offlineOnly",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("intentCue") in {"H", "P", "T", "U"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("narrative") in {"steady", "swing", "spike", "unknown"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("confidence") in {"LOW", "MID", "HIGH", "UNKNOWN"}, payload
+        fx_pulse_map = payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("map")
+        assert isinstance(fx_pulse_map, dict), payload
+        assert set(fx_pulse_map.keys()) == {"H", "P", "T", "U"}, payload
+        assert set(fx_pulse_map.values()) == {"SOFT", "EDGE", "HARD"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("offlineOnly") is True, payload
+        expected_fx_pulse = f"CBGC FX PULSE:{fx_pulse_map[payload.get('cadenceBridgeGlyphConfidenceFxPulseSignals', {}).get('intentCue')]}"
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulse") == expected_fx_pulse, payload
         assert set(payload.get("combatVfxCadenceCoachWhyHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",

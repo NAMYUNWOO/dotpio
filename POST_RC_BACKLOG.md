@@ -1348,5 +1348,5 @@ Last updated: 2026-03-21 02:31 KST
 - Lane cap rule: no lane exceeded 40%; underrepresented-lane policy still forced a combat/vfx experiment this cycle.
 - Selected idea (low risk, Combat/VFX): Add payload-only `CBGC FX PULSE:SOFT|EDGE|HARD` mapped from confidence intent cue.
 - [x] Combat/VFX Team: Implemented `cadenceBridgeGlyphConfidenceFxPulse` + signals in weekly digest payload (offline-only, reversible).
-- [ ] Systems/QA Team: Add deterministic regression schema/domain lock for `cadenceBridgeGlyphConfidenceFxPulse*` payload keys.
+- [x] Systems/QA Team: Add deterministic regression schema/domain lock for `cadenceBridgeGlyphConfidenceFxPulse*` payload keys. *(lifecycle: [~] started: 2026-03-28 10:29 KST -> [x] completed: 2026-03-28 10:31 KST)*
 - [ ] Design/World Team: Prototype alternate action-verb tone pack for `CBGC LEGEND` (`hold|anchor`, `prep|brace`, `triage|stabilize`) under DOS-width constraints.

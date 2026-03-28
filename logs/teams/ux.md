@@ -2438,3 +2438,8 @@
 - Impact: downstream lane tooling can rely on deterministic `steady|swing|spike|unknown -> H|P|T|U` intent cue mapping.
 - Verification reference: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Follow-up remains: Design/World alternate tone-pack microcopy prototype under DOS width constraints.
+
+## 2026-03-28 10:31 KST — cross-lane sync note
+- Context: Cycle GB Systems/QA follow-up closed with deterministic regression checks for `CBGC FX PULSE` payload/signals.
+- Impact: UX-facing digest/postmortem views can rely on stable pulse posture semantics (`SOFT|EDGE|HARD`).
+- Follow-up: Await Design/World tone-pack prototype before proposing any additional legend copy refinements.
