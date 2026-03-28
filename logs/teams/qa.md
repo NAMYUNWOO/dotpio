@@ -3835,3 +3835,7 @@
 - Added explicit adjacency contract assertion across both markdown sections (summary, token-coverage) to prevent alias-rail drift.
 - Regression status: weekly portal prompt readability drift suite passes after contract insertion.
 - Follow-up: Queue Design/World narrative variant experiment for `CBGC LEGEND` wording.
+## 2026-03-28 09:08 KST — Cycle FZ regression gate
+- Ran `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` after narrative cue + payload changes.
+- Result: PASS (no ordering/count regressions).
+- Follow-up queued: lock `CBGC LEGEND` narrative metadata contract with explicit markdown assertions.

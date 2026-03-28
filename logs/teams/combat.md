@@ -2143,3 +2143,7 @@
 ## 2026-03-28 08:31 KST — Cross-lane note (digest contract hardening)
 - Regression contract now guarantees confidence-legend alias adjacency (`CBGC LEGEND -> CBGCL`) across summary/token-coverage rails.
 - Combat postmortem scan order remains deterministic; no lane action required.
+## 2026-03-28 09:08 KST — Cycle FZ cross-lane note
+- No combat tuning changed this cycle; reviewed cadence narrative additions for compatibility with combat/vfx cadence coach rails.
+- Decision: keep combat lane untouched to avoid accidental token-order coupling.
+- Follow-up: monitor whether confidence narrative cues reduce combat-related triage scan time in digest reviews.

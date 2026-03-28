@@ -3583,3 +3583,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: treat `CBGC LEGEND -> CBGCL` adjacency as a first-class contract with section-specific failure messaging, separate from broader cadence-bridge ordering checks.
 - Verification evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
 - Next queued item: Design/World Team (Cycle FY follow-up) short-form `CBGC LEGEND` narrative copy variant (`steady/swing/spike`).
+
+## 2026-03-28 09:08 KST — Game Director Cycle FZ vertical slice (`CBGC LEGEND` active narrative cue)
+- Full-check trigger executed Game Director review cycle (3 ideas) and shipped selected low-risk UX/Design slice: `CBGC LEGEND` now includes compact narrative mapping + active cue (`current=steady|swing|spike`).
+- Extended weekly digest JSON with `cadenceBridgeGlyphConfidenceNarrative` and `cadenceBridgeGlyphConfidenceNarrativeSignals` for downstream consumers.
+- Durable decision: preserve fixed confidence-cluster row order; embed narrative context inside existing legend row instead of introducing additional rows.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Injected follow-ups: (1) Systems/QA metadata contract assertions for `CBGC LEGEND` narrative fields, (2) AI Content/World microcopy tone variant prototype.

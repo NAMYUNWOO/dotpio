@@ -2426,3 +2426,7 @@
 ## 2026-03-28 08:31 KST — Cross-lane update (readability contract)
 - Added explicit regression guard that preserves `CBGC LEGEND`/`CBGCL` adjacency in both digest sections.
 - UX scan-path consistency maintained for compact onboarding rails.
+## 2026-03-28 09:08 KST — Cycle FZ one-glance confidence posture
+- Added active narrative cue (`current=steady|swing|spike`) to CBGC legend metadata for faster read without jumping rows.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Follow-up: add explicit regression assertion for narrative metadata in summary + token-coverage sections.

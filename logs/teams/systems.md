@@ -3291,3 +3291,7 @@
 - Decision: Added dedicated section-scoped assertion loop with contract-specific failure text in `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` → `[PASS]`.
 - Follow-up: Next highest-priority unchecked item is Design/World short-form narrative copy variant for `CBGC LEGEND` (`steady/swing/spike`).
+## 2026-03-28 09:08 KST — Cycle FZ payload extension
+- Extended weekly digest payload with `cadenceBridgeGlyphConfidenceNarrative` + `...NarrativeSignals` for downstream automation hooks.
+- Decision: keep narrative derivation deterministic from `CADENCE BRIDGE GLYPH CONF` (`LOW->spike`, `MID->swing`, `HIGH->steady`).
+- Follow-up: consider optional width-budget guard for confidence cluster rows before adding new alias rails.

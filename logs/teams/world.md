@@ -2158,3 +2158,7 @@
 ## 2026-03-28 08:31 KST — Cross-lane update (Systems/QA contract landed)
 - Confirmed digest markdown contract now hard-locks `CBGC LEGEND -> CBGCL` adjacency in summary and token-coverage sections.
 - World/design readability handoff remains stable for upcoming short-form narrative variant experiment.
+## 2026-03-28 09:08 KST — Cycle FZ cadence narrative framing
+- Narrative posture wording aligned to design/world freshness pressure framing: `steady` (stable), `swing` (moderate), `spike` (volatile).
+- Decision: keep world-facing pressure semantics encoded only in legend metadata, not new row insertions.
+- Follow-up: test tone alternatives that better suggest operator response under stale design/world cadence.

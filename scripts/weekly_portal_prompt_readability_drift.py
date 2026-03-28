@@ -9135,6 +9135,22 @@ def main() -> int:
         "alias": "LMH",
         "aliasToken": "CBGCL:LMH",
     }
+    cadence_bridge_glyph_confidence_narrative_map = {
+        "LOW": "spike",
+        "MID": "swing",
+        "HIGH": "steady",
+    }
+    cadence_bridge_glyph_confidence_narrative = cadence_bridge_glyph_confidence_narrative_map.get(
+        cadence_bridge_glyph_confidence_signals.get("confidence", ""),
+        "unknown",
+    )
+    cadence_bridge_glyph_confidence_narrative_signals = {
+        "map": cadence_bridge_glyph_confidence_narrative_map,
+        "current": cadence_bridge_glyph_confidence_narrative,
+        "confidence": cadence_bridge_glyph_confidence_signals.get("confidence", "UNKNOWN"),
+        "flagName": cadence_bridge_glyph_confidence_compact_alias_signals["flagName"],
+        "flagEnabled": cadence_bridge_glyph_confidence_compact_alias_signals["flagEnabled"],
+    }
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
         lane_bucket_age=lane_bucket_age,
     )
@@ -10765,6 +10781,8 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceCompactAliasSignals": cadence_bridge_glyph_confidence_compact_alias_signals,
         "cadenceBridgeGlyphConfidenceLegendCompactAlias": cadence_bridge_glyph_confidence_legend_compact_alias,
         "cadenceBridgeGlyphConfidenceLegendCompactAliasSignals": cadence_bridge_glyph_confidence_legend_compact_alias_signals,
+        "cadenceBridgeGlyphConfidenceNarrative": cadence_bridge_glyph_confidence_narrative,
+        "cadenceBridgeGlyphConfidenceNarrativeSignals": cadence_bridge_glyph_confidence_narrative_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,
         "combatVfxCadenceCoachAliasSignals": combat_vfx_cadence_coach_alias_signals,
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,
@@ -11631,7 +11649,7 @@ def main() -> int:
         f"- CVCWHR FX LEGEND COPY PACK FAMILY CHURN: **net {token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['net']:+d}** (added={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['added']} removed={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['removed']} churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['coverage']})",
         f"- CADENCE BRIDGE GLYPH: **{cadence_bridge_glyph_token}** (flag={cadence_bridge_glyph_signals['flagName']} enabled={cadence_bridge_glyph_signals['flagEnabled']} glyph={cadence_bridge_glyph_signals['glyph']} bridge={cadence_bridge_glyph_signals['bridge']} gap={cadence_bridge_glyph_signals['designWorldGapHours']:+d}h dw={cadence_bridge_glyph_signals['designWorldAgeHours']}h freshestOther={cadence_bridge_glyph_signals['freshestOtherAgeHours']}h reason={cadence_bridge_glyph_signals['reason']} offlineOnly={cadence_bridge_glyph_signals['offlineOnly']})",
         f"- CADENCE BRIDGE GLYPH CONF: **{cadence_bridge_glyph_confidence_token}** (flag={cadence_bridge_glyph_confidence_signals['flagName']} enabled={cadence_bridge_glyph_confidence_signals['flagEnabled']} conf={cadence_bridge_glyph_confidence_signals['confidence']} alias={cadence_bridge_glyph_confidence_compact_alias if cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled'] else 'FLAG OFF'} aliasFlag={cadence_bridge_glyph_confidence_compact_alias_signals['flagName']} aliasEnabled={cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled']} gap={cadence_bridge_glyph_confidence_signals['currentGapHours']:+d}h priorGap={cadence_bridge_glyph_confidence_signals['priorGapHours']:+d}h drift={cadence_bridge_glyph_confidence_signals['gapDriftHours']:+d}h volatility={cadence_bridge_glyph_confidence_signals['gapVolatilityHours']}h spikeMem={cadence_bridge_glyph_confidence_signals['spikeMemoryWindows']} regime={cadence_bridge_glyph_confidence_signals['volatilityRegime']} priorLoaded={cadence_bridge_glyph_confidence_signals['priorLoaded']} reason={cadence_bridge_glyph_confidence_signals['reason']} offlineOnly={cadence_bridge_glyph_confidence_signals['offlineOnly']})",
-        f"- CBGC LEGEND: **{'L=LOW, M=MID, H=HIGH' if cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled'] else 'FLAG OFF'}** (flag={cadence_bridge_glyph_confidence_compact_alias_signals['flagName']} enabled={cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled']} compactOnboarding=True)",
+        f"- CBGC LEGEND: **{'L=LOW(spike), M=MID(swing), H=HIGH(steady)' if cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled'] else 'FLAG OFF'}** (flag={cadence_bridge_glyph_confidence_compact_alias_signals['flagName']} enabled={cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled']} compactOnboarding=True narrative=steady/swing/spike current={cadence_bridge_glyph_confidence_narrative})",
         f"- CBGCL: **{cadence_bridge_glyph_confidence_legend_compact_alias}** (flag={cadence_bridge_glyph_confidence_legend_compact_alias_signals['flagName']} enabled={cadence_bridge_glyph_confidence_legend_compact_alias_signals['flagEnabled']} legendAlias={cadence_bridge_glyph_confidence_legend_compact_alias_signals['alias']})",
         "- CADENCE BRIDGE GLYPH CONF LEGEND: LOW=high volatility/extreme gap, MID=moderate or cold-start volatility, HIGH=stable low-volatility gap",
         "- CADENCE BRIDGE GLYPH LEGEND: CALM=design/world cadence is aligned, TENSE=design/world freshness pressure needs visible follow-up",
@@ -11872,7 +11890,7 @@ def main() -> int:
         f"- CVCWHR FX LEGEND COPY PACK FAMILY CHURN: +{token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['added']} / -{token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['removed']} / net {token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['net']} (churn={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['churn']} coverage={token_family_totals['combatVfxCadenceCoachWhyHysteresisConfidenceFloorFxPulseLegendCopyPackAlias']['coverage']})",
         f"- CADENCE BRIDGE GLYPH: {cadence_bridge_glyph_token} (flag={cadence_bridge_glyph_signals['flagName']}, enabled={cadence_bridge_glyph_signals['flagEnabled']}, glyph={cadence_bridge_glyph_signals['glyph']}, bridge={cadence_bridge_glyph_signals['bridge']}, gap={cadence_bridge_glyph_signals['designWorldGapHours']:+d}h, dw={cadence_bridge_glyph_signals['designWorldAgeHours']}h, freshestOther={cadence_bridge_glyph_signals['freshestOtherAgeHours']}h, reason={cadence_bridge_glyph_signals['reason']}, offlineOnly={cadence_bridge_glyph_signals['offlineOnly']})",
         f"- CADENCE BRIDGE GLYPH CONF: {cadence_bridge_glyph_confidence_token} (flag={cadence_bridge_glyph_confidence_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_signals['flagEnabled']}, confidence={cadence_bridge_glyph_confidence_signals['confidence']}, alias={cadence_bridge_glyph_confidence_compact_alias if cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled'] else 'FLAG OFF'}, aliasFlag={cadence_bridge_glyph_confidence_compact_alias_signals['flagName']}, aliasEnabled={cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled']}, gap={cadence_bridge_glyph_confidence_signals['currentGapHours']:+d}h, priorGap={cadence_bridge_glyph_confidence_signals['priorGapHours']:+d}h, drift={cadence_bridge_glyph_confidence_signals['gapDriftHours']:+d}h, volatility={cadence_bridge_glyph_confidence_signals['gapVolatilityHours']}h, spikeMem={cadence_bridge_glyph_confidence_signals['spikeMemoryWindows']}, regime={cadence_bridge_glyph_confidence_signals['volatilityRegime']}, priorLoaded={cadence_bridge_glyph_confidence_signals['priorLoaded']}, reason={cadence_bridge_glyph_confidence_signals['reason']}, offlineOnly={cadence_bridge_glyph_confidence_signals['offlineOnly']})",
-        f"- CBGC LEGEND: {'L=LOW, M=MID, H=HIGH' if cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled'] else 'FLAG OFF'} (flag={cadence_bridge_glyph_confidence_compact_alias_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled']}, compactOnboarding=True)",
+        f"- CBGC LEGEND: {'L=LOW(spike), M=MID(swing), H=HIGH(steady)' if cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled'] else 'FLAG OFF'} (flag={cadence_bridge_glyph_confidence_compact_alias_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_compact_alias_signals['flagEnabled']}, compactOnboarding=True, narrative=steady/swing/spike, current={cadence_bridge_glyph_confidence_narrative})",
         f"- CBGCL: {cadence_bridge_glyph_confidence_legend_compact_alias} (flag={cadence_bridge_glyph_confidence_legend_compact_alias_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_legend_compact_alias_signals['flagEnabled']}, legendAlias={cadence_bridge_glyph_confidence_legend_compact_alias_signals['alias']})",
         "- CADENCE BRIDGE GLYPH CONF LEGEND: LOW=high volatility/extreme gap, MID=moderate or cold-start volatility, HIGH=stable low-volatility gap",
         "- CADENCE BRIDGE GLYPH LEGEND: CALM=design/world cadence is aligned, TENSE=design/world freshness pressure needs visible follow-up",

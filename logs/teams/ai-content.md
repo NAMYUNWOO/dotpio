@@ -2228,3 +2228,7 @@
 ## 2026-03-28 08:31 KST — Cross-lane update (alias adjacency contract)
 - Systems/QA shipped explicit markdown contract: `CBGC LEGEND` must be directly followed by `CBGCL` in both digest sections.
 - AI-content alias decode assumptions remain deterministic for downstream copy experiments.
+## 2026-03-28 09:08 KST — Cycle FZ microcopy semantics
+- Updated compact narrative copy pack for confidence decode using `steady/swing/spike` lexicon in `CBGC LEGEND`.
+- Decision: map remains alias-safe and reversible (`L/M/H` decode preserved).
+- Follow-up: prototype alternate concise narration with explicit action hints (watch/stabilize/escalate).

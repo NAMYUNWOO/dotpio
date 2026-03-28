@@ -2225,3 +2225,7 @@
 ## 2026-03-28 08:31 KST — Cross-lane note (prep for narrative legend variant)
 - Systems/QA locked `CBGC LEGEND -> CBGCL` adjacency contract in markdown regressions.
 - Design can iterate short-form narrative legend copy (`steady/swing/spike`) without risking alias rail drift.
+## 2026-03-28 09:08 KST — Cycle FZ narrative cue pass
+- Landed short-form posture narrative in `CBGC LEGEND` row (`L=LOW(spike), M=MID(swing), H=HIGH(steady)` + `current=<cue>`).
+- Decision: keep decode mapping inline in existing legend row to avoid section-order churn and preserve DOS scan rhythm.
+- Follow-up: evaluate microcopy tone variants that keep compactness while improving action intent.
