@@ -2148,3 +2148,6 @@
 - Decision: keep combat lane untouched to avoid accidental token-order coupling.
 - Follow-up: monitor whether confidence narrative cues reduce combat-related triage scan time in digest reviews.
 - 2026-03-28 09:42 KST — Verified cadence-bridge legend intent cue changes are metadata-only and do not alter combat/vfx trend token ordering contracts.
+## 2026-03-28 09:49 KST — Cycle GB combat note
+- Confirmed new `CBGC FX PULSE` payload signal preserves combat/vfx triage continuity without changing runtime combat mechanics.
+- Mapping remains metadata-only and deterministic from confidence intent cues.

@@ -3840,3 +3840,5 @@
 - Result: PASS (no ordering/count regressions).
 - Follow-up queued: lock `CBGC LEGEND` narrative metadata contract with explicit markdown assertions.
 - 2026-03-28 09:42 KST — Added deterministic regression checks for `CBGC LEGEND` metadata presence (`narrative=...`, `current=...`, `cue=...`) in summary and token-coverage sections.
+## 2026-03-28 09:49 KST — Cycle GB QA note
+- Regression suite green after adding `CBGC FX PULSE` payload fields; queued explicit schema/domain assertion task for deterministic contract hardening.

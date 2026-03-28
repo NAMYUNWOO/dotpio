@@ -1342,3 +1342,11 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/AI Content Team (Cycle GA experiment): Add `cue=H|P|T|U` metadata to `CBGC LEGEND` rows (summary + token-coverage) and persist `cadenceBridgeGlyphConfidenceNarrativeIntentCue` in payload/signals.
 - [ ] Systems/QA Team (Cycle GA follow-up): Extend deterministic regression payload contract for `cadenceBridgeGlyphConfidenceNarrativeIntentCue` + `intentCueMap` keys/value domain.
 - [ ] Design/World Team (Cycle GA follow-up): Prototype alternate action-verb tone pack for `CBGC LEGEND` intent microcopy (`steady:hold|anchor`, `swing:prep|brace`, `spike:triage|stabilize`) while preserving DOS width.
+
+## Cycle GB - Game Director Review (2026-03-28 09:49 KST)
+- Coverage check (last 10 completions, primary lane tags): ux=4, systems=3, ai-content=2, design=1, world=0, combat=0, vfx=0, qa=0.
+- Lane cap rule: no lane exceeded 40%; underrepresented-lane policy still forced a combat/vfx experiment this cycle.
+- Selected idea (low risk, Combat/VFX): Add payload-only `CBGC FX PULSE:SOFT|EDGE|HARD` mapped from confidence intent cue.
+- [x] Combat/VFX Team: Implemented `cadenceBridgeGlyphConfidenceFxPulse` + signals in weekly digest payload (offline-only, reversible).
+- [ ] Systems/QA Team: Add deterministic regression schema/domain lock for `cadenceBridgeGlyphConfidenceFxPulse*` payload keys.
+- [ ] Design/World Team: Prototype alternate action-verb tone pack for `CBGC LEGEND` (`hold|anchor`, `prep|brace`, `triage|stabilize`) under DOS-width constraints.

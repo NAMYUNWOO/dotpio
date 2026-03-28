@@ -3597,3 +3597,15 @@ Compact decision memory for AI context efficiency.
 - Payload now persists `cadenceBridgeGlyphConfidenceNarrativeIntentCue` plus narrative signal keys (`intentCueMap`, `intentCue`) for downstream tooling.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
 - Injected backlog follow-ups: (1) Systems/QA payload schema hard-lock for intent cue keys/value domain, (2) Design/World alternate action-verb tone pack prototype.
+
+## 2026-03-28 09:49 KST — Game Director Cycle GB vertical slice (`CBGC FX PULSE`)
+- Coverage check (last 10 completions, primary lane tags): ux=4, systems=3, ai-content=2, design=1, world=0, combat=0, vfx=0, qa=0.
+- Lane cap rule: no lane exceeded 40% (ux exactly 40%), but underrepresented lanes (`combat`, `vfx`, `world`, `qa`) were prioritized.
+- 24h cadence gate enforcement: this cycle intentionally selected a **combat/vfx** experiment to keep cadence mix healthy and queued explicit **design/world** + **systems/ops** follow-ups.
+- Ideas generated:
+  1) Low risk (Combat/VFX): add payload-only `CBGC FX PULSE:SOFT|EDGE|HARD` mapped from `CBGC LEGEND` intent cue for one-glance FX triage continuity. **Selected**
+  2) Mid risk (Systems/Ops): add 24h cadence matrix row in digest for confidence-cluster lanes with stale-window warning.
+  3) High risk (Design/World novelty): adaptive intent-verb tone pack (`hold|anchor`, `prep|brace`, `triage|stabilize`) keyed by cadence pressure transitions.
+- Shipped minimal slice: weekly digest payload now emits `cadenceBridgeGlyphConfidenceFxPulse` + signals (deterministic cue map `H->SOFT`, `P/U->EDGE`, `T->HARD`, offline-only).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120 --out-json logs/weekly_portal_prompt_readability_drift.json --out-md logs/weekly_portal_prompt_readability_drift.md` PASS.
+- Backlog injected: (1) Systems/QA schema/domain lock for `cadenceBridgeGlyphConfidenceFxPulse*`, (2) Design/World tone-pack variant trial preserving DOS width.

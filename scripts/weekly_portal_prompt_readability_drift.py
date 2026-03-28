@@ -9163,6 +9163,20 @@ def main() -> int:
         "flagName": cadence_bridge_glyph_confidence_compact_alias_signals["flagName"],
         "flagEnabled": cadence_bridge_glyph_confidence_compact_alias_signals["flagEnabled"],
     }
+    cadence_bridge_glyph_confidence_fx_pulse_map = {
+        "H": "SOFT",
+        "P": "EDGE",
+        "T": "HARD",
+        "U": "EDGE",
+    }
+    cadence_bridge_glyph_confidence_fx_pulse = f"CBGC FX PULSE:{cadence_bridge_glyph_confidence_fx_pulse_map.get(cadence_bridge_glyph_confidence_intent_cue, 'EDGE')}"
+    cadence_bridge_glyph_confidence_fx_pulse_signals = {
+        "intentCue": cadence_bridge_glyph_confidence_intent_cue,
+        "narrative": cadence_bridge_glyph_confidence_narrative,
+        "confidence": cadence_bridge_glyph_confidence_signals.get("confidence", "UNKNOWN"),
+        "map": cadence_bridge_glyph_confidence_fx_pulse_map,
+        "offlineOnly": True,
+    }
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
         lane_bucket_age=lane_bucket_age,
     )
@@ -10796,6 +10810,8 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceNarrative": cadence_bridge_glyph_confidence_narrative,
         "cadenceBridgeGlyphConfidenceNarrativeIntentCue": cadence_bridge_glyph_confidence_intent_cue,
         "cadenceBridgeGlyphConfidenceNarrativeSignals": cadence_bridge_glyph_confidence_narrative_signals,
+        "cadenceBridgeGlyphConfidenceFxPulse": cadence_bridge_glyph_confidence_fx_pulse,
+        "cadenceBridgeGlyphConfidenceFxPulseSignals": cadence_bridge_glyph_confidence_fx_pulse_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,
         "combatVfxCadenceCoachAliasSignals": combat_vfx_cadence_coach_alias_signals,
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,

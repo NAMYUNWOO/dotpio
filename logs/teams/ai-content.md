@@ -2233,3 +2233,5 @@
 - Decision: map remains alias-safe and reversible (`L/M/H` decode preserved).
 - Follow-up: prototype alternate concise narration with explicit action hints (watch/stabilize/escalate).
 - 2026-03-28 09:42 KST — Shipped microcopy refinement in `CBGC LEGEND`: `intent=steady:hold/swing:prep/spike:triage` with new compact cue code (`H|P|T|U`) for faster operator decoding.
+## 2026-03-28 09:49 KST — Cycle GB ai-content note
+- Confidence intent cue semantics now fan out to vfx-facing pulse posture token (`CBGC FX PULSE`) without changing existing legend decode contract.

@@ -2431,3 +2431,5 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Follow-up: add explicit regression assertion for narrative metadata in summary + token-coverage sections.
 - 2026-03-28 09:42 KST — Implemented one-character intent cue (`cue=H|P|T|U`) in `CBGC LEGEND` rows to reduce scan latency under compact terminal width.
+## 2026-03-28 09:49 KST — Cycle GB ux note
+- Kept UX surface unchanged this slice (payload-only) to avoid disrupting locked confidence-cluster markdown adjacency contracts.

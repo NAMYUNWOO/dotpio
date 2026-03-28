@@ -322,3 +322,8 @@
 - No direct visual FX-state remap this slice; shipped digest-side override guard token `CVCWHR FX LEGEND CPTC OVERRIDE:ON|OFF` for confidence/trend mismatch continuity.
 - Purpose: prevent copy-pack confidence alias from silently drifting against trend direction over multiple windows.
 - Follow-up: next forced lane remains Design/World (`CADENCE BRIDGE GLYPH`) to satisfy 24h cadence contract.
+## 2026-03-28 09:49 KST — Cycle GB combat/vfx vertical slice (`CBGC FX PULSE`) [DONE]
+- Shipped digest payload cue `CBGC FX PULSE:SOFT|EDGE|HARD` derived from `CBGC LEGEND` intent cue (`H/P/T/U`) for faster postmortem FX posture scanning.
+- Deterministic map: `H->SOFT`, `P->EDGE`, `T->HARD`, `U->EDGE`; additive + reversible, offline-only.
+- Verification: weekly readability regression PASS and digest generation PASS.
+- Follow-up: add schema/domain regression lock for new payload keys before adding markdown row exposure.
