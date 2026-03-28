@@ -1367,5 +1367,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, Combat/VFX): Map `CBGC FX PULSE` from `CBGCIA` + volatility-regime memory to enrich cue dynamics.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/AI Content Team (Cycle GD experiment): Ship payload-only active intent alias (`CBGCIA:<H|P|T|U>`) via `cadenceBridgeGlyphConfidenceNarrativeIntentTonePackActiveAlias` + signals with deterministic regression schema/domain/coherence checks. *(lifecycle: [ ] -> [~] started: 2026-03-28 12:33 KST -> [x] completed: 2026-03-28 12:40 KST)*
-- [ ] Systems/QA Team (Cycle GD follow-up): Add optional markdown/token-coverage family churn rail for `CBGCIA` when/if surfaced in digest rows.
+- [x] Systems/QA Team (Cycle GD follow-up): Add optional markdown/token-coverage family churn rail for `CBGCIA` when/if surfaced in digest rows. *(lifecycle: [~] started: 2026-03-28 13:00 KST -> [x] completed: 2026-03-28 13:10 KST)*
 - [ ] Combat/VFX Team (Cycle GD follow-up): Prototype offline `CBGC FX PULSE` remap policy using `CBGCIA` + volatility-regime memory.

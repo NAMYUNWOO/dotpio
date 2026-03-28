@@ -3640,3 +3640,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: enforce coherence contract `intentTonePack == intentTonePackMap[current]` so active narrative and selected tone-pack cannot drift.
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Queue head now points to UX/Design follow-up: `CBGCI` compact alias prototype.
+
+### 2026-03-28 13:10 KST — Cycle GD follow-up shipped
+- Completed backlog task: surfaced `CBGCIA` markdown/token-coverage rail with deterministic family churn row.
+- Decision: keep `CBGCIA` in the cadence-bridge confidence cluster (between `CBGCL` and `CBGCI`) to avoid splitting tone-pack context from active cue.
+- Contract lock: regression now enforces `CBGC LEGEND -> CBGCL -> CBGCIA -> CBGCIA FAMILY CHURN -> CBGCI -> CBGCI LEGEND -> CBGCIL` in both digest sections.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.

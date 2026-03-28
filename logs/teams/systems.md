@@ -3330,3 +3330,11 @@
 - Next unchecked queue item: UX/Design compact alias candidate (`CBGCI`) in token-coverage section.
 - [2026-03-28 11:58 KST] Cycle GC UX/Design follow-up delivered: wired `CBGCI` alias token family in weekly digest token catalogs + payload fields (`...IntentTonePackCompactAlias` + signals) and expanded regression/order locks.
 - 2026-03-28 12:40 KST — Cycle GD: added payload-only CBGCIA active intent alias contract (follow-up queue tracked in TASKS/POST_RC).
+
+## 2026-03-28 13:10 KST — Cycle GD follow-up (CBGCIA markdown rail)
+- Added `CBGCIA:` token counting into compact/detailed token groups so alias usage participates in churn math.
+- Added token-family alias mapping for `cadenceBridgeGlyphConfidenceNarrativeIntentTonePackActiveAlias` (`CBGCIA:`) and surfaced markdown rows in both summary and token-coverage sections:
+  - `CBGCIA:<H|P|T|U>`
+  - `CBGCIA FAMILY CHURN`
+- Kept `CBGCIA` rows adjacent to the CBGC confidence cluster to preserve operator scan flow.
+- Follow-up: maintain cluster ordering contract if additional CBGC legend aliases are injected.

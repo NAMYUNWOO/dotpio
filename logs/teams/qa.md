@@ -3874,3 +3874,12 @@
 - Next unchecked queue item: UX/Design compact alias candidate (`CBGCI`) in token-coverage section.
 - [2026-03-28 11:58 KST] Regression updated for `CBGCI` payload/schema presence and deterministic markdown adjacency; local script verification passed.
 - 2026-03-28 12:40 KST — Cycle GD: added payload-only CBGCIA active intent alias contract (follow-up queue tracked in TASKS/POST_RC).
+
+## 2026-03-28 13:10 KST — Cycle GD follow-up verification (CBGCIA markdown rail)
+- Extended regression contract for CBGC confidence cluster ordering:
+  - `CBGC LEGEND -> CBGCL -> CBGCIA -> CBGCIA FAMILY CHURN -> CBGCI -> CBGCI LEGEND -> CBGCIL`
+  - validated in both summary and token-coverage sections.
+- Added presence/count assertions for `CBGCIA` and `CBGCIA FAMILY CHURN` rows (2 each, one per section).
+- Verification command:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - Result: PASS.
