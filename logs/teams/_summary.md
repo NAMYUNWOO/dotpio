@@ -3745,3 +3745,9 @@ Compact decision memory for AI context efficiency.
 - Generated 3 ideas, selected low-risk Idea 1, and implemented minimal vertical slice: payload-only compact coherence alias `CBGCFXWC:<O|D>` mapped from `CBGCFXW COHERENCE` status.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
 - Durable decision: keep coherence alias additions payload-first, then graduate to markdown rails only after churn evidence justifies added digest row budget.
+
+## 2026-03-28 19:29 KST
+- Completed: Cycle GK Systems/QA backlog item — `CBGCFXWC FAMILY CHURN` rail is now emitted in weekly digest summary + token-coverage sections with strict adjacency contract (`CBGCFXW LEGEND -> CBGCFXW COHERENCE -> CBGCFXWC -> CBGCFXWC FAMILY CHURN -> CBGCFXW DRIFT`).
+- Durable decision: keep coherence alias churn readable in markdown (not JSON-only) and enforce ordering in regression to prevent rail drift.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Next item: `UX/Design Team` compact coherence legend row (`CBGCFXWC LEGEND:O=OK,D=DRIFT`) behind flag.
