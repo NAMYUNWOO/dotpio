@@ -1649,3 +1649,11 @@ See project-level plans:
 - [x] UX/World Team: Ship compact world-tone alias token `CBGCFXW:<S|J|B|N>` from `narrativeCurrent` (`steady|swing|spike|unknown`) while preserving `CBGCFXH:<W|T|P>` decode contract. *(lifecycle: [ ] -> [~] started: 2026-03-28 16:40 KST -> [x] completed: 2026-03-28 16:47 KST)*
 - [x] Systems/QA Team: Add explicit adjacency/count regression lock for `CBGCFXW` + `CBGCFXW FAMILY CHURN` immediately before `CBGCI` in both digest sections. *(lifecycle: [ ] -> [~] started: 2026-03-28 17:30 KST -> [x] completed: 2026-03-28 17:35 KST)*
 - [x] AI Content/Design Team: Prototype optional `CBGCFXW LEGEND` copy row (payload/markdown) for compact decode readability under DOS-width constraints. *(lifecycle: [ ] -> [x] reconciled from POST_RC_BACKLOG: completed 2026-03-28 17:08 KST)*
+
+## Game Director Cycle GI — 2026-03-28 18:10 KST
+- Idea 1 (low risk, AI Content/VFX): World-tone prior-window drift token. **Selected.**
+- Idea 2 (mid risk, Systems/Combat/Design): World-tone coherence check token.
+- Idea 3 (high risk, novelty): World-tone momentum score.
+- [x] AI Content/VFX Team: Add `CBGCFXW DRIFT:<prev>><curr>` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_DRIFT` with payload+markdown+regression. *(lifecycle: [ ] -> [~] started: 2026-03-28 17:50 KST -> [x] completed: 2026-03-28 18:10 KST)*
+- [ ] Systems/QA Team: Add strict adjacency lock regression for `CBGCFXW DRIFT:` family churn rows.
+- [ ] Design/World Team: Prototype offline `CBGCFXW COHERENCE:OK|DRIFT` cross-signal check.

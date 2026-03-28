@@ -2771,6 +2771,23 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneLegendSignals", {}).get("activeAlias") in {"S", "J", "B", "N"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneLegendSignals", {}).get("sourceToken") in {"CBGCFXW:S", "CBGCFXW:J", "CBGCFXW:B", "CBGCFXW:N"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneLegendSignals", {}).get("offlineOnly") is True, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDrift", "").startswith(("FLAG OFF", "CBGCFXW DRIFT:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDriftSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "currentAlias",
+            "priorAlias",
+            "priorLoaded",
+            "shifted",
+            "driftToken",
+            "offlineOnly",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDriftSignals", {}).get("currentAlias") in {"S", "J", "B", "N"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDriftSignals", {}).get("priorAlias") in {"S", "J", "B", "N"}, payload
+        assert isinstance(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDriftSignals", {}).get("priorLoaded"), bool), payload
+        assert isinstance(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDriftSignals", {}).get("shifted"), bool), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDriftSignals", {}).get("driftToken", "").startswith("CBGCFXW DRIFT:"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDriftSignals", {}).get("offlineOnly") is True, payload
         assert set(payload.get("combatVfxCadenceCoachWhyHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",
@@ -3125,6 +3142,8 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_alias_indices = _find_line_indices("- CBGCFXW:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_alias_family_churn_indices = _find_line_indices("- CBGCFXW FAMILY CHURN:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_legend_indices = _find_line_indices("- CBGCFXW LEGEND:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_indices = _find_line_indices("- CBGCFXW DRIFT:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_family_churn_indices = _find_line_indices("- CBGCFXW DRIFT FAMILY CHURN:")
         cadence_bridge_glyph_conf_intent_compact_alias_indices = _find_line_indices("- CBGCI:")
         cadence_bridge_glyph_conf_intent_legend_indices = _find_line_indices("- CBGCI LEGEND:")
         cadence_bridge_glyph_conf_intent_legend_alias_indices = _find_line_indices("- CBGCIL:")
@@ -3580,6 +3599,12 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_legend_indices) == 2, (
             "expected exactly two CBGCFXW LEGEND rows (summary + token-coverage sections)"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_indices) == 2, (
+            "expected exactly two CBGCFXW DRIFT rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_family_churn_indices) == 2, (
+            "expected exactly two CBGCFXW DRIFT FAMILY CHURN rows (summary + token-coverage sections)"
+        )
         assert len(cadence_bridge_glyph_conf_intent_compact_alias_indices) == 2, (
             "expected exactly two CBGCI rows (summary + token-coverage sections)"
         )
@@ -3628,8 +3653,8 @@ def main() -> int:
                 f"markdown contract violated in {section_name} section: expected CBGC LEGEND row to include alternate tone-pack intent verbs"
             )
         # Explicit markdown contract for future alias-rail insertions:
-        # keep CBGC LEGEND -> CBGCL -> CBGCIA -> CBGCIA FAMILY CHURN -> CBGCFXR -> CBGCFXR FAMILY CHURN -> CBGCFXA -> CBGCFXA FAMILY CHURN -> CBGC FX HINT -> CBGC FX HINT FAMILY CHURN -> CBGCFXH -> CBGCFXH FAMILY CHURN -> CBGCFXW -> CBGCFXW FAMILY CHURN -> CBGCFXW LEGEND -> CBGCI -> CBGCI LEGEND -> CBGCIL adjacent in both sections.
-        for section_name, legend_idx, compact_alias_idx, intent_active_alias_idx, intent_active_alias_family_churn_idx, fx_regime_alias_idx, fx_regime_alias_family_churn_idx, fx_aggressiveness_alias_idx, fx_aggressiveness_alias_family_churn_idx, fx_microcopy_hint_idx, fx_microcopy_hint_family_churn_idx, fx_microcopy_hint_compact_alias_idx, fx_microcopy_hint_compact_alias_family_churn_idx, fx_world_tone_alias_idx, fx_world_tone_alias_family_churn_idx, fx_world_tone_legend_idx, intent_alias_idx, intent_legend_idx, intent_legend_alias_idx in zip(
+        # keep CBGC LEGEND -> CBGCL -> CBGCIA -> CBGCIA FAMILY CHURN -> CBGCFXR -> CBGCFXR FAMILY CHURN -> CBGCFXA -> CBGCFXA FAMILY CHURN -> CBGC FX HINT -> CBGC FX HINT FAMILY CHURN -> CBGCFXH -> CBGCFXH FAMILY CHURN -> CBGCFXW -> CBGCFXW FAMILY CHURN -> CBGCFXW LEGEND -> CBGCFXW DRIFT -> CBGCFXW DRIFT FAMILY CHURN -> CBGCI -> CBGCI LEGEND -> CBGCIL adjacent in both sections.
+        for section_name, legend_idx, compact_alias_idx, intent_active_alias_idx, intent_active_alias_family_churn_idx, fx_regime_alias_idx, fx_regime_alias_family_churn_idx, fx_aggressiveness_alias_idx, fx_aggressiveness_alias_family_churn_idx, fx_microcopy_hint_idx, fx_microcopy_hint_family_churn_idx, fx_microcopy_hint_compact_alias_idx, fx_microcopy_hint_compact_alias_family_churn_idx, fx_world_tone_alias_idx, fx_world_tone_alias_family_churn_idx, fx_world_tone_legend_idx, fx_world_tone_drift_idx, fx_world_tone_drift_family_churn_idx, intent_alias_idx, intent_legend_idx, intent_legend_alias_idx in zip(
             ("summary", "token-coverage"),
             cadence_bridge_glyph_conf_compact_alias_legend_indices,
             cadence_bridge_glyph_conf_compact_legend_alias_indices,
@@ -3646,6 +3671,8 @@ def main() -> int:
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_alias_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_alias_family_churn_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_legend_indices,
+            cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_indices,
+            cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_family_churn_indices,
             cadence_bridge_glyph_conf_intent_compact_alias_indices,
             cadence_bridge_glyph_conf_intent_legend_indices,
             cadence_bridge_glyph_conf_intent_legend_alias_indices,
@@ -3692,8 +3719,14 @@ def main() -> int:
             assert fx_world_tone_legend_idx == fx_world_tone_alias_family_churn_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXW LEGEND row directly after CBGCFXW FAMILY CHURN row"
             )
-            assert intent_alias_idx == fx_world_tone_legend_idx + 1, (
-                f"markdown contract violated in {section_name} section: expected CBGCI row directly after CBGCFXW LEGEND row under future alias-rail insertions"
+            assert fx_world_tone_drift_idx == fx_world_tone_legend_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXW DRIFT row directly after CBGCFXW LEGEND row"
+            )
+            assert fx_world_tone_drift_family_churn_idx == fx_world_tone_drift_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXW DRIFT FAMILY CHURN row directly after CBGCFXW DRIFT row"
+            )
+            assert intent_alias_idx == fx_world_tone_drift_family_churn_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCI row directly after CBGCFXW DRIFT FAMILY CHURN row"
             )
             assert intent_legend_idx == intent_alias_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCI LEGEND row directly after CBGCI row"
@@ -3703,7 +3736,7 @@ def main() -> int:
             )
 
         if cadence_bridge_glyph_conf_compact_alias_enabled:
-            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_idx, glyph_conf_alias_legend_idx, glyph_conf_legend_alias_idx, glyph_conf_intent_active_alias_idx, glyph_conf_intent_active_alias_family_churn_idx, glyph_conf_fx_regime_alias_idx, glyph_conf_fx_regime_alias_family_churn_idx, glyph_conf_fx_aggressiveness_alias_idx, glyph_conf_fx_aggressiveness_alias_family_churn_idx, glyph_conf_fx_microcopy_hint_idx, glyph_conf_fx_microcopy_hint_family_churn_idx, glyph_conf_fx_microcopy_hint_compact_alias_idx, glyph_conf_fx_microcopy_hint_compact_alias_family_churn_idx, glyph_conf_fx_world_tone_alias_idx, glyph_conf_fx_world_tone_alias_family_churn_idx, glyph_conf_fx_world_tone_legend_idx, glyph_conf_intent_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
+            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_idx, glyph_conf_alias_legend_idx, glyph_conf_legend_alias_idx, glyph_conf_intent_active_alias_idx, glyph_conf_intent_active_alias_family_churn_idx, glyph_conf_fx_regime_alias_idx, glyph_conf_fx_regime_alias_family_churn_idx, glyph_conf_fx_aggressiveness_alias_idx, glyph_conf_fx_aggressiveness_alias_family_churn_idx, glyph_conf_fx_microcopy_hint_idx, glyph_conf_fx_microcopy_hint_family_churn_idx, glyph_conf_fx_microcopy_hint_compact_alias_idx, glyph_conf_fx_microcopy_hint_compact_alias_family_churn_idx, glyph_conf_fx_world_tone_alias_idx, glyph_conf_fx_world_tone_alias_family_churn_idx, glyph_conf_fx_world_tone_legend_idx, glyph_conf_fx_world_tone_drift_idx, glyph_conf_fx_world_tone_drift_family_churn_idx, glyph_conf_intent_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
                 zip(
                     cadence_bridge_glyph_indices,
                     cadence_bridge_glyph_conf_indices,
@@ -3723,6 +3756,8 @@ def main() -> int:
                     cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_alias_indices,
                     cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_alias_family_churn_indices,
                     cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_legend_indices,
+                    cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_indices,
+                    cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_family_churn_indices,
                     cadence_bridge_glyph_conf_intent_compact_alias_indices,
                     cadence_bridge_glyph_conf_legend_indices,
                     cadence_bridge_glyph_legend_indices,
@@ -3780,8 +3815,14 @@ def main() -> int:
                 assert glyph_conf_fx_world_tone_legend_idx == glyph_conf_fx_world_tone_alias_family_churn_idx + 1, (
                     f"expected CBGCFXW LEGEND row directly after CBGCFXW FAMILY CHURN row in section {section_idx}"
                 )
-                assert glyph_conf_intent_alias_idx == glyph_conf_fx_world_tone_legend_idx + 1, (
-                    f"expected CBGCI row directly after CBGCFXW LEGEND row in section {section_idx}"
+                assert glyph_conf_fx_world_tone_drift_idx == glyph_conf_fx_world_tone_legend_idx + 1, (
+                    f"expected CBGCFXW DRIFT row directly after CBGCFXW LEGEND row in section {section_idx}"
+                )
+                assert glyph_conf_fx_world_tone_drift_family_churn_idx == glyph_conf_fx_world_tone_drift_idx + 1, (
+                    f"expected CBGCFXW DRIFT FAMILY CHURN row directly after CBGCFXW DRIFT row in section {section_idx}"
+                )
+                assert glyph_conf_intent_alias_idx == glyph_conf_fx_world_tone_drift_family_churn_idx + 1, (
+                    f"expected CBGCI row directly after CBGCFXW DRIFT FAMILY CHURN row in section {section_idx}"
                 )
                 assert glyph_conf_legend_idx in {
                     glyph_conf_intent_alias_idx + 1,
@@ -3805,7 +3846,7 @@ def main() -> int:
                     f"expected CADENCE BRIDGE GLYPH LEGEND row directly after CADENCE BRIDGE GLYPH CONF LEGEND row in section {section_idx}"
                 )
         else:
-            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_legend_idx, glyph_conf_legend_alias_idx, glyph_conf_intent_active_alias_idx, glyph_conf_intent_active_alias_family_churn_idx, glyph_conf_fx_regime_alias_idx, glyph_conf_fx_regime_alias_family_churn_idx, glyph_conf_fx_aggressiveness_alias_idx, glyph_conf_fx_aggressiveness_alias_family_churn_idx, glyph_conf_fx_microcopy_hint_idx, glyph_conf_fx_microcopy_hint_family_churn_idx, glyph_conf_fx_microcopy_hint_compact_alias_idx, glyph_conf_fx_microcopy_hint_compact_alias_family_churn_idx, glyph_conf_fx_world_tone_alias_idx, glyph_conf_fx_world_tone_alias_family_churn_idx, glyph_conf_fx_world_tone_legend_idx, glyph_conf_intent_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
+            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_legend_idx, glyph_conf_legend_alias_idx, glyph_conf_intent_active_alias_idx, glyph_conf_intent_active_alias_family_churn_idx, glyph_conf_fx_regime_alias_idx, glyph_conf_fx_regime_alias_family_churn_idx, glyph_conf_fx_aggressiveness_alias_idx, glyph_conf_fx_aggressiveness_alias_family_churn_idx, glyph_conf_fx_microcopy_hint_idx, glyph_conf_fx_microcopy_hint_family_churn_idx, glyph_conf_fx_microcopy_hint_compact_alias_idx, glyph_conf_fx_microcopy_hint_compact_alias_family_churn_idx, glyph_conf_fx_world_tone_alias_idx, glyph_conf_fx_world_tone_alias_family_churn_idx, glyph_conf_fx_world_tone_legend_idx, glyph_conf_fx_world_tone_drift_idx, glyph_conf_fx_world_tone_drift_family_churn_idx, glyph_conf_intent_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
                 zip(
                     cadence_bridge_glyph_indices,
                     cadence_bridge_glyph_conf_indices,
@@ -3824,6 +3865,8 @@ def main() -> int:
                     cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_alias_indices,
                     cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_alias_family_churn_indices,
                     cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_legend_indices,
+                    cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_indices,
+                    cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_family_churn_indices,
                     cadence_bridge_glyph_conf_intent_compact_alias_indices,
                     cadence_bridge_glyph_conf_legend_indices,
                     cadence_bridge_glyph_legend_indices,
@@ -3878,8 +3921,14 @@ def main() -> int:
                 assert glyph_conf_fx_world_tone_legend_idx == glyph_conf_fx_world_tone_alias_family_churn_idx + 1, (
                     f"expected CBGCFXW LEGEND row directly after CBGCFXW FAMILY CHURN row in section {section_idx}"
                 )
-                assert glyph_conf_intent_alias_idx == glyph_conf_fx_world_tone_legend_idx + 1, (
-                    f"expected CBGCI row directly after CBGCFXW LEGEND row in section {section_idx}"
+                assert glyph_conf_fx_world_tone_drift_idx == glyph_conf_fx_world_tone_legend_idx + 1, (
+                    f"expected CBGCFXW DRIFT row directly after CBGCFXW LEGEND row in section {section_idx}"
+                )
+                assert glyph_conf_fx_world_tone_drift_family_churn_idx == glyph_conf_fx_world_tone_drift_idx + 1, (
+                    f"expected CBGCFXW DRIFT FAMILY CHURN row directly after CBGCFXW DRIFT row in section {section_idx}"
+                )
+                assert glyph_conf_intent_alias_idx == glyph_conf_fx_world_tone_drift_family_churn_idx + 1, (
+                    f"expected CBGCI row directly after CBGCFXW DRIFT FAMILY CHURN row in section {section_idx}"
                 )
                 assert glyph_conf_legend_idx in {
                     glyph_conf_intent_alias_idx + 1,

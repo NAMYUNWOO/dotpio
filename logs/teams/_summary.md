@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 17:35 KST
+Last updated: 2026-03-28 18:10 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,12 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Game Director Cycle GI selected experiment (AI Content/VFX): weekly digest now emits `CBGCFXW DRIFT:<prev>><curr>` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_DRIFT` with prior-window alias comparison from `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAliasSignals`.
+- Payload contract expanded with `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDrift` + `...DriftSignals` (`flagName`, `flagEnabled`, `currentAlias`, `priorAlias`, `priorLoaded`, `shifted`, `driftToken`, `offlineOnly`).
+- Markdown adjacency updated: `... CBGCFXW LEGEND -> CBGCFXW DRIFT -> CBGCFXW DRIFT FAMILY CHURN -> CBGCI ...` in both sections; regression contracts lock count + adjacency.
+- TOKEN_ALIAS_FAMILIES expanded with `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneDrift` (`CBGCFXW DRIFT:`).
+- TASKS + POST_RC synchronized with Cycle GI completion; injected follow-ups: Systems/QA strict adjacency lock, Design/World coherence check prototype.
 
 - Closed Cycle GG Systems/QA follow-up: weekly digest now emits `CBGCFXH FAMILY CHURN` in both summary and token-coverage sections, sourced from `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias` family totals.
 - Regression contracts now require exactly two `CBGCFXH FAMILY CHURN` rows and lock adjacency `CBGC FX HINT -> CBGC FX HINT FAMILY CHURN -> CBGCFXH -> CBGCFXH FAMILY CHURN -> CBGCI` across both sections.

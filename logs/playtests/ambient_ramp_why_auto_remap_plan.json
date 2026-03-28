@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T06:02:22.993634Z",
+  "generatedAt": "2026-03-28T08:42:51.186996Z",
   "window": {
     "sinceDays": 7,
     "maxCommits": 120,
@@ -9,11 +9,11 @@
   "recommendation": {
     "ambientRampWhyRecommendation": "OPEN_CONTEXTUAL_WHY",
     "ambientRampWhyRecommendationConfidence": "HIGH",
-    "ambientRampWhyRecommendationConfidenceStreak": 8,
+    "ambientRampWhyRecommendationConfidenceStreak": 10,
     "ambientRampWhyRecommendationConfidenceStreakSignals": {
       "currentConfidence": "HIGH",
       "priorConfidence": "HIGH",
-      "priorStreak": 7,
+      "priorStreak": 9,
       "priorLoaded": true,
       "threshold": 3,
       "suppress": true,
@@ -37,7 +37,7 @@
     "nextAction": "Generate sandbox table + review notes; keep runtime contract unchanged.",
     "rerankPolicy": "drift-aware-offline-candidate-priority",
     "candidateCount": 1,
-    "confidenceStreak": 8,
+    "confidenceStreak": 10,
     "candidateSuppressed": true
   },
   "candidates": [

@@ -3977,3 +3977,8 @@
   - Each loop now asserts: `CBGCFXH FAMILY CHURN +1 → CBGCFXW +1 → CBGCFXW FAMILY CHURN +1 → CBGCFXW LEGEND +1 → CBGCI`.
   - No more implicit offset gaps — full adjacency chain is explicit and deterministic.
 - Follow-up: none; completes last unchecked Cycle GH backlog item.
+
+## 2026-03-28 18:10 KST — Game Director Cycle GI (CBGCFXW DRIFT token)
+- Shipped `CBGCFXW DRIFT:<prev>><curr>` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_DRIFT` for prior-window world-tone transition readability.
+- Durable decision: drift token reads from prior JSON `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAliasSignals.alias`; adjacency locked between `CBGCFXW LEGEND` and `CBGCI` in both digest sections.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.

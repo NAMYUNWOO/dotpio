@@ -1404,3 +1404,13 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/World Team: Ship compact world-tone alias token `CBGCFXW:<S|J|B|N>` from `narrativeCurrent` (`steady|swing|spike|unknown`) while preserving `CBGCFXH:<W|T|P>` decode contract. *(lifecycle: [ ] -> [~] started: 2026-03-28 16:40 KST -> [x] completed: 2026-03-28 16:47 KST)*
 - [x] Systems/QA Team: Add explicit adjacency/count regression lock for `CBGCFXW` + `CBGCFXW FAMILY CHURN` immediately before `CBGCI` in both digest sections. *(lifecycle: [ ] -> [~] started: 2026-03-28 17:30 KST -> [x] completed: 2026-03-28 17:35 KST)*
 - [x] AI Content/Design Team: Prototype optional `CBGCFXW LEGEND` copy row (payload/markdown) for compact decode readability under DOS-width constraints. *(lifecycle: [ ] -> [~] started: 2026-03-28 16:59 KST -> [x] completed: 2026-03-28 17:08 KST)*
+
+## Game Director Cycle GI — 2026-03-28 18:10 KST
+- Coverage check (last 10 completions, primary lane tags): ux=3, systems=3, design=3, combat=3, world=2, ai-content=1, vfx=1, qa=3. No lane >40%.
+- Idea 1 (low risk, AI Content/VFX): Add world-tone prior-window drift token (`CBGCFXW Δ:<prev>→<curr>`) behind flag so operators see tone transitions at a glance. Fantasy: instant tone-shift awareness in weekly reviews. Metric: review decode hops/session. Scope: S. Risk: low; rollback by flag-off. Pass/fail: deterministic payload+markdown+regression green.
+- Idea 2 (mid risk, Systems/Combat/Design): Add `CBGCFXW COHERENCE:OK|DRIFT` cross-signal coherence check that flags world-tone vs aggressiveness misalignment across consecutive windows. Scope: S/M. Risk: medium; new cross-signal dependency. Rollback: remove coherence row.
+- Idea 3 (high risk, novelty): Prototype offline world-tone momentum score (`CBGCFXW MOMENTUM:<n>`) from multi-window transition stability for automated tone-drift alerting. Scope: M. Risk: high; multi-window state complexity. Rollback: quarantine behind shadow flag.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] AI Content/VFX Team (Cycle GI experiment): Add world-tone prior-window drift token (`CBGCFXW DRIFT:<prev>><curr>`) behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_DRIFT` with payload/markdown/regression wiring in both digest sections. *(lifecycle: [ ] -> [~] started: 2026-03-28 17:50 KST -> [x] completed: 2026-03-28 18:10 KST)*
+- [ ] Systems/QA Team (Cycle GI follow-up): Add token-family churn coverage and strict adjacency lock regression for `CBGCFXW DRIFT:` rows in both digest sections.
+- [ ] Design/World Team (Cycle GI follow-up): Prototype offline world-tone coherence check token (`CBGCFXW COHERENCE:OK|DRIFT`) from cross-signal alignment between world-tone and aggressiveness mode.

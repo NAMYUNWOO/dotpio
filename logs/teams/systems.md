@@ -3412,3 +3412,18 @@
 - Decision: Kept legend behind dedicated flag `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_LEGEND` and preserved existing digest ordering rails.
 - Evidence: updated weekly/regression scripts + runtime smoke (`weekly_portal_prompt_readability_drift.py`) + regression harness pass.
 - Follow-up: address remaining Systems/QA backlog item for explicit CBGCFXW adjacency lock checkbox reconciliation.
+
+## 2026-03-28 18:10 KST — Game Director Cycle GI (CBGCFXW DRIFT token)
+- Task: Add world-tone prior-window drift token to weekly digest payload + markdown with regression coverage.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneDrift` to TOKEN_ALIAS_FAMILIES tracking `CBGCFXW DRIFT:` prefixed tokens.
+  - Expanded regression adjacency chain: `... CBGCFXW LEGEND -> CBGCFXW DRIFT -> CBGCFXW DRIFT FAMILY CHURN -> CBGCI ...` in all three zip blocks.
+  - Payload schema asserts key set + value domain for drift signals.
+- Follow-up:
+  - Next unchecked items: Systems/QA strict adjacency lock for CBGCFXW DRIFT family churn, Design/World coherence check prototype.
