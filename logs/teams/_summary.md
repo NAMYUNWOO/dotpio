@@ -3729,3 +3729,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: coherence is derived from cross-signal alignment (`narrativeCurrent` posture ↔ `aggressivenessMode`) with conservative mapping `steady→CAUTIOUS`, `swing→BASELINE`, `spike→AGGRESSIVE`, `unknown→BASELINE`; unknown posture is treated as non-punitive (`OK`).
 - Added prior-window memory in `...WorldToneCoherenceSignals` (`priorStatus`, `priorLoaded`, `driftStreak`) for lightweight multi-window context without widening markdown rails.
 - Regression contract expanded to lock new payload/signal schema and value domains; verification green via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+### 2026-03-28 18:36 KST — Cycle GI Systems/QA follow-up closed (`CBGCFXW DRIFT` lock)
+- Completed the remaining unchecked Systems/QA follow-up by validating that strict adjacency and family-churn contracts for `CBGCFXW DRIFT` are already enforced in regression.
+- Durable decision: no additional script mutation was needed; keep contract source-of-truth in `scripts/regression_weekly_portal_prompt_readability_drift.py` and close backlog state via reconciliation.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Next priority: Design/World follow-up in TASKS (`CBGCFXW COHERENCE`) remains queued for reconciliation with existing POST_RC completion state.

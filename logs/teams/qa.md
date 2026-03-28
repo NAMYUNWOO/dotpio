@@ -3988,3 +3988,8 @@
 - New resolver compares world-tone narrative posture (`steady|swing|spike|unknown`) against aggressiveness mode (`CAUTIOUS|BASELINE|AGGRESSIVE`) and persists prior-window status for drift streak context.
 - Contract locked in regression: payload key + signals domain/type checks added (`status`, `expectedAggressivenessMode`, `priorStatus`, `driftStreak`, `coherent`).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
+
+## 2026-03-28 18:36 KST — Regression verification (CBGCFXW DRIFT family lock)
+- Ran: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Result: PASS
+- Notes: Contract still enforces deterministic ordering around `CBGCFXW -> CBGCFXW FAMILY CHURN -> CBGCFXW LEGEND -> CBGCFXW DRIFT -> CBGCFXW DRIFT FAMILY CHURN -> CBGCI` in both digest sections.

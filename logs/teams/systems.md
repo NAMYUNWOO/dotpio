@@ -3433,3 +3433,9 @@
 - New resolver compares world-tone narrative posture (`steady|swing|spike|unknown`) against aggressiveness mode (`CAUTIOUS|BASELINE|AGGRESSIVE`) and persists prior-window status for drift streak context.
 - Contract locked in regression: payload key + signals domain/type checks added (`status`, `expectedAggressivenessMode`, `priorStatus`, `driftStreak`, `coherent`).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
+
+## 2026-03-28 18:36 KST — Cycle GI follow-up (CBGCFXW DRIFT lock reconciliation)
+- Scope: Weekly digest regression contract hardening/status reconciliation for `CBGCFXW DRIFT` cluster.
+- Decision: Verified existing strict adjacency + family churn coverage lock is already present in `scripts/regression_weekly_portal_prompt_readability_drift.py` for both summary/token-coverage sections; no script delta required.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
+- Follow-up: Update backlog/task state to completed and keep next priority on design/world coherence polish task.
