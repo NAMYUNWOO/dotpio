@@ -2814,6 +2814,19 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).get("driftStreak") in {0, 1, 2}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).get("token", "").startswith("CBGCFXW COHERENCE:"), payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceSignals", {}).get("offlineOnly") is True, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias", "").startswith(("FLAG OFF", "CBGCFXWC:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "status",
+            "alias",
+            "token",
+            "offlineOnly",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals", {}).get("status") in {"OK", "DRIFT"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals", {}).get("alias") in {"O", "D"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals", {}).get("token", "").startswith("CBGCFXWC:"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals", {}).get("offlineOnly") is True, payload
         assert set(payload.get("combatVfxCadenceCoachWhyHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",

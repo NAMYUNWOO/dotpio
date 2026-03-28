@@ -1656,4 +1656,11 @@ See project-level plans:
 - Idea 3 (high risk, novelty): World-tone momentum score.
 - [x] AI Content/VFX Team: Add `CBGCFXW DRIFT:<prev>><curr>` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_DRIFT` with payload+markdown+regression. *(lifecycle: [ ] -> [~] started: 2026-03-28 17:50 KST -> [x] completed: 2026-03-28 18:10 KST)*
 - [x] Systems/QA Team: Add strict adjacency lock regression for `CBGCFXW DRIFT:` family churn rows. *(lifecycle: [ ] -> [~] started: 2026-03-28 18:33 KST -> [x] completed: 2026-03-28 18:36 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
-- [ ] Design/World Team: Prototype offline `CBGCFXW COHERENCE:OK|DRIFT` cross-signal check.
+- [x] Design/World Team: Prototype offline `CBGCFXW COHERENCE:OK|DRIFT` cross-signal check. *(lifecycle: [ ] -> [~] started: 2026-03-28 18:59 KST -> [x] completed: 2026-03-28 19:00 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+
+## Game Director Cycle GJ — 2026-03-28 19:18 KST
+- Idea 1 (low risk, UX/Systems): Add compact coherence alias token (`CBGCFXWC:<O|D>`) as payload-only mirror for `CBGCFXW COHERENCE` to reduce downstream parser branching. **Selected.**
+- Idea 2 (mid risk, Systems/QA): Add optional churn rail + adjacency lock for `CBGCFXWC:` near coherence cluster in digest sections.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline coherence momentum token (`CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE`) from prior-window streak memory.
+- [x] UX/Systems Team: Add payload-only coherence compact alias `CBGCFXWC:<O|D>` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ALIAS` with deterministic payload signals. *(lifecycle: [ ] -> [~] started: 2026-03-28 19:10 KST -> [x] completed: 2026-03-28 19:18 KST)*
+- [x] Systems/QA Team: Extend regression payload contract for coherence alias fields (`cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias*`) and value-domain lock. *(lifecycle: [ ] -> [~] started: 2026-03-28 19:12 KST -> [x] completed: 2026-03-28 19:18 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*

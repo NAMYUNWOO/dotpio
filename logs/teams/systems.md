@@ -3439,3 +3439,5 @@
 - Decision: Verified existing strict adjacency + family churn coverage lock is already present in `scripts/regression_weekly_portal_prompt_readability_drift.py` for both summary/token-coverage sections; no script delta required.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
 - Follow-up: Update backlog/task state to completed and keep next priority on design/world coherence polish task.
+- 2026-03-28 19:01 KST — Cycle GI reconciliation: validated CBGCFXW COHERENCE cross-signal token contract and synced TASKS lifecycle to done after regression pass (python3 scripts/regression_weekly_portal_prompt_readability_drift.py => PASS).
+- 2026-03-28 19:19 KST — Cycle GJ shipped payload-only coherence compact alias CBGCFXWC:<O|D> with regression schema/domain lock; queued Cycle GK churn-rail/legend/momentum follow-ups.

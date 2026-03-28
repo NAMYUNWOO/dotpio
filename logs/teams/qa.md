@@ -3993,3 +3993,5 @@
 - Ran: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Result: PASS
 - Notes: Contract still enforces deterministic ordering around `CBGCFXW -> CBGCFXW FAMILY CHURN -> CBGCFXW LEGEND -> CBGCFXW DRIFT -> CBGCFXW DRIFT FAMILY CHURN -> CBGCI` in both digest sections.
+- 2026-03-28 19:01 KST — Cycle GI reconciliation: validated CBGCFXW COHERENCE cross-signal token contract and synced TASKS lifecycle to done after regression pass (python3 scripts/regression_weekly_portal_prompt_readability_drift.py => PASS).
+- 2026-03-28 19:19 KST — Cycle GJ shipped payload-only coherence compact alias CBGCFXWC:<O|D> with regression schema/domain lock; queued Cycle GK churn-rail/legend/momentum follow-ups.

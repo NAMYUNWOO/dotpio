@@ -3734,4 +3734,14 @@ Compact decision memory for AI context efficiency.
 - Completed the remaining unchecked Systems/QA follow-up by validating that strict adjacency and family-churn contracts for `CBGCFXW DRIFT` are already enforced in regression.
 - Durable decision: no additional script mutation was needed; keep contract source-of-truth in `scripts/regression_weekly_portal_prompt_readability_drift.py` and close backlog state via reconciliation.
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
-- Next priority: Design/World follow-up in TASKS (`CBGCFXW COHERENCE`) remains queued for reconciliation with existing POST_RC completion state.
+- Next priority: Design/World follow-up in TASKS (CBGCFXW COHERENCE) remains queued for reconciliation with existing POST_RC completion state.
+
+### 2026-03-28 19:01 KST — Cycle GI TASKS reconciliation closed (CBGCFXW COHERENCE)
+- Resolved ACTION_ITEMS/TASKS priority gap by promoting the remaining unchecked TASKS line to in-progress then done after verification.
+- Re-validated weekly portal readability digest contract via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (PASS).
+- Durable decision: when backlog files disagree, keep implementation source-of-truth in code/regression and reconcile TASKS lifecycle immediately within the same cycle.
+
+### 2026-03-28 19:19 KST — Game Director Cycle GJ shipped (CBGCFXWC alias)
+- Generated 3 ideas, selected low-risk Idea 1, and implemented minimal vertical slice: payload-only compact coherence alias `CBGCFXWC:<O|D>` mapped from `CBGCFXW COHERENCE` status.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` => PASS.
+- Durable decision: keep coherence alias additions payload-first, then graduate to markdown rails only after churn evidence justifies added digest row budget.

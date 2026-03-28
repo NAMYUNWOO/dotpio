@@ -1414,3 +1414,15 @@ Last updated: 2026-03-21 02:31 KST
 - [x] AI Content/VFX Team (Cycle GI experiment): Add world-tone prior-window drift token (`CBGCFXW DRIFT:<prev>><curr>`) behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_DRIFT` with payload/markdown/regression wiring in both digest sections. *(lifecycle: [ ] -> [~] started: 2026-03-28 17:50 KST -> [x] completed: 2026-03-28 18:10 KST)*
 - [x] Systems/QA Team (Cycle GI follow-up): Add token-family churn coverage and strict adjacency lock regression for `CBGCFXW DRIFT:` rows in both digest sections. *(lifecycle: [ ] -> [~] started: 2026-03-28 18:33 KST -> [x] completed: 2026-03-28 18:36 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
 - [x] Design/World Team (Cycle GI follow-up): Prototype offline world-tone coherence check token (`CBGCFXW COHERENCE:OK|DRIFT`) from cross-signal alignment between world-tone and aggressiveness mode. *(lifecycle: [ ] -> [~] started: 2026-03-28 18:22 KST -> [x] completed: 2026-03-28 18:29 KST)*
+
+## Game Director Cycle GJ - 2026-03-28 19:18 KST
+- Idea 1 (low risk, UX/Systems): Add compact coherence alias token (`CBGCFXWC:<O|D>`) as payload-only mirror for `CBGCFXW COHERENCE`. **Selected.**
+- Idea 2 (mid risk, Systems/QA): Add optional markdown/token-coverage family churn rail for `CBGCFXWC:` with adjacency lock near coherence rows.
+- Idea 3 (high risk, AI Content/Combat): Prototype offline coherence momentum token (`CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE`) from prior-window streak memory.
+- [x] UX/Systems Team (Cycle GJ experiment): Ship payload-only coherence compact alias `CBGCFXWC:<O|D>` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ALIAS` with deterministic signals.
+- [x] Systems/QA Team (Cycle GJ follow-up): Extend regression payload contract/domain checks for `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias*`.
+
+## Next Up (Game Director Injection — 2026-03-28 Cycle GK)
+- [ ] Systems/QA Team: Add optional token-family churn rail for `CBGCFXWC:` in summary/token-coverage with strict adjacency contract near `CBGCFXW COHERENCE`.
+- [ ] UX/Design Team: Prototype compact coherence legend row (`CBGCFXWC LEGEND:O=OK,D=DRIFT`) behind flag for dense operator decode.
+- [ ] AI Content/Combat Team: Prototype offline coherence momentum token (`CBGCFXW COHERENCE MOMENTUM:STABLE|WOBBLE`) from coherence streak deltas.

@@ -2251,3 +2251,5 @@
 - New resolver compares world-tone narrative posture (`steady|swing|spike|unknown`) against aggressiveness mode (`CAUTIOUS|BASELINE|AGGRESSIVE`) and persists prior-window status for drift streak context.
 - Contract locked in regression: payload key + signals domain/type checks added (`status`, `expectedAggressivenessMode`, `priorStatus`, `driftStreak`, `coherent`).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
+- 2026-03-28 19:01 KST — Cycle GI reconciliation: validated CBGCFXW COHERENCE cross-signal token contract and synced TASKS lifecycle to done after regression pass (python3 scripts/regression_weekly_portal_prompt_readability_drift.py => PASS).
+- 2026-03-28 19:19 KST — Cycle GJ shipped payload-only coherence compact alias CBGCFXWC:<O|D> with regression schema/domain lock; queued Cycle GK churn-rail/legend/momentum follow-ups.
