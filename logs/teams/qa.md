@@ -4017,3 +4017,15 @@
 
 ## 2026-03-28 21:10 KST — Cycle GM verification
 - Regression pass confirms new legend row does not break weekly digest contract: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-28 21:31:00 KST
+- Task: Validate explicit coherence-chain adjacency lock for Cycle GM follow-up.
+- Commit: HEAD (pending)
+- Files checked: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Regression now contains a direct chain contract for `CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC`, reducing risk of silent partial-order drift.
+  - Existing row-count and per-edge adjacency checks remain in place.
+- Follow-up:
+  - Keep Design/World `COHERENCE ARC:LOCK|SWAY` item in queue as next unchecked experiment.

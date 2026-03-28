@@ -3462,3 +3462,15 @@
 
 ## 2026-03-28 21:10 KST — Cycle GM systems queue
 - Injected hardening task for explicit adjacency lock around `CBGCFXWM LEGEND` chain in both digest sections.
+
+## 2026-03-28 21:31:00 KST
+- Task: Cycle GM Systems/QA follow-up — explicit adjacency/order regression lock for `CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC`.
+- Commit: HEAD (pending)
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ (`[PASS] weekly portal prompt readability drift regression checks`)
+- Decisions:
+  - Added an explicit chain assertion (`coherence_chain == expected_chain`) in both summary/token-coverage validation loops to hard-lock adjacency semantics as a single contract.
+  - Preserved existing granular adjacency assertions to keep failure diagnostics precise while adding a high-level contract guard.
+- Follow-up:
+  - Next unchecked backlog item: Design/World offline prototype `COHERENCE ARC:LOCK|SWAY`.

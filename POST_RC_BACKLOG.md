@@ -1442,5 +1442,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 3 (high risk, Design/World): Prototype offline coherence-arc narrative cue (`COHERENCE ARC:LOCK|SWAY`) from momentum-streak persistence.
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/AI Content Team: Add compact momentum-alias legend row (`CBGCFXWM LEGEND:S=STABLE,W=WOBBLE`) in summary/token-coverage with deterministic ordering. *(lifecycle: [~] started: 2026-03-28 21:04 KST -> [x] completed: 2026-03-28 21:10 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
-- [ ] Systems/QA Team: Add explicit adjacency/order regression lock for `CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC` in both digest sections.
+- [x] Systems/QA Team: Add explicit adjacency/order regression lock for `CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC` in both digest sections. *(lifecycle: [~] started: 2026-03-28 21:29 KST -> [x] completed: 2026-03-28 21:31 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
 - [ ] Design/World Team: Prototype offline coherence-arc narrative cue token (`COHERENCE ARC:LOCK|SWAY`) from momentum-streak persistence for postmortem readability.

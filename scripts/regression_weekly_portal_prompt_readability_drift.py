@@ -3844,6 +3844,17 @@ def main() -> int:
             assert fx_world_tone_coherence_alias_idx == fx_world_tone_coherence_momentum_alias_legend_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWC row directly after CBGCFXWM LEGEND row"
             )
+            # Explicit GM adjacency lock: CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC.
+            coherence_chain = (
+                fx_world_tone_coherence_momentum_idx,
+                fx_world_tone_coherence_momentum_alias_idx,
+                fx_world_tone_coherence_momentum_alias_legend_idx,
+                fx_world_tone_coherence_alias_idx,
+            )
+            expected_chain = tuple(range(fx_world_tone_coherence_momentum_idx, fx_world_tone_coherence_momentum_idx + 4))
+            assert coherence_chain == expected_chain, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC adjacency chain"
+            )
             assert fx_world_tone_coherence_alias_legend_idx == fx_world_tone_coherence_alias_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWC LEGEND row directly after CBGCFXWC row"
             )

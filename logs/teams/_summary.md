@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 18:10 KST
+Last updated: 2026-03-28 21:31 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle GM Systems/QA follow-up: regression now has an explicit adjacency-chain lock for `CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC` in both summary/token-coverage sections.
+- Implementation detail: added `coherence_chain == expected_chain` assertion while preserving existing per-edge adjacency checks for precise diagnostics.
+- Backlog sync: `POST_RC_BACKLOG.md` item marked done with lifecycle + verification stamp; remaining unchecked item is Design/World prototype `COHERENCE ARC:LOCK|SWAY`.
 
 - Closed Game Director Cycle GI selected experiment (AI Content/VFX): weekly digest now emits `CBGCFXW DRIFT:<prev>><curr>` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_DRIFT` with prior-window alias comparison from `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAliasSignals`.
 - Payload contract expanded with `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneDrift` + `...DriftSignals` (`flagName`, `flagEnabled`, `currentAlias`, `priorAlias`, `priorLoaded`, `shifted`, `driftToken`, `offlineOnly`).
