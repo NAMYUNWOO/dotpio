@@ -1580,7 +1580,7 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/AI Content Team (Cycle GA experiment): Add `cue=H|P|T|U` metadata to `CBGC LEGEND` rows (summary + token-coverage) and persist `cadenceBridgeGlyphConfidenceNarrativeIntentCue` in payload/signals.
 - [x] Systems/QA Team (Cycle GA follow-up): Extend deterministic regression payload contract for `cadenceBridgeGlyphConfidenceNarrativeIntentCue` + `intentCueMap` keys/value domain. *(lifecycle: [~] started: 2026-03-28 10:00 KST -> [x] completed: 2026-03-28 10:02 KST)*
-- [ ] Design/World Team (Cycle GA follow-up): Prototype alternate action-verb tone pack for `CBGC LEGEND` intent microcopy (`steady:hold|anchor`, `swing:prep|brace`, `spike:triage|stabilize`) while preserving DOS width.
+- [x] Design/World Team (Cycle GA follow-up): Prototype alternate action-verb tone pack for `CBGC LEGEND` intent microcopy (`steady:hold|anchor`, `swing:prep|brace`, `spike:triage|stabilize`) while preserving DOS width. *(lifecycle: [ ] -> [~] started: 2026-03-28 10:59 KST -> [x] completed: 2026-03-28 11:00 KST)*
 
 ### Game Director Cycle GB (2026-03-28 09:49 KST)
 - Coverage check (last 10 completions, primary lane tags): ux=4, systems=3, ai-content=2, design=1, world=0, combat=0, vfx=0, qa=0.
@@ -1591,4 +1591,14 @@ See project-level plans:
 - Idea 3 (high risk, Design/World novelty): Adaptive tone-pack verbs for `CBGC LEGEND` intent copy (`hold|anchor`, `prep|brace`, `triage|stabilize`) keyed by cadence pressure transitions. Fantasy: richer narrative guidance with stable readability. Metric: operator action latency in manual review. Scope: M. Risk: medium/high; rollback to static copy.
 - [x] Combat/VFX Team (Cycle GB experiment): Ship `cadenceBridgeGlyphConfidenceFxPulse` payload token/signals (`CBGC FX PULSE:SOFT|EDGE|HARD`) mapped from `cadenceBridgeGlyphConfidenceNarrativeIntentCue`. *(lifecycle: [~] started: 2026-03-28 09:44 KST -> [x] completed: 2026-03-28 09:49 KST)*
 - [x] Systems/QA Team (Cycle GB follow-up): Extend regression payload contract for `cadenceBridgeGlyphConfidenceFxPulse` + `cadenceBridgeGlyphConfidenceFxPulseSignals` key/value domain. *(lifecycle: [~] started: 2026-03-28 10:29 KST -> [x] completed: 2026-03-28 10:31 KST)*
-- [ ] Design/World Team (Cycle GB follow-up): Prototype alternate intent-verb tone pack for `CBGC LEGEND` while preserving DOS-width and fixed confidence-cluster ordering.
+- [x] Design/World Team (Cycle GB follow-up): Prototype alternate intent-verb tone pack for `CBGC LEGEND` while preserving DOS-width and fixed confidence-cluster ordering. *(lifecycle: [ ] -> [~] started: 2026-03-28 10:59 KST -> [x] completed: 2026-03-28 11:00 KST)*
+
+### Game Director Cycle GC (2026-03-28 11:01 KST)
+- Coverage check (last 10 completions, primary lane tags): systems=4, ux=3, design=2, ai-content=1, world=0, combat=0, vfx=0, qa=0.
+- Lane cap rule: systems exceeded 40% in the rolling window, so this cycle prioritized a design/world-visible experiment with lightweight systems wiring only.
+- Idea 1 (low risk, Design/World): Persist payload-only alternate tone-pack token for `CBGC LEGEND` (`hold|anchor`, `prep|brace`, `triage|stabilize`) so downstream digest tooling can consume adaptive copy candidates without markdown row churn. Fantasy: richer intent guidance while keeping DOS scan rails stable. Metric: downstream decode hops/session. Scope: S. Risk: low; rollback by removing payload keys. Pass/Fail: pass if payload contract is deterministic and regression passes. **Selected**
+- Idea 2 (mid risk, UX/AI Content): Add compact alias `CBGCI:HA/PB/TS` in token coverage for quick legend intent decoding under extreme width constraints. Fantasy: one-glance intent decode in dense reviews. Metric: manual scan latency. Scope: S. Risk: medium; rollback by removing alias row.
+- Idea 3 (high risk, Combat/VFX novelty): Drive `CBGC FX PULSE` thresholds from confidence-volatility hysteresis and tone-pack state (rather than cue-only mapping) for richer postmortem feel arcs. Fantasy: more expressive pulse language. Metric: postmortem triage agreement rate. Scope: M. Risk: medium/high; rollback to static cue map.
+- [x] Design/World Team (Cycle GC experiment): Ship payload contract `cadenceBridgeGlyphConfidenceNarrativeIntentTonePack` + nested `intentTonePackMap`/`intentTonePack` signals while preserving fixed `CBGC LEGEND` markdown ordering. *(lifecycle: [ ] -> [~] started: 2026-03-28 11:00 KST -> [x] completed: 2026-03-28 11:01 KST)*
+- [ ] Systems/QA Team (Cycle GC follow-up): Extend regression fixture/docs to include explicit key-order and value-domain lock for `intentTonePackMap` plus coherence check with `current` narrative.
+- [ ] UX/Design Team (Cycle GC follow-up): Prototype compact alias candidate (`CBGCI`) for alternate tone-pack decode in token-coverage section without violating confidence-cluster ordering.

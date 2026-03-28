@@ -2443,3 +2443,9 @@
 - Context: Cycle GB Systems/QA follow-up closed with deterministic regression checks for `CBGC FX PULSE` payload/signals.
 - Impact: UX-facing digest/postmortem views can rely on stable pulse posture semantics (`SOFT|EDGE|HARD`).
 - Follow-up: Await Design/World tone-pack prototype before proposing any additional legend copy refinements.
+
+## 2026-03-28 11:01 KST — Cycle GC tone-pack payload + legend copy completion
+- Completed Design/World follow-ups by updating `CBGC LEGEND` intent microcopy to alternate tone-pack verbs (`steady:hold|anchor`, `swing:prep|brace`, `spike:triage|stabilize`) while preserving fixed confidence-cluster ordering.
+- Added payload contract key `cadenceBridgeGlyphConfidenceNarrativeIntentTonePack` and extended narrative signals with `intentTonePackMap`/`intentTonePack` for downstream tooling.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Next: Systems/QA contract hardening for tone-pack key-order/domain + UX/Design `CBGCI` compact alias prototype.

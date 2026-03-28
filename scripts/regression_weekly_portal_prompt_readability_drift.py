@@ -2579,7 +2579,8 @@ def main() -> int:
         assert set(payload.get("cadenceBridgeGlyphConfidenceLegendCompactAliasSignals", {}).keys()) == {"flagName", "flagEnabled", "alias", "aliasToken"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceNarrative") in {"steady", "swing", "spike", "unknown"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentCue") in {"H", "P", "T", "U"}, payload
-        assert set(payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).keys()) == {"map", "current", "confidence", "intentCueMap", "intentCue", "flagName", "flagEnabled"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentTonePack") == "CBGC INTENT ALT PACK:hold|anchor/prep|brace/triage|stabilize", payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).keys()) == {"map", "current", "confidence", "intentCueMap", "intentCue", "intentTonePackMap", "intentTonePack", "flagName", "flagEnabled"}, payload
         intent_cue_map = payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("intentCueMap")
         assert isinstance(intent_cue_map, dict), payload
         assert set(intent_cue_map.keys()) == {"steady", "swing", "spike", "unknown"}, payload
@@ -2588,6 +2589,13 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current") in {"steady", "swing", "spike", "unknown"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current") in intent_cue_map, payload
         assert intent_cue_map[payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("current")] == payload.get("cadenceBridgeGlyphConfidenceNarrativeIntentCue"), payload
+        intent_tone_pack_map = payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("intentTonePackMap")
+        assert isinstance(intent_tone_pack_map, dict), payload
+        assert set(intent_tone_pack_map.keys()) == {"steady", "swing", "spike", "unknown"}, payload
+        assert intent_tone_pack_map["steady"] == "hold|anchor", payload
+        assert intent_tone_pack_map["swing"] == "prep|brace", payload
+        assert intent_tone_pack_map["spike"] == "triage|stabilize", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceNarrativeSignals", {}).get("intentTonePack") in set(intent_tone_pack_map.values()), payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulse") in {
             "CBGC FX PULSE:SOFT",
             "CBGC FX PULSE:EDGE",
@@ -3398,6 +3406,9 @@ def main() -> int:
             )
             assert "cue=" in legend_line, (
                 f"markdown contract violated in {section_name} section: expected CBGC LEGEND row to include cue=<H|P|T|U> metadata"
+            )
+            assert "intent=steady:hold|anchor/swing:prep|brace/spike:triage|stabilize" in legend_line, (
+                f"markdown contract violated in {section_name} section: expected CBGC LEGEND row to include alternate tone-pack intent verbs"
             )
         # Explicit markdown contract for future alias-rail insertions:
         # keep CBGC LEGEND and CBGCL adjacent in both summary and token-coverage sections.

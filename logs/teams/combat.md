@@ -2161,3 +2161,9 @@
 - Context: Regression now hard-locks `CBGC FX PULSE` payload domain/signals.
 - Impact: Combat/VFX pulse token introduced in Cycle GB is contract-stable for analytics and coach routing.
 - Follow-up: No combat logic changes required in this pass.
+
+## 2026-03-28 11:01 KST — Cycle GC tone-pack payload + legend copy completion
+- Completed Design/World follow-ups by updating `CBGC LEGEND` intent microcopy to alternate tone-pack verbs (`steady:hold|anchor`, `swing:prep|brace`, `spike:triage|stabilize`) while preserving fixed confidence-cluster ordering.
+- Added payload contract key `cadenceBridgeGlyphConfidenceNarrativeIntentTonePack` and extended narrative signals with `intentTonePackMap`/`intentTonePack` for downstream tooling.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Next: Systems/QA contract hardening for tone-pack key-order/domain + UX/Design `CBGCI` compact alias prototype.

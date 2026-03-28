@@ -2242,3 +2242,9 @@
 - Context: Systems/QA follow-up completed for Cycle GB (`cadenceBridgeGlyphConfidenceFxPulse*` regression lock).
 - Impact: Design can iterate `CBGC LEGEND` tone variants on top of a stable FX pulse telemetry contract.
 - Follow-up: Next unchecked item is Design/World alternate intent-verb tone pack prototype.
+
+## 2026-03-28 11:01 KST — Cycle GC tone-pack payload + legend copy completion
+- Completed Design/World follow-ups by updating `CBGC LEGEND` intent microcopy to alternate tone-pack verbs (`steady:hold|anchor`, `swing:prep|brace`, `spike:triage|stabilize`) while preserving fixed confidence-cluster ordering.
+- Added payload contract key `cadenceBridgeGlyphConfidenceNarrativeIntentTonePack` and extended narrative signals with `intentTonePackMap`/`intentTonePack` for downstream tooling.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` passed.
+- Next: Systems/QA contract hardening for tone-pack key-order/domain + UX/Design `CBGCI` compact alias prototype.

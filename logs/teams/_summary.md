@@ -3618,3 +3618,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: treat cue-map domain (`steady|swing|spike|unknown -> H|P|T|U`) as immutable schema contract with coherence checks between `current`, `intentCue`, and top-level cue field.
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Queue head now points to Design/World tone-pack variant and subsequent Systems/QA lock for `cadenceBridgeGlyphConfidenceFxPulse*`.
+
+## 2026-03-28 11:01 KST — Cycle GC completed (CBGC alternate tone-pack contract)
+- Closed remaining TASKS/POST_RC Design/World follow-ups by shipping alternate `CBGC LEGEND` intent microcopy (`steady:hold|anchor`, `swing:prep|brace`, `spike:triage|stabilize`) while preserving existing confidence-cluster ordering contracts.
+- Executed Game Director Cycle GC (3 ideas) and selected low-risk Design/World payload slice; shipped `cadenceBridgeGlyphConfidenceNarrativeIntentTonePack` plus narrative signal extensions (`intentTonePackMap`, `intentTonePack`) as a reversible vertical slice.
+- Regression lock extended for markdown contract + payload domains; verification green via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Injected next backlog tasks: (1) Systems/QA explicit key-order/domain lock for `intentTonePackMap` coherence, (2) UX/Design compact `CBGCI` alias prototype under DOS-width/order constraints.
