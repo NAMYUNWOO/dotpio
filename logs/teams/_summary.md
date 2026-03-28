@@ -3670,3 +3670,9 @@ Compact decision memory for AI context efficiency.
 - New shipped slice: payload-only `CBGCFXR:<C|S|P>` alias (`cadenceBridgeGlyphConfidenceFxPulseRegimeAlias`) exposing CBGC FX remap regime posture without markdown coupling.
 - Durable decision: keep this alias payload-only until Systems/QA lands adjacency/churn rails; do not alter existing CBGC markdown ordering in this cycle.
 - Backlog injected (unchecked): Systems/QA `CBGCFXR` markdown family churn rail; Combat/VFX adaptive remap-aggressiveness policy from cue↔pulse disagreement streak memory.
+
+## 2026-03-28 15:15 KST — Cycle GF Systems/QA follow-up closed (`CBGCFXA` rail + ordering lock)
+- Closed Systems/QA backlog item by adding `CBGCFXA` + `CBGCFXA FAMILY CHURN` rows to both summary and token-coverage markdown sections.
+- Added token-family coverage mapping for `cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias` (`CBGCFXA:`) to keep churn/coverage visibility deterministic.
+- Regression now locks CBGC adjacency as: `CBGCIA FAMILY CHURN -> CBGCFXR -> CBGCFXR FAMILY CHURN -> CBGCFXA -> CBGCFXA FAMILY CHURN -> CBGCI`.
+- Remaining unchecked task in current cycle: Design/Combat offline `CBGC FX PULSE` microcopy hint from `aggressivenessMode`.

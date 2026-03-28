@@ -2279,3 +2279,10 @@
 ## 2026-03-28 14:44 KST
 - Task: Cycle GF design-lane review.
 - Decision: Deferred microcopy layer to follow-up task; shipped compact alias first to keep vertical slice reversible.
+
+## 2026-03-28 15:15 KST — Cycle GF Systems/QA follow-up (`CBGCFXA` markdown rail) [DONE]
+- Completed markdown + token-coverage rail for `CBGCFXA` with deterministic adjacency in CBGC cluster:
+  `CBGCIA FAMILY CHURN -> CBGCFXR -> CBGCFXR FAMILY CHURN -> CBGCFXA -> CBGCFXA FAMILY CHURN -> CBGCI`.
+- Added token-family coverage mapping for `cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias` (`CBGCFXA:`) and mirrored rows in summary + token-coverage sections.
+- Hardened regression contracts to require exactly two `CBGCFXA`/`CBGCFXA FAMILY CHURN` rows and enforce ordering across both sections.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py`.
