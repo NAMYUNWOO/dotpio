@@ -3797,3 +3797,4 @@ Compact decision memory for AI context efficiency.
 - Durable decision: ARC transitions are now provenance-aware; when prior snapshots are missing/stale, ARC is guard-locked (`LOCK`) with reason `stale-prior-guard-lock` to avoid false SWAY flips.
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `[PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Next highest-priority unchecked item: Design/World payload-only LOCK/SWAY coaching microline pair.
+- Backlog hygiene: reconciled POST_RC item for `COHERENCE ARC:LOCK|SWAY` to checked state (already shipped in Cycle GN).
