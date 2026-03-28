@@ -2548,3 +2548,14 @@
 ## 2026-03-28 22:36 KST — UX signal decoding update
 - ARC signal now includes `arcSource` provenance (`fresh|stale`) so operators can quickly distinguish guarded vs live SWAY.
 - Regression now enforces stale windows as `LOCK` to prevent misleading UI interpretation.
+
+## 2026-03-28 23:05 KST — Cycle GO ux sync
+- Context: Payload-only LOCK/SWAY coach microline pair was added without visible HUD/markdown rows.
+- Decision: Preserve dense digest readability by deferring visible-row rollout to explicit A/B phase.
+- Follow-up: none.
+
+## 2026-03-28 23:10 KST — Cycle GP selected slice
+- Task: Add compact payload alias `CBGCFXWAC:<L|S>` for coherence-arc coach microline selection.
+- Decision: Kept alias payload-only (no markdown row) to avoid density churn while enabling low-cost downstream branching.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification: regression + weekly drift script pass ✅

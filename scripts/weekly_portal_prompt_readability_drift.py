@@ -1812,6 +1812,58 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     }
 
 
+def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_pair(
+    *,
+    coherence_arc_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Payload-only LOCK/SWAY coaching microline pair for future readability A/B experiments."""
+    flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_COACH_MICROLINE_PAIR"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    arc = str(coherence_arc_signals.get("arc", "SWAY") or "SWAY").strip().upper()
+    lock_line = "LOCK: Hold tempo; keep route calls crisp and deterministic."
+    sway_line = "SWAY: Slow cadence; narrate one stabilizing action at a time."
+    selected_line = lock_line if arc == "LOCK" else sway_line
+
+    token = f"COHERENCE ARC COACH:{'LOCK' if arc == 'LOCK' else 'SWAY'}"
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "arc": arc,
+        "selected": selected_line,
+        "pair": {
+            "LOCK": lock_line,
+            "SWAY": sway_line,
+        },
+        "token": token,
+        "offlineOnly": True,
+    }
+
+
+def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_alias(
+    *,
+    coach_microline_pair_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Compact payload-only alias for coherence-arc coach microline selection (`CBGCFXWAC:<L|S>`)."""
+    flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_COACH_MICROLINE_ALIAS"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    arc = str(coach_microline_pair_signals.get("arc", "SWAY") or "SWAY").strip().upper()
+    alias = "L" if arc == "LOCK" else "S"
+    token = f"CBGCFXWAC:{alias}"
+
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "arc": arc,
+        "alias": alias,
+        "token": token,
+        "offlineOnly": True,
+    }
+
+
 def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias(
     *,
     coherence_signals: dict[str, object],
@@ -9860,6 +9912,12 @@ def main() -> int:
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_alias(
         coherence_arc_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_signals,
     )
+    cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_pair, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_pair_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_pair(
+        coherence_arc_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_signals,
+    )
+    cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_alias(
+        coach_microline_pair_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_pair_signals,
+    )
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias(
         coherence_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals,
     )
@@ -11529,6 +11587,10 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_alias,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_alias_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolinePair": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_pair,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolinePairSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_pair_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_alias,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_alias_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,

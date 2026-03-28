@@ -1677,4 +1677,14 @@ See project-level plans:
 ## Next Up (Game Director Injection — 2026-03-28 Cycle GO)
 - [x] Combat/VFX Team: Prototype compact ARC alias (`CVARC:<L|S>`) for dense combat digest overlays with no row-order churn. *(lifecycle: [ ] -> [~] started: 2026-03-28 22:02 KST -> [x] completed: 2026-03-28 22:07 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
 - [x] Systems/Ops Team: Add offline stale-prior guard (`arcSource:fresh|stale`) to ARC signals to prevent false SWAY flips after snapshot gaps. *(lifecycle: [ ] -> [~] started: 2026-03-28 22:33 KST -> [x] completed: 2026-03-28 22:36 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
-- [ ] Design/World Team: Draft copy microline pair for LOCK/SWAY coaching text (payload-only) for future readability A/B.
+- [x] Design/World Team: Draft copy microline pair for LOCK/SWAY coaching text (payload-only) for future readability A/B. *(lifecycle: [ ] -> [~] started: 2026-03-28 23:01 KST -> [x] completed: 2026-03-28 23:05 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
+
+## Game Director Cycle GP — 2026-03-28 23:10 KST
+- Idea 1 (low risk, UX/Design): Add compact payload alias for LOCK/SWAY coach microline selection (`CBGCFXWAC:<L|S>`) so digest consumers can branch without parsing long copy. **Selected.**
+- Idea 2 (mid risk, Systems/QA): Add optional adjacency/order guard for `COHERENCE ARC COACH -> CBGCFXWAC` if/when markdown row rollout is enabled.
+- Idea 3 (high risk, AI Content/World): Add prior-window coach-line drift token (`COACH DRIFT:LOCK>SWAY`) with stale suppressor.
+- [x] UX/Design Team (Cycle GP experiment): Add payload-only alias `CBGCFXWAC:<L|S>` from coach microline pair signals behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_COACH_MICROLINE_ALIAS`. *(lifecycle: [ ] -> [~] started: 2026-03-28 23:07 KST -> [x] completed: 2026-03-28 23:10 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — 2026-03-28 Cycle GP)
+- [ ] Systems/QA Team: Reserve optional order-lock scaffold for future visible-row rollout (`COHERENCE ARC COACH` -> `CBGCFXWAC`) while keeping current payload-only behavior unchanged.
+- [ ] AI Content/World Team: Prototype offline coach-line drift token (`CBGCFXWAC DRIFT:<prev>><curr>`) with stale-prior guard before any UI exposure.

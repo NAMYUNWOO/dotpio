@@ -2886,6 +2886,38 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcAliasSignals", {}).get("alias") in {"L", "S"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcAliasSignals", {}).get("token", "").startswith("CVARC:"), payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcAliasSignals", {}).get("offlineOnly") is True, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolinePair", "").startswith(("FLAG OFF", "COHERENCE ARC COACH:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolinePairSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "arc",
+            "selected",
+            "pair",
+            "token",
+            "offlineOnly",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolinePairSignals", {}).get("arc") in {"LOCK", "SWAY"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolinePairSignals", {}).get("token", "").startswith("COHERENCE ARC COACH:"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolinePairSignals", {}).get("pair", {}).get("LOCK", "").startswith("LOCK:"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolinePairSignals", {}).get("pair", {}).get("SWAY", "").startswith("SWAY:"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolinePairSignals", {}).get("selected") in {
+            payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolinePairSignals", {}).get("pair", {}).get("LOCK"),
+            payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolinePairSignals", {}).get("pair", {}).get("SWAY"),
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolinePairSignals", {}).get("offlineOnly") is True, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAlias", "").startswith(("FLAG OFF", "CBGCFXWAC:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "arc",
+            "alias",
+            "token",
+            "offlineOnly",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasSignals", {}).get("arc") in {"LOCK", "SWAY"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasSignals", {}).get("alias") in {"L", "S"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasSignals", {}).get("token", "").startswith("CBGCFXWAC:"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasSignals", {}).get("offlineOnly") is True, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias", "").startswith(("FLAG OFF", "CBGCFXWC:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals", {}).keys()) == {
             "flagName",

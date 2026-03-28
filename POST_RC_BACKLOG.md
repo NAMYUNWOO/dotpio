@@ -1453,4 +1453,15 @@ Last updated: 2026-03-21 02:31 KST
 ## Next Up (Game Director Injection — Cycle GO)
 - [x] Combat/VFX Team: Add compact alias `CVARC:<L|S>` mirror for `COHERENCE ARC` (payload-only first). *(lifecycle: [ ] -> [~] started: 2026-03-28 22:02 KST -> [x] completed: 2026-03-28 22:07 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
 - [x] Systems/Ops Team: Add `arcSource:fresh|stale` guard in ARC signals when prior payload is unavailable/stale. *(completed: 2026-03-28 22:36 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
-- [ ] Design/World Team: Add payload-only LOCK/SWAY coaching microline pair for readability review.
+- [x] Design/World Team: Add payload-only LOCK/SWAY coaching microline pair for readability review. *(lifecycle: [ ] -> [~] started: 2026-03-28 23:01 KST -> [x] completed: 2026-03-28 23:05 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
+
+## Game Director Cycle GP - 2026-03-28 23:10 KST
+- Coverage check: ACTION_ITEMS/TASKS/POST_RC queues reached full-check state, so Game Director review cycle triggered immediately.
+- Idea 1 (low risk, UX/Design): Add compact payload alias for LOCK/SWAY coach microline selection (`CBGCFXWAC:<L|S>`). **Selected.**
+- Idea 2 (mid risk, Systems/QA): Add optional order-lock scaffold for future markdown-row rollout coupling.
+- Idea 3 (high risk, AI Content/World): Add offline coach-line drift token with stale-prior suppression.
+- [x] UX/Design Team: Add payload-only `CBGCFXWAC:<L|S>` alias derived from coherence-arc coach microline selection. *(lifecycle: [ ] -> [~] started: 2026-03-28 23:07 KST -> [x] completed: 2026-03-28 23:10 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle GP)
+- [ ] Systems/QA Team: Reserve optional order-lock scaffold for future visible-row rollout (`COHERENCE ARC COACH` -> `CBGCFXWAC`) while keeping current payload-only behavior unchanged.
+- [ ] AI Content/World Team: Prototype offline coach-line drift token (`CBGCFXWAC DRIFT:<prev>><curr>`) with stale-prior guard before UI exposure.

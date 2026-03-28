@@ -2353,3 +2353,12 @@
 ## 2026-03-28 22:36 KST — AI-content contract sync
 - Updated payload contract expectations for ARC signals to include provenance key `arcSource`.
 - Guard behavior documented in regression: stale priors must emit `arc=LOCK` + reason `stale-prior-guard-lock`.
+
+## 2026-03-28 23:05 KST — Cycle GO ai-content sync
+- Context: Added LOCK/SWAY coaching microline pair payload for future readability A/B.
+- Decision: Copy tone stays deterministic and short to avoid prompt bloat while preserving world-tone intent.
+- Follow-up: Revisit phrasing only when A/B instrumentation request lands.
+
+## 2026-03-28 23:10 KST — Cycle GP ai-content sync
+- Context: Coach-copy payload now has compact alias surface for future copy experimentation.
+- Decision: Deferred drift-token copy experiment to queued backlog item to keep this slice minimal.

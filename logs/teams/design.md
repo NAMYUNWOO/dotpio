@@ -2358,3 +2358,15 @@
 ## 2026-03-28 22:36 KST — Design readability note
 - Added deterministic stale-window behavior for `COHERENCE ARC` signals to reduce false narrative churn after snapshot gaps.
 - Keeps LOCK/SWAY semantics trustworthy before upcoming coaching microline A/B.
+
+## 2026-03-28 23:05 KST — Cycle GO Design/World microline pair
+- Task: Add payload-only LOCK/SWAY coaching microline pair for coherence-arc readability review.
+- Decision: Added deterministic pair copy (`LOCK`, `SWAY`) and selected-line projection keyed by `COHERENCE ARC` state for future A/B consumption without markdown row churn.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+- Follow-up: Keep payload-only until readability A/B activation decision is approved.
+
+## 2026-03-28 23:10 KST — Cycle GP alias readability pass
+- Task: Deliver minimal vertical slice alias for coach microline pair.
+- Decision: Alias map fixed to `LOCK->L`, `SWAY->S` (`CBGCFXWAC`) so payload decoding stays deterministic across A/B states.
+- Follow-up: queued Systems/QA order-lock scaffold and AI/World drift-token prototype in backlog.

@@ -3493,3 +3493,12 @@
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
 - Follow-up:
   - Next highest-priority unchecked item: Design/World LOCK/SWAY payload microline pair.
+
+## 2026-03-28 23:05 KST — Cycle GO systems sync
+- Context: Design/World shipped payload-only coherence-arc coaching microline pair.
+- Decision: No runtime system/economy behavior changed; integration remains weekly digest payload contract only.
+- Follow-up: none.
+
+## 2026-03-28 23:10 KST — Cycle GP systems sync
+- Context: Added payload alias `CBGCFXWAC` and schema checks only.
+- Decision: No runtime mechanics changes; contained to weekly digest payload pipeline.

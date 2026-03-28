@@ -4039,3 +4039,17 @@
 - Passed `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Passed `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Confirmed ARC signals include `arcSource` and stale-mode lock assertion (`arc=LOCK`, reason=`stale-prior-guard-lock`).
+
+## 2026-03-28 23:05 KST — Cycle GO coherence-arc coach payload verification
+- Task: Verify payload contract for coherence-arc coaching microline pair.
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+- Decision: Contract now enforces schema/domain for `...CoherenceArcCoachMicrolinePair` while preserving existing ARC/CVARC ordering guarantees.
+- Follow-up: none.
+
+## 2026-03-28 23:10 KST — Cycle GP regression pass
+- Task: Validate new `CBGCFXWAC` payload alias contract.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+- Decision: Schema/domain checks added for `...CoherenceArcCoachMicrolineAlias*` payload fields.

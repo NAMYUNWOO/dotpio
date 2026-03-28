@@ -2283,3 +2283,12 @@
 ## 2026-03-28 22:36 KST — Combat digest stability note
 - ARC provenance guard is payload-only; no runtime combat logic changed.
 - Dense overlay consumers can now gate SWAY interpretation on `arcSource=fresh`.
+
+## 2026-03-28 23:05 KST — Cycle GO combat sync
+- Context: ARC coach microline payload added.
+- Decision: No combat balance/mechanics changes; this is digest coaching-copy metadata only.
+- Follow-up: none.
+
+## 2026-03-28 23:10 KST — Cycle GP combat sync
+- Context: `CBGCFXWAC` alias introduced in payload.
+- Decision: No combat behavior changes; telemetry/readability surface only.

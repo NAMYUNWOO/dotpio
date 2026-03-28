@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 21:31 KST
+Last updated: 2026-03-28 23:10 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,14 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle GP selected slice (UX/Design): digest payload now emits compact coach-selection alias `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAlias` (`CBGCFXWAC:<L|S>`) derived from LOCK/SWAY coach pair signals.
+- Regression contract expanded to lock `...CoherenceArcCoachMicrolineAliasSignals` schema/domain (`arc`, `alias`, `token`, `offlineOnly`) while preserving payload-only behavior.
+- Injected next backlog tasks: Systems/QA optional visible-row order-lock scaffold + AI Content/World offline `CBGCFXWAC DRIFT` prototype.
+
+- Closed Cycle GO Design/World payload-only follow-up: digest payload now emits `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolinePair` + signals (LOCK/SWAY pair, selected line, token, flag metadata) behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_COACH_MICROLINE_PAIR`.
+- Regression contract expanded to lock new coach-microline payload schema/domain while preserving ARC/CVARC ordering and offline-only constraints.
+- Backlog sync: TASKS + POST_RC item for LOCK/SWAY coaching microline pair marked complete with lifecycle + verification stamps.
 
 - Closed Cycle GM Systems/QA follow-up: regression now has an explicit adjacency-chain lock for `CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC` in both summary/token-coverage sections.
 - Implementation detail: added `coherence_chain == expected_chain` assertion while preserving existing per-edge adjacency checks for precise diagnostics.

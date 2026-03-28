@@ -2282,3 +2282,14 @@
 - Consumed new ARC provenance signal (`arcSource:fresh|stale`) for postmortem world-tone interpretation.
 - Readability impact: snapshot-gap windows now retain `COHERENCE ARC:LOCK` guard instead of transient SWAY flips.
 - Next world/design task remains LOCK/SWAY coaching microline pair.
+
+## 2026-03-28 23:05 KST — Cycle GO payload-only world-tone coaching copy
+- Task: World-lane review for coherence-arc coaching microline pair.
+- Decision: Locked world-tone coaching lines to concise route-tempo guidance and avoided runtime map/portal coupling.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Follow-up: If A/B toggled later, evaluate digest scan speed impact before promoting to markdown rails.
+
+## 2026-03-28 23:10 KST — Cycle GP world sync
+- Context: Added payload-only alias for coherence-arc coaching line selection.
+- Decision: No portal/map content touched; world lane impact is digest readability metadata only.
