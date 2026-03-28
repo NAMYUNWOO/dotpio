@@ -3371,3 +3371,10 @@
 - Added token-family coverage mapping for `cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias` (`CBGCFXA:`) and mirrored rows in summary + token-coverage sections.
 - Hardened regression contracts to require exactly two `CBGCFXA`/`CBGCFXA FAMILY CHURN` rows and enforce ordering across both sections.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-28 15:40 KST — Systems wiring for `CBGC FX HINT`
+- Added resolver `resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint(...)` and payload fields:
+  - `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHint`
+  - `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals`
+- Added token-family coverage key `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintAlias` (`CBGC FX HINT:`).
+- Added markdown rows in summary + token-coverage sections (`CBGC FX HINT`, `CBGC FX HINT FAMILY CHURN`) with deterministic cluster placement before `CBGCI`.

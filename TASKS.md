@@ -1627,4 +1627,4 @@ See project-level plans:
 
 - [x] UX/Combat Team (Cycle GF experiment): Ship payload-only compact adaptive remap alias `cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias` (`CBGCFXA:<C|B|A>`) + signals. *(lifecycle: [~] started: 2026-03-28 14:37 KST -> [x] completed: 2026-03-28 14:44 KST)*
 - [x] Systems/QA Team (Cycle GF follow-up): Add markdown/token-coverage `CBGCFXA` rail + ordering regression lock adjacent to `CBGCFXR` cluster. *(lifecycle: [ ] -> [~] started: 2026-03-28 15:07 KST -> [x] completed: 2026-03-28 15:15 KST)*
-- [ ] Design/Combat Team (Cycle GF follow-up): Prototype offline `CBGC FX PULSE` microcopy hint derived from `aggressivenessMode` for human-readable triage context.
+- [x] Design/Combat Team (Cycle GF follow-up): Prototype offline `CBGC FX PULSE` microcopy hint derived from `aggressivenessMode` for human-readable triage context. *(lifecycle: [~] -> [x]; completed: 2026-03-28 15:40 KST)*

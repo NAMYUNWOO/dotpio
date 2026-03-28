@@ -3920,3 +3920,13 @@
 - Added token-family coverage mapping for `cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias` (`CBGCFXA:`) and mirrored rows in summary + token-coverage sections.
 - Hardened regression contracts to require exactly two `CBGCFXA`/`CBGCFXA FAMILY CHURN` rows and enforce ordering across both sections.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-28 15:40 KST — Regression lock for `CBGC FX HINT`
+- Extended payload schema checks:
+  - token presence/domain for `cadenceBridgeGlyphConfidenceFxPulseMicrocopyHint`
+  - signals contract (`flagName`, `flagEnabled`, `aggressivenessMode`, `resolvedPulse`, `hint`, `aliasToken`, `offlineOnly`)
+- Extended markdown ordering/count contracts:
+  - exactly two `CBGC FX HINT` + `CBGC FX HINT FAMILY CHURN` rows
+  - enforced adjacency: `CBGCFXA FAMILY CHURN -> CBGC FX HINT -> CBGC FX HINT FAMILY CHURN -> CBGCI`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

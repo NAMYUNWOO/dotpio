@@ -2698,6 +2698,20 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseAggressivenessAliasSignals", {}).get("aggressivenessMode") in {"CAUTIOUS", "BASELINE", "AGGRESSIVE"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseAggressivenessAliasSignals", {}).get("alias") in {"C", "B", "A"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseAggressivenessAliasSignals", {}).get("aliasToken") in {"CBGCFXA:C", "CBGCFXA:B", "CBGCFXA:A"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHint", "").startswith(("FLAG OFF", "CBGC FX HINT:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "aggressivenessMode",
+            "resolvedPulse",
+            "hint",
+            "aliasToken",
+            "offlineOnly",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals", {}).get("aggressivenessMode") in {"CAUTIOUS", "BASELINE", "AGGRESSIVE"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals", {}).get("resolvedPulse") in {"SOFT", "EDGE", "HARD"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals", {}).get("aliasToken", "").startswith("CBGC FX HINT:"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals", {}).get("offlineOnly") is True, payload
         assert set(payload.get("combatVfxCadenceCoachWhyHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",
@@ -3045,6 +3059,8 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_regime_alias_family_churn_indices = _find_line_indices("- CBGCFXR FAMILY CHURN:")
         cadence_bridge_glyph_conf_fx_pulse_aggressiveness_alias_indices = _find_line_indices("- CBGCFXA:")
         cadence_bridge_glyph_conf_fx_pulse_aggressiveness_alias_family_churn_indices = _find_line_indices("- CBGCFXA FAMILY CHURN:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_indices = _find_line_indices("- CBGC FX HINT:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_family_churn_indices = _find_line_indices("- CBGC FX HINT FAMILY CHURN:")
         cadence_bridge_glyph_conf_intent_compact_alias_indices = _find_line_indices("- CBGCI:")
         cadence_bridge_glyph_conf_intent_legend_indices = _find_line_indices("- CBGCI LEGEND:")
         cadence_bridge_glyph_conf_intent_legend_alias_indices = _find_line_indices("- CBGCIL:")
@@ -3479,6 +3495,12 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_aggressiveness_alias_family_churn_indices) == 2, (
             "expected exactly two CBGCFXA FAMILY CHURN rows (summary + token-coverage sections)"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_indices) == 2, (
+            "expected exactly two CBGC FX HINT rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_family_churn_indices) == 2, (
+            "expected exactly two CBGC FX HINT FAMILY CHURN rows (summary + token-coverage sections)"
+        )
         assert len(cadence_bridge_glyph_conf_intent_compact_alias_indices) == 2, (
             "expected exactly two CBGCI rows (summary + token-coverage sections)"
         )
@@ -3527,8 +3549,8 @@ def main() -> int:
                 f"markdown contract violated in {section_name} section: expected CBGC LEGEND row to include alternate tone-pack intent verbs"
             )
         # Explicit markdown contract for future alias-rail insertions:
-        # keep CBGC LEGEND -> CBGCL -> CBGCIA -> CBGCIA FAMILY CHURN -> CBGCFXR -> CBGCFXR FAMILY CHURN -> CBGCFXA -> CBGCFXA FAMILY CHURN -> CBGCI -> CBGCI LEGEND -> CBGCIL adjacent in both sections.
-        for section_name, legend_idx, compact_alias_idx, intent_active_alias_idx, intent_active_alias_family_churn_idx, fx_regime_alias_idx, fx_regime_alias_family_churn_idx, fx_aggressiveness_alias_idx, fx_aggressiveness_alias_family_churn_idx, intent_alias_idx, intent_legend_idx, intent_legend_alias_idx in zip(
+        # keep CBGC LEGEND -> CBGCL -> CBGCIA -> CBGCIA FAMILY CHURN -> CBGCFXR -> CBGCFXR FAMILY CHURN -> CBGCFXA -> CBGCFXA FAMILY CHURN -> CBGC FX HINT -> CBGC FX HINT FAMILY CHURN -> CBGCI -> CBGCI LEGEND -> CBGCIL adjacent in both sections.
+        for section_name, legend_idx, compact_alias_idx, intent_active_alias_idx, intent_active_alias_family_churn_idx, fx_regime_alias_idx, fx_regime_alias_family_churn_idx, fx_aggressiveness_alias_idx, fx_aggressiveness_alias_family_churn_idx, fx_microcopy_hint_idx, fx_microcopy_hint_family_churn_idx, intent_alias_idx, intent_legend_idx, intent_legend_alias_idx in zip(
             ("summary", "token-coverage"),
             cadence_bridge_glyph_conf_compact_alias_legend_indices,
             cadence_bridge_glyph_conf_compact_legend_alias_indices,
@@ -3538,6 +3560,8 @@ def main() -> int:
             cadence_bridge_glyph_conf_fx_pulse_regime_alias_family_churn_indices,
             cadence_bridge_glyph_conf_fx_pulse_aggressiveness_alias_indices,
             cadence_bridge_glyph_conf_fx_pulse_aggressiveness_alias_family_churn_indices,
+            cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_indices,
+            cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_family_churn_indices,
             cadence_bridge_glyph_conf_intent_compact_alias_indices,
             cadence_bridge_glyph_conf_intent_legend_indices,
             cadence_bridge_glyph_conf_intent_legend_alias_indices,
@@ -3563,8 +3587,14 @@ def main() -> int:
             assert fx_aggressiveness_alias_family_churn_idx == fx_aggressiveness_alias_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXA FAMILY CHURN row directly after CBGCFXA row"
             )
-            assert intent_alias_idx == fx_aggressiveness_alias_family_churn_idx + 1, (
-                f"markdown contract violated in {section_name} section: expected CBGCI row directly after CBGCFXA FAMILY CHURN row under future alias-rail insertions"
+            assert fx_microcopy_hint_idx == fx_aggressiveness_alias_family_churn_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGC FX HINT row directly after CBGCFXA FAMILY CHURN row"
+            )
+            assert fx_microcopy_hint_family_churn_idx == fx_microcopy_hint_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGC FX HINT FAMILY CHURN row directly after CBGC FX HINT row"
+            )
+            assert intent_alias_idx == fx_microcopy_hint_family_churn_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCI row directly after CBGC FX HINT FAMILY CHURN row under future alias-rail insertions"
             )
             assert intent_legend_idx == intent_alias_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCI LEGEND row directly after CBGCI row"
@@ -3574,7 +3604,7 @@ def main() -> int:
             )
 
         if cadence_bridge_glyph_conf_compact_alias_enabled:
-            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_idx, glyph_conf_alias_legend_idx, glyph_conf_legend_alias_idx, glyph_conf_intent_active_alias_idx, glyph_conf_intent_active_alias_family_churn_idx, glyph_conf_fx_regime_alias_idx, glyph_conf_fx_regime_alias_family_churn_idx, glyph_conf_fx_aggressiveness_alias_idx, glyph_conf_fx_aggressiveness_alias_family_churn_idx, glyph_conf_intent_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
+            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_idx, glyph_conf_alias_legend_idx, glyph_conf_legend_alias_idx, glyph_conf_intent_active_alias_idx, glyph_conf_intent_active_alias_family_churn_idx, glyph_conf_fx_regime_alias_idx, glyph_conf_fx_regime_alias_family_churn_idx, glyph_conf_fx_aggressiveness_alias_idx, glyph_conf_fx_aggressiveness_alias_family_churn_idx, glyph_conf_fx_microcopy_hint_idx, glyph_conf_fx_microcopy_hint_family_churn_idx, glyph_conf_intent_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
                 zip(
                     cadence_bridge_glyph_indices,
                     cadence_bridge_glyph_conf_indices,
@@ -3587,6 +3617,8 @@ def main() -> int:
                     cadence_bridge_glyph_conf_fx_pulse_regime_alias_family_churn_indices,
                     cadence_bridge_glyph_conf_fx_pulse_aggressiveness_alias_indices,
                     cadence_bridge_glyph_conf_fx_pulse_aggressiveness_alias_family_churn_indices,
+                    cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_indices,
+                    cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_family_churn_indices,
                     cadence_bridge_glyph_conf_intent_compact_alias_indices,
                     cadence_bridge_glyph_conf_legend_indices,
                     cadence_bridge_glyph_legend_indices,
@@ -3623,8 +3655,14 @@ def main() -> int:
                 assert glyph_conf_fx_aggressiveness_alias_family_churn_idx == glyph_conf_fx_aggressiveness_alias_idx + 1, (
                     f"expected CBGCFXA FAMILY CHURN row directly after CBGCFXA row in section {section_idx}"
                 )
-                assert glyph_conf_intent_alias_idx == glyph_conf_fx_aggressiveness_alias_family_churn_idx + 1, (
-                    f"expected CBGCI row directly after CBGCFXA FAMILY CHURN row in section {section_idx}"
+                assert glyph_conf_fx_microcopy_hint_idx == glyph_conf_fx_aggressiveness_alias_family_churn_idx + 1, (
+                    f"expected CBGC FX HINT row directly after CBGCFXA FAMILY CHURN row in section {section_idx}"
+                )
+                assert glyph_conf_fx_microcopy_hint_family_churn_idx == glyph_conf_fx_microcopy_hint_idx + 1, (
+                    f"expected CBGC FX HINT FAMILY CHURN row directly after CBGC FX HINT row in section {section_idx}"
+                )
+                assert glyph_conf_intent_alias_idx == glyph_conf_fx_microcopy_hint_family_churn_idx + 1, (
+                    f"expected CBGCI row directly after CBGC FX HINT FAMILY CHURN row in section {section_idx}"
                 )
                 assert glyph_conf_legend_idx in {
                     glyph_conf_intent_alias_idx + 1,
@@ -3648,7 +3686,7 @@ def main() -> int:
                     f"expected CADENCE BRIDGE GLYPH LEGEND row directly after CADENCE BRIDGE GLYPH CONF LEGEND row in section {section_idx}"
                 )
         else:
-            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_legend_idx, glyph_conf_legend_alias_idx, glyph_conf_intent_active_alias_idx, glyph_conf_intent_active_alias_family_churn_idx, glyph_conf_fx_regime_alias_idx, glyph_conf_fx_regime_alias_family_churn_idx, glyph_conf_fx_aggressiveness_alias_idx, glyph_conf_fx_aggressiveness_alias_family_churn_idx, glyph_conf_intent_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
+            for section_idx, (glyph_idx, glyph_conf_idx, glyph_conf_alias_legend_idx, glyph_conf_legend_alias_idx, glyph_conf_intent_active_alias_idx, glyph_conf_intent_active_alias_family_churn_idx, glyph_conf_fx_regime_alias_idx, glyph_conf_fx_regime_alias_family_churn_idx, glyph_conf_fx_aggressiveness_alias_idx, glyph_conf_fx_aggressiveness_alias_family_churn_idx, glyph_conf_fx_microcopy_hint_idx, glyph_conf_fx_microcopy_hint_family_churn_idx, glyph_conf_intent_alias_idx, glyph_conf_legend_idx, glyph_legend_idx) in enumerate(
                 zip(
                     cadence_bridge_glyph_indices,
                     cadence_bridge_glyph_conf_indices,
@@ -3660,6 +3698,8 @@ def main() -> int:
                     cadence_bridge_glyph_conf_fx_pulse_regime_alias_family_churn_indices,
                     cadence_bridge_glyph_conf_fx_pulse_aggressiveness_alias_indices,
                     cadence_bridge_glyph_conf_fx_pulse_aggressiveness_alias_family_churn_indices,
+                    cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_indices,
+                    cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_family_churn_indices,
                     cadence_bridge_glyph_conf_intent_compact_alias_indices,
                     cadence_bridge_glyph_conf_legend_indices,
                     cadence_bridge_glyph_legend_indices,
@@ -3693,8 +3733,14 @@ def main() -> int:
                 assert glyph_conf_fx_aggressiveness_alias_family_churn_idx == glyph_conf_fx_aggressiveness_alias_idx + 1, (
                     f"expected CBGCFXA FAMILY CHURN row directly after CBGCFXA row in section {section_idx}"
                 )
-                assert glyph_conf_intent_alias_idx == glyph_conf_fx_aggressiveness_alias_family_churn_idx + 1, (
-                    f"expected CBGCI row directly after CBGCFXA FAMILY CHURN row in section {section_idx}"
+                assert glyph_conf_fx_microcopy_hint_idx == glyph_conf_fx_aggressiveness_alias_family_churn_idx + 1, (
+                    f"expected CBGC FX HINT row directly after CBGCFXA FAMILY CHURN row in section {section_idx}"
+                )
+                assert glyph_conf_fx_microcopy_hint_family_churn_idx == glyph_conf_fx_microcopy_hint_idx + 1, (
+                    f"expected CBGC FX HINT FAMILY CHURN row directly after CBGC FX HINT row in section {section_idx}"
+                )
+                assert glyph_conf_intent_alias_idx == glyph_conf_fx_microcopy_hint_family_churn_idx + 1, (
+                    f"expected CBGCI row directly after CBGC FX HINT FAMILY CHURN row in section {section_idx}"
                 )
                 assert glyph_conf_legend_idx in {
                     glyph_conf_intent_alias_idx + 1,

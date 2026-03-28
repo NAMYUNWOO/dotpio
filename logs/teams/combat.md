@@ -2213,3 +2213,9 @@
 - Added token-family coverage mapping for `cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias` (`CBGCFXA:`) and mirrored rows in summary + token-coverage sections.
 - Hardened regression contracts to require exactly two `CBGCFXA`/`CBGCFXA FAMILY CHURN` rows and enforce ordering across both sections.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-28 15:40 KST — Cycle GF follow-up (`CBGC FX HINT`) [DONE]
+- Task: Add offline combat-facing triage hint linked to adaptive CBGC FX aggressiveness mode.
+- Outcome: `CBGC FX HINT` now mirrors the current aggressiveness posture (`CAUTIOUS|BASELINE|AGGRESSIVE`) while preserving stable pulse output (`SOFT|EDGE|HARD`).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decision: Keep hint offline-only and reversible via dedicated flag `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_HINT`.

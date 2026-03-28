@@ -2286,3 +2286,12 @@
 - Added token-family coverage mapping for `cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias` (`CBGCFXA:`) and mirrored rows in summary + token-coverage sections.
 - Hardened regression contracts to require exactly two `CBGCFXA`/`CBGCFXA FAMILY CHURN` rows and enforce ordering across both sections.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-28 15:40 KST — Cycle GF follow-up completed (`CBGC FX HINT` microcopy)
+- Task: Prototype offline human-readable triage microcopy derived from `cadenceBridgeGlyphConfidenceFxPulseSignals.aggressivenessMode`.
+- Decision: Added deterministic token `CBGC FX HINT:<short>` with mode-to-copy mapping:
+  - `CAUTIOUS` → `watch lane drift; preserve stability`
+  - `BASELINE` → `track pressure and tune deliberately`
+  - `AGGRESSIVE` → `triage spikes now; prioritize containment`
+- Rationale: keep compact alias rails (`CBGCFXA`) while adding immediate human-readable context for reviewers.
+- Follow-up: if copy churn appears noisy, add optional compact alias + legend in a later cycle.

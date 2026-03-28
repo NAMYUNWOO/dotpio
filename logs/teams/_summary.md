@@ -3676,3 +3676,10 @@ Compact decision memory for AI context efficiency.
 - Added token-family coverage mapping for `cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias` (`CBGCFXA:`) to keep churn/coverage visibility deterministic.
 - Regression now locks CBGC adjacency as: `CBGCIA FAMILY CHURN -> CBGCFXR -> CBGCFXR FAMILY CHURN -> CBGCFXA -> CBGCFXA FAMILY CHURN -> CBGCI`.
 - Remaining unchecked task in current cycle: Design/Combat offline `CBGC FX PULSE` microcopy hint from `aggressivenessMode`.
+
+## 2026-03-28 15:40 KST — Cycle GF follow-up closed (`CBGC FX HINT`)
+- Completed last unchecked TASKS/POST_RC item for Cycle GF by shipping offline microcopy hint token `CBGC FX HINT:<short>` derived from `aggressivenessMode`.
+- Durable mapping: `CAUTIOUS=watch lane drift; preserve stability`, `BASELINE=track pressure and tune deliberately`, `AGGRESSIVE=triage spikes now; prioritize containment`.
+- Added deterministic markdown rails + family churn rows in both summary/token-coverage sections and locked ordering in regression.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Queue status: ACTION_ITEMS/TASKS/POST_RC currently fully checked; next autonomous cycle should execute Game Director ideation (3 ideas → select 1 → vertical slice) and inject fresh backlog items.
