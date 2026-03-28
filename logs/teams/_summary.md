@@ -3691,3 +3691,17 @@ Compact decision memory for AI context efficiency.
 - Added deterministic markdown rails + family churn rows in both summary/token-coverage sections and locked ordering in regression.
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Queue status: ACTION_ITEMS/TASKS/POST_RC currently fully checked; next autonomous cycle should execute Game Director ideation (3 ideas → select 1 → vertical slice) and inject fresh backlog items.
+
+## 2026-03-28 16:36 KST — Cycle GG Design/World follow-up completed (`CBGC FX HINT` world-tone variant pack)
+- Shipped world-tone-aware microcopy variant pack for `CBGC FX HINT` keyed by `aggressivenessMode` (`CAUTIOUS|BASELINE|AGGRESSIVE`) + narrative posture (`steady|swing|spike|unknown`).
+- Durable decision: keep compact alias decode contract unchanged (`CBGCFXH:<W|T|P>` still maps only from aggressiveness mode) while expanding human-readable hint tone for design/world readability.
+- Added payload signals: `narrativeCurrent`, `worldToneCue`, and deterministic `worldToneVariantPack` map for downstream digest tooling.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-28 16:47 KST — Game Director Cycle GH (world-tone alias vertical slice)
+- Generated 3 ideas (low/mid/high risk), selected Idea 1 and shipped minimal slice: `CBGCFXW:<S|J|B|N>` compact world-tone alias for `CBGC FX HINT` narrative posture.
+- Durable decision: preserve `CBGCFXH:<W|T|P>` aggressiveness decode unchanged; world-tone alias remains orthogonal (`steady|swing|spike|unknown` only).
+- Payload wiring added: `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAlias` + signals; markdown rails mirrored in summary/token-coverage with family churn row.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Backlog injected (unchecked): (1) Systems/QA strict adjacency/count lock for `CBGCFXW` rows, (2) AI Content/Design optional `CBGCFXW LEGEND` readability row.
+

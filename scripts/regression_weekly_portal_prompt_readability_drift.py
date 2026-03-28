@@ -2704,12 +2704,25 @@ def main() -> int:
             "flagEnabled",
             "aggressivenessMode",
             "resolvedPulse",
+            "narrativeCurrent",
+            "worldToneCue",
+            "worldToneVariantPack",
             "hint",
             "aliasToken",
             "offlineOnly",
         }, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals", {}).get("aggressivenessMode") in {"CAUTIOUS", "BASELINE", "AGGRESSIVE"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals", {}).get("resolvedPulse") in {"SOFT", "EDGE", "HARD"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals", {}).get("narrativeCurrent") in {"steady", "swing", "spike", "unknown"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals", {}).get("worldToneCue") in {"calm skyline", "faultline jitter", "breachfront surge", "neutral field"}, payload
+        variant_pack = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals", {}).get("worldToneVariantPack")
+        assert isinstance(variant_pack, dict), payload
+        assert set(variant_pack.keys()) == {"CAUTIOUS", "BASELINE", "AGGRESSIVE"}, payload
+        for mode_key, mode_pack in variant_pack.items():
+            assert isinstance(mode_pack, dict), payload
+            assert set(mode_pack.keys()) == {"steady", "swing", "spike", "unknown"}, payload
+            for entry in mode_pack.values():
+                assert isinstance(entry, str) and entry.strip(), payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals", {}).get("aliasToken", "").startswith("CBGC FX HINT:"), payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals", {}).get("offlineOnly") is True, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias") in {"FLAG OFF", "CBGCFXH:W", "CBGCFXH:T", "CBGCFXH:P"}, payload
@@ -2727,6 +2740,23 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAliasSignals", {}).get("aliasToken") in {"CBGCFXH:W", "CBGCFXH:T", "CBGCFXH:P"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAliasSignals", {}).get("sourceToken", "").startswith("CBGC FX HINT:"), payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAliasSignals", {}).get("offlineOnly") is True, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAlias") in {"FLAG OFF", "CBGCFXW:S", "CBGCFXW:J", "CBGCFXW:B", "CBGCFXW:N"}, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "narrativeCurrent",
+            "worldToneCue",
+            "alias",
+            "aliasToken",
+            "sourceToken",
+            "offlineOnly",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAliasSignals", {}).get("narrativeCurrent") in {"steady", "swing", "spike", "unknown"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAliasSignals", {}).get("worldToneCue") in {"calm skyline", "faultline jitter", "breachfront surge", "neutral field"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAliasSignals", {}).get("alias") in {"S", "J", "B", "N"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAliasSignals", {}).get("aliasToken") in {"CBGCFXW:S", "CBGCFXW:J", "CBGCFXW:B", "CBGCFXW:N"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAliasSignals", {}).get("sourceToken", "").startswith("CBGC FX HINT:"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAliasSignals", {}).get("offlineOnly") is True, payload
         assert set(payload.get("combatVfxCadenceCoachWhyHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",
@@ -3078,6 +3108,8 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_family_churn_indices = _find_line_indices("- CBGC FX HINT FAMILY CHURN:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_compact_alias_indices = _find_line_indices("- CBGCFXH:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_compact_alias_family_churn_indices = _find_line_indices("- CBGCFXH FAMILY CHURN:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_alias_indices = _find_line_indices("- CBGCFXW:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_alias_family_churn_indices = _find_line_indices("- CBGCFXW FAMILY CHURN:")
         cadence_bridge_glyph_conf_intent_compact_alias_indices = _find_line_indices("- CBGCI:")
         cadence_bridge_glyph_conf_intent_legend_indices = _find_line_indices("- CBGCI LEGEND:")
         cadence_bridge_glyph_conf_intent_legend_alias_indices = _find_line_indices("- CBGCIL:")
@@ -3524,6 +3556,12 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_hint_compact_alias_family_churn_indices) == 2, (
             "expected exactly two CBGCFXH FAMILY CHURN rows (summary + token-coverage sections)"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_alias_indices) == 2, (
+            "expected exactly two CBGCFXW rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_alias_family_churn_indices) == 2, (
+            "expected exactly two CBGCFXW FAMILY CHURN rows (summary + token-coverage sections)"
+        )
         assert len(cadence_bridge_glyph_conf_intent_compact_alias_indices) == 2, (
             "expected exactly two CBGCI rows (summary + token-coverage sections)"
         )
@@ -3624,8 +3662,8 @@ def main() -> int:
             assert fx_microcopy_hint_compact_alias_family_churn_idx == fx_microcopy_hint_compact_alias_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXH FAMILY CHURN row directly after CBGCFXH row"
             )
-            assert intent_alias_idx == fx_microcopy_hint_compact_alias_family_churn_idx + 1, (
-                f"markdown contract violated in {section_name} section: expected CBGCI row directly after CBGCFXH FAMILY CHURN row under future alias-rail insertions"
+            assert intent_alias_idx == fx_microcopy_hint_compact_alias_family_churn_idx + 3, (
+                f"markdown contract violated in {section_name} section: expected CBGCI row directly after CBGCFXW FAMILY CHURN row under future alias-rail insertions"
             )
             assert intent_legend_idx == intent_alias_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCI LEGEND row directly after CBGCI row"
@@ -3700,8 +3738,8 @@ def main() -> int:
                 assert glyph_conf_fx_microcopy_hint_compact_alias_family_churn_idx == glyph_conf_fx_microcopy_hint_compact_alias_idx + 1, (
                     f"expected CBGCFXH FAMILY CHURN row directly after CBGCFXH row in section {section_idx}"
                 )
-                assert glyph_conf_intent_alias_idx == glyph_conf_fx_microcopy_hint_compact_alias_family_churn_idx + 1, (
-                    f"expected CBGCI row directly after CBGCFXH FAMILY CHURN row in section {section_idx}"
+                assert glyph_conf_intent_alias_idx == glyph_conf_fx_microcopy_hint_compact_alias_family_churn_idx + 3, (
+                    f"expected CBGCI row directly after CBGCFXW FAMILY CHURN row in section {section_idx}"
                 )
                 assert glyph_conf_legend_idx in {
                     glyph_conf_intent_alias_idx + 1,
@@ -3786,8 +3824,8 @@ def main() -> int:
                 assert glyph_conf_fx_microcopy_hint_compact_alias_family_churn_idx == glyph_conf_fx_microcopy_hint_compact_alias_idx + 1, (
                     f"expected CBGCFXH FAMILY CHURN row directly after CBGCFXH row in section {section_idx}"
                 )
-                assert glyph_conf_intent_alias_idx == glyph_conf_fx_microcopy_hint_compact_alias_family_churn_idx + 1, (
-                    f"expected CBGCI row directly after CBGCFXH FAMILY CHURN row in section {section_idx}"
+                assert glyph_conf_intent_alias_idx == glyph_conf_fx_microcopy_hint_compact_alias_family_churn_idx + 3, (
+                    f"expected CBGCI row directly after CBGCFXW FAMILY CHURN row in section {section_idx}"
                 )
                 assert glyph_conf_legend_idx in {
                     glyph_conf_intent_alias_idx + 1,

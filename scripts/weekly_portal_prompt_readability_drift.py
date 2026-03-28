@@ -27,8 +27,8 @@ PORTAL_PATH_HINTS = (
     "scripts/regression_combat_damage_numbers.lua",
 )
 TOKEN_GROUPS = {
-    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCWHR CONF FLOOR REC:", "CVCWHRF:", "CVCWHR FX PULSE:", "CVCWHR FX LEGEND COPY PACK:", "CVCWHR FX LEGEND CP:", "CVCWHR FX LEGEND COPY PACK TREND:", "CVCWHR FX LEGEND CPT:", "CVCWHR FX LEGEND COPY PACK TREND CONF:", "CVCWHR FX LEGEND CPTC:", "CVCWHR FX LEGEND CPTC LEGEND:", "CVCWHR FX LEGEND CPTC OVERRIDE:", "CADENCE BRIDGE:", "CADENCE BRIDGE GLYPH:", "CADENCE BRIDGE GLYPH CONF:", "CBGC:", "CBGC LEGEND:", "CBGCL:", "CBGCIA:", "CBGCFXR:", "CBGCFXA:", "CBGC FX HINT:", "CBGCFXH:", "CBGCI:", "CBGCI LEGEND:", "CBGCIL:", "CADENCE BRIDGE GLYPH CONF LEGEND:", "CVCC:"],
-    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCWHR CONF FLOOR REC:", "CVCWHRF:", "CVCWHR FX PULSE:", "CVCWHR FX LEGEND COPY PACK:", "CVCWHR FX LEGEND CP:", "CVCWHR FX LEGEND COPY PACK TREND:", "CVCWHR FX LEGEND CPT:", "CVCWHR FX LEGEND COPY PACK TREND CONF:", "CVCWHR FX LEGEND CPTC:", "CVCWHR FX LEGEND CPTC LEGEND:", "CVCWHR FX LEGEND CPTC OVERRIDE:", "CADENCE BRIDGE:", "CADENCE BRIDGE GLYPH:", "CADENCE BRIDGE GLYPH CONF:", "CBGC:", "CBGC LEGEND:", "CBGCL:", "CBGCIA:", "CBGCFXR:", "CBGCFXA:", "CBGC FX HINT:", "CBGCFXH:", "CBGCI:", "CBGCI LEGEND:", "CBGCIL:", "CADENCE BRIDGE GLYPH CONF LEGEND:", "CVCC:"],
+    "compact": ["NEXT:", "P:", "ALT:", "ADEL:", "AP:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "AWGMC:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "AWGM:", "VTC:", "VTCR:", "VIBE TRAIL WHY:", "VTW:", "VTWC:", "VTCW:", "VTA:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "RGFXWRI WHY CONF:", "RGFXWRIWC:", "RGFXWRIU:", "RGFXWRIUP:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "ARW AUTO PLAN:", "ARW APC:", "ARW AUTO PLAN CONF MOMENTUM:", "ARW MOMENTUM:", "ARW MOMENTUM ARC:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCWHR CONF FLOOR REC:", "CVCWHRF:", "CVCWHR FX PULSE:", "CVCWHR FX LEGEND COPY PACK:", "CVCWHR FX LEGEND CP:", "CVCWHR FX LEGEND COPY PACK TREND:", "CVCWHR FX LEGEND CPT:", "CVCWHR FX LEGEND COPY PACK TREND CONF:", "CVCWHR FX LEGEND CPTC:", "CVCWHR FX LEGEND CPTC LEGEND:", "CVCWHR FX LEGEND CPTC OVERRIDE:", "CADENCE BRIDGE:", "CADENCE BRIDGE GLYPH:", "CADENCE BRIDGE GLYPH CONF:", "CBGC:", "CBGC LEGEND:", "CBGCL:", "CBGCIA:", "CBGCFXR:", "CBGCFXA:", "CBGC FX HINT:", "CBGCFXH:", "CBGCFXW:", "CBGCI:", "CBGCI LEGEND:", "CBGCIL:", "CADENCE BRIDGE GLYPH CONF LEGEND:", "CVCC:"],
+    "detailed": ["NEXT ROUTE:", "PRESSURE:", "ALT ROUTE:", "ALT DELTA:", "ALT PLAN:", "ALT STEP:", "ALT STEP CONF:", "ALT STEP WHY CONF:", "ALT WHY GLYPH:", "ALT WHY GLYPH MODE:", "VIBE TRAIL CONF:", "VIBE TRAIL CONF RAIL:", "VIBE TRAIL WHY:", "VIBE TRAIL WHY CONF:", "VIBE TRAIL WHY CONF WHY:", "VIBE TRAIL ARC:", "AMBIENT RAMP CONF:", "ARC:", "AMBIENT RAMP WHY:", "ARW:", "PULSE HEAT FX:", "ROUTE GLOW:", "ROUTE GLOW FX:", "RGFX:", "ROUTE GLOW CONF:", "RGC:", "ROUTE GLOW FX CONF:", "RGFXC:", "ROUTE GLOW FX CONF WHY:", "RGFXW:", "ROUTE GLOW FX CONF WHY RAIL:", "RGFXWR:", "RGFXWRM:", "RGFXWRI:", "RGFXWRI WHY:", "ROUTE GLOW FX CONF WHY RAIL INTENSITY WHY CONF URGENCY:", "RGFXWRIUFX:", "URG STACK:", "URG STACK RAIL:", "DMGNUM STACK CAP:", "DMGNUM LIFE:", "DMGNUM LIFE CONF:", "DMGNUM LIFE CONF Δ:", "DMGNUM LIFE TREND:", "DMGNUM LIFE TREND FX PULSE:", "DMGNUM LIFE TREND FX PULSE CONF:", "DMGNUM LIFE TREND FX PULSE REMAP PLAN:", "DMG COMBO:", "DMG COMBO CONF:", "DCR:", "DMG COMBO WINDOW RETUNE CONF:", "DCRC:", "DMG COMBO CHAIN COACH:", "DMG COMBO CONF COACH COPY SWAP REC:", "DMG COMBO CONF FX ACCENT:", "DCCSR:", "DCCST:", "DCCFX:", "DCCFXT:", "DCCFXV:", "DCCFXC:", "DCCFXCW:", "DCCFXCPAP:", "DCCFXCPAP COACH:", "PULSE REMAP MOMENTUM:", "PULSE REMAP MOMENTUM Δ:", "PULSE REMAP MOMENTUM SUPPRESS:", "PULSE REMAP SUPPRESS PLAN:", "PULSE REMAP SCENE MICROLINE VARIANT PACK:", "PULSE REMAP SCENE MICROLINE CADENCE:", "PRSMC:", "PULSE REMAP SCENE FX GLINT:", "PULSE REMAP SCENE COPY PALETTE REC:", "PRSCP:", "PRM:", "PRMS:", "PRSP:", "PRSMV:", "PRSMP:", "PRSMPP:", "PRSFX:", "PRPW:", "DMG GLYPH:", "DMG GLYPH FX LIVE:", "AMBIENT RAMP WHY AUTO-REMAP PLAN:", "ARW ARC PULSE:", "LPR HYS THR:", "LPR HYS WINDOW Δ:", "COMBAT/VFX CADENCE COACH:", "COMBAT/VFX CADENCE COACH WHY:", "CVCW:", "CVCWH:", "CVCWHR:", "CVCWHR CONF:", "CVCWHRC:", "CVCWHR CONF FLOOR REC:", "CVCWHRF:", "CVCWHR FX PULSE:", "CVCWHR FX LEGEND COPY PACK:", "CVCWHR FX LEGEND CP:", "CVCWHR FX LEGEND COPY PACK TREND:", "CVCWHR FX LEGEND CPT:", "CVCWHR FX LEGEND COPY PACK TREND CONF:", "CVCWHR FX LEGEND CPTC:", "CVCWHR FX LEGEND CPTC LEGEND:", "CVCWHR FX LEGEND CPTC OVERRIDE:", "CADENCE BRIDGE:", "CADENCE BRIDGE GLYPH:", "CADENCE BRIDGE GLYPH CONF:", "CBGC:", "CBGC LEGEND:", "CBGCL:", "CBGCIA:", "CBGCFXR:", "CBGCFXA:", "CBGC FX HINT:", "CBGCFXH:", "CBGCFXW:", "CBGCI:", "CBGCI LEGEND:", "CBGCIL:", "CADENCE BRIDGE GLYPH CONF LEGEND:", "CVCC:"],
     "shared": ["ENTER:JUMP", "COACH:"],
 }
 TOKEN_CATALOG: list[str] = []
@@ -149,6 +149,7 @@ TOKEN_ALIAS_FAMILIES = {
     "cadenceBridgeGlyphConfidenceFxPulseAggressivenessAlias": ["CBGCFXA:"],
     "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintAlias": ["CBGC FX HINT:"],
     "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias": ["CBGCFXH:"],
+    "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias": ["CBGCFXW:"],
 }
 ROUTE_VIBE_PATTERNS = {
     "CALM": ("ROUTE VIBE:CALM", "VIBE:C"),
@@ -1418,20 +1419,45 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_aggressiveness_alias(
 def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint(
     *,
     fx_pulse_signals: dict[str, object],
+    narrative_signals: dict[str, object] | None = None,
 ) -> tuple[str, dict[str, object]]:
-    """Human-readable offline triage hint derived from CBGC FX aggressiveness mode."""
+    """Human-readable offline triage hint with world-tone variants derived from CBGC posture."""
     flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_HINT"
     flag_value = os.environ.get(flag_name, "")
     flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
 
     mode = str(fx_pulse_signals.get("aggressivenessMode", "BASELINE") or "BASELINE").strip().upper()
     pulse = str(fx_pulse_signals.get("resolvedPulse", "EDGE") or "EDGE").strip().upper()
-    hint_map = {
-        "CAUTIOUS": "watch lane drift; preserve stability",
-        "BASELINE": "track pressure and tune deliberately",
-        "AGGRESSIVE": "triage spikes now; prioritize containment",
+    narrative_current = str((narrative_signals or {}).get("current", "unknown") or "unknown").strip().lower()
+    tone_cue_map = {
+        "steady": "calm skyline",
+        "swing": "faultline jitter",
+        "spike": "breachfront surge",
+        "unknown": "neutral field",
     }
-    hint = hint_map.get(mode, hint_map["BASELINE"])
+    tone_cue = tone_cue_map.get(narrative_current, tone_cue_map["unknown"])
+    variant_pack = {
+        "CAUTIOUS": {
+            "steady": "watch lane drift; keep calm skyline",
+            "swing": "watch lane drift; brace faultline seams",
+            "spike": "watch lane drift; shield breachfront edges",
+            "unknown": "watch lane drift; preserve stability",
+        },
+        "BASELINE": {
+            "steady": "tune pressure deliberately; keep calm skyline",
+            "swing": "tune pressure deliberately; steady faultline seams",
+            "spike": "tune pressure deliberately; damp breachfront surge",
+            "unknown": "track pressure and tune deliberately",
+        },
+        "AGGRESSIVE": {
+            "steady": "push triage now; lock calm skyline anchors",
+            "swing": "push triage now; contain faultline seams",
+            "spike": "push triage now; seal breachfront surge",
+            "unknown": "triage spikes now; prioritize containment",
+        },
+    }
+    mode_pack = variant_pack.get(mode, variant_pack["BASELINE"])
+    hint = mode_pack.get(narrative_current, mode_pack["unknown"])
     token = f"CBGC FX HINT:{hint}"
 
     return (token if flag_enabled else "FLAG OFF"), {
@@ -1439,6 +1465,9 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint(
         "flagEnabled": flag_enabled,
         "aggressivenessMode": mode,
         "resolvedPulse": pulse,
+        "narrativeCurrent": narrative_current,
+        "worldToneCue": tone_cue,
+        "worldToneVariantPack": variant_pack,
         "hint": hint,
         "aliasToken": token,
         "offlineOnly": True,
@@ -1473,6 +1502,39 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alia
         "offlineOnly": True,
     }
 
+
+
+
+def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias(
+    *,
+    microcopy_hint_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Compact world-tone alias (`CBGCFXW:<S|J|B|N>`) for CBGC FX hint narrative posture."""
+    flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_ALIAS"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    narrative_current = str(microcopy_hint_signals.get("narrativeCurrent", "unknown") or "unknown").strip().lower()
+    world_tone_cue = str(microcopy_hint_signals.get("worldToneCue", "neutral field") or "neutral field").strip()
+    alias_map = {
+        "steady": "S",
+        "swing": "J",
+        "spike": "B",
+        "unknown": "N",
+    }
+    alias = alias_map.get(narrative_current, "N")
+    token = f"CBGCFXW:{alias}"
+
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "narrativeCurrent": narrative_current,
+        "worldToneCue": world_tone_cue,
+        "alias": alias,
+        "aliasToken": token,
+        "sourceToken": str(microcopy_hint_signals.get("aliasToken", "CBGC FX HINT:")),
+        "offlineOnly": True,
+    }
 
 def lane_bucket_age_alias(*, lane_bucket_age: dict[str, object]) -> tuple[str, dict[str, object]]:
     flag_name = "DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS"
@@ -9456,8 +9518,12 @@ def main() -> int:
     )
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint, cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint(
         fx_pulse_signals=cadence_bridge_glyph_confidence_fx_pulse_signals,
+        narrative_signals=cadence_bridge_glyph_confidence_narrative_signals,
     )
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias(
+        microcopy_hint_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_signals,
+    )
+    cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias(
         microcopy_hint_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_signals,
     )
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
@@ -11110,6 +11176,8 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,
         "combatVfxCadenceCoachAliasSignals": combat_vfx_cadence_coach_alias_signals,
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,
@@ -11988,6 +12056,8 @@ def main() -> int:
         f"- CBGC FX HINT FAMILY CHURN: **net {token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintAlias']['net']:+d}** (added={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintAlias']['added']} removed={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintAlias']['removed']} churn={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintAlias']['churn']} coverage={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintAlias']['coverage']})",
         f"- CBGCFXH: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias_signals['flagEnabled']} alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias_signals['aliasToken']} mode={cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias_signals['aggressivenessMode']})",
         f"- CBGCFXH FAMILY CHURN: **net {token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias']['net']:+d}** (added={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias']['added']} removed={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias']['removed']} churn={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias']['churn']} coverage={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias']['coverage']})",
+        f"- CBGCFXW: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias_signals['flagEnabled']} alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias_signals['aliasToken']} cue={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias_signals['worldToneCue']})",
+        f"- CBGCFXW FAMILY CHURN: **net {token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['net']:+d}** (added={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['added']} removed={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['removed']} churn={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['churn']} coverage={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['coverage']})",
         f"- CBGCI: **{cadence_bridge_glyph_confidence_intent_tone_pack_compact_alias}** (flag={cadence_bridge_glyph_confidence_intent_tone_pack_compact_alias_signals['flagName']} enabled={cadence_bridge_glyph_confidence_intent_tone_pack_compact_alias_signals['flagEnabled']} alias={cadence_bridge_glyph_confidence_intent_tone_pack_compact_alias_signals['alias']} cue={cadence_bridge_glyph_confidence_intent_tone_pack_compact_alias_signals['cue']} current={cadence_bridge_glyph_confidence_intent_tone_pack_compact_alias_signals['current']} decode=H:hold|anchor,P:prep|brace,T:triage|stabilize,U:hold|anchor)",
         "- CBGCI LEGEND: H=hold|anchor, P=prep|brace, T=triage|stabilize, U=hold|anchor",
         f"- CBGCIL: **{cadence_bridge_glyph_confidence_intent_tone_pack_legend_compact_alias}** (flag={cadence_bridge_glyph_confidence_intent_tone_pack_legend_compact_alias_signals['flagName']} enabled={cadence_bridge_glyph_confidence_intent_tone_pack_legend_compact_alias_signals['flagEnabled']} alias={cadence_bridge_glyph_confidence_intent_tone_pack_legend_compact_alias_signals['alias']})",
@@ -12242,6 +12312,8 @@ def main() -> int:
         f"- CBGC FX HINT FAMILY CHURN: +{token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintAlias']['added']} / -{token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintAlias']['removed']} / net {token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintAlias']['net']} (churn={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintAlias']['churn']} coverage={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintAlias']['coverage']})",
         f"- CBGCFXH: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias_signals['flagEnabled']}, alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias_signals['aliasToken']}, mode={cadence_bridge_glyph_confidence_fx_pulse_microcopy_hint_compact_alias_signals['aggressivenessMode']})",
         f"- CBGCFXH FAMILY CHURN: +{token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias']['added']} / -{token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias']['removed']} / net {token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias']['net']} (churn={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias']['churn']} coverage={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintCompactAlias']['coverage']})",
+        f"- CBGCFXW: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias_signals['flagEnabled']}, alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias_signals['aliasToken']}, cue={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_alias_signals['worldToneCue']})",
+        f"- CBGCFXW FAMILY CHURN: +{token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['added']} / -{token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['removed']} / net {token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['net']} (churn={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['churn']} coverage={token_family_totals['cadenceBridgeGlyphConfidenceFxPulseMicrocopyHintWorldToneAlias']['coverage']})",
         f"- CBGCI: {cadence_bridge_glyph_confidence_intent_tone_pack_compact_alias} (flag={cadence_bridge_glyph_confidence_intent_tone_pack_compact_alias_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_intent_tone_pack_compact_alias_signals['flagEnabled']}, alias={cadence_bridge_glyph_confidence_intent_tone_pack_compact_alias_signals['alias']}, cue={cadence_bridge_glyph_confidence_intent_tone_pack_compact_alias_signals['cue']}, current={cadence_bridge_glyph_confidence_intent_tone_pack_compact_alias_signals['current']}, decode=H:hold|anchor,P:prep|brace,T:triage|stabilize,U:hold|anchor)",
         "- CBGCI LEGEND: H=hold|anchor, P=prep|brace, T=triage|stabilize, U=hold|anchor",
         f"- CBGCIL: {cadence_bridge_glyph_confidence_intent_tone_pack_legend_compact_alias} (flag={cadence_bridge_glyph_confidence_intent_tone_pack_legend_compact_alias_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_intent_tone_pack_legend_compact_alias_signals['flagEnabled']}, alias={cadence_bridge_glyph_confidence_intent_tone_pack_legend_compact_alias_signals['alias']})",

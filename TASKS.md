@@ -1639,4 +1639,13 @@ See project-level plans:
 - Selected experiment: Idea 1 (minimal vertical slice).
 - [x] UX/Combat Team: Add compact microcopy hint alias token (`CBGCFXH:<W|T|P>`) behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_HINT_ALIAS` with payload/markdown wiring. *(lifecycle: [ ] -> [~] started: 2026-03-28 15:52 KST -> [x] completed: 2026-03-28 15:59 KST)*
 - [x] Systems/QA Team: Add deterministic family-churn coverage + adjacency lock for `CBGCFXH:` in summary/token-coverage sections. *(lifecycle: [ ] -> [~] started: 2026-03-28 16:05 KST -> [x] completed: 2026-03-28 16:12 KST)*
-- [ ] Design/World Team: Prototype offline visual-language variant pack for `CBGC FX HINT` (watch/tune/push world-tone swap) while preserving compact alias decode.
+- [x] Design/World Team: Prototype offline visual-language variant pack for `CBGC FX HINT` (watch/tune/push world-tone swap) while preserving compact alias decode. *(lifecycle: [ ] -> [~]; started: 2026-03-28 16:29 KST -> [x] completed: 2026-03-28 16:36 KST)*
+
+## Game Director Cycle GH — 2026-03-28 16:47 KST
+- Idea 1 (low-risk, UX/design): Add compact world-tone alias for `CBGC FX HINT` narrative posture so reviewers decode tone drift at a glance. Scope=S, risk=low, rollback=flag-off + remove rows. Pass/fail: payload+markdown+regression contract stays deterministic.
+- Idea 2 (mid-risk, systems/combat/design): Add disagreement-aware `CBGC FX HINT ESCALATION:SOFTEN|HOLD|SPIKE` policy token from cue↔pulse streak memory. Scope=M, risk=mid, rollback=flag-gated payload-only.
+- Idea 3 (high-risk, novelty): Inject rotating narrative lexicon mutation for hint copy families with anti-staleness entropy budget. Scope=L, risk=high, rollback=quarantine behind offline shadow flag.
+- Selected experiment: Idea 1 (minimal vertical slice).
+- [x] UX/World Team: Ship compact world-tone alias token `CBGCFXW:<S|J|B|N>` from `narrativeCurrent` (`steady|swing|spike|unknown`) while preserving `CBGCFXH:<W|T|P>` decode contract. *(lifecycle: [ ] -> [~] started: 2026-03-28 16:40 KST -> [x] completed: 2026-03-28 16:47 KST)*
+- [ ] Systems/QA Team: Add explicit adjacency/count regression lock for `CBGCFXW` + `CBGCFXW FAMILY CHURN` immediately before `CBGCI` in both digest sections.
+- [ ] AI Content/Design Team: Prototype optional `CBGCFXW LEGEND` copy row (payload/markdown) for compact decode readability under DOS-width constraints.
