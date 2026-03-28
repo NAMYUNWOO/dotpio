@@ -2259,3 +2259,13 @@
 - Next unchecked queue item: UX/Design compact alias candidate (`CBGCI`) in token-coverage section.
 - [2026-03-28 11:58 KST] Added compact alternate tone-pack decode rail (`CBGCI:HPTU`) to preserve intent readability under dense token-coverage scans.
 - 2026-03-28 12:40 KST — Cycle GD: added payload-only CBGCIA active intent alias contract (follow-up queue tracked in TASKS/POST_RC).
+
+## 2026-03-28 13:31 KST — Cycle GD follow-up completed (`CBGC FX PULSE` remap via `CBGCIA` + volatility memory)
+- Completed remaining unchecked Combat/VFX follow-up by upgrading `cadenceBridgeGlyphConfidenceFxPulse` to a volatility-aware offline remap policy keyed by active alias cue (`CBGCIA`).
+- Policy: regime maps now vary by `CALM|SWING|SPIKE`; persistent volatile windows apply one-step hysteresis clamp using prior payload memory to reduce pulse whiplash while keeping token domain `SOFT|EDGE|HARD`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅ and dry-run digest generation to `/tmp/wprd.json` ✅.
+
+## 2026-03-28 13:37 KST — Game Director Cycle GE experiment (`CBGCFXR` payload alias) [DONE]
+- Generated 3 ideas (low-risk alias, mid-risk markdown churn rail, high-risk adaptive aggressiveness learning) and selected the low-risk vertical slice for immediate integration.
+- Shipped payload-only compact alias `cadenceBridgeGlyphConfidenceFxPulseRegimeAlias` (`CBGCFXR:<C|S|P>`) with deterministic signals (`volatilityRegime`, `alias`, `aliasToken`, flag state).
+- Injected next backlog tasks: (1) Systems/QA markdown family churn + adjacency rail for `CBGCFXR`, (2) Combat/VFX adaptive remap-aggressiveness prototype from cue↔pulse disagreement streak memory.

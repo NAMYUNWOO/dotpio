@@ -1249,6 +1249,111 @@ def resolve_cadence_bridge_glyph_confidence_alias(*, confidence_token: str) -> t
     }
 
 
+def cadence_bridge_glyph_confidence_fx_pulse_from_active_alias(
+    *,
+    active_alias_signals: dict[str, object],
+    cadence_bridge_glyph_confidence_signals: dict[str, object],
+    prior_json_path: Path,
+) -> tuple[str, dict[str, object]]:
+    """Offline Combat/VFX pulse remap policy from CBGCIA + volatility-regime memory.
+
+    Cycle GD follow-up: keep token domain stable (`SOFT|EDGE|HARD`) while allowing
+    volatility-aware pulse posture escalation and one-step hysteresis under persistent
+    SWING/SPIKE windows.
+    """
+    intent_cue = str(active_alias_signals.get("cue", "U") or "U").strip().upper()
+    if intent_cue not in {"H", "P", "T", "U"}:
+        intent_cue = "U"
+
+    narrative = str(active_alias_signals.get("current", "unknown") or "unknown").strip().lower()
+    confidence = str(cadence_bridge_glyph_confidence_signals.get("confidence", "UNKNOWN") or "UNKNOWN").strip().upper()
+    volatility_regime = str(cadence_bridge_glyph_confidence_signals.get("volatilityRegime", "CALM") or "CALM").strip().upper()
+    if volatility_regime not in {"CALM", "SWING", "SPIKE"}:
+        volatility_regime = "CALM"
+
+    map_by_regime = {
+        "CALM": {"H": "SOFT", "P": "EDGE", "T": "HARD", "U": "EDGE"},
+        "SWING": {"H": "SOFT", "P": "EDGE", "T": "HARD", "U": "HARD"},
+        "SPIKE": {"H": "EDGE", "P": "HARD", "T": "HARD", "U": "HARD"},
+    }
+    active_map = dict(map_by_regime.get(volatility_regime, map_by_regime["CALM"]))
+
+    prior_loaded = False
+    prior_regime = "UNKNOWN"
+    prior_pulse = "UNKNOWN"
+    if prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_signals = prior_payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {})
+            if isinstance(prior_signals, dict):
+                prior_regime = str(prior_signals.get("volatilityRegime", "UNKNOWN") or "UNKNOWN").strip().upper()
+                prior_pulse = str(prior_signals.get("resolvedPulse", "UNKNOWN") or "UNKNOWN").strip().upper()
+            prior_loaded = True
+        except (json.JSONDecodeError, OSError, TypeError, ValueError):
+            prior_loaded = False
+
+    resolved_pulse = str(active_map.get(intent_cue, "EDGE") or "EDGE").upper()
+    reason = "regime-map-base"
+    hysteresis_applied = False
+
+    pulse_rank = {"SOFT": 1, "EDGE": 2, "HARD": 3}
+    inverse_rank = {v: k for k, v in pulse_rank.items()}
+    if (
+        prior_loaded
+        and prior_regime in {"SWING", "SPIKE"}
+        and volatility_regime in {"SWING", "SPIKE"}
+        and prior_pulse in pulse_rank
+        and resolved_pulse in pulse_rank
+    ):
+        desired_rank = pulse_rank[resolved_pulse]
+        prior_rank = pulse_rank[prior_pulse]
+        if abs(desired_rank - prior_rank) > 1:
+            desired_rank = prior_rank + (1 if desired_rank > prior_rank else -1)
+            resolved_pulse = inverse_rank.get(desired_rank, resolved_pulse)
+            hysteresis_applied = True
+            reason = "volatility-memory-step-clamp"
+        else:
+            reason = "volatility-memory-stable"
+
+    token = f"CBGC FX PULSE:{resolved_pulse}"
+    return token, {
+        "intentCue": intent_cue,
+        "narrative": narrative,
+        "confidence": confidence,
+        "volatilityRegime": volatility_regime,
+        "priorVolatilityRegime": prior_regime,
+        "priorResolvedPulse": prior_pulse,
+        "priorLoaded": prior_loaded,
+        "map": active_map,
+        "resolvedPulse": resolved_pulse,
+        "hysteresisApplied": hysteresis_applied,
+        "reason": reason,
+        "offlineOnly": True,
+    }
+
+
+def resolve_cadence_bridge_glyph_confidence_fx_pulse_regime_alias(
+    *,
+    fx_pulse_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Compact volatility regime alias for CBGC FX pulse remap posture (`CBGCFXR:<C|S|P>`)."""
+    flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_REGIME_ALIAS"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    regime = str(fx_pulse_signals.get("volatilityRegime", "CALM") or "CALM").strip().upper()
+    alias_map = {"CALM": "C", "SWING": "S", "SPIKE": "P"}
+    alias = alias_map.get(regime, "C")
+    token = f"CBGCFXR:{alias}"
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "volatilityRegime": regime,
+        "alias": alias,
+        "aliasToken": token,
+    }
+
+
 def lane_bucket_age_alias(*, lane_bucket_age: dict[str, object]) -> tuple[str, dict[str, object]]:
     flag_name = "DOTPIO_EXPERIMENT_LANE_BUCKET_AGE_ALIAS"
     flag_value = os.environ.get(flag_name, "")
@@ -9218,20 +9323,14 @@ def main() -> int:
         "flagName": cadence_bridge_glyph_confidence_compact_alias_signals["flagName"],
         "flagEnabled": cadence_bridge_glyph_confidence_compact_alias_signals["flagEnabled"],
     }
-    cadence_bridge_glyph_confidence_fx_pulse_map = {
-        "H": "SOFT",
-        "P": "EDGE",
-        "T": "HARD",
-        "U": "EDGE",
-    }
-    cadence_bridge_glyph_confidence_fx_pulse = f"CBGC FX PULSE:{cadence_bridge_glyph_confidence_fx_pulse_map.get(cadence_bridge_glyph_confidence_intent_cue, 'EDGE')}"
-    cadence_bridge_glyph_confidence_fx_pulse_signals = {
-        "intentCue": cadence_bridge_glyph_confidence_intent_cue,
-        "narrative": cadence_bridge_glyph_confidence_narrative,
-        "confidence": cadence_bridge_glyph_confidence_signals.get("confidence", "UNKNOWN"),
-        "map": cadence_bridge_glyph_confidence_fx_pulse_map,
-        "offlineOnly": True,
-    }
+    cadence_bridge_glyph_confidence_fx_pulse, cadence_bridge_glyph_confidence_fx_pulse_signals = cadence_bridge_glyph_confidence_fx_pulse_from_active_alias(
+        active_alias_signals=cadence_bridge_glyph_confidence_intent_tone_pack_active_alias_signals,
+        cadence_bridge_glyph_confidence_signals=cadence_bridge_glyph_confidence_signals,
+        prior_json_path=args.out_json,
+    )
+    cadence_bridge_glyph_confidence_fx_pulse_regime_alias, cadence_bridge_glyph_confidence_fx_pulse_regime_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_regime_alias(
+        fx_pulse_signals=cadence_bridge_glyph_confidence_fx_pulse_signals,
+    )
     lane_bucket_age_compact_alias, lane_bucket_age_compact_alias_signals = lane_bucket_age_alias(
         lane_bucket_age=lane_bucket_age,
     )
@@ -10874,6 +10973,8 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceNarrativeSignals": cadence_bridge_glyph_confidence_narrative_signals,
         "cadenceBridgeGlyphConfidenceFxPulse": cadence_bridge_glyph_confidence_fx_pulse,
         "cadenceBridgeGlyphConfidenceFxPulseSignals": cadence_bridge_glyph_confidence_fx_pulse_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseRegimeAlias": cadence_bridge_glyph_confidence_fx_pulse_regime_alias,
+        "cadenceBridgeGlyphConfidenceFxPulseRegimeAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_regime_alias_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,
         "combatVfxCadenceCoachAliasSignals": combat_vfx_cadence_coach_alias_signals,
         "laneCadenceMissRiskAlias": lane_cadence_miss_risk_alias_token,

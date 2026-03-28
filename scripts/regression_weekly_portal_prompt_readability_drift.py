@@ -2632,19 +2632,48 @@ def main() -> int:
             "intentCue",
             "narrative",
             "confidence",
+            "volatilityRegime",
+            "priorVolatilityRegime",
+            "priorResolvedPulse",
+            "priorLoaded",
             "map",
+            "resolvedPulse",
+            "hysteresisApplied",
+            "reason",
             "offlineOnly",
         }, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("intentCue") in {"H", "P", "T", "U"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("narrative") in {"steady", "swing", "spike", "unknown"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("confidence") in {"LOW", "MID", "HIGH", "UNKNOWN"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("volatilityRegime") in {"CALM", "SWING", "SPIKE"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("priorVolatilityRegime") in {"CALM", "SWING", "SPIKE", "UNKNOWN"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("priorResolvedPulse") in {"SOFT", "EDGE", "HARD", "UNKNOWN"}, payload
+        assert isinstance(payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("priorLoaded"), bool), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("resolvedPulse") in {"SOFT", "EDGE", "HARD"}, payload
+        assert isinstance(payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("hysteresisApplied"), bool), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("reason") in {
+            "regime-map-base",
+            "volatility-memory-step-clamp",
+            "volatility-memory-stable",
+        }, payload
         fx_pulse_map = payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("map")
         assert isinstance(fx_pulse_map, dict), payload
         assert set(fx_pulse_map.keys()) == {"H", "P", "T", "U"}, payload
         assert set(fx_pulse_map.values()) == {"SOFT", "EDGE", "HARD"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseSignals", {}).get("offlineOnly") is True, payload
-        expected_fx_pulse = f"CBGC FX PULSE:{fx_pulse_map[payload.get('cadenceBridgeGlyphConfidenceFxPulseSignals', {}).get('intentCue')]}"
+        expected_fx_pulse = f"CBGC FX PULSE:{payload.get('cadenceBridgeGlyphConfidenceFxPulseSignals', {}).get('resolvedPulse')}"
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulse") == expected_fx_pulse, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseRegimeAlias") in {"FLAG OFF", "CBGCFXR:C", "CBGCFXR:S", "CBGCFXR:P"}, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseRegimeAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "volatilityRegime",
+            "alias",
+            "aliasToken",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseRegimeAliasSignals", {}).get("volatilityRegime") in {"CALM", "SWING", "SPIKE"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseRegimeAliasSignals", {}).get("alias") in {"C", "S", "P"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseRegimeAliasSignals", {}).get("aliasToken") in {"CBGCFXR:C", "CBGCFXR:S", "CBGCFXR:P"}, payload
         assert set(payload.get("combatVfxCadenceCoachWhyHysteresisAliasSignals", {}).keys()) == {
             "flagName",
             "flagEnabled",

@@ -3646,3 +3646,15 @@ Compact decision memory for AI context efficiency.
 - Decision: keep `CBGCIA` in the cadence-bridge confidence cluster (between `CBGCL` and `CBGCI`) to avoid splitting tone-pack context from active cue.
 - Contract lock: regression now enforces `CBGC LEGEND -> CBGCL -> CBGCIA -> CBGCIA FAMILY CHURN -> CBGCI -> CBGCI LEGEND -> CBGCIL` in both digest sections.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+
+## 2026-03-28 13:31 KST — Cycle GD remaining follow-up closed (`CBGC FX PULSE` remap policy)
+- Closed last unchecked TASKS/POST_RC item by shipping offline remap policy for `CBGC FX PULSE` from active intent alias (`CBGCIA`) + `volatilityRegime` memory.
+- Durable decision: keep output token domain stable (`SOFT|EDGE|HARD`) but allow regime-specific maps (`CALM|SWING|SPIKE`) and one-step hysteresis clamp under consecutive volatile windows (`SWING|SPIKE`) to reduce abrupt pulse flips.
+- Regression contract updated for extended `cadenceBridgeGlyphConfidenceFxPulseSignals` schema (`volatilityRegime`, prior memory, `resolvedPulse`, `hysteresisApplied`, `reason`) with deterministic payload coherence checks.
+- Queue status: ACTION_ITEMS/TASKS/POST_RC unchecked queue now clear at this slice; next cycle should run Game Director ideation+experiment loop and inject fresh backlog tasks.
+
+## 2026-03-28 13:37 KST — Game Director Cycle GE completed
+- Ran required post-clear Game Director review cycle: generated 3 ideas, selected low-risk experiment, implemented minimal vertical slice, and verified via regression + digest dry-run.
+- New shipped slice: payload-only `CBGCFXR:<C|S|P>` alias (`cadenceBridgeGlyphConfidenceFxPulseRegimeAlias`) exposing CBGC FX remap regime posture without markdown coupling.
+- Durable decision: keep this alias payload-only until Systems/QA lands adjacency/churn rails; do not alter existing CBGC markdown ordering in this cycle.
+- Backlog injected (unchecked): Systems/QA `CBGCFXR` markdown family churn rail; Combat/VFX adaptive remap-aggressiveness policy from cue↔pulse disagreement streak memory.
