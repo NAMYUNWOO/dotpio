@@ -1463,5 +1463,5 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/Design Team: Add payload-only `CBGCFXWAC:<L|S>` alias derived from coherence-arc coach microline selection. *(lifecycle: [ ] -> [~] started: 2026-03-28 23:07 KST -> [x] completed: 2026-03-28 23:10 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
 
 ## Next Up (Game Director Injection — Cycle GP)
-- [ ] Systems/QA Team: Reserve optional order-lock scaffold for future visible-row rollout (`COHERENCE ARC COACH` -> `CBGCFXWAC`) while keeping current payload-only behavior unchanged.
+- [x] Systems/QA Team: Reserve optional order-lock scaffold for future visible-row rollout (`COHERENCE ARC COACH` -> `CBGCFXWAC`) while keeping current payload-only behavior unchanged. *(lifecycle: [ ] -> [~] started: 2026-03-28 23:31 KST -> [x] completed: 2026-03-28 23:34 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
 - [ ] AI Content/World Team: Prototype offline coach-line drift token (`CBGCFXWAC DRIFT:<prev>><curr>`) with stale-prior guard before UI exposure.

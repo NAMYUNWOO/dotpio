@@ -2293,3 +2293,14 @@
 ## 2026-03-28 23:10 KST — Cycle GP world sync
 - Context: Added payload-only alias for coherence-arc coaching line selection.
 - Decision: No portal/map content touched; world lane impact is digest readability metadata only.
+
+## 2026-03-28 23:34 KST — Optional coherence-arc coach order-lock scaffold reserved
+- Task: Reserve regression scaffold for future visible-row rollout (COHERENCE ARC COACH -> CBGCFXWAC) while keeping current behavior payload-only.
+- Decisions:
+  - Added disabled scaffold contract (COHERENCE_ARC_COACH_ORDER_LOCK_SCAFFOLD) in scripts/regression_weekly_portal_prompt_readability_drift.py.
+  - When scaffold disabled (default), regression asserts both markdown rows stay absent.
+  - Future toggle path reserved: enable scaffold to enforce deterministic adjacency across summary + token-coverage sections.
+- Verification:
+  - [PASS] weekly portal prompt readability drift regression checks ✅
+  - [PASS] weekly portal prompt drift status=ok -> /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.json /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.md ✅
+- Follow-up: Next highest-priority unchecked item is CBGCFXWAC DRIFT:<prev>><curr> (offline token + stale-prior guard).

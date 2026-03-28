@@ -73,6 +73,14 @@ from weekly_portal_prompt_readability_drift import (
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "weekly_portal_prompt_readability_drift.py"
 
+# Future-visible-row scaffold: keep contract explicit that this pairing remains payload-only
+# today, while reserving deterministic adjacency checks for a future markdown rollout.
+COHERENCE_ARC_COACH_ORDER_LOCK_SCAFFOLD = {
+    "summary": ("- COHERENCE ARC COACH:", "- CBGCFXWAC:"),
+    "tokenCoverage": ("- COHERENCE ARC COACH:", "- CBGCFXWAC:"),
+    "enabled": False,
+}
+
 
 def run(cmd: list[str], cwd: Path) -> None:
     subprocess.run(cmd, cwd=cwd, check=True, stdout=subprocess.DEVNULL)
@@ -3177,6 +3185,21 @@ def main() -> int:
             if not indices:
                 raise AssertionError(f"missing line prefix: {prefix}")
             return indices
+
+        # Optional order-lock scaffold for a future visible markdown rollout.
+        # Current contract: both rows are payload-only and must remain absent from markdown.
+        summary_row_prefix, summary_alias_prefix = COHERENCE_ARC_COACH_ORDER_LOCK_SCAFFOLD["summary"]
+        token_cov_row_prefix, token_cov_alias_prefix = COHERENCE_ARC_COACH_ORDER_LOCK_SCAFFOLD["tokenCoverage"]
+        scaffold_enabled = bool(COHERENCE_ARC_COACH_ORDER_LOCK_SCAFFOLD["enabled"])
+        row_indices = [idx for idx, line in enumerate(md_lines) if line.startswith(summary_row_prefix)]
+        alias_indices = [idx for idx, line in enumerate(md_lines) if line.startswith(summary_alias_prefix)]
+        assert summary_row_prefix == token_cov_row_prefix and summary_alias_prefix == token_cov_alias_prefix
+        if scaffold_enabled:
+            assert len(row_indices) == 2 and len(alias_indices) == 2, md_text
+            assert alias_indices[0] == row_indices[0] + 1, md_text
+            assert alias_indices[1] == row_indices[1] + 1, md_text
+        else:
+            assert not row_indices and not alias_indices, md_text
 
         combo_conf_rec_idx = _find_line_index("- DMG COMBO CONF COACH REC:")
         combo_conf_fallback_idx = _find_line_index("- DMG COMBO CONF COACH FALLBACK:")

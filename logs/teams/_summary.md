@@ -3806,3 +3806,9 @@ Compact decision memory for AI context efficiency.
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `[PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Next highest-priority unchecked item: Design/World payload-only LOCK/SWAY coaching microline pair.
 - Backlog hygiene: reconciled POST_RC item for `COHERENCE ARC:LOCK|SWAY` to checked state (already shipped in Cycle GN).
+
+### 2026-03-28 23:34 KST — Optional CBGCFXWAC row-order scaffold reserved (payload-only preserved)
+- Completed highest-priority unchecked TASKS/POST-RC item: Systems/QA reserved optional regression scaffold for future visible markdown rollout (`COHERENCE ARC COACH` -> `CBGCFXWAC`).
+- Durable decision: Keep current digest behavior payload-only; scaffold is disabled-by-default and now explicitly asserts both rows remain absent until rollout is intentionally enabled.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `[PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Next highest-priority unchecked item: AI Content/World `CBGCFXWAC DRIFT:<prev>><curr>` with stale-prior guard.
