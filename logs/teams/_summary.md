@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-29 23:45 KST
+Last updated: 2026-03-30 02:18 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle HA Systems/QA follow-up: regression now includes deterministic markdown contract option for optional `CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD` rollout rows across summary/token-coverage sections.
+- Added strict optional chain guard (`LANG -> FXPI -> FXPI DRILL -> FXPD`) with dual-section row-count expectations (`0|2` each), while preserving payload-only default behavior when rows are not surfaced.
+- Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`); TASKS + POST_RC backlog item synchronized to done.
 
 - Closed Design/World tri-state narration prototype item: weekly digest payload now emits `CBGCFXWSBPFXPI NARR:<ANCHOR|SURGE|RECOVER>` behind a dedicated experiment flag, derived from pulse phase intent plus coach momentum memory.
 - Added deterministic policy + schema contract for narration signals (`phaseIntent`, `pulseAlias`, `coachMomentum`, `narration`, `reason`, `token`, `offlineOnly`) with regression locks for domain/coherence and flag-off fallback.

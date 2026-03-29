@@ -4264,3 +4264,16 @@
   - deterministic mapping from phase-intent alias to drill cue + compact alias.
 - Verification pass confirmed with regression + weekly digest smoke.
 
+
+## 2026-03-30 02:18 KST
+- Task: Validate deterministic markdown contract option for `CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD` rollout path.
+- Commit: HEAD (this run)
+- Files checked: `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions:
+  - Contract now enforces deterministic dual-section row count (`0 or 2`) for DRILL/compact-alias rollout rows.
+  - Adjacency guard validates ordered chain only when optional rows are surfaced.
+- Follow-up:
+  - Keep regression contract payload-safe until visible markdown rollout is intentionally enabled.

@@ -3700,3 +3700,17 @@
 - Contract remains offline-only (`runtimeBalanceImpact=none`) and feature-flag gated.
 - Follow-up injected: optional markdown ordering contract for `CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD`.
 
+
+## 2026-03-30 02:18 KST
+- Task: Cycle HA follow-up — deterministic markdown contract option for `CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD` rollout rows in summary/token-coverage sections.
+- Commit: HEAD (this run)
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions:
+  - Extended optional row-count contract to allow `0|2` rows for both `CBGCFXWSBPFXPI DRILL` and `CBGCFXWSBPFXPD`.
+  - Added strict dependency chain checks: `LANG -> FXPI -> FXPI DRILL -> FXPD` (when rows are present).
+  - Preserved payload-only default behavior; markdown rows remain optional rollout path.
+- Follow-up:
+  - Next priority remains Design/World rehearsal microline vocabulary pack keyed by `CBGCFXWSBPFXPD`.

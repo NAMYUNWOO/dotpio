@@ -1590,5 +1590,5 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Combat/VFX Team (Cycle HA selected experiment): Added payload-only compact rehearsal cue alias `CBGCFXWSBPFXPD:S|U` with deterministic flag-off fallback and regression domain/schema locks. *(lifecycle: [ ] -> [~] started: 2026-03-30 01:58 KST -> [x] completed: 2026-03-30 02:06 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## Next Up (Game Director Injection — Cycle HA)
-- [ ] Systems/QA Team: Add deterministic markdown contract option for `CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD` row ordering/count in summary + token-coverage sections.
+- [x] Systems/QA Team: Add deterministic markdown contract option for `CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD` row ordering/count in summary + token-coverage sections. *(lifecycle: [~] started: 2026-03-30 02:11 KST -> [x] completed: 2026-03-30 02:18 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [ ] Design/World Team: Prototype offline rehearsal microline vocabulary pack keyed by `CBGCFXWSBPFXPD` (`SOFT drill` vs `SURGE drill`) with compact DOS budget guardrails.
