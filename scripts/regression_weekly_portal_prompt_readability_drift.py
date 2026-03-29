@@ -3092,6 +3092,36 @@ def main() -> int:
             assert intensity_pulse_alias == f"CBGCFXWSBPFXP:{expected_pulse_alias}", payload
         else:
             assert intensity_pulse_alias == "FLAG OFF", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePair", "").startswith(("FLAG OFF", "CBGCFXWSBPFXP MICRO:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePairSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "pair",
+            "selected",
+            "alias",
+            "legendVersion",
+            "legendHash",
+            "dosReadabilityRowBudgetThreshold",
+            "dosRowBudgetWithinThreshold",
+            "token",
+            "offlineOnly",
+        }, payload
+        intensity_pulse_decode_microline_pair_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePairSignals", {})
+        assert intensity_pulse_decode_microline_pair_signals.get("alias") in {"S", "P"}, payload
+        assert intensity_pulse_decode_microline_pair_signals.get("selected") in {"SOFT pulse", "PUSH pulse"}, payload
+        assert intensity_pulse_decode_microline_pair_signals.get("legendVersion") == "v1", payload
+        assert isinstance(intensity_pulse_decode_microline_pair_signals.get("legendHash"), str) and len(intensity_pulse_decode_microline_pair_signals.get("legendHash")) == 12, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePairLegendVersion") == intensity_pulse_decode_microline_pair_signals.get("legendVersion"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePairLegendHash") == intensity_pulse_decode_microline_pair_signals.get("legendHash"), payload
+        assert intensity_pulse_decode_microline_pair_signals.get("token", "").startswith("CBGCFXWSBPFXP MICRO:"), payload
+        assert intensity_pulse_decode_microline_pair_signals.get("offlineOnly") is True, payload
+        assert isinstance(intensity_pulse_decode_microline_pair_signals.get("dosReadabilityRowBudgetThreshold"), int), payload
+        assert isinstance(intensity_pulse_decode_microline_pair_signals.get("dosRowBudgetWithinThreshold"), bool), payload
+        if intensity_pulse_decode_microline_pair_signals.get("flagEnabled") is True:
+            assert intensity_pulse_decode_microline_pair_signals.get("alias") == expected_pulse_alias, payload
+            assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePair") == intensity_pulse_decode_microline_pair_signals.get("token"), payload
+        else:
+            assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePair") == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensityCoachMicrolinePair", "").startswith(("FLAG OFF", "CBGCFXWSBPFCI COACH COPY:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensityCoachMicrolinePairSignals", {}).keys()) == {
             "flagName",
@@ -3646,6 +3676,7 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_indices = _find_line_indices("- CBGCFXWSBPFC:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_indices = _find_line_indices("- CBGCFXWSBPFCI:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_indices = _find_line_indices("- CBGCFXWSBPFXP:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_indices = _find_line_indices("- CBGCFXWSBPFXP MICROLINE:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_indices = _find_line_indices("- CBGCFXWSBPFXP LEGEND:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_legend_indices = _find_line_indices("- CBGCFXWSBPFCI LEGEND:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_indices = _find_line_indices("- CBGCFXWSBPFCI COACH COPY:")
@@ -4163,6 +4194,9 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_indices) == 2, (
             "expected exactly two CBGCFXWSBPFXP rows (summary + token-coverage sections)"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_indices) == 2, (
+            "expected exactly two CBGCFXWSBPFXP MICROLINE rows (summary + token-coverage sections)"
+        )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_indices) == 2, (
             "expected exactly two CBGCFXWSBPFXP LEGEND rows (summary + token-coverage sections)"
         )
@@ -4215,7 +4249,7 @@ def main() -> int:
         )
 
         # Game Director Cycle GR lock: keep coach alias drift->momentum chain deterministic.
-        for section_name, drift_idx, momentum_idx, momentum_family_churn_idx, storybeat_idx, storybeat_family_churn_idx, storybeat_phase_idx, storybeat_phase_family_churn_idx, storybeat_phase_fx_cue_idx, storybeat_phase_fx_cue_compact_alias_idx, storybeat_phase_fx_cue_compact_alias_intensity_idx, storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_idx, storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_idx, storybeat_phase_fx_cue_compact_alias_intensity_legend_idx, storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx, coach_copy_variant_rec_idx, coach_copy_reason_priority_alias_idx, coach_copy_reason_priority_alias_legend_idx, coherence_alias_idx in zip(
+        for section_name, drift_idx, momentum_idx, momentum_family_churn_idx, storybeat_idx, storybeat_family_churn_idx, storybeat_phase_idx, storybeat_phase_family_churn_idx, storybeat_phase_fx_cue_idx, storybeat_phase_fx_cue_compact_alias_idx, storybeat_phase_fx_cue_compact_alias_intensity_idx, storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_idx, storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_idx, storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_idx, storybeat_phase_fx_cue_compact_alias_intensity_legend_idx, storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx, coach_copy_variant_rec_idx, coach_copy_reason_priority_alias_idx, coach_copy_reason_priority_alias_legend_idx, coherence_alias_idx in zip(
             ("summary", "token-coverage"),
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_drift_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_momentum_indices,
@@ -4228,6 +4262,7 @@ def main() -> int:
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_indices,
+            cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_legend_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_indices,
@@ -4266,8 +4301,11 @@ def main() -> int:
             assert storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_idx == storybeat_phase_fx_cue_compact_alias_intensity_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXP row directly after CBGCFXWSBPFCI row"
             )
-            assert storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_idx == storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_idx + 1, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXP LEGEND row directly after CBGCFXWSBPFXP row"
+            assert storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_idx == storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXP MICROLINE row directly after CBGCFXWSBPFXP row"
+            )
+            assert storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_idx == storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXP LEGEND row directly after CBGCFXWSBPFXP MICROLINE row"
             )
             assert storybeat_phase_fx_cue_compact_alias_intensity_legend_idx == storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFCI LEGEND row directly after CBGCFXWSBPFXP LEGEND row"

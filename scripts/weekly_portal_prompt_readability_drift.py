@@ -27,6 +27,13 @@ CBGCFXWACRP_LEGEND_MAP = {
 }
 _CBGCFXWACRP_LEGEND_SERIALIZED = json.dumps(CBGCFXWACRP_LEGEND_MAP, sort_keys=True, separators=(",", ":"))
 CBGCFXWACRP_LEGEND_HASH = hashlib.sha256(_CBGCFXWACRP_LEGEND_SERIALIZED.encode("utf-8")).hexdigest()[:12]
+CBGCFXWSBPFXP_MICROLINE_LEGEND_VERSION = "v1"
+CBGCFXWSBPFXP_MICROLINE_LEGEND_MAP = {
+    "S": "SOFT pulse",
+    "P": "PUSH pulse",
+}
+_CBGCFXWSBPFXP_MICROLINE_LEGEND_SERIALIZED = json.dumps(CBGCFXWSBPFXP_MICROLINE_LEGEND_MAP, sort_keys=True, separators=(",", ":"))
+CBGCFXWSBPFXP_MICROLINE_LEGEND_HASH = hashlib.sha256(_CBGCFXWSBPFXP_MICROLINE_LEGEND_SERIALIZED.encode("utf-8")).hexdigest()[:12]
 PORTAL_PATH_HINTS = (
     "src/portal.lua",
     "src/portal_prompt_linter.lua",
@@ -2146,6 +2153,40 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         "flagEnabled": flag_enabled,
         "intensity": intensity,
         "alias": alias,
+        "token": token,
+        "offlineOnly": True,
+    }
+
+
+def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair(
+    *,
+    storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Compact decode microline pair for `CBGCFXWSBPFXP` with DOS row-budget guardrails."""
+    flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_FX_CUE_INTENSITY_PULSE_DECODE_MICROLINE_PAIR"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    microline_pair = CBGCFXWSBPFXP_MICROLINE_LEGEND_MAP
+    compact_token = "CBGCFXWSBPFXP MICRO:S=SOFT,P=PUSH"
+    fallback_token = "CBGCFXWSBPFXP MICRO:S=SOFT pulse,P=PUSH pulse"
+    dos_readability_row_budget_threshold = 48
+    dos_row_budget_within_threshold = len(compact_token) <= dos_readability_row_budget_threshold
+    token = compact_token if dos_row_budget_within_threshold else fallback_token
+
+    alias = str(storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals.get("alias", "S") or "S").strip().upper()
+    selected = microline_pair["P"] if alias == "P" else microline_pair["S"]
+
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "pair": microline_pair,
+        "selected": selected,
+        "alias": alias,
+        "legendVersion": CBGCFXWSBPFXP_MICROLINE_LEGEND_VERSION,
+        "legendHash": CBGCFXWSBPFXP_MICROLINE_LEGEND_HASH,
+        "dosReadabilityRowBudgetThreshold": dos_readability_row_budget_threshold,
+        "dosRowBudgetWithinThreshold": dos_row_budget_within_threshold,
         "token": token,
         "offlineOnly": True,
     }
@@ -10369,6 +10410,9 @@ def main() -> int:
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias(
         storybeat_phase_fx_cue_compact_alias_intensity_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_signals,
     )
+    cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair(
+        storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals,
+    )
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair(
         storybeat_phase_fx_cue_compact_alias_intensity_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_signals,
     )
@@ -12077,6 +12121,10 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensitySignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensityPulseAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensityPulseAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePair": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePairSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePairLegendVersion": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals["legendVersion"],
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePairLegendHash": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals["legendHash"],
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensityCoachMicrolinePair": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensityCoachMicrolinePairSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendation": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation,
@@ -12989,6 +13037,7 @@ def main() -> int:
         f"- CBGCFXWSBPFC: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_signals['flagEnabled']} cue={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_signals['cue']} alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_signals['alias']})",
         f"- CBGCFXWSBPFCI: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_signals['flagEnabled']} alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_signals['alias']} intensity={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_signals['intensity']} compactAlias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_signals['compactAlias']})",
         f"- CBGCFXWSBPFXP: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals['flagEnabled']} intensity={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals['intensity']} alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals['alias']})",
+        f"- CBGCFXWSBPFXP MICROLINE: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals['flagEnabled']} selected={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals['selected']} rowBudget<={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals['dosReadabilityRowBudgetThreshold']} within={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals['dosRowBudgetWithinThreshold']})",
         "- CBGCFXWSBPFXP LEGEND: S=SOFT pulse, P=PUSH pulse",
         "- CBGCFXWSBPFCI LEGEND: B=BASE intensity, R=RAISED intensity",
         f"- CBGCFXWSBPFCI COACH COPY: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair_signals['flagEnabled']} intensity={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair_signals['intensity']} selected={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair_signals['selected']})",
@@ -13277,6 +13326,7 @@ def main() -> int:
         f"- CBGCFXWSBPFC: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_signals['flagEnabled']}, cue={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_signals['cue']}, alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_signals['alias']})",
         f"- CBGCFXWSBPFCI: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_signals['flagEnabled']}, alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_signals['alias']}, intensity={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_signals['intensity']}, compactAlias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_signals['compactAlias']})",
         f"- CBGCFXWSBPFXP: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals['flagEnabled']}, intensity={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals['intensity']}, alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals['alias']})",
+        f"- CBGCFXWSBPFXP MICROLINE: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals['flagEnabled']}, selected={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals['selected']}, rowBudget<={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals['dosReadabilityRowBudgetThreshold']}, within={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals['dosRowBudgetWithinThreshold']})",
         "- CBGCFXWSBPFXP LEGEND: S=SOFT pulse, P=PUSH pulse",
         "- CBGCFXWSBPFCI LEGEND: B=BASE intensity, R=RAISED intensity",
         f"- CBGCFXWSBPFCI COACH COPY: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair_signals['flagEnabled']}, intensity={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair_signals['intensity']}, selected={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair_signals['selected']})",

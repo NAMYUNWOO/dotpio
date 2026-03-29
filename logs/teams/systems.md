@@ -3647,3 +3647,9 @@
 - Durable decision: keep markdown legend row as human-readable source and expose machine-checkable payload hash/version for downstream tooling freshness validation.
 - Verification: PASS regression + weekly drift smoke commands.
 - Follow-up remains: Design/World compact decode microline pair for `CBGCFXWSBPFXP`.
+
+### 2026-03-29 22:24 KST — Cycle GY follow-up: CBGCFXWSBPFXP decode microline pair
+- Completed Design/World backlog item: added CBGCFXWSBPFXP MICROLINE row generation with strict DOS row-budget guardrails (48-char compact fallback contract).
+- Wired payload signals for decode microline pair (pair/selected/alias + budget threshold/within flag) for deterministic downstream tooling.
+- Updated markdown ordering contract to keep ...CBGCFXWSBPFXP -> ...MICROLINE -> ...LEGEND -> ...CBGCFXWSBPFCI LEGEND stable in summary + token coverage.
+- Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py ; python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120.

@@ -1731,4 +1731,17 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — Cycle GX)
 - [x] Systems/QA Team: Add payload-domain `CBGCFXWACRP` legend hash/version signal and regression lock so downstream tooling can verify legend freshness against markdown decode table. *(completed: 2026-03-29 21:49 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] Design/World Team: Add compact decode microline pair for `CBGCFXWSBPFXP` (`S=SOFT pulse`, `P=PUSH pulse`) with strict DOS row-budget guardrails.
+- [x] Design/World Team: Add compact decode microline pair for `CBGCFXWSBPFXP` (`S=SOFT pulse`, `P=PUSH pulse`) with strict DOS row-budget guardrails. *(lifecycle: [ ] -> [~] started: 2026-03-29 22:19 KST -> [x] completed: 2026-03-29 22:24 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Game Director Cycle GY — 2026-03-29 22:24 KST
+- Coverage check (last 10 completed headings by lane): systems=2, ux=2, world=2, ai-content=1, combat=1, design=1, qa=1, vfx=0.
+- Lane cap rule: no lane exceeded 40%; underrepresented lane pressure favored design/world + combat/vfx readability bridge.
+- 24h cadence gate: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low-risk UX/game-feel): Add dedicated `CBGCFXWSBPFXP MICROLINE` row with strict DOS row-budget guard to improve one-glance decode trust. **Selected.**
+- Idea 2 (mid-risk systems/qa): Add microline legend hash/version payload contract to detect stale decode tables in downstream tooling.
+- Idea 3 (high-risk novelty world/combat): Prototype adaptive pulse-copy narration variant (`SOFT|PUSH|SURGE`) from 3-window volatility memory.
+- [x] Design/World + Systems/QA Team (Cycle GY selected experiment): Ship `CBGCFXWSBPFXP MICROLINE` decode row + payload signals (selected/alias + row-budget) and legend hash/version contract with deterministic ordering regression lock. *(lifecycle: [ ] -> [~] started: 2026-03-29 22:19 KST -> [x] completed: 2026-03-29 22:24 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle GY)
+- [ ] UX/Design Team: Add compact `CBGCFXWSBPFXP MICROLINE LEGEND` markdown row (hash/version annotated) with strict adjacency right after `CBGCFXWSBPFXP MICROLINE`.
+- [ ] AI Content/World Team: Prototype offline pulse-language variant pack (`SOFT|PUSH`) tied to storybeat-phase intent for future A/B narrative readability review.

@@ -3921,3 +3921,11 @@ Compact decision memory for AI context efficiency.
 - Regression updated to enforce key set/domain + canonical hash/map match + top-level payload mirror fields.
 - Verification: [PASS] regression + weekly digest smoke.
 - Next highest-priority unchecked item: Design/World compact decode microline pair for `CBGCFXWSBPFXP` (`S=SOFT pulse`, `P=PUSH pulse`).
+
+### 2026-03-29 22:24 KST — Cycle GY: CBGCFXWSBPFXP decode microline pair shipped
+- Decision: keep CBGCFXWSBPFXP decode as a dedicated MICROLINE row (separate from LEGEND) so scanability and machine-readable payload signals stay aligned.
+- Guardrail: enforce strict DOS row-budget threshold (48 chars) with compact fallback token `CBGCFXWSBPFXP MICRO:S=SOFT,P=PUSH`.
+- Contract update: summary + token-coverage ordering now requires `CBGCFXWSBPFXP` -> `CBGCFXWSBPFXP MICROLINE` -> `CBGCFXWSBPFXP LEGEND` -> `CBGCFXWSBPFCI LEGEND`.
+- Verification passed: regression_weekly_portal_prompt_readability_drift + weekly_portal_prompt_readability_drift smoke.
+- Cycle GY Game Director review executed after checklist completion: generated 3 ideas, selected low-risk MICROLINE decode slice, implemented + verified in same cycle.
+- Backlog injection added two follow-ups: MICROLINE LEGEND adjacency row and offline pulse-language variant pack.
