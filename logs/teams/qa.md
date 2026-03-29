@@ -4277,3 +4277,7 @@
   - Adjacency guard validates ordered chain only when optional rows are surfaced.
 - Follow-up:
   - Keep regression contract payload-safe until visible markdown rollout is intentionally enabled.
+
+## 2026-03-30 02:49 KST — Cycle HA follow-up: CBGCFXWSBPFXPD rehearsal microline vocabulary
+- Added offline vocabulary pack token `CBGCFXWSBPFXPD MICRO` + legend/hash with DOS row-budget guardrail for `S|U` rehearsal aliases.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` PASS.

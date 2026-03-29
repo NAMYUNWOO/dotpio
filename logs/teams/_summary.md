@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 02:18 KST
+Last updated: 2026-03-30 02:49 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Design/World backlog follow-up: weekly digest now emits offline rehearsal vocabulary pack `CBGCFXWSBPFXPD MICRO:S=SOFT drill,U=SURGE drill` with deterministic legend/version/hash and DOS row-budget guardrails.
+- Payload contract now includes `...RehearsalHintCompactAliasMicrolineVocabulary` + signals (`alias`, `selected`, `pair`, `legendVersion`, `legendHash`, budget fields, `offlineOnly`), keyed off `CBGCFXWSBPFXPD` alias.
+- Regression/order checks expanded to support optional rollout sequence through `CBGCFXWSBPFXPD MICROLINE` + `... LEGEND`; verification passed with weekly digest smoke.
+- Game Director cycle GD-01 executed (3 ideas generated). Chosen experiment shipped: payload-only `CBGCFXWSBPFXPD COACH:{PACE|PUNCH}` mapping as minimal vertical slice to seed future copy-routing hooks; two follow-up ideas injected into `TASKS.md`/`POST_RC_BACKLOG.md`.
 
 - Closed Cycle HA Systems/QA follow-up: regression now includes deterministic markdown contract option for optional `CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD` rollout rows across summary/token-coverage sections.
 - Added strict optional chain guard (`LANG -> FXPI -> FXPI DRILL -> FXPD`) with dual-section row-count expectations (`0|2` each), while preserving payload-only default behavior when rows are not surfaced.

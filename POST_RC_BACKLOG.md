@@ -1591,4 +1591,8 @@ Last updated: 2026-03-21 02:31 KST
 
 ## Next Up (Game Director Injection — Cycle HA)
 - [x] Systems/QA Team: Add deterministic markdown contract option for `CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD` row ordering/count in summary + token-coverage sections. *(lifecycle: [~] started: 2026-03-30 02:11 KST -> [x] completed: 2026-03-30 02:18 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] Design/World Team: Prototype offline rehearsal microline vocabulary pack keyed by `CBGCFXWSBPFXPD` (`SOFT drill` vs `SURGE drill`) with compact DOS budget guardrails.
+- [x] Design/World Team: Prototype offline rehearsal microline vocabulary pack keyed by `CBGCFXWSBPFXPD` (`SOFT drill` vs `SURGE drill`) with compact DOS budget guardrails. *(2026-03-30 02:44 KST: [ ] -> [~] -> [x]; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+### Game Director Injection — 2026-03-30 Cycle GD-01
+- [x] Experiment (chosen, mid-risk design/systems): Add payload-only rehearsal coach action mapping `CBGCFXWSBPFXPD -> COACH:{PACE|PUNCH}` as a minimal vertical slice for future copy-routing hooks. *(verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly digest smoke pass)*
+- [ ] Follow-up (low-risk UX/game-feel): Surface `CBGCFXWSBPFXPD MICROLINE` decode legend in portal copy linter preview for writer-facing readability checks.
+- [ ] Follow-up (high-risk novelty): Prototype adaptive “phase echo” copy mutation that blends prior-beat alias drift into next-beat rehearsal hints behind an experiment flag.
