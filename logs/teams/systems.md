@@ -3529,3 +3529,6 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
 - Decision: Promote `COHERENCE ARC COACH:`, `CBGCFXWAC:`, `CBGCFXWAC DRIFT:` into compact/detailed token catalog + alias-family tracking for deterministic churn visibility.
 - Follow-up: keep coach-alias legend rollout behind a separate UX/design slice.
+
+## 2026-03-29 13:32 KST — No systems tuning change (supporting infra only)
+- This cycle shipped digest/readability + regression-contract updates only; no SRL or economy logic touched.

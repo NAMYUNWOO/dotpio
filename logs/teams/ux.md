@@ -2581,3 +2581,9 @@
 - Decision: coach-alias drift family rows are now measurable; next UX slice should surface compact legend row before broader cluster expansion.
 - Verification: digest regeneration succeeded with no width/ordering regressions.
 - Follow-up: implement `CBGCFXWAC LEGEND` behind flag.
+
+## 2026-03-29 13:32 KST — CBGCFXWAC compact legend row shipped
+- Completed UX slice: added digest-visible `CBGCFXWAC LEGEND:L=LOCK,S=SWAY` row in summary/token-coverage sections.
+- Locked deterministic adjacency near ARC coach rows via regression contract updates (`COHERENCE ARC COACH -> CVARC -> CBGCFXWAC -> CBGCFXWAC LEGEND`).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Follow-up: hand off to AI Content/Combat momentum-token experiment (`CBGCFXWAC MOMENTUM`).

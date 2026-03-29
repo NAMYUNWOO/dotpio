@@ -2392,3 +2392,8 @@
 - Decision: injected compact legend follow-up (`CBGCFXWAC LEGEND:L=LOCK,S=SWAY`) to reduce decode latency for coach alias rows.
 - Evidence: `POST_RC_BACKLOG.md` Cycle GQ injected task.
 - Follow-up: keep legend adjacent to ARC coach cluster in summary/token-coverage.
+
+## 2026-03-29 13:32 KST — Coach alias legend readability contract
+- Decision: keep coach alias legend compact (`L=LOCK,S=SWAY`) and colocated with ARC coach alias rails for deterministic scanning.
+- Added markdown-order guardrails so future digest churn cannot separate legend from coach alias rails.
+- Validation passed via weekly drift regression + digest smoke.

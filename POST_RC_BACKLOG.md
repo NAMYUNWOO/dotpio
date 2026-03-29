@@ -1472,5 +1472,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 2 (mid risk, UX/Design): Add compact legend row (`CBGCFXWAC LEGEND:L=LOCK,S=SWAY`) in summary/token-coverage sections.
 - Idea 3 (high risk, AI Content/Combat): Prototype streak-aware coach-line drift momentum policy (`CBGCFXWAC MOMENTUM:LOCKED|WOBBLE`) from multi-window alias transitions.
 - [x] Systems/QA Team: Add token catalog/family coverage for `COHERENCE ARC COACH:`, `CBGCFXWAC:`, `CBGCFXWAC DRIFT:` and verify via regression + weekly digest smoke. *(lifecycle: [ ] -> [~] started: 2026-03-29 12:24 KST -> [x] completed: 2026-03-29 12:29 KST)*
-- [ ] UX/Design Team: Prototype compact coach-alias legend row (`CBGCFXWAC LEGEND:L=LOCK,S=SWAY`) with deterministic adjacency near ARC coach rows.
+- [x] UX/Design Team: Prototype compact coach-alias legend row (`CBGCFXWAC LEGEND:L=LOCK,S=SWAY`) with deterministic adjacency near ARC coach rows. *(lifecycle: [ ] -> [~] started: 2026-03-29 12:59 KST -> [x] completed: 2026-03-29 13:32 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
 - [ ] AI Content/Combat Team: Prototype offline coach-alias drift momentum token (`CBGCFXWAC MOMENTUM:LOCKED|WOBBLE`) from prior-window alias transitions.

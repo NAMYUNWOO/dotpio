@@ -2319,3 +2319,6 @@
 - Decision: no map/portal topology changes; world lane unaffected while digest observability was updated.
 - Verification: regression digest checks green.
 - Follow-up: none.
+
+## 2026-03-29 13:32 KST — No world/map change
+- No map/progression edits this cycle; world lane unaffected.

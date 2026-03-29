@@ -4082,3 +4082,9 @@
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
 - Decision: no portal validator/screenshot rerun required (digest-only/contracts change).
 - Follow-up: add explicit ordering lock when `CBGCFXWAC LEGEND` is introduced.
+
+## 2026-03-29 13:32 KST — Regression gate for CBGCFXWAC legend adjacency
+- Updated regression contracts to include ARC coach adjacency chain and relaxed obsolete momentum->coherence adjacency assumptions after ARC block insertion.
+- PASS: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+- PASS: `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`
+- No new failures after contract realignment.

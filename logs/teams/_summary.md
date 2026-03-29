@@ -3820,3 +3820,12 @@ Compact decision memory for AI context efficiency.
 - Durable decision: Keep current digest behavior payload-only; scaffold is disabled-by-default and now explicitly asserts both rows remain absent until rollout is intentionally enabled.
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `[PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Next highest-priority unchecked item: AI Content/World `CBGCFXWAC DRIFT:<prev>><curr>` with stale-prior guard.
+
+### 2026-03-29 13:32 KST — Cycle GQ UX/Design legend slice closed
+- Completed in-progress POST-RC item: digest-visible compact coach legend `CBGCFXWAC LEGEND:L=LOCK,S=SWAY`.
+- Durable markdown ordering contract now includes ARC coach adjacency chain:
+  - `COHERENCE ARC COACH -> CVARC -> CBGCFXWAC -> CBGCFXWAC LEGEND`
+  in both summary and token-coverage sections.
+- Regression contract realignment: removed stale assumption that `CBGCFXWC` must sit immediately after `CBGCFXWM LEGEND`; now enforced as post-legend ordering to accommodate ARC coach block.
+- Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `[PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Next highest-priority unchecked item: `AI Content/Combat Team: CBGCFXWAC MOMENTUM:LOCKED|WOBBLE` prototype.

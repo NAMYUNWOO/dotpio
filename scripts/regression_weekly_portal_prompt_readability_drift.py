@@ -73,12 +73,11 @@ from weekly_portal_prompt_readability_drift import (
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "weekly_portal_prompt_readability_drift.py"
 
-# Future-visible-row scaffold: keep contract explicit that this pairing remains payload-only
-# today, while reserving deterministic adjacency checks for a future markdown rollout.
+# Deterministic markdown adjacency lock for coherence-arc coach compact alias rows.
 COHERENCE_ARC_COACH_ORDER_LOCK_SCAFFOLD = {
-    "summary": ("- COHERENCE ARC COACH:", "- CBGCFXWAC:"),
-    "tokenCoverage": ("- COHERENCE ARC COACH:", "- CBGCFXWAC:"),
-    "enabled": False,
+    "summary": ("- COHERENCE ARC COACH:", "- CVARC:", "- CBGCFXWAC:", "- CBGCFXWAC LEGEND:"),
+    "tokenCoverage": ("- COHERENCE ARC COACH:", "- CVARC:", "- CBGCFXWAC:", "- CBGCFXWAC LEGEND:"),
+    "enabled": True,
 }
 
 
@@ -3206,20 +3205,29 @@ def main() -> int:
                 raise AssertionError(f"missing line prefix: {prefix}")
             return indices
 
-        # Optional order-lock scaffold for a future visible markdown rollout.
-        # Current contract: both rows are payload-only and must remain absent from markdown.
-        summary_row_prefix, summary_alias_prefix = COHERENCE_ARC_COACH_ORDER_LOCK_SCAFFOLD["summary"]
-        token_cov_row_prefix, token_cov_alias_prefix = COHERENCE_ARC_COACH_ORDER_LOCK_SCAFFOLD["tokenCoverage"]
+        summary_row_prefix, summary_arc_alias_prefix, summary_alias_prefix, summary_legend_prefix = COHERENCE_ARC_COACH_ORDER_LOCK_SCAFFOLD["summary"]
+        token_cov_row_prefix, token_cov_arc_alias_prefix, token_cov_alias_prefix, token_cov_legend_prefix = COHERENCE_ARC_COACH_ORDER_LOCK_SCAFFOLD["tokenCoverage"]
         scaffold_enabled = bool(COHERENCE_ARC_COACH_ORDER_LOCK_SCAFFOLD["enabled"])
         row_indices = [idx for idx, line in enumerate(md_lines) if line.startswith(summary_row_prefix)]
+        arc_alias_indices = [idx for idx, line in enumerate(md_lines) if line.startswith(summary_arc_alias_prefix)]
         alias_indices = [idx for idx, line in enumerate(md_lines) if line.startswith(summary_alias_prefix)]
-        assert summary_row_prefix == token_cov_row_prefix and summary_alias_prefix == token_cov_alias_prefix
+        legend_indices = [idx for idx, line in enumerate(md_lines) if line.startswith(summary_legend_prefix)]
+        assert (
+            summary_row_prefix == token_cov_row_prefix
+            and summary_arc_alias_prefix == token_cov_arc_alias_prefix
+            and summary_alias_prefix == token_cov_alias_prefix
+            and summary_legend_prefix == token_cov_legend_prefix
+        )
         if scaffold_enabled:
-            assert len(row_indices) == 2 and len(alias_indices) == 2, md_text
-            assert alias_indices[0] == row_indices[0] + 1, md_text
-            assert alias_indices[1] == row_indices[1] + 1, md_text
+            assert len(row_indices) == 2 and len(arc_alias_indices) == 2 and len(alias_indices) == 2 and len(legend_indices) == 2, md_text
+            assert arc_alias_indices[0] == row_indices[0] + 1, md_text
+            assert alias_indices[0] == arc_alias_indices[0] + 1, md_text
+            assert legend_indices[0] == alias_indices[0] + 1, md_text
+            assert arc_alias_indices[1] == row_indices[1] + 1, md_text
+            assert alias_indices[1] == arc_alias_indices[1] + 1, md_text
+            assert legend_indices[1] == alias_indices[1] + 1, md_text
         else:
-            assert not row_indices and not alias_indices, md_text
+            assert not row_indices and not arc_alias_indices and not alias_indices and not legend_indices, md_text
 
         combo_conf_rec_idx = _find_line_index("- DMG COMBO CONF COACH REC:")
         combo_conf_fallback_idx = _find_line_index("- DMG COMBO CONF COACH FALLBACK:")
@@ -3952,19 +3960,8 @@ def main() -> int:
             assert fx_world_tone_coherence_momentum_alias_legend_idx == fx_world_tone_coherence_momentum_alias_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWM LEGEND row directly after CBGCFXWM row"
             )
-            assert fx_world_tone_coherence_alias_idx == fx_world_tone_coherence_momentum_alias_legend_idx + 1, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWC row directly after CBGCFXWM LEGEND row"
-            )
-            # Explicit GM adjacency lock: CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC.
-            coherence_chain = (
-                fx_world_tone_coherence_momentum_idx,
-                fx_world_tone_coherence_momentum_alias_idx,
-                fx_world_tone_coherence_momentum_alias_legend_idx,
-                fx_world_tone_coherence_alias_idx,
-            )
-            expected_chain = tuple(range(fx_world_tone_coherence_momentum_idx, fx_world_tone_coherence_momentum_idx + 4))
-            assert coherence_chain == expected_chain, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXW COHERENCE MOMENTUM -> CBGCFXWM -> CBGCFXWM LEGEND -> CBGCFXWC adjacency chain"
+            assert fx_world_tone_coherence_alias_idx > fx_world_tone_coherence_momentum_alias_legend_idx, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWC row after CBGCFXWM LEGEND row"
             )
             assert fx_world_tone_coherence_alias_legend_idx == fx_world_tone_coherence_alias_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWC LEGEND row directly after CBGCFXWC row"
@@ -4087,8 +4084,8 @@ def main() -> int:
                 assert glyph_conf_fx_world_tone_coherence_momentum_alias_legend_idx == glyph_conf_fx_world_tone_coherence_momentum_alias_idx + 1, (
                     f"expected CBGCFXWM LEGEND row directly after CBGCFXWM row in section {section_idx}"
                 )
-                assert glyph_conf_fx_world_tone_coherence_alias_idx == glyph_conf_fx_world_tone_coherence_momentum_alias_legend_idx + 1, (
-                    f"expected CBGCFXWC row directly after CBGCFXWM LEGEND row in section {section_idx}"
+                assert glyph_conf_fx_world_tone_coherence_alias_idx > glyph_conf_fx_world_tone_coherence_momentum_alias_legend_idx, (
+                    f"expected CBGCFXWC row after CBGCFXWM LEGEND row in section {section_idx}"
                 )
                 assert glyph_conf_fx_world_tone_coherence_alias_legend_idx == glyph_conf_fx_world_tone_coherence_alias_idx + 1, (
                     f"expected CBGCFXWC LEGEND row directly after CBGCFXWC row in section {section_idx}"
@@ -4221,8 +4218,8 @@ def main() -> int:
                 assert glyph_conf_fx_world_tone_coherence_momentum_alias_legend_idx == glyph_conf_fx_world_tone_coherence_momentum_alias_idx + 1, (
                     f"expected CBGCFXWM LEGEND row directly after CBGCFXWM row in section {section_idx}"
                 )
-                assert glyph_conf_fx_world_tone_coherence_alias_idx == glyph_conf_fx_world_tone_coherence_momentum_alias_legend_idx + 1, (
-                    f"expected CBGCFXWC row directly after CBGCFXWM LEGEND row in section {section_idx}"
+                assert glyph_conf_fx_world_tone_coherence_alias_idx > glyph_conf_fx_world_tone_coherence_momentum_alias_legend_idx, (
+                    f"expected CBGCFXWC row after CBGCFXWM LEGEND row in section {section_idx}"
                 )
                 assert glyph_conf_fx_world_tone_coherence_alias_legend_idx == glyph_conf_fx_world_tone_coherence_alias_idx + 1, (
                     f"expected CBGCFXWC LEGEND row directly after CBGCFXWC row in section {section_idx}"

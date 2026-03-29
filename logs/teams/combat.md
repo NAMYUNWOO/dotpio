@@ -2315,3 +2315,6 @@
 - Decision: no combat runtime tuning this cycle; digest-only coach-alias drift observability change is safe for combat loop stability.
 - Verification: weekly drift regression + digest smoke passed.
 - Follow-up: reserve next underrepresented-lane slot for combat/vfx-visible cue if cadence drops.
+
+## 2026-03-29 13:32 KST — No combat balance change
+- Cycle focused on prompt/readability instrumentation; combat pacing/values unchanged.

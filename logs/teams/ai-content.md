@@ -2390,3 +2390,7 @@
 - Decision: queued offline prototype candidate `CBGCFXWAC MOMENTUM:LOCKED|WOBBLE` from prior-window alias transitions.
 - Evidence: backlog injection in `POST_RC_BACKLOG.md` (Cycle GQ).
 - Follow-up: implement momentum token only after legend/ordering contracts are in place.
+
+## 2026-03-29 13:32 KST — Alias legend baseline prepared
+- Readability baseline now includes explicit `CBGCFXWAC LEGEND` decoding for LOCK/SWAY coach aliases.
+- Next AI-content experiment target remains `CBGCFXWAC MOMENTUM:LOCKED|WOBBLE`.
