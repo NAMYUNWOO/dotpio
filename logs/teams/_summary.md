@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-28 23:10 KST
+Last updated: 2026-03-29 12:10 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed TASKS/POST_RC remaining item (AI Content/World): added payload-only coach-line alias drift token `CBGCFXWAC DRIFT:<prev>><curr>` with deterministic stale-prior guard (`priorAlias=currentAlias` when prior payload is missing/stale).
+- Weekly digest payload contract now includes `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasDrift` + `...Signals` (`currentAlias`, `priorAlias`, `priorLoaded`, `stalePriorGuard`, `shifted`, `token`, `offlineOnly`).
+- Regression contract expanded to lock new drift schema/domain and stale-guard invariant; verified via regression + weekly smoke scripts.
 
 - Closed Cycle GP selected slice (UX/Design): digest payload now emits compact coach-selection alias `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAlias` (`CBGCFXWAC:<L|S>`) derived from LOCK/SWAY coach pair signals.
 - Regression contract expanded to lock `...CoherenceArcCoachMicrolineAliasSignals` schema/domain (`arc`, `alias`, `token`, `offlineOnly`) while preserving payload-only behavior.

@@ -2926,6 +2926,26 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasSignals", {}).get("alias") in {"L", "S"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasSignals", {}).get("token", "").startswith("CBGCFXWAC:"), payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasSignals", {}).get("offlineOnly") is True, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasDrift", "").startswith(("FLAG OFF", "CBGCFXWAC DRIFT:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasDriftSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "currentAlias",
+            "priorAlias",
+            "priorLoaded",
+            "stalePriorGuard",
+            "shifted",
+            "token",
+            "offlineOnly",
+        }, payload
+        drift_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasDriftSignals", {})
+        assert drift_signals.get("currentAlias") in {"L", "S"}, payload
+        assert drift_signals.get("priorAlias") in {"L", "S"}, payload
+        assert drift_signals.get("token", "").startswith("CBGCFXWAC DRIFT:"), payload
+        if drift_signals.get("stalePriorGuard"):
+            assert drift_signals.get("priorAlias") == drift_signals.get("currentAlias"), payload
+            assert drift_signals.get("priorLoaded") is False, payload
+        assert drift_signals.get("offlineOnly") is True, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias", "").startswith(("FLAG OFF", "CBGCFXWC:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals", {}).keys()) == {
             "flagName",

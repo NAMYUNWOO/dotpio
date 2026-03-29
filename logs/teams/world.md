@@ -2304,3 +2304,12 @@
   - [PASS] weekly portal prompt readability drift regression checks ✅
   - [PASS] weekly portal prompt drift status=ok -> /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.json /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.md ✅
 - Follow-up: Next highest-priority unchecked item is CBGCFXWAC DRIFT:<prev>><curr> (offline token + stale-prior guard).
+
+
+## 2026-03-29 12:10 KST
+- Task: AI Content/World offline drift prototype for coherence-arc coach alias (`CBGCFXWAC DRIFT`).
+- Decisions:
+  - Kept implementation payload-only (no digest-row exposure) per pre-UI gating rule.
+  - Drift now compares prior/current alias with stale-prior guard to avoid noisy world-tone coaching transitions.
+- Verification: `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+- Follow-up: Validate narrative usefulness before any summary/token-coverage rollout.

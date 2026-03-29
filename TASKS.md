@@ -1687,4 +1687,4 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — 2026-03-28 Cycle GP)
 - [x] Systems/QA Team: Reserve optional order-lock scaffold for future visible-row rollout (`COHERENCE ARC COACH` -> `CBGCFXWAC`) while keeping current payload-only behavior unchanged. *(lifecycle: [ ] -> [~] started: 2026-03-28 23:31 KST -> [x] completed: 2026-03-28 23:34 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
-- [ ] AI Content/World Team: Prototype offline coach-line drift token (`CBGCFXWAC DRIFT:<prev>><curr>`) with stale-prior guard before any UI exposure.
+- [x] AI Content/World Team: Prototype offline coach-line drift token (`CBGCFXWAC DRIFT:<prev>><curr>`) with stale-prior guard before any UI exposure. *(lifecycle: [ ] -> [~] started: 2026-03-29 12:08 KST -> [x] completed: 2026-03-29 12:10 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*

@@ -4064,3 +4064,13 @@
   - [PASS] weekly portal prompt readability drift regression checks ✅
   - [PASS] weekly portal prompt drift status=ok -> /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.json /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.md ✅
 - Follow-up: Next highest-priority unchecked item is CBGCFXWAC DRIFT:<prev>><curr> (offline token + stale-prior guard).
+
+
+## 2026-03-29 12:10 KST
+- Task: Expand regression contract for new `CBGCFXWAC DRIFT` payload token.
+- Coverage:
+  - Schema/domain lock for `...CoachMicrolineAliasDriftSignals` keys and alias domain (`L|S`).
+  - Stale-prior guard assertion (`stalePriorGuard => priorAlias == currentAlias && priorLoaded == False`).
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅

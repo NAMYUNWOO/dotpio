@@ -2381,3 +2381,8 @@
   - [PASS] weekly portal prompt readability drift regression checks ✅
   - [PASS] weekly portal prompt drift status=ok -> /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.json /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.md ✅
 - Follow-up: Next highest-priority unchecked item is CBGCFXWAC DRIFT:<prev>><curr> (offline token + stale-prior guard).
+
+
+## 2026-03-29 12:10 KST
+- Context sync: No design copy surface changes shipped (payload-only drift prototype).
+- Decision: Preserve current digest row ordering; defer any `CBGCFXWAC DRIFT` visible-row introduction to a dedicated readability cycle.
