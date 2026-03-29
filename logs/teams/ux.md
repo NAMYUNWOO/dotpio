@@ -2597,3 +2597,16 @@
 ## 2026-03-29 14:13 KST
 - Chosen GR slice improves digest readability reliability by guaranteeing local coach-cluster adjacency under regression.
 - Follow-up: monitor if additional compact legends are needed as cluster grows.
+
+## 2026-03-29 14:29 KST
+- Task: Cycle GR follow-up — coach-copy variant recommendation token prototype (`CBGCFXWAC COACH COPY REC`) completion sync.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root .` ✅
+- Decisions:
+  - Added payload-only recommendation token derived from `COHERENCE ARC COACH` arc + `CBGCFXWAC MOMENTUM` state.
+  - Recommendation mapping: `WOBBLE+LOCK -> ANCHOR_STEP`, `WOBBLE+SWAY -> SLOW_STEP`, otherwise `HOLD_STEP`.
+- Follow-up:
+  - Remaining POST-RC unchecked item: compressed cadence storybeat token (`CVCWHR` + `CBGCFXWAC MOMENTUM`) for UX/World.

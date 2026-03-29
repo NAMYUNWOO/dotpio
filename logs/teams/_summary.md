@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-29 14:13 KST
+Last updated: 2026-03-29 14:29 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed POST_RC AI Content/Design follow-up: weekly digest payload now emits `CBGCFXWAC COACH COPY REC:<ANCHOR_STEP|SLOW_STEP|HOLD_STEP>` derived from `COHERENCE ARC COACH` + `CBGCFXWAC MOMENTUM` signals.
+- Added deterministic recommendation policy: `WOBBLE+LOCK -> ANCHOR_STEP`, `WOBBLE+SWAY -> SLOW_STEP`, otherwise `HOLD_STEP`, gated behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_COACH_COPY_VARIANT_REC`.
+- Verified with weekly regression + smoke (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root .`); one POST_RC item remains (UX/World compressed cadence storybeat token).
 
 - Executed Game Director Cycle GR (all queues were fully checked): generated 3 ideas, selected low-risk Systems/QA experiment, and shipped minimal vertical slice.
 - Added strict regression adjacency lock + row-count contract for `CBGCFXWAC DRIFT -> CBGCFXWAC MOMENTUM -> CBGCFXWAC MOMENTUM FAMILY CHURN -> CBGCFXWC` in summary/token-coverage sections.
