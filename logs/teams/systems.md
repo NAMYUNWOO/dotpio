@@ -3666,3 +3666,11 @@
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decisions:
   - Added `phaseIntent` (`ANCHOR|SURGE`) to `...IntensityPulseLanguageVariantPackSignals` for deterministic downstream policy checks.
+
+## 2026-03-30 00:20 KST
+- Task: Add payload-only compact phase-intent alias contract for pulse-language variant pack (`CBGCFXWSBPFXPI:A|S`).
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions:
+  - Added a standalone payload alias resolver so downstream automation can branch on intent without parsing long `phaseIntent` strings.

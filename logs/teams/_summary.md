@@ -3935,3 +3935,9 @@ Compact decision memory for AI context efficiency.
 - Backlog injection added two follow-ups: MICROLINE LEGEND adjacency row and offline pulse-language variant pack.
 
 - 2026-03-29 22:51 KST: Shipped `CBGCFXWSBPFXP MICROLINE LEGEND` compact markdown row with `(v/hash)` annotation in weekly portal digest; regression now enforces microline->microline legend adjacency before `CBGCFXWSBPFCI LEGEND` across summary/token coverage sections.
+
+
+- 2026-03-30 00:20 KST: Cycle GZ selected low-risk UX/AI-content slice and shipped payload-only `CBGCFXWSBPFXPI:A|S` alias from language-variant `phaseIntent` signals.
+- Durable contract: `ANCHOR->A`, `SURGE->S`, output token `CBGCFXWSBPFXPI:<A|S>`, with deterministic `FLAG OFF` fallback when flag-disabled.
+- Regression guardrails updated for schema/domain coherence and optional LANG spacer adjacency before `CBGCFXWAC COACH COPY REC`.
+- Backlog injection queued follow-ups for markdown-order guard rollout, tri-state intent narration prototype, and combat rehearsal hint evaluation.

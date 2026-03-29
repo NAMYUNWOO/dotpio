@@ -3140,6 +3140,28 @@ def main() -> int:
             assert intensity_pulse_language_variant_pack == expected_variant_pack_token, payload
         else:
             assert intensity_pulse_language_variant_pack == "FLAG OFF", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentAlias", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPI:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "phaseIntent",
+            "alias",
+            "token",
+            "offlineOnly",
+        }, payload
+        intensity_pulse_language_variant_pack_phase_intent_alias = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentAlias", "")
+        intensity_pulse_language_variant_pack_phase_intent_alias_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentAliasSignals", {})
+        assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("phaseIntent") in {"ANCHOR", "SURGE"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("alias") in {"A", "S"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("offlineOnly") is True, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("phaseIntent") == expected_phase_intent, payload
+        expected_phase_intent_alias = "A" if expected_phase_intent == "ANCHOR" else "S"
+        assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("alias") == expected_phase_intent_alias, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("token") == f"CBGCFXWSBPFXPI:{expected_phase_intent_alias}", payload
+        if intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("flagEnabled") is True:
+            assert intensity_pulse_language_variant_pack_phase_intent_alias == f"CBGCFXWSBPFXPI:{expected_phase_intent_alias}", payload
+        else:
+            assert intensity_pulse_language_variant_pack_phase_intent_alias == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePair", "").startswith(("FLAG OFF", "CBGCFXWSBPFXP MICRO:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePairSignals", {}).keys()) == {
             "flagName",
@@ -4362,9 +4384,17 @@ def main() -> int:
             assert storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx == storybeat_phase_fx_cue_compact_alias_intensity_legend_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFCI COACH COPY row directly after CBGCFXWSBPFCI LEGEND row"
             )
-            assert coach_copy_variant_rec_idx == storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row directly after CBGCFXWSBPFCI COACH COPY row"
+            assert coach_copy_variant_rec_idx in {
+                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1,
+                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 2,
+            }, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row immediately after CBGCFXWSBPFCI COACH COPY row or with one optional CBGCFXWSBPFXP LANG spacer"
             )
+            if coach_copy_variant_rec_idx == storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 2:
+                spacer_line = md_lines[storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1]
+                assert spacer_line.startswith("- CBGCFXWSBPFXP LANG:"), (
+                    f"markdown contract violated in {section_name} section: only CBGCFXWSBPFXP LANG row may appear between CBGCFXWSBPFCI COACH COPY and CBGCFXWAC COACH COPY REC"
+                )
             assert coach_copy_reason_priority_alias_idx == coach_copy_variant_rec_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWACRP row directly after CBGCFXWAC COACH COPY REC row"
             )

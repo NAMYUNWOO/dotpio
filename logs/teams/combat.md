@@ -2431,3 +2431,12 @@
 - Verification: focused resolver checks confirm `PUSH+TENSE` path maps to surge-oriented urgent copy ✅
 - Decisions:
   - Kept token contract unchanged (`CBGCFXWSBPFXP LANG`) while strengthening wording to align urgency cues with storybeat intent.
+
+
+## 2026-03-30 00:20 KST
+- Task: Validate compact phase-intent alias remains combat-safe (no runtime tuning side effects).
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification: regression + weekly script pass ✅
+- Decisions:
+  - Change remains offline/payload-only; no combat balance or cue-routing logic was modified.

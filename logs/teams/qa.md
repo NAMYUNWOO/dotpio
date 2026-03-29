@@ -4227,3 +4227,12 @@
   - Added regression assertions for `phaseIntent` domain and phase->intent coherence (`CALM->ANCHOR`, `TENSE->SURGE`) ✅
 - Notes:
   - Full regression script currently fails on pre-existing summary-row adjacency contract unrelated to this slice.
+
+
+## 2026-03-30 00:20 KST
+- Task: Extend regression schema/domain checks for `CBGCFXWSBPFXPI` alias payload contract.
+- Commit: pending
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added strict key/domain assertions (`phaseIntent` in `ANCHOR|SURGE`, `alias` in `A|S`) and coherence checks against upstream phase-intent mapping.

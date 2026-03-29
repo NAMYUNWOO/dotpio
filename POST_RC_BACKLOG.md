@@ -1565,3 +1565,17 @@ Last updated: 2026-03-21 02:31 KST
 ## Next Up (Game Director Injection — Cycle GY)
 - [x] UX/Design Team: Add compact `CBGCFXWSBPFXP MICROLINE LEGEND` markdown row (hash/version annotated) with strict adjacency right after `CBGCFXWSBPFXP MICROLINE`.
 - [x] AI Content/World Team: Prototype offline pulse-language variant pack (`SOFT|PUSH`) tied to storybeat-phase intent for future A/B narrative readability review. *(started: 2026-03-29 23:20 KST; resumed: 2026-03-29 23:43 KST; completed: 2026-03-29 23:45 KST; verification: py_compile + focused phase-intent resolver checks)*
+
+## Game Director Cycle GZ — 2026-03-30 00:11 KST
+- Coverage check (last 10 completed headings by lane): systems=2, ux=2, world=2, ai-content=1, combat=1, design=1, qa=1, vfx=0.
+- Lane cap rule: no lane exceeded 40%; underrepresented lane pressure still favors vfx/qa follow-through.
+- 24h cadence gate: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low-risk UX/AI-content): Add payload-only compact phase-intent alias for `CBGCFXWSBPFXP LANG` (`CBGCFXWSBPFXPI:A|S`) so downstream tooling can branch without parsing `phaseIntent`. **Selected.**
+- Idea 2 (mid-risk systems/qa): Add deterministic regression schema/domain lock + adjacency guard for new alias row in summary/token-coverage sections.
+- Idea 3 (high-risk design/world): Prototype adaptive tri-state phase-intent narration (`ANCHOR|SURGE|RECOVER`) from pulse alias momentum memory.
+- [x] UX/AI Content Team (Cycle GZ selected experiment): Add payload-only compact phase-intent alias token (`CBGCFXWSBPFXPI:A|S`) derived from `CBGCFXWSBPFXP LANG` signals with deterministic flag-off fallback. *(lifecycle: [ ] -> [~] started: 2026-03-30 00:11 KST -> [x] completed: 2026-03-30 00:20 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle GZ)
+- [ ] Systems/QA Team: Add optional markdown adjacency/order guard for `CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI` rollout path with deterministic dual-section count contract.
+- [ ] Design/World Team: Prototype offline tri-state phase-intent narration variant (`ANCHOR|SURGE|RECOVER`) from pulse alias momentum memory behind a dedicated experiment flag.
+- [ ] Combat/VFX Team: Evaluate whether `CBGCFXWSBPFXPI` should inform compact cue rehearsal hints (`SOFT drill` vs `SURGE drill`) without changing runtime balance.

@@ -2515,3 +2515,12 @@
 - Verification: focused resolver checks on selected copy variants ✅
 - Decisions:
   - Updated copy templates to carry explicit intent tags (`ANCHOR intent` / `SURGE intent`) for clearer designer review diffs.
+
+
+## 2026-03-30 00:20 KST
+- Task: Confirm phase-intent abbreviation preserves readability intent for digest scans.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: regression + weekly script pass ✅
+- Decisions:
+  - Adopted `A/S` abbreviations to keep compact readability while retaining clear ANCHOR/SURGE semantics in signals.

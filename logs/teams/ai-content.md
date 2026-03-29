@@ -2511,3 +2511,12 @@
   - Focused resolver checks for `CALM->ANCHOR` and `TENSE->SURGE` intent mapping ✅
 - Decisions:
   - Variant copy now explicitly encodes intent tone (`ANCHOR`/`SURGE`) per storybeat phase to make future A/B narrative review deterministic.
+
+
+## 2026-03-30 00:20 KST
+- Task: Ship compact phase-intent alias (`CBGCFXWSBPFXPI`) from pulse-language variant pack signals.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: regression + weekly script pass ✅
+- Decisions:
+  - Alias domain is fixed to `A|S` with deterministic fallback (`FLAG OFF`) for safe payload-only rollout.

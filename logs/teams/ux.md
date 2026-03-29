@@ -2700,3 +2700,12 @@
 - Verification: token shape unchanged (`CBGCFXWSBPFXP LANG:<S|P>`) and py_compile pass ✅
 - Decisions:
   - Preserved compact token footprint and row-budget behavior; only descriptive copy payload changed for readability testing.
+
+
+## 2026-03-30 00:20 KST
+- Task: Add compact intent alias without increasing digest row width pressure.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification: regression + weekly script pass ✅
+- Decisions:
+  - `CBGCFXWSBPFXPI` stays payload-only in this slice to avoid markdown row churn during rollout.

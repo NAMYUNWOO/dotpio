@@ -2434,3 +2434,11 @@
 - Verification: focused resolver checks for phase-intent wording (`ANCHOR intent`, `SURGE intent`) ✅
 - Decisions:
   - CALM world-tone paths anchor readability; TENSE paths preserve urgency while staying compact.
+
+## 2026-03-30 00:20 KST
+- Task: Keep world-tone intent semantics compactly machine-readable for phase-intent branching.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: weekly digest smoke + regression pass ✅
+- Decisions:
+  - Mapped `ANCHOR->A` and `SURGE->S` to preserve narrative intent while minimizing token width.
