@@ -2309,3 +2309,9 @@
 - Context sync: No combat runtime tuning this cycle.
 - Dependency note: Coach-line drift guard reduces false cadence flips that could mislead combat postmortem interpretation.
 - Verification reference: weekly digest regression/smoke passes remained green.
+
+## 2026-03-29 12:29 KST
+- Task: Cycle GQ lane impact review.
+- Decision: no combat runtime tuning this cycle; digest-only coach-alias drift observability change is safe for combat loop stability.
+- Verification: weekly drift regression + digest smoke passed.
+- Follow-up: reserve next underrepresented-lane slot for combat/vfx-visible cue if cadence drops.

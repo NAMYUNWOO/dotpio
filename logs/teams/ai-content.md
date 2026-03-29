@@ -2384,3 +2384,9 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
 - Follow-up: Candidate next slice is optional family-churn/adjacency rail only if visible rows are enabled.
+
+## 2026-03-29 12:29 KST
+- Task: Cycle GQ follow-up injection planning for coherence-arc coach drift readability.
+- Decision: queued offline prototype candidate `CBGCFXWAC MOMENTUM:LOCKED|WOBBLE` from prior-window alias transitions.
+- Evidence: backlog injection in `POST_RC_BACKLOG.md` (Cycle GQ).
+- Follow-up: implement momentum token only after legend/ordering contracts are in place.

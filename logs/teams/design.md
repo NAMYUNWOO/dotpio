@@ -2386,3 +2386,9 @@
 ## 2026-03-29 12:10 KST
 - Context sync: No design copy surface changes shipped (payload-only drift prototype).
 - Decision: Preserve current digest row ordering; defer any `CBGCFXWAC DRIFT` visible-row introduction to a dedicated readability cycle.
+
+## 2026-03-29 12:29 KST
+- Task: Cycle GQ design readability handoff.
+- Decision: injected compact legend follow-up (`CBGCFXWAC LEGEND:L=LOCK,S=SWAY`) to reduce decode latency for coach alias rows.
+- Evidence: `POST_RC_BACKLOG.md` Cycle GQ injected task.
+- Follow-up: keep legend adjacent to ARC coach cluster in summary/token-coverage.

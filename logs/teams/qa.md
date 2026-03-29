@@ -4074,3 +4074,11 @@
 - Verification:
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+
+## 2026-03-29 12:29 KST
+- Task: Verify Cycle GQ coach-alias drift family coverage update.
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+- Decision: no portal validator/screenshot rerun required (digest-only/contracts change).
+- Follow-up: add explicit ordering lock when `CBGCFXWAC LEGEND` is introduced.

@@ -3522,3 +3522,10 @@
   - Stale-prior guard now forces `priorAlias=currentAlias` when prior payload is missing/invalid to prevent false drift flips.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Follow-up: Surface optional markdown row only after explicit UI exposure task.
+
+## 2026-03-29 12:29 KST
+- Task: Cycle GQ selected slice — add token-family observability for coherence-arc coach alias drift cluster.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, generated digest artifacts.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
+- Decision: Promote `COHERENCE ARC COACH:`, `CBGCFXWAC:`, `CBGCFXWAC DRIFT:` into compact/detailed token catalog + alias-family tracking for deterministic churn visibility.
+- Follow-up: keep coach-alias legend rollout behind a separate UX/design slice.

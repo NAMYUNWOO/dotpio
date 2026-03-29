@@ -2575,3 +2575,9 @@
 ## 2026-03-29 12:10 KST
 - Context sync: No new UX row introduced this cycle.
 - Decision: Keep `COHERENCE ARC COACH` / `CBGCFXWAC` as payload-only while drift token matures offline.
+
+## 2026-03-29 12:29 KST
+- Task: Cycle GQ UX scanability review.
+- Decision: coach-alias drift family rows are now measurable; next UX slice should surface compact legend row before broader cluster expansion.
+- Verification: digest regeneration succeeded with no width/ordering regressions.
+- Follow-up: implement `CBGCFXWAC LEGEND` behind flag.

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-29 12:10 KST
+Last updated: 2026-03-29 12:29 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle GQ selected slice (Systems/QA): added token-catalog + alias-family coverage for `COHERENCE ARC COACH:`, `CBGCFXWAC:`, and `CBGCFXWAC DRIFT:` in weekly digest churn rails.
+- Digest token scanning now treats ARC coach + coach alias drift cluster as first-class compact/detailed tokens, improving family-level drift auditability without runtime gameplay coupling.
+- Verification passed via `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and weekly smoke generation (`--since-days 7 --max-commits 120`); follow-up injections queued for legend/momentum slices.
 
 - Closed TASKS/POST_RC remaining item (AI Content/World): added payload-only coach-line alias drift token `CBGCFXWAC DRIFT:<prev>><curr>` with deterministic stale-prior guard (`priorAlias=currentAlias` when prior payload is missing/stale).
 - Weekly digest payload contract now includes `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachMicrolineAliasDrift` + `...Signals` (`currentAlias`, `priorAlias`, `priorLoaded`, `stalePriorGuard`, `shifted`, `token`, `offlineOnly`).

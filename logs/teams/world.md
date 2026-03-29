@@ -2313,3 +2313,9 @@
   - Drift now compares prior/current alias with stale-prior guard to avoid noisy world-tone coaching transitions.
 - Verification: `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅
 - Follow-up: Validate narrative usefulness before any summary/token-coverage rollout.
+
+## 2026-03-29 12:29 KST
+- Task: Cycle GQ world-lane impact check.
+- Decision: no map/portal topology changes; world lane unaffected while digest observability was updated.
+- Verification: regression digest checks green.
+- Follow-up: none.
