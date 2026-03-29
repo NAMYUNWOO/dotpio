@@ -2403,3 +2403,6 @@
   - Regression contract now locks compact alias domain and row-budget gating semantics.
 - Follow-up:
   - Next unchecked POST_RC item: QA deterministic fixture for `CALM + LOCKED + RAISED` branch.
+
+## 2026-03-29 19:43 KST
+- Support note: combat tuning unchanged; consumed updated coach-copy recommendation telemetry (`reasonPriority`) for future FX/copy sync experiments.

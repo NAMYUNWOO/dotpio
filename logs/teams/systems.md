@@ -3621,3 +3621,9 @@
   - Regression contract now locks compact alias domain and row-budget gating semantics.
 - Follow-up:
   - Next unchecked POST_RC item: QA deterministic fixture for `CALM + LOCKED + RAISED` branch.
+
+## 2026-03-29 19:43 KST
+- Task: Cycle GV systems slice — add deterministic coach-copy reason-priority telemetry (`P1..P4`) for offline auditability.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`
+- Decision: Preserve existing recommendation behavior while exposing precedence (`wobble > tense-phase > raised-intensity > stable-calm`) as compact signal metadata.

@@ -2480,3 +2480,7 @@
   - Regression contract now locks compact alias domain and row-budget gating semantics.
 - Follow-up:
   - Next unchecked POST_RC item: QA deterministic fixture for `CALM + LOCKED + RAISED` branch.
+
+## 2026-03-29 19:43 KST
+- Task: Validate narrative-reason precedence stays deterministic for coach-copy recommendation and raised-intensity branch fixture.
+- Decision: Keep reason taxonomy stable (`stable-calm|tense-phase|wobble|raised-intensity`) and add explicit priority tag for downstream copy tooling.

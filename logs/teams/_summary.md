@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-29 19:14 KST
+Last updated: 2026-03-29 19:43 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed POST_RC QA follow-up: regression now includes deterministic fixture for `CALM + LOCKED + RAISED`, locking `CBGCFXWAC COACH COPY REC:SLOW_STEP` with reason `raised-intensity`.
+- Executed Game Director Cycle GV after queue reached full-check state; selected low-risk Systems/QA experiment and shipped minimal vertical slice by adding payload signal `reasonPriority` (`P1..P4`) for coach-copy recommendation precedence.
+- Injected next backlog tasks for Cycle GV: (1) UX/Design compact alias for `reasonPriority` in markdown digest rails, (2) Systems/QA adjacency/order contract for the new alias rollout path.
 
 - Closed POST_RC UX/AI Content follow-up: `CBGCFXWSBPFCI COACH COPY` now emits compact alias token (`B|R`) when DOS readability row-budget threshold is satisfied, with deterministic fallback to verbose `BASE|RAISED` token if budget is exceeded.
 - Added payload signal contract for coach-copy compact alias gating (`compactAlias`, `dosReadabilityRowBudgetThreshold`, `dosRowBudgetWithinThreshold`) to preserve offline auditability.

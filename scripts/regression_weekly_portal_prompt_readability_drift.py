@@ -68,6 +68,7 @@ from weekly_portal_prompt_readability_drift import (
     lane_priority_recommendation_confidence_guard,
     combat_vfx_cadence_coach_why,
     combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_from_prior,
+    resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -3119,6 +3120,7 @@ def main() -> int:
             "intensity",
             "recommendation",
             "reason",
+            "reasonPriority",
             "token",
             "offlineOnly",
         }, payload
@@ -3129,6 +3131,7 @@ def main() -> int:
         assert coach_copy_rec_signals.get("intensity") in {"BASE", "RAISED"}, payload
         assert coach_copy_rec_signals.get("recommendation") in {"ANCHOR_STEP", "SLOW_STEP", "HOLD_STEP"}, payload
         assert coach_copy_rec_signals.get("reason") in {"stable-calm", "tense-phase", "wobble", "raised-intensity"}, payload
+        assert coach_copy_rec_signals.get("reasonPriority") in {"P1", "P2", "P3", "P4"}, payload
         assert coach_copy_rec_signals.get("token", "").startswith("CBGCFXWAC COACH COPY REC:"), payload
         assert coach_copy_rec_signals.get("offlineOnly") is True, payload
         expected_reason = "stable-calm"
@@ -3150,6 +3153,32 @@ def main() -> int:
             expected_reason = "raised-intensity"
         assert coach_copy_rec_signals.get("recommendation") == expected_recommendation, payload
         assert coach_copy_rec_signals.get("reason") == expected_reason, payload
+        expected_reason_priority = {
+            "wobble": "P1",
+            "tense-phase": "P2",
+            "raised-intensity": "P3",
+            "stable-calm": "P4",
+        }[expected_reason]
+        assert coach_copy_rec_signals.get("reasonPriority") == expected_reason_priority, payload
+
+        # Deterministic fixture lock for raised-intensity fallback branch:
+        # CALM + LOCKED + RAISED must resolve to SLOW_STEP because intensity is elevated,
+        # while still avoiding wobble/tense escalations.
+        fixture_token, fixture_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation(
+            coach_microline_pair_signals={"arc": "SWAY"},
+            coach_microline_alias_momentum_signals={"momentum": "LOCKED"},
+            storybeat_phase_signals={"phase": "CALM"},
+            storybeat_phase_fx_cue_compact_alias_intensity_signals={"intensity": "RAISED"},
+        )
+        assert fixture_token in {"FLAG OFF", "CBGCFXWAC COACH COPY REC:SLOW_STEP"}, fixture_signals
+        assert fixture_signals["arc"] == "SWAY", fixture_signals
+        assert fixture_signals["momentum"] == "LOCKED", fixture_signals
+        assert fixture_signals["storybeatPhase"] == "CALM", fixture_signals
+        assert fixture_signals["intensity"] == "RAISED", fixture_signals
+        assert fixture_signals["recommendation"] == "SLOW_STEP", fixture_signals
+        assert fixture_signals["reason"] == "raised-intensity", fixture_signals
+        assert fixture_signals["reasonPriority"] == "P3", fixture_signals
+
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias", "").startswith(("FLAG OFF", "CBGCFXWC:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals", {}).keys()) == {
             "flagName",

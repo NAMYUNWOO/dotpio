@@ -2188,6 +2188,14 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     else:
         reason = "stable-calm"
 
+    reason_priority_map = {
+        "wobble": "P1",
+        "tense-phase": "P2",
+        "raised-intensity": "P3",
+        "stable-calm": "P4",
+    }
+    reason_priority = reason_priority_map.get(reason, "P4")
+
     token = f"CBGCFXWAC COACH COPY REC:{recommendation}"
     return (token if flag_enabled else "FLAG OFF"), {
         "flagName": flag_name,
@@ -2198,6 +2206,7 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         "intensity": intensity,
         "recommendation": recommendation,
         "reason": reason,
+        "reasonPriority": reason_priority,
         "token": token,
         "offlineOnly": True,
     }

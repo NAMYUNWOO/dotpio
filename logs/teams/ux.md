@@ -2672,3 +2672,6 @@
   - Regression contract now locks compact alias domain and row-budget gating semantics.
 - Follow-up:
   - Next unchecked POST_RC item: QA deterministic fixture for `CALM + LOCKED + RAISED` branch.
+
+## 2026-03-29 19:43 KST
+- Support note: UX-facing digest rows unchanged this cycle; groundwork added via payload-only reason-priority signal for later compact alias/UI pass.

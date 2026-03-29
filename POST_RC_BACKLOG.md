@@ -1517,4 +1517,15 @@ Last updated: 2026-03-21 02:31 KST
 ### Game Director Cycle — 2026-03-29
 - [x] Systems/Combat/Design Experiment: Make `CBGCFXWAC COACH COPY REC` intensity-aware so `RAISED` can escalate calm-state recommendation to `SLOW_STEP` while preserving wobble/tense precedence. *(implemented 2026-03-29; verified via weekly+regression scripts)*
 - [x] UX/AI Content Follow-up: Add compact alias token for `CBGCFXWSBPFCI COACH COPY` (`B|R`) only if digest row budget remains within DOS readability threshold. *(lifecycle: [ ] -> [~] started: 2026-03-29 19:11 KST -> [x] completed: 2026-03-29 19:14 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] QA Follow-up: Add deterministic fixture run covering `raised-intensity` recommendation reason branch with `CALM + LOCKED + RAISED` input.
+- [x] QA Follow-up: Add deterministic fixture run covering `raised-intensity` recommendation reason branch with `CALM + LOCKED + RAISED` input. *(lifecycle: [ ] -> [~] started: 2026-03-29 19:41 KST -> [x] completed: 2026-03-29 19:43 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Game Director Cycle GV — 2026-03-29 19:43 KST
+- Coverage check (last 10 completions): systems/qa observability was dominant; selected a reversible payload-only slice to improve audit clarity without expanding user-facing row density.
+- Idea 1 (low-risk systems/qa): Add payload signal `reasonPriority` (`P1..P4`) for `CBGCFXWAC COACH COPY REC` to make recommendation precedence machine-readable. *(impact: faster debug triage; metric: fewer ambiguous precedence investigations; scope: S; risk: low; rollback: remove signal field + regression key lock)* **Selected**
+- Idea 2 (mid-risk ux/design): Add compact markdown alias row for reason priority near `CBGCFXWAC COACH COPY REC` in summary/token-coverage sections.
+- Idea 3 (high-risk novelty ai-content/combat): Introduce adaptive precedence remap influenced by lane cadence volatility memory.
+- [x] Systems/QA (Cycle GV selected experiment): Added `reasonPriority` to coach-copy recommendation signals and locked domain in regression + deterministic raised-intensity fixture path. *(lifecycle: [ ] -> [~] started: 2026-03-29 19:41 KST -> [x] completed: 2026-03-29 19:43 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle GV)
+- [ ] UX/Design Team: Prototype compact digest alias for `reasonPriority` (`CBGCFXWACRP:P1|P2|P3|P4`) adjacent to `CBGCFXWAC COACH COPY REC` rows in summary/token-coverage sections.
+- [ ] Systems/QA Team: Add deterministic adjacency + row-count contract for `CBGCFXWAC COACH COPY REC -> CBGCFXWACRP -> CBGCFXWC` across both digest sections.
