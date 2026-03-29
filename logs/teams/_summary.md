@@ -3990,3 +3990,8 @@ Compact decision memory for AI context efficiency.
   - Added `CBGCFXWSBPFXPDE` markdown visibility in both digest rails (summary + token-coverage) with mutation/alias signal metadata.
   - Expanded regression contract to enforce optional spacer chain `... CBGCFXWSBPFXPD ECHO -> CBGCFXWSBPFXPDE -> CBGCFXWAC COACH COPY REC` plus row-count/dependency guards.
   - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- 2026-03-30 05:16 KST — Game Director review cycle executed after queue reached all-checked state.
+  - Idea set: (1) FXPDE legend row readability hardening (low risk), (2) coach-rec compact alias row (mid risk), (3) FXPDE toggle matrix expansion (mid/high QA scope).
+  - Chosen experiment: Idea #1; implemented minimal vertical slice by adding `CBGCFXWSBPFXPDE LEGEND` in summary + token-coverage rails and extending ordering/row-cardinality regression checks.
+  - Verification passed via readability regression + digest generation scripts.
+  - Injected backlog: `GD-2026-03-30-coach-rec-compact-alias`, `GD-2026-03-30-echo-alias-flag-matrix`.

@@ -2474,3 +2474,4 @@
 - Preserved narrative mapping (`STEADY|ANCHOR_ECHO|SURGE_ECHO`) as offline planning signal only.
 - 2026-03-30 04:46 KST — GD cycle: implemented phase-echo compact alias token `CBGCFXWSBPFXPDE:<S|A|U>` (payload + signals) in readability drift digest; verified with regression script pass.
 - 2026-03-30 05:16 KST — Closed GD-2026-03-30-echo-alias-markdown: surfaced `CBGCFXWSBPFXPDE` markdown row in summary + token-coverage and locked ordering (`...ECHO -> ...FXPDE -> CBGCFXWAC COACH COPY REC`) with regression assertions.
+- 2026-03-30 05:16 KST — GD cycle (all queues were checked): evaluated 3 ideas (FXPDE legend row, coach-rec compact alias, FXPDE flag-matrix), selected low-risk readability experiment and shipped `CBGCFXWSBPFXPDE LEGEND` row + contract assertions.
