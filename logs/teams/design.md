@@ -2552,3 +2552,7 @@
 - Selected mid-risk idea: payload-only rehearsal phase-echo mutation `CBGCFXWSBPFXPD ECHO:{STEADY|ANCHOR_ECHO|SURGE_ECHO}` from prior-beat world-tone drift + rehearsal alias.
 - Scope stayed reversible/offline-only behind `...PHASE_ECHO_MUTATION`; no runtime balance or content pacing coupling.
 - Verification: weekly regression + smoke pass (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`).
+
+## 2026-03-30 03:49 KST — Cross-lane sync
+- No lane-owned runtime/content/UI changes in this slice.
+- Consumed Systems/QA regression hardening for portal readability digest markdown ordering (`... LEGEND -> ECHO -> COACH COPY REC`).

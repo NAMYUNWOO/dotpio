@@ -4285,3 +4285,8 @@
 ## 2026-03-30 03:13 KST — UX writer preview slice (`CBGCFXWSBPFXPD MICROLINE`)
 - Completed task: surfaced `CBGCFXWSBPFXPD MICROLINE` decode legend in portal copy linter preview output (`writerPreview` payload + markdown preview section) for writer readability checks.
 - Verification: `lua scripts/regression_portal_prompt_token_order.lua`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+
+## 2026-03-30 03:49 KST — Regression contract update (`ECHO` optional ordering)
+- Added regression assertions for optional `CBGCFXWSBPFXPD ECHO` row count, dependency, and ordering before `CBGCFXWAC COACH COPY REC`.
+- Tightened section-level markdown ordering checks and spacer-prefix validation to include `ECHO`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

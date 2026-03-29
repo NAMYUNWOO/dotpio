@@ -3972,3 +3972,12 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep decode source deterministic in `src/portal_prompt_linter.lua` (`writerPreview` contract) and mirror in `scripts/check_portal_prompt_token_order.lua` markdown/json outputs for writer audits.
 - Verification passed: `lua scripts/regression_portal_prompt_token_order.lua`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
 - Remaining unchecked queue head: Design/Systems Team adaptive phase-echo rehearsal hint mutation prototype (experiment-flagged, offline only).
+
+## 2026-03-30 03:49 KST — Optional-order regression durability update
+- Completed backlog/task item: deterministic optional-order contract for `CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWAC COACH COPY REC`.
+- Durable decisions:
+  - Treat `CBGCFXWSBPFXPD ECHO` as optional but constrained (`0` or section-paired rows), never standalone.
+  - Enforce strict adjacency `MICROLINE LEGEND -> ECHO` when emitted.
+  - Preserve coach-copy-rec row ordering by extending spacer contract to include the ECHO spacer in-sequence.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
+- Next queue: `QA Team: Add toggle-aware optional-order guard for CBGCFXWSBPFXPD ECHO copy line`.

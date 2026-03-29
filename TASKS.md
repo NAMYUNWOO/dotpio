@@ -1787,4 +1787,4 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — Cycle HB)
 - [ ] Combat/VFX Team: Prototype optional markdown rollout row `CBGCFXWSBPFXPD ECHO` + compact legend so mutation flavor is visible in summary/token-coverage without increasing gameplay coupling.
-- [ ] Systems/QA Team: Add deterministic optional-order regression contract for `CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWAC COACH COPY REC` path.
+- [x] Systems/QA Team: Add deterministic optional-order regression contract for `CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWAC COACH COPY REC` path.

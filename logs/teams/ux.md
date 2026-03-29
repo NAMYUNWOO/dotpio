@@ -2731,3 +2731,7 @@
 ## 2026-03-30 03:13 KST — UX writer preview slice (`CBGCFXWSBPFXPD MICROLINE`)
 - Completed task: surfaced `CBGCFXWSBPFXPD MICROLINE` decode legend in portal copy linter preview output (`writerPreview` payload + markdown preview section) for writer readability checks.
 - Verification: `lua scripts/regression_portal_prompt_token_order.lua`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+
+## 2026-03-30 03:49 KST — Cross-lane sync
+- No lane-owned runtime/content/UI changes in this slice.
+- Consumed Systems/QA regression hardening for portal readability digest markdown ordering (`... LEGEND -> ECHO -> COACH COPY REC`).

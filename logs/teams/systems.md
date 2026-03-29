@@ -3730,3 +3730,12 @@
   - `cadenceBridge...PhaseIntentRehearsalHintPhaseEchoMutationSignals`
 - Deterministic policy: `shifted=false -> STEADY`, `shifted=true + alias=S -> ANCHOR_ECHO`, `shifted=true + alias=U -> SURGE_ECHO`.
 - Verification: regression + digest smoke pass (commands above).
+
+## 2026-03-30 03:49 KST — Optional-order contract hardening (`ECHO` path)
+- Task: Close unchecked Systems/QA backlog item for deterministic optional-order markdown contract on `... MICROLINE LEGEND -> ... ECHO -> ... COACH COPY REC`.
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added explicit optional row cardinality/dependency checks for `CBGCFXWSBPFXPD ECHO`.
+  - Enforced per-section adjacency `MICROLINE LEGEND -> ECHO` and extended coach-rec spacer window/order contract accordingly.
+- Follow-up: Next unchecked queue item remains `QA Team: Add toggle-aware optional-order guard for CBGCFXWSBPFXPD ECHO copy line`.
