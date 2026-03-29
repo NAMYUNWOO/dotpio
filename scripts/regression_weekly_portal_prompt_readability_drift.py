@@ -3162,6 +3162,34 @@ def main() -> int:
             assert intensity_pulse_language_variant_pack_phase_intent_alias == f"CBGCFXWSBPFXPI:{expected_phase_intent_alias}", payload
         else:
             assert intensity_pulse_language_variant_pack_phase_intent_alias == "FLAG OFF", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarration", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPI NARR:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "phaseIntent",
+            "pulseAlias",
+            "coachMomentum",
+            "narration",
+            "reason",
+            "token",
+            "offlineOnly",
+        }, payload
+        intensity_pulse_language_variant_pack_phase_intent_narration = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarration", "")
+        intensity_pulse_language_variant_pack_phase_intent_narration_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationSignals", {})
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("phaseIntent") in {"ANCHOR", "SURGE"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("pulseAlias") in {"S", "P"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("coachMomentum") in {"LOCKED", "WOBBLE"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("narration") in {"ANCHOR", "SURGE", "RECOVER"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("offlineOnly") is True, payload
+        expected_narration = "SURGE" if expected_phase_intent == "SURGE" else "ANCHOR"
+        if expected_phase_intent == "ANCHOR" and intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("coachMomentum") == "WOBBLE":
+            expected_narration = "RECOVER"
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("narration") == expected_narration, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("token") == f"CBGCFXWSBPFXPI NARR:{expected_narration}", payload
+        if intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("flagEnabled") is True:
+            assert intensity_pulse_language_variant_pack_phase_intent_narration == f"CBGCFXWSBPFXPI NARR:{expected_narration}", payload
+        else:
+            assert intensity_pulse_language_variant_pack_phase_intent_narration == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePair", "").startswith(("FLAG OFF", "CBGCFXWSBPFXP MICRO:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePairSignals", {}).keys()) == {
             "flagName",

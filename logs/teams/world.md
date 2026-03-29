@@ -2442,3 +2442,13 @@
 - Verification: weekly digest smoke + regression pass ✅
 - Decisions:
   - Mapped `ANCHOR->A` and `SURGE->S` to preserve narrative intent while minimizing token width.
+
+## 2026-03-30 01:24 KST
+- Task: Prototype offline tri-state phase-intent narration variant (`ANCHOR|SURGE|RECOVER`) behind dedicated flag.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions:
+  - Added payload-only token `CBGCFXWSBPFXPI NARR:<ANCHOR|SURGE|RECOVER>` sourced from `phaseIntent` + `CBGCFXWAC MOMENTUM` (RECOVER when `ANCHOR` intent meets `WOBBLE` momentum).
+  - Kept rollout fully reversible via `DOTPIO_EXPERIMENT_..._PHASE_INTENT_NARRATION` flag and explicit `FLAG OFF` fallback.
+

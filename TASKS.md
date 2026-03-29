@@ -1757,5 +1757,5 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — Cycle GZ)
 - [x] Systems/QA Team: Add optional markdown adjacency/order guard for `CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI` rollout path with deterministic dual-section count contract. *(lifecycle: [~] started: 2026-03-30 00:41 KST -> [x] completed: 2026-03-30 00:52 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] Design/World Team: Prototype offline tri-state phase-intent narration variant (`ANCHOR|SURGE|RECOVER`) from pulse alias momentum memory behind a dedicated experiment flag.
+- [x] Design/World Team: Prototype offline tri-state phase-intent narration variant (`ANCHOR|SURGE|RECOVER`) from pulse alias momentum memory behind a dedicated experiment flag. *(2026-03-30 01:11 KST -> 2026-03-30 01:24 KST, verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [ ] Combat/VFX Team: Evaluate whether `CBGCFXWSBPFXPI` should inform compact cue rehearsal hints (`SOFT drill` vs `SURGE drill`) without changing runtime balance.

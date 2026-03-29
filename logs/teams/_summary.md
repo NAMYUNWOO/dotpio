@@ -13,6 +13,10 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed Design/World tri-state narration prototype item: weekly digest payload now emits `CBGCFXWSBPFXPI NARR:<ANCHOR|SURGE|RECOVER>` behind a dedicated experiment flag, derived from pulse phase intent plus coach momentum memory.
+- Added deterministic policy + schema contract for narration signals (`phaseIntent`, `pulseAlias`, `coachMomentum`, `narration`, `reason`, `token`, `offlineOnly`) with regression locks for domain/coherence and flag-off fallback.
+- Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`); TASKS/POST_RC backlog item synchronized to done.
+
 - Closed the remaining AI Content/World backlog item for pulse-language variant packs: copy now explicitly binds storybeat phase intent (`CALM->ANCHOR`, `TENSE->SURGE`) while preserving compact token contract `CBGCFXWSBPFXP LANG:<S|P>`.
 - Extended payload schema with deterministic `phaseIntent` in `...IntensityPulseLanguageVariantPackSignals` and added regression assertions for domain/coherence.
 - Marked corresponding TASKS + POST_RC_BACKLOG entries done and synchronized cross-lane logs (systems/world/ai-content/combat/design/ux/qa).
