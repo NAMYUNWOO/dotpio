@@ -3751,6 +3751,10 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_indices = _find_line_indices("- CBGCFXWSBPFXP MICROLINE LEGEND:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_legend_indices = _find_line_indices("- CBGCFXWSBPFCI LEGEND:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_indices = _find_line_indices("- CBGCFXWSBPFCI COACH COPY:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_indices = _find_line_indices("- CBGCFXWSBPFXP LANG:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_indices = [
+            i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPI:")
+        ]
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_indices = _find_line_indices("- CBGCFXWAC COACH COPY REC:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_indices = _find_line_indices("- CBGCFXWACRP:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_legend_indices = _find_line_indices("- CBGCFXWACRP LEGEND:")
@@ -4277,6 +4281,15 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_indices) == 2, (
             "expected exactly two CBGCFXWSBPFCI COACH COPY rows (summary + token-coverage sections)"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_indices) in {1, 2}, (
+            "expected one or exactly two CBGCFXWSBPFXP LANG rows (summary-only or summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_indices) in {0, 2}, (
+            "expected zero or exactly two CBGCFXWSBPFXPI rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_indices), (
+            "expected CBGCFXWSBPFXPI rollout rows to appear only when CBGCFXWSBPFXP LANG rows are present"
+        )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_indices) == 2, (
             "expected exactly two CBGCFXWAC COACH COPY REC rows (summary + token-coverage sections)"
         )
@@ -4320,7 +4333,7 @@ def main() -> int:
         )
 
         # Game Director Cycle GR lock: keep coach alias drift->momentum chain deterministic.
-        for section_name, drift_idx, momentum_idx, momentum_family_churn_idx, storybeat_idx, storybeat_family_churn_idx, storybeat_phase_idx, storybeat_phase_family_churn_idx, storybeat_phase_fx_cue_idx, storybeat_phase_fx_cue_compact_alias_idx, storybeat_phase_fx_cue_compact_alias_intensity_idx, storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_idx, storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_idx, storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_idx, storybeat_phase_fx_cue_compact_alias_intensity_legend_idx, storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx, coach_copy_variant_rec_idx, coach_copy_reason_priority_alias_idx, coach_copy_reason_priority_alias_legend_idx, coherence_alias_idx in zip(
+        for section_idx, (section_name, drift_idx, momentum_idx, momentum_family_churn_idx, storybeat_idx, storybeat_family_churn_idx, storybeat_phase_idx, storybeat_phase_family_churn_idx, storybeat_phase_fx_cue_idx, storybeat_phase_fx_cue_compact_alias_idx, storybeat_phase_fx_cue_compact_alias_intensity_idx, storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_idx, storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_idx, storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_idx, storybeat_phase_fx_cue_compact_alias_intensity_legend_idx, storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx, coach_copy_variant_rec_idx, coach_copy_reason_priority_alias_idx, coach_copy_reason_priority_alias_legend_idx, coherence_alias_idx) in enumerate(zip(
             ("summary", "token-coverage"),
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_drift_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_momentum_indices,
@@ -4341,7 +4354,7 @@ def main() -> int:
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_legend_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_alias_indices,
-        ):
+        )):
             assert momentum_idx == drift_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWAC MOMENTUM row directly after CBGCFXWAC DRIFT row"
             )
@@ -4387,13 +4400,45 @@ def main() -> int:
             assert coach_copy_variant_rec_idx in {
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1,
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 2,
+                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 3,
             }, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row immediately after CBGCFXWSBPFCI COACH COPY row or with one optional CBGCFXWSBPFXP LANG spacer"
+                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row immediately after CBGCFXWSBPFCI COACH COPY row, with optional CBGCFXWSBPFXP LANG spacer and optional CBGCFXWSBPFXPI spacer"
             )
-            if coach_copy_variant_rec_idx == storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 2:
-                spacer_line = md_lines[storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1]
-                assert spacer_line.startswith("- CBGCFXWSBPFXP LANG:"), (
-                    f"markdown contract violated in {section_name} section: only CBGCFXWSBPFXP LANG row may appear between CBGCFXWSBPFCI COACH COPY and CBGCFXWAC COACH COPY REC"
+            spacer_lines = md_lines[
+                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1 : coach_copy_variant_rec_idx
+            ]
+            if len(spacer_lines) == 1:
+                assert spacer_lines[0].startswith("- CBGCFXWSBPFXP LANG:"), (
+                    f"markdown contract violated in {section_name} section: only CBGCFXWSBPFXP LANG may appear as single spacer between CBGCFXWSBPFCI COACH COPY and CBGCFXWAC COACH COPY REC"
+                )
+            elif len(spacer_lines) == 2:
+                assert spacer_lines[0].startswith("- CBGCFXWSBPFXP LANG:"), (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXP LANG as first spacer before CBGCFXWSBPFXPI"
+                )
+                assert spacer_lines[1].startswith("- CBGCFXWSBPFXPI:"), (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPI as second spacer directly after CBGCFXWSBPFXP LANG"
+                )
+
+            optional_lang_idx = (
+                cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_indices[section_idx]
+                if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_indices) == 2
+                else None
+            )
+            optional_phase_intent_alias_idx = (
+                cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_indices[section_idx]
+                if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_indices) == 2
+                else None
+            )
+            if optional_lang_idx is not None:
+                assert optional_lang_idx == storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXP LANG row directly after CBGCFXWSBPFCI COACH COPY when LANG rollout rows exist"
+                )
+            if optional_phase_intent_alias_idx is not None:
+                assert optional_lang_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPI row cannot appear without CBGCFXWSBPFXP LANG row"
+                )
+                assert optional_phase_intent_alias_idx == optional_lang_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPI row directly after CBGCFXWSBPFXP LANG row"
                 )
             assert coach_copy_reason_priority_alias_idx == coach_copy_variant_rec_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWACRP row directly after CBGCFXWAC COACH COPY REC row"

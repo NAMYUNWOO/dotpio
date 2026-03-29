@@ -3674,3 +3674,12 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Decisions:
   - Added a standalone payload alias resolver so downstream automation can branch on intent without parsing long `phaseIntent` strings.
+
+## 2026-03-30 00:52 KST
+- Task: Add optional markdown rollout contract for `CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI` adjacency and dual-section count safety.
+- Commit: pending
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions:
+  - Added optional rollout guardrails so `CBGCFXWSBPFXPI` can appear only directly after `CBGCFXWSBPFXP LANG`.
+  - Added deterministic count contract for `CBGCFXWSBPFXPI` rows (`0` or `2`) while preserving current summary-only `CBGCFXWSBPFXP LANG` path.

@@ -3941,3 +3941,6 @@ Compact decision memory for AI context efficiency.
 - Durable contract: `ANCHOR->A`, `SURGE->S`, output token `CBGCFXWSBPFXPI:<A|S>`, with deterministic `FLAG OFF` fallback when flag-disabled.
 - Regression guardrails updated for schema/domain coherence and optional LANG spacer adjacency before `CBGCFXWAC COACH COPY REC`.
 - Backlog injection queued follow-ups for markdown-order guard rollout, tri-state intent narration prototype, and combat rehearsal hint evaluation.
+- 2026-03-30 00:52 KST: Closed Systems/QA backlog guardrail for optional `CBGCFXWSBPFXPI` markdown rollout path.
+- Durable contract: `CBGCFXWSBPFXPI` is optional (`0` or `2` rows), and when present must follow `CBGCFXWSBPFXP LANG` immediately in both summary/token-coverage sections.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.

@@ -4236,3 +4236,14 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decisions:
   - Added strict key/domain assertions (`phaseIntent` in `ANCHOR|SURGE`, `alias` in `A|S`) and coherence checks against upstream phase-intent mapping.
+
+## 2026-03-30 00:52 KST
+- Task: Add regression ordering/count contract for optional `CBGCFXWSBPFXPI` markdown rollout path.
+- Commit: pending
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Notes:
+  - Contract now enforces optional spacer chain `CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI` only.
+  - If `CBGCFXWSBPFXPI` rows exist, they must be present in both sections and immediately follow `LANG` rows.
