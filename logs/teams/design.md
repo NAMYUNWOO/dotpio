@@ -2546,3 +2546,9 @@
 ## 2026-03-30 03:13 KST — UX writer preview slice (`CBGCFXWSBPFXPD MICROLINE`)
 - Completed task: surfaced `CBGCFXWSBPFXPD MICROLINE` decode legend in portal copy linter preview output (`writerPreview` payload + markdown preview section) for writer readability checks.
 - Verification: `lua scripts/regression_portal_prompt_token_order.lua`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+
+## 2026-03-30 03:41 KST — Cycle HB design/systems phase-echo slice
+- Coverage gate check held (`systems=2, ux=2, world=2, ai-content=1, combat=1, design=1, qa=1, vfx=0` over last 10 completions); no lane >40%.
+- Selected mid-risk idea: payload-only rehearsal phase-echo mutation `CBGCFXWSBPFXPD ECHO:{STEADY|ANCHOR_ECHO|SURGE_ECHO}` from prior-beat world-tone drift + rehearsal alias.
+- Scope stayed reversible/offline-only behind `...PHASE_ECHO_MUTATION`; no runtime balance or content pacing coupling.
+- Verification: weekly regression + smoke pass (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`).

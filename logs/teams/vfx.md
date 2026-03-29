@@ -367,3 +367,8 @@
 - Selected low-risk vertical slice to rebalance visible combat/vfx cadence: payload-only pulse alias `CBGCFXWSBPFXP:S|P` derived from `CBGCFXWSBPFCI` intensity (`BASE->S`, `RAISED->P`).
 - Scope is additive and reversible (flag-gated, no runtime combat/balance changes): `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_FX_CUE_INTENSITY_PULSE_ALIAS`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` PASS.
+
+## 2026-03-30 03:41 KST — Cycle HB cadence note (vfx lane)
+- No direct combat/VFX runtime token shipped this cycle; completion focus was design/systems payload mutation.
+- 24h cadence remains satisfied via prior combat/vfx shipment (`CBGCFXWSBPFXPD:S|U`) while vfx underrepresentation is tracked (`vfx=0` in last-10 heading mix).
+- Next injected item prioritizes VFX visibility: optional markdown rollout row for `CBGCFXWSBPFXPD ECHO` + compact legend.

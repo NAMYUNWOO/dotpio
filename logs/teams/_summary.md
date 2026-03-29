@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 02:49 KST
+Last updated: 2026-03-30 03:41 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Executed Game Director Cycle HB coverage check over last 10 completed headings: systems=2, ux=2, world=2, ai-content=1, combat=1, design=1, qa=1, vfx=0; no lane exceeded 40%, and 24h cadence gate remains satisfied (`combat/vfx`, `design/world`, `systems/ops` all present).
+- Chosen Cycle HB experiment shipped as minimal vertical slice: payload-only `CBGCFXWSBPFXPD ECHO:{STEADY|ANCHOR_ECHO|SURGE_ECHO}` mutation from prior-beat world-tone drift (`CBGCFXW DRIFT`) + rehearsal alias (`CBGCFXWSBPFXPD`), guarded by `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_PHASE_ECHO_MUTATION`.
+- Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`); injected next tasks target Combat/VFX visibility rollout (`CBGCFXWSBPFXPD ECHO` markdown row + legend) and Systems/QA optional-order regression lock.
 
 - Closed Design/World backlog follow-up: weekly digest now emits offline rehearsal vocabulary pack `CBGCFXWSBPFXPD MICRO:S=SOFT drill,U=SURGE drill` with deterministic legend/version/hash and DOS row-budget guardrails.
 - Payload contract now includes `...RehearsalHintCompactAliasMicrolineVocabulary` + signals (`alias`, `selected`, `pair`, `legendVersion`, `legendHash`, budget fields, `offlineOnly`), keyed off `CBGCFXWSBPFXPD` alias.

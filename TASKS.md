@@ -1774,4 +1774,17 @@ See project-level plans:
 - [x] Design/World Team: Prototype offline rehearsal microline vocabulary pack keyed by `CBGCFXWSBPFXPD` (`SOFT drill` vs `SURGE drill`) with compact DOS budget guardrails. *(2026-03-30 02:44 KST: [ ] -> [~] -> [x]; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 ### Injected by Game Director cycle (2026-03-30 GD-01)
 - [x] UX Team: Surface `CBGCFXWSBPFXPD MICROLINE` legend/decode in portal copy linter preview for writer readability checks. *(lifecycle: [ ] -> [~] started: 2026-03-30 03:11 KST -> [x] completed: 2026-03-30 03:13 KST; verification: `lua scripts/regression_portal_prompt_token_order.lua` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] Design/Systems Team: Prototype adaptive phase-echo rehearsal hint mutation using prior-beat alias drift (experiment-flagged, offline only).
+- [x] Design/Systems Team: Prototype adaptive phase-echo rehearsal hint mutation using prior-beat alias drift (experiment-flagged, offline only). *(lifecycle: [ ] -> [~] started: 2026-03-30 03:33 KST -> [x] completed: 2026-03-30 03:39 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Game Director Cycle HB — 2026-03-30 03:41 KST
+- Coverage check (last 10 completed headings by lane): systems=2, ux=2, world=2, ai-content=1, combat=1, design=1, qa=1, vfx=0.
+- Lane-cap result: no lane exceeded 40%, so no forced-lane override; underrepresented pressure remains vfx + qa.
+- 24h cadence gate: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low-risk UX/game-feel, combat/vfx): Surface optional digest row `CBGCFXWSBPFXPD ECHO` so operators can glance mutation flavor without parsing payload JSON.
+- Idea 2 (mid-risk systems/design): Add payload-only `CBGCFXWSBPFXPD ECHO:{STEADY|ANCHOR_ECHO|SURGE_ECHO}` mutation derived from prior-beat world-tone drift + rehearsal alias. **Selected.**
+- Idea 3 (high-risk novelty world/combat): Add two-window echo-memory that can intentionally invert the next rehearsal cue when drift oscillates (`C↔T`) twice.
+- [x] Design/Systems Team (Cycle HB selected experiment): Added payload-only phase-echo mutation token/signals behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_PHASE_ECHO_MUTATION` (offline-only, reversible, no runtime balance coupling). *(lifecycle: [ ] -> [~] started: 2026-03-30 03:33 KST -> [x] completed: 2026-03-30 03:39 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle HB)
+- [ ] Combat/VFX Team: Prototype optional markdown rollout row `CBGCFXWSBPFXPD ECHO` + compact legend so mutation flavor is visible in summary/token-coverage without increasing gameplay coupling.
+- [ ] Systems/QA Team: Add deterministic optional-order regression contract for `CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWAC COACH COPY REC` path.

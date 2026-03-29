@@ -3722,3 +3722,11 @@
 ## 2026-03-30 03:13 KST — UX writer preview slice (`CBGCFXWSBPFXPD MICROLINE`)
 - Completed task: surfaced `CBGCFXWSBPFXPD MICROLINE` decode legend in portal copy linter preview output (`writerPreview` payload + markdown preview section) for writer readability checks.
 - Verification: `lua scripts/regression_portal_prompt_token_order.lua`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+
+## 2026-03-30 03:41 KST — Cycle HB systems handoff
+- Implemented new resolver `resolve_...phase_echo_mutation` in weekly digest pipeline.
+- Added payload contract keys for token/signals:
+  - `cadenceBridge...PhaseIntentRehearsalHintPhaseEchoMutation`
+  - `cadenceBridge...PhaseIntentRehearsalHintPhaseEchoMutationSignals`
+- Deterministic policy: `shifted=false -> STEADY`, `shifted=true + alias=S -> ANCHOR_ECHO`, `shifted=true + alias=U -> SURGE_ECHO`.
+- Verification: regression + digest smoke pass (commands above).
