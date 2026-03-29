@@ -1700,4 +1700,4 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — 2026-03-29 Cycle GS)
 - [ ] Combat/VFX Team: Prototype payload-only `CBGCFXWSBP FX CUE:SOFT|EDGE` adapter so tense storybeat phases request stronger combat feedback pass hints without touching runtime combat balance.
-- [ ] Systems/Ops Team: Add regression contract lock for storybeat-phase harmonized coach-copy recommendation reason-domain (`stable-calm|tense-phase|wobble`) and output token domain (`ANCHOR_STEP|SLOW_STEP|HOLD_STEP`).
+- [x] Systems/Ops Team: Add regression contract lock for storybeat-phase harmonized coach-copy recommendation reason-domain (`stable-calm|tense-phase|wobble`) and output token domain (`ANCHOR_STEP|SLOW_STEP|HOLD_STEP`). *(lifecycle: [ ] -> [~] started: 2026-03-29 15:59 KST -> [x] completed: 2026-03-29 16:02 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*

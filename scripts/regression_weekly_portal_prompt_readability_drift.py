@@ -2999,6 +2999,26 @@ def main() -> int:
         assert storybeat_phase_signals.get("coachMomentum") in {"LOCKED", "WOBBLE"}, payload
         assert storybeat_phase_signals.get("token", "").startswith("CBGCFXWSBP:"), payload
         assert storybeat_phase_signals.get("offlineOnly") is True, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendation", "").startswith(("FLAG OFF", "CBGCFXWAC COACH COPY REC:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "arc",
+            "momentum",
+            "storybeatPhase",
+            "recommendation",
+            "reason",
+            "token",
+            "offlineOnly",
+        }, payload
+        coach_copy_rec_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationSignals", {})
+        assert coach_copy_rec_signals.get("arc") in {"LOCK", "SWAY"}, payload
+        assert coach_copy_rec_signals.get("momentum") in {"LOCKED", "WOBBLE"}, payload
+        assert coach_copy_rec_signals.get("storybeatPhase") in {"CALM", "TENSE"}, payload
+        assert coach_copy_rec_signals.get("recommendation") in {"ANCHOR_STEP", "SLOW_STEP", "HOLD_STEP"}, payload
+        assert coach_copy_rec_signals.get("reason") in {"stable-calm", "tense-phase", "wobble"}, payload
+        assert coach_copy_rec_signals.get("token", "").startswith("CBGCFXWAC COACH COPY REC:"), payload
+        assert coach_copy_rec_signals.get("offlineOnly") is True, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias", "").startswith(("FLAG OFF", "CBGCFXWC:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals", {}).keys()) == {
             "flagName",

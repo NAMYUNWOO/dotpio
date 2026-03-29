@@ -13,6 +13,10 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed Systems/Ops follow-up from Cycle GS: storybeat harmonized coach-copy recommendation now has regression contract locks for reason-domain (`stable-calm|tense-phase|wobble`) and recommendation token-domain (`ANCHOR_STEP|SLOW_STEP|HOLD_STEP`).
+- Simplified coach-copy recommendation reason mapping in weekly digest generator to the normalized 3-value domain while preserving existing recommendation behavior (`ANCHOR_STEP|SLOW_STEP|HOLD_STEP`) and offline-only semantics.
+- Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`); next highest-priority unchecked task is Combat/VFX `CBGCFXWSBP FX CUE:SOFT|EDGE` adapter.
+
 - Executed Game Director Cycle GS coverage check (last 10 completed, primary-lane): design=3, systems=3, ux=2, combat=1, ai-content=1; no lane breached 40%, but world/vfx/qa remained underrepresented so next injections target combat/vfx + systems/ops guardrails.
 - Closed POST_RC Design/AI Content follow-up: `CBGCFXWAC COACH COPY REC` policy now harmonizes with `CBGCFXWSBP` phase signals (`CALM|TENSE`), allowing tense phases to escalate from HOLD toward SLOW/ANCHOR even without wobble momentum.
 - Verified Cycle GS slice with regression + weekly smoke (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`); injected next tasks: (1) Combat/VFX `CBGCFXWSBP FX CUE:SOFT|EDGE` adapter and (2) Systems/Ops reason-domain lock for harmonized coach-copy recommendations.

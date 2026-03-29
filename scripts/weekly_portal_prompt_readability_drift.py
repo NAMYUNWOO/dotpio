@@ -2044,19 +2044,21 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
 
     if momentum == "WOBBLE" and arc == "LOCK":
         recommendation = "ANCHOR_STEP"
-        reason = "lock-arc-wobble-needs-anchor-variant"
     elif storybeat_phase == "TENSE" and arc == "LOCK":
         recommendation = "ANCHOR_STEP"
-        reason = "tense-storybeat-lock-arc-promotes-anchor-variant"
     elif momentum == "WOBBLE":
         recommendation = "SLOW_STEP"
-        reason = "sway-arc-wobble-needs-stabilizing-variant"
     elif storybeat_phase == "TENSE":
         recommendation = "SLOW_STEP"
-        reason = "tense-storybeat-prefers-slow-step-before-hold"
     else:
         recommendation = "HOLD_STEP"
-        reason = "stable-calm-keeps-current-coach-copy"
+
+    if momentum == "WOBBLE":
+        reason = "wobble"
+    elif storybeat_phase == "TENSE":
+        reason = "tense-phase"
+    else:
+        reason = "stable-calm"
 
     token = f"CBGCFXWAC COACH COPY REC:{recommendation}"
     return (token if flag_enabled else "FLAG OFF"), {

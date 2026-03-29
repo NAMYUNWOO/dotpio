@@ -2437,3 +2437,11 @@
 - Completed vertical slice: wired CBGCFXWSBP phase (CALM|TENSE) into CBGCFXWAC COACH COPY REC decision path so tense phases can bias from HOLD to SLOW/ANCHOR when appropriate.
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py and python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120.
 - Next injection: CBGCFXWSBP FX CUE:SOFT|EDGE (combat/vfx) + systems reason-domain regression lock.
+
+
+## 2026-03-29 16:02 KST — Storybeat coach-copy regression reason-domain lock
+- Completed Systems/Ops backlog item for harmonized storybeat coach-copy recommendation contract.
+- Locked recommendation reason-domain to `stable-calm|tense-phase|wobble` and output token domain to `ANCHOR_STEP|SLOW_STEP|HOLD_STEP` in weekly digest regression assertions.
+- Simplified generator reason mapping in `resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation` while preserving recommendation behavior and offline-only scope.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- Follow-up: Remaining highest-priority unchecked item is Combat/VFX `CBGCFXWSBP FX CUE:SOFT|EDGE` adapter.
