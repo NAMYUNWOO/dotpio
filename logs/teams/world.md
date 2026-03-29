@@ -2388,3 +2388,7 @@
 
 ## 2026-03-29 17:29 KST — Cycle GV world notes
 - No world-tone mapping changes; storybeat/world semantics remained stable while rollout contract rows were added.
+
+## 2026-03-29 18:16 KST — World lane status
+- Update: No world-map/portal topology changes in this slice.
+- Dependency note: Future visible rollout can pair with narrative bridge rows without altering map contracts.

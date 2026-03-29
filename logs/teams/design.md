@@ -2463,3 +2463,8 @@
 
 ## 2026-03-29 17:29 KST — Cycle GV design notes
 - Added intensity legend row (`B=BASE, R=RAISED`) in summary/token-coverage sections to improve scanability for future visible rollouts.
+
+## 2026-03-29 18:16 KST — Copy posture pass (BASE/RAISED)
+- Decision: Keep microline wording deterministic and short for future digest row exposure.
+- Notes: Selected lines preserve readability contract (`BASE`=grounded pacing, `RAISED`=urgent action focus).
+- Follow-up: If surfaced in markdown later, add legend row adjacent to `CBGCFXWSBPFCI` cluster.

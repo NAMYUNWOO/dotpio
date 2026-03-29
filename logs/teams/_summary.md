@@ -3883,3 +3883,14 @@ Compact decision memory for AI context efficiency.
 - Added deterministic order contract in regression: `CBGCFXWSBP -> ... FAMILY CHURN -> FX CUE -> CBGCFXWSBPFC -> CBGCFXWSBPFCI -> LEGEND -> CBGCFXWAC COACH COPY REC -> CBGCFXWC`.
 - Verification: [PASS] regression + weekly digest smoke commands.
 - Remaining unchecked high-priority item: Design/AI Content intensity microline pair (`BASE|RAISED`).
+
+## 2026-03-29 18:24 KST — Game Director review cycle (post-checklist)
+- Coverage scan (recent completed lanes): AI-content/design dominated; systems+qa active; no fresh world-map edits this cycle.
+- Candidate ideas generated:
+  1. **Low-risk UX/game-feel:** expose compact intensity coach-copy alias for digest-width-safe operator scanning.
+  2. **Mid-risk systems/combat/design (chosen):** make coach-copy recommendation intensity-aware so `RAISED` cue state nudges `SLOW_STEP` even during calm phase.
+  3. **High-risk novelty:** adaptive narrative glitch mode that intentionally desyncs coach copy under high volatility to create "haunted terminal" moments.
+- Implemented experiment (vertical slice): added intensity input to `CBGCFXWAC COACH COPY REC` resolver and introduced `raised-intensity` reason path; keeps existing wobble/tense precedence.
+- Also shipped supporting payload row: `CBGCFXWSBPFCI COACH COPY` offline microline pair (`BASE|RAISED`).
+- Verification: regression + weekly prompt drift scripts both PASS.
+- Backlog injection: added follow-up tasks for alias exposure and volatility guard below.

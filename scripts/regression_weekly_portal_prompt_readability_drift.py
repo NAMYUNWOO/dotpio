@@ -3067,6 +3067,36 @@ def main() -> int:
             assert storybeat_phase_fx_cue_compact_alias_intensity == f"CBGCFXWSBPFCI:{expected_intensity_compact_alias}", payload
         else:
             assert storybeat_phase_fx_cue_compact_alias_intensity == "FLAG OFF", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensityCoachMicrolinePair", "").startswith(("FLAG OFF", "CBGCFXWSBPFCI COACH COPY:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensityCoachMicrolinePairSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "intensity",
+            "selected",
+            "pair",
+            "token",
+            "offlineOnly",
+        }, payload
+        intensity_coach_microline_pair_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensityCoachMicrolinePairSignals", {})
+        assert intensity_coach_microline_pair_signals.get("intensity") in {"BASE", "RAISED"}, payload
+        assert isinstance(intensity_coach_microline_pair_signals.get("selected"), str) and intensity_coach_microline_pair_signals.get("selected"), payload
+        intensity_pair = intensity_coach_microline_pair_signals.get("pair")
+        assert isinstance(intensity_pair, dict), payload
+        assert set(intensity_pair.keys()) == {"BASE", "RAISED"}, payload
+        assert all(isinstance(v, str) and v for v in intensity_pair.values()), payload
+        assert intensity_coach_microline_pair_signals.get("token", "").startswith("CBGCFXWSBPFCI COACH COPY:"), payload
+        assert intensity_coach_microline_pair_signals.get("offlineOnly") is True, payload
+        expected_intensity_state = storybeat_phase_fx_cue_compact_alias_intensity_signals.get("intensity")
+        assert intensity_coach_microline_pair_signals.get("intensity") == expected_intensity_state, payload
+        expected_selected_line = intensity_pair[expected_intensity_state]
+        assert intensity_coach_microline_pair_signals.get("selected") == expected_selected_line, payload
+        expected_intensity_token = f"CBGCFXWSBPFCI COACH COPY:{expected_intensity_state}"
+        assert intensity_coach_microline_pair_signals.get("token") == expected_intensity_token, payload
+        intensity_coach_microline_pair_token = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensityCoachMicrolinePair", "")
+        if intensity_coach_microline_pair_signals.get("flagEnabled") is True:
+            assert intensity_coach_microline_pair_token == expected_intensity_token, payload
+        else:
+            assert intensity_coach_microline_pair_token == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendation", "").startswith(("FLAG OFF", "CBGCFXWAC COACH COPY REC:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationSignals", {}).keys()) == {
             "flagName",
@@ -3074,6 +3104,7 @@ def main() -> int:
             "arc",
             "momentum",
             "storybeatPhase",
+            "intensity",
             "recommendation",
             "reason",
             "token",
@@ -3083,10 +3114,30 @@ def main() -> int:
         assert coach_copy_rec_signals.get("arc") in {"LOCK", "SWAY"}, payload
         assert coach_copy_rec_signals.get("momentum") in {"LOCKED", "WOBBLE"}, payload
         assert coach_copy_rec_signals.get("storybeatPhase") in {"CALM", "TENSE"}, payload
+        assert coach_copy_rec_signals.get("intensity") in {"BASE", "RAISED"}, payload
         assert coach_copy_rec_signals.get("recommendation") in {"ANCHOR_STEP", "SLOW_STEP", "HOLD_STEP"}, payload
-        assert coach_copy_rec_signals.get("reason") in {"stable-calm", "tense-phase", "wobble"}, payload
+        assert coach_copy_rec_signals.get("reason") in {"stable-calm", "tense-phase", "wobble", "raised-intensity"}, payload
         assert coach_copy_rec_signals.get("token", "").startswith("CBGCFXWAC COACH COPY REC:"), payload
         assert coach_copy_rec_signals.get("offlineOnly") is True, payload
+        expected_reason = "stable-calm"
+        expected_recommendation = "HOLD_STEP"
+        if coach_copy_rec_signals.get("momentum") == "WOBBLE" and coach_copy_rec_signals.get("arc") == "LOCK":
+            expected_recommendation = "ANCHOR_STEP"
+            expected_reason = "wobble"
+        elif coach_copy_rec_signals.get("storybeatPhase") == "TENSE" and coach_copy_rec_signals.get("arc") == "LOCK":
+            expected_recommendation = "ANCHOR_STEP"
+            expected_reason = "tense-phase"
+        elif coach_copy_rec_signals.get("momentum") == "WOBBLE":
+            expected_recommendation = "SLOW_STEP"
+            expected_reason = "wobble"
+        elif coach_copy_rec_signals.get("storybeatPhase") == "TENSE":
+            expected_recommendation = "SLOW_STEP"
+            expected_reason = "tense-phase"
+        elif coach_copy_rec_signals.get("intensity") == "RAISED":
+            expected_recommendation = "SLOW_STEP"
+            expected_reason = "raised-intensity"
+        assert coach_copy_rec_signals.get("recommendation") == expected_recommendation, payload
+        assert coach_copy_rec_signals.get("reason") == expected_reason, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias", "").startswith(("FLAG OFF", "CBGCFXWC:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals", {}).keys()) == {
             "flagName",
@@ -3496,6 +3547,7 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_indices = _find_line_indices("- CBGCFXWSBPFC:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_indices = _find_line_indices("- CBGCFXWSBPFCI:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_legend_indices = _find_line_indices("- CBGCFXWSBPFCI LEGEND:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_indices = _find_line_indices("- CBGCFXWSBPFCI COACH COPY:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_indices = _find_line_indices("- CBGCFXWAC COACH COPY REC:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_indices = _find_line_indices("- CBGCFXW DRIFT:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_family_churn_indices = _find_line_indices("- CBGCFXW DRIFT FAMILY CHURN:")
@@ -4008,6 +4060,9 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_legend_indices) == 2, (
             "expected exactly two CBGCFXWSBPFCI LEGEND rows (summary + token-coverage sections)"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_indices) == 2, (
+            "expected exactly two CBGCFXWSBPFCI COACH COPY rows (summary + token-coverage sections)"
+        )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_indices) == 2, (
             "expected exactly two CBGCFXWAC COACH COPY REC rows (summary + token-coverage sections)"
         )
@@ -4045,7 +4100,7 @@ def main() -> int:
         )
 
         # Game Director Cycle GR lock: keep coach alias drift->momentum chain deterministic.
-        for section_name, drift_idx, momentum_idx, momentum_family_churn_idx, storybeat_idx, storybeat_family_churn_idx, storybeat_phase_idx, storybeat_phase_family_churn_idx, storybeat_phase_fx_cue_idx, storybeat_phase_fx_cue_compact_alias_idx, storybeat_phase_fx_cue_compact_alias_intensity_idx, storybeat_phase_fx_cue_compact_alias_intensity_legend_idx, coach_copy_variant_rec_idx, coherence_alias_idx in zip(
+        for section_name, drift_idx, momentum_idx, momentum_family_churn_idx, storybeat_idx, storybeat_family_churn_idx, storybeat_phase_idx, storybeat_phase_family_churn_idx, storybeat_phase_fx_cue_idx, storybeat_phase_fx_cue_compact_alias_idx, storybeat_phase_fx_cue_compact_alias_intensity_idx, storybeat_phase_fx_cue_compact_alias_intensity_legend_idx, storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx, coach_copy_variant_rec_idx, coherence_alias_idx in zip(
             ("summary", "token-coverage"),
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_drift_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_momentum_indices,
@@ -4058,6 +4113,7 @@ def main() -> int:
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_legend_indices,
+            cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_alias_indices,
         ):
@@ -4091,8 +4147,11 @@ def main() -> int:
             assert storybeat_phase_fx_cue_compact_alias_intensity_legend_idx == storybeat_phase_fx_cue_compact_alias_intensity_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFCI LEGEND row directly after CBGCFXWSBPFCI row"
             )
-            assert coach_copy_variant_rec_idx == storybeat_phase_fx_cue_compact_alias_intensity_legend_idx + 1, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row directly after CBGCFXWSBPFCI LEGEND row"
+            assert storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx == storybeat_phase_fx_cue_compact_alias_intensity_legend_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFCI COACH COPY row directly after CBGCFXWSBPFCI LEGEND row"
+            )
+            assert coach_copy_variant_rec_idx == storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row directly after CBGCFXWSBPFCI COACH COPY row"
             )
             assert coherence_alias_idx == coach_copy_variant_rec_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWC row directly after CBGCFXWAC COACH COPY REC row"

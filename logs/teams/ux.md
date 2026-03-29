@@ -2654,3 +2654,7 @@
 
 ## 2026-03-29 17:29 KST — Cycle GV ux notes
 - Enforced fixed row order for cue->compact->intensity->coach recommendation chain to prevent digest reading jumps.
+
+## 2026-03-29 18:16 KST — Digest readability prep
+- Decision: Keep microline pair payload-only in this slice to avoid row-order churn before legend rollout.
+- Notes: Existing `CBGCFXWSBPFCI` legend remains unchanged; future exposure can reuse same decode contract.

@@ -2385,3 +2385,7 @@
 
 ## 2026-03-29 17:29 KST — Cycle GV combat notes
 - Added digest visibility contract for combat-facing intensity adapter (`CBGCFXWSBPFCI:B|R`) without changing combat runtime balancing.
+
+## 2026-03-29 18:16 KST — Combat cue copy support (offline)
+- Update: Added intensity-linked copy guidance backing (`BASE|RAISED`) for storybeat FX cue triage.
+- Impact: No runtime combat balance changes; digest-only coaching metadata.

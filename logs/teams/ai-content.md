@@ -2460,3 +2460,9 @@
 
 ## 2026-03-29 17:29 KST — Cycle GV ai-content notes
 - No new copy payload authored in this slice; retained backlog item for `BASE|RAISED` microline prototype.
+
+## 2026-03-29 18:16 KST — Cycle GU follow-up (intensity microline pair)
+- Decision: Added offline `CBGCFXWSBPFCI COACH COPY:BASE|RAISED` microline pair to prepare visible digest rollout without UI coupling.
+- Notes: `BASE` copy anchors stable cadence; `RAISED` copy tightens urgency verbs for tense pass hints.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up: Consider optional compact alias row only if DOS-width budget remains green.

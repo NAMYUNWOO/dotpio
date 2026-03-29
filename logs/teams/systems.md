@@ -3601,3 +3601,9 @@
 - Shipped markdown rollout contract rows for `CBGCFXWSBP FX CUE -> CBGCFXWSBPFC -> CBGCFXWSBPFCI -> CBGCFXWAC COACH COPY REC` in both summary and token-coverage sections.
 - Added regression order contract asserting deterministic adjacency for the full rollout chain across both markdown sections.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+
+## 2026-03-29 18:16 KST — Payload/schema extension
+- Decision: Extended digest payload with `...IntensityCoachMicrolinePair` + signals while keeping flag-gated offline behavior.
+- Notes: Added regression schema/domain checks and markdown ordering contract updates.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` (pass).
+- Follow-up: Track churn once visible-row rollout is enabled.

@@ -4162,3 +4162,9 @@
 ## 2026-03-29 17:29 KST — Cycle GV qa notes
 - Extended markdown regression guardrails with line-order assertions for new rollout chain rows in summary + token-coverage sections.
 - Added row-presence assertions for `CBGCFXWSBP FX CUE`, `CBGCFXWSBPFC`, `CBGCFXWSBPFCI`, `CBGCFXWSBPFCI LEGEND`, `CBGCFXWAC COACH COPY REC`.
+
+## 2026-03-29 18:16 KST — Regression validation
+- Scope: Storybeat FX cue compact-alias intensity cluster + coach-copy recommendation adjacency.
+- Result: PASS (`scripts/regression_weekly_portal_prompt_readability_drift.py`).
+- Additional runtime check: PASS (`scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`).
+- Follow-up: Add fixture variant for explicit FLAG OFF path if/when visible rows are introduced.

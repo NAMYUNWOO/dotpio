@@ -1512,4 +1512,9 @@ Last updated: 2026-03-21 02:31 KST
 
 - [x] Combat/VFX (Cycle GU selected experiment): Add payload-only compact intensity hint `CBGCFXWSBPFCI:B|R` from `CBGCFXWSBPFC` alias with deterministic payload-domain regression lock and flag-off fallback behavior. *(lifecycle: [ ] -> [~] started: 2026-03-29 17:08 KST -> [x] completed: 2026-03-29 17:12 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [x] Systems/QA: Add optional markdown/token-coverage legend+order contract for `CBGCFXWSBPFCI` rollout path (`...FX CUE COMPACT ALIAS -> ...INTENSITY -> ...COACH COPY REC`).
-- [ ] Design/AI Content: Prototype offline copy microline pair for intensity states (`BASE|RAISED`) to support future visible digest rollout.
+- [x] Design/AI Content: Prototype offline copy microline pair for intensity states (`BASE|RAISED`) to support future visible digest rollout. *(lifecycle: [ ] -> [~] started 2026-03-29 18:02 KST -> [x] completed 2026-03-29 18:15 KST; delivered in `scripts/weekly_portal_prompt_readability_drift.py` + regression coverage)*
+
+### Game Director Cycle — 2026-03-29
+- [x] Systems/Combat/Design Experiment: Make `CBGCFXWAC COACH COPY REC` intensity-aware so `RAISED` can escalate calm-state recommendation to `SLOW_STEP` while preserving wobble/tense precedence. *(implemented 2026-03-29; verified via weekly+regression scripts)*
+- [ ] UX/AI Content Follow-up: Add compact alias token for `CBGCFXWSBPFCI COACH COPY` (`B|R`) only if digest row budget remains within DOS readability threshold.
+- [ ] QA Follow-up: Add deterministic fixture run covering `raised-intensity` recommendation reason branch with `CALM + LOCKED + RAISED` input.
