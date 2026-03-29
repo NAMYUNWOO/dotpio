@@ -4011,3 +4011,7 @@ Compact decision memory for AI context efficiency.
 - 2026-03-30 07:24 KST — Closed `GD-2026-03-30-fxpde-toggle-drift-streak`: weekly drift payload now tracks prior/current FXPDE matrix (`E?A?`) with deterministic `changed` + `streak` signals and regression contracts for QA churn triage.
 - 2026-03-30 07:34 KST — Executed Game Director review cycle after queues reached full-check: generated 3 ideas, selected low-risk UX/QA experiment, shipped `CBGCFXWSBPFXPDE MATRIX DRIFT` markdown row + contract guards, and injected follow-up backlog tasks for trend-band + playtest snapshot lanes.
 - 2026-03-30 08:10 KST — Closed `GD-2026-03-30-fxpde-matrix-trend-band`: FXPDE drift now classifies trend-band (`STABLE|SWING|SPIKE`) from drift history for alert throttling; payload + markdown + regression contracts updated.
+
+- 2026-03-30 08:21 KST — Closed `GD-2026-03-30-fxpde-matrix-drift-playtest-snapshot`: weekly digest now emits `CBGCFXWSBPFXPDE MATRIX DRIFT SNAPSHOT` (summary + token-coverage + payload signals) to summarize prior/current matrix, trend-band, and compact manual-triage recommendation for QA follow-through.
+
+- 2026-03-30 08:24 KST — Game Director cycle (post-queue complete) shipped `GD-2026-03-30-fxpde-matrix-drift-snapshot-compact-alias`: payload now exports `CBGCFXWSBPFXPDS:<B|W|N|M>` as compact triage recommendation alias derived from FXPDE matrix-drift playtest snapshot signals; injected markdown + threshold-tuning follow-ups into backlog.
