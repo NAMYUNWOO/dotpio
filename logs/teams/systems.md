@@ -3587,3 +3587,8 @@
 ## 2026-03-29 16:36 KST — Contract handoff after GT
 - New payload keys emitted for storybeat-phase FX cue + compact alias.
 - Requires follow-up regression domain lock (`SOFT->S`, `EDGE->E`, FLAG OFF behavior) in next Systems/QA slice.
+
+## 2026-03-29 16:59 KST — CBGCFXWSBPFC payload-domain contract shipped
+- Added regression assertions tying compact alias mapping to cue domain (`SOFT->S`, `EDGE->E`) and token string coherence (`CBGCFXWSBPFC:<alias>`).
+- Added flag-off fallback assertion: when alias flag is disabled, payload row must be `FLAG OFF` while signals remain deterministic.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.

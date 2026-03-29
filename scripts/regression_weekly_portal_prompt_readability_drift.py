@@ -3024,11 +3024,23 @@ def main() -> int:
             "token",
             "offlineOnly",
         }, payload
+        storybeat_phase_fx_cue_compact_alias = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAlias", "")
         storybeat_phase_fx_cue_compact_alias_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasSignals", {})
         assert storybeat_phase_fx_cue_compact_alias_signals.get("cue") in {"SOFT", "EDGE"}, payload
         assert storybeat_phase_fx_cue_compact_alias_signals.get("alias") in {"S", "E"}, payload
         assert storybeat_phase_fx_cue_compact_alias_signals.get("token", "").startswith("CBGCFXWSBPFC:"), payload
         assert storybeat_phase_fx_cue_compact_alias_signals.get("offlineOnly") is True, payload
+        cue_alias_map = {
+            "SOFT": "S",
+            "EDGE": "E",
+        }
+        expected_alias = cue_alias_map[storybeat_phase_fx_cue_compact_alias_signals["cue"]]
+        assert storybeat_phase_fx_cue_compact_alias_signals.get("alias") == expected_alias, payload
+        assert storybeat_phase_fx_cue_compact_alias_signals.get("token") == f"CBGCFXWSBPFC:{expected_alias}", payload
+        if storybeat_phase_fx_cue_compact_alias_signals.get("flagEnabled") is True:
+            assert storybeat_phase_fx_cue_compact_alias == f"CBGCFXWSBPFC:{expected_alias}", payload
+        else:
+            assert storybeat_phase_fx_cue_compact_alias == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendation", "").startswith(("FLAG OFF", "CBGCFXWAC COACH COPY REC:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationSignals", {}).keys()) == {
             "flagName",

@@ -2452,3 +2452,7 @@
 ## 2026-03-29 16:36 KST — Game Director GT review
 - Reviewed idea spread (low/mid/high risk) and prioritized low-risk readable payload slice to preserve cadence stability.
 - Mid/high ideas retained in backlog for future cycles.
+
+## 2026-03-29 16:59 KST — Design lane note (readability contract)
+- Confirmed dense digest readability intent: compact alias row remains deterministic under flag-on/off paths.
+- No legend/order changes required in this micro-slice.

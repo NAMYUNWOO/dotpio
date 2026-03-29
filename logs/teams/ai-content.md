@@ -2449,3 +2449,7 @@
 ## 2026-03-29 16:36 KST — Cue-language consistency
 - Storybeat phase language remains binary (`CALM|TENSE`) while new FX cue adapter mirrors it to `SOFT|EDGE` for consistent downstream copy policies.
 - Recommendation reason-domain remains unchanged (`stable-calm|tense-phase|wobble`).
+
+## 2026-03-29 16:59 KST — AI-content lane note (contract alignment)
+- Confirmed no copy-policy/rationale-domain expansion required for this QA-only contract slice.
+- Existing offline recommendation semantics remain unchanged.

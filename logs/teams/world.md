@@ -2377,3 +2377,7 @@
 ## 2026-03-29 16:36 KST — Narrative pacing continuity note
 - Storybeat phase output now directly exposes combat feedback cue strength (`SOFT|EDGE`) for downstream narrative triage.
 - No world progression/map contracts altered.
+
+## 2026-03-29 16:59 KST — World lane note (no new world-scope delta)
+- Reviewed GT follow-up completion; no world-token mapping changes required this slice.
+- Existing storybeat/world-tone rails remain stable pending next Game Director experiment.

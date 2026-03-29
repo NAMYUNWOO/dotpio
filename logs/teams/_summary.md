@@ -3865,3 +3865,9 @@ Compact decision memory for AI context efficiency.
 - Completed selected GT experiment: compact payload alias `CBGCFXWSBPFC:S|E` for one-glance dense scan readability.
 - Verification locked green: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `[PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
 - Injected next backlog item: Systems/QA payload-domain coherence contract for cue↔alias mapping and flag-off fallback behavior.
+
+## 2026-03-29 16:59 KST — Cycle GT follow-up closure (CBGCFXWSBPFC contract)
+- Completed highest-priority unchecked backlog item: Systems/QA payload-domain regression contract for `CBGCFXWSBPFC`.
+- Durable decision: enforce deterministic cue↔alias coherence (`SOFT->S`, `EDGE->E`) and explicit flag-off fallback (`FLAG OFF`) while keeping payload token generation stable.
+- Verification: [PASS] `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; [PASS] `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- Next highest-priority item: none unchecked in ACTION_ITEMS/TASKS/POST_RC_BACKLOG (ready for next Game Director cycle).

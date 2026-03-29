@@ -2643,3 +2643,7 @@
 - Shipped one-glance compact alias `CBGCFXWSBPFC:S|E` to reduce dense payload decode hops.
 - Decision: keep alias payload-only for now (no markdown row churn).
 - Next: evaluate if visible summary row is needed after parser telemetry.
+
+## 2026-03-29 16:59 KST — UX lane note (compact decode reliability)
+- Compact alias `CBGCFXWSBPFC` now has strict regression coherence guarantees.
+- User-facing digest scanability improved by preventing cue/alias drift under flag toggles.

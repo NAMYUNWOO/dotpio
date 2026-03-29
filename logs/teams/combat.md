@@ -2374,3 +2374,7 @@
 - Implemented payload-only `CBGCFXWSBP FX CUE:SOFT|EDGE` adapter from storybeat phase and compact alias mirror `CBGCFXWSBPFC:S|E` for dense triage scans.
 - Kept runtime combat tuning untouched (offline digest payload only).
 - Follow-up: Systems/QA contract lock for cue↔alias coherence and flag-off fallback.
+
+## 2026-03-29 16:59 KST — Combat lane note (adapter preserved)
+- `CBGCFXWSBP FX CUE:SOFT|EDGE` adapter behavior preserved; no combat-balance/runtime logic touched.
+- QA contract now guards compact alias coherence for postmortem readability.

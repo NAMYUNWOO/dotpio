@@ -4145,3 +4145,8 @@
 - [PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py
 - [PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120
 - Covered payload schema/domain checks for new `CBGCFXWSBP FX CUE` and `CBGCFXWSBPFC` token surfaces.
+
+## 2026-03-29 16:59 KST — QA contract lock: storybeat FX cue compact alias
+- Locked payload-domain contract for `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAlias`.
+- Assertions now cover cue/alias coherence, token-string coherence, and flag-off behavior deterministically.
+- Regression evidence: PASS (weekly portal prompt regression + weekly digest smoke).
