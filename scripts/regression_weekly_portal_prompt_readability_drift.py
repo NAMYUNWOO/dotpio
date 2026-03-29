@@ -147,6 +147,106 @@ def main() -> int:
             repo,
         )
 
+        def _run_report_with_env(out_json_path: Path, out_md_path: Path, env_overrides: dict[str, str]) -> tuple[dict[str, object], str]:
+            env = os.environ.copy()
+            env.update(env_overrides)
+            subprocess.run(
+                [
+                    "python3",
+                    str(SCRIPT),
+                    "--since-days",
+                    "3650",
+                    "--max-commits",
+                    "20",
+                    "--out-json",
+                    str(out_json_path),
+                    "--out-md",
+                    str(out_md_path),
+                    "--out-fx-remap-candidates-json",
+                    str(out_fx_candidates_json),
+                    "--out-fx-remap-candidates-md",
+                    str(out_fx_candidates_md),
+                    "--out-ambient-why-auto-remap-plan-json",
+                    str(out_ambient_auto_remap_json),
+                    "--out-ambient-why-auto-remap-plan-md",
+                    str(out_ambient_auto_remap_md),
+                ],
+                cwd=repo,
+                check=True,
+                text=True,
+                env=env,
+                stdout=subprocess.DEVNULL,
+            )
+            return (
+                json.loads(out_json_path.read_text(encoding="utf-8")),
+                out_md_path.read_text(encoding="utf-8"),
+            )
+
+        def _count_lines(md_text: str, prefix: str) -> int:
+            return sum(1 for line in md_text.splitlines() if line.startswith(prefix))
+
+        fxpde_echo_flag = (
+            "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_"
+            "STORYBEAT_PHASE_INTENT_REHEARSAL_PHASE_ECHO_MUTATION"
+        )
+        fxpde_alias_flag = (
+            "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_"
+            "STORYBEAT_PHASE_INTENT_REHEARSAL_PHASE_ECHO_MUTATION_COMPACT_ALIAS"
+        )
+
+        fxpde_matrix = {
+            "echo_off_alias_off": {
+                "env": {fxpde_echo_flag: "0", fxpde_alias_flag: "0"},
+                "echo_enabled": False,
+                "alias_enabled": False,
+            },
+            "echo_on_alias_off": {
+                "env": {fxpde_echo_flag: "1", fxpde_alias_flag: "0"},
+                "echo_enabled": True,
+                "alias_enabled": False,
+            },
+            "echo_off_alias_on": {
+                "env": {fxpde_echo_flag: "0", fxpde_alias_flag: "1"},
+                "echo_enabled": False,
+                "alias_enabled": True,
+            },
+            "echo_on_alias_on": {
+                "env": {fxpde_echo_flag: "1", fxpde_alias_flag: "1"},
+                "echo_enabled": True,
+                "alias_enabled": True,
+            },
+        }
+
+        for matrix_name, matrix_case in fxpde_matrix.items():
+            matrix_out_json = repo / f"out_{matrix_name}.json"
+            matrix_out_md = repo / f"out_{matrix_name}.md"
+            matrix_payload, matrix_md = _run_report_with_env(
+                out_json_path=matrix_out_json,
+                out_md_path=matrix_out_md,
+                env_overrides=matrix_case["env"],
+            )
+            assert matrix_payload.get("checkedCommits", 0) >= 2, matrix_payload
+            for row_prefix in (
+                "- CBGCFXWSBPFXPD ECHO:",
+                "- CBGCFXWSBPFXPDE:",
+                "- CBGCFXWSBPFXPDE LEGEND:",
+            ):
+                observed_count = _count_lines(matrix_md, row_prefix)
+                assert observed_count == 2, (
+                    f"FXPDE flag matrix mismatch for {matrix_name}: expected 2 instances of "
+                    f"{row_prefix}, observed {observed_count}"
+                )
+            echo_lines = [line for line in matrix_md.splitlines() if line.startswith("- CBGCFXWSBPFXPD ECHO:")]
+            alias_lines = [line for line in matrix_md.splitlines() if line.startswith("- CBGCFXWSBPFXPDE:")]
+            expected_echo_enabled = str(matrix_case["echo_enabled"])
+            expected_alias_enabled = str(matrix_case["alias_enabled"])
+            assert all(f"enabled={expected_echo_enabled}" in line for line in echo_lines), (
+                f"FXPDE flag matrix mismatch for {matrix_name}: expected ECHO rows to include enabled={expected_echo_enabled}"
+            )
+            assert all(f"enabled={expected_alias_enabled}" in line for line in alias_lines), (
+                f"FXPDE flag matrix mismatch for {matrix_name}: expected alias rows to include enabled={expected_alias_enabled}"
+            )
+
         payload = json.loads(out_json.read_text(encoding="utf-8"))
         assert payload["checkedCommits"] >= 2, payload
         assert payload["portalPromptCommits"] >= 2, payload

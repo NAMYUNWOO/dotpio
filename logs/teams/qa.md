@@ -4302,3 +4302,14 @@
 - Ran: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Ran: `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 1 --max-commits 5` (PASS).
 - Added regression assertions for `CBGCFXWACRC` row count/order + legend mapping in both summary/token-coverage sections.
+
+## 2026-03-30 06:31 KST
+- Task: GD-2026-03-30-echo-alias-flag-matrix (FXPDE flag/toggle regression matrix lock).
+- Commit: pending (this run)
+- Files: 
+  - scripts/regression_weekly_portal_prompt_readability_drift.py
+  - POST_RC_BACKLOG.md
+- Verification:
+  - python3 scripts/regression_weekly_portal_prompt_readability_drift.py ✅
+  - python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120 --out-json logs/playtests/weekly_portal_prompt_readability_drift.json --out-md logs/playtests/weekly_portal_prompt_readability_drift.md --out-fx-remap-candidates-json logs/playtests/dmg_glyph_fx_remap_candidates.json --out-fx-remap-candidates-md logs/playtests/dmg_glyph_fx_remap_candidates.md --out-ambient-why-auto-remap-plan-json logs/playtests/ambient_ramp_why_auto_remap_plan.json --out-ambient-why-auto-remap-plan-md logs/playtests/ambient_ramp_why_auto_remap_plan.md ✅
+- Decision: FXPDE rows (CBGCFXWSBPFXPD ECHO, CBGCFXWSBPFXPDE, CBGCFXWSBPFXPDE LEGEND) stay cardinality-locked (summary+token-coverage = 2) across all echo/alias flag permutations; matrix also asserts per-row enabled=True/False parity by toggle.

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-29T19:24:07.116217Z",
+  "generatedAt": "2026-03-29T21:19:43.818963Z",
   "window": {
     "sinceDays": 7,
     "maxCommits": 120,
@@ -9,20 +9,20 @@
   "recommendation": {
     "ambientRampWhyRecommendation": "OPEN_CONTEXTUAL_WHY",
     "ambientRampWhyRecommendationConfidence": "HIGH",
-    "ambientRampWhyRecommendationConfidenceStreak": 75,
+    "ambientRampWhyRecommendationConfidenceStreak": 2,
     "ambientRampWhyRecommendationConfidenceStreakSignals": {
       "currentConfidence": "HIGH",
       "priorConfidence": "HIGH",
-      "priorStreak": 74,
+      "priorStreak": 0,
       "priorLoaded": true,
       "threshold": 3,
-      "suppress": true,
+      "suppress": false,
       "reason": "confidence-streak-extended"
     },
     "ambientRampWhyRecommendationParity": "SYNC"
   },
-  "selectedPlan": "HOLD_SAFE_BASELINE",
-  "selectedPlanCompact": "HOLD",
+  "selectedPlan": "LIMITED_CONTEXT_EXPANSION",
+  "selectedPlanCompact": "OPEN",
   "selectedPlanWhyCompact": "OPEN_WINDOW",
   "selectedPlanSignals": {
     "recommendation": "OPEN_CONTEXTUAL_WHY",
@@ -33,14 +33,25 @@
     "ambientRampWhyChurn": 0,
     "ambientRampWhyNet": 0,
     "offlineOnly": true,
-    "rationale": "confidence-streak-suppression",
+    "rationale": "drift-aware-candidate-rerank",
     "nextAction": "Generate sandbox table + review notes; keep runtime contract unchanged.",
     "rerankPolicy": "drift-aware-offline-candidate-priority",
-    "candidateCount": 1,
-    "confidenceStreak": 75,
-    "candidateSuppressed": true
+    "candidateCount": 3,
+    "confidenceStreak": 2,
+    "candidateSuppressed": false
   },
   "candidates": [
+    {
+      "baseRank": 3,
+      "plan": "LIMITED_CONTEXT_EXPANSION",
+      "summary": "Prepare small contextual rationale variants for CALM windows with rollback checklist.",
+      "when": "Use only in LOW drift + LOW pressure windows with HIGH confidence and SYNC parity.",
+      "risk": "MID",
+      "offlineOnly": true,
+      "changeScope": "sandbox draft variants (no runtime wiring)",
+      "score": 9,
+      "rank": 1
+    },
     {
       "baseRank": 1,
       "plan": "HOLD_SAFE_BASELINE",
@@ -51,6 +62,17 @@
       "changeScope": "digest + sandbox notes only",
       "score": 1,
       "rank": 2
+    },
+    {
+      "baseRank": 2,
+      "plan": "SHADOW_PRESSURE_REMIX",
+      "summary": "Draft offline pressure-gated rationale remap table for manual review before any runtime use.",
+      "when": "Use in MID risk windows when recommendation is PRESSURE_GATED_WHY and confidence is not LOW.",
+      "risk": "MID",
+      "offlineOnly": true,
+      "changeScope": "sandbox artifact + playtest checklist",
+      "score": 1,
+      "rank": 3
     }
   ]
 }

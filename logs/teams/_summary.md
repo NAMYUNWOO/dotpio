@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 03:41 KST
+Last updated: 2026-03-30 06:31 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,9 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed `GD-2026-03-30-echo-alias-flag-matrix`: regression now runs a 2x2 FXPDE toggle matrix (`echo on/off` × `compact-alias on/off`) and hard-locks markdown row cardinality at exactly 2 instances (summary + token-coverage) for `CBGCFXWSBPFXPD ECHO`, `CBGCFXWSBPFXPDE`, and `CBGCFXWSBPFXPDE LEGEND`, while also asserting per-row `enabled=True/False` parity matches each toggle case.
+- Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`), and all lane logs were updated with the durable contract decision.
 
 - Executed Game Director Cycle HB coverage check over last 10 completed headings: systems=2, ux=2, world=2, ai-content=1, combat=1, design=1, qa=1, vfx=0; no lane exceeded 40%, and 24h cadence gate remains satisfied (`combat/vfx`, `design/world`, `systems/ops` all present).
 - Chosen Cycle HB experiment shipped as minimal vertical slice: payload-only `CBGCFXWSBPFXPD ECHO:{STEADY|ANCHOR_ECHO|SURGE_ECHO}` mutation from prior-beat world-tone drift (`CBGCFXW DRIFT`) + rehearsal alias (`CBGCFXWSBPFXPD`), guarded by `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_PHASE_ECHO_MUTATION`.
