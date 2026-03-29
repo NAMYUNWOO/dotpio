@@ -230,6 +230,37 @@ def main() -> int:
             assert matrix_payload.get(
                 "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrix"
             ) == expected_matrix_key, matrix_payload
+            assert matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDrift"
+            ) == f"CBGCFXWSBPFXPDE MATRIX DRIFT:{expected_matrix_key}>{expected_matrix_key}", matrix_payload
+            drift_signals = matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftSignals",
+                {},
+            )
+            assert set(drift_signals.keys()) == {
+                "current",
+                "prior",
+                "changed",
+                "streak",
+                "priorLoaded",
+                "reason",
+                "token",
+                "offlineOnly",
+            }, matrix_payload
+            assert drift_signals.get("current") == expected_matrix_key, matrix_payload
+            assert drift_signals.get("prior") == expected_matrix_key, matrix_payload
+            assert drift_signals.get("changed") is False, matrix_payload
+            assert drift_signals.get("streak") == 0, matrix_payload
+            assert drift_signals.get("priorLoaded") is False, matrix_payload
+            assert drift_signals.get("reason") == "no-prior-window", matrix_payload
+            assert drift_signals.get("token") == f"CBGCFXWSBPFXPDE MATRIX DRIFT:{expected_matrix_key}>{expected_matrix_key}", matrix_payload
+            assert drift_signals.get("offlineOnly") is True, matrix_payload
+            assert matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftChanged"
+            ) is False, matrix_payload
+            assert matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftStreak"
+            ) == 0, matrix_payload
             for row_prefix in (
                 "- CBGCFXWSBPFXPD ECHO:",
                 "- CBGCFXWSBPFXPDE:",

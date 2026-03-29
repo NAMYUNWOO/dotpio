@@ -4008,3 +4008,4 @@ Compact decision memory for AI context efficiency.
 - Markdown contract now enforces row order: `CBGCFXWAC COACH COPY REC` -> `CBGCFXWACRC` -> `CBGCFXWACRC LEGEND` -> `CBGCFXWACRP` -> `CBGCFXWACRP LEGEND` -> `CBGCFXWC`.
 - Verification passed via py_compile + weekly script smoke run (`--since-days 1 --max-commits 5`).
 - Next backlog target: `GD-2026-03-30-echo-alias-flag-matrix`.
+- 2026-03-30 07:24 KST — Closed `GD-2026-03-30-fxpde-toggle-drift-streak`: weekly drift payload now tracks prior/current FXPDE matrix (`E?A?`) with deterministic `changed` + `streak` signals and regression contracts for QA churn triage.
