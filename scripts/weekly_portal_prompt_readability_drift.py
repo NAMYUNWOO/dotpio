@@ -4,6 +4,7 @@ Tracks compact/detailed token activity from portal-prompt related code changes.
 """
 from __future__ import annotations
 import argparse
+import hashlib
 import json
 import math
 import os
@@ -17,6 +18,15 @@ DEFAULT_DMG_GLYPH_FX_REMAP_CANDIDATES_JSON = ROOT / "logs" / "playtests" / "dmg_
 DEFAULT_DMG_GLYPH_FX_REMAP_CANDIDATES_MD = ROOT / "logs" / "playtests" / "dmg_glyph_fx_remap_candidates.md"
 DEFAULT_AMBIENT_RAMP_WHY_AUTO_REMAP_PLAN_JSON = ROOT / "logs" / "playtests" / "ambient_ramp_why_auto_remap_plan.json"
 DEFAULT_AMBIENT_RAMP_WHY_AUTO_REMAP_PLAN_MD = ROOT / "logs" / "playtests" / "ambient_ramp_why_auto_remap_plan.md"
+CBGCFXWACRP_LEGEND_VERSION = "v1"
+CBGCFXWACRP_LEGEND_MAP = {
+    "P1": "wobble",
+    "P2": "tense-phase",
+    "P3": "raised-intensity",
+    "P4": "stable-calm",
+}
+_CBGCFXWACRP_LEGEND_SERIALIZED = json.dumps(CBGCFXWACRP_LEGEND_MAP, sort_keys=True, separators=(",", ":"))
+CBGCFXWACRP_LEGEND_HASH = hashlib.sha256(_CBGCFXWACRP_LEGEND_SERIALIZED.encode("utf-8")).hexdigest()[:12]
 PORTAL_PATH_HINTS = (
     "src/portal.lua",
     "src/portal_prompt_linter.lua",
@@ -2265,6 +2275,9 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         "flagEnabled": flag_enabled,
         "reasonPriority": reason_priority,
         "alias": alias,
+        "legendVersion": CBGCFXWACRP_LEGEND_VERSION,
+        "legendHash": CBGCFXWACRP_LEGEND_HASH,
+        "legendMap": CBGCFXWACRP_LEGEND_MAP,
         "token": token,
         "offlineOnly": True,
     }
@@ -12070,6 +12083,9 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationReasonPriorityAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationReasonPriorityAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationReasonPriorityAliasLegendVersion": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_signals["legendVersion"],
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationReasonPriorityAliasLegendHash": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_signals["legendHash"],
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationReasonPriorityAliasLegendMap": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_signals["legendMap"],
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals,
         "combatVfxCadenceCoachAlias": combat_vfx_cadence_coach_alias_token,

@@ -1538,7 +1538,7 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/Design/QA (Cycle GW selected experiment): Added `CBGCFXWACRP LEGEND` adjacency row in summary + token-coverage sections and locked deterministic row-count/order contract (`...COACH COPY REC -> CBGCFXWACRP -> CBGCFXWACRP LEGEND -> CBGCFXWC`). *(lifecycle: [ ] -> [~] started: 2026-03-29 20:44 KST -> [x] completed: 2026-03-29 20:47 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## Next Up (Game Director Injection — Cycle GW)
-- [ ] Systems/QA Team: Add payload-domain `CBGCFXWACRP` legend hash/version signal and regression lock so downstream tooling can verify legend freshness against markdown decode table.
+- [x] Systems/QA Team: Add payload-domain `CBGCFXWACRP` legend hash/version signal and regression lock so downstream tooling can verify legend freshness against markdown decode table. *(completed: 2026-03-29 21:49 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## Game Director Cycle GX — 2026-03-29 21:41 KST
 - Coverage check (last 10 completed headings by lane): systems=2, ux=2, world=2, ai-content=1, combat=1, design=1, qa=1, vfx=0.
@@ -1550,5 +1550,5 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Combat/VFX/QA (Cycle GX selected experiment): Added `CBGCFXWSBPFXP:S|P` payload alias with summary/token-coverage legend rows and deterministic adjacency contract lock. *(lifecycle: [ ] -> [~] started: 2026-03-29 21:31 KST -> [x] completed: 2026-03-29 21:41 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## Next Up (Game Director Injection — Cycle GX)
-- [ ] Systems/QA Team: Add payload-domain `CBGCFXWACRP` legend hash/version signal and regression lock so downstream tooling can verify legend freshness against markdown decode table.
+- [x] Systems/QA Team: Add payload-domain `CBGCFXWACRP` legend hash/version signal and regression lock so downstream tooling can verify legend freshness against markdown decode table. *(completed: 2026-03-29 21:49 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [ ] Design/World Team: Add compact decode microline pair for `CBGCFXWSBPFXP` (`S=SOFT pulse`, `P=PUSH pulse`) with strict DOS row-budget guardrails.

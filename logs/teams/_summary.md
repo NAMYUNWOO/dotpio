@@ -3914,3 +3914,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep reason-priority decode human-readable in markdown while preserving payload-only alias + flag-off fallback semantics.
 - Verification: [PASS] `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; [PASS] `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
 - Next injected backlog item: Systems/QA payload legend hash/version signal + regression lock.
+
+## 2026-03-29 21:54 KST — Cycle GX follow-up complete (`CBGCFXWACRP` legend hash/version)
+- Closed highest-priority unchecked item from TASKS/POST_RC: Systems/QA payload-domain legend freshness signal for `CBGCFXWACRP`.
+- Implemented `v1` legend contract in digest payload/signals with canonical hash + legend map so downstream tooling can validate markdown decode-table freshness deterministically.
+- Regression updated to enforce key set/domain + canonical hash/map match + top-level payload mirror fields.
+- Verification: [PASS] regression + weekly digest smoke.
+- Next highest-priority unchecked item: Design/World compact decode microline pair for `CBGCFXWSBPFXP` (`S=SOFT pulse`, `P=PUSH pulse`).

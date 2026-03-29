@@ -4198,3 +4198,11 @@
 ## 2026-03-29 21:41 KST — Cycle GX verification note
 - Regression contract expanded for `CBGCFXWSBPFXP` payload schema/domain plus markdown adjacency in summary/token-coverage sections.
 - Evidence: weekly drift regression + smoke generation both PASS; no existing token-family order contracts regressed.
+
+## 2026-03-29 21:54 KST — Regression lock for `CBGCFXWACRP` legend freshness
+- Extended regression payload contract for `CBGCFXWACRP` reason-priority alias signals with deterministic legend freshness keys (`legendVersion`, `legendHash`, `legendMap`).
+- Added top-level payload assertions to ensure downstream tooling can compare legend decode table freshness without parsing markdown rows.
+- Added deterministic hash check from canonical serialized legend mapping (`P1..P4` decode table).
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`

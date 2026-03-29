@@ -2,6 +2,7 @@
 """Regression checks for weekly_portal_prompt_readability_drift.py."""
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import subprocess
@@ -3189,6 +3190,9 @@ def main() -> int:
             "flagEnabled",
             "reasonPriority",
             "alias",
+            "legendVersion",
+            "legendHash",
+            "legendMap",
             "token",
             "offlineOnly",
         }, payload
@@ -3199,6 +3203,21 @@ def main() -> int:
         assert coach_copy_reason_priority_alias_signals.get("offlineOnly") is True, payload
         assert coach_copy_reason_priority_alias_signals.get("reasonPriority") == coach_copy_rec_signals.get("reasonPriority"), payload
         assert coach_copy_reason_priority_alias_signals.get("alias") == coach_copy_rec_signals.get("reasonPriority"), payload
+        expected_reason_priority_legend_map = {
+            "P1": "wobble",
+            "P2": "tense-phase",
+            "P3": "raised-intensity",
+            "P4": "stable-calm",
+        }
+        expected_reason_priority_legend_hash = hashlib.sha256(
+            json.dumps(expected_reason_priority_legend_map, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        ).hexdigest()[:12]
+        assert coach_copy_reason_priority_alias_signals.get("legendVersion") == "v1", payload
+        assert coach_copy_reason_priority_alias_signals.get("legendMap") == expected_reason_priority_legend_map, payload
+        assert coach_copy_reason_priority_alias_signals.get("legendHash") == expected_reason_priority_legend_hash, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationReasonPriorityAliasLegendVersion") == "v1", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationReasonPriorityAliasLegendMap") == expected_reason_priority_legend_map, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationReasonPriorityAliasLegendHash") == expected_reason_priority_legend_hash, payload
 
         # Deterministic fixture lock for raised-intensity fallback branch:
         # CALM + LOCKED + RAISED must resolve to SLOW_STEP because intensity is elevated,

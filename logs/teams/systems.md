@@ -3637,3 +3637,13 @@
 ## 2026-03-29 21:41 KST — Cycle GX systems/ops follow-up injection
 - 24h cadence gate checked before shipping: combat/vfx ✅, design/world ✅, systems/ops ✅.
 - Injected next systems/qa follow-up: add payload-domain legend freshness hash/version signal for `CBGCFXWACRP` with deterministic regression lock so downstream decode tables can assert parity.
+
+## 2026-03-29 21:54 KST — Cycle GX follow-up closure (`CBGCFXWACRP` legend freshness signals)
+- Completed Systems/QA backlog item: added payload-domain legend freshness contract for `CBGCFXWACRP`.
+- Added deterministic legend metadata to payload/signals:
+  - `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationReasonPriorityAliasLegendVersion` (`v1`)
+  - `...LegendHash` (stable SHA-256 short hash over canonical legend map)
+  - `...LegendMap` (`P1..P4` -> reason decode mapping)
+- Durable decision: keep markdown legend row as human-readable source and expose machine-checkable payload hash/version for downstream tooling freshness validation.
+- Verification: PASS regression + weekly drift smoke commands.
+- Follow-up remains: Design/World compact decode microline pair for `CBGCFXWSBPFXP`.
