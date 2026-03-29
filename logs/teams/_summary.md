@@ -3902,3 +3902,11 @@ Compact decision memory for AI context efficiency.
 - Also shipped supporting payload row: `CBGCFXWSBPFCI COACH COPY` offline microline pair (`BASE|RAISED`).
 - Verification: regression + weekly prompt drift scripts both PASS.
 - Backlog injection: added follow-up tasks for alias exposure and volatility guard below.
+
+
+## 2026-03-29 20:47 KST — Cycle GW shipped (CBGCFXWACRP legend adjacency contract)
+- Completed backlog closure + Game Director immediate review cycle after zero unchecked state.
+- Shipped vertical slice: added CBGCFXWACRP alias row, CBGCFXWACRP LEGEND row, and deterministic regression contract for adjacency/order/row-count in both digest sections.
+- Durable decision: keep reason-priority decode human-readable in markdown while preserving payload-only alias + flag-off fallback semantics.
+- Verification: [PASS] `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; [PASS] `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- Next injected backlog item: Systems/QA payload legend hash/version signal + regression lock.

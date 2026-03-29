@@ -2486,3 +2486,9 @@
 ## 2026-03-29 19:43 KST
 - Task: Game Director Cycle GV ideation + selection recorded in backlog; selected low-risk observability slice over higher-risk rollout ideas.
 - Decision: prioritize reversible signal clarity before visible digest-row expansion.
+
+
+## 2026-03-29 20:47 KST
+- Cycle GW update: shipped CBGCFXWACRP adjacency contract + legend readability slice (CBGCFXWACRP LEGEND) with regression lock across summary/token-coverage sections.
+- Verification: regression + weekly digest scripts PASS.
+- Follow-up: payload legend hash/version signal task injected in POST_RC backlog.

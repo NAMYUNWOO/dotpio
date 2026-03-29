@@ -1527,5 +1527,15 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Systems/QA (Cycle GV selected experiment): Added `reasonPriority` to coach-copy recommendation signals and locked domain in regression + deterministic raised-intensity fixture path. *(lifecycle: [ ] -> [~] started: 2026-03-29 19:41 KST -> [x] completed: 2026-03-29 19:43 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## Next Up (Game Director Injection — Cycle GV)
-- [ ] UX/Design Team: Prototype compact digest alias for `reasonPriority` (`CBGCFXWACRP:P1|P2|P3|P4`) adjacent to `CBGCFXWAC COACH COPY REC` rows in summary/token-coverage sections.
-- [ ] Systems/QA Team: Add deterministic adjacency + row-count contract for `CBGCFXWAC COACH COPY REC -> CBGCFXWACRP -> CBGCFXWC` across both digest sections.
+- [x] UX/Design Team: Prototype compact digest alias for `reasonPriority` (`CBGCFXWACRP:P1|P2|P3|P4`) adjacent to `CBGCFXWAC COACH COPY REC` rows in summary/token-coverage sections. *(lifecycle: [ ] -> [~] started: 2026-03-29 20:00 KST -> [x] completed: 2026-03-29 20:47 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+- [x] Systems/QA Team: Add deterministic adjacency + row-count contract for `CBGCFXWAC COACH COPY REC -> CBGCFXWACRP -> CBGCFXWC` across both digest sections. *(lifecycle: [ ] -> [~] started: 2026-03-29 20:44 KST -> [x] completed: 2026-03-29 20:47 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Game Director Cycle GW — 2026-03-29 20:47 KST
+- Coverage check (last 10 completions): systems/qa lane still dominant; selected a low-risk UX/readability slice that is reversible and keeps digest adjacency explicit.
+- Idea 1 (low-risk UX/design): add compact legend row `CBGCFXWACRP LEGEND` directly after `CBGCFXWACRP` in both summary/token-coverage sections to eliminate reason-priority decode lookup hops. *(impact: faster offline triage readability; metric: reason-priority decode hops/review; scope: S; risk: low; rollback: remove legend row + contract checks)* **Selected**
+- Idea 2 (mid-risk systems/qa): emit payload-domain legend hash/version signal for `CBGCFXWACRP` to detect stale tooling decode tables.
+- Idea 3 (high-risk novelty combat/ai-content): dynamically remap reason-priority tiers per recent volatility to auto-bias copy recommendations.
+- [x] UX/Design/QA (Cycle GW selected experiment): Added `CBGCFXWACRP LEGEND` adjacency row in summary + token-coverage sections and locked deterministic row-count/order contract (`...COACH COPY REC -> CBGCFXWACRP -> CBGCFXWACRP LEGEND -> CBGCFXWC`). *(lifecycle: [ ] -> [~] started: 2026-03-29 20:44 KST -> [x] completed: 2026-03-29 20:47 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle GW)
+- [ ] Systems/QA Team: Add payload-domain `CBGCFXWACRP` legend hash/version signal and regression lock so downstream tooling can verify legend freshness against markdown decode table.

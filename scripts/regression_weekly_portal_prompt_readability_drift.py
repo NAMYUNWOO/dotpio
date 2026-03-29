@@ -3160,6 +3160,22 @@ def main() -> int:
             "stable-calm": "P4",
         }[expected_reason]
         assert coach_copy_rec_signals.get("reasonPriority") == expected_reason_priority, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationReasonPriorityAlias", "").startswith(("FLAG OFF", "CBGCFXWACRP:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationReasonPriorityAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "reasonPriority",
+            "alias",
+            "token",
+            "offlineOnly",
+        }, payload
+        coach_copy_reason_priority_alias_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationReasonPriorityAliasSignals", {})
+        assert coach_copy_reason_priority_alias_signals.get("reasonPriority") in {"P1", "P2", "P3", "P4"}, payload
+        assert coach_copy_reason_priority_alias_signals.get("alias") in {"P1", "P2", "P3", "P4"}, payload
+        assert coach_copy_reason_priority_alias_signals.get("token", "").startswith("CBGCFXWACRP:"), payload
+        assert coach_copy_reason_priority_alias_signals.get("offlineOnly") is True, payload
+        assert coach_copy_reason_priority_alias_signals.get("reasonPriority") == coach_copy_rec_signals.get("reasonPriority"), payload
+        assert coach_copy_reason_priority_alias_signals.get("alias") == coach_copy_rec_signals.get("reasonPriority"), payload
 
         # Deterministic fixture lock for raised-intensity fallback branch:
         # CALM + LOCKED + RAISED must resolve to SLOW_STEP because intensity is elevated,
@@ -3590,6 +3606,8 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_legend_indices = _find_line_indices("- CBGCFXWSBPFCI LEGEND:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_indices = _find_line_indices("- CBGCFXWSBPFCI COACH COPY:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_indices = _find_line_indices("- CBGCFXWAC COACH COPY REC:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_indices = _find_line_indices("- CBGCFXWACRP:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_legend_indices = _find_line_indices("- CBGCFXWACRP LEGEND:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_indices = _find_line_indices("- CBGCFXW DRIFT:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_family_churn_indices = _find_line_indices("- CBGCFXW DRIFT FAMILY CHURN:")
         cadence_bridge_glyph_conf_intent_compact_alias_indices = _find_line_indices("- CBGCI:")
@@ -4107,6 +4125,12 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_indices) == 2, (
             "expected exactly two CBGCFXWAC COACH COPY REC rows (summary + token-coverage sections)"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_indices) == 2, (
+            "expected exactly two CBGCFXWACRP rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_legend_indices) == 2, (
+            "expected exactly two CBGCFXWACRP LEGEND rows (summary + token-coverage sections)"
+        )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_indices) == 2, (
             "expected exactly two CBGCFXW DRIFT rows (summary + token-coverage sections)"
         )
@@ -4141,7 +4165,7 @@ def main() -> int:
         )
 
         # Game Director Cycle GR lock: keep coach alias drift->momentum chain deterministic.
-        for section_name, drift_idx, momentum_idx, momentum_family_churn_idx, storybeat_idx, storybeat_family_churn_idx, storybeat_phase_idx, storybeat_phase_family_churn_idx, storybeat_phase_fx_cue_idx, storybeat_phase_fx_cue_compact_alias_idx, storybeat_phase_fx_cue_compact_alias_intensity_idx, storybeat_phase_fx_cue_compact_alias_intensity_legend_idx, storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx, coach_copy_variant_rec_idx, coherence_alias_idx in zip(
+        for section_name, drift_idx, momentum_idx, momentum_family_churn_idx, storybeat_idx, storybeat_family_churn_idx, storybeat_phase_idx, storybeat_phase_family_churn_idx, storybeat_phase_fx_cue_idx, storybeat_phase_fx_cue_compact_alias_idx, storybeat_phase_fx_cue_compact_alias_intensity_idx, storybeat_phase_fx_cue_compact_alias_intensity_legend_idx, storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx, coach_copy_variant_rec_idx, coach_copy_reason_priority_alias_idx, coach_copy_reason_priority_alias_legend_idx, coherence_alias_idx in zip(
             ("summary", "token-coverage"),
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_drift_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_momentum_indices,
@@ -4156,6 +4180,8 @@ def main() -> int:
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_legend_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_indices,
+            cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_indices,
+            cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_legend_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_alias_indices,
         ):
             assert momentum_idx == drift_idx + 1, (
@@ -4194,8 +4220,23 @@ def main() -> int:
             assert coach_copy_variant_rec_idx == storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row directly after CBGCFXWSBPFCI COACH COPY row"
             )
-            assert coherence_alias_idx == coach_copy_variant_rec_idx + 1, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWC row directly after CBGCFXWAC COACH COPY REC row"
+            assert coach_copy_reason_priority_alias_idx == coach_copy_variant_rec_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWACRP row directly after CBGCFXWAC COACH COPY REC row"
+            )
+            assert coach_copy_reason_priority_alias_legend_idx == coach_copy_reason_priority_alias_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWACRP LEGEND row directly after CBGCFXWACRP row"
+            )
+            assert coherence_alias_idx == coach_copy_reason_priority_alias_legend_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWC row directly after CBGCFXWACRP LEGEND row"
+            )
+
+        for section_name, legend_idx in zip(
+            ("summary", "token-coverage"),
+            cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_reason_priority_alias_legend_indices,
+        ):
+            legend_line = md_lines[legend_idx]
+            assert "P1=wobble" in legend_line and "P4=stable-calm" in legend_line, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWACRP LEGEND row to include deterministic P1..P4 decode mapping"
             )
 
         # CBGC LEGEND narrative metadata contract (Cycle FZ follow-up):

@@ -2675,3 +2675,9 @@
 
 ## 2026-03-29 19:43 KST
 - Support note: UX-facing digest rows unchanged this cycle; groundwork added via payload-only reason-priority signal for later compact alias/UI pass.
+
+
+## 2026-03-29 20:47 KST
+- Cycle GW update: shipped CBGCFXWACRP adjacency contract + legend readability slice (CBGCFXWACRP LEGEND) with regression lock across summary/token-coverage sections.
+- Verification: regression + weekly digest scripts PASS.
+- Follow-up: payload legend hash/version signal task injected in POST_RC backlog.

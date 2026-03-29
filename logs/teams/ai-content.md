@@ -2484,3 +2484,9 @@
 ## 2026-03-29 19:43 KST
 - Task: Validate narrative-reason precedence stays deterministic for coach-copy recommendation and raised-intensity branch fixture.
 - Decision: Keep reason taxonomy stable (`stable-calm|tense-phase|wobble|raised-intensity`) and add explicit priority tag for downstream copy tooling.
+
+
+## 2026-03-29 20:47 KST
+- Cycle GW update: shipped CBGCFXWACRP adjacency contract + legend readability slice (CBGCFXWACRP LEGEND) with regression lock across summary/token-coverage sections.
+- Verification: regression + weekly digest scripts PASS.
+- Follow-up: payload legend hash/version signal task injected in POST_RC backlog.
