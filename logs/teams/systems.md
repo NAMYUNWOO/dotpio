@@ -3739,3 +3739,7 @@
   - Added explicit optional row cardinality/dependency checks for `CBGCFXWSBPFXPD ECHO`.
   - Enforced per-section adjacency `MICROLINE LEGEND -> ECHO` and extended coach-rec spacer window/order contract accordingly.
 - Follow-up: Next unchecked queue item remains `QA Team: Add toggle-aware optional-order guard for CBGCFXWSBPFXPD ECHO copy line`.
+
+## 2026-03-30 04:34 KST — Rollout contract sync for FXPI/DRILL/PD/ECHO rows
+- Extended weekly digest markdown rails to include deterministic optional spacer chain in both sections: `...FXP LANG -> ...FXPI -> ...FXPI DRILL -> ...FXPD -> ...FXPD MICROLINE -> ...LEGEND -> ...ECHO -> ...COACH COPY REC`.
+- Verified regression/order contracts remain green after row expansion.

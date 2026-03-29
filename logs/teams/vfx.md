@@ -372,3 +372,7 @@
 - No direct combat/VFX runtime token shipped this cycle; completion focus was design/systems payload mutation.
 - 24h cadence remains satisfied via prior combat/vfx shipment (`CBGCFXWSBPFXPD:S|U`) while vfx underrepresentation is tracked (`vfx=0` in last-10 heading mix).
 - Next injected item prioritizes VFX visibility: optional markdown rollout row for `CBGCFXWSBPFXPD ECHO` + compact legend.
+
+## 2026-03-30 04:34 KST — Cycle HB backlog close: CBGCFXWSBPFXPD ECHO markdown visibility
+- Completed VFX visibility follow-up by exposing `CBGCFXWSBPFXPD ECHO` in summary + token-coverage with compact legend `S:STEADY|A:ANCHOR_ECHO|U:SURGE_ECHO`.
+- No runtime-balance coupling introduced; output remains flag-gated telemetry copy.

@@ -4290,3 +4290,7 @@
 - Added regression assertions for optional `CBGCFXWSBPFXPD ECHO` row count, dependency, and ordering before `CBGCFXWAC COACH COPY REC`.
 - Tightened section-level markdown ordering checks and spacer-prefix validation to include `ECHO`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+
+## 2026-03-30 04:34 KST — Regression validation: ECHO markdown rollout visibility
+- Validated updated markdown rails include `CBGCFXWSBPFXPD ECHO` in summary + token-coverage with compact legend metadata and deterministic ordering.
+- Verification passed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.

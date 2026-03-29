@@ -2556,3 +2556,7 @@
 ## 2026-03-30 03:49 KST — Cross-lane sync
 - No lane-owned runtime/content/UI changes in this slice.
 - Consumed Systems/QA regression hardening for portal readability digest markdown ordering (`... LEGEND -> ECHO -> COACH COPY REC`).
+
+## 2026-03-30 04:34 KST — UX/design readability closure for rehearsal echo row
+- Closed readability slice: markdown now shows `CBGCFXWSBPFXPD ECHO` with compact legend in summary + token-coverage sections.
+- Maintained strict adjacency contract to keep optional rollout story readable and deterministic.

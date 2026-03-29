@@ -2468,3 +2468,7 @@
 ## 2026-03-30 03:49 KST — Cross-lane sync
 - No lane-owned runtime/content/UI changes in this slice.
 - Consumed Systems/QA regression hardening for portal readability digest markdown ordering (`... LEGEND -> ECHO -> COACH COPY REC`).
+
+## 2026-03-30 04:34 KST — Cycle HB backlog close: CBGCFXWSBPFXPD ECHO markdown visibility
+- Completed Combat/VFX task: surfaced `CBGCFXWSBPFXPD ECHO` markdown row in both summary + token-coverage rails with compact decode legend (`S|A|U`) embedded in-row.
+- Kept rollout optional/offline-only telemetry contract (no gameplay coupling changes); ordering preserved before `CBGCFXWAC COACH COPY REC`.

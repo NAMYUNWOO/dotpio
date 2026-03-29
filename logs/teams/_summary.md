@@ -3981,3 +3981,7 @@ Compact decision memory for AI context efficiency.
   - Preserve coach-copy-rec row ordering by extending spacer contract to include the ECHO spacer in-sequence.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS.
 - Next queue: `QA Team: Add toggle-aware optional-order guard for CBGCFXWSBPFXPD ECHO copy line`.
+
+- 2026-03-30 04:34 KST: Closed highest-priority unchecked Combat/VFX backlog item by shipping `CBGCFXWSBPFXPD ECHO` markdown visibility in both summary + token-coverage sections with compact legend (`S:STEADY|A:ANCHOR_ECHO|U:SURGE_ECHO`).
+- Expanded deterministic optional rollout spacer chain coverage to include `CBGCFXWSBPFXPI`, `...DRILL`, `...FXPD`, and `...ECHO` rows before `CBGCFXWAC COACH COPY REC` across both digest rails; kept changes offline/flag-gated with no gameplay coupling impact.
+- Verification green: regression + weekly digest scripts.

@@ -2548,3 +2548,7 @@
 ## 2026-03-30 03:49 KST — Cross-lane sync
 - No lane-owned runtime/content/UI changes in this slice.
 - Consumed Systems/QA regression hardening for portal readability digest markdown ordering (`... LEGEND -> ECHO -> COACH COPY REC`).
+
+## 2026-03-30 04:34 KST — AI content digest clarity follow-up
+- Added digest-visible `CBGCFXWSBPFXPD ECHO` row and compact legend metadata so mutation flavor is glanceable without payload inspection.
+- Included optional phase-intent/rehearsal alias spacer rows for consistent copy-planning context before coach recommendation.

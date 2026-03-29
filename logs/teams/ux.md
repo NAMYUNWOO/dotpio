@@ -2735,3 +2735,7 @@
 ## 2026-03-30 03:49 KST — Cross-lane sync
 - No lane-owned runtime/content/UI changes in this slice.
 - Consumed Systems/QA regression hardening for portal readability digest markdown ordering (`... LEGEND -> ECHO -> COACH COPY REC`).
+
+## 2026-03-30 04:34 KST — Writer-facing digest visibility update (`CBGCFXWSBPFXPD ECHO`)
+- Surfaced optional echo mutation row in both digest sections with embedded compact decode legend for fast operator parsing.
+- Retained DOS-friendly compact wording and existing ordering before coach-copy recommendation row.

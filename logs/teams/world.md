@@ -2468,3 +2468,7 @@
 ## 2026-03-30 03:49 KST — Cross-lane sync
 - No lane-owned runtime/content/UI changes in this slice.
 - Consumed Systems/QA regression hardening for portal readability digest markdown ordering (`... LEGEND -> ECHO -> COACH COPY REC`).
+
+## 2026-03-30 04:34 KST — World-tone echo mutation readability sync
+- Synced world-tone drift mutation readability by surfacing `CBGCFXWSBPFXPD ECHO` token row with compact decode legend across digest sections.
+- Preserved narrative mapping (`STEADY|ANCHOR_ECHO|SURGE_ECHO`) as offline planning signal only.
