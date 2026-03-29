@@ -1620,5 +1620,5 @@ Last updated: 2026-03-21 02:31 KST
 
 - [x] GD-2026-03-30-echo-alias-markdown: Surface `CBGCFXWSBPFXPDE` in markdown summary/token-coverage rows with contract-order regression assertions.
 - [x] GD-2026-03-30-fxpde-legend-row: Add `CBGCFXWSBPFXPDE LEGEND` markdown row (summary/token-coverage) and enforce optional-order contract after `CBGCFXWSBPFXPDE`.
-- [ ] GD-2026-03-30-coach-rec-compact-alias: Prototype compact alias row for `CBGCFXWAC COACH COPY REC` in digest rails with decode legend.
+- [x] GD-2026-03-30-coach-rec-compact-alias: Prototype compact alias row for `CBGCFXWAC COACH COPY REC` in digest rails with decode legend.
 - [ ] GD-2026-03-30-echo-alias-flag-matrix: Add regression matrix for FXPDE flag/toggle combinations to lock row cardinality across summary/token-coverage.

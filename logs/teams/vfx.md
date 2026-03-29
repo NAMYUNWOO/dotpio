@@ -376,3 +376,7 @@
 ## 2026-03-30 04:34 KST — Cycle HB backlog close: CBGCFXWSBPFXPD ECHO markdown visibility
 - Completed VFX visibility follow-up by exposing `CBGCFXWSBPFXPD ECHO` in summary + token-coverage with compact legend `S:STEADY|A:ANCHOR_ECHO|U:SURGE_ECHO`.
 - No runtime-balance coupling introduced; output remains flag-gated telemetry copy.
+
+## 2026-03-30 05:53 KST — Lane sync
+- No VFX content retune in this cycle; only digest telemetry contract updates.
+- Follow-up: keep VFX lane eligible for next daily cadence item.

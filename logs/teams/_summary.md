@@ -3995,3 +3995,9 @@ Compact decision memory for AI context efficiency.
   - Chosen experiment: Idea #1; implemented minimal vertical slice by adding `CBGCFXWSBPFXPDE LEGEND` in summary + token-coverage rails and extending ordering/row-cardinality regression checks.
   - Verification passed via readability regression + digest generation scripts.
   - Injected backlog: `GD-2026-03-30-coach-rec-compact-alias`, `GD-2026-03-30-echo-alias-flag-matrix`.
+
+## 2026-03-30 — CBGCFXWACRC compact alias shipped
+- Shipped new coach recommendation compact alias token `CBGCFXWACRC` with deterministic legend `A=ANCHOR_STEP, S=SLOW_STEP, H=HOLD_STEP`.
+- Markdown contract now enforces row order: `CBGCFXWAC COACH COPY REC` -> `CBGCFXWACRC` -> `CBGCFXWACRC LEGEND` -> `CBGCFXWACRP` -> `CBGCFXWACRP LEGEND` -> `CBGCFXWC`.
+- Verification passed via py_compile + weekly script smoke run (`--since-days 1 --max-commits 5`).
+- Next backlog target: `GD-2026-03-30-echo-alias-flag-matrix`.
