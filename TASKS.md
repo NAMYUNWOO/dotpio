@@ -1688,3 +1688,16 @@ See project-level plans:
 ## Next Up (Game Director Injection — 2026-03-28 Cycle GP)
 - [x] Systems/QA Team: Reserve optional order-lock scaffold for future visible-row rollout (`COHERENCE ARC COACH` -> `CBGCFXWAC`) while keeping current payload-only behavior unchanged. *(lifecycle: [ ] -> [~] started: 2026-03-28 23:31 KST -> [x] completed: 2026-03-28 23:34 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
 - [x] AI Content/World Team: Prototype offline coach-line drift token (`CBGCFXWAC DRIFT:<prev>><curr>`) with stale-prior guard before any UI exposure. *(lifecycle: [ ] -> [~] started: 2026-03-29 12:08 KST -> [x] completed: 2026-03-29 12:10 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
+
+## Game Director Cycle GS — 2026-03-29 15:41 KST
+- Coverage check (last 10 completions, primary-lane tags): design=3, systems=3, ux=2, combat=1, ai-content=1; world/vfx/qa remained underrepresented as primary lanes.
+- Lane cap rule: no lane exceeded 40%, so selection stayed flexible but biased toward underrepresented design/world + vfx follow-through.
+- 24h cadence gate: combat/vfx ✅, design/world ✅, systems/ops ✅ across recent completions; maintained in this cycle and next injections.
+- Idea 1 (low risk, UX/VFX): Add short-lived combat impact pulse alias for hit readability in dense fights.
+- Idea 2 (mid risk, Design/AI Content): Harmonize coach-copy recommendation policy with storybeat phase (`CBGCFXWSBP`) to reduce tense-phase copy mismatch. **Selected.**
+- Idea 3 (high risk, Combat/Design): Add adaptive boss microphase remap that retunes cadence windows per encounter volatility.
+- [x] Design/AI Content Team (Cycle GS experiment): Prototype storybeat phase-aware coach-copy recommendation policy (offline-only) to harmonize `CBGCFXWSBP` with `CBGCFXWAC COACH COPY REC`. *(lifecycle: [ ] -> [~] started: 2026-03-29 15:43 KST -> [x] completed: 2026-03-29 15:50 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — 2026-03-29 Cycle GS)
+- [ ] Combat/VFX Team: Prototype payload-only `CBGCFXWSBP FX CUE:SOFT|EDGE` adapter so tense storybeat phases request stronger combat feedback pass hints without touching runtime combat balance.
+- [ ] Systems/Ops Team: Add regression contract lock for storybeat-phase harmonized coach-copy recommendation reason-domain (`stable-calm|tense-phase|wobble`) and output token domain (`ANCHOR_STEP|SLOW_STEP|HOLD_STEP`).

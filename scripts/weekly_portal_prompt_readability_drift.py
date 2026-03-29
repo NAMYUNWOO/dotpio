@@ -2031,24 +2031,32 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     *,
     coach_microline_pair_signals: dict[str, object],
     coach_microline_alias_momentum_signals: dict[str, object],
+    storybeat_phase_signals: dict[str, object],
 ) -> tuple[str, dict[str, object]]:
-    """Offline coach-copy variant recommendation from arc coach + alias momentum signals."""
+    """Offline coach-copy variant recommendation harmonized with storybeat phase (`CBGCFXWSBP`)."""
     flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_COACH_COPY_VARIANT_REC"
     flag_value = os.environ.get(flag_name, "")
     flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
 
     arc = str(coach_microline_pair_signals.get("arc", "SWAY") or "SWAY").strip().upper()
     momentum = str(coach_microline_alias_momentum_signals.get("momentum", "LOCKED") or "LOCKED").strip().upper()
+    storybeat_phase = str(storybeat_phase_signals.get("phase", "CALM") or "CALM").strip().upper()
 
     if momentum == "WOBBLE" and arc == "LOCK":
         recommendation = "ANCHOR_STEP"
         reason = "lock-arc-wobble-needs-anchor-variant"
+    elif storybeat_phase == "TENSE" and arc == "LOCK":
+        recommendation = "ANCHOR_STEP"
+        reason = "tense-storybeat-lock-arc-promotes-anchor-variant"
     elif momentum == "WOBBLE":
         recommendation = "SLOW_STEP"
         reason = "sway-arc-wobble-needs-stabilizing-variant"
+    elif storybeat_phase == "TENSE":
+        recommendation = "SLOW_STEP"
+        reason = "tense-storybeat-prefers-slow-step-before-hold"
     else:
         recommendation = "HOLD_STEP"
-        reason = "stable-momentum-keeps-current-coach-copy"
+        reason = "stable-calm-keeps-current-coach-copy"
 
     token = f"CBGCFXWAC COACH COPY REC:{recommendation}"
     return (token if flag_enabled else "FLAG OFF"), {
@@ -2056,6 +2064,7 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         "flagEnabled": flag_enabled,
         "arc": arc,
         "momentum": momentum,
+        "storybeatPhase": storybeat_phase,
         "recommendation": recommendation,
         "reason": reason,
         "token": token,
@@ -10140,6 +10149,7 @@ def main() -> int:
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation(
         coach_microline_pair_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_pair_signals,
         coach_microline_alias_momentum_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_microline_alias_momentum_signals,
+        storybeat_phase_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_signals,
     )
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_alias(
         coherence_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_signals,

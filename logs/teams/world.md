@@ -2359,3 +2359,9 @@
 ## 2026-03-29 15:33 KST — Cycle GS QA ordering + family churn contract
 - Completed Systems/QA backlog slice: added CBGCFXWSBP token-family churn coverage and markdown adjacency contract CBGCFXWSB -> CBGCFXWSB FAMILY CHURN -> CBGCFXWSBP -> CBGCFXWSBP FAMILY CHURN -> CBGCFXWC in summary and token-coverage sections.
 - Verification: [PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py; [PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120.
+
+## [2026-03-29 15:50 KST] Cycle GS — storybeat-phase harmonized coach-copy recommendation
+- Lane role: world
+- Completed vertical slice: wired CBGCFXWSBP phase (CALM|TENSE) into CBGCFXWAC COACH COPY REC decision path so tense phases can bias from HOLD to SLOW/ANCHOR when appropriate.
+- Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py and python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120.
+- Next injection: CBGCFXWSBP FX CUE:SOFT|EDGE (combat/vfx) + systems reason-domain regression lock.

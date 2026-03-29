@@ -342,3 +342,9 @@
 ### 2026-03-28 21:41 KST — VFX lane continuity note
 - No VFX code mutation in GN; coverage gate satisfied by recent GI combat/vfx slice.
 - Injected GO follow-up for Combat/VFX: payload-only ARC mirror alias (`CVARC:<L|S>`) to keep cadence balanced.
+
+## [2026-03-29 15:50 KST] Cycle GS — storybeat-phase harmonized coach-copy recommendation
+- Lane role: vfx
+- Completed vertical slice: wired CBGCFXWSBP phase (CALM|TENSE) into CBGCFXWAC COACH COPY REC decision path so tense phases can bias from HOLD to SLOW/ANCHOR when appropriate.
+- Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py and python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120.
+- Next injection: CBGCFXWSBP FX CUE:SOFT|EDGE (combat/vfx) + systems reason-domain regression lock.

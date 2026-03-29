@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-29 14:29 KST
+Last updated: 2026-03-29 15:50 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Executed Game Director Cycle GS coverage check (last 10 completed, primary-lane): design=3, systems=3, ux=2, combat=1, ai-content=1; no lane breached 40%, but world/vfx/qa remained underrepresented so next injections target combat/vfx + systems/ops guardrails.
+- Closed POST_RC Design/AI Content follow-up: `CBGCFXWAC COACH COPY REC` policy now harmonizes with `CBGCFXWSBP` phase signals (`CALM|TENSE`), allowing tense phases to escalate from HOLD toward SLOW/ANCHOR even without wobble momentum.
+- Verified Cycle GS slice with regression + weekly smoke (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`); injected next tasks: (1) Combat/VFX `CBGCFXWSBP FX CUE:SOFT|EDGE` adapter and (2) Systems/Ops reason-domain lock for harmonized coach-copy recommendations.
 
 - Closed POST_RC AI Content/Design follow-up: weekly digest payload now emits `CBGCFXWAC COACH COPY REC:<ANCHOR_STEP|SLOW_STEP|HOLD_STEP>` derived from `COHERENCE ARC COACH` + `CBGCFXWAC MOMENTUM` signals.
 - Added deterministic recommendation policy: `WOBBLE+LOCK -> ANCHOR_STEP`, `WOBBLE+SWAY -> SLOW_STEP`, otherwise `HOLD_STEP`, gated behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_COACH_COPY_VARIANT_REC`.
