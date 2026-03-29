@@ -261,11 +261,32 @@ def main() -> int:
             assert matrix_payload.get(
                 "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftStreak"
             ) == 0, matrix_payload
+            assert matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftTrendBand"
+            ) == f"CBGCFXWSBPFXPDE MATRIX DRIFT TREND:STABLE", matrix_payload
+            trend_band_signals = matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftTrendBandSignals",
+                {},
+            )
+            assert set(trend_band_signals.keys()) == {
+                "band",
+                "reason",
+                "changed",
+                "streak",
+                "priorLoaded",
+                "token",
+                "offlineOnly",
+            }, matrix_payload
+            assert trend_band_signals.get("band") == "STABLE", matrix_payload
+            assert trend_band_signals.get("reason") == "no-prior-window", matrix_payload
+            assert trend_band_signals.get("priorLoaded") is False, matrix_payload
+            assert trend_band_signals.get("offlineOnly") is True, matrix_payload
             for row_prefix in (
                 "- CBGCFXWSBPFXPD ECHO:",
                 "- CBGCFXWSBPFXPDE:",
                 "- CBGCFXWSBPFXPDE LEGEND:",
                 "- CBGCFXWSBPFXPDE MATRIX:",
+                "- CBGCFXWSBPFXPDE MATRIX DRIFT TREND:",
             ):
                 observed_count = _count_lines(matrix_md, row_prefix)
                 assert observed_count == 2, (
@@ -4032,7 +4053,10 @@ def main() -> int:
             i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPDE MATRIX:")
         ]
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_indices = [
-            i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPDE MATRIX DRIFT:")
+            i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPDE MATRIX DRIFT:") and "TREND" not in line
+        ]
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_trend_band_indices = [
+            i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPDE MATRIX DRIFT TREND:")
         ]
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_indices = _find_line_indices("- CBGCFXWAC COACH COPY REC:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_compact_alias_indices = _find_line_indices("- CBGCFXWACRC:")
@@ -4625,6 +4649,12 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_indices), (
             "expected CBGCFXWSBPFXPDE MATRIX DRIFT rows to appear only when CBGCFXWSBPFXPDE MATRIX rows are present"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_trend_band_indices) in {0, 2}, (
+            "expected zero or exactly two CBGCFXWSBPFXPDE MATRIX DRIFT TREND rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_trend_band_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_indices), (
+            "expected CBGCFXWSBPFXPDE MATRIX DRIFT TREND rows to appear only when CBGCFXWSBPFXPDE MATRIX DRIFT rows are present"
+        )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_indices) == 2, (
             "expected exactly two CBGCFXWAC COACH COPY REC rows (summary + token-coverage sections)"
         )
@@ -4753,8 +4783,9 @@ def main() -> int:
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 10,
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 11,
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 12,
+                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 13,
             }, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row immediately after CBGCFXWSBPFCI COACH COPY row, with optional rollout spacers CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI -> CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD -> CBGCFXWSBPFXPD MICROLINE -> CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWSBPFXPDE -> CBGCFXWSBPFXPDE LEGEND -> CBGCFXWSBPFXPDE MATRIX -> CBGCFXWSBPFXPDE MATRIX DRIFT"
+                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row immediately after CBGCFXWSBPFCI COACH COPY row, with optional rollout spacers CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI -> CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD -> CBGCFXWSBPFXPD MICROLINE -> CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWSBPFXPDE -> CBGCFXWSBPFXPDE LEGEND -> CBGCFXWSBPFXPDE MATRIX -> CBGCFXWSBPFXPDE MATRIX DRIFT -> CBGCFXWSBPFXPDE MATRIX DRIFT TREND"
             )
             spacer_lines = md_lines[
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1 : coach_copy_variant_rec_idx
@@ -4771,9 +4802,10 @@ def main() -> int:
                 "- CBGCFXWSBPFXPDE LEGEND:",
                 "- CBGCFXWSBPFXPDE MATRIX:",
                 "- CBGCFXWSBPFXPDE MATRIX DRIFT:",
+                "- CBGCFXWSBPFXPDE MATRIX DRIFT TREND:",
             ]
             assert len(spacer_lines) <= len(expected_spacer_prefixes), (
-                f"markdown contract violated in {section_name} section: expected at most eleven rollout spacers before CBGCFXWAC COACH COPY REC"
+                f"markdown contract violated in {section_name} section: expected at most twelve rollout spacers before CBGCFXWAC COACH COPY REC"
             )
             last_prefix_idx = -1
             for spacer_idx, spacer_line in enumerate(spacer_lines):
