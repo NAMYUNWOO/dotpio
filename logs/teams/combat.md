@@ -2378,3 +2378,7 @@
 ## 2026-03-29 16:59 KST — Combat lane note (adapter preserved)
 - `CBGCFXWSBP FX CUE:SOFT|EDGE` adapter behavior preserved; no combat-balance/runtime logic touched.
 - QA contract now guards compact alias coherence for postmortem readability.
+
+## 2026-03-29 17:12 KST — Cycle GU combat notes
+- Added combat-facing payload intensity hint mirror (`BASE|RAISED`) without touching runtime combat tuning.
+- Maintains offline-only analysis semantics.

@@ -4150,3 +4150,11 @@
 - Locked payload-domain contract for `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAlias`.
 - Assertions now cover cue/alias coherence, token-string coherence, and flag-off behavior deterministically.
 - Regression evidence: PASS (weekly portal prompt regression + weekly digest smoke).
+
+## 2026-03-29 17:12 KST — Cycle GU QA notes
+- Added regression contract for `CBGCFXWSBPFCI` domain:
+  - alias domain `S|E`
+  - intensity domain `BASE|RAISED`
+  - compact alias domain `B|R`
+  - token coherence + flag-off fallback.
+- Verification: PASS regression + weekly smoke.

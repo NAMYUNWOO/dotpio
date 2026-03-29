@@ -3871,3 +3871,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: enforce deterministic cue↔alias coherence (`SOFT->S`, `EDGE->E`) and explicit flag-off fallback (`FLAG OFF`) while keeping payload token generation stable.
 - Verification: [PASS] `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; [PASS] `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
 - Next highest-priority item: none unchecked in ACTION_ITEMS/TASKS/POST_RC_BACKLOG (ready for next Game Director cycle).
+
+## 2026-03-29 17:12 KST — Cycle GU selected slice shipped (`CBGCFXWSBPFCI`)
+- Game Director cycle executed after ACTION_ITEMS/TASKS/POST_RC closure, generated 3 ideas, selected low-risk combat/vfx payload slice.
+- Shipped payload-only compact intensity hint `CBGCFXWSBPFCI:B|R` derived deterministically from `CBGCFXWSBPFC` alias (`S->BASE/B`, `E->RAISED/R`) with explicit flag-off fallback.
+- Injected follow-ups kept in backlog: Systems/QA legend/order contract + Design/AI intensity microline pair.
+- Verification: [PASS] regression + weekly digest smoke commands.

@@ -2456,3 +2456,7 @@
 ## 2026-03-29 16:59 KST — Design lane note (readability contract)
 - Confirmed dense digest readability intent: compact alias row remains deterministic under flag-on/off paths.
 - No legend/order changes required in this micro-slice.
+
+## 2026-03-29 17:12 KST — Cycle GU design notes
+- Confirmed compact intensity alias choice (`B|R`) for dense digest readability.
+- Deferred legend rollout to explicit Systems/QA follow-up task.

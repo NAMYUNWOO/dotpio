@@ -3041,6 +3041,32 @@ def main() -> int:
             assert storybeat_phase_fx_cue_compact_alias == f"CBGCFXWSBPFC:{expected_alias}", payload
         else:
             assert storybeat_phase_fx_cue_compact_alias == "FLAG OFF", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensity", "").startswith(("FLAG OFF", "CBGCFXWSBPFCI:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensitySignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "alias",
+            "intensity",
+            "compactAlias",
+            "token",
+            "offlineOnly",
+        }, payload
+        storybeat_phase_fx_cue_compact_alias_intensity = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensity", "")
+        storybeat_phase_fx_cue_compact_alias_intensity_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensitySignals", {})
+        assert storybeat_phase_fx_cue_compact_alias_intensity_signals.get("alias") in {"S", "E"}, payload
+        assert storybeat_phase_fx_cue_compact_alias_intensity_signals.get("intensity") in {"BASE", "RAISED"}, payload
+        assert storybeat_phase_fx_cue_compact_alias_intensity_signals.get("compactAlias") in {"B", "R"}, payload
+        assert storybeat_phase_fx_cue_compact_alias_intensity_signals.get("token", "").startswith("CBGCFXWSBPFCI:"), payload
+        assert storybeat_phase_fx_cue_compact_alias_intensity_signals.get("offlineOnly") is True, payload
+        expected_intensity_by_alias = {"S": ("BASE", "B"), "E": ("RAISED", "R")}
+        expected_intensity, expected_intensity_compact_alias = expected_intensity_by_alias[storybeat_phase_fx_cue_compact_alias_intensity_signals["alias"]]
+        assert storybeat_phase_fx_cue_compact_alias_intensity_signals.get("intensity") == expected_intensity, payload
+        assert storybeat_phase_fx_cue_compact_alias_intensity_signals.get("compactAlias") == expected_intensity_compact_alias, payload
+        assert storybeat_phase_fx_cue_compact_alias_intensity_signals.get("token") == f"CBGCFXWSBPFCI:{expected_intensity_compact_alias}", payload
+        if storybeat_phase_fx_cue_compact_alias_intensity_signals.get("flagEnabled") is True:
+            assert storybeat_phase_fx_cue_compact_alias_intensity == f"CBGCFXWSBPFCI:{expected_intensity_compact_alias}", payload
+        else:
+            assert storybeat_phase_fx_cue_compact_alias_intensity == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendation", "").startswith(("FLAG OFF", "CBGCFXWAC COACH COPY REC:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationSignals", {}).keys()) == {
             "flagName",

@@ -2647,3 +2647,7 @@
 ## 2026-03-29 16:59 KST — UX lane note (compact decode reliability)
 - Compact alias `CBGCFXWSBPFC` now has strict regression coherence guarantees.
 - User-facing digest scanability improved by preventing cue/alias drift under flag toggles.
+
+## 2026-03-29 17:12 KST — Cycle GU UX notes
+- One-glance decode improved via compact intensity token `CBGCFXWSBPFCI:B|R`.
+- Payload remains non-visible by default; future legend task retained for rollout readiness.

@@ -3592,3 +3592,7 @@
 - Added regression assertions tying compact alias mapping to cue domain (`SOFT->S`, `EDGE->E`) and token string coherence (`CBGCFXWSBPFC:<alias>`).
 - Added flag-off fallback assertion: when alias flag is disabled, payload row must be `FLAG OFF` while signals remain deterministic.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+
+## 2026-03-29 17:12 KST — Cycle GU systems notes
+- Added payload wiring for `cadenceBridge...StorybeatPhaseFxCueCompactAliasIntensity` (+ signals) in weekly digest JSON.
+- Kept slice payload-only and reversible via dedicated experiment flag.
