@@ -3677,7 +3677,7 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_indices = _find_line_indices("- CBGCFXWSBPFCI:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_indices = _find_line_indices("- CBGCFXWSBPFXP:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_indices = _find_line_indices("- CBGCFXWSBPFXP MICROLINE:")
-        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_indices = _find_line_indices("- CBGCFXWSBPFXP LEGEND:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_indices = _find_line_indices("- CBGCFXWSBPFXP MICROLINE LEGEND:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_legend_indices = _find_line_indices("- CBGCFXWSBPFCI LEGEND:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_indices = _find_line_indices("- CBGCFXWSBPFCI COACH COPY:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_indices = _find_line_indices("- CBGCFXWAC COACH COPY REC:")
@@ -4198,7 +4198,7 @@ def main() -> int:
             "expected exactly two CBGCFXWSBPFXP MICROLINE rows (summary + token-coverage sections)"
         )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_indices) == 2, (
-            "expected exactly two CBGCFXWSBPFXP LEGEND rows (summary + token-coverage sections)"
+            "expected exactly two CBGCFXWSBPFXP MICROLINE LEGEND rows (summary + token-coverage sections)"
         )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_legend_indices) == 2, (
             "expected exactly two CBGCFXWSBPFCI LEGEND rows (summary + token-coverage sections)"
@@ -4305,10 +4305,10 @@ def main() -> int:
                 f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXP MICROLINE row directly after CBGCFXWSBPFXP row"
             )
             assert storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_idx == storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_idx + 1, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXP LEGEND row directly after CBGCFXWSBPFXP MICROLINE row"
+                f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXP MICROLINE LEGEND row directly after CBGCFXWSBPFXP MICROLINE row"
             )
             assert storybeat_phase_fx_cue_compact_alias_intensity_legend_idx == storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_legend_idx + 1, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFCI LEGEND row directly after CBGCFXWSBPFXP LEGEND row"
+                f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFCI LEGEND row directly after CBGCFXWSBPFXP MICROLINE LEGEND row"
             )
             assert storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx == storybeat_phase_fx_cue_compact_alias_intensity_legend_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFCI COACH COPY row directly after CBGCFXWSBPFCI LEGEND row"

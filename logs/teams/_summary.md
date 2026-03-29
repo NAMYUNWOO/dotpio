@@ -3929,3 +3929,5 @@ Compact decision memory for AI context efficiency.
 - Verification passed: regression_weekly_portal_prompt_readability_drift + weekly_portal_prompt_readability_drift smoke.
 - Cycle GY Game Director review executed after checklist completion: generated 3 ideas, selected low-risk MICROLINE decode slice, implemented + verified in same cycle.
 - Backlog injection added two follow-ups: MICROLINE LEGEND adjacency row and offline pulse-language variant pack.
+
+- 2026-03-29 22:51 KST: Shipped `CBGCFXWSBPFXP MICROLINE LEGEND` compact markdown row with `(v/hash)` annotation in weekly portal digest; regression now enforces microline->microline legend adjacency before `CBGCFXWSBPFCI LEGEND` across summary/token coverage sections.

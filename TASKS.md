@@ -1743,5 +1743,5 @@ See project-level plans:
 - [x] Design/World + Systems/QA Team (Cycle GY selected experiment): Ship `CBGCFXWSBPFXP MICROLINE` decode row + payload signals (selected/alias + row-budget) and legend hash/version contract with deterministic ordering regression lock. *(lifecycle: [ ] -> [~] started: 2026-03-29 22:19 KST -> [x] completed: 2026-03-29 22:24 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## Next Up (Game Director Injection — Cycle GY)
-- [ ] UX/Design Team: Add compact `CBGCFXWSBPFXP MICROLINE LEGEND` markdown row (hash/version annotated) with strict adjacency right after `CBGCFXWSBPFXP MICROLINE`.
+- [x] UX/Design Team: Add compact `CBGCFXWSBPFXP MICROLINE LEGEND` markdown row (hash/version annotated) with strict adjacency right after `CBGCFXWSBPFXP MICROLINE`.
 - [ ] AI Content/World Team: Prototype offline pulse-language variant pack (`SOFT|PUSH`) tied to storybeat-phase intent for future A/B narrative readability review.
