@@ -4194,3 +4194,7 @@
 - Cycle GW update: shipped CBGCFXWACRP adjacency contract + legend readability slice (CBGCFXWACRP LEGEND) with regression lock across summary/token-coverage sections.
 - Verification: regression + weekly digest scripts PASS.
 - Follow-up: payload legend hash/version signal task injected in POST_RC backlog.
+
+## 2026-03-29 21:41 KST — Cycle GX verification note
+- Regression contract expanded for `CBGCFXWSBPFXP` payload schema/domain plus markdown adjacency in summary/token-coverage sections.
+- Evidence: weekly drift regression + smoke generation both PASS; no existing token-family order contracts regressed.

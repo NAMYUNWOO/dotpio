@@ -2492,3 +2492,7 @@
 - Cycle GW update: shipped CBGCFXWACRP adjacency contract + legend readability slice (CBGCFXWACRP LEGEND) with regression lock across summary/token-coverage sections.
 - Verification: regression + weekly digest scripts PASS.
 - Follow-up: payload legend hash/version signal task injected in POST_RC backlog.
+
+## 2026-03-29 21:41 KST — Cycle GX design/world follow-up injection
+- Injected next design/world follow-up: prototype compact decode microline adjacent to `CBGCFXWSBPFXP` legend for faster reviewer onboarding without increasing gameplay coupling.
+- Intent: keep world-tone readability aligned with combat/vfx pulse alias while preserving DOS row-budget discipline.

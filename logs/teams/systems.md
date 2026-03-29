@@ -3633,3 +3633,7 @@
 - Cycle GW update: shipped CBGCFXWACRP adjacency contract + legend readability slice (CBGCFXWACRP LEGEND) with regression lock across summary/token-coverage sections.
 - Verification: regression + weekly digest scripts PASS.
 - Follow-up: payload legend hash/version signal task injected in POST_RC backlog.
+
+## 2026-03-29 21:41 KST — Cycle GX systems/ops follow-up injection
+- 24h cadence gate checked before shipping: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Injected next systems/qa follow-up: add payload-domain legend freshness hash/version signal for `CBGCFXWACRP` with deterministic regression lock so downstream decode tables can assert parity.

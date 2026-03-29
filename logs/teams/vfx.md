@@ -361,3 +361,9 @@
 - Added storybeat-phase-aware VFX hint channel (`CBGCFXWSBP FX CUE`) plus compact alias mirror for postmortem readability.
 - Mapping policy: CALM→SOFT, TENSE→EDGE.
 - Validation: weekly digest regression + generation scripts passed.
+
+## 2026-03-29 21:41 KST — Game Director Cycle GX selected slice (Combat/VFX)
+- Coverage check (last 10 completed headings across lane logs): systems=2, ux=2, world=2, ai-content=1, combat=1, design=1, qa=1, vfx=0 (no lane >40%; vfx underrepresented).
+- Selected low-risk vertical slice to rebalance visible combat/vfx cadence: payload-only pulse alias `CBGCFXWSBPFXP:S|P` derived from `CBGCFXWSBPFCI` intensity (`BASE->S`, `RAISED->P`).
+- Scope is additive and reversible (flag-gated, no runtime combat/balance changes): `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_FX_CUE_INTENSITY_PULSE_ALIAS`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` PASS; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` PASS.

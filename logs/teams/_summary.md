@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-29 19:43 KST
+Last updated: 2026-03-29 21:41 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Executed Game Director Cycle GX coverage check over last 10 completed lane-log items: systems=2, ux=2, world=2, ai-content=1, combat=1, design=1, qa=1, vfx=0; no lane breached 40%, and underrepresented vfx lane was prioritized for this slice.
+- Shipped Combat/VFX vertical slice `CBGCFXWSBPFXP:S|P` (payload-only pulse alias from `CBGCFXWSBPFCI` intensity) with legend rows and deterministic adjacency contract in both summary/token-coverage sections.
+- Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`), and next injected tasks target systems/qa legend-hash freshness + design/world decode microline pairing.
 
 - Closed POST_RC QA follow-up: regression now includes deterministic fixture for `CALM + LOCKED + RAISED`, locking `CBGCFXWAC COACH COPY REC:SLOW_STEP` with reason `raised-intensity`.
 - Executed Game Director Cycle GV after queue reached full-check state; selected low-risk Systems/QA experiment and shipped minimal vertical slice by adding payload signal `reasonPriority` (`P1..P4`) for coach-copy recommendation precedence.

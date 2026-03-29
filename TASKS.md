@@ -1719,3 +1719,16 @@ See project-level plans:
 - [x] Combat/VFX Team (Cycle GU selected experiment): Add payload-only compact intensity hint `CBGCFXWSBPFCI:B|R` from `CBGCFXWSBPFC` alias with deterministic payload-domain regression lock and flag-off fallback behavior. *(lifecycle: [ ] -> [~] started: 2026-03-29 17:08 KST -> [x] completed: 2026-03-29 17:12 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [x] Systems/QA Team: Add optional markdown/token-coverage legend+order contract for `CBGCFXWSBPFCI` rollout path (`...FX CUE COMPACT ALIAS -> ...INTENSITY -> ...COACH COPY REC`).
 - [x] Design/AI Content Team: Prototype offline copy microline pair for intensity states (`BASE|RAISED`) to support future visible digest rollout. *(lifecycle: [ ] -> [~] started: 2026-03-29 18:02 KST -> [x] completed: 2026-03-29 18:15 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Game Director Cycle GX — 2026-03-29 21:41 KST
+- Coverage check (last 10 completed headings by lane): systems=2, ux=2, world=2, ai-content=1, combat=1, design=1, qa=1, vfx=0.
+- Lane cap rule: no lane exceeded 40%; underrepresented lane pressure favored combat/vfx for this slice.
+- 24h cadence gate: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low-risk UX/game-feel, combat/vfx): Add payload-only pulse alias `CBGCFXWSBPFXP:S|P` derived from `CBGCFXWSBPFCI` intensity for faster FX pressure triage. **Selected.**
+- Idea 2 (mid-risk systems/qa): Add payload-domain legend freshness hash/version signal for `CBGCFXWACRP` to detect stale decode tables.
+- Idea 3 (high-risk novelty design/world): Add adaptive world-tone pulse narration pack based on 3-window pressure memory.
+- [x] Combat/VFX Team (Cycle GX selected experiment): Ship `CBGCFXWSBPFXP:S|P` payload token + legend rows + regression/order locks behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_FX_CUE_INTENSITY_PULSE_ALIAS`. *(lifecycle: [ ] -> [~] started: 2026-03-29 21:31 KST -> [x] completed: 2026-03-29 21:41 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle GX)
+- [ ] Systems/QA Team: Add payload-domain `CBGCFXWACRP` legend hash/version signal and regression lock so downstream tooling can verify legend freshness against markdown decode table.
+- [ ] Design/World Team: Add compact decode microline pair for `CBGCFXWSBPFXP` (`S=SOFT pulse`, `P=PUSH pulse`) with strict DOS row-budget guardrails.

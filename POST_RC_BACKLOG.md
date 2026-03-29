@@ -1539,3 +1539,16 @@ Last updated: 2026-03-21 02:31 KST
 
 ## Next Up (Game Director Injection — Cycle GW)
 - [ ] Systems/QA Team: Add payload-domain `CBGCFXWACRP` legend hash/version signal and regression lock so downstream tooling can verify legend freshness against markdown decode table.
+
+## Game Director Cycle GX — 2026-03-29 21:41 KST
+- Coverage check (last 10 completed headings by lane): systems=2, ux=2, world=2, ai-content=1, combat=1, design=1, qa=1, vfx=0.
+- Lane-cap result: no lane >40%; underrepresented lanes prioritized (vfx absent in last-10 set).
+- Cadence gate (24h): combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low-risk UX/game-feel, combat/vfx): add payload-only pulse alias `CBGCFXWSBPFXP:S|P` from intensity for one-glance FX pressure decode. *(impact: lower triage friction; metric: decode hops per review; scope: S; risk: low; rollback: remove token + disable flag)* **Selected**
+- Idea 2 (mid-risk systems/qa): add `CBGCFXWACRP` legend hash/version signal contract.
+- Idea 3 (high-risk novelty design/world): add adaptive world-tone pulse narration pack from 3-window pressure memory.
+- [x] Combat/VFX/QA (Cycle GX selected experiment): Added `CBGCFXWSBPFXP:S|P` payload alias with summary/token-coverage legend rows and deterministic adjacency contract lock. *(lifecycle: [ ] -> [~] started: 2026-03-29 21:31 KST -> [x] completed: 2026-03-29 21:41 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle GX)
+- [ ] Systems/QA Team: Add payload-domain `CBGCFXWACRP` legend hash/version signal and regression lock so downstream tooling can verify legend freshness against markdown decode table.
+- [ ] Design/World Team: Add compact decode microline pair for `CBGCFXWSBPFXP` (`S=SOFT pulse`, `P=PUSH pulse`) with strict DOS row-budget guardrails.
