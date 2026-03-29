@@ -49,6 +49,23 @@ local function toJson(report)
     end
 
     table.insert(lines, "  ]")
+    local writerPreview = report.writerPreview or {}
+    local aliasRows = writerPreview.aliasPreviewRows or {}
+    table.insert(lines, ',  "writerPreview": {')
+    table.insert(lines, string.format('    "token": %s,', jsonString(writerPreview.token or "")))
+    table.insert(lines, string.format('    "legendVersion": %s,', jsonString(writerPreview.legendVersion or "")))
+    table.insert(lines, string.format('    "legendHash": %s,', jsonString(writerPreview.legendHash or "")))
+    table.insert(lines, '    "decode": {')
+    table.insert(lines, string.format('      "S": %s,', jsonString((writerPreview.decode or {}).S or "")))
+    table.insert(lines, string.format('      "U": %s', jsonString((writerPreview.decode or {}).U or "")))
+    table.insert(lines, "    },")
+    table.insert(lines, '    "aliasPreviewRows": [')
+    for i, row in ipairs(aliasRows) do
+        local comma = (i < #aliasRows) and "," or ""
+        table.insert(lines, string.format('      %s%s', jsonString(row), comma))
+    end
+    table.insert(lines, "    ]")
+    table.insert(lines, "  }")
     table.insert(lines, "}")
     return table.concat(lines, "\n")
 end
@@ -77,6 +94,18 @@ local function toMarkdown(report)
         end
     else
         table.insert(lines, "- All sampled prompts satisfy token order and budget selection checks.")
+    end
+
+    local writerPreview = report.writerPreview or {}
+    local decode = writerPreview.decode or {}
+    table.insert(lines, "")
+    table.insert(lines, "## Writer Preview — CBGCFXWSBPFXPD MICROLINE")
+    table.insert(lines, string.format("- Token: `%s`", writerPreview.token or "CBGCFXWSBPFXPD MICROLINE"))
+    table.insert(lines, string.format("- Legend: `v=%s hash=%s`", writerPreview.legendVersion or "?", writerPreview.legendHash or "?"))
+    table.insert(lines, string.format("- `S` decode: %s", decode.S or "(missing)"))
+    table.insert(lines, string.format("- `U` decode: %s", decode.U or "(missing)"))
+    for _, row in ipairs(writerPreview.aliasPreviewRows or {}) do
+        table.insert(lines, string.format("- Preview: `%s`", row))
     end
 
     return table.concat(lines, "\n")

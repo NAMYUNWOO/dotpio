@@ -13,6 +13,12 @@ local COMPACT_COACH_BY_ROUTE = {
     SPIKE = "HIGH",
     UNKNOWN = "UNK",
 }
+local CBGCFXWSBPFXPD_MICROLINE_LEGEND_VERSION = "v1"
+local CBGCFXWSBPFXPD_MICROLINE_LEGEND_HASH = "39d18a4e9e19"
+local CBGCFXWSBPFXPD_MICROLINE_DECODE = {
+    S = "SOFT drill: hold pace and rehearse one stable line.",
+    U = "SURGE drill: tighten cadence and rehearse one urgent verb.",
+}
 
 local function normalizeRouteTag(routeTag)
     local value = string.upper(tostring(routeTag or ""))
@@ -137,6 +143,11 @@ function PortalPromptLinter.analyze(maxChars)
         end
     end
 
+    local aliasPreviewRows = {
+        string.format("CBGCFXWSBPFXPD MICRO:S=%s", CBGCFXWSBPFXPD_MICROLINE_DECODE.S),
+        string.format("CBGCFXWSBPFXPD MICRO:U=%s", CBGCFXWSBPFXPD_MICROLINE_DECODE.U),
+    }
+
     return {
         status = (#warnings == 0) and "OK" or "WARN",
         budgetChars = budget,
@@ -144,6 +155,13 @@ function PortalPromptLinter.analyze(maxChars)
         warningCount = #warnings,
         warnings = warnings,
         samples = samples,
+        writerPreview = {
+            token = "CBGCFXWSBPFXPD MICROLINE",
+            legendVersion = CBGCFXWSBPFXPD_MICROLINE_LEGEND_VERSION,
+            legendHash = CBGCFXWSBPFXPD_MICROLINE_LEGEND_HASH,
+            decode = CBGCFXWSBPFXPD_MICROLINE_DECODE,
+            aliasPreviewRows = aliasPreviewRows,
+        },
     }
 end
 

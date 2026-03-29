@@ -3962,3 +3962,9 @@ Compact decision memory for AI context efficiency.
 - Executed Game Director Cycle HA immediately after full-check state: generated 3 ideas, selected low-risk Combat/VFX vertical slice, and shipped compact rehearsal cue alias `CBGCFXWSBPFXPD:S|U` for downstream parser density.
 - Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`).
 - Injected next backlog tasks (unchecked): Systems/QA markdown order/count contract for `...FXPI DRILL -> ...FXPD`, and Design/World rehearsal microline vocabulary pack.
+
+## 2026-03-30 03:13 KST — Portal copy linter writer decode preview shipped
+- Closed highest-priority unchecked TASKS/POST_RC item: portal copy linter now surfaces `CBGCFXWSBPFXPD MICROLINE` writer-facing decode legend (`v1/hash`) and S/U preview rows for readability reviews.
+- Durable decision: keep decode source deterministic in `src/portal_prompt_linter.lua` (`writerPreview` contract) and mirror in `scripts/check_portal_prompt_token_order.lua` markdown/json outputs for writer audits.
+- Verification passed: `lua scripts/regression_portal_prompt_token_order.lua`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- Remaining unchecked queue head: Design/Systems Team adaptive phase-echo rehearsal hint mutation prototype (experiment-flagged, offline only).
