@@ -226,6 +226,10 @@ def main() -> int:
                 env_overrides=matrix_case["env"],
             )
             assert matrix_payload.get("checkedCommits", 0) >= 2, matrix_payload
+            expected_matrix_key = f"E{1 if matrix_case['echo_enabled'] else 0}A{1 if matrix_case['alias_enabled'] else 0}"
+            assert matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrix"
+            ) == expected_matrix_key, matrix_payload
             for row_prefix in (
                 "- CBGCFXWSBPFXPD ECHO:",
                 "- CBGCFXWSBPFXPDE:",
