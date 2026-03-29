@@ -2534,3 +2534,7 @@
   - Added payload-only token `CBGCFXWSBPFXPI NARR:<ANCHOR|SURGE|RECOVER>` sourced from `phaseIntent` + `CBGCFXWAC MOMENTUM` (RECOVER when `ANCHOR` intent meets `WOBBLE` momentum).
   - Kept rollout fully reversible via `DOTPIO_EXPERIMENT_..._PHASE_INTENT_NARRATION` flag and explicit `FLAG OFF` fallback.
 
+### 2026-03-30 02:06 KST — Cycle HA design queue update
+- New injected task accepted: design/world rehearsal microline vocabulary pack using `CBGCFXWSBPFXPD` compact alias.
+- Guardrails: compact DOS phrasing, reversible flag path, no runtime pacing mutation.
+

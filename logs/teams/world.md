@@ -2452,3 +2452,7 @@
   - Added payload-only token `CBGCFXWSBPFXPI NARR:<ANCHOR|SURGE|RECOVER>` sourced from `phaseIntent` + `CBGCFXWAC MOMENTUM` (RECOVER when `ANCHOR` intent meets `WOBBLE` momentum).
   - Kept rollout fully reversible via `DOTPIO_EXPERIMENT_..._PHASE_INTENT_NARRATION` flag and explicit `FLAG OFF` fallback.
 
+### 2026-03-30 02:06 KST — Rehearsal readability handoff
+- Received Cycle HA handoff for next world/design slice: prototype compact rehearsal microline vocabulary pack keyed by `CBGCFXWSBPFXPD`.
+- Constraint captured: keep DOS row budget and avoid gameplay/system balance coupling.
+

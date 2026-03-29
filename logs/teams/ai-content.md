@@ -2530,3 +2530,9 @@
   - Added payload-only token `CBGCFXWSBPFXPI NARR:<ANCHOR|SURGE|RECOVER>` sourced from `phaseIntent` + `CBGCFXWAC MOMENTUM` (RECOVER when `ANCHOR` intent meets `WOBBLE` momentum).
   - Kept rollout fully reversible via `DOTPIO_EXPERIMENT_..._PHASE_INTENT_NARRATION` flag and explicit `FLAG OFF` fallback.
 
+### 2026-03-30 02:06 KST — Cue-language semantics lock
+- Confirmed rehearsal semantics mapping remains deterministic:
+  - `ANCHOR|A -> SOFT drill`
+  - `SURGE|S -> SURGE drill`
+- Added compact payload alias projection (`S|U`) for downstream copy tooling branches.
+

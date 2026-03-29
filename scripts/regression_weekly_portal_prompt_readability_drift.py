@@ -3190,6 +3190,60 @@ def main() -> int:
             assert intensity_pulse_language_variant_pack_phase_intent_narration == f"CBGCFXWSBPFXPI NARR:{expected_narration}", payload
         else:
             assert intensity_pulse_language_variant_pack_phase_intent_narration == "FLAG OFF", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHint", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPI DRILL:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "phaseIntent",
+            "phaseIntentAlias",
+            "drillCue",
+            "rehearsalHint",
+            "reason",
+            "runtimeBalanceImpact",
+            "token",
+            "offlineOnly",
+        }, payload
+        intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHint", "")
+        intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintSignals", {})
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals.get("phaseIntent") in {"ANCHOR", "SURGE"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals.get("phaseIntentAlias") in {"A", "S"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals.get("drillCue") in {"SOFT", "SURGE"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals.get("rehearsalHint") in {"SOFT drill", "SURGE drill"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals.get("runtimeBalanceImpact") == "none", payload
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals.get("offlineOnly") is True, payload
+        expected_drill_cue = "SURGE" if expected_phase_intent_alias == "S" else "SOFT"
+        expected_drill_hint = f"{expected_drill_cue} drill"
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals.get("phaseIntent") == expected_phase_intent, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals.get("phaseIntentAlias") == expected_phase_intent_alias, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals.get("drillCue") == expected_drill_cue, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals.get("rehearsalHint") == expected_drill_hint, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals.get("token") == f"CBGCFXWSBPFXPI DRILL:{expected_drill_cue}", payload
+        if intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals.get("flagEnabled") is True:
+            assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint == f"CBGCFXWSBPFXPI DRILL:{expected_drill_cue}", payload
+        else:
+            assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint == "FLAG OFF", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintCompactAlias", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPD:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintCompactAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "drillCue",
+            "alias",
+            "token",
+            "offlineOnly",
+        }, payload
+        intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintCompactAlias", "")
+        intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintCompactAliasSignals", {})
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_signals.get("drillCue") in {"SOFT", "SURGE"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_signals.get("alias") in {"S", "U"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_signals.get("offlineOnly") is True, payload
+        expected_drill_alias = "U" if expected_drill_cue == "SURGE" else "S"
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_signals.get("drillCue") == expected_drill_cue, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_signals.get("alias") == expected_drill_alias, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_signals.get("token") == f"CBGCFXWSBPFXPD:{expected_drill_alias}", payload
+        if intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_signals.get("flagEnabled") is True:
+            assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias == f"CBGCFXWSBPFXPD:{expected_drill_alias}", payload
+        else:
+            assert intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePair", "").startswith(("FLAG OFF", "CBGCFXWSBPFXP MICRO:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePairSignals", {}).keys()) == {
             "flagName",

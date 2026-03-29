@@ -3948,3 +3948,8 @@ Compact decision memory for AI context efficiency.
 - 2026-03-30 00:52 KST: Closed Systems/QA backlog guardrail for optional `CBGCFXWSBPFXPI` markdown rollout path.
 - Durable contract: `CBGCFXWSBPFXPI` is optional (`0` or `2` rows), and when present must follow `CBGCFXWSBPFXP LANG` immediately in both summary/token-coverage sections.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+
+- Closed remaining Combat/VFX queue item: `CBGCFXWSBPFXPI` now drives offline rehearsal hint token `CBGCFXWSBPFXPI DRILL:SOFT|SURGE` with explicit `runtimeBalanceImpact=none` and regression-locked schema/domain.
+- Executed Game Director Cycle HA immediately after full-check state: generated 3 ideas, selected low-risk Combat/VFX vertical slice, and shipped compact rehearsal cue alias `CBGCFXWSBPFXPD:S|U` for downstream parser density.
+- Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`).
+- Injected next backlog tasks (unchecked): Systems/QA markdown order/count contract for `...FXPI DRILL -> ...FXPD`, and Design/World rehearsal microline vocabulary pack.

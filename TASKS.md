@@ -1758,4 +1758,17 @@ See project-level plans:
 ## Next Up (Game Director Injection — Cycle GZ)
 - [x] Systems/QA Team: Add optional markdown adjacency/order guard for `CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI` rollout path with deterministic dual-section count contract. *(lifecycle: [~] started: 2026-03-30 00:41 KST -> [x] completed: 2026-03-30 00:52 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [x] Design/World Team: Prototype offline tri-state phase-intent narration variant (`ANCHOR|SURGE|RECOVER`) from pulse alias momentum memory behind a dedicated experiment flag. *(2026-03-30 01:11 KST -> 2026-03-30 01:24 KST, verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] Combat/VFX Team: Evaluate whether `CBGCFXWSBPFXPI` should inform compact cue rehearsal hints (`SOFT drill` vs `SURGE drill`) without changing runtime balance.
+- [x] Combat/VFX Team: Evaluate whether `CBGCFXWSBPFXPI` should inform compact cue rehearsal hints (`SOFT drill` vs `SURGE drill`) without changing runtime balance. *(lifecycle: [ ] -> [~] started: 2026-03-30 01:46 KST -> [x] completed: 2026-03-30 01:57 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Game Director Cycle HA — 2026-03-30 02:03 KST
+- Coverage check (last 10 completed headings by lane): systems=2, ux=2, world=2, ai-content=1, combat=1, design=1, qa=1, vfx=0.
+- Lane cap rule: no lane exceeded 40%; underrepresented lane pressure continues to favor combat/vfx readability follow-through.
+- 24h cadence gate: combat/vfx ✅, design/world ✅, systems/ops ✅.
+- Idea 1 (low-risk combat/vfx): Add payload-only compact rehearsal cue alias from `CBGCFXWSBPFXPI DRILL` (`CBGCFXWSBPFXPD:S|U`) for faster downstream cue-rail parsing. **Selected.**
+- Idea 2 (mid-risk systems/qa): Add optional summary/token-coverage markdown row-order guard for `CBGCFXWSBPFXPI DRILL` rollout.
+- Idea 3 (high-risk design/world): Prototype tri-state rehearsal cadence narration (`SOFT|SURGE|RECOVER`) with momentum memory.
+- [x] Combat/VFX Team (Cycle HA selected experiment): Ship payload-only compact rehearsal cue alias `CBGCFXWSBPFXPD:S|U` derived from `CBGCFXWSBPFXPI DRILL` with deterministic flag-off fallback and regression domain locks. *(lifecycle: [ ] -> [~] started: 2026-03-30 01:58 KST -> [x] completed: 2026-03-30 02:06 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle HA)
+- [ ] Systems/QA Team: Add deterministic markdown contract option for `CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD` row ordering/count in summary + token-coverage sections.
+- [ ] Design/World Team: Prototype offline rehearsal microline vocabulary pack keyed by `CBGCFXWSBPFXPD` (`SOFT drill` vs `SURGE drill`) with compact DOS budget guardrails.

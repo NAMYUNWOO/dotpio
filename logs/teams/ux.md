@@ -2719,3 +2719,7 @@
   - Added payload-only token `CBGCFXWSBPFXPI NARR:<ANCHOR|SURGE|RECOVER>` sourced from `phaseIntent` + `CBGCFXWAC MOMENTUM` (RECOVER when `ANCHOR` intent meets `WOBBLE` momentum).
   - Kept rollout fully reversible via `DOTPIO_EXPERIMENT_..._PHASE_INTENT_NARRATION` flag and explicit `FLAG OFF` fallback.
 
+### 2026-03-30 02:06 KST — Compact cue parsing improvement
+- Cycle HA selected slice improves glanceability by exposing `CBGCFXWSBPFXPD:S|U` compact rehearsal cue alias.
+- UX impact is tooling/readability-only; in-game runtime behavior unchanged.
+

@@ -3693,3 +3693,10 @@
   - Added payload-only token `CBGCFXWSBPFXPI NARR:<ANCHOR|SURGE|RECOVER>` sourced from `phaseIntent` + `CBGCFXWAC MOMENTUM` (RECOVER when `ANCHOR` intent meets `WOBBLE` momentum).
   - Kept rollout fully reversible via `DOTPIO_EXPERIMENT_..._PHASE_INTENT_NARRATION` flag and explicit `FLAG OFF` fallback.
 
+### 2026-03-30 02:06 KST — Payload contract extension (rehearsal cue)
+- Added new payload contract keys for phase-intent rehearsal guidance and compact alias:
+  - `...PhaseIntentRehearsalHint` / `...Signals`
+  - `...PhaseIntentRehearsalHintCompactAlias` / `...Signals`
+- Contract remains offline-only (`runtimeBalanceImpact=none`) and feature-flag gated.
+- Follow-up injected: optional markdown ordering contract for `CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD`.
+

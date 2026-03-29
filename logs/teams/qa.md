@@ -4257,3 +4257,10 @@
   - Added payload-only token `CBGCFXWSBPFXPI NARR:<ANCHOR|SURGE|RECOVER>` sourced from `phaseIntent` + `CBGCFXWAC MOMENTUM` (RECOVER when `ANCHOR` intent meets `WOBBLE` momentum).
   - Kept rollout fully reversible via `DOTPIO_EXPERIMENT_..._PHASE_INTENT_NARRATION` flag and explicit `FLAG OFF` fallback.
 
+### 2026-03-30 02:06 KST — Regression expansion (rehearsal hint)
+- Added regression assertions for:
+  - rehearsal hint schema/domain (`SOFT drill|SURGE drill`, `runtimeBalanceImpact=none`)
+  - compact alias schema/domain (`CBGCFXWSBPFXPD:S|U`)
+  - deterministic mapping from phase-intent alias to drill cue + compact alias.
+- Verification pass confirmed with regression + weekly digest smoke.
+

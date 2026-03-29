@@ -2450,3 +2450,9 @@
   - Added payload-only token `CBGCFXWSBPFXPI NARR:<ANCHOR|SURGE|RECOVER>` sourced from `phaseIntent` + `CBGCFXWAC MOMENTUM` (RECOVER when `ANCHOR` intent meets `WOBBLE` momentum).
   - Kept rollout fully reversible via `DOTPIO_EXPERIMENT_..._PHASE_INTENT_NARRATION` flag and explicit `FLAG OFF` fallback.
 
+### 2026-03-30 02:06 KST — Cycle HA rehearsal hint follow-through
+- Completed Combat/VFX evaluation task: `CBGCFXWSBPFXPI` now drives offline rehearsal guidance (`SOFT drill` vs `SURGE drill`) without runtime balance mutation.
+- Shipped selected Cycle HA vertical slice: compact rehearsal alias `CBGCFXWSBPFXPD:S|U` derived from rehearsal cue token.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- Follow-up queued: markdown row-order contract + design/world rehearsal microline vocabulary pack.
+
