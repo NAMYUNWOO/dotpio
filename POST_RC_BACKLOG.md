@@ -1630,5 +1630,5 @@ Last updated: 2026-03-21 02:31 KST
     2. Add `CBGCFXWSBPFXPDE MATRIX` markdown row in summary/token-coverage rails for quick human scan.
     3. Add per-window FXPDE toggle drift streak counter in payload for churn diagnosis.
   - Selected experiment: Idea 1 (smallest reversible systems/qa slice; zero gameplay coupling).
-- [ ] GD-2026-03-30-fxpde-matrix-markdown-row: Add optional markdown row `CBGCFXWSBPFXPDE MATRIX:E?A?` after legend in summary/token-coverage with order lock.
+- [x] GD-2026-03-30-fxpde-matrix-markdown-row: Add optional markdown row `CBGCFXWSBPFXPDE MATRIX:E?A?` after legend in summary/token-coverage with order lock.
 - [ ] GD-2026-03-30-fxpde-toggle-drift-streak: Track prior-window FXPDE matrix key and emit streak/changed signals for QA churn triage.

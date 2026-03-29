@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 06:42 KST
+Last updated: 2026-03-30 06:51 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,9 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed `GD-2026-03-30-fxpde-matrix-markdown-row`: both digest rails now expose `CBGCFXWSBPFXPDE MATRIX:E?A?` immediately after `CBGCFXWSBPFXPDE LEGEND`, and regression locks enforce matrix row cardinality/dependency/order (including FXPDE matrix scenarios) before `CBGCFXWAC COACH COPY REC`.
+- Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`); backlog/task lane logs synchronized.
 
 - Executed Game Director Cycle 2026-03-30 06:42 KST after all queues were fully checked: generated 3 ideas, selected the lowest-risk systems/qa slice, shipped payload field `...PhaseEchoMutationFlagMatrix` (`E0A0|E1A0|E0A1|E1A1`), and injected two new backlog tasks for markdown exposure + drift streak telemetry.
 - Closed `GD-2026-03-30-echo-alias-flag-matrix`: regression now runs a 2x2 FXPDE toggle matrix (`echo on/off` × `compact-alias on/off`) and hard-locks markdown row cardinality at exactly 2 instances (summary + token-coverage) for `CBGCFXWSBPFXPD ECHO`, `CBGCFXWSBPFXPDE`, and `CBGCFXWSBPFXPDE LEGEND`, while also asserting per-row `enabled=True/False` parity matches each toggle case.

@@ -2762,3 +2762,5 @@
 - Task: Game Director cycle follow-up `GD-2026-03-30-fxpde-flag-matrix-payload` completed.
 - Decision: Weekly payload now exports deterministic FXPDE matrix key `E{echoFlag}A{aliasFlag}` for automation-friendly toggle validation; cycle injected two new backlog tasks (`...matrix-markdown-row`, `...toggle-drift-streak`).
 - Verification: regression + weekly drift scripts pass.
+
+- 2026-03-30 06:51 KST — Closed GD-2026-03-30-fxpde-matrix-markdown-row: inserted optional markdown row CBGCFXWSBPFXPDE MATRIX:E?A? immediately after CBGCFXWSBPFXPDE LEGEND in summary + token-coverage rails and locked ordering/cardinality in regression checks (2 rows expected when rollout is present).
