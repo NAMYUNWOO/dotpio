@@ -2369,3 +2369,8 @@
 - Simplified generator reason mapping in `resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation` while preserving recommendation behavior and offline-only scope.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
 - Follow-up: Remaining highest-priority unchecked item is Combat/VFX `CBGCFXWSBP FX CUE:SOFT|EDGE` adapter.
+
+## 2026-03-29 16:36 KST — Storybeat phase FX cue adapter + compact alias
+- Implemented payload-only `CBGCFXWSBP FX CUE:SOFT|EDGE` adapter from storybeat phase and compact alias mirror `CBGCFXWSBPFC:S|E` for dense triage scans.
+- Kept runtime combat tuning untouched (offline digest payload only).
+- Follow-up: Systems/QA contract lock for cue↔alias coherence and flag-off fallback.

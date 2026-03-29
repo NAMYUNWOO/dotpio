@@ -2999,6 +2999,36 @@ def main() -> int:
         assert storybeat_phase_signals.get("coachMomentum") in {"LOCKED", "WOBBLE"}, payload
         assert storybeat_phase_signals.get("token", "").startswith("CBGCFXWSBP:"), payload
         assert storybeat_phase_signals.get("offlineOnly") is True, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCue", "").startswith(("FLAG OFF", "CBGCFXWSBP FX CUE:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "phase",
+            "cue",
+            "reason",
+            "token",
+            "offlineOnly",
+        }, payload
+        storybeat_phase_fx_cue_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueSignals", {})
+        assert storybeat_phase_fx_cue_signals.get("phase") in {"CALM", "TENSE"}, payload
+        assert storybeat_phase_fx_cue_signals.get("cue") in {"SOFT", "EDGE"}, payload
+        assert storybeat_phase_fx_cue_signals.get("reason") in {"calm-phase", "tense-phase"}, payload
+        assert storybeat_phase_fx_cue_signals.get("token", "").startswith("CBGCFXWSBP FX CUE:"), payload
+        assert storybeat_phase_fx_cue_signals.get("offlineOnly") is True, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAlias", "").startswith(("FLAG OFF", "CBGCFXWSBPFC:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "cue",
+            "alias",
+            "token",
+            "offlineOnly",
+        }, payload
+        storybeat_phase_fx_cue_compact_alias_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasSignals", {})
+        assert storybeat_phase_fx_cue_compact_alias_signals.get("cue") in {"SOFT", "EDGE"}, payload
+        assert storybeat_phase_fx_cue_compact_alias_signals.get("alias") in {"S", "E"}, payload
+        assert storybeat_phase_fx_cue_compact_alias_signals.get("token", "").startswith("CBGCFXWSBPFC:"), payload
+        assert storybeat_phase_fx_cue_compact_alias_signals.get("offlineOnly") is True, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendation", "").startswith(("FLAG OFF", "CBGCFXWAC COACH COPY REC:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcCoachCopyVariantRecommendationSignals", {}).keys()) == {
             "flagName",

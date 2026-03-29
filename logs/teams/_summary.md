@@ -3859,3 +3859,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: treat CBGCFXWSBP as first-class digest-visible alias rail with explicit family-churn accounting.
 - Contract lock (both summary + token-coverage): CBGCFXWSB -> CBGCFXWSB FAMILY CHURN -> CBGCFXWSBP -> CBGCFXWSBP FAMILY CHURN -> CBGCFXWC.
 - Verification: [PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py; [PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120.
+
+## 2026-03-29 16:36 KST — Cycle GT durable decisions
+- Completed Combat/VFX payload adapter `CBGCFXWSBP FX CUE:SOFT|EDGE` derived from storybeat phase (`CALM->SOFT`, `TENSE->EDGE`), explicitly offline-only and non-invasive to combat balance.
+- Completed selected GT experiment: compact payload alias `CBGCFXWSBPFC:S|E` for one-glance dense scan readability.
+- Verification locked green: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `[PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- Injected next backlog item: Systems/QA payload-domain coherence contract for cue↔alias mapping and flag-off fallback behavior.

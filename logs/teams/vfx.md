@@ -356,3 +356,8 @@
 - Simplified generator reason mapping in `resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation` while preserving recommendation behavior and offline-only scope.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
 - Follow-up: Remaining highest-priority unchecked item is Combat/VFX `CBGCFXWSBP FX CUE:SOFT|EDGE` adapter.
+
+## 2026-03-29 16:36 KST — Offline cueing bridge update
+- Added storybeat-phase-aware VFX hint channel (`CBGCFXWSBP FX CUE`) plus compact alias mirror for postmortem readability.
+- Mapping policy: CALM→SOFT, TENSE→EDGE.
+- Validation: weekly digest regression + generation scripts passed.
