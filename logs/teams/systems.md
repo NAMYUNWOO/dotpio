@@ -3596,3 +3596,8 @@
 ## 2026-03-29 17:12 KST — Cycle GU systems notes
 - Added payload wiring for `cadenceBridge...StorybeatPhaseFxCueCompactAliasIntensity` (+ signals) in weekly digest JSON.
 - Kept slice payload-only and reversible via dedicated experiment flag.
+
+## 2026-03-29 17:29 KST — Cycle GV systems notes
+- Shipped markdown rollout contract rows for `CBGCFXWSBP FX CUE -> CBGCFXWSBPFC -> CBGCFXWSBPFCI -> CBGCFXWAC COACH COPY REC` in both summary and token-coverage sections.
+- Added regression order contract asserting deterministic adjacency for the full rollout chain across both markdown sections.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.

@@ -3877,3 +3877,9 @@ Compact decision memory for AI context efficiency.
 - Shipped payload-only compact intensity hint `CBGCFXWSBPFCI:B|R` derived deterministically from `CBGCFXWSBPFC` alias (`S->BASE/B`, `E->RAISED/R`) with explicit flag-off fallback.
 - Injected follow-ups kept in backlog: Systems/QA legend/order contract + Design/AI intensity microline pair.
 - Verification: [PASS] regression + weekly digest smoke commands.
+
+## 2026-03-29 17:29 KST — Cycle GV shipped (CBGCFXWSBPFCI rollout markdown contract)
+- Completed Systems/QA backlog item by wiring full rollout rows into summary/token-coverage markdown sections and adding explicit intensity legend.
+- Added deterministic order contract in regression: `CBGCFXWSBP -> ... FAMILY CHURN -> FX CUE -> CBGCFXWSBPFC -> CBGCFXWSBPFCI -> LEGEND -> CBGCFXWAC COACH COPY REC -> CBGCFXWC`.
+- Verification: [PASS] regression + weekly digest smoke commands.
+- Remaining unchecked high-priority item: Design/AI Content intensity microline pair (`BASE|RAISED`).

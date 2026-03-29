@@ -2382,3 +2382,6 @@
 ## 2026-03-29 17:12 KST — Cycle GU combat notes
 - Added combat-facing payload intensity hint mirror (`BASE|RAISED`) without touching runtime combat tuning.
 - Maintains offline-only analysis semantics.
+
+## 2026-03-29 17:29 KST — Cycle GV combat notes
+- Added digest visibility contract for combat-facing intensity adapter (`CBGCFXWSBPFCI:B|R`) without changing combat runtime balancing.

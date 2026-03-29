@@ -2651,3 +2651,6 @@
 ## 2026-03-29 17:12 KST — Cycle GU UX notes
 - One-glance decode improved via compact intensity token `CBGCFXWSBPFCI:B|R`.
 - Payload remains non-visible by default; future legend task retained for rollout readiness.
+
+## 2026-03-29 17:29 KST — Cycle GV ux notes
+- Enforced fixed row order for cue->compact->intensity->coach recommendation chain to prevent digest reading jumps.

@@ -4158,3 +4158,7 @@
   - compact alias domain `B|R`
   - token coherence + flag-off fallback.
 - Verification: PASS regression + weekly smoke.
+
+## 2026-03-29 17:29 KST — Cycle GV qa notes
+- Extended markdown regression guardrails with line-order assertions for new rollout chain rows in summary + token-coverage sections.
+- Added row-presence assertions for `CBGCFXWSBP FX CUE`, `CBGCFXWSBPFC`, `CBGCFXWSBPFCI`, `CBGCFXWSBPFCI LEGEND`, `CBGCFXWAC COACH COPY REC`.

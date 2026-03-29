@@ -2460,3 +2460,6 @@
 ## 2026-03-29 17:12 KST — Cycle GU design notes
 - Confirmed compact intensity alias choice (`B|R`) for dense digest readability.
 - Deferred legend rollout to explicit Systems/QA follow-up task.
+
+## 2026-03-29 17:29 KST — Cycle GV design notes
+- Added intensity legend row (`B=BASE, R=RAISED`) in summary/token-coverage sections to improve scanability for future visible rollouts.

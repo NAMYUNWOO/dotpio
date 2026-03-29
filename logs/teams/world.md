@@ -2385,3 +2385,6 @@
 ## 2026-03-29 17:12 KST — Cycle GU world notes
 - No world-tone mapping changes; storybeat/world rails remain stable.
 - Ready for potential intensity microline copy follow-up.
+
+## 2026-03-29 17:29 KST — Cycle GV world notes
+- No world-tone mapping changes; storybeat/world semantics remained stable while rollout contract rows were added.
