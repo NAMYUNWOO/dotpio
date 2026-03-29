@@ -3743,3 +3743,4 @@
 ## 2026-03-30 04:34 KST — Rollout contract sync for FXPI/DRILL/PD/ECHO rows
 - Extended weekly digest markdown rails to include deterministic optional spacer chain in both sections: `...FXP LANG -> ...FXPI -> ...FXPI DRILL -> ...FXPD -> ...FXPD MICROLINE -> ...LEGEND -> ...ECHO -> ...COACH COPY REC`.
 - Verified regression/order contracts remain green after row expansion.
+- 2026-03-30 04:46 KST — GD cycle: implemented phase-echo compact alias token `CBGCFXWSBPFXPDE:<S|A|U>` (payload + signals) in readability drift digest; verified with regression script pass.

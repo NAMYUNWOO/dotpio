@@ -2560,3 +2560,4 @@
 ## 2026-03-30 04:34 KST — UX/design readability closure for rehearsal echo row
 - Closed readability slice: markdown now shows `CBGCFXWSBPFXPD ECHO` with compact legend in summary + token-coverage sections.
 - Maintained strict adjacency contract to keep optional rollout story readable and deterministic.
+- 2026-03-30 04:46 KST — GD cycle: implemented phase-echo compact alias token `CBGCFXWSBPFXPDE:<S|A|U>` (payload + signals) in readability drift digest; verified with regression script pass.

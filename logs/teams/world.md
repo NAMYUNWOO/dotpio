@@ -2472,3 +2472,4 @@
 ## 2026-03-30 04:34 KST — World-tone echo mutation readability sync
 - Synced world-tone drift mutation readability by surfacing `CBGCFXWSBPFXPD ECHO` token row with compact decode legend across digest sections.
 - Preserved narrative mapping (`STEADY|ANCHOR_ECHO|SURGE_ECHO`) as offline planning signal only.
+- 2026-03-30 04:46 KST — GD cycle: implemented phase-echo compact alias token `CBGCFXWSBPFXPDE:<S|A|U>` (payload + signals) in readability drift digest; verified with regression script pass.

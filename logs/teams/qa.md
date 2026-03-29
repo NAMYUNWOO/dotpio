@@ -4294,3 +4294,4 @@
 ## 2026-03-30 04:34 KST — Regression validation: ECHO markdown rollout visibility
 - Validated updated markdown rails include `CBGCFXWSBPFXPD ECHO` in summary + token-coverage with compact legend metadata and deterministic ordering.
 - Verification passed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- 2026-03-30 04:46 KST — GD cycle: implemented phase-echo compact alias token `CBGCFXWSBPFXPDE:<S|A|U>` (payload + signals) in readability drift digest; verified with regression script pass.

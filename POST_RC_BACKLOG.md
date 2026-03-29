@@ -1609,3 +1609,13 @@ Last updated: 2026-03-21 02:31 KST
 ## Next Up (Game Director Injection — Cycle HB)
 - [x] Combat/VFX Team: Prototype optional markdown rollout row `CBGCFXWSBPFXPD ECHO` + compact legend so mutation flavor is visible in summary/token-coverage without increasing gameplay coupling. *(lifecycle: [ ] -> [~] started: 2026-03-30 04:16 KST -> [x] completed: 2026-03-30 04:34 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [x] Systems/QA Team: Add deterministic optional-order regression contract for `CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWAC COACH COPY REC` path.
+
+## Game Director Cycle 2026-03-30 04:46 KST
+- [x] GD-2026-03-30-echo-alias: Add compact payload token for phase-echo mutation (`CBGCFXWSBPFXPDE:<S|A|U>`) and expose deterministic decode signals for downstream automation.
+  - Idea pool:
+    1. Add compact alias for phase-echo mutation (payload-only) to reduce parser width.
+    2. Add per-window echo drift streak token for repeated mutation visibility.
+    3. Add coach-action + phase-echo joint shorthand token for storyboard sync.
+  - Selected experiment: Idea 1 (smallest verifiable vertical slice with low blast radius).
+
+- [ ] GD-2026-03-30-echo-alias-markdown: Surface `CBGCFXWSBPFXPDE` in markdown summary/token-coverage rows with contract-order regression assertions.

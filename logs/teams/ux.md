@@ -2739,3 +2739,4 @@
 ## 2026-03-30 04:34 KST — Writer-facing digest visibility update (`CBGCFXWSBPFXPD ECHO`)
 - Surfaced optional echo mutation row in both digest sections with embedded compact decode legend for fast operator parsing.
 - Retained DOS-friendly compact wording and existing ordering before coach-copy recommendation row.
+- 2026-03-30 04:46 KST — GD cycle: implemented phase-echo compact alias token `CBGCFXWSBPFXPDE:<S|A|U>` (payload + signals) in readability drift digest; verified with regression script pass.
