@@ -2961,6 +2961,44 @@ def main() -> int:
         assert momentum_signals.get("momentum") in {"LOCKED", "WOBBLE"}, payload
         assert momentum_signals.get("token", "").startswith("CBGCFXWAC MOMENTUM:"), payload
         assert momentum_signals.get("offlineOnly") is True, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeat", "").startswith(("FLAG OFF", "CBGCFXWSB:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "worldToneAlias",
+            "coherenceMomentum",
+            "coherenceAlias",
+            "coachMomentum",
+            "coachAlias",
+            "storybeat",
+            "token",
+            "offlineOnly",
+        }, payload
+        storybeat_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatSignals", {})
+        assert storybeat_signals.get("worldToneAlias") in {"S", "J", "B", "N"}, payload
+        assert storybeat_signals.get("coherenceMomentum") in {"STABLE", "WOBBLE"}, payload
+        assert storybeat_signals.get("coachMomentum") in {"LOCKED", "WOBBLE"}, payload
+        assert storybeat_signals.get("storybeat", "").strip(), payload
+        assert storybeat_signals.get("token", "").startswith("CBGCFXWSB:"), payload
+        assert storybeat_signals.get("offlineOnly") is True, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhase", "").startswith(("FLAG OFF", "CBGCFXWSBP:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "phase",
+            "alias",
+            "coherenceMomentum",
+            "coachMomentum",
+            "token",
+            "offlineOnly",
+        }, payload
+        storybeat_phase_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseSignals", {})
+        assert storybeat_phase_signals.get("phase") in {"CALM", "TENSE"}, payload
+        assert storybeat_phase_signals.get("alias") in {"C", "T"}, payload
+        assert storybeat_phase_signals.get("coherenceMomentum") in {"STABLE", "WOBBLE"}, payload
+        assert storybeat_phase_signals.get("coachMomentum") in {"LOCKED", "WOBBLE"}, payload
+        assert storybeat_phase_signals.get("token", "").startswith("CBGCFXWSBP:"), payload
+        assert storybeat_phase_signals.get("offlineOnly") is True, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias", "").startswith(("FLAG OFF", "CBGCFXWC:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals", {}).keys()) == {
             "flagName",
@@ -3362,6 +3400,8 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_drift_indices = _find_line_indices("- CBGCFXWAC DRIFT:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_momentum_indices = _find_line_indices("- CBGCFXWAC MOMENTUM:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_momentum_family_churn_indices = _find_line_indices("- CBGCFXWAC MOMENTUM FAMILY CHURN:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_indices = _find_line_indices("- CBGCFXWSB:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_family_churn_indices = _find_line_indices("- CBGCFXWSB FAMILY CHURN:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_indices = _find_line_indices("- CBGCFXW DRIFT:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_family_churn_indices = _find_line_indices("- CBGCFXW DRIFT FAMILY CHURN:")
         cadence_bridge_glyph_conf_intent_compact_alias_indices = _find_line_indices("- CBGCI:")
@@ -3849,6 +3889,12 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_momentum_family_churn_indices) == 2, (
             "expected exactly two CBGCFXWAC MOMENTUM FAMILY CHURN rows (summary + token-coverage sections)"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_indices) == 2, (
+            "expected exactly two CBGCFXWSB rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_family_churn_indices) == 2, (
+            "expected exactly two CBGCFXWSB FAMILY CHURN rows (summary + token-coverage sections)"
+        )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_indices) == 2, (
             "expected exactly two CBGCFXW DRIFT rows (summary + token-coverage sections)"
         )
@@ -3883,11 +3929,13 @@ def main() -> int:
         )
 
         # Game Director Cycle GR lock: keep coach alias drift->momentum chain deterministic.
-        for section_name, drift_idx, momentum_idx, momentum_family_churn_idx, coherence_alias_idx in zip(
+        for section_name, drift_idx, momentum_idx, momentum_family_churn_idx, storybeat_idx, storybeat_family_churn_idx, coherence_alias_idx in zip(
             ("summary", "token-coverage"),
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_drift_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_momentum_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_momentum_family_churn_indices,
+            cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_indices,
+            cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_family_churn_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_alias_indices,
         ):
             assert momentum_idx == drift_idx + 1, (
@@ -3896,8 +3944,14 @@ def main() -> int:
             assert momentum_family_churn_idx == momentum_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWAC MOMENTUM FAMILY CHURN row directly after CBGCFXWAC MOMENTUM row"
             )
-            assert coherence_alias_idx == momentum_family_churn_idx + 1, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWC row directly after CBGCFXWAC MOMENTUM FAMILY CHURN row"
+            assert storybeat_idx == momentum_family_churn_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWSB row directly after CBGCFXWAC MOMENTUM FAMILY CHURN row"
+            )
+            assert storybeat_family_churn_idx == storybeat_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWSB FAMILY CHURN row directly after CBGCFXWSB row"
+            )
+            assert coherence_alias_idx == storybeat_family_churn_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWC row directly after CBGCFXWSB FAMILY CHURN row"
             )
 
         # CBGC LEGEND narrative metadata contract (Cycle FZ follow-up):

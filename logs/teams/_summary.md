@@ -3841,3 +3841,8 @@ Compact decision memory for AI context efficiency.
 - Regression contract realignment: removed stale assumption that `CBGCFXWC` must sit immediately after `CBGCFXWM LEGEND`; now enforced as post-legend ordering to accommodate ARC coach block.
 - Verification: `[PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `[PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Next highest-priority unchecked item: `AI Content/Combat Team: CBGCFXWAC MOMENTUM:LOCKED|WOBBLE` prototype.
+
+## 2026-03-29 15:16 KST — Cycle GS durable decisions
+- Shipped compressed storybeat token `CBGCFXWSB:<tone><coh><coach>` and payload-only phase alias `CBGCFXWSBP:C|T` in `scripts/weekly_portal_prompt_readability_drift.py`.
+- Durable policy: keep phase alias derived strictly from coherence/coach momentum (`WOBBLE` => `TENSE`) and gate behind dedicated experiment flag for reversible rollout.
+- Injected backlog follow-ups: (1) Systems/QA markdown ordering contract + family coverage for CBGCFXWSB/CBGCFXWSBP, (2) Design/AI phase-aware coach-copy recommendation policy.

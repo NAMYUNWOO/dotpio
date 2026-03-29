@@ -2610,3 +2610,13 @@
   - Recommendation mapping: `WOBBLE+LOCK -> ANCHOR_STEP`, `WOBBLE+SWAY -> SLOW_STEP`, otherwise `HOLD_STEP`.
 - Follow-up:
   - Remaining POST-RC unchecked item: compressed cadence storybeat token (`CVCWHR` + `CBGCFXWAC MOMENTUM`) for UX/World.
+
+## [2026-03-29 15:16 KST] Cycle GS storybeat compression + phase alias
+- Completed: shipped  compressed storybeat token and payload-only  phase alias in weekly portal readability pipeline.
+- Verification: [PASS] weekly portal prompt readability drift regression checks; [PASS] weekly portal prompt drift status=ok -> /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.json /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.md.
+- Note: follow-up injected for QA ordering contract and design/AI phase-aware coach-copy policy.
+
+## [2026-03-29 15:16 KST] Cycle GS storybeat compression + phase alias
+- Completed: shipped CBGCFXWSB compressed storybeat token and payload-only CBGCFXWSBP phase alias in weekly portal readability pipeline.
+- Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py; python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120.
+- Note: follow-up injected for QA ordering contract and design/AI phase-aware coach-copy policy.
