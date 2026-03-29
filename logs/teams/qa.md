@@ -4321,3 +4321,4 @@
 
 - 2026-03-30 06:51 KST — Closed GD-2026-03-30-fxpde-matrix-markdown-row: inserted optional markdown row CBGCFXWSBPFXPDE MATRIX:E?A? immediately after CBGCFXWSBPFXPDE LEGEND in summary + token-coverage rails and locked ordering/cardinality in regression checks (2 rows expected when rollout is present).
 - 2026-03-30 07:24 KST — Closed GD-2026-03-30-fxpde-toggle-drift-streak: added payload drift token/signals for FXPDE matrix transitions (`CBGCFXWSBPFXPDE MATRIX DRIFT`, changed flag, streak) with prior-window tracking; locked regression schema/domain checks; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly digest smoke pass.
+- 2026-03-30 07:34 KST — GD cycle follow-up closed GD-2026-03-30-fxpde-matrix-drift-markdown-row: added `CBGCFXWSBPFXPDE MATRIX DRIFT` digest row (summary + token-coverage) and updated optional-order/cardinality contracts so drift triage is visible without JSON parsing.
