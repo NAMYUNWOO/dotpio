@@ -2468,3 +2468,17 @@
 - Decision: Keep microline wording deterministic and short for future digest row exposure.
 - Notes: Selected lines preserve readability contract (`BASE`=grounded pacing, `RAISED`=urgent action focus).
 - Follow-up: If surfaced in markdown later, add legend row adjacent to `CBGCFXWSBPFCI` cluster.
+
+## 2026-03-29 19:14 KST
+- Task: POST_RC UX/AI follow-up — compact alias rollout for `CBGCFXWSBPFCI COACH COPY` with DOS readability row-budget gate.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions:
+  - `CBGCFXWSBPFCI COACH COPY` now prefers compact `B|R` token when the row token length is within DOS readability threshold.
+  - Added deterministic fallback path to verbose `BASE|RAISED` token if threshold is exceeded.
+  - Regression contract now locks compact alias domain and row-budget gating semantics.
+- Follow-up:
+  - Next unchecked POST_RC item: QA deterministic fixture for `CALM + LOCKED + RAISED` branch.

@@ -3072,6 +3072,9 @@ def main() -> int:
             "flagName",
             "flagEnabled",
             "intensity",
+            "compactAlias",
+            "dosReadabilityRowBudgetThreshold",
+            "dosRowBudgetWithinThreshold",
             "selected",
             "pair",
             "token",
@@ -3088,9 +3091,18 @@ def main() -> int:
         assert intensity_coach_microline_pair_signals.get("offlineOnly") is True, payload
         expected_intensity_state = storybeat_phase_fx_cue_compact_alias_intensity_signals.get("intensity")
         assert intensity_coach_microline_pair_signals.get("intensity") == expected_intensity_state, payload
+        expected_compact_alias = "R" if expected_intensity_state == "RAISED" else "B"
+        assert intensity_coach_microline_pair_signals.get("compactAlias") == expected_compact_alias, payload
+        assert isinstance(intensity_coach_microline_pair_signals.get("dosReadabilityRowBudgetThreshold"), int), payload
+        assert intensity_coach_microline_pair_signals.get("dosReadabilityRowBudgetThreshold") > 0, payload
+        assert intensity_coach_microline_pair_signals.get("dosRowBudgetWithinThreshold") in {True, False}, payload
         expected_selected_line = intensity_pair[expected_intensity_state]
         assert intensity_coach_microline_pair_signals.get("selected") == expected_selected_line, payload
-        expected_intensity_token = f"CBGCFXWSBPFCI COACH COPY:{expected_intensity_state}"
+        expected_compact_token = f"CBGCFXWSBPFCI COACH COPY:{expected_compact_alias}"
+        expected_fallback_token = f"CBGCFXWSBPFCI COACH COPY:{expected_intensity_state}"
+        expected_budget_gate = len(expected_compact_token) <= intensity_coach_microline_pair_signals.get("dosReadabilityRowBudgetThreshold")
+        assert intensity_coach_microline_pair_signals.get("dosRowBudgetWithinThreshold") == expected_budget_gate, payload
+        expected_intensity_token = expected_compact_token if intensity_coach_microline_pair_signals.get("dosRowBudgetWithinThreshold") is True else expected_fallback_token
         assert intensity_coach_microline_pair_signals.get("token") == expected_intensity_token, payload
         intensity_coach_microline_pair_token = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueCompactAliasIntensityCoachMicrolinePair", "")
         if intensity_coach_microline_pair_signals.get("flagEnabled") is True:

@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-29 15:50 KST
+Last updated: 2026-03-29 19:14 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed POST_RC UX/AI Content follow-up: `CBGCFXWSBPFCI COACH COPY` now emits compact alias token (`B|R`) when DOS readability row-budget threshold is satisfied, with deterministic fallback to verbose `BASE|RAISED` token if budget is exceeded.
+- Added payload signal contract for coach-copy compact alias gating (`compactAlias`, `dosReadabilityRowBudgetThreshold`, `dosRowBudgetWithinThreshold`) to preserve offline auditability.
+- Regression coverage now locks compact alias domain, row-budget gate behavior, and token fallback determinism; verification passed with regression + weekly digest smoke.
 
 - Closed Systems/Ops follow-up from Cycle GS: storybeat harmonized coach-copy recommendation now has regression contract locks for reason-domain (`stable-calm|tense-phase|wobble`) and recommendation token-domain (`ANCHOR_STEP|SLOW_STEP|HOLD_STEP`).
 - Simplified coach-copy recommendation reason mapping in weekly digest generator to the normalized 3-value domain while preserving existing recommendation behavior (`ANCHOR_STEP|SLOW_STEP|HOLD_STEP`) and offline-only semantics.

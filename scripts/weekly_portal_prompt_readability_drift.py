@@ -2128,11 +2128,20 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     }
     selected = microline_pair["RAISED"] if intensity == "RAISED" else microline_pair["BASE"]
 
-    token = f"CBGCFXWSBPFCI COACH COPY:{'RAISED' if intensity == 'RAISED' else 'BASE'}"
+    compact_alias = "R" if intensity == "RAISED" else "B"
+    compact_token = f"CBGCFXWSBPFCI COACH COPY:{compact_alias}"
+    fallback_token = f"CBGCFXWSBPFCI COACH COPY:{'RAISED' if intensity == 'RAISED' else 'BASE'}"
+    dos_readability_row_budget_threshold = 64
+    dos_row_budget_within_threshold = len(compact_token) <= dos_readability_row_budget_threshold
+    token = compact_token if dos_row_budget_within_threshold else fallback_token
+
     return (token if flag_enabled else "FLAG OFF"), {
         "flagName": flag_name,
         "flagEnabled": flag_enabled,
         "intensity": intensity,
+        "compactAlias": compact_alias,
+        "dosReadabilityRowBudgetThreshold": dos_readability_row_budget_threshold,
+        "dosRowBudgetWithinThreshold": dos_row_budget_within_threshold,
         "selected": selected,
         "pair": microline_pair,
         "token": token,
