@@ -2587,3 +2587,13 @@
 - Locked deterministic adjacency near ARC coach rows via regression contract updates (`COHERENCE ARC COACH -> CVARC -> CBGCFXWAC -> CBGCFXWAC LEGEND`).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
 - Follow-up: hand off to AI Content/Combat momentum-token experiment (`CBGCFXWAC MOMENTUM`).
+
+
+## 2026-03-29 14:05 KST
+- Updated compact token rails to include `CBGCFXWAC MOMENTUM:` in compact/detailed dictionaries for glanceable diagnostics.
+- Follow-up: if token density grows, reassess abbreviation legibility in digest sections.
+
+
+## 2026-03-29 14:13 KST
+- Chosen GR slice improves digest readability reliability by guaranteeing local coach-cluster adjacency under regression.
+- Follow-up: monitor if additional compact legends are needed as cluster grows.

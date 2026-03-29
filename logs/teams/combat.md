@@ -2318,3 +2318,13 @@
 
 ## 2026-03-29 13:32 KST — No combat balance change
 - Cycle focused on prompt/readability instrumentation; combat pacing/values unchanged.
+
+
+## 2026-03-29 14:05 KST
+- Confirmed combat lane telemetry compatibility: new coach momentum token remains offline digest-only and does not affect live combat pacing logic.
+- Follow-up: consider consuming WOBBLE in post-fight coaching copy experiments.
+
+
+## 2026-03-29 14:13 KST
+- Combat lane unchanged by selected GR implementation; maintained separation from live combat loop.
+- Follow-up: revisit queued coach-copy variant prototype for combat coaching clarity.

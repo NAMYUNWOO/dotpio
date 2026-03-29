@@ -3532,3 +3532,13 @@
 
 ## 2026-03-29 13:32 KST — No systems tuning change (supporting infra only)
 - This cycle shipped digest/readability + regression-contract updates only; no SRL or economy logic touched.
+
+
+## 2026-03-29 14:05 KST
+- Added offline momentum resolver `CBGCFXWAC MOMENTUM:LOCKED|WOBBLE` wired from prior-window alias drift signals; kept behind experiment flag for reversible rollout.
+- Follow-up: monitor token family churn rates for false-positive wobble when prior payloads are stale.
+
+
+## 2026-03-29 14:13 KST
+- Completed Cycle GR selected Systems/QA slice: added deterministic adjacency lock for `CBGCFXWAC DRIFT -> CBGCFXWAC MOMENTUM -> CBGCFXWAC MOMENTUM FAMILY CHURN -> CBGCFXWC` in summary/token-coverage sections.
+- Verification: regression + weekly smoke both passed.

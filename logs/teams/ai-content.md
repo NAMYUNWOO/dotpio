@@ -2394,3 +2394,13 @@
 ## 2026-03-29 13:32 KST — Alias legend baseline prepared
 - Readability baseline now includes explicit `CBGCFXWAC LEGEND` decoding for LOCK/SWAY coach aliases.
 - Next AI-content experiment target remains `CBGCFXWAC MOMENTUM:LOCKED|WOBBLE`.
+
+
+## 2026-03-29 14:05 KST
+- Prototyped `CBGCFXWAC MOMENTUM` as payload-only AI coach momentum marker from alias transition signals (`shifted/priorLoaded/stalePriorGuard`).
+- Follow-up: evaluate whether WOBBLE should trigger alternate coach copy variants in future experiments.
+
+
+## 2026-03-29 14:13 KST
+- Game Director GR ideation captured 3 ideas; selected low-risk adjacency lock while queueing AI Content/Design momentum-driven coach-copy variant prototype as next unchecked item.
+- Follow-up: use `CBGCFXWAC MOMENTUM` + coach pair signals for variant recommendation experiment.

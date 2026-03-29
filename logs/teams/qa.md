@@ -4088,3 +4088,14 @@
 - PASS: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
 - PASS: `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`
 - No new failures after contract realignment.
+
+
+## 2026-03-29 14:05 KST
+- Expanded regression payload contract for `...ArcCoachMicrolineAliasMomentum(Signals)` schema + domain checks.
+- Verification passed: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; smoke passed: `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+- Follow-up: add explicit adjacency lock for DRIFT->MOMENTUM chain if future rows are inserted.
+
+
+## 2026-03-29 14:13 KST
+- Added row-count and adjacency assertions for `CBGCFXWAC DRIFT/MOMENTUM/MOMENTUM FAMILY CHURN` chain and linkage to `CBGCFXWC`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120` ✅.

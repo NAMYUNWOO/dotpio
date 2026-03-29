@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-29 12:29 KST
+Last updated: 2026-03-29 14:13 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,14 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Executed Game Director Cycle GR (all queues were fully checked): generated 3 ideas, selected low-risk Systems/QA experiment, and shipped minimal vertical slice.
+- Added strict regression adjacency lock + row-count contract for `CBGCFXWAC DRIFT -> CBGCFXWAC MOMENTUM -> CBGCFXWAC MOMENTUM FAMILY CHURN -> CBGCFXWC` in summary/token-coverage sections.
+- Injected next backlog tasks from Cycle GR: (1) AI Content/Design momentum-driven coach-copy variant token and (2) UX/World compressed cadence storybeat token.
+
+- Closed POST_RC AI Content/Combat item: weekly digest now emits payload-only `CBGCFXWAC MOMENTUM:LOCKED|WOBBLE` derived from prior-window alias transition signals (`shifted`, `priorLoaded`, `stalePriorGuard`) behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_COACH_MICROLINE_ALIAS_MOMENTUM`.
+- Markdown/token coverage rails now include `CBGCFXWAC MOMENTUM` + dedicated family-churn row; compact/detailed token dictionaries include `CBGCFXWAC MOMENTUM:` for deterministic scanning.
+- Regression contract expanded with momentum payload schema/domain assertions and weekly smoke verified (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`).
 
 - Closed Cycle GQ selected slice (Systems/QA): added token-catalog + alias-family coverage for `COHERENCE ARC COACH:`, `CBGCFXWAC:`, and `CBGCFXWAC DRIFT:` in weekly digest churn rails.
 - Digest token scanning now treats ARC coach + coach alias drift cluster as first-class compact/detailed tokens, improving family-level drift auditability without runtime gameplay coupling.

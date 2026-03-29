@@ -2397,3 +2397,13 @@
 - Decision: keep coach alias legend compact (`L=LOCK,S=SWAY`) and colocated with ARC coach alias rails for deterministic scanning.
 - Added markdown-order guardrails so future digest churn cannot separate legend from coach alias rails.
 - Validation passed via weekly drift regression + digest smoke.
+
+
+## 2026-03-29 14:05 KST
+- Extended summary/token-coverage markdown rows with `CBGCFXWAC MOMENTUM` and family-churn line for compact readability scans.
+- Follow-up: keep coherence-arc coach cluster visually grouped in future row-order locks.
+
+
+## 2026-03-29 14:13 KST
+- Added stable ordering contract for new coach momentum rows to preserve digest scan hierarchy and reduce row drift risk in future insertions.
+- Follow-up: keep coach-cluster rows grouped when adding future legend/variant lines.
