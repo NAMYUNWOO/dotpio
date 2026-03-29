@@ -2430,3 +2430,7 @@
 - Completed: shipped CBGCFXWSB compressed storybeat token and payload-only CBGCFXWSBP phase alias in weekly portal readability pipeline.
 - Verification: python3 scripts/regression_weekly_portal_prompt_readability_drift.py; python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120.
 - Note: follow-up injected for QA ordering contract and design/AI phase-aware coach-copy policy.
+
+## 2026-03-29 15:33 KST — Cycle GS QA ordering + family churn contract
+- Completed Systems/QA backlog slice: added CBGCFXWSBP token-family churn coverage and markdown adjacency contract CBGCFXWSB -> CBGCFXWSB FAMILY CHURN -> CBGCFXWSBP -> CBGCFXWSBP FAMILY CHURN -> CBGCFXWC in summary and token-coverage sections.
+- Verification: [PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py; [PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120.

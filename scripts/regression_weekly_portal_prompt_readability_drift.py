@@ -3402,6 +3402,8 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_momentum_family_churn_indices = _find_line_indices("- CBGCFXWAC MOMENTUM FAMILY CHURN:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_indices = _find_line_indices("- CBGCFXWSB:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_family_churn_indices = _find_line_indices("- CBGCFXWSB FAMILY CHURN:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_indices = _find_line_indices("- CBGCFXWSBP:")
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_family_churn_indices = _find_line_indices("- CBGCFXWSBP FAMILY CHURN:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_indices = _find_line_indices("- CBGCFXW DRIFT:")
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_family_churn_indices = _find_line_indices("- CBGCFXW DRIFT FAMILY CHURN:")
         cadence_bridge_glyph_conf_intent_compact_alias_indices = _find_line_indices("- CBGCI:")
@@ -3895,6 +3897,12 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_family_churn_indices) == 2, (
             "expected exactly two CBGCFXWSB FAMILY CHURN rows (summary + token-coverage sections)"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_indices) == 2, (
+            "expected exactly two CBGCFXWSBP rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_family_churn_indices) == 2, (
+            "expected exactly two CBGCFXWSBP FAMILY CHURN rows (summary + token-coverage sections)"
+        )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_drift_indices) == 2, (
             "expected exactly two CBGCFXW DRIFT rows (summary + token-coverage sections)"
         )
@@ -3929,13 +3937,15 @@ def main() -> int:
         )
 
         # Game Director Cycle GR lock: keep coach alias drift->momentum chain deterministic.
-        for section_name, drift_idx, momentum_idx, momentum_family_churn_idx, storybeat_idx, storybeat_family_churn_idx, coherence_alias_idx in zip(
+        for section_name, drift_idx, momentum_idx, momentum_family_churn_idx, storybeat_idx, storybeat_family_churn_idx, storybeat_phase_idx, storybeat_phase_family_churn_idx, coherence_alias_idx in zip(
             ("summary", "token-coverage"),
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_drift_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_momentum_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_coach_alias_momentum_family_churn_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_family_churn_indices,
+            cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_indices,
+            cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_family_churn_indices,
             cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_alias_indices,
         ):
             assert momentum_idx == drift_idx + 1, (
@@ -3950,8 +3960,14 @@ def main() -> int:
             assert storybeat_family_churn_idx == storybeat_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWSB FAMILY CHURN row directly after CBGCFXWSB row"
             )
-            assert coherence_alias_idx == storybeat_family_churn_idx + 1, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWC row directly after CBGCFXWSB FAMILY CHURN row"
+            assert storybeat_phase_idx == storybeat_family_churn_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWSBP row directly after CBGCFXWSB FAMILY CHURN row"
+            )
+            assert storybeat_phase_family_churn_idx == storybeat_phase_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWSBP FAMILY CHURN row directly after CBGCFXWSBP row"
+            )
+            assert coherence_alias_idx == storybeat_phase_family_churn_idx + 1, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWC row directly after CBGCFXWSBP FAMILY CHURN row"
             )
 
         # CBGC LEGEND narrative metadata contract (Cycle FZ follow-up):

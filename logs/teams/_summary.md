@@ -3846,3 +3846,8 @@ Compact decision memory for AI context efficiency.
 - Shipped compressed storybeat token `CBGCFXWSB:<tone><coh><coach>` and payload-only phase alias `CBGCFXWSBP:C|T` in `scripts/weekly_portal_prompt_readability_drift.py`.
 - Durable policy: keep phase alias derived strictly from coherence/coach momentum (`WOBBLE` => `TENSE`) and gate behind dedicated experiment flag for reversible rollout.
 - Injected backlog follow-ups: (1) Systems/QA markdown ordering contract + family coverage for CBGCFXWSB/CBGCFXWSBP, (2) Design/AI phase-aware coach-copy recommendation policy.
+
+## 2026-03-29 15:33 KST — Cycle GS Systems/QA contract shipped
+- Durable decision: treat CBGCFXWSBP as first-class digest-visible alias rail with explicit family-churn accounting.
+- Contract lock (both summary + token-coverage): CBGCFXWSB -> CBGCFXWSB FAMILY CHURN -> CBGCFXWSBP -> CBGCFXWSBP FAMILY CHURN -> CBGCFXWC.
+- Verification: [PASS] python3 scripts/regression_weekly_portal_prompt_readability_drift.py; [PASS] python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120.
