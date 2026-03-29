@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-29 21:41 KST
+Last updated: 2026-03-29 23:45 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed the remaining AI Content/World backlog item for pulse-language variant packs: copy now explicitly binds storybeat phase intent (`CALM->ANCHOR`, `TENSE->SURGE`) while preserving compact token contract `CBGCFXWSBPFXP LANG:<S|P>`.
+- Extended payload schema with deterministic `phaseIntent` in `...IntensityPulseLanguageVariantPackSignals` and added regression assertions for domain/coherence.
+- Marked corresponding TASKS + POST_RC_BACKLOG entries done and synchronized cross-lane logs (systems/world/ai-content/combat/design/ux/qa).
 
 - Executed Game Director Cycle GX coverage check over last 10 completed lane-log items: systems=2, ux=2, world=2, ai-content=1, combat=1, design=1, qa=1, vfx=0; no lane breached 40%, and underrepresented vfx lane was prioritized for this slice.
 - Shipped Combat/VFX vertical slice `CBGCFXWSBPFXP:S|P` (payload-only pulse alias from `CBGCFXWSBPFCI` intensity) with legend rows and deterministic adjacency contract in both summary/token-coverage sections.

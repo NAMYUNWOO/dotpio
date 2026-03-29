@@ -3092,6 +3092,54 @@ def main() -> int:
             assert intensity_pulse_alias == f"CBGCFXWSBPFXP:{expected_pulse_alias}", payload
         else:
             assert intensity_pulse_alias == "FLAG OFF", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPack", "").startswith(("FLAG OFF", "CBGCFXWSBPFXP LANG:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "storybeatPhase",
+            "phaseIntent",
+            "pulseAlias",
+            "selectedMode",
+            "compactAlias",
+            "selected",
+            "pair",
+            "dosReadabilityRowBudgetThreshold",
+            "dosRowBudgetWithinThreshold",
+            "token",
+            "offlineOnly",
+        }, payload
+        intensity_pulse_language_variant_pack = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPack", "")
+        intensity_pulse_language_variant_pack_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackSignals", {})
+        assert intensity_pulse_language_variant_pack_signals.get("storybeatPhase") in {"CALM", "TENSE"}, payload
+        assert intensity_pulse_language_variant_pack_signals.get("phaseIntent") in {"ANCHOR", "SURGE"}, payload
+        assert intensity_pulse_language_variant_pack_signals.get("pulseAlias") in {"S", "P"}, payload
+        assert intensity_pulse_language_variant_pack_signals.get("selectedMode") in {"SOFT", "PUSH"}, payload
+        assert intensity_pulse_language_variant_pack_signals.get("compactAlias") in {"S", "P"}, payload
+        assert isinstance(intensity_pulse_language_variant_pack_signals.get("selected"), str) and intensity_pulse_language_variant_pack_signals.get("selected"), payload
+        pair = intensity_pulse_language_variant_pack_signals.get("pair")
+        assert isinstance(pair, dict) and set(pair.keys()) == {"SOFT", "PUSH"}, payload
+        assert all(isinstance(v, dict) and set(v.keys()) == {"CALM", "TENSE"} for v in pair.values()), payload
+        assert intensity_pulse_language_variant_pack_signals.get("offlineOnly") is True, payload
+        expected_mode = "PUSH" if expected_pulse_alias == "P" else "SOFT"
+        assert intensity_pulse_language_variant_pack_signals.get("pulseAlias") == expected_pulse_alias, payload
+        assert intensity_pulse_language_variant_pack_signals.get("selectedMode") == expected_mode, payload
+        assert intensity_pulse_language_variant_pack_signals.get("compactAlias") == ("P" if expected_mode == "PUSH" else "S"), payload
+        expected_phase = storybeat_phase_fx_cue_signals.get("phase")
+        assert intensity_pulse_language_variant_pack_signals.get("storybeatPhase") == expected_phase, payload
+        expected_phase_intent = {"CALM": "ANCHOR", "TENSE": "SURGE"}[expected_phase]
+        assert intensity_pulse_language_variant_pack_signals.get("phaseIntent") == expected_phase_intent, payload
+        expected_selected = pair[expected_mode][expected_phase]
+        assert intensity_pulse_language_variant_pack_signals.get("selected") == expected_selected, payload
+        expected_compact_token = f"CBGCFXWSBPFXP LANG:{'P' if expected_mode == 'PUSH' else 'S'}"
+        expected_fallback_token = f"CBGCFXWSBPFXP LANG:{expected_mode}"
+        expected_budget_gate = len(expected_compact_token) <= intensity_pulse_language_variant_pack_signals.get("dosReadabilityRowBudgetThreshold")
+        assert intensity_pulse_language_variant_pack_signals.get("dosRowBudgetWithinThreshold") == expected_budget_gate, payload
+        expected_variant_pack_token = expected_compact_token if expected_budget_gate else expected_fallback_token
+        assert intensity_pulse_language_variant_pack_signals.get("token") == expected_variant_pack_token, payload
+        if intensity_pulse_language_variant_pack_signals.get("flagEnabled") is True:
+            assert intensity_pulse_language_variant_pack == expected_variant_pack_token, payload
+        else:
+            assert intensity_pulse_language_variant_pack == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePair", "").startswith(("FLAG OFF", "CBGCFXWSBPFXP MICRO:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePairSignals", {}).keys()) == {
             "flagName",
@@ -3390,6 +3438,7 @@ def main() -> int:
         assert "PULSE REMAP SCENE MICROLINE STYLE POLICY:" in md_text
         assert "PULSE REMAP SCENE MICROLINE STYLE POLICY SMOOTH:" in md_text
         assert "PULSE REMAP SCENE MICROLINE STYLE POSTURE:" in md_text
+        assert "CBGCFXWSBPFXP LANG:" in md_text
         assert "PULSE REMAP SCENE FX GLINT:" in md_text
         assert "PRSFX:" in md_text
         assert "PULSE REMAP SCENE COPY PALETTE REC:" in md_text

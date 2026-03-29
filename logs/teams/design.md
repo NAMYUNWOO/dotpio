@@ -2507,3 +2507,11 @@
 - Completed UX/Design backlog slice: renamed digest row to `CBGCFXWSBPFXP MICROLINE LEGEND` and annotated with legend version/hash for compact decode auditing.
 - Kept strict ordering in both summary + token coverage rails: `...CBGCFXWSBPFXP` -> `...MICROLINE` -> `...MICROLINE LEGEND` -> `...CBGCFXWSBPFCI LEGEND`.
 - Updated deterministic regression expectations to enforce new row label and adjacency contract.
+
+## 2026-03-29 23:45 KST
+- Task: Finalize narrative phrasing for storybeat-phase intent in pulse-language pack.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification: focused resolver checks on selected copy variants ✅
+- Decisions:
+  - Updated copy templates to carry explicit intent tags (`ANCHOR intent` / `SURGE intent`) for clearer designer review diffs.

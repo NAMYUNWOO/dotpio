@@ -1744,4 +1744,4 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — Cycle GY)
 - [x] UX/Design Team: Add compact `CBGCFXWSBPFXP MICROLINE LEGEND` markdown row (hash/version annotated) with strict adjacency right after `CBGCFXWSBPFXP MICROLINE`.
-- [ ] AI Content/World Team: Prototype offline pulse-language variant pack (`SOFT|PUSH`) tied to storybeat-phase intent for future A/B narrative readability review.
+- [x] AI Content/World Team: Prototype offline pulse-language variant pack (`SOFT|PUSH`) tied to storybeat-phase intent for future A/B narrative readability review. *(started: 2026-03-29 23:20 KST; completed: 2026-03-29 23:45 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + focused phase-intent resolver checks)*

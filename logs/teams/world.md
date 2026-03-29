@@ -2426,3 +2426,11 @@
 - Completed UX/Design backlog slice: renamed digest row to `CBGCFXWSBPFXP MICROLINE LEGEND` and annotated with legend version/hash for compact decode auditing.
 - Kept strict ordering in both summary + token coverage rails: `...CBGCFXWSBPFXP` -> `...MICROLINE` -> `...MICROLINE LEGEND` -> `...CBGCFXWSBPFCI LEGEND`.
 - Updated deterministic regression expectations to enforce new row label and adjacency contract.
+
+## 2026-03-29 23:45 KST
+- Task: Sync world-facing narrative intent semantics for pulse-language variant pack.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: focused resolver checks for phase-intent wording (`ANCHOR intent`, `SURGE intent`) ✅
+- Decisions:
+  - CALM world-tone paths anchor readability; TENSE paths preserve urgency while staying compact.
