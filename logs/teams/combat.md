@@ -2473,3 +2473,4 @@
 - Completed Combat/VFX task: surfaced `CBGCFXWSBPFXPD ECHO` markdown row in both summary + token-coverage rails with compact decode legend (`S|A|U`) embedded in-row.
 - Kept rollout optional/offline-only telemetry contract (no gameplay coupling changes); ordering preserved before `CBGCFXWAC COACH COPY REC`.
 - 2026-03-30 04:46 KST — GD cycle: implemented phase-echo compact alias token `CBGCFXWSBPFXPDE:<S|A|U>` (payload + signals) in readability drift digest; verified with regression script pass.
+- 2026-03-30 05:16 KST — Closed GD-2026-03-30-echo-alias-markdown: surfaced `CBGCFXWSBPFXPDE` markdown row in summary + token-coverage and locked ordering (`...ECHO -> ...FXPDE -> CBGCFXWAC COACH COPY REC`) with regression assertions.

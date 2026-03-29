@@ -3986,3 +3986,7 @@ Compact decision memory for AI context efficiency.
 - Expanded deterministic optional rollout spacer chain coverage to include `CBGCFXWSBPFXPI`, `...DRILL`, `...FXPD`, and `...ECHO` rows before `CBGCFXWAC COACH COPY REC` across both digest rails; kept changes offline/flag-gated with no gameplay coupling impact.
 - Verification green: regression + weekly digest scripts.
 - 2026-03-30 04:46 KST — Game Director Cycle executed (all actionable lists were checked): chose Idea #1 (phase-echo compact alias), implemented payload-only token `CBGCFXWSBPFXPDE:<S|A|U>` in `scripts/weekly_portal_prompt_readability_drift.py`, regression suite passed, and injected follow-up backlog item `GD-2026-03-30-echo-alias-markdown` for markdown/contract surfacing.
+- 2026-03-30 05:16 KST — Closed POST_RC backlog item `GD-2026-03-30-echo-alias-markdown`.
+  - Added `CBGCFXWSBPFXPDE` markdown visibility in both digest rails (summary + token-coverage) with mutation/alias signal metadata.
+  - Expanded regression contract to enforce optional spacer chain `... CBGCFXWSBPFXPD ECHO -> CBGCFXWSBPFXPDE -> CBGCFXWAC COACH COPY REC` plus row-count/dependency guards.
+  - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.

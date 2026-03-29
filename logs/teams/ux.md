@@ -2740,3 +2740,4 @@
 - Surfaced optional echo mutation row in both digest sections with embedded compact decode legend for fast operator parsing.
 - Retained DOS-friendly compact wording and existing ordering before coach-copy recommendation row.
 - 2026-03-30 04:46 KST — GD cycle: implemented phase-echo compact alias token `CBGCFXWSBPFXPDE:<S|A|U>` (payload + signals) in readability drift digest; verified with regression script pass.
+- 2026-03-30 05:16 KST — Closed GD-2026-03-30-echo-alias-markdown: surfaced `CBGCFXWSBPFXPDE` markdown row in summary + token-coverage and locked ordering (`...ECHO -> ...FXPDE -> CBGCFXWAC COACH COPY REC`) with regression assertions.

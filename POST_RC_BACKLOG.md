@@ -1618,4 +1618,4 @@ Last updated: 2026-03-21 02:31 KST
     3. Add coach-action + phase-echo joint shorthand token for storyboard sync.
   - Selected experiment: Idea 1 (smallest verifiable vertical slice with low blast radius).
 
-- [ ] GD-2026-03-30-echo-alias-markdown: Surface `CBGCFXWSBPFXPDE` in markdown summary/token-coverage rows with contract-order regression assertions.
+- [x] GD-2026-03-30-echo-alias-markdown: Surface `CBGCFXWSBPFXPDE` in markdown summary/token-coverage rows with contract-order regression assertions.
