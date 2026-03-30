@@ -4018,3 +4018,5 @@ Compact decision memory for AI context efficiency.
 - 2026-03-30 08:52 KST — Closed `GD-2026-03-30-fxpde-matrix-drift-snapshot-compact-alias-markdown`: digest markdown now exposes `CBGCFXWSBPFXPDS` + `CBGCFXWSBPFXPDS LEGEND` in both summary/token-coverage rails, and regression locks adjacency chain `... MATRIX DRIFT SNAPSHOT -> CBGCFXWSBPFXPDS -> CBGCFXWSBPFXPDS LEGEND -> CBGCFXWAC COACH COPY REC` with row cardinality/dependency checks.
 
 - 2026-03-30 09:18 KST — Closed GD-2026-03-30-fxpde-matrix-drift-snapshot-triage-thresholds: FXPDE matrix-drift snapshot recommendation now uses configurable WATCH/MANUAL thresholds (bands + streak mins) through env policy knobs and ships policy diagnostics (`thresholdPolicy`, `thresholdReason`, `thresholds`) in payload for durable QA tuning traceability.
+
+- 2026-03-30 09:28 KST — Game Director review cycle triggered after full-check completion: shipped minimal vertical slice `CBGCFXWSBPFXPDE SNAPSHOT POLICY` row (summary + token-coverage) and extended regression spacer/order contract; backlog now carries two injected follow-ups for compact alias and policy-aware copy-pack.

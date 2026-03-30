@@ -4814,8 +4814,9 @@ def main() -> int:
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 14,
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 15,
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 16,
+                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 17,
             }, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row immediately after CBGCFXWSBPFCI COACH COPY row, with optional rollout spacers CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI -> CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD -> CBGCFXWSBPFXPD MICROLINE -> CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWSBPFXPDE -> CBGCFXWSBPFXPDE LEGEND -> CBGCFXWSBPFXPDE MATRIX -> CBGCFXWSBPFXPDE MATRIX DRIFT -> CBGCFXWSBPFXPDE MATRIX DRIFT TREND -> CBGCFXWSBPFXPDE MATRIX DRIFT SNAPSHOT -> CBGCFXWSBPFXPDS -> CBGCFXWSBPFXPDS LEGEND"
+                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row immediately after CBGCFXWSBPFCI COACH COPY row, with optional rollout spacers CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI -> CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD -> CBGCFXWSBPFXPD MICROLINE -> CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWSBPFXPDE -> CBGCFXWSBPFXPDE LEGEND -> CBGCFXWSBPFXPDE MATRIX -> CBGCFXWSBPFXPDE MATRIX DRIFT -> CBGCFXWSBPFXPDE MATRIX DRIFT TREND -> CBGCFXWSBPFXPDE MATRIX DRIFT SNAPSHOT -> CBGCFXWSBPFXPDS -> CBGCFXWSBPFXPDS LEGEND -> CBGCFXWSBPFXPDE SNAPSHOT POLICY"
             )
             spacer_lines = md_lines[
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1 : coach_copy_variant_rec_idx
@@ -4836,9 +4837,10 @@ def main() -> int:
                 "- CBGCFXWSBPFXPDE MATRIX DRIFT SNAPSHOT:",
                 "- CBGCFXWSBPFXPDS:",
                 "- CBGCFXWSBPFXPDS LEGEND:",
+                "- CBGCFXWSBPFXPDE SNAPSHOT POLICY:",
             ]
             assert len(spacer_lines) <= len(expected_spacer_prefixes), (
-                f"markdown contract violated in {section_name} section: expected at most fifteen rollout spacers before CBGCFXWAC COACH COPY REC"
+                f"markdown contract violated in {section_name} section: expected at most sixteen rollout spacers before CBGCFXWAC COACH COPY REC"
             )
             last_prefix_idx = -1
             for spacer_idx, spacer_line in enumerate(spacer_lines):
