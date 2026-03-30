@@ -4629,3 +4629,8 @@
 - Completed Systems/Ops TASKS item: added payload-level `vfxTouchedWithin24h` boolean sourced from 24h lane cadence check so stale combat/VFX cadence is machine-readable in director loop outputs.
 - Added regression fixture + schema assertions to lock pass/fail boundary behavior (`combat/vfx` age 24h => true, 25h => false).
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+
+## 2026-03-31 05:47 KST — lane underrepresentation watchdog artifact
+- Completed Systems/Ops POST_RC_BACKLOG item: added payload token   `LANE UNDERREP WATCHDOG:OK|WARN` + signals (stale/untouched/underrepresented lanes, reason, windowHours).
+- Watchdog warns when any lane bucket is untouched (>=999h) or stale (>24h), keeping director-loop lane-balance alerts machine-readable.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.

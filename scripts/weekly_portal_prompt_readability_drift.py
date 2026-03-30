@@ -495,6 +495,37 @@ def lane_cadence_24h_check(*, lane_bucket_age: dict[str, object]) -> tuple[str, 
     }
 
 
+def lane_underrepresented_watchdog(*, lane_bucket_age: dict[str, object]) -> tuple[str, dict[str, object]]:
+    """Lightweight underrepresentation watchdog for director-loop lane cadence triage.
+
+    Emits WARN when any lane bucket is effectively untouched in-window (`>=999h`) or stale (>24h).
+    """
+    age_hours_raw = lane_bucket_age.get("ageHours", {})
+    age_hours = age_hours_raw if isinstance(age_hours_raw, dict) else {}
+    window_hours = int(lane_bucket_age.get("windowHours", 24) or 24)
+
+    monitored_lanes = ("systems/ops", "design/world", "combat/vfx")
+    untouched_lanes = [lane for lane in monitored_lanes if int(age_hours.get(lane, 999) or 999) >= 999]
+    stale_lanes = [lane for lane in monitored_lanes if int(age_hours.get(lane, 999) or 999) > window_hours]
+
+    warn = bool(untouched_lanes or stale_lanes)
+    if untouched_lanes:
+        reason = "one-or-more-lanes-untouched-in-window"
+    elif stale_lanes:
+        reason = "one-or-more-lanes-stale-over-24h"
+    else:
+        reason = "all-lanes-represented-within-window"
+
+    return f"LANE UNDERREP WATCHDOG:{'WARN' if warn else 'OK'}", {
+        "status": "WARN" if warn else "OK",
+        "windowHours": window_hours,
+        "staleLanes": stale_lanes,
+        "untouchedLanes": untouched_lanes,
+        "underrepresentedLanes": sorted({*stale_lanes, *untouched_lanes}),
+        "reason": reason,
+    }
+
+
 def combat_vfx_cadence_watchdog(*, lane_bucket_age: dict[str, object]) -> tuple[str, dict[str, object]]:
     age_hours_raw = lane_bucket_age.get("ageHours", {})
     age_hours = age_hours_raw if isinstance(age_hours_raw, dict) else {}
@@ -11792,6 +11823,9 @@ def main() -> int:
     lane_cadence_24h_check_token, lane_cadence_24h_check_signals = lane_cadence_24h_check(
         lane_bucket_age=lane_bucket_age,
     )
+    lane_underrepresented_watchdog_token, lane_underrepresented_watchdog_signals = lane_underrepresented_watchdog(
+        lane_bucket_age=lane_bucket_age,
+    )
     combat_vfx_cadence_watchdog_token, combat_vfx_cadence_watchdog_signals = combat_vfx_cadence_watchdog(
         lane_bucket_age=lane_bucket_age,
     )
@@ -13810,6 +13844,8 @@ def main() -> int:
         "laneCadenceMissRiskSignals": lane_cadence_miss_risk_signals,
         "laneCadence24hCheck": lane_cadence_24h_check_token,
         "laneCadence24hCheckSignals": lane_cadence_24h_check_signals,
+        "laneUnderrepresentedWatchdog": lane_underrepresented_watchdog_token,
+        "laneUnderrepresentedWatchdogSignals": lane_underrepresented_watchdog_signals,
         "vfxTouchedWithin24h": bool(lane_cadence_24h_check_signals.get("vfxTouchedWithin24h", False)),
         "combatVfxCadenceWatchdog": combat_vfx_cadence_watchdog_token,
         "combatVfxCadenceWatchdogSignals": combat_vfx_cadence_watchdog_signals,

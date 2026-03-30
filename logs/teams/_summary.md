@@ -4213,3 +4213,13 @@ Compact decision memory for AI context efficiency.
 ## 2026-03-31 05:02 KST — Durable decision
 - Director-loop payload must expose explicit lane-watch booleans for high-risk cadence lanes; `vfxTouchedWithin24h` is now a first-class key (mirrors `laneCadence24hCheckSignals.vfxTouchedWithin24h`) to simplify stale-lane alerting and downstream automation.
 - Regression policy: keep boundary fixtures for 24h contract booleans (`<=24h` pass, `>24h` fail) so cadence behavior cannot silently drift.
+
+## 2026-03-31 05:47 KST — Durable decision
+- Added a lightweight lane-balance artifact in weekly drift payload: `laneUnderrepresentedWatchdog` / `laneUnderrepresentedWatchdogSignals`.
+- Policy: emit WARN when any cadence lane is untouched in-window (>=999h) or stale (>24h), so Game Director cycles can auto-prioritize underrepresented lanes without scanning markdown manually.
+- Regression now locks token domain + signal schema and deterministic cue-carryover fixture for narration->VFX cue mapping (, , ).
+
+## 2026-03-31 05:47 KST — Durable decision
+- Added lightweight lane-balance watchdog artifact in weekly drift payload: `laneUnderrepresentedWatchdog` / `laneUnderrepresentedWatchdogSignals`.
+- Policy: WARN when any cadence lane is untouched in-window (>=999h) or stale (>24h), so director-loop triage can auto-prioritize underrepresented lanes.
+- Regression now also includes deterministic narration-cue carryover fixture for `A->S`, `R->E`, `S->H` mapping stability.

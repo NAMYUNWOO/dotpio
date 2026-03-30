@@ -72,6 +72,7 @@ from weekly_portal_prompt_readability_drift import (
     combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior,
     lane_priority_recommendation_confidence_guard,
     lane_cadence_24h_check,
+    lane_underrepresented_watchdog,
     combat_vfx_cadence_coach_why,
     combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_from_prior,
     resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation,
@@ -80,6 +81,7 @@ from weekly_portal_prompt_readability_drift import (
     resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias,
     resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler,
     resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_dominant_compact_alias,
+    resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -194,6 +196,43 @@ def main() -> int:
 
         def _count_lines(md_text: str, prefix: str) -> int:
             return sum(1 for line in md_text.splitlines() if line.startswith(prefix))
+
+        # Deterministic carryover fixture: narration compact aliases must always map
+        # to stable Combat/VFX cue aliases regardless of prior-window token history.
+        narration_cue_flag = (
+            "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_"
+            "STORYBEAT_PHASE_FX_CUE_INTENSITY_PULSE_LANGUAGE_VARIANT_PACK_PHASE_INTENT_NARRATION_"
+            "COMPACT_ALIAS_COMBAT_VFX_FX_CUE"
+        )
+        prior_narration_cue_flag = os.environ.get(narration_cue_flag)
+        os.environ[narration_cue_flag] = "1"
+        try:
+            drift_streak_fixture = [
+                ("A", "ANCHOR", "SOFT", "S"),
+                ("R", "RECOVER", "EDGE", "E"),
+                ("S", "SURGE", "HARD", "H"),
+            ]
+            prior_token_alias: str | None = None
+            for alias, narration, expected_cue, expected_token_alias in drift_streak_fixture:
+                prior_window_payload = {"priorTokenAlias": prior_token_alias} if prior_token_alias is not None else {}
+                _, cue_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue(
+                    intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_signals={
+                        "narration": narration,
+                        "alias": alias,
+                        "token": f"CBGCFXWSBPFXPIN:{alias}",
+                        "priorWindow": prior_window_payload,
+                    }
+                )
+                assert cue_signals["alias"] == alias, cue_signals
+                assert cue_signals["cue"] == expected_cue, cue_signals
+                assert cue_signals["tokenAlias"] == expected_token_alias, cue_signals
+                assert cue_signals["token"] == f"CBGCFXWSBPFXPINF:{expected_token_alias}", cue_signals
+                prior_token_alias = expected_token_alias
+        finally:
+            if prior_narration_cue_flag is None:
+                os.environ.pop(narration_cue_flag, None)
+            else:
+                os.environ[narration_cue_flag] = prior_narration_cue_flag
 
         fxpde_echo_flag = (
             "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_"
@@ -624,6 +663,25 @@ def main() -> int:
         )
         assert vfx_stale_token == "LANE CADENCE 24H CHECK:FAIL", vfx_stale_signals
         assert vfx_stale_signals["vfxTouchedWithin24h"] is False, vfx_stale_signals
+
+        underrep_ok_token, underrep_ok_signals = lane_underrepresented_watchdog(
+            lane_bucket_age={
+                "ageHours": {"systems/ops": 2, "design/world": 6, "combat/vfx": 12},
+                "windowHours": 24,
+            }
+        )
+        assert underrep_ok_token == "LANE UNDERREP WATCHDOG:OK", underrep_ok_signals
+        assert underrep_ok_signals["underrepresentedLanes"] == [], underrep_ok_signals
+
+        underrep_warn_token, underrep_warn_signals = lane_underrepresented_watchdog(
+            lane_bucket_age={
+                "ageHours": {"systems/ops": 1000, "design/world": 28, "combat/vfx": 3},
+                "windowHours": 24,
+            }
+        )
+        assert underrep_warn_token == "LANE UNDERREP WATCHDOG:WARN", underrep_warn_signals
+        assert "systems/ops" in underrep_warn_signals["untouchedLanes"], underrep_warn_signals
+        assert "design/world" in underrep_warn_signals["staleLanes"], underrep_warn_signals
 
         assert payload.get("comboConfidenceFxAccentTrendHysteresisRecommendation") in {"HOLD", "ALLOW"}, payload
         assert payload.get("comboConfidenceFxAccentTrendHysteresisConfidence") in {"LOW", "MID", "HIGH"}, payload
@@ -1096,6 +1154,16 @@ def main() -> int:
         assert payload.get("vfxTouchedWithin24h") == (
             payload.get("laneCadence24hCheckSignals", {}).get("vfxTouchedWithin24h")
         ), payload
+        assert payload.get("laneUnderrepresentedWatchdog") in {"LANE UNDERREP WATCHDOG:OK", "LANE UNDERREP WATCHDOG:WARN"}, payload
+        assert set(payload.get("laneUnderrepresentedWatchdogSignals", {}).keys()) == {
+            "status",
+            "windowHours",
+            "staleLanes",
+            "untouchedLanes",
+            "underrepresentedLanes",
+            "reason",
+        }, payload
+        assert payload.get("laneUnderrepresentedWatchdogSignals", {}).get("status") in {"OK", "WARN"}, payload
         assert isinstance(payload.get("laneBucketAgeCompactAlias"), str), payload
         assert set(payload.get("laneBucketAgeCompactAliasSignals", {}).keys()) == {
             "flagName",
