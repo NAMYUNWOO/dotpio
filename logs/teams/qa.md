@@ -4498,3 +4498,14 @@
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
 - Backlog injected: UX/Design markdown rollout + Systems/QA adjacency lock + AI Content/World coherence microline copy pair.
 
+
+## 2026-03-30 18:39:00 KST
+- Task: Enforce `CBGCFXWSBPFXPDCWF COHERENCE` row cardinality/ordering contract and payload schema locks.
+- Commit: HEAD (this run)
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions:
+  - Added `0|2` row-count assertions for coherence/legend rows and strict adjacency (`DIGEST -> COHERENCE -> COHERENCE LEGEND`) in both digest sections.

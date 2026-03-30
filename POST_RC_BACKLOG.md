@@ -1779,6 +1779,12 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Systems/QA Team (Cycle HJ selected experiment): Added payload-only coherence token/signals `CBGCFXWSBPFXPDCWF COHERENCE:OK|DRIFT` with deterministic alias→expected-source mapping and regression domain/coherence locks (offline-only, flag-gated, reversible). *(lifecycle: [ ] -> [~] started: 2026-03-30 18:09 KST -> [x] completed: 2026-03-30 18:13 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## Next Up (Game Director Injection — Cycle HJ)
-- [ ] UX/Design Team: Add optional summary/token-coverage markdown row + compact legend for `CBGCFXWSBPFXPDCWF COHERENCE` directly after `CBGCFXWSBPFXPDCWF DIGEST`.
-- [ ] Systems/QA Team: Add markdown adjacency/count contract ensuring `CBGCFXWSBPFXPDCWF COHERENCE` rows appear as `0|2` and only when `CBGCFXWSBPFXPDCWF DIGEST` rows exist.
-- [ ] AI Content/World Team: Prototype offline microline copy pair for coherence statuses (`OK` vs `DRIFT`) tuned for DOS-width postmortem readability.
+- [x] UX/Design Team: Add optional summary/token-coverage markdown row + compact legend for `CBGCFXWSBPFXPDCWF COHERENCE` directly after `CBGCFXWSBPFXPDCWF DIGEST`. *(completed: 2026-03-30 18:39 KST)*
+- [x] Systems/QA Team: Add markdown adjacency/count contract ensuring `CBGCFXWSBPFXPDCWF COHERENCE` rows appear as `0|2` and only when `CBGCFXWSBPFXPDCWF DIGEST` rows exist. *(completed: 2026-03-30 18:39 KST)*
+- [x] AI Content/World Team: Prototype offline microline copy pair for coherence statuses (`OK` vs `DRIFT`) tuned for DOS-width postmortem readability. *(completed: 2026-03-30 18:39 KST)*
+
+## P1 (Game Director Injection — 2026-03-30 Cycle HK)
+- [x] Systems/Combat Team: Add payload-only compact coherence alias token `CBGCFXWSBPFXPDCWFC:<O|D>` derived from `CBGCFXWSBPFXPDCWF COHERENCE` with deterministic alias map/signals.
+- [ ] UX/Design Team: Add optional summary/token-coverage row + legend for `CBGCFXWSBPFXPDCWFC` directly after `CBGCFXWSBPFXPDCWF COHERENCE LEGEND`.
+- [ ] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFC` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWF COHERENCE`.
+- [ ] AI Content/World Team: Prototype offline microline decode pair for coherence compact alias (`O` vs `D`) tuned for DOS-width tooltips.

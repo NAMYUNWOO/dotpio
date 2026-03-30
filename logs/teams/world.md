@@ -2649,3 +2649,11 @@
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
 - Backlog injected: UX/Design markdown rollout + Systems/QA adjacency lock + AI Content/World coherence microline copy pair.
 
+
+## 2026-03-30 18:39:00 KST
+- Task: Support DOS-width postmortem readability through coherence microline vocabulary.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - World-facing copy pair stays short and deterministic (`LOCKED LANE` vs `DRIFT WATCH`) to preserve compact readability budget.

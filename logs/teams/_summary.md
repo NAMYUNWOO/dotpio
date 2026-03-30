@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 18:13 KST
+Last updated: 2026-03-30 18:46 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,14 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Executed Game Director Cycle HK immediately after full-check state: generated 3 ideas and selected low-risk Systems/Combat payload slice.
+- Shipped payload-only compact coherence alias `CBGCFXWSBPFXPDCWFC:<O|D>` from `CBGCFXWSBPFXPDCWF COHERENCE` with deterministic alias map/signals and regression schema/domain locks.
+- Injected next HK backlog tasks: UX markdown rollout + Systems/QA adjacency/count contract + AI Content/World compact decode microline pair.
+
+- Closed Cycle HJ follow-ups in one pass: markdown rails now include `CBGCFXWSBPFXPDCWF COHERENCE` + compact legend directly after `CBGCFXWSBPFXPDCWF DIGEST` in summary/token-coverage sections.
+- Regression contract now enforces coherence row cardinality/dependency/adjacency (`0|2`, `DIGEST -> COHERENCE -> COHERENCE LEGEND`) and payload schema coverage for new offline microline pair.
+- AI Content/World prototype shipped payload-only coherence copy pair (`LOCKED LANE` vs `DRIFT WATCH`) for DOS-width postmortem readability; verification + weekly smoke both green.
 
 - Executed Game Director Cycle HJ immediately after all queues reached fully-checked state; generated 3 ideas and selected a mid-risk Systems/QA vertical slice.
 - Shipped payload-only coherence token/signals `CBGCFXWSBPFXPDCWF COHERENCE:OK|DRIFT` with deterministic alias→expected-source mapping for digest trust validation (`S|E|H` ↔ `...FX CUE:SOFT|EDGE|HARD`).

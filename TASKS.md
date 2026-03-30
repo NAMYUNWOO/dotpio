@@ -1874,6 +1874,18 @@ See project-level plans:
 - [x] Systems/QA Team (Cycle HJ selected experiment): Added payload-only coherence token/signals `CBGCFXWSBPFXPDCWF COHERENCE:OK|DRIFT` with deterministic alias→expected-source mapping and regression domain/coherence locks (offline-only, flag-gated, reversible). *(lifecycle: [ ] -> [~] started: 2026-03-30 18:09 KST -> [x] completed: 2026-03-30 18:13 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## Next Up (Game Director Injection — Cycle HJ)
-- [ ] UX/Design Team: Add optional summary/token-coverage markdown row + compact legend for `CBGCFXWSBPFXPDCWF COHERENCE` directly after `CBGCFXWSBPFXPDCWF DIGEST`.
-- [ ] Systems/QA Team: Add markdown adjacency/count contract ensuring `CBGCFXWSBPFXPDCWF COHERENCE` rows appear as `0|2` and only when `CBGCFXWSBPFXPDCWF DIGEST` rows exist.
-- [ ] AI Content/World Team: Prototype offline microline copy pair for coherence statuses (`OK` vs `DRIFT`) tuned for DOS-width postmortem readability.
+- [x] UX/Design Team: Add optional summary/token-coverage markdown row + compact legend for `CBGCFXWSBPFXPDCWF COHERENCE` directly after `CBGCFXWSBPFXPDCWF DIGEST`. *(lifecycle: [ ] -> [~] started: 2026-03-30 18:34 KST -> [x] completed: 2026-03-30 18:39 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+- [x] Systems/QA Team: Add markdown adjacency/count contract ensuring `CBGCFXWSBPFXPDCWF COHERENCE` rows appear as `0|2` and only when `CBGCFXWSBPFXPDCWF DIGEST` rows exist. *(completed: 2026-03-30 18:39 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+- [x] AI Content/World Team: Prototype offline microline copy pair for coherence statuses (`OK` vs `DRIFT`) tuned for DOS-width postmortem readability. *(completed: 2026-03-30 18:39 KST; verification: payload schema/domain assertions in `scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift command)*
+
+## Game Director Cycle HK — 2026-03-30 18:46 KST
+- Coverage check (last 10 completed headings by lane): systems/qa still dominant while combat/vfx readability hooks remain additive-safe.
+- Idea 1 (low-risk systems/combat): Add payload-only compact alias for coherence status (`CBGCFXWSBPFXPDCWFC:<O|D>`) from `CBGCFXWSBPFXPDCWF COHERENCE`. **Selected.**
+- Idea 2 (mid-risk ux/design): Surface optional markdown digest row + legend for `CBGCFXWSBPFXPDCWFC` directly after `CBGCFXWSBPFXPDCWF COHERENCE LEGEND`.
+- Idea 3 (high-risk ai-content/world): Add adaptive coherence-copy rotation memory when `DRIFT` repeats for 2+ windows.
+- [x] Systems/Combat Team (Cycle HK selected experiment): Added payload-only compact coherence alias `CBGCFXWSBPFXPDCWFC:<O|D>` with deterministic alias map/signals and offline-only flag-gated fallback. *(lifecycle: [ ] -> [~] started: 2026-03-30 18:42 KST -> [x] completed: 2026-03-30 18:46 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle HK)
+- [ ] UX/Design Team: Add optional summary/token-coverage row + legend for `CBGCFXWSBPFXPDCWFC` directly after `CBGCFXWSBPFXPDCWF COHERENCE LEGEND`.
+- [ ] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFC` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWF COHERENCE`.
+- [ ] AI Content/World Team: Prototype offline microline decode pair for coherence compact alias (`O` vs `D`) tuned for DOS-width tooltips.

@@ -2737,3 +2737,11 @@
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
 - Backlog injected: UX/Design markdown rollout + Systems/QA adjacency lock + AI Content/World coherence microline copy pair.
 
+
+## 2026-03-30 18:39:00 KST
+- Task: Compact legend readability pass for new coherence rollout row.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Introduced explicit decode line: `OK=alias/source aligned, DRIFT=alias/source mismatch` adjacent to coherence row for scan-speed.
