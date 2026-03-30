@@ -3829,3 +3829,5 @@
 ## 2026-03-30 12:50 KST — Strict optional-order contract hardening (CBGCFXWSBPFXPD coach chain)
 - Enforced regression requirement that `CBGCFXWSBPFXPD ECHO` can appear only when `CBGCFXWSBPFXPD COACH` and `CBGCFXWSBPFXPDC` are both present.
 - Locked adjacency to `... MICROLINE LEGEND -> ... COACH -> ... FXPDC -> ... ECHO` in both summary and token-coverage sections.
+
+- 2026-03-30 13:31 KST — Cycle HD selected slice shipped: added payload-only `CBGCFXWSBPFXPD COACH WHY:<short>` + compact alias `CBGCFXWSBPFXPDCW:<A|B|C|D|E|F>` (alias+trend derived, offline-only, experiment-flagged); verified with regression + weekly smoke.

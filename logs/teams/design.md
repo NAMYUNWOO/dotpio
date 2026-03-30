@@ -2624,3 +2624,5 @@
 
 ## 2026-03-30 12:50 KST — Durable ordering decision
 - Accepted strict coach-chain ordering for rehearsal rows to prevent partial rollout ambiguity in writer-facing digest scans.
+
+- 2026-03-30 13:31 KST — Cycle HD selected slice shipped: added payload-only `CBGCFXWSBPFXPD COACH WHY:<short>` + compact alias `CBGCFXWSBPFXPDCW:<A|B|C|D|E|F>` (alias+trend derived, offline-only, experiment-flagged); verified with regression + weekly smoke.

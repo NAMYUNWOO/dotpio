@@ -2536,3 +2536,5 @@
 
 ## 2026-03-30 12:50 KST — World-facing copy rail consistency
 - Adopted strict optional-order contract so phase-echo context never detaches from prior coach/action rows in digest rails.
+
+- 2026-03-30 13:31 KST — Cycle HD selected slice shipped: added payload-only `CBGCFXWSBPFXPD COACH WHY:<short>` + compact alias `CBGCFXWSBPFXPDCW:<A|B|C|D|E|F>` (alias+trend derived, offline-only, experiment-flagged); verified with regression + weekly smoke.

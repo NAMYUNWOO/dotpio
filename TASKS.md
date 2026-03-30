@@ -1799,3 +1799,16 @@ See project-level plans:
 ## Next Up (Game Director Injection — Cycle HC)
 - [x] UX/QA Team: Add optional markdown row + legend for `CBGCFXWSBPFXPDE POLICY OPS DOMINANT` in summary/token-coverage with adjacency lock after `...POLICY OPS WINDOW`. *(lifecycle: [~] started: 2026-03-30 11:46 KST -> [x] completed: 2026-03-30 11:58 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [x] Systems/QA Team: Add multi-window fixture asserting dominant-policy alias flips deterministically when rolling window composition changes. *(completed: 2026-03-30 11:58 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+
+
+## Game Director Cycle HD — 2026-03-30 13:25 KST
+- Coverage check (last 10 completed headings by lane): systems=3, ux=2, qa=2, design=1, world=1, combat=1, ai-content=0, vfx=0.
+- Lane-cap result: no lane exceeded 40%; underrepresented lanes remain ai-content/vfx.
+- Idea 1 (low-risk systems/qa): Add compact alias token for `CBGCFXWSBPFXPD COACH WHY` so downstream rails can branch without parsing prose. **Selected.**
+- Idea 2 (mid-risk ux/design): Add optional markdown row + legend for `CBGCFXWSBPFXPD COACH WHY` in summary/token-coverage rails.
+- Idea 3 (high-risk ai-content/world): Add adaptive rationale copy pack keyed by policy dominant alias + mutation trend.
+- [x] Systems/QA Team (Cycle HD selected experiment): Add payload-only compact alias `CBGCFXWSBPFXPDCW:<A|B|C|D|E|F>` derived from coach-action alias + mutation trend rationale token. *(lifecycle: [~] started: 2026-03-30 13:25 KST -> [x] completed: 2026-03-30 13:31 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle HD)
+- [ ] UX/Design Team: Add optional digest row + legend for `CBGCFXWSBPFXPD COACH WHY` with deterministic adjacency after `CBGCFXWSBPFXPDC`.
+- [ ] AI-Content/World Team: Prototype rationale copy-pack variants keyed by `CBGCFXWSBPFXPDCW` alias families for writer tooltips.

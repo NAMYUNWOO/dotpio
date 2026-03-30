@@ -2536,3 +2536,5 @@
 
 ## 2026-03-30 12:50 KST — Combat/VFX cue chain integrity
 - Synced strict optional-order enforcement for `... COACH -> CBGCFXWSBPFXPDC -> ECHO` to keep rehearsal-to-echo handoff deterministic.
+
+- 2026-03-30 13:31 KST — Cycle HD selected slice shipped: added payload-only `CBGCFXWSBPFXPD COACH WHY:<short>` + compact alias `CBGCFXWSBPFXPDCW:<A|B|C|D|E|F>` (alias+trend derived, offline-only, experiment-flagged); verified with regression + weekly smoke.

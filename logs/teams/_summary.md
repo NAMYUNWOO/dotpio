@@ -4060,3 +4060,6 @@ Compact decision memory for AI context efficiency.
 - Completed highest-priority unchecked backlog item: regression now requires `CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD COACH -> CBGCFXWSBPFXPDC -> CBGCFXWSBPFXPD ECHO` ordering (no skipped coach/action rows when echo is present).
 - Durable decision: treat `CBGCFXWSBPFXPD ECHO` as dependent on both coach rows to avoid ambiguous partial rollout diagnostics.
 - Verification: `python3 -m py_compile scripts/regression_weekly_portal_prompt_readability_drift.py scripts/weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.
+
+- Closed Cycle HD selected experiment: added payload rationale token `CBGCFXWSBPFXPD COACH WHY:<short>` from coach alias (`P|U`) + FXPDE mutation trend band (`STABLE|SWING|SPIKE`) and compact alias `CBGCFXWSBPFXPDCW:<A|B|C|D|E|F>` for downstream branching.
+- Both tokens are experiment-flagged, offline-only, and now included in payload schema + token-family scanning; verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`).
