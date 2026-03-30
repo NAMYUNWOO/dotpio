@@ -1,5 +1,12 @@
 # UX Team Log
 
+## 2026-03-31 04:38 KST
+- Task: Added optional digest markdown visibility for `CBGCFXWSBPFXPINF` + legend directly after `CBGCFXWSBPFXPIN LEGEND` (summary/token-coverage parity).
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions: keep row optional and adjacency-locked (`...FXPIN LEGEND -> ...FXPINF -> ...FXPINF LEGEND -> ...FXPI DRILL`) for DOS-width readability.
+
 ## 2026-03-31 03:07 KST
 - Delivered compact alias readability slice: `CBGCFXWSBPFXPIN:<A|S|R>` now available in payload for denser scan + downstream joins.
 - Markdown surface intentionally deferred to follow-up to keep this cycle minimal vertical and low-risk.

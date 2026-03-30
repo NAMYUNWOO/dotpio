@@ -1,5 +1,11 @@
 # Team Logs Summary
 
+## 2026-03-31 04:38 KST
+- Closed Design/World visibility slice for `CBGCFXWSBPFXPINF` in weekly digest markdown (summary + token-coverage sections).
+- Added strict optional-order contract and regression coverage: `CBGCFXWSBPFXPIN LEGEND -> CBGCFXWSBPFXPINF -> CBGCFXWSBPFXPINF LEGEND -> CBGCFXWSBPFXPI DRILL`.
+- Verified green with digest regression + weekly drift smoke command.
+- Queue progress: ACTION_ITEMS fully checked; TASKS now 2 unchecked; POST_RC_BACKLOG now 2 unchecked.
+
 ## 2026-03-31 03:07 KST
 - Executed Game Director Cycle IJ because ACTION_ITEMS/TASKS/POST_RC were fully checked.
 - Generated 3 ideas (low-risk UX alias, mid-risk drift sentinel, high-risk narrative grammar) and selected low-risk vertical slice.

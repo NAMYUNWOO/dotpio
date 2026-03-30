@@ -1,5 +1,12 @@
 # Design Team Log
 
+## 2026-03-31 04:38 KST
+- Task: Added optional digest markdown visibility for `CBGCFXWSBPFXPINF` + legend directly after `CBGCFXWSBPFXPIN LEGEND` (summary/token-coverage parity).
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions: keep row optional and adjacency-locked (`...FXPIN LEGEND -> ...FXPINF -> ...FXPINF LEGEND -> ...FXPI DRILL`) for DOS-width readability.
+
 ## 2026-03-31 03:07 KST
 - Cycle IJ design decision: chose low-risk readability slice to preserve loop stability while keeping cadence-language coherence.
 - Candidate backlog kept for design exploration: compact narration drift cue + rebound grammar pack.
