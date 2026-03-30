@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 16:08 KST
+Last updated: 2026-03-30 16:52 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,13 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Executed Game Director Cycle HI (all prior queues were fully checked): generated 3 ideas and selected Combat/VFX payload slice adding compact FX cue alias `CBGCFXWSBPFXPDCWF:<S|E|H>` from `CBGCFXWSBPFXPDCW FX CUE`.
+- Regression contract now validates `...CopyPackCadenceCombatVfxFxCueCompactAlias(Signals)` schema/domain/coherence (`SOFT|EDGE|HARD -> S|E|H`) and remains offline-only/flag-gated/reversible.
+- Injected new Cycle HI backlog items: (1) UX/Design markdown row+legend rollout for `CBGCFXWSBPFXPDCWF`, (2) Systems/QA adjacency + count lock for the rollout chain.
+
+- Closed remaining Cycle HG follow-ups in TASKS + POST_RC: markdown rails now surface `CBGCFXWSBPFXPDCWC` + `CBGCFXWSBPFXPDCWC LEGEND` directly after `CBGCFXWSBPFXPDCW COPY PACK CADENCE LEGEND` in both summary and token-coverage sections.
+- Regression contract now locks `CBGCFXWSBPFXPDCWC` row cardinality/dependency/adjacency (`0|2` per section), and `CBGCFXWSBPFXPDCW FX CUE` adjacency now anchors to `CBGCFXWSBPFXPDCWC LEGEND`; verification + weekly smoke both green.
 
 - Executed Game Director Cycle HH coverage check (last 10 completed items by primary lane): systems=5, world=1, ai-content=1, combat=1, design=1, vfx=0, ux=1, qa=0. Systems exceeded lane cap (50% > 40%), so next experiment was forced into underrepresented lanes.
 - Generated 3 ideas and selected Combat/VFX minimal vertical slice: payload-only `CBGCFXWSBPFXPDCW FX CUE:SOFT|EDGE|HARD` derived from copy-pack cadence class (`STEADY|PIVOT|BURST`), flag-gated and offline-only.

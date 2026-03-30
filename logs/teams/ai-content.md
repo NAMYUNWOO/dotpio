@@ -2654,3 +2654,19 @@
 - Task: Reviewed coach-why/copy-pack narration continuity with new cadence FX cue digest row.
 - Commit: pending
 - Decision: Legend copy kept concise to avoid widening tooltip narration footprint.
+
+## 2026-03-30 16:45 KST — Cycle HG follow-up close ( markdown + contract)
+- Closed TASKS/POST_RC follow-ups by surfacing optional markdown rows  +  immediately after  in summary + token-coverage sections.
+- Extended regression contract with row-count () + dependency/adjacency locks for  rows and tightened  anchor to .
+- Verification: ; [PASS] weekly portal prompt readability drift regression checks; [PASS] weekly portal prompt drift status=ok -> /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.json /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.md.
+
+## 2026-03-30 16:47 KST — Cycle HG follow-up close (`CBGCFXWSBPFXPDCWC` markdown + contract) [corrected]
+- Closed TASKS/POST_RC follow-ups by surfacing optional markdown rows `CBGCFXWSBPFXPDCWC` + `CBGCFXWSBPFXPDCWC LEGEND` immediately after `CBGCFXWSBPFXPDCW COPY PACK CADENCE LEGEND` in summary + token-coverage sections.
+- Extended regression contract with row-count (`0|2`) + dependency/adjacency locks for `CBGCFXWSBPFXPDCWC` rows and tightened `FX CUE` anchor to `CBGCFXWSBPFXPDCWC LEGEND`.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+
+## 2026-03-30 16:52 KST — Game Director Cycle HI (combat/vfx payload slice)
+- Executed Cycle HI (3 ideas): selected mid-risk Combat/VFX slice shipping payload-only compact alias `CBGCFXWSBPFXPDCWF:<S|E|H>` from `CBGCFXWSBPFXPDCW FX CUE`.
+- Added deterministic payload contract signals (`fxCue`, `alias`, `aliasMap`, `sourceToken`, `token`, `offlineOnly`) with regression schema/domain/coherence assertions.
+- Injected next tasks into TASKS + POST_RC: (1) UX/Design markdown row+legend rollout for `CBGCFXWSBPFXPDCWF`, (2) Systems/QA adjacency/count lock for rollout path.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.

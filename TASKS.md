@@ -1850,5 +1850,16 @@ See project-level plans:
 - [x] Systems/Combat Team (Cycle HG selected experiment): Added payload-only compact alias token `CBGCFXWSBPFXPDCWC:<S|P|B>` with deterministic alias map/signals + regression schema lock (offline-only, flag-gated, reversible). *(lifecycle: [~] started: 2026-03-30 15:22 KST -> [x] completed: 2026-03-30 15:26 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## Next Up (Game Director Injection — Cycle HG)
-- [ ] UX/Design Team: Add optional digest markdown row + compact legend for `CBGCFXWSBPFXPDCWC` immediately after `CBGCFXWSBPFXPDCW COPY PACK CADENCE LEGEND`.
-- [ ] QA/Systems Team: Add markdown adjacency + count contract for `CBGCFXWSBPFXPDCWC` rows in summary/token-coverage sections.
+- [x] UX/Design Team: Add optional digest markdown row + compact legend for `CBGCFXWSBPFXPDCWC` immediately after `CBGCFXWSBPFXPDCW COPY PACK CADENCE LEGEND`. *(lifecycle: [~] started: 2026-03-30 16:35 KST -> [x] completed: 2026-03-30 16:45 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+- [x] QA/Systems Team: Add markdown adjacency + count contract for `CBGCFXWSBPFXPDCWC` rows in summary/token-coverage sections. *(completed: 2026-03-30 16:45 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Game Director Cycle HI — 2026-03-30 16:52 KST
+- Coverage check (last 10 completed headings by lane): systems-heavy cadence persisted while vfx remained underrepresented; forced this cycle toward combat/vfx-facing, reversible payload hooks.
+- Idea 1 (low-risk ux/game-feel): Add optional markdown row + legend for `CBGCFXWSBPFXPDCWF` compact FX cue alias after `CBGCFXWSBPFXPDCW FX CUE LEGEND`.
+- Idea 2 (mid-risk combat/vfx): Add payload-only compact alias `CBGCFXWSBPFXPDCWF:<S|E|H>` mapped from `CBGCFXWSBPFXPDCW FX CUE` for downstream VFX/HUD routing. **Selected.**
+- Idea 3 (high-risk novelty): Add adaptive FX cue jitter memory that rotates cue sharpness across sustained SPIKE streaks.
+- [x] Combat/VFX Team (Cycle HI selected experiment): Added payload-only compact FX cue alias token `CBGCFXWSBPFXPDCWF:<S|E|H>` with deterministic alias map/signals (flag-gated, offline-only, reversible). *(lifecycle: [~] started: 2026-03-30 16:48 KST -> [x] completed: 2026-03-30 16:52 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle HI)
+- [ ] UX/Design Team: Add optional digest markdown row + compact legend for `CBGCFXWSBPFXPDCWF` immediately after `CBGCFXWSBPFXPDCW FX CUE LEGEND`.
+- [ ] Systems/QA Team: Add markdown adjacency + count contract for `CBGCFXWSBPFXPDCWF` rows in summary/token-coverage sections.
