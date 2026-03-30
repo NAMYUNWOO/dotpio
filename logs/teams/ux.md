@@ -2993,3 +2993,15 @@
 - Cycle HQ follow-through: operator posture alias markdown rollout status synced.
 - Decision: Added optional UX-facing posture alias row+legend directly after CBGCFXWSBPFXPDCWFCTAN LEGEND in both summary and token-coverage sections.
 - Follow-up: keep Systems/QA schema+fixture transition task (S->O->E) as next highest unchecked item.
+
+## 2026-03-31 00:43 KST
+- Task: Systems/QA priority closure — payload schema/domain + deterministic fixture coverage for operator posture alias transitions (S->O->E).
+- Changes: Added explicit domain fields cadenceAliasDomain/postureDomain/compactAliasDomain and transition contract fields transitionPath/transitionPathAliases/transitionMap on CBGCFXWSBPFXPDCWFCTAP signals.
+- Verification: py_compile on weekly+regression scripts and full regression script both passed.
+- Follow-up: TASKS + POST_RC backlog synced to done for this item.
+
+## 2026-03-31 00:54 KST
+- Cycle HR (Game Director) executed after full-check state: generated 3 ideas, selected low-risk Systems/QA payload experiment, implemented minimal vertical slice CBGCFXWSBPFXPDCWFCTAS transition-stage alias.
+- Implementation: added payload token/signals mapping cadence aliases S/O/E -> HOLD_STEP/REPLAY_STEP/TRIAGE_STEP with deterministic stage aliases H/R/T.
+- Verification: py_compile (weekly + regression scripts) and full weekly portal drift regression passed.
+- Next queued follow-ups: UX/Design markdown row+legend for CTAS, then AI-content/Combat deterministic microline decode table.

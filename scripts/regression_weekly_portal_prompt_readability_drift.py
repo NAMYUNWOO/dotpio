@@ -21,6 +21,8 @@ from weekly_portal_prompt_readability_drift import (
     action_pace_alt_window_step_glyph_from_signals,
     action_pace_alt_window_pulse_drift_from_prior,
     action_pace_alt_window_from_signals,
+    resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_alias,
+    resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_transition_stage_alias,
     resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy,
     route_pulse_link_streak_from_prior,
     route_pulse_link_mode_from_signals,
@@ -3252,18 +3254,97 @@ def main() -> int:
             "flagName",
             "flagEnabled",
             "cadenceNoteAlias",
+            "cadenceAliasDomain",
             "posture",
             "postureMap",
+            "postureDomain",
             "compactAlias",
             "compactAliasMap",
+            "compactAliasDomain",
+            "transitionPath",
+            "transitionPathAliases",
+            "transitionMap",
             "reason",
             "token",
             "offlineOnly",
         }, payload
-        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureAliasSignals", {}).get("cadenceNoteAlias") in {"S", "O", "E"}, payload
-        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureAliasSignals", {}).get("posture") in {"HOLD", "REPLAY_ONCE", "TRIAGE_REPLAY"}, payload
-        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureAliasSignals", {}).get("compactAlias") in {"H", "O", "T"}, payload
-        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureAliasSignals", {}).get("reason") == "cadence-note-operator-posture-route", payload
+        operator_posture_alias_signals = payload.get(
+            "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureAliasSignals",
+            {},
+        )
+        assert operator_posture_alias_signals.get("cadenceNoteAlias") in {"S", "O", "E"}, payload
+        assert operator_posture_alias_signals.get("cadenceAliasDomain") == ["S", "O", "E"], payload
+        assert operator_posture_alias_signals.get("posture") in {"HOLD", "REPLAY_ONCE", "TRIAGE_REPLAY"}, payload
+        assert operator_posture_alias_signals.get("postureDomain") == ["HOLD", "REPLAY_ONCE", "TRIAGE_REPLAY"], payload
+        assert operator_posture_alias_signals.get("compactAlias") in {"H", "O", "T"}, payload
+        assert operator_posture_alias_signals.get("compactAliasDomain") == ["H", "O", "T"], payload
+        assert operator_posture_alias_signals.get("transitionPath") == "S->O->E", payload
+        assert operator_posture_alias_signals.get("transitionPathAliases") == ["H", "O", "T"], payload
+        assert operator_posture_alias_signals.get("transitionMap") == {"S": "H", "O": "O", "E": "T"}, payload
+        assert operator_posture_alias_signals.get("reason") == "cadence-note-operator-posture-route", payload
+
+        # Deterministic fixture (Cycle HY follow-up): verify schema/domain contract and
+        # transition aliases stay stable across explicit S->O->E cadence alias progression.
+        for cadence_alias, expected_posture, expected_compact_alias in (
+            ("S", "HOLD", "H"),
+            ("O", "REPLAY_ONCE", "O"),
+            ("E", "TRIAGE_REPLAY", "T"),
+        ):
+            fixture_token, fixture_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_alias(
+                {"alias": cadence_alias}
+            )
+            assert fixture_token in {"FLAG OFF", f"CBGCFXWSBPFXPDCWFCTAP:{expected_compact_alias}"}, fixture_token
+            assert fixture_signals.get("cadenceNoteAlias") == cadence_alias, fixture_signals
+            assert fixture_signals.get("cadenceAliasDomain") == ["S", "O", "E"], fixture_signals
+            assert fixture_signals.get("posture") == expected_posture, fixture_signals
+            assert fixture_signals.get("postureDomain") == ["HOLD", "REPLAY_ONCE", "TRIAGE_REPLAY"], fixture_signals
+            assert fixture_signals.get("compactAlias") == expected_compact_alias, fixture_signals
+            assert fixture_signals.get("compactAliasDomain") == ["H", "O", "T"], fixture_signals
+            assert fixture_signals.get("transitionPath") == "S->O->E", fixture_signals
+            assert fixture_signals.get("transitionPathAliases") == ["H", "O", "T"], fixture_signals
+            assert fixture_signals.get("transitionMap") == {"S": "H", "O": "O", "E": "T"}, fixture_signals
+
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureTransitionStageAlias") in {
+            "FLAG OFF",
+            "CBGCFXWSBPFXPDCWFCTAS:H",
+            "CBGCFXWSBPFXPDCWFCTAS:R",
+            "CBGCFXWSBPFXPDCWFCTAS:T",
+        }, payload
+        transition_stage_signals = payload.get(
+            "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureTransitionStageAliasSignals",
+            {},
+        )
+        assert set(transition_stage_signals.keys()) == {
+            "flagName",
+            "flagEnabled",
+            "cadenceNoteAlias",
+            "cadenceAliasDomain",
+            "transitionPath",
+            "stage",
+            "stageMap",
+            "stageAlias",
+            "stageAliasMap",
+            "token",
+            "offlineOnly",
+        }, payload
+        assert transition_stage_signals.get("cadenceAliasDomain") == ["S", "O", "E"], payload
+        assert transition_stage_signals.get("transitionPath") == "S->O->E", payload
+        assert transition_stage_signals.get("stage") in {"HOLD_STEP", "REPLAY_STEP", "TRIAGE_STEP"}, payload
+        assert transition_stage_signals.get("stageAlias") in {"H", "R", "T"}, payload
+
+        for cadence_alias, expected_stage, expected_stage_alias in (
+            ("S", "HOLD_STEP", "H"),
+            ("O", "REPLAY_STEP", "R"),
+            ("E", "TRIAGE_STEP", "T"),
+        ):
+            transition_stage_token, transition_fixture_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_transition_stage_alias(
+                {"cadenceNoteAlias": cadence_alias}
+            )
+            assert transition_stage_token in {"FLAG OFF", f"CBGCFXWSBPFXPDCWFCTAS:{expected_stage_alias}"}, transition_stage_token
+            assert transition_fixture_signals.get("cadenceNoteAlias") == cadence_alias, transition_fixture_signals
+            assert transition_fixture_signals.get("stage") == expected_stage, transition_fixture_signals
+            assert transition_fixture_signals.get("stageAlias") == expected_stage_alias, transition_fixture_signals
+            assert transition_fixture_signals.get("transitionPath") == "S->O->E", transition_fixture_signals
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionEscalationAlias") in {
             "FLAG OFF",
             "CBGCFXWSBPFXPDCWFCTAE:H",

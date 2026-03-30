@@ -4161,3 +4161,10 @@ Compact decision memory for AI context efficiency.
 
 - Executed Game Director Cycle HQ after full-check state: generated 3 ideas, selected low-risk systems/ops payload slice, shipped `CBGCFXWSBPFXPDCWFCTAP:<H|O|T>` operator posture alias derived from cadence-note compact alias (`S|O|E`) with regression schema/domain locks.
 - Injected HQ backlog follow-ups: (1) UX markdown row+legend rollout for posture alias, (2) Systems/QA deterministic transition fixture for `S->O->E`.
+- 2026-03-31 00:43 KST — Closed final unchecked TASKS/POST_RC item: Systems/QA delivered payload schema/domain + deterministic fixture coverage for operator posture alias transitions S->O->E.
+- Added CTAP signal contract fields: cadenceAliasDomain/postureDomain/compactAliasDomain + transitionPath/transitionPathAliases/transitionMap; regression now validates full S->O->E fixture mapping to H->O->T.
+- Verification green: py_compile (weekly + regression scripts) and `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Queue status: ACTION_ITEMS + TASKS + POST_RC_BACKLOG all checked at this point (ready for next Game Director review cycle injection on next run).
+- 2026-03-31 00:54 KST — Game Director Cycle HR ran immediately after full-check condition: 3 ideas generated, selected Idea 1 (low-risk Systems/QA), shipped payload-only operator posture transition-stage alias `CBGCFXWSBPFXPDCWFCTAS:<H|R|T>`.
+- Added deterministic mapping contract in payload/regression: cadence alias S/O/E -> stage HOLD_STEP/REPLAY_STEP/TRIAGE_STEP plus stage alias H/R/T; regression now includes explicit fixture sweep across the full S->O->E path.
+- Injected next backlog tasks: (1) UX/Design optional markdown row+legend for CTAS, (2) AI-content/Combat microline decode table for CTAS.

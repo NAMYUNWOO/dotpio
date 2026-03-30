@@ -3112,16 +3112,25 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
             "alias", "S"
         )
     ).strip().upper()
+    cadence_alias_domain = ["S", "O", "E"]
     posture_map = {
         "S": "HOLD",
         "O": "REPLAY_ONCE",
         "E": "TRIAGE_REPLAY",
     }
     posture = posture_map.get(alias, posture_map["S"])
+    posture_domain = [posture_map[key] for key in cadence_alias_domain]
     compact_alias_map = {
         "HOLD": "H",
         "REPLAY_ONCE": "O",
         "TRIAGE_REPLAY": "T",
+    }
+    compact_alias_domain = [compact_alias_map[value] for value in posture_domain]
+    transition_path = "S->O->E"
+    transition_path_aliases = ["H", "O", "T"]
+    transition_map = {
+        cadence_alias_domain[idx]: transition_path_aliases[idx]
+        for idx in range(len(cadence_alias_domain))
     }
     compact_alias = compact_alias_map.get(posture, compact_alias_map["HOLD"])
     token = f"CBGCFXWSBPFXPDCWFCTAP:{compact_alias}"
@@ -3129,11 +3138,60 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         "flagName": flag_name,
         "flagEnabled": flag_enabled,
         "cadenceNoteAlias": alias,
+        "cadenceAliasDomain": cadence_alias_domain,
         "posture": posture,
         "postureMap": posture_map,
+        "postureDomain": posture_domain,
         "compactAlias": compact_alias,
         "compactAliasMap": compact_alias_map,
+        "compactAliasDomain": compact_alias_domain,
+        "transitionPath": transition_path,
+        "transitionPathAliases": transition_path_aliases,
+        "transitionMap": transition_map,
         "reason": "cadence-note-operator-posture-route",
+        "token": token,
+        "offlineOnly": True,
+    }
+
+
+def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_transition_stage_alias(
+    operator_posture_alias_signals: Dict[str, Any],
+) -> Tuple[str, Dict[str, Any]]:
+    """Payload-only transition-stage alias for operator posture cadence flow."""
+    flag_name = (
+        "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_"
+        "STORYBEAT_PHASE_INTENT_REHEARSAL_COACH_WHY_COPY_PACK_CADENCE_COMBAT_VFX_FX_CUE_COMPACT_ALIAS_"
+        "COHERENCE_COMPACT_ALIAS_TOOLTIP_ACTION_ALIAS_REVIEW_CADENCE_NOTE_COMPACT_ALIAS_OPERATOR_POSTURE_"
+        "TRANSITION_STAGE_ALIAS"
+    )
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    cadence_alias = str(operator_posture_alias_signals.get("cadenceNoteAlias", "S") or "S").strip().upper()
+    cadence_alias_domain = ["S", "O", "E"]
+    stage_map = {
+        "S": "HOLD_STEP",
+        "O": "REPLAY_STEP",
+        "E": "TRIAGE_STEP",
+    }
+    stage = stage_map.get(cadence_alias, stage_map["S"])
+    stage_alias_map = {
+        "HOLD_STEP": "H",
+        "REPLAY_STEP": "R",
+        "TRIAGE_STEP": "T",
+    }
+    stage_alias = stage_alias_map.get(stage, stage_alias_map["HOLD_STEP"])
+    token = f"CBGCFXWSBPFXPDCWFCTAS:{stage_alias}"
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "cadenceNoteAlias": cadence_alias,
+        "cadenceAliasDomain": cadence_alias_domain,
+        "transitionPath": "S->O->E",
+        "stage": stage,
+        "stageMap": stage_map,
+        "stageAlias": stage_alias,
+        "stageAliasMap": stage_alias_map,
         "token": token,
         "offlineOnly": True,
     }
@@ -11933,6 +11991,9 @@ def main() -> int:
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_alias(
         cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_signals,
     )
+    cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_transition_stage_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_transition_stage_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_transition_stage_alias(
+        cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_alias_signals,
+    )
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_escalation_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_escalation_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_escalation_alias(
         tooltip_action_alias_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_signals,
     )
@@ -13727,6 +13788,8 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_alias,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_alias_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureTransitionStageAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_transition_stage_alias,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureTransitionStageAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_transition_stage_alias_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionEscalationAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_escalation_alias,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionEscalationAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_escalation_alias_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutation": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation,

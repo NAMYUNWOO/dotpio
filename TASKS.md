@@ -1949,4 +1949,12 @@ See project-level plans:
 - Idea 3 (qa, medium): Add deterministic fixture toggling `steady-scan -> repeat-once -> repeat-escalate` across prior-window carryover.
 - [x] Systems/Ops Team (Cycle HQ selected experiment): Add payload-only compact operator posture alias token derived from `CBGCFXWSBPFXPDCWFCTAN` (offline-only, flag-gated, reversible).
 - [x] UX/Design Team: Add optional markdown row + legend for the new operator posture alias in summary/token-coverage rails. *(lifecycle: [~] started: 2026-03-31 00:03 KST -> [x] completed: 2026-03-31 00:09 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] Systems/QA Team: Add payload schema/domain + deterministic fixture coverage for operator posture alias transitions (`S->O->E`).
+- [x] Systems/QA Team: Add payload schema/domain + deterministic fixture coverage for operator posture alias transitions (`S->O->E`). *(lifecycle: [~] started: 2026-03-31 00:34 KST -> [x] completed: 2026-03-31 00:43 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+
+## Game Director Injection — 2026-03-31 Cycle HR
+- Idea 1 (low risk, UX/QA): Add compact transition-stage payload alias for operator posture flow so digest readers can spot `S->O->E` stage instantly.
+- Idea 2 (mid risk, Combat/Design): Add cadence-note pressure copyline variant keyed by operator posture stage to improve triage readability.
+- Idea 3 (high risk, Systems/AI-content): Add adaptive posture auto-hold dampener based on prior-window drift volatility.
+- [x] Systems/QA Team (Cycle HR selected experiment): Add payload-only transition-stage alias token/signals for operator posture cadence flow (`S|O|E` -> `HOLD_STEP|REPLAY_STEP|TRIAGE_STEP`) with regression lock. *(lifecycle: [~] started: 2026-03-31 00:49 KST -> [x] completed: 2026-03-31 00:54 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+- [ ] UX/Design Team: Add optional markdown row + legend for transition-stage alias in summary/token-coverage rails.
+- [ ] AI-content/Combat Team: Add microline copy-pack decode table for transition-stage alias to keep operator coaching wording deterministic.
