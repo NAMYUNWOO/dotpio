@@ -4636,3 +4636,9 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
 - 2026-03-31 06:08 KST — Closed Systems/QA optional-order follow-up for   `CBGCFXWSBPFXPINF`: regression allowance chain now explicitly preserves ordering   `CBGCFXWSBPFXPIN -> ...LEGEND -> CBGCFXWSBPFXPINF -> ...LEGEND` while keeping coach-copy adjacency invariants intact. Verification: py_compile + regression + weekly drift smoke (all PASS).
 - 2026-03-31 06:13 KST — Cycle IL executed after full-check trigger: generated 3 ideas, selected mid-risk Combat/Systems payload slice, and shipped CBGCFXWSBPFXPINF signal metadata (adjacencyInvariant, adjacencyChain) with regression lock + green verification suite.
+
+## 2026-03-31 06:34 KST
+- Task: Closed remaining TASKS/POST_RC checklist items by syncing implementation-complete status for `CBGCFXWSBPFXPINF` legend micro-row + deterministic adjacency lock (`...FXPINF LEGEND -> ...FXPI DRILL`).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions: Existing implementation/contracts already satisfied runtime + regression requirements; this pass finalized durable backlog/log state.
+
