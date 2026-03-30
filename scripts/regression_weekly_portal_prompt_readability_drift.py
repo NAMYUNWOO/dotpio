@@ -2914,6 +2914,77 @@ def main() -> int:
             "reason",
             "offlineOnly",
         }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackVariants") in {
+            "FLAG OFF",
+            "CBGCFXWSBPFXPDCW COPY PACK:PACE_HOLD",
+            "CBGCFXWSBPFXPDCW COPY PACK:PACE_PIVOT",
+            "CBGCFXWSBPFXPDCW COPY PACK:PACE_COVER",
+            "CBGCFXWSBPFXPDCW COPY PACK:PUNCH_HOLD",
+            "CBGCFXWSBPFXPDCW COPY PACK:PUNCH_FEINT",
+            "CBGCFXWSBPFXPDCW COPY PACK:PUNCH_BURST",
+        }, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackVariantsSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "alias",
+            "family",
+            "familyMap",
+            "writerTooltipVariants",
+            "writerTooltipVariantsMap",
+            "sourceToken",
+            "compactToken",
+            "token",
+            "offlineOnly",
+        }, payload
+        copy_pack_variants_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackVariantsSignals", {})
+        assert copy_pack_variants_signals.get("alias") in {"A", "B", "C", "D", "E", "F"}, payload
+        assert copy_pack_variants_signals.get("family") in {
+            "PACE_HOLD",
+            "PACE_PIVOT",
+            "PACE_COVER",
+            "PUNCH_HOLD",
+            "PUNCH_FEINT",
+            "PUNCH_BURST",
+        }, payload
+        assert copy_pack_variants_signals.get("compactToken", "").startswith("CW PACK:"), payload
+        tooltip_variants = copy_pack_variants_signals.get("writerTooltipVariants")
+        assert isinstance(tooltip_variants, list), payload
+        assert len(tooltip_variants) == 2, payload
+        assert all(isinstance(v, str) and v.strip() for v in tooltip_variants), payload
+        tooltip_variants_map = copy_pack_variants_signals.get("writerTooltipVariantsMap")
+        assert isinstance(tooltip_variants_map, dict), payload
+        assert set(tooltip_variants_map.keys()) == {"A", "B", "C", "D", "E", "F"}, payload
+        assert all(isinstance(entries, list) and len(entries) == 2 for entries in tooltip_variants_map.values()), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadence") in {
+            "FLAG OFF",
+            "CBGCFXWSBPFXPDCW COPY PACK CADENCE:STEADY",
+            "CBGCFXWSBPFXPDCW COPY PACK CADENCE:PIVOT",
+            "CBGCFXWSBPFXPDCW COPY PACK CADENCE:BURST",
+        }, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "family",
+            "cadence",
+            "cadenceMap",
+            "sourceToken",
+            "token",
+            "offlineOnly",
+        }, payload
+        copy_pack_cadence_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceSignals", {})
+        assert copy_pack_cadence_signals.get("family") in {
+            "PACE_HOLD",
+            "PACE_PIVOT",
+            "PACE_COVER",
+            "PUNCH_HOLD",
+            "PUNCH_FEINT",
+            "PUNCH_BURST",
+        }, payload
+        assert copy_pack_cadence_signals.get("cadence") in {"STEADY", "PIVOT", "BURST"}, payload
+        cadence_map = copy_pack_cadence_signals.get("cadenceMap")
+        assert isinstance(cadence_map, dict), payload
+        assert set(cadence_map.keys()) == {"PACE_HOLD", "PACE_PIVOT", "PACE_COVER", "PUNCH_HOLD", "PUNCH_FEINT", "PUNCH_BURST"}, payload
+        assert set(cadence_map.values()) <= {"STEADY", "PIVOT", "BURST"}, payload
         assert payload.get("cadenceBridge") in {"CADENCE BRIDGE:SCOUT", "CADENCE BRIDGE:PRESS", "CADENCE BRIDGE:HOLD"}, payload
         assert set(payload.get("cadenceBridgeSignals", {}).keys()) == {"bridge", "confidenceFloorRecommendation", "designWorldAgeHours", "systemsOpsAgeHours", "combatVfxAgeHours", "windowHours", "reason", "offlineOnly"}, payload
         assert payload.get("cadenceBridgeGlyph") in {"FLAG OFF", "CADENCE BRIDGE GLYPH:CALM", "CADENCE BRIDGE GLYPH:TENSE"}, payload
@@ -4238,6 +4309,12 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_legend_indices = [
             i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPDCW LEGEND:")
         ]
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_variants_indices = [
+            i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPDCW COPY PACK:")
+        ]
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_variants_legend_indices = [
+            i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPDCW COPY PACK LEGEND:")
+        ]
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_indices = [
             i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPD ECHO:")
         ]
@@ -4838,6 +4915,12 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_legend_indices) in {0, 2}, (
             "expected zero or exactly two CBGCFXWSBPFXPDCW LEGEND rows (summary + token-coverage sections)"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_variants_indices) in {0, 2}, (
+            "expected zero or exactly two CBGCFXWSBPFXPDCW COPY PACK rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_variants_legend_indices) in {0, 2}, (
+            "expected zero or exactly two CBGCFXWSBPFXPDCW COPY PACK LEGEND rows (summary + token-coverage sections)"
+        )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_indices) in {0, 2}, (
             "expected zero or exactly two CBGCFXWSBPFXPD ECHO rows (summary + token-coverage sections)"
         )
@@ -4879,6 +4962,12 @@ def main() -> int:
         )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_legend_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_indices), (
             "expected CBGCFXWSBPFXPDCW LEGEND rows to appear only when CBGCFXWSBPFXPDCW rows are present"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_variants_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_legend_indices), (
+            "expected CBGCFXWSBPFXPDCW COPY PACK rows to appear only when CBGCFXWSBPFXPDCW LEGEND rows are present"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_variants_legend_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_variants_indices), (
+            "expected CBGCFXWSBPFXPDCW COPY PACK LEGEND rows to appear only when CBGCFXWSBPFXPDCW COPY PACK rows are present"
         )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_microline_vocabulary_legend_indices), (
             "expected CBGCFXWSBPFXPD ECHO rows to appear only when CBGCFXWSBPFXPD MICROLINE LEGEND rows are present"
@@ -5075,8 +5164,10 @@ def main() -> int:
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 23,
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 24,
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 25,
+                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 26,
+                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 27,
             }, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row immediately after CBGCFXWSBPFCI COACH COPY row, with optional rollout spacers CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI -> CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD -> CBGCFXWSBPFXPD MICROLINE -> CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD COACH -> CBGCFXWSBPFXPDC -> CBGCFXWSBPFXPD COACH WHY -> CBGCFXWSBPFXPDCW -> CBGCFXWSBPFXPDCW LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWSBPFXPDE -> CBGCFXWSBPFXPDE LEGEND -> CBGCFXWSBPFXPDE MATRIX -> CBGCFXWSBPFXPDE MATRIX DRIFT -> CBGCFXWSBPFXPDE MATRIX DRIFT TREND -> CBGCFXWSBPFXPDE MATRIX DRIFT SNAPSHOT -> CBGCFXWSBPFXPDS -> CBGCFXWSBPFXPDS LEGEND -> CBGCFXWSBPFXPDE SNAPSHOT POLICY -> CBGCFXWSBPFXPDE POLICY OPS WINDOW -> CBGCFXWSBPFXPDE POLICY OPS DOMINANT -> CBGCFXWSBPFXPDE POLICY OPS DOMINANT LEGEND"
+                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row immediately after CBGCFXWSBPFCI COACH COPY row, with optional rollout spacers CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI -> CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD -> CBGCFXWSBPFXPD MICROLINE -> CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD COACH -> CBGCFXWSBPFXPDC -> CBGCFXWSBPFXPD COACH WHY -> CBGCFXWSBPFXPDCW -> CBGCFXWSBPFXPDCW LEGEND -> CBGCFXWSBPFXPDCW COPY PACK -> CBGCFXWSBPFXPDCW COPY PACK LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWSBPFXPDE -> CBGCFXWSBPFXPDE LEGEND -> CBGCFXWSBPFXPDE MATRIX -> CBGCFXWSBPFXPDE MATRIX DRIFT -> CBGCFXWSBPFXPDE MATRIX DRIFT TREND -> CBGCFXWSBPFXPDE MATRIX DRIFT SNAPSHOT -> CBGCFXWSBPFXPDS -> CBGCFXWSBPFXPDS LEGEND -> CBGCFXWSBPFXPDE SNAPSHOT POLICY -> CBGCFXWSBPFXPDE POLICY OPS WINDOW -> CBGCFXWSBPFXPDE POLICY OPS DOMINANT -> CBGCFXWSBPFXPDE POLICY OPS DOMINANT LEGEND"
             )
             spacer_lines = md_lines[
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1 : coach_copy_variant_rec_idx
@@ -5093,6 +5184,8 @@ def main() -> int:
                 "- CBGCFXWSBPFXPD COACH WHY:",
                 "- CBGCFXWSBPFXPDCW:",
                 "- CBGCFXWSBPFXPDCW LEGEND:",
+                "- CBGCFXWSBPFXPDCW COPY PACK:",
+                "- CBGCFXWSBPFXPDCW COPY PACK LEGEND:",
                 "- CBGCFXWSBPFXPD ECHO:",
                 "- CBGCFXWSBPFXPDE:",
                 "- CBGCFXWSBPFXPDE LEGEND:",
@@ -5194,6 +5287,16 @@ def main() -> int:
             optional_rehearsal_hint_coach_why_compact_alias_legend_idx = (
                 cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_legend_indices[section_idx]
                 if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_legend_indices) == 2
+                else None
+            )
+            optional_rehearsal_hint_coach_why_copy_pack_idx = (
+                cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_variants_indices[section_idx]
+                if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_variants_indices) == 2
+                else None
+            )
+            optional_rehearsal_hint_coach_why_copy_pack_legend_idx = (
+                cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_variants_legend_indices[section_idx]
+                if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_variants_legend_indices) == 2
                 else None
             )
             optional_rehearsal_hint_phase_echo_compact_alias_idx = (
@@ -5314,15 +5417,29 @@ def main() -> int:
                 assert optional_rehearsal_hint_coach_why_compact_alias_legend_idx == optional_rehearsal_hint_coach_why_compact_alias_idx + 1, (
                     f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPDCW LEGEND row directly after CBGCFXWSBPFXPDCW row"
                 )
+            if optional_rehearsal_hint_coach_why_copy_pack_idx is not None:
+                assert optional_rehearsal_hint_coach_why_compact_alias_legend_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPDCW COPY PACK row cannot appear without CBGCFXWSBPFXPDCW LEGEND row"
+                )
+                assert optional_rehearsal_hint_coach_why_copy_pack_idx == optional_rehearsal_hint_coach_why_compact_alias_legend_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPDCW COPY PACK row directly after CBGCFXWSBPFXPDCW LEGEND row"
+                )
+            if optional_rehearsal_hint_coach_why_copy_pack_legend_idx is not None:
+                assert optional_rehearsal_hint_coach_why_copy_pack_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPDCW COPY PACK LEGEND row cannot appear without CBGCFXWSBPFXPDCW COPY PACK row"
+                )
+                assert optional_rehearsal_hint_coach_why_copy_pack_legend_idx == optional_rehearsal_hint_coach_why_copy_pack_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPDCW COPY PACK LEGEND row directly after CBGCFXWSBPFXPDCW COPY PACK row"
+                )
             if optional_rehearsal_hint_phase_echo_idx is not None:
                 assert optional_rehearsal_hint_compact_alias_coach_action_idx is not None, (
                     f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPD ECHO row cannot appear without CBGCFXWSBPFXPD COACH row"
                 )
-                assert optional_rehearsal_hint_coach_why_compact_alias_legend_idx is not None, (
-                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPD ECHO row cannot appear without CBGCFXWSBPFXPDCW LEGEND row"
+                assert optional_rehearsal_hint_coach_why_copy_pack_legend_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPD ECHO row cannot appear without CBGCFXWSBPFXPDCW COPY PACK LEGEND row"
                 )
-                assert optional_rehearsal_hint_phase_echo_idx == optional_rehearsal_hint_coach_why_compact_alias_legend_idx + 1, (
-                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPD ECHO row directly after CBGCFXWSBPFXPDCW LEGEND row"
+                assert optional_rehearsal_hint_phase_echo_idx == optional_rehearsal_hint_coach_why_copy_pack_legend_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPD ECHO row directly after CBGCFXWSBPFXPDCW COPY PACK LEGEND row"
                 )
             if optional_rehearsal_hint_phase_echo_compact_alias_idx is not None:
                 assert optional_rehearsal_hint_phase_echo_idx is not None, (

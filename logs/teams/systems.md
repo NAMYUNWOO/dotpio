@@ -3838,3 +3838,10 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 
 - 2026-03-30 14:16 KST — Cycle HE: shipped payload-only writer-tooltip copy-pack prototype keyed by CBGCFXWSBPFXPDCW alias families (A..F) via token `CBGCFXWSBPFXPDCW COPY PACK:<family>` and `writerTooltipVariants` signals; verified regression + weekly digest smoke.
+
+## 2026-03-30 14:54 KST
+- Sync: Closed CBGCFXWSBPFXPDCW copy-pack rollout + regression lock task pair (markdown adjacency + payload schema/domain constraints).
+- Verification reference: regression + weekly digest smoke both PASS.
+
+## 2026-03-30 14:58 KST
+- GD Cycle HF: shipped payload-only `CBGCFXWSBPFXPDCW COPY PACK CADENCE:<STEADY|PIVOT|BURST>` with deterministic family->cadence mapping and passing regression/smoke verification.

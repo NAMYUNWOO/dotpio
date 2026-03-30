@@ -2810,3 +2810,17 @@
 - Task: Completed optional digest row + legend for `CBGCFXWSBPFXPD COACH WHY` with deterministic placement after `CBGCFXWSBPFXPDC` in summary + token-coverage sections.
 
 - 2026-03-30 14:16 KST — Cycle HE: shipped payload-only writer-tooltip copy-pack prototype keyed by CBGCFXWSBPFXPDCW alias families (A..F) via token `CBGCFXWSBPFXPDCW COPY PACK:<family>` and `writerTooltipVariants` signals; verified regression + weekly digest smoke.
+
+## 2026-03-30 14:54 KST
+- Task: Add `CBGCFXWSBPFXPDCW COPY PACK` + compact legend markdown rows in summary/token-coverage rails.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions:
+  - Inserted deterministic adjacency: `CBGCFXWSBPFXPDCW LEGEND -> CBGCFXWSBPFXPDCW COPY PACK -> ... COPY PACK LEGEND -> CBGCFXWSBPFXPD ECHO`.
+
+## 2026-03-30 14:58 KST
+- GD Cycle HF: shipped payload-only `CBGCFXWSBPFXPDCW COPY PACK CADENCE:<STEADY|PIVOT|BURST>` with deterministic family->cadence mapping and passing regression/smoke verification.

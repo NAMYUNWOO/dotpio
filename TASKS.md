@@ -1822,5 +1822,17 @@ See project-level plans:
 - [x] AI-Content/World Team (Cycle HE selected experiment): Shipped payload-only prototype token `CBGCFXWSBPFXPDCW COPY PACK:<family>` + `writerTooltipVariants` map/signals for alias families A..F (offline-only, flag-gated, reversible). *(lifecycle: [~] started: 2026-03-30 14:09 KST -> [x] completed: 2026-03-30 14:16 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## Next Up (Game Director Injection — Cycle HE)
-- [ ] UX/Design Team: Add optional digest markdown row for `CBGCFXWSBPFXPDCW COPY PACK` + compact legend with deterministic adjacency after `CBGCFXWSBPFXPDCW LEGEND`.
-- [ ] Systems/QA Team: Add regression payload schema/domain locks for `...CoachWhyCopyPackVariants(Signals)` including alias/family/tooltip variant cardinality.
+- [x] UX/Design Team: Add optional digest markdown row for `CBGCFXWSBPFXPDCW COPY PACK` + compact legend with deterministic adjacency after `CBGCFXWSBPFXPDCW LEGEND`. *(lifecycle: [~] started: 2026-03-30 14:48 KST -> [x] completed: 2026-03-30 14:54 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+- [x] Systems/QA Team: Add regression payload schema/domain locks for `...CoachWhyCopyPackVariants(Signals)` including alias/family/tooltip variant cardinality. *(lifecycle: [~] started: 2026-03-30 14:48 KST -> [x] completed: 2026-03-30 14:54 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+
+## Game Director Cycle HF — 2026-03-30 14:58 KST
+- Coverage check (recent completions): systems/qa/ux still dominate; need additive combat/vfx-facing routing hooks without destabilizing rails.
+- Idea 1 (low-risk systems/combat): Add payload-only compact cadence class for `CBGCFXWSBPFXPDCW COPY PACK` families to help downstream combat copy routing. **Selected.**
+- Idea 2 (mid-risk ux/design): Surface optional markdown digest row for `CBGCFXWSBPFXPDCW COPY PACK CADENCE` near copy-pack legend block.
+- Idea 3 (high-risk ai-content/combat): Add adaptive cadence-memory that rotates copy cadence class across repeated SPIKE windows.
+- [x] Systems/Combat Team (Cycle HF selected experiment): Added payload-only token `CBGCFXWSBPFXPDCW COPY PACK CADENCE:<STEADY|PIVOT|BURST>` + deterministic `cadenceMap`/signals (flag-gated, offline-only, reversible). *(lifecycle: [~] started: 2026-03-30 14:56 KST -> [x] completed: 2026-03-30 14:58 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle HF)
+- [ ] UX/Design Team: Add optional digest markdown row + compact legend for `CBGCFXWSBPFXPDCW COPY PACK CADENCE` immediately after `CBGCFXWSBPFXPDCW COPY PACK LEGEND`.
+- [ ] Systems/QA Team: Add regression adjacency + payload coherence lock ensuring cadence class matches copy-pack family mapping (`PACE_*|PUNCH_* -> STEADY|PIVOT|BURST`).

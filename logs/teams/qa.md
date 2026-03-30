@@ -4385,3 +4385,16 @@
 - Verification: Regression contract updated to lock optional order `...COACH -> ...PDC -> ...COACH WHY -> ...PDCW -> ...PDCW LEGEND -> ...ECHO` across both digest sections; checks pass.
 
 - 2026-03-30 14:16 KST — Cycle HE: shipped payload-only writer-tooltip copy-pack prototype keyed by CBGCFXWSBPFXPDCW alias families (A..F) via token `CBGCFXWSBPFXPDCW COPY PACK:<family>` and `writerTooltipVariants` signals; verified regression + weekly digest smoke.
+
+## 2026-03-30 14:54 KST
+- Task: Lock payload schema/domain for `...CoachWhyCopyPackVariants(Signals)` and extend markdown contract checks.
+- Commit: pending
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions:
+  - Added domain locks for alias/family token set and exact cardinality (`writerTooltipVariants` length=2, map keys A..F with two variants each).
+
+## 2026-03-30 14:58 KST
+- GD Cycle HF: shipped payload-only `CBGCFXWSBPFXPDCW COPY PACK CADENCE:<STEADY|PIVOT|BURST>` with deterministic family->cadence mapping and passing regression/smoke verification.

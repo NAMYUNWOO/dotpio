@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 13:53 KST
+Last updated: 2026-03-30 14:58 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,12 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed paired HE follow-ups for `CBGCFXWSBPFXPDCW COPY PACK`: summary/token-coverage rails now include `CBGCFXWSBPFXPDCW COPY PACK` and `CBGCFXWSBPFXPDCW COPY PACK LEGEND` immediately after `CBGCFXWSBPFXPDCW LEGEND` and before `CBGCFXWSBPFXPD ECHO`.
+- Regression coverage now hard-locks copy-pack row cardinality/dependency/order and payload schema/domain for `...CoachWhyCopyPackVariants(Signals)` (alias/family domains, tooltip variant cardinality=2, map keys A..F each with two variants).
+- Verification green: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- Executed Game Director Cycle HF: shipped payload-only compact cadence classifier `CBGCFXWSBPFXPDCW COPY PACK CADENCE:<STEADY|PIVOT|BURST>` (family-derived, flag-gated, offline-only) plus regression schema/domain locks.
+- Injected next HF tasks into TASKS/POST_RC: (1) UX markdown row+legend for copy-pack cadence, (2) Systems/QA adjacency + mapping-coherence contract lock.
 
 - Closed UX/Design follow-up for `CBGCFXWSBPFXPD COACH WHY`: summary + token-coverage rails now include `CBGCFXWSBPFXPD COACH WHY`, `CBGCFXWSBPFXPDCW`, and `CBGCFXWSBPFXPDCW LEGEND` immediately after `CBGCFXWSBPFXPDC` and before `CBGCFXWSBPFXPD ECHO`.
 - Regression contract expanded to enforce cardinality/dependency/order for the new coach-why rows (`...COACH -> ...PDC -> ...COACH WHY -> ...PDCW -> ...PDCW LEGEND -> ...ECHO`) in both digest sections; verification and weekly smoke pass green.
