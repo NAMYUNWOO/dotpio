@@ -2791,3 +2791,8 @@
 - Decision: Added optional markdown row `CBGCFXWSBPFXPI LEGEND` immediately after `CBGCFXWSBPFXPI` in summary + token-coverage rails to reduce decode hops for A/S/R phase-intent alias review.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` passed after contract updates.
 - Follow-up: Keep rollout chain stable (`...FXP LANG -> ...FXPI -> ...FXPI LEGEND -> ...FXPI NARR`) and monitor row-budget drift.
+
+## 2026-03-31 08:40 KST
+- Added writer-facing phase-intent legend copy variant for postmortem readability: `CBGCFXWSBPFXPI LEGEND COPY`.
+- Preserved world/theme wording (`ANCHOR|SURGE|RECOVER`) with compact fallback for DOS-width constraints.
+- No runtime world-state or map schema changes.

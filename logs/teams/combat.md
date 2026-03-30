@@ -2783,3 +2783,7 @@
 - Decision: Added optional markdown row `CBGCFXWSBPFXPI LEGEND` immediately after `CBGCFXWSBPFXPI` in summary + token-coverage rails to reduce decode hops for A/S/R phase-intent alias review.
 - Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` passed after contract updates.
 - Follow-up: Keep rollout chain stable (`...FXP LANG -> ...FXPI -> ...FXPI LEGEND -> ...FXPI NARR`) and monitor row-budget drift.
+
+## 2026-03-31 08:40 KST
+- Combat lane note: no balance/runtime combat logic changed.
+- Digest-only readability addition (`CBGCFXWSBPFXPI LEGEND COPY`) is reversible and flag-gated.

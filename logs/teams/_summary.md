@@ -4256,3 +4256,8 @@ Compact decision memory for AI context efficiency.
 - Guardrail: keep digest row layout unchanged when adjacency contracts are dense; prefer payload-domain parity first, then visible-row rollout in follow-up cycle.
 
 - 2026-03-31 07:37 KST (Cycle IM): Inserted `CBGCFXWSBPFXPI LEGEND` row after `CBGCFXWSBPFXPI` in both digest sections; regression contract updated for new optional spacer order and spacer-window cap (<=66). Verification: regression + weekly smoke PASS.
+
+## 2026-03-31 08:40 KST
+- Completed AI-content/World POST_RC item: optional `CBGCFXWSBPFXPI LEGEND COPY` microcopy variant line added with DOS-width fallback and dedicated flag gate.
+- Regression updated for payload schema/domain plus markdown adjacency contract (`LEGEND -> LEGEND COPY -> NARR`) and optional spacer sequence.
+- Backlog state: ACTION_ITEMS/TASKS/POST_RC currently fully checked after this completion; next cycle can trigger Game Director ideation loop.
