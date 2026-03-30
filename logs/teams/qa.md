@@ -1,5 +1,11 @@
 # QA Team Log
 
+## 2026-03-31 03:07 KST
+- Added regression contracts for new payload keys:
+  - `...PhaseIntentNarrationCompactAlias`
+  - `...PhaseIntentNarrationCompactAliasSignals`
+- Locked schema/domain expectations (`A|S|R`, `ANCHOR|SURGE|RECOVER`, `FLAG OFF|CBGCFXWSBPFXPIN:*`) and verified pass.
+
 ## 2026-03-31 02:32 KST
 - Task: Validate markdown contract after adding `CBGCFXWSBPFXPI NARR` rows.
 - Verification:

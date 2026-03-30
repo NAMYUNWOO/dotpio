@@ -1,5 +1,9 @@
 # Combat Team Log
 
+## 2026-03-31 03:07 KST
+- Cycle IJ coverage note: no combat runtime tuning changed; this pass was telemetry/readability only.
+- Mid-risk idea captured for next pass: narration-phase drift sentinel tied to wobble-pressure context.
+
 ## 2026-03-31 02:32 KST
 - Cross-lane note: Combat mechanics unchanged; digest readability chain now includes phase-intent narration row before drill/cue sections.
 - Impact: Better postmortem traceability from cadence/intensity rails into combat-facing rehearsal cues.

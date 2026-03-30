@@ -1,5 +1,9 @@
 # UX Team Log
 
+## 2026-03-31 03:07 KST
+- Delivered compact alias readability slice: `CBGCFXWSBPFXPIN:<A|S|R>` now available in payload for denser scan + downstream joins.
+- Markdown surface intentionally deferred to follow-up to keep this cycle minimal vertical and low-risk.
+
 ## 2026-03-31 02:32 KST
 - Task: Surface `CBGCFXWSBPFXPI NARR` in both summary/token-coverage digest rails.
 - Decision: Keep row payload-rich (phaseIntent/pulseAlias/coachMomentum/narration) to support one-pass operator scan.

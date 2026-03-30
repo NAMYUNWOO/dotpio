@@ -1,5 +1,12 @@
 # Systems Team Log
 
+## 2026-03-31 03:07 KST
+- Task: Cycle IJ payload-only compact narration alias (`CBGCFXWSBPFXPIN:<A|S|R>`).
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions: keep slice additive/reversible (offline-only + flag-gated), defer markdown rollout to follow-up.
+
 ## 2026-03-31 02:32 KST
 - Task: Cycle HI markdown surfacing for `CBGCFXWSBPFXPI NARR` with regression-chain update.
 - Commit: pending

@@ -1,5 +1,9 @@
 # Design Team Log
 
+## 2026-03-31 03:07 KST
+- Cycle IJ design decision: chose low-risk readability slice to preserve loop stability while keeping cadence-language coherence.
+- Candidate backlog kept for design exploration: compact narration drift cue + rebound grammar pack.
+
 ## 2026-03-31 02:32 KST
 - Task: UX/Design readability pass to surface `CBGCFXWSBPFXPI NARR` in markdown rails.
 - Decision: Place narration row directly after `CBGCFXWSBPFXPI` to preserve intent->narration->drill scan sequence.

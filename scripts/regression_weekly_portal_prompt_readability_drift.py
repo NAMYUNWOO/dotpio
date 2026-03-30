@@ -4020,6 +4020,26 @@ def main() -> int:
             assert intensity_pulse_language_variant_pack_phase_intent_narration == f"CBGCFXWSBPFXPI NARR:{expected_narration}", payload
         else:
             assert intensity_pulse_language_variant_pack_phase_intent_narration == "FLAG OFF", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAlias", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPIN:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "narration",
+            "alias",
+            "token",
+            "offlineOnly",
+        }, payload
+        intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAlias", "")
+        intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasSignals", {})
+        expected_narration_alias = {"ANCHOR": "A", "SURGE": "S", "RECOVER": "R"}[expected_narration]
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_signals.get("narration") == expected_narration, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_signals.get("alias") == expected_narration_alias, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_signals.get("token") == f"CBGCFXWSBPFXPIN:{expected_narration_alias}", payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_signals.get("offlineOnly") is True, payload
+        if intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_signals.get("flagEnabled") is True:
+            assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias == f"CBGCFXWSBPFXPIN:{expected_narration_alias}", payload
+        else:
+            assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHint", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPI DRILL:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintSignals", {}).keys()) == {
             "flagName",

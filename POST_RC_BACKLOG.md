@@ -1,9 +1,18 @@
 # POST_RC_BACKLOG
 
-Last updated: 2026-03-21 02:31 KST
+Last updated: 2026-03-31 03:07 KST
 
 ## P1 (Game Director Injection — 2026-03-31 Cycle HI)
 - [x] UX/Design Team: Surface existing `CBGCFXWSBPFXPI NARR` payload token in weekly digest markdown rails (summary + token-coverage) with compact operator context. *(completed: 2026-03-31 02:32 KST)*
+
+## P1 (Game Director Injection — 2026-03-31 Cycle IJ)
+- Candidate ideas generated:
+  - Low-risk UX/game-feel: compact narration alias token for faster digest scan (`CBGCFXWSBPFXPIN`).
+  - Mid-risk systems/combat/design: narration-phase drift sentinel (`CBGCFXWSBPFXPIN DRIFT`).
+  - High-risk novelty: narration rebound mini-grammar pack keyed by compact alias.
+- [x] Systems/UX Team: Ship payload-only compact narration alias `CBGCFXWSBPFXPIN:<A|S|R>` from `CBGCFXWSBPFXPI NARR` with offline-only flag gate + regression lock. *(in-progress: 2026-03-31 03:04 KST, completed: 2026-03-31 03:07 KST)*
+- [ ] UX/QA Team: Roll out optional markdown row + legend for `CBGCFXWSBPFXPIN` in summary/token-coverage rails and lock adjacency to `CBGCFXWSBPFXPI NARR`.
+- [ ] AI Content/Design Team: Prototype flagged `CBGCFXWSBPFXPIN DRIFT` cue (`LOCK|WATCH`) with deterministic source-token parity checks.
 
 ## P1 (Game Director Injection — 2026-03-30 Cycle HH)
 - [x] Combat/VFX Team: Add copy-pack cadence FX cue hook (`CBGCFXWSBPFXPDCW FX CUE:SOFT|EDGE|HARD`) mapped from cadence class (`STEADY|PIVOT|BURST`) as payload-only vertical slice.
