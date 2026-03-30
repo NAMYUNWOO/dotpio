@@ -3795,3 +3795,5 @@
   - Locked alias payload schema/domain in regression (`thresholdPolicy`, `alias`, `aliasMap`, `token`, `offlineOnly`) without adding markdown-row coupling yet.
 - Follow-up:
   - Continue with remaining POST_RC unchecked items: threshold-policy copy-pack/world copyline/ops window profiler.
+
+- 2026-03-30 10:24 KST — Closed GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-copy-pack: added optional policy-aware QA summary copy-pack payload (`CBGCFXWSBPFXPDE POLICY COPY:{CALM_WATCH|EDGE_WATCH|MANUAL_ESCALATE}`) behind flag `DOTPIO_EXPERIMENT_CBGCFXWSBPFXPDE_SNAPSHOT_POLICY_COPY_PACK`; emits deterministic signals (policy/recommendation/copyMap) with FLAG OFF fallback. Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift smoke command.

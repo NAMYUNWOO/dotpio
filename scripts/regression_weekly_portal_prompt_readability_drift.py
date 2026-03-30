@@ -319,6 +319,30 @@ def main() -> int:
             assert threshold_policy_alias_signals.get("alias") == "B", matrix_payload
             assert threshold_policy_alias_signals.get("token") == "CBGCFXWSBPFXPDP:B", matrix_payload
             assert threshold_policy_alias_signals.get("offlineOnly") is True, matrix_payload
+            threshold_policy_copy_pack = matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyCopyPack"
+            )
+            assert threshold_policy_copy_pack == "FLAG OFF", matrix_payload
+            threshold_policy_copy_pack_signals = matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyCopyPackSignals",
+                {},
+            )
+            assert set(threshold_policy_copy_pack_signals.keys()) == {
+                "flagName",
+                "flagEnabled",
+                "thresholdPolicy",
+                "recommendation",
+                "copyPack",
+                "copyMap",
+                "token",
+                "offlineOnly",
+            }, matrix_payload
+            assert threshold_policy_copy_pack_signals.get("flagEnabled") is False, matrix_payload
+            assert threshold_policy_copy_pack_signals.get("thresholdPolicy") == "BASELINE_ONLY", matrix_payload
+            assert threshold_policy_copy_pack_signals.get("recommendation") == "ESTABLISH_BASELINE", matrix_payload
+            assert threshold_policy_copy_pack_signals.get("copyPack") == "CALM_WATCH", matrix_payload
+            assert threshold_policy_copy_pack_signals.get("token") == "CBGCFXWSBPFXPDE POLICY COPY:CALM_WATCH", matrix_payload
+            assert threshold_policy_copy_pack_signals.get("offlineOnly") is True, matrix_payload
             for row_prefix in (
                 "- CBGCFXWSBPFXPD ECHO:",
                 "- CBGCFXWSBPFXPDE:",

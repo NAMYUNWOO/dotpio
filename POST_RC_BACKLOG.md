@@ -1666,7 +1666,7 @@ Last updated: 2026-03-21 02:31 KST
   3. (High-risk design/world) Add policy-aware triage copy variant that adapts summary language by threshold strictness.
 - [x] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-markdown: Surface markdown/token-coverage policy row for FXPDE snapshot threshold configuration and lock adjacency in regression. *(lifecycle: [ ] -> [~] started: 2026-03-30 09:24 KST -> [x] completed: 2026-03-30 09:28 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift playtest smoke command)*
 - [x] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-compact-alias: Add payload compact alias for threshold posture to support downstream automation. *(lifecycle: [ ] -> [~] started: 2026-03-30 09:46 KST -> [x] completed: 2026-03-30 09:52 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift playtest smoke command)*
-- [ ] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-copy-pack: Add optional policy-aware summary copy pack behind flag for QA digest readability.
+- [x] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-copy-pack: Add optional policy-aware summary copy pack behind flag for QA digest readability. *(lifecycle: [ ] -> [~] started: 2026-03-30 10:20 KST -> [x] completed: 2026-03-30 10:24 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift playtest smoke command)*
 
 ### 2026-03-30 09:49 KST — Game Director Review Cycle (lane rebalance forced)
 - Coverage check (last 10 completed items by lane): systems=5, ux=5, qa=4, combat=3, design=3, vfx=2, world=1, ai-content=0.

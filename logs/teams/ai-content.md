@@ -2590,3 +2590,5 @@
 - 2026-03-30 09:28 KST — GD post-full-check cycle executed: generated 3 ideas, selected low-risk UX/QA slice, and shipped `CBGCFXWSBPFXPDE SNAPSHOT POLICY` markdown/token-coverage row exposing active WATCH/MANUAL threshold config + reason. Regression ordering lock updated; two follow-up tasks injected (`...threshold-policy-compact-alias`, `...threshold-policy-copy-pack`). Verification: regression + weekly drift smoke.
 
 - 2026-03-30 09:49 KST — GD lane rebalance cycle: ai-content remained underrepresented in last-10 coverage; no ai-content code mutation this run, tracked for upcoming queue selection.
+
+- 2026-03-30 10:24 KST — Closed GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-copy-pack: added optional policy-aware QA summary copy-pack payload (`CBGCFXWSBPFXPDE POLICY COPY:{CALM_WATCH|EDGE_WATCH|MANUAL_ESCALATE}`) behind flag `DOTPIO_EXPERIMENT_CBGCFXWSBPFXPDE_SNAPSHOT_POLICY_COPY_PACK`; emits deterministic signals (policy/recommendation/copyMap) with FLAG OFF fallback. Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift smoke command.

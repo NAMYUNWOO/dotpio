@@ -4035,3 +4035,5 @@ Compact decision memory for AI context efficiency.
 
 - Closed `GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-compact-alias`: weekly digest payload now emits compact threshold-policy alias `CBGCFXWSBPFXPDP:<B|W|F|M|N>` (`BASELINE_ONLY|WATCH|WATCH_FALLBACK|MANUAL|NO_TRIAGE`) for downstream automation without markdown coupling.
 - Regression expanded to lock alias payload schema/domain (`thresholdPolicy`, `alias`, `aliasMap`, `token`, `offlineOnly`); verification passed via weekly regression + smoke generation commands.
+
+- 2026-03-30 10:24 KST — Durable decision: snapshot threshold policy readability should ship as flag-gated payload copy-pack first (no mandatory markdown coupling). Added `CBGCFXWSBPFXPDE POLICY COPY` with deterministic `CALM_WATCH|EDGE_WATCH|MANUAL_ESCALATE` mapping and regression-locked signal schema for safe QA rollout.

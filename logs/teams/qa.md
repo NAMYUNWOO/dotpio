@@ -4345,3 +4345,5 @@
 - Decisions:
   - Confirmed new payload token `CBGCFXWSBPFXPDP:B` in baseline fixture and validated deterministic alias map contract.
   - No markdown order contract changes needed for this slice (payload-only requirement met).
+
+- 2026-03-30 10:24 KST — Closed GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-copy-pack: added optional policy-aware QA summary copy-pack payload (`CBGCFXWSBPFXPDE POLICY COPY:{CALM_WATCH|EDGE_WATCH|MANUAL_ESCALATE}`) behind flag `DOTPIO_EXPERIMENT_CBGCFXWSBPFXPDE_SNAPSHOT_POLICY_COPY_PACK`; emits deterministic signals (policy/recommendation/copyMap) with FLAG OFF fallback. Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift smoke command.
