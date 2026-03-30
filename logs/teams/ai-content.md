@@ -2846,3 +2846,8 @@
 - 2026-03-31 03:44 KST — AI-content note: compact narration alias legend (`A|S|R -> ANCHOR|SURGE|RECOVER`) is now visible in digest rails, improving copy-review readability without changing generation logic.
 
 - 2026-03-31 04:16 KST — Completed AI Content/Design prototype: `CBGCFXWSBPFXPIN DRIFT` emits `WATCH` only when wobble momentum coincides with narration/phase alias divergence; otherwise `LOCK` for stable parity.
+
+## 2026-03-31 05:02 KST — vfxTouchedWithin24h lane-watch signal slice
+- Completed Systems/Ops TASKS item: added payload-level `vfxTouchedWithin24h` boolean sourced from 24h lane cadence check so stale combat/VFX cadence is machine-readable in director loop outputs.
+- Added regression fixture + schema assertions to lock pass/fail boundary behavior (`combat/vfx` age 24h => true, 25h => false).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.

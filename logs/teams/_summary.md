@@ -4209,3 +4209,7 @@ Compact decision memory for AI context efficiency.
 - Next experiment injection: world/design legend readability pack, systems/ops stale-vfx watchdog, combat/vfx drift-streak cue stress fixture.
 
 - 2026-03-31 04:16 KST — Closed AI Content/Design injector item: shipped flagged payload token `CBGCFXWSBPFXPIN DRIFT:LOCK|WATCH` with deterministic source-token parity checks between `CBGCFXWSBPFXPI` and `CBGCFXWSBPFXPIN`, wobble-aware divergence signaling, and rollback-safe `FLAG OFF` fallback.
+
+## 2026-03-31 05:02 KST — Durable decision
+- Director-loop payload must expose explicit lane-watch booleans for high-risk cadence lanes; `vfxTouchedWithin24h` is now a first-class key (mirrors `laneCadence24hCheckSignals.vfxTouchedWithin24h`) to simplify stale-lane alerting and downstream automation.
+- Regression policy: keep boundary fixtures for 24h contract booleans (`<=24h` pass, `>24h` fail) so cadence behavior cannot silently drift.

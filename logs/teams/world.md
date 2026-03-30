@@ -2759,3 +2759,8 @@
 - 2026-03-31 03:44 KST — World lane reviewed Cycle IJ scope: no world/map schema changes; digest-only operator token visibility update (`CBGCFXWSBPFXPIN` rows) has zero world-content impact.
 
 - 2026-03-31 04:16 KST — World impact review: new `CBGCFXWSBPFXPIN DRIFT` cue is digest payload metadata only (no map/world schema mutation, no content injection into runtime world state).
+
+## 2026-03-31 05:02 KST — vfxTouchedWithin24h lane-watch signal slice
+- Completed Systems/Ops TASKS item: added payload-level `vfxTouchedWithin24h` boolean sourced from 24h lane cadence check so stale combat/VFX cadence is machine-readable in director loop outputs.
+- Added regression fixture + schema assertions to lock pass/fail boundary behavior (`combat/vfx` age 24h => true, 25h => false).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.

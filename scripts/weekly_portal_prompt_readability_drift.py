@@ -490,6 +490,7 @@ def lane_cadence_24h_check(*, lane_bucket_age: dict[str, object]) -> tuple[str, 
         "systemsOpsAgeHours": systems_ops_age,
         "designWorldAgeHours": design_world_age,
         "combatVfxAgeHours": combat_vfx_age,
+        "vfxTouchedWithin24h": combat_vfx_age <= window_hours,
         "reason": reason,
     }
 
@@ -13809,6 +13810,7 @@ def main() -> int:
         "laneCadenceMissRiskSignals": lane_cadence_miss_risk_signals,
         "laneCadence24hCheck": lane_cadence_24h_check_token,
         "laneCadence24hCheckSignals": lane_cadence_24h_check_signals,
+        "vfxTouchedWithin24h": bool(lane_cadence_24h_check_signals.get("vfxTouchedWithin24h", False)),
         "combatVfxCadenceWatchdog": combat_vfx_cadence_watchdog_token,
         "combatVfxCadenceWatchdogSignals": combat_vfx_cadence_watchdog_signals,
         "combatVfxCadenceWatchdogStreak": combat_vfx_cadence_watchdog_streak_token,

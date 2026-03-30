@@ -71,6 +71,7 @@ from weekly_portal_prompt_readability_drift import (
     combo_confidence_fx_accent_family_trend_from_prior,
     combo_confidence_coach_copy_swap_recommendation_family_trend_from_prior,
     lane_priority_recommendation_confidence_guard,
+    lane_cadence_24h_check,
     combat_vfx_cadence_coach_why,
     combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_from_prior,
     resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation,
@@ -606,6 +607,24 @@ def main() -> int:
         assert coach_why_signals["priorShort"] == "RED HOLD", coach_why_signals
         assert coach_why_signals["watchdogStreakTrendVolatility"] == "SWING", coach_why_signals
 
+        vfx_fresh_token, vfx_fresh_signals = lane_cadence_24h_check(
+            lane_bucket_age={
+                "ageHours": {"systems/ops": 3, "design/world": 7, "combat/vfx": 24},
+                "windowHours": 24,
+            }
+        )
+        assert vfx_fresh_token == "LANE CADENCE 24H CHECK:PASS", vfx_fresh_signals
+        assert vfx_fresh_signals["vfxTouchedWithin24h"] is True, vfx_fresh_signals
+
+        vfx_stale_token, vfx_stale_signals = lane_cadence_24h_check(
+            lane_bucket_age={
+                "ageHours": {"systems/ops": 3, "design/world": 7, "combat/vfx": 25},
+                "windowHours": 24,
+            }
+        )
+        assert vfx_stale_token == "LANE CADENCE 24H CHECK:FAIL", vfx_stale_signals
+        assert vfx_stale_signals["vfxTouchedWithin24h"] is False, vfx_stale_signals
+
         assert payload.get("comboConfidenceFxAccentTrendHysteresisRecommendation") in {"HOLD", "ALLOW"}, payload
         assert payload.get("comboConfidenceFxAccentTrendHysteresisConfidence") in {"LOW", "MID", "HIGH"}, payload
         assert payload.get("comboConfidenceFxAccentTrendHysteresisAlias") in {"FLAG OFF", "DCCFXH:HL", "DCCFXH:HM", "DCCFXH:HH", "DCCFXH:AL", "DCCFXH:AM", "DCCFXH:AH"}, payload
@@ -1070,8 +1089,13 @@ def main() -> int:
             "systemsOpsAgeHours",
             "designWorldAgeHours",
             "combatVfxAgeHours",
+            "vfxTouchedWithin24h",
             "reason",
         }, payload
+        assert isinstance(payload.get("vfxTouchedWithin24h"), bool), payload
+        assert payload.get("vfxTouchedWithin24h") == (
+            payload.get("laneCadence24hCheckSignals", {}).get("vfxTouchedWithin24h")
+        ), payload
         assert isinstance(payload.get("laneBucketAgeCompactAlias"), str), payload
         assert set(payload.get("laneBucketAgeCompactAliasSignals", {}).keys()) == {
             "flagName",

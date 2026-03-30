@@ -3034,3 +3034,8 @@
 - 2026-03-31 03:44 KST — UX pass: summary/token-coverage rails now show `CBGCFXWSBPFXPIN` plus legend adjacent to `...NARR`, reducing decode friction for operators reviewing narration alias output.
 
 - 2026-03-31 04:16 KST — UX readability note: `CBGCFXWSBPFXPIN DRIFT` token stays payload-only this cycle to avoid markdown rail bloat while operators validate signal usefulness.
+
+## 2026-03-31 05:02 KST — vfxTouchedWithin24h lane-watch signal slice
+- Completed Systems/Ops TASKS item: added payload-level `vfxTouchedWithin24h` boolean sourced from 24h lane cadence check so stale combat/VFX cadence is machine-readable in director loop outputs.
+- Added regression fixture + schema assertions to lock pass/fail boundary behavior (`combat/vfx` age 24h => true, 25h => false).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
