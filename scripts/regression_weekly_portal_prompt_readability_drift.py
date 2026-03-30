@@ -3242,6 +3242,28 @@ def main() -> int:
             "REPEAT_ESCALATE=",
         )), payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasSignals", {}).get("reason") == "compact-rfall-aligned-cadence-route", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureAlias") in {
+            "FLAG OFF",
+            "CBGCFXWSBPFXPDCWFCTAP:H",
+            "CBGCFXWSBPFXPDCWFCTAP:O",
+            "CBGCFXWSBPFXPDCWFCTAP:T",
+        }, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "cadenceNoteAlias",
+            "posture",
+            "postureMap",
+            "compactAlias",
+            "compactAliasMap",
+            "reason",
+            "token",
+            "offlineOnly",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureAliasSignals", {}).get("cadenceNoteAlias") in {"S", "O", "E"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureAliasSignals", {}).get("posture") in {"HOLD", "REPLAY_ONCE", "TRIAGE_REPLAY"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureAliasSignals", {}).get("compactAlias") in {"H", "O", "T"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureAliasSignals", {}).get("reason") == "cadence-note-operator-posture-route", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionEscalationAlias") in {
             "FLAG OFF",
             "CBGCFXWSBPFXPDCWFCTAE:H",

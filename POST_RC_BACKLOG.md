@@ -1820,5 +1820,14 @@ Last updated: 2026-03-21 02:31 KST
 ## P1 (Game Director Injection — 2026-03-30 Cycle HP)
 - [x] Systems/World Team: Add payload-only compact cadence-note alias token `CBGCFXWSBPFXPDCWFCTAN:<S|O|E>` derived from `CTA REVIEW CADENCE NOTE` with deterministic alias map/signals. *(lifecycle: [~] started: 2026-03-30 23:09 KST -> [x] completed: 2026-03-30 23:15 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [x] UX/Design Team: Add optional summary/token-coverage row + compact legend for `CBGCFXWSBPFXPDCWFCTAN` directly after `CTA REVIEW CADENCE NOTE LEGEND`.
-- [ ] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCTAN` rows (`0|2`) with dependency on `CTA REVIEW CADENCE NOTE`.
-- [ ] AI Content/Combat Team: Prototype compact operator decode microline pair for `S|O|E` cadence-note alias states (DOS-width, reversible).
+- [x] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCTAN` rows (`0|2`) with dependency on `CTA REVIEW CADENCE NOTE`.
+- [x] AI Content/Combat Team: Prototype compact operator decode microline pair for `S|O|E` cadence-note alias states (DOS-width, reversible).
+
+
+## Game Director Injection — 2026-03-30 Cycle HQ
+- Idea 1 (systems/ops, low-risk): Add payload-only operator posture alias token from `CBGCFXWSBPFXPDCWFCTAN` for downstream routing (`HOLD|REPLAY_ONCE|TRIAGE_REPLAY`). **Selected.**
+- Idea 2 (ux/design, medium): Add compact markdown drill card for `CBGCFXWSBPFXPDCWFCTAN` microline map with DOS width guard.
+- Idea 3 (qa, medium): Add deterministic fixture toggling `steady-scan -> repeat-once -> repeat-escalate` across prior-window carryover.
+- [x] Systems/Ops Team (Cycle HQ selected experiment): Add payload-only compact operator posture alias token derived from `CBGCFXWSBPFXPDCWFCTAN` (offline-only, flag-gated, reversible).
+- [ ] UX/Design Team: Add optional markdown row + legend for the new operator posture alias in summary/token-coverage rails.
+- [ ] Systems/QA Team: Add payload schema/domain + deterministic fixture coverage for operator posture alias transitions (`S->O->E`).
