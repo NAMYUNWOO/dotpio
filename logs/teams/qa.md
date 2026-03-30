@@ -4521,3 +4521,11 @@
 - 2026-03-30 20:07 KST — QA regression expanded for HM: assert token domain `CBGCFXWSBPFXPDCWFCTA:{S|R}` and exact signal-key schema (`tooltipAlias`, `actionAlias`, maps, microline, token, `offlineOnly`); full regression + weekly smoke passed.
 - 2026-03-30 20:37 KST — QA locked FCTA markdown contract: zero-or-two row cardinality, dependency on `CBGCFXWSBPFXPDCWFCT LEGEND`, strict adjacency for `CBGCFXWSBPFXPDCWFCTA` + legend, and updated optional spacer ordering before ECHO.
 - 2026-03-30 20:40 KST — Cycle HN regression expanded to assert `CBGCFXWSBPFXPDCWFCTA DIGEST` appears 0|2 and only after `CBGCFXWSBPFXPDCWFCTA LEGEND`.
+
+## 2026-03-30 21:06 KST
+- Task: Schema/domain contract lock for CTA-derived escalation alias.
+- Coverage added:
+  - Payload token domain: `FLAG OFF | CBGCFXWSBPFXPDCWFCTAE:H | CBGCFXWSBPFXPDCWFCTAE:T`
+  - Signal schema keys for escalation alias block (flag/action/escalation/token/offline fields)
+  - Domain guards for `actionAlias in {S,R}`, `escalationAlias in {H,T}`, `escalation in {HOLD,TRIAGE}`
+- Result: regression suite passed.

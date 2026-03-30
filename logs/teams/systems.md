@@ -3973,3 +3973,17 @@
 - 2026-03-30 20:07 KST — Cycle HM selected slice shipped payload-only tooltip-action alias `CBGCFXWSBPFXPDCWFCTA:<S|R>` from `CBGCFXWSBPFXPDCWFCT` (`L->S`, `R->R`) under dedicated experiment flag; added payload schema/domain regression locks for alias/signals.
 - 2026-03-30 20:37 KST — Cycle HN: completed FCTA markdown rollout and contract hardening. Added `CBGCFXWSBPFXPDCWFCTA` + legend rows after `CBGCFXWSBPFXPDCWFCT LEGEND` in summary/token-coverage sections and extended regression with `0|2` cardinality + adjacency/dependency checks before ECHO.
 - 2026-03-30 20:40 KST — Game Director Cycle HN selected Idea 1 and shipped `CBGCFXWSBPFXPDCWFCTA DIGEST` row wiring; regression now guards FCTA digest cardinality/order before ECHO.
+
+## 2026-03-30 21:06 KST
+- Task: Cycle HN follow-up — payload-only escalation alias derived from `CBGCFXWSBPFXPDCWFCTA`.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions:
+  - Added deterministic escalation compact alias `CBGCFXWSBPFXPDCWFCTAE:<H|T>` mapped from CTA action alias (`S->H`, `R->T`).
+  - Kept slice payload-only/flag-gated/offline-only to preserve reversibility and low rollout risk.
+- Follow-up:
+  - Next item remains UX/Design legend microcopy row for `CBGCFXWSBPFXPDCWFCTA DIGEST` decode.

@@ -2757,3 +2757,7 @@
 - 2026-03-30 20:07 KST — Design note: deferred visible-row rollout; selected payload-first `CBGCFXWSBPFXPDCWFCTA` to protect digest row budget and keep follow-up UX legend insertion isolated.
 - 2026-03-30 20:37 KST — Design shipped visible FCTA legend row (`S=steady`, `R=review`) directly after tooltip legend to preserve scan order and prevent ambiguity in compact-readability reviews.
 - 2026-03-30 20:40 KST — Cycle HN: selected low-risk player-facing readability idea; `FCTA DIGEST` now sits directly after legend for compact review rhythm.
+
+## 2026-03-30 21:06 KST
+- Context: Held visual/legend changes to keep this experiment minimal and reversible.
+- Next design hook: compact DOS-friendly decode microcopy for CTA DIGEST (`S=steady`, `R=review`).

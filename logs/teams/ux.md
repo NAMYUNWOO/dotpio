@@ -2946,3 +2946,7 @@
 - 2026-03-30 20:07 KST — UX review confirmed payload-first HM slice minimizes row-budget risk; injected follow-up to optionally surface `CBGCFXWSBPFXPDCWFCTA` row + legend after `CBGCFXWSBPFXPDCWFCT LEGEND` once contract locks land.
 - 2026-03-30 20:37 KST — UX completed summary/token-coverage insertion of `CBGCFXWSBPFXPDCWFCTA` + legend with deterministic placement after `CBGCFXWSBPFXPDCWFCT LEGEND`; row budget remained stable in weekly output.
 - 2026-03-30 20:40 KST — Cycle HN UI pass added `CBGCFXWSBPFXPDCWFCTA DIGEST` row in both summary/token-coverage rails; maintained deterministic row order.
+
+## 2026-03-30 21:06 KST
+- Context: No markdown rollout in this slice (payload-only by design).
+- Note: CTA DIGEST decode legend microcopy task remains next for UX lane.

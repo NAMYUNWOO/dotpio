@@ -13,6 +13,10 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed Cycle HN follow-up Systems/Combat task: added payload-only escalation alias `CBGCFXWSBPFXPDCWFCTAE:<H|T>` derived from CTA action alias with deterministic map (`S->HOLD`, `R->TRIAGE`) and offline-only flag gate.
+- Regression contract now locks escalation alias schema/domain (`FLAG OFF|...:H|...:T`, signal keys, action/escalation value domains); verification + weekly smoke remain green.
+- Queue status after this run: ACTION_ITEMS fully checked; remaining open items are UX/Design CTA DIGEST legend microcopy and AI Content/World repeated-`R` fallback operator copy variants.
+
 - Closed Cycle HL Next Up trio in one pass: added `CBGCFXWSBPFXPDCWFCT` + legend rows to summary/token-coverage directly after `CBGCFXWSBPFXPDCWFC LEGEND`.
 - Regression contract now enforces tooltip-alias rollout cardinality/dependency/adjacency (`0|2`, `...DCWFC LEGEND -> ...DCWFCT -> ...DCWFCT LEGEND -> ...ECHO`) and payload signal schema now includes deterministic microline fields.
 - AI Content/World prototype shipped offline tooltip microline pair for alias states (`L` lock / `R` review) with DOS-width-safe copy; verification and weekly smoke remain green.

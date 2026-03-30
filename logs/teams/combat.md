@@ -2663,3 +2663,9 @@
 - 2026-03-30 20:07 KST — Combat routing hook added: `CBGCFXWSBPFXPDCWFCTA` mirrors tooltip intent lane for faster downstream triage (`S=steady`, `R=review`) while preserving offline-only reversible behavior.
 - 2026-03-30 20:37 KST — Combat triage rail now exposes `CBGCFXWSBPFXPDCWFCTA` in markdown rails, keeping `S=steady` vs `R=review` action visibility aligned with payload routing for faster downstream diagnosis.
 - 2026-03-30 20:40 KST — Cycle HN digest row adds quick combat-ops scan token for `CBGCFXWSBPFXPDCWFCTA` without changing runtime combat behavior.
+
+## 2026-03-30 21:06 KST
+- Task: Systems/Combat payload escalation alias slice for CTA routing.
+- Decision: Escalation domain stabilized as `HOLD|TRIAGE` behind compact token `CBGCFXWSBPFXPDCWFCTAE:<H|T>`.
+- Verification: regression + weekly drift smoke pass.
+- Follow-up: validate readability impact once UX digest legend microcopy lands.
