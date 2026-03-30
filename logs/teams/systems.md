@@ -4051,3 +4051,8 @@
 2026-03-31 01:12 KST — Cycle HR UX rollout: surfaced CBGCFXWSBPFXPDCWFCTAS + LEGEND in summary/token-coverage rails, updated ordering/cardinality/dependency regression contracts, verification green (py_compile + regression + weekly smoke).
 - Decision: keep payload-first CTAS source-of-truth and gate markdown visibility behind existing rollout order chain.
 
+
+## [2026-03-31 01:45 KST] Cycle HR follow-up — transition-stage CPACK decode microline wiring
+- Decision: kept decode deterministic and payload-only via `CBGCFXWSBPFXPDCWFCTAS CPACK:<H|R|T>` derived from transition-stage alias to avoid runtime drift in coaching text.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- Follow-up: monitor whether CPACK decode stays aligned with future posture-lane aliases.

@@ -4587,3 +4587,10 @@
 2026-03-31 01:12 KST — Cycle HR UX rollout: surfaced CBGCFXWSBPFXPDCWFCTAS + LEGEND in summary/token-coverage rails, updated ordering/cardinality/dependency regression contracts, verification green (py_compile + regression + weekly smoke).
 - QA note: regression now enforces 0|2 row cardinality for CTAS + LEGEND and strict adjacency before ECHO rows.
 
+
+## [2026-03-31 01:45 KST] QA regression extension — transition-stage CPACK
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`
+- Result: PASS; markdown ordering/count/dependency contracts updated for `CTAS CPACK` rows.

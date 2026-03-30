@@ -3008,3 +3008,7 @@
 2026-03-31 01:12 KST — Cycle HR UX rollout: surfaced CBGCFXWSBPFXPDCWFCTAS + LEGEND in summary/token-coverage rails, updated ordering/cardinality/dependency regression contracts, verification green (py_compile + regression + weekly smoke).
 - UX note: optional spacer chain now includes CTAP -> CTAS -> ECHO, preserving dense but predictable scan order.
 
+
+## [2026-03-31 01:45 KST] UX operator guidance consistency
+- Decision: operator-facing coaching microline is now deterministic per transition-stage alias, reducing ambiguity in repeated review windows.
+- Follow-up: spot-check phrasing against onboarding hints for terminology consistency.

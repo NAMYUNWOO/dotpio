@@ -2820,3 +2820,8 @@
 - Next queued follow-ups: UX/Design markdown row+legend for CTAS, then AI-content/Combat deterministic microline decode table.
 2026-03-31 01:12 KST — AI-content lane aligned CTAS legend language to deterministic operator wording (HOLD_STEP/REPLAY_STEP/TRIAGE_STEP) to minimize future copy drift.
 
+
+## [2026-03-31 01:45 KST] AI-content deterministic coaching wording lock
+- Decision: added transition-stage alias decode table (`H/R/T`) to fixed coaching microlines to prevent wording drift between runs.
+- Mapping: H→ANCHOR_STEP stabilize, R→SLOW_STEP replay-once, T→HOLD_STEP triage hold.
+- Follow-up: if new stage aliases are added, extend decode table + regression domain set together.

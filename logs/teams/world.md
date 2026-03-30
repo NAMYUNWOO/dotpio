@@ -2734,3 +2734,7 @@
 - Next queued follow-ups: UX/Design markdown row+legend for CTAS, then AI-content/Combat deterministic microline decode table.
 2026-03-31 01:12 KST — No world-content data/schema changes this cycle; world lane reviewed CTAS legend wording for readability consistency (steady/repeat/escalate cadence semantics retained).
 
+
+## [2026-03-31 01:45 KST] Cross-lane note — no world/map contract impact
+- Decision: no world/portal/map data touched; change is diagnostics/copy-pack decode only.
+- Follow-up: none unless world-lane copy hooks consume `CTAS CPACK` later.

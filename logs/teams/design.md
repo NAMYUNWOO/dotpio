@@ -2819,3 +2819,7 @@
 2026-03-31 01:12 KST — Cycle HR UX rollout: surfaced CBGCFXWSBPFXPDCWFCTAS + LEGEND in summary/token-coverage rails, updated ordering/cardinality/dependency regression contracts, verification green (py_compile + regression + weekly smoke).
 - Design note: legend kept compact DOS-friendly decode `H/R/T` with explicit stage names for scan speed.
 
+
+## [2026-03-31 01:45 KST] Design readability note
+- Decision: added explicit `CBGCFXWSBPFXPDCWFCTAS CPACK` + legend rows to summary and token-coverage rails to keep decode discoverable.
+- Follow-up: preserve DOS-width compactness when adding future legend expansions.

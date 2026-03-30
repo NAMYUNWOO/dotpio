@@ -2726,3 +2726,7 @@
 - Next queued follow-ups: UX/Design markdown row+legend for CTAS, then AI-content/Combat deterministic microline decode table.
 2026-03-31 01:12 KST — Combat lane validated CTAS row insertion remains offline digest-only and does not alter runtime tuning/combat pacing hooks.
 
+
+## [2026-03-31 01:45 KST] Combat lane readability support
+- Decision: CPACK decode row now gives deterministic operator coaching wording tied to transition-stage alias for combat triage cadence.
+- Follow-up: validate whether `R` wording remains optimal for replay-once pressure windows.

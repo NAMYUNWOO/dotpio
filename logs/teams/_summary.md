@@ -4171,3 +4171,5 @@ Compact decision memory for AI context efficiency.
 
 - 2026-03-31 01:12 KST — Closed HR UX/Design follow-up: added visible `CBGCFXWSBPFXPDCWFCTAS` + `...LEGEND` rows to summary/token-coverage rails, expanded regression contracts (count/dependency/adjacency + optional spacer chain), and verified green via py_compile + regression + weekly smoke.
 - Queue update: TASKS now has one remaining unchecked item (AI-content/Combat CTAS microline decode table).
+
+- [2026-03-31 01:45 KST] Cycle HR follow-up shipped: added deterministic transition-stage copy-pack decode microline `CBGCFXWSBPFXPDCWFCTAS CPACK:<H|R|T>` plus legend + regression contract updates (counts/dependencies/order + payload signals).
