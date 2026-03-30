@@ -5246,17 +5246,15 @@ def main() -> int:
                     f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPDC row directly after CBGCFXWSBPFXPD COACH row"
                 )
             if optional_rehearsal_hint_phase_echo_idx is not None:
-                if optional_rehearsal_hint_compact_alias_coach_action_compact_alias_idx is not None:
-                    assert optional_rehearsal_hint_phase_echo_idx == optional_rehearsal_hint_compact_alias_coach_action_compact_alias_idx + 1, (
-                        f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPD ECHO row directly after CBGCFXWSBPFXPDC row"
-                    )
-                else:
-                    assert optional_rehearsal_hint_compact_alias_microline_legend_idx is not None, (
-                        f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPD ECHO row cannot appear without CBGCFXWSBPFXPD MICROLINE LEGEND row"
-                    )
-                    assert optional_rehearsal_hint_phase_echo_idx == optional_rehearsal_hint_compact_alias_microline_legend_idx + 1, (
-                        f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPD ECHO row directly after CBGCFXWSBPFXPD MICROLINE LEGEND row"
-                    )
+                assert optional_rehearsal_hint_compact_alias_coach_action_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPD ECHO row cannot appear without CBGCFXWSBPFXPD COACH row"
+                )
+                assert optional_rehearsal_hint_compact_alias_coach_action_compact_alias_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPD ECHO row cannot appear without CBGCFXWSBPFXPDC row"
+                )
+                assert optional_rehearsal_hint_phase_echo_idx == optional_rehearsal_hint_compact_alias_coach_action_compact_alias_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPD ECHO row directly after CBGCFXWSBPFXPDC row"
+                )
             if optional_rehearsal_hint_phase_echo_compact_alias_idx is not None:
                 assert optional_rehearsal_hint_phase_echo_idx is not None, (
                     f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPDE row cannot appear without CBGCFXWSBPFXPD ECHO row"

@@ -4374,3 +4374,7 @@
   - Added deterministic fixture that confirms dominant alias transitions when rolling policy windows change composition.
 
 - 2026-03-30 12:30 KST — Cycle HB autonomous slice: shipped compact coach-action alias `CBGCFXWSBPFXPDC:<P|U>` plus markdown exposure and regression/order updates; verified via weekly drift regression + digest smoke.
+
+## 2026-03-30 12:50 KST — Regression contract update validated
+- Updated weekly digest regression to fail if `CBGCFXWSBPFXPD ECHO` appears without the `COACH` and `CBGCFXWSBPFXPDC` rows.
+- Verification PASS: py_compile + weekly regression + weekly drift smoke command.

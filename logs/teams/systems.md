@@ -3825,3 +3825,7 @@
   - Expanded regression contract for row cardinality/dependencies/order and added rollover fixture asserting deterministic dominant alias transitions (`W -> M`) under changing window composition.
 
 - 2026-03-30 12:30 KST — Cycle HB autonomous slice: shipped compact coach-action alias `CBGCFXWSBPFXPDC:<P|U>` plus markdown exposure and regression/order updates; verified via weekly drift regression + digest smoke.
+
+## 2026-03-30 12:50 KST — Strict optional-order contract hardening (CBGCFXWSBPFXPD coach chain)
+- Enforced regression requirement that `CBGCFXWSBPFXPD ECHO` can appear only when `CBGCFXWSBPFXPD COACH` and `CBGCFXWSBPFXPDC` are both present.
+- Locked adjacency to `... MICROLINE LEGEND -> ... COACH -> ... FXPDC -> ... ECHO` in both summary and token-coverage sections.

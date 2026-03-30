@@ -2613,3 +2613,6 @@
 - Decision: `CBGCFXWSBPFXPDE POLICY OPS DOMINANT:<alias>` remains compact-first with explicit legend row to preserve low-noise scanability.
 
 - 2026-03-30 12:30 KST — Cycle HB autonomous slice: shipped compact coach-action alias `CBGCFXWSBPFXPDC:<P|U>` plus markdown exposure and regression/order updates; verified via weekly drift regression + digest smoke.
+
+## 2026-03-30 12:50 KST — Narrative cue dependency alignment
+- Locked regression so `CBGCFXWSBPFXPD ECHO` cannot surface without upstream coach/action rationale rows, preserving compact narrative continuity.

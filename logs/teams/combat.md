@@ -2533,3 +2533,6 @@
 - Decision: No combat token-order regressions introduced; dominant row inserted only in existing FXPDE optional chain before `CBGCFXWAC` rows.
 
 - 2026-03-30 12:30 KST — Cycle HB autonomous slice: shipped compact coach-action alias `CBGCFXWSBPFXPDC:<P|U>` plus markdown exposure and regression/order updates; verified via weekly drift regression + digest smoke.
+
+## 2026-03-30 12:50 KST — Combat/VFX cue chain integrity
+- Synced strict optional-order enforcement for `... COACH -> CBGCFXWSBPFXPDC -> ECHO` to keep rehearsal-to-echo handoff deterministic.

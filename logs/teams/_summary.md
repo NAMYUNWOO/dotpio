@@ -4055,3 +4055,8 @@ Compact decision memory for AI context efficiency.
 - 2026-03-30 (Cycle HB autonomous): Added compact rehearsal coach-action alias rail `CBGCFXWSBPFXPDC:<P|U>` mapped from `CBGCFXWSBPFXPD COACH:<PACE|PUNCH>` behind dedicated experiment flag (`..._COACH_ACTION_COMPACT_ALIAS`), with deterministic payload keys and markdown summary/token-coverage visibility.
 - Regression contract expanded to tolerate and enforce optional rollout chain `...MICROLINE LEGEND -> ...COACH -> ...FXPDC -> ...ECHO`, preserving ordered insertion before legacy FXPDE rows.
 - Backlog injection updated with next follow-ups: strict chain-order lock for COACH/FXPDC rows and ai-content rationale-token prototype.
+
+## 2026-03-30 12:50 KST — POST_RC strict chain-order contract closed (`CBGCFXWSBPFXPD` family)
+- Completed highest-priority unchecked backlog item: regression now requires `CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD COACH -> CBGCFXWSBPFXPDC -> CBGCFXWSBPFXPD ECHO` ordering (no skipped coach/action rows when echo is present).
+- Durable decision: treat `CBGCFXWSBPFXPD ECHO` as dependent on both coach rows to avoid ambiguous partial rollout diagnostics.
+- Verification: `python3 -m py_compile scripts/regression_weekly_portal_prompt_readability_drift.py scripts/weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`.

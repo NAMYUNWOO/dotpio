@@ -1703,5 +1703,5 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/Combat Team: Implemented selected minimal vertical slice `CBGCFXWSBPFXPDC:<P|U>` with flag-gated fallback and markdown row exposure.
 
 ## Next Up (Injected by Cycle 2026-03-30 12:16 KST)
-- [ ] Systems/QA Team: Add strict optional-order regression contract for `CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD COACH -> CBGCFXWSBPFXPDC -> CBGCFXWSBPFXPD ECHO` chain.
+- [x] Systems/QA Team: Add strict optional-order regression contract for `CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD COACH -> CBGCFXWSBPFXPDC -> CBGCFXWSBPFXPD ECHO` chain. *(lifecycle: [~] started: 2026-03-30 12:46 KST -> [x] completed: 2026-03-30 12:50 KST; verification: `python3 -m py_compile scripts/regression_weekly_portal_prompt_readability_drift.py scripts/weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 120`)*
 - [ ] Design/AI-Content Team: Prototype compact dual-action rehearsal rationale token (`COACH WHY:<short>`) from alias + mutation trend under experiment flag.

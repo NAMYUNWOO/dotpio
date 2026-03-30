@@ -2533,3 +2533,6 @@
 - Decision: Standardized legend mapping to `B/W/F/M/N` -> `BASELINE_ONLY/WATCH_NEXT_WINDOW/WATCH_FALLBACK/MANUAL_TRIAGE/NO_TRIAGE` in both digest sections.
 
 - 2026-03-30 12:30 KST — Cycle HB autonomous slice: shipped compact coach-action alias `CBGCFXWSBPFXPDC:<P|U>` plus markdown exposure and regression/order updates; verified via weekly drift regression + digest smoke.
+
+## 2026-03-30 12:50 KST — World-facing copy rail consistency
+- Adopted strict optional-order contract so phase-echo context never detaches from prior coach/action rows in digest rails.
