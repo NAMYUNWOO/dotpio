@@ -3831,3 +3831,8 @@
 - Locked adjacency to `... MICROLINE LEGEND -> ... COACH -> ... FXPDC -> ... ECHO` in both summary and token-coverage sections.
 
 - 2026-03-30 13:31 KST — Cycle HD selected slice shipped: added payload-only `CBGCFXWSBPFXPD COACH WHY:<short>` + compact alias `CBGCFXWSBPFXPDCW:<A|B|C|D|E|F>` (alias+trend derived, offline-only, experiment-flagged); verified with regression + weekly smoke.
+
+## 2026-03-30 13:53 KST
+- Task: Added digest exposure for `CBGCFXWSBPFXPD COACH WHY` + `CBGCFXWSBPFXPDCW` rows and legend in weekly readability markdown generator.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅

@@ -2538,3 +2538,6 @@
 - Adopted strict optional-order contract so phase-echo context never detaches from prior coach/action rows in digest rails.
 
 - 2026-03-30 13:31 KST — Cycle HD selected slice shipped: added payload-only `CBGCFXWSBPFXPD COACH WHY:<short>` + compact alias `CBGCFXWSBPFXPDCW:<A|B|C|D|E|F>` (alias+trend derived, offline-only, experiment-flagged); verified with regression + weekly smoke.
+
+## 2026-03-30 13:53 KST
+- Cross-lane note: World-facing rationale readability improved via surfaced `CBGCFXWSBPFXPD COACH WHY` token/legend rows in digest rails; no map data changes.

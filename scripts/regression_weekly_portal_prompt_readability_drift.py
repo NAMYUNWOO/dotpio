@@ -4229,6 +4229,15 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_coach_action_compact_alias_indices = [
             i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPDC:")
         ]
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_indices = [
+            i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPD COACH WHY:")
+        ]
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_indices = [
+            i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPDCW:")
+        ]
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_legend_indices = [
+            i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPDCW LEGEND:")
+        ]
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_indices = [
             i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPD ECHO:")
         ]
@@ -4820,6 +4829,15 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_coach_action_compact_alias_indices) in {0, 2}, (
             "expected zero or exactly two CBGCFXWSBPFXPDC rows (summary + token-coverage sections)"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_indices) in {0, 2}, (
+            "expected zero or exactly two CBGCFXWSBPFXPD COACH WHY rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_indices) in {0, 2}, (
+            "expected zero or exactly two CBGCFXWSBPFXPDCW rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_legend_indices) in {0, 2}, (
+            "expected zero or exactly two CBGCFXWSBPFXPDCW LEGEND rows (summary + token-coverage sections)"
+        )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_indices) in {0, 2}, (
             "expected zero or exactly two CBGCFXWSBPFXPD ECHO rows (summary + token-coverage sections)"
         )
@@ -4852,6 +4870,15 @@ def main() -> int:
         )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_coach_action_compact_alias_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_coach_action_indices), (
             "expected CBGCFXWSBPFXPDC rows to appear only when CBGCFXWSBPFXPD COACH rows are present"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_coach_action_compact_alias_indices), (
+            "expected CBGCFXWSBPFXPD COACH WHY rows to appear only when CBGCFXWSBPFXPDC rows are present"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_indices), (
+            "expected CBGCFXWSBPFXPDCW rows to appear only when CBGCFXWSBPFXPD COACH WHY rows are present"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_legend_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_indices), (
+            "expected CBGCFXWSBPFXPDCW LEGEND rows to appear only when CBGCFXWSBPFXPDCW rows are present"
         )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_microline_vocabulary_legend_indices), (
             "expected CBGCFXWSBPFXPD ECHO rows to appear only when CBGCFXWSBPFXPD MICROLINE LEGEND rows are present"
@@ -5045,8 +5072,11 @@ def main() -> int:
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 20,
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 21,
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 22,
+                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 23,
+                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 24,
+                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 25,
             }, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row immediately after CBGCFXWSBPFCI COACH COPY row, with optional rollout spacers CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI -> CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD -> CBGCFXWSBPFXPD MICROLINE -> CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD COACH -> CBGCFXWSBPFXPDC -> CBGCFXWSBPFXPD ECHO -> CBGCFXWSBPFXPDE -> CBGCFXWSBPFXPDE LEGEND -> CBGCFXWSBPFXPDE MATRIX -> CBGCFXWSBPFXPDE MATRIX DRIFT -> CBGCFXWSBPFXPDE MATRIX DRIFT TREND -> CBGCFXWSBPFXPDE MATRIX DRIFT SNAPSHOT -> CBGCFXWSBPFXPDS -> CBGCFXWSBPFXPDS LEGEND -> CBGCFXWSBPFXPDE SNAPSHOT POLICY -> CBGCFXWSBPFXPDE POLICY OPS WINDOW -> CBGCFXWSBPFXPDE POLICY OPS DOMINANT -> CBGCFXWSBPFXPDE POLICY OPS DOMINANT LEGEND"
+                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row immediately after CBGCFXWSBPFCI COACH COPY row, with optional rollout spacers CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI -> CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD -> CBGCFXWSBPFXPD MICROLINE -> CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD COACH -> CBGCFXWSBPFXPDC -> CBGCFXWSBPFXPD COACH WHY -> CBGCFXWSBPFXPDCW -> CBGCFXWSBPFXPDCW LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWSBPFXPDE -> CBGCFXWSBPFXPDE LEGEND -> CBGCFXWSBPFXPDE MATRIX -> CBGCFXWSBPFXPDE MATRIX DRIFT -> CBGCFXWSBPFXPDE MATRIX DRIFT TREND -> CBGCFXWSBPFXPDE MATRIX DRIFT SNAPSHOT -> CBGCFXWSBPFXPDS -> CBGCFXWSBPFXPDS LEGEND -> CBGCFXWSBPFXPDE SNAPSHOT POLICY -> CBGCFXWSBPFXPDE POLICY OPS WINDOW -> CBGCFXWSBPFXPDE POLICY OPS DOMINANT -> CBGCFXWSBPFXPDE POLICY OPS DOMINANT LEGEND"
             )
             spacer_lines = md_lines[
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1 : coach_copy_variant_rec_idx
@@ -5060,6 +5090,9 @@ def main() -> int:
                 "- CBGCFXWSBPFXPD MICROLINE LEGEND:",
                 "- CBGCFXWSBPFXPD COACH:",
                 "- CBGCFXWSBPFXPDC:",
+                "- CBGCFXWSBPFXPD COACH WHY:",
+                "- CBGCFXWSBPFXPDCW:",
+                "- CBGCFXWSBPFXPDCW LEGEND:",
                 "- CBGCFXWSBPFXPD ECHO:",
                 "- CBGCFXWSBPFXPDE:",
                 "- CBGCFXWSBPFXPDE LEGEND:",
@@ -5146,6 +5179,21 @@ def main() -> int:
             optional_rehearsal_hint_compact_alias_coach_action_compact_alias_idx = (
                 cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_coach_action_compact_alias_indices[section_idx]
                 if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_coach_action_compact_alias_indices) == 2
+                else None
+            )
+            optional_rehearsal_hint_coach_why_idx = (
+                cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_indices[section_idx]
+                if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_indices) == 2
+                else None
+            )
+            optional_rehearsal_hint_coach_why_compact_alias_idx = (
+                cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_indices[section_idx]
+                if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_indices) == 2
+                else None
+            )
+            optional_rehearsal_hint_coach_why_compact_alias_legend_idx = (
+                cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_legend_indices[section_idx]
+                if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_compact_alias_legend_indices) == 2
                 else None
             )
             optional_rehearsal_hint_phase_echo_compact_alias_idx = (
@@ -5245,15 +5293,36 @@ def main() -> int:
                 assert optional_rehearsal_hint_compact_alias_coach_action_compact_alias_idx == optional_rehearsal_hint_compact_alias_coach_action_idx + 1, (
                     f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPDC row directly after CBGCFXWSBPFXPD COACH row"
                 )
+            if optional_rehearsal_hint_coach_why_idx is not None:
+                assert optional_rehearsal_hint_compact_alias_coach_action_compact_alias_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPD COACH WHY row cannot appear without CBGCFXWSBPFXPDC row"
+                )
+                assert optional_rehearsal_hint_coach_why_idx == optional_rehearsal_hint_compact_alias_coach_action_compact_alias_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPD COACH WHY row directly after CBGCFXWSBPFXPDC row"
+                )
+            if optional_rehearsal_hint_coach_why_compact_alias_idx is not None:
+                assert optional_rehearsal_hint_coach_why_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPDCW row cannot appear without CBGCFXWSBPFXPD COACH WHY row"
+                )
+                assert optional_rehearsal_hint_coach_why_compact_alias_idx == optional_rehearsal_hint_coach_why_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPDCW row directly after CBGCFXWSBPFXPD COACH WHY row"
+                )
+            if optional_rehearsal_hint_coach_why_compact_alias_legend_idx is not None:
+                assert optional_rehearsal_hint_coach_why_compact_alias_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPDCW LEGEND row cannot appear without CBGCFXWSBPFXPDCW row"
+                )
+                assert optional_rehearsal_hint_coach_why_compact_alias_legend_idx == optional_rehearsal_hint_coach_why_compact_alias_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPDCW LEGEND row directly after CBGCFXWSBPFXPDCW row"
+                )
             if optional_rehearsal_hint_phase_echo_idx is not None:
                 assert optional_rehearsal_hint_compact_alias_coach_action_idx is not None, (
                     f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPD ECHO row cannot appear without CBGCFXWSBPFXPD COACH row"
                 )
-                assert optional_rehearsal_hint_compact_alias_coach_action_compact_alias_idx is not None, (
-                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPD ECHO row cannot appear without CBGCFXWSBPFXPDC row"
+                assert optional_rehearsal_hint_coach_why_compact_alias_legend_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPD ECHO row cannot appear without CBGCFXWSBPFXPDCW LEGEND row"
                 )
-                assert optional_rehearsal_hint_phase_echo_idx == optional_rehearsal_hint_compact_alias_coach_action_compact_alias_idx + 1, (
-                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPD ECHO row directly after CBGCFXWSBPFXPDC row"
+                assert optional_rehearsal_hint_phase_echo_idx == optional_rehearsal_hint_coach_why_compact_alias_legend_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPD ECHO row directly after CBGCFXWSBPFXPDCW LEGEND row"
                 )
             if optional_rehearsal_hint_phase_echo_compact_alias_idx is not None:
                 assert optional_rehearsal_hint_phase_echo_idx is not None, (

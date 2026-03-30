@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 11:58 KST
+Last updated: 2026-03-30 13:53 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,9 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed UX/Design follow-up for `CBGCFXWSBPFXPD COACH WHY`: summary + token-coverage rails now include `CBGCFXWSBPFXPD COACH WHY`, `CBGCFXWSBPFXPDCW`, and `CBGCFXWSBPFXPDCW LEGEND` immediately after `CBGCFXWSBPFXPDC` and before `CBGCFXWSBPFXPD ECHO`.
+- Regression contract expanded to enforce cardinality/dependency/order for the new coach-why rows (`...COACH -> ...PDC -> ...COACH WHY -> ...PDCW -> ...PDCW LEGEND -> ...ECHO`) in both digest sections; verification and weekly smoke pass green.
 
 - Closed `GD-2026-03-30-fxpde-snapshot-policy-ops-window-dominant-markdown-row` + `...-rollover-fixture`: summary/token-coverage rails now expose `CBGCFXWSBPFXPDE POLICY OPS DOMINANT` plus legend directly after `...POLICY OPS WINDOW` with deterministic adjacency lock before `CBGCFXWAC COACH COPY REC`.
 - Regression contract expanded for dominant row cardinality/dependency/order and legend decode checks; added multi-window fixture proving deterministic dominant alias transitions (`W -> M`) as rolling policy composition changes.

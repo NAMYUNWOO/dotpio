@@ -4380,3 +4380,6 @@
 - Verification PASS: py_compile + weekly regression + weekly drift smoke command.
 
 - 2026-03-30 13:31 KST — Cycle HD selected slice shipped: added payload-only `CBGCFXWSBPFXPD COACH WHY:<short>` + compact alias `CBGCFXWSBPFXPDCW:<A|B|C|D|E|F>` (alias+trend derived, offline-only, experiment-flagged); verified with regression + weekly smoke.
+
+## 2026-03-30 13:53 KST
+- Verification: Regression contract updated to lock optional order `...COACH -> ...PDC -> ...COACH WHY -> ...PDCW -> ...PDCW LEGEND -> ...ECHO` across both digest sections; checks pass.
