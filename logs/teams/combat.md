@@ -2661,3 +2661,5 @@
 - [2026-03-30 19:11 KST] Cycle HK follow-through: added CBGCFXWSBPFXPDCWFC markdown rows/contracts + offline tooltip decode pair (O=OK:alias aligned, D=DRIFT:recheck); regression + weekly drift checks passed.
 - [2026-03-30 19:18 KST] Cycle HL: shipped payload-only tooltip intent alias CBGCFXWSBPFXPDCWFCT (L|R) from coherence compact alias; queued markdown+contract+microline follow-ups in backlog.
 - 2026-03-30 20:07 KST — Combat routing hook added: `CBGCFXWSBPFXPDCWFCTA` mirrors tooltip intent lane for faster downstream triage (`S=steady`, `R=review`) while preserving offline-only reversible behavior.
+- 2026-03-30 20:37 KST — Combat triage rail now exposes `CBGCFXWSBPFXPDCWFCTA` in markdown rails, keeping `S=steady` vs `R=review` action visibility aligned with payload routing for faster downstream diagnosis.
+- 2026-03-30 20:40 KST — Cycle HN digest row adds quick combat-ops scan token for `CBGCFXWSBPFXPDCWFCTA` without changing runtime combat behavior.

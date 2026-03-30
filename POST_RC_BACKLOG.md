@@ -1797,6 +1797,17 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-30 Cycle HM)
 - [x] Systems/Combat Team: Add payload-only compact tooltip-action alias token `CBGCFXWSBPFXPDCWFCTA:<S|R>` derived from `CBGCFXWSBPFXPDCWFCT` with deterministic alias map/signals. *(lifecycle: [~] started: 2026-03-30 20:02 KST -> [x] completed: 2026-03-30 20:07 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] UX/Design Team: Add optional summary/token-coverage row + legend for `CBGCFXWSBPFXPDCWFCTA` directly after `CBGCFXWSBPFXPDCWFCT LEGEND`.
-- [ ] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCTA` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWFCT`.
-- [ ] AI Content/World Team: Prototype offline microline pair for tooltip-action alias states (`S` vs `R`) tuned for DOS-width operator hints.
+- [x] UX/Design Team: Add optional summary/token-coverage row + legend for `CBGCFXWSBPFXPDCWFCTA` directly after `CBGCFXWSBPFXPDCWFCT LEGEND`. *(lifecycle: [~] started: 2026-03-30 20:33 KST -> [x] completed: 2026-03-30 20:37 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+- [x] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCTA` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWFCT`.
+- [x] AI Content/World Team: Prototype offline microline pair for tooltip-action alias states (`S` vs `R`) tuned for DOS-width operator hints.
+
+## Game Director Cycle HN - 2026-03-30 20:37 KST
+- Idea 1 (low-risk ux/design): Add optional `CBGCFXWSBPFXPDCWFCTA DIGEST` markdown row after `CBGCFXWSBPFXPDCWFCTA LEGEND` for faster scan/readability.
+- Idea 2 (mid-risk systems/combat): Add payload-only compact escalation alias derived from `CBGCFXWSBPFXPDCWFCTA` (`S->HOLD`, `R->TRIAGE`) for downstream routing.
+- Idea 3 (high-risk novelty): Introduce drift-streak adaptive action hint escalation with rollback flag and replay guard.
+- [x] UX/Systems/QA Team (Cycle HN selected experiment): Implemented minimal vertical slice for Idea 1 by adding `CBGCFXWSBPFXPDCWFCTA DIGEST` row in summary/token-coverage output and locking adjacency/count/order regression contracts. *(lifecycle: [~] started: 2026-03-30 20:38 KST -> [x] completed: 2026-03-30 20:40 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+### Next Up (Cycle HN backlog injection)
+- [ ] Systems/Combat Team: Prototype payload-only escalation alias derived from `CBGCFXWSBPFXPDCWFCTA` with deterministic map + schema lock assertions.
+- [ ] UX/Design Team: Add optional legend microcopy row for `CBGCFXWSBPFXPDCWFCTA DIGEST` decode (`S=steady`, `R=review`) tuned for compact DOS scan order.
+- [ ] AI Content/World Team: Draft two fallback operator copy variants for repeated `R` streak windows (additive + reversible).

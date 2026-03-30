@@ -3971,3 +3971,5 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decision: expanded rollout chain/adjacency to include `CBGCFXWSBPFXPDCWFCT` + legend with `0|2` cardinality and dependency on `CBGCFXWSBPFXPDCWFC LEGEND`.
 - 2026-03-30 20:07 KST — Cycle HM selected slice shipped payload-only tooltip-action alias `CBGCFXWSBPFXPDCWFCTA:<S|R>` from `CBGCFXWSBPFXPDCWFCT` (`L->S`, `R->R`) under dedicated experiment flag; added payload schema/domain regression locks for alias/signals.
+- 2026-03-30 20:37 KST — Cycle HN: completed FCTA markdown rollout and contract hardening. Added `CBGCFXWSBPFXPDCWFCTA` + legend rows after `CBGCFXWSBPFXPDCWFCT LEGEND` in summary/token-coverage sections and extended regression with `0|2` cardinality + adjacency/dependency checks before ECHO.
+- 2026-03-30 20:40 KST — Game Director Cycle HN selected Idea 1 and shipped `CBGCFXWSBPFXPDCWFCTA DIGEST` row wiring; regression now guards FCTA digest cardinality/order before ECHO.
