@@ -2673,3 +2673,13 @@
 ## 2026-03-30 21:06 KST
 - Context: No world/map mutation in this payload-only experiment.
 - Dependency note: world-facing copy remains unchanged; safe to consume new escalation alias offline.
+
+
+
+## 2026-03-30 21:36 KST
+- Task: UX/Design follow-up for `CBGCFXWSBPFXPDCWFCTA DIGEST` decode readability.
+- Commit: pending (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decision: Added optional `CBGCFXWSBPFXPDCWFCTA DIGEST LEGEND` markdown row in summary/token-coverage rails and extended adjacency/cardinality rollout contracts.
+- Follow-up: Remaining open queue item is AI Content/World repeated-`R` fallback operator copy variants.

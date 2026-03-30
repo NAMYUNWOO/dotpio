@@ -1,6 +1,6 @@
 # DMG Glyph FX Remap Candidates
 
-- GeneratedAt(UTC): 2026-03-30T11:41:30.547951Z
+- GeneratedAt(UTC): 2026-03-30T12:35:58.781705Z
 - Recommendation: **MICRO_TUNE_FX**
 - Confidence: **HIGH**
 - Rationale: stable-fx-window

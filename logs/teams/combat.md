@@ -2669,3 +2669,13 @@
 - Decision: Escalation domain stabilized as `HOLD|TRIAGE` behind compact token `CBGCFXWSBPFXPDCWFCTAE:<H|T>`.
 - Verification: regression + weekly drift smoke pass.
 - Follow-up: validate readability impact once UX digest legend microcopy lands.
+
+
+
+## 2026-03-30 21:36 KST
+- Task: UX/Design follow-up for `CBGCFXWSBPFXPDCWFCTA DIGEST` decode readability.
+- Commit: pending (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decision: Added optional `CBGCFXWSBPFXPDCWFCTA DIGEST LEGEND` markdown row in summary/token-coverage rails and extended adjacency/cardinality rollout contracts.
+- Follow-up: Remaining open queue item is AI Content/World repeated-`R` fallback operator copy variants.

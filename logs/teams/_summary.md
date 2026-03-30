@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 19:32 KST
+Last updated: 2026-03-30 21:36 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,9 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed UX/Design follow-up item: added optional `CBGCFXWSBPFXPDCWFCTA DIGEST LEGEND` row in summary/token-coverage rails so `S|R` decode remains one-glance readable under compact DOS scan order.
+- Regression contract extended for new row cardinality/dependency/adjacency (`CTA DIGEST -> CTA DIGEST LEGEND -> ECHO`) and verification + weekly smoke remain green.
+- Queue status after this run: ACTION_ITEMS fully checked; TASKS/POST_RC now have one remaining open item (AI Content/World repeated-`R` fallback operator copy variants).
 - Closed Cycle HN follow-up Systems/Combat task: added payload-only escalation alias `CBGCFXWSBPFXPDCWFCTAE:<H|T>` derived from CTA action alias with deterministic map (`S->HOLD`, `R->TRIAGE`) and offline-only flag gate.
 - Regression contract now locks escalation alias schema/domain (`FLAG OFF|...:H|...:T`, signal keys, action/escalation value domains); verification + weekly smoke remain green.
 - Queue status after this run: ACTION_ITEMS fully checked; remaining open items are UX/Design CTA DIGEST legend microcopy and AI Content/World repeated-`R` fallback operator copy variants.
