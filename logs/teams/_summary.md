@@ -4105,3 +4105,7 @@ Compact decision memory for AI context efficiency.
 - Closed UX/VFX + Systems/QA follow-ups for `CBGCFXWSBPFXPDCW FX CUE`: summary/token-coverage rails now optionally include `CBGCFXWSBPFXPDCW FX CUE` + `...FX CUE LEGEND` directly after copy-pack cadence legend.
 - Regression contract now enforces optional cardinality/dependency/adjacency for the new FX cue rows while keeping payload-only fallback valid.
 - Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`); TASKS + POST_RC backlog synchronized to done.
+
+- 2026-03-30 17:38 KST — Closed highest-priority unchecked TASKS/POST_RC item by publishing playtest-facing `CBGCFXWSBPFXPDCWF DIGEST` readability fixture (`logs/playtests/cbgcfxwsbpfxpdcwf_digest_readability_callouts.md`) with explicit S/E/H snapshots and row-budget PASS evidence.
+- Verification green: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, and weekly digest smoke (`python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`).
+- Queue status: one unchecked item remains (Systems/QA deterministic FX family toggle fixture for `CBGCFXWSBPFXPDCWF DIGEST` coherence).

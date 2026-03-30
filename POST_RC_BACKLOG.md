@@ -1768,5 +1768,5 @@ Last updated: 2026-03-21 02:31 KST
 ## Next Up (Game Director Injection — Cycle HI)
 - [x] UX/Design Team: Add optional digest markdown row + compact legend for `CBGCFXWSBPFXPDCWF` immediately after `CBGCFXWSBPFXPDCW FX CUE LEGEND`.
 - [x] Systems/QA Team: Add markdown adjacency + count contract for `CBGCFXWSBPFXPDCWF` rows in summary/token-coverage sections.
-- [ ] UX/Combat Team: Surface `CBGCFXWSBPFXPDCWF DIGEST` in playtest-facing readability callouts and capture one screenshot/fixture proving alias readability (`S|E|H`) without expanding row budget.
+- [x] UX/Combat Team: Surface `CBGCFXWSBPFXPDCWF DIGEST` in playtest-facing readability callouts and capture one screenshot/fixture proving alias readability (`S|E|H`) without expanding row budget. *(lifecycle: [~] started: 2026-03-30 17:32 KST -> [x] completed: 2026-03-30 17:37 KST; evidence: `logs/playtests/cbgcfxwsbpfxpdcwf_digest_readability_callouts.md`)*
 - [ ] Systems/QA Team: Add deterministic fixture that toggles FX cue families (`SOFT|EDGE|HARD`) and asserts `CBGCFXWSBPFXPDCWF DIGEST` source-token coherence across summary + token-coverage sections.

@@ -2707,3 +2707,9 @@
 - Implementation: Added `CBGCFXWSBPFXPDCWF DIGEST` markdown row in summary + token-coverage sections and expanded regression adjacency/cardinality checks.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
 - Backlog injected: TASKS/POST_RC new follow-ups for UX/Combat callout capture + Systems/QA deterministic source-token coherence fixture.
+
+## 2026-03-30 17:38 KST — Cycle HI follow-up digest readability fixture (ai-content lane)
+- Completed UX/Combat backlog item: surfaced playtest-facing `CBGCFXWSBPFXPDCWF DIGEST` readability callout evidence.
+- Evidence artifact: `logs/playtests/cbgcfxwsbpfxpdcwf_digest_readability_callouts.md` (S/E/H fixture + row-budget check PASS).
+- Verification: [PASS] weekly portal prompt readability drift regression checks and weekly digest smoke run both PASS.
+- Follow-up: remaining unchecked item is Systems/QA deterministic fixture for FX cue family toggles (`SOFT|EDGE|HARD`).
