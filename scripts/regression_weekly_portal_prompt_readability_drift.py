@@ -3015,6 +3015,27 @@ def main() -> int:
         assert copy_pack_cadence_compact_alias_signals.get("alias") in {"S", "P", "B"}, payload
         assert copy_pack_cadence_compact_alias_signals.get("aliasMap") == {"STEADY": "S", "PIVOT": "P", "BURST": "B"}, payload
         assert copy_pack_cadence_compact_alias_signals.get("aliasMap", {}).get(copy_pack_cadence_compact_alias_signals.get("cadence")) == copy_pack_cadence_compact_alias_signals.get("alias"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCue") in {
+            "FLAG OFF",
+            "CBGCFXWSBPFXPDCW FX CUE:SOFT",
+            "CBGCFXWSBPFXPDCW FX CUE:EDGE",
+            "CBGCFXWSBPFXPDCW FX CUE:HARD",
+        }, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "cadence",
+            "fxCue",
+            "fxCueMap",
+            "sourceToken",
+            "token",
+            "offlineOnly",
+        }, payload
+        copy_pack_cadence_combat_vfx_fx_cue_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueSignals", {})
+        assert copy_pack_cadence_combat_vfx_fx_cue_signals.get("cadence") in {"STEADY", "PIVOT", "BURST"}, payload
+        assert copy_pack_cadence_combat_vfx_fx_cue_signals.get("fxCue") in {"SOFT", "EDGE", "HARD"}, payload
+        assert copy_pack_cadence_combat_vfx_fx_cue_signals.get("fxCueMap") == {"STEADY": "SOFT", "PIVOT": "EDGE", "BURST": "HARD"}, payload
+        assert copy_pack_cadence_combat_vfx_fx_cue_signals.get("fxCueMap", {}).get(copy_pack_cadence_combat_vfx_fx_cue_signals.get("cadence")) == copy_pack_cadence_combat_vfx_fx_cue_signals.get("fxCue"), payload
         assert payload.get("cadenceBridge") in {"CADENCE BRIDGE:SCOUT", "CADENCE BRIDGE:PRESS", "CADENCE BRIDGE:HOLD"}, payload
         assert set(payload.get("cadenceBridgeSignals", {}).keys()) == {"bridge", "confidenceFloorRecommendation", "designWorldAgeHours", "systemsOpsAgeHours", "combatVfxAgeHours", "windowHours", "reason", "offlineOnly"}, payload
         assert payload.get("cadenceBridgeGlyph") in {"FLAG OFF", "CADENCE BRIDGE GLYPH:CALM", "CADENCE BRIDGE GLYPH:TENSE"}, payload

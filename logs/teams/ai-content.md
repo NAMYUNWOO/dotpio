@@ -2634,3 +2634,18 @@
 ## 2026-03-30 15:26 KST — Cycle HG cadence compact alias follow-up
 - Added/validated `CBGCFXWSBPFXPDCWC:<S|P|B>` payload alias hook tied to copy-pack cadence; kept offline-only + flag-gated + reversible path.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+
+## 2026-03-30 15:41 KST — Cycle HH (forced underrepresented lane rebalance)
+- Coverage check (last 10 completed items by primary lane): systems=5, world=1, ai-content=1, combat=1, design=1, vfx=0, ux=1, qa=0.
+- Gate decision: systems lane at 50% (>40%) => forced next experiment from underrepresented lanes; selected Combat/VFX.
+- Ideas considered:
+  1) Add  token mapped from copy-pack cadence.
+  2) Add visible markdown rail + legend for cadence FX cue.
+  3) Add cadence-aware cue jitter damping window in payload signals.
+- Chosen slice (minimal vertical): implemented idea #1 as payload-only token  derived from cadence , flag-gated and offline-only.
+- Verification: ; [PASS] weekly portal prompt readability drift regression checks; [PASS] weekly portal prompt drift status=ok -> /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.json /home/namyunwoo/.openclaw/workspace/dotpio/logs/weekly_portal_prompt_readability_drift.md ✅
+- Backlog injections: queued UX/VFX markdown+legend rollout and Systems/QA adjacency/order contract lock for the new FX cue row.
+
+## 2026-03-30 15:44 KST — Cycle HH correction note
+- Corrected record: selected Combat/VFX vertical slice added payload-only token CBGCFXWSBPFXPDCW FX CUE:SOFT|EDGE|HARD from cadence class STEADY|PIVOT|BURST (flag-gated, offline-only).
+- Verification commands passed: python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py ; python3 scripts/regression_weekly_portal_prompt_readability_drift.py ; python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120.

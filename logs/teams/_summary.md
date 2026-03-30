@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 14:58 KST
+Last updated: 2026-03-30 15:44 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Executed Game Director Cycle HH coverage check (last 10 completed items by primary lane): systems=5, world=1, ai-content=1, combat=1, design=1, vfx=0, ux=1, qa=0. Systems exceeded lane cap (50% > 40%), so next experiment was forced into underrepresented lanes.
+- Generated 3 ideas and selected Combat/VFX minimal vertical slice: payload-only `CBGCFXWSBPFXPDCW FX CUE:SOFT|EDGE|HARD` derived from copy-pack cadence class (`STEADY|PIVOT|BURST`), flag-gated and offline-only.
+- Regression contract expanded to lock new payload field/schema/domain for `...CopyPackCadenceCombatVfxFxCue(Signals)` and mapping coherence (`STEADY->SOFT`, `PIVOT->EDGE`, `BURST->HARD`); verification and weekly smoke pass green.
+- Injected follow-up backlog tasks for HH: (1) UX/VFX optional markdown row+legend rollout for `CBGCFXWSBPFXPDCW FX CUE`, (2) Systems/QA optional-order/cardinality adjacency lock for the new row path.
 
 - Closed paired HE follow-ups for `CBGCFXWSBPFXPDCW COPY PACK`: summary/token-coverage rails now include `CBGCFXWSBPFXPDCW COPY PACK` and `CBGCFXWSBPFXPDCW COPY PACK LEGEND` immediately after `CBGCFXWSBPFXPDCW LEGEND` and before `CBGCFXWSBPFXPD ECHO`.
 - Regression coverage now hard-locks copy-pack row cardinality/dependency/order and payload schema/domain for `...CoachWhyCopyPackVariants(Signals)` (alias/family domains, tooltip variant cardinality=2, map keys A..F each with two variants).

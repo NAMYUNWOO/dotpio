@@ -2,6 +2,11 @@
 
 Last updated: 2026-03-20 17:31 KST
 
+## Game Director Injection — 2026-03-30 Cycle HH
+- [x] Combat/VFX Team: Add copy-pack cadence FX cue hook (`CBGCFXWSBPFXPDCW FX CUE:SOFT|EDGE|HARD`) mapped from cadence class (`STEADY|PIVOT|BURST`) as payload-only vertical slice.
+- [ ] UX/VFX Team: Add optional digest markdown row + legend for `CBGCFXWSBPFXPDCW FX CUE` adjacent to copy-pack cadence rows in both summary/token-coverage rails.
+- [ ] Systems/QA Team: Extend optional-order regression chain/contract to include `CBGCFXWSBPFXPDCW FX CUE` (cardinality/dependency/adjacency) while preserving payload-only fallback.
+
 See project-level plans:
 - `PROJECT_PLAN.md` (milestones/release gates)
 - `ACTION_ITEMS.md` (detailed execution backlog)
