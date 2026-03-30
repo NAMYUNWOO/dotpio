@@ -4149,3 +4149,4 @@ Compact decision memory for AI context efficiency.
 - Regression expanded with deterministic RFALL streak fixture (`R`: NONE -> V1 -> V2, `S`: reset) plus markdown ordering/cardinality/dependency checks for cadence-note rows in summary + token-coverage sections.
 - Verification remains green after updates (`py_compile`, weekly regression suite, weekly drift smoke).
 - Queue status now: TASKS + POST_RC_BACKLOG fully checked; ACTION_ITEMS still shows one in-progress placeholder line.
+- 2026-03-30 23:15 KST — Game Director Cycle HP (all prior checklists closed) selected Idea 1 and shipped payload-only compact cadence-note alias `CBGCFXWSBPFXPDCWFCTAN:<S|O|E>` from `CTA REVIEW CADENCE NOTE`; durable decision: keep this slice payload-first/reversible before markdown expansion. Injected follow-ups for UX row+legend, QA adjacency/count contract, and AI-content/combat decode microline pair.

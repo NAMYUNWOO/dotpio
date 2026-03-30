@@ -3201,6 +3201,40 @@ def main() -> int:
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteSignals", {}).get("selectedVariant") in {"NONE", "V1", "V2"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteSignals", {}).get("note") in {"steady-scan", "repeat-once", "repeat-escalate"}, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteSignals", {}).get("reason") == "aligned-with-rfall-selection", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAlias") in {
+            "FLAG OFF",
+            "CBGCFXWSBPFXPDCWFCTAN:S",
+            "CBGCFXWSBPFXPDCWFCTAN:O",
+            "CBGCFXWSBPFXPDCWFCTAN:E",
+        }, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "note",
+            "alias",
+            "noteAliasMap",
+            "aliasDecode",
+            "cadence",
+            "reason",
+            "token",
+            "offlineOnly",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasSignals", {}).get("note") in {
+            "steady-scan",
+            "repeat-once",
+            "repeat-escalate",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasSignals", {}).get("alias") in {
+            "S",
+            "O",
+            "E",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasSignals", {}).get("cadence") in {
+            "STEADY_SCAN",
+            "REPEAT_ONCE",
+            "REPEAT_ESCALATE",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasSignals", {}).get("reason") == "compact-rfall-aligned-cadence-route", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionEscalationAlias") in {
             "FLAG OFF",
             "CBGCFXWSBPFXPDCWFCTAE:H",

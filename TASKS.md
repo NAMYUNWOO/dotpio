@@ -1929,3 +1929,15 @@ See project-level plans:
 - [x] Combat/VFX Team: Add optional digest row + compact legend for `CBGCFXWSBPFXPDCWFCTA RFALL` in summary/token-coverage rails for faster review-window triage. *(lifecycle: [~] started: 2026-03-30 22:03 KST -> [x] completed: 2026-03-30 22:08 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [x] Design/World Team: Add short rationale copyline token for repeated review windows (`CTA REVIEW CADENCE NOTE:<short>`) aligned with RFALL selection.
 - [x] Systems/Ops Team: Add regression fixture asserting deterministic RFALL progression across `R` streak windows (`NONE -> V1 -> V2`) and reset on `S`.
+
+## Game Director Cycle HP — 2026-03-30 23:15 KST
+- Coverage check (last 10 completed headings by lane): systems/qa continued to dominate; selected a payload-only lane to keep world/design readability routing compact and reversible.
+- Idea 1 (low-risk systems/world): Add payload-only compact alias `CBGCFXWSBPFXPDCWFCTAN:<S|O|E>` derived from `CTA REVIEW CADENCE NOTE` for denser downstream routing. **Selected.**
+- Idea 2 (mid-risk ux/design): Add optional markdown row + legend for compact cadence-note alias after `CTA REVIEW CADENCE NOTE LEGEND`.
+- Idea 3 (high-risk novelty): Add adaptive review-window decay that auto-demotes `repeat-escalate` after stable windows.
+- [x] Systems/World Team (Cycle HP selected experiment): Added payload-only compact cadence-note alias `CBGCFXWSBPFXPDCWFCTAN:<S|O|E>` with deterministic note→alias decode map/signals and regression payload schema/domain locks (offline-only, flag-gated, reversible). *(lifecycle: [~] started: 2026-03-30 23:09 KST -> [x] completed: 2026-03-30 23:15 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle HP)
+- [ ] UX/Design Team: Add optional summary/token-coverage row + compact legend for `CBGCFXWSBPFXPDCWFCTAN` directly after `CTA REVIEW CADENCE NOTE LEGEND`.
+- [ ] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCTAN` rows (`0|2`) with dependency on `CTA REVIEW CADENCE NOTE`.
+- [ ] AI Content/Combat Team: Prototype compact operator decode microline pair for `S|O|E` cadence-note alias states (DOS-width, reversible).

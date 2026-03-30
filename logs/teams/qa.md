@@ -4554,3 +4554,4 @@
 - Extended regression coverage with deterministic RFALL fixture (`R` streak: NONE -> V1 -> V2, reset on `S`) and markdown contract ordering for cadence-note rows.
 - Verification: `python3 -m py_compile ...`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, and weekly smoke command passed.
 - Follow-up: continue remaining unchecked items in ACTION_ITEMS + POST_RC_BACKLOG.
+- 2026-03-30 23:15 KST — Cycle HP shipped payload-only compact cadence-note alias `CBGCFXWSBPFXPDCWFCTAN:<S|O|E>` mapped from `CTA REVIEW CADENCE NOTE` (`steady-scan|repeat-once|repeat-escalate`) with deterministic decode signals and green regression/weekly smoke verification.
