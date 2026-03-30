@@ -4074,3 +4074,11 @@ Compact decision memory for AI context efficiency.
 - Both tokens are experiment-flagged, offline-only, and now included in payload schema + token-family scanning; verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`).
 
 - 2026-03-30 14:16 KST — Durable decision: keep CBGCFXWSBPFXPDCW copy-pack variants payload-first (writerTooltipVariants map per alias family) before markdown exposure; inject follow-ups for adjacency-row UX and schema/domain QA locks.
+
+## 2026-03-30 15:26 KST — Cycle HF/HG closure and re-injection
+- Completed Cycle HF Next Up items: shipped markdown `CBGCFXWSBPFXPDCW COPY PACK CADENCE` row+legend and tightened regression adjacency/coherence locks.
+- Durable contract: cadence family mapping is now explicitly locked in regression (`PACE_HOLD->STEADY`, `PACE_PIVOT->PIVOT`, `PACE_COVER->STEADY`, `PUNCH_HOLD->STEADY`, `PUNCH_FEINT->PIVOT`, `PUNCH_BURST->BURST`) plus source-family-to-cadence coherence assertion.
+- Executed mandatory Game Director review cycle after all checklists were fully checked; selected Idea 2 and shipped payload-only `CBGCFXWSBPFXPDCWC:<S|P|B>` compact alias for combat/vfx routing hooks.
+- Injected new backlog items (Cycle HG):
+  - UX/Design: add optional digest markdown row + compact legend for `CBGCFXWSBPFXPDCWC`.
+  - QA/Systems: add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWC` in summary/token-coverage sections.

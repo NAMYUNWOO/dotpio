@@ -2630,3 +2630,7 @@
 
 ## 2026-03-30 14:58 KST
 - GD Cycle HF: shipped payload-only `CBGCFXWSBPFXPDCW COPY PACK CADENCE:<STEADY|PIVOT|BURST>` with deterministic family->cadence mapping and passing regression/smoke verification.
+
+## 2026-03-30 15:26 KST — Cycle HG cadence compact alias follow-up
+- Added/validated `CBGCFXWSBPFXPDCWC:<S|P|B>` payload alias hook tied to copy-pack cadence; kept offline-only + flag-gated + reversible path.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
