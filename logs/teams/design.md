@@ -2835,3 +2835,6 @@
 
 - 2026-03-31 02:08 KST — Cycle HS: Kept digest row budget unchanged (payload-only experiment). Design implication recorded for future optional legend row if scan friction appears.
 - 2026-03-31 03:44 KST — Design decision: keep `CBGCFXWSBPFXPIN LEGEND` compact (`A=ANCHOR, S=SURGE, R=RECOVER`) and place immediately after `CBGCFXWSBPFXPIN` to preserve narration-first scan rhythm.
+## 2026-03-31 03:41 KST — Cycle IK design/world cadence check
+- 24h cadence gate validated before selection: combat/vfx, design/world, and systems/ops all represented within the window.
+- Design read: keep new narration->FX cue mapping payload-first until scan friction appears, then consider optional digest row+legend.

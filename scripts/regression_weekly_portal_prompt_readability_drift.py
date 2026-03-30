@@ -4040,6 +4040,34 @@ def main() -> int:
             assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias == f"CBGCFXWSBPFXPIN:{expected_narration_alias}", payload
         else:
             assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias == "FLAG OFF", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCue", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPINF:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "narration",
+            "alias",
+            "cue",
+            "cueMap",
+            "tokenAlias",
+            "token",
+            "runtimeBalanceImpact",
+            "offlineOnly",
+        }, payload
+        intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCue", "")
+        intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueSignals", {})
+        expected_narration_cue = {"A": "SOFT", "R": "EDGE", "S": "HARD"}[expected_narration_alias]
+        expected_narration_cue_alias = {"SOFT": "S", "EDGE": "E", "HARD": "H"}[expected_narration_cue]
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("narration") == expected_narration, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("alias") == expected_narration_alias, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("cue") == expected_narration_cue, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("tokenAlias") == expected_narration_cue_alias, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("token") == f"CBGCFXWSBPFXPINF:{expected_narration_cue_alias}", payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("runtimeBalanceImpact") == "none", payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("offlineOnly") is True, payload
+        if intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("flagEnabled") is True:
+            assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue == f"CBGCFXWSBPFXPINF:{expected_narration_cue_alias}", payload
+        else:
+            assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHint", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPI DRILL:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintSignals", {}).keys()) == {
             "flagName",

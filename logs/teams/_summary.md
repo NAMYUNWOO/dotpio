@@ -4190,3 +4190,14 @@ Compact decision memory for AI context efficiency.
 - 2026-03-31 03:44 KST — Closed Cycle IJ Systems/QA item: shipped optional digest markdown rows `CBGCFXWSBPFXPIN` + `CBGCFXWSBPFXPIN LEGEND` adjacent to `CBGCFXWSBPFXPI NARR` across summary/token-coverage rails.
 - Durable contract update: optional spacer chain now includes `...FXPI NARR -> ...FXPIN -> ...FXPIN LEGEND -> ...FXPI DRILL`; regression enforces 0|2 row cardinality and strict adjacency/dependency.
 - Backlog progress: remaining unchecked injector item is `CBGCFXWSBPFXPIN DRIFT` flagged prototype (`LOCK|WATCH`).
+## 2026-03-31 03:41 KST — Game Director Cycle IK (Combat/VFX underrepresentation rebound)
+- Coverage check over last 10 completed items by lane: systems=2, world=2, ux=2, qa=1, design=1, combat=1, ai-content=1, vfx=0.
+- Lane policy result: no lane exceeded 40%, but VFX was underrepresented and elevated for this cycle.
+- 24h cadence gate satisfied (>=1 combat/vfx, >=1 design/world, >=1 systems/ops in window).
+- Idea set generated:
+  1) **Low-risk (UX/game-feel):** optional digest row + compact legend for narration alias VFX cue decode.
+  2) **Mid-risk (systems/combat/design) — Selected:** payload-only compact narration-driven Combat/VFX cue alias `CBGCFXWSBPFXPINF:<S|E|H>`.
+  3) **High-risk (novelty):** tension-reactive cue rotor that perturbs cue class after repeated RECOVER streaks.
+- Vertical slice shipped: new resolver + payload/signals + regression locks for deterministic mapping `A->SOFT(S), R->EDGE(E), S->HARD(H)`.
+- Verification: py_compile + weekly regression + weekly drift smoke all PASS.
+- Next experiment injection: world/design legend readability pack, systems/ops stale-vfx watchdog, combat/vfx drift-streak cue stress fixture.

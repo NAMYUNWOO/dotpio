@@ -4074,3 +4074,6 @@
 
 - 2026-03-31 02:08 KST — Cycle HS: Wired payload export for `CBGCFXWSBPFXPDCWFCTASF:<S|E|H>` and added deterministic alias map/signals (`H|R|T -> S|E|H`) in weekly readability drift pipeline.
 - 2026-03-31 03:44 KST — Cycle IJ Systems/QA: Added optional markdown rollout rows `CBGCFXWSBPFXPIN` + `CBGCFXWSBPFXPIN LEGEND` directly after `CBGCFXWSBPFXPI NARR` in both summary/token-coverage rails; expanded regression count/dependency/adjacency contracts accordingly.
+## 2026-03-31 03:41 KST — Cycle IK systems/ops contract note
+- Added payload surface + signal schema for `cadenceBridge...NarrationCompactAliasCombatVfxFxCue` (`CBGCFXWSBPFXPINF:<S|E|H>`).
+- Regression coverage now locks deterministic alias->cue->token mapping and flag-off fallback behavior.

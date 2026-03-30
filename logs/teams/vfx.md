@@ -404,3 +404,9 @@
 ## 2026-03-30 21:49 KST — Cycle HO VFX lane note
 - No new runtime VFX mapping shipped in this slice.
 - VFX lane kept in next-injection queue with explicit follow-up: optional digest rail/legend for `CBGCFXWSBPFXPDCWFCTA RFALL` to keep cadence visibility balanced.
+## 2026-03-31 03:41 KST — Cycle IK (forced underrepresented lane: Combat/VFX)
+- Coverage check (last 10 completed items): systems=2, world=2, ux=2, qa=1, design=1, combat=1, ai-content=1, vfx=0.
+- Lane decision: no lane exceeded 40%, but VFX remained underrepresented (0/10), so this cycle elevated a Combat/VFX payload slice.
+- Selected experiment shipped: payload-only narration-driven VFX cue alias `CBGCFXWSBPFXPINF:<S|E|H>` (`A->SOFT/S`, `R->EDGE/E`, `S->HARD/H`) for dense downstream FX routing.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅.
+- Guardrail: offline-only, flag-gated, zero runtime balance impact.
