@@ -281,6 +281,25 @@ def main() -> int:
             assert trend_band_signals.get("reason") == "no-prior-window", matrix_payload
             assert trend_band_signals.get("priorLoaded") is False, matrix_payload
             assert trend_band_signals.get("offlineOnly") is True, matrix_payload
+            combat_vfx_cue = matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyCombatVfxCue"
+            )
+            assert combat_vfx_cue == "CBGCFXWSBPFXPDE POLICY FX CUE:SOFT", matrix_payload
+            combat_vfx_cue_signals = matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyCombatVfxCueSignals",
+                {},
+            )
+            assert set(combat_vfx_cue_signals.keys()) == {
+                "thresholdPolicy",
+                "cue",
+                "cueMap",
+                "token",
+                "offlineOnly",
+            }, matrix_payload
+            assert combat_vfx_cue_signals.get("thresholdPolicy") == "BASELINE_ONLY", matrix_payload
+            assert combat_vfx_cue_signals.get("cue") == "SOFT", matrix_payload
+            assert combat_vfx_cue_signals.get("token") == "CBGCFXWSBPFXPDE POLICY FX CUE:SOFT", matrix_payload
+            assert combat_vfx_cue_signals.get("offlineOnly") is True, matrix_payload
             for row_prefix in (
                 "- CBGCFXWSBPFXPD ECHO:",
                 "- CBGCFXWSBPFXPDE:",

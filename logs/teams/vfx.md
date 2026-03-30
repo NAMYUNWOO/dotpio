@@ -380,3 +380,8 @@
 ## 2026-03-30 05:53 KST — Lane sync
 - No VFX content retune in this cycle; only digest telemetry contract updates.
 - Follow-up: keep VFX lane eligible for next daily cadence item.
+
+## 2026-03-30 09:49 KST — Cycle rebound close (combat/vfx)
+- Closed `GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-combat-vfx-cue` with payload cue token `CBGCFXWSBPFXPDE POLICY FX CUE:SOFT|EDGE|HARD` derived from snapshot threshold policy (`BASELINE_ONLY|NO_TRIAGE->SOFT`, `WATCH|WATCH_FALLBACK->EDGE`, `MANUAL->HARD`).
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; weekly drift smoke command PASS.
+- Next injection: design/world copyline pack, then systems/ops window profiler.

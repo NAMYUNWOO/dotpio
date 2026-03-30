@@ -4020,3 +4020,15 @@ Compact decision memory for AI context efficiency.
 - 2026-03-30 09:18 KST — Closed GD-2026-03-30-fxpde-matrix-drift-snapshot-triage-thresholds: FXPDE matrix-drift snapshot recommendation now uses configurable WATCH/MANUAL thresholds (bands + streak mins) through env policy knobs and ships policy diagnostics (`thresholdPolicy`, `thresholdReason`, `thresholds`) in payload for durable QA tuning traceability.
 
 - 2026-03-30 09:28 KST — Game Director review cycle triggered after full-check completion: shipped minimal vertical slice `CBGCFXWSBPFXPDE SNAPSHOT POLICY` row (summary + token-coverage) and extended regression spacer/order contract; backlog now carries two injected follow-ups for compact alias and policy-aware copy-pack.
+
+## 2026-03-30 09:49 KST — Game Director Cycle (lane rebalance forced: combat/vfx)
+- Coverage check (last 10 completed items by lane): systems=5, ux=5, qa=4, combat=3, design=3, vfx=2, world=1, ai-content=0.
+- Lane-cap rule triggered (>40%): forced next experiment from underrepresented lanes; selected combat/vfx slice.
+- Ideas considered:
+  1) Combat/VFX threshold-policy cue token (selected).
+  2) Design/World policy-aware copyline pack.
+  3) Systems/Ops rolling-window policy profiler.
+- Implemented: payload token `CBGCFXWSBPFXPDE POLICY FX CUE:SOFT|EDGE|HARD` + signals (`thresholdPolicy`, `cue`, `cueMap`) from snapshot policy.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120 --out-json logs/playtests/weekly_portal_prompt_readability_drift.json --out-md logs/playtests/weekly_portal_prompt_readability_drift.md --out-fx-remap-candidates-json logs/playtests/dmg_glyph_fx_remap_candidates.json --out-fx-remap-candidates-md logs/playtests/dmg_glyph_fx_remap_candidates.md --out-ambient-why-auto-remap-plan-json logs/playtests/ambient_ramp_why_auto_remap_plan.json --out-ambient-why-auto-remap-plan-md logs/playtests/ambient_ramp_why_auto_remap_plan.md`.
+- Result: additive/reversible payload-only vertical slice with no gameplay coupling; regression contracts remained green.
+- Next injected experiment: `GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-world-copyline` (design/world), then `...ops-window-profiler` (systems/ops).

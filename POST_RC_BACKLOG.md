@@ -1667,3 +1667,15 @@ Last updated: 2026-03-21 02:31 KST
 - [x] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-markdown: Surface markdown/token-coverage policy row for FXPDE snapshot threshold configuration and lock adjacency in regression. *(lifecycle: [ ] -> [~] started: 2026-03-30 09:24 KST -> [x] completed: 2026-03-30 09:28 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift playtest smoke command)*
 - [ ] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-compact-alias: Add payload compact alias for threshold posture to support downstream automation.
 - [ ] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-copy-pack: Add optional policy-aware summary copy pack behind flag for QA digest readability.
+
+### 2026-03-30 09:49 KST — Game Director Review Cycle (lane rebalance forced)
+- Coverage check (last 10 completed items by lane): systems=5, ux=5, qa=4, combat=3, design=3, vfx=2, world=1, ai-content=0.
+- Lane-cap result: systems/ux exceeded 40%, so this cycle forced an underrepresented-lane experiment in combat/vfx.
+- 24h cadence guard: satisfied via recent items in all required buckets (combat/vfx, design/world, systems/ops).
+- Ideas generated:
+  1. (Low-risk combat/vfx) Add payload combat-vfx cue derived from FXPDE snapshot threshold policy (`CBGCFXWSBPFXPDE POLICY FX CUE:SOFT|EDGE|HARD`). **Selected.**
+  2. (Mid-risk design/world) Add world-tone prose pack keyed by threshold policy (`calm watchline` vs `escalation watchline`).
+  3. (High-risk systems/ops) Add lane-aware auto-threshold profile switch for snapshot policy based on 24h cadence misses.
+- [x] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-combat-vfx-cue: Add payload-only combat/vfx cue token and signals from snapshot threshold policy for downstream automation hooks. *(lifecycle: [ ] -> [~] started: 2026-03-30 09:44 KST -> [x] completed: 2026-03-30 09:49 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift playtest smoke command)*
+- [ ] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-world-copyline: Add optional design/world copyline pack keyed by threshold policy for digest readability.
+- [ ] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-ops-window-profiler: Add systems/ops payload profiler summarizing threshold policy cadence over rolling windows.
