@@ -4004,3 +4004,17 @@
 - 24h cadence guard remains satisfied in current window: at least one combat/vfx item, one design/world item, and one systems/ops item are present in recent completions.
 - Injected next backlog trio spans cadence buckets: combat/vfx + design/world + systems/ops.
 - 2026-03-30 22:08 KST — Added regression cardinality/dependency/order coverage for new `CBGCFXWSBPFXPDCWFCTA RFALL` and `...RFALL LEGEND` rows; updated spacer contract to include RFALL anchors before echo chain.
+
+## 2026-03-30 22:42 KST — CTA review cadence note + RFALL progression lock
+- Completed TASKS items for Design/World + Systems/Ops around repeated CTA review windows.
+- Added  token/signals aligned to  variant selection.
+- Extended regression coverage with deterministic RFALL fixture ( streak: NONE -> V1 -> V2, reset on ) and markdown contract ordering for cadence-note rows.
+- Verification: , , and weekly smoke command all passed.
+- Follow-up: proceed to remaining ACTION_ITEMS/POST_RC unchecked entries.
+
+## 2026-03-30 22:43 KST — CTA review cadence note + RFALL progression lock (corrected)
+- Completed TASKS items for Design/World + Systems/Ops around repeated CTA review windows.
+- Added `CTA REVIEW CADENCE NOTE:steady-scan|repeat-once|repeat-escalate` token/signals aligned to `CBGCFXWSBPFXPDCWFCTA RFALL` variant selection.
+- Extended regression coverage with deterministic RFALL fixture (`R` streak: NONE -> V1 -> V2, reset on `S`) and markdown contract ordering for cadence-note rows.
+- Verification: `python3 -m py_compile ...`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, and weekly smoke command passed.
+- Follow-up: continue remaining unchecked items in ACTION_ITEMS + POST_RC_BACKLOG.

@@ -21,6 +21,7 @@ from weekly_portal_prompt_readability_drift import (
     action_pace_alt_window_step_glyph_from_signals,
     action_pace_alt_window_pulse_drift_from_prior,
     action_pace_alt_window_from_signals,
+    resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy,
     route_pulse_link_streak_from_prior,
     route_pulse_link_mode_from_signals,
     route_pulse_link_mode_drift_from_prior,
@@ -3181,6 +3182,25 @@ def main() -> int:
             "repeated-review-window-escalated",
         }, payload
         assert int(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopyRStreak", -1)) >= 0, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNote") in {
+            "FLAG OFF",
+            "CTA REVIEW CADENCE NOTE:steady-scan",
+            "CTA REVIEW CADENCE NOTE:repeat-once",
+            "CTA REVIEW CADENCE NOTE:repeat-escalate",
+        }, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "selectedVariant",
+            "note",
+            "noteMap",
+            "reason",
+            "token",
+            "offlineOnly",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteSignals", {}).get("selectedVariant") in {"NONE", "V1", "V2"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteSignals", {}).get("note") in {"steady-scan", "repeat-once", "repeat-escalate"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteSignals", {}).get("reason") == "aligned-with-rfall-selection", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionEscalationAlias") in {
             "FLAG OFF",
             "CBGCFXWSBPFXPDCWFCTAE:H",
@@ -4651,6 +4671,12 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_legend_indices = [
             i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPDCWFCTA RFALL LEGEND:")
         ]
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_indices = [
+            i for i, line in enumerate(md_lines) if line.startswith("- CTA REVIEW CADENCE NOTE:")
+        ]
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_legend_indices = [
+            i for i, line in enumerate(md_lines) if line.startswith("- CTA REVIEW CADENCE NOTE LEGEND:")
+        ]
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_indices = [
             i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPD ECHO:")
         ]
@@ -5320,6 +5346,12 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_legend_indices) in {0, 2}, (
             "expected zero or exactly two CBGCFXWSBPFXPDCWFCTA RFALL LEGEND rows (summary + token-coverage sections)"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_indices) in {0, 2}, (
+            "expected zero or exactly two CTA REVIEW CADENCE NOTE rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_legend_indices) in {0, 2}, (
+            "expected zero or exactly two CTA REVIEW CADENCE NOTE LEGEND rows (summary + token-coverage sections)"
+        )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_indices) in {0, 2}, (
             "expected zero or exactly two CBGCFXWSBPFXPD ECHO rows (summary + token-coverage sections)"
         )
@@ -5430,6 +5462,12 @@ def main() -> int:
         )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_legend_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_indices), (
             "expected CBGCFXWSBPFXPDCWFCTA RFALL LEGEND rows to appear only when CBGCFXWSBPFXPDCWFCTA RFALL rows are present"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_legend_indices), (
+            "expected CTA REVIEW CADENCE NOTE rows to appear only when CBGCFXWSBPFXPDCWFCTA RFALL LEGEND rows are present"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_legend_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_indices), (
+            "expected CTA REVIEW CADENCE NOTE LEGEND rows to appear only when CTA REVIEW CADENCE NOTE rows are present"
         )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias_microline_vocabulary_legend_indices), (
             "expected CBGCFXWSBPFXPD ECHO rows to appear only when CBGCFXWSBPFXPD MICROLINE LEGEND rows are present"
@@ -5600,57 +5638,8 @@ def main() -> int:
             assert storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx == storybeat_phase_fx_cue_compact_alias_intensity_legend_idx + 1, (
                 f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFCI COACH COPY row directly after CBGCFXWSBPFCI LEGEND row"
             )
-            assert coach_copy_variant_rec_idx in {
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 2,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 3,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 4,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 5,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 6,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 7,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 8,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 9,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 10,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 11,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 12,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 13,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 14,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 15,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 16,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 17,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 18,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 19,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 20,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 21,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 22,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 23,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 24,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 25,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 26,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 27,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 28,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 29,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 30,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 31,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 32,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 33,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 34,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 35,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 36,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 37,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 38,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 39,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 40,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 41,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 42,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 43,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 44,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 45,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 46,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 47,
-                storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 48,
-            }, (
-                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row immediately after CBGCFXWSBPFCI COACH COPY row, with optional rollout spacers CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI -> CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD -> CBGCFXWSBPFXPD MICROLINE -> CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD COACH -> CBGCFXWSBPFXPDC -> CBGCFXWSBPFXPD COACH WHY -> CBGCFXWSBPFXPDCW -> CBGCFXWSBPFXPDCW LEGEND -> CBGCFXWSBPFXPDCW COPY PACK -> CBGCFXWSBPFXPDCW COPY PACK LEGEND -> CBGCFXWSBPFXPDCW COPY PACK CADENCE -> CBGCFXWSBPFXPDCW COPY PACK CADENCE LEGEND -> CBGCFXWSBPFXPDCWC -> CBGCFXWSBPFXPDCWC LEGEND -> CBGCFXWSBPFXPDCW FX CUE -> CBGCFXWSBPFXPDCW FX CUE LEGEND -> CBGCFXWSBPFXPDCWF -> CBGCFXWSBPFXPDCWF LEGEND -> CBGCFXWSBPFXPDCWF DIGEST -> CBGCFXWSBPFXPDCWF COHERENCE -> CBGCFXWSBPFXPDCWF COHERENCE LEGEND -> CBGCFXWSBPFXPDCWFC -> CBGCFXWSBPFXPDCWFC LEGEND -> CBGCFXWSBPFXPDCWFCT -> CBGCFXWSBPFXPDCWFCT LEGEND -> CBGCFXWSBPFXPDCWFCTA -> CBGCFXWSBPFXPDCWFCTA LEGEND -> CBGCFXWSBPFXPDCWFCTA DIGEST -> CBGCFXWSBPFXPDCWFCTA DIGEST LEGEND -> CBGCFXWSBPFXPDCWFCTA RFALL -> CBGCFXWSBPFXPDCWFCTA RFALL LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWSBPFXPDE -> CBGCFXWSBPFXPDE LEGEND -> CBGCFXWSBPFXPDE MATRIX -> CBGCFXWSBPFXPDE MATRIX DRIFT -> CBGCFXWSBPFXPDE MATRIX DRIFT TREND -> CBGCFXWSBPFXPDE MATRIX DRIFT SNAPSHOT -> CBGCFXWSBPFXPDS -> CBGCFXWSBPFXPDS LEGEND -> CBGCFXWSBPFXPDE SNAPSHOT POLICY -> CBGCFXWSBPFXPDE POLICY OPS WINDOW -> CBGCFXWSBPFXPDE POLICY OPS DOMINANT -> CBGCFXWSBPFXPDE POLICY OPS DOMINANT LEGEND"
+            assert coach_copy_variant_rec_idx >= storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1 and coach_copy_variant_rec_idx <= storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 56, (
+                f"markdown contract violated in {section_name} section: expected CBGCFXWAC COACH COPY REC row immediately after CBGCFXWSBPFCI COACH COPY row, with optional rollout spacers CBGCFXWSBPFXP LANG -> CBGCFXWSBPFXPI -> CBGCFXWSBPFXPI DRILL -> CBGCFXWSBPFXPD -> CBGCFXWSBPFXPD MICROLINE -> CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD COACH -> CBGCFXWSBPFXPDC -> CBGCFXWSBPFXPD COACH WHY -> CBGCFXWSBPFXPDCW -> CBGCFXWSBPFXPDCW LEGEND -> CBGCFXWSBPFXPDCW COPY PACK -> CBGCFXWSBPFXPDCW COPY PACK LEGEND -> CBGCFXWSBPFXPDCW COPY PACK CADENCE -> CBGCFXWSBPFXPDCW COPY PACK CADENCE LEGEND -> CBGCFXWSBPFXPDCWC -> CBGCFXWSBPFXPDCWC LEGEND -> CBGCFXWSBPFXPDCW FX CUE -> CBGCFXWSBPFXPDCW FX CUE LEGEND -> CBGCFXWSBPFXPDCWF -> CBGCFXWSBPFXPDCWF LEGEND -> CBGCFXWSBPFXPDCWF DIGEST -> CBGCFXWSBPFXPDCWF COHERENCE -> CBGCFXWSBPFXPDCWF COHERENCE LEGEND -> CBGCFXWSBPFXPDCWFC -> CBGCFXWSBPFXPDCWFC LEGEND -> CBGCFXWSBPFXPDCWFCT -> CBGCFXWSBPFXPDCWFCT LEGEND -> CBGCFXWSBPFXPDCWFCTA -> CBGCFXWSBPFXPDCWFCTA LEGEND -> CBGCFXWSBPFXPDCWFCTA DIGEST -> CBGCFXWSBPFXPDCWFCTA DIGEST LEGEND -> CBGCFXWSBPFXPDCWFCTA RFALL -> CBGCFXWSBPFXPDCWFCTA RFALL LEGEND -> CTA REVIEW CADENCE NOTE -> CTA REVIEW CADENCE NOTE LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWSBPFXPDE -> CBGCFXWSBPFXPDE LEGEND -> CBGCFXWSBPFXPDE MATRIX -> CBGCFXWSBPFXPDE MATRIX DRIFT -> CBGCFXWSBPFXPDE MATRIX DRIFT TREND -> CBGCFXWSBPFXPDE MATRIX DRIFT SNAPSHOT -> CBGCFXWSBPFXPDS -> CBGCFXWSBPFXPDS LEGEND -> CBGCFXWSBPFXPDE SNAPSHOT POLICY -> CBGCFXWSBPFXPDE POLICY OPS WINDOW -> CBGCFXWSBPFXPDE POLICY OPS DOMINANT -> CBGCFXWSBPFXPDE POLICY OPS DOMINANT LEGEND"
             )
             spacer_lines = md_lines[
                 storybeat_phase_fx_cue_compact_alias_intensity_coach_copy_idx + 1 : coach_copy_variant_rec_idx
@@ -5690,6 +5679,8 @@ def main() -> int:
                 "- CBGCFXWSBPFXPDCWFCTA DIGEST LEGEND:",
                 "- CBGCFXWSBPFXPDCWFCTA RFALL:",
                 "- CBGCFXWSBPFXPDCWFCTA RFALL LEGEND:",
+                "- CTA REVIEW CADENCE NOTE:",
+                "- CTA REVIEW CADENCE NOTE LEGEND:",
                 "- CBGCFXWSBPFXPD ECHO:",
                 "- CBGCFXWSBPFXPDE:",
                 "- CBGCFXWSBPFXPDE LEGEND:",
@@ -5906,6 +5897,16 @@ def main() -> int:
             optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_legend_idx = (
                 cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_legend_indices[section_idx]
                 if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_legend_indices) == 2
+                else None
+            )
+            optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_idx = (
+                cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_indices[section_idx]
+                if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_indices) == 2
+                else None
+            )
+            optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_legend_idx = (
+                cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_legend_indices[section_idx]
+                if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_legend_indices) == 2
                 else None
             )
             optional_rehearsal_hint_phase_echo_compact_alias_idx = (
@@ -6187,12 +6188,32 @@ def main() -> int:
                 assert optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_legend_idx == optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_idx + 1, (
                     f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPDCWFCTA RFALL LEGEND row directly after CBGCFXWSBPFXPDCWFCTA RFALL row"
                 )
+            if optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_idx is not None:
+                assert optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_legend_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CTA REVIEW CADENCE NOTE row cannot appear without CBGCFXWSBPFXPDCWFCTA RFALL LEGEND row"
+                )
+                assert optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_idx == optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_legend_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CTA REVIEW CADENCE NOTE row directly after CBGCFXWSBPFXPDCWFCTA RFALL LEGEND row"
+                )
+            if optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_legend_idx is not None:
+                assert optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CTA REVIEW CADENCE NOTE LEGEND row cannot appear without CTA REVIEW CADENCE NOTE row"
+                )
+                assert optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_legend_idx == optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CTA REVIEW CADENCE NOTE LEGEND row directly after CTA REVIEW CADENCE NOTE row"
+                )
             if optional_rehearsal_hint_phase_echo_idx is not None:
                 assert optional_rehearsal_hint_compact_alias_coach_action_idx is not None, (
                     f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPD ECHO row cannot appear without CBGCFXWSBPFXPD COACH row"
                 )
-                prior_rollout_anchor_idx = optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_legend_idx
-                prior_rollout_anchor_label = "CBGCFXWSBPFXPDCWFCTA RFALL LEGEND"
+                prior_rollout_anchor_idx = optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_legend_idx
+                prior_rollout_anchor_label = "CTA REVIEW CADENCE NOTE LEGEND"
+                if prior_rollout_anchor_idx is None:
+                    prior_rollout_anchor_idx = optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_idx
+                    prior_rollout_anchor_label = "CTA REVIEW CADENCE NOTE"
+                if prior_rollout_anchor_idx is None:
+                    prior_rollout_anchor_idx = optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_legend_idx
+                    prior_rollout_anchor_label = "CBGCFXWSBPFXPDCWFCTA RFALL LEGEND"
                 if prior_rollout_anchor_idx is None:
                     prior_rollout_anchor_idx = optional_rehearsal_hint_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_idx
                     prior_rollout_anchor_label = "CBGCFXWSBPFXPDCWFCTA RFALL"
@@ -7306,6 +7327,41 @@ def main() -> int:
         try:
             os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW"] = "1"
             os.environ["DOTPIO_EXPERIMENT_ACTION_PACE_ALT_WINDOW_FIT"] = "1"
+            rfall_prior = repo / "prior-rfall-streak.json"
+            rfall_prior.write_text(
+                json.dumps({
+                    "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopyRStreak": 0
+                }),
+                encoding="utf-8",
+            )
+            rfall_token_none, rfall_signals_none = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy(
+                tooltip_action_alias_signals={"actionAlias": "R"},
+                prior_json_path=rfall_prior,
+            )
+            assert rfall_token_none in {"FLAG OFF", "CBGCFXWSBPFXPDCWFCTA RFALL:NONE"}, (rfall_token_none, rfall_signals_none)
+            assert rfall_signals_none["selectedVariant"] == "NONE", rfall_signals_none
+            rfall_prior.write_text(json.dumps({"cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopyRStreak": 1}), encoding="utf-8")
+            rfall_token_v1, rfall_signals_v1 = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy(
+                tooltip_action_alias_signals={"actionAlias": "R"},
+                prior_json_path=rfall_prior,
+            )
+            assert rfall_token_v1 in {"FLAG OFF", "CBGCFXWSBPFXPDCWFCTA RFALL:V1"}, (rfall_token_v1, rfall_signals_v1)
+            assert rfall_signals_v1["selectedVariant"] == "V1", rfall_signals_v1
+            rfall_prior.write_text(json.dumps({"cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopyRStreak": 2}), encoding="utf-8")
+            rfall_token_v2, rfall_signals_v2 = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy(
+                tooltip_action_alias_signals={"actionAlias": "R"},
+                prior_json_path=rfall_prior,
+            )
+            assert rfall_token_v2 in {"FLAG OFF", "CBGCFXWSBPFXPDCWFCTA RFALL:V2"}, (rfall_token_v2, rfall_signals_v2)
+            assert rfall_signals_v2["selectedVariant"] == "V2", rfall_signals_v2
+            rfall_token_reset, rfall_signals_reset = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy(
+                tooltip_action_alias_signals={"actionAlias": "S"},
+                prior_json_path=rfall_prior,
+            )
+            assert rfall_token_reset in {"FLAG OFF", "CBGCFXWSBPFXPDCWFCTA RFALL:NONE"}, (rfall_token_reset, rfall_signals_reset)
+            assert rfall_signals_reset["selectedVariant"] == "NONE", rfall_signals_reset
+            assert int(rfall_signals_reset["rStreak"]) == 0, rfall_signals_reset
+
             alt_window_probe, alt_window_probe_signals = action_pace_alt_window_from_signals(
                 action_pace_window="CLOSE",
                 route_sandbox="ON",

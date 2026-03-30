@@ -1927,5 +1927,5 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — Cycle HO)
 - [x] Combat/VFX Team: Add optional digest row + compact legend for `CBGCFXWSBPFXPDCWFCTA RFALL` in summary/token-coverage rails for faster review-window triage. *(lifecycle: [~] started: 2026-03-30 22:03 KST -> [x] completed: 2026-03-30 22:08 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] Design/World Team: Add short rationale copyline token for repeated review windows (`CTA REVIEW CADENCE NOTE:<short>`) aligned with RFALL selection.
-- [ ] Systems/Ops Team: Add regression fixture asserting deterministic RFALL progression across `R` streak windows (`NONE -> V1 -> V2`) and reset on `S`.
+- [x] Design/World Team: Add short rationale copyline token for repeated review windows (`CTA REVIEW CADENCE NOTE:<short>`) aligned with RFALL selection.
+- [x] Systems/Ops Team: Add regression fixture asserting deterministic RFALL progression across `R` streak windows (`NONE -> V1 -> V2`) and reset on `S`.

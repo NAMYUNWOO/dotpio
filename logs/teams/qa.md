@@ -4540,3 +4540,17 @@
 - Decision: Added optional `CBGCFXWSBPFXPDCWFCTA DIGEST LEGEND` markdown row in summary/token-coverage rails and extended adjacency/cardinality rollout contracts.
 - Follow-up: Remaining open queue item is AI Content/World repeated-`R` fallback operator copy variants.
 - 2026-03-30 22:08 KST — QA contracts expanded to assert RFALL row count/order/dependency across summary + token-coverage sections; expected spacer prefixes now include RFALL pair.
+
+## 2026-03-30 22:42 KST — CTA review cadence note + RFALL progression lock
+- Completed TASKS items for Design/World + Systems/Ops around repeated CTA review windows.
+- Added  token/signals aligned to  variant selection.
+- Extended regression coverage with deterministic RFALL fixture ( streak: NONE -> V1 -> V2, reset on ) and markdown contract ordering for cadence-note rows.
+- Verification: , , and weekly smoke command all passed.
+- Follow-up: proceed to remaining ACTION_ITEMS/POST_RC unchecked entries.
+
+## 2026-03-30 22:43 KST — CTA review cadence note + RFALL progression lock (corrected)
+- Completed TASKS items for Design/World + Systems/Ops around repeated CTA review windows.
+- Added `CTA REVIEW CADENCE NOTE:steady-scan|repeat-once|repeat-escalate` token/signals aligned to `CBGCFXWSBPFXPDCWFCTA RFALL` variant selection.
+- Extended regression coverage with deterministic RFALL fixture (`R` streak: NONE -> V1 -> V2, reset on `S`) and markdown contract ordering for cadence-note rows.
+- Verification: `python3 -m py_compile ...`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, and weekly smoke command passed.
+- Follow-up: continue remaining unchecked items in ACTION_ITEMS + POST_RC_BACKLOG.

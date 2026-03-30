@@ -2774,3 +2774,17 @@
 - Streak policy: `R` streak 1 => `NONE`, streak 2 => `V1`, streak >=3 => `V2`; any `S` window resets streak.
 - Verification: `python3 -m py_compile ...` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift generation PASS.
 - 2026-03-30 22:08 KST — Exposed AI-content fallback selection token `CBGCFXWSBPFXPDCWFCTA RFALL` in markdown rails with compact legend so repeated `R` streak rationale is visible without JSON inspection.
+
+## 2026-03-30 22:42 KST — CTA review cadence note + RFALL progression lock
+- Completed TASKS items for Design/World + Systems/Ops around repeated CTA review windows.
+- Added  token/signals aligned to  variant selection.
+- Extended regression coverage with deterministic RFALL fixture ( streak: NONE -> V1 -> V2, reset on ) and markdown contract ordering for cadence-note rows.
+- Verification: , , and weekly smoke command all passed.
+- Follow-up: proceed to remaining ACTION_ITEMS/POST_RC unchecked entries.
+
+## 2026-03-30 22:43 KST — CTA review cadence note + RFALL progression lock (corrected)
+- Completed TASKS items for Design/World + Systems/Ops around repeated CTA review windows.
+- Added `CTA REVIEW CADENCE NOTE:steady-scan|repeat-once|repeat-escalate` token/signals aligned to `CBGCFXWSBPFXPDCWFCTA RFALL` variant selection.
+- Extended regression coverage with deterministic RFALL fixture (`R` streak: NONE -> V1 -> V2, reset on `S`) and markdown contract ordering for cadence-note rows.
+- Verification: `python3 -m py_compile ...`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, and weekly smoke command passed.
+- Follow-up: continue remaining unchecked items in ACTION_ITEMS + POST_RC_BACKLOG.

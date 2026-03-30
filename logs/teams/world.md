@@ -2688,3 +2688,17 @@
 - Added world-facing review-window fallback copylines for repeated `R` streaks as offline digest guidance (no runtime world-state mutation).
 - Copy remains reversible and flag-gated; designed for compact DOS-width operator readability.
 - 2026-03-30 22:08 KST — RFALL rollout now surfaces world-facing repeated-review fallback state inline (`NONE|V1|V2`) via digest rows for clearer operator context in offline reports.
+
+## 2026-03-30 22:42 KST — CTA review cadence note + RFALL progression lock
+- Completed TASKS items for Design/World + Systems/Ops around repeated CTA review windows.
+- Added  token/signals aligned to  variant selection.
+- Extended regression coverage with deterministic RFALL fixture ( streak: NONE -> V1 -> V2, reset on ) and markdown contract ordering for cadence-note rows.
+- Verification: , , and weekly smoke command all passed.
+- Follow-up: proceed to remaining ACTION_ITEMS/POST_RC unchecked entries.
+
+## 2026-03-30 22:43 KST — CTA review cadence note + RFALL progression lock (corrected)
+- Completed TASKS items for Design/World + Systems/Ops around repeated CTA review windows.
+- Added `CTA REVIEW CADENCE NOTE:steady-scan|repeat-once|repeat-escalate` token/signals aligned to `CBGCFXWSBPFXPDCWFCTA RFALL` variant selection.
+- Extended regression coverage with deterministic RFALL fixture (`R` streak: NONE -> V1 -> V2, reset on `S`) and markdown contract ordering for cadence-note rows.
+- Verification: `python3 -m py_compile ...`, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, and weekly smoke command passed.
+- Follow-up: continue remaining unchecked items in ACTION_ITEMS + POST_RC_BACKLOG.
