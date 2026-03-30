@@ -4185,6 +4185,8 @@ def main() -> int:
             "cueMap",
             "tokenAlias",
             "token",
+            "adjacencyInvariant",
+            "adjacencyChain",
             "runtimeBalanceImpact",
             "offlineOnly",
         }, payload
@@ -4197,6 +4199,8 @@ def main() -> int:
         assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("cue") == expected_narration_cue, payload
         assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("tokenAlias") == expected_narration_cue_alias, payload
         assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("token") == f"CBGCFXWSBPFXPINF:{expected_narration_cue_alias}", payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("adjacencyInvariant") == "preserved", payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("adjacencyChain") == "CBGCFXWSBPFXPIN->CBGCFXWSBPFXPIN LEGEND->CBGCFXWSBPFXPINF->CBGCFXWSBPFXPINF LEGEND", payload
         assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("runtimeBalanceImpact") == "none", payload
         assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("offlineOnly") is True, payload
         if intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals.get("flagEnabled") is True:
@@ -6208,6 +6212,18 @@ def main() -> int:
                     f"markdown contract violated in {section_name} section: rollout spacers must preserve forward token order"
                 )
                 last_prefix_idx = matched_prefix_idx
+
+            optional_spacer_prefix_to_index = {
+                prefix: i for i, prefix in enumerate(expected_spacer_prefixes)
+            }
+            optional_phase_intent_narration_compact_alias_prefix_idx = optional_spacer_prefix_to_index["- CBGCFXWSBPFXPIN:"]
+            optional_phase_intent_narration_compact_alias_legend_prefix_idx = optional_spacer_prefix_to_index["- CBGCFXWSBPFXPIN LEGEND:"]
+            optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_prefix_idx = optional_spacer_prefix_to_index["- CBGCFXWSBPFXPINF:"]
+            optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_prefix_idx = optional_spacer_prefix_to_index["- CBGCFXWSBPFXPINF LEGEND:"]
+            assert optional_phase_intent_narration_compact_alias_prefix_idx < optional_phase_intent_narration_compact_alias_legend_prefix_idx < optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_prefix_idx < optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_prefix_idx, (
+                "markdown contract violated: expected optional narration compact alias rollout ordering "
+                "CBGCFXWSBPFXPIN -> CBGCFXWSBPFXPIN LEGEND -> CBGCFXWSBPFXPINF -> CBGCFXWSBPFXPINF LEGEND"
+            )
 
             optional_lang_idx = (
                 cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_indices[section_idx]

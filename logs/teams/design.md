@@ -2857,3 +2857,5 @@
 - Completed Systems/Ops POST_RC_BACKLOG item: added payload token   `LANE UNDERREP WATCHDOG:OK|WARN` + signals (stale/untouched/underrepresented lanes, reason, windowHours).
 - Watchdog warns when any lane bucket is untouched (>=999h) or stale (>24h), keeping director-loop lane-balance alerts machine-readable.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- 2026-03-31 06:08 KST — Closed Systems/QA optional-order follow-up for   `CBGCFXWSBPFXPINF`: regression allowance chain now explicitly preserves ordering   `CBGCFXWSBPFXPIN -> ...LEGEND -> CBGCFXWSBPFXPINF -> ...LEGEND` while keeping coach-copy adjacency invariants intact. Verification: py_compile + regression + weekly drift smoke (all PASS).
+- 2026-03-31 06:13 KST — Cycle IL executed after full-check trigger: generated 3 ideas, selected mid-risk Combat/Systems payload slice, and shipped CBGCFXWSBPFXPINF signal metadata (adjacencyInvariant, adjacencyChain) with regression lock + green verification suite.

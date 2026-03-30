@@ -2419,6 +2419,8 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         "cueMap": alias_to_cue,
         "tokenAlias": token_alias,
         "token": token,
+        "adjacencyInvariant": "preserved",
+        "adjacencyChain": "CBGCFXWSBPFXPIN->CBGCFXWSBPFXPIN LEGEND->CBGCFXWSBPFXPINF->CBGCFXWSBPFXPINF LEGEND",
         "runtimeBalanceImpact": "none",
         "offlineOnly": True,
     }

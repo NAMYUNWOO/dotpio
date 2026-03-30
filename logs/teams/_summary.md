@@ -4223,3 +4223,14 @@ Compact decision memory for AI context efficiency.
 - Added lightweight lane-balance watchdog artifact in weekly drift payload: `laneUnderrepresentedWatchdog` / `laneUnderrepresentedWatchdogSignals`.
 - Policy: WARN when any cadence lane is untouched in-window (>=999h) or stale (>24h), so director-loop triage can auto-prioritize underrepresented lanes.
 - Regression now also includes deterministic narration-cue carryover fixture for `A->S`, `R->E`, `S->H` mapping stability.
+
+## 2026-03-31 06:08 KST — Cycle IK Systems/QA allowance-chain closure
+- Closed final unchecked POST_RC item: `CBGCFXWSBPFXPINF` optional row is now explicitly anchored in regression allowance ordering ahead of coach-copy adjacency handoff.
+- Durable decision: keep compact alias optional-chain ordering as a first-class invariant (`...FXPIN -> ...FXPIN LEGEND -> ...FXPINF -> ...FXPINF LEGEND`) so future row insertions cannot silently reorder bridge rails.
+- Verification remained green: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+
+## 2026-03-31 06:13 KST — Game Director Cycle IL (full-check trigger)
+- All ACTION_ITEMS/TASKS/POST_RC items were closed, so Game Director cycle was executed immediately.
+- Generated three ideas (low/mid/high risk) and selected Idea 2 (Combat/Systems): payload-level adjacency-invariant metadata for `CBGCFXWSBPFXPINF`.
+- Minimal vertical slice shipped: weekly drift payload now emits `adjacencyInvariant=preserved` and deterministic `adjacencyChain` for `CBGCFXWSBPFXPINF`; regression contract enforces new signal keys + domain.
+- Injected follow-up backlog tasks: UX/Design optional ORDER micro-row + Systems/QA 0|2 adjacency/count contract for that row.
