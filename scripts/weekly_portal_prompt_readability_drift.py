@@ -2642,22 +2642,70 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     prior_loaded = bool(drift_signals.get("priorLoaded", False))
     band = str(drift_trend_band_signals.get("band", "STABLE") or "STABLE").strip().upper()
 
+    def _parse_band_policy_env(name: str, default_values: tuple[str, ...]) -> list[str]:
+        raw = str(os.environ.get(name, "") or "").strip()
+        if not raw:
+            return list(default_values)
+        parsed = [item.strip().upper() for item in raw.split(",") if item.strip()]
+        return parsed or list(default_values)
+
+    def _parse_non_negative_int_env(name: str, default_value: int) -> int:
+        raw = str(os.environ.get(name, "") or "").strip()
+        if not raw:
+            return default_value
+        try:
+            value = int(raw)
+        except ValueError:
+            return default_value
+        return max(0, value)
+
+    watch_bands = _parse_band_policy_env(
+        "DOTPIO_EXPERIMENT_CBGCFXWSBPFXPDE_SNAPSHOT_WATCH_BANDS",
+        ("STABLE", "SWING", "SPIKE"),
+    )
+    manual_bands = _parse_band_policy_env(
+        "DOTPIO_EXPERIMENT_CBGCFXWSBPFXPDE_SNAPSHOT_MANUAL_BANDS",
+        ("SWING", "SPIKE"),
+    )
+    watch_streak_min = _parse_non_negative_int_env(
+        "DOTPIO_EXPERIMENT_CBGCFXWSBPFXPDE_SNAPSHOT_WATCH_STREAK_MIN",
+        0,
+    )
+    manual_streak_min = _parse_non_negative_int_env(
+        "DOTPIO_EXPERIMENT_CBGCFXWSBPFXPDE_SNAPSHOT_MANUAL_STREAK_MIN",
+        0,
+    )
+
     if not prior_loaded:
         recommendation = "ESTABLISH_BASELINE"
         summary = "No prior window; snapshot recorded for baseline."
         manual_triage = False
-    elif changed and band in {"SWING", "SPIKE"}:
+        threshold_policy = "BASELINE_ONLY"
+        threshold_reason = "no-prior-window"
+    elif changed and band in set(manual_bands) and streak >= manual_streak_min:
         recommendation = "MANUAL_TRIAGE"
-        summary = "Matrix changed in active drift band; run manual QA triage."
+        summary = "Matrix changed under MANUAL threshold policy; run manual QA triage."
         manual_triage = True
+        threshold_policy = "MANUAL"
+        threshold_reason = "manual-policy-triggered"
+    elif changed and band in set(watch_bands) and streak >= watch_streak_min:
+        recommendation = "WATCH_NEXT_WINDOW"
+        summary = "Matrix changed under WATCH threshold policy; verify next window before escalation."
+        manual_triage = False
+        threshold_policy = "WATCH"
+        threshold_reason = "watch-policy-triggered"
     elif changed:
         recommendation = "WATCH_NEXT_WINDOW"
-        summary = "Single matrix change detected; verify next window before escalation."
+        summary = "Matrix changed outside configured thresholds; keep watch next window."
         manual_triage = False
+        threshold_policy = "WATCH_FALLBACK"
+        threshold_reason = "changed-fallback-watch"
     else:
         recommendation = "NO_TRIAGE"
         summary = "Matrix stable across windows; no manual triage needed."
         manual_triage = False
+        threshold_policy = "NO_TRIAGE"
+        threshold_reason = "unchanged-window"
 
     token = f"CBGCFXWSBPFXPDE MATRIX DRIFT SNAPSHOT:{prior}>{current}|{band}|{recommendation}"
     return token, {
@@ -2670,6 +2718,18 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         "recommendation": recommendation,
         "manualTriage": manual_triage,
         "summary": summary,
+        "thresholdPolicy": threshold_policy,
+        "thresholdReason": threshold_reason,
+        "thresholds": {
+            "watch": {
+                "bands": watch_bands,
+                "streakMin": watch_streak_min,
+            },
+            "manual": {
+                "bands": manual_bands,
+                "streakMin": manual_streak_min,
+            },
+        },
         "token": token,
         "offlineOnly": True,
     }

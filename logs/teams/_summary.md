@@ -4016,3 +4016,5 @@ Compact decision memory for AI context efficiency.
 
 - 2026-03-30 08:24 KST — Game Director cycle (post-queue complete) shipped `GD-2026-03-30-fxpde-matrix-drift-snapshot-compact-alias`: payload now exports `CBGCFXWSBPFXPDS:<B|W|N|M>` as compact triage recommendation alias derived from FXPDE matrix-drift playtest snapshot signals; injected markdown + threshold-tuning follow-ups into backlog.
 - 2026-03-30 08:52 KST — Closed `GD-2026-03-30-fxpde-matrix-drift-snapshot-compact-alias-markdown`: digest markdown now exposes `CBGCFXWSBPFXPDS` + `CBGCFXWSBPFXPDS LEGEND` in both summary/token-coverage rails, and regression locks adjacency chain `... MATRIX DRIFT SNAPSHOT -> CBGCFXWSBPFXPDS -> CBGCFXWSBPFXPDS LEGEND -> CBGCFXWAC COACH COPY REC` with row cardinality/dependency checks.
+
+- 2026-03-30 09:18 KST — Closed GD-2026-03-30-fxpde-matrix-drift-snapshot-triage-thresholds: FXPDE matrix-drift snapshot recommendation now uses configurable WATCH/MANUAL thresholds (bands + streak mins) through env policy knobs and ships policy diagnostics (`thresholdPolicy`, `thresholdReason`, `thresholds`) in payload for durable QA tuning traceability.
