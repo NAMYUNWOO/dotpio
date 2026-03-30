@@ -2687,3 +2687,4 @@
 ## 2026-03-30 21:49 KST — Cycle HO world copyline sync
 - Added world-facing review-window fallback copylines for repeated `R` streaks as offline digest guidance (no runtime world-state mutation).
 - Copy remains reversible and flag-gated; designed for compact DOS-width operator readability.
+- 2026-03-30 22:08 KST — RFALL rollout now surfaces world-facing repeated-review fallback state inline (`NONE|V1|V2`) via digest rows for clearer operator context in offline reports.

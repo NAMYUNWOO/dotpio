@@ -4003,3 +4003,4 @@
 - Lane-cap trigger fired (`systems` 50% > 40%), so experiment pick was forced to underrepresented lanes; selected AI Content/World fallback-copy slice.
 - 24h cadence guard remains satisfied in current window: at least one combat/vfx item, one design/world item, and one systems/ops item are present in recent completions.
 - Injected next backlog trio spans cadence buckets: combat/vfx + design/world + systems/ops.
+- 2026-03-30 22:08 KST — Added regression cardinality/dependency/order coverage for new `CBGCFXWSBPFXPDCWFCTA RFALL` and `...RFALL LEGEND` rows; updated spacer contract to include RFALL anchors before echo chain.

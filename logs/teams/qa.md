@@ -4539,3 +4539,4 @@
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Decision: Added optional `CBGCFXWSBPFXPDCWFCTA DIGEST LEGEND` markdown row in summary/token-coverage rails and extended adjacency/cardinality rollout contracts.
 - Follow-up: Remaining open queue item is AI Content/World repeated-`R` fallback operator copy variants.
+- 2026-03-30 22:08 KST — QA contracts expanded to assert RFALL row count/order/dependency across summary + token-coverage sections; expected spacer prefixes now include RFALL pair.

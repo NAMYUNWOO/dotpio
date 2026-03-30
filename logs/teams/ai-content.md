@@ -2773,3 +2773,4 @@
   - `V2`: hold lane, run one compact FX-check pass.
 - Streak policy: `R` streak 1 => `NONE`, streak 2 => `V1`, streak >=3 => `V2`; any `S` window resets streak.
 - Verification: `python3 -m py_compile ...` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift generation PASS.
+- 2026-03-30 22:08 KST — Exposed AI-content fallback selection token `CBGCFXWSBPFXPDCWFCTA RFALL` in markdown rails with compact legend so repeated `R` streak rationale is visible without JSON inspection.
