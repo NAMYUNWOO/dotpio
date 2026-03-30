@@ -4186,3 +4186,7 @@ Compact decision memory for AI context efficiency.
 - [2026-03-31 01:45 KST] Cycle HR follow-up shipped: added deterministic transition-stage copy-pack decode microline `CBGCFXWSBPFXPDCWFCTAS CPACK:<H|R|T>` plus legend + regression contract updates (counts/dependencies/order + payload signals).
 
 - 2026-03-31 02:08 KST — Durable decision (Cycle HS): Add reversible payload-only FX pressure alias `CBGCFXWSBPFXPDCWFCTASF` derived from transition-stage CPACK alias (`H|R|T -> S|E|H`) before any new digest-row expansion; preserve row-order contracts and verify via py_compile + regression + weekly smoke chain.
+
+- 2026-03-31 03:44 KST — Closed Cycle IJ Systems/QA item: shipped optional digest markdown rows `CBGCFXWSBPFXPIN` + `CBGCFXWSBPFXPIN LEGEND` adjacent to `CBGCFXWSBPFXPI NARR` across summary/token-coverage rails.
+- Durable contract update: optional spacer chain now includes `...FXPI NARR -> ...FXPIN -> ...FXPIN LEGEND -> ...FXPI DRILL`; regression enforces 0|2 row cardinality and strict adjacency/dependency.
+- Backlog progress: remaining unchecked injector item is `CBGCFXWSBPFXPIN DRIFT` flagged prototype (`LOCK|WATCH`).

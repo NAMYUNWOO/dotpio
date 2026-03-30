@@ -2834,3 +2834,4 @@
 - Follow-up: preserve DOS-width compactness when adding future legend expansions.
 
 - 2026-03-31 02:08 KST — Cycle HS: Kept digest row budget unchanged (payload-only experiment). Design implication recorded for future optional legend row if scan friction appears.
+- 2026-03-31 03:44 KST — Design decision: keep `CBGCFXWSBPFXPIN LEGEND` compact (`A=ANCHOR, S=SURGE, R=RECOVER`) and place immediately after `CBGCFXWSBPFXPIN` to preserve narration-first scan rhythm.

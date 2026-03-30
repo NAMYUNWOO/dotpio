@@ -4611,3 +4611,7 @@
 - Result: PASS; markdown ordering/count/dependency contracts updated for `CTAS CPACK` rows.
 
 - 2026-03-31 02:08 KST — Cycle HS: Added regression domain-lock coverage for new `CBGCFXWSBPFXPDCWFCTASF` token/signals and deterministic fixture checks for `H|R|T` mapping.
+- 2026-03-31 03:44 KST — QA verification (Cycle IJ markdown rollout):
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+  - Contract updates: added `CBGCFXWSBPFXPIN`/`...LEGEND` row-count (0|2), dependency (`NARR -> FXPIN -> LEGEND`), and adjacency guard before `CBGCFXWSBPFXPI DRILL`.

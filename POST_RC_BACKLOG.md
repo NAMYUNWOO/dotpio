@@ -11,7 +11,7 @@ Last updated: 2026-03-31 03:07 KST
   - Mid-risk systems/combat/design: narration-phase drift sentinel (`CBGCFXWSBPFXPIN DRIFT`).
   - High-risk novelty: narration rebound mini-grammar pack keyed by compact alias.
 - [x] Systems/UX Team: Ship payload-only compact narration alias `CBGCFXWSBPFXPIN:<A|S|R>` from `CBGCFXWSBPFXPI NARR` with offline-only flag gate + regression lock. *(in-progress: 2026-03-31 03:04 KST, completed: 2026-03-31 03:07 KST)*
-- [ ] UX/QA Team: Roll out optional markdown row + legend for `CBGCFXWSBPFXPIN` in summary/token-coverage rails and lock adjacency to `CBGCFXWSBPFXPI NARR`.
+- [x] UX/QA Team: Roll out optional markdown row + legend for `CBGCFXWSBPFXPIN` in summary/token-coverage rails and lock adjacency to `CBGCFXWSBPFXPI NARR`. *(in-progress: 2026-03-31 03:32 KST, completed: 2026-03-31 03:44 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [ ] AI Content/Design Team: Prototype flagged `CBGCFXWSBPFXPIN DRIFT` cue (`LOCK|WATCH`) with deterministic source-token parity checks.
 
 ## P1 (Game Director Injection — 2026-03-30 Cycle HH)

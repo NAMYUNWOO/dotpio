@@ -2749,3 +2749,4 @@
 - Follow-up: none unless world-lane copy hooks consume `CTAS CPACK` later.
 
 - 2026-03-31 02:08 KST — Cycle HS: Reviewed cycle scope; no world-content mutation required for payload-only FX pressure alias slice.
+- 2026-03-31 03:44 KST — World lane reviewed Cycle IJ scope: no world/map schema changes; digest-only operator token visibility update (`CBGCFXWSBPFXPIN` rows) has zero world-content impact.

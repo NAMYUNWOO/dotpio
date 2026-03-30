@@ -4073,3 +4073,4 @@
 - Follow-up: monitor whether CPACK decode stays aligned with future posture-lane aliases.
 
 - 2026-03-31 02:08 KST — Cycle HS: Wired payload export for `CBGCFXWSBPFXPDCWFCTASF:<S|E|H>` and added deterministic alias map/signals (`H|R|T -> S|E|H`) in weekly readability drift pipeline.
+- 2026-03-31 03:44 KST — Cycle IJ Systems/QA: Added optional markdown rollout rows `CBGCFXWSBPFXPIN` + `CBGCFXWSBPFXPIN LEGEND` directly after `CBGCFXWSBPFXPI NARR` in both summary/token-coverage rails; expanded regression count/dependency/adjacency contracts accordingly.

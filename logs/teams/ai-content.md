@@ -2836,3 +2836,4 @@
 - Follow-up: if new stage aliases are added, extend decode table + regression domain set together.
 
 - 2026-03-31 02:08 KST — Cycle HS: No copy-pack text expansion this cycle; retained existing deterministic microline vocabulary while consuming new FX pressure alias downstream-ready.
+- 2026-03-31 03:44 KST — AI-content note: compact narration alias legend (`A|S|R -> ANCHOR|SURGE|RECOVER`) is now visible in digest rails, improving copy-review readability without changing generation logic.

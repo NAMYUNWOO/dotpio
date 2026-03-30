@@ -11,7 +11,7 @@ Last updated: 2026-03-31 03:07 KST
   - Mid-risk systems/combat/design: derive `CBGCFXWSBPFXPIN DRIFT` when narration alias diverges from phase-intent alias under wobble pressure.
   - High-risk novelty: add adaptive narration rebound mini-grammar pack keyed by `CBGCFXWSBPFXPIN` for cinematic digest rhythm.
 - [x] Systems/UX Team: Add payload-only compact narration alias `CBGCFXWSBPFXPIN:<A|S|R>` derived from `CBGCFXWSBPFXPI NARR` with regression schema/domain coverage. *(in-progress: 2026-03-31 03:04 KST, completed: 2026-03-31 03:07 KST)*
-- [ ] Systems/QA Team: Add optional digest markdown row + legend for `CBGCFXWSBPFXPIN` adjacent to `CBGCFXWSBPFXPI NARR` in summary/token-coverage rails.
+- [x] Systems/QA Team: Add optional digest markdown row + legend for `CBGCFXWSBPFXPIN` adjacent to `CBGCFXWSBPFXPI NARR` in summary/token-coverage rails. *(in-progress: 2026-03-31 03:32 KST, completed: 2026-03-31 03:44 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [ ] AI Content/Design Team: Prototype `CBGCFXWSBPFXPIN DRIFT` copy cue token behind flag (`LOCK|WATCH`) and validate rollback path.
 
 ## Game Director Injection — 2026-03-30 Cycle HH

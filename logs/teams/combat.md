@@ -2741,3 +2741,4 @@
 - Follow-up: validate whether `R` wording remains optimal for replay-once pressure windows.
 
 - 2026-03-31 02:08 KST — Cycle HS: Added compact FX pressure alias semantics (`S=SOFT`, `E=EDGE`, `H=HARD`) for downstream combat/vfx routing from transition-stage copy-pack state.
+- 2026-03-31 03:44 KST — Combat/VFX cross-check: `CBGCFXWSBPFXPIN` markdown surfacing is offline-only telemetry/readability work; no runtime combat balance or cue timing mutation.
