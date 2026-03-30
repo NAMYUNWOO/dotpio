@@ -1837,5 +1837,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 2 (mid risk, Combat/Design): Add cadence-note pressure copyline variant keyed by operator posture stage to improve triage readability.
 - Idea 3 (high risk, Systems/AI-content): Add adaptive posture auto-hold dampener based on prior-window drift volatility.
 - [x] Systems/QA Team (Cycle HR selected experiment): Add payload-only transition-stage alias token/signals for operator posture cadence flow (`S|O|E` -> `HOLD_STEP|REPLAY_STEP|TRIAGE_STEP`) with regression lock. *(completed: 2026-03-31 00:54 KST; mirrored from TASKS.md verification chain)*
-- [ ] UX/Design Team: Add optional markdown row + legend for transition-stage alias in summary/token-coverage rails.
+- [x] UX/Design Team: Add optional markdown row + legend for transition-stage alias in summary/token-coverage rails. *(lifecycle: [~] started: 2026-03-31 01:03 KST -> [x] completed: 2026-03-31 01:12 KST; mirrored in TASKS.md; verification chain: py_compile + regression + weekly smoke)*
 - [ ] AI-content/Combat Team: Add microline copy-pack decode table for transition-stage alias to keep operator coaching wording deterministic.

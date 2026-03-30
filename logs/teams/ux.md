@@ -3005,3 +3005,6 @@
 - Implementation: added payload token/signals mapping cadence aliases S/O/E -> HOLD_STEP/REPLAY_STEP/TRIAGE_STEP with deterministic stage aliases H/R/T.
 - Verification: py_compile (weekly + regression scripts) and full weekly portal drift regression passed.
 - Next queued follow-ups: UX/Design markdown row+legend for CTAS, then AI-content/Combat deterministic microline decode table.
+2026-03-31 01:12 KST — Cycle HR UX rollout: surfaced CBGCFXWSBPFXPDCWFCTAS + LEGEND in summary/token-coverage rails, updated ordering/cardinality/dependency regression contracts, verification green (py_compile + regression + weekly smoke).
+- UX note: optional spacer chain now includes CTAP -> CTAS -> ECHO, preserving dense but predictable scan order.
+

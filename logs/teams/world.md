@@ -2732,3 +2732,5 @@
 - Implementation: added payload token/signals mapping cadence aliases S/O/E -> HOLD_STEP/REPLAY_STEP/TRIAGE_STEP with deterministic stage aliases H/R/T.
 - Verification: py_compile (weekly + regression scripts) and full weekly portal drift regression passed.
 - Next queued follow-ups: UX/Design markdown row+legend for CTAS, then AI-content/Combat deterministic microline decode table.
+2026-03-31 01:12 KST — No world-content data/schema changes this cycle; world lane reviewed CTAS legend wording for readability consistency (steady/repeat/escalate cadence semantics retained).
+

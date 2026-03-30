@@ -4168,3 +4168,6 @@ Compact decision memory for AI context efficiency.
 - 2026-03-31 00:54 KST — Game Director Cycle HR ran immediately after full-check condition: 3 ideas generated, selected Idea 1 (low-risk Systems/QA), shipped payload-only operator posture transition-stage alias `CBGCFXWSBPFXPDCWFCTAS:<H|R|T>`.
 - Added deterministic mapping contract in payload/regression: cadence alias S/O/E -> stage HOLD_STEP/REPLAY_STEP/TRIAGE_STEP plus stage alias H/R/T; regression now includes explicit fixture sweep across the full S->O->E path.
 - Injected next backlog tasks: (1) UX/Design optional markdown row+legend for CTAS, (2) AI-content/Combat microline decode table for CTAS.
+
+- 2026-03-31 01:12 KST — Closed HR UX/Design follow-up: added visible `CBGCFXWSBPFXPDCWFCTAS` + `...LEGEND` rows to summary/token-coverage rails, expanded regression contracts (count/dependency/adjacency + optional spacer chain), and verified green via py_compile + regression + weekly smoke.
+- Queue update: TASKS now has one remaining unchecked item (AI-content/Combat CTAS microline decode table).
