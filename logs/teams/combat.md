@@ -2777,3 +2777,9 @@
 
 
 - 2026-03-31 07:16 KST — Verified Combat/VFX downstream cues remain unchanged (`A->SOFT`, `R->EDGE`, `S->HARD`) after alias-domain extension.
+
+
+## 2026-03-31 07:37 KST — Cycle IM (phase-intent legend readability slice)
+- Decision: Added optional markdown row `CBGCFXWSBPFXPI LEGEND` immediately after `CBGCFXWSBPFXPI` in summary + token-coverage rails to reduce decode hops for A/S/R phase-intent alias review.
+- Evidence: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` and `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` passed after contract updates.
+- Follow-up: Keep rollout chain stable (`...FXP LANG -> ...FXPI -> ...FXPI LEGEND -> ...FXPI NARR`) and monitor row-budget drift.

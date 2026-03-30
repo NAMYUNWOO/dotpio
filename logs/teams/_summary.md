@@ -4249,3 +4249,5 @@ Compact decision memory for AI context efficiency.
 - Executed Game Director Cycle IL (ideas: UX legend row, systems adjacency spacer, AI-content tri-state parity); selected high-risk payload-only parity slice for minimal vertical change.
 - Durable decision: extend `CBGCFXWSBPFXPI` alias domain to include `RECOVER -> R` so phase-intent alias family no longer lags narration tri-state semantics.
 - Guardrail: keep digest row layout unchanged when adjacency contracts are dense; prefer payload-domain parity first, then visible-row rollout in follow-up cycle.
+
+- 2026-03-31 07:37 KST (Cycle IM): Inserted `CBGCFXWSBPFXPI LEGEND` row after `CBGCFXWSBPFXPI` in both digest sections; regression contract updated for new optional spacer order and spacer-window cap (<=66). Verification: regression + weekly smoke PASS.
