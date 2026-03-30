@@ -4150,3 +4150,6 @@ Compact decision memory for AI context efficiency.
 - Verification remains green after updates (`py_compile`, weekly regression suite, weekly drift smoke).
 - Queue status now: TASKS + POST_RC_BACKLOG fully checked; ACTION_ITEMS still shows one in-progress placeholder line.
 - 2026-03-30 23:15 KST — Game Director Cycle HP (all prior checklists closed) selected Idea 1 and shipped payload-only compact cadence-note alias `CBGCFXWSBPFXPDCWFCTAN:<S|O|E>` from `CTA REVIEW CADENCE NOTE`; durable decision: keep this slice payload-first/reversible before markdown expansion. Injected follow-ups for UX row+legend, QA adjacency/count contract, and AI-content/combat decode microline pair.
+
+- Closed UX/Design + Systems/QA + AI Content follow-up for `CBGCFXWSBPFXPDCWFCTAN`: added summary/token-coverage row + legend immediately after `CTA REVIEW CADENCE NOTE LEGEND`, enforced 0|2 cardinality/dependency/adjacency in regression, and added operator decode microline map (`S|O|E`) to compact alias payload signals.
+- Verification green: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` pass.
