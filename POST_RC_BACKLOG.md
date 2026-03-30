@@ -2,6 +2,15 @@
 
 Last updated: 2026-03-31 03:07 KST
 
+## P1 (Game Director Injection — 2026-03-31 Cycle IK)
+- Candidate ideas generated:
+  - Low-risk UX/game-feel: add compact `CBGCFXWSBPFXPINF ORDER:<A|S|R>` helper row before drill line.
+  - Mid-risk systems/combat/design: narration alias vs combat cue alias parity drift signal.
+  - High-risk novelty: adaptive beat-cadence script that rewrites digest rhythm windows.
+- [x] UX/Combat Team: Add optional digest `CBGCFXWSBPFXPINF ORDER` row in summary/token-coverage with strict adjacency before `CBGCFXWSBPFXPI DRILL`. *(in-progress: 2026-03-31 06:35 KST, completed: 2026-03-31 06:43 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+- [x] Systems/QA Team: Extend markdown contract/cardinality checks for `...FXPINF LEGEND -> ...FXPINF ORDER -> ...FXPI DRILL` in both sections. *(completed: 2026-03-31 06:43 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+- [x] AI Content/Design Team: Add compact ORDER decode microcopy legend (`A=anchor handoff, S=surge handoff, R=recover handoff`) with DOS-width-safe phrasing. *(completed: 2026-03-31 06:43 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+
 ## P1 (Game Director Injection — 2026-03-31 Cycle HI)
 - [x] UX/Design Team: Surface existing `CBGCFXWSBPFXPI NARR` payload token in weekly digest markdown rails (summary + token-coverage) with compact operator context. *(completed: 2026-03-31 02:32 KST)*
 
