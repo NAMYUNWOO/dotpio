@@ -1,5 +1,10 @@
 # AI Content Team Log
 
+## 2026-03-31 02:32 KST
+- Cross-lane note: Existing payload token `CBGCFXWSBPFXPI NARR` is now exposed in markdown rails for operator-facing review.
+- Impact: AI-content narration intent can be audited directly in summary/token-coverage sections.
+- Follow-up: consider compact legend row in a future cycle if scan-time decoding friction appears.
+
 
 ## 2026-03-19 06:46:23 KST
 - Task: M2 add enemy behavior variants (skirmisher/bruiser/sentinel) with spawn mix + regression coverage.

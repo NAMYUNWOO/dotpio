@@ -1,5 +1,10 @@
 # World Team Log
 
+## 2026-03-31 02:32 KST
+- Cross-lane note: No map/layout schema touched in Cycle HI narration-row rollout.
+- Impact: Weekly digest readability improved for phase-intent context without world-data migration risk.
+- Follow-up: none.
+
 ## 2026-03-19 04:43:40 KST
 - Task: M1 validate map_01~04 progression with portal validator + playtest checklist.
 - Commit: HEAD (this run)

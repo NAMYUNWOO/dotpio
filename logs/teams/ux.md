@@ -1,5 +1,11 @@
 # UX Team Log
 
+## 2026-03-31 02:32 KST
+- Task: Surface `CBGCFXWSBPFXPI NARR` in both summary/token-coverage digest rails.
+- Decision: Keep row payload-rich (phaseIntent/pulseAlias/coachMomentum/narration) to support one-pass operator scan.
+- Verification: digest regression + weekly smoke both green.
+- Follow-up: none.
+
 
 ## 2026-03-18 23:44:52 KST
 - Task: M0 `G:Pickup` in-game hint surfacing (HUD + DOS help text).

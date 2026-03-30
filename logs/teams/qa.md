@@ -1,5 +1,14 @@
 # QA Team Log
 
+## 2026-03-31 02:32 KST
+- Task: Validate markdown contract after adding `CBGCFXWSBPFXPI NARR` rows.
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions: Added regression guards for optional narration row cardinality + dependency (`FXPI` required) and drill adjacency fallback.
+- Follow-up: none.
+
 
 ## 2026-03-18 23:15:00 KST
 - Task: Sanity verification for pickup interaction implementation.

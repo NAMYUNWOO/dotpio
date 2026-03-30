@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-31 00:09 KST
+Last updated: 2026-03-31 02:32 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle HI UX/Design vertical slice: weekly digest summary + token-coverage rails now surface `CBGCFXWSBPFXPI NARR` (phase-intent narration payload already emitted, now visible in markdown review flow).
+- Regression contract updated for optional rollout chain/order/counts: `LANG -> FXPI -> FXPI NARR -> FXPI DRILL`, including section cardinality/domain dependencies and adjusted spacer bound before `CBGCFXWAC COACH COPY REC`.
+- Verification remains green: `py_compile`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, and weekly drift smoke generation.
 
 - Closed UX/Design Cycle HQ follow-up: summary + token-coverage rails now include `CBGCFXWSBPFXPDCWFCTAP` and `CBGCFXWSBPFXPDCWFCTAP LEGEND` directly after `CBGCFXWSBPFXPDCWFCTAN LEGEND` (operator-posture readability row).
 - Extended regression markdown contracts for the new operator-posture rollout chain (cardinality/dependency/order across summary + token-coverage), keeping optional spacing deterministic before `CBGCFXWSBPFXPD ECHO`.

@@ -1,5 +1,10 @@
 # Combat Team Log
 
+## 2026-03-31 02:32 KST
+- Cross-lane note: Combat mechanics unchanged; digest readability chain now includes phase-intent narration row before drill/cue sections.
+- Impact: Better postmortem traceability from cadence/intensity rails into combat-facing rehearsal cues.
+- Follow-up: none.
+
 
 ### 2026-03-19 23:59 KST
 - Task: Mission momentum bonus payout experiment (objective completion streak SRL micro-reward).

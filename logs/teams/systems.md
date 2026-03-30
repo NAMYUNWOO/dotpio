@@ -1,5 +1,13 @@
 # Systems Team Log
 
+## 2026-03-31 02:32 KST
+- Task: Cycle HI markdown surfacing for `CBGCFXWSBPFXPI NARR` with regression-chain update.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 -m py_compile ...` ✅, `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, weekly drift smoke ✅
+- Decisions: extended optional contract to `LANG -> FXPI -> FXPI NARR -> FXPI DRILL` and increased spacer guard window for deterministic markdown adjacency.
+- Follow-up: if queue is fully checked next run, trigger new Game Director idea injection cycle.
+
 
 ## 2026-03-18 23:15:00 KST
 - Task: M0 pickup flow baseline (`G` key on player tile) with world-item consume and inventory-capacity guard.

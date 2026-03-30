@@ -1,5 +1,10 @@
 # Design Team Log
 
+## 2026-03-31 02:32 KST
+- Task: UX/Design readability pass to surface `CBGCFXWSBPFXPI NARR` in markdown rails.
+- Decision: Place narration row directly after `CBGCFXWSBPFXPI` to preserve intent->narration->drill scan sequence.
+- Follow-up: validate if compact legend is needed after live usage.
+
 
 ### 2026-03-19 23:59 KST
 - Task: Mission momentum bonus payout experiment (objective completion streak SRL micro-reward).

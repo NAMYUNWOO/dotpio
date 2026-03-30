@@ -2,6 +2,9 @@
 
 Last updated: 2026-03-20 17:31 KST
 
+## Game Director Injection — 2026-03-31 Cycle HI
+- [x] UX/Design Team: Surface existing `CBGCFXWSBPFXPI NARR` payload token in weekly digest markdown rails (summary + token-coverage) with compact operator context. *(completed: 2026-03-31 02:32 KST)*
+
 ## Game Director Injection — 2026-03-30 Cycle HH
 - [x] Combat/VFX Team: Add copy-pack cadence FX cue hook (`CBGCFXWSBPFXPDCW FX CUE:SOFT|EDGE|HARD`) mapped from cadence class (`STEADY|PIVOT|BURST`) as payload-only vertical slice.
 - [x] UX/VFX Team: Add optional digest markdown row + legend for `CBGCFXWSBPFXPDCW FX CUE` adjacent to copy-pack cadence rows in both summary/token-coverage rails. *(completed: 2026-03-30 16:15 KST, commit pending)*
