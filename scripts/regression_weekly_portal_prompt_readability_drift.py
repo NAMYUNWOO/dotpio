@@ -3138,6 +3138,22 @@ def main() -> int:
             "token",
             "offlineOnly",
         }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAlias") in {
+            "FLAG OFF",
+            "CBGCFXWSBPFXPDCWFCTA:S",
+            "CBGCFXWSBPFXPDCWFCTA:R",
+        }, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "tooltipAlias",
+            "actionAlias",
+            "actionAliasMap",
+            "microlineMap",
+            "microline",
+            "token",
+            "offlineOnly",
+        }, payload
         assert payload.get("cadenceBridge") in {"CADENCE BRIDGE:SCOUT", "CADENCE BRIDGE:PRESS", "CADENCE BRIDGE:HOLD"}, payload
         assert set(payload.get("cadenceBridgeSignals", {}).keys()) == {"bridge", "confidenceFloorRecommendation", "designWorldAgeHours", "systemsOpsAgeHours", "combatVfxAgeHours", "windowHours", "reason", "offlineOnly"}, payload
         assert payload.get("cadenceBridgeGlyph") in {"FLAG OFF", "CADENCE BRIDGE GLYPH:CALM", "CADENCE BRIDGE GLYPH:TENSE"}, payload

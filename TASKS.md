@@ -1901,3 +1901,15 @@ See project-level plans:
 - [x] UX/Design Team: Add optional markdown row + legend for `CBGCFXWSBPFXPDCWFCT` directly after `CBGCFXWSBPFXPDCWFC LEGEND`.
 - [x] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCT` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWFC`.
 - [x] AI Content/World Team: Prototype offline microline pair for tooltip alias states (`L` vs `R`) tuned for DOS-width operator hints.
+
+## Game Director Cycle HM — 2026-03-30 20:02 KST
+- Coverage check (last 10 completed headings by lane): systems/qa still dominate; keep next slice payload-only and reversible while adding compact UX/combat routing clarity.
+- Idea 1 (low-risk ux/design): Add optional markdown row for a tooltip-action compact alias after `CBGCFXWSBPFXPDCWFCT LEGEND`.
+- Idea 2 (mid-risk systems/combat): Add payload-only compact tooltip-action alias `CBGCFXWSBPFXPDCWFCTA:<S|R>` derived from `CBGCFXWSBPFXPDCWFCT:<L|R>` for dense downstream triage. **Selected.**
+- Idea 3 (high-risk ai-content/world): Add adaptive tooltip-action decay memory after repeated DRIFT windows.
+- [x] Systems/Combat Team (Cycle HM selected experiment): Added payload-only compact tooltip-action alias `CBGCFXWSBPFXPDCWFCTA:<S|R>` with deterministic mapping (`L->S`, `R->R`) and regression payload contract lock (offline-only, flag-gated, reversible). *(lifecycle: [~] started: 2026-03-30 20:02 KST -> [x] completed: 2026-03-30 20:07 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle HM)
+- [ ] UX/Design Team: Add optional summary/token-coverage row + legend for `CBGCFXWSBPFXPDCWFCTA` directly after `CBGCFXWSBPFXPDCWFCT LEGEND`.
+- [ ] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCTA` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWFCT`.
+- [ ] AI Content/World Team: Prototype offline microline pair for tooltip-action alias states (`S` vs `R`) tuned for DOS-width operator hints.

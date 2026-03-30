@@ -2747,3 +2747,4 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`
 - Verification: `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Decision: introduced deterministic microline map (`TOOLTIP:L=lock state`, `TOOLTIP:R=review state`) in tooltip-alias signals for downstream copy tooling.
+- 2026-03-30 20:07 KST — Cycle HM kept AI-content scope additive-only: tooltip-action compact alias is now available in payload routing (`S|R`), enabling next-step microline pair authoring without markdown churn.

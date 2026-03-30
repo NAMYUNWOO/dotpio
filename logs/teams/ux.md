@@ -2943,3 +2943,4 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decision: surfaced `CBGCFXWSBPFXPDCWFCT` + legend directly after `CBGCFXWSBPFXPDCWFC LEGEND` in summary/token-coverage rails for deterministic scan order.
+- 2026-03-30 20:07 KST — UX review confirmed payload-first HM slice minimizes row-budget risk; injected follow-up to optionally surface `CBGCFXWSBPFXPDCWFCTA` row + legend after `CBGCFXWSBPFXPDCWFCT LEGEND` once contract locks land.

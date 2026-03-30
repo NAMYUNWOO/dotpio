@@ -2754,3 +2754,4 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`
 - Verification: `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Decision: fixed compact legend vocabulary (`L=lock tooltip`, `R=review tooltip`) for DOS-width readability.
+- 2026-03-30 20:07 KST — Design note: deferred visible-row rollout; selected payload-first `CBGCFXWSBPFXPDCWFCTA` to protect digest row budget and keep follow-up UX legend insertion isolated.

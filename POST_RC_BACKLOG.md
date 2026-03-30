@@ -1794,3 +1794,9 @@ Last updated: 2026-03-21 02:31 KST
 - [x] UX/Design Team: Add optional markdown row + legend for `CBGCFXWSBPFXPDCWFCT` directly after `CBGCFXWSBPFXPDCWFC LEGEND`.
 - [x] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCT` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWFC`.
 - [x] AI Content/World Team: Prototype offline microline pair for tooltip alias states (`L` vs `R`) tuned for DOS-width operator hints.
+
+## P1 (Game Director Injection — 2026-03-30 Cycle HM)
+- [x] Systems/Combat Team: Add payload-only compact tooltip-action alias token `CBGCFXWSBPFXPDCWFCTA:<S|R>` derived from `CBGCFXWSBPFXPDCWFCT` with deterministic alias map/signals. *(lifecycle: [~] started: 2026-03-30 20:02 KST -> [x] completed: 2026-03-30 20:07 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+- [ ] UX/Design Team: Add optional summary/token-coverage row + legend for `CBGCFXWSBPFXPDCWFCTA` directly after `CBGCFXWSBPFXPDCWFCT LEGEND`.
+- [ ] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCTA` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWFCT`.
+- [ ] AI Content/World Team: Prototype offline microline pair for tooltip-action alias states (`S` vs `R`) tuned for DOS-width operator hints.

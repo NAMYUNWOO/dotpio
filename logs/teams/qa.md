@@ -4518,3 +4518,4 @@
 - Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decision: added payload key contract for tooltip microline signals and strict section-order checks before `CBGCFXWSBPFXPD ECHO`.
+- 2026-03-30 20:07 KST — QA regression expanded for HM: assert token domain `CBGCFXWSBPFXPDCWFCTA:{S|R}` and exact signal-key schema (`tooltipAlias`, `actionAlias`, maps, microline, token, `offlineOnly`); full regression + weekly smoke passed.

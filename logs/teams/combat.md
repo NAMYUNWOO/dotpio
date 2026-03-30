@@ -2660,3 +2660,4 @@
   - `CBGCFXWSBPFXPDCWF COHERENCE` now documents alias/source alignment (`OK|DRIFT`) without touching runtime balance paths.
 - [2026-03-30 19:11 KST] Cycle HK follow-through: added CBGCFXWSBPFXPDCWFC markdown rows/contracts + offline tooltip decode pair (O=OK:alias aligned, D=DRIFT:recheck); regression + weekly drift checks passed.
 - [2026-03-30 19:18 KST] Cycle HL: shipped payload-only tooltip intent alias CBGCFXWSBPFXPDCWFCT (L|R) from coherence compact alias; queued markdown+contract+microline follow-ups in backlog.
+- 2026-03-30 20:07 KST — Combat routing hook added: `CBGCFXWSBPFXPDCWFCTA` mirrors tooltip intent lane for faster downstream triage (`S=steady`, `R=review`) while preserving offline-only reversible behavior.

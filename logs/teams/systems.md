@@ -3970,3 +3970,4 @@
   - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decision: expanded rollout chain/adjacency to include `CBGCFXWSBPFXPDCWFCT` + legend with `0|2` cardinality and dependency on `CBGCFXWSBPFXPDCWFC LEGEND`.
+- 2026-03-30 20:07 KST — Cycle HM selected slice shipped payload-only tooltip-action alias `CBGCFXWSBPFXPDCWFCTA:<S|R>` from `CBGCFXWSBPFXPDCWFCT` (`L->S`, `R->R`) under dedicated experiment flag; added payload schema/domain regression locks for alias/signals.

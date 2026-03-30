@@ -2666,3 +2666,4 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`
 - Verification: `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Decision: kept microline pair compact and non-narrative to preserve DOS line budget.
+- 2026-03-30 20:07 KST — Reviewed Cycle HM output for narrative readability continuity: `CBGCFXWSBPFXPDCWFCTA` remains payload-only this cycle; queued world-facing microline pair follow-up (`S` vs `R`) for DOS-width hint clarity.
