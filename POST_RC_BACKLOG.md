@@ -1,6 +1,13 @@
 # POST_RC_BACKLOG
 
-Last updated: 2026-03-31 03:07 KST
+Last updated: 2026-03-31 07:12 KST
+
+## P1 (Game Director Injection — 2026-03-31 Cycle IL)
+- Candidate ideas generated:
+  - Low-risk UX/design: add compact `CBGCFXWSBPFXPI LEGEND` decode row in digest rails.
+  - Mid-risk systems/QA: enforce strict adjacency contract for `CBGCFXWSBPFXPI -> CBGCFXWSBPFXPI NARR` with optional legend spacer support.
+  - High-risk AI-content/combat: promote phase-intent alias to tri-state (`A|S|R`) to mirror narration-domain recovery semantics.
+- [x] AI Content/Systems Team: Extend phase-intent alias compact domain to include `RECOVER -> R` for payload-level parity with narration tri-state semantics. *(in-progress: 2026-03-31 07:12 KST, completed: 2026-03-31 07:15 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## P1 (Game Director Injection — 2026-03-31 Cycle IK)
 - Candidate ideas generated:

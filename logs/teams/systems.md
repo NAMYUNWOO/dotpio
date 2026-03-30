@@ -4110,3 +4110,5 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Decisions: lock optional chain to `...FXPINF LEGEND -> ...FXPINF ORDER -> ...FXPI DRILL` (0|2 cardinality per section).
 
+
+- 2026-03-31 07:16 KST — Added RECOVER (`R`) support to `CBGCFXWSBPFXPI` alias map for payload-domain parity with narration tri-state; kept fallback deterministic (`A`).

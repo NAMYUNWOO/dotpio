@@ -4073,8 +4073,8 @@ def main() -> int:
         }, payload
         intensity_pulse_language_variant_pack_phase_intent_alias = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentAlias", "")
         intensity_pulse_language_variant_pack_phase_intent_alias_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentAliasSignals", {})
-        assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("phaseIntent") in {"ANCHOR", "SURGE"}, payload
-        assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("alias") in {"A", "S"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("phaseIntent") in {"ANCHOR", "SURGE", "RECOVER"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("alias") in {"A", "S", "R"}, payload
         assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("offlineOnly") is True, payload
         assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("phaseIntent") == expected_phase_intent, payload
         expected_phase_intent_alias = "A" if expected_phase_intent == "ANCHOR" else "S"
@@ -4098,7 +4098,7 @@ def main() -> int:
         }, payload
         intensity_pulse_language_variant_pack_phase_intent_narration = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarration", "")
         intensity_pulse_language_variant_pack_phase_intent_narration_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationSignals", {})
-        assert intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("phaseIntent") in {"ANCHOR", "SURGE"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("phaseIntent") in {"ANCHOR", "SURGE", "RECOVER"}, payload
         assert intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("pulseAlias") in {"S", "P"}, payload
         assert intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("coachMomentum") in {"LOCKED", "WOBBLE"}, payload
         assert intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("narration") in {"ANCHOR", "SURGE", "RECOVER"}, payload

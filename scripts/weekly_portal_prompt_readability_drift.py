@@ -2300,7 +2300,7 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     *,
     intensity_pulse_language_variant_pack_signals: dict[str, object],
 ) -> tuple[str, dict[str, object]]:
-    """Payload-only compact phase-intent alias (`CBGCFXWSBPFXPI:A|S`) for language-variant branching."""
+    """Payload-only compact phase-intent alias (`CBGCFXWSBPFXPI:A|S|R`) for language-variant branching."""
     flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_FX_CUE_INTENSITY_PULSE_LANGUAGE_VARIANT_PACK_PHASE_INTENT_ALIAS"
     flag_value = os.environ.get(flag_name, "")
     flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
@@ -2309,6 +2309,7 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     alias_map = {
         "ANCHOR": "A",
         "SURGE": "S",
+        "RECOVER": "R",
     }
     alias = alias_map.get(phase_intent, "A")
     token = f"CBGCFXWSBPFXPI:{alias}"

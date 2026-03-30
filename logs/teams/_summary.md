@@ -4244,3 +4244,8 @@ Compact decision memory for AI context efficiency.
 - Generated three ideas (low/mid/high risk) and selected Idea 2 (Combat/Systems): payload-level adjacency-invariant metadata for `CBGCFXWSBPFXPINF`.
 - Minimal vertical slice shipped: weekly drift payload now emits `adjacencyInvariant=preserved` and deterministic `adjacencyChain` for `CBGCFXWSBPFXPINF`; regression contract enforces new signal keys + domain.
 - Injected follow-up backlog tasks: UX/Design optional ORDER micro-row + Systems/QA 0|2 adjacency/count contract for that row.
+
+## 2026-03-31 07:16 KST
+- Executed Game Director Cycle IL (ideas: UX legend row, systems adjacency spacer, AI-content tri-state parity); selected high-risk payload-only parity slice for minimal vertical change.
+- Durable decision: extend `CBGCFXWSBPFXPI` alias domain to include `RECOVER -> R` so phase-intent alias family no longer lags narration tri-state semantics.
+- Guardrail: keep digest row layout unchanged when adjacency contracts are dense; prefer payload-domain parity first, then visible-row rollout in follow-up cycle.
