@@ -2531,3 +2531,5 @@
 ## 2026-03-30 11:58:00 KST
 - Task: Align world-facing legend decode for policy-ops dominant aliases.
 - Decision: Standardized legend mapping to `B/W/F/M/N` -> `BASELINE_ONLY/WATCH_NEXT_WINDOW/WATCH_FALLBACK/MANUAL_TRIAGE/NO_TRIAGE` in both digest sections.
+
+- 2026-03-30 12:30 KST — Cycle HB autonomous slice: shipped compact coach-action alias `CBGCFXWSBPFXPDC:<P|U>` plus markdown exposure and regression/order updates; verified via weekly drift regression + digest smoke.

@@ -3823,3 +3823,5 @@
 - Decisions:
   - Added optional digest rows `CBGCFXWSBPFXPDE POLICY OPS DOMINANT` + legend immediately after `...POLICY OPS WINDOW` in summary/token-coverage rails.
   - Expanded regression contract for row cardinality/dependencies/order and added rollover fixture asserting deterministic dominant alias transitions (`W -> M`) under changing window composition.
+
+- 2026-03-30 12:30 KST — Cycle HB autonomous slice: shipped compact coach-action alias `CBGCFXWSBPFXPDC:<P|U>` plus markdown exposure and regression/order updates; verified via weekly drift regression + digest smoke.

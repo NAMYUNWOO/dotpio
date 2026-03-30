@@ -4372,3 +4372,5 @@
 - Decisions:
   - Regression now enforces dominant row/legend cardinality + adjacency in both sections.
   - Added deterministic fixture that confirms dominant alias transitions when rolling policy windows change composition.
+
+- 2026-03-30 12:30 KST — Cycle HB autonomous slice: shipped compact coach-action alias `CBGCFXWSBPFXPDC:<P|U>` plus markdown exposure and regression/order updates; verified via weekly drift regression + digest smoke.

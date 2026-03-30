@@ -2619,3 +2619,5 @@
 ## 2026-03-30 11:58:00 KST
 - Task: Narrative ordering audit for summary/token-coverage readability.
 - Decision: Adjacency lock now preserves deterministic chain `...SNAPSHOT POLICY -> POLICY OPS WINDOW -> POLICY OPS DOMINANT -> POLICY OPS DOMINANT LEGEND -> CBGCFXWAC COACH COPY REC`.
+
+- 2026-03-30 12:30 KST — Cycle HB autonomous slice: shipped compact coach-action alias `CBGCFXWSBPFXPDC:<P|U>` plus markdown exposure and regression/order updates; verified via weekly drift regression + digest smoke.

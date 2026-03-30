@@ -2611,3 +2611,5 @@
 ## 2026-03-30 11:58:00 KST
 - Task: Keep token readability for compact dominant alias surfaced in digest rails.
 - Decision: `CBGCFXWSBPFXPDE POLICY OPS DOMINANT:<alias>` remains compact-first with explicit legend row to preserve low-noise scanability.
+
+- 2026-03-30 12:30 KST — Cycle HB autonomous slice: shipped compact coach-action alias `CBGCFXWSBPFXPDC:<P|U>` plus markdown exposure and regression/order updates; verified via weekly drift regression + digest smoke.

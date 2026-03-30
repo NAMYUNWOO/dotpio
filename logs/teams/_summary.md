@@ -4051,3 +4051,7 @@ Compact decision memory for AI context efficiency.
 - Regression expanded to lock alias payload schema/domain (`thresholdPolicy`, `alias`, `aliasMap`, `token`, `offlineOnly`); verification passed via weekly regression + smoke generation commands.
 
 - 2026-03-30 10:24 KST — Durable decision: snapshot threshold policy readability should ship as flag-gated payload copy-pack first (no mandatory markdown coupling). Added `CBGCFXWSBPFXPDE POLICY COPY` with deterministic `CALM_WATCH|EDGE_WATCH|MANUAL_ESCALATE` mapping and regression-locked signal schema for safe QA rollout.
+
+- 2026-03-30 (Cycle HB autonomous): Added compact rehearsal coach-action alias rail `CBGCFXWSBPFXPDC:<P|U>` mapped from `CBGCFXWSBPFXPD COACH:<PACE|PUNCH>` behind dedicated experiment flag (`..._COACH_ACTION_COMPACT_ALIAS`), with deterministic payload keys and markdown summary/token-coverage visibility.
+- Regression contract expanded to tolerate and enforce optional rollout chain `...MICROLINE LEGEND -> ...COACH -> ...FXPDC -> ...ECHO`, preserving ordered insertion before legacy FXPDE rows.
+- Backlog injection updated with next follow-ups: strict chain-order lock for COACH/FXPDC rows and ai-content rationale-token prototype.

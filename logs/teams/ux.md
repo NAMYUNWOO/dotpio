@@ -2798,3 +2798,5 @@
 ## 2026-03-30 11:58:00 KST
 - Task: Digest readability pass for policy-ops dominant row.
 - Decision: Added explicit legend row adjacent to dominant compact alias so operators can decode without jumping to payload JSON.
+
+- 2026-03-30 12:30 KST — Cycle HB autonomous slice: shipped compact coach-action alias `CBGCFXWSBPFXPDC:<P|U>` plus markdown exposure and regression/order updates; verified via weekly drift regression + digest smoke.

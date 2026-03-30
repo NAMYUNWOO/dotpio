@@ -1594,6 +1594,9 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Design/World Team: Prototype offline rehearsal microline vocabulary pack keyed by `CBGCFXWSBPFXPD` (`SOFT drill` vs `SURGE drill`) with compact DOS budget guardrails. *(2026-03-30 02:44 KST: [ ] -> [~] -> [x]; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 ### Game Director Injection — 2026-03-30 Cycle GD-01
 - [x] Experiment (chosen, mid-risk design/systems): Add payload-only rehearsal coach action mapping `CBGCFXWSBPFXPD -> COACH:{PACE|PUNCH}` as a minimal vertical slice for future copy-routing hooks. *(verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly digest smoke pass)*
+
+## Game Director Cycle HB — 2026-03-30 12:16 KST
+- [x] UX/Combat Team (selected low-risk slice): Add compact rehearsal coach-action alias token (`CBGCFXWSBPFXPDC:<P|U>`) mirroring `CBGCFXWSBPFXPD COACH:<PACE|PUNCH>` for dense digest scanability. *(lifecycle: [~] -> [x] completed: 2026-03-30 12:28 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py`)*
 - [x] Follow-up (low-risk UX/game-feel): Surface `CBGCFXWSBPFXPD MICROLINE` decode legend in portal copy linter preview for writer-facing readability checks. *(lifecycle: [ ] -> [~] started: 2026-03-30 03:11 KST -> [x] completed: 2026-03-30 03:13 KST; verification: `lua scripts/regression_portal_prompt_token_order.lua` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [x] Follow-up (high-risk novelty): Prototype adaptive “phase echo” copy mutation that blends prior-beat alias drift into next-beat rehearsal hints behind an experiment flag. *(lifecycle: [ ] -> [~] started: 2026-03-30 03:33 KST -> [x] completed: 2026-03-30 03:39 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
@@ -1690,3 +1693,15 @@ Last updated: 2026-03-21 02:31 KST
 ## Next Up (Game Director Injection — Cycle HC)
 - [x] GD-2026-03-30-fxpde-snapshot-policy-ops-window-dominant-markdown-row: Surface `CBGCFXWSBPFXPDE POLICY OPS DOMINANT` row + legend in summary/token-coverage rails with deterministic order lock. *(lifecycle: [~] started: 2026-03-30 11:46 KST -> [x] completed: 2026-03-30 11:58 KST)*
 - [x] GD-2026-03-30-fxpde-snapshot-policy-ops-window-dominant-rollover-fixture: Add regression fixture that forces rolling-window dominant-policy flips and asserts alias transitions. *(completed: 2026-03-30 11:58 KST)*
+
+## Game Director Cycle 2026-03-30 12:16 KST (Autonomous)
+- Coverage check (last 10 completed headings by lane): systems=3, ux=2, qa=2, design=1, world=1, combat=1, ai-content=0, vfx=0.
+- Lane-cap result: systems not forced this cycle; underrepresented lanes remain ai-content/vfx.
+- Idea 1 (low-risk UX/combat): Add compact coach-action alias (`CBGCFXWSBPFXPDC:<P|U>`) for dense digest readability. **Selected**
+- Idea 2 (mid-risk systems/qa): Add regression contract row ordering for `CBGCFXWSBPFXPD COACH -> CBGCFXWSBPFXPDC`.
+- Idea 3 (high-risk novelty design): Add dual-action rehearsal token (`COACH PLAN:PACE->PUNCH`) keyed by drift trend.
+- [x] UX/Combat Team: Implemented selected minimal vertical slice `CBGCFXWSBPFXPDC:<P|U>` with flag-gated fallback and markdown row exposure.
+
+## Next Up (Injected by Cycle 2026-03-30 12:16 KST)
+- [ ] Systems/QA Team: Add strict optional-order regression contract for `CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD COACH -> CBGCFXWSBPFXPDC -> CBGCFXWSBPFXPD ECHO` chain.
+- [ ] Design/AI-Content Team: Prototype compact dual-action rehearsal rationale token (`COACH WHY:<short>`) from alias + mutation trend under experiment flag.
