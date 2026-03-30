@@ -4334,3 +4334,14 @@
 - 2026-03-30 09:28 KST — GD post-full-check cycle executed: generated 3 ideas, selected low-risk UX/QA slice, and shipped `CBGCFXWSBPFXPDE SNAPSHOT POLICY` markdown/token-coverage row exposing active WATCH/MANUAL threshold config + reason. Regression ordering lock updated; two follow-up tasks injected (`...threshold-policy-compact-alias`, `...threshold-policy-copy-pack`). Verification: regression + weekly drift smoke.
 
 - 2026-03-30 09:49 KST — Verified new payload keys for combat/vfx threshold-policy cue token/signals via regression and weekly drift smoke scripts (PASS).
+
+## 2026-03-30 09:52 KST
+- Task: Verify payload compact alias for FXPDE snapshot threshold posture (`CBGCFXWSBPFXPDP`)
+- Commit: HEAD (this run)
+- Files checked: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120 --out-json logs/playtests/weekly_portal_prompt_readability_drift.json --out-md logs/playtests/weekly_portal_prompt_readability_drift.md --out-fx-remap-candidates-json logs/playtests/dmg_glyph_fx_remap_candidates.json --out-fx-remap-candidates-md logs/playtests/dmg_glyph_fx_remap_candidates.md --out-ambient-why-auto-remap-plan-json logs/playtests/ambient_ramp_why_auto_remap_plan.json --out-ambient-why-auto-remap-plan-md logs/playtests/ambient_ramp_why_auto_remap_plan.md` ✅
+- Decisions:
+  - Confirmed new payload token `CBGCFXWSBPFXPDP:B` in baseline fixture and validated deterministic alias map contract.
+  - No markdown order contract changes needed for this slice (payload-only requirement met).

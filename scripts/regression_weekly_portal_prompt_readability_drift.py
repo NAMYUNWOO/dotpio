@@ -300,6 +300,25 @@ def main() -> int:
             assert combat_vfx_cue_signals.get("cue") == "SOFT", matrix_payload
             assert combat_vfx_cue_signals.get("token") == "CBGCFXWSBPFXPDE POLICY FX CUE:SOFT", matrix_payload
             assert combat_vfx_cue_signals.get("offlineOnly") is True, matrix_payload
+            threshold_policy_alias = matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyCompactAlias"
+            )
+            assert threshold_policy_alias == "CBGCFXWSBPFXPDP:B", matrix_payload
+            threshold_policy_alias_signals = matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyCompactAliasSignals",
+                {},
+            )
+            assert set(threshold_policy_alias_signals.keys()) == {
+                "thresholdPolicy",
+                "alias",
+                "aliasMap",
+                "token",
+                "offlineOnly",
+            }, matrix_payload
+            assert threshold_policy_alias_signals.get("thresholdPolicy") == "BASELINE_ONLY", matrix_payload
+            assert threshold_policy_alias_signals.get("alias") == "B", matrix_payload
+            assert threshold_policy_alias_signals.get("token") == "CBGCFXWSBPFXPDP:B", matrix_payload
+            assert threshold_policy_alias_signals.get("offlineOnly") is True, matrix_payload
             for row_prefix in (
                 "- CBGCFXWSBPFXPD ECHO:",
                 "- CBGCFXWSBPFXPDE:",

@@ -3782,3 +3782,16 @@
 - 2026-03-30 09:28 KST — GD post-full-check cycle executed: generated 3 ideas, selected low-risk UX/QA slice, and shipped `CBGCFXWSBPFXPDE SNAPSHOT POLICY` markdown/token-coverage row exposing active WATCH/MANUAL threshold config + reason. Regression ordering lock updated; two follow-up tasks injected (`...threshold-policy-compact-alias`, `...threshold-policy-copy-pack`). Verification: regression + weekly drift smoke.
 
 - 2026-03-30 09:49 KST — GD lane rebalance cycle: systems/ux exceeded 40% in last-10 mix, so systems lane deferred while combat/vfx vertical slice shipped. Injected next systems/ops follow-up `...ops-window-profiler` to preserve 24h cadence.
+
+## 2026-03-30 09:52 KST
+- Task: GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-compact-alias
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120 --out-json logs/playtests/weekly_portal_prompt_readability_drift.json --out-md logs/playtests/weekly_portal_prompt_readability_drift.md --out-fx-remap-candidates-json logs/playtests/dmg_glyph_fx_remap_candidates.json --out-fx-remap-candidates-md logs/playtests/dmg_glyph_fx_remap_candidates.md --out-ambient-why-auto-remap-plan-json logs/playtests/ambient_ramp_why_auto_remap_plan.json --out-ambient-why-auto-remap-plan-md logs/playtests/ambient_ramp_why_auto_remap_plan.md` ✅
+- Decisions:
+  - Added payload-only threshold posture compact alias `CBGCFXWSBPFXPDP:<B|W|F|M|N>` derived from snapshot `thresholdPolicy` to reduce downstream parser branching.
+  - Locked alias payload schema/domain in regression (`thresholdPolicy`, `alias`, `aliasMap`, `token`, `offlineOnly`) without adding markdown-row coupling yet.
+- Follow-up:
+  - Continue with remaining POST_RC unchecked items: threshold-policy copy-pack/world copyline/ops window profiler.
