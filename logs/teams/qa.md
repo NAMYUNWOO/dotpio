@@ -4439,3 +4439,40 @@
 - Added deterministic payload contract signals (`fxCue`, `alias`, `aliasMap`, `sourceToken`, `token`, `offlineOnly`) with regression schema/domain/coherence assertions.
 - Injected next tasks into TASKS + POST_RC: (1) UX/Design markdown row+legend rollout for `CBGCFXWSBPFXPDCWF`, (2) Systems/QA adjacency/count lock for rollout path.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+
+## 2026-03-30 17:08 KST
+- Task: Closed CBGCFXWSBPFXPDCWF markdown + regression contract rollout (summary/token-coverage parity).
+- Commit: pending (this run)
+- Files: 
+  - scripts/weekly_portal_prompt_readability_drift.py
+  - scripts/regression_weekly_portal_prompt_readability_drift.py
+  - TASKS.md
+  - POST_RC_BACKLOG.md
+- Verification:
+  - python3 scripts/regression_weekly_portal_prompt_readability_drift.py (pass)
+  - python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120 (pass)
+- Decisions:
+  - Added  markdown row + compact legend directly after .
+  - Locked cardinality/dependency/adjacency checks for new rows in both digest sections.
+
+## 2026-03-30 17:09 KST
+- Task: Closed `CBGCFXWSBPFXPDCWF` markdown + regression contract rollout (summary/token-coverage parity).
+- Commit: pending (this run)
+- Files:
+  - scripts/weekly_portal_prompt_readability_drift.py
+  - scripts/regression_weekly_portal_prompt_readability_drift.py
+  - TASKS.md
+  - POST_RC_BACKLOG.md
+- Verification:
+  - python3 scripts/regression_weekly_portal_prompt_readability_drift.py (pass)
+  - python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120 (pass)
+- Decisions:
+  - Added `CBGCFXWSBPFXPDCWF` markdown row + compact legend directly after `CBGCFXWSBPFXPDCW FX CUE LEGEND`.
+  - Locked cardinality/dependency/adjacency checks for new rows in both digest sections.
+
+## 2026-03-30 17:14 KST — Game Director Cycle IJ
+- Ideas generated: (1) low-risk UX digest lane (`CBGCFXWSBPFXPDCWF DIGEST` row), (2) mid-risk systems remap policy auto-coach, (3) high-risk world-reactive FX narrative route.
+- Selected experiment: Idea #1 (minimal vertical slice) to improve quick-read combat FX cue decoding.
+- Implementation: Added `CBGCFXWSBPFXPDCWF DIGEST` markdown row in summary + token-coverage sections and expanded regression adjacency/cardinality checks.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- Backlog injected: TASKS/POST_RC new follow-ups for UX/Combat callout capture + Systems/QA deterministic source-token coherence fixture.

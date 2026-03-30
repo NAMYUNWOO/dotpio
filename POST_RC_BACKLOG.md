@@ -1766,5 +1766,7 @@ Last updated: 2026-03-21 02:31 KST
 - [x] Combat/VFX Team (Cycle HI selected experiment): Added payload-only compact FX cue alias token `CBGCFXWSBPFXPDCWF:<S|E|H>` with deterministic alias map/signals (flag-gated, offline-only, reversible). *(lifecycle: [~] started: 2026-03-30 16:48 KST -> [x] completed: 2026-03-30 16:52 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## Next Up (Game Director Injection — Cycle HI)
-- [ ] UX/Design Team: Add optional digest markdown row + compact legend for `CBGCFXWSBPFXPDCWF` immediately after `CBGCFXWSBPFXPDCW FX CUE LEGEND`.
-- [ ] Systems/QA Team: Add markdown adjacency + count contract for `CBGCFXWSBPFXPDCWF` rows in summary/token-coverage sections.
+- [x] UX/Design Team: Add optional digest markdown row + compact legend for `CBGCFXWSBPFXPDCWF` immediately after `CBGCFXWSBPFXPDCW FX CUE LEGEND`.
+- [x] Systems/QA Team: Add markdown adjacency + count contract for `CBGCFXWSBPFXPDCWF` rows in summary/token-coverage sections.
+- [ ] UX/Combat Team: Surface `CBGCFXWSBPFXPDCWF DIGEST` in playtest-facing readability callouts and capture one screenshot/fixture proving alias readability (`S|E|H`) without expanding row budget.
+- [ ] Systems/QA Team: Add deterministic fixture that toggles FX cue families (`SOFT|EDGE|HARD`) and asserts `CBGCFXWSBPFXPDCWF DIGEST` source-token coherence across summary + token-coverage sections.

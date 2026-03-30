@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 16:52 KST
+Last updated: 2026-03-30 17:14 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,13 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Executed Game Director Cycle IJ after all queues were checked: generated 3 ideas and selected low-risk UX digest experiment.
+- Shipped minimal vertical slice `CBGCFXWSBPFXPDCWF DIGEST` in summary + token-coverage sections (immediately after `CBGCFXWSBPFXPDCWF LEGEND`) with regression cardinality/dependency/adjacency locks.
+- Injected next backlog items: UX/Combat readability callout evidence + Systems/QA deterministic source-token coherence fixture for digest rows.
+
+- Closed Cycle HI follow-ups in TASKS + POST_RC: summary/token-coverage markdown rails now include `CBGCFXWSBPFXPDCWF` + `CBGCFXWSBPFXPDCWF LEGEND` directly after `CBGCFXWSBPFXPDCW FX CUE LEGEND`.
+- Regression contract now enforces `CBGCFXWSBPFXPDCWF` row cardinality (`0|2`), dependency, and adjacency before `CBGCFXWSBPFXPD ECHO`; verification + weekly smoke pass green.
 
 - Executed Game Director Cycle HI (all prior queues were fully checked): generated 3 ideas and selected Combat/VFX payload slice adding compact FX cue alias `CBGCFXWSBPFXPDCWF:<S|E|H>` from `CBGCFXWSBPFXPDCW FX CUE`.
 - Regression contract now validates `...CopyPackCadenceCombatVfxFxCueCompactAlias(Signals)` schema/domain/coherence (`SOFT|EDGE|HARD -> S|E|H`) and remains offline-only/flag-gated/reversible.
