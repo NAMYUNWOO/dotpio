@@ -70,6 +70,9 @@ from weekly_portal_prompt_readability_drift import (
     combat_vfx_cadence_coach_why,
     combat_vfx_cadence_coach_why_hysteresis_confidence_floor_fx_pulse_family_trend_from_prior,
     resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation,
+    resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence,
+    resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue,
+    resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias,
     resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler,
     resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_dominant_compact_alias,
 )
@@ -3057,6 +3060,38 @@ def main() -> int:
         assert copy_pack_cadence_combat_vfx_fx_cue_compact_alias_signals.get("alias") in {"S", "E", "H"}, payload
         assert copy_pack_cadence_combat_vfx_fx_cue_compact_alias_signals.get("aliasMap") == {"SOFT": "S", "EDGE": "E", "HARD": "H"}, payload
         assert copy_pack_cadence_combat_vfx_fx_cue_compact_alias_signals.get("aliasMap", {}).get(copy_pack_cadence_combat_vfx_fx_cue_compact_alias_signals.get("fxCue")) == copy_pack_cadence_combat_vfx_fx_cue_compact_alias_signals.get("alias"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherence") in {
+            "FLAG OFF",
+            "CBGCFXWSBPFXPDCWF COHERENCE:OK",
+            "CBGCFXWSBPFXPDCWF COHERENCE:DRIFT",
+        }, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "alias",
+            "sourceToken",
+            "expectedSourceToken",
+            "status",
+            "token",
+            "offlineOnly",
+        }, payload
+        copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceSignals", {})
+        assert copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_signals.get("alias") in {"S", "E", "H"}, payload
+        assert copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_signals.get("status") in {"OK", "DRIFT"}, payload
+        expected_source_map = {
+            "S": "CBGCFXWSBPFXPDCW FX CUE:SOFT",
+            "E": "CBGCFXWSBPFXPDCW FX CUE:EDGE",
+            "H": "CBGCFXWSBPFXPDCW FX CUE:HARD",
+        }
+        expected_source_from_alias = expected_source_map[copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_signals.get("alias")]
+        assert copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_signals.get("expectedSourceToken") == expected_source_from_alias, payload
+        assert copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_signals.get("sourceToken") == copy_pack_cadence_combat_vfx_fx_cue_compact_alias_signals.get("sourceToken"), payload
+        assert copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_signals.get("status") == (
+            "OK"
+            if copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_signals.get("sourceToken")
+            == copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_signals.get("expectedSourceToken")
+            else "DRIFT"
+        ), payload
         assert payload.get("cadenceBridge") in {"CADENCE BRIDGE:SCOUT", "CADENCE BRIDGE:PRESS", "CADENCE BRIDGE:HOLD"}, payload
         assert set(payload.get("cadenceBridgeSignals", {}).keys()) == {"bridge", "confidenceFloorRecommendation", "designWorldAgeHours", "systemsOpsAgeHours", "combatVfxAgeHours", "windowHours", "reason", "offlineOnly"}, payload
         assert payload.get("cadenceBridgeGlyph") in {"FLAG OFF", "CADENCE BRIDGE GLYPH:CALM", "CADENCE BRIDGE GLYPH:TENSE"}, payload
@@ -3935,6 +3970,64 @@ def main() -> int:
         assert fixture_signals["recommendation"] == "SLOW_STEP", fixture_signals
         assert fixture_signals["reason"] == "raised-intensity", fixture_signals
         assert fixture_signals["reasonPriority"] == "P3", fixture_signals
+
+        # Deterministic fixture lock for CBGCFXWSBPFXPDCWF DIGEST source-token coherence.
+        # Toggle each FX cue family (SOFT|EDGE|HARD) via canonical cadence families and
+        # verify both summary/token-coverage digest rows preserve matching source tokens.
+        for fixture_family, expected_cue, expected_alias in (
+            ("PACE_HOLD", "SOFT", "S"),
+            ("PACE_PIVOT", "EDGE", "E"),
+            ("PUNCH_BURST", "HARD", "H"),
+        ):
+            fixture_cadence_token, fixture_cadence_signals = (
+                resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence(
+                    copy_pack_variants_signals={"family": fixture_family, "token": f"CBGCFXWSBPFXPDCW COPY PACK:{fixture_family}"}
+                )
+            )
+            assert fixture_cadence_signals.get("cadence") in {"STEADY", "PIVOT", "BURST"}, fixture_cadence_signals
+            fixture_fx_token, fixture_fx_signals = (
+                resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue(
+                    copy_pack_cadence_signals=fixture_cadence_signals
+                )
+            )
+            fixture_alias_token, fixture_alias_signals = (
+                resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias(
+                    fx_cue_signals=fixture_fx_signals
+                )
+            )
+            assert fixture_fx_signals.get("fxCue") == expected_cue, fixture_fx_signals
+            assert fixture_alias_signals.get("alias") == expected_alias, fixture_alias_signals
+            assert fixture_alias_signals.get("sourceToken") == fixture_fx_signals.get("token"), fixture_alias_signals
+
+            fixture_md = "\n".join(
+                [
+                    "## Summary",
+                    f"- CBGCFXWSBPFXPDCWF DIGEST: **{fixture_alias_signals['alias']}** (map=S:SOFT,E:EDGE,H:HARD source={fixture_alias_signals['sourceToken']})",
+                    "## Token Family Coverage",
+                    f"- CBGCFXWSBPFXPDCWF DIGEST: {fixture_alias_signals['alias']} (map=S:SOFT,E:EDGE,H:HARD, source={fixture_alias_signals['sourceToken']})",
+                ]
+            )
+            fixture_lines = fixture_md.splitlines()
+            fixture_digest_rows = [
+                line for line in fixture_lines if line.startswith("- CBGCFXWSBPFXPDCWF DIGEST:")
+            ]
+            assert len(fixture_digest_rows) == 2, fixture_md
+            fixture_sources = []
+            for row in fixture_digest_rows:
+                assert "source=" in row, row
+                source = row.split("source=", 1)[1].rstrip(")").strip()
+                fixture_sources.append(source)
+            assert fixture_sources[0] == fixture_sources[1], fixture_sources
+            assert fixture_sources[0] == fixture_alias_signals.get("sourceToken"), fixture_sources
+            assert fixture_sources[0] == f"CBGCFXWSBPFXPDCW FX CUE:{expected_cue}", fixture_sources
+            assert fixture_alias_token in {"FLAG OFF", f"CBGCFXWSBPFXPDCWF:{expected_alias}"}, fixture_alias_token
+            assert fixture_fx_token in {"FLAG OFF", f"CBGCFXWSBPFXPDCW FX CUE:{expected_cue}"}, fixture_fx_token
+            assert fixture_cadence_token in {
+                "FLAG OFF",
+                "CBGCFXWSBPFXPDCW COPY PACK CADENCE:STEADY",
+                "CBGCFXWSBPFXPDCW COPY PACK CADENCE:PIVOT",
+                "CBGCFXWSBPFXPDCW COPY PACK CADENCE:BURST",
+            }, fixture_cadence_token
 
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAlias", "").startswith(("FLAG OFF", "CBGCFXWC:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceAliasSignals", {}).keys()) == {

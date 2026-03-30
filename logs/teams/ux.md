@@ -2908,3 +2908,19 @@
 - Evidence artifact: `logs/playtests/cbgcfxwsbpfxpdcwf_digest_readability_callouts.md` (S/E/H fixture + row-budget check PASS).
 - Verification: [PASS] weekly portal prompt readability drift regression checks and weekly digest smoke run both PASS.
 - Follow-up: remaining unchecked item is Systems/QA deterministic fixture for FX cue family toggles (`SOFT|EDGE|HARD`).
+
+
+## 2026-03-30 18:07 KST — Cycle HI follow-up deterministic FX cue digest fixture (ux lane)
+- Completed remaining Systems/QA backlog item: deterministic fixture now toggles FX cue families (`SOFT|EDGE|HARD`) via canonical copy-pack family inputs and validates `CBGCFXWSBPFXPDCWF DIGEST` source-token coherence in both summary + token-coverage sections.
+- Implementation: `scripts/regression_weekly_portal_prompt_readability_drift.py` imports cadence/FX-cue resolvers and adds a tri-family fixture loop (`PACE_HOLD|PACE_PIVOT|PUNCH_BURST`) with per-family digest-row source-token assertions.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- Result: all ACTION_ITEMS/TASKS/POST_RC backlog checklists are fully checked at end of this run.
+
+
+## 2026-03-30 18:13 KST — Game Director Cycle HJ coherence token slice (ux lane)
+- Ran full Game Director cycle after queues reached fully-checked state; generated 3 ideas and selected mid-risk Systems/QA payload experiment.
+- Shipped minimal vertical slice: payload-only `CBGCFXWSBPFXPDCWF COHERENCE:OK|DRIFT` + signals (alias/sourceToken/expectedSourceToken/status) in weekly digest payload.
+- Regression expanded with schema/domain/coherence assertions to guarantee alias (`S|E|H`) maps to deterministic expected source token (`...FX CUE:SOFT|EDGE|HARD`) and status parity.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- Backlog injected: UX/Design markdown rollout + Systems/QA adjacency lock + AI Content/World coherence microline copy pair.
+

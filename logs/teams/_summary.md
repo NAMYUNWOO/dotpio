@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 17:14 KST
+Last updated: 2026-03-30 18:13 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,14 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Executed Game Director Cycle HJ immediately after all queues reached fully-checked state; generated 3 ideas and selected a mid-risk Systems/QA vertical slice.
+- Shipped payload-only coherence token/signals `CBGCFXWSBPFXPDCWF COHERENCE:OK|DRIFT` with deterministic alias→expected-source mapping for digest trust validation (`S|E|H` ↔ `...FX CUE:SOFT|EDGE|HARD`).
+- Regression now locks schema/domain/status parity for coherence signals; verification + weekly smoke pass green. Injected next backlog: UX/Design markdown rollout, Systems/QA adjacency/count contract, AI Content/World coherence microline copy pair.
+
+- Closed the final open queue item in TASKS/POST_RC: Systems/QA deterministic fixture now toggles FX cue families (`SOFT|EDGE|HARD`) and asserts `CBGCFXWSBPFXPDCWF DIGEST` source-token coherence across summary + token-coverage rails.
+- Regression now includes a tri-family deterministic fixture loop (`PACE_HOLD|PACE_PIVOT|PUNCH_BURST`) in `scripts/regression_weekly_portal_prompt_readability_drift.py`, validating alias+source parity (`S|E|H` ↔ `CBGCFXWSBPFXPDCW FX CUE:*`) across both digest sections.
+- Verification remains green after fixture expansion (`py_compile`, regression suite, weekly drift smoke) and all ACTION_ITEMS/TASKS/POST_RC checklists are fully checked at end of this run.
 
 - Executed Game Director Cycle IJ after all queues were checked: generated 3 ideas and selected low-risk UX digest experiment.
 - Shipped minimal vertical slice `CBGCFXWSBPFXPDCWF DIGEST` in summary + token-coverage sections (immediately after `CBGCFXWSBPFXPDCWF LEGEND`) with regression cardinality/dependency/adjacency locks.
