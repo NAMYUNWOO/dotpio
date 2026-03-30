@@ -2730,3 +2730,5 @@
 ## [2026-03-31 01:45 KST] Combat lane readability support
 - Decision: CPACK decode row now gives deterministic operator coaching wording tied to transition-stage alias for combat triage cadence.
 - Follow-up: validate whether `R` wording remains optimal for replay-once pressure windows.
+
+- 2026-03-31 02:08 KST — Cycle HS: Added compact FX pressure alias semantics (`S=SOFT`, `E=EDGE`, `H=HARD`) for downstream combat/vfx routing from transition-stage copy-pack state.

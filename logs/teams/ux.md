@@ -3012,3 +3012,5 @@
 ## [2026-03-31 01:45 KST] UX operator guidance consistency
 - Decision: operator-facing coaching microline is now deterministic per transition-stage alias, reducing ambiguity in repeated review windows.
 - Follow-up: spot-check phrasing against onboarding hints for terminology consistency.
+
+- 2026-03-31 02:08 KST — Cycle HS: No new markdown rows shipped; validated that payload-only alias keeps operator surface stable while enabling future compact UI callouts.

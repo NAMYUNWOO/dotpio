@@ -2823,3 +2823,5 @@
 ## [2026-03-31 01:45 KST] Design readability note
 - Decision: added explicit `CBGCFXWSBPFXPDCWFCTAS CPACK` + legend rows to summary and token-coverage rails to keep decode discoverable.
 - Follow-up: preserve DOS-width compactness when adding future legend expansions.
+
+- 2026-03-31 02:08 KST — Cycle HS: Kept digest row budget unchanged (payload-only experiment). Design implication recorded for future optional legend row if scan friction appears.

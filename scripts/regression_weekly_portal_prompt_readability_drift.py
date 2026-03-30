@@ -23,6 +23,7 @@ from weekly_portal_prompt_readability_drift import (
     action_pace_alt_window_from_signals,
     resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_alias,
     resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_transition_stage_alias,
+    resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_transition_stage_alias_copy_pack_fx_pressure_alias,
     resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy,
     route_pulse_link_streak_from_prior,
     route_pulse_link_mode_from_signals,
@@ -3345,6 +3346,45 @@ def main() -> int:
             assert transition_fixture_signals.get("stage") == expected_stage, transition_fixture_signals
             assert transition_fixture_signals.get("stageAlias") == expected_stage_alias, transition_fixture_signals
             assert transition_fixture_signals.get("transitionPath") == "S->O->E", transition_fixture_signals
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureTransitionStageAliasCopyPackFxPressureAlias") in {
+            "FLAG OFF",
+            "CBGCFXWSBPFXPDCWFCTASF:S",
+            "CBGCFXWSBPFXPDCWFCTASF:E",
+            "CBGCFXWSBPFXPDCWFCTASF:H",
+        }, payload
+        fx_pressure_signals = payload.get(
+            "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewCadenceNoteCompactAliasOperatorPostureTransitionStageAliasCopyPackFxPressureAliasSignals",
+            {},
+        )
+        assert set(fx_pressure_signals.keys()) == {
+            "flagName",
+            "flagEnabled",
+            "resolvedAlias",
+            "resolvedAliasDomain",
+            "pressureAliasMap",
+            "pressureAlias",
+            "pressureAliasDomain",
+            "pressureMap",
+            "pressure",
+            "token",
+            "offlineOnly",
+        }, payload
+        assert fx_pressure_signals.get("resolvedAlias") in {"H", "R", "T"}, payload
+        assert fx_pressure_signals.get("pressureAlias") in {"S", "E", "H"}, payload
+        assert fx_pressure_signals.get("pressure") in {"SOFT", "EDGE", "HARD"}, payload
+
+        for resolved_alias, expected_pressure_alias, expected_pressure in (
+            ("H", "S", "SOFT"),
+            ("R", "E", "EDGE"),
+            ("T", "H", "HARD"),
+        ):
+            pressure_token, pressure_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_cadence_note_compact_alias_operator_posture_transition_stage_alias_copy_pack_fx_pressure_alias(
+                {"resolvedAlias": resolved_alias}
+            )
+            assert pressure_token in {"FLAG OFF", f"CBGCFXWSBPFXPDCWFCTASF:{expected_pressure_alias}"}, pressure_token
+            assert pressure_signals.get("resolvedAlias") == resolved_alias, pressure_signals
+            assert pressure_signals.get("pressureAlias") == expected_pressure_alias, pressure_signals
+            assert pressure_signals.get("pressure") == expected_pressure, pressure_signals
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionEscalationAlias") in {
             "FLAG OFF",
             "CBGCFXWSBPFXPDCWFCTAE:H",

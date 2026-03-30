@@ -4594,3 +4594,5 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`
 - Result: PASS; markdown ordering/count/dependency contracts updated for `CTAS CPACK` rows.
+
+- 2026-03-31 02:08 KST — Cycle HS: Added regression domain-lock coverage for new `CBGCFXWSBPFXPDCWFCTASF` token/signals and deterministic fixture checks for `H|R|T` mapping.

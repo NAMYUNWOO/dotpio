@@ -2825,3 +2825,5 @@
 - Decision: added transition-stage alias decode table (`H/R/T`) to fixed coaching microlines to prevent wording drift between runs.
 - Mapping: H→ANCHOR_STEP stabilize, R→SLOW_STEP replay-once, T→HOLD_STEP triage hold.
 - Follow-up: if new stage aliases are added, extend decode table + regression domain set together.
+
+- 2026-03-31 02:08 KST — Cycle HS: No copy-pack text expansion this cycle; retained existing deterministic microline vocabulary while consuming new FX pressure alias downstream-ready.

@@ -4173,3 +4173,5 @@ Compact decision memory for AI context efficiency.
 - Queue update: TASKS now has one remaining unchecked item (AI-content/Combat CTAS microline decode table).
 
 - [2026-03-31 01:45 KST] Cycle HR follow-up shipped: added deterministic transition-stage copy-pack decode microline `CBGCFXWSBPFXPDCWFCTAS CPACK:<H|R|T>` plus legend + regression contract updates (counts/dependencies/order + payload signals).
+
+- 2026-03-31 02:08 KST — Durable decision (Cycle HS): Add reversible payload-only FX pressure alias `CBGCFXWSBPFXPDCWFCTASF` derived from transition-stage CPACK alias (`H|R|T -> S|E|H`) before any new digest-row expansion; preserve row-order contracts and verify via py_compile + regression + weekly smoke chain.

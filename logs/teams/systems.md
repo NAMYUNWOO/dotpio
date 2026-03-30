@@ -4056,3 +4056,5 @@
 - Decision: kept decode deterministic and payload-only via `CBGCFXWSBPFXPDCWFCTAS CPACK:<H|R|T>` derived from transition-stage alias to avoid runtime drift in coaching text.
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - Follow-up: monitor whether CPACK decode stays aligned with future posture-lane aliases.
+
+- 2026-03-31 02:08 KST — Cycle HS: Wired payload export for `CBGCFXWSBPFXPDCWFCTASF:<S|E|H>` and added deterministic alias map/signals (`H|R|T -> S|E|H`) in weekly readability drift pipeline.
