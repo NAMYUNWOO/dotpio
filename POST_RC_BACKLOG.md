@@ -1678,4 +1678,15 @@ Last updated: 2026-03-21 02:31 KST
   3. (High-risk systems/ops) Add lane-aware auto-threshold profile switch for snapshot policy based on 24h cadence misses.
 - [x] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-combat-vfx-cue: Add payload-only combat/vfx cue token and signals from snapshot threshold policy for downstream automation hooks. *(lifecycle: [ ] -> [~] started: 2026-03-30 09:44 KST -> [x] completed: 2026-03-30 09:49 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift playtest smoke command)*
 - [x] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-world-copyline: Add optional design/world copyline pack keyed by threshold policy for digest readability. *(lifecycle: [ ] -> [~] started: 2026-03-30 10:49 KST -> [x] completed: 2026-03-30 10:52 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-ops-window-profiler: Add systems/ops payload profiler summarizing threshold policy cadence over rolling windows.
+- [x] GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-ops-window-profiler: Add systems/ops payload profiler summarizing threshold policy cadence over rolling windows. *(lifecycle: [ ] -> [~] -> [x], started: 2026-03-30 11:16 KST, finished: 2026-03-30 11:18 KST)*
+
+## Game Director Cycle HC — 2026-03-30 11:18 KST
+- Idea pool:
+  1. (Low-risk systems/ops) Add compact dominant-policy alias from ops-window profiler for lighter downstream branching. **Selected.**
+  2. (Mid-risk ux/qa) Add markdown digest row + legend for dominant-policy alias with strict adjacency.
+  3. (High-risk design/world) Add dominant-policy flip narrative cue for quick triage storytelling.
+- [x] GD-2026-03-30-fxpde-snapshot-policy-ops-window-dominant-alias: Add payload-only compact alias token `CBGCFXWSBPFXPDE POLICY OPS DOMINANT:<B|W|F|M|N>` with deterministic alias map/signals + regression schema lock. *(lifecycle: [ ] -> [~] started: 2026-03-30 11:18 KST -> [x] completed: 2026-03-30 11:26 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift smoke command)*
+
+## Next Up (Game Director Injection — Cycle HC)
+- [ ] GD-2026-03-30-fxpde-snapshot-policy-ops-window-dominant-markdown-row: Surface `CBGCFXWSBPFXPDE POLICY OPS DOMINANT` row + legend in summary/token-coverage rails with deterministic order lock.
+- [ ] GD-2026-03-30-fxpde-snapshot-policy-ops-window-dominant-rollover-fixture: Add regression fixture that forces rolling-window dominant-policy flips and asserts alias transitions.

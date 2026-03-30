@@ -1788,3 +1788,14 @@ See project-level plans:
 ## Next Up (Game Director Injection — Cycle HB)
 - [x] Combat/VFX Team: Prototype optional markdown rollout row `CBGCFXWSBPFXPD ECHO` + compact legend so mutation flavor is visible in summary/token-coverage without increasing gameplay coupling. *(lifecycle: [ ] -> [~] started: 2026-03-30 04:16 KST -> [x] completed: 2026-03-30 04:34 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [x] Systems/QA Team: Add deterministic optional-order regression contract for `CBGCFXWSBPFXPD MICROLINE LEGEND -> CBGCFXWSBPFXPD ECHO -> CBGCFXWAC COACH COPY REC` path.
+
+## Game Director Cycle HC — 2026-03-30 11:18 KST
+- Coverage check (latest window): systems/qa readability rails still dominant; selected payload-only additive slice with no runtime gameplay coupling.
+- Idea 1 (low-risk systems/ops): Add compact dominant-policy alias from ops window profiler so downstream tooling can branch without parsing full counts. **Selected.**
+- Idea 2 (mid-risk ux/qa): Surface `CBGCFXWSBPFXPDE POLICY OPS DOMINANT` markdown row + legend in summary/token-coverage rails.
+- Idea 3 (high-risk design/world): Add trend-flip alert copyline when dominant policy changes twice within rolling window.
+- [x] Systems/Ops Team (Cycle HC selected experiment): Added payload-only compact dominant-policy alias token `CBGCFXWSBPFXPDE POLICY OPS DOMINANT:<B|W|F|M|N>` with deterministic alias map/signals and regression schema lock. *(lifecycle: [ ] -> [~] started: 2026-03-30 11:18 KST -> [x] completed: 2026-03-30 11:26 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift smoke command)*
+
+## Next Up (Game Director Injection — Cycle HC)
+- [ ] UX/QA Team: Add optional markdown row + legend for `CBGCFXWSBPFXPDE POLICY OPS DOMINANT` in summary/token-coverage with adjacency lock after `...POLICY OPS WINDOW`.
+- [ ] Systems/QA Team: Add multi-window fixture asserting dominant-policy alias flips deterministically when rolling window composition changes.

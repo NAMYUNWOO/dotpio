@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 10:52 KST
+Last updated: 2026-03-30 11:26 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,12 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Executed Game Director Cycle HC (2026-03-30 11:18 KST) after full-check state: generated 3 ideas, selected low-risk systems/ops slice, and shipped payload-only compact dominant-policy alias `CBGCFXWSBPFXPDE POLICY OPS DOMINANT:<B|W|F|M|N>` with regression schema lock.
+- Injected next Cycle HC tasks into TASKS/POST_RC backlog: (1) optional markdown row+legend for dominant alias, (2) rollover fixture asserting deterministic dominant-policy alias flips.
+- Closed `GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-ops-window-profiler`: added systems/ops payload profiler token `CBGCFXWSBPFXPDE POLICY OPS WINDOW:*` that tracks rolling threshold-policy cadence (`windowPolicies`, compact `windowAliases`, per-policy counts, `dominantPolicy`, and change flag) using prior-window carryover.
+- Summary/token-coverage markdown rails now include `CBGCFXWSBPFXPDE POLICY OPS WINDOW` immediately after snapshot policy rows; regression contract expanded for row cardinality/dependency/order plus payload schema/domain checks.
+- Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120 ...`); backlog + team logs synchronized.
 
 - Closed `GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-world-copyline`: added optional payload-only design/world copyline pack token `CBGCFXWSBPFXPDE WORLD COPYLINE:HOLD_LINE|SCAN_ROUTE|ESCALATE_ROUTE`, keyed by FXPDE snapshot threshold policy and gated by `DOTPIO_EXPERIMENT_CBGCFXWSBPFXPDE_SNAPSHOT_POLICY_WORLD_COPYLINE`.
 - Added deterministic payload contract coverage for world copyline signals (`flagName`, `flagEnabled`, `thresholdPolicy`, `recommendation`, `copyline`, `copylineMap`, `token`, `offlineOnly`) with regression verification.

@@ -2598,3 +2598,12 @@
 - Update: Added payload-only world copyline pack token (`CBGCFXWSBPFXPDE WORLD COPYLINE:HOLD_LINE|SCAN_ROUTE|ESCALATE_ROUTE`) keyed by FXPDE snapshot threshold policy behind `DOTPIO_EXPERIMENT_CBGCFXWSBPFXPDE_SNAPSHOT_POLICY_WORLD_COPYLINE`.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Notes: Offline-only, deterministic map/domain locked via regression payload contract.
+
+## 2026-03-30 11:16:00 KST
+- Task: GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-ops-window-profiler.
+- Commit: HEAD (this run)
+- Files: , , , , , , , , 
+- Verification: [PASS] weekly portal prompt readability drift regression checks; [PASS] weekly portal prompt drift status=ok -> logs/playtests/weekly_portal_prompt_readability_drift.json logs/playtests/weekly_portal_prompt_readability_drift.md.
+- Decisions: Added payload-only systems/ops profiler token  with rolling threshold-policy window, alias history, dominance, and count signals; expanded regression + markdown ordering contracts in summary/token-coverage.
+- 2026-03-30 11:18 KST — Closed GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-ops-window-profiler: added payload token CBGCFXWSBPFXPDE POLICY OPS WINDOW with rolling threshold-policy cadence (window aliases/counts/dominant policy/change flag), wired summary+token-coverage markdown row, and expanded regression ordering/cardinality/schema checks. Verification: regression + weekly drift smoke PASS.
+- 2026-03-30 11:26 KST — Game Director Cycle HC follow-through: shipped payload-only dominant-policy compact alias CBGCFXWSBPFXPDE POLICY OPS DOMINANT:<B|W|F|M|N>, verified regression+weekly smoke, and injected two next-cycle tasks (markdown+legend rollout, rollover fixture).

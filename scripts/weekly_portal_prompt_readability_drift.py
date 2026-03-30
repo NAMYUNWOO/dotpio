@@ -2870,6 +2870,93 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     }
 
 
+def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler(
+    *,
+    snapshot_signals: dict[str, object],
+    prior_json_path: Path,
+) -> tuple[str, dict[str, object]]:
+    """Systems/ops payload profiler for FXPDE snapshot threshold-policy cadence over rolling windows."""
+    window_size_raw = str(os.environ.get("DOTPIO_EXPERIMENT_CBGCFXWSBPFXPDE_SNAPSHOT_POLICY_OPS_WINDOW_SIZE", "") or "").strip()
+    try:
+        window_size = max(1, int(window_size_raw)) if window_size_raw else 8
+    except ValueError:
+        window_size = 8
+
+    threshold_policy = str(snapshot_signals.get("thresholdPolicy", "NO_TRIAGE") or "NO_TRIAGE").strip().upper()
+    alias_map = {
+        "BASELINE_ONLY": "B",
+        "WATCH": "W",
+        "WATCH_FALLBACK": "F",
+        "MANUAL": "M",
+        "NO_TRIAGE": "N",
+    }
+    alias = alias_map.get(threshold_policy, "N")
+
+    prior_window: list[str] = []
+    if prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_signals = prior_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyOpsWindowProfilerSignals",
+                {},
+            )
+            prior_window = [
+                str(item).strip().upper()
+                for item in list(prior_signals.get("windowPolicies", []))
+                if str(item).strip()
+            ]
+        except (json.JSONDecodeError, OSError, TypeError, ValueError):
+            prior_window = []
+
+    window_policies = (prior_window + [threshold_policy])[-window_size:]
+    counts = {policy: window_policies.count(policy) for policy in alias_map.keys()}
+    window_aliases = "".join(alias_map.get(policy, "N") for policy in window_policies)
+    dominant_policy = max(counts.items(), key=lambda item: (item[1], item[0]))[0]
+    changed = len(window_policies) >= 2 and window_policies[-1] != window_policies[-2]
+
+    token = (
+        "CBGCFXWSBPFXPDE POLICY OPS WINDOW:"
+        f"{window_aliases}|M{counts['MANUAL']}|W{counts['WATCH']}|F{counts['WATCH_FALLBACK']}|"
+        f"N{counts['NO_TRIAGE']}|B{counts['BASELINE_ONLY']}"
+    )
+    return token, {
+        "thresholdPolicy": threshold_policy,
+        "alias": alias,
+        "windowSize": window_size,
+        "windowPolicies": window_policies,
+        "windowAliases": window_aliases,
+        "counts": counts,
+        "dominantPolicy": dominant_policy,
+        "changed": changed,
+        "token": token,
+        "offlineOnly": True,
+    }
+
+
+def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_dominant_compact_alias(
+    *,
+    ops_window_profiler_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Compact alias for dominant threshold policy in the rolling ops window."""
+    dominant_policy = str(ops_window_profiler_signals.get("dominantPolicy", "NO_TRIAGE") or "NO_TRIAGE").strip().upper()
+    alias_map = {
+        "BASELINE_ONLY": "B",
+        "WATCH": "W",
+        "WATCH_FALLBACK": "F",
+        "MANUAL": "M",
+        "NO_TRIAGE": "N",
+    }
+    alias = alias_map.get(dominant_policy, "N")
+    token = f"CBGCFXWSBPFXPDE POLICY OPS DOMINANT:{alias}"
+    return token, {
+        "dominantPolicy": dominant_policy,
+        "alias": alias,
+        "aliasMap": alias_map,
+        "token": token,
+        "offlineOnly": True,
+    }
+
+
 def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_coach_microline_pair(
     *,
     storybeat_phase_fx_cue_compact_alias_intensity_signals: dict[str, object],
@@ -11179,6 +11266,13 @@ def main() -> int:
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_world_copyline, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_world_copyline_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_world_copyline(
         snapshot_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals,
     )
+    cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler(
+        snapshot_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals,
+        prior_json_path=args.out_json,
+    )
+    cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_dominant_compact_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_dominant_compact_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_dominant_compact_alias(
+        ops_window_profiler_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler_signals,
+    )
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair(
         storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_compact_alias_intensity_pulse_alias_signals,
     )
@@ -12932,6 +13026,10 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyCopyPackSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_copy_pack_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyWorldCopyline": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_world_copyline,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyWorldCopylineSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_world_copyline_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyOpsWindowProfiler": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyOpsWindowProfilerSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyOpsWindowDominantCompactAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_dominant_compact_alias,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyOpsWindowDominantCompactAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_dominant_compact_alias_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePair": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePairSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseDecodeMicrolinePairLegendVersion": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_decode_microline_pair_signals["legendVersion"],
@@ -13873,6 +13971,7 @@ def main() -> int:
         f"- CBGCFXWSBPFXPDS: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_compact_alias}** (recommendation={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_compact_alias_signals['recommendation']} alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_compact_alias_signals['alias']})",
         "- CBGCFXWSBPFXPDS LEGEND: B=ESTABLISH_BASELINE, W=WATCH_NEXT_WINDOW, N=NO_TRIAGE, M=MANUAL_TRIAGE",
         f"- CBGCFXWSBPFXPDE SNAPSHOT POLICY: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals['thresholdPolicy']}** (reason={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals['thresholdReason']} watchBands={','.join(cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals['thresholds']['watch']['bands'])} watchStreakMin={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals['thresholds']['watch']['streakMin']} manualBands={','.join(cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals['thresholds']['manual']['bands'])} manualStreakMin={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals['thresholds']['manual']['streakMin']})",
+        f"- CBGCFXWSBPFXPDE POLICY OPS WINDOW: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler}** (windowSize={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler_signals['windowSize']} dominant={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler_signals['dominantPolicy']} changed={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler_signals['changed']} aliases={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler_signals['windowAliases']})",
         f"- CBGCFXWAC COACH COPY REC: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['flagEnabled']} rec={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['recommendation']} phase={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['storybeatPhase']} intensity={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['intensity']} momentum={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['momentum']} reason={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['reason']})",
         f"- CBGCFXWACRC: **{cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_compact_alias}** (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_compact_alias_signals['flagName']} enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_compact_alias_signals['flagEnabled']} rec={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_compact_alias_signals['recommendation']} alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_compact_alias_signals['alias']})",
         "- CBGCFXWACRC LEGEND: A=ANCHOR_STEP, S=SLOW_STEP, H=HOLD_STEP",
@@ -14180,6 +14279,7 @@ def main() -> int:
         f"- CBGCFXWSBPFXPDS: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_compact_alias} (recommendation={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_compact_alias_signals['recommendation']}, alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_compact_alias_signals['alias']})",
         "- CBGCFXWSBPFXPDS LEGEND: B=ESTABLISH_BASELINE, W=WATCH_NEXT_WINDOW, N=NO_TRIAGE, M=MANUAL_TRIAGE",
         f"- CBGCFXWSBPFXPDE SNAPSHOT POLICY: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals['thresholdPolicy']} (reason={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals['thresholdReason']}, watchBands={','.join(cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals['thresholds']['watch']['bands'])}, watchStreakMin={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals['thresholds']['watch']['streakMin']}, manualBands={','.join(cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals['thresholds']['manual']['bands'])}, manualStreakMin={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_signals['thresholds']['manual']['streakMin']})",
+        f"- CBGCFXWSBPFXPDE POLICY OPS WINDOW: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler} (windowSize={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler_signals['windowSize']}, dominant={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler_signals['dominantPolicy']}, changed={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler_signals['changed']}, aliases={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation_flag_matrix_drift_playtest_snapshot_threshold_policy_ops_window_profiler_signals['windowAliases']})",
         f"- CBGCFXWAC COACH COPY REC: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['flagEnabled']}, rec={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['recommendation']}, phase={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['storybeatPhase']}, intensity={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['intensity']}, momentum={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['momentum']}, reason={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_signals['reason']})",
         f"- CBGCFXWACRC: {cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_compact_alias} (flag={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_compact_alias_signals['flagName']}, enabled={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_compact_alias_signals['flagEnabled']}, rec={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_compact_alias_signals['recommendation']}, alias={cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_coach_copy_variant_recommendation_compact_alias_signals['alias']})",
         "- CBGCFXWACRC LEGEND: A=ANCHOR_STEP, S=SLOW_STEP, H=HOLD_STEP",
