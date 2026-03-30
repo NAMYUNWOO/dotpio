@@ -4148,4 +4148,4 @@ Compact decision memory for AI context efficiency.
 - Closed TASKS follow-ups for repeated CTA review windows: added payload/markdown token `CTA REVIEW CADENCE NOTE:steady-scan|repeat-once|repeat-escalate` aligned to `CBGCFXWSBPFXPDCWFCTA RFALL` selection.
 - Regression expanded with deterministic RFALL streak fixture (`R`: NONE -> V1 -> V2, `S`: reset) plus markdown ordering/cardinality/dependency checks for cadence-note rows in summary + token-coverage sections.
 - Verification remains green after updates (`py_compile`, weekly regression suite, weekly drift smoke).
-- Queue status now: TASKS fully checked; ACTION_ITEMS and POST_RC_BACKLOG still contain unchecked items.
+- Queue status now: TASKS + POST_RC_BACKLOG fully checked; ACTION_ITEMS still shows one in-progress placeholder line.
