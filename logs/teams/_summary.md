@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 21:49 KST
+Last updated: 2026-03-31 00:09 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,11 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed UX/Design Cycle HQ follow-up: summary + token-coverage rails now include `CBGCFXWSBPFXPDCWFCTAP` and `CBGCFXWSBPFXPDCWFCTAP LEGEND` directly after `CBGCFXWSBPFXPDCWFCTAN LEGEND` (operator-posture readability row).
+- Extended regression markdown contracts for the new operator-posture rollout chain (cardinality/dependency/order across summary + token-coverage), keeping optional spacing deterministic before `CBGCFXWSBPFXPD ECHO`.
+- Verification remains green for this pass: `py_compile`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, and weekly drift smoke.
+- Queue status: ACTION_ITEMS fully checked; TASKS/POST_RC now each have one remaining unchecked item (Systems/QA schema+fixture coverage for `S->O->E` operator posture transitions).
 
 - Closed AI Content/World follow-up item: shipped repeated-`R` fallback operator copy variants via payload token `CBGCFXWSBPFXPDCWFCTA RFALL:NONE|V1|V2` with deterministic streak policy (`R2->V1`, `R3+->V2`, `S->reset`).
 - Coverage gate over last 10 completions exceeded lane cap (`systems=5/10=50%`), so cycle was forced into underrepresented lanes; selected AI Content/World minimal vertical slice.

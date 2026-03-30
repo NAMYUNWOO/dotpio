@@ -1829,5 +1829,5 @@ Last updated: 2026-03-21 02:31 KST
 - Idea 2 (ux/design, medium): Add compact markdown drill card for `CBGCFXWSBPFXPDCWFCTAN` microline map with DOS width guard.
 - Idea 3 (qa, medium): Add deterministic fixture toggling `steady-scan -> repeat-once -> repeat-escalate` across prior-window carryover.
 - [x] Systems/Ops Team (Cycle HQ selected experiment): Add payload-only compact operator posture alias token derived from `CBGCFXWSBPFXPDCWFCTAN` (offline-only, flag-gated, reversible).
-- [ ] UX/Design Team: Add optional markdown row + legend for the new operator posture alias in summary/token-coverage rails.
+- [x] UX/Design Team: Add optional markdown row + legend for the new operator posture alias in summary/token-coverage rails. *(completed: 2026-03-31 00:09 KST; mirrored from TASKS.md HQ rollout verification chain)*
 - [ ] Systems/QA Team: Add payload schema/domain + deterministic fixture coverage for operator posture alias transitions (`S->O->E`).

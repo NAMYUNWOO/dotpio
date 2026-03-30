@@ -1,6 +1,6 @@
 # Weekly Portal Prompt Readability Drift Digest
 
-- GeneratedAt(UTC): 2026-03-30T14:06:39.010607Z
+- GeneratedAt(UTC): 2026-03-30T15:09:12.356473Z
 - Status: **OK**
 - Window: last 7 days (max 120 commits)
 - Checked commits: 120
@@ -21,12 +21,12 @@
 - ARW AUTO PLAN CONF: **HIGH** (stable-low-pressure-window; recConf=HIGH parity=SYNC driftRisk=LOW pressure=LOW Δ=+0)
 - ARW AUTO PLAN CONF Δ: **+0** (auto-plan-confidence-held-vs-prior-window; current=HIGH(2) prior=HIGH(2) loaded=True)
 - ARW APC: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_ARW_APC_ALIAS enabled=False conf=HIGH)
-- ARW AUTO PLAN CONF MOMENTUM: **FREEZE** (lock-or-candidate-suppressed; oscillating=False streak=124 confΔ=+0 planΔ=+0 driftRisk=LOW offlineOnly=True)
+- ARW AUTO PLAN CONF MOMENTUM: **FREEZE** (lock-or-candidate-suppressed; oscillating=False streak=125 confΔ=+0 planΔ=+0 driftRisk=LOW offlineOnly=True)
 - ARW MOMENTUM: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_ARW_MOMENTUM_ALIAS enabled=False full=FREEZE)
-- ARW MOMENTUM SCORE: **83** (base=85 confΔ=+0 planΔ=+0 streak=124 driftRisk=LOW parity=SYNC)
+- ARW MOMENTUM SCORE: **83** (base=85 confΔ=+0 planΔ=+0 streak=125 driftRisk=LOW parity=SYNC)
 - ARW MOMENTUM ARC: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_ARW_MOMENTUM_ARC enabled=False reason=freeze-or-high-risk-pressure rec=FREEZE pressure=LOW drift=LOW score=83)
 - ARW ARC PULSE: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_ARW_MOMENTUM_ARC_PULSE_ALIAS enabled=False arc=TENSE reason=arc-mapped-to-pulse-tier)
-- AMBIENT RAMP WHY REC CONF STREAK: **124** (suppress=TRUE threshold=3 reason=confidence-streak-extended)
+- AMBIENT RAMP WHY REC CONF STREAK: **125** (suppress=TRUE threshold=3 reason=confidence-streak-extended)
 - URGENCY STACK PRUNING REC: **PARITY>FX>DETAIL** (default-deterministic-order; parityChurn=0 fxChurn=0 detailedChurn=0 offlineOnly=True)
 - URGENCY STACK RAIL REC: **BALANCED** (stable-rail-window; railChurn=0 railNet=0 tierChurn=0 offlineOnly=True)
 - DMG GLYPH SHAPE REMAP REC: **MICRO_TUNE** (stable-glyph-window; glyphChurn=0 glyphNet=0 railChurn=0 offlineOnly=True)
@@ -39,7 +39,7 @@
 - DCRC: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_DMG_COMBO_RETUNE_CONF_ALIAS enabled=False full=HIGH)
 - DMG COMBO CHAIN COACH: **EXTEND STRING, FARM MOMENTUM.** (expand-retune-with-stable-pressure; rec=EXPAND conf=HIGH pressure=LOW drift=LOW cadence=lane cadence recency:warn offlineOnly=True)
 - DMG COMBO CONF COACH REC: **SURGE** (low-volatility-and-stable-pressure; killHeatVol=0 comboChurn=0 comboNet=+0 confChurn=0 confNet=+0 pressure=LOW drift=LOW offlineOnly=True)
-- DMG COMBO CONF COACH FALLBACK: **KEEP PRESSURE CLEAN. CASH THE HEAT. SAME CALL x126.** (streak-rising-lock-in-reminder; streak=126 streakDelta=+1 regime=CALM killHeatVol=0 offlineOnly=True)
+- DMG COMBO CONF COACH FALLBACK: **KEEP PRESSURE CLEAN. CASH THE HEAT. SAME CALL x127.** (streak-rising-lock-in-reminder; streak=127 streakDelta=+1 regime=CALM killHeatVol=0 offlineOnly=True)
 - DCCR: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_DMG_COMBO_CONF_COACH_ALIAS enabled=False full=SURGE)
 - DMG COMBO CONF COACH SCENE ARC: **EMBER** (surge-low-drift-push; rec=SURGE pressure=LOW drift=LOW offlineOnly=True)
 - DMG COMBO CONF FX ACCENT: **EMBER** (ember-scene-arc-default-ember-accent; sceneArc=EMBER regime=CALM rec=SURGE offlineOnly=True)
@@ -119,9 +119,9 @@
 - ROUTE PULSE LINK STREAK: **0** (link-off-reset; current=OFF prior=OFF priorStreak=0 loaded=True)
 - ROUTE PULSE LINK MODE: **IDLE** (link-disabled; link=OFF streak=0 drift=+0)
 - ROUTE PULSE LINK MODE Δ: **+0** (mode-stable; current=IDLE(0) prior=IDLE(0) loaded=True)
-- ROUTE PULSE LINK MODE STREAK: **215** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=214 loaded=True)
+- ROUTE PULSE LINK MODE STREAK: **216** (mode-stable-extended; current=IDLE prior=IDLE priorStreak=215 loaded=True)
 - ROUTE PULSE LINK MODE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ROUTE_PULSE_LINK_MODE_WHY enabled=False mode=IDLE link=OFF drift=+0 streak=0)
-- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=215)
+- ROUTE PULSE LINK MODE FIT: **SYNC** (mode-stable-multi-window; mode=IDLE drift=+0 streak=216)
 - ROUTE PULSE LINK MODE FIT Δ: **+0** (fit-stable; current=SYNC(2) prior=SYNC(2) loaded=True)
 - ROUTE PULSE TOKEN PRIORITY: **OFF** (priority-mode-disabled; configured=OFF drift=+0 prior=OFF loaded=True guard=False)
 - ACTION PACE WHY: **FLAG OFF** (flag-disabled; flag=DOTPIO_EXPERIMENT_ACTION_PACE_WHY enabled=False pace=STEADY guard=SOFT stability=WATCH lag=STABLE drift=+0)
@@ -206,7 +206,7 @@
 - ARW MOMENTUM FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - ARW MOMENTUM ARC FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - ARW ARC PULSE FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
-- ARW AUTO PLAN CANDIDATE SUPPRESS: **TRUE** (streak=124 threshold=3)
+- ARW AUTO PLAN CANDIDATE SUPPRESS: **TRUE** (streak=125 threshold=3)
 - PULSE HEAT FX FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/1)
 - ROUTE GLOW FX FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/2)
 - ROUTE GLOW CONF FAMILY CHURN: **net +0** (added=0 removed=0 churn=0 coverage=0/2)
@@ -311,15 +311,15 @@
 - LCMR: **OFF** (flag=DOTPIO_EXPERIMENT_LANE_CADENCE_MISS_RISK_ALIAS enabled=False risk=HIGH alias=H)
 - LANE CADENCE 24H CHECK: **LANE CADENCE 24H CHECK:FAIL** (status=FAIL window=24h sys=999h dw=999h cv=999h reason=one-or-more-lane-buckets-stale)
 - COMBAT/VFX CADENCE WATCHDOG: **COMBAT/VFX CADENCE WATCHDOG:BREACH** (status=BREACH age=999h window=24h reason=combat-vfx-recency-breached)
-- COMBAT/VFX CADENCE WATCHDOG STREAK: **COMBAT/VFX CADENCE WATCHDOG STREAK:124** (status=BREACH streak=124 prior=BREACH:123 loaded=True reason=breach-streak-extended)
-- COMBAT/VFX CADENCE COACH: **COMBAT/VFX CADENCE COACH:ESCALATE** (coach=ESCALATE status=BREACH streak=124 missRisk=HIGH reason=breach-streak-or-high-risk-escalation offlineOnly=True)
+- COMBAT/VFX CADENCE WATCHDOG STREAK: **COMBAT/VFX CADENCE WATCHDOG STREAK:125** (status=BREACH streak=125 prior=BREACH:124 loaded=True reason=breach-streak-extended)
+- COMBAT/VFX CADENCE COACH: **COMBAT/VFX CADENCE COACH:ESCALATE** (coach=ESCALATE status=BREACH streak=125 missRisk=HIGH reason=breach-streak-or-high-risk-escalation offlineOnly=True)
 - COMBAT/VFX CADENCE COACH WHY: **COMBAT/VFX CADENCE COACH WHY:RED CLIMB** (short=RED CLIMB trend=RISING streakΔ=+1 missRisk=HIGH missΔ=+0.0h reason=high-risk-delta-with-rising-breach-streak offlineOnly=True)
 - CVCW: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_ALIAS enabled=False coachWhy=COMBAT/VFX CADENCE COACH WHY:RED CLIMB alias=CVCW:R)
 - CVCWH: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_ALIAS enabled=False applied=False alias=CVCWH:S)
 - CVCWHR: **CVCWHR:HOLD** (risk=HIGH volatility=SWING Δ=+0.0h reason=volatile-or-high-risk)
 - CVCWHR CONF: **CVCWHR CONF:HIGH** (confidence=HIGH risk=HIGH volatility=SWING recovery=+0.0h reason=volatile-pressure)
 - CVCWHRC: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_ALIAS enabled=False token=CVCWHR CONF:HIGH alias=H)
-- CVCWHR CONF FLOOR REC: **CVCWHR CONF FLOOR REC:RAISE** (risk=HIGH volatility=SWING recovery=+0.0h windows=124 Δ=+0.0h reason=sustained-swing-bias swingBias=True offlineOnly=True)
+- CVCWHR CONF FLOOR REC: **CVCWHR CONF FLOOR REC:RAISE** (risk=HIGH volatility=SWING recovery=+0.0h windows=125 Δ=+0.0h reason=sustained-swing-bias swingBias=True offlineOnly=True)
 - CVCWHRF: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_FLOOR_ALIAS enabled=False token=CVCWHR CONF FLOOR REC:RAISE alias=R)
 - CVCWHR FX PULSE: **CVCWHR FX PULSE:HARD** (pulse=HARD floor=CVCWHR CONF FLOOR REC:RAISE conf=HIGH reason=raised-floor-guard offlineOnly=True)
 - CVCWHR FX PULSE LEGEND: SOFT=stabilize cadence feel, EDGE=hold current intensity, HARD=escalate urgency pulse
@@ -424,6 +424,10 @@
 - CBGCFXWSBPFXPDCWFCTA RFALL LEGEND: NONE=no repeated review window fallback, V1=repeat-review freeze/rerun once, V2=repeat-review hold lane + compact FX-check
 - CTA REVIEW CADENCE NOTE: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_COACH_WHY_COPY_PACK_CADENCE_COMBAT_VFX_FX_CUE_COMPACT_ALIAS_COHERENCE_COMPACT_ALIAS_TOOLTIP_ACTION_ALIAS_REVIEW_CADENCE_NOTE enabled=False variant=NONE note=steady-scan)
 - CTA REVIEW CADENCE NOTE LEGEND: steady-scan=no repeat fallback, repeat-once=single replay fallback, repeat-escalate=escalated replay fallback
+- CBGCFXWSBPFXPDCWFCTAN: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_COACH_WHY_COPY_PACK_CADENCE_COMBAT_VFX_FX_CUE_COMPACT_ALIAS_COHERENCE_COMPACT_ALIAS_TOOLTIP_ACTION_ALIAS_REVIEW_CADENCE_NOTE_COMPACT_ALIAS enabled=False alias=S cadence=STEADY_SCAN microline=STEADY_SCAN=hold lane|no replay)
+- CBGCFXWSBPFXPDCWFCTAN LEGEND: S=STEADY_SCAN (hold lane|no replay), O=REPEAT_ONCE (single replay|resume lane), E=REPEAT_ESCALATE (escalate replay|hold + fx check)
+- CBGCFXWSBPFXPDCWFCTAP: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_COACH_WHY_COPY_PACK_CADENCE_COMBAT_VFX_FX_CUE_COMPACT_ALIAS_COHERENCE_COMPACT_ALIAS_TOOLTIP_ACTION_ALIAS_REVIEW_CADENCE_NOTE_COMPACT_ALIAS_OPERATOR_POSTURE_ALIAS enabled=False posture=HOLD cadenceAlias=S alias=H)
+- CBGCFXWSBPFXPDCWFCTAP LEGEND: H=HOLD (steady-scan lane), O=REPLAY_ONCE (single replay lane), T=TRIAGE_REPLAY (escalate replay lane)
 - CBGCFXWSBPFXPD ECHO: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_PHASE_ECHO_MUTATION enabled=False compact=S:STEADY|A:ANCHOR_ECHO|U:SURGE_ECHO selected=STEADY rehearsalAlias=S reason=no-alias-drift)
 - CBGCFXWSBPFXPDE: **FLAG OFF** (flag=DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_PHASE_ECHO_MUTATION_COMPACT_ALIAS enabled=False mutation=STEADY alias=S)
 - CBGCFXWSBPFXPDE LEGEND: S=STEADY, A=ANCHOR_ECHO, U=SURGE_ECHO
@@ -478,7 +482,7 @@
 - LPR HYS THR: **OFF** (flag=DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_THRESHOLD_ALIAS enabled=False alias=L rec=LPR HYS THRESH REC:LOWER)
 - LPR HYS WINDOW: **LPR HYS WINDOW:TIGHT** (floor=6 ceil=10 span=4 reason=adaptive window is narrow for fast recommendation shifts)
 - LPR HYS WINDOW Δ: **+0** (current=TIGHT prior=TIGHT loaded=True)
-- LPR HYS FLOOR REC: **LPR HYS FLOOR REC:RAISE** (streak=142 threshold=1 currentRisk=HIGH priorRisk=HIGH Δ=+0 strongMomentum=False reason=lcmr-streak-cleared-adaptive-threshold)
+- LPR HYS FLOOR REC: **LPR HYS FLOOR REC:RAISE** (streak=143 threshold=1 currentRisk=HIGH priorRisk=HIGH Δ=+0 strongMomentum=False reason=lcmr-streak-cleared-adaptive-threshold)
 - LPR HYS FLOOR: **OFF** (flag=DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_FLOOR_REC_ALIAS enabled=False alias=R rec=LPR HYS FLOOR REC:RAISE)
 - PULSE HEAT FX COMPACT-BUDGET DRIFT: **STABLE** (no pulse-heat-fx churn in window; compactNet=+0 familyNet=+0 churn=0)
 - ROUTE GLOW FX COMPACT-BUDGET DRIFT: **STABLE** (no route-glow-fx churn in window; compactNet=+0 familyNet=+0 churn=0)
@@ -643,15 +647,15 @@
 - LCMR: OFF (flag=DOTPIO_EXPERIMENT_LANE_CADENCE_MISS_RISK_ALIAS, enabled=False, risk=HIGH, alias=H)
 - LANE CADENCE 24H CHECK: LANE CADENCE 24H CHECK:FAIL (status=FAIL, window=24h, sys=999h, dw=999h, cv=999h, reason=one-or-more-lane-buckets-stale)
 - COMBAT/VFX CADENCE WATCHDOG: COMBAT/VFX CADENCE WATCHDOG:BREACH (status=BREACH, age=999h, window=24h, reason=combat-vfx-recency-breached)
-- COMBAT/VFX CADENCE WATCHDOG STREAK: COMBAT/VFX CADENCE WATCHDOG STREAK:124 (status=BREACH, streak=124, prior=BREACH:123, loaded=True, reason=breach-streak-extended)
-- COMBAT/VFX CADENCE COACH: COMBAT/VFX CADENCE COACH:ESCALATE (coach=ESCALATE, status=BREACH, streak=124, missRisk=HIGH, reason=breach-streak-or-high-risk-escalation, offlineOnly=True)
+- COMBAT/VFX CADENCE WATCHDOG STREAK: COMBAT/VFX CADENCE WATCHDOG STREAK:125 (status=BREACH, streak=125, prior=BREACH:124, loaded=True, reason=breach-streak-extended)
+- COMBAT/VFX CADENCE COACH: COMBAT/VFX CADENCE COACH:ESCALATE (coach=ESCALATE, status=BREACH, streak=125, missRisk=HIGH, reason=breach-streak-or-high-risk-escalation, offlineOnly=True)
 - COMBAT/VFX CADENCE COACH WHY: COMBAT/VFX CADENCE COACH WHY:RED CLIMB (short=RED CLIMB, trend=RISING, streakΔ=+1, missRisk=HIGH, missΔ=+0.0h, reason=high-risk-delta-with-rising-breach-streak, offlineOnly=True)
 - CVCW: FLAG OFF (flag=DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_ALIAS, enabled=False, coachWhy=COMBAT/VFX CADENCE COACH WHY:RED CLIMB, alias=CVCW:R)
 - CVCWH: FLAG OFF (flag=DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_ALIAS, enabled=False, applied=False, alias=CVCWH:S)
 - CVCWHR: CVCWHR:HOLD (risk=HIGH, volatility=SWING, Δ=+0.0h, reason=volatile-or-high-risk)
 - CVCWHR CONF: CVCWHR CONF:HIGH (confidence=HIGH, risk=HIGH, volatility=SWING, recovery=+0.0h, reason=volatile-pressure)
 - CVCWHRC: FLAG OFF (flag=DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_ALIAS, enabled=False, token=CVCWHR CONF:HIGH, alias=H)
-- CVCWHR CONF FLOOR REC: CVCWHR CONF FLOOR REC:RAISE (risk=HIGH, volatility=SWING, recovery=+0.0h, windows=124, Δ=+0.0h, reason=sustained-swing-bias, swingBias=True, offlineOnly=True)
+- CVCWHR CONF FLOOR REC: CVCWHR CONF FLOOR REC:RAISE (risk=HIGH, volatility=SWING, recovery=+0.0h, windows=125, Δ=+0.0h, reason=sustained-swing-bias, swingBias=True, offlineOnly=True)
 - CVCWHRF: FLAG OFF (flag=DOTPIO_EXPERIMENT_COMBAT_VFX_CADENCE_COACH_WHY_HYST_REC_CONF_FLOOR_ALIAS, enabled=False, token=CVCWHR CONF FLOOR REC:RAISE, alias=R)
 - CVCWHR FX PULSE: CVCWHR FX PULSE:HARD (pulse=HARD, floor=CVCWHR CONF FLOOR REC:RAISE, conf=HIGH, reason=raised-floor-guard, offlineOnly=True)
 - CVCWHR FX PULSE LEGEND: SOFT=stabilize cadence feel, EDGE=hold current intensity, HARD=escalate urgency pulse
@@ -756,6 +760,10 @@
 - CBGCFXWSBPFXPDCWFCTA RFALL LEGEND: NONE=none, V1=repeat review fallback v1, V2=repeat review fallback v2
 - CTA REVIEW CADENCE NOTE: FLAG OFF (flag=DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_COACH_WHY_COPY_PACK_CADENCE_COMBAT_VFX_FX_CUE_COMPACT_ALIAS_COHERENCE_COMPACT_ALIAS_TOOLTIP_ACTION_ALIAS_REVIEW_CADENCE_NOTE, enabled=False, variant=NONE, note=steady-scan)
 - CTA REVIEW CADENCE NOTE LEGEND: steady-scan=none, repeat-once=v1 fallback, repeat-escalate=v2 fallback
+- CBGCFXWSBPFXPDCWFCTAN: FLAG OFF (flag=DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_COACH_WHY_COPY_PACK_CADENCE_COMBAT_VFX_FX_CUE_COMPACT_ALIAS_COHERENCE_COMPACT_ALIAS_TOOLTIP_ACTION_ALIAS_REVIEW_CADENCE_NOTE_COMPACT_ALIAS, enabled=False, alias=S, cadence=STEADY_SCAN, microline=STEADY_SCAN=hold lane|no replay)
+- CBGCFXWSBPFXPDCWFCTAN LEGEND: S=steady scan (hold lane|no replay), O=repeat once (single replay|resume lane), E=repeat escalate (escalate replay|hold + fx check)
+- CBGCFXWSBPFXPDCWFCTAP: FLAG OFF (flag=DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_COACH_WHY_COPY_PACK_CADENCE_COMBAT_VFX_FX_CUE_COMPACT_ALIAS_COHERENCE_COMPACT_ALIAS_TOOLTIP_ACTION_ALIAS_REVIEW_CADENCE_NOTE_COMPACT_ALIAS_OPERATOR_POSTURE_ALIAS, enabled=False, posture=HOLD, cadenceAlias=S, alias=H)
+- CBGCFXWSBPFXPDCWFCTAP LEGEND: H=hold, O=replay_once, T=triage_replay
 - CBGCFXWSBPFXPD ECHO: FLAG OFF (flag=DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_PHASE_ECHO_MUTATION, enabled=False, compact=S:STEADY|A:ANCHOR_ECHO|U:SURGE_ECHO, selected=STEADY, rehearsalAlias=S, reason=no-alias-drift)
 - CBGCFXWSBPFXPDE: FLAG OFF (flag=DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_PHASE_ECHO_MUTATION_COMPACT_ALIAS, enabled=False, mutation=STEADY, alias=S)
 - CBGCFXWSBPFXPDE LEGEND: S=STEADY, A=ANCHOR_ECHO, U=SURGE_ECHO
@@ -810,7 +818,7 @@
 - LPR HYS THR: OFF (flag=DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_THRESHOLD_ALIAS, enabled=False, alias=L, rec=LPR HYS THRESH REC:LOWER)
 - LPR HYS WINDOW: LPR HYS WINDOW:TIGHT (floor=6, ceil=10, span=4, reason=adaptive window is narrow for fast recommendation shifts)
 - LPR HYS WINDOW Δ: +0 (current=TIGHT, prior=TIGHT, loaded=True)
-- LPR HYS FLOOR REC: LPR HYS FLOOR REC:RAISE (streak=142, threshold=1, currentRisk=HIGH, priorRisk=HIGH, Δ=+0, strongMomentum=False, reason=lcmr-streak-cleared-adaptive-threshold)
+- LPR HYS FLOOR REC: LPR HYS FLOOR REC:RAISE (streak=143, threshold=1, currentRisk=HIGH, priorRisk=HIGH, Δ=+0, strongMomentum=False, reason=lcmr-streak-cleared-adaptive-threshold)
 - LPR HYS FLOOR: OFF (flag=DOTPIO_EXPERIMENT_LANE_PRIORITY_HYSTERESIS_FLOOR_REC_ALIAS, enabled=False, alias=R, rec=LPR HYS FLOOR REC:RAISE)
 - PULSE HEAT FX COMPACT-BUDGET DRIFT: STABLE (compactNet=+0, familyNet=+0, churn=0)
 - ROUTE GLOW FX COMPACT-BUDGET DRIFT: STABLE (compactNet=+0, familyNet=+0, churn=0)

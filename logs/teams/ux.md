@@ -2988,3 +2988,8 @@
 - Commit: pending (this run).
 - Decisions: Added `CBGCFXWSBPFXPDCWFCTAP:<H|O|T>` with deterministic `S|O|E -> HOLD|REPLAY_ONCE|TRIAGE_REPLAY` mapping; offline-only + flag-gated for reversible rollout.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅.
+
+## 2026-03-31 00:09 KST
+- Cycle HQ follow-through: operator posture alias markdown rollout status synced.
+- Decision: Added optional UX-facing posture alias row+legend directly after CBGCFXWSBPFXPDCWFCTAN LEGEND in both summary and token-coverage sections.
+- Follow-up: keep Systems/QA schema+fixture transition task (S->O->E) as next highest unchecked item.

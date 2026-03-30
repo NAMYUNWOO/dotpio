@@ -1948,5 +1948,5 @@ See project-level plans:
 - Idea 2 (ux/design, medium): Add compact markdown drill card for `CBGCFXWSBPFXPDCWFCTAN` microline map with DOS width guard.
 - Idea 3 (qa, medium): Add deterministic fixture toggling `steady-scan -> repeat-once -> repeat-escalate` across prior-window carryover.
 - [x] Systems/Ops Team (Cycle HQ selected experiment): Add payload-only compact operator posture alias token derived from `CBGCFXWSBPFXPDCWFCTAN` (offline-only, flag-gated, reversible).
-- [ ] UX/Design Team: Add optional markdown row + legend for the new operator posture alias in summary/token-coverage rails.
+- [x] UX/Design Team: Add optional markdown row + legend for the new operator posture alias in summary/token-coverage rails. *(lifecycle: [~] started: 2026-03-31 00:03 KST -> [x] completed: 2026-03-31 00:09 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [ ] Systems/QA Team: Add payload schema/domain + deterministic fixture coverage for operator posture alias transitions (`S->O->E`).
