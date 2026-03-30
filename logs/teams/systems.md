@@ -3812,3 +3812,14 @@
 - Decisions: Added payload-only systems/ops profiler token  with rolling threshold-policy window, alias history, dominance, and count signals; expanded regression + markdown ordering contracts in summary/token-coverage.
 - 2026-03-30 11:18 KST — Closed GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-ops-window-profiler: added payload token CBGCFXWSBPFXPDE POLICY OPS WINDOW with rolling threshold-policy cadence (window aliases/counts/dominant policy/change flag), wired summary+token-coverage markdown row, and expanded regression ordering/cardinality/schema checks. Verification: regression + weekly drift smoke PASS.
 - 2026-03-30 11:26 KST — Game Director Cycle HC follow-through: shipped payload-only dominant-policy compact alias CBGCFXWSBPFXPDE POLICY OPS DOMINANT:<B|W|F|M|N>, verified regression+weekly smoke, and injected two next-cycle tasks (markdown+legend rollout, rollover fixture).
+
+## 2026-03-30 11:58:00 KST
+- Task: Deliver FXPDE policy-ops dominant markdown exposure and deterministic rollover fixture lock.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification:
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions:
+  - Added optional digest rows `CBGCFXWSBPFXPDE POLICY OPS DOMINANT` + legend immediately after `...POLICY OPS WINDOW` in summary/token-coverage rails.
+  - Expanded regression contract for row cardinality/dependencies/order and added rollover fixture asserting deterministic dominant alias transitions (`W -> M`) under changing window composition.

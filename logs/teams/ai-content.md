@@ -2607,3 +2607,7 @@
 - Decisions: Added payload-only systems/ops profiler token  with rolling threshold-policy window, alias history, dominance, and count signals; expanded regression + markdown ordering contracts in summary/token-coverage.
 - 2026-03-30 11:18 KST — Closed GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-ops-window-profiler: added payload token CBGCFXWSBPFXPDE POLICY OPS WINDOW with rolling threshold-policy cadence (window aliases/counts/dominant policy/change flag), wired summary+token-coverage markdown row, and expanded regression ordering/cardinality/schema checks. Verification: regression + weekly drift smoke PASS.
 - 2026-03-30 11:26 KST — Game Director Cycle HC follow-through: shipped payload-only dominant-policy compact alias CBGCFXWSBPFXPDE POLICY OPS DOMINANT:<B|W|F|M|N>, verified regression+weekly smoke, and injected two next-cycle tasks (markdown+legend rollout, rollover fixture).
+
+## 2026-03-30 11:58:00 KST
+- Task: Keep token readability for compact dominant alias surfaced in digest rails.
+- Decision: `CBGCFXWSBPFXPDE POLICY OPS DOMINANT:<alias>` remains compact-first with explicit legend row to preserve low-noise scanability.

@@ -1688,5 +1688,5 @@ Last updated: 2026-03-21 02:31 KST
 - [x] GD-2026-03-30-fxpde-snapshot-policy-ops-window-dominant-alias: Add payload-only compact alias token `CBGCFXWSBPFXPDE POLICY OPS DOMINANT:<B|W|F|M|N>` with deterministic alias map/signals + regression schema lock. *(lifecycle: [ ] -> [~] started: 2026-03-30 11:18 KST -> [x] completed: 2026-03-30 11:26 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift smoke command)*
 
 ## Next Up (Game Director Injection — Cycle HC)
-- [ ] GD-2026-03-30-fxpde-snapshot-policy-ops-window-dominant-markdown-row: Surface `CBGCFXWSBPFXPDE POLICY OPS DOMINANT` row + legend in summary/token-coverage rails with deterministic order lock.
-- [ ] GD-2026-03-30-fxpde-snapshot-policy-ops-window-dominant-rollover-fixture: Add regression fixture that forces rolling-window dominant-policy flips and asserts alias transitions.
+- [x] GD-2026-03-30-fxpde-snapshot-policy-ops-window-dominant-markdown-row: Surface `CBGCFXWSBPFXPDE POLICY OPS DOMINANT` row + legend in summary/token-coverage rails with deterministic order lock. *(lifecycle: [~] started: 2026-03-30 11:46 KST -> [x] completed: 2026-03-30 11:58 KST)*
+- [x] GD-2026-03-30-fxpde-snapshot-policy-ops-window-dominant-rollover-fixture: Add regression fixture that forces rolling-window dominant-policy flips and asserts alias transitions. *(completed: 2026-03-30 11:58 KST)*

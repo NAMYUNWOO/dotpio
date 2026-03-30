@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 11:26 KST
+Last updated: 2026-03-30 11:58 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed `GD-2026-03-30-fxpde-snapshot-policy-ops-window-dominant-markdown-row` + `...-rollover-fixture`: summary/token-coverage rails now expose `CBGCFXWSBPFXPDE POLICY OPS DOMINANT` plus legend directly after `...POLICY OPS WINDOW` with deterministic adjacency lock before `CBGCFXWAC COACH COPY REC`.
+- Regression contract expanded for dominant row cardinality/dependency/order and legend decode checks; added multi-window fixture proving deterministic dominant alias transitions (`W -> M`) as rolling policy composition changes.
+- Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`); TASKS + POST_RC backlog synchronized to done.
 
 - Executed Game Director Cycle HC (2026-03-30 11:18 KST) after full-check state: generated 3 ideas, selected low-risk systems/ops slice, and shipped payload-only compact dominant-policy alias `CBGCFXWSBPFXPDE POLICY OPS DOMINANT:<B|W|F|M|N>` with regression schema lock.
 - Injected next Cycle HC tasks into TASKS/POST_RC backlog: (1) optional markdown row+legend for dominant alias, (2) rollover fixture asserting deterministic dominant-policy alias flips.

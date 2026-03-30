@@ -1797,5 +1797,5 @@ See project-level plans:
 - [x] Systems/Ops Team (Cycle HC selected experiment): Added payload-only compact dominant-policy alias token `CBGCFXWSBPFXPDE POLICY OPS DOMINANT:<B|W|F|M|N>` with deterministic alias map/signals and regression schema lock. *(lifecycle: [ ] -> [~] started: 2026-03-30 11:18 KST -> [x] completed: 2026-03-30 11:26 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift smoke command)*
 
 ## Next Up (Game Director Injection — Cycle HC)
-- [ ] UX/QA Team: Add optional markdown row + legend for `CBGCFXWSBPFXPDE POLICY OPS DOMINANT` in summary/token-coverage with adjacency lock after `...POLICY OPS WINDOW`.
-- [ ] Systems/QA Team: Add multi-window fixture asserting dominant-policy alias flips deterministically when rolling window composition changes.
+- [x] UX/QA Team: Add optional markdown row + legend for `CBGCFXWSBPFXPDE POLICY OPS DOMINANT` in summary/token-coverage with adjacency lock after `...POLICY OPS WINDOW`. *(lifecycle: [~] started: 2026-03-30 11:46 KST -> [x] completed: 2026-03-30 11:58 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+- [x] Systems/QA Team: Add multi-window fixture asserting dominant-policy alias flips deterministically when rolling window composition changes. *(completed: 2026-03-30 11:58 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
