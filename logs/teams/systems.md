@@ -3836,3 +3836,5 @@
 - Task: Added digest exposure for `CBGCFXWSBPFXPD COACH WHY` + `CBGCFXWSBPFXPDCW` rows and legend in weekly readability markdown generator.
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+
+- 2026-03-30 14:16 KST — Cycle HE: shipped payload-only writer-tooltip copy-pack prototype keyed by CBGCFXWSBPFXPDCW alias families (A..F) via token `CBGCFXWSBPFXPDCW COPY PACK:<family>` and `writerTooltipVariants` signals; verified regression + weekly digest smoke.

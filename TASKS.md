@@ -1811,4 +1811,16 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — Cycle HD)
 - [x] UX/Design Team: Add optional digest row + legend for `CBGCFXWSBPFXPD COACH WHY` with deterministic adjacency after `CBGCFXWSBPFXPDC`. *(lifecycle: [~] started: 2026-03-30 13:49 KST -> [x] completed: 2026-03-30 13:53 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] AI-Content/World Team: Prototype rationale copy-pack variants keyed by `CBGCFXWSBPFXPDCW` alias families for writer tooltips.
+- [x] AI-Content/World Team: Prototype rationale copy-pack variants keyed by `CBGCFXWSBPFXPDCW` alias families for writer tooltips. *(lifecycle: [~] started: 2026-03-30 14:09 KST -> [x] completed: 2026-03-30 14:16 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+
+## Game Director Cycle HE — 2026-03-30 14:16 KST
+- Coverage check (recent completions): systems/qa still lead; ai-content/world remains underrepresented.
+- Idea 1 (low-risk ai-content/world): Add payload-only writer-tooltip copy-pack variants keyed by `CBGCFXWSBPFXPDCW` alias families. **Selected.**
+- Idea 2 (mid-risk ux/design): Surface optional markdown row for `CBGCFXWSBPFXPDCW COPY PACK` with strict adjacency guard after `CBGCFXWSBPFXPDCW LEGEND`.
+- Idea 3 (high-risk combat/world): Add adaptive copy-pack drift memory that rotates tooltip phrasing across consecutive SPIKE windows.
+- [x] AI-Content/World Team (Cycle HE selected experiment): Shipped payload-only prototype token `CBGCFXWSBPFXPDCW COPY PACK:<family>` + `writerTooltipVariants` map/signals for alias families A..F (offline-only, flag-gated, reversible). *(lifecycle: [~] started: 2026-03-30 14:09 KST -> [x] completed: 2026-03-30 14:16 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle HE)
+- [ ] UX/Design Team: Add optional digest markdown row for `CBGCFXWSBPFXPDCW COPY PACK` + compact legend with deterministic adjacency after `CBGCFXWSBPFXPDCW LEGEND`.
+- [ ] Systems/QA Team: Add regression payload schema/domain locks for `...CoachWhyCopyPackVariants(Signals)` including alias/family/tooltip variant cardinality.

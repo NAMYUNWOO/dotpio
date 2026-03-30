@@ -4066,3 +4066,5 @@ Compact decision memory for AI context efficiency.
 
 - Closed Cycle HD selected experiment: added payload rationale token `CBGCFXWSBPFXPD COACH WHY:<short>` from coach alias (`P|U`) + FXPDE mutation trend band (`STABLE|SWING|SPIKE`) and compact alias `CBGCFXWSBPFXPDCW:<A|B|C|D|E|F>` for downstream branching.
 - Both tokens are experiment-flagged, offline-only, and now included in payload schema + token-family scanning; verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`, `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`).
+
+- 2026-03-30 14:16 KST — Durable decision: keep CBGCFXWSBPFXPDCW copy-pack variants payload-first (writerTooltipVariants map per alias family) before markdown exposure; inject follow-ups for adjacency-row UX and schema/domain QA locks.

@@ -2808,3 +2808,5 @@
 
 ## 2026-03-30 13:53 KST
 - Task: Completed optional digest row + legend for `CBGCFXWSBPFXPD COACH WHY` with deterministic placement after `CBGCFXWSBPFXPDC` in summary + token-coverage sections.
+
+- 2026-03-30 14:16 KST — Cycle HE: shipped payload-only writer-tooltip copy-pack prototype keyed by CBGCFXWSBPFXPDCW alias families (A..F) via token `CBGCFXWSBPFXPDCW COPY PACK:<family>` and `writerTooltipVariants` signals; verified regression + weekly digest smoke.
