@@ -4068,6 +4068,8 @@ def main() -> int:
             "flagEnabled",
             "phaseIntent",
             "alias",
+            "phaseIntentLegendVersion",
+            "phaseIntentLegendHash",
             "token",
             "offlineOnly",
         }, payload
@@ -4075,11 +4077,18 @@ def main() -> int:
         intensity_pulse_language_variant_pack_phase_intent_alias_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentAliasSignals", {})
         assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("phaseIntent") in {"ANCHOR", "SURGE", "RECOVER"}, payload
         assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("alias") in {"A", "S", "R"}, payload
+        expected_phase_intent_legend_hash = hashlib.sha256(
+            json.dumps({"A": "ANCHOR", "R": "RECOVER", "S": "SURGE"}, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        ).hexdigest()[:12]
+        assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("phaseIntentLegendVersion") == "v1", payload
+        assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("phaseIntentLegendHash") == expected_phase_intent_legend_hash, payload
         assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("offlineOnly") is True, payload
         assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("phaseIntent") == expected_phase_intent, payload
         expected_phase_intent_alias = "A" if expected_phase_intent == "ANCHOR" else "S"
         assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("alias") == expected_phase_intent_alias, payload
         assert intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("token") == f"CBGCFXWSBPFXPI:{expected_phase_intent_alias}", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentAliasLegendVersion") == intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("phaseIntentLegendVersion"), payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentAliasLegendHash") == intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("phaseIntentLegendHash"), payload
         if intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("flagEnabled") is True:
             assert intensity_pulse_language_variant_pack_phase_intent_alias == f"CBGCFXWSBPFXPI:{expected_phase_intent_alias}", payload
         else:

@@ -1,3 +1,8 @@
+## 2026-03-31 08:11 KST
+- Completed POST_RC Cycle IM follow-up Systems/QA task: payload-only `phaseIntentLegendVersion/hash` metadata now ships with `CBGCFXWSBPFXPI` alias signals and mirrored top-level payload keys for decode-table freshness checks.
+- Regression contract now locks phase-intent legend domain/version/hash (`A|S|R` -> `ANCHOR|SURGE|RECOVER`) and verifies payload/signals parity.
+- Verification stayed green: `py_compile`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, and weekly digest smoke generation.
+
 ## 2026-03-31 06:44 KST
 - Executed Game Director Cycle IK (ideas: low-risk ORDER row, mid-risk parity drift signal, high-risk adaptive beat script); selected low-risk vertical slice.
 - Implemented `CBGCFXWSBPFXPINF ORDER` markdown+payload rollout and regression contract locks for adjacency/cardinality + payload schema.

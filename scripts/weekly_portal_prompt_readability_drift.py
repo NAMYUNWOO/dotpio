@@ -49,6 +49,14 @@ CBGCFXWSBPFXPD_MICROLINE_LEGEND_MAP = {
 }
 _CBGCFXWSBPFXPD_MICROLINE_LEGEND_SERIALIZED = json.dumps(CBGCFXWSBPFXPD_MICROLINE_LEGEND_MAP, sort_keys=True, separators=(",", ":"))
 CBGCFXWSBPFXPD_MICROLINE_LEGEND_HASH = hashlib.sha256(_CBGCFXWSBPFXPD_MICROLINE_LEGEND_SERIALIZED.encode("utf-8")).hexdigest()[:12]
+CBGCFXWSBPFXPI_LEGEND_VERSION = "v1"
+CBGCFXWSBPFXPI_LEGEND_MAP = {
+    "A": "ANCHOR",
+    "S": "SURGE",
+    "R": "RECOVER",
+}
+_CBGCFXWSBPFXPI_LEGEND_SERIALIZED = json.dumps(CBGCFXWSBPFXPI_LEGEND_MAP, sort_keys=True, separators=(",", ":"))
+CBGCFXWSBPFXPI_LEGEND_HASH = hashlib.sha256(_CBGCFXWSBPFXPI_LEGEND_SERIALIZED.encode("utf-8")).hexdigest()[:12]
 PORTAL_PATH_HINTS = (
     "src/portal.lua",
     "src/portal_prompt_linter.lua",
@@ -2319,6 +2327,8 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         "flagEnabled": flag_enabled,
         "phaseIntent": phase_intent,
         "alias": alias,
+        "phaseIntentLegendVersion": CBGCFXWSBPFXPI_LEGEND_VERSION,
+        "phaseIntentLegendHash": CBGCFXWSBPFXPI_LEGEND_HASH,
         "token": token,
         "offlineOnly": True,
     }
@@ -14007,6 +14017,8 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentAliasLegendVersion": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_signals["phaseIntentLegendVersion"],
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentAliasLegendHash": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_signals["phaseIntentLegendHash"],
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarration": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias,

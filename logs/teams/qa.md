@@ -1,5 +1,13 @@
 # QA Team Log
 
+## 2026-03-31 08:11 KST
+- Task: Added regression schema/domain lock for `phaseIntentLegendVersion/hash` in `...PhaseIntentAliasSignals` and payload mirror fields.
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions: hash lock uses deterministic JSON serialization (`sort_keys=True`, compact separators) and 12-char SHA-256 prefix; payload/signals parity is required.
+
 ## 2026-03-31 04:38 KST
 - Task: Added optional digest markdown visibility for `CBGCFXWSBPFXPINF` + legend directly after `CBGCFXWSBPFXPIN LEGEND` (summary/token-coverage parity).
 - Commit: pending
