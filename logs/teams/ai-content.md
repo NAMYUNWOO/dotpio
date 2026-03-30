@@ -2739,3 +2739,4 @@
 - Decisions:
   - Added payload-only token map: `COHERENCE COPY:LOCKED LANE|digest alias/source aligned` and `COHERENCE COPY:DRIFT WATCH|digest alias/source mismatch` (flag-gated, offline-only).
 - [2026-03-30 19:11 KST] Cycle HK follow-through: added CBGCFXWSBPFXPDCWFC markdown rows/contracts + offline tooltip decode pair (O=OK:alias aligned, D=DRIFT:recheck); regression + weekly drift checks passed.
+- [2026-03-30 19:18 KST] Cycle HL: shipped payload-only tooltip intent alias CBGCFXWSBPFXPDCWFCT (L|R) from coherence compact alias; queued markdown+contract+microline follow-ups in backlog.

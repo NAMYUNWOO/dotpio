@@ -1785,6 +1785,12 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-30 Cycle HK)
 - [x] Systems/Combat Team: Add payload-only compact coherence alias token `CBGCFXWSBPFXPDCWFC:<O|D>` derived from `CBGCFXWSBPFXPDCWF COHERENCE` with deterministic alias map/signals.
-- [ ] UX/Design Team: Add optional summary/token-coverage row + legend for `CBGCFXWSBPFXPDCWFC` directly after `CBGCFXWSBPFXPDCWF COHERENCE LEGEND`.
-- [ ] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFC` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWF COHERENCE`.
-- [ ] AI Content/World Team: Prototype offline microline decode pair for coherence compact alias (`O` vs `D`) tuned for DOS-width tooltips.
+- [x] UX/Design Team: Add optional summary/token-coverage row + legend for `CBGCFXWSBPFXPDCWFC` directly after `CBGCFXWSBPFXPDCWF COHERENCE LEGEND`. *(completed: 2026-03-30 19:11 KST; commit: `b5eb0a7`)*
+- [x] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFC` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWF COHERENCE`. *(completed: 2026-03-30 19:11 KST; commit: `b5eb0a7`)*
+- [x] AI Content/World Team: Prototype offline microline decode pair for coherence compact alias (`O` vs `D`) tuned for DOS-width tooltips. *(completed: 2026-03-30 19:11 KST; commit: `b5eb0a7`)*
+
+## P1 (Game Director Injection — 2026-03-30 Cycle HL)
+- [x] Systems/Combat Team: Add payload-only tooltip intent alias token `CBGCFXWSBPFXPDCWFCT:<L|R>` derived from `CBGCFXWSBPFXPDCWFC` with deterministic alias map/signals.
+- [ ] UX/Design Team: Add optional markdown row + legend for `CBGCFXWSBPFXPDCWFCT` directly after `CBGCFXWSBPFXPDCWFC LEGEND`.
+- [ ] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCT` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWFC`.
+- [ ] AI Content/World Team: Prototype offline microline pair for tooltip alias states (`L` vs `R`) tuned for DOS-width operator hints.

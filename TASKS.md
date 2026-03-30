@@ -1889,3 +1889,15 @@ See project-level plans:
 - [x] UX/Design Team: Add optional summary/token-coverage row + legend for `CBGCFXWSBPFXPDCWFC` directly after `CBGCFXWSBPFXPDCWF COHERENCE LEGEND`. *(lifecycle: [ ] -> [~] started: 2026-03-30 19:02 KST -> [x] completed: 2026-03-30 19:11 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [x] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFC` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWF COHERENCE`. *(completed: 2026-03-30 19:11 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
 - [x] AI Content/World Team: Prototype offline microline decode pair for coherence compact alias (`O` vs `D`) tuned for DOS-width tooltips. *(completed: 2026-03-30 19:11 KST; verification: payload schema/domain assertions in `scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift command)*
+
+## Game Director Cycle HL — 2026-03-30 19:18 KST
+- Coverage check (last 10 completed headings by lane): systems/qa automation still dominant; this cycle forces a combat/vfx-readable routing hook while keeping payload-only reversibility.
+- Idea 1 (low-risk ux/design): Add optional markdown tooltip legend row for `CBGCFXWSBPFXPDCWFCT` after `CBGCFXWSBPFXPDCWFC LEGEND`.
+- Idea 2 (mid-risk systems/combat): Add payload-only tooltip intent alias `CBGCFXWSBPFXPDCWFCT:<L|R>` derived from coherence compact alias (`O|D`) for denser routing. **Selected.**
+- Idea 3 (high-risk novelty): Auto-shift tooltip intensity after two consecutive DRIFT windows.
+- [x] Systems/Combat Team (Cycle HL selected experiment): Added payload-only tooltip intent alias `CBGCFXWSBPFXPDCWFCT:<L|R>` with deterministic mapping (`O->L`, `D->R`) and regression payload contract assertions (offline-only, flag-gated, reversible). *(lifecycle: [ ] -> [~] started: 2026-03-30 19:14 KST -> [x] completed: 2026-03-30 19:18 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle HL)
+- [ ] UX/Design Team: Add optional markdown row + legend for `CBGCFXWSBPFXPDCWFCT` directly after `CBGCFXWSBPFXPDCWFC LEGEND`.
+- [ ] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCT` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWFC`.
+- [ ] AI Content/World Team: Prototype offline microline pair for tooltip alias states (`L` vs `R`) tuned for DOS-width operator hints.
