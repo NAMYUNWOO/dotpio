@@ -400,3 +400,7 @@
 ## 2026-03-30 15:44 KST — Cycle HH correction note
 - Corrected record: selected Combat/VFX vertical slice added payload-only token CBGCFXWSBPFXPDCW FX CUE:SOFT|EDGE|HARD from cadence class STEADY|PIVOT|BURST (flag-gated, offline-only).
 - Verification commands passed: python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py ; python3 scripts/regression_weekly_portal_prompt_readability_drift.py ; python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120.
+
+## 2026-03-30 21:49 KST — Cycle HO VFX lane note
+- No new runtime VFX mapping shipped in this slice.
+- VFX lane kept in next-injection queue with explicit follow-up: optional digest rail/legend for `CBGCFXWSBPFXPDCWFCTA RFALL` to keep cadence visibility balanced.

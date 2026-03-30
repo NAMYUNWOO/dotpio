@@ -2965,6 +2965,63 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     }
 
 
+def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy(
+    *,
+    tooltip_action_alias_signals: dict[str, object],
+    prior_json_path: Path,
+) -> tuple[str, dict[str, object]]:
+    """AI-content/world fallback operator copy variants for repeated CTA `R` streak windows."""
+    flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_INTENT_REHEARSAL_COACH_WHY_COPY_PACK_CADENCE_COMBAT_VFX_FX_CUE_COMPACT_ALIAS_COHERENCE_COMPACT_ALIAS_TOOLTIP_ACTION_ALIAS_REVIEW_FALLBACK_COPY"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    action_alias = str(tooltip_action_alias_signals.get("actionAlias", "S") or "S").strip().upper()
+    prior_streak = 0
+    if prior_json_path.exists():
+        try:
+            prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            prior_streak = int(
+                prior_payload.get(
+                    "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopyRStreak",
+                    0,
+                )
+                or 0
+            )
+        except (json.JSONDecodeError, OSError, ValueError, TypeError):
+            prior_streak = 0
+
+    r_streak = (prior_streak + 1) if action_alias == "R" else 0
+    variant_map = {
+        "V1": "R fallback V1: freeze copy, rerun digest chain once.",
+        "V2": "R fallback V2: hold lane, run one compact FX-check pass.",
+    }
+    selected_variant = "NONE"
+    reason = "steady-window"
+    if action_alias == "R":
+        if r_streak >= 3:
+            selected_variant = "V2"
+            reason = "repeated-review-window-escalated"
+        elif r_streak >= 2:
+            selected_variant = "V1"
+            reason = "repeated-review-window"
+        else:
+            reason = "single-review-window"
+
+    token = f"CBGCFXWSBPFXPDCWFCTA RFALL:{selected_variant}"
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "actionAlias": action_alias,
+        "rStreak": r_streak,
+        "selectedVariant": selected_variant,
+        "variantMap": variant_map,
+        "selectedCopy": variant_map.get(selected_variant, "R fallback inactive."),
+        "reason": reason,
+        "token": token,
+        "offlineOnly": True,
+    }
+
+
 def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_escalation_alias(
     *,
     tooltip_action_alias_signals: dict[str, object],
@@ -11746,6 +11803,10 @@ def main() -> int:
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias(
         tooltip_alias_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_alias_signals,
     )
+    cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy(
+        tooltip_action_alias_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_signals,
+        prior_json_path=args.out_json,
+    )
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_escalation_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_escalation_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_escalation_alias(
         tooltip_action_alias_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_signals,
     )
@@ -13531,6 +13592,9 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_alias_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopy": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopySignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopyRStreak": int(cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_alias_review_fallback_copy_signals.get("rStreak", 0) or 0),
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionEscalationAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_escalation_alias,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionEscalationAliasSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_intent_rehearsal_coach_why_copy_pack_cadence_combat_vfx_fx_cue_compact_alias_coherence_compact_alias_tooltip_action_escalation_alias_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutation": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_phase_echo_mutation,

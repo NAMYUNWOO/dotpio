@@ -3997,3 +3997,9 @@
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Decision: Added optional `CBGCFXWSBPFXPDCWFCTA DIGEST LEGEND` markdown row in summary/token-coverage rails and extended adjacency/cardinality rollout contracts.
 - Follow-up: Remaining open queue item is AI Content/World repeated-`R` fallback operator copy variants.
+
+## 2026-03-30 21:49 KST — Cycle HO systems governance + cadence check
+- Coverage check over last 10 completed items (TASKS lane parse): systems=5, world=2, ai-content=0, combat=2, design=3, vfx=0, ux=4, qa=3.
+- Lane-cap trigger fired (`systems` 50% > 40%), so experiment pick was forced to underrepresented lanes; selected AI Content/World fallback-copy slice.
+- 24h cadence guard remains satisfied in current window: at least one combat/vfx item, one design/world item, and one systems/ops item are present in recent completions.
+- Injected next backlog trio spans cadence buckets: combat/vfx + design/world + systems/ops.

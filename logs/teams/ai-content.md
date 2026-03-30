@@ -2764,3 +2764,12 @@
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Decision: Added optional `CBGCFXWSBPFXPDCWFCTA DIGEST LEGEND` markdown row in summary/token-coverage rails and extended adjacency/cardinality rollout contracts.
 - Follow-up: Remaining open queue item is AI Content/World repeated-`R` fallback operator copy variants.
+
+## 2026-03-30 21:49 KST — Cycle HO ai-content/world fallback-copy slice
+- Forced-lane selection applied from coverage gate (last 10 completions: systems=5/10=50% > 40% cap; underrepresented lanes included ai-content/vfx).
+- Shipped minimal vertical slice in weekly digest payload: `CBGCFXWSBPFXPDCWFCTA RFALL:NONE|V1|V2` with two additive fallback operator copy variants for repeated `R` windows.
+- Variant map drafted and persisted in signals:
+  - `V1`: freeze copy, rerun digest chain once.
+  - `V2`: hold lane, run one compact FX-check pass.
+- Streak policy: `R` streak 1 => `NONE`, streak 2 => `V1`, streak >=3 => `V2`; any `S` window resets streak.
+- Verification: `python3 -m py_compile ...` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift generation PASS.

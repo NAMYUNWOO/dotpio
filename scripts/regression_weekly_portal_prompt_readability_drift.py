@@ -3154,6 +3154,33 @@ def main() -> int:
             "token",
             "offlineOnly",
         }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopy") in {
+            "FLAG OFF",
+            "CBGCFXWSBPFXPDCWFCTA RFALL:NONE",
+            "CBGCFXWSBPFXPDCWFCTA RFALL:V1",
+            "CBGCFXWSBPFXPDCWFCTA RFALL:V2",
+        }, payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopySignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "actionAlias",
+            "rStreak",
+            "selectedVariant",
+            "variantMap",
+            "selectedCopy",
+            "reason",
+            "token",
+            "offlineOnly",
+        }, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopySignals", {}).get("actionAlias") in {"S", "R"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopySignals", {}).get("selectedVariant") in {"NONE", "V1", "V2"}, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopySignals", {}).get("reason") in {
+            "steady-window",
+            "single-review-window",
+            "repeated-review-window",
+            "repeated-review-window-escalated",
+        }, payload
+        assert int(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionAliasReviewFallbackCopyRStreak", -1)) >= 0, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseIntentRehearsalCoachWhyCopyPackCadenceCombatVfxFxCueCompactAliasCoherenceCompactAliasTooltipActionEscalationAlias") in {
             "FLAG OFF",
             "CBGCFXWSBPFXPDCWFCTAE:H",

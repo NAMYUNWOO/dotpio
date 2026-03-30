@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 21:36 KST
+Last updated: 2026-03-30 21:49 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -13,6 +13,9 @@ Compact decision memory for AI context efficiency.
 
 ## Current key decisions
 
+- Closed AI Content/World follow-up item: shipped repeated-`R` fallback operator copy variants via payload token `CBGCFXWSBPFXPDCWFCTA RFALL:NONE|V1|V2` with deterministic streak policy (`R2->V1`, `R3+->V2`, `S->reset`).
+- Coverage gate over last 10 completions exceeded lane cap (`systems=5/10=50%`), so cycle was forced into underrepresented lanes; selected AI Content/World minimal vertical slice.
+- Verification + weekly smoke remain green (`py_compile`, digest regression, weekly digest generation). Queue advanced with new Cycle HO injections across combat/vfx, design/world, and systems/ops.
 - Closed UX/Design follow-up item: added optional `CBGCFXWSBPFXPDCWFCTA DIGEST LEGEND` row in summary/token-coverage rails so `S|R` decode remains one-glance readable under compact DOS scan order.
 - Regression contract extended for new row cardinality/dependency/adjacency (`CTA DIGEST -> CTA DIGEST LEGEND -> ECHO`) and verification + weekly smoke remain green.
 - Queue status after this run: ACTION_ITEMS fully checked; TASKS/POST_RC now have one remaining open item (AI Content/World repeated-`R` fallback operator copy variants).
