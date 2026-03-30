@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 15:44 KST
+Last updated: 2026-03-30 16:08 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -4087,3 +4087,7 @@ Compact decision memory for AI context efficiency.
 - Injected new backlog items (Cycle HG):
   - UX/Design: add optional digest markdown row + compact legend for `CBGCFXWSBPFXPDCWC`.
   - QA/Systems: add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWC` in summary/token-coverage sections.
+
+- Closed UX/VFX + Systems/QA follow-ups for `CBGCFXWSBPFXPDCW FX CUE`: summary/token-coverage rails now optionally include `CBGCFXWSBPFXPDCW FX CUE` + `...FX CUE LEGEND` directly after copy-pack cadence legend.
+- Regression contract now enforces optional cardinality/dependency/adjacency for the new FX cue rows while keeping payload-only fallback valid.
+- Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`); TASKS + POST_RC backlog synchronized to done.

@@ -2843,3 +2843,9 @@
 ## 2026-03-30 15:44 KST — Cycle HH correction note
 - Corrected record: selected Combat/VFX vertical slice added payload-only token CBGCFXWSBPFXPDCW FX CUE:SOFT|EDGE|HARD from cadence class STEADY|PIVOT|BURST (flag-gated, offline-only).
 - Verification commands passed: python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py ; python3 scripts/regression_weekly_portal_prompt_readability_drift.py ; python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120.
+
+## 2026-03-30 16:08:22 KST
+- Task: Added optional digest rows (`FX CUE` + `FX CUE LEGEND`) adjacent to copy-pack cadence rows in summary/token-coverage rails.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
