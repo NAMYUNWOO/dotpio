@@ -2779,3 +2779,9 @@
 - 2026-03-30 09:49 KST — GD lane rebalance cycle: ux lane exceeded 40% coverage and was intentionally skipped this run; selected combat/vfx payload slice to rebalance.
 
 - 2026-03-30 10:24 KST — Closed GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-copy-pack: added optional policy-aware QA summary copy-pack payload (`CBGCFXWSBPFXPDE POLICY COPY:{CALM_WATCH|EDGE_WATCH|MANUAL_ESCALATE}`) behind flag `DOTPIO_EXPERIMENT_CBGCFXWSBPFXPDE_SNAPSHOT_POLICY_COPY_PACK`; emits deterministic signals (policy/recommendation/copyMap) with FLAG OFF fallback. Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly drift smoke command.
+
+## 2026-03-30 10:52 KST
+- Task: GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-world-copyline
+- Update: Added payload-only world copyline pack token (`CBGCFXWSBPFXPDE WORLD COPYLINE:HOLD_LINE|SCAN_ROUTE|ESCALATE_ROUTE`) keyed by FXPDE snapshot threshold policy behind `DOTPIO_EXPERIMENT_CBGCFXWSBPFXPDE_SNAPSHOT_POLICY_WORLD_COPYLINE`.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅, `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Notes: Offline-only, deterministic map/domain locked via regression payload contract.

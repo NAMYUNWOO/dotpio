@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 06:51 KST
+Last updated: 2026-03-30 10:52 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed `GD-2026-03-30-fxpde-matrix-drift-snapshot-threshold-policy-world-copyline`: added optional payload-only design/world copyline pack token `CBGCFXWSBPFXPDE WORLD COPYLINE:HOLD_LINE|SCAN_ROUTE|ESCALATE_ROUTE`, keyed by FXPDE snapshot threshold policy and gated by `DOTPIO_EXPERIMENT_CBGCFXWSBPFXPDE_SNAPSHOT_POLICY_WORLD_COPYLINE`.
+- Added deterministic payload contract coverage for world copyline signals (`flagName`, `flagEnabled`, `thresholdPolicy`, `recommendation`, `copyline`, `copylineMap`, `token`, `offlineOnly`) with regression verification.
+- Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`); backlog/team logs synchronized.
 
 - Closed `GD-2026-03-30-fxpde-matrix-markdown-row`: both digest rails now expose `CBGCFXWSBPFXPDE MATRIX:E?A?` immediately after `CBGCFXWSBPFXPDE LEGEND`, and regression locks enforce matrix row cardinality/dependency/order (including FXPDE matrix scenarios) before `CBGCFXWAC COACH COPY REC`.
 - Verification passed (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`); backlog/task lane logs synchronized.

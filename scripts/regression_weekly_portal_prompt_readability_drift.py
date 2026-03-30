@@ -343,6 +343,30 @@ def main() -> int:
             assert threshold_policy_copy_pack_signals.get("copyPack") == "CALM_WATCH", matrix_payload
             assert threshold_policy_copy_pack_signals.get("token") == "CBGCFXWSBPFXPDE POLICY COPY:CALM_WATCH", matrix_payload
             assert threshold_policy_copy_pack_signals.get("offlineOnly") is True, matrix_payload
+            threshold_policy_world_copyline = matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyWorldCopyline"
+            )
+            assert threshold_policy_world_copyline == "FLAG OFF", matrix_payload
+            threshold_policy_world_copyline_signals = matrix_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintPhaseEchoMutationFlagMatrixDriftPlaytestSnapshotThresholdPolicyWorldCopylineSignals",
+                {},
+            )
+            assert set(threshold_policy_world_copyline_signals.keys()) == {
+                "flagName",
+                "flagEnabled",
+                "thresholdPolicy",
+                "recommendation",
+                "copyline",
+                "copylineMap",
+                "token",
+                "offlineOnly",
+            }, matrix_payload
+            assert threshold_policy_world_copyline_signals.get("flagEnabled") is False, matrix_payload
+            assert threshold_policy_world_copyline_signals.get("thresholdPolicy") == "BASELINE_ONLY", matrix_payload
+            assert threshold_policy_world_copyline_signals.get("recommendation") == "ESTABLISH_BASELINE", matrix_payload
+            assert threshold_policy_world_copyline_signals.get("copyline") == "HOLD_LINE", matrix_payload
+            assert threshold_policy_world_copyline_signals.get("token") == "CBGCFXWSBPFXPDE WORLD COPYLINE:HOLD_LINE", matrix_payload
+            assert threshold_policy_world_copyline_signals.get("offlineOnly") is True, matrix_payload
             for row_prefix in (
                 "- CBGCFXWSBPFXPD ECHO:",
                 "- CBGCFXWSBPFXPDE:",
