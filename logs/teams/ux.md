@@ -3025,3 +3025,5 @@
 
 - 2026-03-31 02:08 KST — Cycle HS: No new markdown rows shipped; validated that payload-only alias keeps operator surface stable while enabling future compact UI callouts.
 - 2026-03-31 03:44 KST — UX pass: summary/token-coverage rails now show `CBGCFXWSBPFXPIN` plus legend adjacent to `...NARR`, reducing decode friction for operators reviewing narration alias output.
+
+- 2026-03-31 04:16 KST — UX readability note: `CBGCFXWSBPFXPIN DRIFT` token stays payload-only this cycle to avoid markdown rail bloat while operators validate signal usefulness.

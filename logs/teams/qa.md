@@ -4615,3 +4615,5 @@
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
   - Contract updates: added `CBGCFXWSBPFXPIN`/`...LEGEND` row-count (0|2), dependency (`NARR -> FXPIN -> LEGEND`), and adjacency guard before `CBGCFXWSBPFXPI DRILL`.
+
+- 2026-03-31 04:16 KST — QA locked schema/domain assertions for `...NarrationCompactAliasDrift` (token prefix, cue domain, parity booleans, flag-gated fallback) and passed regression + weekly digest script runs.

@@ -4077,3 +4077,5 @@
 ## 2026-03-31 03:41 KST — Cycle IK systems/ops contract note
 - Added payload surface + signal schema for `cadenceBridge...NarrationCompactAliasCombatVfxFxCue` (`CBGCFXWSBPFXPINF:<S|E|H>`).
 - Regression coverage now locks deterministic alias->cue->token mapping and flag-off fallback behavior.
+
+- 2026-03-31 04:16 KST — Cycle IJ follow-up shipped payload token `CBGCFXWSBPFXPIN DRIFT:LOCK|WATCH` behind dedicated flag with deterministic parity checks (`phaseAlias`, `narrationAlias`, expected aliases) and rollback-safe `FLAG OFF` fallback.

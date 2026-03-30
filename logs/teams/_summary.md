@@ -4201,3 +4201,5 @@ Compact decision memory for AI context efficiency.
 - Vertical slice shipped: new resolver + payload/signals + regression locks for deterministic mapping `A->SOFT(S), R->EDGE(E), S->HARD(H)`.
 - Verification: py_compile + weekly regression + weekly drift smoke all PASS.
 - Next experiment injection: world/design legend readability pack, systems/ops stale-vfx watchdog, combat/vfx drift-streak cue stress fixture.
+
+- 2026-03-31 04:16 KST — Closed AI Content/Design injector item: shipped flagged payload token `CBGCFXWSBPFXPIN DRIFT:LOCK|WATCH` with deterministic source-token parity checks between `CBGCFXWSBPFXPI` and `CBGCFXWSBPFXPIN`, wobble-aware divergence signaling, and rollback-safe `FLAG OFF` fallback.

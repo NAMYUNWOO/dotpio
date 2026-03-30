@@ -4040,6 +4040,49 @@ def main() -> int:
             assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias == f"CBGCFXWSBPFXPIN:{expected_narration_alias}", payload
         else:
             assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias == "FLAG OFF", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasDrift", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPIN DRIFT:")), payload
+        assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasDriftSignals", {}).keys()) == {
+            "flagName",
+            "flagEnabled",
+            "phaseIntent",
+            "phaseAlias",
+            "expectedPhaseAlias",
+            "narration",
+            "narrationAlias",
+            "expectedNarrationAlias",
+            "coachMomentum",
+            "phaseAliasParity",
+            "narrationAliasParity",
+            "narrationPhaseAliasParity",
+            "cue",
+            "reason",
+            "token",
+            "offlineOnly",
+            "runtimeBalanceImpact",
+        }, payload
+        intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasDrift", "")
+        intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasDriftSignals", {})
+        expected_parity = expected_phase_intent_alias == expected_narration_alias
+        expected_drift_cue = "WATCH" if (intensity_pulse_language_variant_pack_phase_intent_narration_signals.get("coachMomentum") == "WOBBLE" and not expected_parity) else "LOCK"
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("phaseIntent") == expected_phase_intent, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("phaseAlias") == expected_phase_intent_alias, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("expectedPhaseAlias") == expected_phase_intent_alias, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("narration") == expected_narration, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("narrationAlias") == expected_narration_alias, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("expectedNarrationAlias") == expected_narration_alias, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("coachMomentum") in {"LOCKED", "WOBBLE"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("phaseAliasParity") is True, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("narrationAliasParity") is True, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("narrationPhaseAliasParity") == expected_parity, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("cue") == expected_drift_cue, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("reason") in {"wobble-parity-drift", "parity-locked"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("token") == f"CBGCFXWSBPFXPIN DRIFT:{expected_drift_cue}", payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("runtimeBalanceImpact") == "none", payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("offlineOnly") is True, payload
+        if intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals.get("flagEnabled") is True:
+            assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift == f"CBGCFXWSBPFXPIN DRIFT:{expected_drift_cue}", payload
+        else:
+            assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCue", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPINF:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueSignals", {}).keys()) == {
             "flagName",
