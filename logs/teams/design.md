@@ -2745,3 +2745,4 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decisions:
   - Introduced explicit decode line: `OK=alias/source aligned, DRIFT=alias/source mismatch` adjacent to coherence row for scan-speed.
+- [2026-03-30 19:11 KST] Cycle HK follow-through: added CBGCFXWSBPFXPDCWFC markdown rows/contracts + offline tooltip decode pair (O=OK:alias aligned, D=DRIFT:recheck); regression + weekly drift checks passed.

@@ -2934,3 +2934,4 @@
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Decisions:
   - Both summary and token-coverage rails now emit `CBGCFXWSBPFXPDCWF COHERENCE` and compact legend in deterministic adjacency after `...PDCWF DIGEST`.
+- [2026-03-30 19:11 KST] Cycle HK follow-through: added CBGCFXWSBPFXPDCWFC markdown rows/contracts + offline tooltip decode pair (O=OK:alias aligned, D=DRIFT:recheck); regression + weekly drift checks passed.

@@ -2658,3 +2658,4 @@
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decisions:
   - `CBGCFXWSBPFXPDCWF COHERENCE` now documents alias/source alignment (`OK|DRIFT`) without touching runtime balance paths.
+- [2026-03-30 19:11 KST] Cycle HK follow-through: added CBGCFXWSBPFXPDCWFC markdown rows/contracts + offline tooltip decode pair (O=OK:alias aligned, D=DRIFT:recheck); regression + weekly drift checks passed.

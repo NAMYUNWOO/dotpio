@@ -4509,3 +4509,4 @@
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Decisions:
   - Added `0|2` row-count assertions for coherence/legend rows and strict adjacency (`DIGEST -> COHERENCE -> COHERENCE LEGEND`) in both digest sections.
+- [2026-03-30 19:11 KST] Cycle HK follow-through: added CBGCFXWSBPFXPDCWFC markdown rows/contracts + offline tooltip decode pair (O=OK:alias aligned, D=DRIFT:recheck); regression + weekly drift checks passed.
