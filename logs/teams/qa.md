@@ -4669,3 +4669,7 @@
 - Regression coverage added for payload schema/domain checks of phase-intent legend microcopy variant.
 - Markdown ordering contract now validates optional chain: `...FXPI -> ...FXPI LEGEND -> ...FXPI LEGEND COPY -> ...FXPI NARR`.
 - Spacer prefix whitelist includes new optional row and cardinality contract remains zero-or-two rows.
+
+## 2026-03-31 08:49 KST
+- Added regression coverage for `CBGCFXWSBPFXPIC` payload schema/domain and markdown cardinality (0|2) + adjacency assertions.
+- Extended optional spacer window limit by one to account for new alias rollout row.

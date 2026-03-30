@@ -4130,3 +4130,8 @@
 - Extended payload surface with `...PhaseIntentLegendMicrocopyVariant` + signals bundle.
 - Added DOS-width guardrail fields (`dosWidthMax`, `withinDosWidth`) and deterministic fallback token.
 - Updated markdown spacer contract allowance by +1 row for optional `CBGCFXWSBPFXPI LEGEND COPY`.
+
+## 2026-03-31 08:49 KST
+- Cycle IN selected slice shipped: `CBGCFXWSBPFXPIC:<W|C>` alias derived from legend-copy DOS-width mode.
+- Added payload keys for compact-alias signals and updated markdown spacer ordering contract to include `...FXPIC` before narration rows.
+- Verification: py_compile + regression + weekly digest smoke all green.

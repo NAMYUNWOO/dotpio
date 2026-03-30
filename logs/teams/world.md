@@ -2796,3 +2796,7 @@
 - Added writer-facing phase-intent legend copy variant for postmortem readability: `CBGCFXWSBPFXPI LEGEND COPY`.
 - Preserved world/theme wording (`ANCHOR|SURGE|RECOVER`) with compact fallback for DOS-width constraints.
 - No runtime world-state or map schema changes.
+
+## 2026-03-31 08:49 KST
+- World-facing copy cadence unchanged; new `CBGCFXWSBPFXPIC` alias is telemetry-only and does not alter narrative semantics.
+- Follow-up rotor prototype remains backlog-only for later evaluation.

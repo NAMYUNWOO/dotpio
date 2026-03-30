@@ -2883,3 +2883,7 @@
 ## 2026-03-31 08:40 KST
 - Design readability slice completed: writer-facing phase-intent legend microcopy now available as optional row.
 - Copy kept concise for DOS rails; fallback shorthand maintained for narrow-width postmortem views.
+
+## 2026-03-31 08:49 KST
+- Design note: compact legend-copy style alias (`W|C`) keeps writer-facing decode path readable under dense DOS rails.
+- Follow-up queued for checksum + adaptive phrasing experiments; both remain optional and reversible.

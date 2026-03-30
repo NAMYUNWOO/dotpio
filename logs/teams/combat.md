@@ -2787,3 +2787,6 @@
 ## 2026-03-31 08:40 KST
 - Combat lane note: no balance/runtime combat logic changed.
 - Digest-only readability addition (`CBGCFXWSBPFXPI LEGEND COPY`) is reversible and flag-gated.
+
+## 2026-03-31 08:49 KST
+- No combat runtime impact in Cycle IN; alias addition is digest-only metadata.

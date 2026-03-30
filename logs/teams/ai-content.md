@@ -2884,3 +2884,7 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
 - Verification: pending (run in this cycle before commit).
 - Decision: keep rollout behind dedicated experiment flag and place row between `...FXPI LEGEND` and `...FXPI NARR`.
+
+## 2026-03-31 08:49 KST
+- Game Director Cycle IN queued AI-content follow-up: adaptive legend-copy phrasing rotor (offline-only, flag-gated).
+- Current cycle implementation stayed in UX/systems lane to reduce risk and preserve deterministic copy contracts.

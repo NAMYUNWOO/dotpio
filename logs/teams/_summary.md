@@ -4261,3 +4261,8 @@ Compact decision memory for AI context efficiency.
 - Completed AI-content/World POST_RC item: optional `CBGCFXWSBPFXPI LEGEND COPY` microcopy variant line added with DOS-width fallback and dedicated flag gate.
 - Regression updated for payload schema/domain plus markdown adjacency contract (`LEGEND -> LEGEND COPY -> NARR`) and optional spacer sequence.
 - Backlog state: ACTION_ITEMS/TASKS/POST_RC currently fully checked after this completion; next cycle can trigger Game Director ideation loop.
+
+## 2026-03-31 08:49 KST
+- Triggered Game Director Cycle IN after queues hit fully-checked state; generated 3 ideas and selected low-risk UX/systems vertical slice.
+- Shipped `CBGCFXWSBPFXPIC:<W|C>` compact alias from phase-intent legend microcopy fallback mode, with payload + markdown wiring and regression ordering/schema locks.
+- Injected follow-up backlog tasks: legend-copy checksum contract (Systems/QA) and adaptive phrasing rotor prototype (AI-content/World).

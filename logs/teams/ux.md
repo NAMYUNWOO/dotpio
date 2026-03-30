@@ -3070,3 +3070,7 @@
 ## 2026-03-31 08:40 KST
 - UX digest flow updated with optional `CBGCFXWSBPFXPI LEGEND COPY` row placement before narration row.
 - Ordering keeps one-hop decode path while preserving dense scanability in terminal-width contexts.
+
+## 2026-03-31 08:49 KST
+- Added compact style marker row `CBGCFXWSBPFXPIC` to improve one-glance postmortem readability for legend-copy fallback mode.
+- Preserved adjacency flow: `...FXPI LEGEND -> ...FXPI LEGEND COPY -> ...FXPIC -> ...FXPI NARR`.
