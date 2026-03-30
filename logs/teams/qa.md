@@ -4511,3 +4511,10 @@
   - Added `0|2` row-count assertions for coherence/legend rows and strict adjacency (`DIGEST -> COHERENCE -> COHERENCE LEGEND`) in both digest sections.
 - [2026-03-30 19:11 KST] Cycle HK follow-through: added CBGCFXWSBPFXPDCWFC markdown rows/contracts + offline tooltip decode pair (O=OK:alias aligned, D=DRIFT:recheck); regression + weekly drift checks passed.
 - [2026-03-30 19:18 KST] Cycle HL: shipped payload-only tooltip intent alias CBGCFXWSBPFXPDCWFCT (L|R) from coherence compact alias; queued markdown+contract+microline follow-ups in backlog.
+
+## 2026-03-30 19:32:00 KST
+- Task: Regression guard expansion for tooltip-alias rollout.
+- Commit: HEAD (this run)
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decision: added payload key contract for tooltip microline signals and strict section-order checks before `CBGCFXWSBPFXPD ECHO`.

@@ -3961,3 +3961,12 @@
   - Extended payload schema assertions with offline microline-pair contract for coherence status readability.
 - [2026-03-30 19:11 KST] Cycle HK follow-through: added CBGCFXWSBPFXPDCWFC markdown rows/contracts + offline tooltip decode pair (O=OK:alias aligned, D=DRIFT:recheck); regression + weekly drift checks passed.
 - [2026-03-30 19:18 KST] Cycle HL: shipped payload-only tooltip intent alias CBGCFXWSBPFXPDCWFCT (L|R) from coherence compact alias; queued markdown+contract+microline follow-ups in backlog.
+
+## 2026-03-30 19:32:00 KST
+- Task: Cycle HL tooltip-alias schema + markdown contract extension.
+- Commit: HEAD (this run)
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decision: expanded rollout chain/adjacency to include `CBGCFXWSBPFXPDCWFCT` + legend with `0|2` cardinality and dependency on `CBGCFXWSBPFXPDCWFC LEGEND`.

@@ -2936,3 +2936,10 @@
   - Both summary and token-coverage rails now emit `CBGCFXWSBPFXPDCWF COHERENCE` and compact legend in deterministic adjacency after `...PDCWF DIGEST`.
 - [2026-03-30 19:11 KST] Cycle HK follow-through: added CBGCFXWSBPFXPDCWFC markdown rows/contracts + offline tooltip decode pair (O=OK:alias aligned, D=DRIFT:recheck); regression + weekly drift checks passed.
 - [2026-03-30 19:18 KST] Cycle HL: shipped payload-only tooltip intent alias CBGCFXWSBPFXPDCWFCT (L|R) from coherence compact alias; queued markdown+contract+microline follow-ups in backlog.
+
+## 2026-03-30 19:32:00 KST
+- Task: Cycle HL follow-up markdown rollout for `CBGCFXWSBPFXPDCWFCT`.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decision: surfaced `CBGCFXWSBPFXPDCWFCT` + legend directly after `CBGCFXWSBPFXPDCWFC LEGEND` in summary/token-coverage rails for deterministic scan order.

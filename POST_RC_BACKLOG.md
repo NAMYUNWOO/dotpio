@@ -1791,6 +1791,6 @@ Last updated: 2026-03-21 02:31 KST
 
 ## P1 (Game Director Injection — 2026-03-30 Cycle HL)
 - [x] Systems/Combat Team: Add payload-only tooltip intent alias token `CBGCFXWSBPFXPDCWFCT:<L|R>` derived from `CBGCFXWSBPFXPDCWFC` with deterministic alias map/signals.
-- [ ] UX/Design Team: Add optional markdown row + legend for `CBGCFXWSBPFXPDCWFCT` directly after `CBGCFXWSBPFXPDCWFC LEGEND`.
-- [ ] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCT` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWFC`.
-- [ ] AI Content/World Team: Prototype offline microline pair for tooltip alias states (`L` vs `R`) tuned for DOS-width operator hints.
+- [x] UX/Design Team: Add optional markdown row + legend for `CBGCFXWSBPFXPDCWFCT` directly after `CBGCFXWSBPFXPDCWFC LEGEND`.
+- [x] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCT` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWFC`.
+- [x] AI Content/World Team: Prototype offline microline pair for tooltip alias states (`L` vs `R`) tuned for DOS-width operator hints.

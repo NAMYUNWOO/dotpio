@@ -1898,6 +1898,6 @@ See project-level plans:
 - [x] Systems/Combat Team (Cycle HL selected experiment): Added payload-only tooltip intent alias `CBGCFXWSBPFXPDCWFCT:<L|R>` with deterministic mapping (`O->L`, `D->R`) and regression payload contract assertions (offline-only, flag-gated, reversible). *(lifecycle: [ ] -> [~] started: 2026-03-30 19:14 KST -> [x] completed: 2026-03-30 19:18 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## Next Up (Game Director Injection — Cycle HL)
-- [ ] UX/Design Team: Add optional markdown row + legend for `CBGCFXWSBPFXPDCWFCT` directly after `CBGCFXWSBPFXPDCWFC LEGEND`.
-- [ ] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCT` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWFC`.
-- [ ] AI Content/World Team: Prototype offline microline pair for tooltip alias states (`L` vs `R`) tuned for DOS-width operator hints.
+- [x] UX/Design Team: Add optional markdown row + legend for `CBGCFXWSBPFXPDCWFCT` directly after `CBGCFXWSBPFXPDCWFC LEGEND`.
+- [x] Systems/QA Team: Add markdown adjacency/count contract for `CBGCFXWSBPFXPDCWFCT` rows (`0|2`) and dependency on `CBGCFXWSBPFXPDCWFC`.
+- [x] AI Content/World Team: Prototype offline microline pair for tooltip alias states (`L` vs `R`) tuned for DOS-width operator hints.

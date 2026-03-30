@@ -2740,3 +2740,10 @@
   - Added payload-only token map: `COHERENCE COPY:LOCKED LANE|digest alias/source aligned` and `COHERENCE COPY:DRIFT WATCH|digest alias/source mismatch` (flag-gated, offline-only).
 - [2026-03-30 19:11 KST] Cycle HK follow-through: added CBGCFXWSBPFXPDCWFC markdown rows/contracts + offline tooltip decode pair (O=OK:alias aligned, D=DRIFT:recheck); regression + weekly drift checks passed.
 - [2026-03-30 19:18 KST] Cycle HL: shipped payload-only tooltip intent alias CBGCFXWSBPFXPDCWFCT (L|R) from coherence compact alias; queued markdown+contract+microline follow-ups in backlog.
+
+## 2026-03-30 19:32:00 KST
+- Task: Cycle HL offline tooltip microline pair prototype (`L` vs `R`).
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decision: introduced deterministic microline map (`TOOLTIP:L=lock state`, `TOOLTIP:R=review state`) in tooltip-alias signals for downstream copy tooling.

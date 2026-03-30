@@ -1,6 +1,6 @@
 # Team Logs Summary
 
-Last updated: 2026-03-30 18:46 KST
+Last updated: 2026-03-30 19:32 KST
 
 ## Purpose
 Compact decision memory for AI context efficiency.
@@ -12,6 +12,10 @@ Compact decision memory for AI context efficiency.
 - Expanded load: pull older ranges only when a task explicitly needs history.
 
 ## Current key decisions
+
+- Closed Cycle HL Next Up trio in one pass: added `CBGCFXWSBPFXPDCWFCT` + legend rows to summary/token-coverage directly after `CBGCFXWSBPFXPDCWFC LEGEND`.
+- Regression contract now enforces tooltip-alias rollout cardinality/dependency/adjacency (`0|2`, `...DCWFC LEGEND -> ...DCWFCT -> ...DCWFCT LEGEND -> ...ECHO`) and payload signal schema now includes deterministic microline fields.
+- AI Content/World prototype shipped offline tooltip microline pair for alias states (`L` lock / `R` review) with DOS-width-safe copy; verification and weekly smoke remain green.
 
 - Executed Game Director Cycle HK immediately after full-check state: generated 3 ideas and selected low-risk Systems/Combat payload slice.
 - Shipped payload-only compact coherence alias `CBGCFXWSBPFXPDCWFC:<O|D>` from `CBGCFXWSBPFXPDCWF COHERENCE` with deterministic alias map/signals and regression schema/domain locks.

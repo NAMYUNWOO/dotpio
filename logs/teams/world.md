@@ -2659,3 +2659,10 @@
   - World-facing copy pair stays short and deterministic (`LOCKED LANE` vs `DRIFT WATCH`) to preserve compact readability budget.
 - [2026-03-30 19:11 KST] Cycle HK follow-through: added CBGCFXWSBPFXPDCWFC markdown rows/contracts + offline tooltip decode pair (O=OK:alias aligned, D=DRIFT:recheck); regression + weekly drift checks passed.
 - [2026-03-30 19:18 KST] Cycle HL: shipped payload-only tooltip intent alias CBGCFXWSBPFXPDCWFCT (L|R) from coherence compact alias; queued markdown+contract+microline follow-ups in backlog.
+
+## 2026-03-30 19:32:00 KST
+- Task: Tooltip alias state copy tuning for operator hints.
+- Commit: HEAD (this run)
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decision: kept microline pair compact and non-narrative to preserve DOS line budget.
