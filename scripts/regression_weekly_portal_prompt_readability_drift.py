@@ -4093,6 +4093,27 @@ def main() -> int:
             assert intensity_pulse_language_variant_pack_phase_intent_alias == f"CBGCFXWSBPFXPI:{expected_phase_intent_alias}", payload
         else:
             assert intensity_pulse_language_variant_pack_phase_intent_alias == "FLAG OFF", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendCompactAlias", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPIL:")), payload
+        legend_compact_alias_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendCompactAliasSignals", {})
+        required_phase_intent_legend_compact_alias_signal_keys = {
+            "flagName",
+            "flagEnabled",
+            "alias",
+            "legendVersion",
+            "legendHash",
+            "token",
+            "offlineOnly",
+        }
+        assert required_phase_intent_legend_compact_alias_signal_keys.issubset(set(legend_compact_alias_signals.keys())), payload
+        assert legend_compact_alias_signals.get("alias") == "ASR", payload
+        assert legend_compact_alias_signals.get("legendVersion") == "v1", payload
+        assert legend_compact_alias_signals.get("legendHash") == expected_phase_intent_legend_hash, payload
+        assert legend_compact_alias_signals.get("offlineOnly") is True, payload
+        assert legend_compact_alias_signals.get("token") == "CBGCFXWSBPFXPIL:ASR", payload
+        if legend_compact_alias_signals.get("flagEnabled") is True:
+            assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendCompactAlias") == "CBGCFXWSBPFXPIL:ASR", payload
+        else:
+            assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendCompactAlias") == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendMicrocopyVariant", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPI LEGEND COPY:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendMicrocopyVariantSignals", {}).keys()) == {
             "flagName",
@@ -5288,6 +5309,9 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_legend_indices = [
             i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPI LEGEND:")
         ]
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_legend_compact_alias_indices = [
+            i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPIL:")
+        ]
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_legend_copy_indices = [
             i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPI LEGEND COPY:")
         ]
@@ -6043,6 +6067,12 @@ def main() -> int:
         )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_legend_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_indices), (
             "expected CBGCFXWSBPFXPI LEGEND rollout rows to appear only when CBGCFXWSBPFXPI rows are present"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_legend_compact_alias_indices) in {0, 2}, (
+            "expected zero or exactly two CBGCFXWSBPFXPIL rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_legend_compact_alias_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_legend_indices), (
+            "expected CBGCFXWSBPFXPIL rollout rows to appear only when CBGCFXWSBPFXPI LEGEND rows are present"
         )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_legend_copy_indices) in {0, 2}, (
             "expected zero or exactly two CBGCFXWSBPFXPI LEGEND COPY rows (summary + token-coverage sections)"
@@ -6806,6 +6836,11 @@ def main() -> int:
                 if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_legend_indices) == 2
                 else None
             )
+            optional_phase_intent_alias_legend_compact_alias_idx = (
+                cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_legend_compact_alias_indices[section_idx]
+                if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_legend_compact_alias_indices) == 2
+                else None
+            )
             optional_phase_intent_alias_legend_copy_idx = (
                 cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_legend_copy_indices[section_idx]
                 if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_legend_copy_indices) == 2
@@ -6839,12 +6874,21 @@ def main() -> int:
                 assert optional_phase_intent_alias_legend_idx == optional_phase_intent_alias_idx + 1, (
                     f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPI LEGEND row directly after CBGCFXWSBPFXPI row"
                 )
-            if optional_phase_intent_alias_legend_copy_idx is not None:
+            if optional_phase_intent_alias_legend_compact_alias_idx is not None:
                 assert optional_phase_intent_alias_legend_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPIL row cannot appear without CBGCFXWSBPFXPI LEGEND row"
+                )
+                assert optional_phase_intent_alias_legend_compact_alias_idx == optional_phase_intent_alias_legend_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPIL row directly after CBGCFXWSBPFXPI LEGEND row"
+                )
+            if optional_phase_intent_alias_legend_copy_idx is not None:
+                expected_prior_idx = optional_phase_intent_alias_legend_compact_alias_idx if optional_phase_intent_alias_legend_compact_alias_idx is not None else optional_phase_intent_alias_legend_idx
+                expected_prior_label = "CBGCFXWSBPFXPIL" if optional_phase_intent_alias_legend_compact_alias_idx is not None else "CBGCFXWSBPFXPI LEGEND"
+                assert expected_prior_idx is not None, (
                     f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPI LEGEND COPY row cannot appear without CBGCFXWSBPFXPI LEGEND row"
                 )
-                assert optional_phase_intent_alias_legend_copy_idx == optional_phase_intent_alias_legend_idx + 1, (
-                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPI LEGEND COPY row directly after CBGCFXWSBPFXPI LEGEND row"
+                assert optional_phase_intent_alias_legend_copy_idx == expected_prior_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPI LEGEND COPY row directly after {expected_prior_label} row"
                 )
             if optional_phase_intent_alias_legend_copy_compact_alias_idx is not None:
                 assert optional_phase_intent_alias_legend_copy_idx is not None, (

@@ -4429,3 +4429,4 @@ Compact decision memory for AI context efficiency.
 - Verification used this cycle: py_compile + weekly digest smoke + targeted flag-on/off resolver assertions.
 
 - [2026-03-31 18:32 KST] Decision: introduced optional `CBGCFXWSBPFXPINFBD FX NOTE:<S|E>` row sourced from bridge decode alias with 88-char DOS guard. Updated generator payload + markdown placement + regression ordering/width/parity contracts. Open issue: full regression harness still failing outside this scope; requires dedicated triage.
+- [2026-03-31 19:51 KST] Decision: added optional compact phase-intent legend alias row `CBGCFXWSBPFXPIL:ASR` right after `CBGCFXWSBPFXPI LEGEND` in both digest sections, with payload-backed legend hash/version signals and ordering/cardinality assertions in regression contracts.

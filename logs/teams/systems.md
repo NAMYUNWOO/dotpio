@@ -4272,3 +4272,4 @@
 - Verification: py_compile PASS, weekly digest smoke PASS, targeted flag-on assertion (`LB=LB lock,FB=FB hold`) PASS.
 
 - [2026-03-31 18:32 KST] Added optional `CBGCFXWSBPFXPINFBD FX NOTE:<S|E>` parity row plumbing in weekly readability generator; payload now exports row/signals for downstream checks. Follow-up: investigate full regression harness failure source (currently pre-existing noisy failure path).
+- [2026-03-31 19:51 KST] Cycle GD: added compact phase-intent legend alias rail `CBGCFXWSBPFXPIL:ASR` (payload + markdown summary/token-coverage rows) directly after `CBGCFXWSBPFXPI LEGEND` for faster decode scanning. Regression contracts extended for row cardinality/order and alias signal payload keys; py_compile+weekly digest smoke passed.
