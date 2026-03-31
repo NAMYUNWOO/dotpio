@@ -63,6 +63,8 @@ COPY_PACK_ALIAS = {"steady": "ST", "spike": "SP"}
 COMPAT_ROW_POLICY_ALIAS = {"ALWAYS": "A", "SPIKE_ONLY": "S"}
 COMPAT_ROW_POLICY_SOURCE_ALIAS = {"COPY_PACK": "C", "VOLATILITY_MEMORY": "V"}
 COMPAT_ROW_POLICY_SOURCE_CONFIDENCE_ALIAS = {"LOW": "L", "MID": "M", "HIGH": "H"}
+COMPAT_ROW_POLICY_SOURCE_CONFIDENCE_TREND_ALIAS = {"UP": "U", "FLAT": "F", "DOWN": "D"}
+VOLATILITY_SCORE = {"steady": 0, "calm": 0, "swing": 1, "spike": 2}
 
 def _collect_volatility_windows(report: dict) -> list[str]:
     candidates = [
@@ -99,6 +101,25 @@ def _resolve_compat_row_policy_source_confidence(report: dict) -> str:
     if len(windows) >= 2 and all(window in {"swing", "spike"} for window in windows[-2:]):
         return "MID"
     return "LOW"
+
+
+def _resolve_compat_row_policy_source_confidence_trend(report: dict) -> str:
+    windows = _collect_volatility_windows(report)
+    if len(windows) < 3:
+        return "FLAT"
+
+    recent = windows[-2:]
+    prior = windows[-4:-2] if len(windows) >= 4 else windows[-3:-1]
+
+    recent_score = sum(VOLATILITY_SCORE.get(window, 1) for window in recent)
+    prior_score = sum(VOLATILITY_SCORE.get(window, 1) for window in prior)
+    delta = recent_score - prior_score
+
+    if delta >= 1:
+        return "UP"
+    if delta <= -1:
+        return "DOWN"
+    return "FLAT"
 
 
 def _resolve_compat_row_policy(gameplay_copy_pack: str) -> str:
@@ -219,6 +240,18 @@ def to_markdown(
     lines.append(
         "- CONTRACT CHECKLIST: compatRowPolicySignals.policySourceConfidenceAlias mirrors compatRowPolicySourceConfidenceAlias exactly"
     )
+    lines.append(
+        "- CONTRACT CHECKLIST: compatRowPolicySourceConfidenceTrend in {UP,FLAT,DOWN} and compatRowPolicySignals.policySourceConfidenceTrend mirrors compatRowPolicySourceConfidenceTrend"
+    )
+    lines.append(
+        "- CONTRACT CHECKLIST: compatRowPolicySignals.policySourceConfidenceTrend mirrors compatRowPolicySourceConfidenceTrend exactly"
+    )
+    lines.append(
+        "- CONTRACT CHECKLIST: compatRowPolicySourceConfidenceTrendAlias in {U,F,D} and compatRowPolicySignals.policySourceConfidenceTrendAlias mirrors compatRowPolicySourceConfidenceTrendAlias"
+    )
+    lines.append(
+        "- CONTRACT CHECKLIST: compatRowPolicySignals.policySourceConfidenceTrendAlias mirrors compatRowPolicySourceConfidenceTrendAlias exactly"
+    )
     lines.append("")
 
     if not templates:
@@ -294,6 +327,9 @@ def main() -> int:
     compat_row_policy = _resolve_compat_row_policy(gameplay_pack)
     compat_row_policy_source = _resolve_compat_row_policy_source(report)
     compat_row_policy_source_confidence = _resolve_compat_row_policy_source_confidence(report)
+    compat_row_policy_source_confidence_trend = _resolve_compat_row_policy_source_confidence_trend(
+        report
+    )
 
     payload = {
         "status": report.get("status"),
@@ -308,6 +344,10 @@ def main() -> int:
         "compatRowPolicySourceConfidenceAlias": COMPAT_ROW_POLICY_SOURCE_CONFIDENCE_ALIAS[
             compat_row_policy_source_confidence
         ],
+        "compatRowPolicySourceConfidenceTrend": compat_row_policy_source_confidence_trend,
+        "compatRowPolicySourceConfidenceTrendAlias": COMPAT_ROW_POLICY_SOURCE_CONFIDENCE_TREND_ALIAS[
+            compat_row_policy_source_confidence_trend
+        ],
         "compatRowPolicyAlias": COMPAT_ROW_POLICY_ALIAS[compat_row_policy],
         "compatRowPolicySignals": {
             "volatilityBand": "spike" if gameplay_pack == "spike" else "steady",
@@ -317,6 +357,10 @@ def main() -> int:
             "policySourceConfidence": compat_row_policy_source_confidence,
             "policySourceConfidenceAlias": COMPAT_ROW_POLICY_SOURCE_CONFIDENCE_ALIAS[
                 compat_row_policy_source_confidence
+            ],
+            "policySourceConfidenceTrend": compat_row_policy_source_confidence_trend,
+            "policySourceConfidenceTrendAlias": COMPAT_ROW_POLICY_SOURCE_CONFIDENCE_TREND_ALIAS[
+                compat_row_policy_source_confidence_trend
             ],
             "reason": "spike-pack-recommends-gated-onboarding"
             if compat_row_policy == "SPIKE_ONLY"

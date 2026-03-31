@@ -13,6 +13,8 @@
   "compatRowPolicySourceAlias": "C",
   "compatRowPolicySourceConfidence": "LOW",
   "compatRowPolicySourceConfidenceAlias": "L",
+  "compatRowPolicySourceConfidenceTrend": "FLAT",
+  "compatRowPolicySourceConfidenceTrendAlias": "F",
   "compatRowPolicyAlias": "S",
   "compatRowPolicySignals": {
     "volatilityBand": "spike",
@@ -21,6 +23,8 @@
     "policySourceAlias": "C",
     "policySourceConfidence": "LOW",
     "policySourceConfidenceAlias": "L",
+    "policySourceConfidenceTrend": "FLAT",
+    "policySourceConfidenceTrendAlias": "F",
     "reason": "spike-pack-recommends-gated-onboarding",
     "policyAlias": "S"
   },

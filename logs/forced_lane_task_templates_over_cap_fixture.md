@@ -11,6 +11,10 @@
 - CONTRACT CHECKLIST: compatRowPolicySignals.policySourceConfidence mirrors compatRowPolicySourceConfidence exactly
 - CONTRACT CHECKLIST: compatRowPolicySourceConfidenceAlias in {L,M,H} and compatRowPolicySignals.policySourceConfidenceAlias mirrors compatRowPolicySourceConfidenceAlias
 - CONTRACT CHECKLIST: compatRowPolicySignals.policySourceConfidenceAlias mirrors compatRowPolicySourceConfidenceAlias exactly
+- CONTRACT CHECKLIST: compatRowPolicySourceConfidenceTrend in {UP,FLAT,DOWN} and compatRowPolicySignals.policySourceConfidenceTrend mirrors compatRowPolicySourceConfidenceTrend
+- CONTRACT CHECKLIST: compatRowPolicySignals.policySourceConfidenceTrend mirrors compatRowPolicySourceConfidenceTrend exactly
+- CONTRACT CHECKLIST: compatRowPolicySourceConfidenceTrendAlias in {U,F,D} and compatRowPolicySignals.policySourceConfidenceTrendAlias mirrors compatRowPolicySourceConfidenceTrendAlias
+- CONTRACT CHECKLIST: compatRowPolicySignals.policySourceConfidenceTrendAlias mirrors compatRowPolicySourceConfidenceTrendAlias exactly
 
 - [ ] World/Combat Team: Inject one underrepresented-lane gameplay experiment template for `combat` when guardrail status is `over-cap`.
   - Copy pack: spike
