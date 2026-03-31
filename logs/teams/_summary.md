@@ -4366,3 +4366,6 @@ Compact decision memory for AI context efficiency.
 - Generated 3 ideas (low/mid/high risk) and selected low-risk payload-only burst-threat token for combat/vfx readability balance.
 - Implemented `CBGCFXWSBPFXPINF THREAT:<L|M|H>` with deterministic cue mapping and regression schema/domain assertions.
 - Added next-up backlog tasks for optional markdown `THREAT LEGEND` visibility and strict adjacency contract path (`BURST DIGEST -> THREAT -> ORDER`).
+
+- 2026-03-31 14:41 KST — Shipped optional `CBGCFXWSBPFXPINF THREAT ORDER PATH LEGEND` markdown row (`L=LEGEND,F=FALLBACK`) and wired payload+markdown regression contracts for 0|2 cardinality, DOS row budget (<=88), and adjacency `THREAT LEGEND -> THREAT ORDER PATH LEGEND -> ORDER` with fallback-safe behavior when legends are disabled.
+- 2026-03-31 14:47 KST — Cycle KC shipped payload compact alias `CBGCFXWSBPFXPINF THREAT ORDER PATH LEGEND:<L|F>` with deterministic alias map (`L=LEGEND`,`F=FALLBACK`) and regression locks; injected next backlog tasks for optional markdown compact parity row + 0|2 cardinality checks.
