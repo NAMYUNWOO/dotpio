@@ -122,6 +122,21 @@ def _resolve_compat_row_policy_source_confidence_trend(report: dict) -> str:
     return "FLAT"
 
 
+def _resolve_compat_row_policy_source_confidence_trend_score(report: dict) -> int:
+    windows = _collect_volatility_windows(report)
+    if not windows:
+        return 50
+
+    recent = windows[-4:]
+    weights = list(range(1, len(recent) + 1))
+    weighted = sum(VOLATILITY_SCORE.get(window, 1) * weight for window, weight in zip(recent, weights))
+    max_weighted = 2 * sum(weights)
+    if max_weighted <= 0:
+        return 50
+
+    return int(round((weighted / max_weighted) * 100))
+
+
 def _resolve_compat_row_policy(gameplay_copy_pack: str) -> str:
     if gameplay_copy_pack == "spike":
         return "SPIKE_ONLY"
@@ -252,6 +267,12 @@ def to_markdown(
     lines.append(
         "- CONTRACT CHECKLIST: compatRowPolicySignals.policySourceConfidenceTrendAlias mirrors compatRowPolicySourceConfidenceTrendAlias exactly"
     )
+    lines.append(
+        "- CONTRACT CHECKLIST: compatRowPolicySourceConfidenceTrendScore in [0..100] and compatRowPolicySignals.policySourceConfidenceTrendScore mirrors compatRowPolicySourceConfidenceTrendScore"
+    )
+    lines.append(
+        "- CONTRACT CHECKLIST: compatRowPolicySignals.policySourceConfidenceTrendScore mirrors compatRowPolicySourceConfidenceTrendScore exactly"
+    )
     lines.append("")
 
     if not templates:
@@ -330,6 +351,9 @@ def main() -> int:
     compat_row_policy_source_confidence_trend = _resolve_compat_row_policy_source_confidence_trend(
         report
     )
+    compat_row_policy_source_confidence_trend_score = (
+        _resolve_compat_row_policy_source_confidence_trend_score(report)
+    )
 
     payload = {
         "status": report.get("status"),
@@ -348,6 +372,7 @@ def main() -> int:
         "compatRowPolicySourceConfidenceTrendAlias": COMPAT_ROW_POLICY_SOURCE_CONFIDENCE_TREND_ALIAS[
             compat_row_policy_source_confidence_trend
         ],
+        "compatRowPolicySourceConfidenceTrendScore": compat_row_policy_source_confidence_trend_score,
         "compatRowPolicyAlias": COMPAT_ROW_POLICY_ALIAS[compat_row_policy],
         "compatRowPolicySignals": {
             "volatilityBand": "spike" if gameplay_pack == "spike" else "steady",
@@ -362,6 +387,7 @@ def main() -> int:
             "policySourceConfidenceTrendAlias": COMPAT_ROW_POLICY_SOURCE_CONFIDENCE_TREND_ALIAS[
                 compat_row_policy_source_confidence_trend
             ],
+            "policySourceConfidenceTrendScore": compat_row_policy_source_confidence_trend_score,
             "reason": "spike-pack-recommends-gated-onboarding"
             if compat_row_policy == "SPIKE_ONLY"
             else "steady-pack-recommends-always-onboarding",

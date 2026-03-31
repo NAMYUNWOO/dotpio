@@ -3271,3 +3271,8 @@
 - Added markdown contract checklist rows for trend-alias domain/mirror parity and extended regression contract coverage.
 - Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py`; `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md --include-copy-pack-compat-row`; `python3 scripts/regression_draft_forced_lane_backlog_tasks.py`.
 - Next queue injected: Systems/QA trend-alias fixture/contract lock + AI Content/Systems trend-momentum score prototype.
+
+## 2026-04-01 03:40 KST
+- Cycle ILJ checkpoint: lane coverage guardrail (last 10) stayed balanced (systems=3, world=2, ai-content=1, combat=2, design=3, ux=2, qa=3, vfx=2) so no >40% forced-lane override.
+- Implemented momentum-score vertical slice for forced-lane payloads: `compatRowPolicySourceConfidenceTrendScore` (0..100, weighted recent volatility windows) plus mirrored signal parity in regression/markdown checklist contracts.
+- Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py`; `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md --include-copy-pack-compat-row`; `python3 scripts/regression_draft_forced_lane_backlog_tasks.py`.
