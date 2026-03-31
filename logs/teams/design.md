@@ -3122,3 +3122,8 @@
 - Regression contract extended to lock pressure-domain behavior across LIGHT/READY/HOT fixtures and markdown row presence.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail artifact regeneration command.
 
+
+## 2026-04-01 08:27 KST — Cycle ILM (Design)
+- Added digest readability support via new markdown alias row `TSDP:<alias>` for dispatch-pressure scan speed.
+- Decision: preserve DOS-width compact style and deterministic decode semantics.
+- Follow-up: evaluate whether future momentum-score output needs companion legend microcopy.

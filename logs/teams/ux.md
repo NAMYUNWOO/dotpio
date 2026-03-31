@@ -3302,3 +3302,8 @@
 - Regression contract extended to lock pressure-domain behavior across LIGHT/READY/HOT fixtures and markdown row presence.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail artifact regeneration command.
 
+
+## 2026-04-01 08:27 KST — Cycle ILM (UX)
+- Shipped compact guardrail decode row `trend-score dispatch pressure alias: TSDP:<L|R|H>`.
+- Decision: one-glance decode parity with existing `TSSB`/`TSDH` rails; no row-order churn introduced.
+- Verification: regenerated `logs/weekly_lane_coverage_guardrail.md` includes `TSDP:L` row.

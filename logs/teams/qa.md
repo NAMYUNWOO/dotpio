@@ -4947,3 +4947,8 @@
 - Regression contract extended to lock pressure-domain behavior across LIGHT/READY/HOT fixtures and markdown row presence.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail artifact regeneration command.
 
+
+## 2026-04-01 08:27 KST — Cycle ILM (QA)
+- Extended regression contract to assert `trendScoreBandDispatchPressureAlias` payload domain and markdown parity (`TSDP`).
+- Verification chain: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.
+- Result: all checks green.

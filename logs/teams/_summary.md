@@ -4587,3 +4587,9 @@ Compact decision memory for AI context efficiency.
 - Closed injected POST_RC item for lane guardrail: added offline dispatch-pressure token `trendScoreBandDispatchPressure:LIGHT|READY|HOT` derived from cadence health (`missingCadenceBuckets`, `overCapLanes`) and trend-score concentration ratio.
 - Markdown/report parity now includes `trend-score dispatch pressure (offline)` line, and regression fixtures lock LIGHT (balanced), READY (moderate dominant), and HOT (high concentration/cadence stress) mappings.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-01 08:27 KST — Cycle ILM Summary
+- Implemented low-risk UX/Systems slice: `trendScoreBandDispatchPressureAlias:L|R|H` + markdown `TSDP:<alias>` in lane guardrail output.
+- Regression coverage updated to lock payload alias domain + markdown parity.
+- Artifacts refreshed: `logs/weekly_lane_coverage_guardrail.json` and `.md` now surface pressure alias.
+- Injected backlog follow-up: offline `trendScoreBandDispatchPressureMomentum:0..100` prototype (pending).

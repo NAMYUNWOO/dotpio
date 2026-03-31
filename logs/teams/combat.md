@@ -3015,3 +3015,8 @@
 - Regression contract extended to lock pressure-domain behavior across LIGHT/READY/HOT fixtures and markdown row presence.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail artifact regeneration command.
 
+
+## 2026-04-01 08:27 KST — Cycle ILM (Combat)
+- No combat runtime tuning in this cycle; cadence bucket checks remained met in regenerated guardrail artifacts.
+- Decision: maintain combat lane stability while shipping guardrail readability token.
+- Follow-up: prioritize combat/vfx if future lane-cap watchdog flags staleness.

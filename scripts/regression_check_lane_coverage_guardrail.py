@@ -46,6 +46,7 @@ def run_fixture_case(
     expected_dispatch_hint: str,
     expected_dispatch_hint_alias: str,
     expected_dispatch_pressure: str,
+    expected_dispatch_pressure_alias: str,
 ) -> None:
     backlog = tmp_path / f"{name}_backlog.md"
     json_out = tmp_path / f"{name}_guardrail.json"
@@ -72,6 +73,9 @@ def run_fixture_case(
     assert report.get("trendScoreBandDispatchPressure") == expected_dispatch_pressure, (
         f"{name}: trendScoreBandDispatchPressure must match cadence+distribution pressure mapping"
     )
+    assert report.get("trendScoreBandDispatchPressureAlias") == expected_dispatch_pressure_alias, (
+        f"{name}: trendScoreBandDispatchPressureAlias must match compact dispatch-pressure alias"
+    )
 
     md_text = md_out.read_text(encoding="utf-8")
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"
@@ -86,6 +90,9 @@ def run_fixture_case(
     )
     assert f"trend-score dispatch pressure (offline): **{expected_dispatch_pressure}**" in md_text, (
         f"{name}: markdown output must include offline dispatch-pressure row"
+    )
+    assert f"trend-score dispatch pressure alias: **TSDP:{expected_dispatch_pressure_alias}**" in md_text, (
+        f"{name}: markdown output must include compact dispatch-pressure alias row"
     )
 
 
@@ -107,6 +114,7 @@ def main() -> int:
             expected_dispatch_hint="BALANCED",
             expected_dispatch_hint_alias="B",
             expected_dispatch_pressure="LIGHT",
+            expected_dispatch_pressure_alias="L",
         )
 
         run_fixture_case(
@@ -124,6 +132,7 @@ def main() -> int:
             expected_dispatch_hint="CALM_FOCUS",
             expected_dispatch_hint_alias="C",
             expected_dispatch_pressure="READY",
+            expected_dispatch_pressure_alias="R",
         )
 
         run_fixture_case(
@@ -140,6 +149,7 @@ def main() -> int:
             expected_dispatch_hint="CALM_FOCUS",
             expected_dispatch_hint_alias="C",
             expected_dispatch_pressure="HOT",
+            expected_dispatch_pressure_alias="H",
         )
 
         run_fixture_case(
@@ -156,6 +166,7 @@ def main() -> int:
             expected_dispatch_hint="EDGE_FOCUS",
             expected_dispatch_hint_alias="E",
             expected_dispatch_pressure="HOT",
+            expected_dispatch_pressure_alias="H",
         )
 
         run_fixture_case(
@@ -172,6 +183,7 @@ def main() -> int:
             expected_dispatch_hint="HEATED_FOCUS",
             expected_dispatch_hint_alias="H",
             expected_dispatch_pressure="HOT",
+            expected_dispatch_pressure_alias="H",
         )
 
     print("ok: trendScoreBand dispatch-hint regression checks passed")

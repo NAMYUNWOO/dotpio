@@ -3122,3 +3122,8 @@
 - Regression contract extended to lock pressure-domain behavior across LIGHT/READY/HOT fixtures and markdown row presence.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail artifact regeneration command.
 
+
+## 2026-04-01 08:27 KST — Cycle ILM (AI Content)
+- Reviewed high-risk candidate (`trendScoreBandDispatchPressureMomentum`) and left it queued as injected follow-up.
+- Decision: keep this cycle additive/reversible with alias-only payload + markdown decode row.
+- Follow-up: prototype momentum score offline only (no runtime coupling).

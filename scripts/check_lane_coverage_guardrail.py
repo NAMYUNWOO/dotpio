@@ -128,6 +128,15 @@ def resolve_trend_score_band_dispatch_pressure(
     return "LIGHT"
 
 
+def resolve_trend_score_band_dispatch_pressure_alias(dispatch_pressure: str) -> str:
+    alias_map = {
+        "LIGHT": "L",
+        "READY": "R",
+        "HOT": "H",
+    }
+    return alias_map.get(dispatch_pressure, "L")
+
+
 def build_report(rows: list[str], cap_ratio: float) -> dict:
     lane_counts = Counter()
     for row in rows:
@@ -179,6 +188,9 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         missing_buckets,
         over_cap,
     )
+    score_band_dispatch_pressure_alias = resolve_trend_score_band_dispatch_pressure_alias(
+        score_band_dispatch_pressure
+    )
 
     return {
         "recentCompletedItems": total,
@@ -195,6 +207,7 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "trendScoreBandDispatchHint": score_band_dispatch_hint,
         "trendScoreBandDispatchHintAlias": score_band_dispatch_hint_alias,
         "trendScoreBandDispatchPressure": score_band_dispatch_pressure,
+        "trendScoreBandDispatchPressureAlias": score_band_dispatch_pressure_alias,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -240,6 +253,7 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             f"- trend-score dispatch hint (offline): **{report.get('trendScoreBandDispatchHint', 'BALANCED')}**",
             f"- trend-score dispatch hint alias: **TSDH:{report.get('trendScoreBandDispatchHintAlias', 'B')}**",
             f"- trend-score dispatch pressure (offline): **{report.get('trendScoreBandDispatchPressure', 'LIGHT')}**",
+            f"- trend-score dispatch pressure alias: **TSDP:{report.get('trendScoreBandDispatchPressureAlias', 'L')}**",
             "",
             *rows,
             *bucket_rows,

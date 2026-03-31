@@ -10,6 +10,7 @@
 - trend-score dispatch hint (offline): **BALANCED**
 - trend-score dispatch hint alias: **TSDH:B**
 - trend-score dispatch pressure (offline): **LIGHT**
+- trend-score dispatch pressure alias: **TSDP:L**
 
 | lane | count | percent |
 |---|---:|---:|

@@ -4416,3 +4416,9 @@
 - Regression contract extended to lock pressure-domain behavior across LIGHT/READY/HOT fixtures and markdown row presence.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail artifact regeneration command.
 
+
+## 2026-04-01 08:27 KST — Cycle ILM (Systems)
+- Shipped offline guardrail payload alias `trendScoreBandDispatchPressureAlias:L|R|H` in `check_lane_coverage_guardrail.py`.
+- Decision: keep alias deterministic (`LIGHT->L`, `READY->R`, `HOT->H`) with default `L` fallback for safety.
+- Verification: py_compile + regression + guardrail artifact regeneration passed.
+- Follow-up: evaluate momentum-score prototype (`trendScoreBandDispatchPressureMomentum`) in next injected cycle.

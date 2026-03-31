@@ -69,5 +69,6 @@
   "trendScoreBandDispatchHint": "BALANCED",
   "trendScoreBandDispatchHintAlias": "B",
   "trendScoreBandDispatchPressure": "LIGHT",
+  "trendScoreBandDispatchPressureAlias": "L",
   "status": "within-cap"
 }

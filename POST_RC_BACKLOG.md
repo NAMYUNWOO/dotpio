@@ -1,5 +1,18 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle ILM)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=1, combat=2, design=3, ux=2, qa=3, vfx=2 (no lane >40%).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (UX/Systems): add compact dispatch-pressure alias token (`trendScoreBandDispatchPressureAlias:L|R|H`) and markdown surface `TSDP:<alias>` for one-glance pressure decode.
+  - Mid-risk Systems/QA: extend regression fixtures with explicit alias-domain parity checks for `trendScoreBandDispatchPressureAlias`.
+  - High-risk novelty (AI Content/Systems): prototype offline pressure momentum score (`trendScoreBandDispatchPressureMomentum:0..100`) from dominant-band drift windows.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] UX/Systems Team: Add payload-level compact dispatch-pressure alias token (`trendScoreBandDispatchPressureAlias:L|R|H`) and markdown row `TSDP:<alias>`. *(lifecycle: [ ] -> [~] started: 2026-04-01 08:24 KST -> [x] completed: 2026-04-01 08:27 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle ILM)
+- [x] Systems/QA Team (injected): Extend regression fixture assertions for `trendScoreBandDispatchPressureAlias` domain + markdown parity row `TSDP`. *(lifecycle: [ ] -> [~] started: 2026-04-01 08:25 KST -> [x] completed: 2026-04-01 08:27 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [ ] AI Content/Systems Team (injected): Prototype offline dispatch-pressure momentum score (`trendScoreBandDispatchPressureMomentum:0..100`) from dominant-band drift windows while keeping runtime decoupled.
+
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle ILL)
 - Candidate ideas generated:
   - Low-risk UX/game-feel (UX/Systems): add compact dispatch-hint alias token (`trendScoreBandDispatchHintAlias:C|E|H|B`) for one-glance decode of guardrail recommendation state.
