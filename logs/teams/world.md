@@ -2957,3 +2957,8 @@
 - Implementation: `scripts/draft_forced_lane_backlog_tasks.py` now emits those fields for the first gameplay-forced template and renders them in markdown output.
 - Verification artifacts refreshed: `logs/forced_lane_task_templates_over_cap_fixture.json` and `.md`.
 - Next hook: UX/design legend-row polish + AI-content/combat alternate copy pack remain injected backlog tasks.
+
+## 2026-03-31 23:07 KST — Cycle ILD follow-up: quality-bar legend row
+- Completed: Added compact quality-bar legend row to forced over-cap template markdown examples for operator readability.
+- Implementation: `scripts/draft_forced_lane_backlog_tasks.py` now appends `Quality bar legend: FANT|IMP|S/R|RB|P/F` whenever gameplay quality-bar fields are emitted.
+- Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` and regeneration of `logs/forced_lane_task_templates_over_cap_fixture.{json,md}`.

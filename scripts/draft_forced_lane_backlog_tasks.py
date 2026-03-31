@@ -140,6 +140,10 @@ def to_markdown(report: dict, templates: list[dict]) -> str:
             lines.append(f"  - Rollback: {template['rollback']}")
         if template.get("passFail"):
             lines.append(f"  - Pass/Fail: {template['passFail']}")
+        if template.get("playerFantasy") or template.get("impactMetric"):
+            lines.append(
+                "  - Quality bar legend: FANT=Player fantasy | IMP=Impact metric | S/R=Scope/Risk | RB=Rollback | P/F=Pass-Fail"
+            )
         lines.extend(
             [
                 f"  - DoD: {dod}",

@@ -9,6 +9,7 @@
   - Scope/Risk: S / low
   - Rollback: Remove template row and disable over-cap gameplay injection pathway.
   - Pass/Fail: Pass when template includes deterministic lane + verification command and guardrail status remains machine-readable.
+  - Quality bar legend: FANT=Player fantasy | IMP=Impact metric | S/R=Scope/Risk | RB=Rollback | P/F=Pass-Fail
   - DoD: Template includes player-facing fantasy target, impact metric, risk/rollback, and minimal vertical-slice verification commands.
   - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
 - [ ] World/Design Team: Inject one underrepresented-lane experiment template for `world` with minimal vertical slice scope.

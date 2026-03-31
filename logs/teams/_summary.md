@@ -4484,3 +4484,9 @@ Compact decision memory for AI context efficiency.
   - `playerFantasy`, `impactMetric`, `scope`, `risk`, `rollback`, `passFail`.
 - This keeps dispatch templates aligned with `GAME_DIRECTOR_AGENT.md` requirements while staying additive/reversible.
 - Current backlog now contains two injected follow-ups (UX legend row and AI-content copy-pack variant), preserving next-cycle runway.
+
+## 2026-03-31 23:07 KST — Durable decision: over-cap gameplay templates must ship with a compact quality-bar legend
+- Added deterministic legend row to the forced-lane template renderer:
+  - `Quality bar legend: FANT=Player fantasy | IMP=Impact metric | S/R=Scope/Risk | RB=Rollback | P/F=Pass-Fail`.
+- Rule: whenever gameplay quality-bar fields are present, legend row is included in markdown output to reduce operator decode latency.
+- Artifacts regenerated: `logs/forced_lane_task_templates_over_cap_fixture.{json,md}`.
