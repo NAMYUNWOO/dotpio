@@ -4249,3 +4249,8 @@
 - Row is flag-gated, DOS-width guarded (`<=88`), and positioned between `THREAT ORDER PATH LEGEND COMPACT` and `ORDER` for one-glance operator handoff.
 - Verification: py_compile + regression suite + weekly digest smoke all green.
 
+
+## 2026-03-31 16:36 KST
+- Cycle KD follow-up: implemented payload-only `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE FX CUE:<S|E>` parity token mapped from bridge alias (`LB->S/SOFT`, `FB->E/EDGE`) for HUD flash routing audits.
+- Offline-only/reversible; runtime balance unchanged.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.

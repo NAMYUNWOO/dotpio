@@ -4526,6 +4526,26 @@ def main() -> int:
             assert burst_threat_order_bridge_decode_copy == expected_bridge_decode_token, payload
         else:
             assert burst_threat_order_bridge_decode_copy == "FLAG OFF", payload
+        burst_threat_order_bridge_fx_cue = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueBurstThreatOrderBridgeFxCue", "")
+        burst_threat_order_bridge_fx_cue_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueBurstThreatOrderBridgeFxCueSignals", {})
+        assert set(burst_threat_order_bridge_fx_cue_signals.keys()) == {
+            "flagName", "flagEnabled", "bridgeAlias", "fxCue", "alias", "token", "aliasMap",
+            "adjacencyInvariant", "offlineOnly", "runtimeBalanceImpact",
+        }, payload
+        expected_bridge_fx_cue = "SOFT" if expected_bridge_alias == "LB" else "EDGE"
+        expected_bridge_fx_alias = "S" if expected_bridge_fx_cue == "SOFT" else "E"
+        assert burst_threat_order_bridge_fx_cue_signals.get("bridgeAlias") == expected_bridge_alias, payload
+        assert burst_threat_order_bridge_fx_cue_signals.get("fxCue") == expected_bridge_fx_cue, payload
+        assert burst_threat_order_bridge_fx_cue_signals.get("alias") == expected_bridge_fx_alias, payload
+        assert burst_threat_order_bridge_fx_cue_signals.get("aliasMap") == {"S": "SOFT", "E": "EDGE"}, payload
+        assert burst_threat_order_bridge_fx_cue_signals.get("token") == f"CBGCFXWSBPFXPINF THREAT ORDER BRIDGE FX CUE:{expected_bridge_fx_alias}", payload
+        assert burst_threat_order_bridge_fx_cue_signals.get("adjacencyInvariant") == "THREAT ORDER BRIDGE(payload)->THREAT ORDER BRIDGE FX CUE(payload)", payload
+        assert burst_threat_order_bridge_fx_cue_signals.get("offlineOnly") is True, payload
+        assert burst_threat_order_bridge_fx_cue_signals.get("runtimeBalanceImpact") == "none", payload
+        if burst_threat_order_bridge_fx_cue_signals.get("flagEnabled") is True:
+            assert burst_threat_order_bridge_fx_cue == f"CBGCFXWSBPFXPINF THREAT ORDER BRIDGE FX CUE:{expected_bridge_fx_alias}", payload
+        else:
+            assert burst_threat_order_bridge_fx_cue == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHint", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPI DRILL:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintSignals", {}).keys()) == {
             "flagName",

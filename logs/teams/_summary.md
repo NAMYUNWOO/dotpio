@@ -1,3 +1,10 @@
+## 2026-03-31 16:36 KST
+- Completed Combat/VFX payload parity slice: added `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE FX CUE:<S|E>` with deterministic mapping from bridge alias (`LB->S/SOFT`, `FB->E/EDGE`) for HUD flash routing audits.
+- Regression contracts now lock schema/domain/adjacency for new FX cue payload token/signals; kept change offline-only and reversible with no runtime combat balance coupling.
+- Updated TASKS + POST_RC_BACKLOG lifecycle status for this item (`[ ] -> [~] -> [x]`).
+- Verification green: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- Queue status: ACTION_ITEMS checked; TASKS unchecked=3; POST_RC_BACKLOG unchecked=3.
+
 ## 2026-03-31 16:08 KST
 - Completed UX/Design bridge readability slice: added optional `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE LEGEND` markdown micro-row (`LB=LEGEND_BRIDGE,FB=FALLBACK_BRIDGE`) in summary + token-coverage rails.
 - Updated markdown order contract in regression to include the new bridge legend spacer (`...PATH LEGEND COMPACT -> THREAT ORDER BRIDGE LEGEND -> ORDER`) with row-budget checks (`<=88`) and optional cardinality handling.
