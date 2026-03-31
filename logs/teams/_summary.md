@@ -4308,3 +4308,9 @@ Compact decision memory for AI context efficiency.
 - Closed Systems/QA next-up item by adding explicit row-length fixture for `CBGCFXWSBPFXPINF BURST LEGEND` with DOS-width budget lock (`<=88`) in regression coverage.
 - Updated TASKS lifecycle entry from in-progress to complete after green verification (py_compile + regression + weekly drift smoke).
 - Queue status: ACTION_ITEMS fully checked; TASKS now 2 unchecked (Combat/VFX digest row, AI Content/World fallback microcopy); POST_RC_BACKLOG fully checked.
+
+
+## 2026-03-31 11:48 KST
+- Completed Combat/VFX next-up: shipped compact `CBGCFXWSBPFXPINF BURST DIGEST` row that mirrors active alias plus B/Q decode copy in one line.
+- Extended regression coverage for cardinality/order/budget and updated adjacency contract to require `BURST LEGEND -> BURST DIGEST -> ORDER`.
+- TASKS progress: 1 unchecked remains (`AI Content/World Team: If repeated review windows hit cadence 2x...`).

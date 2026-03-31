@@ -3098,3 +3098,10 @@
 - Task: Added explicit regression fixture asserting   `CBGCFXWSBPFXPINF BURST LEGEND` markdown row length stays within DOS-width budget (<=88 chars) across summary/token-coverage rails.
 - Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+
+
+## 2026-03-31 11:48 KST
+- Task: Added `CBGCFXWSBPFXPINF BURST DIGEST` compact row to summary + token-coverage rails and locked rollout order to `...BURST LEGEND -> BURST DIGEST -> ORDER`.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --since-days 7 --max-commits 10 --out-json /tmp/drift.json --out-md /tmp/drift.md` ✅

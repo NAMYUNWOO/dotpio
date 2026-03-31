@@ -2019,6 +2019,6 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — Cycle IN)
 - [x] Systems/QA Team: Add explicit row-length assertion fixture for `CBGCFXWSBPFXPINF BURST LEGEND` to lock DOS-width budget under future metadata expansion. *(lifecycle: [ ] -> [~] started: 2026-03-31 11:08 KST -> [x] completed: 2026-03-31 11:12 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] Combat/VFX Team: Prototype compact `PINF BURST DIGEST` markdown row that mirrors alias + decode in one token-budget-safe line.
+- [x] Combat/VFX Team: Prototype compact `PINF BURST DIGEST` markdown row that mirrors alias + decode in one token-budget-safe line. *(done: 2026-03-31 11:48 KST — added summary + token-coverage digest rows, ordering contract checks, and regression coverage)*
 - [ ] AI Content/World Team: Draft fallback microcopy variant pair for BURST legend (`burst commit` vs `quiet hold`) for future localization-safe routing.
 
