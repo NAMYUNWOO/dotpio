@@ -42,7 +42,7 @@
 ## Next Up (Game Director Injection — Cycle ILJ)
 - [ ] Combat/VFX Team (injected): Prototype payload-only trend-score band alias `compatRowPolicySourceConfidenceTrendScoreBand:C|E|H` derived from momentum score buckets (`0-33`, `34-66`, `67-100`) with deterministic map + rollback note.
 - [ ] Design/World Team (injected): Draft compact decode copy row for trend-score bands (`C=calm memory`, `E=edge memory`, `H=heated memory`) under DOS-width budget for future optional markdown rollout.
-- [ ] Systems/Ops Team (injected): Extend lane guardrail markdown summary to surface latest score-band distribution snapshot for dispatch decisions without mutating payload schema.
+- [x] Systems/Ops Team (injected): Extend lane guardrail markdown summary to surface latest score-band distribution snapshot for dispatch decisions without mutating payload schema. *(lifecycle: [ ] -> [~] started: 2026-04-01 04:52 KST -> [x] completed: 2026-04-01 04:54 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle ILF)
 - Candidate ideas generated:

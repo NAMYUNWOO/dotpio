@@ -16,6 +16,9 @@ from pathlib import Path
 
 CHECKED_ROW_RE = re.compile(r"^\s*-\s*\[x\]\s+(.*)$", re.IGNORECASE)
 LANE_PREFIX_RE = re.compile(r"^([A-Za-z\-/ ]+?)\s*:\s*")
+TREND_SCORE_BAND_RE = re.compile(
+    r"compatRowPolicySourceConfidenceTrendScoreBand(?:Alias)?\s*[:=]\s*([A-Z]+)"
+)
 
 CANONICAL_LANES = ["systems", "world", "ai-content", "combat", "design", "ux", "qa", "vfx"]
 
@@ -61,6 +64,21 @@ def collect_recent_rows(markdown_text: str, max_items: int) -> list[str]:
         if m:
             rows.append(m.group(1).strip())
     return rows[-max_items:]
+
+
+def collect_trend_score_band_snapshot(rows: list[str]) -> dict[str, int]:
+    band_counts = {"CALM": 0, "EDGE": 0, "HEATED": 0}
+    alias_to_band = {"C": "CALM", "E": "EDGE", "H": "HEATED"}
+
+    for row in rows:
+        for token in TREND_SCORE_BAND_RE.findall(row):
+            normalized = token.strip().upper()
+            if normalized in band_counts:
+                band_counts[normalized] += 1
+            elif normalized in alias_to_band:
+                band_counts[alias_to_band[normalized]] += 1
+
+    return band_counts
 
 
 def build_report(rows: list[str], cap_ratio: float) -> dict:
@@ -112,7 +130,13 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
     }
 
 
-def to_markdown(report: dict) -> str:
+def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
+    score_band_snapshot = collect_trend_score_band_snapshot(recent_rows or [])
+    score_band_summary = (
+        f"CALM={score_band_snapshot['CALM']}, "
+        f"EDGE={score_band_snapshot['EDGE']}, "
+        f"HEATED={score_band_snapshot['HEATED']}"
+    )
     rows = [
         "| lane | count | percent |",
         "|---|---:|---:|",
@@ -140,6 +164,7 @@ def to_markdown(report: dict) -> str:
             f"- over-cap lanes: **{over_cap}**",
             f"- forced next lanes (if over-cap): **{forced}**",
             f"- cadence buckets missing: **{missing_buckets}**",
+            f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             "",
             *rows,
             *bucket_rows,
@@ -168,7 +193,7 @@ def main() -> int:
 
     if args.md_out:
         args.md_out.parent.mkdir(parents=True, exist_ok=True)
-        args.md_out.write_text(to_markdown(report) + "\n", encoding="utf-8")
+        args.md_out.write_text(to_markdown(report, recent_rows=rows) + "\n", encoding="utf-8")
 
     return 0
 

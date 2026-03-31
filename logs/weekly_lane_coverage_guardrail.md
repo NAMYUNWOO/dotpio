@@ -4,6 +4,7 @@
 - over-cap lanes: **none**
 - forced next lanes (if over-cap): **none**
 - cadence buckets missing: **none**
+- trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 
 | lane | count | percent |
 |---|---:|---:|

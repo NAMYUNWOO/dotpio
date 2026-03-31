@@ -3016,3 +3016,6 @@
 - Cross-lane Design/World closure: compact trend-score band decode copy (`C/E/H`) now exists as optional markdown support text for forced-lane over-cap template drafts.
 - Decision: retained optional flag gate for rollout safety; no world runtime/map schema mutation required.
 - Verification reference: `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` ✅.
+
+## 2026-04-01 04:54 KST — Cycle ILJ sync
+- No world-scope code changes this cycle; consumed updated guardrail markdown snapshot for dispatch readability context.

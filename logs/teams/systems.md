@@ -4385,3 +4385,8 @@
 - 2026-04-01 03:50 KST — Cycle ILJ follow-up shipped: added payload-only trend-score band fields for forced-lane drafts (`compatRowPolicySourceConfidenceTrendScoreBand:CALM|EDGE|HEATED`, alias `compatRowPolicySourceConfidenceTrendScoreBandAlias:C|E|H`) with deterministic score bucket mapping (`0-33`, `34-66`, `67-100`) and mirrored signal parity (`compatRowPolicySignals.policySourceConfidenceTrendScoreBand*`).
   - Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py`; `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md --include-copy-pack-compat-row`; `python3 scripts/regression_draft_forced_lane_backlog_tasks.py`.
   - Follow-up: complete remaining Cycle ILJ injections (Design/World decode copy row, Systems/Ops score-band distribution summary row).
+
+## 2026-04-01 04:54 KST — Cycle ILJ Systems/Ops follow-up
+- Shipped markdown-only lane guardrail extension: trend-score band snapshot line now appears in `logs/weekly_lane_coverage_guardrail.md` as `CALM/EDGE/HEATED` counts from recent completed rows.
+- Guardrail JSON schema intentionally unchanged (payload contract preserved); only markdown rendering path consumes snapshot helper.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

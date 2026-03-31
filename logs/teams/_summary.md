@@ -4555,3 +4555,8 @@ Compact decision memory for AI context efficiency.
 - QA contract expanded to enforce decode-row cardinality + adjacency (`COMPAT -> COMPAT LEGEND -> TREND SCORE BAND DECODE`) and flag-gated absence in baseline markdown.
 - Verification stayed green (py_compile + fixture regeneration + forced-lane regression).
 - Queue status: ACTION_ITEMS unchecked=0; TASKS unchecked=1; POST_RC_BACKLOG unchecked=0.
+
+## 2026-04-01 04:54 KST — Durable decision
+- Completed Systems/Ops ILJ follow-up: `scripts/check_lane_coverage_guardrail.py` now emits markdown-only trend-score band snapshot (`CALM/EDGE/HEATED`) derived from recent completed backlog rows; JSON schema kept stable by design.
+- TASKS + POST_RC_BACKLOG ILJ Systems/Ops item marked done with verification commands.
+- Next priority: launch next Game Director cycle (all ACTION_ITEMS/TASKS/POST_RC currently checked) with fresh 3-idea generation and minimal vertical slice.

@@ -3099,3 +3099,6 @@
 - Decision: keep row gated behind `--include-copy-pack-compat-row` to preserve default markdown brevity and enable future rollout control.
 - Files: `scripts/draft_forced_lane_backlog_tasks.py`, `scripts/regression_draft_forced_lane_backlog_tasks.py`, `logs/forced_lane_task_templates_over_cap_fixture.md`, `TASKS.md`.
 - Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` ✅; fixture regeneration command ✅; `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` ✅.
+
+## 2026-04-01 04:54 KST — Cycle ILJ sync
+- No design copy mutation this cycle; consumed new score-band snapshot line as compact planning signal in markdown guardrail output.
