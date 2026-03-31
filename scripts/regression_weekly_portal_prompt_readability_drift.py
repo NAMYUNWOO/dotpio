@@ -4304,6 +4304,8 @@ def main() -> int:
             "alias",
             "token",
             "decodeCopyPair",
+            "decodeCopyFallbackPair",
+            "localizationSafeRoute",
             "dosReadabilityRowBudgetThreshold",
             "dosRowBudgetWithinThreshold",
             "adjacencyInvariant",
@@ -4320,6 +4322,8 @@ def main() -> int:
         assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals.get("alias") == expected_burst_alias, payload
         assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals.get("burst") == expected_burst, payload
         assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals.get("decodeCopyPair") == {"B": "burst commit", "Q": "quiet hold"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals.get("decodeCopyFallbackPair") == {"B": "burst push", "Q": "quiet brace"}, payload
+        assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals.get("localizationSafeRoute") == "fallback-v1", payload
         assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals.get("dosReadabilityRowBudgetThreshold") == 88, payload
         assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals.get("dosRowBudgetWithinThreshold") is True, payload
         assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals.get("token") == f"CBGCFXWSBPFXPINF BURST:{expected_burst_alias}", payload

@@ -4314,3 +4314,9 @@ Compact decision memory for AI context efficiency.
 - Completed Combat/VFX next-up: shipped compact `CBGCFXWSBPFXPINF BURST DIGEST` row that mirrors active alias plus B/Q decode copy in one line.
 - Extended regression coverage for cardinality/order/budget and updated adjacency contract to require `BURST LEGEND -> BURST DIGEST -> ORDER`.
 - TASKS progress: 1 unchecked remains (`AI Content/World Team: If repeated review windows hit cadence 2x...`).
+
+
+## 2026-03-31 12:16 KST
+- Closed final unchecked TASKS item by shipping localization-safe BURST fallback metadata (`decodeCopyFallbackPair`, `localizationSafeRoute=fallback-v1`) plus legend-row exposure.
+- Executed Game Director Cycle IO review (3 ideas), selected low-risk AI Content/World + Systems/QA vertical slice, and completed implementation with green verification.
+- Injected new backlog item: `UX/Design Team: Prototype compact alias-only BURST fallback legend mode (Bf/Qf) under <=88-char budget`.

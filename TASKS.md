@@ -2020,5 +2020,15 @@ See project-level plans:
 ## Next Up (Game Director Injection — Cycle IN)
 - [x] Systems/QA Team: Add explicit row-length assertion fixture for `CBGCFXWSBPFXPINF BURST LEGEND` to lock DOS-width budget under future metadata expansion. *(lifecycle: [ ] -> [~] started: 2026-03-31 11:08 KST -> [x] completed: 2026-03-31 11:12 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [x] Combat/VFX Team: Prototype compact `PINF BURST DIGEST` markdown row that mirrors alias + decode in one token-budget-safe line. *(done: 2026-03-31 11:48 KST — added summary + token-coverage digest rows, ordering contract checks, and regression coverage)*
-- [ ] AI Content/World Team: Draft fallback microcopy variant pair for BURST legend (`burst commit` vs `quiet hold`) for future localization-safe routing.
+- [x] AI Content/World Team: Draft fallback microcopy variant pair for BURST legend (`burst commit` vs `quiet hold`) for future localization-safe routing. *(lifecycle: [ ] -> [~] started: 2026-03-31 12:08 KST -> [x] completed: 2026-03-31 12:16 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Game Director Injection — 2026-03-31 Cycle IO
+- Coverage check (last 10 completions): cadence readability lane improved; localization-safe routing metadata remains fragile without explicit fallback telemetry.
+- Idea 1 (low-risk ai-content/world): Add BURST fallback pair metadata + route token (`fallback-v1`) and expose it in BURST legend rows for localization-safe handoff. **Selected.**
+- Idea 2 (mid-risk systems/qa): Add strict markdown width guard dedicated to fallback segment length in BURST LEGEND rows.
+- Idea 3 (high-risk ux/design): Introduce adaptive BURST legend copy rotation based on WATCH streak windows.
+- [x] AI Content/World + Systems/QA Team (Cycle IO selected experiment): Implemented minimal vertical slice for localization-safe BURST fallback metadata (`decodeCopyFallbackPair`, `localizationSafeRoute`) and surfaced fallback payload in summary/token-coverage BURST legend + burst telemetry rows with regression assertions. *(lifecycle: [ ] -> [~] started: 2026-03-31 12:09 KST -> [x] completed: 2026-03-31 12:16 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle IO)
+- [ ] UX/Design Team: Prototype compact alias-only BURST fallback legend mode (`Bf/Qf`) that keeps rows <=88 chars while preserving route token discoverability.
 
