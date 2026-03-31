@@ -2891,3 +2891,8 @@
 ## 2026-03-31 09:49 KST — Cycle IM design handoff
 - Director selected Combat/VFX burst posture token (`CBGCFXWSBPFXPINF BURST:<B|Q>`) to rebalance lane share after systems-heavy streak.
 - Design/world follow-up injected: compact decode copy pair (`B=burst commit`, `Q=quiet hold`) with DOS-width budget checks.
+
+## 2026-03-31 10:12 KST — Coordination note (PINF BURST readability)
+- Context: UX micro-row for `CBGCFXWSBPFXPINF BURST` is now visible in both digest rails.
+- Pending lane task: author compact decode copy pair for `B|Q` (`burst commit` / `quiet hold`) under strict DOS width.
+- Next action: execute queued design/world task in next cycle.

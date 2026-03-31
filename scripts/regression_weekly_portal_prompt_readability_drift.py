@@ -5087,6 +5087,9 @@ def main() -> int:
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_indices = [
             i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPINF LEGEND:")
         ]
+        cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_indices = [
+            i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPINF BURST:")
+        ]
         cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_indices = [
             i for i, line in enumerate(md_lines) if line.startswith("- CBGCFXWSBPFXPINF ORDER:")
         ]
@@ -5837,11 +5840,17 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_indices), (
             "expected CBGCFXWSBPFXPINF LEGEND rollout rows to appear only when CBGCFXWSBPFXPINF rows are present"
         )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_indices) in {0, 2}, (
+            "expected zero or exactly two CBGCFXWSBPFXPINF BURST rows (summary + token-coverage sections)"
+        )
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_indices), (
+            "expected CBGCFXWSBPFXPINF BURST rollout rows to appear only when CBGCFXWSBPFXPINF LEGEND rows are present"
+        )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_indices) in {0, 2}, (
             "expected zero or exactly two CBGCFXWSBPFXPINF ORDER rows (summary + token-coverage sections)"
         )
-        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_indices), (
-            "expected CBGCFXWSBPFXPINF ORDER rollout rows to appear only when CBGCFXWSBPFXPINF LEGEND rows are present"
+        assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_indices), (
+            "expected CBGCFXWSBPFXPINF ORDER rollout rows to appear only when CBGCFXWSBPFXPINF BURST rows are present"
         )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_indices) in {0, 2}, (
             "expected zero or exactly two CBGCFXWSBPFXPI DRILL rows (summary + token-coverage sections)"
@@ -6296,6 +6305,7 @@ def main() -> int:
                 "- CBGCFXWSBPFXPIN LEGEND:",
                 "- CBGCFXWSBPFXPINF:",
                 "- CBGCFXWSBPFXPINF LEGEND:",
+                "- CBGCFXWSBPFXPINF BURST:",
                 "- CBGCFXWSBPFXPINF ORDER:",
                 "- CBGCFXWSBPFXPI DRILL:",
                 "- CBGCFXWSBPFXPD:",
@@ -6377,10 +6387,11 @@ def main() -> int:
             optional_phase_intent_narration_compact_alias_legend_prefix_idx = optional_spacer_prefix_to_index["- CBGCFXWSBPFXPIN LEGEND:"]
             optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_prefix_idx = optional_spacer_prefix_to_index["- CBGCFXWSBPFXPINF:"]
             optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_prefix_idx = optional_spacer_prefix_to_index["- CBGCFXWSBPFXPINF LEGEND:"]
+            optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_prefix_idx = optional_spacer_prefix_to_index["- CBGCFXWSBPFXPINF BURST:"]
             optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_prefix_idx = optional_spacer_prefix_to_index["- CBGCFXWSBPFXPINF ORDER:"]
-            assert optional_phase_intent_narration_compact_alias_prefix_idx < optional_phase_intent_narration_compact_alias_legend_prefix_idx < optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_prefix_idx < optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_prefix_idx < optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_prefix_idx, (
+            assert optional_phase_intent_narration_compact_alias_prefix_idx < optional_phase_intent_narration_compact_alias_legend_prefix_idx < optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_prefix_idx < optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_prefix_idx < optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_prefix_idx < optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_prefix_idx, (
                 "markdown contract violated: expected optional narration compact alias rollout ordering "
-                "CBGCFXWSBPFXPIN -> CBGCFXWSBPFXPIN LEGEND -> CBGCFXWSBPFXPINF -> CBGCFXWSBPFXPINF LEGEND -> CBGCFXWSBPFXPINF ORDER"
+                "CBGCFXWSBPFXPIN -> CBGCFXWSBPFXPIN LEGEND -> CBGCFXWSBPFXPINF -> CBGCFXWSBPFXPINF LEGEND -> CBGCFXWSBPFXPINF BURST -> CBGCFXWSBPFXPINF ORDER"
             )
 
             optional_lang_idx = (
@@ -6475,6 +6486,11 @@ def main() -> int:
                 if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_indices) == 2
                 else None
             )
+            optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_idx = (
+                cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_indices[section_idx]
+                if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_indices) == 2
+                else None
+            )
             optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_idx = (
                 cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_indices[section_idx]
                 if len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_indices) == 2
@@ -6507,6 +6523,13 @@ def main() -> int:
                 )
                 assert optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_idx == optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_idx + 1, (
                     f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPINF LEGEND row directly after CBGCFXWSBPFXPINF row"
+                )
+            if optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_idx is not None:
+                assert optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPINF BURST row cannot appear without CBGCFXWSBPFXPINF LEGEND row"
+                )
+                assert optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_idx == optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPINF BURST row directly after CBGCFXWSBPFXPINF LEGEND row"
                 )
 
             optional_rehearsal_hint_idx = (
@@ -6786,6 +6809,9 @@ def main() -> int:
                 if optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_idx is not None:
                     expected_prior_idx = optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_idx
                     expected_prior_label = "CBGCFXWSBPFXPINF ORDER"
+                elif optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_idx is not None:
+                    expected_prior_idx = optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_idx
+                    expected_prior_label = "CBGCFXWSBPFXPINF BURST"
                 elif optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_idx is not None:
                     expected_prior_idx = optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_idx
                     expected_prior_label = "CBGCFXWSBPFXPINF LEGEND"
@@ -6808,11 +6834,11 @@ def main() -> int:
                     f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPI DRILL row directly after {expected_prior_label} row"
                 )
             if optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_idx is not None:
-                assert optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_idx is not None, (
-                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPINF ORDER row cannot appear without CBGCFXWSBPFXPINF LEGEND row"
+                assert optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_idx is not None, (
+                    f"markdown contract violated in {section_name} section: CBGCFXWSBPFXPINF ORDER row cannot appear without CBGCFXWSBPFXPINF BURST row"
                 )
-                assert optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_idx == optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_legend_idx + 1, (
-                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPINF ORDER row directly after CBGCFXWSBPFXPINF LEGEND row"
+                assert optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_idx == optional_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_idx + 1, (
+                    f"markdown contract violated in {section_name} section: expected CBGCFXWSBPFXPINF ORDER row directly after CBGCFXWSBPFXPINF BURST row"
                 )
             if optional_rehearsal_hint_compact_alias_idx is not None:
                 assert optional_rehearsal_hint_idx is not None, (

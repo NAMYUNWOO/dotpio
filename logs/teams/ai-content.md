@@ -2895,3 +2895,7 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Decisions: when rotor flag is enabled, legend phrasing alternates deterministically per repeated phase-intent window (ANCHOR/SURGE/RECOVER) while preserving DOS-width fallback behavior.
+
+## 2026-03-31 10:12 KST — Coordination note
+- No AI-content policy mutation this cycle.
+- Existing burst posture mapping (`B|Q`) remains unchanged; downstream copy refinement deferred to queued design/world task.

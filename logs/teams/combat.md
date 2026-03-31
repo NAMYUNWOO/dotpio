@@ -2796,3 +2796,7 @@
 - Added payload-only compact token `CBGCFXWSBPFXPINF BURST:<B|Q>` to signal burst-vs-quiet cue posture for operator read speed.
 - Deterministic rule: `B` on `HARD`, or `EDGE` when drift is `WATCH`; otherwise `Q`.
 - Verification: weekly drift regression + generation suite PASS.
+
+## 2026-03-31 10:12 KST — Combat readability continuity
+- No combat-balance tuning change this cycle.
+- Digest now surfaces existing combat/vfx burst posture token (`CBGCFXWSBPFXPINF BURST`) in markdown rails for faster review triage.

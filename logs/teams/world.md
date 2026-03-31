@@ -2807,3 +2807,7 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Decisions: rotor is deterministic and phase-scoped, so readability tone can vary without changing map/runtime state.
+
+## 2026-03-31 10:12 KST — Coordination note
+- No world-logic data-path changes this cycle.
+- Noted new digest row `CBGCFXWSBPFXPINF BURST` awaiting world/design decode copy pair completion.

@@ -3074,3 +3074,9 @@
 ## 2026-03-31 08:49 KST
 - Added compact style marker row `CBGCFXWSBPFXPIC` to improve one-glance postmortem readability for legend-copy fallback mode.
 - Preserved adjacency flow: `...FXPI LEGEND -> ...FXPI LEGEND COPY -> ...FXPIC -> ...FXPI NARR`.
+
+## 2026-03-31 10:12 KST — Cycle IM follow-up (PINF BURST row rollout)
+- Completed: Surfaced `CBGCFXWSBPFXPINF BURST` markdown micro-row in summary + token-coverage rails between `...PINF LEGEND` and `...PINF ORDER`.
+- Decision: Keep row payload-linked and optional (0|2 cardinality) to preserve reversible rollout behavior.
+- Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, regression/weekly digest runs green.
+- Follow-up: Add compact decode copy pair for `B|Q` (next queued design/world task).

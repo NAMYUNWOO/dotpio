@@ -4287,3 +4287,9 @@ Compact decision memory for AI context efficiency.
   - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
   - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`
 - Follow-up tasks injected: UX/Design markdown micro-row prototype, Systems/QA adjacency lock for row ordering, Design/World decode copy pair.
+
+### 2026-03-31 10:12 KST — Cycle IM Next-Up progress
+- Shipped `CBGCFXWSBPFXPINF BURST` markdown micro-row to both summary/token-coverage digest rails (was payload-only before).
+- Locked regression cardinality/order around new row: `PINF -> PINF LEGEND -> PINF BURST -> PINF ORDER` with 0|2 rollout behavior.
+- Durability note: kept legend placement stable and inserted BURST pre-ORDER to minimize churn across existing optional spacer chains.
+- Remaining queued items: (1) explicit Systems/QA task text sync for `PINF -> PINF BURST -> PINF ORDER`, (2) Design/World compact `B|Q` decode copy pair.

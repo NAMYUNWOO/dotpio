@@ -4153,3 +4153,9 @@
 - Lane coverage watchdog forced underrepresented-lane selection because systems occupied 50% of the last 10 completions.
 - Systems contribution this cycle focused on payload contract/regression locks for `CBGCFXWSBPFXPINF BURST:<B|Q>` without changing runtime behavior.
 - Next queued systems/qa follow-up: enforce markdown adjacency lock if/when `PINF BURST` rollout row is added.
+
+## 2026-03-31 10:12 KST — Cycle IM support wiring
+- Completed: Extended digest markdown generation + schema-adjacent wiring so `CBGCFXWSBPFXPINF BURST` row is emitted consistently in both sections.
+- Decision: Preserve existing `PINF LEGEND` row and insert BURST before ORDER to avoid destabilizing prior decode rails.
+- Evidence: py_compile + weekly/regression script pass.
+- Follow-up: Keep contract strict through dedicated adjacency assertions.

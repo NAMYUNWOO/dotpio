@@ -4693,3 +4693,9 @@
 ## 2026-03-31 09:49 KST — Cycle IM QA note
 - Added regression assertions for `CBGCFXWSBPFXPINF BURST` payload/signals contract, mapping determinism, and flag-off fallback behavior.
 - Kept checks deterministic and offline-only (`runtimeBalanceImpact=none`, `offlineOnly=true`).
+
+## 2026-03-31 10:12 KST — Contract lock for PINF BURST row
+- Completed: Updated regression expectations to include `CBGCFXWSBPFXPINF BURST` row presence/cardinality and ordering in summary/token-coverage sections.
+- Contract: `...PINF -> ...PINF LEGEND -> ...PINF BURST -> ...PINF ORDER` with zero-or-two rollout cardinality.
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly digest smoke run.
+- Follow-up: Keep copy decode checks within DOS-width once design/world copy pair lands.
