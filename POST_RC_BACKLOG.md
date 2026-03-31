@@ -1,5 +1,16 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-03-31 (Game Director Review - Cycle ILD)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=1, combat=2, design=3, ux=2, qa=3, vfx=2 (no lane >40%).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (World/Combat): enrich over-cap gameplay template draft with explicit player-fantasy/impact/risk metadata so reviewers can dispatch faster.
+  - Mid-risk Systems/QA: enforce markdown rendering for gameplay-template quality-bar fields (`playerFantasy`, `impactMetric`, `scope/risk`, `rollback`, `passFail`).
+  - High-risk novelty (AI-content/Design): adaptive lane-storybeat mapper that rewrites template copy by volatility memory.
+- Selected experiment: Idea 2 (mid-risk Systems/QA) as minimal vertical slice.
+- [x] Systems/QA Team: Add gameplay-template quality-bar payload fields + markdown rendering in `scripts/draft_forced_lane_backlog_tasks.py` for over-cap forced-lane templates. *(in-progress: 2026-03-31 22:36 KST, completed: 2026-03-31 22:39 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`)*
+- [ ] UX/Design Team (injected): Add compact legend row in `logs/forced_lane_task_templates_over_cap_fixture.md` examples that explains quality-bar fields for human operators.
+- [ ] AI Content/Combat Team (injected): Prototype optional alternate gameplay-template copy pack (`steady|spike`) for over-cap dispatch while keeping deterministic field schema.
+
 ## Autonomous Cycle 2026-03-31 (Game Director Review - Cycle ILC)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=1, combat=2, design=3, ux=2, qa=3, vfx=2 (no lane >40%).
 - 24h cadence guardrail buckets: combat/vfx=4 ✅, design/world=5 ✅, systems/ops=6 ✅.
@@ -21,7 +32,7 @@
   - High-risk novelty ai-content/combat: adaptive experiment-picker that auto-injects backlog tasks from underrepresented lanes.
 - [x] Systems/QA Team: Ship `scripts/check_lane_coverage_guardrail.py` minimal vertical slice and emit `logs/weekly_lane_coverage_guardrail.{json,md}` from last 10 completed backlog items. *(lifecycle: [~] started: 2026-03-31 21:08 KST -> [x] completed: 2026-03-31 21:12 KST; verification: `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [x] Design/UX Team: Add compact digest row in weekly portal readability report that surfaces lane-cap warning (`LANE CAP:OK|OVER`) using `weekly_lane_coverage_guardrail.json`. *(started: 2026-03-31 21:32 KST, completed: 2026-03-31 21:39 KST)*
-- [ ] World/Combat Team: Inject one underrepresented-lane gameplay experiment template when guardrail status is `over-cap`.
+- [x] World/Combat Team: Inject one underrepresented-lane gameplay experiment template when guardrail status is `over-cap`. *(started: 2026-03-31 22:32 KST, completed: 2026-03-31 22:36 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`)*
 
 ## Autonomous Cycle 2026-03-31 (GD-Compact-PhaseIntent-Legend)
 - [x] ✅ Add compact `CBGCFXWSBPFXPIL` phase-intent legend alias rail in weekly prompt digest payload + markdown rails + regression contracts (completed 2026-03-31 19:51 KST; backlog state reconciled 2026-03-31 20:05 KST)

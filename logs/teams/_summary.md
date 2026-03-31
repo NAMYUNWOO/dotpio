@@ -4462,3 +4462,25 @@ Compact decision memory for AI context efficiency.
 - Shipped: `scripts/check_lane_coverage_guardrail.py` now emits `underrepresentedLanes`, `forcedNextLanes`, `bucketCadence`, `missingCadenceBuckets`; regenerated `logs/weekly_lane_coverage_guardrail.json|md`.
 - Verification PASS: guardrail script run + `python3 -m py_compile scripts/check_lane_coverage_guardrail.py`.
 - Backlog injected: AI Content/Systems follow-up to prototype auto-injection helper from `missingCadenceBuckets`.
+
+## 2026-03-31 22:36 KST — Durable decision: over-cap must inject one gameplay template first
+- Rule tightened in tooling: when lane guardrail status is `over-cap`, forced-lane template drafting must emit one **underrepresented gameplay experiment template** first (prioritized lane order: combat -> vfx -> world -> design -> ux -> ai-content -> systems -> qa).
+- Implementation detail: `scripts/draft_forced_lane_backlog_tasks.py` now emits `World/Combat Team` gameplay template first, then remaining forced-next lane templates.
+- Added verification fixture artifacts for deterministic proof:
+  - `logs/weekly_lane_coverage_guardrail_over_cap_fixture.json`
+  - `logs/forced_lane_task_templates_over_cap_fixture.json`
+  - `logs/forced_lane_task_templates_over_cap_fixture.md`
+
+## 2026-03-31 22:36 KST — Durable decision: over-cap must inject one gameplay template first
+- Rule tightened in tooling: when lane guardrail status is `over-cap`, forced-lane template drafting must emit one **underrepresented gameplay experiment template** first (prioritized lane order: combat -> vfx -> world -> design -> ux -> ai-content -> systems -> qa).
+- Implementation detail: `scripts/draft_forced_lane_backlog_tasks.py` now emits `World/Combat Team` gameplay template first, then remaining forced-next lane templates.
+- Added verification fixture artifacts for deterministic proof:
+  - `logs/weekly_lane_coverage_guardrail_over_cap_fixture.json`
+  - `logs/forced_lane_task_templates_over_cap_fixture.json`
+  - `logs/forced_lane_task_templates_over_cap_fixture.md`
+
+## 2026-03-31 22:39 KST — Durable decision: gameplay template drafts must satisfy Game Director quality bar
+- For `status=over-cap`, the first forced-lane gameplay template now carries quality metadata fields in both JSON + markdown:
+  - `playerFantasy`, `impactMetric`, `scope`, `risk`, `rollback`, `passFail`.
+- This keeps dispatch templates aligned with `GAME_DIRECTOR_AGENT.md` requirements while staying additive/reversible.
+- Current backlog now contains two injected follow-ups (UX legend row and AI-content copy-pack variant), preserving next-cycle runway.

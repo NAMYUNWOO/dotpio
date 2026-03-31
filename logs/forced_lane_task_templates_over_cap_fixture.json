@@ -1,0 +1,41 @@
+{
+  "status": "over-cap",
+  "missingCadenceBuckets": [],
+  "forcedNextLanes": [
+    "world",
+    "combat",
+    "ai-content"
+  ],
+  "templates": [
+    {
+      "source": "forcedNextLanes",
+      "lane": "combat",
+      "team": "World/Combat Team",
+      "task": "Inject one underrepresented-lane gameplay experiment template for `combat` when guardrail status is `over-cap`.",
+      "playerFantasy": "Keep lane rotation feeling alive with a visible gameplay-facing experiment in the neglected lane.",
+      "impactMetric": "At least one underrepresented lane appears in next-cycle completed items while lane-cap warning resolves.",
+      "scope": "S",
+      "risk": "low",
+      "rollback": "Remove template row and disable over-cap gameplay injection pathway.",
+      "passFail": "Pass when template includes deterministic lane + verification command and guardrail status remains machine-readable.",
+      "definitionOfDone": "Template includes player-facing fantasy target, impact metric, risk/rollback, and minimal vertical-slice verification commands.",
+      "verification": "python3 scripts/regression_weekly_portal_prompt_readability_drift.py"
+    },
+    {
+      "source": "forcedNextLanes",
+      "lane": "world",
+      "team": "World/Design Team",
+      "task": "Inject one underrepresented-lane experiment template for `world` with minimal vertical slice scope.",
+      "definitionOfDone": "Template has explicit risk/rollback and lane-specific readability impact metric.",
+      "verification": "python3 scripts/regression_weekly_portal_prompt_readability_drift.py"
+    },
+    {
+      "source": "forcedNextLanes",
+      "lane": "ai-content",
+      "team": "AI Content/Design Team",
+      "task": "Inject one underrepresented-lane experiment template for `ai-content` with minimal vertical slice scope.",
+      "definitionOfDone": "Template has explicit risk/rollback and lane-specific readability impact metric.",
+      "verification": "python3 scripts/regression_weekly_portal_prompt_readability_drift.py"
+    }
+  ]
+}

@@ -40,6 +40,17 @@ LANE_TEAM_MAP = {
     "vfx": "Combat/VFX Team",
 }
 
+GAMEPLAY_LANE_PRIORITY = ["combat", "vfx", "world", "design", "ux", "ai-content", "systems", "qa"]
+
+
+def _pick_over_cap_gameplay_lane(forced_next_lanes: list[str]) -> str | None:
+    if not forced_next_lanes:
+        return None
+    for lane in GAMEPLAY_LANE_PRIORITY:
+        if lane in forced_next_lanes:
+            return lane
+    return forced_next_lanes[0]
+
 
 def build_templates(report: dict, max_templates: int) -> list[dict]:
     templates: list[dict] = []
@@ -60,7 +71,29 @@ def build_templates(report: dict, max_templates: int) -> list[dict]:
         )
 
     if report.get("status") == "over-cap":
-        for lane in report.get("forcedNextLanes", []):
+        forced_next_lanes = report.get("forcedNextLanes", [])
+        gameplay_lane = _pick_over_cap_gameplay_lane(forced_next_lanes)
+        if gameplay_lane:
+            templates.append(
+                {
+                    "source": "forcedNextLanes",
+                    "lane": gameplay_lane,
+                    "team": "World/Combat Team",
+                    "task": f"Inject one underrepresented-lane gameplay experiment template for `{gameplay_lane}` when guardrail status is `over-cap`.",
+                    "playerFantasy": "Keep lane rotation feeling alive with a visible gameplay-facing experiment in the neglected lane.",
+                    "impactMetric": "At least one underrepresented lane appears in next-cycle completed items while lane-cap warning resolves.",
+                    "scope": "S",
+                    "risk": "low",
+                    "rollback": "Remove template row and disable over-cap gameplay injection pathway.",
+                    "passFail": "Pass when template includes deterministic lane + verification command and guardrail status remains machine-readable.",
+                    "definitionOfDone": "Template includes player-facing fantasy target, impact metric, risk/rollback, and minimal vertical-slice verification commands.",
+                    "verification": "python3 scripts/regression_weekly_portal_prompt_readability_drift.py",
+                }
+            )
+
+        for lane in forced_next_lanes:
+            if lane == gameplay_lane:
+                continue
             team = LANE_TEAM_MAP.get(lane, "Cross-Lane Team")
             templates.append(
                 {
@@ -94,9 +127,21 @@ def to_markdown(report: dict, templates: list[dict]) -> str:
         task = template.get("task", "")
         dod = template.get("definitionOfDone", "")
         verification = template.get("verification", "")
+        lines.append(f"- [ ] {team}: {task}")
+        if template.get("playerFantasy"):
+            lines.append(f"  - Player fantasy: {template['playerFantasy']}")
+        if template.get("impactMetric"):
+            lines.append(f"  - Impact metric: {template['impactMetric']}")
+        if template.get("scope") or template.get("risk"):
+            lines.append(
+                f"  - Scope/Risk: {template.get('scope', '?')} / {template.get('risk', '?')}"
+            )
+        if template.get("rollback"):
+            lines.append(f"  - Rollback: {template['rollback']}")
+        if template.get("passFail"):
+            lines.append(f"  - Pass/Fail: {template['passFail']}")
         lines.extend(
             [
-                f"- [ ] {team}: {task}",
                 f"  - DoD: {dod}",
                 f"  - Verification: `{verification}`",
             ]

@@ -1,0 +1,5 @@
+{
+  "status": "over-cap",
+  "missingCadenceBuckets": [],
+  "forcedNextLanes": ["world", "combat", "ai-content"]
+}

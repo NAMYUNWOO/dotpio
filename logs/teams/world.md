@@ -2937,3 +2937,23 @@
 ## 2026-03-31 21:47 KST — Cycle ILC world lane note
 - Reviewed updated cadence bucket artifact: `design-or-world` count=5 (met), so no forced world-lane override required this cycle.
 - Added backlog hook for design/world explainer copy when a cadence bucket becomes missing.
+
+## 2026-03-31 22:36 KST — Over-cap gameplay template injection guardrail follow-up
+- Completed: Backlog task to ensure over-cap snapshots inject at least one underrepresented-lane **gameplay** experiment template.
+- Implementation:  now selects a prioritized gameplay lane when  and emits  gameplay template first.
+- Evidence: generated  from .
+- Verification:  and fixture run command.
+- Follow-up: Keep template payload-only and reversible; add visible markdown rollout only if lane cap flips to over-cap in live snapshot.
+
+## 2026-03-31 22:36 KST — Over-cap gameplay template injection guardrail follow-up
+- Completed: Backlog task to ensure over-cap snapshots inject at least one underrepresented-lane **gameplay** experiment template.
+- Implementation: `scripts/draft_forced_lane_backlog_tasks.py` now selects a prioritized gameplay lane when `status=over-cap` and emits `World/Combat Team` gameplay template first.
+- Evidence: generated `logs/forced_lane_task_templates_over_cap_fixture.{json,md}` from `logs/weekly_lane_coverage_guardrail_over_cap_fixture.json`.
+- Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` and fixture run command.
+- Follow-up: Keep template payload-only and reversible; add visible markdown rollout only if lane cap flips to over-cap in live snapshot.
+
+## 2026-03-31 22:39 KST — Game Director Cycle ILD vertical slice
+- Completed: Added quality-bar fields to over-cap gameplay template generation (`playerFantasy`, `impactMetric`, `scope`, `risk`, `rollback`, `passFail`).
+- Implementation: `scripts/draft_forced_lane_backlog_tasks.py` now emits those fields for the first gameplay-forced template and renders them in markdown output.
+- Verification artifacts refreshed: `logs/forced_lane_task_templates_over_cap_fixture.json` and `.md`.
+- Next hook: UX/design legend-row polish + AI-content/combat alternate copy pack remain injected backlog tasks.
