@@ -1,5 +1,12 @@
 ## 2026-03-31 16:36 KST
-- Completed Combat/VFX payload parity slice: added `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE FX CUE:<S|E>` with deterministic mapping from bridge alias (`LB->S/SOFT`, `FB->E/EDGE`) for HUD flash routing audits.
+
+## 2026-03-31 19:14 KST
+- Completed POST_RC backlog closure: `CBGCFXWSBPFXPINFBD FX NOTE:<S|E>` (Combat/VFX decode parity markdown row) marked done after codepath verification and weekly digest regeneration.
+- Updated lifecycle state in `POST_RC_BACKLOG.md` (`[~] -> [x]`) and appended cross-team durable logs (systems/world/ai-content/combat/design/ux/qa).
+- Verification: py_compile ✅, weekly digest smoke ✅ (`logs/weekly_portal_prompt_readability_drift.{json,md}` regenerated).
+- Queue status now: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for next Game Director cycle trigger).
+
+ Completed Combat/VFX payload parity slice: added `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE FX CUE:<S|E>` with deterministic mapping from bridge alias (`LB->S/SOFT`, `FB->E/EDGE`) for HUD flash routing audits.
 - Regression contracts now lock schema/domain/adjacency for new FX cue payload token/signals; kept change offline-only and reversible with no runtime combat balance coupling.
 - Updated TASKS + POST_RC_BACKLOG lifecycle status for this item (`[ ] -> [~] -> [x]`).
 - Verification green: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.

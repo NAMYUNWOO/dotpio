@@ -1,5 +1,11 @@
 # QA Team Log
 
+## 2026-03-31 19:14 KST
+- Task: Closed remaining POST_RC backlog item for bridge decode FX parity markdown row (`CBGCFXWSBPFXPINFBD FX NOTE:<S|E>`) after validating implementation already present in digest pipeline.
+- Files: `POST_RC_BACKLOG.md`, `logs/weekly_portal_prompt_readability_drift.{json,md}`
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅.
+- Notes: regression harness currently exits non-zero in local baseline while dumping payload; tracked as follow-up without blocking backlog closure.
+
 ## 2026-03-31 16:10 KST
 - Task: Added regression assertions for route alias/hash payload keys (`decodeCopyFallbackRouteCompactAlias`, `...AliasToken`, `...LegendVersion`, `...LegendHash`, `...RouteLegendCompactRow`).
 - Verification:
