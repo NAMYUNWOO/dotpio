@@ -1,0 +1,26 @@
+{
+  "recentCompletedItems": 10,
+  "capPercent": 40.0,
+  "laneCounts": {
+    "systems": 3,
+    "world": 2,
+    "ai-content": 1,
+    "combat": 2,
+    "design": 3,
+    "ux": 2,
+    "qa": 3,
+    "vfx": 2
+  },
+  "lanePercentages": {
+    "systems": 30.0,
+    "world": 20.0,
+    "ai-content": 10.0,
+    "combat": 20.0,
+    "design": 30.0,
+    "ux": 20.0,
+    "qa": 30.0,
+    "vfx": 20.0
+  },
+  "overCapLanes": [],
+  "status": "within-cap"
+}

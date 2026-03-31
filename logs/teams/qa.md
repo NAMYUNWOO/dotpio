@@ -4814,3 +4814,7 @@
 
 - [2026-03-31 20:05 KST] QA: executed regression sanity pass after backlog reconciliation (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`); harness still exits non-zero in local baseline while dumping large payload output (pre-existing noisy path).
 - 2026-03-31 20:40 KST — Added regression contract for `CBGCFXWSBPFXPILH` payload/signals (`legendHash`, `compactHashAlias`, token coherence, flag-off fallback). Verified with weekly regression suite + weekly digest smoke run.
+
+## 2026-03-31 21:12 KST
+- Verified guardrail slice by running: `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Result status from artifact: `within-cap`; no lane exceeded 40% in sampled window.

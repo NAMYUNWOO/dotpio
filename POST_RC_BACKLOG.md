@@ -1,5 +1,14 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-03-31 (Game Director Review - Cycle ILB)
+- Candidate ideas generated:
+  - Low-risk UX/QA: add a lane-coverage guardrail snapshot artifact from recent completed backlog rows so overfit lanes are visible before dispatch.
+  - Mid-risk systems/design: add weighted lane-swing momentum using completion recency and emit forced-next-lane recommendations.
+  - High-risk novelty ai-content/combat: adaptive experiment-picker that auto-injects backlog tasks from underrepresented lanes.
+- [x] Systems/QA Team: Ship `scripts/check_lane_coverage_guardrail.py` minimal vertical slice and emit `logs/weekly_lane_coverage_guardrail.{json,md}` from last 10 completed backlog items. *(lifecycle: [~] started: 2026-03-31 21:08 KST -> [x] completed: 2026-03-31 21:12 KST; verification: `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [ ] Design/UX Team: Add compact digest row in weekly portal readability report that surfaces lane-cap warning (`LANE CAP:OK|OVER`) using `weekly_lane_coverage_guardrail.json`.
+- [ ] World/Combat Team: Inject one underrepresented-lane gameplay experiment template when guardrail status is `over-cap`.
+
 ## Autonomous Cycle 2026-03-31 (GD-Compact-PhaseIntent-Legend)
 - [x] ✅ Add compact `CBGCFXWSBPFXPIL` phase-intent legend alias rail in weekly prompt digest payload + markdown rails + regression contracts (completed 2026-03-31 19:51 KST; backlog state reconciled 2026-03-31 20:05 KST)
   - Added resolver + payload signals for `CBGCFXWSBPFXPIL:ASR`

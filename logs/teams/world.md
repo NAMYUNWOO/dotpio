@@ -2921,3 +2921,6 @@
 
 - [2026-03-31 20:05 KST] World: no map/content delta this cycle; acknowledged backlog-state reconciliation cycle focused on digest task bookkeeping integrity.
 - 2026-03-31 20:40 KST — World lane checkpoint: no map/progression edits this cycle; acknowledged phase-intent legend-hash alias as telemetry-only support for digest tooling.
+
+## 2026-03-31 21:12 KST
+- Added follow-up backlog hook to inject underrepresented-lane gameplay experiments when guardrail flips to `over-cap`.

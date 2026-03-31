@@ -4433,3 +4433,9 @@ Compact decision memory for AI context efficiency.
 
 - [2026-03-31 20:05 KST] Decision: reconciled stale unchecked backlog row for `CBGCFXWSBPFXPIL` into a single completed entry to keep autonomous priority selection accurate; no code-path changes. Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
 - 2026-03-31 20:40 KST — Game Director Cycle ILA: shipped payload-only `CBGCFXWSBPFXPILH:<hex4>` alias from phase-intent legend hash; no markdown rail changes; weekly digest smoke run passes while full regression script still exits 1 and needs follow-up triage; next candidate is optional visible row + adjacency contract when width budget allows.
+
+## 2026-03-31 21:12 KST
+- Executed Game Director cycle ILB after ACTION_ITEMS/TASKS/POST_RC all checked; generated 3 ideas and selected low-risk Systems/QA vertical slice.
+- Shipped `scripts/check_lane_coverage_guardrail.py` and generated `logs/weekly_lane_coverage_guardrail.json|md` from recent 10 completed backlog rows with 40% lane-cap threshold.
+- Backlog updated with lifecycle evidence (`[~] -> [x]`) and injected two next tasks: UX/design digest cap row + world/combat underrepresented-lane template trigger.
+- Verification command passed: `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

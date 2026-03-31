@@ -2906,3 +2906,6 @@
 
 - [2026-03-31 20:05 KST] Combat: no combat tuning changes; cycle reserved for backlog-state reconciliation and regression sanity pass.
 - 2026-03-31 20:40 KST — Combat lane checkpoint: no combat tuning edits in Cycle ILA; monitored cadence balance while systems/qa shipped payload-only integrity alias.
+
+## 2026-03-31 21:12 KST
+- Aligned with world lane-injection follow-up so combat lane can be force-prioritized by guardrail outcome during future cycles.

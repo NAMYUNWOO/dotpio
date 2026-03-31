@@ -3002,3 +3002,6 @@
 
 - [2026-03-31 20:05 KST] Design: no UI/legend wording change; preserved existing CBGCFXWSBPFXPIL legend copy and adjacency behavior.
 - 2026-03-31 20:40 KST — Design review for Cycle ILA: approved payload-only legend-hash alias as reversible integrity cue; postponed row-level decode copy until width-budget slot opens.
+
+## 2026-03-31 21:12 KST
+- Logged next-step design task to integrate lane-cap status into weekly readability digest for faster dispatch scanning.
