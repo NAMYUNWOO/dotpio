@@ -4512,3 +4512,9 @@ Compact decision memory for AI context efficiency.
 - Game Director review cycle executed after queue-clear trigger: generated 3 ideas, selected low-risk onboarding readability slice, and shipped `COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE` behind compat flag.
 - Durable decision: keep onboarding compatibility rows markdown-only + opt-in (`--include-copy-pack-compat-row`) so default forced-lane templates stay compact while onboarding mode remains explicit.
 - New backlog injections added: (1) Systems/QA order lock for compat rows, (2) AI Content/Systems volatility-aware compat-row policy recommendation.
+
+## 2026-04-01 00:45 KST
+- Closed injected Systems/QA Cycle ILE item by hardening forced-lane markdown regression contract: when onboarding compat rows are enabled, `COPY PACK COMPAT` must be immediately followed by `COPY PACK COMPAT LEGEND`.
+- Regression now locks presence/cardinality/adjacency (1 compat row, 1 legend row, strict next-line order) without mutating payload schema.
+- Verification stayed green: py_compile + `scripts/regression_draft_forced_lane_backlog_tasks.py` + over-cap fixture markdown generation.
+- Queue status: ACTION_ITEMS unchecked=0; TASKS unchecked=1; POST_RC_BACKLOG unchecked=1 (remaining AI Content/Systems volatility-aware onboarding policy recommendation).

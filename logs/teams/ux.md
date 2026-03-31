@@ -3246,3 +3246,8 @@
 
 ## 2026-04-01 00:19 KST
 - UX readability cycle delivered: compat onboarding now shows two-line decode (`COMPAT` + `COMPAT LEGEND`) only when flag is enabled, keeping default output uncluttered.
+
+## 2026-04-01 00:45 KST
+- Closed Cycle ILE injected Systems/QA contract item: regression now enforces `COPY PACK COMPAT` immediately followed by `COPY PACK COMPAT LEGEND` when onboarding compat row flag is enabled.
+- Added strict adjacency + cardinality assertions (`exactly once` each row, `legend_index == compat_index + 1`) in `scripts/regression_draft_forced_lane_backlog_tasks.py`.
+- Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` ✅; `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` ✅; over-cap fixture generation with `--include-copy-pack-compat-row` ✅.

@@ -78,11 +78,26 @@ def main() -> int:
         assert compat_payload == first_payload, "compat markdown row must not mutate payload schema"
 
         compat_text = compat_md.read_text(encoding="utf-8")
+        compat_lines = compat_text.splitlines()
+        compat_row = "- COPY PACK COMPAT:STEADY=ST|SPIKE=SP"
+        compat_legend_row = "- COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE"
+
         assert "COPY PACK COMPAT:STEADY=ST|SPIKE=SP" in compat_text, (
             "expected compatibility row when compat flag enabled"
         )
         assert "COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE" in compat_text, (
             "expected compatibility legend row when compat flag enabled"
+        )
+        assert compat_lines.count(compat_row) == 1, (
+            "compatibility row must appear exactly once when compat flag enabled"
+        )
+        assert compat_lines.count(compat_legend_row) == 1, (
+            "compatibility legend row must appear exactly once when compat flag enabled"
+        )
+        compat_index = compat_lines.index(compat_row)
+        legend_index = compat_lines.index(compat_legend_row)
+        assert legend_index == compat_index + 1, (
+            "compatibility legend row must immediately follow compatibility row"
         )
         assert "COPY PACK COMPAT:STEADY=ST|SPIKE=SP" not in first_md.read_text(encoding="utf-8"), (
             "compatibility row must stay gated behind flag"
