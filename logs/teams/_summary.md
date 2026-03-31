@@ -4266,3 +4266,8 @@ Compact decision memory for AI context efficiency.
 - Triggered Game Director Cycle IN after queues hit fully-checked state; generated 3 ideas and selected low-risk UX/systems vertical slice.
 - Shipped `CBGCFXWSBPFXPIC:<W|C>` compact alias from phase-intent legend microcopy fallback mode, with payload + markdown wiring and regression ordering/schema locks.
 - Injected follow-up backlog tasks: legend-copy checksum contract (Systems/QA) and adaptive phrasing rotor prototype (AI-content/World).
+
+## 2026-03-31 09:16 KST — Durable: legend microcopy checksum contract
+- Implemented `phaseIntentLegendCopyHash` for `CBGCFXWSBPFXPI LEGEND COPY` as a deterministic 12-char SHA-256 checksum over emitted legend text (writer or compact fallback).
+- Added flattened payload bridge field `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendMicrocopyVariantCopyHash` to simplify downstream integrity checks.
+- Regression suite now locks both schema presence and checksum equality, preventing silent microcopy drift in postmortem digest rails.

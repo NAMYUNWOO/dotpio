@@ -4100,6 +4100,7 @@ def main() -> int:
             "phaseIntent",
             "alias",
             "legendCopy",
+            "phaseIntentLegendCopyHash",
             "dosWidthMax",
             "withinDosWidth",
             "token",
@@ -4113,6 +4114,10 @@ def main() -> int:
         assert intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_signals.get("phaseIntent") == expected_phase_intent, payload
         assert intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_signals.get("alias") == expected_phase_intent_alias, payload
         assert intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_signals.get("token").startswith("CBGCFXWSBPFXPI LEGEND COPY:"), payload
+        emitted_legend_copy = intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_signals.get("token", "").split(":", 1)[1].strip()
+        expected_phase_intent_legend_copy_hash = hashlib.sha256(emitted_legend_copy.encode("utf-8")).hexdigest()[:12]
+        assert intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_signals.get("phaseIntentLegendCopyHash") == expected_phase_intent_legend_copy_hash, payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendMicrocopyVariantCopyHash") == expected_phase_intent_legend_copy_hash, payload
         assert isinstance(intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_signals.get("withinDosWidth"), bool), payload
         assert isinstance(intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_signals.get("dosWidthMax"), int), payload
         if intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_signals.get("flagEnabled") is True:

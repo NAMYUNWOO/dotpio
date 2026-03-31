@@ -4673,3 +4673,11 @@
 ## 2026-03-31 08:49 KST
 - Added regression coverage for `CBGCFXWSBPFXPIC` payload schema/domain and markdown cardinality (0|2) + adjacency assertions.
 - Extended optional spacer window limit by one to account for new alias rollout row.
+
+## 2026-03-31 09:16 KST — Regression/domain lock for phaseIntentLegendCopyHash
+- Added schema contract assertion for `phaseIntentLegendCopyHash` in legend microcopy variant signals.
+- Added domain lock assertion: checksum must equal `sha256(emitted legend-copy text)[:12]` and must mirror top-level payload field `...PhaseIntentLegendMicrocopyVariantCopyHash`.
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`

@@ -4135,3 +4135,9 @@
 - Cycle IN selected slice shipped: `CBGCFXWSBPFXPIC:<W|C>` alias derived from legend-copy DOS-width mode.
 - Added payload keys for compact-alias signals and updated markdown spacer ordering contract to include `...FXPIC` before narration rows.
 - Verification: py_compile + regression + weekly digest smoke all green.
+
+## 2026-03-31 09:16 KST — Cycle IN follow-up: phaseIntentLegendCopyHash lock
+- Scope: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Decision: added deterministic checksum signal `phaseIntentLegendCopyHash` derived from emitted `CBGCFXWSBPFXPI LEGEND COPY` text (post DOS-width fallback), and surfaced flattened payload field `...PhaseIntentLegendMicrocopyVariantCopyHash` for downstream consumers.
+- Why: catches silent legend-copy drift while preserving current flag-gated rollout behavior.
+- Follow-up: keep the remaining adaptive legend-copy phrasing rotor task offline-only and ensure any future copy variants update checksum-domain fixtures first.
