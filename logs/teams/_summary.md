@@ -4303,3 +4303,8 @@ Compact decision memory for AI context efficiency.
 - Ran Game Director Cycle IN after queues reached fully checked state; generated 3 ideas and selected low-risk UX/VFX readability slice.
 - Shipped `CBGCFXWSBPFXPINF BURST LEGEND` row (summary + token-coverage) and updated regression order chain to `PINF -> PINF LEGEND -> PINF BURST -> PINF BURST LEGEND -> PINF ORDER`.
 - Injected next tasks for Systems/QA, Combat/VFX, and AI Content/World in `TASKS.md`; full verification suite stayed green.
+
+## 2026-03-31 11:12 KST
+- Closed Systems/QA next-up item by adding explicit row-length fixture for `CBGCFXWSBPFXPINF BURST LEGEND` with DOS-width budget lock (`<=88`) in regression coverage.
+- Updated TASKS lifecycle entry from in-progress to complete after green verification (py_compile + regression + weekly drift smoke).
+- Queue status: ACTION_ITEMS fully checked; TASKS now 2 unchecked (Combat/VFX digest row, AI Content/World fallback microcopy); POST_RC_BACKLOG fully checked.

@@ -4172,3 +4172,8 @@
 - Commit: pending
 - Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`
 - Verification: `py_compile` + regression + weekly smoke ✅
+
+## 2026-03-31 11:12 KST
+- Task: Added explicit regression fixture asserting   `CBGCFXWSBPFXPINF BURST LEGEND` markdown row length stays within DOS-width budget (<=88 chars) across summary/token-coverage rails.
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅

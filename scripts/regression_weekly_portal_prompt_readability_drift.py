@@ -5861,6 +5861,13 @@ def main() -> int:
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_legend_indices) <= len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_indices), (
             "expected CBGCFXWSBPFXPINF BURST LEGEND rollout rows to appear only when CBGCFXWSBPFXPINF BURST rows are present"
         )
+        burst_legend_row_budget = 88
+        for burst_legend_idx in cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_legend_indices:
+            burst_legend_row = md_lines[burst_legend_idx]
+            assert len(burst_legend_row) <= burst_legend_row_budget, (
+                "expected CBGCFXWSBPFXPINF BURST LEGEND row to stay within DOS-width budget "
+                f"(<= {burst_legend_row_budget}, got {len(burst_legend_row)}): {burst_legend_row}"
+            )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_indices) in {0, 2}, (
             "expected zero or exactly two CBGCFXWSBPFXPINF ORDER rows (summary + token-coverage sections)"
         )
