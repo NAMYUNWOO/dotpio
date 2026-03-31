@@ -4285,3 +4285,12 @@
 - Added `LANE CAP:OK|OVER` digest row in both summary and token-coverage sections of `weekly_portal_prompt_readability_drift.md` output, sourced from `logs/weekly_lane_coverage_guardrail.json`.
 - Added payload fields `laneCoverageGuardrail` + `laneCoverageGuardrailSignals` to `weekly_portal_prompt_readability_drift.json` for downstream checks.
 - Verification: regenerated weekly artifacts and confirmed `LANE CAP` rows + JSON keys were present.
+
+## 2026-03-31 21:47 KST — Cycle ILC systems/ops slice
+- Extended `scripts/check_lane_coverage_guardrail.py` report contract with:
+  - `underrepresentedLanes`
+  - `forcedNextLanes` (populated only when `overCapLanes` exists)
+  - `bucketCadence` (combat-or-vfx / design-or-world / systems-or-ops)
+  - `missingCadenceBuckets`
+- Regenerated `logs/weekly_lane_coverage_guardrail.json` and `.md` with cadence bucket table for dispatch-time auditing.
+- Verification: guardrail script run + `python3 -m py_compile scripts/check_lane_coverage_guardrail.py`.

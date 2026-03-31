@@ -1,5 +1,19 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-03-31 (Game Director Review - Cycle ILC)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=1, combat=2, design=3, ux=2, qa=3, vfx=2 (no lane >40%).
+- 24h cadence guardrail buckets: combat/vfx=4 ✅, design/world=5 ✅, systems/ops=6 ✅.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (Combat/VFX): add compact postmortem pulse teaser token (`CBGCFXWSBPFXPINF TEASE:CALM|EDGE`) from bridge FX cue + burst posture to sharpen glance readability.
+  - Mid-risk Systems/Ops: extend lane guardrail artifact with forced-next lane recommendations + bucket cadence status table for dispatch decisions.
+  - High-risk novelty (AI-content/Design): adaptive experiment picker that injects backlog tasks from missing cadence buckets and auto-suggests copy variants.
+- Selected experiment: Idea 2 (mid-risk Systems/Ops) for minimal reversible vertical slice.
+- [x] Systems/Ops Team: Extend `scripts/check_lane_coverage_guardrail.py` to emit `underrepresentedLanes`, `forcedNextLanes`, `bucketCadence`, and `missingCadenceBuckets`; regenerate `logs/weekly_lane_coverage_guardrail.{json,md}` with cadence table.
+  - Verification: `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`; `python3 -m py_compile scripts/check_lane_coverage_guardrail.py`.
+- [x] Combat/VFX Team: confirm cadence bucket remains satisfied and queue next visible token experiment candidate (`CBGCFXWSBPFXPINF TEASE`) without changing runtime tuning.
+- [x] Design/World Team: queue digest copy follow-up for cadence-bucket explainer row if any bucket flips to missing.
+- [ ] AI Content/Systems Team (injected): prototype backlog auto-injection helper that consumes `missingCadenceBuckets` and drafts forced-lane task templates.
+
 ## Autonomous Cycle 2026-03-31 (Game Director Review - Cycle ILB)
 - Candidate ideas generated:
   - Low-risk UX/QA: add a lane-coverage guardrail snapshot artifact from recent completed backlog rows so overfit lanes are visible before dispatch.

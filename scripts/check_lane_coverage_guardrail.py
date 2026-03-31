@@ -19,6 +19,12 @@ LANE_PREFIX_RE = re.compile(r"^([A-Za-z\-/ ]+?)\s*:\s*")
 
 CANONICAL_LANES = ["systems", "world", "ai-content", "combat", "design", "ux", "qa", "vfx"]
 
+BUCKETS = {
+    "combat-or-vfx": ["combat", "vfx"],
+    "design-or-world": ["design", "world"],
+    "systems-or-ops": ["systems", "qa"],
+}
+
 ALIAS_MAP = {
     "ai content": "ai-content",
     "ai-content": "ai-content",
@@ -70,12 +76,38 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
     }
     over_cap = sorted([lane for lane, pct in percentages.items() if pct > (cap_ratio * 100.0)])
 
+    underrepresented = sorted(
+        CANONICAL_LANES,
+        key=lambda lane: (lane_counts.get(lane, 0), lane),
+    )
+
+    forced_next_lanes: list[str] = []
+    if over_cap:
+        forced_next_lanes = [lane for lane in underrepresented if lane not in over_cap][:3]
+
+    bucket_status = {}
+    missing_buckets: list[str] = []
+    for bucket, bucket_lanes in BUCKETS.items():
+        bucket_count = sum(lane_counts.get(lane, 0) for lane in bucket_lanes)
+        met = bucket_count > 0
+        bucket_status[bucket] = {
+            "lanes": bucket_lanes,
+            "count": bucket_count,
+            "met": met,
+        }
+        if not met:
+            missing_buckets.append(bucket)
+
     return {
         "recentCompletedItems": total,
         "capPercent": round(cap_ratio * 100.0, 2),
         "laneCounts": {lane: lane_counts.get(lane, 0) for lane in CANONICAL_LANES},
         "lanePercentages": percentages,
         "overCapLanes": over_cap,
+        "underrepresentedLanes": underrepresented,
+        "forcedNextLanes": forced_next_lanes,
+        "bucketCadence": bucket_status,
+        "missingCadenceBuckets": missing_buckets,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -88,14 +120,29 @@ def to_markdown(report: dict) -> str:
     for lane in CANONICAL_LANES:
         rows.append(f"| {lane} | {report['laneCounts'][lane]} | {report['lanePercentages'][lane]}% |")
     over_cap = ", ".join(report["overCapLanes"]) if report["overCapLanes"] else "none"
+    forced = ", ".join(report["forcedNextLanes"]) if report["forcedNextLanes"] else "none"
+    missing_buckets = ", ".join(report["missingCadenceBuckets"]) if report["missingCadenceBuckets"] else "none"
+    bucket_rows = [
+        "",
+        "| cadence bucket | lanes | count | status |",
+        "|---|---|---:|---|",
+    ]
+    for bucket, details in report["bucketCadence"].items():
+        lanes = "/".join(details["lanes"])
+        status = "met" if details["met"] else "missing"
+        bucket_rows.append(f"| {bucket} | {lanes} | {details['count']} | {status} |")
+
     return "\n".join(
         [
             "### Lane Coverage Guardrail",
             f"- status: **{report['status']}** (cap={report['capPercent']}%)",
             f"- recent completed items: **{report['recentCompletedItems']}**",
             f"- over-cap lanes: **{over_cap}**",
+            f"- forced next lanes (if over-cap): **{forced}**",
+            f"- cadence buckets missing: **{missing_buckets}**",
             "",
             *rows,
+            *bucket_rows,
         ]
     )
 

@@ -441,3 +441,7 @@
 - 24h cadence audit still satisfies Combat/VFX presence via prior THREAT/ORDER bridge slices.
 - No new runtime VFX mapping changed in this cycle; injected follow-up to evaluate `THREAT ORDER BRIDGE FX CUE` parity token (`S|E`) for HUD flash routing.
 - 2026-03-31 20:40 KST — VFX lane checkpoint: no FX cue mapping changes this cycle; retained existing storybeat/phase-intent cue contracts.
+
+## 2026-03-31 21:47 KST — Cycle ILC vfx lane log
+- Guardrail cadence bucket check reports `combat-or-vfx` count=4 (met) in the latest last-10 snapshot.
+- No runtime VFX tuning touched this slice; queued next visible candidate token: `CBGCFXWSBPFXPINF TEASE:CALM|EDGE` for a future Combat/VFX pass.

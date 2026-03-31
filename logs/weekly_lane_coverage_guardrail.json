@@ -22,5 +22,43 @@
     "vfx": 20.0
   },
   "overCapLanes": [],
+  "underrepresentedLanes": [
+    "ai-content",
+    "combat",
+    "ux",
+    "vfx",
+    "world",
+    "design",
+    "qa",
+    "systems"
+  ],
+  "forcedNextLanes": [],
+  "bucketCadence": {
+    "combat-or-vfx": {
+      "lanes": [
+        "combat",
+        "vfx"
+      ],
+      "count": 4,
+      "met": true
+    },
+    "design-or-world": {
+      "lanes": [
+        "design",
+        "world"
+      ],
+      "count": 5,
+      "met": true
+    },
+    "systems-or-ops": {
+      "lanes": [
+        "systems",
+        "qa"
+      ],
+      "count": 6,
+      "met": true
+    }
+  },
+  "missingCadenceBuckets": [],
   "status": "within-cap"
 }

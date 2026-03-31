@@ -2,6 +2,8 @@
 - status: **within-cap** (cap=40.0%)
 - recent completed items: **10**
 - over-cap lanes: **none**
+- forced next lanes (if over-cap): **none**
+- cadence buckets missing: **none**
 
 | lane | count | percent |
 |---|---:|---:|
@@ -13,3 +15,9 @@
 | ux | 2 | 20.0% |
 | qa | 3 | 30.0% |
 | vfx | 2 | 20.0% |
+
+| cadence bucket | lanes | count | status |
+|---|---|---:|---|
+| combat-or-vfx | combat/vfx | 4 | met |
+| design-or-world | design/world | 5 | met |
+| systems-or-ops | systems/qa | 6 | met |

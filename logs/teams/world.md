@@ -2929,3 +2929,7 @@
 - Added `LANE CAP:OK|OVER` digest row in both summary and token-coverage sections of `weekly_portal_prompt_readability_drift.md` output, sourced from `logs/weekly_lane_coverage_guardrail.json`.
 - Added payload fields `laneCoverageGuardrail` + `laneCoverageGuardrailSignals` to `weekly_portal_prompt_readability_drift.json` for downstream checks.
 - Verification: regenerated weekly artifacts and confirmed `LANE CAP` rows + JSON keys were present.
+
+## 2026-03-31 21:47 KST — Cycle ILC world lane note
+- Reviewed updated cadence bucket artifact: `design-or-world` count=5 (met), so no forced world-lane override required this cycle.
+- Added backlog hook for design/world explainer copy when a cadence bucket becomes missing.

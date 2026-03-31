@@ -3010,3 +3010,7 @@
 - Added `LANE CAP:OK|OVER` digest row in both summary and token-coverage sections of `weekly_portal_prompt_readability_drift.md` output, sourced from `logs/weekly_lane_coverage_guardrail.json`.
 - Added payload fields `laneCoverageGuardrail` + `laneCoverageGuardrailSignals` to `weekly_portal_prompt_readability_drift.json` for downstream checks.
 - Verification: regenerated weekly artifacts and confirmed `LANE CAP` rows + JSON keys were present.
+
+## 2026-03-31 21:47 KST — Cycle ILC design/world follow-up
+- Cadence bucket `design-or-world` remains healthy (count=5) in current guardrail artifact.
+- Injected follow-up requirement: if any cadence bucket flips missing, add a compact explainer row so design reviewers can decode remediation priority instantly.
