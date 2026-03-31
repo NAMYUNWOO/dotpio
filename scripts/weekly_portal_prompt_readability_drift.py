@@ -2601,6 +2601,12 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         f" ({localization_safe_route})"
     )
     fallback_route_compact_row = f"- CBGCFXWSBPFXPINF ROUTE:{localization_safe_route}"
+    fallback_route_compact_alias = "F1"
+    fallback_route_compact_alias_token = f"CBGCFXWSBPFXPINFR:{fallback_route_compact_alias}"
+    fallback_route_compact_legend_version = "v1"
+    fallback_route_compact_legend_hash = hashlib.sha1(
+        f"{fallback_route_compact_alias}:{localization_safe_route}".encode("utf-8")
+    ).hexdigest()[:10]
     dos_row_budget_within_threshold = all(
         len(f"{alias_key}={copy}") <= dos_readability_row_budget_threshold
         for alias_key, copy in decode_copy_pair.items()
@@ -2624,6 +2630,10 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         "decodeCopyFallbackLegendAliasPair": fallback_legend_alias_pair,
         "decodeCopyFallbackLegendCompactRow": fallback_legend_compact_row,
         "decodeCopyFallbackRouteCompactRow": fallback_route_compact_row,
+        "decodeCopyFallbackRouteCompactAlias": fallback_route_compact_alias,
+        "decodeCopyFallbackRouteCompactAliasToken": fallback_route_compact_alias_token,
+        "decodeCopyFallbackRouteLegendVersion": fallback_route_compact_legend_version,
+        "decodeCopyFallbackRouteLegendHash": fallback_route_compact_legend_hash,
         "localizationSafeRoute": localization_safe_route,
         "dosReadabilityRowBudgetThreshold": dos_readability_row_budget_threshold,
         "dosRowBudgetWithinThreshold": dos_row_budget_within_threshold,

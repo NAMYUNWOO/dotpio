@@ -1912,3 +1912,20 @@ Last updated: 2026-03-31 07:12 KST
 ## 2026-03-31 Cycle IO Injection
 - [x] UX/Design: Prototype compact alias-only BURST fallback legend mode (`Bf/Qf`) with `fallback-v1` route visibility while keeping each BURST legend row <= 88 chars. *(lifecycle: [ ] -> [~] started: 2026-03-31 12:28 KST -> [x] completed: 2026-03-31 12:32 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [x] Game Director (systems/combat): Add explicit `CBGCFXWSBPFXPINF ROUTE:fallback-v1` digest row adjacent to BURST legend so operators can scan fallback routing without decoding payload blobs. *(lifecycle: [~] started 2026-03-31 12:40 KST -> [x] completed 2026-03-31 12:44 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## 2026-03-31 — Game Director Review Cycle (Autonomous 13:xx KST)
+
+### Idea generation (3)
+1. Add a route fallback compact alias/hash payload lane (`CBGCFXWSBPFXPINFR:*`) so localization-safe route decoding can be machine-audited without widening markdown rows.
+2. Add a compact markdown `CBGCFXWSBPFXPINF ROUTE LEGEND` row beside `ROUTE:fallback-v1` for explicit on-screen decode parity.
+3. Add a digest drift coach line that warns when fallback route tokens change without matching legend hash drift.
+
+### Selected experiment
+- **Chosen:** #1 (payload-only route alias/hash lane) for a minimal-risk vertical slice with zero markdown-width impact.
+
+### Execution checklist
+- [x] **(in-progress → done)** Add payload-only fallback route alias/hash signals in burst digest output, keep markdown unchanged, and run compile+smoke verification.
+
+### Injected follow-up tasks
+- [ ] Evaluate whether `CBGCFXWSBPFXPINF ROUTE LEGEND` markdown can fit row-budget without violating readability thresholds.
+- [ ] Add regression assertions for route alias/hash payload keys after baseline fixture refresh.

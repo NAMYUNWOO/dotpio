@@ -4335,3 +4335,8 @@ Compact decision memory for AI context efficiency.
 - Selected experiment this cycle: Idea #1 (low-risk UX/game-feel) for immediate vertical slice.
 - Pass criterion: weekly digest renders route row adjacent to BURST legend and row stays within DOS-width guard (<=88).
 - Result: pass (row emitted + width guard preserved).
+
+## 2026-03-31 13:20 KST — Game Director autonomous cycle
+- Decision: keep fallback-route decode enhancement payload-only for this slice to avoid markdown row-budget expansion risk.
+- Implemented signals in burst digest payload: `decodeCopyFallbackRouteCompactAlias` (`F1`), `decodeCopyFallbackRouteCompactAliasToken` (`CBGCFXWSBPFXPINFR:F1`), `decodeCopyFallbackRouteLegendVersion` (`v1`), `decodeCopyFallbackRouteLegendHash` (sha1 short hash).
+- Follow-ups queued in `POST_RC_BACKLOG.md`: evaluate optional route legend markdown row and add regression assertions after fixture refresh.

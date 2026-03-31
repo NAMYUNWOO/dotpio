@@ -4738,3 +4738,7 @@
 ## 2026-03-31 12:44 KST — Game Director cycle note
 - Reviewed 3 candidate ideas (low/mid/high risk) and executed Idea #1 vertical slice: explicit `CBGCFXWSBPFXPINF ROUTE:fallback-v1` digest row.
 - Outcome: implemented in weekly drift renderer, verified via py_compile + weekly smoke run.
+
+- 2026-03-31 13:20 KST — Game Director cycle: selected payload-only route fallback alias/hash experiment (#1). Implemented , , , and  in burst digest signals; kept markdown rows unchanged to preserve DOS row-budget safety.
+
+- 2026-03-31 13:20 KST — Game Director cycle: selected payload-only route fallback alias/hash experiment (#1). Implemented decodeCopyFallbackRouteCompactAlias, decodeCopyFallbackRouteCompactAliasToken, decodeCopyFallbackRouteLegendVersion, and decodeCopyFallbackRouteLegendHash in burst digest signals; kept markdown rows unchanged to preserve DOS row-budget safety.
