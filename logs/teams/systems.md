@@ -4392,3 +4392,8 @@
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-01 05:19 KST — Cycle ILJ backlog reconciliation: marked remaining POST_RC_BACKLOG checkboxes complete after re-running forced-lane draft/regression verification; no runtime code-path changes, backlog/docs now match shipped trend-score band + decode-row deliverables.
 - 2026-04-01 05:22 KST — Cycle ILK: lane guardrail now emits compact trend-score snapshot alias TSSB:C<n>E<n>H<n> (trendScoreBandSnapshotAlias) from CALM/EDGE/HEATED counts for one-glance dispatch decode; verified via guardrail regeneration and py_compile.
+
+## 2026-04-01 05:52 KST — Cycle ILK Systems/QA follow-up
+- Added regression harness `scripts/regression_check_lane_coverage_guardrail.py` to lock canonical alias mapping: `trendScoreBandSnapshotAlias == C{CALM}E{EDGE}H{HEATED}`.
+- Regression fixture exercises mixed full-band + compact alias tokens and asserts markdown emits `TSSB:<alias>` from computed snapshot counts.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

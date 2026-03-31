@@ -4924,3 +4924,8 @@
 - Confirmed schema stability requirement held: no new keys added to JSON payload; markdown gained `trend-score band snapshot` line only.
 - 2026-04-01 05:19 KST — Cycle ILJ backlog reconciliation: marked remaining POST_RC_BACKLOG checkboxes complete after re-running forced-lane draft/regression verification; no runtime code-path changes, backlog/docs now match shipped trend-score band + decode-row deliverables.
 - 2026-04-01 05:22 KST — Cycle ILK: lane guardrail now emits compact trend-score snapshot alias TSSB:C<n>E<n>H<n> (trendScoreBandSnapshotAlias) from CALM/EDGE/HEATED counts for one-glance dispatch decode; verified via guardrail regeneration and py_compile.
+
+## 2026-04-01 05:52 KST — Guardrail alias regression lock
+- Added deterministic regression assertions for lane-guardrail trend-score alias canonicalization (`C{CALM}E{EDGE}H{HEATED}`).
+- Coverage now fails fast if JSON alias drifts from snapshot counts or markdown omits `TSSB:` rendering.
+- Verification command chain passed (py_compile + new regression script + guardrail artifact regeneration).

@@ -4562,3 +4562,8 @@ Compact decision memory for AI context efficiency.
 - Next priority: launch next Game Director cycle (all ACTION_ITEMS/TASKS/POST_RC currently checked) with fresh 3-idea generation and minimal vertical slice.
 - 2026-04-01 05:19 KST — Reconciled stale ILJ backlog state: POST_RC_BACKLOG now marks Combat/VFX trend-score band alias + Design/World decode row as complete based on regenerated fixtures/regression proof; no new gameplay/runtime behavior changed.
 - 2026-04-01 05:22 KST — Cycle ILK shipped: scripts/check_lane_coverage_guardrail.py now outputs trendScoreBandSnapshot + compact alias trendScoreBandSnapshotAlias and markdown row TSSB:C<n>E<n>H<n>; queued ILK follow-ups (QA alias regression, UX decode row, AI dispatch hint).
+
+## 2026-04-01 05:52 KST — Durable decision
+- Guardrail alias stability is now enforced by dedicated regression (`scripts/regression_check_lane_coverage_guardrail.py`): `trendScoreBandSnapshotAlias` must always be derived from snapshot counts using canonical `C{CALM}E{EDGE}H{HEATED}` mapping.
+- Decision: keep this lock payload-level and markdown-visible (`TSSB:<alias>`) so downstream dispatch tooling can trust both JSON and report surfaces.
+- Priority queue now advances to remaining ILK injections: UX/Design `TSSB` decode microcopy row, then AI Content/Systems `trendScoreBandDispatchHint` prototype.
