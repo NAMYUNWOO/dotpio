@@ -6180,6 +6180,30 @@ def main() -> int:
                 "expected CBGCFXWSBPFXPINFBD TOOLTIP row to stay within DOS-width budget "
                 f"(<= {threat_order_bridge_decode_tooltip_row_budget}, got {len(threat_order_bridge_decode_tooltip_row)}): {threat_order_bridge_decode_tooltip_row}"
             )
+            if "FLAG OFF" not in threat_order_bridge_decode_tooltip_row:
+                tooltip_prefix = "- CBGCFXWSBPFXPINFBD TOOLTIP:"
+                assert threat_order_bridge_decode_tooltip_row.startswith(tooltip_prefix), (
+                    "expected CBGCFXWSBPFXPINFBD TOOLTIP row prefix to remain deterministic for alias parity checks"
+                )
+                tooltip_pairs_csv = threat_order_bridge_decode_tooltip_row[len(tooltip_prefix):].strip()
+                tooltip_alias_pairs: dict[str, str] = {}
+                for alias_pair in tooltip_pairs_csv.split(","):
+                    left_alias, _, right_copy = alias_pair.partition("=")
+                    left_alias = left_alias.strip().upper()
+                    right_copy = right_copy.strip().lower()
+                    if left_alias:
+                        tooltip_alias_pairs[left_alias] = right_copy
+                decode_copy_pair = burst_threat_order_bridge_decode_copy_signals.get("decodeCopyPair")
+                assert isinstance(decode_copy_pair, dict), (
+                    "expected burst threat order bridge decode copy pair signals to be a dict for tooltip alias parity checks"
+                )
+                expected_tooltip_alias_pairs = {
+                    str(alias).strip().upper(): str(copy).strip().lower()
+                    for alias, copy in decode_copy_pair.items()
+                }
+                assert tooltip_alias_pairs == expected_tooltip_alias_pairs, (
+                    "expected CBGCFXWSBPFXPINFBD TOOLTIP aliases/copy to match payload decodeCopyPair parity in both sections"
+                )
         assert len(cadence_bridge_glyph_conf_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_indices) in {0, 2}, (
             "expected zero or exactly two CBGCFXWSBPFXPINF ORDER rows (summary + token-coverage sections)"
         )

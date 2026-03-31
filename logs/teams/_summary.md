@@ -4413,3 +4413,4 @@ Compact decision memory for AI context efficiency.
 - Standardized bridge decode operator hinting with optional markdown row `CBGCFXWSBPFXPINFBD TOOLTIP` placed between `THREAT ORDER BRIDGE LEGEND` and `CBGCFXWSBPFXPINF ORDER`.
 - Locked DOS-width policy for this row at `<=88` and added contract coverage for cardinality/order (`0|2`, summary + token-coverage).
 - Follow-up backlog intentionally left open for payload-tooltip alias parity assertion and alternate localization copy variants.
+- 2026-03-31 17:36 KST — Systems/QA completed TASKS parity follow-up: regression now parses `CBGCFXWSBPFXPINFBD TOOLTIP` alias pairs and enforces exact parity with payload `decodeCopyPair` (`LB|FB`) in both digest sections; prevents silent markdown/payload drift before upcoming alt-copy and FX-note rollouts.

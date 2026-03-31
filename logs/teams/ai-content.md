@@ -2994,3 +2994,4 @@
 ## 2026-03-31 17:19 KST — Cycle KE bridge decode tooltip slice
 - Delivered `CBGCFXWSBPFXPINFBD TOOLTIP` optional row integration and/or validation hooks for bridge decode readability (`LB=legend bridge lock`, `FB=fallback bridge hold`) before ORDER.
 - Verified with: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- 2026-03-31 17:36 KST — No AI-content policy change this cycle; parity guard improves downstream token consistency for future copy variants.
