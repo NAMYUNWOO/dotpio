@@ -4369,3 +4369,10 @@ Compact decision memory for AI context efficiency.
 
 - 2026-03-31 14:41 KST — Shipped optional `CBGCFXWSBPFXPINF THREAT ORDER PATH LEGEND` markdown row (`L=LEGEND,F=FALLBACK`) and wired payload+markdown regression contracts for 0|2 cardinality, DOS row budget (<=88), and adjacency `THREAT LEGEND -> THREAT ORDER PATH LEGEND -> ORDER` with fallback-safe behavior when legends are disabled.
 - 2026-03-31 14:47 KST — Cycle KC shipped payload compact alias `CBGCFXWSBPFXPINF THREAT ORDER PATH LEGEND:<L|F>` with deterministic alias map (`L=LEGEND`,`F=FALLBACK`) and regression locks; injected next backlog tasks for optional markdown compact parity row + 0|2 cardinality checks.
+
+## 2026-03-31 15:16 KST
+- Delivered Cycle KC follow-up closure: optional markdown row `CBGCFXWSBPFXPINF THREAT ORDER PATH LEGEND COMPACT` now mirrors payload alias (`L|F`) and is contract-locked in regression.
+- Durable decisions:
+  - Compact row remains optional and offline-only; emits `FLAG OFF` when not armed.
+  - Order chain enforced: `... THREAT ORDER PATH LEGEND` (optional) -> `... THREAT ORDER PATH LEGEND COMPACT` (optional) -> `... ORDER`.
+  - QA contract allows `0|2` compact rows across summary/token-coverage and enforces <=88-char DOS budget.

@@ -4227,3 +4227,9 @@
 
 - 2026-03-31 14:41 KST — Closed POST_RC THREAT ORDER PATH LEGEND slice: added optional markdown row `CBGCFXWSBPFXPINF THREAT ORDER PATH LEGEND` (`L=LEGEND,F=FALLBACK`) in summary + token-coverage rails, kept DOS-width guard (<=88), and extended regression cardinality/order contracts so `ORDER` can follow `THREAT ORDER PATH LEGEND` while fallback remains valid when legend rows are disabled. Verification: py_compile + regression_weekly_portal_prompt_readability_drift + weekly_portal_prompt_readability_drift smoke (PASS).
 - 2026-03-31 14:47 KST — Game Director Cycle KC: generated 3 ideas (low/mid/high), selected low-risk payload slice, and shipped `CBGCFXWSBPFXPINF THREAT ORDER PATH LEGEND:<L|F>` compact token + alias map for machine decode parity. Regression now locks schema/domain/alias determinism; follow-ups injected for optional markdown compact row + cardinality contract.
+
+## 2026-03-31 15:16 KST
+- Task: Added optional `THREAT ORDER PATH LEGEND COMPACT` markdown rail and payload/contract wiring for digest stability.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions: Keep compact row optional, <=88 chars, and deterministic before `ORDER` for both summary/token-coverage sections.

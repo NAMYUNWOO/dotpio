@@ -2967,3 +2967,6 @@
 
 - 2026-03-31 14:41 KST — Closed POST_RC THREAT ORDER PATH LEGEND slice: added optional markdown row `CBGCFXWSBPFXPINF THREAT ORDER PATH LEGEND` (`L=LEGEND,F=FALLBACK`) in summary + token-coverage rails, kept DOS-width guard (<=88), and extended regression cardinality/order contracts so `ORDER` can follow `THREAT ORDER PATH LEGEND` while fallback remains valid when legend rows are disabled. Verification: py_compile + regression_weekly_portal_prompt_readability_drift + weekly_portal_prompt_readability_drift smoke (PASS).
 - 2026-03-31 14:47 KST — Game Director Cycle KC: generated 3 ideas (low/mid/high), selected low-risk payload slice, and shipped `CBGCFXWSBPFXPINF THREAT ORDER PATH LEGEND:<L|F>` compact token + alias map for machine decode parity. Regression now locks schema/domain/alias determinism; follow-ups injected for optional markdown compact row + cardinality contract.
+
+## 2026-03-31 15:16 KST
+- AI-content wording unchanged; compact legend alias remains deterministic (`L|F`) and offline-only.
