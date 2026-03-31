@@ -3127,3 +3127,8 @@
 - Reviewed high-risk candidate (`trendScoreBandDispatchPressureMomentum`) and left it queued as injected follow-up.
 - Decision: keep this cycle additive/reversible with alias-only payload + markdown decode row.
 - Follow-up: prototype momentum score offline only (no runtime coupling).
+
+## 2026-04-01 08:49 KST — Cycle ILM Follow-up (AI Content)
+- Completed injected prototype: offline dispatch-pressure momentum score `trendScoreBandDispatchPressureMomentum` from dominant-band drift windows.
+- Decision: keep runtime decoupled; expose score only in guardrail JSON/markdown for operator review.
+- Follow-up: evaluate confidence/threshold policy once enough windows accumulate.

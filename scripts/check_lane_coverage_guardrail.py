@@ -81,6 +81,63 @@ def collect_trend_score_band_snapshot(rows: list[str]) -> dict[str, int]:
     return band_counts
 
 
+def collect_row_dominant_trend_bands(rows: list[str]) -> list[str | None]:
+    """Resolve dominant trend-score band per row from full/alias tokens.
+
+    Returns CALM/EDGE/HEATED when a strict single dominant band exists for the
+    row, otherwise None.
+    """
+    alias_to_band = {"C": "CALM", "E": "EDGE", "H": "HEATED"}
+    dominant: list[str | None] = []
+
+    for row in rows:
+        row_counts = {"CALM": 0, "EDGE": 0, "HEATED": 0}
+        for token in TREND_SCORE_BAND_RE.findall(row):
+            normalized = token.strip().upper()
+            if normalized in row_counts:
+                row_counts[normalized] += 1
+            elif normalized in alias_to_band:
+                row_counts[alias_to_band[normalized]] += 1
+
+        ordered = sorted(row_counts.items(), key=lambda item: (-item[1], item[0]))
+        if not ordered or ordered[0][1] <= 0:
+            dominant.append(None)
+            continue
+
+        top_count = ordered[0][1]
+        tied = [band for band, count in ordered if count == top_count]
+        dominant.append(tied[0] if len(tied) == 1 else None)
+
+    return dominant
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum(rows: list[str]) -> int:
+    """Compute offline momentum score (0..100) from dominant-band drift windows."""
+    dominant_bands = [band for band in collect_row_dominant_trend_bands(rows) if band]
+    if len(dominant_bands) < 2:
+        return 0
+
+    transitions = 0
+    weighted_transitions = 0.0
+    weight_total = 0.0
+    for idx in range(1, len(dominant_bands)):
+        changed = dominant_bands[idx] != dominant_bands[idx - 1]
+        if changed:
+            transitions += 1
+        # Later transitions count slightly more than early transitions.
+        weight = idx
+        weight_total += weight
+        if changed:
+            weighted_transitions += weight
+
+    transition_ratio = transitions / max(1, len(dominant_bands) - 1)
+    weighted_ratio = weighted_transitions / weight_total if weight_total else 0.0
+    diversity_ratio = len(set(dominant_bands)) / 3.0
+
+    momentum = (transition_ratio * 0.5) + (weighted_ratio * 0.35) + (diversity_ratio * 0.15)
+    return max(0, min(100, int(round(momentum * 100))))
+
+
 def resolve_trend_score_band_dispatch_hint(score_band_snapshot: dict[str, int]) -> str:
     ordered = sorted(
         score_band_snapshot.items(),
@@ -191,6 +248,7 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
     score_band_dispatch_pressure_alias = resolve_trend_score_band_dispatch_pressure_alias(
         score_band_dispatch_pressure
     )
+    score_band_dispatch_pressure_momentum = resolve_trend_score_band_dispatch_pressure_momentum(rows)
 
     return {
         "recentCompletedItems": total,
@@ -208,6 +266,7 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "trendScoreBandDispatchHintAlias": score_band_dispatch_hint_alias,
         "trendScoreBandDispatchPressure": score_band_dispatch_pressure,
         "trendScoreBandDispatchPressureAlias": score_band_dispatch_pressure_alias,
+        "trendScoreBandDispatchPressureMomentum": score_band_dispatch_pressure_momentum,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -254,6 +313,7 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             f"- trend-score dispatch hint alias: **TSDH:{report.get('trendScoreBandDispatchHintAlias', 'B')}**",
             f"- trend-score dispatch pressure (offline): **{report.get('trendScoreBandDispatchPressure', 'LIGHT')}**",
             f"- trend-score dispatch pressure alias: **TSDP:{report.get('trendScoreBandDispatchPressureAlias', 'L')}**",
+            f"- trend-score dispatch-pressure momentum (offline): **{report.get('trendScoreBandDispatchPressureMomentum', 0)}**",
             "",
             *rows,
             *bucket_rows,

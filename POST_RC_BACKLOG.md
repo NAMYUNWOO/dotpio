@@ -11,7 +11,7 @@
 
 ## Next Up (Game Director Injection — Cycle ILM)
 - [x] Systems/QA Team (injected): Extend regression fixture assertions for `trendScoreBandDispatchPressureAlias` domain + markdown parity row `TSDP`. *(lifecycle: [ ] -> [~] started: 2026-04-01 08:25 KST -> [x] completed: 2026-04-01 08:27 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Systems Team (injected): Prototype offline dispatch-pressure momentum score (`trendScoreBandDispatchPressureMomentum:0..100`) from dominant-band drift windows while keeping runtime decoupled.
+- [x] AI Content/Systems Team (injected): Prototype offline dispatch-pressure momentum score (`trendScoreBandDispatchPressureMomentum:0..100`) from dominant-band drift windows while keeping runtime decoupled. *(lifecycle: [ ] -> [~] started: 2026-04-01 08:46 KST -> [x] completed: 2026-04-01 08:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle ILL)
 - Candidate ideas generated:

@@ -3020,3 +3020,8 @@
 - No combat runtime tuning in this cycle; cadence bucket checks remained met in regenerated guardrail artifacts.
 - Decision: maintain combat lane stability while shipping guardrail readability token.
 - Follow-up: prioritize combat/vfx if future lane-cap watchdog flags staleness.
+
+## 2026-04-01 08:49 KST — Cycle ILM Follow-up (Combat)
+- No combat tuning changes this cycle; cadence bucket checks remained met after artifact refresh.
+- Decision: preserve combat lane stability while analytics-only metric lands.
+- Follow-up: revisit combat/vfx lane if 24h cadence watchdog trends stale.

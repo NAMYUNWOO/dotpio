@@ -4422,3 +4422,9 @@
 - Decision: keep alias deterministic (`LIGHT->L`, `READY->R`, `HOT->H`) with default `L` fallback for safety.
 - Verification: py_compile + regression + guardrail artifact regeneration passed.
 - Follow-up: evaluate momentum-score prototype (`trendScoreBandDispatchPressureMomentum`) in next injected cycle.
+
+## 2026-04-01 08:49 KST — Cycle ILM Follow-up (Systems)
+- Implemented offline momentum score `trendScoreBandDispatchPressureMomentum:0..100` from dominant trend-band drift windows in `check_lane_coverage_guardrail.py`.
+- Decision: keep computation deterministic and decoupled (transition ratio + recency-weighted drift + band diversity).
+- Verification: py_compile + regression + artifact regeneration passed.
+- Follow-up: monitor score stability; if needed, add compact banding alias in later cycle.

@@ -3307,3 +3307,8 @@
 - Shipped compact guardrail decode row `trend-score dispatch pressure alias: TSDP:<L|R|H>`.
 - Decision: one-glance decode parity with existing `TSSB`/`TSDH` rails; no row-order churn introduced.
 - Verification: regenerated `logs/weekly_lane_coverage_guardrail.md` includes `TSDP:L` row.
+
+## 2026-04-01 08:49 KST — Cycle ILM Follow-up (UX)
+- Surfaced momentum row in guardrail markdown without changing existing token cluster order.
+- Decision: preserve low-noise digest layout while adding one-glance pressure drift signal.
+- Verification: regenerated weekly guardrail markdown includes momentum line.

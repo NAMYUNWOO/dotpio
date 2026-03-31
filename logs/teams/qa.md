@@ -4952,3 +4952,8 @@
 - Extended regression contract to assert `trendScoreBandDispatchPressureAlias` payload domain and markdown parity (`TSDP`).
 - Verification chain: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.
 - Result: all checks green.
+
+## 2026-04-01 08:49 KST — Cycle ILM Follow-up (QA)
+- Extended regression fixtures to lock deterministic values for `trendScoreBandDispatchPressureMomentum` and markdown parity row.
+- Verification chain: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.
+- Result: all checks green.

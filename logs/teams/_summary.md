@@ -4593,3 +4593,9 @@ Compact decision memory for AI context efficiency.
 - Regression coverage updated to lock payload alias domain + markdown parity.
 - Artifacts refreshed: `logs/weekly_lane_coverage_guardrail.json` and `.md` now surface pressure alias.
 - Injected backlog follow-up: offline `trendScoreBandDispatchPressureMomentum:0..100` prototype (pending).
+
+## 2026-04-01 08:49 KST — Cycle ILM Follow-up Summary
+- Completed injected backlog item: offline `trendScoreBandDispatchPressureMomentum:0..100` prototype from dominant-band drift windows.
+- Updated `scripts/check_lane_coverage_guardrail.py` to emit deterministic momentum score in JSON + markdown.
+- Updated `scripts/regression_check_lane_coverage_guardrail.py` with fixture-level momentum expectations and markdown row assertions.
+- Refreshed artifacts: `logs/weekly_lane_coverage_guardrail.json` + `.md` now include momentum field/row.

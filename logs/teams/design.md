@@ -3127,3 +3127,8 @@
 - Added digest readability support via new markdown alias row `TSDP:<alias>` for dispatch-pressure scan speed.
 - Decision: preserve DOS-width compact style and deterministic decode semantics.
 - Follow-up: evaluate whether future momentum-score output needs companion legend microcopy.
+
+## 2026-04-01 08:49 KST — Cycle ILM Follow-up (Design)
+- Added markdown readability row for new metric: `trend-score dispatch-pressure momentum (offline)`.
+- Decision: keep deterministic single-line numeric output for compact scanability.
+- Follow-up: consider optional micro-legend if momentum thresholding is introduced.
