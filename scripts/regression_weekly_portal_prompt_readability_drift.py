@@ -1164,6 +1164,16 @@ def main() -> int:
             "reason",
         }, payload
         assert payload.get("laneUnderrepresentedWatchdogSignals", {}).get("status") in {"OK", "WARN"}, payload
+        assert payload.get("laneCoverageGuardrail") in {"LANE CAP:OK", "LANE CAP:OVER"}, payload
+        assert set(payload.get("laneCoverageGuardrailSignals", {}).keys()) == {
+            "status",
+            "laneCap",
+            "capPercent",
+            "overCapLanes",
+            "source",
+            "loaded",
+        }, payload
+        assert payload.get("laneCoverageGuardrailSignals", {}).get("laneCap") in {"OK", "OVER"}, payload
         assert isinstance(payload.get("laneBucketAgeCompactAlias"), str), payload
         assert set(payload.get("laneBucketAgeCompactAliasSignals", {}).keys()) == {
             "flagName",
@@ -5236,6 +5246,7 @@ def main() -> int:
         lane_cadence_miss_risk_indices = _find_line_indices("- LANE CADENCE MISS RISK:")
         lane_cadence_miss_risk_alias_indices = _find_line_indices("- LCMR:")
         lane_cadence_24h_check_indices = _find_line_indices("- LANE CADENCE 24H CHECK:")
+        lane_cap_indices = _find_line_indices("- LANE CAP:")
         combat_vfx_watchdog_indices = _find_line_indices("- COMBAT/VFX CADENCE WATCHDOG:")
         combat_vfx_watchdog_streak_indices = _find_line_indices("- COMBAT/VFX CADENCE WATCHDOG STREAK:")
         combat_vfx_cadence_coach_indices = _find_line_indices("- COMBAT/VFX CADENCE COACH:")
@@ -5852,6 +5863,9 @@ def main() -> int:
         )
         assert len(lane_cadence_24h_check_indices) == 2, (
             "expected exactly two LANE CADENCE 24H CHECK rows (summary + token-coverage sections)"
+        )
+        assert len(lane_cap_indices) == 2, (
+            "expected exactly two LANE CAP rows (summary + token-coverage sections)"
         )
         assert len(combat_vfx_watchdog_indices) == 2, (
             "expected exactly two COMBAT/VFX CADENCE WATCHDOG rows (summary + token-coverage sections)"
@@ -8330,11 +8344,12 @@ def main() -> int:
                 f"expected CVCWHR FX LEGEND COPY PACK FAMILY CHURN row directly after CPTC OVERRIDE row in section {section_idx}"
             )
 
-        for section_idx, (miss_risk_idx, alias_idx, cadence_24h_idx, watchdog_idx, watchdog_streak_idx, coach_idx, coach_why_idx, coach_why_alias_idx, coach_why_hyst_alias_idx, coach_why_hyst_rec_idx, coach_why_hyst_rec_conf_idx, coach_why_hyst_rec_conf_alias_idx, coach_why_hyst_rec_conf_floor_idx, coach_why_hyst_rec_conf_floor_alias_idx, coach_why_hyst_rec_conf_floor_fx_pulse_idx, coach_why_hyst_rec_conf_floor_fx_pulse_legend_idx, cadence_bridge_idx, coach_why_hyst_rec_conf_floor_family_churn_idx, coach_why_hyst_rec_conf_floor_fx_pulse_family_churn_idx, coach_why_hyst_rec_conf_floor_fx_pulse_family_trend_idx, cadence_bridge_family_churn_idx, coach_why_hyst_family_churn_idx, coach_why_hyst_rec_family_churn_idx, coach_why_hyst_rec_conf_family_churn_idx, coach_why_family_churn_idx, coach_alias_idx, coach_family_churn_idx, watchdog_legend_idx) in enumerate(
+        for section_idx, (miss_risk_idx, alias_idx, cadence_24h_idx, lane_cap_idx, watchdog_idx, watchdog_streak_idx, coach_idx, coach_why_idx, coach_why_alias_idx, coach_why_hyst_alias_idx, coach_why_hyst_rec_idx, coach_why_hyst_rec_conf_idx, coach_why_hyst_rec_conf_alias_idx, coach_why_hyst_rec_conf_floor_idx, coach_why_hyst_rec_conf_floor_alias_idx, coach_why_hyst_rec_conf_floor_fx_pulse_idx, coach_why_hyst_rec_conf_floor_fx_pulse_legend_idx, cadence_bridge_idx, coach_why_hyst_rec_conf_floor_family_churn_idx, coach_why_hyst_rec_conf_floor_fx_pulse_family_churn_idx, coach_why_hyst_rec_conf_floor_fx_pulse_family_trend_idx, cadence_bridge_family_churn_idx, coach_why_hyst_family_churn_idx, coach_why_hyst_rec_family_churn_idx, coach_why_hyst_rec_conf_family_churn_idx, coach_why_family_churn_idx, coach_alias_idx, coach_family_churn_idx, watchdog_legend_idx) in enumerate(
             zip(
                 lane_cadence_miss_risk_indices,
                 lane_cadence_miss_risk_alias_indices,
                 lane_cadence_24h_check_indices,
+                lane_cap_indices,
                 combat_vfx_watchdog_indices,
                 combat_vfx_watchdog_streak_indices,
                 combat_vfx_cadence_coach_indices,
@@ -8369,8 +8384,11 @@ def main() -> int:
             assert cadence_24h_idx == alias_idx + 1, (
                 f"expected LANE CADENCE 24H CHECK row directly after LCMR row in section {section_idx}"
             )
-            assert watchdog_idx == cadence_24h_idx + 1, (
-                f"expected COMBAT/VFX CADENCE WATCHDOG row directly after LANE CADENCE 24H CHECK row in section {section_idx}"
+            assert lane_cap_idx == cadence_24h_idx + 1, (
+                f"expected LANE CAP row directly after LANE CADENCE 24H CHECK row in section {section_idx}"
+            )
+            assert watchdog_idx == lane_cap_idx + 1, (
+                f"expected COMBAT/VFX CADENCE WATCHDOG row directly after LANE CAP row in section {section_idx}"
             )
             assert watchdog_streak_idx == watchdog_idx + 1, (
                 f"expected COMBAT/VFX CADENCE WATCHDOG STREAK row directly after COMBAT/VFX CADENCE WATCHDOG row in section {section_idx}"

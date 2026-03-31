@@ -550,6 +550,31 @@ def combat_vfx_cadence_watchdog(*, lane_bucket_age: dict[str, object]) -> tuple[
     }
 
 
+def lane_coverage_guardrail_status(*, guardrail_json_path: Path) -> tuple[str, dict[str, object]]:
+    status = "within-cap"
+    cap_percent = 0.0
+    over_cap_lanes: list[str] = []
+    loaded = False
+    if guardrail_json_path.exists():
+        try:
+            payload = json.loads(guardrail_json_path.read_text(encoding="utf-8"))
+            status = str(payload.get("status", "within-cap") or "within-cap")
+            cap_percent = float(payload.get("capPercent", 0.0) or 0.0)
+            over_cap_lanes = [str(lane) for lane in payload.get("overCapLanes", []) if str(lane).strip()]
+            loaded = True
+        except (json.JSONDecodeError, OSError, ValueError, TypeError):
+            loaded = False
+    lane_cap = "OVER" if status == "over-cap" else "OK"
+    return f"LANE CAP:{lane_cap}", {
+        "status": status,
+        "laneCap": lane_cap,
+        "capPercent": cap_percent,
+        "overCapLanes": over_cap_lanes,
+        "source": str(guardrail_json_path),
+        "loaded": loaded,
+    }
+
+
 def combat_vfx_cadence_watchdog_streak(*, combat_vfx_cadence_watchdog_signals: dict[str, object], prior_json_path: Path) -> tuple[str, dict[str, object]]:
     current_status = str(combat_vfx_cadence_watchdog_signals.get("status", "OK") or "OK").upper()
     prior_loaded = False
@@ -12504,6 +12529,9 @@ def main() -> int:
     lane_underrepresented_watchdog_token, lane_underrepresented_watchdog_signals = lane_underrepresented_watchdog(
         lane_bucket_age=lane_bucket_age,
     )
+    lane_coverage_guardrail_token, lane_coverage_guardrail_signals = lane_coverage_guardrail_status(
+        guardrail_json_path=root / "logs" / "weekly_lane_coverage_guardrail.json",
+    )
     combat_vfx_cadence_watchdog_token, combat_vfx_cadence_watchdog_signals = combat_vfx_cadence_watchdog(
         lane_bucket_age=lane_bucket_age,
     )
@@ -14581,6 +14609,8 @@ def main() -> int:
         "laneCadence24hCheckSignals": lane_cadence_24h_check_signals,
         "laneUnderrepresentedWatchdog": lane_underrepresented_watchdog_token,
         "laneUnderrepresentedWatchdogSignals": lane_underrepresented_watchdog_signals,
+        "laneCoverageGuardrail": lane_coverage_guardrail_token,
+        "laneCoverageGuardrailSignals": lane_coverage_guardrail_signals,
         "vfxTouchedWithin24h": bool(lane_cadence_24h_check_signals.get("vfxTouchedWithin24h", False)),
         "combatVfxCadenceWatchdog": combat_vfx_cadence_watchdog_token,
         "combatVfxCadenceWatchdogSignals": combat_vfx_cadence_watchdog_signals,
@@ -15676,6 +15706,7 @@ def main() -> int:
         f"- LANE CADENCE MISS RISK: **{lane_cadence_miss_risk_token}** (risk={lane_cadence_miss_risk_signals['risk']} max={lane_cadence_miss_risk_signals['maxAgeHours']}h Δ={lane_cadence_miss_risk_signals['deltaHours']:+d}h window={lane_cadence_miss_risk_signals['windowHours']}h reason={lane_cadence_miss_risk_signals['reason']})",
         f"- LCMR: **{lane_cadence_miss_risk_alias_token}** (flag={lane_cadence_miss_risk_alias_signals['flagName']} enabled={lane_cadence_miss_risk_alias_signals['flagEnabled']} risk={lane_cadence_miss_risk_alias_signals['risk']} alias={lane_cadence_miss_risk_alias_signals['alias']})",
         f"- LANE CADENCE 24H CHECK: **{lane_cadence_24h_check_token}** (status={lane_cadence_24h_check_signals['status']} window={lane_cadence_24h_check_signals['windowHours']}h sys={lane_cadence_24h_check_signals['systemsOpsAgeHours']}h dw={lane_cadence_24h_check_signals['designWorldAgeHours']}h cv={lane_cadence_24h_check_signals['combatVfxAgeHours']}h reason={lane_cadence_24h_check_signals['reason']})",
+        f"- LANE CAP: **{lane_coverage_guardrail_signals['laneCap']}** (status={lane_coverage_guardrail_signals['status']} cap={lane_coverage_guardrail_signals['capPercent']}% over={','.join(lane_coverage_guardrail_signals['overCapLanes']) if lane_coverage_guardrail_signals['overCapLanes'] else 'none'} loaded={lane_coverage_guardrail_signals['loaded']})",
         f"- COMBAT/VFX CADENCE WATCHDOG: **{combat_vfx_cadence_watchdog_token}** (status={combat_vfx_cadence_watchdog_signals['status']} age={combat_vfx_cadence_watchdog_signals['combatVfxAgeHours']}h window={combat_vfx_cadence_watchdog_signals['windowHours']}h reason={combat_vfx_cadence_watchdog_signals['reason']})",
         f"- COMBAT/VFX CADENCE WATCHDOG STREAK: **{combat_vfx_cadence_watchdog_streak_token}** (status={combat_vfx_cadence_watchdog_streak_signals['status']} streak={combat_vfx_cadence_watchdog_streak_signals['streak']} prior={combat_vfx_cadence_watchdog_streak_signals['priorStatus']}:{combat_vfx_cadence_watchdog_streak_signals['priorStreak']} loaded={combat_vfx_cadence_watchdog_streak_signals['priorLoaded']} reason={combat_vfx_cadence_watchdog_streak_signals['reason']})",
         f"- COMBAT/VFX CADENCE COACH: **{combat_vfx_cadence_coach_token}** (coach={combat_vfx_cadence_coach_signals['coach']} status={combat_vfx_cadence_coach_signals['watchdogStatus']} streak={combat_vfx_cadence_coach_signals['watchdogStreak']} missRisk={combat_vfx_cadence_coach_signals['laneCadenceMissRisk']} reason={combat_vfx_cadence_coach_signals['reason']} offlineOnly={combat_vfx_cadence_coach_signals['offlineOnly']})",
@@ -16045,6 +16076,7 @@ def main() -> int:
         f"- LANE CADENCE MISS RISK: {lane_cadence_miss_risk_token} (risk={lane_cadence_miss_risk_signals['risk']}, max={lane_cadence_miss_risk_signals['maxAgeHours']}h, Δ={lane_cadence_miss_risk_signals['deltaHours']:+d}h, window={lane_cadence_miss_risk_signals['windowHours']}h, reason={lane_cadence_miss_risk_signals['reason']})",
         f"- LCMR: {lane_cadence_miss_risk_alias_token} (flag={lane_cadence_miss_risk_alias_signals['flagName']}, enabled={lane_cadence_miss_risk_alias_signals['flagEnabled']}, risk={lane_cadence_miss_risk_alias_signals['risk']}, alias={lane_cadence_miss_risk_alias_signals['alias']})",
         f"- LANE CADENCE 24H CHECK: {lane_cadence_24h_check_token} (status={lane_cadence_24h_check_signals['status']}, window={lane_cadence_24h_check_signals['windowHours']}h, sys={lane_cadence_24h_check_signals['systemsOpsAgeHours']}h, dw={lane_cadence_24h_check_signals['designWorldAgeHours']}h, cv={lane_cadence_24h_check_signals['combatVfxAgeHours']}h, reason={lane_cadence_24h_check_signals['reason']})",
+        f"- LANE CAP: {lane_coverage_guardrail_token} (status={lane_coverage_guardrail_signals['status']}, cap={lane_coverage_guardrail_signals['capPercent']}%, over={','.join(lane_coverage_guardrail_signals['overCapLanes']) if lane_coverage_guardrail_signals['overCapLanes'] else 'none'}, loaded={lane_coverage_guardrail_signals['loaded']})",
         f"- COMBAT/VFX CADENCE WATCHDOG: {combat_vfx_cadence_watchdog_token} (status={combat_vfx_cadence_watchdog_signals['status']}, age={combat_vfx_cadence_watchdog_signals['combatVfxAgeHours']}h, window={combat_vfx_cadence_watchdog_signals['windowHours']}h, reason={combat_vfx_cadence_watchdog_signals['reason']})",
         f"- COMBAT/VFX CADENCE WATCHDOG STREAK: {combat_vfx_cadence_watchdog_streak_token} (status={combat_vfx_cadence_watchdog_streak_signals['status']}, streak={combat_vfx_cadence_watchdog_streak_signals['streak']}, prior={combat_vfx_cadence_watchdog_streak_signals['priorStatus']}:{combat_vfx_cadence_watchdog_streak_signals['priorStreak']}, loaded={combat_vfx_cadence_watchdog_streak_signals['priorLoaded']}, reason={combat_vfx_cadence_watchdog_streak_signals['reason']})",
         f"- COMBAT/VFX CADENCE COACH: {combat_vfx_cadence_coach_token} (coach={combat_vfx_cadence_coach_signals['coach']}, status={combat_vfx_cadence_coach_signals['watchdogStatus']}, streak={combat_vfx_cadence_coach_signals['watchdogStreak']}, missRisk={combat_vfx_cadence_coach_signals['laneCadenceMissRisk']}, reason={combat_vfx_cadence_coach_signals['reason']}, offlineOnly={combat_vfx_cadence_coach_signals['offlineOnly']})",

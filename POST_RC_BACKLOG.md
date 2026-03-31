@@ -6,7 +6,7 @@
   - Mid-risk systems/design: add weighted lane-swing momentum using completion recency and emit forced-next-lane recommendations.
   - High-risk novelty ai-content/combat: adaptive experiment-picker that auto-injects backlog tasks from underrepresented lanes.
 - [x] Systems/QA Team: Ship `scripts/check_lane_coverage_guardrail.py` minimal vertical slice and emit `logs/weekly_lane_coverage_guardrail.{json,md}` from last 10 completed backlog items. *(lifecycle: [~] started: 2026-03-31 21:08 KST -> [x] completed: 2026-03-31 21:12 KST; verification: `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] Design/UX Team: Add compact digest row in weekly portal readability report that surfaces lane-cap warning (`LANE CAP:OK|OVER`) using `weekly_lane_coverage_guardrail.json`.
+- [x] Design/UX Team: Add compact digest row in weekly portal readability report that surfaces lane-cap warning (`LANE CAP:OK|OVER`) using `weekly_lane_coverage_guardrail.json`. *(started: 2026-03-31 21:32 KST, completed: 2026-03-31 21:39 KST)*
 - [ ] World/Combat Team: Inject one underrepresented-lane gameplay experiment template when guardrail status is `over-cap`.
 
 ## Autonomous Cycle 2026-03-31 (GD-Compact-PhaseIntent-Legend)

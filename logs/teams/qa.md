@@ -4818,3 +4818,8 @@
 ## 2026-03-31 21:12 KST
 - Verified guardrail slice by running: `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Result status from artifact: `within-cap`; no lane exceeded 40% in sampled window.
+
+## 2026-03-31 21:39 KST — Lane-cap digest row wired into weekly readability report
+- Added `LANE CAP:OK|OVER` digest row in both summary and token-coverage sections of `weekly_portal_prompt_readability_drift.md` output, sourced from `logs/weekly_lane_coverage_guardrail.json`.
+- Added payload fields `laneCoverageGuardrail` + `laneCoverageGuardrailSignals` to `weekly_portal_prompt_readability_drift.json` for downstream checks.
+- Verification: regenerated weekly artifacts and confirmed `LANE CAP` rows + JSON keys were present.

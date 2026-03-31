@@ -4439,3 +4439,8 @@ Compact decision memory for AI context efficiency.
 - Shipped `scripts/check_lane_coverage_guardrail.py` and generated `logs/weekly_lane_coverage_guardrail.json|md` from recent 10 completed backlog rows with 40% lane-cap threshold.
 - Backlog updated with lifecycle evidence (`[~] -> [x]`) and injected two next tasks: UX/design digest cap row + world/combat underrepresented-lane template trigger.
 - Verification command passed: `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-03-31 21:39 KST — Durable decision: expose lane-cap state in weekly digest
+- Decision: weekly portal readability drift report must always surface lane-cap status (`LANE CAP:OK|OVER`) next to lane cadence health lines.
+- Source of truth: `logs/weekly_lane_coverage_guardrail.json` (`status`, `capPercent`, `overCapLanes`).
+- Durability: machine-readable mirror now included in JSON payload (`laneCoverageGuardrail`, `laneCoverageGuardrailSignals`) for future automation and QA gating.
