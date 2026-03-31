@@ -37,58 +37,116 @@ def expected_alias(snapshot: dict[str, int]) -> str:
     return f"C{snapshot['CALM']}E{snapshot['EDGE']}H{snapshot['HEATED']}"
 
 
+def run_fixture_case(
+    *,
+    tmp_path: Path,
+    name: str,
+    rows: list[str],
+    expected_snapshot: dict[str, int],
+    expected_dispatch_hint: str,
+    expected_dispatch_hint_alias: str,
+) -> None:
+    backlog = tmp_path / f"{name}_backlog.md"
+    json_out = tmp_path / f"{name}_guardrail.json"
+    md_out = tmp_path / f"{name}_guardrail.md"
+
+    backlog.write_text("\n".join(["# fixture", *rows]) + "\n", encoding="utf-8")
+
+    report = run_guardrail(backlog, json_out, md_out)
+    snapshot = report.get("trendScoreBandSnapshot")
+    assert snapshot == expected_snapshot, (
+        f"{name}: trendScoreBandSnapshot counts must include alias/full-token matches"
+    )
+
+    alias = report.get("trendScoreBandSnapshotAlias")
+    assert alias == expected_alias(snapshot), (
+        f"{name}: trendScoreBandSnapshotAlias must match canonical C{{CALM}}E{{EDGE}}H{{HEATED}} mapping"
+    )
+    assert report.get("trendScoreBandDispatchHint") == expected_dispatch_hint, (
+        f"{name}: trendScoreBandDispatchHint must match expected dominant/tie mapping"
+    )
+    assert report.get("trendScoreBandDispatchHintAlias") == expected_dispatch_hint_alias, (
+        f"{name}: trendScoreBandDispatchHintAlias must match compact dispatch-hint alias"
+    )
+
+    md_text = md_out.read_text(encoding="utf-8")
+    assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"
+    assert "TSSB legend (C=calm, E=edge, H=heated)" in md_text, (
+        f"{name}: markdown output must include compact TSSB decode microcopy row"
+    )
+    assert f"trend-score dispatch hint (offline): **{expected_dispatch_hint}**" in md_text, (
+        f"{name}: markdown output must include deterministic offline dispatch hint row"
+    )
+    assert f"trend-score dispatch hint alias: **TSDH:{expected_dispatch_hint_alias}**" in md_text, (
+        f"{name}: markdown output must include compact dispatch-hint alias row"
+    )
+
+
 def main() -> int:
     with tempfile.TemporaryDirectory(prefix="regression_check_lane_guardrail_") as tmp:
         tmp_path = Path(tmp)
-        backlog = tmp_path / "backlog.md"
-        json_out = tmp_path / "guardrail.json"
-        md_out = tmp_path / "guardrail.md"
 
-        backlog.write_text(
-            "\n".join(
-                [
-                    "# fixture",
-                    "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C and compatRowPolicySourceConfidenceTrendScoreBand:CALM",
-                    "- [x] Design/World Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:E and compatRowPolicySourceConfidenceTrendScoreBand:EDGE",
-                    "- [x] Combat/VFX Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:H and compatRowPolicySourceConfidenceTrendScoreBand:HEATED",
-                    "- [x] AI Content/Systems Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
-                    "- [x] UX/Systems Team: compatRowPolicySourceConfidenceTrendScoreBand:EDGE",
-                ]
-            )
-            + "\n",
-            encoding="utf-8",
+        run_fixture_case(
+            tmp_path=tmp_path,
+            name="balanced_tie",
+            rows=[
+                "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C and compatRowPolicySourceConfidenceTrendScoreBand:CALM",
+                "- [x] Design/World Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:E and compatRowPolicySourceConfidenceTrendScoreBand:EDGE",
+                "- [x] Combat/VFX Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:H and compatRowPolicySourceConfidenceTrendScoreBand:HEATED",
+                "- [x] AI Content/Systems Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+                "- [x] UX/Systems Team: compatRowPolicySourceConfidenceTrendScoreBand:EDGE",
+            ],
+            expected_snapshot={"CALM": 3, "EDGE": 3, "HEATED": 2},
+            expected_dispatch_hint="BALANCED",
+            expected_dispatch_hint_alias="B",
         )
 
-        report = run_guardrail(backlog, json_out, md_out)
-        snapshot = report.get("trendScoreBandSnapshot")
-        assert snapshot == {"CALM": 3, "EDGE": 3, "HEATED": 2}, (
-            "trendScoreBandSnapshot counts must include alias/full-token matches"
+        run_fixture_case(
+            tmp_path=tmp_path,
+            name="calm_focus",
+            rows=[
+                "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBand:CALM",
+                "- [x] Systems Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+                "- [x] UX/Systems Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+                "- [x] Design/World Team: compatRowPolicySourceConfidenceTrendScoreBand:EDGE",
+                "- [x] Combat/VFX Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:H",
+            ],
+            expected_snapshot={"CALM": 3, "EDGE": 1, "HEATED": 1},
+            expected_dispatch_hint="CALM_FOCUS",
+            expected_dispatch_hint_alias="C",
         )
 
-        alias = report.get("trendScoreBandSnapshotAlias")
-        assert alias == expected_alias(snapshot), (
-            "trendScoreBandSnapshotAlias must match canonical C{CALM}E{EDGE}H{HEATED} mapping"
-        )
-        assert report.get("trendScoreBandDispatchHint") == "BALANCED", (
-            "trendScoreBandDispatchHint must resolve to BALANCED when top TSSB buckets tie"
-        )
-        assert report.get("trendScoreBandDispatchHintAlias") == "B", (
-            "trendScoreBandDispatchHintAlias must map BALANCED to compact alias B"
-        )
-
-        md_text = md_out.read_text(encoding="utf-8")
-        assert f"TSSB:{alias}" in md_text, "markdown output must render canonical TSSB alias"
-        assert "TSSB legend (C=calm, E=edge, H=heated)" in md_text, (
-            "markdown output must include compact TSSB decode microcopy row"
-        )
-        assert "trend-score dispatch hint (offline): **BALANCED**" in md_text, (
-            "markdown output must include deterministic offline dispatch hint row"
-        )
-        assert "trend-score dispatch hint alias: **TSDH:B**" in md_text, (
-            "markdown output must include compact dispatch-hint alias row"
+        run_fixture_case(
+            tmp_path=tmp_path,
+            name="edge_focus",
+            rows=[
+                "- [x] Design/World Team: compatRowPolicySourceConfidenceTrendScoreBand:EDGE",
+                "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:E",
+                "- [x] UX Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:E",
+                "- [x] AI Content/Systems Team: compatRowPolicySourceConfidenceTrendScoreBand:CALM",
+                "- [x] Combat/VFX Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:H",
+            ],
+            expected_snapshot={"CALM": 1, "EDGE": 3, "HEATED": 1},
+            expected_dispatch_hint="EDGE_FOCUS",
+            expected_dispatch_hint_alias="E",
         )
 
-    print("ok: trendScoreBandSnapshotAlias regression checks passed")
+        run_fixture_case(
+            tmp_path=tmp_path,
+            name="heated_focus",
+            rows=[
+                "- [x] Combat/VFX Team: compatRowPolicySourceConfidenceTrendScoreBand:HEATED",
+                "- [x] Combat Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:H",
+                "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:H",
+                "- [x] Design/World Team: compatRowPolicySourceConfidenceTrendScoreBand:EDGE",
+                "- [x] UX/Systems Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+            ],
+            expected_snapshot={"CALM": 1, "EDGE": 1, "HEATED": 3},
+            expected_dispatch_hint="HEATED_FOCUS",
+            expected_dispatch_hint_alias="H",
+        )
+
+    print("ok: trendScoreBand dispatch-hint regression checks passed")
     return 0
 
 
