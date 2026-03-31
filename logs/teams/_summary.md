@@ -4348,3 +4348,9 @@ Compact decision memory for AI context efficiency.
 - Decision: keep fallback-route decode enhancement payload-only for this slice to avoid markdown row-budget expansion risk.
 - Implemented signals in burst digest payload: `decodeCopyFallbackRouteCompactAlias` (`F1`), `decodeCopyFallbackRouteCompactAliasToken` (`CBGCFXWSBPFXPINFR:F1`), `decodeCopyFallbackRouteLegendVersion` (`v1`), `decodeCopyFallbackRouteLegendHash` (sha1 short hash).
 - Follow-ups queued in `POST_RC_BACKLOG.md`: evaluate optional route legend markdown row and add regression assertions after fixture refresh.
+
+## 2026-03-31 13:46 KST — Game Director Cycle JA
+- All primary queues were fully checked, so Game Director review cycle triggered immediately.
+- Generated 3 ideas (low/mid/high risk) and selected low-risk payload-only burst-threat token for combat/vfx readability balance.
+- Implemented `CBGCFXWSBPFXPINF THREAT:<L|M|H>` with deterministic cue mapping and regression schema/domain assertions.
+- Added next-up backlog tasks for optional markdown `THREAT LEGEND` visibility and strict adjacency contract path (`BURST DIGEST -> THREAT -> ORDER`).

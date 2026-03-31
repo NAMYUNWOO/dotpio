@@ -430,3 +430,9 @@
 - Commit: pending
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`
 - Verification: regression + weekly smoke ✅
+
+## 2026-03-31 13:46 KST — Cycle JA burst-threat payload slice
+- Game Director cycle JA executed after ACTION_ITEMS/TASKS/POST_RC reached full-check state.
+- Selected low-risk vertical slice: payload-only `CBGCFXWSBPFXPINF THREAT:<L|M|H>` derived from cue + burst + drift signals.
+- Verification green: py_compile + regression weekly readability drift + weekly drift smoke run.
+- Follow-up injected: optional markdown `THREAT LEGEND` row + adjacency contract (`BURST DIGEST -> THREAT -> ORDER`).

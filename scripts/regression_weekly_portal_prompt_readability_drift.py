@@ -4354,6 +4354,32 @@ def main() -> int:
             assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst == f"CBGCFXWSBPFXPINF BURST:{expected_burst_alias}", payload
         else:
             assert intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst == "FLAG OFF", payload
+        burst_threat = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueBurstThreat", "")
+        burst_threat_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueBurstThreatSignals", {})
+        assert set(burst_threat_signals.keys()) == {
+            "flagName", "flagEnabled", "cue", "driftCue", "burst",
+            "threat", "alias", "token", "threatAliasMap",
+            "offlineOnly", "runtimeBalanceImpact",
+        }, payload
+        assert burst_threat_signals.get("cue") == expected_narration_cue, payload
+        assert burst_threat_signals.get("driftCue") == expected_drift_cue, payload
+        assert burst_threat_signals.get("burst") == expected_burst, payload
+        if expected_narration_cue == "HARD" or (expected_burst == "BURST" and expected_drift_cue == "WATCH"):
+            expected_threat = "HIGH"
+        elif expected_narration_cue == "EDGE" or expected_burst == "BURST":
+            expected_threat = "MED"
+        else:
+            expected_threat = "LOW"
+        expected_threat_alias = {"LOW": "L", "MED": "M", "HIGH": "H"}[expected_threat]
+        assert burst_threat_signals.get("threat") == expected_threat, payload
+        assert burst_threat_signals.get("alias") == expected_threat_alias, payload
+        assert burst_threat_signals.get("token") == f"CBGCFXWSBPFXPINF THREAT:{expected_threat_alias}", payload
+        assert burst_threat_signals.get("threatAliasMap") == {"LOW": "L", "MED": "M", "HIGH": "H"}, payload
+        assert burst_threat_signals.get("offlineOnly") is True, payload
+        if burst_threat_signals.get("flagEnabled") is True:
+            assert burst_threat == f"CBGCFXWSBPFXPINF THREAT:{expected_threat_alias}", payload
+        else:
+            assert burst_threat == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHint", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPI DRILL:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintSignals", {}).keys()) == {
             "flagName",

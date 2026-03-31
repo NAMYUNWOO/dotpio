@@ -2653,6 +2653,45 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     }
 
 
+def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_threat(
+    *,
+    intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals: dict[str, object],
+) -> tuple[str, dict[str, object]]:
+    """Payload-only combat threat posture token (`CBGCFXWSBPFXPINF THREAT:<LOW|MED|HIGH>`) derived from burst + drift cue."""
+    flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_FX_CUE_INTENSITY_PULSE_LANGUAGE_VARIANT_PACK_PHASE_INTENT_NARRATION_COMPACT_ALIAS_COMBAT_VFX_FX_CUE_BURST_THREAT"
+    flag_value = os.environ.get(flag_name, "")
+    flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    cue = str(intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals.get("cue", "SOFT") or "SOFT").strip().upper()
+    drift_cue = str(intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals.get("driftCue", "LOCK") or "LOCK").strip().upper()
+    burst = str(intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals.get("burst", "QUIET") or "QUIET").strip().upper()
+
+    if cue == "HARD" or (burst == "BURST" and drift_cue == "WATCH"):
+        threat = "HIGH"
+    elif cue == "EDGE" or burst == "BURST":
+        threat = "MED"
+    else:
+        threat = "LOW"
+
+    threat_alias_map = {"LOW": "L", "MED": "M", "HIGH": "H"}
+    alias = threat_alias_map[threat]
+    token = f"CBGCFXWSBPFXPINF THREAT:{alias}"
+
+    return (token if flag_enabled else "FLAG OFF"), {
+        "flagName": flag_name,
+        "flagEnabled": flag_enabled,
+        "cue": cue,
+        "driftCue": drift_cue,
+        "burst": burst,
+        "threat": threat,
+        "alias": alias,
+        "token": token,
+        "threatAliasMap": threat_alias_map,
+        "offlineOnly": True,
+        "runtimeBalanceImpact": "none",
+    }
+
+
 def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift(
     *,
     intensity_pulse_language_variant_pack_phase_intent_alias_signals: dict[str, object],
@@ -12368,6 +12407,9 @@ def main() -> int:
         intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_signals,
         intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_drift_signals,
     )
+    cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_threat, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_threat_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_threat(
+        intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals,
+    )
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint(
         intensity_pulse_language_variant_pack_phase_intent_alias_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_signals,
     )
@@ -14229,6 +14271,8 @@ def main() -> int:
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueOrderSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_order_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueBurst": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueBurstSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_signals,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueBurstThreat": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_threat,
+        "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueBurstThreatSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_threat_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHint": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintSignals": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_signals,
         "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintCompactAlias": cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_rehearsal_hint_compact_alias,

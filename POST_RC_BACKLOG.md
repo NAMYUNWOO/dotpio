@@ -1929,3 +1929,16 @@ Last updated: 2026-03-31 07:12 KST
 ### Injected follow-up tasks
 - [x] Evaluate whether `CBGCFXWSBPFXPINF ROUTE LEGEND` markdown can fit row-budget without violating readability thresholds. *(completed: 2026-03-31 16:10 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 - [x] Add regression assertions for route alias/hash payload keys after baseline fixture refresh. *(completed: 2026-03-31 16:10 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+
+## P1 (Game Director Injection — 2026-03-31 Cycle JA)
+- Coverage check (last 10 completions): systems/qa-heavy digest-contract updates persisted; selected a low-risk combat/vfx readability slice to keep player-facing cadence signal density balanced.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel: add payload-only burst-threat token (`CBGCFXWSBPFXPINF THREAT:<L|M|H>`) derived from cue+burst state for one-glance triage.
+  - Mid-risk systems/combat/design: add strict markdown row + legend for `THREAT` with adjacency between `BURST DIGEST` and `ORDER`.
+  - High-risk novelty: adaptive threat hysteresis remap from prior-window wobble streaks.
+- Selected experiment: Idea 1 (minimal vertical slice, payload-only/reversible).
+- [x] Combat/VFX + Systems/QA Team: Add payload-only burst-threat token (`CBGCFXWSBPFXPINF THREAT:<L|M|H>`) with deterministic mapping (`HARD` or `BURST+WATCH` => H, `EDGE` or `BURST` => M, else L) and regression schema/domain lock. *(in-progress: 2026-03-31 13:34 KST, completed: 2026-03-31 13:44 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — 2026-03-31 Cycle JA)
+- [ ] UX/Design Team: Prototype optional `CBGCFXWSBPFXPINF THREAT LEGEND` markdown row (`L=LOW,M=MED,H=HIGH`) with DOS-width guard and strict adjacency before `ORDER`.
+- [ ] Systems/QA Team: Add adjacency/cardinality contract for optional `THREAT` row path (`BURST DIGEST -> THREAT -> ORDER`) while preserving payload-only fallback.
