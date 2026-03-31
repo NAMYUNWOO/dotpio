@@ -140,15 +140,23 @@ def build_templates(report: dict, max_templates: int, gameplay_copy_pack: str) -
     return templates[:max_templates]
 
 
-def to_markdown(report: dict, templates: list[dict], gameplay_copy_pack: str) -> str:
+def to_markdown(
+    report: dict,
+    templates: list[dict],
+    gameplay_copy_pack: str,
+    include_copy_pack_compat_row: bool,
+) -> str:
     lines = [
         "### Forced-Lane Task Template Draft",
         f"- status: **{report.get('status', 'unknown')}**",
         f"- missing cadence buckets: **{', '.join(report.get('missingCadenceBuckets', [])) or 'none'}**",
         f"- forced next lanes: **{', '.join(report.get('forcedNextLanes', [])) or 'none'}**",
         f"- gameplay copy pack: **{gameplay_copy_pack}**",
-        "",
     ]
+    if include_copy_pack_compat_row:
+        lines.append("- COPY PACK COMPAT:STEADY=ST|SPIKE=SP")
+        lines.append("- COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE")
+    lines.append("")
 
     if not templates:
         lines.append("- No forced injection templates required from current guardrail snapshot.")
@@ -202,6 +210,11 @@ def main() -> int:
     )
     parser.add_argument("--json-out", type=Path)
     parser.add_argument("--md-out", type=Path)
+    parser.add_argument(
+        "--include-copy-pack-compat-row",
+        action="store_true",
+        help="Emit optional markdown onboarding row: COPY PACK COMPAT:STEADY=ST|SPIKE=SP.",
+    )
     args = parser.parse_args()
 
     report = json.loads(args.guardrail_json.read_text(encoding="utf-8"))
@@ -233,7 +246,13 @@ def main() -> int:
     if args.md_out:
         args.md_out.parent.mkdir(parents=True, exist_ok=True)
         args.md_out.write_text(
-            to_markdown(report, templates, gameplay_copy_pack=gameplay_pack) + "\n",
+            to_markdown(
+                report,
+                templates,
+                gameplay_copy_pack=gameplay_pack,
+                include_copy_pack_compat_row=args.include_copy_pack_compat_row,
+            )
+            + "\n",
             encoding="utf-8",
         )
 

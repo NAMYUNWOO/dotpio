@@ -4335,3 +4335,12 @@
 - Closed Systems/QA injected item for over-cap forced-lane templates: added deterministic regression fixture coverage for `gameplayCopyPackAlias` and template `copyPackAlias` schema parity.
 - Added `scripts/regression_draft_forced_lane_backlog_tasks.py` (repeat-run determinism + alias/domain assertions) and refreshed over-cap fixture artifacts.
 - Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py`; `python3 scripts/regression_draft_forced_lane_backlog_tasks.py`; `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`.
+
+## 2026-04-01 00:15 KST
+- Task: Added optional onboarding flag `--include-copy-pack-compat-row` to forced-lane draft helper so markdown can emit `COPY PACK COMPAT:STEADY=ST|SPIKE=SP` without changing payload schema.
+- Files: `scripts/draft_forced_lane_backlog_tasks.py`, `scripts/regression_draft_forced_lane_backlog_tasks.py`, `logs/forced_lane_task_templates_over_cap_fixture.md`.
+- Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` ✅; `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` ✅; over-cap fixture regeneration with compat flag ✅.
+
+## 2026-04-01 00:19 KST
+- Game Director Cycle (post-queue-clear) follow-up: preserved payload determinism while extending onboarding markdown with `COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE` under existing compat flag.
+- Next injected task queued: add explicit row-order regression contract for `COPY PACK COMPAT -> COPY PACK COMPAT LEGEND`.

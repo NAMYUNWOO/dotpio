@@ -3240,3 +3240,9 @@
 - Closed Systems/QA injected item for over-cap forced-lane templates: added deterministic regression fixture coverage for `gameplayCopyPackAlias` and template `copyPackAlias` schema parity.
 - Added `scripts/regression_draft_forced_lane_backlog_tasks.py` (repeat-run determinism + alias/domain assertions) and refreshed over-cap fixture artifacts.
 - Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py`; `python3 scripts/regression_draft_forced_lane_backlog_tasks.py`; `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`.
+
+## 2026-04-01 00:15 KST
+- UX readability follow-up: introduced optional copy-pack compatibility legend row in forced-lane markdown output behind explicit flag for cleaner default output + guided onboarding mode.
+
+## 2026-04-01 00:19 KST
+- UX readability cycle delivered: compat onboarding now shows two-line decode (`COMPAT` + `COMPAT LEGEND`) only when flag is enabled, keeping default output uncluttered.

@@ -2953,3 +2953,9 @@
 - Closed Systems/QA injected item for over-cap forced-lane templates: added deterministic regression fixture coverage for `gameplayCopyPackAlias` and template `copyPackAlias` schema parity.
 - Added `scripts/regression_draft_forced_lane_backlog_tasks.py` (repeat-run determinism + alias/domain assertions) and refreshed over-cap fixture artifacts.
 - Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py`; `python3 scripts/regression_draft_forced_lane_backlog_tasks.py`; `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`.
+
+## 2026-04-01 00:15 KST
+- Cross-lane sync: combat-facing over-cap template keeps `CP:SP` semantics; new optional compatibility row clarifies `STEADY=ST|SPIKE=SP` for operators without changing tuning paths.
+
+## 2026-04-01 00:19 KST
+- Cross-lane note: combat over-cap templates remain unchanged in semantics; new legend row clarifies compact alias translation in onboarding mode.

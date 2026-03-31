@@ -3,6 +3,8 @@
 - missing cadence buckets: **none**
 - forced next lanes: **world, combat, ai-content**
 - gameplay copy pack: **spike**
+- COPY PACK COMPAT:STEADY=ST|SPIKE=SP
+- COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE
 
 - [ ] World/Combat Team: Inject one underrepresented-lane gameplay experiment template for `combat` when guardrail status is `over-cap`.
   - Copy pack: spike

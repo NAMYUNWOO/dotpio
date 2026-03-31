@@ -4,12 +4,21 @@ Last updated: 2026-03-31 05:02 KST
 
 ## Game Director Injection — 2026-03-31 Cycle ILE
 - Candidate ideas:
+  - Low-risk UX/game-feel (AI Content/Design): add compact compatibility legend row (`COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE`) when onboarding flag is enabled.
+  - Mid-risk Systems/QA: lock compatibility-row adjacency (`COPY PACK COMPAT` -> `COPY PACK COMPAT LEGEND`) in forced-lane markdown regression.
+  - High-risk novelty (AI Content/Systems): auto-enable compatibility onboarding rows only when over-cap lane volatility enters `swing|spike` windows.
+- [x] AI Content/Design Team: Add optional compact compatibility legend row (`COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE`) behind onboarding flag for dense operator decode. *(lifecycle: [ ] -> [~] started: 2026-04-01 00:16 KST -> [x] completed: 2026-04-01 00:19 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md --include-copy-pack-compat-row`)*
+- [ ] Systems/QA Team (injected): Add explicit markdown-order regression contract for `COPY PACK COMPAT` immediately followed by `COPY PACK COMPAT LEGEND` when onboarding flag is enabled.
+- [ ] AI Content/Systems Team (injected): Prototype volatility-aware onboarding policy suggestion (`compatRowPolicy:ALWAYS|SPIKE_ONLY`) as payload-only offline recommendation.
+
+## Game Director Injection — 2026-03-31 Cycle ILE
+- Candidate ideas:
   - Low-risk UX/game-feel (Systems/World): add compact gameplay copy-pack alias token (`CP:ST|SP`) for over-cap template dispatch readability.
   - Mid-risk Systems/QA: add deterministic fixture/schema lock for `gameplayCopyPackAlias` + `copyPackAlias` fields.
   - High-risk novelty (AI-content/Design): adaptive copy-pack selector from lane-volatility memory windows.
 - [x] Systems/World Team: Add compact gameplay copy-pack alias token (`CP:ST|SP`) for over-cap template payload + markdown while preserving deterministic field schema. *(in-progress: 2026-03-31 23:42 KST, completed: 2026-03-31 23:45 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`)*
 - [x] Systems/QA Team (injected): Add deterministic schema regression fixture for `gameplayCopyPackAlias` + per-template `copyPackAlias` in over-cap payload output. *(in-progress: 2026-03-31 23:47 KST, completed: 2026-03-31 23:48 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`)*
-- [ ] AI Content/Design Team (injected): Prototype optional copy-pack compatibility markdown row (`COPY PACK COMPAT:STEADY=ST|SPIKE=SP`) behind a flag for operator onboarding.
+- [x] AI Content/Design Team (injected): Prototype optional copy-pack compatibility markdown row (`COPY PACK COMPAT:STEADY=ST|SPIKE=SP`) behind a flag for operator onboarding. *(in-progress: 2026-04-01 00:12 KST, completed: 2026-04-01 00:15 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md --include-copy-pack-compat-row`)*
 
 ## Game Director Injection — 2026-03-31 Cycle IK
 - Candidate ideas:

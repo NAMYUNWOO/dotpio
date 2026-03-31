@@ -1,6 +1,16 @@
 # POST_RC_BACKLOG
 
 ## Autonomous Cycle 2026-03-31 (Game Director Review - Cycle ILE)
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (AI Content/Design): add compact compatibility legend row (`COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE`) when onboarding flag is enabled.
+  - Mid-risk Systems/QA: lock compatibility-row adjacency (`COPY PACK COMPAT` -> `COPY PACK COMPAT LEGEND`) in forced-lane markdown regression.
+  - High-risk novelty (AI Content/Systems): auto-enable compatibility onboarding rows only when over-cap lane volatility enters `swing|spike` windows.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] AI Content/Design Team: Add optional compact compatibility legend row (`COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE`) behind onboarding flag for dense operator decode. *(lifecycle: [ ] -> [~] started: 2026-04-01 00:16 KST -> [x] completed: 2026-04-01 00:19 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md --include-copy-pack-compat-row`)*
+- [ ] Systems/QA Team (injected): Add explicit markdown-order regression contract for `COPY PACK COMPAT` immediately followed by `COPY PACK COMPAT LEGEND` when onboarding flag is enabled.
+- [ ] AI Content/Systems Team (injected): Prototype volatility-aware onboarding policy suggestion (`compatRowPolicy:ALWAYS|SPIKE_ONLY`) as payload-only offline recommendation.
+
+## Autonomous Cycle 2026-03-31 (Game Director Review - Cycle ILE)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=1, combat=2, design=3, ux=2, qa=3, vfx=2 (no lane >40%).
 - Candidate ideas generated:
   - Low-risk UX/game-feel (Systems/World): add compact gameplay copy-pack alias token (`CP:ST|SP`) for over-cap dispatch markdown scan speed.
@@ -9,7 +19,7 @@
 - Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
 - [x] Systems/World Team: Add compact gameplay copy-pack alias token (`CP:ST|SP`) for over-cap template payload + markdown while preserving deterministic field schema. *(lifecycle: [ ] -> [~] started: 2026-03-31 23:42 KST -> [x] completed: 2026-03-31 23:45 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`)*
 - [x] Systems/QA Team (injected): Add deterministic schema regression fixture for `gameplayCopyPackAlias` + per-template `copyPackAlias` in over-cap payload output. *(lifecycle: [ ] -> [~] started: 2026-03-31 23:47 KST -> [x] completed: 2026-03-31 23:48 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`)*
-- [ ] AI Content/Design Team (injected): Prototype optional copy-pack compatibility markdown row (`COPY PACK COMPAT:STEADY=ST|SPIKE=SP`) behind a flag for operator onboarding.
+- [x] AI Content/Design Team (injected): Prototype optional copy-pack compatibility markdown row (`COPY PACK COMPAT:STEADY=ST|SPIKE=SP`) behind a flag for operator onboarding. *(lifecycle: [ ] -> [~] started: 2026-04-01 00:12 KST -> [x] completed: 2026-04-01 00:15 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md --include-copy-pack-compat-row`)*
 
 ## Autonomous Cycle 2026-03-31 (Game Director Review - Cycle ILD)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=1, combat=2, design=3, ux=2, qa=3, vfx=2 (no lane >40%).

@@ -4502,3 +4502,13 @@ Compact decision memory for AI context efficiency.
   - `Quality bar legend: FANT=Player fantasy | IMP=Impact metric | S/R=Scope/Risk | RB=Rollback | P/F=Pass-Fail`.
 - Rule: whenever gameplay quality-bar fields are present, legend row is included in markdown output to reduce operator decode latency.
 - Artifacts regenerated: `logs/forced_lane_task_templates_over_cap_fixture.{json,md}`.
+
+## 2026-04-01 00:15 KST
+- Closed final unchecked TASKS/POST_RC item for Cycle ILE: added flag-gated markdown onboarding row `COPY PACK COMPAT:STEADY=ST|SPIKE=SP` in forced-lane template generator.
+- Regression hardening shipped: compat-row flag path is deterministic, payload schema remains unchanged, and default output stays compact unless onboarding mode is explicitly enabled.
+- Queue status: ACTION_ITEMS unchecked=0; TASKS unchecked=0; POST_RC_BACKLOG unchecked=0 (ready for immediate Game Director review cycle on next autonomous pass).
+
+## 2026-04-01 00:19 KST
+- Game Director review cycle executed after queue-clear trigger: generated 3 ideas, selected low-risk onboarding readability slice, and shipped `COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE` behind compat flag.
+- Durable decision: keep onboarding compatibility rows markdown-only + opt-in (`--include-copy-pack-compat-row`) so default forced-lane templates stay compact while onboarding mode remains explicit.
+- New backlog injections added: (1) Systems/QA order lock for compat rows, (2) AI Content/Systems volatility-aware compat-row policy recommendation.
