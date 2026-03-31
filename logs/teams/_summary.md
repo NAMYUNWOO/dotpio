@@ -1,3 +1,9 @@
+## 2026-03-31 23:40 KST
+- Closed injected POST_RC item: over-cap forced-lane draft helper now supports optional gameplay copy packs (`steady|spike`) while keeping deterministic template field schema.
+- `scripts/draft_forced_lane_backlog_tasks.py` now emits stable JSON keys plus `copyPack` (template-level) and `gameplayCopyPack` (payload-level), and markdown includes copy-pack disclosure line for operator context.
+- Auto pack resolver defaults to `spike` for combat/vfx over-cap lanes and `steady` otherwise; explicit override remains available via `--gameplay-copy-pack`.
+- Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` + over-cap fixture regeneration command passed; fixture artifacts updated.
+
 ## 2026-03-31 22:12 KST
 - Closed injected POST_RC item: shipped `scripts/draft_forced_lane_backlog_tasks.py` to auto-draft forced-lane backlog tasks from `logs/weekly_lane_coverage_guardrail.json`.
 - New durable artifacts: `logs/forced_lane_task_templates.{json,md}` for direct TASKS/POST_RC copy-in workflow.

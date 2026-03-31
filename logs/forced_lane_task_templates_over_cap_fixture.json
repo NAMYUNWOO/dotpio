@@ -6,18 +6,20 @@
     "combat",
     "ai-content"
   ],
+  "gameplayCopyPack": "spike",
   "templates": [
     {
       "source": "forcedNextLanes",
       "lane": "combat",
       "team": "World/Combat Team",
+      "copyPack": "spike",
       "task": "Inject one underrepresented-lane gameplay experiment template for `combat` when guardrail status is `over-cap`.",
-      "playerFantasy": "Keep lane rotation feeling alive with a visible gameplay-facing experiment in the neglected lane.",
-      "impactMetric": "At least one underrepresented lane appears in next-cycle completed items while lane-cap warning resolves.",
+      "playerFantasy": "Inject a visible tension spike in the neglected lane while preserving deterministic operator dispatch copy.",
+      "impactMetric": "At least one underrepresented lane ships with player-facing intensity uplift while lane-cap warning resolves.",
       "scope": "S",
-      "risk": "low",
-      "rollback": "Remove template row and disable over-cap gameplay injection pathway.",
-      "passFail": "Pass when template includes deterministic lane + verification command and guardrail status remains machine-readable.",
+      "risk": "mid",
+      "rollback": "Revert to steady copy pack and remove the spike phrasing from template rows.",
+      "passFail": "Pass when template keeps deterministic fields, lane key, and verification command while delivering higher-intensity copy.",
       "definitionOfDone": "Template includes player-facing fantasy target, impact metric, risk/rollback, and minimal vertical-slice verification commands.",
       "verification": "python3 scripts/regression_weekly_portal_prompt_readability_drift.py"
     },

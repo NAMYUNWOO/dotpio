@@ -445,3 +445,8 @@
 ## 2026-03-31 21:47 KST — Cycle ILC vfx lane log
 - Guardrail cadence bucket check reports `combat-or-vfx` count=4 (met) in the latest last-10 snapshot.
 - No runtime VFX tuning touched this slice; queued next visible candidate token: `CBGCFXWSBPFXPINF TEASE:CALM|EDGE` for a future Combat/VFX pass.
+
+## 2026-03-31 23:40 KST
+- Closed injected over-cap gameplay-template copy-pack task (`steady|spike`) in `scripts/draft_forced_lane_backlog_tasks.py`.
+- Added deterministic `copyPack` field and `gameplayCopyPack` payload key while preserving stable template schema across packs.
+- Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` and over-cap fixture regeneration command passed.

@@ -41,6 +41,24 @@ LANE_TEAM_MAP = {
 }
 
 GAMEPLAY_LANE_PRIORITY = ["combat", "vfx", "world", "design", "ux", "ai-content", "systems", "qa"]
+COPY_PACKS = {
+    "steady": {
+        "playerFantasy": "Keep lane rotation feeling reliable with a predictable, confidence-first gameplay experiment handoff.",
+        "impactMetric": "At least one underrepresented lane appears in next-cycle completed items while lane-cap warning resolves.",
+        "risk": "low",
+        "scope": "S",
+        "rollback": "Remove template row and disable over-cap gameplay injection pathway.",
+        "passFail": "Pass when template includes deterministic lane + verification command and guardrail status remains machine-readable.",
+    },
+    "spike": {
+        "playerFantasy": "Inject a visible tension spike in the neglected lane while preserving deterministic operator dispatch copy.",
+        "impactMetric": "At least one underrepresented lane ships with player-facing intensity uplift while lane-cap warning resolves.",
+        "risk": "mid",
+        "scope": "S",
+        "rollback": "Revert to steady copy pack and remove the spike phrasing from template rows.",
+        "passFail": "Pass when template keeps deterministic fields, lane key, and verification command while delivering higher-intensity copy.",
+    },
+}
 
 
 def _pick_over_cap_gameplay_lane(forced_next_lanes: list[str]) -> str | None:
@@ -52,7 +70,15 @@ def _pick_over_cap_gameplay_lane(forced_next_lanes: list[str]) -> str | None:
     return forced_next_lanes[0]
 
 
-def build_templates(report: dict, max_templates: int) -> list[dict]:
+def _resolve_copy_pack(preferred: str, gameplay_lane: str | None) -> str:
+    if preferred in COPY_PACKS:
+        return preferred
+    if gameplay_lane in {"combat", "vfx"}:
+        return "spike"
+    return "steady"
+
+
+def build_templates(report: dict, max_templates: int, gameplay_copy_pack: str) -> list[dict]:
     templates: list[dict] = []
 
     for bucket in report.get("missingCadenceBuckets", []):
@@ -73,19 +99,22 @@ def build_templates(report: dict, max_templates: int) -> list[dict]:
     if report.get("status") == "over-cap":
         forced_next_lanes = report.get("forcedNextLanes", [])
         gameplay_lane = _pick_over_cap_gameplay_lane(forced_next_lanes)
+        gameplay_pack = _resolve_copy_pack(gameplay_copy_pack, gameplay_lane)
+        gameplay_pack_copy = COPY_PACKS[gameplay_pack]
         if gameplay_lane:
             templates.append(
                 {
                     "source": "forcedNextLanes",
                     "lane": gameplay_lane,
                     "team": "World/Combat Team",
+                    "copyPack": gameplay_pack,
                     "task": f"Inject one underrepresented-lane gameplay experiment template for `{gameplay_lane}` when guardrail status is `over-cap`.",
-                    "playerFantasy": "Keep lane rotation feeling alive with a visible gameplay-facing experiment in the neglected lane.",
-                    "impactMetric": "At least one underrepresented lane appears in next-cycle completed items while lane-cap warning resolves.",
-                    "scope": "S",
-                    "risk": "low",
-                    "rollback": "Remove template row and disable over-cap gameplay injection pathway.",
-                    "passFail": "Pass when template includes deterministic lane + verification command and guardrail status remains machine-readable.",
+                    "playerFantasy": gameplay_pack_copy["playerFantasy"],
+                    "impactMetric": gameplay_pack_copy["impactMetric"],
+                    "scope": gameplay_pack_copy["scope"],
+                    "risk": gameplay_pack_copy["risk"],
+                    "rollback": gameplay_pack_copy["rollback"],
+                    "passFail": gameplay_pack_copy["passFail"],
                     "definitionOfDone": "Template includes player-facing fantasy target, impact metric, risk/rollback, and minimal vertical-slice verification commands.",
                     "verification": "python3 scripts/regression_weekly_portal_prompt_readability_drift.py",
                 }
@@ -109,12 +138,13 @@ def build_templates(report: dict, max_templates: int) -> list[dict]:
     return templates[:max_templates]
 
 
-def to_markdown(report: dict, templates: list[dict]) -> str:
+def to_markdown(report: dict, templates: list[dict], gameplay_copy_pack: str) -> str:
     lines = [
         "### Forced-Lane Task Template Draft",
         f"- status: **{report.get('status', 'unknown')}**",
         f"- missing cadence buckets: **{', '.join(report.get('missingCadenceBuckets', [])) or 'none'}**",
         f"- forced next lanes: **{', '.join(report.get('forcedNextLanes', [])) or 'none'}**",
+        f"- gameplay copy pack: **{gameplay_copy_pack}**",
         "",
     ]
 
@@ -128,6 +158,8 @@ def to_markdown(report: dict, templates: list[dict]) -> str:
         dod = template.get("definitionOfDone", "")
         verification = template.get("verification", "")
         lines.append(f"- [ ] {team}: {task}")
+        if template.get("copyPack"):
+            lines.append(f"  - Copy pack: {template['copyPack']}")
         if template.get("playerFantasy"):
             lines.append(f"  - Player fantasy: {template['playerFantasy']}")
         if template.get("impactMetric"):
@@ -158,17 +190,32 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--guardrail-json", required=True, type=Path)
     parser.add_argument("--max-templates", type=int, default=3)
+    parser.add_argument(
+        "--gameplay-copy-pack",
+        choices=["auto", "steady", "spike"],
+        default="auto",
+        help="Optional over-cap gameplay template copy pack. Auto resolves to spike for combat/vfx lanes, else steady.",
+    )
     parser.add_argument("--json-out", type=Path)
     parser.add_argument("--md-out", type=Path)
     args = parser.parse_args()
 
     report = json.loads(args.guardrail_json.read_text(encoding="utf-8"))
-    templates = build_templates(report, max_templates=args.max_templates)
+    gameplay_pack = _resolve_copy_pack(
+        args.gameplay_copy_pack,
+        _pick_over_cap_gameplay_lane(report.get("forcedNextLanes", [])),
+    )
+    templates = build_templates(
+        report,
+        max_templates=args.max_templates,
+        gameplay_copy_pack=args.gameplay_copy_pack,
+    )
 
     payload = {
         "status": report.get("status"),
         "missingCadenceBuckets": report.get("missingCadenceBuckets", []),
         "forcedNextLanes": report.get("forcedNextLanes", []),
+        "gameplayCopyPack": gameplay_pack,
         "templates": templates,
     }
 
@@ -180,7 +227,10 @@ def main() -> int:
 
     if args.md_out:
         args.md_out.parent.mkdir(parents=True, exist_ok=True)
-        args.md_out.write_text(to_markdown(report, templates) + "\n", encoding="utf-8")
+        args.md_out.write_text(
+            to_markdown(report, templates, gameplay_copy_pack=gameplay_pack) + "\n",
+            encoding="utf-8",
+        )
 
     return 0
 

@@ -2,13 +2,15 @@
 - status: **over-cap**
 - missing cadence buckets: **none**
 - forced next lanes: **world, combat, ai-content**
+- gameplay copy pack: **spike**
 
 - [ ] World/Combat Team: Inject one underrepresented-lane gameplay experiment template for `combat` when guardrail status is `over-cap`.
-  - Player fantasy: Keep lane rotation feeling alive with a visible gameplay-facing experiment in the neglected lane.
-  - Impact metric: At least one underrepresented lane appears in next-cycle completed items while lane-cap warning resolves.
-  - Scope/Risk: S / low
-  - Rollback: Remove template row and disable over-cap gameplay injection pathway.
-  - Pass/Fail: Pass when template includes deterministic lane + verification command and guardrail status remains machine-readable.
+  - Copy pack: spike
+  - Player fantasy: Inject a visible tension spike in the neglected lane while preserving deterministic operator dispatch copy.
+  - Impact metric: At least one underrepresented lane ships with player-facing intensity uplift while lane-cap warning resolves.
+  - Scope/Risk: S / mid
+  - Rollback: Revert to steady copy pack and remove the spike phrasing from template rows.
+  - Pass/Fail: Pass when template keeps deterministic fields, lane key, and verification command while delivering higher-intensity copy.
   - Quality bar legend: FANT=Player fantasy | IMP=Impact metric | S/R=Scope/Risk | RB=Rollback | P/F=Pass-Fail
   - DoD: Template includes player-facing fantasy target, impact metric, risk/rollback, and minimal vertical-slice verification commands.
   - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
