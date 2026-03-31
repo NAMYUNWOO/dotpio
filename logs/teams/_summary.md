@@ -4326,3 +4326,12 @@ Compact decision memory for AI context efficiency.
 - Added payload fields for fallback legend alias map + compact legend row, and wired summary/token-coverage markdown rails to render the shared compact row string.
 - DOS readability guard now validates fallback legend row length against the 88-char threshold.
 - Verification status: weekly smoke run passes; full regression script currently exits non-zero in fixture harness and requires QA follow-up.
+
+## 2026-03-31 12:44 KST — Game Director review cycle (post-checklist)
+- Candidate ideas:
+  1) **Low-risk UX/game-feel**: add explicit BURST fallback route row (`CBGCFXWSBPFXPINF ROUTE:fallback-v1`) next to legend for one-pass operator scan. Scope S, rollback: remove row.
+  2) **Mid-risk systems/combat**: add burst legend parity watchdog that alerts when digest row and payload route diverge. Scope M, rollback: disable watchdog branch.
+  3) **High-risk novelty**: adaptive BURST legend dialect swap by pressure band (operator shorthand vs writer prose). Scope L, rollback: force static legend mode.
+- Selected experiment this cycle: Idea #1 (low-risk UX/game-feel) for immediate vertical slice.
+- Pass criterion: weekly digest renders route row adjacent to BURST legend and row stays within DOS-width guard (<=88).
+- Result: pass (row emitted + width guard preserved).

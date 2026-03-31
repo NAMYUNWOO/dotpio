@@ -2846,3 +2846,7 @@
 ## 2026-03-31 12:32 KST — BURST fallback legend compact-alias pass
 - Synced on UX/Design task for compact fallback legend aliases (Bf/Qf) while preserving fallback-v1 discoverability.
 - Verification handoff: weekly script run green; regression suite currently returns non-zero in baseline fixture harness and needs separate QA triage.
+
+## 2026-03-31 12:44 KST — Game Director cycle note
+- Reviewed 3 candidate ideas (low/mid/high risk) and executed Idea #1 vertical slice: explicit `CBGCFXWSBPFXPINF ROUTE:fallback-v1` digest row.
+- Outcome: implemented in weekly drift renderer, verified via py_compile + weekly smoke run.
