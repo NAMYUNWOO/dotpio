@@ -1,3 +1,15 @@
+## 2026-03-31 14:20 KST
+- Executed Game Director Cycle KB (3 ideas generated; selected mid-risk systems/combat/design payload contract slice).
+- Implemented payload-only `CBGCFXWSBPFXPINF THREAT ORDER PATH:LEGEND|FALLBACK` token + signals from threat-legend flag state; regression now locks schema/domain/adjacency invariant.
+- Added next backlog injections for optional markdown legend row (`THREAT ORDER PATH LEGEND`) and its adjacency/cardinality regression path.
+- Verification green: py_compile + regression + weekly digest smoke.
+
+## 2026-03-31 14:13 KST
+- Completed POST_RC threat-legend follow-up: added optional `CBGCFXWSBPFXPINF THREAT LEGEND` markdown row (`L=LOW,M=MED,H=HIGH`) ahead of `ORDER` with DOS-width guard (`<=88`).
+- Added Systems/QA regression contract coverage for optional path handling: `BURST DIGEST -> THREAT LEGEND -> ORDER` when enabled, while keeping payload-only fallback valid when disabled.
+- Added payload signal exports for legend row metadata (`row`, `rowFlagOff`, adjacency invariant, row-budget compliance) and locked schema assertions.
+- Verification green: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+
 ## 2026-03-31 16:10 KST
 - Completed final 2 POST_RC_BACKLOG items: ROUTE LEGEND markdown row + route alias/hash regression assertions.
 - `CBGCFXWSBPFXPINF ROUTE LEGEND` row fits within 88-char DOS row budget; added to both summary and token-coverage sections.

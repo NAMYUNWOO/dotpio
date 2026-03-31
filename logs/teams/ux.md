@@ -3135,3 +3135,19 @@
 - Selected low-risk vertical slice: payload-only `CBGCFXWSBPFXPINF THREAT:<L|M|H>` derived from cue + burst + drift signals.
 - Verification green: py_compile + regression weekly readability drift + weekly drift smoke run.
 - Follow-up injected: optional markdown `THREAT LEGEND` row + adjacency contract (`BURST DIGEST -> THREAT -> ORDER`).
+
+
+## 2026-03-31 14:13 KST
+- Task: Completed POST_RC threat-legend slice for `CBGCFXWSBPFXPINF` (optional markdown legend row + strict adjacency/cardinality contract before `ORDER`).
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions: kept rollout reversible/flagged, enforced DOS-width guard (`<=88`) and preserved payload-only fallback (`BURST DIGEST -> ORDER`) when legend flag is off.
+
+
+## 2026-03-31 14:20 KST
+- Task: Game Director Cycle KB vertical slice shipped payload-only `CBGCFXWSBPFXPINF THREAT ORDER PATH:LEGEND|FALLBACK` contract token and regression schema/domain lock.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions: path mapping is deterministic from threat-legend flag (`LEGEND` when enabled, else `FALLBACK`); runtime remains unaffected (offline telemetry only).

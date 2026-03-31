@@ -1940,5 +1940,19 @@ Last updated: 2026-03-31 07:12 KST
 - [x] Combat/VFX + Systems/QA Team: Add payload-only burst-threat token (`CBGCFXWSBPFXPINF THREAT:<L|M|H>`) with deterministic mapping (`HARD` or `BURST+WATCH` => H, `EDGE` or `BURST` => M, else L) and regression schema/domain lock. *(in-progress: 2026-03-31 13:34 KST, completed: 2026-03-31 13:44 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 ## Next Up (Game Director Injection — 2026-03-31 Cycle JA)
-- [ ] UX/Design Team: Prototype optional `CBGCFXWSBPFXPINF THREAT LEGEND` markdown row (`L=LOW,M=MED,H=HIGH`) with DOS-width guard and strict adjacency before `ORDER`.
-- [ ] Systems/QA Team: Add adjacency/cardinality contract for optional `THREAT` row path (`BURST DIGEST -> THREAT -> ORDER`) while preserving payload-only fallback.
+- [x] UX/Design Team: Prototype optional `CBGCFXWSBPFXPINF THREAT LEGEND` markdown row (`L=LOW,M=MED,H=HIGH`) with DOS-width guard and strict adjacency before `ORDER`. *(in-progress: 2026-03-31 14:02 KST, completed: 2026-03-31 14:13 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+- [x] Systems/QA Team: Add adjacency/cardinality contract for optional `THREAT` row path (`BURST DIGEST -> THREAT -> ORDER`) while preserving payload-only fallback. *(completed: 2026-03-31 14:13 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+
+
+## P1 (Game Director Injection — 2026-03-31 Cycle KB)
+- Coverage check (last 10 completions): systems/qa contract slices dominated recent cadence; selected a combat/design-facing contract telemetry slice to keep visible lane balance.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel: add compact markdown note for threat/order path (`THREAT LEGEND` active vs fallback) near `ORDER`.
+  - Mid-risk systems/combat/design: add payload-only contract token (`CBGCFXWSBPFXPINF THREAT ORDER PATH`) to expose whether digest used legend bridge or fallback path.
+  - High-risk novelty: adaptive threat vocabulary remap from prior-window cadence pressure.
+- Selected experiment: Idea 2 (minimal vertical slice, payload-only + reversible).
+- [x] Systems/Combat/Design Team: Add payload-only threat-order contract token (`CBGCFXWSBPFXPINF THREAT ORDER PATH:LEGEND|FALLBACK`) with deterministic mapping from threat-legend flag state and regression schema/domain lock. *(in-progress: 2026-03-31 14:16 KST, completed: 2026-03-31 14:20 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+### Injected follow-up tasks
+- [ ] UX/Design Team: Prototype optional compact markdown row `CBGCFXWSBPFXPINF THREAT ORDER PATH LEGEND` (`L=LEGEND,F=FALLBACK`) with DOS-width guard and adjacency lock after `THREAT LEGEND`.
+- [ ] Systems/QA Team: Add markdown contract/cardinality regression for optional `THREAT ORDER PATH LEGEND` row while preserving fallback path when both legend rows are disabled.
