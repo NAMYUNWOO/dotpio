@@ -4957,3 +4957,7 @@
 - Extended regression fixtures to lock deterministic values for `trendScoreBandDispatchPressureMomentum` and markdown parity row.
 - Verification chain: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.
 - Result: all checks green.
+
+## 2026-04-01 08:55 KST — Cycle ILN (QA)
+- Extended regression fixture contract for momentum-band domain + alias parity (`HIGH/H`, `MID/M`).
+- Verification chain green: py_compile + regression runner + guardrail artifact regeneration.

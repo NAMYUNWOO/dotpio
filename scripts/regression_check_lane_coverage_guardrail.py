@@ -48,6 +48,8 @@ def run_fixture_case(
     expected_dispatch_pressure: str,
     expected_dispatch_pressure_alias: str,
     expected_dispatch_pressure_momentum: int,
+    expected_dispatch_pressure_momentum_band: str,
+    expected_dispatch_pressure_momentum_band_alias: str,
 ) -> None:
     backlog = tmp_path / f"{name}_backlog.md"
     json_out = tmp_path / f"{name}_guardrail.json"
@@ -80,6 +82,13 @@ def run_fixture_case(
     assert report.get("trendScoreBandDispatchPressureMomentum") == expected_dispatch_pressure_momentum, (
         f"{name}: trendScoreBandDispatchPressureMomentum must match deterministic drift-window momentum score"
     )
+    assert report.get("trendScoreBandDispatchPressureMomentumBand") == expected_dispatch_pressure_momentum_band, (
+        f"{name}: trendScoreBandDispatchPressureMomentumBand must map from momentum score domain"
+    )
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumBandAlias")
+        == expected_dispatch_pressure_momentum_band_alias
+    ), f"{name}: trendScoreBandDispatchPressureMomentumBandAlias must match compact momentum-band alias"
 
     md_text = md_out.read_text(encoding="utf-8")
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"
@@ -102,6 +111,14 @@ def run_fixture_case(
         f"trend-score dispatch-pressure momentum (offline): **{expected_dispatch_pressure_momentum}**"
         in md_text
     ), f"{name}: markdown output must include offline dispatch-pressure momentum row"
+    assert (
+        f"trend-score dispatch-pressure momentum band (offline): **{expected_dispatch_pressure_momentum_band}**"
+        in md_text
+    ), f"{name}: markdown output must include offline momentum-band row"
+    assert (
+        f"trend-score dispatch-pressure momentum band alias: **TSDPM:{expected_dispatch_pressure_momentum_band_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include compact momentum-band alias row"
 
 
 def main() -> int:
@@ -124,6 +141,8 @@ def main() -> int:
             expected_dispatch_pressure="LIGHT",
             expected_dispatch_pressure_alias="L",
             expected_dispatch_pressure_momentum=100,
+            expected_dispatch_pressure_momentum_band="HIGH",
+            expected_dispatch_pressure_momentum_band_alias="H",
         )
 
         run_fixture_case(
@@ -143,6 +162,8 @@ def main() -> int:
             expected_dispatch_pressure="READY",
             expected_dispatch_pressure_alias="R",
             expected_dispatch_pressure_momentum=88,
+            expected_dispatch_pressure_momentum_band="HIGH",
+            expected_dispatch_pressure_momentum_band_alias="H",
         )
 
         run_fixture_case(
@@ -161,6 +182,8 @@ def main() -> int:
             expected_dispatch_pressure="HOT",
             expected_dispatch_pressure_alias="H",
             expected_dispatch_pressure_momentum=64,
+            expected_dispatch_pressure_momentum_band="MID",
+            expected_dispatch_pressure_momentum_band_alias="M",
         )
 
         run_fixture_case(
@@ -179,6 +202,8 @@ def main() -> int:
             expected_dispatch_pressure="HOT",
             expected_dispatch_pressure_alias="H",
             expected_dispatch_pressure_momentum=64,
+            expected_dispatch_pressure_momentum_band="MID",
+            expected_dispatch_pressure_momentum_band_alias="M",
         )
 
         run_fixture_case(
@@ -197,6 +222,8 @@ def main() -> int:
             expected_dispatch_pressure="HOT",
             expected_dispatch_pressure_alias="H",
             expected_dispatch_pressure_momentum=64,
+            expected_dispatch_pressure_momentum_band="MID",
+            expected_dispatch_pressure_momentum_band_alias="M",
         )
 
     print("ok: trendScoreBand dispatch-hint regression checks passed")

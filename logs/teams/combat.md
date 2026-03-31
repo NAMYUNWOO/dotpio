@@ -3025,3 +3025,7 @@
 - No combat tuning changes this cycle; cadence bucket checks remained met after artifact refresh.
 - Decision: preserve combat lane stability while analytics-only metric lands.
 - Follow-up: revisit combat/vfx lane if 24h cadence watchdog trends stale.
+
+## 2026-04-01 08:55 KST — Cycle ILN (Combat)
+- No combat runtime tuning this cycle; cadence bucket checks remained satisfied in regenerated guardrail report.
+- Follow-up: prioritize combat/vfx if bucket watchdog misses emerge.

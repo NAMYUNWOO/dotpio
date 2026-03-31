@@ -3312,3 +3312,7 @@
 - Surfaced momentum row in guardrail markdown without changing existing token cluster order.
 - Decision: preserve low-noise digest layout while adding one-glance pressure drift signal.
 - Verification: regenerated weekly guardrail markdown includes momentum line.
+
+## 2026-04-01 08:55 KST — Cycle ILN (UX)
+- Shipped one-glance momentum-band alias row `TSDPM:<L|M|H>` with deterministic payload parity.
+- Verification: regenerated weekly guardrail markdown contains new momentum-band + alias rows.

@@ -1,5 +1,18 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle ILN)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=3, ux=2, qa=3, vfx=2 (no lane >40%).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (UX/Systems): add compact dispatch-pressure momentum band token (`trendScoreBandDispatchPressureMomentumBand:LOW|MID|HIGH`) and alias `TSDPM:<L|M|H>` for one-glance drift intensity decode.
+  - Mid-risk Systems/QA: add deterministic regression fixture + markdown contract rows for momentum-band domain and alias parity.
+  - High-risk novelty (AI Content/Systems): prototype offline momentum-slope recommendation (`trendScoreBandDispatchPressureMomentumSlope:COOLING|RISING|SURGING`) from prior-window delta.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] UX/Systems Team: Add payload-level momentum band token (`trendScoreBandDispatchPressureMomentumBand:LOW|MID|HIGH`) and markdown alias row `TSDPM:<alias>`. *(lifecycle: [ ] -> [~] started: 2026-04-01 08:52 KST -> [x] completed: 2026-04-01 08:55 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle ILN)
+- [ ] Systems/QA Team (injected): Extend regression fixture assertions for `trendScoreBandDispatchPressureMomentumBand` domain + markdown alias parity `TSDPM`.
+- [ ] AI Content/Systems Team (injected): Prototype offline momentum-slope recommendation (`trendScoreBandDispatchPressureMomentumSlope:COOLING|RISING|SURGING`) from prior-window deltas while keeping runtime decoupled.
+
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle ILM)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=1, combat=2, design=3, ux=2, qa=3, vfx=2 (no lane >40%).
 - Candidate ideas generated:

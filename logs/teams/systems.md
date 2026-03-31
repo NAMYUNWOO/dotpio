@@ -4428,3 +4428,8 @@
 - Decision: keep computation deterministic and decoupled (transition ratio + recency-weighted drift + band diversity).
 - Verification: py_compile + regression + artifact regeneration passed.
 - Follow-up: monitor score stability; if needed, add compact banding alias in later cycle.
+
+## 2026-04-01 08:55 KST — Cycle ILN (Systems)
+- Added offline momentum band projection from momentum score: `trendScoreBandDispatchPressureMomentumBand:LOW|MID|HIGH` plus compact alias mirror.
+- Decision: fixed thresholds (`0-33=LOW`, `34-66=MID`, `67-100=HIGH`) for deterministic auditability.
+- Follow-up: injected Systems/QA task to lock domain/alias parity in broader fixture matrix.

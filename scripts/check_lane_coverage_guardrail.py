@@ -138,6 +138,23 @@ def resolve_trend_score_band_dispatch_pressure_momentum(rows: list[str]) -> int:
     return max(0, min(100, int(round(momentum * 100))))
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_band(momentum_score: int) -> str:
+    if momentum_score >= 67:
+        return "HIGH"
+    if momentum_score >= 34:
+        return "MID"
+    return "LOW"
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_band_alias(momentum_band: str) -> str:
+    alias_map = {
+        "LOW": "L",
+        "MID": "M",
+        "HIGH": "H",
+    }
+    return alias_map.get(momentum_band, "L")
+
+
 def resolve_trend_score_band_dispatch_hint(score_band_snapshot: dict[str, int]) -> str:
     ordered = sorted(
         score_band_snapshot.items(),
@@ -249,6 +266,14 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         score_band_dispatch_pressure
     )
     score_band_dispatch_pressure_momentum = resolve_trend_score_band_dispatch_pressure_momentum(rows)
+    score_band_dispatch_pressure_momentum_band = (
+        resolve_trend_score_band_dispatch_pressure_momentum_band(score_band_dispatch_pressure_momentum)
+    )
+    score_band_dispatch_pressure_momentum_band_alias = (
+        resolve_trend_score_band_dispatch_pressure_momentum_band_alias(
+            score_band_dispatch_pressure_momentum_band
+        )
+    )
 
     return {
         "recentCompletedItems": total,
@@ -267,6 +292,8 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "trendScoreBandDispatchPressure": score_band_dispatch_pressure,
         "trendScoreBandDispatchPressureAlias": score_band_dispatch_pressure_alias,
         "trendScoreBandDispatchPressureMomentum": score_band_dispatch_pressure_momentum,
+        "trendScoreBandDispatchPressureMomentumBand": score_band_dispatch_pressure_momentum_band,
+        "trendScoreBandDispatchPressureMomentumBandAlias": score_band_dispatch_pressure_momentum_band_alias,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -314,6 +341,8 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             f"- trend-score dispatch pressure (offline): **{report.get('trendScoreBandDispatchPressure', 'LIGHT')}**",
             f"- trend-score dispatch pressure alias: **TSDP:{report.get('trendScoreBandDispatchPressureAlias', 'L')}**",
             f"- trend-score dispatch-pressure momentum (offline): **{report.get('trendScoreBandDispatchPressureMomentum', 0)}**",
+            f"- trend-score dispatch-pressure momentum band (offline): **{report.get('trendScoreBandDispatchPressureMomentumBand', 'LOW')}**",
+            f"- trend-score dispatch-pressure momentum band alias: **TSDPM:{report.get('trendScoreBandDispatchPressureMomentumBandAlias', 'L')}**",
             "",
             *rows,
             *bucket_rows,

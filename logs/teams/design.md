@@ -3132,3 +3132,7 @@
 - Added markdown readability row for new metric: `trend-score dispatch-pressure momentum (offline)`.
 - Decision: keep deterministic single-line numeric output for compact scanability.
 - Follow-up: consider optional micro-legend if momentum thresholding is introduced.
+
+## 2026-04-01 08:55 KST — Cycle ILN (Design)
+- Added readable markdown rails for momentum-band decode (`trend-score dispatch-pressure momentum band` + `TSDPM`).
+- Decision: keep compact alias style aligned with existing `TSSB/TSDH/TSDP` rows.
