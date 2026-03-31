@@ -2899,3 +2899,16 @@
 ## 2026-03-31 10:12 KST — Coordination note
 - No AI-content policy mutation this cycle.
 - Existing burst posture mapping (`B|Q`) remains unchanged; downstream copy refinement deferred to queued design/world task.
+
+## 2026-03-31 10:42 KST
+- Task: AI-content review validated deterministic decode phrases for `B|Q` remain semantically unambiguous across operator coaching contexts.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decision: preserve fixed phrases to avoid drift in downstream tooltip generation.
+
+## 2026-03-31 10:56 KST
+- Task: AI-content reviewed BURST legend wording and queued localization-safe variants as next backlog item.
+- Commit: pending
+- Files: `TASKS.md`
+- Verification: n/a (planning injection)

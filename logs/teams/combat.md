@@ -2800,3 +2800,16 @@
 ## 2026-03-31 10:12 KST — Combat readability continuity
 - No combat-balance tuning change this cycle.
 - Digest now surfaces existing combat/vfx burst posture token (`CBGCFXWSBPFXPINF BURST`) in markdown rails for faster review triage.
+
+## 2026-03-31 10:42 KST
+- Task: Combat lane confirmed `CBGCFXWSBPFXPINF BURST` still maps to the same posture logic while exposing clearer decode text for triage.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decision: no gameplay coupling changes; payload/markdown readability only.
+
+## 2026-03-31 10:56 KST
+- Task: Combat lane validated no runtime-balance coupling from BURST LEGEND rollout; readability-only delta.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification: regression ✅

@@ -2811,3 +2811,16 @@
 ## 2026-03-31 10:12 KST — Coordination note
 - No world-logic data-path changes this cycle.
 - Noted new digest row `CBGCFXWSBPFXPINF BURST` awaiting world/design decode copy pair completion.
+
+## 2026-03-31 10:42 KST
+- Task: World-copy pass approved burst posture microcopy pair (`burst commit`/`quiet hold`) for storybeat readability continuity.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Follow-up: revisit if future narrative cadence aliases require locale variants.
+
+## 2026-03-31 10:56 KST
+- Task: World tone check kept burst/quiet terms concise and stable for DOS narrative scan consistency.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification: weekly smoke ✅

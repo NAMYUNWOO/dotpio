@@ -4293,3 +4293,13 @@ Compact decision memory for AI context efficiency.
 - Locked regression cardinality/order around new row: `PINF -> PINF LEGEND -> PINF BURST -> PINF ORDER` with 0|2 rollout behavior.
 - Durability note: kept legend placement stable and inserted BURST pre-ORDER to minimize churn across existing optional spacer chains.
 - Remaining queued items: (1) explicit Systems/QA task text sync for `PINF -> PINF BURST -> PINF ORDER`, (2) Design/World compact `B|Q` decode copy pair.
+
+## 2026-03-31 10:42 KST
+- Closed remaining Cycle IM TASKS items: Systems/QA token-order lock for `CBGCFXWSBPFXPINF BURST` insertion and Design/World compact decode copy pair (`B=burst commit`, `Q=quiet hold`) with DOS-width budget signaling.
+- Updated payload signals to ship deterministic burst decode copy metadata (`decodeCopyPair`, `dosReadabilityRowBudgetThreshold=88`, `dosRowBudgetWithinThreshold`) and extended regression schema/domain checks.
+- Verification stayed green: `py_compile`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, and weekly drift smoke generation.
+
+## 2026-03-31 10:56 KST
+- Ran Game Director Cycle IN after queues reached fully checked state; generated 3 ideas and selected low-risk UX/VFX readability slice.
+- Shipped `CBGCFXWSBPFXPINF BURST LEGEND` row (summary + token-coverage) and updated regression order chain to `PINF -> PINF LEGEND -> PINF BURST -> PINF BURST LEGEND -> PINF ORDER`.
+- Injected next tasks for Systems/QA, Combat/VFX, and AI Content/World in `TASKS.md`; full verification suite stayed green.

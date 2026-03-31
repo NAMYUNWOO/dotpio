@@ -3080,3 +3080,16 @@
 - Decision: Keep row payload-linked and optional (0|2 cardinality) to preserve reversible rollout behavior.
 - Evidence: `scripts/weekly_portal_prompt_readability_drift.py`, regression/weekly digest runs green.
 - Follow-up: Add compact decode copy pair for `B|Q` (next queued design/world task).
+
+## 2026-03-31 10:42 KST
+- Task: UX pass accepted inline copy-pair metadata in burst row to keep one-line glanceability without adding another row.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decision: retain compact inline pattern for future alias decode expansions.
+
+## 2026-03-31 10:56 KST
+- Task: Added visible BURST decode legend row to improve one-glance scan quality between BURST and ORDER rows.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification: weekly smoke ✅

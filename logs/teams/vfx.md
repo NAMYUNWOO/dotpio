@@ -417,3 +417,16 @@
 - Mapping rule: `B` when cue posture is `HARD`, or `EDGE` with drift `WATCH`; otherwise `Q`.
 - Scope: offline readability telemetry only; no runtime combat balance changes.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+
+## 2026-03-31 10:42 KST
+- Task: VFX lane validated burst/quiet decode labels align with existing SOFT/EDGE/HARD cue semantics and regression fixtures.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Follow-up: none.
+
+## 2026-03-31 10:56 KST
+- Task: VFX readability pass approved BURST legend placement and wording alignment with cue intensity semantics.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification: regression + weekly smoke ✅

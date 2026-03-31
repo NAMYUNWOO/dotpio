@@ -4159,3 +4159,16 @@
 - Decision: Preserve existing `PINF LEGEND` row and insert BURST before ORDER to avoid destabilizing prior decode rails.
 - Evidence: py_compile + weekly/regression script pass.
 - Follow-up: Keep contract strict through dedicated adjacency assertions.
+
+## 2026-03-31 10:42 KST
+- Task: Completed PINF BURST insertion hardening by extending payload signal contract with copy-pair + DOS-budget keys and asserting regression schema/domain parity.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions: keep rollout chain locked as `PINF -> PINF LEGEND -> PINF BURST -> PINF ORDER` with reversible payload-only scope.
+
+## 2026-03-31 10:56 KST
+- Task: Cycle IN systems/qa contract update for BURST LEGEND insertion and token-order lock.
+- Commit: pending
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification: `py_compile` + regression + weekly smoke ✅

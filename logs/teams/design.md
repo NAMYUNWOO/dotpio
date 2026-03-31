@@ -2896,3 +2896,16 @@
 - Context: UX micro-row for `CBGCFXWSBPFXPINF BURST` is now visible in both digest rails.
 - Pending lane task: author compact decode copy pair for `B|Q` (`burst commit` / `quiet hold`) under strict DOS width.
 - Next action: execute queued design/world task in next cycle.
+
+## 2026-03-31 10:42 KST
+- Task: Finalized compact decode copy pair wording for burst posture alias (`B=burst commit`, `Q=quiet hold`) to keep operator scan density high without widening rows.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification: `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decision: maintain terse verb-noun pairs to stay DOS-width-safe in both summary and token-coverage sections.
+
+## 2026-03-31 10:56 KST
+- Task: Design approved explicit BURST LEGEND row placement to avoid dense inline decode overload.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`
+- Verification: regression + weekly smoke ✅

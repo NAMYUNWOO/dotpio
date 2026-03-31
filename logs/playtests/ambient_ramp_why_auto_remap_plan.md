@@ -1,6 +1,6 @@
 # Ambient Ramp Why Auto-Remap Sandbox Plan
 
-- GeneratedAt(UTC): 2026-03-31T01:07:13.700661Z
+- GeneratedAt(UTC): 2026-03-31T01:42:57.216403Z
 - Recommendation: **OPEN_CONTEXTUAL_WHY**
 - Recommendation Confidence: **HIGH**
 - Recommendation Parity: **SYNC**

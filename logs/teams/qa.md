@@ -4699,3 +4699,16 @@
 - Contract: `...PINF -> ...PINF LEGEND -> ...PINF BURST -> ...PINF ORDER` with zero-or-two rollout cardinality.
 - Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + weekly digest smoke run.
 - Follow-up: Keep copy decode checks within DOS-width once design/world copy pair lands.
+
+## 2026-03-31 10:42 KST
+- Task: Added regression coverage for burst decode copy metadata and DOS-width guardrails on `CBGCFXWSBPFXPINF BURST` signals.
+- Commit: pending
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Follow-up: monitor future markdown row-length drifts when adding additional inline metadata.
+
+## 2026-03-31 10:56 KST
+- Task: Extended cardinality/dependency checks with new `CBGCFXWSBPFXPINF BURST LEGEND` row and updated ORDER dependency gate.
+- Commit: pending
+- Files: `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅

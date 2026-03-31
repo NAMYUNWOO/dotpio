@@ -2007,5 +2007,18 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — Cycle IM)
 - [x] UX/Design Team: Prototype optional summary/token-coverage micro-row for `CBGCFXWSBPFXPINF BURST` directly between `CBGCFXWSBPFXPINF` and `CBGCFXWSBPFXPINF ORDER` with 0|2 cardinality contract. *(in-progress: 2026-03-31 10:02 KST, completed: 2026-03-31 10:12 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] Systems/QA Team: Add markdown adjacency lock + token-order regression assertions for `PINF BURST` insertion (`PINF -> PINF BURST -> PINF ORDER`).
-- [ ] Design/World Team: Draft compact decode copy pair for `B|Q` (`burst commit` vs `quiet hold`) with strict DOS-width budget checks.
+- [x] Systems/QA Team: Add markdown adjacency lock + token-order regression assertions for `PINF BURST` insertion (`PINF -> PINF BURST -> PINF ORDER`). *(in-progress: 2026-03-31 10:36 KST, completed: 2026-03-31 10:40 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
+- [x] Design/World Team: Draft compact decode copy pair for `B|Q` (`burst commit` vs `quiet hold`) with strict DOS-width budget checks. *(in-progress: 2026-03-31 10:36 KST, completed: 2026-03-31 10:42 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Game Director Injection — 2026-03-31 Cycle IN
+- Coverage check (last 10 completions): systems/qa remained above lane-share comfort while vfx/ux combat readability remains comparatively underrepresented.
+- Idea 1 (low-risk UX/VFX): Add optional markdown row `CBGCFXWSBPFXPINF BURST LEGEND` (`B=burst commit`, `Q=quiet hold`) between BURST and ORDER for one-glance decode safety. **Selected.**
+- Idea 2 (mid-risk systems/qa): Add payload-only compact order-check alias for `PINF BURST` chain to simplify downstream parser invariants.
+- Idea 3 (high-risk ai-content/world): Add adaptive narration copy remix that swaps burst/quiet verbs after repeated WATCH drift windows.
+- [x] UX/VFX + Systems/QA Team (Cycle IN selected experiment): Implemented minimal vertical slice by surfacing `CBGCFXWSBPFXPINF BURST LEGEND` in summary/token-coverage rails and extending deterministic adjacency/token-order regression contracts (`PINF -> PINF LEGEND -> PINF BURST -> PINF BURST LEGEND -> PINF ORDER`). *(lifecycle: [ ] -> [~] started: 2026-03-31 10:48 KST -> [x] completed: 2026-03-31 10:56 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle IN)
+- [ ] Systems/QA Team: Add explicit row-length assertion fixture for `CBGCFXWSBPFXPINF BURST LEGEND` to lock DOS-width budget under future metadata expansion.
+- [ ] Combat/VFX Team: Prototype compact `PINF BURST DIGEST` markdown row that mirrors alias + decode in one token-budget-safe line.
+- [ ] AI Content/World Team: Draft fallback microcopy variant pair for BURST legend (`burst commit` vs `quiet hold`) for future localization-safe routing.
+
