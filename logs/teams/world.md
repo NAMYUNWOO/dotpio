@@ -1,5 +1,9 @@
 # World Team Log
 
+## 2026-03-31 22:12 KST
+- Synced with systems helper rollout: forced-lane template generator now emits world/design lane tasks whenever `missingCadenceBuckets` includes `design-or-world` or guardrail enters `over-cap` with world in `forcedNextLanes`.
+- Current snapshot remains `within-cap`; no injected world template required this cycle.
+
 ## 2026-03-31 19:14 KST
 - Task: Closed remaining POST_RC backlog item for bridge decode FX parity markdown row (`CBGCFXWSBPFXPINFBD FX NOTE:<S|E>`) after validating implementation already present in digest pipeline.
 - Files: `POST_RC_BACKLOG.md`, `logs/weekly_portal_prompt_readability_drift.{json,md}`

@@ -1,5 +1,9 @@
 # Combat Team Log
 
+## 2026-03-31 22:12 KST
+- Verified helper mapping includes combat/vfx bucket fallback (`combat-or-vfx`) so underrepresented combat cadence can be re-injected without manual drafting.
+- No active combat injection this snapshot (`within-cap`).
+
 ## 2026-03-31 19:14 KST
 - Task: Closed remaining POST_RC backlog item for bridge decode FX parity markdown row (`CBGCFXWSBPFXPINFBD FX NOTE:<S|E>`) after validating implementation already present in digest pipeline.
 - Files: `POST_RC_BACKLOG.md`, `logs/weekly_portal_prompt_readability_drift.{json,md}`

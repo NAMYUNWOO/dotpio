@@ -1,3 +1,9 @@
+## 2026-03-31 22:12 KST
+- Closed injected POST_RC item: shipped `scripts/draft_forced_lane_backlog_tasks.py` to auto-draft forced-lane backlog tasks from `logs/weekly_lane_coverage_guardrail.json`.
+- New durable artifacts: `logs/forced_lane_task_templates.{json,md}` for direct TASKS/POST_RC copy-in workflow.
+- Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` + helper run command (artifact generation) ✅.
+- Current output reports `within-cap` with no missing cadence buckets, so templates are intentionally empty until guardrail flips.
+
 ## 2026-03-31 16:36 KST
 
 ## 2026-03-31 19:14 KST

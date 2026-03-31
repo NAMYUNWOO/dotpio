@@ -12,7 +12,7 @@
   - Verification: `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`; `python3 -m py_compile scripts/check_lane_coverage_guardrail.py`.
 - [x] Combat/VFX Team: confirm cadence bucket remains satisfied and queue next visible token experiment candidate (`CBGCFXWSBPFXPINF TEASE`) without changing runtime tuning.
 - [x] Design/World Team: queue digest copy follow-up for cadence-bucket explainer row if any bucket flips to missing.
-- [ ] AI Content/Systems Team (injected): prototype backlog auto-injection helper that consumes `missingCadenceBuckets` and drafts forced-lane task templates.
+- [x] AI Content/Systems Team (injected): prototype backlog auto-injection helper that consumes `missingCadenceBuckets` and drafts forced-lane task templates. *(started: 2026-03-31 22:06 KST, completed: 2026-03-31 22:12 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail.json --json-out logs/forced_lane_task_templates.json --md-out logs/forced_lane_task_templates.md`)*
 
 ## Autonomous Cycle 2026-03-31 (Game Director Review - Cycle ILB)
 - Candidate ideas generated:

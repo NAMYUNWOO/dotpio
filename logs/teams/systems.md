@@ -1,5 +1,11 @@
 # Systems Team Log
 
+## 2026-03-31 22:12 KST
+- Task: Shipped forced-lane backlog auto-injection helper (`scripts/draft_forced_lane_backlog_tasks.py`) consuming `missingCadenceBuckets`/`forcedNextLanes` from lane guardrail JSON.
+- Artifacts: `logs/forced_lane_task_templates.json`, `logs/forced_lane_task_templates.md`.
+- Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` ✅; helper generation command ✅.
+- Notes: Current guardrail snapshot is `within-cap`, so generated template set is intentionally empty (`No forced injection templates required`).
+
 ## 2026-03-31 19:14 KST
 - Task: Closed remaining POST_RC backlog item for bridge decode FX parity markdown row (`CBGCFXWSBPFXPINFBD FX NOTE:<S|E>`) after validating implementation already present in digest pipeline.
 - Files: `POST_RC_BACKLOG.md`, `logs/weekly_portal_prompt_readability_drift.{json,md}`
