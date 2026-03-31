@@ -61,6 +61,31 @@ COPY_PACKS = {
 }
 COPY_PACK_ALIAS = {"steady": "ST", "spike": "SP"}
 COMPAT_ROW_POLICY_ALIAS = {"ALWAYS": "A", "SPIKE_ONLY": "S"}
+COMPAT_ROW_POLICY_SOURCE_ALIAS = {"COPY_PACK": "C", "VOLATILITY_MEMORY": "V"}
+
+
+def _collect_volatility_windows(report: dict) -> list[str]:
+    candidates = [
+        report.get("laneVolatilityMemory"),
+        report.get("volatilityMemory"),
+        report.get("volatilityWindows"),
+    ]
+    for candidate in candidates:
+        if isinstance(candidate, dict):
+            for key in ("recentBands", "bands", "windows"):
+                value = candidate.get(key)
+                if isinstance(value, list):
+                    return [str(item).lower() for item in value]
+        if isinstance(candidate, list):
+            return [str(item).lower() for item in candidate]
+    return []
+
+
+def _resolve_compat_row_policy_source(report: dict) -> str:
+    windows = _collect_volatility_windows(report)
+    if len(windows) >= 2 and all(window in {"swing", "spike"} for window in windows[-2:]):
+        return "VOLATILITY_MEMORY"
+    return "COPY_PACK"
 
 
 def _resolve_compat_row_policy(gameplay_copy_pack: str) -> str:
@@ -163,6 +188,12 @@ def to_markdown(
     if include_copy_pack_compat_row:
         lines.append("- COPY PACK COMPAT:STEADY=ST|SPIKE=SP")
         lines.append("- COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE")
+    lines.append(
+        "- CONTRACT CHECKLIST: compatRowPolicyAlias in {A,S} and compatRowPolicySignals.policyAlias mirrors compatRowPolicyAlias"
+    )
+    lines.append(
+        "- CONTRACT CHECKLIST: compatRowPolicySourceAlias in {C,V} and compatRowPolicySignals.policySourceAlias mirrors compatRowPolicySourceAlias"
+    )
     lines.append("")
 
     if not templates:
@@ -236,6 +267,7 @@ def main() -> int:
     )
 
     compat_row_policy = _resolve_compat_row_policy(gameplay_pack)
+    compat_row_policy_source = _resolve_compat_row_policy_source(report)
 
     payload = {
         "status": report.get("status"),
@@ -244,10 +276,14 @@ def main() -> int:
         "gameplayCopyPack": gameplay_pack,
         "gameplayCopyPackAlias": COPY_PACK_ALIAS[gameplay_pack],
         "compatRowPolicy": compat_row_policy,
+        "compatRowPolicySource": compat_row_policy_source,
+        "compatRowPolicySourceAlias": COMPAT_ROW_POLICY_SOURCE_ALIAS[compat_row_policy_source],
         "compatRowPolicyAlias": COMPAT_ROW_POLICY_ALIAS[compat_row_policy],
         "compatRowPolicySignals": {
             "volatilityBand": "spike" if gameplay_pack == "spike" else "steady",
             "source": "gameplayCopyPack",
+            "policySource": compat_row_policy_source,
+            "policySourceAlias": COMPAT_ROW_POLICY_SOURCE_ALIAS[compat_row_policy_source],
             "reason": "spike-pack-recommends-gated-onboarding"
             if compat_row_policy == "SPIKE_ONLY"
             else "steady-pack-recommends-always-onboarding",

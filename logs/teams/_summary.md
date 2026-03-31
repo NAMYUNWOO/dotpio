@@ -4528,3 +4528,7 @@ Compact decision memory for AI context efficiency.
 - Game Director Cycle ILF executed immediately after queue-clear: generated 3 ideas, selected low-risk UX/Systems experiment, and implemented minimal vertical slice (`compatRowPolicyAlias:A|S`, payload-only).
 - Durable decision: keep onboarding-policy decode alias payload-first (no markdown row yet) to preserve compact default output and avoid ordering churn until QA contract follow-up lands.
 - Backlog injections added: Systems/QA alias schema-contract checklist row coverage; AI Content/Systems volatility-memory policy-source prototype (`COPY_PACK|VOLATILITY_MEMORY`).
+
+- 2026-04-01 01:49 KST — Cycle ILF backlog fully closed: completed Systems/QA contract-checklist coverage and AI Content/Systems volatility-memory policy-source prototype for forced-lane generator (`compatRowPolicySource`, `compatRowPolicySignals.policySource`). Durable decision: keep recommendation offline-only with safe fallback to `COPY_PACK` unless multi-window volatility memory is available. Verification: py_compile + `scripts/regression_draft_forced_lane_backlog_tasks.py` + fixture regeneration.
+
+- 2026-04-01 01:56 KST — Game Director Cycle ILG executed after ILF queue-clear completion: added compact policy-source alias (`compatRowPolicySourceAlias:C|V`) + mirrored signal for forced-lane payloads; kept volatility-memory policy source offline-only and deterministic. New backlog injections left open: policy-source alias parity coverage + source-confidence tier prototype.

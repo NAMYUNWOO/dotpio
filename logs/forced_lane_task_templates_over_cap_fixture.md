@@ -5,6 +5,8 @@
 - gameplay copy pack: **spike**
 - COPY PACK COMPAT:STEADY=ST|SPIKE=SP
 - COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE
+- CONTRACT CHECKLIST: compatRowPolicyAlias in {A,S} and compatRowPolicySignals.policyAlias mirrors compatRowPolicyAlias
+- CONTRACT CHECKLIST: compatRowPolicySourceAlias in {C,V} and compatRowPolicySignals.policySourceAlias mirrors compatRowPolicySourceAlias
 
 - [ ] World/Combat Team: Inject one underrepresented-lane gameplay experiment template for `combat` when guardrail status is `over-cap`.
   - Copy pack: spike

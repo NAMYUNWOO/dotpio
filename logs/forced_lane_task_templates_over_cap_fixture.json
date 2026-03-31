@@ -9,10 +9,14 @@
   "gameplayCopyPack": "spike",
   "gameplayCopyPackAlias": "SP",
   "compatRowPolicy": "SPIKE_ONLY",
+  "compatRowPolicySource": "COPY_PACK",
+  "compatRowPolicySourceAlias": "C",
   "compatRowPolicyAlias": "S",
   "compatRowPolicySignals": {
     "volatilityBand": "spike",
     "source": "gameplayCopyPack",
+    "policySource": "COPY_PACK",
+    "policySourceAlias": "C",
     "reason": "spike-pack-recommends-gated-onboarding",
     "policyAlias": "S"
   },

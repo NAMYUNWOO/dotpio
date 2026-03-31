@@ -37,11 +37,15 @@ def assert_schema(payload: dict) -> None:
     assert payload["gameplayCopyPack"] in {"steady", "spike"}
     assert payload["gameplayCopyPackAlias"] in {"ST", "SP"}
     assert payload["compatRowPolicy"] in {"ALWAYS", "SPIKE_ONLY"}
+    assert payload["compatRowPolicySource"] in {"COPY_PACK", "VOLATILITY_MEMORY"}
+    assert payload["compatRowPolicySourceAlias"] in {"C", "V"}
     assert payload["compatRowPolicyAlias"] in {"A", "S"}
 
     signals = payload.get("compatRowPolicySignals", {})
     assert signals.get("volatilityBand") in {"steady", "spike"}
     assert signals.get("source") == "gameplayCopyPack"
+    assert signals.get("policySource") in {"COPY_PACK", "VOLATILITY_MEMORY"}
+    assert signals.get("policySourceAlias") in {"C", "V"}
     assert signals.get("policyAlias") in {"A", "S"}
     assert signals.get("reason") in {
         "steady-pack-recommends-always-onboarding",
@@ -60,6 +64,9 @@ def assert_schema(payload: dict) -> None:
         assert signals.get("volatilityBand") == "steady"
         assert signals.get("policyAlias") == "A"
         assert signals.get("reason") == "steady-pack-recommends-always-onboarding"
+
+    assert signals.get("policySource") == payload["compatRowPolicySource"]
+    assert signals.get("policySourceAlias") == payload["compatRowPolicySourceAlias"]
 
     templates = payload.get("templates", [])
     assert templates, "expected at least one forced-lane template"
@@ -105,6 +112,12 @@ def main() -> int:
         compat_lines = compat_text.splitlines()
         compat_row = "- COPY PACK COMPAT:STEADY=ST|SPIKE=SP"
         compat_legend_row = "- COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE"
+        contract_row = (
+            "- CONTRACT CHECKLIST: compatRowPolicyAlias in {A,S} and compatRowPolicySignals.policyAlias mirrors compatRowPolicyAlias"
+        )
+        source_contract_row = (
+            "- CONTRACT CHECKLIST: compatRowPolicySourceAlias in {C,V} and compatRowPolicySignals.policySourceAlias mirrors compatRowPolicySourceAlias"
+        )
 
         assert "COPY PACK COMPAT:STEADY=ST|SPIKE=SP" in compat_text, (
             "expected compatibility row when compat flag enabled"
@@ -118,10 +131,20 @@ def main() -> int:
         assert compat_lines.count(compat_legend_row) == 1, (
             "compatibility legend row must appear exactly once when compat flag enabled"
         )
+        assert compat_lines.count(contract_row) == 1, "contract checklist row must appear exactly once"
+        assert compat_lines.count(source_contract_row) == 1, (
+            "policy-source contract checklist row must appear exactly once"
+        )
         compat_index = compat_lines.index(compat_row)
         legend_index = compat_lines.index(compat_legend_row)
         assert legend_index == compat_index + 1, (
             "compatibility legend row must immediately follow compatibility row"
+        )
+        assert contract_row in first_md.read_text(encoding="utf-8"), (
+            "contract checklist row should be present in baseline markdown output"
+        )
+        assert source_contract_row in first_md.read_text(encoding="utf-8"), (
+            "policy-source contract checklist row should be present in baseline markdown output"
         )
         assert "COPY PACK COMPAT:STEADY=ST|SPIKE=SP" not in first_md.read_text(encoding="utf-8"), (
             "compatibility row must stay gated behind flag"

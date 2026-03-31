@@ -1,5 +1,14 @@
 # POST_RC_BACKLOG
 
+## Game Director Injection — 2026-04-01 Cycle ILG
+- Candidate ideas:
+  - Low-risk UX/game-feel (UX/Systems): add compact policy-source alias token (`compatRowPolicySourceAlias:C|V`) for one-glance decode of COPY_PACK vs VOLATILITY_MEMORY recommendations.
+  - Mid-risk Systems/QA: add markdown contract checklist note enforcing alias/domain parity for policy-source fields in fixture docs.
+  - High-risk novelty (AI Content/Systems): prototype volatility-memory confidence tier (`compatRowPolicySourceConfidence:LOW|MID|HIGH`) from multi-window consistency.
+- [x] UX/Systems Team: Add payload-only compact policy-source alias token (`compatRowPolicySourceAlias:C|V`) with deterministic signal mirror (`compatRowPolicySignals.policySourceAlias`). *(lifecycle: [ ] -> [~] started: 2026-04-01 01:52 KST -> [x] completed: 2026-04-01 01:56 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md --include-copy-pack-compat-row`)*
+- [ ] Systems/QA Team (injected): Add regression assertions + fixture checklist coverage for `compatRowPolicySourceAlias` and `compatRowPolicySignals.policySourceAlias`.
+- [ ] AI Content/Systems Team (injected): Prototype offline volatility-memory source-confidence tier (`compatRowPolicySourceConfidence:LOW|MID|HIGH`) without runtime coupling.
+
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle ILF)
 - Candidate ideas generated:
   - Low-risk UX/game-feel (UX/Systems): add compact policy alias token (`compatRowPolicyAlias:A|S`) so onboarding recommendation mode is one-glance readable in payload scans.
@@ -7,8 +16,8 @@
   - High-risk novelty (AI Content/Systems): adaptive policy recommendation from multi-window lane-volatility memory instead of copy-pack proxy.
 - Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
 - [x] UX/Systems Team: Add payload-only compact policy alias token (`compatRowPolicyAlias:A|S`) with deterministic signal mirror (`compatRowPolicySignals.policyAlias`) for onboarding recommendation scanability. *(lifecycle: [ ] -> [~] started: 2026-04-01 01:16 KST -> [x] completed: 2026-04-01 01:18 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md --include-copy-pack-compat-row`)*
-- [ ] Systems/QA Team (injected): Add explicit schema/domain regression note row coverage for `compatRowPolicyAlias` + `compatRowPolicySignals.policyAlias` in fixture docs/contract checklist.
-- [ ] AI Content/Systems Team (injected): Prototype multi-window volatility-memory policy recommendation (`compatRowPolicySource:COPY_PACK|VOLATILITY_MEMORY`) as offline-only signal.
+- [x] Systems/QA Team (injected): Add explicit schema/domain regression note row coverage for `compatRowPolicyAlias` + `compatRowPolicySignals.policyAlias` in fixture docs/contract checklist. *(lifecycle: [ ] -> [~] started: 2026-04-01 01:41 KST -> [x] completed: 2026-04-01 01:46 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md --include-copy-pack-compat-row`)*
+- [x] AI Content/Systems Team (injected): Prototype multi-window volatility-memory policy recommendation (`compatRowPolicySource:COPY_PACK|VOLATILITY_MEMORY`) as offline-only signal. *(lifecycle: [ ] -> [~] started: 2026-04-01 01:46 KST -> [x] completed: 2026-04-01 01:49 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md --include-copy-pack-compat-row`)*
 
 ## Autonomous Cycle 2026-03-31 (Game Director Review - Cycle ILE)
 - Candidate ideas generated:

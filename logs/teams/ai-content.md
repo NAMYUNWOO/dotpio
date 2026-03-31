@@ -3080,3 +3080,7 @@
 - Game Director Cycle ILF selected low-risk UX/Systems slice and shipped payload-only `compatRowPolicyAlias:A|S` plus mirrored signal `compatRowPolicySignals.policyAlias`.
 - Injected follow-ups: (1) Systems/QA schema-contract coverage for alias fields, (2) AI Content/Systems multi-window volatility-memory policy-source prototype.
 - Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` ✅; `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` ✅; over-cap fixture regeneration with compat flag ✅.
+
+- 2026-04-01 01:49 KST — Cycle ILF follow-up closed: added forced-lane contract checklist row for `compatRowPolicyAlias`/`compatRowPolicySignals.policyAlias` and prototyped offline policy-source signal `compatRowPolicySource:COPY_PACK|VOLATILITY_MEMORY` (+ `compatRowPolicySignals.policySource`) in `draft_forced_lane_backlog_tasks.py`; regenerated over-cap fixtures and passed forced-lane regression + py_compile.
+
+- 2026-04-01 01:56 KST — Game Director Cycle ILG selected low-risk UX/Systems slice and shipped payload alias `compatRowPolicySourceAlias:C|V` with mirrored signal `compatRowPolicySignals.policySourceAlias`; regression + fixture regeneration passed. Injected follow-ups queued: (1) Systems/QA alias parity checklist/regression hardening, (2) AI Content/Systems offline source-confidence tier prototype.
