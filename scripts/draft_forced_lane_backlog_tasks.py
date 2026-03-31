@@ -62,7 +62,7 @@ COPY_PACKS = {
 COPY_PACK_ALIAS = {"steady": "ST", "spike": "SP"}
 COMPAT_ROW_POLICY_ALIAS = {"ALWAYS": "A", "SPIKE_ONLY": "S"}
 COMPAT_ROW_POLICY_SOURCE_ALIAS = {"COPY_PACK": "C", "VOLATILITY_MEMORY": "V"}
-
+COMPAT_ROW_POLICY_SOURCE_CONFIDENCE_ALIAS = {"LOW": "L", "MID": "M", "HIGH": "H"}
 
 def _collect_volatility_windows(report: dict) -> list[str]:
     candidates = [
@@ -86,6 +86,19 @@ def _resolve_compat_row_policy_source(report: dict) -> str:
     if len(windows) >= 2 and all(window in {"swing", "spike"} for window in windows[-2:]):
         return "VOLATILITY_MEMORY"
     return "COPY_PACK"
+
+
+def _resolve_compat_row_policy_source_confidence(report: dict) -> str:
+    windows = _collect_volatility_windows(report)
+    if len(windows) >= 3:
+        recent = windows[-3:]
+        if all(window in {"swing", "spike"} for window in recent):
+            if recent.count("spike") >= 2:
+                return "HIGH"
+            return "MID"
+    if len(windows) >= 2 and all(window in {"swing", "spike"} for window in windows[-2:]):
+        return "MID"
+    return "LOW"
 
 
 def _resolve_compat_row_policy(gameplay_copy_pack: str) -> str:
@@ -194,6 +207,12 @@ def to_markdown(
     lines.append(
         "- CONTRACT CHECKLIST: compatRowPolicySourceAlias in {C,V} and compatRowPolicySignals.policySourceAlias mirrors compatRowPolicySourceAlias"
     )
+    lines.append(
+        "- CONTRACT CHECKLIST: compatRowPolicySourceConfidence in {LOW,MID,HIGH} and compatRowPolicySignals.policySourceConfidence mirrors compatRowPolicySourceConfidence"
+    )
+    lines.append(
+        "- CONTRACT CHECKLIST: compatRowPolicySourceConfidenceAlias in {L,M,H} and compatRowPolicySignals.policySourceConfidenceAlias mirrors compatRowPolicySourceConfidenceAlias"
+    )
     lines.append("")
 
     if not templates:
@@ -268,6 +287,7 @@ def main() -> int:
 
     compat_row_policy = _resolve_compat_row_policy(gameplay_pack)
     compat_row_policy_source = _resolve_compat_row_policy_source(report)
+    compat_row_policy_source_confidence = _resolve_compat_row_policy_source_confidence(report)
 
     payload = {
         "status": report.get("status"),
@@ -278,12 +298,20 @@ def main() -> int:
         "compatRowPolicy": compat_row_policy,
         "compatRowPolicySource": compat_row_policy_source,
         "compatRowPolicySourceAlias": COMPAT_ROW_POLICY_SOURCE_ALIAS[compat_row_policy_source],
+        "compatRowPolicySourceConfidence": compat_row_policy_source_confidence,
+        "compatRowPolicySourceConfidenceAlias": COMPAT_ROW_POLICY_SOURCE_CONFIDENCE_ALIAS[
+            compat_row_policy_source_confidence
+        ],
         "compatRowPolicyAlias": COMPAT_ROW_POLICY_ALIAS[compat_row_policy],
         "compatRowPolicySignals": {
             "volatilityBand": "spike" if gameplay_pack == "spike" else "steady",
             "source": "gameplayCopyPack",
             "policySource": compat_row_policy_source,
             "policySourceAlias": COMPAT_ROW_POLICY_SOURCE_ALIAS[compat_row_policy_source],
+            "policySourceConfidence": compat_row_policy_source_confidence,
+            "policySourceConfidenceAlias": COMPAT_ROW_POLICY_SOURCE_CONFIDENCE_ALIAS[
+                compat_row_policy_source_confidence
+            ],
             "reason": "spike-pack-recommends-gated-onboarding"
             if compat_row_policy == "SPIKE_ONLY"
             else "steady-pack-recommends-always-onboarding",

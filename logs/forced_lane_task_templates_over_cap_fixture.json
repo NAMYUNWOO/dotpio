@@ -11,12 +11,16 @@
   "compatRowPolicy": "SPIKE_ONLY",
   "compatRowPolicySource": "COPY_PACK",
   "compatRowPolicySourceAlias": "C",
+  "compatRowPolicySourceConfidence": "LOW",
+  "compatRowPolicySourceConfidenceAlias": "L",
   "compatRowPolicyAlias": "S",
   "compatRowPolicySignals": {
     "volatilityBand": "spike",
     "source": "gameplayCopyPack",
     "policySource": "COPY_PACK",
     "policySourceAlias": "C",
+    "policySourceConfidence": "LOW",
+    "policySourceConfidenceAlias": "L",
     "reason": "spike-pack-recommends-gated-onboarding",
     "policyAlias": "S"
   },

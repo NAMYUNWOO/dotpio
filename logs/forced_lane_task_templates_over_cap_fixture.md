@@ -7,6 +7,8 @@
 - COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE
 - CONTRACT CHECKLIST: compatRowPolicyAlias in {A,S} and compatRowPolicySignals.policyAlias mirrors compatRowPolicyAlias
 - CONTRACT CHECKLIST: compatRowPolicySourceAlias in {C,V} and compatRowPolicySignals.policySourceAlias mirrors compatRowPolicySourceAlias
+- CONTRACT CHECKLIST: compatRowPolicySourceConfidence in {LOW,MID,HIGH} and compatRowPolicySignals.policySourceConfidence mirrors compatRowPolicySourceConfidence
+- CONTRACT CHECKLIST: compatRowPolicySourceConfidenceAlias in {L,M,H} and compatRowPolicySignals.policySourceConfidenceAlias mirrors compatRowPolicySourceConfidenceAlias
 
 - [ ] World/Combat Team: Inject one underrepresented-lane gameplay experiment template for `combat` when guardrail status is `over-cap`.
   - Copy pack: spike
