@@ -2840,10 +2840,22 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
 
     bridge_alias = str(intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_threat_order_bridge_signals.get("bridgeAlias", "FB") or "FB").strip().upper()
-    decode_copy_pair = {
+
+    alt_copy_map_flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_FX_CUE_INTENSITY_PULSE_LANGUAGE_VARIANT_PACK_PHASE_INTENT_NARRATION_COMPACT_ALIAS_COMBAT_VFX_FX_CUE_BURST_THREAT_ORDER_BRIDGE_DECODE_TOOLTIP_ALT_COPY_MAP"
+    alt_copy_map_flag_value = os.environ.get(alt_copy_map_flag_name, "")
+    alt_copy_map_flag_enabled = alt_copy_map_flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    default_decode_copy_pair = {
         "LB": "legend bridge lock",
         "FB": "fallback bridge hold",
     }
+    compact_alt_decode_copy_pair = {
+        "LB": "LB lock",
+        "FB": "FB hold",
+    }
+    decode_copy_pair = compact_alt_decode_copy_pair if alt_copy_map_flag_enabled else default_decode_copy_pair
+    decode_copy_variant = "compact-alt-ab" if alt_copy_map_flag_enabled else "default-v1"
+
     decode = decode_copy_pair["LB"] if bridge_alias == "LB" else decode_copy_pair["FB"]
     token = f"CBGCFXWSBPFXPINFBD:{bridge_alias}={decode.upper().replace(' ', '_')}"
 
@@ -2854,6 +2866,13 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         "decode": decode,
         "token": token,
         "decodeCopyPair": decode_copy_pair,
+        "decodeCopyPairVariants": {
+            "default-v1": default_decode_copy_pair,
+            "compact-alt-ab": compact_alt_decode_copy_pair,
+        },
+        "decodeCopyVariant": decode_copy_variant,
+        "altCopyMapFlagName": alt_copy_map_flag_name,
+        "altCopyMapFlagEnabled": alt_copy_map_flag_enabled,
         "localizationSafeRoute": "fallback-v1",
         "adjacencyInvariant": "THREAT ORDER BRIDGE(payload)->THREAT ORDER BRIDGE DECODE COPY(payload)",
         "offlineOnly": True,
@@ -2970,7 +2989,12 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     flag_enabled = flag_value.strip().lower() in {"1", "true", "yes", "on"}
 
     bridge_decode_enabled = bool(intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_threat_order_bridge_decode_copy_signals.get("flagEnabled"))
-    tooltip_row = "- CBGCFXWSBPFXPINFBD TOOLTIP: LB=legend bridge lock,FB=fallback bridge hold"
+    decode_copy_pair_raw = intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_threat_order_bridge_decode_copy_signals.get("decodeCopyPair")
+    decode_copy_pair = decode_copy_pair_raw if isinstance(decode_copy_pair_raw, dict) else {
+        "LB": "legend bridge lock",
+        "FB": "fallback bridge hold",
+    }
+    tooltip_row = f"- CBGCFXWSBPFXPINFBD TOOLTIP: LB={decode_copy_pair.get('LB', 'legend bridge lock')},FB={decode_copy_pair.get('FB', 'fallback bridge hold')}"
     row_flag_off = "- CBGCFXWSBPFXPINFBD TOOLTIP: FLAG OFF"
     dos_readability_row_budget_threshold = 88
     dos_row_budget_within_threshold = len(tooltip_row) <= dos_readability_row_budget_threshold
@@ -2981,6 +3005,7 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
         "flagName": flag_name,
         "flagEnabled": flag_enabled,
         "bridgeDecodeEnabled": bridge_decode_enabled,
+        "decodeCopyVariant": intensity_pulse_language_variant_pack_phase_intent_narration_compact_alias_combat_vfx_fx_cue_burst_threat_order_bridge_decode_copy_signals.get("decodeCopyVariant", "default-v1"),
         "row": tooltip_row,
         "rowFlagOff": row_flag_off,
         "dosReadabilityRowBudgetThreshold": dos_readability_row_budget_threshold,

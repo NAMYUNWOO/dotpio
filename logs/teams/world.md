@@ -2905,3 +2905,8 @@
 - Delivered `CBGCFXWSBPFXPINFBD TOOLTIP` optional row integration and/or validation hooks for bridge decode readability (`LB=legend bridge lock`, `FB=fallback bridge hold`) before ORDER.
 - Verified with: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
 - 2026-03-31 17:36 KST — No world-state changes this cycle; queued localization-safe tooltip microcopy variant task remains open.
+
+## 2026-03-31 18:15 KST — Cycle KF alt tooltip microcopy map
+- Completed Design/World task: added feature-gated bridge decode tooltip copy variants (`default-v1` vs `compact-alt-ab`) via `..._DECODE_TOOLTIP_ALT_COPY_MAP`.
+- `CBGCFXWSBPFXPINFBD TOOLTIP` now renders from payload `decodeCopyPair` to keep markdown/payload parity deterministic.
+- Verification: py_compile PASS, weekly digest smoke PASS, targeted flag-on assertion (`LB=LB lock,FB=FB hold`) PASS.

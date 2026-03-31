@@ -4414,3 +4414,9 @@ Compact decision memory for AI context efficiency.
 - Locked DOS-width policy for this row at `<=88` and added contract coverage for cardinality/order (`0|2`, summary + token-coverage).
 - Follow-up backlog intentionally left open for payload-tooltip alias parity assertion and alternate localization copy variants.
 - 2026-03-31 17:36 KST — Systems/QA completed TASKS parity follow-up: regression now parses `CBGCFXWSBPFXPINFBD TOOLTIP` alias pairs and enforces exact parity with payload `decodeCopyPair` (`LB|FB`) in both digest sections; prevents silent markdown/payload drift before upcoming alt-copy and FX-note rollouts.
+
+## 2026-03-31 18:15 KST — Durable decision (Cycle KF)
+- Closed TASKS/POST-RC item for compact bridge decode tooltip microcopy A/B mapping.
+- Added `..._DECODE_TOOLTIP_ALT_COPY_MAP` flag: payload `decodeCopyPair` now supports `default-v1` (`legend bridge lock`/`fallback bridge hold`) and `compact-alt-ab` (`LB lock`/`FB hold`).
+- Tooltip row now derives from payload decode map instead of hardcoded markdown copy, preserving localization-safe parity contracts for future A/B rollout.
+- Verification used this cycle: py_compile + weekly digest smoke + targeted flag-on/off resolver assertions.

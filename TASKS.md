@@ -2058,5 +2058,5 @@ See project-level plans:
 
 ## Next Up (Game Director Injection — Cycle KE)
 - [x] Systems/QA Team: Add payload-vs-markdown parity assertion ensuring `CBGCFXWSBPFXPINFBD` alias (`LB|FB`) matches tooltip row left-hand alias in both sections. *(in-progress: 2026-03-31 17:32 KST, completed: 2026-03-31 17:36 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
-- [ ] Design/World Team: Draft compact alt tooltip microcopy variant map (`LB lock`/`FB hold`) behind feature flag for localization A/B tests.
+- [x] Design/World Team: Draft compact alt tooltip microcopy variant map (`LB lock`/`FB hold`) behind feature flag for localization A/B tests. *(done: 2026-03-31 18:15 KST — `..._DECODE_TOOLTIP_ALT_COPY_MAP` now toggles `default-v1` ↔ `compact-alt-ab` map and feeds tooltip row rendering/signals.)*
 - [ ] Combat/VFX Team: Prototype optional `CBGCFXWSBPFXPINFBD FX NOTE:<S|E>` parity row sourced from bridge decode states with <=88 DOS-width guard.
