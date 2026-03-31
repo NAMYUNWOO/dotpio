@@ -7,6 +7,8 @@
 - trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 - trend-score band snapshot alias: **TSSB:C0E0H0**
 - trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**
+- trend-score dispatch hint (offline): **BALANCED**
+- trend-score dispatch hint alias: **TSDH:B**
 
 | lane | count | percent |
 |---|---:|---:|

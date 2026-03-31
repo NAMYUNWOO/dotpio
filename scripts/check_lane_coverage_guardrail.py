@@ -81,6 +81,37 @@ def collect_trend_score_band_snapshot(rows: list[str]) -> dict[str, int]:
     return band_counts
 
 
+def resolve_trend_score_band_dispatch_hint(score_band_snapshot: dict[str, int]) -> str:
+    ordered = sorted(
+        score_band_snapshot.items(),
+        key=lambda item: (-item[1], item[0]),
+    )
+    if not ordered or ordered[0][1] <= 0:
+        return "BALANCED"
+
+    top_count = ordered[0][1]
+    tied = [band for band, count in ordered if count == top_count]
+    if len(tied) > 1:
+        return "BALANCED"
+
+    band_to_hint = {
+        "CALM": "CALM_FOCUS",
+        "EDGE": "EDGE_FOCUS",
+        "HEATED": "HEATED_FOCUS",
+    }
+    return band_to_hint.get(tied[0], "BALANCED")
+
+
+def resolve_trend_score_band_dispatch_hint_alias(dispatch_hint: str) -> str:
+    alias_map = {
+        "CALM_FOCUS": "C",
+        "EDGE_FOCUS": "E",
+        "HEATED_FOCUS": "H",
+        "BALANCED": "B",
+    }
+    return alias_map.get(dispatch_hint, "B")
+
+
 def build_report(rows: list[str], cap_ratio: float) -> dict:
     lane_counts = Counter()
     for row in rows:
@@ -92,6 +123,10 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         f"C{score_band_snapshot['CALM']}"
         f"E{score_band_snapshot['EDGE']}"
         f"H{score_band_snapshot['HEATED']}"
+    )
+    score_band_dispatch_hint = resolve_trend_score_band_dispatch_hint(score_band_snapshot)
+    score_band_dispatch_hint_alias = resolve_trend_score_band_dispatch_hint_alias(
+        score_band_dispatch_hint
     )
 
     total = len(rows)
@@ -135,6 +170,8 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "missingCadenceBuckets": missing_buckets,
         "trendScoreBandSnapshot": score_band_snapshot,
         "trendScoreBandSnapshotAlias": score_band_alias,
+        "trendScoreBandDispatchHint": score_band_dispatch_hint,
+        "trendScoreBandDispatchHintAlias": score_band_dispatch_hint_alias,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -177,6 +214,8 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",
             "- trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**",
+            f"- trend-score dispatch hint (offline): **{report.get('trendScoreBandDispatchHint', 'BALANCED')}**",
+            f"- trend-score dispatch hint alias: **TSDH:{report.get('trendScoreBandDispatchHintAlias', 'B')}**",
             "",
             *rows,
             *bucket_rows,

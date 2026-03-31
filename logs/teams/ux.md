@@ -3287,3 +3287,12 @@
 
 ## 2026-04-01 06:21 KST
 - Shipped UX readability microcopy row for lane guardrail: `TSSB legend (C=calm, E=edge, H=heated)` placed under trend-score alias line.
+
+- 2026-04-01 06:49 KST — Closed injected AI Content/Systems POST_RC item: added offline `trendScoreBandDispatchHint` derivation to lane guardrail output (`CALM_FOCUS|EDGE_FOCUS|HEATED_FOCUS|BALANCED`) from dominant `trendScoreBandSnapshot` bucket with tie/zero fallback to `BALANCED`.
+- Guardrail markdown now surfaces `trend-score dispatch hint (offline)` immediately after TSSB alias decode row; payload remains runtime-decoupled/offline-only for dispatch triage.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+
+- 2026-04-01 06:50 KST — Executed Game Director Cycle ILL after full-check closure and shipped selected low-risk UX/Systems slice: compact dispatch-hint alias `trendScoreBandDispatchHintAlias:C|E|H|B` with markdown parity row `TSDH:<alias>`.
+- Lane guardrail payload now includes both `trendScoreBandDispatchHint` and `trendScoreBandDispatchHintAlias`; alias mapping is deterministic (`CALM_FOCUS->C`, `EDGE_FOCUS->E`, `HEATED_FOCUS->H`, `BALANCED->B`).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

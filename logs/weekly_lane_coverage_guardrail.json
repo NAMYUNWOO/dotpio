@@ -66,5 +66,7 @@
     "HEATED": 0
   },
   "trendScoreBandSnapshotAlias": "C0E0H0",
+  "trendScoreBandDispatchHint": "BALANCED",
+  "trendScoreBandDispatchHintAlias": "B",
   "status": "within-cap"
 }

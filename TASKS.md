@@ -2,6 +2,14 @@
 
 Last updated: 2026-03-31 05:02 KST
 
+## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle ILL)
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (UX/Systems): add compact dispatch-hint alias token (`trendScoreBandDispatchHintAlias:C|E|H|B`) for one-glance decode of guardrail recommendation state.
+  - Mid-risk Systems/QA: extend regression fixture matrix to lock single-dominant bucket mapping (`CALM/EDGE/HEATED`) for `trendScoreBandDispatchHint`.
+  - High-risk novelty (AI Content/Systems): prototype offline dispatch-pressure note (`trendScoreBandDispatchPressure:LIGHT|READY|HOT`) from lane cadence + score-band mix.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] UX/Systems Team: Add payload-level compact dispatch-hint alias token (`trendScoreBandDispatchHintAlias:C|E|H|B`) plus markdown surface `TSDH:<alias>`. *(lifecycle: [ ] -> [~] started: 2026-04-01 06:50 KST -> [x] completed: 2026-04-01 06:50 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
 ## Game Director Injection — 2026-04-01 Cycle ILG
 - Candidate ideas:
   - Low-risk UX/game-feel (UX/Systems): add compact policy-source alias token (`compatRowPolicySourceAlias:C|V`) for one-glance decode of COPY_PACK vs VOLATILITY_MEMORY recommendations.

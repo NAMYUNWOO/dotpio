@@ -4573,3 +4573,10 @@ Compact decision memory for AI context efficiency.
 - Guardrail alias stability is now enforced by dedicated regression (`scripts/regression_check_lane_coverage_guardrail.py`): `trendScoreBandSnapshotAlias` must always be derived from snapshot counts using canonical `C{CALM}E{EDGE}H{HEATED}` mapping.
 - Decision: keep this lock payload-level and markdown-visible (`TSSB:<alias>`) so downstream dispatch tooling can trust both JSON and report surfaces.
 - Priority queue now advances to remaining ILK injections: UX/Design `TSSB` decode microcopy row, then AI Content/Systems `trendScoreBandDispatchHint` prototype.
+
+## 2026-04-01 06:50 KST
+- Closed injected AI Content/Systems POST_RC item and immediately executed Game Director Cycle ILL (ideas generated: compact dispatch-hint alias, dominant-bucket regression matrix, offline dispatch-pressure note).
+- Selected low-risk UX/Systems slice and shipped `trendScoreBandDispatchHintAlias` (`C|E|H|B`) with markdown parity row `TSDH:<alias>` in lane guardrail outputs.
+- Regression contract extended to assert dispatch-hint alias mapping (`BALANCED -> B`) and markdown alias surfacing.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2 (next: Systems/QA dominant-bucket regression matrix).
