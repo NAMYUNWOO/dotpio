@@ -72,6 +72,9 @@ def main() -> int:
 
         md_text = md_out.read_text(encoding="utf-8")
         assert f"TSSB:{alias}" in md_text, "markdown output must render canonical TSSB alias"
+        assert "TSSB legend (C=calm, E=edge, H=heated)" in md_text, (
+            "markdown output must include compact TSSB decode microcopy row"
+        )
 
     print("ok: trendScoreBandSnapshotAlias regression checks passed")
     return 0

@@ -4929,3 +4929,6 @@
 - Added deterministic regression assertions for lane-guardrail trend-score alias canonicalization (`C{CALM}E{EDGE}H{HEATED}`).
 - Coverage now fails fast if JSON alias drifts from snapshot counts or markdown omits `TSSB:` rendering.
 - Verification command chain passed (py_compile + new regression script + guardrail artifact regeneration).
+
+## 2026-04-01 06:21 KST
+- Extended regression contract to require TSSB decode microcopy row in markdown output (`scripts/regression_check_lane_coverage_guardrail.py`).

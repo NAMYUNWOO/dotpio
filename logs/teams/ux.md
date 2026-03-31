@@ -3284,3 +3284,6 @@
 - UX lane unchanged in code; markdown guardrail now includes one-line `CALM/EDGE/HEATED` snapshot for faster operator scanability.
 - 2026-04-01 05:19 KST — Cycle ILJ backlog reconciliation: marked remaining POST_RC_BACKLOG checkboxes complete after re-running forced-lane draft/regression verification; no runtime code-path changes, backlog/docs now match shipped trend-score band + decode-row deliverables.
 - 2026-04-01 05:22 KST — Cycle ILK: lane guardrail now emits compact trend-score snapshot alias TSSB:C<n>E<n>H<n> (trendScoreBandSnapshotAlias) from CALM/EDGE/HEATED counts for one-glance dispatch decode; verified via guardrail regeneration and py_compile.
+
+## 2026-04-01 06:21 KST
+- Shipped UX readability microcopy row for lane guardrail: `TSSB legend (C=calm, E=edge, H=heated)` placed under trend-score alias line.

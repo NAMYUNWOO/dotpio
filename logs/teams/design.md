@@ -3104,3 +3104,6 @@
 - No design copy mutation this cycle; consumed new score-band snapshot line as compact planning signal in markdown guardrail output.
 - 2026-04-01 05:19 KST — Cycle ILJ backlog reconciliation: marked remaining POST_RC_BACKLOG checkboxes complete after re-running forced-lane draft/regression verification; no runtime code-path changes, backlog/docs now match shipped trend-score band + decode-row deliverables.
 - 2026-04-01 05:22 KST — Cycle ILK: lane guardrail now emits compact trend-score snapshot alias TSSB:C<n>E<n>H<n> (trendScoreBandSnapshotAlias) from CALM/EDGE/HEATED counts for one-glance dispatch decode; verified via guardrail regeneration and py_compile.
+
+## 2026-04-01 06:21 KST
+- Completed UX/Design injected task: added compact TSSB decode microcopy line in lane guardrail markdown docs (`C=calm, E=edge, H=heated`).

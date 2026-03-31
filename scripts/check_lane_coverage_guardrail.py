@@ -176,6 +176,7 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             f"- cadence buckets missing: **{missing_buckets}**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",
+            "- trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**",
             "",
             *rows,
             *bucket_rows,
