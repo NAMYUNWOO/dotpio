@@ -4548,3 +4548,10 @@ Compact decision memory for AI context efficiency.
 - Backlog injected for cadence continuity: (1) Combat/VFX trend-score band alias, (2) Design/World decode copy row, (3) Systems/Ops score-band distribution snapshot in guardrail markdown.
 - Queue status: ACTION_ITEMS unchecked=0; TASKS unchecked=3; POST_RC_BACKLOG unchecked=3.
 - 2026-04-01 03:50 KST — Cycle ILJ follow-up completed: shipped deterministic trend-score band mapping for forced-lane payload compatibility rows (`compatRowPolicySourceConfidenceTrendScoreBand:CALM|EDGE|HEATED`, alias `compatRowPolicySourceConfidenceTrendScoreBandAlias:C|E|H`) with mirrored signal parity fields and markdown contract checklist coverage. Verification passed (`python3 -m py_compile ...`, fixture regen, `python3 scripts/regression_draft_forced_lane_backlog_tasks.py`). Remaining ILJ queue: Design/World decode copy row + Systems/Ops score-band distribution summary.
+
+## 2026-04-01 04:22 KST
+- Closed highest-priority unchecked TASKS item (Design/World): optional compact decode row added for trend-score bands in forced-lane markdown draft output.
+- Durable decision: keep decode row behind existing compat flag (`--include-copy-pack-compat-row`) to preserve payload/schema stability and allow staged markdown rollout.
+- QA contract expanded to enforce decode-row cardinality + adjacency (`COMPAT -> COMPAT LEGEND -> TREND SCORE BAND DECODE`) and flag-gated absence in baseline markdown.
+- Verification stayed green (py_compile + fixture regeneration + forced-lane regression).
+- Queue status: ACTION_ITEMS unchecked=0; TASKS unchecked=1; POST_RC_BACKLOG unchecked=0.

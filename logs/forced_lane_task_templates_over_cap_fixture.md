@@ -5,6 +5,7 @@
 - gameplay copy pack: **spike**
 - COPY PACK COMPAT:STEADY=ST|SPIKE=SP
 - COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE
+- TREND SCORE BAND DECODE:C=CALM MEMORY|E=EDGE MEMORY|H=HEATED MEMORY
 - CONTRACT CHECKLIST: compatRowPolicyAlias in {A,S} and compatRowPolicySignals.policyAlias mirrors compatRowPolicyAlias
 - CONTRACT CHECKLIST: compatRowPolicySourceAlias in {C,V} and compatRowPolicySignals.policySourceAlias mirrors compatRowPolicySourceAlias
 - CONTRACT CHECKLIST: compatRowPolicySourceConfidence in {LOW,MID,HIGH} and compatRowPolicySignals.policySourceConfidence mirrors compatRowPolicySourceConfidence

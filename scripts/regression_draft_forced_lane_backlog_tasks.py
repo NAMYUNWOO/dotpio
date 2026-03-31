@@ -148,6 +148,9 @@ def main() -> int:
         compat_lines = compat_text.splitlines()
         compat_row = "- COPY PACK COMPAT:STEADY=ST|SPIKE=SP"
         compat_legend_row = "- COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE"
+        score_band_decode_row = (
+            "- TREND SCORE BAND DECODE:C=CALM MEMORY|E=EDGE MEMORY|H=HEATED MEMORY"
+        )
         contract_row = (
             "- CONTRACT CHECKLIST: compatRowPolicyAlias in {A,S} and compatRowPolicySignals.policyAlias mirrors compatRowPolicyAlias"
         )
@@ -209,6 +212,9 @@ def main() -> int:
         assert compat_lines.count(compat_legend_row) == 1, (
             "compatibility legend row must appear exactly once when compat flag enabled"
         )
+        assert compat_lines.count(score_band_decode_row) == 1, (
+            "trend score band decode row must appear exactly once when compat flag enabled"
+        )
         assert compat_lines.count(contract_row) == 1, "contract checklist row must appear exactly once"
         assert compat_lines.count(source_contract_row) == 1, (
             "policy-source contract checklist row must appear exactly once"
@@ -257,8 +263,12 @@ def main() -> int:
         )
         compat_index = compat_lines.index(compat_row)
         legend_index = compat_lines.index(compat_legend_row)
+        decode_index = compat_lines.index(score_band_decode_row)
         assert legend_index == compat_index + 1, (
             "compatibility legend row must immediately follow compatibility row"
+        )
+        assert decode_index == legend_index + 1, (
+            "trend score band decode row must immediately follow compatibility legend row"
         )
         assert contract_row in first_md.read_text(encoding="utf-8"), (
             "contract checklist row should be present in baseline markdown output"
@@ -314,6 +324,9 @@ def main() -> int:
         assert "COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE" not in first_md.read_text(
             encoding="utf-8"
         ), "compatibility legend row must stay gated behind flag"
+        assert "TREND SCORE BAND DECODE:C=CALM MEMORY|E=EDGE MEMORY|H=HEATED MEMORY" not in first_md.read_text(
+            encoding="utf-8"
+        ), "trend score band decode row must stay gated behind flag"
 
         checked_in_payload = json.loads(CHECKED_IN_JSON_FIXTURE.read_text(encoding="utf-8"))
         assert_schema(checked_in_payload)

@@ -250,6 +250,7 @@ def to_markdown(
     if include_copy_pack_compat_row:
         lines.append("- COPY PACK COMPAT:STEADY=ST|SPIKE=SP")
         lines.append("- COPY PACK COMPAT LEGEND:ST=STEADY|SP=SPIKE")
+        lines.append("- TREND SCORE BAND DECODE:C=CALM MEMORY|E=EDGE MEMORY|H=HEATED MEMORY")
     lines.append(
         "- CONTRACT CHECKLIST: compatRowPolicyAlias in {A,S} and compatRowPolicySignals.policyAlias mirrors compatRowPolicyAlias"
     )
