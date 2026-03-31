@@ -4518,3 +4518,13 @@ Compact decision memory for AI context efficiency.
 - Regression now locks presence/cardinality/adjacency (1 compat row, 1 legend row, strict next-line order) without mutating payload schema.
 - Verification stayed green: py_compile + `scripts/regression_draft_forced_lane_backlog_tasks.py` + over-cap fixture markdown generation.
 - Queue status: ACTION_ITEMS unchecked=0; TASKS unchecked=1; POST_RC_BACKLOG unchecked=1 (remaining AI Content/Systems volatility-aware onboarding policy recommendation).
+
+## 2026-04-01 01:14 KST
+- Closed remaining Cycle ILE backlog item: forced-lane payload now includes volatility-aware onboarding recommendation `compatRowPolicy` with deterministic signals (`volatilityBand`, `source`, `reason`).
+- Durable policy: derive onboarding recommendation from resolved gameplay copy pack (`steady -> ALWAYS`, `spike -> SPIKE_ONLY`) to keep recommendation deterministic and offline-only.
+- Queue status: ACTION_ITEMS unchecked=0; TASKS unchecked=0; POST_RC_BACKLOG unchecked=0 (ready for next Game Director review cycle trigger).
+
+## 2026-04-01 01:18 KST
+- Game Director Cycle ILF executed immediately after queue-clear: generated 3 ideas, selected low-risk UX/Systems experiment, and implemented minimal vertical slice (`compatRowPolicyAlias:A|S`, payload-only).
+- Durable decision: keep onboarding-policy decode alias payload-first (no markdown row yet) to preserve compact default output and avoid ordering churn until QA contract follow-up lands.
+- Backlog injections added: Systems/QA alias schema-contract checklist row coverage; AI Content/Systems volatility-memory policy-source prototype (`COPY_PACK|VOLATILITY_MEMORY`).

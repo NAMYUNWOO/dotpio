@@ -36,6 +36,30 @@ def assert_schema(payload: dict) -> None:
     assert payload["status"] == "over-cap", "expected over-cap fixture"
     assert payload["gameplayCopyPack"] in {"steady", "spike"}
     assert payload["gameplayCopyPackAlias"] in {"ST", "SP"}
+    assert payload["compatRowPolicy"] in {"ALWAYS", "SPIKE_ONLY"}
+    assert payload["compatRowPolicyAlias"] in {"A", "S"}
+
+    signals = payload.get("compatRowPolicySignals", {})
+    assert signals.get("volatilityBand") in {"steady", "spike"}
+    assert signals.get("source") == "gameplayCopyPack"
+    assert signals.get("policyAlias") in {"A", "S"}
+    assert signals.get("reason") in {
+        "steady-pack-recommends-always-onboarding",
+        "spike-pack-recommends-gated-onboarding",
+    }
+
+    if payload["gameplayCopyPack"] == "spike":
+        assert payload["compatRowPolicy"] == "SPIKE_ONLY"
+        assert payload["compatRowPolicyAlias"] == "S"
+        assert signals.get("volatilityBand") == "spike"
+        assert signals.get("policyAlias") == "S"
+        assert signals.get("reason") == "spike-pack-recommends-gated-onboarding"
+    else:
+        assert payload["compatRowPolicy"] == "ALWAYS"
+        assert payload["compatRowPolicyAlias"] == "A"
+        assert signals.get("volatilityBand") == "steady"
+        assert signals.get("policyAlias") == "A"
+        assert signals.get("reason") == "steady-pack-recommends-always-onboarding"
 
     templates = payload.get("templates", [])
     assert templates, "expected at least one forced-lane template"

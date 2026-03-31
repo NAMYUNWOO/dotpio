@@ -60,6 +60,13 @@ COPY_PACKS = {
     },
 }
 COPY_PACK_ALIAS = {"steady": "ST", "spike": "SP"}
+COMPAT_ROW_POLICY_ALIAS = {"ALWAYS": "A", "SPIKE_ONLY": "S"}
+
+
+def _resolve_compat_row_policy(gameplay_copy_pack: str) -> str:
+    if gameplay_copy_pack == "spike":
+        return "SPIKE_ONLY"
+    return "ALWAYS"
 
 
 def _pick_over_cap_gameplay_lane(forced_next_lanes: list[str]) -> str | None:
@@ -228,12 +235,24 @@ def main() -> int:
         gameplay_copy_pack=args.gameplay_copy_pack,
     )
 
+    compat_row_policy = _resolve_compat_row_policy(gameplay_pack)
+
     payload = {
         "status": report.get("status"),
         "missingCadenceBuckets": report.get("missingCadenceBuckets", []),
         "forcedNextLanes": report.get("forcedNextLanes", []),
         "gameplayCopyPack": gameplay_pack,
         "gameplayCopyPackAlias": COPY_PACK_ALIAS[gameplay_pack],
+        "compatRowPolicy": compat_row_policy,
+        "compatRowPolicyAlias": COMPAT_ROW_POLICY_ALIAS[compat_row_policy],
+        "compatRowPolicySignals": {
+            "volatilityBand": "spike" if gameplay_pack == "spike" else "steady",
+            "source": "gameplayCopyPack",
+            "reason": "spike-pack-recommends-gated-onboarding"
+            if compat_row_policy == "SPIKE_ONLY"
+            else "steady-pack-recommends-always-onboarding",
+            "policyAlias": COMPAT_ROW_POLICY_ALIAS[compat_row_policy],
+        },
         "templates": templates,
     }
 

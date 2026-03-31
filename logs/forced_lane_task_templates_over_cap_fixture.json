@@ -8,6 +8,14 @@
   ],
   "gameplayCopyPack": "spike",
   "gameplayCopyPackAlias": "SP",
+  "compatRowPolicy": "SPIKE_ONLY",
+  "compatRowPolicyAlias": "S",
+  "compatRowPolicySignals": {
+    "volatilityBand": "spike",
+    "source": "gameplayCopyPack",
+    "reason": "spike-pack-recommends-gated-onboarding",
+    "policyAlias": "S"
+  },
   "templates": [
     {
       "source": "forcedNextLanes",
