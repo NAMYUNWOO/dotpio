@@ -2,6 +2,15 @@
 
 Last updated: 2026-03-31 05:02 KST
 
+## Game Director Injection — 2026-03-31 Cycle ILE
+- Candidate ideas:
+  - Low-risk UX/game-feel (Systems/World): add compact gameplay copy-pack alias token (`CP:ST|SP`) for over-cap template dispatch readability.
+  - Mid-risk Systems/QA: add deterministic fixture/schema lock for `gameplayCopyPackAlias` + `copyPackAlias` fields.
+  - High-risk novelty (AI-content/Design): adaptive copy-pack selector from lane-volatility memory windows.
+- [x] Systems/World Team: Add compact gameplay copy-pack alias token (`CP:ST|SP`) for over-cap template payload + markdown while preserving deterministic field schema. *(in-progress: 2026-03-31 23:42 KST, completed: 2026-03-31 23:45 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`)*
+- [x] Systems/QA Team (injected): Add deterministic schema regression fixture for `gameplayCopyPackAlias` + per-template `copyPackAlias` in over-cap payload output. *(in-progress: 2026-03-31 23:47 KST, completed: 2026-03-31 23:48 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`)*
+- [ ] AI Content/Design Team (injected): Prototype optional copy-pack compatibility markdown row (`COPY PACK COMPAT:STEADY=ST|SPIKE=SP`) behind a flag for operator onboarding.
+
 ## Game Director Injection — 2026-03-31 Cycle IK
 - Candidate ideas:
   - Low-risk UX/game-feel: add compact `CBGCFXWSBPFXPINF ORDER:<A|S|R>` helper row so operators can map cue order before drill row.

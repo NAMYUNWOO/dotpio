@@ -6,6 +6,7 @@
 
 - [ ] World/Combat Team: Inject one underrepresented-lane gameplay experiment template for `combat` when guardrail status is `over-cap`.
   - Copy pack: spike
+  - Copy pack alias: CP:SP
   - Player fantasy: Inject a visible tension spike in the neglected lane while preserving deterministic operator dispatch copy.
   - Impact metric: At least one underrepresented lane ships with player-facing intensity uplift while lane-cap warning resolves.
   - Scope/Risk: S / mid

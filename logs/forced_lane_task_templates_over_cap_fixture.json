@@ -7,12 +7,14 @@
     "ai-content"
   ],
   "gameplayCopyPack": "spike",
+  "gameplayCopyPackAlias": "SP",
   "templates": [
     {
       "source": "forcedNextLanes",
       "lane": "combat",
       "team": "World/Combat Team",
       "copyPack": "spike",
+      "copyPackAlias": "SP",
       "task": "Inject one underrepresented-lane gameplay experiment template for `combat` when guardrail status is `over-cap`.",
       "playerFantasy": "Inject a visible tension spike in the neglected lane while preserving deterministic operator dispatch copy.",
       "impactMetric": "At least one underrepresented lane ships with player-facing intensity uplift while lane-cap warning resolves.",

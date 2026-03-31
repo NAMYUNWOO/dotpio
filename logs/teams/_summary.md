@@ -1,3 +1,9 @@
+## 2026-03-31 23:48 KST
+- Closed injected Systems/QA item from Cycle ILE: over-cap forced-lane backlog drafting now has deterministic regression coverage for payload `gameplayCopyPackAlias` and template `copyPackAlias` schema parity.
+- Added `scripts/regression_draft_forced_lane_backlog_tasks.py` to assert alias domains/mapping and byte-stable JSON+markdown output across repeated runs.
+- Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py`; `python3 scripts/regression_draft_forced_lane_backlog_tasks.py`; over-cap fixture regeneration command.
+- Queue status after closure: ACTION_ITEMS in progress; TASKS unchecked=1; POST_RC_BACKLOG unchecked=1 (remaining: AI Content/Design `COPY PACK COMPAT` optional markdown row).
+
 ## 2026-03-31 23:40 KST
 - Closed injected POST_RC item: over-cap forced-lane draft helper now supports optional gameplay copy packs (`steady|spike`) while keeping deterministic template field schema.
 - `scripts/draft_forced_lane_backlog_tasks.py` now emits stable JSON keys plus `copyPack` (template-level) and `gameplayCopyPack` (payload-level), and markdown includes copy-pack disclosure line for operator context.

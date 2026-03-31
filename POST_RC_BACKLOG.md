@@ -1,5 +1,16 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-03-31 (Game Director Review - Cycle ILE)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=1, combat=2, design=3, ux=2, qa=3, vfx=2 (no lane >40%).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (Systems/World): add compact gameplay copy-pack alias token (`CP:ST|SP`) for over-cap dispatch markdown scan speed.
+  - Mid-risk Systems/QA: add deterministic copy-pack compatibility row in fixture output comparing full vs compact pack labels.
+  - High-risk novelty (AI-content/Design): adaptive copy-pack selector from lane-volatility memory windows.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] Systems/World Team: Add compact gameplay copy-pack alias token (`CP:ST|SP`) for over-cap template payload + markdown while preserving deterministic field schema. *(lifecycle: [ ] -> [~] started: 2026-03-31 23:42 KST -> [x] completed: 2026-03-31 23:45 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`)*
+- [x] Systems/QA Team (injected): Add deterministic schema regression fixture for `gameplayCopyPackAlias` + per-template `copyPackAlias` in over-cap payload output. *(lifecycle: [ ] -> [~] started: 2026-03-31 23:47 KST -> [x] completed: 2026-03-31 23:48 KST; verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`)*
+- [ ] AI Content/Design Team (injected): Prototype optional copy-pack compatibility markdown row (`COPY PACK COMPAT:STEADY=ST|SPIKE=SP`) behind a flag for operator onboarding.
+
 ## Autonomous Cycle 2026-03-31 (Game Director Review - Cycle ILD)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=1, combat=2, design=3, ux=2, qa=3, vfx=2 (no lane >40%).
 - Candidate ideas generated:

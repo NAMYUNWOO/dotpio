@@ -59,6 +59,7 @@ COPY_PACKS = {
         "passFail": "Pass when template keeps deterministic fields, lane key, and verification command while delivering higher-intensity copy.",
     },
 }
+COPY_PACK_ALIAS = {"steady": "ST", "spike": "SP"}
 
 
 def _pick_over_cap_gameplay_lane(forced_next_lanes: list[str]) -> str | None:
@@ -108,6 +109,7 @@ def build_templates(report: dict, max_templates: int, gameplay_copy_pack: str) -
                     "lane": gameplay_lane,
                     "team": "World/Combat Team",
                     "copyPack": gameplay_pack,
+                    "copyPackAlias": COPY_PACK_ALIAS[gameplay_pack],
                     "task": f"Inject one underrepresented-lane gameplay experiment template for `{gameplay_lane}` when guardrail status is `over-cap`.",
                     "playerFantasy": gameplay_pack_copy["playerFantasy"],
                     "impactMetric": gameplay_pack_copy["impactMetric"],
@@ -160,6 +162,8 @@ def to_markdown(report: dict, templates: list[dict], gameplay_copy_pack: str) ->
         lines.append(f"- [ ] {team}: {task}")
         if template.get("copyPack"):
             lines.append(f"  - Copy pack: {template['copyPack']}")
+        if template.get("copyPackAlias"):
+            lines.append(f"  - Copy pack alias: CP:{template['copyPackAlias']}")
         if template.get("playerFantasy"):
             lines.append(f"  - Player fantasy: {template['playerFantasy']}")
         if template.get("impactMetric"):
@@ -216,6 +220,7 @@ def main() -> int:
         "missingCadenceBuckets": report.get("missingCadenceBuckets", []),
         "forcedNextLanes": report.get("forcedNextLanes", []),
         "gameplayCopyPack": gameplay_pack,
+        "gameplayCopyPackAlias": COPY_PACK_ALIAS[gameplay_pack],
         "templates": templates,
     }
 

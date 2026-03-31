@@ -3235,3 +3235,8 @@
 - Closed injected over-cap gameplay-template copy-pack task (`steady|spike`) in `scripts/draft_forced_lane_backlog_tasks.py`.
 - Added deterministic `copyPack` field and `gameplayCopyPack` payload key while preserving stable template schema across packs.
 - Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py` and over-cap fixture regeneration command passed.
+
+## 2026-03-31 23:48 KST
+- Closed Systems/QA injected item for over-cap forced-lane templates: added deterministic regression fixture coverage for `gameplayCopyPackAlias` and template `copyPackAlias` schema parity.
+- Added `scripts/regression_draft_forced_lane_backlog_tasks.py` (repeat-run determinism + alias/domain assertions) and refreshed over-cap fixture artifacts.
+- Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py`; `python3 scripts/regression_draft_forced_lane_backlog_tasks.py`; `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md`.
