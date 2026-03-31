@@ -4420,3 +4420,5 @@ Compact decision memory for AI context efficiency.
 - Added `..._DECODE_TOOLTIP_ALT_COPY_MAP` flag: payload `decodeCopyPair` now supports `default-v1` (`legend bridge lock`/`fallback bridge hold`) and `compact-alt-ab` (`LB lock`/`FB hold`).
 - Tooltip row now derives from payload decode map instead of hardcoded markdown copy, preserving localization-safe parity contracts for future A/B rollout.
 - Verification used this cycle: py_compile + weekly digest smoke + targeted flag-on/off resolver assertions.
+
+- [2026-03-31 18:32 KST] Decision: introduced optional `CBGCFXWSBPFXPINFBD FX NOTE:<S|E>` row sourced from bridge decode alias with 88-char DOS guard. Updated generator payload + markdown placement + regression ordering/width/parity contracts. Open issue: full regression harness still failing outside this scope; requires dedicated triage.

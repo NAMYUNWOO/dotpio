@@ -2895,3 +2895,5 @@
 - Completed Design/World task: added feature-gated bridge decode tooltip copy variants (`default-v1` vs `compact-alt-ab`) via `..._DECODE_TOOLTIP_ALT_COPY_MAP`.
 - `CBGCFXWSBPFXPINFBD TOOLTIP` now renders from payload `decodeCopyPair` to keep markdown/payload parity deterministic.
 - Verification: py_compile PASS, weekly digest smoke PASS, targeted flag-on assertion (`LB=LB lock,FB=FB hold`) PASS.
+
+- [2026-03-31 18:32 KST] Implemented combat/VFX readability experiment row `CBGCFXWSBPFXPINFBD FX NOTE` adjacent to tooltip/order rows for threat-order bridge decode chain; adjacency contract updated in regression checks.
