@@ -410,3 +410,10 @@
 - Selected experiment shipped: payload-only narration-driven VFX cue alias `CBGCFXWSBPFXPINF:<S|E|H>` (`A->SOFT/S`, `R->EDGE/E`, `S->HARD/H`) for dense downstream FX routing.
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅.
 - Guardrail: offline-only, flag-gated, zero runtime balance impact.
+
+## 2026-03-31 09:49 KST — Cycle IM combat/vfx burst posture slice
+- Coverage check over last 10 completions showed systems dominance (5/10, 50%), so this cycle was forced into underrepresented lanes.
+- Shipped payload-only token `CBGCFXWSBPFXPINF BURST:<B|Q>` behind `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_FX_CUE_INTENSITY_PULSE_LANGUAGE_VARIANT_PACK_PHASE_INTENT_NARRATION_COMPACT_ALIAS_COMBAT_VFX_FX_CUE_BURST`.
+- Mapping rule: `B` when cue posture is `HARD`, or `EDGE` with drift `WATCH`; otherwise `Q`.
+- Scope: offline readability telemetry only; no runtime combat balance changes.
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.

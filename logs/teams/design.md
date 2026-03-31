@@ -2887,3 +2887,7 @@
 ## 2026-03-31 08:49 KST
 - Design note: compact legend-copy style alias (`W|C`) keeps writer-facing decode path readable under dense DOS rails.
 - Follow-up queued for checksum + adaptive phrasing experiments; both remain optional and reversible.
+
+## 2026-03-31 09:49 KST — Cycle IM design handoff
+- Director selected Combat/VFX burst posture token (`CBGCFXWSBPFXPINF BURST:<B|Q>`) to rebalance lane share after systems-heavy streak.
+- Design/world follow-up injected: compact decode copy pair (`B=burst commit`, `Q=quiet hold`) with DOS-width budget checks.

@@ -4276,3 +4276,14 @@ Compact decision memory for AI context efficiency.
 - Closed remaining POST_RC item: adaptive phase-intent legend-copy phrasing rotor is now prototyped behind flag `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_FX_CUE_INTENSITY_PULSE_LANGUAGE_VARIANT_PACK_PHASE_INTENT_LEGEND_COPY_PHRASING_ROTOR`.
 - Durable decision: keep rotor schema-neutral (infer state from prior legend copy text) to avoid payload-contract churn while enabling deterministic copy variation on repeated phase-intent windows.
 - Verification remains green (`py_compile`, drift regression, weekly digest smoke generation).
+
+### 2026-03-31 09:49 KST — Cycle IM (forced underrepresented lane: Combat/VFX)
+- Coverage check (last 10 completed items by primary lane): systems 5 (50%), design 2 (20%), world 1 (10%), ai-content 1 (10%), combat 1 (10%), vfx/ux/qa 0 primary → systems breached 40% cap.
+- 24h cadence guardrail confirmed satisfied before change set: combat/vfx + design/world + systems/ops each had at least one completion.
+- Chosen experiment: payload-only burst posture token `CBGCFXWSBPFXPINF BURST:<B|Q>` derived from `PINF` cue + drift (`HARD` or `EDGE+WATCH` => `B`; else `Q`).
+- Implemented in `scripts/weekly_portal_prompt_readability_drift.py` with deterministic signals, adjacency contract, flag-gated fallback, and no runtime balance coupling.
+- Verification PASS:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`
+- Follow-up tasks injected: UX/Design markdown micro-row prototype, Systems/QA adjacency lock for row ordering, Design/World decode copy pair.

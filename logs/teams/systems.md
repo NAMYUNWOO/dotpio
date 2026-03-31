@@ -4148,3 +4148,8 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
 - Decisions: rotor state is inferred from prior legend copy text (no schema expansion), preserving existing payload signal contract stability.
+
+## 2026-03-31 09:49 KST — Cycle IM systems checkpoint
+- Lane coverage watchdog forced underrepresented-lane selection because systems occupied 50% of the last 10 completions.
+- Systems contribution this cycle focused on payload contract/regression locks for `CBGCFXWSBPFXPINF BURST:<B|Q>` without changing runtime behavior.
+- Next queued systems/qa follow-up: enforce markdown adjacency lock if/when `PINF BURST` rollout row is added.

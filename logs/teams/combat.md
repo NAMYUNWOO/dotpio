@@ -2790,3 +2790,9 @@
 
 ## 2026-03-31 08:49 KST
 - No combat runtime impact in Cycle IN; alias addition is digest-only metadata.
+
+## 2026-03-31 09:49 KST — Cycle IM combat/vfx burst posture token
+- Forced-lane pick due to systems-over-40% coverage in last-10 completion window.
+- Added payload-only compact token `CBGCFXWSBPFXPINF BURST:<B|Q>` to signal burst-vs-quiet cue posture for operator read speed.
+- Deterministic rule: `B` on `HARD`, or `EDGE` when drift is `WATCH`; otherwise `Q`.
+- Verification: weekly drift regression + generation suite PASS.
