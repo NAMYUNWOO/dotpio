@@ -2888,3 +2888,10 @@
 ## 2026-03-31 08:49 KST
 - Game Director Cycle IN queued AI-content follow-up: adaptive legend-copy phrasing rotor (offline-only, flag-gated).
 - Current cycle implementation stayed in UX/systems lane to reduce risk and preserve deterministic copy contracts.
+
+## 2026-03-31 09:39 KST
+- Task: Prototyped optional adaptive legend-copy phrasing rotor for `CBGCFXWSBPFXPI LEGEND COPY` (offline-only, flag-gated).
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions: when rotor flag is enabled, legend phrasing alternates deterministically per repeated phase-intent window (ANCHOR/SURGE/RECOVER) while preserving DOS-width fallback behavior.

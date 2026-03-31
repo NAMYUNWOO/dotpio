@@ -4271,3 +4271,8 @@ Compact decision memory for AI context efficiency.
 - Implemented `phaseIntentLegendCopyHash` for `CBGCFXWSBPFXPI LEGEND COPY` as a deterministic 12-char SHA-256 checksum over emitted legend text (writer or compact fallback).
 - Added flattened payload bridge field `cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendMicrocopyVariantCopyHash` to simplify downstream integrity checks.
 - Regression suite now locks both schema presence and checksum equality, preventing silent microcopy drift in postmortem digest rails.
+
+## 2026-03-31 09:39 KST
+- Closed remaining POST_RC item: adaptive phase-intent legend-copy phrasing rotor is now prototyped behind flag `DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_FX_CUE_INTENSITY_PULSE_LANGUAGE_VARIANT_PACK_PHASE_INTENT_LEGEND_COPY_PHRASING_ROTOR`.
+- Durable decision: keep rotor schema-neutral (infer state from prior legend copy text) to avoid payload-contract churn while enabling deterministic copy variation on repeated phase-intent windows.
+- Verification remains green (`py_compile`, drift regression, weekly digest smoke generation).

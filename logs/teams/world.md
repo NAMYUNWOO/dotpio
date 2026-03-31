@@ -2800,3 +2800,10 @@
 ## 2026-03-31 08:49 KST
 - World-facing copy cadence unchanged; new `CBGCFXWSBPFXPIC` alias is telemetry-only and does not alter narrative semantics.
 - Follow-up rotor prototype remains backlog-only for later evaluation.
+
+## 2026-03-31 09:39 KST
+- Task: Added world-facing copy-variety rotor behavior for phase-intent legend phrasing in weekly digest offline payload flow.
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions: rotor is deterministic and phase-scoped, so readability tone can vary without changing map/runtime state.

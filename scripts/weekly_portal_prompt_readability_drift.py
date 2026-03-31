@@ -2337,6 +2337,7 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
 def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant(
     *,
     intensity_pulse_language_variant_pack_phase_intent_alias_signals: dict[str, object],
+    prior_json_path: Path | None = None,
 ) -> tuple[str, dict[str, object]]:
     """Optional writer-facing phase-intent legend microcopy line with DOS-width guardrails."""
     flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_FX_CUE_INTENSITY_PULSE_LANGUAGE_VARIANT_PACK_PHASE_INTENT_LEGEND_MICROCOPY_VARIANT"
@@ -2346,11 +2347,36 @@ def resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_cohere
     phase_intent = str(intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("phaseIntent", "ANCHOR") or "ANCHOR").strip().upper()
     alias = str(intensity_pulse_language_variant_pack_phase_intent_alias_signals.get("alias", "A") or "A").strip().upper()
 
-    label_map = {
-        "ANCHOR": "ANCHOR=steady hold",
-        "SURGE": "SURGE=pressure push",
-        "RECOVER": "RECOVER=reset breath",
+    rotor_flag_name = "DOTPIO_EXPERIMENT_CADENCE_BRIDGE_GLYPH_CONF_FX_PULSE_MICROCOPY_WORLD_TONE_COHERENCE_ARC_STORYBEAT_PHASE_FX_CUE_INTENSITY_PULSE_LANGUAGE_VARIANT_PACK_PHASE_INTENT_LEGEND_COPY_PHRASING_ROTOR"
+    rotor_flag_value = os.environ.get(rotor_flag_name, "")
+    rotor_enabled = rotor_flag_value.strip().lower() in {"1", "true", "yes", "on"}
+
+    label_variant_map = {
+        "ANCHOR": ("ANCHOR=steady hold", "ANCHOR=anchor hold"),
+        "SURGE": ("SURGE=pressure push", "SURGE=surge push"),
+        "RECOVER": ("RECOVER=reset breath", "RECOVER=recovery reset"),
     }
+    label_map = {k: variants[0] for k, variants in label_variant_map.items()}
+
+    if rotor_enabled and phase_intent in label_variant_map:
+        rotor_index = 0
+        if prior_json_path is not None and prior_json_path.exists():
+            try:
+                prior_payload = json.loads(prior_json_path.read_text(encoding="utf-8"))
+            except Exception:
+                prior_payload = {}
+            prior_signals = prior_payload.get(
+                "cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendMicrocopyVariantSignals",
+                {},
+            )
+            prior_phase_intent = str(prior_signals.get("phaseIntent", "") or "").strip().upper()
+            prior_legend_copy = str(prior_signals.get("legendCopy", "") or "")
+            if prior_phase_intent == phase_intent:
+                current_variants = label_variant_map[phase_intent]
+                prior_index = 1 if current_variants[1] in prior_legend_copy else 0
+                rotor_index = (prior_index + 1) % len(current_variants)
+        label_map[phase_intent] = label_variant_map[phase_intent][rotor_index]
+
     legend_copy = " | ".join(label_map.values())
     token = f"CBGCFXWSBPFXPI LEGEND COPY:{legend_copy}"
     dos_width_max = 96
@@ -12226,6 +12252,7 @@ def main() -> int:
     )
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant(
         intensity_pulse_language_variant_pack_phase_intent_alias_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_alias_signals,
+        prior_json_path=args.out_json,
     )
     cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_compact_alias, cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_compact_alias_signals = resolve_cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_compact_alias(
         intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_signals=cadence_bridge_glyph_confidence_fx_pulse_microcopy_world_tone_coherence_arc_storybeat_phase_fx_cue_intensity_pulse_language_variant_pack_phase_intent_legend_microcopy_variant_signals,

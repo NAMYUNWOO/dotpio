@@ -4141,3 +4141,10 @@
 - Decision: added deterministic checksum signal `phaseIntentLegendCopyHash` derived from emitted `CBGCFXWSBPFXPI LEGEND COPY` text (post DOS-width fallback), and surfaced flattened payload field `...PhaseIntentLegendMicrocopyVariantCopyHash` for downstream consumers.
 - Why: catches silent legend-copy drift while preserving current flag-gated rollout behavior.
 - Follow-up: keep the remaining adaptive legend-copy phrasing rotor task offline-only and ensure any future copy variants update checksum-domain fixtures first.
+
+## 2026-03-31 09:39 KST
+- Task: Wired prior-payload-aware adaptive phrasing rotor into `...PHASE_INTENT_LEGEND_MICROCOPY_VARIANT` resolver (`prior_json_path` feed from `args.out_json`).
+- Commit: pending
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+- Decisions: rotor state is inferred from prior legend copy text (no schema expansion), preserving existing payload signal contract stability.
