@@ -1,5 +1,13 @@
 # QA Team Log
 
+## 2026-03-31 16:10 KST
+- Task: Added regression assertions for route alias/hash payload keys (`decodeCopyFallbackRouteCompactAlias`, `...AliasToken`, `...LegendVersion`, `...LegendHash`, `...RouteLegendCompactRow`).
+- Verification:
+  - `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅
+  - `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions: route legend hash verified with deterministic SHA1 of `F1:fallback-v1` (10-char prefix); ROUTE LEGEND row-budget assertion locked at ≤88; adjacency contract updated for ROUTE+ROUTE LEGEND spacers.
+
 ## 2026-03-31 08:11 KST
 - Task: Added regression schema/domain lock for `phaseIntentLegendVersion/hash` in `...PhaseIntentAliasSignals` and payload mirror fields.
 - Verification:

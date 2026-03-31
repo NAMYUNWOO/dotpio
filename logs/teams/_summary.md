@@ -1,3 +1,11 @@
+## 2026-03-31 16:10 KST
+- Completed final 2 POST_RC_BACKLOG items: ROUTE LEGEND markdown row + route alias/hash regression assertions.
+- `CBGCFXWSBPFXPINF ROUTE LEGEND` row fits within 88-char DOS row budget; added to both summary and token-coverage sections.
+- Regression now locks route alias (`F1`), alias token (`CBGCFXWSBPFXPINFR:F1`), legend version (`v1`), legend hash (SHA1), and row-budget compliance.
+- Adjacency chain updated: `BURST LEGEND -> ROUTE -> ROUTE LEGEND -> BURST DIGEST -> ORDER -> DRILL`.
+- Verification green: regression + weekly digest smoke.
+- All ACTION_ITEMS/TASKS/POST_RC_BACKLOG fully checked — ready for Game Director cycle.
+
 ## 2026-03-31 08:11 KST
 - Completed POST_RC Cycle IM follow-up Systems/QA task: payload-only `phaseIntentLegendVersion/hash` metadata now ships with `CBGCFXWSBPFXPI` alias signals and mirrored top-level payload keys for decode-table freshness checks.
 - Regression contract now locks phase-intent legend domain/version/hash (`A|S|R` -> `ANCHOR|SURGE|RECOVER`) and verifies payload/signals parity.

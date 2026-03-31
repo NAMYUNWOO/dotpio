@@ -1,5 +1,11 @@
 # UX Team Log
 
+## 2026-03-31 16:10 KST
+- Task: Added `CBGCFXWSBPFXPINF ROUTE LEGEND` markdown row in digest summary/token-coverage sections, adjacent after ROUTE row.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
+- Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
+- Decisions: ROUTE LEGEND row (`- CBGCFXWSBPFXPINF ROUTE LEGEND: F1=fallback-v1 (v=v1 hash=...)`) fits within 88-char budget; adjacency relaxed to allow ROUTE+ROUTE LEGEND between BURST LEGEND and BURST DIGEST.
+
 ## 2026-03-31 04:38 KST
 - Task: Added optional digest markdown visibility for `CBGCFXWSBPFXPINF` + legend directly after `CBGCFXWSBPFXPIN LEGEND` (summary/token-coverage parity).
 - Commit: pending

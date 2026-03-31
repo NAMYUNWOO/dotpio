@@ -1927,5 +1927,5 @@ Last updated: 2026-03-31 07:12 KST
 - [x] **(in-progress → done)** Add payload-only fallback route alias/hash signals in burst digest output, keep markdown unchanged, and run compile+smoke verification.
 
 ### Injected follow-up tasks
-- [ ] Evaluate whether `CBGCFXWSBPFXPINF ROUTE LEGEND` markdown can fit row-budget without violating readability thresholds.
-- [ ] Add regression assertions for route alias/hash payload keys after baseline fixture refresh.
+- [x] Evaluate whether `CBGCFXWSBPFXPINF ROUTE LEGEND` markdown can fit row-budget without violating readability thresholds. *(completed: 2026-03-31 16:10 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+- [x] Add regression assertions for route alias/hash payload keys after baseline fixture refresh. *(completed: 2026-03-31 16:10 KST; verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`)*
