@@ -4408,3 +4408,8 @@ Compact decision memory for AI context efficiency.
 - Shipped: new payload token/signals `CBGCFXWSBPFXPINFBD:<LB|FB>=<LEGEND_BRIDGE_LOCK|FALLBACK_BRIDGE_HOLD>` plus deterministic decode pair + `fallback-v1` route metadata.
 - Verification PASS: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
 - Backlog updates: completed AI-content/World decode-copy tasks; injected follow-ups for Systems/QA schema lock, UX tooltip row design, and Combat/VFX FX-cue parity token evaluation.
+
+## 2026-03-31 17:19 KST — Durable decision (Cycle KE)
+- Standardized bridge decode operator hinting with optional markdown row `CBGCFXWSBPFXPINFBD TOOLTIP` placed between `THREAT ORDER BRIDGE LEGEND` and `CBGCFXWSBPFXPINF ORDER`.
+- Locked DOS-width policy for this row at `<=88` and added contract coverage for cardinality/order (`0|2`, summary + token-coverage).
+- Follow-up backlog intentionally left open for payload-tooltip alias parity assertion and alternate localization copy variants.
