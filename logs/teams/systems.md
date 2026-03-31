@@ -4275,3 +4275,4 @@
 - [2026-03-31 19:51 KST] Cycle GD: added compact phase-intent legend alias rail `CBGCFXWSBPFXPIL:ASR` (payload + markdown summary/token-coverage rows) directly after `CBGCFXWSBPFXPI LEGEND` for faster decode scanning. Regression contracts extended for row cardinality/order and alias signal payload keys; py_compile+weekly digest smoke passed.
 
 - [2026-03-31 20:05 KST] Systems: reconciled POST_RC_BACKLOG checkbox drift for CBGCFXWSBPFXPIL rollout (duplicate [ ]/[x] state) to single completed entry; no payload/runtime delta.
+- 2026-03-31 20:40 KST — Cycle ILA selected low-risk slice: payload-only `CBGCFXWSBPFXPILH:<hex4>` alias derived from phase-intent legend hash. Implemented resolver wiring and payload emission; kept markdown rails unchanged for reversible rollout.

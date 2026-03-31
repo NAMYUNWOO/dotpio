@@ -4432,3 +4432,4 @@ Compact decision memory for AI context efficiency.
 - [2026-03-31 19:51 KST] Decision: added optional compact phase-intent legend alias row `CBGCFXWSBPFXPIL:ASR` right after `CBGCFXWSBPFXPI LEGEND` in both digest sections, with payload-backed legend hash/version signals and ordering/cardinality assertions in regression contracts.
 
 - [2026-03-31 20:05 KST] Decision: reconciled stale unchecked backlog row for `CBGCFXWSBPFXPIL` into a single completed entry to keep autonomous priority selection accurate; no code-path changes. Verification: `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`.
+- 2026-03-31 20:40 KST — Game Director Cycle ILA: shipped payload-only `CBGCFXWSBPFXPILH:<hex4>` alias from phase-intent legend hash; no markdown rail changes; weekly digest smoke run passes while full regression script still exits 1 and needs follow-up triage; next candidate is optional visible row + adjacency contract when width budget allows.

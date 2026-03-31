@@ -2905,3 +2905,4 @@
 - [2026-03-31 18:32 KST] Implemented combat/VFX readability experiment row `CBGCFXWSBPFXPINFBD FX NOTE` adjacent to tooltip/order rows for threat-order bridge decode chain; adjacency contract updated in regression checks.
 
 - [2026-03-31 20:05 KST] Combat: no combat tuning changes; cycle reserved for backlog-state reconciliation and regression sanity pass.
+- 2026-03-31 20:40 KST — Combat lane checkpoint: no combat tuning edits in Cycle ILA; monitored cadence balance while systems/qa shipped payload-only integrity alias.

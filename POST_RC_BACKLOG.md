@@ -6,7 +6,14 @@
   - Added digest rows immediately after `CBGCFXWSBPFXPI LEGEND` in both summary + token-coverage sections
   - Extended regression contract for presence/order invariants and payload signal fields
 
-Last updated: 2026-03-31 07:12 KST
+## Autonomous Cycle 2026-03-31 (Game Director Review - Cycle ILA)
+- Candidate ideas generated:
+  - Low-risk UX/game-feel: add compact phase-intent legend hash alias (`CBGCFXWSBPFXPILH:<hex4>`) for one-glance integrity scanability in payload tooling.
+  - Mid-risk systems/QA: expose optional markdown row + adjacency lock for the new hash alias directly after `CBGCFXWSBPFXPIL`.
+  - High-risk novelty AI-content/combat: auto-rotate phase-intent legend hash window by volatility streak memory.
+- [x] Systems/QA Team: Add payload-only compact phase-intent legend hash alias token (`CBGCFXWSBPFXPILH:<hex4>`) with deterministic payload contract (`legendHash -> compactHashAlias`). *(lifecycle: [ ] -> [~] started: 2026-03-31 20:34 KST -> [x] completed: 2026-03-31 20:40 KST; verification: ✅ `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` | ⚠️ `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` exits 1 and still needs follow-up triage)*
+
+Last updated: 2026-03-31 20:40 KST
 
 ## P1 (Game Director Injection — 2026-03-31 Cycle IL)
 - Candidate ideas generated:

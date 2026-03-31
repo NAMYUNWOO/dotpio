@@ -2920,3 +2920,4 @@
 - [2026-03-31 18:32 KST] No map/progression data changes in this slice. Confirmed feature is copy-readability only and does not alter portal progression invariants.
 
 - [2026-03-31 20:05 KST] World: no map/content delta this cycle; acknowledged backlog-state reconciliation cycle focused on digest task bookkeeping integrity.
+- 2026-03-31 20:40 KST — World lane checkpoint: no map/progression edits this cycle; acknowledged phase-intent legend-hash alias as telemetry-only support for digest tooling.

@@ -3192,3 +3192,4 @@
 - [2026-03-31 18:32 KST] Added optional-row ordering constraints so tooltip -> FX NOTE -> ORDER remains deterministic when flags are on/off, reducing operator scan ambiguity.
 
 - [2026-03-31 20:05 KST] UX: no new row additions; reconciled task tracking so digest rail worklist no longer shows stale in-progress checkbox.
+- 2026-03-31 20:40 KST — UX lane review: deferred visible markdown row for `CBGCFXWSBPFXPILH` this cycle to avoid digest width churn; payload-only alias chosen for low-risk operator tooling scanability.

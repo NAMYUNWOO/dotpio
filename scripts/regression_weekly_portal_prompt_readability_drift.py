@@ -4114,6 +4114,12 @@ def main() -> int:
             assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendCompactAlias") == "CBGCFXWSBPFXPIL:ASR", payload
         else:
             assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendCompactAlias") == "FLAG OFF", payload
+        assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendCompactAliasHash", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPILH:")), payload
+        legend_compact_alias_hash_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendCompactAliasHashSignals", {})
+        assert legend_compact_alias_hash_signals.get("legendHash") == expected_phase_intent_legend_hash, payload
+        assert legend_compact_alias_hash_signals.get("compactHashAlias") == expected_phase_intent_legend_hash[:4].upper(), payload
+        assert legend_compact_alias_hash_signals.get("sourceToken") == "CBGCFXWSBPFXPIL:ASR", payload
+        assert legend_compact_alias_hash_signals.get("offlineOnly") is True, payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendMicrocopyVariant", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPI LEGEND COPY:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentLegendMicrocopyVariantSignals", {}).keys()) == {
             "flagName",
