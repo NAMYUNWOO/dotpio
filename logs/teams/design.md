@@ -2999,3 +2999,5 @@
 - Verification: py_compile PASS, weekly digest smoke PASS, targeted flag-on assertion (`LB=LB lock,FB=FB hold`) PASS.
 
 - [2026-03-31 18:32 KST] Kept row budget guard at <=88 chars for new FX NOTE row to preserve DOS layout constraints and readability hierarchy in summary/token coverage blocks.
+
+- [2026-03-31 20:05 KST] Design: no UI/legend wording change; preserved existing CBGCFXWSBPFXPIL legend copy and adjacency behavior.

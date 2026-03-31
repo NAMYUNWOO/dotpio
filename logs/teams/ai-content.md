@@ -3008,3 +3008,5 @@
 - Verification: py_compile PASS, weekly digest smoke PASS, targeted flag-on assertion (`LB=LB lock,FB=FB hold`) PASS.
 
 - [2026-03-31 18:32 KST] Extended bridge decode microcopy surface with optional FX NOTE parity alias (L->S, F->E) to keep threat-order bridge decode context explicit without widening rows beyond DOS budget.
+
+- [2026-03-31 20:05 KST] AI Content: no copy/policy delta; confirmed phase-intent legend alias rollout remains complete and backlog now reflects true done state.

@@ -1,8 +1,7 @@
 # POST_RC_BACKLOG
 
 ## Autonomous Cycle 2026-03-31 (GD-Compact-PhaseIntent-Legend)
-- [ ] 🚧 Add compact `CBGCFXWSBPFXPIL` phase-intent legend alias rail in weekly prompt digest payload + markdown rails + regression contracts (started 2026-03-31 19:40 KST)
-- [x] ✅ Add compact `CBGCFXWSBPFXPIL` phase-intent legend alias rail in weekly prompt digest payload + markdown rails + regression contracts (completed 2026-03-31 19:51 KST)
+- [x] ✅ Add compact `CBGCFXWSBPFXPIL` phase-intent legend alias rail in weekly prompt digest payload + markdown rails + regression contracts (completed 2026-03-31 19:51 KST; backlog state reconciled 2026-03-31 20:05 KST)
   - Added resolver + payload signals for `CBGCFXWSBPFXPIL:ASR`
   - Added digest rows immediately after `CBGCFXWSBPFXPI LEGEND` in both summary + token-coverage sections
   - Extended regression contract for presence/order invariants and payload signal fields

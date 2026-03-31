@@ -4811,3 +4811,5 @@
 - Verification: py_compile PASS, weekly digest smoke PASS, targeted flag-on assertion (`LB=LB lock,FB=FB hold`) PASS.
 
 - [2026-03-31 18:32 KST] Added regression assertions for new FX NOTE row count, width budget, ordering, and parity mapping. `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` currently exits 1 (existing noisy harness path); `py_compile` for touched scripts passes.
+
+- [2026-03-31 20:05 KST] QA: executed regression sanity pass after backlog reconciliation (`python3 scripts/regression_weekly_portal_prompt_readability_drift.py`); harness still exits non-zero in local baseline while dumping large payload output (pre-existing noisy path).

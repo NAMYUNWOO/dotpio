@@ -3190,3 +3190,5 @@
 - Verification: py_compile PASS, weekly digest smoke PASS, targeted flag-on assertion (`LB=LB lock,FB=FB hold`) PASS.
 
 - [2026-03-31 18:32 KST] Added optional-row ordering constraints so tooltip -> FX NOTE -> ORDER remains deterministic when flags are on/off, reducing operator scan ambiguity.
+
+- [2026-03-31 20:05 KST] UX: no new row additions; reconciled task tracking so digest rail worklist no longer shows stale in-progress checkbox.
