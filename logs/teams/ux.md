@@ -3158,3 +3158,6 @@
 ## 2026-03-31 15:16 KST
 - Task: Added `CBGCFXWSBPFXPINF THREAT ORDER PATH LEGEND COMPACT` row in summary + token-coverage sections.
 - Decision: Keep row optional and DOS-width safe (<=88) while preserving scan order (`... THREAT ORDER PATH LEGEND -> ... LEGEND COMPACT -> ORDER`).
+
+## 2026-03-31 15:40 KST
+- UX markdown rails intentionally unchanged this cycle to avoid order churn; backlog now tracks optional bridge legend micro-row prototype.

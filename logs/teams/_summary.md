@@ -4376,3 +4376,10 @@ Compact decision memory for AI context efficiency.
   - Compact row remains optional and offline-only; emits `FLAG OFF` when not armed.
   - Order chain enforced: `... THREAT ORDER PATH LEGEND` (optional) -> `... THREAT ORDER PATH LEGEND COMPACT` (optional) -> `... ORDER`.
   - QA contract allows `0|2` compact rows across summary/token-coverage and enforces <=88-char DOS budget.
+
+## 2026-03-31 15:40 KST — Cycle KD summary
+- Trigger: ACTION_ITEMS/TASKS/POST_RC were fully checked, so executed Game Director review cycle (3 ideas generated; selected low-risk payload-only bridge alias slice).
+- Shipped: `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE:<LB|FB>` with deterministic map from `THREAT ORDER PATH LEGEND` alias (`L->LB`, `F->FB`).
+- Scope: offline/readability telemetry only; no markdown ordering changes and no runtime balance impact.
+- Verification: py_compile + regression + weekly smoke all PASS.
+- Follow-ups injected: optional bridge legend markdown row + order/cardinality contracts + AI-content decode copy variants.

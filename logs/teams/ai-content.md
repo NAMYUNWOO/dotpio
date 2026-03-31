@@ -2970,3 +2970,6 @@
 
 ## 2026-03-31 15:16 KST
 - AI-content wording unchanged; compact legend alias remains deterministic (`L|F`) and offline-only.
+
+## 2026-03-31 15:40 KST
+- AI-content text unchanged this cycle; injected follow-up to author compact decode copy for `LB|FB` bridge aliases.

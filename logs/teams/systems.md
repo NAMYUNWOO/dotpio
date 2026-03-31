@@ -4233,3 +4233,9 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `POST_RC_BACKLOG.md`
 - Verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` ✅; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120` ✅
 - Decisions: Keep compact row optional, <=88 chars, and deterministic before `ORDER` for both summary/token-coverage sections.
+
+## 2026-03-31 15:40 KST
+- Task: Cycle KD shipped payload-only `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE:<LB|FB>` token/signals derived from THREAT ORDER PATH LEGEND alias.
+- Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
+- Verification: py_compile + regression_weekly_portal_prompt_readability_drift + weekly_portal_prompt_readability_drift smoke ✅
+- Decisions: kept scope markdown-free/reversible; deterministic mapping `L->LB`, `F->FB` for parser-friendly routing.

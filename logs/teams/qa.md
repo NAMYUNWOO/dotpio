@@ -4779,3 +4779,6 @@
 ## 2026-03-31 15:16 KST
 - Regression lock updated for optional compact row cardinality/order: exactly `0|2` rows with fallback-safe ordering.
 - Added width guard assertions for compact row budget and section adjacency checks.
+
+## 2026-03-31 15:40 KST
+- QA added regression payload contract checks for `THREAT ORDER BRIDGE` token/signals (schema/domain/alias map + deterministic mapping assertions).

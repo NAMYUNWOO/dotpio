@@ -2882,3 +2882,6 @@
 
 ## 2026-03-31 15:16 KST
 - No world-state/content schema changes; digest-only readability contract update this cycle.
+
+## 2026-03-31 15:40 KST
+- World readability lane: no narrative text mutations; added bridge-mode payload alias scaffolding only (`LB|FB`) for future operator copy work.

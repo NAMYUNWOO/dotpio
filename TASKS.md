@@ -2033,3 +2033,15 @@ See project-level plans:
 - [x] UX/Design Team: Prototype compact alias-only BURST fallback legend mode (`Bf/Qf`) that keeps rows <=88 chars while preserving route token discoverability. *(lifecycle: [ ] -> [~] started: 2026-03-31 12:28 KST -> [x] completed: 2026-03-31 12:32 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
 
 - [x] Game Director (systems/combat): Add explicit `CBGCFXWSBPFXPINF ROUTE:fallback-v1` digest row adjacent to BURST legend so operators can scan fallback routing without decoding payload blobs. *(lifecycle: [~] started 2026-03-31 12:40 KST -> [x] completed 2026-03-31 12:44 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Game Director Injection — 2026-03-31 Cycle KD
+- Coverage check (last 10 completions): systems/qa contract lanes still heavy; choose a reversible world/design-readable payload slice with no markdown-order churn.
+- Idea 1 (low risk, World/Design): Add payload-only bridge mode compact token derived from `THREAT ORDER PATH LEGEND` alias so downstream tooling can decode bridge behavior without parsing optional markdown rows. **Selected.**
+- Idea 2 (mid risk, Systems/QA): Add strict schema hash lane for threat-order legend rows to detect copy drift.
+- Idea 3 (high risk, AI-content/Combat): Add adaptive threat-order bridge remap based on prior-window drift volatility.
+- [x] World/Design + Systems/QA Team (Cycle KD selected experiment): Added payload-only compact bridge-mode token/signals `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE:<LB|FB>` derived deterministically from `THREAT ORDER PATH LEGEND` alias (`L->LB`, `F->FB`) with regression payload contract lock (offline-only, reversible). *(lifecycle: [~] started: 2026-03-31 15:34 KST -> [x] completed: 2026-03-31 15:40 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*
+
+## Next Up (Game Director Injection — Cycle KD)
+- [ ] UX/Design Team: Prototype optional markdown micro-row `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE LEGEND` (`LB=LEGEND_BRIDGE,FB=FALLBACK_BRIDGE`) with <=88 char budget and adjacency before `ORDER`.
+- [ ] Systems/QA Team: Add markdown cardinality/order contract for optional `THREAT ORDER BRIDGE LEGEND` row (`0|2`) while preserving fallback-safe ordering.
+- [ ] AI-content/World Team: Draft compact operator decode copy pair for `LB|FB` bridge states for future localized digest hints.

@@ -2871,3 +2871,6 @@
 
 ## 2026-03-31 15:16 KST
 - Combat/runtime behavior unchanged; update scoped to weekly readability digest contract rails.
+
+## 2026-03-31 15:40 KST
+- Combat/runtime behavior unchanged; Cycle KD update is offline telemetry payload tokenization only (`THREAT ORDER BRIDGE`).

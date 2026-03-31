@@ -2967,3 +2967,6 @@
 
 ## 2026-03-31 15:16 KST
 - Added design-facing compact legend micro-row (`THREAT ORDER PATH LEGEND COMPACT`) with adjacency guard before `ORDER`.
+
+## 2026-03-31 15:40 KST
+- Design lane selected for compact bridge semantics: alias map now explicit (`LB=LEGEND_BRIDGE`, `FB=FALLBACK_BRIDGE`) in payload signals.

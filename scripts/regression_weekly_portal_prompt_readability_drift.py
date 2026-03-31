@@ -4487,6 +4487,24 @@ def main() -> int:
             assert burst_threat_order_path_legend_compact_row == expected_compact_row, payload
         else:
             assert burst_threat_order_path_legend_compact_row == expected_compact_row_flag_off, payload
+        burst_threat_order_bridge = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueBurstThreatOrderBridge", "")
+        burst_threat_order_bridge_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueBurstThreatOrderBridgeSignals", {})
+        assert set(burst_threat_order_bridge_signals.keys()) == {
+            "flagName", "flagEnabled", "orderPathAlias", "bridgeAlias", "token", "aliasMap",
+            "adjacencyInvariant", "offlineOnly", "runtimeBalanceImpact",
+        }, payload
+        expected_bridge_alias = "LB" if expected_alias == "L" else "FB"
+        assert burst_threat_order_bridge_signals.get("orderPathAlias") == expected_alias, payload
+        assert burst_threat_order_bridge_signals.get("bridgeAlias") == expected_bridge_alias, payload
+        assert burst_threat_order_bridge_signals.get("aliasMap") == {"LB": "LEGEND_BRIDGE", "FB": "FALLBACK_BRIDGE"}, payload
+        assert burst_threat_order_bridge_signals.get("token") == f"CBGCFXWSBPFXPINF THREAT ORDER BRIDGE:{expected_bridge_alias}", payload
+        assert burst_threat_order_bridge_signals.get("adjacencyInvariant") == "THREAT ORDER PATH LEGEND COMPACT(payload)->THREAT ORDER BRIDGE(payload)", payload
+        assert burst_threat_order_bridge_signals.get("offlineOnly") is True, payload
+        assert burst_threat_order_bridge_signals.get("runtimeBalanceImpact") == "none", payload
+        if burst_threat_order_bridge_signals.get("flagEnabled") is True:
+            assert burst_threat_order_bridge == f"CBGCFXWSBPFXPINF THREAT ORDER BRIDGE:{expected_bridge_alias}", payload
+        else:
+            assert burst_threat_order_bridge == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHint", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPI DRILL:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintSignals", {}).keys()) == {
             "flagName",
