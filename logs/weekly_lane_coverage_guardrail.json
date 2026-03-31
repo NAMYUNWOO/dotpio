@@ -60,5 +60,11 @@
     }
   },
   "missingCadenceBuckets": [],
+  "trendScoreBandSnapshot": {
+    "CALM": 0,
+    "EDGE": 0,
+    "HEATED": 0
+  },
+  "trendScoreBandSnapshotAlias": "C0E0H0",
   "status": "within-cap"
 }

@@ -4560,3 +4560,5 @@ Compact decision memory for AI context efficiency.
 - Completed Systems/Ops ILJ follow-up: `scripts/check_lane_coverage_guardrail.py` now emits markdown-only trend-score band snapshot (`CALM/EDGE/HEATED`) derived from recent completed backlog rows; JSON schema kept stable by design.
 - TASKS + POST_RC_BACKLOG ILJ Systems/Ops item marked done with verification commands.
 - Next priority: launch next Game Director cycle (all ACTION_ITEMS/TASKS/POST_RC currently checked) with fresh 3-idea generation and minimal vertical slice.
+- 2026-04-01 05:19 KST — Reconciled stale ILJ backlog state: POST_RC_BACKLOG now marks Combat/VFX trend-score band alias + Design/World decode row as complete based on regenerated fixtures/regression proof; no new gameplay/runtime behavior changed.
+- 2026-04-01 05:22 KST — Cycle ILK shipped: scripts/check_lane_coverage_guardrail.py now outputs trendScoreBandSnapshot + compact alias trendScoreBandSnapshotAlias and markdown row TSSB:C<n>E<n>H<n>; queued ILK follow-ups (QA alias regression, UX decode row, AI dispatch hint).

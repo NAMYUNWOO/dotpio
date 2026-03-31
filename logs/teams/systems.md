@@ -4390,3 +4390,5 @@
 - Shipped markdown-only lane guardrail extension: trend-score band snapshot line now appears in `logs/weekly_lane_coverage_guardrail.md` as `CALM/EDGE/HEATED` counts from recent completed rows.
 - Guardrail JSON schema intentionally unchanged (payload contract preserved); only markdown rendering path consumes snapshot helper.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- 2026-04-01 05:19 KST — Cycle ILJ backlog reconciliation: marked remaining POST_RC_BACKLOG checkboxes complete after re-running forced-lane draft/regression verification; no runtime code-path changes, backlog/docs now match shipped trend-score band + decode-row deliverables.
+- 2026-04-01 05:22 KST — Cycle ILK: lane guardrail now emits compact trend-score snapshot alias TSSB:C<n>E<n>H<n> (trendScoreBandSnapshotAlias) from CALM/EDGE/HEATED counts for one-glance dispatch decode; verified via guardrail regeneration and py_compile.

@@ -87,6 +87,13 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         for lane in infer_lanes(row):
             lane_counts[lane] += 1
 
+    score_band_snapshot = collect_trend_score_band_snapshot(rows)
+    score_band_alias = (
+        f"C{score_band_snapshot['CALM']}"
+        f"E{score_band_snapshot['EDGE']}"
+        f"H{score_band_snapshot['HEATED']}"
+    )
+
     total = len(rows)
     percentages = {
         lane: round((lane_counts.get(lane, 0) / total) * 100.0, 2) if total else 0.0
@@ -126,12 +133,15 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "forcedNextLanes": forced_next_lanes,
         "bucketCadence": bucket_status,
         "missingCadenceBuckets": missing_buckets,
+        "trendScoreBandSnapshot": score_band_snapshot,
+        "trendScoreBandSnapshotAlias": score_band_alias,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
 
 def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
-    score_band_snapshot = collect_trend_score_band_snapshot(recent_rows or [])
+    _ = recent_rows
+    score_band_snapshot = report.get("trendScoreBandSnapshot", {"CALM": 0, "EDGE": 0, "HEATED": 0})
     score_band_summary = (
         f"CALM={score_band_snapshot['CALM']}, "
         f"EDGE={score_band_snapshot['EDGE']}, "
@@ -165,6 +175,7 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             f"- forced next lanes (if over-cap): **{forced}**",
             f"- cadence buckets missing: **{missing_buckets}**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
+            f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",
             "",
             *rows,
             *bucket_rows,
