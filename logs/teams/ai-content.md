@@ -2979,3 +2979,9 @@
 - Selected experiment: payload-only decode copy pair for `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE` aliases (`LB|FB`) to improve operator readability without markdown churn.
 - Shipped token/signals: `CBGCFXWSBPFXPINFBD:LB=LEGEND_BRIDGE_LOCK|FB=FALLBACK_BRIDGE_HOLD` + localization-safe route marker (`fallback-v1`).
 - Verification: py_compile + regression + weekly smoke PASS.
+
+## 2026-03-31 16:08 KST
+- Completed UX/Design bridge readability slice: added optional `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE LEGEND` markdown micro-row (`LB=LEGEND_BRIDGE,FB=FALLBACK_BRIDGE`) in summary + token-coverage rails.
+- Row is flag-gated, DOS-width guarded (`<=88`), and positioned between `THREAT ORDER PATH LEGEND COMPACT` and `ORDER` for one-glance operator handoff.
+- Verification: py_compile + regression suite + weekly digest smoke all green.
+

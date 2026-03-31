@@ -2970,3 +2970,9 @@
 
 ## 2026-03-31 15:40 KST
 - Design lane selected for compact bridge semantics: alias map now explicit (`LB=LEGEND_BRIDGE`, `FB=FALLBACK_BRIDGE`) in payload signals.
+
+## 2026-03-31 16:08 KST
+- Completed UX/Design bridge readability slice: added optional `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE LEGEND` markdown micro-row (`LB=LEGEND_BRIDGE,FB=FALLBACK_BRIDGE`) in summary + token-coverage rails.
+- Row is flag-gated, DOS-width guarded (`<=88`), and positioned between `THREAT ORDER PATH LEGEND COMPACT` and `ORDER` for one-glance operator handoff.
+- Verification: py_compile + regression suite + weekly digest smoke all green.
+

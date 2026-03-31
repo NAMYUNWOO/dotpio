@@ -1,3 +1,9 @@
+## 2026-03-31 16:08 KST
+- Completed UX/Design bridge readability slice: added optional `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE LEGEND` markdown micro-row (`LB=LEGEND_BRIDGE,FB=FALLBACK_BRIDGE`) in summary + token-coverage rails.
+- Updated markdown order contract in regression to include the new bridge legend spacer (`...PATH LEGEND COMPACT -> THREAT ORDER BRIDGE LEGEND -> ORDER`) with row-budget checks (`<=88`) and optional cardinality handling.
+- Verification green: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- Queue status: ACTION_ITEMS checked; TASKS unchecked=4; POST_RC_BACKLOG unchecked=4.
+
 ## 2026-03-31 14:20 KST
 - Executed Game Director Cycle KB (3 ideas generated; selected mid-risk systems/combat/design payload contract slice).
 - Implemented payload-only `CBGCFXWSBPFXPINF THREAT ORDER PATH:LEGEND|FALLBACK` token + signals from threat-legend flag state; regression now locks schema/domain/adjacency invariant.

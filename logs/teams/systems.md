@@ -4243,3 +4243,9 @@
 ## 2026-03-31 15:48 KST — Cycle KE systems guardrail note
 - Coverage cap breach confirmed on systems lane (5/10 = 50%); forced this cycle into underrepresented AI-content/world lane.
 - Added deterministic payload contract fields for bridge decode copy and queued Systems/QA schema/domain lock task for `CBGCFXWSBPFXPINFBD`.
+
+## 2026-03-31 16:08 KST
+- Completed UX/Design bridge readability slice: added optional `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE LEGEND` markdown micro-row (`LB=LEGEND_BRIDGE,FB=FALLBACK_BRIDGE`) in summary + token-coverage rails.
+- Row is flag-gated, DOS-width guarded (`<=88`), and positioned between `THREAT ORDER PATH LEGEND COMPACT` and `ORDER` for one-glance operator handoff.
+- Verification: py_compile + regression suite + weekly digest smoke all green.
+
