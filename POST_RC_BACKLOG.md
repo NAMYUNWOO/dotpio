@@ -1910,4 +1910,4 @@ Last updated: 2026-03-31 07:12 KST
 
 
 ## 2026-03-31 Cycle IO Injection
-- [ ] UX/Design: Prototype compact alias-only BURST fallback legend mode (`Bf/Qf`) with `fallback-v1` route visibility while keeping each BURST legend row <= 88 chars.
+- [x] UX/Design: Prototype compact alias-only BURST fallback legend mode (`Bf/Qf`) with `fallback-v1` route visibility while keeping each BURST legend row <= 88 chars. *(lifecycle: [ ] -> [~] started: 2026-03-31 12:28 KST -> [x] completed: 2026-03-31 12:32 KST; verification: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/regression_weekly_portal_prompt_readability_drift.py` + `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`)*

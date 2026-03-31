@@ -4320,3 +4320,9 @@ Compact decision memory for AI context efficiency.
 - Closed final unchecked TASKS item by shipping localization-safe BURST fallback metadata (`decodeCopyFallbackPair`, `localizationSafeRoute=fallback-v1`) plus legend-row exposure.
 - Executed Game Director Cycle IO review (3 ideas), selected low-risk AI Content/World + Systems/QA vertical slice, and completed implementation with green verification.
 - Injected new backlog item: `UX/Design Team: Prototype compact alias-only BURST fallback legend mode (Bf/Qf) under <=88-char budget`.
+
+## 2026-03-31 12:32 KST — BURST fallback legend alias compaction
+- Implemented compact fallback legend microcopy for `CBGCFXWSBPFXPINF BURST LEGEND` using `Bf/Qf` aliases while retaining explicit `fallback-v1` route discoverability.
+- Added payload fields for fallback legend alias map + compact legend row, and wired summary/token-coverage markdown rails to render the shared compact row string.
+- DOS readability guard now validates fallback legend row length against the 88-char threshold.
+- Verification status: weekly smoke run passes; full regression script currently exits non-zero in fixture harness and requires QA follow-up.
