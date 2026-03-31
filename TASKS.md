@@ -2044,4 +2044,7 @@ See project-level plans:
 ## Next Up (Game Director Injection — Cycle KD)
 - [ ] UX/Design Team: Prototype optional markdown micro-row `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE LEGEND` (`LB=LEGEND_BRIDGE,FB=FALLBACK_BRIDGE`) with <=88 char budget and adjacency before `ORDER`.
 - [ ] Systems/QA Team: Add markdown cardinality/order contract for optional `THREAT ORDER BRIDGE LEGEND` row (`0|2`) while preserving fallback-safe ordering.
-- [ ] AI-content/World Team: Draft compact operator decode copy pair for `LB|FB` bridge states for future localized digest hints.
+- [x] AI-content/World Team: Draft compact operator decode copy pair for `LB|FB` bridge states for future localized digest hints.
+- [ ] Combat/VFX Team: Evaluate optional payload parity token `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE FX CUE:<S|E>` mapped from `LB|FB` decode states for HUD flash routing.
+- [ ] Systems/QA Team: Lock schema/domain contract for `CBGCFXWSBPFXPINFBD` decode token (`LB|FB` + uppercase snake case copy payload) and fallback route metadata.
+- [ ] UX/Design Team: Draft single-line operator tooltip copy for bridge decode states (`legend bridge lock`/`fallback bridge hold`) with <=88-char row budget for future markdown rollout.

@@ -2885,3 +2885,7 @@
 
 ## 2026-03-31 15:40 KST
 - World readability lane: no narrative text mutations; added bridge-mode payload alias scaffolding only (`LB|FB`) for future operator copy work.
+
+## 2026-03-31 15:48 KST — Cycle KE world readability note
+- Added compact world-tone decode phrases for bridge aliases: `LB -> legend bridge lock`, `FB -> fallback bridge hold`.
+- Kept slice payload-only to avoid digest row-budget risk; future localized markdown exposure remains queued.

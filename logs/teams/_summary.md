@@ -4383,3 +4383,15 @@ Compact decision memory for AI context efficiency.
 - Scope: offline/readability telemetry only; no markdown ordering changes and no runtime balance impact.
 - Verification: py_compile + regression + weekly smoke all PASS.
 - Follow-ups injected: optional bridge legend markdown row + order/cardinality contracts + AI-content decode copy variants.
+
+## 2026-03-31 15:48 KST — Cycle KE summary (forced underrepresented lane)
+- Coverage check over last 10 completed items: systems=5 (50%), design=2 (20%), combat=2 (20%), world=1 (10%), ai-content=1 (10%), vfx=0, ux=0, qa=0.
+- Lane policy action: systems exceeded 40%, so experiment was forced into underrepresented lanes (AI-content/World this cycle).
+- 3 idea candidates:
+  1) Low-risk UX: optional markdown row `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE LEGEND` (`LB/FB`) before `ORDER`.
+  2) Mid-risk AI-content/World: payload-only compact decode copy pair for `LB|FB` bridge aliases.
+  3) High-risk Combat/VFX novelty: parity FX cue token (`S|E`) mapped from bridge aliases for HUD flash rhythm.
+- Chosen experiment: Idea #2 (mid-risk AI-content/World) for minimal vertical slice with no markdown ordering churn.
+- Shipped: new payload token/signals `CBGCFXWSBPFXPINFBD:<LB|FB>=<LEGEND_BRIDGE_LOCK|FALLBACK_BRIDGE_HOLD>` plus deterministic decode pair + `fallback-v1` route metadata.
+- Verification PASS: `python3 -m py_compile scripts/weekly_portal_prompt_readability_drift.py scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/regression_weekly_portal_prompt_readability_drift.py`; `python3 scripts/weekly_portal_prompt_readability_drift.py --repo-root . --since-days 7 --max-commits 120`.
+- Backlog updates: completed AI-content/World decode-copy tasks; injected follow-ups for Systems/QA schema lock, UX tooltip row design, and Combat/VFX FX-cue parity token evaluation.

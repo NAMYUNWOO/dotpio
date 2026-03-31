@@ -2973,3 +2973,9 @@
 
 ## 2026-03-31 15:40 KST
 - AI-content text unchanged this cycle; injected follow-up to author compact decode copy for `LB|FB` bridge aliases.
+
+## 2026-03-31 15:48 KST — Cycle KE AI-content/world bridge decode slice
+- Coverage check (last 10 completed items by lane): systems=5, design=2, combat=2, world=1, ai-content=1, vfx=0, ux=0, qa=0. Systems exceeded 40%, so next experiment forced into underrepresented lanes.
+- Selected experiment: payload-only decode copy pair for `CBGCFXWSBPFXPINF THREAT ORDER BRIDGE` aliases (`LB|FB`) to improve operator readability without markdown churn.
+- Shipped token/signals: `CBGCFXWSBPFXPINFBD:LB=LEGEND_BRIDGE_LOCK|FB=FALLBACK_BRIDGE_HOLD` + localization-safe route marker (`fallback-v1`).
+- Verification: py_compile + regression + weekly smoke PASS.

@@ -4505,6 +4505,27 @@ def main() -> int:
             assert burst_threat_order_bridge == f"CBGCFXWSBPFXPINF THREAT ORDER BRIDGE:{expected_bridge_alias}", payload
         else:
             assert burst_threat_order_bridge == "FLAG OFF", payload
+        burst_threat_order_bridge_decode_copy = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueBurstThreatOrderBridgeDecodeCopy", "")
+        burst_threat_order_bridge_decode_copy_signals = payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentNarrationCompactAliasCombatVfxFxCueBurstThreatOrderBridgeDecodeCopySignals", {})
+        assert set(burst_threat_order_bridge_decode_copy_signals.keys()) == {
+            "flagName", "flagEnabled", "bridgeAlias", "decode", "token", "decodeCopyPair",
+            "localizationSafeRoute", "adjacencyInvariant", "offlineOnly", "runtimeBalanceImpact",
+        }, payload
+        expected_bridge_decode_pair = {"LB": "legend bridge lock", "FB": "fallback bridge hold"}
+        expected_bridge_decode = expected_bridge_decode_pair[expected_bridge_alias]
+        expected_bridge_decode_token = f"CBGCFXWSBPFXPINFBD:{expected_bridge_alias}={expected_bridge_decode.upper().replace(' ', '_')}"
+        assert burst_threat_order_bridge_decode_copy_signals.get("bridgeAlias") == expected_bridge_alias, payload
+        assert burst_threat_order_bridge_decode_copy_signals.get("decode") == expected_bridge_decode, payload
+        assert burst_threat_order_bridge_decode_copy_signals.get("decodeCopyPair") == expected_bridge_decode_pair, payload
+        assert burst_threat_order_bridge_decode_copy_signals.get("token") == expected_bridge_decode_token, payload
+        assert burst_threat_order_bridge_decode_copy_signals.get("localizationSafeRoute") == "fallback-v1", payload
+        assert burst_threat_order_bridge_decode_copy_signals.get("adjacencyInvariant") == "THREAT ORDER BRIDGE(payload)->THREAT ORDER BRIDGE DECODE COPY(payload)", payload
+        assert burst_threat_order_bridge_decode_copy_signals.get("offlineOnly") is True, payload
+        assert burst_threat_order_bridge_decode_copy_signals.get("runtimeBalanceImpact") == "none", payload
+        if burst_threat_order_bridge_decode_copy_signals.get("flagEnabled") is True:
+            assert burst_threat_order_bridge_decode_copy == expected_bridge_decode_token, payload
+        else:
+            assert burst_threat_order_bridge_decode_copy == "FLAG OFF", payload
         assert payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHint", "").startswith(("FLAG OFF", "CBGCFXWSBPFXPI DRILL:")), payload
         assert set(payload.get("cadenceBridgeGlyphConfidenceFxPulseMicrocopyWorldToneCoherenceArcStorybeatPhaseFxCueIntensityPulseLanguageVariantPackPhaseIntentRehearsalHintSignals", {}).keys()) == {
             "flagName",

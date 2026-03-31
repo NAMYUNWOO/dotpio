@@ -436,3 +436,7 @@
 - Selected low-risk vertical slice: payload-only `CBGCFXWSBPFXPINF THREAT:<L|M|H>` derived from cue + burst + drift signals.
 - Verification green: py_compile + regression weekly readability drift + weekly drift smoke run.
 - Follow-up injected: optional markdown `THREAT LEGEND` row + adjacency contract (`BURST DIGEST -> THREAT -> ORDER`).
+
+## 2026-03-31 15:48 KST — Cycle KE vfx cadence checkpoint
+- 24h cadence audit still satisfies Combat/VFX presence via prior THREAT/ORDER bridge slices.
+- No new runtime VFX mapping changed in this cycle; injected follow-up to evaluate `THREAT ORDER BRIDGE FX CUE` parity token (`S|E`) for HUD flash routing.

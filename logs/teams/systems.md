@@ -4239,3 +4239,7 @@
 - Files: `scripts/weekly_portal_prompt_readability_drift.py`, `scripts/regression_weekly_portal_prompt_readability_drift.py`, `TASKS.md`, `POST_RC_BACKLOG.md`
 - Verification: py_compile + regression_weekly_portal_prompt_readability_drift + weekly_portal_prompt_readability_drift smoke ✅
 - Decisions: kept scope markdown-free/reversible; deterministic mapping `L->LB`, `F->FB` for parser-friendly routing.
+
+## 2026-03-31 15:48 KST — Cycle KE systems guardrail note
+- Coverage cap breach confirmed on systems lane (5/10 = 50%); forced this cycle into underrepresented AI-content/world lane.
+- Added deterministic payload contract fields for bridge decode copy and queued Systems/QA schema/domain lock task for `CBGCFXWSBPFXPINFBD`.
