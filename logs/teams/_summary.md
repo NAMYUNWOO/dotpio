@@ -4582,3 +4582,8 @@ Compact decision memory for AI context efficiency.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2 (next: Systems/QA dominant-bucket regression matrix).
 - 2026-04-01 07:20 KST — Delivered Systems/QA injected regression expansion: `scripts/regression_check_lane_coverage_guardrail.py` now validates dispatch-hint dominant mapping and alias parity for CALM/EDGE/HEATED + BALANCED tie, locking `trendScoreBandDispatchHint`/`trendScoreBandDispatchHintAlias` invariants.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: AI Content/Systems `trendScoreBandDispatchPressure`).
+
+## 2026-04-01 07:50 KST
+- Closed injected POST_RC item for lane guardrail: added offline dispatch-pressure token `trendScoreBandDispatchPressure:LIGHT|READY|HOT` derived from cadence health (`missingCadenceBuckets`, `overCapLanes`) and trend-score concentration ratio.
+- Markdown/report parity now includes `trend-score dispatch pressure (offline)` line, and regression fixtures lock LIGHT (balanced), READY (moderate dominant), and HOT (high concentration/cadence stress) mappings.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

@@ -45,6 +45,7 @@ def run_fixture_case(
     expected_snapshot: dict[str, int],
     expected_dispatch_hint: str,
     expected_dispatch_hint_alias: str,
+    expected_dispatch_pressure: str,
 ) -> None:
     backlog = tmp_path / f"{name}_backlog.md"
     json_out = tmp_path / f"{name}_guardrail.json"
@@ -68,6 +69,9 @@ def run_fixture_case(
     assert report.get("trendScoreBandDispatchHintAlias") == expected_dispatch_hint_alias, (
         f"{name}: trendScoreBandDispatchHintAlias must match compact dispatch-hint alias"
     )
+    assert report.get("trendScoreBandDispatchPressure") == expected_dispatch_pressure, (
+        f"{name}: trendScoreBandDispatchPressure must match cadence+distribution pressure mapping"
+    )
 
     md_text = md_out.read_text(encoding="utf-8")
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"
@@ -79,6 +83,9 @@ def run_fixture_case(
     )
     assert f"trend-score dispatch hint alias: **TSDH:{expected_dispatch_hint_alias}**" in md_text, (
         f"{name}: markdown output must include compact dispatch-hint alias row"
+    )
+    assert f"trend-score dispatch pressure (offline): **{expected_dispatch_pressure}**" in md_text, (
+        f"{name}: markdown output must include offline dispatch-pressure row"
     )
 
 
@@ -99,6 +106,24 @@ def main() -> int:
             expected_snapshot={"CALM": 3, "EDGE": 3, "HEATED": 2},
             expected_dispatch_hint="BALANCED",
             expected_dispatch_hint_alias="B",
+            expected_dispatch_pressure="LIGHT",
+        )
+
+        run_fixture_case(
+            tmp_path=tmp_path,
+            name="ready_mix",
+            rows=[
+                "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+                "- [x] Design/World Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+                "- [x] UX/Systems Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:E",
+                "- [x] Combat/VFX Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:H",
+                "- [x] AI Content/Systems Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:E",
+                "- [x] World Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+            ],
+            expected_snapshot={"CALM": 3, "EDGE": 2, "HEATED": 1},
+            expected_dispatch_hint="CALM_FOCUS",
+            expected_dispatch_hint_alias="C",
+            expected_dispatch_pressure="READY",
         )
 
         run_fixture_case(
@@ -114,6 +139,7 @@ def main() -> int:
             expected_snapshot={"CALM": 3, "EDGE": 1, "HEATED": 1},
             expected_dispatch_hint="CALM_FOCUS",
             expected_dispatch_hint_alias="C",
+            expected_dispatch_pressure="HOT",
         )
 
         run_fixture_case(
@@ -129,6 +155,7 @@ def main() -> int:
             expected_snapshot={"CALM": 1, "EDGE": 3, "HEATED": 1},
             expected_dispatch_hint="EDGE_FOCUS",
             expected_dispatch_hint_alias="E",
+            expected_dispatch_pressure="HOT",
         )
 
         run_fixture_case(
@@ -144,6 +171,7 @@ def main() -> int:
             expected_snapshot={"CALM": 1, "EDGE": 1, "HEATED": 3},
             expected_dispatch_hint="HEATED_FOCUS",
             expected_dispatch_hint_alias="H",
+            expected_dispatch_pressure="HOT",
         )
 
     print("ok: trendScoreBand dispatch-hint regression checks passed")

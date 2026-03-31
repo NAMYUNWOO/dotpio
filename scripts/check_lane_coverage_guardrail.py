@@ -112,6 +112,22 @@ def resolve_trend_score_band_dispatch_hint_alias(dispatch_hint: str) -> str:
     return alias_map.get(dispatch_hint, "B")
 
 
+def resolve_trend_score_band_dispatch_pressure(
+    score_band_snapshot: dict[str, int],
+    missing_cadence_buckets: list[str],
+    over_cap_lanes: list[str],
+) -> str:
+    total = sum(score_band_snapshot.values())
+    dominant_count = max(score_band_snapshot.values()) if score_band_snapshot else 0
+    dominant_ratio = (dominant_count / total) if total else 0.0
+
+    if missing_cadence_buckets or over_cap_lanes or dominant_ratio >= 0.6:
+        return "HOT"
+    if dominant_ratio >= 0.45:
+        return "READY"
+    return "LIGHT"
+
+
 def build_report(rows: list[str], cap_ratio: float) -> dict:
     lane_counts = Counter()
     for row in rows:
@@ -158,6 +174,12 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         if not met:
             missing_buckets.append(bucket)
 
+    score_band_dispatch_pressure = resolve_trend_score_band_dispatch_pressure(
+        score_band_snapshot,
+        missing_buckets,
+        over_cap,
+    )
+
     return {
         "recentCompletedItems": total,
         "capPercent": round(cap_ratio * 100.0, 2),
@@ -172,6 +194,7 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "trendScoreBandSnapshotAlias": score_band_alias,
         "trendScoreBandDispatchHint": score_band_dispatch_hint,
         "trendScoreBandDispatchHintAlias": score_band_dispatch_hint_alias,
+        "trendScoreBandDispatchPressure": score_band_dispatch_pressure,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -216,6 +239,7 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             "- trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**",
             f"- trend-score dispatch hint (offline): **{report.get('trendScoreBandDispatchHint', 'BALANCED')}**",
             f"- trend-score dispatch hint alias: **TSDH:{report.get('trendScoreBandDispatchHintAlias', 'B')}**",
+            f"- trend-score dispatch pressure (offline): **{report.get('trendScoreBandDispatchPressure', 'LIGHT')}**",
             "",
             *rows,
             *bucket_rows,

@@ -10,7 +10,7 @@
 
 ## Next Up (Game Director Injection — Cycle ILL)
 - [x] Systems/QA Team (injected): Extend regression fixture set to assert dominant-bucket mapping for `trendScoreBandDispatchHint` (`CALM_FOCUS|EDGE_FOCUS|HEATED_FOCUS`) and alias parity (`C|E|H`). *(lifecycle: [ ] -> [~] started: 2026-04-01 07:18 KST -> [x] completed: 2026-04-01 07:20 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Systems Team (injected): Prototype offline dispatch-pressure note (`trendScoreBandDispatchPressure:LIGHT|READY|HOT`) from lane cadence + trend-score distribution while keeping runtime decoupled.
+- [x] AI Content/Systems Team (injected): Prototype offline dispatch-pressure note (`trendScoreBandDispatchPressure:LIGHT|READY|HOT`) from lane cadence + trend-score distribution while keeping runtime decoupled. *(lifecycle: [ ] -> [~] started: 2026-04-01 07:47 KST -> [x] completed: 2026-04-01 07:50 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Game Director Injection — 2026-04-01 Cycle ILG
 - Candidate ideas:

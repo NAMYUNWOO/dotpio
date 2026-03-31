@@ -3034,3 +3034,8 @@
 - Lane guardrail payload now includes both `trendScoreBandDispatchHint` and `trendScoreBandDispatchHintAlias`; alias mapping is deterministic (`CALM_FOCUS->C`, `EDGE_FOCUS->E`, `HEATED_FOCUS->H`, `BALANCED->B`).
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-01 07:20 KST — Closed injected Systems/QA POST_RC item: extended lane-guardrail regression matrix with dominant `trendScoreBandDispatchHint` mapping coverage (`CALM_FOCUS|EDGE_FOCUS|HEATED_FOCUS`) and alias parity (`C|E|H`) across four fixtures (balanced tie + calm/edge/heated dominant).
+## 2026-04-01 07:50 KST
+- Closed injected dispatch-pressure slice for lane guardrail output: `trendScoreBandDispatchPressure:LIGHT|READY|HOT` is now emitted from cadence health + trend-score distribution concentration (offline-only, runtime-decoupled).
+- Regression contract extended to lock pressure-domain behavior across LIGHT/READY/HOT fixtures and markdown row presence.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail artifact regeneration command.
+

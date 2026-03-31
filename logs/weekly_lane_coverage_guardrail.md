@@ -9,6 +9,7 @@
 - trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**
 - trend-score dispatch hint (offline): **BALANCED**
 - trend-score dispatch hint alias: **TSDH:B**
+- trend-score dispatch pressure (offline): **LIGHT**
 
 | lane | count | percent |
 |---|---:|---:|

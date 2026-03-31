@@ -68,5 +68,6 @@
   "trendScoreBandSnapshotAlias": "C0E0H0",
   "trendScoreBandDispatchHint": "BALANCED",
   "trendScoreBandDispatchHintAlias": "B",
+  "trendScoreBandDispatchPressure": "LIGHT",
   "status": "within-cap"
 }
