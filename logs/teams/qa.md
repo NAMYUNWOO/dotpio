@@ -4889,3 +4889,10 @@
 
 - 2026-04-01 01:56 KST — Game Director Cycle ILG selected low-risk UX/Systems slice and shipped payload alias `compatRowPolicySourceAlias:C|V` with mirrored signal `compatRowPolicySignals.policySourceAlias`; regression + fixture regeneration passed. Injected follow-ups queued: (1) Systems/QA alias parity checklist/regression hardening, (2) AI Content/Systems offline source-confidence tier prototype.
 - 2026-04-01 02:19 KST — Cycle ILH + ILG follow-through: shipped offline forced-lane payload confidence tier (`compatRowPolicySourceConfidence:LOW|MID|HIGH`) and compact alias (`compatRowPolicySourceConfidenceAlias:L|M|H`) with mirrored signals; hardened regression + checked-in fixture checklist coverage for source alias/confidence contracts. Verification: `python3 -m py_compile scripts/draft_forced_lane_backlog_tasks.py scripts/regression_draft_forced_lane_backlog_tasks.py` + `python3 scripts/draft_forced_lane_backlog_tasks.py --guardrail-json logs/weekly_lane_coverage_guardrail_over_cap_fixture.json --json-out logs/forced_lane_task_templates_over_cap_fixture.json --md-out logs/forced_lane_task_templates_over_cap_fixture.md --include-copy-pack-compat-row` + `python3 scripts/regression_draft_forced_lane_backlog_tasks.py`. Follow-ups injected: alias checklist coverage + confidence trend prototype.
+
+## 2026-04-01 02:46 KST
+- Added regression assertions for new mirror-field checklist rows so source-confidence signal parity is explicitly audited in both generated markdown and checked-in fixture markdown.
+- Regression now validates presence/cardinality for:
+  - `compatRowPolicySignals.policySourceConfidence mirrors compatRowPolicySourceConfidence exactly`
+  - `compatRowPolicySignals.policySourceConfidenceAlias mirrors compatRowPolicySourceConfidenceAlias exactly`
+- PASS: `python3 scripts/regression_draft_forced_lane_backlog_tasks.py`.

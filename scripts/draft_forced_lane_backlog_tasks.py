@@ -211,7 +211,13 @@ def to_markdown(
         "- CONTRACT CHECKLIST: compatRowPolicySourceConfidence in {LOW,MID,HIGH} and compatRowPolicySignals.policySourceConfidence mirrors compatRowPolicySourceConfidence"
     )
     lines.append(
+        "- CONTRACT CHECKLIST: compatRowPolicySignals.policySourceConfidence mirrors compatRowPolicySourceConfidence exactly"
+    )
+    lines.append(
         "- CONTRACT CHECKLIST: compatRowPolicySourceConfidenceAlias in {L,M,H} and compatRowPolicySignals.policySourceConfidenceAlias mirrors compatRowPolicySourceConfidenceAlias"
+    )
+    lines.append(
+        "- CONTRACT CHECKLIST: compatRowPolicySignals.policySourceConfidenceAlias mirrors compatRowPolicySourceConfidenceAlias exactly"
     )
     lines.append("")
 

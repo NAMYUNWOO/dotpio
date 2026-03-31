@@ -134,8 +134,14 @@ def main() -> int:
         source_confidence_contract_row = (
             "- CONTRACT CHECKLIST: compatRowPolicySourceConfidence in {LOW,MID,HIGH} and compatRowPolicySignals.policySourceConfidence mirrors compatRowPolicySourceConfidence"
         )
+        source_confidence_mirror_contract_row = (
+            "- CONTRACT CHECKLIST: compatRowPolicySignals.policySourceConfidence mirrors compatRowPolicySourceConfidence exactly"
+        )
         source_confidence_alias_contract_row = (
             "- CONTRACT CHECKLIST: compatRowPolicySourceConfidenceAlias in {L,M,H} and compatRowPolicySignals.policySourceConfidenceAlias mirrors compatRowPolicySourceConfidenceAlias"
+        )
+        source_confidence_alias_mirror_contract_row = (
+            "- CONTRACT CHECKLIST: compatRowPolicySignals.policySourceConfidenceAlias mirrors compatRowPolicySourceConfidenceAlias exactly"
         )
 
         assert "COPY PACK COMPAT:STEADY=ST|SPIKE=SP" in compat_text, (
@@ -157,8 +163,14 @@ def main() -> int:
         assert compat_lines.count(source_confidence_contract_row) == 1, (
             "policy-source confidence contract checklist row must appear exactly once"
         )
+        assert compat_lines.count(source_confidence_mirror_contract_row) == 1, (
+            "policy-source confidence mirror contract checklist row must appear exactly once"
+        )
         assert compat_lines.count(source_confidence_alias_contract_row) == 1, (
             "policy-source confidence alias contract checklist row must appear exactly once"
+        )
+        assert compat_lines.count(source_confidence_alias_mirror_contract_row) == 1, (
+            "policy-source confidence alias mirror contract checklist row must appear exactly once"
         )
         compat_index = compat_lines.index(compat_row)
         legend_index = compat_lines.index(compat_legend_row)
@@ -174,8 +186,14 @@ def main() -> int:
         assert source_confidence_contract_row in first_md.read_text(encoding="utf-8"), (
             "policy-source confidence contract checklist row should be present in baseline markdown output"
         )
+        assert source_confidence_mirror_contract_row in first_md.read_text(encoding="utf-8"), (
+            "policy-source confidence mirror contract checklist row should be present in baseline markdown output"
+        )
         assert source_confidence_alias_contract_row in first_md.read_text(encoding="utf-8"), (
             "policy-source confidence alias contract checklist row should be present in baseline markdown output"
+        )
+        assert source_confidence_alias_mirror_contract_row in first_md.read_text(encoding="utf-8"), (
+            "policy-source confidence alias mirror contract checklist row should be present in baseline markdown output"
         )
         assert "COPY PACK COMPAT:STEADY=ST|SPIKE=SP" not in first_md.read_text(encoding="utf-8"), (
             "compatibility row must stay gated behind flag"
@@ -193,8 +211,14 @@ def main() -> int:
         assert source_confidence_contract_row in checked_in_markdown, (
             "checked-in fixture markdown must include policy-source confidence contract checklist row"
         )
+        assert source_confidence_mirror_contract_row in checked_in_markdown, (
+            "checked-in fixture markdown must include policy-source confidence mirror contract checklist row"
+        )
         assert source_confidence_alias_contract_row in checked_in_markdown, (
             "checked-in fixture markdown must include policy-source confidence alias contract checklist row"
+        )
+        assert source_confidence_alias_mirror_contract_row in checked_in_markdown, (
+            "checked-in fixture markdown must include policy-source confidence alias mirror contract checklist row"
         )
 
     print("PASS: regression_draft_forced_lane_backlog_tasks")
