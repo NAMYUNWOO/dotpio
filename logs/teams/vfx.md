@@ -486,3 +486,8 @@
 - Markdown parity added: `TSDPMFXC:<HL|PE|BC>` row plus decode line (`HL=hold line, PE=press edge, BC=burst clear`) in lane guardrail report.
 - Regression contract extended in `scripts/regression_check_lane_coverage_guardrail.py` for JSON schema/domain + markdown row assertions.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail report regeneration command with `--include-trend-family-why`.
+
+## 2026-04-01 19:50 KST
+- Synced Game Director injected IP11 item completion: added offline cadence-confidence trend token `TSDPCONWCT:UP|FLAT|DOWN` to lane guardrail output and regression contract.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail report regeneration passed.
+- Follow-up: queue now requires next Game Director review cycle (all ACTION_ITEMS/TASKS/POST_RC items checked).

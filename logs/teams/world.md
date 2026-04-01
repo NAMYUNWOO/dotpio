@@ -3160,3 +3160,8 @@
 - 2026-04-01 18:47 KST — Cycle IP10 injected task complete: shipped offline cadence-note rationale confidence token TSDPCON WHY CONF:LOW|MID|HIGH from note/slope churn windows; regression + markdown order contract updated and verified.
 - 2026-04-01 18:56 KST — Cycle IP11 shipped compact confidence alias TSDPCONWC (L|M|H) for cadence-note rationale confidence; regression ordering lock extended to include TSDPCON WHY CONF -> TSDPCONWC -> TSDPCONW -> legends.
 - 2026-04-01 19:18 KST — Systems/QA injected task complete: added fixture-level regression assertion that `TSDPCONWC` row count mirrors `TSDPCON WHY CONF` row count across summary + token-coverage sections; cadence confidence cluster parity now explicitly guarded. Follow-up queued: AI Content/Systems `TSDPCONWCT:UP|FLAT|DOWN` prototype.
+
+## 2026-04-01 19:50 KST
+- Synced Game Director injected IP11 item completion: added offline cadence-confidence trend token `TSDPCONWCT:UP|FLAT|DOWN` to lane guardrail output and regression contract.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail report regeneration passed.
+- Follow-up: queue now requires next Game Director review cycle (all ACTION_ITEMS/TASKS/POST_RC items checked).
