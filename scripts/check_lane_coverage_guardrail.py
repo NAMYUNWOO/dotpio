@@ -155,6 +155,24 @@ def resolve_trend_score_band_dispatch_pressure_momentum_band_alias(momentum_band
     return alias_map.get(momentum_band, "L")
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue(momentum_band: str) -> str:
+    cue_map = {
+        "LOW": "SOFT",
+        "MID": "EDGE",
+        "HIGH": "HARD",
+    }
+    return cue_map.get(momentum_band, "SOFT")
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_alias(momentum_fx_cue: str) -> str:
+    alias_map = {
+        "SOFT": "S",
+        "EDGE": "E",
+        "HARD": "H",
+    }
+    return alias_map.get(momentum_fx_cue, "S")
+
+
 def resolve_trend_score_band_dispatch_hint(score_band_snapshot: dict[str, int]) -> str:
     ordered = sorted(
         score_band_snapshot.items(),
@@ -274,6 +292,16 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
             score_band_dispatch_pressure_momentum_band
         )
     )
+    score_band_dispatch_pressure_momentum_fx_cue = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_cue(
+            score_band_dispatch_pressure_momentum_band
+        )
+    )
+    score_band_dispatch_pressure_momentum_fx_cue_alias = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_alias(
+            score_band_dispatch_pressure_momentum_fx_cue
+        )
+    )
 
     return {
         "recentCompletedItems": total,
@@ -294,6 +322,8 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "trendScoreBandDispatchPressureMomentum": score_band_dispatch_pressure_momentum,
         "trendScoreBandDispatchPressureMomentumBand": score_band_dispatch_pressure_momentum_band,
         "trendScoreBandDispatchPressureMomentumBandAlias": score_band_dispatch_pressure_momentum_band_alias,
+        "trendScoreBandDispatchPressureMomentumFxCue": score_band_dispatch_pressure_momentum_fx_cue,
+        "trendScoreBandDispatchPressureMomentumFxCueAlias": score_band_dispatch_pressure_momentum_fx_cue_alias,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -343,6 +373,8 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             f"- trend-score dispatch-pressure momentum (offline): **{report.get('trendScoreBandDispatchPressureMomentum', 0)}**",
             f"- trend-score dispatch-pressure momentum band (offline): **{report.get('trendScoreBandDispatchPressureMomentumBand', 'LOW')}**",
             f"- trend-score dispatch-pressure momentum band alias: **TSDPM:{report.get('trendScoreBandDispatchPressureMomentumBandAlias', 'L')}**",
+            f"- trend-score dispatch-pressure momentum fx cue (combat/vfx): **{report.get('trendScoreBandDispatchPressureMomentumFxCue', 'SOFT')}**",
+            f"- trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{report.get('trendScoreBandDispatchPressureMomentumFxCueAlias', 'S')}**",
             "",
             *rows,
             *bucket_rows,

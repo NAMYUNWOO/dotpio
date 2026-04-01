@@ -73,5 +73,7 @@
   "trendScoreBandDispatchPressureMomentum": 0,
   "trendScoreBandDispatchPressureMomentumBand": "LOW",
   "trendScoreBandDispatchPressureMomentumBandAlias": "L",
+  "trendScoreBandDispatchPressureMomentumFxCue": "SOFT",
+  "trendScoreBandDispatchPressureMomentumFxCueAlias": "S",
   "status": "within-cap"
 }

@@ -50,6 +50,8 @@ def run_fixture_case(
     expected_dispatch_pressure_momentum: int,
     expected_dispatch_pressure_momentum_band: str,
     expected_dispatch_pressure_momentum_band_alias: str,
+    expected_dispatch_pressure_momentum_fx_cue: str,
+    expected_dispatch_pressure_momentum_fx_cue_alias: str,
 ) -> None:
     backlog = tmp_path / f"{name}_backlog.md"
     json_out = tmp_path / f"{name}_guardrail.json"
@@ -89,6 +91,14 @@ def run_fixture_case(
         report.get("trendScoreBandDispatchPressureMomentumBandAlias")
         == expected_dispatch_pressure_momentum_band_alias
     ), f"{name}: trendScoreBandDispatchPressureMomentumBandAlias must match compact momentum-band alias"
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumFxCue")
+        == expected_dispatch_pressure_momentum_fx_cue
+    ), f"{name}: trendScoreBandDispatchPressureMomentumFxCue must map deterministic combat/vfx cue from momentum band"
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumFxCueAlias")
+        == expected_dispatch_pressure_momentum_fx_cue_alias
+    ), f"{name}: trendScoreBandDispatchPressureMomentumFxCueAlias must match compact combat/vfx cue alias"
 
     md_text = md_out.read_text(encoding="utf-8")
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"
@@ -119,6 +129,14 @@ def run_fixture_case(
         f"trend-score dispatch-pressure momentum band alias: **TSDPM:{expected_dispatch_pressure_momentum_band_alias}**"
         in md_text
     ), f"{name}: markdown output must include compact momentum-band alias row"
+    assert (
+        f"trend-score dispatch-pressure momentum fx cue (combat/vfx): **{expected_dispatch_pressure_momentum_fx_cue}**"
+        in md_text
+    ), f"{name}: markdown output must include combat/vfx momentum fx-cue row"
+    assert (
+        f"trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{expected_dispatch_pressure_momentum_fx_cue_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include compact combat/vfx momentum fx-cue alias row"
 
 
 def main() -> int:
@@ -143,6 +161,8 @@ def main() -> int:
             expected_dispatch_pressure_momentum=100,
             expected_dispatch_pressure_momentum_band="HIGH",
             expected_dispatch_pressure_momentum_band_alias="H",
+            expected_dispatch_pressure_momentum_fx_cue="HARD",
+            expected_dispatch_pressure_momentum_fx_cue_alias="H",
         )
 
         run_fixture_case(
@@ -164,6 +184,8 @@ def main() -> int:
             expected_dispatch_pressure_momentum=88,
             expected_dispatch_pressure_momentum_band="HIGH",
             expected_dispatch_pressure_momentum_band_alias="H",
+            expected_dispatch_pressure_momentum_fx_cue="HARD",
+            expected_dispatch_pressure_momentum_fx_cue_alias="H",
         )
 
         run_fixture_case(
@@ -184,6 +206,8 @@ def main() -> int:
             expected_dispatch_pressure_momentum=64,
             expected_dispatch_pressure_momentum_band="MID",
             expected_dispatch_pressure_momentum_band_alias="M",
+            expected_dispatch_pressure_momentum_fx_cue="EDGE",
+            expected_dispatch_pressure_momentum_fx_cue_alias="E",
         )
 
         run_fixture_case(
@@ -204,6 +228,8 @@ def main() -> int:
             expected_dispatch_pressure_momentum=64,
             expected_dispatch_pressure_momentum_band="MID",
             expected_dispatch_pressure_momentum_band_alias="M",
+            expected_dispatch_pressure_momentum_fx_cue="EDGE",
+            expected_dispatch_pressure_momentum_fx_cue_alias="E",
         )
 
         run_fixture_case(
@@ -224,6 +250,8 @@ def main() -> int:
             expected_dispatch_pressure_momentum=64,
             expected_dispatch_pressure_momentum_band="MID",
             expected_dispatch_pressure_momentum_band_alias="M",
+            expected_dispatch_pressure_momentum_fx_cue="EDGE",
+            expected_dispatch_pressure_momentum_fx_cue_alias="E",
         )
 
         run_fixture_case(
@@ -244,6 +272,8 @@ def main() -> int:
             expected_dispatch_pressure_momentum=5,
             expected_dispatch_pressure_momentum_band="LOW",
             expected_dispatch_pressure_momentum_band_alias="L",
+            expected_dispatch_pressure_momentum_fx_cue="SOFT",
+            expected_dispatch_pressure_momentum_fx_cue_alias="S",
         )
 
     print("ok: trendScoreBand dispatch-hint/momentum-band regression checks passed")

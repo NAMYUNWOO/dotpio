@@ -1,5 +1,11 @@
 # VFX Team Log
 
+## 2026-04-01 09:49 KST
+- Shipped Game Director Cycle ILO vertical slice: added guardrail momentum FX cue mapping (`LOW->SOFT`, `MID->EDGE`, `HIGH->HARD`) as payload token `trendScoreBandDispatchPressureMomentumFxCue`.
+- Added compact alias mirror `trendScoreBandDispatchPressureMomentumFxCueAlias` and markdown row `TSDPMFX:<S|E|H>` for one-glance combat/VFX decoding in lane dispatch reports.
+- Scope kept offline/readability-only; no combat balance, damage, or runtime VFX behavior changed.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; weekly guardrail artifact regeneration command.
+
 
 ## 2026-03-22 15:41 KST — Cycle AQ kickoff (first VFX lane shipment)
 - Forced-lane experiment delivered to satisfy cadence gap: added portal transition FX intensity cue tied to route pressure.

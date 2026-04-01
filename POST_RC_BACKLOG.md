@@ -1,5 +1,21 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle ILO)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=1, combat=2, design=3, ux=2, qa=3, vfx=2 (no lane >40%, so no forced lane).
+- 24h cadence buckets: combat/vfx=4 ✅, design/world=5 ✅, systems/ops(qa)=6 ✅.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (Combat/VFX): add momentum-band-to-FX cue token (`trendScoreBandDispatchPressureMomentumFxCue:SOFT|EDGE|HARD`) plus compact alias `TSDPMFX:<S|E|H>` for one-glance cueing.
+  - Mid-risk Systems/QA: expand regression contracts to lock momentum FX cue domain/map and markdown alias parity.
+  - High-risk novelty (AI Content/Design): prototype adaptive narrative microcopy variant keyed by momentum FX cue while keeping runtime decoupled.
+- Selected experiment: Idea 1 (low-risk Combat/VFX + Systems/QA) as minimal vertical slice.
+- [x] Combat/VFX + Systems/QA Team: Add payload-level momentum FX cue token (`trendScoreBandDispatchPressureMomentumFxCue`) and compact alias (`trendScoreBandDispatchPressureMomentumFxCueAlias` / markdown `TSDPMFX`) derived deterministically from momentum band (`LOW->SOFT`, `MID->EDGE`, `HIGH->HARD`). *(lifecycle: [ ] -> [~] started: 2026-04-01 09:44 KST -> [x] completed: 2026-04-01 09:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle ILO)
+- [ ] AI Content/Design Team (injected): Prototype offline narrative microcopy recommendation keyed by `trendScoreBandDispatchPressureMomentumFxCue` (`SOFT|EDGE|HARD`) for operator readability, payload-only.
+- [ ] Design/World Team (injected): Draft compact decode row text that pairs momentum FX cue with cadence-bucket context under DOS-width budget.
+- [ ] Systems/Ops Team (injected): Add markdown summary sparkline for last-10 momentum band progression to improve dispatch trend scanning.
+
+
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle ILN)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=3, ux=2, qa=3, vfx=2 (no lane >40%).
 - Candidate ideas generated:

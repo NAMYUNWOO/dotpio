@@ -1,5 +1,11 @@
 # Systems Team Log
 
+## 2026-04-01 09:49 KST
+- Task: Cycle ILO minimal vertical slice delivered for lane guardrail readability + combat/vfx cue parity.
+- Implementation: `scripts/check_lane_coverage_guardrail.py` now emits `trendScoreBandDispatchPressureMomentumFxCue` and `trendScoreBandDispatchPressureMomentumFxCueAlias` from deterministic momentum-band mapping.
+- Regression: `scripts/regression_check_lane_coverage_guardrail.py` now locks JSON domain mapping and markdown rows (`TSDPMFX`) across fixture cases.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` ✅; `python3 scripts/regression_check_lane_coverage_guardrail.py` ✅; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` ✅.
+
 ## 2026-03-31 22:12 KST
 - Task: Shipped forced-lane backlog auto-injection helper (`scripts/draft_forced_lane_backlog_tasks.py`) consuming `missingCadenceBuckets`/`forcedNextLanes` from lane guardrail JSON.
 - Artifacts: `logs/forced_lane_task_templates.json`, `logs/forced_lane_task_templates.md`.

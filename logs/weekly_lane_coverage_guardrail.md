@@ -14,6 +14,8 @@
 - trend-score dispatch-pressure momentum (offline): **0**
 - trend-score dispatch-pressure momentum band (offline): **LOW**
 - trend-score dispatch-pressure momentum band alias: **TSDPM:L**
+- trend-score dispatch-pressure momentum fx cue (combat/vfx): **SOFT**
+- trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:S**
 
 | lane | count | percent |
 |---|---:|---:|
