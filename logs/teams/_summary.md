@@ -4913,3 +4913,10 @@ Compact decision memory for AI context efficiency.
 ## 2026-04-02 08:23 KST
 - Shipped IP22 backlog item: concise intensity decode readability evaluation for `TSDPMFXVWCRIA` with new explicit eval token `TSDPMFXVWCRIALEN` (full=52, concise=22, pref=CONCISE, pass @72 cols).
 - Durable decision: keep concise copy `S=SOFT, E=EDGE, H=HARD` as primary operator decode; retain full-line legend for semantic grounding.
+
+## 2026-04-02 09:02 KST — Game Director Cycle IP23
+- Decision: selected low-risk Idea 1 (AI-content/Systems) because ACTION_ITEMS/TASKS/POST_RC_BACKLOG were fully checked and cadence needed a fresh reversible slice.
+- Shipped minimal vertical slice: recommendation-intensity trend token `TSDPMFXVWCRIT` with compact alias `TSDPMFXVWCRITA` from current/prior `TSDPMFXVWCRI`.
+- Durable contract: urgency cluster/order + mixed-window row-count parity now includes `...VWCRIT/...VWCRITA` after intensity rows.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.

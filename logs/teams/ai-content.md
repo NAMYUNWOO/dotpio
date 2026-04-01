@@ -3338,3 +3338,7 @@
 ## 2026-04-02 08:23 KST
 - Cycle IP22 support: evaluated concise intensity decode readability for `TSDPMFXVWCRIA` and aligned digest/regression contract (`TSDPMFXVWCRIALEN:F52|C22|LIM72|PREF:CONCISE|PASS`).
 - Follow-up: keep concise alias decode default unless DOS width budget drops below current compact length.
+
+## 2026-04-02 09:02 KST
+- Cycle IP23: shipped offline recommendation-intensity trend signal (`TSDPMFXVWCRIT`) to expose recommendation directionality between windows.
+- Added compact alias (`TSDPMFXVWCRITA`) and deterministic decode contract (`U=UP, F=FLAT, D=DOWN`).

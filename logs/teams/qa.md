@@ -5186,3 +5186,10 @@
 ## 2026-04-02 08:23 KST
 - Cycle IP22 support: evaluated concise intensity decode readability for `TSDPMFXVWCRIA` and aligned digest/regression contract (`TSDPMFXVWCRIALEN:F52|C22|LIM72|PREF:CONCISE|PASS`).
 - Follow-up: keep concise alias decode default unless DOS width budget drops below current compact length.
+
+## 2026-04-02 09:02 KST
+- Cycle IP23 regression expansion:
+  - deterministic domain + alias mapping checks for `TSDPMFXVWCRIT`/`TSDPMFXVWCRITA`
+  - urgency-cluster order contract updated to include trend rows
+  - mixed-window row-count parity matrix extended for trend rows
+- Verification pass: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail artifact regeneration.

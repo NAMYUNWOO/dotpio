@@ -3339,3 +3339,7 @@
 ## 2026-04-02 08:23 KST
 - Cycle IP22 support: evaluated concise intensity decode readability for `TSDPMFXVWCRIA` and aligned digest/regression contract (`TSDPMFXVWCRIALEN:F52|C22|LIM72|PREF:CONCISE|PASS`).
 - Follow-up: keep concise alias decode default unless DOS width budget drops below current compact length.
+
+## 2026-04-02 09:02 KST
+- Cycle IP23: added design/world decode rows for recommendation-intensity trend (`TSDPMFXVWCRIT`/`TSDPMFXVWCRITA`) to keep token chain legible in dense markdown.
+- Confirmed compact decode remains DOS-width-safe with existing legend stack.

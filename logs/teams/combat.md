@@ -3220,3 +3220,7 @@
 ## 2026-04-02 08:23 KST
 - Cycle IP22 support: evaluated concise intensity decode readability for `TSDPMFXVWCRIA` and aligned digest/regression contract (`TSDPMFXVWCRIALEN:F52|C22|LIM72|PREF:CONCISE|PASS`).
 - Follow-up: keep concise alias decode default unless DOS width budget drops below current compact length.
+
+## 2026-04-02 09:02 KST
+- Cycle IP23: combat/vfx digest now includes recommendation-intensity trend rail (`TSDPMFXVWCRIT`) to show whether guidance pressure is rising/cooling.
+- No runtime combat mutation; offline readability-only extension.
