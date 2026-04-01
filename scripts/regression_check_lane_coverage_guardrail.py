@@ -52,6 +52,7 @@ def run_fixture_case(
     expected_dispatch_pressure_momentum_band_alias: str,
     expected_dispatch_pressure_momentum_fx_cue: str,
     expected_dispatch_pressure_momentum_fx_cue_alias: str,
+    expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation: str,
 ) -> None:
     backlog = tmp_path / f"{name}_backlog.md"
     json_out = tmp_path / f"{name}_guardrail.json"
@@ -99,6 +100,10 @@ def run_fixture_case(
         report.get("trendScoreBandDispatchPressureMomentumFxCueAlias")
         == expected_dispatch_pressure_momentum_fx_cue_alias
     ), f"{name}: trendScoreBandDispatchPressureMomentumFxCueAlias must match compact combat/vfx cue alias"
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation")
+        == expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation
+    ), f"{name}: trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation must map deterministic ai-content/design recommendation from momentum fx cue"
 
     md_text = md_out.read_text(encoding="utf-8")
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"
@@ -137,6 +142,11 @@ def run_fixture_case(
         f"trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{expected_dispatch_pressure_momentum_fx_cue_alias}**"
         in md_text
     ), f"{name}: markdown output must include compact combat/vfx momentum fx-cue alias row"
+    assert (
+        "trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): "
+        f"**{expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation}**"
+        in md_text
+    ), f"{name}: markdown output must include ai-content/design momentum fx-cue microcopy recommendation row"
 
 
 def main() -> int:
@@ -163,6 +173,7 @@ def main() -> int:
             expected_dispatch_pressure_momentum_band_alias="H",
             expected_dispatch_pressure_momentum_fx_cue="HARD",
             expected_dispatch_pressure_momentum_fx_cue_alias="H",
+            expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="surge pressure; triage hottest lane first",
         )
 
         run_fixture_case(
@@ -186,6 +197,7 @@ def main() -> int:
             expected_dispatch_pressure_momentum_band_alias="H",
             expected_dispatch_pressure_momentum_fx_cue="HARD",
             expected_dispatch_pressure_momentum_fx_cue_alias="H",
+            expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="surge pressure; triage hottest lane first",
         )
 
         run_fixture_case(
@@ -208,6 +220,7 @@ def main() -> int:
             expected_dispatch_pressure_momentum_band_alias="M",
             expected_dispatch_pressure_momentum_fx_cue="EDGE",
             expected_dispatch_pressure_momentum_fx_cue_alias="E",
+            expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="pressure rising; prep focused dispatch",
         )
 
         run_fixture_case(
@@ -230,6 +243,7 @@ def main() -> int:
             expected_dispatch_pressure_momentum_band_alias="M",
             expected_dispatch_pressure_momentum_fx_cue="EDGE",
             expected_dispatch_pressure_momentum_fx_cue_alias="E",
+            expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="pressure rising; prep focused dispatch",
         )
 
         run_fixture_case(
@@ -252,6 +266,7 @@ def main() -> int:
             expected_dispatch_pressure_momentum_band_alias="M",
             expected_dispatch_pressure_momentum_fx_cue="EDGE",
             expected_dispatch_pressure_momentum_fx_cue_alias="E",
+            expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="pressure rising; prep focused dispatch",
         )
 
         run_fixture_case(
@@ -274,6 +289,7 @@ def main() -> int:
             expected_dispatch_pressure_momentum_band_alias="L",
             expected_dispatch_pressure_momentum_fx_cue="SOFT",
             expected_dispatch_pressure_momentum_fx_cue_alias="S",
+            expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="steady pace; hold broad scan",
         )
 
     print("ok: trendScoreBand dispatch-hint/momentum-band regression checks passed")

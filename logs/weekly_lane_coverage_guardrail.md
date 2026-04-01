@@ -16,6 +16,7 @@
 - trend-score dispatch-pressure momentum band alias: **TSDPM:L**
 - trend-score dispatch-pressure momentum fx cue (combat/vfx): **SOFT**
 - trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:S**
+- trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): **steady pace; hold broad scan**
 
 | lane | count | percent |
 |---|---:|---:|

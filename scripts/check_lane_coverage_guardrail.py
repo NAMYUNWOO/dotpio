@@ -173,6 +173,17 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_alias(momentum_fx
     return alias_map.get(momentum_fx_cue, "S")
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation(
+    momentum_fx_cue: str,
+) -> str:
+    recommendation_map = {
+        "SOFT": "steady pace; hold broad scan",
+        "EDGE": "pressure rising; prep focused dispatch",
+        "HARD": "surge pressure; triage hottest lane first",
+    }
+    return recommendation_map.get(momentum_fx_cue, recommendation_map["SOFT"])
+
+
 def resolve_trend_score_band_dispatch_hint(score_band_snapshot: dict[str, int]) -> str:
     ordered = sorted(
         score_band_snapshot.items(),
@@ -302,6 +313,11 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
             score_band_dispatch_pressure_momentum_fx_cue
         )
     )
+    score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation(
+            score_band_dispatch_pressure_momentum_fx_cue
+        )
+    )
 
     return {
         "recentCompletedItems": total,
@@ -324,6 +340,7 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "trendScoreBandDispatchPressureMomentumBandAlias": score_band_dispatch_pressure_momentum_band_alias,
         "trendScoreBandDispatchPressureMomentumFxCue": score_band_dispatch_pressure_momentum_fx_cue,
         "trendScoreBandDispatchPressureMomentumFxCueAlias": score_band_dispatch_pressure_momentum_fx_cue_alias,
+        "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -375,6 +392,7 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             f"- trend-score dispatch-pressure momentum band alias: **TSDPM:{report.get('trendScoreBandDispatchPressureMomentumBandAlias', 'L')}**",
             f"- trend-score dispatch-pressure momentum fx cue (combat/vfx): **{report.get('trendScoreBandDispatchPressureMomentumFxCue', 'SOFT')}**",
             f"- trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{report.get('trendScoreBandDispatchPressureMomentumFxCueAlias', 'S')}**",
+            f"- trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): **{report.get('trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation', 'steady pace; hold broad scan')}**",
             "",
             *rows,
             *bucket_rows,

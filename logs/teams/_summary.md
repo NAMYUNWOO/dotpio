@@ -4619,3 +4619,10 @@ Compact decision memory for AI context efficiency.
 - Implemented `trendScoreBandDispatchPressureMomentumBand` + `trendScoreBandDispatchPressureMomentumBandAlias` with markdown `TSDPM` row.
 - Regression coverage now locks momentum score + momentum-band + alias parity in fixture cases.
 - Injected next backlog tasks: (1) Systems/QA parity expansion for momentum-band, (2) AI Content/Systems momentum-slope prototype.
+
+## 2026-04-01 09:49 KST — Added momentum-FX microcopy recommendation contract
+- Completed POST_RC_BACKLOG injected item: offline narrative microcopy recommendation keyed by `trendScoreBandDispatchPressureMomentumFxCue`.
+- New deterministic payload field: `trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation`.
+- Markdown now surfaces a dedicated ai-content/design recommendation row for operator readability.
+- Regression suite now locks payload+markdown parity for the new field.
+- Next backlog candidate remains line 15 (`Design/World` cadence-context decode row).
