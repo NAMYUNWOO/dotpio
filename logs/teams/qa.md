@@ -5161,3 +5161,4 @@
 - Extended regression assertions for `TSDPMFXVW` presence, deterministic mapping from `TSDPMFXV`, ordering in urgency cluster, and row-count parity with `TSDPMFXVA`.
 - Verification passed: py_compile + regression script + guardrail generation command.
 - 2026-04-02 05:26 KST — Regression matrix now asserts `TSDPMFXUCTSBTC` domain, deterministic mapping, ordering, and row-count parity against adjacent urgency tokens.
+- 2026-04-02 IP9: Added deterministic regression assertions for guidance-confidence value/alias mapping plus row-count parity and urgency-cluster ordering constraints.

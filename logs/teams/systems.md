@@ -4646,3 +4646,4 @@
 - Added deterministic offline pulse-guidance resolver `TSDPMFXVW` mapped from `TSDPMFXV` (`CALM->steady sweep`, `PULSE->brace lanes`, `BLAST->commit burst`) in `scripts/check_lane_coverage_guardrail.py`.
 - Wired payload field `trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidance` and markdown row/decode lines for reversible, offline-only usage.
 - 2026-04-02 05:26 KST — Added offline `TSDPMFXUCTSBTC` confidence tier derivation from consecutive `TSDPMFXUCTSBTA` trend windows and threaded payload/markdown emission into guardrail report.
+- 2026-04-02 IP9: Added `...VfxPulseGuidanceConfidence` + alias payload fields and deterministic mapping (`steady sweep->HIGH`, `brace lanes->MID`, `commit burst->LOW`) in lane guardrail report.
