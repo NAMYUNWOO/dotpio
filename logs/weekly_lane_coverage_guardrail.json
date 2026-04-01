@@ -103,6 +103,8 @@
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendAlias": "F",
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumScore": 50,
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBand": "MID",
+  "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrend": "FLAT",
+  "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendAlias": "F",
   "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": "steady pace; hold broad scan",
   "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": "HOLD_LINE",
   "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": "HL",
