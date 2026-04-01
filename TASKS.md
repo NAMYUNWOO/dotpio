@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-04-02 03:44 KST
+Last updated: 2026-04-02 04:21 KST
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP20)
 - Coverage check (last 10 completed): systems=1, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; forced over-cap lane override not triggered).
@@ -15,7 +15,7 @@ Last updated: 2026-04-02 03:44 KST
 
 ## Next Up (Game Director Injection — Cycle IP20)
 - [x] Design/World Team (injected): Add compact pairing decode row that binds `TSDPMFXV` pulse states to existing combat callouts (`HL/PE/BC`) under DOS-width budget. *(lifecycle: [ ] -> [~] started: 2026-04-02 03:48 KST -> [x] completed: 2026-04-02 03:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] Systems/Ops + QA Team (injected): Add fixture-level parity assertion that `TSDPMFXV`/`TSDPMFXVA` row counts mirror `TSDPMFXUCTSBT` across summary + token sections under mixed-window fixtures.
+- [x] Systems/Ops + QA Team (injected): Add fixture-level parity assertion that `TSDPMFXV`/`TSDPMFXVA` row counts mirror `TSDPMFXUCTSBT` across summary + token sections under mixed-window fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-02 04:18 KST -> [x] completed: 2026-04-02 04:21 KST; verification: `python3 -m py_compile scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 - [ ] AI Content/Systems Team (injected): Prototype offline pulse-guidance microcopy token keyed by `TSDPMFXV` (`CALM|PULSE|BLAST`) without runtime coupling.
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP19)

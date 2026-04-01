@@ -1376,6 +1376,8 @@ def run_fixture_case(
         "familyTrend": family_trend,
         "tsdpmfxuctsbtRowCount": fx_urgency_confidence_trend_momentum_band_trend_row_count,
         "tsdpmfxuctsbtaRowCount": fx_urgency_confidence_trend_momentum_band_trend_alias_row_count,
+        "tsdpmfxvRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_row_count,
+        "tsdpmfxvaRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_alias_row_count,
     }
 
 
@@ -1387,7 +1389,7 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix="regression_check_lane_guardrail_") as tmp:
         tmp_path = Path(tmp)
         observed_family_trends: list[str] = []
-        mixed_window_tsdpmfxuctsbt_parity: list[tuple[str, int, int]] = []
+        mixed_window_tsdpmfx_pulse_parity: list[tuple[str, int, int, int, int]] = []
 
         balanced_tie_result = run_fixture_case(
             tmp_path=tmp_path,
@@ -1421,11 +1423,13 @@ def main() -> int:
             expected_dispatch_pressure_momentum_fx_cue_combat_callout="BURST_CLEAR",
             expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="BC",
         )
-        mixed_window_tsdpmfxuctsbt_parity.append(
+        mixed_window_tsdpmfx_pulse_parity.append(
             (
                 "balanced_tie",
                 int(balanced_tie_result["tsdpmfxuctsbtRowCount"]),
                 int(balanced_tie_result["tsdpmfxuctsbtaRowCount"]),
+                int(balanced_tie_result["tsdpmfxvRowCount"]),
+                int(balanced_tie_result["tsdpmfxvaRowCount"]),
             )
         )
 
@@ -1462,11 +1466,13 @@ def main() -> int:
             expected_dispatch_pressure_momentum_fx_cue_combat_callout="BURST_CLEAR",
             expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="BC",
         )
-        mixed_window_tsdpmfxuctsbt_parity.append(
+        mixed_window_tsdpmfx_pulse_parity.append(
             (
                 "ready_mix",
                 int(ready_mix_result["tsdpmfxuctsbtRowCount"]),
                 int(ready_mix_result["tsdpmfxuctsbtaRowCount"]),
+                int(ready_mix_result["tsdpmfxvRowCount"]),
+                int(ready_mix_result["tsdpmfxvaRowCount"]),
             )
         )
 
@@ -1634,11 +1640,13 @@ def main() -> int:
                 expected_recommendation_family_trend="UP",
             )
         observed_family_trends.append(str(prior_window_trend_up_result["familyTrend"]))
-        mixed_window_tsdpmfxuctsbt_parity.append(
+        mixed_window_tsdpmfx_pulse_parity.append(
             (
                 "prior_window_trend_up",
                 int(prior_window_trend_up_result["tsdpmfxuctsbtRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxuctsbtaRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxvRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxvaRowCount"]),
             )
         )
         prior_window_trend_down_result = run_fixture_case(
@@ -1674,11 +1682,13 @@ def main() -> int:
                 expected_recommendation_family_trend="DOWN",
             )
         observed_family_trends.append(str(prior_window_trend_down_result["familyTrend"]))
-        mixed_window_tsdpmfxuctsbt_parity.append(
+        mixed_window_tsdpmfx_pulse_parity.append(
             (
                 "prior_window_trend_down",
                 int(prior_window_trend_down_result["tsdpmfxuctsbtRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxuctsbtaRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxvRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxvaRowCount"]),
             )
         )
 
@@ -1686,10 +1696,11 @@ def main() -> int:
             "fixture matrix must include explicit prior-window recommendation-family trend transitions for both UP and DOWN"
         )
         assert all(
-            trend_count == alias_count
-            for _, trend_count, alias_count in mixed_window_tsdpmfxuctsbt_parity
+            tsdpmfxuctsbt_count == tsdpmfxuctsbta_count == tsdpmfxv_count == tsdpmfxva_count
+            for _, tsdpmfxuctsbt_count, tsdpmfxuctsbta_count, tsdpmfxv_count, tsdpmfxva_count
+            in mixed_window_tsdpmfx_pulse_parity
         ), (
-            "mixed-window fixture matrix must keep TSDPMFXUCTSBT/TSDPMFXUCTSBTA row-count parity across summary + token sections"
+            "mixed-window fixture matrix must keep TSDPMFXUCTSBT/TSDPMFXUCTSBTA/TSDPMFXV/TSDPMFXVA row-count parity across summary + token sections"
         )
 
     print("ok: trendScoreBand dispatch-hint/momentum-band regression checks passed")

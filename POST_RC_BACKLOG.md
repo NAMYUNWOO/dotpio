@@ -13,7 +13,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP20)
 - [x] Design/World Team (injected): Add compact decode row linking `TSDPMFXV` pulse states to combat callout aliases (`HL/PE/BC`) for one-scan operator readability. *(lifecycle: [ ] -> [~] started: 2026-04-02 03:48 KST -> [x] completed: 2026-04-02 03:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] Systems/Ops + QA Team (injected): Extend mixed-window fixture matrix to enforce `TSDPMFXV`/`TSDPMFXVA` row-count parity with `TSDPMFXUCTSBT` across summary + token sections.
+- [x] Systems/Ops + QA Team (injected): Extend mixed-window fixture matrix to enforce `TSDPMFXV`/`TSDPMFXVA` row-count parity with `TSDPMFXUCTSBT` across summary + token sections. *(lifecycle: [ ] -> [~] started: 2026-04-02 04:18 KST -> [x] completed: 2026-04-02 04:21 KST; verification: `python3 -m py_compile scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 - [ ] AI Content/Systems Team (injected): Prototype offline pulse-guidance microcopy token keyed by `TSDPMFXV` with reversible, payload-only scope.
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP19)

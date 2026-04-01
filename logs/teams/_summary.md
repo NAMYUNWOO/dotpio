@@ -1,3 +1,9 @@
+## 2026-04-02 04:21 KST
+- Closed Cycle IP20 injected Systems/Ops+QA parity follow-up: mixed-window fixture matrix now enforces row-count parity across `TSDPMFXUCTSBT` + `TSDPMFXUCTSBTA` + `TSDPMFXV` + `TSDPMFXVA` in both summary/token sections.
+- Decision: keep pulse-token parity explicitly tied to upstream trend token parity (single all-equal assertion over balanced/ready/prior-window fixtures) to avoid drift between regression families.
+- Verification passed: `python3 -m py_compile scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2 (next: AI Content/Systems pulse-guidance microcopy token).
+
 ## 2026-04-02 03:44 KST
 - Executed Game Director Cycle IP20 with forced underrepresented-lane handling (cadence buckets missing: combat/vfx + design/world).
 - Generated 3 ideas and selected low-risk Combat/VFX experiment: added urgency-trend VFX pulse token `TSDPMFXV:CALM|PULSE|BLAST` + alias `TSDPMFXVA:C|P|B` mapped from `TSDPMFXUCTSBT`.

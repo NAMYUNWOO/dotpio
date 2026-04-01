@@ -3220,3 +3220,6 @@
 ## 2026-04-02 03:22 KST
 - No world/map changes this cycle; update scoped to offline guardrail regression parity.
 - 2026-04-02 03:49 KST — Cycle IP20 follow-up: added compact pulse→callout pairing decode row `TSDPMFXV C/P/B => TSDPMFXC HL/PE/BC` in guardrail markdown stack and kept urgency-cluster ordering deterministic via regression. Follow-up: next highest-priority unchecked item remains Systems/Ops+QA parity extension for `TSDPMFXV/TSDPMFXVA` mixed-window fixtures.
+
+## 2026-04-02 04:21 KST
+- 2026-04-02 04:21 KST — Cycle IP20 follow-up: enforced mixed-window row-count parity across `TSDPMFXUCTSBT`/`TSDPMFXUCTSBTA`/`TSDPMFXV`/`TSDPMFXVA` in regression fixture matrix; verification passed (`py_compile`, regression script, guardrail artifact regeneration).
