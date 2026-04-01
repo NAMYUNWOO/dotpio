@@ -4836,3 +4836,5 @@ Compact decision memory for AI context efficiency.
 - Queue status: ACTION_ITEMS=0 open, TASKS=0 open, POST_RC_BACKLOG=0 open. Next cycle should execute Game Director review loop (3 ideas -> choose 1 -> vertical slice -> verify -> backlog injection).
 - 2026-04-02 01:26 KST — Game Director Cycle IP17 shipped minimal vertical slice: `TSDPMFXUCTA` compact alias for urgency-confidence trend, plus decode/order regression lock updates across summary + token-coverage sections.
 - Injected next tasks (Cycle IP17): (1) `TSDPMFXUCTA` vs `TSDPMFXUCT` fixture-level row-count parity assertion, (2) offline urgency-confidence trend momentum token prototype `TSDPMFXUCTS:0..100`.
+
+- 2026-04-02 01:50 KST — Shipped systems/qa hardening: added regression assertion enforcing `TSDPMFXUCTA`↔`TSDPMFXUCT` row-count parity across markdown summary + token sections.

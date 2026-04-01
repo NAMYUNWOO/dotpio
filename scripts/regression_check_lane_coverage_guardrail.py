@@ -1045,6 +1045,12 @@ def run_fixture_case(
         f"{name}: `TSDPMFXUC` row count ({fx_urgency_confidence_row_count}) must mirror "
         f"`TSDPMFXU` row count ({fx_urgency_row_count}) across summary + token sections"
     )
+    fx_urgency_confidence_trend_row_count = md_text.count("**TSDPMFXUCT:")
+    fx_urgency_confidence_trend_alias_row_count = md_text.count("**TSDPMFXUCTA:")
+    assert fx_urgency_confidence_trend_alias_row_count == fx_urgency_confidence_trend_row_count, (
+        f"{name}: `TSDPMFXUCTA` row count ({fx_urgency_confidence_trend_alias_row_count}) must mirror "
+        f"`TSDPMFXUCT` row count ({fx_urgency_confidence_trend_row_count}) across summary + token sections"
+    )
     assert (
         "trend-score dispatch-pressure momentum fx urgency cue decode (design/world): "
         "**SOFT=trend cooling (DOWN), SURGE=trend stable (FLAT), SPIKE=trend rising (UP)**"
