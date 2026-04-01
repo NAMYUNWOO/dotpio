@@ -1,5 +1,19 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP16)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=3, combat=3, design=2, ux=1, qa=3, vfx=2 (no lane >40%; forced underrepresented-lane override not triggered).
+- 24h cadence buckets: combat/vfx=5 ✅, design/world=3 ✅, systems/ops(qa)=6 ✅.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (Design/World): add compact decode row for urgency-confidence token `TSDPMFXUC` to improve one-glance operator readability.
+  - Mid-risk Systems/QA: enforce explicit urgency-cluster order contract (`TSDPMFXU -> TSDPMFXUA -> TSDPMFXUC -> TSDPMFXUC legend -> urgency decode`).
+  - High-risk novelty (AI Content/Combat): prototype offline urgency-confidence drift trend (`UP|FLAT|DOWN`) from multi-window `TSDPCONWCTSBT` volatility.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] Design/World + Systems/QA Team: Add urgency-confidence decode row `TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)` and enforce urgency-cluster order contract adjacent to `TSDPMFXU` rows. *(lifecycle: [ ] -> [~] started: 2026-04-02 00:21 KST -> [x] completed: 2026-04-02 00:22 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP16)
+- [ ] Systems/Ops + QA Team (injected): Add fixture-level row-count parity assertion that `TSDPMFXUC` row count mirrors `TSDPMFXU` row count across summary + token sections.
+- [ ] AI Content/Combat Team (injected): Prototype offline urgency-confidence trend token (`TSDPMFXUCT:UP|FLAT|DOWN`) from consecutive `TSDPMFXUC` windows without runtime coupling.
+
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP15)
 - Candidate ideas generated:
   - Low-risk UX/game-feel (Design/World): add compact trend->urgency alias rail `TSDPPAIRA:<S|U|P>` so operators can parse action intent in one glance.
@@ -10,7 +24,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP15)
 - [x] Systems/Ops + QA Team (injected): Add fixture-level explicit parity assertion that `TSDPPAIRA` row count mirrors `TSDPPAIR` row count across summary + token sections under mixed fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-01 23:48 KST -> [x] completed: 2026-04-01 23:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Combat Team (injected): Prototype offline urgency-confidence token (`TSDPMFXUC:LOW|MID|HIGH`) derived from recent `TSDPCONWCTSBT` churn without runtime coupling.
+- [x] AI Content/Combat Team (injected): Prototype offline urgency-confidence token (`TSDPMFXUC:LOW|MID|HIGH`) derived from recent `TSDPCONWCTSBT` churn without runtime coupling. *(lifecycle: [ ] -> [~] started: 2026-04-02 00:18 KST -> [x] completed: 2026-04-02 00:20 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP14)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%; forced underrepresented-lane override not triggered).

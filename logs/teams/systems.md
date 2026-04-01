@@ -4598,3 +4598,12 @@
 - 2026-04-01 23:49 KST — Cycle IP15 injected Systems/Ops+QA task complete: regression now carries fixture-level explicit parity assertions binding `TSDPPAIR` and `TSDPPAIRA` row counts in both summary + token sections (including mixed-cadence matrix lock via `expected_cadence_cluster_rows`).
   - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
   - Follow-up queued: AI Content/Combat `TSDPMFXUC:LOW|MID|HIGH` offline urgency-confidence prototype.
+
+## 2026-04-02 00:20 KST
+- Cycle IP15 injected item closed: shipped offline urgency-confidence token   `TSDPMFXUC:LOW|MID|HIGH` derived from recent `TSDPCONWCTSBT` churn windows (no runtime coupling).
+- Verified via py_compile + regression + guardrail artifact regeneration; TASKS/POST_RC lifecycle synced to done.
+
+## 2026-04-02 00:22 KST
+- Game Director Cycle IP16 executed (all queues had reached full-check): selected low-risk Design/World readability slice.
+- Added markdown decode row `TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)` with urgency-cluster order lock in regression.
+- Injected follow-ups for next cycle: (1) `TSDPMFXUC` row-count parity assertions; (2) offline `TSDPMFXUCT:UP|FLAT|DOWN` prototype.

@@ -420,6 +420,45 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_alias(
     return alias_map.get(momentum_fx_urgency, "U")
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence(
+    rows: list[str],
+) -> str:
+    """Resolve urgency-confidence token from recent TSDPCONWCTSBT churn windows.
+
+    Domain: LOW|MID|HIGH
+    """
+    if len(rows) <= 1:
+        return "HIGH"
+
+    trend_windows: list[str] = []
+    for idx in range(1, len(rows)):
+        curr_rows = rows[: idx + 1]
+        prev_rows = rows[:idx]
+        curr_score = resolve_cadence_override_note_rationale_confidence_trend_momentum_score(curr_rows)
+        prev_score = resolve_cadence_override_note_rationale_confidence_trend_momentum_score(prev_rows)
+        curr_band = resolve_cadence_override_note_rationale_confidence_trend_momentum_band(curr_score)
+        prev_band = resolve_cadence_override_note_rationale_confidence_trend_momentum_band(prev_score)
+        trend_windows.append(
+            resolve_cadence_override_note_rationale_confidence_trend_momentum_band_trend(
+                curr_band,
+                prev_band,
+            )
+        )
+
+    if len(trend_windows) <= 1:
+        return "HIGH"
+
+    churn = 0
+    for prev, curr in zip(trend_windows, trend_windows[1:]):
+        if prev != curr:
+            churn += 1
+    if churn <= 1:
+        return "HIGH"
+    if churn <= 3:
+        return "MID"
+    return "LOW"
+
+
 def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation(
     momentum_fx_cue: str,
 ) -> str:
@@ -1000,6 +1039,9 @@ def build_report(
             score_band_dispatch_pressure_momentum_fx_urgency
         )
     )
+    score_band_dispatch_pressure_momentum_fx_urgency_confidence = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence(rows)
+    )
     score_band_dispatch_pressure_momentum_slope_recommendation = (
         resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation(
             score_band_dispatch_pressure_momentum_slope
@@ -1103,6 +1145,7 @@ def build_report(
         "trendScoreBandDispatchPressureMomentumFxCueAlias": score_band_dispatch_pressure_momentum_fx_cue_alias,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCue": score_band_dispatch_pressure_momentum_fx_urgency,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueAlias": score_band_dispatch_pressure_momentum_fx_urgency_alias,
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidence": score_band_dispatch_pressure_momentum_fx_urgency_confidence,
         "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": score_band_dispatch_pressure_momentum_fx_cue_combat_callout,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": score_band_dispatch_pressure_momentum_fx_cue_combat_callout_alias,
@@ -1255,6 +1298,8 @@ def to_markdown(
             f"- trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{report.get('trendScoreBandDispatchPressureMomentumFxCueAlias', 'S')}**",
             f"- trend-score dispatch-pressure momentum fx urgency cue from momentum-band trend (combat/vfx): **TSDPMFXU:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCue', 'SURGE')}**",
             f"- trend-score dispatch-pressure momentum fx urgency cue alias: **TSDPMFXUA:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueAlias', 'U')}**",
+            f"- trend-score dispatch-pressure momentum fx urgency confidence (ai-content/combat, offline): **TSDPMFXUC:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidence', 'HIGH')}**",
+            "- trend-score dispatch-pressure momentum fx urgency confidence decode (design/world): **TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)**",
             "- trend-score dispatch-pressure momentum fx urgency cue decode (design/world): **SOFT=trend cooling (DOWN), SURGE=trend stable (FLAT), SPIKE=trend rising (UP)**",
             "- trend-score dispatch-pressure momentum fx cue cadence decode (design/world): **SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**",
             f"- trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): **{report.get('trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation', 'steady pace; hold broad scan')}**",

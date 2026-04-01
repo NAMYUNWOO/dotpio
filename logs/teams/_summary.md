@@ -4818,3 +4818,15 @@ Compact decision memory for AI context efficiency.
 - Completed injected Systems/Ops + QA task from Cycle IP15: added fixture-level explicit parity assertion that `TSDPPAIR` row count mirrors `TSDPPAIRA` row count across summary + token sections.
 - Durable decision: keep pair->alias parity explicitly bound to `expected_cadence_cluster_rows` in regression to remain stable under mixed-fixture cadence layout changes.
 - Queue status: ACTION_ITEMS=0 open, TASKS=1 open, POST_RC_BACKLOG=1 open (next highest priority: AI Content/Combat `TSDPMFXUC` prototype).
+
+## 2026-04-02 00:20 KST
+- Closed Cycle IP15 injected AI Content/Combat task: added offline urgency-confidence token `TSDPMFXUC:LOW|MID|HIGH` derived from recent `TSDPCONWCTSBT` churn windows in lane guardrail output.
+- Extended regression contract to lock `TSDPMFXUC` domain + deterministic mapping and markdown row presence.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for immediate next Game Director review cycle).
+
+## 2026-04-02 00:22 KST
+- Executed immediate Game Director Cycle IP16 after ACTION_ITEMS/TASKS/POST_RC reached fully-checked state.
+- Implemented low-risk Design/World + Systems/QA vertical slice: added `TSDPMFXUC` decode row and regression order lock (`TSDPMFXUC -> legend -> TSDPMFXU decode`).
+- Injected backlog tasks for Cycle IP16 follow-up: fixture-level `TSDPMFXUC` parity vs `TSDPMFXU`, and offline urgency-confidence trend token `TSDPMFXUCT`.
+- Verification remained green (py_compile + regression + guardrail artifact regeneration).
