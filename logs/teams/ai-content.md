@@ -3177,3 +3177,6 @@
 
 ## 2026-04-01 12:20 KST
 - Finalized recommendation-state vocabulary for momentum-slope guidance (`HOLD|PREP|CLAMP`) and preserved full recommendation sentence row for operator context.
+
+## 2026-04-01 12:25 KST
+- Defined narrative-safe recommendation family language (`STABLE|READY|TRIAGE`) layered over `HOLD|PREP|CLAMP` without changing core recommendation sentence.

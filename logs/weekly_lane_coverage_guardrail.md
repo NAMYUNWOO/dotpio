@@ -20,6 +20,8 @@
 - trend-score dispatch-pressure momentum slope alias: **TSDPMS:C**
 - trend-score momentum-slope rec state alias: **TSDPMSR:H** (HOLD)
 - trend-score momentum-slope rec decode: **TSDPMSR legend (H=HOLD, P=PREP, C=CLAMP)**
+- trend-score momentum-slope rec family alias: **TSDPMSRF:S** (STABLE)
+- trend-score momentum-slope rec family decode: **TSDPMSRF legend (S=STABLE, R=READY, T=TRIAGE)**
 - trend-score dispatch-pressure momentum slope rec (ai-content/systems): **hold steady; validate calm-lane continuity**
 - trend-score dispatch-pressure momentum fx cue (combat/vfx): **SOFT**
 - trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:S**
@@ -29,11 +31,11 @@
 | lane | count | percent |
 |---|---:|---:|
 | systems | 3 | 30.0% |
-| world | 2 | 20.0% |
-| ai-content | 1 | 10.0% |
+| world | 1 | 10.0% |
+| ai-content | 0 | 0.0% |
 | combat | 2 | 20.0% |
-| design | 2 | 20.0% |
-| ux | 1 | 10.0% |
+| design | 3 | 30.0% |
+| ux | 2 | 20.0% |
 | qa | 3 | 30.0% |
 | vfx | 2 | 20.0% |
 

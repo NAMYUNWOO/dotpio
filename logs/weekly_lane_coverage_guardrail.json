@@ -3,32 +3,32 @@
   "capPercent": 40.0,
   "laneCounts": {
     "systems": 3,
-    "world": 2,
-    "ai-content": 1,
+    "world": 1,
+    "ai-content": 0,
     "combat": 2,
-    "design": 2,
-    "ux": 1,
+    "design": 3,
+    "ux": 2,
     "qa": 3,
     "vfx": 2
   },
   "lanePercentages": {
     "systems": 30.0,
-    "world": 20.0,
-    "ai-content": 10.0,
+    "world": 10.0,
+    "ai-content": 0.0,
     "combat": 20.0,
-    "design": 20.0,
-    "ux": 10.0,
+    "design": 30.0,
+    "ux": 20.0,
     "qa": 30.0,
     "vfx": 20.0
   },
   "overCapLanes": [],
   "underrepresentedLanes": [
     "ai-content",
-    "ux",
-    "combat",
-    "design",
-    "vfx",
     "world",
+    "combat",
+    "ux",
+    "vfx",
+    "design",
     "qa",
     "systems"
   ],
@@ -82,5 +82,7 @@
   "trendScoreBandDispatchPressureMomentumSlopeRecommendation": "hold steady; validate calm-lane continuity",
   "trendScoreBandDispatchPressureMomentumSlopeRecommendationState": "HOLD",
   "trendScoreBandDispatchPressureMomentumSlopeRecommendationAlias": "H",
+  "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamily": "STABLE",
+  "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyAlias": "S",
   "status": "within-cap"
 }

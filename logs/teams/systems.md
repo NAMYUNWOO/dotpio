@@ -4479,3 +4479,6 @@
 
 ## 2026-04-01 12:20 KST
 - Added `trendScoreBandDispatchPressureMomentumSlopeRecommendationState` (`HOLD|PREP|CLAMP`) and compact alias `trendScoreBandDispatchPressureMomentumSlopeRecommendationAlias` (`H|P|C`) to lane guardrail payload for deterministic schema coverage.
+
+## 2026-04-01 12:25 KST
+- Added deterministic recommendation-family schema fields (`...RecommendationFamily`, `...RecommendationFamilyAlias`) and regression locks for domain parity.

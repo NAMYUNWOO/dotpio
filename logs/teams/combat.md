@@ -3062,3 +3062,6 @@
 
 ## 2026-04-01 12:20 KST
 - No runtime combat tuning changed; validated momentum-slope recommendation alias addition stays offline in guardrail analytics artifact only.
+
+## 2026-04-01 12:25 KST
+- Confirmed recommendation-family addition is analytics-only; no combat runtime tuning or balancing hooks changed.

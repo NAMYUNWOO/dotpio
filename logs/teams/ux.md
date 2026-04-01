@@ -3349,3 +3349,6 @@
 
 ## 2026-04-01 12:20 KST
 - Added compact recommendation-state row `TSDPMSR:<H|P|C>` with state label to improve one-glance readability under DOS-width constraints.
+
+## 2026-04-01 12:25 KST
+- Shipped compact `TSDPMSRF:<S|R|T>` row for fast dense-read scans while preserving verbose recommendation context row.

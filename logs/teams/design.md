@@ -3175,3 +3175,6 @@
 
 ## 2026-04-01 12:20 KST
 - Added explicit markdown decode row for `TSDPMSR` alias (`H=HOLD, P=PREP, C=CLAMP`) to reduce scan ambiguity in weekly reports.
+
+## 2026-04-01 12:25 KST
+- Added `TSDPMSRF` decode microcopy to improve at-a-glance operator interpretation of recommendation intensity families.

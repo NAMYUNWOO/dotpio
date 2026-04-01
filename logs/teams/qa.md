@@ -5002,3 +5002,6 @@
 
 ## 2026-04-01 12:20 KST
 - Extended regression contract to assert new recommendation state+alias payload keys and markdown presence/decode rows for `TSDPMSR`.
+
+## 2026-04-01 12:25 KST
+- Regression suite now asserts recommendation-family payload keys and markdown presence/decode rows for `TSDPMSRF`.

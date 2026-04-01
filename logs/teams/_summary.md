@@ -4655,3 +4655,11 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep full recommendation sentence row for context and add compact alias+decode row for DOS-width-friendly scans.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for next Game Director review cycle).
+
+
+## 2026-04-01 12:25 KST
+- Executed Game Director Cycle IP2 after queue reached fully checked state.
+- Implemented low-risk vertical slice: recommendation-family alias rail `TSDPMSRF` (`STABLE|READY|TRIAGE` -> `S|R|T`) derived from `TSDPMSR` state.
+- Regression contract extended to lock payload family fields and markdown alias/decode rows.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.

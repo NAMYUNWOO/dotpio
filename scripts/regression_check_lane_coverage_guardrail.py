@@ -130,6 +130,24 @@ def run_fixture_case(
         report.get("trendScoreBandDispatchPressureMomentumSlopeRecommendationAlias")
         == expected_recommendation_alias
     ), f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendationAlias must map deterministic compact alias from recommendation state"
+    expected_recommendation_family = {
+        "HOLD": "STABLE",
+        "PREP": "READY",
+        "CLAMP": "TRIAGE",
+    }.get(expected_recommendation_state, "STABLE")
+    expected_recommendation_family_alias = {
+        "STABLE": "S",
+        "READY": "R",
+        "TRIAGE": "T",
+    }.get(expected_recommendation_family, "S")
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumSlopeRecommendationFamily")
+        == expected_recommendation_family
+    ), f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendationFamily must map deterministic STABLE/READY/TRIAGE family from recommendation state"
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyAlias")
+        == expected_recommendation_family_alias
+    ), f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyAlias must map deterministic compact alias from recommendation family"
     assert (
         report.get("trendScoreBandDispatchPressureMomentumFxCue")
         == expected_dispatch_pressure_momentum_fx_cue
@@ -196,6 +214,14 @@ def run_fixture_case(
     ), f"{name}: markdown output must include compact momentum-slope recommendation-state alias row"
     assert "trend-score momentum-slope rec decode: **TSDPMSR legend (H=HOLD, P=PREP, C=CLAMP)**" in md_text, (
         f"{name}: markdown output must include TSDPMSR decode row"
+    )
+    assert (
+        "trend-score momentum-slope rec family alias: "
+        f"**TSDPMSRF:{expected_recommendation_family_alias}** ({expected_recommendation_family})"
+        in md_text
+    ), f"{name}: markdown output must include compact momentum-slope recommendation-family alias row"
+    assert "trend-score momentum-slope rec family decode: **TSDPMSRF legend (S=STABLE, R=READY, T=TRIAGE)**" in md_text, (
+        f"{name}: markdown output must include TSDPMSRF decode row"
     )
     assert (
         "trend-score dispatch-pressure momentum slope rec (ai-content/systems): "
