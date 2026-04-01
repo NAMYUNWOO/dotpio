@@ -112,6 +112,24 @@ def run_fixture_case(
         report.get("trendScoreBandDispatchPressureMomentumSlopeRecommendation")
         == expected_dispatch_pressure_momentum_slope_recommendation
     ), f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendation must map deterministic ai-content/systems recommendation from momentum slope"
+    expected_recommendation_state = {
+        "COOLING": "HOLD",
+        "RISING": "PREP",
+        "SURGING": "CLAMP",
+    }.get(expected_dispatch_pressure_momentum_slope, "HOLD")
+    expected_recommendation_alias = {
+        "HOLD": "H",
+        "PREP": "P",
+        "CLAMP": "C",
+    }.get(expected_recommendation_state, "H")
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumSlopeRecommendationState")
+        == expected_recommendation_state
+    ), f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendationState must map deterministic HOLD/PREP/CLAMP state from momentum slope"
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumSlopeRecommendationAlias")
+        == expected_recommendation_alias
+    ), f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendationAlias must map deterministic compact alias from recommendation state"
     assert (
         report.get("trendScoreBandDispatchPressureMomentumFxCue")
         == expected_dispatch_pressure_momentum_fx_cue
@@ -171,6 +189,14 @@ def run_fixture_case(
         f"trend-score dispatch-pressure momentum slope alias: **TSDPMS:{expected_dispatch_pressure_momentum_slope_alias}**"
         in md_text
     ), f"{name}: markdown output must include compact momentum-slope alias row"
+    assert (
+        "trend-score momentum-slope rec state alias: "
+        f"**TSDPMSR:{expected_recommendation_alias}** ({expected_recommendation_state})"
+        in md_text
+    ), f"{name}: markdown output must include compact momentum-slope recommendation-state alias row"
+    assert "trend-score momentum-slope rec decode: **TSDPMSR legend (H=HOLD, P=PREP, C=CLAMP)**" in md_text, (
+        f"{name}: markdown output must include TSDPMSR decode row"
+    )
     assert (
         "trend-score dispatch-pressure momentum slope rec (ai-content/systems): "
         f"**{expected_dispatch_pressure_momentum_slope_recommendation}**"

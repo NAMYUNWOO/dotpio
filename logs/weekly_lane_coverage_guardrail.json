@@ -80,5 +80,7 @@
   "trendScoreBandDispatchPressureMomentumSlope": "COOLING",
   "trendScoreBandDispatchPressureMomentumSlopeAlias": "C",
   "trendScoreBandDispatchPressureMomentumSlopeRecommendation": "hold steady; validate calm-lane continuity",
+  "trendScoreBandDispatchPressureMomentumSlopeRecommendationState": "HOLD",
+  "trendScoreBandDispatchPressureMomentumSlopeRecommendationAlias": "H",
   "status": "within-cap"
 }

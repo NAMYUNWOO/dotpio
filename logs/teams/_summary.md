@@ -4648,3 +4648,10 @@ Compact decision memory for AI context efficiency.
 - Rationale: all tracked backlogs were fully checked at cycle start, so injected minimal reversible improvement that improves operator triage copy without widening schema risk.
 - Verification: py_compile + regression harness + guardrail smoke output regenerated (`logs/weekly_lane_coverage_guardrail.{json,md}`).
 - Follow-up injected: evaluate compact alias token `TSDPMSR` and add schema/domain lock after copy map freeze.
+
+
+## 2026-04-01 12:20 KST
+- Closed remaining TASKS/POST_RC items for momentum-slope recommendation alias rollout (`TSDPMSR`) with deterministic state mapping (`HOLD|PREP|CLAMP` -> `H|P|C`).
+- Durable decision: keep full recommendation sentence row for context and add compact alias+decode row for DOS-width-friendly scans.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for next Game Director review cycle).

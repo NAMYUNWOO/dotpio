@@ -3172,3 +3172,6 @@
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` and `python3 scripts/regression_check_lane_coverage_guardrail.py` and guardrail smoke command ✅.
 - Notes: kept additive/offline-only; no existing token renamed.
 
+
+## 2026-04-01 12:20 KST
+- Added explicit markdown decode row for `TSDPMSR` alias (`H=HOLD, P=PREP, C=CLAMP`) to reduce scan ambiguity in weekly reports.

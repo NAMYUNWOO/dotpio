@@ -18,6 +18,8 @@
 - trend-score momentum sparkline legend: **L=LOW, M=MID, H=HIGH (older->newer)**
 - trend-score dispatch-pressure momentum slope (ai-content/systems): **COOLING**
 - trend-score dispatch-pressure momentum slope alias: **TSDPMS:C**
+- trend-score momentum-slope rec state alias: **TSDPMSR:H** (HOLD)
+- trend-score momentum-slope rec decode: **TSDPMSR legend (H=HOLD, P=PREP, C=CLAMP)**
 - trend-score dispatch-pressure momentum slope rec (ai-content/systems): **hold steady; validate calm-lane continuity**
 - trend-score dispatch-pressure momentum fx cue (combat/vfx): **SOFT**
 - trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:S**

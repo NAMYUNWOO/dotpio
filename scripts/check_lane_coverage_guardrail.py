@@ -195,6 +195,28 @@ def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation(
     return recommendation_map.get(momentum_slope, recommendation_map["COOLING"])
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_state(
+    momentum_slope: str,
+) -> str:
+    state_map = {
+        "COOLING": "HOLD",
+        "RISING": "PREP",
+        "SURGING": "CLAMP",
+    }
+    return state_map.get(momentum_slope, "HOLD")
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_alias(
+    recommendation_state: str,
+) -> str:
+    alias_map = {
+        "HOLD": "H",
+        "PREP": "P",
+        "CLAMP": "C",
+    }
+    return alias_map.get(recommendation_state, "H")
+
+
 def build_momentum_band_progression_sparkline(rows: list[str]) -> str:
     """Build compact sparkline over rolling momentum-band progression for recent rows.
 
@@ -411,6 +433,16 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
             score_band_dispatch_pressure_momentum_slope
         )
     )
+    score_band_dispatch_pressure_momentum_slope_recommendation_state = (
+        resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_state(
+            score_band_dispatch_pressure_momentum_slope
+        )
+    )
+    score_band_dispatch_pressure_momentum_slope_recommendation_alias = (
+        resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_alias(
+            score_band_dispatch_pressure_momentum_slope_recommendation_state
+        )
+    )
 
     return {
         "recentCompletedItems": total,
@@ -438,6 +470,8 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "trendScoreBandDispatchPressureMomentumSlope": score_band_dispatch_pressure_momentum_slope,
         "trendScoreBandDispatchPressureMomentumSlopeAlias": score_band_dispatch_pressure_momentum_slope_alias,
         "trendScoreBandDispatchPressureMomentumSlopeRecommendation": score_band_dispatch_pressure_momentum_slope_recommendation,
+        "trendScoreBandDispatchPressureMomentumSlopeRecommendationState": score_band_dispatch_pressure_momentum_slope_recommendation_state,
+        "trendScoreBandDispatchPressureMomentumSlopeRecommendationAlias": score_band_dispatch_pressure_momentum_slope_recommendation_alias,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -492,6 +526,8 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             "- trend-score momentum sparkline legend: **L=LOW, M=MID, H=HIGH (older->newer)**",
             f"- trend-score dispatch-pressure momentum slope (ai-content/systems): **{report.get('trendScoreBandDispatchPressureMomentumSlope', 'COOLING')}**",
             f"- trend-score dispatch-pressure momentum slope alias: **TSDPMS:{report.get('trendScoreBandDispatchPressureMomentumSlopeAlias', 'C')}**",
+            f"- trend-score momentum-slope rec state alias: **TSDPMSR:{report.get('trendScoreBandDispatchPressureMomentumSlopeRecommendationAlias', 'H')}** ({report.get('trendScoreBandDispatchPressureMomentumSlopeRecommendationState', 'HOLD')})",
+            "- trend-score momentum-slope rec decode: **TSDPMSR legend (H=HOLD, P=PREP, C=CLAMP)**",
             f"- trend-score dispatch-pressure momentum slope rec (ai-content/systems): **{report.get('trendScoreBandDispatchPressureMomentumSlopeRecommendation', 'hold steady; validate calm-lane continuity')}**",
             f"- trend-score dispatch-pressure momentum fx cue (combat/vfx): **{report.get('trendScoreBandDispatchPressureMomentumFxCue', 'SOFT')}**",
             f"- trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{report.get('trendScoreBandDispatchPressureMomentumFxCueAlias', 'S')}**",
