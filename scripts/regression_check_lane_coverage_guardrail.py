@@ -1222,6 +1222,10 @@ def run_fixture_case(
         "trend-score dispatch-pressure momentum fx urgency confidence trend momentum band vfx pulse alias decode (design/world): "
         "**TSDPMFXVA legend (C=CALM, P=PULSE, B=BLAST)**"
     )
+    pulse_callout_pair_decode_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx pulse->callout pairing decode (design/world, dos-width): "
+        "**TSDPMFXV C/P/B => TSDPMFXC HL/PE/BC**"
+    )
     urgency_decode_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency cue decode (design/world): "
         "**SOFT=trend cooling (DOWN), SURGE=trend stable (FLAT), SPIKE=trend rising (UP)**"
@@ -1243,9 +1247,10 @@ def run_fixture_case(
         < urgency_confidence_trend_momentum_band_trend_alias_decode_idx
         < urgency_confidence_trend_momentum_band_vfx_pulse_decode_idx
         < urgency_confidence_trend_momentum_band_vfx_pulse_alias_decode_idx
+        < pulse_callout_pair_decode_idx
         < urgency_decode_idx
     ), (
-        f"{name}: urgency cluster order must keep `TSDPMFXUC -> TSDPMFXUCT -> TSDPMFXUCTA -> TSDPMFXUCTS -> TSDPMFXUCTSB -> TSDPMFXUCTSBT -> TSDPMFXUCTSBTA -> TSDPMFXV -> TSDPMFXVA -> TSDPMFXUC legend -> TSDPMFXUCT legend -> TSDPMFXUCTA legend -> TSDPMFXUCTSBT legend -> TSDPMFXUCTSBTA legend -> TSDPMFXV legend -> TSDPMFXVA legend -> TSDPMFXU decode`"
+        f"{name}: urgency cluster order must keep `TSDPMFXUC -> TSDPMFXUCT -> TSDPMFXUCTA -> TSDPMFXUCTS -> TSDPMFXUCTSB -> TSDPMFXUCTSBT -> TSDPMFXUCTSBTA -> TSDPMFXV -> TSDPMFXVA -> TSDPMFXUC legend -> TSDPMFXUCT legend -> TSDPMFXUCTA legend -> TSDPMFXUCTSBT legend -> TSDPMFXUCTSBTA legend -> TSDPMFXV legend -> TSDPMFXVA legend -> TSDPMFXV->TSDPMFXC pair decode -> TSDPMFXU decode`"
     )
     fx_urgency_row_count = md_text.count("**TSDPMFXU:")
     fx_urgency_confidence_row_count = md_text.count("**TSDPMFXUC:")
@@ -1301,6 +1306,11 @@ def run_fixture_case(
         f"{name}: `TSDPMFXVA` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_alias_row_count}) must mirror "
         f"`TSDPMFXV` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_row_count}) across summary + token sections"
     )
+    assert (
+        "trend-score dispatch-pressure momentum fx pulse->callout pairing decode (design/world, dos-width): "
+        "**TSDPMFXV C/P/B => TSDPMFXC HL/PE/BC**"
+        in md_text
+    ), f"{name}: markdown output must include compact pulse-state to combat-callout pair decode row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency cue decode (design/world): "
         "**SOFT=trend cooling (DOWN), SURGE=trend stable (FLAT), SPIKE=trend rising (UP)**"

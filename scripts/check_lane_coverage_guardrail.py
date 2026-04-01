@@ -1497,6 +1497,7 @@ def to_markdown(
             "- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend alias decode (design/world): **TSDPMFXUCTSBTA legend (U=UP, F=FLAT, D=DOWN)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band vfx pulse decode (design/world): **TSDPMFXV legend (C=CALM, P=PULSE, B=BLAST)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band vfx pulse alias decode (design/world): **TSDPMFXVA legend (C=CALM, P=PULSE, B=BLAST)**",
+            "- trend-score dispatch-pressure momentum fx pulse->callout pairing decode (design/world, dos-width): **TSDPMFXV C/P/B => TSDPMFXC HL/PE/BC**",
             "- trend-score dispatch-pressure momentum fx urgency cue decode (design/world): **SOFT=trend cooling (DOWN), SURGE=trend stable (FLAT), SPIKE=trend rising (UP)**",
             "- trend-score dispatch-pressure momentum fx cue cadence decode (design/world): **SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**",
             f"- trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): **{report.get('trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation', 'steady pace; hold broad scan')}**",
