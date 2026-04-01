@@ -145,6 +145,36 @@ def resolve_trend_score_band_dispatch_pressure_momentum_from_dominant_bands(
     return max(0, min(100, int(round(momentum * 100))))
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_slope(rows: list[str]) -> str:
+    """Compute offline momentum-slope label from prior-window momentum deltas.
+
+    Domain is intentionally compact/deterministic: COOLING | RISING | SURGING.
+    """
+    dominant_bands = [band for band in collect_row_dominant_trend_bands(rows) if band]
+    if len(dominant_bands) < 3:
+        return "COOLING"
+
+    rolling_scores: list[int] = []
+    for end_idx in range(2, len(dominant_bands) + 1):
+        rolling_scores.append(
+            resolve_trend_score_band_dispatch_pressure_momentum_from_dominant_bands(
+                dominant_bands[:end_idx]
+            )
+        )
+
+    if len(rolling_scores) < 2:
+        return "COOLING"
+
+    last_delta = rolling_scores[-1] - rolling_scores[-2]
+    prev_delta = rolling_scores[-2] - rolling_scores[-3] if len(rolling_scores) >= 3 else 0
+
+    if last_delta >= 15 or (last_delta >= 8 and prev_delta > 0):
+        return "SURGING"
+    if last_delta > 0:
+        return "RISING"
+    return "COOLING"
+
+
 def build_momentum_band_progression_sparkline(rows: list[str]) -> str:
     """Build compact sparkline over rolling momentum-band progression for recent rows.
 
@@ -348,6 +378,9 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
     score_band_dispatch_pressure_momentum_band_sparkline = build_momentum_band_progression_sparkline(
         rows
     )
+    score_band_dispatch_pressure_momentum_slope = (
+        resolve_trend_score_band_dispatch_pressure_momentum_slope(rows)
+    )
 
     return {
         "recentCompletedItems": total,
@@ -372,6 +405,7 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "trendScoreBandDispatchPressureMomentumFxCueAlias": score_band_dispatch_pressure_momentum_fx_cue_alias,
         "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation,
         "trendScoreBandDispatchPressureMomentumBandSparkline": score_band_dispatch_pressure_momentum_band_sparkline,
+        "trendScoreBandDispatchPressureMomentumSlope": score_band_dispatch_pressure_momentum_slope,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -424,6 +458,7 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             "- trend-score dispatch-pressure momentum band progression (last-10 rolling): "
             f"**TSDPM-SPARK:{report.get('trendScoreBandDispatchPressureMomentumBandSparkline', 'NA')}**",
             "- trend-score momentum sparkline legend: **L=LOW, M=MID, H=HIGH (older->newer)**",
+            f"- trend-score dispatch-pressure momentum slope (ai-content/systems): **{report.get('trendScoreBandDispatchPressureMomentumSlope', 'COOLING')}**",
             f"- trend-score dispatch-pressure momentum fx cue (combat/vfx): **{report.get('trendScoreBandDispatchPressureMomentumFxCue', 'SOFT')}**",
             f"- trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{report.get('trendScoreBandDispatchPressureMomentumFxCueAlias', 'S')}**",
             "- trend-score dispatch-pressure momentum fx cue cadence decode (design/world): **SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**",

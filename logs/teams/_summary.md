@@ -4638,3 +4638,5 @@ Compact decision memory for AI context efficiency.
 - Markdown now surfaces a dedicated ai-content/design recommendation row for operator readability.
 - Regression suite now locks payload+markdown parity for the new field.
 - Next backlog candidate remains line 15 (`Design/World` cadence-context decode row).
+
+- Completed injected ILN follow-up: lane guardrail now emits deterministic offline momentum-slope recommendation `trendScoreBandDispatchPressureMomentumSlope` (`COOLING|RISING|SURGING`) from prior-window momentum deltas, with markdown surfacing and regression contract coverage.

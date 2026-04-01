@@ -16,6 +16,7 @@
 - trend-score dispatch-pressure momentum band alias: **TSDPM:L**
 - trend-score dispatch-pressure momentum band progression (last-10 rolling): **TSDPM-SPARK:NA**
 - trend-score momentum sparkline legend: **L=LOW, M=MID, H=HIGH (older->newer)**
+- trend-score dispatch-pressure momentum slope (ai-content/systems): **COOLING**
 - trend-score dispatch-pressure momentum fx cue (combat/vfx): **SOFT**
 - trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:S**
 - trend-score dispatch-pressure momentum fx cue cadence decode (design/world): **SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**

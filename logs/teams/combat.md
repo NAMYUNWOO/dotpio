@@ -3044,3 +3044,7 @@
 ## 2026-04-01 10:48 KST
 - Guardrail markdown now surfaces rolling momentum-band sparkline (`TSDPM-SPARK`) adjacent to momentum-band/fx-cue rows, improving combat handoff timing scans.
 - Regression updated to enforce sparkline row + legend presence.
+
+## 2026-04-01 11:24 KST — Momentum-slope prototype (Cycle ILN follow-up)
+- Closed injected POST_RC item: added offline `trendScoreBandDispatchPressureMomentumSlope:COOLING|RISING|SURGING` derived from prior-window momentum deltas.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
