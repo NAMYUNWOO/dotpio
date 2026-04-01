@@ -85,7 +85,7 @@ def run_fixture_case(
     expected_dispatch_pressure_momentum_fx_cue_combat_callout: str,
     expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias: str,
     expected_recommendation_family_trend: str | None = None,
-) -> str:
+) -> dict[str, int | str]:
     backlog = tmp_path / f"{name}_backlog.md"
     json_out = tmp_path / f"{name}_guardrail.json"
     md_out = tmp_path / f"{name}_guardrail.md"
@@ -1275,7 +1275,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include compact combat-callout DOS-width/readability evaluation row"
 
-    return family_trend
+    return {
+        "familyTrend": family_trend,
+        "tsdpmfxuctsbtRowCount": fx_urgency_confidence_trend_momentum_band_trend_row_count,
+        "tsdpmfxuctsbtaRowCount": fx_urgency_confidence_trend_momentum_band_trend_alias_row_count,
+    }
 
 
 def main() -> int:
@@ -1286,8 +1290,9 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix="regression_check_lane_guardrail_") as tmp:
         tmp_path = Path(tmp)
         observed_family_trends: list[str] = []
+        mixed_window_tsdpmfxuctsbt_parity: list[tuple[str, int, int]] = []
 
-        run_fixture_case(
+        balanced_tie_result = run_fixture_case(
             tmp_path=tmp_path,
             name="balanced_tie",
             rows=[
@@ -1319,8 +1324,15 @@ def main() -> int:
             expected_dispatch_pressure_momentum_fx_cue_combat_callout="BURST_CLEAR",
             expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="BC",
         )
+        mixed_window_tsdpmfxuctsbt_parity.append(
+            (
+                "balanced_tie",
+                int(balanced_tie_result["tsdpmfxuctsbtRowCount"]),
+                int(balanced_tie_result["tsdpmfxuctsbtaRowCount"]),
+            )
+        )
 
-        run_fixture_case(
+        ready_mix_result = run_fixture_case(
             tmp_path=tmp_path,
             name="ready_mix",
             rows=[
@@ -1352,6 +1364,13 @@ def main() -> int:
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="surge pressure; triage hottest lane first",
             expected_dispatch_pressure_momentum_fx_cue_combat_callout="BURST_CLEAR",
             expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="BC",
+        )
+        mixed_window_tsdpmfxuctsbt_parity.append(
+            (
+                "ready_mix",
+                int(ready_mix_result["tsdpmfxuctsbtRowCount"]),
+                int(ready_mix_result["tsdpmfxuctsbtaRowCount"]),
+            )
         )
 
         run_fixture_case(
@@ -1486,8 +1505,7 @@ def main() -> int:
             expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="HL",
         )
 
-        observed_family_trends.append(
-            run_fixture_case(
+        prior_window_trend_up_result = run_fixture_case(
                 tmp_path=tmp_path,
                 name="prior_window_trend_up",
                 rows=[
@@ -1518,9 +1536,15 @@ def main() -> int:
                 expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="PE",
                 expected_recommendation_family_trend="UP",
             )
+        observed_family_trends.append(str(prior_window_trend_up_result["familyTrend"]))
+        mixed_window_tsdpmfxuctsbt_parity.append(
+            (
+                "prior_window_trend_up",
+                int(prior_window_trend_up_result["tsdpmfxuctsbtRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxuctsbtaRowCount"]),
+            )
         )
-        observed_family_trends.append(
-            run_fixture_case(
+        prior_window_trend_down_result = run_fixture_case(
                 tmp_path=tmp_path,
                 name="prior_window_trend_down",
                 rows=[
@@ -1552,10 +1576,23 @@ def main() -> int:
                 expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="PE",
                 expected_recommendation_family_trend="DOWN",
             )
+        observed_family_trends.append(str(prior_window_trend_down_result["familyTrend"]))
+        mixed_window_tsdpmfxuctsbt_parity.append(
+            (
+                "prior_window_trend_down",
+                int(prior_window_trend_down_result["tsdpmfxuctsbtRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxuctsbtaRowCount"]),
+            )
         )
 
         assert "UP" in observed_family_trends and "DOWN" in observed_family_trends, (
             "fixture matrix must include explicit prior-window recommendation-family trend transitions for both UP and DOWN"
+        )
+        assert all(
+            trend_count == alias_count
+            for _, trend_count, alias_count in mixed_window_tsdpmfxuctsbt_parity
+        ), (
+            "mixed-window fixture matrix must keep TSDPMFXUCTSBT/TSDPMFXUCTSBTA row-count parity across summary + token sections"
         )
 
     print("ok: trendScoreBand dispatch-hint/momentum-band regression checks passed")

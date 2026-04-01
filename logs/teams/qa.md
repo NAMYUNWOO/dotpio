@@ -5148,3 +5148,7 @@
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-02 02:50 KST — Cycle IP18 follow-up: shipped offline TSDPMFXUCTSBT (urgency-confidence momentum-band trend) wiring in guardrail + regression; deterministic map from consecutive TSDPMFXUCTSB windows (LOW<MID<HIGH), added markdown/decode rows and row-count parity lock (TSDPMFXUCTSBT mirrors TSDPMFXUCTSB).
 - 2026-04-02 02:55 KST — Cycle IP19: shipped compact alias TSDPMFXUCTSBTA for TSDPMFXUCTSBT (UP/FLAT/DOWN), added decode row and regression locks for deterministic mapping, urgency-cluster ordering, and row-count parity (TSDPMFXUCTSBTA mirrors TSDPMFXUCTSBT).
+
+## 2026-04-02 03:22 KST
+- Added regression-level mixed-window matrix parity guard: fixture results now assert `TSDPMFXUCTSBT` row count equals `TSDPMFXUCTSBTA` row count across selected mixed-window cases (`balanced_tie`, `ready_mix`, prior-window trend transitions).
+- Validation run passed (compile + regression + guardrail artifact regeneration).

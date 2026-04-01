@@ -4626,3 +4626,8 @@
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-02 02:50 KST — Cycle IP18 follow-up: shipped offline TSDPMFXUCTSBT (urgency-confidence momentum-band trend) wiring in guardrail + regression; deterministic map from consecutive TSDPMFXUCTSB windows (LOW<MID<HIGH), added markdown/decode rows and row-count parity lock (TSDPMFXUCTSBT mirrors TSDPMFXUCTSB).
 - 2026-04-02 02:55 KST — Cycle IP19: shipped compact alias TSDPMFXUCTSBTA for TSDPMFXUCTSBT (UP/FLAT/DOWN), added decode row and regression locks for deterministic mapping, urgency-cluster ordering, and row-count parity (TSDPMFXUCTSBTA mirrors TSDPMFXUCTSBT).
+
+## 2026-04-02 03:22 KST
+- Task: Closed injected IP19 parity follow-up by adding explicit mixed-window fixture-matrix assertion for `TSDPMFXUCTSBT` vs `TSDPMFXUCTSBTA` row-count parity.
+- Files: `scripts/regression_check_lane_coverage_guardrail.py`, `TASKS.md`, `POST_RC_BACKLOG.md`.
+- Verification: `python3 -m py_compile scripts/regression_check_lane_coverage_guardrail.py` ✅; `python3 scripts/regression_check_lane_coverage_guardrail.py` ✅; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` ✅.
