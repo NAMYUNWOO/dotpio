@@ -80,6 +80,17 @@
   "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": "steady pace; hold broad scan",
   "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": "HOLD_LINE",
   "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": "HL",
+  "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeBaseline": "HL=hold line, PE=press edge, BC=burst clear",
+  "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeCompact": "HL=hold lane, PE=push edge, BC=burst clear",
+  "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeEvaluation": {
+    "baseline": "HL=hold line, PE=press edge, BC=burst clear",
+    "compact": "HL=hold lane, PE=push edge, BC=burst clear",
+    "baselineLen": 43,
+    "compactLen": 42,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "trendScoreBandDispatchPressureMomentumBandSparkline": "NA",
   "trendScoreBandDispatchPressureMomentumSlope": "COOLING",
   "trendScoreBandDispatchPressureMomentumSlopeAlias": "C",

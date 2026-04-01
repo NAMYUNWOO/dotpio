@@ -431,6 +431,34 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_al
     return alias_map.get(combat_callout, "HL")
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_decode_baseline() -> str:
+    return "HL=hold line, PE=press edge, BC=burst clear"
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_decode_compact() -> str:
+    return "HL=hold lane, PE=push edge, BC=burst clear"
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_decode_evaluation(
+    dos_width_limit: int = 72,
+) -> dict[str, object]:
+    baseline = resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_decode_baseline()
+    compact = resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_decode_compact()
+    baseline_len = len(baseline)
+    compact_len = len(compact)
+    preferred = "COMPACT" if compact_len <= baseline_len else "BASELINE"
+    status = "PASS" if compact_len <= dos_width_limit and baseline_len <= dos_width_limit else "WARN"
+    return {
+        "baseline": baseline,
+        "compact": compact,
+        "baselineLen": baseline_len,
+        "compactLen": compact_len,
+        "dosWidthLimit": dos_width_limit,
+        "preferred": preferred,
+        "status": status,
+    }
+
+
 def resolve_trend_score_band_dispatch_hint(score_band_snapshot: dict[str, int]) -> str:
     ordered = sorted(
         score_band_snapshot.items(),
@@ -649,6 +677,9 @@ def build_report(
             verb_pack=trend_family_why_verb_pack,
         )
     )
+    combat_callout_decode_evaluation = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_decode_evaluation()
+    )
 
     return {
         "recentCompletedItems": total,
@@ -674,6 +705,9 @@ def build_report(
         "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": score_band_dispatch_pressure_momentum_fx_cue_combat_callout,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": score_band_dispatch_pressure_momentum_fx_cue_combat_callout_alias,
+        "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeBaseline": combat_callout_decode_evaluation["baseline"],
+        "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeCompact": combat_callout_decode_evaluation["compact"],
+        "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeEvaluation": combat_callout_decode_evaluation,
         "trendScoreBandDispatchPressureMomentumBandSparkline": score_band_dispatch_pressure_momentum_band_sparkline,
         "trendScoreBandDispatchPressureMomentumSlope": score_band_dispatch_pressure_momentum_slope,
         "trendScoreBandDispatchPressureMomentumSlopeAlias": score_band_dispatch_pressure_momentum_slope_alias,
@@ -696,6 +730,7 @@ def to_markdown(
     recent_rows: list[str] | None = None,
     include_trend_family_why: bool = False,
     trend_family_why_verb_pack: str = "baseline",
+    include_combat_callout_compact_legend: bool = False,
 ) -> str:
     _ = recent_rows
     score_band_snapshot = report.get("trendScoreBandSnapshot", {"CALM": 0, "EDGE": 0, "HEATED": 0})
@@ -741,6 +776,20 @@ def to_markdown(
             ]
         )
 
+    if include_combat_callout_compact_legend:
+        combat_decode = report.get(
+            "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeEvaluation",
+            resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_decode_evaluation(),
+        )
+        optional_rows.extend(
+            [
+                "- trend-score dispatch-pressure momentum fx combat callout compact decode (design/world): "
+                f"**{report.get('trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeCompact', resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_decode_compact())}**",
+                "- trend-score dispatch-pressure momentum fx combat callout decode dos-width eval (design/world): "
+                f"**TSDPMFXCLEN:B{combat_decode.get('baselineLen', 0)}|C{combat_decode.get('compactLen', 0)}|LIM{combat_decode.get('dosWidthLimit', 72)}|PREF:{combat_decode.get('preferred', 'COMPACT')}|{combat_decode.get('status', 'PASS')}**",
+            ]
+        )
+
     return "\n".join(
         [
             "### Lane Coverage Guardrail",
@@ -777,7 +826,8 @@ def to_markdown(
             f"- trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): **{report.get('trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation', 'steady pace; hold broad scan')}**",
             f"- trend-score dispatch-pressure momentum fx combat callout (combat/vfx): **{report.get('trendScoreBandDispatchPressureMomentumFxCueCombatCallout', 'HOLD_LINE')}**",
             f"- trend-score dispatch-pressure momentum fx combat callout alias: **TSDPMFXC:{report.get('trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias', 'HL')}**",
-            "- trend-score dispatch-pressure momentum fx combat callout decode (design/world): **HL=hold line, PE=press edge, BC=burst clear**",
+            "- trend-score dispatch-pressure momentum fx combat callout decode (design/world): "
+            f"**{report.get('trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeBaseline', resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_decode_baseline())}**",
             *optional_rows,
             "",
             *rows,
@@ -804,6 +854,11 @@ def main() -> int:
         default="baseline",
         help="Optional WHY verb-pack variant (`ramp/steady/cool`) for scanability comparison.",
     )
+    parser.add_argument(
+        "--include-combat-callout-compact-legend",
+        action="store_true",
+        help="Include optional compact combat-callout decode legend + DOS-width evaluation rows.",
+    )
     args = parser.parse_args()
 
     text = args.backlog.read_text(encoding="utf-8")
@@ -828,6 +883,7 @@ def main() -> int:
                 recent_rows=rows,
                 include_trend_family_why=args.include_trend_family_why,
                 trend_family_why_verb_pack=args.trend_family_why_verb_pack,
+                include_combat_callout_compact_legend=args.include_combat_callout_compact_legend,
             )
             + "\n",
             encoding="utf-8",

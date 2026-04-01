@@ -20,6 +20,7 @@ def run_guardrail(
     md_out: Path,
     *,
     include_trend_family_why: bool = False,
+    include_combat_callout_compact_legend: bool = False,
 ) -> dict:
     cmd = [
         sys.executable,
@@ -37,6 +38,8 @@ def run_guardrail(
     ]
     if include_trend_family_why:
         cmd.append("--include-trend-family-why")
+    if include_combat_callout_compact_legend:
+        cmd.append("--include-combat-callout-compact-legend")
     subprocess.run(cmd, check=True, cwd=ROOT)
     return json.loads(json_out.read_text(encoding="utf-8"))
 
@@ -75,7 +78,13 @@ def run_fixture_case(
 
     backlog.write_text("\n".join(["# fixture", *rows]) + "\n", encoding="utf-8")
 
-    report = run_guardrail(backlog, json_out, md_out, include_trend_family_why=True)
+    report = run_guardrail(
+        backlog,
+        json_out,
+        md_out,
+        include_trend_family_why=True,
+        include_combat_callout_compact_legend=True,
+    )
     snapshot = report.get("trendScoreBandSnapshot")
     assert snapshot == expected_snapshot, (
         f"{name}: trendScoreBandSnapshot counts must include alias/full-token matches"
@@ -212,6 +221,23 @@ def run_fixture_case(
         report.get("trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias")
         == expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias
     ), f"{name}: trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias must match compact combat/vfx callout alias"
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeBaseline")
+        == "HL=hold line, PE=press edge, BC=burst clear"
+    ), f"{name}: baseline combat-callout decode row must remain deterministic"
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeCompact")
+        == "HL=hold lane, PE=push edge, BC=burst clear"
+    ), f"{name}: compact combat-callout decode variant must remain deterministic"
+    assert report.get("trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeEvaluation") == {
+        "baseline": "HL=hold line, PE=press edge, BC=burst clear",
+        "compact": "HL=hold lane, PE=push edge, BC=burst clear",
+        "baselineLen": 43,
+        "compactLen": 42,
+        "dosWidthLimit": 72,
+        "preferred": "COMPACT",
+        "status": "PASS",
+    }, f"{name}: combat-callout decode evaluation payload must include deterministic DOS-width/readability signals"
 
     md_text = md_out.read_text(encoding="utf-8")
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"
@@ -387,6 +413,16 @@ def run_fixture_case(
         "**HL=hold line, PE=press edge, BC=burst clear**"
         in md_text
     ), f"{name}: markdown output must include design/world combat-callout decode row"
+    assert (
+        "trend-score dispatch-pressure momentum fx combat callout compact decode (design/world): "
+        "**HL=hold lane, PE=push edge, BC=burst clear**"
+        in md_text
+    ), f"{name}: markdown output must include optional compact combat-callout decode variant row"
+    assert (
+        "trend-score dispatch-pressure momentum fx combat callout decode dos-width eval (design/world): "
+        "**TSDPMFXCLEN:B43|C42|LIM72|PREF:COMPACT|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include compact combat-callout DOS-width/readability evaluation row"
 
     return family_trend
 

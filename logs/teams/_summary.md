@@ -4716,3 +4716,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: treat `TSDPMSRFTWHYLEN` as payload-first contract (`trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudget` + `...WhyCopyBudgetSignals`) and render markdown from payload value to avoid dual-source drift.
 - Regression now hard-locks `copyMap`, alias-length map, threshold, and maxLen in fixture outputs for downstream schema consumers.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md --include-trend-family-why`.
+
+
+## 2026-04-01 16:22 KST
+- Completed Cycle IP6 injected Design/World task: optional compact callout legend microcopy variant (`HL=hold lane, PE=push edge, BC=burst clear`) is now available behind `--include-combat-callout-compact-legend` with deterministic DOS-width/readability evaluation row `TSDPMFXCLEN:B43|C42|LIM72|PREF:COMPACT|PASS`.
+- Durable decision: keep baseline decode (`hold line/press edge/burst clear`) as default row; expose compact variant + evaluation as opt-in markdown rows to avoid digest noise while preserving design-world readability evidence.

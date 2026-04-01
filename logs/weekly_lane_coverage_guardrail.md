@@ -38,6 +38,8 @@
 - trend-score momentum-slope rec family trend why (ai-content/systems): **TSDPMSRFT WHY:hold pressure cadence**
 - trend-score momentum-slope rec family trend why verb-pack: **TSDPMSRFTWHYPACK:BASELINE**
 - trend-score momentum-slope rec family trend why copy budget (design/ux): **TSDPMSRFTWHYLEN:E24|H21|C21|MAX24/32**
+- trend-score dispatch-pressure momentum fx combat callout compact decode (design/world): **HL=hold lane, PE=push edge, BC=burst clear**
+- trend-score dispatch-pressure momentum fx combat callout decode dos-width eval (design/world): **TSDPMFXCLEN:B43|C42|LIM72|PREF:COMPACT|PASS**
 
 | lane | count | percent |
 |---|---:|---:|
