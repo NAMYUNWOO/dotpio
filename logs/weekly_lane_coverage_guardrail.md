@@ -3,7 +3,7 @@
 - recent completed items: **10**
 - over-cap lanes: **none**
 - forced next lanes (if over-cap): **none**
-- cadence buckets missing: **combat-or-vfx, design-or-world**
+- cadence buckets missing: **combat-or-vfx, design-or-world, systems-or-ops**
 - trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 - trend-score band snapshot alias: **TSSB:C0E0H0**
 - trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**
@@ -98,7 +98,7 @@
 
 | lane | count | percent |
 |---|---:|---:|
-| systems | 1 | 10.0% |
+| systems | 0 | 0.0% |
 | world | 0 | 0.0% |
 | ai-content | 0 | 0.0% |
 | combat | 0 | 0.0% |
@@ -111,4 +111,4 @@
 |---|---|---:|---|
 | combat-or-vfx | combat/vfx | 0 | missing |
 | design-or-world | design/world | 0 | missing |
-| systems-or-ops | systems/qa | 1 | met |
+| systems-or-ops | systems/qa | 0 | missing |

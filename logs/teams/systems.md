@@ -1,5 +1,10 @@
 # Systems Team Log
 
+## 2026-04-02 07:54 KST
+- Cycle IP11 injected Systems/QA follow-up completed: added explicit urgency-cluster ordering assertions requiring `TSDPMFXVWCR -> TSDPMFXVWCRA -> TSDPMFXVWCRI -> TSDPMFXVWCRIA` adjacency before decode rows in both summary and token-coverage sections.
+- Implementation landed in `scripts/regression_check_lane_coverage_guardrail.py` by wiring row/decode index lookups plus strict `<` ordering chain update and contract message refresh.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` ✅, `python3 scripts/regression_check_lane_coverage_guardrail.py` ✅, `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` ✅.
+
 ## 2026-04-02 06:27 KST
 - Cycle IP21: extended guardrail payload with `trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendation` (`TSDPMFXVWCR`) mapped deterministically from `TSDPMFXVWC`.
 - Regression now asserts deterministic recommendation mapping + markdown row/decode presence in `scripts/regression_check_lane_coverage_guardrail.py`.

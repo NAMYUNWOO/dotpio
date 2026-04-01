@@ -1,3 +1,9 @@
+## 2026-04-02 07:54 KST
+- Closed injected Systems/QA follow-up from Cycle IP11: regression now enforces strict adjacency `TSDPMFXVWCR -> TSDPMFXVWCRA -> TSDPMFXVWCRI -> TSDPMFXVWCRIA` before decode rows in both summary/token sections.
+- Durable contract update: recommendation/intensity decode rows are now included in the same ordering chain (`...VWC legend -> VWCR legend -> VWCRA legend -> VWCRI legend -> VWCRIA legend`) to prevent drift.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (remaining: Design/World intensity decode copy DOS-width evaluation).
+
 ## 2026-04-02 06:27 KST
 - Closed Cycle IP21 selected vertical slice: lane guardrail now emits guidance-confidence recommendation token `TSDPMFXVWCR` derived from `TSDPMFXVWC` (`HIGH=lock sweep`, `MID=brace check`, `LOW=burst triage`).
 - Regression contract expanded in `scripts/regression_check_lane_coverage_guardrail.py` for deterministic mapping and markdown/decode row coverage.
@@ -4882,6 +4888,7 @@ Compact decision memory for AI context efficiency.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Next item: Systems/Ops + QA injected parity assertion for `TSDPMFXV`/`TSDPMFXVA` row counts vs `TSDPMFXUCTSBT` under mixed-window fixtures.
 
+- 2026-04-02 07:54 KST: Closed injected Systems/QA order-lock task for IP11 by enforcing contiguous row ordering `TSDPMFXVWCR -> TSDPMFXVWCRA -> TSDPMFXVWCRI -> TSDPMFXVWCRIA` before decode rows in both summary/token sections (`scripts/regression_check_lane_coverage_guardrail.py`), with full compile+regression+artifact verification.
 - 2026-04-02 04:52 KST: Shipped AI Content/Systems pulse-guidance slice `TSDPMFXVW` derived from `TSDPMFXV` with deterministic mapping (`CALM=steady sweep`, `PULSE=brace lanes`, `BLAST=commit burst`), plus regression locks for ordering and row-count parity.
 
 ## 2026-04-02 05:26 KST

@@ -1416,9 +1416,41 @@ def run_fixture_case(
         "trend-score dispatch-pressure momentum fx urgency guidance confidence alias: "
         f"**TSDPMFXVWCA:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_alias_value}**"
     )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation (ai-content/systems, offline): "
+        f"**TSDPMFXVWCR:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_value}**"
+    )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation alias: "
+        f"**TSDPMFXVWCRA:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias_value}**"
+    )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity (combat/vfx, offline): "
+        f"**TSDPMFXVWCRI:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_value}**"
+    )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_alias_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity alias: "
+        f"**TSDPMFXVWCRIA:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_alias_value}**"
+    )
     urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_decode_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency guidance confidence decode (design/world): "
         "**TSDPMFXVWC legend (L=LOW, M=MID, H=HIGH)**"
+    )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_decode_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation decode (design/world): "
+        "**TSDPMFXVWCR legend (HIGH=lock sweep, MID=brace check, LOW=burst triage)**"
+    )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias_decode_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation alias decode (design/world): "
+        "**TSDPMFXVWCRA legend (LS=lock sweep, BC=brace check, BT=burst triage)**"
+    )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_decode_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity decode (design/world): "
+        "**TSDPMFXVWCRI legend (SOFT=burst triage, EDGE=brace check, HARD=lock sweep)**"
+    )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_alias_decode_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity alias decode (design/world): "
+        "**TSDPMFXVWCRIA legend (S=SOFT, E=EDGE, H=HARD)**"
     )
     urgency_confidence_decode_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency confidence decode (design/world): "
@@ -1478,7 +1510,15 @@ def run_fixture_case(
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_alias_idx
+        < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_idx
+        < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias_idx
+        < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_idx
+        < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_alias_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_decode_idx
+        < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_decode_idx
+        < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias_decode_idx
+        < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_decode_idx
+        < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_alias_decode_idx
         < urgency_confidence_decode_idx
         < urgency_confidence_trend_decode_idx
         < urgency_confidence_trend_alias_decode_idx
@@ -1491,7 +1531,7 @@ def run_fixture_case(
         < pulse_callout_pair_decode_idx
         < urgency_decode_idx
     ), (
-        f"{name}: urgency cluster order must keep `TSDPMFXUC -> TSDPMFXUCT -> TSDPMFXUCTA -> TSDPMFXUCTS -> TSDPMFXUCTSB -> TSDPMFXUCTSBT -> TSDPMFXUCTSBTA -> TSDPMFXUCTSBTC -> TSDPMFXV -> TSDPMFXVA -> TSDPMFXVW -> TSDPMFXVWC -> TSDPMFXVWCA -> TSDPMFXVWC legend -> TSDPMFXUC legend -> TSDPMFXUCT legend -> TSDPMFXUCTA legend -> TSDPMFXUCTSBT legend -> TSDPMFXUCTSBTA legend -> TSDPMFXUCTSBTC legend -> TSDPMFXV legend -> TSDPMFXVA legend -> TSDPMFXVW legend -> TSDPMFXV->TSDPMFXC pair decode -> TSDPMFXU decode`"
+        f"{name}: urgency cluster order must keep `TSDPMFXUC -> TSDPMFXUCT -> TSDPMFXUCTA -> TSDPMFXUCTS -> TSDPMFXUCTSB -> TSDPMFXUCTSBT -> TSDPMFXUCTSBTA -> TSDPMFXUCTSBTC -> TSDPMFXV -> TSDPMFXVA -> TSDPMFXVW -> TSDPMFXVWC -> TSDPMFXVWCA -> TSDPMFXVWCR -> TSDPMFXVWCRA -> TSDPMFXVWCRI -> TSDPMFXVWCRIA -> TSDPMFXVWC legend -> TSDPMFXVWCR legend -> TSDPMFXVWCRA legend -> TSDPMFXVWCRI legend -> TSDPMFXVWCRIA legend -> TSDPMFXUC legend -> TSDPMFXUCT legend -> TSDPMFXUCTA legend -> TSDPMFXUCTSBT legend -> TSDPMFXUCTSBTA legend -> TSDPMFXUCTSBTC legend -> TSDPMFXV legend -> TSDPMFXVA legend -> TSDPMFXVW legend -> TSDPMFXV->TSDPMFXC pair decode -> TSDPMFXU decode`"
     )
     fx_urgency_row_count = md_text.count("**TSDPMFXU:")
     fx_urgency_confidence_row_count = md_text.count("**TSDPMFXUC:")
