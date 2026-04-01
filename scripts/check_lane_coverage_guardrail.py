@@ -499,6 +499,39 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_tr
     return alias_map.get(confidence_trend, "F")
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_score(
+    rows: list[str],
+) -> int:
+    """Resolve urgency-confidence trend momentum token from weighted TSDPMFXUCT drift.
+
+    Domain: 0..100 (higher = sustained UP pressure, lower = sustained DOWN pressure)
+    """
+    if len(rows) <= 2:
+        return 50
+
+    trend_windows: list[str] = []
+    for idx in range(2, len(rows) + 1):
+        trend_windows.append(
+            resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend(
+                rows[:idx]
+            )
+        )
+
+    if not trend_windows:
+        return 50
+
+    value_map = {"DOWN": 0, "FLAT": 50, "UP": 100}
+    weighted_total = 0
+    weight_sum = 0
+    for weight, trend in enumerate(trend_windows, start=1):
+        weighted_total += value_map.get(trend, 50) * weight
+        weight_sum += weight
+
+    if weight_sum == 0:
+        return 50
+    return int(round(weighted_total / weight_sum))
+
+
 def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation(
     momentum_fx_cue: str,
 ) -> str:
@@ -1090,6 +1123,11 @@ def build_report(
             score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend
         )
     )
+    score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_score = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_score(
+            rows
+        )
+    )
     score_band_dispatch_pressure_momentum_slope_recommendation = (
         resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation(
             score_band_dispatch_pressure_momentum_slope
@@ -1196,6 +1234,7 @@ def build_report(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidence": score_band_dispatch_pressure_momentum_fx_urgency_confidence,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrend": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendAlias": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_alias,
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumScore": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_score,
         "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": score_band_dispatch_pressure_momentum_fx_cue_combat_callout,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": score_band_dispatch_pressure_momentum_fx_cue_combat_callout_alias,
@@ -1351,6 +1390,7 @@ def to_markdown(
             f"- trend-score dispatch-pressure momentum fx urgency confidence (ai-content/combat, offline): **TSDPMFXUC:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidence', 'HIGH')}**",
             f"- trend-score dispatch-pressure momentum fx urgency confidence trend (ai-content/combat, offline): **TSDPMFXUCT:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrend', 'FLAT')}**",
             f"- trend-score dispatch-pressure momentum fx urgency confidence trend alias: **TSDPMFXUCTA:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendAlias', 'F')}**",
+            f"- trend-score dispatch-pressure momentum fx urgency confidence trend momentum score (ai-content/systems, offline): **TSDPMFXUCTS:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumScore', 50)}**",
             "- trend-score dispatch-pressure momentum fx urgency confidence decode (design/world): **TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend decode (design/world): **TSDPMFXUCT legend (U=UP, F=FLAT, D=DOWN)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend alias decode (design/world): **TSDPMFXUCTA legend (U=UP, F=FLAT, D=DOWN)**",

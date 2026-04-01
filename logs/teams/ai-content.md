@@ -3296,3 +3296,10 @@
 - 2026-04-02 01:26 KST — Cycle IP17 completed (Game Director low-risk slice): added urgency-confidence trend alias token `TSDPMFXUCTA:<U|F|D>` + decode row, wired payload field `trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendAlias`, and extended regression order contract to keep urgency cluster deterministic. Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
 
 - 2026-04-02 01:50 KST — No content-policy remap this slice; next queued item remains `TSDPMFXUCTS:0..100` offline momentum prototype.
+
+
+## 2026-04-02 02:20 KST — Cycle IP17 follow-up: TSDPMFXUCTS momentum token
+- Task: Completed injected offline token `TSDPMFXUCTS:0..100` from weighted multi-window `TSDPMFXUCT` drift.
+- Decision: Deterministic mapping with recency-weighted averaging (`DOWN=0`, `FLAT=50`, `UP=100`).
+- Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: Candidate input for next Game Director experiment scoring.

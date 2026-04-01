@@ -470,6 +470,24 @@ def run_fixture_case(
     assert urgency_confidence_trend_alias_value == expected_urgency_confidence_trend_alias_value, (
         f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendAlias must mirror UP|FLAT|DOWN alias"
     )
+    urgency_confidence_trend_momentum_score_value = report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumScore"
+    )
+    assert isinstance(urgency_confidence_trend_momentum_score_value, int), (
+        f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumScore must be an int"
+    )
+    assert 0 <= urgency_confidence_trend_momentum_score_value <= 100, (
+        f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumScore must stay within 0..100"
+    )
+    expected_urgency_confidence_trend_momentum_score_value = (
+        load_guardrail_module().resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_score(rows)
+    )
+    assert (
+        urgency_confidence_trend_momentum_score_value
+        == expected_urgency_confidence_trend_momentum_score_value
+    ), (
+        f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumScore must deterministically map from weighted TSDPMFXUCT drift"
+    )
     assert (
         "trend-score dispatch pressure cadence override note rationale confidence (ai-content/systems, offline): "
         f"**TSDPCON WHY CONF:{confidence_value}**"
@@ -986,6 +1004,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include compact urgency-confidence trend alias row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency confidence trend momentum score (ai-content/systems, offline): "
+        f"**TSDPMFXUCTS:{urgency_confidence_trend_momentum_score_value}**"
+        in md_text
+    ), f"{name}: markdown output must include urgency-confidence trend momentum score row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency confidence decode (design/world): "
         "**TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)**"
         in md_text
@@ -1012,6 +1035,10 @@ def run_fixture_case(
         "trend-score dispatch-pressure momentum fx urgency confidence trend alias: "
         f"**TSDPMFXUCTA:{urgency_confidence_trend_alias_value}**"
     )
+    urgency_confidence_trend_momentum_score_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency confidence trend momentum score (ai-content/systems, offline): "
+        f"**TSDPMFXUCTS:{urgency_confidence_trend_momentum_score_value}**"
+    )
     urgency_confidence_decode_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency confidence decode (design/world): "
         "**TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)**"
@@ -1032,12 +1059,13 @@ def run_fixture_case(
         urgency_confidence_idx
         < urgency_confidence_trend_idx
         < urgency_confidence_trend_alias_idx
+        < urgency_confidence_trend_momentum_score_idx
         < urgency_confidence_decode_idx
         < urgency_confidence_trend_decode_idx
         < urgency_confidence_trend_alias_decode_idx
         < urgency_decode_idx
     ), (
-        f"{name}: urgency cluster order must keep `TSDPMFXUC -> TSDPMFXUCT -> TSDPMFXUCTA -> TSDPMFXUC legend -> TSDPMFXUCT legend -> TSDPMFXUCTA legend -> TSDPMFXU decode`"
+        f"{name}: urgency cluster order must keep `TSDPMFXUC -> TSDPMFXUCT -> TSDPMFXUCTA -> TSDPMFXUCTS -> TSDPMFXUC legend -> TSDPMFXUCT legend -> TSDPMFXUCTA legend -> TSDPMFXU decode`"
     )
     fx_urgency_row_count = md_text.count("**TSDPMFXU:")
     fx_urgency_confidence_row_count = md_text.count("**TSDPMFXUC:")
@@ -1047,8 +1075,13 @@ def run_fixture_case(
     )
     fx_urgency_confidence_trend_row_count = md_text.count("**TSDPMFXUCT:")
     fx_urgency_confidence_trend_alias_row_count = md_text.count("**TSDPMFXUCTA:")
+    fx_urgency_confidence_trend_momentum_score_row_count = md_text.count("**TSDPMFXUCTS:")
     assert fx_urgency_confidence_trend_alias_row_count == fx_urgency_confidence_trend_row_count, (
         f"{name}: `TSDPMFXUCTA` row count ({fx_urgency_confidence_trend_alias_row_count}) must mirror "
+        f"`TSDPMFXUCT` row count ({fx_urgency_confidence_trend_row_count}) across summary + token sections"
+    )
+    assert fx_urgency_confidence_trend_momentum_score_row_count == fx_urgency_confidence_trend_row_count, (
+        f"{name}: `TSDPMFXUCTS` row count ({fx_urgency_confidence_trend_momentum_score_row_count}) must mirror "
         f"`TSDPMFXUCT` row count ({fx_urgency_confidence_trend_row_count}) across summary + token sections"
     )
     assert (

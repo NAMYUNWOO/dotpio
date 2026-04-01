@@ -4838,3 +4838,9 @@ Compact decision memory for AI context efficiency.
 - Injected next tasks (Cycle IP17): (1) `TSDPMFXUCTA` vs `TSDPMFXUCT` fixture-level row-count parity assertion, (2) offline urgency-confidence trend momentum token prototype `TSDPMFXUCTS:0..100`.
 
 - 2026-04-02 01:50 KST — Shipped systems/qa hardening: added regression assertion enforcing `TSDPMFXUCTA`↔`TSDPMFXUCT` row-count parity across markdown summary + token sections.
+
+## 2026-04-02 02:20 KST — Cycle IP17 injected item closed
+- Shipped offline urgency-confidence trend momentum token: `TSDPMFXUCTS:0..100`.
+- Implementation: `scripts/check_lane_coverage_guardrail.py` adds deterministic weighted resolver over consecutive `TSDPMFXUCT` trend windows; markdown/json rows emitted.
+- Regression: `scripts/regression_check_lane_coverage_guardrail.py` now locks domain (0..100), deterministic mapping, row ordering (`...TSDPMFXUCTA -> TSDPMFXUCTS -> legends`), and row-count parity (`TSDPMFXUCTS` mirrors `TSDPMFXUCT`).
+- Backlog sync: item marked `[x]` in both `TASKS.md` and `POST_RC_BACKLOG.md` with lifecycle + verification evidence.
