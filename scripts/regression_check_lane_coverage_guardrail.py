@@ -581,6 +581,14 @@ def run_fixture_case(
         i for i, line in enumerate(cadence_cluster_lines)
         if "**TSDPCONWCTSBT U/F/D => TSDPMFXU SPIKE/SURGE/SOFT**" in line
     ]
+    cadence_cluster_trend_fx_pair_alias_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPPAIRA:" in line
+    ]
+    cadence_cluster_trend_fx_pair_alias_decode_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPPAIRA legend (S=SOFT, U=SURGE, P=SPIKE)**" in line
+    ]
     assert len(cadence_cluster_streak_indexes) >= 1, (
         f"{name}: cadence cluster streak row must appear in markdown summary"
     )
@@ -700,6 +708,12 @@ def run_fixture_case(
     assert len(cadence_cluster_trend_fx_pair_decode_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster trend->fx urgency pair-decode row count must match streak row count"
     )
+    assert len(cadence_cluster_trend_fx_pair_alias_indexes) == len(cadence_cluster_streak_indexes), (
+        f"{name}: cadence cluster trend->fx urgency compact-alias row count must match streak row count"
+    )
+    assert len(cadence_cluster_trend_fx_pair_alias_decode_indexes) == len(cadence_cluster_streak_indexes), (
+        f"{name}: cadence cluster trend->fx urgency compact-alias decode row count must match streak row count"
+    )
     for cluster_i in range(len(cadence_cluster_streak_indexes)):
         assert cadence_cluster_note_indexes[cluster_i] == cadence_cluster_streak_indexes[cluster_i] + 1, (
             f"{name}: cadence cluster order must keep TSDPCOS immediately before TSDPCO NOTE in both sections"
@@ -758,11 +772,17 @@ def run_fixture_case(
         assert cadence_cluster_trend_fx_pair_indexes[cluster_i] == cadence_cluster_conf_trend_momentum_band_trend_alias_legend_indexes[cluster_i] + 1, (
             f"{name}: cadence cluster order must keep TSDPCONWCTSBTA legend immediately before TSDPPAIR row in both sections"
         )
-        assert cadence_cluster_trend_fx_pair_decode_indexes[cluster_i] == cadence_cluster_trend_fx_pair_indexes[cluster_i] + 1, (
-            f"{name}: cadence cluster order must keep TSDPPAIR row immediately before trend->fx decode row in both sections"
+        assert cadence_cluster_trend_fx_pair_alias_indexes[cluster_i] == cadence_cluster_trend_fx_pair_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPPAIR row immediately before TSDPPAIRA row in both sections"
         )
-        assert cadence_cluster_note_legend_indexes[cluster_i] == cadence_cluster_trend_fx_pair_decode_indexes[cluster_i] + 1, (
-            f"{name}: cadence cluster order must keep trend->fx decode row immediately before TSDPCON legend in both sections"
+        assert cadence_cluster_trend_fx_pair_decode_indexes[cluster_i] == cadence_cluster_trend_fx_pair_alias_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPPAIRA row immediately before trend->fx decode row in both sections"
+        )
+        assert cadence_cluster_trend_fx_pair_alias_decode_indexes[cluster_i] == cadence_cluster_trend_fx_pair_decode_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep trend->fx decode row immediately before TSDPPAIRA legend row in both sections"
+        )
+        assert cadence_cluster_note_legend_indexes[cluster_i] == cadence_cluster_trend_fx_pair_alias_decode_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPPAIRA legend row immediately before TSDPCON legend in both sections"
         )
     assert "trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**" in md_text, (
         f"{name}: markdown output must include cadence-override alias decode row"
@@ -924,6 +944,16 @@ def run_fixture_case(
         "**TSDPCONWCTSBT U/F/D => TSDPMFXU SPIKE/SURGE/SOFT**"
         in md_text
     ), f"{name}: markdown output must include compact trend->fx urgency pair decode row"
+    assert (
+        "trend-score dispatch pressure trend->fx urgency compact alias (design/world, dos-width): "
+        f"**TSDPPAIRA:{expected_fx_urgency_cue_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include compact trend->fx urgency alias row"
+    assert (
+        "trend-score dispatch pressure trend->fx urgency compact alias decode (design/world): "
+        "**TSDPPAIRA legend (S=SOFT, U=SURGE, P=SPIKE)**"
+        in md_text
+    ), f"{name}: markdown output must include compact trend->fx urgency alias decode row"
     assert (
         "trend-score dispatch-pressure momentum fx cue cadence decode (design/world): "
         "**SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**"

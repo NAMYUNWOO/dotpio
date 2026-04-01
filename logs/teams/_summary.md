@@ -4809,3 +4809,8 @@ Compact decision memory for AI context efficiency.
 - Completed injected Systems/Ops + QA item from Cycle IP14: regression fixture matrix now carries an explicit mixed-cadence parity contract requiring `TSDPCONWCTSBT` and `TSDPCONWCTSBTA` row counts to stay equal across summary + token sections.
 - Updated task tracking in both `TASKS.md` and `POST_RC_BACKLOG.md` with lifecycle timestamps and verification evidence.
 - Regenerated lane guardrail artifacts (`logs/weekly_lane_coverage_guardrail.json|.md`) after full regression pass.
+## 2026-04-01 23:09 KST
+- Executed immediate Game Director cycle IP15 after full-check state; generated 3 ideas and selected low-risk Design/World + Systems/QA vertical slice.
+- Added compact trend->urgency alias row `TSDPPAIRA:<S|U|P>` and decode row to lane-guardrail markdown for one-glance intent parsing.
+- Regression contract now enforces pair-row ordering/cardinality sequence: `TSDPPAIR -> decode -> TSDPPAIRA -> TSDPPAIRA legend` before cadence decode legend rows.
+- Injected next backlog tasks: (1) fixture-level `TSDPPAIRA` vs `TSDPPAIR` parity lock, (2) offline urgency-confidence token prototype `TSDPMFXUC`.

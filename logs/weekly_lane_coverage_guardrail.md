@@ -33,7 +33,9 @@
 - trend-score dispatch pressure cadence override rationale-confidence trend momentum band trend decode: **TSDPCONWCTSBT legend (U=UP, F=FLAT, D=DOWN)**
 - trend-score dispatch pressure cadence override rationale-confidence trend momentum band trend alias decode: **TSDPCONWCTSBTA legend (U=UP, F=FLAT, D=DOWN)**
 - trend-score dispatch pressure trend->fx urgency pair (design/world, dos-width): **TSDPPAIR:TSDPCONWCTSBT=FLAT|TSDPMFXU=SURGE**
+- trend-score dispatch pressure trend->fx urgency compact alias (design/world, dos-width): **TSDPPAIRA:U**
 - trend-score dispatch pressure trend->fx urgency pair decode (design/world): **TSDPCONWCTSBT U/F/D => TSDPMFXU SPIKE/SURGE/SOFT**
+- trend-score dispatch pressure trend->fx urgency compact alias decode (design/world): **TSDPPAIRA legend (S=SOFT, U=SURGE, P=SPIKE)**
 - trend-score dispatch pressure cadence override note decode: **TSDPCON legend (H=HOLD, W=WATCH, P=PUSH)**
 - trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**
 - trend-score dispatch-pressure momentum (offline): **0**

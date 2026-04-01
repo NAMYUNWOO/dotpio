@@ -1,5 +1,17 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP15)
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (Design/World): add compact trend->urgency alias rail `TSDPPAIRA:<S|U|P>` so operators can parse action intent in one glance.
+  - Mid-risk Systems/QA: enforce explicit ordering+cardinality lock for pair rows (`TSDPPAIR -> decode -> alias -> alias legend`) across both markdown sections.
+  - High-risk novelty (AI Content/Systems): prototype urgency-confidence tier token keyed from trend volatility windows.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] Design/World + Systems/QA Team: Add compact trend->urgency alias row `TSDPPAIRA:<S|U|P>` + decode row, and extend regression order/cardinality checks for `TSDPPAIR` cluster parity. *(lifecycle: [ ] -> [~] started: 2026-04-01 23:03 KST -> [x] completed: 2026-04-01 23:09 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP15)
+- [ ] Systems/Ops + QA Team (injected): Add fixture-level explicit parity assertion that `TSDPPAIRA` row count mirrors `TSDPPAIR` row count across summary + token sections under mixed fixtures.
+- [ ] AI Content/Combat Team (injected): Prototype offline urgency-confidence token (`TSDPMFXUC:LOW|MID|HIGH`) derived from recent `TSDPCONWCTSBT` churn without runtime coupling.
+
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP14)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%; forced underrepresented-lane override not triggered).
 - 24h cadence buckets: combat/vfx=4 ✅, design/world=4 ✅, systems/ops(qa)=6 ✅.
