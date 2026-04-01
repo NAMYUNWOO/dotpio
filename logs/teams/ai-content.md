@@ -3155,3 +3155,7 @@
 - Regression contract extended in `scripts/regression_check_lane_coverage_guardrail.py` to lock decode-row presence.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail report regeneration command.
 
+
+## 2026-04-01 10:48 KST
+- Added compact momentum progression scan surface (`TSDPM-SPARK`) so narrative/ops review can read recent volatility rhythm at a glance without parsing raw counters.
+- No runtime coupling; payload/reporting only.

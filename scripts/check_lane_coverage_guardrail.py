@@ -114,6 +114,13 @@ def collect_row_dominant_trend_bands(rows: list[str]) -> list[str | None]:
 def resolve_trend_score_band_dispatch_pressure_momentum(rows: list[str]) -> int:
     """Compute offline momentum score (0..100) from dominant-band drift windows."""
     dominant_bands = [band for band in collect_row_dominant_trend_bands(rows) if band]
+    return resolve_trend_score_band_dispatch_pressure_momentum_from_dominant_bands(dominant_bands)
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_from_dominant_bands(
+    dominant_bands: list[str],
+) -> int:
+    """Compute offline momentum score (0..100) from dominant-band sequence."""
     if len(dominant_bands) < 2:
         return 0
 
@@ -136,6 +143,26 @@ def resolve_trend_score_band_dispatch_pressure_momentum(rows: list[str]) -> int:
 
     momentum = (transition_ratio * 0.5) + (weighted_ratio * 0.35) + (diversity_ratio * 0.15)
     return max(0, min(100, int(round(momentum * 100))))
+
+
+def build_momentum_band_progression_sparkline(rows: list[str]) -> str:
+    """Build compact sparkline over rolling momentum-band progression for recent rows.
+
+    Example output: LMMMHHHH (oldest -> newest).
+    """
+    dominant_bands = [band for band in collect_row_dominant_trend_bands(rows) if band]
+    if len(dominant_bands) < 2:
+        return "NA"
+
+    aliases: list[str] = []
+    for end_idx in range(2, len(dominant_bands) + 1):
+        score = resolve_trend_score_band_dispatch_pressure_momentum_from_dominant_bands(
+            dominant_bands[:end_idx]
+        )
+        band = resolve_trend_score_band_dispatch_pressure_momentum_band(score)
+        aliases.append(resolve_trend_score_band_dispatch_pressure_momentum_band_alias(band))
+
+    return "".join(aliases) if aliases else "NA"
 
 
 def resolve_trend_score_band_dispatch_pressure_momentum_band(momentum_score: int) -> str:
@@ -318,6 +345,9 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
             score_band_dispatch_pressure_momentum_fx_cue
         )
     )
+    score_band_dispatch_pressure_momentum_band_sparkline = build_momentum_band_progression_sparkline(
+        rows
+    )
 
     return {
         "recentCompletedItems": total,
@@ -341,6 +371,7 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "trendScoreBandDispatchPressureMomentumFxCue": score_band_dispatch_pressure_momentum_fx_cue,
         "trendScoreBandDispatchPressureMomentumFxCueAlias": score_band_dispatch_pressure_momentum_fx_cue_alias,
         "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation,
+        "trendScoreBandDispatchPressureMomentumBandSparkline": score_band_dispatch_pressure_momentum_band_sparkline,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -390,6 +421,9 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             f"- trend-score dispatch-pressure momentum (offline): **{report.get('trendScoreBandDispatchPressureMomentum', 0)}**",
             f"- trend-score dispatch-pressure momentum band (offline): **{report.get('trendScoreBandDispatchPressureMomentumBand', 'LOW')}**",
             f"- trend-score dispatch-pressure momentum band alias: **TSDPM:{report.get('trendScoreBandDispatchPressureMomentumBandAlias', 'L')}**",
+            "- trend-score dispatch-pressure momentum band progression (last-10 rolling): "
+            f"**TSDPM-SPARK:{report.get('trendScoreBandDispatchPressureMomentumBandSparkline', 'NA')}**",
+            "- trend-score momentum sparkline legend: **L=LOW, M=MID, H=HIGH (older->newer)**",
             f"- trend-score dispatch-pressure momentum fx cue (combat/vfx): **{report.get('trendScoreBandDispatchPressureMomentumFxCue', 'SOFT')}**",
             f"- trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{report.get('trendScoreBandDispatchPressureMomentumFxCueAlias', 'S')}**",
             "- trend-score dispatch-pressure momentum fx cue cadence decode (design/world): **SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**",

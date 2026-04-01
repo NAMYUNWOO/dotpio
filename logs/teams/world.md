@@ -3064,3 +3064,7 @@
 - Regression contract extended in `scripts/regression_check_lane_coverage_guardrail.py` to lock decode-row presence.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail report regeneration command.
 
+
+## 2026-04-01 10:48 KST
+- Systems/Ops sparkline readability slice landed: guardrail markdown now includes rolling momentum-band sparkline (`TSDPM-SPARK`) to improve trend scanning during world/route dispatch review.
+- Sparkline legend locked in markdown (`L=LOW, M=MID, H=HIGH`, older->newer) for deterministic decode.

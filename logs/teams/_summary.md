@@ -1,3 +1,9 @@
+## 2026-04-01 10:48 KST
+- Closed injected Systems/Ops POST_RC item: lane guardrail output now includes rolling momentum-band sparkline (`trendScoreBandDispatchPressureMomentumBandSparkline` / markdown `TSDPM-SPARK`) for last-10 progression scanning.
+- Regression contract expanded: `scripts/regression_check_lane_coverage_guardrail.py` now enforces sparkline JSON field and markdown sparkline+legend rows.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: AI Content/Systems momentum-slope recommendation).
+
 ## 2026-04-01 10:20 KST
 - Closed injected Design/World POST_RC item: lane guardrail markdown now includes compact momentum FX-cue cadence decode row (`SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence`) directly under `TSDPMFX`.
 - Regression contract expanded: `scripts/regression_check_lane_coverage_guardrail.py` now fails if the design/world decode row is missing.

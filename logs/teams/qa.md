@@ -4980,3 +4980,7 @@
 - Regression contract extended in `scripts/regression_check_lane_coverage_guardrail.py` to lock decode-row presence.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail report regeneration command.
 
+
+## 2026-04-01 10:48 KST
+- Regression contract now asserts `trendScoreBandDispatchPressureMomentumBandSparkline` JSON field plus markdown rows (`TSDPM-SPARK` + legend).
+- Fixture expectations updated for deterministic rolling sparkline outputs across all momentum-band scenarios.

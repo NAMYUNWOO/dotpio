@@ -76,5 +76,6 @@
   "trendScoreBandDispatchPressureMomentumFxCue": "SOFT",
   "trendScoreBandDispatchPressureMomentumFxCueAlias": "S",
   "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": "steady pace; hold broad scan",
+  "trendScoreBandDispatchPressureMomentumBandSparkline": "NA",
   "status": "within-cap"
 }
