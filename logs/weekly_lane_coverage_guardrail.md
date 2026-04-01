@@ -63,6 +63,7 @@
 - trend-score dispatch-pressure momentum fx urgency confidence trend momentum band (ux/ai-content, offline): **TSDPMFXUCTSB:MID**
 - trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend (ai-content/systems, offline): **TSDPMFXUCTSBT:FLAT**
 - trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend alias: **TSDPMFXUCTSBTA:F**
+- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend confidence (ai-content/systems, offline): **TSDPMFXUCTSBTC:HIGH**
 - trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend vfx pulse (combat/vfx, offline): **TSDPMFXV:PULSE**
 - trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend vfx pulse alias: **TSDPMFXVA:P**
 - trend-score dispatch-pressure momentum fx urgency confidence trend momentum band pulse guidance (ai-content/systems, offline): **TSDPMFXVW:brace lanes**
@@ -71,6 +72,7 @@
 - trend-score dispatch-pressure momentum fx urgency confidence trend alias decode (design/world): **TSDPMFXUCTA legend (U=UP, F=FLAT, D=DOWN)**
 - trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend decode (design/world): **TSDPMFXUCTSBT legend (U=UP, F=FLAT, D=DOWN)**
 - trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend alias decode (design/world): **TSDPMFXUCTSBTA legend (U=UP, F=FLAT, D=DOWN)**
+- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend confidence decode (design/world): **TSDPMFXUCTSBTC legend (LOW=flip, MID=one-side flat, HIGH=stable)**
 - trend-score dispatch-pressure momentum fx urgency confidence trend momentum band vfx pulse decode (design/world): **TSDPMFXV legend (C=CALM, P=PULSE, B=BLAST)**
 - trend-score dispatch-pressure momentum fx urgency confidence trend momentum band vfx pulse alias decode (design/world): **TSDPMFXVA legend (C=CALM, P=PULSE, B=BLAST)**
 - trend-score dispatch-pressure momentum fx urgency confidence trend momentum band pulse guidance decode (design/world): **TSDPMFXVW legend (CALM=steady sweep, PULSE=brace lanes, BLAST=commit burst)**

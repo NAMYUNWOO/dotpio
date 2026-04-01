@@ -547,6 +547,34 @@ def run_fixture_case(
     ), (
         f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendAlias must mirror UP|FLAT|DOWN alias"
     )
+    urgency_confidence_trend_momentum_band_trend_confidence_value = report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendConfidence"
+    )
+    assert urgency_confidence_trend_momentum_band_trend_confidence_value in {"LOW", "MID", "HIGH"}, (
+        f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendConfidence must stay within LOW|MID|HIGH"
+    )
+    prior_urgency_confidence_trend_momentum_band_trend_value = (
+        load_guardrail_module().resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend(
+            prior_urgency_confidence_trend_momentum_band_value,
+            load_guardrail_module().resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band(
+                load_guardrail_module().resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_score(
+                    rows[:-2] if len(rows) > 2 else rows[:-1] if len(rows) > 1 else rows
+                )
+            ),
+        )
+    )
+    expected_urgency_confidence_trend_momentum_band_trend_confidence_value = (
+        load_guardrail_module().resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_confidence(
+            urgency_confidence_trend_momentum_band_trend_value,
+            prior_urgency_confidence_trend_momentum_band_trend_value,
+        )
+    )
+    assert (
+        urgency_confidence_trend_momentum_band_trend_confidence_value
+        == expected_urgency_confidence_trend_momentum_band_trend_confidence_value
+    ), (
+        f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendConfidence must deterministically map from consecutive TSDPMFXUCTSBTA stability windows"
+    )
     urgency_confidence_trend_momentum_band_trend_vfx_pulse_value = report.get(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulse"
     )
@@ -1128,6 +1156,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include urgency-confidence trend momentum-band-trend alias row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend confidence (ai-content/systems, offline): "
+        f"**TSDPMFXUCTSBTC:{urgency_confidence_trend_momentum_band_trend_confidence_value}**"
+        in md_text
+    ), f"{name}: markdown output must include urgency-confidence trend momentum-band-trend confidence row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend vfx pulse (combat/vfx, offline): "
         f"**TSDPMFXV:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_value}**"
         in md_text
@@ -1167,6 +1200,11 @@ def run_fixture_case(
         "**TSDPMFXUCTSBTA legend (U=UP, F=FLAT, D=DOWN)**"
         in md_text
     ), f"{name}: markdown output must include urgency-confidence momentum-band-trend alias decode row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend confidence decode (design/world): "
+        "**TSDPMFXUCTSBTC legend (LOW=flip, MID=one-side flat, HIGH=stable)**"
+        in md_text
+    ), f"{name}: markdown output must include urgency-confidence momentum-band-trend confidence decode row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency confidence trend momentum band vfx pulse decode (design/world): "
         "**TSDPMFXV legend (C=CALM, P=PULSE, B=BLAST)**"
@@ -1210,6 +1248,10 @@ def run_fixture_case(
         "trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend alias: "
         f"**TSDPMFXUCTSBTA:{urgency_confidence_trend_momentum_band_trend_alias_value}**"
     )
+    urgency_confidence_trend_momentum_band_trend_confidence_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend confidence (ai-content/systems, offline): "
+        f"**TSDPMFXUCTSBTC:{urgency_confidence_trend_momentum_band_trend_confidence_value}**"
+    )
     urgency_confidence_trend_momentum_band_trend_vfx_pulse_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend vfx pulse (combat/vfx, offline): "
         f"**TSDPMFXV:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_value}**"
@@ -1242,6 +1284,10 @@ def run_fixture_case(
         "trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend alias decode (design/world): "
         "**TSDPMFXUCTSBTA legend (U=UP, F=FLAT, D=DOWN)**"
     )
+    urgency_confidence_trend_momentum_band_trend_confidence_decode_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend confidence decode (design/world): "
+        "**TSDPMFXUCTSBTC legend (LOW=flip, MID=one-side flat, HIGH=stable)**"
+    )
     urgency_confidence_trend_momentum_band_vfx_pulse_decode_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency confidence trend momentum band vfx pulse decode (design/world): "
         "**TSDPMFXV legend (C=CALM, P=PULSE, B=BLAST)**"
@@ -1270,6 +1316,7 @@ def run_fixture_case(
         < urgency_confidence_trend_momentum_band_idx
         < urgency_confidence_trend_momentum_band_trend_idx
         < urgency_confidence_trend_momentum_band_trend_alias_idx
+        < urgency_confidence_trend_momentum_band_trend_confidence_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_alias_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_idx
@@ -1278,13 +1325,14 @@ def run_fixture_case(
         < urgency_confidence_trend_alias_decode_idx
         < urgency_confidence_trend_momentum_band_trend_decode_idx
         < urgency_confidence_trend_momentum_band_trend_alias_decode_idx
+        < urgency_confidence_trend_momentum_band_trend_confidence_decode_idx
         < urgency_confidence_trend_momentum_band_vfx_pulse_decode_idx
         < urgency_confidence_trend_momentum_band_vfx_pulse_alias_decode_idx
         < urgency_confidence_trend_momentum_band_vfx_pulse_guidance_decode_idx
         < pulse_callout_pair_decode_idx
         < urgency_decode_idx
     ), (
-        f"{name}: urgency cluster order must keep `TSDPMFXUC -> TSDPMFXUCT -> TSDPMFXUCTA -> TSDPMFXUCTS -> TSDPMFXUCTSB -> TSDPMFXUCTSBT -> TSDPMFXUCTSBTA -> TSDPMFXV -> TSDPMFXVA -> TSDPMFXVW -> TSDPMFXUC legend -> TSDPMFXUCT legend -> TSDPMFXUCTA legend -> TSDPMFXUCTSBT legend -> TSDPMFXUCTSBTA legend -> TSDPMFXV legend -> TSDPMFXVA legend -> TSDPMFXVW legend -> TSDPMFXV->TSDPMFXC pair decode -> TSDPMFXU decode`"
+        f"{name}: urgency cluster order must keep `TSDPMFXUC -> TSDPMFXUCT -> TSDPMFXUCTA -> TSDPMFXUCTS -> TSDPMFXUCTSB -> TSDPMFXUCTSBT -> TSDPMFXUCTSBTA -> TSDPMFXUCTSBTC -> TSDPMFXV -> TSDPMFXVA -> TSDPMFXVW -> TSDPMFXUC legend -> TSDPMFXUCT legend -> TSDPMFXUCTA legend -> TSDPMFXUCTSBT legend -> TSDPMFXUCTSBTA legend -> TSDPMFXUCTSBTC legend -> TSDPMFXV legend -> TSDPMFXVA legend -> TSDPMFXVW legend -> TSDPMFXV->TSDPMFXC pair decode -> TSDPMFXU decode`"
     )
     fx_urgency_row_count = md_text.count("**TSDPMFXU:")
     fx_urgency_confidence_row_count = md_text.count("**TSDPMFXUC:")
@@ -1298,6 +1346,7 @@ def run_fixture_case(
     fx_urgency_confidence_trend_momentum_band_row_count = md_text.count("**TSDPMFXUCTSB:")
     fx_urgency_confidence_trend_momentum_band_trend_row_count = md_text.count("**TSDPMFXUCTSBT:")
     fx_urgency_confidence_trend_momentum_band_trend_alias_row_count = md_text.count("**TSDPMFXUCTSBTA:")
+    fx_urgency_confidence_trend_momentum_band_trend_confidence_row_count = md_text.count("**TSDPMFXUCTSBTC:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_row_count = md_text.count("**TSDPMFXV:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_alias_row_count = md_text.count("**TSDPMFXVA:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_row_count = md_text.count("**TSDPMFXVW:")
@@ -1328,11 +1377,18 @@ def run_fixture_case(
         f"`TSDPMFXUCTSBT` row count ({fx_urgency_confidence_trend_momentum_band_trend_row_count}) across summary + token sections"
     )
     assert (
-        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_row_count
+        fx_urgency_confidence_trend_momentum_band_trend_confidence_row_count
         == fx_urgency_confidence_trend_momentum_band_trend_alias_row_count
     ), (
-        f"{name}: `TSDPMFXV` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_row_count}) must mirror "
+        f"{name}: `TSDPMFXUCTSBTC` row count ({fx_urgency_confidence_trend_momentum_band_trend_confidence_row_count}) must mirror "
         f"`TSDPMFXUCTSBTA` row count ({fx_urgency_confidence_trend_momentum_band_trend_alias_row_count}) across summary + token sections"
+    )
+    assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_confidence_row_count
+    ), (
+        f"{name}: `TSDPMFXV` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_row_count}) must mirror "
+        f"`TSDPMFXUCTSBTC` row count ({fx_urgency_confidence_trend_momentum_band_trend_confidence_row_count}) across summary + token sections"
     )
     assert (
         fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_alias_row_count
@@ -1418,6 +1474,7 @@ def run_fixture_case(
         "familyTrend": family_trend,
         "tsdpmfxuctsbtRowCount": fx_urgency_confidence_trend_momentum_band_trend_row_count,
         "tsdpmfxuctsbtaRowCount": fx_urgency_confidence_trend_momentum_band_trend_alias_row_count,
+        "tsdpmfxuctsbtcRowCount": fx_urgency_confidence_trend_momentum_band_trend_confidence_row_count,
         "tsdpmfxvRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_row_count,
         "tsdpmfxvaRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_alias_row_count,
     }
@@ -1470,6 +1527,7 @@ def main() -> int:
                 "balanced_tie",
                 int(balanced_tie_result["tsdpmfxuctsbtRowCount"]),
                 int(balanced_tie_result["tsdpmfxuctsbtaRowCount"]),
+                int(balanced_tie_result["tsdpmfxuctsbtcRowCount"]),
                 int(balanced_tie_result["tsdpmfxvRowCount"]),
                 int(balanced_tie_result["tsdpmfxvaRowCount"]),
             )
@@ -1513,6 +1571,7 @@ def main() -> int:
                 "ready_mix",
                 int(ready_mix_result["tsdpmfxuctsbtRowCount"]),
                 int(ready_mix_result["tsdpmfxuctsbtaRowCount"]),
+                int(ready_mix_result["tsdpmfxuctsbtcRowCount"]),
                 int(ready_mix_result["tsdpmfxvRowCount"]),
                 int(ready_mix_result["tsdpmfxvaRowCount"]),
             )
@@ -1687,6 +1746,7 @@ def main() -> int:
                 "prior_window_trend_up",
                 int(prior_window_trend_up_result["tsdpmfxuctsbtRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxuctsbtaRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxuctsbtcRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvaRowCount"]),
             )
@@ -1729,6 +1789,7 @@ def main() -> int:
                 "prior_window_trend_down",
                 int(prior_window_trend_down_result["tsdpmfxuctsbtRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxuctsbtaRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxuctsbtcRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvaRowCount"]),
             )
@@ -1738,11 +1799,11 @@ def main() -> int:
             "fixture matrix must include explicit prior-window recommendation-family trend transitions for both UP and DOWN"
         )
         assert all(
-            tsdpmfxuctsbt_count == tsdpmfxuctsbta_count == tsdpmfxv_count == tsdpmfxva_count
-            for _, tsdpmfxuctsbt_count, tsdpmfxuctsbta_count, tsdpmfxv_count, tsdpmfxva_count
+            tsdpmfxuctsbt_count == tsdpmfxuctsbta_count == tsdpmfxuctsbtc_count == tsdpmfxv_count == tsdpmfxva_count
+            for _, tsdpmfxuctsbt_count, tsdpmfxuctsbta_count, tsdpmfxuctsbtc_count, tsdpmfxv_count, tsdpmfxva_count
             in mixed_window_tsdpmfx_pulse_parity
         ), (
-            "mixed-window fixture matrix must keep TSDPMFXUCTSBT/TSDPMFXUCTSBTA/TSDPMFXV/TSDPMFXVA row-count parity across summary + token sections"
+            "mixed-window fixture matrix must keep TSDPMFXUCTSBT/TSDPMFXUCTSBTA/TSDPMFXUCTSBTC/TSDPMFXV/TSDPMFXVA row-count parity across summary + token sections"
         )
 
     print("ok: trendScoreBand dispatch-hint/momentum-band regression checks passed")

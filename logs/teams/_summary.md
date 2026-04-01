@@ -4877,3 +4877,9 @@ Compact decision memory for AI context efficiency.
 - Next item: Systems/Ops + QA injected parity assertion for `TSDPMFXV`/`TSDPMFXVA` row counts vs `TSDPMFXUCTSBT` under mixed-window fixtures.
 
 - 2026-04-02 04:52 KST: Shipped AI Content/Systems pulse-guidance slice `TSDPMFXVW` derived from `TSDPMFXV` with deterministic mapping (`CALM=steady sweep`, `PULSE=brace lanes`, `BLAST=commit burst`), plus regression locks for ordering and row-count parity.
+
+## 2026-04-02 05:26 KST
+- Closed remaining injected AI Content/Systems item (IP19): introduced `TSDPMFXUCTSBTC:LOW|MID|HIGH` as an offline confidence tier mapped from consecutive `TSDPMFXUCTSBTA` stability windows.
+- Durable contract decision: urgency cluster order is now `... -> TSDPMFXUCTSBT -> TSDPMFXUCTSBTA -> TSDPMFXUCTSBTC -> TSDPMFXV -> TSDPMFXVA -> TSDPMFXVW` with explicit decode-row parity in both markdown sections.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for immediate next Game Director review cycle).

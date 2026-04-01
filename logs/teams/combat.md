@@ -3202,3 +3202,4 @@
 
 ## 2026-04-02 04:52 KST
 - Maintained combat/VFX contract: new `TSDPMFXVW` guidance stays derivative of existing pulse states and does not alter runtime combat behavior.
+- 2026-04-02 05:26 KST — Kept combat/vfx urgency rail aligned by inserting `TSDPMFXUCTSBTC` between trend-alias and pulse rows in deterministic order contract.

@@ -3226,3 +3226,4 @@
 
 ## 2026-04-02 04:52 KST
 - Updated world-facing decode chain ordering to include `TSDPMFXVW` between pulse alias and pair decode rows for one-scan legend continuity.
+- 2026-04-02 05:26 KST — Confirmed design/world readability contract includes new `TSDPMFXUCTSBTC` decode row to keep one-scan token interpretation stable.

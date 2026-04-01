@@ -565,6 +565,17 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_tr
     }.get(trend, "F")
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_confidence(
+    current_trend: str,
+    prior_trend: str,
+) -> str:
+    if current_trend == prior_trend:
+        return "HIGH"
+    if "FLAT" in {current_trend, prior_trend}:
+        return "MID"
+    return "LOW"
+
+
 def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse(
     trend: str,
 ) -> str:
@@ -1217,6 +1228,28 @@ def build_report(
             score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend
         )
     )
+    prior_prior_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_score = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_score(
+            prior_rows[:-1] if len(prior_rows) > 1 else prior_rows
+        )
+    )
+    prior_prior_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band(
+            prior_prior_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_score
+        )
+    )
+    prior_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend(
+            prior_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band,
+            prior_prior_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band,
+        )
+    )
+    score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_confidence = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_confidence(
+            score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend,
+            prior_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend,
+        )
+    )
     score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse = (
         resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse(
             score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend
@@ -1342,6 +1375,7 @@ def build_report(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBand": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrend": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendAlias": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_alias,
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendConfidence": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_confidence,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulse": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseAlias": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_alias,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidance": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance,
@@ -1504,6 +1538,7 @@ def to_markdown(
             f"- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band (ux/ai-content, offline): **TSDPMFXUCTSB:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBand', 'MID')}**",
             f"- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend (ai-content/systems, offline): **TSDPMFXUCTSBT:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrend', 'FLAT')}**",
             f"- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend alias: **TSDPMFXUCTSBTA:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendAlias', 'F')}**",
+            f"- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend confidence (ai-content/systems, offline): **TSDPMFXUCTSBTC:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendConfidence', 'MID')}**",
             f"- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend vfx pulse (combat/vfx, offline): **TSDPMFXV:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulse', 'PULSE')}**",
             f"- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend vfx pulse alias: **TSDPMFXVA:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseAlias', 'P')}**",
             f"- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band pulse guidance (ai-content/systems, offline): **TSDPMFXVW:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidance', 'steady sweep')}**",
@@ -1512,6 +1547,7 @@ def to_markdown(
             "- trend-score dispatch-pressure momentum fx urgency confidence trend alias decode (design/world): **TSDPMFXUCTA legend (U=UP, F=FLAT, D=DOWN)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend decode (design/world): **TSDPMFXUCTSBT legend (U=UP, F=FLAT, D=DOWN)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend alias decode (design/world): **TSDPMFXUCTSBTA legend (U=UP, F=FLAT, D=DOWN)**",
+            "- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band trend confidence decode (design/world): **TSDPMFXUCTSBTC legend (LOW=flip, MID=one-side flat, HIGH=stable)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band vfx pulse decode (design/world): **TSDPMFXV legend (C=CALM, P=PULSE, B=BLAST)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band vfx pulse alias decode (design/world): **TSDPMFXVA legend (C=CALM, P=PULSE, B=BLAST)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band pulse guidance decode (design/world): **TSDPMFXVW legend (CALM=steady sweep, PULSE=brace lanes, BLAST=commit burst)**",

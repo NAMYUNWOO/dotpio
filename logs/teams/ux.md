@@ -3488,3 +3488,4 @@
 
 ## 2026-04-02 04:52 KST
 - Kept DOS-width-friendly microcopy for pulse guidance; guidance row remains short and scan-oriented in weekly markdown output.
+- 2026-04-02 05:26 KST — Extended urgency-cluster scanline with confidence tier token `TSDPMFXUCTSBTC` to reduce ambiguity before pulse-state rows.
