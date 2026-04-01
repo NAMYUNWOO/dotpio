@@ -6,8 +6,8 @@
     "world": 2,
     "ai-content": 1,
     "combat": 2,
-    "design": 3,
-    "ux": 2,
+    "design": 2,
+    "ux": 1,
     "qa": 3,
     "vfx": 2
   },
@@ -16,19 +16,19 @@
     "world": 20.0,
     "ai-content": 10.0,
     "combat": 20.0,
-    "design": 30.0,
-    "ux": 20.0,
+    "design": 20.0,
+    "ux": 10.0,
     "qa": 30.0,
     "vfx": 20.0
   },
   "overCapLanes": [],
   "underrepresentedLanes": [
     "ai-content",
-    "combat",
     "ux",
+    "combat",
+    "design",
     "vfx",
     "world",
-    "design",
     "qa",
     "systems"
   ],
@@ -47,7 +47,7 @@
         "design",
         "world"
       ],
-      "count": 5,
+      "count": 4,
       "met": true
     },
     "systems-or-ops": {
@@ -79,5 +79,6 @@
   "trendScoreBandDispatchPressureMomentumBandSparkline": "NA",
   "trendScoreBandDispatchPressureMomentumSlope": "COOLING",
   "trendScoreBandDispatchPressureMomentumSlopeAlias": "C",
+  "trendScoreBandDispatchPressureMomentumSlopeRecommendation": "hold steady; validate calm-lane continuity",
   "status": "within-cap"
 }

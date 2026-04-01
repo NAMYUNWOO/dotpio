@@ -3168,3 +3168,9 @@
 - Completed cycle ILO2 vertical slice: added `trendScoreBandDispatchPressureMomentumSlopeAlias:C|R|S` with deterministic mapping (`COOLING->C`, `RISING->R`, `SURGING->S`).
 - Markdown/report parity: added one-glance row `TSDPMS:<alias>` adjacent to momentum-slope output.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-01 11:55 KST
+- Cycle IP minimal slice shipped: lane-coverage guardrail now emits `trendScoreBandDispatchPressureMomentumSlopeRecommendation` mapped deterministically from momentum slope (`COOLING|RISING|SURGING`).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` and `python3 scripts/regression_check_lane_coverage_guardrail.py` and guardrail smoke command ✅.
+- Notes: kept additive/offline-only; no existing token renamed.
+

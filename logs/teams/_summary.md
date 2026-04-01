@@ -4642,3 +4642,9 @@ Compact decision memory for AI context efficiency.
 - Completed injected ILN follow-up: lane guardrail now emits deterministic offline momentum-slope recommendation `trendScoreBandDispatchPressureMomentumSlope` (`COOLING|RISING|SURGING`) from prior-window momentum deltas, with markdown surfacing and regression contract coverage.
 
 - Game Director cycle ILO2 complete: added compact momentum-slope alias (`trendScoreBandDispatchPressureMomentumSlopeAlias` / markdown `TSDPMS`) with deterministic mapping and regression coverage.
+
+## 2026-04-01 11:55 KST — Game Director Cycle IP
+- Decision: selected low-risk AI-content/systems vertical slice to expose deterministic momentum-slope recommendation output (`trendScoreBandDispatchPressureMomentumSlopeRecommendation`) in guardrail JSON+markdown.
+- Rationale: all tracked backlogs were fully checked at cycle start, so injected minimal reversible improvement that improves operator triage copy without widening schema risk.
+- Verification: py_compile + regression harness + guardrail smoke output regenerated (`logs/weekly_lane_coverage_guardrail.{json,md}`).
+- Follow-up injected: evaluate compact alias token `TSDPMSR` and add schema/domain lock after copy map freeze.

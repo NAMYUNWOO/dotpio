@@ -18,6 +18,7 @@
 - trend-score momentum sparkline legend: **L=LOW, M=MID, H=HIGH (older->newer)**
 - trend-score dispatch-pressure momentum slope (ai-content/systems): **COOLING**
 - trend-score dispatch-pressure momentum slope alias: **TSDPMS:C**
+- trend-score dispatch-pressure momentum slope rec (ai-content/systems): **hold steady; validate calm-lane continuity**
 - trend-score dispatch-pressure momentum fx cue (combat/vfx): **SOFT**
 - trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:S**
 - trend-score dispatch-pressure momentum fx cue cadence decode (design/world): **SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**
@@ -29,13 +30,13 @@
 | world | 2 | 20.0% |
 | ai-content | 1 | 10.0% |
 | combat | 2 | 20.0% |
-| design | 3 | 30.0% |
-| ux | 2 | 20.0% |
+| design | 2 | 20.0% |
+| ux | 1 | 10.0% |
 | qa | 3 | 30.0% |
 | vfx | 2 | 20.0% |
 
 | cadence bucket | lanes | count | status |
 |---|---|---:|---|
 | combat-or-vfx | combat/vfx | 4 | met |
-| design-or-world | design/world | 5 | met |
+| design-or-world | design/world | 4 | met |
 | systems-or-ops | systems/qa | 6 | met |
