@@ -4805,3 +4805,7 @@ Compact decision memory for AI context efficiency.
 - Extended Systems/Ops+QA regression contract with explicit fixture-level parity assertion `TSDPCONWCTSBT` row count mirrors `TSDPCONWCTSBTA`, and enforced ordering around newly inserted pair/decode rows.
 - Regenerated guardrail artifacts (`logs/weekly_lane_coverage_guardrail.json|.md`) after regression pass.
 - Remaining top-priority unchecked item: Systems/Ops + QA mixed-cadence parity expansion task in TASKS/POST_RC_BACKLOG.
+## 2026-04-01 22:56 KST
+- Completed injected Systems/Ops + QA item from Cycle IP14: regression fixture matrix now carries an explicit mixed-cadence parity contract requiring `TSDPCONWCTSBT` and `TSDPCONWCTSBTA` row counts to stay equal across summary + token sections.
+- Updated task tracking in both `TASKS.md` and `POST_RC_BACKLOG.md` with lifecycle timestamps and verification evidence.
+- Regenerated lane guardrail artifacts (`logs/weekly_lane_coverage_guardrail.json|.md`) after full regression pass.

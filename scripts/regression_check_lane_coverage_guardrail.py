@@ -668,6 +668,11 @@ def run_fixture_case(
     ), (
         f"{name}: fixture-level TSDPCONWCTSBT row count must deterministically mirror TSDPCONWCTSBTA row count in both sections"
     )
+    assert len(cadence_cluster_rationale_conf_trend_momentum_band_trend_indexes) == expected_cadence_cluster_rows and len(
+        cadence_cluster_rationale_conf_trend_momentum_band_trend_alias_indexes
+    ) == expected_cadence_cluster_rows, (
+        f"{name}: mixed-cadence fixture matrix must keep TSDPCONWCTSBT/TSDPCONWCTSBTA row-count parity across summary + token sections"
+    )
     assert len(cadence_cluster_rationale_alias_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster rationale-alias row count must match streak row count"
     )
