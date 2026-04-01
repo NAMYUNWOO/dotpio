@@ -4747,3 +4747,7 @@ Compact decision memory for AI context efficiency.
 - 2026-04-01 17:48 KST — Cycle IP10 complete: added compact cadence-note rationale alias token `TSDPCONW` with deterministic payload/markdown parity and extended regression cadence-cluster ordering through rationale rows.
 - Durable decision: keep cadence rationale rows dual-surfaced (`TSDPCON WHY` + `TSDPCONW`) so dense scans and verbose audits stay aligned.
 - Injected backlog after IP10: Systems/QA order lock for rationale chain + AI Content rationale-confidence prototype (`TSDPCON WHY CONF`).
+
+- 2026-04-01 18:19 KST — Cycle IP10 injected Systems/QA follow-up complete: added explicit regression adjacency locks for `TSDPCON WHY -> TSDPCONW -> TSDPCON legend` (summary + token-coverage rails) instead of implicit offset math.
+- Durable decision: keep cadence-rationale chain validated row-by-row to prevent future markdown insertion drift from silently breaking operator scan order.
+- Queue status after update: ACTION_ITEMS=0 checked remaining, TASKS=1 open, POST_RC_BACKLOG=1 open (next: AI Content/Systems `TSDPCON WHY CONF`).

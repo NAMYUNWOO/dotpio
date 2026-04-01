@@ -3415,3 +3415,7 @@
 - 2026-04-01 17:43 KST — Cycle IP9: closed injected cadence-cluster follow-ups by adding `TSDPCON WHY:steady|watch|push` (derived from `TSDPCON` + momentum slope) and hardening regression order checks for `TSDPCOS -> TSDPCO NOTE -> TSDPCON -> TSDPCON WHY -> TSDPCON legend` in markdown rails.
 
 - 2026-04-01 17:48 KST — Game Director Cycle IP10: shipped compact cadence-note rationale alias `TSDPCONW:<S|W|P>` and locked cadence cluster ordering with rationale chain (`TSDPCOS -> TSDPCO NOTE -> TSDPCON -> TSDPCON WHY -> TSDPCONW -> TSDPCON legend`). Injected next tasks for rationale-chain order hardening and offline rationale-confidence prototype.
+
+## 2026-04-01 18:19 KST — Cycle IP10 injected follow-up (rationale-chain order lock)
+- Synced on Systems/QA completion: regression now has explicit adjacency assertions for `TSDPCON WHY -> TSDPCONW -> TSDPCON legend` in both summary and token-coverage sections.
+- Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
