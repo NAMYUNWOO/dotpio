@@ -4830,3 +4830,5 @@ Compact decision memory for AI context efficiency.
 - Implemented low-risk Design/World + Systems/QA vertical slice: added `TSDPMFXUC` decode row and regression order lock (`TSDPMFXUC -> legend -> TSDPMFXU decode`).
 - Injected backlog tasks for Cycle IP16 follow-up: fixture-level `TSDPMFXUC` parity vs `TSDPMFXU`, and offline urgency-confidence trend token `TSDPMFXUCT`.
 - Verification remained green (py_compile + regression + guardrail artifact regeneration).
+- 2026-04-02 00:48 KST — Closed highest-priority open item from TASKS/POST_RC_BACKLOG: fixture-level `TSDPMFXUC` vs `TSDPMFXU` row-count parity assertion is now enforced in regression (`scripts/regression_check_lane_coverage_guardrail.py`).
+- Queue status: ACTION_ITEMS=0 open, TASKS=1 open, POST_RC_BACKLOG=1 open (next highest priority: AI Content/Combat `TSDPMFXUCT` offline trend prototype).

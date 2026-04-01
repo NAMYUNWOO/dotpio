@@ -3287,3 +3287,4 @@
 - Game Director Cycle IP16 executed (all queues had reached full-check): selected low-risk Design/World readability slice.
 - Added markdown decode row `TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)` with urgency-cluster order lock in regression.
 - Injected follow-ups for next cycle: (1) `TSDPMFXUC` row-count parity assertions; (2) offline `TSDPMFXUCT:UP|FLAT|DOWN` prototype.
+- 2026-04-02 00:48 KST — Cycle IP16 injected Systems/Ops+QA task completed: added fixture-level row-count parity assertion in regression so `TSDPMFXUC` row count mirrors `TSDPMFXU` across summary + token sections. Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail artifact regeneration.

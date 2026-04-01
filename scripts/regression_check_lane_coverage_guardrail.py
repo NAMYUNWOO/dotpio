@@ -972,6 +972,12 @@ def run_fixture_case(
     assert urgency_confidence_idx < urgency_confidence_decode_idx < urgency_decode_idx, (
         f"{name}: urgency cluster order must keep `TSDPMFXUC -> TSDPMFXUC legend -> TSDPMFXU decode`"
     )
+    fx_urgency_row_count = md_text.count("**TSDPMFXU:")
+    fx_urgency_confidence_row_count = md_text.count("**TSDPMFXUC:")
+    assert fx_urgency_confidence_row_count == fx_urgency_row_count, (
+        f"{name}: `TSDPMFXUC` row count ({fx_urgency_confidence_row_count}) must mirror "
+        f"`TSDPMFXU` row count ({fx_urgency_row_count}) across summary + token sections"
+    )
     assert (
         "trend-score dispatch-pressure momentum fx urgency cue decode (design/world): "
         "**SOFT=trend cooling (DOWN), SURGE=trend stable (FLAT), SPIKE=trend rising (UP)**"
