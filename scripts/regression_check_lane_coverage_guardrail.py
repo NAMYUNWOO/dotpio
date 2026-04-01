@@ -52,6 +52,7 @@ def run_fixture_case(
     expected_dispatch_pressure_momentum_band_alias: str,
     expected_dispatch_pressure_momentum_band_sparkline: str,
     expected_dispatch_pressure_momentum_slope: str,
+    expected_dispatch_pressure_momentum_slope_alias: str,
     expected_dispatch_pressure_momentum_fx_cue: str,
     expected_dispatch_pressure_momentum_fx_cue_alias: str,
     expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation: str,
@@ -102,6 +103,10 @@ def run_fixture_case(
         report.get("trendScoreBandDispatchPressureMomentumSlope")
         == expected_dispatch_pressure_momentum_slope
     ), f"{name}: trendScoreBandDispatchPressureMomentumSlope must map deterministic prior-window momentum deltas"
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumSlopeAlias")
+        == expected_dispatch_pressure_momentum_slope_alias
+    ), f"{name}: trendScoreBandDispatchPressureMomentumSlopeAlias must match compact momentum-slope alias"
     assert (
         report.get("trendScoreBandDispatchPressureMomentumFxCue")
         == expected_dispatch_pressure_momentum_fx_cue
@@ -158,6 +163,10 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include deterministic offline momentum-slope row"
     assert (
+        f"trend-score dispatch-pressure momentum slope alias: **TSDPMS:{expected_dispatch_pressure_momentum_slope_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include compact momentum-slope alias row"
+    assert (
         f"trend-score dispatch-pressure momentum fx cue (combat/vfx): **{expected_dispatch_pressure_momentum_fx_cue}**"
         in md_text
     ), f"{name}: markdown output must include combat/vfx momentum fx-cue row"
@@ -201,6 +210,7 @@ def main() -> int:
             expected_dispatch_pressure_momentum_band_alias="H",
             expected_dispatch_pressure_momentum_band_sparkline="HHHH",
             expected_dispatch_pressure_momentum_slope="COOLING",
+            expected_dispatch_pressure_momentum_slope_alias="C",
             expected_dispatch_pressure_momentum_fx_cue="HARD",
             expected_dispatch_pressure_momentum_fx_cue_alias="H",
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="surge pressure; triage hottest lane first",
@@ -227,6 +237,7 @@ def main() -> int:
             expected_dispatch_pressure_momentum_band_alias="H",
             expected_dispatch_pressure_momentum_band_sparkline="LMHHH",
             expected_dispatch_pressure_momentum_slope="RISING",
+            expected_dispatch_pressure_momentum_slope_alias="R",
             expected_dispatch_pressure_momentum_fx_cue="HARD",
             expected_dispatch_pressure_momentum_fx_cue_alias="H",
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="surge pressure; triage hottest lane first",
@@ -252,6 +263,7 @@ def main() -> int:
             expected_dispatch_pressure_momentum_band_alias="M",
             expected_dispatch_pressure_momentum_band_sparkline="LLMM",
             expected_dispatch_pressure_momentum_slope="SURGING",
+            expected_dispatch_pressure_momentum_slope_alias="S",
             expected_dispatch_pressure_momentum_fx_cue="EDGE",
             expected_dispatch_pressure_momentum_fx_cue_alias="E",
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="pressure rising; prep focused dispatch",
@@ -277,6 +289,7 @@ def main() -> int:
             expected_dispatch_pressure_momentum_band_alias="M",
             expected_dispatch_pressure_momentum_band_sparkline="LLMM",
             expected_dispatch_pressure_momentum_slope="SURGING",
+            expected_dispatch_pressure_momentum_slope_alias="S",
             expected_dispatch_pressure_momentum_fx_cue="EDGE",
             expected_dispatch_pressure_momentum_fx_cue_alias="E",
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="pressure rising; prep focused dispatch",
@@ -302,6 +315,7 @@ def main() -> int:
             expected_dispatch_pressure_momentum_band_alias="M",
             expected_dispatch_pressure_momentum_band_sparkline="LLMM",
             expected_dispatch_pressure_momentum_slope="SURGING",
+            expected_dispatch_pressure_momentum_slope_alias="S",
             expected_dispatch_pressure_momentum_fx_cue="EDGE",
             expected_dispatch_pressure_momentum_fx_cue_alias="E",
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="pressure rising; prep focused dispatch",
@@ -327,6 +341,7 @@ def main() -> int:
             expected_dispatch_pressure_momentum_band_alias="L",
             expected_dispatch_pressure_momentum_band_sparkline="LLLL",
             expected_dispatch_pressure_momentum_slope="COOLING",
+            expected_dispatch_pressure_momentum_slope_alias="C",
             expected_dispatch_pressure_momentum_fx_cue="SOFT",
             expected_dispatch_pressure_momentum_fx_cue_alias="S",
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="steady pace; hold broad scan",

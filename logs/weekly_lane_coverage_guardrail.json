@@ -78,5 +78,6 @@
   "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": "steady pace; hold broad scan",
   "trendScoreBandDispatchPressureMomentumBandSparkline": "NA",
   "trendScoreBandDispatchPressureMomentumSlope": "COOLING",
+  "trendScoreBandDispatchPressureMomentumSlopeAlias": "C",
   "status": "within-cap"
 }

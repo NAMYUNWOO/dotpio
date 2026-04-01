@@ -4640,3 +4640,5 @@ Compact decision memory for AI context efficiency.
 - Next backlog candidate remains line 15 (`Design/World` cadence-context decode row).
 
 - Completed injected ILN follow-up: lane guardrail now emits deterministic offline momentum-slope recommendation `trendScoreBandDispatchPressureMomentumSlope` (`COOLING|RISING|SURGING`) from prior-window momentum deltas, with markdown surfacing and regression contract coverage.
+
+- Game Director cycle ILO2 complete: added compact momentum-slope alias (`trendScoreBandDispatchPressureMomentumSlopeAlias` / markdown `TSDPMS`) with deterministic mapping and regression coverage.
