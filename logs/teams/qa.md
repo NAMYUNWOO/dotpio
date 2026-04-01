@@ -5022,3 +5022,14 @@
 - Cycle ILP follow-up (Systems/QA selected): locked optional markdown row ordering for momentum-slope trend rationale cluster.
 - Change reference: `scripts/regression_check_lane_coverage_guardrail.py` now asserts `TSDPMSRFT decode variant -> TSDPMSRFTWHYA -> TSDPMSRFTWHYA decode -> TSDPMSRFT WHY` ordering when optional rows are enabled.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-01 14:52 KST — Cycle IP4 wording-tightening closure
+- Closed remaining unchecked TASKS/POST_RC item for `TSDPMSRFT WHY` copy tightening.
+- Updated wording set to `escalate pressure checks` / `hold pressure cadence` / `cool pressure posture` (removed `lane` for DOS-width efficiency while preserving actionable semantics).
+- Verification: py_compile + lane-coverage regression + guardrail markdown/json generation with `--include-trend-family-why` all PASS.
+
+## 2026-04-01 14:58 KST — Cycle IP5 GD vertical slice (WHY copy-budget audit)
+- Game Director cycle executed after ACTION_ITEMS/TASKS/POST_RC reached all-checked state.
+- Idea slate (L/M/H): (1) WHY copy-budget audit row (selected), (2) JSON mirror for budget signals, (3) alternate rationale verb-pack experiment.
+- Shipped minimal vertical slice: optional markdown row `TSDPMSRFTWHYLEN:E24|H21|C21|MAX24/32` under `--include-trend-family-why`.
+- Injected follow-ups into TASKS/POST_RC: Systems/QA JSON contract mirror and AI Content/Design alt verb-pack prototype.

@@ -5,30 +5,30 @@
     "systems": 2,
     "world": 0,
     "ai-content": 1,
-    "combat": 1,
+    "combat": 0,
     "design": 2,
     "ux": 1,
     "qa": 1,
-    "vfx": 1
+    "vfx": 0
   },
   "lanePercentages": {
     "systems": 20.0,
     "world": 0.0,
     "ai-content": 10.0,
-    "combat": 10.0,
+    "combat": 0.0,
     "design": 20.0,
     "ux": 10.0,
     "qa": 10.0,
-    "vfx": 10.0
+    "vfx": 0.0
   },
   "overCapLanes": [],
   "underrepresentedLanes": [
+    "combat",
+    "vfx",
     "world",
     "ai-content",
-    "combat",
     "qa",
     "ux",
-    "vfx",
     "design",
     "systems"
   ],
@@ -39,8 +39,8 @@
         "combat",
         "vfx"
       ],
-      "count": 2,
-      "met": true
+      "count": 0,
+      "met": false
     },
     "design-or-world": {
       "lanes": [
@@ -59,7 +59,9 @@
       "met": true
     }
   },
-  "missingCadenceBuckets": [],
+  "missingCadenceBuckets": [
+    "combat-or-vfx"
+  ],
   "trendScoreBandSnapshot": {
     "CALM": 0,
     "EDGE": 0,
@@ -68,8 +70,8 @@
   "trendScoreBandSnapshotAlias": "C0E0H0",
   "trendScoreBandDispatchHint": "BALANCED",
   "trendScoreBandDispatchHintAlias": "B",
-  "trendScoreBandDispatchPressure": "LIGHT",
-  "trendScoreBandDispatchPressureAlias": "L",
+  "trendScoreBandDispatchPressure": "HOT",
+  "trendScoreBandDispatchPressureAlias": "H",
   "trendScoreBandDispatchPressureMomentum": 0,
   "trendScoreBandDispatchPressureMomentumBand": "LOW",
   "trendScoreBandDispatchPressureMomentumBandAlias": "L",

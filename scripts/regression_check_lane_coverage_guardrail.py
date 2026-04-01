@@ -253,10 +253,10 @@ def run_fixture_case(
         f"{name}: markdown output must include TSDPMSRFT decode row"
     )
     expected_family_trend_why = {
-        "UP": "escalate lane pressure checks",
-        "FLAT": "hold lane pressure cadence",
-        "DOWN": "cool lane pressure posture",
-    }.get(family_trend, "hold lane pressure cadence")
+        "UP": "escalate pressure checks",
+        "FLAT": "hold pressure cadence",
+        "DOWN": "cool pressure posture",
+    }.get(family_trend, "hold pressure cadence")
     expected_family_trend_why_alias = {
         "UP": "E",
         "FLAT": "H",
@@ -282,6 +282,11 @@ def run_fixture_case(
         f"**TSDPMSRFT WHY:{expected_family_trend_why}**"
         in md_text
     ), f"{name}: markdown output must include optional ai-content/systems trend rationale microcopy when flag enabled"
+    assert (
+        "trend-score momentum-slope rec family trend why copy budget (design/ux): "
+        "**TSDPMSRFTWHYLEN:E24|H21|C21|MAX24/32**"
+        in md_text
+    ), f"{name}: markdown output must include optional design/ux WHY copy-budget audit row when flag enabled"
 
     optional_decode_variant_row = (
         "trend-score momentum-slope rec family trend decode variant (design/world): "

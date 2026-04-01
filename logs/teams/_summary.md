@@ -4691,3 +4691,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: Keep optional rationale-cluster order deterministic by regression (`decode variant -> why alias -> why alias decode -> why`) to prevent future row-insertion drift.
 - Files changed: `scripts/regression_check_lane_coverage_guardrail.py`, `TASKS.md`, `POST_RC_BACKLOG.md`, `logs/weekly_lane_coverage_guardrail.{json,md}`, `logs/teams/{systems,world,ai-content,combat,design,ux,qa}.md`.
 - Verification: py_compile + regression + guardrail regeneration all passed.
+
+- 2026-04-01 14:52 KST — Closed final unchecked TASKS/POST_RC item (`TSDPMSRFT WHY` wording-tightening): shortened rationale copy to `escalate pressure checks` / `hold pressure cadence` / `cool pressure posture` for tighter DOS-width rows while preserving trend-action readability.
+- Regression lock updated via existing expected-text assertions; verification passed (`py_compile`, `scripts/regression_check_lane_coverage_guardrail.py`, and `scripts/check_lane_coverage_guardrail.py --include-trend-family-why`).
+
+- 2026-04-01 14:58 KST — Game Director Cycle IP5 executed immediately after backlog full-check: added optional `TSDPMSRFTWHYLEN` markdown audit row (`E24|H21|C21|MAX24/32`) to keep trend-rationale copy within DOS-width envelope.
+- Injected next tasks: (1) Systems/QA JSON mirror for WHY copy-budget signals, (2) AI Content/Design alt verb-pack experiment behind optional flag.

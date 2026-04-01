@@ -272,11 +272,11 @@ def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_fam
     trend: str,
 ) -> str:
     mapping = {
-        "UP": "escalate lane pressure checks",
-        "FLAT": "hold lane pressure cadence",
-        "DOWN": "cool lane pressure posture",
+        "UP": "escalate pressure checks",
+        "FLAT": "hold pressure cadence",
+        "DOWN": "cool pressure posture",
     }
-    return mapping.get(trend, "hold lane pressure cadence")
+    return mapping.get(trend, "hold pressure cadence")
 
 
 def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_alias(
@@ -288,6 +288,22 @@ def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_fam
         "DOWN": "C",
     }
     return alias_map.get(trend, "H")
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget(
+    threshold: int = 32,
+) -> str:
+    copy_map = {
+        "E": "escalate pressure checks",
+        "H": "hold pressure cadence",
+        "C": "cool pressure posture",
+    }
+    lengths = {alias: len(text) for alias, text in copy_map.items()}
+    max_len = max(lengths.values()) if lengths else 0
+    return (
+        f"TSDPMSRFTWHYLEN:E{lengths['E']}|H{lengths['H']}|C{lengths['C']}|"
+        f"MAX{max_len}/{threshold}"
+    )
 
 
 def build_momentum_band_progression_sparkline(rows: list[str]) -> str:
@@ -629,6 +645,8 @@ def to_markdown(
                 f"- trend-score momentum-slope rec family trend why alias: **TSDPMSRFTWHYA:{resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_alias(family_trend)}**",
                 "- trend-score momentum-slope rec family trend why alias decode: **TSDPMSRFTWHYA legend (E=escalate, H=hold, C=cool)**",
                 f"- trend-score momentum-slope rec family trend why (ai-content/systems): **TSDPMSRFT WHY:{resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why(family_trend)}**",
+                "- trend-score momentum-slope rec family trend why copy budget (design/ux): "
+                f"**{resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget()}**",
             ]
         )
 
