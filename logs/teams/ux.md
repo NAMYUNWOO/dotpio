@@ -3316,3 +3316,8 @@
 ## 2026-04-01 08:55 KST — Cycle ILN (UX)
 - Shipped one-glance momentum-band alias row `TSDPM:<L|M|H>` with deterministic payload parity.
 - Verification: regenerated weekly guardrail markdown contains new momentum-band + alias rows.
+
+## 2026-04-01 09:18 KST
+- Closed injected Systems/QA POST_RC item: extended lane-guardrail regression fixture coverage to explicitly validate `trendScoreBandDispatchPressureMomentumBand` LOW domain path and markdown alias parity `TSDPM:L`.
+- Added deterministic `low_momentum_band` fixture case in `scripts/regression_check_lane_coverage_guardrail.py` to lock score->band mapping (`5 -> LOW`) and alias mapping (`LOW -> L`) without runtime coupling.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

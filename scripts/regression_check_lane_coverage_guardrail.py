@@ -226,7 +226,27 @@ def main() -> int:
             expected_dispatch_pressure_momentum_band_alias="M",
         )
 
-    print("ok: trendScoreBand dispatch-hint regression checks passed")
+        run_fixture_case(
+            tmp_path=tmp_path,
+            name="low_momentum_band",
+            rows=[
+                "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBand:CALM",
+                "- [x] Systems Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+                "- [x] UX/Systems Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+                "- [x] AI Content/Systems Team: compatRowPolicySourceConfidenceTrendScoreBand:CALM",
+                "- [x] Design/Systems Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+            ],
+            expected_snapshot={"CALM": 5, "EDGE": 0, "HEATED": 0},
+            expected_dispatch_hint="CALM_FOCUS",
+            expected_dispatch_hint_alias="C",
+            expected_dispatch_pressure="HOT",
+            expected_dispatch_pressure_alias="H",
+            expected_dispatch_pressure_momentum=5,
+            expected_dispatch_pressure_momentum_band="LOW",
+            expected_dispatch_pressure_momentum_band_alias="L",
+        )
+
+    print("ok: trendScoreBand dispatch-hint/momentum-band regression checks passed")
     return 0
 
 

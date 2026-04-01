@@ -1,3 +1,9 @@
+## 2026-04-01 09:18 KST
+- Closed injected Systems/QA POST_RC item: regression fixtures now cover `trendScoreBandDispatchPressureMomentumBand` LOW-domain behavior plus markdown alias parity `TSDPM:L`.
+- Added deterministic `low_momentum_band` fixture in `scripts/regression_check_lane_coverage_guardrail.py` to lock `momentum=5 -> band=LOW -> alias=L` while preserving offline-only scope.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: AI Content/Systems momentum-slope recommendation experiment).
+
 ## 2026-04-01 06:21 KST
 - Closed injected UX/Design POST_RC item: weekly lane guardrail markdown now includes compact TSSB decode microcopy row (`TSSB legend (C=calm, E=edge, H=heated)`) directly beneath alias line.
 - Regression contract expanded: `scripts/regression_check_lane_coverage_guardrail.py` now fails if decode row is missing, preserving docs/readability parity with alias output.
