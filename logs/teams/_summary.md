@@ -4684,3 +4684,10 @@ Compact decision memory for AI context efficiency.
 - Shipped minimal vertical slice: optional `TSDPMSRFTWHYA` alias rail (`E|H|C`) + decode legend, paired with existing `TSDPMSRFT WHY` under `--include-trend-family-why`.
 - Injected next tasks into TASKS/POST_RC: optional-row ordering assertion and tighter DOS-width WHY wording study.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md --include-trend-family-why`.
+
+
+## 2026-04-01 14:18 KST
+- Completed item: Systems/QA injected task to add explicit optional-row ordering assertions for `TSDPMSRFT decode variant -> TSDPMSRFTWHYA -> TSDPMSRFT WHY`.
+- Durable decision: Keep optional rationale-cluster order deterministic by regression (`decode variant -> why alias -> why alias decode -> why`) to prevent future row-insertion drift.
+- Files changed: `scripts/regression_check_lane_coverage_guardrail.py`, `TASKS.md`, `POST_RC_BACKLOG.md`, `logs/weekly_lane_coverage_guardrail.{json,md}`, `logs/teams/{systems,world,ai-content,combat,design,ux,qa}.md`.
+- Verification: py_compile + regression + guardrail regeneration all passed.

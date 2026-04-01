@@ -282,6 +282,37 @@ def run_fixture_case(
         f"**TSDPMSRFT WHY:{expected_family_trend_why}**"
         in md_text
     ), f"{name}: markdown output must include optional ai-content/systems trend rationale microcopy when flag enabled"
+
+    optional_decode_variant_row = (
+        "trend-score momentum-slope rec family trend decode variant (design/world): "
+        "**TSDPMSRFT legend (U=escalate, F=hold, D=cool)**"
+    )
+    optional_why_alias_row = (
+        "trend-score momentum-slope rec family trend why alias: "
+        f"**TSDPMSRFTWHYA:{expected_family_trend_why_alias}**"
+    )
+    optional_why_alias_decode_row = (
+        "trend-score momentum-slope rec family trend why alias decode: "
+        "**TSDPMSRFTWHYA legend (E=escalate, H=hold, C=cool)**"
+    )
+    optional_why_row = (
+        "trend-score momentum-slope rec family trend why (ai-content/systems): "
+        f"**TSDPMSRFT WHY:{expected_family_trend_why}**"
+    )
+    optional_decode_variant_idx = md_text.find(optional_decode_variant_row)
+    optional_why_alias_idx = md_text.find(optional_why_alias_row)
+    optional_why_alias_decode_idx = md_text.find(optional_why_alias_decode_row)
+    optional_why_idx = md_text.find(optional_why_row)
+    assert (
+        optional_decode_variant_idx
+        < optional_why_alias_idx
+        < optional_why_alias_decode_idx
+        < optional_why_idx
+    ), (
+        f"{name}: optional trend rows must preserve order "
+        "`TSDPMSRFT decode variant -> TSDPMSRFTWHYA -> TSDPMSRFTWHYA decode -> TSDPMSRFT WHY`"
+    )
+
     assert (
         "trend-score dispatch-pressure momentum slope rec (ai-content/systems): "
         f"**{expected_dispatch_pressure_momentum_slope_recommendation}**"

@@ -3191,3 +3191,9 @@
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail generation with `--include-trend-family-why`.
 ## 2026-04-01 14:06 KST
 - Added compact rationale alias support (`E|H|C`) for `TSDPMSRFT WHY` optional rail to improve dense markdown scan speed.
+
+
+## 2026-04-01 14:18 KST
+- Cycle ILP follow-up (Systems/QA selected): locked optional markdown row ordering for momentum-slope trend rationale cluster.
+- Change reference: `scripts/regression_check_lane_coverage_guardrail.py` now asserts `TSDPMSRFT decode variant -> TSDPMSRFTWHYA -> TSDPMSRFTWHYA decode -> TSDPMSRFT WHY` ordering when optional rows are enabled.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

@@ -2,33 +2,33 @@
   "recentCompletedItems": 10,
   "capPercent": 40.0,
   "laneCounts": {
-    "systems": 3,
-    "world": 1,
-    "ai-content": 0,
+    "systems": 2,
+    "world": 0,
+    "ai-content": 1,
     "combat": 1,
-    "design": 3,
-    "ux": 2,
-    "qa": 2,
+    "design": 2,
+    "ux": 1,
+    "qa": 1,
     "vfx": 1
   },
   "lanePercentages": {
-    "systems": 30.0,
-    "world": 10.0,
-    "ai-content": 0.0,
+    "systems": 20.0,
+    "world": 0.0,
+    "ai-content": 10.0,
     "combat": 10.0,
-    "design": 30.0,
-    "ux": 20.0,
-    "qa": 20.0,
+    "design": 20.0,
+    "ux": 10.0,
+    "qa": 10.0,
     "vfx": 10.0
   },
   "overCapLanes": [],
   "underrepresentedLanes": [
+    "world",
     "ai-content",
     "combat",
-    "vfx",
-    "world",
     "qa",
     "ux",
+    "vfx",
     "design",
     "systems"
   ],
@@ -47,7 +47,7 @@
         "design",
         "world"
       ],
-      "count": 4,
+      "count": 2,
       "met": true
     },
     "systems-or-ops": {
@@ -55,7 +55,7 @@
         "systems",
         "qa"
       ],
-      "count": 5,
+      "count": 3,
       "met": true
     }
   },

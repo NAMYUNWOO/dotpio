@@ -3097,3 +3097,9 @@
 - No direct code changes this cycle; reviewed optional trend-family microcopy/decode additions for cross-lane consistency.
 ## 2026-04-01 14:06 KST
 - Reviewed Cycle IP4 optional trend-rationale alias slice for lane consistency; no direct code changes in this lane.
+
+
+## 2026-04-01 14:18 KST
+- Cycle ILP follow-up (Systems/QA selected): locked optional markdown row ordering for momentum-slope trend rationale cluster.
+- Change reference: `scripts/regression_check_lane_coverage_guardrail.py` now asserts `TSDPMSRFT decode variant -> TSDPMSRFTWHYA -> TSDPMSRFTWHYA decode -> TSDPMSRFT WHY` ordering when optional rows are enabled.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
