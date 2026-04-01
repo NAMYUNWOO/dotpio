@@ -694,6 +694,14 @@ def resolve_cadence_override_note_rationale_confidence_trend(rows: list[str]) ->
     return "FLAT"
 
 
+def resolve_cadence_override_note_rationale_confidence_trend_alias(trend: str) -> str:
+    return {
+        "UP": "U",
+        "FLAT": "F",
+        "DOWN": "D",
+    }.get(trend, "F")
+
+
 def build_report(
     rows: list[str],
     cap_ratio: float,
@@ -844,6 +852,11 @@ def build_report(
     cadence_override_note_rationale_confidence_trend = (
         resolve_cadence_override_note_rationale_confidence_trend(rows)
     )
+    cadence_override_note_rationale_confidence_trend_alias = (
+        resolve_cadence_override_note_rationale_confidence_trend_alias(
+            cadence_override_note_rationale_confidence_trend
+        )
+    )
     score_band_dispatch_pressure_momentum_slope_recommendation = (
         resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation(
             score_band_dispatch_pressure_momentum_slope
@@ -934,6 +947,7 @@ def build_report(
         "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidence": cadence_override_note_rationale_confidence,
         "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceAlias": cadence_override_note_rationale_confidence_alias,
         "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrend": cadence_override_note_rationale_confidence_trend,
+        "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendAlias": cadence_override_note_rationale_confidence_trend_alias,
         "trendScoreBandDispatchPressureMomentum": score_band_dispatch_pressure_momentum,
         "trendScoreBandDispatchPressureMomentumBand": score_band_dispatch_pressure_momentum_band,
         "trendScoreBandDispatchPressureMomentumBandAlias": score_band_dispatch_pressure_momentum_band_alias,
@@ -1051,9 +1065,11 @@ def to_markdown(
             f"- trend-score dispatch pressure cadence override note rationale confidence (ai-content/systems, offline): **TSDPCON WHY CONF:{report.get('trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidence', 'HIGH')}**",
             f"- trend-score dispatch pressure cadence override note rationale confidence alias: **TSDPCONWC:{report.get('trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceAlias', 'H')}**",
             f"- trend-score dispatch pressure cadence override note rationale confidence trend (ai-content/systems, offline): **TSDPCONWCT:{report.get('trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrend', 'FLAT')}**",
+            f"- trend-score dispatch pressure cadence override note rationale confidence trend alias: **TSDPCONWCTA:{report.get('trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendAlias', 'F')}**",
             f"- trend-score dispatch pressure cadence override note rationale alias: **TSDPCONW:{report.get('trendScoreBandDispatchPressureCadenceOverrideNoteRationaleAlias', 'S')}**",
             "- trend-score dispatch pressure cadence override rationale-confidence decode: **TSDPCONWC legend (L=LOW, M=MID, H=HIGH)**",
             "- trend-score dispatch pressure cadence override rationale-confidence trend decode: **TSDPCONWCT legend (U=UP, F=FLAT, D=DOWN)**",
+            "- trend-score dispatch pressure cadence override rationale-confidence trend alias decode: **TSDPCONWCTA legend (U=UP, F=FLAT, D=DOWN)**",
             "- trend-score dispatch pressure cadence override note decode: **TSDPCON legend (H=HOLD, W=WATCH, P=PUSH)**",
             "- trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**",
             f"- trend-score dispatch-pressure momentum (offline): **{report.get('trendScoreBandDispatchPressureMomentum', 0)}**",

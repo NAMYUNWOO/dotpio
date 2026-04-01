@@ -85,6 +85,7 @@
   "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidence": "HIGH",
   "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceAlias": "H",
   "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrend": "FLAT",
+  "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendAlias": "F",
   "trendScoreBandDispatchPressureMomentum": 0,
   "trendScoreBandDispatchPressureMomentumBand": "LOW",
   "trendScoreBandDispatchPressureMomentumBandAlias": "L",

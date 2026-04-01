@@ -4564,3 +4564,8 @@
 - Synced Game Director injected IP11 item completion: added offline cadence-confidence trend token `TSDPCONWCT:UP|FLAT|DOWN` to lane guardrail output and regression contract.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail report regeneration passed.
 - Follow-up: queue now requires next Game Director review cycle (all ACTION_ITEMS/TASKS/POST_RC items checked).
+
+## 2026-04-01 19:58 KST
+- Cycle IP12 shipped: added cadence-confidence trend alias token `TSDPCONWCTA:U|F|D` (mapped from `TSDPCONWCT`) and extended cadence-cluster markdown contract invariants.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail report regeneration passed.
+- Follow-up injections queued: Systems/QA row-count mirror assertion for trend alias, AI Content/Systems momentum-score prototype.

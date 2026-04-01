@@ -20,9 +20,11 @@
 - trend-score dispatch pressure cadence override note rationale confidence (ai-content/systems, offline): **TSDPCON WHY CONF:HIGH**
 - trend-score dispatch pressure cadence override note rationale confidence alias: **TSDPCONWC:H**
 - trend-score dispatch pressure cadence override note rationale confidence trend (ai-content/systems, offline): **TSDPCONWCT:FLAT**
+- trend-score dispatch pressure cadence override note rationale confidence trend alias: **TSDPCONWCTA:F**
 - trend-score dispatch pressure cadence override note rationale alias: **TSDPCONW:P**
 - trend-score dispatch pressure cadence override rationale-confidence decode: **TSDPCONWC legend (L=LOW, M=MID, H=HIGH)**
 - trend-score dispatch pressure cadence override rationale-confidence trend decode: **TSDPCONWCT legend (U=UP, F=FLAT, D=DOWN)**
+- trend-score dispatch pressure cadence override rationale-confidence trend alias decode: **TSDPCONWCTA legend (U=UP, F=FLAT, D=DOWN)**
 - trend-score dispatch pressure cadence override note decode: **TSDPCON legend (H=HOLD, W=WATCH, P=PUSH)**
 - trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**
 - trend-score dispatch-pressure momentum (offline): **0**
