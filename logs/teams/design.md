@@ -1,5 +1,9 @@
 # Design Team Log
 
+## 2026-04-02 06:27 KST
+- Added new decode rail for `TSDPMFXVWCR` recommendation semantics to keep `TSDPMFXVWC` confidence output directly interpretable without cross-referencing prose.
+- Wording kept DOS-compact and aligned with existing confidence decode lexicon.
+
 ## 2026-04-02 03:44 KST
 - Cycle IP20 added design/world readability rows for new VFX pulse rails: `TSDPMFXV legend (C=CALM, P=PULSE, B=BLAST)` and `TSDPMFXVA legend`.
 - Kept decode wording DOS-width compact and adjacent to existing urgency-trend rows to preserve one-scan operator flow.

@@ -1,5 +1,9 @@
 # UX Team Log
 
+## 2026-04-02 06:27 KST
+- Added one-line recommendation token `TSDPMFXVWCR` to reduce lookup friction between confidence tier and suggested guidance phrase.
+- UX intent: keep operator scan path linear (`TSDPMFXVWC -> TSDPMFXVWCR -> decode`) in both summary and token sections.
+
 ## 2026-03-31 22:12 KST
 - Reviewed helper markdown output format for checklist readiness (`- [ ] Team: task` + DoD + verification command).
 - Current generated markdown correctly reports no forced template when guardrail status is `within-cap`.

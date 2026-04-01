@@ -1,5 +1,9 @@
 # Combat Team Log
 
+## 2026-04-02 06:27 KST
+- Added compact combat-facing recommendation rail `TSDPMFXVWCR` so guidance confidence now carries a direct action phrase (`lock sweep|brace check|burst triage`) alongside pulse rows.
+- No runtime combat tuning changed; this is offline readability + triage contract only.
+
 ## 2026-03-31 22:12 KST
 - Verified helper mapping includes combat/vfx bucket fallback (`combat-or-vfx`) so underrepresented combat cadence can be re-injected without manual drafting.
 - No active combat injection this snapshot (`within-cap`).

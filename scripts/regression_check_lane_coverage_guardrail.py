@@ -648,6 +648,20 @@ def run_fixture_case(
     ), (
         f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceAlias must mirror LOW|MID|HIGH alias"
     )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_value = report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendation"
+    )
+    expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_value = {
+        "HIGH": "lock sweep",
+        "MID": "brace check",
+        "LOW": "burst triage",
+    }[urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_value]
+    assert (
+        urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_value
+        == expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_value
+    ), (
+        f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendation must map deterministically from TSDPMFXVWC"
+    )
     assert (
         "trend-score dispatch pressure cadence override note rationale confidence (ai-content/systems, offline): "
         f"**TSDPCON WHY CONF:{confidence_value}**"
@@ -658,6 +672,16 @@ def run_fixture_case(
         f"**TSDPCONWC:{confidence_alias_value}**"
         in md_text
     ), f"{name}: markdown output must include compact cadence-note rationale confidence-alias row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation (ai-content/systems, offline): "
+        f"**TSDPMFXVWCR:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_value}**"
+        in md_text
+    ), f"{name}: markdown output must include guidance-confidence recommendation row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation decode (design/world): "
+        "**TSDPMFXVWCR legend (HIGH=lock sweep, MID=brace check, LOW=burst triage)**"
+        in md_text
+    ), f"{name}: markdown output must include guidance-confidence recommendation decode row"
     assert (
         "trend-score dispatch pressure cadence override note rationale confidence trend (ai-content/systems, offline): "
         f"**TSDPCONWCT:{confidence_trend_value}**"

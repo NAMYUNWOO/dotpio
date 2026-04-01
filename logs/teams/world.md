@@ -1,5 +1,9 @@
 # World Team Log
 
+## 2026-04-02 06:27 KST
+- Added design/world decode copy for new guidance-confidence recommendation row: `TSDPMFXVWCR legend (HIGH=lock sweep, MID=brace check, LOW=burst triage)`.
+- Kept decode wording compact and consistent with existing `TSDPMFXVWC` legend cluster.
+
 ## 2026-03-31 22:12 KST
 - Synced with systems helper rollout: forced-lane template generator now emits world/design lane tasks whenever `missingCadenceBuckets` includes `design-or-world` or guardrail enters `over-cap` with world in `forcedNextLanes`.
 - Current snapshot remains `within-cap`; no injected world template required this cycle.

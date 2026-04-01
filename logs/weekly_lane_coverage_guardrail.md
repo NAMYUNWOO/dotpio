@@ -69,7 +69,9 @@
 - trend-score dispatch-pressure momentum fx urgency confidence trend momentum band pulse guidance (ai-content/systems, offline): **TSDPMFXVW:brace lanes**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence (ai-content/systems, offline): **TSDPMFXVWC:MID**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence alias: **TSDPMFXVWCA:M**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation (ai-content/systems, offline): **TSDPMFXVWCR:brace check**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence decode (design/world): **TSDPMFXVWC legend (L=LOW, M=MID, H=HIGH)**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation decode (design/world): **TSDPMFXVWCR legend (HIGH=lock sweep, MID=brace check, LOW=burst triage)**
 - trend-score dispatch-pressure momentum fx urgency confidence decode (design/world): **TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)**
 - trend-score dispatch-pressure momentum fx urgency confidence trend decode (design/world): **TSDPMFXUCT legend (U=UP, F=FLAT, D=DOWN)**
 - trend-score dispatch-pressure momentum fx urgency confidence trend alias decode (design/world): **TSDPMFXUCTA legend (U=UP, F=FLAT, D=DOWN)**

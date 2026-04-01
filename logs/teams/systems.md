@@ -1,5 +1,9 @@
 # Systems Team Log
 
+## 2026-04-02 06:27 KST
+- Cycle IP21: extended guardrail payload with `trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendation` (`TSDPMFXVWCR`) mapped deterministically from `TSDPMFXVWC`.
+- Regression now asserts deterministic recommendation mapping + markdown row/decode presence in `scripts/regression_check_lane_coverage_guardrail.py`.
+
 ## 2026-04-02 03:44 KST
 - Cycle IP20 implemented deterministic mapping contract for urgency-trend VFX pulse rails in `scripts/check_lane_coverage_guardrail.py`.
 - New payload fields: `trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulse` and `...VfxPulseAlias`.

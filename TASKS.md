@@ -1,6 +1,15 @@
 # TASKS
 
-Last updated: 2026-04-02 04:21 KST
+Last updated: 2026-04-02 06:27 KST
+
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP21)
+- Coverage check (last 10 completed): systems=1, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; cadence buckets for combat/vfx + design/world were still cold at cycle start).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (AI Content/Systems): add compact guidance-confidence recommendation token from `TSDPMFXVWC`.
+  - Mid-risk Systems/QA: lock deterministic recommendation mapping + markdown contract for the new token.
+  - High-risk novelty (Design/World): add adaptive decode compression for `TSDPMFXVWC` recommendation copy.
+- Selected experiment: Idea 1 (low-risk AI Content/Systems) as minimal vertical slice.
+- [x] AI Content/Systems + Systems/QA Team: Add offline guidance-confidence recommendation token `TSDPMFXVWCR` mapped from `TSDPMFXVWC` (`HIGH=lock sweep`, `MID=brace check`, `LOW=burst triage`) with decode row + deterministic regression checks. *(lifecycle: [ ] -> [~] started: 2026-04-02 06:19 KST -> [x] completed: 2026-04-02 06:27 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP20)
 - Coverage check (last 10 completed): systems=1, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; forced over-cap lane override not triggered).
@@ -2375,4 +2384,3 @@ See project-level plans:
   - High-risk novelty (Combat/VFX): adaptive pulse-guidance rewrite from multi-window volatility.
 - Selected experiment: Idea 1 (low-risk AI-content/Systems + QA) as minimal vertical slice.
 - [x] AI-content/Systems + QA Team: Added deterministic pulse-guidance confidence token + alias (`trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidence`, `...Alias`) and markdown rows `TSDPMFXVWC` / `TSDPMFXVWCA` with decode legend, preserving offline deterministic mapping from `TSDPMFXVW`. *(lifecycle: [ ] -> [~] started: 2026-04-02 05:53 KST -> [x] completed: 2026-04-02 06:02 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-

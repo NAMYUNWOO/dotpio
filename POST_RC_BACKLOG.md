@@ -1,5 +1,14 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP21)
+- Coverage check (last 10 completed): systems=1, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; cadence bucket misses remained visible for combat/vfx + design/world).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (AI Content/Systems): add compact guidance-confidence recommendation token from `TSDPMFXVWC`.
+  - Mid-risk Systems/QA: enforce deterministic recommendation mapping + markdown coverage for the new guidance-confidence recommendation row.
+  - High-risk novelty (Design/World): adaptive compressed decode variant for recommendation phrase set.
+- Selected experiment: Idea 1 (low-risk AI Content/Systems) as minimal vertical slice.
+- [x] AI Content/Systems + Systems/QA Team: Add offline `TSDPMFXVWCR` recommendation token from `TSDPMFXVWC` (`HIGH=lock sweep`, `MID=brace check`, `LOW=burst triage`) with decode row and regression schema/markdown lock. *(lifecycle: [ ] -> [~] started: 2026-04-02 06:19 KST -> [x] completed: 2026-04-02 06:27 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP20)
 - Coverage check (last 10 completed): systems=1, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; forced over-cap lane override not triggered).
 - 24h cadence buckets: combat/vfx=0 ❌, design/world=0 ❌, systems/ops(qa)=1 ✅.
@@ -2407,4 +2416,3 @@ Last updated: 2026-03-31 20:40 KST
 ## Next Up (Game Director Injection — Cycle IP9)
 - [x] Systems/QA Team (injected): Add row-count parity + ordering assertions for `TSDPMFXVWC -> TSDPMFXVWCA -> TSDPMFXVWC legend` cluster in summary + token sections. *(lifecycle: [ ] -> [~] started: 2026-04-02 05:54 KST -> [x] completed: 2026-04-02 06:02 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [x] Design/World Team (injected): Lock concise decode copy for guidance-confidence legend (`L=LOW, M=MID, H=HIGH`) under DOS-width constraints. *(completed: 2026-04-02 06:02 KST; verification command set identical to above.)*
-

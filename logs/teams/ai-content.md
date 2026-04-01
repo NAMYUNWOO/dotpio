@@ -1,5 +1,9 @@
 # AI Content Team Log
 
+## 2026-04-02 06:27 KST
+- Cycle IP21 shipped offline microcopy recommendation token `TSDPMFXVWCR` from guidance confidence (`TSDPMFXVWC`) to keep pulse guidance intent one-glance scannable.
+- Recommendation map stabilized as `HIGH=lock sweep`, `MID=brace check`, `LOW=burst triage`.
+
 ## 2026-03-31 22:12 KST
 - Completed injected AI Content/Systems backlog item: prototype helper now drafts lane-forced task templates from guardrail output.
 - Added deterministic markdown/json outputs for downstream copy-paste into TASKS/POST_RC workflows.

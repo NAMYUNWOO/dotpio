@@ -1,5 +1,9 @@
 # QA Team Log
 
+## 2026-04-02 06:27 KST
+- Regression contract extended for `TSDPMFXVWCR`: deterministic map assertion from `TSDPMFXVWC` plus markdown/decode row presence assertions.
+- Verification pass: `py_compile`, `scripts/regression_check_lane_coverage_guardrail.py`, and guardrail artifact regeneration.
+
 ## 2026-03-31 22:12 KST
 - Verification pass for forced-lane helper completed: script compiles and emits deterministic JSON/Markdown artifacts from guardrail JSON.
 - Regression note: `scripts/regression_weekly_portal_prompt_readability_drift.py` currently exits 1 in baseline (pre-existing), so helper verification is scoped to compile + artifact generation.

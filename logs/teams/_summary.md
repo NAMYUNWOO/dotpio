@@ -1,3 +1,9 @@
+## 2026-04-02 06:27 KST
+- Closed Cycle IP21 selected vertical slice: lane guardrail now emits guidance-confidence recommendation token `TSDPMFXVWCR` derived from `TSDPMFXVWC` (`HIGH=lock sweep`, `MID=brace check`, `LOW=burst triage`).
+- Regression contract expanded in `scripts/regression_check_lane_coverage_guardrail.py` for deterministic mapping and markdown/decode row coverage.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for immediate next Game Director review cycle).
+
 ## 2026-04-02 04:21 KST
 - Closed Cycle IP20 injected Systems/Ops+QA parity follow-up: mixed-window fixture matrix now enforces row-count parity across `TSDPMFXUCTSBT` + `TSDPMFXUCTSBTA` + `TSDPMFXV` + `TSDPMFXVA` in both summary/token sections.
 - Decision: keep pulse-token parity explicitly tied to upstream trend token parity (single all-equal assertion over balanced/ready/prior-window fixtures) to avoid drift between regression families.
