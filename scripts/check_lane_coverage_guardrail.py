@@ -646,6 +646,26 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_tr
     }.get(recommendation, "BC")
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity(
+    recommendation: str,
+) -> str:
+    return {
+        "lock sweep": "HARD",
+        "brace check": "EDGE",
+        "burst triage": "SOFT",
+    }.get(recommendation, "EDGE")
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_alias(
+    intensity: str,
+) -> str:
+    return {
+        "SOFT": "S",
+        "EDGE": "E",
+        "HARD": "H",
+    }.get(intensity, "E")
+
+
 def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation(
     momentum_fx_cue: str,
 ) -> str:
@@ -1325,6 +1345,16 @@ def build_report(
             score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation
         )
     )
+    score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity(
+            score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation
+        )
+    )
+    score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_alias = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_alias(
+            score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity
+        )
+    )
     score_band_dispatch_pressure_momentum_slope_recommendation = (
         resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation(
             score_band_dispatch_pressure_momentum_slope
@@ -1443,6 +1473,8 @@ def build_report(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceAlias": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_alias,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendation": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationAlias": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias,
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensity": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity,
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityAlias": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_alias,
         "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": score_band_dispatch_pressure_momentum_fx_cue_combat_callout,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": score_band_dispatch_pressure_momentum_fx_cue_combat_callout_alias,
@@ -1610,9 +1642,14 @@ def to_markdown(
             f"- trend-score dispatch-pressure momentum fx urgency guidance confidence alias: **TSDPMFXVWCA:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceAlias', 'M')}**",
             f"- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation (ai-content/systems, offline): **TSDPMFXVWCR:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendation', 'brace check')}**",
             f"- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation alias: **TSDPMFXVWCRA:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationAlias', 'BC')}**",
+            f"- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity (combat/vfx, offline): **TSDPMFXVWCRI:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensity', 'EDGE')}**",
+            f"- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity alias: **TSDPMFXVWCRIA:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityAlias', 'E')}**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence decode (design/world): **TSDPMFXVWC legend (L=LOW, M=MID, H=HIGH)**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation decode (design/world): **TSDPMFXVWCR legend (HIGH=lock sweep, MID=brace check, LOW=burst triage)**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation alias decode (design/world): **TSDPMFXVWCRA legend (LS=lock sweep, BC=brace check, BT=burst triage)**",
+            "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity decode (design/world): **TSDPMFXVWCRI legend (SOFT=burst triage, EDGE=brace check, HARD=lock sweep)**",
+            "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity alias decode (design/world): **TSDPMFXVWCRIA legend (S=SOFT, E=EDGE, H=HARD)**",
+            "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation alias decode dos-width eval (design/world): **TSDPMFXVWCRALEN:B45|C43|LIM72|PREF:COMPACT|PASS**",
             "- trend-score dispatch-pressure momentum fx urgency confidence decode (design/world): **TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend decode (design/world): **TSDPMFXUCT legend (U=UP, F=FLAT, D=DOWN)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend alias decode (design/world): **TSDPMFXUCTA legend (U=UP, F=FLAT, D=DOWN)**",

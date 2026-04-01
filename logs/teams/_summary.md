@@ -4896,3 +4896,9 @@ Compact decision memory for AI context efficiency.
 - Implemented vertical slice: `TSDPMFXVWCRA` deterministic map (`lock sweep->LS`, `brace check->BC`, `burst triage->BT`) with markdown alias row + decode legend.
 - Durable contract: regression now enforces payload mapping and markdown presence/parity for `TSDPMFXVWCR`/`TSDPMFXVWCRA` rows.
 - Next injected backlog: (1) mixed-window fixture assertions for `TSDPMFXVWCR -> TSDPMFXVWCRA` parity, (2) concise decode copy DOS-width evaluation for LS/BC/BT.
+
+## 2026-04-02 07:36 KST
+- Executed Game Director Cycle IP11 after full-check queue state.
+- Shipped low-risk Combat/VFX vertical slice: guidance-confidence recommendation intensity token `TSDPMFXVWCRI` (+ alias `TSDPMFXVWCRIA`) derived from `TSDPMFXVWCR` with deterministic mapping and decode rows.
+- Regression hardening now enforces mapping + parity across `TSDPMFXVWCR/TSDPMFXVWCRA/TSDPMFXVWCRI/TSDPMFXVWCRIA` in mixed-window fixtures.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2 (next injected: adjacency order lock + design/world intensity-copy budget eval).
