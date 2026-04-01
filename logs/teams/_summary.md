@@ -4799,3 +4799,9 @@ Compact decision memory for AI context efficiency.
 - 2026-04-01 21:53 KST — Completed injected Combat/VFX task: added trend-driven momentum FX urgency token `TSDPMFXU:SOFT|SURGE|SPIKE` plus compact alias `TSDPMFXUA:S|U|P`, deterministically mapped from `TSDPCONWCTSBT` (`DOWN->SOFT`, `FLAT->SURGE`, `UP->SPIKE`).
 - Added DOS-width decode row pairing trend and urgency semantics for one-scan operator intent readability.
 - Regression expanded to lock payload + markdown parity for the new urgency token and alias; full guardrail regression and report regeneration pass green.
+
+## 2026-04-01 22:24 KST
+- Completed injected Design/World task from Cycle IP14 backlog: added DOS-width trend→action pairing row (`TSDPPAIR`) that colocates `TSDPCONWCTSBT` with `TSDPMFXU`, plus compact decode row for one-scan intent parsing.
+- Extended Systems/Ops+QA regression contract with explicit fixture-level parity assertion `TSDPCONWCTSBT` row count mirrors `TSDPCONWCTSBTA`, and enforced ordering around newly inserted pair/decode rows.
+- Regenerated guardrail artifacts (`logs/weekly_lane_coverage_guardrail.json|.md`) after regression pass.
+- Remaining top-priority unchecked item: Systems/Ops + QA mixed-cadence parity expansion task in TASKS/POST_RC_BACKLOG.

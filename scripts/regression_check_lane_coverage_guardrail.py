@@ -573,6 +573,14 @@ def run_fixture_case(
         i for i, line in enumerate(cadence_cluster_lines)
         if "**TSDPCONWCTSBTA legend (U=UP, F=FLAT, D=DOWN)**" in line
     ]
+    cadence_cluster_trend_fx_pair_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPPAIR:TSDPCONWCTSBT=" in line
+    ]
+    cadence_cluster_trend_fx_pair_decode_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPCONWCTSBT U/F/D => TSDPMFXU SPIKE/SURGE/SOFT**" in line
+    ]
     assert len(cadence_cluster_streak_indexes) >= 1, (
         f"{name}: cadence cluster streak row must appear in markdown summary"
     )
@@ -655,6 +663,11 @@ def run_fixture_case(
     assert len(cadence_cluster_rationale_conf_trend_momentum_band_trend_alias_indexes) == expected_cadence_cluster_rows, (
         f"{name}: fixture-level TSDPCONWCTSBTA row count must deterministically mirror cadence-cluster section row count"
     )
+    assert len(cadence_cluster_rationale_conf_trend_momentum_band_trend_indexes) == len(
+        cadence_cluster_rationale_conf_trend_momentum_band_trend_alias_indexes
+    ), (
+        f"{name}: fixture-level TSDPCONWCTSBT row count must deterministically mirror TSDPCONWCTSBTA row count in both sections"
+    )
     assert len(cadence_cluster_rationale_alias_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster rationale-alias row count must match streak row count"
     )
@@ -675,6 +688,12 @@ def run_fixture_case(
     )
     assert len(cadence_cluster_conf_trend_momentum_band_trend_alias_legend_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster confidence-trend-momentum-band-trend-alias-legend row count must match streak row count"
+    )
+    assert len(cadence_cluster_trend_fx_pair_indexes) == len(cadence_cluster_streak_indexes), (
+        f"{name}: cadence cluster trend->fx urgency pair row count must match streak row count"
+    )
+    assert len(cadence_cluster_trend_fx_pair_decode_indexes) == len(cadence_cluster_streak_indexes), (
+        f"{name}: cadence cluster trend->fx urgency pair-decode row count must match streak row count"
     )
     for cluster_i in range(len(cadence_cluster_streak_indexes)):
         assert cadence_cluster_note_indexes[cluster_i] == cadence_cluster_streak_indexes[cluster_i] + 1, (
@@ -731,8 +750,14 @@ def run_fixture_case(
         assert cadence_cluster_conf_trend_momentum_band_trend_alias_legend_indexes[cluster_i] == cadence_cluster_conf_trend_momentum_band_trend_legend_indexes[cluster_i] + 1, (
             f"{name}: cadence cluster order must keep TSDPCONWCTSBT legend immediately before TSDPCONWCTSBTA legend in both sections"
         )
-        assert cadence_cluster_note_legend_indexes[cluster_i] == cadence_cluster_conf_trend_momentum_band_trend_alias_legend_indexes[cluster_i] + 1, (
-            f"{name}: cadence cluster order must keep TSDPCONWCTSBTA legend immediately before TSDPCON legend in both sections"
+        assert cadence_cluster_trend_fx_pair_indexes[cluster_i] == cadence_cluster_conf_trend_momentum_band_trend_alias_legend_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPCONWCTSBTA legend immediately before TSDPPAIR row in both sections"
+        )
+        assert cadence_cluster_trend_fx_pair_decode_indexes[cluster_i] == cadence_cluster_trend_fx_pair_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPPAIR row immediately before trend->fx decode row in both sections"
+        )
+        assert cadence_cluster_note_legend_indexes[cluster_i] == cadence_cluster_trend_fx_pair_decode_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep trend->fx decode row immediately before TSDPCON legend in both sections"
         )
     assert "trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**" in md_text, (
         f"{name}: markdown output must include cadence-override alias decode row"
@@ -884,6 +909,16 @@ def run_fixture_case(
         "**SOFT=trend cooling (DOWN), SURGE=trend stable (FLAT), SPIKE=trend rising (UP)**"
         in md_text
     ), f"{name}: markdown output must include trend->urgency decode row"
+    assert (
+        "trend-score dispatch pressure trend->fx urgency pair (design/world, dos-width): "
+        f"**TSDPPAIR:TSDPCONWCTSBT={confidence_trend_momentum_band_trend}|TSDPMFXU={expected_fx_urgency_cue}**"
+        in md_text
+    ), f"{name}: markdown output must include compact trend->fx urgency pair row for one-scan intent"
+    assert (
+        "trend-score dispatch pressure trend->fx urgency pair decode (design/world): "
+        "**TSDPCONWCTSBT U/F/D => TSDPMFXU SPIKE/SURGE/SOFT**"
+        in md_text
+    ), f"{name}: markdown output must include compact trend->fx urgency pair decode row"
     assert (
         "trend-score dispatch-pressure momentum fx cue cadence decode (design/world): "
         "**SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**"

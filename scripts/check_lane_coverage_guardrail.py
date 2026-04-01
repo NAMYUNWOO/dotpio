@@ -1227,6 +1227,10 @@ def to_markdown(
             "- trend-score dispatch pressure cadence override rationale-confidence trend alias decode: **TSDPCONWCTA legend (U=UP, F=FLAT, D=DOWN)**",
             "- trend-score dispatch pressure cadence override rationale-confidence trend momentum band trend decode: **TSDPCONWCTSBT legend (U=UP, F=FLAT, D=DOWN)**",
             "- trend-score dispatch pressure cadence override rationale-confidence trend momentum band trend alias decode: **TSDPCONWCTSBTA legend (U=UP, F=FLAT, D=DOWN)**",
+            "- trend-score dispatch pressure trend->fx urgency pair (design/world, dos-width): "
+            f"**TSDPPAIR:TSDPCONWCTSBT={report.get('trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBandTrend', 'FLAT')}|"
+            f"TSDPMFXU={report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCue', 'SURGE')}**",
+            "- trend-score dispatch pressure trend->fx urgency pair decode (design/world): **TSDPCONWCTSBT U/F/D => TSDPMFXU SPIKE/SURGE/SOFT**",
             "- trend-score dispatch pressure cadence override note decode: **TSDPCON legend (H=HOLD, W=WATCH, P=PUSH)**",
             "- trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**",
             f"- trend-score dispatch-pressure momentum (offline): **{report.get('trendScoreBandDispatchPressureMomentum', 0)}**",

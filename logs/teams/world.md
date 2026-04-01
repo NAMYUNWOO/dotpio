@@ -3183,3 +3183,6 @@
 
 - 2026-04-01 21:44 KST — Cycle IP14: shipped momentum-band trend token `TSDPCONWCTSBT` + alias `TSDPCONWCTSBTA` in lane guardrail payload/markdown with deterministic regression order+cardinality locks; verification: py_compile + regression_check_lane_coverage_guardrail + guardrail json/md regeneration.
 - 2026-04-01 21:53 KST — Cycle IP14 follow-up: shipped TSDPMFXU (`SOFT|SURGE|SPIKE`) + alias `TSDPMFXUA` deterministically mapped from `TSDPCONWCTSBT` (`DOWN|FLAT|UP`), with markdown decode row and regression locks; verification: py_compile + regression_check_lane_coverage_guardrail + guardrail json/md regeneration.
+- 2026-04-01 22:24 KST — Added DOS-width one-scan trend→urgency pairing row `TSDPPAIR:TSDPCONWCTSBT=...|TSDPMFXU=...` plus decode row in lane-guardrail markdown so operators can parse intent in one line.
+  - World readability scope: pair row keeps trend token and action urgency token adjacent for DOS-width scanning.
+  - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
