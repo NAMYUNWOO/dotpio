@@ -1,6 +1,22 @@
 # TASKS
 
-Last updated: 2026-04-02 03:22 KST
+Last updated: 2026-04-02 03:44 KST
+
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP20)
+- Coverage check (last 10 completed): systems=1, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; forced over-cap lane override not triggered).
+- 24h cadence buckets: combat/vfx=0 ❌, design/world=0 ❌, systems/ops(qa)=1 ✅.
+- Forced-lane decision: cadence buckets missing for `combat-or-vfx` and `design-or-world`, so this cycle forced a Combat/VFX experiment and injected Design/World + Systems/Ops follow-ups.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (Combat/VFX): add compact urgency-trend VFX pulse token `TSDPMFXV:CALM|PULSE|BLAST` + alias `TSDPMFXVA:C|P|B` from `TSDPMFXUCTSBT` for one-glance feedback routing.
+  - Mid-risk Systems/QA: lock urgency-cluster order/cardinality to include `TSDPMFXV/TSDPMFXVA` rows and decode rows across summary + token sections.
+  - High-risk novelty (AI Content/Systems): prototype urgency-trend stability confidence tier `TSDPMFXUCTSBTC:LOW|MID|HIGH` from multi-window alias persistence.
+- Selected experiment: Idea 1 (low-risk Combat/VFX) as minimal vertical slice.
+- [x] Combat/VFX + Systems/QA Team: Add offline urgency-trend VFX pulse token (`TSDPMFXV:CALM|PULSE|BLAST`) and alias (`TSDPMFXVA:C|P|B`) deterministically mapped from `TSDPMFXUCTSBT`, plus decode rows and regression order/cardinality parity checks. *(lifecycle: [ ] -> [~] started: 2026-04-02 03:34 KST -> [x] completed: 2026-04-02 03:44 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP20)
+- [ ] Design/World Team (injected): Add compact pairing decode row that binds `TSDPMFXV` pulse states to existing combat callouts (`HL/PE/BC`) under DOS-width budget.
+- [ ] Systems/Ops + QA Team (injected): Add fixture-level parity assertion that `TSDPMFXV`/`TSDPMFXVA` row counts mirror `TSDPMFXUCTSBT` across summary + token sections under mixed-window fixtures.
+- [ ] AI Content/Systems Team (injected): Prototype offline pulse-guidance microcopy token keyed by `TSDPMFXV` (`CALM|PULSE|BLAST`) without runtime coupling.
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP19)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=3, combat=3, design=2, ux=1, qa=3, vfx=2 (no lane >40%; forced underrepresented-lane override not triggered).

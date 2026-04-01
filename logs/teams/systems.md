@@ -1,5 +1,11 @@
 # Systems Team Log
 
+## 2026-04-02 03:44 KST
+- Cycle IP20 implemented deterministic mapping contract for urgency-trend VFX pulse rails in `scripts/check_lane_coverage_guardrail.py`.
+- New payload fields: `trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulse` and `...VfxPulseAlias`.
+- Regression expanded in `scripts/regression_check_lane_coverage_guardrail.py` to lock domain/mapping (`UP|FLAT|DOWN -> BLAST|PULSE|CALM`), markdown order, and row-count parity (`TSDPMFXV/TSDPMFXVA`).
+- Verification: py_compile + regression + guardrail regeneration all passed.
+
 ## 2026-04-01 09:49 KST
 - Task: Cycle ILO minimal vertical slice delivered for lane guardrail readability + combat/vfx cue parity.
 - Implementation: `scripts/check_lane_coverage_guardrail.py` now emits `trendScoreBandDispatchPressureMomentumFxCue` and `trendScoreBandDispatchPressureMomentumFxCueAlias` from deterministic momentum-band mapping.

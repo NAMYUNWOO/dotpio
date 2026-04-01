@@ -1,5 +1,11 @@
 # VFX Team Log
 
+## 2026-04-02 03:44 KST
+- Cycle IP20 forced-lane Combat/VFX slice shipped after cadence check flagged missing `combat-or-vfx` bucket.
+- Added offline urgency-trend VFX pulse token `TSDPMFXV:CALM|PULSE|BLAST` from `TSDPMFXUCTSBT` plus compact alias `TSDPMFXVA:C|P|B` for one-glance pulse routing.
+- Scope stayed additive/reversible (reporting-only; no runtime VFX/combat stat mutation).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail artifact regeneration command.
+
 ## 2026-04-01 09:49 KST
 - Shipped Game Director Cycle ILO vertical slice: added guardrail momentum FX cue mapping (`LOW->SOFT`, `MID->EDGE`, `HIGH->HARD`) as payload token `trendScoreBandDispatchPressureMomentumFxCue`.
 - Added compact alias mirror `trendScoreBandDispatchPressureMomentumFxCueAlias` and markdown row `TSDPMFX:<S|E|H>` for one-glance combat/VFX decoding in lane dispatch reports.

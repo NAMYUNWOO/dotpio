@@ -1,5 +1,10 @@
 # Design Team Log
 
+## 2026-04-02 03:44 KST
+- Cycle IP20 added design/world readability rows for new VFX pulse rails: `TSDPMFXV legend (C=CALM, P=PULSE, B=BLAST)` and `TSDPMFXVA legend`.
+- Kept decode wording DOS-width compact and adjacent to existing urgency-trend rows to preserve one-scan operator flow.
+- Injected follow-up for next cycle: pair `TSDPMFXV` states with combat callout aliases (`HL/PE/BC`) in a single compact decode row.
+
 ## 2026-03-31 22:12 KST
 - Confirmed forced-lane draft helper includes design/world and UX/design team mappings with DoD + verification stubs for quick backlog insertion.
 - Snapshot result: no immediate design injection required (`missingCadenceBuckets=[]`).
