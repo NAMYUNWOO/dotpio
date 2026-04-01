@@ -169,6 +169,27 @@ def run_fixture_case(
     assert family_trend_alias == {"UP": "U", "FLAT": "F", "DOWN": "D"}.get(family_trend), (
         f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendAlias must deterministically mirror family trend alias"
     )
+    why_copy_budget_token = report.get(
+        "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudget"
+    )
+    assert why_copy_budget_token == "TSDPMSRFTWHYLEN:E24|H21|C21|MAX24/32", (
+        f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudget must mirror canonical WHY copy-budget token"
+    )
+    why_copy_budget_signals = report.get(
+        "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudgetSignals"
+    )
+    assert why_copy_budget_signals == {
+        "copyMap": {
+            "E": "escalate pressure checks",
+            "H": "hold pressure cadence",
+            "C": "cool pressure posture",
+        },
+        "lengths": {"E": 24, "H": 21, "C": 21},
+        "threshold": 32,
+        "maxLen": 24,
+    }, (
+        f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudgetSignals must expose deterministic copyMap/lengths/threshold/maxLen payload mirror"
+    )
     assert (
         report.get("trendScoreBandDispatchPressureMomentumFxCue")
         == expected_dispatch_pressure_momentum_fx_cue

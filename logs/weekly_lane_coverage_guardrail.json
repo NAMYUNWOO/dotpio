@@ -88,5 +88,20 @@
   "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyAlias": "S",
   "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend": "FLAT",
   "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendAlias": "F",
+  "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudget": "TSDPMSRFTWHYLEN:E24|H21|C21|MAX24/32",
+  "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudgetSignals": {
+    "copyMap": {
+      "E": "escalate pressure checks",
+      "H": "hold pressure cadence",
+      "C": "cool pressure posture"
+    },
+    "lengths": {
+      "E": 24,
+      "H": 21,
+      "C": 21
+    },
+    "threshold": 32,
+    "maxLen": 24
+  },
   "status": "within-cap"
 }

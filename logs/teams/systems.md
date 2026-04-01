@@ -4509,3 +4509,8 @@
 - Idea slate (L/M/H): (1) WHY copy-budget audit row (selected), (2) JSON mirror for budget signals, (3) alternate rationale verb-pack experiment.
 - Shipped minimal vertical slice: optional markdown row `TSDPMSRFTWHYLEN:E24|H21|C21|MAX24/32` under `--include-trend-family-why`.
 - Injected follow-ups into TASKS/POST_RC: Systems/QA JSON contract mirror and AI Content/Design alt verb-pack prototype.
+
+## 2026-04-01 15:18 KST
+- Completed injected Systems/QA task: added JSON payload mirror for `TSDPMSRFTWHYLEN` (`trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudget`) and structured signals (`copyMap`, `lengths`, `threshold`, `maxLen`) in `scripts/check_lane_coverage_guardrail.py`.
+- Durable note: markdown copy-budget row now mirrors payload token from report to keep single-source parity.
+- Verification: py_compile + regression + guardrail generation (include-trend-family-why) passed.

@@ -293,6 +293,22 @@ def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_fam
 def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget(
     threshold: int = 32,
 ) -> str:
+    budget = (
+        resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget_signals(
+            threshold=threshold
+        )
+    )
+    lengths = budget["lengths"]
+    max_len = budget["maxLen"]
+    return (
+        f"TSDPMSRFTWHYLEN:E{lengths['E']}|H{lengths['H']}|C{lengths['C']}|"
+        f"MAX{max_len}/{threshold}"
+    )
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget_signals(
+    threshold: int = 32,
+) -> dict[str, object]:
     copy_map = {
         "E": "escalate pressure checks",
         "H": "hold pressure cadence",
@@ -300,10 +316,12 @@ def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_fam
     }
     lengths = {alias: len(text) for alias, text in copy_map.items()}
     max_len = max(lengths.values()) if lengths else 0
-    return (
-        f"TSDPMSRFTWHYLEN:E{lengths['E']}|H{lengths['H']}|C{lengths['C']}|"
-        f"MAX{max_len}/{threshold}"
-    )
+    return {
+        "copyMap": copy_map,
+        "lengths": lengths,
+        "threshold": threshold,
+        "maxLen": max_len,
+    }
 
 
 def build_momentum_band_progression_sparkline(rows: list[str]) -> str:
@@ -565,6 +583,14 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
             score_band_dispatch_pressure_momentum_slope_recommendation_family_trend
         )
     )
+    why_copy_budget_signals = (
+        resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget_signals()
+    )
+    why_copy_budget_token = (
+        resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget(
+            threshold=int(why_copy_budget_signals["threshold"])
+        )
+    )
 
     return {
         "recentCompletedItems": total,
@@ -598,6 +624,8 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyAlias": score_band_dispatch_pressure_momentum_slope_recommendation_family_alias,
         "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend": score_band_dispatch_pressure_momentum_slope_recommendation_family_trend,
         "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendAlias": score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_alias,
+        "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudget": why_copy_budget_token,
+        "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudgetSignals": why_copy_budget_signals,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -646,7 +674,7 @@ def to_markdown(
                 "- trend-score momentum-slope rec family trend why alias decode: **TSDPMSRFTWHYA legend (E=escalate, H=hold, C=cool)**",
                 f"- trend-score momentum-slope rec family trend why (ai-content/systems): **TSDPMSRFT WHY:{resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why(family_trend)}**",
                 "- trend-score momentum-slope rec family trend why copy budget (design/ux): "
-                f"**{resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget()}**",
+                f"**{report.get('trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudget', resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget())}**",
             ]
         )
 

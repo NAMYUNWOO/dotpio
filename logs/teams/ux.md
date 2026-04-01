@@ -3377,3 +3377,6 @@
 - Idea slate (L/M/H): (1) WHY copy-budget audit row (selected), (2) JSON mirror for budget signals, (3) alternate rationale verb-pack experiment.
 - Shipped minimal vertical slice: optional markdown row `TSDPMSRFTWHYLEN:E24|H21|C21|MAX24/32` under `--include-trend-family-why`.
 - Injected follow-ups into TASKS/POST_RC: Systems/QA JSON contract mirror and AI Content/Design alt verb-pack prototype.
+
+## 2026-04-01 15:18 KST
+- Optional markdown WHY budget row (`TSDPMSRFTWHYLEN`) now sourced from payload token mirror, reducing drift risk between UI markdown and JSON artifacts.

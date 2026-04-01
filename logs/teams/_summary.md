@@ -4697,3 +4697,10 @@ Compact decision memory for AI context efficiency.
 
 - 2026-04-01 14:58 KST — Game Director Cycle IP5 executed immediately after backlog full-check: added optional `TSDPMSRFTWHYLEN` markdown audit row (`E24|H21|C21|MAX24/32`) to keep trend-rationale copy within DOS-width envelope.
 - Injected next tasks: (1) Systems/QA JSON mirror for WHY copy-budget signals, (2) AI Content/Design alt verb-pack experiment behind optional flag.
+
+
+## 2026-04-01 15:18 KST
+- Completed Systems/QA injected task from Cycle IP5: added JSON mirror for trend-family WHY copy-budget token and signals in lane guardrail report.
+- Durable decision: treat `TSDPMSRFTWHYLEN` as payload-first contract (`trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudget` + `...WhyCopyBudgetSignals`) and render markdown from payload value to avoid dual-source drift.
+- Regression now hard-locks `copyMap`, alias-length map, threshold, and maxLen in fixture outputs for downstream schema consumers.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md --include-trend-family-why`.
