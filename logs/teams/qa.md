@@ -5182,3 +5182,7 @@
   - markdown presence/decode checks
   - summary/token row-count parity including mixed-window fixtures.
 - Verification pass: `python3 -m py_compile ...` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.
+
+## 2026-04-02 08:23 KST
+- Cycle IP22 support: evaluated concise intensity decode readability for `TSDPMFXVWCRIA` and aligned digest/regression contract (`TSDPMFXVWCRIALEN:F52|C22|LIM72|PREF:CONCISE|PASS`).
+- Follow-up: keep concise alias decode default unless DOS width budget drops below current compact length.

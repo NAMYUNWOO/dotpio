@@ -3216,3 +3216,7 @@
 ## 2026-04-02 07:36 KST
 - Added combat-facing urgency-intensity cue rail (`TSDPMFXVWCRI`) so recommendation strength reads immediately in digest scans.
 - Intensity domain intentionally constrained to `SOFT|EDGE|HARD` for fast combat/vfx triage calls without extra prose.
+
+## 2026-04-02 08:23 KST
+- Cycle IP22 support: evaluated concise intensity decode readability for `TSDPMFXVWCRIA` and aligned digest/regression contract (`TSDPMFXVWCRIALEN:F52|C22|LIM72|PREF:CONCISE|PASS`).
+- Follow-up: keep concise alias decode default unless DOS width budget drops below current compact length.

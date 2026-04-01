@@ -130,6 +130,15 @@
     "preferred": "COMPACT",
     "status": "PASS"
   },
+  "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityDecodeEvaluation": {
+    "full": "SOFT=burst triage, EDGE=brace check, HARD=lock sweep",
+    "compact": "S=SOFT, E=EDGE, H=HARD",
+    "fullLen": 52,
+    "compactLen": 22,
+    "dosWidthLimit": 72,
+    "preferred": "CONCISE",
+    "status": "PASS"
+  },
   "trendScoreBandDispatchPressureMomentumBandSparkline": "NA",
   "trendScoreBandDispatchPressureMomentumSlope": "COOLING",
   "trendScoreBandDispatchPressureMomentumSlopeAlias": "C",

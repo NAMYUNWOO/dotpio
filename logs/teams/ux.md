@@ -3501,3 +3501,7 @@
 
 ## 2026-04-02 07:36 KST
 - UX check: recommendation-intensity alias rail (`S|E|H`) remains within DOS-width constraints and preserves one-scan digest ergonomics.
+
+## 2026-04-02 08:23 KST
+- Cycle IP22 support: evaluated concise intensity decode readability for `TSDPMFXVWCRIA` and aligned digest/regression contract (`TSDPMFXVWCRIALEN:F52|C22|LIM72|PREF:CONCISE|PASS`).
+- Follow-up: keep concise alias decode default unless DOS width budget drops below current compact length.

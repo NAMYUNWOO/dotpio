@@ -666,6 +666,34 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_tr
     }.get(intensity, "E")
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_decode_full() -> str:
+    return "SOFT=burst triage, EDGE=brace check, HARD=lock sweep"
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_decode_compact() -> str:
+    return "S=SOFT, E=EDGE, H=HARD"
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_decode_evaluation(
+    dos_width_limit: int = 72,
+) -> dict[str, object]:
+    full = resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_decode_full()
+    compact = resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_decode_compact()
+    full_len = len(full)
+    compact_len = len(compact)
+    preferred = "CONCISE" if compact_len <= full_len else "FULL"
+    status = "PASS" if compact_len <= dos_width_limit and full_len <= dos_width_limit else "WARN"
+    return {
+        "full": full,
+        "compact": compact,
+        "fullLen": full_len,
+        "compactLen": compact_len,
+        "dosWidthLimit": dos_width_limit,
+        "preferred": preferred,
+        "status": status,
+    }
+
+
 def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation(
     momentum_fx_cue: str,
 ) -> str:
@@ -1416,6 +1444,9 @@ def build_report(
     combat_callout_decode_evaluation = (
         resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_decode_evaluation()
     )
+    recommendation_intensity_decode_evaluation = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_decode_evaluation()
+    )
 
     return {
         "recentCompletedItems": total,
@@ -1481,6 +1512,7 @@ def build_report(
         "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeBaseline": combat_callout_decode_evaluation["baseline"],
         "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeCompact": combat_callout_decode_evaluation["compact"],
         "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeEvaluation": combat_callout_decode_evaluation,
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityDecodeEvaluation": recommendation_intensity_decode_evaluation,
         "trendScoreBandDispatchPressureMomentumBandSparkline": score_band_dispatch_pressure_momentum_band_sparkline,
         "trendScoreBandDispatchPressureMomentumSlope": score_band_dispatch_pressure_momentum_slope,
         "trendScoreBandDispatchPressureMomentumSlopeAlias": score_band_dispatch_pressure_momentum_slope_alias,
@@ -1649,6 +1681,12 @@ def to_markdown(
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation alias decode (design/world): **TSDPMFXVWCRA legend (LS=lock sweep, BC=brace check, BT=burst triage)**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity decode (design/world): **TSDPMFXVWCRI legend (SOFT=burst triage, EDGE=brace check, HARD=lock sweep)**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity alias decode (design/world): **TSDPMFXVWCRIA legend (S=SOFT, E=EDGE, H=HARD)**",
+            "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity alias decode dos-width eval (design/world): "
+            f"**TSDPMFXVWCRIALEN:F{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityDecodeEvaluation', {}).get('fullLen', 0)}|"
+            f"C{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityDecodeEvaluation', {}).get('compactLen', 0)}|"
+            f"LIM{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityDecodeEvaluation', {}).get('dosWidthLimit', 72)}|"
+            f"PREF:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityDecodeEvaluation', {}).get('preferred', 'CONCISE')}|"
+            f"{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityDecodeEvaluation', {}).get('status', 'PASS')}**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation alias decode dos-width eval (design/world): **TSDPMFXVWCRALEN:B45|C43|LIM72|PREF:COMPACT|PASS**",
             "- trend-score dispatch-pressure momentum fx urgency confidence decode (design/world): **TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend decode (design/world): **TSDPMFXUCT legend (U=UP, F=FLAT, D=DOWN)**",

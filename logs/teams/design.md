@@ -3335,3 +3335,7 @@
 ## 2026-04-02 07:36 KST
 - Reviewed new recommendation-intensity decode rows for compact readability: `TSDPMFXVWCRI legend` + `TSDPMFXVWCRIA legend`.
 - Kept vocabulary aligned with existing DOS-width style (`SOFT|EDGE|HARD`, `S|E|H`) and queued follow-up copy-budget comparison task.
+
+## 2026-04-02 08:23 KST
+- Cycle IP22 support: evaluated concise intensity decode readability for `TSDPMFXVWCRIA` and aligned digest/regression contract (`TSDPMFXVWCRIALEN:F52|C22|LIM72|PREF:CONCISE|PASS`).
+- Follow-up: keep concise alias decode default unless DOS width budget drops below current compact length.

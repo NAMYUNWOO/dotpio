@@ -4909,3 +4909,7 @@ Compact decision memory for AI context efficiency.
 - Shipped low-risk Combat/VFX vertical slice: guidance-confidence recommendation intensity token `TSDPMFXVWCRI` (+ alias `TSDPMFXVWCRIA`) derived from `TSDPMFXVWCR` with deterministic mapping and decode rows.
 - Regression hardening now enforces mapping + parity across `TSDPMFXVWCR/TSDPMFXVWCRA/TSDPMFXVWCRI/TSDPMFXVWCRIA` in mixed-window fixtures.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2 (next injected: adjacency order lock + design/world intensity-copy budget eval).
+
+## 2026-04-02 08:23 KST
+- Shipped IP22 backlog item: concise intensity decode readability evaluation for `TSDPMFXVWCRIA` with new explicit eval token `TSDPMFXVWCRIALEN` (full=52, concise=22, pref=CONCISE, pass @72 cols).
+- Durable decision: keep concise copy `S=SOFT, E=EDGE, H=HARD` as primary operator decode; retain full-line legend for semantic grounding.

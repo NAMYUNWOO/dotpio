@@ -4665,3 +4665,7 @@
 - Cycle IP11 minimal vertical slice shipped: added deterministic recommendation-intensity contract `TSDPMFXVWCRI`/`TSDPMFXVWCRIA` mapped from `TSDPMFXVWCR` (`lock sweep->HARD`, `brace check->EDGE`, `burst triage->SOFT`).
 - Extended mixed-window regression parity tuple to include `TSDPMFXVWCRI/TSDPMFXVWCRIA` across summary/token sections.
 - Verification: py_compile + lane-coverage regression + guardrail markdown/json regeneration passed.
+
+## 2026-04-02 08:23 KST
+- Cycle IP22 support: evaluated concise intensity decode readability for `TSDPMFXVWCRIA` and aligned digest/regression contract (`TSDPMFXVWCRIALEN:F52|C22|LIM72|PREF:CONCISE|PASS`).
+- Follow-up: keep concise alias decode default unless DOS width budget drops below current compact length.
