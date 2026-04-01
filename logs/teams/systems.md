@@ -4482,3 +4482,6 @@
 
 ## 2026-04-01 12:25 KST
 - Added deterministic recommendation-family schema fields (`...RecommendationFamily`, `...RecommendationFamilyAlias`) and regression locks for domain parity.
+
+## 2026-04-01 12:46 KST
+- Added recommendation-family trend fields to lane guardrail payload: `trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend` (`UP|FLAT|DOWN`) and compact alias `trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendAlias` (`U|F|D`).

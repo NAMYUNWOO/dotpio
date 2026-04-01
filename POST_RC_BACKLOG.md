@@ -2195,3 +2195,8 @@ Last updated: 2026-03-31 20:40 KST
   - High-risk novelty (AI Content/Systems): prototype confidence weighting for momentum-slope recommendation families.
 - Selected experiment: Idea 1 (low-risk UX/Design + Systems/QA) as minimal vertical slice.
 - [x] UX/Design + Systems/QA Team: Add recommendation-family payload+markdown alias (`trendScoreBandDispatchPressureMomentumSlopeRecommendationFamily`, `trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyAlias`, `TSDPMSRF`) with deterministic map (`HOLD->STABLE->S`, `PREP->READY->R`, `CLAMP->TRIAGE->T`). *(lifecycle: [ ] -> [~] started: 2026-04-01 12:23 KST -> [x] completed: 2026-04-01 12:25 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Game Director Injection — 2026-04-01 Cycle IP3
+- [ ] Systems/QA Team: Add fixture-level transition assertions for `trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend` covering explicit `UP` and `DOWN` cases (not only domain parity).
+- [ ] AI Content/Systems Team: Prototype optional offline rationale token for recommendation-family trend (`TSDPMSRFT WHY:<short>`) behind markdown flag.
+- [ ] Design/World Team: Draft compact trend-alias decode microcopy variant (`U=escalate`, `F=hold`, `D=cool`) that stays within DOS-width constraints.

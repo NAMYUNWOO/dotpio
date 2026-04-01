@@ -148,6 +148,14 @@ def run_fixture_case(
         report.get("trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyAlias")
         == expected_recommendation_family_alias
     ), f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyAlias must map deterministic compact alias from recommendation family"
+    family_trend = report.get("trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend")
+    assert family_trend in {"UP", "FLAT", "DOWN"}, (
+        f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend must stay in UP/FLAT/DOWN domain"
+    )
+    family_trend_alias = report.get("trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendAlias")
+    assert family_trend_alias == {"UP": "U", "FLAT": "F", "DOWN": "D"}.get(family_trend), (
+        f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendAlias must deterministically mirror family trend alias"
+    )
     assert (
         report.get("trendScoreBandDispatchPressureMomentumFxCue")
         == expected_dispatch_pressure_momentum_fx_cue
@@ -222,6 +230,14 @@ def run_fixture_case(
     ), f"{name}: markdown output must include compact momentum-slope recommendation-family alias row"
     assert "trend-score momentum-slope rec family decode: **TSDPMSRF legend (S=STABLE, R=READY, T=TRIAGE)**" in md_text, (
         f"{name}: markdown output must include TSDPMSRF decode row"
+    )
+    assert (
+        "trend-score momentum-slope rec family trend alias: "
+        f"**TSDPMSRFT:{family_trend_alias}** ({family_trend})"
+        in md_text
+    ), f"{name}: markdown output must include compact momentum-slope recommendation-family trend alias row"
+    assert "trend-score momentum-slope rec family trend decode: **TSDPMSRFT legend (U=UP, F=FLAT, D=DOWN)**" in md_text, (
+        f"{name}: markdown output must include TSDPMSRFT decode row"
     )
     assert (
         "trend-score dispatch-pressure momentum slope rec (ai-content/systems): "

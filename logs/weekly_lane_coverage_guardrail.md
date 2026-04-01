@@ -22,6 +22,8 @@
 - trend-score momentum-slope rec decode: **TSDPMSR legend (H=HOLD, P=PREP, C=CLAMP)**
 - trend-score momentum-slope rec family alias: **TSDPMSRF:S** (STABLE)
 - trend-score momentum-slope rec family decode: **TSDPMSRF legend (S=STABLE, R=READY, T=TRIAGE)**
+- trend-score momentum-slope rec family trend alias: **TSDPMSRFT:F** (FLAT)
+- trend-score momentum-slope rec family trend decode: **TSDPMSRFT legend (U=UP, F=FLAT, D=DOWN)**
 - trend-score dispatch-pressure momentum slope rec (ai-content/systems): **hold steady; validate calm-lane continuity**
 - trend-score dispatch-pressure momentum fx cue (combat/vfx): **SOFT**
 - trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:S**
@@ -33,14 +35,14 @@
 | systems | 3 | 30.0% |
 | world | 1 | 10.0% |
 | ai-content | 0 | 0.0% |
-| combat | 2 | 20.0% |
+| combat | 1 | 10.0% |
 | design | 3 | 30.0% |
 | ux | 2 | 20.0% |
 | qa | 3 | 30.0% |
-| vfx | 2 | 20.0% |
+| vfx | 1 | 10.0% |
 
 | cadence bucket | lanes | count | status |
 |---|---|---:|---|
-| combat-or-vfx | combat/vfx | 4 | met |
+| combat-or-vfx | combat/vfx | 2 | met |
 | design-or-world | design/world | 4 | met |
 | systems-or-ops | systems/qa | 6 | met |

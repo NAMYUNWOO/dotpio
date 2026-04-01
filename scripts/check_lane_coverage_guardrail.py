@@ -239,6 +239,35 @@ def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_fam
     return alias_map.get(recommendation_family, "S")
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend(
+    current_family: str,
+    prior_family: str,
+) -> str:
+    rank = {
+        "STABLE": 0,
+        "READY": 1,
+        "TRIAGE": 2,
+    }
+    current_rank = rank.get(current_family, 0)
+    prior_rank = rank.get(prior_family, 0)
+    if current_rank > prior_rank:
+        return "UP"
+    if current_rank < prior_rank:
+        return "DOWN"
+    return "FLAT"
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_alias(
+    trend: str,
+) -> str:
+    alias_map = {
+        "UP": "U",
+        "FLAT": "F",
+        "DOWN": "D",
+    }
+    return alias_map.get(trend, "F")
+
+
 def build_momentum_band_progression_sparkline(rows: list[str]) -> str:
     """Build compact sparkline over rolling momentum-band progression for recent rows.
 
@@ -475,6 +504,29 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
             score_band_dispatch_pressure_momentum_slope_recommendation_family
         )
     )
+    prior_rows = rows[:-1] if len(rows) > 1 else rows
+    prior_momentum_slope = resolve_trend_score_band_dispatch_pressure_momentum_slope(prior_rows)
+    prior_recommendation_state = (
+        resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_state(
+            prior_momentum_slope
+        )
+    )
+    prior_recommendation_family = (
+        resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family(
+            prior_recommendation_state
+        )
+    )
+    score_band_dispatch_pressure_momentum_slope_recommendation_family_trend = (
+        resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend(
+            score_band_dispatch_pressure_momentum_slope_recommendation_family,
+            prior_recommendation_family,
+        )
+    )
+    score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_alias = (
+        resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_alias(
+            score_band_dispatch_pressure_momentum_slope_recommendation_family_trend
+        )
+    )
 
     return {
         "recentCompletedItems": total,
@@ -506,6 +558,8 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "trendScoreBandDispatchPressureMomentumSlopeRecommendationAlias": score_band_dispatch_pressure_momentum_slope_recommendation_alias,
         "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamily": score_band_dispatch_pressure_momentum_slope_recommendation_family,
         "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyAlias": score_band_dispatch_pressure_momentum_slope_recommendation_family_alias,
+        "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend": score_band_dispatch_pressure_momentum_slope_recommendation_family_trend,
+        "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendAlias": score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_alias,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -564,6 +618,8 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             "- trend-score momentum-slope rec decode: **TSDPMSR legend (H=HOLD, P=PREP, C=CLAMP)**",
             f"- trend-score momentum-slope rec family alias: **TSDPMSRF:{report.get('trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyAlias', 'S')}** ({report.get('trendScoreBandDispatchPressureMomentumSlopeRecommendationFamily', 'STABLE')})",
             "- trend-score momentum-slope rec family decode: **TSDPMSRF legend (S=STABLE, R=READY, T=TRIAGE)**",
+            f"- trend-score momentum-slope rec family trend alias: **TSDPMSRFT:{report.get('trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendAlias', 'F')}** ({report.get('trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend', 'FLAT')})",
+            "- trend-score momentum-slope rec family trend decode: **TSDPMSRFT legend (U=UP, F=FLAT, D=DOWN)**",
             f"- trend-score dispatch-pressure momentum slope rec (ai-content/systems): **{report.get('trendScoreBandDispatchPressureMomentumSlopeRecommendation', 'hold steady; validate calm-lane continuity')}**",
             f"- trend-score dispatch-pressure momentum fx cue (combat/vfx): **{report.get('trendScoreBandDispatchPressureMomentumFxCue', 'SOFT')}**",
             f"- trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{report.get('trendScoreBandDispatchPressureMomentumFxCueAlias', 'S')}**",

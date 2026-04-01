@@ -3065,3 +3065,6 @@
 
 ## 2026-04-01 12:25 KST
 - Confirmed recommendation-family addition is analytics-only; no combat runtime tuning or balancing hooks changed.
+
+## 2026-04-01 12:46 KST
+- Verified new recommendation-family trend token remains analytics-only and does not affect combat runtime behavior.

@@ -3089,3 +3089,6 @@
 
 ## 2026-04-01 12:25 KST
 - Verified new recommendation-family decode row remains readable in compact weekly markdown sequence alongside existing alias rails.
+
+## 2026-04-01 12:46 KST
+- Reviewed trend-alias decode wording for DOS-width readability; kept `TSDPMSRFT` decode row short and scan-friendly.

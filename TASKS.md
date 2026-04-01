@@ -1,6 +1,20 @@
 # TASKS
 
-Last updated: 2026-03-31 05:02 KST
+Last updated: 2026-04-01 12:46 KST
+
+## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP3)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (UX/Systems): add compact recommendation-family trend alias token (`trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendAlias:U|F|D`) for one-glance direction read.
+  - Mid-risk Systems/QA: extend regression matrix to lock recommendation-family trend domain and markdown parity (`UP|FLAT|DOWN`).
+  - High-risk novelty (AI Content/Systems): prototype offline adaptive recommendation-family trend note keyed to prior-window volatility shifts.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] UX/Systems Team: Add payload + markdown compact recommendation-family trend alias token (`TSDPMSRFT:<U|F|D>`) with deterministic domain mapping from prior-window recommendation-family shift. *(lifecycle: [ ] -> [~] started: 2026-04-01 12:39 KST -> [x] completed: 2026-04-01 12:44 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP3)
+- [ ] Systems/QA Team (injected): Add explicit fixture-level prior-window trend assertion that validates `UP` and `DOWN` transitions (not only domain/alias parity).
+- [ ] AI Content/Systems Team (injected): Prototype offline recommendation-family trend rationale microcopy (`TSDPMSRFT WHY:<short>`) behind optional markdown flag.
+- [ ] Design/World Team (injected): Draft compact decode microcopy variant for trend alias (`U=escalate`, `F=hold`, `D=cool`) under DOS-width budget.
 
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle ILL)
 - Candidate ideas generated:

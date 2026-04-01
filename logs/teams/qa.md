@@ -5005,3 +5005,6 @@
 
 ## 2026-04-01 12:25 KST
 - Regression suite now asserts recommendation-family payload keys and markdown presence/decode rows for `TSDPMSRF`.
+
+## 2026-04-01 12:46 KST
+- Extended regression checks to validate recommendation-family trend domain/alias parity and markdown row presence for `TSDPMSRFT`.

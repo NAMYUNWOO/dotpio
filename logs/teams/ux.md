@@ -3352,3 +3352,6 @@
 
 ## 2026-04-01 12:25 KST
 - Shipped compact `TSDPMSRF:<S|R|T>` row for fast dense-read scans while preserving verbose recommendation context row.
+
+## 2026-04-01 12:46 KST
+- Shipped compact markdown row `TSDPMSRFT:<U|F|D>` so recommendation-family direction is visible without parsing verbose recommendation text.
