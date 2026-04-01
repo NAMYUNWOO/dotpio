@@ -12,7 +12,20 @@
 
 ## Next Up (Game Director Injection — Cycle IP16)
 - [x] Systems/Ops + QA Team (injected): Add fixture-level row-count parity assertion that `TSDPMFXUC` row count mirrors `TSDPMFXU` row count across summary + token sections. *(lifecycle: [ ] -> [~] started: 2026-04-02 00:47 KST -> [x] completed: 2026-04-02 00:48 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Combat Team (injected): Prototype offline urgency-confidence trend token (`TSDPMFXUCT:UP|FLAT|DOWN`) from consecutive `TSDPMFXUC` windows without runtime coupling.
+- [x] AI Content/Combat Team (injected): Prototype offline urgency-confidence trend token (`TSDPMFXUCT:UP|FLAT|DOWN`) from consecutive `TSDPMFXUC` windows without runtime coupling. *(lifecycle: [ ] -> [~] started: 2026-04-02 01:17 KST -> [x] completed: 2026-04-02 01:20 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP17)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=3, combat=3, design=2, ux=1, qa=3, vfx=2 (no lane >40%; forced underrepresented-lane override not triggered).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (UX/Combat): add compact urgency-confidence trend alias rail `TSDPMFXUCTA:<U|F|D>` for tighter one-glance digest scans.
+  - Mid-risk Systems/QA: lock urgency-cluster order/cardinality including trend-alias row across summary + token sections.
+  - High-risk novelty (AI Content/Systems): prototype offline urgency-confidence trend momentum score from multi-window `TSDPMFXUCT` drift.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] UX/Combat + Systems/QA Team: Add offline urgency-confidence trend alias token (`TSDPMFXUCTA:<U|F|D>`) and decode row with deterministic mapping from `TSDPMFXUCT`, including urgency-cluster order lock updates in regression. *(lifecycle: [ ] -> [~] started: 2026-04-02 01:22 KST -> [x] completed: 2026-04-02 01:26 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP17)
+- [ ] Systems/Ops + QA Team (injected): Add fixture-level parity assertion that `TSDPMFXUCTA` row count mirrors `TSDPMFXUCT` row count across summary + token sections.
+- [ ] AI Content/Systems Team (injected): Prototype offline urgency-confidence trend momentum token (`TSDPMFXUCTS:0..100`) from weighted multi-window `TSDPMFXUCT` drift without runtime coupling.
 
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP15)
 - Candidate ideas generated:

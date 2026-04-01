@@ -99,6 +99,8 @@
   "trendScoreBandDispatchPressureMomentumFxUrgencyCue": "SURGE",
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueAlias": "U",
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidence": "HIGH",
+  "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrend": "FLAT",
+  "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendAlias": "F",
   "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": "steady pace; hold broad scan",
   "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": "HOLD_LINE",
   "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": "HL",

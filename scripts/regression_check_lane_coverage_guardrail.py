@@ -447,6 +447,29 @@ def run_fixture_case(
     assert urgency_confidence_value == expected_urgency_confidence_value, (
         f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidence must deterministically map from recent TSDPCONWCTSBT churn"
     )
+    urgency_confidence_trend_value = report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrend"
+    )
+    assert urgency_confidence_trend_value in {"UP", "FLAT", "DOWN"}, (
+        f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrend must stay within UP|FLAT|DOWN"
+    )
+    expected_urgency_confidence_trend_value = (
+        load_guardrail_module().resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend(rows)
+    )
+    assert urgency_confidence_trend_value == expected_urgency_confidence_trend_value, (
+        f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrend must deterministically map from consecutive TSDPMFXUC windows"
+    )
+    urgency_confidence_trend_alias_value = report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendAlias"
+    )
+    expected_urgency_confidence_trend_alias_value = {
+        "UP": "U",
+        "FLAT": "F",
+        "DOWN": "D",
+    }[urgency_confidence_trend_value]
+    assert urgency_confidence_trend_alias_value == expected_urgency_confidence_trend_alias_value, (
+        f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendAlias must mirror UP|FLAT|DOWN alias"
+    )
     assert (
         "trend-score dispatch pressure cadence override note rationale confidence (ai-content/systems, offline): "
         f"**TSDPCON WHY CONF:{confidence_value}**"
@@ -953,24 +976,68 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include offline urgency-confidence row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency confidence trend (ai-content/combat, offline): "
+        f"**TSDPMFXUCT:{urgency_confidence_trend_value}**"
+        in md_text
+    ), f"{name}: markdown output must include offline urgency-confidence trend row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency confidence trend alias: "
+        f"**TSDPMFXUCTA:{urgency_confidence_trend_alias_value}**"
+        in md_text
+    ), f"{name}: markdown output must include compact urgency-confidence trend alias row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency confidence decode (design/world): "
         "**TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)**"
         in md_text
     ), f"{name}: markdown output must include urgency-confidence decode row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency confidence trend decode (design/world): "
+        "**TSDPMFXUCT legend (U=UP, F=FLAT, D=DOWN)**"
+        in md_text
+    ), f"{name}: markdown output must include urgency-confidence trend decode row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency confidence trend alias decode (design/world): "
+        "**TSDPMFXUCTA legend (U=UP, F=FLAT, D=DOWN)**"
+        in md_text
+    ), f"{name}: markdown output must include urgency-confidence trend alias decode row"
     urgency_confidence_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency confidence (ai-content/combat, offline): "
         f"**TSDPMFXUC:{urgency_confidence_value}**"
+    )
+    urgency_confidence_trend_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency confidence trend (ai-content/combat, offline): "
+        f"**TSDPMFXUCT:{urgency_confidence_trend_value}**"
+    )
+    urgency_confidence_trend_alias_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency confidence trend alias: "
+        f"**TSDPMFXUCTA:{urgency_confidence_trend_alias_value}**"
     )
     urgency_confidence_decode_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency confidence decode (design/world): "
         "**TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)**"
     )
+    urgency_confidence_trend_decode_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency confidence trend decode (design/world): "
+        "**TSDPMFXUCT legend (U=UP, F=FLAT, D=DOWN)**"
+    )
+    urgency_confidence_trend_alias_decode_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency confidence trend alias decode (design/world): "
+        "**TSDPMFXUCTA legend (U=UP, F=FLAT, D=DOWN)**"
+    )
     urgency_decode_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency cue decode (design/world): "
         "**SOFT=trend cooling (DOWN), SURGE=trend stable (FLAT), SPIKE=trend rising (UP)**"
     )
-    assert urgency_confidence_idx < urgency_confidence_decode_idx < urgency_decode_idx, (
-        f"{name}: urgency cluster order must keep `TSDPMFXUC -> TSDPMFXUC legend -> TSDPMFXU decode`"
+    assert (
+        urgency_confidence_idx
+        < urgency_confidence_trend_idx
+        < urgency_confidence_trend_alias_idx
+        < urgency_confidence_decode_idx
+        < urgency_confidence_trend_decode_idx
+        < urgency_confidence_trend_alias_decode_idx
+        < urgency_decode_idx
+    ), (
+        f"{name}: urgency cluster order must keep `TSDPMFXUC -> TSDPMFXUCT -> TSDPMFXUCTA -> TSDPMFXUC legend -> TSDPMFXUCT legend -> TSDPMFXUCTA legend -> TSDPMFXU decode`"
     )
     fx_urgency_row_count = md_text.count("**TSDPMFXU:")
     fx_urgency_confidence_row_count = md_text.count("**TSDPMFXUC:")

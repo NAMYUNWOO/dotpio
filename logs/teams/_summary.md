@@ -4832,3 +4832,7 @@ Compact decision memory for AI context efficiency.
 - Verification remained green (py_compile + regression + guardrail artifact regeneration).
 - 2026-04-02 00:48 KST — Closed highest-priority open item from TASKS/POST_RC_BACKLOG: fixture-level `TSDPMFXUC` vs `TSDPMFXU` row-count parity assertion is now enforced in regression (`scripts/regression_check_lane_coverage_guardrail.py`).
 - Queue status: ACTION_ITEMS=0 open, TASKS=1 open, POST_RC_BACKLOG=1 open (next highest priority: AI Content/Combat `TSDPMFXUCT` offline trend prototype).
+- 2026-04-02 01:20 KST — Closed highest-priority open item from TASKS/POST_RC_BACKLOG: shipped offline urgency-confidence trend token `TSDPMFXUCT:UP|FLAT|DOWN` derived from consecutive `TSDPMFXUC` windows; extended report payload/markdown rows + regression order contract (`TSDPMFXUC -> TSDPMFXUCT -> decode rows -> TSDPMFXU decode`) and regenerated weekly lane guardrail artifacts.
+- Queue status: ACTION_ITEMS=0 open, TASKS=0 open, POST_RC_BACKLOG=0 open. Next cycle should execute Game Director review loop (3 ideas -> choose 1 -> vertical slice -> verify -> backlog injection).
+- 2026-04-02 01:26 KST — Game Director Cycle IP17 shipped minimal vertical slice: `TSDPMFXUCTA` compact alias for urgency-confidence trend, plus decode/order regression lock updates across summary + token-coverage sections.
+- Injected next tasks (Cycle IP17): (1) `TSDPMFXUCTA` vs `TSDPMFXUCT` fixture-level row-count parity assertion, (2) offline urgency-confidence trend momentum token prototype `TSDPMFXUCTS:0..100`.
