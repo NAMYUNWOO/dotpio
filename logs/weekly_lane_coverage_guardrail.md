@@ -29,15 +29,19 @@
 - trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:S**
 - trend-score dispatch-pressure momentum fx cue cadence decode (design/world): **SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**
 - trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): **steady pace; hold broad scan**
+- trend-score momentum-slope rec family trend decode variant (design/world): **TSDPMSRFT legend (U=escalate, F=hold, D=cool)**
+- trend-score momentum-slope rec family trend why alias: **TSDPMSRFTWHYA:H**
+- trend-score momentum-slope rec family trend why alias decode: **TSDPMSRFTWHYA legend (E=escalate, H=hold, C=cool)**
+- trend-score momentum-slope rec family trend why (ai-content/systems): **TSDPMSRFT WHY:hold lane pressure cadence**
 
 | lane | count | percent |
 |---|---:|---:|
 | systems | 3 | 30.0% |
 | world | 1 | 10.0% |
-| ai-content | 0 | 0.0% |
+| ai-content | 1 | 10.0% |
 | combat | 1 | 10.0% |
 | design | 3 | 30.0% |
-| ux | 2 | 20.0% |
+| ux | 1 | 10.0% |
 | qa | 2 | 20.0% |
 | vfx | 1 | 10.0% |
 

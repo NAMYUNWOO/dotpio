@@ -13,8 +13,21 @@ Last updated: 2026-04-01 12:46 KST
 
 ## Next Up (Game Director Injection — Cycle IP3)
 - [x] Systems/QA Team (injected): Add explicit fixture-level prior-window trend assertion that validates `UP` and `DOWN` transitions (not only domain/alias parity). *(lifecycle: [ ] -> [~] started: 2026-04-01 13:22 KST -> [x] completed: 2026-04-01 13:27 KST; verification: `python3 -m py_compile scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Systems Team (injected): Prototype offline recommendation-family trend rationale microcopy (`TSDPMSRFT WHY:<short>`) behind optional markdown flag.
-- [ ] Design/World Team (injected): Draft compact decode microcopy variant for trend alias (`U=escalate`, `F=hold`, `D=cool`) under DOS-width budget.
+- [x] AI Content/Systems Team (injected): Prototype offline recommendation-family trend rationale microcopy (`TSDPMSRFT WHY:<short>`) behind optional markdown flag. *(lifecycle: [ ] -> [~] started: 2026-04-01 13:52 KST -> [x] completed: 2026-04-01 13:58 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md --include-trend-family-why`)*
+- [x] Design/World Team (injected): Draft compact decode microcopy variant for trend alias (`U=escalate`, `F=hold`, `D=cool`) under DOS-width budget. *(lifecycle: [ ] -> [x] completed: 2026-04-01 13:58 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md --include-trend-family-why`)*
+
+## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP4)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (UX/AI-content): add compact rationale alias token for optional trend WHY row (`TSDPMSRFTWHYA:E|H|C`) for denser markdown scanning.
+  - Mid-risk Systems/QA: lock optional-row ordering contract (`decode variant -> why alias -> why sentence`) when `--include-trend-family-why` is enabled.
+  - High-risk novelty (AI Content/Systems): prototype offline rationale confidence tier (`TSDPMSRFT WHYC:LOW|MID|HIGH`) from prior-window consistency.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] UX/AI-content + Systems/QA Team: Add optional compact trend-rationale alias row (`TSDPMSRFTWHYA:E|H|C`) mapped from `UP|FLAT|DOWN` and render alongside `TSDPMSRFT WHY` when markdown flag is enabled. *(lifecycle: [ ] -> [~] started: 2026-04-01 14:02 KST -> [x] completed: 2026-04-01 14:06 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md --include-trend-family-why`)*
+
+## Next Up (Game Director Injection — Cycle IP4)
+- [ ] Systems/QA Team (injected): Add explicit optional-row ordering assertions so `TSDPMSRFT decode variant -> TSDPMSRFTWHYA -> TSDPMSRFT WHY` remains stable when flag is enabled.
+- [ ] AI Content/Design Team (injected): Draft tighter DOS-width alternative wording for `TSDPMSRFT WHY` phrases (`escalate/hold/cool`) and evaluate readability trade-offs.
 
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle ILL)
 - Candidate ideas generated:

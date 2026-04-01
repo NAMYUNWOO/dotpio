@@ -14,7 +14,13 @@ ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "check_lane_coverage_guardrail.py"
 
 
-def run_guardrail(backlog: Path, json_out: Path, md_out: Path) -> dict:
+def run_guardrail(
+    backlog: Path,
+    json_out: Path,
+    md_out: Path,
+    *,
+    include_trend_family_why: bool = False,
+) -> dict:
     cmd = [
         sys.executable,
         str(SCRIPT),
@@ -29,6 +35,8 @@ def run_guardrail(backlog: Path, json_out: Path, md_out: Path) -> dict:
         "--md-out",
         str(md_out),
     ]
+    if include_trend_family_why:
+        cmd.append("--include-trend-family-why")
     subprocess.run(cmd, check=True, cwd=ROOT)
     return json.loads(json_out.read_text(encoding="utf-8"))
 
@@ -65,7 +73,7 @@ def run_fixture_case(
 
     backlog.write_text("\n".join(["# fixture", *rows]) + "\n", encoding="utf-8")
 
-    report = run_guardrail(backlog, json_out, md_out)
+    report = run_guardrail(backlog, json_out, md_out, include_trend_family_why=True)
     snapshot = report.get("trendScoreBandSnapshot")
     assert snapshot == expected_snapshot, (
         f"{name}: trendScoreBandSnapshot counts must include alias/full-token matches"
@@ -244,6 +252,36 @@ def run_fixture_case(
     assert "trend-score momentum-slope rec family trend decode: **TSDPMSRFT legend (U=UP, F=FLAT, D=DOWN)**" in md_text, (
         f"{name}: markdown output must include TSDPMSRFT decode row"
     )
+    expected_family_trend_why = {
+        "UP": "escalate lane pressure checks",
+        "FLAT": "hold lane pressure cadence",
+        "DOWN": "cool lane pressure posture",
+    }.get(family_trend, "hold lane pressure cadence")
+    expected_family_trend_why_alias = {
+        "UP": "E",
+        "FLAT": "H",
+        "DOWN": "C",
+    }.get(family_trend, "H")
+    assert (
+        "trend-score momentum-slope rec family trend decode variant (design/world): "
+        "**TSDPMSRFT legend (U=escalate, F=hold, D=cool)**"
+        in md_text
+    ), f"{name}: markdown output must include optional design/world trend decode variant when flag enabled"
+    assert (
+        "trend-score momentum-slope rec family trend why alias: "
+        f"**TSDPMSRFTWHYA:{expected_family_trend_why_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include optional trend-rationale alias row when flag enabled"
+    assert (
+        "trend-score momentum-slope rec family trend why alias decode: "
+        "**TSDPMSRFTWHYA legend (E=escalate, H=hold, C=cool)**"
+        in md_text
+    ), f"{name}: markdown output must include optional trend-rationale alias decode row when flag enabled"
+    assert (
+        "trend-score momentum-slope rec family trend why (ai-content/systems): "
+        f"**TSDPMSRFT WHY:{expected_family_trend_why}**"
+        in md_text
+    ), f"{name}: markdown output must include optional ai-content/systems trend rationale microcopy when flag enabled"
     assert (
         "trend-score dispatch-pressure momentum slope rec (ai-content/systems): "
         f"**{expected_dispatch_pressure_momentum_slope_recommendation}**"

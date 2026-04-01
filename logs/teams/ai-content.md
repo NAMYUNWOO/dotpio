@@ -3184,3 +3184,10 @@
 ## 2026-04-01 12:46 KST
 - Confirmed recommendation-family trend semantics remain offline-only guidance (escalate/hold/cool direction) with no runtime coupling.
 - 2026-04-01 13:27 KST: Closed injected Systems/QA trend-transition item; regression matrix now includes explicit prior-window `UP` + `DOWN` fixtures for `trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend`, preventing domain-only false passes.
+## 2026-04-01 13:58 KST
+- Completed optional markdown rationale microcopy behind `--include-trend-family-why`.
+- Added `TSDPMSRFT WHY:<short>` deterministic copy from trend family (`UP|FLAT|DOWN`).
+- Mapping locked: `UP -> escalate lane pressure checks`, `FLAT -> hold lane pressure cadence`, `DOWN -> cool lane pressure posture`.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail generation with `--include-trend-family-why`.
+## 2026-04-01 14:06 KST
+- Added compact rationale alias support (`E|H|C`) for `TSDPMSRFT WHY` optional rail to improve dense markdown scan speed.

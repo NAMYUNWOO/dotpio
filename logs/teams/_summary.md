@@ -4671,3 +4671,16 @@ Compact decision memory for AI context efficiency.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Injected follow-ups into TASKS/POST_RC_BACKLOG for fixture transition coverage + optional rationale/microcopy rails.
 - 2026-04-01 13:27 KST decision: lock prior-window trend behavior with explicit `UP`/`DOWN` fixture cases in `scripts/regression_check_lane_coverage_guardrail.py`; keep next queue focused on optional `TSDPMSRFT WHY` microcopy and compact decode wording.
+
+## 2026-04-01 13:58 KST
+- Closed remaining Cycle IP3 injected tasks in `TASKS.md`: optional trend-family rationale microcopy + compact decode variant.
+- Durable decision: keep `TSDPMSRFT WHY` and `U/F/D` compact decode variant markdown-only and gated behind `--include-trend-family-why` to avoid default digest noise.
+- Files changed: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`, `TASKS.md`, team logs.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md --include-trend-family-why`.
+- Queue status now: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for Game Director review cycle trigger).
+
+## 2026-04-01 14:06 KST
+- Executed Game Director Cycle IP4 after queue reached all-checked state.
+- Shipped minimal vertical slice: optional `TSDPMSRFTWHYA` alias rail (`E|H|C`) + decode legend, paired with existing `TSDPMSRFT WHY` under `--include-trend-family-why`.
+- Injected next tasks into TASKS/POST_RC: optional-row ordering assertion and tighter DOS-width WHY wording study.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md --include-trend-family-why`.

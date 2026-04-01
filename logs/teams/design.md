@@ -3182,3 +3182,9 @@
 ## 2026-04-01 12:46 KST
 - Added compact decode guidance for `TSDPMSRFT` (`U=UP, F=FLAT, D=DOWN`) to support one-glance operator interpretation in dense markdown rails.
 - 2026-04-01 13:27 KST: Closed injected Systems/QA trend-transition item; regression matrix now includes explicit prior-window `UP` + `DOWN` fixtures for `trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend`, preventing domain-only false passes.
+## 2026-04-01 13:58 KST
+- Added compact decode variant row for trend alias behind optional markdown flag.
+- New decode variant: `TSDPMSRFT legend (U=escalate, F=hold, D=cool)` to keep DOS-width readability.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + md generation with `--include-trend-family-why`.
+## 2026-04-01 14:06 KST
+- Reviewed Cycle IP4 optional trend-rationale alias slice for lane consistency; no direct code changes in this lane.

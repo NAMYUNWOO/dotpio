@@ -268,6 +268,28 @@ def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_fam
     return alias_map.get(trend, "F")
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why(
+    trend: str,
+) -> str:
+    mapping = {
+        "UP": "escalate lane pressure checks",
+        "FLAT": "hold lane pressure cadence",
+        "DOWN": "cool lane pressure posture",
+    }
+    return mapping.get(trend, "hold lane pressure cadence")
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_alias(
+    trend: str,
+) -> str:
+    alias_map = {
+        "UP": "E",
+        "FLAT": "H",
+        "DOWN": "C",
+    }
+    return alias_map.get(trend, "H")
+
+
 def build_momentum_band_progression_sparkline(rows: list[str]) -> str:
     """Build compact sparkline over rolling momentum-band progression for recent rows.
 
@@ -564,7 +586,11 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
     }
 
 
-def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
+def to_markdown(
+    report: dict,
+    recent_rows: list[str] | None = None,
+    include_trend_family_why: bool = False,
+) -> str:
     _ = recent_rows
     score_band_snapshot = report.get("trendScoreBandSnapshot", {"CALM": 0, "EDGE": 0, "HEATED": 0})
     score_band_summary = (
@@ -590,6 +616,21 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
         lanes = "/".join(details["lanes"])
         status = "met" if details["met"] else "missing"
         bucket_rows.append(f"| {bucket} | {lanes} | {details['count']} | {status} |")
+
+    optional_rows: list[str] = []
+    if include_trend_family_why:
+        family_trend = report.get(
+            "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend",
+            "FLAT",
+        )
+        optional_rows.extend(
+            [
+                "- trend-score momentum-slope rec family trend decode variant (design/world): **TSDPMSRFT legend (U=escalate, F=hold, D=cool)**",
+                f"- trend-score momentum-slope rec family trend why alias: **TSDPMSRFTWHYA:{resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_alias(family_trend)}**",
+                "- trend-score momentum-slope rec family trend why alias decode: **TSDPMSRFTWHYA legend (E=escalate, H=hold, C=cool)**",
+                f"- trend-score momentum-slope rec family trend why (ai-content/systems): **TSDPMSRFT WHY:{resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why(family_trend)}**",
+            ]
+        )
 
     return "\n".join(
         [
@@ -625,6 +666,7 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             f"- trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{report.get('trendScoreBandDispatchPressureMomentumFxCueAlias', 'S')}**",
             "- trend-score dispatch-pressure momentum fx cue cadence decode (design/world): **SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**",
             f"- trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): **{report.get('trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation', 'steady pace; hold broad scan')}**",
+            *optional_rows,
             "",
             *rows,
             *bucket_rows,
@@ -639,6 +681,11 @@ def main() -> int:
     parser.add_argument("--cap-ratio", type=float, default=0.40)
     parser.add_argument("--json-out", type=Path)
     parser.add_argument("--md-out", type=Path)
+    parser.add_argument(
+        "--include-trend-family-why",
+        action="store_true",
+        help="Include optional TSDPMSRFT WHY rationale + decode variant rows in markdown output.",
+    )
     args = parser.parse_args()
 
     text = args.backlog.read_text(encoding="utf-8")
@@ -653,7 +700,15 @@ def main() -> int:
 
     if args.md_out:
         args.md_out.parent.mkdir(parents=True, exist_ok=True)
-        args.md_out.write_text(to_markdown(report, recent_rows=rows) + "\n", encoding="utf-8")
+        args.md_out.write_text(
+            to_markdown(
+                report,
+                recent_rows=rows,
+                include_trend_family_why=args.include_trend_family_why,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
 
     return 0
 
