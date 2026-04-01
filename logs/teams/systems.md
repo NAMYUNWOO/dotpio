@@ -4619,3 +4619,8 @@
 - Decision: Deterministic mapping with recency-weighted averaging (`DOWN=0`, `FLAT=50`, `UP=100`).
 - Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up: Candidate input for next Game Director experiment scoring.
+
+## 2026-04-02 02:30 KST — Cycle IP18 vertical slice: TSDPMFXUCTSB
+- Task: Shipped `TSDPMFXUCTSB:LOW|MID|HIGH` from `TSDPMFXUCTS` bucket mapping (`0-33`, `34-66`, `67-100`).
+- Contract: Regression now enforces domain, deterministic mapping, urgency-cluster order, and row-count parity (`TSDPMFXUCTSB` mirrors `TSDPMFXUCTS`).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

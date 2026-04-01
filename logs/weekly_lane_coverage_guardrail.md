@@ -60,6 +60,7 @@
 - trend-score dispatch-pressure momentum fx urgency confidence trend (ai-content/combat, offline): **TSDPMFXUCT:FLAT**
 - trend-score dispatch-pressure momentum fx urgency confidence trend alias: **TSDPMFXUCTA:F**
 - trend-score dispatch-pressure momentum fx urgency confidence trend momentum score (ai-content/systems, offline): **TSDPMFXUCTS:50**
+- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band (ux/ai-content, offline): **TSDPMFXUCTSB:MID**
 - trend-score dispatch-pressure momentum fx urgency confidence decode (design/world): **TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)**
 - trend-score dispatch-pressure momentum fx urgency confidence trend decode (design/world): **TSDPMFXUCT legend (U=UP, F=FLAT, D=DOWN)**
 - trend-score dispatch-pressure momentum fx urgency confidence trend alias decode (design/world): **TSDPMFXUCTA legend (U=UP, F=FLAT, D=DOWN)**

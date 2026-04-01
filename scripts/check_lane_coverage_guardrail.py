@@ -532,6 +532,16 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_tr
     return int(round(weighted_total / weight_sum))
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band(
+    momentum_score: int,
+) -> str:
+    if momentum_score >= 67:
+        return "HIGH"
+    if momentum_score >= 34:
+        return "MID"
+    return "LOW"
+
+
 def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation(
     momentum_fx_cue: str,
 ) -> str:
@@ -1128,6 +1138,11 @@ def build_report(
             rows
         )
     )
+    score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band(
+            score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_score
+        )
+    )
     score_band_dispatch_pressure_momentum_slope_recommendation = (
         resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation(
             score_band_dispatch_pressure_momentum_slope
@@ -1235,6 +1250,7 @@ def build_report(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrend": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendAlias": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_alias,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumScore": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_score,
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBand": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band,
         "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": score_band_dispatch_pressure_momentum_fx_cue_combat_callout,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": score_band_dispatch_pressure_momentum_fx_cue_combat_callout_alias,
@@ -1391,6 +1407,7 @@ def to_markdown(
             f"- trend-score dispatch-pressure momentum fx urgency confidence trend (ai-content/combat, offline): **TSDPMFXUCT:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrend', 'FLAT')}**",
             f"- trend-score dispatch-pressure momentum fx urgency confidence trend alias: **TSDPMFXUCTA:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendAlias', 'F')}**",
             f"- trend-score dispatch-pressure momentum fx urgency confidence trend momentum score (ai-content/systems, offline): **TSDPMFXUCTS:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumScore', 50)}**",
+            f"- trend-score dispatch-pressure momentum fx urgency confidence trend momentum band (ux/ai-content, offline): **TSDPMFXUCTSB:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBand', 'MID')}**",
             "- trend-score dispatch-pressure momentum fx urgency confidence decode (design/world): **TSDPMFXUC legend (LOW=volatile churn, MID=mixed churn, HIGH=steady churn)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend decode (design/world): **TSDPMFXUCT legend (U=UP, F=FLAT, D=DOWN)**",
             "- trend-score dispatch-pressure momentum fx urgency confidence trend alias decode (design/world): **TSDPMFXUCTA legend (U=UP, F=FLAT, D=DOWN)**",

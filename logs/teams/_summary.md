@@ -4844,3 +4844,9 @@ Compact decision memory for AI context efficiency.
 - Implementation: `scripts/check_lane_coverage_guardrail.py` adds deterministic weighted resolver over consecutive `TSDPMFXUCT` trend windows; markdown/json rows emitted.
 - Regression: `scripts/regression_check_lane_coverage_guardrail.py` now locks domain (0..100), deterministic mapping, row ordering (`...TSDPMFXUCTA -> TSDPMFXUCTS -> legends`), and row-count parity (`TSDPMFXUCTS` mirrors `TSDPMFXUCT`).
 - Backlog sync: item marked `[x]` in both `TASKS.md` and `POST_RC_BACKLOG.md` with lifecycle + verification evidence.
+
+## 2026-04-02 02:30 KST — Game Director Cycle IP18 shipped
+- Ideas considered: (1) low-risk `TSDPMFXUCTSB` momentum-band alias, (2) mid-risk cluster order/cardinality lock, (3) high-risk momentum acceleration token prototype.
+- Selected/implemented: Idea 1 (`TSDPMFXUCTSB:LOW|MID|HIGH`) as minimal vertical slice.
+- Durable decision: Keep urgency-confidence momentum family deterministic and additive; new band token is derived strictly from `TSDPMFXUCTS` bucket thresholds.
+- Injected backlog: `TSDPMFXUCTSB` parity assertion + `TSDPMFXUCTSBT` trend prototype queued in TASKS/POST_RC_BACKLOG.

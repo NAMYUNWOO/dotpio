@@ -2,6 +2,20 @@
 
 Last updated: 2026-04-02 00:22 KST
 
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP18)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=3, combat=3, design=2, ux=1, qa=3, vfx=2 (no lane >40%; forced underrepresented-lane override not triggered).
+- 24h cadence buckets: combat/vfx=5 ✅, design/world=3 ✅, systems/ops(qa)=6 ✅.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (UX/AI-content): add compact urgency-confidence trend momentum band token `TSDPMFXUCTSB:LOW|MID|HIGH` for denser one-glance digest scans.
+  - Mid-risk Systems/QA: lock urgency-confidence momentum cluster order/cardinality (`TSDPMFXUCTS -> TSDPMFXUCTSB`) across summary + token sections.
+  - High-risk novelty (AI Content/Systems): prototype offline urgency-confidence trend momentum acceleration token from multi-window score deltas.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] UX/AI-content + Systems/QA Team: Add offline urgency-confidence trend momentum band token (`TSDPMFXUCTSB:LOW|MID|HIGH`) mapped from `TSDPMFXUCTS` buckets (`0-33`, `34-66`, `67-100`) with deterministic markdown parity/regression lock. *(lifecycle: [ ] -> [~] started: 2026-04-02 02:28 KST -> [x] completed: 2026-04-02 02:30 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP18)
+- [ ] Systems/Ops + QA Team (injected): Add fixture-level row-count parity assertion that `TSDPMFXUCTSB` row count mirrors `TSDPMFXUCTS` row count across summary + token sections.
+- [ ] AI Content/Systems Team (injected): Prototype offline urgency-confidence momentum-band trend token (`TSDPMFXUCTSBT:UP|FLAT|DOWN`) from consecutive `TSDPMFXUCTSB` windows without runtime coupling.
+
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP16)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=3, combat=3, design=2, ux=1, qa=3, vfx=2 (no lane >40%; forced underrepresented-lane override not triggered).
 - 24h cadence buckets: combat/vfx=5 ✅, design/world=3 ✅, systems/ops(qa)=6 ✅.
