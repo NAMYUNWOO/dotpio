@@ -702,6 +702,62 @@ def resolve_cadence_override_note_rationale_confidence_trend_alias(trend: str) -
     }.get(trend, "F")
 
 
+def resolve_cadence_override_note_rationale_confidence_trend_momentum_score(rows: list[str]) -> int:
+    """Resolve weighted confidence-trend momentum score from churn-window drift.
+
+    Domain: 0..100 (50 is neutral)
+    """
+    windows = _build_note_slope_windows(rows)
+    if len(windows) <= 1:
+        return 50
+
+    confidence_rank = {"LOW": 0, "MID": 1, "HIGH": 2}
+
+    def confidence_for_prefix(end_idx: int) -> str:
+        prefix_windows = windows[: end_idx + 1]
+        if len(prefix_windows) <= 1:
+            return "HIGH"
+        churn = 0
+        for prev, curr in zip(prefix_windows, prefix_windows[1:]):
+            if prev != curr:
+                churn += 1
+        if churn <= 1:
+            return "HIGH"
+        if churn <= 3:
+            return "MID"
+        return "LOW"
+
+    weighted_delta = 0
+    total_weight = 0
+    for idx in range(1, len(windows)):
+        prev_confidence = confidence_for_prefix(idx - 1)
+        curr_confidence = confidence_for_prefix(idx)
+        delta = confidence_rank[curr_confidence] - confidence_rank[prev_confidence]
+        weight = idx
+        weighted_delta += delta * weight
+        total_weight += weight
+
+    normalized = weighted_delta / total_weight if total_weight else 0.0
+    score = int(round(((normalized + 1.0) / 2.0) * 100.0))
+    return max(0, min(100, score))
+
+
+def resolve_cadence_override_note_rationale_confidence_trend_momentum_band(score: int) -> str:
+    if score >= 67:
+        return "HIGH"
+    if score >= 34:
+        return "MID"
+    return "LOW"
+
+
+def resolve_cadence_override_note_rationale_confidence_trend_momentum_band_alias(band: str) -> str:
+    return {
+        "LOW": "L",
+        "MID": "M",
+        "HIGH": "H",
+    }.get(band, "M")
+
+
 def build_report(
     rows: list[str],
     cap_ratio: float,
@@ -857,6 +913,19 @@ def build_report(
             cadence_override_note_rationale_confidence_trend
         )
     )
+    cadence_override_note_rationale_confidence_trend_momentum_score = (
+        resolve_cadence_override_note_rationale_confidence_trend_momentum_score(rows)
+    )
+    cadence_override_note_rationale_confidence_trend_momentum_band = (
+        resolve_cadence_override_note_rationale_confidence_trend_momentum_band(
+            cadence_override_note_rationale_confidence_trend_momentum_score
+        )
+    )
+    cadence_override_note_rationale_confidence_trend_momentum_band_alias = (
+        resolve_cadence_override_note_rationale_confidence_trend_momentum_band_alias(
+            cadence_override_note_rationale_confidence_trend_momentum_band
+        )
+    )
     score_band_dispatch_pressure_momentum_slope_recommendation = (
         resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation(
             score_band_dispatch_pressure_momentum_slope
@@ -948,6 +1017,9 @@ def build_report(
         "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceAlias": cadence_override_note_rationale_confidence_alias,
         "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrend": cadence_override_note_rationale_confidence_trend,
         "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendAlias": cadence_override_note_rationale_confidence_trend_alias,
+        "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumScore": cadence_override_note_rationale_confidence_trend_momentum_score,
+        "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBand": cadence_override_note_rationale_confidence_trend_momentum_band,
+        "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBandAlias": cadence_override_note_rationale_confidence_trend_momentum_band_alias,
         "trendScoreBandDispatchPressureMomentum": score_band_dispatch_pressure_momentum,
         "trendScoreBandDispatchPressureMomentumBand": score_band_dispatch_pressure_momentum_band,
         "trendScoreBandDispatchPressureMomentumBandAlias": score_band_dispatch_pressure_momentum_band_alias,
@@ -1066,6 +1138,9 @@ def to_markdown(
             f"- trend-score dispatch pressure cadence override note rationale confidence alias: **TSDPCONWC:{report.get('trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceAlias', 'H')}**",
             f"- trend-score dispatch pressure cadence override note rationale confidence trend (ai-content/systems, offline): **TSDPCONWCT:{report.get('trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrend', 'FLAT')}**",
             f"- trend-score dispatch pressure cadence override note rationale confidence trend alias: **TSDPCONWCTA:{report.get('trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendAlias', 'F')}**",
+            f"- trend-score dispatch pressure cadence override note rationale confidence trend momentum score (ai-content/systems, offline): **TSDPCONWCTS:{report.get('trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumScore', 50)}**",
+            f"- trend-score dispatch pressure cadence override note rationale confidence trend momentum band (ai-content/systems, offline): **TSDPCONWCTSB:{report.get('trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBand', 'MID')}**",
+            f"- trend-score dispatch pressure cadence override note rationale confidence trend momentum band alias: **TSDPCONWCTSBA:{report.get('trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBandAlias', 'M')}**",
             f"- trend-score dispatch pressure cadence override note rationale alias: **TSDPCONW:{report.get('trendScoreBandDispatchPressureCadenceOverrideNoteRationaleAlias', 'S')}**",
             "- trend-score dispatch pressure cadence override rationale-confidence decode: **TSDPCONWC legend (L=LOW, M=MID, H=HIGH)**",
             "- trend-score dispatch pressure cadence override rationale-confidence trend decode: **TSDPCONWCT legend (U=UP, F=FLAT, D=DOWN)**",

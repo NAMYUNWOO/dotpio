@@ -1,5 +1,18 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP13)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%; cadence buckets remain covered).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (UX/AI-content): add cadence-confidence trend momentum band token (`TSDPCONWCTSB:LOW|MID|HIGH`) + alias (`TSDPCONWCTSBA:L|M|H`) for denser triage rails.
+  - Mid-risk Systems/QA: lock cadence-cluster ordering/cardinality for `TSDPCONWCTS -> TSDPCONWCTSB -> TSDPCONWCTSBA` across summary + token sections.
+  - High-risk novelty (AI Content/Systems): prototype adaptive momentum-band recommendation copy from confidence-trend momentum drift windows.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] UX/AI-content + Systems/QA Team: Add payload + markdown cadence-confidence trend momentum band token (`TSDPCONWCTSB:LOW|MID|HIGH`) + alias (`TSDPCONWCTSBA:L|M|H`) mapped from `TSDPCONWCTS` score buckets (`0-33`, `34-66`, `67-100`) and extend cadence-cluster order/cardinality assertions. *(lifecycle: [ ] -> [~] started: 2026-04-01 20:48 KST -> [x] completed: 2026-04-01 20:54 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP13)
+- [ ] Systems/QA Team (injected): Add deterministic fixture-level assertion that `TSDPCONWCTSB` row count mirrors `TSDPCONWCTS` row count across summary + token sections under mixed fixtures.
+- [ ] AI Content/Systems Team (injected): Prototype offline momentum-band trend token (`TSDPCONWCTSBT:UP|FLAT|DOWN`) from prior-window `TSDPCONWCTSB` shifts.
+
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP12)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%; cadence buckets remain covered).
 - Candidate ideas generated:
@@ -10,8 +23,8 @@
 - [x] UX/AI-content + Systems/QA Team: Add payload + markdown compact cadence-confidence trend alias token (`TSDPCONWCTA:U|F|D`) mapped from `TSDPCONWCT` and extend cadence-cluster order assertions for alias/legend adjacency. *(lifecycle: [ ] -> [~] started: 2026-04-01 19:52 KST -> [x] completed: 2026-04-01 19:58 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP12)
-- [ ] Systems/QA Team (injected): Add deterministic fixture-level assertion that `TSDPCONWCTA` row count mirrors `TSDPCONWCT` row count across summary + token sections under mixed fixtures.
-- [ ] AI Content/Systems Team (injected): Prototype offline cadence-confidence trend momentum score token (`TSDPCONWCTS:0..100`) from weighted churn-window drift.
+- [x] Systems/QA Team (injected): Add deterministic fixture-level assertion that `TSDPCONWCTA` row count mirrors `TSDPCONWCT` row count across summary + token sections under mixed fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-01 20:16 KST -> [x] completed: 2026-04-01 20:18 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [x] AI Content/Systems Team (injected): Prototype offline cadence-confidence trend momentum score token (`TSDPCONWCTS:0..100`) from weighted churn-window drift. *(lifecycle: [ ] -> [~] started: 2026-04-01 20:42 KST -> [x] completed: 2026-04-01 20:46 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP11)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%; cadence buckets remain covered).

@@ -379,6 +379,25 @@ def run_fixture_case(
     assert confidence_trend_alias_value == expected_confidence_trend_alias, (
         f"{name}: trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendAlias must mirror UP|FLAT|DOWN alias"
     )
+    confidence_trend_momentum_score = report.get(
+        "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumScore"
+    )
+    assert isinstance(confidence_trend_momentum_score, int) and 0 <= confidence_trend_momentum_score <= 100, (
+        f"{name}: trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumScore must stay in 0..100"
+    )
+    confidence_trend_momentum_band = report.get(
+        "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBand"
+    )
+    assert confidence_trend_momentum_band in {"LOW", "MID", "HIGH"}, (
+        f"{name}: trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBand must stay within LOW|MID|HIGH"
+    )
+    confidence_trend_momentum_band_alias = report.get(
+        "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBandAlias"
+    )
+    expected_confidence_trend_momentum_band_alias = {"LOW": "L", "MID": "M", "HIGH": "H"}[confidence_trend_momentum_band]
+    assert confidence_trend_momentum_band_alias == expected_confidence_trend_momentum_band_alias, (
+        f"{name}: trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBandAlias must mirror LOW|MID|HIGH alias"
+    )
     assert (
         "trend-score dispatch pressure cadence override note rationale confidence (ai-content/systems, offline): "
         f"**TSDPCON WHY CONF:{confidence_value}**"
@@ -399,6 +418,21 @@ def run_fixture_case(
         f"**TSDPCONWCTA:{confidence_trend_alias_value}**"
         in md_text
     ), f"{name}: markdown output must include compact cadence-note rationale confidence-trend alias row"
+    assert (
+        "trend-score dispatch pressure cadence override note rationale confidence trend momentum score (ai-content/systems, offline): "
+        f"**TSDPCONWCTS:{confidence_trend_momentum_score}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-note rationale confidence-trend momentum score row"
+    assert (
+        "trend-score dispatch pressure cadence override note rationale confidence trend momentum band (ai-content/systems, offline): "
+        f"**TSDPCONWCTSB:{confidence_trend_momentum_band}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-note rationale confidence-trend momentum band row"
+    assert (
+        "trend-score dispatch pressure cadence override note rationale confidence trend momentum band alias: "
+        f"**TSDPCONWCTSBA:{confidence_trend_momentum_band_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-note rationale confidence-trend momentum band alias row"
     assert (
         "trend-score dispatch pressure cadence override note rationale alias: "
         f"**TSDPCONW:{expected_cadence_note_rationale_alias}**"
@@ -441,6 +475,18 @@ def run_fixture_case(
     cadence_cluster_rationale_conf_trend_alias_indexes = [
         i for i, line in enumerate(cadence_cluster_lines)
         if "**TSDPCONWCTA:" in line
+    ]
+    cadence_cluster_rationale_conf_trend_momentum_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPCONWCTS:" in line
+    ]
+    cadence_cluster_rationale_conf_trend_momentum_band_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPCONWCTSB:" in line
+    ]
+    cadence_cluster_rationale_conf_trend_momentum_band_alias_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPCONWCTSBA:" in line
     ]
     cadence_cluster_rationale_alias_indexes = [
         i for i, line in enumerate(cadence_cluster_lines)
@@ -495,6 +541,18 @@ def run_fixture_case(
     assert len(cadence_cluster_rationale_conf_trend_alias_indexes) == len(cadence_cluster_rationale_conf_trend_indexes), (
         f"{name}: cadence cluster rationale-confidence-trend-alias row count must mirror TSDPCONWCT row count in both sections"
     )
+    assert len(cadence_cluster_rationale_conf_trend_momentum_indexes) == len(cadence_cluster_streak_indexes), (
+        f"{name}: cadence cluster rationale-confidence-trend-momentum row count must match streak row count"
+    )
+    assert len(cadence_cluster_rationale_conf_trend_momentum_indexes) == len(cadence_cluster_rationale_conf_trend_alias_indexes), (
+        f"{name}: cadence cluster rationale-confidence-trend-momentum row count must mirror TSDPCONWCTA row count in both sections"
+    )
+    assert len(cadence_cluster_rationale_conf_trend_momentum_band_indexes) == len(cadence_cluster_streak_indexes), (
+        f"{name}: cadence cluster rationale-confidence-trend-momentum-band row count must match streak row count"
+    )
+    assert len(cadence_cluster_rationale_conf_trend_momentum_band_alias_indexes) == len(cadence_cluster_streak_indexes), (
+        f"{name}: cadence cluster rationale-confidence-trend-momentum-band-alias row count must match streak row count"
+    )
     expected_cadence_cluster_rows = len(cadence_cluster_streak_indexes)
     assert expected_cadence_cluster_rows >= 1, (
         f"{name}: fixture-level cadence cluster must render at least one markdown section row"
@@ -504,6 +562,15 @@ def run_fixture_case(
     )
     assert len(cadence_cluster_rationale_conf_trend_alias_indexes) == expected_cadence_cluster_rows, (
         f"{name}: fixture-level TSDPCONWCTA row count must deterministically mirror cadence-cluster section row count"
+    )
+    assert len(cadence_cluster_rationale_conf_trend_momentum_indexes) == expected_cadence_cluster_rows, (
+        f"{name}: fixture-level TSDPCONWCTS row count must deterministically mirror cadence-cluster section row count"
+    )
+    assert len(cadence_cluster_rationale_conf_trend_momentum_band_indexes) == expected_cadence_cluster_rows, (
+        f"{name}: fixture-level TSDPCONWCTSB row count must deterministically mirror cadence-cluster section row count"
+    )
+    assert len(cadence_cluster_rationale_conf_trend_momentum_band_alias_indexes) == expected_cadence_cluster_rows, (
+        f"{name}: fixture-level TSDPCONWCTSBA row count must deterministically mirror cadence-cluster section row count"
     )
     assert len(cadence_cluster_rationale_alias_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster rationale-alias row count must match streak row count"
@@ -542,8 +609,17 @@ def run_fixture_case(
         assert cadence_cluster_rationale_conf_trend_alias_indexes[cluster_i] == cadence_cluster_rationale_conf_trend_indexes[cluster_i] + 1, (
             f"{name}: cadence cluster order must keep TSDPCONWCT immediately before TSDPCONWCTA in both sections"
         )
-        assert cadence_cluster_rationale_alias_indexes[cluster_i] == cadence_cluster_rationale_conf_trend_alias_indexes[cluster_i] + 1, (
-            f"{name}: cadence cluster order must keep TSDPCONWCTA immediately before TSDPCONW in both sections"
+        assert cadence_cluster_rationale_conf_trend_momentum_indexes[cluster_i] == cadence_cluster_rationale_conf_trend_alias_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPCONWCTA immediately before TSDPCONWCTS in both sections"
+        )
+        assert cadence_cluster_rationale_conf_trend_momentum_band_indexes[cluster_i] == cadence_cluster_rationale_conf_trend_momentum_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPCONWCTS immediately before TSDPCONWCTSB in both sections"
+        )
+        assert cadence_cluster_rationale_conf_trend_momentum_band_alias_indexes[cluster_i] == cadence_cluster_rationale_conf_trend_momentum_band_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPCONWCTSB immediately before TSDPCONWCTSBA in both sections"
+        )
+        assert cadence_cluster_rationale_alias_indexes[cluster_i] == cadence_cluster_rationale_conf_trend_momentum_band_alias_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPCONWCTSBA immediately before TSDPCONW in both sections"
         )
         assert cadence_cluster_conf_legend_indexes[cluster_i] == cadence_cluster_rationale_alias_indexes[cluster_i] + 1, (
             f"{name}: cadence cluster order must keep TSDPCONW immediately before TSDPCONWC legend in both sections"

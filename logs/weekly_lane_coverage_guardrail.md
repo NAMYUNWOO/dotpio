@@ -21,6 +21,9 @@
 - trend-score dispatch pressure cadence override note rationale confidence alias: **TSDPCONWC:H**
 - trend-score dispatch pressure cadence override note rationale confidence trend (ai-content/systems, offline): **TSDPCONWCT:FLAT**
 - trend-score dispatch pressure cadence override note rationale confidence trend alias: **TSDPCONWCTA:F**
+- trend-score dispatch pressure cadence override note rationale confidence trend momentum score (ai-content/systems, offline): **TSDPCONWCTS:50**
+- trend-score dispatch pressure cadence override note rationale confidence trend momentum band (ai-content/systems, offline): **TSDPCONWCTSB:MID**
+- trend-score dispatch pressure cadence override note rationale confidence trend momentum band alias: **TSDPCONWCTSBA:M**
 - trend-score dispatch pressure cadence override note rationale alias: **TSDPCONW:P**
 - trend-score dispatch pressure cadence override rationale-confidence decode: **TSDPCONWC legend (L=LOW, M=MID, H=HIGH)**
 - trend-score dispatch pressure cadence override rationale-confidence trend decode: **TSDPCONWCT legend (U=UP, F=FLAT, D=DOWN)**

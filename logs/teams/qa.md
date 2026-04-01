@@ -5098,3 +5098,11 @@
 - Regression run: `python3 scripts/regression_check_lane_coverage_guardrail.py`
 - Guardrail artifact run: `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
 - Result: PASS; fixture-level `TSDPCONWCTA` row-count mirror assertion now deterministic and stable under mixed fixtures.
+
+## 2026-04-01 20:46 KST
+- Cycle IP12 follow-up shipped in lane guardrail: added `TSDPCONWCTS` cadence-confidence trend momentum score (0..100) from weighted churn-window drift, with markdown row + regression coverage.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.
+
+## 2026-04-01 20:54 KST
+- Game Director Cycle IP13 shipped `TSDPCONWCTSB` / `TSDPCONWCTSBA` momentum-band readability slice from `TSDPCONWCTS` score buckets, with deterministic markdown + payload parity and regression order/cardinality locks.
+- Injected next tasks: `TSDPCONWCTSB` row-count mirror assertion and `TSDPCONWCTSBT` offline trend prototype.
