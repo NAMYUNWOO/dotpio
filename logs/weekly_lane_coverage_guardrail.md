@@ -29,6 +29,9 @@
 - trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:S**
 - trend-score dispatch-pressure momentum fx cue cadence decode (design/world): **SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**
 - trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): **steady pace; hold broad scan**
+- trend-score dispatch-pressure momentum fx combat callout (combat/vfx): **HOLD_LINE**
+- trend-score dispatch-pressure momentum fx combat callout alias: **TSDPMFXC:HL**
+- trend-score dispatch-pressure momentum fx combat callout decode (design/world): **HL=hold line, PE=press edge, BC=burst clear**
 - trend-score momentum-slope rec family trend decode variant (design/world): **TSDPMSRFT legend (U=escalate, F=hold, D=cool)**
 - trend-score momentum-slope rec family trend why alias: **TSDPMSRFTWHYA:H**
 - trend-score momentum-slope rec family trend why alias decode: **TSDPMSRFTWHYA legend (E=escalate, H=hold, C=cool)**
@@ -41,13 +44,13 @@
 | world | 0 | 0.0% |
 | ai-content | 1 | 10.0% |
 | combat | 0 | 0.0% |
-| design | 2 | 20.0% |
-| ux | 1 | 10.0% |
+| design | 1 | 10.0% |
+| ux | 0 | 0.0% |
 | qa | 1 | 10.0% |
 | vfx | 0 | 0.0% |
 
 | cadence bucket | lanes | count | status |
 |---|---|---:|---|
 | combat-or-vfx | combat/vfx | 0 | missing |
-| design-or-world | design/world | 2 | met |
+| design-or-world | design/world | 1 | met |
 | systems-or-ops | systems/qa | 3 | met |

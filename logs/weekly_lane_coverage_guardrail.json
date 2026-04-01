@@ -6,8 +6,8 @@
     "world": 0,
     "ai-content": 1,
     "combat": 0,
-    "design": 2,
-    "ux": 1,
+    "design": 1,
+    "ux": 0,
     "qa": 1,
     "vfx": 0
   },
@@ -16,20 +16,20 @@
     "world": 0.0,
     "ai-content": 10.0,
     "combat": 0.0,
-    "design": 20.0,
-    "ux": 10.0,
+    "design": 10.0,
+    "ux": 0.0,
     "qa": 10.0,
     "vfx": 0.0
   },
   "overCapLanes": [],
   "underrepresentedLanes": [
     "combat",
+    "ux",
     "vfx",
     "world",
     "ai-content",
-    "qa",
-    "ux",
     "design",
+    "qa",
     "systems"
   ],
   "forcedNextLanes": [],
@@ -47,7 +47,7 @@
         "design",
         "world"
       ],
-      "count": 2,
+      "count": 1,
       "met": true
     },
     "systems-or-ops": {
@@ -78,6 +78,8 @@
   "trendScoreBandDispatchPressureMomentumFxCue": "SOFT",
   "trendScoreBandDispatchPressureMomentumFxCueAlias": "S",
   "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": "steady pace; hold broad scan",
+  "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": "HOLD_LINE",
+  "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": "HL",
   "trendScoreBandDispatchPressureMomentumBandSparkline": "NA",
   "trendScoreBandDispatchPressureMomentumSlope": "COOLING",
   "trendScoreBandDispatchPressureMomentumSlopeAlias": "C",

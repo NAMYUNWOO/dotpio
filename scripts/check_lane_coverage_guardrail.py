@@ -390,6 +390,28 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_microcopy_recomme
     return recommendation_map.get(momentum_fx_cue, recommendation_map["SOFT"])
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout(
+    momentum_fx_cue: str,
+) -> str:
+    callout_map = {
+        "SOFT": "HOLD_LINE",
+        "EDGE": "PRESS_EDGE",
+        "HARD": "BURST_CLEAR",
+    }
+    return callout_map.get(momentum_fx_cue, callout_map["SOFT"])
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_alias(
+    combat_callout: str,
+) -> str:
+    alias_map = {
+        "HOLD_LINE": "HL",
+        "PRESS_EDGE": "PE",
+        "BURST_CLEAR": "BC",
+    }
+    return alias_map.get(combat_callout, "HL")
+
+
 def resolve_trend_score_band_dispatch_hint(score_band_snapshot: dict[str, int]) -> str:
     ordered = sorted(
         score_band_snapshot.items(),
@@ -524,6 +546,16 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
             score_band_dispatch_pressure_momentum_fx_cue
         )
     )
+    score_band_dispatch_pressure_momentum_fx_cue_combat_callout = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout(
+            score_band_dispatch_pressure_momentum_fx_cue
+        )
+    )
+    score_band_dispatch_pressure_momentum_fx_cue_combat_callout_alias = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_alias(
+            score_band_dispatch_pressure_momentum_fx_cue_combat_callout
+        )
+    )
     score_band_dispatch_pressure_momentum_band_sparkline = build_momentum_band_progression_sparkline(
         rows
     )
@@ -614,6 +646,8 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "trendScoreBandDispatchPressureMomentumFxCue": score_band_dispatch_pressure_momentum_fx_cue,
         "trendScoreBandDispatchPressureMomentumFxCueAlias": score_band_dispatch_pressure_momentum_fx_cue_alias,
         "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation,
+        "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": score_band_dispatch_pressure_momentum_fx_cue_combat_callout,
+        "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": score_band_dispatch_pressure_momentum_fx_cue_combat_callout_alias,
         "trendScoreBandDispatchPressureMomentumBandSparkline": score_band_dispatch_pressure_momentum_band_sparkline,
         "trendScoreBandDispatchPressureMomentumSlope": score_band_dispatch_pressure_momentum_slope,
         "trendScoreBandDispatchPressureMomentumSlopeAlias": score_band_dispatch_pressure_momentum_slope_alias,
@@ -712,6 +746,9 @@ def to_markdown(
             f"- trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{report.get('trendScoreBandDispatchPressureMomentumFxCueAlias', 'S')}**",
             "- trend-score dispatch-pressure momentum fx cue cadence decode (design/world): **SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**",
             f"- trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): **{report.get('trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation', 'steady pace; hold broad scan')}**",
+            f"- trend-score dispatch-pressure momentum fx combat callout (combat/vfx): **{report.get('trendScoreBandDispatchPressureMomentumFxCueCombatCallout', 'HOLD_LINE')}**",
+            f"- trend-score dispatch-pressure momentum fx combat callout alias: **TSDPMFXC:{report.get('trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias', 'HL')}**",
+            "- trend-score dispatch-pressure momentum fx combat callout decode (design/world): **HL=hold line, PE=press edge, BC=burst clear**",
             *optional_rows,
             "",
             *rows,

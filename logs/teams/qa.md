@@ -5038,3 +5038,9 @@
 - Added regression assertions for WHY copy-budget JSON mirror fields and exact canonical values in `scripts/regression_check_lane_coverage_guardrail.py`.
 - Contract now locks both token parity and structured signal payload (`copyMap/lengths/threshold/maxLen`) for downstream checks.
 - Verification suite passed end-to-end.
+
+## 2026-04-01 15:41 KST
+- Cycle IP6 selected experiment shipped: added combat/vfx dispatch callout payload token `trendScoreBandDispatchPressureMomentumFxCueCombatCallout` (`HOLD_LINE|PRESS_EDGE|BURST_CLEAR`) and compact alias `trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias` (`HL|PE|BC`) in `scripts/check_lane_coverage_guardrail.py`.
+- Markdown parity added: `TSDPMFXC:<HL|PE|BC>` row plus decode line (`HL=hold line, PE=press edge, BC=burst clear`) in lane guardrail report.
+- Regression contract extended in `scripts/regression_check_lane_coverage_guardrail.py` for JSON schema/domain + markdown row assertions.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail report regeneration command with `--include-trend-family-why`.

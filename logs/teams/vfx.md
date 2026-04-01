@@ -480,3 +480,9 @@
 - No direct code changes this cycle; reviewed optional trend-family microcopy/decode additions for cross-lane consistency.
 ## 2026-04-01 14:06 KST
 - Reviewed Cycle IP4 optional trend-rationale alias slice for lane consistency; no direct code changes in this lane.
+
+## 2026-04-01 15:41 KST
+- Cycle IP6 selected experiment shipped: added combat/vfx dispatch callout payload token `trendScoreBandDispatchPressureMomentumFxCueCombatCallout` (`HOLD_LINE|PRESS_EDGE|BURST_CLEAR`) and compact alias `trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias` (`HL|PE|BC`) in `scripts/check_lane_coverage_guardrail.py`.
+- Markdown parity added: `TSDPMFXC:<HL|PE|BC>` row plus decode line (`HL=hold line, PE=press edge, BC=burst clear`) in lane guardrail report.
+- Regression contract extended in `scripts/regression_check_lane_coverage_guardrail.py` for JSON schema/domain + markdown row assertions.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail report regeneration command with `--include-trend-family-why`.

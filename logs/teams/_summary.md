@@ -1,3 +1,10 @@
+## 2026-04-01 15:41 KST
+- Executed Game Director Cycle IP6.
+- Coverage check (last 10 completed): systems=2, world=0, ai-content=1, combat=0, design=1, ux=0, qa=1, vfx=0; no lane >40%, but cadence bucket `combat-or-vfx` missing so next experiment was forced into underrepresented combat/vfx lanes.
+- Chosen experiment (from 3 ideas): Combat/VFX compact dispatch callout token from momentum FX cue (`trendScoreBandDispatchPressureMomentumFxCueCombatCallout` + alias `TSDPMFXC`).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md --include-trend-family-why`.
+- Queue status: ACTION_ITEMS unchecked=1, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2 (next: Design/World callout legend microcopy variant; Systems/Ops cadence bucket pressure override contract).
+
 ## 2026-04-01 10:48 KST
 - Closed injected Systems/Ops POST_RC item: lane guardrail output now includes rolling momentum-band sparkline (`trendScoreBandDispatchPressureMomentumBandSparkline` / markdown `TSDPM-SPARK`) for last-10 progression scanning.
 - Regression contract expanded: `scripts/regression_check_lane_coverage_guardrail.py` now enforces sparkline JSON field and markdown sparkline+legend rows.

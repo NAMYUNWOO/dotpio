@@ -65,6 +65,8 @@ def run_fixture_case(
     expected_dispatch_pressure_momentum_fx_cue: str,
     expected_dispatch_pressure_momentum_fx_cue_alias: str,
     expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation: str,
+    expected_dispatch_pressure_momentum_fx_cue_combat_callout: str,
+    expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias: str,
     expected_recommendation_family_trend: str | None = None,
 ) -> str:
     backlog = tmp_path / f"{name}_backlog.md"
@@ -202,6 +204,14 @@ def run_fixture_case(
         report.get("trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation")
         == expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation
     ), f"{name}: trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation must map deterministic ai-content/design recommendation from momentum fx cue"
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumFxCueCombatCallout")
+        == expected_dispatch_pressure_momentum_fx_cue_combat_callout
+    ), f"{name}: trendScoreBandDispatchPressureMomentumFxCueCombatCallout must map deterministic combat/vfx callout from momentum fx cue"
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias")
+        == expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias
+    ), f"{name}: trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias must match compact combat/vfx callout alias"
 
     md_text = md_out.read_text(encoding="utf-8")
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"
@@ -362,6 +372,21 @@ def run_fixture_case(
         f"**{expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation}**"
         in md_text
     ), f"{name}: markdown output must include ai-content/design momentum fx-cue microcopy recommendation row"
+    assert (
+        "trend-score dispatch-pressure momentum fx combat callout (combat/vfx): "
+        f"**{expected_dispatch_pressure_momentum_fx_cue_combat_callout}**"
+        in md_text
+    ), f"{name}: markdown output must include combat/vfx momentum fx combat-callout row"
+    assert (
+        "trend-score dispatch-pressure momentum fx combat callout alias: "
+        f"**TSDPMFXC:{expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include compact combat/vfx momentum fx combat-callout alias row"
+    assert (
+        "trend-score dispatch-pressure momentum fx combat callout decode (design/world): "
+        "**HL=hold line, PE=press edge, BC=burst clear**"
+        in md_text
+    ), f"{name}: markdown output must include design/world combat-callout decode row"
 
     return family_trend
 
@@ -396,6 +421,8 @@ def main() -> int:
             expected_dispatch_pressure_momentum_fx_cue="HARD",
             expected_dispatch_pressure_momentum_fx_cue_alias="H",
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="surge pressure; triage hottest lane first",
+            expected_dispatch_pressure_momentum_fx_cue_combat_callout="BURST_CLEAR",
+            expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="BC",
         )
 
         run_fixture_case(
@@ -424,6 +451,8 @@ def main() -> int:
             expected_dispatch_pressure_momentum_fx_cue="HARD",
             expected_dispatch_pressure_momentum_fx_cue_alias="H",
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="surge pressure; triage hottest lane first",
+            expected_dispatch_pressure_momentum_fx_cue_combat_callout="BURST_CLEAR",
+            expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="BC",
         )
 
         run_fixture_case(
@@ -451,6 +480,8 @@ def main() -> int:
             expected_dispatch_pressure_momentum_fx_cue="EDGE",
             expected_dispatch_pressure_momentum_fx_cue_alias="E",
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="pressure rising; prep focused dispatch",
+            expected_dispatch_pressure_momentum_fx_cue_combat_callout="PRESS_EDGE",
+            expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="PE",
         )
 
         run_fixture_case(
@@ -478,6 +509,8 @@ def main() -> int:
             expected_dispatch_pressure_momentum_fx_cue="EDGE",
             expected_dispatch_pressure_momentum_fx_cue_alias="E",
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="pressure rising; prep focused dispatch",
+            expected_dispatch_pressure_momentum_fx_cue_combat_callout="PRESS_EDGE",
+            expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="PE",
         )
 
         run_fixture_case(
@@ -505,6 +538,8 @@ def main() -> int:
             expected_dispatch_pressure_momentum_fx_cue="EDGE",
             expected_dispatch_pressure_momentum_fx_cue_alias="E",
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="pressure rising; prep focused dispatch",
+            expected_dispatch_pressure_momentum_fx_cue_combat_callout="PRESS_EDGE",
+            expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="PE",
         )
 
         run_fixture_case(
@@ -532,6 +567,8 @@ def main() -> int:
             expected_dispatch_pressure_momentum_fx_cue="SOFT",
             expected_dispatch_pressure_momentum_fx_cue_alias="S",
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="steady pace; hold broad scan",
+            expected_dispatch_pressure_momentum_fx_cue_combat_callout="HOLD_LINE",
+            expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="HL",
         )
 
         observed_family_trends.append(
@@ -558,6 +595,8 @@ def main() -> int:
                 expected_dispatch_pressure_momentum_fx_cue="EDGE",
                 expected_dispatch_pressure_momentum_fx_cue_alias="E",
                 expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="pressure rising; prep focused dispatch",
+                expected_dispatch_pressure_momentum_fx_cue_combat_callout="PRESS_EDGE",
+                expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="PE",
                 expected_recommendation_family_trend="UP",
             )
         )
@@ -586,6 +625,8 @@ def main() -> int:
                 expected_dispatch_pressure_momentum_fx_cue="EDGE",
                 expected_dispatch_pressure_momentum_fx_cue_alias="E",
                 expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="pressure rising; prep focused dispatch",
+                expected_dispatch_pressure_momentum_fx_cue_combat_callout="PRESS_EDGE",
+                expected_dispatch_pressure_momentum_fx_cue_combat_callout_alias="PE",
                 expected_recommendation_family_trend="DOWN",
             )
         )
