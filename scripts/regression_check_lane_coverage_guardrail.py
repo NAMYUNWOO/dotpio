@@ -495,6 +495,16 @@ def run_fixture_case(
     assert len(cadence_cluster_rationale_conf_trend_alias_indexes) == len(cadence_cluster_rationale_conf_trend_indexes), (
         f"{name}: cadence cluster rationale-confidence-trend-alias row count must mirror TSDPCONWCT row count in both sections"
     )
+    expected_cadence_cluster_rows = len(cadence_cluster_streak_indexes)
+    assert expected_cadence_cluster_rows >= 1, (
+        f"{name}: fixture-level cadence cluster must render at least one markdown section row"
+    )
+    assert len(cadence_cluster_rationale_conf_trend_indexes) == expected_cadence_cluster_rows, (
+        f"{name}: fixture-level TSDPCONWCT row count must deterministically mirror cadence-cluster section row count"
+    )
+    assert len(cadence_cluster_rationale_conf_trend_alias_indexes) == expected_cadence_cluster_rows, (
+        f"{name}: fixture-level TSDPCONWCTA row count must deterministically mirror cadence-cluster section row count"
+    )
     assert len(cadence_cluster_rationale_alias_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster rationale-alias row count must match streak row count"
     )

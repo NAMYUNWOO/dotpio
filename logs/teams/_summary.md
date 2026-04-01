@@ -4769,3 +4769,5 @@ Compact decision memory for AI context efficiency.
 - Queue status after IP11: ACTION_ITEMS=0 open, TASKS=2 open, POST_RC_BACKLOG=2 open (next injected: Systems/QA alias-row-count lock; AI Content/Systems confidence-trend token).
 - 2026-04-01 19:18 KST — Durable decision: cadence-confidence cluster parity is now hard-asserted in regression (`TSDPCON WHY CONF` count must equal `TSDPCONWC` count in summary + token-coverage), preventing silent alias-row drift.
 - Queue status after update: ACTION_ITEMS=0 open, TASKS=1 open, POST_RC_BACKLOG=1 open (next highest-priority: AI Content/Systems `TSDPCONWCT:UP|FLAT|DOWN`).
+
+- 2026-04-01 20:18 KST: Regression guardrail hardened for cadence confidence-trend alias parity. `scripts/regression_check_lane_coverage_guardrail.py` now asserts `TSDPCONWCT` and `TSDPCONWCTA` counts both mirror fixture-derived cadence-cluster row count, avoiding brittle fixed-section assumptions.

@@ -4569,3 +4569,9 @@
 - Cycle IP12 shipped: added cadence-confidence trend alias token `TSDPCONWCTA:U|F|D` (mapped from `TSDPCONWCT`) and extended cadence-cluster markdown contract invariants.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail report regeneration passed.
 - Follow-up injections queued: Systems/QA row-count mirror assertion for trend alias, AI Content/Systems momentum-score prototype.
+
+## 2026-04-01 20:18 KST — Systems
+- Task: Add deterministic fixture-level cadence-cluster row-count assertion for `TSDPCONWCT`/`TSDPCONWCTA` in lane coverage guardrail regression.
+- Decision: Bound both tokens to `expected_cadence_cluster_rows` (derived from streak-row count) instead of hardcoded section cardinality, preserving determinism across mixed fixtures and markdown layout variants.
+- Evidence: `python3 scripts/regression_check_lane_coverage_guardrail.py` passed after assertion update.
+- Follow-up: Keep section-cardinality derivation tied to cadence-cluster anchor rows to avoid format-coupled false negatives.

@@ -5092,3 +5092,9 @@
 - Cycle IP12 shipped: added cadence-confidence trend alias token `TSDPCONWCTA:U|F|D` (mapped from `TSDPCONWCT`) and extended cadence-cluster markdown contract invariants.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail report regeneration passed.
 - Follow-up injections queued: Systems/QA row-count mirror assertion for trend alias, AI Content/Systems momentum-score prototype.
+
+## 2026-04-01 20:18 KST — QA
+- Verification run: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`
+- Regression run: `python3 scripts/regression_check_lane_coverage_guardrail.py`
+- Guardrail artifact run: `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
+- Result: PASS; fixture-level `TSDPCONWCTA` row-count mirror assertion now deterministic and stable under mixed fixtures.
