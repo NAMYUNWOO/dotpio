@@ -4814,3 +4814,7 @@ Compact decision memory for AI context efficiency.
 - Added compact trend->urgency alias row `TSDPPAIRA:<S|U|P>` and decode row to lane-guardrail markdown for one-glance intent parsing.
 - Regression contract now enforces pair-row ordering/cardinality sequence: `TSDPPAIR -> decode -> TSDPPAIRA -> TSDPPAIRA legend` before cadence decode legend rows.
 - Injected next backlog tasks: (1) fixture-level `TSDPPAIRA` vs `TSDPPAIR` parity lock, (2) offline urgency-confidence token prototype `TSDPMFXUC`.
+## 2026-04-01 23:49 KST
+- Completed injected Systems/Ops + QA task from Cycle IP15: added fixture-level explicit parity assertion that `TSDPPAIR` row count mirrors `TSDPPAIRA` row count across summary + token sections.
+- Durable decision: keep pair->alias parity explicitly bound to `expected_cadence_cluster_rows` in regression to remain stable under mixed-fixture cadence layout changes.
+- Queue status: ACTION_ITEMS=0 open, TASKS=1 open, POST_RC_BACKLOG=1 open (next highest priority: AI Content/Combat `TSDPMFXUC` prototype).

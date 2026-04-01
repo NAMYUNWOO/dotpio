@@ -711,6 +711,14 @@ def run_fixture_case(
     assert len(cadence_cluster_trend_fx_pair_alias_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster trend->fx urgency compact-alias row count must match streak row count"
     )
+    assert len(cadence_cluster_trend_fx_pair_indexes) == len(cadence_cluster_trend_fx_pair_alias_indexes), (
+        f"{name}: fixture-level TSDPPAIR row count must deterministically mirror TSDPPAIRA row count in both sections"
+    )
+    assert len(cadence_cluster_trend_fx_pair_indexes) == expected_cadence_cluster_rows and len(
+        cadence_cluster_trend_fx_pair_alias_indexes
+    ) == expected_cadence_cluster_rows, (
+        f"{name}: mixed-cadence fixture matrix must keep TSDPPAIR/TSDPPAIRA row-count parity across summary + token sections"
+    )
     assert len(cadence_cluster_trend_fx_pair_alias_decode_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster trend->fx urgency compact-alias decode row count must match streak row count"
     )
