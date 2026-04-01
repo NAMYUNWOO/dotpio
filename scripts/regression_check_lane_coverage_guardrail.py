@@ -662,6 +662,20 @@ def run_fixture_case(
     ), (
         f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendation must map deterministically from TSDPMFXVWC"
     )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias_value = report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationAlias"
+    )
+    expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias_value = {
+        "lock sweep": "LS",
+        "brace check": "BC",
+        "burst triage": "BT",
+    }[urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_value]
+    assert (
+        urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias_value
+        == expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias_value
+    ), (
+        f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationAlias must mirror recommendation alias map"
+    )
     assert (
         "trend-score dispatch pressure cadence override note rationale confidence (ai-content/systems, offline): "
         f"**TSDPCON WHY CONF:{confidence_value}**"
@@ -678,10 +692,20 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include guidance-confidence recommendation row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation alias: "
+        f"**TSDPMFXVWCRA:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias_value}**"
+        in md_text
+    ), f"{name}: markdown output must include guidance-confidence recommendation alias row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation decode (design/world): "
         "**TSDPMFXVWCR legend (HIGH=lock sweep, MID=brace check, LOW=burst triage)**"
         in md_text
     ), f"{name}: markdown output must include guidance-confidence recommendation decode row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation alias decode (design/world): "
+        "**TSDPMFXVWCRA legend (LS=lock sweep, BC=brace check, BT=burst triage)**"
+        in md_text
+    ), f"{name}: markdown output must include guidance-confidence recommendation alias decode row"
     assert (
         "trend-score dispatch pressure cadence override note rationale confidence trend (ai-content/systems, offline): "
         f"**TSDPCONWCT:{confidence_trend_value}**"
@@ -1434,6 +1458,8 @@ def run_fixture_case(
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_row_count = md_text.count("**TSDPMFXVW:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_row_count = md_text.count("**TSDPMFXVWC:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_alias_row_count = md_text.count("**TSDPMFXVWCA:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_row_count = md_text.count("**TSDPMFXVWCR:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias_row_count = md_text.count("**TSDPMFXVWCRA:")
     assert fx_urgency_confidence_trend_alias_row_count == fx_urgency_confidence_trend_row_count, (
         f"{name}: `TSDPMFXUCTA` row count ({fx_urgency_confidence_trend_alias_row_count}) must mirror "
         f"`TSDPMFXUCT` row count ({fx_urgency_confidence_trend_row_count}) across summary + token sections"
@@ -1501,6 +1527,20 @@ def run_fixture_case(
     ), (
         f"{name}: `TSDPMFXVWCA` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_alias_row_count}) must mirror "
         f"`TSDPMFXVWC` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_row_count}) across summary + token sections"
+    )
+    assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_alias_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCR` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_row_count}) must mirror "
+        f"`TSDPMFXVWCA` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_alias_row_count}) across summary + token sections"
+    )
+    assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRA` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_alias_row_count}) must mirror "
+        f"`TSDPMFXVWCR` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_row_count}) across summary + token sections"
     )
     assert (
         "trend-score dispatch-pressure momentum fx pulse->callout pairing decode (design/world, dos-width): "

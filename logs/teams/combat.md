@@ -3208,3 +3208,7 @@
 - Maintained combat/VFX contract: new `TSDPMFXVW` guidance stays derivative of existing pulse states and does not alter runtime combat behavior.
 - 2026-04-02 05:26 KST — Kept combat/vfx urgency rail aligned by inserting `TSDPMFXUCTSBTC` between trend-alias and pulse rows in deterministic order contract.
 - 2026-04-02 IP9: Preserved combat pulse semantics (`CALM/PULSE/BLAST`) while adding confidence overlay token to improve routing confidence checks.
+
+## 2026-04-02 06:48 KST
+- Cycle IP10: Added deterministic guidance-confidence recommendation alias token `TSDPMFXVWCRA` (`LS|BC|BT`) derived from `TSDPMFXVWCR` (`lock sweep|brace check|burst triage`) in lane guardrail payload + markdown with decode row.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

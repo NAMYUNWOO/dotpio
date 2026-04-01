@@ -3327,3 +3327,7 @@
 - Final copy pack locked for determinism: `steady sweep` / `brace lanes` / `commit burst`.
 - 2026-04-02 05:26 KST — Completed injected AI-content systems slice: `TSDPMFXUCTSBTC` (`LOW|MID|HIGH`) now mirrors consecutive trend-alias stability without runtime coupling.
 - 2026-04-02 IP9: Extended offline rationale chain with pulse-guidance confidence semantic (`trust/mixed/caution` represented as HIGH/MID/LOW).
+
+## 2026-04-02 06:48 KST
+- Cycle IP10: Added deterministic guidance-confidence recommendation alias token `TSDPMFXVWCRA` (`LS|BC|BT`) derived from `TSDPMFXVWCR` (`lock sweep|brace check|burst triage`) in lane guardrail payload + markdown with decode row.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

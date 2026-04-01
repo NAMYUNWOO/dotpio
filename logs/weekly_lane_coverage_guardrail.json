@@ -112,6 +112,7 @@
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidence": "MID",
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceAlias": "M",
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendation": "brace check",
+  "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationAlias": "BC",
   "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": "steady pace; hold broad scan",
   "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": "HOLD_LINE",
   "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": "HL",

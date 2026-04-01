@@ -4890,3 +4890,9 @@ Compact decision memory for AI context efficiency.
 - Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for immediate next Game Director review cycle).
 - 2026-04-02 Cycle IP9: added deterministic VFX pulse-guidance confidence token chain (`TSDPMFXVWC` + `TSDPMFXVWCA`) derived from `TSDPMFXVW`, with markdown decode + regression row-count/order contracts; keeps urgency cluster deterministic while increasing one-glance operator trust signal.
+
+## 2026-04-02 06:48 KST — Game Director Cycle IP10
+- Decision: selected low-risk Idea 1 (AI-content/Systems + QA) to add compact alias for guidance-confidence recommendation.
+- Implemented vertical slice: `TSDPMFXVWCRA` deterministic map (`lock sweep->LS`, `brace check->BC`, `burst triage->BT`) with markdown alias row + decode legend.
+- Durable contract: regression now enforces payload mapping and markdown presence/parity for `TSDPMFXVWCR`/`TSDPMFXVWCRA` rows.
+- Next injected backlog: (1) mixed-window fixture assertions for `TSDPMFXVWCR -> TSDPMFXVWCRA` parity, (2) concise decode copy DOS-width evaluation for LS/BC/BT.
