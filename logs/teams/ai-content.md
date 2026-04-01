@@ -3227,3 +3227,10 @@
 ## 2026-04-01 16:22 KST
 - Added optional compact combat-callout legend microcopy variant (`HL=hold lane, PE=push edge, BC=burst clear`) and DOS-width/readability evaluation token (`TSDPMFXCLEN`) for lane guardrail digest; baseline retained as default decode row.
 - Verification: py_compile + regression + guardrail regeneration with `--include-combat-callout-compact-legend` passed.
+
+## 2026-04-01 16:52 KST
+- Confirmed cadence override remains offline/reporting-only and deterministic (no runtime coupling).
+- Contract clarifies when escalation intent should trigger (`combat-or-vfx` missing for two windows).
+
+## 2026-04-01 16:59 KST
+- Offline cadence contract expanded with streak signal; queued follow-up for compact escalation note token driven by streak + slope state.

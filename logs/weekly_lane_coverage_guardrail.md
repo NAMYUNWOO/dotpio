@@ -3,7 +3,7 @@
 - recent completed items: **10**
 - over-cap lanes: **none**
 - forced next lanes (if over-cap): **none**
-- cadence buckets missing: **combat-or-vfx**
+- cadence buckets missing: **combat-or-vfx, systems-or-ops**
 - trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 - trend-score band snapshot alias: **TSSB:C0E0H0**
 - trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**
@@ -11,6 +11,10 @@
 - trend-score dispatch hint alias: **TSDH:B**
 - trend-score dispatch pressure (offline): **HOT**
 - trend-score dispatch pressure alias: **TSDP:H**
+- trend-score dispatch pressure base class (pre-cadence override): **HOT**
+- trend-score dispatch pressure cadence override: **TSDPCO:E** (ESCALATE, bucket=combat-or-vfx)
+- trend-score dispatch pressure cadence override streak: **TSDPCOS:2**
+- trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**
 - trend-score dispatch-pressure momentum (offline): **0**
 - trend-score dispatch-pressure momentum band (offline): **LOW**
 - trend-score dispatch-pressure momentum band alias: **TSDPM:L**
@@ -43,9 +47,9 @@
 
 | lane | count | percent |
 |---|---:|---:|
-| systems | 1 | 10.0% |
+| systems | 0 | 0.0% |
 | world | 0 | 0.0% |
-| ai-content | 1 | 10.0% |
+| ai-content | 0 | 0.0% |
 | combat | 0 | 0.0% |
 | design | 1 | 10.0% |
 | ux | 0 | 0.0% |
@@ -56,4 +60,4 @@
 |---|---|---:|---|
 | combat-or-vfx | combat/vfx | 0 | missing |
 | design-or-world | design/world | 1 | met |
-| systems-or-ops | systems/qa | 1 | met |
+| systems-or-ops | systems/qa | 0 | missing |

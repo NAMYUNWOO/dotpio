@@ -3395,3 +3395,10 @@
 ## 2026-04-01 16:22 KST
 - Added optional compact combat-callout legend microcopy variant (`HL=hold lane, PE=push edge, BC=burst clear`) and DOS-width/readability evaluation token (`TSDPMFXCLEN`) for lane guardrail digest; baseline retained as default decode row.
 - Verification: py_compile + regression + guardrail regeneration with `--include-combat-callout-compact-legend` passed.
+
+## 2026-04-01 16:52 KST
+- New digest rows improve scan flow: base pressure -> cadence override state -> momentum rows.
+- Compact token `TSDPCO` reduces ambiguity when pressure class is escalated by cadence contract.
+
+## 2026-04-01 16:59 KST
+- Scan order now shows cadence override state plus streak depth before momentum rows, reducing escalation ambiguity.

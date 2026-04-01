@@ -4721,3 +4721,17 @@ Compact decision memory for AI context efficiency.
 ## 2026-04-01 16:22 KST
 - Completed Cycle IP6 injected Design/World task: optional compact callout legend microcopy variant (`HL=hold lane, PE=push edge, BC=burst clear`) is now available behind `--include-combat-callout-compact-legend` with deterministic DOS-width/readability evaluation row `TSDPMFXCLEN:B43|C42|LIM72|PREF:COMPACT|PASS`.
 - Durable decision: keep baseline decode (`hold line/press edge/burst clear`) as default row; expose compact variant + evaluation as opt-in markdown rows to avoid digest noise while preserving design-world readability evidence.
+
+
+## 2026-04-01 16:52 KST
+- Shipped Systems/Ops injected item from Cycle IP6: deterministic cadence override contract for dispatch pressure class escalation on repeated `combat-or-vfx` misses.
+- Durable decision: keep existing dispatch-pressure computation intact, and expose explicit pre-override/base + cadence-override contract fields to avoid hidden escalation logic drift.
+- Added payload keys + markdown rows: `trendScoreBandDispatchPressureBaseClass`, `trendScoreBandDispatchPressureCadenceOverrideState`, `trendScoreBandDispatchPressureCadenceOverrideAlias`, `trendScoreBandDispatchPressureCadenceOverrideBucket`, `TSDPCO` legend row.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md --include-trend-family-why --include-combat-callout-compact-legend`.
+
+
+## 2026-04-01 16:59 KST
+- Executed Game Director Cycle IP7 after full-check state; implemented low-risk Systems/Ops vertical slice `TSDPCOS` (cadence override streak).
+- Durable decision: keep cadence escalation contract explicit as two-part signal (`TSDPCO` state + `TSDPCOS` streak) for operator auditability and future AI-content note injection.
+- Injected next backlog tasks: (1) QA fixture for `TSDPCOS:1`, (2) AI Content compact escalation note token from streak+slope.
+- Verification: py_compile + regression + guardrail generation passed with optional markdown flags enabled.

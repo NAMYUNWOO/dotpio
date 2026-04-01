@@ -5053,3 +5053,12 @@
 ## 2026-04-01 16:22 KST
 - Added optional compact combat-callout legend microcopy variant (`HL=hold lane, PE=push edge, BC=burst clear`) and DOS-width/readability evaluation token (`TSDPMFXCLEN`) for lane guardrail digest; baseline retained as default decode row.
 - Verification: py_compile + regression + guardrail regeneration with `--include-combat-callout-compact-legend` passed.
+
+## 2026-04-01 16:52 KST
+- Extended regression contract to assert cadence-override payload/domain and markdown rows (`TSDPCO`).
+- Added deterministic checks for base class mirror + override state/alias (`BASE|ESCALATE`, `B|E`) anchored to `combat-or-vfx` bucket.
+- Verification: regression suite green after fixture expectation updates for consecutive-miss cases.
+
+## 2026-04-01 16:59 KST
+- Regression harness now asserts cadence-override streak payload + markdown parity (`TSDPCOS`).
+- Contract domain locked to deterministic integer band `0|1|2`.

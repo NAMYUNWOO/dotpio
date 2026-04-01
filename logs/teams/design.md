@@ -3223,3 +3223,10 @@
 ## 2026-04-01 16:22 KST
 - Added optional compact combat-callout legend microcopy variant (`HL=hold lane, PE=push edge, BC=burst clear`) and DOS-width/readability evaluation token (`TSDPMFXCLEN`) for lane guardrail digest; baseline retained as default decode row.
 - Verification: py_compile + regression + guardrail regeneration with `--include-combat-callout-compact-legend` passed.
+
+## 2026-04-01 16:52 KST
+- Added compact decode support in digest copy: `TSDPCO` legend (`B=BASE`, `E=ESCALATE`) and pre-override base-class row.
+- Keeps cadence escalation rationale legible under DOS-width constraints.
+
+## 2026-04-01 16:59 KST
+- Added compact digest affordance `TSDPCOS` for cadence escalation readiness decoding in dense markdown rails.

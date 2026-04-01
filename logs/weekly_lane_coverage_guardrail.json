@@ -2,9 +2,9 @@
   "recentCompletedItems": 10,
   "capPercent": 40.0,
   "laneCounts": {
-    "systems": 1,
+    "systems": 0,
     "world": 0,
-    "ai-content": 1,
+    "ai-content": 0,
     "combat": 0,
     "design": 1,
     "ux": 0,
@@ -12,9 +12,9 @@
     "vfx": 0
   },
   "lanePercentages": {
-    "systems": 10.0,
+    "systems": 0.0,
     "world": 0.0,
-    "ai-content": 10.0,
+    "ai-content": 0.0,
     "combat": 0.0,
     "design": 10.0,
     "ux": 0.0,
@@ -23,14 +23,14 @@
   },
   "overCapLanes": [],
   "underrepresentedLanes": [
+    "ai-content",
     "combat",
     "qa",
+    "systems",
     "ux",
     "vfx",
     "world",
-    "ai-content",
-    "design",
-    "systems"
+    "design"
   ],
   "forcedNextLanes": [],
   "bucketCadence": {
@@ -55,12 +55,13 @@
         "systems",
         "qa"
       ],
-      "count": 1,
-      "met": true
+      "count": 0,
+      "met": false
     }
   },
   "missingCadenceBuckets": [
-    "combat-or-vfx"
+    "combat-or-vfx",
+    "systems-or-ops"
   ],
   "trendScoreBandSnapshot": {
     "CALM": 0,
@@ -72,6 +73,11 @@
   "trendScoreBandDispatchHintAlias": "B",
   "trendScoreBandDispatchPressure": "HOT",
   "trendScoreBandDispatchPressureAlias": "H",
+  "trendScoreBandDispatchPressureBaseClass": "HOT",
+  "trendScoreBandDispatchPressureCadenceOverrideBucket": "combat-or-vfx",
+  "trendScoreBandDispatchPressureCadenceOverrideState": "ESCALATE",
+  "trendScoreBandDispatchPressureCadenceOverrideAlias": "E",
+  "trendScoreBandDispatchPressureCadenceOverrideStreak": 2,
   "trendScoreBandDispatchPressureMomentum": 0,
   "trendScoreBandDispatchPressureMomentumBand": "LOW",
   "trendScoreBandDispatchPressureMomentumBandAlias": "L",

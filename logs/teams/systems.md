@@ -4529,3 +4529,13 @@
 ## 2026-04-01 16:22 KST
 - Added optional compact combat-callout legend microcopy variant (`HL=hold lane, PE=push edge, BC=burst clear`) and DOS-width/readability evaluation token (`TSDPMFXCLEN`) for lane guardrail digest; baseline retained as default decode row.
 - Verification: py_compile + regression + guardrail regeneration with `--include-combat-callout-compact-legend` passed.
+
+## 2026-04-01 16:52 KST
+- Completed cadence override contract for lane guardrail dispatch pressure class.
+- Added deterministic payload fields: `trendScoreBandDispatchPressureBaseClass`, `trendScoreBandDispatchPressureCadenceOverrideState`, `trendScoreBandDispatchPressureCadenceOverrideAlias`, `trendScoreBandDispatchPressureCadenceOverrideBucket`.
+- Gate rule: escalate only when `combat-or-vfx` bucket is missing in both current and prior windows.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail regeneration command with optional flags.
+
+## 2026-04-01 16:59 KST
+- Cycle IP7 delivered: added cadence-override streak contract (`trendScoreBandDispatchPressureCadenceOverrideStreak`) and markdown alias row `TSDPCOS:<0|1|2>`.
+- Streak mapping: 2=current+prior miss, 1=current-only miss, 0=otherwise.

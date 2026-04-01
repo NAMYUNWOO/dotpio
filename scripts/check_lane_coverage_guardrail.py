@@ -515,6 +515,46 @@ def resolve_trend_score_band_dispatch_pressure_alias(dispatch_pressure: str) -> 
     return alias_map.get(dispatch_pressure, "L")
 
 
+def resolve_dispatch_pressure_with_cadence_override(base_pressure: str, override_state: str) -> str:
+    if override_state != "ESCALATE":
+        return base_pressure
+
+    order = ["LIGHT", "READY", "HOT"]
+    try:
+        idx = order.index(base_pressure)
+    except ValueError:
+        return "HOT"
+    return order[min(idx + 1, len(order) - 1)]
+
+
+def resolve_cadence_override_state(
+    current_missing_buckets: list[str],
+    prior_missing_buckets: list[str],
+    target_bucket: str = "combat-or-vfx",
+) -> str:
+    if target_bucket in current_missing_buckets and target_bucket in prior_missing_buckets:
+        return "ESCALATE"
+    return "BASE"
+
+
+def resolve_cadence_override_alias(override_state: str) -> str:
+    return "E" if override_state == "ESCALATE" else "B"
+
+
+def resolve_cadence_override_streak(
+    current_missing_buckets: list[str],
+    prior_missing_buckets: list[str],
+    target_bucket: str = "combat-or-vfx",
+) -> int:
+    current_missing = target_bucket in current_missing_buckets
+    prior_missing = target_bucket in prior_missing_buckets
+    if current_missing and prior_missing:
+        return 2
+    if current_missing:
+        return 1
+    return 0
+
+
 def build_report(
     rows: list[str],
     cap_ratio: float,
@@ -565,10 +605,34 @@ def build_report(
         if not met:
             missing_buckets.append(bucket)
 
-    score_band_dispatch_pressure = resolve_trend_score_band_dispatch_pressure(
+    base_dispatch_pressure = resolve_trend_score_band_dispatch_pressure(
         score_band_snapshot,
         missing_buckets,
         over_cap,
+    )
+    prior_rows = rows[:-1] if len(rows) > 1 else rows
+    prior_lane_counts = Counter()
+    for row in prior_rows:
+        for lane in infer_lanes(row):
+            prior_lane_counts[lane] += 1
+    prior_missing_buckets: list[str] = []
+    for bucket, bucket_lanes in BUCKETS.items():
+        bucket_count = sum(prior_lane_counts.get(lane, 0) for lane in bucket_lanes)
+        if bucket_count <= 0:
+            prior_missing_buckets.append(bucket)
+
+    cadence_override_state = resolve_cadence_override_state(
+        current_missing_buckets=missing_buckets,
+        prior_missing_buckets=prior_missing_buckets,
+    )
+    cadence_override_alias = resolve_cadence_override_alias(cadence_override_state)
+    cadence_override_streak = resolve_cadence_override_streak(
+        current_missing_buckets=missing_buckets,
+        prior_missing_buckets=prior_missing_buckets,
+    )
+    score_band_dispatch_pressure = resolve_dispatch_pressure_with_cadence_override(
+        base_pressure=base_dispatch_pressure,
+        override_state=cadence_override_state,
     )
     score_band_dispatch_pressure_alias = resolve_trend_score_band_dispatch_pressure_alias(
         score_band_dispatch_pressure
@@ -643,7 +707,6 @@ def build_report(
             score_band_dispatch_pressure_momentum_slope_recommendation_family
         )
     )
-    prior_rows = rows[:-1] if len(rows) > 1 else rows
     prior_momentum_slope = resolve_trend_score_band_dispatch_pressure_momentum_slope(prior_rows)
     prior_recommendation_state = (
         resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_state(
@@ -697,6 +760,11 @@ def build_report(
         "trendScoreBandDispatchHintAlias": score_band_dispatch_hint_alias,
         "trendScoreBandDispatchPressure": score_band_dispatch_pressure,
         "trendScoreBandDispatchPressureAlias": score_band_dispatch_pressure_alias,
+        "trendScoreBandDispatchPressureBaseClass": base_dispatch_pressure,
+        "trendScoreBandDispatchPressureCadenceOverrideBucket": "combat-or-vfx",
+        "trendScoreBandDispatchPressureCadenceOverrideState": cadence_override_state,
+        "trendScoreBandDispatchPressureCadenceOverrideAlias": cadence_override_alias,
+        "trendScoreBandDispatchPressureCadenceOverrideStreak": cadence_override_streak,
         "trendScoreBandDispatchPressureMomentum": score_band_dispatch_pressure_momentum,
         "trendScoreBandDispatchPressureMomentumBand": score_band_dispatch_pressure_momentum_band,
         "trendScoreBandDispatchPressureMomentumBandAlias": score_band_dispatch_pressure_momentum_band_alias,
@@ -805,6 +873,10 @@ def to_markdown(
             f"- trend-score dispatch hint alias: **TSDH:{report.get('trendScoreBandDispatchHintAlias', 'B')}**",
             f"- trend-score dispatch pressure (offline): **{report.get('trendScoreBandDispatchPressure', 'LIGHT')}**",
             f"- trend-score dispatch pressure alias: **TSDP:{report.get('trendScoreBandDispatchPressureAlias', 'L')}**",
+            f"- trend-score dispatch pressure base class (pre-cadence override): **{report.get('trendScoreBandDispatchPressureBaseClass', 'LIGHT')}**",
+            f"- trend-score dispatch pressure cadence override: **TSDPCO:{report.get('trendScoreBandDispatchPressureCadenceOverrideAlias', 'B')}** ({report.get('trendScoreBandDispatchPressureCadenceOverrideState', 'BASE')}, bucket={report.get('trendScoreBandDispatchPressureCadenceOverrideBucket', 'combat-or-vfx')})",
+            f"- trend-score dispatch pressure cadence override streak: **TSDPCOS:{report.get('trendScoreBandDispatchPressureCadenceOverrideStreak', 0)}**",
+            "- trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**",
             f"- trend-score dispatch-pressure momentum (offline): **{report.get('trendScoreBandDispatchPressureMomentum', 0)}**",
             f"- trend-score dispatch-pressure momentum band (offline): **{report.get('trendScoreBandDispatchPressureMomentumBand', 'LOW')}**",
             f"- trend-score dispatch-pressure momentum band alias: **TSDPM:{report.get('trendScoreBandDispatchPressureMomentumBandAlias', 'L')}**",

@@ -3109,3 +3109,10 @@
 ## 2026-04-01 16:22 KST
 - Added optional compact combat-callout legend microcopy variant (`HL=hold lane, PE=push edge, BC=burst clear`) and DOS-width/readability evaluation token (`TSDPMFXCLEN`) for lane guardrail digest; baseline retained as default decode row.
 - Verification: py_compile + regression + guardrail regeneration with `--include-combat-callout-compact-legend` passed.
+
+## 2026-04-01 16:52 KST
+- Cadence override now explicitly escalates dispatch pressure classification only on repeated combat/vfx cadence miss.
+- This strengthens combat-facing scheduling signal without changing combat runtime tuning.
+
+## 2026-04-01 16:59 KST
+- Combat cadence monitoring now exposes override streak depth, improving clarity when combat/vfx touches remain absent across windows.

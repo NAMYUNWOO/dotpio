@@ -58,6 +58,10 @@ def run_fixture_case(
     expected_dispatch_hint_alias: str,
     expected_dispatch_pressure: str,
     expected_dispatch_pressure_alias: str,
+    expected_dispatch_pressure_base_class: str,
+    expected_dispatch_pressure_cadence_override_state: str,
+    expected_dispatch_pressure_cadence_override_alias: str,
+    expected_dispatch_pressure_cadence_override_streak: int,
     expected_dispatch_pressure_momentum: int,
     expected_dispatch_pressure_momentum_band: str,
     expected_dispatch_pressure_momentum_band_alias: str,
@@ -106,6 +110,26 @@ def run_fixture_case(
     assert report.get("trendScoreBandDispatchPressureAlias") == expected_dispatch_pressure_alias, (
         f"{name}: trendScoreBandDispatchPressureAlias must match compact dispatch-pressure alias"
     )
+    assert (
+        report.get("trendScoreBandDispatchPressureBaseClass")
+        == expected_dispatch_pressure_base_class
+    ), f"{name}: trendScoreBandDispatchPressureBaseClass must expose deterministic pre-override pressure class"
+    assert (
+        report.get("trendScoreBandDispatchPressureCadenceOverrideState")
+        == expected_dispatch_pressure_cadence_override_state
+    ), f"{name}: trendScoreBandDispatchPressureCadenceOverrideState must reflect deterministic combat-or-vfx consecutive-missing override state"
+    assert (
+        report.get("trendScoreBandDispatchPressureCadenceOverrideAlias")
+        == expected_dispatch_pressure_cadence_override_alias
+    ), f"{name}: trendScoreBandDispatchPressureCadenceOverrideAlias must mirror compact BASE/ESCALATE alias"
+    assert (
+        report.get("trendScoreBandDispatchPressureCadenceOverrideStreak")
+        == expected_dispatch_pressure_cadence_override_streak
+    ), f"{name}: trendScoreBandDispatchPressureCadenceOverrideStreak must stay deterministic (0|1|2) from current/prior combat-or-vfx missing windows"
+    assert (
+        report.get("trendScoreBandDispatchPressureCadenceOverrideBucket")
+        == "combat-or-vfx"
+    ), f"{name}: trendScoreBandDispatchPressureCadenceOverrideBucket must remain deterministic on combat-or-vfx cadence gate"
     assert report.get("trendScoreBandDispatchPressureMomentum") == expected_dispatch_pressure_momentum, (
         f"{name}: trendScoreBandDispatchPressureMomentum must match deterministic drift-window momentum score"
     )
@@ -255,6 +279,25 @@ def run_fixture_case(
     )
     assert f"trend-score dispatch pressure alias: **TSDP:{expected_dispatch_pressure_alias}**" in md_text, (
         f"{name}: markdown output must include compact dispatch-pressure alias row"
+    )
+    assert (
+        "trend-score dispatch pressure base class (pre-cadence override): "
+        f"**{expected_dispatch_pressure_base_class}**"
+        in md_text
+    ), f"{name}: markdown output must include deterministic pre-override dispatch-pressure class row"
+    assert (
+        "trend-score dispatch pressure cadence override: "
+        f"**TSDPCO:{expected_dispatch_pressure_cadence_override_alias}** "
+        f"({expected_dispatch_pressure_cadence_override_state}, bucket=combat-or-vfx)"
+        in md_text
+    ), f"{name}: markdown output must include deterministic cadence-override contract row"
+    assert (
+        "trend-score dispatch pressure cadence override streak: "
+        f"**TSDPCOS:{expected_dispatch_pressure_cadence_override_streak}**"
+        in md_text
+    ), f"{name}: markdown output must include deterministic cadence-override streak row"
+    assert "trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**" in md_text, (
+        f"{name}: markdown output must include cadence-override alias decode row"
     )
     assert (
         f"trend-score dispatch-pressure momentum (offline): **{expected_dispatch_pressure_momentum}**"
@@ -447,6 +490,10 @@ def main() -> int:
             expected_dispatch_hint_alias="B",
             expected_dispatch_pressure="LIGHT",
             expected_dispatch_pressure_alias="L",
+            expected_dispatch_pressure_base_class="LIGHT",
+            expected_dispatch_pressure_cadence_override_state="BASE",
+            expected_dispatch_pressure_cadence_override_alias="B",
+            expected_dispatch_pressure_cadence_override_streak=0,
             expected_dispatch_pressure_momentum=100,
             expected_dispatch_pressure_momentum_band="HIGH",
             expected_dispatch_pressure_momentum_band_alias="H",
@@ -477,6 +524,10 @@ def main() -> int:
             expected_dispatch_hint_alias="C",
             expected_dispatch_pressure="READY",
             expected_dispatch_pressure_alias="R",
+            expected_dispatch_pressure_base_class="READY",
+            expected_dispatch_pressure_cadence_override_state="BASE",
+            expected_dispatch_pressure_cadence_override_alias="B",
+            expected_dispatch_pressure_cadence_override_streak=0,
             expected_dispatch_pressure_momentum=88,
             expected_dispatch_pressure_momentum_band="HIGH",
             expected_dispatch_pressure_momentum_band_alias="H",
@@ -506,6 +557,10 @@ def main() -> int:
             expected_dispatch_hint_alias="C",
             expected_dispatch_pressure="HOT",
             expected_dispatch_pressure_alias="H",
+            expected_dispatch_pressure_base_class="HOT",
+            expected_dispatch_pressure_cadence_override_state="BASE",
+            expected_dispatch_pressure_cadence_override_alias="B",
+            expected_dispatch_pressure_cadence_override_streak=0,
             expected_dispatch_pressure_momentum=64,
             expected_dispatch_pressure_momentum_band="MID",
             expected_dispatch_pressure_momentum_band_alias="M",
@@ -535,6 +590,10 @@ def main() -> int:
             expected_dispatch_hint_alias="E",
             expected_dispatch_pressure="HOT",
             expected_dispatch_pressure_alias="H",
+            expected_dispatch_pressure_base_class="HOT",
+            expected_dispatch_pressure_cadence_override_state="BASE",
+            expected_dispatch_pressure_cadence_override_alias="B",
+            expected_dispatch_pressure_cadence_override_streak=0,
             expected_dispatch_pressure_momentum=64,
             expected_dispatch_pressure_momentum_band="MID",
             expected_dispatch_pressure_momentum_band_alias="M",
@@ -564,6 +623,10 @@ def main() -> int:
             expected_dispatch_hint_alias="H",
             expected_dispatch_pressure="HOT",
             expected_dispatch_pressure_alias="H",
+            expected_dispatch_pressure_base_class="HOT",
+            expected_dispatch_pressure_cadence_override_state="BASE",
+            expected_dispatch_pressure_cadence_override_alias="B",
+            expected_dispatch_pressure_cadence_override_streak=0,
             expected_dispatch_pressure_momentum=64,
             expected_dispatch_pressure_momentum_band="MID",
             expected_dispatch_pressure_momentum_band_alias="M",
@@ -593,6 +656,10 @@ def main() -> int:
             expected_dispatch_hint_alias="C",
             expected_dispatch_pressure="HOT",
             expected_dispatch_pressure_alias="H",
+            expected_dispatch_pressure_base_class="HOT",
+            expected_dispatch_pressure_cadence_override_state="ESCALATE",
+            expected_dispatch_pressure_cadence_override_alias="E",
+            expected_dispatch_pressure_cadence_override_streak=2,
             expected_dispatch_pressure_momentum=5,
             expected_dispatch_pressure_momentum_band="LOW",
             expected_dispatch_pressure_momentum_band_alias="L",
@@ -621,6 +688,10 @@ def main() -> int:
                 expected_dispatch_hint_alias="C",
                 expected_dispatch_pressure="HOT",
                 expected_dispatch_pressure_alias="H",
+                expected_dispatch_pressure_base_class="HOT",
+                expected_dispatch_pressure_cadence_override_state="ESCALATE",
+                expected_dispatch_pressure_cadence_override_alias="E",
+                expected_dispatch_pressure_cadence_override_streak=2,
                 expected_dispatch_pressure_momentum=58,
                 expected_dispatch_pressure_momentum_band="MID",
                 expected_dispatch_pressure_momentum_band_alias="M",
@@ -651,6 +722,10 @@ def main() -> int:
                 expected_dispatch_hint_alias="B",
                 expected_dispatch_pressure="HOT",
                 expected_dispatch_pressure_alias="H",
+                expected_dispatch_pressure_base_class="HOT",
+                expected_dispatch_pressure_cadence_override_state="ESCALATE",
+                expected_dispatch_pressure_cadence_override_alias="E",
+                expected_dispatch_pressure_cadence_override_streak=2,
                 expected_dispatch_pressure_momentum=38,
                 expected_dispatch_pressure_momentum_band="MID",
                 expected_dispatch_pressure_momentum_band_alias="M",
