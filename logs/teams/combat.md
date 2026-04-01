@@ -3199,3 +3199,6 @@
 
 ## 2026-04-02 04:21 KST
 - 2026-04-02 04:21 KST — Cycle IP20 follow-up: enforced mixed-window row-count parity across `TSDPMFXUCTSBT`/`TSDPMFXUCTSBTA`/`TSDPMFXV`/`TSDPMFXVA` in regression fixture matrix; verification passed (`py_compile`, regression script, guardrail artifact regeneration).
+
+## 2026-04-02 04:52 KST
+- Maintained combat/VFX contract: new `TSDPMFXVW` guidance stays derivative of existing pulse states and does not alter runtime combat behavior.

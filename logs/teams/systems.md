@@ -4641,3 +4641,7 @@
 
 ## 2026-04-02 04:21 KST
 - 2026-04-02 04:21 KST — Cycle IP20 follow-up: enforced mixed-window row-count parity across `TSDPMFXUCTSBT`/`TSDPMFXUCTSBTA`/`TSDPMFXV`/`TSDPMFXVA` in regression fixture matrix; verification passed (`py_compile`, regression script, guardrail artifact regeneration).
+
+## 2026-04-02 04:52 KST
+- Added deterministic offline pulse-guidance resolver `TSDPMFXVW` mapped from `TSDPMFXV` (`CALM->steady sweep`, `PULSE->brace lanes`, `BLAST->commit burst`) in `scripts/check_lane_coverage_guardrail.py`.
+- Wired payload field `trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidance` and markdown row/decode lines for reversible, offline-only usage.

@@ -4875,3 +4875,5 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep pairing row as markdown-only decode contract (no payload/runtime coupling) and enforce position between `TSDPMFXVA` legend and `TSDPMFXU` decode through regression order assertions.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Next item: Systems/Ops + QA injected parity assertion for `TSDPMFXV`/`TSDPMFXVA` row counts vs `TSDPMFXUCTSBT` under mixed-window fixtures.
+
+- 2026-04-02 04:52 KST: Shipped AI Content/Systems pulse-guidance slice `TSDPMFXVW` derived from `TSDPMFXV` with deterministic mapping (`CALM=steady sweep`, `PULSE=brace lanes`, `BLAST=commit burst`), plus regression locks for ordering and row-count parity.

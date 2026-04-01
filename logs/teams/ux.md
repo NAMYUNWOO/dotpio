@@ -3485,3 +3485,6 @@
 
 ## 2026-04-02 04:21 KST
 - 2026-04-02 04:21 KST — Cycle IP20 follow-up: enforced mixed-window row-count parity across `TSDPMFXUCTSBT`/`TSDPMFXUCTSBTA`/`TSDPMFXV`/`TSDPMFXVA` in regression fixture matrix; verification passed (`py_compile`, regression script, guardrail artifact regeneration).
+
+## 2026-04-02 04:52 KST
+- Kept DOS-width-friendly microcopy for pulse guidance; guidance row remains short and scan-oriented in weekly markdown output.
