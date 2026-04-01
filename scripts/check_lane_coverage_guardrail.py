@@ -398,6 +398,28 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_alias(momentum_fx
     return alias_map.get(momentum_fx_cue, "S")
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency(
+    momentum_band_trend: str,
+) -> str:
+    urgency_map = {
+        "DOWN": "SOFT",
+        "FLAT": "SURGE",
+        "UP": "SPIKE",
+    }
+    return urgency_map.get(momentum_band_trend, "SURGE")
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_alias(
+    momentum_fx_urgency: str,
+) -> str:
+    alias_map = {
+        "SOFT": "S",
+        "SURGE": "U",
+        "SPIKE": "P",
+    }
+    return alias_map.get(momentum_fx_urgency, "U")
+
+
 def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation(
     momentum_fx_cue: str,
 ) -> str:
@@ -968,6 +990,16 @@ def build_report(
             cadence_override_note_rationale_confidence_trend_momentum_band_trend
         )
     )
+    score_band_dispatch_pressure_momentum_fx_urgency = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency(
+            cadence_override_note_rationale_confidence_trend_momentum_band_trend
+        )
+    )
+    score_band_dispatch_pressure_momentum_fx_urgency_alias = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_alias(
+            score_band_dispatch_pressure_momentum_fx_urgency
+        )
+    )
     score_band_dispatch_pressure_momentum_slope_recommendation = (
         resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation(
             score_band_dispatch_pressure_momentum_slope
@@ -1069,6 +1101,8 @@ def build_report(
         "trendScoreBandDispatchPressureMomentumBandAlias": score_band_dispatch_pressure_momentum_band_alias,
         "trendScoreBandDispatchPressureMomentumFxCue": score_band_dispatch_pressure_momentum_fx_cue,
         "trendScoreBandDispatchPressureMomentumFxCueAlias": score_band_dispatch_pressure_momentum_fx_cue_alias,
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCue": score_band_dispatch_pressure_momentum_fx_urgency,
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueAlias": score_band_dispatch_pressure_momentum_fx_urgency_alias,
         "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": score_band_dispatch_pressure_momentum_fx_cue_combat_callout,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": score_band_dispatch_pressure_momentum_fx_cue_combat_callout_alias,
@@ -1212,6 +1246,9 @@ def to_markdown(
             f"- trend-score dispatch-pressure momentum slope rec (ai-content/systems): **{report.get('trendScoreBandDispatchPressureMomentumSlopeRecommendation', 'hold steady; validate calm-lane continuity')}**",
             f"- trend-score dispatch-pressure momentum fx cue (combat/vfx): **{report.get('trendScoreBandDispatchPressureMomentumFxCue', 'SOFT')}**",
             f"- trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{report.get('trendScoreBandDispatchPressureMomentumFxCueAlias', 'S')}**",
+            f"- trend-score dispatch-pressure momentum fx urgency cue from momentum-band trend (combat/vfx): **TSDPMFXU:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCue', 'SURGE')}**",
+            f"- trend-score dispatch-pressure momentum fx urgency cue alias: **TSDPMFXUA:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueAlias', 'U')}**",
+            "- trend-score dispatch-pressure momentum fx urgency cue decode (design/world): **SOFT=trend cooling (DOWN), SURGE=trend stable (FLAT), SPIKE=trend rising (UP)**",
             "- trend-score dispatch-pressure momentum fx cue cadence decode (design/world): **SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**",
             f"- trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): **{report.get('trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation', 'steady pace; hold broad scan')}**",
             f"- trend-score dispatch-pressure momentum fx combat callout (combat/vfx): **{report.get('trendScoreBandDispatchPressureMomentumFxCueCombatCallout', 'HOLD_LINE')}**",

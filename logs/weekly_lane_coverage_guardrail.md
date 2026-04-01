@@ -50,6 +50,9 @@
 - trend-score dispatch-pressure momentum slope rec (ai-content/systems): **hold steady; validate calm-lane continuity**
 - trend-score dispatch-pressure momentum fx cue (combat/vfx): **SOFT**
 - trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:S**
+- trend-score dispatch-pressure momentum fx urgency cue from momentum-band trend (combat/vfx): **TSDPMFXU:SURGE**
+- trend-score dispatch-pressure momentum fx urgency cue alias: **TSDPMFXUA:U**
+- trend-score dispatch-pressure momentum fx urgency cue decode (design/world): **SOFT=trend cooling (DOWN), SURGE=trend stable (FLAT), SPIKE=trend rising (UP)**
 - trend-score dispatch-pressure momentum fx cue cadence decode (design/world): **SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**
 - trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): **steady pace; hold broad scan**
 - trend-score dispatch-pressure momentum fx combat callout (combat/vfx): **HOLD_LINE**

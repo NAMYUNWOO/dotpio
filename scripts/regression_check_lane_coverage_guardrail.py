@@ -415,6 +415,28 @@ def run_fixture_case(
     assert confidence_trend_momentum_band_trend_alias == expected_confidence_trend_momentum_band_trend_alias, (
         f"{name}: trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBandTrendAlias must mirror UP|FLAT|DOWN alias"
     )
+    expected_fx_urgency_cue = {
+        "DOWN": "SOFT",
+        "FLAT": "SURGE",
+        "UP": "SPIKE",
+    }[confidence_trend_momentum_band_trend]
+    expected_fx_urgency_cue_alias = {
+        "SOFT": "S",
+        "SURGE": "U",
+        "SPIKE": "P",
+    }[expected_fx_urgency_cue]
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumFxUrgencyCue")
+        == expected_fx_urgency_cue
+    ), (
+        f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCue must deterministically map from TSDPCONWCTSBT"
+    )
+    assert (
+        report.get("trendScoreBandDispatchPressureMomentumFxUrgencyCueAlias")
+        == expected_fx_urgency_cue_alias
+    ), (
+        f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueAlias must mirror SOFT|SURGE|SPIKE alias"
+    )
     assert (
         "trend-score dispatch pressure cadence override note rationale confidence (ai-content/systems, offline): "
         f"**TSDPCON WHY CONF:{confidence_value}**"
@@ -847,6 +869,21 @@ def run_fixture_case(
         f"trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{expected_dispatch_pressure_momentum_fx_cue_alias}**"
         in md_text
     ), f"{name}: markdown output must include compact combat/vfx momentum fx-cue alias row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency cue from momentum-band trend (combat/vfx): "
+        f"**TSDPMFXU:{expected_fx_urgency_cue}**"
+        in md_text
+    ), f"{name}: markdown output must include trend->urgency momentum fx cue row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency cue alias: "
+        f"**TSDPMFXUA:{expected_fx_urgency_cue_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include compact trend->urgency momentum fx cue alias row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency cue decode (design/world): "
+        "**SOFT=trend cooling (DOWN), SURGE=trend stable (FLAT), SPIKE=trend rising (UP)**"
+        in md_text
+    ), f"{name}: markdown output must include trend->urgency decode row"
     assert (
         "trend-score dispatch-pressure momentum fx cue cadence decode (design/world): "
         "**SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**"

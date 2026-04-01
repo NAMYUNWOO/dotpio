@@ -4796,3 +4796,6 @@ Compact decision memory for AI context efficiency.
 - 24h cadence buckets satisfied: combat/vfx, design/world, systems/ops all present.
 - Implemented minimal vertical slice: added `trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBandTrend` (`TSDPCONWCTSBT:UP|FLAT|DOWN`) and alias `...BandTrendAlias` (`TSDPCONWCTSBTA`) with markdown rows + decode legends + regression parity/order locks.
 - Injected next backlog tasks for cadence continuity: Combat/VFX pulse-urgency token, Design/World decode row, Systems/Ops+QA mixed-fixture parity expansion.
+- 2026-04-01 21:53 KST — Completed injected Combat/VFX task: added trend-driven momentum FX urgency token `TSDPMFXU:SOFT|SURGE|SPIKE` plus compact alias `TSDPMFXUA:S|U|P`, deterministically mapped from `TSDPCONWCTSBT` (`DOWN->SOFT`, `FLAT->SURGE`, `UP->SPIKE`).
+- Added DOS-width decode row pairing trend and urgency semantics for one-scan operator intent readability.
+- Regression expanded to lock payload + markdown parity for the new urgency token and alias; full guardrail regression and report regeneration pass green.
