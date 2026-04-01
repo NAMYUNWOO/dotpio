@@ -143,6 +143,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include compact combat/vfx momentum fx-cue alias row"
     assert (
+        "trend-score dispatch-pressure momentum fx cue cadence decode (design/world): "
+        "**SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**"
+        in md_text
+    ), f"{name}: markdown output must include design/world momentum fx-cue cadence decode row"
+    assert (
         "trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): "
         f"**{expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation}**"
         in md_text

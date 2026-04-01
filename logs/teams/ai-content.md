@@ -3149,3 +3149,9 @@
   - `HARD -> surge pressure; triage hottest lane first`
 - Kept change offline/reporting-only; no runtime coupling.
 - Follow-up: keep microcopy deterministic and compact for future optional UI row parity.
+
+## 2026-04-01 10:20 KST
+- Closed injected Design/World backlog slice: lane guardrail markdown now includes compact momentum FX cue cadence decode row (`SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence`) to pair `TSDPMFX` with cadence-bucket context.
+- Regression contract extended in `scripts/regression_check_lane_coverage_guardrail.py` to lock decode-row presence.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail report regeneration command.
+

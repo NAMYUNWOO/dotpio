@@ -1,3 +1,9 @@
+## 2026-04-01 10:20 KST
+- Closed injected Design/World POST_RC item: lane guardrail markdown now includes compact momentum FX-cue cadence decode row (`SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence`) directly under `TSDPMFX`.
+- Regression contract expanded: `scripts/regression_check_lane_coverage_guardrail.py` now fails if the design/world decode row is missing.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2 (next: AI Content/Systems momentum-slope recommendation or Systems/Ops momentum-band sparkline).
+
 ## 2026-04-01 09:49 KST
 - Executed Game Director Cycle ILO.
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=1, combat=2, design=3, ux=2, qa=3, vfx=2 (no lane >40%, no forced-lane override).

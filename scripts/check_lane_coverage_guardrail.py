@@ -392,6 +392,7 @@ def to_markdown(report: dict, recent_rows: list[str] | None = None) -> str:
             f"- trend-score dispatch-pressure momentum band alias: **TSDPM:{report.get('trendScoreBandDispatchPressureMomentumBandAlias', 'L')}**",
             f"- trend-score dispatch-pressure momentum fx cue (combat/vfx): **{report.get('trendScoreBandDispatchPressureMomentumFxCue', 'SOFT')}**",
             f"- trend-score dispatch-pressure momentum fx cue alias: **TSDPMFX:{report.get('trendScoreBandDispatchPressureMomentumFxCueAlias', 'S')}**",
+            "- trend-score dispatch-pressure momentum fx cue cadence decode (design/world): **SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence**",
             f"- trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design): **{report.get('trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation', 'steady pace; hold broad scan')}**",
             "",
             *rows,

@@ -3034,3 +3034,9 @@
 - Closed injected Systems/QA POST_RC item: extended lane-guardrail regression fixture coverage to explicitly validate `trendScoreBandDispatchPressureMomentumBand` LOW domain path and markdown alias parity `TSDPM:L`.
 - Added deterministic `low_momentum_band` fixture case in `scripts/regression_check_lane_coverage_guardrail.py` to lock score->band mapping (`5 -> LOW`) and alias mapping (`LOW -> L`) without runtime coupling.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-01 10:20 KST
+- Closed injected Design/World backlog slice: lane guardrail markdown now includes compact momentum FX cue cadence decode row (`SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence`) to pair `TSDPMFX` with cadence-bucket context.
+- Regression contract extended in `scripts/regression_check_lane_coverage_guardrail.py` to lock decode-row presence.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail report regeneration command.
+

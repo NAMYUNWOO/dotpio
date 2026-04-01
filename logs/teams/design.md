@@ -3147,3 +3147,9 @@
   `trend-score dispatch-pressure momentum fx cue microcopy rec (ai-content/design)`.
 - Decision: prioritize terse action language over flavor copy for scan speed.
 - Follow-up: when adding cadence-context decode row (backlog line 15), align tone/style with this wording.
+
+## 2026-04-01 10:20 KST
+- Closed injected Design/World backlog slice: lane guardrail markdown now includes compact momentum FX cue cadence decode row (`SOFT=CALM cadence, EDGE=EDGE cadence, HARD=HEATED cadence`) to pair `TSDPMFX` with cadence-bucket context.
+- Regression contract extended in `scripts/regression_check_lane_coverage_guardrail.py` to lock decode-row presence.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail report regeneration command.
+
