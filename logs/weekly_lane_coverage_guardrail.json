@@ -80,6 +80,8 @@
   "trendScoreBandDispatchPressureCadenceOverrideStreak": 2,
   "trendScoreBandDispatchPressureCadenceOverrideNote": "PUSH",
   "trendScoreBandDispatchPressureCadenceOverrideNoteAlias": "P",
+  "trendScoreBandDispatchPressureCadenceOverrideNoteRationale": "push",
+  "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleAlias": "P",
   "trendScoreBandDispatchPressureMomentum": 0,
   "trendScoreBandDispatchPressureMomentumBand": "LOW",
   "trendScoreBandDispatchPressureMomentumBandAlias": "L",

@@ -5071,3 +5071,7 @@
 - Executed low-risk UX/AI-content vertical slice after backlog clear: added compact cadence-note alias token `TSDPCON:<H|W|P>` with deterministic payload mirror and markdown decode row.
 - Injected next tasks: (1) Systems/QA adjacency/order lock for cadence cluster, (2) AI Content/Design compact note rationale token `TSDPCON WHY`.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+- 2026-04-01 17:43 KST — Cycle IP9: closed injected cadence-cluster follow-ups by adding `TSDPCON WHY:steady|watch|push` (derived from `TSDPCON` + momentum slope) and hardening regression order checks for `TSDPCOS -> TSDPCO NOTE -> TSDPCON -> TSDPCON WHY -> TSDPCON legend` in markdown rails.
+
+- 2026-04-01 17:48 KST — Game Director Cycle IP10: shipped compact cadence-note rationale alias `TSDPCONW:<S|W|P>` and locked cadence cluster ordering with rationale chain (`TSDPCOS -> TSDPCO NOTE -> TSDPCON -> TSDPCON WHY -> TSDPCONW -> TSDPCON legend`). Injected next tasks for rationale-chain order hardening and offline rationale-confidence prototype.

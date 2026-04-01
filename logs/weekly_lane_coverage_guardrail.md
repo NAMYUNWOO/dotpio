@@ -16,6 +16,8 @@
 - trend-score dispatch pressure cadence override streak: **TSDPCOS:2**
 - trend-score dispatch pressure cadence override note (ai-content/design, offline): **TSDPCO NOTE:PUSH**
 - trend-score dispatch pressure cadence override note alias: **TSDPCON:P**
+- trend-score dispatch pressure cadence override note rationale (ai-content/design, offline): **TSDPCON WHY:push**
+- trend-score dispatch pressure cadence override note rationale alias: **TSDPCONW:P**
 - trend-score dispatch pressure cadence override note decode: **TSDPCON legend (H=HOLD, W=WATCH, P=PUSH)**
 - trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**
 - trend-score dispatch-pressure momentum (offline): **0**

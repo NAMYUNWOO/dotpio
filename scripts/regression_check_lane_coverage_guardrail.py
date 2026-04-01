@@ -334,11 +334,82 @@ def run_fixture_case(
         f"**TSDPCON:{expected_cadence_note_alias}**"
         in md_text
     ), f"{name}: markdown output must include compact cadence-override note alias row"
+    expected_cadence_note_rationale = (
+        "push"
+        if expected_cadence_note == "PUSH"
+        or expected_dispatch_pressure_momentum_slope == "SURGING"
+        else "watch"
+        if expected_cadence_note == "WATCH"
+        or expected_dispatch_pressure_momentum_slope == "RISING"
+        else "steady"
+    )
+    assert (
+        report.get("trendScoreBandDispatchPressureCadenceOverrideNoteRationale")
+        == expected_cadence_note_rationale
+    ), f"{name}: trendScoreBandDispatchPressureCadenceOverrideNoteRationale must map deterministic steady/watch/push rationale from note+slope"
+    expected_cadence_note_rationale_alias = {
+        "steady": "S",
+        "watch": "W",
+        "push": "P",
+    }[expected_cadence_note_rationale]
+    assert (
+        report.get("trendScoreBandDispatchPressureCadenceOverrideNoteRationaleAlias")
+        == expected_cadence_note_rationale_alias
+    ), f"{name}: trendScoreBandDispatchPressureCadenceOverrideNoteRationaleAlias must mirror deterministic compact rationale alias"
+    assert (
+        "trend-score dispatch pressure cadence override note rationale (ai-content/design, offline): "
+        f"**TSDPCON WHY:{expected_cadence_note_rationale}**"
+        in md_text
+    ), f"{name}: markdown output must include compact cadence-note rationale row"
+    assert (
+        "trend-score dispatch pressure cadence override note rationale alias: "
+        f"**TSDPCONW:{expected_cadence_note_rationale_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include compact cadence-note rationale alias row"
     assert (
         "trend-score dispatch pressure cadence override note decode: "
         "**TSDPCON legend (H=HOLD, W=WATCH, P=PUSH)**"
         in md_text
     ), f"{name}: markdown output must include cadence-override note decode row"
+    cadence_cluster_lines = md_text.splitlines()
+    cadence_cluster_streak_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPCOS:" in line
+    ]
+    cadence_cluster_note_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPCO NOTE:" in line
+    ]
+    cadence_cluster_note_alias_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPCON:" in line and "TSDPCON legend" not in line
+    ]
+    cadence_cluster_note_legend_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPCON legend (H=HOLD, W=WATCH, P=PUSH)**" in line
+    ]
+    assert len(cadence_cluster_streak_indexes) >= 1, (
+        f"{name}: cadence cluster streak row must appear in markdown summary"
+    )
+    assert len(cadence_cluster_note_indexes) == len(cadence_cluster_streak_indexes), (
+        f"{name}: cadence cluster note row count must match streak row count"
+    )
+    assert len(cadence_cluster_note_alias_indexes) == len(cadence_cluster_streak_indexes), (
+        f"{name}: cadence cluster note-alias row count must match streak row count"
+    )
+    assert len(cadence_cluster_note_legend_indexes) == len(cadence_cluster_streak_indexes), (
+        f"{name}: cadence cluster legend row count must match streak row count"
+    )
+    for cluster_i in range(len(cadence_cluster_streak_indexes)):
+        assert cadence_cluster_note_indexes[cluster_i] == cadence_cluster_streak_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPCOS immediately before TSDPCO NOTE in both sections"
+        )
+        assert cadence_cluster_note_alias_indexes[cluster_i] == cadence_cluster_note_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPCO NOTE immediately before TSDPCON in both sections"
+        )
+        assert cadence_cluster_note_legend_indexes[cluster_i] == cadence_cluster_note_alias_indexes[cluster_i] + 3, (
+            f"{name}: cadence cluster order must keep TSDPCON legend directly after injected TSDPCON WHY/TSDPCONW rows in both sections"
+        )
     assert "trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**" in md_text, (
         f"{name}: markdown output must include cadence-override alias decode row"
     )

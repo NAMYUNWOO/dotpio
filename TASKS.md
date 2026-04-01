@@ -1,6 +1,19 @@
 # TASKS
 
-Last updated: 2026-04-01 12:46 KST
+Last updated: 2026-04-01 17:48 KST
+
+## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP10)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%; cadence buckets remain covered).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (UX/AI-content): add compact cadence-note rationale alias token (`TSDPCONW:S|W|P`) to make `TSDPCON WHY` scannable in dense markdown rails.
+  - Mid-risk Systems/QA: add deterministic ordering lock for cadence rationale cluster (`TSDPCON -> TSDPCON WHY -> TSDPCONW -> TSDPCON legend`).
+  - High-risk novelty (AI Content/Systems): prototype offline cadence-note rationale confidence token (`TSDPCON WHY CONF:LOW|MID|HIGH`) from note/slope churn history.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] UX/AI-content + Systems/QA Team: Add payload + markdown compact cadence-note rationale alias token (`TSDPCONW:S|W|P`) with deterministic mapping from `TSDPCON WHY` and extend cadence-cluster order assertions. *(lifecycle: [ ] -> [~] started: 2026-04-01 17:45 KST -> [x] completed: 2026-04-01 17:48 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP10)
+- [ ] Systems/QA Team (injected): Add explicit adjacency/order assertions for cadence rationale alias chain (`TSDPCON WHY -> TSDPCONW -> TSDPCON legend`) in summary + token-coverage sections.
+- [ ] AI Content/Systems Team (injected): Prototype offline cadence-note rationale confidence token (`TSDPCON WHY CONF:LOW|MID|HIGH`) from note/slope churn windows.
 
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP3)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%).
@@ -2224,5 +2237,5 @@ See project-level plans:
 - [x] UX/AI-content + Systems/QA Team: Add payload + markdown compact cadence-note alias token (`TSDPCON:<H|W|P>`) with deterministic mapping from `TSDPCO NOTE`. *(lifecycle: [ ] -> [~] started: 2026-04-01 17:27 KST -> [x] completed: 2026-04-01 17:31 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP8)
-- [ ] Systems/QA Team (injected): Add explicit adjacency/order assertions for cadence cluster rows (`TSDPCOS -> TSDPCO NOTE -> TSDPCON -> TSDPCON legend`) in summary + token-coverage sections.
-- [ ] AI Content/Design Team (injected): Prototype compact cadence-note rationale token (`TSDPCON WHY:steady|watch|push`) from `TSDPCON` + momentum-slope state (offline-only).
+- [x] Systems/QA Team (injected): Add explicit adjacency/order assertions for cadence cluster rows (`TSDPCOS -> TSDPCO NOTE -> TSDPCON -> TSDPCON legend`) in summary + token-coverage sections. *(lifecycle: [ ] -> [~] started: 2026-04-01 17:39 KST -> [x] completed: 2026-04-01 17:43 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [x] AI Content/Design Team (injected): Prototype compact cadence-note rationale token (`TSDPCON WHY:steady|watch|push`) from `TSDPCON` + momentum-slope state (offline-only). *(lifecycle: [ ] -> [~] started: 2026-04-01 17:39 KST -> [x] completed: 2026-04-01 17:43 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
