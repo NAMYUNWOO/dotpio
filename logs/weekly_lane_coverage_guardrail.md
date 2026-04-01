@@ -38,11 +38,11 @@
 | combat | 1 | 10.0% |
 | design | 3 | 30.0% |
 | ux | 2 | 20.0% |
-| qa | 3 | 30.0% |
+| qa | 2 | 20.0% |
 | vfx | 1 | 10.0% |
 
 | cadence bucket | lanes | count | status |
 |---|---|---:|---|
 | combat-or-vfx | combat/vfx | 2 | met |
 | design-or-world | design/world | 4 | met |
-| systems-or-ops | systems/qa | 6 | met |
+| systems-or-ops | systems/qa | 5 | met |

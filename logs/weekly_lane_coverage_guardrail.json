@@ -8,7 +8,7 @@
     "combat": 1,
     "design": 3,
     "ux": 2,
-    "qa": 3,
+    "qa": 2,
     "vfx": 1
   },
   "lanePercentages": {
@@ -18,7 +18,7 @@
     "combat": 10.0,
     "design": 30.0,
     "ux": 20.0,
-    "qa": 30.0,
+    "qa": 20.0,
     "vfx": 10.0
   },
   "overCapLanes": [],
@@ -27,9 +27,9 @@
     "combat",
     "vfx",
     "world",
+    "qa",
     "ux",
     "design",
-    "qa",
     "systems"
   ],
   "forcedNextLanes": [],
@@ -55,7 +55,7 @@
         "systems",
         "qa"
       ],
-      "count": 6,
+      "count": 5,
       "met": true
     }
   },

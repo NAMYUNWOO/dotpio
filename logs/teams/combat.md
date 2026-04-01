@@ -3068,3 +3068,4 @@
 
 ## 2026-04-01 12:46 KST
 - Verified new recommendation-family trend token remains analytics-only and does not affect combat runtime behavior.
+- 2026-04-01 13:27 KST: Closed injected Systems/QA trend-transition item; regression matrix now includes explicit prior-window `UP` + `DOWN` fixtures for `trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend`, preventing domain-only false passes.

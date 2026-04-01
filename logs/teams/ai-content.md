@@ -3183,3 +3183,4 @@
 
 ## 2026-04-01 12:46 KST
 - Confirmed recommendation-family trend semantics remain offline-only guidance (escalate/hold/cool direction) with no runtime coupling.
+- 2026-04-01 13:27 KST: Closed injected Systems/QA trend-transition item; regression matrix now includes explicit prior-window `UP` + `DOWN` fixtures for `trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend`, preventing domain-only false passes.

@@ -5008,3 +5008,4 @@
 
 ## 2026-04-01 12:46 KST
 - Extended regression checks to validate recommendation-family trend domain/alias parity and markdown row presence for `TSDPMSRFT`.
+- 2026-04-01 13:27 KST: Closed injected Systems/QA trend-transition item; regression matrix now includes explicit prior-window `UP` + `DOWN` fixtures for `trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend`, preventing domain-only false passes.

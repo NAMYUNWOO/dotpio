@@ -4670,3 +4670,4 @@ Compact decision memory for AI context efficiency.
 - Extended regression coverage to lock trend domain/alias parity plus markdown presence/decode rows.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Injected follow-ups into TASKS/POST_RC_BACKLOG for fixture transition coverage + optional rationale/microcopy rails.
+- 2026-04-01 13:27 KST decision: lock prior-window trend behavior with explicit `UP`/`DOWN` fixture cases in `scripts/regression_check_lane_coverage_guardrail.py`; keep next queue focused on optional `TSDPMSRFT WHY` microcopy and compact decode wording.

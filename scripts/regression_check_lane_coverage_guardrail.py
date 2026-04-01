@@ -57,7 +57,8 @@ def run_fixture_case(
     expected_dispatch_pressure_momentum_fx_cue: str,
     expected_dispatch_pressure_momentum_fx_cue_alias: str,
     expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation: str,
-) -> None:
+    expected_recommendation_family_trend: str | None = None,
+) -> str:
     backlog = tmp_path / f"{name}_backlog.md"
     json_out = tmp_path / f"{name}_guardrail.json"
     md_out = tmp_path / f"{name}_guardrail.md"
@@ -152,6 +153,10 @@ def run_fixture_case(
     assert family_trend in {"UP", "FLAT", "DOWN"}, (
         f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrend must stay in UP/FLAT/DOWN domain"
     )
+    if expected_recommendation_family_trend is not None:
+        assert family_trend == expected_recommendation_family_trend, (
+            f"{name}: expected explicit prior-window family trend {expected_recommendation_family_trend}, got {family_trend}"
+        )
     family_trend_alias = report.get("trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendAlias")
     assert family_trend_alias == {"UP": "U", "FLAT": "F", "DOWN": "D"}.get(family_trend), (
         f"{name}: trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendAlias must deterministically mirror family trend alias"
@@ -263,10 +268,13 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include ai-content/design momentum fx-cue microcopy recommendation row"
 
+    return family_trend
+
 
 def main() -> int:
     with tempfile.TemporaryDirectory(prefix="regression_check_lane_guardrail_") as tmp:
         tmp_path = Path(tmp)
+        observed_family_trends: list[str] = []
 
         run_fixture_case(
             tmp_path=tmp_path,
@@ -429,6 +437,66 @@ def main() -> int:
             expected_dispatch_pressure_momentum_fx_cue="SOFT",
             expected_dispatch_pressure_momentum_fx_cue_alias="S",
             expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="steady pace; hold broad scan",
+        )
+
+        observed_family_trends.append(
+            run_fixture_case(
+                tmp_path=tmp_path,
+                name="prior_window_trend_up",
+                rows=[
+                    "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+                    "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+                    "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:E",
+                ],
+                expected_snapshot={"CALM": 2, "EDGE": 1, "HEATED": 0},
+                expected_dispatch_hint="CALM_FOCUS",
+                expected_dispatch_hint_alias="C",
+                expected_dispatch_pressure="HOT",
+                expected_dispatch_pressure_alias="H",
+                expected_dispatch_pressure_momentum=58,
+                expected_dispatch_pressure_momentum_band="MID",
+                expected_dispatch_pressure_momentum_band_alias="M",
+                expected_dispatch_pressure_momentum_band_sparkline="LM",
+                expected_dispatch_pressure_momentum_slope="SURGING",
+                expected_dispatch_pressure_momentum_slope_alias="S",
+                expected_dispatch_pressure_momentum_slope_recommendation="escalate triage; clamp hottest-lane drift",
+                expected_dispatch_pressure_momentum_fx_cue="EDGE",
+                expected_dispatch_pressure_momentum_fx_cue_alias="E",
+                expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="pressure rising; prep focused dispatch",
+                expected_recommendation_family_trend="UP",
+            )
+        )
+        observed_family_trends.append(
+            run_fixture_case(
+                tmp_path=tmp_path,
+                name="prior_window_trend_down",
+                rows=[
+                    "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+                    "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:C",
+                    "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:E",
+                    "- [x] Systems/QA Team: compatRowPolicySourceConfidenceTrendScoreBandAlias:E",
+                ],
+                expected_snapshot={"CALM": 2, "EDGE": 2, "HEATED": 0},
+                expected_dispatch_hint="BALANCED",
+                expected_dispatch_hint_alias="B",
+                expected_dispatch_pressure="HOT",
+                expected_dispatch_pressure_alias="H",
+                expected_dispatch_pressure_momentum=38,
+                expected_dispatch_pressure_momentum_band="MID",
+                expected_dispatch_pressure_momentum_band_alias="M",
+                expected_dispatch_pressure_momentum_band_sparkline="LMM",
+                expected_dispatch_pressure_momentum_slope="COOLING",
+                expected_dispatch_pressure_momentum_slope_alias="C",
+                expected_dispatch_pressure_momentum_slope_recommendation="hold steady; validate calm-lane continuity",
+                expected_dispatch_pressure_momentum_fx_cue="EDGE",
+                expected_dispatch_pressure_momentum_fx_cue_alias="E",
+                expected_dispatch_pressure_momentum_fx_cue_microcopy_recommendation="pressure rising; prep focused dispatch",
+                expected_recommendation_family_trend="DOWN",
+            )
+        )
+
+        assert "UP" in observed_family_trends and "DOWN" in observed_family_trends, (
+            "fixture matrix must include explicit prior-window recommendation-family trend transitions for both UP and DOWN"
         )
 
     print("ok: trendScoreBand dispatch-hint/momentum-band regression checks passed")
