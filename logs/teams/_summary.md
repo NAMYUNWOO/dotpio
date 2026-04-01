@@ -4784,3 +4784,8 @@ Compact decision memory for AI context efficiency.
 - Queue status after update: ACTION_ITEMS=0 open, TASKS=1 open, POST_RC_BACKLOG=1 open (next highest-priority: AI Content/Systems `TSDPCONWCT:UP|FLAT|DOWN`).
 
 - 2026-04-01 20:18 KST: Regression guardrail hardened for cadence confidence-trend alias parity. `scripts/regression_check_lane_coverage_guardrail.py` now asserts `TSDPCONWCT` and `TSDPCONWCTA` counts both mirror fixture-derived cadence-cluster row count, avoiding brittle fixed-section assumptions.
+
+- 2026-04-01 21:21 KST — Systems/QA shipped deterministic fixture-level parity lock: TSDPCONWCTSB row count must mirror TSDPCONWCTS in both summary+token sections.
+  - Why durable: prevents markdown cardinality drift when mixed fixtures evolve cadence-cluster rendering order.
+  - Evidence: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py; python3 scripts/regression_check_lane_coverage_guardrail.py; python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
+  - Next priority: AI Content/Systems injected task for TSDPCONWCTSBT prototype.

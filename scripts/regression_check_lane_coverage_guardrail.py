@@ -550,6 +550,9 @@ def run_fixture_case(
     assert len(cadence_cluster_rationale_conf_trend_momentum_band_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster rationale-confidence-trend-momentum-band row count must match streak row count"
     )
+    assert len(cadence_cluster_rationale_conf_trend_momentum_band_indexes) == len(cadence_cluster_rationale_conf_trend_momentum_indexes), (
+        f"{name}: cadence cluster rationale-confidence-trend-momentum-band row count must mirror TSDPCONWCTS row count in both sections"
+    )
     assert len(cadence_cluster_rationale_conf_trend_momentum_band_alias_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster rationale-confidence-trend-momentum-band-alias row count must match streak row count"
     )
@@ -568,6 +571,9 @@ def run_fixture_case(
     )
     assert len(cadence_cluster_rationale_conf_trend_momentum_band_indexes) == expected_cadence_cluster_rows, (
         f"{name}: fixture-level TSDPCONWCTSB row count must deterministically mirror cadence-cluster section row count"
+    )
+    assert len(cadence_cluster_rationale_conf_trend_momentum_band_indexes) == len(cadence_cluster_rationale_conf_trend_momentum_indexes), (
+        f"{name}: fixture-level TSDPCONWCTSB row count must deterministically mirror TSDPCONWCTS row count in both sections"
     )
     assert len(cadence_cluster_rationale_conf_trend_momentum_band_alias_indexes) == expected_cadence_cluster_rows, (
         f"{name}: fixture-level TSDPCONWCTSBA row count must deterministically mirror cadence-cluster section row count"

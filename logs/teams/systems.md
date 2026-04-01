@@ -4583,3 +4583,7 @@
 ## 2026-04-01 20:54 KST
 - Game Director Cycle IP13 shipped `TSDPCONWCTSB` / `TSDPCONWCTSBA` momentum-band readability slice from `TSDPCONWCTS` score buckets, with deterministic markdown + payload parity and regression order/cardinality locks.
 - Injected next tasks: `TSDPCONWCTSB` row-count mirror assertion and `TSDPCONWCTSBT` offline trend prototype.
+
+- 2026-04-01 21:21 KST — Added deterministic regression assertion: fixture-level TSDPCONWCTSB row count now explicitly mirrors TSDPCONWCTS across summary+token sections; keeps cadence-cluster cardinality lock strict under mixed fixtures.
+  - Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py sustain run.
+  - Follow-up: implement TSDPCONWCTSBT offline momentum-band trend token.

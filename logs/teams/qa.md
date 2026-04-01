@@ -5106,3 +5106,6 @@
 ## 2026-04-01 20:54 KST
 - Game Director Cycle IP13 shipped `TSDPCONWCTSB` / `TSDPCONWCTSBA` momentum-band readability slice from `TSDPCONWCTS` score buckets, with deterministic markdown + payload parity and regression order/cardinality locks.
 - Injected next tasks: `TSDPCONWCTSB` row-count mirror assertion and `TSDPCONWCTSBT` offline trend prototype.
+
+- 2026-04-01 21:21 KST — Regression matrix strengthened with direct TSDPCONWCTSB==TSDPCONWCTS fixture-level assertion, preventing silent row-cardinality drift between momentum score and momentum band sections.
+  - Result: regression suite passed on mixed fixtures with deterministic section parity.
