@@ -35,9 +35,9 @@
 - trend-score momentum-slope rec family trend decode variant (design/world): **TSDPMSRFT legend (U=escalate, F=hold, D=cool)**
 - trend-score momentum-slope rec family trend why alias: **TSDPMSRFTWHYA:H**
 - trend-score momentum-slope rec family trend why alias decode: **TSDPMSRFTWHYA legend (E=escalate, H=hold, C=cool)**
-- trend-score momentum-slope rec family trend why (ai-content/systems): **TSDPMSRFT WHY:hold pressure cadence**
-- trend-score momentum-slope rec family trend why verb-pack: **TSDPMSRFTWHYPACK:BASELINE**
-- trend-score momentum-slope rec family trend why copy budget (design/ux): **TSDPMSRFTWHYLEN:E24|H21|C21|MAX24/32**
+- trend-score momentum-slope rec family trend why (ai-content/systems): **TSDPMSRFT WHY:steady pressure cadence**
+- trend-score momentum-slope rec family trend why verb-pack: **TSDPMSRFTWHYPACK:RAMP**
+- trend-score momentum-slope rec family trend why copy budget (design/ux): **TSDPMSRFTWHYLEN:E20|H23|C21|MAX23/32**
 
 | lane | count | percent |
 |---|---:|---:|

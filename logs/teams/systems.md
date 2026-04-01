@@ -4520,3 +4520,8 @@
 - Markdown parity added: `TSDPMFXC:<HL|PE|BC>` row plus decode line (`HL=hold line, PE=press edge, BC=burst clear`) in lane guardrail report.
 - Regression contract extended in `scripts/regression_check_lane_coverage_guardrail.py` for JSON schema/domain + markdown row assertions.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail report regeneration command with `--include-trend-family-why`.
+
+## 2026-04-01 15:57 KST
+- Closed injected AI Content/Design verb-pack experiment: lane-guardrail WHY copy now supports optional `--trend-family-why-verb-pack ramp` (`ramp/steady/cool`) while preserving baseline default.
+- Added markdown token `TSDPMSRFTWHYPACK:<BASELINE|RAMP>` and JSON field `trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyVerbPack` for deterministic scanability comparison.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; baseline+ramp guardrail generation commands passed.

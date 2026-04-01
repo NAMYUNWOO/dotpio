@@ -270,13 +270,22 @@ def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_fam
 
 def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why(
     trend: str,
+    verb_pack: str = "baseline",
 ) -> str:
-    mapping = {
-        "UP": "escalate pressure checks",
-        "FLAT": "hold pressure cadence",
-        "DOWN": "cool pressure posture",
+    mapping_by_pack = {
+        "baseline": {
+            "UP": "escalate pressure checks",
+            "FLAT": "hold pressure cadence",
+            "DOWN": "cool pressure posture",
+        },
+        "ramp": {
+            "UP": "ramp pressure checks",
+            "FLAT": "steady pressure cadence",
+            "DOWN": "cool pressure posture",
+        },
     }
-    return mapping.get(trend, "hold pressure cadence")
+    mapping = mapping_by_pack.get(verb_pack, mapping_by_pack["baseline"])
+    return mapping.get(trend, mapping["FLAT"])
 
 
 def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_alias(
@@ -292,10 +301,12 @@ def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_fam
 
 def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget(
     threshold: int = 32,
+    verb_pack: str = "baseline",
 ) -> str:
     budget = (
         resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget_signals(
-            threshold=threshold
+            threshold=threshold,
+            verb_pack=verb_pack,
         )
     )
     lengths = budget["lengths"]
@@ -308,12 +319,20 @@ def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_fam
 
 def resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget_signals(
     threshold: int = 32,
+    verb_pack: str = "baseline",
 ) -> dict[str, object]:
-    copy_map = {
-        "E": "escalate pressure checks",
-        "H": "hold pressure cadence",
-        "C": "cool pressure posture",
-    }
+    if verb_pack == "ramp":
+        copy_map = {
+            "E": "ramp pressure checks",
+            "H": "steady pressure cadence",
+            "C": "cool pressure posture",
+        }
+    else:
+        copy_map = {
+            "E": "escalate pressure checks",
+            "H": "hold pressure cadence",
+            "C": "cool pressure posture",
+        }
     lengths = {alias: len(text) for alias, text in copy_map.items()}
     max_len = max(lengths.values()) if lengths else 0
     return {
@@ -468,7 +487,11 @@ def resolve_trend_score_band_dispatch_pressure_alias(dispatch_pressure: str) -> 
     return alias_map.get(dispatch_pressure, "L")
 
 
-def build_report(rows: list[str], cap_ratio: float) -> dict:
+def build_report(
+    rows: list[str],
+    cap_ratio: float,
+    trend_family_why_verb_pack: str = "baseline",
+) -> dict:
     lane_counts = Counter()
     for row in rows:
         for lane in infer_lanes(row):
@@ -616,11 +639,14 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         )
     )
     why_copy_budget_signals = (
-        resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget_signals()
+        resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget_signals(
+            verb_pack=trend_family_why_verb_pack
+        )
     )
     why_copy_budget_token = (
         resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget(
-            threshold=int(why_copy_budget_signals["threshold"])
+            threshold=int(why_copy_budget_signals["threshold"]),
+            verb_pack=trend_family_why_verb_pack,
         )
     )
 
@@ -660,6 +686,7 @@ def build_report(rows: list[str], cap_ratio: float) -> dict:
         "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendAlias": score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_alias,
         "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudget": why_copy_budget_token,
         "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudgetSignals": why_copy_budget_signals,
+        "trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyVerbPack": trend_family_why_verb_pack,
         "status": "over-cap" if over_cap else "within-cap",
     }
 
@@ -668,6 +695,7 @@ def to_markdown(
     report: dict,
     recent_rows: list[str] | None = None,
     include_trend_family_why: bool = False,
+    trend_family_why_verb_pack: str = "baseline",
 ) -> str:
     _ = recent_rows
     score_band_snapshot = report.get("trendScoreBandSnapshot", {"CALM": 0, "EDGE": 0, "HEATED": 0})
@@ -706,7 +734,8 @@ def to_markdown(
                 "- trend-score momentum-slope rec family trend decode variant (design/world): **TSDPMSRFT legend (U=escalate, F=hold, D=cool)**",
                 f"- trend-score momentum-slope rec family trend why alias: **TSDPMSRFTWHYA:{resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_alias(family_trend)}**",
                 "- trend-score momentum-slope rec family trend why alias decode: **TSDPMSRFTWHYA legend (E=escalate, H=hold, C=cool)**",
-                f"- trend-score momentum-slope rec family trend why (ai-content/systems): **TSDPMSRFT WHY:{resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why(family_trend)}**",
+                f"- trend-score momentum-slope rec family trend why (ai-content/systems): **TSDPMSRFT WHY:{resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why(family_trend, trend_family_why_verb_pack)}**",
+                f"- trend-score momentum-slope rec family trend why verb-pack: **TSDPMSRFTWHYPACK:{trend_family_why_verb_pack.upper()}**",
                 "- trend-score momentum-slope rec family trend why copy budget (design/ux): "
                 f"**{report.get('trendScoreBandDispatchPressureMomentumSlopeRecommendationFamilyTrendWhyCopyBudget', resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation_family_trend_why_copy_budget())}**",
             ]
@@ -769,11 +798,21 @@ def main() -> int:
         action="store_true",
         help="Include optional TSDPMSRFT WHY rationale + decode variant rows in markdown output.",
     )
+    parser.add_argument(
+        "--trend-family-why-verb-pack",
+        choices=["baseline", "ramp"],
+        default="baseline",
+        help="Optional WHY verb-pack variant (`ramp/steady/cool`) for scanability comparison.",
+    )
     args = parser.parse_args()
 
     text = args.backlog.read_text(encoding="utf-8")
     rows = collect_recent_rows(text, max_items=args.max_items)
-    report = build_report(rows, cap_ratio=args.cap_ratio)
+    report = build_report(
+        rows,
+        cap_ratio=args.cap_ratio,
+        trend_family_why_verb_pack=args.trend_family_why_verb_pack,
+    )
 
     if args.json_out:
         args.json_out.parent.mkdir(parents=True, exist_ok=True)
@@ -788,6 +827,7 @@ def main() -> int:
                 report,
                 recent_rows=rows,
                 include_trend_family_why=args.include_trend_family_why,
+                trend_family_why_verb_pack=args.trend_family_why_verb_pack,
             )
             + "\n",
             encoding="utf-8",
