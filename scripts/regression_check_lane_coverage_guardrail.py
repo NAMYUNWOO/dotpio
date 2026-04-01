@@ -445,6 +445,9 @@ def run_fixture_case(
     assert len(cadence_cluster_rationale_conf_alias_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster rationale-confidence-alias row count must match streak row count"
     )
+    assert len(cadence_cluster_rationale_conf_alias_indexes) == len(cadence_cluster_rationale_conf_indexes), (
+        f"{name}: cadence cluster rationale-confidence-alias row count must mirror TSDPCON WHY CONF row count in both sections"
+    )
     assert len(cadence_cluster_rationale_alias_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster rationale-alias row count must match streak row count"
     )

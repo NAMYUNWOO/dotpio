@@ -4754,3 +4754,5 @@ Compact decision memory for AI context efficiency.
 - 2026-04-01 18:47 KST — Durable decision: cadence rationale cluster now includes confidence row TSDPCON WHY CONF between TSDPCON WHY and TSDPCONW; confidence computed deterministically from rolling note/slope churn windows (LOW|MID|HIGH).
 - 2026-04-01 18:56 KST — Durable decision: keep cadence rationale confidence cluster explicit and scannable: TSDPCON WHY -> TSDPCON WHY CONF -> TSDPCONWC -> TSDPCONW -> TSDPCONWC legend -> TSDPCON legend.
 - Queue status after IP11: ACTION_ITEMS=0 open, TASKS=2 open, POST_RC_BACKLOG=2 open (next injected: Systems/QA alias-row-count lock; AI Content/Systems confidence-trend token).
+- 2026-04-01 19:18 KST — Durable decision: cadence-confidence cluster parity is now hard-asserted in regression (`TSDPCON WHY CONF` count must equal `TSDPCONWC` count in summary + token-coverage), preventing silent alias-row drift.
+- Queue status after update: ACTION_ITEMS=0 open, TASKS=1 open, POST_RC_BACKLOG=1 open (next highest-priority: AI Content/Systems `TSDPCONWCT:UP|FLAT|DOWN`).
