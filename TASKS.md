@@ -1,6 +1,21 @@
 # TASKS
 
-Last updated: 2026-04-01 20:54 KST
+Last updated: 2026-04-01 21:44 KST
+
+## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP14)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%; forced underrepresented-lane override not triggered).
+- 24h cadence buckets: combat/vfx=4 ✅, design/world=4 ✅, systems/ops(qa)=6 ✅.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (Combat/VFX): add compact pulse-urgency alias rail from momentum-FX callout (`TSDPMFXU`) for one-glance combat cue readability.
+  - Mid-risk Systems/QA: hard-lock cadence-cluster ordering/cardinality through momentum-band-trend rows in both summary + token sections.
+  - High-risk novelty (AI Content/Systems): prototype offline momentum-band trend token (`TSDPCONWCTSBT:UP|FLAT|DOWN`) plus compact alias (`TSDPCONWCTSBTA`) from prior-window band shifts.
+- Selected experiment: Idea 3 (high-risk novelty, AI Content/Systems) as minimal vertical slice.
+- [x] AI Content/Systems + Systems/QA Team: Add payload + markdown momentum-band trend token (`TSDPCONWCTSBT`) and alias (`TSDPCONWCTSBTA`) mapped from prior-window `TSDPCONWCTSB` delta (`LOW<MID<HIGH`) with deterministic row-order/row-count regression locks. *(lifecycle: [ ] -> [~] started: 2026-04-01 21:36 KST -> [x] completed: 2026-04-01 21:44 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP14)
+- [ ] Combat/VFX Team (injected): Prototype momentum-band-trend to combat pulse-urgency cue token (`TSDPMFXU:SOFT|SURGE|SPIKE`) with compact alias and deterministic map from `TSDPCONWCTSBT`.
+- [ ] Design/World Team (injected): Add DOS-width decode row pairing `TSDPCONWCTSBT` + `TSDPMFXU` so operators can parse trend->action intent in one scan.
+- [ ] Systems/Ops + QA Team (injected): Extend guardrail regression fixture matrix to enforce row-count parity for `TSDPCONWCTSBT/TSDPCONWCTSBTA` across summary + token sections under mixed cadence fixtures.
 
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP13)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%; cadence buckets remain covered).
@@ -13,7 +28,7 @@ Last updated: 2026-04-01 20:54 KST
 
 ## Next Up (Game Director Injection — Cycle IP13)
 - [x] Systems/QA Team (injected): Add deterministic fixture-level assertion that `TSDPCONWCTSB` row count mirrors `TSDPCONWCTS` row count across summary + token sections under mixed fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-01 21:19 KST -> [x] completed: 2026-04-01 21:21 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Systems Team (injected): Prototype offline momentum-band trend token (`TSDPCONWCTSBT:UP|FLAT|DOWN`) from prior-window `TSDPCONWCTSB` shifts.
+- [x] AI Content/Systems Team (injected): Prototype offline momentum-band trend token (`TSDPCONWCTSBT:UP|FLAT|DOWN`) from prior-window `TSDPCONWCTSB` shifts. *(lifecycle: [ ] -> [~] started: 2026-04-01 21:36 KST -> [x] completed: 2026-04-01 21:44 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP12)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%; cadence buckets remain covered).

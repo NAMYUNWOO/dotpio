@@ -5109,3 +5109,5 @@
 
 - 2026-04-01 21:21 KST — Regression matrix strengthened with direct TSDPCONWCTSB==TSDPCONWCTS fixture-level assertion, preventing silent row-cardinality drift between momentum score and momentum band sections.
   - Result: regression suite passed on mixed fixtures with deterministic section parity.
+
+- 2026-04-01 21:44 KST — Cycle IP14: shipped momentum-band trend token `TSDPCONWCTSBT` + alias `TSDPCONWCTSBTA` in lane guardrail payload/markdown with deterministic regression order+cardinality locks; verification: py_compile + regression_check_lane_coverage_guardrail + guardrail json/md regeneration.

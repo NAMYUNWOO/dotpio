@@ -89,6 +89,8 @@
   "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumScore": 50,
   "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBand": "MID",
   "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBandAlias": "M",
+  "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBandTrend": "FLAT",
+  "trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceTrendMomentumBandTrendAlias": "F",
   "trendScoreBandDispatchPressureMomentum": 0,
   "trendScoreBandDispatchPressureMomentumBand": "LOW",
   "trendScoreBandDispatchPressureMomentumBandAlias": "L",

@@ -4587,3 +4587,5 @@
 - 2026-04-01 21:21 KST — Added deterministic regression assertion: fixture-level TSDPCONWCTSB row count now explicitly mirrors TSDPCONWCTS across summary+token sections; keeps cadence-cluster cardinality lock strict under mixed fixtures.
   - Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py sustain run.
   - Follow-up: implement TSDPCONWCTSBT offline momentum-band trend token.
+
+- 2026-04-01 21:44 KST — Cycle IP14: shipped momentum-band trend token `TSDPCONWCTSBT` + alias `TSDPCONWCTSBTA` in lane guardrail payload/markdown with deterministic regression order+cardinality locks; verification: py_compile + regression_check_lane_coverage_guardrail + guardrail json/md regeneration.
