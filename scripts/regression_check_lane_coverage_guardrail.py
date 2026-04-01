@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import importlib.util
 import subprocess
 import sys
 import tempfile
@@ -12,6 +13,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "check_lane_coverage_guardrail.py"
+
+
+def load_guardrail_module():
+    spec = importlib.util.spec_from_file_location("check_lane_coverage_guardrail", SCRIPT)
+    if spec is None or spec.loader is None:
+        raise RuntimeError("unable to load check_lane_coverage_guardrail module")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 def run_guardrail(
@@ -296,6 +306,39 @@ def run_fixture_case(
         f"**TSDPCOS:{expected_dispatch_pressure_cadence_override_streak}**"
         in md_text
     ), f"{name}: markdown output must include deterministic cadence-override streak row"
+    expected_cadence_note = (
+        "PUSH"
+        if expected_dispatch_pressure_cadence_override_streak >= 2
+        or expected_dispatch_pressure_momentum_slope == "SURGING"
+        else "WATCH"
+        if expected_dispatch_pressure_cadence_override_streak == 1
+        or expected_dispatch_pressure_momentum_slope == "RISING"
+        else "HOLD"
+    )
+    assert (
+        report.get("trendScoreBandDispatchPressureCadenceOverrideNote")
+        == expected_cadence_note
+    ), f"{name}: trendScoreBandDispatchPressureCadenceOverrideNote must map deterministic HOLD/WATCH/PUSH note from streak+slope"
+    expected_cadence_note_alias = {"HOLD": "H", "WATCH": "W", "PUSH": "P"}[expected_cadence_note]
+    assert (
+        report.get("trendScoreBandDispatchPressureCadenceOverrideNoteAlias")
+        == expected_cadence_note_alias
+    ), f"{name}: trendScoreBandDispatchPressureCadenceOverrideNoteAlias must mirror deterministic compact HOLD/WATCH/PUSH alias"
+    assert (
+        "trend-score dispatch pressure cadence override note (ai-content/design, offline): "
+        f"**TSDPCO NOTE:{expected_cadence_note}**"
+        in md_text
+    ), f"{name}: markdown output must include compact cadence-override note row"
+    assert (
+        "trend-score dispatch pressure cadence override note alias: "
+        f"**TSDPCON:{expected_cadence_note_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include compact cadence-override note alias row"
+    assert (
+        "trend-score dispatch pressure cadence override note decode: "
+        "**TSDPCON legend (H=HOLD, W=WATCH, P=PUSH)**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-override note decode row"
     assert "trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**" in md_text, (
         f"{name}: markdown output must include cadence-override alias decode row"
     )
@@ -471,6 +514,10 @@ def run_fixture_case(
 
 
 def main() -> int:
+    guardrail_module = load_guardrail_module()
+    assert (
+        guardrail_module.resolve_cadence_override_streak(["combat-or-vfx"], []) == 1
+    ), "fixture: cadence override streak must include intermediate TSDPCOS:1 domain"
     with tempfile.TemporaryDirectory(prefix="regression_check_lane_guardrail_") as tmp:
         tmp_path = Path(tmp)
         observed_family_trends: list[str] = []

@@ -2,21 +2,21 @@
   "recentCompletedItems": 10,
   "capPercent": 40.0,
   "laneCounts": {
-    "systems": 0,
+    "systems": 1,
     "world": 0,
     "ai-content": 0,
     "combat": 0,
-    "design": 1,
+    "design": 0,
     "ux": 0,
     "qa": 0,
     "vfx": 0
   },
   "lanePercentages": {
-    "systems": 0.0,
+    "systems": 10.0,
     "world": 0.0,
     "ai-content": 0.0,
     "combat": 0.0,
-    "design": 10.0,
+    "design": 0.0,
     "ux": 0.0,
     "qa": 0.0,
     "vfx": 0.0
@@ -25,12 +25,12 @@
   "underrepresentedLanes": [
     "ai-content",
     "combat",
+    "design",
     "qa",
-    "systems",
     "ux",
     "vfx",
     "world",
-    "design"
+    "systems"
   ],
   "forcedNextLanes": [],
   "bucketCadence": {
@@ -47,21 +47,21 @@
         "design",
         "world"
       ],
-      "count": 1,
-      "met": true
+      "count": 0,
+      "met": false
     },
     "systems-or-ops": {
       "lanes": [
         "systems",
         "qa"
       ],
-      "count": 0,
-      "met": false
+      "count": 1,
+      "met": true
     }
   },
   "missingCadenceBuckets": [
     "combat-or-vfx",
-    "systems-or-ops"
+    "design-or-world"
   ],
   "trendScoreBandSnapshot": {
     "CALM": 0,
@@ -78,6 +78,8 @@
   "trendScoreBandDispatchPressureCadenceOverrideState": "ESCALATE",
   "trendScoreBandDispatchPressureCadenceOverrideAlias": "E",
   "trendScoreBandDispatchPressureCadenceOverrideStreak": 2,
+  "trendScoreBandDispatchPressureCadenceOverrideNote": "PUSH",
+  "trendScoreBandDispatchPressureCadenceOverrideNoteAlias": "P",
   "trendScoreBandDispatchPressureMomentum": 0,
   "trendScoreBandDispatchPressureMomentumBand": "LOW",
   "trendScoreBandDispatchPressureMomentumBandAlias": "L",

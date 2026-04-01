@@ -4735,3 +4735,7 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep cadence escalation contract explicit as two-part signal (`TSDPCO` state + `TSDPCOS` streak) for operator auditability and future AI-content note injection.
 - Injected next backlog tasks: (1) QA fixture for `TSDPCOS:1`, (2) AI Content compact escalation note token from streak+slope.
 - Verification: py_compile + regression + guardrail generation passed with optional markdown flags enabled.
+
+- 2026-04-01 17:26 KST — Cycle IP8 complete: closed remaining TASKS/POST_RC injected items by adding cadence-note token `TSDPCO NOTE` (HOLD/WATCH/PUSH) and explicit regression fixture-domain lock for intermediate `TSDPCOS:1`; queue status now ACTION_ITEMS=0, TASKS=0, POST_RC_BACKLOG=0.
+
+- 2026-04-01 17:31 KST — Game Director Cycle IP8: shipped compact cadence-note alias `TSDPCON` (H/W/P) and queued follow-up injected tasks for cadence-cluster ordering + rationale token; queue status ACTION_ITEMS=0, TASKS=2, POST_RC_BACKLOG=2.

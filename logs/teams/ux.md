@@ -3402,3 +3402,12 @@
 
 ## 2026-04-01 16:59 KST
 - Scan order now shows cadence override state plus streak depth before momentum rows, reducing escalation ambiguity.
+
+## 2026-04-01 17:26 KST — Game Director Cycle IP8 (cadence-note + streak-domain lock)
+- Completed injected Systems/QA + AI Content/Design backlog pair: added explicit `TSDPCOS:1` regression fixture-domain lock and shipped offline compact escalation note token `TSDPCO NOTE:HOLD|WATCH|PUSH` from cadence-override streak + momentum-slope state.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-01 17:31 KST — Game Director Cycle IP8 (cadence-note alias slice)
+- Executed low-risk UX/AI-content vertical slice after backlog clear: added compact cadence-note alias token `TSDPCON:<H|W|P>` with deterministic payload mirror and markdown decode row.
+- Injected next tasks: (1) Systems/QA adjacency/order lock for cadence cluster, (2) AI Content/Design compact note rationale token `TSDPCON WHY`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

@@ -555,6 +555,29 @@ def resolve_cadence_override_streak(
     return 0
 
 
+def resolve_cadence_override_note(
+    cadence_override_streak: int,
+    momentum_slope: str,
+) -> str:
+    """Resolve compact offline escalation note from streak + momentum slope.
+
+    Domain: HOLD|WATCH|PUSH
+    """
+    if cadence_override_streak >= 2 or momentum_slope == "SURGING":
+        return "PUSH"
+    if cadence_override_streak == 1 or momentum_slope == "RISING":
+        return "WATCH"
+    return "HOLD"
+
+
+def resolve_cadence_override_note_alias(note: str) -> str:
+    return {
+        "HOLD": "H",
+        "WATCH": "W",
+        "PUSH": "P",
+    }.get(note, "H")
+
+
 def build_report(
     rows: list[str],
     cap_ratio: float,
@@ -682,6 +705,11 @@ def build_report(
             score_band_dispatch_pressure_momentum_slope
         )
     )
+    cadence_override_note = resolve_cadence_override_note(
+        cadence_override_streak,
+        score_band_dispatch_pressure_momentum_slope,
+    )
+    cadence_override_note_alias = resolve_cadence_override_note_alias(cadence_override_note)
     score_band_dispatch_pressure_momentum_slope_recommendation = (
         resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation(
             score_band_dispatch_pressure_momentum_slope
@@ -765,6 +793,8 @@ def build_report(
         "trendScoreBandDispatchPressureCadenceOverrideState": cadence_override_state,
         "trendScoreBandDispatchPressureCadenceOverrideAlias": cadence_override_alias,
         "trendScoreBandDispatchPressureCadenceOverrideStreak": cadence_override_streak,
+        "trendScoreBandDispatchPressureCadenceOverrideNote": cadence_override_note,
+        "trendScoreBandDispatchPressureCadenceOverrideNoteAlias": cadence_override_note_alias,
         "trendScoreBandDispatchPressureMomentum": score_band_dispatch_pressure_momentum,
         "trendScoreBandDispatchPressureMomentumBand": score_band_dispatch_pressure_momentum_band,
         "trendScoreBandDispatchPressureMomentumBandAlias": score_band_dispatch_pressure_momentum_band_alias,
@@ -876,6 +906,9 @@ def to_markdown(
             f"- trend-score dispatch pressure base class (pre-cadence override): **{report.get('trendScoreBandDispatchPressureBaseClass', 'LIGHT')}**",
             f"- trend-score dispatch pressure cadence override: **TSDPCO:{report.get('trendScoreBandDispatchPressureCadenceOverrideAlias', 'B')}** ({report.get('trendScoreBandDispatchPressureCadenceOverrideState', 'BASE')}, bucket={report.get('trendScoreBandDispatchPressureCadenceOverrideBucket', 'combat-or-vfx')})",
             f"- trend-score dispatch pressure cadence override streak: **TSDPCOS:{report.get('trendScoreBandDispatchPressureCadenceOverrideStreak', 0)}**",
+            f"- trend-score dispatch pressure cadence override note (ai-content/design, offline): **TSDPCO NOTE:{report.get('trendScoreBandDispatchPressureCadenceOverrideNote', 'HOLD')}**",
+            f"- trend-score dispatch pressure cadence override note alias: **TSDPCON:{report.get('trendScoreBandDispatchPressureCadenceOverrideNoteAlias', 'H')}**",
+            "- trend-score dispatch pressure cadence override note decode: **TSDPCON legend (H=HOLD, W=WATCH, P=PUSH)**",
             "- trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**",
             f"- trend-score dispatch-pressure momentum (offline): **{report.get('trendScoreBandDispatchPressureMomentum', 0)}**",
             f"- trend-score dispatch-pressure momentum band (offline): **{report.get('trendScoreBandDispatchPressureMomentumBand', 'LOW')}**",
