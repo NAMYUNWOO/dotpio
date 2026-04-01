@@ -3133,3 +3133,5 @@
 ## 2026-04-01 18:19 KST — Cycle IP10 injected follow-up (rationale-chain order lock)
 - Synced on Systems/QA completion: regression now has explicit adjacency assertions for `TSDPCON WHY -> TSDPCONW -> TSDPCON legend` in both summary and token-coverage sections.
 - Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- 2026-04-01 18:47 KST — Cycle IP10 injected task complete: shipped offline cadence-note rationale confidence token TSDPCON WHY CONF:LOW|MID|HIGH from note/slope churn windows; regression + markdown order contract updated and verified.
+- 2026-04-01 18:56 KST — Cycle IP11 shipped compact confidence alias TSDPCONWC (L|M|H) for cadence-note rationale confidence; regression ordering lock extended to include TSDPCON WHY CONF -> TSDPCONWC -> TSDPCONW -> legends.

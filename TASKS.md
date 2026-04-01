@@ -1,6 +1,19 @@
 # TASKS
 
-Last updated: 2026-04-01 17:48 KST
+Last updated: 2026-04-01 18:56 KST
+
+## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP11)
+- Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%; cadence buckets remain covered).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (UX/AI-content): add compact cadence-note rationale confidence alias token (`TSDPCONWC:L|M|H`) for denser rails.
+  - Mid-risk Systems/QA: extend cadence-cluster order lock to include confidence alias + legend adjacency.
+  - High-risk novelty (AI Content/Systems): prototype rolling confidence drift trend (`UP|FLAT|DOWN`) from churn-window deltas.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] UX/AI-content + Systems/QA Team: Add payload + markdown compact cadence-note rationale confidence alias token (`TSDPCONWC:L|M|H`) mapped from `TSDPCON WHY CONF` and extend cadence-cluster order assertions for confidence alias/legend adjacency. *(lifecycle: [ ] -> [~] started: 2026-04-01 18:52 KST -> [x] completed: 2026-04-01 18:56 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP11)
+- [ ] Systems/QA Team (injected): Add fixture-level assertion that confidence alias row count mirrors `TSDPCON WHY CONF` row count in both summary + token sections.
+- [ ] AI Content/Systems Team (injected): Prototype offline cadence-confidence trend token (`TSDPCONWCT:UP|FLAT|DOWN`) from consecutive churn-window confidence shifts.
 
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP10)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%; cadence buckets remain covered).
@@ -13,7 +26,7 @@ Last updated: 2026-04-01 17:48 KST
 
 ## Next Up (Game Director Injection — Cycle IP10)
 - [x] Systems/QA Team (injected): Add explicit adjacency/order assertions for cadence rationale alias chain (`TSDPCON WHY -> TSDPCONW -> TSDPCON legend`) in summary + token-coverage sections. *(lifecycle: [ ] -> [~] started: 2026-04-01 18:18 KST -> [x] completed: 2026-04-01 18:19 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Systems Team (injected): Prototype offline cadence-note rationale confidence token (`TSDPCON WHY CONF:LOW|MID|HIGH`) from note/slope churn windows.
+- [x] AI Content/Systems Team (injected): Prototype offline cadence-note rationale confidence token (`TSDPCON WHY CONF:LOW|MID|HIGH`) from note/slope churn windows. *(lifecycle: [ ] -> [~] started: 2026-04-01 18:46 KST -> [x] completed: 2026-04-01 18:47 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-01 (Game Director Review - Cycle IP3)
 - Coverage check (last 10 completed): systems=3, world=2, ai-content=2, combat=2, design=2, ux=3, qa=3, vfx=2 (no lane >40%).

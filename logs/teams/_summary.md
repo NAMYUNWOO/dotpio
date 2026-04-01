@@ -4751,3 +4751,6 @@ Compact decision memory for AI context efficiency.
 - 2026-04-01 18:19 KST — Cycle IP10 injected Systems/QA follow-up complete: added explicit regression adjacency locks for `TSDPCON WHY -> TSDPCONW -> TSDPCON legend` (summary + token-coverage rails) instead of implicit offset math.
 - Durable decision: keep cadence-rationale chain validated row-by-row to prevent future markdown insertion drift from silently breaking operator scan order.
 - Queue status after update: ACTION_ITEMS=0 checked remaining, TASKS=1 open, POST_RC_BACKLOG=1 open (next: AI Content/Systems `TSDPCON WHY CONF`).
+- 2026-04-01 18:47 KST — Durable decision: cadence rationale cluster now includes confidence row TSDPCON WHY CONF between TSDPCON WHY and TSDPCONW; confidence computed deterministically from rolling note/slope churn windows (LOW|MID|HIGH).
+- 2026-04-01 18:56 KST — Durable decision: keep cadence rationale confidence cluster explicit and scannable: TSDPCON WHY -> TSDPCON WHY CONF -> TSDPCONWC -> TSDPCONW -> TSDPCONWC legend -> TSDPCON legend.
+- Queue status after IP11: ACTION_ITEMS=0 open, TASKS=2 open, POST_RC_BACKLOG=2 open (next injected: Systems/QA alias-row-count lock; AI Content/Systems confidence-trend token).

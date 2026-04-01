@@ -361,6 +361,25 @@ def run_fixture_case(
         f"**TSDPCON WHY:{expected_cadence_note_rationale}**"
         in md_text
     ), f"{name}: markdown output must include compact cadence-note rationale row"
+    confidence_value = report.get("trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidence")
+    assert confidence_value in {"LOW", "MID", "HIGH"}, (
+        f"{name}: trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidence must stay within LOW|MID|HIGH"
+    )
+    confidence_alias_value = report.get("trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceAlias")
+    expected_confidence_alias = {"LOW": "L", "MID": "M", "HIGH": "H"}[confidence_value]
+    assert confidence_alias_value == expected_confidence_alias, (
+        f"{name}: trendScoreBandDispatchPressureCadenceOverrideNoteRationaleConfidenceAlias must mirror LOW|MID|HIGH alias"
+    )
+    assert (
+        "trend-score dispatch pressure cadence override note rationale confidence (ai-content/systems, offline): "
+        f"**TSDPCON WHY CONF:{confidence_value}**"
+        in md_text
+    ), f"{name}: markdown output must include compact cadence-note rationale confidence row"
+    assert (
+        "trend-score dispatch pressure cadence override note rationale confidence alias: "
+        f"**TSDPCONWC:{confidence_alias_value}**"
+        in md_text
+    ), f"{name}: markdown output must include compact cadence-note rationale confidence-alias row"
     assert (
         "trend-score dispatch pressure cadence override note rationale alias: "
         f"**TSDPCONW:{expected_cadence_note_rationale_alias}**"
@@ -388,6 +407,14 @@ def run_fixture_case(
         i for i, line in enumerate(cadence_cluster_lines)
         if "**TSDPCON WHY:" in line
     ]
+    cadence_cluster_rationale_conf_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPCON WHY CONF:" in line
+    ]
+    cadence_cluster_rationale_conf_alias_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPCONWC:" in line
+    ]
     cadence_cluster_rationale_alias_indexes = [
         i for i, line in enumerate(cadence_cluster_lines)
         if "**TSDPCONW:" in line
@@ -395,6 +422,10 @@ def run_fixture_case(
     cadence_cluster_note_legend_indexes = [
         i for i, line in enumerate(cadence_cluster_lines)
         if "**TSDPCON legend (H=HOLD, W=WATCH, P=PUSH)**" in line
+    ]
+    cadence_cluster_conf_legend_indexes = [
+        i for i, line in enumerate(cadence_cluster_lines)
+        if "**TSDPCONWC legend (L=LOW, M=MID, H=HIGH)**" in line
     ]
     assert len(cadence_cluster_streak_indexes) >= 1, (
         f"{name}: cadence cluster streak row must appear in markdown summary"
@@ -408,11 +439,20 @@ def run_fixture_case(
     assert len(cadence_cluster_rationale_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster rationale row count must match streak row count"
     )
+    assert len(cadence_cluster_rationale_conf_indexes) == len(cadence_cluster_streak_indexes), (
+        f"{name}: cadence cluster rationale-confidence row count must match streak row count"
+    )
+    assert len(cadence_cluster_rationale_conf_alias_indexes) == len(cadence_cluster_streak_indexes), (
+        f"{name}: cadence cluster rationale-confidence-alias row count must match streak row count"
+    )
     assert len(cadence_cluster_rationale_alias_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster rationale-alias row count must match streak row count"
     )
     assert len(cadence_cluster_note_legend_indexes) == len(cadence_cluster_streak_indexes), (
         f"{name}: cadence cluster legend row count must match streak row count"
+    )
+    assert len(cadence_cluster_conf_legend_indexes) == len(cadence_cluster_streak_indexes), (
+        f"{name}: cadence cluster confidence-legend row count must match streak row count"
     )
     for cluster_i in range(len(cadence_cluster_streak_indexes)):
         assert cadence_cluster_note_indexes[cluster_i] == cadence_cluster_streak_indexes[cluster_i] + 1, (
@@ -424,11 +464,20 @@ def run_fixture_case(
         assert cadence_cluster_rationale_indexes[cluster_i] == cadence_cluster_note_alias_indexes[cluster_i] + 1, (
             f"{name}: cadence cluster order must keep TSDPCON immediately before TSDPCON WHY in both sections"
         )
-        assert cadence_cluster_rationale_alias_indexes[cluster_i] == cadence_cluster_rationale_indexes[cluster_i] + 1, (
-            f"{name}: cadence cluster order must keep TSDPCON WHY immediately before TSDPCONW in both sections"
+        assert cadence_cluster_rationale_conf_indexes[cluster_i] == cadence_cluster_rationale_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPCON WHY immediately before TSDPCON WHY CONF in both sections"
         )
-        assert cadence_cluster_note_legend_indexes[cluster_i] == cadence_cluster_rationale_alias_indexes[cluster_i] + 1, (
-            f"{name}: cadence cluster order must keep TSDPCONW immediately before TSDPCON legend in both sections"
+        assert cadence_cluster_rationale_conf_alias_indexes[cluster_i] == cadence_cluster_rationale_conf_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPCON WHY CONF immediately before TSDPCONWC in both sections"
+        )
+        assert cadence_cluster_rationale_alias_indexes[cluster_i] == cadence_cluster_rationale_conf_alias_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPCONWC immediately before TSDPCONW in both sections"
+        )
+        assert cadence_cluster_conf_legend_indexes[cluster_i] == cadence_cluster_rationale_alias_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPCONW immediately before TSDPCONWC legend in both sections"
+        )
+        assert cadence_cluster_note_legend_indexes[cluster_i] == cadence_cluster_conf_legend_indexes[cluster_i] + 1, (
+            f"{name}: cadence cluster order must keep TSDPCONWC legend immediately before TSDPCON legend in both sections"
         )
     assert "trend-score dispatch pressure cadence override decode: **TSDPCO legend (B=BASE, E=ESCALATE)**" in md_text, (
         f"{name}: markdown output must include cadence-override alias decode row"
