@@ -922,6 +922,14 @@ def run_fixture_case(
         assert cadence_24h_triad_plan_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep triad plan row immediately after TSDCAD24TRICOVSTCMS decode rows in both sections"
         )
+        assert (
+            cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_legend_indexes[cluster_i] + 1
+            == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes[cluster_i]
+            and cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes[cluster_i] + 1
+            == cadence_24h_triad_plan_indexes[cluster_i]
+        ), (
+            f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVH legend + TSDCAD24TRICOVSTCMSVHA legend adjacent and directly before triad plan row in both sections"
+        )
 
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"
     assert "TSSB legend (C=calm, E=edge, H=heated)" in md_text, (

@@ -5240,3 +5240,5 @@ Compact decision memory for AI context efficiency.
 - Selected low-risk Systems/QA+UX slice: enforce explicit DOS-width assertion for `TSDCAD24TRICOVSTCMSVH legend` (`<=72`) across summary/token sections.
 - Durable decision: keep both hysteresis decode legends on explicit width contracts to preserve DOS readability budgets and fail fast on copy expansion.
 - Next injected queue opened (3 items): dual-legend adjacency assertion, compact dual-decode helper row + eval token, offline hysteresis confidence-band prototype.
+
+- 2026-04-03 07:52 KST: Strengthened cadence decode-order contract by adding a single explicit contiguous-chain assertion for `TSDCAD24TRICOVSTCMSVH legend -> TSDCAD24TRICOVSTCMSVHA legend -> TSDCAD24TRI plan` in both summary/token sections (`scripts/regression_check_lane_coverage_guardrail.py`). This closes the Systems/QA injected backlog item and reduces false-pass risk from split adjacency checks.

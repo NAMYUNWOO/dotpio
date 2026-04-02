@@ -4936,3 +4936,9 @@
 - Game Director cycle executed after backlog reached fully checked state.
 - Implemented selected experiment: explicit `<=72` width assertion for `TSDCAD24TRICOVSTCMSVH legend` (non-alias decode) across summary/token sections.
 - Injected follow-ups: adjacency contract for dual hysteresis decode rows, compact dual-decode helper row with width eval, and offline hysteresis confidence-band prototype.
+
+## 2026-04-03 07:52 KST — Systems/QA deterministic decode-chain guard
+- Task: Lock deterministic adjacency so `TSDCAD24TRICOVSTCMSVH legend` + `TSDCAD24TRICOVSTCMSVHA legend` remain contiguous and directly before `TSDCAD24TRI plan` in both summary/token sections.
+- Change: Added explicit contiguous-chain assertion in `scripts/regression_check_lane_coverage_guardrail.py` on top of existing per-row adjacency checks.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: Next unchecked backlog item is Design/World dual-hysteresis helper row + DOS-width eval token.

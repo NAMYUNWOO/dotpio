@@ -5447,3 +5447,9 @@
 - Added fixture-level width-budget assertion for `TSDCAD24TRICOVSTCMSVH legend` by extracting rendered legend token and enforcing `len <= 72` in every section instance.
 - Regression contract now mirrors prior alias guard (`...STCMSVHA legend`), reducing copy-budget drift risk.
 - Verification stayed green with full bundle: py_compile + regression + guardrail artifact regen.
+
+## 2026-04-03 07:52 KST — Regression contract reinforcement (hysteresis decode chain)
+- Added explicit assertion that `TSDCAD24TRICOVSTCMSVH legend` and `TSDCAD24TRICOVSTCMSVHA legend` are adjacent and immediately followed by triad plan row.
+- Scope: `scripts/regression_check_lane_coverage_guardrail.py` cadence order contract block.
+- Result: Regression suite passes with no fixture drift.
+- Evidence: py_compile + regression script + guardrail artifact regeneration all passed.
