@@ -1265,6 +1265,36 @@ def resolve_cadence_24h_legend_evaluation(dos_width_limit: int = 72) -> dict[str
     }
 
 
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_baseline() -> str:
+    return "80=surge confidence, 50=hold confidence, 20=cool confidence"
+
+
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_compact() -> str:
+    return "80=surge, 50=hold, 20=cool"
+
+
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation(
+    dos_width_limit: int = 72,
+) -> dict[str, object]:
+    baseline = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_baseline()
+    )
+    compact = resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_compact()
+    baseline_len = len(baseline)
+    compact_len = len(compact)
+    preferred = "COMPACT" if compact_len <= baseline_len else "BASELINE"
+    status = "PASS" if compact_len <= dos_width_limit and baseline_len <= dos_width_limit else "WARN"
+    return {
+        "baseline": baseline,
+        "compact": compact,
+        "baselineLen": baseline_len,
+        "compactLen": compact_len,
+        "dosWidthLimit": dos_width_limit,
+        "preferred": preferred,
+        "status": status,
+    }
+
+
 def resolve_trend_score_band_dispatch_hint(score_band_snapshot: dict[str, int]) -> str:
     ordered = sorted(
         score_band_snapshot.items(),
@@ -2155,6 +2185,9 @@ def build_report(
         resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score(rows)
     )
     cadence_24h_legend_evaluation = resolve_cadence_24h_legend_evaluation()
+    cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation()
+    )
 
     return {
         "recentCompletedItems": total,
@@ -2181,6 +2214,9 @@ def build_report(
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentum": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumAlias": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_alias,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScore": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score,
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderBaseline": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation["baseline"],
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderCompact": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation["compact"],
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation,
         "cadence24hRecoveryTriadPlan": cadence_24h_recovery_triad_plan,
         "cadence24hLegendBaseline": cadence_24h_legend_evaluation["baseline"],
         "cadence24hLegendCompact": cadence_24h_legend_evaluation["compact"],
@@ -2377,6 +2413,8 @@ def to_markdown(
             f"- cadence 24h recovery triad coverage spread trend confidence momentum (ai-content/combat): **TSDCAD24TRICOVSTCM:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentum', 'FLAT')}**",
             f"- cadence 24h recovery triad coverage spread trend confidence momentum alias (systems/qa): **TSDCAD24TRICOVSTCMA:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumAlias', 'F')}**",
             f"- cadence 24h recovery triad coverage spread trend confidence momentum score (ai-content/combat): **TSDCAD24TRICOVSTCMS:{int(report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScore', 50))}**",
+            f"- cadence 24h recovery triad coverage spread trend confidence momentum score ladder decode (design/world): **TSDCAD24TRICOVSTCMS legend ({report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderBaseline', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_baseline())})**",
+            f"- cadence 24h recovery triad coverage spread trend confidence momentum score ladder dos-width eval (design/world): **TSDCAD24TRICOVSTCMSLEN:B{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation', {}).get('status', 'PASS')}**",
             "- cadence 24h recovery triad coverage spread trend decode (design/world): **TSDCAD24TRICOVSTA legend (U=UP, F=FLAT, D=DOWN)**",
             "- cadence 24h recovery triad coverage spread trend confidence decode (design/world): **TSDCAD24TRICOVSTCA legend (L=LOW, M=MID, H=HIGH)**",
             "- cadence 24h recovery triad coverage spread trend confidence momentum decode (design/world): **TSDCAD24TRICOVSTCMA legend (U=UP, F=FLAT, D=DOWN)**",

@@ -5196,3 +5196,9 @@ Compact decision memory for AI context efficiency.
 - Chosen experiment (AI Content/Combat, low-risk): added `TSDCAD24TRICOVSTCMS` weighted confidence-delta score (`0..100`) to guardrail payload+markdown and extended regression checks for domain, parity, and adjacency.
 - Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Injected next experiments to satisfy cadence triad continuity: Design/World score-ladder decode, Systems/Ops monotonic fixture contract, Combat/VFX score-band cue token.
+
+## 2026-04-03 03:51 KST
+- Closed highest-priority unchecked POST_RC item (Design/World, Cycle IP41 follow-up): guardrail markdown now includes `TSDCAD24TRICOVSTCMS` score-ladder decode row and DOS-width evaluation token `TSDCAD24TRICOVSTCMSLEN`.
+- Durable decision: keep momentum-score ladder thresholds fixed at `80/50/20` with explicit confidence wording and enforce compact-preferred DOS-width telemetry (`B59|C26|LIM72|PREF:COMPACT|PASS`) for one-scan cadence readability.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2 (next effective item: Systems/Ops + QA mixed-window monotonic invariant for `TSDCAD24TRICOVSTCMS`).

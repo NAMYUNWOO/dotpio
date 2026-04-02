@@ -79,6 +79,17 @@
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentum": "FLAT",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumAlias": "F",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScore": 50,
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderBaseline": "80=surge confidence, 50=hold confidence, 20=cool confidence",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderCompact": "80=surge, 50=hold, 20=cool",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation": {
+    "baseline": "80=surge confidence, 50=hold confidence, 20=cool confidence",
+    "compact": "80=surge, 50=hold, 20=cool",
+    "baselineLen": 59,
+    "compactLen": 26,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "cadence24hRecoveryTriadPlan": "combat spark -> world anchor -> systems lock",
   "cadence24hLegendBaseline": "O=OK, W=WATCH, A=ALERT",
   "cadence24hLegendCompact": "O=ok, W=watch, A=alert",
