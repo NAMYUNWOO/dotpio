@@ -5422,3 +5422,7 @@
 - 2026-04-03 04:57 KST — Extended regression contracts for `TSDCAD24TRICOVSTCMSV` presence, row parity, section ordering, and domain lock (`GLINT|PULSE|BLAST`).
   - Evidence: regression + report generation pass after updating adjacency assertions.
 - 2026-04-03 05:03 KST — Regression updated for `TSDCAD24TRICOVSTCMSV legend` presence, parity, and adjacency lock; full suite remains green.
+
+- 2026-04-03 05:51 KST — Regression expanded for `TSDCAD24TRICOVSTCMSVH` presence, parity, and adjacency (`...STCMSV -> ...STCMSVH -> ...STCMS legend`) plus decode-row parity locks.
+
+- 2026-04-03 05:54 KST — QA locked row-count parity + adjacency chain for new alias row/legend (`...STCMSV -> ...STCMSVH -> ...STCMSVHA`) in both summary/token sections.

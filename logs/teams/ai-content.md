@@ -3535,3 +3535,7 @@
 
 - 2026-04-03 04:57 KST — AI-content lane kept offline deterministic policy: urgency cue is purely score-band derived, no runtime adaptation introduced.
 - 2026-04-03 05:03 KST — No runtime coupling added; queued hysteresis advisory as next offline-only candidate.
+
+- 2026-04-03 05:51 KST — AI-content/combat prototype delivered: offline cue hysteresis advisory `TSDCAD24TRICOVSTCMSVH` derived from recent `STCMSV` windows to flag cue stability (`STEADY`) vs churn (`SWING`).
+
+- 2026-04-03 05:54 KST — AI-content digest now emits compact hysteresis alias `TSDCAD24TRICOVSTCMSVHA` alongside advisory state to improve scan density.

@@ -3701,3 +3701,7 @@
 
 - 2026-04-03 04:57 KST — UX scanability improved for cadence digest with one-glance VFX urgency cue (`GLINT|PULSE|BLAST`) without widening DOS budget-sensitive decode rows.
 - 2026-04-03 05:03 KST — Added explicit cue legend wording (`calm flicker / steady pressure / full commit`) to reduce ambiguity in cadence digest.
+
+- 2026-04-03 05:51 KST — UX scanability update: cadence cluster now exposes stability advisory (`STEADY|SWING`) adjacent to VFX cue row for quicker operator interpretation.
+
+- 2026-04-03 05:54 KST — UX gain: cadence cluster now supports high-density advisory scanning with `TSDCAD24TRICOVSTCMSVHA` immediately after `...STCMSVH`.

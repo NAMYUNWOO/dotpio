@@ -2707,4 +2707,18 @@ Last updated: 2026-03-31 20:40 KST
 
 ## Next Up (Game Director Injection — Cycle IP42)
 - [x] Systems/QA Team (injected): Add fixture-level explicit parity assertion that `TSDCAD24TRICOVSTCMSV legend` count mirrors `TSDCAD24TRICOVSTCMSV` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 05:18 KST -> [x] completed: 2026-04-03 05:19 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Combat Team (injected): Prototype offline cue hysteresis advisory token from recent `TSDCAD24TRICOVSTCMSV` windows (`STEADY|SWING`) without runtime coupling.
+- [x] AI Content/Combat Team (injected): Prototype offline cue hysteresis advisory token from recent `TSDCAD24TRICOVSTCMSV` windows (`STEADY|SWING`) without runtime coupling. *(lifecycle: [ ] -> [~] started: 2026-04-03 05:48 KST -> [x] completed: 2026-04-03 05:51 KST; implementation: added payload+markdown token `TSDCAD24TRICOVSTCMSVH` via deterministic recent-window cue transition advisory (`STEADY|SWING`) in `scripts/check_lane_coverage_guardrail.py` with decode row + regression row-count/order/parity/domain locks in `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP43)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after closing `TSDCAD24TRICOVSTCMSVH`, so immediate Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (UX/Design + AI-content): add compact hysteresis advisory alias token `TSDCAD24TRICOVSTCMSVHA` (`S|W`) and decode row for denser cadence scans.
+  - Mid-risk Systems/QA: add fixture-level streak-transition scenario assertions that force `STEADY -> SWING -> STEADY` across synthetic cue windows.
+  - High-risk novelty (Combat/VFX): prototype adaptive score-band hysteresis thresholding (`sticky-middle`) from recent confidence-volatility windows.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) as minimal vertical slice.
+- [x] UX/Design + AI-content + Systems/QA Team: Added deterministic hysteresis advisory alias token `TSDCAD24TRICOVSTCMSVHA` (`S|W`) mapped from `TSDCAD24TRICOVSTCMSVH`, plus decode row and regression parity/order adjacency locks.
+  *(lifecycle: [ ] -> [~] started: 2026-04-03 05:52 KST -> [x] completed: 2026-04-03 05:54 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP43)
+- [ ] Systems/QA Team (injected): Add synthetic three-window cue-transition fixture proving advisory toggles `STEADY -> SWING -> STEADY` under deterministic score ladder inputs.
+- [ ] Combat/VFX + Design Team (injected): Evaluate concise operator copy variant for advisory decode (`S=stable cue`, `W=cue churn`) against current wording under DOS-width <=72.

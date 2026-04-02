@@ -4911,3 +4911,8 @@
   - Decision: place cue row directly after `TSDCAD24TRICOVSTCMS` to preserve adjacency contracts.
   - Follow-up: next item is design/world decode row for the new cue token.
 - 2026-04-03 05:03 KST — Preserved cadence cluster ordering while inserting `TSDCAD24TRICOVSTCMSV legend`; no schema expansion beyond markdown decode row.
+
+- 2026-04-03 05:51 KST — Added offline hysteresis advisory token `TSDCAD24TRICOVSTCMSVH` to cadence payload/markdown using recent cue-transition count (`STEADY|SWING`) with no runtime coupling.
+  - Decision: advisory remains deterministic and report-only; no dispatch behavior change.
+
+- 2026-04-03 05:54 KST — Game Director IP43 shipped alias mapping helper for hysteresis advisory (`STEADY|SWING` -> `S|W`) and payload field `...STCMSVHA`; kept deterministic contract + no runtime side-effects.

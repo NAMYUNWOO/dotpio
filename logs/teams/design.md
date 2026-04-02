@@ -3543,3 +3543,7 @@
 
 - 2026-04-03 04:57 KST — Design lane acknowledged new combat cue row `TSDCAD24TRICOVSTCMSV` is now in digest; decode copy intentionally deferred to a dedicated follow-up for minimal-slice safety.
 - 2026-04-03 05:03 KST — Added decode copy for `TSDCAD24TRICOVSTCMSV` (`GLINT/PULSE/BLAST`) to keep urgency cue reversible in one scan.
+
+- 2026-04-03 05:51 KST — Added compact decode copy for hysteresis advisory token: `TSDCAD24TRICOVSTCMSVH legend (STEADY=hold last cue, SWING=rapid cue flips)`.
+
+- 2026-04-03 05:54 KST — Design updated decode companion row `TSDCAD24TRICOVSTCMSVHA legend (S=STEADY, W=SWING)` to keep compact alias reversible.

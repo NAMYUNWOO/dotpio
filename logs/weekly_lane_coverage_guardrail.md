@@ -22,12 +22,16 @@
 - cadence 24h recovery triad coverage spread trend confidence momentum alias (systems/qa): **TSDCAD24TRICOVSTCMA:F**
 - cadence 24h recovery triad coverage spread trend confidence momentum score (ai-content/combat): **TSDCAD24TRICOVSTCMS:50**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue (combat/vfx): **TSDCAD24TRICOVSTCMSV:PULSE**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory (ai-content/combat): **TSDCAD24TRICOVSTCMSVH:STEADY**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory alias (systems/qa): **TSDCAD24TRICOVSTCMSVHA:S**
 - cadence 24h recovery triad coverage spread trend confidence momentum score ladder decode (design/world): **TSDCAD24TRICOVSTCMS legend (80=surge confidence, 50=hold confidence, 20=cool confidence)**
 - cadence 24h recovery triad coverage spread trend confidence momentum score ladder dos-width eval (design/world): **TSDCAD24TRICOVSTCMSLEN:B59|C26|LIM72|PREF:COMPACT|PASS**
 - cadence 24h recovery triad coverage spread trend decode (design/world): **TSDCAD24TRICOVSTA legend (U=UP, F=FLAT, D=DOWN)**
 - cadence 24h recovery triad coverage spread trend confidence decode (design/world): **TSDCAD24TRICOVSTCA legend (L=LOW, M=MID, H=HIGH)**
 - cadence 24h recovery triad coverage spread trend confidence momentum decode (design/world): **TSDCAD24TRICOVSTCMA legend (U=UP, F=FLAT, D=DOWN)**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue decode (design/world): **TSDCAD24TRICOVSTCMSV legend (GLINT=calm flicker, PULSE=steady pressure, BLAST=full commit)**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory decode (design/world): **TSDCAD24TRICOVSTCMSVH legend (STEADY=hold last cue, SWING=rapid cue flips)**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory alias decode (design/world): **TSDCAD24TRICOVSTCMSVHA legend (S=STEADY, W=SWING)**
 - cadence 24h recovery triad plan (design/world): **combat spark -> world anchor -> systems lock**
 - trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 - trend-score band snapshot alias: **TSSB:C0E0H0**

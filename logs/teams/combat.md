@@ -3426,3 +3426,7 @@
   - Decision: deterministic score bands (`>=70 BLAST`, `>=40 PULSE`, else `GLINT`) keep mapping reversible and low-risk.
   - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-03 05:03 KST — Combat/VFX urgency cue now has explicit decode support, enabling faster interpretation of GLINT/PULSE/BLAST routing.
+
+- 2026-04-03 05:51 KST — Combat digest now includes `TSDCAD24TRICOVSTCMSVH` advisory to surface rapid cue flips versus steady windows; strictly advisory, no runtime coupling.
+
+- 2026-04-03 05:54 KST — Combat lane consumed advisory alias output (`S|W`) for fast triage reads; behavior remains advisory-only and offline.
