@@ -5228,3 +5228,9 @@ Compact decision memory for AI context efficiency.
 - Shipped concise decode wording for `TSDCAD24TRICOVSTCMSVH`/`TSDCAD24TRICOVSTCMSVHA` (`stable cue` / `cue churn`) in guardrail markdown output.
 - Regression expectations were updated and verification bundle passed (py_compile + regression + guardrail report regen).
 - Injected next task: explicit fixture-level DOS-width assertion for `TSDCAD24TRICOVSTCMSVHA` decode copy.
+
+## 2026-04-03 07:26 KST — IP44 injected Systems/QA closure
+- Closed remaining unchecked POST_RC item by adding explicit fixture-level DOS-width assertion for `TSDCAD24TRICOVSTCMSVHA` decode copy (`<=72`) across both summary/token sections.
+- Durable decision: enforce decode-width budgets in regression via rendered legend-token extraction (`**...**`) so copy edits fail fast before artifact drift.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.

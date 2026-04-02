@@ -777,6 +777,10 @@ def run_fixture_case(
         for i, line in enumerate(cadence_24h_lines)
         if "**TSDCAD24TRICOVSTCMSVHA legend (S=stable cue, W=cue churn)**" in line
     ]
+    cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_lines = [
+        cadence_24h_lines[i]
+        for i in cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes
+    ]
     cadence_24h_triad_plan_indexes = [
         i
         for i, line in enumerate(cadence_24h_lines)
@@ -846,6 +850,11 @@ def run_fixture_case(
     ), (
         f"{name}: TSDCAD24TRICOVSTCMSVHA legend row count must match TSDCAD24TRICOVSTCMSVHA row count across sections"
     )
+    for legend_line in cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_lines:
+        legend_token = legend_line.split("**", 2)[1]
+        assert len(legend_token) <= 72, (
+            f"{name}: TSDCAD24TRICOVSTCMSVHA legend must stay <=72 chars in both summary/token sections"
+        )
     assert len(cadence_24h_triad_plan_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: cadence 24h recovery triad plan row count must match TSDCAD24TRI row count across sections"
     )

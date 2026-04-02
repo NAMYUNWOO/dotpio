@@ -5436,3 +5436,9 @@
 - Verified updated decode copy expectations in `scripts/regression_check_lane_coverage_guardrail.py`.
 - Verification bundle passed: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report generation.
 - Next hook: add explicit decode-width assertion for `TSDCAD24TRICOVSTCMSVHA` legend row.
+
+## 2026-04-03 07:26 KST — Cycle IP44 injected DOS-width guard
+- Task: add fixture-level explicit DOS-width assertion for `TSDCAD24TRICOVSTCMSVHA` decode copy.
+- Decision: enforce width at regression layer by extracting the rendered legend token (`**...**`) and asserting `len <= 72` for every summary/token-section occurrence.
+- Evidence: `scripts/regression_check_lane_coverage_guardrail.py` now validates `TSDCAD24TRICOVSTCMSVHA legend` width deterministically across sections.
+- Follow-up: if decode copy changes, maintain compact wording or adjust token strategy rather than loosening width budget.

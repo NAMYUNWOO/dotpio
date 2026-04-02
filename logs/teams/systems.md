@@ -4926,3 +4926,8 @@
 - Updated guardrail markdown output copy for hysteresis advisory decode to concise variant.
 - Ensured output contract parity by updating regression string checks.
 - Follow-up queued in backlog: DOS-width assertion for decode copy.
+
+## 2026-04-03 07:26 KST — Cycle IP44 regression contract hardening
+- Added explicit `<=72` decode-width contract for `TSDCAD24TRICOVSTCMSVHA legend` in guardrail regression.
+- Kept implementation additive/reversible: no runtime payload/schema changes, regression-only contract update.
+- Verification bundle retained as canonical gate (py_compile + regression + guardrail report regeneration).
