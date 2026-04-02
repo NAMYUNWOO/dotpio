@@ -1,5 +1,9 @@
 # World Team Log
 
+## 2026-04-02 17:48 KST
+- Reviewed cadence dispatch copy impact: bucket-specific action strings now explicitly call out world/design cadence when `design-or-world` is the highest-priority missing bucket.
+
+
 ## 2026-04-02 15:03 KST
 - World/readability lane confirmed bridge-summary decode rail stays reversible after ultra-compact alias additions.
 - Ordering keeps context-first parse flow intact before beat ladder helper.

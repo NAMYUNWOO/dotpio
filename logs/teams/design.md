@@ -1,5 +1,9 @@
 # Design Team Log
 
+## 2026-04-02 17:48 KST
+- Added/validated explicit design/world-targeted cadence action phrasing for missing bucket routing (`force design-or-world bucket next`) to improve one-scan readability in guardrail output.
+
+
 ## 2026-04-02 15:03 KST
 - Added ultra-compact alias candidate table + shortlist row to reduce dense bridge-summary scan cost while keeping decode reversibility explicit.
 - Locked final readability chain so shortlist remains adjacent to candidate table before beat helper.

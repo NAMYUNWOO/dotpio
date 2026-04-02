@@ -1002,7 +1002,26 @@ def resolve_cadence_24h_health_alias(health: str) -> str:
     }.get(health, "A")
 
 
-def resolve_cadence_24h_ops_action(health: str) -> str:
+def resolve_cadence_24h_ops_action(
+    health: str,
+    missing_buckets: list[str],
+) -> str:
+    """Resolve deterministic 24h cadence ops action with bucket-aware dispatch.
+
+    Priority order is explicit to keep outputs stable across runs:
+    combat-or-vfx -> design-or-world -> systems-or-ops.
+    If no recognized bucket is missing, fall back to the historical health-based
+    contract to preserve deterministic compatibility.
+    """
+    bucket_dispatch = {
+        "combat-or-vfx": "force combat-or-vfx bucket next",
+        "design-or-world": "force design-or-world bucket next",
+        "systems-or-ops": "force systems-or-ops bucket next",
+    }
+    for bucket in ("combat-or-vfx", "design-or-world", "systems-or-ops"):
+        if bucket in missing_buckets:
+            return bucket_dispatch[bucket]
+
     return {
         "OK": "hold cadence sweep",
         "WATCH": "schedule missing bucket",
@@ -1850,7 +1869,10 @@ def build_report(
     )
     cadence_24h_health = resolve_cadence_24h_health(len(missing_buckets))
     cadence_24h_health_alias = resolve_cadence_24h_health_alias(cadence_24h_health)
-    cadence_24h_ops_action = resolve_cadence_24h_ops_action(cadence_24h_health)
+    cadence_24h_ops_action = resolve_cadence_24h_ops_action(
+        cadence_24h_health,
+        missing_buckets,
+    )
     cadence_24h_legend_evaluation = resolve_cadence_24h_legend_evaluation()
 
     return {

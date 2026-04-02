@@ -1,5 +1,10 @@
 # Systems Team Log
 
+## 2026-04-02 17:48 KST
+- Implemented cadence-bucket-aware ops dispatch in lane guardrail (`combat-or-vfx` > `design-or-world` > `systems-or-ops`) with deterministic health-based fallback preserved for no-missing-bucket windows.
+- Updated guardrail wiring to pass `missingCadenceBuckets` into `resolve_cadence_24h_ops_action` and kept output deterministic for report/json/markdown consumers.
+
+
 ## 2026-04-02 15:03 KST
 - Regression contract expanded to include new decode-order rail: `TSDPMFXVWCRITSPMBS legend -> TSDPMFXVWCRITSPMBSA table -> TSDPMFXVWCRITSPMBSAP shortlist` before beat helper.
 - Added parity checks so `TSDPMFXVWCRITSPMBSA` and `TSDPMFXVWCRITSPMBSAP` row counts mirror `TSDPMFXVWCRITSPMB` across summary/token sections.

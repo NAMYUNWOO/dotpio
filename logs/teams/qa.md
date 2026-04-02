@@ -1,5 +1,10 @@
 # QA Team Log
 
+## 2026-04-02 17:48 KST
+- Added regression fixture checks for cadence-24h ops action priority and fallback contract (`combat-or-vfx` first, then `design-or-world`, then `systems-or-ops`, else legacy health fallback).
+- Verification pass: `py_compile` + `scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.
+
+
 ## 2026-04-02 15:03 KST
 - QA validated new ultra-compact alias table/shortlist rows are covered by deterministic markdown presence, order, and row-count parity assertions.
 - Verification pass: py_compile + `scripts/regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration.

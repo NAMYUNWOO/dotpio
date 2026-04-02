@@ -1,5 +1,9 @@
 # Combat Team Log
 
+## 2026-04-02 17:48 KST
+- Confirmed combat/vfx cadence gets first dispatch priority when missing (`force combat-or-vfx bucket next`), preserving existing escalation intent while improving operator clarity.
+
+
 ## 2026-04-02 15:03 KST
 - Combat lane reviewed shortlist aliases (`PH/HP/ES`) against existing beat semantics (`HC/PP/SN`) and confirmed no combat-token domain drift.
 - No combat runtime tuning shipped this cycle (docs/regression only).

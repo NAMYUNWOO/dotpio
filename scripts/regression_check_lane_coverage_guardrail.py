@@ -2501,6 +2501,25 @@ def main() -> int:
     assert (
         guardrail_module.resolve_cadence_override_streak(["combat-or-vfx"], []) == 1
     ), "fixture: cadence override streak must include intermediate TSDPCOS:1 domain"
+    assert (
+        guardrail_module.resolve_cadence_24h_ops_action(
+            "ALERT",
+            ["combat-or-vfx", "design-or-world", "systems-or-ops"],
+        )
+        == "force combat-or-vfx bucket next"
+    ), "fixture: cadence24hOpsAction must prioritize combat-or-vfx bucket dispatch when multiple cadence buckets are missing"
+    assert (
+        guardrail_module.resolve_cadence_24h_ops_action("ALERT", ["design-or-world"])
+        == "force design-or-world bucket next"
+    ), "fixture: cadence24hOpsAction must route to design-or-world bucket dispatch when combat-or-vfx is already covered"
+    assert (
+        guardrail_module.resolve_cadence_24h_ops_action("WATCH", ["systems-or-ops"])
+        == "force systems-or-ops bucket next"
+    ), "fixture: cadence24hOpsAction must route to systems-or-ops bucket dispatch when it is the remaining missing bucket"
+    assert (
+        guardrail_module.resolve_cadence_24h_ops_action("WATCH", [])
+        == "schedule missing bucket"
+    ), "fixture: cadence24hOpsAction must preserve deterministic health-based fallback contract when no cadence buckets are missing"
     with tempfile.TemporaryDirectory(prefix="regression_check_lane_guardrail_") as tmp:
         tmp_path = Path(tmp)
         observed_family_trends: list[str] = []

@@ -1,3 +1,9 @@
+## 2026-04-02 17:48 KST
+- Closed injected Systems/Ops + QA POST_RC item: lane guardrail now dispatches cadence-24h ops action by explicit missing bucket priority (`combat-or-vfx` -> `design-or-world` -> `systems-or-ops`) instead of generic health-only action text.
+- Durable decision: preserve old health-based action map as strict fallback when no known buckets are missing to keep deterministic backward compatibility.
+- Verification passed (`py_compile`, `scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for immediate Game Director review cycle next run).
+
 ## 2026-04-02 15:03 KST
 - Closed remaining IP29 injected AI Content/Design item and then immediately triggered Game Director Cycle IP30 because ACTION_ITEMS + TASKS + POST_RC_BACKLOG reached full-check state.
 - Cycle IP30 shipped low-risk UX/Design vertical slice: new ultra-compact shortlist row `TSDPMFXVWCRITSPMBSAP shortlist (PH/HP/ES)` following candidate table `TSDPMFXVWCRITSPMBSA`.

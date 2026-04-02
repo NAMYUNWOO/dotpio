@@ -1,5 +1,9 @@
 # UX Team Log
 
+## 2026-04-02 17:48 KST
+- UX pass: cadence-24h ops action copy is now more actionable and lane-specific while keeping deterministic phrasing stable for repeated scans and tooling diffs.
+
+
 ## 2026-04-02 15:03 KST
 - Introduced one-scan shortlist microcopy (`PH/HP/ES`) to seed future operator readability A/B checks without changing functional outputs.
 - Kept copy DOS-width compact and colocated with bridge-summary decode rows.
