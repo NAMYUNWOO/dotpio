@@ -3536,3 +3536,7 @@
 - Chosen experiment shipped: added `TSDPMFXVWCRITSPMA` (`PN|HL|EL`) derived from `TSDPMFXVWCRITSP` posture state for dense digest scans (offline-only).
 - Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0; TASKS unchecked=2; POST_RC_BACKLOG unchecked=2 (next: `TSDPMFXVWCRITSPMA` adjacency + posture decode DOS-width helper).
+
+## 2026-04-02 12:04 KST
+- UX readability maintenance: posture decode helper rows now include explicit compact-preference alias (`...SPMP:C`) to avoid ambiguity in dense scans.
+- Next UX check delegated to Systems/QA adjacency lock for helper ordering.

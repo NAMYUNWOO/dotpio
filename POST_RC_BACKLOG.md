@@ -1,5 +1,19 @@
 # POST_RC_BACKLOG
 
+
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP27)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (post-clear reset; choose additive reversible slice and re-seed follow-up queue).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (Design/World): add compact posture-microcopy decode preference alias token (`TSDPMFXVWCRITSPMP:C`) linked to existing DOS-width eval row.
+  - Mid-risk Systems/QA: enforce parity assertion for posture decode preference alias rows across summary + token sections.
+  - High-risk novelty (AI Content/Combat): prototype posture-aware beat-microcopy blend recommendation from score+posture drift windows.
+- Selected experiment: Idea 1 (low-risk Design/World) minimal vertical slice.
+- [x] Design/World + Systems/QA Team: Add posture-microcopy decode preference alias row `TSDPMFXVWCRITSPMP:C` and lock parity regression with `TSDPMFXVWCRITSPM` row counts. *(lifecycle: [ ] -> [~] started: 2026-04-02 12:02 KST -> [x] completed: 2026-04-02 12:04 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP27)
+- [ ] Systems/QA Team (injected): Extend urgency-cluster order contract so `TSDPMFXVWCRITSPMP` must stay adjacent to `TSDPMFXVWCRITSPMLEN` before beat decode rows.
+- [ ] AI Content/Systems Team (injected): Prototype offline posture-beat bridge microcopy token (`TSDPMFXVWCRITSPMB`) keyed by `TSDPMFXVWCRITSP` + `TSDPMFXVWCRITSB` without runtime coupling.
+
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP26)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; keep cycle focused on reversible readability + parity deltas).
 - Candidate ideas generated:
@@ -2490,5 +2504,5 @@ Last updated: 2026-03-31 20:40 KST
 
 ## Game Director Cycle IP27 (2026-04-02 11:30 KST)
 - [x] UX/AI-Content Team (selected, low-risk): Add compact posture-microcopy alias token `TSDPMFXVWCRITSPMA` (`PN|HL|EL`) derived from `TSDPMFXVWCRITSPM` for dense digest scans.
-- [ ] Systems/QA Team (injected): Extend urgency-cluster regression order/cardinality contract to include `TSDPMFXVWCRITSPMA` adjacency between posture microcopy and beat rows.
-- [ ] Design/World Team (injected): Add DOS-width/readability evaluation helper row for posture microcopy decode (`TSDPMFXVWCRITSPMLEN`) and lock expected compact preference.
+- [x] Systems/QA Team (injected): Extend urgency-cluster regression order/cardinality contract to include `TSDPMFXVWCRITSPMA` adjacency between posture microcopy and beat rows. *(lifecycle: [ ] -> [~] started: 2026-04-02 11:55 KST -> [x] completed: 2026-04-02 11:58 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [x] Design/World Team (injected): Add DOS-width/readability evaluation helper row for posture microcopy decode (`TSDPMFXVWCRITSPMLEN`) and lock expected compact preference. *(lifecycle: [ ] -> [~] started: 2026-04-02 11:56 KST -> [x] completed: 2026-04-02 11:58 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*

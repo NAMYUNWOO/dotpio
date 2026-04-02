@@ -3274,3 +3274,7 @@
 - Chosen experiment shipped: added `TSDPMFXVWCRITSPMA` (`PN|HL|EL`) derived from `TSDPMFXVWCRITSP` posture state for dense digest scans (offline-only).
 - Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0; TASKS unchecked=2; POST_RC_BACKLOG unchecked=2 (next: `TSDPMFXVWCRITSPMA` adjacency + posture decode DOS-width helper).
+
+## 2026-04-02 12:04 KST
+- Cycle IP27 design/world readability slice shipped: added posture microcopy decode preference alias row `TSDPMFXVWCRITSPMP:C` next to `TSDPMFXVWCRITSPMLEN` for one-glance DOS-width intent clarity.
+- Follow-up injected: lock strict adjacency `TSDPMFXVWCRITSPMLEN -> TSDPMFXVWCRITSPMP` in urgency cluster order contract.
