@@ -4768,3 +4768,5 @@
 - File touched: `scripts/regression_check_lane_coverage_guardrail.py`.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up queue: remaining highest-priority unchecked item is AI Content/Combat adaptive shortlist candidate note keyed by `TSDPMFXVWCRITSP` posture drift.
+## 2026-04-02 15:49 KST — Cycle IP28
+- Added systems/ops action field `cadence24hOpsAction` (`hold cadence sweep|schedule missing bucket|force missing buckets next`) and rendered markdown ops-action row.

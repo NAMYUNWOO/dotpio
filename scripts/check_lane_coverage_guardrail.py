@@ -962,6 +962,30 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_combat_callout_de
     }
 
 
+def resolve_cadence_24h_health(missing_bucket_count: int) -> str:
+    if missing_bucket_count <= 0:
+        return "OK"
+    if missing_bucket_count == 1:
+        return "WATCH"
+    return "ALERT"
+
+
+def resolve_cadence_24h_health_alias(health: str) -> str:
+    return {
+        "OK": "O",
+        "WATCH": "W",
+        "ALERT": "A",
+    }.get(health, "A")
+
+
+def resolve_cadence_24h_ops_action(health: str) -> str:
+    return {
+        "OK": "hold cadence sweep",
+        "WATCH": "schedule missing bucket",
+        "ALERT": "force missing buckets next",
+    }.get(health, "force missing buckets next")
+
+
 def resolve_trend_score_band_dispatch_hint(score_band_snapshot: dict[str, int]) -> str:
     ordered = sorted(
         score_band_snapshot.items(),
@@ -1753,6 +1777,9 @@ def build_report(
     posture_beat_bridge_microcopy_decode_evaluation = (
         resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_decode_evaluation()
     )
+    cadence_24h_health = resolve_cadence_24h_health(len(missing_buckets))
+    cadence_24h_health_alias = resolve_cadence_24h_health_alias(cadence_24h_health)
+    cadence_24h_ops_action = resolve_cadence_24h_ops_action(cadence_24h_health)
 
     return {
         "recentCompletedItems": total,
@@ -1764,6 +1791,9 @@ def build_report(
         "forcedNextLanes": forced_next_lanes,
         "bucketCadence": bucket_status,
         "missingCadenceBuckets": missing_buckets,
+        "cadence24hHealth": cadence_24h_health,
+        "cadence24hHealthAlias": cadence_24h_health_alias,
+        "cadence24hOpsAction": cadence_24h_ops_action,
         "trendScoreBandSnapshot": score_band_snapshot,
         "trendScoreBandSnapshotAlias": score_band_alias,
         "trendScoreBandDispatchHint": score_band_dispatch_hint,
@@ -1924,6 +1954,9 @@ def to_markdown(
             f"- over-cap lanes: **{over_cap}**",
             f"- forced next lanes (if over-cap): **{forced}**",
             f"- cadence buckets missing: **{missing_buckets}**",
+            f"- cadence 24h health (combat/vfx): **TSDCAD24:{report.get('cadence24hHealthAlias', 'A')}** ({report.get('cadence24hHealth', 'ALERT')})",
+            "- cadence 24h health decode (design/world): **TSDCAD24 legend (O=OK, W=WATCH, A=ALERT)**",
+            f"- cadence 24h ops action (systems/ops): **{report.get('cadence24hOpsAction', 'force missing buckets next')}**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",
             "- trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**",

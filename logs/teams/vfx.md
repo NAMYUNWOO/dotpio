@@ -514,3 +514,5 @@
 ## 2026-04-02 03:22 KST
 - No VFX token additions this cycle; prior `TSDPMFX*` rails unchanged while systems/qa parity matrix coverage was tightened.
 - 2026-04-02 05:26 KST — Validated vfx pulse rail keeps parity after confidence-tier insertion (`TSDPMFXUCTSBTC` -> `TSDPMFXV`/`TSDPMFXVA`).
+## 2026-04-02 15:49 KST — Cycle IP28
+- Added VFX-adjacent cadence pulse visibility with `TSDCAD24` row (`OK|WATCH|ALERT`) so missing combat/vfx cadence windows surface immediately.

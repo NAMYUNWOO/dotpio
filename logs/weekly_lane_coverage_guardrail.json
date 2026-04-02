@@ -64,6 +64,9 @@
     "design-or-world",
     "systems-or-ops"
   ],
+  "cadence24hHealth": "ALERT",
+  "cadence24hHealthAlias": "A",
+  "cadence24hOpsAction": "force missing buckets next",
   "trendScoreBandSnapshot": {
     "CALM": 0,
     "EDGE": 0,

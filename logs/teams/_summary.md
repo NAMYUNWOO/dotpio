@@ -5022,3 +5022,12 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep both direct parity assertions (`MBSAP↔MBS`, `MBS↔MB`) for redundancy and faster fault localization when markdown sections drift.
 - Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status after completion: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: AI Content/Combat adaptive shortlist candidate note keyed by `TSDPMFXVWCRITSP` posture drift).
+## Autonomous Cycle 2026-04-02 (Game Director Review — Cycle IP28)
+- Coverage check (last 10 completed, lane share): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; cap force not triggered).
+- Cadence gate: missing `combat-or-vfx`, `design-or-world`, `systems-or-ops`; selected experiment forced by underrepresented cadence buckets.
+- Candidate ideas generated:
+  - Idea 1 (low-risk, Combat/VFX + Systems): add compact 24h cadence-health token (`TSDCAD24`) so operators immediately see cadence risk state.
+  - Idea 2 (mid-risk, Design/World): add compact cadence decode/legend row and optional copy-budget diagnostics for `TSDCAD24` row set.
+  - Idea 3 (high-risk, Systems/Ops): adaptive cadence scheduling policy remap from recent momentum windows.
+- Selected experiment: Idea 1 (minimal vertical slice, low-risk).
+- [x] Combat/VFX + Systems/Ops + Design/World + QA Team: Added deterministic cadence-24h payload fields (`cadence24hHealth`, `cadence24hHealthAlias`, `cadence24hOpsAction`) and markdown rows (`TSDCAD24`, decode legend, ops action) in `scripts/check_lane_coverage_guardrail.py`, then regenerated guardrail outputs. *(lifecycle: [ ] -> [~] started: 2026-04-02 15:44 KST -> [x] completed: 2026-04-02 15:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
