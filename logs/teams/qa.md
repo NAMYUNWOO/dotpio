@@ -5384,3 +5384,7 @@
 - Added explicit parity assertion for cadence spread-trend decode row count: `TSDCAD24TRICOVSTA legend` must equal `TSDCAD24TRICOVSTA` row count across sections.
 - This closes the remaining unchecked Systems/QA contract item for triad spread-trend alias cluster.
 - Verification run stayed green: py_compile + regression suite + artifact regeneration.
+
+## 2026-04-03 02:31 KST
+- Extended regression contracts for `TSDCAD24TRICOVSTC` + `TSDCAD24TRICOVSTCA` domain/parity/order/decode invariants.
+- Verification bundle passed: py_compile + regression_check_lane_coverage_guardrail + guardrail report regen.

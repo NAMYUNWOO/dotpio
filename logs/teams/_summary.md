@@ -5169,3 +5169,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: cadence spread-trend alias/decode pair is now enforced as a strict one-to-one markdown contract.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, and guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1.
+
+## 2026-04-03 02:31 KST — Cadence spread-trend confidence slice
+- Shipped offline spread-trend confidence token `TSDCAD24TRICOVSTC` and new compact alias `TSDCAD24TRICOVSTCA` with decode legend.
+- Locked deterministic mapping and row-order parity in regression (`...TRICOVST -> ...TRICOVSTA -> ...TRICOVSTC -> ...TRICOVSTCA`).
+- Verified via py_compile, regression_check_lane_coverage_guardrail, and guardrail report regeneration outputs.

@@ -1138,6 +1138,44 @@ def resolve_cadence_24h_recovery_triad_coverage_spread_trend_alias(spread_trend:
     return {"UP": "U", "FLAT": "F", "DOWN": "D"}.get(spread_trend, "F")
 
 
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence(
+    rows: list[str],
+    churn_window_size: int = 5,
+) -> str:
+    if not rows:
+        return "MID"
+    trailing = rows[-max(1, churn_window_size) :]
+    spread_aliases: list[str] = []
+    for depth in range(1, len(trailing) + 1):
+        lane_counts = Counter()
+        for row in trailing[:depth]:
+            for lane in infer_lanes(row):
+                lane_counts[lane] += 1
+        bucket_status = {
+            bucket: {
+                "count": sum(lane_counts.get(lane, 0) for lane in bucket_lanes),
+            }
+            for bucket, bucket_lanes in BUCKETS.items()
+        }
+        spread_aliases.append(resolve_cadence_24h_recovery_triad_coverage_spread_alias(bucket_status))
+    churn = sum(
+        1
+        for idx in range(1, len(spread_aliases))
+        if spread_aliases[idx] != spread_aliases[idx - 1]
+    )
+    if churn <= 0:
+        return "HIGH"
+    if churn == 1:
+        return "MID"
+    return "LOW"
+
+
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_alias(
+    confidence: str,
+) -> str:
+    return {"LOW": "L", "MID": "M", "HIGH": "H"}.get(confidence, "M")
+
+
 def resolve_cadence_24h_legend_baseline() -> str:
     return "O=OK, W=WATCH, A=ALERT"
 
@@ -2034,6 +2072,14 @@ def build_report(
             cadence_24h_recovery_triad_coverage_spread_trend
         )
     )
+    cadence_24h_recovery_triad_coverage_spread_trend_confidence = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence(rows)
+    )
+    cadence_24h_recovery_triad_coverage_spread_trend_confidence_alias = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_alias(
+            cadence_24h_recovery_triad_coverage_spread_trend_confidence
+        )
+    )
     cadence_24h_legend_evaluation = resolve_cadence_24h_legend_evaluation()
 
     return {
@@ -2056,6 +2102,8 @@ def build_report(
         "cadence24hRecoveryTriadCoverageSpreadAlias": cadence_24h_recovery_triad_coverage_spread_alias,
         "cadence24hRecoveryTriadCoverageSpreadTrend": cadence_24h_recovery_triad_coverage_spread_trend,
         "cadence24hRecoveryTriadCoverageSpreadTrendAlias": cadence_24h_recovery_triad_coverage_spread_trend_alias,
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidence": cadence_24h_recovery_triad_coverage_spread_trend_confidence,
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceAlias": cadence_24h_recovery_triad_coverage_spread_trend_confidence_alias,
         "cadence24hRecoveryTriadPlan": cadence_24h_recovery_triad_plan,
         "cadence24hLegendBaseline": cadence_24h_legend_evaluation["baseline"],
         "cadence24hLegendCompact": cadence_24h_legend_evaluation["compact"],
@@ -2247,7 +2295,10 @@ def to_markdown(
             f"- cadence 24h recovery triad coverage spread alias (design/world): **TSDCAD24TRICOVS:{report.get('cadence24hRecoveryTriadCoverageSpreadAlias', resolve_cadence_24h_recovery_triad_coverage_spread_alias(report.get('bucketCadence', {})))}**",
             f"- cadence 24h recovery triad coverage spread trend (ai-content/combat): **TSDCAD24TRICOVST:{report.get('cadence24hRecoveryTriadCoverageSpreadTrend', 'FLAT')}**",
             f"- cadence 24h recovery triad coverage spread trend alias (systems/qa): **TSDCAD24TRICOVSTA:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendAlias', 'F')}**",
+            f"- cadence 24h recovery triad coverage spread trend confidence (ai-content/combat): **TSDCAD24TRICOVSTC:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidence', 'MID')}**",
+            f"- cadence 24h recovery triad coverage spread trend confidence alias (systems/qa): **TSDCAD24TRICOVSTCA:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceAlias', 'M')}**",
             "- cadence 24h recovery triad coverage spread trend decode (design/world): **TSDCAD24TRICOVSTA legend (U=UP, F=FLAT, D=DOWN)**",
+            "- cadence 24h recovery triad coverage spread trend confidence decode (design/world): **TSDCAD24TRICOVSTCA legend (L=LOW, M=MID, H=HIGH)**",
             f"- cadence 24h recovery triad plan (design/world): **{report.get('cadence24hRecoveryTriadPlan', 'cadence locked')}**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",

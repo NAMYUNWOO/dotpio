@@ -3390,3 +3390,7 @@
 - Combat lane unchanged in this Systems/QA adjacency slice; cadence-triad ordering now preserves a stable hook for future combat/vfx spread-trend interpretation.
 ## 2026-04-03 01:26 KST
 - Wired combat-facing cadence copy row `TSDCAD24TRICOVST` into markdown output so spread acceleration/deceleration is visible as UP/FLAT/DOWN.
+
+## 2026-04-03 02:31 KST
+- Cadence spread-trend confidence surfaced for AI-content/combat lane as `TSDCAD24TRICOVSTC:LOW|MID|HIGH` from recent churn windows.
+- Purpose: faster confidence read before selecting combat/vfx recovery follow-ups.

@@ -4871,3 +4871,7 @@
 - Closed injected Systems/QA parity follow-up: regression now asserts `TSDCAD24TRICOVSTA legend` row count mirrors `TSDCAD24TRICOVSTA` alias rows across summary + token sections.
 - Durable contract: alias/decode rows for cadence spread-trend must stay cardinality-locked to prevent silent markdown drift.
 - Verification: py_compile + `scripts/regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration passed.
+
+## 2026-04-03 02:31 KST
+- Added `TSDCAD24TRICOVSTCA` confidence alias wiring (`L|M|H`) and deterministic map helper in lane guardrail payload.
+- Follow-up: keep cadence token ordering locked as `...TRICOVST -> ...TRICOVSTA -> ...TRICOVSTC -> ...TRICOVSTCA`.

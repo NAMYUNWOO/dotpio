@@ -3409,3 +3409,7 @@
 - Follow-up remains open in backlog: spread trend token prototype (`TSDCAD24TRICOVST`).
 ## 2026-04-03 01:26 KST
 - Updated cadence triad summary block to include spread-trend context between spread alias and triad plan for world/design operator narrative continuity.
+
+## 2026-04-03 02:31 KST
+- Added compact decode row for cadence spread-trend confidence alias: `TSDCAD24TRICOVSTCA legend (L=LOW, M=MID, H=HIGH)` to preserve one-scan readability.
+- Follow-up: monitor DOS-width pressure if additional cadence rows are added.

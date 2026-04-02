@@ -8,7 +8,19 @@
 
 ## Next Up (Game Director Injection — Cycle IP39)
 - [x] Systems/QA Team (injected): Add explicit row-count assertion that `TSDCAD24TRICOVSTA legend` count mirrors `TSDCAD24TRICOVSTA` in both summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 01:49 KST -> [x] completed: 2026-04-03 01:50 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Combat Team (injected): Prototype offline spread-trend confidence tag (`TSDCAD24TRICOVSTC:LOW|MID|HIGH`) from recent `TSDCAD24TRICOVST` churn windows.
+- [x] AI Content/Combat Team (injected): Prototype offline spread-trend confidence tag (`TSDCAD24TRICOVSTC:LOW|MID|HIGH`) from recent `TSDCAD24TRICOVST` churn windows. *(lifecycle: [ ] -> [~] started: 2026-04-03 02:18 KST -> [x] completed: 2026-04-03 02:23 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP40)
+- Candidate ideas generated:
+  - Low-risk Systems/QA + UX: add compact spread-trend confidence alias token (`TSDCAD24TRICOVSTCA:L|M|H`) plus decode row for dense cadence scans.
+  - Mid-risk Systems/QA + Design/World: enforce strict adjacency `TSDCAD24TRICOVST -> TSDCAD24TRICOVSTA -> TSDCAD24TRICOVSTC -> TSDCAD24TRICOVSTCA -> decode -> triad plan`.
+  - High-risk AI Content/Combat: prototype offline spread-trend confidence momentum token from consecutive confidence-window shifts.
+- Selected experiment: Idea 1 (low-risk Systems/QA + UX) minimal vertical slice.
+- [x] Systems/QA + UX Team: Add `TSDCAD24TRICOVSTCA` payload+markdown alias row (`LOW|MID|HIGH -> L|M|H`) plus decode copy and regression parity/order locks. *(lifecycle: [ ] -> [~] started: 2026-04-03 02:24 KST -> [x] completed: 2026-04-03 02:31 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP40)
+- [ ] Systems/QA Team (injected): Add fixture-level explicit parity assertion that `TSDCAD24TRICOVSTCA legend` row count mirrors `TSDCAD24TRICOVSTCA` across summary/token sections.
+- [ ] AI Content/Combat Team (injected): Prototype offline spread-trend confidence momentum token (`TSDCAD24TRICOVSTCM:UP|FLAT|DOWN`) from recent `TSDCAD24TRICOVSTC` window deltas.
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP38)
 - Candidate ideas generated:

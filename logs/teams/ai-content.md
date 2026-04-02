@@ -3501,3 +3501,7 @@
 - No ai-content payload mutation this slice; validated that cadence spread adjacency lock leaves room for next injected AI Content/Combat trend-token prototype.
 ## 2026-04-03 01:26 KST
 - Added offline cadence spread trend signal `TSDCAD24TRICOVST:UP|FLAT|DOWN`, derived from current/prior triad spread-state transitions for non-runtime operator guidance.
+
+## 2026-04-03 02:31 KST
+- Implemented offline spread-trend confidence derivation from recent churn windows (`TSDCAD24TRICOVSTC`).
+- Confidence tiers now exposed with compact alias token `TSDCAD24TRICOVSTCA`.

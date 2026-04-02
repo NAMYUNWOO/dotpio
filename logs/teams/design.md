@@ -3509,3 +3509,6 @@
 - Decision: keep contiguous order as a non-optional readability invariant in both summary and token-coverage blocks.
 ## 2026-04-03 01:26 KST
 - Preserved cadence triad readability order while adding spread-trend row: `TSDCAD24TRICOVP -> TSDCAD24TRICOVS -> TSDCAD24TRICOVST -> triad plan`.
+
+## 2026-04-03 02:31 KST
+- Added deterministic confidence decode copy for cadence spread-trend confidence alias (`L/M/H`) to keep digest semantics reversible.

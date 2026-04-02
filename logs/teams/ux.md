@@ -3668,3 +3668,6 @@
 - UX/readability benefit: spread severity token (`TSDCAD24TRICOVS`) now cannot drift away from pressure+plan context in markdown rails.
 ## 2026-04-03 01:26 KST
 - Kept one-scan digest behavior by adding compact token `TSDCAD24TRICOVST` instead of longer prose for spread-trend status.
+
+## 2026-04-03 02:31 KST
+- Extended compact cadence rail with `TSDCAD24TRICOVSTCA` so confidence is glanceable without expanding verbose labels.
