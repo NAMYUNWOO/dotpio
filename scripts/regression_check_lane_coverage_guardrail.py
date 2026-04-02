@@ -2328,6 +2328,8 @@ def run_fixture_case(
         "tsdpmfxvwcritsRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_row_count,
         "tsdpmfxvwcritspRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_row_count,
         "tsdpmfxvwcritspaRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_alias_row_count,
+        "tsdpmfxvwcritspmbRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count,
+        "tsdpmfxvwcritspmbsRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_compact_summary_row_count,
         "tsdpmfxvwcritspmRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_microcopy_row_count,
         "tsdpmfxvwcritspmaRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_microcopy_alias_row_count,
         "tsdpmfxvwcritsbRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_row_count,
@@ -2343,7 +2345,9 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix="regression_check_lane_guardrail_") as tmp:
         tmp_path = Path(tmp)
         observed_family_trends: list[str] = []
-        mixed_window_tsdpmfx_pulse_parity: list[tuple[str, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int]] = []
+        mixed_window_tsdpmfx_pulse_parity: list[
+            tuple[str, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int]
+        ] = []
 
         balanced_tie_result = run_fixture_case(
             tmp_path=tmp_path,
@@ -2394,6 +2398,8 @@ def main() -> int:
                 int(balanced_tie_result["tsdpmfxvwcritsRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspaRowCount"]),
+                int(balanced_tie_result["tsdpmfxvwcritspmbRowCount"]),
+                int(balanced_tie_result["tsdpmfxvwcritspmbsRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritsbRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritsbaRowCount"]),
             )
@@ -2449,6 +2455,8 @@ def main() -> int:
                 int(ready_mix_result["tsdpmfxvwcritsRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspaRowCount"]),
+                int(ready_mix_result["tsdpmfxvwcritspmbRowCount"]),
+                int(ready_mix_result["tsdpmfxvwcritspmbsRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritsbRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritsbaRowCount"]),
             )
@@ -2635,6 +2643,8 @@ def main() -> int:
                 int(prior_window_trend_up_result["tsdpmfxvwcritsRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspaRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxvwcritspmbRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxvwcritspmbsRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritsbRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritsbaRowCount"]),
             )
@@ -2689,6 +2699,8 @@ def main() -> int:
                 int(prior_window_trend_down_result["tsdpmfxvwcritsRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspaRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxvwcritspmbRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxvwcritspmbsRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritsbRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritsbaRowCount"]),
             )
@@ -2730,12 +2742,14 @@ def main() -> int:
                 tsdpmfxvwcrits_count,
                 tsdpmfxvwcritsp_count,
                 tsdpmfxvwcritspa_count,
+                tsdpmfxvwcritspmb_count,
+                tsdpmfxvwcritspmbs_count,
                 tsdpmfxvwcritsb_count,
                 tsdpmfxvwcritsba_count,
             )
             in mixed_window_tsdpmfx_pulse_parity
         ), (
-            "mixed-window fixture matrix must keep TSDPMFXUCTSBT/TSDPMFXUCTSBTA/TSDPMFXUCTSBTC/TSDPMFXV/TSDPMFXVA/TSDPMFXVWCR/TSDPMFXVWCRA/TSDPMFXVWCRI/TSDPMFXVWCRIA/TSDPMFXVWCRIT/TSDPMFXVWCRITA/TSDPMFXVWCRITS/TSDPMFXVWCRITSP/TSDPMFXVWCRITSPA/TSDPMFXVWCRITSB/TSDPMFXVWCRITSBA row-count parity across summary + token sections"
+            "mixed-window fixture matrix must keep TSDPMFXUCTSBT/TSDPMFXUCTSBTA/TSDPMFXUCTSBTC/TSDPMFXV/TSDPMFXVA/TSDPMFXVWCR/TSDPMFXVWCRA/TSDPMFXVWCRI/TSDPMFXVWCRIA/TSDPMFXVWCRIT/TSDPMFXVWCRITA/TSDPMFXVWCRITS/TSDPMFXVWCRITSP/TSDPMFXVWCRITSPA/TSDPMFXVWCRITSPMB/TSDPMFXVWCRITSPMBS/TSDPMFXVWCRITSB/TSDPMFXVWCRITSBA row-count parity across summary + token sections"
         )
 
     print("ok: trendScoreBand dispatch-hint/momentum-band regression checks passed")

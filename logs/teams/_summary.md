@@ -5003,3 +5003,9 @@ Compact decision memory for AI context efficiency.
 - Injected new follow-ups in TASKS/POST_RC_BACKLOG:
   - Systems/QA parity assertion for TSDPMFXVWCRITSPMBS row-count mirroring TSDPMFXVWCRITSPMB.
   - AI Content/Design ultra-compact alias (PNHC->PH) prototype table (offline-only).
+
+## 2026-04-02 14:22 KST
+- Closed highest-priority injected Systems/QA parity item from TASKS/POST_RC: mixed-window fixture matrix now explicitly includes `TSDPMFXVWCRITSPMB` and `TSDPMFXVWCRITSPMBS` in all-equal row-count parity assertions across summary + token sections.
+- Durable decision: treat bridge (`...SPMB`) and compact bridge-summary (`...SPMBS`) as a locked parity pair in fixture-level tuple contracts, not only per-fixture local assertions.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: AI Content/Design ultra-compact bridge-summary alias prototype).
