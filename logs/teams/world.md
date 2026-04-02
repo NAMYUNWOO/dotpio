@@ -3330,3 +3330,9 @@
 
 ## 2026-04-02 16:08 KST
 - World/design decode sequence updated with adaptive-focus alias legend before beat helper to preserve context continuity.
+
+## 2026-04-02 16:27 KST — Cycle IP31 follow-up closure (SAPF domain + adaptive-note helper)
+- Closed TASKS highest-priority follow-ups from IP31 by shipping two additive guardrail refinements:
+  - Systems/QA: regression fixture matrix now enforces `TSDPMFXVWCRITSPMBSAPF` domain (`PH|HP|ES`) and explicitly includes `...MBSAPN`/`...MBSAPF` in mixed-window row-count parity checks.
+  - Design/World: added adaptive-note transition helper rows (`TSDPMFXVWCRITSPMBSAPN helper`, `TSDPMFXVWCRITSPMBSAPNLEN`) documenting `SURGE/HOLD/COOL -> PH/HP/ES` with DOS-width evaluation token.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`

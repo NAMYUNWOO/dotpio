@@ -5044,3 +5044,7 @@ Compact decision memory for AI context efficiency.
 - Selected experiment: idea (1), implemented minimal vertical slice with payload field + markdown row + decode legend + regression order/parity contracts.
 - Durable decision: adaptive shortlist block now ordered as `...MBSAP shortlist -> MBSAPN note -> MBSAPF alias -> MBSAPF legend -> beat helper`.
 - Queue status after injection: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2.
+
+- 2026-04-02 16:27 KST: Closed both remaining IP31 TASKS follow-ups (systems/qa + design/world).
+  - Regression hardening: `TSDPMFXVWCRITSPMBSAPF` domain asserted as `PH|HP|ES`, and mixed-window fixture parity matrix now explicitly includes `TSDPMFXVWCRITSPMBSAPN/TSDPMFXVWCRITSPMBSAPF` counts.
+  - Decode readability: added adaptive-note transition helper + DOS-width eval rows (`TSDPMFXVWCRITSPMBSAPN helper`, `TSDPMFXVWCRITSPMBSAPNLEN`) to keep `SURGE/HOLD/COOL` drift-family mapping one-scan and contract-tested.
