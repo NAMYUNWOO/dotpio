@@ -4941,3 +4941,10 @@ Compact decision memory for AI context efficiency.
 - Durable contract update: parity gate now requires `...VWCRITS == ...VWCRITSP == ...VWCRITSPA == ...VWCRITSB == ...VWCRITSBA` in mixed-window fixtures.
 - Verification passed: py_compile + regression + guardrail report regeneration.
 - Queue status: ACTION_ITEMS unchecked=0; TASKS unchecked=1; POST_RC_BACKLOG unchecked=1 (next: AI Content/Systems posture-guidance microcopy token keyed by `TSDPMFXVWCRITSP`).
+
+
+
+## 2026-04-02 11:22 KST
+- Closed injected AI Content/Systems item: lane guardrail now emits posture microcopy token `TSDPMFXVWCRITSPM` derived from `TSDPMFXVWCRITSP` (`SURGE=push now`, `HOLD=hold lane`, `COOL=ease lane`).
+- Regression contract expanded in `scripts/regression_check_lane_coverage_guardrail.py` for payload-domain mapping, markdown row/decode presence, and row-count parity (`TSDPMFXVWCRITSPM` mirrors `TSDPMFXVWCRITSP`).
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
