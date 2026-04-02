@@ -3552,3 +3552,8 @@
 - Decision: Adopt concise operator copy variant for advisory alias decode (`S=stable cue`, `W=cue churn`) over verbose mapping.
 - Rationale: better readability with equivalent meaning under DOS-width budget.
 - Follow-up: keep design copy deterministic via fixture-level width assertions.
+
+## 2026-04-03 08:26 KST — IP45 follow-up dual-hysteresis helper
+- Decision: Added compact dual-hysteresis decode helper row `TSDCAD24TRICOVSTCMSVHD:VH=STEADY|SWING, VHA=S|W` to keep paired advisory decode one-scan readable.
+- Evidence: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`.
+- Follow-up: Next backlog item is `TSDCAD24TRICOVSTCMSVHC:LOW|MID|HIGH` confidence band prototype.

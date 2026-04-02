@@ -5242,3 +5242,8 @@ Compact decision memory for AI context efficiency.
 - Next injected queue opened (3 items): dual-legend adjacency assertion, compact dual-decode helper row + eval token, offline hysteresis confidence-band prototype.
 
 - 2026-04-03 07:52 KST: Strengthened cadence decode-order contract by adding a single explicit contiguous-chain assertion for `TSDCAD24TRICOVSTCMSVH legend -> TSDCAD24TRICOVSTCMSVHA legend -> TSDCAD24TRI plan` in both summary/token sections (`scripts/regression_check_lane_coverage_guardrail.py`). This closes the Systems/QA injected backlog item and reduces false-pass risk from split adjacency checks.
+
+## 2026-04-03 08:26 KST — IP45 follow-up shipped
+- Added dual-hysteresis decode helper row `TSDCAD24TRICOVSTCMSVHD:VH=STEADY|SWING, VHA=S|W` plus DOS-width eval token `TSDCAD24TRICOVSTCMSVHDLEN:B24|C24|LIM72|PREF:COMPACT|PASS`.
+- Guardrail report now emits helper evaluation payload keys under `cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisDualDecodeHelperEvaluation`.
+- Regression now enforces helper/eval presence, parity with cadence triad row count, and decode-cluster adjacency before `TSDCAD24TRI plan`.

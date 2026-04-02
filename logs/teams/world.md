@@ -3447,3 +3447,8 @@
 - 2026-04-03 05:51 KST — World lane consumed new hysteresis advisory decode row for one-scan readability (`STEADY=hold last cue`, `SWING=rapid cue flips`) without map/content changes.
 
 - 2026-04-03 05:54 KST — World/readability lane reviewed new advisory alias decode row (`S=STEADY, W=SWING`) for compact cadence interpretation.
+
+## 2026-04-03 08:26 KST — IP45 follow-up decode readability
+- Decision: Kept dual-hysteresis helper wording DOS-safe and deterministic (`VH=STEADY|SWING, VHA=S|W`).
+- Evidence: helper row + eval token rendered in weekly lane guardrail markdown.
+- Follow-up: Maintain adjacency to decode cluster before triad plan.

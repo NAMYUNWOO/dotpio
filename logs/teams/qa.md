@@ -5453,3 +5453,8 @@
 - Scope: `scripts/regression_check_lane_coverage_guardrail.py` cadence order contract block.
 - Result: Regression suite passes with no fixture drift.
 - Evidence: py_compile + regression script + guardrail artifact regeneration all passed.
+
+## 2026-04-03 08:26 KST — IP45 follow-up regression lock
+- Decision: Extended regression coverage for helper/eval row presence, row-count parity, and decode-cluster adjacency before triad plan.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: Keep <=72-width invariant for compact decode helpers.

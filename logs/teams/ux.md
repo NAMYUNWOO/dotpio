@@ -3705,3 +3705,7 @@
 - 2026-04-03 05:51 KST — UX scanability update: cadence cluster now exposes stability advisory (`STEADY|SWING`) adjacent to VFX cue row for quicker operator interpretation.
 
 - 2026-04-03 05:54 KST — UX gain: cadence cluster now supports high-density advisory scanning with `TSDCAD24TRICOVSTCMSVHA` immediately after `...STCMSVH`.
+
+## 2026-04-03 08:26 KST — readability note
+- Decision: Dual-hysteresis helper row added in compact form and guarded by explicit DOS-width eval token.
+- Follow-up: Keep helper + eval adjacent before triad plan for one-scan digest parsing.

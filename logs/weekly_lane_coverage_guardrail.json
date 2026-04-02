@@ -93,6 +93,17 @@
     "preferred": "COMPACT",
     "status": "PASS"
   },
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisDualDecodeHelperBaseline": "VH=STEADY|SWING, VHA=S|W",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisDualDecodeHelperCompact": "VH=STEADY|SWING, VHA=S|W",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisDualDecodeHelperEvaluation": {
+    "baseline": "VH=STEADY|SWING, VHA=S|W",
+    "compact": "VH=STEADY|SWING, VHA=S|W",
+    "baselineLen": 24,
+    "compactLen": 24,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "cadence24hRecoveryTriadPlan": "combat spark -> world anchor -> systems lock",
   "cadence24hLegendBaseline": "O=OK, W=WATCH, A=ALERT",
   "cadence24hLegendCompact": "O=ok, W=watch, A=alert",

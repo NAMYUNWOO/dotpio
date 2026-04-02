@@ -4942,3 +4942,8 @@
 - Change: Added explicit contiguous-chain assertion in `scripts/regression_check_lane_coverage_guardrail.py` on top of existing per-row adjacency checks.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up: Next unchecked backlog item is Design/World dual-hysteresis helper row + DOS-width eval token.
+
+## 2026-04-03 08:26 KST — IP45 follow-up eval token wiring
+- Decision: Added evaluation payload/report keys for dual-hysteresis helper with DOS width contract (`TSDCAD24TRICOVSTCMSVHDLEN`).
+- Evidence: `cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisDualDecodeHelperEvaluation` in report output.
+- Follow-up: Reuse the same eval scaffold for upcoming confidence-band helper rows.

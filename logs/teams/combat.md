@@ -3435,3 +3435,6 @@
 - Decision: Keep hysteresis advisory decode phrasing compact (`stable cue` / `cue churn`) to improve one-glance combat cue triage.
 - Evidence: `scripts/check_lane_coverage_guardrail.py` markdown decode rows updated for `TSDCAD24TRICOVSTCMSVH/VHA`; full regression + guardrail generation pass.
 - Follow-up: validate decode copy DOS-width lock in regression fixture (IP44 injected Systems/QA task).
+
+## 2026-04-03 08:26 KST — coordination note
+- Context: No combat runtime tuning changed this slice; decode/readability groundwork completed for upcoming hysteresis confidence-band signal.
