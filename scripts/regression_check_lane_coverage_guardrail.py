@@ -387,11 +387,23 @@ def run_fixture_case(
             else "SOLID"
         )
     )
+    cadence_counts = [
+        int(report.get('bucketCadence', {}).get('combat-or-vfx', {}).get('count', 0)),
+        int(report.get('bucketCadence', {}).get('design-or-world', {}).get('count', 0)),
+        int(report.get('bucketCadence', {}).get('systems-or-ops', {}).get('count', 0)),
+    ]
+    cadence_spread = max(cadence_counts) - min(cadence_counts)
+    expected_cadence_24h_coverage_spread_alias = (
+        "STABLE" if cadence_spread <= 1 else ("SHIFT" if cadence_spread == 2 else "WIDE")
+    )
     assert report.get("cadence24hRecoveryTriadCoverageAlias") == expected_cadence_24h_coverage_alias, (
         f"{name}: cadence24hRecoveryTriadCoverageAlias must deterministically mirror cadence bucket counts"
     )
     assert report.get("cadence24hRecoveryTriadCoveragePressureAlias") == expected_cadence_24h_coverage_pressure_alias, (
         f"{name}: cadence24hRecoveryTriadCoveragePressureAlias must deterministically mirror minimum bucket coverage pressure"
+    )
+    assert report.get("cadence24hRecoveryTriadCoverageSpreadAlias") == expected_cadence_24h_coverage_spread_alias, (
+        f"{name}: cadence24hRecoveryTriadCoverageSpreadAlias must deterministically mirror cadence bucket count spread"
     )
     assert (
         "cadence 24h recovery triad pulse palette alias (combat/vfx): "
@@ -408,10 +420,16 @@ def run_fixture_case(
         f"**TSDCAD24TRICOVP:{expected_cadence_24h_coverage_pressure_alias}**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad coverage-pressure alias row"
+    assert (
+        "cadence 24h recovery triad coverage spread alias (design/world): "
+        f"**TSDCAD24TRICOVS:{expected_cadence_24h_coverage_spread_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad coverage-spread alias row"
     cadence_24h_triad_rows = md_text.count("**TSDCAD24TRI:")
     cadence_24h_triad_palette_rows = md_text.count("**TSDCAD24TRIP:CV=SPARK|DW=ANCHOR|SO=LOCK**")
     cadence_24h_triad_coverage_rows = md_text.count("**TSDCAD24TRICOV:")
     cadence_24h_triad_coverage_pressure_rows = md_text.count("**TSDCAD24TRICOVP:")
+    cadence_24h_triad_coverage_spread_rows = md_text.count("**TSDCAD24TRICOVS:")
     assert cadence_24h_triad_palette_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRIP row count must match TSDCAD24TRI row count across sections"
     )
@@ -420,6 +438,9 @@ def run_fixture_case(
     )
     assert cadence_24h_triad_coverage_pressure_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRICOVP row count must match TSDCAD24TRI row count across sections"
+    )
+    assert cadence_24h_triad_coverage_spread_rows == cadence_24h_triad_rows, (
+        f"{name}: TSDCAD24TRICOVS row count must match TSDCAD24TRI row count across sections"
     )
     cadence_24h_lines = md_text.splitlines()
     cadence_24h_triad_indexes = [

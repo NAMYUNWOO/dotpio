@@ -71,6 +71,7 @@
   "cadence24hRecoveryTriadPulsePaletteAlias": "CV=SPARK|DW=ANCHOR|SO=LOCK",
   "cadence24hRecoveryTriadCoverageAlias": "CV0|DW0|SO0",
   "cadence24hRecoveryTriadCoveragePressureAlias": "GAP",
+  "cadence24hRecoveryTriadCoverageSpreadAlias": "STABLE",
   "cadence24hRecoveryTriadPlan": "combat spark -> world anchor -> systems lock",
   "cadence24hLegendBaseline": "O=OK, W=WATCH, A=ALERT",
   "cadence24hLegendCompact": "O=ok, W=watch, A=alert",

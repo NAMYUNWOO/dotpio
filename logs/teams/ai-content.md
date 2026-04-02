@@ -3491,3 +3491,8 @@
 ## 2026-04-02 23:54 KST
 - Cycle IP37: added cadence-triad minimum-coverage pressure alias token TSDCAD24TRICOVP:GAP|THIN|SOLID (payload + markdown + regression parity).
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration passed.
+
+## 2026-04-03 00:28 KST
+- Cycle IP38 selected low-risk triad spread observability slice; no runtime narrative coupling added.
+- Injected next experiment: offline spread-trend token concept `TSDCAD24TRICOVST:UP|FLAT|DOWN`.
+- Guardrail remains deterministic and reversible.

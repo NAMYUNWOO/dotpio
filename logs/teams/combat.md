@@ -3381,3 +3381,7 @@
 ## 2026-04-02 23:54 KST
 - Cycle IP37: added cadence-triad minimum-coverage pressure alias token TSDCAD24TRICOVP:GAP|THIN|SOLID (payload + markdown + regression parity).
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration passed.
+
+## 2026-04-03 00:28 KST
+- Cycle IP38 was systems/design observability-focused; combat runtime remained unchanged.
+- Injected follow-up lane candidate includes combat lane via spread-trend prototype for cadence balancing.

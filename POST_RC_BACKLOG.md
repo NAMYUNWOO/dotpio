@@ -1,3 +1,15 @@
+## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP38)
+- Candidate ideas generated:
+  - Low-risk Systems/Ops + Design/World: add cadence-triad spread alias token (`TSDCAD24TRICOVS:STABLE|SHIFT|WIDE`) so bucket imbalance severity is one-scan visible beside coverage pressure.
+  - Mid-risk Systems/QA + UX: enforce strict markdown adjacency lock (`TSDCAD24TRICOV -> TSDCAD24TRICOVP -> TSDCAD24TRICOVS -> TSDCAD24TRI plan`) across summary/token sections.
+  - High-risk AI Content/Combat: prototype offline cadence spread-aware forced-lane selector policy from spread-drift windows.
+- Selected experiment: Idea 1 (low-risk Systems/Ops + Design/World) minimal vertical slice.
+- [x] Systems/Ops + Design/World + Systems/QA Team: Add `TSDCAD24TRICOVS` payload+markdown row from triad bucket count spread (`<=1:STABLE`, `2:SHIFT`, `>=3:WIDE`) and extend regression parity coverage. *(lifecycle: [ ] -> [~] started: 2026-04-03 00:23 KST -> [x] completed: 2026-04-03 00:28 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP38)
+- [ ] Systems/QA Team (injected): Add deterministic adjacency assertion that `TSDCAD24TRICOVS` stays between `TSDCAD24TRICOVP` and `TSDCAD24TRI plan` in both summary/token sections.
+- [ ] AI Content/Combat Team (injected): Prototype offline cadence spread trend token (`TSDCAD24TRICOVST:UP|FLAT|DOWN`) from current/prior spread-state transitions without runtime coupling.
+
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP37)
 - Candidate ideas generated:
   - Low-risk Systems/Ops: add cadence-triad minimum-coverage pressure alias token (`TSDCAD24TRICOVP`) so weakest bucket state is one-scan visible.
@@ -40,6 +52,18 @@
 - [x] AI Content/Design Team (injected): Prototype concise winner-slot operator labels (`A=alpha push, B=balanced hold, C=cool ease`) for future A/B readability playtests (offline-only). *(lifecycle: [ ] -> [~] started: 2026-04-02 20:52 KST -> [x] completed: 2026-04-02 20:52 KST; verification: same command bundle as above)*
 
 # POST_RC_BACKLOG
+
+## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP38)
+- Candidate ideas generated:
+  - Low-risk Systems/Ops + Design/World: add cadence-triad spread alias token (`TSDCAD24TRICOVS:STABLE|SHIFT|WIDE`) so bucket imbalance severity is one-scan visible beside coverage pressure.
+  - Mid-risk Systems/QA + UX: enforce strict markdown adjacency lock (`TSDCAD24TRICOV -> TSDCAD24TRICOVP -> TSDCAD24TRICOVS -> TSDCAD24TRI plan`) across summary/token sections.
+  - High-risk AI Content/Combat: prototype offline cadence spread-aware forced-lane selector policy from spread-drift windows.
+- Selected experiment: Idea 1 (low-risk Systems/Ops + Design/World) minimal vertical slice.
+- [x] Systems/Ops + Design/World + Systems/QA Team: Add `TSDCAD24TRICOVS` payload+markdown row from triad bucket count spread (`<=1:STABLE`, `2:SHIFT`, `>=3:WIDE`) and extend regression parity coverage. *(lifecycle: [ ] -> [~] started: 2026-04-03 00:23 KST -> [x] completed: 2026-04-03 00:28 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP38)
+- [ ] Systems/QA Team (injected): Add deterministic adjacency assertion that `TSDCAD24TRICOVS` stays between `TSDCAD24TRICOVP` and `TSDCAD24TRI plan` in both summary/token sections.
+- [ ] AI Content/Combat Team (injected): Prototype offline cadence spread trend token (`TSDCAD24TRICOVST:UP|FLAT|DOWN`) from current/prior spread-state transitions without runtime coupling.
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP33)
 - Candidate ideas generated:

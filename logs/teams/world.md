@@ -3398,3 +3398,8 @@
 ## 2026-04-02 23:54 KST
 - Cycle IP37: added cadence-triad minimum-coverage pressure alias token TSDCAD24TRICOVP:GAP|THIN|SOLID (payload + markdown + regression parity).
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration passed.
+
+## 2026-04-03 00:28 KST
+- Participated in Cycle IP38 readability pass by adding design/world-facing spread signal row `TSDCAD24TRICOVS`.
+- Decision: keep spread row directly in cadence triad cluster for one-scan imbalance readability.
+- Follow-up queued: validate compact copy remains DOS-width-safe when adjacency lock lands.

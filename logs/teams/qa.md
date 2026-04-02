@@ -5367,3 +5367,8 @@
 ## 2026-04-02 23:54 KST
 - Cycle IP37: added cadence-triad minimum-coverage pressure alias token TSDCAD24TRICOVP:GAP|THIN|SOLID (payload + markdown + regression parity).
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration passed.
+
+## 2026-04-03 00:28 KST
+- Regression updated to validate `cadence24hRecoveryTriadCoverageSpreadAlias` domain mapping + markdown presence.
+- Added row-count parity assertion for `TSDCAD24TRICOVS` vs `TSDCAD24TRI` rows across both sections.
+- Verification green: py_compile + regression + report regeneration.

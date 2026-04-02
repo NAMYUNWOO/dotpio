@@ -1104,6 +1104,22 @@ def resolve_cadence_24h_recovery_triad_coverage_pressure_alias(
     return "SOLID"
 
 
+def resolve_cadence_24h_recovery_triad_coverage_spread_alias(
+    bucket_cadence: dict[str, dict[str, object]],
+) -> str:
+    combat_count = int(bucket_cadence.get("combat-or-vfx", {}).get("count", 0))
+    design_count = int(bucket_cadence.get("design-or-world", {}).get("count", 0))
+    systems_count = int(bucket_cadence.get("systems-or-ops", {}).get("count", 0))
+    spread = max(combat_count, design_count, systems_count) - min(
+        combat_count, design_count, systems_count
+    )
+    if spread <= 1:
+        return "STABLE"
+    if spread == 2:
+        return "SHIFT"
+    return "WIDE"
+
+
 def resolve_cadence_24h_legend_baseline() -> str:
     return "O=OK, W=WATCH, A=ALERT"
 
@@ -1977,6 +1993,9 @@ def build_report(
     cadence_24h_recovery_triad_coverage_pressure_alias = (
         resolve_cadence_24h_recovery_triad_coverage_pressure_alias(bucket_status)
     )
+    cadence_24h_recovery_triad_coverage_spread_alias = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_alias(bucket_status)
+    )
     cadence_24h_legend_evaluation = resolve_cadence_24h_legend_evaluation()
 
     return {
@@ -1996,6 +2015,7 @@ def build_report(
         "cadence24hRecoveryTriadPulsePaletteAlias": cadence_24h_recovery_triad_pulse_palette_alias,
         "cadence24hRecoveryTriadCoverageAlias": cadence_24h_recovery_triad_coverage_alias,
         "cadence24hRecoveryTriadCoveragePressureAlias": cadence_24h_recovery_triad_coverage_pressure_alias,
+        "cadence24hRecoveryTriadCoverageSpreadAlias": cadence_24h_recovery_triad_coverage_spread_alias,
         "cadence24hRecoveryTriadPlan": cadence_24h_recovery_triad_plan,
         "cadence24hLegendBaseline": cadence_24h_legend_evaluation["baseline"],
         "cadence24hLegendCompact": cadence_24h_legend_evaluation["compact"],
@@ -2184,6 +2204,7 @@ def to_markdown(
             f"- cadence 24h recovery triad pulse palette alias (combat/vfx): **TSDCAD24TRIP:{report.get('cadence24hRecoveryTriadPulsePaletteAlias', resolve_cadence_24h_recovery_triad_pulse_palette_alias())}**",
             f"- cadence 24h recovery triad bucket coverage alias (systems/ops): **TSDCAD24TRICOV:{report.get('cadence24hRecoveryTriadCoverageAlias', resolve_cadence_24h_recovery_triad_coverage_alias(report.get('bucketCadence', {})))}**",
             f"- cadence 24h recovery triad coverage pressure alias (systems/ops): **TSDCAD24TRICOVP:{report.get('cadence24hRecoveryTriadCoveragePressureAlias', resolve_cadence_24h_recovery_triad_coverage_pressure_alias(report.get('bucketCadence', {})))}**",
+            f"- cadence 24h recovery triad coverage spread alias (design/world): **TSDCAD24TRICOVS:{report.get('cadence24hRecoveryTriadCoverageSpreadAlias', resolve_cadence_24h_recovery_triad_coverage_spread_alias(report.get('bucketCadence', {})))}**",
             f"- cadence 24h recovery triad plan (design/world): **{report.get('cadence24hRecoveryTriadPlan', 'cadence locked')}**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",
