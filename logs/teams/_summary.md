@@ -4935,3 +4935,9 @@ Compact decision memory for AI context efficiency.
 - Executed immediate Game Director Cycle IP26 after full-check state.
 - Shipped IP26 vertical slice: trend-score posture token + alias (`TSDPMFXVWCRITSP/TSDPMFXVWCRITSPA`) with decode rows and deterministic parity locks.
 - Injected next tasks: mixed-window parity for posture rows and posture-guidance microcopy prototype.
+
+## 2026-04-02 10:52 KST
+- Closed Cycle IP26 injected Systems/Ops+QA parity item: `scripts/regression_check_lane_coverage_guardrail.py` mixed-window parity tuple now includes `tsdpmfxvwcritspRowCount` + `tsdpmfxvwcritspaRowCount` so posture/posture-alias rows are parity-locked to `TSDPMFXVWCRITS` across summary + token sections.
+- Durable contract update: parity gate now requires `...VWCRITS == ...VWCRITSP == ...VWCRITSPA == ...VWCRITSB == ...VWCRITSBA` in mixed-window fixtures.
+- Verification passed: py_compile + regression + guardrail report regeneration.
+- Queue status: ACTION_ITEMS unchecked=0; TASKS unchecked=1; POST_RC_BACKLOG unchecked=1 (next: AI Content/Systems posture-guidance microcopy token keyed by `TSDPMFXVWCRITSP`).

@@ -4686,3 +4686,7 @@
 ## 2026-04-02 10:36 KST
 - Added offline trend-score posture contract (`TSDPMFXVWCRITSP/TSDPMFXVWCRITSPA`) mapped from `TSDPMFXVWCRITS` buckets (80/50/20).
 - Locked deterministic parity assertions for posture/posture-alias/helper/microcopy rows against score rows in regression.
+
+## 2026-04-02 10:52 KST
+- Closed injected Systems/Ops+QA parity task for Cycle IP26: mixed-window regression parity bundle now includes posture rows `TSDPMFXVWCRITSP/TSDPMFXVWCRITSPA` in the all-equal chain with `TSDPMFXVWCRITS` across summary + token sections.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

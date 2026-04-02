@@ -3355,3 +3355,7 @@
 ## 2026-04-02 10:36 KST
 - Added compact helper + posture decode rows under the TSDPMFXVWCRITS cluster to preserve DOS-width scannability.
 - Copy set chosen for brevity + action clarity: surge/hold/cool.
+
+## 2026-04-02 10:52 KST
+- Closed injected Systems/Ops+QA parity task for Cycle IP26: mixed-window regression parity bundle now includes posture rows `TSDPMFXVWCRITSP/TSDPMFXVWCRITSPA` in the all-equal chain with `TSDPMFXVWCRITS` across summary + token sections.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

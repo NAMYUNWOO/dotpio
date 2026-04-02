@@ -3237,3 +3237,7 @@
 ## 2026-04-02 10:36 KST
 - Added trend-score posture token surfaced as combat-facing tempo guidance (`SURGE/HOLD/COOL`) for digest triage.
 - Kept change report-only (no runtime combat balance coupling).
+
+## 2026-04-02 10:52 KST
+- Closed injected Systems/Ops+QA parity task for Cycle IP26: mixed-window regression parity bundle now includes posture rows `TSDPMFXVWCRITSP/TSDPMFXVWCRITSPA` in the all-equal chain with `TSDPMFXVWCRITS` across summary + token sections.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
