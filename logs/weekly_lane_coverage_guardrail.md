@@ -18,8 +18,11 @@
 - cadence 24h recovery triad coverage spread trend alias (systems/qa): **TSDCAD24TRICOVSTA:F**
 - cadence 24h recovery triad coverage spread trend confidence (ai-content/combat): **TSDCAD24TRICOVSTC:HIGH**
 - cadence 24h recovery triad coverage spread trend confidence alias (systems/qa): **TSDCAD24TRICOVSTCA:H**
+- cadence 24h recovery triad coverage spread trend confidence momentum (ai-content/combat): **TSDCAD24TRICOVSTCM:FLAT**
+- cadence 24h recovery triad coverage spread trend confidence momentum alias (systems/qa): **TSDCAD24TRICOVSTCMA:F**
 - cadence 24h recovery triad coverage spread trend decode (design/world): **TSDCAD24TRICOVSTA legend (U=UP, F=FLAT, D=DOWN)**
 - cadence 24h recovery triad coverage spread trend confidence decode (design/world): **TSDCAD24TRICOVSTCA legend (L=LOW, M=MID, H=HIGH)**
+- cadence 24h recovery triad coverage spread trend confidence momentum decode (design/world): **TSDCAD24TRICOVSTCMA legend (U=UP, F=FLAT, D=DOWN)**
 - cadence 24h recovery triad plan (design/world): **combat spark -> world anchor -> systems lock**
 - trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 - trend-score band snapshot alias: **TSSB:C0E0H0**

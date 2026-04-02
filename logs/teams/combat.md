@@ -3394,3 +3394,11 @@
 ## 2026-04-03 02:31 KST
 - Cadence spread-trend confidence surfaced for AI-content/combat lane as `TSDCAD24TRICOVSTC:LOW|MID|HIGH` from recent churn windows.
 - Purpose: faster confidence read before selecting combat/vfx recovery follow-ups.
+
+## 2026-04-03 02:53 KST
+- Added combat-facing cadence momentum readout `TSDCAD24TRICOVSTCM` to highlight whether confidence is stabilizing or degrading.
+- Intended use: prioritize combat/vfx recovery injections when momentum drifts DOWN.
+
+## 2026-04-03 03:05 KST
+- Combat-facing cadence confidence momentum now has compact mirror `TSDCAD24TRICOVSTCMA` for faster dispatch scans.
+- Planned follow-up: score banding to prioritize pressure-response slices.

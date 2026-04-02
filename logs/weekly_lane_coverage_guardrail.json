@@ -76,6 +76,8 @@
   "cadence24hRecoveryTriadCoverageSpreadTrendAlias": "F",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidence": "HIGH",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceAlias": "H",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentum": "FLAT",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumAlias": "F",
   "cadence24hRecoveryTriadPlan": "combat spark -> world anchor -> systems lock",
   "cadence24hLegendBaseline": "O=OK, W=WATCH, A=ALERT",
   "cadence24hLegendCompact": "O=ok, W=watch, A=alert",

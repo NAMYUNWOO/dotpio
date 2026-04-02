@@ -3505,3 +3505,11 @@
 ## 2026-04-03 02:31 KST
 - Implemented offline spread-trend confidence derivation from recent churn windows (`TSDCAD24TRICOVSTC`).
 - Confidence tiers now exposed with compact alias token `TSDCAD24TRICOVSTCA`.
+
+## 2026-04-03 02:53 KST
+- Prototyped offline spread-trend confidence momentum from consecutive confidence windows (`LOW|MID|HIGH` -> `UP|FLAT|DOWN`).
+- Exposed momentum signal in markdown as `TSDCAD24TRICOVSTCM` for next-cycle idea routing.
+
+## 2026-04-03 03:05 KST
+- Added compact alias for confidence-momentum signal so AI-content cadence deltas are one-glance parseable.
+- Next prototype queued: weighted momentum score (`TSDCAD24TRICOVSTCMS:0..100`).

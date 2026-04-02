@@ -5174,3 +5174,13 @@ Compact decision memory for AI context efficiency.
 - Shipped offline spread-trend confidence token `TSDCAD24TRICOVSTC` and new compact alias `TSDCAD24TRICOVSTCA` with decode legend.
 - Locked deterministic mapping and row-order parity in regression (`...TRICOVST -> ...TRICOVSTA -> ...TRICOVSTC -> ...TRICOVSTCA`).
 - Verified via py_compile, regression_check_lane_coverage_guardrail, and guardrail report regeneration outputs.
+
+## 2026-04-03 02:53 KST — Cadence spread-trend confidence momentum + parity reconciliation
+- Reconciled IP40 Systems/QA backlog task: `TSDCAD24TRICOVSTCA legend` row-count parity assertion already existed; re-verified and closed the backlog item.
+- Shipped new AI Content/Combat token `TSDCAD24TRICOVSTCM` (confidence momentum from prior/current confidence windows).
+- Regression now locks `...TRICOVSTCA -> ...TRICOVSTCM` adjacency and keeps triad plan immediately after decode rows.
+
+## 2026-04-03 03:05 KST — Game Director IP41 slice
+- Completed low-risk IP41 experiment: new compact confidence-momentum alias `TSDCAD24TRICOVSTCMA` with decode row and order/parity locks.
+- Backlog updated with two injected follow-ups (`...STCMA legend` parity assertion, `...STCMS` weighted score prototype).
+- Guardrail scripts remain green after cluster expansion.

@@ -1,3 +1,15 @@
+## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP41)
+- Candidate ideas generated:
+  - Low-risk Systems/QA + UX: add compact spread-trend confidence momentum alias token (`TSDCAD24TRICOVSTCMA:U|F|D`) with decode row for dense cadence scans.
+  - Mid-risk Systems/QA + Design/World: enforce strict adjacency `TSDCAD24TRICOVSTC -> TSDCAD24TRICOVSTCA -> TSDCAD24TRICOVSTCM -> TSDCAD24TRICOVSTCMA -> decode -> triad plan`.
+  - High-risk AI Content/Combat: prototype offline spread-trend confidence momentum score (`0..100`) from weighted confidence-window deltas.
+- Selected experiment: Idea 1 (low-risk Systems/QA + UX) minimal vertical slice.
+- [x] Systems/QA + UX Team: Add `TSDCAD24TRICOVSTCMA` payload+markdown alias row (`UP|FLAT|DOWN -> U|F|D`) plus decode copy and regression parity/order locks. *(lifecycle: [ ] -> [~] started: 2026-04-03 03:01 KST -> [x] completed: 2026-04-03 03:05 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP41)
+- [ ] Systems/QA Team (injected): Add fixture-level explicit parity assertion that `TSDCAD24TRICOVSTCMA legend` row count mirrors `TSDCAD24TRICOVSTCMA` across summary/token sections.
+- [ ] AI Content/Combat Team (injected): Prototype offline spread-trend confidence momentum score token (`TSDCAD24TRICOVSTCMS:0..100`) from weighted recent `TSDCAD24TRICOVSTC` deltas.
+
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP39)
 - Candidate ideas generated:
   - Low-risk Systems/QA + UX: add compact spread-trend alias token (`TSDCAD24TRICOVSTA:U|F|D`) with decode row for one-glance cadence drift reads.
@@ -19,8 +31,8 @@
 - [x] Systems/QA + UX Team: Add `TSDCAD24TRICOVSTCA` payload+markdown alias row (`LOW|MID|HIGH -> L|M|H`) plus decode copy and regression parity/order locks. *(lifecycle: [ ] -> [~] started: 2026-04-03 02:24 KST -> [x] completed: 2026-04-03 02:31 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP40)
-- [ ] Systems/QA Team (injected): Add fixture-level explicit parity assertion that `TSDCAD24TRICOVSTCA legend` row count mirrors `TSDCAD24TRICOVSTCA` across summary/token sections.
-- [ ] AI Content/Combat Team (injected): Prototype offline spread-trend confidence momentum token (`TSDCAD24TRICOVSTCM:UP|FLAT|DOWN`) from recent `TSDCAD24TRICOVSTC` window deltas.
+- [x] Systems/QA Team (injected): Add fixture-level explicit parity assertion that `TSDCAD24TRICOVSTCA legend` row count mirrors `TSDCAD24TRICOVSTCA` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 02:50 KST -> [x] completed: 2026-04-03 02:53 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`; note: assertion already present in regression, cycle reconciled and re-verified.)*
+- [x] AI Content/Combat Team (injected): Prototype offline spread-trend confidence momentum token (`TSDCAD24TRICOVSTCM:UP|FLAT|DOWN`) from recent `TSDCAD24TRICOVSTC` window deltas. *(lifecycle: [ ] -> [~] started: 2026-04-03 02:50 KST -> [x] completed: 2026-04-03 02:53 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*)
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP38)
 - Candidate ideas generated:

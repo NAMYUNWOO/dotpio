@@ -3671,3 +3671,11 @@
 
 ## 2026-04-03 02:31 KST
 - Extended compact cadence rail with `TSDCAD24TRICOVSTCA` so confidence is glanceable without expanding verbose labels.
+
+## 2026-04-03 02:53 KST
+- Extended compact cadence rail with `TSDCAD24TRICOVSTCM` so confidence movement is visible without extra prose.
+- Retained digest density by using UP/FLAT/DOWN vocabulary consistent with existing trend tokens.
+
+## 2026-04-03 03:05 KST
+- Added compact confidence-momentum alias token for denser operator scanning without widening digest copy.
+- Decode copy keeps alias reversible while staying one-line compact.

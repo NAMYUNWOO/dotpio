@@ -3512,3 +3512,11 @@
 
 ## 2026-04-03 02:31 KST
 - Added deterministic confidence decode copy for cadence spread-trend confidence alias (`L/M/H`) to keep digest semantics reversible.
+
+## 2026-04-03 02:53 KST
+- Kept cadence narrative ordering coherent with the new momentum row (`...TRICOVSTCA -> ...TRICOVSTCM -> decode -> triad plan`).
+- Maintained compact token-first style for one-glance operator scans.
+
+## 2026-04-03 03:05 KST
+- Maintained deterministic readability chain with new alias rail (`...STCM -> ...STCMA -> decode -> triad plan`).
+- Preserved DOS-friendly compact semantics across cadence confidence tokens.

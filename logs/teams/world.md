@@ -3413,3 +3413,11 @@
 ## 2026-04-03 02:31 KST
 - Added compact decode row for cadence spread-trend confidence alias: `TSDCAD24TRICOVSTCA legend (L=LOW, M=MID, H=HIGH)` to preserve one-scan readability.
 - Follow-up: monitor DOS-width pressure if additional cadence rows are added.
+
+## 2026-04-03 02:53 KST
+- Preserved DOS-width cadence readability after adding `TSDCAD24TRICOVSTCM`; triad-plan row remains immediately after decode rows.
+- Follow-up: keep decode adjacency stable as cadence confidence rails expand.
+
+## 2026-04-03 03:05 KST
+- Added decode row `TSDCAD24TRICOVSTCMA legend (U=UP, F=FLAT, D=DOWN)` for reversible cadence docs.
+- Kept triad-plan proximity contract after momentum alias + decode expansion.

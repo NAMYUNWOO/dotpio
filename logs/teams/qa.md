@@ -5388,3 +5388,11 @@
 ## 2026-04-03 02:31 KST
 - Extended regression contracts for `TSDCAD24TRICOVSTC` + `TSDCAD24TRICOVSTCA` domain/parity/order/decode invariants.
 - Verification bundle passed: py_compile + regression_check_lane_coverage_guardrail + guardrail report regen.
+
+## 2026-04-03 02:53 KST
+- Added regression coverage for `TSDCAD24TRICOVSTCM` domain, row-count parity, and adjacency order.
+- Re-verified existing `TSDCAD24TRICOVSTCA legend` parity assertion and reconciled backlog checkbox drift.
+
+## 2026-04-03 03:05 KST
+- Added regression domain/parity/order checks for `TSDCAD24TRICOVSTCMA` and its legend row.
+- Verification bundle passed (py_compile + regression + guardrail regen).

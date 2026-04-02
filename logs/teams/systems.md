@@ -4875,3 +4875,11 @@
 ## 2026-04-03 02:31 KST
 - Added `TSDCAD24TRICOVSTCA` confidence alias wiring (`L|M|H`) and deterministic map helper in lane guardrail payload.
 - Follow-up: keep cadence token ordering locked as `...TRICOVST -> ...TRICOVSTA -> ...TRICOVSTC -> ...TRICOVSTCA`.
+
+## 2026-04-03 02:53 KST
+- Added deterministic payload token `cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentum` surfaced as `TSDCAD24TRICOVSTCM:UP|FLAT|DOWN`.
+- Reused churn-window confidence snapshots to compute prior-vs-current momentum without runtime coupling.
+
+## 2026-04-03 03:05 KST
+- Shipped momentum-alias token `TSDCAD24TRICOVSTCMA` with deterministic map (`UP/FLAT/DOWN -> U/F/D`).
+- Regression now locks confidence-momentum cluster ordering through the new alias row.
