@@ -3437,3 +3437,6 @@
 
 - 2026-04-03 04:20 KST — No world-layout mutation this cycle; validated cadence digest contracts remain stable after Systems/QA invariant addition.
   - Follow-up: await Combat/VFX urgency-cue token before world/design readability pass.
+
+- 2026-04-03 04:57 KST — No map/progression mutation; verified cadence triad report ordering remains stable with inserted `TSDCAD24TRICOVSTCMSV` row.
+- 2026-04-03 05:03 KST — World/readability lane verified cadence triad plan remains immediately after decode cluster with new cue legend.

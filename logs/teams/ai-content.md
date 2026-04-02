@@ -3529,3 +3529,6 @@
 
 - 2026-04-03 04:20 KST — Preserved offline-only confidence-momentum scoring semantics while adding regression monotonic proof for synthetic ramps.
   - Follow-up: map future copy suggestions to `GLINT|PULSE|BLAST` urgency cue once combat slice lands.
+
+- 2026-04-03 04:57 KST — AI-content lane kept offline deterministic policy: urgency cue is purely score-band derived, no runtime adaptation introduced.
+- 2026-04-03 05:03 KST — No runtime coupling added; queued hysteresis advisory as next offline-only candidate.

@@ -5414,3 +5414,7 @@
 - 2026-04-03 04:20 KST — Locked parity + monotonic invariant coverage for cadence confidence-momentum score token (`TSDCAD24TRICOVSTCMS`) in `scripts/regression_check_lane_coverage_guardrail.py`.
   - Evidence: py_compile + regression + guardrail report regeneration all pass.
   - Follow-up: keep row-count parity checks aligned when adding next `STCMS`-derived token rows.
+
+- 2026-04-03 04:57 KST — Extended regression contracts for `TSDCAD24TRICOVSTCMSV` presence, row parity, section ordering, and domain lock (`GLINT|PULSE|BLAST`).
+  - Evidence: regression + report generation pass after updating adjacency assertions.
+- 2026-04-03 05:03 KST — Regression updated for `TSDCAD24TRICOVSTCMSV legend` presence, parity, and adjacency lock; full suite remains green.

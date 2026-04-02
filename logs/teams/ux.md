@@ -3695,3 +3695,6 @@
 
 - 2026-04-03 04:20 KST — UX docs unchanged; validated cadence digest row-order/row-count contracts remain green after invariant add.
   - Follow-up: evaluate one-glance readability impact when urgency cue token is introduced.
+
+- 2026-04-03 04:57 KST — UX scanability improved for cadence digest with one-glance VFX urgency cue (`GLINT|PULSE|BLAST`) without widening DOS budget-sensitive decode rows.
+- 2026-04-03 05:03 KST — Added explicit cue legend wording (`calm flicker / steady pressure / full commit`) to reduce ambiguity in cadence digest.

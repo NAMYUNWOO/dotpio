@@ -3536,3 +3536,6 @@
 
 - 2026-04-03 04:20 KST — Existing score-ladder decode row (`80/50/20`) remains valid under new monotonic fixture invariant.
   - Follow-up: add compact decode microcopy for `GLINT|PULSE|BLAST` after Combat/VFX token lands.
+
+- 2026-04-03 04:57 KST — Design lane acknowledged new combat cue row `TSDCAD24TRICOVSTCMSV` is now in digest; decode copy intentionally deferred to a dedicated follow-up for minimal-slice safety.
+- 2026-04-03 05:03 KST — Added decode copy for `TSDCAD24TRICOVSTCMSV` (`GLINT/PULSE/BLAST`) to keep urgency cue reversible in one scan.

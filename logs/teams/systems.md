@@ -4901,3 +4901,8 @@
 - 2026-04-03 04:20 KST — Added mixed-window synthetic confidence-delta ramp invariant (up/flat/down) for `TSDCAD24TRICOVSTCMS` monotonic ordering in regression fixture (`up > flat > down`).
   - Decision: keep invariant at regression layer so scoring contract remains deterministic and reversible.
   - Follow-up: queue Combat/VFX `TSDCAD24TRICOVSTCMS`-band urgency cue token (`GLINT|PULSE|BLAST`).
+
+- 2026-04-03 04:57 KST — Wired `cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCue` into report payload and markdown row `TSDCAD24TRICOVSTCMSV`.
+  - Decision: place cue row directly after `TSDCAD24TRICOVSTCMS` to preserve adjacency contracts.
+  - Follow-up: next item is design/world decode row for the new cue token.
+- 2026-04-03 05:03 KST — Preserved cadence cluster ordering while inserting `TSDCAD24TRICOVSTCMSV legend`; no schema expansion beyond markdown decode row.

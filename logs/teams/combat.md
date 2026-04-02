@@ -3418,3 +3418,8 @@
 
 - 2026-04-03 04:20 KST — Combat lane held steady this cycle; consumed Systems/QA invariant outcome as prerequisite for upcoming VFX urgency-cue token.
   - Follow-up: implement `TSDCAD24TRICOVSTCMS` -> `GLINT|PULSE|BLAST` routing row next.
+
+- 2026-04-03 04:57 KST — Implemented cadence urgency-cue token from confidence-momentum score: `TSDCAD24TRICOVSTCMSV:GLINT|PULSE|BLAST` in guardrail digest.
+  - Decision: deterministic score bands (`>=70 BLAST`, `>=40 PULSE`, else `GLINT`) keep mapping reversible and low-risk.
+  - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- 2026-04-03 05:03 KST — Combat/VFX urgency cue now has explicit decode support, enabling faster interpretation of GLINT/PULSE/BLAST routing.

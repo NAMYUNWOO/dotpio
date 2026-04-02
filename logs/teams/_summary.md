@@ -5204,3 +5204,6 @@ Compact decision memory for AI context efficiency.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2 (next effective item: Systems/Ops + QA mixed-window monotonic invariant for `TSDCAD24TRICOVSTCMS`).
 
 - 2026-04-03 04:20 KST — Systems/Ops + QA completed mixed-window invariant for `TSDCAD24TRICOVSTCMS`: synthetic ramps now assert explicit momentum mapping (`UP|FLAT|DOWN`) and monotonic score ordering (`up > flat > down`) in regression. This hardens confidence-momentum score behavior before adding Combat/VFX urgency-cue tokenization.
+
+- 2026-04-03 04:57 KST — Completed Combat/VFX injected slice: added `TSDCAD24TRICOVSTCMSV` (score-band urgency cue) derived from `TSDCAD24TRICOVSTCMS` with deterministic mapping (`>=70 BLAST`, `>=40 PULSE`, else `GLINT`). Regression now locks markdown presence/parity/order for `STCMSV` and domain constraints; guardrail artifacts regenerated successfully.
+- 2026-04-03 05:03 KST — Game Director Cycle IP42 shipped: `TSDCAD24TRICOVSTCMSV` decode legend added and regression order/parity locks updated. New injected queue opened for fixture-level legend parity assertion + offline cue hysteresis advisory.
