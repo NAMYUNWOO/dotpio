@@ -5099,3 +5099,8 @@ Compact decision memory for AI context efficiency.
 ## 2026-04-02 20:20 KST — Durable decision: adaptive-focus A/B pilot label token added
 - Completed remaining IP33 injected POST_RC item by shipping `TSDPMFXVWCRITSPMBSAPFPABL:A=PN|B=HL|C=EZ` (short operator labels for sweep slots A/B/C).
 - Durable ordering contract updated to `...APFP -> ...APFPAB -> ...APFPABL -> ...APFLEN`; regression now locks payload value, markdown order, row-count parity, and mixed-window fixture parity for APFPABL.
+\n## 2026-04-02 21:22 KST\n- Cycle IP34 shipped: added deterministic winner-slot decode legend token  between  and  with regression payload/order/parity lock.\n- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
+
+## 2026-04-02 21:22 KST
+- Cycle IP34 shipped: added deterministic winner-slot decode legend token TSDPMFXVWCRITSPMBSAPFPABWLEG:A=PH|B=HP|C=ES between ...APFPABW and ...APFLEN with regression payload/order/parity lock.
+- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.

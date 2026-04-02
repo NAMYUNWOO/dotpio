@@ -3369,3 +3369,8 @@
 ## 2026-04-02 20:52 KST
 - No map/progression mutations; validated decode-cluster order remains documentation-only and non-invasive to world routing.
 
+\n## 2026-04-02 21:22 KST\n- Cycle IP34 shipped: added deterministic winner-slot decode legend token  between  and  with regression payload/order/parity lock.\n- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
+
+## 2026-04-02 21:22 KST
+- Cycle IP34 shipped: added deterministic winner-slot decode legend token TSDPMFXVWCRITSPMBSAPFPABWLEG:A=PH|B=HP|C=ES between ...APFPABW and ...APFLEN with regression payload/order/parity lock.
+- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.

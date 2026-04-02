@@ -3470,3 +3470,8 @@
 - Accepted deterministic placement policy: `...APFPAB -> ...APFPABL -> ...APFPABW -> ...APFLEN`.
 - Rationale: keeps adaptive-focus decode cluster coherent for operator docs.
 
+\n## 2026-04-02 21:22 KST\n- Cycle IP34 shipped: added deterministic winner-slot decode legend token  between  and  with regression payload/order/parity lock.\n- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
+
+## 2026-04-02 21:22 KST
+- Cycle IP34 shipped: added deterministic winner-slot decode legend token TSDPMFXVWCRITSPMBSAPFPABWLEG:A=PH|B=HP|C=ES between ...APFPABW and ...APFLEN with regression payload/order/parity lock.
+- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.

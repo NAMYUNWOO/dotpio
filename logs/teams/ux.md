@@ -3630,3 +3630,8 @@
 - Added compact operator-facing A/B winner-slot rail (`...APFPABW`) to keep adaptive-focus sweep metadata one-scan readable in markdown output.
 - Confirmed token wording remains DOS-width safe and visually contiguous with A/B seed rows.
 
+\n## 2026-04-02 21:22 KST\n- Cycle IP34 shipped: added deterministic winner-slot decode legend token  between  and  with regression payload/order/parity lock.\n- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
+
+## 2026-04-02 21:22 KST
+- Cycle IP34 shipped: added deterministic winner-slot decode legend token TSDPMFXVWCRITSPMBSAPFPABWLEG:A=PH|B=HP|C=ES between ...APFPABW and ...APFLEN with regression payload/order/parity lock.
+- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
