@@ -3447,3 +3447,7 @@
 - Evaluated alternate compact decode copy for cadence health legend and selected `O=ok, W=watch, A=alert` for scanability parity with lower visual noise.
 - Added explicit DOS-width comparison token `TSDCAD24LEN:B22|C22|LIM72|PREF:COMPACT|PASS`.
 
+
+## 2026-04-02 18:25 KST
+- Cycle IP32 shipped: added adaptive-focus alias decode DOS-width eval token row `TSDPMFXVWCRITSPMBSAPFLEN` and regression order/parity lock covering `...APF -> ...APF legend -> ...APFLEN`.
+- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.

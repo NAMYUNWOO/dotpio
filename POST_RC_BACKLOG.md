@@ -1,5 +1,17 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP32)
+- Candidate ideas generated:
+  - Low-risk Design/World: add DOS-width decode evaluation token for adaptive focus alias legend (`TSDPMFXVWCRITSPMBSAPFLEN`) to keep shortlist alias docs one-scan auditable.
+  - Mid-risk Systems/QA: enforce urgency-cluster order lock so `TSDPMFXVWCRITSPMBSAPFLEN` stays immediately after `TSDPMFXVWCRITSPMBSAPF legend`.
+  - High-risk AI Content/Combat: prototype adaptive focus alias remap from multi-window urgency churn (offline-only).
+- Selected experiment: Idea 1 (low-risk Design/World) minimal vertical slice.
+- [x] Design/World + Systems/QA Team: Add adaptive focus alias decode DOS-width evaluation row `TSDPMFXVWCRITSPMBSAPFLEN` (from report payload eval object) and extend regression order/parity coverage. *(lifecycle: [ ] -> [~] started: 2026-04-02 18:22 KST -> [x] completed: 2026-04-02 18:25 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP32)
+- [ ] Systems/QA Team (injected): Lock deterministic payload-shape assertion for `...AdaptiveFocusAliasDecodeEvaluation` (`baseline|compact|baselineLen|compactLen|dosWidthLimit|preferred|status`) in regression.
+- [ ] AI Content/Design Team (injected): Prototype ultra-compact adaptive-focus decode alias helper row (`PH|HP|ES`) with explicit preference token for future A/B readability sweep.
+
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP29)
 - Candidate ideas generated:
   - Low-risk Design/World: add compact bridge-summary decode legend row for `TSDPMFXVWCRITSPMBS` so dense tokens remain reversible in one scan.

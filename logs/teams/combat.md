@@ -3330,3 +3330,7 @@
 - Cadence health decode update verified non-invasive to combat/vfx cue pipeline; urgency and recommendation rails unchanged.
 - Maintained existing `TSDCAD24` alias contract to preserve combat-facing trigger compatibility.
 
+
+## 2026-04-02 18:25 KST
+- Cycle IP32 shipped: added adaptive-focus alias decode DOS-width eval token row `TSDPMFXVWCRITSPMBSAPFLEN` and regression order/parity lock covering `...APF -> ...APF legend -> ...APFLEN`.
+- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.

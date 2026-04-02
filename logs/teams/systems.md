@@ -4795,3 +4795,7 @@
 - Added deterministic cadence-legend evaluation payload for `TSDCAD24` (`cadence24hLegendBaseline/Compact/Evaluation`) in lane guardrail output.
 - Wired markdown rows `TSDCAD24` compact decode + `TSDCAD24LEN` DOS-width token and locked behavior in regression checks.
 
+
+## 2026-04-02 18:25 KST
+- Cycle IP32 shipped: added adaptive-focus alias decode DOS-width eval token row `TSDPMFXVWCRITSPMBSAPFLEN` and regression order/parity lock covering `...APF -> ...APF legend -> ...APFLEN`.
+- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.

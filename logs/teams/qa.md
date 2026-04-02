@@ -5309,3 +5309,7 @@
 - Extended regression matrix with cadence legend payload assertions and markdown parity checks (`TSDCAD24`, compact decode, `TSDCAD24LEN`).
 - Verified row-count parity across summary/token sections for cadence legend cluster.
 
+
+## 2026-04-02 18:25 KST
+- Cycle IP32 shipped: added adaptive-focus alias decode DOS-width eval token row `TSDPMFXVWCRITSPMBSAPFLEN` and regression order/parity lock covering `...APF -> ...APF legend -> ...APFLEN`.
+- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.

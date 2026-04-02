@@ -5064,3 +5064,10 @@ Compact decision memory for AI context efficiency.
 - Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: Systems/Ops + QA cadence-bucket-specific ops-action dispatch).
 
+
+## 2026-04-02 18:25 KST
+- Executed Game Director Cycle IP32 after ACTION_ITEMS/TASKS/POST_RC full-check state.
+- Chosen slice (low-risk Design/World + Systems/QA): added adaptive focus alias decode DOS-width evaluation token `TSDPMFXVWCRITSPMBSAPFLEN` to weekly lane guardrail markdown and report payload.
+- Durable decision: keep adaptive focus decode cluster contiguous as `...APF -> ...APF legend -> ...APFLEN -> TSDPMFXVWCRITSB helper` to preserve one-scan readability and regression stability.
+- Verification passed (`py_compile`, `scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2 (new IP32 injected follow-ups).

@@ -3347,3 +3347,7 @@
 - Confirmed cadence-health legend wording stays world-agnostic and readable in DOS-width constrained digest rails.
 - Kept decode pair contiguous (`TSDCAD24 legend` -> compact decode -> `TSDCAD24LEN`) for one-scan interpretation.
 
+
+## 2026-04-02 18:25 KST
+- Cycle IP32 shipped: added adaptive-focus alias decode DOS-width eval token row `TSDPMFXVWCRITSPMBSAPFLEN` and regression order/parity lock covering `...APF -> ...APF legend -> ...APFLEN`.
+- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.

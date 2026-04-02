@@ -3607,3 +3607,7 @@
 - Added compact legend row and width-eval token to reduce glance-friction when reading cadence state in terminal summaries.
 - Readability decision: keep baseline + compact + eval together before ops-action row.
 
+
+## 2026-04-02 18:25 KST
+- Cycle IP32 shipped: added adaptive-focus alias decode DOS-width eval token row `TSDPMFXVWCRITSPMBSAPFLEN` and regression order/parity lock covering `...APF -> ...APF legend -> ...APFLEN`.
+- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.

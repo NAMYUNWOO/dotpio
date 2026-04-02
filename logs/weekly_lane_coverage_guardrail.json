@@ -145,6 +145,15 @@
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyCompactSummary": "HLPP",
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveNote": "HOLD->HOLD:keep HP anchor",
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveNoteFocusAlias": "HP",
+  "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasDecodeEvaluation": {
+    "baseline": "PH=push now/hard crack, HP=hold lane/pressure poke, ES=ease lane/steady nudge",
+    "compact": "PH|HP|ES",
+    "baselineLen": 77,
+    "compactLen": 8,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "WARN"
+  },
   "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": "steady pace; hold broad scan",
   "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": "HOLD_LINE",
   "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": "HL",

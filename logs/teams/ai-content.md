@@ -3439,3 +3439,7 @@
 - Aligned compact cadence decode lexicon to lower-case (`ok/watch/alert`) for faster cognitive scan in dense token clusters.
 - No semantic drift introduced: alias/domain mapping remains `O|W|A` -> `OK|WATCH|ALERT`.
 
+
+## 2026-04-02 18:25 KST
+- Cycle IP32 shipped: added adaptive-focus alias decode DOS-width eval token row `TSDPMFXVWCRITSPMBSAPFLEN` and regression order/parity lock covering `...APF -> ...APF legend -> ...APFLEN`.
+- Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
