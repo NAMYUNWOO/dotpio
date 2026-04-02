@@ -5458,3 +5458,8 @@
 - Decision: Extended regression coverage for helper/eval row presence, row-count parity, and decode-cluster adjacency before triad plan.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up: Keep <=72-width invariant for compact decode helpers.
+
+## 2026-04-03 08:54 KST
+- Cycle IP45 injected AI Content/Combat item closed: added offline hysteresis confidence-band token `TSDCAD24TRICOVSTCMSVHC:LOW|MID|HIGH` derived from recent cue-flip stability windows, with markdown decode row + regression/order/parity/domain coverage updates.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail JSON/MD regeneration.
+

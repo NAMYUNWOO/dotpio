@@ -521,6 +521,11 @@ def run_fixture_case(
             expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_advisory
         )
     )
+    expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band = (
+        load_guardrail_module().resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band(
+            rows
+        )
+    )
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue (combat/vfx): "
         f"**TSDCAD24TRICOVSTCMSV:{expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue}**"
@@ -536,6 +541,11 @@ def run_fixture_case(
         f"**TSDCAD24TRICOVSTCMSVHA:{expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_advisory_alias}**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad vfx-cue hysteresis advisory alias row"
+    assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence band (ai-content/combat): "
+        f"**TSDCAD24TRICOVSTCMSVHC:{expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad vfx-cue hysteresis confidence-band row"
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score ladder decode (design/world): "
         "**TSDCAD24TRICOVSTCMS legend (80=surge confidence, 50=hold confidence, 20=cool confidence)**"
@@ -566,6 +576,11 @@ def run_fixture_case(
         "**TSDCAD24TRICOVSTCMSVHA legend (S=stable cue, W=cue churn)**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad vfx-cue hysteresis advisory alias decode row"
+    assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence band decode (design/world): "
+        "**TSDCAD24TRICOVSTCMSVHC legend (LOW=high flip churn, MID=mixed flips, HIGH=stable cues)**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad vfx-cue hysteresis confidence-band decode row"
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue dual-hysteresis decode helper (design/world): "
         "**TSDCAD24TRICOVSTCMSVHD:VH=STEADY|SWING, VHA=S|W**"
@@ -601,6 +616,7 @@ def run_fixture_case(
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_rows = md_text.count("**TSDCAD24TRICOVSTCMSV:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_rows = md_text.count("**TSDCAD24TRICOVSTCMSVH:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHA:")
+    cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHC:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHD:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_eval_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHDLEN:B24|C24|LIM72|PREF:COMPACT|PASS**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_alias_legend_rows = md_text.count(
@@ -620,6 +636,9 @@ def run_fixture_case(
     )
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_rows = md_text.count(
         "**TSDCAD24TRICOVSTCMSVHA legend (S=stable cue, W=cue churn)**"
+    )
+    cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_legend_rows = md_text.count(
+        "**TSDCAD24TRICOVSTCMSVHC legend (LOW=high flip churn, MID=mixed flips, HIGH=stable cues)**"
     )
     cadence_24h_triad_coverage_spread_trend_confidence_alias_legend_rows = md_text.count(
         "**TSDCAD24TRICOVSTCA legend (L=LOW, M=MID, H=HIGH)**"
@@ -669,6 +688,9 @@ def run_fixture_case(
     assert cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRICOVSTCMSVHA row count must match TSDCAD24TRI row count across sections"
     )
+    assert cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_rows == cadence_24h_triad_rows, (
+        f"{name}: TSDCAD24TRICOVSTCMSVHC row count must match TSDCAD24TRI row count across sections"
+    )
     assert cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRICOVSTCMSVHD row count must match TSDCAD24TRI row count across sections"
     )
@@ -704,6 +726,12 @@ def run_fixture_case(
         == cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_rows
     ), (
         f"{name}: TSDCAD24TRICOVSTCMSVHA legend row count must match TSDCAD24TRICOVSTCMSVHA row count across sections"
+    )
+    assert (
+        cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_legend_rows
+        == cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_rows
+    ), (
+        f"{name}: TSDCAD24TRICOVSTCMSVHC legend row count must match TSDCAD24TRICOVSTCMSVHC row count across sections"
     )
     assert (
         cadence_24h_triad_coverage_spread_trend_confidence_momentum_alias_legend_rows
@@ -772,6 +800,9 @@ def run_fixture_case(
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHA:" in line
     ]
+    cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHC:" in line
+    ]
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHD:" in line
     ]
@@ -804,6 +835,11 @@ def run_fixture_case(
         i
         for i, line in enumerate(cadence_24h_lines)
         if "**TSDCAD24TRICOVSTCMSVHA legend (S=stable cue, W=cue churn)**" in line
+    ]
+    cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_legend_indexes = [
+        i
+        for i, line in enumerate(cadence_24h_lines)
+        if "**TSDCAD24TRICOVSTCMSVHC legend (LOW=high flip churn, MID=mixed flips, HIGH=stable cues)**" in line
     ]
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_lines = [
         cadence_24h_lines[i]
@@ -853,6 +889,9 @@ def run_fixture_case(
     assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: TSDCAD24TRICOVSTCMSVHA row count must match TSDCAD24TRI row count across sections"
     )
+    assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_indexes) == len(cadence_24h_triad_indexes), (
+        f"{name}: TSDCAD24TRICOVSTCMSVHC row count must match TSDCAD24TRI row count across sections"
+    )
     assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: TSDCAD24TRICOVSTCMSVHD row count must match TSDCAD24TRI row count across sections"
     )
@@ -888,6 +927,11 @@ def run_fixture_case(
         cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_indexes
     ), (
         f"{name}: TSDCAD24TRICOVSTCMSVHA legend row count must match TSDCAD24TRICOVSTCMSVHA row count across sections"
+    )
+    assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_legend_indexes) == len(
+        cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_indexes
+    ), (
+        f"{name}: TSDCAD24TRICOVSTCMSVHC legend row count must match TSDCAD24TRICOVSTCMSVHC row count across sections"
     )
     for legend_line in cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_lines:
         legend_token = legend_line.split("**", 2)[1]
@@ -934,7 +978,10 @@ def run_fixture_case(
         assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHA immediately after TSDCAD24TRICOVSTCMSVH in both sections"
         )
-        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_ladder_legend_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_indexes[cluster_i] + 1, (
+        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHC immediately after TSDCAD24TRICOVSTCMSVHA in both sections"
+        )
+        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_ladder_legend_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRICOVSTCMS legend immediately after TSDCAD24TRICOVSTCMS in both sections"
         )
         assert cadence_24h_coverage_spread_trend_confidence_momentum_score_ladder_eval_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_ladder_legend_indexes[cluster_i] + 1, (
@@ -949,13 +996,18 @@ def run_fixture_case(
         assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_legend_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHA legend immediately after TSDCAD24TRICOVSTCMSVH legend in both sections"
         )
-        assert cadence_24h_triad_plan_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes[cluster_i] + 3, (
+        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_legend_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHC legend immediately after TSDCAD24TRICOVSTCMSVHA legend in both sections"
+        )
+        assert cadence_24h_triad_plan_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes[cluster_i] + 4, (
             f"{name}: cadence order must keep triad plan row immediately after TSDCAD24TRICOVSTCMS decode rows in both sections"
         )
         assert (
             cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_legend_indexes[cluster_i] + 1
             == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes[cluster_i]
             and cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes[cluster_i] + 1
+            == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_legend_indexes[cluster_i]
+            and cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_legend_indexes[cluster_i] + 1
             == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_indexes[cluster_i]
             and cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_indexes[cluster_i] + 1
             == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_eval_indexes[cluster_i]
@@ -3795,8 +3847,20 @@ def main() -> int:
         )
         for _, rows in cadence_24h_hysteresis_three_window_fixture
     ]
+    cadence_24h_hysteresis_three_window_confidence_bands = [
+        guardrail_module.resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band(
+            rows
+        )
+        for _, rows in cadence_24h_hysteresis_three_window_fixture
+    ]
     assert cadence_24h_hysteresis_three_window_advisories == ["STEADY", "SWING", "STEADY"], (
         "synthetic three-window cue-transition fixture must prove deterministic advisory toggle STEADY -> SWING -> STEADY"
+    )
+    assert cadence_24h_hysteresis_three_window_confidence_bands == ["HIGH", "LOW", "HIGH"], (
+        "synthetic three-window cue-transition fixture must map confidence bands HIGH -> LOW -> HIGH from stability-window flips"
+    )
+    assert set(cadence_24h_hysteresis_three_window_confidence_bands).issubset({"LOW", "MID", "HIGH"}), (
+        "synthetic three-window cue-transition fixture requires TSDCAD24TRICOVSTCMSVHC domain lock (LOW|MID|HIGH)"
     )
     assert cadence_24h_hysteresis_three_window_scores[1] > cadence_24h_hysteresis_three_window_scores[0] > cadence_24h_hysteresis_three_window_scores[2], (
         "synthetic three-window cue-transition fixture requires deterministic score ladder ordering (window2 > window1 > window3)"

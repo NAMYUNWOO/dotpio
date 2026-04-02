@@ -4947,3 +4947,8 @@
 - Decision: Added evaluation payload/report keys for dual-hysteresis helper with DOS width contract (`TSDCAD24TRICOVSTCMSVHDLEN`).
 - Evidence: `cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisDualDecodeHelperEvaluation` in report output.
 - Follow-up: Reuse the same eval scaffold for upcoming confidence-band helper rows.
+
+## 2026-04-03 08:54 KST
+- Cycle IP45 injected AI Content/Combat item closed: added offline hysteresis confidence-band token `TSDCAD24TRICOVSTCMSVHC:LOW|MID|HIGH` derived from recent cue-flip stability windows, with markdown decode row + regression/order/parity/domain coverage updates.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail JSON/MD regeneration.
+

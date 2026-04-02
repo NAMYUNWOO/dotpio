@@ -3452,3 +3452,8 @@
 - Decision: Kept dual-hysteresis helper wording DOS-safe and deterministic (`VH=STEADY|SWING, VHA=S|W`).
 - Evidence: helper row + eval token rendered in weekly lane guardrail markdown.
 - Follow-up: Maintain adjacency to decode cluster before triad plan.
+
+## 2026-04-03 08:54 KST
+- Cycle IP45 injected AI Content/Combat item closed: added offline hysteresis confidence-band token `TSDCAD24TRICOVSTCMSVHC:LOW|MID|HIGH` derived from recent cue-flip stability windows, with markdown decode row + regression/order/parity/domain coverage updates.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail JSON/MD regeneration.
+

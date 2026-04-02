@@ -1280,6 +1280,39 @@ def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum
     return {"STEADY": "S", "SWING": "W"}.get(advisory, "S")
 
 
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band(
+    rows: list[str],
+    churn_window_size: int = 5,
+) -> str:
+    """Offline confidence band from recent cue-flip stability windows: LOW|MID|HIGH."""
+    if len(rows) <= 2:
+        return "HIGH"
+
+    trailing = rows[-max(3, churn_window_size + 1) :]
+    cues: list[str] = []
+    for depth in range(2, len(trailing) + 1):
+        score = resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score(
+            trailing[:depth],
+            churn_window_size=churn_window_size,
+        )
+        cues.append(
+            resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue(
+                score
+            )
+        )
+
+    if len(cues) <= 1:
+        return "HIGH"
+
+    transitions = sum(1 for idx in range(1, len(cues)) if cues[idx] != cues[idx - 1])
+    flip_rate = transitions / max(1, (len(cues) - 1))
+    if flip_rate >= 0.67:
+        return "LOW"
+    if flip_rate >= 0.34:
+        return "MID"
+    return "HIGH"
+
+
 def resolve_cadence_24h_legend_baseline() -> str:
     return "O=OK, W=WATCH, A=ALERT"
 
@@ -2272,6 +2305,11 @@ def build_report(
             cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_advisory
         )
     )
+    cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band(
+            rows
+        )
+    )
     cadence_24h_legend_evaluation = resolve_cadence_24h_legend_evaluation()
     cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation = (
         resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation()
@@ -2308,6 +2346,7 @@ def build_report(
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCue": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisAdvisory": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_advisory,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisAdvisoryAlias": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_advisory_alias,
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBand": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderBaseline": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation["baseline"],
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderCompact": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation["compact"],
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation,
@@ -2513,6 +2552,7 @@ def to_markdown(
             f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue (combat/vfx): **TSDCAD24TRICOVSTCMSV:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCue', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue(int(report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScore', 50))))}**",
             f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory (ai-content/combat): **TSDCAD24TRICOVSTCMSVH:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisAdvisory', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_advisory([]))}**",
             f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory alias (systems/qa): **TSDCAD24TRICOVSTCMSVHA:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisAdvisoryAlias', 'S')}**",
+            f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence band (ai-content/combat): **TSDCAD24TRICOVSTCMSVHC:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBand', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band([]))}**",
             f"- cadence 24h recovery triad coverage spread trend confidence momentum score ladder decode (design/world): **TSDCAD24TRICOVSTCMS legend ({report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderBaseline', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_baseline())})**",
             f"- cadence 24h recovery triad coverage spread trend confidence momentum score ladder dos-width eval (design/world): **TSDCAD24TRICOVSTCMSLEN:B{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation', {}).get('status', 'PASS')}**",
             "- cadence 24h recovery triad coverage spread trend decode (design/world): **TSDCAD24TRICOVSTA legend (U=UP, F=FLAT, D=DOWN)**",
@@ -2521,6 +2561,7 @@ def to_markdown(
             "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue decode (design/world): **TSDCAD24TRICOVSTCMSV legend (GLINT=calm flicker, PULSE=steady pressure, BLAST=full commit)**",
             "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory decode (design/world): **TSDCAD24TRICOVSTCMSVH legend (STEADY=stable cue, SWING=cue churn)**",
             "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory alias decode (design/world): **TSDCAD24TRICOVSTCMSVHA legend (S=stable cue, W=cue churn)**",
+            "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence band decode (design/world): **TSDCAD24TRICOVSTCMSVHC legend (LOW=high flip churn, MID=mixed flips, HIGH=stable cues)**",
             f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue dual-hysteresis decode helper (design/world): **TSDCAD24TRICOVSTCMSVHD:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisDualDecodeHelperCompact', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_decode_helper_compact())}**",
             f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue dual-hysteresis decode helper dos-width eval (design/world): **TSDCAD24TRICOVSTCMSVHDLEN:B{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisDualDecodeHelperEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisDualDecodeHelperEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisDualDecodeHelperEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisDualDecodeHelperEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisDualDecodeHelperEvaluation', {}).get('status', 'PASS')}**",
             f"- cadence 24h recovery triad plan (design/world): **{report.get('cadence24hRecoveryTriadPlan', 'cadence locked')}**",

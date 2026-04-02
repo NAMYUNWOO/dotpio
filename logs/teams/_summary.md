@@ -5247,3 +5247,10 @@ Compact decision memory for AI context efficiency.
 - Added dual-hysteresis decode helper row `TSDCAD24TRICOVSTCMSVHD:VH=STEADY|SWING, VHA=S|W` plus DOS-width eval token `TSDCAD24TRICOVSTCMSVHDLEN:B24|C24|LIM72|PREF:COMPACT|PASS`.
 - Guardrail report now emits helper evaluation payload keys under `cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisDualDecodeHelperEvaluation`.
 - Regression now enforces helper/eval presence, parity with cadence triad row count, and decode-cluster adjacency before `TSDCAD24TRI plan`.
+
+## 2026-04-03 08:54 KST
+- Closed Cycle IP45 injected AI Content/Combat backlog item by shipping `TSDCAD24TRICOVSTCMSVHC:LOW|MID|HIGH` (offline hysteresis confidence-band token from recent cue-flip stability windows).
+- Durable decision: use cue-flip-rate from trailing hysteresis windows as confidence proxy (`LOW`=high flip churn, `MID`=mixed flips, `HIGH`=stable cues) and keep decode row explicit in markdown for operator scanability.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next run should trigger Game Director review cycle).
+

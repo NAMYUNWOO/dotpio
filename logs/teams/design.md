@@ -3557,3 +3557,8 @@
 - Decision: Added compact dual-hysteresis decode helper row `TSDCAD24TRICOVSTCMSVHD:VH=STEADY|SWING, VHA=S|W` to keep paired advisory decode one-scan readable.
 - Evidence: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`.
 - Follow-up: Next backlog item is `TSDCAD24TRICOVSTCMSVHC:LOW|MID|HIGH` confidence band prototype.
+
+## 2026-04-03 08:54 KST
+- Cycle IP45 injected AI Content/Combat item closed: added offline hysteresis confidence-band token `TSDCAD24TRICOVSTCMSVHC:LOW|MID|HIGH` derived from recent cue-flip stability windows, with markdown decode row + regression/order/parity/domain coverage updates.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail JSON/MD regeneration.
+

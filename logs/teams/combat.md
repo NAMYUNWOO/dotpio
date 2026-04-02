@@ -3438,3 +3438,8 @@
 
 ## 2026-04-03 08:26 KST — coordination note
 - Context: No combat runtime tuning changed this slice; decode/readability groundwork completed for upcoming hysteresis confidence-band signal.
+
+## 2026-04-03 08:54 KST
+- Cycle IP45 injected AI Content/Combat item closed: added offline hysteresis confidence-band token `TSDCAD24TRICOVSTCMSVHC:LOW|MID|HIGH` derived from recent cue-flip stability windows, with markdown decode row + regression/order/parity/domain coverage updates.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail JSON/MD regeneration.
+
