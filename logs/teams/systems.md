@@ -4833,3 +4833,8 @@
 ## 2026-04-02 21:41 KST
 - Cycle IP35 shipped cadence-recovery triad payload in lane guardrail (`cadence24hRecoveryTriad`, `cadence24hRecoveryTriadPlan`) with deterministic bucket order `CV>DW>SO` when all cadence buckets are missing.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail regeneration command.
+
+## 2026-04-02 21:53 KST — Cycle IP35 injected triad pulse palette alias
+- Completed injected Combat/VFX cadence-doc task: added compact triad pulse palette alias row `CV=SPARK|DW=ANCHOR|SO=LOCK` in lane-guardrail markdown (`TSDCAD24TRIP`) and payload (`cadence24hRecoveryTriadPulsePaletteAlias`).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: keep remaining injected order-lock task (`TSDCAD24TRI` immediately before `TSDCAD24` rows) as next priority.

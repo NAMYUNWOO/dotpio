@@ -5109,3 +5109,9 @@ Compact decision memory for AI context efficiency.
 - Executed Game Director Cycle IP35 with all cadence buckets missing; shipped low-risk cross-lane vertical slice `TSDCAD24TRI` + deterministic recovery plan text.
 - Verification passed (`py_compile`, guardrail regression, guardrail artifact regeneration).
 - Injected follow-ups: compact triad pulse palette alias row and deterministic markdown order lock for triad placement.
+
+## 2026-04-02 21:53 KST
+- Closed first injected IP35 follow-up from TASKS/POST_RC: added compact triad pulse palette alias row `TSDCAD24TRIP:CV=SPARK|DW=ANCHOR|SO=LOCK` in guardrail markdown plus payload key `cadence24hRecoveryTriadPulsePaletteAlias`.
+- Durable decision: keep pulse palette alias deterministic (`CV=SPARK|DW=ANCHOR|SO=LOCK`) and row-count parity-locked with `TSDCAD24TRI` in regression.
+- Verification passed end-to-end: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: deterministic triad/order assertion).

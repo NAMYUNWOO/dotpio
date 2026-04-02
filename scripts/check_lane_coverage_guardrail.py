@@ -1077,6 +1077,10 @@ def resolve_cadence_24h_recovery_triad_plan(triad_token: str) -> str:
     }.get(triad_token, "cadence locked")
 
 
+def resolve_cadence_24h_recovery_triad_pulse_palette_alias() -> str:
+    return "CV=SPARK|DW=ANCHOR|SO=LOCK"
+
+
 def resolve_cadence_24h_legend_baseline() -> str:
     return "O=OK, W=WATCH, A=ALERT"
 
@@ -1936,6 +1940,9 @@ def build_report(
     cadence_24h_recovery_triad_plan = resolve_cadence_24h_recovery_triad_plan(
         cadence_24h_recovery_triad
     )
+    cadence_24h_recovery_triad_pulse_palette_alias = (
+        resolve_cadence_24h_recovery_triad_pulse_palette_alias()
+    )
     cadence_24h_legend_evaluation = resolve_cadence_24h_legend_evaluation()
 
     return {
@@ -1952,6 +1959,7 @@ def build_report(
         "cadence24hHealthAlias": cadence_24h_health_alias,
         "cadence24hOpsAction": cadence_24h_ops_action,
         "cadence24hRecoveryTriad": cadence_24h_recovery_triad,
+        "cadence24hRecoveryTriadPulsePaletteAlias": cadence_24h_recovery_triad_pulse_palette_alias,
         "cadence24hRecoveryTriadPlan": cadence_24h_recovery_triad_plan,
         "cadence24hLegendBaseline": cadence_24h_legend_evaluation["baseline"],
         "cadence24hLegendCompact": cadence_24h_legend_evaluation["compact"],
@@ -2135,6 +2143,7 @@ def to_markdown(
             f"{report.get('cadence24hLegendEvaluation', {}).get('status', 'PASS')}**",
             f"- cadence 24h ops action (systems/ops): **{report.get('cadence24hOpsAction', 'force missing buckets next')}**",
             f"- cadence 24h recovery triad (combat/vfx+design/world+systems/ops): **TSDCAD24TRI:{report.get('cadence24hRecoveryTriad', 'LOCK')}**",
+            f"- cadence 24h recovery triad pulse palette alias (combat/vfx): **TSDCAD24TRIP:{report.get('cadence24hRecoveryTriadPulsePaletteAlias', resolve_cadence_24h_recovery_triad_pulse_palette_alias())}**",
             f"- cadence 24h recovery triad plan (design/world): **{report.get('cadence24hRecoveryTriadPlan', 'cadence locked')}**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",

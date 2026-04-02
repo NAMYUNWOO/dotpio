@@ -354,6 +354,19 @@ def run_fixture_case(
     assert cadence_24h_eval_rows == cadence_24h_token_rows, (
         f"{name}: TSDCAD24LEN row count must match TSDCAD24 token row count across sections"
     )
+    assert report.get("cadence24hRecoveryTriadPulsePaletteAlias") == "CV=SPARK|DW=ANCHOR|SO=LOCK", (
+        f"{name}: cadence24hRecoveryTriadPulsePaletteAlias must stay deterministic"
+    )
+    assert (
+        "cadence 24h recovery triad pulse palette alias (combat/vfx): "
+        "**TSDCAD24TRIP:CV=SPARK|DW=ANCHOR|SO=LOCK**"
+        in md_text
+    ), f"{name}: markdown output must include compact triad pulse palette alias row"
+    cadence_24h_triad_rows = md_text.count("**TSDCAD24TRI:")
+    cadence_24h_triad_palette_rows = md_text.count("**TSDCAD24TRIP:CV=SPARK|DW=ANCHOR|SO=LOCK**")
+    assert cadence_24h_triad_palette_rows == cadence_24h_triad_rows, (
+        f"{name}: TSDCAD24TRIP row count must match TSDCAD24TRI row count across sections"
+    )
 
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"
     assert "TSSB legend (C=calm, E=edge, H=heated)" in md_text, (
