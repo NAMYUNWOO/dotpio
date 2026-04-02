@@ -864,6 +864,26 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_re
     }
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_decode_evaluation(
+    dos_width_limit: int = 72,
+) -> dict[str, object]:
+    baseline = "SURGE/HOLD/COOL + SHATTER/PULSE/GLIDE => push now|hold lane|ease lane / hard crack|pressure poke|steady nudge"
+    compact = "PN/HL/EL + HC/PP/SN"
+    baseline_len = len(baseline)
+    compact_len = len(compact)
+    preferred = "COMPACT" if compact_len <= baseline_len else "BASELINE"
+    status = "PASS" if compact_len <= dos_width_limit and baseline_len <= dos_width_limit else "WARN"
+    return {
+        "baseline": baseline,
+        "compact": compact,
+        "baselineLen": baseline_len,
+        "compactLen": compact_len,
+        "dosWidthLimit": dos_width_limit,
+        "preferred": preferred,
+        "status": status,
+    }
+
+
 def resolve_trend_score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation(
     momentum_fx_cue: str,
 ) -> str:
@@ -1708,6 +1728,9 @@ def build_report(
     recommendation_intensity_trend_score_beat_ladder_decode_evaluation = (
         resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_recommendation_intensity_trend_score_beat_ladder_decode_evaluation()
     )
+    posture_beat_bridge_microcopy_decode_evaluation = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_decode_evaluation()
+    )
 
     return {
         "recentCompletedItems": total,
@@ -1787,6 +1810,7 @@ def build_report(
         "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutDecodeEvaluation": combat_callout_decode_evaluation,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityDecodeEvaluation": recommendation_intensity_decode_evaluation,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScoreBeatLadderDecodeEvaluation": recommendation_intensity_trend_score_beat_ladder_decode_evaluation,
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyDecodeEvaluation": posture_beat_bridge_microcopy_decode_evaluation,
         "trendScoreBandDispatchPressureMomentumBandSparkline": score_band_dispatch_pressure_momentum_band_sparkline,
         "trendScoreBandDispatchPressureMomentumSlope": score_band_dispatch_pressure_momentum_slope,
         "trendScoreBandDispatchPressureMomentumSlopeAlias": score_band_dispatch_pressure_momentum_slope_alias,
@@ -1981,6 +2005,12 @@ def to_markdown(
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat microcopy decode (design/world): **TSDPMFXVWCRITSBM legend (GLIDE=steady nudge, PULSE=pressure poke, SHATTER=hard crack)**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy decode (design/world): **TSDPMFXVWCRITSPMB legend (SURGE/HOLD/COOL + SHATTER/PULSE/GLIDE => push now|hold lane|ease lane / hard crack|pressure poke|steady nudge)**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy alias decode (design/world): **TSDPMFXVWCRITSPMBA legend (PN|HL|EL / HC|PP|SN)**",
+            "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy decode dos-width eval (design/world): "
+            f"**TSDPMFXVWCRITSPMBLEN:B{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyDecodeEvaluation', {}).get('baselineLen', 0)}|"
+            f"C{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyDecodeEvaluation', {}).get('compactLen', 0)}|"
+            f"LIM{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyDecodeEvaluation', {}).get('dosWidthLimit', 72)}|"
+            f"PREF:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyDecodeEvaluation', {}).get('preferred', 'COMPACT')}|"
+            f"{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyDecodeEvaluation', {}).get('status', 'PASS')}**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat ladder helper (design/world, dos-width): **TSDPMFXVWCRITSB helper (80=SHATTER, 50=PULSE, 20=GLIDE)**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat ladder helper dos-width eval (design/world): "
             f"**TSDPMFXVWCRITSBLEN:B{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScoreBeatLadderDecodeEvaluation', {}).get('baselineLen', 0)}|"

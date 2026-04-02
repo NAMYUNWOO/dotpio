@@ -1,7 +1,18 @@
 # TASKS
 
-Last updated: 2026-04-02 12:04 KST
+Last updated: 2026-04-02 13:10 KST
 
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP28)
+- Candidate ideas generated:
+  - Low-risk Design/World: add concise decode-length evaluation row for posture-beat bridge microcopy legend (`TSDPMFXVWCRITSPMBLEN`) to keep dense docs under DOS-width policy.
+  - Mid-risk Systems/QA: enforce explicit row-order adjacency for `TSDPMFXVWCRITSPMB` + alias before bridge decode rows.
+  - High-risk AI-content/Combat: prototype adaptive bridge microcopy mutation using prior-window score drift.
+- Selected experiment: Idea 1 (low-risk Design/World) minimal vertical slice.
+- [x] Design/World + Systems/QA Team: Add deterministic posture-beat bridge decode length evaluation token `TSDPMFXVWCRITSPMBLEN` and lock regression assertion for readability preference. *(started: 2026-04-02 13:10 KST; done: 2026-04-02 13:14 KST; verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen)*
+
+## Next Up (Game Director Injection — Cycle IP28)
+- [ ] Systems/QA Team (injected): Add explicit adjacency assertion keeping `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN` contiguous before beat-ladder decode rows.
+- [ ] AI Content/Design Team (injected): Prototype compact bridge-summary token from `TSDPMFXVWCRITSPMB` for dense digest scans (offline-only, no runtime coupling).
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP27)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (post-clear reset; choose additive reversible slice and re-seed follow-up queue).

@@ -160,6 +160,15 @@
     "preferred": "COMPACT",
     "status": "PASS"
   },
+  "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyDecodeEvaluation": {
+    "baseline": "SURGE/HOLD/COOL + SHATTER/PULSE/GLIDE => push now|hold lane|ease lane / hard crack|pressure poke|steady nudge",
+    "compact": "PN/HL/EL + HC/PP/SN",
+    "baselineLen": 109,
+    "compactLen": 19,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "WARN"
+  },
   "trendScoreBandDispatchPressureMomentumBandSparkline": "NA",
   "trendScoreBandDispatchPressureMomentumSlope": "COOLING",
   "trendScoreBandDispatchPressureMomentumSlopeAlias": "C",

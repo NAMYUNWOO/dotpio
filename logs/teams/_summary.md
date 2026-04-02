@@ -4971,3 +4971,9 @@ Compact decision memory for AI context efficiency.
 - Regression contract expanded to lock the new token family in summary+token sections with row-presence checks and parity (`TSDPMFXVWCRITSPMB` / `...SPMBA` mirror `TSDPMFXVWCRITSB` row counts).
 - Verification passed: py_compile + `scripts/regression_check_lane_coverage_guardrail.py` + guardrail report regeneration (`logs/weekly_lane_coverage_guardrail.{json,md}`).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1.
+
+## 2026-04-02 13:14 KST
+- Executed mandatory Game Director Cycle IP28 after full-clear state.
+- Implemented selected low-risk experiment: `TSDPMFXVWCRITSPMBLEN` decode-width evaluation row for posture-beat bridge legend (B109|C19|LIM72|PREF:COMPACT|WARN).
+- Durable decision: keep bridge legend in baseline form for readability, but expose compact alias path and explicit DOS-width evaluation to preserve operator scan safety.
+- Injected follow-up backlog for next cycle: adjacency lock (`TSDPMFXVWCRITSPMB -> ...SPMBA -> ...SPMBLEN`) and compact bridge-summary token prototype.

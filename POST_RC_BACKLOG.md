@@ -1,5 +1,16 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP28)
+- Candidate ideas generated:
+  - Low-risk Design/World: add concise decode-length evaluation row for posture-beat bridge microcopy legend (`TSDPMFXVWCRITSPMBLEN`) to keep dense docs under DOS-width policy.
+  - Mid-risk Systems/QA: enforce explicit row-order adjacency for `TSDPMFXVWCRITSPMB` + alias before bridge decode rows.
+  - High-risk AI-content/Combat: prototype adaptive bridge microcopy mutation using prior-window score drift.
+- Selected experiment: Idea 1 (low-risk Design/World) minimal vertical slice.
+- [x] Design/World + Systems/QA Team: Add deterministic posture-beat bridge decode length evaluation token `TSDPMFXVWCRITSPMBLEN` and lock regression assertion for readability preference. *(started: 2026-04-02 13:10 KST; done: 2026-04-02 13:14 KST; verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen)*
+
+## Next Up (Game Director Injection — Cycle IP28)
+- [ ] Systems/QA Team (injected): Add explicit adjacency assertion keeping `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN` contiguous before beat-ladder decode rows.
+- [ ] AI Content/Design Team (injected): Prototype compact bridge-summary token from `TSDPMFXVWCRITSPMB` for dense digest scans (offline-only, no runtime coupling).
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP27)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (post-clear reset; choose additive reversible slice and re-seed follow-up queue).
@@ -12,7 +23,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP27)
 - [x] Systems/QA Team (injected): Extend urgency-cluster order contract so `TSDPMFXVWCRITSPMP` must stay adjacent to `TSDPMFXVWCRITSPMLEN` before beat decode rows. *(lifecycle: [ ] -> [~] started: 2026-04-02 12:18 KST -> [x] completed: 2026-04-02 12:26 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Systems Team (injected): Prototype offline posture-beat bridge microcopy token (`TSDPMFXVWCRITSPMB`) keyed by `TSDPMFXVWCRITSP` + `TSDPMFXVWCRITSB` without runtime coupling.
+- [x] AI Content/Systems Team (injected): Prototype offline posture-beat bridge microcopy token (`TSDPMFXVWCRITSPMB`) keyed by `TSDPMFXVWCRITSP` + `TSDPMFXVWCRITSB` without runtime coupling. *(done: 2026-04-02 13:00 KST; verify: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen)*
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP26)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; keep cycle focused on reversible readability + parity deltas).
