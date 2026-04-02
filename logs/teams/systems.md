@@ -4866,3 +4866,8 @@
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 ## 2026-04-03 01:26 KST
 - Added report payload field `cadence24hRecoveryTriadCoverageSpreadTrend` to expose deterministic spread-state transition signal for cadence triad monitoring.
+
+## 2026-04-03 01:50 KST
+- Closed injected Systems/QA parity follow-up: regression now asserts `TSDCAD24TRICOVSTA legend` row count mirrors `TSDCAD24TRICOVSTA` alias rows across summary + token sections.
+- Durable contract: alias/decode rows for cadence spread-trend must stay cardinality-locked to prevent silent markdown drift.
+- Verification: py_compile + `scripts/regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration passed.

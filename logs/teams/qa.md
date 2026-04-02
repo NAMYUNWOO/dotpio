@@ -5379,3 +5379,8 @@
 - Verification pass: py_compile + guardrail regression + guardrail artifact regeneration.
 ## 2026-04-03 01:26 KST
 - Extended regression coverage for `TSDCAD24TRICOVST` domain, markdown presence, row-count parity, and strict adjacency before triad plan in both sections.
+
+## 2026-04-03 01:50 KST
+- Added explicit parity assertion for cadence spread-trend decode row count: `TSDCAD24TRICOVSTA legend` must equal `TSDCAD24TRICOVSTA` row count across sections.
+- This closes the remaining unchecked Systems/QA contract item for triad spread-trend alias cluster.
+- Verification run stayed green: py_compile + regression suite + artifact regeneration.

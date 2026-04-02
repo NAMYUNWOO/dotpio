@@ -455,6 +455,9 @@ def run_fixture_case(
     cadence_24h_triad_coverage_spread_rows = md_text.count("**TSDCAD24TRICOVS:")
     cadence_24h_triad_coverage_spread_trend_rows = md_text.count("**TSDCAD24TRICOVST:")
     cadence_24h_triad_coverage_spread_trend_alias_rows = md_text.count("**TSDCAD24TRICOVSTA:")
+    cadence_24h_triad_coverage_spread_trend_alias_legend_rows = md_text.count(
+        "**TSDCAD24TRICOVSTA legend (U=UP, F=FLAT, D=DOWN)**"
+    )
     assert cadence_24h_triad_palette_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRIP row count must match TSDCAD24TRI row count across sections"
     )
@@ -472,6 +475,12 @@ def run_fixture_case(
     )
     assert cadence_24h_triad_coverage_spread_trend_alias_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRICOVSTA row count must match TSDCAD24TRI row count across sections"
+    )
+    assert (
+        cadence_24h_triad_coverage_spread_trend_alias_legend_rows
+        == cadence_24h_triad_coverage_spread_trend_alias_rows
+    ), (
+        f"{name}: TSDCAD24TRICOVSTA legend row count must match TSDCAD24TRICOVSTA row count across sections"
     )
     cadence_24h_lines = md_text.splitlines()
     cadence_24h_triad_indexes = [

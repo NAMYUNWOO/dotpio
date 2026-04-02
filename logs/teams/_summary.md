@@ -5163,3 +5163,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep cadence triad micro-order as `TSDCAD24TRICOVP -> TSDCAD24TRICOVS -> TSDCAD24TRICOVST -> TSDCAD24TRICOVSTA -> decode -> triad plan` for one-scan pressure+trend interpretation.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, and guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2.
+
+## 2026-04-03 01:50 KST
+- Closed highest-priority unchecked Systems/QA item from TASKS/POST_RC: added regression cardinality lock ensuring `TSDCAD24TRICOVSTA legend` count mirrors `TSDCAD24TRICOVSTA` alias count in summary + token sections.
+- Durable decision: cadence spread-trend alias/decode pair is now enforced as a strict one-to-one markdown contract.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, and guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1.
