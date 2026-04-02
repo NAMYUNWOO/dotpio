@@ -1,5 +1,17 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP24)
+- Coverage check (last 10 completed): systems=2, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; cadence bucket misses still visible for combat/vfx + design/world).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (AI Content/Systems): add compact recommendation-intensity trend score token to make `TSDPMFXVWCRIT` drift magnitude one-glance readable.
+  - Mid-risk Systems/QA: extend urgency-cluster order + row-count parity contracts to include a trend-score row between `TSDPMFXVWCRITA` and decode legends.
+  - High-risk novelty (Design/World): adaptive decode copy variant selector for recommendation-intensity trend score under DOS-width pressure.
+- Selected experiment: Idea 1 (low-risk AI Content/Systems) as minimal vertical slice.
+- [x] AI Content/Systems + Systems/QA Team: Add offline recommendation-intensity trend score token (`TSDPMFXVWCRITS:80|50|20`) deterministically mapped from `TSDPMFXVWCRIT` (`UP=80, FLAT=50, DOWN=20`), with markdown row and mixed-window parity/order regression lock. *(lifecycle: [ ] -> [~] started: 2026-04-02 09:18 KST -> [x] completed: 2026-04-02 09:20 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP24)
+- [ ] Design/World + QA Team (injected): Prototype compact decode helper row for `TSDPMFXVWCRITS` buckets (`80=surge`, `50=hold`, `20=cool`) and add deterministic row-count parity assertion for helper text across summary + token sections.
+
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP23)
 - Coverage check (last 10 completed): systems=2, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; cadence bucket misses remain visible for combat/vfx + design/world).
 - Candidate ideas generated:

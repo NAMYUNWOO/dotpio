@@ -4674,3 +4674,4 @@
 - Cycle IP23: added deterministic recommendation-intensity trend contract `TSDPMFXVWCRIT`/`TSDPMFXVWCRITA` derived from current/prior `TSDPMFXVWCRI`.
 - Extended urgency-cluster order and mixed-window row-count parity checks to include trend + trend-alias rows.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- 2026-04-02 09:20 KST — Cycle IP24: added `TSDPMFXVWCRITS` (UP=80/FLAT=50/DOWN=20) with regression/order/parity lock for urgency guidance intensity trend chain.

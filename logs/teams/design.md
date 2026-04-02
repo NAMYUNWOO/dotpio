@@ -3343,3 +3343,4 @@
 ## 2026-04-02 09:02 KST
 - Cycle IP23: added design/world decode rows for recommendation-intensity trend (`TSDPMFXVWCRIT`/`TSDPMFXVWCRITA`) to keep token chain legible in dense markdown.
 - Confirmed compact decode remains DOS-width-safe with existing legend stack.
+- 2026-04-02 09:20 KST — Cycle IP24: added `TSDPMFXVWCRITS` (UP=80/FLAT=50/DOWN=20) with regression/order/parity lock for urgency guidance intensity trend chain.

@@ -5193,3 +5193,4 @@
   - urgency-cluster order contract updated to include trend rows
   - mixed-window row-count parity matrix extended for trend rows
 - Verification pass: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail artifact regeneration.
+- 2026-04-02 09:20 KST — Cycle IP24: added `TSDPMFXVWCRITS` (UP=80/FLAT=50/DOWN=20) with regression/order/parity lock for urgency guidance intensity trend chain.
