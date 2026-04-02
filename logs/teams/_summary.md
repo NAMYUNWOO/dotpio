@@ -5051,3 +5051,10 @@ Compact decision memory for AI context efficiency.
   - Backlog sync: mirrored both closures into `POST_RC_BACKLOG.md` (IP31 systems/qa + design/world follow-ups now checked).
 
 - 2026-04-02 16:52 KST: Added fixture-level regression assertions for `TSDCAD24` domain mapping (`O|W|A` ↔ `OK|WATCH|ALERT`) and markdown token/legend row-count parity in `scripts/regression_check_lane_coverage_guardrail.py`; re-ran guardrail regression + artifact generation.
+
+## 2026-04-02 17:23 KST
+- Closed Next Up Design/World injected item from Cycle IP28: `TSDCAD24` now has compact decode copy (`O=ok, W=watch, A=alert`) plus deterministic DOS-width evaluation token `TSDCAD24LEN`.
+- Durable decision: keep cadence legend trio ordered as `TSDCAD24 legend -> compact decode -> TSDCAD24LEN` directly after cadence health token for one-scan readability.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: Systems/Ops + QA cadence-bucket-specific ops-action dispatch).
+

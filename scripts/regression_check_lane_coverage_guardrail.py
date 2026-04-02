@@ -286,16 +286,47 @@ def run_fixture_case(
     assert cadence_24h_health_alias == {"OK": "O", "WATCH": "W", "ALERT": "A"}[cadence_24h_health], (
         f"{name}: cadence24hHealthAlias must deterministically mirror cadence24hHealth"
     )
+    assert report.get("cadence24hLegendBaseline") == "O=OK, W=WATCH, A=ALERT", (
+        f"{name}: cadence24hLegendBaseline must remain deterministic"
+    )
+    assert report.get("cadence24hLegendCompact") == "O=ok, W=watch, A=alert", (
+        f"{name}: cadence24hLegendCompact must remain deterministic compact decode copy"
+    )
+    assert report.get("cadence24hLegendEvaluation") == {
+        "baseline": "O=OK, W=WATCH, A=ALERT",
+        "compact": "O=ok, W=watch, A=alert",
+        "baselineLen": 22,
+        "compactLen": 22,
+        "dosWidthLimit": 72,
+        "preferred": "COMPACT",
+        "status": "PASS",
+    }, f"{name}: cadence24hLegendEvaluation must expose deterministic DOS-width/readability payload"
     assert (
         f"TSDCAD24:{cadence_24h_health_alias}** ({cadence_24h_health})" in md_text
     ), f"{name}: markdown output must include cadence-24h token row with alias/value parity"
+    assert (
+        "cadence 24h health compact decode (design/world): **O=ok, W=watch, A=alert**"
+        in md_text
+    ), f"{name}: markdown output must include compact cadence-24h decode row"
+    assert (
+        "cadence 24h health decode dos-width eval (design/world): **TSDCAD24LEN:B22|C22|LIM72|PREF:COMPACT|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-24h DOS-width/readability evaluation row"
     cadence_24h_token_rows = md_text.count("**TSDCAD24:")
     cadence_24h_legend_rows = md_text.count("**TSDCAD24 legend (O=OK, W=WATCH, A=ALERT)**")
+    cadence_24h_compact_rows = md_text.count("**O=ok, W=watch, A=alert**")
+    cadence_24h_eval_rows = md_text.count("**TSDCAD24LEN:")
     assert cadence_24h_token_rows >= 1, (
         f"{name}: markdown output must include at least one cadence-24h token row"
     )
     assert cadence_24h_legend_rows == cadence_24h_token_rows, (
         f"{name}: TSDCAD24 legend row count must match TSDCAD24 token row count across sections"
+    )
+    assert cadence_24h_compact_rows == cadence_24h_token_rows, (
+        f"{name}: TSDCAD24 compact decode row count must match TSDCAD24 token row count across sections"
+    )
+    assert cadence_24h_eval_rows == cadence_24h_token_rows, (
+        f"{name}: TSDCAD24LEN row count must match TSDCAD24 token row count across sections"
     )
 
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"

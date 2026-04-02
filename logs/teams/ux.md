@@ -3598,3 +3598,8 @@
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
 
 - 2026-04-02 16:52 KST: Added fixture-level regression assertions for `TSDCAD24` domain mapping (`O|W|A` ↔ `OK|WATCH|ALERT`) and markdown token/legend row-count parity in `scripts/regression_check_lane_coverage_guardrail.py`; re-ran guardrail regression + artifact generation.
+
+## 2026-04-02 17:23 KST
+- Added compact legend row and width-eval token to reduce glance-friction when reading cadence state in terminal summaries.
+- Readability decision: keep baseline + compact + eval together before ops-action row.
+

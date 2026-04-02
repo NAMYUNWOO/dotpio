@@ -1010,6 +1010,32 @@ def resolve_cadence_24h_ops_action(health: str) -> str:
     }.get(health, "force missing buckets next")
 
 
+def resolve_cadence_24h_legend_baseline() -> str:
+    return "O=OK, W=WATCH, A=ALERT"
+
+
+def resolve_cadence_24h_legend_compact() -> str:
+    return "O=ok, W=watch, A=alert"
+
+
+def resolve_cadence_24h_legend_evaluation(dos_width_limit: int = 72) -> dict[str, object]:
+    baseline = resolve_cadence_24h_legend_baseline()
+    compact = resolve_cadence_24h_legend_compact()
+    baseline_len = len(baseline)
+    compact_len = len(compact)
+    preferred = "COMPACT" if compact_len <= baseline_len else "BASELINE"
+    status = "PASS" if compact_len <= dos_width_limit and baseline_len <= dos_width_limit else "WARN"
+    return {
+        "baseline": baseline,
+        "compact": compact,
+        "baselineLen": baseline_len,
+        "compactLen": compact_len,
+        "dosWidthLimit": dos_width_limit,
+        "preferred": preferred,
+        "status": status,
+    }
+
+
 def resolve_trend_score_band_dispatch_hint(score_band_snapshot: dict[str, int]) -> str:
     ordered = sorted(
         score_band_snapshot.items(),
@@ -1825,6 +1851,7 @@ def build_report(
     cadence_24h_health = resolve_cadence_24h_health(len(missing_buckets))
     cadence_24h_health_alias = resolve_cadence_24h_health_alias(cadence_24h_health)
     cadence_24h_ops_action = resolve_cadence_24h_ops_action(cadence_24h_health)
+    cadence_24h_legend_evaluation = resolve_cadence_24h_legend_evaluation()
 
     return {
         "recentCompletedItems": total,
@@ -1839,6 +1866,9 @@ def build_report(
         "cadence24hHealth": cadence_24h_health,
         "cadence24hHealthAlias": cadence_24h_health_alias,
         "cadence24hOpsAction": cadence_24h_ops_action,
+        "cadence24hLegendBaseline": cadence_24h_legend_evaluation["baseline"],
+        "cadence24hLegendCompact": cadence_24h_legend_evaluation["compact"],
+        "cadence24hLegendEvaluation": cadence_24h_legend_evaluation,
         "trendScoreBandSnapshot": score_band_snapshot,
         "trendScoreBandSnapshotAlias": score_band_alias,
         "trendScoreBandDispatchHint": score_band_dispatch_hint,
@@ -2003,6 +2033,13 @@ def to_markdown(
             f"- cadence buckets missing: **{missing_buckets}**",
             f"- cadence 24h health (combat/vfx): **TSDCAD24:{report.get('cadence24hHealthAlias', 'A')}** ({report.get('cadence24hHealth', 'ALERT')})",
             "- cadence 24h health decode (design/world): **TSDCAD24 legend (O=OK, W=WATCH, A=ALERT)**",
+            f"- cadence 24h health compact decode (design/world): **{report.get('cadence24hLegendCompact', resolve_cadence_24h_legend_compact())}**",
+            "- cadence 24h health decode dos-width eval (design/world): "
+            f"**TSDCAD24LEN:B{report.get('cadence24hLegendEvaluation', {}).get('baselineLen', 0)}|"
+            f"C{report.get('cadence24hLegendEvaluation', {}).get('compactLen', 0)}|"
+            f"LIM{report.get('cadence24hLegendEvaluation', {}).get('dosWidthLimit', 72)}|"
+            f"PREF:{report.get('cadence24hLegendEvaluation', {}).get('preferred', 'COMPACT')}|"
+            f"{report.get('cadence24hLegendEvaluation', {}).get('status', 'PASS')}**",
             f"- cadence 24h ops action (systems/ops): **{report.get('cadence24hOpsAction', 'force missing buckets next')}**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",

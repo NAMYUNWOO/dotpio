@@ -6,6 +6,8 @@
 - cadence buckets missing: **combat-or-vfx, design-or-world, systems-or-ops**
 - cadence 24h health (combat/vfx): **TSDCAD24:A** (ALERT)
 - cadence 24h health decode (design/world): **TSDCAD24 legend (O=OK, W=WATCH, A=ALERT)**
+- cadence 24h health compact decode (design/world): **O=ok, W=watch, A=alert**
+- cadence 24h health decode dos-width eval (design/world): **TSDCAD24LEN:B22|C22|LIM72|PREF:COMPACT|PASS**
 - cadence 24h ops action (systems/ops): **force missing buckets next**
 - trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 - trend-score band snapshot alias: **TSSB:C0E0H0**

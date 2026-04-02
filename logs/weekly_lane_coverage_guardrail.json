@@ -67,6 +67,17 @@
   "cadence24hHealth": "ALERT",
   "cadence24hHealthAlias": "A",
   "cadence24hOpsAction": "force missing buckets next",
+  "cadence24hLegendBaseline": "O=OK, W=WATCH, A=ALERT",
+  "cadence24hLegendCompact": "O=ok, W=watch, A=alert",
+  "cadence24hLegendEvaluation": {
+    "baseline": "O=OK, W=WATCH, A=ALERT",
+    "compact": "O=ok, W=watch, A=alert",
+    "baselineLen": 22,
+    "compactLen": 22,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "trendScoreBandSnapshot": {
     "CALM": 0,
     "EDGE": 0,
