@@ -1,5 +1,10 @@
 # Systems Team Log
 
+## 2026-04-02 13:24 KST
+- Closed injected Systems/QA adjacency contract for Cycle IP28: regression now enforces decode-row chain `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN` before beat-ladder helper decode.
+- Implementation landed in `scripts/regression_check_lane_coverage_guardrail.py` via explicit decode index lookups + strict ordering assertion.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-02 09:56 KST
 - Cycle IP25 systems slice landed in guardrail + regression: added deterministic score->beat mapping (`>=70 SHATTER`, `>=40 PULSE`, else `GLIDE`) and alias map (`S/P/G`) for `TSDPMFXVWCRITSB/A`.
 - Regression contract now asserts JSON mapping consistency and markdown row presence for beat + alias + decode rows.

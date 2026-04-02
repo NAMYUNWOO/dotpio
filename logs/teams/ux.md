@@ -1,5 +1,9 @@
 # UX Team Log
 
+## 2026-04-02 13:24 KST
+- UX scan-order stability improved: regression now preserves contiguous bridge decode trio (`TSDPMFXVWCRITSPMB/SPMBA/SPMBLEN`) before beat-ladder helper decode rows.
+- Expected impact: fewer context jumps when operators scan bridge intent then ladder thresholds in compact markdown.
+
 ## 2026-04-02 06:27 KST
 - Added one-line recommendation token `TSDPMFXVWCR` to reduce lookup friction between confidence tier and suggested guidance phrase.
 - UX intent: keep operator scan path linear (`TSDPMFXVWC -> TSDPMFXVWCR -> decode`) in both summary and token sections.

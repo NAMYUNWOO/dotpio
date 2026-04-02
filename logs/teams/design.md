@@ -1,5 +1,9 @@
 # Design Team Log
 
+## 2026-04-02 13:24 KST
+- Added durable ordering contract note for IP28 follow-up: `TSDPMFXVWCRITSPMB legend -> TSDPMFXVWCRITSPMBA legend -> TSDPMFXVWCRITSPMBLEN` must remain contiguous before beat-ladder helper decode row.
+- Keeps bridge decode narrative grouped ahead of score ladder helper for faster operator parsing.
+
 ## 2026-04-02 09:56 KST
 - Added decode copy for new beat ladder rows to preserve one-scan readability: `TSDPMFXVWCRITSB legend (GLIDE=stable drift, PULSE=active drift, SHATTER=hard pivot)` + alias legend.
 - Kept phrasing compact to remain DOS-width safe and aligned with existing urgency/recommendation lexicon.

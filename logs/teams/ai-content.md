@@ -1,5 +1,9 @@
 # AI Content Team Log
 
+## 2026-04-02 13:24 KST
+- Confirmed latest IP28 systems guardrail keeps bridge microcopy decode rail (`TSDPMFXVWCRITSPMB` family) contiguous before beat helper decode, protecting ai-content bridge phrasing from order drift.
+- No runtime coupling added; this remains markdown/regression-contract-only.
+
 ## 2026-04-02 06:27 KST
 - Cycle IP21 shipped offline microcopy recommendation token `TSDPMFXVWCR` from guidance confidence (`TSDPMFXVWC`) to keep pulse guidance intent one-glance scannable.
 - Recommendation map stabilized as `HIGH=lock sweep`, `MID=brace check`, `LOW=burst triage`.

@@ -1,3 +1,9 @@
+## 2026-04-02 13:24 KST
+- Closed highest-priority injected Systems/QA item from TASKS/POST_RC for Cycle IP28: regression now enforces decode adjacency `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN` before beat-ladder helper row `TSDPMFXVWCRITSB helper`.
+- Durable decision: preserve bridge decode trio as a contiguous pre-helper block to keep bridge context readable before score-threshold guidance.
+- Verification remained green via `py_compile` + `scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: AI Content/Design compact bridge-summary token prototype).
+
 ## 2026-04-02 09:56 KST
 - Executed Game Director Cycle IP25 on `feature/ai-disassemble-builder` after lane coverage check returned all-zero recent completions and missing cadence buckets (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
 - Picked low-risk Combat/VFX idea from 3 generated fun-factor candidates and shipped minimal vertical slice: new beat token rows `TSDPMFXVWCRITSB` + `TSDPMFXVWCRITSBA` derived from intensity trend score.

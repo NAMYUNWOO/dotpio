@@ -1,5 +1,9 @@
 # Combat Team Log
 
+## 2026-04-02 13:24 KST
+- Combat readability rail hardening: regression now guarantees posture-beat bridge decode rows stay contiguous before beat-ladder helper decode (`TSDPMFXVWCRITSB helper`), reducing chance of ladder context drift in dense reports.
+- Scope remains offline/reporting contract only (no combat balance/runtime mutation).
+
 ## 2026-04-02 09:56 KST
 - Cycle IP25 forced-lane slice shipped in combat/vfx bucket after cadence check showed all three 24h buckets missing.
 - Added beat-level combat readability rail `TSDPMFXVWCRITSB` (`GLIDE|PULSE|SHATTER`) + alias `TSDPMFXVWCRITSBA` mapped from trend score (`20/50/80`).

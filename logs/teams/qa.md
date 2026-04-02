@@ -1,5 +1,9 @@
 # QA Team Log
 
+## 2026-04-02 13:24 KST
+- Added regression ordering assertion that enforces `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN` contiguous and positioned before `TSDPMFXVWCRITSB helper` decode row.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-02 07:54 KST
 - Added regression order gate ensuring `TSDPMFXVWCR -> TSDPMFXVWCRA -> TSDPMFXVWCRI -> TSDPMFXVWCRIA` stays contiguous and precedes decode rows in both markdown sections.
 - Extended assertions to include recommendation/intensity decode row ordering (`TSDPMFXVWCR legend`, `TSDPMFXVWCRA legend`, `TSDPMFXVWCRI legend`, `TSDPMFXVWCRIA legend`) after the row chain.

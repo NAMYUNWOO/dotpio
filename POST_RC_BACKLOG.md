@@ -9,7 +9,7 @@
 - [x] Design/World + Systems/QA Team: Add deterministic posture-beat bridge decode length evaluation token `TSDPMFXVWCRITSPMBLEN` and lock regression assertion for readability preference. *(started: 2026-04-02 13:10 KST; done: 2026-04-02 13:14 KST; verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen)*
 
 ## Next Up (Game Director Injection — Cycle IP28)
-- [ ] Systems/QA Team (injected): Add explicit adjacency assertion keeping `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN` contiguous before beat-ladder decode rows.
+- [x] Systems/QA Team (injected): Add explicit adjacency assertion keeping `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN` contiguous before beat-ladder decode rows. *(lifecycle: [ ] -> [~] started: 2026-04-02 13:18 KST -> [x] completed: 2026-04-02 13:24 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [ ] AI Content/Design Team (injected): Prototype compact bridge-summary token from `TSDPMFXVWCRITSPMB` for dense digest scans (offline-only, no runtime coupling).
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP27)

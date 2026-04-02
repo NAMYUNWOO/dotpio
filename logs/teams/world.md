@@ -1,5 +1,9 @@
 # World Team Log
 
+## 2026-04-02 13:24 KST
+- Logged Cycle IP28 follow-up guardrail lock: posture-beat bridge decode trio (`TSDPMFXVWCRITSPMB/SPMBA/SPMBLEN`) is now required to stay contiguous before beat-ladder helper decode rows.
+- World/design readability impact: bridge decode context now remains one-scan stable ahead of helper ladder rows under dense markdown output.
+
 ## 2026-04-02 06:27 KST
 - Added design/world decode copy for new guidance-confidence recommendation row: `TSDPMFXVWCR legend (HIGH=lock sweep, MID=brace check, LOW=burst triage)`.
 - Kept decode wording compact and consistent with existing `TSDPMFXVWC` legend cluster.
