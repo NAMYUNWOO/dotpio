@@ -1,5 +1,11 @@
 # VFX Team Log
 
+## 2026-04-02 09:56 KST
+- Cycle IP25 delivered new VFX beat token layer from recommendation-intensity trend score: `TSDPMFXVWCRITSB` => `GLIDE/PULSE/SHATTER` with compact alias `TSDPMFXVWCRITSBA` => `G/P/S`.
+- Beat ladder keeps urgency readability punchy while staying deterministic and DOS-width friendly for one-scan reports.
+- Runtime visuals untouched; this is telemetry/readability-only.
+- Verification: py_compile + guardrail regression + weekly guardrail artifact regeneration all PASS.
+
 ## 2026-04-02 03:44 KST
 - Cycle IP20 forced-lane Combat/VFX slice shipped after cadence check flagged missing `combat-or-vfx` bucket.
 - Added offline urgency-trend VFX pulse token `TSDPMFXV:CALM|PULSE|BLAST` from `TSDPMFXUCTSBT` plus compact alias `TSDPMFXVA:C|P|B` for one-glance pulse routing.

@@ -1,5 +1,10 @@
 # Design Team Log
 
+## 2026-04-02 09:56 KST
+- Added decode copy for new beat ladder rows to preserve one-scan readability: `TSDPMFXVWCRITSB legend (GLIDE=stable drift, PULSE=active drift, SHATTER=hard pivot)` + alias legend.
+- Kept phrasing compact to remain DOS-width safe and aligned with existing urgency/recommendation lexicon.
+- Follow-up injected: score-ladder helper row (`80/50/20`) for faster operator onboarding.
+
 ## 2026-04-02 06:27 KST
 - Added new decode rail for `TSDPMFXVWCR` recommendation semantics to keep `TSDPMFXVWC` confidence output directly interpretable without cross-referencing prose.
 - Wording kept DOS-compact and aligned with existing confidence decode lexicon.

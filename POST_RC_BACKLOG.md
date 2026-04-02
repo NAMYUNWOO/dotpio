@@ -1,5 +1,20 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP25)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane exceeded 40%; cadence buckets all missing).
+- Forced-lane decision: underrepresented-lane policy + cadence policy forced combat/vfx for this slice and queued design/world + systems/ops follow-ups.
+- Candidate ideas generated:
+  - Low-risk fun-factor (Combat/VFX): score-beat token from recommendation-intensity trend score.
+  - Mid-risk fun-factor (Design/World): decode helper for beat-score ladder under DOS width.
+  - High-risk novelty (Systems/Ops+QA): mixed-window parity/order contract for beat rows.
+- Selected experiment: low-risk Combat/VFX beat token slice.
+- [x] Combat/VFX + Systems/QA Team: Add `TSDPMFXVWCRITSB` + `TSDPMFXVWCRITSBA` deterministic beat mapping from `TSDPMFXVWCRITS`, with markdown decode rows and regression checks. *(lifecycle: [ ] -> [~] started: 2026-04-02 09:43 KST -> [x] completed: 2026-04-02 09:56 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP25)
+- [ ] Design/World + QA Team (injected): Add score-beat decode helper row (`80/50/20`) and DOS-width lock assertions for summary + token sections.
+- [ ] Systems/Ops + QA Team (injected): Add mixed-window fixture parity assertion that `TSDPMFXVWCRITSB/TSDPMFXVWCRITSBA` row counts mirror `TSDPMFXVWCRITS` in both sections.
+- [ ] AI Content/Systems Team (injected): Prototype offline beat-guidance microcopy token keyed by `TSDPMFXVWCRITSB` (reversible, report-only).
+
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP24)
 - Coverage check (last 10 completed): systems=2, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; cadence bucket misses still visible for combat/vfx + design/world).
 - Candidate ideas generated:

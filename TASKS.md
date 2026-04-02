@@ -1,6 +1,22 @@
 # TASKS
 
-Last updated: 2026-04-02 06:27 KST
+Last updated: 2026-04-02 09:56 KST
+
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP25)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%, but all cadence buckets missing).
+- 24h cadence buckets: combat/vfx=0 ❌, design/world=0 ❌, systems/ops(qa)=0 ❌.
+- Forced-lane decision: cadence policy forced this cycle into underrepresented lanes with Combat/VFX selected, and Design/World + Systems/Ops follow-ups injected.
+- Candidate ideas generated:
+  - Low-risk fun-factor (Combat/VFX): add intensity-trend score beat token (`TSDPMFXVWCRITSB`) so `UP/FLAT/DOWN` trend score reads as feel-first beat (`SHATTER/PULSE/GLIDE`).
+  - Mid-risk fun-factor (Design/World): add compact beat decode helper and alias legend for one-scan readability under DOS width.
+  - High-risk fun-factor (Systems/Ops+QA): add beat-row parity/order lock through mixed-window fixtures to prevent drift when sections diverge.
+- Selected experiment: Idea 1 (Combat/VFX) minimal vertical slice.
+- [x] Combat/VFX + Systems/QA Team: Add offline intensity-trend score beat token `TSDPMFXVWCRITSB:GLIDE|PULSE|SHATTER` + alias `TSDPMFXVWCRITSBA:G|P|S` from `TSDPMFXVWCRITS` (>=70 SHATTER, >=40 PULSE, else GLIDE), with markdown rows and regression schema/markdown checks. *(lifecycle: [ ] -> [~] started: 2026-04-02 09:43 KST -> [x] completed: 2026-04-02 09:56 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP25)
+- [ ] Design/World Team (injected): Add compact score-band helper copy for beat ladder (`80=SHATTER, 50=PULSE, 20=GLIDE`) and lock DOS-width row budget in regression fixtures.
+- [ ] Systems/Ops + QA Team (injected): Extend mixed-window parity checks so `TSDPMFXVWCRITSB/TSDPMFXVWCRITSBA` row counts mirror `TSDPMFXVWCRITS` across summary + token sections.
+- [ ] AI Content/Systems Team (injected): Prototype offline beat-guidance microcopy (`steady nudge | pressure poke | hard crack`) keyed by `TSDPMFXVWCRITSB` without runtime coupling.
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP21)
 - Coverage check (last 10 completed): systems=1, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; cadence buckets for combat/vfx + design/world were still cold at cycle start).

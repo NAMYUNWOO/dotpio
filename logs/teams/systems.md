@@ -1,5 +1,10 @@
 # Systems Team Log
 
+## 2026-04-02 09:56 KST
+- Cycle IP25 systems slice landed in guardrail + regression: added deterministic score->beat mapping (`>=70 SHATTER`, `>=40 PULSE`, else `GLIDE`) and alias map (`S/P/G`) for `TSDPMFXVWCRITSB/A`.
+- Regression contract now asserts JSON mapping consistency and markdown row presence for beat + alias + decode rows.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail regeneration command (all PASS).
+
 ## 2026-04-02 07:54 KST
 - Cycle IP11 injected Systems/QA follow-up completed: added explicit urgency-cluster ordering assertions requiring `TSDPMFXVWCR -> TSDPMFXVWCRA -> TSDPMFXVWCRI -> TSDPMFXVWCRIA` adjacency before decode rows in both summary and token-coverage sections.
 - Implementation landed in `scripts/regression_check_lane_coverage_guardrail.py` by wiring row/decode index lookups plus strict `<` ordering chain update and contract message refresh.

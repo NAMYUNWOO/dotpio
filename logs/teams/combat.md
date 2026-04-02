@@ -1,5 +1,11 @@
 # Combat Team Log
 
+## 2026-04-02 09:56 KST
+- Cycle IP25 forced-lane slice shipped in combat/vfx bucket after cadence check showed all three 24h buckets missing.
+- Added beat-level combat readability rail `TSDPMFXVWCRITSB` (`GLIDE|PULSE|SHATTER`) + alias `TSDPMFXVWCRITSBA` mapped from trend score (`20/50/80`).
+- Scope remains reporting-only (no runtime combat tuning or balance mutation).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail regeneration command.
+
 ## 2026-04-02 06:27 KST
 - Added compact combat-facing recommendation rail `TSDPMFXVWCR` so guidance confidence now carries a direct action phrase (`lock sweep|brace check|burst triage`) alongside pulse rows.
 - No runtime combat tuning changed; this is offline readability + triage contract only.
