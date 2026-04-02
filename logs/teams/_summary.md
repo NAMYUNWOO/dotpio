@@ -5049,3 +5049,5 @@ Compact decision memory for AI context efficiency.
   - Regression hardening: `TSDPMFXVWCRITSPMBSAPF` domain asserted as `PH|HP|ES`, and mixed-window fixture parity matrix now explicitly includes `TSDPMFXVWCRITSPMBSAPN/TSDPMFXVWCRITSPMBSAPF` counts.
   - Decode readability: added adaptive-note transition helper + DOS-width eval rows (`TSDPMFXVWCRITSPMBSAPN helper`, `TSDPMFXVWCRITSPMBSAPNLEN`) to keep `SURGE/HOLD/COOL` drift-family mapping one-scan and contract-tested.
   - Backlog sync: mirrored both closures into `POST_RC_BACKLOG.md` (IP31 systems/qa + design/world follow-ups now checked).
+
+- 2026-04-02 16:52 KST: Added fixture-level regression assertions for `TSDCAD24` domain mapping (`O|W|A` ↔ `OK|WATCH|ALERT`) and markdown token/legend row-count parity in `scripts/regression_check_lane_coverage_guardrail.py`; re-ran guardrail regression + artifact generation.

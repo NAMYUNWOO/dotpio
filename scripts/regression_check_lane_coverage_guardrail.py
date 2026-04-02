@@ -275,6 +275,29 @@ def run_fixture_case(
     }, f"{name}: combat-callout decode evaluation payload must include deterministic DOS-width/readability signals"
 
     md_text = md_out.read_text(encoding="utf-8")
+    cadence_24h_health = report.get("cadence24hHealth")
+    cadence_24h_health_alias = report.get("cadence24hHealthAlias")
+    assert cadence_24h_health in {"OK", "WATCH", "ALERT"}, (
+        f"{name}: cadence24hHealth must stay within OK|WATCH|ALERT domain"
+    )
+    assert cadence_24h_health_alias in {"O", "W", "A"}, (
+        f"{name}: cadence24hHealthAlias must stay within O|W|A domain"
+    )
+    assert cadence_24h_health_alias == {"OK": "O", "WATCH": "W", "ALERT": "A"}[cadence_24h_health], (
+        f"{name}: cadence24hHealthAlias must deterministically mirror cadence24hHealth"
+    )
+    assert (
+        f"TSDCAD24:{cadence_24h_health_alias}** ({cadence_24h_health})" in md_text
+    ), f"{name}: markdown output must include cadence-24h token row with alias/value parity"
+    cadence_24h_token_rows = md_text.count("**TSDCAD24:")
+    cadence_24h_legend_rows = md_text.count("**TSDCAD24 legend (O=OK, W=WATCH, A=ALERT)**")
+    assert cadence_24h_token_rows >= 1, (
+        f"{name}: markdown output must include at least one cadence-24h token row"
+    )
+    assert cadence_24h_legend_rows == cadence_24h_token_rows, (
+        f"{name}: TSDCAD24 legend row count must match TSDCAD24 token row count across sections"
+    )
+
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"
     assert "TSSB legend (C=calm, E=edge, H=heated)" in md_text, (
         f"{name}: markdown output must include compact TSSB decode microcopy row"
