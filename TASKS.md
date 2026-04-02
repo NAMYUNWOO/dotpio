@@ -2421,3 +2421,8 @@ See project-level plans:
   - High-risk novelty (Combat/VFX): adaptive recommendation remix from multi-window confidence volatility.
 - Selected experiment: Idea 1 (low-risk AI-content/Systems + QA) as minimal vertical slice.
 - [x] AI-content/Systems + QA Team: Implement deterministic guidance-confidence recommendation alias payload+markdown token (`TSDPMFXVWCRA`) mapped from `TSDPMFXVWCR`, with decode row and regression parity/order locks. *(lifecycle: [ ] -> [~] started: 2026-04-02 06:44 KST -> [x] completed: 2026-04-02 06:48 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Game Director Cycle IP27 (2026-04-02 11:30 KST)
+- [x] UX/AI-Content Team (selected, low-risk): Add compact posture-microcopy alias token `TSDPMFXVWCRITSPMA` (`PN|HL|EL`) derived from `TSDPMFXVWCRITSPM` for dense digest scans.
+- [ ] Systems/QA Team (injected): Extend urgency-cluster regression order/cardinality contract to include `TSDPMFXVWCRITSPMA` adjacency between posture microcopy and beat rows.
+- [ ] Design/World Team (injected): Add DOS-width/readability evaluation helper row for posture microcopy decode (`TSDPMFXVWCRITSPMLEN`) and lock expected compact preference.
