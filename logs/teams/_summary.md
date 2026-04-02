@@ -5031,3 +5031,16 @@ Compact decision memory for AI context efficiency.
   - Idea 3 (high-risk, Systems/Ops): adaptive cadence scheduling policy remap from recent momentum windows.
 - Selected experiment: Idea 1 (minimal vertical slice, low-risk).
 - [x] Combat/VFX + Systems/Ops + Design/World + QA Team: Added deterministic cadence-24h payload fields (`cadence24hHealth`, `cadence24hHealthAlias`, `cadence24hOpsAction`) and markdown rows (`TSDCAD24`, decode legend, ops action) in `scripts/check_lane_coverage_guardrail.py`, then regenerated guardrail outputs. *(lifecycle: [ ] -> [~] started: 2026-04-02 15:44 KST -> [x] completed: 2026-04-02 15:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## 2026-04-02 15:58 KST
+- Completed remaining injected IP30 task from TASKS/POST_RC: shipped offline adaptive shortlist note token `TSDPMFXVWCRITSPMBSAPN` keyed by posture drift.
+- Durable decision: decode rail stays contiguous as `...TSDPMFXVWCRITSPMBS legend -> ...MBSA table -> ...MBSAP shortlist -> ...MBSAPN adaptive note -> TSDPMFXVWCRITSB helper`.
+- Verification passed end-to-end: `py_compile` + `scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for immediate Game Director review cycle next run).
+
+## 2026-04-02 16:08 KST
+- Game Director review cycle IP31 executed immediately after full-check state.
+- Generated ideas: (1) low-risk UX/design `TSDPMFXVWCRITSPMBSAPF` adaptive focus alias; (2) mid-risk systems/qa fixture-domain lock for adaptive-focus parity; (3) high-risk novelty posture-drift remix planner token for dynamic copy cadence.
+- Selected experiment: idea (1), implemented minimal vertical slice with payload field + markdown row + decode legend + regression order/parity contracts.
+- Durable decision: adaptive shortlist block now ordered as `...MBSAP shortlist -> MBSAPN note -> MBSAPF alias -> MBSAPF legend -> beat helper`.
+- Queue status after injection: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2.

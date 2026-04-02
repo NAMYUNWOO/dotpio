@@ -825,6 +825,30 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_tr
     }.get(normalized, "HLPP")
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_note(
+    posture: str,
+    prior_posture: str,
+) -> str:
+    if posture == prior_posture:
+        return f"{posture}->HOLD:keep HP anchor"
+    if posture == "SURGE":
+        return f"{prior_posture}->SURGE:promote PH"
+    if posture == "COOL":
+        return f"{prior_posture}->COOL:promote ES"
+    return f"{prior_posture}->HOLD:stabilize HP"
+
+
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_note_focus_alias(
+    adaptive_note: str,
+) -> str:
+    lowered = adaptive_note.lower()
+    if "promote ph" in lowered:
+        return "PH"
+    if "promote es" in lowered:
+        return "ES"
+    return "HP"
+
+
 def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_decode_full() -> str:
     return "SOFT=burst triage, EDGE=brace check, HARD=lock sweep"
 
@@ -1707,6 +1731,27 @@ def build_report(
             score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy
         )
     )
+    prior_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score(
+            prior_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend
+        )
+    )
+    prior_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture(
+            prior_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score
+        )
+    )
+    score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_note = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_note(
+            posture=score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture,
+            prior_posture=prior_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture,
+        )
+    )
+    score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_note_focus_alias = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_note_focus_alias(
+            score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_note
+        )
+    )
     score_band_dispatch_pressure_momentum_slope_recommendation = (
         resolve_trend_score_band_dispatch_pressure_momentum_slope_recommendation(
             score_band_dispatch_pressure_momentum_slope
@@ -1855,6 +1900,8 @@ def build_report(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopy": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAlias": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alias,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyCompactSummary": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_compact_summary,
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveNote": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_note,
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveNoteFocusAlias": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_note_focus_alias,
         "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": score_band_dispatch_pressure_momentum_fx_cue_microcopy_recommendation,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": score_band_dispatch_pressure_momentum_fx_cue_combat_callout,
         "trendScoreBandDispatchPressureMomentumFxCueCombatCalloutAlias": score_band_dispatch_pressure_momentum_fx_cue_combat_callout_alias,
@@ -2071,6 +2118,9 @@ def to_markdown(
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat compact bridge-summary decode (design/world): **TSDPMFXVWCRITSPMBS legend (PNHC=push now/hard crack, HLPP=hold lane/pressure poke, ELSN=ease lane/steady nudge)**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat ultra-compact bridge-summary alias candidates (ai-content/design, offline): **TSDPMFXVWCRITSPMBSA table (PNHC->PH, PNPP->PP, PNSN->PS, HLHC->HH, HLPP->HP, HLSN->HS, ELHC->EH, ELPP->EP, ELSN->ES)**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat ultra-compact bridge-summary alias shortlist (ux/design, offline): **TSDPMFXVWCRITSPMBSAP shortlist (PH=push now/hard crack, HP=hold lane/pressure poke, ES=ease lane/steady nudge)**",
+            f"- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat shortlist adaptive note (ai-content/combat, offline): **TSDPMFXVWCRITSPMBSAPN:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveNote', 'HOLD->HOLD:keep HP anchor')}**",
+            f"- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat shortlist adaptive focus alias (combat/vfx, dos-width): **TSDPMFXVWCRITSPMBSAPF:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveNoteFocusAlias', 'HP')}**",
+            "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat shortlist adaptive focus alias decode (design/world): **TSDPMFXVWCRITSPMBSAPF legend (PH=push now/hard crack, HP=hold lane/pressure poke, ES=ease lane/steady nudge)**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat ladder helper (design/world, dos-width): **TSDPMFXVWCRITSB helper (80=SHATTER, 50=PULSE, 20=GLIDE)**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat ladder helper dos-width eval (design/world): "
             f"**TSDPMFXVWCRITSBLEN:B{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScoreBeatLadderDecodeEvaluation', {}).get('baselineLen', 0)}|"

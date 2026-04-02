@@ -3307,3 +3307,9 @@
 - Follow-up: Injected Systems/QA parity assertion task + AI-content/design ultra-compact alias exploration task.
 ## 2026-04-02 15:49 KST — Cycle IP28
 - Added combat/vfx-facing cadence heartbeat surface via markdown token `TSDCAD24` (`O|W|A`) for one-glance 24h cadence risk status in lane guardrail digest.
+
+## 2026-04-02 15:58 KST
+- Added combat-facing offline shortlist adaptation note (`TSDPMFXVWCRITSPMBSAPN`) so posture drift can bias compact bridge emphasis (`PH/HP/ES`) during review loops.
+
+## 2026-04-02 16:08 KST
+- Game Director IP31 slice shipped combat/vfx-facing adaptive focus alias token `TSDPMFXVWCRITSPMBSAPF` (`PH|HP|ES`) derived from adaptive note intent.

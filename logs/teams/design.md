@@ -3424,3 +3424,9 @@
 - Follow-up: Injected Systems/QA parity assertion task + AI-content/design ultra-compact alias exploration task.
 ## 2026-04-02 15:49 KST — Cycle IP28
 - Added concise decode legend row `TSDCAD24 legend (O=OK, W=WATCH, A=ALERT)` for design/world readability parity in summary output.
+
+## 2026-04-02 15:58 KST
+- Design decode surface now includes adaptive shortlist note row `TSDPMFXVWCRITSPMBSAPN` to keep compact bridge aliases context-aware under posture drift.
+
+## 2026-04-02 16:08 KST
+- Added design/world decode legend for `TSDPMFXVWCRITSPMBSAPF` to keep adaptive shortlist meaning explicit in one-scan markdown output.

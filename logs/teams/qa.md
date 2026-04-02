@@ -5285,3 +5285,9 @@
   - `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
 ## 2026-04-02 15:49 KST — Cycle IP28
 - QA verification completed for cadence-24h slice: py_compile + regression suite + guardrail regen all green.
+
+## 2026-04-02 15:58 KST
+- QA regression now validates presence/order/parity for `TSDPMFXVWCRITSPMBSAPN` alongside shortlist and compact summary rows.
+
+## 2026-04-02 16:08 KST
+- Regression suite extended with ordering and row-parity checks for `TSDPMFXVWCRITSPMBSAPF` + decode legend.

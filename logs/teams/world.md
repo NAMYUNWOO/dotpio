@@ -3324,3 +3324,9 @@
 - Follow-up: Injected Systems/QA parity assertion task + AI-content/design ultra-compact alias exploration task.
 ## 2026-04-02 15:49 KST — Cycle IP28
 - Synced world-lane cadence readability by documenting `TSDCAD24` decode semantics and keeping the lane-summary copy deterministic.
+
+## 2026-04-02 15:58 KST
+- Kept bridge-summary readability chain deterministic by preserving `...MBS legend -> ...MBSA table -> ...MBSAP shortlist -> ...MBSAPN adaptive note` ordering before beat helper decode.
+
+## 2026-04-02 16:08 KST
+- World/design decode sequence updated with adaptive-focus alias legend before beat helper to preserve context continuity.

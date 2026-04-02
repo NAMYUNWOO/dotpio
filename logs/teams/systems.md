@@ -4770,3 +4770,10 @@
 - Follow-up queue: remaining highest-priority unchecked item is AI Content/Combat adaptive shortlist candidate note keyed by `TSDPMFXVWCRITSP` posture drift.
 ## 2026-04-02 15:49 KST — Cycle IP28
 - Added systems/ops action field `cadence24hOpsAction` (`hold cadence sweep|schedule missing bucket|force missing buckets next`) and rendered markdown ops-action row.
+
+## 2026-04-02 15:58 KST
+- Added new digest contract row `TSDPMFXVWCRITSPMBSAPN` (shortlist adaptive note) and wired decode-order assertion so it stays after `...MBSAP shortlist` and before `TSDPMFXVWCRITSB helper`.
+- Extended regression parity checks so `TSDPMFXVWCRITSPMBSAPN` row-count mirrors `TSDPMFXVWCRITSPMBSAP shortlist` across summary/token sections.
+
+## 2026-04-02 16:08 KST
+- Systems contract now includes adaptive-focus alias payload field `...UltraCompactShortlistAdaptiveNoteFocusAlias` sourced from adaptive note mapper.

@@ -3416,3 +3416,9 @@
 - Decision: Keep legend intentionally narrow (PNHC, HLPP, ELSN) as representative anchors while preserving compactness.
 - Evidence: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
 - Follow-up: Injected Systems/QA parity assertion task + AI-content/design ultra-compact alias exploration task.
+
+## 2026-04-02 15:58 KST
+- Implemented offline adaptive shortlist note token `TSDPMFXVWCRITSPMBSAPN` keyed by posture drift (`SURGE/HOLD/COOL`) to guide compact alias emphasis without runtime coupling.
+
+## 2026-04-02 16:08 KST
+- AI-content bridge output now yields secondary compact emphasis (`PH|HP|ES`) from posture-drift adaptive note without adding runtime coupling.

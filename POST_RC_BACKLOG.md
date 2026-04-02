@@ -22,7 +22,10 @@
 
 ## Next Up (Game Director Injection — Cycle IP30)
 - [x] Systems/QA Team (injected): Add fixture-level explicit parity assertion that `TSDPMFXVWCRITSPMBSAP shortlist` row count mirrors `TSDPMFXVWCRITSPMBS` under mixed-window fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-02 15:18 KST -> [x] completed: 2026-04-02 15:20 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Combat Team (injected): Prototype offline adaptive shortlist candidate note keyed by `TSDPMFXVWCRITSP` posture drift (`SURGE/HOLD/COOL`) without runtime coupling.
+- [x] AI Content/Combat Team (injected): Prototype offline adaptive shortlist candidate note keyed by `TSDPMFXVWCRITSP` posture drift (`SURGE/HOLD/COOL`) without runtime coupling. *(completed: 2026-04-02 15:58 KST; evidence: `TSDPMFXVWCRITSPMBSAPN` token + regression pass)*
+- [x] Game Director IP31 slice (combat/vfx + ux/design): Ship adaptive shortlist focus alias token `TSDPMFXVWCRITSPMBSAPF` plus decode legend from adaptive note output. *(completed: 2026-04-02 16:08 KST; evidence: payload + markdown + regression/order/parity checks)*
+- [ ] Systems/QA follow-up (injected): fixture-level domain lock for `TSDPMFXVWCRITSPMBSAPF` (`PH|HP|ES`) in mixed-window matrix.
+- [ ] Design/World follow-up (injected): adaptive-note drift-family helper token + DOS-width decode evaluation row for one-scan operator docs.
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP28)
 - Candidate ideas generated:

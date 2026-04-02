@@ -3584,3 +3584,9 @@
 - Decision: Keep legend intentionally narrow (PNHC, HLPP, ELSN) as representative anchors while preserving compactness.
 - Evidence: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
 - Follow-up: Injected Systems/QA parity assertion task + AI-content/design ultra-compact alias exploration task.
+
+## 2026-04-02 15:58 KST
+- UX compact shortlist flow extended with adaptive note row (`TSDPMFXVWCRITSPMBSAPN`) directly after shortlist, preserving one-scan readability sequence.
+
+## 2026-04-02 16:08 KST
+- Compact shortlist readability improved by surfacing `TSDPMFXVWCRITSPMBSAPF` immediately after adaptive note row.
