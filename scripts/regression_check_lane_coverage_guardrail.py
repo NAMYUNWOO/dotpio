@@ -357,15 +357,32 @@ def run_fixture_case(
     assert report.get("cadence24hRecoveryTriadPulsePaletteAlias") == "CV=SPARK|DW=ANCHOR|SO=LOCK", (
         f"{name}: cadence24hRecoveryTriadPulsePaletteAlias must stay deterministic"
     )
+    expected_cadence_24h_coverage_alias = (
+        f"CV{report.get('bucketCadence', {}).get('combat-or-vfx', {}).get('count', 0)}|"
+        f"DW{report.get('bucketCadence', {}).get('design-or-world', {}).get('count', 0)}|"
+        f"SO{report.get('bucketCadence', {}).get('systems-or-ops', {}).get('count', 0)}"
+    )
+    assert report.get("cadence24hRecoveryTriadCoverageAlias") == expected_cadence_24h_coverage_alias, (
+        f"{name}: cadence24hRecoveryTriadCoverageAlias must deterministically mirror cadence bucket counts"
+    )
     assert (
         "cadence 24h recovery triad pulse palette alias (combat/vfx): "
         "**TSDCAD24TRIP:CV=SPARK|DW=ANCHOR|SO=LOCK**"
         in md_text
     ), f"{name}: markdown output must include compact triad pulse palette alias row"
+    assert (
+        "cadence 24h recovery triad bucket coverage alias (systems/ops): "
+        f"**TSDCAD24TRICOV:{expected_cadence_24h_coverage_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad bucket coverage alias row"
     cadence_24h_triad_rows = md_text.count("**TSDCAD24TRI:")
     cadence_24h_triad_palette_rows = md_text.count("**TSDCAD24TRIP:CV=SPARK|DW=ANCHOR|SO=LOCK**")
+    cadence_24h_triad_coverage_rows = md_text.count("**TSDCAD24TRICOV:")
     assert cadence_24h_triad_palette_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRIP row count must match TSDCAD24TRI row count across sections"
+    )
+    assert cadence_24h_triad_coverage_rows == cadence_24h_triad_rows, (
+        f"{name}: TSDCAD24TRICOV row count must match TSDCAD24TRI row count across sections"
     )
     cadence_24h_lines = md_text.splitlines()
     cadence_24h_triad_indexes = [

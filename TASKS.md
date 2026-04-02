@@ -1,6 +1,14 @@
 # TASKS
 
-Last updated: 2026-04-02 21:41 KST
+Last updated: 2026-04-02 22:52 KST
+
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP36)
+- Candidate ideas generated:
+  - Low-risk Systems/Ops: add cadence-triad bucket coverage alias token (`TSDCAD24TRICOV`) so `CV/DW/SO` 24h counts are one-scan auditable beside `TSDCAD24TRI`.
+  - Mid-risk Design/World + Systems/QA: enforce deterministic adjacency/order so `TSDCAD24TRIP` is immediately followed by `TSDCAD24TRICOV` before triad plan text.
+  - High-risk AI Content/Combat: prototype adaptive cadence-triad pulse palette remap from multi-window bucket-age drift (offline-only).
+- Selected experiment: Idea 1 (low-risk Systems/Ops) minimal vertical slice.
+- [x] Systems/Ops + Systems/QA Team: Add cadence-triad bucket coverage alias token `TSDCAD24TRICOV:CV<n>|DW<n>|SO<n>` from `bucketCadence` counts and lock markdown/regression parity. *(lifecycle: [ ] -> [~] started: 2026-04-02 22:52 KST -> [x] completed: 2026-04-02 22:55 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP35)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.

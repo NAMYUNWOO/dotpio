@@ -1,3 +1,11 @@
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP36)
+- Candidate ideas generated:
+  - Low-risk Systems/Ops: add cadence-triad bucket coverage alias token (`TSDCAD24TRICOV`) for one-scan `CV/DW/SO` count visibility in guardrail digest.
+  - Mid-risk Design/World + Systems/QA: enforce adjacency lock (`TSDCAD24TRIP -> TSDCAD24TRICOV -> TSDCAD24TRI plan`) in both markdown sections.
+  - High-risk AI Content/Combat: prototype offline cadence pulse remap suggestion from bucket-age drift windows.
+- Selected experiment: Idea 1 (low-risk Systems/Ops) minimal vertical slice.
+- [x] Systems/Ops + Systems/QA Team: Add `TSDCAD24TRICOV:CV<n>|DW<n>|SO<n>` payload+markdown row from bucket counts and regression parity checks. *(lifecycle: [ ] -> [~] started: 2026-04-02 22:52 KST -> [x] completed: 2026-04-02 22:55 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP35)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
 - Forced-lane decision: cadence 24h buckets all missing, so this cycle explicitly recovered combat/vfx + design/world + systems/ops ordering.

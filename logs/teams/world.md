@@ -3387,3 +3387,7 @@
 ## 2026-04-02 22:23 KST
 - Confirmed cadence-readability flow now leads with recovery triad (`TSDCAD24TRI`) before health token (`TSDCAD24`) so world/design operators read action-order before status.
 - Preserved existing triad plan copy and decode rows; no semantic copy drift introduced.
+
+## 2026-04-02 22:56 KST
+- Cycle IP36: Added cadence-triad bucket coverage alias token `TSDCAD24TRICOV` (`CV<count>|DW<count>|SO<count>`) to lane guardrail payload/markdown; regression parity lock verified (py_compile + regression + report regen).
+- Follow-up: Keep triad cluster deterministic with `TSDCAD24TRI -> TSDCAD24 -> TSDCAD24TRIP -> TSDCAD24TRICOV -> plan` ordering in future slices.

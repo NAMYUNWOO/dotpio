@@ -3480,3 +3480,7 @@
 ## 2026-04-02 22:23 KST
 - Verified cadence token narrative remains reversible after order change: triad intent stays explicit and is now front-loaded before health status for quicker cognition.
 - No runtime behavior coupling added; change remains offline/report-only.
+
+## 2026-04-02 22:56 KST
+- Cycle IP36: Added cadence-triad bucket coverage alias token `TSDCAD24TRICOV` (`CV<count>|DW<count>|SO<count>`) to lane guardrail payload/markdown; regression parity lock verified (py_compile + regression + report regen).
+- Follow-up: Keep triad cluster deterministic with `TSDCAD24TRI -> TSDCAD24 -> TSDCAD24TRIP -> TSDCAD24TRICOV -> plan` ordering in future slices.

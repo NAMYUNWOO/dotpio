@@ -5356,3 +5356,7 @@
 ## 2026-04-02 22:23 KST
 - Added deterministic adjacency assertion for `TSDCAD24TRI` -> `TSDCAD24` indexes in regression suite (with row-count parity guard).
 - Verification bundle passed: py_compile + regression harness + guardrail artifact regeneration.
+
+## 2026-04-02 22:56 KST
+- Cycle IP36: Added cadence-triad bucket coverage alias token `TSDCAD24TRICOV` (`CV<count>|DW<count>|SO<count>`) to lane guardrail payload/markdown; regression parity lock verified (py_compile + regression + report regen).
+- Follow-up: Keep triad cluster deterministic with `TSDCAD24TRI -> TSDCAD24 -> TSDCAD24TRIP -> TSDCAD24TRICOV -> plan` ordering in future slices.

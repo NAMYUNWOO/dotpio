@@ -5122,3 +5122,8 @@ Compact decision memory for AI context efficiency.
 - Code changes: reordered cadence rows in `scripts/check_lane_coverage_guardrail.py` and added explicit adjacency assertions in `scripts/regression_check_lane_coverage_guardrail.py`.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for immediate Game Director cycle next run).
+
+## 2026-04-02 22:56 KST
+- Game Director Cycle IP36 shipped low-risk Systems/Ops vertical slice: cadence-triad bucket coverage alias `TSDCAD24TRICOV:CV<n>|DW<n>|SO<n>` now emitted in `check_lane_coverage_guardrail` payload and markdown.
+- Durable decision: treat `TSDCAD24TRICOV` as deterministic mirror of `bucketCadence` counts and keep row-count parity with `TSDCAD24TRI` across summary/token sections.
+- Verification remained green: `py_compile`, `scripts/regression_check_lane_coverage_guardrail.py`, and guardrail report regeneration.
