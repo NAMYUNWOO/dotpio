@@ -3262,3 +3262,8 @@
 - Cycle IP27 preserved combat rail stability: posture microcopy alias adjacency now explicitly anchored before beat token rows to reduce parser drift in `TSDPMFXVWCRITSB` neighborhood.
 - No combat tuning constants changed this cycle.
 - 2026-04-02 12:26 KST — Combat digest beat-decode ordering safeguarded by regression (`...SPMLEN -> ...SPMP -> TSDPMFXVWCRITSB legend`) to keep beat legend scans deterministic.
+
+## 2026-04-02 13:00 KST
+- Cycle IP27: completed offline posture-beat bridge microcopy vertical slice for lane guardrail (TSDPMFXVWCRITSPMB + TSDPMFXVWCRITSPMBA) with deterministic mapping from posture (TSDPMFXVWCRITSP*) + beat (TSDPMFXVWCRITSB*).
+- Verification: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py; python3 scripts/regression_check_lane_coverage_guardrail.py; python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md (PASS).
+- Follow-up: keep token/alias row-count parity enforced across summary + token sections; no runtime gameplay coupling introduced.
