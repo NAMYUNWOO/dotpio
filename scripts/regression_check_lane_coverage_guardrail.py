@@ -396,6 +396,8 @@ def run_fixture_case(
     expected_cadence_24h_coverage_spread_alias = (
         "STABLE" if cadence_spread <= 1 else ("SHIFT" if cadence_spread == 2 else "WIDE")
     )
+    cadence_24h_coverage_spread_trend = report.get("cadence24hRecoveryTriadCoverageSpreadTrend")
+    cadence_24h_coverage_spread_trend_alias = report.get("cadence24hRecoveryTriadCoverageSpreadTrendAlias")
     assert report.get("cadence24hRecoveryTriadCoverageAlias") == expected_cadence_24h_coverage_alias, (
         f"{name}: cadence24hRecoveryTriadCoverageAlias must deterministically mirror cadence bucket counts"
     )
@@ -404,6 +406,12 @@ def run_fixture_case(
     )
     assert report.get("cadence24hRecoveryTriadCoverageSpreadAlias") == expected_cadence_24h_coverage_spread_alias, (
         f"{name}: cadence24hRecoveryTriadCoverageSpreadAlias must deterministically mirror cadence bucket count spread"
+    )
+    assert cadence_24h_coverage_spread_trend in {"UP", "FLAT", "DOWN"}, (
+        f"{name}: cadence24hRecoveryTriadCoverageSpreadTrend must stay within UP|FLAT|DOWN domain"
+    )
+    assert cadence_24h_coverage_spread_trend_alias == {"UP": "U", "FLAT": "F", "DOWN": "D"}[cadence_24h_coverage_spread_trend], (
+        f"{name}: cadence24hRecoveryTriadCoverageSpreadTrendAlias must deterministically mirror spread-trend alias map"
     )
     assert (
         "cadence 24h recovery triad pulse palette alias (combat/vfx): "
@@ -425,11 +433,28 @@ def run_fixture_case(
         f"**TSDCAD24TRICOVS:{expected_cadence_24h_coverage_spread_alias}**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad coverage-spread alias row"
+    assert (
+        "cadence 24h recovery triad coverage spread trend (ai-content/combat): "
+        f"**TSDCAD24TRICOVST:{cadence_24h_coverage_spread_trend}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad coverage-spread trend row"
+    assert (
+        "cadence 24h recovery triad coverage spread trend alias (systems/qa): "
+        f"**TSDCAD24TRICOVSTA:{cadence_24h_coverage_spread_trend_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad coverage-spread trend alias row"
+    assert (
+        "cadence 24h recovery triad coverage spread trend decode (design/world): "
+        "**TSDCAD24TRICOVSTA legend (U=UP, F=FLAT, D=DOWN)**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad coverage-spread trend decode row"
     cadence_24h_triad_rows = md_text.count("**TSDCAD24TRI:")
     cadence_24h_triad_palette_rows = md_text.count("**TSDCAD24TRIP:CV=SPARK|DW=ANCHOR|SO=LOCK**")
     cadence_24h_triad_coverage_rows = md_text.count("**TSDCAD24TRICOV:")
     cadence_24h_triad_coverage_pressure_rows = md_text.count("**TSDCAD24TRICOVP:")
     cadence_24h_triad_coverage_spread_rows = md_text.count("**TSDCAD24TRICOVS:")
+    cadence_24h_triad_coverage_spread_trend_rows = md_text.count("**TSDCAD24TRICOVST:")
+    cadence_24h_triad_coverage_spread_trend_alias_rows = md_text.count("**TSDCAD24TRICOVSTA:")
     assert cadence_24h_triad_palette_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRIP row count must match TSDCAD24TRI row count across sections"
     )
@@ -441,6 +466,12 @@ def run_fixture_case(
     )
     assert cadence_24h_triad_coverage_spread_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRICOVS row count must match TSDCAD24TRI row count across sections"
+    )
+    assert cadence_24h_triad_coverage_spread_trend_rows == cadence_24h_triad_rows, (
+        f"{name}: TSDCAD24TRICOVST row count must match TSDCAD24TRI row count across sections"
+    )
+    assert cadence_24h_triad_coverage_spread_trend_alias_rows == cadence_24h_triad_rows, (
+        f"{name}: TSDCAD24TRICOVSTA row count must match TSDCAD24TRI row count across sections"
     )
     cadence_24h_lines = md_text.splitlines()
     cadence_24h_triad_indexes = [
@@ -454,6 +485,12 @@ def run_fixture_case(
     ]
     cadence_24h_coverage_spread_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVS:" in line
+    ]
+    cadence_24h_coverage_spread_trend_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVST:" in line
+    ]
+    cadence_24h_coverage_spread_trend_alias_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTA:" in line
     ]
     cadence_24h_triad_plan_indexes = [
         i
@@ -469,6 +506,12 @@ def run_fixture_case(
     assert len(cadence_24h_coverage_spread_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: TSDCAD24TRICOVS row count must match TSDCAD24TRI row count across sections"
     )
+    assert len(cadence_24h_coverage_spread_trend_indexes) == len(cadence_24h_triad_indexes), (
+        f"{name}: TSDCAD24TRICOVST row count must match TSDCAD24TRI row count across sections"
+    )
+    assert len(cadence_24h_coverage_spread_trend_alias_indexes) == len(cadence_24h_triad_indexes), (
+        f"{name}: TSDCAD24TRICOVSTA row count must match TSDCAD24TRI row count across sections"
+    )
     assert len(cadence_24h_triad_plan_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: cadence 24h recovery triad plan row count must match TSDCAD24TRI row count across sections"
     )
@@ -479,8 +522,14 @@ def run_fixture_case(
         assert cadence_24h_coverage_spread_indexes[cluster_i] == cadence_24h_coverage_pressure_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRICOVS immediately after TSDCAD24TRICOVP in both sections"
         )
-        assert cadence_24h_triad_plan_indexes[cluster_i] == cadence_24h_coverage_spread_indexes[cluster_i] + 1, (
-            f"{name}: cadence order must keep triad plan row immediately after TSDCAD24TRICOVS in both sections"
+        assert cadence_24h_coverage_spread_trend_indexes[cluster_i] == cadence_24h_coverage_spread_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVST immediately after TSDCAD24TRICOVS in both sections"
+        )
+        assert cadence_24h_coverage_spread_trend_alias_indexes[cluster_i] == cadence_24h_coverage_spread_trend_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVSTA immediately after TSDCAD24TRICOVST in both sections"
+        )
+        assert cadence_24h_triad_plan_indexes[cluster_i] == cadence_24h_coverage_spread_trend_alias_indexes[cluster_i] + 2, (
+            f"{name}: cadence order must keep triad plan row immediately after TSDCAD24TRICOVSTA decode row in both sections"
         )
 
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"

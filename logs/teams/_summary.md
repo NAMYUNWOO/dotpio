@@ -5153,3 +5153,13 @@ Compact decision memory for AI context efficiency.
 - Durable decision: triad observability cluster should read as count (`TRICOV`) -> pressure (`TRICOVP`) -> spread (`TRICOVS`) before plan text.
 - Verification passed (`py_compile`, `scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 - Queue status after injection: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2.
+## 2026-04-03 01:26 KST
+- Closed highest-priority unchecked injected backlog item (AI Content/Combat, Cycle IP38): introduced offline cadence spread trend token `TSDCAD24TRICOVST:UP|FLAT|DOWN` from current/prior triad spread-state transitions.
+- Durable decision: keep cadence triad order as `TSDCAD24TRICOVP -> TSDCAD24TRICOVS -> TSDCAD24TRICOVST -> cadence triad plan` to preserve pressure/spread/trend scan flow.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, and guardrail JSON/MD regeneration).
+## 2026-04-03 01:32 KST
+- Executed mandatory Game Director Cycle IP39 after ACTION_ITEMS/TASKS/POST_RC reached full-check state.
+- Shipped low-risk vertical slice: new spread-trend alias token `TSDCAD24TRICOVSTA:U|F|D` with decode row, mapped from `TSDCAD24TRICOVST` (`UP|FLAT|DOWN`).
+- Durable decision: keep cadence triad micro-order as `TSDCAD24TRICOVP -> TSDCAD24TRICOVS -> TSDCAD24TRICOVST -> TSDCAD24TRICOVSTA -> decode -> triad plan` for one-scan pressure+trend interpretation.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, and guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2.

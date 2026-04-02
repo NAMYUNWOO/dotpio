@@ -5377,3 +5377,5 @@
 - Added deterministic adjacency contract for cadence-triad spread row: `TSDCAD24TRICOVS` must sit directly between `TSDCAD24TRICOVP` and triad plan rows across both markdown sections.
 - Added row-count parity assertions for pressure/spread/plan rows against `TSDCAD24TRI` cluster count.
 - Verification pass: py_compile + guardrail regression + guardrail artifact regeneration.
+## 2026-04-03 01:26 KST
+- Extended regression coverage for `TSDCAD24TRICOVST` domain, markdown presence, row-count parity, and strict adjacency before triad plan in both sections.

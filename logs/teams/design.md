@@ -3507,3 +3507,5 @@
 ## 2026-04-03 00:55 KST
 - Design/readability contract tightened: cadence-triad spread signal now guaranteed to remain contiguous with pressure+plan rows for one-scan decoding.
 - Decision: keep contiguous order as a non-optional readability invariant in both summary and token-coverage blocks.
+## 2026-04-03 01:26 KST
+- Preserved cadence triad readability order while adding spread-trend row: `TSDCAD24TRICOVP -> TSDCAD24TRICOVS -> TSDCAD24TRICOVST -> triad plan`.

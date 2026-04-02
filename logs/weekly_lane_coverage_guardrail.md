@@ -14,6 +14,9 @@
 - cadence 24h recovery triad bucket coverage alias (systems/ops): **TSDCAD24TRICOV:CV0|DW0|SO0**
 - cadence 24h recovery triad coverage pressure alias (systems/ops): **TSDCAD24TRICOVP:GAP**
 - cadence 24h recovery triad coverage spread alias (design/world): **TSDCAD24TRICOVS:STABLE**
+- cadence 24h recovery triad coverage spread trend (ai-content/combat): **TSDCAD24TRICOVST:FLAT**
+- cadence 24h recovery triad coverage spread trend alias (systems/qa): **TSDCAD24TRICOVSTA:F**
+- cadence 24h recovery triad coverage spread trend decode (design/world): **TSDCAD24TRICOVSTA legend (U=UP, F=FLAT, D=DOWN)**
 - cadence 24h recovery triad plan (design/world): **combat spark -> world anchor -> systems lock**
 - trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 - trend-score band snapshot alias: **TSSB:C0E0H0**

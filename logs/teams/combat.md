@@ -3388,3 +3388,5 @@
 
 ## 2026-04-03 00:55 KST
 - Combat lane unchanged in this Systems/QA adjacency slice; cadence-triad ordering now preserves a stable hook for future combat/vfx spread-trend interpretation.
+## 2026-04-03 01:26 KST
+- Wired combat-facing cadence copy row `TSDCAD24TRICOVST` into markdown output so spread acceleration/deceleration is visible as UP/FLAT/DOWN.

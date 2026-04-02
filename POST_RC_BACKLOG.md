@@ -1,3 +1,15 @@
+## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP39)
+- Candidate ideas generated:
+  - Low-risk Systems/QA + UX: add compact spread-trend alias token (`TSDCAD24TRICOVSTA:U|F|D`) with decode row for one-glance cadence drift reads.
+  - Mid-risk Systems/QA + Design/World: enforce strict adjacency `TSDCAD24TRICOVST -> TSDCAD24TRICOVSTA -> decode -> triad plan` across summary/token sections.
+  - High-risk AI Content/Combat: prototype offline spread-trend confidence score from multi-window spread deltas.
+- Selected experiment: Idea 1 (low-risk Systems/QA + UX) minimal vertical slice.
+- [x] Systems/QA + UX Team: Add `TSDCAD24TRICOVSTA` payload+markdown alias row (`UP|FLAT|DOWN -> U|F|D`) plus decode copy and regression parity/order locks. *(lifecycle: [ ] -> [~] started: 2026-04-03 01:27 KST -> [x] completed: 2026-04-03 01:32 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP39)
+- [ ] Systems/QA Team (injected): Add explicit row-count assertion that `TSDCAD24TRICOVSTA legend` count mirrors `TSDCAD24TRICOVSTA` in both summary/token sections.
+- [ ] AI Content/Combat Team (injected): Prototype offline spread-trend confidence tag (`TSDCAD24TRICOVSTC:LOW|MID|HIGH`) from recent `TSDCAD24TRICOVST` churn windows.
+
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP38)
 - Candidate ideas generated:
   - Low-risk Systems/Ops + Design/World: add cadence-triad spread alias token (`TSDCAD24TRICOVS:STABLE|SHIFT|WIDE`) so bucket imbalance severity is one-scan visible beside coverage pressure.
@@ -8,7 +20,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP38)
 - [x] Systems/QA Team (injected): Add deterministic adjacency assertion that `TSDCAD24TRICOVS` stays between `TSDCAD24TRICOVP` and `TSDCAD24TRI plan` in both summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 00:53 KST -> [x] completed: 2026-04-03 00:55 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Combat Team (injected): Prototype offline cadence spread trend token (`TSDCAD24TRICOVST:UP|FLAT|DOWN`) from current/prior spread-state transitions without runtime coupling.
+- [x] AI Content/Combat Team (injected): Prototype offline cadence spread trend token (`TSDCAD24TRICOVST:UP|FLAT|DOWN`) from current/prior spread-state transitions without runtime coupling. *(lifecycle: [ ] -> [~] started: 2026-04-03 01:19 KST -> [x] completed: 2026-04-03 01:26 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP37)
 - Candidate ideas generated:
@@ -62,8 +74,8 @@
 - [x] Systems/Ops + Design/World + Systems/QA Team: Add `TSDCAD24TRICOVS` payload+markdown row from triad bucket count spread (`<=1:STABLE`, `2:SHIFT`, `>=3:WIDE`) and extend regression parity coverage. *(lifecycle: [ ] -> [~] started: 2026-04-03 00:23 KST -> [x] completed: 2026-04-03 00:28 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP38)
-- [ ] Systems/QA Team (injected): Add deterministic adjacency assertion that `TSDCAD24TRICOVS` stays between `TSDCAD24TRICOVP` and `TSDCAD24TRI plan` in both summary/token sections.
-- [ ] AI Content/Combat Team (injected): Prototype offline cadence spread trend token (`TSDCAD24TRICOVST:UP|FLAT|DOWN`) from current/prior spread-state transitions without runtime coupling.
+- [x] Systems/QA Team (injected): Add deterministic adjacency assertion that `TSDCAD24TRICOVS` stays between `TSDCAD24TRICOVP` and `TSDCAD24TRI plan` in both summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 00:53 KST -> [x] completed: 2026-04-03 00:55 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [x] AI Content/Combat Team (injected): Prototype offline cadence spread trend token (`TSDCAD24TRICOVST:UP|FLAT|DOWN`) from current/prior spread-state transitions without runtime coupling. *(lifecycle: [ ] -> [~] started: 2026-04-03 01:19 KST -> [x] completed: 2026-04-03 01:26 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP33)
 - Candidate ideas generated:

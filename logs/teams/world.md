@@ -3407,3 +3407,5 @@
 ## 2026-04-03 00:55 KST
 - World-facing cadence digest readability maintained by locking `TRICOVP -> TRICOVS -> plan` adjacency in regression.
 - Follow-up remains open in backlog: spread trend token prototype (`TSDCAD24TRICOVST`).
+## 2026-04-03 01:26 KST
+- Updated cadence triad summary block to include spread-trend context between spread alias and triad plan for world/design operator narrative continuity.
