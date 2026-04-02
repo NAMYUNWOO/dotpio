@@ -1,3 +1,9 @@
+## 2026-04-03 05:19 KST
+- Closed highest-priority unchecked POST_RC item (Cycle IP42, Systems/QA): fixture parity now explicitly requires `TSDCAD24TRICOVSTCMSV legend` row count to mirror `TSDCAD24TRICOVSTCMSV` row count across summary + token sections.
+- Durable decision: for cadence cue families, decode legend parity should bind to the exact cue token family (not upstream proxy rows) to avoid false positives when clusters evolve independently.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next item: AI Content/Combat hysteresis advisory token `STEADY|SWING` from `TSDCAD24TRICOVSTCMSV`).
+
 ## 2026-04-03 00:55 KST
 - Closed highest-priority unchecked POST_RC item (Cycle IP38, Systems/QA): regression now enforces strict adjacency `TSDCAD24TRICOVP -> TSDCAD24TRICOVS -> cadence 24h recovery triad plan` in both summary and token-coverage sections.
 - Durable decision: treat cadence spread severity (`TSDCAD24TRICOVS`) as a context-bound row that must remain immediately coupled to pressure + plan to preserve one-scan operator readability.

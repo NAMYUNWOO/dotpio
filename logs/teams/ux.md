@@ -1,5 +1,8 @@
 # UX Team Log
 
+## 2026-04-03 05:19 KST
+- UX audit note: legend parity for `TSDCAD24TRICOVSTCMSV` now anchors to the cue token row itself, improving scan predictability when dense cadence clusters are partially shown.
+
 ## 2026-04-02 17:48 KST
 - UX pass: cadence-24h ops action copy is now more actionable and lane-specific while keeping deterministic phrasing stable for repeated scans and tooling diffs.
 

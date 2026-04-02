@@ -1,5 +1,10 @@
 # Systems Team Log
 
+## 2026-04-03 05:19 KST
+- Closed injected Systems/QA item for Cycle IP42 by tightening fixture parity target: `TSDCAD24TRICOVSTCMSV legend` now must mirror `TSDCAD24TRICOVSTCMSV` row count directly (not upstream score rows).
+- Updated both global row-count parity assertions and per-section index parity assertions in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-02 18:51 KST
 - Closed injected Systems/QA POST_RC item by locking deterministic payload-shape assertion for `...AdaptiveFocusAliasDecodeEvaluation` in `scripts/regression_check_lane_coverage_guardrail.py`.
 - Regression now enforces exact object contract: `baseline|compact|baselineLen|compactLen|dosWidthLimit|preferred|status` with fixed values (`baselineLen=77`, `compactLen=8`, `status=WARN`) to prevent schema/value drift.

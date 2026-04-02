@@ -1,5 +1,8 @@
 # Combat Team Log
 
+## 2026-04-03 05:19 KST
+- Combat/VFX cadence cue contract hardened indirectly: regression now requires `TSDCAD24TRICOVSTCMSV legend` count to mirror `TSDCAD24TRICOVSTCMSV` cue rows, preventing hidden legend drift under mixed-window fixtures.
+
 ## 2026-04-02 17:48 KST
 - Confirmed combat/vfx cadence gets first dispatch priority when missing (`force combat-or-vfx bucket next`), preserving existing escalation intent while improving operator clarity.
 

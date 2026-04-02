@@ -1,5 +1,9 @@
 # Design Team Log
 
+## 2026-04-03 05:19 KST
+- Design readability contract updated: `TSDCAD24TRICOVSTCMSV legend` parity now follows its sibling cue token (`...STCMSV`) instead of broader triad row counts.
+- Expected impact: decode rows remain semantically coupled to visible cue rails in both summary and token sections.
+
 ## 2026-04-02 17:48 KST
 - Added/validated explicit design/world-targeted cadence action phrasing for missing bucket routing (`force design-or-world bucket next`) to improve one-scan readability in guardrail output.
 

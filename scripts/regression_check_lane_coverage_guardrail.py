@@ -627,9 +627,9 @@ def run_fixture_case(
     )
     assert (
         cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_legend_rows
-        == cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_rows
+        == cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_rows
     ), (
-        f"{name}: TSDCAD24TRICOVSTCMSV legend row count must match TSDCAD24TRICOVSTCMS row count across sections"
+        f"{name}: TSDCAD24TRICOVSTCMSV legend row count must match TSDCAD24TRICOVSTCMSV row count across sections"
     )
     assert (
         cadence_24h_triad_coverage_spread_trend_confidence_momentum_alias_legend_rows
@@ -754,9 +754,9 @@ def run_fixture_case(
         f"{name}: TSDCAD24TRICOVSTCMSLEN row count must match TSDCAD24TRI row count across sections"
     )
     assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_legend_indexes) == len(
-        cadence_24h_triad_indexes
+        cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_indexes
     ), (
-        f"{name}: TSDCAD24TRICOVSTCMSV legend row count must match TSDCAD24TRI row count across sections"
+        f"{name}: TSDCAD24TRICOVSTCMSV legend row count must match TSDCAD24TRICOVSTCMSV row count across sections"
     )
     assert len(cadence_24h_triad_plan_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: cadence 24h recovery triad plan row count must match TSDCAD24TRI row count across sections"

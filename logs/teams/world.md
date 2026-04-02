@@ -1,5 +1,8 @@
 # World Team Log
 
+## 2026-04-03 05:19 KST
+- World/design decode cluster check: `TSDCAD24TRICOVSTCMSV legend` parity is now explicitly tied to the `TSDCAD24TRICOVSTCMSV` cue row, preserving one-scan decode fidelity when cue rows are toggled.
+
 ## 2026-04-02 17:48 KST
 - Reviewed cadence dispatch copy impact: bucket-specific action strings now explicitly call out world/design cadence when `design-or-world` is the highest-priority missing bucket.
 
