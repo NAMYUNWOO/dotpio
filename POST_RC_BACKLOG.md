@@ -1,5 +1,17 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP33)
+- Candidate ideas generated:
+  - Low-risk AI Content/Design: add deterministic adaptive-focus preference A/B sweep seed token to keep upcoming readability experiments reproducible (`TSDPMFXVWCRITSPMBSAPFPAB`).
+  - Mid-risk Systems/QA: lock decode-order adjacency so adaptive-focus preference rows stay `...APF legend -> ...APFP -> ...APFPAB -> ...APFLEN`.
+  - High-risk Combat/UX: prototype posture-drift responsive live focus rotation policy for adaptive alias selection (offline-only).
+- Selected experiment: Idea 1 (low-risk AI Content/Design) minimal vertical slice.
+- [x] AI Content/Design + Systems/QA Team: Add adaptive-focus preference A/B sweep seed token `TSDPMFXVWCRITSPMBSAPFPAB:A=PH|B=HP|C=ES` with payload wiring + deterministic order/parity regression coverage. *(lifecycle: [ ] -> [~] started: 2026-04-02 19:20 KST -> [x] completed: 2026-04-02 19:22 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP33)
+- [ ] Systems/QA Team (injected): Add fixture-level payload parity assertion that `...AdaptiveFocusAliasPreferenceAbSweep` remains `A=PH|B=HP|C=ES` across mixed-window fixtures and markdown sections.
+- [ ] Design/UX Team (injected): Prototype compact readability pilot token that maps `A/B/C` sweep slots to short operator labels for future human A/B review sessions.
+
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP32)
 - Candidate ideas generated:
   - Low-risk Design/World: add DOS-width decode evaluation token for adaptive focus alias legend (`TSDPMFXVWCRITSPMBSAPFLEN`) to keep shortlist alias docs one-scan auditable.
@@ -10,7 +22,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP32)
 - [x] Systems/QA Team (injected): Lock deterministic payload-shape assertion for `...AdaptiveFocusAliasDecodeEvaluation` (`baseline|compact|baselineLen|compactLen|dosWidthLimit|preferred|status`) in regression. *(lifecycle: [ ] -> [~] started: 2026-04-02 18:49 KST -> [x] completed: 2026-04-02 18:51 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
-- [ ] AI Content/Design Team (injected): Prototype ultra-compact adaptive-focus decode alias helper row (`PH|HP|ES`) with explicit preference token for future A/B readability sweep.
+- [x] AI Content/Design Team (injected): Prototype ultra-compact adaptive-focus decode alias helper row (`PH|HP|ES`) with explicit preference token for future A/B readability sweep. *(lifecycle: [ ] -> [~] started: 2026-04-02 19:17 KST -> [x] completed: 2026-04-02 19:20 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP29)
 - Candidate ideas generated:

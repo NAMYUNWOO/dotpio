@@ -284,6 +284,12 @@ def run_fixture_case(
         "preferred": "COMPACT",
         "status": "WARN",
     }, f"{name}: adaptive-focus alias decode evaluation payload must keep deterministic baseline/compact shape + DOS-width signal contract"
+    assert report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasPreferenceToken"
+    ) in {"PH", "HP", "ES"}, f"{name}: adaptive-focus alias preference token must stay within PH|HP|ES"
+    assert report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasPreferenceAbSweep"
+    ) == "A=PH|B=HP|C=ES", f"{name}: adaptive-focus alias A/B sweep seed must remain deterministic"
 
     md_text = md_out.read_text(encoding="utf-8")
     cadence_24h_health = report.get("cadence24hHealth")
@@ -1933,6 +1939,14 @@ def run_fixture_case(
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat shortlist adaptive focus alias decode (design/world): "
         "**TSDPMFXVWCRITSPMBSAPF legend (PH=push now/hard crack, HP=hold lane/pressure poke, ES=ease lane/steady nudge)**"
     )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_token_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat shortlist adaptive focus alias preference token (ai-content/design, offline): "
+        "**TSDPMFXVWCRITSPMBSAPFP:"
+    )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_sweep_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat shortlist adaptive focus alias A/B sweep seed (ai-content/design, offline): "
+        "**TSDPMFXVWCRITSPMBSAPFPAB:A=PH|B=HP|C=ES**"
+    )
     urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_decode_eval_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat shortlist adaptive focus alias decode dos-width eval (design/world): "
         "**TSDPMFXVWCRITSPMBSAPFLEN:"
@@ -2093,10 +2107,12 @@ def run_fixture_case(
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_note_helper_eval_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_decode_idx
+        < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_token_idx
+        < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_sweep_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_decode_eval_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_ladder_decode_idx
     ), (
-        f"{name}: urgency cluster decode order must keep `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN -> TSDPMFXVWCRITSPMBS -> TSDPMFXVWCRITSPMBS legend -> TSDPMFXVWCRITSPMBSA table -> TSDPMFXVWCRITSPMBSAP shortlist -> TSDPMFXVWCRITSPMBSAPN -> TSDPMFXVWCRITSPMBSAPN helper -> TSDPMFXVWCRITSPMBSAPNLEN -> TSDPMFXVWCRITSPMBSAPF -> TSDPMFXVWCRITSPMBSAPF legend -> TSDPMFXVWCRITSPMBSAPFLEN` before `TSDPMFXVWCRITSB helper`"
+        f"{name}: urgency cluster decode order must keep `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN -> TSDPMFXVWCRITSPMBS -> TSDPMFXVWCRITSPMBS legend -> TSDPMFXVWCRITSPMBSA table -> TSDPMFXVWCRITSPMBSAP shortlist -> TSDPMFXVWCRITSPMBSAPN -> TSDPMFXVWCRITSPMBSAPN helper -> TSDPMFXVWCRITSPMBSAPNLEN -> TSDPMFXVWCRITSPMBSAPF -> TSDPMFXVWCRITSPMBSAPF legend -> TSDPMFXVWCRITSPMBSAPFP -> TSDPMFXVWCRITSPMBSAPFPAB -> TSDPMFXVWCRITSPMBSAPFLEN` before `TSDPMFXVWCRITSB helper`"
     )
     fx_urgency_row_count = md_text.count("**TSDPMFXU:")
     fx_urgency_confidence_row_count = md_text.count("**TSDPMFXUC:")
@@ -2144,11 +2160,17 @@ def run_fixture_case(
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_note_helper_eval_row_count = md_text.count("**TSDPMFXVWCRITSPMBSAPNLEN:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_row_count = md_text.count("**TSDPMFXVWCRITSPMBSAPF:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_decode_row_count = md_text.count("**TSDPMFXVWCRITSPMBSAPF legend")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_token_row_count = md_text.count("**TSDPMFXVWCRITSPMBSAPFP:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_sweep_row_count = md_text.count("**TSDPMFXVWCRITSPMBSAPFPAB:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_decode_eval_row_count = md_text.count("**TSDPMFXVWCRITSPMBSAPFLEN:")
     adaptive_focus_alias_matches = re.findall(r"\*\*TSDPMFXVWCRITSPMBSAPF:([A-Z]+)\*\*", md_text)
+    adaptive_focus_alias_preference_matches = re.findall(r"\*\*TSDPMFXVWCRITSPMBSAPFP:([A-Z]+)\*\*", md_text)
     assert adaptive_focus_alias_matches and all(
         alias in {"PH", "HP", "ES"} for alias in adaptive_focus_alias_matches
     ), f"{name}: `TSDPMFXVWCRITSPMBSAPF` domain must stay within PH|HP|ES"
+    assert adaptive_focus_alias_preference_matches and all(
+        alias in {"PH", "HP", "ES"} for alias in adaptive_focus_alias_preference_matches
+    ), f"{name}: `TSDPMFXVWCRITSPMBSAPFP` domain must stay within PH|HP|ES"
     assert fx_urgency_confidence_trend_alias_row_count == fx_urgency_confidence_trend_row_count, (
         f"{name}: `TSDPMFXUCTA` row count ({fx_urgency_confidence_trend_alias_row_count}) must mirror "
         f"`TSDPMFXUCT` row count ({fx_urgency_confidence_trend_row_count}) across summary + token sections"
@@ -2418,6 +2440,20 @@ def run_fixture_case(
         == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_row_count
     ), (
         f"{name}: `TSDPMFXVWCRITSPMBSAPF legend` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_decode_row_count}) must mirror "
+        f"`TSDPMFXVWCRITSPMBSAPF` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_row_count}) across summary + token sections"
+    )
+    assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_token_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRITSPMBSAPFP` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_token_row_count}) must mirror "
+        f"`TSDPMFXVWCRITSPMBSAPF` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_row_count}) across summary + token sections"
+    )
+    assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_sweep_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRITSPMBSAPFPAB` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_sweep_row_count}) must mirror "
         f"`TSDPMFXVWCRITSPMBSAPF` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_row_count}) across summary + token sections"
     )
     assert (

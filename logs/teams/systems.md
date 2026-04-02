@@ -4804,3 +4804,7 @@
 ## 2026-04-02 18:25 KST
 - Cycle IP32 shipped: added adaptive-focus alias decode DOS-width eval token row `TSDPMFXVWCRITSPMBSAPFLEN` and regression order/parity lock covering `...APF -> ...APF legend -> ...APFLEN`.
 - Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
+
+## 2026-04-02 19:22 KST — Systems/QA contract extension for adaptive-focus preference
+- Extended report schema with `...AdaptiveFocusAliasPreferenceToken` and `...AdaptiveFocusAliasPreferenceAbSweep` to keep preference planning deterministic.
+- Regression now locks row order/parity/domain for `TSDPMFXVWCRITSPMBSAPFP` + `TSDPMFXVWCRITSPMBSAPFPAB`.

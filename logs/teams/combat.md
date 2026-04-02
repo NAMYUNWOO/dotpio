@@ -3334,3 +3334,7 @@
 ## 2026-04-02 18:25 KST
 - Cycle IP32 shipped: added adaptive-focus alias decode DOS-width eval token row `TSDPMFXVWCRITSPMBSAPFLEN` and regression order/parity lock covering `...APF -> ...APF legend -> ...APFLEN`.
 - Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
+
+## 2026-04-02 19:22 KST — Combat lane note (offline-only)
+- Adaptive-focus preference enhancements remain report-only (`PH|HP|ES` tokens + A/B seed) and do not alter combat behavior.
+- Future combat-facing experiments can consume deterministic A/B slot mapping without runtime coupling.

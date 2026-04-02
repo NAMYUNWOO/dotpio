@@ -3451,3 +3451,7 @@
 ## 2026-04-02 18:25 KST
 - Cycle IP32 shipped: added adaptive-focus alias decode DOS-width eval token row `TSDPMFXVWCRITSPMBSAPFLEN` and regression order/parity lock covering `...APF -> ...APF legend -> ...APFLEN`.
 - Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
+
+## 2026-04-02 19:22 KST — Adaptive-focus preference token closure
+- Closed injected IP32 backlog item by adding explicit preference token row `TSDPMFXVWCRITSPMBSAPFP` and deterministic A/B sweep seed row `TSDPMFXVWCRITSPMBSAPFPAB`.
+- Durable decision: preserve decode adjacency as `...APF legend -> ...APFP -> ...APFPAB -> ...APFLEN` for one-scan readability audits.

@@ -3351,3 +3351,7 @@
 ## 2026-04-02 18:25 KST
 - Cycle IP32 shipped: added adaptive-focus alias decode DOS-width eval token row `TSDPMFXVWCRITSPMBSAPFLEN` and regression order/parity lock covering `...APF -> ...APF legend -> ...APFLEN`.
 - Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
+
+## 2026-04-02 19:22 KST — World/readability context sync
+- World/design decode rail remains contiguous with new adaptive-focus preference rows inserted before DOS-width eval token.
+- No map/runtime changes; documentation rail updated for operator scan consistency.

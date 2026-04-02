@@ -3443,3 +3443,8 @@
 ## 2026-04-02 18:25 KST
 - Cycle IP32 shipped: added adaptive-focus alias decode DOS-width eval token row `TSDPMFXVWCRITSPMBSAPFLEN` and regression order/parity lock covering `...APF -> ...APF legend -> ...APFLEN`.
 - Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
+
+## 2026-04-02 19:22 KST — Cycle IP33 adaptive-focus A/B sweep seed
+- Completed low-risk AI Content/Design slice: added deterministic adaptive-focus preference sweep seed token `TSDPMFXVWCRITSPMBSAPFPAB:A=PH|B=HP|C=ES` to weekly guardrail payload + markdown.
+- Kept scope offline-only and reversible; no runtime combat logic coupling.
+- Follow-up: use A/B slot seed when readability pilot rows are introduced.

@@ -3611,3 +3611,7 @@
 ## 2026-04-02 18:25 KST
 - Cycle IP32 shipped: added adaptive-focus alias decode DOS-width eval token row `TSDPMFXVWCRITSPMBSAPFLEN` and regression order/parity lock covering `...APF -> ...APF legend -> ...APFLEN`.
 - Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
+
+## 2026-04-02 19:22 KST — UX readability prep for adaptive-focus A/B
+- Digest now surfaces explicit adaptive-focus preference token and fixed A/B seed row (`A=PH|B=HP|C=ES`) to support upcoming readability pilot comparisons.
+- Follow-up queued: compact operator-facing A/B slot labels for future review sessions.
