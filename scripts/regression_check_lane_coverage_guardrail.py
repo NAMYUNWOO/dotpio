@@ -290,6 +290,9 @@ def run_fixture_case(
     assert report.get(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasPreferenceAbSweep"
     ) == "A=PH|B=HP|C=ES", f"{name}: adaptive-focus alias A/B sweep seed must remain deterministic"
+    assert report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasPreferenceAbLabelPilot"
+    ) == "A=PN|B=HL|C=EZ", f"{name}: adaptive-focus alias A/B pilot labels must remain deterministic"
 
     md_text = md_out.read_text(encoding="utf-8")
     cadence_24h_health = report.get("cadence24hHealth")
@@ -1947,6 +1950,10 @@ def run_fixture_case(
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat shortlist adaptive focus alias A/B sweep seed (ai-content/design, offline): "
         "**TSDPMFXVWCRITSPMBSAPFPAB:A=PH|B=HP|C=ES**"
     )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_label_pilot_idx = md_text.find(
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat shortlist adaptive focus alias A/B pilot labels (design/ux, offline): "
+        "**TSDPMFXVWCRITSPMBSAPFPABL:A=PN|B=HL|C=EZ**"
+    )
     urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_decode_eval_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat shortlist adaptive focus alias decode dos-width eval (design/world): "
         "**TSDPMFXVWCRITSPMBSAPFLEN:"
@@ -2109,10 +2116,11 @@ def run_fixture_case(
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_decode_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_token_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_sweep_idx
+        < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_label_pilot_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_decode_eval_idx
         < urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_ladder_decode_idx
     ), (
-        f"{name}: urgency cluster decode order must keep `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN -> TSDPMFXVWCRITSPMBS -> TSDPMFXVWCRITSPMBS legend -> TSDPMFXVWCRITSPMBSA table -> TSDPMFXVWCRITSPMBSAP shortlist -> TSDPMFXVWCRITSPMBSAPN -> TSDPMFXVWCRITSPMBSAPN helper -> TSDPMFXVWCRITSPMBSAPNLEN -> TSDPMFXVWCRITSPMBSAPF -> TSDPMFXVWCRITSPMBSAPF legend -> TSDPMFXVWCRITSPMBSAPFP -> TSDPMFXVWCRITSPMBSAPFPAB -> TSDPMFXVWCRITSPMBSAPFLEN` before `TSDPMFXVWCRITSB helper`"
+        f"{name}: urgency cluster decode order must keep `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN -> TSDPMFXVWCRITSPMBS -> TSDPMFXVWCRITSPMBS legend -> TSDPMFXVWCRITSPMBSA table -> TSDPMFXVWCRITSPMBSAP shortlist -> TSDPMFXVWCRITSPMBSAPN -> TSDPMFXVWCRITSPMBSAPN helper -> TSDPMFXVWCRITSPMBSAPNLEN -> TSDPMFXVWCRITSPMBSAPF -> TSDPMFXVWCRITSPMBSAPF legend -> TSDPMFXVWCRITSPMBSAPFP -> TSDPMFXVWCRITSPMBSAPFPAB -> TSDPMFXVWCRITSPMBSAPFPABL -> TSDPMFXVWCRITSPMBSAPFLEN` before `TSDPMFXVWCRITSB helper`"
     )
     fx_urgency_row_count = md_text.count("**TSDPMFXU:")
     fx_urgency_confidence_row_count = md_text.count("**TSDPMFXUC:")
@@ -2162,6 +2170,7 @@ def run_fixture_case(
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_decode_row_count = md_text.count("**TSDPMFXVWCRITSPMBSAPF legend")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_token_row_count = md_text.count("**TSDPMFXVWCRITSPMBSAPFP:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_sweep_row_count = md_text.count("**TSDPMFXVWCRITSPMBSAPFPAB:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_label_pilot_row_count = md_text.count("**TSDPMFXVWCRITSPMBSAPFPABL:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_decode_eval_row_count = md_text.count("**TSDPMFXVWCRITSPMBSAPFLEN:")
     adaptive_focus_alias_matches = re.findall(r"\*\*TSDPMFXVWCRITSPMBSAPF:([A-Z]+)\*\*", md_text)
     adaptive_focus_alias_preference_matches = re.findall(r"\*\*TSDPMFXVWCRITSPMBSAPFP:([A-Z]+)\*\*", md_text)
@@ -2457,6 +2466,13 @@ def run_fixture_case(
         f"`TSDPMFXVWCRITSPMBSAPF` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_row_count}) across summary + token sections"
     )
     assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_label_pilot_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRITSPMBSAPFPABL` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_label_pilot_row_count}) must mirror "
+        f"`TSDPMFXVWCRITSPMBSAPF` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_row_count}) across summary + token sections"
+    )
+    assert (
         fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_decode_eval_row_count
         == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_row_count
     ), (
@@ -2551,6 +2567,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbsapfRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_row_count,
         "tsdpmfxvwcritspmbsapfpRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_token_row_count,
         "tsdpmfxvwcritspmbsapfpabRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_sweep_row_count,
+        "tsdpmfxvwcritspmbsapfpablRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_ab_label_pilot_row_count,
         "tsdpmfxvwcritspmRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_microcopy_row_count,
         "tsdpmfxvwcritspmaRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_microcopy_alias_row_count,
         "tsdpmfxvwcritsbRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_row_count,
@@ -2644,6 +2661,7 @@ def main() -> int:
                 int(balanced_tie_result["tsdpmfxvwcritspmbsapfRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbsapfpRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbsapfpabRowCount"]),
+                int(balanced_tie_result["tsdpmfxvwcritspmbsapfpablRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritsbRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritsbaRowCount"]),
             )
@@ -2705,6 +2723,7 @@ def main() -> int:
                 int(ready_mix_result["tsdpmfxvwcritspmbsapfRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbsapfpRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbsapfpabRowCount"]),
+                int(ready_mix_result["tsdpmfxvwcritspmbsapfpablRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritsbRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritsbaRowCount"]),
             )
@@ -2897,6 +2916,7 @@ def main() -> int:
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbsapfRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbsapfpRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbsapfpabRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxvwcritspmbsapfpablRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritsbRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritsbaRowCount"]),
             )
@@ -2957,6 +2977,7 @@ def main() -> int:
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbsapfRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbsapfpRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbsapfpabRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxvwcritspmbsapfpablRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritsbRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritsbaRowCount"]),
             )
@@ -2984,6 +3005,7 @@ def main() -> int:
             == tsdpmfxvwcritspmbsapf_count
             == tsdpmfxvwcritspmbsapfp_count
             == tsdpmfxvwcritspmbsapfpab_count
+            == tsdpmfxvwcritspmbsapfpabl_count
             == tsdpmfxvwcritsb_count
             == tsdpmfxvwcritsba_count
             for (
@@ -3008,12 +3030,13 @@ def main() -> int:
                 tsdpmfxvwcritspmbsapf_count,
                 tsdpmfxvwcritspmbsapfp_count,
                 tsdpmfxvwcritspmbsapfpab_count,
+                tsdpmfxvwcritspmbsapfpabl_count,
                 tsdpmfxvwcritsb_count,
                 tsdpmfxvwcritsba_count,
             )
             in mixed_window_tsdpmfx_pulse_parity
         ), (
-            "mixed-window fixture matrix must keep TSDPMFXUCTSBT/TSDPMFXUCTSBTA/TSDPMFXUCTSBTC/TSDPMFXV/TSDPMFXVA/TSDPMFXVWCR/TSDPMFXVWCRA/TSDPMFXVWCRI/TSDPMFXVWCRIA/TSDPMFXVWCRIT/TSDPMFXVWCRITA/TSDPMFXVWCRITS/TSDPMFXVWCRITSP/TSDPMFXVWCRITSPA/TSDPMFXVWCRITSPMB/TSDPMFXVWCRITSPMBS/TSDPMFXVWCRITSPMBSAPN/TSDPMFXVWCRITSPMBSAPF/TSDPMFXVWCRITSPMBSAPFP/TSDPMFXVWCRITSPMBSAPFPAB/TSDPMFXVWCRITSB/TSDPMFXVWCRITSBA row-count parity across summary + token sections"
+            "mixed-window fixture matrix must keep TSDPMFXUCTSBT/TSDPMFXUCTSBTA/TSDPMFXUCTSBTC/TSDPMFXV/TSDPMFXVA/TSDPMFXVWCR/TSDPMFXVWCRA/TSDPMFXVWCRI/TSDPMFXVWCRIA/TSDPMFXVWCRIT/TSDPMFXVWCRITA/TSDPMFXVWCRITS/TSDPMFXVWCRITSP/TSDPMFXVWCRITSPA/TSDPMFXVWCRITSPMB/TSDPMFXVWCRITSPMBS/TSDPMFXVWCRITSPMBSAPN/TSDPMFXVWCRITSPMBSAPF/TSDPMFXVWCRITSPMBSAPFP/TSDPMFXVWCRITSPMBSAPFPAB/TSDPMFXVWCRITSPMBSAPFPABL/TSDPMFXVWCRITSB/TSDPMFXVWCRITSBA row-count parity across summary + token sections"
         )
 
     print("ok: trendScoreBand dispatch-hint/momentum-band regression checks passed")

@@ -5088,3 +5088,7 @@ Compact decision memory for AI context efficiency.
 - Completed injected Systems/QA backlog item: mixed-window fixture parity now explicitly includes `TSDPMFXVWCRITSPMBSAPFP` + `TSDPMFXVWCRITSPMBSAPFPAB` row counts, matching `...MBSAPF` across summary and token sections.
 - Durable decision: adaptive-focus preference sweep seed remains deterministic (`A=PH|B=HP|C=ES`) with dual lock (payload assertion + markdown parity).
 - Remaining POST_RC Next Up item: Design/UX compact readability pilot token for A/B/C slot labels.
+
+## 2026-04-02 20:20 KST — Durable decision: adaptive-focus A/B pilot label token added
+- Completed remaining IP33 injected POST_RC item by shipping `TSDPMFXVWCRITSPMBSAPFPABL:A=PN|B=HL|C=EZ` (short operator labels for sweep slots A/B/C).
+- Durable ordering contract updated to `...APFP -> ...APFPAB -> ...APFPABL -> ...APFLEN`; regression now locks payload value, markdown order, row-count parity, and mixed-window fixture parity for APFPABL.
