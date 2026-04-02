@@ -3486,3 +3486,8 @@
 - Follow-up: Keep triad cluster deterministic with `TSDCAD24TRI -> TSDCAD24 -> TSDCAD24TRIP -> TSDCAD24TRICOV -> plan` ordering in future slices.
 
 - 2026-04-02 23:32 KST: IP37 shipped winner-slot pilot label token `TSDPMFXVWCRITSPMBSAPFPABWP` + legend `...ABWPLEG`; regression/order/parity contracts passed.
+
+
+## 2026-04-02 23:54 KST
+- Cycle IP37: added cadence-triad minimum-coverage pressure alias token TSDCAD24TRICOVP:GAP|THIN|SOLID (payload + markdown + regression parity).
+- Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration passed.

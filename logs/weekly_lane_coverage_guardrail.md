@@ -12,6 +12,7 @@
 - cadence 24h ops action (systems/ops): **force combat-or-vfx bucket next**
 - cadence 24h recovery triad pulse palette alias (combat/vfx): **TSDCAD24TRIP:CV=SPARK|DW=ANCHOR|SO=LOCK**
 - cadence 24h recovery triad bucket coverage alias (systems/ops): **TSDCAD24TRICOV:CV0|DW0|SO0**
+- cadence 24h recovery triad coverage pressure alias (systems/ops): **TSDCAD24TRICOVP:GAP**
 - cadence 24h recovery triad plan (design/world): **combat spark -> world anchor -> systems lock**
 - trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 - trend-score band snapshot alias: **TSSB:C0E0H0**

@@ -1,3 +1,11 @@
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP37)
+- Candidate ideas generated:
+  - Low-risk Systems/Ops: add cadence-triad minimum-coverage pressure alias token (`TSDCAD24TRICOVP`) so weakest bucket state is one-scan visible.
+  - Mid-risk Design/World + Systems/QA: enforce strict adjacency lock (`TSDCAD24TRIP -> TSDCAD24TRICOV -> TSDCAD24TRICOVP -> TSDCAD24TRI plan`) across markdown sections.
+  - High-risk AI Content/Combat: prototype offline cadence triad pressure remap recommendation from missing-bucket streak windows.
+- Selected experiment: Idea 1 (low-risk Systems/Ops) minimal vertical slice.
+- [x] Systems/Ops + Systems/QA Team: Add `TSDCAD24TRICOVP:GAP|THIN|SOLID` payload+markdown row from cadence bucket minimum-count pressure and extend regression parity checks. *(lifecycle: [ ] -> [~] started: 2026-04-02 23:49 KST -> [x] completed: 2026-04-02 23:54 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP36)
 - Candidate ideas generated:
   - Low-risk Systems/Ops: add cadence-triad bucket coverage alias token (`TSDCAD24TRICOV`) for one-scan `CV/DW/SO` count visibility in guardrail digest.

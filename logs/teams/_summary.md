@@ -1,3 +1,10 @@
+## 2026-04-02 23:54 KST
+- Triggered mandatory Game Director cycle IP37 because ACTION_ITEMS/TASKS/POST_RC_BACKLOG remained fully checked.
+- Shipped minimal vertical slice in cadence-triad observability: added `TSDCAD24TRICOVP:GAP|THIN|SOLID` derived from minimum 24h bucket count (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
+- Durable decision: keep cadence triad row order as `TSDCAD24TRIP -> TSDCAD24TRICOV -> TSDCAD24TRICOVP -> plan` so count and pressure can be read in one contiguous block.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for next Game Director cycle).
+
 ## 2026-04-02 20:52 KST
 - Triggered mandatory Game Director cycle IP34 because ACTION_ITEMS/TASKS/POST_RC_BACKLOG were all fully checked.
 - Shipped minimal vertical slice in guardrail readability rail: added adaptive-focus A/B sweep winning-slot token `TSDPMFXVWCRITSPMBSAPFPABW:<A|B|C>` with deterministic mapping from current focus alias (`PH->A`, `HP->B`, `ES->C`).
