@@ -144,6 +144,15 @@
     "preferred": "CONCISE",
     "status": "PASS"
   },
+  "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScoreBeatLadderDecodeEvaluation": {
+    "baseline": "80=SHATTER, 50=PULSE, 20=GLIDE",
+    "compact": "80=S, 50=P, 20=G",
+    "baselineLen": 30,
+    "compactLen": 16,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "trendScoreBandDispatchPressureMomentumBandSparkline": "NA",
   "trendScoreBandDispatchPressureMomentumSlope": "COOLING",
   "trendScoreBandDispatchPressureMomentumSlopeAlias": "C",

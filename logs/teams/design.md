@@ -3349,3 +3349,5 @@
 - Cycle IP23: added design/world decode rows for recommendation-intensity trend (`TSDPMFXVWCRIT`/`TSDPMFXVWCRITA`) to keep token chain legible in dense markdown.
 - Confirmed compact decode remains DOS-width-safe with existing legend stack.
 - 2026-04-02 09:20 KST — Cycle IP24: added `TSDPMFXVWCRITS` (UP=80/FLAT=50/DOWN=20) with regression/order/parity lock for urgency guidance intensity trend chain.
+
+- 2026-04-02 10:00 KST — Added compact beat-ladder helper copy row and dos-width evaluation token `TSDPMFXVWCRITSBLEN:B30|C16|LIM72|PREF:COMPACT|PASS` to lock readability budget. Follow-up: preserve helper row ordering near `TSDPMFXVWCRITSB` legends.

@@ -3231,3 +3231,5 @@
 - Cycle IP23: combat/vfx digest now includes recommendation-intensity trend rail (`TSDPMFXVWCRIT`) to show whether guidance pressure is rising/cooling.
 - No runtime combat mutation; offline readability-only extension.
 - 2026-04-02 09:20 KST — Cycle IP24: added `TSDPMFXVWCRITS` (UP=80/FLAT=50/DOWN=20) with regression/order/parity lock for urgency guidance intensity trend chain.
+
+- 2026-04-02 10:00 KST — Combat readability rail reinforced: beat token `TSDPMFXVWCRITSB` now has explicit score helper ladder (`80/50/20`) for faster intensity triage in digest scans. Follow-up: validate guidance microcopy aligns with GLIDE/PULSE/SHATTER feel mapping.

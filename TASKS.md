@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-04-02 09:56 KST
+Last updated: 2026-04-02 10:00 KST
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP25)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%, but all cadence buckets missing).
@@ -14,7 +14,7 @@ Last updated: 2026-04-02 09:56 KST
 - [x] Combat/VFX + Systems/QA Team: Add offline intensity-trend score beat token `TSDPMFXVWCRITSB:GLIDE|PULSE|SHATTER` + alias `TSDPMFXVWCRITSBA:G|P|S` from `TSDPMFXVWCRITS` (>=70 SHATTER, >=40 PULSE, else GLIDE), with markdown rows and regression schema/markdown checks. *(lifecycle: [ ] -> [~] started: 2026-04-02 09:43 KST -> [x] completed: 2026-04-02 09:56 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP25)
-- [ ] Design/World Team (injected): Add compact score-band helper copy for beat ladder (`80=SHATTER, 50=PULSE, 20=GLIDE`) and lock DOS-width row budget in regression fixtures.
+- [x] Design/World Team (injected): Add compact score-band helper copy for beat ladder (`80=SHATTER, 50=PULSE, 20=GLIDE`) and lock DOS-width row budget in regression fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-02 09:48 KST -> [x] completed: 2026-04-02 10:00 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [ ] Systems/Ops + QA Team (injected): Extend mixed-window parity checks so `TSDPMFXVWCRITSB/TSDPMFXVWCRITSBA` row counts mirror `TSDPMFXVWCRITS` across summary + token sections.
 - [ ] AI Content/Systems Team (injected): Prototype offline beat-guidance microcopy (`steady nudge | pressure poke | hard crack`) keyed by `TSDPMFXVWCRITSB` without runtime coupling.
 

@@ -3510,3 +3510,5 @@
 - Cycle IP23 UX pass: inserted trend + alias rows immediately after intensity rows for predictable scan order (`...VWCRI -> ...VWCRIA -> ...VWCRIT -> ...VWCRITA`).
 - Maintains one-glance progression cues in summary/token sections.
 - 2026-04-02 09:20 KST — Cycle IP24: added `TSDPMFXVWCRITS` (UP=80/FLAT=50/DOWN=20) with regression/order/parity lock for urgency guidance intensity trend chain.
+
+- 2026-04-02 10:00 KST — UX readability pass accepted: helper row gives one-scan numeric-to-beat mapping without widening DOS layout; compact variant is now budget-locked in regression. Follow-up: monitor helper-token churn alongside existing beat alias rows.

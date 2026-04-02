@@ -4680,3 +4680,5 @@
 - Extended urgency-cluster order and mixed-window row-count parity checks to include trend + trend-alias rows.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-02 09:20 KST — Cycle IP24: added `TSDPMFXVWCRITS` (UP=80/FLAT=50/DOWN=20) with regression/order/parity lock for urgency guidance intensity trend chain.
+
+- 2026-04-02 10:00 KST — Cycle IP25 follow-up: extended regression parity chain so `TSDPMFXVWCRITSB/TSDPMFXVWCRITSBA` row counts are locked to `TSDPMFXVWCRITS` (and upstream urgency chain tokens) across summary + token sections. Follow-up: execute remaining IP25 systems/ops backlog item for mixed-window fixture parity narrative coverage.
