@@ -5372,3 +5372,8 @@
 - Regression updated to validate `cadence24hRecoveryTriadCoverageSpreadAlias` domain mapping + markdown presence.
 - Added row-count parity assertion for `TSDCAD24TRICOVS` vs `TSDCAD24TRI` rows across both sections.
 - Verification green: py_compile + regression + report regeneration.
+
+## 2026-04-03 00:55 KST
+- Added deterministic adjacency contract for cadence-triad spread row: `TSDCAD24TRICOVS` must sit directly between `TSDCAD24TRICOVP` and triad plan rows across both markdown sections.
+- Added row-count parity assertions for pressure/spread/plan rows against `TSDCAD24TRI` cluster count.
+- Verification pass: py_compile + guardrail regression + guardrail artifact regeneration.

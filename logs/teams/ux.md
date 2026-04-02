@@ -3663,3 +3663,6 @@
 ## 2026-04-03 00:28 KST
 - Observed triad cluster now exposes count, pressure, and spread in contiguous rows for quicker operator parsing.
 - Next UX-facing check: enforce row adjacency lock to prevent readability drift.
+
+## 2026-04-03 00:55 KST
+- UX/readability benefit: spread severity token (`TSDCAD24TRICOVS`) now cannot drift away from pressure+plan context in markdown rails.

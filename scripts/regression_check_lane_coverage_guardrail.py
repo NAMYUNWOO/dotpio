@@ -449,12 +449,38 @@ def run_fixture_case(
     cadence_24h_token_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24:" in line
     ]
+    cadence_24h_coverage_pressure_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVP:" in line
+    ]
+    cadence_24h_coverage_spread_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVS:" in line
+    ]
+    cadence_24h_triad_plan_indexes = [
+        i
+        for i, line in enumerate(cadence_24h_lines)
+        if "cadence 24h recovery triad plan (design/world): **" in line
+    ]
     assert len(cadence_24h_triad_indexes) == len(cadence_24h_token_indexes), (
         f"{name}: TSDCAD24TRI row count must match TSDCAD24 row count across sections"
+    )
+    assert len(cadence_24h_coverage_pressure_indexes) == len(cadence_24h_triad_indexes), (
+        f"{name}: TSDCAD24TRICOVP row count must match TSDCAD24TRI row count across sections"
+    )
+    assert len(cadence_24h_coverage_spread_indexes) == len(cadence_24h_triad_indexes), (
+        f"{name}: TSDCAD24TRICOVS row count must match TSDCAD24TRI row count across sections"
+    )
+    assert len(cadence_24h_triad_plan_indexes) == len(cadence_24h_triad_indexes), (
+        f"{name}: cadence 24h recovery triad plan row count must match TSDCAD24TRI row count across sections"
     )
     for cluster_i in range(len(cadence_24h_triad_indexes)):
         assert cadence_24h_token_indexes[cluster_i] == cadence_24h_triad_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRI immediately before TSDCAD24 in both sections"
+        )
+        assert cadence_24h_coverage_spread_indexes[cluster_i] == cadence_24h_coverage_pressure_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVS immediately after TSDCAD24TRICOVP in both sections"
+        )
+        assert cadence_24h_triad_plan_indexes[cluster_i] == cadence_24h_coverage_spread_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep triad plan row immediately after TSDCAD24TRICOVS in both sections"
         )
 
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"

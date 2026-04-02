@@ -3403,3 +3403,7 @@
 - Participated in Cycle IP38 readability pass by adding design/world-facing spread signal row `TSDCAD24TRICOVS`.
 - Decision: keep spread row directly in cadence triad cluster for one-scan imbalance readability.
 - Follow-up queued: validate compact copy remains DOS-width-safe when adjacency lock lands.
+
+## 2026-04-03 00:55 KST
+- World-facing cadence digest readability maintained by locking `TRICOVP -> TRICOVS -> plan` adjacency in regression.
+- Follow-up remains open in backlog: spread trend token prototype (`TSDCAD24TRICOVST`).

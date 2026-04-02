@@ -3503,3 +3503,7 @@
 ## 2026-04-03 00:28 KST
 - Cycle IP38 added cadence spread alias `TSDCAD24TRICOVS` to improve triad block readability.
 - Chosen wording (`STABLE|SHIFT|WIDE`) intentionally short for DOS-width scans.
+
+## 2026-04-03 00:55 KST
+- Design/readability contract tightened: cadence-triad spread signal now guaranteed to remain contiguous with pressure+plan rows for one-scan decoding.
+- Decision: keep contiguous order as a non-optional readability invariant in both summary and token-coverage blocks.

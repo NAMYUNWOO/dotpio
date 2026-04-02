@@ -1,3 +1,9 @@
+## 2026-04-03 00:55 KST
+- Closed highest-priority unchecked POST_RC item (Cycle IP38, Systems/QA): regression now enforces strict adjacency `TSDCAD24TRICOVP -> TSDCAD24TRICOVS -> cadence 24h recovery triad plan` in both summary and token-coverage sections.
+- Durable decision: treat cadence spread severity (`TSDCAD24TRICOVS`) as a context-bound row that must remain immediately coupled to pressure + plan to preserve one-scan operator readability.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=3 (next effective item: AI Content/Combat `TSDCAD24TRICOVST` prototype).
+
 ## 2026-04-02 23:54 KST
 - Triggered mandatory Game Director cycle IP37 because ACTION_ITEMS/TASKS/POST_RC_BACKLOG remained fully checked.
 - Shipped minimal vertical slice in cadence-triad observability: added `TSDCAD24TRICOVP:GAP|THIN|SOLID` derived from minimum 24h bucket count (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).

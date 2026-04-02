@@ -4859,3 +4859,8 @@
 - Cycle IP38 shipped `TSDCAD24TRICOVS:STABLE|SHIFT|WIDE` in lane guardrail payload/markdown.
 - Mapping is deterministic from triad spread (`max(count)-min(count)`): `<=1 STABLE`, `2 SHIFT`, `>=3 WIDE`.
 - Follow-up: add explicit adjacency lock around `TRICOVP -> TRICOVS -> plan` in regression.
+
+## 2026-04-03 00:55 KST
+- Closed injected Systems/QA cadence-triad follow-up: regression now hard-locks adjacency `TSDCAD24TRICOVP -> TSDCAD24TRICOVS -> cadence 24h recovery triad plan` in both summary/token sections.
+- Implementation in `scripts/regression_check_lane_coverage_guardrail.py` adds per-section index parity + immediate-neighbor assertions.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
