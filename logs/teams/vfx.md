@@ -537,3 +537,8 @@
 ## 2026-04-02 23:54 KST
 - Cycle IP37: added cadence-triad minimum-coverage pressure alias token TSDCAD24TRICOVP:GAP|THIN|SOLID (payload + markdown + regression parity).
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration passed.
+
+## 2026-04-03 03:41 KST — IP42 cadence momentum-score slice
+- Coverage guardrail run over last 10 completed items reported all lanes at 0% and missing cadence buckets (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so forced-lane policy prioritized a combat/vfx-capable experiment.
+- Shipped `TSDCAD24TRICOVSTCMS:0..100` (weighted recent confidence-delta score) as the selected minimal vertical slice, with parity/order/domain regression locks and regenerated guardrail artifacts.
+- Next injected queue keeps 24h triad balanced: Design/World decode ladder + Systems/Ops monotonic fixture + Combat/VFX score-band cue follow-up.

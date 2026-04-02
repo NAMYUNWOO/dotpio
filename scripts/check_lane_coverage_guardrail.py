@@ -1206,6 +1206,39 @@ def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum
     return {"UP": "U", "FLAT": "F", "DOWN": "D"}.get(momentum, "F")
 
 
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score(
+    rows: list[str],
+    churn_window_size: int = 5,
+) -> int:
+    """Score weighted recent confidence-momentum deltas on a 0..100 scale."""
+    if len(rows) <= 1:
+        return 50
+
+    trailing = rows[-max(2, churn_window_size + 1) :]
+    rank = {"LOW": 0, "MID": 1, "HIGH": 2}
+    confidence_history: list[int] = []
+    for depth in range(1, len(trailing) + 1):
+        confidence = resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence(
+            trailing[:depth],
+            churn_window_size=churn_window_size,
+        )
+        confidence_history.append(rank.get(confidence, 1))
+
+    if len(confidence_history) <= 1:
+        return 50
+
+    deltas = [
+        confidence_history[idx] - confidence_history[idx - 1]
+        for idx in range(1, len(confidence_history))
+    ]
+    weight_total = sum(range(1, len(deltas) + 1))
+    weighted_delta = sum(delta * (idx + 1) for idx, delta in enumerate(deltas)) / max(1, weight_total)
+
+    # Map weighted delta domain [-2, +2] into score [0, 100] centered at 50.
+    score = int(round(50 + (weighted_delta * 25)))
+    return max(0, min(100, score))
+
+
 def resolve_cadence_24h_legend_baseline() -> str:
     return "O=OK, W=WATCH, A=ALERT"
 
@@ -2118,6 +2151,9 @@ def build_report(
             cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum
         )
     )
+    cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score(rows)
+    )
     cadence_24h_legend_evaluation = resolve_cadence_24h_legend_evaluation()
 
     return {
@@ -2144,6 +2180,7 @@ def build_report(
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceAlias": cadence_24h_recovery_triad_coverage_spread_trend_confidence_alias,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentum": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumAlias": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_alias,
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScore": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score,
         "cadence24hRecoveryTriadPlan": cadence_24h_recovery_triad_plan,
         "cadence24hLegendBaseline": cadence_24h_legend_evaluation["baseline"],
         "cadence24hLegendCompact": cadence_24h_legend_evaluation["compact"],
@@ -2339,6 +2376,7 @@ def to_markdown(
             f"- cadence 24h recovery triad coverage spread trend confidence alias (systems/qa): **TSDCAD24TRICOVSTCA:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceAlias', 'M')}**",
             f"- cadence 24h recovery triad coverage spread trend confidence momentum (ai-content/combat): **TSDCAD24TRICOVSTCM:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentum', 'FLAT')}**",
             f"- cadence 24h recovery triad coverage spread trend confidence momentum alias (systems/qa): **TSDCAD24TRICOVSTCMA:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumAlias', 'F')}**",
+            f"- cadence 24h recovery triad coverage spread trend confidence momentum score (ai-content/combat): **TSDCAD24TRICOVSTCMS:{int(report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScore', 50))}**",
             "- cadence 24h recovery triad coverage spread trend decode (design/world): **TSDCAD24TRICOVSTA legend (U=UP, F=FLAT, D=DOWN)**",
             "- cadence 24h recovery triad coverage spread trend confidence decode (design/world): **TSDCAD24TRICOVSTCA legend (L=LOW, M=MID, H=HIGH)**",
             "- cadence 24h recovery triad coverage spread trend confidence momentum decode (design/world): **TSDCAD24TRICOVSTCMA legend (U=UP, F=FLAT, D=DOWN)**",

@@ -410,6 +410,9 @@ def run_fixture_case(
     cadence_24h_coverage_spread_trend_confidence_momentum_alias = report.get(
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumAlias"
     )
+    cadence_24h_coverage_spread_trend_confidence_momentum_score = int(
+        report.get("cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScore", 50)
+    )
     assert report.get("cadence24hRecoveryTriadCoverageAlias") == expected_cadence_24h_coverage_alias, (
         f"{name}: cadence24hRecoveryTriadCoverageAlias must deterministically mirror cadence bucket counts"
     )
@@ -444,6 +447,9 @@ def run_fixture_case(
         "DOWN": "D",
     }[cadence_24h_coverage_spread_trend_confidence_momentum], (
         f"{name}: cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumAlias must deterministically mirror momentum alias map"
+    )
+    assert 0 <= cadence_24h_coverage_spread_trend_confidence_momentum_score <= 100, (
+        f"{name}: cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScore must stay within 0..100 domain"
     )
     assert (
         "cadence 24h recovery triad pulse palette alias (combat/vfx): "
@@ -496,6 +502,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include cadence-triad coverage-spread trend confidence momentum alias row"
     assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score (ai-content/combat): "
+        f"**TSDCAD24TRICOVSTCMS:{cadence_24h_coverage_spread_trend_confidence_momentum_score}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad coverage-spread trend confidence momentum score row"
+    assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum decode (design/world): "
         "**TSDCAD24TRICOVSTCMA legend (U=UP, F=FLAT, D=DOWN)**"
         in md_text
@@ -521,6 +532,7 @@ def run_fixture_case(
     cadence_24h_triad_coverage_spread_trend_confidence_alias_rows = md_text.count("**TSDCAD24TRICOVSTCA:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_rows = md_text.count("**TSDCAD24TRICOVSTCM:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_alias_rows = md_text.count("**TSDCAD24TRICOVSTCMA:")
+    cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_rows = md_text.count("**TSDCAD24TRICOVSTCMS:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_alias_legend_rows = md_text.count(
         "**TSDCAD24TRICOVSTCMA legend (U=UP, F=FLAT, D=DOWN)**"
     )
@@ -559,6 +571,9 @@ def run_fixture_case(
     )
     assert cadence_24h_triad_coverage_spread_trend_confidence_momentum_alias_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRICOVSTCMA row count must match TSDCAD24TRI row count across sections"
+    )
+    assert cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_rows == cadence_24h_triad_rows, (
+        f"{name}: TSDCAD24TRICOVSTCMS row count must match TSDCAD24TRI row count across sections"
     )
     assert (
         cadence_24h_triad_coverage_spread_trend_confidence_momentum_alias_legend_rows
@@ -615,6 +630,9 @@ def run_fixture_case(
     cadence_24h_coverage_spread_trend_confidence_momentum_alias_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMA:" in line
     ]
+    cadence_24h_coverage_spread_trend_confidence_momentum_score_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMS:" in line
+    ]
     cadence_24h_triad_plan_indexes = [
         i
         for i, line in enumerate(cadence_24h_lines)
@@ -647,6 +665,9 @@ def run_fixture_case(
     assert len(cadence_24h_coverage_spread_trend_confidence_momentum_alias_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: TSDCAD24TRICOVSTCMA row count must match TSDCAD24TRI row count across sections"
     )
+    assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_indexes) == len(cadence_24h_triad_indexes), (
+        f"{name}: TSDCAD24TRICOVSTCMS row count must match TSDCAD24TRI row count across sections"
+    )
     assert len(cadence_24h_triad_plan_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: cadence 24h recovery triad plan row count must match TSDCAD24TRI row count across sections"
     )
@@ -675,7 +696,10 @@ def run_fixture_case(
         assert cadence_24h_coverage_spread_trend_confidence_momentum_alias_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRICOVSTCMA immediately after TSDCAD24TRICOVSTCM in both sections"
         )
-        assert cadence_24h_triad_plan_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_alias_indexes[cluster_i] + 4, (
+        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_alias_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVSTCMS immediately after TSDCAD24TRICOVSTCMA in both sections"
+        )
+        assert cadence_24h_triad_plan_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_indexes[cluster_i] + 4, (
             f"{name}: cadence order must keep triad plan row immediately after TSDCAD24TRICOVSTCMA decode rows in both sections"
         )
 

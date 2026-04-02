@@ -1,6 +1,16 @@
 # TASKS
 
-Last updated: 2026-04-03 01:26 KST
+Last updated: 2026-04-03 03:41 KST
+
+## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP42)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
+- Forced-lane decision: no lane exceeded 40%, but cadence buckets were all missing so the next experiment was forced into underrepresented lanes, prioritizing `combat-or-vfx` first.
+- Candidate ideas generated:
+  - Low-risk AI Content/Combat: add weighted confidence-delta momentum score token (`TSDCAD24TRICOVSTCMS:0..100`) for one-glance cadence pressure trend.
+  - Mid-risk Design/World + Systems/QA: add score decode ladder + strict adjacency lock so score stays directly after `TSDCAD24TRICOVSTCMA`.
+  - High-risk Combat/VFX: prototype score-band VFX cue remap (`GLINT|PULSE|BLAST`) from synthetic confidence ramps.
+- Selected experiment: Idea 1 (low-risk AI Content/Combat) minimal vertical slice.
+- [x] AI Content/Combat + Systems/QA Team: Add offline score token `TSDCAD24TRICOVSTCMS` from weighted recent `TSDCAD24TRICOVSTC` deltas, wire payload+markdown, and extend regression parity/order/domain checks. *(lifecycle: [ ] -> [~] started: 2026-04-03 03:33 KST -> [x] completed: 2026-04-03 03:36 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP39)
 - Candidate ideas generated:

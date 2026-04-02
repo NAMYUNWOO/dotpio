@@ -5190,3 +5190,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep alias/decode pair contracts explicit in regression error text (not only implicit through generic parity checks) so injected backlog acceptance is auditable.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, and guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1.
+
+## 2026-04-03 03:41 KST — Game Director IP42 slice
+- Coverage check (`--max-items 10`) returned all lanes at 0% with all cadence buckets missing; no lane over 40%, so forced underrepresented-lane dispatch targeted combat/vfx-recovery path first.
+- Chosen experiment (AI Content/Combat, low-risk): added `TSDCAD24TRICOVSTCMS` weighted confidence-delta score (`0..100`) to guardrail payload+markdown and extended regression checks for domain, parity, and adjacency.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Injected next experiments to satisfy cadence triad continuity: Design/World score-ladder decode, Systems/Ops monotonic fixture contract, Combat/VFX score-band cue token.
