@@ -4916,3 +4916,8 @@
   - Decision: advisory remains deterministic and report-only; no dispatch behavior change.
 
 - 2026-04-03 05:54 KST — Game Director IP43 shipped alias mapping helper for hysteresis advisory (`STEADY|SWING` -> `S|W`) and payload field `...STCMSVHA`; kept deterministic contract + no runtime side-effects.
+
+## 2026-04-03 06:23 KST
+- Closed Cycle IP43 injected Systems/QA task by adding deterministic three-window cue-transition fixture assertions in `scripts/regression_check_lane_coverage_guardrail.py`.
+- New invariant proves advisory toggles `STEADY -> SWING -> STEADY` for fixed synthetic windows and locks score ladder ordering (`window2 > window1 > window3`) to prevent drift.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

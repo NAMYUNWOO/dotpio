@@ -5217,3 +5217,9 @@ Compact decision memory for AI context efficiency.
 - 2026-04-03 05:51 KST — Closed remaining unchecked POST_RC item by shipping offline hysteresis advisory token `TSDCAD24TRICOVSTCMSVH` (`STEADY|SWING`) from recent VFX cue windows. Durable decision: keep hysteresis strictly advisory/report-only and deterministic (transition-count heuristic) to avoid runtime coupling risk. Verification green: py_compile + regression + guardrail JSON/MD regeneration. Queue status now ACTION_ITEMS=0 unchecked, TASKS=0 unchecked, POST_RC_BACKLOG=0 unchecked.
 
 - 2026-04-03 05:54 KST — Game Director IP43 executed (all backlogs checked at cycle start). Shipped low-risk selected experiment: compact hysteresis advisory alias token `TSDCAD24TRICOVSTCMSVHA` (`S|W`) with decode row and full regression parity/order locks. Durable decision: keep advisory + alias pair adjacent for one-glance DOS-width scans while preserving deterministic offline-only policy. Injected next tasks: (1) Systems/QA synthetic `STEADY->SWING->STEADY` fixture, (2) Combat/VFX+Design concise copy evaluation under <=72 width.
+
+## 2026-04-03 06:23 KST
+- Closed highest-priority unchecked POST_RC item for Cycle IP43: synthetic three-window cue-transition fixture now enforces deterministic advisory toggle `STEADY -> SWING -> STEADY`.
+- Durable decision: keep hysteresis advisory validation bound to a fixed synthetic score ladder (`window2 > window1 > window3`) so advisory behavior is stable even if future lane-string distributions shift.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: Combat/VFX + Design concise advisory decode copy variant under DOS-width <=72).

@@ -5426,3 +5426,8 @@
 - 2026-04-03 05:51 KST — Regression expanded for `TSDCAD24TRICOVSTCMSVH` presence, parity, and adjacency (`...STCMSV -> ...STCMSVH -> ...STCMS legend`) plus decode-row parity locks.
 
 - 2026-04-03 05:54 KST — QA locked row-count parity + adjacency chain for new alias row/legend (`...STCMSV -> ...STCMSVH -> ...STCMSVHA`) in both summary/token sections.
+
+## 2026-04-03 06:23 KST
+- Added synthetic three-window cue-transition regression fixture for `TSDCAD24TRICOVSTCMSVH` advisory behavior.
+- QA lock now requires deterministic advisory sequence `STEADY -> SWING -> STEADY` and deterministic score-ladder ordering (`window2 > window1 > window3`) across the synthetic windows.
+- Verification pass: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

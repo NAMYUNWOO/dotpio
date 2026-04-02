@@ -3716,6 +3716,32 @@ def main() -> int:
         "mixed-window fixture invariant requires TSDCAD24TRICOVSTCMSV source-score ordering compatibility (up >= flat >= down)"
     )
 
+    cadence_24h_hysteresis_three_window_fixture = [
+        ("steady_a", cadence_24h_confidence_delta_ramp_rows["flat"]),
+        ("swing", cadence_24h_confidence_delta_ramp_rows["up"]),
+        ("steady_b", cadence_24h_confidence_delta_ramp_rows["down"]),
+    ]
+    cadence_24h_hysteresis_three_window_scores = [
+        int(
+            guardrail_module.resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score(
+                rows
+            )
+        )
+        for _, rows in cadence_24h_hysteresis_three_window_fixture
+    ]
+    cadence_24h_hysteresis_three_window_advisories = [
+        guardrail_module.resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_advisory(
+            rows
+        )
+        for _, rows in cadence_24h_hysteresis_three_window_fixture
+    ]
+    assert cadence_24h_hysteresis_three_window_advisories == ["STEADY", "SWING", "STEADY"], (
+        "synthetic three-window cue-transition fixture must prove deterministic advisory toggle STEADY -> SWING -> STEADY"
+    )
+    assert cadence_24h_hysteresis_three_window_scores[1] > cadence_24h_hysteresis_three_window_scores[0] > cadence_24h_hysteresis_three_window_scores[2], (
+        "synthetic three-window cue-transition fixture requires deterministic score ladder ordering (window2 > window1 > window3)"
+    )
+
     print("ok: trendScoreBand dispatch-hint/momentum-band regression checks passed")
     return 0
 
