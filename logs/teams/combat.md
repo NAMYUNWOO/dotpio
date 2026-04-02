@@ -3233,3 +3233,7 @@
 - 2026-04-02 09:20 KST — Cycle IP24: added `TSDPMFXVWCRITS` (UP=80/FLAT=50/DOWN=20) with regression/order/parity lock for urgency guidance intensity trend chain.
 
 - 2026-04-02 10:00 KST — Combat readability rail reinforced: beat token `TSDPMFXVWCRITSB` now has explicit score helper ladder (`80/50/20`) for faster intensity triage in digest scans. Follow-up: validate guidance microcopy aligns with GLIDE/PULSE/SHATTER feel mapping.
+
+## 2026-04-02 10:36 KST
+- Added trend-score posture token surfaced as combat-facing tempo guidance (`SURGE/HOLD/COOL`) for digest triage.
+- Kept change report-only (no runtime combat balance coupling).

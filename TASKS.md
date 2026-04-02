@@ -1,6 +1,19 @@
 # TASKS
 
-Last updated: 2026-04-02 10:00 KST
+Last updated: 2026-04-02 10:36 KST
+
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP26)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; cadence buckets still sparse, so keep cycle additive + reversible).
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (Design/World): add compact trend-score posture token from `TSDPMFXVWCRITS` for one-scan tempo intent (`SURGE|HOLD|COOL`).
+  - Mid-risk Systems/QA: enforce deterministic row-count parity for posture + alias rows against `TSDPMFXVWCRITS` across summary/token sections.
+  - High-risk novelty (AI Content/Combat): prototype offline posture-aware micro-brief sentence fused with beat+microcopy for richer operator guidance.
+- Selected experiment: Idea 1 (low-risk Design/World) minimal vertical slice.
+- [x] Design/World + Systems/QA Team: Add offline trend-score posture token `TSDPMFXVWCRITSP:SURGE|HOLD|COOL` + alias `TSDPMFXVWCRITSPA:S|H|C` mapped from `TSDPMFXVWCRITS` buckets, with decode rows and deterministic parity regression checks. *(lifecycle: [ ] -> [~] started: 2026-04-02 10:34 KST -> [x] completed: 2026-04-02 10:36 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP26)
+- [ ] Systems/Ops + QA Team (injected): Extend mixed-window fixture parity bundle so `TSDPMFXVWCRITSP/TSDPMFXVWCRITSPA` row counts mirror `TSDPMFXVWCRITS` in both summary + token sections.
+- [ ] AI Content/Systems Team (injected): Prototype offline posture-guidance microcopy token keyed by `TSDPMFXVWCRITSP` (`SURGE=push now | HOLD=hold lane | COOL=ease lane`) without runtime coupling.
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP25)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%, but all cadence buckets missing).
@@ -15,8 +28,8 @@ Last updated: 2026-04-02 10:00 KST
 
 ## Next Up (Game Director Injection — Cycle IP25)
 - [x] Design/World Team (injected): Add compact score-band helper copy for beat ladder (`80=SHATTER, 50=PULSE, 20=GLIDE`) and lock DOS-width row budget in regression fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-02 09:48 KST -> [x] completed: 2026-04-02 10:00 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] Systems/Ops + QA Team (injected): Extend mixed-window parity checks so `TSDPMFXVWCRITSB/TSDPMFXVWCRITSBA` row counts mirror `TSDPMFXVWCRITS` across summary + token sections.
-- [ ] AI Content/Systems Team (injected): Prototype offline beat-guidance microcopy (`steady nudge | pressure poke | hard crack`) keyed by `TSDPMFXVWCRITSB` without runtime coupling.
+- [x] Systems/Ops + QA Team (injected): Extend mixed-window parity checks so `TSDPMFXVWCRITSB/TSDPMFXVWCRITSBA` row counts mirror `TSDPMFXVWCRITS` across summary + token sections. *(lifecycle: [ ] -> [x] completed: 2026-04-02 10:31 KST; verification: existing mixed-window parity assertion in `scripts/regression_check_lane_coverage_guardrail.py` confirmed during full regression run)*
+- [x] AI Content/Systems Team (injected): Prototype offline beat-guidance microcopy (`steady nudge | pressure poke | hard crack`) keyed by `TSDPMFXVWCRITSB` without runtime coupling. *(lifecycle: [ ] -> [~] started: 2026-04-02 10:24 KST -> [x] completed: 2026-04-02 10:31 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP21)
 - Coverage check (last 10 completed): systems=1, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (no lane >40%; cadence buckets for combat/vfx + design/world were still cold at cycle start).

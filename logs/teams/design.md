@@ -3351,3 +3351,7 @@
 - 2026-04-02 09:20 KST — Cycle IP24: added `TSDPMFXVWCRITS` (UP=80/FLAT=50/DOWN=20) with regression/order/parity lock for urgency guidance intensity trend chain.
 
 - 2026-04-02 10:00 KST — Added compact beat-ladder helper copy row and dos-width evaluation token `TSDPMFXVWCRITSBLEN:B30|C16|LIM72|PREF:COMPACT|PASS` to lock readability budget. Follow-up: preserve helper row ordering near `TSDPMFXVWCRITSB` legends.
+
+## 2026-04-02 10:36 KST
+- Added compact helper + posture decode rows under the TSDPMFXVWCRITS cluster to preserve DOS-width scannability.
+- Copy set chosen for brevity + action clarity: surge/hold/cool.

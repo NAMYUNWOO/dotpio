@@ -3250,3 +3250,7 @@
 - 2026-04-02 09:20 KST — Cycle IP24: added `TSDPMFXVWCRITS` (UP=80/FLAT=50/DOWN=20) with regression/order/parity lock for urgency guidance intensity trend chain.
 
 - 2026-04-02 10:00 KST — Cycle IP25 design/world helper shipped: added beat-ladder helper row text for `TSDPMFXVWCRITSB` (`80=SHATTER, 50=PULSE, 20=GLIDE`) and compact-budget framing for DOS-width scans. Follow-up: keep helper copy adjacent to beat legend rows during future token injections.
+
+## 2026-04-02 10:36 KST
+- Added compact decode helper row for trend-score buckets (`80=surge, 50=hold, 20=cool`) to keep DOS-width readability one-scan friendly.
+- Added posture decode legends so world/design operators can read tempo intent without expanding context.

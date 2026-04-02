@@ -731,11 +731,29 @@ def run_fixture_case(
     urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_value = report.get(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScore"
     )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_value = report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePosture"
+    )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_alias_value = report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureAlias"
+    )
     expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_value = {
         "UP": 80,
         "FLAT": 50,
         "DOWN": 20,
     }[urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_value]
+    expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_value = (
+        "SURGE"
+        if urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_value >= 70
+        else "HOLD"
+        if urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_value >= 40
+        else "COOL"
+    )
+    expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_alias_value = {
+        "COOL": "C",
+        "HOLD": "H",
+        "SURGE": "S",
+    }[expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_value]
     urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_value = report.get(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScoreBeat"
     )
@@ -749,16 +767,36 @@ def run_fixture_case(
     urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_alias_value = report.get(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScoreBeatAlias"
     )
+    urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_microcopy_value = report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScoreBeatMicrocopy"
+    )
     expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_alias_value = {
         "GLIDE": "G",
         "PULSE": "P",
         "SHATTER": "S",
+    }[expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_value]
+    expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_microcopy_value = {
+        "GLIDE": "steady nudge",
+        "PULSE": "pressure poke",
+        "SHATTER": "hard crack",
     }[expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_value]
     assert (
         urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_value
         == expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_value
     ), (
         f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScore must mirror intensity-trend score map"
+    )
+    assert (
+        urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_value
+        == expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_value
+    ), (
+        f"{name}: ...IntensityTrendScorePosture must mirror trend-score posture buckets"
+    )
+    assert (
+        urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_alias_value
+        == expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_alias_value
+    ), (
+        f"{name}: ...IntensityTrendScorePostureAlias must mirror posture alias map"
     )
     assert (
         urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_value
@@ -771,6 +809,12 @@ def run_fixture_case(
         == expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_alias_value
     ), (
         f"{name}: ...IntensityTrendScoreBeatAlias must mirror beat alias map"
+    )
+    assert (
+        urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_microcopy_value
+        == expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_microcopy_value
+    ), (
+        f"{name}: ...IntensityTrendScoreBeatMicrocopy must mirror beat microcopy map"
     )
     assert (
         "trend-score dispatch pressure cadence override note rationale confidence (ai-content/systems, offline): "
@@ -818,6 +862,16 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include guidance-confidence recommendation intensity trend score row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend score posture (combat/vfx, offline): "
+        f"**TSDPMFXVWCRITSP:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_value}**"
+        in md_text
+    ), f"{name}: markdown output must include trend-score posture row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend score posture alias: "
+        f"**TSDPMFXVWCRITSPA:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_alias_value}**"
+        in md_text
+    ), f"{name}: markdown output must include trend-score posture alias row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat (combat/vfx, offline): "
         f"**TSDPMFXVWCRITSB:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_value}**"
         in md_text
@@ -827,6 +881,11 @@ def run_fixture_case(
         f"**TSDPMFXVWCRITSBA:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_alias_value}**"
         in md_text
     ), f"{name}: markdown output must include guidance-confidence recommendation intensity trend beat alias row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat microcopy (ai-content/systems, offline): "
+        f"**TSDPMFXVWCRITSBM:{urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_microcopy_value}**"
+        in md_text
+    ), f"{name}: markdown output must include guidance-confidence recommendation intensity trend beat microcopy row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation decode (design/world): "
         "**TSDPMFXVWCR legend (HIGH=lock sweep, MID=brace check, LOW=burst triage)**"
@@ -858,6 +917,21 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include guidance-confidence recommendation intensity trend alias decode row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend score helper (design/world, dos-width): "
+        "**TSDPMFXVWCRITSH helper (80=surge, 50=hold, 20=cool)**"
+        in md_text
+    ), f"{name}: markdown output must include compact trend-score helper row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend score posture decode (design/world): "
+        "**TSDPMFXVWCRITSP legend (SURGE=push tempo, HOLD=hold tempo, COOL=ease tempo)**"
+        in md_text
+    ), f"{name}: markdown output must include trend-score posture decode row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend score posture alias decode (design/world): "
+        "**TSDPMFXVWCRITSPA legend (S=SURGE, H=HOLD, C=COOL)**"
+        in md_text
+    ), f"{name}: markdown output must include trend-score posture alias decode row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat decode (design/world): "
         "**TSDPMFXVWCRITSB legend (GLIDE=stable drift, PULSE=active drift, SHATTER=hard pivot)**"
         in md_text
@@ -867,6 +941,11 @@ def run_fixture_case(
         "**TSDPMFXVWCRITSBA legend (G=GLIDE, P=PULSE, S=SHATTER)**"
         in md_text
     ), f"{name}: markdown output must include guidance-confidence recommendation intensity trend beat alias decode row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat microcopy decode (design/world): "
+        "**TSDPMFXVWCRITSBM legend (GLIDE=steady nudge, PULSE=pressure poke, SHATTER=hard crack)**"
+        in md_text
+    ), f"{name}: markdown output must include beat-microcopy decode row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat ladder helper (design/world, dos-width): "
         "**TSDPMFXVWCRITSB helper (80=SHATTER, 50=PULSE, 20=GLIDE)**"
@@ -1716,8 +1795,12 @@ def run_fixture_case(
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_row_count = md_text.count("**TSDPMFXVWCRIT:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_alias_row_count = md_text.count("**TSDPMFXVWCRITA:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_row_count = md_text.count("**TSDPMFXVWCRITS:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_row_count = md_text.count("**TSDPMFXVWCRITSP:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_alias_row_count = md_text.count("**TSDPMFXVWCRITSPA:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_helper_row_count = md_text.count("**TSDPMFXVWCRITSH helper")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_row_count = md_text.count("**TSDPMFXVWCRITSB:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_alias_row_count = md_text.count("**TSDPMFXVWCRITSBA:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_microcopy_row_count = md_text.count("**TSDPMFXVWCRITSBM:")
     assert fx_urgency_confidence_trend_alias_row_count == fx_urgency_confidence_trend_row_count, (
         f"{name}: `TSDPMFXUCTA` row count ({fx_urgency_confidence_trend_alias_row_count}) must mirror "
         f"`TSDPMFXUCT` row count ({fx_urgency_confidence_trend_row_count}) across summary + token sections"
@@ -1836,6 +1919,20 @@ def run_fixture_case(
         f"`TSDPMFXVWCRITA` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_alias_row_count}) across summary + token sections"
     )
     assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRITSP` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_row_count}) must mirror "
+        f"`TSDPMFXVWCRITS` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_row_count}) across summary + token sections"
+    )
+    assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_alias_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRITSPA` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_alias_row_count}) must mirror "
+        f"`TSDPMFXVWCRITSP` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_row_count}) across summary + token sections"
+    )
+    assert (
         fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_row_count
         == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_row_count
     ), (
@@ -1843,10 +1940,24 @@ def run_fixture_case(
         f"`TSDPMFXVWCRITS` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_row_count}) across summary + token sections"
     )
     assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_helper_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRITSH helper` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_helper_row_count}) must mirror "
+        f"`TSDPMFXVWCRITS` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_row_count}) across summary + token sections"
+    )
+    assert (
         fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_alias_row_count
         == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_row_count
     ), (
         f"{name}: `TSDPMFXVWCRITSBA` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_alias_row_count}) must mirror "
+        f"`TSDPMFXVWCRITSB` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_row_count}) across summary + token sections"
+    )
+    assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_microcopy_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRITSBM` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_microcopy_row_count}) must mirror "
         f"`TSDPMFXVWCRITSB` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_beat_row_count}) across summary + token sections"
     )
     assert (

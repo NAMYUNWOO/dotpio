@@ -76,8 +76,11 @@
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend (ai-content/systems, offline): **TSDPMFXVWCRIT:FLAT**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend alias: **TSDPMFXVWCRITA:F**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend score (ai-content/systems, offline): **TSDPMFXVWCRITS:50**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend score posture (combat/vfx, offline): **TSDPMFXVWCRITSP:HOLD**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend score posture alias: **TSDPMFXVWCRITSPA:H**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat (combat/vfx, offline): **TSDPMFXVWCRITSB:PULSE**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat alias: **TSDPMFXVWCRITSBA:P**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat microcopy (ai-content/systems, offline): **TSDPMFXVWCRITSBM:pressure poke**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence decode (design/world): **TSDPMFXVWC legend (L=LOW, M=MID, H=HIGH)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation decode (design/world): **TSDPMFXVWCR legend (HIGH=lock sweep, MID=brace check, LOW=burst triage)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation alias decode (design/world): **TSDPMFXVWCRA legend (LS=lock sweep, BC=brace check, BT=burst triage)**
@@ -85,8 +88,12 @@
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity alias decode (design/world): **TSDPMFXVWCRIA legend (S=SOFT, E=EDGE, H=HARD)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend decode (design/world): **TSDPMFXVWCRIT legend (U=UP, F=FLAT, D=DOWN)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend alias decode (design/world): **TSDPMFXVWCRITA legend (U=UP, F=FLAT, D=DOWN)**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend score helper (design/world, dos-width): **TSDPMFXVWCRITSH helper (80=surge, 50=hold, 20=cool)**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend score posture decode (design/world): **TSDPMFXVWCRITSP legend (SURGE=push tempo, HOLD=hold tempo, COOL=ease tempo)**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend score posture alias decode (design/world): **TSDPMFXVWCRITSPA legend (S=SURGE, H=HOLD, C=COOL)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat decode (design/world): **TSDPMFXVWCRITSB legend (GLIDE=stable drift, PULSE=active drift, SHATTER=hard pivot)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat alias decode (design/world): **TSDPMFXVWCRITSBA legend (G=GLIDE, P=PULSE, S=SHATTER)**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat microcopy decode (design/world): **TSDPMFXVWCRITSBM legend (GLIDE=steady nudge, PULSE=pressure poke, SHATTER=hard crack)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat ladder helper (design/world, dos-width): **TSDPMFXVWCRITSB helper (80=SHATTER, 50=PULSE, 20=GLIDE)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat ladder helper dos-width eval (design/world): **TSDPMFXVWCRITSBLEN:B30|C16|LIM72|PREF:COMPACT|PASS**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity alias decode dos-width eval (design/world): **TSDPMFXVWCRIALEN:F52|C22|LIM72|PREF:CONCISE|PASS**

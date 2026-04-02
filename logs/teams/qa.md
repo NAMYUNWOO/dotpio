@@ -5196,3 +5196,7 @@
 - 2026-04-02 09:20 KST — Cycle IP24: added `TSDPMFXVWCRITS` (UP=80/FLAT=50/DOWN=20) with regression/order/parity lock for urgency guidance intensity trend chain.
 
 - 2026-04-02 10:00 KST — QA locked regression coverage for beat helper budget + parity: asserts helper row presence, `TSDPMFXVWCRITSBLEN` envelope, and row-count parity through `TSDPMFXVWCRITSB/TSDPMFXVWCRITSBA`. Follow-up: close remaining IP25 systems/ops parity task in backlog.
+
+## 2026-04-02 10:36 KST
+- Regression extended to validate `TSDPMFXVWCRITSBM`, `TSDPMFXVWCRITSP`, `TSDPMFXVWCRITSPA`, and helper row parity.
+- Full verification pass green: py_compile + regression + guardrail artifact regeneration.
