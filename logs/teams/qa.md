@@ -5442,3 +5442,8 @@
 - Decision: enforce width at regression layer by extracting the rendered legend token (`**...**`) and asserting `len <= 72` for every summary/token-section occurrence.
 - Evidence: `scripts/regression_check_lane_coverage_guardrail.py` now validates `TSDCAD24TRICOVSTCMSVHA legend` width deterministically across sections.
 - Follow-up: if decode copy changes, maintain compact wording or adjust token strategy rather than loosening width budget.
+
+## 2026-04-03 07:31 KST — Cycle IP45 verification hardening
+- Added fixture-level width-budget assertion for `TSDCAD24TRICOVSTCMSVH legend` by extracting rendered legend token and enforcing `len <= 72` in every section instance.
+- Regression contract now mirrors prior alias guard (`...STCMSVHA legend`), reducing copy-budget drift risk.
+- Verification stayed green with full bundle: py_compile + regression + guardrail artifact regen.

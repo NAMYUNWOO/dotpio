@@ -5234,3 +5234,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: enforce decode-width budgets in regression via rendered legend-token extraction (`**...**`) so copy edits fail fast before artifact drift.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.
+
+## 2026-04-03 07:31 KST — Game Director Cycle IP45 shipped
+- Triggered Game Director review cycle immediately after ACTION_ITEMS/TASKS/POST_RC were fully checked.
+- Selected low-risk Systems/QA+UX slice: enforce explicit DOS-width assertion for `TSDCAD24TRICOVSTCMSVH legend` (`<=72`) across summary/token sections.
+- Durable decision: keep both hysteresis decode legends on explicit width contracts to preserve DOS readability budgets and fail fast on copy expansion.
+- Next injected queue opened (3 items): dual-legend adjacency assertion, compact dual-decode helper row + eval token, offline hysteresis confidence-band prototype.

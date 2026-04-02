@@ -4931,3 +4931,8 @@
 - Added explicit `<=72` decode-width contract for `TSDCAD24TRICOVSTCMSVHA legend` in guardrail regression.
 - Kept implementation additive/reversible: no runtime payload/schema changes, regression-only contract update.
 - Verification bundle retained as canonical gate (py_compile + regression + guardrail report regeneration).
+
+## 2026-04-03 07:31 KST — Cycle IP45 low-risk slice
+- Game Director cycle executed after backlog reached fully checked state.
+- Implemented selected experiment: explicit `<=72` width assertion for `TSDCAD24TRICOVSTCMSVH legend` (non-alias decode) across summary/token sections.
+- Injected follow-ups: adjacency contract for dual hysteresis decode rows, compact dual-decode helper row with width eval, and offline hysteresis confidence-band prototype.

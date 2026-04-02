@@ -772,6 +772,10 @@ def run_fixture_case(
         for i, line in enumerate(cadence_24h_lines)
         if "**TSDCAD24TRICOVSTCMSVH legend (STEADY=stable cue, SWING=cue churn)**" in line
     ]
+    cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_legend_lines = [
+        cadence_24h_lines[i]
+        for i in cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_legend_indexes
+    ]
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes = [
         i
         for i, line in enumerate(cadence_24h_lines)
@@ -845,6 +849,11 @@ def run_fixture_case(
     ), (
         f"{name}: TSDCAD24TRICOVSTCMSVH legend row count must match TSDCAD24TRICOVSTCMSVH row count across sections"
     )
+    for legend_line in cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_legend_lines:
+        legend_token = legend_line.split("**", 2)[1]
+        assert len(legend_token) <= 72, (
+            f"{name}: TSDCAD24TRICOVSTCMSVH legend must stay <=72 chars in both summary/token sections"
+        )
     assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes) == len(
         cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_indexes
     ), (

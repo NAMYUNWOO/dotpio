@@ -2735,3 +2735,17 @@ Last updated: 2026-03-31 20:40 KST
 
 ## Next Up (Game Director Injection — Cycle IP44)
 - [x] Systems/QA Team (injected): Add fixture-level explicit DOS-width assertion that `TSDCAD24TRICOVSTCMSVHA` decode copy stays <=72 chars in both summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 07:24 KST -> [x] completed: 2026-04-03 07:26 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP45)
+- Candidate ideas generated:
+  - Low-risk Systems/QA + UX: add explicit fixture-level DOS-width assertion for `TSDCAD24TRICOVSTCMSVH` decode copy (`<=72`) to mirror alias-legend budget checks.
+  - Mid-risk Systems/QA + Design/World: add deterministic adjacency assertion that both hysteresis decode rows remain immediately before triad plan row in both sections.
+  - High-risk AI Content/Combat: prototype adaptive hysteresis advisory wording policy from cue-flip volatility windows (offline-only).
+- Selected experiment: Idea 1 (low-risk Systems/QA + UX) minimal vertical slice.
+- [x] Systems/QA + UX Team: Add explicit DOS-width assertion for `TSDCAD24TRICOVSTCMSVH legend` in mixed fixtures across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 07:28 KST -> [x] completed: 2026-04-03 07:31 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP45)
+- [ ] Systems/QA Team (injected): Add deterministic assertion that both hysteresis decode rows (`...STCMSVH legend` + `...STCMSVHA legend`) remain adjacent and directly before triad plan row in summary/token sections.
+- [ ] Design/World Team (injected): Add compact dual-hysteresis decode helper row (`VH=STEADY|SWING, VHA=S|W`) and keep DOS-width <=72 with eval token.
+- [ ] AI Content/Combat Team (injected): Prototype offline hysteresis confidence band token (`TSDCAD24TRICOVSTCMSVHC:LOW|MID|HIGH`) from recent cue-flip stability windows.
+
