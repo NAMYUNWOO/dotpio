@@ -3374,3 +3374,6 @@
 ## 2026-04-02 21:22 KST
 - Cycle IP34 shipped: added deterministic winner-slot decode legend token TSDPMFXVWCRITSPMBSAPFPABWLEG:A=PH|B=HP|C=ES between ...APFPABW and ...APFLEN with regression payload/order/parity lock.
 - Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
+
+## 2026-04-02 21:41 KST
+- Cycle IP35 world lane now explicitly represented in cadence recovery via `DW` slot in `TSDCAD24TRI`; plan copy keeps design/world cadence checkpoint visible.

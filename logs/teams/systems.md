@@ -4829,3 +4829,7 @@
 ## 2026-04-02 21:22 KST
 - Cycle IP34 shipped: added deterministic winner-slot decode legend token TSDPMFXVWCRITSPMBSAPFPABWLEG:A=PH|B=HP|C=ES between ...APFPABW and ...APFLEN with regression payload/order/parity lock.
 - Verification: py_compile + lane-coverage regression + guardrail artifact regeneration passed.
+
+## 2026-04-02 21:41 KST
+- Cycle IP35 shipped cadence-recovery triad payload in lane guardrail (`cadence24hRecoveryTriad`, `cadence24hRecoveryTriadPlan`) with deterministic bucket order `CV>DW>SO` when all cadence buckets are missing.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail regeneration command.

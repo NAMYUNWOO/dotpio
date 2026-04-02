@@ -1,3 +1,17 @@
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP35)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
+- Forced-lane decision: cadence 24h buckets all missing, so this cycle explicitly recovered combat/vfx + design/world + systems/ops ordering.
+- Candidate ideas generated:
+  - Low-risk fun-factor (Combat/VFX + Design/World + Systems/Ops): add cadence-recovery triad token + plan row (`TSDCAD24TRI`).
+  - Mid-risk fun-factor (Design/World + Systems/QA): enforce strict decode adjacency for cadence triad and cadence-health rows.
+  - High-risk fun-factor (AI Content/Combat): adaptive triad reorder from momentum + bucket persistence (offline-only).
+- Selected experiment: Idea 1 (low-risk cadence-recovery triad) minimal vertical slice.
+- [x] Combat/VFX + Design/World + Systems/Ops Team: Add deterministic cadence-recovery triad payload + markdown rows (`TSDCAD24TRI`, plan text) so next-step cadence recovery remains one-scan auditable under DOS-width constraints. *(lifecycle: [ ] -> [~] started: 2026-04-02 21:36 KST -> [x] completed: 2026-04-02 21:41 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP35)
+- [ ] Combat/VFX Team (injected): Prototype compact triad pulse palette alias row for `CV|DW|SO` callouts in cadence docs.
+- [ ] Design/World + Systems/QA Team (injected): Lock deterministic markdown row order so `TSDCAD24TRI` stays directly before `TSDCAD24` rows across summary/token sections.
+
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP34)
 - Candidate ideas generated:
   - Low-risk Systems/QA: add adaptive-focus A/B sweep winning-slot token (`TSDPMFXVWCRITSPMBSAPFPABW:<A|B|C>`) so deterministic winner mapping is one-scan auditable.

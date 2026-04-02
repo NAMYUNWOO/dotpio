@@ -1,6 +1,20 @@
 # TASKS
 
-Last updated: 2026-04-02 16:08 KST
+Last updated: 2026-04-02 21:41 KST
+
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP35)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
+- Forced-lane decision: no lane exceeded 40%, but cadence buckets were all missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so the experiment was forced into underrepresented cadence-recovery lanes.
+- Candidate ideas generated:
+  - Low-risk fun-factor (Combat/VFX + Design/World + Systems/Ops): add cadence-recovery triad token `TSDCAD24TRI` (`CV>DW>SO`) plus compact ops plan text so next action order is one-scan obvious.
+  - Mid-risk fun-factor (Design/World + Systems/QA): add strict decode contract/adjacency for cadence triad rows in markdown summary sections.
+  - High-risk fun-factor (AI Content/Combat): prototype adaptive triad re-ordering from trend momentum and missing-bucket persistence windows (offline-only).
+- Selected experiment: Idea 1 (low-risk cadence-recovery triad) minimal vertical slice.
+- [x] Combat/VFX + Design/World + Systems/Ops Team: Add cadence-recovery triad token `TSDCAD24TRI` and deterministic plan copy in lane guardrail payload/markdown (`CV>DW>SO => combat spark -> world anchor -> systems lock`), keeping output reversible and offline-only. *(lifecycle: [ ] -> [~] started: 2026-04-02 21:36 KST -> [x] completed: 2026-04-02 21:41 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP35)
+- [ ] Combat/VFX Team (injected): Add compact cadence-triad pulse palette alias row (`CV=SPARK`, `DW=ANCHOR`, `SO=LOCK`) for one-glance operator callouts.
+- [ ] Design/World + Systems/QA Team (injected): Add deterministic decode/order assertion keeping `TSDCAD24TRI` immediately before `TSDCAD24` rows in markdown summary + token sections.
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP30)
 - Candidate ideas generated:

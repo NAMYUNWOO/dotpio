@@ -67,6 +67,8 @@
   "cadence24hHealth": "ALERT",
   "cadence24hHealthAlias": "A",
   "cadence24hOpsAction": "force combat-or-vfx bucket next",
+  "cadence24hRecoveryTriad": "CV>DW>SO",
+  "cadence24hRecoveryTriadPlan": "combat spark -> world anchor -> systems lock",
   "cadence24hLegendBaseline": "O=OK, W=WATCH, A=ALERT",
   "cadence24hLegendCompact": "O=ok, W=watch, A=alert",
   "cadence24hLegendEvaluation": {

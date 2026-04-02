@@ -1049,6 +1049,34 @@ def resolve_cadence_24h_ops_action(
     }.get(health, "force missing buckets next")
 
 
+def resolve_cadence_24h_recovery_triad(missing_buckets: list[str]) -> str:
+    alias = {
+        "combat-or-vfx": "CV",
+        "design-or-world": "DW",
+        "systems-or-ops": "SO",
+    }
+    ordered = [
+        bucket
+        for bucket in ("combat-or-vfx", "design-or-world", "systems-or-ops")
+        if bucket in missing_buckets
+    ]
+    if not ordered:
+        return "LOCK"
+    return ">".join(alias[bucket] for bucket in ordered)
+
+
+def resolve_cadence_24h_recovery_triad_plan(triad_token: str) -> str:
+    return {
+        "CV>DW>SO": "combat spark -> world anchor -> systems lock",
+        "CV>SO": "combat spark -> systems lock",
+        "DW>SO": "world anchor -> systems lock",
+        "CV": "combat spark",
+        "DW": "world anchor",
+        "SO": "systems lock",
+        "LOCK": "cadence locked",
+    }.get(triad_token, "cadence locked")
+
+
 def resolve_cadence_24h_legend_baseline() -> str:
     return "O=OK, W=WATCH, A=ALERT"
 
@@ -1904,6 +1932,10 @@ def build_report(
         cadence_24h_health,
         missing_buckets,
     )
+    cadence_24h_recovery_triad = resolve_cadence_24h_recovery_triad(missing_buckets)
+    cadence_24h_recovery_triad_plan = resolve_cadence_24h_recovery_triad_plan(
+        cadence_24h_recovery_triad
+    )
     cadence_24h_legend_evaluation = resolve_cadence_24h_legend_evaluation()
 
     return {
@@ -1919,6 +1951,8 @@ def build_report(
         "cadence24hHealth": cadence_24h_health,
         "cadence24hHealthAlias": cadence_24h_health_alias,
         "cadence24hOpsAction": cadence_24h_ops_action,
+        "cadence24hRecoveryTriad": cadence_24h_recovery_triad,
+        "cadence24hRecoveryTriadPlan": cadence_24h_recovery_triad_plan,
         "cadence24hLegendBaseline": cadence_24h_legend_evaluation["baseline"],
         "cadence24hLegendCompact": cadence_24h_legend_evaluation["compact"],
         "cadence24hLegendEvaluation": cadence_24h_legend_evaluation,
@@ -2100,6 +2134,8 @@ def to_markdown(
             f"PREF:{report.get('cadence24hLegendEvaluation', {}).get('preferred', 'COMPACT')}|"
             f"{report.get('cadence24hLegendEvaluation', {}).get('status', 'PASS')}**",
             f"- cadence 24h ops action (systems/ops): **{report.get('cadence24hOpsAction', 'force missing buckets next')}**",
+            f"- cadence 24h recovery triad (combat/vfx+design/world+systems/ops): **TSDCAD24TRI:{report.get('cadence24hRecoveryTriad', 'LOCK')}**",
+            f"- cadence 24h recovery triad plan (design/world): **{report.get('cadence24hRecoveryTriadPlan', 'cadence locked')}**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",
             "- trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**",

@@ -9,6 +9,8 @@
 - cadence 24h health compact decode (design/world): **O=ok, W=watch, A=alert**
 - cadence 24h health decode dos-width eval (design/world): **TSDCAD24LEN:B22|C22|LIM72|PREF:COMPACT|PASS**
 - cadence 24h ops action (systems/ops): **force combat-or-vfx bucket next**
+- cadence 24h recovery triad (combat/vfx+design/world+systems/ops): **TSDCAD24TRI:CV>DW>SO**
+- cadence 24h recovery triad plan (design/world): **combat spark -> world anchor -> systems lock**
 - trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 - trend-score band snapshot alias: **TSSB:C0E0H0**
 - trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**

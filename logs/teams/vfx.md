@@ -519,3 +519,7 @@
 ## 2026-04-02 20:52 KST
 - No VFX runtime changes; verified adaptive-focus winner-slot token stays in reporting lane only.
 
+
+## 2026-04-02 21:41 KST
+- Cycle IP35 combat/vfx cadence recovery readability slice landed: markdown now surfaces `TSDCAD24TRI:CV>DW>SO` to front-load VFX/combat recovery priority before generic ops action text.
+- Scope remains offline/report-only (no runtime FX tuning changes).
