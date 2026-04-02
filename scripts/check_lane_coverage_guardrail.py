@@ -2132,6 +2132,7 @@ def to_markdown(
             f"- over-cap lanes: **{over_cap}**",
             f"- forced next lanes (if over-cap): **{forced}**",
             f"- cadence buckets missing: **{missing_buckets}**",
+            f"- cadence 24h recovery triad (combat/vfx+design/world+systems/ops): **TSDCAD24TRI:{report.get('cadence24hRecoveryTriad', 'LOCK')}**",
             f"- cadence 24h health (combat/vfx): **TSDCAD24:{report.get('cadence24hHealthAlias', 'A')}** ({report.get('cadence24hHealth', 'ALERT')})",
             "- cadence 24h health decode (design/world): **TSDCAD24 legend (O=OK, W=WATCH, A=ALERT)**",
             f"- cadence 24h health compact decode (design/world): **{report.get('cadence24hLegendCompact', resolve_cadence_24h_legend_compact())}**",
@@ -2142,7 +2143,6 @@ def to_markdown(
             f"PREF:{report.get('cadence24hLegendEvaluation', {}).get('preferred', 'COMPACT')}|"
             f"{report.get('cadence24hLegendEvaluation', {}).get('status', 'PASS')}**",
             f"- cadence 24h ops action (systems/ops): **{report.get('cadence24hOpsAction', 'force missing buckets next')}**",
-            f"- cadence 24h recovery triad (combat/vfx+design/world+systems/ops): **TSDCAD24TRI:{report.get('cadence24hRecoveryTriad', 'LOCK')}**",
             f"- cadence 24h recovery triad pulse palette alias (combat/vfx): **TSDCAD24TRIP:{report.get('cadence24hRecoveryTriadPulsePaletteAlias', resolve_cadence_24h_recovery_triad_pulse_palette_alias())}**",
             f"- cadence 24h recovery triad plan (design/world): **{report.get('cadence24hRecoveryTriadPlan', 'cadence locked')}**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",

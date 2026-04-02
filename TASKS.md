@@ -14,7 +14,7 @@ Last updated: 2026-04-02 21:41 KST
 
 ## Next Up (Game Director Injection — Cycle IP35)
 - [x] Combat/VFX Team (injected): Add compact cadence-triad pulse palette alias row (`CV=SPARK`, `DW=ANCHOR`, `SO=LOCK`) for one-glance operator callouts. *(lifecycle: [ ] -> [~] started: 2026-04-02 21:48 KST -> [x] completed: 2026-04-02 21:53 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] Design/World + Systems/QA Team (injected): Add deterministic decode/order assertion keeping `TSDCAD24TRI` immediately before `TSDCAD24` rows in markdown summary + token sections.
+- [x] Design/World + Systems/QA Team (injected): Add deterministic decode/order assertion keeping `TSDCAD24TRI` immediately before `TSDCAD24` rows in markdown summary + token sections. *(lifecycle: [ ] -> [~] started: 2026-04-02 22:20 KST -> [x] completed: 2026-04-02 22:23 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP30)
 - Candidate ideas generated:

@@ -5115,3 +5115,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep pulse palette alias deterministic (`CV=SPARK|DW=ANCHOR|SO=LOCK`) and row-count parity-locked with `TSDCAD24TRI` in regression.
 - Verification passed end-to-end: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: deterministic triad/order assertion).
+
+
+## 2026-04-02 22:23 KST
+- Closed injected Design/World + Systems/QA item: enforced deterministic markdown ordering so `TSDCAD24TRI` appears immediately before `TSDCAD24` across rendered sections.
+- Code changes: reordered cadence rows in `scripts/check_lane_coverage_guardrail.py` and added explicit adjacency assertions in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for immediate Game Director cycle next run).

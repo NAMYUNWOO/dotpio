@@ -367,6 +367,20 @@ def run_fixture_case(
     assert cadence_24h_triad_palette_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRIP row count must match TSDCAD24TRI row count across sections"
     )
+    cadence_24h_lines = md_text.splitlines()
+    cadence_24h_triad_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRI:" in line
+    ]
+    cadence_24h_token_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24:" in line
+    ]
+    assert len(cadence_24h_triad_indexes) == len(cadence_24h_token_indexes), (
+        f"{name}: TSDCAD24TRI row count must match TSDCAD24 row count across sections"
+    )
+    for cluster_i in range(len(cadence_24h_triad_indexes)):
+        assert cadence_24h_token_indexes[cluster_i] == cadence_24h_triad_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRI immediately before TSDCAD24 in both sections"
+        )
 
     assert f"TSSB:{alias}" in md_text, f"{name}: markdown output must render canonical TSSB alias"
     assert "TSSB legend (C=calm, E=edge, H=heated)" in md_text, (

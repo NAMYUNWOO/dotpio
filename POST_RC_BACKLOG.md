@@ -10,7 +10,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP35)
 - [x] Combat/VFX Team (injected): Prototype compact triad pulse palette alias row for `CV|DW|SO` callouts in cadence docs. *(lifecycle: [ ] -> [~] started: 2026-04-02 21:48 KST -> [x] completed: 2026-04-02 21:53 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] Design/World + Systems/QA Team (injected): Lock deterministic markdown row order so `TSDCAD24TRI` stays directly before `TSDCAD24` rows across summary/token sections.
+- [x] Design/World + Systems/QA Team (injected): Lock deterministic markdown row order so `TSDCAD24TRI` stays directly before `TSDCAD24` rows across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-02 22:20 KST -> [x] completed: 2026-04-02 22:23 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP34)
 - Candidate ideas generated:
