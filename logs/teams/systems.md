@@ -4819,3 +4819,8 @@
 - Regression/contracts updated so order/parity now enforces `...APFP -> ...APFPAB -> ...APFPABL -> ...APFLEN`, including mixed-window fixture parity row-count coverage.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up: use `APFPAB` seed + `APFPABL` labels when scheduling human A/B readability sessions.
+## 2026-04-02 20:52 KST
+- Implemented `TSDPMFXVWCRITSPMBSAPFPABW` winner-slot mapping in guardrail payload/markdown (`PH->A`, `HP->B`, `ES->C`).
+- Locked deterministic order contract insertion before `...APFLEN`.
+- Follow-up: keep mapping reversible and avoid runtime coupling.
+

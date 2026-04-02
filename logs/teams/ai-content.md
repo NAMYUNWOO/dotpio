@@ -3459,3 +3459,6 @@
 - Regression/contracts updated so order/parity now enforces `...APFP -> ...APFPAB -> ...APFPABL -> ...APFLEN`, including mixed-window fixture parity row-count coverage.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up: use `APFPAB` seed + `APFPABL` labels when scheduling human A/B readability sessions.
+## 2026-04-02 20:52 KST
+- Injected follow-up concept: winner-slot label microcopy (`A/B/C`) for offline playtest readability pack; kept backlog item closed as prototype note only.
+
