@@ -5127,3 +5127,9 @@ Compact decision memory for AI context efficiency.
 - Game Director Cycle IP36 shipped low-risk Systems/Ops vertical slice: cadence-triad bucket coverage alias `TSDCAD24TRICOV:CV<n>|DW<n>|SO<n>` now emitted in `check_lane_coverage_guardrail` payload and markdown.
 - Durable decision: treat `TSDCAD24TRICOV` as deterministic mirror of `bucketCadence` counts and keep row-count parity with `TSDCAD24TRI` across summary/token sections.
 - Verification remained green: `py_compile`, `scripts/regression_check_lane_coverage_guardrail.py`, and guardrail report regeneration.
+
+
+## 2026-04-02 23:32 KST
+- Game Director Cycle IP37 shipped low-risk UX/Design + AI-content vertical slice: winner-slot pilot label token `TSDPMFXVWCRITSPMBSAPFPABWP` and pilot decode legend `...ABWPLEG`.
+- Durable decision: pin deterministic mapping `A->PN`, `B->HL`, `C->EZ` from `...ABW`, and keep strict urgency-cluster ordering `...ABW -> ...ABWLEG -> ...ABWP -> ...ABWPLEG -> ...APFLEN`.
+- Verification passed: `py_compile`, lane-coverage regression suite, and guardrail JSON/markdown regeneration.

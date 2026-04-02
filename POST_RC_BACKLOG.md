@@ -2614,3 +2614,14 @@ Last updated: 2026-03-31 20:40 KST
   - High-risk novelty (AI-content/Combat): adaptive A/B winner remap from recent momentum volatility windows.
 - Selected experiment: Idea 1 (low-risk Design/World + Systems/QA) as minimal vertical slice.
 - [x] Design/World + Systems/QA Team: Add deterministic payload+markdown winner-slot decode legend token `TSDPMFXVWCRITSPMBSAPFPABWLEG:A=PH|B=HP|C=ES`, wire order adjacency between `...APFPABW` and `...APFLEN`, and lock regression payload/order/parity contracts. *(lifecycle: [ ] -> [~] started: 2026-04-02 21:16 KST -> [x] completed: 2026-04-02 21:22 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+
+## Autonomous Cycle 2026-04-02 (Game Director Review — Cycle IP37)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog items were fully checked, so immediate Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (UX/Design + AI-content): add deterministic winner-slot pilot label token `TSDPMFXVWCRITSPMBSAPFPABWP` (`PN|HL|EZ`) to mirror `...ABW` in compact operator language.
+  - Mid-risk Systems/QA: add explicit row-count/order assertions for new pilot-label token + legend placement before `TSDPMFXVWCRITSPMBSAPFLEN`.
+  - High-risk novelty (Combat/VFX): adaptive pilot-label remap from momentum-volatility windows.
+- Selected experiment: Idea 1 (low-risk UX/Design + AI-content), with injected Systems/QA parity/order lock in same slice.
+- [x] UX/Design + AI-content + Systems/QA Team: Added deterministic payload+markdown winner-slot pilot label token `TSDPMFXVWCRITSPMBSAPFPABWP` plus decode legend `TSDPMFXVWCRITSPMBSAPFPABWPLEG:A=PN|B=HL|C=EZ`, and extended regression payload domain + markdown adjacency/row-count contracts.
+  *(lifecycle: [ ] -> [~] started: 2026-04-02 23:24 KST -> [x] completed: 2026-04-02 23:32 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
