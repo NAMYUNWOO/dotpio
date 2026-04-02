@@ -1,3 +1,10 @@
+## 2026-04-02 15:03 KST
+- Closed remaining IP29 injected AI Content/Design item and then immediately triggered Game Director Cycle IP30 because ACTION_ITEMS + TASKS + POST_RC_BACKLOG reached full-check state.
+- Cycle IP30 shipped low-risk UX/Design vertical slice: new ultra-compact shortlist row `TSDPMFXVWCRITSPMBSAP shortlist (PH/HP/ES)` following candidate table `TSDPMFXVWCRITSPMBSA`.
+- Durable decision: keep compact-summary decode block ordered as `...PMBS legend -> PMBSA table -> PMBSAP shortlist -> TSDPMFXVWCRITSB helper` for deterministic one-scan readability.
+- Verification remained green via `py_compile` + `scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2 (next: Systems/QA shortlist parity assertion).
+
 ## 2026-04-02 13:24 KST
 - Closed highest-priority injected Systems/QA item from TASKS/POST_RC for Cycle IP28: regression now enforces decode adjacency `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN` before beat-ladder helper row `TSDPMFXVWCRITSB helper`.
 - Durable decision: preserve bridge decode trio as a contiguous pre-helper block to keep bridge context readable before score-threshold guidance.

@@ -1,5 +1,9 @@
 # Design Team Log
 
+## 2026-04-02 15:03 KST
+- Added ultra-compact alias candidate table + shortlist row to reduce dense bridge-summary scan cost while keeping decode reversibility explicit.
+- Locked final readability chain so shortlist remains adjacent to candidate table before beat helper.
+
 ## 2026-04-02 13:24 KST
 - Added durable ordering contract note for IP28 follow-up: `TSDPMFXVWCRITSPMB legend -> TSDPMFXVWCRITSPMBA legend -> TSDPMFXVWCRITSPMBLEN` must remain contiguous before beat-ladder helper decode row.
 - Keeps bridge decode narrative grouped ahead of score ladder helper for faster operator parsing.

@@ -1,5 +1,10 @@
 # QA Team Log
 
+## 2026-04-02 15:03 KST
+- QA validated new ultra-compact alias table/shortlist rows are covered by deterministic markdown presence, order, and row-count parity assertions.
+- Verification pass: py_compile + `scripts/regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration.
+
+
 ## 2026-04-02 13:24 KST
 - Added regression ordering assertion that enforces `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN` contiguous and positioned before `TSDPMFXVWCRITSB helper` decode row.
 - Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

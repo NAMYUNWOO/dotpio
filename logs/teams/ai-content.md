@@ -1,5 +1,9 @@
 # AI Content Team Log
 
+## 2026-04-02 15:03 KST
+- Completed injected IP29 AI Content/Design deliverable by adding offline candidate mapping table `TSDPMFXVWCRITSPMBSA` with `PNHC->PH` and full bridge-summary mapping set.
+- Added compact shortlist seed row (`TSDPMFXVWCRITSPMBSAP`) for upcoming A/B readability review; no runtime coupling.
+
 ## 2026-04-02 13:24 KST
 - Confirmed latest IP28 systems guardrail keeps bridge microcopy decode rail (`TSDPMFXVWCRITSPMB` family) contiguous before beat helper decode, protecting ai-content bridge phrasing from order drift.
 - No runtime coupling added; this remains markdown/regression-contract-only.

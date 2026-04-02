@@ -1,6 +1,18 @@
 # TASKS
 
-Last updated: 2026-04-02 13:10 KST
+Last updated: 2026-04-02 15:03 KST
+
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP30)
+- Candidate ideas generated:
+  - Low-risk UX/Design: add ultra-compact bridge-summary alias shortlist row from `TSDPMFXVWCRITSPMBSA` candidates for fast A/B readability seed (`PH|HP|ES`).
+  - Mid-risk Systems/QA: enforce adjacency lock `TSDPMFXVWCRITSPMBS legend -> TSDPMFXVWCRITSPMBSA table -> TSDPMFXVWCRITSPMBSAP shortlist` before beat helper.
+  - High-risk AI-content/Combat: prototype momentum-aware adaptive compact-summary remap preference from prior-window drift.
+- Selected experiment: Idea 1 (low-risk UX/Design) minimal vertical slice.
+- [x] UX/Design + Systems/QA Team: Add ultra-compact bridge-summary alias shortlist row `TSDPMFXVWCRITSPMBSAP shortlist (PH/HP/ES)` plus regression order/parity locks for deterministic markdown coverage. *(lifecycle: [ ] -> [~] started: 2026-04-02 14:58 KST -> [x] completed: 2026-04-02 15:03 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP30)
+- [ ] Systems/QA Team (injected): Add fixture-level explicit parity assertion that `TSDPMFXVWCRITSPMBSAP shortlist` row count mirrors `TSDPMFXVWCRITSPMBS` under mixed-window fixtures.
+- [ ] AI Content/Combat Team (injected): Prototype offline adaptive shortlist candidate note keyed by `TSDPMFXVWCRITSP` posture drift (`SURGE/HOLD/COOL`) without runtime coupling.
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP29)
 - Candidate ideas generated:
@@ -12,7 +24,7 @@ Last updated: 2026-04-02 13:10 KST
 
 ## Next Up (Game Director Injection — Cycle IP29)
 - [x] Systems/QA Team (injected): Add fixture-level explicit parity assertion that `TSDPMFXVWCRITSPMBS` row count mirrors `TSDPMFXVWCRITSPMB` under mixed-window fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-02 14:18 KST -> [x] completed: 2026-04-02 14:22 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Design Team (injected): Prototype ultra-compact bridge-summary alias (`PNHC->PH`) candidate mapping table for future readability A/B review (offline-only).
+- [x] AI Content/Design Team (injected): Prototype ultra-compact bridge-summary alias (`PNHC->PH`) candidate mapping table for future readability A/B review (offline-only). *(lifecycle: [ ] -> [~] started: 2026-04-02 14:50 KST -> [x] completed: 2026-04-02 14:57 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP28)
 - Candidate ideas generated:

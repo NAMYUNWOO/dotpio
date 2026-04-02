@@ -1,5 +1,10 @@
 # Combat Team Log
 
+## 2026-04-02 15:03 KST
+- Combat lane reviewed shortlist aliases (`PH/HP/ES`) against existing beat semantics (`HC/PP/SN`) and confirmed no combat-token domain drift.
+- No combat runtime tuning shipped this cycle (docs/regression only).
+
+
 ## 2026-04-02 13:24 KST
 - Combat readability rail hardening: regression now guarantees posture-beat bridge decode rows stay contiguous before beat-ladder helper decode (`TSDPMFXVWCRITSB helper`), reducing chance of ladder context drift in dense reports.
 - Scope remains offline/reporting contract only (no combat balance/runtime mutation).

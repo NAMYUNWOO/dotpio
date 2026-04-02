@@ -1,5 +1,11 @@
 # Systems Team Log
 
+## 2026-04-02 15:03 KST
+- Regression contract expanded to include new decode-order rail: `TSDPMFXVWCRITSPMBS legend -> TSDPMFXVWCRITSPMBSA table -> TSDPMFXVWCRITSPMBSAP shortlist` before beat helper.
+- Added parity checks so `TSDPMFXVWCRITSPMBSA` and `TSDPMFXVWCRITSPMBSAP` row counts mirror `TSDPMFXVWCRITSPMB` across summary/token sections.
+- Follow-up injected: mixed-window fixture parity assertion for shortlist row count.
+
+
 ## 2026-04-02 13:24 KST
 - Closed injected Systems/QA adjacency contract for Cycle IP28: regression now enforces decode-row chain `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN` before beat-ladder helper decode.
 - Implementation landed in `scripts/regression_check_lane_coverage_guardrail.py` via explicit decode index lookups + strict ordering assertion.

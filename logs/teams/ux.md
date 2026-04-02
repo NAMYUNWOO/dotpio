@@ -1,5 +1,10 @@
 # UX Team Log
 
+## 2026-04-02 15:03 KST
+- Introduced one-scan shortlist microcopy (`PH/HP/ES`) to seed future operator readability A/B checks without changing functional outputs.
+- Kept copy DOS-width compact and colocated with bridge-summary decode rows.
+
+
 ## 2026-04-02 13:24 KST
 - UX scan-order stability improved: regression now preserves contiguous bridge decode trio (`TSDPMFXVWCRITSPMB/SPMBA/SPMBLEN`) before beat-ladder helper decode rows.
 - Expected impact: fewer context jumps when operators scan bridge intent then ladder thresholds in compact markdown.

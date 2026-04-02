@@ -1,5 +1,10 @@
 # World Team Log
 
+## 2026-04-02 15:03 KST
+- World/readability lane confirmed bridge-summary decode rail stays reversible after ultra-compact alias additions.
+- Ordering keeps context-first parse flow intact before beat ladder helper.
+
+
 ## 2026-04-02 13:24 KST
 - Logged Cycle IP28 follow-up guardrail lock: posture-beat bridge decode trio (`TSDPMFXVWCRITSPMB/SPMBA/SPMBLEN`) is now required to stay contiguous before beat-ladder helper decode rows.
 - World/design readability impact: bridge decode context now remains one-scan stable ahead of helper ladder rows under dense markdown output.
