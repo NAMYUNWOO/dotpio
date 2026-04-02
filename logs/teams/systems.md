@@ -4897,3 +4897,7 @@
 - Cycle IP41 POST_RC follow-up closed: added `TSDCAD24TRICOVSTCMS` score-ladder decode row (`80=surge confidence, 50=hold confidence, 20=cool confidence`) and DOS-width evaluation token `TSDCAD24TRICOVSTCMSLEN` in lane guardrail markdown/report contract.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up queue: next highest unchecked POST_RC item is Systems/Ops + QA mixed-window monotonic invariant for `TSDCAD24TRICOVSTCMS`.
+
+- 2026-04-03 04:20 KST — Added mixed-window synthetic confidence-delta ramp invariant (up/flat/down) for `TSDCAD24TRICOVSTCMS` monotonic ordering in regression fixture (`up > flat > down`).
+  - Decision: keep invariant at regression layer so scoring contract remains deterministic and reversible.
+  - Follow-up: queue Combat/VFX `TSDCAD24TRICOVSTCMS`-band urgency cue token (`GLINT|PULSE|BLAST`).

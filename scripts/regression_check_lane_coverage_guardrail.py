@@ -3497,6 +3497,61 @@ def main() -> int:
             "mixed-window fixture matrix must keep TSDPMFXUCTSBT/TSDPMFXUCTSBTA/TSDPMFXUCTSBTC/TSDPMFXV/TSDPMFXVA/TSDPMFXVWCR/TSDPMFXVWCRA/TSDPMFXVWCRI/TSDPMFXVWCRIA/TSDPMFXVWCRIT/TSDPMFXVWCRITA/TSDPMFXVWCRITS/TSDPMFXVWCRITSP/TSDPMFXVWCRITSPA/TSDPMFXVWCRITSPMB/TSDPMFXVWCRITSPMBS/TSDPMFXVWCRITSPMBSAPN/TSDPMFXVWCRITSPMBSAPF/TSDPMFXVWCRITSPMBSAPFP/TSDPMFXVWCRITSPMBSAPFPAB/TSDPMFXVWCRITSPMBSAPFPABL/TSDPMFXVWCRITSB/TSDPMFXVWCRITSBA row-count parity across summary + token sections"
         )
 
+    cadence_24h_confidence_delta_ramp_rows = {
+        "up": [
+            "Systems/QA Team: synthetic monotonic ramp seed",
+            "Systems/QA Team: synthetic monotonic ramp seed",
+            "Design/World Team: synthetic monotonic ramp seed",
+            "Combat/VFX Team: synthetic monotonic ramp seed",
+            "Systems/QA Team: synthetic monotonic ramp seed",
+            "Systems/QA Team: synthetic monotonic ramp seed",
+        ],
+        "flat": [
+            "Systems/QA Team: synthetic monotonic ramp seed",
+            "Systems/QA Team: synthetic monotonic ramp seed",
+            "Systems/QA Team: synthetic monotonic ramp seed",
+            "Systems/QA Team: synthetic monotonic ramp seed",
+            "Systems/QA Team: synthetic monotonic ramp seed",
+            "Systems/QA Team: synthetic monotonic ramp seed",
+        ],
+        "down": [
+            "Systems/QA Team: synthetic monotonic ramp seed",
+            "Design/World Team: synthetic monotonic ramp seed",
+            "Combat/VFX Team: synthetic monotonic ramp seed",
+            "Systems/QA Team: synthetic monotonic ramp seed",
+            "Design/World Team: synthetic monotonic ramp seed",
+            "Design/World Team: synthetic monotonic ramp seed",
+        ],
+    }
+    cadence_24h_confidence_delta_ramp_scores = {
+        name: int(
+            guardrail_module.resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score(
+                rows
+            )
+        )
+        for name, rows in cadence_24h_confidence_delta_ramp_rows.items()
+    }
+    cadence_24h_confidence_delta_ramp_momentum = {
+        name: guardrail_module.resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum(
+            rows
+        )
+        for name, rows in cadence_24h_confidence_delta_ramp_rows.items()
+    }
+    assert cadence_24h_confidence_delta_ramp_momentum == {
+        "up": "UP",
+        "flat": "FLAT",
+        "down": "DOWN",
+    }, (
+        "mixed-window fixture invariant requires synthetic confidence-delta ramps to preserve explicit momentum-domain mapping UP|FLAT|DOWN"
+    )
+    assert (
+        cadence_24h_confidence_delta_ramp_scores["up"]
+        > cadence_24h_confidence_delta_ramp_scores["flat"]
+        > cadence_24h_confidence_delta_ramp_scores["down"]
+    ), (
+        "mixed-window fixture invariant requires TSDCAD24TRICOVSTCMS monotonic response for synthetic confidence-delta ramps (up > flat > down)"
+    )
+
     print("ok: trendScoreBand dispatch-hint/momentum-band regression checks passed")
     return 0
 

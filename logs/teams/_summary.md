@@ -5202,3 +5202,5 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep momentum-score ladder thresholds fixed at `80/50/20` with explicit confidence wording and enforce compact-preferred DOS-width telemetry (`B59|C26|LIM72|PREF:COMPACT|PASS`) for one-scan cadence readability.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2 (next effective item: Systems/Ops + QA mixed-window monotonic invariant for `TSDCAD24TRICOVSTCMS`).
+
+- 2026-04-03 04:20 KST — Systems/Ops + QA completed mixed-window invariant for `TSDCAD24TRICOVSTCMS`: synthetic ramps now assert explicit momentum mapping (`UP|FLAT|DOWN`) and monotonic score ordering (`up > flat > down`) in regression. This hardens confidence-momentum score behavior before adding Combat/VFX urgency-cue tokenization.
