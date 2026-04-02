@@ -1,5 +1,10 @@
 # QA Team Log
 
+## 2026-04-02 18:51 KST
+- Added deterministic regression payload-shape lock for `trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasDecodeEvaluation`.
+- QA contract now fails on any key/order/value drift in adaptive-focus decode evaluation payload (`baseline|compact|baselineLen|compactLen|dosWidthLimit|preferred|status`).
+- Verification pass: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail artifact regeneration command.
+
 ## 2026-04-02 17:48 KST
 - Added regression fixture checks for cadence-24h ops action priority and fallback contract (`combat-or-vfx` first, then `design-or-world`, then `systems-or-ops`, else legacy health fallback).
 - Verification pass: `py_compile` + `scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.

@@ -1,3 +1,9 @@
+## 2026-04-02 18:51 KST
+- Closed injected Systems/QA POST_RC item: regression now hard-locks adaptive-focus decode evaluation payload shape/value contract for `...AdaptiveFocusAliasDecodeEvaluation` (baseline/compact strings, length fields, DOS-width limit, preferred mode, status).
+- Durable decision: keep `status=WARN` for this payload while `baselineLen=77` exceeds DOS width 72; this is intentional signal preservation, not a failure, and should remain deterministic for downstream audits.
+- Verification passed (`py_compile`, `scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: AI Content/Design ultra-compact adaptive-focus helper row token).
+
 ## 2026-04-02 17:48 KST
 - Closed injected Systems/Ops + QA POST_RC item: lane guardrail now dispatches cadence-24h ops action by explicit missing bucket priority (`combat-or-vfx` -> `design-or-world` -> `systems-or-ops`) instead of generic health-only action text.
 - Durable decision: preserve old health-based action map as strict fallback when no known buckets are missing to keep deterministic backward compatibility.

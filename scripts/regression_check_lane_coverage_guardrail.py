@@ -273,6 +273,17 @@ def run_fixture_case(
         "preferred": "COMPACT",
         "status": "PASS",
     }, f"{name}: combat-callout decode evaluation payload must include deterministic DOS-width/readability signals"
+    assert report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasDecodeEvaluation"
+    ) == {
+        "baseline": "PH=push now/hard crack, HP=hold lane/pressure poke, ES=ease lane/steady nudge",
+        "compact": "PH|HP|ES",
+        "baselineLen": 77,
+        "compactLen": 8,
+        "dosWidthLimit": 72,
+        "preferred": "COMPACT",
+        "status": "WARN",
+    }, f"{name}: adaptive-focus alias decode evaluation payload must keep deterministic baseline/compact shape + DOS-width signal contract"
 
     md_text = md_out.read_text(encoding="utf-8")
     cadence_24h_health = report.get("cadence24hHealth")
