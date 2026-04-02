@@ -5223,3 +5223,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep hysteresis advisory validation bound to a fixed synthetic score ladder (`window2 > window1 > window3`) so advisory behavior is stable even if future lane-string distributions shift.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: Combat/VFX + Design concise advisory decode copy variant under DOS-width <=72).
+
+### 2026-04-03 Cycle IP44 — Hysteresis advisory decode copy tightened
+- Shipped concise decode wording for `TSDCAD24TRICOVSTCMSVH`/`TSDCAD24TRICOVSTCMSVHA` (`stable cue` / `cue churn`) in guardrail markdown output.
+- Regression expectations were updated and verification bundle passed (py_compile + regression + guardrail report regen).
+- Injected next task: explicit fixture-level DOS-width assertion for `TSDCAD24TRICOVSTCMSVHA` decode copy.

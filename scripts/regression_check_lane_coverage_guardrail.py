@@ -558,12 +558,12 @@ def run_fixture_case(
     ), f"{name}: markdown output must include cadence-triad coverage-spread trend confidence momentum score vfx cue decode row"
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory decode (design/world): "
-        "**TSDCAD24TRICOVSTCMSVH legend (STEADY=hold last cue, SWING=rapid cue flips)**"
+        "**TSDCAD24TRICOVSTCMSVH legend (STEADY=stable cue, SWING=cue churn)**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad vfx-cue hysteresis advisory decode row"
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory alias decode (design/world): "
-        "**TSDCAD24TRICOVSTCMSVHA legend (S=STEADY, W=SWING)**"
+        "**TSDCAD24TRICOVSTCMSVHA legend (S=stable cue, W=cue churn)**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad vfx-cue hysteresis advisory alias decode row"
     assert (
@@ -604,10 +604,10 @@ def run_fixture_case(
         "**TSDCAD24TRICOVSTCMSV legend (GLINT=calm flicker, PULSE=steady pressure, BLAST=full commit)**"
     )
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_legend_rows = md_text.count(
-        "**TSDCAD24TRICOVSTCMSVH legend (STEADY=hold last cue, SWING=rapid cue flips)**"
+        "**TSDCAD24TRICOVSTCMSVH legend (STEADY=stable cue, SWING=cue churn)**"
     )
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_rows = md_text.count(
-        "**TSDCAD24TRICOVSTCMSVHA legend (S=STEADY, W=SWING)**"
+        "**TSDCAD24TRICOVSTCMSVHA legend (S=stable cue, W=cue churn)**"
     )
     cadence_24h_triad_coverage_spread_trend_confidence_alias_legend_rows = md_text.count(
         "**TSDCAD24TRICOVSTCA legend (L=LOW, M=MID, H=HIGH)**"
@@ -770,12 +770,12 @@ def run_fixture_case(
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_legend_indexes = [
         i
         for i, line in enumerate(cadence_24h_lines)
-        if "**TSDCAD24TRICOVSTCMSVH legend (STEADY=hold last cue, SWING=rapid cue flips)**" in line
+        if "**TSDCAD24TRICOVSTCMSVH legend (STEADY=stable cue, SWING=cue churn)**" in line
     ]
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes = [
         i
         for i, line in enumerate(cadence_24h_lines)
-        if "**TSDCAD24TRICOVSTCMSVHA legend (S=STEADY, W=SWING)**" in line
+        if "**TSDCAD24TRICOVSTCMSVHA legend (S=stable cue, W=cue churn)**" in line
     ]
     cadence_24h_triad_plan_indexes = [
         i

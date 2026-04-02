@@ -4921,3 +4921,8 @@
 - Closed Cycle IP43 injected Systems/QA task by adding deterministic three-window cue-transition fixture assertions in `scripts/regression_check_lane_coverage_guardrail.py`.
 - New invariant proves advisory toggles `STEADY -> SWING -> STEADY` for fixed synthetic windows and locks score ladder ordering (`window2 > window1 > window3`) to prevent drift.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-03 06:51 KST — Cycle IP44 guardrail digest wording sync
+- Updated guardrail markdown output copy for hysteresis advisory decode to concise variant.
+- Ensured output contract parity by updating regression string checks.
+- Follow-up queued in backlog: DOS-width assertion for decode copy.

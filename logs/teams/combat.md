@@ -3430,3 +3430,8 @@
 - 2026-04-03 05:51 KST — Combat digest now includes `TSDCAD24TRICOVSTCMSVH` advisory to surface rapid cue flips versus steady windows; strictly advisory, no runtime coupling.
 
 - 2026-04-03 05:54 KST — Combat lane consumed advisory alias output (`S|W`) for fast triage reads; behavior remains advisory-only and offline.
+
+## 2026-04-03 06:51 KST — Cycle IP44 concise hysteresis decode copy
+- Decision: Keep hysteresis advisory decode phrasing compact (`stable cue` / `cue churn`) to improve one-glance combat cue triage.
+- Evidence: `scripts/check_lane_coverage_guardrail.py` markdown decode rows updated for `TSDCAD24TRICOVSTCMSVH/VHA`; full regression + guardrail generation pass.
+- Follow-up: validate decode copy DOS-width lock in regression fixture (IP44 injected Systems/QA task).

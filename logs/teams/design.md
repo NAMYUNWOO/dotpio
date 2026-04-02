@@ -3547,3 +3547,8 @@
 - 2026-04-03 05:51 KST — Added compact decode copy for hysteresis advisory token: `TSDCAD24TRICOVSTCMSVH legend (STEADY=hold last cue, SWING=rapid cue flips)`.
 
 - 2026-04-03 05:54 KST — Design updated decode companion row `TSDCAD24TRICOVSTCMSVHA legend (S=STEADY, W=SWING)` to keep compact alias reversible.
+
+## 2026-04-03 06:51 KST — Cycle IP44 advisory decode wording pass
+- Decision: Adopt concise operator copy variant for advisory alias decode (`S=stable cue`, `W=cue churn`) over verbose mapping.
+- Rationale: better readability with equivalent meaning under DOS-width budget.
+- Follow-up: keep design copy deterministic via fixture-level width assertions.

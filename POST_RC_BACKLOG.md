@@ -2721,4 +2721,17 @@ Last updated: 2026-03-31 20:40 KST
 
 ## Next Up (Game Director Injection — Cycle IP43)
 - [x] Systems/QA Team (injected): Add synthetic three-window cue-transition fixture proving advisory toggles `STEADY -> SWING -> STEADY` under deterministic score ladder inputs. *(lifecycle: [ ] -> [~] started: 2026-04-03 06:21 KST -> [x] completed: 2026-04-03 06:23 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`; implementation: added deterministic three-window synthetic fixture assertions in `scripts/regression_check_lane_coverage_guardrail.py` validating score ladder ordering and advisory toggle sequence `STEADY -> SWING -> STEADY`)*
-- [ ] Combat/VFX + Design Team (injected): Evaluate concise operator copy variant for advisory decode (`S=stable cue`, `W=cue churn`) against current wording under DOS-width <=72.
+- [x] Combat/VFX + Design Team (injected): Evaluate concise operator copy variant for advisory decode (`S=stable cue`, `W=cue churn`) against current wording under DOS-width <=72. *(lifecycle: [ ] -> [~] started: 2026-04-03 06:48 KST -> [x] completed: 2026-04-03 06:51 KST; implementation: updated hysteresis decode copy to concise operator wording in `scripts/check_lane_coverage_guardrail.py` (`TSDCAD24TRICOVSTCMSVH legend` + `TSDCAD24TRICOVSTCMSVHA legend`) and aligned regression expectations in `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP44)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog actionable queues were fully checked, so immediate Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (Combat/VFX + Design): tighten hysteresis advisory decode copy to concise operator wording under DOS-width <=72.
+  - Mid-risk Systems/QA: add explicit markdown budget assertion for hysteresis decode copy length in regression fixtures.
+  - High-risk novelty (AI Content/Combat): prototype adaptive hysteresis advisory phrasing from recent cue-flip volatility windows.
+- Selected experiment: Idea 1 (low-risk UX/game-feel) minimal vertical slice.
+- [x] Combat/VFX + Design + QA Team: Shipped concise advisory decode copy variant (`S=stable cue`, `W=cue churn`) and aligned deterministic regression expectations.
+  *(lifecycle: [ ] -> [~] started: 2026-04-03 06:48 KST -> [x] completed: 2026-04-03 06:51 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP44)
+- [ ] Systems/QA Team (injected): Add fixture-level explicit DOS-width assertion that `TSDCAD24TRICOVSTCMSVHA` decode copy stays <=72 chars in both summary/token sections.

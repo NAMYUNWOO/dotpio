@@ -5431,3 +5431,8 @@
 - Added synthetic three-window cue-transition regression fixture for `TSDCAD24TRICOVSTCMSVH` advisory behavior.
 - QA lock now requires deterministic advisory sequence `STEADY -> SWING -> STEADY` and deterministic score-ladder ordering (`window2 > window1 > window3`) across the synthetic windows.
 - Verification pass: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-03 06:51 KST — Cycle IP44 regression alignment
+- Verified updated decode copy expectations in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Verification bundle passed: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report generation.
+- Next hook: add explicit decode-width assertion for `TSDCAD24TRICOVSTCMSVHA` legend row.
