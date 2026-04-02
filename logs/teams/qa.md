@@ -5274,3 +5274,12 @@
 - Decision: Extended mixed-window tuple parity contract (balanced/ready/prior-window fixtures) to include both bridge and compact-bridge row counters so regressions fail before markdown drift ships.
 - Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up: Next highest-priority unchecked item remains AI Content/Design ultra-compact bridge-summary alias mapping table (`PNHC->PH`) prototype.
+
+## 2026-04-02 15:20 KST — Regression parity assertion added for shortlist/summary bridge
+- Added explicit fixture-level parity assertion in `scripts/regression_check_lane_coverage_guardrail.py`:
+  - `TSDPMFXVWCRITSPMBSAP shortlist` row count must mirror `TSDPMFXVWCRITSPMBS` row count.
+- Existing parity checks retained (`...MBSAP` vs `...MB`, `...MBS` vs `...MB`) to preserve transitive invariants and clearer failure diagnostics.
+- Verification run passed end-to-end:
+  - `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`
+  - `python3 scripts/regression_check_lane_coverage_guardrail.py`
+  - `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
