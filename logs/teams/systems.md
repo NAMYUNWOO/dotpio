@@ -4710,3 +4710,4 @@
 ## 2026-04-02 12:04 KST
 - Cycle IP27 systems contract update: extended regression coverage for posture microcopy rails by enforcing `TSDPMFXVWCRITSPMA` adjacency before beat rows and parity for new decode-preference alias `TSDPMFXVWCRITSPMP`.
 - Verification: py_compile + `scripts/regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration (PASS).
+- 2026-04-02 12:26 KST — Closed injected TASKS/POST_RC systems item by extending regression order contract coverage: `TSDPMFXVWCRITSPMLEN -> TSDPMFXVWCRITSPMP` must remain adjacent before beat decode rows (`TSDPMFXVWCRITSB legend`). Follow-up: implement ai-content bridge token `TSDPMFXVWCRITSPMB` without runtime coupling.

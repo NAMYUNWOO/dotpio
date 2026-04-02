@@ -4963,3 +4963,5 @@ Compact decision memory for AI context efficiency.
 - Triggered mandatory Game Director cycle IP27 after full-check state; selected low-risk Design/World experiment and implemented `TSDPMFXVWCRITSPMP:C` (posture decode preference alias) with Systems/QA parity lock.
 - Injected next backlog tasks: (1) strict adjacency lock for `TSDPMFXVWCRITSPMP` near `...SPMLEN`; (2) offline posture-beat bridge microcopy prototype `TSDPMFXVWCRITSPMB`.
 - Queue status after injection: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2.
+- 2026-04-02 12:26 KST (IP27 follow-up): Completed highest-priority injected Systems/QA task from TASKS/POST_RC by extending regression contract to require `TSDPMFXVWCRITSPMLEN -> TSDPMFXVWCRITSPMP` adjacency before `TSDPMFXVWCRITSB` decode rows; verification remained green (`py_compile` + regression + guardrail artifact regeneration).
+- Next priority queued: AI Content/Systems injected prototype `TSDPMFXVWCRITSPMB` (offline posture-beat bridge microcopy token).

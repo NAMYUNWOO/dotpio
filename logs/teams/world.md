@@ -3278,3 +3278,4 @@
 ## 2026-04-02 12:04 KST
 - Cycle IP27 design/world readability slice shipped: added posture microcopy decode preference alias row `TSDPMFXVWCRITSPMP:C` next to `TSDPMFXVWCRITSPMLEN` for one-glance DOS-width intent clarity.
 - Follow-up injected: lock strict adjacency `TSDPMFXVWCRITSPMLEN -> TSDPMFXVWCRITSPMP` in urgency cluster order contract.
+- 2026-04-02 12:26 KST — World/readability lane validated decode adjacency guard for posture microcopy preference rows before beat decode legends to reduce parser drift in dense DOS-width sections.

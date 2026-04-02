@@ -5224,3 +5224,4 @@
 ## 2026-04-02 12:04 KST
 - Regression suite expanded for posture microcopy helper family: validates presence + row-count parity for `TSDPMFXVWCRITSPMP` alongside `TSDPMFXVWCRITSPM`.
 - Full verification run passed (py_compile, regression, guardrail regeneration).
+- 2026-04-02 12:26 KST — Added explicit decode-order assertion in guardrail regression: posture decode eval and preference alias rows must remain adjacent and precede beat decode row; regression suite remains green after fixture run.

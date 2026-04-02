@@ -3261,3 +3261,4 @@
 ## 2026-04-02 12:04 KST
 - Cycle IP27 preserved combat rail stability: posture microcopy alias adjacency now explicitly anchored before beat token rows to reduce parser drift in `TSDPMFXVWCRITSB` neighborhood.
 - No combat tuning constants changed this cycle.
+- 2026-04-02 12:26 KST — Combat digest beat-decode ordering safeguarded by regression (`...SPMLEN -> ...SPMP -> TSDPMFXVWCRITSB legend`) to keep beat legend scans deterministic.

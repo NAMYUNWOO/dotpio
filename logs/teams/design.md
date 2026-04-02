@@ -3379,3 +3379,4 @@
 ## 2026-04-02 12:04 KST
 - Added compact posture decode preference marker (`TSDPMFXVWCRITSPMP:C`) to keep microcopy readability decisions explicit in digest docs.
 - Preference policy remains `COMPACT` under 72-char DOS budget.
+- 2026-04-02 12:26 KST — Readability contract strengthened for decode rails: compact preference alias (`TSDPMFXVWCRITSPMP`) is now hard-ordered immediately after `TSDPMFXVWCRITSPMLEN` before beat decode legends.

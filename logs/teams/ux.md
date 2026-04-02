@@ -3540,3 +3540,4 @@
 ## 2026-04-02 12:04 KST
 - UX readability maintenance: posture decode helper rows now include explicit compact-preference alias (`...SPMP:C`) to avoid ambiguity in dense scans.
 - Next UX check delegated to Systems/QA adjacency lock for helper ordering.
+- 2026-04-02 12:26 KST — UX scan-order stability improved via regression lock enforcing compact posture decode preference adjacency before beat decode rows.
