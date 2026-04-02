@@ -3355,3 +3355,8 @@
 ## 2026-04-02 19:22 KST — World/readability context sync
 - World/design decode rail remains contiguous with new adaptive-focus preference rows inserted before DOS-width eval token.
 - No map/runtime changes; documentation rail updated for operator scan consistency.
+
+## 2026-04-02 19:50 KST — IP33 injected parity lock (APFPAB mixed-window fixture coverage)
+- Extended mixed-window fixture parity tuple + assertion chain to include `TSDPMFXVWCRITSPMBSAPFP` and `TSDPMFXVWCRITSPMBSAPFPAB` row-count invariants across summary + token sections.
+- Durable decision: keep adaptive-focus preference A/B sweep seed (`A=PH|B=HP|C=ES`) fixture-locked at both payload assertion layer and mixed-window markdown parity layer to prevent drift regressions.
+- Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

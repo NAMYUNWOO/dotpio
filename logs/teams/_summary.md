@@ -5083,3 +5083,8 @@ Compact decision memory for AI context efficiency.
 - ACTION_ITEMS/TASKS/POST_RC all reached fully-checked state, then immediately executed Game Director Cycle IP33.
 - Cycle IP33 shipped low-risk AI Content/Design slice: deterministic A/B sweep seed row `TSDPMFXVWCRITSPMBSAPFPAB:A=PH|B=HP|C=ES` with regression order/parity locks.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2 (next injected items: Systems/QA payload parity assertion for A/B seed, Design/UX compact readability pilot token).
+
+## 2026-04-02 19:50 KST — IP33 injected APFPAB fixture parity completion
+- Completed injected Systems/QA backlog item: mixed-window fixture parity now explicitly includes `TSDPMFXVWCRITSPMBSAPFP` + `TSDPMFXVWCRITSPMBSAPFPAB` row counts, matching `...MBSAPF` across summary and token sections.
+- Durable decision: adaptive-focus preference sweep seed remains deterministic (`A=PH|B=HP|C=ES`) with dual lock (payload assertion + markdown parity).
+- Remaining POST_RC Next Up item: Design/UX compact readability pilot token for A/B/C slot labels.
