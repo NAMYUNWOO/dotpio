@@ -5396,3 +5396,7 @@
 ## 2026-04-03 03:05 KST
 - Added regression domain/parity/order checks for `TSDCAD24TRICOVSTCMA` and its legend row.
 - Verification bundle passed (py_compile + regression + guardrail regen).
+
+## 2026-04-03 03:21 KST — Regression contract hardening
+- Added explicit fixture-level parity assertion message for `TSDCAD24TRICOVSTCMA legend` vs `TSDCAD24TRICOVSTCMA` row counts.
+- Result: regression contract now explicitly encodes the injected backlog requirement; checks green.

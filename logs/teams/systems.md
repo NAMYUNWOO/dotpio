@@ -4883,3 +4883,7 @@
 ## 2026-04-03 03:05 KST
 - Shipped momentum-alias token `TSDCAD24TRICOVSTCMA` with deterministic map (`UP/FLAT/DOWN -> U/F/D`).
 - Regression now locks confidence-momentum cluster ordering through the new alias row.
+
+## 2026-04-03 03:21 KST — IP41 injected parity lock closed
+- Added explicit fixture-level parity assertion in regression: `TSDCAD24TRICOVSTCMA legend` row count mirrors `TSDCAD24TRICOVSTCMA` across summary/token sections.
+- Verification: py_compile + regression suite + guardrail JSON/MD regeneration passed.

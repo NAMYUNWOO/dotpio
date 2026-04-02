@@ -5184,3 +5184,9 @@ Compact decision memory for AI context efficiency.
 - Completed low-risk IP41 experiment: new compact confidence-momentum alias `TSDCAD24TRICOVSTCMA` with decode row and order/parity locks.
 - Backlog updated with two injected follow-ups (`...STCMA legend` parity assertion, `...STCMS` weighted score prototype).
 - Guardrail scripts remain green after cluster expansion.
+
+## 2026-04-03 03:21 KST — IP41 injected Systems/QA closure
+- Closed highest-priority unchecked backlog item: explicit fixture-level parity assertion for `TSDCAD24TRICOVSTCMA legend` vs `TSDCAD24TRICOVSTCMA` row counts across summary/token sections.
+- Durable decision: keep alias/decode pair contracts explicit in regression error text (not only implicit through generic parity checks) so injected backlog acceptance is auditable.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, and guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1.

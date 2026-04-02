@@ -3679,3 +3679,6 @@
 ## 2026-04-03 03:05 KST
 - Added compact confidence-momentum alias token for denser operator scanning without widening digest copy.
 - Decode copy keeps alias reversible while staying one-line compact.
+
+## 2026-04-03 03:21 KST — UX readability note
+- Alias/decode one-to-one contract for `TSDCAD24TRICOVSTCMA` now explicitly guarded in regression for summary/token readability consistency.

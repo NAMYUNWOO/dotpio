@@ -3520,3 +3520,6 @@
 ## 2026-04-03 03:05 KST
 - Maintained deterministic readability chain with new alias rail (`...STCM -> ...STCMA -> decode -> triad plan`).
 - Preserved DOS-friendly compact semantics across cadence confidence tokens.
+
+## 2026-04-03 03:21 KST — Documentation parity note
+- Decode legend parity for `TSDCAD24TRICOVSTCMA` is now explicitly enforced by regression assertion text.

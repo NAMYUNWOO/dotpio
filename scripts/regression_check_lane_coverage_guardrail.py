@@ -567,6 +567,12 @@ def run_fixture_case(
         f"{name}: TSDCAD24TRICOVSTCMA legend row count must match TSDCAD24TRICOVSTCMA row count across sections"
     )
     assert (
+        cadence_24h_triad_coverage_spread_trend_confidence_momentum_alias_legend_rows
+        == cadence_24h_triad_coverage_spread_trend_confidence_momentum_alias_rows
+    ), (
+        f"{name}: fixture-level explicit parity assertion requires TSDCAD24TRICOVSTCMA legend row count to mirror TSDCAD24TRICOVSTCMA across summary/token sections"
+    )
+    assert (
         cadence_24h_triad_coverage_spread_trend_confidence_alias_legend_rows
         == cadence_24h_triad_coverage_spread_trend_confidence_alias_rows
     ), (
