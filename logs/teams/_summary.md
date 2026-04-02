@@ -4983,3 +4983,23 @@ Compact decision memory for AI context efficiency.
 - Implemented selected low-risk experiment: `TSDPMFXVWCRITSPMBLEN` decode-width evaluation row for posture-beat bridge legend (B109|C19|LIM72|PREF:COMPACT|WARN).
 - Durable decision: keep bridge legend in baseline form for readability, but expose compact alias path and explicit DOS-width evaluation to preserve operator scan safety.
 - Injected follow-up backlog for next cycle: adjacency lock (`TSDPMFXVWCRITSPMB -> ...SPMBA -> ...SPMBLEN`) and compact bridge-summary token prototype.
+
+## 2026-04-02 13:49 KST — Compact posture-beat bridge summary token shipped
+- Completed injected IP28 follow-up by adding `TSDPMFXVWCRITSPMBS` compact token from `TSDPMFXVWCRITSPMB`.
+- Compact contract map: `PNHC/PNPP/PNSN/HLHC/HLPP/HLSN/ELHC/ELPP/ELSN` (deterministic, offline-only, dense scan friendly).
+- Regression coverage updated to validate payload mapping, markdown row presence, decode ordering (`...MBLEN -> ...MBS -> ...ITSB helper`), and row-count parity with `TSDPMFXVWCRITSPMB`.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen all pass.
+
+## 2026-04-02 13:54 KST — Game Director Cycle IP29 completed
+- Generated 3 ideas, selected low-risk Design/World slice, and shipped `TSDPMFXVWCRITSPMBS` decode legend row.
+- Regression now enforces markdown presence and decode ordering through `...MBLEN -> ...MBS -> ...MBS legend -> ...ITSB helper`.
+- Injected new follow-ups in TASKS/POST_RC_BACKLOG:
+  - Systems/QA parity assertion for `TSDPMFXVWCRITSPMBS` row-count mirroring `TSDPMFXVWCRITSPMB`.
+  - AI Content/Design ultra-compact alias (`PNHC->PH`) prototype table (offline-only).
+
+## 2026-04-02 13:54 KST — Game Director Cycle IP29 completed
+- Generated 3 ideas, selected low-risk Design/World slice, and shipped TSDPMFXVWCRITSPMBS decode legend row.
+- Regression now enforces markdown presence and decode ordering through ...MBLEN -> ...MBS -> ...MBS legend -> ...ITSB helper.
+- Injected new follow-ups in TASKS/POST_RC_BACKLOG:
+  - Systems/QA parity assertion for TSDPMFXVWCRITSPMBS row-count mirroring TSDPMFXVWCRITSPMB.
+  - AI Content/Design ultra-compact alias (PNHC->PH) prototype table (offline-only).

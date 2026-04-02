@@ -3293,3 +3293,27 @@
 - Game Director Cycle IP28 shipped minimal vertical slice: added posture-beat bridge decode DOS-width evaluation row `TSDPMFXVWCRITSPMBLEN`.
 - Regression now asserts the eval row exists and parity-mirrors `TSDPMFXVWCRITSPMB` counts across summary + token sections.
 - Verification pass: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen.
+
+## 2026-04-02 13:49 KST — Cycle IP28 injected follow-up (compact bridge-summary token)
+- Task: Added compact bridge-summary token  derived deterministically from  for dense digest scans (offline-only).
+- Decision: Use fixed 4-char compact codes () to keep DOS-width friendly and reversible via existing bridge legend.
+- Evidence:  + ok: trendScoreBand dispatch-hint/momentum-band regression checks passed + .
+- Follow-up: Keep  adjacency invariant, with new  immediately after eval row before beat-ladder helper.
+
+## 2026-04-02 13:49 KST — Cycle IP28 injected follow-up (compact bridge-summary token)
+- Task: Added compact bridge-summary token TSDPMFXVWCRITSPMBS derived deterministically from TSDPMFXVWCRITSPMB for dense digest scans (offline-only).
+- Decision: Use fixed 4-char compact codes (PNHC/PNPP/PNSN/HLHC/HLPP/HLSN/ELHC/ELPP/ELSN) to keep DOS-width friendly and reversible via existing bridge legend.
+- Evidence:  + ok: trendScoreBand dispatch-hint/momentum-band regression checks passed + .
+- Follow-up: Keep TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN adjacency invariant, with new TSDPMFXVWCRITSPMBS immediately after eval row before beat-ladder helper.
+
+## 2026-04-02 13:54 KST — Cycle IP29 selected experiment (compact bridge-summary decode legend)
+- Task: Added design/world decode legend row for compact bridge-summary token  to keep dense digest token reversible in one scan.
+- Decision: Keep legend intentionally narrow (, , ) as representative anchors while preserving compactness.
+- Evidence:  + ok: trendScoreBand dispatch-hint/momentum-band regression checks passed + .
+- Follow-up: Injected Systems/QA parity assertion task + AI-content/design ultra-compact alias exploration task.
+
+## 2026-04-02 13:54 KST — Cycle IP29 selected experiment (compact bridge-summary decode legend)
+- Task: Added design/world decode legend row for compact bridge-summary token TSDPMFXVWCRITSPMBS to keep dense digest token reversible in one scan.
+- Decision: Keep legend intentionally narrow (PNHC, HLPP, ELSN) as representative anchors while preserving compactness.
+- Evidence: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
+- Follow-up: Injected Systems/QA parity assertion task + AI-content/design ultra-compact alias exploration task.

@@ -2,6 +2,18 @@
 
 Last updated: 2026-04-02 13:10 KST
 
+## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP29)
+- Candidate ideas generated:
+  - Low-risk Design/World: add compact bridge-summary decode legend row for `TSDPMFXVWCRITSPMBS` so dense tokens remain reversible in one scan.
+  - Mid-risk Systems/QA: enforce decode-order adjacency `TSDPMFXVWCRITSPMBLEN -> TSDPMFXVWCRITSPMBS -> TSDPMFXVWCRITSB helper` in regression across mixed fixtures.
+  - High-risk AI-content/Combat: prototype adaptive compact-summary remap based on trend momentum acceleration windows.
+- Selected experiment: Idea 1 (low-risk Design/World) minimal vertical slice.
+- [x] Design/World + Systems/QA Team: Add compact bridge-summary decode legend row `TSDPMFXVWCRITSPMBS legend (...)` and lock deterministic markdown presence/regression coverage. *(lifecycle: [ ] -> [~] started: 2026-04-02 13:52 KST -> [x] completed: 2026-04-02 13:54 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP29)
+- [ ] Systems/QA Team (injected): Add fixture-level explicit parity assertion that `TSDPMFXVWCRITSPMBS` row count mirrors `TSDPMFXVWCRITSPMB` under mixed-window fixtures.
+- [ ] AI Content/Design Team (injected): Prototype ultra-compact bridge-summary alias (`PNHC->PH`) candidate mapping table for future readability A/B review (offline-only).
+
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP28)
 - Candidate ideas generated:
   - Low-risk Design/World: add concise decode-length evaluation row for posture-beat bridge microcopy legend (`TSDPMFXVWCRITSPMBLEN`) to keep dense docs under DOS-width policy.
@@ -12,7 +24,7 @@ Last updated: 2026-04-02 13:10 KST
 
 ## Next Up (Game Director Injection — Cycle IP28)
 - [x] Systems/QA Team (injected): Add explicit adjacency assertion keeping `TSDPMFXVWCRITSPMB -> TSDPMFXVWCRITSPMBA -> TSDPMFXVWCRITSPMBLEN` contiguous before beat-ladder decode rows. *(lifecycle: [ ] -> [~] started: 2026-04-02 13:18 KST -> [x] completed: 2026-04-02 13:24 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI Content/Design Team (injected): Prototype compact bridge-summary token from `TSDPMFXVWCRITSPMB` for dense digest scans (offline-only, no runtime coupling).
+- [x] AI Content/Design Team (injected): Prototype compact bridge-summary token from `TSDPMFXVWCRITSPMB` for dense digest scans (offline-only, no runtime coupling). *(lifecycle: [ ] -> [~] started: 2026-04-02 13:48 KST -> [x] completed: 2026-04-02 13:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-02 (Game Director Review - Cycle IP27)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (post-clear reset; choose additive reversible slice and re-seed follow-up queue).
