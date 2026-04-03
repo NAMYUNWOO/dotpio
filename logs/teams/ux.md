@@ -3796,3 +3796,6 @@
 
 ## [2026-04-03 19:49 KST] UX — Dense token readability update
 - Introduced compact smoothing-policy alias token to reduce scan friction in dense cadence sections while retaining full policy text row.
+
+## [2026-04-03 20:21 KST] UX — Dense token scan improvement
+- Added explicit smoothing compact-pair width-eval token so operators can quickly trust `VHCSTP`/`VHCSTPA` decode budget without manual counting.

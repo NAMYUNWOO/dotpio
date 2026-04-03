@@ -5058,3 +5058,8 @@
 ## [2026-04-03 19:49 KST] Systems/QA — Smoothing policy compact alias
 - Added compact alias token wiring for drift-trend smoothing policy: `TSDCAD24TRICOVSTCMSVHCSTPA` (`SF|RD`) in guardrail payload/markdown.
 - Kept mapping deterministic (`STICKY_FLAT->SF`, `RAW_DELTA->RD`) for reversible offline readability.
+
+## [2026-04-03 20:21 KST] Systems/QA — Smoothing compact-pair DOS-width eval token
+- Shipped `TSDCAD24TRICOVSTCMSVHCSTPALEN` from deterministic compact-pair evaluation (`B43|C44|LIM72|PREF:BASELINE|PASS`).
+- Added payload keys for smoothing compact decode helper baseline/compact/evaluation and markdown row emission in cadence digest.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

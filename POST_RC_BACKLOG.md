@@ -1,5 +1,8 @@
 # POST_RC_BACKLOG
 
+## Next Up (Game Director Injection — Cycle IP51)
+- [ ] Systems/QA Team (injected): Extend fixture-level parity/order assertions so `TSDCAD24TRICOVSTCMSVHCSTPALEN` row count mirrors `TSDCAD24TRICOVSTCMSVHCSTPA` and remains immediately after the compact decode row in both summary/token sections.
+
 ## Next Up (Game Director Injection — Cycle IP49)
 - [x] Design/World + UX Team (injected): Add compact pair-link decode row for `TSDCAD24TRICOVSTCMSVHCST` ↔ `TSDCAD24TRICOVSTCMSVHCSTA` with <=72-char DOS-width evaluation token. *(lifecycle: [ ] -> [~] started: 2026-04-03 18:48 KST -> [x] completed: 2026-04-03 18:56 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [x] AI-content/Combat Team (injected): Prototype offline trend-alias smoothing policy note (`STICKY_FLAT|RAW_DELTA`) from recent drift-score volatility windows (no runtime coupling). *(lifecycle: [ ] -> [~] started: 2026-04-03 19:21 KST -> [x] completed: 2026-04-03 19:26 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*

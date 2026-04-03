@@ -5379,3 +5379,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: retain dual representation (`VHCSTP` semantic policy + `VHCSTPA` compact alias) to balance auditability and DOS-width scan speed.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.
+
+## 2026-04-03 20:21 KST — Cycle IP51 (Systems/QA + Design/World)
+- Completed minimal vertical slice: added smoothing compact-pair DOS-width evaluation token `TSDCAD24TRICOVSTCMSVHCSTPALEN` derived from deterministic helper evaluation.
+- Durable decision: keep smoothing compact-pair budget explicit in markdown (`B43|C44|LIM72|PREF:BASELINE|PASS`) so decode readability remains auditable and reversible without manual character counting.
+- Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

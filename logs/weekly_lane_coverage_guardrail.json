@@ -148,6 +148,17 @@
     "preferred": "BASELINE",
     "status": "PASS"
   },
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyCompactDecodeHelperBaseline": "VHCSTP=STICKY_FLAT|RAW_DELTA, VHCSTPA=SF|RD",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyCompactDecodeHelperCompact": "VHCSTP<->VHCSTPA:STICKY_FLAT/SF|RAW_DELTA/RD",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyCompactDecodeHelperEvaluation": {
+    "baseline": "VHCSTP=STICKY_FLAT|RAW_DELTA, VHCSTPA=SF|RD",
+    "compact": "VHCSTP<->VHCSTPA:STICKY_FLAT/SF|RAW_DELTA/RD",
+    "baselineLen": 43,
+    "compactLen": 44,
+    "dosWidthLimit": 72,
+    "preferred": "BASELINE",
+    "status": "PASS"
+  },
   "cadence24hRecoveryTriadPlan": "combat spark -> world anchor -> systems lock",
   "cadence24hLegendBaseline": "O=OK, W=WATCH, A=ALERT",
   "cadence24hLegendCompact": "O=ok, W=watch, A=alert",

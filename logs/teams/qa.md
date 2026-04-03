@@ -5562,3 +5562,7 @@
 ## [2026-04-03 19:49 KST] QA — Regression contract extension for smoothing alias
 - Extended regression checks to assert presence of `TSDCAD24TRICOVSTCMSVHCSTPA` row and compact decode legend.
 - Validation bundle passed: py_compile + regression + guardrail artifact regeneration.
+
+## [2026-04-03 20:21 KST] QA — Regression contract extension for STPALEN
+- Extended regression markdown contract assertions to require `TSDCAD24TRICOVSTCMSVHCSTPALEN` (`B43|C44|LIM72|PREF:BASELINE|PASS`) presence in fixture outputs.
+- Validation bundle passed: py_compile + regression suite + guardrail artifact regeneration.

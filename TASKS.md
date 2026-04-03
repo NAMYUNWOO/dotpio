@@ -1,6 +1,15 @@
 # TASKS
 
-Last updated: 2026-04-03 19:49 KST
+Last updated: 2026-04-03 20:21 KST
+
+## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP51)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked, so immediate Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk Systems/QA + Design/World: add smoothing compact-pair DOS-width eval token (`TSDCAD24TRICOVSTCMSVHCSTPALEN`) so `VHCSTP` ↔ `VHCSTPA` readability budget is one-scan auditable.
+  - Mid-risk Systems/QA: extend parity/order contracts to lock `TSDCAD24TRICOVSTCMSVHCSTPALEN` adjacency after `TSDCAD24TRICOVSTCMSVHCSTPA` decode rows.
+  - High-risk AI-content/Combat: volatility-window adaptive smoothing legend rewrite for context-aware policy copy.
+- Selected experiment: Idea 1 (low-risk Systems/QA + Design/World) minimal vertical slice.
+- [x] Systems/QA + Design/World Team: Add `TSDCAD24TRICOVSTCMSVHCSTPALEN` output row from compact-pair evaluation (`B43|C44|LIM72|PREF:BASELINE|PASS`) and extend regression markdown contract checks. *(lifecycle: [ ] -> [~] started: 2026-04-03 20:15 KST -> [x] completed: 2026-04-03 20:21 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP50)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS were fully checked; POST_RC had one stale unchecked injected item (`Combat/AI-content smoothing policy`) so this cycle reconciled it with a minimal readability slice before new ideation.

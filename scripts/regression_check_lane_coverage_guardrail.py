@@ -721,6 +721,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include cadence-triad vfx-cue drift-trend alias smoothing policy compact decode row"
     assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing compact pair dos-width eval (design/world): "
+        "**TSDCAD24TRICOVSTCMSVHCSTPALEN:B43|C44|LIM72|PREF:BASELINE|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad vfx-cue smoothing compact pair dos-width eval row"
+    assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue dual-hysteresis decode helper (design/world): "
         "**TSDCAD24TRICOVSTCMSVHD:VH=STEADY|SWING, VHA=S|W**"
         in md_text

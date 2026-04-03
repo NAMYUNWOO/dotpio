@@ -3649,3 +3649,6 @@
 
 ## [2026-04-03 19:49 KST] Design — Compact decode consistency
 - Added decode microcopy row `TSDCAD24TRICOVSTCMSVHCSTPA legend (SF=STICKY_FLAT, RD=RAW_DELTA)` to preserve one-scan reversibility.
+
+## [2026-04-03 20:21 KST] Design — Compact-pair readability budget token
+- Added/validated design-facing DOS-width budget row for smoothing compact-pair decode (`B43|C44|LIM72|PREF:BASELINE|PASS`) to keep dense cadence sections reversible.

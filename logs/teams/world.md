@@ -3538,3 +3538,6 @@
 
 ## [2026-04-03 19:49 KST] World — Cadence docs continuity note
 - No map/progression mutation this cycle; synced cadence documentation lane with new smoothing-policy compact alias row for cross-lane readability consistency.
+
+## [2026-04-03 20:21 KST] World — Decode budget continuity note
+- No map/progression mutation; aligned world/design readability contract with new `TSDCAD24TRICOVSTCMSVHCSTPALEN` budget row for smoothing compact-pair decode.

@@ -3631,3 +3631,6 @@
 ## [2026-04-03 19:49 KST] AI-content — Drift smoothing readability pass
 - Compared readability of full policy token (`TSDCAD24TRICOVSTCMSVHCSTP`) vs compact alias (`...STPA`).
 - Decision: keep both (full semantic note + compact scan token) for operator-friendly dual-view.
+
+## [2026-04-03 20:21 KST] AI-content — Offline policy readability follow-up
+- No runtime AI behavior change; validated smoothing policy telemetry now exposes explicit compact-pair width budget token for operator audits.

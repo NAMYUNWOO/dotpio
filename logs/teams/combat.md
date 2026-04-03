@@ -3537,3 +3537,6 @@
 
 ## [2026-04-03 19:49 KST] Combat — Offline policy note reconciliation
 - Completed stale injected combat/ai-content smoothing policy task by shipping compact alias companion token (`SF|RD`) without runtime coupling.
+
+## [2026-04-03 20:21 KST] Combat — Observability-only confirmation
+- Confirmed new `TSDCAD24TRICOVSTCMSVHCSTPALEN` row remains telemetry/readability-only and does not alter combat runtime tuning.
