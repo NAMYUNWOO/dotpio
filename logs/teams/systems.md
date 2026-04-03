@@ -5089,3 +5089,8 @@
 ## 2026-04-03 22:02 KST
 - Cycle IP54 vertical slice shipped: added recommendation alias resolver `STPR -> STPRA` (`LOCK->L`, `WATCH->W`) and wired payload field `...PressureStateRecommendationAlias`.
 - Follow-up injected: evaluate optional visual severity companion token (`STPRV`) in next cycle.
+
+## 2026-04-03 22:28 KST
+- Completed injected STPRV systems/qa contract extension: regression now asserts row-count parity and strict adjacency for `TSDCAD24TRICOVSTCMSVHCSTPRV` + legend immediately after the `STPR/STPRA` cluster in summary/token sections.
+- Durable decision: keep visual companion checks coupled to existing `STPR` recommendation flow (no additional payload state).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.

@@ -3676,3 +3676,7 @@
 ## 2026-04-03 22:02 KST
 - Added compact decode row for recommendation alias family: `TSDCAD24TRICOVSTCMSVHCSTPRA legend (L=LOCK, W=WATCH)`.
 - Decision: keep cluster contiguous as `STPR -> STPR legend -> STPRA -> STPRA legend` for one-scan readability.
+
+## 2026-04-03 22:28 KST
+- Design/world decode copy tightened to recommendation-family helper format (`STPR+STPRA->operator action`) and visual companion decode (`LOCK=GLINT, WATCH=PULSE`).
+- Durable decision: keep decode copy <=72-friendly and adjacent to STPR cluster.

@@ -3655,3 +3655,7 @@
 ## 2026-04-03 21:52 KST
 - AI-content advisory telemetry now includes surfaced recommendation token `STPR` in markdown, completing the previously payload-only LOCK/WATCH signal.
 - Decision: keep recommendation non-authoritative (guidance only) for safe iteration.
+
+## 2026-04-03 22:28 KST
+- AI advisory recommendation stream remains deterministic (`LOCK|WATCH`), now mirrored by STPRV visual companion mapping in markdown without runtime coupling.
+- Durable decision: preserve report-only semantics for recommendation + visual companion signals.

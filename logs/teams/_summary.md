@@ -5422,3 +5422,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: recommendation family order is now locked as `...STPAM legend -> STPR -> STPR legend -> STPRA -> STPRA legend` across summary/token sections.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 - Injected next backlog items (IP54): `STPRV` visual companion token + pair helper + parity/order locks.
+
+## 2026-04-03 22:28 KST
+- Closed all currently unchecked TASKS/POST_RC injected items in one vertical slice: shipped `TSDCAD24TRICOVSTCMSVHCSTPRV` row+decode, switched helper copy to `STPR+STPRA->operator action`, and extended regression parity/order contracts to keep STPRV adjacent to STPR/STPRA in summary/token sections.
+- Durable decision: keep smoothing-pressure recommendation family telemetry-only and deterministic (`STPR` drives `STPRV`; no new runtime fields).
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next run should trigger Game Director review cycle).

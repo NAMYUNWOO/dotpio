@@ -3815,3 +3815,7 @@
 ## 2026-04-03 21:52 KST
 - UX scan-path update: STPR row/legend now sit directly after STPAM cluster, reducing lookup hops for operators reviewing cadence pressure.
 - Follow-up: maintain this adjacency in future token-family insertions.
+
+## 2026-04-03 22:28 KST
+- UX scan-path update: STPR cluster now reads through to STPRV severity companion in contiguous order, reducing interpretation hops in dense cadence rails.
+- Durable decision: preserve contiguous recommendation micro-cluster ordering for future token insertions.

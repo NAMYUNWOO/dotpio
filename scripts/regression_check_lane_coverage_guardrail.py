@@ -756,7 +756,7 @@ def run_fixture_case(
     ), f"{name}: markdown output must include cadence-triad vfx-cue smoothing-pressure recommendation row"
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure recommendation decode + path (design/world): "
-        "**TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STP+STPA+STPAM->STPR**"
+        "**TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STPR+STPRA->operator action**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad smoothing-pressure recommendation decode+path row"
     assert (
@@ -769,6 +769,21 @@ def run_fixture_case(
         "**TSDCAD24TRICOVSTCMSVHCSTPRA legend (L=LOCK, W=WATCH)**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad smoothing-pressure recommendation alias decode row"
+    expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_state_recommendation_visual = (
+        "GLINT"
+        if expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_state_recommendation == "LOCK"
+        else "PULSE"
+    )
+    assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure visual severity companion (combat/vfx): "
+        f"**TSDCAD24TRICOVSTCMSVHCSTPRV:{expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_state_recommendation_visual}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad smoothing-pressure visual severity companion row"
+    assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure visual severity companion decode (design/world): "
+        "**TSDCAD24TRICOVSTCMSVHCSTPRV legend (LOCK=GLINT, WATCH=PULSE)**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad smoothing-pressure visual severity companion decode row"
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue dual-hysteresis decode helper (design/world): "
         "**TSDCAD24TRICOVSTCMSVHD:VH=STEADY|SWING, VHA=S|W**"
@@ -844,9 +859,11 @@ def run_fixture_case(
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPAM:H")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_legend_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPAM legend (Hn=chars left under LIM72)**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPR:")
-    cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_legend_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STP+STPA+STPAM->STPR**")
+    cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_legend_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STPR+STPRA->operator action**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_alias_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRA:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_alias_legend_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRA legend (L=LOCK, W=WATCH)**")
+    cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRV:")
+    cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_legend_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRV legend (LOCK=GLINT, WATCH=PULSE)**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHD:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_eval_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHDLEN:B24|C24|LIM72|PREF:COMPACT|PASS**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_dual_helper_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCD:")
@@ -1002,6 +1019,15 @@ def run_fixture_case(
         == cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_alias_rows
     ), (
         f"{name}: TSDCAD24TRICOVSTCMSVHCSTPRA legend row count must match TSDCAD24TRICOVSTCMSVHCSTPRA row count across sections"
+    )
+    assert cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_rows == cadence_24h_triad_rows, (
+        f"{name}: TSDCAD24TRICOVSTCMSVHCSTPRV row count must match TSDCAD24TRI row count across sections"
+    )
+    assert (
+        cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_legend_rows
+        == cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_rows
+    ), (
+        f"{name}: TSDCAD24TRICOVSTCMSVHCSTPRV legend row count must match TSDCAD24TRICOVSTCMSVHCSTPRV row count across sections"
     )
     assert (
         cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_eval_rows
@@ -1222,13 +1248,19 @@ def run_fixture_case(
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_legend_indexes = [
         i
         for i, line in enumerate(cadence_24h_lines)
-        if "**TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STP+STPA+STPAM->STPR**" in line
+        if "**TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STPR+STPRA->operator action**" in line
     ]
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_alias_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHCSTPRA:" in line
     ]
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_alias_legend_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHCSTPRA legend (L=LOCK, W=WATCH)**" in line
+    ]
+    cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHCSTPRV:" in line
+    ]
+    cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_legend_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHCSTPRV legend (LOCK=GLINT, WATCH=PULSE)**" in line
     ]
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHD:" in line
@@ -1646,6 +1678,12 @@ def run_fixture_case(
         )
         assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_alias_legend_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_alias_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCSTPRA legend immediately after TSDCAD24TRICOVSTCMSVHCSTPRA in both sections"
+        )
+        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_alias_legend_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCSTPRV immediately after TSDCAD24TRICOVSTCMSVHCSTPRA legend in both sections"
+        )
+        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_legend_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCSTPRV legend immediately after TSDCAD24TRICOVSTCMSVHCSTPRV in both sections"
         )
 
         assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_pair_decode_helper_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_legend_indexes[cluster_i] + 1, (

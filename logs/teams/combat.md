@@ -3556,3 +3556,7 @@
 ## 2026-04-03 21:52 KST
 - Combat/VFX injected slice completed: markdown now surfaces `TSDCAD24TRICOVSTCMSVHCSTPR:<LOCK|WATCH>` immediately after the `...STPAM` cluster for one-scan volatility triage.
 - Follow-up: keep recommendation advisory-only unless future playtest evidence justifies runtime coupling.
+
+## 2026-04-03 22:28 KST
+- Combat/VFX readability slice shipped: added `TSDCAD24TRICOVSTCMSVHCSTPRV` (`LOCK->GLINT`, `WATCH->PULSE`) to keep pressure recommendation severity glanceable.
+- Verification pass retained deterministic output in generated guardrail markdown.

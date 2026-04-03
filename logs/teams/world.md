@@ -3560,3 +3560,7 @@
 
 ## 2026-04-03 22:02 KST
 - World/design readability pass acknowledged new alias decode rail (`STPRA`) and preserved contiguous cadence recommendation scan path.
+
+## 2026-04-03 22:28 KST
+- Updated cadence playbook helper text to one-line family linkage: `STPR+STPRA->operator action` in digest markdown.
+- Durable decision: keep helper copy concise and colocated with recommendation decode row for one-scan readability.

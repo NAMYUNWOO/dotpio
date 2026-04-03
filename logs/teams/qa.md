@@ -5590,3 +5590,7 @@
 ## 2026-04-03 22:02 KST
 - Regression suite expanded for STPRA family: presence checks, parity checks, and strict order assertions anchored after STPR legend in both summary/token sections.
 - Verification pass: py_compile + regression + guardrail artifact regeneration.
+
+## 2026-04-03 22:28 KST
+- QA locked new STPRV contracts: presence assertions, parity assertions, and strict adjacency checks (`...STPRA legend -> STPRV -> STPRV legend`) across both markdown sections.
+- Verification bundle passed (py_compile + regression + guardrail regeneration).

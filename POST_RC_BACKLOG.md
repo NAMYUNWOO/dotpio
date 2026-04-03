@@ -1,9 +1,9 @@
 # POST_RC_BACKLOG
 
 ## Next Up (Game Director Injection — Cycle IP54)
-- [ ] Combat/VFX Team (injected): Add compact visual severity companion token for smoothing-pressure recommendation (`TSDCAD24TRICOVSTCMSVHCSTPRV`) mapped from `STPR` (`LOCK=GLINT`, `WATCH=PULSE`) and keep <=72-width decode.
-- [ ] Design/World Team (injected): Add one-line pair helper linking recommendation family (`STPR+STPRA -> operator action`) for one-scan cadence playbook readability.
-- [ ] Systems/Ops + QA Team (injected): Extend fixture parity/order assertions so `STPRV` rows + legend remain adjacent to `STPR/STPRA` cluster in both summary/token sections.
+- [x] Combat/VFX Team (injected): Add compact visual severity companion token for smoothing-pressure recommendation (`TSDCAD24TRICOVSTCMSVHCSTPRV`) mapped from `STPR` (`LOCK=GLINT`, `WATCH=PULSE`) and keep <=72-width decode. *(lifecycle: [ ] -> [~] started: 2026-04-03 22:24 KST -> [x] completed: 2026-04-03 22:28 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [x] Design/World Team (injected): Add one-line pair helper linking recommendation family (`STPR+STPRA -> operator action`) for one-scan cadence playbook readability. *(lifecycle: [ ] -> [~] started: 2026-04-03 22:24 KST -> [x] completed: 2026-04-03 22:28 KST; verification: same command bundle as above)*
+- [x] Systems/Ops + QA Team (injected): Extend fixture parity/order assertions so `STPRV` rows + legend remain adjacent to `STPR/STPRA` cluster in both summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 22:24 KST -> [x] completed: 2026-04-03 22:28 KST; verification: same command bundle as above)*
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP52)
 - Coverage check (last 10 completed): systems=10, world=0, ai-content=0, combat=0, design=0, ux=0, qa=10, vfx=0.
