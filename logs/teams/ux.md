@@ -3831,3 +3831,4 @@
 - 2026-04-04 00:25 KST — IP56 done: removed DOS-width warning state on APF decode evaluation by reducing baseline copy length.
 
 - 2026-04-04 00:52 KST — Cycle IP57: UX note: compact `M1/M0` decode selected to preserve DOS-width budget while retaining one-scan missing/covered semantics.
+- 2026-04-04 01:24 KST — Cycle IP58: UX lane noted stable gap-signature contract as dependency for one-scan digest token surfacing; no UI copy mutation shipped this slice.

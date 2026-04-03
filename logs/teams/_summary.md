@@ -5457,3 +5457,6 @@ Compact decision memory for AI context efficiency.
   - `cadence24hRecoveryTriadGapSignatureDecodeEvaluation`
 - Verification bundle stayed green: py_compile + regression_check_lane_coverage_guardrail + live guardrail report regeneration.
 - Injected follow-ups: (1) fixture-level format/parity assertion for gap signature, (2) markdown surfacing token `TSDCAD24TRIGAP` with decode/eval row.
+- 2026-04-04 01:24 KST (Cycle IP58): Regression contract now enforces `cadence24hRecoveryTriadGapSignature` presence + stable shape `CV<n>M<m>|DW<n>M<m>|SO<n>M<m>` in `scripts/regression_check_lane_coverage_guardrail.py`.
+  - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+  - Backlog state: POST_RC_BACKLOG Cycle IP57 Systems/QA injected item marked done; next queued item is Design/World+UX `TSDCAD24TRIGAP` markdown surfacing.

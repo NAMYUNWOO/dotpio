@@ -3576,3 +3576,4 @@
 - 2026-04-04 00:25 KST — IP56 done: finalized compact decode wording (`push/hard`, `hold/poke`, `ease/nudge`) for DOS-width-safe design/world readability.
 
 - 2026-04-04 00:52 KST — Cycle IP57: Reviewed triad readability lane; selected cross-lane gap-signature experiment to keep cadence deficit shape (`CV/DW/SO`) legible for map/progression dispatch handoff. Follow-up injected: markdown `TSDCAD24TRIGAP` row + legend.
+- 2026-04-04 01:24 KST — Cycle IP58: Confirmed cadence gap signature format lock (`CV/DW/SO` + missing flags) supports world/design bucket-readability follow-up (`TSDCAD24TRIGAP`) without schema drift.

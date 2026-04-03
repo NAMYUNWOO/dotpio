@@ -3572,3 +3572,4 @@
 - 2026-04-04 00:25 KST — IP56 done: adaptive-focus legend keeps combat cue intent with shorter phrase set for faster scan.
 
 - 2026-04-04 00:52 KST — Cycle IP57: Combat/vfx cadence deficit now encoded in `cadence24hRecoveryTriadGapSignature` (`CV...M...`) so missing combat bucket pressure is explicit in guardrail payload scans.
+- 2026-04-04 01:24 KST — Cycle IP58: Verified combat/vfx cadence bucket state remains encoded via stable `CV<n>M<m>` segment in gap signature after regression hardening.

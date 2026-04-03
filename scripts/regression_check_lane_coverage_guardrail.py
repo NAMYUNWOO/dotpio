@@ -363,6 +363,17 @@ def run_fixture_case(
     assert report.get("cadence24hRecoveryTriadPulsePaletteAlias") == "CV=SPARK|DW=ANCHOR|SO=LOCK", (
         f"{name}: cadence24hRecoveryTriadPulsePaletteAlias must stay deterministic"
     )
+    cadence_24h_recovery_triad_gap_signature = report.get("cadence24hRecoveryTriadGapSignature", "")
+    assert cadence_24h_recovery_triad_gap_signature, (
+        f"{name}: cadence24hRecoveryTriadGapSignature must be present"
+    )
+    cadence_24h_recovery_triad_gap_signature_match = re.fullmatch(
+        r"CV\d+M[01]\|DW\d+M[01]\|SO\d+M[01]",
+        cadence_24h_recovery_triad_gap_signature,
+    )
+    assert cadence_24h_recovery_triad_gap_signature_match, (
+        f"{name}: cadence24hRecoveryTriadGapSignature must stay format-stable as CV<n>M<m>|DW<n>M<m>|SO<n>M<m>"
+    )
     expected_cadence_24h_coverage_alias = (
         f"CV{report.get('bucketCadence', {}).get('combat-or-vfx', {}).get('count', 0)}|"
         f"DW{report.get('bucketCadence', {}).get('design-or-world', {}).get('count', 0)}|"

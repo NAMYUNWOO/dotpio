@@ -3692,3 +3692,4 @@
 - 2026-04-04 00:25 KST — IP56 done: APF legend phrasing compressed and consistency checked against shortlist row.
 
 - 2026-04-04 00:52 KST — Cycle IP57: Design readability decision: prefer compact missing-flag semantics (`M1/M0`) for triad gap scanability; markdown surfacing queued as injected follow-up.
+- 2026-04-04 01:24 KST — Cycle IP58: Design lane validated that fixed gap-signature grammar is ready for compact markdown decode row work (`TSDCAD24TRIGAP`) in next cycle.

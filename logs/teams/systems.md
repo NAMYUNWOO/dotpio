@@ -5111,3 +5111,4 @@
 - 2026-04-04 00:25 KST — IP56 done: shortened APF decode baseline to 41 chars and synchronized payload + markdown + regression contracts; follow-up: continue cadence recovery with combat/vfx lane slice.
 
 - 2026-04-04 00:52 KST — Cycle IP57: Implemented `cadence24hRecoveryTriadGapSignature` + decode/eval payload fields in `scripts/check_lane_coverage_guardrail.py` for triad missing-bucket auditability. Verification: py_compile + regression_check_lane_coverage_guardrail + live guardrail regen PASS. Follow-up: add fixture-format assertion for `CV<n>M<m>|DW<n>M<m>|SO<n>M<m>`.
+- 2026-04-04 01:24 KST — Cycle IP58: Hardened regression contract for `cadence24hRecoveryTriadGapSignature` by asserting presence + stable format `CV<n>M<m>|DW<n>M<m>|SO<n>M<m>` in `scripts/regression_check_lane_coverage_guardrail.py`. Verification bundle PASS (py_compile + regression + guardrail regen).
