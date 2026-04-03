@@ -3827,3 +3827,5 @@
 ## 2026-04-03 23:48 KST
 - Closed injected STPRLEN operator-cue alias task by validating report rows remain deterministic: `...STPRLENCUE` value + legend are present and DOS-width-safe (`<=72`) alongside `...STPRLEN` eval row.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- 2026-04-04 00:22 KST — IP56 in-progress: shortlist adaptive-focus decode row targeted for tighter DOS-friendly scan length.
+- 2026-04-04 00:25 KST — IP56 done: removed DOS-width warning state on APF decode evaluation by reducing baseline copy length.

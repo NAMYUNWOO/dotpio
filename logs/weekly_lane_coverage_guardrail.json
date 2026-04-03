@@ -291,13 +291,13 @@
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasPreferenceAbWinnerPilotLabel": "HL",
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasPreferenceAbWinnerPilotLegend": "A=PN|B=HL|C=EZ",
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasDecodeEvaluation": {
-    "baseline": "PH=push now/hard crack, HP=hold lane/pressure poke, ES=ease lane/steady nudge",
+    "baseline": "PH=push/hard, HP=hold/poke, ES=ease/nudge",
     "compact": "PH|HP|ES",
-    "baselineLen": 77,
+    "baselineLen": 41,
     "compactLen": 8,
     "dosWidthLimit": 72,
     "preferred": "COMPACT",
-    "status": "WARN"
+    "status": "PASS"
   },
   "trendScoreBandDispatchPressureMomentumFxCueMicrocopyRecommendation": "steady pace; hold broad scan",
   "trendScoreBandDispatchPressureMomentumFxCueCombatCallout": "HOLD_LINE",

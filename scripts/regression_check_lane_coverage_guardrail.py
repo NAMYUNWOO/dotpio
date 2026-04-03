@@ -276,13 +276,13 @@ def run_fixture_case(
     assert report.get(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasDecodeEvaluation"
     ) == {
-        "baseline": "PH=push now/hard crack, HP=hold lane/pressure poke, ES=ease lane/steady nudge",
+        "baseline": "PH=push/hard, HP=hold/poke, ES=ease/nudge",
         "compact": "PH|HP|ES",
-        "baselineLen": 77,
+        "baselineLen": 41,
         "compactLen": 8,
         "dosWidthLimit": 72,
         "preferred": "COMPACT",
-        "status": "WARN",
+        "status": "PASS",
     }, f"{name}: adaptive-focus alias decode evaluation payload must keep deterministic baseline/compact shape + DOS-width signal contract"
     assert report.get(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasPreferenceToken"
@@ -3314,7 +3314,7 @@ def run_fixture_case(
     )
     urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat ultra-compact bridge-summary alias shortlist (ux/design, offline): "
-        "**TSDPMFXVWCRITSPMBSAP shortlist (PH=push now/hard crack, HP=hold lane/pressure poke, ES=ease lane/steady nudge)**"
+        "**TSDPMFXVWCRITSPMBSAP shortlist (PH=push/hard, HP=hold/poke, ES=ease/nudge)**"
     )
     urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_note_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat shortlist adaptive note (ai-content/combat, offline): "
@@ -3334,7 +3334,7 @@ def run_fixture_case(
     )
     urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_decode_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat shortlist adaptive focus alias decode (design/world): "
-        "**TSDPMFXVWCRITSPMBSAPF legend (PH=push now/hard crack, HP=hold lane/pressure poke, ES=ease lane/steady nudge)**"
+        "**TSDPMFXVWCRITSPMBSAPF legend (PH=push/hard, HP=hold/poke, ES=ease/nudge)**"
     )
     urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_focus_alias_preference_token_idx = md_text.find(
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat shortlist adaptive focus alias preference token (ai-content/design, offline): "
