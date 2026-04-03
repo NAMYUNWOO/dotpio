@@ -1,5 +1,9 @@
 # QA Team Log
 
+## 2026-04-03 11:27 KST
+- Added fixture-level explicit parity assertion for Cycle IP42 follow-up: `TSDCAD24TRICOVSTCMSVA legend` must mirror `TSDCAD24TRICOVSTCMSVA` row counts across summary/token sections.
+- Verification pass: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-03 05:19 KST
 - Added fixture-level parity correction for Cycle IP42 follow-up: `TSDCAD24TRICOVSTCMSV legend` assertions now mirror `TSDCAD24TRICOVSTCMSV` counts in both aggregate-row and per-section index checks.
 - Verification pass: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

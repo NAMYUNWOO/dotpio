@@ -1,3 +1,9 @@
+## 2026-04-03 11:27 KST
+- Closed highest-priority unchecked POST_RC item (Cycle IP42, Systems/QA): added explicit fixture-level parity assertion requiring `TSDCAD24TRICOVSTCMSVA legend` row count to mirror `TSDCAD24TRICOVSTCMSVA` across summary + token sections.
+- Durable decision: cadence decode legend parity rules should include explicit fixture-level assertion text per token family for audit clarity and backlog traceability.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next item: AI Content/Combat `TSDCAD24TRICOVSTCMSVC:LOW|MID|HIGH`).
+
 ## 2026-04-03 05:19 KST
 - Closed highest-priority unchecked POST_RC item (Cycle IP42, Systems/QA): fixture parity now explicitly requires `TSDCAD24TRICOVSTCMSV legend` row count to mirror `TSDCAD24TRICOVSTCMSV` row count across summary + token sections.
 - Durable decision: for cadence cue families, decode legend parity should bind to the exact cue token family (not upstream proxy rows) to avoid false positives when clusters evolve independently.

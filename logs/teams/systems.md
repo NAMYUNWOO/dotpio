@@ -1,5 +1,10 @@
 # Systems Team Log
 
+## 2026-04-03 11:27 KST
+- Closed highest-priority unchecked POST_RC item (Cycle IP42, Systems/QA): regression now includes an explicit fixture-level parity assertion that `TSDCAD24TRICOVSTCMSVA legend` mirrors `TSDCAD24TRICOVSTCMSVA` across summary/token sections.
+- Durable decision: keep explicit parity assertion messages for each cadence decode legend family to make backlog evidence traceable without ambiguity.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-03 05:19 KST
 - Closed injected Systems/QA item for Cycle IP42 by tightening fixture parity target: `TSDCAD24TRICOVSTCMSV legend` now must mirror `TSDCAD24TRICOVSTCMSV` row count directly (not upstream score rows).
 - Updated both global row-count parity assertions and per-section index parity assertions in `scripts/regression_check_lane_coverage_guardrail.py`.
