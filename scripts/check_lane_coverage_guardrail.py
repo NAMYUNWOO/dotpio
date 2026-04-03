@@ -1119,6 +1119,16 @@ def resolve_cadence_24h_recovery_triad_gap_signature(
     return f"CV{combat_count}M{combat_missing}|DW{design_count}M{design_missing}|SO{systems_count}M{systems_missing}"
 
 
+def resolve_cadence_24h_recovery_triad_gap_signature_missing_buckets(
+    gap_signature: str,
+) -> tuple[str, ...]:
+    missing: list[str] = []
+    for lane in ("CV", "DW", "SO"):
+        if re.search(rf"{lane}\d+M1", gap_signature):
+            missing.append(lane)
+    return tuple(missing)
+
+
 def resolve_cadence_24h_recovery_triad_gap_signature_decode_helper_baseline() -> str:
     return "M1=missing bucket, M0=covered bucket"
 
@@ -1183,13 +1193,29 @@ def resolve_cadence_24h_recovery_triad_gap_cue_transition_microcopy(
 def resolve_cadence_24h_recovery_triad_gap_cue_transition_microcopy_alternate(
     current_cue: str,
     prior_cue: str,
+    gap_signature: str = "",
 ) -> str:
     transition = f"{prior_cue}->{current_cue}"
-    mapping = {
-        "WATCH->RECOVER": "watch broke; trigger two-lane recovery now",
-        "RECOVER->WATCH": "recovery eased; finish last lane patch",
+    missing = resolve_cadence_24h_recovery_triad_gap_signature_missing_buckets(gap_signature)
+    lane_phrase = "/".join(missing) if missing else "none"
+    lane_focus = {
+        "CV": "combat spark",
+        "DW": "world anchor",
+        "SO": "systems lock",
     }
-    return mapping.get(
+    focus_phrase = "+".join(lane_focus.get(lane, lane) for lane in missing) if missing else "cadence hold"
+    transition_mapping = {
+        "LOCKED->LOCKED": f"lock held; {focus_phrase}; sig={lane_phrase}",
+        "LOCKED->WATCH": f"new single gap; {focus_phrase}; sig={lane_phrase}",
+        "LOCKED->RECOVER": f"multi-gap jump; {focus_phrase}; sig={lane_phrase}",
+        "WATCH->LOCKED": f"gap sealed; {focus_phrase}; sig={lane_phrase}",
+        "WATCH->WATCH": f"single-gap hold; {focus_phrase}; sig={lane_phrase}",
+        "WATCH->RECOVER": f"watch broke; {focus_phrase}; sig={lane_phrase}",
+        "RECOVER->LOCKED": f"recovery landed; {focus_phrase}; sig={lane_phrase}",
+        "RECOVER->WATCH": f"recovery eased; {focus_phrase}; sig={lane_phrase}",
+        "RECOVER->RECOVER": f"multi-gap persists; {focus_phrase}; sig={lane_phrase}",
+    }
+    return transition_mapping.get(
         transition,
         resolve_cadence_24h_recovery_triad_gap_cue_transition_microcopy(current_cue, prior_cue),
     )
@@ -1232,6 +1258,37 @@ def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue(
         "WIDENED": "BLAST",
         "SEALED": "COOL",
     }.get(transition_family, "GLINT")
+
+
+def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias(
+    vfx_cue: str,
+) -> str:
+    return {
+        "GLINT": "G",
+        "PULSE": "P",
+        "BLAST": "B",
+        "COOL": "C",
+    }.get(vfx_cue, "G")
+
+
+def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation(
+    dos_width_limit: int = 72,
+) -> dict[str, object]:
+    baseline = "G=GLINT,P=PULSE,B=BLAST,C=COOL"
+    compact = "G/P/B/C"
+    baseline_len = len(baseline)
+    compact_len = len(compact)
+    preferred = "COMPACT" if compact_len <= baseline_len else "BASELINE"
+    status = "PASS" if compact_len <= dos_width_limit and baseline_len <= dos_width_limit else "WARN"
+    return {
+        "baseline": baseline,
+        "compact": compact,
+        "baselineLen": baseline_len,
+        "compactLen": compact_len,
+        "dosWidthLimit": dos_width_limit,
+        "preferred": preferred,
+        "status": status,
+    }
 
 
 def resolve_cadence_24h_recovery_triad_gap_cue_transition_recovery_momentum(
@@ -2902,6 +2959,7 @@ def build_report(
         resolve_cadence_24h_recovery_triad_gap_cue_transition_microcopy_alternate(
             cadence_24h_recovery_triad_gap_missing_bucket_count_cue,
             prior_cadence_24h_recovery_triad_gap_missing_bucket_count_cue,
+            cadence_24h_recovery_triad_gap_signature,
         )
     )
     cadence_24h_recovery_triad_gap_cue_transition_recovery_momentum = (
@@ -2925,6 +2983,14 @@ def build_report(
         resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue(
             cadence_24h_recovery_triad_gap_cue_transition_family
         )
+    )
+    cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias = (
+        resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias(
+            cadence_24h_recovery_triad_gap_cue_transition_vfx_cue
+        )
+    )
+    cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation = (
+        resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation()
     )
     cadence_24h_recovery_triad_gap_cue_transition_family_decode_helper_evaluation = (
         resolve_cadence_24h_recovery_triad_gap_cue_transition_family_decode_helper_evaluation()
@@ -3113,6 +3179,10 @@ def build_report(
         "cadence24hRecoveryTriadGapCueTransitionFamily": cadence_24h_recovery_triad_gap_cue_transition_family,
         "cadence24hRecoveryTriadGapCueTransitionFamilyAlias": cadence_24h_recovery_triad_gap_cue_transition_family_alias,
         "cadence24hRecoveryTriadGapCueTransitionVfxCue": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue,
+        "cadence24hRecoveryTriadGapCueTransitionVfxCueAlias": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias,
+        "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperBaseline": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation["baseline"],
+        "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperCompact": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation["compact"],
+        "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperEvaluation": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation,
         "cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperBaseline": cadence_24h_recovery_triad_gap_cue_transition_family_decode_helper_evaluation["baseline"],
         "cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperCompact": cadence_24h_recovery_triad_gap_cue_transition_family_decode_helper_evaluation["compact"],
         "cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperEvaluation": cadence_24h_recovery_triad_gap_cue_transition_family_decode_helper_evaluation,
@@ -3377,11 +3447,14 @@ def to_markdown(
             f"- cadence 24h triad gap operator helper (design/world): **TSDCAD24TRIGAPH:{report.get('cadence24hRecoveryTriadGapActionOrderHelper', resolve_cadence_24h_recovery_triad_gap_action_order_helper())}**",
             f"- cadence 24h triad gap urgency-cue transition narrative (ai-content/combat): **TSDCAD24TRIGAPN:{report.get('cadence24hRecoveryTriadGapCueTransitionMicrocopy', resolve_cadence_24h_recovery_triad_gap_cue_transition_microcopy(report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', 'WATCH'), report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', 'WATCH')))}**",
             f"- cadence 24h triad gap transition vfx cue (combat/vfx): **TSDCAD24TRIGAPNV:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxCue', resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue(report.get('cadence24hRecoveryTriadGapCueTransitionFamily', 'STABLE')))}**",
+            f"- cadence 24h triad gap transition vfx cue compact alias (combat/vfx + ux): **TSDCAD24TRIGAPNVA:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueAlias', resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias(report.get('cadence24hRecoveryTriadGapCueTransitionVfxCue', 'GLINT')))}**",
             f"- cadence 24h triad gap urgency-cue transition alternate narrative (ai-content/combat): **TSDCAD24TRIGAPNX:{report.get('cadence24hRecoveryTriadGapCueTransitionMicrocopyAlternate', resolve_cadence_24h_recovery_triad_gap_cue_transition_microcopy_alternate(report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', 'WATCH'), report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', 'WATCH')))}**",
             f"- cadence 24h triad gap recovery momentum tag (ai-content/combat): **TSDCAD24TRIGAPNR:{report.get('cadence24hRecoveryTriadGapCueTransitionRecoveryMomentum', resolve_cadence_24h_recovery_triad_gap_cue_transition_recovery_momentum(report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', 'WATCH'), report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', 'WATCH')))}**",
             f"- cadence 24h triad gap transition family compact alias (design/world): **TSDCAD24TRIGAPNA:{report.get('cadence24hRecoveryTriadGapCueTransitionFamilyAlias', resolve_cadence_24h_recovery_triad_gap_cue_transition_family_alias(report.get('cadence24hRecoveryTriadGapCueTransitionFamily', 'STABLE')))}**",
             "- cadence 24h triad gap recovery momentum decode (ai-content/combat): **TSDCAD24TRIGAPNR legend (SURGE=more gaps, EASE=closing gaps, HOLD=steady pressure)**",
             "- cadence 24h triad gap transition vfx cue decode (combat/vfx): **TSDCAD24TRIGAPNV legend (stable=GLINT, surfaced=PULSE, widened=BLAST, sealed=COOL)**",
+            "- cadence 24h triad gap transition vfx cue compact decode (combat/vfx + ux): **TSDCAD24TRIGAPNVA legend (G=GLINT, P=PULSE, B=BLAST, C=COOL)**",
+            f"- cadence 24h triad gap transition vfx cue compact dos-width eval (combat/vfx + ux): **TSDCAD24TRIGAPNVALEN:B{report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperEvaluation', {}).get('status', 'PASS')}**",
             "- cadence 24h triad gap urgency-cue transition narrative decode (design/world): **TSDCAD24TRIGAPN legend (stable=hold cadence, surfaced=patch1, widened=patch2+, sealed=resume lock)**",
             f"- cadence 24h triad gap transition family compact alias dos-width eval (design/world): **TSDCAD24TRIGAPNALEN:B{report.get('cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperEvaluation', {}).get('status', 'PASS')}**",
             "- cadence 24h triad gap urgency cue decode (combat/vfx): **TSDCAD24TRIGAPC legend (LOCKED=gap0, WATCH=gap1, RECOVER=gap2+)**",

@@ -3597,3 +3597,4 @@
 - 2026-04-04 04:22 KST — Cycle IP63: Added combat-readable transition VFX cue token `TSDCAD24TRIGAPNV` (`stable=GLINT`, `surfaced=PULSE`, `widened=BLAST`, `sealed=COOL`) to align TRIGAP transition families with cue severity.
 
 - 2026-04-04 04:26 KST — Cycle IP64: Transition stack now exposes explicit momentum tag (`SURGE|EASE|HOLD`) alongside VFX cue row to clarify escalation vs recovery direction.
+- 2026-04-04 05:02 KST — Added TSDCAD24 triad-gap cluster upgrades: lane-aware TRIGAPNX phrasing (CV/DW/SO signature keyed), TRIGAPNVA compact alias + NVALEN eval, and parity/order fixtures covering TRIGAPNR legend flow across summary/token sections.

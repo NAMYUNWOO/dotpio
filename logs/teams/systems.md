@@ -5141,3 +5141,4 @@
 - 2026-04-04 04:22 KST — Cycle IP63: Added cadence payload keys `cadence24hRecoveryTriadGapCueTransitionMicrocopyAlternate` + `cadence24hRecoveryTriadGapCueTransitionVfxCue` and markdown tokens `TSDCAD24TRIGAPNX`/`TSDCAD24TRIGAPNV` for offline transition variant + VFX mapping.
 
 - 2026-04-04 04:26 KST — Cycle IP64: Game Director experiment selected from 3-idea slate; added payload key `cadence24hRecoveryTriadGapCueTransitionRecoveryMomentum` (`SURGE|EASE|HOLD`) and synced regression order contracts.
+- 2026-04-04 05:02 KST — Added TSDCAD24 triad-gap cluster upgrades: lane-aware TRIGAPNX phrasing (CV/DW/SO signature keyed), TRIGAPNVA compact alias + NVALEN eval, and parity/order fixtures covering TRIGAPNR legend flow across summary/token sections.

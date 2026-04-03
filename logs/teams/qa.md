@@ -5640,3 +5640,4 @@
 - 2026-04-04 04:22 KST — Cycle IP63: Extended regression parity/order fixtures for `TRIGAPNX`/`TRIGAPNV` rows and ordering (`TRIGAPN -> TRIGAPNX -> TRIGAPNV -> TRIGAPNA -> TRIGAPNV legend -> TRIGAPN legend`), verification bundle PASS.
 
 - 2026-04-04 04:26 KST — Cycle IP64: Regression suite extended for `TRIGAPNR` presence/parity/order; full guardrail verification bundle PASS.
+- 2026-04-04 05:02 KST — Added TSDCAD24 triad-gap cluster upgrades: lane-aware TRIGAPNX phrasing (CV/DW/SO signature keyed), TRIGAPNVA compact alias + NVALEN eval, and parity/order fixtures covering TRIGAPNR legend flow across summary/token sections.

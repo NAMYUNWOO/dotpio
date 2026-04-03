@@ -3852,3 +3852,4 @@
 - 2026-04-04 04:22 KST — Cycle IP63: Added explicit decode row for `TRIGAPNV` to reduce operator ambiguity between microcopy urgency and VFX pressure cues.
 
 - 2026-04-04 04:26 KST — Cycle IP64: Added operator-facing momentum decode copy for `TRIGAPNR` to reduce ambiguity in WATCH/RECOVER transition handoffs.
+- 2026-04-04 05:02 KST — Added TSDCAD24 triad-gap cluster upgrades: lane-aware TRIGAPNX phrasing (CV/DW/SO signature keyed), TRIGAPNVA compact alias + NVALEN eval, and parity/order fixtures covering TRIGAPNR legend flow across summary/token sections.

@@ -2739,6 +2739,6 @@ See project-level plans:
   - Low-risk UX/game-feel (Design/UX): add one-line operator momentum tag for TRIGAP transitions (`SURGE|EASE|HOLD`) to reduce scan-time ambiguity.
   - Mid-risk Combat/VFX+Systems: couple TRIGAP family alias to cue flip budget token for churn suppression.
   - High-risk Novelty (AI-content): generate adaptive narrative phrasebanks per lane deficit composition.
-- [ ] AI-content/Combat Team (injected): Expand `TSDCAD24TRIGAPNX` alternate phrasebank with lane-aware variants keyed by missing-bucket signature (`CV|DW|SO`) while keeping offline-only contract.
-- [ ] Combat/VFX + UX Team (injected): Add compact decode alias token for `TSDCAD24TRIGAPNV` (`G|P|B|C`) with DOS-width evaluation row.
-- [ ] Systems/Ops + QA Team (injected): Add parity/order fixtures for `TSDCAD24TRIGAPNR` + legend adjacency between `TRIGAPNX` and `TRIGAPNA` across summary/token sections.
+- [x] AI-content/Combat Team (injected): Expand `TSDCAD24TRIGAPNX` alternate phrasebank with lane-aware variants keyed by missing-bucket signature (`CV|DW|SO`) while keeping offline-only contract. *(lifecycle: [ ] -> [~] started: 2026-04-04 04:51 KST -> [x] completed: 2026-04-04 05:02 KST; verification: `python3 scripts/regression_check_lane_coverage_guardrail.py`)*
+- [x] Combat/VFX + UX Team (injected): Add compact decode alias token for `TSDCAD24TRIGAPNV` (`G|P|B|C`) with DOS-width evaluation row. *(lifecycle: [ ] -> [~] started: 2026-04-04 04:53 KST -> [x] completed: 2026-04-04 05:02 KST; verification: `python3 scripts/regression_check_lane_coverage_guardrail.py`)*
+- [x] Systems/Ops + QA Team (injected): Add parity/order fixtures for `TSDCAD24TRIGAPNR` + legend adjacency between `TRIGAPNX` and `TRIGAPNA` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 04:55 KST -> [x] completed: 2026-04-04 05:02 KST; verification: `python3 scripts/regression_check_lane_coverage_guardrail.py`)*

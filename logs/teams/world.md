@@ -3597,3 +3597,4 @@
 - 2026-04-04 04:22 KST — Cycle IP63: Preserved compact cadence row ordering for operator scan readability while inserting `TRIGAPNV` decode before `TRIGAPN legend` in summary/token sections.
 
 - 2026-04-04 04:26 KST — Cycle IP64: Maintained cadence cluster readability with new momentum tag row inserted in deterministic transition chain without wrapping beyond DOS constraints.
+- 2026-04-04 05:02 KST — Added TSDCAD24 triad-gap cluster upgrades: lane-aware TRIGAPNX phrasing (CV/DW/SO signature keyed), TRIGAPNVA compact alias + NVALEN eval, and parity/order fixtures covering TRIGAPNR legend flow across summary/token sections.

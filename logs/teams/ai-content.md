@@ -3692,3 +3692,4 @@
 - 2026-04-04 04:22 KST — Cycle IP63: Prototyped alternate urgency microcopy variants offline for `WATCH->RECOVER` (`watch broke; trigger two-lane recovery now`) and `RECOVER->WATCH` (`recovery eased; finish last lane patch`) via `TSDCAD24TRIGAPNX`.
 
 - 2026-04-04 04:26 KST — Cycle IP64: Selected low-risk experiment from idea slate and shipped `TSDCAD24TRIGAPNR` momentum narration tag + decode legend for faster transition intent parsing.
+- 2026-04-04 05:02 KST — Added TSDCAD24 triad-gap cluster upgrades: lane-aware TRIGAPNX phrasing (CV/DW/SO signature keyed), TRIGAPNVA compact alias + NVALEN eval, and parity/order fixtures covering TRIGAPNR legend flow across summary/token sections.
