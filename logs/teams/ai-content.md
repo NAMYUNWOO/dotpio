@@ -3705,3 +3705,7 @@
 - 2026-04-04 06:21 KST — No AI-content behavior change this slice; queued next unchecked item: offline intent-escalation microcopy variants keyed by STEADY/BRACE/PUSH/EASE.
 ## 2026-04-04 07:02 KST
 - Added compact transition-pair alias over offline intent-escalation microcopy variants to support denser QA triage.
+
+## 2026-04-04 07:23 KST — Intent-escalation alias continuity
+- Reused existing intent escalation alias payload (`NVIXA`) and exposed decode contract without changing microcopy generation.
+- No runtime behavior changes; report-layer readability only.

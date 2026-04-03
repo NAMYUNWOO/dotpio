@@ -3730,3 +3730,7 @@
 - 2026-04-04 06:21 KST — Completed injected helper task linking `TRIGAPNV + TRIGAPNVI` to immediate action verbs via `TSDCAD24TRIGAPNVH`.
 ## 2026-04-04 07:02 KST
 - Logged follow-up to test optional markdown decode row for alias without breaking cadence row ordering.
+
+## 2026-04-04 07:23 KST — Intent-escalation decode readability
+- Approved compact decode form for `NVIXA` as set-pair legend instead of expanded prose.
+- Decision: keep decode symbolic to avoid widening cadence block while preserving reversibility.

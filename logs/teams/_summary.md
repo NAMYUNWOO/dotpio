@@ -5518,3 +5518,11 @@ Compact decision memory for AI context efficiency.
 - Generated 3 idea candidates (low/mid/high risk), selected low-risk payload-only alias slice.
 - Shipped `cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationMicrocopyAlias` (`SS|SB|...|EE`) in guardrail payload.
 - Injected next follow-ups: (1) optional markdown decode row feasibility, (2) fixture-level domain assertions.
+
+## 2026-04-04 07:23 KST — NVIXA decode + domain contract shipped
+- Added markdown payload row `TSDCAD24TRIGAPNVIXA:<pair>` and decode row `TSDCAD24TRIGAPNVIXA legend ({S|B|P|E}{S|B|P|E})`.
+- Regression now enforces:
+  - row/legend parity for `NVIXA`
+  - strict ordering inside cadence cluster
+  - fixture-level alias domain (`[SBPE]{2}`) across summary/token fixtures.
+- Verification command bundle passed end-to-end; regenerated weekly lane coverage artifacts.

@@ -5158,3 +5158,8 @@
 - 2026-04-04 06:21 KST — Added payload field `cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper` and wired markdown token `TSDCAD24TRIGAPNVH` to keep TRIGAPNV+TRIGAPNVI action routing deterministic.
 ## 2026-04-04 07:02 KST
 - Game Director IP65: shipped payload-only alias `cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationMicrocopyAlias` for deterministic intent-transition pair scanability.
+
+## 2026-04-04 07:23 KST — NVIXA alias domain lock
+- Added regression domain assertion for `TSDCAD24TRIGAPNVIXA` alias payload shape (`[SBPE]{2}`) across mixed-window summary/token fixtures.
+- Maintained cadence-cluster ordering by anchoring `NVIXA` payload/legend between `NVIA` and `NVH` / `NVALEN`.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact regen PASS.

@@ -546,6 +546,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include cadence-triad gap transition-vfx intent compact alias row"
     assert (
+        "cadence 24h triad gap intent-escalation alias pair (ai-content + ux/design): "
+        f"**TSDCAD24TRIGAPNVIXA:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationMicrocopyAlias', 'SS')}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad gap intent-escalation alias pair row"
+    assert (
         "cadence 24h triad gap operator action helper (design/world): "
         f"**TSDCAD24TRIGAPNVH:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper', 'GLINT+STEADY->hold lane')}**"
         in md_text
@@ -588,6 +593,11 @@ def run_fixture_case(
         "**TSDCAD24TRIGAPNVIA legend (S=STEADY, B=BRACE, P=PUSH, E=EASE)**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad gap transition-vfx intent compact decode row"
+    assert (
+        "cadence 24h triad gap intent-escalation alias pair decode (ux/design): "
+        "**TSDCAD24TRIGAPNVIXA legend ({S|B|P|E}{S|B|P|E})**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad gap intent-escalation alias pair decode row"
     assert (
         "cadence 24h triad gap transition vfx cue compact dos-width eval (combat/vfx + ux): "
         "**TSDCAD24TRIGAPNVALEN:B30|C7|LIM72|PREF:COMPACT|PASS**"
@@ -986,6 +996,7 @@ def run_fixture_case(
     cadence_24h_triad_gap_cue_transition_vfx_cue_alias_rows = md_text.count("**TSDCAD24TRIGAPNVA:")
     cadence_24h_triad_gap_cue_transition_vfx_cue_intent_rows = md_text.count("**TSDCAD24TRIGAPNVI:")
     cadence_24h_triad_gap_cue_transition_vfx_cue_intent_alias_rows = md_text.count("**TSDCAD24TRIGAPNVIA:")
+    cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_rows = md_text.count("**TSDCAD24TRIGAPNVIXA:")
     cadence_24h_triad_gap_cue_transition_vfx_operator_helper_rows = md_text.count("**TSDCAD24TRIGAPNVH:")
     cadence_24h_triad_gap_cue_transition_family_alias_rows = md_text.count("**TSDCAD24TRIGAPNA:")
     cadence_24h_triad_gap_cue_transition_microcopy_legend_rows = md_text.count(
@@ -1002,6 +1013,9 @@ def run_fixture_case(
     )
     cadence_24h_triad_gap_cue_transition_vfx_cue_intent_alias_legend_rows = md_text.count(
         "**TSDCAD24TRIGAPNVIA legend (S=STEADY, B=BRACE, P=PUSH, E=EASE)**"
+    )
+    cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_legend_rows = md_text.count(
+        "**TSDCAD24TRIGAPNVIXA legend ({S|B|P|E}{S|B|P|E})**"
     )
     cadence_24h_triad_gap_cue_transition_vfx_cue_alias_eval_rows = md_text.count(
         "**TSDCAD24TRIGAPNVALEN:B30|C7|LIM72|PREF:COMPACT|PASS**"
@@ -1146,6 +1160,9 @@ def run_fixture_case(
     assert cadence_24h_triad_gap_cue_transition_vfx_cue_intent_alias_rows == cadence_24h_triad_gap_signature_rows, (
         f"{name}: TSDCAD24TRIGAPNVIA row count must match TSDCAD24TRIGAP row count across sections"
     )
+    assert cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_rows == cadence_24h_triad_gap_signature_rows, (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPNVIXA row count to mirror TSDCAD24TRIGAP across summary/token sections"
+    )
     assert cadence_24h_triad_gap_cue_transition_vfx_operator_helper_rows == cadence_24h_triad_gap_signature_rows, (
         f"{name}: TSDCAD24TRIGAPNVH row count must match TSDCAD24TRIGAP row count across sections"
     )
@@ -1166,6 +1183,9 @@ def run_fixture_case(
     )
     assert cadence_24h_triad_gap_cue_transition_vfx_cue_intent_alias_legend_rows == cadence_24h_triad_gap_cue_transition_vfx_cue_intent_alias_rows, (
         f"{name}: TSDCAD24TRIGAPNVIA legend row count must match TSDCAD24TRIGAPNVIA row count across sections"
+    )
+    assert cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_legend_rows == cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_rows, (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPNVIXA legend row count to mirror TSDCAD24TRIGAPNVIXA across summary/token sections"
     )
     assert cadence_24h_triad_gap_cue_transition_vfx_cue_alias_eval_rows == cadence_24h_triad_gap_cue_transition_vfx_cue_alias_rows, (
         f"{name}: TSDCAD24TRIGAPNVALEN row count must match TSDCAD24TRIGAPNVA row count across sections"
@@ -1475,6 +1495,9 @@ def run_fixture_case(
     cadence_24h_triad_gap_cue_transition_vfx_cue_intent_alias_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRIGAPNVIA:" in line
     ]
+    cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRIGAPNVIXA:" in line
+    ]
     cadence_24h_triad_gap_cue_transition_vfx_operator_helper_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRIGAPNVH:" in line
     ]
@@ -1505,6 +1528,11 @@ def run_fixture_case(
         i
         for i, line in enumerate(cadence_24h_lines)
         if "**TSDCAD24TRIGAPNVIA legend (S=STEADY, B=BRACE, P=PUSH, E=EASE)**" in line
+    ]
+    cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_legend_indexes = [
+        i
+        for i, line in enumerate(cadence_24h_lines)
+        if "**TSDCAD24TRIGAPNVIXA legend ({S|B|P|E}{S|B|P|E})**" in line
     ]
     cadence_24h_triad_gap_cue_transition_vfx_cue_alias_eval_indexes = [
         i
@@ -1934,6 +1962,22 @@ def run_fixture_case(
     assert len(cadence_24h_triad_gap_cue_transition_vfx_cue_intent_legend_indexes) == len(cadence_24h_triad_gap_cue_transition_vfx_cue_intent_indexes), (
         f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPNVI legend row count to mirror TSDCAD24TRIGAPNVI across summary/token sections"
     )
+    assert len(cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_indexes) == len(cadence_24h_triad_gap_signature_indexes), (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPNVIXA row count to mirror TSDCAD24TRIGAP across summary/token sections"
+    )
+    assert len(cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_legend_indexes) == len(cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_indexes), (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPNVIXA legend row count to mirror TSDCAD24TRIGAPNVIXA across summary/token sections"
+    )
+    for idx in cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_indexes:
+        token_line = cadence_24h_lines[idx]
+        m = re.search(r"\*\*TSDCAD24TRIGAPNVIXA:([A-Z]+)\*\*", token_line)
+        assert m is not None, (
+            f"{name}: fixture-level domain assertion requires TSDCAD24TRIGAPNVIXA row to carry an alias payload"
+        )
+        alias_pair = m.group(1)
+        assert re.fullmatch(r"[SBPE]{2}", alias_pair), (
+            f"{name}: fixture-level domain assertion requires TSDCAD24TRIGAPNVIXA alias to match {{S|B|P|E}}{{S|B|P|E}} across mixed-window summary/token fixtures"
+        )
     assert len(cadence_24h_triad_gap_cue_transition_vfx_cue_alias_eval_indexes) == len(cadence_24h_triad_gap_cue_transition_vfx_cue_alias_indexes), (
         f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPNVALEN row count to mirror TSDCAD24TRIGAPNVA across summary/token sections"
     )
@@ -1998,8 +2042,11 @@ def run_fixture_case(
         assert cadence_24h_triad_gap_cue_transition_vfx_cue_intent_alias_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_vfx_cue_intent_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRIGAPNVIA immediately after TSDCAD24TRIGAPNVI in both sections"
         )
-        assert cadence_24h_triad_gap_cue_transition_vfx_operator_helper_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_vfx_cue_intent_alias_indexes[cluster_i] + 1, (
-            f"{name}: cadence order must keep TSDCAD24TRIGAPNVH immediately after TSDCAD24TRIGAPNVIA in both sections"
+        assert cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_vfx_cue_intent_alias_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIGAPNVIXA immediately after TSDCAD24TRIGAPNVIA in both sections"
+        )
+        assert cadence_24h_triad_gap_cue_transition_vfx_operator_helper_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIGAPNVH immediately after TSDCAD24TRIGAPNVIXA in both sections"
         )
         assert cadence_24h_triad_gap_cue_transition_microcopy_alternate_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_vfx_operator_helper_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRIGAPNX immediately after TSDCAD24TRIGAPNVH in both sections"
@@ -2025,8 +2072,11 @@ def run_fixture_case(
         assert cadence_24h_triad_gap_cue_transition_vfx_cue_intent_alias_legend_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_vfx_cue_intent_legend_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRIGAPNVIA legend immediately after TSDCAD24TRIGAPNVI legend in both sections"
         )
-        assert cadence_24h_triad_gap_cue_transition_vfx_cue_alias_eval_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_vfx_cue_intent_alias_legend_indexes[cluster_i] + 1, (
-            f"{name}: cadence order must keep TSDCAD24TRIGAPNVALEN immediately after TSDCAD24TRIGAPNVIA legend in both sections"
+        assert cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_legend_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_vfx_cue_intent_alias_legend_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIGAPNVIXA legend immediately after TSDCAD24TRIGAPNVIA legend in both sections"
+        )
+        assert cadence_24h_triad_gap_cue_transition_vfx_cue_alias_eval_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_alias_legend_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIGAPNVALEN immediately after TSDCAD24TRIGAPNVIXA legend in both sections"
         )
         assert cadence_24h_triad_gap_cue_transition_microcopy_legend_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_vfx_cue_alias_eval_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRIGAPN legend immediately after TSDCAD24TRIGAPNVALEN in both sections"

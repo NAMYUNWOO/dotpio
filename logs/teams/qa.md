@@ -5655,3 +5655,8 @@
 - 2026-04-04 06:21 KST — Regression coverage extended for `TSDCAD24TRIGAPNVH` presence, row-count parity, and ordering; full py_compile + regression + guardrail checks PASS.
 ## 2026-04-04 07:02 KST
 - Captured QA follow-up to add explicit domain fixture coverage for pair alias (`SS..EE`).
+
+## 2026-04-04 07:23 KST — Fixture parity and domain assertions
+- Extended fixture checks to assert `TSDCAD24TRIGAPNVIXA` row parity + legend parity with cadence triad signature rows.
+- Added explicit domain regex check ensuring alias pair coverage stays `{S|B|P|E}{S|B|P|E}`.
+- Verification bundle passed with no regressions.

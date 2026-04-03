@@ -3865,3 +3865,7 @@
 - 2026-04-04 06:21 KST — Row-order readability contract updated: `TRIGAPNVI -> TRIGAPNVIA -> TRIGAPNVH -> TRIGAPNX` in both summary/token sections.
 ## 2026-04-04 07:02 KST
 - Captured UX follow-up for potential `NVIXA` decode surfacing in digest cluster.
+
+## 2026-04-04 07:23 KST — NVIXA decode surfacing
+- Surfaced optional markdown decode row: `TSDCAD24TRIGAPNVIXA legend ({S|B|P|E}{S|B|P|E})` for one-scan operator readability.
+- Kept DOS cluster flow deterministic by placing decode row adjacent to existing intent-alias decode entries.

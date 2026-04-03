@@ -3610,3 +3610,7 @@
 - 2026-04-04 06:21 KST — Combat-facing cadence token chain expanded with operator helper row after `TRIGAPNVIA`; keeps cue/intent handoff readable before alternate narrative.
 ## 2026-04-04 07:02 KST
 - Reviewed IP65 alias as offline-only cue for combat cadence intent triage; no runtime combat coupling introduced.
+
+## 2026-04-04 07:23 KST — Combat/VFX token contract maintenance
+- Preserved transition cluster semantics (`NVI -> NVIA -> NVIXA`) and verified no drift in cue ordering assertions.
+- No combat tuning value changes; contract hardening only.
