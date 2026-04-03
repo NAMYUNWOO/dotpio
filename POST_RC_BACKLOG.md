@@ -92,6 +92,18 @@
 
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP42)
+- Candidate ideas generated:
+  - Low-risk Systems/QA + UX: add compact VFX cue alias token (`TSDCAD24TRICOVSTCMSVA:G|P|B`) with decode row for denser cadence scans.
+  - Mid-risk Systems/QA + Design/World: enforce strict adjacency `TSDCAD24TRICOVSTCMSV -> TSDCAD24TRICOVSTCMSVA -> TSDCAD24TRICOVSTCMSVH` across summary/token sections.
+  - High-risk AI Content/Combat: prototype offline VFX cue confidence score from cue-switch persistence windows.
+- Selected experiment: Idea 1 (low-risk Systems/QA + UX) minimal vertical slice.
+- [x] Systems/QA + UX Team: Add `TSDCAD24TRICOVSTCMSVA` payload+markdown alias row (`GLINT|PULSE|BLAST -> G|P|B`) plus decode copy and regression parity/order locks. *(lifecycle: [ ] -> [~] started: 2026-04-03 09:24 KST -> [x] completed: 2026-04-03 09:30 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP42)
+- [ ] Systems/QA Team (injected): Add fixture-level explicit parity assertion that `TSDCAD24TRICOVSTCMSVA legend` row count mirrors `TSDCAD24TRICOVSTCMSVA` across summary/token sections.
+- [ ] AI Content/Combat Team (injected): Prototype offline VFX cue confidence score (`TSDCAD24TRICOVSTCMSVC:LOW|MID|HIGH`) from cue-switch persistence windows without runtime coupling.
+
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP38)
 - Candidate ideas generated:
   - Low-risk Systems/Ops + Design/World: add cadence-triad spread alias token (`TSDCAD24TRICOVS:STABLE|SHIFT|WIDE`) so bucket imbalance severity is one-scan visible beside coverage pressure.

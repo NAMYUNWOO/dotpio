@@ -5254,3 +5254,10 @@ Compact decision memory for AI context efficiency.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next run should trigger Game Director review cycle).
 
+
+
+## 2026-04-03 09:30 KST — Cycle IP42 Summary
+- Decision: keep cadence-triad VFX cue chain densely scannable by adding alias token `TSDCAD24TRICOVSTCMSVA` (`G|P|B`) directly after `TSDCAD24TRICOVSTCMSV`.
+- Implemented in `scripts/check_lane_coverage_guardrail.py` and regression contracts in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Durable rule: preserve adjacency `...STCMSV -> ...STCMSVA -> ...STCMSVH` plus alias decode row parity in summary/token sections.
+- Verification bundle passed: py_compile + regression_check_lane_coverage_guardrail + guardrail report regeneration.

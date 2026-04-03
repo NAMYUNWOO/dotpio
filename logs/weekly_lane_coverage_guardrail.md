@@ -22,6 +22,7 @@
 - cadence 24h recovery triad coverage spread trend confidence momentum alias (systems/qa): **TSDCAD24TRICOVSTCMA:F**
 - cadence 24h recovery triad coverage spread trend confidence momentum score (ai-content/combat): **TSDCAD24TRICOVSTCMS:50**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue (combat/vfx): **TSDCAD24TRICOVSTCMSV:PULSE**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue alias (systems/qa): **TSDCAD24TRICOVSTCMSVA:P**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory (ai-content/combat): **TSDCAD24TRICOVSTCMSVH:STEADY**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory alias (systems/qa): **TSDCAD24TRICOVSTCMSVHA:S**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence band (ai-content/combat): **TSDCAD24TRICOVSTCMSVHC:HIGH**
@@ -31,6 +32,7 @@
 - cadence 24h recovery triad coverage spread trend confidence decode (design/world): **TSDCAD24TRICOVSTCA legend (L=LOW, M=MID, H=HIGH)**
 - cadence 24h recovery triad coverage spread trend confidence momentum decode (design/world): **TSDCAD24TRICOVSTCMA legend (U=UP, F=FLAT, D=DOWN)**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue decode (design/world): **TSDCAD24TRICOVSTCMSV legend (GLINT=calm flicker, PULSE=steady pressure, BLAST=full commit)**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue alias decode (design/world): **TSDCAD24TRICOVSTCMSVA legend (G=GLINT, P=PULSE, B=BLAST)**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory decode (design/world): **TSDCAD24TRICOVSTCMSVH legend (STEADY=stable cue, SWING=cue churn)**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory alias decode (design/world): **TSDCAD24TRICOVSTCMSVHA legend (S=stable cue, W=cue churn)**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence band decode (design/world): **TSDCAD24TRICOVSTCMSVHC legend (LOW=high flip churn, MID=mixed flips, HIGH=stable cues)**

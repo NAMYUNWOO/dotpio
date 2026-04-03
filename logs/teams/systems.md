@@ -4952,3 +4952,9 @@
 - Cycle IP45 injected AI Content/Combat item closed: added offline hysteresis confidence-band token `TSDCAD24TRICOVSTCMSVHC:LOW|MID|HIGH` derived from recent cue-flip stability windows, with markdown decode row + regression/order/parity/domain coverage updates.
 - Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail JSON/MD regeneration.
 
+
+
+## 2026-04-03 09:30 KST — Cycle IP42 (TSDCAD24TRICOVSTCMSVA)
+- Shipped compact cadence-VFX cue alias token `TSDCAD24TRICOVSTCMSVA:G|P|B` from `TSDCAD24TRICOVSTCMSV`.
+- Added markdown alias row + decode row and tightened regression presence/parity/order checks.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen.

@@ -545,3 +545,9 @@
 
 - 2026-04-03 04:20 KST — VFX queue unchanged in code; dependency unblocked by monotonic score invariant for upcoming urgency cue experiment.
   - Follow-up: implement `GLINT|PULSE|BLAST` mapping from `TSDCAD24TRICOVSTCMS` bands.
+
+
+## 2026-04-03 09:30 KST — Cycle IP42 (TSDCAD24TRICOVSTCMSVA)
+- Shipped compact cadence-VFX cue alias token `TSDCAD24TRICOVSTCMSVA:G|P|B` from `TSDCAD24TRICOVSTCMSV`.
+- Added markdown alias row + decode row and tightened regression presence/parity/order checks.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen.

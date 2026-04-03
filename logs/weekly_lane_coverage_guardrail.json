@@ -80,6 +80,7 @@
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumAlias": "F",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScore": 50,
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCue": "PULSE",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueAlias": "P",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisAdvisory": "STEADY",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisAdvisoryAlias": "S",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBand": "HIGH",
