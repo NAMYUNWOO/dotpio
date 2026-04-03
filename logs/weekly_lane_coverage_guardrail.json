@@ -71,6 +71,18 @@
   "cadence24hRecoveryTriadPulsePaletteAlias": "CV=SPARK|DW=ANCHOR|SO=LOCK",
   "cadence24hRecoveryTriadCoverageAlias": "CV0|DW0|SO0",
   "cadence24hRecoveryTriadBucketHitVector": "CV0D0|DW0D0|SO0D0",
+  "cadence24hRecoveryTriadGapSignature": "CV0M1|DW0M1|SO0M1",
+  "cadence24hRecoveryTriadGapSignatureDecodeBaseline": "M1=missing bucket, M0=covered bucket",
+  "cadence24hRecoveryTriadGapSignatureDecodeCompact": "M1=missing, M0=covered",
+  "cadence24hRecoveryTriadGapSignatureDecodeEvaluation": {
+    "baseline": "M1=missing bucket, M0=covered bucket",
+    "compact": "M1=missing, M0=covered",
+    "baselineLen": 36,
+    "compactLen": 22,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "cadence24hRecoveryTriadCadenceReadyAlias": "GAP",
   "cadence24hRecoveryTriadCoveragePressureAlias": "GAP",
   "cadence24hRecoveryTriadCoverageSpreadAlias": "STABLE",

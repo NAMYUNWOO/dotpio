@@ -5447,3 +5447,13 @@ Compact decision memory for AI context efficiency.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next cycle should execute full Game Director ideation/experiment loop).
 - 2026-04-04 00:22 KST — IP56 started: focused on combat/vfx+design/world+systems/qa vertical slice to shrink `TSDPMFXVWCRITSPMBSAPF` baseline legend below LIM72 while preserving deterministic regression contracts.
 - 2026-04-04 00:25 KST — Decision: APF legend baseline copy compressed to `PH=push/hard, HP=hold/poke, ES=ease/nudge`; guardrail eval now PASS under LIM72 with regression contract updated.
+
+## 2026-04-04 — Cycle IP57 (Cadence gap signature payload slice)
+- Added deterministic payload token `cadence24hRecoveryTriadGapSignature` in `scripts/check_lane_coverage_guardrail.py`.
+- Signature format: `CV<n>M<m>|DW<n>M<m>|SO<n>M<m>` where `M1=missing` and `M0=covered`.
+- Added decode/evaluation payload bundle:
+  - `cadence24hRecoveryTriadGapSignatureDecodeBaseline`
+  - `cadence24hRecoveryTriadGapSignatureDecodeCompact`
+  - `cadence24hRecoveryTriadGapSignatureDecodeEvaluation`
+- Verification bundle stayed green: py_compile + regression_check_lane_coverage_guardrail + live guardrail report regeneration.
+- Injected follow-ups: (1) fixture-level format/parity assertion for gap signature, (2) markdown surfacing token `TSDCAD24TRIGAP` with decode/eval row.

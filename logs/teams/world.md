@@ -3574,3 +3574,5 @@
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-04 00:22 KST — IP56 in-progress: design/world copy compression pass selected (`PH=push/hard, HP=hold/poke, ES=ease/nudge`) to preserve one-scan decode semantics under LIM72.
 - 2026-04-04 00:25 KST — IP56 done: finalized compact decode wording (`push/hard`, `hold/poke`, `ease/nudge`) for DOS-width-safe design/world readability.
+
+- 2026-04-04 00:52 KST — Cycle IP57: Reviewed triad readability lane; selected cross-lane gap-signature experiment to keep cadence deficit shape (`CV/DW/SO`) legible for map/progression dispatch handoff. Follow-up injected: markdown `TSDCAD24TRIGAP` row + legend.

@@ -1,5 +1,19 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP57)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
+- Forced-lane decision: all cadence buckets missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so this cycle prioritized a cross-lane readability contract touching combat/vfx + design/world + systems/qa.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + Design/World: add compact cadence-gap signature token for one-scan missing-bucket visibility.
+  - Mid-risk Systems/QA + Design/World: add parity/order lock ensuring gap signature stays adjacent to triad coverage vectors.
+  - High-risk AI-content/Combat: adaptive next-lane recommendation phrase generator from gap signature churn windows.
+- Selected experiment: Idea 1 (low-risk cross-lane readability) minimal vertical slice.
+- [x] Combat/VFX + Design/World + Systems/QA Team: Added cadence-gap signature token + decode/eval metadata (`cadence24hRecoveryTriadGapSignature` + decode bundle) so missing-bucket shape is payload-auditable beside triad coverage vectors. *(lifecycle: [ ] -> [~] started: 2026-04-04 00:49 KST -> [x] completed: 2026-04-04 00:52 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP57)
+- [ ] Systems/QA Team (injected): Add fixture-level parity assertion that `cadence24hRecoveryTriadGapSignature` is present and remains format-stable (`CV<n>M<m>|DW<n>M<m>|SO<n>M<m>`) across mixed-window fixtures.
+- [ ] Design/World + UX Team (injected): Surface compact markdown row for `TSDCAD24TRIGAP` with decode legend (`M1=missing, M0=covered`) and DOS-width eval token.
+
 ## Next Up (Game Director Injection — Cycle IP56)
 - [x] Combat/VFX + Design/World + Systems/QA Team: Compress `TSDPMFXVWCRITSPMBSAPF legend` baseline decode text to pass LIM72 (`PH=push/hard, HP=hold/poke, ES=ease/nudge`) and keep deterministic legend/eval regression contracts aligned. *(lifecycle: [ ] -> [~] started: 2026-04-04 00:22 KST -> [x] completed: 2026-04-04 00:25 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 

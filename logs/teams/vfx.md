@@ -584,3 +584,5 @@
 - 2026-04-03 23:46 KST — VFX token behavior unchanged (`STPRV`, `STPRLENCUE`); validated helper text now references VFX cue step in operator order without altering cue mappings. Follow-up: retain cue alias compactness under LIM72.
 - 2026-04-04 00:22 KST — IP56 in-progress: no cue-domain remap; only decode copy compaction affecting operator-facing legend string.
 - 2026-04-04 00:25 KST — IP56 done: preserved cue family semantics while compressing legend copy in shared guardrail digest.
+
+- 2026-04-04 00:52 KST — Cycle IP57: VFX lane audit aligned with combat cadence gap; signature token now exposes missing-bucket shape for faster pulse-priority triage in downstream reports.

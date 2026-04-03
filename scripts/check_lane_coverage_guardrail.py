@@ -1102,6 +1102,51 @@ def resolve_cadence_24h_recovery_triad_bucket_hit_vector(
     return f"CV{combat_count}D{combat_done}|DW{design_count}D{design_done}|SO{systems_count}D{systems_done}"
 
 
+def resolve_cadence_24h_recovery_triad_gap_signature(
+    bucket_cadence: dict[str, dict[str, object]],
+) -> str:
+    """Compact cadence-gap signature for quick triad-shape auditing.
+
+    Emits lane counts plus missing flags (M1=missing, M0=covered) for
+    combat/design/systems cadence buckets.
+    """
+    combat_count = int(bucket_cadence.get("combat-or-vfx", {}).get("count", 0))
+    design_count = int(bucket_cadence.get("design-or-world", {}).get("count", 0))
+    systems_count = int(bucket_cadence.get("systems-or-ops", {}).get("count", 0))
+    combat_missing = 1 if combat_count <= 0 else 0
+    design_missing = 1 if design_count <= 0 else 0
+    systems_missing = 1 if systems_count <= 0 else 0
+    return f"CV{combat_count}M{combat_missing}|DW{design_count}M{design_missing}|SO{systems_count}M{systems_missing}"
+
+
+def resolve_cadence_24h_recovery_triad_gap_signature_decode_helper_baseline() -> str:
+    return "M1=missing bucket, M0=covered bucket"
+
+
+def resolve_cadence_24h_recovery_triad_gap_signature_decode_helper_compact() -> str:
+    return "M1=missing, M0=covered"
+
+
+def resolve_cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation(
+    dos_width_limit: int = 72,
+) -> dict[str, object]:
+    baseline = resolve_cadence_24h_recovery_triad_gap_signature_decode_helper_baseline()
+    compact = resolve_cadence_24h_recovery_triad_gap_signature_decode_helper_compact()
+    baseline_len = len(baseline)
+    compact_len = len(compact)
+    preferred = "COMPACT" if compact_len <= baseline_len else "BASELINE"
+    status = "PASS" if compact_len <= dos_width_limit and baseline_len <= dos_width_limit else "WARN"
+    return {
+        "baseline": baseline,
+        "compact": compact,
+        "baselineLen": baseline_len,
+        "compactLen": compact_len,
+        "dosWidthLimit": dos_width_limit,
+        "preferred": preferred,
+        "status": status,
+    }
+
+
 def resolve_cadence_24h_recovery_triad_cadence_ready_alias(
     bucket_cadence: dict[str, dict[str, object]],
 ) -> str:
@@ -2701,6 +2746,12 @@ def build_report(
     cadence_24h_recovery_triad_bucket_hit_vector = (
         resolve_cadence_24h_recovery_triad_bucket_hit_vector(bucket_status)
     )
+    cadence_24h_recovery_triad_gap_signature = (
+        resolve_cadence_24h_recovery_triad_gap_signature(bucket_status)
+    )
+    cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation = (
+        resolve_cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation()
+    )
     cadence_24h_recovery_triad_cadence_ready_alias = (
         resolve_cadence_24h_recovery_triad_cadence_ready_alias(bucket_status)
     )
@@ -2872,6 +2923,10 @@ def build_report(
         "cadence24hRecoveryTriadPulsePaletteAlias": cadence_24h_recovery_triad_pulse_palette_alias,
         "cadence24hRecoveryTriadCoverageAlias": cadence_24h_recovery_triad_coverage_alias,
         "cadence24hRecoveryTriadBucketHitVector": cadence_24h_recovery_triad_bucket_hit_vector,
+        "cadence24hRecoveryTriadGapSignature": cadence_24h_recovery_triad_gap_signature,
+        "cadence24hRecoveryTriadGapSignatureDecodeBaseline": cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation["baseline"],
+        "cadence24hRecoveryTriadGapSignatureDecodeCompact": cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation["compact"],
+        "cadence24hRecoveryTriadGapSignatureDecodeEvaluation": cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation,
         "cadence24hRecoveryTriadCadenceReadyAlias": cadence_24h_recovery_triad_cadence_ready_alias,
         "cadence24hRecoveryTriadCoveragePressureAlias": cadence_24h_recovery_triad_coverage_pressure_alias,
         "cadence24hRecoveryTriadCoverageSpreadAlias": cadence_24h_recovery_triad_coverage_spread_alias,
