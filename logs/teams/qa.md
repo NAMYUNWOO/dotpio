@@ -5594,3 +5594,6 @@
 ## 2026-04-03 22:28 KST
 - QA locked new STPRV contracts: presence assertions, parity assertions, and strict adjacency checks (`...STPRA legend -> STPRV -> STPRV legend`) across both markdown sections.
 - Verification bundle passed (py_compile + regression + guardrail regeneration).
+
+## 2026-04-03 22:58 KST
+- Cycle IP55 regression suite now asserts `STPRLEN` row presence/parity and strict adjacency after `STPRV legend` across summary/token sections.

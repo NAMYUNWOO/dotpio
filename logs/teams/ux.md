@@ -3819,3 +3819,6 @@
 ## 2026-04-03 22:28 KST
 - UX scan-path update: STPR cluster now reads through to STPRV severity companion in contiguous order, reducing interpretation hops in dense cadence rails.
 - Durable decision: preserve contiguous recommendation micro-cluster ordering for future token insertions.
+
+## 2026-04-03 22:58 KST
+- Cycle IP55 readability pass: pressure recommendation cluster now exposes compact-vs-baseline width delta explicitly for one-glance operator confidence.

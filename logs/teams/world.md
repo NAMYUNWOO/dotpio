@@ -3564,3 +3564,6 @@
 ## 2026-04-03 22:28 KST
 - Updated cadence playbook helper text to one-line family linkage: `STPR+STPRA->operator action` in digest markdown.
 - Durable decision: keep helper copy concise and colocated with recommendation decode row for one-scan readability.
+
+## 2026-04-03 22:58 KST
+- Cycle IP55 added one-scan readability guardrail contract for smoothing-pressure cluster (`STPR/STPRA/STPRV`) via new eval token path for operator scan continuity.

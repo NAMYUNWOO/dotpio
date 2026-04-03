@@ -3560,3 +3560,6 @@
 ## 2026-04-03 22:28 KST
 - Combat/VFX readability slice shipped: added `TSDCAD24TRICOVSTCMSVHCSTPRV` (`LOCK->GLINT`, `WATCH->PULSE`) to keep pressure recommendation severity glanceable.
 - Verification pass retained deterministic output in generated guardrail markdown.
+
+## 2026-04-03 22:58 KST
+- Cycle IP55 kept combat-facing recommendation semantics stable while introducing `STPRLEN` audit visibility to reduce decode drift risk before future cue experiments.

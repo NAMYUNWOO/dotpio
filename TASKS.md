@@ -1,6 +1,22 @@
 # TASKS
 
-Last updated: 2026-04-03 22:02 KST
+Last updated: 2026-04-03 22:58 KST
+
+## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP55)
+- Coverage check (last 10 completed, lane guardrail snapshot): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (`missingCadenceBuckets`: combat-or-vfx, design-or-world, systems-or-ops).
+- Forced-lane decision: cadence triad buckets remained missing, so cycle prioritized underrepresented systems/ops + design/world readability hardening around current smoothing-pressure cluster.
+- Candidate ideas generated:
+  - Low-risk systems/ops + design/world: add smoothing-pressure decode dos-width evaluation token for `STPR`/`STPRA`/`STPRV` chain.
+  - Mid-risk systems/qa: add parity + adjacency contracts anchoring the new eval row directly after `STPRV legend`.
+  - High-risk ai-content/combat: adaptive pressure recommendation remap from rolling volatility-churn spread.
+- Selected experiment: Idea 1 (low-risk systems/ops + design/world) minimal vertical slice.
+- [x] Systems/Ops + Design/World Team: Add smoothing-pressure recommendation decode dos-width evaluation token `TSDCAD24TRICOVSTCMSVHCSTPRLEN:B45|C43|LIM72|PREF:COMPACT|PASS`, wire payload/evaluation fields, and extend regression row/adjacency coverage. *(lifecycle: [ ] -> [~] started: 2026-04-03 22:52 KST -> [x] completed: 2026-04-03 22:58 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP55)
+- [ ] Combat/VFX Team (injected): Add compact operator cue alias token for `STPRLEN` status (`LOCK=GLINT-HOLD`, `WATCH=PULSE-PROBE`) and keep <=72-width decode row.
+- [ ] Design/World Team (injected): Add one-line operator playbook helper tying `STPR + STPRV + STPRLEN` into actionable cadence callout order.
+- [ ] Systems/Ops + QA Team (injected): Extend fixture parity/order assertions so `STPRLEN` row remains anchored after `STPRV legend` in both summary/token sections under mixed-window fixtures.
+
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP54)
 - Coverage check (last 10 completed, lane guardrail snapshot): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (`missingCadenceBuckets`: combat-or-vfx, design-or-world, systems-or-ops).

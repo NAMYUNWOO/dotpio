@@ -3659,3 +3659,6 @@
 ## 2026-04-03 22:28 KST
 - AI advisory recommendation stream remains deterministic (`LOCK|WATCH`), now mirrored by STPRV visual companion mapping in markdown without runtime coupling.
 - Durable decision: preserve report-only semantics for recommendation + visual companion signals.
+
+## 2026-04-03 22:58 KST
+- Cycle IP55 decision: keep smoothing-pressure recommendation model unchanged (`LOCK|WATCH` mapping), and scope this slice to readability verification only (no runtime coupling).

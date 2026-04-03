@@ -3680,3 +3680,6 @@
 ## 2026-04-03 22:28 KST
 - Design/world decode copy tightened to recommendation-family helper format (`STPR+STPRA->operator action`) and visual companion decode (`LOCK=GLINT, WATCH=PULSE`).
 - Durable decision: keep decode copy <=72-friendly and adjacent to STPR cluster.
+
+## 2026-04-03 22:58 KST
+- Cycle IP55 added design-facing DOS-width proof token for smoothing-pressure decode chain: `TSDCAD24TRICOVSTCMSVHCSTPRLEN:B45|C43|LIM72|PREF:COMPACT|PASS`.
