@@ -3604,3 +3604,13 @@
 - Cycle IP45 shipped: added `TSDCAD24TRICOVSTCMSVHCST` drift-score trend token (`UP|FLAT|DOWN`) from two-window VHCS deltas with ±5 threshold.
 - Verification bundle passed (py_compile + regression + guardrail artifact regen).
 - Follow-up injected: add explicit row-count parity assertion for `TSDCAD24TRICOVSTCMSVHCST` across summary/token sections.
+
+## 2026-04-03 15:22 KST
+- Closed injected Systems/QA parity follow-up: regression now enforces  row-count parity with  across summary + token sections.
+- Added explicit fixture-level legend parity assertion for  and order lock placing  after .
+- Verification passed (; ok: trendScoreBand dispatch-hint/momentum-band regression checks passed; guardrail JSON/MD regeneration).
+
+## 2026-04-03 15:22 KST
+- Closed injected parity follow-up: regression now enforces `TSDCAD24TRICOVSTCMSVHCST` row-count parity vs `TSDCAD24TRI` across summary/token sections.
+- Added fixture-level legend parity assertion for `TSDCAD24TRICOVSTCMSVHCST legend` and order lock placing `...VHCST` immediately after `...VHCALEN` in each cadence cluster.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

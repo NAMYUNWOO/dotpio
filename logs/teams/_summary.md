@@ -5324,3 +5324,8 @@ Compact decision memory for AI context efficiency.
 - Shipped high-risk AI Content/Combat minimal slice: `TSDCAD24TRICOVSTCMSVHCST` drift-score trend token (`UP|FLAT|DOWN`) computed from current/prior `VHCS` windows with ±5 threshold.
 - Durable decision: keep drift-score trend as offline diagnostic only and preserve existing token families unchanged; next injected work is explicit row-count parity assertion for `VHCST` across summary/token sections.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+
+## 2026-04-03 15:22 KST
+- Completed TASKS + POST_RC injected Systems/QA item: `TSDCAD24TRICOVSTCMSVHCST` row-count parity now mirrors `TSDCAD24TRI` across summary/token sections.
+- Durable decision: keep this token in both global count assertions and per-section index assertions (plus legend parity) to prevent silent fixture drift.
+- Verification command bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` -> `python3 scripts/regression_check_lane_coverage_guardrail.py` -> `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

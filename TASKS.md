@@ -11,7 +11,7 @@ Last updated: 2026-04-03 14:48 KST
 - [x] AI Content/Combat + Systems/QA Team: Add offline drift-score trend token `TSDCAD24TRICOVSTCMSVHCST:UP|FLAT|DOWN` (thresholded ±5 delta between current/prior VHCS windows), wire markdown decode row, and extend regression markdown contract. *(lifecycle: [ ] -> [~] started: 2026-04-03 14:41 KST -> [x] completed: 2026-04-03 14:48 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP45)
-- [ ] Systems/QA Team (injected): add row-count parity assertion that `TSDCAD24TRICOVSTCMSVHCST` appears once per `TSDCAD24TRI` section across summary/token markdown blocks.
+- [x] Systems/QA Team (injected): add row-count parity assertion that `TSDCAD24TRICOVSTCMSVHCST` appears once per `TSDCAD24TRI` section across summary/token markdown blocks.
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP44)
 - Candidate ideas generated:
