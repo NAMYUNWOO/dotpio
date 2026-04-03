@@ -1385,6 +1385,38 @@ def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum
     }.get(confidence_band, "M")
 
 
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_decode_baseline() -> str:
+    return "L=high churn, M=mixed flips, H=stable cues"
+
+
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_decode_compact() -> str:
+    return "L=high churn, M=mixed flips, H=stable cues"
+
+
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_decode_evaluation(
+    dos_width_limit: int = 72,
+) -> dict[str, object]:
+    baseline = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_decode_baseline()
+    )
+    compact = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_decode_compact()
+    )
+    baseline_len = len(baseline)
+    compact_len = len(compact)
+    preferred = "COMPACT" if compact_len <= baseline_len else "BASELINE"
+    status = "PASS" if compact_len <= dos_width_limit and baseline_len <= dos_width_limit else "WARN"
+    return {
+        "baseline": baseline,
+        "compact": compact,
+        "baselineLen": baseline_len,
+        "compactLen": compact_len,
+        "dosWidthLimit": dos_width_limit,
+        "preferred": preferred,
+        "status": status,
+    }
+
+
 def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_decode_helper_baseline() -> str:
     return "VH=STEADY|SWING, VHA=S|W"
 
@@ -2338,6 +2370,9 @@ def build_report(
     cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_decode_helper_evaluation = (
         resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_decode_helper_evaluation()
     )
+    cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_decode_evaluation = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_decode_evaluation()
+    )
 
     return {
         "recentCompletedItems": total,
@@ -2372,6 +2407,9 @@ def build_report(
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAlias": resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias(
             cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band
         ),
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeBaseline": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_decode_evaluation["baseline"],
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeCompact": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_decode_evaluation["compact"],
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeEvaluation": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_decode_evaluation,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderBaseline": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation["baseline"],
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderCompact": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation["compact"],
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation,
@@ -2594,6 +2632,7 @@ def to_markdown(
             f"- cadence 24h recovery triad plan (design/world): **{report.get('cadence24hRecoveryTriadPlan', 'cadence locked')}**",
             f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence band alias (combat/vfx): **TSDCAD24TRICOVSTCMSVHCA:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAlias', 'M')}**",
             "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence-band alias decode (design/world): **TSDCAD24TRICOVSTCMSVHCA legend (L=high churn, M=mixed flips, H=stable cues)**",
+            f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence-band alias decode dos-width eval (design/world): **TSDCAD24TRICOVSTCMSVHCALEN:B{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeEvaluation', {}).get('status', 'PASS')}**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",
             "- trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**",

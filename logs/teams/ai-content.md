@@ -3557,3 +3557,8 @@
 ## 2026-04-03 09:41 KST — Cycle IP46 AI-content coordination
 - No new AI runtime coupling introduced; confidence-band alias mirrors existing `LOW|MID|HIGH` hysteresis band for denser digest parsing.
 - Maintained deterministic offline-only mapping policy.
+
+## 2026-04-03 10:24 KST - Cycle IP43 follow-up
+- Decision: Added `TSDCAD24TRICOVSTCMSVHCALEN` DOS-width eval row for the VHCA alias decode contract in lane guardrail markdown.
+- Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: tackle remaining unchecked injected tasks in TASKS/POST_RC (VHCA legend parity assertion, VFX confidence token, triad bucket hit-count markdown).

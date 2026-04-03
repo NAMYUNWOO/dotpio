@@ -41,6 +41,7 @@
 - cadence 24h recovery triad plan (design/world): **combat spark -> world anchor -> systems lock**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence band alias (combat/vfx): **TSDCAD24TRICOVSTCMSVHCA:H**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence-band alias decode (design/world): **TSDCAD24TRICOVSTCMSVHCA legend (L=high churn, M=mixed flips, H=stable cues)**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence-band alias decode dos-width eval (design/world): **TSDCAD24TRICOVSTCMSVHCALEN:B42|C42|LIM72|PREF:COMPACT|PASS**
 - trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 - trend-score band snapshot alias: **TSSB:C0E0H0**
 - trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**

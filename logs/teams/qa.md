@@ -5478,3 +5478,8 @@
 - Added dedicated assertion text requiring `TSDCAD24TRICOVSTCMSVHCA` to mirror `TSDCAD24TRI` across summary/token sections.
 - This keeps alias parity failures attributable in test output instead of being folded into generic alias row-count checks.
 - Validation bundle passed: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact regeneration.
+
+## 2026-04-03 10:24 KST - Cycle IP43 follow-up
+- Decision: Added `TSDCAD24TRICOVSTCMSVHCALEN` DOS-width eval row for the VHCA alias decode contract in lane guardrail markdown.
+- Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: tackle remaining unchecked injected tasks in TASKS/POST_RC (VHCA legend parity assertion, VFX confidence token, triad bucket hit-count markdown).

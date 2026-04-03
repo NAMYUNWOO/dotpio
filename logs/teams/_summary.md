@@ -5270,3 +5270,8 @@ Compact decision memory for AI context efficiency.
 - Next injected backlog preserves 24h triad cadence: one combat/vfx, one design/world, one systems/ops follow-up queued.
 
 - 2026-04-03 09:52 KST: Closed injected Combat/VFX parity follow-up by adding explicit regression assertion for `TSDCAD24TRICOVSTCMSVHCA` row-count parity across summary/token sections (`scripts/regression_check_lane_coverage_guardrail.py`). Updated TASKS + POST_RC_BACKLOG lifecycle to done; verification bundle green and lane guardrail artifacts regenerated.
+
+## 2026-04-03 10:24 KST - IP43 follow-up (Design/World + Systems/QA)
+- Added new deterministic DOS-width evaluation token for VHCA alias decode row in lane guardrail markdown: `TSDCAD24TRICOVSTCMSVHCALEN`.
+- Contract value now emits `B42|C42|LIM72|PREF:COMPACT|PASS` and is regression-locked in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Backlog state updated: Design/World injected item completed in both `TASKS.md` and `POST_RC_BACKLOG.md`.

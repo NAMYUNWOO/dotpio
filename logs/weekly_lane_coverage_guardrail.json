@@ -85,6 +85,17 @@
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisAdvisoryAlias": "S",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBand": "HIGH",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAlias": "H",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeBaseline": "L=high churn, M=mixed flips, H=stable cues",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeCompact": "L=high churn, M=mixed flips, H=stable cues",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeEvaluation": {
+    "baseline": "L=high churn, M=mixed flips, H=stable cues",
+    "compact": "L=high churn, M=mixed flips, H=stable cues",
+    "baselineLen": 42,
+    "compactLen": 42,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderBaseline": "80=surge confidence, 50=hold confidence, 20=cool confidence",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderCompact": "80=surge, 50=hold, 20=cool",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation": {

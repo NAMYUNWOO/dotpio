@@ -607,6 +607,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include cadence-triad dual-hysteresis decode helper dos-width eval row"
     assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence-band alias decode dos-width eval (design/world): "
+        "**TSDCAD24TRICOVSTCMSVHCALEN:B42|C42|LIM72|PREF:COMPACT|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad vfx-cue hysteresis confidence-band alias decode dos-width eval row"
+    assert (
         "cadence 24h recovery triad coverage spread trend confidence decode (design/world): "
         "**TSDCAD24TRICOVSTCA legend (L=LOW, M=MID, H=HIGH)**"
         in md_text
@@ -635,6 +640,7 @@ def run_fixture_case(
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHC:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHD:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_eval_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHDLEN:B24|C24|LIM72|PREF:COMPACT|PASS**")
+    cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_eval_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCALEN:B42|C42|LIM72|PREF:COMPACT|PASS**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_alias_legend_rows = md_text.count(
         "**TSDCAD24TRICOVSTCMA legend (U=UP, F=FLAT, D=DOWN)**"
     )
@@ -721,6 +727,9 @@ def run_fixture_case(
     )
     assert cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_eval_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRICOVSTCMSVHDLEN row count must match TSDCAD24TRI row count across sections"
+    )
+    assert cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_eval_rows == cadence_24h_triad_rows, (
+        f"{name}: TSDCAD24TRICOVSTCMSVHCALEN row count must match TSDCAD24TRI row count across sections"
     )
     assert (
         cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_ladder_legend_rows
