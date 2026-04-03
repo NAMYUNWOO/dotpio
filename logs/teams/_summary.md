@@ -5305,3 +5305,9 @@ Compact decision memory for AI context efficiency.
 - 2026-04-03 12:56 KST (IP43): Systems/QA hardened cadence VFX confidence-band alias (`TSDCAD24TRICOVSTCMSVHCA`) regression: fixed parity counter target, added explicit row-count assertions, and locked adjacency (`plan -> ...VHCA -> ...VHCALEN`).
 
 - 2026-04-03 13:20 KST — Completed IP43 Systems/QA follow-up: explicit VHCALEN↔VHCA parity assertions added in regression (row-count + index-level), verification bundle passed, backlog updated. Next queued item: TSDCAD24TRICOVSTCMSVHCS score token prototype (AI Content/Combat).
+
+## 2026-04-03 13:54 KST
+- Closed Cycle IP43 remaining unchecked POST_RC backlog item by implementing `TSDCAD24TRICOVSTCMSVHCS:0..100` (offline cue-hysteresis confidence drift score derived from rolling `TSDCAD24TRICOVSTCMSVHC` flips).
+- Durable decision: keep drift score adjacent to `...VHC` before ladder decode so confidence-band stability can be read as value+band in one scan.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.

@@ -3577,3 +3577,8 @@
 - No new AI-content token semantics; protected existing confidence-band signal readability via stronger regression contracts.
 
 - 2026-04-03 13:20 KST — Cycle IP43 follow-up: added explicit regression parity assertion that TSDCAD24TRICOVSTCMSVHCALEN mirrors TSDCAD24TRICOVSTCMSVHCA across summary/token sections; verification bundle passed.
+
+## 2026-04-03 13:54 KST
+- Closed Cycle IP43 injected AI Content/Combat follow-up by shipping offline cue-hysteresis confidence drift score token `TSDCAD24TRICOVSTCMSVHCS:0..100` from rolling `TSDCAD24TRICOVSTCMSVHC` flips.
+- Added report wiring + markdown row generation in `scripts/check_lane_coverage_guardrail.py` and regression coverage/order/parity locks in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

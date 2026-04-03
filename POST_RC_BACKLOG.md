@@ -102,7 +102,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP43)
 - [x] Systems/QA Team (injected): Add fixture-level explicit parity assertion that `TSDCAD24TRICOVSTCMSVHCALEN` row count mirrors `TSDCAD24TRICOVSTCMSVHCA` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 13:18 KST -> [x] completed: 2026-04-03 13:20 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
-- [ ] AI Content/Combat Team (injected): Prototype offline cue-hysteresis confidence drift score token (`TSDCAD24TRICOVSTCMSVHCS:0..100`) from rolling `TSDCAD24TRICOVSTCMSVHC` flips.
+- [x] AI Content/Combat Team (injected): Prototype offline cue-hysteresis confidence drift score token (`TSDCAD24TRICOVSTCMSVHCS:0..100`) from rolling `TSDCAD24TRICOVSTCMSVHC` flips. *(lifecycle: [ ] -> [~] started: 2026-04-03 13:49 KST -> [x] completed: 2026-04-03 13:54 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP42)
 - Candidate ideas generated:

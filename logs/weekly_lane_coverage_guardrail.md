@@ -27,6 +27,7 @@
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory (ai-content/combat): **TSDCAD24TRICOVSTCMSVH:STEADY**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis advisory alias (systems/qa): **TSDCAD24TRICOVSTCMSVHA:S**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence band (ai-content/combat): **TSDCAD24TRICOVSTCMSVHC:HIGH**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift score (ai-content/combat): **TSDCAD24TRICOVSTCMSVHCS:100**
 - cadence 24h recovery triad coverage spread trend confidence momentum score ladder decode (design/world): **TSDCAD24TRICOVSTCMS legend (80=surge confidence, 50=hold confidence, 20=cool confidence)**
 - cadence 24h recovery triad coverage spread trend confidence momentum score ladder dos-width eval (design/world): **TSDCAD24TRICOVSTCMSLEN:B59|C26|LIM72|PREF:COMPACT|PASS**
 - cadence 24h recovery triad coverage spread trend decode (design/world): **TSDCAD24TRICOVSTA legend (U=UP, F=FLAT, D=DOWN)**
