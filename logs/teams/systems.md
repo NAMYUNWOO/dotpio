@@ -5118,3 +5118,11 @@
 - Cycle IP59 follow-up: shipped `TSDCAD24TRIGAPC` cadence urgency cue token from `TSDCAD24TRIGAPM` mapping (0=LOCKED, 1=WATCH, 2+=RECOVER) in markdown guardrail output.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py` and live report regeneration command passed.
 - Follow-up: keep injected Systems/Ops+QA item open to harden explicit TRIGAPC parity/order anchoring in regression fixtures.
+
+## 2026-04-04 02:52 KST
+- Cycle IP59 follow-up (Systems/Ops + QA): hardened TRIGAP cue contracts by extending regression parity/order checks for `TSDCAD24TRIGAPC`.
+- Durable contract: cadence-gap cluster order is now explicitly locked as `TRIGAP -> TRIGAPM -> TRIGAPC -> TRIGAP legend -> TRIGAPLEN` across summary/token sections.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail report regeneration command.
+
+## 2026-04-04 02:58 KST
+- Cycle IP60 systems follow-through: extended ordering contract to include `TRIGAPC legend` between `TRIGAPC` and `TRIGAP legend` in both summary/token sections.

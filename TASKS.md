@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-04-04 02:06 KST
+Last updated: 2026-04-04 02:58 KST
 
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP59)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after closing the carried IP57 injected markdown item; mandatory Game Director review cycle executed immediately.
@@ -13,7 +13,21 @@ Last updated: 2026-04-04 02:06 KST
 
 ## Next Up (Game Director Injection — Cycle IP59)
 - [x] Combat/VFX Team (injected): Add compact cue token `TSDCAD24TRIGAPC` mapped from `TSDCAD24TRIGAPM` (`0=LOCKED`, `1=WATCH`, `2+=RECOVER`) for one-glance cadence urgency signaling. *(lifecycle: [ ] -> [~] started: 2026-04-04 02:19 KST -> [x] completed: 2026-04-04 02:22 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] Systems/Ops + QA Team (injected): Extend fixture parity/order assertions so `TRIGAPC` remains anchored after `TRIGAPM` and before `TRIGAP legend` in summary/token sections.
+- [x] Systems/Ops + QA Team (injected): Extend fixture parity/order assertions so `TRIGAPC` remains anchored after `TRIGAPM` and before `TRIGAP legend` in summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 02:49 KST -> [x] completed: 2026-04-04 02:52 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP60)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after closing IP59 injected items, so mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (Combat/VFX + Design/World): add compact urgency-cue decode row for `TSDCAD24TRIGAPC` so operators can resolve `LOCKED|WATCH|RECOVER` in one scan.
+  - Mid-risk Systems/QA: lock parity/order contract so `TRIGAPC legend` remains anchored between `TRIGAPC` and `TRIGAP legend` in both summary/token sections.
+  - High-risk AI-content/Combat: adaptive cue copy remap from gap-signature persistence windows.
+- Selected experiment: Idea 1 (low-risk Combat/VFX + Design/World) minimal vertical slice.
+- [x] Combat/VFX + Design/World + Systems/QA Team: Added markdown decode row `TSDCAD24TRIGAPC legend (LOCKED=gap0, WATCH=gap1, RECOVER=gap2+)` and hardened regression parity/order contracts for `TRIGAP -> TRIGAPM -> TRIGAPC -> TRIGAPC legend -> TRIGAP legend -> TRIGAPLEN`. *(lifecycle: [ ] -> [~] started: 2026-04-04 02:54 KST -> [x] completed: 2026-04-04 02:58 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP60)
+- [ ] Systems/Ops + QA Team (injected): Add fixture-level assertion that `TSDCAD24TRIGAPC legend` row count mirrors `TSDCAD24TRIGAPC` under mixed-window fixtures with sparse sections.
+- [ ] Design/World Team (injected): Add one-line operator helper row linking `TRIGAP + TRIGAPM + TRIGAPC` to immediate cadence action ordering.
+- [ ] AI-content/Combat Team (injected): Prototype offline urgency-cue narrative microcopy keyed by `TRIGAPC` transitions (`LOCKED->WATCH->RECOVER`) without runtime coupling.
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP55)
 - Coverage check (last 10 completed, lane guardrail snapshot): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (`missingCadenceBuckets`: combat-or-vfx, design-or-world, systems-or-ops).

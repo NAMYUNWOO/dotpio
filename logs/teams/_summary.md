@@ -5472,3 +5472,15 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep urgency mapping deterministic and report-only (no runtime coupling), sourced from existing missing-bucket count so it remains reversible and low-risk.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=2 (next: Systems/Ops + QA TRIGAPC parity/order anchoring).
+
+## 2026-04-04 02:52 KST — Cycle IP59 (Systems/Ops + QA closure)
+- Closed remaining TASKS injected item by extending regression contracts for `TSDCAD24TRIGAPC` parity/order anchoring.
+- Durable decision: treat `TRIGAPC` as a first-class deterministic row in the cadence-gap cluster; preserve fixed ordering `TRIGAP -> TRIGAPM -> TRIGAPC -> TRIGAP legend -> TRIGAPLEN` to prevent markdown drift.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status after closure: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (remaining: mark injected `TRIGAPC` Combat/VFX item as reconciled if not already synced).
+
+## 2026-04-04 02:58 KST — Cycle IP60
+- Executed mandatory Game Director cycle after full-check state and shipped minimal vertical slice: `TSDCAD24TRIGAPC legend` markdown decode row.
+- Hardened deterministic chain: `TRIGAP -> TRIGAPM -> TRIGAPC -> TRIGAPC legend -> TRIGAP legend -> TRIGAPLEN` (summary/token sections).
+- Verification stayed green: py_compile + regression suite + guardrail artifact regeneration.
+- Injected next backlog tasks for IP60: systems/qa mixed-window legend parity assertion, design/world action helper row, ai-content/combat offline transition microcopy.

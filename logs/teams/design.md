@@ -3699,3 +3699,7 @@
 - Cycle IP59 follow-up: shipped `TSDCAD24TRIGAPC` cadence urgency cue token from `TSDCAD24TRIGAPM` mapping (0=LOCKED, 1=WATCH, 2+=RECOVER) in markdown guardrail output.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py` and live report regeneration command passed.
 - Follow-up: keep injected Systems/Ops+QA item open to harden explicit TRIGAPC parity/order anchoring in regression fixtures.
+
+## 2026-04-04 02:58 KST
+- Cycle IP60 design/world readability pass: inserted explicit cue-decode line for `TRIGAPC` to preserve deterministic operator interpretation without widening row footprint.
+- Durable copy decision: keep decode text compact as `LOCKED=gap0, WATCH=gap1, RECOVER=gap2+`.
