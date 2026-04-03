@@ -5612,3 +5612,4 @@
 
 - 2026-04-04 00:52 KST — Cycle IP57: Regression suite remained green after gap-signature payload addition (`python3 scripts/regression_check_lane_coverage_guardrail.py`). Injected next assertion task for explicit token format stability.
 - 2026-04-04 01:24 KST — Cycle IP58: Added fixture-level assertion coverage for `cadence24hRecoveryTriadGapSignature` shape stability and non-empty presence; reran guardrail regression suite with full PASS.
+- 2026-04-04 02:06 KST — Cycle IP59: Regression suite now enforces `TRIGAPM` domain (0..3), row parity, and strict adjacency (`TRIGAP -> TRIGAPM -> legend -> LEN`) across summary/token sections.

@@ -364,8 +364,14 @@ def run_fixture_case(
         f"{name}: cadence24hRecoveryTriadPulsePaletteAlias must stay deterministic"
     )
     cadence_24h_recovery_triad_gap_signature = report.get("cadence24hRecoveryTriadGapSignature", "")
+    cadence_24h_recovery_triad_gap_missing_bucket_count = int(
+        report.get("cadence24hRecoveryTriadGapMissingBucketCount", 0)
+    )
     assert cadence_24h_recovery_triad_gap_signature, (
         f"{name}: cadence24hRecoveryTriadGapSignature must be present"
+    )
+    assert 0 <= cadence_24h_recovery_triad_gap_missing_bucket_count <= 3, (
+        f"{name}: cadence24hRecoveryTriadGapMissingBucketCount must stay within 0..3 domain"
     )
     cadence_24h_recovery_triad_gap_signature_match = re.fullmatch(
         r"CV\d+M[01]\|DW\d+M[01]\|SO\d+M[01]",
@@ -496,6 +502,26 @@ def run_fixture_case(
         "**TSDCAD24TRIVLEN:B22|C22|LIM72|PREF:COMPACT|PASS**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad bucket-hit vector done-flag dos-width eval row"
+    assert (
+        "cadence 24h triad gap signature (design/world + ux): "
+        f"**TSDCAD24TRIGAP:{report.get('cadence24hRecoveryTriadGapSignature')}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad gap signature row"
+    assert (
+        "cadence 24h triad gap missing-bucket count (systems/ops): "
+        f"**TSDCAD24TRIGAPM:{cadence_24h_recovery_triad_gap_missing_bucket_count}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad gap missing-bucket count row"
+    assert (
+        "cadence 24h triad gap signature decode (design/world + ux): "
+        "**TSDCAD24TRIGAP legend (M1=missing, M0=covered)**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad gap signature decode row"
+    assert (
+        "cadence 24h triad gap signature decode dos-width eval (design/world + ux): "
+        "**TSDCAD24TRIGAPLEN:B36|C22|LIM72|PREF:COMPACT|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad gap signature decode dos-width eval row"
     assert (
         "cadence 24h triad readiness alias (systems/ops): "
         f"**TSDCAD24TRIL:{report.get('cadence24hRecoveryTriadCadenceReadyAlias')}**"
@@ -853,6 +879,14 @@ def run_fixture_case(
     cadence_24h_triad_bucket_hit_vector_done_flag_eval_rows = md_text.count(
         "**TSDCAD24TRIVLEN:B22|C22|LIM72|PREF:COMPACT|PASS**"
     )
+    cadence_24h_triad_gap_signature_rows = md_text.count("**TSDCAD24TRIGAP:")
+    cadence_24h_triad_gap_missing_bucket_count_rows = md_text.count("**TSDCAD24TRIGAPM:")
+    cadence_24h_triad_gap_signature_decode_rows = md_text.count(
+        "**TSDCAD24TRIGAP legend (M1=missing, M0=covered)**"
+    )
+    cadence_24h_triad_gap_signature_decode_eval_rows = md_text.count(
+        "**TSDCAD24TRIGAPLEN:B36|C22|LIM72|PREF:COMPACT|PASS**"
+    )
     cadence_24h_triad_readiness_alias_rows = md_text.count("**TSDCAD24TRIL:")
     cadence_24h_triad_readiness_decode_rows = md_text.count(
         "**TSDCAD24TRIL legend (LOCK=balanced cadence, GAP=recover cadence)**"
@@ -944,6 +978,18 @@ def run_fixture_case(
     )
     assert cadence_24h_triad_bucket_hit_vector_done_flag_eval_rows == cadence_24h_triad_bucket_hit_vector_rows, (
         f"{name}: TSDCAD24TRIVLEN row count must match TSDCAD24TRIV row count across sections"
+    )
+    assert cadence_24h_triad_gap_signature_rows == cadence_24h_triad_rows, (
+        f"{name}: TSDCAD24TRIGAP row count must match TSDCAD24TRI row count across sections"
+    )
+    assert cadence_24h_triad_gap_missing_bucket_count_rows == cadence_24h_triad_gap_signature_rows, (
+        f"{name}: TSDCAD24TRIGAPM row count must match TSDCAD24TRIGAP row count across sections"
+    )
+    assert cadence_24h_triad_gap_signature_decode_rows == cadence_24h_triad_gap_signature_rows, (
+        f"{name}: TSDCAD24TRIGAP legend row count must match TSDCAD24TRIGAP row count across sections"
+    )
+    assert cadence_24h_triad_gap_signature_decode_eval_rows == cadence_24h_triad_gap_signature_rows, (
+        f"{name}: TSDCAD24TRIGAPLEN row count must match TSDCAD24TRIGAP row count across sections"
     )
     assert cadence_24h_triad_readiness_alias_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRIL row count must match TSDCAD24TRI row count across sections"
@@ -1195,6 +1241,22 @@ def run_fixture_case(
         i
         for i, line in enumerate(cadence_24h_lines)
         if "**TSDCAD24TRIVLEN:B22|C22|LIM72|PREF:COMPACT|PASS**" in line
+    ]
+    cadence_24h_triad_gap_signature_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRIGAP:" in line
+    ]
+    cadence_24h_triad_gap_missing_bucket_count_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRIGAPM:" in line
+    ]
+    cadence_24h_triad_gap_signature_decode_indexes = [
+        i
+        for i, line in enumerate(cadence_24h_lines)
+        if "**TSDCAD24TRIGAP legend (M1=missing, M0=covered)**" in line
+    ]
+    cadence_24h_triad_gap_signature_decode_eval_indexes = [
+        i
+        for i, line in enumerate(cadence_24h_lines)
+        if "**TSDCAD24TRIGAPLEN:B36|C22|LIM72|PREF:COMPACT|PASS**" in line
     ]
     cadence_24h_coverage_pressure_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVP:" in line
@@ -1573,6 +1635,18 @@ def run_fixture_case(
     assert len(cadence_24h_triad_bucket_hit_vector_done_flag_eval_indexes) == len(cadence_24h_triad_bucket_hit_vector_indexes), (
         f"{name}: fixture-level parity assertion requires TSDCAD24TRIVLEN row count to mirror TSDCAD24TRIV across summary/token sections"
     )
+    assert len(cadence_24h_triad_gap_signature_indexes) == len(cadence_24h_triad_indexes), (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAP row count to mirror TSDCAD24TRI across summary/token sections"
+    )
+    assert len(cadence_24h_triad_gap_missing_bucket_count_indexes) == len(cadence_24h_triad_gap_signature_indexes), (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPM row count to mirror TSDCAD24TRIGAP across summary/token sections"
+    )
+    assert len(cadence_24h_triad_gap_signature_decode_indexes) == len(cadence_24h_triad_gap_signature_indexes), (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAP legend row count to mirror TSDCAD24TRIGAP across summary/token sections"
+    )
+    assert len(cadence_24h_triad_gap_signature_decode_eval_indexes) == len(cadence_24h_triad_gap_signature_indexes), (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPLEN row count to mirror TSDCAD24TRIGAP across summary/token sections"
+    )
     assert len(cadence_24h_triad_readiness_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: TSDCAD24TRIL row count must match TSDCAD24TRI row count across sections"
     )
@@ -1595,8 +1669,20 @@ def run_fixture_case(
         assert cadence_24h_triad_bucket_hit_vector_done_flag_eval_indexes[cluster_i] == cadence_24h_triad_bucket_hit_vector_done_flag_legend_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRIVLEN immediately after TSDCAD24TRIV legend in both sections"
         )
-        assert cadence_24h_triad_readiness_indexes[cluster_i] == cadence_24h_triad_bucket_hit_vector_done_flag_eval_indexes[cluster_i] + 1, (
-            f"{name}: cadence order must keep TSDCAD24TRIL immediately after TSDCAD24TRIVLEN in both sections"
+        assert cadence_24h_triad_gap_signature_indexes[cluster_i] == cadence_24h_triad_bucket_hit_vector_done_flag_eval_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIGAP immediately after TSDCAD24TRIVLEN in both sections"
+        )
+        assert cadence_24h_triad_gap_missing_bucket_count_indexes[cluster_i] == cadence_24h_triad_gap_signature_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIGAPM immediately after TSDCAD24TRIGAP in both sections"
+        )
+        assert cadence_24h_triad_gap_signature_decode_indexes[cluster_i] == cadence_24h_triad_gap_missing_bucket_count_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIGAP legend immediately after TSDCAD24TRIGAPM in both sections"
+        )
+        assert cadence_24h_triad_gap_signature_decode_eval_indexes[cluster_i] == cadence_24h_triad_gap_signature_decode_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIGAPLEN immediately after TSDCAD24TRIGAP legend in both sections"
+        )
+        assert cadence_24h_triad_readiness_indexes[cluster_i] == cadence_24h_triad_gap_signature_decode_eval_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIL immediately after TSDCAD24TRIGAPLEN in both sections"
         )
         assert cadence_24h_triad_readiness_decode_indexes[cluster_i] == cadence_24h_triad_readiness_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRIL legend immediately after TSDCAD24TRIL in both sections"

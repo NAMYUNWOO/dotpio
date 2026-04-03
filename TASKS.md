@@ -1,6 +1,19 @@
 # TASKS
 
-Last updated: 2026-04-03 22:58 KST
+Last updated: 2026-04-04 02:06 KST
+
+## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP59)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after closing the carried IP57 injected markdown item; mandatory Game Director review cycle executed immediately.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (Design/World + UX): surface compact missing-bucket count token `TSDCAD24TRIGAPM` next to `TSDCAD24TRIGAP` for one-scan cadence deficit severity.
+  - Mid-risk Systems/QA: harden parity/order contracts so `TRIGAP -> TRIGAPM -> TRIGAP legend -> TRIGAPLEN` remains deterministic in summary/token sections.
+  - High-risk AI-content/Combat: adaptive cadence narrative copy keyed by gap-signature churn windows.
+- Selected experiment: Idea 1 (low-risk Design/World + UX) minimal vertical slice.
+- [x] Design/World + UX + Systems/QA Team: Added markdown surfacing rows `TSDCAD24TRIGAP` + `TSDCAD24TRIGAP legend` + `TSDCAD24TRIGAPLEN`, then shipped minimal vertical-slice extension `TSDCAD24TRIGAPM` (missing-bucket count 0..3) with payload wiring and regression parity/order/domain locks. *(lifecycle: [ ] -> [~] started: 2026-04-04 01:48 KST -> [x] completed: 2026-04-04 02:06 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP59)
+- [ ] Combat/VFX Team (injected): Add compact cue token `TSDCAD24TRIGAPC` mapped from `TSDCAD24TRIGAPM` (`0=LOCKED`, `1=WATCH`, `2+=RECOVER`) for one-glance cadence urgency signaling.
+- [ ] Systems/Ops + QA Team (injected): Extend fixture parity/order assertions so `TRIGAPC` remains anchored after `TRIGAPM` and before `TRIGAP legend` in summary/token sections.
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP55)
 - Coverage check (last 10 completed, lane guardrail snapshot): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (`missingCadenceBuckets`: combat-or-vfx, design-or-world, systems-or-ops).

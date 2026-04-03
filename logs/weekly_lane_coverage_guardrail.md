@@ -16,6 +16,10 @@
 - cadence 24h triad bucket hit vector (combat/vfx + design/world + systems/ops): **TSDCAD24TRIV:CV0D0|DW0D0|SO0D0**
 - cadence 24h triad bucket hit vector done-flag decode (combat/vfx): **TSDCAD24TRIV legend (D1=covered, D0=missing)**
 - cadence 24h triad bucket hit vector done-flag decode dos-width eval (combat/vfx): **TSDCAD24TRIVLEN:B22|C22|LIM72|PREF:COMPACT|PASS**
+- cadence 24h triad gap signature (design/world + ux): **TSDCAD24TRIGAP:CV0M1|DW0M1|SO0M1**
+- cadence 24h triad gap missing-bucket count (systems/ops): **TSDCAD24TRIGAPM:3**
+- cadence 24h triad gap signature decode (design/world + ux): **TSDCAD24TRIGAP legend (M1=missing, M0=covered)**
+- cadence 24h triad gap signature decode dos-width eval (design/world + ux): **TSDCAD24TRIGAPLEN:B36|C22|LIM72|PREF:COMPACT|PASS**
 - cadence 24h triad readiness alias (systems/ops): **TSDCAD24TRIL:GAP**
 - cadence 24h triad readiness operator decode (design/world): **TSDCAD24TRIL legend (LOCK=balanced cadence, GAP=recover cadence)**
 - cadence 24h triad readiness operator decode dos-width eval (design/world): **TSDCAD24TRILLEN:B42|C26|LIM72|PREF:COMPACT|PASS**
