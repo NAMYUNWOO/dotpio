@@ -1,5 +1,9 @@
 # QA Team Log
 
+## 2026-04-03 21:40 KST
+- QA/systems follow-up injected: add parity+adjacency guards for upcoming smoothing-pressure markdown row family (`...STPR`) anchored after `...STPAM` in summary/token sections.
+
+
 ## 2026-04-03 14:31 KST
 - QA added/validated parity and order checks for `TSDCAD24TRICOVSTCMSVHCSA` + legend rows across summary/token sections.
 - Verification: py_compile + regression + guardrail artifact regeneration command bundle.

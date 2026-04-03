@@ -1,5 +1,10 @@
 # Systems Team Log
 
+## 2026-04-03 21:40 KST
+- Systems slice shipped for Cycle IP53: added offline resolver wiring for smoothing-policy pressure recommendation (`LOCK|WATCH`) computed from `STP`, `STPA`, and `STPAM` compact-headroom signal.
+- Runtime/gameplay untouched; report payload only. Verification: py_compile + regression + guardrail artifact regeneration.
+
+
 ## 2026-04-03 14:31 KST
 - Cycle IP44 shipped: added `TSDCAD24TRICOVSTCMSVHCSA` alias resolver (`L|M|H`) from `TSDCAD24TRICOVSTCMSVHCS` stability score and wired payload + markdown row.
 - Regression contract extended with row-count parity + adjacency lock (`...VHCS -> ...VHCSA -> ...STCMS legend`) across summary/token sections.

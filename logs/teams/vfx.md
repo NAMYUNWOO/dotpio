@@ -1,5 +1,9 @@
 # VFX Team Log
 
+## 2026-04-03 21:40 KST
+- VFX/combat cadence follow-up injected for next cycle: surface smoothing-pressure recommendation token in markdown with compact `LOCK|WATCH` decode so visual-lane operators can triage volatility at a glance.
+
+
 ## 2026-04-02 09:56 KST
 - Cycle IP25 delivered new VFX beat token layer from recommendation-intensity trend score: `TSDPMFXVWCRITSB` => `GLIDE/PULSE/SHATTER` with compact alias `TSDPMFXVWCRITSBA` => `G/P/S`.
 - Beat ladder keeps urgency readability punchy while staying deterministic and DOS-width friendly for one-scan reports.

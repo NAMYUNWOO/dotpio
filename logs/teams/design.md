@@ -1,5 +1,9 @@
 # Design Team Log
 
+## 2026-04-03 21:40 KST
+- Design lane follow-up injected: add one-line decode helper for `STP+STPA+STPAM -> STPR` so operators can parse smoothing-pressure rationale without scanning payload internals.
+
+
 ## 2026-04-03 14:31 KST
 - Design/readability update: inserted concise drift-alias decode row and preserved decode-cluster order before triad plan to maintain one-scan narrative flow.
 

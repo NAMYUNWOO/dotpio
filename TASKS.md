@@ -1,6 +1,21 @@
 # TASKS
 
-Last updated: 2026-04-03 20:21 KST
+Last updated: 2026-04-03 21:40 KST
+
+## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP53)
+- Coverage check (last 10 completed, lane guardrail snapshot): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (`missingCadenceBuckets`: combat-or-vfx, design-or-world, systems-or-ops).
+- Forced-lane decision: no lane exceeded 40%, but cadence triad remained empty so cycle forced to underrepresented lanes with AI-content/Design first to close outstanding injected work.
+- Candidate ideas generated:
+  - Low-risk AI-content/Design: ship offline smoothing-policy pressure recommendation token (`LOCK|WATCH`) from `STP+STPA+STPAM` signals.
+  - Mid-risk Combat/VFX + Design/World: expose recommendation token in markdown with compact decode/width contract.
+  - High-risk Systems/Ops + QA: strict adjacency/parity matrix for a new recommendation row family across mixed-window fixtures.
+- Selected experiment: Idea 1 (low-risk AI-content/Design) minimal vertical slice.
+- [x] AI-content/Design Team (injected): Prototype offline smoothing-policy pressure state recommendation (`LOCK|WATCH`) using `STP` + `STPA` + `STPAM` signals (no runtime coupling). *(lifecycle: [ ] -> [~] started: 2026-04-03 21:36 KST -> [x] completed: 2026-04-03 21:40 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP53)
+- [ ] Combat/VFX Team (injected): Add markdown surfacing row for smoothing-pressure recommendation token (`TSDCAD24TRICOVSTCMSVHCSTPR`) with compact decode legend (`LOCK=stable cadence`, `WATCH=volatility watch`) and <=72-width guard.
+- [ ] Design/World Team (injected): Add concise decode helper describing `STP+STPA+STPAM -> STPR` decision path for one-scan readability.
+- [ ] Systems/Ops + QA Team (injected): Add regression parity/order assertions keeping `STPR` row + legend adjacent to `TSDCAD24TRICOVSTCMSVHCSTPAM` cluster across summary/token sections.
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP51)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked, so immediate Game Director cycle executed.
