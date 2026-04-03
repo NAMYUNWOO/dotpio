@@ -5268,3 +5268,5 @@ Compact decision memory for AI context efficiency.
 - Implemented minimal vertical slice: added hysteresis confidence-band alias token `TSDCAD24TRICOVSTCMSVHCA` (`L|M|H`) plus decode row for one-glance FX triage.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Next injected backlog preserves 24h triad cadence: one combat/vfx, one design/world, one systems/ops follow-up queued.
+
+- 2026-04-03 09:52 KST: Closed injected Combat/VFX parity follow-up by adding explicit regression assertion for `TSDCAD24TRICOVSTCMSVHCA` row-count parity across summary/token sections (`scripts/regression_check_lane_coverage_guardrail.py`). Updated TASKS + POST_RC_BACKLOG lifecycle to done; verification bundle green and lane guardrail artifacts regenerated.

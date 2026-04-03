@@ -5473,3 +5473,8 @@
 ## 2026-04-03 09:41 KST — Cycle IP46 verification
 - Verified new alias row/legend does not violate existing cadence adjacency invariants (`...VH -> ...VHA -> ...VHC -> ...VHD -> ...VHDLEN -> plan`).
 - Regression and artifact generation remained green after alias addition.
+
+## 2026-04-03 09:52 KST — Regression parity assertion extension (CMSVHCA)
+- Added dedicated assertion text requiring `TSDCAD24TRICOVSTCMSVHCA` to mirror `TSDCAD24TRI` across summary/token sections.
+- This keeps alias parity failures attributable in test output instead of being folded into generic alias row-count checks.
+- Validation bundle passed: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact regeneration.

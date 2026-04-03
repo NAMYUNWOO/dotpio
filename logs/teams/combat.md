@@ -3454,3 +3454,9 @@
 - Implemented compact combat/vfx alias row `TSDCAD24TRICOVSTCMSVHCA:L|M|H` sourced from `TSDCAD24TRICOVSTCMSVHC`.
 - Goal: faster cue-stability triage without changing underlying combat logic.
 - Verification bundle passed (py_compile + regression + guardrail artifact regeneration).
+
+## 2026-04-03 09:52 KST — TSDCAD24TRICOVSTCMSVHCA parity lock
+- Task: Injected follow-up to hard-lock `TSDCAD24TRICOVSTCMSVHCA` row-count parity across summary/token sections.
+- Change: Added explicit regression assertion message in `scripts/regression_check_lane_coverage_guardrail.py` so alias parity requirement is audited separately from generic row matching.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: Next queued item remains `TSDCAD24TRICOVSTCMSVHCALEN` DOS-width eval token.
