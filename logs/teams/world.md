@@ -3621,3 +3621,4 @@
 - 2026-04-04 08:26 KST — Confirmed cadence transition readability chain keeps world/design handoff deterministic with new `NVIXSA` compact state-init alias immediately before operator helper.
 
 - 2026-04-04 08:36 KST — World/readability pass confirms new NVIXSA length-eval row preserves transition-cluster scan flow before operator helper.
+- 2026-04-04 08:54 KST — World readability chain unchanged (`NVIXS -> NVIXSA -> NVIXSALEN -> NVH`); QA contract now guarantees DOS-width budget remains within LIM.

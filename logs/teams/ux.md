@@ -3877,3 +3877,4 @@
 - 2026-04-04 08:26 KST — Added compact state-init alias row/legend in cadence digest to reduce state-scan friction while preserving deterministic adjacency.
 
 - 2026-04-04 08:36 KST — Added one-scan width audit token `NVIXSALEN` to reduce ambiguity on DOS-budget compliance in summary/token sections.
+- 2026-04-04 08:54 KST — UX scanability protected via strict NVIXSALEN headroom check; compact state-init decode remains bounded under LIM72.

@@ -3742,3 +3742,4 @@
 - 2026-04-04 08:26 KST — Approved compact decode copy `TSDCAD24TRIGAPNVIXSA legend (H=HOLD, R=RAMP, L=RELIEF, S=SHIFT)` to keep DOS-width readability.
 
 - 2026-04-04 08:36 KST — Design lane approved compact width-eval telemetry for state-init shorthand and queued follow-up callout refinement task.
+- 2026-04-04 08:54 KST — Design DOS-width contract strengthened: `TSDCAD24TRIGAPNVIXSALEN` now explicitly asserted `B/C <= LIM` in fixture regression.

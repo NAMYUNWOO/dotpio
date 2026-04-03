@@ -5541,3 +5541,4 @@ Compact decision memory for AI context efficiency.
 - Generated 3 ideas, selected low-risk UX/Design + Systems/Ops experiment, and implemented minimal slice `TSDCAD24TRIGAPNVIXSALEN`.
 - Durable decision: keep deterministic row order `NVIXS -> NVIXSA -> NVIXSALEN -> NVH` in summary/token sections, with regression contract enforcement.
 - Injected next tasks: (1) QA+Systems headroom assertion for NVIXSALEN, (2) Design+UX decode-helper callout linking NVIXSA to NVH.
+- 2026-04-04 08:54 KST — Closed injected QA+Systems item: regression now validates `TSDCAD24TRIGAPNVIXSALEN` shape and enforces `baseline/compact <= LIM` while preserving row-count parity across summary/token sections.

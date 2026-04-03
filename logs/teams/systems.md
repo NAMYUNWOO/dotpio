@@ -5171,3 +5171,4 @@
 - 2026-04-04 08:26 KST — Closed injected NVIXSA slice: added compact state-init alias `TSDCAD24TRIGAPNVIXSA` (`H|R|L|S`) plus decode row and enforced deterministic order `NVIXA -> NVIXS -> NVIXSA -> NVH` across summary/token sections; verification bundle PASS.
 
 - 2026-04-04 08:36 KST — IP65 shipped `TSDCAD24TRIGAPNVIXSALEN` row with deterministic adjacency `NVIXS -> NVIXSA -> NVIXSALEN -> NVH`; injected follow-up parity/headroom task for QA+Systems.
+- 2026-04-04 08:54 KST — Added fixture-level `NVIXSALEN` headroom domain assertion parse (`B|C|LIM|PREF|STATUS`) and enforced `baseline/compact <= LIM` for summary/token sections.
