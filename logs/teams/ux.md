@@ -3741,3 +3741,5 @@
 
 ## 2026-04-03 12:56 KST — GD Cycle IP43
 - No UI copy changes; cadence digest scan order reliability improved through deterministic ordering checks.
+
+- 2026-04-03 13:20 KST — Cycle IP43 follow-up: added explicit regression parity assertion that TSDCAD24TRICOVSTCMSVHCALEN mirrors TSDCAD24TRICOVSTCMSVHCA across summary/token sections; verification bundle passed.

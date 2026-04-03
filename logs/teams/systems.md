@@ -4989,3 +4989,5 @@
 - Added regression contract hardening for cadence VFX cue confidence-band alias chain (`TSDCAD24TRICOVSTCMSVHCA`): explicit row-count parity + adjacency checks against plan and `...VHCALEN`.
 - Files: `scripts/regression_check_lane_coverage_guardrail.py`.
 - Follow-up: keep cadence digest token order stable while extending compact aliases.
+
+- 2026-04-03 13:20 KST — Cycle IP43 follow-up: added explicit regression parity assertion that TSDCAD24TRICOVSTCMSVHCALEN mirrors TSDCAD24TRICOVSTCMSVHCA across summary/token sections; verification bundle passed.

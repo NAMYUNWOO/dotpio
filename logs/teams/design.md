@@ -3589,3 +3589,5 @@
 
 ## 2026-04-03 12:56 KST — GD Cycle IP43
 - Preserved digest readability expectations by locking `...CMSVHCA` placement immediately after triad plan before alias length eval.
+
+- 2026-04-03 13:20 KST — Cycle IP43 follow-up: added explicit regression parity assertion that TSDCAD24TRICOVSTCMSVHCALEN mirrors TSDCAD24TRICOVSTCMSVHCA across summary/token sections; verification bundle passed.

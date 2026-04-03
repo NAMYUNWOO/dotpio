@@ -5501,3 +5501,5 @@
 ## 2026-04-03 12:56 KST — GD Cycle IP43
 - Verified strengthened invariants for `TSDCAD24TRICOVSTCMSVHCA` token family in regression suite (row-count parity + deterministic order checks).
 - Command bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+- 2026-04-03 13:20 KST — Cycle IP43 follow-up: added explicit regression parity assertion that TSDCAD24TRICOVSTCMSVHCALEN mirrors TSDCAD24TRICOVSTCMSVHCA across summary/token sections; verification bundle passed.

@@ -760,6 +760,12 @@ def run_fixture_case(
         f"{name}: TSDCAD24TRICOVSTCMSVHCALEN row count must match TSDCAD24TRI row count across sections"
     )
     assert (
+        cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_eval_rows
+        == cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_rows
+    ), (
+        f"{name}: TSDCAD24TRICOVSTCMSVHCALEN row count must mirror TSDCAD24TRICOVSTCMSVHCA across summary/token sections"
+    )
+    assert (
         cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_ladder_legend_rows
         == cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_rows
     ), (
@@ -1003,6 +1009,11 @@ def run_fixture_case(
     )
     assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_eval_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: TSDCAD24TRICOVSTCMSVHCALEN row count must match TSDCAD24TRI row count across sections"
+    )
+    assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_eval_indexes) == len(
+        cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias_indexes
+    ), (
+        f"{name}: TSDCAD24TRICOVSTCMSVHCALEN row count must mirror TSDCAD24TRICOVSTCMSVHCA across summary/token sections"
     )
     assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_ladder_legend_indexes) == len(
         cadence_24h_triad_indexes
