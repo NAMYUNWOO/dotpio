@@ -5344,3 +5344,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep cadence readiness block ordered `TSDCAD24TRIL -> TSDCAD24TRIL legend -> TSDCAD24TRILLEN -> TSDCAD24TRICOVP` and lock this via regression to prevent drift between summary/token sections.
 - Verification green: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail JSON/MD regeneration command.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: Systems/Ops+QA parity/order for `TSDCAD24TRIV` + `TSDCAD24TRIL`).
+
+## 2026-04-03 16:52 KST — Cycle IP48 follow-up
+- Completed Systems/Ops + QA injected task: fixture-level parity/order assertions for `TSDCAD24TRIV` + `TSDCAD24TRIL` across summary/token sections.
+- Code change: `scripts/regression_check_lane_coverage_guardrail.py`
+  - Added explicit index parity guards for `TSDCAD24TRIV`, `TSDCAD24TRIV legend`, `TSDCAD24TRIVLEN`.
+  - Added adjacency/order assertions for `TSDCAD24TRIV -> legend -> LEN -> TSDCAD24TRIL -> legend -> LEN` in both markdown sections.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regeneration all passed.

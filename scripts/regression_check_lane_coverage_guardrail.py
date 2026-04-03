@@ -967,6 +967,14 @@ def run_fixture_case(
     cadence_24h_token_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24:" in line
     ]
+    cadence_24h_triad_bucket_hit_vector_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRIV:" in line
+    ]
+    cadence_24h_triad_bucket_hit_vector_done_flag_legend_indexes = [
+        i
+        for i, line in enumerate(cadence_24h_lines)
+        if "**TSDCAD24TRIV legend (D1=covered, D0=missing)**" in line
+    ]
     cadence_24h_triad_bucket_hit_vector_done_flag_eval_indexes = [
         i
         for i, line in enumerate(cadence_24h_lines)
@@ -1234,6 +1242,15 @@ def run_fixture_case(
     assert len(cadence_24h_triad_plan_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: cadence 24h recovery triad plan row count must match TSDCAD24TRI row count across sections"
     )
+    assert len(cadence_24h_triad_bucket_hit_vector_indexes) == len(cadence_24h_triad_indexes), (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIV row count to mirror TSDCAD24TRI across summary/token sections"
+    )
+    assert len(cadence_24h_triad_bucket_hit_vector_done_flag_legend_indexes) == len(cadence_24h_triad_bucket_hit_vector_indexes), (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIV legend row count to mirror TSDCAD24TRIV across summary/token sections"
+    )
+    assert len(cadence_24h_triad_bucket_hit_vector_done_flag_eval_indexes) == len(cadence_24h_triad_bucket_hit_vector_indexes), (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIVLEN row count to mirror TSDCAD24TRIV across summary/token sections"
+    )
     assert len(cadence_24h_triad_readiness_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: TSDCAD24TRIL row count must match TSDCAD24TRI row count across sections"
     )
@@ -1246,6 +1263,12 @@ def run_fixture_case(
     for cluster_i in range(len(cadence_24h_triad_indexes)):
         assert cadence_24h_token_indexes[cluster_i] == cadence_24h_triad_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRI immediately before TSDCAD24 in both sections"
+        )
+        assert cadence_24h_triad_bucket_hit_vector_done_flag_legend_indexes[cluster_i] == cadence_24h_triad_bucket_hit_vector_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIV legend immediately after TSDCAD24TRIV in both sections"
+        )
+        assert cadence_24h_triad_bucket_hit_vector_done_flag_eval_indexes[cluster_i] == cadence_24h_triad_bucket_hit_vector_done_flag_legend_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIVLEN immediately after TSDCAD24TRIV legend in both sections"
         )
         assert cadence_24h_triad_readiness_indexes[cluster_i] == cadence_24h_triad_bucket_hit_vector_done_flag_eval_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRIL immediately after TSDCAD24TRIVLEN in both sections"
