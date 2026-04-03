@@ -5167,3 +5167,5 @@
 ## 2026-04-04 08:01 KST — IP64 payload wiring
 - Wired `cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateAlias` into guardrail report payload and markdown output (`TSDCAD24TRIGAPNVIXS`).
 - Follow-up: preserve deterministic ordering after `NVIXA` in both sections.
+
+- 2026-04-04 08:26 KST — Closed injected NVIXSA slice: added compact state-init alias `TSDCAD24TRIGAPNVIXSA` (`H|R|L|S`) plus decode row and enforced deterministic order `NVIXA -> NVIXS -> NVIXSA -> NVH` across summary/token sections; verification bundle PASS.

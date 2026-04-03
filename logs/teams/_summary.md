@@ -5531,3 +5531,8 @@ Compact decision memory for AI context efficiency.
 - Added `TSDCAD24TRIGAPNVIXS` state alias token to cadence triad transition chain, derived from prior/current intent (`STEADY|BRACE|PUSH|EASE`) with domain `HOLD|RAMP|RELIEF|SHIFT`.
 - Locked deterministic markdown order: `TRIGAPNVI -> TRIGAPNVIA -> TRIGAPNVIXA -> TRIGAPNVIXS -> TRIGAPNVH` (and matching legend order before `TRIGAPNVALEN`).
 - Extended regression invariants for presence/parity/domain/order to prevent drift in mixed-window fixtures.
+
+## 2026-04-04 08:26 KST — NVIXSA compact state-init alias shipped
+- Completed highest-priority unchecked item in `POST_RC_BACKLOG.md`: added payload+markdown token `TSDCAD24TRIGAPNVIXSA` (`H|R|L|S`) derived from `TSDCAD24TRIGAPNVIXS`.
+- Durable decision: lock cadence row/legend order as `TRIGAPNVIA -> TRIGAPNVIXA -> TRIGAPNVIXS -> TRIGAPNVIXSA -> TRIGAPNVH` before `TRIGAPNX`, with matching legend order before `TRIGAPNVALEN`.
+- Regression/contracts now include parity + domain assertions for `NVIXSA` (`H|R|L|S`) across summary/token sections.

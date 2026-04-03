@@ -87,6 +87,7 @@
   "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationMicrocopy": "steady hold; keep cadence anchored",
   "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationMicrocopyAlias": "SS",
   "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateAlias": "HOLD",
+  "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAlias": "H",
   "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper": "GLINT+STEADY->hold lane",
   "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperBaseline": "G=GLINT,P=PULSE,B=BLAST,C=COOL",
   "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperCompact": "G/P/B/C",

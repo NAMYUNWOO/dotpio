@@ -3738,3 +3738,5 @@
 ## 2026-04-04 08:01 KST — IP64 decode clarity pass
 - Added decode row for `TSDCAD24TRIGAPNVIXS` with compact operator semantics (`steady/up/down/mixed`) to keep transition chain readable.
 - Follow-up: keep decode copy under DOS-width constraints if state family expands.
+
+- 2026-04-04 08:26 KST — Approved compact decode copy `TSDCAD24TRIGAPNVIXSA legend (H=HOLD, R=RAMP, L=RELIEF, S=SHIFT)` to keep DOS-width readability.

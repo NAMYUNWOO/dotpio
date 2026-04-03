@@ -3618,3 +3618,5 @@
 ## 2026-04-04 08:01 KST — IP64 transition intent state alias slice
 - Added cadence transition intent-escalation state token `TSDCAD24TRIGAPNVIXS` (`HOLD|RAMP|RELIEF|SHIFT`) so combat-pressure shifts are one-scan readable beside `NVIXA`.
 - Follow-up: monitor whether `RAMP/RELIEF` distribution tracks cue volatility in weekly digest snapshots.
+
+- 2026-04-04 08:26 KST — Combat cue chain now reads `NVIXA -> NVIXS -> NVIXSA -> NVH`, improving one-scan pressure-state handoff before action helper.

@@ -3713,3 +3713,5 @@
 ## 2026-04-04 08:01 KST — IP64 narrative-state mapping
 - Formalized intent transition state buckets (`HOLD|RAMP|RELIEF|SHIFT`) derived from prior/current intent pair for stable microcopy staging.
 - Follow-up: explore optional offline phrasing variants keyed by state alias streaks.
+
+- 2026-04-04 08:26 KST — Preserved escalation semantics while adding compact state-init alias mirror (`H|R|L|S`) for `HOLD|RAMP|RELIEF|SHIFT`; no runtime coupling changes.

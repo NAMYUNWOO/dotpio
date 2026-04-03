@@ -3873,3 +3873,5 @@
 ## 2026-04-04 08:01 KST — IP64 scanability update
 - Added state alias row/legend to reduce two-token intent transition parsing overhead during dense digest scans.
 - Follow-up: measure if this reduces operator fallback to long-form decode rows.
+
+- 2026-04-04 08:26 KST — Added compact state-init alias row/legend in cadence digest to reduce state-scan friction while preserving deterministic adjacency.

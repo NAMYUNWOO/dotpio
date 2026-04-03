@@ -5664,3 +5664,5 @@
 ## 2026-04-04 08:01 KST — IP64 regression contract extension
 - Extended regression checks for `TSDCAD24TRIGAPNVIXS`: markdown presence, row-count parity, ordering adjacency, and domain lock (`HOLD|RAMP|RELIEF|SHIFT`).
 - Verification bundle passed: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact regen.
+
+- 2026-04-04 08:26 KST — Extended regression parity/order/domain contracts for `TSDCAD24TRIGAPNVIXSA` rows + legend and adjacency before `NVH`; py_compile/regression/live guardrail checks PASS.
