@@ -39,6 +39,8 @@
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence band decode (design/world): **TSDCAD24TRICOVSTCMSVHC legend (LOW=high flip churn, MID=mixed flips, HIGH=stable cues)**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue dual-hysteresis decode helper (design/world): **TSDCAD24TRICOVSTCMSVHD:VH=STEADY|SWING, VHA=S|W**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue dual-hysteresis decode helper dos-width eval (design/world): **TSDCAD24TRICOVSTCMSVHDLEN:B24|C24|LIM72|PREF:COMPACT|PASS**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue confidence-band dual decode helper (design/world): **TSDCAD24TRICOVSTCMSVHCD:VHC=LOW|MID|HIGH, VHCA=L|M|H**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue confidence-band dual decode helper dos-width eval (design/world): **TSDCAD24TRICOVSTCMSVHCDLEN:B28|C28|LIM72|PREF:COMPACT|PASS**
 - cadence 24h recovery triad plan (design/world): **combat spark -> world anchor -> systems lock**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence band alias (combat/vfx): **TSDCAD24TRICOVSTCMSVHCA:H**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence-band alias decode (design/world): **TSDCAD24TRICOVSTCMSVHCA legend (L=high churn, M=mixed flips, H=stable cues)**

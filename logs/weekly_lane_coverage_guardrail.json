@@ -96,6 +96,17 @@
     "preferred": "COMPACT",
     "status": "PASS"
   },
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandDualDecodeHelperBaseline": "VHC=LOW|MID|HIGH, VHCA=L|M|H",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandDualDecodeHelperCompact": "VHC=LOW|MID|HIGH, VHCA=L|M|H",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandDualDecodeHelperEvaluation": {
+    "baseline": "VHC=LOW|MID|HIGH, VHCA=L|M|H",
+    "compact": "VHC=LOW|MID|HIGH, VHCA=L|M|H",
+    "baselineLen": 28,
+    "compactLen": 28,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderBaseline": "80=surge confidence, 50=hold confidence, 20=cool confidence",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderCompact": "80=surge, 50=hold, 20=cool",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreLadderEvaluation": {

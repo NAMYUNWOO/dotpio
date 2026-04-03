@@ -5294,3 +5294,10 @@ Compact decision memory for AI context efficiency.
 - Implementation: updated `scripts/check_lane_coverage_guardrail.py` summary rendering and added regression assertion in `scripts/regression_check_lane_coverage_guardrail.py`.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2 (next: Systems/QA parity assertion for `TSDCAD24TRICOVSTCMSVA legend`).
+
+
+## 2026-04-03 12:16 KST — Cycle IP47 shipped
+- Added confidence-band dual decode helper row `TSDCAD24TRICOVSTCMSVHCD:VHC=LOW|MID|HIGH, VHCA=L|M|H` plus DOS-width eval token `TSDCAD24TRICOVSTCMSVHCDLEN:B28|C28|LIM72|PREF:COMPACT|PASS`.
+- Durable decision: keep confidence-band full+alias decode reversible inside cadence block without leaving the 72-char DOS-width budget.
+- Regression now enforces row-count parity and contiguous ordering for `...VHD -> ...VHDLEN -> ...VHCD -> ...VHCDLEN -> triad plan` in both summary/token sections.
+- Verification bundle passed (py_compile + regression + guardrail report regeneration).

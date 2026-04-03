@@ -5495,3 +5495,5 @@
 ## 2026-04-03 10:51 KST
 - Cycle IP42 follow-up closed: surfaced explicit 24h cadence bucket hit counts in lane guardrail markdown alongside forced-next rationale (combat-or-vfx, design-or-world, systems-or-ops).
 - Verification bundle green (py_compile, regression_check_lane_coverage_guardrail.py, guardrail JSON/MD regen).
+
+- 2026-04-03 12:16 KST (IP47): Added regression checks for `TSDCAD24TRICOVSTCMSVHCD` presence, row parity, and strict adjacency before triad plan.
