@@ -5496,3 +5496,5 @@ Compact decision memory for AI context efficiency.
 - Coverage guardrail check rerun (`max-items=10`, cap `40%`) returned `within-cap` with all three cadence buckets missing in 24h snapshot (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
 - Executed IP61 systems/qa slice: added explicit regression parity assertion requiring `TSDCAD24TRIGAPN legend` row count to mirror `TSDCAD24TRIGAPN` rows across summary/token sections.
 - Validation: py_compile PASS; regression_check_lane_coverage_guardrail PASS; guardrail report regen PASS.
+
+- 2026-04-04 04:10 KST: Completed Design/World compact transition-family alias slice for cadence triad gap narrative (`TSDCAD24TRIGAPNA` + `TSDCAD24TRIGAPNALEN`). Durable decision: keep alias chain adjacent to `TRIGAPN` and enforce deterministic order (`TRIGAPN -> TRIGAPNA -> TRIGAPN legend -> TRIGAPNALEN -> TRIGAPC legend`). Verification bundle: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py live run.

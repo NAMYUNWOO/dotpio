@@ -76,6 +76,19 @@
   "cadence24hRecoveryTriadGapMissingBucketCountCue": "RECOVER",
   "cadence24hRecoveryTriadGapActionOrderHelper": "TRIGAP->TRIGAPM->TRIGAPC; LOCKED=hold, WATCH=patch1, RECOVER=patch2+",
   "cadence24hRecoveryTriadGapCueTransitionMicrocopy": "multi-gap persists; prioritize recovery queue",
+  "cadence24hRecoveryTriadGapCueTransitionFamily": "STABLE",
+  "cadence24hRecoveryTriadGapCueTransitionFamilyAlias": "S",
+  "cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperBaseline": "STABLE=hold, SURFACED=patch1, WIDENED=patch2+, SEALED=resume",
+  "cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperCompact": "S=hold,U=patch1,W=patch2+,L=resume",
+  "cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperEvaluation": {
+    "baseline": "STABLE=hold, SURFACED=patch1, WIDENED=patch2+, SEALED=resume",
+    "compact": "S=hold,U=patch1,W=patch2+,L=resume",
+    "baselineLen": 60,
+    "compactLen": 34,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "cadence24hRecoveryTriadGapSignatureDecodeBaseline": "M1=missing bucket, M0=covered bucket",
   "cadence24hRecoveryTriadGapSignatureDecodeCompact": "M1=missing, M0=covered",
   "cadence24hRecoveryTriadGapSignatureDecodeEvaluation": {

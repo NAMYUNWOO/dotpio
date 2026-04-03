@@ -3592,3 +3592,4 @@
 
 ## 2026-04-04 03:44 KST
 - Combat cue semantics unchanged this cycle; existing `LOCKED/WATCH/RECOVER` transition narratives remain stable.
+- 2026-04-04 04:10 KST: Cycle IP61/IP62 alias pass: shipped TRIGAPN compact family alias token (TSDCAD24TRIGAPNA) + dos-width eval row (TSDCAD24TRIGAPNALEN); regression/order contracts updated and passing.

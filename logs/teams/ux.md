@@ -3847,3 +3847,4 @@
 
 ## 2026-04-04 03:44 KST
 - UX formatting unchanged in this slice; readability impact is indirect via stricter regression parity around existing narrative decode rows.
+- 2026-04-04 04:10 KST: Cycle IP61/IP62 alias pass: shipped TRIGAPN compact family alias token (TSDCAD24TRIGAPNA) + dos-width eval row (TSDCAD24TRIGAPNALEN); regression/order contracts updated and passing.

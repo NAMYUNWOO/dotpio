@@ -5136,3 +5136,4 @@
 
 ## 2026-04-04 03:44 KST
 - Added explicit parity assertion binding `TSDCAD24TRIGAPN legend` row count to `TSDCAD24TRIGAPN` row count across summary/token sections.
+- 2026-04-04 04:10 KST: Cycle IP61/IP62 alias pass: shipped TRIGAPN compact family alias token (TSDCAD24TRIGAPNA) + dos-width eval row (TSDCAD24TRIGAPNALEN); regression/order contracts updated and passing.

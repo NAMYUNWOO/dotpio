@@ -521,11 +521,24 @@ def run_fixture_case(
         "cadence 24h triad gap urgency-cue transition narrative (ai-content/combat): "
         in md_text
     ), f"{name}: markdown output must include cadence-triad gap urgency-cue transition narrative row"
+    expected_cadence_24h_triad_gap_transition_family_alias = report.get(
+        "cadence24hRecoveryTriadGapCueTransitionFamilyAlias", "S"
+    )
+    assert (
+        "cadence 24h triad gap transition family compact alias (design/world): "
+        f"**TSDCAD24TRIGAPNA:{expected_cadence_24h_triad_gap_transition_family_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad gap transition-family compact alias row"
     assert (
         "cadence 24h triad gap urgency-cue transition narrative decode (design/world): "
         "**TSDCAD24TRIGAPN legend (stable=hold cadence, surfaced=patch1, widened=patch2+, sealed=resume lock)**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad gap urgency-cue transition narrative decode row"
+    assert (
+        "cadence 24h triad gap transition family compact alias dos-width eval (design/world): "
+        "**TSDCAD24TRIGAPNALEN:B60|C34|LIM72|PREF:COMPACT|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad gap transition-family alias dos-width eval row"
     assert (
         "cadence 24h triad gap urgency cue decode (combat/vfx): "
         "**TSDCAD24TRIGAPC legend (LOCKED=gap0, WATCH=gap1, RECOVER=gap2+)**"
@@ -903,8 +916,12 @@ def run_fixture_case(
     cadence_24h_triad_gap_missing_bucket_count_cue_rows = md_text.count("**TSDCAD24TRIGAPC:")
     cadence_24h_triad_gap_action_order_helper_rows = md_text.count("**TSDCAD24TRIGAPH:")
     cadence_24h_triad_gap_cue_transition_microcopy_rows = md_text.count("**TSDCAD24TRIGAPN:")
+    cadence_24h_triad_gap_cue_transition_family_alias_rows = md_text.count("**TSDCAD24TRIGAPNA:")
     cadence_24h_triad_gap_cue_transition_microcopy_legend_rows = md_text.count(
         "**TSDCAD24TRIGAPN legend (stable=hold cadence, surfaced=patch1, widened=patch2+, sealed=resume lock)**"
+    )
+    cadence_24h_triad_gap_cue_transition_family_alias_decode_eval_rows = md_text.count(
+        "**TSDCAD24TRIGAPNALEN:B60|C34|LIM72|PREF:COMPACT|PASS**"
     )
     cadence_24h_triad_gap_missing_bucket_count_cue_legend_rows = md_text.count(
         "**TSDCAD24TRIGAPC legend (LOCKED=gap0, WATCH=gap1, RECOVER=gap2+)**"
@@ -1022,8 +1039,14 @@ def run_fixture_case(
     assert cadence_24h_triad_gap_cue_transition_microcopy_rows == cadence_24h_triad_gap_signature_rows, (
         f"{name}: TSDCAD24TRIGAPN row count must match TSDCAD24TRIGAP row count across sections"
     )
+    assert cadence_24h_triad_gap_cue_transition_family_alias_rows == cadence_24h_triad_gap_signature_rows, (
+        f"{name}: TSDCAD24TRIGAPNA row count must match TSDCAD24TRIGAP row count across sections"
+    )
     assert cadence_24h_triad_gap_cue_transition_microcopy_legend_rows == cadence_24h_triad_gap_signature_rows, (
         f"{name}: TSDCAD24TRIGAPN legend row count must match TSDCAD24TRIGAP row count across sections"
+    )
+    assert cadence_24h_triad_gap_cue_transition_family_alias_decode_eval_rows == cadence_24h_triad_gap_signature_rows, (
+        f"{name}: TSDCAD24TRIGAPNALEN row count must match TSDCAD24TRIGAP row count across sections"
     )
     assert cadence_24h_triad_gap_cue_transition_microcopy_legend_rows == cadence_24h_triad_gap_cue_transition_microcopy_rows, (
         f"{name}: TSDCAD24TRIGAPN legend row count must match TSDCAD24TRIGAPN row count across sections"
@@ -1303,10 +1326,18 @@ def run_fixture_case(
     cadence_24h_triad_gap_cue_transition_microcopy_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRIGAPN:" in line
     ]
+    cadence_24h_triad_gap_cue_transition_family_alias_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRIGAPNA:" in line
+    ]
     cadence_24h_triad_gap_cue_transition_microcopy_legend_indexes = [
         i
         for i, line in enumerate(cadence_24h_lines)
         if "**TSDCAD24TRIGAPN legend (stable=hold cadence, surfaced=patch1, widened=patch2+, sealed=resume lock)**" in line
+    ]
+    cadence_24h_triad_gap_cue_transition_family_alias_decode_eval_indexes = [
+        i
+        for i, line in enumerate(cadence_24h_lines)
+        if "**TSDCAD24TRIGAPNALEN:B60|C34|LIM72|PREF:COMPACT|PASS**" in line
     ]
     cadence_24h_triad_gap_missing_bucket_count_cue_legend_indexes = [
         i
@@ -1709,6 +1740,12 @@ def run_fixture_case(
     assert len(cadence_24h_triad_gap_missing_bucket_count_cue_indexes) == len(cadence_24h_triad_gap_signature_indexes), (
         f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPC row count to mirror TSDCAD24TRIGAP across summary/token sections"
     )
+    assert len(cadence_24h_triad_gap_cue_transition_family_alias_indexes) == len(cadence_24h_triad_gap_signature_indexes), (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPNA row count to mirror TSDCAD24TRIGAP across summary/token sections"
+    )
+    assert len(cadence_24h_triad_gap_cue_transition_family_alias_decode_eval_indexes) == len(cadence_24h_triad_gap_signature_indexes), (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPNALEN row count to mirror TSDCAD24TRIGAP across summary/token sections"
+    )
     assert len(cadence_24h_triad_gap_missing_bucket_count_cue_legend_indexes) == len(cadence_24h_triad_gap_signature_indexes), (
         f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPC legend row count to mirror TSDCAD24TRIGAP across summary/token sections"
     )
@@ -1755,11 +1792,17 @@ def run_fixture_case(
         assert cadence_24h_triad_gap_cue_transition_microcopy_indexes[cluster_i] == cadence_24h_triad_gap_action_order_helper_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRIGAPN immediately after TSDCAD24TRIGAPH in both sections"
         )
-        assert cadence_24h_triad_gap_cue_transition_microcopy_legend_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_microcopy_indexes[cluster_i] + 1, (
-            f"{name}: cadence order must keep TSDCAD24TRIGAPN legend immediately after TSDCAD24TRIGAPN in both sections"
+        assert cadence_24h_triad_gap_cue_transition_family_alias_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_microcopy_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIGAPNA immediately after TSDCAD24TRIGAPN in both sections"
         )
-        assert cadence_24h_triad_gap_missing_bucket_count_cue_legend_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_microcopy_legend_indexes[cluster_i] + 1, (
-            f"{name}: cadence order must keep TSDCAD24TRIGAPC legend immediately after TSDCAD24TRIGAPN legend in both sections"
+        assert cadence_24h_triad_gap_cue_transition_microcopy_legend_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_family_alias_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIGAPN legend immediately after TSDCAD24TRIGAPNA in both sections"
+        )
+        assert cadence_24h_triad_gap_cue_transition_family_alias_decode_eval_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_microcopy_legend_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIGAPNALEN immediately after TSDCAD24TRIGAPN legend in both sections"
+        )
+        assert cadence_24h_triad_gap_missing_bucket_count_cue_legend_indexes[cluster_i] == cadence_24h_triad_gap_cue_transition_family_alias_decode_eval_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIGAPC legend immediately after TSDCAD24TRIGAPNALEN in both sections"
         )
         assert cadence_24h_triad_gap_signature_decode_indexes[cluster_i] == cadence_24h_triad_gap_missing_bucket_count_cue_legend_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRIGAP legend immediately after TSDCAD24TRIGAPC legend in both sections"
