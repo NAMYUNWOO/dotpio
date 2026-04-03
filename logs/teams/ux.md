@@ -3823,3 +3823,7 @@
 ## 2026-04-03 22:58 KST
 - Cycle IP55 readability pass: pressure recommendation cluster now exposes compact-vs-baseline width delta explicitly for one-glance operator confidence.
 - 2026-04-03 23:46 KST — UX copy polish only: operator helper now communicates fixed triad callout sequence for scan speed; no additional HUD/token clutter introduced. Follow-up: monitor readability drift metrics for helper-token families.
+
+## 2026-04-03 23:48 KST
+- Closed injected STPRLEN operator-cue alias task by validating report rows remain deterministic: `...STPRLENCUE` value + legend are present and DOS-width-safe (`<=72`) alongside `...STPRLEN` eval row.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

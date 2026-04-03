@@ -3684,3 +3684,7 @@
 ## 2026-04-03 22:58 KST
 - Cycle IP55 added design-facing DOS-width proof token for smoothing-pressure decode chain: `TSDCAD24TRICOVSTCMSVHCSTPRLEN:B45|C43|LIM72|PREF:COMPACT|PASS`.
 - 2026-04-03 23:46 KST — Completed injected Design/World task: one-line operator playbook helper now ties `STPR + STPRV + STPRLEN` into explicit callout order text (`STPR->STPRV->STPRLEN callout order`). Follow-up: maintain one-scan helper phrasing in future additions.
+
+## 2026-04-03 23:48 KST
+- Closed injected STPRLEN operator-cue alias task by validating report rows remain deterministic: `...STPRLENCUE` value + legend are present and DOS-width-safe (`<=72`) alongside `...STPRLEN` eval row.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

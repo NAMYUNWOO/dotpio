@@ -3568,3 +3568,7 @@
 ## 2026-04-03 22:58 KST
 - Cycle IP55 added one-scan readability guardrail contract for smoothing-pressure cluster (`STPR/STPRA/STPRV`) via new eval token path for operator scan continuity.
 - 2026-04-03 23:46 KST — No map/progression mutation this cycle; aligned world-facing operator playbook wording to emphasize callout sequencing for cadence triage readability. Follow-up: pair future world-facing decode helpers with explicit order cues.
+
+## 2026-04-03 23:48 KST
+- Closed injected STPRLEN operator-cue alias task by validating report rows remain deterministic: `...STPRLENCUE` value + legend are present and DOS-width-safe (`<=72`) alongside `...STPRLEN` eval row.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

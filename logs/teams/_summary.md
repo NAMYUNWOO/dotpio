@@ -5440,3 +5440,8 @@ Compact decision memory for AI context efficiency.
 
 
 - 2026-04-03 23:46 KST — Durable decision: smoothing-pressure operator helper copy standard is now `STPR->STPRV->STPRLEN callout order` (recommendation, visual severity, DOS-width decode). Keep regression constants exactly mirrored to avoid drift.
+
+## 2026-04-03 23:48 KST
+- Closed remaining in-progress injected item (Combat/VFX): `STPRLEN` operator-cue alias task reconciled to done with explicit verification evidence.
+- Durable decision: keep compact operator-cue rail naming stable as `TSDCAD24TRICOVSTCMSVHCSTPRLENCUE` (value + legend) adjacent to `...STPRLEN` eval row; avoid renaming churn until new consumer requires schema change.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next cycle should execute full Game Director ideation/experiment loop).

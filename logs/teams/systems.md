@@ -5103,3 +5103,7 @@
 ## 2026-04-03 22:58 KST
 - Cycle IP55 shipped `TSDCAD24TRICOVSTCMSVHCSTPRLEN` evaluation plumbing (baseline/compact/dos-width/preferred/status) in lane guardrail payload and markdown; kept change offline-only and reversible.
 - 2026-04-03 23:46 KST — Updated cadence helper copy contract to explicit callout order `STPR->STPRV->STPRLEN`; kept DOS-width-safe legend unchanged in count semantics. Follow-up: keep regression string constants aligned with markdown token copy.
+
+## 2026-04-03 23:48 KST
+- Closed injected STPRLEN operator-cue alias task by validating report rows remain deterministic: `...STPRLENCUE` value + legend are present and DOS-width-safe (`<=72`) alongside `...STPRLEN` eval row.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
