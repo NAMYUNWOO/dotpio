@@ -5641,3 +5641,11 @@
 
 - 2026-04-04 04:26 KST — Cycle IP64: Regression suite extended for `TRIGAPNR` presence/parity/order; full guardrail verification bundle PASS.
 - 2026-04-04 05:02 KST — Added TSDCAD24 triad-gap cluster upgrades: lane-aware TRIGAPNX phrasing (CV/DW/SO signature keyed), TRIGAPNVA compact alias + NVALEN eval, and parity/order fixtures covering TRIGAPNR legend flow across summary/token sections.
+
+## 2026-04-04 05:21 KST — IP63 regression contract extension
+- Decision: extended parity/order checks for  rows and legends.
+- Evidence: py_compile + regression script pass + regenerated guardrail artifacts without ordering regressions.
+
+## 2026-04-04 05:21 KST — IP63 regression contract extension (corrected)
+- Decision: extended parity/order checks for `TRIGAPNVI/NVIA` rows and legends.
+- Evidence: py_compile + regression script pass + regenerated guardrail artifacts without ordering regressions.

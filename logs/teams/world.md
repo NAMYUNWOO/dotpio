@@ -3598,3 +3598,11 @@
 
 - 2026-04-04 04:26 KST — Cycle IP64: Maintained cadence cluster readability with new momentum tag row inserted in deterministic transition chain without wrapping beyond DOS constraints.
 - 2026-04-04 05:02 KST — Added TSDCAD24 triad-gap cluster upgrades: lane-aware TRIGAPNX phrasing (CV/DW/SO signature keyed), TRIGAPNVA compact alias + NVALEN eval, and parity/order fixtures covering TRIGAPNR legend flow across summary/token sections.
+
+## 2026-04-04 05:21 KST — IP63 cadence readability note
+- Decision: transition-intent wording () approved for one-scan cadence action framing.
+- Follow-up: add compact operator helper line coupling  under DOS-width budget.
+
+## 2026-04-04 05:21 KST — IP63 cadence readability note (corrected)
+- Decision: transition-intent wording (`STEADY|BRACE|PUSH|EASE`) approved for one-scan cadence action framing.
+- Follow-up: add compact operator helper line coupling `TRIGAPNV + TRIGAPNVI` under DOS-width budget.

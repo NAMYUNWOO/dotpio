@@ -5142,3 +5142,13 @@
 
 - 2026-04-04 04:26 KST — Cycle IP64: Game Director experiment selected from 3-idea slate; added payload key `cadence24hRecoveryTriadGapCueTransitionRecoveryMomentum` (`SURGE|EASE|HOLD`) and synced regression order contracts.
 - 2026-04-04 05:02 KST — Added TSDCAD24 triad-gap cluster upgrades: lane-aware TRIGAPNX phrasing (CV/DW/SO signature keyed), TRIGAPNVA compact alias + NVALEN eval, and parity/order fixtures covering TRIGAPNR legend flow across summary/token sections.
+
+## 2026-04-04 05:21 KST — IP63 transition-intent token slice
+- Decision: accepted low-risk vertical slice adding  payload+markdown wiring in lane guardrail output.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + live guardrail regeneration all passed.
+- Follow-up: add sparse-fixture parity assertion for  in next injected cycle.
+
+## 2026-04-04 05:21 KST — IP63 transition-intent token slice (corrected)
+- Decision: accepted low-risk vertical slice adding `TSDCAD24TRIGAPNVI/NVIA` payload+markdown wiring in lane guardrail output.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + live guardrail regeneration all passed.
+- Follow-up: add sparse-fixture parity assertion for `TRIGAPNVI legend` in next injected cycle.

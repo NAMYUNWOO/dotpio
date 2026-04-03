@@ -5503,3 +5503,10 @@ Compact decision memory for AI context efficiency.
 
 - 2026-04-04 04:26 KST — Game Director IP64 review cycle executed (3 ideas generated, 1 selected). Implemented minimal vertical slice: `TSDCAD24TRIGAPNR` recovery momentum token + decode legend and fixture/order contracts. New backlog injections added for phrasebank expansion, VFX alias compression, and `TRIGAPNR` adjacency hardening.
 - 2026-04-04 05:02 KST — Decision: keep cadence triad-gap telemetry offline-only and deterministic; expanded TRIGAPNX to signature-aware phrases, added TRIGAPNVA compact cue alias (G/P/B/C) with DOS-width guardrail (B30|C7|LIM72), and locked regression parity/order for NX->NR->NA plus legend sequence stability.
+
+## 2026-04-04 05:21 KST
+- Triggered mandatory Game Director cycle IP63 because ACTION_ITEMS/TASKS/POST_RC were fully checked at run start.
+- Generated 3 ideas and selected low-risk Combat/VFX + Design/World slice: introduced transition-intent cue tokens `TSDCAD24TRIGAPNVI` (`STEADY|BRACE|PUSH|EASE`) and compact alias `TSDCAD24TRIGAPNVIA` (`S|B|P|E`) mapped from `TSDCAD24TRIGAPNV`.
+- Durable decision: keep deterministic cadence row/legend order as `TRIGAPNV -> TRIGAPNVA -> TRIGAPNVI -> TRIGAPNVIA -> TRIGAPNX` and lock parity/order in regression matrix.
+- Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: injected next-up items added (Systems/QA parity fixture note, Design/World operator helper, AI-content/Combat offline escalation variants).

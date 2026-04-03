@@ -3598,3 +3598,11 @@
 
 - 2026-04-04 04:26 KST — Cycle IP64: Transition stack now exposes explicit momentum tag (`SURGE|EASE|HOLD`) alongside VFX cue row to clarify escalation vs recovery direction.
 - 2026-04-04 05:02 KST — Added TSDCAD24 triad-gap cluster upgrades: lane-aware TRIGAPNX phrasing (CV/DW/SO signature keyed), TRIGAPNVA compact alias + NVALEN eval, and parity/order fixtures covering TRIGAPNR legend flow across summary/token sections.
+
+## 2026-04-04 05:21 KST — IP63 combat/vfx intent cue
+- Decision: mapped transition VFX cues to action intents (, , , ).
+- Verification: cadence markdown includes  +  rows with decode legends.
+
+## 2026-04-04 05:21 KST — IP63 combat/vfx intent cue (corrected)
+- Decision: mapped transition VFX cues to action intents (`GLINT->STEADY`, `PULSE->BRACE`, `BLAST->PUSH`, `COOL->EASE`).
+- Verification: cadence markdown includes `TSDCAD24TRIGAPNVI` + `TSDCAD24TRIGAPNVIA` rows with decode legends.
