@@ -3740,3 +3740,5 @@
 - Follow-up: keep decode copy under DOS-width constraints if state family expands.
 
 - 2026-04-04 08:26 KST — Approved compact decode copy `TSDCAD24TRIGAPNVIXSA legend (H=HOLD, R=RAMP, L=RELIEF, S=SHIFT)` to keep DOS-width readability.
+
+- 2026-04-04 08:36 KST — Design lane approved compact width-eval telemetry for state-init shorthand and queued follow-up callout refinement task.

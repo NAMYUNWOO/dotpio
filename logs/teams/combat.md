@@ -3620,3 +3620,5 @@
 - Follow-up: monitor whether `RAMP/RELIEF` distribution tracks cue volatility in weekly digest snapshots.
 
 - 2026-04-04 08:26 KST — Combat cue chain now reads `NVIXA -> NVIXS -> NVIXSA -> NVH`, improving one-scan pressure-state handoff before action helper.
+
+- 2026-04-04 08:36 KST — Combat cue chain now explicitly budgets state-init alias width via `NVIXSALEN` before actionable helper output.

@@ -88,6 +88,15 @@
   "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationMicrocopyAlias": "SS",
   "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateAlias": "HOLD",
   "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAlias": "H",
+  "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAliasDecodeHelperEvaluation": {
+    "baseline": "H=HOLD,R=RAMP,L=RELIEF,S=SHIFT",
+    "compact": "H/R/L/S",
+    "baselineLen": 30,
+    "compactLen": 7,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper": "GLINT+STEADY->hold lane",
   "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperBaseline": "G=GLINT,P=PULSE,B=BLAST,C=COOL",
   "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperCompact": "G/P/B/C",

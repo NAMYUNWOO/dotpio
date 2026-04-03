@@ -5666,3 +5666,5 @@
 - Verification bundle passed: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact regen.
 
 - 2026-04-04 08:26 KST — Extended regression parity/order/domain contracts for `TSDCAD24TRIGAPNVIXSA` rows + legend and adjacency before `NVH`; py_compile/regression/live guardrail checks PASS.
+
+- 2026-04-04 08:36 KST — Regression suite extended for `NVIXSALEN` markdown presence, parity, and ordering between `NVIXSA` and `NVH`; full verification PASS.

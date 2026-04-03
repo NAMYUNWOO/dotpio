@@ -1,5 +1,16 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP65)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP64 closure; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk UX/Design + Systems/Ops: add compact decode-length evaluation token for `TSDCAD24TRIGAPNVIXSA` legend to keep state-init decode width-auditable.
+  - Mid-risk Systems/QA: lock deterministic order/parity so `NVIXS -> NVIXSA -> NVIXSALEN -> NVH` stays stable across summary/token sections.
+  - High-risk AI-content/Combat: prototype adaptive state-init coaching note from `NVIXS` streak volatility windows.
+- Selected experiment: Idea 1 (low-risk UX/Design + Systems/Ops) minimal vertical slice.
+- [x] Systems/Ops + UX Team: Add compact state-init decode-length evaluation token `TSDCAD24TRIGAPNVIXSALEN` and keep deterministic adjacency `NVIXS -> NVIXSA -> NVIXSALEN -> NVH` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 08:31 KST -> [x] completed: 2026-04-04 08:36 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [ ] QA + Systems/Ops Team (injected): Add fixture-level token-length headroom assertion ensuring `TSDCAD24TRIGAPNVIXSALEN` stays <= DOS width budget and mirrors summary/token section counts.
+- [ ] Design + UX Team (injected): Add concise decode helper callout linking `NVIXSA` state-init shorthand to operator action helper `NVH` for one-scan triage readability.
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP64)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP63 closure; mandatory Game Director cycle executed.
 - Candidate ideas generated:

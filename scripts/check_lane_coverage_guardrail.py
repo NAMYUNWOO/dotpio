@@ -1369,6 +1369,26 @@ def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_
     }.get(state_alias, "H")
 
 
+def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_state_init_alias_decode_helper_evaluation(
+    dos_width_limit: int = 72,
+) -> dict[str, object]:
+    baseline = "H=HOLD,R=RAMP,L=RELIEF,S=SHIFT"
+    compact = "H/R/L/S"
+    baseline_len = len(baseline)
+    compact_len = len(compact)
+    preferred = "COMPACT" if compact_len <= baseline_len else "BASELINE"
+    status = "PASS" if compact_len <= dos_width_limit and baseline_len <= dos_width_limit else "WARN"
+    return {
+        "baseline": baseline,
+        "compact": compact,
+        "baselineLen": baseline_len,
+        "compactLen": compact_len,
+        "dosWidthLimit": dos_width_limit,
+        "preferred": preferred,
+        "status": status,
+    }
+
+
 def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation(
     dos_width_limit: int = 72,
 ) -> dict[str, object]:
@@ -3136,6 +3156,9 @@ def build_report(
             cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_state_alias
         )
     )
+    cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_state_init_alias_decode_helper_evaluation = (
+        resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_state_init_alias_decode_helper_evaluation()
+    )
     cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper = (
         resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper(
             cadence_24h_recovery_triad_gap_cue_transition_vfx_cue,
@@ -3339,6 +3362,7 @@ def build_report(
         "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationMicrocopyAlias": cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_microcopy_alias,
         "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateAlias": cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_state_alias,
         "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAlias": cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_state_init_alias,
+        "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAliasDecodeHelperEvaluation": cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_state_init_alias_decode_helper_evaluation,
         "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper": cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper,
         "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperBaseline": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation["baseline"],
         "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperCompact": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation["compact"],
@@ -3613,6 +3637,7 @@ def to_markdown(
             f"- cadence 24h triad gap intent-escalation alias pair (ai-content + ux/design): **TSDCAD24TRIGAPNVIXA:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationMicrocopyAlias', resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_microcopy_alias(report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueIntent', 'STEADY'), report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueIntent', 'STEADY')))}**",
             f"- cadence 24h triad gap intent-escalation state alias (ai-content/combat + systems/qa): **TSDCAD24TRIGAPNVIXS:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateAlias', resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_state_alias(report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueIntent', 'STEADY'), report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueIntent', 'STEADY')))}**",
             f"- cadence 24h triad gap intent-escalation state-init alias (systems/ops + ux): **TSDCAD24TRIGAPNVIXSA:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAlias', resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_state_init_alias(report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateAlias', 'HOLD')))}**",
+            f"- cadence 24h triad gap intent-escalation state-init alias dos-width eval (systems/ops + ux): **TSDCAD24TRIGAPNVIXSALEN:B{report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAliasDecodeHelperEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAliasDecodeHelperEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAliasDecodeHelperEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAliasDecodeHelperEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAliasDecodeHelperEvaluation', {}).get('status', 'PASS')}**",
             f"- cadence 24h triad gap operator action helper (design/world): **TSDCAD24TRIGAPNVH:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper', resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper(report.get('cadence24hRecoveryTriadGapCueTransitionVfxCue', 'GLINT'), report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueIntent', 'STEADY')))}**",
             f"- cadence 24h triad gap urgency-cue transition alternate narrative (ai-content/combat): **TSDCAD24TRIGAPNX:{report.get('cadence24hRecoveryTriadGapCueTransitionMicrocopyAlternate', resolve_cadence_24h_recovery_triad_gap_cue_transition_microcopy_alternate(report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', 'WATCH'), report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', 'WATCH')))}**",
             f"- cadence 24h triad gap recovery momentum tag (ai-content/combat): **TSDCAD24TRIGAPNR:{report.get('cadence24hRecoveryTriadGapCueTransitionRecoveryMomentum', resolve_cadence_24h_recovery_triad_gap_cue_transition_recovery_momentum(report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', 'WATCH'), report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', 'WATCH')))}**",

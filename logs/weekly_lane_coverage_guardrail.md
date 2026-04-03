@@ -28,6 +28,7 @@
 - cadence 24h triad gap intent-escalation alias pair (ai-content + ux/design): **TSDCAD24TRIGAPNVIXA:SS**
 - cadence 24h triad gap intent-escalation state alias (ai-content/combat + systems/qa): **TSDCAD24TRIGAPNVIXS:HOLD**
 - cadence 24h triad gap intent-escalation state-init alias (systems/ops + ux): **TSDCAD24TRIGAPNVIXSA:H**
+- cadence 24h triad gap intent-escalation state-init alias dos-width eval (systems/ops + ux): **TSDCAD24TRIGAPNVIXSALEN:B30|C7|LIM72|PREF:COMPACT|PASS**
 - cadence 24h triad gap operator action helper (design/world): **TSDCAD24TRIGAPNVH:GLINT+STEADY->hold lane**
 - cadence 24h triad gap urgency-cue transition alternate narrative (ai-content/combat): **TSDCAD24TRIGAPNX:multi-gap persists; combat spark+world anchor+systems lock; sig=CV/DW/SO**
 - cadence 24h triad gap recovery momentum tag (ai-content/combat): **TSDCAD24TRIGAPNR:HOLD**

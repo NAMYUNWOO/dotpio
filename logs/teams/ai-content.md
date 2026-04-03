@@ -3715,3 +3715,5 @@
 - Follow-up: explore optional offline phrasing variants keyed by state alias streaks.
 
 - 2026-04-04 08:26 KST — Preserved escalation semantics while adding compact state-init alias mirror (`H|R|L|S`) for `HOLD|RAMP|RELIEF|SHIFT`; no runtime coupling changes.
+
+- 2026-04-04 08:36 KST — No semantic drift in escalation states; added width-audit row only (`NVIXSALEN`) to keep content layer deterministic and reversible.

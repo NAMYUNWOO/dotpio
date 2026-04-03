@@ -5536,3 +5536,8 @@ Compact decision memory for AI context efficiency.
 - Completed highest-priority unchecked item in `POST_RC_BACKLOG.md`: added payload+markdown token `TSDCAD24TRIGAPNVIXSA` (`H|R|L|S`) derived from `TSDCAD24TRIGAPNVIXS`.
 - Durable decision: lock cadence row/legend order as `TRIGAPNVIA -> TRIGAPNVIXA -> TRIGAPNVIXS -> TRIGAPNVIXSA -> TRIGAPNVH` before `TRIGAPNX`, with matching legend order before `TRIGAPNVALEN`.
 - Regression/contracts now include parity + domain assertions for `NVIXSA` (`H|R|L|S`) across summary/token sections.
+
+## 2026-04-04 08:36 KST — Game Director IP65 vertical slice shipped
+- Generated 3 ideas, selected low-risk UX/Design + Systems/Ops experiment, and implemented minimal slice `TSDCAD24TRIGAPNVIXSALEN`.
+- Durable decision: keep deterministic row order `NVIXS -> NVIXSA -> NVIXSALEN -> NVH` in summary/token sections, with regression contract enforcement.
+- Injected next tasks: (1) QA+Systems headroom assertion for NVIXSALEN, (2) Design+UX decode-helper callout linking NVIXSA to NVH.
