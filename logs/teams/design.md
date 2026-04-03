@@ -3694,3 +3694,8 @@
 - 2026-04-04 00:52 KST — Cycle IP57: Design readability decision: prefer compact missing-flag semantics (`M1/M0`) for triad gap scanability; markdown surfacing queued as injected follow-up.
 - 2026-04-04 01:24 KST — Cycle IP58: Design lane validated that fixed gap-signature grammar is ready for compact markdown decode row work (`TSDCAD24TRIGAP`) in next cycle.
 - 2026-04-04 02:06 KST — Cycle IP59: Design readability slice finalized gap signature surfacing with compact decode/eval and added missing-count row for clearer triad deficit severity scanning.
+
+## 2026-04-04 02:22 KST
+- Cycle IP59 follow-up: shipped `TSDCAD24TRIGAPC` cadence urgency cue token from `TSDCAD24TRIGAPM` mapping (0=LOCKED, 1=WATCH, 2+=RECOVER) in markdown guardrail output.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py` and live report regeneration command passed.
+- Follow-up: keep injected Systems/Ops+QA item open to harden explicit TRIGAPC parity/order anchoring in regression fixtures.

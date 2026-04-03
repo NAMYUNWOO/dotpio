@@ -5466,3 +5466,9 @@ Compact decision memory for AI context efficiency.
 - Shipped minimal vertical slice: added `TSDCAD24TRIGAPM` (missing-bucket count 0..3) to payload + markdown, with deterministic regression parity/order/domain checks anchoring `TRIGAP -> TRIGAPM -> TRIGAP legend -> TRIGAPLEN` across summary/token sections.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2 (both newly injected from Cycle IP59).
+
+## 2026-04-04 02:22 KST
+- Closed highest-priority TASKS item (Combat/VFX, Cycle IP59): added `TSDCAD24TRIGAPC` urgency cue token derived from `TSDCAD24TRIGAPM` (`0=LOCKED`, `1=WATCH`, `2+=RECOVER`) to lane-coverage markdown output.
+- Durable decision: keep urgency mapping deterministic and report-only (no runtime coupling), sourced from existing missing-bucket count so it remains reversible and low-risk.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=2 (next: Systems/Ops + QA TRIGAPC parity/order anchoring).

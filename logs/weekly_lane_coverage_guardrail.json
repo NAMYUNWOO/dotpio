@@ -73,6 +73,7 @@
   "cadence24hRecoveryTriadBucketHitVector": "CV0D0|DW0D0|SO0D0",
   "cadence24hRecoveryTriadGapSignature": "CV0M1|DW0M1|SO0M1",
   "cadence24hRecoveryTriadGapMissingBucketCount": 3,
+  "cadence24hRecoveryTriadGapMissingBucketCountCue": "RECOVER",
   "cadence24hRecoveryTriadGapSignatureDecodeBaseline": "M1=missing bucket, M0=covered bucket",
   "cadence24hRecoveryTriadGapSignatureDecodeCompact": "M1=missing, M0=covered",
   "cadence24hRecoveryTriadGapSignatureDecodeEvaluation": {

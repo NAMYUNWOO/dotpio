@@ -3578,3 +3578,8 @@
 - 2026-04-04 00:52 KST — Cycle IP57: Reviewed triad readability lane; selected cross-lane gap-signature experiment to keep cadence deficit shape (`CV/DW/SO`) legible for map/progression dispatch handoff. Follow-up injected: markdown `TSDCAD24TRIGAP` row + legend.
 - 2026-04-04 01:24 KST — Cycle IP58: Confirmed cadence gap signature format lock (`CV/DW/SO` + missing flags) supports world/design bucket-readability follow-up (`TSDCAD24TRIGAP`) without schema drift.
 - 2026-04-04 02:06 KST — Cycle IP59: Surfaced cadence gap readability cluster in markdown (`TSDCAD24TRIGAP`, `TSDCAD24TRIGAPM`, decode + eval) for one-scan triad deficit interpretation.
+
+## 2026-04-04 02:22 KST
+- Cycle IP59 follow-up: shipped `TSDCAD24TRIGAPC` cadence urgency cue token from `TSDCAD24TRIGAPM` mapping (0=LOCKED, 1=WATCH, 2+=RECOVER) in markdown guardrail output.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py` and live report regeneration command passed.
+- Follow-up: keep injected Systems/Ops+QA item open to harden explicit TRIGAPC parity/order anchoring in regression fixtures.

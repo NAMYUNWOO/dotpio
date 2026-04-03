@@ -3574,3 +3574,8 @@
 - 2026-04-04 00:52 KST — Cycle IP57: Combat/vfx cadence deficit now encoded in `cadence24hRecoveryTriadGapSignature` (`CV...M...`) so missing combat bucket pressure is explicit in guardrail payload scans.
 - 2026-04-04 01:24 KST — Cycle IP58: Verified combat/vfx cadence bucket state remains encoded via stable `CV<n>M<m>` segment in gap signature after regression hardening.
 - 2026-04-04 02:06 KST — Cycle IP59: Combat-facing cadence urgency cue remained unchanged this slice; injected next task to derive compact cue token (`TSDCAD24TRIGAPC`) from `TRIGAPM`.
+
+## 2026-04-04 02:22 KST
+- Cycle IP59 follow-up: shipped `TSDCAD24TRIGAPC` cadence urgency cue token from `TSDCAD24TRIGAPM` mapping (0=LOCKED, 1=WATCH, 2+=RECOVER) in markdown guardrail output.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py` and live report regeneration command passed.
+- Follow-up: keep injected Systems/Ops+QA item open to harden explicit TRIGAPC parity/order anchoring in regression fixtures.

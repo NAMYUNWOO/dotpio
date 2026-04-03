@@ -1147,6 +1147,16 @@ def resolve_cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation(
     }
 
 
+def resolve_cadence_24h_recovery_triad_gap_missing_bucket_count_cue(
+    missing_bucket_count: int,
+) -> str:
+    if missing_bucket_count <= 0:
+        return "LOCKED"
+    if missing_bucket_count == 1:
+        return "WATCH"
+    return "RECOVER"
+
+
 def resolve_cadence_24h_recovery_triad_cadence_ready_alias(
     bucket_cadence: dict[str, dict[str, object]],
 ) -> str:
@@ -2754,6 +2764,11 @@ def build_report(
         for bucket in ("combat-or-vfx", "design-or-world", "systems-or-ops")
         if int(bucket_status.get(bucket, {}).get("count", 0)) <= 0
     )
+    cadence_24h_recovery_triad_gap_missing_bucket_count_cue = (
+        resolve_cadence_24h_recovery_triad_gap_missing_bucket_count_cue(
+            cadence_24h_recovery_triad_gap_missing_bucket_count
+        )
+    )
     cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation = (
         resolve_cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation()
     )
@@ -2930,6 +2945,7 @@ def build_report(
         "cadence24hRecoveryTriadBucketHitVector": cadence_24h_recovery_triad_bucket_hit_vector,
         "cadence24hRecoveryTriadGapSignature": cadence_24h_recovery_triad_gap_signature,
         "cadence24hRecoveryTriadGapMissingBucketCount": cadence_24h_recovery_triad_gap_missing_bucket_count,
+        "cadence24hRecoveryTriadGapMissingBucketCountCue": cadence_24h_recovery_triad_gap_missing_bucket_count_cue,
         "cadence24hRecoveryTriadGapSignatureDecodeBaseline": cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation["baseline"],
         "cadence24hRecoveryTriadGapSignatureDecodeCompact": cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation["compact"],
         "cadence24hRecoveryTriadGapSignatureDecodeEvaluation": cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation,
@@ -3187,6 +3203,7 @@ def to_markdown(
             f"{report.get('cadence24hRecoveryTriadBucketHitVectorDoneFlagDecodeEvaluation', {}).get('status', 'PASS')}**",
             f"- cadence 24h triad gap signature (design/world + ux): **TSDCAD24TRIGAP:{report.get('cadence24hRecoveryTriadGapSignature', resolve_cadence_24h_recovery_triad_gap_signature(report.get('bucketCadence', {})))}**",
             f"- cadence 24h triad gap missing-bucket count (systems/ops): **TSDCAD24TRIGAPM:{int(report.get('cadence24hRecoveryTriadGapMissingBucketCount', 0))}**",
+            f"- cadence 24h triad gap urgency cue (combat/vfx): **TSDCAD24TRIGAPC:{report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', resolve_cadence_24h_recovery_triad_gap_missing_bucket_count_cue(int(report.get('cadence24hRecoveryTriadGapMissingBucketCount', 0))))}**",
             f"- cadence 24h triad gap signature decode (design/world + ux): **TSDCAD24TRIGAP legend ({report.get('cadence24hRecoveryTriadGapSignatureDecodeCompact', resolve_cadence_24h_recovery_triad_gap_signature_decode_helper_compact())})**",
             f"- cadence 24h triad gap signature decode dos-width eval (design/world + ux): **TSDCAD24TRIGAPLEN:B{report.get('cadence24hRecoveryTriadGapSignatureDecodeEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadGapSignatureDecodeEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadGapSignatureDecodeEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadGapSignatureDecodeEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadGapSignatureDecodeEvaluation', {}).get('status', 'PASS')}**",
             f"- cadence 24h triad readiness alias (systems/ops): **TSDCAD24TRIL:{report.get('cadence24hRecoveryTriadCadenceReadyAlias', resolve_cadence_24h_recovery_triad_cadence_ready_alias(report.get('bucketCadence', {})))}**",
