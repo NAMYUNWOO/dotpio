@@ -5410,3 +5410,15 @@ Compact decision memory for AI context efficiency.
 - Durable decision: enforce headroom safety at rendered-row level (not only payload schema) to keep DOS-width slack contract auditable where operators read it.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: AI-content/Design smoothing-policy pressure recommendation `LOCK|WATCH`).
+
+## 2026-04-03 21:52 KST
+- Closed all remaining IP53 injected items from TASKS/POST_RC in one vertical slice: surfaced `TSDCAD24TRICOVSTCMSVHCSTPR` row, added one-line decode+path helper, and hardened regression parity/order contracts around the STPAM cluster.
+- Durable decision: canonical cadence cluster order is now `...STPA -> ...STPALEN -> ...STPAM -> ...STPAM legend -> ...STPR -> ...STPR legend` in both summary/token sections.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next cycle should trigger immediate Game Director ideation/experiment lane).
+
+## 2026-04-03 22:02 KST
+- Executed mandatory post-clear Game Director cycle IP54 (all ACTION_ITEMS/TASKS/POST_RC were checked): generated 3 ideas, selected low-risk alias readability slice, and shipped `TSDCAD24TRICOVSTCMSVHCSTPRA` (`L|W`) with decode + regression hardening.
+- Durable decision: recommendation family order is now locked as `...STPAM legend -> STPR -> STPR legend -> STPRA -> STPRA legend` across summary/token sections.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Injected next backlog items (IP54): `STPRV` visual companion token + pair helper + parity/order locks.

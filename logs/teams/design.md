@@ -3668,3 +3668,11 @@
 - Closed injected Systems/QA backlog item: regression now enforces `TSDCAD24TRICOVSTCMSVHCSTPAM` headroom domain in markdown rows (`H<n>` must parse and stay within `0..72`) across summary + token-coverage sections.
 - Durable decision: keep headroom domain lock fixture-level and row-driven (parse rendered token), so DOS-width guardrails cannot silently drift outside bounded range.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+
+## 2026-04-03 21:52 KST
+- Design/world decode helper landed inline with the recommendation row: `TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STP+STPA+STPAM->STPR`.
+- Decision: keep the path explanation on the same line to avoid split-context scanning in dense clusters.
+
+## 2026-04-03 22:02 KST
+- Added compact decode row for recommendation alias family: `TSDCAD24TRICOVSTCMSVHCSTPRA legend (L=LOCK, W=WATCH)`.
+- Decision: keep cluster contiguous as `STPR -> STPR legend -> STPRA -> STPRA legend` for one-scan readability.

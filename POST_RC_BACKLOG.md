@@ -1,5 +1,10 @@
 # POST_RC_BACKLOG
 
+## Next Up (Game Director Injection — Cycle IP54)
+- [ ] Combat/VFX Team (injected): Add compact visual severity companion token for smoothing-pressure recommendation (`TSDCAD24TRICOVSTCMSVHCSTPRV`) mapped from `STPR` (`LOCK=GLINT`, `WATCH=PULSE`) and keep <=72-width decode.
+- [ ] Design/World Team (injected): Add one-line pair helper linking recommendation family (`STPR+STPRA -> operator action`) for one-scan cadence playbook readability.
+- [ ] Systems/Ops + QA Team (injected): Extend fixture parity/order assertions so `STPRV` rows + legend remain adjacent to `STPR/STPRA` cluster in both summary/token sections.
+
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP52)
 - Coverage check (last 10 completed): systems=10, world=0, ai-content=0, combat=0, design=0, ux=0, qa=10, vfx=0.
 - Forced-lane decision: systems/qa exceeded 40%, so this cycle was forced toward underrepresented player-facing lanes (design/ux).
@@ -16,9 +21,9 @@
 
 
 ## Next Up (Game Director Injection — Cycle IP53)
-- [ ] Combat/VFX Team (injected): Add markdown surfacing row for smoothing-pressure recommendation token (`TSDCAD24TRICOVSTCMSVHCSTPR`) with compact decode legend (`LOCK=stable cadence`, `WATCH=volatility watch`) and keep <=72-width copy.
-- [ ] Design/World Team (injected): Add concise operator decode helper explaining `STP+STPA+STPAM -> STPR` decision path in one line for one-scan readability.
-- [ ] Systems/Ops + QA Team (injected): Extend fixture assertions for new smoothing-pressure recommendation row/legend parity + adjacency immediately after `TSDCAD24TRICOVSTCMSVHCSTPAM` cluster across summary/token sections.
+- [x] Combat/VFX Team (injected): Add markdown surfacing row for smoothing-pressure recommendation token (`TSDCAD24TRICOVSTCMSVHCSTPR`) with compact decode legend (`LOCK=stable cadence`, `WATCH=volatility watch`) and keep <=72-width copy. *(lifecycle: [ ] -> [~] started: 2026-04-03 21:48 KST -> [x] completed: 2026-04-03 21:52 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [x] Design/World Team (injected): Add concise operator decode helper explaining `STP+STPA+STPAM -> STPR` decision path in one line for one-scan readability. *(lifecycle: [ ] -> [~] started: 2026-04-03 21:48 KST -> [x] completed: 2026-04-03 21:52 KST; verification: same command bundle as above)*
+- [x] Systems/Ops + QA Team (injected): Extend fixture assertions for new smoothing-pressure recommendation row/legend parity + adjacency immediately after `TSDCAD24TRICOVSTCMSVHCSTPAM` cluster across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 21:48 KST -> [x] completed: 2026-04-03 21:52 KST; verification: same command bundle as above)*
 
 ## Next Up (Game Director Injection — Cycle IP51)
 - [x] Systems/QA Team (injected): Extend fixture-level parity/order assertions so `TSDCAD24TRICOVSTCMSVHCSTPALEN` row count mirrors `TSDCAD24TRICOVSTCMSVHCSTPA` and remains immediately after the compact decode row in both summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 20:49 KST -> [x] completed: 2026-04-03 20:56 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*

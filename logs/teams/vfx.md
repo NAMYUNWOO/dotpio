@@ -577,3 +577,7 @@
 - Cycle IP48 injected follow-up progress: shipped TSDCAD24TRIL operator decode row + DOS-width eval token (B42|C26|LIM72|PREF:COMPACT|PASS) in guardrail markdown/payload.
 - Verification bundle passed (py_compile + regression + guardrail artifact regeneration).
 - Next focus: close remaining Systems/Ops+QA injected parity/order contract for TSDCAD24TRIV + TSDCAD24TRIL.
+
+## 2026-04-03 21:52 KST
+- VFX lane readability pass shipped: added smoothing-pressure recommendation token `TSDCAD24TRICOVSTCMSVHCSTPR` plus compact decode/path row (`LOCK/WATCH`, `STP+STPA+STPAM->STPR`).
+- Decision: preserve <=72-width decode copy and keep token adjacent to `...STPAM` for stable scan rhythm.

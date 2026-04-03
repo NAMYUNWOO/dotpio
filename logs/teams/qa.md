@@ -5582,3 +5582,11 @@
 - Closed injected Systems/QA backlog item: regression now enforces `TSDCAD24TRICOVSTCMSVHCSTPAM` headroom domain in markdown rows (`H<n>` must parse and stay within `0..72`) across summary + token-coverage sections.
 - Durable decision: keep headroom domain lock fixture-level and row-driven (parse rendered token), so DOS-width guardrails cannot silently drift outside bounded range.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+
+## 2026-04-03 21:52 KST
+- QA added full STPR regression coverage: presence checks, row-count parity, section index parity, and strict adjacency (`...STPAM legend -> STPR -> STPR legend`) across summary/token sections.
+- Verification bundle passed: py_compile + regression suite + guardrail artifact regeneration.
+
+## 2026-04-03 22:02 KST
+- Regression suite expanded for STPRA family: presence checks, parity checks, and strict order assertions anchored after STPR legend in both summary/token sections.
+- Verification pass: py_compile + regression + guardrail artifact regeneration.

@@ -5081,3 +5081,11 @@
 - Closed injected Systems/QA backlog item: regression now enforces `TSDCAD24TRICOVSTCMSVHCSTPAM` headroom domain in markdown rows (`H<n>` must parse and stay within `0..72`) across summary + token-coverage sections.
 - Durable decision: keep headroom domain lock fixture-level and row-driven (parse rendered token), so DOS-width guardrails cannot silently drift outside bounded range.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+
+## 2026-04-03 21:52 KST
+- Systems/ops completed STPR integration cycle: guardrail markdown now emits recommendation row from existing payload field `...SmoothingPolicyPressureStateRecommendation`.
+- Decision: no new runtime state introduced; output remains deterministic report-only telemetry.
+
+## 2026-04-03 22:02 KST
+- Cycle IP54 vertical slice shipped: added recommendation alias resolver `STPR -> STPRA` (`LOCK->L`, `WATCH->W`) and wired payload field `...PressureStateRecommendationAlias`.
+- Follow-up injected: evaluate optional visual severity companion token (`STPRV`) in next cycle.

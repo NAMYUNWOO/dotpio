@@ -67,6 +67,10 @@
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing compact pair dos-width eval (design/world): **TSDCAD24TRICOVSTCMSVHCSTPALEN:B43|C44|LIM72|PREF:BASELINE|PASS**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing compact headroom token (ux/design): **TSDCAD24TRICOVSTCMSVHCSTPAM:H28**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing compact headroom decode (ux/design): **TSDCAD24TRICOVSTCMSVHCSTPAM legend (Hn=chars left under LIM72)**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure recommendation (combat/vfx): **TSDCAD24TRICOVSTCMSVHCSTPR:LOCK**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure recommendation decode + path (design/world): **TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STP+STPA+STPAM->STPR**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure recommendation alias (systems/qa): **TSDCAD24TRICOVSTCMSVHCSTPRA:L**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure recommendation alias decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTPRA legend (L=LOCK, W=WATCH)**
 - trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 - trend-score band snapshot alias: **TSSB:C0E0H0**
 - trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**

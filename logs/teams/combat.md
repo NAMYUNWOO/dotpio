@@ -3552,3 +3552,7 @@
 - Closed injected Systems/QA backlog item: regression now enforces `TSDCAD24TRICOVSTCMSVHCSTPAM` headroom domain in markdown rows (`H<n>` must parse and stay within `0..72`) across summary + token-coverage sections.
 - Durable decision: keep headroom domain lock fixture-level and row-driven (parse rendered token), so DOS-width guardrails cannot silently drift outside bounded range.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+
+## 2026-04-03 21:52 KST
+- Combat/VFX injected slice completed: markdown now surfaces `TSDCAD24TRICOVSTCMSVHCSTPR:<LOCK|WATCH>` immediately after the `...STPAM` cluster for one-scan volatility triage.
+- Follow-up: keep recommendation advisory-only unless future playtest evidence justifies runtime coupling.
