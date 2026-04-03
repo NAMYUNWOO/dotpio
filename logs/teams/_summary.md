@@ -5275,3 +5275,10 @@ Compact decision memory for AI context efficiency.
 - Added new deterministic DOS-width evaluation token for VHCA alias decode row in lane guardrail markdown: `TSDCAD24TRICOVSTCMSVHCALEN`.
 - Contract value now emits `B42|C42|LIM72|PREF:COMPACT|PASS` and is regression-locked in `scripts/regression_check_lane_coverage_guardrail.py`.
 - Backlog state updated: Design/World injected item completed in both `TASKS.md` and `POST_RC_BACKLOG.md`.
+
+## 2026-04-03 10:51 KST — Closed TASKS cadence-triad hit-count visibility item
+- Completed highest-priority TASKS item: lane guardrail markdown now prints explicit 24h bucket hit counts for forced-next rationale (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
+- Durable decision: keep forced-next rationale coupled with concrete bucket hit counts in the same markdown summary block to preserve one-scan operator triage.
+- Implementation: updated `scripts/check_lane_coverage_guardrail.py` summary rendering and added regression assertion in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2 (next: Systems/QA parity assertion for `TSDCAD24TRICOVSTCMSVA legend`).

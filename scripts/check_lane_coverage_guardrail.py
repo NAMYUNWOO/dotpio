@@ -2589,6 +2589,7 @@ def to_markdown(
             f"- recent completed items: **{report['recentCompletedItems']}**",
             f"- over-cap lanes: **{over_cap}**",
             f"- forced next lanes (if over-cap): **{forced}**",
+            f"- cadence 24h bucket hit counts (forced-next rationale): **combat-or-vfx={report.get('bucketCadence', {}).get('combat-or-vfx', {}).get('count', 0)} | design-or-world={report.get('bucketCadence', {}).get('design-or-world', {}).get('count', 0)} | systems-or-ops={report.get('bucketCadence', {}).get('systems-or-ops', {}).get('count', 0)}**",
             f"- cadence buckets missing: **{missing_buckets}**",
             f"- cadence 24h recovery triad (combat/vfx+design/world+systems/ops): **TSDCAD24TRI:{report.get('cadence24hRecoveryTriad', 'LOCK')}**",
             f"- cadence 24h health (combat/vfx): **TSDCAD24:{report.get('cadence24hHealthAlias', 'A')}** ({report.get('cadence24hHealth', 'ALERT')})",

@@ -3,6 +3,7 @@
 - recent completed items: **10**
 - over-cap lanes: **none**
 - forced next lanes (if over-cap): **none**
+- cadence 24h bucket hit counts (forced-next rationale): **combat-or-vfx=0 | design-or-world=0 | systems-or-ops=0**
 - cadence buckets missing: **combat-or-vfx, design-or-world, systems-or-ops**
 - cadence 24h recovery triad (combat/vfx+design/world+systems/ops): **TSDCAD24TRI:CV>DW>SO**
 - cadence 24h health (combat/vfx): **TSDCAD24:A** (ALERT)

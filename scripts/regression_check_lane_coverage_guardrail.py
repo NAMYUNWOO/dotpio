@@ -368,6 +368,15 @@ def run_fixture_case(
         f"DW{report.get('bucketCadence', {}).get('design-or-world', {}).get('count', 0)}|"
         f"SO{report.get('bucketCadence', {}).get('systems-or-ops', {}).get('count', 0)}"
     )
+    expected_cadence_24h_bucket_hit_counts_row = (
+        "- cadence 24h bucket hit counts (forced-next rationale): "
+        f"**combat-or-vfx={report.get('bucketCadence', {}).get('combat-or-vfx', {}).get('count', 0)} | "
+        f"design-or-world={report.get('bucketCadence', {}).get('design-or-world', {}).get('count', 0)} | "
+        f"systems-or-ops={report.get('bucketCadence', {}).get('systems-or-ops', {}).get('count', 0)}**"
+    )
+    assert expected_cadence_24h_bucket_hit_counts_row in md_text, (
+        f"{name}: markdown output must include explicit cadence 24h bucket hit counts alongside forced-next rationale"
+    )
     expected_cadence_24h_coverage_pressure_alias = (
         "GAP"
         if min(

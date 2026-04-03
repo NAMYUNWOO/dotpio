@@ -3465,3 +3465,7 @@
 - Decision: Added `TSDCAD24TRICOVSTCMSVHCALEN` DOS-width eval row for the VHCA alias decode contract in lane guardrail markdown.
 - Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up: tackle remaining unchecked injected tasks in TASKS/POST_RC (VHCA legend parity assertion, VFX confidence token, triad bucket hit-count markdown).
+
+## 2026-04-03 10:51 KST
+- Cycle IP42 follow-up closed: surfaced explicit 24h cadence bucket hit counts in lane guardrail markdown alongside forced-next rationale (combat-or-vfx, design-or-world, systems-or-ops).
+- Verification bundle green (py_compile, regression_check_lane_coverage_guardrail.py, guardrail JSON/MD regen).
