@@ -486,6 +486,21 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include cadence-triad bucket-hit vector done-flag dos-width eval row"
     assert (
+        "cadence 24h triad readiness alias (systems/ops): "
+        f"**TSDCAD24TRIL:{report.get('cadence24hRecoveryTriadCadenceReadyAlias')}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad readiness alias row"
+    assert (
+        "cadence 24h triad readiness operator decode (design/world): "
+        "**TSDCAD24TRIL legend (LOCK=balanced cadence, GAP=recover cadence)**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad readiness operator decode row"
+    assert (
+        "cadence 24h triad readiness operator decode dos-width eval (design/world): "
+        "**TSDCAD24TRILLEN:B42|C26|LIM72|PREF:COMPACT|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad readiness operator decode dos-width eval row"
+    assert (
         "cadence 24h recovery triad coverage pressure alias (systems/ops): "
         f"**TSDCAD24TRICOVP:{expected_cadence_24h_coverage_pressure_alias}**"
         in md_text
@@ -703,6 +718,13 @@ def run_fixture_case(
     cadence_24h_triad_bucket_hit_vector_done_flag_eval_rows = md_text.count(
         "**TSDCAD24TRIVLEN:B22|C22|LIM72|PREF:COMPACT|PASS**"
     )
+    cadence_24h_triad_readiness_alias_rows = md_text.count("**TSDCAD24TRIL:")
+    cadence_24h_triad_readiness_decode_rows = md_text.count(
+        "**TSDCAD24TRIL legend (LOCK=balanced cadence, GAP=recover cadence)**"
+    )
+    cadence_24h_triad_readiness_decode_eval_rows = md_text.count(
+        "**TSDCAD24TRILLEN:B42|C26|LIM72|PREF:COMPACT|PASS**"
+    )
     cadence_24h_triad_palette_rows = md_text.count("**TSDCAD24TRIP:CV=SPARK|DW=ANCHOR|SO=LOCK**")
     cadence_24h_triad_coverage_rows = md_text.count("**TSDCAD24TRICOV:")
     cadence_24h_triad_coverage_pressure_rows = md_text.count("**TSDCAD24TRICOVP:")
@@ -772,6 +794,15 @@ def run_fixture_case(
     )
     assert cadence_24h_triad_bucket_hit_vector_done_flag_eval_rows == cadence_24h_triad_bucket_hit_vector_rows, (
         f"{name}: TSDCAD24TRIVLEN row count must match TSDCAD24TRIV row count across sections"
+    )
+    assert cadence_24h_triad_readiness_alias_rows == cadence_24h_triad_rows, (
+        f"{name}: TSDCAD24TRIL row count must match TSDCAD24TRI row count across sections"
+    )
+    assert cadence_24h_triad_readiness_decode_rows == cadence_24h_triad_readiness_alias_rows, (
+        f"{name}: TSDCAD24TRIL legend row count must match TSDCAD24TRIL row count across sections"
+    )
+    assert cadence_24h_triad_readiness_decode_eval_rows == cadence_24h_triad_readiness_alias_rows, (
+        f"{name}: TSDCAD24TRILLEN row count must match TSDCAD24TRIL row count across sections"
     )
     assert cadence_24h_triad_coverage_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRICOV row count must match TSDCAD24TRI row count across sections"
@@ -936,8 +967,26 @@ def run_fixture_case(
     cadence_24h_token_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24:" in line
     ]
+    cadence_24h_triad_bucket_hit_vector_done_flag_eval_indexes = [
+        i
+        for i, line in enumerate(cadence_24h_lines)
+        if "**TSDCAD24TRIVLEN:B22|C22|LIM72|PREF:COMPACT|PASS**" in line
+    ]
     cadence_24h_coverage_pressure_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVP:" in line
+    ]
+    cadence_24h_triad_readiness_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRIL:" in line
+    ]
+    cadence_24h_triad_readiness_decode_indexes = [
+        i
+        for i, line in enumerate(cadence_24h_lines)
+        if "**TSDCAD24TRIL legend (LOCK=balanced cadence, GAP=recover cadence)**" in line
+    ]
+    cadence_24h_triad_readiness_decode_eval_indexes = [
+        i
+        for i, line in enumerate(cadence_24h_lines)
+        if "**TSDCAD24TRILLEN:B42|C26|LIM72|PREF:COMPACT|PASS**" in line
     ]
     cadence_24h_coverage_spread_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVS:" in line
@@ -1185,9 +1234,30 @@ def run_fixture_case(
     assert len(cadence_24h_triad_plan_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: cadence 24h recovery triad plan row count must match TSDCAD24TRI row count across sections"
     )
+    assert len(cadence_24h_triad_readiness_indexes) == len(cadence_24h_triad_indexes), (
+        f"{name}: TSDCAD24TRIL row count must match TSDCAD24TRI row count across sections"
+    )
+    assert len(cadence_24h_triad_readiness_decode_indexes) == len(cadence_24h_triad_readiness_indexes), (
+        f"{name}: TSDCAD24TRIL legend row count must match TSDCAD24TRIL row count across sections"
+    )
+    assert len(cadence_24h_triad_readiness_decode_eval_indexes) == len(cadence_24h_triad_readiness_indexes), (
+        f"{name}: TSDCAD24TRILLEN row count must match TSDCAD24TRIL row count across sections"
+    )
     for cluster_i in range(len(cadence_24h_triad_indexes)):
         assert cadence_24h_token_indexes[cluster_i] == cadence_24h_triad_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRI immediately before TSDCAD24 in both sections"
+        )
+        assert cadence_24h_triad_readiness_indexes[cluster_i] == cadence_24h_triad_bucket_hit_vector_done_flag_eval_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIL immediately after TSDCAD24TRIVLEN in both sections"
+        )
+        assert cadence_24h_triad_readiness_decode_indexes[cluster_i] == cadence_24h_triad_readiness_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIL legend immediately after TSDCAD24TRIL in both sections"
+        )
+        assert cadence_24h_triad_readiness_decode_eval_indexes[cluster_i] == cadence_24h_triad_readiness_decode_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRILLEN immediately after TSDCAD24TRIL legend in both sections"
+        )
+        assert cadence_24h_coverage_pressure_indexes[cluster_i] == cadence_24h_triad_readiness_decode_eval_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVP immediately after TSDCAD24TRILLEN in both sections"
         )
         assert cadence_24h_coverage_spread_indexes[cluster_i] == cadence_24h_coverage_pressure_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRICOVS immediately after TSDCAD24TRICOVP in both sections"

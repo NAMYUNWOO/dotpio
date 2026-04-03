@@ -3512,3 +3512,8 @@
 
 ## [2026-04-03 15:52 KST] Cycle IP48 follow-up sync
 - No world-map/runtime changes this slice; consumed cadence readability output update for future triad-readiness copy follow-up (`TSDCAD24TRIL`).
+
+## 2026-04-03 16:20 KST
+- Cycle IP48 injected follow-up progress: shipped TSDCAD24TRIL operator decode row + DOS-width eval token (B42|C26|LIM72|PREF:COMPACT|PASS) in guardrail markdown/payload.
+- Verification bundle passed (py_compile + regression + guardrail artifact regeneration).
+- Next focus: close remaining Systems/Ops+QA injected parity/order contract for TSDCAD24TRIV + TSDCAD24TRIL.

@@ -157,6 +157,17 @@
     "preferred": "COMPACT",
     "status": "PASS"
   },
+  "cadence24hRecoveryTriadCadenceReadyAliasDecodeBaseline": "LOCK=balanced cadence, GAP=recover cadence",
+  "cadence24hRecoveryTriadCadenceReadyAliasDecodeCompact": "LOCK=balanced, GAP=recover",
+  "cadence24hRecoveryTriadCadenceReadyAliasDecodeEvaluation": {
+    "baseline": "LOCK=balanced cadence, GAP=recover cadence",
+    "compact": "LOCK=balanced, GAP=recover",
+    "baselineLen": 42,
+    "compactLen": 26,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "trendScoreBandSnapshot": {
     "CALM": 0,
     "EDGE": 0,

@@ -5338,3 +5338,9 @@ Compact decision memory for AI context efficiency.
 ## [2026-04-03 15:52 KST] Durable decision — TRIV done-flag decode + width lock
 - Shipped combat/vfx readability follow-up: `TSDCAD24TRIV legend (D1=covered, D0=missing)` and `TSDCAD24TRIVLEN` DOS-width eval row.
 - Decision: keep decode text deterministic + compact-first and gate with parity assertions before moving to `TSDCAD24TRIL` operator decode task.
+
+## 2026-04-03 16:20 KST
+- Closed IP48 injected Design/World follow-up: added `TSDCAD24TRIL` operator decode row plus width-eval token (`TSDCAD24TRILLEN:B42|C26|LIM72|PREF:COMPACT|PASS`) to keep cadence readiness state actionable in one scan.
+- Durable decision: keep cadence readiness block ordered `TSDCAD24TRIL -> TSDCAD24TRIL legend -> TSDCAD24TRILLEN -> TSDCAD24TRICOVP` and lock this via regression to prevent drift between summary/token sections.
+- Verification green: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; guardrail JSON/MD regeneration command.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: Systems/Ops+QA parity/order for `TSDCAD24TRIV` + `TSDCAD24TRIL`).

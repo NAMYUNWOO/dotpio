@@ -3769,3 +3769,8 @@
 
 ## [2026-04-03 15:52 KST] Cycle IP48 follow-up — compact decode stability
 - Kept compact decode wording deterministic (`D1=covered, D0=missing`) and validated markdown rendering parity across summary/token sections via regression.
+
+## 2026-04-03 16:20 KST
+- Cycle IP48 injected follow-up progress: shipped TSDCAD24TRIL operator decode row + DOS-width eval token (B42|C26|LIM72|PREF:COMPACT|PASS) in guardrail markdown/payload.
+- Verification bundle passed (py_compile + regression + guardrail artifact regeneration).
+- Next focus: close remaining Systems/Ops+QA injected parity/order contract for TSDCAD24TRIV + TSDCAD24TRIL.

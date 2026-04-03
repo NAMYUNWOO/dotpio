@@ -17,6 +17,8 @@
 - cadence 24h triad bucket hit vector done-flag decode (combat/vfx): **TSDCAD24TRIV legend (D1=covered, D0=missing)**
 - cadence 24h triad bucket hit vector done-flag decode dos-width eval (combat/vfx): **TSDCAD24TRIVLEN:B22|C22|LIM72|PREF:COMPACT|PASS**
 - cadence 24h triad readiness alias (systems/ops): **TSDCAD24TRIL:GAP**
+- cadence 24h triad readiness operator decode (design/world): **TSDCAD24TRIL legend (LOCK=balanced cadence, GAP=recover cadence)**
+- cadence 24h triad readiness operator decode dos-width eval (design/world): **TSDCAD24TRILLEN:B42|C26|LIM72|PREF:COMPACT|PASS**
 - cadence 24h recovery triad coverage pressure alias (systems/ops): **TSDCAD24TRICOVP:GAP**
 - cadence 24h recovery triad coverage spread alias (design/world): **TSDCAD24TRICOVS:STABLE**
 - cadence 24h recovery triad coverage spread trend (ai-content/combat): **TSDCAD24TRICOVST:FLAT**

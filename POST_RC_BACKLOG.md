@@ -12,7 +12,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP48)
 - [x] Combat/VFX Team (injected): Add `TSDCAD24TRIV` decode legend row (`D1=covered, D0=missing`) and lock <=72 DOS-width. *(lifecycle: [ ] -> [~] started: 2026-04-03 15:49 KST -> [x] completed: 2026-04-03 15:52 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] Design/World Team (injected): Add concise `TSDCAD24TRIL` operator decode (`LOCK=balanced cadence, GAP=recover cadence`) and width-eval token.
+- [x] Design/World Team (injected): Add concise `TSDCAD24TRIL` operator decode (`LOCK=balanced cadence, GAP=recover cadence`) and width-eval token. *(lifecycle: [ ] -> [~] started: 2026-04-03 16:19 KST -> [x] completed: 2026-04-03 16:20 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [ ] Systems/Ops + QA Team (injected): Extend regression contracts for `TSDCAD24TRIV` + `TSDCAD24TRIL` row-count parity and deterministic ordering.
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP45)

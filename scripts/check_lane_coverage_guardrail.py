@@ -1456,6 +1456,34 @@ def resolve_cadence_24h_recovery_triad_bucket_hit_vector_done_flag_decode_evalua
     }
 
 
+def resolve_cadence_24h_recovery_triad_cadence_ready_alias_decode_baseline() -> str:
+    return "LOCK=balanced cadence, GAP=recover cadence"
+
+
+def resolve_cadence_24h_recovery_triad_cadence_ready_alias_decode_compact() -> str:
+    return "LOCK=balanced, GAP=recover"
+
+
+def resolve_cadence_24h_recovery_triad_cadence_ready_alias_decode_evaluation(
+    dos_width_limit: int = 72,
+) -> dict[str, object]:
+    baseline = resolve_cadence_24h_recovery_triad_cadence_ready_alias_decode_baseline()
+    compact = resolve_cadence_24h_recovery_triad_cadence_ready_alias_decode_compact()
+    baseline_len = len(baseline)
+    compact_len = len(compact)
+    preferred = "COMPACT" if compact_len <= baseline_len else "BASELINE"
+    status = "PASS" if compact_len <= dos_width_limit and baseline_len <= dos_width_limit else "WARN"
+    return {
+        "baseline": baseline,
+        "compact": compact,
+        "baselineLen": baseline_len,
+        "compactLen": compact_len,
+        "dosWidthLimit": dos_width_limit,
+        "preferred": preferred,
+        "status": status,
+    }
+
+
 def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_baseline() -> str:
     return "80=surge confidence, 50=hold confidence, 20=cool confidence"
 
@@ -2531,6 +2559,9 @@ def build_report(
     cadence_24h_recovery_triad_bucket_hit_vector_done_flag_decode_evaluation = (
         resolve_cadence_24h_recovery_triad_bucket_hit_vector_done_flag_decode_evaluation()
     )
+    cadence_24h_recovery_triad_cadence_ready_alias_decode_evaluation = (
+        resolve_cadence_24h_recovery_triad_cadence_ready_alias_decode_evaluation()
+    )
     cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation = (
         resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_ladder_evaluation()
     )
@@ -2601,6 +2632,9 @@ def build_report(
         "cadence24hRecoveryTriadBucketHitVectorDoneFlagDecodeBaseline": cadence_24h_recovery_triad_bucket_hit_vector_done_flag_decode_evaluation["baseline"],
         "cadence24hRecoveryTriadBucketHitVectorDoneFlagDecodeCompact": cadence_24h_recovery_triad_bucket_hit_vector_done_flag_decode_evaluation["compact"],
         "cadence24hRecoveryTriadBucketHitVectorDoneFlagDecodeEvaluation": cadence_24h_recovery_triad_bucket_hit_vector_done_flag_decode_evaluation,
+        "cadence24hRecoveryTriadCadenceReadyAliasDecodeBaseline": cadence_24h_recovery_triad_cadence_ready_alias_decode_evaluation["baseline"],
+        "cadence24hRecoveryTriadCadenceReadyAliasDecodeCompact": cadence_24h_recovery_triad_cadence_ready_alias_decode_evaluation["compact"],
+        "cadence24hRecoveryTriadCadenceReadyAliasDecodeEvaluation": cadence_24h_recovery_triad_cadence_ready_alias_decode_evaluation,
         "trendScoreBandSnapshot": score_band_snapshot,
         "trendScoreBandSnapshotAlias": score_band_alias,
         "trendScoreBandDispatchHint": score_band_dispatch_hint,
@@ -2795,6 +2829,8 @@ def to_markdown(
             f"PREF:{report.get('cadence24hRecoveryTriadBucketHitVectorDoneFlagDecodeEvaluation', {}).get('preferred', 'COMPACT')}|"
             f"{report.get('cadence24hRecoveryTriadBucketHitVectorDoneFlagDecodeEvaluation', {}).get('status', 'PASS')}**",
             f"- cadence 24h triad readiness alias (systems/ops): **TSDCAD24TRIL:{report.get('cadence24hRecoveryTriadCadenceReadyAlias', resolve_cadence_24h_recovery_triad_cadence_ready_alias(report.get('bucketCadence', {})))}**",
+            f"- cadence 24h triad readiness operator decode (design/world): **TSDCAD24TRIL legend ({report.get('cadence24hRecoveryTriadCadenceReadyAliasDecodeBaseline', resolve_cadence_24h_recovery_triad_cadence_ready_alias_decode_baseline())})**",
+            f"- cadence 24h triad readiness operator decode dos-width eval (design/world): **TSDCAD24TRILLEN:B{report.get('cadence24hRecoveryTriadCadenceReadyAliasDecodeEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadCadenceReadyAliasDecodeEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadCadenceReadyAliasDecodeEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadCadenceReadyAliasDecodeEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadCadenceReadyAliasDecodeEvaluation', {}).get('status', 'PASS')}**",
             f"- cadence 24h recovery triad coverage pressure alias (systems/ops): **TSDCAD24TRICOVP:{report.get('cadence24hRecoveryTriadCoveragePressureAlias', resolve_cadence_24h_recovery_triad_coverage_pressure_alias(report.get('bucketCadence', {})))}**",
             f"- cadence 24h recovery triad coverage spread alias (design/world): **TSDCAD24TRICOVS:{report.get('cadence24hRecoveryTriadCoverageSpreadAlias', resolve_cadence_24h_recovery_triad_coverage_spread_alias(report.get('bucketCadence', {})))}**",
             f"- cadence 24h recovery triad coverage spread trend (ai-content/combat): **TSDCAD24TRICOVST:{report.get('cadence24hRecoveryTriadCoverageSpreadTrend', 'FLAT')}**",

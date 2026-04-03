@@ -5530,3 +5530,8 @@
 
 ## [2026-04-03 15:52 KST] Cycle IP48 follow-up — regression coverage
 - Added regression assertions for `TSDCAD24TRIV` presence, decode legend presence, `TSDCAD24TRIVLEN` eval row, and row-count parity against `TSDCAD24TRI`.
+
+## 2026-04-03 16:20 KST
+- Cycle IP48 injected follow-up progress: shipped TSDCAD24TRIL operator decode row + DOS-width eval token (B42|C26|LIM72|PREF:COMPACT|PASS) in guardrail markdown/payload.
+- Verification bundle passed (py_compile + regression + guardrail artifact regeneration).
+- Next focus: close remaining Systems/Ops+QA injected parity/order contract for TSDCAD24TRIV + TSDCAD24TRIL.

@@ -3622,3 +3622,8 @@
 
 ## [2026-04-03 15:52 KST] Cycle IP48 follow-up — DOS-width guard
 - Added `TSDCAD24TRIVLEN` dos-width evaluation row (`B22|C22|LIM72|PREF:COMPACT|PASS`) to keep decode copy budget explicit.
+
+## 2026-04-03 16:20 KST
+- Cycle IP48 injected follow-up progress: shipped TSDCAD24TRIL operator decode row + DOS-width eval token (B42|C26|LIM72|PREF:COMPACT|PASS) in guardrail markdown/payload.
+- Verification bundle passed (py_compile + regression + guardrail artifact regeneration).
+- Next focus: close remaining Systems/Ops+QA injected parity/order contract for TSDCAD24TRIV + TSDCAD24TRIL.

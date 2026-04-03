@@ -568,3 +568,8 @@
 - Forced-lane recovery selected combat/vfx-first path under all-missing cadence buckets.
 - Added compact triad bucket-hit vector row `TSDCAD24TRIV:CV<n>D<0|1>|DW<n>D<0|1>|SO<n>D<0|1>` to increase VFX cadence dispatch visibility without runtime coupling.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration passed.
+
+## 2026-04-03 16:20 KST
+- Cycle IP48 injected follow-up progress: shipped TSDCAD24TRIL operator decode row + DOS-width eval token (B42|C26|LIM72|PREF:COMPACT|PASS) in guardrail markdown/payload.
+- Verification bundle passed (py_compile + regression + guardrail artifact regeneration).
+- Next focus: close remaining Systems/Ops+QA injected parity/order contract for TSDCAD24TRIV + TSDCAD24TRIL.
