@@ -1,5 +1,8 @@
 # World Team Log
 
+## 2026-04-03 14:31 KST
+- Added world-facing decode row for new drift alias token `TSDCAD24TRICOVSTCMSVHCSA legend (L=<50 stability, M=50-79, H>=80)` to keep cadence stability semantics one-scan reversible.
+
 ## 2026-04-03 11:52 KST
 - World log sync: IP42 cue-confidence follow-up (`TSDCAD24TRICOVSTCMSVC`) closed in trackers; no world/runtime content mutation required.
 

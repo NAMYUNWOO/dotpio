@@ -1,5 +1,8 @@
 # Design Team Log
 
+## 2026-04-03 14:31 KST
+- Design/readability update: inserted concise drift-alias decode row and preserved decode-cluster order before triad plan to maintain one-scan narrative flow.
+
 ## 2026-04-03 11:52 KST
 - Design/readability bookkeeping sync: closed IP42 AI Content/Combat confidence-band item in backlog metadata; decode semantics remain `LOW|MID|HIGH` with no wording drift introduced.
 

@@ -1,5 +1,8 @@
 # AI Content Team Log
 
+## 2026-04-03 14:31 KST
+- AI-content cadence advisory now includes compact drift stability alias (`L|M|H`) sourced from offline hysteresis confidence drift score, still report-only with no runtime coupling.
+
 ## 2026-04-03 11:52 KST
 - Closed injected IP42 AI Content/Combat follow-up in trackers: offline VFX cue confidence band token `TSDCAD24TRICOVSTCMSVC` (`LOW|MID|HIGH`) is now lifecycle-complete.
 - Scope remains offline/reporting-only with no runtime coupling.

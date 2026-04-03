@@ -1,5 +1,9 @@
 # QA Team Log
 
+## 2026-04-03 14:31 KST
+- QA added/validated parity and order checks for `TSDCAD24TRICOVSTCMSVHCSA` + legend rows across summary/token sections.
+- Verification: py_compile + regression + guardrail artifact regeneration command bundle.
+
 ## 2026-04-03 11:52 KST
 - QA closure verification for IP42 injected AI Content/Combat item: backlog/task lifecycle now reflects already-green confidence-band implementation (`TSDCAD24TRICOVSTCMSVC`).
 - Verification pass: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

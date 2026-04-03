@@ -1,6 +1,14 @@
 # TASKS
 
-Last updated: 2026-04-03 11:52 KST
+Last updated: 2026-04-03 14:31 KST
+
+## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP44)
+- Candidate ideas generated:
+  - Low-risk Systems/QA + UX: add compact hysteresis confidence drift alias token (`TSDCAD24TRICOVSTCMSVHCSA:L|M|H`) derived from `TSDCAD24TRICOVSTCMSVHCS` for one-scan stability reads.
+  - Mid-risk Systems/QA + Design/World: enforce strict adjacency `TSDCAD24TRICOVSTCMSVHCS -> TSDCAD24TRICOVSTCMSVHCSA -> TSDCAD24TRICOVSTCMS legend` across summary/token sections.
+  - High-risk AI Content/Combat: prototype offline hysteresis drift acceleration token from two-window drift deltas.
+- Selected experiment: Idea 1 (low-risk Systems/QA + UX) minimal vertical slice.
+- [x] Systems/QA + UX Team: Add `TSDCAD24TRICOVSTCMSVHCSA` payload+markdown alias row (`<50=L`, `50-79=M`, `>=80=H`) with decode copy plus regression parity/order locks. *(lifecycle: [ ] -> [~] started: 2026-04-03 14:21 KST -> [x] completed: 2026-04-03 14:31 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-03 (Injected Follow-up - Cycle IP42)
 - [x] AI Content/Combat Team (injected): Prototype offline VFX cue confidence score (`TSDCAD24TRICOVSTCMSVC:LOW|MID|HIGH`) from cue-switch persistence windows without runtime coupling. *(lifecycle: [ ] -> [~] started: 2026-04-03 11:50 KST -> [x] completed: 2026-04-03 11:52 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*

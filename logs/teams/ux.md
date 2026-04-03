@@ -1,5 +1,8 @@
 # UX Team Log
 
+## 2026-04-03 14:31 KST
+- UX scan path improved: cadence cluster now exposes compact drift alias (`L|M|H`) immediately after drift score, reducing cognitive load before ladder decode rows.
+
 ## 2026-04-03 11:52 KST
 - UX continuity update: finalized lifecycle closure for cadence cue confidence token `TSDCAD24TRICOVSTCMSVC`; scan-path remains unchanged and deterministic.
 

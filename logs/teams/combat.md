@@ -1,5 +1,8 @@
 # Combat Team Log
 
+## 2026-04-03 14:31 KST
+- Combat/VFX cadence diagnostics gained compact drift-stability alias row (`TSDCAD24TRICOVSTCMSVHCSA`) for faster cue stability triage in dense reports.
+
 ## 2026-04-03 11:52 KST
 - Combat/VFX follow-up closure: confirmed `TSDCAD24TRICOVSTCMSVC` confidence-band prototype is now formally marked complete in TASKS/POST_RC backlog and remains bounded to offline cue-stability reporting.
 

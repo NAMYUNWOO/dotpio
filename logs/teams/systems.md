@@ -1,5 +1,10 @@
 # Systems Team Log
 
+## 2026-04-03 14:31 KST
+- Cycle IP44 shipped: added `TSDCAD24TRICOVSTCMSVHCSA` alias resolver (`L|M|H`) from `TSDCAD24TRICOVSTCMSVHCS` stability score and wired payload + markdown row.
+- Regression contract extended with row-count parity + adjacency lock (`...VHCS -> ...VHCSA -> ...STCMS legend`) across summary/token sections.
+- Verification: py_compile + regression + guardrail artifact regeneration command bundle.
+
 ## 2026-04-03 11:52 KST
 - Tracker closure pass: finalized Cycle IP42 AI Content/Combat backlog item lifecycle metadata (`[ ] -> [~] -> [x]`) for `TSDCAD24TRICOVSTCMSVC` to match already-landed guardrail/regression implementation state.
 - Durable decision: no additional systems code mutation required while confidence-band domain/mapping and regression suite remain green.
