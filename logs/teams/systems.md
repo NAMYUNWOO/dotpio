@@ -1,5 +1,10 @@
 # Systems Team Log
 
+## 2026-04-03 23:35 KST
+- Extended mixed-window fixture matrix to include `stprvLegendRowCount` and `stprlenRowCount` in cross-fixture parity tuples.
+- Added dedicated parity assertion: STPRLEN row count must equal STPRV legend row count across all mixed-window fixture cases.
+- Verification: py_compile + regression_check_lane_coverage_guardrail.py PASS + live guardrail check PASS.
+
 ## 2026-04-03 21:40 KST
 - Systems slice shipped for Cycle IP53: added offline resolver wiring for smoothing-policy pressure recommendation (`LOCK|WATCH`) computed from `STP`, `STPA`, and `STPAM` compact-headroom signal.
 - Runtime/gameplay untouched; report payload only. Verification: py_compile + regression + guardrail artifact regeneration.
@@ -5097,3 +5102,4 @@
 
 ## 2026-04-03 22:58 KST
 - Cycle IP55 shipped `TSDCAD24TRICOVSTCMSVHCSTPRLEN` evaluation plumbing (baseline/compact/dos-width/preferred/status) in lane guardrail payload and markdown; kept change offline-only and reversible.
+- 2026-04-03 23:46 KST — Updated cadence helper copy contract to explicit callout order `STPR->STPRV->STPRLEN`; kept DOS-width-safe legend unchanged in count semantics. Follow-up: keep regression string constants aligned with markdown token copy.

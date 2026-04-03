@@ -105,6 +105,16 @@
     "preferred": "COMPACT",
     "status": "PASS"
   },
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCue": "GLINT-HOLD",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueDecodeHelperEvaluation": {
+    "baseline": "STPRLEN:LOCK=GLINT-HOLD|WATCH=PULSE-PROBE",
+    "compact": "STPRLEN:L=GH|W=PP",
+    "baselineLen": 41,
+    "compactLen": 17,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAlias": "H",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeBaseline": "L=high churn, M=mixed flips, H=stable cues",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeCompact": "L=high churn, M=mixed flips, H=stable cues",

@@ -1801,6 +1801,53 @@ def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum
     }
 
 
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue(
+    recommendation: str,
+) -> str:
+    """Compact operator cue alias for STPRLEN status.
+
+    Maps STPR recommendation domain (LOCK/WATCH) to extended operator cue
+    with action suffix: GLINT-HOLD / PULSE-PROBE.
+    """
+    mapping = {
+        "LOCK": "GLINT-HOLD",
+        "WATCH": "PULSE-PROBE",
+    }
+    return mapping.get(recommendation, "GLINT-HOLD")
+
+
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_decode_helper_baseline() -> str:
+    return "STPRLEN:LOCK=GLINT-HOLD|WATCH=PULSE-PROBE"
+
+
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_decode_helper_compact() -> str:
+    return "STPRLEN:L=GH|W=PP"
+
+
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_decode_helper_evaluation(
+    dos_width_limit: int = 72,
+) -> dict[str, object]:
+    baseline = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_decode_helper_baseline()
+    )
+    compact = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_decode_helper_compact()
+    )
+    baseline_len = len(baseline)
+    compact_len = len(compact)
+    preferred = "COMPACT" if compact_len <= baseline_len else "BASELINE"
+    status = "PASS" if compact_len <= dos_width_limit and baseline_len <= dos_width_limit else "WARN"
+    return {
+        "baseline": baseline,
+        "compact": compact,
+        "baselineLen": baseline_len,
+        "compactLen": compact_len,
+        "dosWidthLimit": dos_width_limit,
+        "preferred": preferred,
+        "status": status,
+    }
+
+
 def resolve_trend_score_band_dispatch_hint(score_band_snapshot: dict[str, int]) -> str:
     ordered = sorted(
         score_band_snapshot.items(),
@@ -2799,6 +2846,14 @@ def build_report(
     cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_helper_evaluation = (
         resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_helper_evaluation()
     )
+    cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue(
+            cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_state_recommendation
+        )
+    )
+    cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_decode_helper_evaluation = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_decode_helper_evaluation()
+    )
 
     return {
         "recentCompletedItems": total,
@@ -2843,6 +2898,8 @@ def build_report(
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeHelperBaseline": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_helper_evaluation["baseline"],
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeHelperCompact": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_helper_evaluation["compact"],
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeHelperEvaluation": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_helper_evaluation,
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCue": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue,
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueDecodeHelperEvaluation": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_decode_helper_evaluation,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAlias": resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias(
             cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band
         ),
@@ -3119,12 +3176,14 @@ def to_markdown(
         f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing compact headroom token (ux/design): **TSDCAD24TRICOVSTCMSVHCSTPAM:H{max(0, report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyCompactDecodeHelperEvaluation', {}).get('dosWidthLimit', 72) - report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyCompactDecodeHelperEvaluation', {}).get('compactLen', 0))}**",
         "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing compact headroom decode (ux/design): **TSDCAD24TRICOVSTCMSVHCSTPAM legend (Hn=chars left under LIM72)**",
         f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure recommendation (combat/vfx): **TSDCAD24TRICOVSTCMSVHCSTPR:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureStateRecommendation', 'LOCK')}**",
-        "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure recommendation decode + path (design/world): **TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STPR+STPRA->operator action**",
+        "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure recommendation decode + path (design/world): **TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STPR->STPRV->STPRLEN callout order**",
         f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure recommendation alias (systems/qa): **TSDCAD24TRICOVSTCMSVHCSTPRA:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureStateRecommendationAlias', 'L')}**",
         "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure recommendation alias decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTPRA legend (L=LOCK, W=WATCH)**",
         f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure visual severity companion (combat/vfx): **TSDCAD24TRICOVSTCMSVHCSTPRV:{'GLINT' if report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureStateRecommendation', 'LOCK') == 'LOCK' else 'PULSE'}**",
         "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure visual severity companion decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTPRV legend (LOCK=GLINT, WATCH=PULSE)**",
         f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure decode dos-width eval (systems/ops): **TSDCAD24TRICOVSTCMSVHCSTPRLEN:B{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeHelperEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeHelperEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeHelperEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeHelperEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeHelperEvaluation', {}).get('status', 'PASS')}**",
+        f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure decode operator cue (combat/vfx): **TSDCAD24TRICOVSTCMSVHCSTPRLENCUE:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCue', 'GLINT-HOLD')}**",
+        "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure decode operator cue decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTPRLENCUE legend (LOCK=GLINT-HOLD, WATCH=PULSE-PROBE)**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",
             "- trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**",

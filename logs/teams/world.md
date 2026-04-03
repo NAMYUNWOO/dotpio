@@ -3567,3 +3567,4 @@
 
 ## 2026-04-03 22:58 KST
 - Cycle IP55 added one-scan readability guardrail contract for smoothing-pressure cluster (`STPR/STPRA/STPRV`) via new eval token path for operator scan continuity.
+- 2026-04-03 23:46 KST — No map/progression mutation this cycle; aligned world-facing operator playbook wording to emphasize callout sequencing for cadence triage readability. Follow-up: pair future world-facing decode helpers with explicit order cues.

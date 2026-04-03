@@ -1,5 +1,10 @@
 # QA Team Log
 
+## 2026-04-03 23:35 KST
+- Extended mixed-window fixture parity/order assertions: STPRLEN row is now anchored to STPRV legend in cross-fixture matrix with explicit count-parity check.
+- All 4 fixture cases (balanced_tie, ready_mix, prior_window_trend_up, prior_window_trend_down) verified.
+- Regression + live guardrail pass confirmed.
+
 ## 2026-04-03 21:40 KST
 - QA/systems follow-up injected: add parity+adjacency guards for upcoming smoothing-pressure markdown row family (`...STPR`) anchored after `...STPAM` in summary/token sections.
 
@@ -5597,3 +5602,4 @@
 
 ## 2026-04-03 22:58 KST
 - Cycle IP55 regression suite now asserts `STPRLEN` row presence/parity and strict adjacency after `STPRV legend` across summary/token sections.
+- 2026-04-03 23:46 KST — Updated regression expectations for smoothing-pressure legend helper string; re-ran py_compile, regression suite, and guardrail generator pass. Follow-up: protect string-literal parity between generator and regression tests.

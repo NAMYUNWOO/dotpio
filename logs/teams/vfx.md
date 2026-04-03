@@ -581,3 +581,4 @@
 ## 2026-04-03 21:52 KST
 - VFX lane readability pass shipped: added smoothing-pressure recommendation token `TSDCAD24TRICOVSTCMSVHCSTPR` plus compact decode/path row (`LOCK/WATCH`, `STP+STPA+STPAM->STPR`).
 - Decision: preserve <=72-width decode copy and keep token adjacent to `...STPAM` for stable scan rhythm.
+- 2026-04-03 23:46 KST — VFX token behavior unchanged (`STPRV`, `STPRLENCUE`); validated helper text now references VFX cue step in operator order without altering cue mappings. Follow-up: retain cue alias compactness under LIM72.

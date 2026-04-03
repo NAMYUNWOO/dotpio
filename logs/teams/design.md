@@ -3683,3 +3683,4 @@
 
 ## 2026-04-03 22:58 KST
 - Cycle IP55 added design-facing DOS-width proof token for smoothing-pressure decode chain: `TSDCAD24TRICOVSTCMSVHCSTPRLEN:B45|C43|LIM72|PREF:COMPACT|PASS`.
+- 2026-04-03 23:46 KST — Completed injected Design/World task: one-line operator playbook helper now ties `STPR + STPRV + STPRLEN` into explicit callout order text (`STPR->STPRV->STPRLEN callout order`). Follow-up: maintain one-scan helper phrasing in future additions.

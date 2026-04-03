@@ -756,7 +756,7 @@ def run_fixture_case(
     ), f"{name}: markdown output must include cadence-triad vfx-cue smoothing-pressure recommendation row"
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure recommendation decode + path (design/world): "
-        "**TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STPR+STPRA->operator action**"
+        "**TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STPR->STPRV->STPRLEN callout order**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad smoothing-pressure recommendation decode+path row"
     assert (
@@ -789,6 +789,16 @@ def run_fixture_case(
         "**TSDCAD24TRICOVSTCMSVHCSTPRLEN:B45|C43|LIM72|PREF:COMPACT|PASS**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad smoothing-pressure decode dos-width eval row"
+    assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure decode operator cue (combat/vfx): "
+        "**TSDCAD24TRICOVSTCMSVHCSTPRLENCUE:"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad smoothing-pressure decode operator cue row"
+    assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure decode operator cue decode (design/world): "
+        "**TSDCAD24TRICOVSTCMSVHCSTPRLENCUE legend (LOCK=GLINT-HOLD, WATCH=PULSE-PROBE)**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad smoothing-pressure decode operator cue decode row"
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue dual-hysteresis decode helper (design/world): "
         "**TSDCAD24TRICOVSTCMSVHD:VH=STEADY|SWING, VHA=S|W**"
@@ -864,7 +874,7 @@ def run_fixture_case(
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPAM:H")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_legend_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPAM legend (Hn=chars left under LIM72)**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPR:")
-    cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_legend_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STPR+STPRA->operator action**")
+    cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_legend_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STPR->STPRV->STPRLEN callout order**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_alias_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRA:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_alias_legend_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRA legend (L=LOCK, W=WATCH)**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRV:")
@@ -1260,7 +1270,7 @@ def run_fixture_case(
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_legend_indexes = [
         i
         for i, line in enumerate(cadence_24h_lines)
-        if "**TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STPR+STPRA->operator action**" in line
+        if "**TSDCAD24TRICOVSTCMSVHCSTPR legend (LOCK=stable cadence, WATCH=volatility watch) | STPR->STPRV->STPRLEN callout order**" in line
     ]
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_alias_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHCSTPRA:" in line
@@ -3983,6 +3993,8 @@ def run_fixture_case(
 
     return {
         "familyTrend": family_trend,
+        "stprvLegendRowCount": cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_legend_rows,
+        "stprlenRowCount": cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_eval_rows,
         "tsdpmfxuctsbtRowCount": fx_urgency_confidence_trend_momentum_band_trend_row_count,
         "tsdpmfxuctsbtaRowCount": fx_urgency_confidence_trend_momentum_band_trend_alias_row_count,
         "tsdpmfxuctsbtcRowCount": fx_urgency_confidence_trend_momentum_band_trend_confidence_row_count,
@@ -4039,7 +4051,7 @@ def main() -> int:
         tmp_path = Path(tmp)
         observed_family_trends: list[str] = []
         mixed_window_tsdpmfx_pulse_parity: list[
-            tuple[str, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int]
+            tuple[str, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int]
         ] = []
 
         balanced_tie_result = run_fixture_case(
@@ -4100,6 +4112,8 @@ def main() -> int:
                 int(balanced_tie_result["tsdpmfxvwcritspmbsapfpablRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritsbRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritsbaRowCount"]),
+                int(balanced_tie_result["stprvLegendRowCount"]),
+                int(balanced_tie_result["stprlenRowCount"]),
             )
         )
 
@@ -4162,6 +4176,8 @@ def main() -> int:
                 int(ready_mix_result["tsdpmfxvwcritspmbsapfpablRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritsbRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritsbaRowCount"]),
+                int(ready_mix_result["stprvLegendRowCount"]),
+                int(ready_mix_result["stprlenRowCount"]),
             )
         )
 
@@ -4355,6 +4371,8 @@ def main() -> int:
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbsapfpablRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritsbRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritsbaRowCount"]),
+                int(prior_window_trend_up_result["stprvLegendRowCount"]),
+                int(prior_window_trend_up_result["stprlenRowCount"]),
             )
         )
         prior_window_trend_down_result = run_fixture_case(
@@ -4416,6 +4434,8 @@ def main() -> int:
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbsapfpablRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritsbRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritsbaRowCount"]),
+                int(prior_window_trend_down_result["stprvLegendRowCount"]),
+                int(prior_window_trend_down_result["stprlenRowCount"]),
             )
         )
 
@@ -4469,10 +4489,24 @@ def main() -> int:
                 tsdpmfxvwcritspmbsapfpabl_count,
                 tsdpmfxvwcritsb_count,
                 tsdpmfxvwcritsba_count,
+                _stprv_legend_count,
+                _stprlen_count,
             )
             in mixed_window_tsdpmfx_pulse_parity
         ), (
             "mixed-window fixture matrix must keep TSDPMFXUCTSBT/TSDPMFXUCTSBTA/TSDPMFXUCTSBTC/TSDPMFXV/TSDPMFXVA/TSDPMFXVWCR/TSDPMFXVWCRA/TSDPMFXVWCRI/TSDPMFXVWCRIA/TSDPMFXVWCRIT/TSDPMFXVWCRITA/TSDPMFXVWCRITS/TSDPMFXVWCRITSP/TSDPMFXVWCRITSPA/TSDPMFXVWCRITSPMB/TSDPMFXVWCRITSPMBS/TSDPMFXVWCRITSPMBSAPN/TSDPMFXVWCRITSPMBSAPF/TSDPMFXVWCRITSPMBSAPFP/TSDPMFXVWCRITSPMBSAPFPAB/TSDPMFXVWCRITSPMBSAPFPABL/TSDPMFXVWCRITSB/TSDPMFXVWCRITSBA row-count parity across summary + token sections"
+        )
+        assert all(
+            stprv_legend_count == stprlen_count
+            for (
+                _,
+                *_rest,
+                stprv_legend_count,
+                stprlen_count,
+            )
+            in mixed_window_tsdpmfx_pulse_parity
+        ), (
+            "mixed-window fixture matrix must keep STPRLEN row count anchored to STPRV legend row count across summary + token sections"
         )
 
     cadence_24h_confidence_delta_ramp_rows = {

@@ -1,3 +1,8 @@
+## 2026-04-03 23:35 KST
+- Completed Systems/Ops + QA task: extended mixed-window fixture parity/order assertions so STPRLEN row count stays anchored to STPRV legend across all 4 fixture cases in cross-fixture matrix.
+- Durable decision: STPRLEN-after-STPRV-legend ordering is now enforced both within each fixture (existing line 1713) and across the mixed-window parity matrix (new assertion).
+- Verification: py_compile + regression + live guardrail. Queue: ACTION_ITEMS unchecked=0, TASKS unchecked=1 (Design/World playbook helper), POST_RC_BACKLOG unchecked=1 (same).
+
 ## 2026-04-03 19:26 KST
 
 ## 2026-04-03 21:40 KST
@@ -5433,3 +5438,5 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep `STPR` recommendation semantics static; harden readability/ordering contracts first, then inject player-facing cue experiments.
 - Verification bundle passed (`py_compile`, `scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 
+
+- 2026-04-03 23:46 KST — Durable decision: smoothing-pressure operator helper copy standard is now `STPR->STPRV->STPRLEN callout order` (recommendation, visual severity, DOS-width decode). Keep regression constants exactly mirrored to avoid drift.

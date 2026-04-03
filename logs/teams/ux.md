@@ -3822,3 +3822,4 @@
 
 ## 2026-04-03 22:58 KST
 - Cycle IP55 readability pass: pressure recommendation cluster now exposes compact-vs-baseline width delta explicitly for one-glance operator confidence.
+- 2026-04-03 23:46 KST — UX copy polish only: operator helper now communicates fixed triad callout sequence for scan speed; no additional HUD/token clutter introduced. Follow-up: monitor readability drift metrics for helper-token families.

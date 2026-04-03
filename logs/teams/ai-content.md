@@ -3662,3 +3662,4 @@
 
 ## 2026-04-03 22:58 KST
 - Cycle IP55 decision: keep smoothing-pressure recommendation model unchanged (`LOCK|WATCH` mapping), and scope this slice to readability verification only (no runtime coupling).
+- 2026-04-03 23:46 KST — No generation-policy logic changes; validated that copy-only playbook helper update preserves offline recommendation semantics. Follow-up: consider adding narrative microcopy for callout transitions if readability drops.
