@@ -3659,3 +3659,8 @@
 
 ## 2026-04-03 21:07 KST — Cycle IP52 sync
 - Added compact headroom decode row for smoothing alias cluster (`Hn=chars left under LIM72`) to keep scanability explicit.
+
+## 2026-04-03 21:21 KST
+- Closed injected Systems/QA backlog item: regression now enforces `TSDCAD24TRICOVSTCMSVHCSTPAM` headroom domain in markdown rows (`H<n>` must parse and stay within `0..72`) across summary + token-coverage sections.
+- Durable decision: keep headroom domain lock fixture-level and row-driven (parse rendered token), so DOS-width guardrails cannot silently drift outside bounded range.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).

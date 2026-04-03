@@ -5397,3 +5397,9 @@ Compact decision memory for AI context efficiency.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Backlog injected (IP52): Systems/QA domain guard for headroom range + AI-content/design offline smoothing pressure recommendation.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2.
+
+## 2026-04-03 21:21 KST
+- Closed highest-priority unchecked POST_RC item (Systems/QA): fixture now asserts `TSDCAD24TRICOVSTCMSVHCSTPAM` headroom domain is always bounded (`0..72`) by parsing rendered `H<n>` rows in both summary + token-coverage sections.
+- Durable decision: enforce headroom safety at rendered-row level (not only payload schema) to keep DOS-width slack contract auditable where operators read it.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: AI-content/Design smoothing-policy pressure recommendation `LOCK|WATCH`).

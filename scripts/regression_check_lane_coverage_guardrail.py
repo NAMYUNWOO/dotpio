@@ -1302,6 +1302,19 @@ def run_fixture_case(
     assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_legend_indexes) == len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_indexes), (
         f"{name}: TSDCAD24TRICOVSTCMSVHCSTPAM legend row count must match TSDCAD24TRICOVSTCMSVHCSTPAM row count across sections"
     )
+    cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_lines = [
+        cadence_24h_lines[i]
+        for i in cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_indexes
+    ]
+    for headroom_line in cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_lines:
+        headroom_match = re.search(r"\*\*TSDCAD24TRICOVSTCMSVHCSTPAM:H(?P<headroom>-?\d+)\*\*", headroom_line)
+        assert headroom_match, (
+            f"{name}: TSDCAD24TRICOVSTCMSVHCSTPAM row must expose numeric H<n> payload in both summary/token sections"
+        )
+        headroom_value = int(headroom_match.group("headroom"))
+        assert 0 <= headroom_value <= 72, (
+            f"{name}: fixture-level domain assertion requires TSDCAD24TRICOVSTCMSVHCSTPAM headroom to stay within [0, LIM72] across summary/token sections"
+        )
     assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_eval_indexes) == len(
         cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_indexes
     ), (
