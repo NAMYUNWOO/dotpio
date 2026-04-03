@@ -3593,3 +3593,7 @@
 ## 2026-04-04 03:44 KST
 - No world-content mutation; cadence triad remained in recovery state pending next design/world delivery.
 - 2026-04-04 04:10 KST: Cycle IP61/IP62 alias pass: shipped TRIGAPN compact family alias token (TSDCAD24TRIGAPNA) + dos-width eval row (TSDCAD24TRIGAPNALEN); regression/order contracts updated and passing.
+
+- 2026-04-04 04:22 KST — Cycle IP63: Preserved compact cadence row ordering for operator scan readability while inserting `TRIGAPNV` decode before `TRIGAPN legend` in summary/token sections.
+
+- 2026-04-04 04:26 KST — Cycle IP64: Maintained cadence cluster readability with new momentum tag row inserted in deterministic transition chain without wrapping beyond DOS constraints.

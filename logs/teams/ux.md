@@ -3848,3 +3848,7 @@
 ## 2026-04-04 03:44 KST
 - UX formatting unchanged in this slice; readability impact is indirect via stricter regression parity around existing narrative decode rows.
 - 2026-04-04 04:10 KST: Cycle IP61/IP62 alias pass: shipped TRIGAPN compact family alias token (TSDCAD24TRIGAPNA) + dos-width eval row (TSDCAD24TRIGAPNALEN); regression/order contracts updated and passing.
+
+- 2026-04-04 04:22 KST — Cycle IP63: Added explicit decode row for `TRIGAPNV` to reduce operator ambiguity between microcopy urgency and VFX pressure cues.
+
+- 2026-04-04 04:26 KST — Cycle IP64: Added operator-facing momentum decode copy for `TRIGAPNR` to reduce ambiguity in WATCH/RECOVER transition handoffs.

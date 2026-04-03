@@ -587,3 +587,5 @@
 
 - 2026-04-04 00:52 KST — Cycle IP57: VFX lane audit aligned with combat cadence gap; signature token now exposes missing-bucket shape for faster pulse-priority triage in downstream reports.
 - 2026-04-04 03:44 KST — No VFX mapping change in IP61 systems/qa slice; queued IP62 token idea (`TRIGAPNV`) to restore combat/vfx cadence bucket coverage.
+
+- 2026-04-04 04:22 KST — Cycle IP63: Shipped compact `TRIGAPNV` cue mapping + legend row; cue ladder now deterministic and DOS-width safe in cadence guardrail markdown.

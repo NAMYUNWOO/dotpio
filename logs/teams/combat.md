@@ -3593,3 +3593,7 @@
 ## 2026-04-04 03:44 KST
 - Combat cue semantics unchanged this cycle; existing `LOCKED/WATCH/RECOVER` transition narratives remain stable.
 - 2026-04-04 04:10 KST: Cycle IP61/IP62 alias pass: shipped TRIGAPN compact family alias token (TSDCAD24TRIGAPNA) + dos-width eval row (TSDCAD24TRIGAPNALEN); regression/order contracts updated and passing.
+
+- 2026-04-04 04:22 KST — Cycle IP63: Added combat-readable transition VFX cue token `TSDCAD24TRIGAPNV` (`stable=GLINT`, `surfaced=PULSE`, `widened=BLAST`, `sealed=COOL`) to align TRIGAP transition families with cue severity.
+
+- 2026-04-04 04:26 KST — Cycle IP64: Transition stack now exposes explicit momentum tag (`SURGE|EASE|HOLD`) alongside VFX cue row to clarify escalation vs recovery direction.

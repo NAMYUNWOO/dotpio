@@ -5137,3 +5137,7 @@
 ## 2026-04-04 03:44 KST
 - Added explicit parity assertion binding `TSDCAD24TRIGAPN legend` row count to `TSDCAD24TRIGAPN` row count across summary/token sections.
 - 2026-04-04 04:10 KST: Cycle IP61/IP62 alias pass: shipped TRIGAPN compact family alias token (TSDCAD24TRIGAPNA) + dos-width eval row (TSDCAD24TRIGAPNALEN); regression/order contracts updated and passing.
+
+- 2026-04-04 04:22 KST — Cycle IP63: Added cadence payload keys `cadence24hRecoveryTriadGapCueTransitionMicrocopyAlternate` + `cadence24hRecoveryTriadGapCueTransitionVfxCue` and markdown tokens `TSDCAD24TRIGAPNX`/`TSDCAD24TRIGAPNV` for offline transition variant + VFX mapping.
+
+- 2026-04-04 04:26 KST — Cycle IP64: Game Director experiment selected from 3-idea slate; added payload key `cadence24hRecoveryTriadGapCueTransitionRecoveryMomentum` (`SURGE|EASE|HOLD`) and synced regression order contracts.

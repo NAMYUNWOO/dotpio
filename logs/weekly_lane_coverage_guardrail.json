@@ -76,8 +76,11 @@
   "cadence24hRecoveryTriadGapMissingBucketCountCue": "RECOVER",
   "cadence24hRecoveryTriadGapActionOrderHelper": "TRIGAP->TRIGAPM->TRIGAPC; LOCKED=hold, WATCH=patch1, RECOVER=patch2+",
   "cadence24hRecoveryTriadGapCueTransitionMicrocopy": "multi-gap persists; prioritize recovery queue",
+  "cadence24hRecoveryTriadGapCueTransitionMicrocopyAlternate": "multi-gap persists; prioritize recovery queue",
+  "cadence24hRecoveryTriadGapCueTransitionRecoveryMomentum": "HOLD",
   "cadence24hRecoveryTriadGapCueTransitionFamily": "STABLE",
   "cadence24hRecoveryTriadGapCueTransitionFamilyAlias": "S",
+  "cadence24hRecoveryTriadGapCueTransitionVfxCue": "GLINT",
   "cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperBaseline": "STABLE=hold, SURFACED=patch1, WIDENED=patch2+, SEALED=resume",
   "cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperCompact": "S=hold,U=patch1,W=patch2+,L=resume",
   "cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperEvaluation": {

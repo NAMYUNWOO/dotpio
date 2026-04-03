@@ -5636,3 +5636,7 @@
 ## 2026-04-04 03:44 KST
 - Added fixture-level guard in regression suite so sparse mixed-window outputs fail if `TRIGAPN legend` diverges from `TRIGAPN` row count.
 - 2026-04-04 04:10 KST: Cycle IP61/IP62 alias pass: shipped TRIGAPN compact family alias token (TSDCAD24TRIGAPNA) + dos-width eval row (TSDCAD24TRIGAPNALEN); regression/order contracts updated and passing.
+
+- 2026-04-04 04:22 KST — Cycle IP63: Extended regression parity/order fixtures for `TRIGAPNX`/`TRIGAPNV` rows and ordering (`TRIGAPN -> TRIGAPNX -> TRIGAPNV -> TRIGAPNA -> TRIGAPNV legend -> TRIGAPN legend`), verification bundle PASS.
+
+- 2026-04-04 04:26 KST — Cycle IP64: Regression suite extended for `TRIGAPNR` presence/parity/order; full guardrail verification bundle PASS.

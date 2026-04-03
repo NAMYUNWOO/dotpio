@@ -21,7 +21,12 @@
 - cadence 24h triad gap urgency cue (combat/vfx): **TSDCAD24TRIGAPC:RECOVER**
 - cadence 24h triad gap operator helper (design/world): **TSDCAD24TRIGAPH:TRIGAP->TRIGAPM->TRIGAPC; LOCKED=hold, WATCH=patch1, RECOVER=patch2+**
 - cadence 24h triad gap urgency-cue transition narrative (ai-content/combat): **TSDCAD24TRIGAPN:multi-gap persists; prioritize recovery queue**
+- cadence 24h triad gap transition vfx cue (combat/vfx): **TSDCAD24TRIGAPNV:GLINT**
+- cadence 24h triad gap urgency-cue transition alternate narrative (ai-content/combat): **TSDCAD24TRIGAPNX:multi-gap persists; prioritize recovery queue**
+- cadence 24h triad gap recovery momentum tag (ai-content/combat): **TSDCAD24TRIGAPNR:HOLD**
 - cadence 24h triad gap transition family compact alias (design/world): **TSDCAD24TRIGAPNA:S**
+- cadence 24h triad gap recovery momentum decode (ai-content/combat): **TSDCAD24TRIGAPNR legend (SURGE=more gaps, EASE=closing gaps, HOLD=steady pressure)**
+- cadence 24h triad gap transition vfx cue decode (combat/vfx): **TSDCAD24TRIGAPNV legend (stable=GLINT, surfaced=PULSE, widened=BLAST, sealed=COOL)**
 - cadence 24h triad gap urgency-cue transition narrative decode (design/world): **TSDCAD24TRIGAPN legend (stable=hold cadence, surfaced=patch1, widened=patch2+, sealed=resume lock)**
 - cadence 24h triad gap transition family compact alias dos-width eval (design/world): **TSDCAD24TRIGAPNALEN:B60|C34|LIM72|PREF:COMPACT|PASS**
 - cadence 24h triad gap urgency cue decode (combat/vfx): **TSDCAD24TRIGAPC legend (LOCKED=gap0, WATCH=gap1, RECOVER=gap2+)**
