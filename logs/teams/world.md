@@ -3535,3 +3535,6 @@
 
 ## 2026-04-03 19:26 KST
 - World lane received no map/progression mutation this cycle; validated scope stays in offline cadence-guardrail observability rails.
+
+## [2026-04-03 19:49 KST] World — Cadence docs continuity note
+- No map/progression mutation this cycle; synced cadence documentation lane with new smoothing-policy compact alias row for cross-lane readability consistency.

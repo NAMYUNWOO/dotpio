@@ -3534,3 +3534,6 @@
 ## 2026-04-03 19:26 KST
 - Combat lane reviewed volatility policy output for drift-trend aliasing; validated no gameplay/runtime behavior mutation (telemetry/readability layer only).
 - Follow-up: evaluate readability impact versus existing VHCST/VHCSTA pair in next injected backlog cycle.
+
+## [2026-04-03 19:49 KST] Combat — Offline policy note reconciliation
+- Completed stale injected combat/ai-content smoothing policy task by shipping compact alias companion token (`SF|RD`) without runtime coupling.

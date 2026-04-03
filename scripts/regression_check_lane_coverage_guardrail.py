@@ -595,6 +595,11 @@ def run_fixture_case(
             rows
         )
     )
+    expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_alias = (
+        load_guardrail_module().resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_alias(
+            expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy
+        )
+    )
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue (combat/vfx): "
         f"**TSDCAD24TRICOVSTCMSV:{expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue}**"
@@ -645,6 +650,11 @@ def run_fixture_case(
         f"**TSDCAD24TRICOVSTCMSVHCSTP:{expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy}**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad vfx-cue drift-trend alias smoothing policy row"
+    assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing policy compact alias (systems/qa): "
+        f"**TSDCAD24TRICOVSTCMSVHCSTPA:{expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_alias}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad vfx-cue drift-trend alias smoothing policy compact alias row"
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score ladder decode (design/world): "
         "**TSDCAD24TRICOVSTCMS legend (80=surge confidence, 50=hold confidence, 20=cool confidence)**"
@@ -705,6 +715,11 @@ def run_fixture_case(
         "**TSDCAD24TRICOVSTCMSVHCSTP legend (STICKY_FLAT=hold F on churn spike, RAW_DELTA=use raw delta)**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad vfx-cue drift-trend alias smoothing policy decode row"
+    assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing policy compact decode (design/world): "
+        "**TSDCAD24TRICOVSTCMSVHCSTPA legend (SF=STICKY_FLAT, RD=RAW_DELTA)**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad vfx-cue drift-trend alias smoothing policy compact decode row"
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue dual-hysteresis decode helper (design/world): "
         "**TSDCAD24TRICOVSTCMSVHD:VH=STEADY|SWING, VHA=S|W**"

@@ -1446,6 +1446,16 @@ def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum
     volatility_span = max(drift_scores) - min(drift_scores)
     return "STICKY_FLAT" if volatility_span >= volatility_threshold else "RAW_DELTA"
 
+
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_alias(
+    smoothing_policy: str,
+) -> str:
+    mapping = {
+        "STICKY_FLAT": "SF",
+        "RAW_DELTA": "RD",
+    }
+    return mapping.get(smoothing_policy, "RD")
+
 def resolve_cadence_24h_legend_baseline() -> str:
     return "O=OK, W=WATCH, A=ALERT"
 
@@ -2641,6 +2651,11 @@ def build_report(
             rows
         )
     )
+    cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_alias = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_alias(
+            cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy
+        )
+    )
     cadence_24h_legend_evaluation = resolve_cadence_24h_legend_evaluation()
     cadence_24h_recovery_triad_bucket_hit_vector_done_flag_decode_evaluation = (
         resolve_cadence_24h_recovery_triad_bucket_hit_vector_done_flag_decode_evaluation()
@@ -2701,6 +2716,7 @@ def build_report(
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrend": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAlias": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicy": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy,
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyAlias": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_alias,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAlias": resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias(
             cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band
         ),
@@ -2968,6 +2984,8 @@ def to_markdown(
         f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend pair decode helper dos-width eval (design/world): **TSDCAD24TRICOVSTCMSVHCPAIRLEN:B{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendPairDecodeHelperEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendPairDecodeHelperEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendPairDecodeHelperEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendPairDecodeHelperEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendPairDecodeHelperEvaluation', {}).get('status', 'PASS')}**",
         f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing policy note (ai-content/combat): **TSDCAD24TRICOVSTCMSVHCSTP:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicy', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy([]))}**",
         "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing policy decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTP legend (STICKY_FLAT=hold F on churn spike, RAW_DELTA=use raw delta)**",
+        f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing policy compact alias (systems/qa): **TSDCAD24TRICOVSTCMSVHCSTPA:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyAlias', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_alias(resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy([])))}**",
+        "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing policy compact decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTPA legend (SF=STICKY_FLAT, RD=RAW_DELTA)**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",
             "- trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**",

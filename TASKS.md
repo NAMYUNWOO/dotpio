@@ -2,6 +2,15 @@
 
 Last updated: 2026-04-03 18:22 KST
 
+## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP50)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS were fully checked; POST_RC had one stale unchecked injected item (`Combat/AI-content smoothing policy`) so this cycle reconciled it with a minimal readability slice before new ideation.
+- Candidate ideas generated:
+  - Low-risk Systems/QA + AI-content: add compact smoothing-policy alias token (`TSDCAD24TRICOVSTCMSVHCSTPA:SF|RD`) for one-scan readability.
+  - Mid-risk Design/World: add smoothing-policy pair decode helper (`VHCSTP` ↔ `VHCSTPA`) with strict adjacency contract.
+  - High-risk Combat/AI-content: adaptive smoothing-policy threshold from churn-window volatility spread.
+- Selected experiment: Idea 1 (low-risk Systems/QA + AI-content) minimal vertical slice.
+- [x] Systems/QA + AI-content Team: Add compact smoothing-policy alias token `TSDCAD24TRICOVSTCMSVHCSTPA` (`STICKY_FLAT->SF`, `RAW_DELTA->RD`) with markdown decode row and regression contract assertions. *(lifecycle: [ ] -> [~] started: 2026-04-03 19:44 KST -> [x] completed: 2026-04-03 19:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
 ## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP49)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked, so immediate Game Director cycle executed.
 - Candidate ideas generated:

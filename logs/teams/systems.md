@@ -5054,3 +5054,7 @@
 ## 2026-04-03 19:26 KST
 - Integrated offline smoothing policy token `TSDCAD24TRICOVSTCMSVHCSTP` into guardrail report payload/markdown (`STICKY_FLAT|RAW_DELTA`) derived from recent drift-score volatility span.
 - Decision: keep policy deterministic and offline-only (no runtime coupling); threshold uses volatility-span guard to preserve reversibility.
+
+## [2026-04-03 19:49 KST] Systems/QA — Smoothing policy compact alias
+- Added compact alias token wiring for drift-trend smoothing policy: `TSDCAD24TRICOVSTCMSVHCSTPA` (`SF|RD`) in guardrail payload/markdown.
+- Kept mapping deterministic (`STICKY_FLAT->SF`, `RAW_DELTA->RD`) for reversible offline readability.

@@ -3646,3 +3646,6 @@
 ## 2026-04-03 19:26 KST
 - Added decode copy for `TSDCAD24TRICOVSTCMSVHCSTP` to preserve one-scan operator understanding (`STICKY_FLAT` vs `RAW_DELTA`).
 - Copy kept within DOS-oriented compact style and aligned with adjacent drift-trend token language.
+
+## [2026-04-03 19:49 KST] Design — Compact decode consistency
+- Added decode microcopy row `TSDCAD24TRICOVSTCMSVHCSTPA legend (SF=STICKY_FLAT, RD=RAW_DELTA)` to preserve one-scan reversibility.

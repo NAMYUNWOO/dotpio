@@ -3793,3 +3793,6 @@
 ## 2026-04-03 19:26 KST
 - UX pass confirms smoothing policy note appears as concise single-row status + legend pair in markdown output.
 - No UI interaction changes; this remains observability copy for cadence audits.
+
+## [2026-04-03 19:49 KST] UX — Dense token readability update
+- Introduced compact smoothing-policy alias token to reduce scan friction in dense cadence sections while retaining full policy text row.

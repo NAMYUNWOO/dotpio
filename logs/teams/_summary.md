@@ -5373,3 +5373,9 @@ Compact decision memory for AI context efficiency.
 - 2026-04-03 17:58 KST — Cycle IP48B shipped `TSDCAD24TRICOVSTCMSVHCSTA` (drift-trend alias U|F|D) with markdown decode + regression presence checks; queued parity/order + smoothing follow-ups in POST_RC_BACKLOG.
 
 - 2026-04-03 18:52 KST: Shipped pair-link decode helper `TSDCAD24TRICOVSTCMSVHCPAIR` + `...PAIRLEN` for `VHCST`↔`VHCSTA`; regression now locks helper presence + adjacency before dual-helper rows.
+
+## 2026-04-03 19:49 KST
+- Closed stale POST_RC unchecked task by shipping compact smoothing-policy alias row `TSDCAD24TRICOVSTCMSVHCSTPA:SF|RD` + decode legend.
+- Durable decision: retain dual representation (`VHCSTP` semantic policy + `VHCSTPA` compact alias) to balance auditability and DOS-width scan speed.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.

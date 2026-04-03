@@ -5558,3 +5558,7 @@
 ## 2026-04-03 19:26 KST
 - Regression suite extended to assert presence/value of `TSDCAD24TRICOVSTCMSVHCSTP` row + decode legend.
 - Verification green: py_compile + regression_check_lane_coverage_guardrail + guardrail artifact regeneration.
+
+## [2026-04-03 19:49 KST] QA — Regression contract extension for smoothing alias
+- Extended regression checks to assert presence of `TSDCAD24TRICOVSTCMSVHCSTPA` row and compact decode legend.
+- Validation bundle passed: py_compile + regression + guardrail artifact regeneration.

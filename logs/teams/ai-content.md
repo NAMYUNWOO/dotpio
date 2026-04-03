@@ -3627,3 +3627,7 @@
 ## 2026-04-03 19:26 KST
 - Closed injected AI-content/Combat prototype: trend-alias smoothing policy note now emitted as `TSDCAD24TRICOVSTCMSVHCSTP`.
 - Policy semantics: `STICKY_FLAT` on high volatility windows, otherwise `RAW_DELTA`; intended as operator guidance only.
+
+## [2026-04-03 19:49 KST] AI-content — Drift smoothing readability pass
+- Compared readability of full policy token (`TSDCAD24TRICOVSTCMSVHCSTP`) vs compact alias (`...STPA`).
+- Decision: keep both (full semantic note + compact scan token) for operator-friendly dual-view.
