@@ -5068,3 +5068,6 @@
 - Completed injected POST_RC item by extending fixture-level parity/order assertions for `TSDCAD24TRICOVSTCMSVHCSTPA` + `...STPALEN` in `scripts/regression_check_lane_coverage_guardrail.py`.
 - Added row-count parity contracts (`STPA`/`STPALEN` each mirror `TSDCAD24TRI`; explicit `STPALEN`↔`STPA` mirror assertion).
 - Added deterministic ordering lock so `...STPALEN` remains immediately after compact decode row in summary/token sections.
+
+## 2026-04-03 21:07 KST — Cycle IP52 sync
+- Added `TSDCAD24TRICOVSTCMSVHCSTPAM` parity/order regression locks; queued range-domain follow-up.

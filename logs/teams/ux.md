@@ -3803,3 +3803,6 @@
 ## 2026-04-03 20:56 KST — Cycle IP51 sync
 - UX readability invariant reinforced by regression: compact smoothing decode and eval row adjacency now explicit.
 - No visible UI copy churn beyond regenerated guardrail markdown artifact.
+
+## 2026-04-03 21:07 KST — Cycle IP52 sync
+- Introduced one-scan compact headroom token in digest row flow; no runtime UI coupling.

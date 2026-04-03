@@ -3544,3 +3544,6 @@
 ## 2026-04-03 20:56 KST — Cycle IP51 sync
 - No combat runtime tuning changed.
 - Verified cadence drift smoothing compact rows remain telemetry/readability-only under strengthened regression contracts.
+
+## 2026-04-03 21:07 KST — Cycle IP52 sync
+- Combat runtime unaffected; reviewed telemetry-only headroom row insertion as safe.

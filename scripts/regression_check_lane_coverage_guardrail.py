@@ -797,6 +797,8 @@ def run_fixture_case(
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTA:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPA:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_eval_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPALEN:")
+    cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPAM:H")
+    cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_legend_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPAM legend (Hn=chars left under LIM72)**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHD:")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_eval_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHDLEN:B24|C24|LIM72|PREF:COMPACT|PASS**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_dual_helper_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCD:")
@@ -925,6 +927,15 @@ def run_fixture_case(
     )
     assert cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_eval_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRICOVSTCMSVHCSTPALEN row count must match TSDCAD24TRI row count across sections"
+    )
+    assert cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_rows == cadence_24h_triad_rows, (
+        f"{name}: TSDCAD24TRICOVSTCMSVHCSTPAM row count must match TSDCAD24TRI row count across sections"
+    )
+    assert (
+        cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_legend_rows
+        == cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_rows
+    ), (
+        f"{name}: TSDCAD24TRICOVSTCMSVHCSTPAM legend row count must match TSDCAD24TRICOVSTCMSVHCSTPAM row count across sections"
     )
     assert (
         cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_eval_rows
@@ -1133,6 +1144,12 @@ def run_fixture_case(
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_eval_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHCSTPALEN:" in line
     ]
+    cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHCSTPAM:H" in line
+    ]
+    cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_legend_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHCSTPAM legend (Hn=chars left under LIM72)**" in line
+    ]
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_dual_helper_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHD:" in line
     ]
@@ -1278,6 +1295,12 @@ def run_fixture_case(
     )
     assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_eval_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: TSDCAD24TRICOVSTCMSVHCSTPALEN row count must match TSDCAD24TRI row count across sections"
+    )
+    assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_indexes) == len(cadence_24h_triad_indexes), (
+        f"{name}: TSDCAD24TRICOVSTCMSVHCSTPAM row count must match TSDCAD24TRI row count across sections"
+    )
+    assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_legend_indexes) == len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_indexes), (
+        f"{name}: TSDCAD24TRICOVSTCMSVHCSTPAM legend row count must match TSDCAD24TRICOVSTCMSVHCSTPAM row count across sections"
     )
     assert len(cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_eval_indexes) == len(
         cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_indexes
@@ -1500,6 +1523,12 @@ def run_fixture_case(
         )
         assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_eval_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_indexes[cluster_i] + 2, (
             f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCSTPALEN immediately after compact decode row in both sections"
+        )
+        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_eval_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCSTPAM immediately after TSDCAD24TRICOVSTCMSVHCSTPALEN in both sections"
+        )
+        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_legend_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_headroom_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCSTPAM legend immediately after TSDCAD24TRICOVSTCMSVHCSTPAM in both sections"
         )
 
         assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_pair_decode_helper_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_legend_indexes[cluster_i] + 1, (

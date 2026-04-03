@@ -1,5 +1,19 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP52)
+- Coverage check (last 10 completed): systems=10, world=0, ai-content=0, combat=0, design=0, ux=0, qa=10, vfx=0.
+- Forced-lane decision: systems/qa exceeded 40%, so this cycle was forced toward underrepresented player-facing lanes (design/ux).
+- Candidate ideas generated:
+  - Low-risk UX/Design + Systems/QA: add compact smoothing headroom token `TSDCAD24TRICOVSTCMSVHCSTPAM:H<n>` + decode row for one-scan DOS-width slack visibility.
+  - Mid-risk Systems/Combat + Design: add smoothing-policy pressure state alias from `STP/STPA` churn windows (`LOCK|WATCH`).
+  - High-risk AI-content novelty: prototype adaptive smoothing-policy auto-switch recommendation from drift volatility history.
+- Selected experiment: Idea 1 (low-risk UX/Design + Systems/QA) minimal vertical slice.
+- [x] UX/Design + Systems/QA Team: Added `TSDCAD24TRICOVSTCMSVHCSTPAM` + decode row and regression parity/order locks (`...STPALEN -> ...STPAM -> ...STPAM legend`) across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 21:04 KST -> [x] completed: 2026-04-03 21:07 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP52)
+- [ ] Systems/QA Team (injected): Add fixture-level domain assertion that `TSDCAD24TRICOVSTCMSVHCSTPAM` headroom value never exceeds `LIM72` and never drops below 0 in both summary/token sections.
+- [ ] AI-content/Design Team (injected): Prototype offline smoothing-policy pressure state recommendation (`LOCK|WATCH`) using `STP` + `STPA` + `STPAM` signals (no runtime coupling).
+
 ## Next Up (Game Director Injection — Cycle IP51)
 - [x] Systems/QA Team (injected): Extend fixture-level parity/order assertions so `TSDCAD24TRICOVSTCMSVHCSTPALEN` row count mirrors `TSDCAD24TRICOVSTCMSVHCSTPA` and remains immediately after the compact decode row in both summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 20:49 KST -> [x] completed: 2026-04-03 20:56 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 

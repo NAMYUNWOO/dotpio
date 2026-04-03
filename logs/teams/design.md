@@ -3656,3 +3656,6 @@
 ## 2026-04-03 20:56 KST — Cycle IP51 sync
 - Confirmed compact decode readability path preserved: compact decode row remains direct predecessor of `...STPALEN`.
 - No copy changes this cycle; contract-only hardening.
+
+## 2026-04-03 21:07 KST — Cycle IP52 sync
+- Added compact headroom decode row for smoothing alias cluster (`Hn=chars left under LIM72`) to keep scanability explicit.
