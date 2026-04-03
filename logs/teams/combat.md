@@ -3614,3 +3614,7 @@
 ## 2026-04-04 07:23 KST — Combat/VFX token contract maintenance
 - Preserved transition cluster semantics (`NVI -> NVIA -> NVIXA`) and verified no drift in cue ordering assertions.
 - No combat tuning value changes; contract hardening only.
+
+## 2026-04-04 08:01 KST — IP64 transition intent state alias slice
+- Added cadence transition intent-escalation state token `TSDCAD24TRIGAPNVIXS` (`HOLD|RAMP|RELIEF|SHIFT`) so combat-pressure shifts are one-scan readable beside `NVIXA`.
+- Follow-up: monitor whether `RAMP/RELIEF` distribution tracks cue volatility in weekly digest snapshots.

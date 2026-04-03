@@ -1,5 +1,17 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP64)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP63 closure; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + Design/World: add intent-escalation state alias to condense `TRIGAPNVI` prior/current transitions into one operator-state token.
+  - Mid-risk Systems/QA + UX: enforce parity/order/domain contracts so new state alias rows remain deterministic across summary/token sections.
+  - High-risk AI-content/Combat: adaptive two-step microcopy mutation from intent-state streak entropy windows.
+- Selected experiment: Idea 1+2 blend (low-risk readability + mid-risk regression lock) minimal vertical slice.
+- [x] Combat/VFX + Design/World + Systems/QA Team: Add transition intent-escalation state alias `TSDCAD24TRIGAPNVIXS` (`HOLD|RAMP|RELIEF|SHIFT`) plus markdown decode row and regression parity/order/domain contracts. *(lifecycle: [ ] -> [~] started: 2026-04-04 07:56 KST -> [x] completed: 2026-04-04 08:01 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP64)
+- [ ] Systems/Ops + UX Team (injected): Add compact state-init alias token `TSDCAD24TRIGAPNVIXSA` (`H|R|L|S`) and keep deterministic adjacency `NVIXA -> NVIXS -> NVIXSA -> NVH` across summary/token sections.
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP63)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP62 closure; mandatory Game Director cycle executed.
 - Candidate ideas generated:

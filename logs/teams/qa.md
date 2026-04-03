@@ -5660,3 +5660,7 @@
 - Extended fixture checks to assert `TSDCAD24TRIGAPNVIXA` row parity + legend parity with cadence triad signature rows.
 - Added explicit domain regex check ensuring alias pair coverage stays `{S|B|P|E}{S|B|P|E}`.
 - Verification bundle passed with no regressions.
+
+## 2026-04-04 08:01 KST — IP64 regression contract extension
+- Extended regression checks for `TSDCAD24TRIGAPNVIXS`: markdown presence, row-count parity, ordering adjacency, and domain lock (`HOLD|RAMP|RELIEF|SHIFT`).
+- Verification bundle passed: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact regen.

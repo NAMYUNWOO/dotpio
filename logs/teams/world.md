@@ -3613,3 +3613,7 @@
 
 ## 2026-04-04 07:23 KST — No world/map changes this cycle
 - World lane unchanged; cycle focused on cadence-report readability + regression contracts.
+
+## 2026-04-04 08:01 KST — IP64 cadence readability sync
+- Synced cadence triad transition state naming (`HOLD|RAMP|RELIEF|SHIFT`) for world/design review consistency across summary + token sections.
+- Follow-up: align any future route-pressure helper copy with this state vocabulary.

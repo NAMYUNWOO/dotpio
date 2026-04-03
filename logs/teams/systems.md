@@ -5163,3 +5163,7 @@
 - Added regression domain assertion for `TSDCAD24TRIGAPNVIXA` alias payload shape (`[SBPE]{2}`) across mixed-window summary/token fixtures.
 - Maintained cadence-cluster ordering by anchoring `NVIXA` payload/legend between `NVIA` and `NVH` / `NVALEN`.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact regen PASS.
+
+## 2026-04-04 08:01 KST — IP64 payload wiring
+- Wired `cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateAlias` into guardrail report payload and markdown output (`TSDCAD24TRIGAPNVIXS`).
+- Follow-up: preserve deterministic ordering after `NVIXA` in both sections.

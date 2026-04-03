@@ -3734,3 +3734,7 @@
 ## 2026-04-04 07:23 KST — Intent-escalation decode readability
 - Approved compact decode form for `NVIXA` as set-pair legend instead of expanded prose.
 - Decision: keep decode symbolic to avoid widening cadence block while preserving reversibility.
+
+## 2026-04-04 08:01 KST — IP64 decode clarity pass
+- Added decode row for `TSDCAD24TRIGAPNVIXS` with compact operator semantics (`steady/up/down/mixed`) to keep transition chain readable.
+- Follow-up: keep decode copy under DOS-width constraints if state family expands.

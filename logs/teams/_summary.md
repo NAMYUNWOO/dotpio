@@ -5526,3 +5526,8 @@ Compact decision memory for AI context efficiency.
   - strict ordering inside cadence cluster
   - fixture-level alias domain (`[SBPE]{2}`) across summary/token fixtures.
 - Verification command bundle passed end-to-end; regenerated weekly lane coverage artifacts.
+
+## 2026-04-04 — IP64 durable decisions
+- Added `TSDCAD24TRIGAPNVIXS` state alias token to cadence triad transition chain, derived from prior/current intent (`STEADY|BRACE|PUSH|EASE`) with domain `HOLD|RAMP|RELIEF|SHIFT`.
+- Locked deterministic markdown order: `TRIGAPNVI -> TRIGAPNVIA -> TRIGAPNVIXA -> TRIGAPNVIXS -> TRIGAPNVH` (and matching legend order before `TRIGAPNVALEN`).
+- Extended regression invariants for presence/parity/domain/order to prevent drift in mixed-window fixtures.
