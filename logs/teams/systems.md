@@ -5063,3 +5063,8 @@
 - Shipped `TSDCAD24TRICOVSTCMSVHCSTPALEN` from deterministic compact-pair evaluation (`B43|C44|LIM72|PREF:BASELINE|PASS`).
 - Added payload keys for smoothing compact decode helper baseline/compact/evaluation and markdown row emission in cadence digest.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-03 20:56 KST — Cycle IP51 Systems/QA parity lock (STPA/STPALEN)
+- Completed injected POST_RC item by extending fixture-level parity/order assertions for `TSDCAD24TRICOVSTCMSVHCSTPA` + `...STPALEN` in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Added row-count parity contracts (`STPA`/`STPALEN` each mirror `TSDCAD24TRI`; explicit `STPALEN`↔`STPA` mirror assertion).
+- Added deterministic ordering lock so `...STPALEN` remains immediately after compact decode row in summary/token sections.

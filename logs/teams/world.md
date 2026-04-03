@@ -3541,3 +3541,7 @@
 
 ## [2026-04-03 20:21 KST] World — Decode budget continuity note
 - No map/progression mutation; aligned world/design readability contract with new `TSDCAD24TRICOVSTCMSVHCSTPALEN` budget row for smoothing compact-pair decode.
+
+## 2026-04-03 20:56 KST — Cycle IP51 sync
+- Reviewed cadence decode rail placement after Systems/QA regression expansion; no world-content layout changes required.
+- Kept readability contract anchored to compact decode adjacency for `...STPALEN`.

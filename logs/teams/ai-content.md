@@ -3634,3 +3634,7 @@
 
 ## [2026-04-03 20:21 KST] AI-content — Offline policy readability follow-up
 - No runtime AI behavior change; validated smoothing policy telemetry now exposes explicit compact-pair width budget token for operator audits.
+
+## 2026-04-03 20:56 KST — Cycle IP51 sync
+- No AI-content policy/mapping change; smoothing policy semantics (`SF|RD`) unchanged.
+- Confirmed regression hardening is assertion-only and preserves existing offline-only behavior.

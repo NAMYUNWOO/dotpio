@@ -3540,3 +3540,7 @@
 
 ## [2026-04-03 20:21 KST] Combat — Observability-only confirmation
 - Confirmed new `TSDCAD24TRICOVSTCMSVHCSTPALEN` row remains telemetry/readability-only and does not alter combat runtime tuning.
+
+## 2026-04-03 20:56 KST — Cycle IP51 sync
+- No combat runtime tuning changed.
+- Verified cadence drift smoothing compact rows remain telemetry/readability-only under strengthened regression contracts.

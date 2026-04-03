@@ -5566,3 +5566,7 @@
 ## [2026-04-03 20:21 KST] QA — Regression contract extension for STPALEN
 - Extended regression markdown contract assertions to require `TSDCAD24TRICOVSTCMSVHCSTPALEN` (`B43|C44|LIM72|PREF:BASELINE|PASS`) presence in fixture outputs.
 - Validation bundle passed: py_compile + regression suite + guardrail artifact regeneration.
+
+## 2026-04-03 20:56 KST — Cycle IP51 QA completion
+- Added fixture-level parity + ordering assertions for `TSDCAD24TRICOVSTCMSVHCSTPA`/`...STPALEN` in regression harness.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

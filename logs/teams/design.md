@@ -3652,3 +3652,7 @@
 
 ## [2026-04-03 20:21 KST] Design — Compact-pair readability budget token
 - Added/validated design-facing DOS-width budget row for smoothing compact-pair decode (`B43|C44|LIM72|PREF:BASELINE|PASS`) to keep dense cadence sections reversible.
+
+## 2026-04-03 20:56 KST — Cycle IP51 sync
+- Confirmed compact decode readability path preserved: compact decode row remains direct predecessor of `...STPALEN`.
+- No copy changes this cycle; contract-only hardening.

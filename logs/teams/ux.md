@@ -3799,3 +3799,7 @@
 
 ## [2026-04-03 20:21 KST] UX — Dense token scan improvement
 - Added explicit smoothing compact-pair width-eval token so operators can quickly trust `VHCSTP`/`VHCSTPA` decode budget without manual counting.
+
+## 2026-04-03 20:56 KST — Cycle IP51 sync
+- UX readability invariant reinforced by regression: compact smoothing decode and eval row adjacency now explicit.
+- No visible UI copy churn beyond regenerated guardrail markdown artifact.
