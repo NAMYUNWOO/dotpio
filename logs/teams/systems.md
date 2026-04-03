@@ -5152,3 +5152,5 @@
 - Decision: accepted low-risk vertical slice adding `TSDCAD24TRIGAPNVI/NVIA` payload+markdown wiring in lane guardrail output.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + live guardrail regeneration all passed.
 - Follow-up: add sparse-fixture parity assertion for `TRIGAPNVI legend` in next injected cycle.
+
+- 2026-04-04 05:49 KST — Cycle IP63 injected Systems/Ops+QA slice: added sparse mixed-window fixture parity assertion locking `TSDCAD24TRIGAPNVI legend` row count to mirror `TSDCAD24TRIGAPNVI` across summary/token sections in regression guardrail contracts.

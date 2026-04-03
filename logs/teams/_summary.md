@@ -5510,3 +5510,5 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep deterministic cadence row/legend order as `TRIGAPNV -> TRIGAPNVA -> TRIGAPNVI -> TRIGAPNVIA -> TRIGAPNX` and lock parity/order in regression matrix.
 - Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: injected next-up items added (Systems/QA parity fixture note, Design/World operator helper, AI-content/Combat offline escalation variants).
+
+- 2026-04-04 05:49 KST — Closed highest-priority unchecked injected task (Systems/Ops+QA): regression fixture matrix now explicitly asserts `TSDCAD24TRIGAPNVI legend` row-count parity with `TSDCAD24TRIGAPNVI` in sparse mixed-window summary/token sections; verification bundle PASS and backlog/TASKS state reconciled.

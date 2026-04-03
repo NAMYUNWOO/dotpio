@@ -1919,6 +1919,9 @@ def run_fixture_case(
     assert len(cadence_24h_triad_gap_cue_transition_vfx_cue_alias_legend_indexes) == len(cadence_24h_triad_gap_cue_transition_vfx_cue_alias_indexes), (
         f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPNVA legend row count to mirror TSDCAD24TRIGAPNVA across summary/token sections"
     )
+    assert len(cadence_24h_triad_gap_cue_transition_vfx_cue_intent_legend_indexes) == len(cadence_24h_triad_gap_cue_transition_vfx_cue_intent_indexes), (
+        f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPNVI legend row count to mirror TSDCAD24TRIGAPNVI across summary/token sections"
+    )
     assert len(cadence_24h_triad_gap_cue_transition_vfx_cue_alias_eval_indexes) == len(cadence_24h_triad_gap_cue_transition_vfx_cue_alias_indexes), (
         f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPNVALEN row count to mirror TSDCAD24TRIGAPNVA across summary/token sections"
     )
