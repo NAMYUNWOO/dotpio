@@ -967,6 +967,9 @@ def run_fixture_case(
     cadence_24h_token_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24:" in line
     ]
+    cadence_24h_triad_coverage_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOV:" in line
+    ]
     cadence_24h_triad_bucket_hit_vector_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRIV:" in line
     ]
@@ -1245,6 +1248,9 @@ def run_fixture_case(
     assert len(cadence_24h_triad_bucket_hit_vector_indexes) == len(cadence_24h_triad_indexes), (
         f"{name}: fixture-level parity assertion requires TSDCAD24TRIV row count to mirror TSDCAD24TRI across summary/token sections"
     )
+    assert len(cadence_24h_triad_coverage_indexes) == len(cadence_24h_triad_indexes), (
+        f"{name}: TSDCAD24TRICOV row count must match TSDCAD24TRI row count across sections"
+    )
     assert len(cadence_24h_triad_bucket_hit_vector_done_flag_legend_indexes) == len(cadence_24h_triad_bucket_hit_vector_indexes), (
         f"{name}: fixture-level parity assertion requires TSDCAD24TRIV legend row count to mirror TSDCAD24TRIV across summary/token sections"
     )
@@ -1261,6 +1267,9 @@ def run_fixture_case(
         f"{name}: TSDCAD24TRILLEN row count must match TSDCAD24TRIL row count across sections"
     )
     for cluster_i in range(len(cadence_24h_triad_indexes)):
+        assert cadence_24h_triad_bucket_hit_vector_indexes[cluster_i] == cadence_24h_triad_coverage_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRIV immediately after TSDCAD24TRICOV in both sections"
+        )
         assert cadence_24h_token_indexes[cluster_i] == cadence_24h_triad_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRI immediately before TSDCAD24 in both sections"
         )

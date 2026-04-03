@@ -5035,3 +5035,8 @@
 - Status: implemented
 - Note: Added fixture-level index parity + adjacency assertions for TSDCAD24TRIV -> legend -> LEN and TRIL -> legend -> LEN ordering across summary/token sections in regression guardrail.
 - Follow-up: Continue highest-priority unchecked ACTION_ITEMS/TASKS item selection in next autonomous cycle.
+
+## 2026-04-03 17:24 KST
+- Closed injected Systems/Ops+QA parity/order follow-up by extending `scripts/regression_check_lane_coverage_guardrail.py` with explicit `TSDCAD24TRICOV` index extraction, row-count parity assertion (`TRICOV == TRI`), and order assertion (`TRIV` immediately after `TRICOV`).
+- Durable contract update: keep cadence vector/readiness deterministic chain anchored from `TRICOV` to avoid order drift against generated markdown row layout (`TRI -> TRIP -> TRICOV -> TRIV -> TRIL...`).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

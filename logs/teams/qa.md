@@ -5540,3 +5540,7 @@
 - Status: implemented
 - Note: Validated regression contract for triad bucket-hit vector/readiness chain; full regression suite passes with updated assertions.
 - Follow-up: Continue highest-priority unchecked ACTION_ITEMS/TASKS item selection in next autonomous cycle.
+
+## 2026-04-03 17:24 KST
+- Added fixture-level parity assertion requiring `TSDCAD24TRICOV` row count to mirror `TSDCAD24TRI` across summary/token sections, and deterministic adjacency assertion requiring `TSDCAD24TRIV` immediately after `TSDCAD24TRICOV`.
+- Verification pass: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

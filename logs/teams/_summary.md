@@ -5351,3 +5351,9 @@ Compact decision memory for AI context efficiency.
   - Added explicit index parity guards for `TSDCAD24TRIV`, `TSDCAD24TRIV legend`, `TSDCAD24TRIVLEN`.
   - Added adjacency/order assertions for `TSDCAD24TRIV -> legend -> LEN -> TSDCAD24TRIL -> legend -> LEN` in both markdown sections.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regeneration all passed.
+
+## 2026-04-03 17:24 KST
+- Closed highest-priority unchecked POST_RC item (Systems/Ops+QA): extended regression contract so `TSDCAD24TRICOV` row count must mirror `TSDCAD24TRI`, and deterministic ordering now explicitly locks `TSDCAD24TRIV` immediately after `TSDCAD24TRICOV` before the `TSDCAD24TRIL` cluster.
+- Durable decision: cadence triad ordering contract should anchor vector/readiness rows to the triad coverage row (`TRICOV`) rather than the triad headline row (`TRI`) to match generated markdown structure and avoid false failures in balanced fixtures.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for next mandatory Game Director review cycle).
