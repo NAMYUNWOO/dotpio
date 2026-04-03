@@ -5491,3 +5491,8 @@ Compact decision memory for AI context efficiency.
 
 ## 2026-04-04 03:37 KST
 - Game Director IP61 executed after full-check backlog: shipped `TRIGAPN legend` vertical slice, verified via py_compile/regression/live report regen, and injected IP61 next tasks.
+
+## 2026-04-04 03:44 KST
+- Coverage guardrail check rerun (`max-items=10`, cap `40%`) returned `within-cap` with all three cadence buckets missing in 24h snapshot (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
+- Executed IP61 systems/qa slice: added explicit regression parity assertion requiring `TSDCAD24TRIGAPN legend` row count to mirror `TSDCAD24TRIGAPN` rows across summary/token sections.
+- Validation: py_compile PASS; regression_check_lane_coverage_guardrail PASS; guardrail report regen PASS.

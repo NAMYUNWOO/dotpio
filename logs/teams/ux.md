@@ -3844,3 +3844,6 @@
 
 ## 2026-04-04 03:37 KST
 - One-scan readability improved: transition narrative now ships with explicit decode row under cadence cluster.
+
+## 2026-04-04 03:44 KST
+- UX formatting unchanged in this slice; readability impact is indirect via stricter regression parity around existing narrative decode rows.

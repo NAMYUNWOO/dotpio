@@ -5632,3 +5632,6 @@
 
 ## 2026-04-04 03:37 KST
 - Regression now enforces row-count parity + adjacency for `TRIGAPN legend` under sparse fixtures.
+
+## 2026-04-04 03:44 KST
+- Added fixture-level guard in regression suite so sparse mixed-window outputs fail if `TRIGAPN legend` diverges from `TRIGAPN` row count.

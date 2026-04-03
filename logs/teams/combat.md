@@ -3589,3 +3589,6 @@
 
 ## 2026-04-04 03:37 KST
 - Maintained combat cue readability by anchoring transition narrative decode before urgency cue legend.
+
+## 2026-04-04 03:44 KST
+- Combat cue semantics unchanged this cycle; existing `LOCKED/WATCH/RECOVER` transition narratives remain stable.

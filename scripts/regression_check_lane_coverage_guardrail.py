@@ -1025,6 +1025,9 @@ def run_fixture_case(
     assert cadence_24h_triad_gap_cue_transition_microcopy_legend_rows == cadence_24h_triad_gap_signature_rows, (
         f"{name}: TSDCAD24TRIGAPN legend row count must match TSDCAD24TRIGAP row count across sections"
     )
+    assert cadence_24h_triad_gap_cue_transition_microcopy_legend_rows == cadence_24h_triad_gap_cue_transition_microcopy_rows, (
+        f"{name}: TSDCAD24TRIGAPN legend row count must match TSDCAD24TRIGAPN row count across sections"
+    )
     assert cadence_24h_triad_gap_missing_bucket_count_cue_legend_rows == cadence_24h_triad_gap_signature_rows, (
         f"{name}: TSDCAD24TRIGAPC legend row count must match TSDCAD24TRIGAP row count across sections"
     )

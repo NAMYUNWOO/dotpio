@@ -586,3 +586,4 @@
 - 2026-04-04 00:25 KST — IP56 done: preserved cue family semantics while compressing legend copy in shared guardrail digest.
 
 - 2026-04-04 00:52 KST — Cycle IP57: VFX lane audit aligned with combat cadence gap; signature token now exposes missing-bucket shape for faster pulse-priority triage in downstream reports.
+- 2026-04-04 03:44 KST — No VFX mapping change in IP61 systems/qa slice; queued IP62 token idea (`TRIGAPNV`) to restore combat/vfx cadence bucket coverage.

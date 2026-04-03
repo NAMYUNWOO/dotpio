@@ -5133,3 +5133,6 @@
 
 ## 2026-04-04 03:37 KST
 - Added parity/order coverage for new `TSDCAD24TRIGAPN legend` row so sparse mixed-window fixtures cannot drift narrative decode placement.
+
+## 2026-04-04 03:44 KST
+- Added explicit parity assertion binding `TSDCAD24TRIGAPN legend` row count to `TSDCAD24TRIGAPN` row count across summary/token sections.

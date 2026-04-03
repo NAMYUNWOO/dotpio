@@ -39,9 +39,14 @@ Last updated: 2026-04-04 03:36 KST
 - [x] Design/World + Systems/QA Team: Added `TSDCAD24TRIGAPN legend (stable=hold cadence, surfaced=patch1, widened=patch2+, sealed=resume lock)` row and expanded regression parity/order contracts to anchor `TRIGAPN legend` before `TRIGAPC legend`. *(lifecycle: [ ] -> [~] started: 2026-04-04 03:33 KST -> [x] completed: 2026-04-04 03:36 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP61)
-- [ ] Systems/Ops + QA Team (injected): Add fixture assertion that `TSDCAD24TRIGAPN legend` row count mirrors `TSDCAD24TRIGAPN` across sparse summary/token mixed-window fixtures.
+- [x] Systems/Ops + QA Team (injected): Add fixture assertion that `TSDCAD24TRIGAPN legend` row count mirrors `TSDCAD24TRIGAPN` across sparse summary/token mixed-window fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-04 03:41 KST -> [x] completed: 2026-04-04 03:44 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [ ] Design/World Team (injected): Add compact action alias row for `TRIGAPN` transition families (`STABLE|SURFACED|WIDENED|SEALED`) with dos-width eval.
 - [ ] AI-content/Combat Team (injected): Prototype alternate urgency microcopy variants for `WATCH->RECOVER` and `RECOVER->WATCH` transitions offline (no runtime coupling).
+
+## Next Up (Game Director Injection — Cycle IP62)
+- [ ] Combat/VFX Team (injected): Add compact transition VFX cue token `TSDCAD24TRIGAPNV` mapped from `TRIGAPN` states (`stable=GLINT`, `surfaced=PULSE`, `widened=BLAST`, `sealed=COOL`) with <=72-width decode row.
+- [ ] Design/World Team (injected): Add compact action alias row for `TRIGAPN` transition families (`STABLE|SURFACED|WIDENED|SEALED`) with dos-width eval.
+- [ ] Systems/Ops + QA Team (injected): Extend parity/order fixtures to anchor `TRIGAPNV` immediately after `TRIGAPN` and before `TRIGAPN legend` across summary/token sections.
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP55)
 - Coverage check (last 10 completed, lane guardrail snapshot): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (`missingCadenceBuckets`: combat-or-vfx, design-or-world, systems-or-ops).

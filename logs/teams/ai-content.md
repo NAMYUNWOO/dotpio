@@ -3684,3 +3684,6 @@
 
 ## 2026-04-04 03:37 KST
 - Narrative decode added for transition microcopy semantics to keep offline authoring consistency for cue transitions.
+
+## 2026-04-04 03:44 KST
+- No narrative mapping changes in this systems/qa slice; retained existing `TRIGAPN` transition copy set.
