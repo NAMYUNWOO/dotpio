@@ -5469,3 +5469,7 @@
 - Shipped compact cadence-VFX cue alias token `TSDCAD24TRICOVSTCMSVA:G|P|B` from `TSDCAD24TRICOVSTCMSV`.
 - Added markdown alias row + decode row and tightened regression presence/parity/order checks.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen.
+
+## 2026-04-03 09:41 KST — Cycle IP46 verification
+- Verified new alias row/legend does not violate existing cadence adjacency invariants (`...VH -> ...VHA -> ...VHC -> ...VHD -> ...VHDLEN -> plan`).
+- Regression and artifact generation remained green after alias addition.

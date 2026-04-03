@@ -3720,3 +3720,7 @@
 - Shipped compact cadence-VFX cue alias token `TSDCAD24TRICOVSTCMSVA:G|P|B` from `TSDCAD24TRICOVSTCMSV`.
 - Added markdown alias row + decode row and tightened regression presence/parity/order checks.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen.
+
+## 2026-04-03 09:41 KST — Cycle IP46 scan-density update
+- Added compact confidence-band alias/decode pair (`TSDCAD24TRICOVSTCMSVHCA`) to reduce cognitive load when reading cadence cluster quickly.
+- Preserved existing row-order contracts by placing new rows after triad plan.

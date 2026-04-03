@@ -3449,3 +3449,8 @@
 - Shipped compact cadence-VFX cue alias token `TSDCAD24TRICOVSTCMSVA:G|P|B` from `TSDCAD24TRICOVSTCMSV`.
 - Added markdown alias row + decode row and tightened regression presence/parity/order checks.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen.
+
+## 2026-04-03 09:41 KST — Cycle IP46 combat/vfx slice
+- Implemented compact combat/vfx alias row `TSDCAD24TRICOVSTCMSVHCA:L|M|H` sourced from `TSDCAD24TRICOVSTCMSVHC`.
+- Goal: faster cue-stability triage without changing underlying combat logic.
+- Verification bundle passed (py_compile + regression + guardrail artifact regeneration).

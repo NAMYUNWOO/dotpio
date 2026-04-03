@@ -5261,3 +5261,10 @@ Compact decision memory for AI context efficiency.
 - Implemented in `scripts/check_lane_coverage_guardrail.py` and regression contracts in `scripts/regression_check_lane_coverage_guardrail.py`.
 - Durable rule: preserve adjacency `...STCMSV -> ...STCMSVA -> ...STCMSVH` plus alias decode row parity in summary/token sections.
 - Verification bundle passed: py_compile + regression_check_lane_coverage_guardrail + guardrail report regeneration.
+
+## 2026-04-03 09:41 KST — Cycle IP46 (TSDCAD24TRICOVSTCMSVHCA)
+- Coverage check (last 10 completed items by lane): systems=10, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0.
+- Lane cap gate: systems exceeded 40%, so forced next experiment from underrepresented lanes; selected Combat/VFX + Design/World readability slice.
+- Implemented minimal vertical slice: added hysteresis confidence-band alias token `TSDCAD24TRICOVSTCMSVHCA` (`L|M|H`) plus decode row for one-glance FX triage.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Next injected backlog preserves 24h triad cadence: one combat/vfx, one design/world, one systems/ops follow-up queued.

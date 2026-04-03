@@ -3568,3 +3568,7 @@
 - Shipped compact cadence-VFX cue alias token `TSDCAD24TRICOVSTCMSVA:G|P|B` from `TSDCAD24TRICOVSTCMSV`.
 - Added markdown alias row + decode row and tightened regression presence/parity/order checks.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen.
+
+## 2026-04-03 09:41 KST — Cycle IP46 decode polish
+- Added concise decode companion for confidence-band alias (`L=high churn, M=mixed flips, H=stable cues`) to preserve reversibility under DOS-width budget.
+- Follow-up queued for compact copy budget eval token.

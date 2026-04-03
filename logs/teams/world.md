@@ -3463,3 +3463,7 @@
 - Shipped compact cadence-VFX cue alias token `TSDCAD24TRICOVSTCMSVA:G|P|B` from `TSDCAD24TRICOVSTCMSV`.
 - Added markdown alias row + decode row and tightened regression presence/parity/order checks.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen.
+
+## 2026-04-03 09:41 KST — Cycle IP46 design/world readability note
+- Added compact decode row `TSDCAD24TRICOVSTCMSVHCA legend (L=high churn, M=mixed flips, H=stable cues)` to keep confidence-band semantics one-scan readable.
+- No world-map/runtime mutation; offline digest readability only.

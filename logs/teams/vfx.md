@@ -551,3 +551,7 @@
 - Shipped compact cadence-VFX cue alias token `TSDCAD24TRICOVSTCMSVA:G|P|B` from `TSDCAD24TRICOVSTCMSV`.
 - Added markdown alias row + decode row and tightened regression presence/parity/order checks.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail report regen.
+
+## 2026-04-03 09:41 KST — Cycle IP46 VFX cadence alias
+- Shipped `TSDCAD24TRICOVSTCMSVHCA` confidence-band alias (`L|M|H`) to make VFX stability mood one-glance in cadence digest.
+- Scope stays offline/report-only; no runtime FX tuning changes.
