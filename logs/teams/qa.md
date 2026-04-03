@@ -5497,3 +5497,7 @@
 - Verification bundle green (py_compile, regression_check_lane_coverage_guardrail.py, guardrail JSON/MD regen).
 
 - 2026-04-03 12:16 KST (IP47): Added regression checks for `TSDCAD24TRICOVSTCMSVHCD` presence, row parity, and strict adjacency before triad plan.
+
+## 2026-04-03 12:56 KST — GD Cycle IP43
+- Verified strengthened invariants for `TSDCAD24TRICOVSTCMSVHCA` token family in regression suite (row-count parity + deterministic order checks).
+- Command bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

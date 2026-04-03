@@ -555,3 +555,6 @@
 ## 2026-04-03 09:41 KST — Cycle IP46 VFX cadence alias
 - Shipped `TSDCAD24TRICOVSTCMSVHCA` confidence-band alias (`L|M|H`) to make VFX stability mood one-glance in cadence digest.
 - Scope stays offline/report-only; no runtime FX tuning changes.
+
+## 2026-04-03 12:56 KST — GD Cycle IP43
+- No VFX mapping changes; protected vfx cue confidence-band alias render order with regression assertions.

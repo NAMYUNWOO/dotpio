@@ -3738,3 +3738,6 @@
 - Verification bundle green (py_compile, regression_check_lane_coverage_guardrail.py, guardrail JSON/MD regen).
 
 - 2026-04-03 12:16 KST (IP47): Improved operator scanability by pairing full confidence-band token with compact alias in one helper line.
+
+## 2026-04-03 12:56 KST — GD Cycle IP43
+- No UI copy changes; cadence digest scan order reliability improved through deterministic ordering checks.

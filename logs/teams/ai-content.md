@@ -3572,3 +3572,6 @@
 - Verification bundle green (py_compile, regression_check_lane_coverage_guardrail.py, guardrail JSON/MD regen).
 
 - 2026-04-03 12:16 KST (IP47): Maintained deterministic confidence-band semantics while exposing compact dual decode helper for cadence digest interpretation.
+
+## 2026-04-03 12:56 KST — GD Cycle IP43
+- No new AI-content token semantics; protected existing confidence-band signal readability via stronger regression contracts.

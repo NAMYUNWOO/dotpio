@@ -4984,3 +4984,8 @@
 - Verification bundle green (py_compile, regression_check_lane_coverage_guardrail.py, guardrail JSON/MD regen).
 
 - 2026-04-03 12:16 KST (IP47): Extended cadence decode-cluster ordering + parity contract to include `TSDCAD24TRICOVSTCMSVHCD`/`...VHCDLEN` immediately before triad plan.
+
+## 2026-04-03 12:56 KST — GD Cycle IP43
+- Added regression contract hardening for cadence VFX cue confidence-band alias chain (`TSDCAD24TRICOVSTCMSVHCA`): explicit row-count parity + adjacency checks against plan and `...VHCALEN`.
+- Files: `scripts/regression_check_lane_coverage_guardrail.py`.
+- Follow-up: keep cadence digest token order stable while extending compact aliases.

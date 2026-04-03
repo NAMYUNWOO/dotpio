@@ -3586,3 +3586,6 @@
 - Verification bundle green (py_compile, regression_check_lane_coverage_guardrail.py, guardrail JSON/MD regen).
 
 - 2026-04-03 12:16 KST (IP47): Shipped compact confidence-band dual decode helper under DOS-width budget with explicit eval token lock.
+
+## 2026-04-03 12:56 KST — GD Cycle IP43
+- Preserved digest readability expectations by locking `...CMSVHCA` placement immediately after triad plan before alias length eval.

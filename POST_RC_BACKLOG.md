@@ -92,6 +92,18 @@
 
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP43)
+- Candidate ideas generated:
+  - Low-risk Systems/QA + UX: lock explicit `TSDCAD24TRICOVSTCMSVHCA -> TSDCAD24TRICOVSTCMSVHCALEN` adjacency so compact alias diagnostics stay deterministic.
+  - Mid-risk Systems/QA + Design/World: reorder cadence triad plan and vfx confidence-band alias cluster for stricter narrative flow in summary/token sections.
+  - High-risk AI Content/Combat: prototype offline cue-hysteresis confidence drift score from `TSDCAD24TRICOVSTCMSVHC` transition persistence windows.
+- Selected experiment: Idea 1 (low-risk Systems/QA + UX) minimal vertical slice.
+- [x] Systems/QA + UX Team: Harden regression contract for `TSDCAD24TRICOVSTCMSVHCA` family by fixing parity counter target and adding explicit row-count + adjacency checks (`plan -> ...VHCA -> ...VHCALEN`). *(lifecycle: [ ] -> [~] started: 2026-04-03 12:52 KST -> [x] completed: 2026-04-03 12:56 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP43)
+- [ ] Systems/QA Team (injected): Add fixture-level explicit parity assertion that `TSDCAD24TRICOVSTCMSVHCALEN` row count mirrors `TSDCAD24TRICOVSTCMSVHCA` across summary/token sections.
+- [ ] AI Content/Combat Team (injected): Prototype offline cue-hysteresis confidence drift score token (`TSDCAD24TRICOVSTCMSVHCS:0..100`) from rolling `TSDCAD24TRICOVSTCMSVHC` flips.
+
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP42)
 - Candidate ideas generated:
   - Low-risk Systems/QA + UX: add compact VFX cue alias token (`TSDCAD24TRICOVSTCMSVA:G|P|B`) with decode row for denser cadence scans.

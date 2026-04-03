@@ -5301,3 +5301,5 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep confidence-band full+alias decode reversible inside cadence block without leaving the 72-char DOS-width budget.
 - Regression now enforces row-count parity and contiguous ordering for `...VHD -> ...VHDLEN -> ...VHCD -> ...VHCDLEN -> triad plan` in both summary/token sections.
 - Verification bundle passed (py_compile + regression + guardrail report regeneration).
+
+- 2026-04-03 12:56 KST (IP43): Systems/QA hardened cadence VFX confidence-band alias (`TSDCAD24TRICOVSTCMSVHCA`) regression: fixed parity counter target, added explicit row-count assertions, and locked adjacency (`plan -> ...VHCA -> ...VHCALEN`).
