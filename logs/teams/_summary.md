@@ -5334,3 +5334,7 @@ Compact decision memory for AI context efficiency.
 - Completed TASKS + POST_RC injected Systems/QA item: `TSDCAD24TRICOVSTCMSVHCST` row-count parity now mirrors `TSDCAD24TRI` across summary/token sections.
 - Durable decision: keep this token in both global count assertions and per-section index assertions (plus legend parity) to prevent silent fixture drift.
 - Verification command bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` -> `python3 scripts/regression_check_lane_coverage_guardrail.py` -> `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## [2026-04-03 15:52 KST] Durable decision — TRIV done-flag decode + width lock
+- Shipped combat/vfx readability follow-up: `TSDCAD24TRIV legend (D1=covered, D0=missing)` and `TSDCAD24TRIVLEN` DOS-width eval row.
+- Decision: keep decode text deterministic + compact-first and gate with parity assertions before moving to `TSDCAD24TRIL` operator decode task.

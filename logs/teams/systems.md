@@ -5021,3 +5021,7 @@
 - Cycle IP48 shipped systems/ops cadence helpers: `resolve_cadence_24h_recovery_triad_bucket_hit_vector` and `resolve_cadence_24h_recovery_triad_cadence_ready_alias`.
 - Emitted payload keys `cadence24hRecoveryTriadBucketHitVector` and `cadence24hRecoveryTriadCadenceReadyAlias`, plus markdown rows `TSDCAD24TRIV` and `TSDCAD24TRIL`.
 - Verification bundle passed (py_compile + regression + guardrail regen).
+
+## [2026-04-03 15:52 KST] Cycle IP48 follow-up — TRIV decode eval wiring
+- Added payload fields for `TSDCAD24TRIV` done-flag decode + DOS-width evaluation (`cadence24hRecoveryTriadBucketHitVectorDoneFlagDecode*`).
+- Extended regression checks for `TSDCAD24TRIV` row, decode legend parity, and `TSDCAD24TRIVLEN` row parity.

@@ -146,6 +146,17 @@
     "preferred": "COMPACT",
     "status": "PASS"
   },
+  "cadence24hRecoveryTriadBucketHitVectorDoneFlagDecodeBaseline": "D1=covered, D0=missing",
+  "cadence24hRecoveryTriadBucketHitVectorDoneFlagDecodeCompact": "D1=covered, D0=missing",
+  "cadence24hRecoveryTriadBucketHitVectorDoneFlagDecodeEvaluation": {
+    "baseline": "D1=covered, D0=missing",
+    "compact": "D1=covered, D0=missing",
+    "baselineLen": 22,
+    "compactLen": 22,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "trendScoreBandSnapshot": {
     "CALM": 0,
     "EDGE": 0,

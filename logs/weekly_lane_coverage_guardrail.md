@@ -14,6 +14,8 @@
 - cadence 24h recovery triad pulse palette alias (combat/vfx): **TSDCAD24TRIP:CV=SPARK|DW=ANCHOR|SO=LOCK**
 - cadence 24h recovery triad bucket coverage alias (systems/ops): **TSDCAD24TRICOV:CV0|DW0|SO0**
 - cadence 24h triad bucket hit vector (combat/vfx + design/world + systems/ops): **TSDCAD24TRIV:CV0D0|DW0D0|SO0D0**
+- cadence 24h triad bucket hit vector done-flag decode (combat/vfx): **TSDCAD24TRIV legend (D1=covered, D0=missing)**
+- cadence 24h triad bucket hit vector done-flag decode dos-width eval (combat/vfx): **TSDCAD24TRIVLEN:B22|C22|LIM72|PREF:COMPACT|PASS**
 - cadence 24h triad readiness alias (systems/ops): **TSDCAD24TRIL:GAP**
 - cadence 24h recovery triad coverage pressure alias (systems/ops): **TSDCAD24TRICOVP:GAP**
 - cadence 24h recovery triad coverage spread alias (design/world): **TSDCAD24TRICOVS:STABLE**

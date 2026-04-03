@@ -3507,3 +3507,6 @@
 - Cycle IP48 selected under forced combat/vfx-first cadence recovery.
 - Added triad hit-vector token `TSDCAD24TRIV` and readiness alias `TSDCAD24TRIL` to make combat bucket completion state explicit in cadence digest.
 - Verification bundle green (py_compile + regression + guardrail regen).
+
+## [2026-04-03 15:52 KST] Cycle IP48 follow-up — done-flag readability
+- Added `TSDCAD24TRIV legend (D1=covered, D0=missing)` row to cadence digest to make combat/vfx bucket completion state one-scan readable.

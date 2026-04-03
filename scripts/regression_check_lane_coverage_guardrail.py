@@ -471,6 +471,21 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include cadence-triad bucket coverage alias row"
     assert (
+        "cadence 24h triad bucket hit vector (combat/vfx + design/world + systems/ops): "
+        f"**TSDCAD24TRIV:{report.get('cadence24hRecoveryTriadBucketHitVector')}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad bucket-hit vector row"
+    assert (
+        "cadence 24h triad bucket hit vector done-flag decode (combat/vfx): "
+        "**TSDCAD24TRIV legend (D1=covered, D0=missing)**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad bucket-hit vector done-flag decode row"
+    assert (
+        "cadence 24h triad bucket hit vector done-flag decode dos-width eval (combat/vfx): "
+        "**TSDCAD24TRIVLEN:B22|C22|LIM72|PREF:COMPACT|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad bucket-hit vector done-flag dos-width eval row"
+    assert (
         "cadence 24h recovery triad coverage pressure alias (systems/ops): "
         f"**TSDCAD24TRICOVP:{expected_cadence_24h_coverage_pressure_alias}**"
         in md_text
@@ -681,6 +696,13 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include cadence-triad coverage-spread trend decode row"
     cadence_24h_triad_rows = md_text.count("**TSDCAD24TRI:")
+    cadence_24h_triad_bucket_hit_vector_rows = md_text.count("**TSDCAD24TRIV:")
+    cadence_24h_triad_bucket_hit_vector_done_flag_legend_rows = md_text.count(
+        "**TSDCAD24TRIV legend (D1=covered, D0=missing)**"
+    )
+    cadence_24h_triad_bucket_hit_vector_done_flag_eval_rows = md_text.count(
+        "**TSDCAD24TRIVLEN:B22|C22|LIM72|PREF:COMPACT|PASS**"
+    )
     cadence_24h_triad_palette_rows = md_text.count("**TSDCAD24TRIP:CV=SPARK|DW=ANCHOR|SO=LOCK**")
     cadence_24h_triad_coverage_rows = md_text.count("**TSDCAD24TRICOV:")
     cadence_24h_triad_coverage_pressure_rows = md_text.count("**TSDCAD24TRICOVP:")
@@ -741,6 +763,15 @@ def run_fixture_case(
     )
     assert cadence_24h_triad_palette_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRIP row count must match TSDCAD24TRI row count across sections"
+    )
+    assert cadence_24h_triad_bucket_hit_vector_rows == cadence_24h_triad_rows, (
+        f"{name}: TSDCAD24TRIV row count must match TSDCAD24TRI row count across sections"
+    )
+    assert cadence_24h_triad_bucket_hit_vector_done_flag_legend_rows == cadence_24h_triad_bucket_hit_vector_rows, (
+        f"{name}: TSDCAD24TRIV legend row count must match TSDCAD24TRIV row count across sections"
+    )
+    assert cadence_24h_triad_bucket_hit_vector_done_flag_eval_rows == cadence_24h_triad_bucket_hit_vector_rows, (
+        f"{name}: TSDCAD24TRIVLEN row count must match TSDCAD24TRIV row count across sections"
     )
     assert cadence_24h_triad_coverage_rows == cadence_24h_triad_rows, (
         f"{name}: TSDCAD24TRICOV row count must match TSDCAD24TRI row count across sections"

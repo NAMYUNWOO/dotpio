@@ -3619,3 +3619,6 @@
 - Cycle IP48 design/world readability slice shipped with `TSDCAD24TRIV` and `TSDCAD24TRIL` rows.
 - Outcome: one-scan cadence status now surfaces both bucket counts and triad readiness gate.
 - Verification: py_compile + regression + guardrail artifact regeneration.
+
+## [2026-04-03 15:52 KST] Cycle IP48 follow-up — DOS-width guard
+- Added `TSDCAD24TRIVLEN` dos-width evaluation row (`B22|C22|LIM72|PREF:COMPACT|PASS`) to keep decode copy budget explicit.
