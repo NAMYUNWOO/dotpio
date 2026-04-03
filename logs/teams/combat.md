@@ -3527,3 +3527,6 @@
 - Cycle IP49 (Systems/QA vertical slice) closed: regression now asserts `TSDCAD24TRICOVSTCMSVHCSTA` row-count parity and enforces deterministic adjacency around `TSDCAD24TRICOVSTCMSVHCST` row/decode blocks across summary/token sections.
 - Durable decision: keep alias-row adjacency contracts explicit (row + decode) instead of implicit cluster assumptions to prevent markdown-order drift.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-03 18:52 KST
+- No combat-tuning mutation this slice; validated cadence report additions remain offline/readability-only.

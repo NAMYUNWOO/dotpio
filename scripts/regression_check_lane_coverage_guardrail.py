@@ -1148,6 +1148,16 @@ def run_fixture_case(
         for i, line in enumerate(cadence_24h_lines)
         if "**TSDCAD24TRICOVSTCMSVHCSTA legend (U=UP, F=FLAT, D=DOWN)**" in line
     ]
+    cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_pair_decode_helper_indexes = [
+        i
+        for i, line in enumerate(cadence_24h_lines)
+        if "**TSDCAD24TRICOVSTCMSVHCPAIR:" in line
+    ]
+    cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_pair_decode_helper_eval_indexes = [
+        i
+        for i, line in enumerate(cadence_24h_lines)
+        if "**TSDCAD24TRICOVSTCMSVHCPAIRLEN:" in line
+    ]
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_lines = [
         cadence_24h_lines[i]
         for i in cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_alias_legend_indexes
@@ -1418,6 +1428,13 @@ def run_fixture_case(
         )
         assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_legend_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_indexes[cluster_i] + 3, (
             f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCSTA legend immediately after its row and adjacent to TSDCAD24TRICOVSTCMSVHCST block in both sections"
+        )
+
+        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_pair_decode_helper_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_legend_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCPAIR immediately after TSDCAD24TRICOVSTCMSVHCSTA legend in both sections"
+        )
+        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_pair_decode_helper_eval_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_pair_decode_helper_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCPAIRLEN immediately after TSDCAD24TRICOVSTCMSVHCPAIR in both sections"
         )
         assert (
             cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_alias_legend_indexes[cluster_i] + 1
