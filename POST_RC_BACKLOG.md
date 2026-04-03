@@ -1,5 +1,16 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP45)
+- Candidate ideas generated:
+  - Low-risk Systems/QA + UX: add compact drift-score trend alias token (`TSDCAD24TRICOVSTCMSVHCSTA:U|F|D`) with decode row for one-glance stability acceleration scans.
+  - Mid-risk Systems/QA + Design/World: enforce explicit adjacency `TSDCAD24TRICOVSTCMSVHCS -> TSDCAD24TRICOVSTCMSVHCST -> TSDCAD24TRICOVSTCMSVHCSA` across summary/token sections.
+  - High-risk AI Content/Combat: prototype offline hysteresis confidence drift-score trend token from two-window deltas.
+- Selected experiment: Idea 3 (high-risk AI Content/Combat) minimal vertical slice.
+- [x] AI Content/Combat + Systems/QA Team: Add `TSDCAD24TRICOVSTCMSVHCST:UP|FLAT|DOWN` from current/prior drift-score deltas (±5 threshold), plus markdown decode row and regression markdown assertions. *(lifecycle: [ ] -> [~] started: 2026-04-03 14:41 KST -> [x] completed: 2026-04-03 14:48 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP45)
+- [ ] Systems/QA Team (injected): Add fixture-level parity assertion that `TSDCAD24TRICOVSTCMSVHCST` row count mirrors `TSDCAD24TRI` row count across summary/token sections.
+
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP44)
 - Candidate ideas generated:
   - Low-risk Systems/QA + UX: add compact hysteresis confidence drift alias token (`TSDCAD24TRICOVSTCMSVHCSA:L|M|H`) derived from `TSDCAD24TRICOVSTCMSVHCS` for one-scan stability reads.

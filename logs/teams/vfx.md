@@ -558,3 +558,8 @@
 
 ## 2026-04-03 12:56 KST — GD Cycle IP43
 - No VFX mapping changes; protected vfx cue confidence-band alias render order with regression assertions.
+
+## 2026-04-03 14:48 KST
+- Cycle IP45 shipped: added `TSDCAD24TRICOVSTCMSVHCST` drift-score trend token (`UP|FLAT|DOWN`) from two-window VHCS deltas with ±5 threshold.
+- Verification bundle passed (py_compile + regression + guardrail artifact regen).
+- Follow-up injected: add explicit row-count parity assertion for `TSDCAD24TRICOVSTCMSVHCST` across summary/token sections.
