@@ -3606,3 +3606,5 @@
 ## 2026-04-04 05:21 KST — IP63 combat/vfx intent cue (corrected)
 - Decision: mapped transition VFX cues to action intents (`GLINT->STEADY`, `PULSE->BRACE`, `BLAST->PUSH`, `COOL->EASE`).
 - Verification: cadence markdown includes `TSDCAD24TRIGAPNVI` + `TSDCAD24TRIGAPNVIA` rows with decode legends.
+
+- 2026-04-04 06:21 KST — Combat-facing cadence token chain expanded with operator helper row after `TRIGAPNVIA`; keeps cue/intent handoff readable before alternate narrative.

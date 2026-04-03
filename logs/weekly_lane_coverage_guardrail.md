@@ -25,6 +25,7 @@
 - cadence 24h triad gap transition vfx cue compact alias (combat/vfx + ux): **TSDCAD24TRIGAPNVA:G**
 - cadence 24h triad gap transition vfx intent cue (combat/vfx + design/world): **TSDCAD24TRIGAPNVI:STEADY**
 - cadence 24h triad gap transition vfx intent compact alias (combat/vfx + ux): **TSDCAD24TRIGAPNVIA:S**
+- cadence 24h triad gap operator action helper (design/world): **TSDCAD24TRIGAPNVH:GLINT+STEADY->hold lane**
 - cadence 24h triad gap urgency-cue transition alternate narrative (ai-content/combat): **TSDCAD24TRIGAPNX:multi-gap persists; combat spark+world anchor+systems lock; sig=CV/DW/SO**
 - cadence 24h triad gap recovery momentum tag (ai-content/combat): **TSDCAD24TRIGAPNR:HOLD**
 - cadence 24h triad gap transition family compact alias (design/world): **TSDCAD24TRIGAPNA:S**

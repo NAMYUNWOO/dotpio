@@ -3861,3 +3861,5 @@
 ## 2026-04-04 05:21 KST — IP63 compact alias readability (corrected)
 - Decision: compact alias `NVIA` (`S|B|P|E`) added to keep dense cadence rails scannable.
 - Verification: regression row-count/order locks now include intent rows in both summary/token sections.
+
+- 2026-04-04 06:21 KST — Row-order readability contract updated: `TRIGAPNVI -> TRIGAPNVIA -> TRIGAPNVH -> TRIGAPNX` in both summary/token sections.

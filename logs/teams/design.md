@@ -3726,3 +3726,5 @@
 ## 2026-04-04 05:21 KST — IP63 operator framing update (corrected)
 - Decision: preserved compact decode language for intent cue rows to maintain glance readability.
 - Follow-up: add one-line action-order helper for transition intent in next injection.
+
+- 2026-04-04 06:21 KST — Completed injected helper task linking `TRIGAPNV + TRIGAPNVI` to immediate action verbs via `TSDCAD24TRIGAPNVH`.

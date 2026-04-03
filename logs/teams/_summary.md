@@ -5512,3 +5512,5 @@ Compact decision memory for AI context efficiency.
 - Queue status: injected next-up items added (Systems/QA parity fixture note, Design/World operator helper, AI-content/Combat offline escalation variants).
 
 - 2026-04-04 05:49 KST — Closed highest-priority unchecked injected task (Systems/Ops+QA): regression fixture matrix now explicitly asserts `TSDCAD24TRIGAPNVI legend` row-count parity with `TSDCAD24TRIGAPNVI` in sparse mixed-window summary/token sections; verification bundle PASS and backlog/TASKS state reconciled.
+
+- 2026-04-04 06:21 KST — Shipped `TSDCAD24TRIGAPNVH` operator helper (`GLINT+STEADY->hold lane` pattern) to bridge TRIGAPNV/TRIGAPNVI into immediate cadence verbs; regression enforces parity/order in both digest sections.

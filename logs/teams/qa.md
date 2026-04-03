@@ -5651,3 +5651,5 @@
 - Evidence: py_compile + regression script pass + regenerated guardrail artifacts without ordering regressions.
 
 - 2026-04-04 05:49 KST — Verified new fixture-level parity contract for `TSDCAD24TRIGAPNVI legend` mirroring `TSDCAD24TRIGAPNVI`; full py_compile + regression + live guardrail regeneration bundle PASS.
+
+- 2026-04-04 06:21 KST — Regression coverage extended for `TSDCAD24TRIGAPNVH` presence, row-count parity, and ordering; full py_compile + regression + guardrail checks PASS.

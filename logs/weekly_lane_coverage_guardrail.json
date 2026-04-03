@@ -84,6 +84,7 @@
   "cadence24hRecoveryTriadGapCueTransitionVfxCueAlias": "G",
   "cadence24hRecoveryTriadGapCueTransitionVfxCueIntent": "STEADY",
   "cadence24hRecoveryTriadGapCueTransitionVfxCueIntentAlias": "S",
+  "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper": "GLINT+STEADY->hold lane",
   "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperBaseline": "G=GLINT,P=PULSE,B=BLAST,C=COOL",
   "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperCompact": "G/P/B/C",
   "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperEvaluation": {

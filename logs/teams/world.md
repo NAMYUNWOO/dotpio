@@ -3606,3 +3606,5 @@
 ## 2026-04-04 05:21 KST — IP63 cadence readability note (corrected)
 - Decision: transition-intent wording (`STEADY|BRACE|PUSH|EASE`) approved for one-scan cadence action framing.
 - Follow-up: add compact operator helper line coupling `TRIGAPNV + TRIGAPNVI` under DOS-width budget.
+
+- 2026-04-04 06:21 KST — Design/World helper shipped: `TSDCAD24TRIGAPNVH` now surfaces one-line action guidance (`<cue>+<intent>-><verb> lane`) under DOS-width constraints.
