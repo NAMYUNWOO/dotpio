@@ -589,3 +589,5 @@
 - 2026-04-04 03:44 KST — No VFX mapping change in IP61 systems/qa slice; queued IP62 token idea (`TRIGAPNV`) to restore combat/vfx cadence bucket coverage.
 
 - 2026-04-04 04:22 KST — Cycle IP63: Shipped compact `TRIGAPNV` cue mapping + legend row; cue ladder now deterministic and DOS-width safe in cadence guardrail markdown.
+## 2026-04-04 07:02 KST
+- Confirmed alias layer composes with existing `TRIGAPNV/TRIGAPNVI` mapping semantics.

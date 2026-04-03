@@ -1306,6 +1306,45 @@ def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper(
     return f"{vfx_cue}+{vfx_cue_intent}->{action} lane"
 
 
+def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_microcopy(
+    current_intent: str,
+    prior_intent: str,
+) -> str:
+    transition = f"{prior_intent}->{current_intent}"
+    variants = {
+        "STEADY->STEADY": "steady hold; keep cadence anchored",
+        "STEADY->BRACE": "brace up; prep one-lane patch",
+        "STEADY->PUSH": "push now; recover lane debt",
+        "STEADY->EASE": "ease back; lock cadence clean",
+        "BRACE->STEADY": "brace settled; return to hold",
+        "BRACE->BRACE": "brace hold; keep patch pressure",
+        "BRACE->PUSH": "brace broke; push recovery now",
+        "BRACE->EASE": "brace paid off; ease safely",
+        "PUSH->STEADY": "push stabilized; hold baseline",
+        "PUSH->BRACE": "push cooled; keep guarded brace",
+        "PUSH->PUSH": "push persists; sustain recovery pressure",
+        "PUSH->EASE": "push landed; ease to lock",
+        "EASE->STEADY": "ease complete; maintain steady cadence",
+        "EASE->BRACE": "ease interrupted; re-brace lanes",
+        "EASE->PUSH": "ease failed; re-push recovery",
+        "EASE->EASE": "ease hold; preserve clean lock",
+    }
+    return variants.get(transition, "intent transition observed; keep cadence discipline")
+
+
+def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_microcopy_alias(
+    current_intent: str,
+    prior_intent: str,
+) -> str:
+    intent_alias = {
+        "STEADY": "S",
+        "BRACE": "B",
+        "PUSH": "P",
+        "EASE": "E",
+    }
+    return f"{intent_alias.get(prior_intent, 'S')}{intent_alias.get(current_intent, 'S')}"
+
+
 def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation(
     dos_width_limit: int = 72,
 ) -> dict[str, object]:
@@ -3034,6 +3073,34 @@ def build_report(
             cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_intent
         )
     )
+    prior_cadence_24h_recovery_triad_gap_cue_transition_family = (
+        resolve_cadence_24h_recovery_triad_gap_cue_transition_family(
+            prior_cadence_24h_recovery_triad_gap_missing_bucket_count_cue,
+            cadence_24h_recovery_triad_gap_missing_bucket_count_cue,
+        )
+    )
+    prior_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue = (
+        resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue(
+            prior_cadence_24h_recovery_triad_gap_cue_transition_family
+        )
+    )
+    prior_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_intent = (
+        resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_intent(
+            prior_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue
+        )
+    )
+    cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_microcopy = (
+        resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_microcopy(
+            cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_intent,
+            prior_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_intent,
+        )
+    )
+    cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_microcopy_alias = (
+        resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_microcopy_alias(
+            cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_intent,
+            prior_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_intent,
+        )
+    )
     cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper = (
         resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper(
             cadence_24h_recovery_triad_gap_cue_transition_vfx_cue,
@@ -3233,6 +3300,8 @@ def build_report(
         "cadence24hRecoveryTriadGapCueTransitionVfxCueAlias": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias,
         "cadence24hRecoveryTriadGapCueTransitionVfxCueIntent": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_intent,
         "cadence24hRecoveryTriadGapCueTransitionVfxCueIntentAlias": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_intent_alias,
+        "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationMicrocopy": cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_microcopy,
+        "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationMicrocopyAlias": cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_microcopy_alias,
         "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper": cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper,
         "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperBaseline": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation["baseline"],
         "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperCompact": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation["compact"],

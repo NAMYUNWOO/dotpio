@@ -3728,3 +3728,5 @@
 - Follow-up: add one-line action-order helper for transition intent in next injection.
 
 - 2026-04-04 06:21 KST — Completed injected helper task linking `TRIGAPNV + TRIGAPNVI` to immediate action verbs via `TSDCAD24TRIGAPNVH`.
+## 2026-04-04 07:02 KST
+- Logged follow-up to test optional markdown decode row for alias without breaking cadence row ordering.

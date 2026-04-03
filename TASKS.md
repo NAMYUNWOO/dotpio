@@ -14,7 +14,7 @@ Last updated: 2026-04-04 03:36 KST
 ## Next Up (Game Director Injection — Cycle IP63)
 - [x] Systems/Ops + QA Team (injected): Add fixture-level assertion that `TSDCAD24TRIGAPNVI legend` row count mirrors `TSDCAD24TRIGAPNVI` across sparse mixed-window summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 05:49 KST -> [x] completed: 2026-04-04 05:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 - [x] Design/World Team (injected): Add one-line operator helper linking `TRIGAPNV + TRIGAPNVI` to immediate cadence action verbs under <=72-char copy budget. *(lifecycle: [ ] -> [~] started: 2026-04-04 06:18 KST -> [x] completed: 2026-04-04 06:21 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] AI-content/Combat Team (injected): Prototype offline intent-escalation microcopy variants keyed by `STEADY/BRACE/PUSH/EASE` transitions (no runtime coupling).
+- [x] AI-content/Combat Team (injected): Prototype offline intent-escalation microcopy variants keyed by `STEADY/BRACE/PUSH/EASE` transitions (no runtime coupling). *(lifecycle: [ ] -> [~] started: 2026-04-04 06:51 KST -> [x] completed: 2026-04-04 06:54 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP59)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after closing the carried IP57 injected markdown item; mandatory Game Director review cycle executed immediately.
@@ -2756,3 +2756,26 @@ See project-level plans:
 - [x] AI-content/Combat Team (injected): Expand `TSDCAD24TRIGAPNX` alternate phrasebank with lane-aware variants keyed by missing-bucket signature (`CV|DW|SO`) while keeping offline-only contract. *(lifecycle: [ ] -> [~] started: 2026-04-04 04:51 KST -> [x] completed: 2026-04-04 05:02 KST; verification: `python3 scripts/regression_check_lane_coverage_guardrail.py`)*
 - [x] Combat/VFX + UX Team (injected): Add compact decode alias token for `TSDCAD24TRIGAPNV` (`G|P|B|C`) with DOS-width evaluation row. *(lifecycle: [ ] -> [~] started: 2026-04-04 04:53 KST -> [x] completed: 2026-04-04 05:02 KST; verification: `python3 scripts/regression_check_lane_coverage_guardrail.py`)*
 - [x] Systems/Ops + QA Team (injected): Add parity/order fixtures for `TSDCAD24TRIGAPNR` + legend adjacency between `TRIGAPNX` and `TRIGAPNA` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 04:55 KST -> [x] completed: 2026-04-04 05:02 KST; verification: `python3 scripts/regression_check_lane_coverage_guardrail.py`)*
+
+## Game Director Review — Cycle IP65 (2026-04-04 07:02 KST)
+### Idea candidates
+1. **Low-risk UX/game-feel:** Add payload-only compact alias for intent-escalation microcopy transitions (`SS|SB|...|EE`) to speed one-scan QA triage.
+   - Fantasy: readable tactical cadence intent.
+   - Metric: faster digest interpretation during triage reviews.
+   - Scope: S / Risk: Low / Rollback: remove alias field.
+   - Pass/Fail: alias exists for all transition combinations and is deterministic.
+2. **Mid-risk systems/combat/design:** Add optional markdown row for intent-escalation microcopy + alias in cadence cluster with strict adjacency guards.
+   - Fantasy: richer cadence narration in digest.
+   - Metric: operator decode errors reduced.
+   - Scope: M / Risk: Medium (order-contract regressions) / Rollback: disable row rendering.
+   - Pass/Fail: row ordering stable in summary/token sections.
+3. **High-risk novelty:** Add adaptive phase-aware copy mutation based on lane-gap signature entropy windows.
+   - Fantasy: “alive” coaching narrative.
+   - Metric: higher perceived novelty in playtest notes.
+   - Scope: L / Risk: High (copy churn/noise) / Rollback: feature flag off.
+   - Pass/Fail: novelty gain without readability regression.
+
+### Selected experiment (IP65)
+- [x] Systems/AI-content Team (Game Director selected): Ship payload-only compact intent-escalation alias `cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationMicrocopyAlias` (`SS|SB|...|EE`) derived from prior/current intent states without runtime coupling. *(lifecycle: [ ] -> [~] started: 2026-04-04 06:58 KST -> [x] completed: 2026-04-04 07:02 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+- [ ] UX/Design Team (injected follow-up): Evaluate optional markdown decode row for intent-escalation alias (`NVIXA`) while preserving strict cadence-cluster adjacency contracts.
+- [ ] Systems/QA Team (injected follow-up): Add fixture-level domain assertion for intent-escalation alias pair coverage (`{S|B|P|E}{S|B|P|E}`) across mixed-window summary/token fixtures.

@@ -3703,3 +3703,5 @@
 - Follow-up: prototype offline intent-escalation microcopy variants for `STEADY/BRACE/PUSH/EASE` transitions.
 
 - 2026-04-04 06:21 KST — No AI-content behavior change this slice; queued next unchecked item: offline intent-escalation microcopy variants keyed by STEADY/BRACE/PUSH/EASE.
+## 2026-04-04 07:02 KST
+- Added compact transition-pair alias over offline intent-escalation microcopy variants to support denser QA triage.

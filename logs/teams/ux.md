@@ -3863,3 +3863,5 @@
 - Verification: regression row-count/order locks now include intent rows in both summary/token sections.
 
 - 2026-04-04 06:21 KST — Row-order readability contract updated: `TRIGAPNVI -> TRIGAPNVIA -> TRIGAPNVH -> TRIGAPNX` in both summary/token sections.
+## 2026-04-04 07:02 KST
+- Captured UX follow-up for potential `NVIXA` decode surfacing in digest cluster.
