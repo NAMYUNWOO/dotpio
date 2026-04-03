@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-04-04 02:58 KST
+Last updated: 2026-04-04 03:36 KST
 
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP59)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after closing the carried IP57 injected markdown item; mandatory Game Director review cycle executed immediately.
@@ -25,9 +25,23 @@ Last updated: 2026-04-04 02:58 KST
 - [x] Combat/VFX + Design/World + Systems/QA Team: Added markdown decode row `TSDCAD24TRIGAPC legend (LOCKED=gap0, WATCH=gap1, RECOVER=gap2+)` and hardened regression parity/order contracts for `TRIGAP -> TRIGAPM -> TRIGAPC -> TRIGAPC legend -> TRIGAP legend -> TRIGAPLEN`. *(lifecycle: [ ] -> [~] started: 2026-04-04 02:54 KST -> [x] completed: 2026-04-04 02:58 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP60)
-- [ ] Systems/Ops + QA Team (injected): Add fixture-level assertion that `TSDCAD24TRIGAPC legend` row count mirrors `TSDCAD24TRIGAPC` under mixed-window fixtures with sparse sections.
-- [ ] Design/World Team (injected): Add one-line operator helper row linking `TRIGAP + TRIGAPM + TRIGAPC` to immediate cadence action ordering.
-- [ ] AI-content/Combat Team (injected): Prototype offline urgency-cue narrative microcopy keyed by `TRIGAPC` transitions (`LOCKED->WATCH->RECOVER`) without runtime coupling.
+- [x] Systems/Ops + QA Team (injected): Add fixture-level assertion that `TSDCAD24TRIGAPC legend` row count mirrors `TSDCAD24TRIGAPC` under mixed-window fixtures with sparse sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 03:24 KST -> [x] completed: 2026-04-04 03:30 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py`)*
+- [x] Design/World Team (injected): Add one-line operator helper row linking `TRIGAP + TRIGAPM + TRIGAPC` to immediate cadence action ordering. *(lifecycle: [ ] -> [~] started: 2026-04-04 03:24 KST -> [x] completed: 2026-04-04 03:30 KST; verification: `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [x] AI-content/Combat Team (injected): Prototype offline urgency-cue narrative microcopy keyed by `TRIGAPC` transitions (`LOCKED->WATCH->RECOVER`) without runtime coupling. *(lifecycle: [ ] -> [~] started: 2026-04-04 03:24 KST -> [x] completed: 2026-04-04 03:30 KST; verification: `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP61)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP60 closure; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel (Design/World): add compact decode legend for `TSDCAD24TRIGAPN` so transition microcopy stays operator-parseable in one scan.
+  - Mid-risk Systems/QA: enforce parity/order for `TRIGAPN legend` under sparse mixed-window fixtures in summary/token sections.
+  - High-risk AI-content novelty: adaptive narrative style selector driven by rolling `TRIGAPC` transition entropy windows.
+- Selected experiment: Idea 1 (low-risk Design/World) minimal vertical slice.
+- [x] Design/World + Systems/QA Team: Added `TSDCAD24TRIGAPN legend (stable=hold cadence, surfaced=patch1, widened=patch2+, sealed=resume lock)` row and expanded regression parity/order contracts to anchor `TRIGAPN legend` before `TRIGAPC legend`. *(lifecycle: [ ] -> [~] started: 2026-04-04 03:33 KST -> [x] completed: 2026-04-04 03:36 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP61)
+- [ ] Systems/Ops + QA Team (injected): Add fixture assertion that `TSDCAD24TRIGAPN legend` row count mirrors `TSDCAD24TRIGAPN` across sparse summary/token mixed-window fixtures.
+- [ ] Design/World Team (injected): Add compact action alias row for `TRIGAPN` transition families (`STABLE|SURFACED|WIDENED|SEALED`) with dos-width eval.
+- [ ] AI-content/Combat Team (injected): Prototype alternate urgency microcopy variants for `WATCH->RECOVER` and `RECOVER->WATCH` transitions offline (no runtime coupling).
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP55)
 - Coverage check (last 10 completed, lane guardrail snapshot): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 (`missingCadenceBuckets`: combat-or-vfx, design-or-world, systems-or-ops).

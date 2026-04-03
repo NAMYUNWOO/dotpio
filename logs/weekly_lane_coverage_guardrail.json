@@ -74,6 +74,8 @@
   "cadence24hRecoveryTriadGapSignature": "CV0M1|DW0M1|SO0M1",
   "cadence24hRecoveryTriadGapMissingBucketCount": 3,
   "cadence24hRecoveryTriadGapMissingBucketCountCue": "RECOVER",
+  "cadence24hRecoveryTriadGapActionOrderHelper": "TRIGAP->TRIGAPM->TRIGAPC; LOCKED=hold, WATCH=patch1, RECOVER=patch2+",
+  "cadence24hRecoveryTriadGapCueTransitionMicrocopy": "multi-gap persists; prioritize recovery queue",
   "cadence24hRecoveryTriadGapSignatureDecodeBaseline": "M1=missing bucket, M0=covered bucket",
   "cadence24hRecoveryTriadGapSignatureDecodeCompact": "M1=missing, M0=covered",
   "cadence24hRecoveryTriadGapSignatureDecodeEvaluation": {

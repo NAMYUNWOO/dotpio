@@ -3583,3 +3583,9 @@
 ## 2026-04-04 02:58 KST
 - Cycle IP60 selected low-risk combat/vfx readability slice: added `TSDCAD24TRIGAPC legend` decode row (`LOCKED=gap0, WATCH=gap1, RECOVER=gap2+`) so urgency cue is one-scan decodable in markdown rails.
 - Verification: py_compile + regression + guardrail regeneration PASS.
+
+## 2026-04-04 03:31 KST
+- Added combat-readable urgency transition microcopy path for `LOCKED/WATCH/RECOVER` cue transitions via `TSDCAD24TRIGAPN`.
+
+## 2026-04-04 03:37 KST
+- Maintained combat cue readability by anchoring transition narrative decode before urgency cue legend.

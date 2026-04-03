@@ -3678,3 +3678,9 @@
 - Cycle IP59 follow-up: shipped `TSDCAD24TRIGAPC` cadence urgency cue token from `TSDCAD24TRIGAPM` mapping (0=LOCKED, 1=WATCH, 2+=RECOVER) in markdown guardrail output.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py` and live report regeneration command passed.
 - Follow-up: keep injected Systems/Ops+QA item open to harden explicit TRIGAPC parity/order anchoring in regression fixtures.
+
+## 2026-04-04 03:31 KST
+- Added offline urgency-cue transition narrative token `TSDCAD24TRIGAPN` keyed by prior->current `TRIGAPC` transitions for compact cadence storytelling.
+
+## 2026-04-04 03:37 KST
+- Narrative decode added for transition microcopy semantics to keep offline authoring consistency for cue transitions.

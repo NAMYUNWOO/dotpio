@@ -19,6 +19,9 @@
 - cadence 24h triad gap signature (design/world + ux): **TSDCAD24TRIGAP:CV0M1|DW0M1|SO0M1**
 - cadence 24h triad gap missing-bucket count (systems/ops): **TSDCAD24TRIGAPM:3**
 - cadence 24h triad gap urgency cue (combat/vfx): **TSDCAD24TRIGAPC:RECOVER**
+- cadence 24h triad gap operator helper (design/world): **TSDCAD24TRIGAPH:TRIGAP->TRIGAPM->TRIGAPC; LOCKED=hold, WATCH=patch1, RECOVER=patch2+**
+- cadence 24h triad gap urgency-cue transition narrative (ai-content/combat): **TSDCAD24TRIGAPN:multi-gap persists; prioritize recovery queue**
+- cadence 24h triad gap urgency-cue transition narrative decode (design/world): **TSDCAD24TRIGAPN legend (stable=hold cadence, surfaced=patch1, widened=patch2+, sealed=resume lock)**
 - cadence 24h triad gap urgency cue decode (combat/vfx): **TSDCAD24TRIGAPC legend (LOCKED=gap0, WATCH=gap1, RECOVER=gap2+)**
 - cadence 24h triad gap signature decode (design/world + ux): **TSDCAD24TRIGAP legend (M1=missing, M0=covered)**
 - cadence 24h triad gap signature decode dos-width eval (design/world + ux): **TSDCAD24TRIGAPLEN:B36|C22|LIM72|PREF:COMPACT|PASS**

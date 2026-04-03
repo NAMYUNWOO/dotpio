@@ -5484,3 +5484,10 @@ Compact decision memory for AI context efficiency.
 - Hardened deterministic chain: `TRIGAP -> TRIGAPM -> TRIGAPC -> TRIGAPC legend -> TRIGAP legend -> TRIGAPLEN` (summary/token sections).
 - Verification stayed green: py_compile + regression suite + guardrail artifact regeneration.
 - Injected next backlog tasks for IP60: systems/qa mixed-window legend parity assertion, design/world action helper row, ai-content/combat offline transition microcopy.
+
+## 2026-04-04 03:31 KST
+- Shipped TRIGAP follow-up slice: `TSDCAD24TRIGAPH` operator helper + `TSDCAD24TRIGAPN` transition narrative + regression parity/order locks for sparse sections.
+- Validation: py_compile PASS; regression_check_lane_coverage_guardrail PASS; guardrail report regen PASS.
+
+## 2026-04-04 03:37 KST
+- Game Director IP61 executed after full-check backlog: shipped `TRIGAPN legend` vertical slice, verified via py_compile/regression/live report regen, and injected IP61 next tasks.

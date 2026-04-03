@@ -3703,3 +3703,9 @@
 ## 2026-04-04 02:58 KST
 - Cycle IP60 design/world readability pass: inserted explicit cue-decode line for `TRIGAPC` to preserve deterministic operator interpretation without widening row footprint.
 - Durable copy decision: keep decode text compact as `LOCKED=gap0, WATCH=gap1, RECOVER=gap2+`.
+
+## 2026-04-04 03:31 KST
+- Added operator helper row in cadence digest: `TSDCAD24TRIGAPH` linking `TRIGAP -> TRIGAPM -> TRIGAPC` to immediate action order.
+
+## 2026-04-04 03:37 KST
+- Added compact decode row `TSDCAD24TRIGAPN legend (stable=hold cadence, surfaced=patch1, widened=patch2+, sealed=resume lock)`.

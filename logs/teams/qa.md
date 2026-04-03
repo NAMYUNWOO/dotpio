@@ -5626,3 +5626,9 @@
 
 ## 2026-04-04 02:58 KST
 - Cycle IP60 QA hardening: added parity assertion for `TRIGAPC legend` row counts and adjacency assertions for the full gap cluster chain.
+
+## 2026-04-04 03:31 KST
+- Verified new `TRIGAPC legend` sparse-section parity contract and cadence-order assertions: `TRIGAP -> TRIGAPM -> TRIGAPC -> TRIGAPH -> TRIGAPN -> TRIGAPC legend`.
+
+## 2026-04-04 03:37 KST
+- Regression now enforces row-count parity + adjacency for `TRIGAPN legend` under sparse fixtures.

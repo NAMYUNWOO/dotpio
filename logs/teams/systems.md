@@ -5126,3 +5126,10 @@
 
 ## 2026-04-04 02:58 KST
 - Cycle IP60 systems follow-through: extended ordering contract to include `TRIGAPC legend` between `TRIGAPC` and `TRIGAP legend` in both summary/token sections.
+
+## 2026-04-04 03:31 KST
+- Added sparse-section parity coverage for cadence triad gap cluster: new regression assertions for `TSDCAD24TRIGAPH`/`TSDCAD24TRIGAPN` row parity and cadence-order anchoring around `TRIGAPC legend`.
+- Follow-up: keep sparse fixtures in regression matrix when adding future `TRIGAP*` rows.
+
+## 2026-04-04 03:37 KST
+- Added parity/order coverage for new `TSDCAD24TRIGAPN legend` row so sparse mixed-window fixtures cannot drift narrative decode placement.

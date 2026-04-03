@@ -1157,6 +1157,29 @@ def resolve_cadence_24h_recovery_triad_gap_missing_bucket_count_cue(
     return "RECOVER"
 
 
+def resolve_cadence_24h_recovery_triad_gap_action_order_helper() -> str:
+    return "TRIGAP->TRIGAPM->TRIGAPC; LOCKED=hold, WATCH=patch1, RECOVER=patch2+"
+
+
+def resolve_cadence_24h_recovery_triad_gap_cue_transition_microcopy(
+    current_cue: str,
+    prior_cue: str,
+) -> str:
+    transition = f"{prior_cue}->{current_cue}"
+    mapping = {
+        "LOCKED->LOCKED": "stable lock; keep cadence",
+        "LOCKED->WATCH": "new gap surfaced; patch one lane",
+        "LOCKED->RECOVER": "multi-gap jump; recover two lanes now",
+        "WATCH->LOCKED": "gap sealed; resume balanced cadence",
+        "WATCH->WATCH": "single-gap hold; keep one-lane patch",
+        "WATCH->RECOVER": "gap widened; escalate two-lane recovery",
+        "RECOVER->LOCKED": "recovery landed; lock cadence",
+        "RECOVER->WATCH": "partial recovery; close final lane",
+        "RECOVER->RECOVER": "multi-gap persists; prioritize recovery queue",
+    }
+    return mapping.get(transition, "cadence transition observed; keep recovery priority")
+
+
 def resolve_cadence_24h_recovery_triad_cadence_ready_alias(
     bucket_cadence: dict[str, dict[str, object]],
 ) -> str:
@@ -2769,6 +2792,25 @@ def build_report(
             cadence_24h_recovery_triad_gap_missing_bucket_count
         )
     )
+    prior_cadence_24h_recovery_triad_gap_missing_bucket_count = sum(
+        1
+        for bucket in ("combat-or-vfx", "design-or-world", "systems-or-ops")
+        if int(prior_bucket_status.get(bucket, {}).get("count", 0)) <= 0
+    )
+    prior_cadence_24h_recovery_triad_gap_missing_bucket_count_cue = (
+        resolve_cadence_24h_recovery_triad_gap_missing_bucket_count_cue(
+            prior_cadence_24h_recovery_triad_gap_missing_bucket_count
+        )
+    )
+    cadence_24h_recovery_triad_gap_action_order_helper = (
+        resolve_cadence_24h_recovery_triad_gap_action_order_helper()
+    )
+    cadence_24h_recovery_triad_gap_cue_transition_microcopy = (
+        resolve_cadence_24h_recovery_triad_gap_cue_transition_microcopy(
+            cadence_24h_recovery_triad_gap_missing_bucket_count_cue,
+            prior_cadence_24h_recovery_triad_gap_missing_bucket_count_cue,
+        )
+    )
     cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation = (
         resolve_cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation()
     )
@@ -2946,6 +2988,8 @@ def build_report(
         "cadence24hRecoveryTriadGapSignature": cadence_24h_recovery_triad_gap_signature,
         "cadence24hRecoveryTriadGapMissingBucketCount": cadence_24h_recovery_triad_gap_missing_bucket_count,
         "cadence24hRecoveryTriadGapMissingBucketCountCue": cadence_24h_recovery_triad_gap_missing_bucket_count_cue,
+        "cadence24hRecoveryTriadGapActionOrderHelper": cadence_24h_recovery_triad_gap_action_order_helper,
+        "cadence24hRecoveryTriadGapCueTransitionMicrocopy": cadence_24h_recovery_triad_gap_cue_transition_microcopy,
         "cadence24hRecoveryTriadGapSignatureDecodeBaseline": cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation["baseline"],
         "cadence24hRecoveryTriadGapSignatureDecodeCompact": cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation["compact"],
         "cadence24hRecoveryTriadGapSignatureDecodeEvaluation": cadence_24h_recovery_triad_gap_signature_decode_helper_evaluation,
@@ -3204,6 +3248,9 @@ def to_markdown(
             f"- cadence 24h triad gap signature (design/world + ux): **TSDCAD24TRIGAP:{report.get('cadence24hRecoveryTriadGapSignature', resolve_cadence_24h_recovery_triad_gap_signature(report.get('bucketCadence', {})))}**",
             f"- cadence 24h triad gap missing-bucket count (systems/ops): **TSDCAD24TRIGAPM:{int(report.get('cadence24hRecoveryTriadGapMissingBucketCount', 0))}**",
             f"- cadence 24h triad gap urgency cue (combat/vfx): **TSDCAD24TRIGAPC:{report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', resolve_cadence_24h_recovery_triad_gap_missing_bucket_count_cue(int(report.get('cadence24hRecoveryTriadGapMissingBucketCount', 0))))}**",
+            f"- cadence 24h triad gap operator helper (design/world): **TSDCAD24TRIGAPH:{report.get('cadence24hRecoveryTriadGapActionOrderHelper', resolve_cadence_24h_recovery_triad_gap_action_order_helper())}**",
+            f"- cadence 24h triad gap urgency-cue transition narrative (ai-content/combat): **TSDCAD24TRIGAPN:{report.get('cadence24hRecoveryTriadGapCueTransitionMicrocopy', resolve_cadence_24h_recovery_triad_gap_cue_transition_microcopy(report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', 'WATCH'), report.get('cadence24hRecoveryTriadGapMissingBucketCountCue', 'WATCH')))}**",
+            "- cadence 24h triad gap urgency-cue transition narrative decode (design/world): **TSDCAD24TRIGAPN legend (stable=hold cadence, surfaced=patch1, widened=patch2+, sealed=resume lock)**",
             "- cadence 24h triad gap urgency cue decode (combat/vfx): **TSDCAD24TRIGAPC legend (LOCKED=gap0, WATCH=gap1, RECOVER=gap2+)**",
             f"- cadence 24h triad gap signature decode (design/world + ux): **TSDCAD24TRIGAP legend ({report.get('cadence24hRecoveryTriadGapSignatureDecodeCompact', resolve_cadence_24h_recovery_triad_gap_signature_decode_helper_compact())})**",
             f"- cadence 24h triad gap signature decode dos-width eval (design/world + ux): **TSDCAD24TRIGAPLEN:B{report.get('cadence24hRecoveryTriadGapSignatureDecodeEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadGapSignatureDecodeEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadGapSignatureDecodeEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadGapSignatureDecodeEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadGapSignatureDecodeEvaluation', {}).get('status', 'PASS')}**",
