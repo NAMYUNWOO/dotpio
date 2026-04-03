@@ -1090,6 +1090,27 @@ def resolve_cadence_24h_recovery_triad_coverage_alias(
     return f"CV{combat_count}|DW{design_count}|SO{systems_count}"
 
 
+def resolve_cadence_24h_recovery_triad_bucket_hit_vector(
+    bucket_cadence: dict[str, dict[str, object]],
+) -> str:
+    combat_count = int(bucket_cadence.get("combat-or-vfx", {}).get("count", 0))
+    design_count = int(bucket_cadence.get("design-or-world", {}).get("count", 0))
+    systems_count = int(bucket_cadence.get("systems-or-ops", {}).get("count", 0))
+    combat_done = 1 if combat_count > 0 else 0
+    design_done = 1 if design_count > 0 else 0
+    systems_done = 1 if systems_count > 0 else 0
+    return f"CV{combat_count}D{combat_done}|DW{design_count}D{design_done}|SO{systems_count}D{systems_done}"
+
+
+def resolve_cadence_24h_recovery_triad_cadence_ready_alias(
+    bucket_cadence: dict[str, dict[str, object]],
+) -> str:
+    combat_done = bool(bucket_cadence.get("combat-or-vfx", {}).get("met", False))
+    design_done = bool(bucket_cadence.get("design-or-world", {}).get("met", False))
+    systems_done = bool(bucket_cadence.get("systems-or-ops", {}).get("met", False))
+    return "LOCK" if (combat_done and design_done and systems_done) else "GAP"
+
+
 def resolve_cadence_24h_recovery_triad_coverage_pressure_alias(
     bucket_cadence: dict[str, dict[str, object]],
 ) -> str:
@@ -2393,6 +2414,12 @@ def build_report(
     cadence_24h_recovery_triad_coverage_alias = resolve_cadence_24h_recovery_triad_coverage_alias(
         bucket_status
     )
+    cadence_24h_recovery_triad_bucket_hit_vector = (
+        resolve_cadence_24h_recovery_triad_bucket_hit_vector(bucket_status)
+    )
+    cadence_24h_recovery_triad_cadence_ready_alias = (
+        resolve_cadence_24h_recovery_triad_cadence_ready_alias(bucket_status)
+    )
     cadence_24h_recovery_triad_coverage_pressure_alias = (
         resolve_cadence_24h_recovery_triad_coverage_pressure_alias(bucket_status)
     )
@@ -2502,6 +2529,8 @@ def build_report(
         "cadence24hRecoveryTriad": cadence_24h_recovery_triad,
         "cadence24hRecoveryTriadPulsePaletteAlias": cadence_24h_recovery_triad_pulse_palette_alias,
         "cadence24hRecoveryTriadCoverageAlias": cadence_24h_recovery_triad_coverage_alias,
+        "cadence24hRecoveryTriadBucketHitVector": cadence_24h_recovery_triad_bucket_hit_vector,
+        "cadence24hRecoveryTriadCadenceReadyAlias": cadence_24h_recovery_triad_cadence_ready_alias,
         "cadence24hRecoveryTriadCoveragePressureAlias": cadence_24h_recovery_triad_coverage_pressure_alias,
         "cadence24hRecoveryTriadCoverageSpreadAlias": cadence_24h_recovery_triad_coverage_spread_alias,
         "cadence24hRecoveryTriadCoverageSpreadTrend": cadence_24h_recovery_triad_coverage_spread_trend,
@@ -2722,6 +2751,8 @@ def to_markdown(
             f"- cadence 24h ops action (systems/ops): **{report.get('cadence24hOpsAction', 'force missing buckets next')}**",
             f"- cadence 24h recovery triad pulse palette alias (combat/vfx): **TSDCAD24TRIP:{report.get('cadence24hRecoveryTriadPulsePaletteAlias', resolve_cadence_24h_recovery_triad_pulse_palette_alias())}**",
             f"- cadence 24h recovery triad bucket coverage alias (systems/ops): **TSDCAD24TRICOV:{report.get('cadence24hRecoveryTriadCoverageAlias', resolve_cadence_24h_recovery_triad_coverage_alias(report.get('bucketCadence', {})))}**",
+            f"- cadence 24h triad bucket hit vector (combat/vfx + design/world + systems/ops): **TSDCAD24TRIV:{report.get('cadence24hRecoveryTriadBucketHitVector', resolve_cadence_24h_recovery_triad_bucket_hit_vector(report.get('bucketCadence', {})))}**",
+            f"- cadence 24h triad readiness alias (systems/ops): **TSDCAD24TRIL:{report.get('cadence24hRecoveryTriadCadenceReadyAlias', resolve_cadence_24h_recovery_triad_cadence_ready_alias(report.get('bucketCadence', {})))}**",
             f"- cadence 24h recovery triad coverage pressure alias (systems/ops): **TSDCAD24TRICOVP:{report.get('cadence24hRecoveryTriadCoveragePressureAlias', resolve_cadence_24h_recovery_triad_coverage_pressure_alias(report.get('bucketCadence', {})))}**",
             f"- cadence 24h recovery triad coverage spread alias (design/world): **TSDCAD24TRICOVS:{report.get('cadence24hRecoveryTriadCoverageSpreadAlias', resolve_cadence_24h_recovery_triad_coverage_spread_alias(report.get('bucketCadence', {})))}**",
             f"- cadence 24h recovery triad coverage spread trend (ai-content/combat): **TSDCAD24TRICOVST:{report.get('cadence24hRecoveryTriadCoverageSpreadTrend', 'FLAT')}**",

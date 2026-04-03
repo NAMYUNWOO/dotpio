@@ -3614,3 +3614,8 @@
 - Closed injected parity follow-up: regression now enforces `TSDCAD24TRICOVSTCMSVHCST` row-count parity vs `TSDCAD24TRI` across summary/token sections.
 - Added fixture-level legend parity assertion for `TSDCAD24TRICOVSTCMSVHCST legend` and order lock placing `...VHCST` immediately after `...VHCALEN` in each cadence cluster.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-03 15:41 KST
+- Cycle IP48 design/world readability slice shipped with `TSDCAD24TRIV` and `TSDCAD24TRIL` rows.
+- Outcome: one-scan cadence status now surfaces both bucket counts and triad readiness gate.
+- Verification: py_compile + regression + guardrail artifact regeneration.

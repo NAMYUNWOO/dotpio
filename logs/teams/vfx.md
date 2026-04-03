@@ -563,3 +563,8 @@
 - Cycle IP45 shipped: added `TSDCAD24TRICOVSTCMSVHCST` drift-score trend token (`UP|FLAT|DOWN`) from two-window VHCS deltas with ±5 threshold.
 - Verification bundle passed (py_compile + regression + guardrail artifact regen).
 - Follow-up injected: add explicit row-count parity assertion for `TSDCAD24TRICOVSTCMSVHCST` across summary/token sections.
+
+## 2026-04-03 15:41 KST — Cycle IP48 triad hit-vector slice
+- Forced-lane recovery selected combat/vfx-first path under all-missing cadence buckets.
+- Added compact triad bucket-hit vector row `TSDCAD24TRIV:CV<n>D<0|1>|DW<n>D<0|1>|SO<n>D<0|1>` to increase VFX cadence dispatch visibility without runtime coupling.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration passed.
