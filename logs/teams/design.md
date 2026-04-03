@@ -1,5 +1,8 @@
 # Design Team Log
 
+## 2026-04-03 11:52 KST
+- Design/readability bookkeeping sync: closed IP42 AI Content/Combat confidence-band item in backlog metadata; decode semantics remain `LOW|MID|HIGH` with no wording drift introduced.
+
 ## 2026-04-03 05:19 KST
 - Design readability contract updated: `TSDCAD24TRICOVSTCMSV legend` parity now follows its sibling cue token (`...STCMSV`) instead of broader triad row counts.
 - Expected impact: decode rows remain semantically coupled to visible cue rails in both summary and token sections.

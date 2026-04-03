@@ -1,5 +1,8 @@
 # World Team Log
 
+## 2026-04-03 11:52 KST
+- World log sync: IP42 cue-confidence follow-up (`TSDCAD24TRICOVSTCMSVC`) closed in trackers; no world/runtime content mutation required.
+
 ## 2026-04-03 05:19 KST
 - World/design decode cluster check: `TSDCAD24TRICOVSTCMSV legend` parity is now explicitly tied to the `TSDCAD24TRICOVSTCMSV` cue row, preserving one-scan decode fidelity when cue rows are toggled.
 

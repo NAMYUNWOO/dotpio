@@ -1,6 +1,9 @@
 # TASKS
 
-Last updated: 2026-04-03 03:41 KST
+Last updated: 2026-04-03 11:52 KST
+
+## Autonomous Cycle 2026-04-03 (Injected Follow-up - Cycle IP42)
+- [x] AI Content/Combat Team (injected): Prototype offline VFX cue confidence score (`TSDCAD24TRICOVSTCMSVC:LOW|MID|HIGH`) from cue-switch persistence windows without runtime coupling. *(lifecycle: [ ] -> [~] started: 2026-04-03 11:50 KST -> [x] completed: 2026-04-03 11:52 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP42)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.

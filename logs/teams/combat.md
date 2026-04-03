@@ -1,5 +1,8 @@
 # Combat Team Log
 
+## 2026-04-03 11:52 KST
+- Combat/VFX follow-up closure: confirmed `TSDCAD24TRICOVSTCMSVC` confidence-band prototype is now formally marked complete in TASKS/POST_RC backlog and remains bounded to offline cue-stability reporting.
+
 ## 2026-04-03 05:19 KST
 - Combat/VFX cadence cue contract hardened indirectly: regression now requires `TSDCAD24TRICOVSTCMSV legend` count to mirror `TSDCAD24TRICOVSTCMSV` cue rows, preventing hidden legend drift under mixed-window fixtures.
 
