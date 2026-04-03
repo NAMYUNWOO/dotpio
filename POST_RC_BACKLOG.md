@@ -1,5 +1,9 @@
 # POST_RC_BACKLOG
 
+## Next Up (Game Director Injection — Cycle IP48B)
+- [ ] Systems/QA Team (injected): Extend fixture-level parity/order assertions so `TSDCAD24TRICOVSTCMSVHCSTA` row + legend stay adjacent to `TSDCAD24TRICOVSTCMSVHCST` across summary/token sections.
+- [ ] Combat/AI-content Team (injected): Prototype offline drift-trend alias smoothing policy (`STICKY_FLAT|RAW_DELTA`) and compare operator readability impact before enabling.
+
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP48)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
 - Forced-lane decision: no lane exceeded 40%, but all cadence buckets were missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so forced underrepresented-lane recovery started with combat/vfx-capable slice.

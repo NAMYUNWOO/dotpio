@@ -3520,3 +3520,4 @@
 - Status: no-code-touch
 - Note: Lane unchanged this cycle; recorded cross-lane visibility per protocol.
 - Follow-up: Continue highest-priority unchecked ACTION_ITEMS/TASKS item selection in next autonomous cycle.
+- 2026-04-03 17:58 KST — Cycle IP48B shipped `TSDCAD24TRICOVSTCMSVHCSTA` (drift-trend alias U|F|D) with markdown decode + regression presence checks; queued parity/order + smoothing follow-ups in POST_RC_BACKLOG.

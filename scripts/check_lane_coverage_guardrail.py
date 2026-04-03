@@ -1402,6 +1402,17 @@ def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum
         return "DOWN"
     return "FLAT"
 
+
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias(
+    trend: str,
+) -> str:
+    mapping = {
+        "UP": "U",
+        "FLAT": "F",
+        "DOWN": "D",
+    }
+    return mapping.get(trend, "F")
+
 def resolve_cadence_24h_legend_baseline() -> str:
     return "O=OK, W=WATCH, A=ALERT"
 
@@ -2555,6 +2566,11 @@ def build_report(
             rows
         )
     )
+    cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias(
+            cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend
+        )
+    )
     cadence_24h_legend_evaluation = resolve_cadence_24h_legend_evaluation()
     cadence_24h_recovery_triad_bucket_hit_vector_done_flag_decode_evaluation = (
         resolve_cadence_24h_recovery_triad_bucket_hit_vector_done_flag_decode_evaluation()
@@ -2610,6 +2626,7 @@ def build_report(
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScore": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreAlias": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_alias,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrend": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend,
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAlias": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAlias": resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias(
             cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band
         ),
@@ -2866,8 +2883,10 @@ def to_markdown(
             f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence band alias (combat/vfx): **TSDCAD24TRICOVSTCMSVHCA:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAlias', 'M')}**",
             "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence-band alias decode (design/world): **TSDCAD24TRICOVSTCMSVHCA legend (L=high churn, M=mixed flips, H=stable cues)**",
             f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence-band alias decode dos-width eval (design/world): **TSDCAD24TRICOVSTCMSVHCALEN:B{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeEvaluation', {}).get('status', 'PASS')}**",
-            f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-score trend (ai-content/combat): **TSDCAD24TRICOVSTCMSVHCST:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrend', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend([]))}**",
-            "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-score trend decode (design/world): **TSDCAD24TRICOVSTCMSVHCST legend (UP=stabilizing, FLAT=holding, DOWN=destabilizing)**",
+        f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-score trend (ai-content/combat): **TSDCAD24TRICOVSTCMSVHCST:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrend', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend([]))}**",
+        "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-score trend decode (design/world): **TSDCAD24TRICOVSTCMSVHCST legend (UP=stabilizing, FLAT=holding, DOWN=destabilizing)**",
+        f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-score trend alias (systems/qa): **TSDCAD24TRICOVSTCMSVHCSTA:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAlias', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias(resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend([])))}**",
+        "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-score trend alias decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTA legend (U=UP, F=FLAT, D=DOWN)**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",
             "- trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**",

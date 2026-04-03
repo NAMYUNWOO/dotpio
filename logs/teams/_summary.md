@@ -5357,3 +5357,4 @@ Compact decision memory for AI context efficiency.
 - Durable decision: cadence triad ordering contract should anchor vector/readiness rows to the triad coverage row (`TRICOV`) rather than the triad headline row (`TRI`) to match generated markdown structure and avoid false failures in balanced fixtures.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for next mandatory Game Director review cycle).
+- 2026-04-03 17:58 KST — Cycle IP48B shipped `TSDCAD24TRICOVSTCMSVHCSTA` (drift-trend alias U|F|D) with markdown decode + regression presence checks; queued parity/order + smoothing follow-ups in POST_RC_BACKLOG.
