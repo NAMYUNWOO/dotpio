@@ -1,6 +1,19 @@
 # TASKS
 
-Last updated: 2026-04-03 17:52 KST
+Last updated: 2026-04-03 18:22 KST
+
+## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP49)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked, so immediate Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk Systems/QA: extend fixture parity + order contracts so `TSDCAD24TRICOVSTCMSVHCSTA` row/decode are deterministically anchored to `TSDCAD24TRICOVSTCMSVHCST` in summary/token sections.
+  - Mid-risk Design/World + UX: add compact drift-trend pair helper row (`TSDCAD24TRICOVSTCMSVHCPAIR`) for one-scan row/decode linkage.
+  - High-risk AI-content/Combat: prototype volatility-aware alias smoothing policy (`STICKY_FLAT|RAW_DELTA`) from churn windows.
+- Selected experiment: Idea 1 (low-risk Systems/QA) as minimal vertical slice.
+- [x] Systems/QA Team (injected): Extend fixture-level parity/order assertions so `TSDCAD24TRICOVSTCMSVHCSTA` row + legend stay adjacent to `TSDCAD24TRICOVSTCMSVHCST` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 18:19 KST -> [x] completed: 2026-04-03 18:22 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP49)
+- [ ] Design/World + UX Team (injected): Add compact pair-link decode row for `TSDCAD24TRICOVSTCMSVHCST` ↔ `TSDCAD24TRICOVSTCMSVHCSTA` with <=72-char DOS-width evaluation token.
+- [ ] AI-content/Combat Team (injected): Prototype offline trend-alias smoothing policy note (`STICKY_FLAT|RAW_DELTA`) from recent drift-score volatility windows (no runtime coupling).
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review — Cycle IP48B)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked, so immediate Game Director cycle executed.

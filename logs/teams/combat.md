@@ -3521,3 +3521,9 @@
 - Note: Lane unchanged this cycle; recorded cross-lane visibility per protocol.
 - Follow-up: Continue highest-priority unchecked ACTION_ITEMS/TASKS item selection in next autonomous cycle.
 - 2026-04-03 17:58 KST — Cycle IP48B shipped `TSDCAD24TRICOVSTCMSVHCSTA` (drift-trend alias U|F|D) with markdown decode + regression presence checks; queued parity/order + smoothing follow-ups in POST_RC_BACKLOG.
+
+
+## 2026-04-03 18:22 KST
+- Cycle IP49 (Systems/QA vertical slice) closed: regression now asserts `TSDCAD24TRICOVSTCMSVHCSTA` row-count parity and enforces deterministic adjacency around `TSDCAD24TRICOVSTCMSVHCST` row/decode blocks across summary/token sections.
+- Durable decision: keep alias-row adjacency contracts explicit (row + decode) instead of implicit cluster assumptions to prevent markdown-order drift.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

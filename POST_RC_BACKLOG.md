@@ -1,7 +1,11 @@
 # POST_RC_BACKLOG
 
+## Next Up (Game Director Injection — Cycle IP49)
+- [ ] Design/World + UX Team (injected): Add compact pair-link decode row for `TSDCAD24TRICOVSTCMSVHCST` ↔ `TSDCAD24TRICOVSTCMSVHCSTA` with <=72-char DOS-width evaluation token.
+- [ ] AI-content/Combat Team (injected): Prototype offline trend-alias smoothing policy note (`STICKY_FLAT|RAW_DELTA`) from recent drift-score volatility windows (no runtime coupling).
+
 ## Next Up (Game Director Injection — Cycle IP48B)
-- [ ] Systems/QA Team (injected): Extend fixture-level parity/order assertions so `TSDCAD24TRICOVSTCMSVHCSTA` row + legend stay adjacent to `TSDCAD24TRICOVSTCMSVHCST` across summary/token sections.
+- [x] Systems/QA Team (injected): Extend fixture-level parity/order assertions so `TSDCAD24TRICOVSTCMSVHCSTA` row + legend stay adjacent to `TSDCAD24TRICOVSTCMSVHCST` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-03 18:19 KST -> [x] completed: 2026-04-03 18:22 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [ ] Combat/AI-content Team (injected): Prototype offline drift-trend alias smoothing policy (`STICKY_FLAT|RAW_DELTA`) and compare operator readability impact before enabling.
 
 ## Autonomous Cycle 2026-04-03 (Game Director Review - Cycle IP48)
