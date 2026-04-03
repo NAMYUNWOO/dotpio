@@ -3623,3 +3623,7 @@
 
 ## 2026-04-03 18:52 KST
 - No runtime-coupled AI-content behavior changes this cycle; reserved smoothing-policy prototype (`STICKY_FLAT|RAW_DELTA`) as next queued item.
+
+## 2026-04-03 19:26 KST
+- Closed injected AI-content/Combat prototype: trend-alias smoothing policy note now emitted as `TSDCAD24TRICOVSTCMSVHCSTP`.
+- Policy semantics: `STICKY_FLAT` on high volatility windows, otherwise `RAW_DELTA`; intended as operator guidance only.

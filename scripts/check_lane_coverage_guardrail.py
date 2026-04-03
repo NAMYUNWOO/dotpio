@@ -1413,6 +1413,39 @@ def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum
     }
     return mapping.get(trend, "F")
 
+
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy(
+    rows: list[str],
+    churn_window_size: int = 5,
+    volatility_window_size: int = 4,
+    volatility_threshold: int = 20,
+) -> str:
+    """Offline policy note from recent drift-score volatility windows.
+
+    Returns:
+      - STICKY_FLAT: volatility spike observed; prefer flat trend alias hold.
+      - RAW_DELTA: volatility stable enough to trust raw trend deltas.
+    """
+    if len(rows) <= 4:
+        return "RAW_DELTA"
+
+    window_count = min(volatility_window_size, len(rows) - 2)
+    drift_scores: list[int] = []
+    for idx in range(window_count):
+        suffix_len = len(rows) - idx
+        drift_scores.append(
+            resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score(
+                rows[:suffix_len],
+                churn_window_size=churn_window_size,
+            )
+        )
+
+    if len(drift_scores) <= 1:
+        return "RAW_DELTA"
+
+    volatility_span = max(drift_scores) - min(drift_scores)
+    return "STICKY_FLAT" if volatility_span >= volatility_threshold else "RAW_DELTA"
+
 def resolve_cadence_24h_legend_baseline() -> str:
     return "O=OK, W=WATCH, A=ALERT"
 
@@ -2603,6 +2636,11 @@ def build_report(
             cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend
         )
     )
+    cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy = (
+        resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy(
+            rows
+        )
+    )
     cadence_24h_legend_evaluation = resolve_cadence_24h_legend_evaluation()
     cadence_24h_recovery_triad_bucket_hit_vector_done_flag_decode_evaluation = (
         resolve_cadence_24h_recovery_triad_bucket_hit_vector_done_flag_decode_evaluation()
@@ -2662,6 +2700,7 @@ def build_report(
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreAlias": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_alias,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrend": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAlias": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias,
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicy": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAlias": resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias(
             cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band
         ),
@@ -2927,6 +2966,8 @@ def to_markdown(
         "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-score trend alias decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTA legend (U=UP, F=FLAT, D=DOWN)**",
         f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend pair decode helper (design/world): **TSDCAD24TRICOVSTCMSVHCPAIR:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendPairDecodeHelperCompact', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_pair_decode_helper_compact())}**",
         f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend pair decode helper dos-width eval (design/world): **TSDCAD24TRICOVSTCMSVHCPAIRLEN:B{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendPairDecodeHelperEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendPairDecodeHelperEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendPairDecodeHelperEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendPairDecodeHelperEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendPairDecodeHelperEvaluation', {}).get('status', 'PASS')}**",
+        f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing policy note (ai-content/combat): **TSDCAD24TRICOVSTCMSVHCSTP:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicy', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy([]))}**",
+        "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing policy decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTP legend (STICKY_FLAT=hold F on churn spike, RAW_DELTA=use raw delta)**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",
             "- trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**",

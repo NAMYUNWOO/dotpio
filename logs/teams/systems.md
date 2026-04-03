@@ -5050,3 +5050,7 @@
 
 ## 2026-04-03 18:52 KST
 - Added `TSDCAD24TRICOVSTCMSVHCPAIR` + `...PAIRLEN` payload/markdown wiring in lane guardrail report; preserved deterministic ordering contracts with cadence decode block.
+
+## 2026-04-03 19:26 KST
+- Integrated offline smoothing policy token `TSDCAD24TRICOVSTCMSVHCSTP` into guardrail report payload/markdown (`STICKY_FLAT|RAW_DELTA`) derived from recent drift-score volatility span.
+- Decision: keep policy deterministic and offline-only (no runtime coupling); threshold uses volatility-span guard to preserve reversibility.

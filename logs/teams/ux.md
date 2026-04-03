@@ -3789,3 +3789,7 @@
 
 ## 2026-04-03 18:52 KST
 - Confirmed compact pair-link row readability and adjacency in summary/token sections; locked with regression ordering assertions.
+
+## 2026-04-03 19:26 KST
+- UX pass confirms smoothing policy note appears as concise single-row status + legend pair in markdown output.
+- No UI interaction changes; this remains observability copy for cadence audits.

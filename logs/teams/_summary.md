@@ -1,3 +1,9 @@
+## 2026-04-03 19:26 KST
+- Closed highest-priority unchecked TASKS item (AI-content/Combat): shipped offline trend-alias smoothing policy note `TSDCAD24TRICOVSTCMSVHCSTP` (`STICKY_FLAT|RAW_DELTA`) from recent drift-score volatility windows.
+- Durable decision: keep smoothing-policy output advisory-only and deterministic (volatility-span threshold), with zero runtime coupling to combat flow.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: Combat/AI-content readability-impact compare for smoothing policy enablement).
+
 ## 2026-04-03 18:22 KST
 - Triggered required Game Director cycle IP49 (ACTION_ITEMS/TASKS/POST_RC were fully checked at start), generated 3 ideas, and shipped the selected minimal vertical slice.
 - Completed item: Systems/QA parity+order hardening for `TSDCAD24TRICOVSTCMSVHCSTA` so row/decode adjacency is explicitly enforced next to `TSDCAD24TRICOVSTCMSVHCST` across summary/token sections.

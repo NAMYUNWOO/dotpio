@@ -3530,3 +3530,7 @@
 
 ## 2026-04-03 18:52 KST
 - No combat-tuning mutation this slice; validated cadence report additions remain offline/readability-only.
+
+## 2026-04-03 19:26 KST
+- Combat lane reviewed volatility policy output for drift-trend aliasing; validated no gameplay/runtime behavior mutation (telemetry/readability layer only).
+- Follow-up: evaluate readability impact versus existing VHCST/VHCSTA pair in next injected backlog cycle.

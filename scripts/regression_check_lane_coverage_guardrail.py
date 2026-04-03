@@ -590,6 +590,11 @@ def run_fixture_case(
             expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend
         )
     )
+    expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy = (
+        load_guardrail_module().resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy(
+            rows
+        )
+    )
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue (combat/vfx): "
         f"**TSDCAD24TRICOVSTCMSV:{expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue}**"
@@ -635,6 +640,11 @@ def run_fixture_case(
         f"**TSDCAD24TRICOVSTCMSVHCSTA:{expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias}**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad vfx-cue hysteresis confidence drift-score trend alias row"
+    assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing policy note (ai-content/combat): "
+        f"**TSDCAD24TRICOVSTCMSVHCSTP:{expected_cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy}**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad vfx-cue drift-trend alias smoothing policy row"
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score ladder decode (design/world): "
         "**TSDCAD24TRICOVSTCMS legend (80=surge confidence, 50=hold confidence, 20=cool confidence)**"
@@ -690,6 +700,11 @@ def run_fixture_case(
         "**TSDCAD24TRICOVSTCMSVHCSTA legend (U=UP, F=FLAT, D=DOWN)**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad vfx-cue hysteresis confidence drift-score trend alias decode row"
+    assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing policy decode (design/world): "
+        "**TSDCAD24TRICOVSTCMSVHCSTP legend (STICKY_FLAT=hold F on churn spike, RAW_DELTA=use raw delta)**"
+        in md_text
+    ), f"{name}: markdown output must include cadence-triad vfx-cue drift-trend alias smoothing policy decode row"
     assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue dual-hysteresis decode helper (design/world): "
         "**TSDCAD24TRICOVSTCMSVHD:VH=STEADY|SWING, VHA=S|W**"

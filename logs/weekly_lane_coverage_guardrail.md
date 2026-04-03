@@ -60,6 +60,8 @@
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-score trend alias decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTA legend (U=UP, F=FLAT, D=DOWN)**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend pair decode helper (design/world): **TSDCAD24TRICOVSTCMSVHCPAIR:VHCST<->VHCSTA:UP/U|FLAT/F|DOWN/D**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend pair decode helper dos-width eval (design/world): **TSDCAD24TRICOVSTCMSVHCPAIRLEN:B32|C33|LIM72|PREF:BASELINE|PASS**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing policy note (ai-content/combat): **TSDCAD24TRICOVSTCMSVHCSTP:RAW_DELTA**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend alias smoothing policy decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTP legend (STICKY_FLAT=hold F on churn spike, RAW_DELTA=use raw delta)**
 - trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 - trend-score band snapshot alias: **TSSB:C0E0H0**
 - trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**

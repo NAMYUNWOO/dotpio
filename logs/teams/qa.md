@@ -5554,3 +5554,7 @@
 
 ## 2026-04-03 18:52 KST
 - Extended regression expectations for `TSDCAD24TRICOVSTCMSVHCPAIR` + `...PAIRLEN`, including presence and adjacency after `...VHCSTA legend`.
+
+## 2026-04-03 19:26 KST
+- Regression suite extended to assert presence/value of `TSDCAD24TRICOVSTCMSVHCSTP` row + decode legend.
+- Verification green: py_compile + regression_check_lane_coverage_guardrail + guardrail artifact regeneration.

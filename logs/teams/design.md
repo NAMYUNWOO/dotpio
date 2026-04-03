@@ -3642,3 +3642,7 @@
 
 ## 2026-04-03 18:52 KST
 - Added design copy pairing drift trend + alias via `TSDCAD24TRICOVSTCMSVHCPAIR` and width-eval token to keep one-scan decode under DOS limits.
+
+## 2026-04-03 19:26 KST
+- Added decode copy for `TSDCAD24TRICOVSTCMSVHCSTP` to preserve one-scan operator understanding (`STICKY_FLAT` vs `RAW_DELTA`).
+- Copy kept within DOS-oriented compact style and aligned with adjacent drift-trend token language.
