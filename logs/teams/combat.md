@@ -3738,3 +3738,8 @@
 ## 2026-04-05 01:52 KST
 - Combat readability lane accepted offline route map helper for alt beat alias phase-note: trend alias now maps directly to expected beat alias (`U/F/D -> HC2/PP2/SN2`).
 - Runtime coupling remains disabled; this is reporting/readability-only scaffolding.
+
+## 2026-04-05 02:21 KST
+- Closed IP78 injected sparse mixed-window tuple assertion for `TSDPMFXVWCRITSPMBCBNT` parity.
+- Regression fixture matrix now enforces `TSDPMFXVWCRITSPMBCBH == TSDPMFXVWCRITSPMBCBNLEG == TSDPMFXVWCRITSPMBCBNT == TSDPMFXVWCRITSPMB` across summary/token sections.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.

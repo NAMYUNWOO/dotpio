@@ -5800,3 +5800,8 @@
 - Validated new `TSDPMFXVWCRITSPMBCBNT` markdown presence, strict adjacency, and row-count parity against `TSDPMFXVWCRITSPMB`.
 - Regression checks now fail fast if routing helper drifts outside the `...MBCBN*` cluster order.
 - Verification bundle: py_compile + regression + guardrail artifact regeneration PASS.
+
+## 2026-04-05 02:21 KST
+- Closed IP78 injected sparse mixed-window tuple assertion for `TSDPMFXVWCRITSPMBCBNT` parity.
+- Regression fixture matrix now enforces `TSDPMFXVWCRITSPMBCBH == TSDPMFXVWCRITSPMBCBNLEG == TSDPMFXVWCRITSPMBCBNT == TSDPMFXVWCRITSPMB` across summary/token sections.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.

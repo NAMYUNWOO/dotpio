@@ -5738,3 +5738,8 @@ Compact decision memory for AI context efficiency.
 - Cycle IP78 shipped: introduced `TSDPMFXVWCRITSPMBCBNT:U->HC2|F->PP2|D->SN2` and hardened regression order/parity for the `...MBCBN*` phase-note cluster.
 - Durable decision: treat phase-note routing helper as mandatory adjacency member between `...MBCBNLEG` and `...MBCBNH` to prevent decode drift.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration.
+
+## 2026-04-05 02:21 KST
+- Item closed: Systems/Ops + QA sparse mixed-window tuple assertion for `TSDPMFXVWCRITSPMBCBNT` parity.
+- Decision: enforce four-way parity tuple (`MBCBH`, `MBCBNLEG`, `MBCBNT`, `MBCB`) in cross-fixture matrix to prevent routing-helper drift.
+- Verification bundle executed and PASS (py_compile + regression + guardrail artifact regeneration).

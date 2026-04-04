@@ -3831,3 +3831,8 @@
 ## 2026-04-05 01:52 KST
 - AI-content lane aligned phase-note interpretation with deterministic route helper `TSDPMFXVWCRITSPMBCBNT` for trend alias disambiguation.
 - Decision: keep copy compact and symbolic to avoid narrative drift in dense digest rails.
+
+## 2026-04-05 02:21 KST
+- Closed IP78 injected sparse mixed-window tuple assertion for `TSDPMFXVWCRITSPMBCBNT` parity.
+- Regression fixture matrix now enforces `TSDPMFXVWCRITSPMBCBH == TSDPMFXVWCRITSPMBCBNLEG == TSDPMFXVWCRITSPMBCBNT == TSDPMFXVWCRITSPMB` across summary/token sections.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.

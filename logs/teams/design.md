@@ -3868,3 +3868,8 @@
 ## 2026-04-05 01:52 KST
 - Added compact routing helper decode row `TSDPMFXVWCRITSPMBCBNT:U->HC2|F->PP2|D->SN2` to keep beat-side phase-note interpretation one-scan readable.
 - Decision: keep helper token terse and deterministic to preserve DOS-width headroom while improving trend->alias clarity.
+
+## 2026-04-05 02:21 KST
+- Closed IP78 injected sparse mixed-window tuple assertion for `TSDPMFXVWCRITSPMBCBNT` parity.
+- Regression fixture matrix now enforces `TSDPMFXVWCRITSPMBCBH == TSDPMFXVWCRITSPMBCBNLEG == TSDPMFXVWCRITSPMBCBNT == TSDPMFXVWCRITSPMB` across summary/token sections.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.

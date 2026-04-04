@@ -3739,3 +3739,8 @@
 ## 2026-04-05 01:52 KST
 - World/design readability pass added a direct trend-to-alt-beat routing helper row for dense operator docs.
 - Follow-up queued: optional plain-language helper sentence under <=72-char budget.
+
+## 2026-04-05 02:21 KST
+- Closed IP78 injected sparse mixed-window tuple assertion for `TSDPMFXVWCRITSPMBCBNT` parity.
+- Regression fixture matrix now enforces `TSDPMFXVWCRITSPMBCBH == TSDPMFXVWCRITSPMBCBNLEG == TSDPMFXVWCRITSPMBCBNT == TSDPMFXVWCRITSPMB` across summary/token sections.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.

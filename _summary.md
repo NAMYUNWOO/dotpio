@@ -89,3 +89,8 @@
 - Durable decision: helper contract now explicitly ties `alias|trend|trendAlias` semantics to beat-side meaning in one compact row while preserving <=72-width guardrail.
 - Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Next highest-priority item: `Combat/AI-content` alternate ordering A/B token (`trend|alias|trendAlias`).
+
+## 2026-04-05 02:21 KST — IP78 sparse tuple parity lock
+- Completed highest-priority unchecked Systems/Ops + QA injection by extending mixed-window fixture tuple assertions to include `TSDPMFXVWCRITSPMBCBNT`.
+- Durable decision: alt-beat helper parity invariant is now four-way (`MBCBH`, `MBCBNLEG`, `MBCBNT`, baseline `MBCB`) for summary/token sections.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
