@@ -5232,3 +5232,4 @@
 - Cycle IP70: wired new offline handoff cue payload field `...PRLENCUET` and kept deterministic order contracts (`PRLENCUEM -> PRLENCUET -> PRLENCUE legend`).
 - Follow-up: add sparse mixed-window parity assertion for PRLENCUET in next injected QA pass.
 - 2026-04-04 17:54 KST — Added mixed-window fixture matrix parity assertion so `TSDCAD24TRICOVSTCMSVHCSTPRLENCUET` row counts now must mirror `...PRLENCUEA` across summary/token sections.
+- 2026-04-04 18:06 KST — Added PRLENCUETD decode-helper DOS-width evaluation contract (`PRLENCUETDLEN`) and locked deterministic ordering before `PRLENCUE legend`.

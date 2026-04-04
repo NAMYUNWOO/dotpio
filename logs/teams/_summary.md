@@ -5632,3 +5632,4 @@ Compact decision memory for AI context efficiency.
 - Verification passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, and guardrail JSON/MD regeneration.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=3 (IP70 injected), POST_RC_BACKLOG unchecked=3 (IP70 injected).
 - 2026-04-04 17:54 KST — Closed remaining injected IP70 follow-ups: PRLENCUET mixed-window parity assertion, <=72-char decode helper row, and alternate offline GH/PP cue phrasing pack; regression order chain now enforces `...PRLENCUEM -> ...PRLENCUET -> ...PRLENCUETD -> ...PRLENCUE legend`.
+- 2026-04-04 18:06 KST — Game Director Cycle IP71 shipped minimal vertical slice `PRLENCUETDLEN` and injected next tasks for sparse mixed-window parity + optional alias-pack experiment.

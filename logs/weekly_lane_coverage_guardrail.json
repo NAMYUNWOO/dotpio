@@ -208,6 +208,15 @@
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionMicrocopyVariants": "GH->PP:rise then probe lane|PP->GH:settle then hold lane",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoff": "GH->PP=rise handoff|PP->GH=settle handoff",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoffDecodeHelper": "GH->PP rise first|PP->GH settle second",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoffDecodeHelperEvaluation": {
+    "baseline": "GH->PP rise handoff first|PP->GH settle handoff second",
+    "compact": "GH->PP rise first|PP->GH settle second",
+    "baselineLen": 54,
+    "compactLen": 38,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAlias": "H",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeBaseline": "L=high churn, M=mixed flips, H=stable cues",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeCompact": "L=high churn, M=mixed flips, H=stable cues",

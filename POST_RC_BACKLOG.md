@@ -14,6 +14,17 @@
 - [x] Design/World Team (injected): Add concise decode helper row (`rise handoff` before `settle handoff`) under <=72-char DOS budget via `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETD:GH->PP rise first|PP->GH settle second`. *(completed: 2026-04-04 17:54 KST; verification bundle same as above.)*
 - [x] Combat/AI-content Team (injected): Prototype offline alternate handoff cue copy variants for both transition directions (no runtime coupling) via `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEM:GH->PP:rise then probe lane|PP->GH:settle then hold lane`. *(completed: 2026-04-04 17:54 KST; verification bundle same as above.)*
 
+## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP71)
+- Coverage check (last 10 completions): systems/readability follow-ups remained dominant; forced a player-facing readability QA slice.
+- Candidate ideas:
+  - Low-risk UX/Design: `PRLENCUETD` DOS-width evaluator row.
+  - Mid-risk Systems/QA: parity + adjacency fixture lock for evaluator row.
+  - High-risk Combat/AI-content: compact alternate alias pack for transition phrasing.
+- **Selected:** low-risk evaluator-row slice.
+- [x] UX/Design + Systems/QA Team: Added `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDLEN:B54|C38|LIM72|PREF:COMPACT|PASS` with regression presence/parity/order contracts anchored before `...PRLENCUE legend`. *(completed: 2026-04-04 18:06 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture assertion that `PRLENCUETDLEN` row count mirrors `...PRLENCUEA` across summary/token sections.
+- [ ] Combat/AI-content Team (injected): Prototype optional `R1/S1` compact alias pack for `PRLENCUEM` transition phrasing variants (offline-only).
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP69)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
 - Forced-lane decision: no over-40% lane; cadence triad missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so this cycle forced a cross-lane recovery experiment.

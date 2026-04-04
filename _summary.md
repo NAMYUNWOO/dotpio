@@ -49,3 +49,9 @@
 - Completed remaining injected TASKS/POST_RC items: sparse mixed-window parity for `...PRLENCUET`, compact decode helper row `...PRLENCUETD`, and alternate offline transition copy pack `...PRLENCUEM`.
 - Durable decision: keep transition chain deterministic as `...PRLENCUEM -> ...PRLENCUET -> ...PRLENCUETD -> ...PRLENCUE legend` while preserving offline-only coupling.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-04 18:06 KST — IP71 decode-helper width telemetry slice
+- Game Director cycle run (3 ideas -> selected low-risk UX/Design): added `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDLEN:B54|C38|LIM72|PREF:COMPACT|PASS`.
+- Durable decision: keep deterministic chain `...PRLENCUET -> ...PRLENCUETD -> ...PRLENCUETDLEN -> ...PRLENCUE legend`.
+- Injected follow-ups: sparse mixed-window parity for `PRLENCUETDLEN`, optional offline `R1/S1` alias-pack for transition phrasing.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

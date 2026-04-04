@@ -3670,3 +3670,4 @@
 - Reviewed IP70 handoff cue insertion; maintained combat-facing operator sequence continuity through `PRLENCUEH -> PRLENCUEM -> PRLENCUET`.
 - Follow-up: prototype alternate handoff cue variants offline for transition rhythm testing.
 - 2026-04-04 17:54 KST — Combat lane reviewed alternate GH/PP cue phrasing pack; sequencing stays deterministic and offline-only for handoff rhythm testing.
+- 2026-04-04 18:06 KST — Combat lane reviewed IP71 experiment output; no runtime combat coupling introduced, only digest readability telemetry.
