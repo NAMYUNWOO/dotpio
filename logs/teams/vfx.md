@@ -1,3 +1,8 @@
+## 2026-04-05 03:41 KST
+- Added combat/vfx pressure-tag signal for beat-side phase-note rail: `TSDPMFXVWCRITSPMBCBNX` now emits `SPIKE|HOLD|EASE|SAFE` from urgency trend (`UP|FLAT|DOWN|UNK`).
+- Scope stayed offline/readability-only (no runtime combat/VFX tuning), but improves one-scan urgency feel for phase-note alias stream.
+- Verification: py_compile + guardrail regression + guardrail artifact regeneration PASS.
+
 # VFX Team Log
 
 ## 2026-04-04 15:41 KST

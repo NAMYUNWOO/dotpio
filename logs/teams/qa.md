@@ -1,3 +1,7 @@
+## 2026-04-05 03:41 KST
+- QA contract expanded for phase-note cluster: added presence/parity checks for `TSDPMFXVWCRITSPMBCBNX` and `...MBCBNXLEG`.
+- Adjacency regex updated to include the new rows between `...MBCBNT` and `...MBCBNH`; regression suite remains green.
+
 # QA Team Log
 
 ## 2026-04-04 15:52 KST

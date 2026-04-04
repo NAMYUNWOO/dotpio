@@ -1,3 +1,8 @@
+## 2026-04-05 03:41 KST
+- Systems/QA hardening landed for beat-side phase-note cluster: regression now enforces row presence/parity for `TSDPMFXVWCRITSPMBCBNX` + `...MBCBNXLEG`.
+- Strict adjacency chain extended to `...MBCBN -> ...MBCBNLEG -> ...MBCBNT -> ...MBCBNX -> ...MBCBNXLEG -> ...MBCBNH -> ...MBCBNHLEN`.
+- Verification bundle: py_compile + regression + guardrail regen PASS.
+
 # Systems Team Log
 
 ## 2026-04-04 15:52 KST

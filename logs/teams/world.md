@@ -1,3 +1,6 @@
+## 2026-04-05 03:41 KST
+- World/design readability pass: phase-note chain now carries explicit pressure semantics (`SPIKE/HOLD/EASE/SAFE`) alongside alias/trend tokens for faster narrative interpretation.
+
 # World Team Log
 
 ## 2026-04-03 14:31 KST

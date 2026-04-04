@@ -213,6 +213,8 @@
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side alt alias phase-note (combat/vfx+ai-content, offline): **TSDPMFXVWCRITSPMBCBN:PP2|FLAT|F**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side alt alias phase-note decode (design/world): **TSDPMFXVWCRITSPMBCBNLEG:HC2/PP2/SN2 + UP/FLAT/DOWN + U/F/D**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side phase-note routing helper (design/world): **TSDPMFXVWCRITSPMBCBNT:U(surge)->HC2|F(hold)->PP2|D(cool)->SN2**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side phase-note pressure tag (combat/vfx+design): **TSDPMFXVWCRITSPMBCBNX:HOLD**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side phase-note pressure tag decode (design/world): **TSDPMFXVWCRITSPMBCBNXLEG:UP=SPIKE|FLAT=HOLD|DOWN=EASE|UNK=SAFE**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side phase-note format helper (ux/design, dos-width): **TSDPMFXVWCRITSPMBCBNH:alias|trend|tAlias=>HC2/PP2/SN2+U/F/D|LIM72|PASS**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side phase-note helper eval (ux/design): **TSDPMFXVWCRITSPMBCBNHLEN:B50|C50|LIM72|PREF:COMPACT|PASS**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence decode (design/world): **TSDPMFXVWC legend (L=LOW, M=MID, H=HIGH)**

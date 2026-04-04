@@ -1,3 +1,7 @@
+## 2026-04-05 03:41 KST
+- Added compact decode rail for new phase-note pressure tag token: `TSDPMFXVWCRITSPMBCBNXLEG:UP=SPIKE|FLAT=HOLD|DOWN=EASE|UNK=SAFE`.
+- Decision: keep decode row adjacent to routing helper chain to preserve one-pass readability under dense token clusters.
+
 # Design Team Log
 
 ## 2026-04-04 15:41 KST

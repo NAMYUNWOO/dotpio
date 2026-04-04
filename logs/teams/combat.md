@@ -1,3 +1,7 @@
+## 2026-04-05 03:41 KST
+- Combat/vfx telemetry readability improved with new phase-note pressure tag (`TSDPMFXVWCRITSPMBCBNX`) derived from urgency trend.
+- No runtime combat behavior changed; this is digest-only cue scaffolding for faster triage.
+
 # Combat Team Log
 
 ## 2026-04-03 14:31 KST

@@ -1,3 +1,18 @@
+## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP79)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
+- Forced-lane decision: cadence triad remained missing in all three buckets, so cycle forced cross-lane recovery in underrepresented lanes.
+- Candidate ideas:
+  - Low-risk Combat/VFX + Design/World: add phase-note pressure-tag readability rail for `UP/FLAT/DOWN/UNK`.
+  - Mid-risk Systems/QA: lock parity/order for new pressure-tag rows in summary/token sections.
+  - High-risk AI-content/Combat: adaptive pressure-tag narration variant by bucket-streak polarity.
+- Selected experiment: low-risk pressure-tag rail + parity/order lock vertical slice.
+- [x] Combat/VFX + Design/World + Systems/QA Team (injected): Added `TSDPMFXVWCRITSPMBCBNX` + `TSDPMFXVWCRITSPMBCBNXLEG` rows with payload resolver wiring and strict adjacency/parity regression contracts across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-05 03:33 KST -> [x] completed: 2026-04-05 03:41 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP79)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture tuple parity check for `...MBCBNX` + `...MBCBNXLEG` against `TSDPMFXVWCRITSPMB`.
+- [ ] Design/World Team (injected): Add compact decode helper row for pressure-tag action semantics under <=72-char budget.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype offline compact alias pack (`SP/HO/EA/SF`) for pressure-tag readability A/B follow-up.
+
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP78)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC remained fully checked after IP77 closure; mandatory Game Director cycle executed.
 - Candidate ideas:

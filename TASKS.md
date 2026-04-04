@@ -1,3 +1,18 @@
+## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP79)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
+- Forced-lane decision: no lane exceeded 40%, but cadence triad buckets remained fully missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so this cycle forced a cross-lane recovery slice from underrepresented lanes.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + Design/World: add beat-side phase-note pressure tag row to make U/F/D urgency feel one-scan actionable.
+  - Mid-risk Systems/QA: enforce strict adjacency/parity for new pressure-tag rows inside `...MBCBN*` cluster.
+  - High-risk AI-content/Combat: rotate pressure-tag phrasing pack by recent cadence bucket streak direction.
+- Selected experiment: low-risk pressure-tag rail + mid-risk parity/adjacency lock minimal vertical slice.
+- [x] Combat/VFX + Design/World + Systems/QA Team: Added `TSDPMFXVWCRITSPMBCBNX:<SPIKE|HOLD|EASE|SAFE>` + decode row `...MBCBNXLEG`, wired payload pressure-tag field, and hardened regression adjacency/parity contracts (`...MBCBN -> ...MBCBNLEG -> ...MBCBNT -> ...MBCBNX -> ...MBCBNXLEG -> ...MBCBNH -> ...MBCBNHLEN`). *(lifecycle: [ ] -> [~] started: 2026-04-05 03:33 KST -> [x] completed: 2026-04-05 03:41 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP79)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture parity tuple entry so `TSDPMFXVWCRITSPMBCBNX` and `...MBCBNXLEG` row counts mirror `TSDPMFXVWCRITSPMB` across summary/token sections.
+- [ ] Design/World Team (injected): Add <=72-char compact helper row mapping pressure tags to operator copy (`SPIKE=surge now, HOLD=hold lane, EASE=cool lane, SAFE=fallback hold`).
+- [ ] Combat/VFX + AI-content Team (injected): Prototype offline alternate pressure-tag alias pack candidate (`SP/HO/EA/SF`) with runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP73)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP72 closure; mandatory Game Director cycle executed.
 - Candidate ideas generated:
@@ -14,7 +29,7 @@
 
 # TASKS
 
-Last updated: 2026-04-05 02:21 KST
+Last updated: 2026-04-05 03:41 KST
 
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP78)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog remained fully checked after IP77 closure; mandatory Game Director cycle executed.

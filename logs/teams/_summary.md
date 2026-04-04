@@ -1,3 +1,9 @@
+## 2026-04-05 03:41 KST
+- Game Director Cycle IP79: coverage check over latest 10 completions stayed all-zero by lane (`systems/world/ai-content/combat/design/vfx/ux/qa`), with all 24h cadence buckets missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
+- Forced-lane decision: enforced underrepresented-lane slice with cross-lane payload (`combat/vfx + design/world + systems/qa`) to restore cadence triad pressure.
+- Selected experiment shipped: added beat-side phase-note pressure tag rail `TSDPMFXVWCRITSPMBCBNX:<SPIKE|HOLD|EASE|SAFE>` + decode row `...MBCBNXLEG`, and locked strict adjacency chain `...MBCBN -> ...MBCBNLEG -> ...MBCBNT -> ...MBCBNX -> ...MBCBNXLEG -> ...MBCBNH -> ...MBCBNHLEN`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-04 15:52 KST
 - Closed highest-priority unchecked TASKS item (IP69 injected Systems/Ops+QA): sparse mixed-window fixture matrix now enforces `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH` row-count parity against `...STPRLENCUEA`.
 - Durable decision: helper parity is now guarded at both markdown-level section checks and cross-fixture sparse-window checks; treat this as required invariant for future helper microcopy additions.
