@@ -3628,3 +3628,6 @@
 - Combat lane noted for IP66 follow-up: evaluate whether INIT-transition-aware `NVH` phrasing improves action readability without changing combat runtime behavior.
 ## 2026-04-04 09:43 KST
 - Combat readability touch: operator helper now surfaces INIT full-state alongside shorthand in `NVH` row (`H(HOLD)` etc.) for faster pressure-call interpretation.
+
+## 2026-04-04 09:52 KST
+- Combat-adjacent helper output (`TSDCAD24TRIGAPNVH`) now has stricter regression domain guarantees for INIT alias/state coherence.

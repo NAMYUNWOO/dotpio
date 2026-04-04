@@ -19,3 +19,8 @@
 - Coverage check over last-10 completed backlog items returned zero parsed lane counts in `POST_RC_BACKLOG.md`; cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so forced next remained combat/vfx lane.
 - Selected experiment: enrich `TSDCAD24TRIGAPNVH` output with INIT alias+full-state suffix (`|INIT:H(HOLD)` pattern) to clarify vfx/combat operator handoff.
 - Verification: `py_compile` + `regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration all PASS.
+
+## 2026-04-04 09:52 KST — NVH INIT domain assertion lock
+- Completed injected Systems/QA backlog item for `TSDCAD24TRIGAPNVH` domain enforcement.
+- Durable decision: `NVH` rows must carry `|INIT:<H|R|L|S>(HOLD|RAMP|RELIEF|SHIFT)` with deterministic alias->state mapping in regression fixtures.
+- Verification remained standard: py_compile + regression suite + guardrail JSON/MD regeneration PASS.

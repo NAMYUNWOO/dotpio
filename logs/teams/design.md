@@ -3749,3 +3749,6 @@
 - Durable note: keep the callout embedded in the legend row to preserve compact one-scan readability without adding extra token rows.
 ## 2026-04-04 09:43 KST
 - Design readability improved: `TSDCAD24TRIGAPNVH` now includes explicit INIT full-state suffix to reduce alias lookup hops.
+
+## 2026-04-04 09:52 KST
+- No copy changes this slice; design-facing `NVH|INIT` readability contract remains stable while QA/System domain checks were strengthened.

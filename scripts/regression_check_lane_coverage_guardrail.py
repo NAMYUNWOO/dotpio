@@ -2093,6 +2093,23 @@ def run_fixture_case(
         assert baseline_len <= dos_limit and compact_len <= dos_limit, (
             f"{name}: fixture-level token-length headroom assertion requires TSDCAD24TRIGAPNVIXSALEN baseline/compact lengths to stay <= LIM budget"
         )
+    for idx in cadence_24h_triad_gap_cue_transition_vfx_operator_helper_indexes:
+        token_line = cadence_24h_lines[idx]
+        m = re.search(r"\*\*TSDCAD24TRIGAPNVH:[^*|]+\|INIT:([HRLS])\((HOLD|RAMP|RELIEF|SHIFT)\)\*\*", token_line)
+        assert m is not None, (
+            f"{name}: fixture-level domain assertion requires TSDCAD24TRIGAPNVH payload to include |INIT:<H|R|L|S>(<state>)"
+        )
+        init_alias = m.group(1)
+        init_state = m.group(2)
+        expected_state_for_alias = {
+            "H": "HOLD",
+            "R": "RAMP",
+            "L": "RELIEF",
+            "S": "SHIFT",
+        }[init_alias]
+        assert init_state == expected_state_for_alias, (
+            f"{name}: fixture-level domain assertion requires TSDCAD24TRIGAPNVH INIT alias/state mapping to stay deterministic"
+        )
     assert len(cadence_24h_triad_gap_cue_transition_vfx_cue_alias_eval_indexes) == len(cadence_24h_triad_gap_cue_transition_vfx_cue_alias_indexes), (
         f"{name}: fixture-level parity assertion requires TSDCAD24TRIGAPNVALEN row count to mirror TSDCAD24TRIGAPNVA across summary/token sections"
     )

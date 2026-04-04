@@ -5675,3 +5675,7 @@
 - Verification bundle passed: py_compile + regression + live guardrail artifact regeneration.
 ## 2026-04-04 09:43 KST
 - QA regression expectation updated for `TSDCAD24TRIGAPNVH` INIT suffix (`<alias>(<state>)`), verification suite remains green.
+
+## 2026-04-04 09:52 KST
+- Added regression assertion for `TSDCAD24TRIGAPNVH` payload domain and deterministic INIT alias/state mapping.
+- Verification PASS: py_compile + regression_check_lane_coverage_guardrail + guardrail artifact regen.

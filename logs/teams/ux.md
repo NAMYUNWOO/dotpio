@@ -3882,3 +3882,6 @@
 ## 2026-04-04 09:19 KST
 - UX readability pass: `NVIXSA` legend now includes direct callout to `NVH`, reducing lookup hops during triage scans.
 - Kept row count and rail density stable by extending existing decode text instead of introducing a new row.
+
+## 2026-04-04 09:52 KST
+- UX row order/readability unchanged; strengthened backend assertions ensure `NVH` INIT context remains parse-stable for one-scan triage.

@@ -5557,3 +5557,7 @@ Compact decision memory for AI context efficiency.
 - Completed backlog/task item: `TSDCAD24TRIGAPNVH` now emits INIT alias with full-state expansion (`H(HOLD)` etc.) for one-scan operator clarity.
 - Durable decision: keep INIT expansion embedded in existing NVH row (no extra row) to preserve cadence-cluster density/order.
 - Verification retained: py_compile + regression_check_lane_coverage_guardrail + guardrail regeneration.
+
+## 2026-04-04 09:52 KST — NVH INIT regression hardening
+- Shipped regression domain assertion for `TSDCAD24TRIGAPNVH` requiring `|INIT:<H|R|L|S>(<state>)` payload.
+- Locked deterministic INIT alias/state mapping for fixture stability while preserving existing ordering chain `NVIXSALEN -> NVH -> NVX`.

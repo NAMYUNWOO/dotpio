@@ -5178,3 +5178,7 @@
 - No payload/schema mutation; markdown contract only.
 ## 2026-04-04 09:43 KST
 - Systems update: canonical markdown emission now writes `TSDCAD24TRIGAPNVH ... |INIT:<alias>(<state>)` to lock alias/full-state pairing deterministically.
+
+## 2026-04-04 09:52 KST
+- Added fixture-domain parser for `TSDCAD24TRIGAPNVH` requiring `|INIT:<H|R|L|S>(<state>)` shape and deterministic alias->state mapping.
+- Preserved canonical cadence order contract `NVIXSALEN -> NVH -> NVX` (already enforced in cluster ordering checks).
