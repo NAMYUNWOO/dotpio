@@ -1,3 +1,9 @@
+## 2026-04-04 15:52 KST
+- Closed highest-priority unchecked TASKS item (IP69 injected Systems/Ops+QA): sparse mixed-window fixture matrix now enforces `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH` row-count parity against `...STPRLENCUEA`.
+- Durable decision: helper parity is now guarded at both markdown-level section checks and cross-fixture sparse-window checks; treat this as required invariant for future helper microcopy additions.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=3, POST_RC_BACKLOG unchecked=3 (next: Design/World helper-priority decode note under <=72 chars).
+
 ## 2026-04-04 15:41 KST
 - Game Director IP69 completed with forced cadence recovery focus (all three 24h buckets missing in latest 10-item snapshot).
 - Delivered compact helper row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH` and regression parity/order locks.

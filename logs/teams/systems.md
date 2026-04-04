@@ -1,5 +1,11 @@
 # Systems Team Log
 
+## 2026-04-04 15:52 KST
+- Closed IP69 injected Systems/Ops+QA parity follow-up by extending mixed-window fixture parity tuples with `stprlencueaRowCount` + `stprlencuehRowCount`.
+- Added explicit sparse-fixture assertion: `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH` row counts must mirror `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA` across summary/token sections.
+- Durable decision: keep helper parity enforced in the cross-fixture matrix (not only single-fixture markdown checks) to catch sparse-window drift.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-04 15:41 KST
 - Extended regression contracts for new helper row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH`.
 - Added markdown presence assertion, row-count parity lock (helper mirrors `STPRLENCUEA`), and adjacency order lock (`...LENCUEA legend -> ...LENCUEH -> ...LENCUE legend`).

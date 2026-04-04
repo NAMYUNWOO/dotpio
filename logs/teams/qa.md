@@ -1,5 +1,10 @@
 # QA Team Log
 
+## 2026-04-04 15:52 KST
+- QA validated new sparse mixed-window parity contract for `STPRLENCUEA` vs `STPRLENCUEH` helper rows across all four fixtures (`balanced_tie`, `ready_mix`, `prior_window_trend_up`, `prior_window_trend_down`).
+- Added fixture-level regression failure message to pinpoint helper parity drift between alias and helper rows.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-03 23:35 KST
 - Extended mixed-window fixture parity/order assertions: STPRLEN row is now anchored to STPRV legend in cross-fixture matrix with explicit count-parity check.
 - All 4 fixture cases (balanced_tie, ready_mix, prior_window_trend_up, prior_window_trend_down) verified.

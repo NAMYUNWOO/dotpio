@@ -4807,6 +4807,8 @@ def run_fixture_case(
         "familyTrend": family_trend,
         "stprvLegendRowCount": cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_legend_rows,
         "stprlenRowCount": cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_eval_rows,
+        "stprlencueaRowCount": md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA:"),
+        "stprlencuehRowCount": md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH:GH=hold lane|PP=probe lane**"),
         "tsdpmfxuctsbtRowCount": fx_urgency_confidence_trend_momentum_band_trend_row_count,
         "tsdpmfxuctsbtaRowCount": fx_urgency_confidence_trend_momentum_band_trend_alias_row_count,
         "tsdpmfxuctsbtcRowCount": fx_urgency_confidence_trend_momentum_band_trend_confidence_row_count,
@@ -4863,7 +4865,7 @@ def main() -> int:
         tmp_path = Path(tmp)
         observed_family_trends: list[str] = []
         mixed_window_tsdpmfx_pulse_parity: list[
-            tuple[str, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int]
+            tuple[str, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int]
         ] = []
 
         balanced_tie_result = run_fixture_case(
@@ -4926,6 +4928,8 @@ def main() -> int:
                 int(balanced_tie_result["tsdpmfxvwcritsbaRowCount"]),
                 int(balanced_tie_result["stprvLegendRowCount"]),
                 int(balanced_tie_result["stprlenRowCount"]),
+                int(balanced_tie_result["stprlencueaRowCount"]),
+                int(balanced_tie_result["stprlencuehRowCount"]),
             )
         )
 
@@ -4990,6 +4994,8 @@ def main() -> int:
                 int(ready_mix_result["tsdpmfxvwcritsbaRowCount"]),
                 int(ready_mix_result["stprvLegendRowCount"]),
                 int(ready_mix_result["stprlenRowCount"]),
+                int(ready_mix_result["stprlencueaRowCount"]),
+                int(ready_mix_result["stprlencuehRowCount"]),
             )
         )
 
@@ -5185,6 +5191,8 @@ def main() -> int:
                 int(prior_window_trend_up_result["tsdpmfxvwcritsbaRowCount"]),
                 int(prior_window_trend_up_result["stprvLegendRowCount"]),
                 int(prior_window_trend_up_result["stprlenRowCount"]),
+                int(prior_window_trend_up_result["stprlencueaRowCount"]),
+                int(prior_window_trend_up_result["stprlencuehRowCount"]),
             )
         )
         prior_window_trend_down_result = run_fixture_case(
@@ -5248,6 +5256,8 @@ def main() -> int:
                 int(prior_window_trend_down_result["tsdpmfxvwcritsbaRowCount"]),
                 int(prior_window_trend_down_result["stprvLegendRowCount"]),
                 int(prior_window_trend_down_result["stprlenRowCount"]),
+                int(prior_window_trend_down_result["stprlencueaRowCount"]),
+                int(prior_window_trend_down_result["stprlencuehRowCount"]),
             )
         )
 
@@ -5303,6 +5313,8 @@ def main() -> int:
                 tsdpmfxvwcritsba_count,
                 _stprv_legend_count,
                 _stprlen_count,
+                _stprlencuea_count,
+                _stprlencueh_count,
             )
             in mixed_window_tsdpmfx_pulse_parity
         ), (
@@ -5315,10 +5327,26 @@ def main() -> int:
                 *_rest,
                 stprv_legend_count,
                 stprlen_count,
+                _stprlencuea_count,
+                _stprlencueh_count,
             )
             in mixed_window_tsdpmfx_pulse_parity
         ), (
             "mixed-window fixture matrix must keep STPRLEN row count anchored to STPRV legend row count across summary + token sections"
+        )
+        assert all(
+            stprlencuea_count == stprlencueh_count
+            for (
+                _,
+                *_rest,
+                _stprv_legend_count,
+                _stprlen_count,
+                stprlencuea_count,
+                stprlencueh_count,
+            )
+            in mixed_window_tsdpmfx_pulse_parity
+        ), (
+            "mixed-window fixture matrix must keep TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH row count anchored to TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA across summary + token sections"
         )
 
     cadence_24h_confidence_delta_ramp_rows = {
