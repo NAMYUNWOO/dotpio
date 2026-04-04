@@ -3633,3 +3633,4 @@
 - No world/map changes in this cycle; cadence helper ordering (`NVIXSALEN -> NVH -> NVX`) remains intact for operator flow.
 - [2026-04-04 10:26 KST] Cycle IP66 follow-up: shipped NVH/INIT decode-legend slice status update. Decision: keep copy compact as `TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper)` to stay under DOS-width budget and preserve deterministic legend ordering after NVIXSA legend. Follow-up: leave AI-content offline NVH phrasing-variant map item open.
 - 2026-04-04 10:56 KST — NVH INIT-transition offline variant map prototype landed in guardrail report pipeline (no runtime coupling); validated via py_compile + regression + guardrail regen. Follow-up: keep map payload available for upcoming NVH compact legend/fixture tasks.
+- 2026-04-04 11:23 KST — World/readability lane notes updated: NVH legend now carries compact INIT suffix mapping for faster lane-action interpretation without adding extra rows.

@@ -595,3 +595,4 @@
 - Forced-lane cadence action remained combat-or-vfx due 24h bucket miss; selected low-risk report-layer VFX/operator clarity experiment.
 - Updated `TSDCAD24TRIGAPNVH` output to append expanded INIT state (`|INIT:H(HOLD)` style) so alias-state mapping is one-scan readable.
 - Verification bundle passed (py_compile + regression + guardrail artifact regeneration).
+- 2026-04-04 11:23 KST — Added compact INIT-aware NVH decode suffix legend to preserve cue readability under DOS-width constraints (H/HOLD R/RAMP L/RELIEF S/SHIFT; DOS:LIM72/PASS).

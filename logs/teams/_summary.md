@@ -5565,3 +5565,8 @@ Compact decision memory for AI context efficiency.
 - Order contract update: legend chain now anchors `NVIXSA legend -> NVH legend -> NVALEN` in both summary/token sections.
 - Remaining injected backlog focus: AI-content/Combat offline variant map for NVH helper phrasing keyed by INIT transitions.
 - 2026-04-04 10:56 KST — Completed AI-content/Combat injected task: added offline INIT-transition keyed NVH helper variant map + selected transition token in check_lane_coverage_guardrail.py report payload (non-runtime), regenerated weekly guardrail outputs, and kept markdown ordering/regressions green.
+## 2026-04-04 11:23 KST — NVH compact INIT decode suffix legend slice
+- Closed highest-priority unchecked POST_RC item: added compact TSDCAD24TRIGAPNVH legend suffix mapping (H/HOLD R/RAMP L/RELIEF S/SHIFT) with DOS-width status tag (DOS:LIM72/PASS).
+- Durable decision: keep change in existing legend row (no new rows/tokens) to preserve deterministic ordering and cadence-cluster density.
+- Verification bundle: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail regen PASS.
+- Next queued backlog item: Design/World helper-copy refinement for INIT expansions mapping to lane verbs.

@@ -625,7 +625,7 @@ def run_fixture_case(
     ), f"{name}: markdown output must include cadence-triad gap intent-escalation state-init alias decode row"
     assert (
         "cadence 24h triad gap NVH/INIT pair decode (design/world): "
-        "**TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper)**"
+        "**TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper; H/HOLD R/RAMP L/RELIEF S/SHIFT; DOS:LIM72/PASS)**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad gap NVH/INIT pair decode row"
     assert (
@@ -1057,7 +1057,7 @@ def run_fixture_case(
         "**TSDCAD24TRIGAPNVIXSA legend (H=HOLD, R=RAMP, L=RELIEF, S=SHIFT; use NVH for action)**"
     )
     cadence_24h_triad_gap_cue_transition_vfx_operator_helper_legend_rows = md_text.count(
-        "**TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper)**"
+        "**TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper; H/HOLD R/RAMP L/RELIEF S/SHIFT; DOS:LIM72/PASS)**"
     )
     cadence_24h_triad_gap_cue_transition_vfx_cue_alias_eval_rows = md_text.count(
         "**TSDCAD24TRIGAPNVALEN:B30|C7|LIM72|PREF:COMPACT|PASS**"
@@ -1616,7 +1616,7 @@ def run_fixture_case(
     cadence_24h_triad_gap_cue_transition_vfx_operator_helper_legend_indexes = [
         i
         for i, line in enumerate(cadence_24h_lines)
-        if "**TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper)**" in line
+        if "**TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper; H/HOLD R/RAMP L/RELIEF S/SHIFT; DOS:LIM72/PASS)**" in line
     ]
     cadence_24h_triad_gap_cue_transition_vfx_cue_alias_eval_indexes = [
         i
