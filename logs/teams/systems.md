@@ -5239,3 +5239,5 @@
 
 - 2026-04-04 19:26 KST — Cycle IP73: Added regression parity/order anchors for `PRLENCUETA` row and fixture-count assertions to keep `PRLENCUET -> PRLENCUETA -> PRLENCUETD` deterministic. Follow-up: consider alias-domain assertion if R2/S2 lands.
 - 2026-04-04 19:56 KST — IP74: added regression row-count/order contracts for `PRLENCUETA legend`; follow-up queued for sparse mixed-window parity mirror.
+- 2026-04-04 20:22 KST — Added sparse mixed-window fixture parity assertion so `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend` row counts must mirror `...PRLENCUEA` across summary/token sections; implemented in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Durable decision: treat `PRLENCUETA legend` as part of the mandatory parity chain (`PRLENCUEA` anchor) to prevent section drift in sparse windows.

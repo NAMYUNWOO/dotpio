@@ -61,3 +61,8 @@
 - Decision: maintain unified parity chain for `PRLENCUEA/H/M/T/TDLEN` to reduce sparse-fixture drift risk.
 
 - 2026-04-04 19:56 KST: Cycle IP74 shipped `PRLENCUETA legend` decode row (`RH=rise handoff, SH=settle handoff`) and hardened regression order chain (`PRLENCUET -> PRLENCUETA -> PRLENCUETA legend -> PRLENCUETD`) with full guardrail verification bundle.
+
+## 2026-04-04 20:22 KST — PRLENCUETA legend parity lock
+- Completed injected Systems/Ops + QA task by adding a sparse mixed-window fixture assertion that `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend` row count mirrors `...PRLENCUEA` across summary/token sections.
+- Durable decision: `PRLENCUETA legend` is now explicitly anchored to the `PRLENCUEA` parity baseline (not only local alias parity), reducing drift risk in sparse fixtures.
+- Verification bundle: py_compile + regression_check_lane_coverage_guardrail + guardrail artifact generation all PASS.

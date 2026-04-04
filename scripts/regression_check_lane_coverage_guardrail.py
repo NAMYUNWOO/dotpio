@@ -1531,6 +1531,12 @@ def run_fixture_case(
         f"{name}: TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA row count must match alias row count across sections"
     )
     assert (
+        cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_alias_legend_rows
+        == cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_alias_rows
+    ), (
+        f"{name}: TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend row count must match TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA row count across sections"
+    )
+    assert (
         cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_decode_helper_rows
         == cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_alias_rows
     ), (

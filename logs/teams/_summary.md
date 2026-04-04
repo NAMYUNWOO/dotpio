@@ -5647,3 +5647,8 @@ Compact decision memory for AI context efficiency.
 
 - 2026-04-04 19:26 KST — Cycle IP73 shipped `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA` (GH->PP=RH|PP->GH=SH) with payload wiring + regression parity/order lock (`PRLENCUET -> PRLENCUETA -> PRLENCUETD`). Verification bundle passed and guardrail artifacts regenerated.
 - 2026-04-04 19:56 KST — Cycle IP74 delivered `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend` and locked deterministic ordering `...PRLENCUET -> ...PRLENCUETA -> ...PRLENCUETA legend -> ...PRLENCUETD`; injected three follow-ups (sparse parity, compact helper, R2/S2 prototype).
+
+## 2026-04-04 20:22 KST
+- Closed highest-priority unchecked Systems/Ops + QA item: sparse mixed-window fixture parity now enforces `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend` row counts mirror `...PRLENCUEA` across summary/token sections.
+- Durable decision: lock `PRLENCUETA legend` into the same anchor-parity family as `PRLENCUEA/H/M/T/TDLEN` to avoid sparse-window markdown drift.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, and guardrail JSON/MD regeneration all passed.

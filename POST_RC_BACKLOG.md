@@ -1,5 +1,5 @@
 ## 2026-04-04 Cycle IP74 Injected Follow-ups
-- [ ] Systems/Ops + QA Team: Add sparse mixed-window fixture assertion that `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend` row count mirrors `...PRLENCUEA` across summary/token sections.
+- [x] Systems/Ops + QA Team: Add sparse mixed-window fixture assertion that `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend` row count mirrors `...PRLENCUEA` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 20:20 KST -> [x] completed: 2026-04-04 20:22 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 - [ ] Design/World Team: Add compact <=72-char decode helper row tying `PRLENCUETA legend` to action sequence priority (`RH before SH`).
 - [ ] Combat/AI-content Team: Prototype offline alternate handoff compact alias pack candidate (`R2/S2`) with runtime coupling disabled.
 
