@@ -5845,3 +5845,5 @@
 ## 2026-04-05 06:22 KST — SG/HL/EA/SF pressure-tag compact action alias prototype
 - Regression coverage now asserts presence + strict adjacency + row-count parity for `TSDPMFXVWCRITSPMBCBNXB` and `...MBCBNXBLEG` against `TSDPMFXVWCRITSPMB`.
 - 2026-04-05 06:52 KST — Regression suite updated for `...MBCBNXDLEVAL` presence, adjacency order, row-count parity, and mixed-window fixture tuple validation.
+
+- 2026-04-05 IP81: Added regression assertion for `TSDPMFXVWCRITSPMBCBNXDMAP` markdown presence; full regression/guardrail run passed.

@@ -3902,3 +3902,5 @@
 ## 2026-04-05 06:22 KST — SG/HL/EA/SF pressure-tag compact action alias prototype
 - Added compact decode legend row for new action alias candidate (`SG/HL/EA/SF`) and kept strict summary/token adjacency ordering around pressure-tag cluster.
 - 2026-04-05 06:52 KST — Added compact helper-eval row `TSDPMFXVWCRITSPMBCBNXDLEVAL:B56|C56|LIM72|PASS` (<=72-char contract) for immediate readability PASS/WARN triage.
+
+- 2026-04-05 IP81: Introduced `TSDPMFXVWCRITSPMBCBNXDMAP` compact helper map row under DOS-width-friendly format.

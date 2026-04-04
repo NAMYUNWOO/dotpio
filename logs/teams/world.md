@@ -3771,3 +3771,5 @@
 ## 2026-04-05 06:22 KST — SG/HL/EA/SF pressure-tag compact action alias prototype
 - Added decode row `TSDPMFXVWCRITSPMBCBNXBLEG:SG=surge now|HL=hold lane|EA=ease lane|SF=safe hold` for world/design readability without gameplay wiring changes.
 - 2026-04-05 06:52 KST — Confirmed pressure-tag decode/readability helper chain remains contiguous through `...MBCBNXD -> ...MBCBNXDLEG -> ...MBCBNXDLEVAL -> ...MBCBNH` for operator scan consistency.
+
+- 2026-04-05 IP81: Added quick-map decode semantics for pressure trend aliases (`UP/FLAT/DOWN/UNK -> SG/HL/EA/SF`) to improve one-scan readability.

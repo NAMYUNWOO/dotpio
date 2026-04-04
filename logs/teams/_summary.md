@@ -5780,3 +5780,9 @@ Compact decision memory for AI context efficiency.
 - 2026-04-05 06:52 KST — Completed highest-priority unchecked POST-RC item: added compact helper-eval row `TSDPMFXVWCRITSPMBCBNXDLEVAL:B56|C56|LIM72|PASS` for `...MBCBNXDLEG` readability triage.
 - Durable decision: keep strict chain `...MBCBNXD -> ...MBCBNXDLEG -> ...MBCBNXDLEVAL -> ...MBCBNH` and mirror `...MBCBNXDLEVAL` row counts to `TSDPMFXVWCRITSPMB` across summary/token sections + mixed-window fixtures.
 - Next item: run Game Director review cycle (3 ideas -> pick 1 minimal vertical slice) now that ACTION_ITEMS/TASKS/POST_RC are fully checked.
+
+## 2026-04-05 07:27 KST
+- Game Director Cycle IP81 executed after ACTION_ITEMS/TASKS/POST_RC completion check passed.
+- Shipped minimal vertical slice: added compact quick-map row `TSDPMFXVWCRITSPMBCBNXDMAP:UP=SG|FLAT=HL|DOWN=EA|UNK=SF` for pressure-tag action alias decoding.
+- Durable decision: keep strict `...MBCBN` adjacency chain unchanged; enforce quick-map via standalone regression presence check only.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

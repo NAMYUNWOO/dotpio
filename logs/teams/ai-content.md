@@ -3860,3 +3860,5 @@
 ## 2026-04-05 06:22 KST — SG/HL/EA/SF pressure-tag compact action alias prototype
 - Shipped report-only compact action alias candidate rail `SG/HL/EA/SF` derived from phase-note trend values for future readability A/B follow-up.
 - 2026-04-05 06:52 KST — No runtime AI-content behavior changes; report schema expanded with `...MBCBNXDLEVAL` readability signal to support triage-safe messaging.
+
+- 2026-04-05 IP81: Queued offline follow-up to test narrative phrasing variants derived from `SG/HL/EA/SF` quick-map aliases.

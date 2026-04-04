@@ -3668,6 +3668,11 @@ def run_fixture_case(
         "**TSDPMFXVWCRITSPMBCBNHLEN:B50|C50|LIM72|PREF:COMPACT|PASS**"
         in md_text
     ), f"{name}: markdown output must include beat-side phase-note helper evaluation row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side pressure-tag compact helper quick map (ux/design): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAP:UP=SG|FLAT=HL|DOWN=EA|UNK=SF**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side pressure-tag compact helper quick map row"
     mbcbn_adjacency_matches = re.findall(
         r"\*\*TSDPMFXVWCRITSPMBCBN:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNY:[^*]+\*\*\n"

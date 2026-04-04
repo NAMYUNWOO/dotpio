@@ -5350,3 +5350,5 @@
 - Added report-only token rows `TSDPMFXVWCRITSPMBCBNXB` + `...MBCBNXBLEG` with deterministic trend mapping `UP/FLAT/DOWN/UNK -> SG/HL/EA/SF` (no runtime coupling).
 - Extended regression row-presence/adjacency/parity contracts to include `...MBCBNXB` and `...MBCBNXBLEG`.
 - 2026-04-05 06:52 KST — Added parity guard for `TSDPMFXVWCRITSPMBCBNXDLEVAL` row-counts to mirror `TSDPMFXVWCRITSPMB` across summary/token sections and mixed-window fixture tuples.
+
+- 2026-04-05 IP81: Added regression presence lock for `TSDPMFXVWCRITSPMBCBNXDMAP` quick-map row (kept strict MBCBN adjacency contract unchanged).

@@ -104,3 +104,9 @@
 - 2026-04-05 06:22 KST — Completed POST-RC injected combat/vfx+ai-content task: added report-only compact action alias candidate `TSDPMFXVWCRITSPMBCBNXB` (`SG/HL/EA/SF`) plus decode row `...MBCBNXBLEG` mapped from `UP/FLAT/DOWN/UNK`.
 - Durable decision: keep `...MBCBNXB` experiment report-only and enforce strict adjacency/parity (`...MBCBNXALEG -> ...MBCBNXB -> ...MBCBNXBLEG -> ...MBCBNXH`) across summary/token sections.
 - Next injected queue (IP80): UX/Design helper-eval row for `TSDPMFXVWCRITSPMBCBNXDLEG` readability status (`PASS/WARN`).
+
+## 2026-04-05 07:27 KST — IP81 pressure-tag quick-map slice
+- Triggered mandatory Game Director review cycle because ACTION_ITEMS/TASKS/POST_RC were fully checked at run start.
+- Implemented minimal vertical slice: added `TSDPMFXVWCRITSPMBCBNXDMAP:UP=SG|FLAT=HL|DOWN=EA|UNK=SF` to simplify pressure-tag compact action triage.
+- Durable decision: preserve existing strict `...MBCBN` adjacency contract and validate the new quick-map row through explicit presence regression (no chain mutation).
+- Verification bundle passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

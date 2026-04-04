@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP81)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP80 closure; mandatory Game Director cycle executed.
+- Candidate ideas:
+  - Low-risk UX/Design: add compact quick-map row that maps pressure trend (`UP/FLAT/DOWN/UNK`) directly to action aliases (`SG/HL/EA/SF`) for one-scan triage.
+  - Mid-risk Systems/QA: lock presence regression for quick-map row without disturbing strict `...MBCBN` adjacency chain.
+  - High-risk Combat/VFX + AI-content: pilot report-only trend-to-action phrase mutation tied to quick-map alias drift.
+- Selected experiment: low-risk quick-map + mid-risk regression-presence lock vertical slice.
+- [x] UX/Design + Systems/QA Team (injected): Add `TSDPMFXVWCRITSPMBCBNXDMAP:UP=SG|FLAT=HL|DOWN=EA|UNK=SF` row and regression presence assertion for compact pressure-tag helper quick map. *(lifecycle: [ ] -> [~] started: 2026-04-05 07:24 KST -> [x] completed: 2026-04-05 07:27 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP81)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture tuple assertion that `TSDPMFXVWCRITSPMBCBNXDMAP` row count mirrors `TSDPMFXVWCRITSPMB` in summary/token sections.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype report-only quick-map narrative string candidate derived from `SG/HL/EA/SF` aliases with runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP80)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP79 closure; mandatory Game Director cycle executed.
 - Candidate ideas:
