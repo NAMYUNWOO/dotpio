@@ -5777,3 +5777,6 @@ Compact decision memory for AI context efficiency.
 - 2026-04-05 06:22 KST — Completed POST-RC injected combat/vfx+ai-content task: added report-only compact action alias candidate `TSDPMFXVWCRITSPMBCBNXB` (`SG/HL/EA/SF`) plus decode row `...MBCBNXBLEG` mapped from `UP/FLAT/DOWN/UNK`.
 - Durable decision: keep `...MBCBNXB` experiment report-only and enforce strict adjacency/parity (`...MBCBNXALEG -> ...MBCBNXB -> ...MBCBNXBLEG -> ...MBCBNXH`) across summary/token sections.
 - Next injected queue (IP80): UX/Design helper-eval row for `TSDPMFXVWCRITSPMBCBNXDLEG` readability status (`PASS/WARN`).
+- 2026-04-05 06:52 KST — Completed highest-priority unchecked POST-RC item: added compact helper-eval row `TSDPMFXVWCRITSPMBCBNXDLEVAL:B56|C56|LIM72|PASS` for `...MBCBNXDLEG` readability triage.
+- Durable decision: keep strict chain `...MBCBNXD -> ...MBCBNXDLEG -> ...MBCBNXDLEVAL -> ...MBCBNH` and mirror `...MBCBNXDLEVAL` row counts to `TSDPMFXVWCRITSPMB` across summary/token sections + mixed-window fixtures.
+- Next item: run Game Director review cycle (3 ideas -> pick 1 minimal vertical slice) now that ACTION_ITEMS/TASKS/POST_RC are fully checked.

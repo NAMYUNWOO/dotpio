@@ -4017,3 +4017,4 @@
 
 ## 2026-04-05 06:22 KST — SG/HL/EA/SF pressure-tag compact action alias prototype
 - Confirmed compact action alias candidate row remains dos-safe and scan-friendly in weekly guardrail markdown output (report-only).
+- 2026-04-05 06:52 KST — UX/operator triage now gets explicit readability status row for pressure-tag decode helper; regression enforces presence + adjacency.
