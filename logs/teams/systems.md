@@ -5241,3 +5241,7 @@
 - 2026-04-04 19:56 KST — IP74: added regression row-count/order contracts for `PRLENCUETA legend`; follow-up queued for sparse mixed-window parity mirror.
 - 2026-04-04 20:22 KST — Added sparse mixed-window fixture parity assertion so `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend` row counts must mirror `...PRLENCUEA` across summary/token sections; implemented in `scripts/regression_check_lane_coverage_guardrail.py`.
 - Durable decision: treat `PRLENCUETA legend` as part of the mandatory parity chain (`PRLENCUEA` anchor) to prevent section drift in sparse windows.
+
+## 2026-04-04 20:53 KST — PRLENCUETAP parity/order lock
+- Added regression presence/parity/order coverage for `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETAP` and inserted deterministic sequence gate `PRLENCUETA legend -> PRLENCUETAP -> PRLENCUETD`.
+- Follow-up: keep future handoff decode rows anchored to `PRLENCUEA` row parity baseline.

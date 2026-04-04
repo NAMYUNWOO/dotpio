@@ -3803,3 +3803,6 @@
 
 - 2026-04-04 19:26 KST — Cycle IP73: Confirmed compact alias readability (`RH|SH`) stays DOS-friendly and sequence-scannable in summary/token rails. Follow-up: add legend copy only when churn complexity rises.
 - 2026-04-04 19:56 KST — IP74: inserted `PRLENCUETA legend` decode row and kept copy under compact DOS-friendly style.
+
+## 2026-04-04 20:53 KST — Compact priority microcopy accepted
+- Accepted `RH before SH` compact copy as canonical decode helper under DOS width budget.

@@ -66,3 +66,7 @@
 - Completed injected Systems/Ops + QA task by adding a sparse mixed-window fixture assertion that `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend` row count mirrors `...PRLENCUEA` across summary/token sections.
 - Durable decision: `PRLENCUETA legend` is now explicitly anchored to the `PRLENCUEA` parity baseline (not only local alias parity), reducing drift risk in sparse fixtures.
 - Verification bundle: py_compile + regression_check_lane_coverage_guardrail + guardrail artifact generation all PASS.
+
+## 2026-04-04 20:53 KST — PRLENCUETAP priority helper slice
+- Completed Design/World injected item by adding compact helper row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETAP:RH before SH:rise handoff first|settle handoff second`.
+- Durable decision: cadence chain now locks `...PRLENCUETA legend -> ...PRLENCUETAP -> ...PRLENCUETD` with parity tied to `PRLENCUEA` row counts.

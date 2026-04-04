@@ -5652,3 +5652,7 @@ Compact decision memory for AI context efficiency.
 - Closed highest-priority unchecked Systems/Ops + QA item: sparse mixed-window fixture parity now enforces `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend` row counts mirror `...PRLENCUEA` across summary/token sections.
 - Durable decision: lock `PRLENCUETA legend` into the same anchor-parity family as `PRLENCUEA/H/M/T/TDLEN` to avoid sparse-window markdown drift.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, and guardrail JSON/MD regeneration all passed.
+
+## 2026-04-04 20:53 KST — PRLENCUETAP injected helper slice
+- Durable decision: enforce deterministic chain `...PRLENCUETA legend -> ...PRLENCUETAP -> ...PRLENCUETD` in cadence summary/token sections.
+- Added parity guard so `PRLENCUETAP` row count must mirror `PRLENCUEA` row count across fixtures.

@@ -3677,3 +3677,7 @@
 
 - 2026-04-04 19:26 KST — Cycle IP73: Added decode-note direction for new handoff alias (`RH/SH`) in planning docs; kept compact copy budget constraints. Follow-up: validate readability against future alias-pack expansions.
 - 2026-04-04 19:56 KST — IP74: approved compact decode copy `RH=rise handoff, SH=settle handoff` to keep one-scan transition readability.
+
+## 2026-04-04 20:53 KST — Design/World handoff priority helper
+- Shipped compact <=72 char helper row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETAP:RH before SH:rise handoff first|settle handoff second`.
+- Decision: prioritize RH action sequencing before SH in decode hints.

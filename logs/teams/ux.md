@@ -3931,3 +3931,6 @@
 
 - 2026-04-04 19:26 KST — Cycle IP73: Added glanceable handoff alias cue (`PRLENCUETA`) to reduce cognitive load before decode-helper row. Follow-up: monitor if alias+helper redundancy can be trimmed.
 - 2026-04-04 19:56 KST — IP74: handoff alias readability improved with explicit `RH/SH` decode legend between alias and helper rows.
+
+## 2026-04-04 20:53 KST — One-scan sequence cue
+- Added one-scan alias-priority helper row to reduce ambiguity between `RH` and `SH` sequence handling.
