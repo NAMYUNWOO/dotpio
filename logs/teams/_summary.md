@@ -5795,3 +5795,9 @@ Compact decision memory for AI context efficiency.
 - Closed IP81 Combat/VFX+AI-content injection: shipped report-only quick-map narrative candidate row `TSDPMFXVWCRITSPMBCBNXBN` derived from SG/HL/EA/SF alias output.
 - Durable decision: keep runtime coupling disabled; narrative candidates remain telemetry-only until explicit experiment promotion.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-05 08:51 KST — Game Director IP82 minimal vertical slice
+- Trigger: ACTION_ITEMS + TASKS + POST_RC were fully checked, so mandatory Game Director cycle executed.
+- Shipped: quick-map decode legend row `TSDPMFXVWCRITSPMBCBNXDMAPLEG` mapping `SG/HL/EA/SF` -> `surge now/hold lane/ease lane/safe hold`.
+- Durable decision: keep `...MBCBNXDMAP` quick-map and `...MBCBNXDMAPLEG` decode rows as an adjacent decode pair, and enforce row-count parity with `TSDPMFXVWCRITSPMB` across mixed-window fixtures.
+- Backlog injected (IP82): parity hardening for `...MBCBNXDMAPLEG`, decode DOS-width eval helper, report-only narrative alias candidate.

@@ -115,3 +115,9 @@
 - Completed highest-priority unchecked backlog item by extending regression fixture tuple parity to include `TSDPMFXVWCRITSPMBCBNXDMAP` and asserting parity with `TSDPMFXVWCRITSPMB` across summary/token sections.
 - Durable rule locked: when new `...MBCBN*` rows are introduced, add tuple-level parity coverage in `scripts/regression_check_lane_coverage_guardrail.py` immediately.
 - Verification bundle passed (py_compile + regression + guardrail regeneration).
+
+## 2026-04-05 08:51 KST — IP82 quick-map decode legend shipped
+- Completed selected Game Director experiment after all primary backlogs were checked.
+- Added `TSDPMFXVWCRITSPMBCBNXDMAPLEG` decode row (`SG/HL/EA/SF` -> `surge/hold/ease/safe`) and extended regression contracts for presence, adjacency, and mixed-window parity.
+- Durable decision: maintain quick-map + decode rows as a coupled pair in the `MBCBN*` family to preserve scanability while keeping runtime coupling unchanged.
+- Injected next tasks into TASKS/POST_RC: explicit sparse parity assertion, DOS-width eval row, report-only narrative alias prototype.

@@ -3779,3 +3779,9 @@
 
 ## 2026-04-05 08:26 KST
 - Extended combat telemetry slice with report-only narrative companion token (`...MBCBNXBN`) so compact alias output can be read as immediate callout text without gameplay wiring.
+
+## 2026-04-05 08:51 KST — IP82 quick-map decode legend slice
+- Cycle: IP82 (Game Director auto-trigger after all ACTION_ITEMS/TASKS/POST_RC were checked).
+- Decision: added `TSDPMFXVWCRITSPMBCBNXDMAPLEG:SG=surge now|HL=hold lane|EA=ease lane|SF=safe hold` to keep compact quick-map aliases one-scan reversible.
+- Verification contract now includes markdown presence + adjacency chain + mixed-window row-count parity with `TSDPMFXVWCRITSPMB`.
+- Follow-ups injected: sparse parity assertion hardening, DOS-width eval helper row, report-only narrative alias candidate.
