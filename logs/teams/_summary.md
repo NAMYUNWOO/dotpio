@@ -5633,3 +5633,6 @@ Compact decision memory for AI context efficiency.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=3 (IP70 injected), POST_RC_BACKLOG unchecked=3 (IP70 injected).
 - 2026-04-04 17:54 KST — Closed remaining injected IP70 follow-ups: PRLENCUET mixed-window parity assertion, <=72-char decode helper row, and alternate offline GH/PP cue phrasing pack; regression order chain now enforces `...PRLENCUEM -> ...PRLENCUET -> ...PRLENCUETD -> ...PRLENCUE legend`.
 - 2026-04-04 18:06 KST — Game Director Cycle IP71 shipped minimal vertical slice `PRLENCUETDLEN` and injected next tasks for sparse mixed-window parity + optional alias-pack experiment.
+- 2026-04-04 18:27 KST — Completed highest-priority unchecked TASKS/POST_RC item: added sparse mixed-window parity lock so `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDLEN` mirrors `...PRLENCUEA` counts across summary + token sections in regression matrix.
+- Durable decision: keep PRLEN cue-transition tail parity unified (`PRLENCUEA/H/M/T/TDLEN`) in one mixed-window assertion chain to prevent sparse-fixture drift.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: Combat/AI-content optional `R1/S1` compact alias pack for `PRLENCUEM`).

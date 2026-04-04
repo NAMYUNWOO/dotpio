@@ -3925,3 +3925,4 @@
 - Follow-up: verify decode helper copy length once Design row is added.
 - 2026-04-04 17:54 KST — UX confirmed new PRLENCUET decode/helper rows preserve compact scan path without adding runtime-facing verbosity.
 - 2026-04-04 18:06 KST — UX approved adding single evaluator line instead of longer prose, preserving one-scan DOS digest flow.
+- 2026-04-04 18:27 KST — Closed injected Systems/Ops+QA parity task: mixed-window fixture matrix now anchors `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDLEN` row counts to `...PRLENCUEA` across summary/token sections; verification bundle PASS (py_compile + regression + guardrail regen).

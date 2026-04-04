@@ -3671,3 +3671,4 @@
 - Follow-up: prototype alternate handoff cue variants offline for transition rhythm testing.
 - 2026-04-04 17:54 KST — Combat lane reviewed alternate GH/PP cue phrasing pack; sequencing stays deterministic and offline-only for handoff rhythm testing.
 - 2026-04-04 18:06 KST — Combat lane reviewed IP71 experiment output; no runtime combat coupling introduced, only digest readability telemetry.
+- 2026-04-04 18:27 KST — Closed injected Systems/Ops+QA parity task: mixed-window fixture matrix now anchors `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDLEN` row counts to `...PRLENCUEA` across summary/token sections; verification bundle PASS (py_compile + regression + guardrail regen).

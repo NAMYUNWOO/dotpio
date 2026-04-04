@@ -3797,3 +3797,4 @@
 - Follow-up: add explicit decode helper row for PRLENCUET under DOS width budget.
 - 2026-04-04 17:54 KST — Design approved PRLENCUET decode helper wording prioritizing `rise` before `settle` under DOS-width budget.
 - 2026-04-04 18:06 KST — Design validated PRLENCUET decode helper width telemetry (`PRLENCUETDLEN`) for compact sequencing readability governance.
+- 2026-04-04 18:27 KST — Closed injected Systems/Ops+QA parity task: mixed-window fixture matrix now anchors `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDLEN` row counts to `...PRLENCUEA` across summary/token sections; verification bundle PASS (py_compile + regression + guardrail regen).

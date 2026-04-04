@@ -5724,3 +5724,4 @@
 - Follow-up: strengthen sparse fixture matrix checks for PRLENCUET parity in injected IP70 QA task.
 - 2026-04-04 17:54 KST — QA reran py_compile + regression + guardrail artifact generation; PASS with new PRLENCUET parity/decode/order contracts.
 - 2026-04-04 18:06 KST — QA assertions now require `PRLENCUETDLEN` row presence, parity, and adjacency across summary/token sections.
+- 2026-04-04 18:27 KST — Closed injected Systems/Ops+QA parity task: mixed-window fixture matrix now anchors `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDLEN` row counts to `...PRLENCUEA` across summary/token sections; verification bundle PASS (py_compile + regression + guardrail regen).

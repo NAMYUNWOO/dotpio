@@ -3764,3 +3764,4 @@
 - Decision: keep handoff cue offline-only (no runtime coupling) and aligned to existing GH/PP transition microcopy chain.
 - 2026-04-04 17:54 KST — Updated offline transition phrasing pack to `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEM:GH->PP:rise then probe lane|PP->GH:settle then hold lane` (runtime coupling unchanged/offline-only).
 - 2026-04-04 18:06 KST — AI-content lane kept transition microcopy offline-only; queued optional `R1/S1` alias-pack experiment as injected follow-up.
+- 2026-04-04 18:27 KST — Closed injected Systems/Ops+QA parity task: mixed-window fixture matrix now anchors `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDLEN` row counts to `...PRLENCUEA` across summary/token sections; verification bundle PASS (py_compile + regression + guardrail regen).

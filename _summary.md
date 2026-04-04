@@ -55,3 +55,7 @@
 - Durable decision: keep deterministic chain `...PRLENCUET -> ...PRLENCUETD -> ...PRLENCUETDLEN -> ...PRLENCUE legend`.
 - Injected follow-ups: sparse mixed-window parity for `PRLENCUETDLEN`, optional offline `R1/S1` alias-pack for transition phrasing.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-04 18:27 KST
+- Added regression mixed-window parity lock: `PRLENCUETDLEN` now mirrors `PRLENCUEA` counts across summary/token sections.
+- Decision: maintain unified parity chain for `PRLENCUEA/H/M/T/TDLEN` to reduce sparse-fixture drift risk.

@@ -3671,3 +3671,4 @@
 - Follow-up: ship <=72-char decode helper in next injected Design/World task.
 - 2026-04-04 17:54 KST — Added compact decode helper row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETD:GH->PP rise first|PP->GH settle second` (<=72 chars) to keep transition sequencing one-scan readable.
 - 2026-04-04 18:06 KST — World/design readability lane accepted compact evaluator row (`B54|C38|LIM72`) as durable decode-budget signal.
+- 2026-04-04 18:27 KST — Closed injected Systems/Ops+QA parity task: mixed-window fixture matrix now anchors `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDLEN` row counts to `...PRLENCUEA` across summary/token sections; verification bundle PASS (py_compile + regression + guardrail regen).
