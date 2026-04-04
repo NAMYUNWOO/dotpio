@@ -5711,3 +5711,6 @@
 - Verification: py_compile + lane guardrail regression + guardrail artifact regeneration all passed.
 - 2026-04-04 15:24 KST — Cycle IP68 follow-up complete: enforced strict adjacency for STPRLENCUE -> STPRLENCUEA -> STPRLENCUEA legend in regression order checks; moved markdown row order to keep alias immediately after operator-cue token while preserving decode legend row. Follow-up: close remaining injected items (decode helper row + offline microcopy variant).
 - 2026-04-04 16:18 KST — QA re-ran guardrail regression bundle after helper text change; parity/order assertions still pass for summary/token sections.
+## 2026-04-04 16:56 KST
+- Closed injected GH/PP transition microcopy task: added offline row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEM` (`GH->PP:hold then probe on rise|PP->GH:probe then hold on settle`) with no runtime coupling.
+- Verified deterministic parity/order chain now anchors `...STPRLENCUEH -> ...STPRLENCUEM -> ...STPRLENCUE legend` across summary/token sections.
