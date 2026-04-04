@@ -5841,3 +5841,6 @@
 - 2026-04-05 05:50 KST — Regression gate hardened for pressure-tag decode parity.
   - Evidence: py_compile + regression + guardrail regeneration all passed.
   - Follow-up: add helper-eval (`PASS/WARN`) row parity checks when UX/Design item ships.
+
+## 2026-04-05 06:22 KST — SG/HL/EA/SF pressure-tag compact action alias prototype
+- Regression coverage now asserts presence + strict adjacency + row-count parity for `TSDPMFXVWCRITSPMBCBNXB` and `...MBCBNXBLEG` against `TSDPMFXVWCRITSPMB`.

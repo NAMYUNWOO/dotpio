@@ -3856,3 +3856,6 @@
 - Verification bundle PASS: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration.
 - Follow-up queue: sparse mixed-window parity tuple + offline compact action alias candidate + helper-eval row.
 - 2026-04-05 05:50 KST — Prepared for report-only alias-pack prototype (`SG/HL/EA/SF`) by locking decode-row parity prereq in regression.
+
+## 2026-04-05 06:22 KST — SG/HL/EA/SF pressure-tag compact action alias prototype
+- Shipped report-only compact action alias candidate rail `SG/HL/EA/SF` derived from phase-note trend values for future readability A/B follow-up.

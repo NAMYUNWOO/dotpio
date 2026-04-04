@@ -5773,3 +5773,7 @@ Compact decision memory for AI context efficiency.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` (PASS).
 - Next injected queue (IP80): Systems/Ops+QA parity tuple for `...MBCBNXDLEG`; Combat/VFX+AI compact action alias candidate; UX/Design helper-eval row.
 - 2026-04-05 05:50 KST — Systems/Ops+QA completed POST-RC injected task: sparse mixed-window tuple parity for `TSDPMFXVWCRITSPMBCBNXDLEG` now explicitly asserted against `TSDPMFXVWCRITSPMB` via new fixture key `tsdpmfxvwcritspmbcbnxdlegRowCount` and tuple matrix assertion in `scripts/regression_check_lane_coverage_guardrail.py`.
+
+- 2026-04-05 06:22 KST — Completed POST-RC injected combat/vfx+ai-content task: added report-only compact action alias candidate `TSDPMFXVWCRITSPMBCBNXB` (`SG/HL/EA/SF`) plus decode row `...MBCBNXBLEG` mapped from `UP/FLAT/DOWN/UNK`.
+- Durable decision: keep `...MBCBNXB` experiment report-only and enforce strict adjacency/parity (`...MBCBNXALEG -> ...MBCBNXB -> ...MBCBNXBLEG -> ...MBCBNXH`) across summary/token sections.
+- Next injected queue (IP80): UX/Design helper-eval row for `TSDPMFXVWCRITSPMBCBNXDLEG` readability status (`PASS/WARN`).

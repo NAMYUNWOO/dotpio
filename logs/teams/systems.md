@@ -5345,3 +5345,7 @@
 - 2026-04-05 05:50 KST — Added sparse mixed-window tuple parity coverage for `TSDPMFXVWCRITSPMBCBNXDLEG` against `TSDPMFXVWCRITSPMB` in regression fixture matrix.
   - Decision: expose `tsdpmfxvwcritspmbcbnxdlegRowCount` in fixture result map and assert parity in dedicated tuple list.
   - Follow-up: keep new tuple adjacent to upcoming `SG/HL/EA/SF` compact alias experiment.
+
+## 2026-04-05 06:22 KST — SG/HL/EA/SF pressure-tag compact action alias prototype
+- Added report-only token rows `TSDPMFXVWCRITSPMBCBNXB` + `...MBCBNXBLEG` with deterministic trend mapping `UP/FLAT/DOWN/UNK -> SG/HL/EA/SF` (no runtime coupling).
+- Extended regression row-presence/adjacency/parity contracts to include `...MBCBNXB` and `...MBCBNXBLEG`.

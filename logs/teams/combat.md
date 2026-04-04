@@ -3767,3 +3767,6 @@
 - Verification bundle PASS: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration.
 - Follow-up queue: sparse mixed-window parity tuple + offline compact action alias candidate + helper-eval row.
 - 2026-04-05 05:50 KST — Combat lane acknowledged parity lock; no runtime behavior changes in this slice.
+
+## 2026-04-05 06:22 KST — SG/HL/EA/SF pressure-tag compact action alias prototype
+- Added combat-facing report-only compact action alias row `TSDPMFXVWCRITSPMBCBNXB` to mirror pressure-tag routing (`UP/FLAT/DOWN/UNK`) under short aliases.

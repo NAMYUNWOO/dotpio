@@ -100,3 +100,7 @@
 - Added regression assertion for resolver behavior (`PP2|UNKNOWN|UNK`) and re-ran guardrail generation.
 
 - 2026-04-05 05:05 KST — Durable decision: keep new beat-side readability experiments strictly report-only. Added `TSDPMFXVWCRITSPMBCBNY` (`trend|alias|trendAlias`) and compact pressure-tag alias pack `TSDPMFXVWCRITSPMBCBNXA` (`SP/HO/EA/SF`) with regression-enforced adjacency/parity; runtime behavior remains unchanged.
+
+- 2026-04-05 06:22 KST — Completed POST-RC injected combat/vfx+ai-content task: added report-only compact action alias candidate `TSDPMFXVWCRITSPMBCBNXB` (`SG/HL/EA/SF`) plus decode row `...MBCBNXBLEG` mapped from `UP/FLAT/DOWN/UNK`.
+- Durable decision: keep `...MBCBNXB` experiment report-only and enforce strict adjacency/parity (`...MBCBNXALEG -> ...MBCBNXB -> ...MBCBNXBLEG -> ...MBCBNXH`) across summary/token sections.
+- Next injected queue (IP80): UX/Design helper-eval row for `TSDPMFXVWCRITSPMBCBNXDLEG` readability status (`PASS/WARN`).

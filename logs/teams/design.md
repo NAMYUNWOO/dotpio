@@ -3898,3 +3898,6 @@
 - Verification bundle PASS: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration.
 - Follow-up queue: sparse mixed-window parity tuple + offline compact action alias candidate + helper-eval row.
 - 2026-04-05 05:50 KST — Design readability pipeline now has parity guard for `...MBCBNXDLEG` before helper-eval row rollout.
+
+## 2026-04-05 06:22 KST — SG/HL/EA/SF pressure-tag compact action alias prototype
+- Added compact decode legend row for new action alias candidate (`SG/HL/EA/SF`) and kept strict summary/token adjacency ordering around pressure-tag cluster.

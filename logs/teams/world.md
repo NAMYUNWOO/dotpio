@@ -3767,3 +3767,6 @@
 - Verification bundle PASS: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration.
 - Follow-up queue: sparse mixed-window parity tuple + offline compact action alias candidate + helper-eval row.
 - 2026-04-05 05:50 KST — No content mutation this slice; consumed parity hardening update as stable contract baseline for upcoming readability rows.
+
+## 2026-04-05 06:22 KST — SG/HL/EA/SF pressure-tag compact action alias prototype
+- Added decode row `TSDPMFXVWCRITSPMBCBNXBLEG:SG=surge now|HL=hold lane|EA=ease lane|SF=safe hold` for world/design readability without gameplay wiring changes.
