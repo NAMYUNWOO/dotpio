@@ -5697,3 +5697,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep posture-beat alias decode sequence contiguous as `...SPMBC -> ...SPMBCLEG -> ...SPMBCH` and enforce parity/adjacency in regression to prevent readability drift.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=3 (next: Combat/VFX + AI-content `HC2/PP2/SN2` offline alias candidate).
+
+## 2026-04-04 23:29 KST — IP76 injected combat/ai-content closure
+- Completed remaining unchecked IP76 injected item: added offline beat-side alternate alias candidate token `TSDPMFXVWCRITSPMBCB` (`HC2|PP2|SN2`) and decode row `TSDPMFXVWCRITSPMBCBLEG:HC2 hard crack|PP2 pressure poke|SN2 steady nudge`.
+- Durable contract: `TSDPMFXVWCRITSPMBCB` must stay parity-aligned with `TSDPMFXVWCRITSPMB` row counts and adjacent to `...MBCBLEG` across summary+token sections.
+- Next queue trigger: run new Game Director review cycle now that ACTION_ITEMS/TASKS/POST_RC are fully checked again.

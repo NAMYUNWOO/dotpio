@@ -3704,3 +3704,8 @@
 ## 2026-04-04 22:49 KST — IP76 readability alignment
 - Decision: World/design readability lane accepted dual-pack helper wording for deterministic decode ordering in markdown output.
 - Follow-up: revisit wording only if future alias packs exceed DOS-width budget.
+
+## 2026-04-04 23:29 KST — Cycle IP76 injected beat-side alt alias prototype closure
+- Closed highest-priority unchecked TASKS item by shipping offline beat-side alternate alias token `TSDPMFXVWCRITSPMBCB` (`HC2|PP2|SN2`) plus decode row `TSDPMFXVWCRITSPMBCBLEG:HC2 hard crack|PP2 pressure poke|SN2 steady nudge`.
+- Hardened regression contracts to require markdown presence, row-count parity with `TSDPMFXVWCRITSPMB`, and adjacency (`...MBCB -> ...MBCBLEG`) across summary+token sections.
+- Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail report regeneration.
