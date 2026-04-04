@@ -3676,3 +3676,4 @@
 - 2026-04-04 19:03 KST — Cycle IP72 vertical slice: added PRLENCUEMA legend decode row (R1=GH->PP rise+probe, S1=PP->GH settle+hold) and tightened parity/order chain through PRLENCUET in regression + guardrail outputs.
 
 - 2026-04-04 19:26 KST — Cycle IP73: Reviewed handoff alias semantics to preserve combat intent parity (`rise` vs `settle`) while keeping no runtime coupling. Follow-up: evaluate alternate verb pack in future cycle.
+- 2026-04-04 19:56 KST — IP74: no runtime combat coupling introduced; next experiment target is offline `R2/S2` handoff alias alternatives.

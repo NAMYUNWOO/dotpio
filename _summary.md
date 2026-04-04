@@ -59,3 +59,5 @@
 ## 2026-04-04 18:27 KST
 - Added regression mixed-window parity lock: `PRLENCUETDLEN` now mirrors `PRLENCUEA` counts across summary/token sections.
 - Decision: maintain unified parity chain for `PRLENCUEA/H/M/T/TDLEN` to reduce sparse-fixture drift risk.
+
+- 2026-04-04 19:56 KST: Cycle IP74 shipped `PRLENCUETA legend` decode row (`RH=rise handoff, SH=settle handoff`) and hardened regression order chain (`PRLENCUET -> PRLENCUETA -> PRLENCUETA legend -> PRLENCUETD`) with full guardrail verification bundle.

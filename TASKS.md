@@ -16,6 +16,20 @@
 
 Last updated: 2026-04-04 17:21 KST
 
+## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP74)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP73 closure; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk Design/World: add compact decode legend for handoff alias token `PRLENCUETA` (`RH/SH`) for one-scan readability.
+  - Mid-risk Systems/QA: enforce deterministic order chain `PRLENCUET -> PRLENCUETA -> PRLENCUETA legend -> PRLENCUETD`.
+  - High-risk Combat/AI-content: add optional alternate handoff alias family (`R2/S2`) with adaptive copy routing.
+- Selected experiment: low-risk Design/World + Systems/QA minimal vertical slice.
+- [x] Design/World + Systems/QA Team: Added decode legend row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend (RH=rise handoff, SH=settle handoff)` and expanded regression presence/count/order contracts so alias legend is deterministically anchored between `...PRLENCUETA` and `...PRLENCUETD`. *(lifecycle: [ ] -> [~] started: 2026-04-04 19:48 KST -> [x] completed: 2026-04-04 19:56 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP74)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture assertion that `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend` row count mirrors `...PRLENCUEA` across summary/token sections.
+- [ ] Design/World Team (injected): Add compact <=72-char decode helper row tying `PRLENCUETA legend` to action sequence priority (`RH before SH`).
+- [ ] Combat/AI-content Team (injected): Prototype offline alternate handoff compact alias pack candidate (`R2/S2`) while keeping runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP72)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after closing IP71 injected alias-pack item; mandatory Game Director cycle executed.
 - Candidate ideas generated:

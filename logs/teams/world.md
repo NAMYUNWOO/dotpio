@@ -3676,3 +3676,4 @@
 - 2026-04-04 19:03 KST — Cycle IP72 vertical slice: added PRLENCUEMA legend decode row (R1=GH->PP rise+probe, S1=PP->GH settle+hold) and tightened parity/order chain through PRLENCUET in regression + guardrail outputs.
 
 - 2026-04-04 19:26 KST — Cycle IP73: Added decode-note direction for new handoff alias (`RH/SH`) in planning docs; kept compact copy budget constraints. Follow-up: validate readability against future alias-pack expansions.
+- 2026-04-04 19:56 KST — IP74: approved compact decode copy `RH=rise handoff, SH=settle handoff` to keep one-scan transition readability.

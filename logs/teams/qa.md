@@ -5729,3 +5729,4 @@
 - 2026-04-04 19:03 KST — Cycle IP72 vertical slice: added PRLENCUEMA legend decode row (R1=GH->PP rise+probe, S1=PP->GH settle+hold) and tightened parity/order chain through PRLENCUET in regression + guardrail outputs.
 
 - 2026-04-04 19:26 KST — Cycle IP73: Re-ran compile + regression + guardrail generation bundle; all checks passed with new `PRLENCUETA` parity/order constraints. Follow-up: include alias row in mixed-window diagnostics summary.
+- 2026-04-04 19:56 KST — IP74 verification PASS: py_compile + regression_check_lane_coverage_guardrail + guardrail artifact regeneration.

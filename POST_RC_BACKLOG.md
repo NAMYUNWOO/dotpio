@@ -1,3 +1,8 @@
+## 2026-04-04 Cycle IP74 Injected Follow-ups
+- [ ] Systems/Ops + QA Team: Add sparse mixed-window fixture assertion that `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend` row count mirrors `...PRLENCUEA` across summary/token sections.
+- [ ] Design/World Team: Add compact <=72-char decode helper row tying `PRLENCUETA legend` to action sequence priority (`RH before SH`).
+- [ ] Combat/AI-content Team: Prototype offline alternate handoff compact alias pack candidate (`R2/S2`) with runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP73)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP72 closure; mandatory Game Director cycle executed.
 - Candidate ideas generated:

@@ -3930,3 +3930,4 @@
 - 2026-04-04 19:03 KST — Cycle IP72 vertical slice: added PRLENCUEMA legend decode row (R1=GH->PP rise+probe, S1=PP->GH settle+hold) and tightened parity/order chain through PRLENCUET in regression + guardrail outputs.
 
 - 2026-04-04 19:26 KST — Cycle IP73: Added glanceable handoff alias cue (`PRLENCUETA`) to reduce cognitive load before decode-helper row. Follow-up: monitor if alias+helper redundancy can be trimmed.
+- 2026-04-04 19:56 KST — IP74: handoff alias readability improved with explicit `RH/SH` decode legend between alias and helper rows.

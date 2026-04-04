@@ -3769,3 +3769,4 @@
 - 2026-04-04 19:03 KST — Cycle IP72 vertical slice: added PRLENCUEMA legend decode row (R1=GH->PP rise+probe, S1=PP->GH settle+hold) and tightened parity/order chain through PRLENCUET in regression + guardrail outputs.
 
 - 2026-04-04 19:26 KST — Cycle IP73: Shipped offline handoff compact alias token (`PRLENCUETA`) for one-glance transition direction readability. Follow-up: prototype optional R2/S2 alternates offline only.
+- 2026-04-04 19:56 KST — IP74: preserved offline-only handoff alias semantics; queued optional `R2/S2` variant-pack experiment.
