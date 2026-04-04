@@ -3721,3 +3721,6 @@
 
 ## 2026-04-05 00:35 KST — Sync note
 - No combat mechanics change; beat-side phase-note output contracts tightened for readability reliability.
+
+## 2026-04-05 00:51 KST — Beat-side phase-note contract check
+- Verified `MBCBN` beat-side alias/trend chain remains deterministic and adjacency-locked in regression output.

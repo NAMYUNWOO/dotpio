@@ -3851,3 +3851,6 @@
 ## 2026-04-05 00:35 KST — IP78 readability eval row
 - Added compact helper-eval token `TSDPMFXVWCRITSPMBCBNHLEN:B36|C31|LIM72|PREF:COMPACT|PASS`.
 - Decision: keep explicit B/C length stats in-row for deterministic review.
+
+## 2026-04-05 00:51 KST — Beat-side helper wording alignment
+- Updated expected helper copy to compact decode mapping that ties beat alias + trend alias in one line under LIM72.

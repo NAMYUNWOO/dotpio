@@ -3142,6 +3142,6 @@ Last updated: 2026-03-31 20:40 KST
 
 ### IP78 follow-up injections (2026-04-05 00:35 KST)
 - [x] UX/Design + Systems/QA Team: Added `TSDPMFXVWCRITSPMBCBNHLEN:B36|C31|LIM72|PREF:COMPACT|PASS` helper eval row with parity checks against `TSDPMFXVWCRITSPMB`. *(verification bundle: py_compile + regression + guardrail generation PASS)*
-- [ ] Systems/Ops + QA Team (injected): Add strict adjacency regex contract for `TSDPMFXVWCRITSPMBCBN -> ...MBCBNLEG -> ...MBCBNH -> ...MBCBNHLEN` across summary/token sections.
+- [x] Systems/Ops + QA Team (injected): Add strict adjacency regex contract for `TSDPMFXVWCRITSPMBCBN -> ...MBCBNLEG -> ...MBCBNH -> ...MBCBNHLEN` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-05 00:49 KST -> [x] completed: 2026-04-05 00:51 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [ ] Design/World Team (injected): Add compact decode helper tying `MBCBN` triple to beat-side meaning under <=72-char budget.
 - [ ] Combat/AI-content Team (injected): Prototype report-only alternate phase-note ordering token for readability A/B (`trend|alias|trendAlias`).

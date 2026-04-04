@@ -5781,3 +5781,7 @@
 ## 2026-04-05 00:35 KST — IP78 verification closure
 - Regression now validates presence and parity for `TSDPMFXVWCRITSPMBCBNHLEN`.
 - PASS evidence: py_compile + regression + guardrail generation all succeeded.
+
+## 2026-04-05 00:51 KST — Regression lock update
+- Added fixture-level strict adjacency regex assertion for the `MBCBN` four-row chain.
+- Confirmed no contract regressions via full regression and generator smoke bundle.

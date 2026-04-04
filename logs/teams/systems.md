@@ -5288,3 +5288,8 @@
 ## 2026-04-05 00:35 KST — IP78 selected slice
 - Added helper-eval parity enforcement for `TSDPMFXVWCRITSPMBCBNHLEN` to mirror `TSDPMFXVWCRITSPMB` row counts.
 - Injected next systems/qa task: strict adjacency regex chain for `MBCBN -> MBCBNLEG -> MBCBNH -> MBCBNHLEN`.
+
+## 2026-04-05 00:51 KST — IP78 injected closure (MBCBN adjacency regex)
+- Hardened regression contract with strict adjacency regex chain for `TSDPMFXVWCRITSPMBCBN -> ...MBCBNLEG -> ...MBCBNH -> ...MBCBNHLEN` in digest markdown rails.
+- Synced helper/eval copy expectations to compact decode mapping (`HC2/PP2/SN2+U/F/D=>beat+trend`) and updated eval token to `B42|C42|...|PASS`.
+- Verification: py_compile + regression + guardrail generator PASS.

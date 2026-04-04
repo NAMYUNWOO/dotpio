@@ -5722,3 +5722,9 @@ Compact decision memory for AI context efficiency.
 - Shipped `TSDPMFXVWCRITSPMBCBNHLEN` helper eval row with PASS lock and regression parity checks.
 - Injected next backlog trio: adjacency regex chain (systems/qa), decode helper mapping (design/world), optional ordering A/B token (combat/ai-content).
 - Verification: py_compile + regression + guardrail generator PASS.
+
+## 2026-04-05 00:51 KST — IP78 injected Systems/QA item closed
+- Completed highest-priority unchecked TASKS/POST item: strict adjacency regex contract for `TSDPMFXVWCRITSPMBCBN -> ...MBCBNLEG -> ...MBCBNH -> ...MBCBNHLEN`.
+- Durable decision: keep `MBCBN` cluster contiguous via regex lock and retain compact helper decode `HC2/PP2/SN2+U/F/D=>beat+trend` with eval token `TSDPMFXVWCRITSPMBCBNHLEN:B42|C42|LIM72|PREF:COMPACT|PASS`.
+- Verification bundle PASS: py_compile + `scripts/regression_check_lane_coverage_guardrail.py` + guardrail generator smoke.
+- Next priority item: Design/World decode helper tying `MBCBN` triple to beat-side meaning under <=72 chars.

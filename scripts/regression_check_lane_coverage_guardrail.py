@@ -3593,14 +3593,25 @@ def run_fixture_case(
     ), f"{name}: markdown output must include beat-side alt alias phase-note decode row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side phase-note format helper (ux/design, dos-width): "
-        "**TSDPMFXVWCRITSPMBCBNH:alias|trend|trendAlias|LIM72|PASS**"
+        "**TSDPMFXVWCRITSPMBCBNH:HC2/PP2/SN2+U/F/D=>beat+trend|LIM72|PASS**"
         in md_text
     ), f"{name}: markdown output must include beat-side phase-note format helper row with DOS-width PASS lock"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side phase-note helper eval (ux/design): "
-        "**TSDPMFXVWCRITSPMBCBNHLEN:B36|C31|LIM72|PREF:COMPACT|PASS**"
+        "**TSDPMFXVWCRITSPMBCBNHLEN:B42|C42|LIM72|PREF:COMPACT|PASS**"
         in md_text
     ), f"{name}: markdown output must include beat-side phase-note helper evaluation row"
+    mbcbn_adjacency_matches = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBN:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNLEG:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNH:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNHLEN:[^*]+\*\*",
+        md_text,
+    )
+    assert len(mbcbn_adjacency_matches) >= 1, (
+        f"{name}: summary/token sections must keep strict adjacency chain "
+        "TSDPMFXVWCRITSPMBCBN -> ...MBCBNLEG -> ...MBCBNH -> ...MBCBNHLEN"
+    )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy decode dos-width eval (design/world): "
         "**TSDPMFXVWCRITSPMBLEN:B68|C19|LIM72|PREF:COMPACT|PASS**"

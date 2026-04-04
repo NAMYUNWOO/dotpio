@@ -3972,3 +3972,6 @@
 
 ## 2026-04-05 00:35 KST — IP78 UX note
 - Added one-scan PASS signal for phase-note format helper to reduce operator ambiguity.
+
+## 2026-04-05 00:51 KST — Compact helper clarity pass
+- Helper row now explicitly decodes beat alias + trend alias relation while staying within LIM72 PASS budget.

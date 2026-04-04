@@ -3722,3 +3722,6 @@
 
 ## 2026-04-05 00:35 KST — Sync note
 - No world-content delta; tracked only digest readability/contract hardening.
+
+## 2026-04-05 00:51 KST — Decode rail readability
+- Aligned beat-side phase-note helper to `HC2/PP2/SN2+U/F/D=>beat+trend` for one-scan world/readability context.

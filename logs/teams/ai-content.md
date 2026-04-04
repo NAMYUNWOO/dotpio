@@ -3814,3 +3814,6 @@
 
 ## 2026-04-05 00:35 KST — Sync note
 - No AI content generation rule changes; queued optional phase-note ordering A/B as injected follow-up.
+
+## 2026-04-05 00:51 KST — Offline phase-note contract stability
+- Preserved report-only phase-note token semantics while tightening markdown adjacency and helper decode constraints.
