@@ -98,6 +98,15 @@
     "status": "PASS"
   },
   "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper": "GLINT+STEADY->hold lane",
+  "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperDecodeHelperEvaluation": {
+    "baseline": "INIT:H(HOLD),R(RAMP),L(RELIEF),S(SHIFT)",
+    "compact": "INIT:H/R/L/S",
+    "baselineLen": 39,
+    "compactLen": 12,
+    "dosWidthLimit": 72,
+    "preferred": "COMPACT",
+    "status": "PASS"
+  },
   "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionVariant": "HH:hold lane",
   "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionVariantMap": {
     "HH": "hold lane",

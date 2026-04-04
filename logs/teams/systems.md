@@ -5195,3 +5195,7 @@
 - Correction note: preserve literal token references in logs: TSDCAD24TRIGAPNVH row stays `...|INIT:<alias>(<state>)`.
 - Decision: INIT expansion copy now maps aliases to lane verbs (`H=hold lane R=push lane L=ease lane S=scan lane`) in a single legend phrase.
 - Follow-up: keep fixture parity check active so every NVH row includes INIT suffix.
+
+## 2026-04-04 12:32 KST
+- Cycle IP67: Added `TSDCAD24TRIGAPNVHLEN` evaluation payload wiring (`cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperDecodeHelperEvaluation`) and markdown row emission in lane guardrail output.
+- Decision: keep operator-helper eval deterministic (`B39|C12|LIM72|PREF:COMPACT|PASS`) with DOS budget gate at 72.

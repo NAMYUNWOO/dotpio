@@ -3898,3 +3898,7 @@
 - Correction note: preserve literal token references in logs: TSDCAD24TRIGAPNVH row stays `...|INIT:<alias>(<state>)`.
 - Decision: INIT expansion copy now maps aliases to lane verbs (`H=hold lane R=push lane L=ease lane S=scan lane`) in a single legend phrase.
 - Follow-up: keep fixture parity check active so every NVH row includes INIT suffix.
+
+## 2026-04-04 12:32 KST
+- UX lane shipped helper-width token `TSDCAD24TRIGAPNVHLEN` to make NVH/INIT readability budget auditable in one scan.
+- Outcome: compact helper string selected (`INIT:H/R/L/S`) with PASS status.

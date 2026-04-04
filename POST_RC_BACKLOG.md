@@ -1,5 +1,19 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP67)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP66 closure; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk UX/Design + Systems/Ops: add compact `TSDCAD24TRIGAPNVHLEN` eval token for `NVH|INIT` helper readability budget.
+  - Mid-risk Systems/QA: lock parity/order/domain so `NVH -> NVHLEN -> NVX` and decode rows remain deterministic in summary/token sections.
+  - High-risk AI-content/Combat: prototype adaptive operator-helper phrasing from `INIT` transition volatility windows.
+- Selected experiment: Idea 1 (low-risk UX/Design + Systems/Ops) minimal vertical slice.
+- [x] UX/Design + Systems/Ops + Systems/QA Team: Added `TSDCAD24TRIGAPNVHLEN` row + payload evaluation bundle and regression parity/order/domain locks to keep helper-width telemetry deterministic (`B39|C12|LIM72|PREF:COMPACT|PASS`). *(lifecycle: [ ] -> [~] started: 2026-04-04 12:23 KST -> [x] completed: 2026-04-04 12:32 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP67)
+- [ ] Systems/Ops + QA Team (injected): Add fixture-level assertion that `TSDCAD24TRIGAPNVHLEN` row count mirrors `TSDCAD24TRIGAPNVH` across sparse mixed-window summary/token fixtures.
+- [ ] Design/World Team (injected): Add concise decode helper mapping `NVHLEN` status to readability action (`PASS=ship compact`, `WARN=trim copy`) under <=72-char budget.
+- [ ] AI-content/Combat Team (injected): Prototype offline `INIT`-transition helper microcopy alternates keyed by `TSDCAD24TRIGAPNVHLEN` status (no runtime coupling).
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP65)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP64 closure; mandatory Game Director cycle executed.
 - Candidate ideas generated:

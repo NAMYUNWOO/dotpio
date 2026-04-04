@@ -1389,6 +1389,26 @@ def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_
     }
 
 
+def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_decode_helper_evaluation(
+    dos_width_limit: int = 72,
+) -> dict[str, object]:
+    baseline = "INIT:H(HOLD),R(RAMP),L(RELIEF),S(SHIFT)"
+    compact = "INIT:H/R/L/S"
+    baseline_len = len(baseline)
+    compact_len = len(compact)
+    preferred = "COMPACT" if compact_len <= baseline_len else "BASELINE"
+    status = "PASS" if compact_len <= dos_width_limit and baseline_len <= dos_width_limit else "WARN"
+    return {
+        "baseline": baseline,
+        "compact": compact,
+        "baselineLen": baseline_len,
+        "compactLen": compact_len,
+        "dosWidthLimit": dos_width_limit,
+        "preferred": preferred,
+        "status": status,
+    }
+
+
 def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_variant_map(
 ) -> dict[str, str]:
     return {
@@ -3207,6 +3227,9 @@ def build_report(
             cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_intent,
         )
     )
+    cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_decode_helper_evaluation = (
+        resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_decode_helper_evaluation()
+    )
     cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_variant_map = (
         resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_variant_map()
     )
@@ -3416,6 +3439,7 @@ def build_report(
         "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAlias": cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_state_init_alias,
         "cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAliasDecodeHelperEvaluation": cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_state_init_alias_decode_helper_evaluation,
         "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper": cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper,
+        "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperDecodeHelperEvaluation": cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_decode_helper_evaluation,
         "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionVariant": cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_variant,
         "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionVariantMap": cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_variant_map,
         "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperBaseline": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation["baseline"],
@@ -3705,6 +3729,7 @@ def to_markdown(
             "- cadence 24h triad gap intent-escalation state alias decode (ux/design): **TSDCAD24TRIGAPNVIXS legend (HOLD=steady intent, RAMP=pressure up, RELIEF=pressure down, SHIFT=mixed swap)**",
             "- cadence 24h triad gap intent-escalation state-init alias decode (systems/ops + ux): **TSDCAD24TRIGAPNVIXSA legend (H=HOLD, R=RAMP, L=RELIEF, S=SHIFT; use NVH for action)**",
             "- cadence 24h triad gap NVH/INIT pair decode (design/world): **TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper; H=hold lane R=push lane L=ease lane S=scan lane; DOS:LIM72/PASS)**",
+            f"- cadence 24h triad gap operator helper decode dos-width eval (systems/qa + ux): **TSDCAD24TRIGAPNVHLEN:B{report.get('cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperDecodeHelperEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperDecodeHelperEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperDecodeHelperEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperDecodeHelperEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperDecodeHelperEvaluation', {}).get('status', 'PASS')}**",
             f"- cadence 24h triad gap transition vfx cue compact dos-width eval (combat/vfx + ux): **TSDCAD24TRIGAPNVALEN:B{report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperEvaluation', {}).get('status', 'PASS')}**",
             "- cadence 24h triad gap urgency-cue transition narrative decode (design/world): **TSDCAD24TRIGAPN legend (stable=hold cadence, surfaced=patch1, widened=patch2+, sealed=resume lock)**",
             f"- cadence 24h triad gap transition family compact alias dos-width eval (design/world): **TSDCAD24TRIGAPNALEN:B{report.get('cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperEvaluation', {}).get('baselineLen', 0)}|C{report.get('cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperEvaluation', {}).get('compactLen', 0)}|LIM{report.get('cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperEvaluation', {}).get('dosWidthLimit', 72)}|PREF:{report.get('cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperEvaluation', {}).get('preferred', 'COMPACT')}|{report.get('cadence24hRecoveryTriadGapCueTransitionFamilyDecodeHelperEvaluation', {}).get('status', 'PASS')}**",

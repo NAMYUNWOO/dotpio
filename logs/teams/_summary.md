@@ -5575,3 +5575,10 @@ Compact decision memory for AI context efficiency.
 - Updated `TSDCAD24TRIGAPNVH` decode legend copy to single-phrase verb mapping: `H=hold lane R=push lane L=ease lane S=scan lane`.
 - Preserved deterministic ordering (`NVIXSA legend -> NVH legend -> NVALEN`) and retained row payload suffix format `|INIT:<alias>(<state>)`.
 - Regression expanded with fixture-level assertion: NVH row count must equal INIT suffix occurrence count.
+
+## 2026-04-04 12:32 KST
+- Triggered mandatory Game Director Cycle IP67 (ACTION_ITEMS/TASKS/POST_RC all fully checked at start).
+- Shipped selected low-risk vertical slice: new operator-helper decode-width telemetry token `TSDCAD24TRIGAPNVHLEN` plus payload field `cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperDecodeHelperEvaluation`.
+- Durable contract: keep cadence order deterministic as `...NVIXSALEN -> NVH -> NVX` and legend-eval sequence `...NVH legend -> NVHLEN -> NVALEN -> TRIGAPN legend`.
+- Verification passed via `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, and guardrail JSON/MD regeneration.
+- Injected next backlog trio (Systems/Ops+QA parity mirror, Design/World PASS/WARN helper, AI-content/Combat offline microcopy variants).

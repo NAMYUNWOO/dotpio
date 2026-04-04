@@ -3765,3 +3765,7 @@
 - Correction note: preserve literal token references in logs: TSDCAD24TRIGAPNVH row stays `...|INIT:<alias>(<state>)`.
 - Decision: INIT expansion copy now maps aliases to lane verbs (`H=hold lane R=push lane L=ease lane S=scan lane`) in a single legend phrase.
 - Follow-up: keep fixture parity check active so every NVH row includes INIT suffix.
+
+## 2026-04-04 12:32 KST
+- Design lane accepted `NVHLEN` compact preference (`COMPACT`) as default readability posture under DOS width budget.
+- Next design helper task injected: PASS/WARN legend microcopy under <=72 chars.

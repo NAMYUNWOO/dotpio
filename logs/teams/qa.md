@@ -5692,3 +5692,7 @@
 - Correction note: preserve literal token references in logs: TSDCAD24TRIGAPNVH row stays `...|INIT:<alias>(<state>)`.
 - Decision: INIT expansion copy now maps aliases to lane verbs (`H=hold lane R=push lane L=ease lane S=scan lane`) in a single legend phrase.
 - Follow-up: keep fixture parity check active so every NVH row includes INIT suffix.
+
+## 2026-04-04 12:32 KST
+- QA expanded regression suite for `TSDCAD24TRIGAPNVHLEN`: markdown presence, parity, domain regex, and deterministic order checks.
+- Verification bundle green: py_compile + regression + guardrail regeneration.
