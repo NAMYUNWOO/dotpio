@@ -2,6 +2,15 @@
 
 Last updated: 2026-04-04 17:21 KST
 
+## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP72)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after closing IP71 injected alias-pack item; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk Design/World: add compact decode legend row for new `PRLENCUEMA` alias pack (`R1/S1`) to keep one-scan readability.
+  - Mid-risk Systems/QA: enforce parity/order contracts for `PRLENCUEMA legend` across summary/token sections.
+  - High-risk Combat/AI-content: optional rotating alias families (`R2/S2`) tied to transition churn windows.
+- Selected experiment: low-risk Design/World + Systems/QA (`PRLENCUEMA legend`) minimal vertical slice.
+- [x] Design/World + Systems/QA Team: Added offline decode legend row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMA legend (R1=GH->PP rise+probe, S1=PP->GH settle+hold)` and locked regression parity/order anchoring (`...PRLENCUEM -> ...PRLENCUEMA -> ...PRLENCUEMA legend -> ...PRLENCUET`). *(lifecycle: [ ] -> [~] started: 2026-04-04 18:58 KST -> [x] completed: 2026-04-04 19:03 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP70)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked, so mandatory Game Director cycle executed.
 - Candidate ideas generated:
@@ -25,7 +34,7 @@ Last updated: 2026-04-04 17:21 KST
 - **Selected experiment:** low-risk UX/Design `PRLENCUETD` decode-helper DOS-width evaluator row.
 - [x] UX/Design + Systems/QA Team: Added `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDLEN:B54|C38|LIM72|PREF:COMPACT|PASS` row plus regression presence/parity/order locks (`...PRLENCUET -> ...PRLENCUETD -> ...PRLENCUETDLEN -> ...PRLENCUE legend`). *(lifecycle: [ ] -> [~] started: 2026-04-04 18:01 KST -> [x] completed: 2026-04-04 18:06 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [x] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture assertion that `PRLENCUETDLEN` row count mirrors `...PRLENCUEA` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 18:24 KST -> [x] completed: 2026-04-04 18:27 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] Combat/AI-content Team (injected): Prototype optional `R1/S1` compact alias pack for `PRLENCUEM` transition phrasing variants (offline-only).
+- [x] Combat/AI-content Team (injected): Prototype optional `R1/S1` compact alias pack for `PRLENCUEM` transition phrasing variants (offline-only) via `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMA:R1=GH->PP rise+probe|S1=PP->GH settle+hold`. *(lifecycle: [ ] -> [~] started: 2026-04-04 18:48 KST -> [x] completed: 2026-04-04 18:55 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP69)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.

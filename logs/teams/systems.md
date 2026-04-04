@@ -5234,3 +5234,5 @@
 - 2026-04-04 17:54 KST — Added mixed-window fixture matrix parity assertion so `TSDCAD24TRICOVSTCMSVHCSTPRLENCUET` row counts now must mirror `...PRLENCUEA` across summary/token sections.
 - 2026-04-04 18:06 KST — Added PRLENCUETD decode-helper DOS-width evaluation contract (`PRLENCUETDLEN`) and locked deterministic ordering before `PRLENCUE legend`.
 - 2026-04-04 18:27 KST — Closed injected Systems/Ops+QA parity task: mixed-window fixture matrix now anchors `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDLEN` row counts to `...PRLENCUEA` across summary/token sections; verification bundle PASS (py_compile + regression + guardrail regen).
+- 2026-04-04 18:55 KST — Cycle IP71 injected follow-up completed: shipped offline PRLENCUEMA compact alias pack (R1=GH->PP rise+probe, S1=PP->GH settle+hold) with parity/order regression coverage and guardrail artifact refresh.
+- 2026-04-04 19:03 KST — Cycle IP72 vertical slice: added PRLENCUEMA legend decode row (R1=GH->PP rise+probe, S1=PP->GH settle+hold) and tightened parity/order chain through PRLENCUET in regression + guardrail outputs.

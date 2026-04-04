@@ -5636,3 +5636,11 @@ Compact decision memory for AI context efficiency.
 - 2026-04-04 18:27 KST — Completed highest-priority unchecked TASKS/POST_RC item: added sparse mixed-window parity lock so `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDLEN` mirrors `...PRLENCUEA` counts across summary + token sections in regression matrix.
 - Durable decision: keep PRLEN cue-transition tail parity unified (`PRLENCUEA/H/M/T/TDLEN`) in one mixed-window assertion chain to prevent sparse-fixture drift.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: Combat/AI-content optional `R1/S1` compact alias pack for `PRLENCUEM`).
+- 2026-04-04 18:55 KST — Completed highest-priority unchecked TASKS/POST_RC item: added offline compact alias pack row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMA:R1=GH->PP rise+probe|S1=PP->GH settle+hold` for PRLENCUEM transition phrasing variants.
+- Durable decision: keep PRLEN transition chain/order as `...PRLENCUEH -> ...PRLENCUEM -> ...PRLENCUEMA -> ...PRLENCUET -> ...PRLENCUETD -> ...PRLENCUETDLEN -> ...PRLENCUE legend`, with all rows parity-anchored to `...PRLENCUEA` in mixed-window fixtures.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.
+- 2026-04-04 19:03 KST — Executed mandatory IP72 Game Director cycle after queue reached all-checked; shipped minimal vertical slice adding `PRLENCUEMA legend` decode row for `R1/S1` aliases.
+- Durable decision: maintain deterministic transition-readability chain `...PRLENCUEM -> ...PRLENCUEMA -> ...PRLENCUEMA legend -> ...PRLENCUET` and parity-anchor legend rows to `...PRLENCUEA` across summary/token fixtures.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.
