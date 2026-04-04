@@ -3649,3 +3649,4 @@
 - Reviewed NVH/INIT readability lane output after `NVHLEN` insertion; one-scan operator flow remains preserved (`NVH -> NVHLEN -> NVX`).
 - Follow-up queued: add concise world-facing decode helper for PASS/WARN action hinting.
 - 2026-04-04 12:50 KST — No world/map change in this cycle; held lane while systems/qa parity task closed.
+- 2026-04-04 13:20 KST — World/readability pass: added one-line NVHLEN status-action legend (`PASS=ship compact`, `WARN=trim copy`) to keep operator decision path one-scan after width eval.

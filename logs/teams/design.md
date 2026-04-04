@@ -3770,3 +3770,4 @@
 - Design lane accepted `NVHLEN` compact preference (`COMPACT`) as default readability posture under DOS width budget.
 - Next design helper task injected: PASS/WARN legend microcopy under <=72 chars.
 - 2026-04-04 12:50 KST — No design diff this slice; queued next injected item: `NVHLEN` status-to-action legend helper (`PASS=ship compact`, `WARN=trim copy`).
+- 2026-04-04 13:20 KST — Closed injected NVHLEN readability helper task by adding `TSDCAD24TRIGAPNVHSTAT legend (PASS=ship compact, WARN=trim copy)` under the operator-helper eval row; keeps copy within DOS-width budget and actionability explicit.

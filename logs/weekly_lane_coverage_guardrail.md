@@ -43,6 +43,7 @@
 - cadence 24h triad gap intent-escalation state-init alias decode (systems/ops + ux): **TSDCAD24TRIGAPNVIXSA legend (H=HOLD, R=RAMP, L=RELIEF, S=SHIFT; use NVH for action)**
 - cadence 24h triad gap NVH/INIT pair decode (design/world): **TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper; H=hold lane R=push lane L=ease lane S=scan lane; DOS:LIM72/PASS)**
 - cadence 24h triad gap operator helper decode dos-width eval (systems/qa + ux): **TSDCAD24TRIGAPNVHLEN:B39|C12|LIM72|PREF:COMPACT|PASS**
+- cadence 24h triad gap operator helper status-action legend (design/world): **TSDCAD24TRIGAPNVHSTAT legend (PASS=ship compact, WARN=trim copy)**
 - cadence 24h triad gap transition vfx cue compact dos-width eval (combat/vfx + ux): **TSDCAD24TRIGAPNVALEN:B30|C7|LIM72|PREF:COMPACT|PASS**
 - cadence 24h triad gap urgency-cue transition narrative decode (design/world): **TSDCAD24TRIGAPN legend (stable=hold cadence, surfaced=patch1, widened=patch2+, sealed=resume lock)**
 - cadence 24h triad gap transition family compact alias dos-width eval (design/world): **TSDCAD24TRIGAPNALEN:B60|C34|LIM72|PREF:COMPACT|PASS**
