@@ -5570,3 +5570,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep change in existing legend row (no new rows/tokens) to preserve deterministic ordering and cadence-cluster density.
 - Verification bundle: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail regen PASS.
 - Next queued backlog item: Design/World helper-copy refinement for INIT expansions mapping to lane verbs.
+
+## 2026-04-04 11:57 KST — NVH/INIT legend verb-map lock (IP67)
+- Updated `TSDCAD24TRIGAPNVH` decode legend copy to single-phrase verb mapping: `H=hold lane R=push lane L=ease lane S=scan lane`.
+- Preserved deterministic ordering (`NVIXSA legend -> NVH legend -> NVALEN`) and retained row payload suffix format `|INIT:<alias>(<state>)`.
+- Regression expanded with fixture-level assertion: NVH row count must equal INIT suffix occurrence count.

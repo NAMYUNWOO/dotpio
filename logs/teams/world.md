@@ -3634,3 +3634,13 @@
 - [2026-04-04 10:26 KST] Cycle IP66 follow-up: shipped NVH/INIT decode-legend slice status update. Decision: keep copy compact as `TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper)` to stay under DOS-width budget and preserve deterministic legend ordering after NVIXSA legend. Follow-up: leave AI-content offline NVH phrasing-variant map item open.
 - 2026-04-04 10:56 KST — NVH INIT-transition offline variant map prototype landed in guardrail report pipeline (no runtime coupling); validated via py_compile + regression + guardrail regen. Follow-up: keep map payload available for upcoming NVH compact legend/fixture tasks.
 - 2026-04-04 11:23 KST — World/readability lane notes updated: NVH legend now carries compact INIT suffix mapping for faster lane-action interpretation without adding extra rows.
+
+## 2026-04-04 11:56 KST
+- Cycle IP67 follow-through: validated NVH/INIT readability update path remains deterministic across summary/token sections.
+- Decision: keep  row format  and preserve existing ordering contracts.
+- Follow-up: close pending Systems/Ops+QA injected assertion task in POST_RC_BACKLOG if additional domain checks are requested.
+
+## 2026-04-04 11:57 KST
+- Correction note: preserve literal token references in logs: TSDCAD24TRIGAPNVH row stays `...|INIT:<alias>(<state>)`.
+- Decision: INIT expansion copy now maps aliases to lane verbs (`H=hold lane R=push lane L=ease lane S=scan lane`) in a single legend phrase.
+- Follow-up: keep fixture parity check active so every NVH row includes INIT suffix.
