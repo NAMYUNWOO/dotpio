@@ -3934,3 +3934,4 @@
 
 ## 2026-04-04 20:53 KST — One-scan sequence cue
 - Added one-scan alias-priority helper row to reduce ambiguity between `RH` and `SH` sequence handling.
+- 2026-04-04 21:28 KST: Added/validated `PRLENCUEMB` offline candidate alias-pack (`R2/S2`) with deterministic markdown ordering + regression parity/order coverage; runtime coupling remains disabled.

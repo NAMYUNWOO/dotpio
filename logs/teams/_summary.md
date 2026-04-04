@@ -5656,3 +5656,9 @@ Compact decision memory for AI context efficiency.
 ## 2026-04-04 20:53 KST — PRLENCUETAP injected helper slice
 - Durable decision: enforce deterministic chain `...PRLENCUETA legend -> ...PRLENCUETAP -> ...PRLENCUETD` in cadence summary/token sections.
 - Added parity guard so `PRLENCUETAP` row count must mirror `PRLENCUEA` row count across fixtures.
+
+## 2026-04-04 21:28 KST
+- Closed remaining IP74 injected Combat/AI-content item by shipping offline candidate alias-pack row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMB` (`R2/S2`) for transition handoff readability experiments.
+- Durable decision: keep candidate pack offline-only and pin deterministic sequence `...PRLENCUEMA legend -> ...PRLENCUEMB -> ...PRLENCUET` to avoid scan drift while preserving rollback safety.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next run should trigger mandatory Game Director review cycle).

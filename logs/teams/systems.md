@@ -5245,3 +5245,4 @@
 ## 2026-04-04 20:53 KST — PRLENCUETAP parity/order lock
 - Added regression presence/parity/order coverage for `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETAP` and inserted deterministic sequence gate `PRLENCUETA legend -> PRLENCUETAP -> PRLENCUETD`.
 - Follow-up: keep future handoff decode rows anchored to `PRLENCUEA` row parity baseline.
+- 2026-04-04 21:28 KST: Added/validated `PRLENCUEMB` offline candidate alias-pack (`R2/S2`) with deterministic markdown ordering + regression parity/order coverage; runtime coupling remains disabled.

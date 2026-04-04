@@ -3806,3 +3806,4 @@
 
 ## 2026-04-04 20:53 KST — Compact priority microcopy accepted
 - Accepted `RH before SH` compact copy as canonical decode helper under DOS width budget.
+- 2026-04-04 21:28 KST: Added/validated `PRLENCUEMB` offline candidate alias-pack (`R2/S2`) with deterministic markdown ordering + regression parity/order coverage; runtime coupling remains disabled.

@@ -1013,6 +1013,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include PRLENCUEMA compact alias-pack decode row"
     assert (
+        "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend transition compact alias pack candidate (combat/ai-content, offline): "
+        "**TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMB:R2=GH->PP rise+route|S2=PP->GH settle+screen**"
+        in md_text
+    ), f"{name}: markdown output must include PRLENCUEMB compact alias-pack candidate row"
+    assert (
         "cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure transition handoff cue (ai-content/design, offline): "
         "**TSDCAD24TRICOVSTCMSVHCSTPRLENCUET:GH->PP=rise handoff|PP->GH=settle handoff**"
         in md_text
@@ -1200,6 +1205,7 @@ def run_fixture_case(
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variant_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUEM:GH->PP:rise then probe lane|PP->GH:settle then hold lane**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variant_alias_pack_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMA:R1=GH->PP rise+probe|S1=PP->GH settle+hold**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variant_alias_pack_legend_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMA legend (R1=GH->PP rise+probe, S1=PP->GH settle+hold)**")
+    cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variant_alias_pack_candidate_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMB:R2=GH->PP rise+route|S2=PP->GH settle+screen**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUET:GH->PP=rise handoff|PP->GH=settle handoff**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_alias_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA:GH->PP=RH|PP->GH=SH**")
     cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_alias_legend_rows = md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend (RH=rise handoff, SH=settle handoff)**")
@@ -1523,6 +1529,12 @@ def run_fixture_case(
         == cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_alias_rows
     ), (
         f"{name}: TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMA legend row count must match alias row count across sections"
+    )
+    assert (
+        cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variant_alias_pack_candidate_rows
+        == cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_alias_rows
+    ), (
+        f"{name}: TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMB row count must match alias row count across sections"
     )
     assert (
         cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_rows
@@ -1961,6 +1973,9 @@ def run_fixture_case(
     ]
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variant_alias_pack_legend_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMA legend (R1=GH->PP rise+probe, S1=PP->GH settle+hold)**" in line
+    ]
+    cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variant_alias_pack_candidate_indexes = [
+        i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMB:R2=GH->PP rise+route|S2=PP->GH settle+screen**" in line
     ]
     cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_indexes = [
         i for i, line in enumerate(cadence_24h_lines) if "**TSDCAD24TRICOVSTCMSVHCSTPRLENCUET:GH->PP=rise handoff|PP->GH=settle handoff**" in line
@@ -2666,8 +2681,11 @@ def run_fixture_case(
         assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variant_alias_pack_legend_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variant_alias_pack_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMA legend immediately after TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMA in both sections"
         )
-        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variant_alias_pack_legend_indexes[cluster_i] + 1, (
-            f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCSTPRLENCUET immediately after TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMA legend in both sections"
+        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variant_alias_pack_candidate_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variant_alias_pack_legend_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMB immediately after TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMA legend in both sections"
+        )
+        assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variant_alias_pack_candidate_indexes[cluster_i] + 1, (
+            f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCSTPRLENCUET immediately after TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMB in both sections"
         )
         assert cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_alias_indexes[cluster_i] == cadence_24h_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_indexes[cluster_i] + 1, (
             f"{name}: cadence order must keep TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA immediately after TSDCAD24TRICOVSTCMSVHCSTPRLENCUET in both sections"
@@ -4974,6 +4992,7 @@ def run_fixture_case(
         "stprlencuemRowCount": md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUEM:GH->PP:rise then probe lane|PP->GH:settle then hold lane**"),
         "stprlencuemaRowCount": md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMA:R1=GH->PP rise+probe|S1=PP->GH settle+hold**"),
         "stprlencuemalegendRowCount": md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMA legend (R1=GH->PP rise+probe, S1=PP->GH settle+hold)**"),
+        "stprlencuembRowCount": md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUEMB:R2=GH->PP rise+route|S2=PP->GH settle+screen**"),
         "stprlencuetRowCount": md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUET:GH->PP=rise handoff|PP->GH=settle handoff**"),
         "stprlencuetaRowCount": md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA:GH->PP=RH|PP->GH=SH**"),
         "stprlencuetaLegendRowCount": md_text.count("**TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend (RH=rise handoff, SH=settle handoff)**"),
