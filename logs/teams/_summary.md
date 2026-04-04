@@ -5728,3 +5728,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep `MBCBN` cluster contiguous via regex lock and retain compact helper decode `HC2/PP2/SN2+U/F/D=>beat+trend` with eval token `TSDPMFXVWCRITSPMBCBNHLEN:B42|C42|LIM72|PREF:COMPACT|PASS`.
 - Verification bundle PASS: py_compile + `scripts/regression_check_lane_coverage_guardrail.py` + guardrail generator smoke.
 - Next priority item: Design/World decode helper tying `MBCBN` triple to beat-side meaning under <=72 chars.
+
+## 2026-04-05 01:20 KST — MBCBN helper compact tie-in
+- Updated phase-note helper contract to explicit `alias|trend|tAlias => HC2/PP2/SN2 + U/F/D` mapping.
+- Locked helper eval to `B50|C50|LIM72|PREF:COMPACT|PASS` and kept adjacency/parity checks intact.
+- Next queue head: alternate ordering A/B token (`trend|alias|trendAlias`).

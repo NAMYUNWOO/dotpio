@@ -5293,3 +5293,13 @@
 - Hardened regression contract with strict adjacency regex chain for `TSDPMFXVWCRITSPMBCBN -> ...MBCBNLEG -> ...MBCBNH -> ...MBCBNHLEN` in digest markdown rails.
 - Synced helper/eval copy expectations to compact decode mapping (`HC2/PP2/SN2+U/F/D=>beat+trend`) and updated eval token to `B42|C42|...|PASS`.
 - Verification: py_compile + regression + guardrail generator PASS.
+
+## 2026-04-05 01:20 KST — MBCBN compact decode helper tie-in
+- Decision: Aligned  helper to explicitly encode  within DOS-width lock.
+- Evidence: Updated guardrail output + regression expectations ( now ).
+- Follow-up: Remaining highest-priority unchecked item is alternate ordering A/B token () in TASKS/POST_RC.
+
+## 2026-04-05 01:20 KST — MBCBN compact decode helper tie-in
+- Decision: Aligned `TSDPMFXVWCRITSPMBCBNH` helper to explicitly encode `alias|trend|tAlias => HC2/PP2/SN2 + U/F/D` within DOS-width lock.
+- Evidence: Updated guardrail output + regression expectations (`...MBCBNHLEN` now `B50|C50|LIM72|PREF:COMPACT|PASS`).
+- Follow-up: Remaining highest-priority unchecked item is alternate ordering A/B token (`trend|alias|trendAlias`) in TASKS/POST_RC.

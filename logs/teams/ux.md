@@ -3975,3 +3975,13 @@
 
 ## 2026-04-05 00:51 KST — Compact helper clarity pass
 - Helper row now explicitly decodes beat alias + trend alias relation while staying within LIM72 PASS budget.
+
+## 2026-04-05 01:20 KST — MBCBN compact decode helper tie-in
+- Decision: Aligned  helper to explicitly encode  within DOS-width lock.
+- Evidence: Updated guardrail output + regression expectations ( now ).
+- Follow-up: Remaining highest-priority unchecked item is alternate ordering A/B token () in TASKS/POST_RC.
+
+## 2026-04-05 01:20 KST — MBCBN compact decode helper tie-in
+- Decision: Aligned `TSDPMFXVWCRITSPMBCBNH` helper to explicitly encode `alias|trend|tAlias => HC2/PP2/SN2 + U/F/D` within DOS-width lock.
+- Evidence: Updated guardrail output + regression expectations (`...MBCBNHLEN` now `B50|C50|LIM72|PREF:COMPACT|PASS`).
+- Follow-up: Remaining highest-priority unchecked item is alternate ordering A/B token (`trend|alias|trendAlias`) in TASKS/POST_RC.

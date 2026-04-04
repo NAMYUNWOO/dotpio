@@ -81,3 +81,11 @@
 - Completed paired TASKS/POST_RC items: sparse mixed-window parity tuple coverage for `TSDPMFXVWCRITSPMBCBH` and new offline phase-note token `TSDPMFXVWCRITSPMBCBN` (`alias|UP/FLAT/DOWN|U/F/D`) with decode legend row `TSDPMFXVWCRITSPMBCBNLEG`.
 - Durable decision: keep beat-side phase-note contract offline-only and row-count anchored to `TSDPMFXVWCRITSPMB` across summary/token sections.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-05 01:20 KST — MBCBN compact decode helper completion
+- Completed highest-priority unchecked TASKS/POST_RC item by tightening phase-note helper to explicit triple mapping:
+  - `TSDPMFXVWCRITSPMBCBNH:alias|trend|tAlias=>HC2/PP2/SN2+U/F/D|LIM72|PASS`
+  - `TSDPMFXVWCRITSPMBCBNHLEN:B50|C50|LIM72|PREF:COMPACT|PASS`
+- Durable decision: helper contract now explicitly ties `alias|trend|trendAlias` semantics to beat-side meaning in one compact row while preserving <=72-width guardrail.
+- Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Next highest-priority item: `Combat/AI-content` alternate ordering A/B token (`trend|alias|trendAlias`).
