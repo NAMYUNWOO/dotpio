@@ -5702,3 +5702,8 @@ Compact decision memory for AI context efficiency.
 - Completed remaining unchecked IP76 injected item: added offline beat-side alternate alias candidate token `TSDPMFXVWCRITSPMBCB` (`HC2|PP2|SN2`) and decode row `TSDPMFXVWCRITSPMBCBLEG:HC2 hard crack|PP2 pressure poke|SN2 steady nudge`.
 - Durable contract: `TSDPMFXVWCRITSPMBCB` must stay parity-aligned with `TSDPMFXVWCRITSPMB` row counts and adjacent to `...MBCBLEG` across summary+token sections.
 - Next queue trigger: run new Game Director review cycle now that ACTION_ITEMS/TASKS/POST_RC are fully checked again.
+
+## 2026-04-04 23:37 KST — IP77 minimal vertical slice shipped
+- Added beat-side dual-pack helper row `TSDPMFXVWCRITSPMBCBH:HC/PP/SN base|HC2/PP2/SN2 alt` immediately after `...MBCBLEG`.
+- Durable decision: keep beat-side decode rail contiguous as `...MBCB -> ...MBCBLEG -> ...MBCBH` with row-count parity against `TSDPMFXVWCRITSPMB`.
+- Injected next tasks: fixture tuple parity inclusion (`...MBCBH`) and offline phase-note prototype token (`...MBCBN`).

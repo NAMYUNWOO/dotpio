@@ -16,6 +16,19 @@
 
 Last updated: 2026-04-04 22:03 KST
 
+## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP77)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC became fully checked after IP76 closure; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk Design/World: add beat-side dual-pack helper row mapping `HC/PP/SN` + `HC2/PP2/SN2` under DOS width budget.
+  - Mid-risk Systems/QA: lock sparse mixed-window parity/adjacency for new beat-side helper row against `TSDPMFXVWCRITSPMB`.
+  - High-risk Combat/VFX + AI-content: seed rotating beat-side alt alias chooser token for churn-window experiments.
+- Selected experiment: low-risk helper + mid-risk parity lock minimal vertical slice.
+- [x] Design/World + Systems/QA + Combat/VFX + AI-content Team: Added `TSDPMFXVWCRITSPMBCBH:HC/PP/SN base|HC2/PP2/SN2 alt` directly after `...MBCBLEG`, plus regression presence/parity/adjacency contracts across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 23:33 KST -> [x] completed: 2026-04-04 23:37 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP77)
+- [ ] Systems/Ops + QA Team (injected): Add explicit sparse mixed-window fixture assertion tuple entry so `TSDPMFXVWCRITSPMBCBH` is included in the fixture parity matrix list and mirrors `TSDPMFXVWCRITSPMB` row counts.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype offline beat-side alt alias phase-note token (`TSDPMFXVWCRITSPMBCBN`) that binds `HC2/PP2/SN2` choice to urgency trend (`UP/FLAT/DOWN`) without runtime coupling.
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP76)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC became fully checked after IP75 injected closure; mandatory Game Director cycle executed.
 - Candidate ideas generated:

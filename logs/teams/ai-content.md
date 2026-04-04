@@ -3801,3 +3801,8 @@
 - Closed highest-priority unchecked TASKS item by shipping offline beat-side alternate alias token `TSDPMFXVWCRITSPMBCB` (`HC2|PP2|SN2`) plus decode row `TSDPMFXVWCRITSPMBCBLEG:HC2 hard crack|PP2 pressure poke|SN2 steady nudge`.
 - Hardened regression contracts to require markdown presence, row-count parity with `TSDPMFXVWCRITSPMB`, and adjacency (`...MBCB -> ...MBCBLEG`) across summary+token sections.
 - Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail report regeneration.
+
+## 2026-04-04 23:37 KST — Cycle IP77 beat-side dual-pack helper slice
+- Shipped helper row `TSDPMFXVWCRITSPMBCBH:HC/PP/SN base|HC2/PP2/SN2 alt` right after `...MBCBLEG` for one-scan decode continuity.
+- Extended regression checks for presence + parity (mirrors `TSDPMFXVWCRITSPMB`) + adjacency (`...MBCBLEG -> ...MBCBH`) across summary/token sections.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail markdown/json regeneration.
