@@ -3661,3 +3661,11 @@
 ## 2026-04-04 16:56 KST
 - Closed injected GH/PP transition microcopy task: added offline row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEM` (`GH->PP:hold then probe on rise|PP->GH:probe then hold on settle`) with no runtime coupling.
 - Verified deterministic parity/order chain now anchors `...STPRLENCUEH -> ...STPRLENCUEM -> ...STPRLENCUE legend` across summary/token sections.
+
+## 2026-04-04 17:21 KST
+- Cycle IP70: approved compact handoff phrasing readability target for upcoming decode helper row ( / ).
+- Follow-up: ship <=72-char decode helper in next injected Design/World task.
+
+## 2026-04-04 17:21 KST
+- Cycle IP70: approved compact handoff phrasing readability target for upcoming decode helper row (`rise handoff` / `settle handoff`).
+- Follow-up: ship <=72-char decode helper in next injected Design/World task.

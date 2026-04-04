@@ -1,5 +1,19 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP70)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk AI-content/Design: add compact offline handoff cue token for `STPRLENCUEA` transition direction readability.
+  - Mid-risk Systems/QA: extend parity/order locks so new handoff row remains deterministic across summary/token sections.
+  - High-risk Combat/VFX: adaptive handoff cue mutation from recent intent-churn windows.
+- Selected experiment: Idea 1 (low-risk AI-content/Design) minimal vertical slice.
+- [x] AI-content/Design + Systems/QA Team: Added `TSDCAD24TRICOVSTCMSVHCSTPRLENCUET:GH->PP=rise handoff|PP->GH=settle handoff` row/payload wiring and regression parity+order updates, preserving chain `...PRLENCUEH -> ...PRLENCUEM -> ...PRLENCUET -> ...PRLENCUE legend`. *(lifecycle: [ ] -> [~] started: 2026-04-04 17:12 KST -> [x] completed: 2026-04-04 17:21 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP70)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture assertion for `TSDCAD24TRICOVSTCMSVHCSTPRLENCUET` parity against `...PRLENCUEA`.
+- [ ] Design/World Team (injected): Add concise decode helper row (`rise handoff` before `settle handoff`) under <=72-char DOS budget.
+- [ ] Combat/AI-content Team (injected): Prototype offline alternate handoff cue copy variants for both transition directions (no runtime coupling).
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP69)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
 - Forced-lane decision: no over-40% lane; cadence triad missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so this cycle forced a cross-lane recovery experiment.

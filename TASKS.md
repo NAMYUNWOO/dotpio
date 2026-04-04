@@ -1,6 +1,20 @@
 # TASKS
 
-Last updated: 2026-04-04 15:41 KST
+Last updated: 2026-04-04 17:21 KST
+
+## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP70)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked, so mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk AI-content/Design: add a compact offline transition handoff cue row for `STPRLENCUEA` swaps so `GH->PP` vs `PP->GH` intent is one-scan parseable.
+  - Mid-risk Systems/QA: enforce row-count parity for the new handoff cue against `STPRLENCUEA` across summary/token sections.
+  - High-risk Combat/VFX: experiment with dynamic handoff cue remap tied to recent `TRIGAPNVI` intent churn windows.
+- Selected experiment: Idea 1 (low-risk AI-content/Design) minimal vertical slice.
+- [x] AI-content/Design + Systems/QA Team: Added offline transition handoff cue row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUET:GH->PP=rise handoff|PP->GH=settle handoff`, wired payload output, and extended regression presence/parity/order checks so the row is anchored between `...PRLENCUEM` and `...PRLENCUE legend`. *(lifecycle: [ ] -> [~] started: 2026-04-04 17:12 KST -> [x] completed: 2026-04-04 17:21 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP70)
+- [ ] Systems/Ops + QA Team (injected): Add sparse-fixture matrix assertion that `TSDCAD24TRICOVSTCMSVHCSTPRLENCUET` row count mirrors `...PRLENCUEA` in mixed-window summary/token fixtures.
+- [ ] Design/World Team (injected): Add <=72-char decode helper row for `PRLENCUET` clarifying `rise handoff` vs `settle handoff` action sequencing.
+- [ ] Combat/AI-content Team (injected): Prototype offline alternate handoff cue phrasing pack for `GH->PP` and `PP->GH` while keeping runtime coupling disabled.
 
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP69)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.

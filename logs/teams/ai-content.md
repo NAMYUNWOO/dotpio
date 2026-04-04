@@ -3754,3 +3754,11 @@
 ## 2026-04-04 16:56 KST
 - Closed injected GH/PP transition microcopy task: added offline row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEM` (`GH->PP:hold then probe on rise|PP->GH:probe then hold on settle`) with no runtime coupling.
 - Verified deterministic parity/order chain now anchors `...STPRLENCUEH -> ...STPRLENCUEM -> ...STPRLENCUE legend` across summary/token sections.
+
+## 2026-04-04 17:21 KST
+- Cycle IP70 shipped offline handoff cue row .
+- Decision: keep handoff cue offline-only (no runtime coupling) and aligned to existing GH/PP transition microcopy chain.
+
+## 2026-04-04 17:21 KST
+- Cycle IP70 shipped offline handoff cue row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUET:GH->PP=rise handoff|PP->GH=settle handoff`.
+- Decision: keep handoff cue offline-only (no runtime coupling) and aligned to existing GH/PP transition microcopy chain.

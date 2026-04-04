@@ -5223,3 +5223,11 @@
 ## 2026-04-04 16:56 KST
 - Closed injected GH/PP transition microcopy task: added offline row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEM` (`GH->PP:hold then probe on rise|PP->GH:probe then hold on settle`) with no runtime coupling.
 - Verified deterministic parity/order chain now anchors `...STPRLENCUEH -> ...STPRLENCUEM -> ...STPRLENCUE legend` across summary/token sections.
+
+## 2026-04-04 17:21 KST
+- Cycle IP70: wired new offline handoff cue payload field  and kept deterministic order contracts ().
+- Follow-up: add sparse mixed-window parity assertion for PRLENCUET in next injected QA pass.
+
+## 2026-04-04 17:21 KST
+- Cycle IP70: wired new offline handoff cue payload field `...PRLENCUET` and kept deterministic order contracts (`PRLENCUEM -> PRLENCUET -> PRLENCUE legend`).
+- Follow-up: add sparse mixed-window parity assertion for PRLENCUET in next injected QA pass.
