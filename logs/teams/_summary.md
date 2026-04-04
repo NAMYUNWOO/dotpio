@@ -5760,3 +5760,5 @@ Compact decision memory for AI context efficiency.
 - Closed highest-priority unchecked TASKS/POST_RC item by adding offline fallback for unknown urgency trends in phase-note token generation: `PP2|UNKNOWN|UNK`.
 - Durable decision: preserve deterministic default pressure alias (`PP2`) when urgency trend is outside `UP/FLAT/DOWN`, while keeping known-trend mappings untouched.
 - Regression hardened with direct resolver assertion for unknown fallback (`UNK->PP2`) plus full guardrail/regression bundle PASS.
+
+- 2026-04-05 03:57 KST: Extended sparse mixed-window parity tuple coverage to include `TSDPMFXVWCRITSPMBCBNX` and `...MBCBNXLEG`; regression now enforces parity for `MBCBH/MBCBNLEG/MBCBNT/MBCBNX/MBCBNXLEG` against `TSDPMFXVWCRITSPMB`.

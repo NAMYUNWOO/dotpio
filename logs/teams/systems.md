@@ -5326,3 +5326,8 @@
 - Added offline fallback in `resolve_...alt_beat_alias_phase_note`: unknown urgency trend now emits `PP2|UNKNOWN|UNK` instead of reusing prior trend alias defaults.
 - Maintains runtime decoupling and keeps known trends (`UP/FLAT/DOWN`) unchanged (`HC2|PP2|SN2` + `U/F/D`).
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-05 03:57 KST — Systems/Ops
+- Completed sparse mixed-window parity tuple expansion for `TSDPMFXVWCRITSPMBCBNX` + `TSDPMFXVWCRITSPMBCBNXLEG`.
+- Updated regression matrix tuple payload to include both pressure-tag rows and enforced parity against `TSDPMFXVWCRITSPMB`.
+- Follow-up: keep next item focused on compact pressure-tag helper copy (`SPIKE/HOLD/EASE/SAFE`) in TASKS/POST_RC_BACKLOG.
