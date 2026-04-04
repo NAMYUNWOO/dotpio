@@ -5749,3 +5749,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: lock helper string to `TSDPMFXVWCRITSPMBCBNT:U(surge)->HC2|F(hold)->PP2|D(cool)->SN2` and keep parity/adjacency contracts unchanged.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail artifact regeneration PASS.
 - Next priority item: `Combat/VFX + AI-content` unknown-trend fallback alias (`UNK->PP2`) offline prototype.
+
+## 2026-04-05 03:18 KST — IP79 unknown-trend fallback (UNK->PP2)
+- Closed highest-priority unchecked TASKS/POST_RC item by adding offline fallback for unknown urgency trends in phase-note token generation: `PP2|UNKNOWN|UNK`.
+- Durable decision: preserve deterministic default pressure alias (`PP2`) when urgency trend is outside `UP/FLAT/DOWN`, while keeping known-trend mappings untouched.
+- Regression hardened with direct resolver assertion for unknown fallback (`UNK->PP2`) plus full guardrail/regression bundle PASS.

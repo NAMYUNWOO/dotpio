@@ -3746,3 +3746,8 @@
 
 ## 2026-04-05 02:50 KST — Combat lane note
 - Beat-side helper now exposes surge/hold/cool intent directly beside HC2/PP2/SN2 routing for one-scan combat interpretation.
+
+## 2026-04-05 03:18 KST — Unknown-trend phase-note fallback slice (UNK->PP2)
+- Added offline fallback in `resolve_...alt_beat_alias_phase_note`: unknown urgency trend now emits `PP2|UNKNOWN|UNK` instead of reusing prior trend alias defaults.
+- Maintains runtime decoupling and keeps known trends (`UP/FLAT/DOWN`) unchanged (`HC2|PP2|SN2` + `U/F/D`).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

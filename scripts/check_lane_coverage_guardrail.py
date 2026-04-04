@@ -832,12 +832,14 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_tr
     beat_alias_pack: str,
     urgency_trend: str,
 ) -> str:
+    normalized_trend = str(urgency_trend or "UNKNOWN").strip().upper()
     trend_alias = {
         "UP": "U",
         "FLAT": "F",
         "DOWN": "D",
-    }.get(urgency_trend, "F")
-    return f"{beat_alias_pack}|{urgency_trend}|{trend_alias}"
+    }.get(normalized_trend, "UNK")
+    resolved_beat_alias_pack = beat_alias_pack if normalized_trend in {"UP", "FLAT", "DOWN"} else "PP2"
+    return f"{resolved_beat_alias_pack}|{normalized_trend}|{trend_alias}"
 
 
 def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_compact_summary(

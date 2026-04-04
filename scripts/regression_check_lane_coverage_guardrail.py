@@ -3042,6 +3042,13 @@ def run_fixture_case(
     assert urgency_confidence_trend_momentum_band_trend_vfx_pulse_value in {"CALM", "PULSE", "BLAST"}, (
         f"{name}: trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulse must stay within CALM|PULSE|BLAST"
     )
+    unknown_trend_phase_note_value = load_guardrail_module().resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note(
+        "HC2",
+        "UNKNOWN",
+    )
+    assert unknown_trend_phase_note_value == "PP2|UNKNOWN|UNK", (
+        f"{name}: unknown urgency trend fallback must force compact phase-note alias UNK->PP2"
+    )
     expected_urgency_confidence_trend_momentum_band_trend_vfx_pulse_value = {
         "UP": "BLAST",
         "FLAT": "PULSE",
