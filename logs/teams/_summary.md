@@ -5542,3 +5542,14 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep deterministic row order `NVIXS -> NVIXSA -> NVIXSALEN -> NVH` in summary/token sections, with regression contract enforcement.
 - Injected next tasks: (1) QA+Systems headroom assertion for NVIXSALEN, (2) Design+UX decode-helper callout linking NVIXSA to NVH.
 - 2026-04-04 08:54 KST — Closed injected QA+Systems item: regression now validates `TSDCAD24TRIGAPNVIXSALEN` shape and enforces `baseline/compact <= LIM` while preserving row-count parity across summary/token sections.
+
+## 2026-04-04 09:19 KST
+- Closed highest-priority unchecked POST_RC item: added concise decode helper callout linking `TSDCAD24TRIGAPNVIXSA` shorthand to operator helper `TSDCAD24TRIGAPNVH` by extending legend copy to `...; use NVH for action`.
+- Durable decision: preserve deterministic row adjacency (`NVIXS -> NVIXSA -> NVIXSALEN -> NVH`) while embedding helper guidance in the existing legend row to avoid extra-row churn.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
+## 2026-04-04 09:22 KST — IP66 NVH inline INIT linkage slice
+- Executed mandatory Game Director cycle after full backlog clearance (3 ideas generated, selected low-risk UX/Design + Systems/Ops slice).
+- Shipped minimal vertical slice: `TSDCAD24TRIGAPNVH` now emits inline state-init shorthand suffix (`|INIT:<H|R|L|S>`) to directly link `NVIXSA` shorthand with operator action helper output.
+- Durable decision: keep linkage embedded in the existing NVH row (no extra row) to preserve deterministic scan order and row density.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).

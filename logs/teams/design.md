@@ -3743,3 +3743,7 @@
 
 - 2026-04-04 08:36 KST — Design lane approved compact width-eval telemetry for state-init shorthand and queued follow-up callout refinement task.
 - 2026-04-04 08:54 KST — Design DOS-width contract strengthened: `TSDCAD24TRIGAPNVIXSALEN` now explicitly asserted `B/C <= LIM` in fixture regression.
+
+## 2026-04-04 09:19 KST
+- Added concise decode helper callout by updating `TSDCAD24TRIGAPNVIXSA legend` to explicitly route shorthand interpretation to operator action helper `NVH` (`...; use NVH for action`).
+- Durable note: keep the callout embedded in the legend row to preserve compact one-scan readability without adding extra token rows.

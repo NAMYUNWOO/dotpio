@@ -3718,3 +3718,6 @@
 
 - 2026-04-04 08:36 KST — No semantic drift in escalation states; added width-audit row only (`NVIXSALEN`) to keep content layer deterministic and reversible.
 - 2026-04-04 08:54 KST — Content semantics unchanged; added regression-only guard to ensure NVIXSA decode-length telemetry never exceeds LIM width budget.
+
+## 2026-04-04 09:22 KST
+- Game Director IP66 queued offline prototype: INIT-transition-aware `NVH` helper phrase variants (`H|R|L|S` driven), explicitly report-only/no runtime coupling.

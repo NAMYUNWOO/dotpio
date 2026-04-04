@@ -9,7 +9,22 @@
 - Selected experiment: Idea 1 (low-risk UX/Design + Systems/Ops) minimal vertical slice.
 - [x] Systems/Ops + UX Team: Add compact state-init decode-length evaluation token `TSDCAD24TRIGAPNVIXSALEN` and keep deterministic adjacency `NVIXS -> NVIXSA -> NVIXSALEN -> NVH` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 08:31 KST -> [x] completed: 2026-04-04 08:36 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [x] QA + Systems/Ops Team (injected): Add fixture-level token-length headroom assertion ensuring `TSDCAD24TRIGAPNVIXSALEN` stays <= DOS width budget and mirrors summary/token section counts. *(lifecycle: [ ] -> [~] started: 2026-04-04 08:50 KST -> [x] completed: 2026-04-04 08:54 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] Design + UX Team (injected): Add concise decode helper callout linking `NVIXSA` state-init shorthand to operator action helper `NVH` for one-scan triage readability.
+- [x] Design + UX Team (injected): Add concise decode helper callout linking `NVIXSA` state-init shorthand to operator action helper `NVH` for one-scan triage readability. *(lifecycle: [ ] -> [~] started: 2026-04-04 09:18 KST -> [x] completed: 2026-04-04 09:19 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP66)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP65 closure; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk UX/Design + Systems/Ops: echo `NVIXSA` state-init shorthand directly inside `NVH` operator helper row so state+action linkage is one-scan visible.
+  - Mid-risk Systems/QA: add fixture-level domain assertion that `NVH` helper row always carries `|INIT:<H|R|L|S>` suffix in summary/token sections.
+  - High-risk AI-content/Combat: prototype adaptive action-helper phrasing keyed by `NVIXS` streak transitions (`HOLD|RAMP|RELIEF|SHIFT`) with offline-only copy variants.
+- Selected experiment: Idea 1 (low-risk UX/Design + Systems/Ops) minimal vertical slice.
+- [x] UX/Design + Systems/Ops Team: Added `|INIT:<alias>` suffix to `TSDCAD24TRIGAPNVH` row so operator helper now carries `NVIXSA` shorthand context inline (`...NVH:<helper>|INIT:<H|R|L|S>`), with regression expectation updates and guardrail regen. *(lifecycle: [ ] -> [~] started: 2026-04-04 09:20 KST -> [x] completed: 2026-04-04 09:22 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP66)
+- [ ] Systems/QA Team (injected): Add fixture-level domain assertion that `TSDCAD24TRIGAPNVH` payload includes `|INIT:<H|R|L|S>` and remains ordered `NVIXSALEN -> NVH -> NVX` across summary/token sections.
+- [ ] Design/World Team (injected): Add concise decode legend callout for `NVH|INIT` pair (`INIT=state shorthand feeding action helper`) under <=72-char copy budget.
+- [ ] AI-content/Combat Team (injected): Prototype offline variant map for `NVH` helper phrasing keyed by `INIT` alias transitions, with no runtime coupling.
+
 
 ## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP64)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP63 closure; mandatory Game Director cycle executed.

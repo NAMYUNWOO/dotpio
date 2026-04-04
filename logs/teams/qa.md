@@ -5669,3 +5669,7 @@
 
 - 2026-04-04 08:36 KST — Regression suite extended for `NVIXSALEN` markdown presence, parity, and ordering between `NVIXSA` and `NVH`; full verification PASS.
 - 2026-04-04 08:54 KST — Regression guardrail now hard-fails if `TSDCAD24TRIGAPNVIXSALEN` token lengths exceed LIM budget; parity + headroom contract verified in mixed-window fixtures.
+
+## 2026-04-04 09:19 KST
+- QA updated regression string expectations for `TSDCAD24TRIGAPNVIXSA legend` callout (`use NVH for action`) and revalidated guardrail generation pipeline.
+- Verification bundle passed: py_compile + regression + live guardrail artifact regeneration.

@@ -3878,3 +3878,7 @@
 
 - 2026-04-04 08:36 KST — Added one-scan width audit token `NVIXSALEN` to reduce ambiguity on DOS-budget compliance in summary/token sections.
 - 2026-04-04 08:54 KST — UX scanability protected via strict NVIXSALEN headroom check; compact state-init decode remains bounded under LIM72.
+
+## 2026-04-04 09:19 KST
+- UX readability pass: `NVIXSA` legend now includes direct callout to `NVH`, reducing lookup hops during triage scans.
+- Kept row count and rail density stable by extending existing decode text instead of introducing a new row.

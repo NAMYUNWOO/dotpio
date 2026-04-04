@@ -567,7 +567,7 @@ def run_fixture_case(
     ), f"{name}: markdown output must include cadence-triad gap intent-escalation state-init alias dos-width eval row"
     assert (
         "cadence 24h triad gap operator action helper (design/world): "
-        f"**TSDCAD24TRIGAPNVH:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper', 'GLINT+STEADY->hold lane')}**"
+        f"**TSDCAD24TRIGAPNVH:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper', 'GLINT+STEADY->hold lane')}|INIT:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAlias', 'H')}**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad gap operator action helper row"
     assert (
@@ -620,7 +620,7 @@ def run_fixture_case(
     ), f"{name}: markdown output must include cadence-triad gap intent-escalation state alias decode row"
     assert (
         "cadence 24h triad gap intent-escalation state-init alias decode (systems/ops + ux): "
-        "**TSDCAD24TRIGAPNVIXSA legend (H=HOLD, R=RAMP, L=RELIEF, S=SHIFT)**"
+        "**TSDCAD24TRIGAPNVIXSA legend (H=HOLD, R=RAMP, L=RELIEF, S=SHIFT; use NVH for action)**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad gap intent-escalation state-init alias decode row"
     assert (
@@ -1049,7 +1049,7 @@ def run_fixture_case(
         "**TSDCAD24TRIGAPNVIXS legend (HOLD=steady intent, RAMP=pressure up, RELIEF=pressure down, SHIFT=mixed swap)**"
     )
     cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_state_init_alias_legend_rows = md_text.count(
-        "**TSDCAD24TRIGAPNVIXSA legend (H=HOLD, R=RAMP, L=RELIEF, S=SHIFT)**"
+        "**TSDCAD24TRIGAPNVIXSA legend (H=HOLD, R=RAMP, L=RELIEF, S=SHIFT; use NVH for action)**"
     )
     cadence_24h_triad_gap_cue_transition_vfx_cue_alias_eval_rows = md_text.count(
         "**TSDCAD24TRIGAPNVALEN:B30|C7|LIM72|PREF:COMPACT|PASS**"
@@ -1600,7 +1600,7 @@ def run_fixture_case(
     cadence_24h_triad_gap_cue_transition_vfx_intent_escalation_state_init_alias_legend_indexes = [
         i
         for i, line in enumerate(cadence_24h_lines)
-        if "**TSDCAD24TRIGAPNVIXSA legend (H=HOLD, R=RAMP, L=RELIEF, S=SHIFT)**" in line
+        if "**TSDCAD24TRIGAPNVIXSA legend (H=HOLD, R=RAMP, L=RELIEF, S=SHIFT; use NVH for action)**" in line
     ]
     cadence_24h_triad_gap_cue_transition_vfx_cue_alias_eval_indexes = [
         i

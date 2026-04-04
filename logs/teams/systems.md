@@ -5172,3 +5172,7 @@
 
 - 2026-04-04 08:36 KST — IP65 shipped `TSDCAD24TRIGAPNVIXSALEN` row with deterministic adjacency `NVIXS -> NVIXSA -> NVIXSALEN -> NVH`; injected follow-up parity/headroom task for QA+Systems.
 - 2026-04-04 08:54 KST — Added fixture-level `NVIXSALEN` headroom domain assertion parse (`B|C|LIM|PREF|STATUS`) and enforced `baseline/compact <= LIM` for summary/token sections.
+
+## 2026-04-04 09:19 KST
+- Systems update: wired the NVIXSA->NVH helper callout into canonical markdown emission (`check_lane_coverage_guardrail.py`) and synchronized regression expectations.
+- No payload/schema mutation; markdown contract only.

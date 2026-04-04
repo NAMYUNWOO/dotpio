@@ -3622,3 +3622,7 @@
 
 - 2026-04-04 08:36 KST — World/readability pass confirms new NVIXSA length-eval row preserves transition-cluster scan flow before operator helper.
 - 2026-04-04 08:54 KST — World readability chain unchanged (`NVIXS -> NVIXSA -> NVIXSALEN -> NVH`); QA contract now guarantees DOS-width budget remains within LIM.
+
+## 2026-04-04 09:22 KST
+- Game Director IP66 injection queued: add compact decode legend callout clarifying `NVH|INIT` relationship under DOS-width constraints.
+- No world/runtime mutation in this slice; documentation/readability follow-up only.

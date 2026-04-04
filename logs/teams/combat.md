@@ -3623,3 +3623,6 @@
 
 - 2026-04-04 08:36 KST — Combat cue chain now explicitly budgets state-init alias width via `NVIXSALEN` before actionable helper output.
 - 2026-04-04 08:54 KST — Combat cue flow preserved; new regression contract prevents width overflow in `NVIXSALEN` token before operator helper output.
+
+## 2026-04-04 09:22 KST
+- Combat lane noted for IP66 follow-up: evaluate whether INIT-transition-aware `NVH` phrasing improves action readability without changing combat runtime behavior.
