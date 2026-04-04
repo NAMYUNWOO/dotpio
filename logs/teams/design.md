@@ -3841,3 +3841,9 @@
 - Extended regression checks for presence + parity (mirrors `TSDPMFXVWCRITSPMB`) + adjacency (`...MBCBLEG -> ...MBCBH`) across summary/token sections.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail markdown/json regeneration.
 - 2026-04-05 00:06 KST — IP76: Locked `TSDPMFXVWCRITSPMBCBH` sparse-matrix parity to `TSDPMFXVWCRITSPMB`; added phase-note token `TSDPMFXVWCRITSPMBCBN` + decode legend `...MBCBNLEG` (offline-only).
+
+## 2026-04-05 00:24 KST — Phase-note format helper readability row shipped
+- Added compact decode helper row:
+  - `TSDPMFXVWCRITSPMBCBNH:alias|trend|trendAlias|LIM72|PASS`
+- Decision: retain explicit `PASS` in-row for one-scan DOS-width confidence.
+- Follow-up: if format expands, add a dedicated `...LEN` token before changing helper copy.

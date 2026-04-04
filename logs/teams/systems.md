@@ -5279,3 +5279,8 @@
 - Extended regression checks for presence + parity (mirrors `TSDPMFXVWCRITSPMB`) + adjacency (`...MBCBLEG -> ...MBCBH`) across summary/token sections.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail markdown/json regeneration.
 - 2026-04-05 00:06 KST — IP76: Locked `TSDPMFXVWCRITSPMBCBH` sparse-matrix parity to `TSDPMFXVWCRITSPMB`; added phase-note token `TSDPMFXVWCRITSPMBCBN` + decode legend `...MBCBNLEG` (offline-only).
+
+## 2026-04-05 00:24 KST — IP77 follow-up parity tuple hardening (TSDPMFXVWCRITSPMBCBNLEG)
+- Added sparse mixed-window fixture tuple tracking so `TSDPMFXVWCRITSPMBCBNLEG` parity is matrix-checked alongside `TSDPMFXVWCRITSPMBCBH` against `TSDPMFXVWCRITSPMB`.
+- Decision: keep parity enforcement in matrix-level tuple asserts (not one-off row asserts) to prevent future silent drift.
+- Follow-up: keep any future `MBCBN*` helper rows anchored to the same parity baseline (`...SPMB`).

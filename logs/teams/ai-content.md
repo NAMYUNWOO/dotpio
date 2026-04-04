@@ -3807,3 +3807,7 @@
 - Extended regression checks for presence + parity (mirrors `TSDPMFXVWCRITSPMB`) + adjacency (`...MBCBLEG -> ...MBCBH`) across summary/token sections.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail markdown/json regeneration.
 - 2026-04-05 00:06 KST — IP76: Locked `TSDPMFXVWCRITSPMBCBH` sparse-matrix parity to `TSDPMFXVWCRITSPMB`; added phase-note token `TSDPMFXVWCRITSPMBCBN` + decode legend `...MBCBNLEG` (offline-only).
+
+## 2026-04-05 00:24 KST — Sync note
+- No new AI-content generation logic added.
+- Existing offline phase-note payload (`TSDPMFXVWCRITSPMBCBN`) remains unchanged; only decode-helper/parity guardrails were expanded.

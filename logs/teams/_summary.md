@@ -5708,3 +5708,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep beat-side decode rail contiguous as `...MBCB -> ...MBCBLEG -> ...MBCBH` with row-count parity against `TSDPMFXVWCRITSPMB`.
 - Injected next tasks: fixture tuple parity inclusion (`...MBCBH`) and offline phase-note prototype token (`...MBCBN`).
 - 2026-04-05 00:06 KST — IP76 shipped: `MBCBH` tuple parity matrix coverage + `MBCBN` phase-note token (`alias|trend|trendAlias`) with `MBCBNLEG` decode row; regression + guardrail bundle PASS.
+
+## 2026-04-05 00:24 KST — IP77 follow-up closure (MBCBNLEG tuple + phase-note helper)
+- Completed injected TASKS/POST-RC items:
+  1) sparse mixed-window tuple parity entry for `TSDPMFXVWCRITSPMBCBNLEG`
+  2) compact helper row `TSDPMFXVWCRITSPMBCBNH:alias|trend|trendAlias|LIM72|PASS`
+- Durable decision: `MBCBN*` family rows must mirror `TSDPMFXVWCRITSPMB` row counts in both per-row checks and mixed-window tuple matrices.
+- Verification status: py_compile + regression script + guardrail generator all passing.

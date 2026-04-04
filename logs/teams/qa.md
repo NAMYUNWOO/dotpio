@@ -5769,3 +5769,11 @@
 - Extended regression checks for presence + parity (mirrors `TSDPMFXVWCRITSPMB`) + adjacency (`...MBCBLEG -> ...MBCBH`) across summary/token sections.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail markdown/json regeneration.
 - 2026-04-05 00:06 KST — IP76: Locked `TSDPMFXVWCRITSPMBCBH` sparse-matrix parity to `TSDPMFXVWCRITSPMB`; added phase-note token `TSDPMFXVWCRITSPMBCBN` + decode legend `...MBCBNLEG` (offline-only).
+
+## 2026-04-05 00:24 KST — Regression contract extension for MBCBNLEG + MBCBNH
+- Added regression checks for new helper row `TSDPMFXVWCRITSPMBCBNH` with DOS-width PASS lock and row-count parity.
+- Extended mixed-window tuple parity assertion to include `TSDPMFXVWCRITSPMBCBNLEG`.
+- Verification bundle passed:
+  - `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`
+  - `python3 scripts/regression_check_lane_coverage_guardrail.py`
+  - `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
