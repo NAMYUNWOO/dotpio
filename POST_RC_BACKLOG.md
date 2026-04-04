@@ -1,3 +1,17 @@
+## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP73)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP72 closure; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk UX/AI-content: add compact handoff alias token for `PRLENCUET` so direction is one-glance parseable.
+  - Mid-risk Systems/QA: enforce parity/order so alias row remains anchored between `...PRLENCUET` and `...PRLENCUETD` in summary/token sections.
+  - High-risk Combat/Design: rotate alternate handoff decode verbs by transition churn windows.
+- Selected experiment: low-risk UX/AI-content + Systems/QA minimal vertical slice.
+- [x] UX/AI-content + Systems/QA Team: Added offline handoff compact alias row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA:GH->PP=RH|PP->GH=SH`, wired payload field `...TransitionHandoffAlias`, and hardened regression parity/order contracts for deterministic placement `...PRLENCUET -> ...PRLENCUETA -> ...PRLENCUETD`. *(lifecycle: [ ] -> [~] started: 2026-04-04 19:20 KST -> [x] completed: 2026-04-04 19:26 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP73)
+- [x] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture assertion that `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA` row count mirrors `...PRLENCUEA` across summary/token sections.
+- [x] Design/World Team (injected): Add compact decode legend note for handoff alias (`RH=rise handoff`, `SH=settle handoff`) under <=72-char budget.
+- [x] Combat/AI-content Team (injected): Prototype offline alternate alias-pack extension candidate (`R2/S2`) for future transition handoff readability experiments.
+
 # POST_RC_BACKLOG
 
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP72)

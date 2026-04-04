@@ -5644,3 +5644,5 @@ Compact decision memory for AI context efficiency.
 - Durable decision: maintain deterministic transition-readability chain `...PRLENCUEM -> ...PRLENCUEMA -> ...PRLENCUEMA legend -> ...PRLENCUET` and parity-anchor legend rows to `...PRLENCUEA` across summary/token fixtures.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.
+
+- 2026-04-04 19:26 KST — Cycle IP73 shipped `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA` (GH->PP=RH|PP->GH=SH) with payload wiring + regression parity/order lock (`PRLENCUET -> PRLENCUETA -> PRLENCUETD`). Verification bundle passed and guardrail artifacts regenerated.
