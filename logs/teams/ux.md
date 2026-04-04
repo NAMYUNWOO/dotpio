@@ -3902,3 +3902,4 @@
 ## 2026-04-04 12:32 KST
 - UX lane shipped helper-width token `TSDCAD24TRIGAPNVHLEN` to make NVH/INIT readability budget auditable in one scan.
 - Outcome: compact helper string selected (`INIT:H/R/L/S`) with PASS status.
+- 2026-04-04 12:50 KST — No UX row copy update this slice; next queued pass is concise NVHLEN readability legend wording.

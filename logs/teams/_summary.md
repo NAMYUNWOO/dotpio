@@ -5582,3 +5582,5 @@ Compact decision memory for AI context efficiency.
 - Durable contract: keep cadence order deterministic as `...NVIXSALEN -> NVH -> NVX` and legend-eval sequence `...NVH legend -> NVHLEN -> NVALEN -> TRIGAPN legend`.
 - Verification passed via `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, and guardrail JSON/MD regeneration.
 - Injected next backlog trio (Systems/Ops+QA parity mirror, Design/World PASS/WARN helper, AI-content/Combat offline microcopy variants).
+
+- 2026-04-04 12:50 KST — IP67 injected Systems/Ops+QA parity task closed: `TSDCAD24TRIGAPNVHLEN` row-count mirror assertion re-verified against sparse mixed-window fixtures (py_compile + regression + guardrail regen PASS). Next: Design/World helper legend for NVHLEN status actionability.

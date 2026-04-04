@@ -5199,3 +5199,4 @@
 ## 2026-04-04 12:32 KST
 - Cycle IP67: Added `TSDCAD24TRIGAPNVHLEN` evaluation payload wiring (`cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperDecodeHelperEvaluation`) and markdown row emission in lane guardrail output.
 - Decision: keep operator-helper eval deterministic (`B39|C12|LIM72|PREF:COMPACT|PASS`) with DOS budget gate at 72.
+- 2026-04-04 12:50 KST — Closed IP67 injected Systems/Ops+QA parity task by re-verifying existing sparse mixed-window assertion for `TSDCAD24TRIGAPNVHLEN` vs `TSDCAD24TRIGAPNVH`; no code-path delta required. Follow-up: move to Design/World legend helper item.

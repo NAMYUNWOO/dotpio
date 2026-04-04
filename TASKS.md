@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-04-04 12:32 KST
+Last updated: 2026-04-04 12:50 KST
 
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP67)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP66 closure; mandatory Game Director cycle executed.
@@ -12,7 +12,7 @@ Last updated: 2026-04-04 12:32 KST
 - [x] UX/Design + Systems/Ops + Systems/QA Team: Added operator-helper decode width evaluation token `TSDCAD24TRIGAPNVHLEN` (`B39|C12|LIM72|PREF:COMPACT|PASS`), wired payload field `cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperDecodeHelperEvaluation`, and locked regression parity/order/domain checks for deterministic placement. *(lifecycle: [ ] -> [~] started: 2026-04-04 12:23 KST -> [x] completed: 2026-04-04 12:32 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP67)
-- [ ] Systems/Ops + QA Team (injected): Add fixture-level assertion that `TSDCAD24TRIGAPNVHLEN` row count mirrors `TSDCAD24TRIGAPNVH` across sparse mixed-window summary/token fixtures.
+- [x] Systems/Ops + QA Team (injected): Add fixture-level assertion that `TSDCAD24TRIGAPNVHLEN` row count mirrors `TSDCAD24TRIGAPNVH` across sparse mixed-window summary/token fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-04 12:48 KST -> [x] completed: 2026-04-04 12:50 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`; note: assertion existed and was re-verified on sparse mixed-window fixtures.)*
 - [ ] Design/World Team (injected): Add one-line operator legend helper mapping `NVHLEN` status to action readability (`PASS=ship compact`, `WARN=trim copy`) under <=72-char copy budget.
 - [ ] AI-content/Combat Team (injected): Prototype offline `INIT`-transition helper microcopy alternates keyed by `TSDCAD24TRIGAPNVHLEN` status without runtime coupling.
 

@@ -3648,3 +3648,4 @@
 ## 2026-04-04 12:32 KST
 - Combat lane validated no behavior coupling from `NVHLEN` addition; cadence output remains report-only.
 - Next injection reserved for offline microcopy variant experiment keyed by INIT transition status.
+- 2026-04-04 12:50 KST — No combat tuning changes this cycle; cadence lane reserved for pending INIT-transition helper microcopy prototype.

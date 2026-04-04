@@ -5696,3 +5696,4 @@
 ## 2026-04-04 12:32 KST
 - QA expanded regression suite for `TSDCAD24TRIGAPNVHLEN`: markdown presence, parity, domain regex, and deterministic order checks.
 - Verification bundle green: py_compile + regression + guardrail regeneration.
+- 2026-04-04 12:50 KST — Regression pass confirms fixture-level parity assertion for `TSDCAD24TRIGAPNVHLEN` mirrors `TSDCAD24TRIGAPNVH` across summary/token sections. Evidence: py_compile + regression + guardrail regen all PASS.
