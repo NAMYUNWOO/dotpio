@@ -3847,3 +3847,7 @@
   - `TSDPMFXVWCRITSPMBCBNH:alias|trend|trendAlias|LIM72|PASS`
 - Decision: retain explicit `PASS` in-row for one-scan DOS-width confidence.
 - Follow-up: if format expands, add a dedicated `...LEN` token before changing helper copy.
+
+## 2026-04-05 00:35 KST — IP78 readability eval row
+- Added compact helper-eval token `TSDPMFXVWCRITSPMBCBNHLEN:B36|C31|LIM72|PREF:COMPACT|PASS`.
+- Decision: keep explicit B/C length stats in-row for deterministic review.

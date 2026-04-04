@@ -3718,3 +3718,6 @@
 ## 2026-04-05 00:24 KST — Sync note
 - No combat tuning changes this cycle.
 - Beat-side alt alias phase-note contracts were hardened via helper/parity checks only.
+
+## 2026-04-05 00:35 KST — Sync note
+- No combat mechanics change; beat-side phase-note output contracts tightened for readability reliability.

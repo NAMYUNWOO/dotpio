@@ -2933,3 +2933,26 @@ See project-level plans:
 - [x] Game Director IP76 (Combat/VFX + AI-content + Design/World): Added `TSDPMFXVWCRITSPMBCBNLEG` decode row and locked `MBCBN`/`MBCBNLEG` parity to `TSDPMFXVWCRITSPMB` across sparse mixed-window fixtures. *(started: 2026-04-05 00:02 KST; done: 2026-04-05 00:06 KST)*
 - [x] Systems/Ops + QA Team (injected): Added explicit sparse mixed-window fixture tuple tracking for `TSDPMFXVWCRITSPMBCBNLEG` and parity assertion so `TSDPMFXVWCRITSPMBCBH` + `...MBCBNLEG` mirror `TSDPMFXVWCRITSPMB` row counts across matrix fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-05 00:18 KST -> [x] completed: 2026-04-05 00:24 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [x] UX/Design Team (injected): Added compact decode helper row `TSDPMFXVWCRITSPMBCBNH:alias|trend|trendAlias|LIM72|PASS` and regression PASS-lock/parity checks mirroring `TSDPMFXVWCRITSPMB` row counts. *(started: 2026-04-05 00:18 KST; done: 2026-04-05 00:24 KST; verification: same command bundle as above.)*
+
+### Game Director review cycle (IP78, 2026-04-05 00:31 KST)
+1. **Low-risk UX/game-feel:** Add explicit phase-note helper eval row (`...MBCBNHLEN`) so operators can trust width/readability at glance.
+   - Fantasy: clean, confidence-inspiring digest scan.
+   - Metric: fewer decode clarifications in team handoff.
+   - Scope: S / Risk: Low / Rollback: remove eval row.
+   - Pass/Fail: helper eval row present with PASS and stable parity.
+2. **Mid-risk systems/combat/design:** Add adjacency contract chain `...MBCBN -> ...MBCBNLEG -> ...MBCBNH -> ...MBCBNHLEN` in both summary/token sections.
+   - Fantasy: deterministic rails under rapid iteration.
+   - Metric: zero ordering regressions in fixture matrix.
+   - Scope: M / Risk: Medium / Rollback: relax strict chain.
+   - Pass/Fail: all fixtures pass strict order regex.
+3. **High-risk novelty:** Add trend-aware phase-note style switching (`compact` vs `operator`) based on lane entropy.
+   - Fantasy: adaptive, “alive” readability mode.
+   - Metric: improved subjective readability votes.
+   - Scope: L / Risk: High / Rollback: hard-lock compact mode.
+   - Pass/Fail: novelty gain without parity break.
+
+### Selected experiment (IP78)
+- [x] UX/Design + Systems/QA Team (Game Director selected): Added phase-note helper evaluation row `TSDPMFXVWCRITSPMBCBNHLEN:B36|C31|LIM72|PREF:COMPACT|PASS` plus regression PASS/parity checks mirroring `TSDPMFXVWCRITSPMB`. *(lifecycle: [ ] -> [~] started: 2026-04-05 00:31 KST -> [x] completed: 2026-04-05 00:35 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [ ] Systems/Ops + QA Team (injected): Add strict adjacency regex contract for `TSDPMFXVWCRITSPMBCBN -> ...MBCBNLEG -> ...MBCBNH -> ...MBCBNHLEN` across summary/token sections.
+- [ ] Design/World Team (injected): Add compact decode helper tying `MBCBN` triple (`alias|trend|trendAlias`) to beat-side meaning (`HC2/PP2/SN2 + U/F/D`) under <=72 chars.
+- [ ] Combat/AI-content Team (injected): Prototype optional offline alternate phase-note ordering (`trend|alias|trendAlias`) behind report-only token for readability A/B.

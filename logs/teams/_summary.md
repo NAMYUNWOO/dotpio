@@ -5715,3 +5715,10 @@ Compact decision memory for AI context efficiency.
   2) compact helper row `TSDPMFXVWCRITSPMBCBNH:alias|trend|trendAlias|LIM72|PASS`
 - Durable decision: `MBCBN*` family rows must mirror `TSDPMFXVWCRITSPMB` row counts in both per-row checks and mixed-window tuple matrices.
 - Verification status: py_compile + regression script + guardrail generator all passing.
+
+## 2026-04-05 00:35 KST — Game Director IP78 executed (post-all-checked trigger)
+- Trigger reason: ACTION_ITEMS + TASKS + POST_RC_BACKLOG were all checked.
+- Generated 3 ideas (low/mid/high risk), selected low-risk vertical slice.
+- Shipped `TSDPMFXVWCRITSPMBCBNHLEN` helper eval row with PASS lock and regression parity checks.
+- Injected next backlog trio: adjacency regex chain (systems/qa), decode helper mapping (design/world), optional ordering A/B token (combat/ai-content).
+- Verification: py_compile + regression + guardrail generator PASS.

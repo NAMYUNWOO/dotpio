@@ -5777,3 +5777,7 @@
   - `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`
   - `python3 scripts/regression_check_lane_coverage_guardrail.py`
   - `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
+
+## 2026-04-05 00:35 KST — IP78 verification closure
+- Regression now validates presence and parity for `TSDPMFXVWCRITSPMBCBNHLEN`.
+- PASS evidence: py_compile + regression + guardrail generation all succeeded.

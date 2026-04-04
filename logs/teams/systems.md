@@ -5284,3 +5284,7 @@
 - Added sparse mixed-window fixture tuple tracking so `TSDPMFXVWCRITSPMBCBNLEG` parity is matrix-checked alongside `TSDPMFXVWCRITSPMBCBH` against `TSDPMFXVWCRITSPMB`.
 - Decision: keep parity enforcement in matrix-level tuple asserts (not one-off row asserts) to prevent future silent drift.
 - Follow-up: keep any future `MBCBN*` helper rows anchored to the same parity baseline (`...SPMB`).
+
+## 2026-04-05 00:35 KST — IP78 selected slice
+- Added helper-eval parity enforcement for `TSDPMFXVWCRITSPMBCBNHLEN` to mirror `TSDPMFXVWCRITSPMB` row counts.
+- Injected next systems/qa task: strict adjacency regex chain for `MBCBN -> MBCBNLEG -> MBCBNH -> MBCBNHLEN`.

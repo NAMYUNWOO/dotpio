@@ -3969,3 +3969,6 @@
 ## 2026-04-05 00:24 KST — One-scan format affordance for beat-side phase note
 - Introduced helper row clarifying phase-note shape (`alias|trend|trendAlias`) without expanding width budget.
 - UX rationale: reduce parse friction when scanning dense token rails.
+
+## 2026-04-05 00:35 KST — IP78 UX note
+- Added one-scan PASS signal for phase-note format helper to reduce operator ambiguity.

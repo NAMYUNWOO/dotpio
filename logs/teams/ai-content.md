@@ -3811,3 +3811,6 @@
 ## 2026-04-05 00:24 KST — Sync note
 - No new AI-content generation logic added.
 - Existing offline phase-note payload (`TSDPMFXVWCRITSPMBCBN`) remains unchanged; only decode-helper/parity guardrails were expanded.
+
+## 2026-04-05 00:35 KST — Sync note
+- No AI content generation rule changes; queued optional phase-note ordering A/B as injected follow-up.
