@@ -5763,3 +5763,5 @@ Compact decision memory for AI context efficiency.
 
 - 2026-04-05 03:57 KST: Extended sparse mixed-window parity tuple coverage to include `TSDPMFXVWCRITSPMBCBNX` and `...MBCBNXLEG`; regression now enforces parity for `MBCBH/MBCBNLEG/MBCBNT/MBCBNX/MBCBNXLEG` against `TSDPMFXVWCRITSPMB`.
 - 2026-04-05 04:27 KST: Shipped `TSDPMFXVWCRITSPMBCBNXH` compact pressure-tag operator helper (`SPIKE/HOLD/EASE/SAFE` -> actionable copy), and locked regression presence + adjacency/parity (`...MBCBNXLEG -> ...MBCBNXH -> ...MBCBNH`) across summary/token sections.
+
+- 2026-04-05 05:05 KST — Durable decision: keep new beat-side readability experiments strictly report-only. Added `TSDPMFXVWCRITSPMBCBNY` (`trend|alias|trendAlias`) and compact pressure-tag alias pack `TSDPMFXVWCRITSPMBCBNXA` (`SP/HO/EA/SF`) with regression-enforced adjacency/parity; runtime behavior remains unchanged.

@@ -98,3 +98,5 @@
 ## 2026-04-05 03:18 KST — Completed unknown-trend fallback prototype
 - Implemented `UNK->PP2` fallback for offline phase-note token (`TSDPMFXVWCRITSPMBCBN`) when urgency trend is unknown.
 - Added regression assertion for resolver behavior (`PP2|UNKNOWN|UNK`) and re-ran guardrail generation.
+
+- 2026-04-05 05:05 KST — Durable decision: keep new beat-side readability experiments strictly report-only. Added `TSDPMFXVWCRITSPMBCBNY` (`trend|alias|trendAlias`) and compact pressure-tag alias pack `TSDPMFXVWCRITSPMBCBNXA` (`SP/HO/EA/SF`) with regression-enforced adjacency/parity; runtime behavior remains unchanged.

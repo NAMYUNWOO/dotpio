@@ -3849,3 +3849,4 @@
 - Added compact design/operator helper row `SPIKE=surge now|HOLD=hold lane|EASE=cool lane|SAFE=fallback hold` to markdown output for one-scan pressure-tag action copy.
 - Hardened regression contracts: presence assertion, strict `...MBCBNXLEG -> ...MBCBNXH -> ...MBCBNH` adjacency chain, and row-count parity against `TSDPMFXVWCRITSPMB`.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- 2026-04-05 05:05 KST — Shipped offline/readability A/B candidates: alternate phase-note ordering token (`trend|alias|trendAlias`) and compact pressure-tag alias pack (`SP/HO/EA/SF`).
