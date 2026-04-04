@@ -3773,3 +3773,7 @@
 - 2026-04-04 13:20 KST — Closed injected NVHLEN readability helper task by adding `TSDCAD24TRIGAPNVHSTAT legend (PASS=ship compact, WARN=trim copy)` under the operator-helper eval row; keeps copy within DOS-width budget and actionability explicit.
 - 2026-04-04 13:53 KST — Design readability receives new compact row `TSDCAD24TRIGAPNVHM` tied to NVHLEN action outcome so INIT transition guidance stays one-scan in cadence digest.
 - 2026-04-04 14:26 KST — Closed lingering NVHLEN readability helper backlog item by reconciling shipped `NVHSTAT` legend and re-validating DOS-width-safe action mapping copy.
+
+## 2026-04-04 14:58 KST
+- Cycle IP68 shipped compact smoothing-pressure operator cue alias `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA` (`GH|PP`) plus decode legend parity checks.
+- Verification: py_compile + lane guardrail regression + guardrail artifact regeneration all passed.

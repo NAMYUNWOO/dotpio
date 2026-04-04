@@ -3906,3 +3906,7 @@
 - 2026-04-04 13:20 KST — UX copy pass shipped compact status-action legend for NVHLEN so eval outcomes map directly to next action without extra scan steps.
 - 2026-04-04 13:53 KST — UX impact: added single-line offline helper microcopy alternate row `TSDCAD24TRIGAPNVHM`; keeps status-action hint adjacent to existing NVH/NVHLEN contract without widening runtime HUD.
 - 2026-04-04 14:26 KST — UX readability contract remains one-scan (`NVH -> NVHLEN -> NVHSTAT`); stale backlog entries reconciled with fresh regression + guardrail evidence.
+
+## 2026-04-04 14:58 KST
+- Cycle IP68 shipped compact smoothing-pressure operator cue alias `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA` (`GH|PP`) plus decode legend parity checks.
+- Verification: py_compile + lane guardrail regression + guardrail artifact regeneration all passed.

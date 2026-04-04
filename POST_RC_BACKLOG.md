@@ -1,5 +1,19 @@
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP68)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk UX/Design + Systems/QA: add compact alias token for smoothing-pressure operator cue (`STPRLENCUEA`).
+  - Mid-risk Systems/Ops + QA: lock deterministic alias adjacency/parity around operator-cue rows.
+  - High-risk AI-content/Combat: adaptive operator-cue microcopy from recommendation streak volatility.
+- Selected experiment: Idea 1 (low-risk UX/Design + Systems/QA).
+- [x] UX/Design + Systems/QA Team: Added `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA` (`GH|PP`) + legend row and regression parity checks anchored to `STPRLENCUE` counts. *(lifecycle: [ ] -> [~] started: 2026-04-04 14:52 KST -> [x] completed: 2026-04-04 14:58 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP68)
+- [ ] Systems/Ops + QA Team (injected): Add strict adjacency assertion `STPRLENCUE -> STPRLENCUEA -> STPRLENCUEA legend` across summary/token sections.
+- [ ] Design/World Team (injected): Add <=72-width compact helper row mapping `GH|PP` to immediate operator action hints.
+- [ ] AI-content/Combat Team (injected): Prototype offline transition microcopy keyed by `STPRLENCUEA` shifts without runtime coupling.
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review - Cycle IP67)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP66 closure; mandatory Game Director cycle executed.
 - Candidate ideas generated:

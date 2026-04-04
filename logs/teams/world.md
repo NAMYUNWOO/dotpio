@@ -3652,3 +3652,7 @@
 - 2026-04-04 13:20 KST — World/readability pass: added one-line NVHLEN status-action legend (`PASS=ship compact`, `WARN=trim copy`) to keep operator decision path one-scan after width eval.
 - 2026-04-04 13:53 KST — No world-map mutation this cycle; consumed new `TSDCAD24TRIGAPNVHM` microcopy token as documentation-only readability aid tied to INIT transition states. Follow-up: evaluate whether decode helper placement should move into world-facing legend cluster.
 - 2026-04-04 14:26 KST — Design/World readability helper `TSDCAD24TRIGAPNVHSTAT` re-verified (`PASS=ship compact`, `WARN=trim copy`) and stale backlog checkbox reconciled; no world-map runtime mutation.
+
+## 2026-04-04 14:58 KST
+- Cycle IP68 shipped compact smoothing-pressure operator cue alias `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA` (`GH|PP`) plus decode legend parity checks.
+- Verification: py_compile + lane guardrail regression + guardrail artifact regeneration all passed.

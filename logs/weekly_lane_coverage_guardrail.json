@@ -195,6 +195,7 @@
     "status": "PASS"
   },
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCue": "GLINT-HOLD",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueAlias": "GH",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueDecodeHelperEvaluation": {
     "baseline": "STPRLEN:LOCK=GLINT-HOLD|WATCH=PULSE-PROBE",
     "compact": "STPRLEN:L=GH|W=PP",

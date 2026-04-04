@@ -3745,3 +3745,7 @@
 - 2026-04-04 13:20 KST — AI-content lane unchanged in runtime behavior; consumed readability-only legend update (`NVHSTAT`) and confirmed no coupling to narrative generation paths.
 - 2026-04-04 13:53 KST — Completed offline INIT-transition helper microcopy alternate slice keyed by `TSDCAD24TRIGAPNVHLEN` status. Added `TSDCAD24TRIGAPNVHM` row output (`<INIT pair>:<microcopy>|ship compact|trim copy`) with no runtime coupling.
 - 2026-04-04 14:26 KST — AI-content lane unchanged in runtime behavior; consumed INIT-suffix regression hardening and confirmed report-only scope.
+
+## 2026-04-04 14:58 KST
+- Cycle IP68 shipped compact smoothing-pressure operator cue alias `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA` (`GH|PP`) plus decode legend parity checks.
+- Verification: py_compile + lane guardrail regression + guardrail artifact regeneration all passed.

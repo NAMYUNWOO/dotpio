@@ -5594,3 +5594,8 @@ Compact decision memory for AI context efficiency.
 - Closed two stale unchecked POST_RC items: NVHLEN status-action helper (`TSDCAD24TRIGAPNVHSTAT`) and per-row INIT suffix fixture assertion for `TSDCAD24TRIGAPNVH`.
 - Durable decision: keep INIT assertion regex-scoped to NVH rows (`|INIT:<H|R|L|S>(HOLD|RAMP|RELIEF|SHIFT)`) to avoid false positives from unrelated tokens.
 - Verification: `py_compile` + `regression_check_lane_coverage_guardrail.py` + guardrail report regeneration PASS.
+
+## 2026-04-04 14:58 KST
+- Completed Cycle IP68 low-risk vertical slice: added `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA` compact alias (`GH|PP`) with markdown decode + regression parity locks tied to `STPRLENCUE` counts.
+- Durable decision: keep operator cue chain explicit as `STPRLENCUE -> STPRLENCUEA -> legend` for one-scan readability; leave strict adjacency lock as queued follow-up.
+- Verification passed: py_compile + regression + guardrail JSON/MD regeneration.

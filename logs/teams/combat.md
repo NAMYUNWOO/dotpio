@@ -3652,3 +3652,7 @@
 - 2026-04-04 13:20 KST — Combat lane confirms no cue/intent mapping changes from NVHSTAT addition; update is markdown-only helper for operator actionability.
 - 2026-04-04 13:53 KST — Combat lane alignment: INIT-transition helper microcopy alternate now exposed via `TSDCAD24TRIGAPNVHM` for triage readability; no combat mechanics altered.
 - 2026-04-04 14:26 KST — Combat lane confirms INIT suffix assertion hardening is telemetry-only and preserves existing cue/intent behavior.
+
+## 2026-04-04 14:58 KST
+- Cycle IP68 shipped compact smoothing-pressure operator cue alias `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA` (`GH|PP`) plus decode legend parity checks.
+- Verification: py_compile + lane guardrail regression + guardrail artifact regeneration all passed.
