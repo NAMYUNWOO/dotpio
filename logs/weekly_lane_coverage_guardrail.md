@@ -210,6 +210,8 @@
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side alt alias candidate (combat/vfx+ai-content, offline): **TSDPMFXVWCRITSPMBCB:PP2**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side alt alias decode (design/world): **TSDPMFXVWCRITSPMBCBLEG:HC2 hard crack|PP2 pressure poke|SN2 steady nudge**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side dual-pack helper (design/world, dos-width): **TSDPMFXVWCRITSPMBCBH:HC/PP/SN base|HC2/PP2/SN2 alt**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side alt alias phase-note (combat/vfx+ai-content, offline): **TSDPMFXVWCRITSPMBCBN:PP2|FLAT|F**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side alt alias phase-note decode (design/world): **TSDPMFXVWCRITSPMBCBNLEG:HC2/PP2/SN2 + UP/FLAT/DOWN + U/F/D**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence decode (design/world): **TSDPMFXVWC legend (L=LOW, M=MID, H=HIGH)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation decode (design/world): **TSDPMFXVWCR legend (HIGH=lock sweep, MID=brace check, LOW=burst triage)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation alias decode (design/world): **TSDPMFXVWCRA legend (LS=lock sweep, BC=brace check, BT=burst triage)**

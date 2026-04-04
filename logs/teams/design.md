@@ -3840,3 +3840,4 @@
 - Shipped helper row `TSDPMFXVWCRITSPMBCBH:HC/PP/SN base|HC2/PP2/SN2 alt` right after `...MBCBLEG` for one-scan decode continuity.
 - Extended regression checks for presence + parity (mirrors `TSDPMFXVWCRITSPMB`) + adjacency (`...MBCBLEG -> ...MBCBH`) across summary/token sections.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail markdown/json regeneration.
+- 2026-04-05 00:06 KST — IP76: Locked `TSDPMFXVWCRITSPMBCBH` sparse-matrix parity to `TSDPMFXVWCRITSPMB`; added phase-note token `TSDPMFXVWCRITSPMBCBN` + decode legend `...MBCBNLEG` (offline-only).

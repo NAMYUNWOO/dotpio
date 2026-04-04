@@ -76,3 +76,8 @@
 ## 2026-04-04 20:53 KST — PRLENCUETAP priority helper slice
 - Completed Design/World injected item by adding compact helper row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETAP:RH before SH:rise handoff first|settle handoff second`.
 - Durable decision: cadence chain now locks `...PRLENCUETA legend -> ...PRLENCUETAP -> ...PRLENCUETD` with parity tied to `PRLENCUEA` row counts.
+
+## 2026-04-05 00:06 KST — IP76 phase-note decode vertical slice
+- Completed paired TASKS/POST_RC items: sparse mixed-window parity tuple coverage for `TSDPMFXVWCRITSPMBCBH` and new offline phase-note token `TSDPMFXVWCRITSPMBCBN` (`alias|UP/FLAT/DOWN|U/F/D`) with decode legend row `TSDPMFXVWCRITSPMBCBNLEG`.
+- Durable decision: keep beat-side phase-note contract offline-only and row-count anchored to `TSDPMFXVWCRITSPMB` across summary/token sections.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
