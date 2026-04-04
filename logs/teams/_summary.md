@@ -5690,3 +5690,4 @@ Compact decision memory for AI context efficiency.
   - Systems/QA sparse fixture adjacency+parity for `...SPMBC` + `...SPMBCLEG`
   - Design/World dual-pack helper (`PN/HL/EL` + `PN2/HL2/EL2`)
   - Combat/VFX+AI-content offline beat-side alt alias pack (`HC2/PP2/SN2`)
+- 2026-04-04 22:25 KST (IP76): Regression contract now explicitly enforces sparse mixed-window `TSDPMFXVWCRITSPMBC` row-count parity with `TSDPMFXVWCRITSPMB` and adjacency to `TSDPMFXVWCRITSPMBCLEG` decode row; fixture parity matrix now tracks `tsdpmfxvwcritspmbcRowCount` across balanced/ready/prior-up/prior-down windows.

@@ -3949,3 +3949,4 @@
 ## 2026-04-04 22:03 KST — Cycle IP76 alt-alias decode legend
 - Game Director cycle executed after full-checkpoint condition.
 - Shipped `TSDPMFXVWCRITSPMBCLEG:PN2 push|HL2 hold|EL2 ease` plus parity lock against `TSDPMFXVWCRITSPMB`.
+- 2026-04-04 22:25 KST (IP76): Added explicit `TSDPMFXVWCRITSPMBC` sparse mixed-window parity+adjacency regression guard (`MBC` mirrors `TSDPMFXVWCRITSPMB` and stays directly before `TSDPMFXVWCRITSPMBCLEG`) in `scripts/regression_check_lane_coverage_guardrail.py`; verified with py_compile + regression + guardrail runs.
