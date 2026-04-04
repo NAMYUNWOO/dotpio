@@ -1,6 +1,21 @@
 # TASKS
 
-Last updated: 2026-04-04 12:50 KST
+Last updated: 2026-04-04 15:41 KST
+
+## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP69)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
+- Forced-lane decision: no lane exceeded 40%, but cadence triad was fully missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so this cycle forced a cross-lane recovery slice.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + Design/World + Systems/Ops: add compact helper row mapping `STPRLENCUEA` (`GH|PP`) to immediate operator actions.
+  - Mid-risk Systems/QA: lock parity + adjacency so helper row is fixed between `STPRLENCUEA legend` and `STPRLENCUE legend`.
+  - High-risk AI-content/Combat: prototype offline helper-microcopy remap from `GH<->PP` streak volatility.
+- Selected experiment: Idea 1+2 blend (low-risk readability + regression lock) minimal vertical slice.
+- [x] Combat/VFX + Design/World + Systems/Ops + Systems/QA Team: Added compact action helper row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH:GH=hold lane|PP=probe lane` and hardened regression presence/parity/order contracts so helper placement is deterministic in summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 15:33 KST -> [x] completed: 2026-04-04 15:41 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP69)
+- [ ] Systems/Ops + QA Team (injected): Add sparse-fixture parity assertion that `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH` row count mirrors `STPRLENCUEA` in both summary/token sections.
+- [ ] Design/World Team (injected): Add one-line helper decode note clarifying `GH/PP` action priority (`hold lane` before `probe lane`) under <=72-char copy budget.
+- [ ] AI-content/Combat Team (injected): Prototype offline alternate helper copy variants for `GH->PP` vs `PP->GH` transitions without runtime coupling.
 
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP68)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked; mandatory Game Director cycle executed.
@@ -13,7 +28,7 @@ Last updated: 2026-04-04 12:50 KST
 
 ## Next Up (Game Director Injection — Cycle IP68)
 - [x] Systems/Ops + QA Team (injected): Add strict adjacency assertion `STPRLENCUE -> STPRLENCUEA -> STPRLENCUEA legend` in both summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 15:19 KST -> [x] completed: 2026-04-04 15:24 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
-- [ ] Design/World Team (injected): Add <=72-width compact decode helper row tying `STPRLENCUEA` to action hint order (`GH/PP -> hold/probe`).
+- [x] Design/World Team (injected): Add <=72-width compact decode helper row tying `STPRLENCUEA` to action hint order (`GH/PP -> hold/probe`). *(lifecycle: [ ] -> [~] started: 2026-04-04 15:33 KST -> [x] completed: 2026-04-04 15:41 KST; verification: integrated into `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH:GH=hold lane|PP=probe lane` via standard command bundle.)*
 - [ ] AI-content/Combat Team (injected): Prototype offline microcopy variant keyed by `STPRLENCUEA` transitions (`GH->PP`, `PP->GH`) without runtime coupling.
 
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP67)

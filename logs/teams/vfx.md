@@ -1,5 +1,10 @@
 # VFX Team Log
 
+## 2026-04-04 15:41 KST
+- Cycle IP69 shipped cross-lane helper visibility row: `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH:GH=hold lane|PP=probe lane`.
+- VFX/combat cue aliases (`GH|PP`) now map to immediate action hints in the digest without changing runtime effects.
+- Verification: py_compile + guardrail regression + guardrail artifact regeneration PASS.
+
 ## 2026-04-03 21:40 KST
 - VFX/combat cadence follow-up injected for next cycle: surface smoothing-pressure recommendation token in markdown with compact `LOCK|WATCH` decode so visual-lane operators can triage volatility at a glance.
 

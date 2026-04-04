@@ -1,5 +1,10 @@
 # Design Team Log
 
+## 2026-04-04 15:41 KST
+- Added compact design/world helper copy row linking `STPRLENCUEA` alias to action order: `GH=hold lane|PP=probe lane`.
+- Decision: keep helper terse and deterministic to preserve one-scan readability in summary/token sections.
+- Verification: py_compile + guardrail regression + guardrail artifact regeneration PASS.
+
 ## 2026-04-03 21:40 KST
 - Design lane follow-up injected: add one-line decode helper for `STP+STPA+STPAM -> STPR` so operators can parse smoothing-pressure rationale without scanning payload internals.
 

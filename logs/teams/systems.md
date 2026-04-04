@@ -1,5 +1,10 @@
 # Systems Team Log
 
+## 2026-04-04 15:41 KST
+- Extended regression contracts for new helper row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH`.
+- Added markdown presence assertion, row-count parity lock (helper mirrors `STPRLENCUEA`), and adjacency order lock (`...LENCUEA legend -> ...LENCUEH -> ...LENCUE legend`).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` PASS.
+
 ## 2026-04-03 23:35 KST
 - Extended mixed-window fixture matrix to include `stprvLegendRowCount` and `stprlenRowCount` in cross-fixture parity tuples.
 - Added dedicated parity assertion: STPRLEN row count must equal STPRV legend row count across all mixed-window fixture cases.
