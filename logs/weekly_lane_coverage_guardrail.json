@@ -437,13 +437,13 @@
     "status": "PASS"
   },
   "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyDecodeEvaluation": {
-    "baseline": "SURGE/HOLD/COOL + SHATTER/PULSE/GLIDE => push now|hold lane|ease lane / hard crack|pressure poke|steady nudge",
+    "baseline": "SURGE/HOLD/COOL+SHATTER/PULSE/GLIDE=>push|hold|ease+crack|poke|nudge",
     "compact": "PN/HL/EL + HC/PP/SN",
-    "baselineLen": 109,
+    "baselineLen": 68,
     "compactLen": 19,
     "dosWidthLimit": 72,
     "preferred": "COMPACT",
-    "status": "WARN"
+    "status": "PASS"
   },
   "trendScoreBandDispatchPressureMomentumBandSparkline": "NA",
   "trendScoreBandDispatchPressureMomentumSlope": "COOLING",

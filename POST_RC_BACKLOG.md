@@ -19,6 +19,21 @@
 
 # POST_RC_BACKLOG
 
+## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP75)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
+- Forced-lane decision: no lane exceeded 40%, but cadence triad buckets remained missing, so cycle forced a cross-lane recovery experiment.
+- Candidate ideas:
+  - Low-risk Combat/VFX + Design/World: compact posture-beat bridge decode legend to fit DOS width baseline.
+  - Mid-risk Systems/QA: update decode-eval regression contract from WARN to PASS with deterministic length telemetry.
+  - High-risk AI-content/Combat: rotate compact posture-beat alias variants by urgency trend transitions.
+- Selected experiment: low-risk decode-compaction vertical slice.
+- [x] Combat/VFX + Design/World + Systems/QA Team (injected): Compacted `TSDPMFXVWCRITSPMB legend` baseline string and updated `TSDPMFXVWCRITSPMBLEN` expectation to `B68|C19|LIM72|PREF:COMPACT|PASS` with full regression + guardrail regeneration evidence. *(lifecycle: [ ] -> [~] started: 2026-04-04 21:41 KST -> [x] completed: 2026-04-04 21:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP75)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture contract that `TSDPMFXVWCRITSPMBLEN` row count mirrors `TSDPMFXVWCRITSPMB` and status remains PASS.
+- [ ] Design/World Team (injected): Add compact one-line decode helper for `PN|HL|EL` + `HC|PP|SN` phrase mapping under <=72-char budget.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype offline alternate posture-beat alias pack (`PN2/HL2/EL2`) for future readability tests, runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP72)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP71 closure; mandatory Game Director cycle executed.
 - Candidate ideas:

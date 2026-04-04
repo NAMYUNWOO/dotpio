@@ -1,3 +1,9 @@
+## 2026-04-04 21:49 KST — IP75 posture-beat decode compaction slice
+- Ran Game Director IP75 coverage check over last 10 completions (systems/world/ai-content/combat/design/ux/qa/vfx all 0; cadence buckets missing: `combat-or-vfx`, `design-or-world`, `systems-or-ops`).
+- Shipped minimal cross-lane vertical slice: compacted `TSDPMFXVWCRITSPMB` decode baseline to `SURGE/HOLD/COOL+SHATTER/PULSE/GLIDE=>push|hold|ease+crack|poke|nudge` and promoted DOS-width eval from WARN to PASS.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration.
+- Injected next items: (1) systems/qa sparse fixture PASS parity lock for `TSDPMFXVWCRITSPMBLEN`, (2) design/world compact helper mapping row, (3) combat/vfx+ai-content offline alias-pack prototype.
+
 ## 2026-04-04 15:41 KST — STPRLENCUE compact action helper slice
 - Ran Game Director IP69 coverage check over latest 10 completed backlog rows: all canonical lane counts parsed as 0; cadence triad buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
 - Shipped minimal cross-lane vertical slice: added compact helper row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH:GH=hold lane|PP=probe lane` to tie alias cues to immediate action hints.

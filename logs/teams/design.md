@@ -3807,3 +3807,6 @@
 ## 2026-04-04 20:53 KST — Compact priority microcopy accepted
 - Accepted `RH before SH` compact copy as canonical decode helper under DOS width budget.
 - 2026-04-04 21:28 KST: Added/validated `PRLENCUEMB` offline candidate alias-pack (`R2/S2`) with deterministic markdown ordering + regression parity/order coverage; runtime coupling remains disabled.
+## 2026-04-04 21:49 KST — IP75 compact decode accepted
+- Approved compact posture-beat legend copy as canonical design/world decode for DOS-width-safe one-scan reading.
+- Baseline copy now remains under LIM72 while preserving verb-pair intent mapping.

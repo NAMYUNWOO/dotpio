@@ -604,3 +604,7 @@
 
 ## 2026-04-04 12:32 KST
 - VFX lane confirmed `NVHLEN` change is non-visual telemetry and does not alter cue mapping (`GLINT/PULSE/BLAST/COOL`).
+## 2026-04-04 21:49 KST — IP75 posture-beat decode compaction
+- Forced-lane recovery remained active (24h cadence buckets missing), so VFX lane participated in a cross-lane readability slice.
+- Compacted posture-beat bridge decode baseline to `SURGE/HOLD/COOL+SHATTER/PULSE/GLIDE=>push|hold|ease+crack|poke|nudge` and moved `TSDPMFXVWCRITSPMBLEN` to PASS (`B68|C19|LIM72`).
+- Cue semantics unchanged (SHATTER/PULSE/GLIDE mapping preserved); change is digest/readability only.

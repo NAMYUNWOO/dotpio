@@ -3774,3 +3774,6 @@
 ## 2026-04-04 20:53 KST — Offline-only coupling confirmation
 - Confirmed new `PRLENCUETAP` helper is report/payload-only and does not enable runtime AI-content coupling.
 - 2026-04-04 21:28 KST: Added/validated `PRLENCUEMB` offline candidate alias-pack (`R2/S2`) with deterministic markdown ordering + regression parity/order coverage; runtime coupling remains disabled.
+## 2026-04-04 21:49 KST — IP75 offline scope confirmation
+- AI-content scope unchanged at runtime; posture-beat decode compaction is report-layer only.
+- Queued offline alias-pack prototype (`PN2/HL2/EL2`) for future readability experiments.
