@@ -5624,3 +5624,4 @@ Compact decision memory for AI context efficiency.
 - Closed highest-priority unchecked AI-content/Combat injected item (IP69): shipped offline transition helper microcopy variants row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEM` for `GH->PP` and `PP->GH` with no runtime coupling.
 - Durable decision: keep STPR operator-cue chain ordered as `...STPRLENCUEA legend -> ...STPRLENCUEH -> ...STPRLENCUEM -> ...STPRLENCUE legend` and enforce row-count parity against `...STPRLENCUEA` in mixed-window fixtures.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue reconciliation: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 after closing duplicate IP68/IP69 GH/PP transition trackers.
