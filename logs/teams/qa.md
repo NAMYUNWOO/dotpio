@@ -5795,3 +5795,8 @@
 - Decision: Aligned `TSDPMFXVWCRITSPMBCBNH` helper to explicitly encode `alias|trend|tAlias => HC2/PP2/SN2 + U/F/D` within DOS-width lock.
 - Evidence: Updated guardrail output + regression expectations (`...MBCBNHLEN` now `B50|C50|LIM72|PREF:COMPACT|PASS`).
 - Follow-up: Remaining highest-priority unchecked item is alternate ordering A/B token (`trend|alias|trendAlias`) in TASKS/POST_RC.
+
+## 2026-04-05 01:52 KST
+- Validated new `TSDPMFXVWCRITSPMBCBNT` markdown presence, strict adjacency, and row-count parity against `TSDPMFXVWCRITSPMB`.
+- Regression checks now fail fast if routing helper drifts outside the `...MBCBN*` cluster order.
+- Verification bundle: py_compile + regression + guardrail artifact regeneration PASS.

@@ -3734,3 +3734,7 @@
 - Decision: Aligned `TSDPMFXVWCRITSPMBCBNH` helper to explicitly encode `alias|trend|tAlias => HC2/PP2/SN2 + U/F/D` within DOS-width lock.
 - Evidence: Updated guardrail output + regression expectations (`...MBCBNHLEN` now `B50|C50|LIM72|PREF:COMPACT|PASS`).
 - Follow-up: Remaining highest-priority unchecked item is alternate ordering A/B token (`trend|alias|trendAlias`) in TASKS/POST_RC.
+
+## 2026-04-05 01:52 KST
+- Combat readability lane accepted offline route map helper for alt beat alias phase-note: trend alias now maps directly to expected beat alias (`U/F/D -> HC2/PP2/SN2`).
+- Runtime coupling remains disabled; this is reporting/readability-only scaffolding.

@@ -5303,3 +5303,8 @@
 - Decision: Aligned `TSDPMFXVWCRITSPMBCBNH` helper to explicitly encode `alias|trend|tAlias => HC2/PP2/SN2 + U/F/D` within DOS-width lock.
 - Evidence: Updated guardrail output + regression expectations (`...MBCBNHLEN` now `B50|C50|LIM72|PREF:COMPACT|PASS`).
 - Follow-up: Remaining highest-priority unchecked item is alternate ordering A/B token (`trend|alias|trendAlias`) in TASKS/POST_RC.
+
+## 2026-04-05 01:52 KST
+- Extended regression contract for beat-side phase-note cluster with new routing helper row `TSDPMFXVWCRITSPMBCBNT:U->HC2|F->PP2|D->SN2`.
+- Locked strict adjacency chain to `...MBCBN -> ...MBCBNLEG -> ...MBCBNT -> ...MBCBNH -> ...MBCBNHLEN` and parity mirror to `TSDPMFXVWCRITSPMB` row counts.
+- Verification: py_compile + regression + guardrail regeneration PASS.

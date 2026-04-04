@@ -3592,6 +3592,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include beat-side alt alias phase-note decode row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side phase-note routing helper (design/world): "
+        "**TSDPMFXVWCRITSPMBCBNT:U->HC2|F->PP2|D->SN2**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side phase-note routing helper row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side phase-note format helper (ux/design, dos-width): "
         "**TSDPMFXVWCRITSPMBCBNH:alias|trend|tAlias=>HC2/PP2/SN2+U/F/D|LIM72|PASS**"
         in md_text
@@ -3604,13 +3609,14 @@ def run_fixture_case(
     mbcbn_adjacency_matches = re.findall(
         r"\*\*TSDPMFXVWCRITSPMBCBN:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNLEG:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNT:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNH:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNHLEN:[^*]+\*\*",
         md_text,
     )
     assert len(mbcbn_adjacency_matches) >= 1, (
         f"{name}: summary/token sections must keep strict adjacency chain "
-        "TSDPMFXVWCRITSPMBCBN -> ...MBCBNLEG -> ...MBCBNH -> ...MBCBNHLEN"
+        "TSDPMFXVWCRITSPMBCBN -> ...MBCBNLEG -> ...MBCBNT -> ...MBCBNH -> ...MBCBNHLEN"
     )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy decode dos-width eval (design/world): "
@@ -4638,6 +4644,7 @@ def run_fixture_case(
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_dual_helper_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBH:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBN:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_legend_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNLEG:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_routing_helper_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNT:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_helper_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNH:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_helper_eval_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNHLEN:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_compact_summary_row_count = md_text.count("**TSDPMFXVWCRITSPMBS:")
@@ -4924,6 +4931,13 @@ def run_fixture_case(
         == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count
     ), (
         f"{name}: `TSDPMFXVWCRITSPMBCBNLEG` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_legend_row_count}) must mirror "
+        f"`TSDPMFXVWCRITSPMB` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count}) across summary + token sections"
+    )
+    assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_routing_helper_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRITSPMBCBNT` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_routing_helper_row_count}) must mirror "
         f"`TSDPMFXVWCRITSPMB` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count}) across summary + token sections"
     )
     assert (

@@ -1,3 +1,17 @@
+## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP78)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC remained fully checked after IP77 closure; mandatory Game Director cycle executed.
+- Candidate ideas:
+  - Low-risk Design/World: add compact phase-note routing helper row mapping `U/F/D` trend aliases to `HC2/PP2/SN2` beat aliases.
+  - Mid-risk Systems/QA: enforce row-count parity + adjacency so routing helper stays deterministic inside the `...MBCBN*` cluster.
+  - High-risk Combat/VFX + AI-content: prototype fallback phase-note alias mutation path for unknown trend states.
+- Selected experiment: low-risk helper + mid-risk parity/adjacency lock vertical slice.
+- [x] Design/World + Systems/QA + Combat/VFX + AI-content Team (injected): Added `TSDPMFXVWCRITSPMBCBNT:U->HC2|F->PP2|D->SN2` and extended regression strict adjacency (`...MBCBN -> ...MBCBNLEG -> ...MBCBNT -> ...MBCBNH -> ...MBCBNHLEN`) plus row-count parity to mirror `TSDPMFXVWCRITSPMB`. *(lifecycle: [ ] -> [~] started: 2026-04-05 01:49 KST -> [x] completed: 2026-04-05 01:52 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP78)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture tuple assertion that `TSDPMFXVWCRITSPMBCBNT` row count mirrors `TSDPMFXVWCRITSPMB` in summary/token sections.
+- [ ] Design/World Team (injected): Add compact decode helper clarifying route intent (`surge->HC2, hold->PP2, cool->SN2`) under <=72-char budget.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype offline unknown-trend fallback alias candidate (`UNK->PP2`) with runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP76)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC became fully checked after IP75 closure; mandatory Game Director cycle executed.
 - Candidate ideas:

@@ -5733,3 +5733,8 @@ Compact decision memory for AI context efficiency.
 - Updated phase-note helper contract to explicit `alias|trend|tAlias => HC2/PP2/SN2 + U/F/D` mapping.
 - Locked helper eval to `B50|C50|LIM72|PREF:COMPACT|PASS` and kept adjacency/parity checks intact.
 - Next queue head: alternate ordering A/B token (`trend|alias|trendAlias`).
+
+## 2026-04-05 01:52 KST
+- Cycle IP78 shipped: introduced `TSDPMFXVWCRITSPMBCBNT:U->HC2|F->PP2|D->SN2` and hardened regression order/parity for the `...MBCBN*` phase-note cluster.
+- Durable decision: treat phase-note routing helper as mandatory adjacency member between `...MBCBNLEG` and `...MBCBNH` to prevent decode drift.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration.
