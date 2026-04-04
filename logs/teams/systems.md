@@ -5202,3 +5202,4 @@
 - 2026-04-04 12:50 KST — Closed IP67 injected Systems/Ops+QA parity task by re-verifying existing sparse mixed-window assertion for `TSDCAD24TRIGAPNVHLEN` vs `TSDCAD24TRIGAPNVH`; no code-path delta required. Follow-up: move to Design/World legend helper item.
 - 2026-04-04 13:20 KST — Systems wiring update: inserted deterministic markdown row `TSDCAD24TRIGAPNVHSTAT` immediately after `NVHLEN`; no payload schema mutation required.
 - 2026-04-04 13:53 KST — Wired `TSDCAD24TRIGAPNVHM` payload emission (`...InitTransitionMicrocopyAlternate`) from INIT-transition variant + NVHLEN status-action mapping (`PASS=ship compact`, `WARN=trim copy`). Follow-up: keep parity/order assertions aligned if this row becomes mandatory in regression.
+- 2026-04-04 14:26 KST — Hardened INIT suffix fixture assertion: regression now counts only `TSDCAD24TRIGAPNVH` rows matching `|INIT:<H|R|L|S>(<state>)` regex; closed stale injected backlog checkbox with fresh verification bundle.

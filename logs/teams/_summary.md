@@ -5590,3 +5590,7 @@ Compact decision memory for AI context efficiency.
 - Added offline token `TSDCAD24TRIGAPNVHM` derived from INIT transition pair + `TSDCAD24TRIGAPNVHLEN` status-action mapping.
 - Payload key: `cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionMicrocopyAlternate`.
 - No runtime coupling; digest/report-only readability slice.
+## 2026-04-04 14:26 KST — IP67 backlog reconciliation + INIT suffix assertion hardening
+- Closed two stale unchecked POST_RC items: NVHLEN status-action helper (`TSDCAD24TRIGAPNVHSTAT`) and per-row INIT suffix fixture assertion for `TSDCAD24TRIGAPNVH`.
+- Durable decision: keep INIT assertion regex-scoped to NVH rows (`|INIT:<H|R|L|S>(HOLD|RAMP|RELIEF|SHIFT)`) to avoid false positives from unrelated tokens.
+- Verification: `py_compile` + `regression_check_lane_coverage_guardrail.py` + guardrail report regeneration PASS.

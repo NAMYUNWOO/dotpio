@@ -1070,7 +1070,9 @@ def run_fixture_case(
     cadence_24h_triad_gap_cue_transition_vfx_operator_helper_legend_rows = md_text.count(
         "**TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper; H=hold lane R=push lane L=ease lane S=scan lane; DOS:LIM72/PASS)**"
     )
-    cadence_24h_triad_gap_cue_transition_vfx_operator_helper_init_suffix_rows = md_text.count("|INIT:")
+    cadence_24h_triad_gap_cue_transition_vfx_operator_helper_init_suffix_rows = len(
+        re.findall(r"\*\*TSDCAD24TRIGAPNVH:[^*|]+\|INIT:[HRLS]\((?:HOLD|RAMP|RELIEF|SHIFT)\)\*\*", md_text)
+    )
     cadence_24h_triad_gap_cue_transition_vfx_operator_helper_decode_eval_rows = md_text.count(
         "**TSDCAD24TRIGAPNVHLEN:B39|C12|LIM72|PREF:COMPACT|PASS**"
     )

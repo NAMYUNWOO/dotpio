@@ -5699,3 +5699,4 @@
 - 2026-04-04 12:50 KST — Regression pass confirms fixture-level parity assertion for `TSDCAD24TRIGAPNVHLEN` mirrors `TSDCAD24TRIGAPNVH` across summary/token sections. Evidence: py_compile + regression + guardrail regen all PASS.
 - 2026-04-04 13:20 KST — QA extended regression coverage for `TSDCAD24TRIGAPNVHSTAT` (presence, parity vs `NVHLEN`, and order `NVHLEN -> NVHSTAT -> NVALEN`) across summary/token fixtures.
 - 2026-04-04 13:53 KST — QA verified via py_compile + regression + guardrail regeneration after introducing `TSDCAD24TRIGAPNVHM` payload/markdown row path.
+- 2026-04-04 14:26 KST — QA strengthened fixture assertion for NVH INIT suffix using explicit regex row matching; py_compile + regression + guardrail regeneration all PASS.
