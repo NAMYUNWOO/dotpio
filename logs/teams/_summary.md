@@ -5614,3 +5614,9 @@ Compact decision memory for AI context efficiency.
 - Closed Systems/Ops + QA injected task: strict adjacency assertions now enforce `STPRLENCUE -> STPRLENCUEA -> STPRLENCUEA legend` in both summary/token sections.
 - Durable decision: keep cue decode legend row (`STPRLENCUE legend`) after alias decode row so strict chain is contiguous while preserving operator decode context.
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + lane guardrail artifact regeneration all PASS.
+
+## 2026-04-04 16:18 KST
+- Closed highest-priority unchecked TASKS item (IP69 injected Design/World): helper decode row now explicitly states action priority `GH=hold lane first|PP=then probe lane` under compact-copy limits.
+- Durable decision: preserve `...STPRLENCUEA -> ...STPRLENCUEA legend -> ...STPRLENCUEH -> ...STPRLENCUE legend` chain while allowing copy-only helper refinements.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2 (next: AI-content/Combat offline transition microcopy variant).

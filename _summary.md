@@ -39,3 +39,8 @@
 - Completed injected Systems/Ops + QA item by enforcing strict ordering chain `STPRLENCUE -> STPRLENCUEA -> STPRLENCUEA legend` in regression checks for both summary/token sections.
 - Durable decision: markdown row order now places `STPRLENCUEA` directly after `STPRLENCUE`; detailed `STPRLENCUE legend` remains present but moved after alias decode row to preserve deterministic strict-adjacency contracts.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail json/md regeneration command.
+
+## 2026-04-04 16:18 KST — STPRLENCUEH priority-order helper copy
+- Closed highest-priority unchecked TASKS/POST_RC Design/World item by clarifying action order in helper row copy.
+- Durable decision: keep helper token identity stable and encode explicit sequencing in compact copy: `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH:GH=hold lane first|PP=then probe lane`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration.
