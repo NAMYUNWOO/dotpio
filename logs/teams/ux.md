@@ -4013,3 +4013,4 @@
 - Added/validated MBCBNXDLEG adjacency/parity coverage with MBCBNXD in regression and markdown output.
 - Verification bundle PASS: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration.
 - Follow-up queue: sparse mixed-window parity tuple + offline compact action alias candidate + helper-eval row.
+- 2026-04-05 05:50 KST — UX triage instrumentation prereq complete: decode-row parity for `TSDPMFXVWCRITSPMBCBNXDLEG` locked across mixed-window fixtures.
