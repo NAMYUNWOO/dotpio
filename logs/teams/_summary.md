@@ -5564,3 +5564,4 @@ Compact decision memory for AI context efficiency.
 - 2026-04-04 10:26 KST — Cycle IP66 injected follow-up completed: added deterministic decode callout row `TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper)` in guardrail markdown output and regression contracts.
 - Order contract update: legend chain now anchors `NVIXSA legend -> NVH legend -> NVALEN` in both summary/token sections.
 - Remaining injected backlog focus: AI-content/Combat offline variant map for NVH helper phrasing keyed by INIT transitions.
+- 2026-04-04 10:56 KST — Completed AI-content/Combat injected task: added offline INIT-transition keyed NVH helper variant map + selected transition token in check_lane_coverage_guardrail.py report payload (non-runtime), regenerated weekly guardrail outputs, and kept markdown ordering/regressions green.

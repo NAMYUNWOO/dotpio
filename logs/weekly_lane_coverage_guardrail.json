@@ -98,6 +98,25 @@
     "status": "PASS"
   },
   "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper": "GLINT+STEADY->hold lane",
+  "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionVariant": "HH:hold lane",
+  "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionVariantMap": {
+    "HH": "hold lane",
+    "HR": "brace lane",
+    "HL": "ease lane",
+    "HS": "scan lane",
+    "RH": "stabilize lane",
+    "RR": "push lane",
+    "RL": "cool lane",
+    "RS": "pivot lane",
+    "LH": "reset lane",
+    "LR": "rebuild lane",
+    "LL": "guard lane",
+    "LS": "re-route lane",
+    "SH": "anchor lane",
+    "SR": "surge lane",
+    "SL": "release lane",
+    "SS": "shuffle lane"
+  },
   "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperBaseline": "G=GLINT,P=PULSE,B=BLAST,C=COOL",
   "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperCompact": "G/P/B/C",
   "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperEvaluation": {
