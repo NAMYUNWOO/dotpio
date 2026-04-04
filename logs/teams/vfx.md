@@ -608,3 +608,6 @@
 - Forced-lane recovery remained active (24h cadence buckets missing), so VFX lane participated in a cross-lane readability slice.
 - Compacted posture-beat bridge decode baseline to `SURGE/HOLD/COOL+SHATTER/PULSE/GLIDE=>push|hold|ease+crack|poke|nudge` and moved `TSDPMFXVWCRITSPMBLEN` to PASS (`B68|C19|LIM72`).
 - Cue semantics unchanged (SHATTER/PULSE/GLIDE mapping preserved); change is digest/readability only.
+
+## 2026-04-05 02:50 KST — VFX lane note
+- No VFX mapping change; helper clarity improved for urgency state readability (`U/F/D` semantics).

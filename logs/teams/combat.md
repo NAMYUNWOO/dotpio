@@ -3743,3 +3743,6 @@
 - Closed IP78 injected sparse mixed-window tuple assertion for `TSDPMFXVWCRITSPMBCBNT` parity.
 - Regression fixture matrix now enforces `TSDPMFXVWCRITSPMBCBH == TSDPMFXVWCRITSPMBCBNLEG == TSDPMFXVWCRITSPMBCBNT == TSDPMFXVWCRITSPMB` across summary/token sections.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.
+
+## 2026-04-05 02:50 KST — Combat lane note
+- Beat-side helper now exposes surge/hold/cool intent directly beside HC2/PP2/SN2 routing for one-scan combat interpretation.

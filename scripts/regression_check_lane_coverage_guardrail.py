@@ -3593,7 +3593,7 @@ def run_fixture_case(
     ), f"{name}: markdown output must include beat-side alt alias phase-note decode row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side phase-note routing helper (design/world): "
-        "**TSDPMFXVWCRITSPMBCBNT:U->HC2|F->PP2|D->SN2**"
+        "**TSDPMFXVWCRITSPMBCBNT:U(surge)->HC2|F(hold)->PP2|D(cool)->SN2**"
         in md_text
     ), f"{name}: markdown output must include beat-side phase-note routing helper row"
     assert (

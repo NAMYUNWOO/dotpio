@@ -5743,3 +5743,9 @@ Compact decision memory for AI context efficiency.
 - Item closed: Systems/Ops + QA sparse mixed-window tuple assertion for `TSDPMFXVWCRITSPMBCBNT` parity.
 - Decision: enforce four-way parity tuple (`MBCBH`, `MBCBNLEG`, `MBCBNT`, `MBCB`) in cross-fixture matrix to prevent routing-helper drift.
 - Verification bundle executed and PASS (py_compile + regression + guardrail artifact regeneration).
+
+## 2026-04-05 02:50 KST — MBCBNT route-intent helper clarified
+- Completed highest-priority unchecked item by clarifying `U/F/D` route intent in beat-side phase-note routing helper.
+- Durable decision: lock helper string to `TSDPMFXVWCRITSPMBCBNT:U(surge)->HC2|F(hold)->PP2|D(cool)->SN2` and keep parity/adjacency contracts unchanged.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail artifact regeneration PASS.
+- Next priority item: `Combat/VFX + AI-content` unknown-trend fallback alias (`UNK->PP2`) offline prototype.

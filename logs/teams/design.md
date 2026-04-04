@@ -3873,3 +3873,7 @@
 - Closed IP78 injected sparse mixed-window tuple assertion for `TSDPMFXVWCRITSPMBCBNT` parity.
 - Regression fixture matrix now enforces `TSDPMFXVWCRITSPMBCBH == TSDPMFXVWCRITSPMBCBNLEG == TSDPMFXVWCRITSPMBCBNT == TSDPMFXVWCRITSPMB` across summary/token sections.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail artifact regeneration.
+
+## 2026-04-05 02:50 KST — U/F/D routing intent helper copy
+- Decision: clarified `TSDPMFXVWCRITSPMBCBNT` with explicit semantic mapping `U(surge)->HC2|F(hold)->PP2|D(cool)->SN2` while keeping compact helper scope.
+- Follow-up: next unchecked item remains unknown-trend fallback alias (`UNK->PP2`).
