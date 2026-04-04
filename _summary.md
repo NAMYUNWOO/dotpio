@@ -44,3 +44,8 @@
 - Closed highest-priority unchecked TASKS/POST_RC Design/World item by clarifying action order in helper row copy.
 - Durable decision: keep helper token identity stable and encode explicit sequencing in compact copy: `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH:GH=hold lane first|PP=then probe lane`.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration.
+
+## 2026-04-04 17:54 KST — IP70 injected follow-up closure
+- Completed remaining injected TASKS/POST_RC items: sparse mixed-window parity for `...PRLENCUET`, compact decode helper row `...PRLENCUETD`, and alternate offline transition copy pack `...PRLENCUEM`.
+- Durable decision: keep transition chain deterministic as `...PRLENCUEM -> ...PRLENCUET -> ...PRLENCUETD -> ...PRLENCUE legend` while preserving offline-only coupling.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

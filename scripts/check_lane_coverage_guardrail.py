@@ -2272,12 +2272,17 @@ def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum
 
     Keeps both directional variants explicit with no runtime coupling.
     """
-    return "GH->PP:hold then probe on rise|PP->GH:probe then hold on settle"
+    return "GH->PP:rise then probe lane|PP->GH:settle then hold lane"
 
 
 def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff() -> str:
     """Offline transition handoff cue for GH/PP action order changes."""
     return "GH->PP=rise handoff|PP->GH=settle handoff"
+
+
+def resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_decode_helper() -> str:
+    """Compact design/world decode helper for PRLENCUET sequencing."""
+    return "GH->PP rise first|PP->GH settle second"
 
 
 def resolve_trend_score_band_dispatch_hint(score_band_snapshot: dict[str, int]) -> str:
@@ -3537,6 +3542,7 @@ def build_report(
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueDecodeHelperEvaluation": cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_decode_helper_evaluation,
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionMicrocopyVariants": resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variants(),
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoff": resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff(),
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoffDecodeHelper": resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_decode_helper(),
         "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAlias": resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band_alias(
             cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_band
         ),
@@ -3859,6 +3865,7 @@ def to_markdown(
         "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure compact action helper (design/world): **TSDCAD24TRICOVSTCMSVHCSTPRLENCUEH:GH=hold lane first|PP=then probe lane**",
         f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure transition helper microcopy variants (ai-content/combat, offline): **TSDCAD24TRICOVSTCMSVHCSTPRLENCUEM:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionMicrocopyVariants', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_microcopy_variants())}**",
         f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure transition handoff cue (ai-content/design, offline): **TSDCAD24TRICOVSTCMSVHCSTPRLENCUET:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoff', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff())}**",
+        f"- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend transition handoff decode helper (design/world): **TSDCAD24TRICOVSTCMSVHCSTPRLENCUETD:{report.get('cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoffDecodeHelper', resolve_cadence_24h_recovery_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_decode_operator_cue_transition_handoff_decode_helper())}**",
         "- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure decode operator cue decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTPRLENCUE legend (LOCK=GLINT-HOLD, WATCH=PULSE-PROBE)**",
             f"- trend-score band snapshot (recent rows): **{score_band_summary}**",
             f"- trend-score band snapshot alias: **TSSB:{report.get('trendScoreBandSnapshotAlias', 'C0E0H0')}**",

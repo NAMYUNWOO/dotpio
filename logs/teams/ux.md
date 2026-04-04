@@ -3923,3 +3923,4 @@
 ## 2026-04-04 17:21 KST
 - IP70 maintained compact cue surface by adding one new handoff row without altering existing alias semantics (`GH|PP`).
 - Follow-up: verify decode helper copy length once Design row is added.
+- 2026-04-04 17:54 KST — UX confirmed new PRLENCUET decode/helper rows preserve compact scan path without adding runtime-facing verbosity.

@@ -205,8 +205,9 @@
     "preferred": "COMPACT",
     "status": "PASS"
   },
-  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionMicrocopyVariants": "GH->PP:hold then probe on rise|PP->GH:probe then hold on settle",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionMicrocopyVariants": "GH->PP:rise then probe lane|PP->GH:settle then hold lane",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoff": "GH->PP=rise handoff|PP->GH=settle handoff",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoffDecodeHelper": "GH->PP rise first|PP->GH settle second",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAlias": "H",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeBaseline": "L=high churn, M=mixed flips, H=stable cues",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceBandAliasDecodeCompact": "L=high churn, M=mixed flips, H=stable cues",

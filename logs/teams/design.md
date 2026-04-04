@@ -3795,3 +3795,4 @@
 ## 2026-04-04 17:21 KST
 - Cycle IP70: validated concise handoff wording for operator readability (`rise handoff`, `settle handoff`) and retained one-scan chain structure.
 - Follow-up: add explicit decode helper row for PRLENCUET under DOS width budget.
+- 2026-04-04 17:54 KST — Design approved PRLENCUET decode helper wording prioritizing `rise` before `settle` under DOS-width budget.

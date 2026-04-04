@@ -3669,3 +3669,4 @@
 ## 2026-04-04 17:21 KST
 - Cycle IP70: approved compact handoff phrasing readability target for upcoming decode helper row (`rise handoff` / `settle handoff`).
 - Follow-up: ship <=72-char decode helper in next injected Design/World task.
+- 2026-04-04 17:54 KST — Added compact decode helper row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETD:GH->PP rise first|PP->GH settle second` (<=72 chars) to keep transition sequencing one-scan readable.
