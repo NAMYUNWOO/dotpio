@@ -3776,3 +3776,6 @@
 
 ## 2026-04-05 07:51 KST
 - No direct code delta this cycle; lane remains queued behind Systems/Ops+QA parity closure for .
+
+## 2026-04-05 08:26 KST
+- Extended combat telemetry slice with report-only narrative companion token (`...MBCBNXBN`) so compact alias output can be read as immediate callout text without gameplay wiring.

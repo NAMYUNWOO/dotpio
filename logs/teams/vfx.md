@@ -616,3 +616,6 @@
 
 ## 2026-04-05 02:50 KST — VFX lane note
 - No VFX mapping change; helper clarity improved for urgency state readability (`U/F/D` semantics).
+
+## 2026-04-05 08:26 KST
+- No VFX cue mapping change; added report-only narrative token tied to SG/HL/EA/SF alias stream for future callout readability A/B.

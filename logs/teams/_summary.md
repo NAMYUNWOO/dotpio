@@ -5790,3 +5790,8 @@ Compact decision memory for AI context efficiency.
 ## 2026-04-05 07:51 KST
 - Cycle IP81 injected follow-up closed: sparse mixed-window fixture tuples now include `TSDPMFXVWCRITSPMBCBNXDMAP` count and enforce parity with `TSDPMFXVWCRITSPMB`.
 - Durable decision: every newly added `...MBCBN*` helper/map row must be represented in cross-fixture parity tuples, not only markdown presence checks.
+
+## 2026-04-05 08:26 KST
+- Closed IP81 Combat/VFX+AI-content injection: shipped report-only quick-map narrative candidate row `TSDPMFXVWCRITSPMBCBNXBN` derived from SG/HL/EA/SF alias output.
+- Durable decision: keep runtime coupling disabled; narrative candidates remain telemetry-only until explicit experiment promotion.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

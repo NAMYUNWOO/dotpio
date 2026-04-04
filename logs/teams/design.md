@@ -3907,3 +3907,6 @@
 
 ## 2026-04-05 07:51 KST
 - No direct code delta this cycle; lane remains queued behind Systems/Ops+QA parity closure for .
+
+## 2026-04-05 08:26 KST
+- Locked new narrative row placement in pressure-tag cluster (`...MBCBNXB -> ...MBCBNXBLEG -> ...MBCBNXBN -> ...MBCBNXH`) to preserve one-scan decode flow.
