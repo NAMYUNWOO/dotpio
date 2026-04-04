@@ -5585,3 +5585,8 @@ Compact decision memory for AI context efficiency.
 
 - 2026-04-04 12:50 KST — IP67 injected Systems/Ops+QA parity task closed: `TSDCAD24TRIGAPNVHLEN` row-count mirror assertion re-verified against sparse mixed-window fixtures (py_compile + regression + guardrail regen PASS). Next: Design/World helper legend for NVHLEN status actionability.
 - 2026-04-04 13:20 KST — Durable decision: keep NVH helper status-action legend explicit as `TSDCAD24TRIGAPNVHSTAT (PASS=ship compact, WARN=trim copy)` and anchor it between `NVHLEN` and `NVALEN` in both summary/token sections.
+
+## 2026-04-04 13:53 KST — INIT-transition helper microcopy alternate (NVHLEN-keyed)
+- Added offline token `TSDCAD24TRIGAPNVHM` derived from INIT transition pair + `TSDCAD24TRIGAPNVHLEN` status-action mapping.
+- Payload key: `cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionMicrocopyAlternate`.
+- No runtime coupling; digest/report-only readability slice.

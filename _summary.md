@@ -24,3 +24,8 @@
 - Completed injected Systems/QA backlog item for `TSDCAD24TRIGAPNVH` domain enforcement.
 - Durable decision: `NVH` rows must carry `|INIT:<H|R|L|S>(HOLD|RAMP|RELIEF|SHIFT)` with deterministic alias->state mapping in regression fixtures.
 - Verification remained standard: py_compile + regression suite + guardrail JSON/MD regeneration PASS.
+
+## 2026-04-04 13:53 KST — NVHLEN-keyed INIT-transition helper microcopy alternates
+- Completed TASKS priority item by shipping offline `TSDCAD24TRIGAPNVHM` row.
+- Deterministic mapping now composes INIT transition variant (`HH..SS`) with NVHLEN status action (`ship compact` vs `trim copy`).
+- Implementation is report/payload-only (no runtime coupling).

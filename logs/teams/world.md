@@ -3650,3 +3650,4 @@
 - Follow-up queued: add concise world-facing decode helper for PASS/WARN action hinting.
 - 2026-04-04 12:50 KST — No world/map change in this cycle; held lane while systems/qa parity task closed.
 - 2026-04-04 13:20 KST — World/readability pass: added one-line NVHLEN status-action legend (`PASS=ship compact`, `WARN=trim copy`) to keep operator decision path one-scan after width eval.
+- 2026-04-04 13:53 KST — No world-map mutation this cycle; consumed new `TSDCAD24TRIGAPNVHM` microcopy token as documentation-only readability aid tied to INIT transition states. Follow-up: evaluate whether decode helper placement should move into world-facing legend cluster.

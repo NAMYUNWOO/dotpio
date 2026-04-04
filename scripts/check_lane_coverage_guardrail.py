@@ -1440,6 +1440,24 @@ def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_in
     return f"{key}:{variant_map.get(key, 'hold lane')}"
 
 
+def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_microcopy_alternate(
+    prior_init_alias: str,
+    current_init_alias: str,
+    variant_map: dict[str, str],
+    decode_eval: dict[str, object],
+) -> str:
+    transition_variant = (
+        resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_variant(
+            prior_init_alias,
+            current_init_alias,
+            variant_map,
+        )
+    )
+    status = str(decode_eval.get("status", "PASS"))
+    action = "ship compact" if status == "PASS" else "trim copy"
+    return f"{transition_variant}|{action}"
+
+
 def resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation(
     dos_width_limit: int = 72,
 ) -> dict[str, object]:
@@ -3240,6 +3258,14 @@ def build_report(
             cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_variant_map,
         )
     )
+    cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_microcopy_alternate = (
+        resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_microcopy_alternate(
+            prior_cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_state_init_alias,
+            cadence_24h_recovery_triad_gap_cue_transition_vfx_intent_escalation_state_init_alias,
+            cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_variant_map,
+            cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_decode_helper_evaluation,
+        )
+    )
     cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation = (
         resolve_cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation()
     )
@@ -3441,6 +3467,7 @@ def build_report(
         "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper": cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper,
         "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperDecodeHelperEvaluation": cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_decode_helper_evaluation,
         "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionVariant": cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_variant,
+        "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionMicrocopyAlternate": cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_microcopy_alternate,
         "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionVariantMap": cadence_24h_recovery_triad_gap_cue_transition_vfx_operator_helper_init_transition_variant_map,
         "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperBaseline": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation["baseline"],
         "cadence24hRecoveryTriadGapCueTransitionVfxCueAliasDecodeHelperCompact": cadence_24h_recovery_triad_gap_cue_transition_vfx_cue_alias_decode_helper_evaluation["compact"],

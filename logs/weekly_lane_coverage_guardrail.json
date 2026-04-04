@@ -108,6 +108,7 @@
     "status": "PASS"
   },
   "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionVariant": "HH:hold lane",
+  "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionMicrocopyAlternate": "HH:hold lane|ship compact",
   "cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelperInitTransitionVariantMap": {
     "HH": "hold lane",
     "HR": "brace lane",

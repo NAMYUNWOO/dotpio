@@ -3743,3 +3743,4 @@
 - Current slice remains deterministic telemetry only (`NVHLEN`).
 - 2026-04-04 12:50 KST — No AI-content payload mutation this slice; INIT-transition microcopy alternate task remains queued.
 - 2026-04-04 13:20 KST — AI-content lane unchanged in runtime behavior; consumed readability-only legend update (`NVHSTAT`) and confirmed no coupling to narrative generation paths.
+- 2026-04-04 13:53 KST — Completed offline INIT-transition helper microcopy alternate slice keyed by `TSDCAD24TRIGAPNVHLEN` status. Added `TSDCAD24TRIGAPNVHM` row output (`<INIT pair>:<microcopy>|ship compact|trim copy`) with no runtime coupling.
