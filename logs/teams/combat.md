@@ -3699,3 +3699,7 @@
 - Game Director cycle executed after full-checkpoint condition.
 - Shipped `TSDPMFXVWCRITSPMBCLEG:PN2 push|HL2 hold|EL2 ease` plus parity lock against `TSDPMFXVWCRITSPMB`.
 - 2026-04-04 22:25 KST (IP76): Added explicit `TSDPMFXVWCRITSPMBC` sparse mixed-window parity+adjacency regression guard (`MBC` mirrors `TSDPMFXVWCRITSPMB` and stays directly before `TSDPMFXVWCRITSPMBCLEG`) in `scripts/regression_check_lane_coverage_guardrail.py`; verified with py_compile + regression + guardrail runs.
+
+## 2026-04-04 22:49 KST — IP76 combat note
+- Decision: No combat runtime coupling introduced; helper remains offline readability metadata.
+- Follow-up: Combat/VFX lane owns next unchecked alt-beat alias experiment task.

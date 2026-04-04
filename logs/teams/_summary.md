@@ -5691,3 +5691,9 @@ Compact decision memory for AI context efficiency.
   - Design/World dual-pack helper (`PN/HL/EL` + `PN2/HL2/EL2`)
   - Combat/VFX+AI-content offline beat-side alt alias pack (`HC2/PP2/SN2`)
 - 2026-04-04 22:25 KST (IP76): Regression contract now explicitly enforces sparse mixed-window `TSDPMFXVWCRITSPMBC` row-count parity with `TSDPMFXVWCRITSPMB` and adjacency to `TSDPMFXVWCRITSPMBCLEG` decode row; fixture parity matrix now tracks `tsdpmfxvwcritspmbcRowCount` across balanced/ready/prior-up/prior-down windows.
+
+## 2026-04-04 22:49 KST
+- Closed highest-priority unchecked TASKS item (IP76 injected Design/World): shipped dual-pack helper row `TSDPMFXVWCRITSPMBCH:PN/HL/EL base|PN2/HL2/EL2 alt` under DOS-width-safe compact copy.
+- Durable decision: keep posture-beat alias decode sequence contiguous as `...SPMBC -> ...SPMBCLEG -> ...SPMBCH` and enforce parity/adjacency in regression to prevent readability drift.
+- Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, guardrail JSON/MD regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=3 (next: Combat/VFX + AI-content `HC2/PP2/SN2` offline alias candidate).
