@@ -109,9 +109,9 @@
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure visual severity companion decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTPRV legend (LOCK=GLINT, WATCH=PULSE)**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure decode dos-width eval (systems/ops): **TSDCAD24TRICOVSTCMSVHCSTPRLEN:B45|C43|LIM72|PREF:COMPACT|PASS**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure decode operator cue (combat/vfx): **TSDCAD24TRICOVSTCMSVHCSTPRLENCUE:GLINT-HOLD**
-- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure decode operator cue decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTPRLENCUE legend (LOCK=GLINT-HOLD, WATCH=PULSE-PROBE)**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure decode operator cue compact alias (ux/design): **TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA:GH**
 - cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure decode operator cue compact alias decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA legend (GH=GLINT-HOLD, PP=PULSE-PROBE)**
+- cadence 24h recovery triad coverage spread trend confidence momentum score vfx cue hysteresis confidence drift-trend smoothing-pressure decode operator cue decode (design/world): **TSDCAD24TRICOVSTCMSVHCSTPRLENCUE legend (LOCK=GLINT-HOLD, WATCH=PULSE-PROBE)**
 - trend-score band snapshot (recent rows): **CALM=0, EDGE=0, HEATED=0**
 - trend-score band snapshot alias: **TSSB:C0E0H0**
 - trend-score alias decode: **TSSB legend (C=calm, E=edge, H=heated)**

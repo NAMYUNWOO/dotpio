@@ -5207,3 +5207,4 @@
 ## 2026-04-04 14:58 KST
 - Cycle IP68 shipped compact smoothing-pressure operator cue alias `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA` (`GH|PP`) plus decode legend parity checks.
 - Verification: py_compile + lane guardrail regression + guardrail artifact regeneration all passed.
+- 2026-04-04 15:24 KST — Cycle IP68 follow-up complete: enforced strict adjacency for STPRLENCUE -> STPRLENCUEA -> STPRLENCUEA legend in regression order checks; moved markdown row order to keep alias immediately after operator-cue token while preserving decode legend row. Follow-up: close remaining injected items (decode helper row + offline microcopy variant).

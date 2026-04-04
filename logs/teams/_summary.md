@@ -5599,3 +5599,7 @@ Compact decision memory for AI context efficiency.
 - Completed Cycle IP68 low-risk vertical slice: added `TSDCAD24TRICOVSTCMSVHCSTPRLENCUEA` compact alias (`GH|PP`) with markdown decode + regression parity locks tied to `STPRLENCUE` counts.
 - Durable decision: keep operator cue chain explicit as `STPRLENCUE -> STPRLENCUEA -> legend` for one-scan readability; leave strict adjacency lock as queued follow-up.
 - Verification passed: py_compile + regression + guardrail JSON/MD regeneration.
+## 2026-04-04 15:24 KST
+- Closed Systems/Ops + QA injected task: strict adjacency assertions now enforce `STPRLENCUE -> STPRLENCUEA -> STPRLENCUEA legend` in both summary/token sections.
+- Durable decision: keep cue decode legend row (`STPRLENCUE legend`) after alias decode row so strict chain is contiguous while preserving operator decode context.
+- Verification: py_compile + regression_check_lane_coverage_guardrail.py + lane guardrail artifact regeneration all PASS.

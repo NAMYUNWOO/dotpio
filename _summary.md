@@ -29,3 +29,7 @@
 - Completed TASKS priority item by shipping offline `TSDCAD24TRIGAPNVHM` row.
 - Deterministic mapping now composes INIT transition variant (`HH..SS`) with NVHLEN status action (`ship compact` vs `trim copy`).
 - Implementation is report/payload-only (no runtime coupling).
+## 2026-04-04 15:24 KST — STPRLENCUE adjacency lock
+- Completed injected Systems/Ops + QA item by enforcing strict ordering chain `STPRLENCUE -> STPRLENCUEA -> STPRLENCUEA legend` in regression checks for both summary/token sections.
+- Durable decision: markdown row order now places `STPRLENCUEA` directly after `STPRLENCUE`; detailed `STPRLENCUE legend` remains present but moved after alias decode row to preserve deterministic strict-adjacency contracts.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail json/md regeneration command.
