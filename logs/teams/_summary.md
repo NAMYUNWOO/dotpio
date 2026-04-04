@@ -5765,3 +5765,10 @@ Compact decision memory for AI context efficiency.
 - 2026-04-05 04:27 KST: Shipped `TSDPMFXVWCRITSPMBCBNXH` compact pressure-tag operator helper (`SPIKE/HOLD/EASE/SAFE` -> actionable copy), and locked regression presence + adjacency/parity (`...MBCBNXLEG -> ...MBCBNXH -> ...MBCBNH`) across summary/token sections.
 
 - 2026-04-05 05:05 KST — Durable decision: keep new beat-side readability experiments strictly report-only. Added `TSDPMFXVWCRITSPMBCBNY` (`trend|alias|trendAlias`) and compact pressure-tag alias pack `TSDPMFXVWCRITSPMBCBNXA` (`SP/HO/EA/SF`) with regression-enforced adjacency/parity; runtime behavior remains unchanged.
+
+## 2026-04-05 05:36 KST — IP80 pressure-tag compact action decode legend
+- Game Director cycle IP80 executed after all ACTION_ITEMS/TASKS/POST_RC were fully checked.
+- Shipped `TSDPMFXVWCRITSPMBCBNXDLEG:UP=surge now|FLAT=hold lane|DOWN=ease lane|UNK=safe hold`.
+- Durable decision: keep `...MBCBNXD -> ...MBCBNXDLEG -> ...MBCBNH` strict adjacency with row-count parity mirrored to `TSDPMFXVWCRITSPMB` across summary/token sections.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` (PASS).
+- Next injected queue (IP80): Systems/Ops+QA parity tuple for `...MBCBNXDLEG`; Combat/VFX+AI compact action alias candidate; UX/Design helper-eval row.

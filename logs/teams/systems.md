@@ -5337,3 +5337,8 @@
 - Hardened regression contracts: presence assertion, strict `...MBCBNXLEG -> ...MBCBNXH -> ...MBCBNH` adjacency chain, and row-count parity against `TSDPMFXVWCRITSPMB`.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-05 05:05 KST — Added regression/payload contract coverage for new beat-side report-only tokens `TSDPMFXVWCRITSPMBCBNY` (alt ordering candidate) and `TSDPMFXVWCRITSPMBCBNXA` (+ legend); expanded adjacency chain and row-count parity locks.
+
+## 2026-04-05 05:36 KST — IP80 pressure-tag compact action decode legend slice
+- Added/validated MBCBNXDLEG adjacency/parity coverage with MBCBNXD in regression and markdown output.
+- Verification bundle PASS: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration.
+- Follow-up queue: sparse mixed-window parity tuple + offline compact action alias candidate + helper-eval row.

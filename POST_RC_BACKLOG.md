@@ -1,3 +1,17 @@
+## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP80)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP79 closure; mandatory Game Director cycle executed.
+- Candidate ideas:
+  - Low-risk Design/World: add compact pressure-tag action-helper decode legend for `TSDPMFXVWCRITSPMBCBNXD` under <=72-char budget.
+  - Mid-risk Systems/QA: enforce strict adjacency/parity so decode legend remains `...MBCBNXD -> ...MBCBNXDLEG -> ...MBCBNH` in summary/token sections.
+  - High-risk Combat/VFX + AI-content: prototype pressure-tag action-helper compact alias rail (`SG/HL/EA/SF`) for future readability A/B.
+- Selected experiment: low-risk decode legend + mid-risk parity/adjacency lock vertical slice.
+- [x] Design/World + Systems/QA Team (injected): Add `TSDPMFXVWCRITSPMBCBNXDLEG` compact decode row and lock adjacency/parity contracts around `...MBCBNXD` in summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-05 05:30 KST -> [x] completed: 2026-04-05 05:36 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP80)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture tuple parity coverage for `TSDPMFXVWCRITSPMBCBNXDLEG` against `TSDPMFXVWCRITSPMB` row counts across summary/token sections.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype report-only compact pressure-tag action alias pack candidate (`SG/HL/EA/SF`) mapped from `UP/FLAT/DOWN/UNK` without runtime coupling.
+- [ ] UX/Design Team (injected): Add compact <=72-char helper-eval row for `TSDPMFXVWCRITSPMBCBNXDLEG` readability status (`PASS/WARN`) to support operator triage.
+
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP79)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
 - Forced-lane decision: cadence triad remained missing in all three buckets, so cycle forced cross-lane recovery in underrepresented lanes.
@@ -10,7 +24,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP79)
 - [x] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture tuple parity check for `...MBCBNX` + `...MBCBNXLEG` against `TSDPMFXVWCRITSPMB`. *(lifecycle: [~] started: 2026-04-05 03:53 KST -> [x] completed: 2026-04-05 03:57 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
-- [ ] Design/World Team (injected): Add compact decode helper row for pressure-tag action semantics under <=72-char budget.
+- [x] Design/World Team (injected): Add compact decode helper row for pressure-tag action semantics under <=72-char budget. *(lifecycle: [ ] -> [~] started: 2026-04-05 05:22 KST -> [x] completed: 2026-04-05 05:28 KST; implementation: `TSDPMFXVWCRITSPMBCBNXD:UP->surge|FLAT->hold|DOWN->ease|UNK->safe hold`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [x] Combat/VFX + AI-content Team (injected): Prototype offline compact alias pack (`SP/HO/EA/SF`) for pressure-tag readability A/B follow-up. *(lifecycle: [ ] -> [~] started: 2026-04-05 04:48 KST -> [x] completed: 2026-04-05 05:05 KST; implementation: report-only row `TSDPMFXVWCRITSPMBCBNXA` + decode `...MBCBNXALEG`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP78)
