@@ -5786,3 +5786,7 @@ Compact decision memory for AI context efficiency.
 - Shipped minimal vertical slice: added compact quick-map row `TSDPMFXVWCRITSPMBCBNXDMAP:UP=SG|FLAT=HL|DOWN=EA|UNK=SF` for pressure-tag action alias decoding.
 - Durable decision: keep strict `...MBCBN` adjacency chain unchanged; enforce quick-map via standalone regression presence check only.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-05 07:51 KST
+- Cycle IP81 injected follow-up closed: sparse mixed-window fixture tuples now include `TSDPMFXVWCRITSPMBCBNXDMAP` count and enforce parity with `TSDPMFXVWCRITSPMB`.
+- Durable decision: every newly added `...MBCBN*` helper/map row must be represented in cross-fixture parity tuples, not only markdown presence checks.

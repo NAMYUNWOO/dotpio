@@ -3773,3 +3773,6 @@
 - 2026-04-05 06:52 KST — Pressure-tag action decode path unchanged (`UP/FLAT/DOWN/UNK`), now paired with explicit compact readability eval token for post-run combat-callout audit.
 
 - 2026-04-05 IP81: Kept pressure-tag action rails stable while introducing compact quick-map alias row for faster combat triage context.
+
+## 2026-04-05 07:51 KST
+- No direct code delta this cycle; lane remains queued behind Systems/Ops+QA parity closure for .

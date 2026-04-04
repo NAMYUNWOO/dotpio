@@ -110,3 +110,8 @@
 - Implemented minimal vertical slice: added `TSDPMFXVWCRITSPMBCBNXDMAP:UP=SG|FLAT=HL|DOWN=EA|UNK=SF` to simplify pressure-tag compact action triage.
 - Durable decision: preserve existing strict `...MBCBN` adjacency contract and validate the new quick-map row through explicit presence regression (no chain mutation).
 - Verification bundle passed: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-05 07:51 KST — IP81 tuple parity closure (`...MBCBNXDMAP`)
+- Completed highest-priority unchecked backlog item by extending regression fixture tuple parity to include `TSDPMFXVWCRITSPMBCBNXDMAP` and asserting parity with `TSDPMFXVWCRITSPMB` across summary/token sections.
+- Durable rule locked: when new `...MBCBN*` rows are introduced, add tuple-level parity coverage in `scripts/regression_check_lane_coverage_guardrail.py` immediately.
+- Verification bundle passed (py_compile + regression + guardrail regeneration).
