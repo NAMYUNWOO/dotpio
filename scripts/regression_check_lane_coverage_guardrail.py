@@ -567,7 +567,7 @@ def run_fixture_case(
     ), f"{name}: markdown output must include cadence-triad gap intent-escalation state-init alias dos-width eval row"
     assert (
         "cadence 24h triad gap operator action helper (design/world): "
-        f"**TSDCAD24TRIGAPNVH:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper', 'GLINT+STEADY->hold lane')}|INIT:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAlias', 'H')}**"
+        f"**TSDCAD24TRIGAPNVH:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxOperatorHelper', 'GLINT+STEADY->hold lane')}|INIT:{report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateInitAlias', 'H')}({report.get('cadence24hRecoveryTriadGapCueTransitionVfxIntentEscalationStateAlias', 'HOLD')})**"
         in md_text
     ), f"{name}: markdown output must include cadence-triad gap operator action helper row"
     assert (

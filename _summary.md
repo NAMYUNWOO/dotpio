@@ -15,3 +15,7 @@
 - Executed full idea cycle (3 ideas -> selected 1) and shipped `TSDCAD24TRIGAPNVIXSALEN` as minimal vertical slice.
 - Durable decision: lock deterministic transition order `NVIXS -> NVIXSA -> NVIXSALEN -> NVH` in both summary/token outputs.
 - Added two injected backlog tasks for next cycle (headroom assertion + UX/design callout).
+## 2026-04-04 09:43 KST — Cycle IP66 NVH INIT readability vertical slice
+- Coverage check over last-10 completed backlog items returned zero parsed lane counts in `POST_RC_BACKLOG.md`; cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so forced next remained combat/vfx lane.
+- Selected experiment: enrich `TSDCAD24TRIGAPNVH` output with INIT alias+full-state suffix (`|INIT:H(HOLD)` pattern) to clarify vfx/combat operator handoff.
+- Verification: `py_compile` + `regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration all PASS.

@@ -3747,3 +3747,5 @@
 ## 2026-04-04 09:19 KST
 - Added concise decode helper callout by updating `TSDCAD24TRIGAPNVIXSA legend` to explicitly route shorthand interpretation to operator action helper `NVH` (`...; use NVH for action`).
 - Durable note: keep the callout embedded in the legend row to preserve compact one-scan readability without adding extra token rows.
+## 2026-04-04 09:43 KST
+- Design readability improved: `TSDCAD24TRIGAPNVH` now includes explicit INIT full-state suffix to reduce alias lookup hops.

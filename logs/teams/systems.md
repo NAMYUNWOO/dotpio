@@ -5176,3 +5176,5 @@
 ## 2026-04-04 09:19 KST
 - Systems update: wired the NVIXSA->NVH helper callout into canonical markdown emission (`check_lane_coverage_guardrail.py`) and synchronized regression expectations.
 - No payload/schema mutation; markdown contract only.
+## 2026-04-04 09:43 KST
+- Systems update: canonical markdown emission now writes `TSDCAD24TRIGAPNVH ... |INIT:<alias>(<state>)` to lock alias/full-state pairing deterministically.

@@ -591,3 +591,7 @@
 - 2026-04-04 04:22 KST — Cycle IP63: Shipped compact `TRIGAPNV` cue mapping + legend row; cue ladder now deterministic and DOS-width safe in cadence guardrail markdown.
 ## 2026-04-04 07:02 KST
 - Confirmed alias layer composes with existing `TRIGAPNV/TRIGAPNVI` mapping semantics.
+## 2026-04-04 09:43 KST — Cycle IP66 NVH|INIT clarity slice
+- Forced-lane cadence action remained combat-or-vfx due 24h bucket miss; selected low-risk report-layer VFX/operator clarity experiment.
+- Updated `TSDCAD24TRIGAPNVH` output to append expanded INIT state (`|INIT:H(HOLD)` style) so alias-state mapping is one-scan readable.
+- Verification bundle passed (py_compile + regression + guardrail artifact regeneration).

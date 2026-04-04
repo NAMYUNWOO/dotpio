@@ -3626,3 +3626,5 @@
 ## 2026-04-04 09:22 KST
 - Game Director IP66 injection queued: add compact decode legend callout clarifying `NVH|INIT` relationship under DOS-width constraints.
 - No world/runtime mutation in this slice; documentation/readability follow-up only.
+## 2026-04-04 09:43 KST
+- World lane consumed report-only INIT expansion (`NVH|INIT`) for clearer handoff semantics; no world runtime mutation.

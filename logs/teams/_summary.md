@@ -5553,3 +5553,7 @@ Compact decision memory for AI context efficiency.
 - Shipped minimal vertical slice: `TSDCAD24TRIGAPNVH` now emits inline state-init shorthand suffix (`|INIT:<H|R|L|S>`) to directly link `NVIXSA` shorthand with operator action helper output.
 - Durable decision: keep linkage embedded in the existing NVH row (no extra row) to preserve deterministic scan order and row density.
 - Verification passed (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/regression_check_lane_coverage_guardrail.py`, `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+## 2026-04-04 09:43 KST — IP66 NVH INIT readability slice
+- Completed backlog/task item: `TSDCAD24TRIGAPNVH` now emits INIT alias with full-state expansion (`H(HOLD)` etc.) for one-scan operator clarity.
+- Durable decision: keep INIT expansion embedded in existing NVH row (no extra row) to preserve cadence-cluster density/order.
+- Verification retained: py_compile + regression_check_lane_coverage_guardrail + guardrail regeneration.

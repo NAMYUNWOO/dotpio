@@ -5673,3 +5673,5 @@
 ## 2026-04-04 09:19 KST
 - QA updated regression string expectations for `TSDCAD24TRIGAPNVIXSA legend` callout (`use NVH for action`) and revalidated guardrail generation pipeline.
 - Verification bundle passed: py_compile + regression + live guardrail artifact regeneration.
+## 2026-04-04 09:43 KST
+- QA regression expectation updated for `TSDCAD24TRIGAPNVH` INIT suffix (`<alias>(<state>)`), verification suite remains green.
