@@ -5762,3 +5762,4 @@ Compact decision memory for AI context efficiency.
 - Regression hardened with direct resolver assertion for unknown fallback (`UNK->PP2`) plus full guardrail/regression bundle PASS.
 
 - 2026-04-05 03:57 KST: Extended sparse mixed-window parity tuple coverage to include `TSDPMFXVWCRITSPMBCBNX` and `...MBCBNXLEG`; regression now enforces parity for `MBCBH/MBCBNLEG/MBCBNT/MBCBNX/MBCBNXLEG` against `TSDPMFXVWCRITSPMB`.
+- 2026-04-05 04:27 KST: Shipped `TSDPMFXVWCRITSPMBCBNXH` compact pressure-tag operator helper (`SPIKE/HOLD/EASE/SAFE` -> actionable copy), and locked regression presence + adjacency/parity (`...MBCBNXLEG -> ...MBCBNXH -> ...MBCBNH`) across summary/token sections.

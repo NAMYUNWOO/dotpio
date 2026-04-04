@@ -3755,3 +3755,8 @@
 - Added offline fallback in `resolve_...alt_beat_alias_phase_note`: unknown urgency trend now emits `PP2|UNKNOWN|UNK` instead of reusing prior trend alias defaults.
 - Maintains runtime decoupling and keeps known trends (`UP/FLAT/DOWN`) unchanged (`HC2|PP2|SN2` + `U/F/D`).
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-05 04:27 KST — Pressure-tag operator helper slice (`TSDPMFXVWCRITSPMBCBNXH`)
+- Added compact design/operator helper row `SPIKE=surge now|HOLD=hold lane|EASE=cool lane|SAFE=fallback hold` to markdown output for one-scan pressure-tag action copy.
+- Hardened regression contracts: presence assertion, strict `...MBCBNXLEG -> ...MBCBNXH -> ...MBCBNH` adjacency chain, and row-count parity against `TSDPMFXVWCRITSPMB`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
