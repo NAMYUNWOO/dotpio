@@ -14,7 +14,21 @@
 
 # TASKS
 
-Last updated: 2026-04-04 21:49 KST
+Last updated: 2026-04-04 22:03 KST
+
+## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP76)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC became fully checked after IP75 injected closure; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk UX/Design: add alt-posture alias decode legend for new PN2/HL2/EL2 pack.
+  - Mid-risk Systems/QA: lock sparse mixed-window parity so `TSDPMFXVWCRITSPMBCLEG` mirrors `TSDPMFXVWCRITSPMB` row counts.
+  - High-risk Combat/AI-content: introduce alternating beat-side alt pack (`HC2/PP2/SN2`) offline candidate.
+- Selected experiment: low-risk legend + mid-risk parity lock minimal vertical slice.
+- [x] UX/Design + Systems/QA Team: Implemented `TSDPMFXVWCRITSPMBCLEG:PN2 push|HL2 hold|EL2 ease` and added regression row-count parity assertion against `TSDPMFXVWCRITSPMB` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 22:00 KST -> [x] completed: 2026-04-04 22:03 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP76)
+- [ ] Systems/Ops + QA Team (injected): Add explicit sparse mixed-window fixture assertion that `TSDPMFXVWCRITSPMBC` row count mirrors `TSDPMFXVWCRITSPMB` and remains adjacent to `...MBCLEG`.
+- [ ] Design/World Team (injected): Add compact dual-pack helper row mapping `PN/HL/EL` + `PN2/HL2/EL2` to one-line readability guidance under <=72-char budget.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype offline beat-side alternate alias candidate (`HC2/PP2/SN2`) with runtime coupling disabled.
 
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP75)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
@@ -27,9 +41,9 @@ Last updated: 2026-04-04 21:49 KST
 - [x] Combat/VFX + Design/World + Systems/QA Team: Compacted posture-beat bridge decode legend to `SURGE/HOLD/COOL+SHATTER/PULSE/GLIDE=>push|hold|ease+crack|poke|nudge`, updated markdown row + regression contracts, and flipped `TSDPMFXVWCRITSPMBLEN` from `B109|...|WARN` to `B68|...|PASS` under DOS width limit. *(lifecycle: [ ] -> [~] started: 2026-04-04 21:41 KST -> [x] completed: 2026-04-04 21:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP75)
-- [ ] Systems/Ops + QA Team (injected): Add fixture-level assertion that `TSDPMFXVWCRITSPMBLEN` status stays `PASS` and mirrors row counts with `TSDPMFXVWCRITSPMB` across sparse mixed-window fixtures.
-- [ ] Design/World Team (injected): Add compact decode helper row mapping `PN|HL|EL` and `HC|PP|SN` to plain-language verbs under <=72-char budget.
-- [ ] Combat/VFX + AI-content Team (injected): Prototype offline alternate compact alias pack for posture-beat bridge (`PN2/HL2/EL2`) with runtime coupling disabled.
+- [x] Systems/Ops + QA Team (injected): Add fixture-level assertion that `TSDPMFXVWCRITSPMBLEN` status stays `PASS` and mirrors row counts with `TSDPMFXVWCRITSPMB` across sparse mixed-window fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-04 21:50 KST -> [x] completed: 2026-04-04 21:57 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [x] Design/World Team (injected): Add compact decode helper row mapping `PN|HL|EL` and `HC|PP|SN` to plain-language verbs under <=72-char budget. *(lifecycle: [ ] -> [~] started: 2026-04-04 21:57 KST -> [x] completed: 2026-04-04 21:57 KST; verification bundle same as above.)*
+- [x] Combat/VFX + AI-content Team (injected): Prototype offline alternate compact alias pack for posture-beat bridge (`PN2/HL2/EL2`) with runtime coupling disabled. *(lifecycle: [ ] -> [~] started: 2026-04-04 21:57 KST -> [x] completed: 2026-04-04 21:57 KST; verification bundle same as above.)*
 
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP74)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP73 closure; mandatory Game Director cycle executed.

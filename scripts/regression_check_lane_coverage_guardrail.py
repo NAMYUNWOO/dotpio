@@ -3547,6 +3547,21 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include posture-beat bridge microcopy alias decode row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge compact decode helper (design/world): "
+        "**TSDPMFXVWCRITSPMBD:PN push|HL hold|EL ease|HC crack|PP poke|SN nudge**"
+        in md_text
+    ), f"{name}: markdown output must include compact posture-beat decode helper row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat alt alias pack (combat/vfx+ai-content, offline): "
+        "**TSDPMFXVWCRITSPMBC:"
+        in md_text
+    ), f"{name}: markdown output must include offline alternate posture-beat alias pack row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat alt alias pack decode (design/world): "
+        "**TSDPMFXVWCRITSPMBCLEG:PN2 push|HL2 hold|EL2 ease**"
+        in md_text
+    ), f"{name}: markdown output must include offline alternate posture alias decode row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy decode dos-width eval (design/world): "
         "**TSDPMFXVWCRITSPMBLEN:B68|C19|LIM72|PREF:COMPACT|PASS**"
         in md_text
@@ -4797,6 +4812,18 @@ def run_fixture_case(
     ), (
         f"{name}: `TSDPMFXVWCRITSPMBLEN` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_decode_eval_row_count}) must mirror "
         f"`TSDPMFXVWCRITSPMB` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count}) across summary + token sections"
+    )
+    assert (
+        md_text.count("**TSDPMFXVWCRITSPMBLEN:B68|C19|LIM72|PREF:COMPACT|PASS**")
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRITSPMBLEN` status must remain PASS for every `TSDPMFXVWCRITSPMB` row across summary + token sections"
+    )
+    assert (
+        md_text.count("**TSDPMFXVWCRITSPMBCLEG:PN2 push|HL2 hold|EL2 ease**")
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRITSPMBCLEG` row count must mirror `TSDPMFXVWCRITSPMB` across summary + token sections"
     )
     assert (
         fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_compact_summary_row_count

@@ -3935,3 +3935,17 @@
 ## 2026-04-04 20:53 KST — One-scan sequence cue
 - Added one-scan alias-priority helper row to reduce ambiguity between `RH` and `SH` sequence handling.
 - 2026-04-04 21:28 KST: Added/validated `PRLENCUEMB` offline candidate alias-pack (`R2/S2`) with deterministic markdown ordering + regression parity/order coverage; runtime coupling remains disabled.
+
+## 2026-04-04 21:57 KST — Cycle IP75 posture-beat decode/alias closure
+- Closed injected TASKS/POST_RC item set for posture-beat bridge: PASS lock + compact decode helper + offline alt alias pack ().
+- Evidence:  + ok: trendScoreBand dispatch-hint/momentum-band regression checks passed + .
+- Follow-up: run next Game Director injection cycle now that ACTION_ITEMS/TASKS/POST_RC are fully checked.
+
+## 2026-04-04 21:57 KST — Cycle IP75 posture-beat decode/alias closure
+- Closed injected TASKS/POST_RC item set for posture-beat bridge: PASS lock + compact decode helper + offline alt alias pack (PN2/HL2/EL2).
+- Evidence: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: run next Game Director injection cycle now that ACTION_ITEMS/TASKS/POST_RC are fully checked.
+
+## 2026-04-04 22:03 KST — Cycle IP76 alt-alias decode legend
+- Game Director cycle executed after full-checkpoint condition.
+- Shipped `TSDPMFXVWCRITSPMBCLEG:PN2 push|HL2 hold|EL2 ease` plus parity lock against `TSDPMFXVWCRITSPMB`.

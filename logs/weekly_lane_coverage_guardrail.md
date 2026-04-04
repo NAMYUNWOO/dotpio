@@ -204,6 +204,8 @@
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat microcopy (ai-content/systems, offline): **TSDPMFXVWCRITSBM:pressure poke**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy (ai-content/systems, offline): **TSDPMFXVWCRITSPMB:hold lane / pressure poke**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy alias: **TSDPMFXVWCRITSPMBA:HL/PP**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat alt alias pack (combat/vfx+ai-content, offline): **TSDPMFXVWCRITSPMBC:HL2/PP**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat alt alias pack decode (design/world): **TSDPMFXVWCRITSPMBCLEG:PN2 push|HL2 hold|EL2 ease**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence decode (design/world): **TSDPMFXVWC legend (L=LOW, M=MID, H=HIGH)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation decode (design/world): **TSDPMFXVWCR legend (HIGH=lock sweep, MID=brace check, LOW=burst triage)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation alias decode (design/world): **TSDPMFXVWCRA legend (LS=lock sweep, BC=brace check, BT=burst triage)**
@@ -223,6 +225,7 @@
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat microcopy decode (design/world): **TSDPMFXVWCRITSBM legend (GLIDE=steady nudge, PULSE=pressure poke, SHATTER=hard crack)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy decode (design/world): **TSDPMFXVWCRITSPMB legend (SURGE/HOLD/COOL+SHATTER/PULSE/GLIDE=>push|hold|ease+crack|poke|nudge)**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy alias decode (design/world): **TSDPMFXVWCRITSPMBA legend (PN|HL|EL / HC|PP|SN)**
+- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge compact decode helper (design/world): **TSDPMFXVWCRITSPMBD:PN push|HL hold|EL ease|HC crack|PP poke|SN nudge**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy decode dos-width eval (design/world): **TSDPMFXVWCRITSPMBLEN:B68|C19|LIM72|PREF:COMPACT|PASS**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat compact bridge-summary token (ai-content/design, offline): **TSDPMFXVWCRITSPMBS:HLPP**
 - trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat compact bridge-summary decode (design/world): **TSDPMFXVWCRITSPMBS legend (PNHC=push now/hard crack, HLPP=hold lane/pressure poke, ELSN=ease lane/steady nudge)**

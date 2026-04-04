@@ -1,3 +1,17 @@
+## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP76)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC became fully checked after IP75 closure; mandatory Game Director cycle executed.
+- Candidate ideas:
+  - Low-risk UX/Design: add alt-posture alias decode legend for PN2/HL2/EL2.
+  - Mid-risk Systems/QA: assert row parity for new alt alias legend in sparse mixed-window fixtures.
+  - High-risk Combat/AI-content: stage beat-side alternate alias family (HC2/PP2/SN2) for future readability tests.
+- Selected experiment: low-risk legend + parity lock vertical slice.
+- [x] UX/Design + Systems/QA Team (injected): Added `TSDPMFXVWCRITSPMBCLEG:PN2 push|HL2 hold|EL2 ease` row and regression parity contract requiring legend row count to mirror `TSDPMFXVWCRITSPMB` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 22:00 KST -> [x] completed: 2026-04-04 22:03 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP76)
+- [ ] Systems/Ops + QA Team (injected): Add explicit sparse mixed-window fixture assertion that `TSDPMFXVWCRITSPMBC` row count mirrors `TSDPMFXVWCRITSPMB` and remains adjacent to `...MBCLEG`.
+- [ ] Design/World Team (injected): Add compact dual-pack helper row mapping `PN/HL/EL` + `PN2/HL2/EL2` under <=72-char budget.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype offline beat-side alternate alias candidate (`HC2/PP2/SN2`) with runtime coupling disabled.
+
 ## 2026-04-04 Cycle IP74 Injected Follow-ups
 - [x] Systems/Ops + QA Team: Add sparse mixed-window fixture assertion that `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETA legend` row count mirrors `...PRLENCUEA` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-04 20:20 KST -> [x] completed: 2026-04-04 20:22 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 - [x] Design/World Team: Add compact <=72-char decode helper row tying `PRLENCUETA legend` to action sequence priority (`RH before SH`) via `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETAP:RH before SH:rise handoff first|settle handoff second`. *(lifecycle: [ ] -> [~] started: 2026-04-04 20:49 KST -> [x] completed: 2026-04-04 20:53 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
@@ -30,9 +44,9 @@
 - [x] Combat/VFX + Design/World + Systems/QA Team (injected): Compacted `TSDPMFXVWCRITSPMB legend` baseline string and updated `TSDPMFXVWCRITSPMBLEN` expectation to `B68|C19|LIM72|PREF:COMPACT|PASS` with full regression + guardrail regeneration evidence. *(lifecycle: [ ] -> [~] started: 2026-04-04 21:41 KST -> [x] completed: 2026-04-04 21:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP75)
-- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture contract that `TSDPMFXVWCRITSPMBLEN` row count mirrors `TSDPMFXVWCRITSPMB` and status remains PASS.
-- [ ] Design/World Team (injected): Add compact one-line decode helper for `PN|HL|EL` + `HC|PP|SN` phrase mapping under <=72-char budget.
-- [ ] Combat/VFX + AI-content Team (injected): Prototype offline alternate posture-beat alias pack (`PN2/HL2/EL2`) for future readability tests, runtime coupling disabled.
+- [x] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture contract that `TSDPMFXVWCRITSPMBLEN` row count mirrors `TSDPMFXVWCRITSPMB` and status remains PASS. *(lifecycle: [ ] -> [~] started: 2026-04-04 21:50 KST -> [x] completed: 2026-04-04 21:57 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+- [x] Design/World Team (injected): Add compact one-line decode helper for `PN|HL|EL` + `HC|PP|SN` phrase mapping under <=72-char budget. *(lifecycle: [ ] -> [~] started: 2026-04-04 21:57 KST -> [x] completed: 2026-04-04 21:57 KST; verification bundle same as above.)*
+- [x] Combat/VFX + AI-content Team (injected): Prototype offline alternate posture-beat alias pack (`PN2/HL2/EL2`) for future readability tests, runtime coupling disabled. *(lifecycle: [ ] -> [~] started: 2026-04-04 21:57 KST -> [x] completed: 2026-04-04 21:57 KST; verification bundle same as above.)*
 
 ## Autonomous Cycle 2026-04-04 (Game Director Review — Cycle IP72)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP71 closure; mandatory Game Director cycle executed.

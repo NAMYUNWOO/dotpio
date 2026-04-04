@@ -5668,3 +5668,25 @@ Compact decision memory for AI context efficiency.
 - Selected/implemented low-risk cross-lane vertical slice: compacted posture-beat bridge decode legend (`TSDPMFXVWCRITSPMB`) and flipped DOS-width eval token `TSDPMFXVWCRITSPMBLEN` from WARN to PASS (`B68|C19|LIM72|PREF:COMPACT|PASS`).
 - Verification PASS: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration.
 - Injected next cycle tasks: systems/qa sparse fixture PASS parity, design/world compact helper row, combat/vfx+ai-content offline alias-pack prototype.
+
+## 2026-04-04 21:57 KST — IP75 follow-up closure
+- Completed remaining injected TASKS/POST_RC triad:
+  - Systems/QA PASS lock: regression now explicitly asserts  row count mirrors .
+  - Design/World helper row shipped: .
+  - Combat/VFX + AI-content offline alt alias pack shipped:  (runtime decoupled).
+- Verification bundle passed (py_compile + regression script + guardrail regeneration).
+
+## 2026-04-04 21:57 KST — IP75 follow-up closure
+- Completed remaining injected TASKS/POST_RC triad:
+  - Systems/QA PASS lock: regression now explicitly asserts `TSDPMFXVWCRITSPMBLEN:B68|C19|LIM72|PREF:COMPACT|PASS` row count mirrors `TSDPMFXVWCRITSPMB`.
+  - Design/World helper row shipped: `TSDPMFXVWCRITSPMBD:PN push|HL hold|EL ease|HC crack|PP poke|SN nudge`.
+  - Combat/VFX + AI-content offline alt alias pack shipped: `TSDPMFXVWCRITSPMBC:<PN2|HL2|EL2>/PP` (runtime decoupled).
+- Verification bundle passed (py_compile + regression script + guardrail regeneration).
+
+## 2026-04-04 22:03 KST — IP76 Game Director cycle
+- Triggered mandatory Game Director review after ACTION_ITEMS/TASKS/POST_RC all checked.
+- Implemented minimal vertical slice: new alt-posture decode legend row `TSDPMFXVWCRITSPMBCLEG` and regression parity assertion to mirror `TSDPMFXVWCRITSPMB` row counts.
+- Injected next triad into TASKS/POST_RC:
+  - Systems/QA sparse fixture adjacency+parity for `...SPMBC` + `...SPMBCLEG`
+  - Design/World dual-pack helper (`PN/HL/EL` + `PN2/HL2/EL2`)
+  - Combat/VFX+AI-content offline beat-side alt alias pack (`HC2/PP2/SN2`)
