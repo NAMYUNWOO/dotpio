@@ -5561,3 +5561,6 @@ Compact decision memory for AI context efficiency.
 ## 2026-04-04 09:52 KST — NVH INIT regression hardening
 - Shipped regression domain assertion for `TSDCAD24TRIGAPNVH` requiring `|INIT:<H|R|L|S>(<state>)` payload.
 - Locked deterministic INIT alias/state mapping for fixture stability while preserving existing ordering chain `NVIXSALEN -> NVH -> NVX`.
+- 2026-04-04 10:26 KST — Cycle IP66 injected follow-up completed: added deterministic decode callout row `TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper)` in guardrail markdown output and regression contracts.
+- Order contract update: legend chain now anchors `NVIXSA legend -> NVH legend -> NVALEN` in both summary/token sections.
+- Remaining injected backlog focus: AI-content/Combat offline variant map for NVH helper phrasing keyed by INIT transitions.

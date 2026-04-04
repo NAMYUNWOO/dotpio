@@ -3631,3 +3631,4 @@
 
 ## 2026-04-04 09:52 KST
 - Combat-adjacent helper output (`TSDCAD24TRIGAPNVH`) now has stricter regression domain guarantees for INIT alias/state coherence.
+- [2026-04-04 10:26 KST] Cycle IP66 follow-up: shipped NVH/INIT decode-legend slice status update. Decision: keep copy compact as `TSDCAD24TRIGAPNVH legend (INIT=state shorthand feeding action helper)` to stay under DOS-width budget and preserve deterministic legend ordering after NVIXSA legend. Follow-up: leave AI-content offline NVH phrasing-variant map item open.
