@@ -4062,3 +4062,6 @@
 ## 2026-04-06 05:54 KST
 - Coordinated review: no lane-specific content change this cycle; consumed updated parity contract for `...NFXQBACKSTAPLAN` and kept downstream assumptions unchanged.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 06:26 KST
+- Design readability update: shipped compact fallback alias candidate row (`ABF|CCF|SHF`) + explicit legend row to keep shelter-tone fallback planner interpretable in dense guardrail markdown.

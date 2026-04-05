@@ -647,3 +647,6 @@
 
 ## 2026-04-05 19:56 KST — Cycle IP90 NFXQH helper slice
 - Added/validated NFXQH compact action helper integration (`TSDPMFXVWCRITSPMBCBNXDMAPNFXQH`) with adjacency/parity coverage in regression fixtures.
+
+## 2026-04-06 06:26 KST
+- VFX lane update: added report-only shelter-tone fallback alias candidate token (`ABF/CCF/SHF`) and legend support for deterministic operator handoff; runtime VFX behavior unchanged.

@@ -3913,3 +3913,6 @@
 ## 2026-04-06 05:54 KST
 - Coordinated review: no lane-specific content change this cycle; consumed updated parity contract for `...NFXQBACKSTAPLAN` and kept downstream assumptions unchanged.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 06:26 KST
+- Added design/world-facing fallback legend row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEG:ABF=anchor brace fallback|CCF=crossfire cut fallback|SHF=shelter hold fallback` for one-scan readability.

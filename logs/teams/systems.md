@@ -5544,3 +5544,7 @@
 ## 2026-04-06 05:54 KST
 - Added sparse mixed-window parity watcher for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN` row counts to mirror `TSDPMFXVWCRITSPMB` across summary/token fixture matrix.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 06:26 KST
+- Systems wiring: added report payload key for shelter-tone fallback alias candidate (`...BackcompatShelterToneFallbackAliasCandidate`) driving `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` with deterministic map (`anchor lane->ABF`, `crossfire lane->CCF`, `shelter hold->SHF`).
+- Extended sparse mixed-window parity token tuple to include `...NFXQBACKSTAF` so row-count parity remains mirrored with `TSDPMFXVWCRITSPMB`.

@@ -6023,3 +6023,6 @@
 ## 2026-04-06 05:54 KST
 - Hardened regression fixture matrix with explicit `...NFXQBACKSTAPLAN` row-count parity enforcement and first-diverged mismatch surfacing via existing tuple diagnostics.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 06:26 KST
+- QA extended regression contracts for new fallback alias candidate: presence/domain assertions for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` (`ABF|CCF|SHF`) plus parity-row count key integration.

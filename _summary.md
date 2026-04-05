@@ -188,3 +188,9 @@
 - Durable decision: keep shelter-tone compact alias path (`...BACKSTA`) paired with explicit width-status row so report-only compact copy remains one-scan auditable.
 - Injected follow-up tasks queued in TASKS/POST_RC: (1) sparse mixed-window parity assertion for `...BACKSTALEN`, (2) compact shelter-tone action-helper prototype under <=72 chars.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 06:26 KST — IP98 injected fallback alias pack closure
+- Completed injected Design/World + Combat/VFX backlog slice by adding report-only compact shelter-tone fallback alias token `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` with domain `ABF|CCF|SHF` and matching legend row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEG`.
+- Regression hardening included explicit markdown presence checks, fixture-domain assertion for `...BACKSTAF` payload, row-count key wiring, and sparse mixed-window parity tuple expansion to include the new token.
+- Durable decision: every new shelter-tone candidate row must land with legend + domain assertion + parity tuple coverage in one commit to avoid tracker/contract drift.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

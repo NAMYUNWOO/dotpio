@@ -4160,3 +4160,6 @@
 ## 2026-04-06 05:54 KST
 - Coordinated review: no lane-specific content change this cycle; consumed updated parity contract for `...NFXQBACKSTAPLAN` and kept downstream assumptions unchanged.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 06:26 KST
+- UX validation pass: compact shelter-tone fallback alias candidate remains report-only and width-safe by retaining existing DOS-width rails while adding explicit fallback legend visibility.

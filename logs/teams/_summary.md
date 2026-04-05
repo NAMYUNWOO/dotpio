@@ -6025,3 +6025,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: any newly added shelter-tone helper/planner row must be wired into fixture parity tuple in the same commit as regression row-count key wiring.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Next priority item: Design/World + Combat/VFX report-only compact shelter-tone fallback alias pack (`ABF/CCF/SHF`).
+
+## 2026-04-06 06:26 KST
+- Closed injected Design/World + Combat/VFX task by shipping report-only compact shelter-tone fallback alias candidate row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` with legend `...BACKSTAFLEG` (`ABF/CCF/SHF`).
+- Durable decision: when adding shelter-tone compact/fallback rows, ship row + legend + fixture domain/parity assertions in the same commit to prevent drift between readability docs and sparse mixed-window contracts.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
