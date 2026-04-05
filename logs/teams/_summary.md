@@ -1,3 +1,7 @@
+## 2026-04-05 12:51 KST
+- Closed IP84 injected trio: `NFXP` report-only intensity pack candidate, `NFXALEG` compact decode legend, and systems/qa parity+adjacency extension (`...NFXA -> ...NFXP -> ...NFXALEG`).
+- Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
+
 ## 2026-04-05 09:50 KST
 - Completed injected Design/World backlog item: added quick-map decode DOS-width eval row `TSDPMFXVWCRITSPMBCBNXDMAPLEGLEN:B80|C64|LIM72|PREF:COMPACT|PASS`.
 - Durable decision: keep quick-map decode compact preference explicitly locked and adjacent to decode row for deterministic dense-rail scans.

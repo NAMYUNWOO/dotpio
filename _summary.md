@@ -1,3 +1,13 @@
+## 2026-04-05 12:58 KST — Game Director Cycle IP85 selected slice
+- Generated 3 ideas and selected low-risk experiment: add intensity-pack decode helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG`.
+- Implemented minimal vertical slice with regression adjacency/parity hardening; canonical quick-map intensity chain is now `...NFX -> ...NFXA -> ...NFXP -> ...NFXPLEG -> ...NFXALEG -> ...NLEN -> ...NLEVAL`.
+- Injected follow-up backlog tasks: `NFXQ` report-only variant, `NFXPLEN` DOS-width eval, and sparse-fixture parity assertion for `NFXPLEG`.
+
+## 2026-04-05 12:51 KST — IP84 injected intensity-pack closure
+- Completed remaining POST_RC injected items: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXP` report-only intensity-pack candidate + `TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG` compact decode legend, and extended parity/order assertions accordingly.
+- Durable decision: quick-map narrative intensity cluster canonical order is now `...NFX -> ...NFXA -> ...NFXP -> ...NFXALEG -> ...NLEN -> ...NLEVAL` with all rows parity-locked to `TSDPMFXVWCRITSPMB` across summary/token fixtures.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-05 12:29 KST — IP84 compact intensity alias helper slice
 - Game Director review cycle executed after ACTION_ITEMS/TASKS/POST_RC_BACKLOG reached full completion; generated 3 ideas and selected low-risk Design/World + Systems/QA experiment.
 - Shipped minimal vertical slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXA:SR=H|HD=E|EZ=S|SF=S` and expanded deterministic chain/parity contracts to include `...NFXA` between `...NFX` and `...NLEN`.

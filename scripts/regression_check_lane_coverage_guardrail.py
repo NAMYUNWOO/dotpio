@@ -3707,6 +3707,20 @@ def run_fixture_case(
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXA:SR=H|HD=E|EZ=S|SF=S**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity compact decode helper row"
+    assert re.search(
+        r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack candidate \(combat/vfx\+ai-content, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXP:(HR|EG|SF)\*\*",
+        md_text,
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack candidate row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack decode helper (design/world): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:HR=hard route|EG=edge route|SF=soft route**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack decode helper row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity compact decode legend (design/world): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG:H=HARD|E=EDGE|S=SOFT**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity compact decode legend row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias decode preference lock (design/world): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNLEN:B67|C67|LIM72|PREF:COMPACT|PASS**"
@@ -3742,13 +3756,16 @@ def run_fixture_case(
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNLEG:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFX:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXA:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXP:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNLEN:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL:[^*]+\*\*",
         md_text,
     )
     assert len(mbcbn_adjacency_matches) >= 1, (
         f"{name}: summary/token sections must keep strict adjacency chain "
-        "TSDPMFXVWCRITSPMBCBN -> ...MBCBNY -> ...MBCBNLEG -> ...MBCBNT -> ...MBCBNX -> ...MBCBNXLEG -> ...MBCBNXA -> ...MBCBNXALEG -> ...MBCBNXB -> ...MBCBNXBLEG -> ...MBCBNXBN -> ...MBCBNXH -> ...MBCBNXD -> ...MBCBNXDLEG -> ...MBCBNXDLEVAL -> ...MBCBNH -> ...MBCBNHLEN -> ...MBCBNXDMAP -> ...MBCBNXDMAPLEG -> ...MBCBNXDMAPLEGLEN -> ...MBCBNXDMAPN -> ...MBCBNXDMAPNLEG -> ...MBCBNXDMAPNFX -> ...MBCBNXDMAPNFXA -> ...MBCBNXDMAPNLEN -> ...MBCBNXDMAPNLEVAL"
+        "TSDPMFXVWCRITSPMBCBN -> ...MBCBNY -> ...MBCBNLEG -> ...MBCBNT -> ...MBCBNX -> ...MBCBNXLEG -> ...MBCBNXA -> ...MBCBNXALEG -> ...MBCBNXB -> ...MBCBNXBLEG -> ...MBCBNXBN -> ...MBCBNXH -> ...MBCBNXD -> ...MBCBNXDLEG -> ...MBCBNXDLEVAL -> ...MBCBNH -> ...MBCBNHLEN -> ...MBCBNXDMAP -> ...MBCBNXDMAPLEG -> ...MBCBNXDMAPLEGLEN -> ...MBCBNXDMAPN -> ...MBCBNXDMAPNLEG -> ...MBCBNXDMAPNFX -> ...MBCBNXDMAPNFXA -> ...MBCBNXDMAPNFXP -> ...MBCBNXDMAPNFXPLEG -> ...MBCBNXDMAPNFXALEG -> ...MBCBNXDMAPNLEN -> ...MBCBNXDMAPNLEVAL"
     )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy decode dos-width eval (design/world): "
@@ -4793,6 +4810,9 @@ def run_fixture_case(
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_decode_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNLEG:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_decode_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFX:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_decode_compact_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXA:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXP:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_decode_legend_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_decode_preference_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNLEN:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_decode_eval_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_compact_action_helper_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXD:")
@@ -6141,7 +6161,7 @@ def main() -> int:
                 tsdpmfxvwcritspmb_count,
             ) in mixed_window_tsdpmfx_alt_beat_helper_parity
         ), (
-            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBH + TSDPMFXVWCRITSPMBCBNLEG + TSDPMFXVWCRITSPMBCBNT + TSDPMFXVWCRITSPMBCBNX + TSDPMFXVWCRITSPMBCBNXLEG + TSDPMFXVWCRITSPMBCBNXDMAP + TSDPMFXVWCRITSPMBCBNXDMAPLEG + TSDPMFXVWCRITSPMBCBNXDMAPN + TSDPMFXVWCRITSPMBCBNXDMAPNLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFX + TSDPMFXVWCRITSPMBCBNXDMAPNFXA + TSDPMFXVWCRITSPMBCBNXDMAPNLEN + TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL row-count parity with TSDPMFXVWCRITSPMB across summary + token sections"
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBH + TSDPMFXVWCRITSPMBCBNLEG + TSDPMFXVWCRITSPMBCBNT + TSDPMFXVWCRITSPMBCBNX + TSDPMFXVWCRITSPMBCBNXLEG + TSDPMFXVWCRITSPMBCBNXDMAP + TSDPMFXVWCRITSPMBCBNXDMAPLEG + TSDPMFXVWCRITSPMBCBNXDMAPN + TSDPMFXVWCRITSPMBCBNXDMAPNLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFX + TSDPMFXVWCRITSPMBCBNXDMAPNFXA + TSDPMFXVWCRITSPMBCBNXDMAPNFXP + TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG + TSDPMFXVWCRITSPMBCBNXDMAPNLEN + TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL row-count parity with TSDPMFXVWCRITSPMB across summary + token sections"
         )
         assert all(
             tsdpmfxvwcritspmbcbnxdleg_count

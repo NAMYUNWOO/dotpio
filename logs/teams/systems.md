@@ -1,3 +1,11 @@
+## 2026-04-05 12:58 KST
+- Added parity assertions for `TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG` and inserted it into strict adjacency + mixed-window fixture matrix chain.
+- Verification bundle PASS.
+
+## 2026-04-05 12:51 KST
+- Expanded strict adjacency chain to `...NFX -> ...NFXA -> ...NFXP -> ...NFXALEG -> ...NLEN -> ...NLEVAL` in regression contracts.
+- Added mixed-window parity assertions for `NFXP` + `NFXALEG` row counts against `TSDPMFXVWCRITSPMB`.
+
 ## 2026-04-05 09:50 KST
 - Added regression + markdown contract for quick-map decode DOS-width evaluation row `TSDPMFXVWCRITSPMBCBNXDMAPLEGLEN:B80|C64|LIM72|PREF:COMPACT|PASS`.
 - Extended strict adjacency chain to include `...MBCBNXDMAPLEGLEN` between decode and narrative alias rows.

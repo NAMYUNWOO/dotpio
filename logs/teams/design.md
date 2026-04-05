@@ -1,3 +1,10 @@
+## 2026-04-05 12:58 KST
+- Selected IP85 design/world experiment completed: compact decode helper wording finalized (`hard route|edge route|soft route`) with deterministic placement.
+
+## 2026-04-05 12:51 KST
+- Extended quick-map narrative intensity decode cluster with explicit compact legend (`NFXALEG`) to preserve readability under compact token budgets.
+- Verification bundle PASS.
+
 ## 2026-04-05 09:50 KST
 - Added design-side DOS-width evaluation helper row for quick-map decode legend: `TSDPMFXVWCRITSPMBCBNXDMAPLEGLEN:B80|C64|LIM72|PREF:COMPACT|PASS`.
 - Kept preference deterministic (`PREF:COMPACT`) for stable readability triage.

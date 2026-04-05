@@ -1,3 +1,10 @@
+## 2026-04-05 12:58 KST
+- Added regression presence contract for `NFXPLEG` and updated adjacency regex chain to include it between `NFXP` and `NFXALEG`.
+
+## 2026-04-05 12:51 KST
+- Added regression presence checks for `TSDPMFXVWCRITSPMBCBNXDMAPNFXP` (regex domain `HR|EG|SF`) and `...NFXALEG` exact decode string.
+- Validation pass confirmed py_compile + regression + guardrail generation all green.
+
 ## 2026-04-05 09:50 KST
 - QA lock added for quick-map decode DOS-width eval row presence (`...MBCBNXDMAPLEGLEN`) and row-count parity with `TSDPMFXVWCRITSPMB`.
 - Adjacency contract now requires `...MBCBNXDMAPLEG -> ...MBCBNXDMAPLEGLEN -> ...MBCBNXDMAPN` ordering in summary/token sections.

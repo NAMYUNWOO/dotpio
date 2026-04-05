@@ -1,3 +1,10 @@
+## 2026-04-05 12:58 KST
+- Logged injected follow-up candidate `TSDPMFXVWCRITSPMBCBNXDMAPNFXQ` for alternate report-only intensity-pack readability A/B (pending).
+
+## 2026-04-05 12:51 KST
+- Added report-only quick-map narrative intensity pack candidate row `TSDPMFXVWCRITSPMBCBNXDMAPNFXP` (A/B readability track) with deterministic alias mapping `SR->HR`, `HD->EG`, `EZ/SF->SF`.
+- Verification: py_compile + regression + guardrail artifact regeneration PASS.
+
 ## 2026-04-05 09:50 KST
 - Combat lane sync: no combat-tuning/runtime changes; decode-eval guard row added to keep quick-map cue interpretation stable under dense digest scans.
 

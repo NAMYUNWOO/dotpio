@@ -1,3 +1,10 @@
+## 2026-04-05 12:58 KST
+- Logged follow-up injection for UX DOS-width eval token `TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN` (pending).
+
+## 2026-04-05 12:51 KST
+- Preserved compact readability lane by locking `NFXALEG` placement before `NLEN/NLEVAL`; no UI/runtime coupling changes.
+- Verification bundle PASS.
+
 ## 2026-04-05 09:50 KST
 - UX readability lock: quick-map decode cluster now includes explicit DOS-width eval row (`...MBCBNXDMAPLEGLEN`) to keep compact preference visible in one-scan reviews.
 

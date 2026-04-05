@@ -1,3 +1,10 @@
+## 2026-04-05 12:58 KST
+- Shipped decode helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:HR=hard route|EG=edge route|SF=soft route` for intensity-pack readability.
+
+## 2026-04-05 12:51 KST
+- Added compact intensity alias decode legend row `TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG:H=HARD|E=EDGE|S=SOFT` directly after `...NFXP` for one-scan decode clarity.
+- Durable decision: keep compact legend adjacent to compact/intensity rows before LEN/EVAL.
+
 ## 2026-04-05 09:50 KST
 - World/readability follow-up shipped: quick-map decode legend now carries explicit DOS-width eval lock row `TSDPMFXVWCRITSPMBCBNXDMAPLEGLEN` (`B80|C64|LIM72|PREF:COMPACT|PASS`).
 - Decision: keep compact wording preference locked for one-scan dense rail review.

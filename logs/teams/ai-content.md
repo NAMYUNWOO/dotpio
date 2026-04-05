@@ -1,3 +1,10 @@
+## 2026-04-05 12:58 KST
+- Logged injected follow-up candidate `NFXQ` variant for offline narrative-intensity readability experiments (pending).
+
+## 2026-04-05 12:51 KST
+- Wired payload field `...QuickMapNarrativeAliasIntensityPackCandidate` so markdown/report outputs carry `NFXP` candidate token for offline readability experiments.
+- Kept runtime coupling disabled (report/guardrail only). Verification bundle PASS.
+
 ## 2026-04-05 09:50 KST
 - AI-content lane sync: no narrative-policy mutation this slice; quick-map decode evaluation lock (`...MBCBNXDMAPLEGLEN`) keeps report-only copy interpretation deterministic for downstream coaching.
 
