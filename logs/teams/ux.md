@@ -4092,3 +4092,11 @@
 ## 2026-04-05 18:20 KST — Status
 - UX rows unchanged this slice; existing `...NFXQLEVAL` row retained.
 - Guardrail coverage now enforces fixture parity for the eval row.
+
+## 2026-04-05 18:52 KST
+- Completed injected compact variant pass for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQ*`: decode copy now lane-centric and variant domain now `A|X|S` (offline/report-only).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-05 18:57 KST
+- Cycle IP91 shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK` back-compat bridge (`A|X|S -> AR|XR|SR`) and locked helper-chain adjacency in regression.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

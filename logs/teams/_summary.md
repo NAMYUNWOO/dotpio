@@ -5901,3 +5901,10 @@ Compact decision memory for AI context efficiency.
 - Scope: fixture result export key, parity tuple population across all four fixture scenarios, parity label vector, and mismatch diagnostic message now include `...NFXQLEVAL`.
 - Outcome: regression + guardrail runs pass; TASKS Systems/Ops + QA injected item completed.
 - Next priority item: Design/World compact copy pass for `...NFXQLEG` (`route` vs `lane`) + `...NFXQLEVAL` baseline/compact token pair.
+
+## 2026-04-05 18:57 KST
+- Completed injected compact cleanup: `...NFXQLEG` now lane-centric and `...NFXQLEVAL` now explicitly records baseline vs compact pair (`AR/XR/SR` vs `A/X/S`).
+- Game Director Cycle IP91 executed after backlog-clear gate: shipped minimal vertical slice `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK:<AR|XR|SR>` with deterministic `A|X|S -> AR|XR|SR` back-compat mapping and strict adjacency lock (`...NFXQLEVAL -> ...NFXQBACK -> ...NFXPLEG`).
+- Durable decision: compact alias migrations must ship a report-only back-compat bridge row in the same cycle to avoid operator context loss during A/B transitions.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS actionable open=0, TASKS actionable open=2, POST_RC_BACKLOG actionable open=0 (next: route-tone variant pack + `...NFXQBACK` eval/parity fixture lock).
