@@ -3898,7 +3898,7 @@ def run_fixture_case(
         md_text,
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone compact alias row"
     assert re.search(
-        r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback alias candidate \(design/world\+combat/vfx, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:(ABF|CCF|SHF)\*\*",
+        r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback alias candidate \(design/world\+combat/vfx, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:(AGF|CRF|SHD)\*\*",
         md_text,
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback alias candidate row"
     assert (
@@ -3908,7 +3908,7 @@ def run_fixture_case(
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone compact alias legend row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback alias legend (design/world+combat/vfx): "
-        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEG:ABF=anchor brace fallback|CCF=crossfire cut fallback|SHF=shelter hold fallback**"
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEG:AGF=anchor brace fallback|CRF=crossfire cut fallback|SHD=shelter hold fallback**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback alias legend row"
     assert (
@@ -4136,18 +4136,18 @@ def run_fixture_case(
         )
     ]
     assert nfxqbackstaf_payload_values, (
-        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF row to carry an ABF|CCF|SHF payload across summary/token sections"
+        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF row to carry an AGF|CRF|SHD payload across summary/token sections"
     )
     invalid_nfxqbackstaf_payload = next(
         (
             (index, payload)
             for index, payload in enumerate(nfxqbackstaf_payload_values)
-            if payload not in {"ABF", "CCF", "SHF"}
+            if payload not in {"AGF", "CRF", "SHD"}
         ),
         None,
     )
     assert invalid_nfxqbackstaf_payload is None, (
-        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF payload to stay within ABF|CCF|SHF across summary/token sections; "
+        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF payload to stay within AGF|CRF|SHD across summary/token sections; "
         f"first diverged occurrence={invalid_nfxqbackstaf_payload[0]} payload={invalid_nfxqbackstaf_payload[1]}"
     )
     assert (
@@ -6273,7 +6273,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbacklegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_decode_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstalenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:B45|C30|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaplanRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN:AN=anchor brace fallback|CF=crossfire cut fallback|SH=shelter hold fallback**"),
-        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstafRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:ABF**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:CCF**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:SHF**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstafRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:AGF**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:CRF**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:SHD**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaflenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:B59|C46|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstahRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH:AN=anchor brace|CF=crossfire cut|SH=shelter hold**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstahlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAHLEN:B54|C48|LIM72|PASS**"),

@@ -5551,3 +5551,6 @@
 
 ## 2026-04-06 06:34 KST
 - Added sparse mixed-window parity coverage for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN` and wired row-count regression key to keep fallback-eval rows mirrored with `TSDPMFXVWCRITSPMB`.
+
+## 2026-04-06 06:56 KST
+- Systems remap shipped: `...NFXQBACKSTAF` fallback alias domain moved to `AGF|CRF|SHD` and regression fixture-domain guard updated to match, keeping runtime coupling disabled.

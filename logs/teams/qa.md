@@ -6029,3 +6029,6 @@
 
 ## 2026-04-06 06:34 KST
 - QA regression expanded to require fallback eval row presence and parity (`...NFXQBACKSTAFLEN`) alongside `...NFXQBACKSTAF` payload-domain checks.
+
+## 2026-04-06 06:56 KST
+- QA domain assertions now enforce `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` payload within `AGF|CRF|SHD` across summary/token fixtures.

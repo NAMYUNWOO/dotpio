@@ -4166,3 +4166,6 @@
 
 ## 2026-04-06 06:34 KST
 - Added explicit DOS-width status row for fallback alias candidate (`...BACKSTAFLEN`) so compact fallback readability remains one-scan auditable.
+
+## 2026-04-06 06:56 KST
+- UX contract preserved after alias swap: fallback shorthand remains compact and deterministic, with existing DOS-width PASS row `...BACKSTAFLEN` unchanged.

@@ -4068,3 +4068,6 @@
 
 ## 2026-04-06 06:34 KST
 - UX/design readability lock shipped for fallback alias candidate via eval row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:B59|C46|LIM72|PASS`.
+
+## 2026-04-06 06:56 KST
+- Design readability refresh: switched shelter-tone fallback shorthand from `ABF/CCF/SHF` to `AGF/CRF/SHD` while preserving deterministic legend wording.

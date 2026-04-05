@@ -3923,3 +3923,6 @@
 
 ## 2026-04-06 06:34 KST
 - Combat/VFX planning handoff queued: evaluate alternate fallback alias micro-pack (`AGF/CRF/SHD`) as report-only candidate in next cycle.
+
+## 2026-04-06 06:56 KST
+- Combat readability handoff now uses fallback alias pack `AGF/CRF/SHD` in report token `...NFXQBACKSTAF`; gameplay runtime unchanged.

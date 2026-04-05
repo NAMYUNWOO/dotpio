@@ -3919,3 +3919,6 @@
 
 ## 2026-04-06 06:34 KST
 - Logged IP99 injection target for design/world + combat/vfx: alternate report-only fallback alias candidate pack (`AGF/CRF/SHD`) with deterministic legend row.
+
+## 2026-04-06 06:56 KST
+- Updated design/world legend deterministically to `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEG:AGF=anchor brace fallback|CRF=crossfire cut fallback|SHD=shelter hold fallback` for one-scan fallback semantics.

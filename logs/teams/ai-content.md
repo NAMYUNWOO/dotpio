@@ -4007,3 +4007,6 @@
 
 ## 2026-04-06 06:34 KST
 - AI-content planning note: queued offline alternate fallback alias pack experiment (`AGF/CRF/SHD`) for future readability bakeoff; runtime coupling remains disabled.
+
+## 2026-04-06 06:56 KST
+- AI-content fallback vocabulary pack advanced to report-only `AGF/CRF/SHD`; no runtime generation coupling introduced.

@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-04-06 06:34 KST
+Last updated: 2026-04-06 06:56 KST
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP99)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after closing `ABF/CCF/SHF` compact fallback alias candidate task.
@@ -12,7 +12,7 @@ Last updated: 2026-04-06 06:34 KST
 - [x] UX/Design + Systems/Ops + QA Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:B59|C46|LIM72|PASS`, extended regression presence/parity checks, and included `...NFXQBACKSTAFLEN` in sparse mixed-window parity matrix while keeping runtime coupling disabled. *(lifecycle: [ ] -> [~] started: 2026-04-06 06:28 KST -> [x] completed: 2026-04-06 06:34 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP99)
-- [ ] Design/World + Combat/VFX Team (injected): Prototype alternate report-only shelter-tone fallback alias pack (`AGF/CRF/SHD`) with deterministic legend row, runtime coupling disabled.
+- [x] Design/World + Combat/VFX Team (injected): Prototype alternate report-only shelter-tone fallback alias pack (`AGF/CRF/SHD`) with deterministic legend row, runtime coupling disabled. *(lifecycle: [ ] -> [~] started: 2026-04-06 06:48 KST -> [x] completed: 2026-04-06 06:56 KST; implementation: remapped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` shelter-tone fallback alias payload to `AGF|CRF|SHD` and updated deterministic legend row `...BACKSTAFLEG` to `AGF=anchor brace fallback|CRF=crossfire cut fallback|SHD=shelter hold fallback`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [ ] Systems/Ops + QA Team (injected): Add fixture-domain assertion and mixed-window parity key wiring for `...NFXQBACKSTAF` + `...NFXQBACKSTAFLEN` first-diverged diagnostics.
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP98)

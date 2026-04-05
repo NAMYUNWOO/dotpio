@@ -6036,3 +6036,9 @@ Compact decision memory for AI context efficiency.
 - Shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:B59|C46|LIM72|PASS` with regression presence+parity locks and mixed-window tuple inclusion.
 - Injected next tasks: (1) alternate fallback alias micro-pack `AGF/CRF/SHD` (design/world+combat/vfx), (2) first-diverged diagnostics lock for `...BACKSTAF`/`...BACKSTAFLEN` (systems/qa).
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 06:56 KST
+- Closed Game Director IP99 injected design/world+combat/vfx slice by promoting alternate report-only shelter-tone fallback alias pack to `AGF/CRF/SHD`.
+- Durable decision: keep fallback planner wording stable (`anchor brace|crossfire cut|shelter hold`) while rotating compact alias tokens only; this preserves `...BACKSTAFLEN:B59|C46|LIM72|PASS` width budget and avoids runtime coupling risk.
+- Regression/domain contracts synced: fixture payload checks for `...NFXQBACKSTAF` now constrain to `AGF|CRF|SHD` and markdown legend expectation updated accordingly.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
