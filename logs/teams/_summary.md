@@ -6066,3 +6066,7 @@ Compact decision memory for AI context efficiency.
 - Durable decision: when new fallback helper tokens are added, keep assertion copy in sync with parity labels so first-diverged diagnostics are one-scan actionable.
 - Injected next backlog items: (1) systems/qa strict adjacency lock for `...STAPLAN -> ...STAF -> ...STAFLEN -> ...STAH`, (2) design/world+combat/vfx report-only fallback operator legend cue row.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 08:53 KST
+- Completed IP101 injected Systems/Ops+QA task: fixture-level PASS-domain assertion for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUELEN` plus explicit mixed-window parity tuple coverage for fallback cue rows.
+- Queue now: 1 unchecked in TASKS/POST_RC (`Combat/VFX + AI-content` `ABR/XCF/SHH` report-only micro-pack).

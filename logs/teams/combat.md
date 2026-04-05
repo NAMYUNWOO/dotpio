@@ -3927,3 +3927,4 @@
 ## 2026-04-06 06:56 KST
 - Combat readability handoff now uses fallback alias pack `AGF/CRF/SHD` in report token `...NFXQBACKSTAF`; gameplay runtime unchanged.
 - 2026-04-06 08:33 KST — Cycle IP101: Landed report-only fallback operator cue legend row for shelter-tone handoff (`AGF/CRF/SHD`) to improve combat-callout triage readability.
+- 2026-04-06 08:53 KST — Combat fallback cue chain parity now explicitly enforces `...BACKSTAF -> ...BACKSTAFCUE -> ...BACKSTAFCUELEN` row-count mirroring with baseline token density.

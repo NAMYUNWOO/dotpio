@@ -4170,3 +4170,4 @@
 ## 2026-04-06 06:56 KST
 - UX contract preserved after alias swap: fallback shorthand remains compact and deterministic, with existing DOS-width PASS row `...BACKSTAFLEN` unchanged.
 - 2026-04-06 08:33 KST — Cycle IP101: Added explicit fallback operator cue eval row (`...NFXQBACKSTAFCUELEN`) so cue readability status is visible in one scan.
+- 2026-04-06 08:53 KST — UX eval telemetry guard added for fallback operator cue row: fixture-level non-PASS surfacing for `...BACKSTAFCUELEN` now blocks regressions before copy changes ship.

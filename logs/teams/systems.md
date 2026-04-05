@@ -5570,3 +5570,4 @@
 - Injected next systems/qa follow-up: add strict adjacency lock for `...STAPLAN -> ...STAF -> ...STAFLEN -> ...STAH`.
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
 - 2026-04-06 08:33 KST — Cycle IP101: Added fallback operator cue rows `...NFXQBACKSTAFCUE` + `...NFXQBACKSTAFCUELEN` to guardrail output and extended regression/matrix token coverage; follow-up: fixture-level PASS/parity assertion for `...NFXQBACKSTAFCUELEN`.
+- 2026-04-06 08:53 KST — Added fixture-level PASS-domain capture/assertion for `...NFXQBACKSTAFCUELEN` and expanded sparse mixed-window parity tuple wiring to include fallback cue/eval rows (`...BACKSTAF`, `...BACKSTAFCUE`, `...BACKSTAFCUELEN`, `...BACKSTAFLEN`).

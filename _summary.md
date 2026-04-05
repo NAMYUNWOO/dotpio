@@ -208,3 +208,8 @@
 - Implemented `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:B59|C46|LIM72|PASS`, expanded regression markdown presence checks, and wired sparse mixed-window parity tuple + row-count key for `...NFXQBACKSTAFLEN`.
 - Injected new backlog tasks: alternate fallback alias micro-pack (`AGF/CRF/SHD`) and first-diverged diagnostics/domain guard for `...NFXQBACKSTAF` + `...NFXQBACKSTAFLEN`.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 08:53 KST — IP101 injected PASS/parity lock for BACKSTAFCUELEN
+- Closed highest-priority Systems/Ops + QA injected item by wiring fixture-level non-PASS capture for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUELEN` and asserting sparse mixed-window PASS-domain invariants.
+- Durable decision: fallback operator cue chain parity must explicitly include `...NFXQBACKSTAF`, `...NFXQBACKSTAFCUE`, `...NFXQBACKSTAFCUELEN`, and `...NFXQBACKSTAFLEN` in the same tuple assertion; omission is treated as contract drift.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
