@@ -1,3 +1,6 @@
+## 2026-04-05 09:22 KST
+- Combat lane sync: pressure-tag quick-map decode path gained explicit sparse-fixture parity guard; combat telemetry semantics unchanged.
+
 ## 2026-04-05 03:41 KST
 - Combat/vfx telemetry readability improved with new phase-note pressure tag (`TSDPMFXVWCRITSPMBCBNX`) derived from urgency trend.
 - No runtime combat behavior changed; this is digest-only cue scaffolding for faster triage.

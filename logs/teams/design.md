@@ -1,3 +1,6 @@
+## 2026-04-05 09:22 KST
+- Design readability guardrail tightened: `...MBCBNXDMAPLEG` decode line now has dedicated parity assertion against `TSDPMFXVWCRITSPMB`, preserving deterministic dense-rail scan integrity.
+
 ## 2026-04-05 03:41 KST
 - Added compact decode rail for new phase-note pressure tag token: `TSDPMFXVWCRITSPMBCBNXLEG:UP=SPIKE|FLAT=HOLD|DOWN=EASE|UNK=SAFE`.
 - Decision: keep decode row adjacent to routing helper chain to preserve one-pass readability under dense token clusters.

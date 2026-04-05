@@ -1,3 +1,8 @@
+## 2026-04-05 09:22 KST
+- Closed injected Systems/Ops+QA parity follow-up: added explicit assertions that `TSDPMFXVWCRITSPMBCBNXDMAP` and `TSDPMFXVWCRITSPMBCBNXDMAPLEG` row counts mirror `TSDPMFXVWCRITSPMB` across summary/token sections.
+- Durable decision: keep quick-map decode rows covered by dedicated parity assertions (not only tuple-matrix aggregate checks) for clearer failure diagnosis.
+- Verification: py_compile + regression guardrail + guardrail artifact regen PASS.
+
 ## 2026-04-05 03:41 KST
 - Systems/QA hardening landed for beat-side phase-note cluster: regression now enforces row presence/parity for `TSDPMFXVWCRITSPMBCBNX` + `...MBCBNXLEG`.
 - Strict adjacency chain extended to `...MBCBN -> ...MBCBNLEG -> ...MBCBNT -> ...MBCBNX -> ...MBCBNXLEG -> ...MBCBNH -> ...MBCBNHLEN`.

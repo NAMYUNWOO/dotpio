@@ -3204,6 +3204,6 @@ Last updated: 2026-03-31 20:40 KST
 
 ## Game Director Cycle IP82 (2026-04-05 08:51 KST)
 - [x] UX/Design + Systems/QA (selected): Ship quick-map decode legend `TSDPMFXVWCRITSPMBCBNXDMAPLEG:SG=surge now|HL=hold lane|EA=ease lane|SF=safe hold` and wire adjacency/parity checks. *(lifecycle: [ ] -> [~] started: 2026-04-05 08:49 KST -> [x] completed: 2026-04-05 08:51 KST)*
-- [ ] Systems/Ops + QA (injected): Add explicit sparse mixed-window fixture assertion that `...MBCBNXDMAPLEG` row count mirrors `TSDPMFXVWCRITSPMB` across summary/token sections.
+- [x] Systems/Ops + QA (injected): Add explicit sparse mixed-window fixture assertion that `...MBCBNXDMAPLEG` row count mirrors `TSDPMFXVWCRITSPMB` across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-05 09:20 KST -> [x] completed: 2026-04-05 09:22 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 - [ ] Design/World (injected): Add compact DOS-width eval row for quick-map decode legend (`TSDPMFXVWCRITSPMBCBNXDMAPLEGLEN`) with preference lock.
 - [ ] Combat/VFX + AI-content (injected): Prototype report-only quick-map narrative alias candidate sourced from `SG/HL/EA/SF` state outputs.

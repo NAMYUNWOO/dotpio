@@ -1,3 +1,9 @@
+## 2026-04-05 09:22 KST
+- Completed injected Systems/Ops+QA task: explicit sparse-fixture parity assertions now enforce `TSDPMFXVWCRITSPMBCBNXDMAP` and `...MBCBNXDMAPLEG` row-count mirroring against `TSDPMFXVWCRITSPMB` in summary/token sections.
+- Durable decision: quick-map rows require dedicated assertion messages for auditability and quicker triage, even when tuple-matrix parity checks exist.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2 (next: Design/World compact DOS-width eval helper row for quick-map decode legend).
+
 ## 2026-04-05 03:41 KST
 - Game Director Cycle IP79: coverage check over latest 10 completions stayed all-zero by lane (`systems/world/ai-content/combat/design/vfx/ux/qa`), with all 24h cadence buckets missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
 - Forced-lane decision: enforced underrepresented-lane slice with cross-lane payload (`combat/vfx + design/world + systems/qa`) to restore cadence triad pressure.

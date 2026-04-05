@@ -1,3 +1,6 @@
+## 2026-04-05 09:22 KST
+- UX scan stability improvement: quick-map decode (`SG/HL/EA/SF`) now parity-locked in sparse fixtures, reducing risk of one-sided summary/token rendering drift.
+
 # UX Team Log
 
 ## 2026-04-03 14:31 KST

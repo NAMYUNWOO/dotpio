@@ -1,3 +1,7 @@
+## 2026-04-05 09:22 KST
+- QA added explicit row-count assertions for `TSDPMFXVWCRITSPMBCBNXDMAP` and `...MBCBNXDMAPLEG` parity against `TSDPMFXVWCRITSPMB` across summary/token sections.
+- Regression bundle remains green after assertion expansion.
+
 ## 2026-04-05 03:41 KST
 - QA contract expanded for phase-note cluster: added presence/parity checks for `TSDPMFXVWCRITSPMBCBNX` and `...MBCBNXLEG`.
 - Adjacency regex updated to include the new rows between `...MBCBNT` and `...MBCBNH`; regression suite remains green.
