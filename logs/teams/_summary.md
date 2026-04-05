@@ -5960,3 +5960,6 @@ Compact decision memory for AI context efficiency.
 - 2026-04-05 23:03 KST — Game Director Cycle IP93 executed after queue clear: generated 3 ideas, selected low-risk UX/game-feel experiment, and shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEN:B32|C26|LIM72|PASS`.
 - Durable adjacency/parity update: `...NFXQBACKVFX -> ...NFXQBACKVFXLEN -> ...NFXQBACKVFXA -> ...NFXQBACKVFXALEG -> ...NFXQBACKVFXALEN -> ...NFXPLEG` is now locked in summary/token + mixed-window matrices.
 - Backlog injected for next cycle: (1) explicit GI/PU/SH payload-domain assertion in mixed-window fixtures, (2) alternate abbreviation pack candidate `GL/PU/SD` (report-only).
+- 2026-04-05 23:31 KST — Closed Systems/QA injected follow-up by adding explicit mixed-window GI|PU|SH domain assertions for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA`.
+- Durable contract: fixture payload capture now includes `tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaPayloads`; regression fails on first diverged fixture/occurrence/payload when VFXA exits GI|PU|SH.
+- Queue status update: ACTION_ITEMS open=0, TASKS open=1, POST_RC_BACKLOG open=1; next highest-priority item is alternate offline abbreviation pack candidate `GL/PU/SD` (AI-content + Design).

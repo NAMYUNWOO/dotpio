@@ -5977,3 +5977,8 @@
 - Verification bundle passed (py_compile + regression + guardrail regen).
 - 2026-04-05 22:56 KST — Regression expanded for GI/PU/SH domain + markdown adjacency/parity around `...NFXQBACKVFX` cluster; full guardrail suite passed.
 - 2026-04-05 23:03 KST — Regression now asserts presence/parity/adjacency for `...NFXQBACKVFXALEN` across summary/token and mixed-window fixtures.
+
+## 2026-04-05 23:31 KST
+- QA added fixture-level domain assertions for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA` to ensure payloads remain constrained to `GI|PU|SH` in sparse mixed-window summary/token fixtures.
+- Failure diagnostics now report first diverged fixture + occurrence + payload for VFXA domain drift.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

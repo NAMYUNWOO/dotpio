@@ -5488,3 +5488,8 @@
 - Follow-up: keep `GI/PU/SH` offline prototype queued.
 - 2026-04-05 22:56 KST — Guardrail payload schema extended with deterministic `...BackcompatVfxCueCompact` derived from backcompat VFX cue values.
 - 2026-04-05 23:03 KST — Mixed-window parity tuple/label chain extended with `...NFXQBACKVFXALEN` for deterministic row-count parity.
+
+## 2026-04-05 23:31 KST
+- Added fixture-level payload capture key `tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaPayloads` in `run_fixture_case` so compact backcompat cue rows can be domain-asserted across summary/token sections.
+- Extended sparse mixed-window matrix checks with explicit GI|PU|SH domain contract for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA` (balanced_tie/ready_mix/prior_window_trend_up/prior_window_trend_down).
+- Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
