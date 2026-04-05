@@ -3689,12 +3689,12 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map decode DOS-width evaluation row"
     assert re.search(
-        r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias candidate \(combat/vfx\+ai-content, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPN:(SN|HL|EL|SH)\*\*",
+        r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias candidate \(combat/vfx\+ai-content, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPN:(SR|HD|EZ|SF)\*\*",
         md_text,
     ), f"{name}: markdown output must include beat-side quick-map narrative alias candidate row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias candidate decode (design/world): "
-        "**TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SN=surge|HL=hold|EL=ease|SH=safe**"
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SR=surge|HD=hold|EZ=ease|SF=safe**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias candidate decode row"
     assert (

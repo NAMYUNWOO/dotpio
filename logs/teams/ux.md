@@ -4043,3 +4043,4 @@
 - UX/readability gain: compact quick-map narrative alias token (`SN|HL|EL|SH`) added for denser one-scan triage in summary/token sections.
 - 2026-04-05 10:21 KST — IP83: narrative decode chain now exposes explicit PASS status via `...XDMAPNLEVAL`, reducing ambiguity in dense quick-map rails.
 - 2026-04-05 11:21 KST — UX readability maintained after copy compaction; regenerated weekly guardrail docs with compact narrative decode helper preserved in quick-map chain.
+- 2026-04-05 11:51 KST — IP83 injected Combat/VFX+AI-content alias-pack slice completed: quick-map narrative alias candidate `TSDPMFXVWCRITSPMBCBNXDMAPN` now uses report-only `SR/HD/EZ/SF` (from `SG/HL/EA/SF`), with decode rail synced to `SR=surge|HD=hold|EZ=ease|SF=safe`; runtime coupling remains disabled and regression/guardrail bundle PASS.

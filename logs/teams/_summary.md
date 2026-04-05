@@ -5831,3 +5831,6 @@ Compact decision memory for AI context efficiency.
 - 2026-04-05 11:21 KST — Completed Design/World injected item: compact quick-map narrative decode helper now emitted as `TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SN=surge|HL=hold|EL=ease|SH=safe` with regression expectation updated.
 - Durable decision: keep `...MBCBNXDMAPNLEG` compact phrasing (`surge|hold|ease|safe`) while preserving strict adjacency/parity chain `...MBCBNXDMAPN -> ...MBCBNXDMAPNLEG -> ...MBCBNXDMAPNLEVAL`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=5, POST_RC_BACKLOG unchecked=4 (next: `...MBCBNXDMAPNFX`).
+- 2026-04-05 11:51 KST — Completed IP83 injected Combat/VFX+AI-content item by remapping quick-map narrative alias pack to `SR/HD/EZ/SF` and syncing decode row `TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SR=surge|HD=hold|EZ=ease|SF=safe`.
+- Durable decision: keep quick-map narrative alias experiments strictly report-only; enforce candidate/decode/eval chain parity with `TSDPMFXVWCRITSPMB` while iterating alias readability.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=4, POST_RC_BACKLOG unchecked=3 (next: `...MBCBNXDMAPNFX`).

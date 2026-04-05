@@ -3797,3 +3797,4 @@
 - Added world/design readability surface for quick-map narrative alias decode `...XDMAPNLEG (SN|HL|EL|SH)` to keep SG/HL/EA/SF mapping one-scan reversible.
 - 2026-04-05 10:21 KST — IP83 review: quick-map narrative decode chain gained DOS-width eval telemetry (`...XDMAPNLEVAL`) to keep operator readability auditable before gameplay-facing promotion.
 - 2026-04-05 11:21 KST — World/readability helper compacted for operator docs: `TSDPMFXVWCRITSPMBCBNXDMAPNLEG` shortened to `SN=surge|HL=hold|EL=ease|SH=safe` under <=72-char target semantics.
+- 2026-04-05 11:51 KST — IP83 injected Combat/VFX+AI-content alias-pack slice completed: quick-map narrative alias candidate `TSDPMFXVWCRITSPMBCBNXDMAPN` now uses report-only `SR/HD/EZ/SF` (from `SG/HL/EA/SF`), with decode rail synced to `SR=surge|HD=hold|EZ=ease|SF=safe`; runtime coupling remains disabled and regression/guardrail bundle PASS.

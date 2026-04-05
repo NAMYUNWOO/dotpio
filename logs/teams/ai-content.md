@@ -3885,3 +3885,4 @@
 - Shipped report-only narrative alias prototype derived from SG/HL/EA/SF (`SN|HL|EL|SH`) for beat-side quick-map storytelling hints; runtime unaffected.
 - 2026-04-05 10:21 KST — IP83 coordination: kept quick-map narrative alias path report-only; queued follow-up A/B alias pack (`SR/HD/EZ/SF`) in backlog without runtime coupling.
 - 2026-04-05 11:21 KST — AI-content lane confirmed no runtime coupling changes; report-only narrative alias decode copy compacted to `surge|hold|ease|safe` for quick-map helper clarity.
+- 2026-04-05 11:51 KST — IP83 injected Combat/VFX+AI-content alias-pack slice completed: quick-map narrative alias candidate `TSDPMFXVWCRITSPMBCBNXDMAPN` now uses report-only `SR/HD/EZ/SF` (from `SG/HL/EA/SF`), with decode rail synced to `SR=surge|HD=hold|EZ=ease|SF=safe`; runtime coupling remains disabled and regression/guardrail bundle PASS.

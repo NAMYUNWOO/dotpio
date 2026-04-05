@@ -121,3 +121,7 @@
 - Added `TSDPMFXVWCRITSPMBCBNXDMAPLEG` decode row (`SG/HL/EA/SF` -> `surge/hold/ease/safe`) and extended regression contracts for presence, adjacency, and mixed-window parity.
 - Durable decision: maintain quick-map + decode rows as a coupled pair in the `MBCBN*` family to preserve scanability while keeping runtime coupling unchanged.
 - Injected next tasks into TASKS/POST_RC: explicit sparse parity assertion, DOS-width eval row, report-only narrative alias prototype.
+## 2026-04-05 11:51 KST — IP83 injected quick-map narrative alias pack remap
+- Completed TASKS/POST_RC Combat/VFX+AI-content injected item by remapping `TSDPMFXVWCRITSPMBCBNXDMAPN` from `SN/HL/EL/SH` to report-only `SR/HD/EZ/SF` and syncing decode row `TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SR=surge|HD=hold|EZ=ease|SF=safe`.
+- Durable decision: keep narrative alias pack experimentation offline/report-only while preserving strict parity + adjacency + DOS-width eval chain (`...XDMAPN -> ...XDMAPNLEG -> ...XDMAPNLEVAL`).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

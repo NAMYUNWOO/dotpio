@@ -5874,3 +5874,4 @@
 - Regression suite extended to assert quick-map narrative alias row/decode presence, ordering, and row-count parity (`...XDMAPN`, `...XDMAPNLEG`).
 - 2026-04-05 10:21 KST — Verified IP83 with py_compile + regression + guardrail regeneration; added assertions for `...XDMAPNLEVAL` presence, adjacency, and row-count parity.
 - 2026-04-05 11:21 KST — QA re-verified compact narrative decode helper with full regression bundle (py_compile + regression_check + guardrail regeneration); all checks passed.
+- 2026-04-05 11:51 KST — IP83 injected Combat/VFX+AI-content alias-pack slice completed: quick-map narrative alias candidate `TSDPMFXVWCRITSPMBCBNXDMAPN` now uses report-only `SR/HD/EZ/SF` (from `SG/HL/EA/SF`), with decode rail synced to `SR=surge|HD=hold|EZ=ease|SF=safe`; runtime coupling remains disabled and regression/guardrail bundle PASS.

@@ -891,11 +891,11 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_tr
     compact_action_alias: str,
 ) -> str:
     return {
-        "SG": "SN",
-        "HL": "HL",
-        "EA": "EL",
-        "SF": "SH",
-    }.get(str(compact_action_alias or "SF").strip().upper(), "SH")
+        "SG": "SR",
+        "HL": "HD",
+        "EA": "EZ",
+        "SF": "SF",
+    }.get(str(compact_action_alias or "SF").strip().upper(), "SF")
 
 
 def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_alt_order_candidate(
@@ -4193,7 +4193,7 @@ def to_markdown(
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side pressure-tag compact helper quick map decode (design/world): **TSDPMFXVWCRITSPMBCBNXDMAPLEG:SG=surge now|HL=hold lane|EA=ease lane|SF=safe hold**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side pressure-tag quick-map decode dos-width eval (design/world): **TSDPMFXVWCRITSPMBCBNXDMAPLEGLEN:B80|C64|LIM72|PREF:COMPACT|PASS**",
             f"- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias candidate (combat/vfx+ai-content, report-only): **TSDPMFXVWCRITSPMBCBNXDMAPN:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagQuickMapNarrativeAliasCandidate', 'SH')}**",
-            "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias candidate decode (design/world): **TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SN=surge|HL=hold|EL=ease|SH=safe**",
+            "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias candidate decode (design/world): **TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SR=surge|HD=hold|EZ=ease|SF=safe**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias decode dos-width eval (ux/design): **TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL:B53|C53|LIM72|PASS**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence decode (design/world): **TSDPMFXVWC legend (L=LOW, M=MID, H=HIGH)**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation decode (design/world): **TSDPMFXVWCR legend (HIGH=lock sweep, MID=brace check, LOW=burst triage)**",

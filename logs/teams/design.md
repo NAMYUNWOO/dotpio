@@ -3928,3 +3928,4 @@
 - Design/world decode contract expanded with `TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SN=surge now|HL=hold lane|EL=ease lane|SH=safe hold`.
 - 2026-04-05 10:21 KST — Added compact narrative decode width eval row `TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL:B53|C53|LIM72|PASS` for one-scan docs QA.
 - 2026-04-05 11:21 KST — Design helper pass completed: compact quick-map narrative decode row shipped as `TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SN=surge|HL=hold|EL=ease|SH=safe`.
+- 2026-04-05 11:51 KST — IP83 injected Combat/VFX+AI-content alias-pack slice completed: quick-map narrative alias candidate `TSDPMFXVWCRITSPMBCBNXDMAPN` now uses report-only `SR/HD/EZ/SF` (from `SG/HL/EA/SF`), with decode rail synced to `SR=surge|HD=hold|EZ=ease|SF=safe`; runtime coupling remains disabled and regression/guardrail bundle PASS.
