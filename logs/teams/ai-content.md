@@ -3989,3 +3989,6 @@
 
 ## 2026-04-06 03:55 KST — Awaiting urgency variant prototype
 - No token copy mutation in this slice; retained pending Combat/VFX + AI-content urgency-variant prototype backlog item.
+
+## 2026-04-06 04:54 KST
+- AI-content shelter-tone urgency variant candidate (`...NFXQBACKST`) and rollback policy row (`...NFXQBACKSTRB`) confirmed as shipped; backlog checkbox reconciled.

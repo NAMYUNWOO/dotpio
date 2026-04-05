@@ -4050,3 +4050,6 @@
 - Design/readability contract hardened for shelter-tone helper docs: eval/helper/rollback rows are now required in strict order (`...BACKSTALEN -> ...BACKSTAH -> ...BACKSTAHLEN -> ...BACKSTRB`).
 - Decision: keep shelter-tone readability rails as one contiguous block so operators can scan compact alias + action helper evidence without context hopping.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 04:54 KST
+- Design/world shelter helper copy (`AN/CF/SH`) remained stable under revalidation; checklist state reconciled to match shipped output.

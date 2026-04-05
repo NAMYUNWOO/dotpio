@@ -5531,3 +5531,7 @@
 - Closed injected Design/World + Systems/Ops task by adding an explicit shelter-tone adjacency contract in regression guardrails.
 - Added dedicated regex/assertion requiring ordered chain `...NFXQBACKSTALEN -> ...NFXQBACKSTAH -> ...NFXQBACKSTAHLEN -> ...NFXQBACKSTRB` across summary/token sections.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 04:54 KST
+- Reconciled stale checklist state for shelter-tone rows already guarded in systems/qa contracts (`...NFXQBACKST`, `...NFXQBACKSTAH`, `...NFXQBACKSTRB`).
+- Re-verified full guardrail pipeline after checklist reconciliation; no payload/order/parity regressions.

@@ -4148,3 +4148,6 @@
 
 ## 2026-04-06 03:55 KST — DOS-width row integrity
 - Confirmed parity now covers shelter-tone DOS-width eval rows (`...STALEN`, `...STAHLEN`) across mixed-window fixtures.
+
+## 2026-04-06 04:54 KST
+- UX/readability shelter rows (`...BACKSTALEN`, `...BACKSTAHLEN`) remain PASS and now align with TASKS/POST_RC completion state.

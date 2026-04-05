@@ -3905,3 +3905,6 @@
 
 ## 2026-04-06 03:55 KST — Shelter-tone helper stability pass
 - No combat tuning changes; parity lock ensures report-only shelter-tone helper rows remain stable for future combat wording experiments.
+
+## 2026-04-06 04:54 KST
+- Combat/vfx report-only shelter-tone urgency variant + action-helper rails were already active; this cycle closed stale queue entries and revalidated outputs.
