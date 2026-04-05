@@ -9,7 +9,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP97)
 - [x] Systems/Ops + QA Team (injected): Added sparse mixed-window parity assertions so `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN` + `...NFXQBACKSTAH` + `...NFXQBACKSTAHLEN` + `...NFXQBACKSTRB` row counts mirror `TSDPMFXVWCRITSPMB` across summary/token fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-06 03:49 KST -> [x] completed: 2026-04-06 03:55 KST)*
-- [ ] Design/World + Systems/Ops Team (injected): Add strict adjacency contract locking `...NFXQBACKSTALEN -> ...NFXQBACKSTAH -> ...NFXQBACKSTAHLEN -> ...NFXQBACKSTRB`.
+- [x] Design/World + Systems/Ops Team (injected): Add strict adjacency contract locking `...NFXQBACKSTALEN -> ...NFXQBACKSTAH -> ...NFXQBACKSTAHLEN -> ...NFXQBACKSTRB`. *(lifecycle: [ ] -> [~] started: 2026-04-06 04:18 KST -> [x] completed: 2026-04-06 04:23 KST; implementation: added explicit shelter-tone adjacency regex/assertion in regression guardrail to lock ordered chain across summary/token sections; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [ ] Combat/VFX + AI-content Team (injected): Prototype shelter-tone urgency variant candidate token (report-only) with explicit rollback note.
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP96)

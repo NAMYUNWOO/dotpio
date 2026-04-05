@@ -5526,3 +5526,8 @@
 ## 2026-04-06 03:55 KST — NFXQBACKSTA parity bundle
 - Added mixed-window parity tuple wiring for `...NFXQBACKSTALEN/STAH/STAHLEN/STRB` so all shelter-tone helper rows stay anchored to `TSDPMFXVWCRITSPMB`.
 - Follow-up: keep adjacency lock item pending (`...STALEN -> ...STAH -> ...STAHLEN -> ...STRB`).
+
+## 2026-04-06 04:23 KST
+- Closed injected Design/World + Systems/Ops task by adding an explicit shelter-tone adjacency contract in regression guardrails.
+- Added dedicated regex/assertion requiring ordered chain `...NFXQBACKSTALEN -> ...NFXQBACKSTAH -> ...NFXQBACKSTAHLEN -> ...NFXQBACKSTRB` across summary/token sections.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

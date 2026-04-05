@@ -3922,6 +3922,17 @@ def run_fixture_case(
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTRB:KEEP if SR clarity holds + LIM72 pass|ROLLBACK if ambiguity or width fail**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack shelter-tone rollback criteria row"
+    shelter_tone_adjacency_matches = re.findall(
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAHLEN:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTRB:[^*]+\*\*",
+        md_text,
+    )
+    assert len(shelter_tone_adjacency_matches) >= 1, (
+        f"{name}: summary/token sections must keep strict adjacency contract "
+        "...NFXQBACKSTALEN -> ...NFXQBACKSTAH -> ...NFXQBACKSTAHLEN -> ...NFXQBACKSTRB"
+    )
     nfxqback_payload_values = [
         payload.strip()
         for payload in re.findall(

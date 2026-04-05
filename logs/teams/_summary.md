@@ -6002,3 +6002,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: any new shelter-tone helper/eval/rollback row must be included in `mixed_window_tsdpmfx_alt_beat_helper_parity` tuple + labels list immediately to avoid sparse fixture drift.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration command.
 - Next priority item: strict adjacency contract lock `...STALEN -> ...STAH -> ...STAHLEN -> ...STRB`.
+
+## 2026-04-06 04:23 KST
+- Completed highest-priority unchecked TASKS/POST item: strict adjacency contract for shelter-tone helper rows (`...NFXQBACKSTALEN -> ...NFXQBACKSTAH -> ...NFXQBACKSTAHLEN -> ...NFXQBACKSTRB`) is now explicitly enforced in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Durable decision: when compact readability rows are semantically coupled (eval/helper/eval/rollback), guardrails must enforce local contiguous ordering with a dedicated assertion (not only global parity chains).
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

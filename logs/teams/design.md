@@ -4045,3 +4045,8 @@
 
 ## 2026-04-06 03:55 KST — Compact helper parity support
 - No copy changes this cycle; parity lock preserves deterministic placement for upcoming adjacency/copy polish task.
+
+## 2026-04-06 04:23 KST
+- Design/readability contract hardened for shelter-tone helper docs: eval/helper/rollback rows are now required in strict order (`...BACKSTALEN -> ...BACKSTAH -> ...BACKSTAHLEN -> ...BACKSTRB`).
+- Decision: keep shelter-tone readability rails as one contiguous block so operators can scan compact alias + action helper evidence without context hopping.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
