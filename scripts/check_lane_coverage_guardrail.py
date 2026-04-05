@@ -913,8 +913,8 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_tr
     quick_map_narrative_alias: str,
 ) -> str:
     return {
-        "SR": "BR",
-        "HD": "ER",
+        "SR": "AR",
+        "HD": "XR",
         "EZ": "SR",
         "SF": "SR",
     }.get(str(quick_map_narrative_alias or "SF").strip().upper(), "SR")
@@ -4233,7 +4233,7 @@ def to_markdown(
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity compact decode helper (design/world): **TSDPMFXVWCRITSPMBCBNXDMAPNFXA:SR=H|HD=E|EZ=S|SF=S**",
             f"- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack candidate (combat/vfx+ai-content, report-only): **TSDPMFXVWCRITSPMBCBNXDMAPNFXP:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagQuickMapNarrativeAliasIntensityPackCandidate', 'SF')}**",
             f"- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack candidate variant (combat/vfx+ai-content, report-only): **TSDPMFXVWCRITSPMBCBNXDMAPNFXQ:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagQuickMapNarrativeAliasIntensityPackCandidateVariant', 'SR')}**",
-            "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack variant decode helper (design/world): **TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG:BR=burst lane|ER=edge lane|SR=safe lane**",
+            "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack variant decode helper (design/world): **TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG:AR=aggro route|XR=cross route|SR=safe route**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack decode helper (design/world): **TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:HR=hard route|EG=edge route|SF=soft route**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack decode helper dos-width eval (ux/design): **TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN:B41|C41|LIM72|PASS**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack operator action helper (combat/vfx+design/world): **TSDPMFXVWCRITSPMBCBNXDMAPNFXPO:HR=burst lane|EG=edge lane|SF=safe lane**",

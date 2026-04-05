@@ -3920,3 +3920,7 @@
 - 2026-04-05 15:21 KST — IP88 chain-helper slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXC` contract row (`NFXP>NFXPLEG>NFXPLEN>NFXPO>NFXPOA>NFXALEG`) and regression adjacency anchor `...NFXPOA -> ...NFXC -> ...NFXALEG`; verification bundle passed.
 
 - 2026-04-05 16:23 KST — Report-only variant rail decode now uses lane wording for `BR/ER/SR`, keeping A/B candidate copy aligned with design intent.
+## 2026-04-05 16:53 KST
+- Closed injected AR/XR/SR offline variant micro-pack slice by remapping `TSDPMFXVWCRITSPMBCBNXDMAPNFXQ` outputs to `AR|XR|SR` and syncing decode copy to `AR=aggro route|XR=cross route|SR=safe route`.
+- Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+

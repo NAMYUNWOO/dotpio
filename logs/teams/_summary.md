@@ -1,3 +1,9 @@
+## 2026-04-05 16:53 KST
+- Closed injected Combat/VFX + AI-content item: offline quick-map intensity-pack variant candidate now uses `AR/XR/SR` via `TSDPMFXVWCRITSPMBCBNXDMAPNFXQ`, with decode row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG:AR=aggro route|XR=cross route|SR=safe route`.
+- Durable decision: keep variant-candidate payload domain and decode-helper copy updated in the same commit (`resolver map + markdown row + regression domain regex`) so A/B token swaps cannot drift into false-green parity-only passes.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: AI Content/World mismatch explainer token for mixed-window tuple parity divergence).
+
 ## 2026-04-05 15:53 KST
 - Closed injected Systems/Ops+QA item: sparse mixed-window fixture tuple parity now explicitly includes `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` in all four fixture cases and mirrors `TSDPMFXVWCRITSPMB`.
 - Durable decision: whenever a new `...NFX*` decode/helper row is introduced, add both result-payload rowCount key wiring and matrix parity tuple coverage in the same cycle to avoid false-green regressions.
