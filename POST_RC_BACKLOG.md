@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP92)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP91 closure; mandatory Game Director cycle executed.
+- Candidate ideas:
+  - Low-risk UX/Design: add compact readability evaluator for `...NFXQBACKVFX` decode helper (`<=72` DOS budget guard).
+  - Mid-risk Systems/Ops + QA: anchor evaluator row order/parity after `...NFXQBACKVFX` across summary/token + sparse mixed-window fixtures.
+  - High-risk Combat/VFX + AI-content: trial alternate micro-abbreviation cue pack (`GI/PU/SH`) as offline-only fallback.
+- Selected experiment: low-risk evaluator + mid-risk parity/order lock minimal vertical slice.
+- [x] UX/Design + Systems/Ops + QA Team (injected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXLEN:B37|C31|LIM72|PASS`, enforced deterministic adjacency/parity (`...NFXQBACKLEVAL -> ...NFXQBACKVFX -> ...NFXQBACKVFXLEN -> ...NFXPLEG`), and mirrored row parity in sparse mixed-window fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-05 22:14 KST -> [x] completed: 2026-04-05 22:19 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP92)
+- [ ] Systems/Ops + QA Team (injected): Add fixture-level PASS-domain assertion for `...NFXQBACKVFXLEN` across sparse mixed-window summary/token matrices with mismatch labels.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype offline compact cue-abbreviation token (`GI/PU/SH`) mapped to `GLINT/PULSE/SHIELD` for future readability A/B (runtime coupling disabled).
+
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP91)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0; no lane exceeded 40%, but cadence buckets remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) and guardrail ops action forced `combat-or-vfx` next.
 - Candidate ideas:

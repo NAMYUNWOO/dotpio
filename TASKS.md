@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP92)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP91 closure; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk UX/Design: add DOS-width evaluator row for `...NFXQBACKVFX` decode helper readability drift.
+  - Mid-risk Systems/QA: enforce strict adjacency/parity so evaluator row stays anchored after `...NFXQBACKVFX` in summary/token sections.
+  - High-risk Combat/VFX + AI-content: prototype alternate cue abbreviation pack (`GI/PU/SH`) for future readability A/B.
+- Selected experiment: low-risk UX/Design + mid-risk Systems/QA evaluator-row minimal vertical slice.
+- [x] UX/Design + Systems/Ops + QA Team: Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXLEN:B37|C31|LIM72|PASS`, extended regression presence/parity contracts, and anchored strict adjacency order `...NFXQBACKLEVAL -> ...NFXQBACKVFX -> ...NFXQBACKVFXLEN -> ...NFXPLEG` across summary/token + mixed-window fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-05 22:14 KST -> [x] completed: 2026-04-05 22:19 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP92)
+- [ ] Systems/Ops + QA Team (injected): Add explicit fixture-domain assertion that `...NFXQBACKVFXLEN` remains `PASS` in every sparse mixed-window summary/token case with mismatch labels.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype offline compact cue-abbreviation candidate token (`GI/PU/SH`) mapped to `GLINT/PULSE/SHIELD` with runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP91)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0; no lane >40%, cadence recovery buckets still missing, and guardrail forced combat/vfx priority.
 - Candidate ideas generated:

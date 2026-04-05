@@ -5946,3 +5946,5 @@ Compact decision memory for AI context efficiency.
 - Queue status: ACTION_ITEMS actionable open=0, TASKS actionable open=0, POST_RC_BACKLOG actionable open=0 (next autonomous cycle should execute mandatory Game Director review loop).
 
 - 2026-04-05 22:12 KST (durable): `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFX` is now canonical backcompat-VFX decode helper and must remain directly after `...NFXQBACKLEVAL` in summary/token adjacency + mixed-window parity matrices.
+
+- 2026-04-05 22:19 KST (durable): `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXLEN` is now required PASS readability guard (`LIM72`) and must stay adjacent after `...NFXQBACKVFX` in all summary/token and mixed-window parity rails.
