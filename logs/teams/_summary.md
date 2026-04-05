@@ -5963,3 +5963,5 @@ Compact decision memory for AI context efficiency.
 - 2026-04-05 23:31 KST — Closed Systems/QA injected follow-up by adding explicit mixed-window GI|PU|SH domain assertions for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA`.
 - Durable contract: fixture payload capture now includes `tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaPayloads`; regression fails on first diverged fixture/occurrence/payload when VFXA exits GI|PU|SH.
 - Queue status update: ACTION_ITEMS open=0, TASKS open=1, POST_RC_BACKLOG open=1; next highest-priority item is alternate offline abbreviation pack candidate `GL/PU/SD` (AI-content + Design).
+- 2026-04-05 23:56 KST — Cycle IP93 follow-up completed: alternate offline abbreviation candidate `GL/PU/SD` shipped as report-only `...NFXQBACKVFXB` triplet with regression domain/parity coverage; decision: keep as A/B-ready telemetry-only surface (no runtime coupling).
+- 2026-04-06 00:03 KST — IP94 minimal slice: regression now captures `...NFXQBACKVFXBLEN` non-PASS rows and enforces sparse mixed-window PASS invariants for alternate compact cue eval; decision: keep `GL/PU/SD` branch telemetry-only until A/B/C readability bakeoff includes `GN/PS/SD`.

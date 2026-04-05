@@ -3890,3 +3890,4 @@
 - Pending injected task: offline `GI/PU/SH` cue-abbreviation prototype mapped to `GLINT/PULSE/SHIELD`.
 - 2026-04-05 22:56 KST — Added Combat/VFX readability token row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA:{GI|PU|SH}` for fast scan of backcompat cue posture.
 - 2026-04-05 23:03 KST — Cycle IP93 shipped compact-cue evaluator row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEN:B32|C26|LIM72|PASS` to preserve combat digest scanability.
+- 2026-04-05 23:56 KST — Logged alternate compact backcompat cue prototype (`GL/PU/SD`) as offline A/B candidate; no combat runtime hook introduced.

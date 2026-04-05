@@ -3886,3 +3886,4 @@
 - Guardrail/docs integrity maintained; no portal/progression surfaces touched.
 - 2026-04-05 22:56 KST — Digest readability narrative now supports compact GI/PU/SH cue vocabulary as an offline-only documentation/reporting layer.
 - 2026-04-05 23:03 KST — No runtime world-state coupling introduced; GI/PU/SH compact-cue changes remain digest/report only.
+- 2026-04-05 23:56 KST — Captured world-facing language alignment for alternate compact cue glossary (`GLINT/PULSE/SHIELD`) via `...VFXBLEG`.

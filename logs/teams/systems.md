@@ -5493,3 +5493,5 @@
 - Added fixture-level payload capture key `tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaPayloads` in `run_fixture_case` so compact backcompat cue rows can be domain-asserted across summary/token sections.
 - Extended sparse mixed-window matrix checks with explicit GI|PU|SH domain contract for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA` (balanced_tie/ready_mix/prior_window_trend_up/prior_window_trend_down).
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
+- 2026-04-05 23:56 KST — Extended guardrail report rail with alternate compact VFX cue row/legend/eval (`...VFXB/...VFXBLEG/...VFXBLEN`) while preserving deterministic backcompat chain ordering.
+- 2026-04-06 00:03 KST — Added sparse mixed-window `...NFXQBACKVFXBLEN` PASS mismatch surfacing key for alternate compact cue rail.

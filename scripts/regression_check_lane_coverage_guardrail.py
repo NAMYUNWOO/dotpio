@@ -305,6 +305,20 @@ def run_fixture_case(
         f"{name}: quick-map intensity-pack backcompat VFX cue compact token must map deterministic aliases "
         "(GLINT->GI, PULSE->PU, SHIELD->SH)"
     )
+    expected_backcompat_vfx_cue_compact_alt_candidate = {
+        "GLINT": "GL",
+        "PULSE": "PU",
+        "SHIELD": "SD",
+    }.get(expected_backcompat_vfx_cue, "SD")
+    assert (
+        report.get(
+            "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagQuickMapNarrativeAliasIntensityPackCandidateVariantBackcompatVfxCueCompactAltCandidate"
+        )
+        == expected_backcompat_vfx_cue_compact_alt_candidate
+    ), (
+        f"{name}: alternate quick-map intensity-pack backcompat VFX cue compact token must map deterministic aliases "
+        "(GLINT->GL, PULSE->PU, SHIELD->SD)"
+    )
     assert report.get(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasDecodeEvaluation"
     ) == {
@@ -3806,6 +3820,20 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat VFX cue compact decode helper eval row"
     assert re.search(
+        r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat VFX cue alternate compact token \(ai-content\+design, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXB:(GL|PU|SD)\*\*",
+        md_text,
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat VFX cue alternate compact token row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat VFX cue alternate compact decode helper (design/world): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEG:GL=GLINT|PU=PULSE|SD=SHIELD**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat VFX cue alternate compact decode helper row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat VFX cue alternate compact decode helper eval (ux/design): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEN:B32|C26|LIM72|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat VFX cue alternate compact decode helper eval row"
+    assert re.search(
         r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone alternate \(combat/vfx\+ai-content, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKST:(anchor lane|crossfire lane|shelter hold)\*\*",
         md_text,
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone alternate row"
@@ -3857,6 +3885,28 @@ def run_fixture_case(
     assert invalid_nfxqback_vfxa_payload is None, (
         f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA payload to stay within GI|PU|SH across summary/token sections; "
         f"first diverged occurrence={invalid_nfxqback_vfxa_payload[0]} payload={invalid_nfxqback_vfxa_payload[1]}"
+    )
+    nfxqback_vfxb_payload_values = [
+        payload.strip()
+        for payload in re.findall(
+            r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXB:([^*]+)\*\*",
+            md_text,
+        )
+    ]
+    assert nfxqback_vfxb_payload_values, (
+        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXB row to carry a GL|PU|SD payload across summary/token sections"
+    )
+    invalid_nfxqback_vfxb_payload = next(
+        (
+            (index, payload)
+            for index, payload in enumerate(nfxqback_vfxb_payload_values)
+            if payload not in {"GL", "PU", "SD"}
+        ),
+        None,
+    )
+    assert invalid_nfxqback_vfxb_payload is None, (
+        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXB payload to stay within GL|PU|SD across summary/token sections; "
+        f"first diverged occurrence={invalid_nfxqback_vfxb_payload[0]} payload={invalid_nfxqback_vfxb_payload[1]}"
     )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack decode helper (design/world): "
@@ -3937,6 +3987,9 @@ def run_fixture_case(
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEG:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEN:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXB:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEG:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEN:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXPO:[^*]+\*\*\n"
@@ -5007,12 +5060,22 @@ def run_fixture_case(
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_decode_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEG:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_decode_eval_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEN:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_alt_candidate_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXB:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_alt_candidate_decode_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEG:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_alt_candidate_decode_eval_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEN:")
     nfxqbackvfxlen_eval_rows = re.findall(
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXLEN:([^*\n]+)\*\*",
         md_text,
     )
     nfxqbackvfxlen_eval_non_pass_rows = tuple(
         row for row in nfxqbackvfxlen_eval_rows if not row.strip().endswith("|PASS")
+    )
+    nfxqbackvfxblen_eval_rows = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEN:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackvfxblen_eval_non_pass_rows = tuple(
+        row for row in nfxqbackvfxblen_eval_rows if not row.strip().endswith("|PASS")
     )
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_eval_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN:")
@@ -5537,6 +5600,27 @@ def run_fixture_case(
         f"`TSDPMFXVWCRITSPMB` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count}) across summary + token sections"
     )
     assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_alt_candidate_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXB` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_alt_candidate_row_count}) must mirror "
+        f"`TSDPMFXVWCRITSPMB` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count}) across summary + token sections"
+    )
+    assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_alt_candidate_decode_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEG` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_alt_candidate_decode_row_count}) must mirror "
+        f"`TSDPMFXVWCRITSPMB` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count}) across summary + token sections"
+    )
+    assert (
+        fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_alt_candidate_decode_eval_row_count
+        == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count
+    ), (
+        f"{name}: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEN` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_alt_candidate_decode_eval_row_count}) must mirror "
+        f"`TSDPMFXVWCRITSPMB` row count ({fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count}) across summary + token sections"
+    )
+    assert (
         fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_row_count
         == fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_row_count
     ), (
@@ -5881,6 +5965,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxalegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_decode_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxalenRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_decode_eval_row_count,
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxblenNonPassRows": " || ".join(nfxqbackvfxblen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxlenNonPassRows": " || ".join(nfxqbackvfxlen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxplegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxplenRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_eval_row_count,
@@ -6702,6 +6787,30 @@ def main() -> int:
             "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXLEN domain-constrained to PASS across sparse summary + token sections; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqback_vfxlen_status_mismatch[0]} "
             f"rows={mixed_window_tsdpmfx_nfxqback_vfxlen_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqback_vfxblen_status_mismatch = next(
+            (
+                (fixture_name, non_pass_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    non_pass_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxblenNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqback_vfxblen_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEN domain-constrained to PASS across sparse summary + token sections; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqback_vfxblen_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqback_vfxblen_status_mismatch[1]}"
         )
         assert all(
             tsdpmfxvwcritspmbcbnxdleg_count

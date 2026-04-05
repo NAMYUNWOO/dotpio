@@ -4026,3 +4026,4 @@
 - Existing `...NFXQBACKVFXLEN` readability contract now guarded by explicit fixture PASS-domain assertion.
 - 2026-04-05 22:56 KST — Added decode legend row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEG:GI=GLINT|PU=PULSE|SH=SHIELD` to keep abbreviation mapping explicit.
 - 2026-04-05 23:03 KST — Cycle IP93 selected UX-focused readability experiment; evaluator row now formalizes compact GI/PU/SH decode width budget.
+- 2026-04-05 23:56 KST — Added `...NFXQBACKVFXB` lane-readable alt legend (`GL=GLINT|PU=PULSE|SD=SHIELD`) under DOS-width guardrails for future A/B readability comparison.
