@@ -1,3 +1,8 @@
+## 2026-04-05 14:49 KST — NFXPOA mixed-window parity lock hardening
+- Completed remaining unchecked backlog item in `POST_RC_BACKLOG.md` by extending sparse mixed-window fixture assertions to include `TSDPMFXVWCRITSPMBCBNXDMAPNFXPOA` parity.
+- Durable decision: both `...NFXPO` and `...NFXPOA` rows must mirror `TSDPMFXVWCRITSPMB` counts across summary + token sections; mixed-window fixture contract string now explicitly includes `...NFXPOA`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-05 12:58 KST — Game Director Cycle IP85 selected slice
 - Generated 3 ideas and selected low-risk experiment: add intensity-pack decode helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG`.
 - Implemented minimal vertical slice with regression adjacency/parity hardening; canonical quick-map intensity chain is now `...NFX -> ...NFXA -> ...NFXP -> ...NFXPLEG -> ...NFXALEG -> ...NLEN -> ...NLEVAL`.
