@@ -5927,3 +5927,8 @@ Compact decision memory for AI context efficiency.
 ## 2026-04-05 20:22 KST — Cycle IP92 injected NFXQBACK domain lock
 - Cycle IP92 injected task complete: regression now enforces `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK` payload domain (`AR|XR|SR`) in per-fixture checks and mixed-window matrix assertions with first-diverged fixture/occurrence diagnostics.
 - Queue status: ACTION_ITEMS actionable open=0, TASKS actionable open=2, POST_RC_BACKLOG actionable open=0 (next: `...NFXQBACKLEG` copy-budget comparator row under LIM72).
+
+## 2026-04-05 20:52 KST — IP92 follow-up decision (durable)
+- Added new backcompat decode copy-budget comparator row: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEGCMP`.
+- Durable contract: strict order is now `...NFXQBACKLEG -> ...NFXQBACKLEGCMP -> ...NFXQBACKLEVAL` and all three rows must keep row-count parity with `TSDPMFXVWCRITSPMB` in summary/token sections.
+- Intent: keep full semantic wording (`anchor/crossfire/shelter`) while documenting abbreviated candidate (`anc/xfire/shel`) under `LIM72` without runtime coupling.

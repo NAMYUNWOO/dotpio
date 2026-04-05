@@ -4002,3 +4002,8 @@
 
 ## 2026-04-05 20:22 KST — Cycle IP92 injected NFXQBACK domain lock
 - Kept route-tone semantics deterministic by enforcing `...NFXQBACK` payload domain checks in fixture-level + mixed-window regression paths.
+
+## 2026-04-05 20:52 KST — Cycle IP92 follow-up (copy-budget comparator)
+- Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEGCMP:B24|C14|LIM72|PAIR:FULL=anchor/crossfire/shelter|ABBR=anc/xfire/shel|PASS` to keep `...NFXQBACKLEG` wording decisions one-scan auditable.
+- Decision: preserve full wording in decode helper, expose abbreviated candidate only as report-only comparator.
+- Follow-up: run the remaining shelter-tone wording experiment (`S` branch) and keep rollback path report-only.

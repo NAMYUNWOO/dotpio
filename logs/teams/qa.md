@@ -5954,3 +5954,10 @@
 
 ## 2026-04-05 20:22 KST — Cycle IP92 injected NFXQBACK domain lock
 - Verified new fixture-level domain assertion for `...NFXQBACK` across summary/token sections and mixed-window parity fixtures with explicit first-diverged diagnostics.
+
+## 2026-04-05 20:52 KST — Cycle IP92 follow-up (verification)
+- Regression now asserts presence + adjacency for `...NFXQBACKLEGCMP` and row-count parity with `TSDPMFXVWCRITSPMB`.
+- Verification bundle passed:
+  - `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`
+  - `python3 scripts/regression_check_lane_coverage_guardrail.py`
+  - `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`

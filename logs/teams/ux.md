@@ -4113,3 +4113,8 @@
 
 ## 2026-04-05 20:22 KST — Cycle IP92 injected NFXQBACK domain lock
 - Added/validated mixed-window diagnostic readability for `...NFXQBACK` domain failures with explicit first-diverged fixture + occurrence output.
+
+## 2026-04-05 20:52 KST — Cycle IP92 follow-up (copy-budget comparator)
+- Shipped compact copy-budget comparator row for backcompat decode helper with explicit baseline/abbrev pair under `LIM72`.
+- Validation: comparator stays in strict chain `...NFXQBACKLEG -> ...NFXQBACKLEGCMP -> ...NFXQBACKLEVAL`.
+- Follow-up: assess operator readability impact after shelter-tone experiment lands.

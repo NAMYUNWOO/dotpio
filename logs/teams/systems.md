@@ -5462,3 +5462,8 @@
 
 ## 2026-04-05 20:22 KST — Cycle IP92 injected NFXQBACK domain lock
 - Added fixture-level `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK` payload-domain guard (`AR|XR|SR`) in regression with mixed-window first-diverged diagnostics (fixture/occurrence/payload).
+
+## 2026-04-05 20:52 KST — Cycle IP92 follow-up (contract hardening)
+- Extended regression parity coverage to include `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEGCMP`.
+- Added mixed-window fixture matrix token list entry for the comparator row.
+- Follow-up: keep parity matrix synchronized when additional backcompat helper rows are introduced.

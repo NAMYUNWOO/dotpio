@@ -3955,3 +3955,7 @@
 
 ## 2026-04-05 20:22 KST — Cycle IP92 injected NFXQBACK domain lock
 - Synced offline content guardrails to keep `...NFXQBACK` tokens constrained to `AR|XR|SR`; regression now flags first divergent payload by fixture and occurrence.
+
+## 2026-04-05 20:52 KST — Cycle IP92 follow-up (no model coupling)
+- Comparator row added as static/report-only metadata; no AI-content resolver branch changed.
+- Decision: preserve current `A/X/S` and `AR/XR/SR` mapping semantics until shelter-tone A/B slice is validated.

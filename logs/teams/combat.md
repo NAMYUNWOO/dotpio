@@ -3870,3 +3870,8 @@
 
 ## 2026-04-05 20:22 KST — Cycle IP92 injected NFXQBACK domain lock
 - Validated combat-facing backcompat map token domain lock (`AR|XR|SR`) through mixed-window fixture diagnostics.
+
+## 2026-04-05 20:52 KST — Cycle IP92 follow-up (no combat runtime change)
+- No combat runtime behavior changed in this slice.
+- Kept comparator row report-only to avoid coupling with live combat callouts.
+- Follow-up: evaluate shelter-tone microcopy candidate in offline branch next cycle.

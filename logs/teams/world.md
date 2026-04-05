@@ -3867,3 +3867,7 @@
 
 ## 2026-04-05 20:22 KST — Cycle IP92 injected NFXQBACK domain lock
 - Confirmed backcompat route-tone domain (`AR/XR/SR`) remains locked across summary/token output surfaces via regression assertions.
+
+## 2026-04-05 20:52 KST — Cycle IP92 follow-up (readability continuity)
+- Maintained world/design readability continuity by keeping backcompat decode helper wording stable while surfacing abbreviated comparator separately.
+- No map/progression or portal contract touched.
