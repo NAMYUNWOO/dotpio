@@ -4136,3 +4136,4 @@
 - 2026-04-05 23:56 KST — Added UX eval rail `...NFXQBACKVFXBLEN:B32|C26|LIM72|PASS` for alternate compact cue readability tracking.
 - 2026-04-06 00:31 KST — Verified new compact token family includes explicit PASS row `...VFXCLEN` to preserve one-glance readability and prevent hidden width regressions.
 - 2026-04-06 00:55 KST — Cycle IP95 selected slice shipped: added report-only compact backcompat VFX pack-winner row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW` (`A|B|C`) with strict adjacency + parity regression coverage; verification bundle (py_compile + regression + guardrail generation) passed.
+- 2026-04-06 01:24 KST — Extended readability rail with winner legend token `...NFXQBACKVFXWLEG` so operator scans no longer require implicit mapping memory for A/B/C.

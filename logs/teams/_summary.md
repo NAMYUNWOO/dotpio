@@ -5969,3 +5969,8 @@ Compact decision memory for AI context efficiency.
 - 2026-04-06 00:55 KST — Cycle IP95 minimal vertical slice complete: introduced report-only compact pack-winner token `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW` (`A|B|C`) mapped by backcompat VFX cue (`GLINT->A`, `PULSE->B`, `SHIELD->C`).
 - Durable contract: strict order now requires `...NFXQBACKVFXCLEN -> ...NFXQBACKVFXW -> ...NFXPLEG` and parity with `TSDPMFXVWCRITSPMB` across summary/token + mixed-window tuple matrix.
 - Injected follow-up queue: enforce explicit `A|B|C` domain assertions for `...VFXW`, then add winner legend row for one-scan decode.
+
+## 2026-04-06 01:24 KST
+- Closed two injected POST_RC items in one slice: fixture-domain guard for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW` (`A|B|C`) and winner legend row `...NFXQBACKVFXWLEG` with locked adjacency.
+- Durable decision: any report-only winner token (`...W`) must ship with a same-cycle legend row (`...WLEG`) plus fixture-level domain assertions and mixed-window diagnostics; parity-only checks are not sufficient for operator-safe readability rails.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
