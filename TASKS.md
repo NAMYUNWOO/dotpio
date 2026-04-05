@@ -1,6 +1,19 @@
 # TASKS
 
-Last updated: 2026-04-06 07:20 KST
+Last updated: 2026-04-06 07:28 KST
+
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP100)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after closing `...NFXQBACKSTAF` + `...NFXQBACKSTAFLEN` mixed-window diagnostic lock.
+- Candidate ideas generated:
+  - Low-risk UX/Design: ensure mixed-window parity failure text explicitly enumerates fallback alias tokens (`...NFXQBACKSTAF` + `...NFXQBACKSTAFLEN`) for one-scan triage readability.
+  - Mid-risk Systems/Ops + QA: add strict adjacency contract lock for `...NFXQBACKSTAPLAN -> ...NFXQBACKSTAF -> ...NFXQBACKSTAFLEN` near shelter-tone fallback chain.
+  - High-risk Combat/VFX + AI-content: prototype a second compact fallback operator legend row for alert-state callouts (report-only).
+- Selected experiment: low-risk parity-failure readability slice.
+- [x] UX/Design + Systems/Ops + QA Team (selected): Updated mixed-window parity failure contract text to explicitly include `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` and `...NFXQBACKSTAFLEN` in the enumerated helper chain so first-diverged diagnostics remain obvious during fallback alias regressions. *(lifecycle: [ ] -> [~] started: 2026-04-06 07:26 KST -> [x] completed: 2026-04-06 07:27 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP100)
+- [ ] Systems/Ops + QA Team (injected): Add strict adjacency assertion requiring `...NFXQBACKSTAPLAN -> ...NFXQBACKSTAF -> ...NFXQBACKSTAFLEN -> ...NFXQBACKSTAH` ordering across summary/token sections.
+- [ ] Design/World + Combat/VFX Team (injected): Prototype report-only fallback operator legend cue row for `AGF/CRF/SHD` with <=72-char eval guard and runtime coupling disabled.
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP99)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after closing `ABF/CCF/SHF` compact fallback alias candidate task.

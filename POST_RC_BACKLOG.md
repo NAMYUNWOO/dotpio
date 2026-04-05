@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP100)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed.
+- Candidate ideas:
+  - Low-risk UX/Design: make parity failure text list fallback alias tokens (`...NFXQBACKSTAF` + `...NFXQBACKSTAFLEN`) explicitly for operator triage.
+  - Mid-risk Systems/Ops + QA: add strict adjacency lock for `...STAPLAN -> ...STAF -> ...STAFLEN -> ...STAH` in summary/token sections.
+  - High-risk Combat/VFX + AI-content: prototype a new report-only fallback operator legend cue row.
+- Selected experiment: low-risk parity failure readability patch.
+- [x] UX/Design + Systems/Ops + QA Team (selected): Updated mixed-window parity mismatch assertion copy to include `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` + `...NFXQBACKSTAFLEN` in the explicit helper-chain list for faster first-diverged triage. *(lifecycle: [ ] -> [~] started: 2026-04-06 07:26 KST -> [x] completed: 2026-04-06 07:27 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP100)
+- [ ] Systems/Ops + QA Team (injected): Add strict adjacency assertion requiring `...NFXQBACKSTAPLAN -> ...NFXQBACKSTAF -> ...NFXQBACKSTAFLEN -> ...NFXQBACKSTAH` ordering across summary/token sections.
+- [ ] Design/World + Combat/VFX Team (injected): Prototype report-only fallback operator legend cue row for `AGF/CRF/SHD` and wire <=72-char eval guard.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP99)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after `ABF/CCF/SHF` closure.
 - Candidate ideas:

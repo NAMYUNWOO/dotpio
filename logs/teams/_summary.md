@@ -6047,3 +6047,9 @@ Compact decision memory for AI context efficiency.
 - Closed IP99 injected Systems/Ops+QA diagnostic hardening task for fallback alias rows: `...NFXQBACKSTAF` now has mixed-window domain drift diagnostics (`fixture`, `occurrence`, `payload`) and `...NFXQBACKSTAFLEN` now has PASS-domain mismatch surfacing.
 - Durable decision: whenever a new compact fallback row is introduced, wire both fixture payload export keys and mixed-window first-diverged diagnostics in the same cycle to avoid parity-only false greens.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 07:27 KST
+- Game Director Cycle IP100 executed (all queues were fully checked at cycle start); selected low-risk UX/Design + Systems/Ops readability patch.
+- Durable decision: when new fallback helper tokens are added, keep assertion copy in sync with parity labels so first-diverged diagnostics are one-scan actionable.
+- Injected next backlog items: (1) systems/qa strict adjacency lock for `...STAPLAN -> ...STAF -> ...STAFLEN -> ...STAH`, (2) design/world+combat/vfx report-only fallback operator legend cue row.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

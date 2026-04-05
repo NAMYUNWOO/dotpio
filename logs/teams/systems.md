@@ -5559,3 +5559,8 @@
 - Closed injected Systems/Ops+QA follow-up for fallback alias diagnostics: fixture payload now exports `tsdpmfxvwcritspmbcbnxdmapnfxqbackstafPayloads` and `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaflenNonPassRows`.
 - Mixed-window harness now checks `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` domain (`AGF|CRF|SHD`) with first-diverged fixture/occurrence/payload diagnostics and enforces PASS-only status for `...NFXQBACKSTAFLEN` rows.
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
+
+## 2026-04-06 07:27 KST
+- Game Director IP100 low-risk slice shipped: mixed-window parity assertion copy now explicitly lists fallback alias tokens `...NFXQBACKSTAF` + `...NFXQBACKSTAFLEN` in the helper-chain contract text.
+- Injected next systems/qa follow-up: add strict adjacency lock for `...STAPLAN -> ...STAF -> ...STAFLEN -> ...STAH`.
+- Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).

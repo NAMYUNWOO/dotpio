@@ -6037,3 +6037,7 @@
 - QA added sparse mixed-window first-diverged diagnostics for shelter-tone fallback alias domain drift (`TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF`), now reporting fixture + occurrence + payload on failure.
 - Added PASS-domain guard for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN` via fixture `NonPassRows` extraction and mixed-window mismatch surfacing.
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
+
+## 2026-04-06 07:27 KST
+- QA improved first-diverged triage readability by explicitly enumerating `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` and `...NFXQBACKSTAFLEN` in mixed-window parity failure messaging.
+- Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
