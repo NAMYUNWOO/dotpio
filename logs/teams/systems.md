@@ -5448,3 +5448,11 @@
 ## 2026-04-05 18:57 KST
 - Cycle IP91 shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK` back-compat bridge (`A|X|S -> AR|XR|SR`) and locked helper-chain adjacency in regression.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-05 19:24 KST — NFXQBACK eval + parity lock
+- Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEVAL:B33|C30|LIM72|PAIR:BASE=AR/XR/SR|COMPACT=A/X/S|PASS`.
+- Extended mixed-window fixture parity + strict adjacency to include `...NFXQBACK -> ...NFXQBACKLEVAL -> ...NFXPLEG`.
+- Follow-up: keep future `NFXQ*` rows chained before `NFXPLEG` to prevent fixture drift.
+
+## 2026-04-05 19:31 KST — IP92 backcompat decode helper slice
+- Extended mixed-window parity tuple + strict adjacency contract to include `NFXQBACKLEG` before `NFXQBACKLEVAL`.

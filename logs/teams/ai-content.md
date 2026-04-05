@@ -3942,3 +3942,10 @@
 ## 2026-04-05 18:57 KST
 - Cycle IP91 shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK` back-compat bridge (`A|X|S -> AR|XR|SR`) and locked helper-chain adjacency in regression.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-05 19:24 KST — Report-only route-tone pack prototype
+- Finalized report-only route-tone pack semantics for `...NFXQ` as `A/X/S => anchor/crossfire/shelter` (runtime decoupled).
+- Follow-up: use this pack as control vocabulary in future readability A/B slices.
+
+## 2026-04-05 19:31 KST — IP92 backcompat decode helper slice
+- Locked report-only backcompat vocabulary (`AR/XR/SR`) to anchor/crossfire/shelter terminology.

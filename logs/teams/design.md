@@ -3989,3 +3989,10 @@
 ## 2026-04-05 18:57 KST
 - Cycle IP91 shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK` back-compat bridge (`A|X|S -> AR|XR|SR`) and locked helper-chain adjacency in regression.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-05 19:24 KST — DOS-width eval coverage extension
+- Added explicit backcompat eval token `...NFXQBACKLEVAL` with compact/base pair telemetry under LIM72.
+- Follow-up: keep eval tokens paired whenever backcompat mapping rows are introduced.
+
+## 2026-04-05 19:31 KST — IP92 backcompat decode helper slice
+- New helper row keeps backcompat alias semantics one-scan readable in DOS rails.

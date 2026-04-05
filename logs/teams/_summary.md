@@ -5908,3 +5908,13 @@ Compact decision memory for AI context efficiency.
 - Durable decision: compact alias migrations must ship a report-only back-compat bridge row in the same cycle to avoid operator context loss during A/B transitions.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS actionable open=0, TASKS actionable open=2, POST_RC_BACKLOG actionable open=0 (next: route-tone variant pack + `...NFXQBACK` eval/parity fixture lock).
+
+## 2026-04-05 19:24 KST — NFXQ route-tone + backcompat eval slice
+- Shipped route-tone decode update for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` (`A=anchor lane|X=crossfire lane|S=shelter lane`).
+- Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEVAL:B33|C30|LIM72|PAIR:BASE=AR/XR/SR|COMPACT=A/X/S|PASS`.
+- Regression/contracts now enforce strict chain `...NFXQBACK -> ...NFXQBACKLEVAL -> ...NFXPLEG` and mixed-window parity coverage for both backcompat rows.
+
+## 2026-04-05 19:31 KST — IP92 backcompat helper contract
+- Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEG` decode row (`AR/XR/SR -> anchor/crossfire/shelter`).
+- Contract chain is now `...NFXQBACK -> ...NFXQBACKLEG -> ...NFXQBACKLEVAL -> ...NFXPLEG`.
+- Mixed-window parity matrix now tracks both `NFXQBACKLEG` and `NFXQBACKLEVAL` against `TSDPMFXVWCRITSPMB`.

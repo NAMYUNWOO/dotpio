@@ -3854,3 +3854,10 @@
 ## 2026-04-05 18:57 KST
 - Cycle IP91 shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK` back-compat bridge (`A|X|S -> AR|XR|SR`) and locked helper-chain adjacency in regression.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-05 19:24 KST — Route-tone readability wording pass
+- Updated variant decode helper wording to route-tone framing: `A=anchor lane|X=crossfire lane|S=shelter lane`.
+- Follow-up: preserve tone consistency with nearby quick-map helper rows.
+
+## 2026-04-05 19:31 KST — IP92 backcompat decode helper slice
+- Added backcompat decode helper row `NFXQBACKLEG` with route-tone semantics for map readability.

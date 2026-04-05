@@ -627,3 +627,10 @@
 ## 2026-04-05 09:52 KST
 - VFX cadence recovery slice shipped: beat-side quick-map narrative alias row (`...XDMAPN`) now participates in strict adjacency chain after `...XDMAPLEG`.
 - 2026-04-05 15:21 KST — IP88 chain-helper slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXC` contract row (`NFXP>NFXPLEG>NFXPLEN>NFXPO>NFXPOA>NFXALEG`) and regression adjacency anchor `...NFXPOA -> ...NFXC -> ...NFXALEG`; verification bundle passed.
+
+## 2026-04-05 19:24 KST — Route-tone pack language update
+- Synced report-only `A/X/S` variant semantics to `anchor/crossfire/shelter` for VFX-informed route tone readability.
+- Follow-up: monitor if crossfire/shelter labels reduce ambiguity in pulse-state handoff notes.
+
+## 2026-04-05 19:31 KST — IP92 backcompat decode helper slice
+- Backcompat decode helper strengthens cue-language continuity for A/X/S route tone.

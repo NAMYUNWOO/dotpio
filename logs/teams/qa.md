@@ -5941,3 +5941,10 @@
 ## 2026-04-05 18:57 KST
 - Cycle IP91 shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK` back-compat bridge (`A|X|S -> AR|XR|SR`) and locked helper-chain adjacency in regression.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-05 19:24 KST — Regression matrix hardening
+- Added regression assertions for `NFXQBACKLEVAL` markdown presence, strict adjacency, row-count parity, and mixed-window fixture coverage.
+- Verification: py_compile + `regression_check_lane_coverage_guardrail.py` + guardrail regeneration all passed.
+
+## 2026-04-05 19:31 KST — IP92 backcompat decode helper slice
+- Added regression/mixed-window parity coverage for `NFXQBACKLEG` + `NFXQBACKLEVAL`.

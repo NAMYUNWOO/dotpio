@@ -4100,3 +4100,10 @@
 ## 2026-04-05 18:57 KST
 - Cycle IP91 shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK` back-compat bridge (`A|X|S -> AR|XR|SR`) and locked helper-chain adjacency in regression.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-05 19:24 KST — One-scan backcompat clarity
+- Inserted `...NFXQBACKLEVAL` row to keep backcompat readability auditable in one scan.
+- Follow-up: maintain eval-row adjacency immediately after source mapping rows.
+
+## 2026-04-05 19:31 KST — IP92 backcompat decode helper slice
+- Adjacency chain now enforces helper+eval pairing for `NFXQBACK` readability audits.
