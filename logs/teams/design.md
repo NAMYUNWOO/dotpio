@@ -1,3 +1,7 @@
+## 2026-04-05 09:50 KST
+- Added design-side DOS-width evaluation helper row for quick-map decode legend: `TSDPMFXVWCRITSPMBCBNXDMAPLEGLEN:B80|C64|LIM72|PREF:COMPACT|PASS`.
+- Kept preference deterministic (`PREF:COMPACT`) for stable readability triage.
+
 ## 2026-04-05 09:22 KST
 - Design readability guardrail tightened: `...MBCBNXDMAPLEG` decode line now has dedicated parity assertion against `TSDPMFXVWCRITSPMB`, preserving deterministic dense-rail scan integrity.
 

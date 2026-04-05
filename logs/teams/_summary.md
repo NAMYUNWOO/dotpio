@@ -1,3 +1,10 @@
+## 2026-04-05 09:50 KST
+- Completed injected Design/World backlog item: added quick-map decode DOS-width eval row `TSDPMFXVWCRITSPMBCBNXDMAPLEGLEN:B80|C64|LIM72|PREF:COMPACT|PASS`.
+- Durable decision: keep quick-map decode compact preference explicitly locked and adjacent to decode row for deterministic dense-rail scans.
+- Regression hardening: presence + parity + adjacency contracts now include `...MBCBNXDMAPLEGLEN` between `...MBCBNXDMAPLEG` and `...MBCBNXDMAPN`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=3 (next: `...MBCBNXDMAPNFX`, `...MBCBNXDMAPNLEN`, mixed-window parity/order for `...MBCBNXDMAPN` + `...MBCBNXDMAPNLEG`).
+
 ## 2026-04-05 09:52 KST
 - Game Director Cycle IP83 forced underrepresented-lane slice (combat/vfx + ai-content) while 24h cadence buckets remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
 - Selected experiment shipped: report-only quick-map narrative alias candidate `TSDPMFXVWCRITSPMBCBNXDMAPN:<SN|HL|EL|SH>` derived from `SG/HL/EA/SF`, with decode row `...XDMAPNLEG` and strict adjacency/parity regression locks.

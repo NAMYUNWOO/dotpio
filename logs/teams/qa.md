@@ -1,3 +1,7 @@
+## 2026-04-05 09:50 KST
+- QA lock added for quick-map decode DOS-width eval row presence (`...MBCBNXDMAPLEGLEN`) and row-count parity with `TSDPMFXVWCRITSPMB`.
+- Adjacency contract now requires `...MBCBNXDMAPLEG -> ...MBCBNXDMAPLEGLEN -> ...MBCBNXDMAPN` ordering in summary/token sections.
+
 ## 2026-04-05 09:22 KST
 - QA added explicit row-count assertions for `TSDPMFXVWCRITSPMBCBNXDMAP` and `...MBCBNXDMAPLEG` parity against `TSDPMFXVWCRITSPMB` across summary/token sections.
 - Regression bundle remains green after assertion expansion.

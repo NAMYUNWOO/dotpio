@@ -1,3 +1,6 @@
+## 2026-04-05 09:50 KST
+- Combat lane sync: no combat-tuning/runtime changes; decode-eval guard row added to keep quick-map cue interpretation stable under dense digest scans.
+
 ## 2026-04-05 09:22 KST
 - Combat lane sync: pressure-tag quick-map decode path gained explicit sparse-fixture parity guard; combat telemetry semantics unchanged.
 

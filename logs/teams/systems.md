@@ -1,3 +1,8 @@
+## 2026-04-05 09:50 KST
+- Added regression + markdown contract for quick-map decode DOS-width evaluation row `TSDPMFXVWCRITSPMBCBNXDMAPLEGLEN:B80|C64|LIM72|PREF:COMPACT|PASS`.
+- Extended strict adjacency chain to include `...MBCBNXDMAPLEGLEN` between decode and narrative alias rows.
+- Verification: py_compile + regression + guardrail artifact regeneration PASS.
+
 ## 2026-04-05 09:22 KST
 - Closed injected Systems/Ops+QA parity follow-up: added explicit assertions that `TSDPMFXVWCRITSPMBCBNXDMAP` and `TSDPMFXVWCRITSPMBCBNXDMAPLEG` row counts mirror `TSDPMFXVWCRITSPMB` across summary/token sections.
 - Durable decision: keep quick-map decode rows covered by dedicated parity assertions (not only tuple-matrix aggregate checks) for clearer failure diagnosis.

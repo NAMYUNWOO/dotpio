@@ -1,3 +1,7 @@
+## 2026-04-05 09:50 KST
+- World/readability follow-up shipped: quick-map decode legend now carries explicit DOS-width eval lock row `TSDPMFXVWCRITSPMBCBNXDMAPLEGLEN` (`B80|C64|LIM72|PREF:COMPACT|PASS`).
+- Decision: keep compact wording preference locked for one-scan dense rail review.
+
 ## 2026-04-05 09:22 KST
 - World readability invariants reaffirmed: quick-map decode legend (`...MBCBNXDMAPLEG`) is now explicitly parity-locked to base bridge row count, preventing sparse-fixture drift.
 

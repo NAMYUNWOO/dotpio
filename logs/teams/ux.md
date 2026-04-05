@@ -1,3 +1,6 @@
+## 2026-04-05 09:50 KST
+- UX readability lock: quick-map decode cluster now includes explicit DOS-width eval row (`...MBCBNXDMAPLEGLEN`) to keep compact preference visible in one-scan reviews.
+
 ## 2026-04-05 09:22 KST
 - UX scan stability improvement: quick-map decode (`SG/HL/EA/SF`) now parity-locked in sparse fixtures, reducing risk of one-sided summary/token rendering drift.
 
