@@ -5421,3 +5421,5 @@
 - 2026-04-05 14:49 KST — Completed sparse mixed-window parity extension for `...NFXPOA` in regression guardrail. Decision: keep `NFXPO` + `NFXPOA` tied to `TSDPMFXVWCRITSPMB` mirror counts to prevent fixture drift.
 - 2026-04-05 15:01 KST — Game Director Cycle IP88 selected slice shipped: mixed-window tuple parity now asserts full intensity-pack helper chain (`NFXP/NFXPLEG/NFXPLEN/NFXPO/NFXPOA/NFXALEG`) against `TSDPMFXVWCRITSPMB`.
 - 2026-04-05 15:21 KST — IP88 chain-helper slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXC` contract row (`NFXP>NFXPLEG>NFXPLEN>NFXPO>NFXPOA>NFXALEG`) and regression adjacency anchor `...NFXPOA -> ...NFXC -> ...NFXALEG`; verification bundle passed.
+
+- 2026-04-05 16:23 KST — Synced guardrail/regression literal for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` to lane wording; parity/order contracts remain unchanged and passing.

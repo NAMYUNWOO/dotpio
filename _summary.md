@@ -158,3 +158,8 @@
 - Completed TASKS/POST_RC Combat/VFX+AI-content injected item by remapping `TSDPMFXVWCRITSPMBCBNXDMAPN` from `SN/HL/EL/SH` to report-only `SR/HD/EZ/SF` and syncing decode row `TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SR=surge|HD=hold|EZ=ease|SF=safe`.
 - Durable decision: keep narrative alias pack experimentation offline/report-only while preserving strict parity + adjacency + DOS-width eval chain (`...XDMAPN -> ...XDMAPNLEG -> ...XDMAPNLEVAL`).
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-05 16:23 KST
+- Closed injected Design/World helper-copy task by aligning `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` with lane semantics: `BR=burst lane|ER=edge lane|SR=safe lane`.
+- Durable decision: keep `...NFXQLEG` wording lane-oriented (not route-oriented) to stay semantically aligned with adjacent quick-map action guidance.
+- Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

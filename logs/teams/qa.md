@@ -5913,3 +5913,5 @@
 - 2026-04-05 14:49 KST — Verified regression contract now asserts `TSDPMFXVWCRITSPMBCBNXDMAPNFXPOA` row-count parity and includes it in mixed-window fixture matrix parity checklist. Evidence: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail PASS.
 - 2026-04-05 15:01 KST — Regression parity contract tightened: tuple payload/unpack now includes all intensity-pack helper rows named in mixed-window message, closing prior assertion coverage gap.
 - 2026-04-05 15:21 KST — IP88 chain-helper slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXC` contract row (`NFXP>NFXPLEG>NFXPLEN>NFXPO>NFXPOA>NFXALEG`) and regression adjacency anchor `...NFXPOA -> ...NFXC -> ...NFXALEG`; verification bundle passed.
+
+- 2026-04-05 16:23 KST — QA re-verified lane-wording helper string in regression expectations; py_compile + regression + guardrail generation all PASS.

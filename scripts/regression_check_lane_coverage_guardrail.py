@@ -3717,7 +3717,7 @@ def run_fixture_case(
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack candidate variant row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack variant decode helper (design/world): "
-        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG:BR=burst route|ER=edge route|SR=safe route**"
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG:BR=burst lane|ER=edge lane|SR=safe lane**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack variant decode helper row"
     assert (

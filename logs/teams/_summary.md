@@ -5873,3 +5873,7 @@ Compact decision memory for AI context efficiency.
 - 2026-04-05 15:21 KST — Completed UX/Design idea backlog slice: shipped chain contract helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXC:NFXP>NFXPLEG>NFXPLEN>NFXPO>NFXPOA>NFXALEG` and updated regression strict adjacency to require `...NFXC` before `...NFXALEG`.
 - Durable decision: keep intensity-pack reviewer onboarding explicit in markdown rails via a single compact contract row instead of relying on implicit adjacency prose.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=4, POST_RC_BACKLOG unchecked=1 (next: AI Content/World mismatch explainer token prototype).
+
+- 2026-04-05 16:23 KST — Completed injected Design/World helper-copy follow-up: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` now reads `BR=burst lane|ER=edge lane|SR=safe lane` across guardrail/regression/docs.
+- Durable decision: prefer lane-intent nouns (`lane`) over path nouns (`route`) for `NFXQLEG` family to match adjacent action-copy conventions and reduce interpretation drift.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

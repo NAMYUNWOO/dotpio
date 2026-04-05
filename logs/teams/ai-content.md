@@ -3918,3 +3918,5 @@
 - 2026-04-05 14:49 KST — No AI-content generation copy changes this cycle; parity-only regression hardening landed for existing NFXPO/NFXPOA rows.
 - 2026-04-05 15:01 KST — No AI copy change; logged IP88 follow-up idea for optional mismatch explainer token when mixed-window parity diverges.
 - 2026-04-05 15:21 KST — IP88 chain-helper slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXC` contract row (`NFXP>NFXPLEG>NFXPLEN>NFXPO>NFXPOA>NFXALEG`) and regression adjacency anchor `...NFXPOA -> ...NFXC -> ...NFXALEG`; verification bundle passed.
+
+- 2026-04-05 16:23 KST — Report-only variant rail decode now uses lane wording for `BR/ER/SR`, keeping A/B candidate copy aligned with design intent.
