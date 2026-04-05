@@ -5522,3 +5522,7 @@
 ## 2026-04-06 03:29 KST
 - Systems/Ops slice: published report-only shelter-tone compact alias DOS-width eval row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:B45|C30|LIM72|PASS` to keep compact readability budget explicit.
 - Runtime behavior unchanged; guardrail/report contract only.
+
+## 2026-04-06 03:55 KST — NFXQBACKSTA parity bundle
+- Added mixed-window parity tuple wiring for `...NFXQBACKSTALEN/STAH/STAHLEN/STRB` so all shelter-tone helper rows stay anchored to `TSDPMFXVWCRITSPMB`.
+- Follow-up: keep adjacency lock item pending (`...STALEN -> ...STAH -> ...STAHLEN -> ...STRB`).

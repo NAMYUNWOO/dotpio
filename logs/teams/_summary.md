@@ -5996,3 +5996,9 @@ Compact decision memory for AI context efficiency.
 - Shipped minimal vertical slice: sparse mixed-window PASS-domain lock for `...NFXQBACKVFXDLEN` via fixture non-pass capture key and first-diverged mismatch surfacing.
 - Durable decision: every new compact-candidate eval row (`...LEN`) should immediately get a paired sparse-fixture non-pass watchdog key in regression outputs.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 03:55 KST — IP97 injected parity follow-up completed
+- Closed highest-priority injected Systems/Ops+QA item by adding mixed-window parity coverage for shelter-tone helper chain rows: `...NFXQBACKSTALEN`, `...NFXQBACKSTAH`, `...NFXQBACKSTAHLEN`, `...NFXQBACKSTRB`.
+- Durable decision: any new shelter-tone helper/eval/rollback row must be included in `mixed_window_tsdpmfx_alt_beat_helper_parity` tuple + labels list immediately to avoid sparse fixture drift.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration command.
+- Next priority item: strict adjacency contract lock `...STALEN -> ...STAH -> ...STAHLEN -> ...STRB`.

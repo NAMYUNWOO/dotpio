@@ -3986,3 +3986,6 @@
 
 ## 2026-04-06 03:29 KST
 - AI-content note: shelter-tone compact alias readability slice remains report-only (`AN/CF/SH`), with added DOS-width visibility via `...BACKSTALEN`.
+
+## 2026-04-06 03:55 KST — Awaiting urgency variant prototype
+- No token copy mutation in this slice; retained pending Combat/VFX + AI-content urgency-variant prototype backlog item.

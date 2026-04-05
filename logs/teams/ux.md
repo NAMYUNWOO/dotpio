@@ -4145,3 +4145,6 @@
 
 ## 2026-04-06 03:29 KST
 - UX compactness rail updated with explicit shelter-tone alias width verdict (`...BACKSTALEN`), preserving deterministic one-line readability checks.
+
+## 2026-04-06 03:55 KST — DOS-width row integrity
+- Confirmed parity now covers shelter-tone DOS-width eval rows (`...STALEN`, `...STAHLEN`) across mixed-window fixtures.

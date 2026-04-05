@@ -4042,3 +4042,6 @@
 
 ## 2026-04-06 03:29 KST
 - Design readability pass: added shelter-tone compact alias eval row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:B45|C30|LIM72|PASS` to keep copy-budget status one-scan visible.
+
+## 2026-04-06 03:55 KST — Compact helper parity support
+- No copy changes this cycle; parity lock preserves deterministic placement for upcoming adjacency/copy polish task.

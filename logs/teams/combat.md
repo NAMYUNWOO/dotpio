@@ -3902,3 +3902,6 @@
 
 ## 2026-04-06 03:29 KST
 - Combat/VFX lane unchanged at runtime; shelter-tone compact alias rail gained explicit width-status visibility (`...BACKSTALEN`) for quicker triage in dense summaries.
+
+## 2026-04-06 03:55 KST — Shelter-tone helper stability pass
+- No combat tuning changes; parity lock ensures report-only shelter-tone helper rows remain stable for future combat wording experiments.

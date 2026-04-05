@@ -6219,6 +6219,10 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxwPayloads": tuple(nfxqback_vfxw_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxcPayloads": tuple(nfxqback_vfxc_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbacklegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_decode_row_count,
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstalenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:B45|C30|LIM72|PASS**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstahRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH:AN=anchor brace|CF=crossfire cut|SH=shelter hold**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstahlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAHLEN:B54|C48|LIM72|PASS**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstrbRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTRB:KEEP if SR clarity holds + LIM72 pass|ROLLBACK if ambiguity or width fail**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbacklevalRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_eval_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_decode_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxlenRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_decode_eval_row_count,
@@ -6381,6 +6385,10 @@ def main() -> int:
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbacklegRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbacklevalRowCount"]),
+                int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstalenRowCount"]),
+                int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstahRowCount"]),
+                int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstahlenRowCount"]),
+                int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstrbRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxlenRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaRowCount"]),
@@ -6522,6 +6530,10 @@ def main() -> int:
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbacklegRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbacklevalRowCount"]),
+                int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstalenRowCount"]),
+                int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstahRowCount"]),
+                int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstahlenRowCount"]),
+                int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstrbRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxlenRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaRowCount"]),
@@ -6794,6 +6806,10 @@ def main() -> int:
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbacklegRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbacklevalRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstalenRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstahRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstahlenRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstrbRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxlenRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaRowCount"]),
@@ -6934,6 +6950,10 @@ def main() -> int:
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbacklegRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbacklevalRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstalenRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstahRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstahlenRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstrbRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxlenRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaRowCount"]),
@@ -7006,6 +7026,10 @@ def main() -> int:
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEG",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEGCMP",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEVAL",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAHLEN",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTRB",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFX",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXLEN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA",
@@ -7057,7 +7081,7 @@ def main() -> int:
                 )
 
         assert not mixed_window_tsdpmfx_alt_beat_helper_mismatch, (
-            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBH + TSDPMFXVWCRITSPMBCBNLEG + TSDPMFXVWCRITSPMBCBNT + TSDPMFXVWCRITSPMBCBNX + TSDPMFXVWCRITSPMBCBNXLEG + TSDPMFXVWCRITSPMBCBNXDMAP + TSDPMFXVWCRITSPMBCBNXDMAPLEG + TSDPMFXVWCRITSPMBCBNXDMAPN + TSDPMFXVWCRITSPMBCBNXDMAPNLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFX + TSDPMFXVWCRITSPMBCBNXDMAPNFXA + TSDPMFXVWCRITSPMBCBNXDMAPNFXP + TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQH + TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEGCMP + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEVAL + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFX + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXB + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXC + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXD + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXWLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXPO + TSDPMFXVWCRITSPMBCBNXDMAPNFXPOA + TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG + TSDPMFXVWCRITSPMBCBNXDMAPNLEN + TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL row-count parity with TSDPMFXVWCRITSPMB across summary + token sections; "
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBH + TSDPMFXVWCRITSPMBCBNLEG + TSDPMFXVWCRITSPMBCBNT + TSDPMFXVWCRITSPMBCBNX + TSDPMFXVWCRITSPMBCBNXLEG + TSDPMFXVWCRITSPMBCBNXDMAP + TSDPMFXVWCRITSPMBCBNXDMAPLEG + TSDPMFXVWCRITSPMBCBNXDMAPN + TSDPMFXVWCRITSPMBCBNXDMAPNLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFX + TSDPMFXVWCRITSPMBCBNXDMAPNFXA + TSDPMFXVWCRITSPMBCBNXDMAPNFXP + TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQH + TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEGCMP + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEVAL + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAHLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTRB + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFX + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXB + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXC + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXD + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXWLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXPO + TSDPMFXVWCRITSPMBCBNXDMAPNFXPOA + TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG + TSDPMFXVWCRITSPMBCBNXDMAPNLEN + TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL row-count parity with TSDPMFXVWCRITSPMB across summary + token sections; "
             f"first diverged token={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][1]} "
             f"fixture={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][0]} "
             f"expected={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][2]} "

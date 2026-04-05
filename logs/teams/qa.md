@@ -6007,3 +6007,7 @@
 ## 2026-04-06 03:29 KST
 - QA added regression presence assertion for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN` to prevent accidental omission of shelter-tone compact width status rows.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 03:55 KST — Sparse fixture parity verification
+- Extended regression parity labels + mismatch reporting for shelter-tone helper/eval/rollback rows.
+- Verification bundle: py_compile + regression guardrail + guardrail artifact regeneration PASS.
