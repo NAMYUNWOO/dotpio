@@ -4,6 +4,7 @@
 - Regression hardening: presence + parity + adjacency contracts now include `...MBCBNXDMAPLEGLEN` between `...MBCBNXDMAPLEG` and `...MBCBNXDMAPN`.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=3 (next: `...MBCBNXDMAPNFX`, `...MBCBNXDMAPNLEN`, mixed-window parity/order for `...MBCBNXDMAPN` + `...MBCBNXDMAPNLEG`).
+- 2026-04-05 10:50 KST — Completed injected Systems/Ops+QA follow-up: sparse mixed-window tuple parity now explicitly includes `TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL` alongside `...MBCBNXDMAPN` and `...MBCBNXDMAPNLEG`; durable rule is full quick-map narrative chain parity to `TSDPMFXVWCRITSPMB` (`N -> NLEG -> NLEVAL`).
 
 ## 2026-04-05 09:52 KST
 - Game Director Cycle IP83 forced underrepresented-lane slice (combat/vfx + ai-content) while 24h cadence buckets remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).

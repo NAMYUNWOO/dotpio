@@ -5855,6 +5855,7 @@
 - 2026-04-05 06:52 KST — Regression suite updated for `...MBCBNXDLEVAL` presence, adjacency order, row-count parity, and mixed-window fixture tuple validation.
 
 - 2026-04-05 IP81: Added regression assertion for `TSDPMFXVWCRITSPMBCBNXDMAP` markdown presence; full regression/guardrail run passed.
+- 2026-04-05 10:50 KST — QA parity matrix hardened for sparse mixed-window fixtures by including `TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL` in the tuple parity chain (`...MBCBNXDMAPN`, `...MBCBNXDMAPNLEG`, `...MBCBNXDMAPNLEVAL`) against `TSDPMFXVWCRITSPMB`.
 
 ## 2026-04-05 07:51 KST
 - Closed IP81 injected sparse mixed-window parity follow-up: added `TSDPMFXVWCRITSPMBCBNXDMAP` row-count tracking inside regression fixture tuples and asserted parity against `TSDPMFXVWCRITSPMB` across summary/token sections.
