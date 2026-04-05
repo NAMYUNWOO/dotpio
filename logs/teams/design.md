@@ -1,3 +1,7 @@
+## 2026-04-05 21:56 KST
+- Design/world follow-up injected (IP91): next pass will add compact markdown decode helper for new backcompat VFX cue token (`...NFXQBACKVFX`) with <=72-char readability budget.
+- Rationale: keep payload additions operator-readable without widening dense token rails.
+
 ## 2026-04-05 17:31 KST
 - Design decode-chain maintenance improved: parity failures now identify the exact first diverged token in the quick-map alias-intensity helper chain instead of generic tuple mismatch text.
 

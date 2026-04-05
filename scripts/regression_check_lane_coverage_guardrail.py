@@ -273,6 +273,24 @@ def run_fixture_case(
         "preferred": "COMPACT",
         "status": "PASS",
     }, f"{name}: combat-callout decode evaluation payload must include deterministic DOS-width/readability signals"
+    backcompat_variant = report.get(
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagQuickMapNarrativeAliasIntensityPackCandidateVariantBackcompat",
+        "SR",
+    )
+    expected_backcompat_vfx_cue = {
+        "AR": "GLINT",
+        "XR": "PULSE",
+        "SR": "SHIELD",
+    }.get(str(backcompat_variant).strip().upper(), "SHIELD")
+    assert (
+        report.get(
+            "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagQuickMapNarrativeAliasIntensityPackCandidateVariantBackcompatVfxCue"
+        )
+        == expected_backcompat_vfx_cue
+    ), (
+        f"{name}: quick-map intensity-pack backcompat variant must expose deterministic combat/vfx cue mapping "
+        "(AR->GLINT, XR->PULSE, SR->SHIELD)"
+    )
     assert report.get(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveFocusAliasDecodeEvaluation"
     ) == {

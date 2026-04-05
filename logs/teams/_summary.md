@@ -1,3 +1,9 @@
+## 2026-04-05 21:56 KST
+- Game Director Cycle IP91 executed from forced cadence recovery state (`combat-or-vfx`, `design-or-world`, `systems-or-ops` buckets still missing; no lane >40%).
+- Selected/closed Combat/VFX vertical slice: added deterministic payload bridge `...NFXQBACK (AR|XR|SR) -> ...BackcompatVfxCue (GLINT|PULSE|SHIELD)` in guardrail report + regression contract.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Next injected cadence items: design/world decode-helper row for new cue token, then systems/ops+qa parity/adjacency lock.
+
 ## 2026-04-05 17:31 KST
 - Closed AI Content/World backlog item: mixed-window tuple parity diagnostics now emit first-diverged token metadata (`token`, `fixture`, `expected`, `actual`) for `...MBCBNXDMAPNFX*` contract failures.
 - Durable decision: parity assertions that span long helper chains must include divergence identity in the failure payload; row-count mismatch alone is insufficient for rapid triage.

@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP91)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0; no lane exceeded 40%, but cadence buckets remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) and guardrail ops action forced `combat-or-vfx` next.
+- Candidate ideas:
+  - Low-risk Combat/VFX: add report payload bridge `...NFXQBACK` -> VFX cue (`GLINT|PULSE|SHIELD`) for clearer intensity-pack handoff scans.
+  - Mid-risk Design/World: add compact decode helper row for the new backcompat cue with <=72-char DOS budget lock.
+  - High-risk Systems/Ops + QA: extend mixed-window tuple parity/order chain to include the new cue row in summary/token sections.
+- Selected experiment: low-risk Combat/VFX payload bridge vertical slice (report-only, reversible, runtime-coupling disabled).
+- [x] Combat/VFX + AI-content + Systems/QA Team (injected): Added payload key `trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagQuickMapNarrativeAliasIntensityPackCandidateVariantBackcompatVfxCue` with deterministic mapping `AR->GLINT`, `XR->PULSE`, `SR->SHIELD`, plus regression contract coverage. *(lifecycle: [ ] -> [~] started: 2026-04-05 21:49 KST -> [x] completed: 2026-04-05 21:56 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP91)
+- [ ] Design/World Team (injected): Add markdown decode helper row for the new backcompat VFX cue (`...NFXQBACKVFX`) and keep copy-width <=72 with compact alias fallback.
+- [ ] Systems/Ops + QA Team (injected): Extend strict adjacency/parity contracts so `...NFXQBACKVFX` is anchored after `...NFXQBACKLEVAL` in summary/token sections and mirrored in sparse mixed-window fixture matrix.
+
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP90)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog were fully checked; mandatory Game Director cycle executed.
 - Candidate ideas:

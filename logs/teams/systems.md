@@ -1,3 +1,8 @@
+## 2026-04-05 21:56 KST
+- Systems/QA slice (IP91): regression now asserts deterministic mapping from `...NFXQBACK` payload (`AR|XR|SR`) to new report key `...NFXQBACK...VfxCue` (`GLINT|PULSE|SHIELD`).
+- Follow-up injected: wire strict adjacency + sparse mixed-window parity once markdown cue row lands.
+- Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
+
 ## 2026-04-05 17:31 KST
 - Upgraded mixed-window parity assertion ergonomics: `...MBCBNXDMAPNFX*` tuple checks now report first-diverged token + fixture + expected/actual counts.
 - This keeps failure diagnosis actionable without manually diffing 20+ chained row-count fields.

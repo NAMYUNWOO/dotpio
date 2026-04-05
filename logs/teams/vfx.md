@@ -1,3 +1,8 @@
+## 2026-04-05 21:56 KST
+- Combat/VFX slice (IP91): added report payload bridge from intensity-pack backcompat variant to explicit VFX cue token (`AR->GLINT`, `XR->PULSE`, `SR->SHIELD`).
+- Scope is reversible/report-only; no runtime rendering/combat behavior changed.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + guardrail JSON/MD regeneration PASS.
+
 ## 2026-04-05 15:40 KST
 - VFX lane update: quick-map narrative intensity variant stream now includes explicit decode row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` for `BR/ER/SR` A/B aliases.
 - Scope remains reversible/report-only with deterministic ordering lock before `...NFXPLEG`; no runtime VFX behavior mutation.

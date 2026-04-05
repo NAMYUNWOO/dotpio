@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP91)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0; no lane >40%, cadence recovery buckets still missing, and guardrail forced combat/vfx priority.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX: expose backcompat variant to explicit VFX cue (`GLINT/PULSE/SHIELD`) in report payload.
+  - Mid-risk Design/World: add compact decode helper row for the cue mapping under DOS-width constraints.
+  - High-risk Systems/Ops + QA: lock adjacency/parity for new cue row in mixed-window fixture matrix.
+- Selected experiment: low-risk Combat/VFX payload bridge minimal vertical slice.
+- [x] Combat/VFX + AI-content + Systems/QA Team: Added backcompat-to-VFX cue payload mapping (`AR->GLINT`, `XR->PULSE`, `SR->SHIELD`) in guardrail report and regression domain assertion wiring. *(lifecycle: [ ] -> [~] started: 2026-04-05 21:49 KST -> [x] completed: 2026-04-05 21:56 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP91)
+- [ ] Design/World Team (injected): Add compact markdown decode helper row for new backcompat VFX cue token and keep <=72-char readability budget.
+- [ ] Systems/Ops + QA Team (injected): Extend strict adjacency + sparse mixed-window parity matrix so the new cue token remains deterministic across summary/token sections.
+
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP89)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
 - Forced-lane decision: no lane exceeded 40%, but cadence triad buckets remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so this cycle forced a cross-lane recovery slice.
