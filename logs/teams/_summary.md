@@ -5944,3 +5944,5 @@ Compact decision memory for AI context efficiency.
 - Added explicit rollback contract row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTRB` to keep candidate only when SR clarity holds and LIM72 remains PASS; otherwise rollback.
 - Regression gate passed after implementation (`py_compile`, `regression_check_lane_coverage_guardrail.py`, guardrail markdown/json regeneration).
 - Queue status: ACTION_ITEMS actionable open=0, TASKS actionable open=0, POST_RC_BACKLOG actionable open=0 (next autonomous cycle should execute mandatory Game Director review loop).
+
+- 2026-04-05 22:12 KST (durable): `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFX` is now canonical backcompat-VFX decode helper and must remain directly after `...NFXQBACKLEVAL` in summary/token adjacency + mixed-window parity matrices.

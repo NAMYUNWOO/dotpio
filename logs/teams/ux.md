@@ -4123,3 +4123,5 @@
 - Documented explicit rollback rule for shelter-tone experiment: keep only when SR clarity holds and LIM72 remains PASS.
 - Added rollback contract as a dedicated report row for one-scan operator review.
 - Follow-up: include this row in next readability checkpoint digest.
+
+- 2026-04-05 22:12 KST (Cycle IP91): Added `...NFXQBACKVFX` guardrail decode row (`GL=glint cue|PL=pulse cue|SH=shield cue`) and anchored adjacency/parity contracts in regression + mixed-window fixtures; verification bundle passed (py_compile + regression script + guardrail CLI).

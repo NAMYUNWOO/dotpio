@@ -5966,3 +5966,5 @@
 - Verified new report-only rows (`...NFXQBACKST`, `...NFXQBACKSTRB`) with full guardrail regression bundle.
 - Regression status: pass (`py_compile`, `regression_check_lane_coverage_guardrail.py`, guardrail md/json regeneration).
 - Follow-up: keep rollback clause active; revert candidate row if SR phrase fails clarity or width constraints.
+
+- 2026-04-05 22:12 KST (Cycle IP91): Added `...NFXQBACKVFX` guardrail decode row (`GL=glint cue|PL=pulse cue|SH=shield cue`) and anchored adjacency/parity contracts in regression + mixed-window fixtures; verification bundle passed (py_compile + regression script + guardrail CLI).

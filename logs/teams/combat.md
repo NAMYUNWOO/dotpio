@@ -3880,3 +3880,5 @@
 - Combat readability pass accepted `shelter hold` as alternate shelter cue for `SR` branch in offline backcompat report row.
 - Added explicit rollback contract row requiring SR clarity + LIM72 pass.
 - Follow-up: monitor if wording introduces passive bias versus actionable defense intent.
+
+- 2026-04-05 22:12 KST (Cycle IP91): Added `...NFXQBACKVFX` guardrail decode row (`GL=glint cue|PL=pulse cue|SH=shield cue`) and anchored adjacency/parity contracts in regression + mixed-window fixtures; verification bundle passed (py_compile + regression script + guardrail CLI).

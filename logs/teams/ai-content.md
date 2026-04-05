@@ -3964,3 +3964,5 @@
 - Prototyped `S` branch alternate phrase as `shelter hold` in report-only token `...NFXQBACKST`.
 - No runtime coupling added; candidate remains telemetry/docs-only.
 - Follow-up: gather readability feedback before considering any broader alias-pack language update.
+
+- 2026-04-05 22:12 KST (Cycle IP91): Added `...NFXQBACKVFX` guardrail decode row (`GL=glint cue|PL=pulse cue|SH=shield cue`) and anchored adjacency/parity contracts in regression + mixed-window fixtures; verification bundle passed (py_compile + regression script + guardrail CLI).

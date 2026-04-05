@@ -3876,3 +3876,5 @@
 - Reviewed route-tone narrative continuity for `anchor/crossfire/shelter` family.
 - Accepted alternate shelter-tone candidate wording `shelter hold` for report-only docs to improve tactical intent clarity.
 - Follow-up: if copy drift appears in player-facing docs, roll back to `shelter lane` baseline.
+
+- 2026-04-05 22:12 KST (Cycle IP91): Added `...NFXQBACKVFX` guardrail decode row (`GL=glint cue|PL=pulse cue|SH=shield cue`) and anchored adjacency/parity contracts in regression + mixed-window fixtures; verification bundle passed (py_compile + regression script + guardrail CLI).
