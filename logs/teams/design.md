@@ -3929,3 +3929,13 @@
 - 2026-04-05 10:21 KST — Added compact narrative decode width eval row `TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL:B53|C53|LIM72|PASS` for one-scan docs QA.
 - 2026-04-05 11:21 KST — Design helper pass completed: compact quick-map narrative decode row shipped as `TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SN=surge|HL=hold|EL=ease|SH=safe`.
 - 2026-04-05 11:51 KST — IP83 injected Combat/VFX+AI-content alias-pack slice completed: quick-map narrative alias candidate `TSDPMFXVWCRITSPMBCBNXDMAPN` now uses report-only `SR/HD/EZ/SF` (from `SG/HL/EA/SF`), with decode rail synced to `SR=surge|HD=hold|EZ=ease|SF=safe`; runtime coupling remains disabled and regression/guardrail bundle PASS.
+
+## 2026-04-05 12:24 KST
+- IP83 cadence recovery slice completed: wired quick-map narrative alias intensity helper `TSDPMFXVWCRITSPMBCBNXDMAPNFX:SR=HARD|HD=EDGE|EZ=SOFT|SF=SOFT` plus preference lock row `TSDPMFXVWCRITSPMBCBNXDMAPNLEN:B67|C67|LIM72|PREF:COMPACT|PASS`.
+- Regression/order hardening: strict adjacency chain now enforces `...MBCBNXDMAPN -> ...MBCBNXDMAPNLEG -> ...MBCBNXDMAPNFX -> ...MBCBNXDMAPNLEN -> ...MBCBNXDMAPNLEVAL`; mixed-window parity tuple checks include NFX/NLEN row-count mirrors against `TSDPMFXVWCRITSPMB`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-05 12:29 KST
+- Game Director IP84 selected slice shipped: compact intensity alias helper `TSDPMFXVWCRITSPMBCBNXDMAPNFXA:SR=H|HD=E|EZ=S|SF=S` added to quick-map narrative chain.
+- Durable order/parity lock updated to include `...NFXA` between `...NFX` and `...NLEN` across summary/token + mixed-window fixtures.
+- Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).

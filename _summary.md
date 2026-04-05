@@ -1,3 +1,14 @@
+## 2026-04-05 12:29 KST — IP84 compact intensity alias helper slice
+- Game Director review cycle executed after ACTION_ITEMS/TASKS/POST_RC_BACKLOG reached full completion; generated 3 ideas and selected low-risk Design/World + Systems/QA experiment.
+- Shipped minimal vertical slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXA:SR=H|HD=E|EZ=S|SF=S` and expanded deterministic chain/parity contracts to include `...NFXA` between `...NFX` and `...NLEN`.
+- Durable decision: maintain both human-readable intensity decode (`NFX`) and compact alias decode (`NFXA`) as paired rows with strict adjacency and mixed-window parity locks.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-05 12:24 KST — IP83 quick-map narrative alias intensity recovery slice
+- Completed injected TASKS/POST cadence-recovery bundle in one vertical slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFX` intensity decode helper and `TSDPMFXVWCRITSPMBCBNXDMAPNLEN` preference-lock evaluation row.
+- Durable decision: narrative alias quick-map chain now has fixed order `...N -> ...NLEG -> ...NFX -> ...NLEN -> ...NLEVAL` and mixed-window parity must include NFX/NLEN equality with `TSDPMFXVWCRITSPMB`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-04 21:49 KST — IP75 posture-beat decode compaction slice
 - Ran Game Director IP75 coverage check over last 10 completions (systems/world/ai-content/combat/design/ux/qa/vfx all 0; cadence buckets missing: `combat-or-vfx`, `design-or-world`, `systems-or-ops`).
 - Shipped minimal cross-lane vertical slice: compacted `TSDPMFXVWCRITSPMB` decode baseline to `SURGE/HOLD/COOL+SHATTER/PULSE/GLIDE=>push|hold|ease+crack|poke|nudge` and promoted DOS-width eval from WARN to PASS.
