@@ -5954,3 +5954,9 @@ Compact decision memory for AI context efficiency.
 - Technical lock: mixed-window parity tuple now explicitly includes `...NFXQBACKVFX` + `...NFXQBACKVFXLEN`; regression now reports first non-PASS row payload and fixture.
 - Verification standard unchanged: `py_compile` + `regression_check_lane_coverage_guardrail.py` + `check_lane_coverage_guardrail.py` regeneration all passing.
 - Next highest-priority unchecked item: offline compact cue-abbreviation prototype `GI/PU/SH` (Combat/VFX + AI-content).
+- 2026-04-05 22:56 KST — Closed highest-priority unchecked Combat/VFX + AI-content item by shipping offline compact cue abbreviation token `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA:{GI|PU|SH}` mapped from backcompat VFX cue (`GLINT|PULSE|SHIELD`).
+- Durable contract: payload now includes `...BackcompatVfxCueCompact` (`GLINT->GI`, `PULSE->PU`, `SHIELD->SH`) with decode legend row `...VFXALEG:GI=GLINT|PU=PULSE|SH=SHIELD`; runtime coupling remains disabled.
+- Regression/fixture parity extended so `...NFXQBACKVFXA` + `...NFXQBACKVFXALEG` stay adjacent in summary/token sections and in mixed-window parity matrices.
+- 2026-04-05 23:03 KST — Game Director Cycle IP93 executed after queue clear: generated 3 ideas, selected low-risk UX/game-feel experiment, and shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEN:B32|C26|LIM72|PASS`.
+- Durable adjacency/parity update: `...NFXQBACKVFX -> ...NFXQBACKVFXLEN -> ...NFXQBACKVFXA -> ...NFXQBACKVFXALEG -> ...NFXQBACKVFXALEN -> ...NFXPLEG` is now locked in summary/token + mixed-window matrices.
+- Backlog injected for next cycle: (1) explicit GI/PU/SH payload-domain assertion in mixed-window fixtures, (2) alternate abbreviation pack candidate `GL/PU/SD` (report-only).

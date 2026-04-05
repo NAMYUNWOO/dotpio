@@ -5486,3 +5486,5 @@
 - Added sparse mixed-window parity tuple coverage for `...NFXQBACKVFX` + `...NFXQBACKVFXLEN` row counts.
 - Added fixture-level mismatch capture path for non-PASS `...NFXQBACKVFXLEN` rows.
 - Follow-up: keep `GI/PU/SH` offline prototype queued.
+- 2026-04-05 22:56 KST — Guardrail payload schema extended with deterministic `...BackcompatVfxCueCompact` derived from backcompat VFX cue values.
+- 2026-04-05 23:03 KST — Mixed-window parity tuple/label chain extended with `...NFXQBACKVFXALEN` for deterministic row-count parity.

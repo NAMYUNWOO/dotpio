@@ -4131,3 +4131,5 @@
 ## 2026-04-05 22:22 KST — Status sync
 - No UI copy changes shipped this slice.
 - Regression now fails fast if `...NFXQBACKVFXLEN` readability status drifts from PASS.
+- 2026-04-05 22:56 KST — Compact cue abbreviation row (`...NFXQBACKVFXA`) introduced for denser DOS-width scanning without changing runtime behavior.
+- 2026-04-05 23:03 KST — Added explicit compact decode evaluator (`B32|C26|LIM72|PASS`) to keep abbreviation readability measurable.

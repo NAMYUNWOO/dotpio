@@ -3972,3 +3972,5 @@
 ## 2026-04-05 22:22 KST — Status sync
 - No AI-content copy mutation shipped this slice.
 - Next queued experiment remains offline `GI/PU/SH` cue-abbreviation prototype.
+- 2026-04-05 22:56 KST — Injected compact offline cue abbreviation candidate `GI/PU/SH` from backcompat VFX cue (`GLINT/PULSE/SHIELD`) as payload-only report artifact (`...BackcompatVfxCueCompact`), runtime coupling disabled.
+- 2026-04-05 23:03 KST — Cycle IP93 follow-up backlog injected: domain-lock assertion for GI/PU/SH payload + alternate abbreviation pack candidate (`GL/PU/SD`) for future offline A/B.

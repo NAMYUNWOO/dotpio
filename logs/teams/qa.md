@@ -5975,3 +5975,5 @@
 - Hardened fixture-domain assertion: every `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXLEN` row must end with `|PASS`.
 - Assertion surfaces first fixture + row payload on mismatch for faster triage.
 - Verification bundle passed (py_compile + regression + guardrail regen).
+- 2026-04-05 22:56 KST — Regression expanded for GI/PU/SH domain + markdown adjacency/parity around `...NFXQBACKVFX` cluster; full guardrail suite passed.
+- 2026-04-05 23:03 KST — Regression now asserts presence/parity/adjacency for `...NFXQBACKVFXALEN` across summary/token and mixed-window fixtures.
