@@ -1,3 +1,8 @@
+## 2026-04-06 03:41 KST
+- Game Director Cycle IP97 ran with lane/cadence snapshot over latest 10 completions: all lanes at 0%, no lane >40%, missing buckets remained (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) so we prioritized combat/vfx coverage.
+- Shipped minimal vertical slice: shelter-tone compact action helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH:AN=anchor brace|CF=crossfire cut|SH=shelter hold` plus eval row `...BACKSTAHLEN:B54|C48|LIM72|PASS`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-06 01:58 KST — Cycle IP95 shelter-tone alias lock
 - Shipped minimal vertical slice: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTA` compact shelter-tone alias (`AN|CF|SH`) + legend row `...BACKSTALEG`.
 - Durable decision: every report-only readability row with human-language payloads should expose a compact alias plus explicit domain assertion to avoid silent drift.

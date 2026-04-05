@@ -1,3 +1,17 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP97)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0; no lane exceeded 40%, and cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
+- Candidate ideas:
+  - Low-risk UX/Design: add shelter-tone compact action-helper row for `AN/CF/SH` with a clear <=72-char eval row.
+  - Mid-risk Systems/Ops + QA: add sparse mixed-window parity lock for `...NFXQBACKSTALEN`.
+  - High-risk Combat/VFX + AI-content: introduce a shelter-tone urgency variant micro-pack with rollback gate.
+- Selected experiment: low-risk Combat/VFX + Design/World shelter-tone compact action-helper vertical slice.
+- [x] Combat/VFX + Design/World + UX Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH:AN=anchor brace|CF=crossfire cut|SH=shelter hold` and eval row `...BACKSTAHLEN:B54|C48|LIM72|PASS` in guardrail markdown output, with regression presence assertions; runtime coupling unchanged. *(lifecycle: [ ] -> [~] started: 2026-04-06 03:34 KST -> [x] completed: 2026-04-06 03:41 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP97)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window parity assertion so `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAHLEN` row count mirrors `TSDPMFXVWCRITSPMB` across summary/token fixtures.
+- [ ] Design/World + Systems/Ops Team (injected): Add strict adjacency contract locking `...NFXQBACKSTALEN -> ...NFXQBACKSTAH -> ...NFXQBACKSTAHLEN -> ...NFXQBACKSTRB`.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype shelter-tone urgency variant candidate token (report-only) with explicit rollback note.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP96)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked; mandatory Game Director cycle triggered.
 - Candidate ideas:

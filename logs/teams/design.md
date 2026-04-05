@@ -1,3 +1,7 @@
+## 2026-04-06 03:41 KST
+- Added design/world compact helper copy for shelter-tone alias rail: `AN=anchor brace|CF=crossfire cut|SH=shelter hold`.
+- Locked readability evidence with `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAHLEN:B54|C48|LIM72|PASS`.
+
 ## 2026-04-06 01:58 KST
 - Design readability pass shipped: backcompat shelter-tone path now includes compact alias + legend (`AN/CF/SH`) without widening DOS-width rails.
 

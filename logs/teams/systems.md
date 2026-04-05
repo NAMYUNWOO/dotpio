@@ -1,3 +1,7 @@
+## 2026-04-06 03:41 KST
+- Regression coverage extended to require shelter-tone compact action helper rows `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH` and `...BACKSTAHLEN` in summary/token markdown outputs.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
 ## 2026-04-06 01:58 KST
 - Closed IP95 systems slice: added shelter-tone compact alias payload `...NFXQBACKSTA` (`AN|CF|SH`) derived from `...NFXQBACKST` and wired regression domain guard (`AN|CF|SH`) for summary/token sections.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).

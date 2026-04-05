@@ -1,3 +1,8 @@
+## 2026-04-06 03:41 KST
+- Cycle IP97 selected combat/vfx vertical slice shipped shelter-tone compact action helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH:AN=anchor brace|CF=crossfire cut|SH=shelter hold`.
+- Added paired eval row `...NFXQBACKSTAHLEN:B54|C48|LIM72|PASS` to keep helper copy deterministic and DOS-width auditable.
+- Scope remains report-only/reversible (no runtime combat or VFX behavior changes).
+
 ## 2026-04-05 21:56 KST
 - Combat/VFX slice (IP91): added report payload bridge from intensity-pack backcompat variant to explicit VFX cue token (`AR->GLINT`, `XR->PULSE`, `SR->SHIELD`).
 - Scope is reversible/report-only; no runtime rendering/combat behavior changed.
