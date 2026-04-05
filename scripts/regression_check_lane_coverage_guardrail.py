@@ -3694,7 +3694,7 @@ def run_fixture_case(
     ), f"{name}: markdown output must include beat-side quick-map narrative alias candidate row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias candidate decode (design/world): "
-        "**TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SN=surge now|HL=hold lane|EL=ease lane|SH=safe hold**"
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SN=surge|HL=hold|EL=ease|SH=safe**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias candidate decode row"
     assert (

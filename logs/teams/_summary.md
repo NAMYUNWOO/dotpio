@@ -5828,3 +5828,6 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep strict chain `...MBCBNXDMAPN -> ...MBCBNXDMAPNLEG -> ...MBCBNXDMAPNLEVAL` and mirror row counts to `TSDPMFXVWCRITSPMB` across summary/token sections.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Next injected queue (IP83): (1) systems/qa mixed-window tuple parity for `...XDMAPNLEVAL`, (2) design/world compact decode helper, (3) combat/vfx+ai-content offline alias-pack A/B candidate.
+- 2026-04-05 11:21 KST — Completed Design/World injected item: compact quick-map narrative decode helper now emitted as `TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SN=surge|HL=hold|EL=ease|SH=safe` with regression expectation updated.
+- Durable decision: keep `...MBCBNXDMAPNLEG` compact phrasing (`surge|hold|ease|safe`) while preserving strict adjacency/parity chain `...MBCBNXDMAPN -> ...MBCBNXDMAPNLEG -> ...MBCBNXDMAPNLEVAL`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=5, POST_RC_BACKLOG unchecked=4 (next: `...MBCBNXDMAPNFX`).

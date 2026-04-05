@@ -3796,3 +3796,4 @@
 ## 2026-04-05 09:52 KST
 - Added world/design readability surface for quick-map narrative alias decode `...XDMAPNLEG (SN|HL|EL|SH)` to keep SG/HL/EA/SF mapping one-scan reversible.
 - 2026-04-05 10:21 KST — IP83 review: quick-map narrative decode chain gained DOS-width eval telemetry (`...XDMAPNLEVAL`) to keep operator readability auditable before gameplay-facing promotion.
+- 2026-04-05 11:21 KST — World/readability helper compacted for operator docs: `TSDPMFXVWCRITSPMBCBNXDMAPNLEG` shortened to `SN=surge|HL=hold|EL=ease|SH=safe` under <=72-char target semantics.

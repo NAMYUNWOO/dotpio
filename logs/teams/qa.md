@@ -5873,3 +5873,4 @@
 ## 2026-04-05 09:52 KST
 - Regression suite extended to assert quick-map narrative alias row/decode presence, ordering, and row-count parity (`...XDMAPN`, `...XDMAPNLEG`).
 - 2026-04-05 10:21 KST — Verified IP83 with py_compile + regression + guardrail regeneration; added assertions for `...XDMAPNLEVAL` presence, adjacency, and row-count parity.
+- 2026-04-05 11:21 KST — QA re-verified compact narrative decode helper with full regression bundle (py_compile + regression_check + guardrail regeneration); all checks passed.

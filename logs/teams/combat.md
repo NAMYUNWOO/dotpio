@@ -3795,3 +3795,4 @@
 ## 2026-04-05 09:52 KST
 - Combat/VFX lane slice delivered: quick-map narrative alias candidate row `TSDPMFXVWCRITSPMBCBNXDMAPN` now tracks pressure-tag action alias states in compact form.
 - 2026-04-05 10:21 KST — IP83 note: no runtime combat behavior mutation shipped; narrative alias experimentation stays offline until injected follow-up validates readability impact.
+- 2026-04-05 11:21 KST — Combat/VFX-adjacent quick-map narrative decode helper aligned to compact wording (`SN/HL/EL/SH -> surge/hold/ease/safe`) to keep one-scan cue readability.

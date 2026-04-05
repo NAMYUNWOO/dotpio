@@ -4042,3 +4042,4 @@
 ## 2026-04-05 09:52 KST
 - UX/readability gain: compact quick-map narrative alias token (`SN|HL|EL|SH`) added for denser one-scan triage in summary/token sections.
 - 2026-04-05 10:21 KST — IP83: narrative decode chain now exposes explicit PASS status via `...XDMAPNLEVAL`, reducing ambiguity in dense quick-map rails.
+- 2026-04-05 11:21 KST — UX readability maintained after copy compaction; regenerated weekly guardrail docs with compact narrative decode helper preserved in quick-map chain.
