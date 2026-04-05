@@ -4127,3 +4127,7 @@
 - 2026-04-05 22:12 KST (Cycle IP91): Added `...NFXQBACKVFX` guardrail decode row (`GL=glint cue|PL=pulse cue|SH=shield cue`) and anchored adjacency/parity contracts in regression + mixed-window fixtures; verification bundle passed (py_compile + regression script + guardrail CLI).
 
 - 2026-04-05 22:19 KST (Cycle IP92): Added `...NFXQBACKVFXLEN` DOS-width eval row (`B37|C31|LIM72|PASS`) and locked adjacency/parity path `...QBACKLEVAL -> ...QBACKVFX -> ...QBACKVFXLEN -> ...FXPLEG`; full verification bundle passed.
+
+## 2026-04-05 22:22 KST — Status sync
+- No UI copy changes shipped this slice.
+- Regression now fails fast if `...NFXQBACKVFXLEN` readability status drifts from PASS.

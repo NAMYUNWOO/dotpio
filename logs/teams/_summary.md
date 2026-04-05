@@ -5948,3 +5948,9 @@ Compact decision memory for AI context efficiency.
 - 2026-04-05 22:12 KST (durable): `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFX` is now canonical backcompat-VFX decode helper and must remain directly after `...NFXQBACKLEVAL` in summary/token adjacency + mixed-window parity matrices.
 
 - 2026-04-05 22:19 KST (durable): `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXLEN` is now required PASS readability guard (`LIM72`) and must stay adjacent after `...NFXQBACKVFX` in all summary/token and mixed-window parity rails.
+
+## 2026-04-05 22:22 KST — Durable decision (IP92 follow-up)
+- Completed Systems/Ops + QA injected item: fixture-level PASS-domain assertion for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXLEN` in sparse mixed-window summary/token fixtures.
+- Technical lock: mixed-window parity tuple now explicitly includes `...NFXQBACKVFX` + `...NFXQBACKVFXLEN`; regression now reports first non-PASS row payload and fixture.
+- Verification standard unchanged: `py_compile` + `regression_check_lane_coverage_guardrail.py` + `check_lane_coverage_guardrail.py` regeneration all passing.
+- Next highest-priority unchecked item: offline compact cue-abbreviation prototype `GI/PU/SH` (Combat/VFX + AI-content).
