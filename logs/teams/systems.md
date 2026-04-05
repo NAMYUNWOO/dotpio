@@ -5554,3 +5554,8 @@
 
 ## 2026-04-06 06:56 KST
 - Systems remap shipped: `...NFXQBACKSTAF` fallback alias domain moved to `AGF|CRF|SHD` and regression fixture-domain guard updated to match, keeping runtime coupling disabled.
+
+## 2026-04-06 07:20 KST
+- Closed injected Systems/Ops+QA follow-up for fallback alias diagnostics: fixture payload now exports `tsdpmfxvwcritspmbcbnxdmapnfxqbackstafPayloads` and `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaflenNonPassRows`.
+- Mixed-window harness now checks `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` domain (`AGF|CRF|SHD`) with first-diverged fixture/occurrence/payload diagnostics and enforces PASS-only status for `...NFXQBACKSTAFLEN` rows.
+- Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).

@@ -6032,3 +6032,8 @@
 
 ## 2026-04-06 06:56 KST
 - QA domain assertions now enforce `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` payload within `AGF|CRF|SHD` across summary/token fixtures.
+
+## 2026-04-06 07:20 KST
+- QA added sparse mixed-window first-diverged diagnostics for shelter-tone fallback alias domain drift (`TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF`), now reporting fixture + occurrence + payload on failure.
+- Added PASS-domain guard for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN` via fixture `NonPassRows` extraction and mixed-window mismatch surfacing.
+- Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).

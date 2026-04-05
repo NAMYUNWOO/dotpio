@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-04-06 06:56 KST
+Last updated: 2026-04-06 07:20 KST
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP99)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after closing `ABF/CCF/SHF` compact fallback alias candidate task.
@@ -13,7 +13,7 @@ Last updated: 2026-04-06 06:56 KST
 
 ## Next Up (Game Director Injection — Cycle IP99)
 - [x] Design/World + Combat/VFX Team (injected): Prototype alternate report-only shelter-tone fallback alias pack (`AGF/CRF/SHD`) with deterministic legend row, runtime coupling disabled. *(lifecycle: [ ] -> [~] started: 2026-04-06 06:48 KST -> [x] completed: 2026-04-06 06:56 KST; implementation: remapped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` shelter-tone fallback alias payload to `AGF|CRF|SHD` and updated deterministic legend row `...BACKSTAFLEG` to `AGF=anchor brace fallback|CRF=crossfire cut fallback|SHD=shelter hold fallback`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] Systems/Ops + QA Team (injected): Add fixture-domain assertion and mixed-window parity key wiring for `...NFXQBACKSTAF` + `...NFXQBACKSTAFLEN` first-diverged diagnostics.
+- [x] Systems/Ops + QA Team (injected): Add fixture-domain assertion and mixed-window parity key wiring for `...NFXQBACKSTAF` + `...NFXQBACKSTAFLEN` first-diverged diagnostics. *(lifecycle: [ ] -> [~] started: 2026-04-06 07:19 KST -> [x] completed: 2026-04-06 07:20 KST; implementation: added `...NFXQBACKSTAF` payload tuple wiring and `...NFXQBACKSTAFLEN` PASS-domain capture in fixture payloads, then extended mixed-window domain checks with first-diverged fixture/occurrence/payload diagnostics for `AGF|CRF|SHD` and non-PASS row surfacing for `...NFXQBACKSTAFLEN`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP98)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC fully checked; Game Director review cycle executed.

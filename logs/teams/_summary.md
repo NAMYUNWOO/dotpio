@@ -6042,3 +6042,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep fallback planner wording stable (`anchor brace|crossfire cut|shelter hold`) while rotating compact alias tokens only; this preserves `...BACKSTAFLEN:B59|C46|LIM72|PASS` width budget and avoids runtime coupling risk.
 - Regression/domain contracts synced: fixture payload checks for `...NFXQBACKSTAF` now constrain to `AGF|CRF|SHD` and markdown legend expectation updated accordingly.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 07:20 KST
+- Closed IP99 injected Systems/Ops+QA diagnostic hardening task for fallback alias rows: `...NFXQBACKSTAF` now has mixed-window domain drift diagnostics (`fixture`, `occurrence`, `payload`) and `...NFXQBACKSTAFLEN` now has PASS-domain mismatch surfacing.
+- Durable decision: whenever a new compact fallback row is introduced, wire both fixture payload export keys and mixed-window first-diverged diagnostics in the same cycle to avoid parity-only false greens.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

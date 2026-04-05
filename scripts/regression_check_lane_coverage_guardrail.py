@@ -5351,6 +5351,13 @@ def run_fixture_case(
     nfxqbackvfxdlen_eval_non_pass_rows = tuple(
         row for row in nfxqbackvfxdlen_eval_rows if not row.strip().endswith("|PASS")
     )
+    nfxqbackstaflen_eval_rows = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaflen_eval_non_pass_rows = tuple(
+        row for row in nfxqbackstaflen_eval_rows if not row.strip().endswith("|PASS")
+    )
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_eval_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_operator_helper_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXPO:")
@@ -6266,6 +6273,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqlevalRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_decode_eval_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackPayloads": tuple(nfxqback_payload_values),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstafPayloads": tuple(nfxqbackstaf_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaPayloads": tuple(nfxqback_vfxa_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxdrbPayloads": tuple(nfxqback_vfxdrb_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxwPayloads": tuple(nfxqback_vfxw_payload_values),
@@ -6289,6 +6297,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxclenNonPassRows": " || ".join(nfxqbackvfxclen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxdlenNonPassRows": " || ".join(nfxqbackvfxdlen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxlenNonPassRows": " || ".join(nfxqbackvfxlen_eval_non_pass_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaflenNonPassRows": " || ".join(nfxqbackstaflen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxplegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxplenRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_eval_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxpoRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_operator_helper_row_count,
@@ -6345,6 +6354,7 @@ def main() -> int:
         mixed_window_tsdpmfx_alt_beat_helper_parity: list[tuple[int | str, ...]] = []
         mixed_window_tsdpmfx_pressure_tag_decode_parity: list[tuple[str, int, int, int]] = []
         mixed_window_tsdpmfx_nfxqback_domain_payloads: list[tuple[str, tuple[str, ...]]] = []
+        mixed_window_tsdpmfx_nfxqbackstaf_domain_payloads: list[tuple[str, tuple[str, ...]]] = []
         mixed_window_tsdpmfx_nfxqback_vfxa_domain_payloads: list[tuple[str, tuple[str, ...]]] = []
         mixed_window_tsdpmfx_nfxqback_vfxdrb_domain_payloads: list[tuple[str, tuple[str, ...]]] = []
         mixed_window_tsdpmfx_nfxqback_vfxw_domain_payloads: list[tuple[str, tuple[str, ...]]] = []
@@ -6473,6 +6483,12 @@ def main() -> int:
             (
                 "balanced_tie",
                 tuple(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackPayloads"]),
+            )
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf_domain_payloads.append(
+            (
+                "balanced_tie",
+                tuple(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstafPayloads"]),
             )
         )
         mixed_window_tsdpmfx_nfxqback_vfxa_domain_payloads.append(
@@ -6619,6 +6635,12 @@ def main() -> int:
             (
                 "ready_mix",
                 tuple(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackPayloads"]),
+            )
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf_domain_payloads.append(
+            (
+                "ready_mix",
+                tuple(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstafPayloads"]),
             )
         )
         mixed_window_tsdpmfx_nfxqback_vfxa_domain_payloads.append(
@@ -6898,6 +6920,12 @@ def main() -> int:
                 tuple(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackPayloads"]),
             )
         )
+        mixed_window_tsdpmfx_nfxqbackstaf_domain_payloads.append(
+            (
+                "prior_window_trend_up",
+                tuple(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstafPayloads"]),
+            )
+        )
         mixed_window_tsdpmfx_nfxqback_vfxa_domain_payloads.append(
             (
                 "prior_window_trend_up",
@@ -7043,6 +7071,12 @@ def main() -> int:
                 tuple(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackPayloads"]),
             )
         )
+        mixed_window_tsdpmfx_nfxqbackstaf_domain_payloads.append(
+            (
+                "prior_window_trend_down",
+                tuple(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstafPayloads"]),
+            )
+        )
         mixed_window_tsdpmfx_nfxqback_vfxa_domain_payloads.append(
             (
                 "prior_window_trend_down",
@@ -7163,6 +7197,21 @@ def main() -> int:
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqback_domain_mismatch[0]} "
             f"occurrence={mixed_window_tsdpmfx_nfxqback_domain_mismatch[1]} "
             f"payload={mixed_window_tsdpmfx_nfxqback_domain_mismatch[2]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf_domain_mismatch = next(
+            (
+                (fixture_name, index, payload)
+                for fixture_name, payloads in mixed_window_tsdpmfx_nfxqbackstaf_domain_payloads
+                for index, payload in enumerate(payloads)
+                if payload not in {"AGF", "CRF", "SHD"}
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf_domain_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF payload constrained to AGF|CRF|SHD across summary + token sections; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf_domain_mismatch[0]} "
+            f"occurrence={mixed_window_tsdpmfx_nfxqbackstaf_domain_mismatch[1]} "
+            f"payload={mixed_window_tsdpmfx_nfxqbackstaf_domain_mismatch[2]}"
         )
         mixed_window_tsdpmfx_nfxqback_vfxa_domain_mismatch = next(
             (
@@ -7304,6 +7353,30 @@ def main() -> int:
             "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEN domain-constrained to PASS across sparse summary + token sections; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqback_vfxdlen_status_mismatch[0]} "
             f"rows={mixed_window_tsdpmfx_nfxqback_vfxdlen_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaflen_status_mismatch = next(
+            (
+                (fixture_name, non_pass_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    non_pass_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaflenNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaflen_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN domain-constrained to PASS across sparse summary + token sections; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaflen_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaflen_status_mismatch[1]}"
         )
         assert all(
             tsdpmfxvwcritspmbcbnxdleg_count
