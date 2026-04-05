@@ -1,3 +1,7 @@
+## 2026-04-06 07:53 KST
+- QA validated new ordered fallback-chain invariant for shelter-tone rows: `STAPLAN -> STAF -> STAFLEN -> STAH` across summary/token output.
+- Regression now fails with explicit ordered-chain message if any row appears out of sequence; py_compile/regression/guardrail regeneration all green.
+
 ## 2026-04-06 01:58 KST
 - QA added fixture-level domain lock for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTA` ensuring payload stays in `AN|CF|SH` across summary/token sections.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).

@@ -1,3 +1,9 @@
+## 2026-04-06 07:53 KST
+- Closed highest-priority unchecked TASKS item from Cycle IP100 (Systems/Ops+QA): strict ordered fallback chain now enforced for `...NFXQBACKSTAPLAN -> ...NFXQBACKSTAF -> ...NFXQBACKSTAFLEN -> ...NFXQBACKSTAH`.
+- Durable decision: when adding fallback helper rows, maintain explicit ordered-chain regression checks in addition to row-count parity checks.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=0 (next: Design/World + Combat/VFX fallback operator legend cue row with <=72-char eval guard).
+
 ## 2026-04-06 03:41 KST
 - Game Director Cycle IP97 ran with lane/cadence snapshot over latest 10 completions: all lanes at 0%, no lane >40%, missing buckets remained (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) so we prioritized combat/vfx coverage.
 - Shipped minimal vertical slice: shelter-tone compact action helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH:AN=anchor brace|CF=crossfire cut|SH=shelter hold` plus eval row `...BACKSTAHLEN:B54|C48|LIM72|PASS`.

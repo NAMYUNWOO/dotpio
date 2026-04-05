@@ -3941,6 +3941,18 @@ def run_fixture_case(
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN:AN=anchor brace fallback|CF=crossfire cut fallback|SH=shelter hold fallback**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack shelter-tone fallback planner row"
+    shelter_tone_fallback_chain_matches = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN:[^*]+\*\*.*?"
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:[^*]+\*\*.*?"
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:[^*]+\*\*.*?"
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH:[^*]+\*\*",
+        md_text,
+        flags=re.S,
+    )
+    assert len(shelter_tone_fallback_chain_matches) >= 1, (
+        f"{name}: summary/token sections must keep strict ordered chain "
+        "...NFXQBACKSTAPLAN -> ...NFXQBACKSTAF -> ...NFXQBACKSTAFLEN -> ...NFXQBACKSTAH"
+    )
     shelter_tone_adjacency_matches = re.findall(
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH:[^*]+\*\*\n"

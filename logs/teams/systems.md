@@ -1,3 +1,8 @@
+## 2026-04-06 07:53 KST
+- Closed IP100 injected Systems/Ops+QA item by enforcing ordered fallback chain coverage: `...NFXQBACKSTAPLAN -> ...NFXQBACKSTAF -> ...NFXQBACKSTAFLEN -> ...NFXQBACKSTAH`.
+- Implementation details: moved `...NFXQBACKSTAPLAN` row earlier in guardrail markdown output and added ordered-chain regression matcher (`re.S`) so row order drift fails deterministically.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
 ## 2026-04-06 03:41 KST
 - Regression coverage extended to require shelter-tone compact action helper rows `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH` and `...BACKSTAHLEN` in summary/token markdown outputs.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
