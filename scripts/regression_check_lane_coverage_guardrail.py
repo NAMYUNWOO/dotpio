@@ -3731,6 +3731,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack operator action helper row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack compact fallback helper (ux/design): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXPOA:B=burst lane|E=edge lane|S=safe lane**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack compact fallback helper row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity compact decode legend (design/world): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG:H=HARD|E=EDGE|S=SOFT**"
         in md_text
@@ -3775,6 +3780,7 @@ def run_fixture_case(
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXPO:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXPOA:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNLEN:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL:[^*]+\*\*",
@@ -3782,7 +3788,7 @@ def run_fixture_case(
     )
     assert len(mbcbn_adjacency_matches) >= 1, (
         f"{name}: summary/token sections must keep strict adjacency chain "
-        "TSDPMFXVWCRITSPMBCBN -> ...MBCBNY -> ...MBCBNLEG -> ...MBCBNT -> ...MBCBNX -> ...MBCBNXLEG -> ...MBCBNXA -> ...MBCBNXALEG -> ...MBCBNXB -> ...MBCBNXBLEG -> ...MBCBNXBN -> ...MBCBNXH -> ...MBCBNXD -> ...MBCBNXDLEG -> ...MBCBNXDLEVAL -> ...MBCBNH -> ...MBCBNHLEN -> ...MBCBNXDMAP -> ...MBCBNXDMAPLEG -> ...MBCBNXDMAPLEGLEN -> ...MBCBNXDMAPN -> ...MBCBNXDMAPNLEG -> ...MBCBNXDMAPNFX -> ...MBCBNXDMAPNFXA -> ...MBCBNXDMAPNFXP -> ...MBCBNXDMAPNFXQ -> ...MBCBNXDMAPNFXPLEG -> ...MBCBNXDMAPNFXPLEN -> ...MBCBNXDMAPNFXPO -> ...MBCBNXDMAPNFXALEG -> ...MBCBNXDMAPNLEN -> ...MBCBNXDMAPNLEVAL"
+        "TSDPMFXVWCRITSPMBCBN -> ...MBCBNY -> ...MBCBNLEG -> ...MBCBNT -> ...MBCBNX -> ...MBCBNXLEG -> ...MBCBNXA -> ...MBCBNXALEG -> ...MBCBNXB -> ...MBCBNXBLEG -> ...MBCBNXBN -> ...MBCBNXH -> ...MBCBNXD -> ...MBCBNXDLEG -> ...MBCBNXDLEVAL -> ...MBCBNH -> ...MBCBNHLEN -> ...MBCBNXDMAP -> ...MBCBNXDMAPLEG -> ...MBCBNXDMAPLEGLEN -> ...MBCBNXDMAPN -> ...MBCBNXDMAPNLEG -> ...MBCBNXDMAPNFX -> ...MBCBNXDMAPNFXA -> ...MBCBNXDMAPNFXP -> ...MBCBNXDMAPNFXQ -> ...MBCBNXDMAPNFXPLEG -> ...MBCBNXDMAPNFXPLEN -> ...MBCBNXDMAPNFXPO -> ...MBCBNXDMAPNFXPOA -> ...MBCBNXDMAPNFXALEG -> ...MBCBNXDMAPNLEN -> ...MBCBNXDMAPNLEVAL"
     )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy decode dos-width eval (design/world): "

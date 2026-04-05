@@ -5855,3 +5855,6 @@ Compact decision memory for AI context efficiency.
 - Selected experiment (2) shipped as minimal vertical slice: `TSDPMFXVWCRITSPMBCBNXDMAPNFXPO:HR=burst lane|EG=edge lane|SF=safe lane` plus strict adjacency/parity enforcement.
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
 - Next injected backlog items queued: `...NFXPOA` UX compact alias, mixed-window fixture tuple expansion for `...NFXPO` + `...NFXPOA`.
+- 2026-04-05 14:23 KST — Completed IP87 UX/Design backlog item: added compact fallback helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXPOA:B=burst lane|E=edge lane|S=safe lane` and inserted strict adjacency anchor `...NFXPO -> ...NFXPOA -> ...NFXALEG` in regression guardrails.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: extend sparse mixed-window fixture tuple assertions for `...NFXPO` + `...NFXPOA`).
