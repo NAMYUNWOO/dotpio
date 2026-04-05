@@ -5504,3 +5504,8 @@
 - 2026-04-06 01:24 KST — Added fixture-level `...NFXQBACKVFXW` domain lock (`A|B|C`) with first-diverged diagnostics and mixed-window payload mismatch surfacing (`balanced_tie/ready_mix/prior_window_trend_up/prior_window_trend_down`).
 - 2026-04-06 02:34 KST — Added report-only fourth compact backcompat VFX pack lane support () with AX/PV/SD mapping and winner-legend extension to include D; verification bundle passed.
 - 2026-04-06 02:34 KST — Added report-only fourth compact backcompat VFX pack lane support (...NFXQBACKVFXD/DLEG/DLEN/DRB) with AX/PV/SD mapping and winner-legend extension to include D; verification bundle passed.
+
+## 2026-04-06 02:55 KST
+- Closed injected Systems/Ops + QA rollback-domain slice: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB` now has fixture-level domain extraction/assertions requiring `KEEP|ROLLBACK` semantics.
+- Mixed-window matrix now carries `...VFXDRB` payload tuples and reports first diverged fixture/occurrence/payload on mismatch for faster triage.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

@@ -4039,6 +4039,28 @@ def run_fixture_case(
         f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW payload to stay within A|B|C across summary/token sections; "
         f"first diverged occurrence={invalid_nfxqback_vfxw_payload[0]} payload={invalid_nfxqback_vfxw_payload[1]}"
     )
+    nfxqback_vfxdrb_payload_values = [
+        payload.strip()
+        for payload in re.findall(
+            r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB:([^*\n]+)\*\*",
+            md_text,
+        )
+    ]
+    assert nfxqback_vfxdrb_payload_values, (
+        f"{name}: fixture-level rollback-domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB rows across summary/token sections"
+    )
+    invalid_nfxqback_vfxdrb_payload = next(
+        (
+            (index, payload)
+            for index, payload in enumerate(nfxqback_vfxdrb_payload_values)
+            if tuple(part.strip().split(" ", 1)[0] for part in payload.split("|")) != ("KEEP", "ROLLBACK")
+        ),
+        None,
+    )
+    assert invalid_nfxqback_vfxdrb_payload is None, (
+        f"{name}: fixture-level rollback-domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB payload domain to stay KEEP|ROLLBACK across summary/token sections; "
+        f"first diverged occurrence={invalid_nfxqback_vfxdrb_payload[0]} payload={invalid_nfxqback_vfxdrb_payload[1]}"
+    )
     nfxqbacksta_payload_values = [
         payload.strip()
         for payload in re.findall(
@@ -6171,6 +6193,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackPayloads": tuple(nfxqback_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaPayloads": tuple(nfxqback_vfxa_payload_values),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxdrbPayloads": tuple(nfxqback_vfxdrb_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxwPayloads": tuple(nfxqback_vfxw_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxcPayloads": tuple(nfxqback_vfxc_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbacklegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_decode_row_count,
@@ -6241,6 +6264,7 @@ def main() -> int:
         mixed_window_tsdpmfx_pressure_tag_decode_parity: list[tuple[str, int, int, int]] = []
         mixed_window_tsdpmfx_nfxqback_domain_payloads: list[tuple[str, tuple[str, ...]]] = []
         mixed_window_tsdpmfx_nfxqback_vfxa_domain_payloads: list[tuple[str, tuple[str, ...]]] = []
+        mixed_window_tsdpmfx_nfxqback_vfxdrb_domain_payloads: list[tuple[str, tuple[str, ...]]] = []
         mixed_window_tsdpmfx_nfxqback_vfxw_domain_payloads: list[tuple[str, tuple[str, ...]]] = []
 
         balanced_tie_result = run_fixture_case(
@@ -6368,6 +6392,12 @@ def main() -> int:
             (
                 "balanced_tie",
                 tuple(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaPayloads"]),
+            )
+        )
+        mixed_window_tsdpmfx_nfxqback_vfxdrb_domain_payloads.append(
+            (
+                "balanced_tie",
+                tuple(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxdrbPayloads"]),
             )
         )
         mixed_window_tsdpmfx_nfxqback_vfxw_domain_payloads.append(
@@ -6503,6 +6533,12 @@ def main() -> int:
             (
                 "ready_mix",
                 tuple(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaPayloads"]),
+            )
+        )
+        mixed_window_tsdpmfx_nfxqback_vfxdrb_domain_payloads.append(
+            (
+                "ready_mix",
+                tuple(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxdrbPayloads"]),
             )
         )
         mixed_window_tsdpmfx_nfxqback_vfxw_domain_payloads.append(
@@ -6771,6 +6807,12 @@ def main() -> int:
                 tuple(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaPayloads"]),
             )
         )
+        mixed_window_tsdpmfx_nfxqback_vfxdrb_domain_payloads.append(
+            (
+                "prior_window_trend_up",
+                tuple(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxdrbPayloads"]),
+            )
+        )
         mixed_window_tsdpmfx_nfxqback_vfxw_domain_payloads.append(
             (
                 "prior_window_trend_up",
@@ -6905,6 +6947,12 @@ def main() -> int:
                 tuple(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaPayloads"]),
             )
         )
+        mixed_window_tsdpmfx_nfxqback_vfxdrb_domain_payloads.append(
+            (
+                "prior_window_trend_down",
+                tuple(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxdrbPayloads"]),
+            )
+        )
         mixed_window_tsdpmfx_nfxqback_vfxw_domain_payloads.append(
             (
                 "prior_window_trend_down",
@@ -7036,6 +7084,21 @@ def main() -> int:
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqback_vfxw_domain_mismatch[0]} "
             f"occurrence={mixed_window_tsdpmfx_nfxqback_vfxw_domain_mismatch[1]} "
             f"payload={mixed_window_tsdpmfx_nfxqback_vfxw_domain_mismatch[2]}"
+        )
+        mixed_window_tsdpmfx_nfxqback_vfxdrb_domain_mismatch = next(
+            (
+                (fixture_name, index, payload)
+                for fixture_name, payloads in mixed_window_tsdpmfx_nfxqback_vfxdrb_domain_payloads
+                for index, payload in enumerate(payloads)
+                if tuple(part.strip().split(" ", 1)[0] for part in payload.split("|")) != ("KEEP", "ROLLBACK")
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqback_vfxdrb_domain_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB rollback payload constrained to KEEP|ROLLBACK across summary + token sections; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqback_vfxdrb_domain_mismatch[0]} "
+            f"occurrence={mixed_window_tsdpmfx_nfxqback_vfxdrb_domain_mismatch[1]} "
+            f"payload={mixed_window_tsdpmfx_nfxqback_vfxdrb_domain_mismatch[2]}"
         )
         mixed_window_tsdpmfx_nfxqback_vfxlen_status_mismatch = next(
             (
