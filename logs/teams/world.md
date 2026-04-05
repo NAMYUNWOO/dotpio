@@ -3922,3 +3922,4 @@
 
 ## 2026-04-06 06:56 KST
 - Updated design/world legend deterministically to `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEG:AGF=anchor brace fallback|CRF=crossfire cut fallback|SHD=shelter hold fallback` for one-scan fallback semantics.
+- 2026-04-06 08:33 KST — Cycle IP101: Approved compact fallback cue legend copy (`AGF=anchor brace|CRF=crossfire cut|SHD=shelter hold`) for one-scan operator readability under DOS budget.

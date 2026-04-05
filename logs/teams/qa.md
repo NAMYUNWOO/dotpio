@@ -6045,3 +6045,4 @@
 ## 2026-04-06 07:27 KST
 - QA improved first-diverged triage readability by explicitly enumerating `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` and `...NFXQBACKSTAFLEN` in mixed-window parity failure messaging.
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
+- 2026-04-06 08:33 KST — Cycle IP101: Regression bundle rerun passed after adding fallback cue legend/eval rows; next QA hook is sparse mixed-window PASS-domain lock for `...NFXQBACKSTAFCUELEN`.

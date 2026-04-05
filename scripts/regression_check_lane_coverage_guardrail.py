@@ -3912,6 +3912,16 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback alias legend row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback operator cue legend (design/world+combat/vfx): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE:AGF=anchor brace|CRF=crossfire cut|SHD=shelter hold**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback operator cue legend row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback operator cue eval (ux/design): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUELEN:B51|C45|LIM72|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback operator cue eval row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback alias dos-width eval (ux/design): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:B59|C46|LIM72|PASS**"
         in md_text
@@ -6294,6 +6304,8 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstalenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:B45|C30|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaplanRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN:AN=anchor brace fallback|CF=crossfire cut fallback|SH=shelter hold fallback**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstafRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:AGF**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:CRF**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:SHD**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstafcueRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE:AGF=anchor brace|CRF=crossfire cut|SHD=shelter hold**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstafcuelenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUELEN:B51|C45|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaflenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:B59|C46|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstahRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH:AN=anchor brace|CF=crossfire cut|SH=shelter hold**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstahlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAHLEN:B54|C48|LIM72|PASS**"),
@@ -7134,6 +7146,8 @@ def main() -> int:
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUELEN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAHLEN",

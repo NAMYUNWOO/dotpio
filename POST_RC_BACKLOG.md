@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP101)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after stale checklist reconciliation; mandatory Game Director cycle executed.
+- Candidate ideas:
+  - Low-risk UX/Design: add compact `AGF/CRF/SHD` fallback operator cue legend row with explicit <=72 eval status.
+  - Mid-risk Systems/Ops + QA: add sparse mixed-window parity + PASS-domain lock for `...BACKSTAFCUE`/`...BACKSTAFCUELEN`.
+  - High-risk Combat/VFX + AI-content: prototype alternate report-only cue micro-pack (`ABR/XCF/SHH`) with rollback guidance.
+- Selected experiment: low-risk fallback operator cue legend+eval vertical slice.
+- [x] Design/World + Combat/VFX + Systems/Ops + QA Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE:AGF=anchor brace|CRF=crossfire cut|SHD=shelter hold` and eval row `...BACKSTAFCUELEN:B51|C45|LIM72|PASS`, then wired regression markdown assertions and sparse mixed-window parity token coverage. *(lifecycle: [ ] -> [~] started: 2026-04-06 08:25 KST -> [x] completed: 2026-04-06 08:33 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP101)
+- [ ] Systems/Ops + QA Team (injected): Add fixture-level domain/parity assertion so `...NFXQBACKSTAFCUELEN` remains `PASS` and row counts mirror `TSDPMFXVWCRITSPMB` across sparse mixed-window summary/token sections.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype report-only alternate fallback cue micro-pack candidate (`ABR/XCF/SHH`) with deterministic legend and rollback note (runtime coupling disabled).
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP100)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed.
 - Candidate ideas:
@@ -8,8 +21,8 @@
 - [x] UX/Design + Systems/Ops + QA Team (selected): Updated mixed-window parity mismatch assertion copy to include `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` + `...NFXQBACKSTAFLEN` in the explicit helper-chain list for faster first-diverged triage. *(lifecycle: [ ] -> [~] started: 2026-04-06 07:26 KST -> [x] completed: 2026-04-06 07:27 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP100)
-- [ ] Systems/Ops + QA Team (injected): Add strict adjacency assertion requiring `...NFXQBACKSTAPLAN -> ...NFXQBACKSTAF -> ...NFXQBACKSTAFLEN -> ...NFXQBACKSTAH` ordering across summary/token sections.
-- [ ] Design/World + Combat/VFX Team (injected): Prototype report-only fallback operator legend cue row for `AGF/CRF/SHD` and wire <=72-char eval guard.
+- [x] Systems/Ops + QA Team (injected): Add strict adjacency assertion requiring `...NFXQBACKSTAPLAN -> ...NFXQBACKSTAF -> ...NFXQBACKSTAFLEN -> ...NFXQBACKSTAH` ordering across summary/token sections. *(reconciled: already completed in TASKS Cycle IP100 at 2026-04-06 07:53 KST; regression bundle re-run 2026-04-06 08:26 KST.)*
+- [x] Design/World + Combat/VFX Team (injected): Prototype report-only fallback operator legend cue row for `AGF/CRF/SHD` and wire <=72-char eval guard. *(lifecycle: [ ] -> [~] started: 2026-04-06 08:25 KST -> [x] completed: 2026-04-06 08:33 KST; implementation: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE` + `...BACKSTAFCUELEN` rows and regression parity matrix wiring; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP99)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after `ABF/CCF/SHF` closure.

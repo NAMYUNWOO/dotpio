@@ -4071,3 +4071,4 @@
 
 ## 2026-04-06 06:56 KST
 - Design readability refresh: switched shelter-tone fallback shorthand from `ABF/CCF/SHF` to `AGF/CRF/SHD` while preserving deterministic legend wording.
+- 2026-04-06 08:33 KST — Cycle IP101: Finalized compact fallback cue wording + eval telemetry token (`B51|C45|LIM72|PASS`) to keep docs within DOS-width rails.
