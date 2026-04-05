@@ -5378,3 +5378,4 @@
 
 ## 2026-04-05 09:52 KST
 - Cycle IP83 kickoff: guardrail payload/report now emits quick-map narrative alias candidate `TSDPMFXVWCRITSPMBCBNXDMAPN` + decode `...XDMAPNLEG` and regression parity/adjacency locks for mixed-window fixtures.
+- 2026-04-05 10:21 KST — IP83: extended regression contract with `TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL:B53|C53|LIM72|PASS` and strict adjacency lock `...XDMAPN -> ...XDMAPNLEG -> ...XDMAPNLEVAL`; parity remains mirrored to `TSDPMFXVWCRITSPMB`.

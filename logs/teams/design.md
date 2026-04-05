@@ -3926,3 +3926,4 @@
 
 ## 2026-04-05 09:52 KST
 - Design/world decode contract expanded with `TSDPMFXVWCRITSPMBCBNXDMAPNLEG:SN=surge now|HL=hold lane|EL=ease lane|SH=safe hold`.
+- 2026-04-05 10:21 KST — Added compact narrative decode width eval row `TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL:B53|C53|LIM72|PASS` for one-scan docs QA.

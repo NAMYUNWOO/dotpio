@@ -5820,3 +5820,10 @@ Compact decision memory for AI context efficiency.
 - Shipped: quick-map decode legend row `TSDPMFXVWCRITSPMBCBNXDMAPLEG` mapping `SG/HL/EA/SF` -> `surge now/hold lane/ease lane/safe hold`.
 - Durable decision: keep `...MBCBNXDMAP` quick-map and `...MBCBNXDMAPLEG` decode rows as an adjacent decode pair, and enforce row-count parity with `TSDPMFXVWCRITSPMB` across mixed-window fixtures.
 - Backlog injected (IP82): parity hardening for `...MBCBNXDMAPLEG`, decode DOS-width eval helper, report-only narrative alias candidate.
+
+## 2026-04-05 10:21 KST — Game Director IP83 minimal vertical slice
+- Trigger: ACTION_ITEMS + TASKS + POST_RC were fully checked, so mandatory Game Director cycle executed.
+- Shipped: quick-map narrative decode DOS-width evaluation row `TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL:B53|C53|LIM72|PASS`.
+- Durable decision: keep strict chain `...MBCBNXDMAPN -> ...MBCBNXDMAPNLEG -> ...MBCBNXDMAPNLEVAL` and mirror row counts to `TSDPMFXVWCRITSPMB` across summary/token sections.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Next injected queue (IP83): (1) systems/qa mixed-window tuple parity for `...XDMAPNLEVAL`, (2) design/world compact decode helper, (3) combat/vfx+ai-content offline alias-pack A/B candidate.

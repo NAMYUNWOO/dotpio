@@ -1,3 +1,17 @@
+## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP83)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP82 closure; mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk UX/Design: add quick-map narrative decode DOS-width eval row for one-scan readability status.
+  - Mid-risk Systems/QA: enforce strict adjacency/parity lock around `...MBCBNXDMAPN` decode chain.
+  - High-risk Combat/VFX + AI-content: prototype alternate narrative alias pack for future A/B.
+- Selected experiment: low-risk eval row + mid-risk adjacency/parity lock minimal vertical slice.
+- [x] UX/Design + Systems/QA Team: Added `TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL:B53|C53|LIM72|PASS` and extended regression checks for presence, strict chain adjacency (`...MBCBNXDMAPN -> ...MBCBNXDMAPNLEG -> ...MBCBNXDMAPNLEVAL`), and row-count parity mirroring `TSDPMFXVWCRITSPMB`. *(lifecycle: [ ] -> [~] started: 2026-04-05 10:19 KST -> [x] completed: 2026-04-05 10:21 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP83)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture tuple assertion that `TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL` row count mirrors `TSDPMFXVWCRITSPMB` in summary/token sections.
+- [ ] Design/World Team (injected): Add compact quick-map narrative decode helper (`SN/HL/EL/SH -> surge/hold/ease/safe`) under <=72-char budget.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype offline alternate quick-map narrative alias pack (`SR/HD/EZ/SF`) with runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP79)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
 - Forced-lane decision: no lane exceeded 40%, but cadence triad buckets remained fully missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so this cycle forced a cross-lane recovery slice from underrepresented lanes.

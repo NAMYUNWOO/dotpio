@@ -3883,3 +3883,4 @@
 
 ## 2026-04-05 09:52 KST
 - Shipped report-only narrative alias prototype derived from SG/HL/EA/SF (`SN|HL|EL|SH`) for beat-side quick-map storytelling hints; runtime unaffected.
+- 2026-04-05 10:21 KST — IP83 coordination: kept quick-map narrative alias path report-only; queued follow-up A/B alias pack (`SR/HD/EZ/SF`) in backlog without runtime coupling.
