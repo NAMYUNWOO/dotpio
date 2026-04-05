@@ -5985,3 +5985,9 @@ Compact decision memory for AI context efficiency.
 - Completed POST_RC backlog injected item for `...NFXQBACKVFXDRB`: regression now enforces rollback domain semantics as `KEEP|ROLLBACK` at fixture level and in sparse mixed-window matrix checks.
 - Durable decision: any rollback-gate row introduced for report-only tokens must ship with explicit fixture-domain assertions and first-diverged mismatch metadata.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 03:05 KST — Cycle IP96 VFXDLEN PASS watchdog
+- Game Director cycle executed after all checkboxes cleared; selected mid-risk Systems/Ops + QA experiment over low-risk legend and high-risk fifth-pack prototype.
+- Shipped minimal vertical slice: sparse mixed-window PASS-domain lock for `...NFXQBACKVFXDLEN` via fixture non-pass capture key and first-diverged mismatch surfacing.
+- Durable decision: every new compact-candidate eval row (`...LEN`) should immediately get a paired sparse-fixture non-pass watchdog key in regression outputs.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

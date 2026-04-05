@@ -5998,3 +5998,8 @@
 - QA hardened sparse-fixture rollback-domain contract for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB` to enforce `KEEP|ROLLBACK` domain via parsed payload fragments.
 - Added first-diverged mismatch surfacing in mixed-window rollback-domain assertions (`fixture`, `occurrence`, `payload`) to keep failures actionable.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 03:05 KST
+- QA added sparse-fixture PASS watchdog for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEN` by capturing non-PASS rows and asserting emptiness across balanced/ready/prior-up/prior-down fixtures.
+- Failure surface now reports first diverged fixture + offending row payload for `...VFXDLEN` status drift.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

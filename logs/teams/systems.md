@@ -5509,3 +5509,8 @@
 - Closed injected Systems/Ops + QA rollback-domain slice: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB` now has fixture-level domain extraction/assertions requiring `KEEP|ROLLBACK` semantics.
 - Mixed-window matrix now carries `...VFXDRB` payload tuples and reports first diverged fixture/occurrence/payload on mismatch for faster triage.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 03:05 KST
+- Cycle IP96 selected systems/qa slice completed: added `...NFXQBACKVFXDLEN` fixture-level non-PASS capture key and sparse mixed-window PASS-domain assertion with first-diverged fixture surfacing.
+- Durable implementation detail: `tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxdlenNonPassRows` now threads through fixture result payloads for deterministic mismatch diagnostics.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

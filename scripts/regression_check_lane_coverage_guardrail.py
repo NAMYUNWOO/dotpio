@@ -5277,6 +5277,13 @@ def run_fixture_case(
     nfxqbackvfxclen_eval_non_pass_rows = tuple(
         row for row in nfxqbackvfxclen_eval_rows if not row.strip().endswith("|PASS")
     )
+    nfxqbackvfxdlen_eval_rows = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEN:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackvfxdlen_eval_non_pass_rows = tuple(
+        row for row in nfxqbackvfxdlen_eval_rows if not row.strip().endswith("|PASS")
+    )
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_eval_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_operator_helper_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXPO:")
@@ -6206,6 +6213,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxwlegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_pack_winner_legend_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxblenNonPassRows": " || ".join(nfxqbackvfxblen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxclenNonPassRows": " || ".join(nfxqbackvfxclen_eval_non_pass_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxdlenNonPassRows": " || ".join(nfxqbackvfxdlen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxlenNonPassRows": " || ".join(nfxqbackvfxlen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxplegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxplenRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_eval_row_count,
@@ -7171,6 +7179,30 @@ def main() -> int:
             "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEN domain-constrained to PASS across sparse summary + token sections; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqback_vfxclen_status_mismatch[0]} "
             f"rows={mixed_window_tsdpmfx_nfxqback_vfxclen_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqback_vfxdlen_status_mismatch = next(
+            (
+                (fixture_name, non_pass_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    non_pass_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxdlenNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqback_vfxdlen_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEN domain-constrained to PASS across sparse summary + token sections; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqback_vfxdlen_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqback_vfxdlen_status_mismatch[1]}"
         )
         assert all(
             tsdpmfxvwcritspmbcbnxdleg_count
