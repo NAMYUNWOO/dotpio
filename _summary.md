@@ -163,3 +163,8 @@
 - Closed injected Design/World helper-copy task by aligning `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` with lane semantics: `BR=burst lane|ER=edge lane|SR=safe lane`.
 - Durable decision: keep `...NFXQLEG` wording lane-oriented (not route-oriented) to stay semantically aligned with adjacent quick-map action guidance.
 - Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-05 17:54 KST — Game Director Cycle IP90
+- ACTION_ITEMS/TASKS/POST_RC reached full-check state after reconciling stale IP84 checkboxes; mandatory Game Director cycle executed.
+- Selected low-risk UX/Design + Systems/QA slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL:B35|C35|LIM72|PASS` and strict adjacency lock `...NFXQLEG -> ...NFXQLEVAL -> ...NFXPLEG`.
+- Durable contract: decode-helper expansions now require adjacent eval-row anchoring before downstream decode helpers.

@@ -5889,3 +5889,9 @@ Compact decision memory for AI context efficiency.
 - 2026-04-05 16:23 KST — Completed injected Design/World helper-copy follow-up: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` now reads `BR=burst lane|ER=edge lane|SR=safe lane` across guardrail/regression/docs.
 - Durable decision: prefer lane-intent nouns (`lane`) over path nouns (`route`) for `NFXQLEG` family to match adjacent action-copy conventions and reduce interpretation drift.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-05 17:54 KST — IP90 variant decode eval anchor
+- Reconciled stale IP84 checkbox state in TASKS so ACTION_ITEMS/TASKS/POST_RC returned fully-checked status before cycle selection.
+- Shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL:B35|C35|LIM72|PASS` and locked adjacency chain to `...NFXQ -> ...NFXQLEG -> ...NFXQLEVAL -> ...NFXPLEG`.
+- Durable decision: every new decode-helper cluster must carry an explicit eval row token adjacent to its decode row before downstream helper chains.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

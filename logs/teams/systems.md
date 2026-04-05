@@ -5431,3 +5431,7 @@
 - Closed injected AR/XR/SR offline variant micro-pack slice by remapping `TSDPMFXVWCRITSPMBCBNXDMAPNFXQ` outputs to `AR|XR|SR` and syncing decode copy to `AR=aggro route|XR=cross route|SR=safe route`.
 - Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 
+
+## 2026-04-05 17:54 KST — IP90 guardrail surface update
+- Guardrail markdown output now emits explicit `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL` DOS-width evaluation row for variant decode helper.
+- Follow-up injected: add mixed-window fixture parity assertion for `...NFXQLEVAL`.
