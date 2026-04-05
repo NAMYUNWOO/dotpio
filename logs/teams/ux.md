@@ -4134,3 +4134,4 @@
 - 2026-04-05 22:56 KST — Compact cue abbreviation row (`...NFXQBACKVFXA`) introduced for denser DOS-width scanning without changing runtime behavior.
 - 2026-04-05 23:03 KST — Added explicit compact decode evaluator (`B32|C26|LIM72|PASS`) to keep abbreviation readability measurable.
 - 2026-04-05 23:56 KST — Added UX eval rail `...NFXQBACKVFXBLEN:B32|C26|LIM72|PASS` for alternate compact cue readability tracking.
+- 2026-04-06 00:31 KST — Verified new compact token family includes explicit PASS row `...VFXCLEN` to preserve one-glance readability and prevent hidden width regressions.

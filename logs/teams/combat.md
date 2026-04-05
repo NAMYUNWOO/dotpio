@@ -3891,3 +3891,4 @@
 - 2026-04-05 22:56 KST — Added Combat/VFX readability token row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA:{GI|PU|SH}` for fast scan of backcompat cue posture.
 - 2026-04-05 23:03 KST — Cycle IP93 shipped compact-cue evaluator row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEN:B32|C26|LIM72|PASS` to preserve combat digest scanability.
 - 2026-04-05 23:56 KST — Logged alternate compact backcompat cue prototype (`GL/PU/SD`) as offline A/B candidate; no combat runtime hook introduced.
+- 2026-04-06 00:31 KST — Added third offline backcompat VFX compact token pack `TSDPMFX...VFXC` (`GN/PS/SD`) for readability A/B/C; deterministic mapping locked to `GLINT/PULSE/SHIELD`; runtime coupling remains disabled.

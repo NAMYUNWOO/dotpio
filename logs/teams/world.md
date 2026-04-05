@@ -3887,3 +3887,4 @@
 - 2026-04-05 22:56 KST — Digest readability narrative now supports compact GI/PU/SH cue vocabulary as an offline-only documentation/reporting layer.
 - 2026-04-05 23:03 KST — No runtime world-state coupling introduced; GI/PU/SH compact-cue changes remain digest/report only.
 - 2026-04-05 23:56 KST — Captured world-facing language alignment for alternate compact cue glossary (`GLINT/PULSE/SHIELD`) via `...VFXBLEG`.
+- 2026-04-06 00:31 KST — Synced design-world decode legends for third compact backcompat VFX token pack (`GN/PS/SD`) to keep map narrative helper semantics aligned across report sections.

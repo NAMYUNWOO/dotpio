@@ -5984,3 +5984,4 @@
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-05 23:56 KST — Added fixture/domain assertions for `...NFXQBACKVFXB` payload lock (`GL|PU|SD`) plus markdown-row presence contracts.
 - 2026-04-06 00:03 KST — Added fixture-level non-PASS capture + assertion for `...NFXQBACKVFXBLEN` to prevent silent eval drift.
+- 2026-04-06 00:31 KST — Expanded regression coverage for `...VFXC` row presence, payload domain (`GN|PS|SD`), adjacency chain, parity counts, and mixed-window PASS status assertion for `...VFXCLEN`.

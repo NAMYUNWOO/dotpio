@@ -5495,3 +5495,4 @@
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
 - 2026-04-05 23:56 KST — Extended guardrail report rail with alternate compact VFX cue row/legend/eval (`...VFXB/...VFXBLEG/...VFXBLEN`) while preserving deterministic backcompat chain ordering.
 - 2026-04-06 00:03 KST — Added sparse mixed-window `...NFXQBACKVFXBLEN` PASS mismatch surfacing key for alternate compact cue rail.
+- 2026-04-06 00:31 KST — Wired payload key `...BackcompatVfxCueCompactThirdCandidate` and maintained deterministic resolver mapping (`GLINT->GN`, `PULSE->PS`, `SHIELD->SD`) in guardrail output.

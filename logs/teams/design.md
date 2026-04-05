@@ -4027,3 +4027,4 @@
 - 2026-04-05 22:56 KST — Added decode legend row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEG:GI=GLINT|PU=PULSE|SH=SHIELD` to keep abbreviation mapping explicit.
 - 2026-04-05 23:03 KST — Cycle IP93 selected UX-focused readability experiment; evaluator row now formalizes compact GI/PU/SH decode width budget.
 - 2026-04-05 23:56 KST — Added `...NFXQBACKVFXB` lane-readable alt legend (`GL=GLINT|PU=PULSE|SD=SHIELD`) under DOS-width guardrails for future A/B readability comparison.
+- 2026-04-06 00:31 KST — Added decode helper `...VFXCLEG:GN=GLINT|PS=PULSE|SD=SHIELD` and DOS-width eval row `...VFXCLEN:B32|C26|LIM72|PASS` to keep third compact candidate human-readable under 72-char policy.
