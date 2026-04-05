@@ -176,3 +176,10 @@
 - 2026-04-06 00:31 KST — Added third report-only compact backcompat VFX cue candidate for readability A/B/C: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXC` (`GN/PS/SD`) with decode/eval rows and regression locks (domain, adjacency, parity, mixed-window PASS).
 - 2026-04-06 00:55 KST — Game Director Cycle IP95 selected slice shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW` (report-only compact pack winner, domain `A|B|C`) and updated adjacency/parity rails to anchor `...VFXCLEN -> ...VFXW -> ...NFXPLEG`.
 - Durable decision: keep winner token telemetry-only until injected domain+legend follow-ups close; parity with `TSDPMFXVWCRITSPMB` is now mandatory for `...VFXW`.
+
+## 2026-04-06 03:29 KST — Game Director Cycle IP96 shelter-tone eval-row slice
+- ACTION_ITEMS/TASKS/POST_RC were fully checked, so mandatory Game Director cycle executed (3 ideas generated; selected low-risk UX/Design + Systems/QA experiment).
+- Shipped minimal vertical slice: added shelter-tone compact alias DOS-width eval row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:B45|C30|LIM72|PASS` in guardrail markdown output and regression presence contract.
+- Durable decision: keep shelter-tone compact alias path (`...BACKSTA`) paired with explicit width-status row so report-only compact copy remains one-scan auditable.
+- Injected follow-up tasks queued in TASKS/POST_RC: (1) sparse mixed-window parity assertion for `...BACKSTALEN`, (2) compact shelter-tone action-helper prototype under <=72 chars.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP96)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked; mandatory Game Director cycle triggered.
+- Candidate ideas:
+  - Low-risk UX/Design: add explicit DOS-width eval row for shelter-tone compact alias (`...NFXQBACKSTA`) so readability stays one-scan auditable.
+  - Mid-risk Systems/QA: lock regression presence contract for the new eval row in summary/token sections.
+  - High-risk Combat/VFX + AI-content: spin up a fifth compact VFX cue abbreviation pack and extend winner-domain matrix.
+- Selected experiment: low-risk shelter-tone alias eval-row vertical slice.
+- [x] UX/Design + Systems/QA Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:B45|C30|LIM72|PASS` and regression presence assertion to keep shelter-tone compact alias readability deterministic and DOS-budget visible. *(lifecycle: [ ] -> [~] started: 2026-04-06 03:23 KST -> [x] completed: 2026-04-06 03:29 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP96)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window parity assertion so `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN` row count mirrors `TSDPMFXVWCRITSPMB` across summary/token fixture cases.
+- [ ] Design/World + Combat/VFX Team (injected): Prototype compact shelter-tone action helper row (`AN/CF/SH -> anchor/crossfire/shelter call`) under <=72-char budget with runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP95)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked; mandatory Game Director cycle triggered.
 - Candidate ideas:

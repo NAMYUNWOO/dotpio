@@ -5514,3 +5514,7 @@
 - Cycle IP96 selected systems/qa slice completed: added `...NFXQBACKVFXDLEN` fixture-level non-PASS capture key and sparse mixed-window PASS-domain assertion with first-diverged fixture surfacing.
 - Durable implementation detail: `tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxdlenNonPassRows` now threads through fixture result payloads for deterministic mismatch diagnostics.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 03:29 KST
+- Systems/Ops slice: published report-only shelter-tone compact alias DOS-width eval row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:B45|C30|LIM72|PASS` to keep compact readability budget explicit.
+- Runtime behavior unchanged; guardrail/report contract only.

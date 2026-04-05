@@ -3895,3 +3895,6 @@
 - 2026-04-06 01:24 KST — Added winner legend row `...NFXQBACKVFXWLEG` (`A=GI/PU/SH|B=GL/PU/SD|C=GN/PS/SD`) immediately after `...NFXQBACKVFXW` to keep world-facing decode semantics deterministic.
 - 2026-04-06 02:34 KST — Added report-only fourth compact backcompat VFX pack lane support () with AX/PV/SD mapping and winner-legend extension to include D; verification bundle passed.
 - 2026-04-06 02:34 KST — Added report-only fourth compact backcompat VFX pack lane support (...NFXQBACKVFXD/DLEG/DLEN/DRB) with AX/PV/SD mapping and winner-legend extension to include D; verification bundle passed.
+
+## 2026-04-06 03:29 KST
+- World/design readability sync: shelter-tone alias chain now includes explicit eval row (`...BACKSTALEN`) so dense digest scans can confirm compact preference without cross-referencing prose.

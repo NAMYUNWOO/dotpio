@@ -6003,3 +6003,7 @@
 - QA added sparse-fixture PASS watchdog for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEN` by capturing non-PASS rows and asserting emptiness across balanced/ready/prior-up/prior-down fixtures.
 - Failure surface now reports first diverged fixture + offending row payload for `...VFXDLEN` status drift.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 03:29 KST
+- QA added regression presence assertion for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN` to prevent accidental omission of shelter-tone compact width status rows.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

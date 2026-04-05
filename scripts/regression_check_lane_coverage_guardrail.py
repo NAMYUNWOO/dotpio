@@ -3903,6 +3903,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone compact alias legend row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone compact alias dos-width eval (ux/design): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:B45|C30|LIM72|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone compact alias dos-width eval row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone rollback criteria (qa/systems): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTRB:KEEP if SR clarity holds + LIM72 pass|ROLLBACK if ambiguity or width fail**"
         in md_text

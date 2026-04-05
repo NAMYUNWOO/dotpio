@@ -4035,3 +4035,6 @@
 - 2026-04-06 01:24 KST — Added explicit design decode legend row for VFX compact-pack winner (`A=GI/PU/SH|B=GL/PU/SD|C=GN/PS/SD`) and tied it to strict adjacency contracts.
 - 2026-04-06 02:34 KST — Added report-only fourth compact backcompat VFX pack lane support () with AX/PV/SD mapping and winner-legend extension to include D; verification bundle passed.
 - 2026-04-06 02:34 KST — Added report-only fourth compact backcompat VFX pack lane support (...NFXQBACKVFXD/DLEG/DLEN/DRB) with AX/PV/SD mapping and winner-legend extension to include D; verification bundle passed.
+
+## 2026-04-06 03:29 KST
+- Design readability pass: added shelter-tone compact alias eval row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:B45|C30|LIM72|PASS` to keep copy-budget status one-scan visible.
