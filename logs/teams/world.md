@@ -3826,3 +3826,4 @@
 - 2026-04-05 14:49 KST — No world/map content delta this cycle; monitored guardrail-only parity lock update for quick-map narrative helper cluster.
 - 2026-04-05 14:49 KST — No world/map content delta this cycle; monitored guardrail-only parity lock update for quick-map narrative helper cluster.
 - 2026-04-05 15:01 KST — No world content change; reviewed IP88 parity hardening impact on quick-map narrative helper ordering.
+- 2026-04-05 15:21 KST — IP88 chain-helper slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXC` contract row (`NFXP>NFXPLEG>NFXPLEN>NFXPO>NFXPOA>NFXALEG`) and regression adjacency anchor `...NFXPOA -> ...NFXC -> ...NFXALEG`; verification bundle passed.

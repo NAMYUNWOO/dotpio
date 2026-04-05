@@ -622,3 +622,4 @@
 
 ## 2026-04-05 09:52 KST
 - VFX cadence recovery slice shipped: beat-side quick-map narrative alias row (`...XDMAPN`) now participates in strict adjacency chain after `...XDMAPLEG`.
+- 2026-04-05 15:21 KST — IP88 chain-helper slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXC` contract row (`NFXP>NFXPLEG>NFXPLEN>NFXPO>NFXPOA>NFXALEG`) and regression adjacency anchor `...NFXPOA -> ...NFXC -> ...NFXALEG`; verification bundle passed.

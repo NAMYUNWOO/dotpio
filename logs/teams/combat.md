@@ -3825,3 +3825,4 @@
 - 2026-04-05 14:49 KST — No combat tuning changes this cycle; validated operator helper parity lock coverage for existing intensity-pack helper rows.
 - 2026-04-05 14:49 KST — No combat tuning changes this cycle; validated operator helper parity lock coverage for existing intensity-pack helper rows.
 - 2026-04-05 15:01 KST — No combat tuning delta; validated intensity-pack helper parity rails remain deterministic after tuple-chain expansion.
+- 2026-04-05 15:21 KST — IP88 chain-helper slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXC` contract row (`NFXP>NFXPLEG>NFXPLEN>NFXPO>NFXPOA>NFXALEG`) and regression adjacency anchor `...NFXPOA -> ...NFXC -> ...NFXALEG`; verification bundle passed.

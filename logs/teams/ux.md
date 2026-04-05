@@ -4071,3 +4071,4 @@
 - 2026-04-05 14:23 KST — IP87 UX/Design compact fallback helper slice: introduced TSDPMFXVWCRITSPMBCBNXDMAPNFXPOA:B=burst lane|E=edge lane|S=safe lane into quick-map intensity-pack block and kept adjacency/regression guardrails green. Follow-up: keep Systems/Ops+QA tuple expansion task (...NFXPO + ...NFXPOA) as next backlog item.
 - 2026-04-05 14:49 KST — UX readability rows unchanged; regression now enforces parity for compact fallback helper (`...NFXPOA`) across summary/token sections.
 - 2026-04-05 15:01 KST — UX copy unchanged this slice; queued one-glance contract decode helper row as next readability follow-up.
+- 2026-04-05 15:21 KST — IP88 chain-helper slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXC` contract row (`NFXP>NFXPLEG>NFXPLEN>NFXPO>NFXPOA>NFXALEG`) and regression adjacency anchor `...NFXPOA -> ...NFXC -> ...NFXALEG`; verification bundle passed.
