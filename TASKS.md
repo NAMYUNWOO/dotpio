@@ -1,6 +1,19 @@
 # TASKS
 
-Last updated: 2026-04-06 05:20 KST
+Last updated: 2026-04-06 06:34 KST
+
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP99)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after closing `ABF/CCF/SHF` compact fallback alias candidate task.
+- Candidate ideas generated:
+  - Low-risk UX/Design: add explicit DOS-width eval row for new fallback alias candidate token (`...NFXQBACKSTAF`) so compact fallback readability remains one-scan auditable.
+  - Mid-risk Systems/Ops + QA: lock sparse mixed-window parity for the new fallback eval row (`...NFXQBACKSTAFLEN`) against `TSDPMFXVWCRITSPMB`.
+  - High-risk Combat/VFX + AI-content: add second fallback alias candidate micro-pack (`AGF/CRF/SHD`) for offline readability bakeoff.
+- Selected experiment: low-risk fallback alias eval row + mid-risk parity lock minimal vertical slice.
+- [x] UX/Design + Systems/Ops + QA Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:B59|C46|LIM72|PASS`, extended regression presence/parity checks, and included `...NFXQBACKSTAFLEN` in sparse mixed-window parity matrix while keeping runtime coupling disabled. *(lifecycle: [ ] -> [~] started: 2026-04-06 06:28 KST -> [x] completed: 2026-04-06 06:34 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP99)
+- [ ] Design/World + Combat/VFX Team (injected): Prototype alternate report-only shelter-tone fallback alias pack (`AGF/CRF/SHD`) with deterministic legend row, runtime coupling disabled.
+- [ ] Systems/Ops + QA Team (injected): Add fixture-domain assertion and mixed-window parity key wiring for `...NFXQBACKSTAF` + `...NFXQBACKSTAFLEN` first-diverged diagnostics.
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP98)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC fully checked; Game Director review cycle executed.

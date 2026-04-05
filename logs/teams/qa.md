@@ -6026,3 +6026,6 @@
 
 ## 2026-04-06 06:26 KST
 - QA extended regression contracts for new fallback alias candidate: presence/domain assertions for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` (`ABF|CCF|SHF`) plus parity-row count key integration.
+
+## 2026-04-06 06:34 KST
+- QA regression expanded to require fallback eval row presence and parity (`...NFXQBACKSTAFLEN`) alongside `...NFXQBACKSTAF` payload-domain checks.

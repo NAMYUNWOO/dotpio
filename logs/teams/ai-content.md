@@ -4004,3 +4004,6 @@
 
 ## 2026-04-06 06:26 KST
 - AI-content lane sync: report-only shelter-tone fallback alias candidate now supports compact pack (`ABF/CCF/SHF`) without runtime coupling; domain remains bounded via regression assertions.
+
+## 2026-04-06 06:34 KST
+- AI-content planning note: queued offline alternate fallback alias pack experiment (`AGF/CRF/SHD`) for future readability bakeoff; runtime coupling remains disabled.

@@ -650,3 +650,6 @@
 
 ## 2026-04-06 06:26 KST
 - VFX lane update: added report-only shelter-tone fallback alias candidate token (`ABF/CCF/SHF`) and legend support for deterministic operator handoff; runtime VFX behavior unchanged.
+
+## 2026-04-06 06:34 KST
+- VFX-side report readability rail extended with fallback alias eval row (`...BACKSTAFLEN`) while keeping runtime VFX behavior unchanged.

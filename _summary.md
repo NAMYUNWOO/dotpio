@@ -194,3 +194,10 @@
 - Regression hardening included explicit markdown presence checks, fixture-domain assertion for `...BACKSTAF` payload, row-count key wiring, and sparse mixed-window parity tuple expansion to include the new token.
 - Durable decision: every new shelter-tone candidate row must land with legend + domain assertion + parity tuple coverage in one commit to avoid tracker/contract drift.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 06:34 KST — Game Director Cycle IP99 fallback-eval parity slice
+- Triggered mandatory Game Director cycle after ACTION_ITEMS/TASKS/POST_RC all reached checked state.
+- Generated 3 ideas; selected low-risk UX/Design + Systems/Ops + QA vertical slice to add fallback alias DOS-width eval row.
+- Implemented `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:B59|C46|LIM72|PASS`, expanded regression markdown presence checks, and wired sparse mixed-window parity tuple + row-count key for `...NFXQBACKSTAFLEN`.
+- Injected new backlog tasks: alternate fallback alias micro-pack (`AGF/CRF/SHD`) and first-diverged diagnostics/domain guard for `...NFXQBACKSTAF` + `...NFXQBACKSTAFLEN`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

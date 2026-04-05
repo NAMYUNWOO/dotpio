@@ -4065,3 +4065,6 @@
 
 ## 2026-04-06 06:26 KST
 - Design readability update: shipped compact fallback alias candidate row (`ABF|CCF|SHF`) + explicit legend row to keep shelter-tone fallback planner interpretable in dense guardrail markdown.
+
+## 2026-04-06 06:34 KST
+- UX/design readability lock shipped for fallback alias candidate via eval row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:B59|C46|LIM72|PASS`.

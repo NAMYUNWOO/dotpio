@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP99)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after `ABF/CCF/SHF` closure.
+- Candidate ideas:
+  - Low-risk UX/Design: add explicit DOS-width eval row for fallback alias candidate token (`...NFXQBACKSTAF`) so readability status remains one-scan visible.
+  - Mid-risk Systems/Ops + QA: extend sparse mixed-window parity matrix with fallback eval row (`...NFXQBACKSTAFLEN`) and regression key wiring.
+  - High-risk Combat/VFX + AI-content: prototype alternate fallback alias micro-pack (`AGF/CRF/SHD`) for offline readability bakeoff.
+- Selected experiment: low-risk fallback eval row + mid-risk parity lock minimal vertical slice.
+- [x] UX/Design + Systems/Ops + QA Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:B59|C46|LIM72|PASS`, added regression presence checks, row-count key wiring, and parity tuple inclusion for `...NFXQBACKSTAFLEN`. *(lifecycle: [ ] -> [~] started: 2026-04-06 06:28 KST -> [x] completed: 2026-04-06 06:34 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP99)
+- [ ] Design/World + Combat/VFX Team (injected): Prototype alternate report-only shelter-tone fallback alias pack (`AGF/CRF/SHD`) with deterministic legend row, runtime coupling disabled.
+- [ ] Systems/Ops + QA Team (injected): Add fixture-domain assertion and mixed-window first-diverged diagnostics for `...NFXQBACKSTAF` + `...NFXQBACKSTAFLEN`.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP98)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked; mandatory Game Director cycle triggered.
 - Candidate ideas:

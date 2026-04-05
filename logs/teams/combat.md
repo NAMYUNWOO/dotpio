@@ -3920,3 +3920,6 @@
 
 ## 2026-04-06 06:26 KST
 - Combat lane update: injected report-only fallback alias candidate token `...NFXQBACKSTAF` (ABF/CCF/SHF) for shelter-tone handoff readability; no runtime combat tuning changed.
+
+## 2026-04-06 06:34 KST
+- Combat/VFX planning handoff queued: evaluate alternate fallback alias micro-pack (`AGF/CRF/SHD`) as report-only candidate in next cycle.

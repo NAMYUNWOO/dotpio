@@ -3916,3 +3916,6 @@
 
 ## 2026-04-06 06:26 KST
 - Added design/world-facing fallback legend row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEG:ABF=anchor brace fallback|CCF=crossfire cut fallback|SHF=shelter hold fallback` for one-scan readability.
+
+## 2026-04-06 06:34 KST
+- Logged IP99 injection target for design/world + combat/vfx: alternate report-only fallback alias candidate pack (`AGF/CRF/SHD`) with deterministic legend row.

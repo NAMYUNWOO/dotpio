@@ -4163,3 +4163,6 @@
 
 ## 2026-04-06 06:26 KST
 - UX validation pass: compact shelter-tone fallback alias candidate remains report-only and width-safe by retaining existing DOS-width rails while adding explicit fallback legend visibility.
+
+## 2026-04-06 06:34 KST
+- Added explicit DOS-width status row for fallback alias candidate (`...BACKSTAFLEN`) so compact fallback readability remains one-scan auditable.

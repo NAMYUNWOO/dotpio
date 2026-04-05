@@ -5548,3 +5548,6 @@
 ## 2026-04-06 06:26 KST
 - Systems wiring: added report payload key for shelter-tone fallback alias candidate (`...BackcompatShelterToneFallbackAliasCandidate`) driving `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF` with deterministic map (`anchor lane->ABF`, `crossfire lane->CCF`, `shelter hold->SHF`).
 - Extended sparse mixed-window parity token tuple to include `...NFXQBACKSTAF` so row-count parity remains mirrored with `TSDPMFXVWCRITSPMB`.
+
+## 2026-04-06 06:34 KST
+- Added sparse mixed-window parity coverage for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN` and wired row-count regression key to keep fallback-eval rows mirrored with `TSDPMFXVWCRITSPMB`.
