@@ -3976,3 +3976,4 @@
 - 2026-04-05 23:03 KST — Cycle IP93 follow-up backlog injected: domain-lock assertion for GI/PU/SH payload + alternate abbreviation pack candidate (`GL/PU/SD`) for future offline A/B.
 - 2026-04-05 23:56 KST — Added alternate report-only compact cue pack token `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXB` (`GL/PU/SD`) for future readability A/B; runtime coupling remains disabled.
 - 2026-04-06 00:31 KST — Extended offline report-only abbreviation experiment lane with third candidate (`GN/PS/SD`) so future A/B/C readability comparisons can include a non-legacy glint mnemonic.
+- 2026-04-06 00:55 KST — Cycle IP95 selected slice shipped: added report-only compact backcompat VFX pack-winner row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW` (`A|B|C`) with strict adjacency + parity regression coverage; verification bundle (py_compile + regression + guardrail generation) passed.

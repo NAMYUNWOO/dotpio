@@ -3888,3 +3888,4 @@
 - 2026-04-05 23:03 KST — No runtime world-state coupling introduced; GI/PU/SH compact-cue changes remain digest/report only.
 - 2026-04-05 23:56 KST — Captured world-facing language alignment for alternate compact cue glossary (`GLINT/PULSE/SHIELD`) via `...VFXBLEG`.
 - 2026-04-06 00:31 KST — Synced design-world decode legends for third compact backcompat VFX token pack (`GN/PS/SD`) to keep map narrative helper semantics aligned across report sections.
+- 2026-04-06 00:55 KST — Cycle IP95 selected slice shipped: added report-only compact backcompat VFX pack-winner row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW` (`A|B|C`) with strict adjacency + parity regression coverage; verification bundle (py_compile + regression + guardrail generation) passed.

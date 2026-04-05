@@ -5985,3 +5985,4 @@
 - 2026-04-05 23:56 KST — Added fixture/domain assertions for `...NFXQBACKVFXB` payload lock (`GL|PU|SD`) plus markdown-row presence contracts.
 - 2026-04-06 00:03 KST — Added fixture-level non-PASS capture + assertion for `...NFXQBACKVFXBLEN` to prevent silent eval drift.
 - 2026-04-06 00:31 KST — Expanded regression coverage for `...VFXC` row presence, payload domain (`GN|PS|SD`), adjacency chain, parity counts, and mixed-window PASS status assertion for `...VFXCLEN`.
+- 2026-04-06 00:55 KST — Cycle IP95 selected slice shipped: added report-only compact backcompat VFX pack-winner row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW` (`A|B|C`) with strict adjacency + parity regression coverage; verification bundle (py_compile + regression + guardrail generation) passed.
