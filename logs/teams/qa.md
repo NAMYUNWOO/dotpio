@@ -5892,3 +5892,4 @@
 - Game Director IP84 selected slice shipped: compact intensity alias helper `TSDPMFXVWCRITSPMBCBNXDMAPNFXA:SR=H|HD=E|EZ=S|SF=S` added to quick-map narrative chain.
 - Durable order/parity lock updated to include `...NFXA` between `...NFX` and `...NLEN` across summary/token + mixed-window fixtures.
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
+- 2026-04-05 13:23 KST — Regression contract extended: added domain assertion for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQ:(BR|ER|SR)` and strict adjacency chain update placing `...MBCBNXDMAPNFXQ` between `...FXP` and `...FXPLEG`.

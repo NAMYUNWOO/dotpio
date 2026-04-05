@@ -909,6 +909,17 @@ def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_tr
     }.get(str(quick_map_narrative_alias or "SF").strip().upper(), "SF")
 
 
+def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_pressure_tag_quick_map_narrative_alias_intensity_pack_candidate_variant(
+    quick_map_narrative_alias: str,
+) -> str:
+    return {
+        "SR": "BR",
+        "HD": "ER",
+        "EZ": "SR",
+        "SF": "SR",
+    }.get(str(quick_map_narrative_alias or "SF").strip().upper(), "SR")
+
+
 def resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_alt_order_candidate(
     phase_note: str,
 ) -> str:
@@ -3209,6 +3220,11 @@ def build_report(
             score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_pressure_tag_quick_map_narrative_alias_candidate
         )
     )
+    score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_pressure_tag_quick_map_narrative_alias_intensity_pack_candidate_variant = (
+        resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_pressure_tag_quick_map_narrative_alias_intensity_pack_candidate_variant(
+            score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_pressure_tag_quick_map_narrative_alias_candidate
+        )
+    )
 
     score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_alt_order_candidate = (
         resolve_trend_score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_alt_order_candidate(
@@ -3858,6 +3874,7 @@ def build_report(
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagCompactActionAliasNarrativeCandidate": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_pressure_tag_compact_action_alias_narrative_candidate,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagQuickMapNarrativeAliasCandidate": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_pressure_tag_quick_map_narrative_alias_candidate,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagQuickMapNarrativeAliasIntensityPackCandidate": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_pressure_tag_quick_map_narrative_alias_intensity_pack_candidate,
+        "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagQuickMapNarrativeAliasIntensityPackCandidateVariant": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_pressure_tag_quick_map_narrative_alias_intensity_pack_candidate_variant,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNoteAltOrderCandidate": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_alias_phase_note_alt_order_candidate,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyCompactSummary": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_compact_summary,
         "trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyUltraCompactShortlistAdaptiveNote": score_band_dispatch_pressure_momentum_fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_ultra_compact_shortlist_adaptive_note,
@@ -4215,6 +4232,7 @@ def to_markdown(
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity decode helper (combat/vfx): **TSDPMFXVWCRITSPMBCBNXDMAPNFX:SR=HARD|HD=EDGE|EZ=SOFT|SF=SOFT**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity compact decode helper (design/world): **TSDPMFXVWCRITSPMBCBNXDMAPNFXA:SR=H|HD=E|EZ=S|SF=S**",
             f"- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack candidate (combat/vfx+ai-content, report-only): **TSDPMFXVWCRITSPMBCBNXDMAPNFXP:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagQuickMapNarrativeAliasIntensityPackCandidate', 'SF')}**",
+            f"- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack candidate variant (combat/vfx+ai-content, report-only): **TSDPMFXVWCRITSPMBCBNXDMAPNFXQ:{report.get('trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagQuickMapNarrativeAliasIntensityPackCandidateVariant', 'SR')}**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack decode helper (design/world): **TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:HR=hard route|EG=edge route|SF=soft route**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity compact decode legend (design/world): **TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG:H=HARD|E=EDGE|S=SOFT**",
             "- trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias decode preference lock (design/world): **TSDPMFXVWCRITSPMBCBNXDMAPNLEN:B67|C67|LIM72|PREF:COMPACT|PASS**",
