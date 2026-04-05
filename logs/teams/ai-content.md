@@ -1,3 +1,6 @@
+## 2026-04-06 01:58 KST
+- AI-content sync: shelter-tone report-only row now emits compact alias (`AN|CF|SH`) while keeping runtime coupling disabled.
+
 ## 2026-04-05 17:31 KST
 - AI-content/world backlog closure: added offline mismatch explainer output for mixed-window parity failures so `...NFX*` tuple drift reports name the first broken token immediately.
 

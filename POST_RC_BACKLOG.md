@@ -1,3 +1,15 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP95)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked; mandatory Game Director cycle triggered.
+- Candidate ideas:
+  - Low-risk UX/Design: add compact shelter-tone alias row (`AN/CF/SH`) for backcompat readability.
+  - Mid-risk Systems/QA: add fixture-level domain/parity assertion for shelter-tone alias row.
+  - High-risk Combat/VFX + AI-content: trial fourth compact VFX pack candidate with rollback policy.
+- Selected experiment: low-risk shelter-tone alias + mid-risk domain/parity lock minimal vertical slice.
+- [x] UX/Design + Systems/QA Team (injected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTA` compact alias (`AN|CF|SH`) plus `...BACKSTALEG` decode row, and enforced fixture-level domain assertions for `AN|CF|SH` payload stability. *(lifecycle: [ ] -> [~] started: 2026-04-06 01:53 KST -> [x] completed: 2026-04-06 01:58 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP95)
+- [ ] Combat/VFX + AI-content Team (injected): Prototype fourth offline compact VFX cue candidate pack (`AX/PV/SD`) and add deterministic winner-legend extension + rollback gate (runtime coupling disabled).
+
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP94)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC fully checked after `GL/PU/SD` follow-up closure.
 - Candidate ideas:

@@ -1,3 +1,6 @@
+## 2026-04-06 01:58 KST
+- Combat/VFX rail unchanged at runtime; report-only shelter-tone digest gained compact alias visibility (`AN|CF|SH`) for operator triage.
+
 ## 2026-04-05 17:31 KST
 - Combat-side report-only alias rails (`...NFX*`) now inherit explicit first-diverged-token diagnostics when mixed-window parity contracts fail.
 

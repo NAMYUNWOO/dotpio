@@ -1,3 +1,7 @@
+## 2026-04-06 01:58 KST
+- Closed IP95 systems slice: added shelter-tone compact alias payload `...NFXQBACKSTA` (`AN|CF|SH`) derived from `...NFXQBACKST` and wired regression domain guard (`AN|CF|SH`) for summary/token sections.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
 ## 2026-04-05 21:56 KST
 - Systems/QA slice (IP91): regression now asserts deterministic mapping from `...NFXQBACK` payload (`AR|XR|SR`) to new report key `...NFXQBACK...VfxCue` (`GLINT|PULSE|SHIELD`).
 - Follow-up injected: wire strict adjacency + sparse mixed-window parity once markdown cue row lands.

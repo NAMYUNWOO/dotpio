@@ -1,3 +1,7 @@
+## 2026-04-06 01:58 KST
+- QA added fixture-level domain lock for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTA` ensuring payload stays in `AN|CF|SH` across summary/token sections.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
 ## 2026-04-05 17:31 KST
 - QA regression assertion upgraded with optional offline mismatch explainer payload: mixed-window tuple parity failures now include first diverged token, fixture, expected count, and actual count.
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).

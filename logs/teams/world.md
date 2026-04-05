@@ -1,3 +1,6 @@
+## 2026-04-06 01:58 KST
+- Added design/world decode legend row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEG:AN=anchor lane|CF=crossfire lane|SH=shelter hold` to keep shelter-tone shorthand one-scan readable.
+
 ## 2026-04-05 17:31 KST
 - World/readability support updated: mismatch triage now points to the first diverged quick-map alias-intensity token in long `...NFX*` parity chains, improving handoff clarity for legend/decode upkeep.
 

@@ -1,3 +1,6 @@
+## 2026-04-06 01:58 KST
+- Design readability pass shipped: backcompat shelter-tone path now includes compact alias + legend (`AN/CF/SH`) without widening DOS-width rails.
+
 ## 2026-04-05 21:56 KST
 - Design/world follow-up injected (IP91): next pass will add compact markdown decode helper for new backcompat VFX cue token (`...NFXQBACKVFX`) with <=72-char readability budget.
 - Rationale: keep payload additions operator-readable without widening dense token rails.

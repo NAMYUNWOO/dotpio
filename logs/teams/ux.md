@@ -1,3 +1,6 @@
+## 2026-04-06 01:58 KST
+- UX compactness pass: added shelter-tone compact alias row `...NFXQBACKSTA` so long-form lane labels are skimmable in dense report rails.
+
 ## 2026-04-05 17:31 KST
 - UX triage readability improved for long parity failures: regression output now surfaces first divergence token/fixture detail for `...NFX*` helper chain checks.
 

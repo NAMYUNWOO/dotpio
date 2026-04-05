@@ -3874,6 +3874,15 @@ def run_fixture_case(
         r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone alternate \(combat/vfx\+ai-content, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKST:(anchor lane|crossfire lane|shelter hold)\*\*",
         md_text,
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone alternate row"
+    assert re.search(
+        r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone compact alias \(ux/design\+systems/qa, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTA:(AN|CF|SH)\*\*",
+        md_text,
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone compact alias row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone compact alias legend (design/world): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEG:AN=anchor lane|CF=crossfire lane|SH=shelter hold**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone compact alias legend row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone rollback criteria (qa/systems): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTRB:KEEP if SR clarity holds + LIM72 pass|ROLLBACK if ambiguity or width fail**"
@@ -3988,6 +3997,28 @@ def run_fixture_case(
     assert invalid_nfxqback_vfxw_payload is None, (
         f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW payload to stay within A|B|C across summary/token sections; "
         f"first diverged occurrence={invalid_nfxqback_vfxw_payload[0]} payload={invalid_nfxqback_vfxw_payload[1]}"
+    )
+    nfxqbacksta_payload_values = [
+        payload.strip()
+        for payload in re.findall(
+            r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTA:([^*]+)\*\*",
+            md_text,
+        )
+    ]
+    assert nfxqbacksta_payload_values, (
+        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTA row to carry an AN|CF|SH payload across summary/token sections"
+    )
+    invalid_nfxqbacksta_payload = next(
+        (
+            (index, payload)
+            for index, payload in enumerate(nfxqbacksta_payload_values)
+            if payload not in {"AN", "CF", "SH"}
+        ),
+        None,
+    )
+    assert invalid_nfxqbacksta_payload is None, (
+        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTA payload to stay within AN|CF|SH across summary/token sections; "
+        f"first diverged occurrence={invalid_nfxqbacksta_payload[0]} payload={invalid_nfxqbacksta_payload[1]}"
     )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack decode helper (design/world): "

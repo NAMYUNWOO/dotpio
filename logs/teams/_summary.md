@@ -1,3 +1,8 @@
+## 2026-04-06 01:58 KST — Cycle IP95 shelter-tone alias lock
+- Shipped minimal vertical slice: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTA` compact shelter-tone alias (`AN|CF|SH`) + legend row `...BACKSTALEG`.
+- Durable decision: every report-only readability row with human-language payloads should expose a compact alias plus explicit domain assertion to avoid silent drift.
+- Verification: py_compile + regression + guardrail markdown/json regeneration PASS.
+
 ## 2026-04-05 21:56 KST
 - Game Director Cycle IP91 executed from forced cadence recovery state (`combat-or-vfx`, `design-or-world`, `systems-or-ops` buckets still missing; no lane >40%).
 - Selected/closed Combat/VFX vertical slice: added deterministic payload bridge `...NFXQBACK (AR|XR|SR) -> ...BackcompatVfxCue (GLINT|PULSE|SHIELD)` in guardrail report + regression contract.
