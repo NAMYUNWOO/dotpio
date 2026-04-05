@@ -619,3 +619,6 @@
 
 ## 2026-04-05 08:26 KST
 - No VFX cue mapping change; added report-only narrative token tied to SG/HL/EA/SF alias stream for future callout readability A/B.
+
+## 2026-04-05 09:52 KST
+- VFX cadence recovery slice shipped: beat-side quick-map narrative alias row (`...XDMAPN`) now participates in strict adjacency chain after `...XDMAPLEG`.

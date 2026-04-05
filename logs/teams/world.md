@@ -3788,3 +3788,6 @@
 - Decision: added `TSDPMFXVWCRITSPMBCBNXDMAPLEG:SG=surge now|HL=hold lane|EA=ease lane|SF=safe hold` to keep compact quick-map aliases one-scan reversible.
 - Verification contract now includes markdown presence + adjacency chain + mixed-window row-count parity with `TSDPMFXVWCRITSPMB`.
 - Follow-ups injected: sparse parity assertion hardening, DOS-width eval helper row, report-only narrative alias candidate.
+
+## 2026-04-05 09:52 KST
+- Added world/design readability surface for quick-map narrative alias decode `...XDMAPNLEG (SN|HL|EL|SH)` to keep SG/HL/EA/SF mapping one-scan reversible.
