@@ -5927,3 +5927,9 @@
 ## 2026-04-05 17:54 KST — IP90 adjacency regression extension
 - Extended strict adjacency regex chain to enforce `...NFXQ -> ...NFXQLEG -> ...NFXQLEVAL -> ...NFXPLEG`.
 - Verification command bundle passed with no regression drift.
+
+## 2026-04-05 18:20 KST — Verification for NFXQLEVAL parity assertion
+- Validation run: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`
+- Validation run: `python3 scripts/regression_check_lane_coverage_guardrail.py`
+- Validation run: `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
+- Result: PASS (no regressions).

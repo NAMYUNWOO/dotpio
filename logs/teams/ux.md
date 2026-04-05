@@ -4088,3 +4088,7 @@
 ## 2026-04-05 17:54 KST — IP90 variant decode eval row
 - Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL:B35|C35|LIM72|PASS` to keep `...NFXQLEG` readability one-scan auditable in dense panes.
 - Verification: py_compile + regression_check_lane_coverage_guardrail + guardrail JSON/MD regeneration PASS.
+
+## 2026-04-05 18:20 KST — Status
+- UX rows unchanged this slice; existing `...NFXQLEVAL` row retained.
+- Guardrail coverage now enforces fixture parity for the eval row.

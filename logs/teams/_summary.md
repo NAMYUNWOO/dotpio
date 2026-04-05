@@ -5895,3 +5895,9 @@ Compact decision memory for AI context efficiency.
 - Shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL:B35|C35|LIM72|PASS` and locked adjacency chain to `...NFXQ -> ...NFXQLEG -> ...NFXQLEVAL -> ...NFXPLEG`.
 - Durable decision: every new decode-helper cluster must carry an explicit eval row token adjacent to its decode row before downstream helper chains.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-05 18:20 KST — Durable decision
+- Added mixed-window fixture parity contract for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL` in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Scope: fixture result export key, parity tuple population across all four fixture scenarios, parity label vector, and mismatch diagnostic message now include `...NFXQLEVAL`.
+- Outcome: regression + guardrail runs pass; TASKS Systems/Ops + QA injected item completed.
+- Next priority item: Design/World compact copy pass for `...NFXQLEG` (`route` vs `lane`) + `...NFXQLEVAL` baseline/compact token pair.

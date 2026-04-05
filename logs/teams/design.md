@@ -3977,3 +3977,7 @@
 ## 2026-04-05 17:54 KST — IP90 decode helper readability lock
 - Durable readability contract now includes `...NFXQLEVAL` directly after `...NFXQLEG` before `...NFXPLEG`.
 - Decision: keep variant decode helper readability audited with explicit fixed eval row token.
+
+## 2026-04-05 18:20 KST — Status
+- No design copy edits landed in this slice.
+- Pending task: compact wording pass (`route` vs `lane`) and `...NFXQLEVAL` compact token baseline pair.

@@ -5435,3 +5435,8 @@
 ## 2026-04-05 17:54 KST — IP90 guardrail surface update
 - Guardrail markdown output now emits explicit `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL` DOS-width evaluation row for variant decode helper.
 - Follow-up injected: add mixed-window fixture parity assertion for `...NFXQLEVAL`.
+
+## 2026-04-05 18:20 KST — NFXQLEVAL mixed-window parity lock
+- Decision: Added regression parity coverage for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL` so row counts must mirror `TSDPMFXVWCRITSPMB` in all mixed-window fixtures.
+- Evidence: `scripts/regression_check_lane_coverage_guardrail.py` now tracks `...NFXQLEVAL` row counts in fixture results, parity tuples, labels, and mismatch diagnostics.
+- Follow-up: Hand off to Design/World compact copy pass for `...NFXQLEG` + `...NFXQLEVAL` token pair.

@@ -3842,3 +3842,7 @@
 
 ## 2026-04-05 17:54 KST — IP90 planning note
 - Design/world follow-up queued for compact copy harmonization between `...NFXQLEG` and `...NFXQLEVAL`.
+
+## 2026-04-05 18:20 KST — Status
+- No world/map data changes in this slice.
+- Next expected touchpoint: compact decode copy pass for `...NFXQLEG` / `...NFXQLEVAL`.
