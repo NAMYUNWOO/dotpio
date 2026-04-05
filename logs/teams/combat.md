@@ -1,3 +1,7 @@
+## 2026-04-05 15:40 KST
+- Combat/VFX readability rail gained variant decode visibility for report-only intensity-pack candidate path via `...MBCBNXDMAPNFXQLEG`.
+- No runtime combat tuning changed; update is offline guardrail readability + regression stability only.
+
 ## 2026-04-05 12:58 KST
 - Logged injected follow-up candidate `TSDPMFXVWCRITSPMBCBNXDMAPNFXQ` for alternate report-only intensity-pack readability A/B (pending).
 

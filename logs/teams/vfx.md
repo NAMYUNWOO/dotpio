@@ -1,3 +1,7 @@
+## 2026-04-05 15:40 KST
+- VFX lane update: quick-map narrative intensity variant stream now includes explicit decode row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` for `BR/ER/SR` A/B aliases.
+- Scope remains reversible/report-only with deterministic ordering lock before `...NFXPLEG`; no runtime VFX behavior mutation.
+
 ## 2026-04-05 03:41 KST
 - Added combat/vfx pressure-tag signal for beat-side phase-note rail: `TSDPMFXVWCRITSPMBCBNX` now emits `SPIKE|HOLD|EASE|SAFE` from urgency trend (`UP|FLAT|DOWN|UNK`).
 - Scope stayed offline/readability-only (no runtime combat/VFX tuning), but improves one-scan urgency feel for phase-note alias stream.

@@ -1,3 +1,8 @@
+## 2026-04-05 15:40 KST
+- Added systems/qa regression contracts for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` (presence + strict adjacency + row-count parity with `TSDPMFXVWCRITSPMB`).
+- Adjacency chain now enforces `...MBCBNXDMAPNFXQ -> ...MBCBNXDMAPNFXQLEG -> ...MBCBNXDMAPNFXPLEG` deterministically across summary/token sections.
+- Verification bundle PASS.
+
 ## 2026-04-05 12:58 KST
 - Added parity assertions for `TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG` and inserted it into strict adjacency + mixed-window fixture matrix chain.
 - Verification bundle PASS.

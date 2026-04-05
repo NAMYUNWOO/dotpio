@@ -1,3 +1,7 @@
+## 2026-04-05 15:40 KST
+- Added design/world decode helper copy for quick-map narrative variant pack: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG:BR=burst route|ER=edge route|SR=safe route`.
+- Decision: keep variant helper wording compact and action-first so report-only A/B aliases remain one-scan readable.
+
 ## 2026-04-05 12:58 KST
 - Selected IP85 design/world experiment completed: compact decode helper wording finalized (`hard route|edge route|soft route`) with deterministic placement.
 

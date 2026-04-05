@@ -1,3 +1,8 @@
+## 2026-04-05 15:40 KST
+- QA expanded quick-map narrative variant contracts with `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` presence/parity and strict chain placement checks.
+- Regression now fails if `...NFXQLEG` is missing, out-of-order, or row-count-diverged from `TSDPMFXVWCRITSPMB`.
+- Verification: py_compile + regression + guardrail regeneration PASS.
+
 ## 2026-04-05 12:58 KST
 - Added regression presence contract for `NFXPLEG` and updated adjacency regex chain to include it between `NFXP` and `NFXALEG`.
 

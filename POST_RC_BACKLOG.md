@@ -1,3 +1,18 @@
+## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP89)
+- Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
+- Forced-lane decision: no lane exceeded 40%, but cadence buckets remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so this cycle prioritized a cross-lane recovery slice.
+- Candidate ideas:
+  - Low-risk UX/Design: add variant decode helper row for `...MBCBNXDMAPNFXQ` so report-only alias pack remains readable.
+  - Mid-risk Systems/QA: enforce strict adjacency/parity by inserting `...NFXQLEG` between `...NFXQ` and `...NFXPLEG`.
+  - High-risk Combat/VFX + AI-content: prototype volatility-aware variant remap pack for future A/B.
+- Selected experiment: low-risk decode helper + mid-risk parity/adjacency lock vertical slice.
+- [x] Combat/VFX + Design/World + Systems/QA Team (injected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG:BR=burst route|ER=edge route|SR=safe route`; extended regression presence checks, strict adjacency chain, and row-count parity assertion for `...NFXQLEG` against `TSDPMFXVWCRITSPMB`. *(lifecycle: [ ] -> [~] started: 2026-04-05 15:36 KST -> [x] completed: 2026-04-05 15:40 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP89)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window fixture tuple parity entry that explicitly includes `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` in all fixture matrix checks.
+- [ ] Design/World Team (injected): Add compact variant-action helper row (`BR/ER/SR -> burst/edge/safe lane`) under <=72-char budget and lock adjacency near `...NFXQLEG`.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype offline alternate variant micro-pack candidate (`AR/XR/SR`) for readability A/B with runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP83)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP82 closure; mandatory Game Director cycle executed.
 - Candidate ideas:
