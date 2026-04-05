@@ -3749,6 +3749,15 @@ def run_fixture_case(
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEVAL:B33|C30|LIM72|PAIR:BASE=AR/XR/SR|COMPACT=A/X/S|PASS**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat map eval row"
+    assert re.search(
+        r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone alternate \(combat/vfx\+ai-content, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKST:(anchor lane|crossfire lane|shelter hold)\*\*",
+        md_text,
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone alternate row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone rollback criteria (qa/systems): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTRB:KEEP if SR clarity holds + LIM72 pass|ROLLBACK if ambiguity or width fail**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack shelter-tone rollback criteria row"
     nfxqback_payload_values = [
         payload.strip()
         for payload in re.findall(

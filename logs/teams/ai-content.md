@@ -3959,3 +3959,8 @@
 ## 2026-04-05 20:52 KST — Cycle IP92 follow-up (no model coupling)
 - Comparator row added as static/report-only metadata; no AI-content resolver branch changed.
 - Decision: preserve current `A/X/S` and `AR/XR/SR` mapping semantics until shelter-tone A/B slice is validated.
+
+## 2026-04-05 21:29 KST — Offline shelter-tone variant candidate
+- Prototyped `S` branch alternate phrase as `shelter hold` in report-only token `...NFXQBACKST`.
+- No runtime coupling added; candidate remains telemetry/docs-only.
+- Follow-up: gather readability feedback before considering any broader alias-pack language update.

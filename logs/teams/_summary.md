@@ -5932,3 +5932,9 @@ Compact decision memory for AI context efficiency.
 - Added new backcompat decode copy-budget comparator row: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEGCMP`.
 - Durable contract: strict order is now `...NFXQBACKLEG -> ...NFXQBACKLEGCMP -> ...NFXQBACKLEVAL` and all three rows must keep row-count parity with `TSDPMFXVWCRITSPMB` in summary/token sections.
 - Intent: keep full semantic wording (`anchor/crossfire/shelter`) while documenting abbreviated candidate (`anc/xfire/shel`) under `LIM72` without runtime coupling.
+
+## 2026-04-05 21:29 KST — Cycle IP92 injected shelter-tone candidate closed
+- Closed injected Combat/VFX + AI-content task by adding report-only shelter-tone alternate row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKST` (current `SR` branch candidate: `shelter hold`) with no runtime coupling.
+- Added explicit rollback contract row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTRB` to keep candidate only when SR clarity holds and LIM72 remains PASS; otherwise rollback.
+- Regression gate passed after implementation (`py_compile`, `regression_check_lane_coverage_guardrail.py`, guardrail markdown/json regeneration).
+- Queue status: ACTION_ITEMS actionable open=0, TASKS actionable open=0, POST_RC_BACKLOG actionable open=0 (next autonomous cycle should execute mandatory Game Director review loop).

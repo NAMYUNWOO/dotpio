@@ -3871,3 +3871,8 @@
 ## 2026-04-05 20:52 KST — Cycle IP92 follow-up (readability continuity)
 - Maintained world/design readability continuity by keeping backcompat decode helper wording stable while surfacing abbreviated comparator separately.
 - No map/progression or portal contract touched.
+
+## 2026-04-05 21:29 KST — Shelter-tone copy alignment note
+- Reviewed route-tone narrative continuity for `anchor/crossfire/shelter` family.
+- Accepted alternate shelter-tone candidate wording `shelter hold` for report-only docs to improve tactical intent clarity.
+- Follow-up: if copy drift appears in player-facing docs, roll back to `shelter lane` baseline.

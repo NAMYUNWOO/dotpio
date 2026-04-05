@@ -4007,3 +4007,8 @@
 - Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEGCMP:B24|C14|LIM72|PAIR:FULL=anchor/crossfire/shelter|ABBR=anc/xfire/shel|PASS` to keep `...NFXQBACKLEG` wording decisions one-scan auditable.
 - Decision: preserve full wording in decode helper, expose abbreviated candidate only as report-only comparator.
 - Follow-up: run the remaining shelter-tone wording experiment (`S` branch) and keep rollback path report-only.
+
+## 2026-04-05 21:29 KST — Backcompat shelter-tone copy candidate
+- Added report-only copy candidate row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKST` and rollback row `...NFXQBACKSTRB`.
+- Decision: keep baseline decode row unchanged (`SR=shelter lane`) and track alternate wording separately.
+- Follow-up: if ambiguity/readability regresses, rollback criteria already documented in-row.

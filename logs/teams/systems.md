@@ -5467,3 +5467,8 @@
 - Extended regression parity coverage to include `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEGCMP`.
 - Added mixed-window fixture matrix token list entry for the comparator row.
 - Follow-up: keep parity matrix synchronized when additional backcompat helper rows are introduced.
+
+## 2026-04-05 21:29 KST — NFXQ backcompat shelter-tone candidate plumbing
+- Added report payload field `...VariantBackcompatShelterToneCandidate` via resolver mapped from `AR|XR|SR`.
+- Current candidate mapping preserves A/X semantics and changes `SR` wording to `shelter hold` (report-only).
+- Follow-up: keep runtime mapping untouched; revisit only if readability review flags ambiguity.

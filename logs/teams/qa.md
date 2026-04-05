@@ -5961,3 +5961,8 @@
   - `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`
   - `python3 scripts/regression_check_lane_coverage_guardrail.py`
   - `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
+
+## 2026-04-05 21:29 KST — Verification of shelter-tone candidate slice
+- Verified new report-only rows (`...NFXQBACKST`, `...NFXQBACKSTRB`) with full guardrail regression bundle.
+- Regression status: pass (`py_compile`, `regression_check_lane_coverage_guardrail.py`, guardrail md/json regeneration).
+- Follow-up: keep rollback clause active; revert candidate row if SR phrase fails clarity or width constraints.

@@ -3875,3 +3875,8 @@
 - No combat runtime behavior changed in this slice.
 - Kept comparator row report-only to avoid coupling with live combat callouts.
 - Follow-up: evaluate shelter-tone microcopy candidate in offline branch next cycle.
+
+## 2026-04-05 21:29 KST — Shelter-tone phrasing experiment
+- Combat readability pass accepted `shelter hold` as alternate shelter cue for `SR` branch in offline backcompat report row.
+- Added explicit rollback contract row requiring SR clarity + LIM72 pass.
+- Follow-up: monitor if wording introduces passive bias versus actionable defense intent.

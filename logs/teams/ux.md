@@ -4118,3 +4118,8 @@
 - Shipped compact copy-budget comparator row for backcompat decode helper with explicit baseline/abbrev pair under `LIM72`.
 - Validation: comparator stays in strict chain `...NFXQBACKLEG -> ...NFXQBACKLEGCMP -> ...NFXQBACKLEVAL`.
 - Follow-up: assess operator readability impact after shelter-tone experiment lands.
+
+## 2026-04-05 21:29 KST — Rollback criteria documentation pass
+- Documented explicit rollback rule for shelter-tone experiment: keep only when SR clarity holds and LIM72 remains PASS.
+- Added rollback contract as a dedicated report row for one-scan operator review.
+- Follow-up: include this row in next readability checkpoint digest.
