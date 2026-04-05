@@ -1,3 +1,6 @@
+## 2026-04-05 17:31 KST
+- AI-content/world backlog closure: added offline mismatch explainer output for mixed-window parity failures so `...NFX*` tuple drift reports name the first broken token immediately.
+
 ## 2026-04-05 15:53 KST
 - AI-content report-only variant rail (`...NFXQ` family) now has cross-fixture parity guard on decode helper row `...NFXQLEG` for drift-free A/B prep.
 

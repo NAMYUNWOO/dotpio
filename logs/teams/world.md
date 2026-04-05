@@ -1,3 +1,6 @@
+## 2026-04-05 17:31 KST
+- World/readability support updated: mismatch triage now points to the first diverged quick-map alias-intensity token in long `...NFX*` parity chains, improving handoff clarity for legend/decode upkeep.
+
 ## 2026-04-05 15:53 KST
 - Design/world decode-helper parity follow-up landed: fixture matrix now explicitly mirrors `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` with `TSDPMFXVWCRITSPMB` across mixed windows.
 

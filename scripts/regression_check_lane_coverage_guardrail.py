@@ -6237,54 +6237,59 @@ def main() -> int:
         assert "UP" in observed_family_trends and "DOWN" in observed_family_trends, (
             "fixture matrix must include explicit prior-window recommendation-family trend transitions for both UP and DOWN"
         )
-        assert all(
-            tsdpmfxvwcritspmbcbh_count
-            == tsdpmfxvwcritspmbcbnleg_count
-            == tsdpmfxvwcritspmbcbnt_count
-            == tsdpmfxvwcritspmbcbnx_count
-            == tsdpmfxvwcritspmbcbnxleg_count
-            == tsdpmfxvwcritspmbcbnxdmap_count
-            == tsdpmfxvwcritspmbcbnxdmapleg_count
-            == tsdpmfxvwcritspmbcbnxdmapn_count
-            == tsdpmfxvwcritspmbcbnxdmapnleg_count
-            == tsdpmfxvwcritspmbcbnxdmapnfx_count
-            == tsdpmfxvwcritspmbcbnxdmapnfxa_count
-            == tsdpmfxvwcritspmbcbnxdmapnfxp_count
-            == tsdpmfxvwcritspmbcbnxdmapnfxqleg_count
-            == tsdpmfxvwcritspmbcbnxdmapnfxpleg_count
-            == tsdpmfxvwcritspmbcbnxdmapnfxplen_count
-            == tsdpmfxvwcritspmbcbnxdmapnfxpo_count
-            == tsdpmfxvwcritspmbcbnxdmapnfxpoa_count
-            == tsdpmfxvwcritspmbcbnxdmapnfxaleg_count
-            == tsdpmfxvwcritspmbcbnxdmapnlen_count
-            == tsdpmfxvwcritspmbcbnxdmapnleval_count
-            == tsdpmfxvwcritspmb_count
-            for (
-                _,
-                tsdpmfxvwcritspmbcbh_count,
-                tsdpmfxvwcritspmbcbnleg_count,
-                tsdpmfxvwcritspmbcbnt_count,
-                tsdpmfxvwcritspmbcbnx_count,
-                tsdpmfxvwcritspmbcbnxleg_count,
-                tsdpmfxvwcritspmbcbnxdmap_count,
-                tsdpmfxvwcritspmbcbnxdmapleg_count,
-                tsdpmfxvwcritspmbcbnxdmapn_count,
-                tsdpmfxvwcritspmbcbnxdmapnleg_count,
-                tsdpmfxvwcritspmbcbnxdmapnfx_count,
-                tsdpmfxvwcritspmbcbnxdmapnfxa_count,
-                tsdpmfxvwcritspmbcbnxdmapnfxp_count,
-                tsdpmfxvwcritspmbcbnxdmapnfxqleg_count,
-                tsdpmfxvwcritspmbcbnxdmapnfxpleg_count,
-                tsdpmfxvwcritspmbcbnxdmapnfxplen_count,
-                tsdpmfxvwcritspmbcbnxdmapnfxpo_count,
-                tsdpmfxvwcritspmbcbnxdmapnfxpoa_count,
-                tsdpmfxvwcritspmbcbnxdmapnfxaleg_count,
-                tsdpmfxvwcritspmbcbnxdmapnlen_count,
-                tsdpmfxvwcritspmbcbnxdmapnleval_count,
-                tsdpmfxvwcritspmb_count,
-            ) in mixed_window_tsdpmfx_alt_beat_helper_parity
-        ), (
-            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBH + TSDPMFXVWCRITSPMBCBNLEG + TSDPMFXVWCRITSPMBCBNT + TSDPMFXVWCRITSPMBCBNX + TSDPMFXVWCRITSPMBCBNXLEG + TSDPMFXVWCRITSPMBCBNXDMAP + TSDPMFXVWCRITSPMBCBNXDMAPLEG + TSDPMFXVWCRITSPMBCBNXDMAPN + TSDPMFXVWCRITSPMBCBNXDMAPNLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFX + TSDPMFXVWCRITSPMBCBNXDMAPNFXA + TSDPMFXVWCRITSPMBCBNXDMAPNFXP + TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXPO + TSDPMFXVWCRITSPMBCBNXDMAPNFXPOA + TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG + TSDPMFXVWCRITSPMBCBNXDMAPNLEN + TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL row-count parity with TSDPMFXVWCRITSPMB across summary + token sections"
+        mixed_window_tsdpmfx_alt_beat_helper_labels = [
+            "TSDPMFXVWCRITSPMBCBH",
+            "TSDPMFXVWCRITSPMBCBNLEG",
+            "TSDPMFXVWCRITSPMBCBNT",
+            "TSDPMFXVWCRITSPMBCBNX",
+            "TSDPMFXVWCRITSPMBCBNXLEG",
+            "TSDPMFXVWCRITSPMBCBNXDMAP",
+            "TSDPMFXVWCRITSPMBCBNXDMAPLEG",
+            "TSDPMFXVWCRITSPMBCBNXDMAPN",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNLEG",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFX",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXA",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXP",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXPO",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXPOA",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNLEN",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL",
+            "TSDPMFXVWCRITSPMB",
+        ]
+        mixed_window_tsdpmfx_alt_beat_helper_mismatch = []
+        for fixture_name, *counts in mixed_window_tsdpmfx_alt_beat_helper_parity:
+            expected_count = counts[-1]
+            first_diverged = next(
+                (
+                    label
+                    for label, count in zip(
+                        mixed_window_tsdpmfx_alt_beat_helper_labels,
+                        counts,
+                    )
+                    if count != expected_count
+                ),
+                None,
+            )
+            if first_diverged is not None:
+                mixed_window_tsdpmfx_alt_beat_helper_mismatch.append(
+                    (
+                        fixture_name,
+                        first_diverged,
+                        expected_count,
+                        counts[mixed_window_tsdpmfx_alt_beat_helper_labels.index(first_diverged)],
+                    )
+                )
+
+        assert not mixed_window_tsdpmfx_alt_beat_helper_mismatch, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBH + TSDPMFXVWCRITSPMBCBNLEG + TSDPMFXVWCRITSPMBCBNT + TSDPMFXVWCRITSPMBCBNX + TSDPMFXVWCRITSPMBCBNXLEG + TSDPMFXVWCRITSPMBCBNXDMAP + TSDPMFXVWCRITSPMBCBNXDMAPLEG + TSDPMFXVWCRITSPMBCBNXDMAPN + TSDPMFXVWCRITSPMBCBNXDMAPNLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFX + TSDPMFXVWCRITSPMBCBNXDMAPNFXA + TSDPMFXVWCRITSPMBCBNXDMAPNFXP + TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXPO + TSDPMFXVWCRITSPMBCBNXDMAPNFXPOA + TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG + TSDPMFXVWCRITSPMBCBNXDMAPNLEN + TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL row-count parity with TSDPMFXVWCRITSPMB across summary + token sections; "
+            f"first diverged token={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][1]} "
+            f"fixture={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][0]} "
+            f"expected={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][2]} "
+            f"actual={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][3]}"
         )
         assert all(
             tsdpmfxvwcritspmbcbnxdleg_count

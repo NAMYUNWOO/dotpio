@@ -1,3 +1,6 @@
+## 2026-04-05 17:31 KST
+- Combat-side report-only alias rails (`...NFX*`) now inherit explicit first-diverged-token diagnostics when mixed-window parity contracts fail.
+
 ## 2026-04-05 15:53 KST
 - Combat-side quick-map intensity variant chain received cross-fixture parity lock for `...NFXQLEG`, preserving deterministic contract across sparse windows.
 

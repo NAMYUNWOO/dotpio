@@ -1,3 +1,6 @@
+## 2026-04-05 17:31 KST
+- Design decode-chain maintenance improved: parity failures now identify the exact first diverged token in the quick-map alias-intensity helper chain instead of generic tuple mismatch text.
+
 ## 2026-04-05 15:53 KST
 - Design decode helper durability improved: `BR/ER/SR` decode row is now enforced in mixed-window tuple parity contracts across all fixture cases.
 

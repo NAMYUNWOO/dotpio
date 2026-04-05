@@ -1,3 +1,6 @@
+## 2026-04-05 17:31 KST
+- UX triage readability improved for long parity failures: regression output now surfaces first divergence token/fixture detail for `...NFX*` helper chain checks.
+
 ## 2026-04-05 15:53 KST
 - UX regression hygiene: mixed-window parity matrix now includes `...NFXQLEG`, preventing silent decode-helper omissions in report-only compact rails.
 

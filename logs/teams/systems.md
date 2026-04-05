@@ -1,3 +1,7 @@
+## 2026-04-05 17:31 KST
+- Upgraded mixed-window parity assertion ergonomics: `...MBCBNXDMAPNFX*` tuple checks now report first-diverged token + fixture + expected/actual counts.
+- This keeps failure diagnosis actionable without manually diffing 20+ chained row-count fields.
+
 ## 2026-04-05 15:53 KST
 - Added mixed-window fixture parity tuple coverage for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` across `balanced_tie`, `ready_mix`, `prior_window_trend_up`, and `prior_window_trend_down`.
 - Wired `tsdpmfxvwcritspmbcbnxdmapnfxqlegRowCount` in fixture result payload and parity matrix checks so variant decode helper drift now fails deterministically.

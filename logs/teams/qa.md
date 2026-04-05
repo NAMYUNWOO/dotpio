@@ -1,3 +1,7 @@
+## 2026-04-05 17:31 KST
+- QA regression assertion upgraded with optional offline mismatch explainer payload: mixed-window tuple parity failures now include first diverged token, fixture, expected count, and actual count.
+- Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
+
 ## 2026-04-05 15:53 KST
 - QA contract now enforces explicit `...NFXQLEG` parity in every sparse mixed-window fixture case (not only single markdown presence assertions).
 - Added failure-surface coverage for fixture payload key `tsdpmfxvwcritspmbcbnxdmapnfxqlegRowCount` to keep tuple parity diagnostics precise.
