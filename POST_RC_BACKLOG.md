@@ -1,3 +1,15 @@
+## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP90)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog were fully checked; mandatory Game Director cycle executed.
+- Candidate ideas:
+  - Low-risk Design/World: add compact variant action-helper row for `...MBCBNXDMAPNFXQ` so `A/X/S` aliases are one-scan operator-readable.
+  - Mid-risk Systems/QA: enforce strict adjacency/parity by anchoring the new helper row between `...NFXQLEG` and `...NFXQLEVAL` and mirroring `TSDPMFXVWCRITSPMB` counts across mixed-window fixtures.
+  - High-risk Combat/VFX + AI-content: prototype alternate callout phrasing pack (`A=assault, X=cross, S=shield`) with trend-window switching.
+- Selected experiment: low-risk compact helper + mid-risk adjacency/parity lock minimal vertical slice.
+- [x] Design/World + Systems/Ops + QA Team (injected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQH:A=anchor call|X=cross call|S=shelter call`, inserted strict adjacency contract (`...NFXQLEG -> ...NFXQH -> ...NFXQLEVAL`), and extended mixed-window fixture parity matrix/token labels to include `...NFXQH`. *(lifecycle: [ ] -> [~] started: 2026-04-05 19:50 KST -> [x] completed: 2026-04-05 19:56 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP90)
+- [x] Systems/Ops + QA Team (injected): Add `...NFXQH` row-count parity assertions + fixture tuple wiring for balanced_tie/ready_mix/prior_window_trend_up/prior_window_trend_down matrices. *(lifecycle: [ ] -> [~] started: 2026-04-05 19:53 KST -> [x] completed: 2026-04-05 19:56 KST; verification bundle same as above.)*
+
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP89)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0.
 - Forced-lane decision: no lane exceeded 40%, but cadence buckets remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so this cycle prioritized a cross-lane recovery slice.

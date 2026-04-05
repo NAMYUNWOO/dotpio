@@ -60,6 +60,18 @@
 
 Last updated: 2026-04-05 03:41 KST
 
+## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP90)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC remained fully checked, so mandatory Game Director cycle executed.
+- Candidate ideas generated:
+  - Low-risk Design/World: add compact helper row for `...MBCBNXDMAPNFXQ` variant action decoding.
+  - Mid-risk Systems/QA: enforce strict adjacency + parity for the helper row in summary/token sections and mixed-window fixtures.
+  - High-risk Combat/VFX + AI-content: prototype alternate operator-call phrasepack with trend-window swap.
+- Selected experiment: low-risk helper + mid-risk parity/adjacency lock minimal vertical slice.
+- [x] Design/World + Systems/Ops + QA Team: Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQH:A=anchor call|X=cross call|S=shelter call`, updated strict adjacency chain to `...NFXQLEG -> ...NFXQH -> ...NFXQLEVAL`, and wired row-count parity + fixture tuple coverage for `...NFXQH` in regression. *(lifecycle: [ ] -> [~] started: 2026-04-05 19:50 KST -> [x] completed: 2026-04-05 19:56 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP90)
+- [x] Systems/Ops + QA Team (injected): Expand mixed-window parity matrix labels + mismatch message so `...NFXQH` is first-class in fixture diagnostics. *(lifecycle: [ ] -> [~] started: 2026-04-05 19:53 KST -> [x] completed: 2026-04-05 19:56 KST; verification bundle same as above.)*
+
 ## Autonomous Cycle 2026-04-05 (Game Director Review — Cycle IP78)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog remained fully checked after IP77 closure; mandatory Game Director cycle executed.
 - Candidate ideas generated:

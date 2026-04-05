@@ -5918,3 +5918,8 @@ Compact decision memory for AI context efficiency.
 - Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEG` decode row (`AR/XR/SR -> anchor/crossfire/shelter`).
 - Contract chain is now `...NFXQBACK -> ...NFXQBACKLEG -> ...NFXQBACKLEVAL -> ...NFXPLEG`.
 - Mixed-window parity matrix now tracks both `NFXQBACKLEG` and `NFXQBACKLEVAL` against `TSDPMFXVWCRITSPMB`.
+
+## 2026-04-05 19:56 KST — Cycle IP90 Summary
+- Shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQH` compact helper (`A/X/S -> anchor/cross/shelter call`) and locked chain `...NFXQLEG -> ...NFXQH -> ...NFXQLEVAL`.
+- Extended regression parity: row-count assertion + mixed-window tuple labels/messages now include `...NFXQH` for balanced/ready/prior-window fixtures.
+- Verification green: py_compile + regression_check + guardrail run with JSON/MD outputs refreshed.

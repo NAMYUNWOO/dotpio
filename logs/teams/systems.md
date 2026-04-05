@@ -5456,3 +5456,6 @@
 
 ## 2026-04-05 19:31 KST — IP92 backcompat decode helper slice
 - Extended mixed-window parity tuple + strict adjacency contract to include `NFXQBACKLEG` before `NFXQBACKLEVAL`.
+
+## 2026-04-05 19:56 KST — Cycle IP90 NFXQH helper slice
+- Added/validated NFXQH compact action helper integration (`TSDPMFXVWCRITSPMBCBNXDMAPNFXQH`) with adjacency/parity coverage in regression fixtures.
