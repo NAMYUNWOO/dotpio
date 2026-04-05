@@ -3744,6 +3744,28 @@ def run_fixture_case(
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEVAL:B33|C30|LIM72|PAIR:BASE=AR/XR/SR|COMPACT=A/X/S|PASS**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat map eval row"
+    nfxqback_payload_values = [
+        payload.strip()
+        for payload in re.findall(
+            r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK:([^*]+)\*\*",
+            md_text,
+        )
+    ]
+    assert nfxqback_payload_values, (
+        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK row to carry an AR|XR|SR payload across summary/token sections"
+    )
+    invalid_nfxqback_payload = next(
+        (
+            (index, payload)
+            for index, payload in enumerate(nfxqback_payload_values)
+            if payload not in {"AR", "XR", "SR"}
+        ),
+        None,
+    )
+    assert invalid_nfxqback_payload is None, (
+        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK payload to stay within AR|XR|SR across summary/token sections; "
+        f"first diverged occurrence={invalid_nfxqback_payload[0]} payload={invalid_nfxqback_payload[1]}"
+    )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack decode helper (design/world): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:HR=hard route|EG=edge route|SF=soft route**"
@@ -5697,6 +5719,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqhRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_compact_action_helper_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxqlevalRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_decode_eval_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_row_count,
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackPayloads": tuple(nfxqback_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbacklegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_decode_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxqbacklevalRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_eval_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxplegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_row_count,
@@ -5754,6 +5777,7 @@ def main() -> int:
         ] = []
         mixed_window_tsdpmfx_alt_beat_helper_parity: list[tuple[int | str, ...]] = []
         mixed_window_tsdpmfx_pressure_tag_decode_parity: list[tuple[str, int, int, int]] = []
+        mixed_window_tsdpmfx_nfxqback_domain_payloads: list[tuple[str, tuple[str, ...]]] = []
 
         balanced_tie_result = run_fixture_case(
             tmp_path=tmp_path,
@@ -5862,6 +5886,12 @@ def main() -> int:
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdlegRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdlevalRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbRowCount"]),
+            )
+        )
+        mixed_window_tsdpmfx_nfxqback_domain_payloads.append(
+            (
+                "balanced_tie",
+                tuple(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackPayloads"]),
             )
         )
 
@@ -5973,6 +6003,12 @@ def main() -> int:
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdlegRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdlevalRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbRowCount"]),
+            )
+        )
+        mixed_window_tsdpmfx_nfxqback_domain_payloads.append(
+            (
+                "ready_mix",
+                tuple(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackPayloads"]),
             )
         )
 
@@ -6217,6 +6253,12 @@ def main() -> int:
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbRowCount"]),
             )
         )
+        mixed_window_tsdpmfx_nfxqback_domain_payloads.append(
+            (
+                "prior_window_trend_up",
+                tuple(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackPayloads"]),
+            )
+        )
         prior_window_trend_down_result = run_fixture_case(
                 tmp_path=tmp_path,
                 name="prior_window_trend_down",
@@ -6327,6 +6369,12 @@ def main() -> int:
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbRowCount"]),
             )
         )
+        mixed_window_tsdpmfx_nfxqback_domain_payloads.append(
+            (
+                "prior_window_trend_down",
+                tuple(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackPayloads"]),
+            )
+        )
 
         assert "UP" in observed_family_trends and "DOWN" in observed_family_trends, (
             "fixture matrix must include explicit prior-window recommendation-family trend transitions for both UP and DOWN"
@@ -6389,6 +6437,21 @@ def main() -> int:
             f"fixture={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][0]} "
             f"expected={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][2]} "
             f"actual={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][3]}"
+        )
+        mixed_window_tsdpmfx_nfxqback_domain_mismatch = next(
+            (
+                (fixture_name, index, payload)
+                for fixture_name, payloads in mixed_window_tsdpmfx_nfxqback_domain_payloads
+                for index, payload in enumerate(payloads)
+                if payload not in {"AR", "XR", "SR"}
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqback_domain_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK payload constrained to AR|XR|SR across summary + token sections; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqback_domain_mismatch[0]} "
+            f"occurrence={mixed_window_tsdpmfx_nfxqback_domain_mismatch[1]} "
+            f"payload={mixed_window_tsdpmfx_nfxqback_domain_mismatch[2]}"
         )
         assert all(
             tsdpmfxvwcritspmbcbnxdleg_count

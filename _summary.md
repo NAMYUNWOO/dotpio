@@ -168,3 +168,8 @@
 - ACTION_ITEMS/TASKS/POST_RC reached full-check state after reconciling stale IP84 checkboxes; mandatory Game Director cycle executed.
 - Selected low-risk UX/Design + Systems/QA slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL:B35|C35|LIM72|PASS` and strict adjacency lock `...NFXQLEG -> ...NFXQLEVAL -> ...NFXPLEG`.
 - Durable contract: decode-helper expansions now require adjacent eval-row anchoring before downstream decode helpers.
+
+## 2026-04-05 20:22 KST — Cycle IP92 injected NFXQBACK domain lock
+- Completed injected Systems/Ops + QA task: added fixture-level + mixed-window regression assertions to constrain `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK` payloads to `AR|XR|SR` with explicit first-diverged fixture/occurrence diagnostics.
+- Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Remaining queue: 2 injected TASKS items (`...NFXQBACKLEG` copy-budget comparator; shelter-tone wording prototype).

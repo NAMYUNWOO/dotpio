@@ -3867,3 +3867,6 @@
 
 ## 2026-04-05 19:56 KST — Cycle IP90 NFXQH helper slice
 - Added/validated NFXQH compact action helper integration (`TSDPMFXVWCRITSPMBCBNXDMAPNFXQH`) with adjacency/parity coverage in regression fixtures.
+
+## 2026-04-05 20:22 KST — Cycle IP92 injected NFXQBACK domain lock
+- Validated combat-facing backcompat map token domain lock (`AR|XR|SR`) through mixed-window fixture diagnostics.

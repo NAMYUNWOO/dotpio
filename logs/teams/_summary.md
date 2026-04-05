@@ -5923,3 +5923,7 @@ Compact decision memory for AI context efficiency.
 - Shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQH` compact helper (`A/X/S -> anchor/cross/shelter call`) and locked chain `...NFXQLEG -> ...NFXQH -> ...NFXQLEVAL`.
 - Extended regression parity: row-count assertion + mixed-window tuple labels/messages now include `...NFXQH` for balanced/ready/prior-window fixtures.
 - Verification green: py_compile + regression_check + guardrail run with JSON/MD outputs refreshed.
+
+## 2026-04-05 20:22 KST — Cycle IP92 injected NFXQBACK domain lock
+- Cycle IP92 injected task complete: regression now enforces `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK` payload domain (`AR|XR|SR`) in per-fixture checks and mixed-window matrix assertions with first-diverged fixture/occurrence diagnostics.
+- Queue status: ACTION_ITEMS actionable open=0, TASKS actionable open=2, POST_RC_BACKLOG actionable open=0 (next: `...NFXQBACKLEG` copy-budget comparator row under LIM72).
