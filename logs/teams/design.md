@@ -3947,3 +3947,6 @@
 - Durable order/parity lock updated to include `...NFXA` between `...NFX` and `...NLEN` across summary/token + mixed-window fixtures.
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
 - 2026-04-05 13:23 KST — Readability fallback lane prepared: alternate intensity-pack variant token `...MBCBNXDMAPNFXQ` introduced (report-only) to support upcoming decode-width evaluation (`...FXPLEN`) without changing runtime behavior.
+
+## 2026-04-05 13:54 KST
+- Design decode lane stabilized with explicit `NFXPLEG -> NFXPLEN -> NFXALEG` ordering, keeping intensity-pack helper + compact legend interpretation deterministic.

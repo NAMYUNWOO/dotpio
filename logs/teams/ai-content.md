@@ -3904,3 +3904,6 @@
 - Durable order/parity lock updated to include `...NFXA` between `...NFX` and `...NLEN` across summary/token + mixed-window fixtures.
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
 - 2026-04-05 13:23 KST — IP85 injected fallback prototype shipped: alternate report-only intensity-pack candidate `...MBCBNXDMAPNFXQ` now mirrors quick-map alias states with deterministic mapping (`SR->BR`, `HD->ER`, `EZ/SF->SR`) for A/B readability review.
+
+## 2026-04-05 13:54 KST
+- AI-content reporting lane unchanged semantically (`HR|EG|SF` / variant set preserved); parity and ordering guards now prevent helper drift in report-only intensity-pack outputs.

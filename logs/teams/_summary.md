@@ -5842,3 +5842,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep quick-map intensity-pack experimentation payload/report-only and insert `...FXQ` in strict chain immediately before decode helper (`...FXP -> ...FXQ -> ...FXPLEG`) to preserve deterministic scan order.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=2 (next: `TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN`).
+
+## 2026-04-05 13:54 KST
+- Closed IP85 remaining injected pair: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN:B41|C41|LIM72|PASS` and hardened parity assertions so `...MBCBNXDMAPNFXPLEG` (and new `...NFXPLEN`) mirror `TSDPMFXVWCRITSPMB` row counts across summary/token sections.
+- Durable decision: intensity-pack decode chain is now strict `...NFXP -> ...NFXQ -> ...NFXPLEG -> ...NFXPLEN -> ...NFXALEG` to keep dense rail scans deterministic.
+- Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next run should execute Game Director review cycle).

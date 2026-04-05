@@ -3816,3 +3816,6 @@
 - Durable order/parity lock updated to include `...NFXA` between `...NFX` and `...NLEN` across summary/token + mixed-window fixtures.
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
 - 2026-04-05 13:23 KST — World lane noted alias fallback readiness: `...MBCBNXDMAPNFXQ` introduced as report-only variant so next decode-length pass can compare route-language readability under compact constraints.
+
+## 2026-04-05 13:54 KST
+- World-facing decode semantics unchanged; added deterministic ordering guarantees around intensity-pack helper evaluation so route labels remain stable in narrative quick-map outputs.

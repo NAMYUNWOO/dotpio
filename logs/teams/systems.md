@@ -5401,3 +5401,6 @@
 - Durable order/parity lock updated to include `...NFXA` between `...NFX` and `...NLEN` across summary/token + mixed-window fixtures.
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
 - 2026-04-05 13:23 KST — Guardrail pipeline updated to emit payload key `trendScoreBandDispatchPressureMomentumFxUrgencyCueConfidenceTrendMomentumBandTrendVfxPulseGuidanceConfidenceRecommendationIntensityTrendScorePostureBeatBridgeMicrocopyAltBeatAliasPhaseNotePressureTagQuickMapNarrativeAliasIntensityPackCandidateVariant` and markdown token `TSDPMFXVWCRITSPMBCBNXDMAPNFXQ`.
+
+## 2026-04-05 13:54 KST
+- Systems parity hardening: added row-count assertions for `TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG` and new `...NFXPLEN` mirroring `TSDPMFXVWCRITSPMB` across summary/token sections.

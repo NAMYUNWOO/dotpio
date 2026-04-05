@@ -4062,3 +4062,6 @@
 - Durable order/parity lock updated to include `...NFXA` between `...NFX` and `...NLEN` across summary/token + mixed-window fixtures.
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
 - 2026-04-05 13:23 KST — Prepped UX fallback experiment input: `...MBCBNXDMAPNFXQ` variant now available for side-by-side scanability checks before adding explicit DOS-width eval row.
+
+## 2026-04-05 13:54 KST
+- UX readability guard landed: intensity-pack decode helper now has explicit DOS-width eval row `...NFXPLEN:B41|C41|LIM72|PASS` for one-scan compact compliance checks.
