@@ -3904,3 +3904,4 @@
 
 ## 2026-04-06 04:54 KST
 - Design/world shelter helper row already present (`...NFXQBACKSTAH`) was checklist-reconciled to completed after verification rerun.
+- 2026-04-06 05:20 KST — Cycle IP98: Validated fallback planner copy stays world-readable (`anchor brace / crossfire cut / shelter hold`) and remains docs-only (no runtime coupling).

@@ -1,3 +1,20 @@
+# TASKS
+
+Last updated: 2026-04-06 05:20 KST
+
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP98)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC fully checked; Game Director review cycle executed.
+- Candidate ideas generated:
+  - Low-risk Systems/Design: add shelter-tone fallback planner row for deterministic rollback handoff copy.
+  - Mid-risk UX/QA: enforce regression presence contract for the new fallback row.
+  - High-risk Combat/VFX + AI-content: prototype payload-driven fallback variant token with domain/parity rails.
+- Selected experiment: low-risk fallback planner + mid-risk presence lock minimal vertical slice.
+- [x] Systems/Design + UX/QA Team: Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN:AN=anchor brace fallback|CF=crossfire cut fallback|SH=shelter hold fallback` and matching regression presence assertion. *(lifecycle: [ ] -> [~] started: 2026-04-06 05:18 KST -> [x] completed: 2026-04-06 05:20 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP98)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window parity watcher for `...NFXQBACKSTAPLAN` row counts against `TSDPMFXVWCRITSPMB`.
+- [ ] Design/World + Combat/VFX Team (injected): Prototype compact shelter-tone fallback alias pack (`ABF/CCF/SHF`) as report-only candidate.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP97)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0; no lane exceeded 40%, and cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
 - Candidate ideas:

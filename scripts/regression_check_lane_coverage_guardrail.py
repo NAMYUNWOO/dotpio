@@ -3922,6 +3922,11 @@ def run_fixture_case(
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTRB:KEEP if SR clarity holds + LIM72 pass|ROLLBACK if ambiguity or width fail**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack shelter-tone rollback criteria row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback planner (systems/design): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN:AN=anchor brace fallback|CF=crossfire cut fallback|SH=shelter hold fallback**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack shelter-tone fallback planner row"
     shelter_tone_adjacency_matches = re.findall(
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH:[^*]+\*\*\n"

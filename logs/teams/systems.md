@@ -5535,3 +5535,4 @@
 ## 2026-04-06 04:54 KST
 - Reconciled stale checklist state for shelter-tone rows already guarded in systems/qa contracts (`...NFXQBACKST`, `...NFXQBACKSTAH`, `...NFXQBACKSTRB`).
 - Re-verified full guardrail pipeline after checklist reconciliation; no payload/order/parity regressions.
+- 2026-04-06 05:20 KST — Cycle IP98: Added shelter-tone fallback planner markdown row `...NFXQBACKSTAPLAN` in guardrail output to make rollback handoff deterministic.

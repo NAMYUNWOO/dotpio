@@ -3908,3 +3908,4 @@
 
 ## 2026-04-06 04:54 KST
 - Combat/vfx report-only shelter-tone urgency variant + action-helper rails were already active; this cycle closed stale queue entries and revalidated outputs.
+- 2026-04-06 05:20 KST — Cycle IP98: Confirmed fallback planner verbs align with combat shelter-tone rollback flow (`brace/cut/hold`).

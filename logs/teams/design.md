@@ -4053,3 +4053,4 @@
 
 ## 2026-04-06 04:54 KST
 - Design/world shelter helper copy (`AN/CF/SH`) remained stable under revalidation; checklist state reconciled to match shipped output.
+- 2026-04-06 05:20 KST — Cycle IP98: Landed compact fallback planner row for shelter-tone backcompat cluster and queued alias-pack follow-up.

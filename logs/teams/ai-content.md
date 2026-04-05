@@ -3992,3 +3992,4 @@
 
 ## 2026-04-06 04:54 KST
 - AI-content shelter-tone urgency variant candidate (`...NFXQBACKST`) and rollback policy row (`...NFXQBACKSTRB`) confirmed as shipped; backlog checkbox reconciled.
+- 2026-04-06 05:20 KST — Cycle IP98: Reviewed fallback planner wording to keep narration neutral and report-only; deferred alias-pack experimentation to injected follow-up task.

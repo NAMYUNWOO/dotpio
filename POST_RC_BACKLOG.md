@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP98)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked; mandatory Game Director cycle triggered.
+- Candidate ideas:
+  - Low-risk Systems/Design: add shelter-tone fallback planner row so rollback handoff has one-line operator copy.
+  - Mid-risk UX/QA: add explicit regression presence contract for the fallback planner row across summary/token outputs.
+  - High-risk Combat/VFX + AI-content: add payload-driven fallback variant token with new domain constraints and sparse fixture parity expansion.
+- Selected experiment: low-risk fallback planner row + mid-risk regression-presence lock minimal vertical slice.
+- [x] Systems/Design + UX/QA Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN:AN=anchor brace fallback|CF=crossfire cut fallback|SH=shelter hold fallback` to guardrail markdown output and locked regression row presence. *(lifecycle: [ ] -> [~] started: 2026-04-06 05:18 KST -> [x] completed: 2026-04-06 05:20 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP98)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window parity watcher for `...NFXQBACKSTAPLAN` row count mirroring `TSDPMFXVWCRITSPMB` across summary/token sections.
+- [ ] Design/World + Combat/VFX Team (injected): Prototype compact shelter-tone fallback alias pack (`ABF/CCF/SHF`) as report-only candidate, keeping runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP97)
 - Coverage check (last 10 completed): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0; no lane exceeded 40%, and cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
 - Candidate ideas:
