@@ -1,3 +1,6 @@
+## 2026-04-05 15:53 KST
+- UX regression hygiene: mixed-window parity matrix now includes `...NFXQLEG`, preventing silent decode-helper omissions in report-only compact rails.
+
 ## 2026-04-05 12:58 KST
 - Logged follow-up injection for UX DOS-width eval token `TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN` (pending).
 

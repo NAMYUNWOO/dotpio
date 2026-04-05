@@ -5624,6 +5624,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_decode_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxaRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_decode_compact_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxpRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_row_count,
+        "tsdpmfxvwcritspmbcbnxdmapnfxqlegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_decode_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxplegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxplenRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_eval_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxpoRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_operator_helper_row_count,
@@ -5765,6 +5766,7 @@ def main() -> int:
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxaRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxpRowCount"]),
+                int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxqlegRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxplegRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxplenRowCount"]),
                 int(balanced_tie_result["tsdpmfxvwcritspmbcbnxdmapnfxpoRowCount"]),
@@ -5870,6 +5872,7 @@ def main() -> int:
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxaRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxpRowCount"]),
+                int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxqlegRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxplegRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxplenRowCount"]),
                 int(ready_mix_result["tsdpmfxvwcritspmbcbnxdmapnfxpoRowCount"]),
@@ -6106,6 +6109,7 @@ def main() -> int:
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxaRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxpRowCount"]),
+                int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxqlegRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxplegRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxplenRowCount"]),
                 int(prior_window_trend_up_result["tsdpmfxvwcritspmbcbnxdmapnfxpoRowCount"]),
@@ -6210,6 +6214,7 @@ def main() -> int:
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxaRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxpRowCount"]),
+                int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxqlegRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxplegRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxplenRowCount"]),
                 int(prior_window_trend_down_result["tsdpmfxvwcritspmbcbnxdmapnfxpoRowCount"]),
@@ -6245,6 +6250,7 @@ def main() -> int:
             == tsdpmfxvwcritspmbcbnxdmapnfx_count
             == tsdpmfxvwcritspmbcbnxdmapnfxa_count
             == tsdpmfxvwcritspmbcbnxdmapnfxp_count
+            == tsdpmfxvwcritspmbcbnxdmapnfxqleg_count
             == tsdpmfxvwcritspmbcbnxdmapnfxpleg_count
             == tsdpmfxvwcritspmbcbnxdmapnfxplen_count
             == tsdpmfxvwcritspmbcbnxdmapnfxpo_count
@@ -6267,6 +6273,7 @@ def main() -> int:
                 tsdpmfxvwcritspmbcbnxdmapnfx_count,
                 tsdpmfxvwcritspmbcbnxdmapnfxa_count,
                 tsdpmfxvwcritspmbcbnxdmapnfxp_count,
+                tsdpmfxvwcritspmbcbnxdmapnfxqleg_count,
                 tsdpmfxvwcritspmbcbnxdmapnfxpleg_count,
                 tsdpmfxvwcritspmbcbnxdmapnfxplen_count,
                 tsdpmfxvwcritspmbcbnxdmapnfxpo_count,

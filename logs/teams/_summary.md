@@ -1,3 +1,8 @@
+## 2026-04-05 15:53 KST
+- Closed injected Systems/Ops+QA item: sparse mixed-window fixture tuple parity now explicitly includes `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` in all four fixture cases and mirrors `TSDPMFXVWCRITSPMB`.
+- Durable decision: whenever a new `...NFX*` decode/helper row is introduced, add both result-payload rowCount key wiring and matrix parity tuple coverage in the same cycle to avoid false-green regressions.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-05 15:40 KST
 - Game Director Cycle IP89 completed after forced cross-lane cadence recovery check (all three 24h buckets still missing; no lane >40%).
 - Shipped minimal vertical slice: new variant decode helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG:BR=burst route|ER=edge route|SR=safe route`.

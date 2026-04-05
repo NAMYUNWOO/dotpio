@@ -1,3 +1,6 @@
+## 2026-04-05 15:53 KST
+- Design/world decode-helper parity follow-up landed: fixture matrix now explicitly mirrors `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` with `TSDPMFXVWCRITSPMB` across mixed windows.
+
 ## 2026-04-05 12:58 KST
 - Shipped decode helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:HR=hard route|EG=edge route|SF=soft route` for intensity-pack readability.
 

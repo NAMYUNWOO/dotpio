@@ -1,3 +1,6 @@
+## 2026-04-05 15:53 KST
+- Design decode helper durability improved: `BR/ER/SR` decode row is now enforced in mixed-window tuple parity contracts across all fixture cases.
+
 ## 2026-04-05 15:40 KST
 - Added design/world decode helper copy for quick-map narrative variant pack: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG:BR=burst route|ER=edge route|SR=safe route`.
 - Decision: keep variant helper wording compact and action-first so report-only A/B aliases remain one-scan readable.

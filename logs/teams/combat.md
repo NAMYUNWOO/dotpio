@@ -1,3 +1,6 @@
+## 2026-04-05 15:53 KST
+- Combat-side quick-map intensity variant chain received cross-fixture parity lock for `...NFXQLEG`, preserving deterministic contract across sparse windows.
+
 ## 2026-04-05 15:40 KST
 - Combat/VFX readability rail gained variant decode visibility for report-only intensity-pack candidate path via `...MBCBNXDMAPNFXQLEG`.
 - No runtime combat tuning changed; update is offline guardrail readability + regression stability only.

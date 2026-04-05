@@ -1,3 +1,8 @@
+## 2026-04-05 15:53 KST
+- QA contract now enforces explicit `...NFXQLEG` parity in every sparse mixed-window fixture case (not only single markdown presence assertions).
+- Added failure-surface coverage for fixture payload key `tsdpmfxvwcritspmbcbnxdmapnfxqlegRowCount` to keep tuple parity diagnostics precise.
+- Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
+
 ## 2026-04-05 15:40 KST
 - QA expanded quick-map narrative variant contracts with `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` presence/parity and strict chain placement checks.
 - Regression now fails if `...NFXQLEG` is missing, out-of-order, or row-count-diverged from `TSDPMFXVWCRITSPMB`.

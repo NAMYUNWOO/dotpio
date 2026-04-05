@@ -1,3 +1,6 @@
+## 2026-04-05 15:53 KST
+- AI-content report-only variant rail (`...NFXQ` family) now has cross-fixture parity guard on decode helper row `...NFXQLEG` for drift-free A/B prep.
+
 ## 2026-04-05 12:58 KST
 - Logged injected follow-up candidate `NFXQ` variant for offline narrative-intensity readability experiments (pending).
 

@@ -1,3 +1,8 @@
+## 2026-04-05 15:53 KST
+- Added mixed-window fixture parity tuple coverage for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` across `balanced_tie`, `ready_mix`, `prior_window_trend_up`, and `prior_window_trend_down`.
+- Wired `tsdpmfxvwcritspmbcbnxdmapnfxqlegRowCount` in fixture result payload and parity matrix checks so variant decode helper drift now fails deterministically.
+- Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
+
 ## 2026-04-05 15:40 KST
 - Added systems/qa regression contracts for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG` (presence + strict adjacency + row-count parity with `TSDPMFXVWCRITSPMB`).
 - Adjacency chain now enforces `...MBCBNXDMAPNFXQ -> ...MBCBNXDMAPNFXQLEG -> ...MBCBNXDMAPNFXPLEG` deterministically across summary/token sections.
