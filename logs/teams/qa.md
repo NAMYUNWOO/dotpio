@@ -6015,3 +6015,11 @@
 ## 2026-04-06 04:54 KST
 - QA confirmed no regression drift while reconciling stale shelter-tone checklist rows; py_compile + regression + guardrail generation all PASS.
 - 2026-04-06 05:20 KST — Cycle IP98: Ran compile + regression + guardrail generation checks; all pass after fallback planner row addition.
+
+## 2026-04-06 05:54 KST
+- Hardened regression fixture matrix with explicit `...NFXQBACKSTAPLAN` row-count parity enforcement and first-diverged mismatch surfacing via existing tuple diagnostics.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 05:54 KST
+- Hardened regression fixture matrix with explicit `...NFXQBACKSTAPLAN` row-count parity enforcement and first-diverged mismatch surfacing via existing tuple diagnostics.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

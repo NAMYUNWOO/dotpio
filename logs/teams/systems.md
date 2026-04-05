@@ -5536,3 +5536,11 @@
 - Reconciled stale checklist state for shelter-tone rows already guarded in systems/qa contracts (`...NFXQBACKST`, `...NFXQBACKSTAH`, `...NFXQBACKSTRB`).
 - Re-verified full guardrail pipeline after checklist reconciliation; no payload/order/parity regressions.
 - 2026-04-06 05:20 KST — Cycle IP98: Added shelter-tone fallback planner markdown row `...NFXQBACKSTAPLAN` in guardrail output to make rollback handoff deterministic.
+
+## 2026-04-06 05:54 KST
+- Added sparse mixed-window parity watcher for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN` row counts to mirror `TSDPMFXVWCRITSPMB` across summary/token fixture matrix.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 05:54 KST
+- Added sparse mixed-window parity watcher for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN` row counts to mirror `TSDPMFXVWCRITSPMB` across summary/token fixture matrix.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

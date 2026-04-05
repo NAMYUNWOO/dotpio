@@ -6013,3 +6013,15 @@ Compact decision memory for AI context efficiency.
 - Durable decision: when a prior cycle already shipped token + regression coverage, unblock queue by reconciling checklist state immediately (mark [~] -> [x]) and re-run full verification bundle to prevent ghost-unchecked drift.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-06 05:20 KST — Decision (Cycle IP98): Keep shelter-tone rollback guidance explicitly documented via `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN` (docs/regression only, no runtime coupling) to preserve deterministic operator handoff.
+
+## 2026-04-06 05:54 KST
+- Closed Systems/Ops + QA injected task: sparse mixed-window parity watcher now includes  in the long-chain parity matrix against .
+- Durable decision: any newly added shelter-tone helper/planner row must be wired into fixture parity tuple in the same commit as regression row-count key wiring.
+- Verification:  + ok: trendScoreBand dispatch-hint/momentum-band regression checks passed + .
+- Next priority item: Design/World + Combat/VFX report-only compact shelter-tone fallback alias pack ().
+
+## 2026-04-06 05:54 KST
+- Closed Systems/Ops + QA injected task: sparse mixed-window parity watcher now includes `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN` in the long-chain parity matrix against `TSDPMFXVWCRITSPMB`.
+- Durable decision: any newly added shelter-tone helper/planner row must be wired into fixture parity tuple in the same commit as regression row-count key wiring.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Next priority item: Design/World + Combat/VFX report-only compact shelter-tone fallback alias pack (`ABF/CCF/SHF`).
