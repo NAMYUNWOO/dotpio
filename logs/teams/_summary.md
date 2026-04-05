@@ -5848,3 +5848,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: intensity-pack decode chain is now strict `...NFXP -> ...NFXQ -> ...NFXPLEG -> ...NFXPLEN -> ...NFXALEG` to keep dense rail scans deterministic.
 - Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next run should execute Game Director review cycle).
+
+## 2026-04-05 14:05 KST
+- Triggered Game Director Cycle IP86 after ACTION_ITEMS/TASKS/POST_RC all reached checked state.
+- Idea set generated: (1) low-risk UX/design compact helper alias A/B row (`...NFXPOA`), (2) mid-risk combat/design/systems operator action helper row (`...NFXPO`) with parity guards, (3) high-risk novelty adaptive route rotator keyed to live cadence deltas (deferred, runtime-coupled).
+- Selected experiment (2) shipped as minimal vertical slice: `TSDPMFXVWCRITSPMBCBNXDMAPNFXPO:HR=burst lane|EG=edge lane|SF=safe lane` plus strict adjacency/parity enforcement.
+- Verification bundle PASS (py_compile + regression + guardrail artifact regeneration).
+- Next injected backlog items queued: `...NFXPOA` UX compact alias, mixed-window fixture tuple expansion for `...NFXPO` + `...NFXPOA`.

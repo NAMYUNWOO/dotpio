@@ -3818,3 +3818,6 @@
 
 ## 2026-04-05 13:54 KST
 - Combat/VFX report-only intensity-pack output now carries stricter decode-helper verification (`...NFXPLEG` + `...NFXPLEN`) without runtime coupling changes.
+
+## 2026-04-05 14:05 KST
+- Combat-facing operator action helper shipped for intensity-pack routes: `HR=burst lane|EG=edge lane|SF=safe lane` via `...NFXPO` (report/analysis lane only, no runtime coupling).

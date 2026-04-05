@@ -4065,3 +4065,6 @@
 
 ## 2026-04-05 13:54 KST
 - UX readability guard landed: intensity-pack decode helper now has explicit DOS-width eval row `...NFXPLEN:B41|C41|LIM72|PASS` for one-scan compact compliance checks.
+
+## 2026-04-05 14:05 KST
+- UX scan-path tweak: inserted operator action helper row before compact legend, improving one-glance route-action interpretation in dense markdown rails.

@@ -5896,3 +5896,6 @@
 
 ## 2026-04-05 13:54 KST
 - QA expanded regression contracts to require presence + adjacency + parity for `...NFXPLEN`, and explicit sparse mixed-window parity coverage for `...NFXPLEG` cluster rows.
+
+## 2026-04-05 14:05 KST
+- QA contracts expanded to assert presence/parity/ordering for `...NFXPO`; full verification bundle passed with regenerated guardrail artifacts.

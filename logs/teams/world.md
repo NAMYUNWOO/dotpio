@@ -3819,3 +3819,6 @@
 
 ## 2026-04-05 13:54 KST
 - World-facing decode semantics unchanged; added deterministic ordering guarantees around intensity-pack helper evaluation so route labels remain stable in narrative quick-map outputs.
+
+## 2026-04-05 14:05 KST
+- World/readability continuity preserved while adding intensity-pack action helper semantics; narrative quick-map route language remains consistent across summary/token sections.

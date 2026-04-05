@@ -3950,3 +3950,6 @@
 
 ## 2026-04-05 13:54 KST
 - Design decode lane stabilized with explicit `NFXPLEG -> NFXPLEN -> NFXALEG` ordering, keeping intensity-pack helper + compact legend interpretation deterministic.
+
+## 2026-04-05 14:05 KST
+- Design wording pass finalized for intensity-pack operator action helper (`burst|edge|safe lane`) and anchored deterministic order before compact legend rows.

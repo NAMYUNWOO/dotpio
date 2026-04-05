@@ -5404,3 +5404,6 @@
 
 ## 2026-04-05 13:54 KST
 - Systems parity hardening: added row-count assertions for `TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG` and new `...NFXPLEN` mirroring `TSDPMFXVWCRITSPMB` across summary/token sections.
+
+## 2026-04-05 14:05 KST
+- Systems regression matrix now enforces `...NFXPO` parity with `TSDPMFXVWCRITSPMB` and strict chain placement (`...NFXPLEN -> ...NFXPO -> ...NFXALEG`).
