@@ -3897,3 +3897,5 @@
 - 2026-04-06 00:31 KST — Added third offline backcompat VFX compact token pack `TSDPMFX...VFXC` (`GN/PS/SD`) for readability A/B/C; deterministic mapping locked to `GLINT/PULSE/SHIELD`; runtime coupling remains disabled.
 - 2026-04-06 00:55 KST — Cycle IP95 selected slice shipped: added report-only compact backcompat VFX pack-winner row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW` (`A|B|C`) with strict adjacency + parity regression coverage; verification bundle (py_compile + regression + guardrail generation) passed.
 - 2026-04-06 01:24 KST — Preserved report-only combat cue winner lane by adding `...NFXQBACKVFXWLEG` adjacency lock (`...VFXW -> ...VFXWLEG -> ...NFXPLEG`) without runtime coupling.
+- 2026-04-06 02:34 KST — Added report-only fourth compact backcompat VFX pack lane support () with AX/PV/SD mapping and winner-legend extension to include D; verification bundle passed.
+- 2026-04-06 02:34 KST — Added report-only fourth compact backcompat VFX pack lane support (...NFXQBACKVFXD/DLEG/DLEN/DRB) with AX/PV/SD mapping and winner-legend extension to include D; verification bundle passed.

@@ -3893,3 +3893,5 @@
 - 2026-04-06 00:31 KST — Synced design-world decode legends for third compact backcompat VFX token pack (`GN/PS/SD`) to keep map narrative helper semantics aligned across report sections.
 - 2026-04-06 00:55 KST — Cycle IP95 selected slice shipped: added report-only compact backcompat VFX pack-winner row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW` (`A|B|C`) with strict adjacency + parity regression coverage; verification bundle (py_compile + regression + guardrail generation) passed.
 - 2026-04-06 01:24 KST — Added winner legend row `...NFXQBACKVFXWLEG` (`A=GI/PU/SH|B=GL/PU/SD|C=GN/PS/SD`) immediately after `...NFXQBACKVFXW` to keep world-facing decode semantics deterministic.
+- 2026-04-06 02:34 KST — Added report-only fourth compact backcompat VFX pack lane support () with AX/PV/SD mapping and winner-legend extension to include D; verification bundle passed.
+- 2026-04-06 02:34 KST — Added report-only fourth compact backcompat VFX pack lane support (...NFXQBACKVFXD/DLEG/DLEN/DRB) with AX/PV/SD mapping and winner-legend extension to include D; verification bundle passed.

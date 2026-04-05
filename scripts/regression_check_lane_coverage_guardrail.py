@@ -3862,12 +3862,31 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat VFX cue third compact decode helper eval row"
     assert re.search(
+        r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat VFX cue fourth compact token \(combat/vfx\+ai-content, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXD:(AX|PV|SD)\*\*",
+        md_text,
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat VFX cue fourth compact token row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat VFX cue fourth compact decode helper (design/world): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEG:AX=GLINT|PV=PULSE|SD=SHIELD**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat VFX cue fourth compact decode helper row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat VFX cue fourth compact decode helper eval (ux/design): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEN:B32|C26|LIM72|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat VFX cue fourth compact decode helper eval row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat VFX cue fourth compact rollback gate (qa/systems): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB:KEEP if AX/PV/SD scan clarity holds + LIM72 pass|ROLLBACK if ambiguity or width fail**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat VFX cue fourth compact rollback gate row"
+    assert re.search(
         r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat VFX compact pack winner \(systems/qa, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW:(A|B|C)\*\*",
         md_text,
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat VFX compact pack winner row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat VFX compact pack winner legend (design/ux): "
-        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXWLEG:A=GI/PU/SH|B=GL/PU/SD|C=GN/PS/SD**"
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXWLEG:A=GI/PU/SH|B=GL/PU/SD|C=GN/PS/SD|D=AX/PV/SD**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat VFX compact pack winner legend row"
     assert re.search(
@@ -3975,6 +3994,28 @@ def run_fixture_case(
     assert invalid_nfxqback_vfxc_payload is None, (
         f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXC payload to stay within GN|PS|SD across summary/token sections; "
         f"first diverged occurrence={invalid_nfxqback_vfxc_payload[0]} payload={invalid_nfxqback_vfxc_payload[1]}"
+    )
+    nfxqback_vfxd_payload_values = [
+        payload.strip()
+        for payload in re.findall(
+            r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXD:([^*]+)\*\*",
+            md_text,
+        )
+    ]
+    assert nfxqback_vfxd_payload_values, (
+        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXD row to carry an AX|PV|SD payload across summary/token sections"
+    )
+    invalid_nfxqback_vfxd_payload = next(
+        (
+            (index, payload)
+            for index, payload in enumerate(nfxqback_vfxd_payload_values)
+            if payload not in {"AX", "PV", "SD"}
+        ),
+        None,
+    )
+    assert invalid_nfxqback_vfxd_payload is None, (
+        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXD payload to stay within AX|PV|SD across summary/token sections; "
+        f"first diverged occurrence={invalid_nfxqback_vfxd_payload[0]} payload={invalid_nfxqback_vfxd_payload[1]}"
     )
     nfxqback_vfxw_payload_values = [
         payload.strip()
@@ -4105,6 +4146,10 @@ def run_fixture_case(
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXC:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEG:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEN:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXD:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEG:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEN:[^*]+\*\*\n"
+        r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXWLEG:[^*]+\*\*\n"
         r"- .*?\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG:[^*]+\*\*\n"
@@ -4119,7 +4164,7 @@ def run_fixture_case(
     )
     assert len(mbcbn_adjacency_matches) >= 1, (
         f"{name}: summary/token sections must keep strict adjacency chain "
-        "TSDPMFXVWCRITSPMBCBN -> ...MBCBNY -> ...MBCBNLEG -> ...MBCBNT -> ...MBCBNX -> ...MBCBNXLEG -> ...MBCBNXA -> ...MBCBNXALEG -> ...MBCBNXB -> ...MBCBNXBLEG -> ...MBCBNXBN -> ...MBCBNXH -> ...MBCBNXD -> ...MBCBNXDLEG -> ...MBCBNXDLEVAL -> ...MBCBNH -> ...MBCBNHLEN -> ...MBCBNXDMAP -> ...MBCBNXDMAPLEG -> ...MBCBNXDMAPLEGLEN -> ...MBCBNXDMAPN -> ...MBCBNXDMAPNLEG -> ...MBCBNXDMAPNFX -> ...MBCBNXDMAPNFXA -> ...MBCBNXDMAPNFXP -> ...MBCBNXDMAPNFXQ -> ...MBCBNXDMAPNFXQLEG -> ...MBCBNXDMAPNFXQH -> ...MBCBNXDMAPNFXQLEVAL -> ...MBCBNXDMAPNFXQBACK -> ...MBCBNXDMAPNFXQBACKLEG -> ...MBCBNXDMAPNFXQBACKLEGCMP -> ...MBCBNXDMAPNFXQBACKLEVAL -> ...MBCBNXDMAPNFXQBACKVFX -> ...MBCBNXDMAPNFXQBACKVFXLEN -> ...MBCBNXDMAPNFXQBACKVFXA -> ...MBCBNXDMAPNFXQBACKVFXALEG -> ...MBCBNXDMAPNFXQBACKVFXALEN -> ...MBCBNXDMAPNFXQBACKVFXB -> ...MBCBNXDMAPNFXQBACKVFXBLEG -> ...MBCBNXDMAPNFXQBACKVFXBLEN -> ...MBCBNXDMAPNFXQBACKVFXC -> ...MBCBNXDMAPNFXQBACKVFXCLEG -> ...MBCBNXDMAPNFXQBACKVFXCLEN -> ...MBCBNXDMAPNFXQBACKVFXW -> ...MBCBNXDMAPNFXQBACKVFXWLEG -> ...MBCBNXDMAPNFXPLEG -> ...MBCBNXDMAPNFXPLEN -> ...MBCBNXDMAPNFXPO -> ...MBCBNXDMAPNFXPOA -> ...MBCBNXDMAPNFXC -> ...MBCBNXDMAPNFXALEG -> ...MBCBNXDMAPNLEN -> ...MBCBNXDMAPNLEVAL"
+        "TSDPMFXVWCRITSPMBCBN -> ...MBCBNY -> ...MBCBNLEG -> ...MBCBNT -> ...MBCBNX -> ...MBCBNXLEG -> ...MBCBNXA -> ...MBCBNXALEG -> ...MBCBNXB -> ...MBCBNXBLEG -> ...MBCBNXBN -> ...MBCBNXH -> ...MBCBNXD -> ...MBCBNXDLEG -> ...MBCBNXDLEVAL -> ...MBCBNH -> ...MBCBNHLEN -> ...MBCBNXDMAP -> ...MBCBNXDMAPLEG -> ...MBCBNXDMAPLEGLEN -> ...MBCBNXDMAPN -> ...MBCBNXDMAPNLEG -> ...MBCBNXDMAPNFX -> ...MBCBNXDMAPNFXA -> ...MBCBNXDMAPNFXP -> ...MBCBNXDMAPNFXQ -> ...MBCBNXDMAPNFXQLEG -> ...MBCBNXDMAPNFXQH -> ...MBCBNXDMAPNFXQLEVAL -> ...MBCBNXDMAPNFXQBACK -> ...MBCBNXDMAPNFXQBACKLEG -> ...MBCBNXDMAPNFXQBACKLEGCMP -> ...MBCBNXDMAPNFXQBACKLEVAL -> ...MBCBNXDMAPNFXQBACKVFX -> ...MBCBNXDMAPNFXQBACKVFXLEN -> ...MBCBNXDMAPNFXQBACKVFXA -> ...MBCBNXDMAPNFXQBACKVFXALEG -> ...MBCBNXDMAPNFXQBACKVFXALEN -> ...MBCBNXDMAPNFXQBACKVFXB -> ...MBCBNXDMAPNFXQBACKVFXBLEG -> ...MBCBNXDMAPNFXQBACKVFXBLEN -> ...MBCBNXDMAPNFXQBACKVFXC -> ...MBCBNXDMAPNFXQBACKVFXCLEG -> ...MBCBNXDMAPNFXQBACKVFXCLEN -> ...MBCBNXDMAPNFXQBACKVFXD -> ...MBCBNXDMAPNFXQBACKVFXDLEG -> ...MBCBNXDMAPNFXQBACKVFXDLEN -> ...MBCBNXDMAPNFXQBACKVFXDRB -> ...MBCBNXDMAPNFXQBACKVFXW -> ...MBCBNXDMAPNFXQBACKVFXWLEG -> ...MBCBNXDMAPNFXPLEG -> ...MBCBNXDMAPNFXPLEN -> ...MBCBNXDMAPNFXPO -> ...MBCBNXDMAPNFXPOA -> ...MBCBNXDMAPNFXC -> ...MBCBNXDMAPNFXALEG -> ...MBCBNXDMAPNLEN -> ...MBCBNXDMAPNLEVAL"
     )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend posture-beat bridge microcopy decode dos-width eval (design/world): "
@@ -5183,6 +5228,10 @@ def run_fixture_case(
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_third_candidate_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXC:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_third_candidate_decode_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEG:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_third_candidate_decode_eval_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEN:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_fourth_candidate_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXD:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_fourth_candidate_decode_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEG:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_fourth_candidate_decode_eval_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEN:")
+    fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_fourth_candidate_rollback_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_pack_winner_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW:")
     fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_vfx_compact_pack_winner_legend_row_count = md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXWLEG:")
     nfxqbackvfxlen_eval_rows = re.findall(
@@ -6897,6 +6946,10 @@ def main() -> int:
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXC",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEG",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEN",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXD",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEG",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEN",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXWLEG",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG",
@@ -6933,7 +6986,7 @@ def main() -> int:
                 )
 
         assert not mixed_window_tsdpmfx_alt_beat_helper_mismatch, (
-            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBH + TSDPMFXVWCRITSPMBCBNLEG + TSDPMFXVWCRITSPMBCBNT + TSDPMFXVWCRITSPMBCBNX + TSDPMFXVWCRITSPMBCBNXLEG + TSDPMFXVWCRITSPMBCBNXDMAP + TSDPMFXVWCRITSPMBCBNXDMAPLEG + TSDPMFXVWCRITSPMBCBNXDMAPN + TSDPMFXVWCRITSPMBCBNXDMAPNLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFX + TSDPMFXVWCRITSPMBCBNXDMAPNFXA + TSDPMFXVWCRITSPMBCBNXDMAPNFXP + TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQH + TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEGCMP + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEVAL + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFX + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXB + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXC + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXWLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXPO + TSDPMFXVWCRITSPMBCBNXDMAPNFXPOA + TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG + TSDPMFXVWCRITSPMBCBNXDMAPNLEN + TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL row-count parity with TSDPMFXVWCRITSPMB across summary + token sections; "
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBH + TSDPMFXVWCRITSPMBCBNLEG + TSDPMFXVWCRITSPMBCBNT + TSDPMFXVWCRITSPMBCBNX + TSDPMFXVWCRITSPMBCBNXLEG + TSDPMFXVWCRITSPMBCBNXDMAP + TSDPMFXVWCRITSPMBCBNXDMAPLEG + TSDPMFXVWCRITSPMBCBNXDMAPN + TSDPMFXVWCRITSPMBCBNXDMAPNLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFX + TSDPMFXVWCRITSPMBCBNXDMAPNFXA + TSDPMFXVWCRITSPMBCBNXDMAPNFXP + TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQH + TSDPMFXVWCRITSPMBCBNXDMAPNFXQLEVAL + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACK + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEGCMP + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKLEVAL + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFX + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXA + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXALEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXB + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXBLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXC + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXCLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXD + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXDRB + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXW + TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKVFXWLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEG + TSDPMFXVWCRITSPMBCBNXDMAPNFXPLEN + TSDPMFXVWCRITSPMBCBNXDMAPNFXPO + TSDPMFXVWCRITSPMBCBNXDMAPNFXPOA + TSDPMFXVWCRITSPMBCBNXDMAPNFXALEG + TSDPMFXVWCRITSPMBCBNXDMAPNLEN + TSDPMFXVWCRITSPMBCBNXDMAPNLEVAL row-count parity with TSDPMFXVWCRITSPMB across summary + token sections; "
             f"first diverged token={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][1]} "
             f"fixture={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][0]} "
             f"expected={mixed_window_tsdpmfx_alt_beat_helper_mismatch[0][2]} "
