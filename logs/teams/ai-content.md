@@ -4147,3 +4147,8 @@
 
 ## 2026-04-07 04:53 KST — No content token mutation (watch)
 - No AI-content token/domain changes in this slice; retained offline/report-only behavior.
+
+## 2026-04-07 05:48 KST
+- Cycle IP124 follow-up closure: docs-order PIN chain note now explicitly states first-diverged parity mismatches emit `assertionLabel=<...NonPassRows>` for PINLEN/PINSAFE/SAFE one-scan triage.
+- Evidence: updated `scripts/check_lane_coverage_guardrail.py` docs-order callout copy and reran guardrail verification bundle.
+- Follow-up: remaining open IP124 item is Systems/Ops+QA PINLEN parity assertion label alignment.

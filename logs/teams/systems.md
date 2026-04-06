@@ -5777,3 +5777,8 @@
 - Decision: PIN-chain row-count parity assertions should emit `assertionLabel=<...NonPassRows>` in first-diverged diagnostics for one-scan triage alignment.
 - Verification: py_compile + regression guardrail script + weekly guardrail regeneration PASS.
 - Follow-up: extend the same assertion-label pattern to PINLEN row-count parity mismatch.
+
+## 2026-04-07 05:48 KST
+- Cycle IP124 follow-up closure: docs-order PIN chain note now explicitly states first-diverged parity mismatches emit `assertionLabel=<...NonPassRows>` for PINLEN/PINSAFE/SAFE one-scan triage.
+- Evidence: updated `scripts/check_lane_coverage_guardrail.py` docs-order callout copy and reran guardrail verification bundle.
+- Follow-up: remaining open IP124 item is Systems/Ops+QA PINLEN parity assertion label alignment.

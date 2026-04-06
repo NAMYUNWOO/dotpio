@@ -6327,3 +6327,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: keep `assertionLabel=<...NonPassRows>` visible on PIN-chain parity assertions to align row-count mismatch triage with payload `...NonPassRows` diagnostics naming.
 - Verification bundle PASS (py_compile + regression_check_lane_coverage_guardrail.py + weekly guardrail regeneration).
 - Next injected tasks opened: (1) docs-order note for assertionLabel semantics on PINLEN/PINSAFE/SAFE chain, (2) PINLEN row-count parity assertion label parity.
+
+## 2026-04-07 05:48 KST
+- Closed top-priority IP124 injected item (Design/World + UX): docs-order PIN-chain callout now explicitly documents `assertionLabel=<...NonPassRows>` semantics for first-diverged PINLEN/PINSAFE/SAFE parity mismatch diagnostics.
+- Durable decision: for PIN-chain parity readability, docs-order guidance must mention both the contiguous chain and assertion-label naming semantics in the same line to keep one-scan triage deterministic.
+- Verification bundle PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=0. Next item: Systems/Ops+QA PINLEN row-count parity assertion label (`...LEGALTPINLEN`) alignment.
