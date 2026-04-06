@@ -660,3 +660,4 @@
 - Verification: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
 - Next forced cadence queue: systems/ops parity lock for NFXQBACKSTAF2 + NFXQBACKSTAF2LEN, then combat/design control-eval adjacency lock.
 
+- 2026-04-06 11:03 KST — Cycle IP104: Added report-only `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW` control winner token (`A|B|C`) mapped from `ABR|XCF|SHH`; kept runtime coupling disabled and validated via py_compile + regression + guardrail generation bundle.

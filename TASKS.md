@@ -1,6 +1,19 @@
 # TASKS
 
-Last updated: 2026-04-06 09:48 KST
+Last updated: 2026-04-06 10:58 KST
+
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP104)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop triggered.
+- Candidate ideas generated:
+  - Low-risk UX/Design: add control winner row for fallback cue micro-pack (`A|B|C`) derived from `ABR|XCF|SHH` payload so operator scan can confirm pack selection in one token.
+  - Mid-risk Systems/Ops + QA: add fixture-domain assertion + sparse mixed-window parity key for the new control winner row.
+  - High-risk Combat/VFX + AI-content: prototype fourth fallback cue micro-pack control arm (`ABH|XFS|SHX`) behind report-only guard.
+- Selected experiment: low-risk control winner row vertical slice.
+- [x] UX/Design + Systems/Ops + QA Team (selected): Added deterministic `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW` row (`A|B|C`) mapped from `ABR|XCF|SHH` payload domain and wired regression assertion + fixture domain lock + sparse mixed-window parity token coverage. *(lifecycle: [ ] -> [~] started: 2026-04-06 10:58 KST -> [x] completed: 2026-04-06 11:02 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP104)
+- [x] Systems/Ops + QA Team (injected): Keep `...NFXQBACKSTAF2CTRLW` fixture payload domain locked to `A|B|C` whenever `...NFXQBACKSTAF2CTRL` is present; include row-count parity key in sparse mixed-window matrix. *(completed within selected slice above; verification bundle re-run.)*
+- [x] Combat/VFX + Design/World + AI-content Team (injected): Document control winner token as report-only for operator scan clarity while runtime coupling stays disabled. *(completed via markdown row insertion + regression presence assertion; verification bundle re-run.)*
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP103)
 - Coverage check (last 10 completions): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 from `logs/weekly_lane_coverage_guardrail.json`; no lane exceeded 40%, but 24h cadence buckets remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) so the selected slice was forced to underrepresented design/world+combat/vfx lanes.

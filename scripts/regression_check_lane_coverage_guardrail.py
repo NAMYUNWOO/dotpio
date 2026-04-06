@@ -3935,6 +3935,10 @@ def run_fixture_case(
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL:A=ABR|B=XCF|C=SHH**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control legend companion row"
+    assert re.search(
+        r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner token \(systems/qa, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:(A|B|C)\*\*",
+        md_text,
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner token row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control rollback criteria (qa/systems): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLRB:KEEP if A/B/C map stays deterministic + LIM72 pass|ROLLBACK if control-label drift or width fail**"
@@ -4231,6 +4235,13 @@ def run_fixture_case(
     control_legend_present = (
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL:A=ABR|B=XCF|C=SHH**" in md_text
     )
+    nfxqbackstaf2ctrlw_payload_values = [
+        payload.strip()
+        for payload in re.findall(
+            r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:([^*]+)\*\*",
+            md_text,
+        )
+    ]
     nfxqbackstaf2ctrlrb_payload_values = [
         payload.strip()
         for payload in re.findall(
@@ -4239,6 +4250,21 @@ def run_fixture_case(
         )
     ]
     if control_legend_present:
+        assert nfxqbackstaf2ctrlw_payload_values, (
+            f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW row when control legend row is present"
+        )
+        invalid_nfxqbackstaf2ctrlw_payload = next(
+            (
+                (index, payload)
+                for index, payload in enumerate(nfxqbackstaf2ctrlw_payload_values)
+                if payload not in {"A", "B", "C"}
+            ),
+            None,
+        )
+        assert invalid_nfxqbackstaf2ctrlw_payload is None, (
+            f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW payload to stay within A|B|C when control legend row is present; "
+            f"first diverged occurrence={invalid_nfxqbackstaf2ctrlw_payload[0]} payload={invalid_nfxqbackstaf2ctrlw_payload[1]}"
+        )
         assert nfxqbackstaf2ctrlrb_payload_values, (
             f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLRB row when control legend row is present"
         )
@@ -6399,6 +6425,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2LEN:B68|C53|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrllenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLLEN:B17|C17|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL:A=ABR|B=XCF|C=SHH**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:A**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:B**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:C**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlrbRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLRB:KEEP if A/B/C map stays deterministic + LIM72 pass|ROLLBACK if control-label drift or width fail**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2rbRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2RB:KEEP if ABR/XCF/SHH clarity holds + LIM72 pass|ROLLBACK if ambiguity or width fail**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstafcueRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE:AGF=anchor brace|CRF=crossfire cut|SHD=shelter hold**"),
@@ -7272,6 +7299,7 @@ def main() -> int:
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2LEN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLLEN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLRB",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUELEN",
