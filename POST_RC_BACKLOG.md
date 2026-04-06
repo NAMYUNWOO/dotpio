@@ -8,7 +8,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP124)
 - [ ] Design/World + UX Team (injected): add compact docs-order note that first-diverged parity diagnostics now emit `assertionLabel=<...NonPassRows>` for PINLEN/PINSAFE/SAFE chain readability in one scan.
-- [ ] Systems/Ops + QA Team (injected): add dedicated first-diverged assertion label for `...CTRLWNRBLGLEGALTPINLEN` row-count parity mismatch so all PIN-chain parity assertions expose `assertionLabel=<...NonPassRows>` consistently.
+- [x] Systems/Ops + QA Team (injected): add dedicated first-diverged assertion label for `...CTRLWNRBLGLEGALTPINLEN` row-count parity mismatch so all PIN-chain parity assertions expose `assertionLabel=<...NonPassRows>` consistently. *(lifecycle: [ ] -> [~] started: 2026-04-07 06:16 KST -> [x] completed: 2026-04-07 06:18 KST; implementation: added assertion label `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinlenNonPassRows` to the PINLEN sparse mixed-window row-count parity assertion failure path in `scripts/regression_check_lane_coverage_guardrail.py` and surfaced it in first-diverged diagnostics as `assertionLabel=...`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP123)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP122 closure, so mandatory Game Director loop executed immediately.

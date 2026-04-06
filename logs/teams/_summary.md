@@ -6333,3 +6333,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: for PIN-chain parity readability, docs-order guidance must mention both the contiguous chain and assertion-label naming semantics in the same line to keep one-scan triage deterministic.
 - Verification bundle PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=0. Next item: Systems/Ops+QA PINLEN row-count parity assertion label (`...LEGALTPINLEN`) alignment.
+
+## 2026-04-07 06:18 KST
+- Closed top-priority unchecked TASKS item by wiring dedicated PINLEN parity assertion label `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinlenNonPassRows` into first-diverged mixed-window diagnostics in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Durable decision: all PIN-chain row-count parity assertions now use explicit `assertionLabel=<...NonPassRows>` output for consistent one-scan triage naming.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status after run: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: Design/World + UX docs-order note on `assertionLabel=<...NonPassRows>` for PINLEN/PINSAFE/SAFE).

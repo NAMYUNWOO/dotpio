@@ -6246,3 +6246,8 @@
 - Cycle IP124 follow-up closure: docs-order PIN chain note now explicitly states first-diverged parity mismatches emit `assertionLabel=<...NonPassRows>` for PINLEN/PINSAFE/SAFE one-scan triage.
 - Evidence: updated `scripts/check_lane_coverage_guardrail.py` docs-order callout copy and reran guardrail verification bundle.
 - Follow-up: remaining open IP124 item is Systems/Ops+QA PINLEN parity assertion label alignment.
+
+## 2026-04-07 06:18 KST
+- QA validated PINLEN row-count parity mismatch diagnostics now carry explicit assertion label `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinlenNonPassRows` in first-diverged failure output.
+- Diagnostics-family contract is now aligned across PIN chain parity checks (`...pinlenNonPassRows`, `...pinsafeNonPassRows`, `...safeNonPassRows`) for one-scan sparse fixture triage.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

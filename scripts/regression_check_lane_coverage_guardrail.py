@@ -8763,9 +8763,13 @@ def main() -> int:
             ),
             None,
         )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinlen_row_count_label = (
+            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinlenNonPassRows"
+        )
         assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinlen_row_count_mismatch is None, (
             "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINLEN row-count parity with "
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPIN across sparse summary + token sections; "
+            f"assertionLabel={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinlen_row_count_label}; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinlen_row_count_mismatch[0]} "
             f"expected={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinlen_row_count_mismatch[1]} "
             f"actual={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinlen_row_count_mismatch[2]}"
