@@ -1,3 +1,15 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP114)
+- Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) with health `ALERT`.
+- Candidate ideas:
+  - Low-risk UX/Design + Combat/VFX: add confidence rollback helper compact length-eval row (`...CTRLWNRBLGLEN`) to keep KEEP/ROLLBACK decode readability one-scan auditable.
+  - Mid-risk Systems/Ops + QA: add sparse mixed-window payload-drift diagnostics key for `...CTRLWNRB` helper row so rollback helper mismatches surface first-diverged fixture quickly.
+  - High-risk Combat/VFX + AI-content: prototype alternate confidence rollback helper phrase variant behind report-only rollback guard.
+- Selected experiment: mid-risk sparse payload-drift diagnostics for `...CTRLWNRB`.
+- [x] Systems/Ops + QA + UX/Design Team (selected): Added fixture payload extraction/assertion + sparse mixed-window diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrbNonPassRows` for `...CTRLWNRB`, surfacing first-diverged fixture payload while preserving strict chain/parity contracts. *(lifecycle: [ ] -> [~] started: 2026-04-06 21:24 KST -> [x] completed: 2026-04-06 21:31 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP114)
+- [ ] Design/World + UX Team (injected): Add compact decode length-eval row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEN` (`Bxx|Cxx|LIM72|PASS`) and anchor strict chain `...CTRLWNRB -> ...CTRLWNRBLG -> ...CTRLWNRBLGLEN -> ...CTRLWNLEN`.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP113)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) with health `ALERT`.
 - Candidate ideas:
@@ -8,7 +20,7 @@
 - [x] Design/World + Combat/VFX + UX + Systems/Ops + QA Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLG:K=KEEP confidence lane|R=ROLLBACK confidence lane`, fixture-domain deterministic payload assertion, and chain/parity insertion `...CTRLWNRB -> ...CTRLWNRBLG -> ...CTRLWNLEN`. *(lifecycle: [ ] -> [~] started: 2026-04-06 20:22 KST -> [x] completed: 2026-04-06 20:27 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Next Up (Game Director Injection — Cycle IP113)
-- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgNonPassRows` to surface first-diverged payload when `...CTRLWNRBLG` text drifts.
+- [x] Systems/Ops + QA Team (injected): Add sparse mixed-window diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgNonPassRows` to surface first-diverged payload when `...CTRLWNRBLG` text drifts. *(lifecycle: [ ] -> [~] started: 2026-04-06 21:24 KST -> [x] completed: 2026-04-06 21:31 KST; implementation: reconciled stale backlog state with shipped fixture payload extraction + sparse mixed-window assertion coverage for `...CTRLWNRBLG` drift triage; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP112)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) with health `ALERT`.
