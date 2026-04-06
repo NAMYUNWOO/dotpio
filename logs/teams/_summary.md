@@ -6209,3 +6209,4 @@ Compact decision memory for AI context efficiency.
 - Next injections queued: non-pass diagnostics key for RB payload drift + compact RB eval row/chain lock.
 
 - 2026-04-06 20:19 KST | Closed IP112 injected item by shipping ...CTRLWVFXRBLG decode row (K=KEEP lane|R=ROLLBACK lane) and hard-locking strict chain/parity insertion between ...CTRLWVFXRBLEN and ...CTRLWN across markdown, fixture-domain, sparse chain, and mixed-window checks. Verification bundle: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail (--json-out/--md-out).
+- 2026-04-06 20:27 KST | Game Director IP113 minimal vertical slice shipped: confidence rollback decode row (...CTRLWNRBLG) added, deterministic payload lock asserted, and strict chain/parity updated to include ...CTRLWNRBLG between ...CTRLWNRB and ...CTRLWNLEN. Injected next task: add sparse mixed-window NonPassRows diagnostics key for ...CTRLWNRBLG.

@@ -691,3 +691,4 @@
 - Follow-up: keep cue-priority helper deterministic across future candidate packs.
 
 - 2026-04-06 20:19 KST | Cycle IP112 injected follow-up closure: added CTRLWVFXRBLG decode row (TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLG:K=KEEP lane|R=ROLLBACK lane) and extended strict chain to ...CTRLWVFXRB -> ...CTRLWVFXRBLEN -> ...CTRLWVFXRBLG -> ...CTRLWN; verified via py_compile + regression_check + guardrail regen. Follow-up: monitor mixed-window chain firstMissingToken for CTRLWVFXRBLG regressions.
+- 2026-04-06 20:27 KST | Cycle IP113 selected experiment shipped: added confidence rollback decode row TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLG (K=KEEP confidence lane|R=ROLLBACK confidence lane) and extended strict chain to ...CTRLWNRB -> ...CTRLWNRBLG -> ...CTRLWNLEN with fixture-domain deterministic payload assertion. Follow-up: inject sparse NonPassRows diagnostics for CTRLWNRBLG drift.
