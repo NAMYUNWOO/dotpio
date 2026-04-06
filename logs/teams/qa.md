@@ -6176,3 +6176,6 @@
 - Added fixture-level presence assertion for `...CTRLWVFXRBLGLEN` when control legend exists.
 - Added mixed-window PASS-domain assertion for `...CTRLWVFXRBLGLEN` across balanced/ready/prior-up/prior-down fixtures.
 - Verification: py_compile + regression script + guardrail generation all pass.
+
+## 2026-04-06 22:24 KST (Cycle IP115 follow-up)
+- Closed CTRLWNRBLGLEG/CTRLWNRBLGLEN guardrail slice: added legend pairing row + sparse mixed-window diagnostics for CTRLWNRBLGLEN payload drift; verification bundle PASS (py_compile + regression + guardrail regeneration).

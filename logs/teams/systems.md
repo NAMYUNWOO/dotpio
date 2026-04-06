@@ -5704,3 +5704,6 @@
 - Added row-count key `...ctrlwvfxrblglenRowCount` and mixed-window non-pass diagnostics key `...ctrlwvfxrblglenNonPassRows`.
 - Updated strict-chain token map and first-missing-token diagnostics to include `...CTRLWVFXRBLGLEN`.
 - Follow-up: next systems/qa item is `...ctrlwnrblglenNonPassRows` payload drift assertion hardening.
+
+## 2026-04-06 22:24 KST (Cycle IP115 follow-up)
+- Closed CTRLWNRBLGLEG/CTRLWNRBLGLEN guardrail slice: added legend pairing row + sparse mixed-window diagnostics for CTRLWNRBLGLEN payload drift; verification bundle PASS (py_compile + regression + guardrail regeneration).

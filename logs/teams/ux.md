@@ -4268,3 +4268,6 @@
 - Added compact eval row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLGLEN:B31|C31|LIM72|PASS`.
 - Extended UX-facing PASS diagnostics key `...ctrlwvfxrblglenNonPassRows` in sparse mixed-window checks.
 - Follow-up: keep decode rows contiguous so one-scan readability stays deterministic.
+
+## 2026-04-06 22:24 KST (Cycle IP115 follow-up)
+- Closed CTRLWNRBLGLEG/CTRLWNRBLGLEN guardrail slice: added legend pairing row + sparse mixed-window diagnostics for CTRLWNRBLGLEN payload drift; verification bundle PASS (py_compile + regression + guardrail regeneration).

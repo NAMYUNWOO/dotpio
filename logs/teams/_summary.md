@@ -6231,3 +6231,8 @@ Compact decision memory for AI context efficiency.
 - Added new sparse mixed-window diagnostic key: `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblglenNonPassRows`.
 - Verification bundle passed: py_compile + regression checks + guardrail generation.
 - Next highest-priority unchecked item: TASKS `Design/World Team (injected): ...CTRLWNRBLGLEG` helper row.
+
+## 2026-04-06 22:24 KST — IP115 follow-up shipped
+- Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEG` legend pairing row directly after `...CTRLWNRBLG` and before `...CTRLWNRBLGLEN` to preserve one-scan rollback readability.
+- Added sparse diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglenNonPassRows` + mixed-window first-diverged assertion for `...CTRLWNRBLGLEN` payload drift.
+- Verification bundle PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

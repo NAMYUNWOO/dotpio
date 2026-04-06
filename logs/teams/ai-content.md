@@ -4099,3 +4099,6 @@
 ## 2026-04-06 21:52 KST — Lane sync note
 - No AI generation payload semantics changed in this cycle.
 - Existing deterministic payload domains (`K=KEEP lane|R=ROLLBACK lane`) remain unchanged; only decode-length/ordering contracts were expanded.
+
+## 2026-04-06 22:24 KST (Cycle IP115 follow-up)
+- Closed CTRLWNRBLGLEG/CTRLWNRBLGLEN guardrail slice: added legend pairing row + sparse mixed-window diagnostics for CTRLWNRBLGLEN payload drift; verification bundle PASS (py_compile + regression + guardrail regeneration).

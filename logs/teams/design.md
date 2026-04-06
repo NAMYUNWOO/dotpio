@@ -4171,3 +4171,6 @@
 ## 2026-04-06 21:52 KST — Ordered decode row adjacency
 - Reinforced deterministic row adjacency around VFX rollback decode rows by adding `...CTRLWVFXRBLGLEN` between decode payload and confidence rows.
 - Follow-up: pair with upcoming `...CTRLWNRBLGLEG` helper item for confidence legend clarity.
+
+## 2026-04-06 22:24 KST (Cycle IP115 follow-up)
+- Closed CTRLWNRBLGLEG/CTRLWNRBLGLEN guardrail slice: added legend pairing row + sparse mixed-window diagnostics for CTRLWNRBLGLEN payload drift; verification bundle PASS (py_compile + regression + guardrail regeneration).

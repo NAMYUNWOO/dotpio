@@ -696,3 +696,6 @@
 ## 2026-04-06 21:44 KST
 - Cycle IP115 selected slice kept combat/vfx cadence rail active while extending confidence rollback chain with `...CTRLWNRBLGLEN:B49|C37|LIM72|PASS` (report-only).
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 22:24 KST (Cycle IP115 follow-up)
+- Closed CTRLWNRBLGLEG/CTRLWNRBLGLEN guardrail slice: added legend pairing row + sparse mixed-window diagnostics for CTRLWNRBLGLEN payload drift; verification bundle PASS (py_compile + regression + guardrail regeneration).

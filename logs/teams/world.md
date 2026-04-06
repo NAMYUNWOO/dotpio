@@ -4013,3 +4013,6 @@
 ## 2026-04-06 21:52 KST — Lane sync note
 - No map topology/runtime world logic changed in this cycle.
 - Captured dependency: next world/design task should add `...CTRLWNRBLGLEG` adjacent helper row for confidence rollback legend readability.
+
+## 2026-04-06 22:24 KST (Cycle IP115 follow-up)
+- Closed CTRLWNRBLGLEG/CTRLWNRBLGLEN guardrail slice: added legend pairing row + sparse mixed-window diagnostics for CTRLWNRBLGLEN payload drift; verification bundle PASS (py_compile + regression + guardrail regeneration).
