@@ -4229,3 +4229,6 @@
 - Follow-up: remaining open IP124 item is Systems/Ops+QA PINLEN parity assertion label alignment.
 - 2026-04-07 06:48 KST — Reconciled stale IP124 docs-order injection state; assertionLabel copy for PINLEN/PINSAFE/SAFE already shipped. Follow-up: add explicit ALTLEN assertionLabel docs note (IP125 injected task).
 - 2026-04-07 06:48 KST — Reconciled stale IP124 docs-order injection state; assertionLabel copy for PINLEN/PINSAFE/SAFE already shipped. Follow-up: add explicit ALTLEN assertionLabel docs note (IP125 injected task).
+
+## 2026-04-07 07:18 KST
+- Completed Design/UX injected follow-up: docs-order callout now states ALTLEN first-diverged payload drift must emit `assertionLabel=<...legaltlenNonPassRows>` in same family as PINLEN/PINSAFE/SAFE.

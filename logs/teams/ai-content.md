@@ -4154,3 +4154,6 @@
 - Follow-up: remaining open IP124 item is Systems/Ops+QA PINLEN parity assertion label alignment.
 - 2026-04-07 06:48 KST — High-risk alternate ALTLEN mnemonic idea deferred (not selected) to avoid wording churn before diagnostics lock. Follow-up: revisit behind report-only gate only if readability metrics regress.
 - 2026-04-07 06:48 KST — High-risk alternate ALTLEN mnemonic idea deferred (not selected) to avoid wording churn before diagnostics lock. Follow-up: revisit behind report-only gate only if readability metrics regress.
+
+## 2026-04-07 07:18 KST
+- AI-content copy contract now explicitly includes ALTLEN first-diverged `assertionLabel=<...legaltlenNonPassRows>` wording in the shared diagnostics family note.

@@ -6253,3 +6253,7 @@
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-07 06:48 KST — Verified IP125 guardrail slice via py_compile + regression suite + lane coverage command; no regression failures observed. Follow-up: keep sparse mixed-window diagnostics keys deterministic across fixtures.
 - 2026-04-07 06:48 KST — Verified IP125 guardrail slice via py_compile + regression suite + lane coverage command; no regression failures observed. Follow-up: keep sparse mixed-window diagnostics keys deterministic across fixtures.
+
+## 2026-04-07 07:18 KST
+- QA reran full verification bundle after docs-order callout update; all checks PASS with deterministic output.
+- Asserted durable expectation: ALTLEN drift messaging must keep `assertionLabel=<...legaltlenNonPassRows>` visible in first-diverged diagnostics guidance.

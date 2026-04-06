@@ -4082,3 +4082,6 @@
 - Follow-up: remaining open IP124 item is Systems/Ops+QA PINLEN parity assertion label alignment.
 - 2026-04-07 06:48 KST — No combat runtime tuning this slice; validated that report-only control-chain diagnostics remain additive/reversible. Follow-up: reserve next visible combat/vfx-facing polish cycle if lane cadence slips.
 - 2026-04-07 06:48 KST — No combat runtime tuning this slice; validated that report-only control-chain diagnostics remain additive/reversible. Follow-up: reserve next visible combat/vfx-facing polish cycle if lane cadence slips.
+
+## 2026-04-07 07:18 KST
+- Combat/VFX diagnostics narrative kept intact while extending docs-order note: PINSAFE->SAFE parity and ALTLEN assertion-label surfacing are now both explicit.

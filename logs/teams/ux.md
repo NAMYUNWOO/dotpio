@@ -4323,3 +4323,6 @@
 - Follow-up: remaining open IP124 item is Systems/Ops+QA PINLEN parity assertion label alignment.
 - 2026-04-07 06:48 KST — Docs-order readability chain now includes  and references assertionLabel semantics for one-scan triage. Follow-up: compact ALTLEN-specific note pending (IP125 next-up).
 - 2026-04-07 06:48 KST — Docs-order readability chain now includes ...LEGALTLEN and references assertionLabel semantics for one-scan triage. Follow-up: compact ALTLEN-specific note pending (IP125 next-up).
+
+## 2026-04-07 07:18 KST
+- UX one-scan readability rule updated: docs-order callout includes explicit ALTLEN assertionLabel guidance without changing token chain order.

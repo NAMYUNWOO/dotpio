@@ -5789,3 +5789,7 @@
 - Verification bundle PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
 - 2026-04-07 06:48 KST — Cycle IP125 selected slice shipped: added  payload-drift extraction + mixed-window first-diverged assertionLabel surfacing in regression guardrail. Follow-up: keep ALTLEN diagnostics family aligned with PINLEN/PINSAFE/SAFE naming.
 - 2026-04-07 06:48 KST — Cycle IP125 selected slice shipped: added ...ctrlwnrblglegaltlenNonPassRows payload-drift extraction + mixed-window first-diverged assertionLabel surfacing in regression guardrail. Follow-up: keep ALTLEN diagnostics family aligned with PINLEN/PINSAFE/SAFE naming.
+
+## 2026-04-07 07:18 KST
+- Synced docs-order diagnostics contract: ALTLEN drift in the PIN chain must surface `assertionLabel=<...legaltlenNonPassRows>` alongside PINLEN/PINSAFE/SAFE parity failures.
+- Verification bundle remained green after wording-only change (py_compile + regression + guardrail artifact regeneration).
