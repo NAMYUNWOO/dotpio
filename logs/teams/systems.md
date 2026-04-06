@@ -5648,3 +5648,5 @@
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
 
 - [2026-04-06 17:51 KST] Systems/Ops: Re-validated CTRLWVFX helper-chain sparse mixed-window parity contracts after cue-priority helper copy tightening; retained first-diverged fixture + firstMissingToken diagnostics in regression assertions. Follow-up: keep CTRLWVFX/CTRLWVFXH/CTRLWVFXHLEN parity tied to CTRL legend presence.
+
+- [2026-04-06 17:58 KST] Systems/Ops: Closed IP110 selected slice by preserving sparse mixed-window firstMissingToken diagnostics while updating CTRLWVFXH helper-copy expectations; injected next fixture-domain lock task for CTRLWVFXH ordered wording.

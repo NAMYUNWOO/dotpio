@@ -3984,3 +3984,5 @@
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
 
 - [2026-04-06 17:51 KST] Combat/VFX: Updated control-winner cue-priority helper copy to explicit ordering (`GLINT-HOLD first|PULSE-CUT second|SHIELD-HOLD third`) to improve one-glance triage readability while preserving report-only runtime coupling. Follow-up: monitor readability deltas in next Game Director cycle.
+
+- [2026-04-06 17:58 KST] Combat/VFX: IP110 selected experiment kept control-winner VFX guidance readable via explicit first/second/third ordering; queued rollback-helper row (`...CTRLWVFXRB`) for next cycle.

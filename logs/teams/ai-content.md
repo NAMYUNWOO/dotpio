@@ -4064,3 +4064,5 @@
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
 
 - [2026-04-06 17:51 KST] AI-content: No generator payload-domain changes in this slice; retained report-only control-winner helper semantics and deterministic alias domain expectations.
+
+- [2026-04-06 17:58 KST] AI-content: No payload-domain expansion in IP110; monitored report-only helper wording lock and rollback-path framing for next experiment.

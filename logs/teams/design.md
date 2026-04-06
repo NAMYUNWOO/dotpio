@@ -4131,3 +4131,5 @@
 - Reviewed control-winner helper-chain diagnostics wording; preserved compact token names while exposing firstMissingToken in assertion output to keep one-scan triage readable.
 
 - [2026-04-06 17:51 KST] Design/World: Tightened CTRLWVFX decode helper wording to explicit first/second/third priority cues without exceeding DOS-width policy, anchored before CTRLWVFXHLEN eval row. Follow-up: keep helper wording deterministic for operator docs.
+
+- [2026-04-06 17:58 KST] Design/World: IP110 selected helper-copy refinement shipped with deterministic ordering semantics; next design-facing task is compact rollback helper copy anchored after CTRLWVFXHLEN.

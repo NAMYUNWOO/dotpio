@@ -6171,3 +6171,5 @@ Compact decision memory for AI context efficiency.
 - Next injected tasks opened: (1) combat/design compact cue-priority helper row for `...CTRLWVFX`, (2) systems/qa parity assertion for that helper row.
 
 - [2026-04-06 17:51 KST] Cycle IP109 follow-up closed: CTRLWVFX helper copy now explicitly encodes priority order (`GLINT-HOLD first|PULSE-CUT second|SHIELD-HOLD third`) and regression parity diagnostics (including firstMissingToken surfacing) remain intact. ACTION_ITEMS/TASKS/POST_RC are fully checked at end-of-cycle.
+
+- [2026-04-06 17:58 KST] Game Director Cycle IP110 executed after full-checklist state: evaluated low/mid/high ideas, selected CTRLWVFX priority-helper wording lock, shipped helper copy update + regression parity refresh, and injected next tasks (`...CTRLWVFXH` fixture-domain lock + new `...CTRLWVFXRB` rollback helper row).

@@ -3975,3 +3975,5 @@
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
 
 - [2026-04-06 17:51 KST] World: No map/progression changes in this slice; world lane reviewed for ordering coherence only.
+
+- [2026-04-06 17:58 KST] World: No map changes in IP110; supported design lane review for helper-row ordering and rollback-helper placement.
