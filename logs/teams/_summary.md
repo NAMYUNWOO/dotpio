@@ -6359,3 +6359,13 @@ Compact decision memory for AI context efficiency.
 
 - 2026-04-07 08:24 KST — Cycle IP126 follow-up completed: report-only docs-order alternate mnemonic candidate `ALT>PIN>SAFE>WIDTH` now emitted as `...LEGALTPINALT` with `...LEGALTPINALTLEN` compactness check; baseline `ALT>PIN>SAFE>ALTLEN` remains source-of-truth. Regression suite now enforces candidate-row presence and mismatch diagnostics.
 - 2026-04-07 08:29 KST — IP127 complete: added report-only docs-order delta helper `...LEGALTPINDIFF:BASE=ALTLEN|ALT=WIDTH|DELTA=-2` plus regression coverage. New injected backlog item opens first-diverged assertionLabel surfacing for `...legaltpindiffNonPassRows`.
+
+## 2026-04-07 08:51 KST
+- Completed injected Systems/Ops+QA item: sparse mixed-window mnemonic-delta helper drift now surfaces deterministic first-diverged assertion label `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpindiffNonPassRows` for one-scan triage.
+- Durable decision: docs-order readability helper drift contracts must include explicit `assertionLabel=<...NonPassRows>` text in first-diverged regression failure messages, not only payload mismatch keys.
+- Queue status after completion: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.
+
+## 2026-04-07 08:57 KST
+- Game Director Cycle IP128 executed after fully-checked queues; selected low-risk systems/qa slice added direct JSON-contract assertion for `...TransitionHandoffDecodeHelperEvaluation`.
+- Durable decision: every markdown LEN token contract for transition handoff decode helper must now have mirrored report JSON payload assertion coverage.
+- Injected next: Design/World+UX helper-pair parity assertion and AI-content+Combat/VFX report-only alternate compact alias experiment.

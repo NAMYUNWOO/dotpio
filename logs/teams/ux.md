@@ -4335,3 +4335,10 @@
 
 - 2026-04-07 08:24 KST — Added compactness eval rail (`...LEGALTPINALTLEN:B18|C18|LIM72|PASS`) for alternate mnemonic candidate. Follow-up: continue evaluating scan speed and ambiguity risk.
 - 2026-04-07 08:29 KST — UX readability instrumentation expanded with mnemonic delta row to reduce scan ambiguity for ALTLEN vs WIDTH candidate.
+
+## 2026-04-07 08:51 KST
+- IP124 systems/ops+qa regression slice shipped: added explicit first-diverged sparse mixed-window assertion label for mnemonic delta helper drift via `assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpindiffNonPassRows` in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Verification bundle PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
+## 2026-04-07 08:57 KST
+- Cycle IP128 shipped: regression harness now enforces JSON key-contract payload for `...TransitionHandoffDecodeHelperEvaluation` (baseline/compact/len/preferred/status) with green verification bundle.

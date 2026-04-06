@@ -5803,3 +5803,10 @@
 
 - 2026-04-07 08:24 KST — Added regression contracts for docs-order alternate mnemonic candidate (`...LEGALTPINALT` / `...LEGALTPINALTLEN`), including deterministic row-count and payload mismatch diagnostics. Follow-up: keep candidate report-only until readability wins across cycles.
 - 2026-04-07 08:29 KST — Cycle IP127 selected slice shipped: added docs-order mnemonic delta helper `...LEGALTPINDIFF` and regression presence/mismatch keys. Injected next: add first-diverged assertionLabel surfacing for `...legaltpindiffNonPassRows`.
+
+## 2026-04-07 08:51 KST
+- IP124 systems/ops+qa regression slice shipped: added explicit first-diverged sparse mixed-window assertion label for mnemonic delta helper drift via `assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpindiffNonPassRows` in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Verification bundle PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
+## 2026-04-07 08:57 KST
+- Cycle IP128 shipped: regression harness now enforces JSON key-contract payload for `...TransitionHandoffDecodeHelperEvaluation` (baseline/compact/len/preferred/status) with green verification bundle.

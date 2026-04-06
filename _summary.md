@@ -279,3 +279,11 @@
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Backlog injection opened: docs-order assertionLabel note for PINLEN/PINSAFE/SAFE chain, and PINLEN row-count parity assertion-label parity.
 - 2026-04-07 06:48 KST — Autonomous Cycle IP125: closed stale IP124 backlog checkbox and executed Game Director loop. Selected experiment added `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenNonPassRows` extraction + mixed-window assertionLabel diagnostics, with docs-order callout extended through `...LEGALTLEN`. Verification: py_compile + regression harness + lane coverage script all PASS. Next item injected: compact ALTLEN assertionLabel docs note.
+
+## 2026-04-07 08:51 KST
+- Closed IP124 injected Systems/Ops+QA item by wiring first-diverged assertion-label surfacing for `...LEGALTPINDIFF` sparse mixed-window drift in regression harness.
+- Durable decision: each docs-order helper drift check must ship both mismatch-key extraction and explicit `assertionLabel=<...NonPassRows>` failure copy.
+
+## 2026-04-07 08:57 KST
+- Executed Game Director Cycle IP128 and added JSON-contract regression assertion coverage for `...TransitionHandoffDecodeHelperEvaluation`.
+- Durable decision: markdown decode-helper LEN rails are no longer sufficient alone; matching JSON payload key contracts are mandatory.

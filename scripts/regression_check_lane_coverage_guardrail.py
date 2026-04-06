@@ -393,6 +393,17 @@ def run_fixture_case(
         "preferred": "COMPACT",
         "status": "PASS",
     }, f"{name}: cadence24hLegendEvaluation must expose deterministic DOS-width/readability payload"
+    assert report.get(
+        "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoffDecodeHelperEvaluation"
+    ) == {
+        "baseline": "GH->PP rise handoff first|PP->GH settle handoff second",
+        "compact": "GH->PP rise first|PP->GH settle second",
+        "baselineLen": 54,
+        "compactLen": 38,
+        "dosWidthLimit": 72,
+        "preferred": "COMPACT",
+        "status": "PASS",
+    }, f"{name}: transition-handoff decode helper evaluation payload must keep deterministic baseline/compact DOS-width contract"
     assert (
         f"TSDCAD24:{cadence_24h_health_alias}** ({cadence_24h_health})" in md_text
     ), f"{name}: markdown output must include cadence-24h token row with alias/value parity"
@@ -8522,6 +8533,34 @@ def main() -> int:
             "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINLEN payload deterministic across sparse summary + token sections; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinlen_status_mismatch[0]} "
             f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinlen_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpindiff_status_mismatch = next(
+            (
+                (fixture_name, non_pass_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    non_pass_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpindiffNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpindiff_status_label = (
+            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpindiffNonPassRows"
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpindiff_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINDIFF payload deterministic across sparse summary + token sections; "
+            f"assertionLabel={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpindiff_status_label}; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpindiff_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpindiff_status_mismatch[1]}"
         )
         mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinsafe_status_mismatch = next(
             (
