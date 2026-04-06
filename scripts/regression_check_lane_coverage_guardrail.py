@@ -3958,6 +3958,11 @@ def run_fixture_case(
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB:KEEP if CTRLWVFXH/CTRLWVFXHLEN stay PASS|ROLLBACK on VFX helper drift**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner VFX rollback helper row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner VFX rollback helper eval (ux/design, report-only): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN:B69|C69|LIM72|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner VFX rollback helper eval row"
     assert re.search(
         r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence note \(combat/vfx\+ai-content, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:(A:anchor brace reserve confidence lane-lock|B:crossfire cut feint confidence pressure-shift|C:shelter hold harden confidence stabilize-hold)\*\*",
         md_text,
@@ -4003,6 +4008,7 @@ def run_fixture_case(
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXHLEN:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB:[^*]+\*\*.*?"
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:[^*]+\*\*.*?"
@@ -4016,7 +4022,7 @@ def run_fixture_case(
     )
     assert len(stalf2_control_winner_chain_matches) >= 1, (
         f"{name}: summary/token sections must keep strict ordered chain "
-        "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB"
+        "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWVFXRBLEN -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB"
     )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback operator cue legend (design/world+combat/vfx): "
@@ -6595,6 +6601,7 @@ def run_fixture_case(
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXHLEN",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB",
+        "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN",
@@ -6682,6 +6689,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxhRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH:A=GLINT-HOLD first|B=PULSE-CUT second|C=SHIELD-HOLD third**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxhlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXHLEN:B43|C43|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB:KEEP if CTRLWVFXH/CTRLWVFXHLEN stay PASS|ROLLBACK on VFX helper drift**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN:B69|C69|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:A:anchor brace reserve confidence lane-lock**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:B:crossfire cut feint confidence pressure-shift**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:C:shelter hold harden confidence stabilize-hold**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:A=lane-lock|B=pressure-shift|C=stabilize-hold**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:B45|C45|LIM72|PASS**"),
@@ -7996,6 +8004,10 @@ def main() -> int:
                 "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbRowCount",
             ),
             (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblenRowCount",
+            ),
+            (
                 "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN",
                 "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnRowCount",
             ),
@@ -8052,7 +8064,7 @@ def main() -> int:
         )
         assert mixed_window_tsdpmfx_nfxqbackstaf2ctrl_sparse_first_missing_token is None, (
             "mixed-window fixture matrix must keep explicit sparse firstMissingToken diagnostics for strict ordered chain "
-            "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB; "
+            "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWVFXRBLEN -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_sparse_first_missing_token[0]} "
             f"firstMissingToken={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_sparse_first_missing_token[1]}"
         )
@@ -8077,7 +8089,7 @@ def main() -> int:
         )
         assert mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token is None, (
             "mixed-window fixture matrix must keep strict ordered chain "
-            "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB; "
+            "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWVFXRBLEN -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token[0]} "
             f"firstMissingToken={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token[1]}"
         )

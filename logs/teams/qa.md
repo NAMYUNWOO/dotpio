@@ -6142,3 +6142,15 @@
 ## 2026-04-06 18:54 KST — Cycle IP111 verification
 - Verified fixture-level payload extraction + deterministic-domain assertion for `...CTRLWVFXRB`.
 - Regression bundle passed (py_compile + guardrail regression + guardrail regeneration).
+
+## 2026-04-06 19:49 KST — IP111 injected rollback-helper eval row closure
+- Completed item: Added  and anchored strict chain  in regression + sparse parity keys.
+- Files: , , , .
+- Verification:  + ok: trendScoreBand dispatch-hint/momentum-band regression checks passed + .
+- Follow-up: if queues are fully checked on next cycle, trigger mandatory Game Director 3-idea experiment loop and inject a new task.
+
+## 2026-04-06 19:49 KST
+- Closed injected rollback-helper eval item by adding TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN:B69|C69|LIM72|PASS.
+- Locked strict chain/parity ordering: ...CTRLWVFXRB -> ...CTRLWVFXRBLEN -> ...CTRLWN across summary/token and sparse mixed-window row-key checks.
+- Files touched: scripts/check_lane_coverage_guardrail.py, scripts/regression_check_lane_coverage_guardrail.py, TASKS.md, POST_RC_BACKLOG.md.
+- Verification PASS: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py && python3 scripts/regression_check_lane_coverage_guardrail.py && python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.

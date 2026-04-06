@@ -1,3 +1,9 @@
+## 2026-04-06 19:49 KST
+- Closed top-priority unchecked TASKS/POST_RC item by adding rollback-helper eval row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN:B69|C69|LIM72|PASS`.
+- Durable decision: VFX rollback helper cluster must keep strict chain `...CTRLWVFXRB -> ...CTRLWVFXRBLEN -> ...CTRLWN` with sparse row-key parity coverage, not just markdown presence.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next: mandatory Game Director review cycle on next run).
+
 ## 2026-04-06 19:18 KST
 - Closed top-priority unchecked TASKS/POST_RC item: added sparse mixed-window rollback-helper payload diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbNonPassRows` for `...CTRLWVFXRB`.
 - Durable decision: payload-domain deterministic rows should expose `...NonPassRows` keys (occurrence+payload) so sparse fixture failures always provide first-diverged diagnostics without custom debug work.
