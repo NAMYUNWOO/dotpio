@@ -1,3 +1,8 @@
+## 2026-04-06 12:22 KST
+- Closed highest-priority unchecked POST_RC_BACKLOG item (Systems/Ops + QA): added strict ordered-chain regression contract for `...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB` across summary/token sections.
+- Durable decision: control-winner rows now require both row-presence/domain checks *and* explicit sequence invariants before fallback rollback rows.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
 ## 2026-04-06 07:53 KST
 - Closed IP100 injected Systems/Ops+QA item by enforcing ordered fallback chain coverage: `...NFXQBACKSTAPLAN -> ...NFXQBACKSTAF -> ...NFXQBACKSTAFLEN -> ...NFXQBACKSTAH`.
 - Implementation details: moved `...NFXQBACKSTAPLAN` row earlier in guardrail markdown output and added ordered-chain regression matcher (`re.S`) so row order drift fails deterministically.

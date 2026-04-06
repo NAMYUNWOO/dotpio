@@ -1,3 +1,9 @@
+## 2026-04-06 12:22 KST
+- Closed highest-priority unchecked backlog item from POST_RC: strict ordered chain added for control-winner block `...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB` in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Durable decision: control-winner block invariants are now two-layered (domain/presence + sequence) before rollback rows are considered valid.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: control winner confidence note token `A/B/C` + rationale snippet).
+
 ## 2026-04-06 09:28 KST
 - Game Director Cycle IP102 executed immediately after queues reached fully-checked state.
 - Completed selected vertical slice: `...BACKSTAF2LEN:B68|C53|LIM72|PASS` with regression markdown/row-count checks.
