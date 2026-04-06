@@ -1,6 +1,19 @@
 # TASKS
 
-Last updated: 2026-04-07 03:24 KST
+Last updated: 2026-04-07 03:44 KST
+
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP122)
+- Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0.
+- Lane cap result: no lane exceeded 40%; cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) so underrepresented lanes stayed forced priority.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + UX: add docs-order sentinel safety-gate row for `...CTRLWNRBLGLEGALTPINSAFE` to make PIN-before-SAFE transition explicit.
+  - Mid-risk Systems/Ops + QA: extend strict ordered-chain + sparse parity contracts to require `...CTRLWNRBLGLEGALTPINSAFE` between `...LEGALTPINLEN` and `...LEGALTSAFE`.
+  - High-risk AI-content + Combat/VFX: prototype alternate sentinel safety microcopy (`PIN=stability latch`) behind report-only fallback gate.
+- [x] Combat/VFX + UX + Systems/Ops + QA Team (selected): add docs-order sentinel safety-gate row `...CTRLWNRBLGLEGALTPINSAFE` and enforce strict-chain + sparse parity placement before `...LEGALTSAFE`. *(lifecycle: [ ] -> [~] started: 2026-04-07 03:34 KST -> [x] completed: 2026-04-07 03:44 KST; implementation: added markdown row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINSAFE:PIN=guard before SAFE gate`, extended strict ordered-chain regex to include `...CTRLWNRBLGLEGALTPINSAFE` between PINLEN and SAFE, and added sparse mixed-window row-count parity assertion requiring PINSAFE counts mirror PINLEN counts; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP122)
+- [ ] Systems/Ops + QA Team (injected): add sparse mixed-window payload diagnostics key for `...CTRLWNRBLGLEGALTPINSAFE` (`...pinsafeNonPassRows`) and first-diverged fixture surfacing when PINSAFE payload drifts.
+- [ ] Design/World + UX Team (injected): pin docs-order callout requiring contiguous `...CTRLWNRBLGLEGALTPIN -> ...CTRLWNRBLGLEGALTPINLEN -> ...CTRLWNRBLGLEGALTPINSAFE -> ...CTRLWNRBLGLEGALTSAFE` sequence for one-scan sentinel readability.
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP121)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP120 follow-up closure, so mandatory Game Director loop executed immediately.

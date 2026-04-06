@@ -4208,3 +4208,6 @@
 - Closed injected docs-order readability follow-up by updating guardrail markdown callout to explicitly require `...CTRLWNRBLGLEGALTPIN -> ...CTRLWNRBLGLEGALTPINLEN -> ...CTRLWNRBLGLEGALTSAFE` contiguous ordering.
 - Decision: sentinel readability callouts should reference the immediate PIN/PINLEN/SAFE trio directly when that trio is the active checklist target.
 - Follow-up: keep this callout synchronized with regression strict-chain assertions whenever chain order evolves.
+## 2026-04-07 03:44 KST
+- Design/world readability continuity: sentinel docs-order chain now includes explicit PINSAFE bridge stage between PINLEN and SAFE.
+- Follow-up queued to keep callout text contiguous with `PIN -> PINLEN -> PINSAFE -> SAFE` sequence.

@@ -5754,3 +5754,6 @@
 - Systems lane validated that callout-only copy update preserves existing strict ordered-chain and sparse parity contracts.
 - Decision: docs-order copy updates can ship independently when they do not change resolver payloads or row-count contracts.
 - Follow-up: keep py_compile + regression + guardrail generation bundle mandatory for copy-only guardrail edits.
+## 2026-04-07 03:44 KST
+- Systems/QA regression contracts extended: strict ordered-chain and sparse row-key matrix now require `...CTRLWNRBLGLEGALTPINSAFE` between PINLEN and SAFE.
+- Added row-count parity assertion to keep PINSAFE counts mirrored to PINLEN across mixed-window fixtures.

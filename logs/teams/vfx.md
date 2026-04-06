@@ -703,3 +703,6 @@
 ## 2026-04-06 22:34 KST (Cycle IP116)
 - Shipped legend-pairing eval row `...CTRLWNRBLGLEGLEN` and extended strict rollback chain to `...CTRLWNRBLG -> ...CTRLWNRBLGLEG -> ...CTRLWNRBLGLEGLEN -> ...CTRLWNRBLGLEN`; verification bundle PASS.
 - 2026-04-06 23:24 KST — Synced VFX-facing rollback copy experiment with confidence legend chain (`...CTRLWNRBLGLEGALT`) to preserve one-scan readability while keeping rollback gate explicit. Follow-up: no runtime VFX mapping changes this cycle.
+## 2026-04-07 03:44 KST
+- VFX lane checkpoint: report-only sentinel readability pass added `...CTRLWNRBLGLEGALTPINSAFE` to guard PIN->SAFE transition clarity in dense cue rails.
+- No runtime VFX pulse/FX tuning changed this cycle.

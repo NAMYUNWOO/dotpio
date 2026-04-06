@@ -4061,3 +4061,6 @@
 - Combat-facing guardrail readability task closed via docs-order callout refinement to contiguous sentinel trio (`PIN -> PINLEN -> SAFE`).
 - Decision: combat/vfx-adjacent report callouts should spotlight immediate decision chain to minimize scan overhead.
 - Follow-up: retain existing eval-row ordering (`PINLEN` before `SAFE`) as fixed regression invariant.
+## 2026-04-07 03:44 KST
+- Combat/VFX cadence slice shipped docs-order sentinel safety gate row `...CTRLWNRBLGLEGALTPINSAFE:PIN=guard before SAFE gate` to keep PIN transition legible before SAFE handoff.
+- Scope remains report-only/readability contract (no runtime combat behavior change).
