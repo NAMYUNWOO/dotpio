@@ -6106,3 +6106,14 @@ Compact decision memory for AI context efficiency.
 - Durable decision: when `...BACKSTAF2CTRL` control legend family exists, include winner-decode eval telemetry row (`...BACKSTAF2CTRLWLEN`) and parity-lock it to `TSDPMFXVWCRITSPMB`.
 - Regression hardening: markdown presence assertion + fixture-level guard + mixed-window row-count key/parity token wiring.
 - Verification PASS: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact generation.
+
+## 2026-04-06 13:11 KST
+- Completed IP104 injected item: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN` confidence-note row shipped (report-only), with deterministic A/B/C rationale payload and regression contracts for presence, ordering, fixture payload domain, and mixed-window parity row-count key coverage.
+- Durable decision: for control-winner clusters, keep ordered chain `CTRLW -> CTRLWN -> CTRLWLEG -> CTRLWLEN -> CTRLRB` so token, rationale, decode, and rollback cues are auditable in a single scan.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 13:22 KST
+- Cycle IP106 executed (all queues were fully checked at start): selected low-risk confidence-note eval + mid-risk ordering/parity lock slice.
+- Shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:B67|C61|LIM72|PASS` and enforced chain `CTRLW -> CTRLWN -> CTRLWNLEN -> CTRLWLEG -> CTRLWLEN -> CTRLRB`.
+- Injected next tasks into TASKS/POST_RC: (1) systems/qa first-diverged diagnostics for CTRLWNLEN, (2) design/world+combat/vfx+ai-content compact confidence-note decode helper row.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

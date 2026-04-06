@@ -4030,3 +4030,10 @@
 ## 2026-04-06 11:59 KST — IP104 ai-content status
 - No runtime-coupled ai-content behavior changed this cycle; work stayed in report-only guardrail readability/contract rails.
 - Injected follow-up candidate: report-only control-winner confidence note token (A/B/C rationale).
+
+## 2026-04-06 13:11 KST
+- Locked deterministic rationale copy for control-winner confidence note variants: `A:anchor brace reserve confidence lane-lock`, `B:crossfire cut feint confidence pressure-shift`, `C:shelter hold harden confidence stabilize-hold`.
+- Decision: keep copy deterministic/report-only to avoid runtime behavior drift.
+
+## 2026-04-06 13:22 KST
+- Confidence-note rationale pipeline now includes explicit eval token row (`...CTRLWNLEN`) to guard deterministic copy width budget before decode-helper consumption.

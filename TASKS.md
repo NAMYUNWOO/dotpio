@@ -1,6 +1,19 @@
 # TASKS
 
-Last updated: 2026-04-06 11:24 KST
+Last updated: 2026-04-06 13:22 KST
+
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP106)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP104 closure, so mandatory Game Director loop executed.
+- Candidate ideas generated:
+  - Low-risk UX/Design: add confidence-note eval row for `...NFXQBACKSTAF2CTRLWN` so rationale width status is explicit in one scan.
+  - Mid-risk Systems/Ops + QA: enforce ordered-chain/parity contract with `...NFXQBACKSTAF2CTRLWNLEN` inserted between confidence note and decode helper.
+  - High-risk Combat/VFX + AI-content: trial alternate confidence rationale pack (`A2/B2/C2`) as report-only stress candidate.
+- Selected experiment: low-risk confidence-note eval row + mid-risk ordering lock vertical slice.
+- [x] UX/Design + Systems/Ops + QA + Combat/VFX + AI-content Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:B67|C61|LIM72|PASS`, locked regression presence/fixture/parity contracts, and updated strict chain to `CTRLW -> CTRLWN -> CTRLWNLEN -> CTRLWLEG -> CTRLWLEN -> CTRLRB` while keeping runtime coupling disabled. *(lifecycle: [ ] -> [~] started: 2026-04-06 13:15 KST -> [x] completed: 2026-04-06 13:22 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP106)
+- [ ] Systems/Ops + QA Team (injected): Add fixture-level non-pass diagnostics key for `...NFXQBACKSTAF2CTRLWNLEN` to expose first-diverged fixture/occurrence in sparse mixed-window reports.
+- [ ] Design/World + Combat/VFX + AI-content Team (injected): Add compact confidence-note decode helper row (`A/B/C -> lane-lock/pressure-shift/stabilize-hold`) adjacent to `...CTRLWN` for operator readability.
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP105)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop triggered.

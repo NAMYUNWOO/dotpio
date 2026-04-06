@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP106)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP104 closure, so mandatory Game Director loop triggered.
+- Candidate ideas:
+  - Low-risk UX/Design: add compact confidence-note eval row for `...NFXQBACKSTAF2CTRLWN` to keep rationale-copy DOS width status one-scan visible.
+  - Mid-risk Systems/Ops + QA: enforce strict adjacency + parity lock by extending control-winner chain to include `...NFXQBACKSTAF2CTRLWNLEN`.
+  - High-risk Combat/VFX + AI-content: prototype alternate confidence rationale pack (`A2/B2/C2`) behind report-only gate for readability bakeoff.
+- Selected experiment: low-risk confidence-note eval row + mid-risk chain/parity lock vertical slice.
+- [x] UX/Design + Systems/Ops + QA + Combat/VFX + AI-content Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:B67|C61|LIM72|PASS`, expanded regression presence assertions, fixture-level required-row guard, strict ordered chain (`CTRLW -> CTRLWN -> CTRLWNLEN -> CTRLWLEG -> CTRLWLEN -> CTRLRB`), and sparse mixed-window parity row-count key coverage; confidence-note row remains report-only with runtime coupling disabled. *(lifecycle: [ ] -> [~] started: 2026-04-06 13:15 KST -> [x] completed: 2026-04-06 13:22 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP106)
+- [ ] Systems/Ops + QA Team (injected): Add fixture payload capture key `...NFXQBACKSTAF2CTRLWNNonPassRows` so confidence-note eval drift (`...CTRLWNLEN`) surfaces first-diverged fixture + occurrence diagnostics in sparse mixed-window matrix.
+- [ ] Design/World + Combat/VFX + AI-content Team (injected): Add compact decode-helper row for confidence-note rationale aliases (`A/B/C -> lane-lock/pressure-shift/stabilize-hold`) adjacent to `...CTRLWN` while keeping runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP104)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP103 closure; mandatory Game Director cycle executed.
 - Candidate ideas:
@@ -9,7 +22,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP104)
 - [x] Systems/Ops + QA Team (injected): Add strict adjacency assertion that `...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB` remains deterministic across summary/token sections. *(lifecycle: [ ] -> [~] started: 2026-04-06 12:18 KST -> [x] completed: 2026-04-06 12:22 KST; implementation: added explicit ordered-chain regex assertion for `CTRLW -> CTRLWLEG -> CTRLWLEN -> CTRLRB` in `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
-- [ ] Combat/VFX + AI-content Team (injected): Prototype report-only control winner confidence note token (`A/B/C` + rationale snippet) with runtime coupling disabled.
+- [x] Combat/VFX + AI-content Team (injected): Prototype report-only control winner confidence note token (`A/B/C` + rationale snippet) with runtime coupling disabled. *(lifecycle: [ ] -> [~] started: 2026-04-06 12:53 KST -> [x] completed: 2026-04-06 13:11 KST; implementation: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN` markdown row with deterministic rationale snippets (`A:anchor brace reserve confidence lane-lock`, `B:crossfire cut feint confidence pressure-shift`, `C:shelter hold harden confidence stabilize-hold`), plus regression presence/ordering assertion (`CTRLW -> CTRLWN -> CTRLWLEG -> CTRLWLEN -> CTRLRB`), fixture payload-domain lock, and sparse mixed-window row-count parity key wiring; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP103)
 - Coverage check (last 10 completions): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 from `logs/weekly_lane_coverage_guardrail.json`; no lane exceeded 40%, but cadence triad buckets were all missing, so selected slice was forced to underrepresented design/world+combat/vfx lanes.

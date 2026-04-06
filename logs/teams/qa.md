@@ -6070,3 +6070,10 @@
 - Added markdown presence assertion for `...BACKSTAF2CTRLWLEN` and fixture-level requirement when control legend exists.
 - Extended row-count matrix with `ctrlwlen` key and included token in mixed-window parity list.
 - Full regression bundle PASS.
+
+## 2026-04-06 13:11 KST
+- Added fixture-level domain contract for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN` so control-winner confidence notes remain deterministic (`A|B|C` mapped rationale snippets) whenever control legend row exists.
+- Regression status: PASS (`python3 scripts/regression_check_lane_coverage_guardrail.py`).
+
+## 2026-04-06 13:22 KST
+- Regression hardening for IP106: added markdown presence assertion + fixture-level required-row check + row-count parity token for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:B67|C61|LIM72|PASS`.

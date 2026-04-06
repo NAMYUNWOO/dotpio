@@ -4091,3 +4091,9 @@
 ## 2026-04-06 11:59 KST — IP104 UX/design slice shipped
 - Shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN:B39|C39|LIM72|PASS` beside control-winner decode helper cluster.
 - Durable decision: control-winner helper rows require explicit width-eval telemetry in same cycle.
+
+## 2026-04-06 13:11 KST
+- Reviewed control winner chain readability after adding `...CTRLWN`; kept adjacency contract so confidence note stays between winner token and decode helper for one-scan parsing.
+
+## 2026-04-06 13:22 KST
+- Ordered control-winner readability chain updated to include confidence-note eval row (`CTRLWNLEN`) so operator scan shows token -> rationale -> width status -> decode helper in one contiguous block.

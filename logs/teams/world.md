@@ -3942,3 +3942,9 @@
 ## 2026-04-06 11:59 KST — IP104 design/world readability note
 - Endorsed compact winner-decode eval row (`B39|C39|LIM72|PASS`) to keep A/B/C control-winner docs one-scan reversible in report output.
 - Follow-up queued: keep `CTRLWLEG` semantics stable while adjacency watchdog lands.
+
+## 2026-04-06 13:11 KST
+- No world/map data changes this cycle; world lane acknowledged in cadence log while control-winner confidence-note slice shipped in combat/ai-content + systems/qa lanes.
+
+## 2026-04-06 13:22 KST
+- No world geometry/progression edits in IP106; world lane represented through injected follow-up decode-helper task targeting operator readability semantics.

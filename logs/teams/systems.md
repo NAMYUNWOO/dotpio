@@ -5595,3 +5595,10 @@
 - Added regression row-count key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwlenRowCount` and parity tuple coverage for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN` against `TSDPMFXVWCRITSPMB`.
 - Added fixture guard: when control legend row exists, `...BACKSTAF2CTRLWLEN` must be present.
 - Follow-up: strict adjacency contract for `CTRLW -> CTRLWLEG -> CTRLWLEN -> CTRLRB`.
+
+## 2026-04-06 13:11 KST
+- Closed IP104 injected control-winner confidence-note slice by hardening regression rails for `...NFXQBACKSTAF2CTRLWN`: added ordered-chain assertion slot (`CTRLW -> CTRLWN -> CTRLWLEG -> CTRLWLEN -> CTRLRB`) and sparse mixed-window row-count parity key coverage.
+- Verification: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact run all PASS.
+
+## 2026-04-06 13:22 KST
+- Cycle IP106 selected slice shipped: inserted `...NFXQBACKSTAF2CTRLWNLEN` contract and extended strict chain/parity matrix to include the new row-count key between `CTRLWN` and `CTRLWLEG`.

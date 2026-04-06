@@ -4189,3 +4189,9 @@
 ## 2026-04-06 11:59 KST — IP104 one-scan eval telemetry
 - Added explicit winner-decode eval row to reduce operator ambiguity when reading `A/B/C` control-winner helper text.
 - Verification remained green across py_compile, regression checks, and weekly guardrail regeneration.
+
+## 2026-04-06 13:11 KST
+- Confirmed control-winner confidence note row remains report-only and ordered before decode helper/eval rows, preserving scan rhythm in markdown output.
+
+## 2026-04-06 13:22 KST
+- Added explicit report-only confidence-note eval token (`B67|C61|LIM72|PASS`) to keep DOS width audit visible for control-winner rationale rows.
