@@ -4157,3 +4157,6 @@
 
 ## 2026-04-07 07:18 KST
 - AI-content copy contract now explicitly includes ALTLEN first-diverged `assertionLabel=<...legaltlenNonPassRows>` wording in the shared diagnostics family note.
+
+## 2026-04-07 07:24 KST
+- Added backlog injection for AI-content/combat: evaluate alternate ALTLEN mnemonic wording behind report-only gate vs current wording stability.

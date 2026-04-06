@@ -5793,3 +5793,6 @@
 ## 2026-04-07 07:18 KST
 - Synced docs-order diagnostics contract: ALTLEN drift in the PIN chain must surface `assertionLabel=<...legaltlenNonPassRows>` alongside PINLEN/PINSAFE/SAFE parity failures.
 - Verification bundle remained green after wording-only change (py_compile + regression + guardrail artifact regeneration).
+
+## 2026-04-07 07:24 KST
+- IP126 selected slice shipped: regression now enforces docs-order callout includes ALTLEN `assertionLabel=<...legaltlenNonPassRows>` wording alongside PIN-chain mismatch semantics.

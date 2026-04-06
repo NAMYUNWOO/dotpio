@@ -6257,3 +6257,6 @@
 ## 2026-04-07 07:18 KST
 - QA reran full verification bundle after docs-order callout update; all checks PASS with deterministic output.
 - Asserted durable expectation: ALTLEN drift messaging must keep `assertionLabel=<...legaltlenNonPassRows>` visible in first-diverged diagnostics guidance.
+
+## 2026-04-07 07:24 KST
+- QA added deterministic assertion ensuring docs-order callout includes ALTLEN assertion-label guidance; full verification bundle PASS.

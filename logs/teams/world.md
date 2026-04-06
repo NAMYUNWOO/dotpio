@@ -4071,3 +4071,6 @@
 
 ## 2026-04-07 07:18 KST
 - World/readability lane updated docs-order guidance to keep ALTLEN assertion-label semantics in one-scan operator flow with PINSAFE->SAFE parity wording.
+
+## 2026-04-07 07:24 KST
+- World/docs readability contract tightened via regression: docs-order narrative must retain explicit ALTLEN assertion-label copy for one-scan triage.

@@ -4085,3 +4085,6 @@
 
 ## 2026-04-07 07:18 KST
 - Combat/VFX diagnostics narrative kept intact while extending docs-order note: PINSAFE->SAFE parity and ALTLEN assertion-label surfacing are now both explicit.
+
+## 2026-04-07 07:24 KST
+- Combat diagnostics copy stability preserved; new regression gate prevents accidental removal of ALTLEN assertion-label wording from docs-order callout.

@@ -4097,6 +4097,14 @@ def run_fixture_case(
         "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWVFXRBLEN -> ...NFXQBACKSTAF2CTRLWVFXRBLG -> ...NFXQBACKSTAF2CTRLWVFXRBLGLEN -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNRBLG -> ...NFXQBACKSTAF2CTRLWNRBLGLEG -> ...NFXQBACKSTAF2CTRLWNRBLGLEGALT -> ...NFXQBACKSTAF2CTRLWNRBLGLEGALTPIN -> ...NFXQBACKSTAF2CTRLWNRBLGLEGALTPINLEN -> ...NFXQBACKSTAF2CTRLWNRBLGLEGALTPINSAFE -> ...NFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE -> ...NFXQBACKSTAF2CTRLWNRBLGLEGALTLEN -> ...NFXQBACKSTAF2CTRLWNRBLGLEGLEN -> ...NFXQBACKSTAF2CTRLWNRBLGLEN -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB"
     )
     assert (
+        "docs-order callout (design/world+ux): keep **...CTRLWNRBLGLEGALTPIN -> ...CTRLWNRBLGLEGALTPINLEN -> ...CTRLWNRBLGLEGALTPINSAFE -> ...CTRLWNRBLGLEGALTSAFE -> ...CTRLWNRBLGLEGALTLEN** contiguous; "
+        "sparse first-diverged diagnostics must narrate PINSAFE->SAFE parity in one scan and expose `assertionLabel=<...NonPassRows>` semantics for the PINLEN/PINSAFE/SAFE/ALTLEN mismatch chain, including explicit ALTLEN payload drift surfacing as `assertionLabel=<...legaltlenNonPassRows>`."
+        in md_text
+    ), (
+        f"{name}: docs-order callout must explicitly include ALTLEN first-diverged assertion label guidance "
+        "(`assertionLabel=<...legaltlenNonPassRows>`) alongside PINLEN/PINSAFE/SAFE mismatch semantics"
+    )
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback operator cue legend (design/world+combat/vfx): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE:AGF=anchor brace|CRF=crossfire cut|SHD=shelter hold**"
         in md_text

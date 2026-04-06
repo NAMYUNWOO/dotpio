@@ -4232,3 +4232,6 @@
 
 ## 2026-04-07 07:18 KST
 - Completed Design/UX injected follow-up: docs-order callout now states ALTLEN first-diverged payload drift must emit `assertionLabel=<...legaltlenNonPassRows>` in same family as PINLEN/PINSAFE/SAFE.
+
+## 2026-04-07 07:24 KST
+- Design lane added IP126 follow-up injections for compact assertion-label family helper copy (PINLEN/PINSAFE/SAFE/ALTLEN).

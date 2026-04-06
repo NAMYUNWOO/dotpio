@@ -4326,3 +4326,6 @@
 
 ## 2026-04-07 07:18 KST
 - UX one-scan readability rule updated: docs-order callout includes explicit ALTLEN assertionLabel guidance without changing token chain order.
+
+## 2026-04-07 07:24 KST
+- UX readability now protected by test contract: docs-order callout must keep explicit `...legaltlenNonPassRows` wording in the same scan line.

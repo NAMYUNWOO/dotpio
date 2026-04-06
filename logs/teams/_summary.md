@@ -6345,3 +6345,9 @@ Compact decision memory for AI context efficiency.
 - Closed top-priority injected Design/World + UX backlog item by updating docs-order callout copy so ALTLEN first-diverged drift explicitly references `assertionLabel=<...legaltlenNonPassRows>` alongside PINLEN/PINSAFE/SAFE mismatch semantics.
 - Durable decision: PIN-chain docs-order guidance must always include both parity scan cue (`PINSAFE->SAFE`) and ALTLEN assertion-label surfacing in one contiguous operator note.
 - Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
+## 2026-04-07 07:24 KST
+- Executed mandatory Game Director Cycle IP126 after queues reached fully checked state; selected low-risk systems/qa experiment.
+- Completed slice: `scripts/regression_check_lane_coverage_guardrail.py` now fails if docs-order callout drops explicit ALTLEN `assertionLabel=<...legaltlenNonPassRows>` wording alongside PINLEN/PINSAFE/SAFE semantics.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+- Injected follow-ups: compact assertion-label family helper copy (design/ux) + report-only alternate ALTLEN mnemonic experiment (ai-content/combat).

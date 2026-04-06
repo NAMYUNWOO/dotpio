@@ -1,6 +1,18 @@
 # TASKS
 
-Last updated: 2026-04-07 06:48 KST
+Last updated: 2026-04-07 07:24 KST
+
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP126)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP125 follow-up closure, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Systems/Ops + QA: add regression guard that docs-order callout must explicitly include ALTLEN first-diverged `assertionLabel=<...legaltlenNonPassRows>` guidance.
+  - Mid-risk Design/World + UX: add compact operator note alias for PIN-chain assertion-label mapping in markdown report rows.
+  - High-risk AI-content + Combat/VFX: prototype alternate ALTLEN mnemonic phrase (`ALT>PIN>SAFE>WIDTH`) behind report-only wording gate.
+- [x] Systems/Ops + QA Team (selected): enforce explicit ALTLEN assertion-label wording in docs-order callout via regression contract. *(lifecycle: [ ] -> [~] started: 2026-04-07 07:22 KST -> [x] completed: 2026-04-07 07:24 KST; implementation: added deterministic markdown assertion in `scripts/regression_check_lane_coverage_guardrail.py` requiring docs-order callout copy to include `assertionLabel=<...legaltlenNonPassRows>` alongside PINLEN/PINSAFE/SAFE mismatch semantics; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP126)
+- [ ] Design/World + UX Team (injected): add compact docs helper line that maps PINLEN/PINSAFE/SAFE/ALTLEN to their corresponding `...NonPassRows` assertion-label family names for one-scan triage.
+- [ ] AI-content + Combat/VFX Team (injected): prototype alternate ALTLEN mnemonic wording behind report-only gate and evaluate readability vs current docs-order wording.
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP125)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS completed; POST_RC had one unchecked stale injection from IP124, so it was reconciled first and mandatory Game Director loop executed immediately after all queues were fully checked.
