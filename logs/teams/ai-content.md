@@ -4013,3 +4013,10 @@
 - 2026-04-06 08:33 KST — Cycle IP101: No runtime-coupled content changes; queued offline alternate fallback cue micro-pack experiment (`ABR/XCF/SHH`) for next injection.
 - 2026-04-06 08:53 KST — AI-content experiment queue unchanged (`ABR/XCF/SHH` still pending); completed this cycle’s systems/qa precondition by locking fallback cue eval PASS-domain.
 - 2026-04-06 09:28 KST IP102: Prototyped report-only alternate fallback cue micro-pack candidate payload arm (`ABR/XCF/SHH`) and ensured runtime coupling remains disabled.
+
+## 2026-04-06 09:44 KST
+- Game Director Cycle IP103: lane coverage snapshot (last 10) remained all-zero by lane with 24h cadence buckets missing (combat-or-vfx, design-or-world, systems-or-ops), so the selected slice was forced to underrepresented design/world+combat/vfx coverage.
+- Shipped minimal vertical slice: added fallback cue micro-pack control legend companion row TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL:A=ABR|B=XCF|C=SHH plus control rollback row TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLRB.
+- Verification: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
+- Next forced cadence queue: systems/ops parity lock for NFXQBACKSTAF2 + NFXQBACKSTAF2LEN, then combat/design control-eval adjacency lock.
+

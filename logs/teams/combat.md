@@ -3929,3 +3929,10 @@
 - 2026-04-06 08:33 KST — Cycle IP101: Landed report-only fallback operator cue legend row for shelter-tone handoff (`AGF/CRF/SHD`) to improve combat-callout triage readability.
 - 2026-04-06 08:53 KST — Combat fallback cue chain parity now explicitly enforces `...BACKSTAF -> ...BACKSTAFCUE -> ...BACKSTAFCUELEN` row-count mirroring with baseline token density.
 - 2026-04-06 09:28 KST IP102: Added combat-readable fallback cue micro-pack control candidate token `...BACKSTAF2` for offline A/B readability sweeps.
+
+## 2026-04-06 09:44 KST
+- Game Director Cycle IP103: lane coverage snapshot (last 10) remained all-zero by lane with 24h cadence buckets missing (combat-or-vfx, design-or-world, systems-or-ops), so the selected slice was forced to underrepresented design/world+combat/vfx coverage.
+- Shipped minimal vertical slice: added fallback cue micro-pack control legend companion row TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL:A=ABR|B=XCF|C=SHH plus control rollback row TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLRB.
+- Verification: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
+- Next forced cadence queue: systems/ops parity lock for NFXQBACKSTAF2 + NFXQBACKSTAF2LEN, then combat/design control-eval adjacency lock.
+

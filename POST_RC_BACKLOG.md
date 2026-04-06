@@ -1,3 +1,17 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP103)
+- Coverage check (last 10 completions): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 from `logs/weekly_lane_coverage_guardrail.json`; no lane exceeded 40%, but cadence triad buckets were all missing, so selected slice was forced to underrepresented design/world+combat/vfx lanes.
+- Candidate ideas:
+  - Low-risk UX/Design: add deterministic control legend companion row for `...BACKSTAF2` (`A=ABR|B=XCF|C=SHH`) and attach rollback text tied to readability failures.
+  - Mid-risk Systems/Ops + QA: extend sparse mixed-window parity matrix + row-count lock for `...NFXQBACKSTAF2` and `...NFXQBACKSTAF2LEN`.
+  - High-risk Combat/VFX + AI-content: introduce fourth report-only fallback cue control arm for stress A/B.
+- Selected experiment: low-risk control-legend companion row + rollback criteria.
+- [x] Design/World + Combat/VFX + AI-content + QA Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL:A=ABR|B=XCF|C=SHH` and rollback row `...BACKSTAF2CTRLRB:KEEP if A/B/C map stays deterministic + LIM72 pass|ROLLBACK if control-label drift or width fail`, with regression markdown presence assertions. *(lifecycle: [ ] -> [~] started: 2026-04-06 09:39 KST -> [x] completed: 2026-04-06 09:44 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP103)
+- [ ] Systems/Ops + QA Team (forced cadence bucket): Extend sparse mixed-window parity matrix + row-count contract to include `...NFXQBACKSTAF2` and `...NFXQBACKSTAF2LEN` across summary/token sections.
+- [ ] Combat/VFX + Design/World Team (cadence continuity): Add compact control decode eval row for `...NFXQBACKSTAF2CTRL` (`Bxx|Cxx|LIM72|PASS`) and keep it adjacent to `...NFXQBACKSTAF2LEN`.
+- [ ] Systems/Ops Team (cadence watchdog): Add fixture-level assertion that `...NFXQBACKSTAF2CTRLRB` remains KEEP/ROLLBACK domain-locked when control legend row is present.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP102)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after `ABR/XCF/SHH` prototype closure; mandatory Game Director cycle executed.
 - Candidate ideas:
@@ -9,7 +23,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP102)
 - [ ] Systems/Ops + QA Team (injected): Extend sparse mixed-window parity matrix + row-count contract to include `...NFXQBACKSTAF2` and `...NFXQBACKSTAF2LEN` across summary/token sections.
-- [ ] Design/World + Combat/VFX + AI-content Team (injected): Add deterministic operator legend companion row for micro-pack control labels (`A=ABR|B=XCF|C=SHH`) with rollback note tied to readability failures.
+- [x] Design/World + Combat/VFX + AI-content Team (injected): Add deterministic operator legend companion row for micro-pack control labels (`A=ABR|B=XCF|C=SHH`) with rollback note tied to readability failures. *(lifecycle: [ ] -> [~] started: 2026-04-06 09:39 KST -> [x] completed: 2026-04-06 09:44 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP101)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after stale checklist reconciliation; mandatory Game Director cycle executed.

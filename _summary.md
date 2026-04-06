@@ -1,3 +1,11 @@
+## 2026-04-06 09:44 KST — Game Director Cycle IP103 control-legend slice
+- Coverage check (last 10 completions) from `logs/weekly_lane_coverage_guardrail.json`: systems/world/ai-content/combat/design/ux/qa/vfx all `0`; no lane >40%, but cadence triad buckets remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
+- Generated 3 ideas (low-risk control-legend companion row, mid-risk systems parity extension, high-risk fourth control-arm candidate) and selected low-risk underrepresented-lane slice (design/world+combat/vfx).
+- Shipped minimal vertical slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL:A=ABR|B=XCF|C=SHH` and rollback row `...BACKSTAF2CTRLRB:KEEP if A/B/C map stays deterministic + LIM72 pass|ROLLBACK if control-label drift or width fail`.
+- Durable decision: every fallback control-label companion row must ship with explicit rollback criteria in the same cycle.
+- Injected next tasks to satisfy cadence triad pressure: (1) systems/qa sparse mixed-window parity for `...BACKSTAF2` + `...BACKSTAF2LEN`, (2) combat/design compact control decode eval adjacency row, (3) systems domain lock for `...BACKSTAF2CTRLRB`.
+- Verification bundle PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-06 09:28 KST — Game Director Cycle IP102 micro-pack eval slice
 - ACTION_ITEMS/TASKS/POST_RC queues were fully checked after IP101 injected-item closure, so mandatory Game Director loop triggered immediately.
 - Generated 3 ideas (low-risk eval row, mid-risk parity lock, high-risk third control-arm micro-pack) and selected low-risk UX/Design slice.
