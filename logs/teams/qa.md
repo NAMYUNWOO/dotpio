@@ -1,4 +1,9 @@
 
+## 2026-04-07 04:23 KST
+- QA validated new row-count parity contract: `...CTRLWNRBLGLEGALTSAFE` must now mirror `...CTRLWNRBLGLEGALTPINSAFE` counts in sparse mixed-window fixture matrix.
+- Added first-diverged fixture mismatch assertion path (`mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltsafe_row_count_mismatch`) to tighten LEGALTSAFE diagnostics.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/regression_check_lane_coverage_guardrail.py`; `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
 ## 2026-04-07 03:48 KST
 - Closed IP122 systems+qa payload diagnostics follow-up by adding `...pinsafeNonPassRows` extraction + sparse mixed-window first-diverged fixture assertion for `...CTRLWNRBLGLEGALTPINSAFE` in regression harness.
 - Reconciled docs-order callout tracker: contiguous `...PIN -> ...PINLEN -> ...PINSAFE -> ...SAFE` requirement already present in guardrail markdown docs block and now marked complete in TASKS/POST_RC.

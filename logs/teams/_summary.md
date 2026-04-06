@@ -1,4 +1,9 @@
 
+## 2026-04-07 04:23 KST
+- Game Director Cycle IP123 completed (systems/qa slice): regression matrix now enforces `...CTRLWNRBLGLEGALTSAFE` row-count parity with `...CTRLWNRBLGLEGALTPINSAFE` across sparse mixed-window fixtures.
+- Durable decision: sentinel chain parity is now strict through SAFE stage (`PIN -> PINLEN -> PINSAFE -> SAFE`) at row-count level, not only ordering/payload-level diagnostics.
+- Verification bundle PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-07 03:48 KST
 - Completed Cycle IP122 follow-up: added deterministic sparse payload-drift diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinsafeNonPassRows` for `...CTRLWNRBLGLEGALTPINSAFE` with first-diverged fixture surfacing in mixed-window assertions.
 - Durable decision: every new docs-order sentinel row now needs same-cycle `...NonPassRows` payload diagnostics (not only row-count parity) plus explicit sequence callout alignment in TASKS/POST_RC trackers.

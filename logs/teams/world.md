@@ -34,6 +34,9 @@
 
 # World Team Log
 
+## 2026-04-07 04:23 KST
+- Injected IP123 follow-up ask: docs-order sparse diagnostics copy should explicitly call out `PINSAFE -> SAFE` parity for one-scan readability in future cycle.
+
 ## 2026-04-03 14:31 KST
 - Added world-facing decode row for new drift alias token `TSDCAD24TRICOVSTCMSVHCSA legend (L=<50 stability, M=50-79, H>=80)` to keep cadence stability semantics one-scan reversible.
 

@@ -1,6 +1,18 @@
 # TASKS
 
-Last updated: 2026-04-07 03:48 KST
+Last updated: 2026-04-07 04:23 KST
+
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP123)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP122 closure, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Systems/Ops + QA: extend sparse mixed-window row-count parity so `...CTRLWNRBLGLEGALTSAFE` must mirror `...CTRLWNRBLGLEGALTPINSAFE` occurrences.
+  - Mid-risk Design/World + UX: add docs-order assertion copy explicitly calling out `PINSAFE -> SAFE` parity in sparse diagnostics text.
+  - High-risk AI-content + Combat/VFX: prototype alternate SAFE eval wording variant behind report-only fallback gate.
+- [x] Systems/Ops + QA Team (selected): add sparse mixed-window row-count parity assertion requiring `...CTRLWNRBLGLEGALTSAFE` counts to mirror `...CTRLWNRBLGLEGALTPINSAFE` across summary/token fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-07 04:16 KST -> [x] completed: 2026-04-07 04:23 KST; implementation: added `mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltsafe_row_count_mismatch` assertion in `scripts/regression_check_lane_coverage_guardrail.py` so LEGALTSAFE row counts must equal LEGALTPINSAFE across balanced/ready/prior-up/prior-down sparse fixtures; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP123)
+- [ ] Design/World + UX Team (injected): add explicit sparse diagnostics wording note tying `...CTRLWNRBLGLEGALTPINSAFE -> ...CTRLWNRBLGLEGALTSAFE` parity to docs-order copy so first-diverged fixture messages stay one-scan readable.
+- [ ] Systems/Ops + QA Team (injected): add dedicated mixed-window first-diverged assertion label for LEGALTSAFE row-count parity mismatch to align naming with existing `...NonPassRows` diagnostics family.
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP122)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0.

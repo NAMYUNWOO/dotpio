@@ -30,6 +30,9 @@
 
 # UX Team Log
 
+## 2026-04-07 04:23 KST
+- Captured UX follow-up injection: future diagnostics copy should explicitly narrate `PINSAFE -> SAFE` chain parity in first-diverged mismatch messages.
+
 ## 2026-04-03 14:31 KST
 - UX scan path improved: cadence cluster now exposes compact drift alias (`L|M|H`) immediately after drift score, reducing cognitive load before ladder decode rows.
 

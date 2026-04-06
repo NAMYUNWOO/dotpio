@@ -42,6 +42,9 @@
 
 # Combat Team Log
 
+## 2026-04-07 04:23 KST
+- Cycle IP123 remained systems/qa-scoped; combat lane untouched intentionally while parity contract hardened in regression-only path.
+
 ## 2026-04-03 14:31 KST
 - Combat/VFX cadence diagnostics gained compact drift-stability alias row (`TSDCAD24TRICOVSTCMSVHCSA`) for faster cue stability triage in dense reports.
 

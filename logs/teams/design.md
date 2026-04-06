@@ -51,6 +51,9 @@
 
 # Design Team Log
 
+## 2026-04-07 04:23 KST
+- Added backlog injection note for next cycle: pair docs-order wording with new LEGALTSAFE parity assertion so mismatch text remains scan-friendly.
+
 ## 2026-04-04 15:41 KST
 - Added compact design/world helper copy row linking `STPRLENCUEA` alias to action order: `GH=hold lane|PP=probe lane`.
 - Decision: keep helper terse and deterministic to preserve one-scan readability in summary/token sections.
