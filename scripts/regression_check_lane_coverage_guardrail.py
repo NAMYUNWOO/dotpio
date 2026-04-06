@@ -3901,6 +3901,10 @@ def run_fixture_case(
         r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback alias candidate \(design/world\+combat/vfx, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:(AGF|CRF|SHD)\*\*",
         md_text,
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback alias candidate row"
+    assert re.search(
+        r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack candidate \(combat/vfx\+ai-content, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2:(ABR|XCF|SHH)\*\*",
+        md_text,
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack candidate row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone compact alias legend (design/world): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEG:AN=anchor lane|CF=crossfire lane|SH=shelter hold**"
@@ -3911,6 +3915,16 @@ def run_fixture_case(
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEG:AGF=anchor brace fallback|CRF=crossfire cut fallback|SHD=shelter hold fallback**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback alias legend row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack legend (design/world+combat/vfx): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2LEG:ABR=anchor brace reserve|XCF=crossfire cut feint|SHH=shelter hold harden**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack legend row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack eval (ux/design): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2LEN:B68|C53|LIM72|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack eval row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback operator cue legend (design/world+combat/vfx): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE:AGF=anchor brace|CRF=crossfire cut|SHD=shelter hold**"
@@ -3926,6 +3940,11 @@ def run_fixture_case(
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:B59|C46|LIM72|PASS**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback alias dos-width eval row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack rollback criteria (qa/systems): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2RB:KEEP if ABR/XCF/SHH clarity holds + LIM72 pass|ROLLBACK if ambiguity or width fail**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack rollback row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone compact alias dos-width eval (ux/design): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:B45|C30|LIM72|PASS**"
@@ -4157,6 +4176,13 @@ def run_fixture_case(
             md_text,
         )
     ]
+    nfxqbackstaf2_payload_values = [
+        payload.strip()
+        for payload in re.findall(
+            r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2:([^*]+)\*\*",
+            md_text,
+        )
+    ]
     assert nfxqbackstaf_payload_values, (
         f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF row to carry an AGF|CRF|SHD payload across summary/token sections"
     )
@@ -4171,6 +4197,21 @@ def run_fixture_case(
     assert invalid_nfxqbackstaf_payload is None, (
         f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF payload to stay within AGF|CRF|SHD across summary/token sections; "
         f"first diverged occurrence={invalid_nfxqbackstaf_payload[0]} payload={invalid_nfxqbackstaf_payload[1]}"
+    )
+    assert nfxqbackstaf2_payload_values, (
+        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2 row to carry an ABR|XCF|SHH payload across summary/token sections"
+    )
+    invalid_nfxqbackstaf2_payload = next(
+        (
+            (index, payload)
+            for index, payload in enumerate(nfxqbackstaf2_payload_values)
+            if payload not in {"ABR", "XCF", "SHH"}
+        ),
+        None,
+    )
+    assert invalid_nfxqbackstaf2_payload is None, (
+        f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2 payload to stay within ABR|XCF|SHH across summary/token sections; "
+        f"first diverged occurrence={invalid_nfxqbackstaf2_payload[0]} payload={invalid_nfxqbackstaf2_payload[1]}"
     )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack decode helper (design/world): "
@@ -6303,6 +6344,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_variant_backcompat_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackPayloads": tuple(nfxqback_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstafPayloads": tuple(nfxqbackstaf_payload_values),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2Payloads": tuple(nfxqbackstaf2_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxaPayloads": tuple(nfxqback_vfxa_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxdrbPayloads": tuple(nfxqback_vfxdrb_payload_values),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxwPayloads": tuple(nfxqback_vfxw_payload_values),
@@ -6311,6 +6353,10 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstalenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEN:B45|C30|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaplanRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAPLAN:AN=anchor brace fallback|CF=crossfire cut fallback|SH=shelter hold fallback**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstafRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:AGF**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:CRF**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF:SHD**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2RowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2:ABR**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2:XCF**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2:SHH**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2legRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2LEG:ABR=anchor brace reserve|XCF=crossfire cut feint|SHH=shelter hold harden**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2LEN:B68|C53|LIM72|PASS**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2rbRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2RB:KEEP if ABR/XCF/SHH clarity holds + LIM72 pass|ROLLBACK if ambiguity or width fail**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstafcueRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE:AGF=anchor brace|CRF=crossfire cut|SHD=shelter hold**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstafcuelenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUELEN:B51|C45|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaflenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFLEN:B59|C46|LIM72|PASS**"),

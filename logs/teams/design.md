@@ -4073,3 +4073,4 @@
 - Design readability refresh: switched shelter-tone fallback shorthand from `ABF/CCF/SHF` to `AGF/CRF/SHD` while preserving deterministic legend wording.
 - 2026-04-06 08:33 KST — Cycle IP101: Finalized compact fallback cue wording + eval telemetry token (`B51|C45|LIM72|PASS`) to keep docs within DOS-width rails.
 - 2026-04-06 08:53 KST — Design compact fallback cue readability contract strengthened: `...BACKSTAFCUELEN` must remain `PASS` across sparse mixed-window summary/token sections.
+- 2026-04-06 09:28 KST IP102: Added explicit DOS-width eval row `...BACKSTAF2LEN:B68|C53|LIM72|PASS` to keep cue-pack readability one-scan auditable.
