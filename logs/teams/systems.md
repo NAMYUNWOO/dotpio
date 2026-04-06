@@ -5730,3 +5730,5 @@
 - Added fixture extraction + deterministic mismatch surfacing key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows` for `...CTRLWNRBLGLEGALTSAFE` eval payload drift.
 - Mixed-window matrix now fails with first diverged fixture + payload details when SAFE eval row deviates from `B13|C13|LIM72|PASS`.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+- 2026-04-07 01:19 KST — Cycle IP118 injected readability pin finalized: preserved contiguous ordering ...CTRLWNRBLGLEGALT -> ...CTRLWNRBLGLEGALTSAFE -> ...CTRLWNRBLGLEGALTLEN in report docs by adding an explicit docs-order callout; verification bundle re-run (py_compile + regression + guardrail regeneration) passed.
+- 2026-04-07 01:25 KST — Cycle IP119 selected slice shipped: added docs-order sentinel row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPIN:ALT>SAFE>ALTLEN` adjacent to alt legend trio and re-verified guardrail bundle (py_compile + regression + guardrail regeneration).

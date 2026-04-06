@@ -4112,3 +4112,5 @@
 
 ## 2026-04-07 00:31 KST — IP118 report-only wording constraint
 - Held high-risk wording variant; no copy mutation shipped this cycle. Kept SAFE anchor literal stable as `SAFE=CTRLWNRB` while adding eval row coverage only.
+- 2026-04-07 01:19 KST — Cycle IP118 injected readability pin finalized: preserved contiguous ordering ...CTRLWNRBLGLEGALT -> ...CTRLWNRBLGLEGALTSAFE -> ...CTRLWNRBLGLEGALTLEN in report docs by adding an explicit docs-order callout; verification bundle re-run (py_compile + regression + guardrail regeneration) passed.
+- 2026-04-07 01:25 KST — Cycle IP119 selected slice shipped: added docs-order sentinel row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPIN:ALT>SAFE>ALTLEN` adjacent to alt legend trio and re-verified guardrail bundle (py_compile + regression + guardrail regeneration).

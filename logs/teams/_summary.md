@@ -6093,7 +6093,7 @@ Compact decision memory for AI context efficiency.
 ## 2026-04-06 05:54 KST
 - Closed Systems/Ops + QA injected task: sparse mixed-window parity watcher now includes  in the long-chain parity matrix against .
 - Durable decision: any newly added shelter-tone helper/planner row must be wired into fixture parity tuple in the same commit as regression row-count key wiring.
-- Verification:  + ok: trendScoreBand dispatch-hint/momentum-band regression checks passed + .
+- Verification: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
 - Next priority item: Design/World + Combat/VFX report-only compact shelter-tone fallback alias pack ().
 
 ## 2026-04-06 05:54 KST
@@ -6266,3 +6266,9 @@ Compact decision memory for AI context efficiency.
 - Added sparse mixed-window diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows` with first-diverged fixture surfacing for `...CTRLWNRBLGLEGALTSAFE` payload drift.
 - Durable decision: every new rollback-helper eval row must ship with dedicated `...NonPassRows` diagnostics before closure.
 - Remaining top unchecked item: TASKS/POST `Design/World + UX Team` readability pinning for `...CTRLWNRBLGLEGALTSAFE` adjacency in report/docs order.
+- 2026-04-07 01:19 KST — Closed remaining IP118 injected Design/World+UX readability task by adding explicit docs-order callout that pins ...CTRLWNRBLGLEGALTSAFE between ...CTRLWNRBLGLEGALT and ...CTRLWNRBLGLEGALTLEN in generated report markdown.
+- Durable decision: keep alternate legend trio contiguous and explicitly called out in docs to preserve one-scan readability during rollback safety checks.
+- Verification: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
+- 2026-04-07 01:25 KST — Cycle IP119 selected experiment shipped: added docs-order sentinel row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPIN:ALT>SAFE>ALTLEN` between ALTSAFE and ALTLEN callouts for deterministic one-scan rollback legend docs.
+- New injected follow-up queued: add sparse mixed-window row-count parity key for `...CTRLWNRBLGLEGALTPIN` mirroring `...CTRLWNRBLGLEGALT` counts.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

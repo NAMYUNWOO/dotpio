@@ -1,6 +1,17 @@
 # TASKS
 
-Last updated: 2026-04-07 00:26 KST
+Last updated: 2026-04-07 01:25 KST
+
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP119)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP118 follow-up closure, so mandatory Game Director loop executed.
+- Candidate ideas generated:
+  - Low-risk UX/Design + Design/World: add compact docs-order sentinel token to make alt-legend adjacency (`ALT->SAFE->ALTLEN`) one-scan auditable in generated markdown.
+  - Mid-risk Systems/Ops + QA: add regression presence assertion for the sentinel token and keep strict ordered chain deterministic around alt legend rows.
+  - High-risk Combat/VFX + AI-content: prototype alternate sentinel wording (`SAFE-HOLD`) behind report-only gate.
+- [x] Design/World + UX + Systems/Ops + QA Team (selected): add docs-order sentinel markdown row for alt legend adjacency (`...CTRLWNRBLGLEGALTPIN`). *(lifecycle: [ ] -> [~] started: 2026-04-07 01:22 KST -> [x] completed: 2026-04-07 01:25 KST; implementation: added report markdown row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPIN:ALT>SAFE>ALTLEN` adjacent to alt legend rows and wired regression presence assertion for deterministic docs-order surfacing; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP119)
+- [ ] Systems/Ops + QA Team (injected): add sparse mixed-window row-count parity key for `...CTRLWNRBLGLEGALTPIN` and assert it mirrors `...CTRLWNRBLGLEGALT` occurrence counts across summary/token fixtures.
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP118)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP117 closure, so mandatory Game Director loop executed.
@@ -12,7 +23,7 @@ Last updated: 2026-04-07 00:26 KST
 
 ## Next Up (Game Director Injection — Cycle IP118)
 - [x] Systems/Ops + QA Team (injected): add sparse mixed-window diagnostics key `...ctrlwnrblglegaltsafeNonPassRows` to expose first-diverged fixture when `...CTRLWNRBLGLEGALTSAFE` payload drifts. *(lifecycle: [ ] -> [~] started: 2026-04-07 00:52 KST -> [x] completed: 2026-04-07 00:58 KST; implementation: added `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows` extraction + mixed-window first-diverged fixture assertion in regression guardrail for `...CTRLWNRBLGLEGALTSAFE` payload drift; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
-- [ ] Design/World + UX Team (injected): pin `...CTRLWNRBLGLEGALTSAFE` report row copy directly adjacent to `...CTRLWNRBLGLEGALT` + `...CTRLWNRBLGLEGALTLEN` in markdown/report docs to preserve one-scan readability.
+- [x] Design/World + UX Team (injected): pin `...CTRLWNRBLGLEGALTSAFE` report row copy directly adjacent to `...CTRLWNRBLGLEGALT` + `...CTRLWNRBLGLEGALTLEN` in markdown/report docs to preserve one-scan readability. *(lifecycle: [ ] -> [~] started: 2026-04-07 01:16 KST -> [x] completed: 2026-04-07 01:19 KST; implementation: added explicit docs-order callout line in guardrail markdown emitter to keep `...CTRLWNRBLGLEGALT -> ...CTRLWNRBLGLEGALTSAFE -> ...CTRLWNRBLGLEGALTLEN` contiguous; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP117)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP116 closure, so mandatory Game Director loop executed.
