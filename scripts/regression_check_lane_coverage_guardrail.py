@@ -4105,6 +4105,12 @@ def run_fixture_case(
         "(`assertionLabel=<...legaltlenNonPassRows>`) alongside PINLEN/PINSAFE/SAFE mismatch semantics"
     )
     assert (
+        "docs-order assertion-label helper (design/world+ux): PINLEN=`assertionLabel=<...legaltpinlenNonPassRows>` | "
+        "PINSAFE=`assertionLabel=<...legaltpinsafeNonPassRows>` | SAFE=`assertionLabel=<...legaltsafeNonPassRows>` | "
+        "ALTLEN=`assertionLabel=<...legaltlenNonPassRows>`."
+        in md_text
+    ), f"{name}: markdown output must include docs-order PINLEN/PINSAFE/SAFE/ALTLEN assertion-label helper row for one-scan triage"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback operator cue legend (design/world+combat/vfx): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE:AGF=anchor brace|CRF=crossfire cut|SHD=shelter hold**"
         in md_text

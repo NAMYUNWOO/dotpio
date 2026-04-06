@@ -4235,3 +4235,6 @@
 
 ## 2026-04-07 07:24 KST
 - Design lane added IP126 follow-up injections for compact assertion-label family helper copy (PINLEN/PINSAFE/SAFE/ALTLEN).
+
+## 2026-04-07 07:49 KST
+- Added compact docs helper line mapping PINLEN/PINSAFE/SAFE/ALTLEN to `assertionLabel=<...legalt*NonPassRows>` families for one-scan operator decode.

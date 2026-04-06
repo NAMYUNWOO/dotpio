@@ -4329,3 +4329,6 @@
 
 ## 2026-04-07 07:24 KST
 - UX readability now protected by test contract: docs-order callout must keep explicit `...legaltlenNonPassRows` wording in the same scan line.
+
+## 2026-04-07 07:49 KST
+- Improved report scannability by adding explicit PIN-chain assertion-label helper line under docs-order section.

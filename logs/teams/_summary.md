@@ -6351,3 +6351,8 @@ Compact decision memory for AI context efficiency.
 - Completed slice: `scripts/regression_check_lane_coverage_guardrail.py` now fails if docs-order callout drops explicit ALTLEN `assertionLabel=<...legaltlenNonPassRows>` wording alongside PINLEN/PINSAFE/SAFE semantics.
 - Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
 - Injected follow-ups: compact assertion-label family helper copy (design/ux) + report-only alternate ALTLEN mnemonic experiment (ai-content/combat).
+
+## 2026-04-07 07:49 KST
+- Closed top-priority IP126 Design/World+UX injected item: docs-order block now includes a compact PINLEN/PINSAFE/SAFE/ALTLEN assertion-label helper mapping row (`...legalt*NonPassRows`) in `scripts/check_lane_coverage_guardrail.py`.
+- Durable decision: every docs-order sentinel chain expansion must include an explicit assertion-label family mapping helper row plus regression presence contract in the same cycle.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

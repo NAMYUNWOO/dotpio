@@ -4088,3 +4088,6 @@
 
 ## 2026-04-07 07:24 KST
 - Combat diagnostics copy stability preserved; new regression gate prevents accidental removal of ALTLEN assertion-label wording from docs-order callout.
+
+## 2026-04-07 07:49 KST
+- No combat/VFX payload tuning this slice; validated docs helper mapping landed without breaking guardrail regression suite.

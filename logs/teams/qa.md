@@ -6260,3 +6260,6 @@
 
 ## 2026-04-07 07:24 KST
 - QA added deterministic assertion ensuring docs-order callout includes ALTLEN assertion-label guidance; full verification bundle PASS.
+
+## 2026-04-07 07:49 KST
+- Added deterministic regression assertion for new docs-order helper row and confirmed full verification bundle passes.

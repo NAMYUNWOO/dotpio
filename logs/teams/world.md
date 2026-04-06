@@ -4074,3 +4074,7 @@
 
 ## 2026-04-07 07:24 KST
 - World/docs readability contract tightened via regression: docs-order narrative must retain explicit ALTLEN assertion-label copy for one-scan triage.
+
+## 2026-04-07 07:49 KST
+- Docs-order readability pass: added compact PIN-chain assertion-label helper mapping row for one-scan triage in markdown output.
+- Follow-up: keep helper row adjacent to docs-order callout when future sentinel rows are added.

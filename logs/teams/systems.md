@@ -5796,3 +5796,7 @@
 
 ## 2026-04-07 07:24 KST
 - IP126 selected slice shipped: regression now enforces docs-order callout includes ALTLEN `assertionLabel=<...legaltlenNonPassRows>` wording alongside PIN-chain mismatch semantics.
+
+## 2026-04-07 07:49 KST
+- Added regression contract requiring docs-order assertion-label helper row for PINLEN/PINSAFE/SAFE/ALTLEN `...NonPassRows` mapping.
+- Verification bundle PASS: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration.
