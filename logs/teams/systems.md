@@ -1,3 +1,9 @@
+## 2026-04-06 19:18 KST
+- Closed highest-priority unchecked Systems/Ops + QA item by adding sparse mixed-window diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbNonPassRows` in `run_fixture_case` output payload.
+- Durable decision: deterministic payload rows now get the same sparse-matrix `...NonPassRows` mismatch surface used by eval PASS rails, so first-diverged fixture triage stays uniform.
+- Regression now checks this key across `balanced_tie`, `ready_mix`, `prior_window_trend_up`, `prior_window_trend_down` and fails with fixture+rows context.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
 ## 2026-04-06 15:41 KST
 - Extended systems/qa ordered-chain contract to include control-winner VFX cue row: `...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB`.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).

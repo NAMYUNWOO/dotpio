@@ -1,3 +1,9 @@
+## 2026-04-06 19:18 KST
+- Closed top-priority unchecked TASKS/POST_RC item: added sparse mixed-window rollback-helper payload diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbNonPassRows` for `...CTRLWVFXRB`.
+- Durable decision: payload-domain deterministic rows should expose `...NonPassRows` keys (occurrence+payload) so sparse fixture failures always provide first-diverged diagnostics without custom debug work.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: `...NFXQBACKSTAF2CTRLWVFXRBLEN` eval row + chain anchor).
+
 ## 2026-04-06 16:24 KST
 - Closed injected Design/World + Combat/VFX item by adding `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH` and `...CTRLWVFXHLEN` rows.
 - Durable decision: strict control-winner chain now includes explicit VFX helper readability stage: `...CTRLW -> ...CTRLWVFX -> ...CTRLWVFXH -> ...CTRLWVFXHLEN -> ...CTRLWN ...`.
