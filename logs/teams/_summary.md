@@ -1,3 +1,10 @@
+## 2026-04-06 19:54 KST
+- Triggered mandatory Game Director cycle IP112 after ACTION_ITEMS/TASKS/POST_RC reached fully-checked state at 19:49 KST.
+- Completed selected experiment: added sparse PASS-domain diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblenNonPassRows` and mixed-window assertion for `...CTRLWVFXRBLEN`.
+- Durable decision: every newly added LIM72 eval row in the `...CTRLW*` chain must ship with `...NonPassRows` fixture diagnostics in the same cycle.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: `...NFXQBACKSTAF2CTRLWVFXRBLG` decode-helper row + chain anchor).
+
 ## 2026-04-06 19:49 KST
 - Closed top-priority unchecked TASKS/POST_RC item by adding rollback-helper eval row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN:B69|C69|LIM72|PASS`.
 - Durable decision: VFX rollback helper cluster must keep strict chain `...CTRLWVFXRB -> ...CTRLWVFXRBLEN -> ...CTRLWN` with sparse row-key parity coverage, not just markdown presence.

@@ -1,3 +1,15 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP112)
+- Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) with health `ALERT`.
+- Candidate ideas:
+  - Low-risk UX/Design + Combat/VFX: add compact rollback-helper eval decode legend for one-scan KEEP/ROLLBACK semantics.
+  - Mid-risk Systems/Ops + QA: add sparse mixed-window PASS-domain diagnostics key for `...CTRLWVFXRBLEN`.
+  - High-risk Combat/VFX + AI-content: test alternate rollback-helper phrase candidate behind report-only gating.
+- Selected experiment: mid-risk sparse diagnostics lock for `...CTRLWVFXRBLEN`.
+- [x] Systems/Ops + QA + UX/Design Team (selected): Added `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblenNonPassRows` extraction + fixture assertion so `...CTRLWVFXRBLEN` is PASS-constrained across sparse summary/token fixtures while strict chain coverage remains locked. *(lifecycle: [ ] -> [~] started: 2026-04-06 19:52 KST -> [x] completed: 2026-04-06 19:54 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP112)
+- [ ] Design/World + Combat/VFX + UX Team (injected): Add compact rollback-helper eval decode row `...NFXQBACKSTAF2CTRLWVFXRBLG:K=KEEP lane|R=ROLLBACK lane` and anchor strict chain `...CTRLWVFXRB -> ...CTRLWVFXRBLEN -> ...CTRLWVFXRBLG -> ...CTRLWN` under LIM72 report-only policy.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP111)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; cadence buckets remain missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) with health `ALERT`.
 - Candidate ideas:

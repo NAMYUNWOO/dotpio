@@ -5682,3 +5682,8 @@
 - Locked strict chain/parity ordering: ...CTRLWVFXRB -> ...CTRLWVFXRBLEN -> ...CTRLWN across summary/token and sparse mixed-window row-key checks.
 - Files touched: scripts/check_lane_coverage_guardrail.py, scripts/regression_check_lane_coverage_guardrail.py, TASKS.md, POST_RC_BACKLOG.md.
 - Verification PASS: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py && python3 scripts/regression_check_lane_coverage_guardrail.py && python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
+
+## 2026-04-06 19:54 KST
+- IP112 selected slice complete: added sparse PASS-domain diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblenNonPassRows` for `...CTRLWVFXRBLEN`.
+- Added mixed-window fixture assertion so `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN` stays `|PASS` across sparse summary/token sections.
+- Verification PASS: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py && python3 scripts/regression_check_lane_coverage_guardrail.py && python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
