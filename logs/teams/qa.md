@@ -6187,3 +6187,4 @@
 
 ## 2026-04-06 22:34 KST (Cycle IP116)
 - Shipped legend-pairing eval row `...CTRLWNRBLGLEGLEN` and extended strict rollback chain to `...CTRLWNRBLG -> ...CTRLWNRBLGLEG -> ...CTRLWNRBLGLEGLEN -> ...CTRLWNRBLGLEN`; verification bundle PASS.
+- 2026-04-06 23:24 KST — Verification passed for alt legend variant slice: py_compile + regression guardrail suite + guardrail regeneration. No non-pass diagnostics introduced.

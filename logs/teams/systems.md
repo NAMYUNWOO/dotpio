@@ -5715,3 +5715,4 @@
 
 ## 2026-04-06 22:34 KST (Cycle IP116)
 - Shipped legend-pairing eval row `...CTRLWNRBLGLEGLEN` and extended strict rollback chain to `...CTRLWNRBLG -> ...CTRLWNRBLGLEG -> ...CTRLWNRBLGLEGLEN -> ...CTRLWNRBLGLEN`; verification bundle PASS.
+- 2026-04-06 23:24 KST — Extended regression contracts for `...CTRLWNRBLGLEGALT` (presence, chain regex, row-count parity token). Decision: treat token as report-only safety-gated variant; keep deterministic payload lock.

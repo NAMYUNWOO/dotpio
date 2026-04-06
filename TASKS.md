@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-04-06 21:44 KST
+Last updated: 2026-04-06 23:24 KST
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP115)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; no lane >40% but cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) so underrepresented lanes remain forced priority.
@@ -27,7 +27,7 @@ Last updated: 2026-04-06 21:44 KST
 
 ## Next Up (Game Director Injection — Cycle IP116)
 - [x] Systems/Ops + QA Team (injected): Added sparse mixed-window diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenNonPassRows` plus fixture assertion for `...CTRLWNRBLGLEGLEN` payload drift. *(lifecycle: [ ] -> [~] started: 2026-04-06 22:52 KST -> [x] completed: 2026-04-06 22:56 KST; implementation: parsed `...CTRLWNRBLGLEGLEN` eval rows in regression fixture results, emitted deterministic diagnostics payload mismatch rows, and asserted mixed-window first-diverged fixture coverage for the new diagnostics key; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
-- [ ] Combat/VFX + AI-content Team (injected): Prototype report-only alternate confidence rollback legend variant for `...CTRLWNRBLGLEG` behind rollback safety gate.
+- [x] Combat/VFX + AI-content Team (injected): Prototype report-only alternate confidence rollback legend variant for `...CTRLWNRBLGLEG` behind rollback safety gate. *(lifecycle: [ ] -> [~] started: 2026-04-06 23:17 KST -> [x] completed: 2026-04-06 23:24 KST; implementation: added report row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALT:K=KEEP confidence rail|R=ROLLBACK confidence rail|SAFE=CTRLWNRB` and wired regression presence/ordered-chain/parity row-count coverage for the new rollback-gated legend variant; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP113)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; cadence buckets remain missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) with health `ALERT`.
