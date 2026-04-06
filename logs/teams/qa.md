@@ -6211,3 +6211,4 @@
 - Game Director Cycle IP120 selected mid-risk Systems/Ops+QA slice: added `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinNonPassRows` extraction and sparse mixed-window first-diverged assertion for `...CTRLWNRBLGLEGALTPIN` payload drift.
 - Verification bundle PASS (`python3 -m py_compile` + regression script + guardrail regeneration).
 - Injected follow-up: lock docs-order callout contiguity `...LEGALT -> ...LEGALTPIN -> ...LEGALTSAFE -> ...LEGALTLEN` in summary markdown text.
+- 2026-04-07 02:21 KST — Regression suite updated + passed after adding PIN into strict ordered chain assertions and payload-domain checks (`ALT>PIN>SAFE>ALTLEN`). Evidence: py_compile + regression_check + guardrail regeneration all PASS.

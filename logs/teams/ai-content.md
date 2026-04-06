@@ -4124,3 +4124,4 @@
 - Game Director Cycle IP120 selected mid-risk Systems/Ops+QA slice: added `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinNonPassRows` extraction and sparse mixed-window first-diverged assertion for `...CTRLWNRBLGLEGALTPIN` payload drift.
 - Verification bundle PASS (`python3 -m py_compile` + regression script + guardrail regeneration).
 - Injected follow-up: lock docs-order callout contiguity `...LEGALT -> ...LEGALTPIN -> ...LEGALTSAFE -> ...LEGALTLEN` in summary markdown text.
+- 2026-04-07 02:21 KST — No content payload expansion this cycle; aligned with sentinel change so alternate legend copy remains deterministic and unchanged (`KEEP/ROLLBACK` semantics retained). Follow-up: only revisit copy if readability A/B requires it.
