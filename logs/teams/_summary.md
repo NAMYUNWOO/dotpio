@@ -6218,3 +6218,9 @@ Compact decision memory for AI context efficiency.
 - 2026-04-06 20:27 KST | Game Director IP113 minimal vertical slice shipped: confidence rollback decode row (...CTRLWNRBLG) added, deterministic payload lock asserted, and strict chain/parity updated to include ...CTRLWNRBLG between ...CTRLWNRB and ...CTRLWNLEN. Injected next task: add sparse mixed-window NonPassRows diagnostics key for ...CTRLWNRBLG.
 - 2026-04-06 21:31 KST | Game Director IP114 shipped: added sparse mixed-window payload-drift diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrbNonPassRows` for `...CTRLWNRB` and reconciled stale IP113 injected checklist item to done.
 - Durable decision: control rollback helper rows (`...CTRLWNRB` and `...CTRLWNRBLG`) must both carry same-cycle `...NonPassRows` mismatch diagnostics so sparse fixture triage always reports first-diverged payload.
+
+## 2026-04-06 21:44 KST
+- Game Director Cycle IP115: coverage snapshot for last 10 remained all-zero by lane (no lane >40%), and 24h cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so underrepresented-lane priority remains forced.
+- Selected experiment shipped: confidence rollback decode-length row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEN:B49|C37|LIM72|PASS` plus strict chain lock `...CTRLWNRB -> ...CTRLWNRBLG -> ...CTRLWNRBLGLEN -> ...CTRLWNLEN`.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Injected next experiments (IP115 queue): (1) combat/vfx `...CTRLWVFXRBLGLEN`, (2) design/world `...CTRLWNRBLGLEG`, (3) systems/ops+qa `...ctrlwnrblglenNonPassRows` diagnostics.

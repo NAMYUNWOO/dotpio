@@ -1,6 +1,20 @@
 # TASKS
 
-Last updated: 2026-04-06 20:52 KST
+Last updated: 2026-04-06 21:44 KST
+
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP115)
+- Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; no lane >40% but cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) so underrepresented lanes remain forced priority.
+- Candidate ideas generated:
+  - Low-risk UX/Design + Design/World: add confidence rollback decode-length row (`...CTRLWNRBLGLEN`) for one-scan readability.
+  - Mid-risk Systems/Ops + QA: add sparse mixed-window diagnostics for the new decode-length row (`...ctrlwnrblglenNonPassRows`).
+  - High-risk Combat/VFX + AI-content: test alternate confidence rollback legend wording (`KEEP confidence rail|ROLLBACK confidence rail`) behind report-only guard.
+- Selected experiment: low-risk decode-length row + strict chain extension (`...CTRLWNRB -> ...CTRLWNRBLG -> ...CTRLWNRBLGLEN -> ...CTRLWNLEN`).
+- [x] Design/World + UX + Systems/Ops + QA Team (selected): Added markdown row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEN:B49|C37|LIM72|PASS` and updated regression presence/regex/row-count parity chain contracts so `...CTRLWNRBLGLEN` is first-class in sparse fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-06 21:38 KST -> [x] completed: 2026-04-06 21:44 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP115)
+- [ ] Combat/VFX + UX Team (injected): Add compact eval row for VFX rollback decode ordering (`...CTRLWVFXRBLGLEN`) and strict chain `...CTRLWVFXRBLG -> ...CTRLWVFXRBLGLEN -> ...CTRLWN`.
+- [ ] Design/World Team (injected): Add confidence rollback legend helper row (`...CTRLWNRBLGLEG`) adjacent to `...CTRLWNRBLG` to keep one-scan readability deterministic.
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window diagnostics key `...ctrlwnrblglenNonPassRows` + fixture assertion for `...CTRLWNRBLGLEN` payload drift.
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP113)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; cadence buckets remain missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) with health `ALERT`.

@@ -253,3 +253,9 @@
 ## 2026-04-06 18:54 KST — Cycle IP111 durable decision
 - Domain-locked `...NFXQBACKSTAF2CTRLWVFXRB` payload in regression fixtures to prevent rollback-helper copy drift.
 - Queued injected follow-ups for RB non-pass diagnostics and RB eval-row chain lock.
+
+## 2026-04-06 21:44 KST — Game Director Cycle IP115
+- Coverage guardrail stayed under cap (no lane >40%) but cadence buckets remained missing (combat-or-vfx, design-or-world, systems-or-ops), so forced underrepresented-lane cadence remains active.
+- Implemented minimal vertical slice: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEN:B49|C37|LIM72|PASS` with strict chain extension `...CTRLWNRB -> ...CTRLWNRBLG -> ...CTRLWNRBLGLEN -> ...CTRLWNLEN`.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Next injections: combat/vfx `...CTRLWVFXRBLGLEN`, design/world `...CTRLWNRBLGLEG`, systems/ops+qa `...ctrlwnrblglenNonPassRows`.
