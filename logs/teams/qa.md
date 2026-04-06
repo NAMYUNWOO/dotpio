@@ -6213,3 +6213,8 @@
 - Injected follow-up: lock docs-order callout contiguity `...LEGALT -> ...LEGALTPIN -> ...LEGALTSAFE -> ...LEGALTLEN` in summary markdown text.
 - 2026-04-07 02:21 KST — Regression suite updated + passed after adding PIN into strict ordered chain assertions and payload-domain checks (`ALT>PIN>SAFE>ALTLEN`). Evidence: py_compile + regression_check + guardrail regeneration all PASS.
 - 2026-04-07 02:29 KST — Regression coverage expanded for sentinel eval row: presence assertion, strict ordered-chain token insertion, row-key parity tuple, and mixed-window PINLEN↔PIN row-count parity assertion. Verification bundle PASS.
+
+## 2026-04-07 02:50 KST — Cycle IP121 follow-up (pinlen diagnostics)
+- Completed injected Systems/Ops+QA item: added sparse mixed-window diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinlenNonPassRows` and first-diverged fixture assertion for `...CTRLWNRBLGLEGALTPINLEN` payload drift.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Next: close remaining Design/World+UX docs-order callout task for `...LEGALTPIN -> ...LEGALTPINLEN -> ...LEGALTSAFE` contiguity.
