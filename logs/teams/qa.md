@@ -6077,3 +6077,8 @@
 
 ## 2026-04-06 13:22 KST
 - Regression hardening for IP106: added markdown presence assertion + fixture-level required-row check + row-count parity token for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:B67|C61|LIM72|PASS`.
+
+## 2026-04-06 13:43 KST
+- QA added PASS-domain enforcement for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN` in sparse mixed-window fixtures.
+- Regression now reports first diverged fixture + non-pass rows via `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenNonPassRows`.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

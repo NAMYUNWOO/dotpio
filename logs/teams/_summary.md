@@ -6117,3 +6117,9 @@ Compact decision memory for AI context efficiency.
 - Shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:B67|C61|LIM72|PASS` and enforced chain `CTRLW -> CTRLWN -> CTRLWNLEN -> CTRLWLEG -> CTRLWLEN -> CTRLRB`.
 - Injected next tasks into TASKS/POST_RC: (1) systems/qa first-diverged diagnostics for CTRLWNLEN, (2) design/world+combat/vfx+ai-content compact confidence-note decode helper row.
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 13:43 KST
+- Completed TASKS top-priority Systems/Ops+QA injection: fixture-level non-pass diagnostics for `...NFXQBACKSTAF2CTRLWNLEN` are now captured and asserted in mixed-window matrix checks.
+- Durable decision: every newly added `*LEN` eval row in the `...NFXQBACK*` chain must ship with a `NonPassRows` fixture payload key and sparse-fixture mismatch assertion in the same cycle.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: confidence-note decode helper row adjacent to `...CTRLWN`).

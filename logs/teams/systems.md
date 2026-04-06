@@ -5602,3 +5602,8 @@
 
 ## 2026-04-06 13:22 KST
 - Cycle IP106 selected slice shipped: inserted `...NFXQBACKSTAF2CTRLWNLEN` contract and extended strict chain/parity matrix to include the new row-count key between `CTRLWN` and `CTRLWLEG`.
+
+## 2026-04-06 13:43 KST
+- Closed highest-priority unchecked TASKS systems/qa item: added fixture non-pass diagnostic capture for confidence-note eval row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN`.
+- Implementation: introduced fixture payload key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenNonPassRows` and sparse mixed-window mismatch assertion with first diverged fixture + rows output.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
