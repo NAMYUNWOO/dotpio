@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP104)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP103 closure; mandatory Game Director cycle executed.
+- Candidate ideas:
+  - Low-risk UX/Design: add compact control winner decode eval row for `...NFXQBACKSTAF2CTRLWLEG` so A/B/C winner readability stays one-scan auditable.
+  - Mid-risk Systems/Ops + QA: enforce strict adjacency `...NFXQBACKSTAF2CTRL -> ...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLRB` across summary/token sections.
+  - High-risk Combat/VFX + AI-content: prototype fourth control winner remap candidate (`D`) for stress A/B.
+- Selected experiment: low-risk control winner decode eval-row vertical slice.
+- [x] UX/Design + Systems/QA Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN:B39|C39|LIM72|PASS` with fixture-level presence guard (when control legend exists) and mixed-window parity row-count wiring. *(lifecycle: [ ] -> [~] started: 2026-04-06 11:56 KST -> [x] completed: 2026-04-06 11:59 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP104)
+- [ ] Systems/Ops + QA Team (injected): Add strict adjacency assertion that `...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB` remains deterministic across summary/token sections.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype report-only control winner confidence note token (`A/B/C` + rationale snippet) with runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP103)
 - Coverage check (last 10 completions): systems=0, world=0, ai-content=0, combat=0, design=0, ux=0, qa=0, vfx=0 from `logs/weekly_lane_coverage_guardrail.json`; no lane exceeded 40%, but cadence triad buckets were all missing, so selected slice was forced to underrepresented design/world+combat/vfx lanes.
 - Candidate ideas:

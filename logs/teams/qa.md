@@ -6061,3 +6061,8 @@
 ## 2026-04-06 11:24 KST
 - Cycle IP105 verification hardened: markdown presence + fixture-required-row assertion for `...BACKSTAF2CTRLWLEG` when control legend exists.
 - Verification bundle passed (py_compile + regression + guardrail regen).
+
+## 2026-04-06 11:59 KST — IP104 regression extension
+- Added markdown presence assertion for `...BACKSTAF2CTRLWLEN` and fixture-level requirement when control legend exists.
+- Extended row-count matrix with `ctrlwlen` key and included token in mixed-window parity list.
+- Full regression bundle PASS.

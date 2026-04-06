@@ -4087,3 +4087,7 @@
 ## 2026-04-06 11:24 KST
 - Cycle IP105 injected readability follow-up closed: control-winner decode helper stays report-only and adjacent to control token rows.
 - Design intent: preserve one-scan reverse mapping from winner slot (`A|B|C`) to cue micro-pack payload (`ABR|XCF|SHH`).
+
+## 2026-04-06 11:59 KST — IP104 UX/design slice shipped
+- Shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN:B39|C39|LIM72|PASS` beside control-winner decode helper cluster.
+- Durable decision: control-winner helper rows require explicit width-eval telemetry in same cycle.

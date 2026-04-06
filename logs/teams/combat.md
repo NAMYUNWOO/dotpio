@@ -3942,3 +3942,7 @@
 ## 2026-04-06 11:24 KST
 - Cycle IP105 injected note: no runtime combat-coupling changes; control-winner helper remains report-only for cue-pack operator clarity.
 - Combat lane follow-up remains candidate-only (`ABH|XFS|SHX`) and unshipped in this cycle.
+
+## 2026-04-06 11:59 KST — IP104 combat readability continuity
+- Confirmed control-winner decode eval row supports combat-call readability without changing gameplay logic.
+- Next injected combat/vfx lane task: report-only winner-confidence annotation prototype.

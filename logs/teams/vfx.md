@@ -661,3 +661,6 @@
 - Next forced cadence queue: systems/ops parity lock for NFXQBACKSTAF2 + NFXQBACKSTAF2LEN, then combat/design control-eval adjacency lock.
 
 - 2026-04-06 11:03 KST — Cycle IP104: Added report-only `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW` control winner token (`A|B|C`) mapped from `ABR|XCF|SHH`; kept runtime coupling disabled and validated via py_compile + regression + guardrail generation bundle.
+
+## 2026-04-06 11:59 KST — IP104 vfx lane note
+- No live VFX behavior change; control-winner readability slice preserves report-only cadence signals for future vfx/callout experiments.

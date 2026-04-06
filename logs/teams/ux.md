@@ -4185,3 +4185,7 @@
 ## 2026-04-06 11:24 KST
 - Cycle IP105 selected slice: shipped one-scan helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG:A=ABR winner|B=XCF winner|C=SHH winner` to reduce operator backtracking.
 - Readability decision: keep helper adjacent to `...CTRLW` token for immediate decode.
+
+## 2026-04-06 11:59 KST — IP104 one-scan eval telemetry
+- Added explicit winner-decode eval row to reduce operator ambiguity when reading `A/B/C` control-winner helper text.
+- Verification remained green across py_compile, regression checks, and weekly guardrail regeneration.

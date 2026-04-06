@@ -3945,6 +3945,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner decode helper row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner decode eval (ux/design): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN:B39|C39|LIM72|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner decode eval row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control rollback criteria (qa/systems): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLRB:KEEP if A/B/C map stays deterministic + LIM72 pass|ROLLBACK if control-label drift or width fail**"
         in md_text
@@ -4263,6 +4268,12 @@ def run_fixture_case(
             in md_text
         ), (
             f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG row when control legend row is present"
+        )
+        assert (
+            "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN:B39|C39|LIM72|PASS**"
+            in md_text
+        ), (
+            f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN row when control legend row is present"
         )
         invalid_nfxqbackstaf2ctrlw_payload = next(
             (
@@ -6438,6 +6449,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL:A=ABR|B=XCF|C=SHH**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:A**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:B**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:C**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwlegRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG:A=ABR winner|B=XCF winner|C=SHH winner**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN:B39|C39|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlrbRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLRB:KEEP if A/B/C map stays deterministic + LIM72 pass|ROLLBACK if control-label drift or width fail**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2rbRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2RB:KEEP if ABR/XCF/SHH clarity holds + LIM72 pass|ROLLBACK if ambiguity or width fail**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstafcueRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE:AGF=anchor brace|CRF=crossfire cut|SHD=shelter hold**"),
@@ -7313,6 +7325,7 @@ def main() -> int:
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLRB",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUELEN",

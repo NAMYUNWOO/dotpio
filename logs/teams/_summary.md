@@ -6093,3 +6093,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: when `...BACKSTAF2CTRL` exists, require both winner token (`...CTRLW`) and one-line winner decode helper (`...CTRLWLEG`) so slot scans are reversible without historical context.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for next mandatory Game Director cycle).
+
+## 2026-04-06 11:59 KST — Game Director Cycle IP104 control-winner eval slice
+- Coverage gate: ACTION_ITEMS/TASKS/POST_RC all checked at run start, so mandatory Game Director cycle executed.
+- Selected low-risk idea from 3 candidates and shipped minimal vertical slice: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN:B39|C39|LIM72|PASS`.
+- Durable decision: when `...BACKSTAF2CTRL` control legend family exists, include winner-decode eval telemetry row (`...BACKSTAF2CTRLWLEN`) and parity-lock it to `TSDPMFXVWCRITSPMB`.
+- Regression hardening: markdown presence assertion + fixture-level guard + mixed-window row-count key/parity token wiring.
+- Verification PASS: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact generation.

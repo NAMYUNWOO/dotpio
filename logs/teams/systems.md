@@ -5585,3 +5585,8 @@
 ## 2026-04-06 11:24 KST
 - Cycle IP105: added control-winner decode helper contract `...BACKSTAF2CTRLWLEG` and enforced fixture-required presence when `...BACKSTAF2CTRL` exists.
 - Follow-up: keep parity token coverage in sparse mixed-window matrix for control-cluster rows.
+
+## 2026-04-06 11:59 KST — IP104 control-winner eval parity lock
+- Added regression row-count key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwlenRowCount` and parity tuple coverage for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN` against `TSDPMFXVWCRITSPMB`.
+- Added fixture guard: when control legend row exists, `...BACKSTAF2CTRLWLEN` must be present.
+- Follow-up: strict adjacency contract for `CTRLW -> CTRLWLEG -> CTRLWLEN -> CTRLRB`.
