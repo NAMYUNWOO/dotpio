@@ -6272,3 +6272,9 @@ Compact decision memory for AI context efficiency.
 - 2026-04-07 01:25 KST — Cycle IP119 selected experiment shipped: added docs-order sentinel row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPIN:ALT>SAFE>ALTLEN` between ALTSAFE and ALTLEN callouts for deterministic one-scan rollback legend docs.
 - New injected follow-up queued: add sparse mixed-window row-count parity key for `...CTRLWNRBLGLEGALTPIN` mirroring `...CTRLWNRBLGLEGALT` counts.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-07 01:49 KST
+- Completed top-priority injected TASKS/POST_RC item: added sparse mixed-window row-count parity key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinRowCount` for `...CTRLWNRBLGLEGALTPIN` in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Durable decision: docs-order sentinel rows (`...LEGALTPIN`) must mirror parent alt-legend row (`...LEGALT`) occurrence counts across all sparse mixed-window fixtures before closure.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status after run: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.
