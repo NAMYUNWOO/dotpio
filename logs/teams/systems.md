@@ -5581,3 +5581,7 @@
 - 2026-04-06 09:48 KST IP103 follow-up: Extended sparse mixed-window parity matrix so `...NFXQBACKSTAF2` and `...NFXQBACKSTAF2LEN` row counts are now included in balanced/ready/prior-up/prior-down fixture contracts; regression bundle PASS.
 - 2026-04-06 10:23 KST: Cycle IP106 closed STAF2 control continuity slice: added \, enforced fixture KEEP/ROLLBACK domain lock for \ when \ is present, re-ran guardrail regression bundle.
 - 2026-04-06 11:03 KST — Cycle IP104: Added report-only `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW` control winner token (`A|B|C`) mapped from `ABR|XCF|SHH`; kept runtime coupling disabled and validated via py_compile + regression + guardrail generation bundle.
+
+## 2026-04-06 11:24 KST
+- Cycle IP105: added control-winner decode helper contract `...BACKSTAF2CTRLWLEG` and enforced fixture-required presence when `...BACKSTAF2CTRL` exists.
+- Follow-up: keep parity token coverage in sparse mixed-window matrix for control-cluster rows.

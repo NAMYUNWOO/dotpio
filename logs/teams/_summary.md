@@ -6086,3 +6086,10 @@ Compact decision memory for AI context efficiency.
 - 2026-04-06 09:48 KST: Closed forced systems/qa parity task by adding `...NFXQBACKSTAF2` + `...NFXQBACKSTAF2LEN` to mixed-window row-count parity matrix; verification suite green; next up remains control-decode eval row + control rollback domain lock.
 - 2026-04-06 10:23 KST: Durable decision — treat STAF2 control companion as a first-class eval cluster (`...STAF2LEN -> ...STAF2CTRLLEN -> ...STAF2CTRL -> ...STAF2CTRLRB`) and enforce KEEP/ROLLBACK domain lock whenever control legend exists; parity matrix now includes control rows for sparse mixed-window fixtures.
 - 2026-04-06 11:03 KST (Cycle IP104): Added deterministic report-only control winner token `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW` (`A|B|C`) derived from `ABR|XCF|SHH` candidate payload. Durable decision: keep micro-pack control selection one-token auditable in markdown while runtime coupling remains disabled; enforce with regression presence+domain checks and sparse mixed-window parity coverage.
+
+## 2026-04-06 11:24 KST
+- Game Director Cycle IP105 executed after ACTION_ITEMS/TASKS/POST_RC returned fully checked state.
+- Selected vertical slice shipped: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG:A=ABR winner|B=XCF winner|C=SHH winner`.
+- Durable decision: when `...BACKSTAF2CTRL` exists, require both winner token (`...CTRLW`) and one-line winner decode helper (`...CTRLWLEG`) so slot scans are reversible without historical context.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (ready for next mandatory Game Director cycle).

@@ -1,6 +1,19 @@
 # TASKS
 
-Last updated: 2026-04-06 10:58 KST
+Last updated: 2026-04-06 11:24 KST
+
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP105)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop triggered.
+- Candidate ideas generated:
+  - Low-risk UX/Design: add control-winner decode helper row for `...BACKSTAF2CTRLW` so `A|B|C` winner token is one-scan reversible without scanning earlier legend rows.
+  - Mid-risk Systems/Ops + QA: enforce fixture-level presence/parity contract for the new decode-helper row whenever control legend row exists.
+  - High-risk Combat/VFX + AI-content: prototype fourth fallback cue control arm (`ABH|XFS|SHX`) as report-only candidate.
+- Selected experiment: low-risk control-winner decode helper vertical slice.
+- [x] UX/Design + Systems/Ops + QA Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG:A=ABR winner|B=XCF winner|C=SHH winner`, wired markdown presence assertion, fixture-level required-row assertion (when control legend exists), row-count key, and sparse mixed-window parity token coverage. *(lifecycle: [ ] -> [~] started: 2026-04-06 11:18 KST -> [x] completed: 2026-04-06 11:24 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP105)
+- [x] Systems/Ops + QA Team (injected): Keep `...NFXQBACKSTAF2CTRLWLEG` required whenever `...NFXQBACKSTAF2CTRL` is present and include parity token/key in sparse mixed-window checks. *(completed within selected slice above; verification bundle re-run.)*
+- [x] Combat/VFX + Design/World Team (injected): Keep control winner decode helper report-only and adjacent to control token rows for operator readability while runtime coupling stays disabled. *(completed via markdown row insertion + regression presence assertion; verification bundle re-run.)*
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP104)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop triggered.
