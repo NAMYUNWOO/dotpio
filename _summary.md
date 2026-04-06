@@ -1,3 +1,9 @@
+## 2026-04-07 04:53 KST — IP123 injected docs-order PINSAFE->SAFE diagnostics wording closure
+- Completed highest-priority unchecked TASKS/POST item by tightening docs-order readability copy for sparse first-diverged diagnostics.
+- Implementation: updated markdown callout in `scripts/check_lane_coverage_guardrail.py` and mixed-window LEGALTSAFE parity mismatch assertion text in `scripts/regression_check_lane_coverage_guardrail.py` so the message explicitly narrates `...CTRLWNRBLGLEGALTPINSAFE -> ...CTRLWNRBLGLEGALTSAFE` parity intent in one scan.
+- Durable decision: when parity is docs-order critical, first-diverged assertion copy must include explicit source->target token mapping rather than generic parity wording.
+- Verification bundle PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-06 22:56 KST — IP116 injected CTRLWNRBLGLEGLEN sparse diagnostics closure
 - Completed highest-priority unchecked TASKS/POST item by adding `...CTRLWNRBLGLEGLEN` payload-drift diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenNonPassRows` in regression fixture outputs.
 - Added mixed-window assertion that fails on first diverged fixture whenever `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGLEN` drifts from expected payload `B53|C53|LIM72|PASS`.

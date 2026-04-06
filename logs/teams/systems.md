@@ -5767,3 +5767,7 @@
 ## 2026-04-07 03:44 KST
 - Systems/QA regression contracts extended: strict ordered-chain and sparse row-key matrix now require `...CTRLWNRBLGLEGALTPINSAFE` between PINLEN and SAFE.
 - Added row-count parity assertion to keep PINSAFE counts mirrored to PINLEN across mixed-window fixtures.
+
+## 2026-04-07 04:53 KST — Sparse PINSAFE->SAFE diagnostics wording parity
+- Updated regression mismatch assertion copy so mixed-window LEGALTSAFE row-count parity failures explicitly narrate PINSAFE->SAFE docs-order intent in one scan.
+- Verification bundle: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py (weekly artifacts) PASS.

@@ -6233,3 +6233,6 @@
 - QA validated copy-only docs-order callout change with full regression bundle; no non-pass rows introduced.
 - Decision: treat callout text as regression-protected documentation output and verify through full guardrail regeneration.
 - Follow-up: continue requiring first-diverged diagnostics coverage unchanged after docs copy edits.
+
+## 2026-04-07 04:53 KST — Regression wording contract verification
+- Re-ran guardrail verification bundle after diagnostics copy updates; all checks passed.

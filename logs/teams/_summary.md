@@ -6316,3 +6316,7 @@ Compact decision memory for AI context efficiency.
 - Durable decision: PIN-based docs-order sentinels now require explicit PINSAFE bridge row and sparse parity with PINLEN before SAFE rows are considered stable.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status after run: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2 (next: PINSAFE payload diagnostics + docs-order callout sync).
+
+## 2026-04-07 04:53 KST — Docs-order sparse diagnostics wording closure
+- Closed injected docs/readability item by making PINSAFE->SAFE parity explicit in both docs-order callout text and mixed-window first-diverged mismatch messaging.
+- Verification bundle PASS (py_compile + regression + weekly guardrail regeneration).

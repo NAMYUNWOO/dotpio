@@ -4313,3 +4313,6 @@
 - UX readability polish completed: docs-order callout now highlights the exact contiguous sentinel trio (`PIN -> PINLEN -> SAFE`) for one-scan auditability.
 - Decision: user-facing docs-order copy should prioritize the smallest actionable contiguous sequence instead of broader chain context.
 - Follow-up: revalidate copy-width/readability when future sentinel rows are inserted.
+
+## 2026-04-07 04:53 KST — One-scan diagnostics readability pass
+- Confirmed docs-order and mismatch assertion wording now carries explicit PINSAFE->SAFE parity context for first-diverged fixture triage.

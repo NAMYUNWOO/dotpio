@@ -4219,3 +4219,6 @@
 ## 2026-04-07 03:44 KST
 - Design/world readability continuity: sentinel docs-order chain now includes explicit PINSAFE bridge stage between PINLEN and SAFE.
 - Follow-up queued to keep callout text contiguous with `PIN -> PINLEN -> PINSAFE -> SAFE` sequence.
+
+## 2026-04-07 04:53 KST — Docs-order callout wording update
+- Refined docs-order callout text to explicitly state sparse first-diverged diagnostics must narrate PINSAFE->SAFE parity in one scan.

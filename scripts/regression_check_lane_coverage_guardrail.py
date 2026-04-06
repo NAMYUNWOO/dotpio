@@ -8860,6 +8860,7 @@ def main() -> int:
         assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltsafe_row_count_mismatch is None, (
             "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE row-count parity with "
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINSAFE across sparse summary + token sections; "
+            "docs-order diagnostics must narrate PINSAFE->SAFE parity in one scan; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltsafe_row_count_mismatch[0]} "
             f"expected={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltsafe_row_count_mismatch[1]} "
             f"actual={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltsafe_row_count_mismatch[2]}"
