@@ -2,6 +2,17 @@
 
 Last updated: 2026-04-07 01:25 KST
 
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP120)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP119 follow-up closure, so mandatory Game Director loop executed.
+- Candidate ideas generated:
+  - Low-risk UX/Design + Design/World: add sentinel decode helper copy for `...CTRLWNRBLGLEGALTPIN` to keep ALT/SAFE/ALTLEN interpretation one-scan readable.
+  - Mid-risk Systems/Ops + QA: add sparse mixed-window payload diagnostics key for `...CTRLWNRBLGLEGALTPIN` and assert deterministic payload across fixtures.
+  - High-risk Combat/VFX + AI-content: prototype alternate sentinel payload phrasing (`ALT>HOLD>ALTLEN`) behind report-only gate.
+- [x] Systems/Ops + QA Team (selected): add sparse mixed-window payload diagnostics key for `...CTRLWNRBLGLEGALTPIN` and enforce deterministic payload across fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-07 01:53 KST -> [x] completed: 2026-04-07 01:56 KST; implementation: added `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinNonPassRows` extraction for `...CTRLWNRBLGLEGALTPIN` payload drift (`ALT>SAFE>ALTLEN`) and wired mixed-window first-diverged fixture assertion for deterministic sparse summary/token diagnostics; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP120)
+- [ ] Design/World + UX Team (injected): pin explicit docs-order callout requiring `...CTRLWNRBLGLEGALT -> ...CTRLWNRBLGLEGALTPIN -> ...CTRLWNRBLGLEGALTSAFE -> ...CTRLWNRBLGLEGALTLEN` contiguity in guardrail markdown summary text.
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP119)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP118 follow-up closure, so mandatory Game Director loop executed.
 - Candidate ideas generated:

@@ -5737,3 +5737,8 @@
 - Closed injected Systems/Ops + QA parity task for `...CTRLWNRBLGLEGALTPIN`: regression fixture payload now emits `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinRowCount` and enforces mixed-window row-count parity against `...CTRLWNRBLGLEGALT` across summary/token sections.
 - Verification bundle PASS (`python3 -m py_compile` + regression script + guardrail regeneration).
 - Follow-up: if a future alt-legend row is added, pair it with same-cycle sparse parity and deterministic mismatch diagnostics.
+
+## 2026-04-07 01:56 KST
+- Game Director Cycle IP120 selected mid-risk Systems/Ops+QA slice: added `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinNonPassRows` extraction and sparse mixed-window first-diverged assertion for `...CTRLWNRBLGLEGALTPIN` payload drift.
+- Verification bundle PASS (`python3 -m py_compile` + regression script + guardrail regeneration).
+- Injected follow-up: lock docs-order callout contiguity `...LEGALT -> ...LEGALTPIN -> ...LEGALTSAFE -> ...LEGALTLEN` in summary markdown text.

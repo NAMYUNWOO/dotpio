@@ -1,3 +1,6 @@
+## Next Up (Game Director Injection — Cycle IP120)
+- [ ] Design/World + UX Team (injected): pin explicit docs-order callout requiring `...CTRLWNRBLGLEGALT -> ...CTRLWNRBLGLEGALTPIN -> ...CTRLWNRBLGLEGALTSAFE -> ...CTRLWNRBLGLEGALTLEN` contiguity in guardrail markdown summary text.
+
 ## Next Up (Game Director Injection — Cycle IP119)
 - [x] Systems/Ops + QA Team (injected): add sparse mixed-window row-count parity key for `...CTRLWNRBLGLEGALTPIN` and assert it mirrors `...CTRLWNRBLGLEGALT` occurrence counts across summary/token fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-07 01:47 KST -> [x] completed: 2026-04-07 01:49 KST; implementation: added `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinRowCount` sparse key extraction for `...CTRLWNRBLGLEGALTPIN`, added sparse chain presence key coverage, and added mixed-window parity assertion requiring PIN row-counts mirror `...CTRLWNRBLGLEGALT` across balanced/ready/prior-up/prior-down fixtures; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 

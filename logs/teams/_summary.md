@@ -6278,3 +6278,10 @@ Compact decision memory for AI context efficiency.
 - Durable decision: docs-order sentinel rows (`...LEGALTPIN`) must mirror parent alt-legend row (`...LEGALT`) occurrence counts across all sparse mixed-window fixtures before closure.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status after run: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0.
+
+## 2026-04-07 01:56 KST
+- Mandatory Game Director Cycle IP120 executed after queues reached fully-checked state.
+- Ideas considered: (1) sentinel decode helper copy (low risk), (2) sparse payload-drift diagnostics for `...LEGALTPIN` (mid risk, selected), (3) alternate sentinel payload wording behind gate (high risk).
+- Shipped minimal vertical slice: `scripts/regression_check_lane_coverage_guardrail.py` now emits `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinNonPassRows` and asserts deterministic `...CTRLWNRBLGLEGALTPIN` payload across mixed-window fixtures.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Backlog injection: queued Design/World+UX docs-order contiguity callout (`...LEGALT -> ...LEGALTPIN -> ...LEGALTSAFE -> ...LEGALTLEN`) in TASKS/POST_RC.
