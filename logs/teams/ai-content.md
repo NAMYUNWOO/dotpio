@@ -1,3 +1,6 @@
+## 2026-04-06 23:50 KST
+- AI-content lane sync: no runtime narrative mutation; preserved rollback-safe alternate confidence legend payload while adding explicit width-eval guardrail (`...CTRLWNRBLGLEGALTLEN`) for report-only readability validation.
+
 ## 2026-04-06 01:58 KST
 - AI-content sync: shelter-tone report-only row now emits compact alias (`AN|CF|SH`) while keeping runtime coupling disabled.
 

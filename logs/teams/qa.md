@@ -1,3 +1,7 @@
+## 2026-04-06 23:50 KST
+- QA validated new alt-legend width eval row `...CTRLWNRBLGLEGALTLEN` and strict ordered-chain inclusion in sparse first-missing-token diagnostics.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` (PASS).
+
 ## 2026-04-06 22:56 KST
 - QA validated new `...CTRLWNRBLGLEGLEN` sparse diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenNonPassRows` and its mixed-window assertion surface.
 - Failure path now reports first-diverged fixture + deterministic `occurrence/payload` rows when `B53|C53|LIM72|PASS` drifts.

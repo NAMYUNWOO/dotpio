@@ -1,3 +1,6 @@
+## 2026-04-06 23:50 KST
+- Combat/VFX follow-through: added alternate confidence rollback legend width eval row `...CTRLWNRBLGLEGALTLEN:B63|C63|LIM72|PASS` to keep combat-facing legend variant bounded under LIM72.
+
 ## 2026-04-06 15:41 KST
 - Combat/VFX digest control-winner path now emits explicit pulse cue token (`GLINT-HOLD|PULSE-CUT|SHIELD-HOLD`) via `...NFXQBACKSTAF2CTRLWVFX` for faster one-scan response planning.
 - Runtime combat behavior unchanged; report-only readability slice.

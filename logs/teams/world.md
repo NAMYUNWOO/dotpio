@@ -1,3 +1,6 @@
+## 2026-04-06 23:50 KST
+- Design/world readability note: locked report ordering so `...CTRLWNRBLGLEGALTLEN` stays adjacent to alternate legend row and before `...CTRLWNRBLGLEGLEN` for one-scan decode continuity.
+
 ## 2026-04-06 01:58 KST
 - Added design/world decode legend row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTALEG:AN=anchor lane|CF=crossfire lane|SH=shelter hold` to keep shelter-tone shorthand one-scan readable.
 

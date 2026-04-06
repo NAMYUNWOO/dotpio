@@ -1,3 +1,6 @@
+## 2026-04-06 23:50 KST
+- Design lane closed injected readability follow-up by pinning `...CTRLWNRBLGLEGALTLEN` in-chain after `...CTRLWNRBLGLEGALT`, keeping alternate legend verification one-scan deterministic.
+
 ## 2026-04-06 15:41 KST
 - Design/world cadence follow-up injected for next cycle: add compact decode helper companion row for `...NFXQBACKSTAF2CTRLWVFX` so `GLINT-HOLD|PULSE-CUT|SHIELD-HOLD` remains deterministic under dense rail scans.
 - Current cycle kept design scope to injection planning while forced implementation targeted combat/vfx gap.

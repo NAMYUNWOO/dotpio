@@ -1,3 +1,8 @@
+## 2026-04-06 23:50 KST
+- Closed selected Cycle IP117 systems/qa slice by inserting strict-chain + sparse parity coverage for `...CTRLWNRBLGLEGALTLEN` between `...CTRLWNRBLGLEGALT` and `...CTRLWNRBLGLEGLEN`.
+- Durable decision: alternate legend variants now require paired width eval rows (`...LEGALTLEN`) before they can be considered regression-stable.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
 ## 2026-04-06 22:56 KST
 - Closed injected Systems/Ops + QA task by adding sparse diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenNonPassRows` for `...CTRLWNRBLGLEGLEN` payload drift.
 - Durable decision: every `...CTRLWNRBLG*LEN` eval row now needs same-cycle deterministic payload mismatch diagnostics (`occurrence=… payload=…`) plus mixed-window fixture assertion, not just row-count presence.

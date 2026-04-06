@@ -1,6 +1,19 @@
 # TASKS
 
-Last updated: 2026-04-06 23:24 KST
+Last updated: 2026-04-06 23:50 KST
+
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP117)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP116 closure, so mandatory Game Director loop executed.
+- Candidate ideas generated:
+  - Low-risk UX/Design + Combat/VFX: add alternate rollback-legend length eval row (`...CTRLWNRBLGLEGALTLEN`) for one-scan DOS-width verification.
+  - Mid-risk Systems/Ops + QA: extend strict chain/row-count sparse parity contracts to include the new alt-legend eval row.
+  - High-risk Combat/VFX + AI-content: prototype second rollback-safe alternate legend wording candidate behind report-only guard.
+- Selected experiment: low-risk alt-legend length eval row + mid-risk parity/chain contract lock.
+- [x] Combat/VFX + UX + Systems/Ops + QA Team (selected): Added markdown row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN:B63|C63|LIM72|PASS`, then extended regression presence/chain/parity row-key contracts so strict ordered chain now includes `...CTRLWNRBLGLEGALT -> ...CTRLWNRBLGLEGALTLEN -> ...CTRLWNRBLGLEGLEN`. *(lifecycle: [ ] -> [~] started: 2026-04-06 23:47 KST -> [x] completed: 2026-04-06 23:50 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP117)
+- [x] Systems/Ops + QA Team (injected): Keep sparse mixed-window first-missing-token and row-count parity chain aligned with `...CTRLWNRBLGLEGALTLEN` so alt-legend width drift surfaces deterministically. *(completed: 2026-04-06 23:50 KST; implementation: added `...CTRLWNRBLGLEGALTLEN` to regex ordered chain, sparse row-key map, and chain diagnostics copy in regression assertions; verification bundle same as above.)*
+- [x] Design/World + UX Team (injected): Preserve one-scan readability by pinning `...CTRLWNRBLGLEGALTLEN` adjacent to `...CTRLWNRBLGLEGALT` and before `...CTRLWNRBLGLEGLEN` in markdown/report order. *(completed: 2026-04-06 23:50 KST; implementation: report row order updated in guardrail markdown emitter + deterministic presence assertion; verification bundle same as above.)*
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP115)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; no lane >40% but cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) so underrepresented lanes remain forced priority.
