@@ -1,3 +1,8 @@
+## 2026-04-06 22:56 KST
+- Closed injected Systems/Ops + QA task by adding sparse diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenNonPassRows` for `...CTRLWNRBLGLEGLEN` payload drift.
+- Durable decision: every `...CTRLWNRBLG*LEN` eval row now needs same-cycle deterministic payload mismatch diagnostics (`occurrence=… payload=…`) plus mixed-window fixture assertion, not just row-count presence.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
 ## 2026-04-06 19:18 KST
 - Closed highest-priority unchecked Systems/Ops + QA item by adding sparse mixed-window diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbNonPassRows` in `run_fixture_case` output payload.
 - Durable decision: deterministic payload rows now get the same sparse-matrix `...NonPassRows` mismatch surface used by eval PASS rails, so first-diverged fixture triage stays uniform.

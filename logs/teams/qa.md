@@ -1,3 +1,8 @@
+## 2026-04-06 22:56 KST
+- QA validated new `...CTRLWNRBLGLEGLEN` sparse diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenNonPassRows` and its mixed-window assertion surface.
+- Failure path now reports first-diverged fixture + deterministic `occurrence/payload` rows when `B53|C53|LIM72|PASS` drifts.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` (PASS).
+
 ## 2026-04-06 19:18 KST
 - QA validated sparse mixed-window payload-drift diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbNonPassRows` for `...CTRLWVFXRB`.
 - Failure surface now includes first-diverged fixture + occurrence/payload rows for rollback-helper drift, matching existing non-pass diagnostics style.

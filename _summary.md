@@ -1,3 +1,9 @@
+## 2026-04-06 22:56 KST — IP116 injected CTRLWNRBLGLEGLEN sparse diagnostics closure
+- Completed highest-priority unchecked TASKS/POST item by adding `...CTRLWNRBLGLEGLEN` payload-drift diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenNonPassRows` in regression fixture outputs.
+- Added mixed-window assertion that fails on first diverged fixture whenever `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGLEN` drifts from expected payload `B53|C53|LIM72|PASS`.
+- Durable decision: every strict-chain confidence rollback eval row now requires deterministic payload mismatch diagnostics (`occurrence/payload`) in the same cycle.
+- Verification bundle PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-06 16:24 KST — IP108 injected CTRLWVFX decode-helper/eval closure
 - Completed highest-priority unchecked TASKS/POST item by adding control-winner VFX companion rows: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH:A=GLINT-HOLD|B=PULSE-CUT|C=SHIELD-HOLD` and `...CTRLWVFXHLEN:B43|C43|LIM72|PASS`.
 - Durable decision: the control-winner chain now requires explicit VFX decode-helper readability before confidence-note rows: `...CTRLW -> ...CTRLWVFX -> ...CTRLWVFXH -> ...CTRLWVFXHLEN -> ...CTRLWN -> ...CTRLRB`.

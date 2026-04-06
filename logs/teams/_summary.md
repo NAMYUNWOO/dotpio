@@ -1,3 +1,9 @@
+## 2026-04-06 22:56 KST
+- Closed top-priority injected Systems/Ops + QA item by adding sparse diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenNonPassRows` for `...CTRLWNRBLGLEGLEN` payload drift.
+- Durable decision: strict control-winner confidence rollback legend/eval rows must ship with deterministic payload-drift diagnostics and mixed-window first-diverged fixture assertions in the same cycle.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: Combat/VFX + AI-content alternate confidence rollback legend variant behind safety gate).
+
 ## 2026-04-06 20:52 KST
 - Closed top-priority injected Systems/Ops + QA follow-up from Cycle IP113 by adding sparse diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgNonPassRows` for `...CTRLWNRBLG` eval drift.
 - Durable decision: every new `...CTRLW*LEN` or rollback/decode helper row must ship same-cycle sparse mixed-window `...NonPassRows` diagnostics and assertion coverage.
