@@ -1,3 +1,9 @@
+## 2026-04-06 20:52 KST
+- Closed top-priority injected Systems/Ops + QA follow-up from Cycle IP113 by adding sparse diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgNonPassRows` for `...CTRLWNRBLG` eval drift.
+- Durable decision: every new `...CTRLW*LEN` or rollback/decode helper row must ship same-cycle sparse mixed-window `...NonPassRows` diagnostics and assertion coverage.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next: mandatory Game Director review cycle with 3-idea injection loop).
+
 ## 2026-04-06 19:54 KST
 - Triggered mandatory Game Director cycle IP112 after ACTION_ITEMS/TASKS/POST_RC reached fully-checked state at 19:49 KST.
 - Completed selected experiment: added sparse PASS-domain diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblenNonPassRows` and mixed-window assertion for `...CTRLWVFXRBLEN`.
