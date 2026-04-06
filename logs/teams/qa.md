@@ -6121,3 +6121,8 @@
 - [2026-04-06 17:51 KST] QA: Regression suite passed after CTRLWVFX helper copy update; sparse fixture parity checks for CTRLWVFX chain and firstMissingToken diagnostics remained green across balanced/ready/prior-window matrices.
 
 - [2026-04-06 17:58 KST] QA: IP110 verification bundle passed after CTRLWVFXH wording lock; injected follow-up to assert ordered helper-domain stability when CTRLWVFX appears.
+
+## 2026-04-06 18:19 KST
+- QA added explicit mixed-window payload-domain assertion for `...NFXQBACKSTAF2CTRLWVFXH` helper row to prevent wording drift under sparse fixture combinations.
+- Failure diagnostics now report first-diverged fixture + occurrence + payload for helper-copy mismatches.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

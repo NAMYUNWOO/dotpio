@@ -5650,3 +5650,8 @@
 - [2026-04-06 17:51 KST] Systems/Ops: Re-validated CTRLWVFX helper-chain sparse mixed-window parity contracts after cue-priority helper copy tightening; retained first-diverged fixture + firstMissingToken diagnostics in regression assertions. Follow-up: keep CTRLWVFX/CTRLWVFXH/CTRLWVFXHLEN parity tied to CTRL legend presence.
 
 - [2026-04-06 17:58 KST] Systems/Ops: Closed IP110 selected slice by preserving sparse mixed-window firstMissingToken diagnostics while updating CTRLWVFXH helper-copy expectations; injected next fixture-domain lock task for CTRLWVFXH ordered wording.
+
+## 2026-04-06 18:19 KST
+- Closed highest-priority unchecked POST_RC item by adding fixture payload-domain lock for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH` ordered helper copy.
+- Implementation: capture `...CTRLWVFXH` payload tuples per fixture and assert mixed-window domain stays exactly `A=GLINT-HOLD first|B=PULSE-CUT second|C=SHIELD-HOLD third` with first-diverged fixture/occurrence/payload diagnostics.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

@@ -6173,3 +6173,9 @@ Compact decision memory for AI context efficiency.
 - [2026-04-06 17:51 KST] Cycle IP109 follow-up closed: CTRLWVFX helper copy now explicitly encodes priority order (`GLINT-HOLD first|PULSE-CUT second|SHIELD-HOLD third`) and regression parity diagnostics (including firstMissingToken surfacing) remain intact. ACTION_ITEMS/TASKS/POST_RC are fully checked at end-of-cycle.
 
 - [2026-04-06 17:58 KST] Game Director Cycle IP110 executed after full-checklist state: evaluated low/mid/high ideas, selected CTRLWVFX priority-helper wording lock, shipped helper copy update + regression parity refresh, and injected next tasks (`...CTRLWVFXH` fixture-domain lock + new `...CTRLWVFXRB` rollback helper row).
+
+## 2026-04-06 18:19 KST
+- Closed top unchecked POST_RC Systems/Ops+QA item: fixture-level domain assertion now enforces deterministic ordered helper copy for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH`.
+- Durable decision: control-winner VFX helper rows now require both row-presence parity and payload-string invariants across sparse mixed-window fixtures.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` (PASS).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: `...NFXQBACKSTAF2CTRLWVFXRB` rollback helper row).
