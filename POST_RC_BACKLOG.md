@@ -4,7 +4,7 @@
 - [x] Combat/VFX + Systems/Ops + QA Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX` report-only row (`GLINT-HOLD|PULSE-CUT|SHIELD-HOLD`) and strict order lock `...CTRLW -> ...CTRLWVFX -> ...CTRLWN -> ...CTRLWNH -> ...CTRLWNHLEN -> ...CTRLWNLEN -> ...CTRLWLEG -> ...CTRLWLEN -> ...CTRLRB`. *(lifecycle: [ ] -> [~] started: 2026-04-06 15:31 KST -> [x] completed: 2026-04-06 15:41 KST; verification bundle: py_compile + regression + guardrail regeneration)*
 
 ## Next Up (Game Director Injection — Cycle IP108)
-- [ ] Systems/Ops + QA Team (injected): Add fixture-level domain assertion and sparse mixed-window parity tuple coverage for `...NFXQBACKSTAF2CTRLWVFX` (required when control legend row exists).
+- [x] Systems/Ops + QA Team (injected): Added fixture-level domain assertion and sparse mixed-window parity row-count coverage for `...NFXQBACKSTAF2CTRLWVFX` (required when control legend row exists), including key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount` and fixture mismatch assertion versus `...BACKSTAF2CTRL` count. *(lifecycle: [ ] -> [~] started: 2026-04-06 15:47 KST -> [x] completed: 2026-04-06 15:50 KST; verification bundle re-run.)*
 - [ ] Design/World + Combat/VFX Team (injected): Add compact decode-helper companion/eval rows for `...NFXQBACKSTAF2CTRLWVFX` to keep one-scan readability deterministic under LIM72.
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP107)

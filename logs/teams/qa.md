@@ -6097,3 +6097,8 @@
 - QA validated fixture-level ordered-chain diagnostics now emit explicit `firstMissingToken` payload key for the `...BACKSTAF2CTRL*` helper chain.
 - Sparse mixed-window regression assertion now reports `first diverged fixture` + `firstMissingToken` for control-winner chain mismatch triage.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 15:50 KST
+- Closed injected CTRLWVFX guardrail task: added fixture-level required-row assertion for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX` whenever control legend row exists, with payload domain lock `GLINT-HOLD|PULSE-CUT|SHIELD-HOLD`.
+- Added mixed-window parity key/assertion `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount` and enforced parity against `...BACKSTAF2CTRL` row count.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

@@ -4292,6 +4292,13 @@ def run_fixture_case(
             md_text,
         )
     ]
+    nfxqbackstaf2ctrlwvfx_payload_values = [
+        payload.strip()
+        for payload in re.findall(
+            r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX:([^*]+)\*\*",
+            md_text,
+        )
+    ]
     nfxqbackstaf2ctrlwn_payload_values = [
         payload.strip()
         for payload in re.findall(
@@ -4334,6 +4341,9 @@ def run_fixture_case(
         ), (
             f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN row when control legend row is present"
         )
+        assert nfxqbackstaf2ctrlwvfx_payload_values, (
+            f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX row when control legend row is present"
+        )
         assert nfxqbackstaf2ctrlwn_payload_values, (
             f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN row when control legend row is present"
         )
@@ -4348,6 +4358,18 @@ def run_fixture_case(
         assert invalid_nfxqbackstaf2ctrlw_payload is None, (
             f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW payload to stay within A|B|C when control legend row is present; "
             f"first diverged occurrence={invalid_nfxqbackstaf2ctrlw_payload[0]} payload={invalid_nfxqbackstaf2ctrlw_payload[1]}"
+        )
+        invalid_nfxqbackstaf2ctrlwvfx_payload = next(
+            (
+                (index, payload)
+                for index, payload in enumerate(nfxqbackstaf2ctrlwvfx_payload_values)
+                if payload not in {"GLINT-HOLD", "PULSE-CUT", "SHIELD-HOLD"}
+            ),
+            None,
+        )
+        assert invalid_nfxqbackstaf2ctrlwvfx_payload is None, (
+            f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX payload to stay within GLINT-HOLD|PULSE-CUT|SHIELD-HOLD when control legend row is present; "
+            f"first diverged occurrence={invalid_nfxqbackstaf2ctrlwvfx_payload[0]} payload={invalid_nfxqbackstaf2ctrlwvfx_payload[1]}"
         )
         invalid_nfxqbackstaf2ctrlwn_payload = next(
             (
@@ -6560,6 +6582,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrllenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLLEN:B17|C17|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL:A=ABR|B=XCF|C=SHH**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:A**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:B**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:C**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX:GLINT-HOLD**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX:PULSE-CUT**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX:SHIELD-HOLD**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:A:anchor brace reserve confidence lane-lock**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:B:crossfire cut feint confidence pressure-shift**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:C:shelter hold harden confidence stabilize-hold**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:A=lane-lock|B=pressure-shift|C=stabilize-hold**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:B45|C45|LIM72|PASS**"),
@@ -7443,6 +7466,7 @@ def main() -> int:
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLLEN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN",
@@ -7801,9 +7825,35 @@ def main() -> int:
         )
         assert mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token is None, (
             "mixed-window fixture matrix must keep strict ordered chain "
-            "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB; "
+            "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token[0]} "
             f"firstMissingToken={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwvfx_row_count_mismatch = next(
+            (
+                (
+                    fixture_name,
+                    int(fixture_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlRowCount"]),
+                    int(fixture_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount"]),
+                )
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if int(fixture_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlRowCount"]) > 0
+                and int(fixture_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount"])
+                != int(fixture_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlRowCount"])
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwvfx_row_count_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX row-count parity with "
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL whenever control legend row exists; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwvfx_row_count_mismatch[0]} "
+            f"expected={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwvfx_row_count_mismatch[1]} "
+            f"actual={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwvfx_row_count_mismatch[2]}"
         )
         assert all(
             tsdpmfxvwcritspmbcbnxdleg_count

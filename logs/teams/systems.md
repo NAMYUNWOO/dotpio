@@ -5626,3 +5626,8 @@
 - Closed highest-priority unchecked TASKS item (Systems/Ops+QA): added fixture payload key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlChainFirstMissingToken` to surface the first missing token in control-winner ordered chain diagnostics.
 - Added sparse mixed-window assertion that reports `firstMissingToken` when `...CTRLW -> ...CTRLWN -> ...CTRLWNH -> ...CTRLWNHLEN -> ...CTRLWNLEN -> ...CTRLWLEG -> ...CTRLWLEN -> ...CTRLRB` chain drifts.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 15:50 KST
+- Closed injected CTRLWVFX guardrail task: added fixture-level required-row assertion for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX` whenever control legend row exists, with payload domain lock `GLINT-HOLD|PULSE-CUT|SHIELD-HOLD`.
+- Added mixed-window parity key/assertion `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount` and enforced parity against `...BACKSTAF2CTRL` row count.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

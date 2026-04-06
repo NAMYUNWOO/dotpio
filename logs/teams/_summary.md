@@ -6147,3 +6147,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: long ordered-chain contracts must export a first-missing-token diagnostic payload, not just parity counts/non-pass rows.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=2 (next: report-only compact confidence-note rollback helper row in TASKS).
+
+## 2026-04-06 15:50 KST
+- Closed TASKS IP108 Systems/Ops+QA injected item: `...NFXQBACKSTAF2CTRLWVFX` is now fixture-required when control legend is present, payload-domain locked to `GLINT-HOLD|PULSE-CUT|SHIELD-HOLD`, and mixed-window parity key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount` is asserted against `...BACKSTAF2CTRL`.
+- Durable decision: every new control-chain report row gets both fixture-required presence checks and explicit mixed-window parity key assertions, not just ordered-chain checks.
+- Verification: `python3 -m py_compile scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
