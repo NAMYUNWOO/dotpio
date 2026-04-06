@@ -1,3 +1,7 @@
+## 2026-04-06 15:41 KST
+- Combat/VFX digest control-winner path now emits explicit pulse cue token (`GLINT-HOLD|PULSE-CUT|SHIELD-HOLD`) via `...NFXQBACKSTAF2CTRLWVFX` for faster one-scan response planning.
+- Runtime combat behavior unchanged; report-only readability slice.
+
 ## 2026-04-06 01:58 KST
 - Combat/VFX rail unchanged at runtime; report-only shelter-tone digest gained compact alias visibility (`AN|CF|SH`) for operator triage.
 

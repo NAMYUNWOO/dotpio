@@ -1,3 +1,11 @@
+## 2026-04-06 15:41 KST — Game Director Cycle IP108 control-winner VFX pulse cue
+- Coverage check (last 10 completions) from `logs/weekly_lane_coverage_guardrail.json`: systems/world/ai-content/combat/design/vfx/ux/qa all `0`; no lane >40%.
+- Cadence triad remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so this run forced a combat/vfx experiment and injected design/world + systems/ops follow-ups.
+- Shipped minimal vertical slice: added report-only row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX:{GLINT-HOLD|PULSE-CUT|SHIELD-HOLD}` mapped from control winner state (`ABR|XCF|SHH`).
+- Hardened regression sequence: strict order now requires `...CTRLW -> ...CTRLWVFX -> ...CTRLWN -> ...CTRLWNH -> ...CTRLWNHLEN -> ...CTRLWNLEN -> ...CTRLWLEG -> ...CTRLWLEN -> ...CTRLRB`.
+- Injected next tasks: (1) systems/ops+qa fixture-level domain/parity lock for `...CTRLWVFX`, (2) design/world+combat/vfx decode-helper companion + LIM72 eval row.
+- Verification bundle PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-06 09:44 KST — Game Director Cycle IP103 control-legend slice
 - Coverage check (last 10 completions) from `logs/weekly_lane_coverage_guardrail.json`: systems/world/ai-content/combat/design/ux/qa/vfx all `0`; no lane >40%, but cadence triad buckets remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
 - Generated 3 ideas (low-risk control-legend companion row, mid-risk systems parity extension, high-risk fourth control-arm candidate) and selected low-risk underrepresented-lane slice (design/world+combat/vfx).

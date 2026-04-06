@@ -1,3 +1,7 @@
+## 2026-04-06 15:41 KST
+- Design/world cadence follow-up injected for next cycle: add compact decode helper companion row for `...NFXQBACKSTAF2CTRLWVFX` so `GLINT-HOLD|PULSE-CUT|SHIELD-HOLD` remains deterministic under dense rail scans.
+- Current cycle kept design scope to injection planning while forced implementation targeted combat/vfx gap.
+
 ## 2026-04-06 03:41 KST
 - Added design/world compact helper copy for shelter-tone alias rail: `AN=anchor brace|CF=crossfire cut|SH=shelter hold`.
 - Locked readability evidence with `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAHLEN:B54|C48|LIM72|PASS`.

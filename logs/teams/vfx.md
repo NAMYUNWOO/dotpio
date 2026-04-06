@@ -1,3 +1,8 @@
+## 2026-04-06 15:41 KST
+- Cycle IP108 forced-lane combat/vfx slice shipped: added control-winner VFX pulse cue row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX` with deterministic mapping `A/ABR->GLINT-HOLD`, `B/XCF->PULSE-CUT`, `C/SHH->SHIELD-HOLD`.
+- Scope remains report-only/reversible; no runtime rendering/combat stat mutation.
+- Verification: py_compile + regression + guardrail artifact regeneration PASS.
+
 ## 2026-04-06 03:41 KST
 - Cycle IP97 selected combat/vfx vertical slice shipped shelter-tone compact action helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAH:AN=anchor brace|CF=crossfire cut|SH=shelter hold`.
 - Added paired eval row `...NFXQBACKSTAHLEN:B54|C48|LIM72|PASS` to keep helper copy deterministic and DOS-width auditable.

@@ -1,3 +1,10 @@
+## 2026-04-06 15:41 KST
+- Game Director Cycle IP108 completed on `feature/ai-disassemble-builder` after guardrail coverage check over latest 10 completed items (`systems/world/ai-content/combat/design/vfx/ux/qa` all 0%; no lane >40%).
+- Cadence status remained missing in all 24h buckets (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so experiment pick was forced into underrepresented combat/vfx lane while injecting design/world + systems/ops follow-ups.
+- Shipped minimal vertical slice: added report-only control winner VFX pulse cue row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX:{GLINT-HOLD|PULSE-CUT|SHIELD-HOLD}` plus strict ordered-chain regression lock `...CTRLW -> ...CTRLWVFX -> ...CTRLWN -> ...CTRLWNH -> ...CTRLWNHLEN -> ...CTRLWNLEN -> ...CTRLWLEG -> ...CTRLWLEN -> ...CTRLRB`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` (PASS).
+- Queue injection: added next-cycle tasks for systems/ops+qa fixture-level domain lock for `...CTRLWVFX` and design/world+combat/vfx decode-helper companion row.
+
 ## 2026-04-06 12:22 KST
 - Closed highest-priority unchecked backlog item from POST_RC: strict ordered chain added for control-winner block `...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB` in `scripts/regression_check_lane_coverage_guardrail.py`.
 - Durable decision: control-winner block invariants are now two-layered (domain/presence + sequence) before rollback rows are considered valid.

@@ -1,3 +1,12 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP108)
+- Coverage check snapshot (`max-items=10`): systems/world/ai-content/combat/design/vfx/ux/qa all 0; no lane >40%.
+- Cadence status stayed `ALERT` with missing buckets (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so cycle forced combat/vfx slice and injected design/world + systems/ops recoveries.
+- [x] Combat/VFX + Systems/Ops + QA Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX` report-only row (`GLINT-HOLD|PULSE-CUT|SHIELD-HOLD`) and strict order lock `...CTRLW -> ...CTRLWVFX -> ...CTRLWN -> ...CTRLWNH -> ...CTRLWNHLEN -> ...CTRLWNLEN -> ...CTRLWLEG -> ...CTRLWLEN -> ...CTRLRB`. *(lifecycle: [ ] -> [~] started: 2026-04-06 15:31 KST -> [x] completed: 2026-04-06 15:41 KST; verification bundle: py_compile + regression + guardrail regeneration)*
+
+## Next Up (Game Director Injection — Cycle IP108)
+- [ ] Systems/Ops + QA Team (injected): Add fixture-level domain assertion and sparse mixed-window parity tuple coverage for `...NFXQBACKSTAF2CTRLWVFX` (required when control legend row exists).
+- [ ] Design/World + Combat/VFX Team (injected): Add compact decode-helper companion/eval rows for `...NFXQBACKSTAF2CTRLWVFX` to keep one-scan readability deterministic under LIM72.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP107)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP106 closure, so mandatory Game Director loop triggered.
 - Candidate ideas:

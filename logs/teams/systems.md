@@ -1,3 +1,7 @@
+## 2026-04-06 15:41 KST
+- Extended systems/qa ordered-chain contract to include control-winner VFX cue row: `...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB`.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
 ## 2026-04-06 12:22 KST
 - Closed highest-priority unchecked POST_RC_BACKLOG item (Systems/Ops + QA): added strict ordered-chain regression contract for `...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB` across summary/token sections.
 - Durable decision: control-winner rows now require both row-presence/domain checks *and* explicit sequence invariants before fallback rollback rows.

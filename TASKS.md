@@ -1,6 +1,20 @@
 # TASKS
 
-Last updated: 2026-04-06 15:19 KST
+Last updated: 2026-04-06 15:41 KST
+
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP108)
+- Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0.
+- Lane cap result: no lane exceeded 40%; forced-cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) so selected experiment was forced into combat/vfx and follow-ups injected for design/world + systems/ops.
+- Candidate ideas generated:
+  - Low-risk UX/Design: add compact decode helper row for control-winner VFX pulse cue token (`...CTRLWVFX`).
+  - Mid-risk Systems/Ops + QA: enforce fixture-level domain + sparse mixed-window parity contract for `...CTRLWVFX`.
+  - High-risk Combat/VFX + AI-content: introduce alternate pulse-cue micro-pack candidate (`GLINT-VEER|PULSE-SNAP|SHIELD-SET`) as report-only stress test.
+- Selected experiment: low-risk/mid-risk hybrid vertical slice centered on control-winner VFX pulse cue + ordered-chain lock.
+- [x] Combat/VFX + Systems/Ops + QA Team (selected): Added report-only control-winner VFX pulse cue row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX:{GLINT-HOLD|PULSE-CUT|SHIELD-HOLD}` and extended strict ordered-chain regression to include `...CTRLWVFX` between `...CTRLW` and `...CTRLWN`. *(lifecycle: [ ] -> [~] started: 2026-04-06 15:31 KST -> [x] completed: 2026-04-06 15:41 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP108)
+- [ ] Systems/Ops + QA Team (injected): Add fixture-level required-row assertion + mixed-window parity row-count key for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX` whenever `...BACKSTAF2CTRL` exists.
+- [ ] Design/World + Combat/VFX Team (injected): Add decode-helper companion row for `...CTRLWVFX` (`A/B/C` winner to cue mapping) and DOS-width eval lock while keeping runtime coupling disabled.
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP107)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop triggered.
