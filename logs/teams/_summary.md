@@ -6083,4 +6083,4 @@ Compact decision memory for AI context efficiency.
 - Shipped minimal vertical slice: added fallback cue micro-pack control legend companion row TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL:A=ABR|B=XCF|C=SHH plus control rollback row TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLRB.
 - Verification: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
 - Next forced cadence queue: systems/ops parity lock for NFXQBACKSTAF2 + NFXQBACKSTAF2LEN, then combat/design control-eval adjacency lock.
-
+- 2026-04-06 09:48 KST: Closed forced systems/qa parity task by adding `...NFXQBACKSTAF2` + `...NFXQBACKSTAF2LEN` to mixed-window row-count parity matrix; verification suite green; next up remains control-decode eval row + control rollback domain lock.

@@ -3931,4 +3931,4 @@
 - Shipped minimal vertical slice: added fallback cue micro-pack control legend companion row TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL:A=ABR|B=XCF|C=SHH plus control rollback row TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLRB.
 - Verification: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/regression_check_lane_coverage_guardrail.py + python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
 - Next forced cadence queue: systems/ops parity lock for NFXQBACKSTAF2 + NFXQBACKSTAF2LEN, then combat/design control-eval adjacency lock.
-
+- 2026-04-06 09:48 KST IP103 follow-up: Extended sparse mixed-window parity matrix so `...NFXQBACKSTAF2` and `...NFXQBACKSTAF2LEN` row counts are now included in balanced/ready/prior-up/prior-down fixture contracts; regression bundle PASS.
