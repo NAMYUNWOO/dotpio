@@ -6179,3 +6179,6 @@
 
 ## 2026-04-06 22:24 KST (Cycle IP115 follow-up)
 - Closed CTRLWNRBLGLEG/CTRLWNRBLGLEN guardrail slice: added legend pairing row + sparse mixed-window diagnostics for CTRLWNRBLGLEN payload drift; verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 22:34 KST (Cycle IP116)
+- Shipped legend-pairing eval row `...CTRLWNRBLGLEGLEN` and extended strict rollback chain to `...CTRLWNRBLG -> ...CTRLWNRBLGLEG -> ...CTRLWNRBLGLEGLEN -> ...CTRLWNRBLGLEN`; verification bundle PASS.

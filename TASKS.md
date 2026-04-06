@@ -16,6 +16,19 @@ Last updated: 2026-04-06 21:44 KST
 - [x] Design/World Team (injected): Add confidence rollback legend helper row (`...CTRLWNRBLGLEG`) adjacent to `...CTRLWNRBLG` to keep one-scan readability deterministic. *(lifecycle: [ ] -> [~] started: 2026-04-06 22:17 KST -> [x] completed: 2026-04-06 22:24 KST; implementation: added markdown row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEG:K=confidence KEEP lane|R=confidence ROLLBACK lane` and inserted strict chain anchor `...CTRLWNRBLG -> ...CTRLWNRBLGLEG -> ...CTRLWNRBLGLEN`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [x] Systems/Ops + QA Team (injected): Add sparse mixed-window diagnostics key `...ctrlwnrblglenNonPassRows` + fixture assertion for `...CTRLWNRBLGLEN` payload drift. *(completed: 2026-04-06 22:24 KST; implementation: added fixture diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglenNonPassRows` and sparse mixed-window first-diverged assertion for `...CTRLWNRBLGLEN` payload mismatch; verification bundle same as above.)*
 
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP116)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP115 follow-up closure; mandatory Game Director loop executed.
+- Candidate ideas:
+  - Low-risk UX/Design: add compact legend-pairing eval row for `...CTRLWNRBLGLEG` to keep rollback glossary readability one-scan auditable.
+  - Mid-risk Systems/Ops + QA: add sparse mixed-window payload-drift diagnostics key for the legend-pairing eval row.
+  - High-risk Combat/VFX + AI-content: prototype alternate confidence rollback legend text variant behind report-only rollback guard.
+- Selected experiment: low-risk legend-pairing eval row + strict chain/parity lock.
+- [x] Design/World + UX + Systems/Ops + QA Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGLEN:B53|C53|LIM72|PASS`, inserted strict chain `...CTRLWNRBLG -> ...CTRLWNRBLGLEG -> ...CTRLWNRBLGLEGLEN -> ...CTRLWNRBLGLEN`, and updated sparse parity token contracts. *(lifecycle: [ ] -> [~] started: 2026-04-06 22:27 KST -> [x] completed: 2026-04-06 22:34 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP116)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window diagnostics key `...ctrlwnrblgleglenNonPassRows` and fixture assertion for `...CTRLWNRBLGLEGLEN` payload drift.
+- [ ] Combat/VFX + AI-content Team (injected): Prototype report-only alternate confidence rollback legend variant for `...CTRLWNRBLGLEG` behind rollback safety gate.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP113)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; cadence buckets remain missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) with health `ALERT`.
 - Candidate ideas generated:

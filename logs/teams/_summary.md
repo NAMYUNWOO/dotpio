@@ -6236,3 +6236,9 @@ Compact decision memory for AI context efficiency.
 - Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEG` legend pairing row directly after `...CTRLWNRBLG` and before `...CTRLWNRBLGLEN` to preserve one-scan rollback readability.
 - Added sparse diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglenNonPassRows` + mixed-window first-diverged assertion for `...CTRLWNRBLGLEN` payload drift.
 - Verification bundle PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 22:34 KST — IP116 selected slice shipped
+- Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGLEN:B53|C53|LIM72|PASS` and inserted deterministic chain stage between `...CTRLWNRBLGLEG` and `...CTRLWNRBLGLEN`.
+- Durable decision: rollback legend helper rows now require paired eval rows with sparse chain/parity coverage before closure.
+- Injected next backlog items: (1) systems/qa `...ctrlwnrblgleglenNonPassRows`, (2) combat/ai-content alternate legend variant prototype.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
