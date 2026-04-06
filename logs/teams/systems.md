@@ -5646,3 +5646,5 @@
 - Shipped sparse control-winner chain diagnostics lock for mixed-window fixtures by introducing explicit row-key chain mapping (`...CTRLW` through `...CTRLRB`) and first-missing-token extraction from row-counts.
 - Decision: parity mismatch assertions must include `firstMissingToken` alongside fixture/expected/actual for immediate triage.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+- [2026-04-06 17:51 KST] Systems/Ops: Re-validated CTRLWVFX helper-chain sparse mixed-window parity contracts after cue-priority helper copy tightening; retained first-diverged fixture + firstMissingToken diagnostics in regression assertions. Follow-up: keep CTRLWVFX/CTRLWVFXH/CTRLWVFXHLEN parity tied to CTRL legend presence.

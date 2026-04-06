@@ -3982,3 +3982,5 @@
 - Closed confidence-note rollback-helper slice by adding `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRB:KEEP if CTRLWNH/CTRLWNHLEN remain PASS|ROLLBACK on helper drift`.
 - Kept strict chain deterministic with `...CTRLWNHLEN -> ...CTRLWNRB -> ...CTRLWNLEN` and preserved report-only runtime coupling.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+- [2026-04-06 17:51 KST] Combat/VFX: Updated control-winner cue-priority helper copy to explicit ordering (`GLINT-HOLD first|PULSE-CUT second|SHIELD-HOLD third`) to improve one-glance triage readability while preserving report-only runtime coupling. Follow-up: monitor readability deltas in next Game Director cycle.

@@ -6117,3 +6117,5 @@
 - Added QA-facing sparse first-missing-token diagnostics in control-winner parity mismatch assertion path (`...BACKSTAF2CTRLWVFX` parity vs `...BACKSTAF2CTRL`).
 - Decision: mixed-window mismatch output now reports `firstMissingToken` to reduce fixture replay time.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+- [2026-04-06 17:51 KST] QA: Regression suite passed after CTRLWVFX helper copy update; sparse fixture parity checks for CTRLWVFX chain and firstMissingToken diagnostics remained green across balanced/ready/prior-window matrices.

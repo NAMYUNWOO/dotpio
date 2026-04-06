@@ -3945,7 +3945,7 @@ def run_fixture_case(
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner VFX pulse cue row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner VFX pulse cue decode helper (design/world+combat/vfx): "
-        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH:A=GLINT-HOLD|B=PULSE-CUT|C=SHIELD-HOLD**"
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH:A=GLINT-HOLD first|B=PULSE-CUT second|C=SHIELD-HOLD third**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner VFX pulse cue decode helper row"
     assert (
@@ -4363,7 +4363,7 @@ def run_fixture_case(
             f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX row when control legend row is present"
         )
         assert (
-            "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH:A=GLINT-HOLD|B=PULSE-CUT|C=SHIELD-HOLD**"
+            "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH:A=GLINT-HOLD first|B=PULSE-CUT second|C=SHIELD-HOLD third**"
             in md_text
         ), (
             f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH row when control legend row is present"
@@ -6617,7 +6617,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL:A=ABR|B=XCF|C=SHH**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:A**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:B**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:C**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX:GLINT-HOLD**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX:PULSE-CUT**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX:SHIELD-HOLD**"),
-        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxhRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH:A=GLINT-HOLD|B=PULSE-CUT|C=SHIELD-HOLD**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxhRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH:A=GLINT-HOLD first|B=PULSE-CUT second|C=SHIELD-HOLD third**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxhlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXHLEN:B43|C43|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:A:anchor brace reserve confidence lane-lock**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:B:crossfire cut feint confidence pressure-shift**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:C:shelter hold harden confidence stabilize-hold**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:A=lane-lock|B=pressure-shift|C=stabilize-hold**"),

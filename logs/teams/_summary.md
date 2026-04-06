@@ -6169,3 +6169,5 @@ Compact decision memory for AI context efficiency.
 - Ran immediate mandatory Game Director cycle IP109 (all checklists were fully checked): selected low+mid-risk diagnostics slice and shipped sparse row-key chain + firstMissingToken parity-mismatch surfacing.
 - Durable decision: control-chain mixed-window mismatch assertions must always include fixture + expected + actual + `firstMissingToken` for deterministic triage.
 - Next injected tasks opened: (1) combat/design compact cue-priority helper row for `...CTRLWVFX`, (2) systems/qa parity assertion for that helper row.
+
+- [2026-04-06 17:51 KST] Cycle IP109 follow-up closed: CTRLWVFX helper copy now explicitly encodes priority order (`GLINT-HOLD first|PULSE-CUT second|SHIELD-HOLD third`) and regression parity diagnostics (including firstMissingToken surfacing) remain intact. ACTION_ITEMS/TASKS/POST_RC are fully checked at end-of-cycle.

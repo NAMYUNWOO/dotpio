@@ -4223,3 +4223,5 @@
 
 ## 2026-04-06 17:27 KST
 - UX note: firstMissingToken surfaced directly in mixed-window parity assertion messages to shorten operator diagnosis path for control-winner helper-chain regressions.
+
+- [2026-04-06 17:51 KST] UX: Confirmed CTRLWVFX helper wording remains compact and scan-friendly with ordering semantics (`first/second/third`) and existing length-eval rail (`CTRLWVFXHLEN`) unchanged.
