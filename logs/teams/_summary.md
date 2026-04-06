@@ -6224,3 +6224,10 @@ Compact decision memory for AI context efficiency.
 - Selected experiment shipped: confidence rollback decode-length row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEN:B49|C37|LIM72|PASS` plus strict chain lock `...CTRLWNRB -> ...CTRLWNRBLG -> ...CTRLWNRBLGLEN -> ...CTRLWNLEN`.
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Injected next experiments (IP115 queue): (1) combat/vfx `...CTRLWVFXRBLGLEN`, (2) design/world `...CTRLWNRBLGLEG`, (3) systems/ops+qa `...ctrlwnrblglenNonPassRows` diagnostics.
+
+## 2026-04-06 21:52 KST — VFX rollback decode-length chain extension shipped
+- Completed TASKS top-priority item: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLGLEN:B31|C31|LIM72|PASS`.
+- Strict chain is now enforced as `...CTRLWVFXRBLG -> ...CTRLWVFXRBLGLEN -> ...CTRLWN` in markdown-order regex, sparse row-key contracts, and first-missing-token diagnostics.
+- Added new sparse mixed-window diagnostic key: `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblglenNonPassRows`.
+- Verification bundle passed: py_compile + regression checks + guardrail generation.
+- Next highest-priority unchecked item: TASKS `Design/World Team (injected): ...CTRLWNRBLGLEG` helper row.

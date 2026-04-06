@@ -4167,3 +4167,7 @@
 ## 2026-04-06 21:44 KST
 - Cycle IP115 shipped decode-length helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEN:B49|C37|LIM72|PASS` to preserve one-scan confidence rollback readability.
 - Strict chain now includes `...CTRLWNRBLG -> ...CTRLWNRBLGLEN -> ...CTRLWNLEN`.
+
+## 2026-04-06 21:52 KST — Ordered decode row adjacency
+- Reinforced deterministic row adjacency around VFX rollback decode rows by adding `...CTRLWVFXRBLGLEN` between decode payload and confidence rows.
+- Follow-up: pair with upcoming `...CTRLWNRBLGLEG` helper item for confidence legend clarity.

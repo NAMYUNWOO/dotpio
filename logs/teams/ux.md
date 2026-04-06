@@ -4263,3 +4263,8 @@
 
 ## 2026-04-06 21:44 KST
 - Added compact confidence rollback decode-length row (`...CTRLWNRBLGLEN:B49|C37|LIM72|PASS`) to keep rollback semantics scan-friendly under DOS width limits.
+
+## 2026-04-06 21:52 KST — VFX rollback decode readability guard
+- Added compact eval row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLGLEN:B31|C31|LIM72|PASS`.
+- Extended UX-facing PASS diagnostics key `...ctrlwvfxrblglenNonPassRows` in sparse mixed-window checks.
+- Follow-up: keep decode rows contiguous so one-scan readability stays deterministic.

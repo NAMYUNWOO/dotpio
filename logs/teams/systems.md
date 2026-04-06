@@ -5699,3 +5699,8 @@
 ## 2026-04-06 21:44 KST
 - Systems/Ops parity contracts now treat `...CTRLWNRBLGLEN` as first-class: row-count parity keys and strict chain assertions updated across sparse mixed-window fixtures.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 21:52 KST — Guardrail key wiring
+- Added row-count key `...ctrlwvfxrblglenRowCount` and mixed-window non-pass diagnostics key `...ctrlwvfxrblglenNonPassRows`.
+- Updated strict-chain token map and first-missing-token diagnostics to include `...CTRLWVFXRBLGLEN`.
+- Follow-up: next systems/qa item is `...ctrlwnrblglenNonPassRows` payload drift assertion hardening.

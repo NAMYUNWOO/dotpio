@@ -6171,3 +6171,8 @@
 ## 2026-04-06 21:44 KST
 - QA regression now asserts markdown presence/regex chain for `...CTRLWNRBLGLEN` and row-count parity continuity before `...CTRLWNLEN`.
 - Verification bundle PASS with no fixture drift.
+
+## 2026-04-06 21:52 KST — Regression coverage extension
+- Added fixture-level presence assertion for `...CTRLWVFXRBLGLEN` when control legend exists.
+- Added mixed-window PASS-domain assertion for `...CTRLWVFXRBLGLEN` across balanced/ready/prior-up/prior-down fixtures.
+- Verification: py_compile + regression script + guardrail generation all pass.

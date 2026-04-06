@@ -4019,3 +4019,8 @@
 - Cycle IP113 injected follow-up closed: added sparse mixed-window diagnostics key   `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgNonPassRows` and assertion coverage for   `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLG` drift triage.
 - Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-06 21:31 KST | Cycle IP114 selected slice complete: added sparse payload-drift diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrbNonPassRows` for `...CTRLWNRB`, with fixture-level deterministic payload assertion + mixed-window first-diverged mismatch surfacing.
+
+## 2026-04-06 21:52 KST — CTRLWVFXRBLGLEN chain lock
+- Added `...CTRLWVFXRBLGLEN` decode-length eval row into guardrail markdown contract.
+- Locked strict chain ordering to include `...CTRLWVFXRBLG -> ...CTRLWVFXRBLGLEN -> ...CTRLWN`.
+- Follow-up: monitor mixed-window fixtures for non-PASS drift on `...CTRLWVFXRBLGLEN`.

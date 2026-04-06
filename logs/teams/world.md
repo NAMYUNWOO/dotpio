@@ -4009,3 +4009,7 @@
 
 ## 2026-04-06 21:44 KST
 - No world/map geometry changes; world lane tracked through design readability contract update for confidence rollback helper chain.
+
+## 2026-04-06 21:52 KST — Lane sync note
+- No map topology/runtime world logic changed in this cycle.
+- Captured dependency: next world/design task should add `...CTRLWNRBLGLEG` adjacent helper row for confidence rollback legend readability.
