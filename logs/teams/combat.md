@@ -4080,3 +4080,5 @@
 - Cycle IP124 follow-up closure: docs-order PIN chain note now explicitly states first-diverged parity mismatches emit `assertionLabel=<...NonPassRows>` for PINLEN/PINSAFE/SAFE one-scan triage.
 - Evidence: updated `scripts/check_lane_coverage_guardrail.py` docs-order callout copy and reran guardrail verification bundle.
 - Follow-up: remaining open IP124 item is Systems/Ops+QA PINLEN parity assertion label alignment.
+- 2026-04-07 06:48 KST — No combat runtime tuning this slice; validated that report-only control-chain diagnostics remain additive/reversible. Follow-up: reserve next visible combat/vfx-facing polish cycle if lane cadence slips.
+- 2026-04-07 06:48 KST — No combat runtime tuning this slice; validated that report-only control-chain diagnostics remain additive/reversible. Follow-up: reserve next visible combat/vfx-facing polish cycle if lane cadence slips.

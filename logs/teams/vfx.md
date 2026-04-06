@@ -706,3 +706,5 @@
 ## 2026-04-07 03:44 KST
 - VFX lane checkpoint: report-only sentinel readability pass added `...CTRLWNRBLGLEGALTPINSAFE` to guard PIN->SAFE transition clarity in dense cue rails.
 - No runtime VFX pulse/FX tuning changed this cycle.
+- 2026-04-07 06:48 KST — No VFX payload changes this cycle; confirmed control-chain diagnostics update is report/regression-only. Follow-up: pair next cadence cycle with combat or design-facing visible cue polish.
+- 2026-04-07 06:48 KST — No VFX payload changes this cycle; confirmed control-chain diagnostics update is report/regression-only. Follow-up: pair next cadence cycle with combat or design-facing visible cue polish.

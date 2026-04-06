@@ -1,6 +1,17 @@
 # TASKS
 
-Last updated: 2026-04-07 06:18 KST
+Last updated: 2026-04-07 06:48 KST
+
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP125)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS completed; POST_RC had one unchecked stale injection from IP124, so it was reconciled first and mandatory Game Director loop executed immediately after all queues were fully checked.
+- Candidate ideas generated:
+  - Low-risk Design/World + UX: reconcile stale IP124 injected docs-order note checkbox state with shipped `assertionLabel=<...NonPassRows>` copy evidence.
+  - Mid-risk Systems/Ops + QA: add dedicated sparse mixed-window payload-drift diagnostics key for `...CTRLWNRBLGLEGALTLEN` and expose `assertionLabel` in first-diverged fixture failure output.
+  - High-risk AI-content + Combat/VFX: prototype alternate ALTLEN mnemonic wording behind report-only guard.
+- [x] Systems/Ops + QA Team (selected): add deterministic `...CTRLWNRBLGLEGALTLEN` payload mismatch diagnostics key + mixed-window first-diverged assertion-label surfacing. *(lifecycle: [ ] -> [~] started: 2026-04-07 06:47 KST -> [x] completed: 2026-04-07 06:48 KST; implementation: extended `scripts/regression_check_lane_coverage_guardrail.py` with `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenNonPassRows` extraction/fixture map wiring and a new sparse mixed-window assertion that emits `assertionLabel=<...legaltlenNonPassRows>` on first divergence; also updated docs-order callout in `scripts/check_lane_coverage_guardrail.py` to include contiguous `...LEGALTLEN` plus PINLEN/PINSAFE/SAFE/ALTLEN assertion-label semantics; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP125)
+- [ ] Design/World + UX Team (injected): add compact docs-order line clarifying that ALTLEN first-diverged failures now emit `assertionLabel=<...legaltlenNonPassRows>` in the same diagnostics family as PINLEN/PINSAFE/SAFE.
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP124)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP123 follow-up closure, so mandatory Game Director loop executed immediately.

@@ -4152,3 +4152,5 @@
 - Cycle IP124 follow-up closure: docs-order PIN chain note now explicitly states first-diverged parity mismatches emit `assertionLabel=<...NonPassRows>` for PINLEN/PINSAFE/SAFE one-scan triage.
 - Evidence: updated `scripts/check_lane_coverage_guardrail.py` docs-order callout copy and reran guardrail verification bundle.
 - Follow-up: remaining open IP124 item is Systems/Ops+QA PINLEN parity assertion label alignment.
+- 2026-04-07 06:48 KST — High-risk alternate ALTLEN mnemonic idea deferred (not selected) to avoid wording churn before diagnostics lock. Follow-up: revisit behind report-only gate only if readability metrics regress.
+- 2026-04-07 06:48 KST — High-risk alternate ALTLEN mnemonic idea deferred (not selected) to avoid wording churn before diagnostics lock. Follow-up: revisit behind report-only gate only if readability metrics regress.
