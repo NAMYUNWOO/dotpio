@@ -3953,3 +3953,8 @@
 
 ## 2026-04-06 13:22 KST
 - Confidence-note reporting slice finalized with DOS-width eval telemetry row `...BACKSTAF2CTRLWNLEN`; combat-facing rationale note remains report-only and non-runtime-coupled.
+
+## 2026-04-06 14:13 KST — IP106 injected confidence-note decode helper closure
+- Completed injected slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:A=lane-lock|B=pressure-shift|C=stabilize-hold` adjacent to `...CTRLWN`.
+- Synced strict chain/parity contracts (`CTRLW -> CTRLWN -> CTRLWNH -> CTRLWNLEN -> CTRLWLEG -> CTRLWLEN -> CTRLRB`) in regression.
+- Verification: `py_compile` + `regression_check_lane_coverage_guardrail.py` + `check_lane_coverage_guardrail.py --backlog ...` PASS.

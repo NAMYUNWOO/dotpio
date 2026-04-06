@@ -9,7 +9,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP106)
 - [x] Systems/Ops + QA Team (injected): Add fixture payload capture key `...NFXQBACKSTAF2CTRLWNLENNonPassRows` so confidence-note eval drift (`...CTRLWNLEN`) surfaces first-diverged fixture + occurrence diagnostics in sparse mixed-window matrix. *(completed: 2026-04-06 13:43 KST; implementation: `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenNonPassRows`; verification bundle re-run.)*
-- [ ] Design/World + Combat/VFX + AI-content Team (injected): Add compact decode-helper row for confidence-note rationale aliases (`A/B/C -> lane-lock/pressure-shift/stabilize-hold`) adjacent to `...CTRLWN` while keeping runtime coupling disabled.
+- [x] Design/World + Combat/VFX + AI-content Team (injected): Added compact decode-helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:A=lane-lock|B=pressure-shift|C=stabilize-hold` adjacent to `...CTRLWN`, with strict ordered-chain + sparse mixed-window parity coverage updates while keeping runtime coupling disabled. *(lifecycle: [ ] -> [~] started: 2026-04-06 14:06 KST -> [x] completed: 2026-04-06 14:13 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP104)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog all fully checked after IP103 closure; mandatory Game Director cycle executed.

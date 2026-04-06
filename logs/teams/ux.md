@@ -4195,3 +4195,8 @@
 
 ## 2026-04-06 13:22 KST
 - Added explicit report-only confidence-note eval token (`B67|C61|LIM72|PASS`) to keep DOS width audit visible for control-winner rationale rows.
+
+## 2026-04-06 14:13 KST — IP106 injected confidence-note decode helper closure
+- Completed injected slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:A=lane-lock|B=pressure-shift|C=stabilize-hold` adjacent to `...CTRLWN`.
+- Synced strict chain/parity contracts (`CTRLW -> CTRLWN -> CTRLWNH -> CTRLWNLEN -> CTRLWLEG -> CTRLWLEN -> CTRLRB`) in regression.
+- Verification: `py_compile` + `regression_check_lane_coverage_guardrail.py` + `check_lane_coverage_guardrail.py --backlog ...` PASS.

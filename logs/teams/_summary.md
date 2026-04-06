@@ -6123,3 +6123,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: every newly added `*LEN` eval row in the `...NFXQBACK*` chain must ship with a `NonPassRows` fixture payload key and sparse-fixture mismatch assertion in the same cycle.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1 (next: confidence-note decode helper row adjacent to `...CTRLWN`).
+
+## 2026-04-06 14:13 KST — Confidence-note decode helper shipped (IP106 injected)
+- Shipped report-only helper row: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:A=lane-lock|B=pressure-shift|C=stabilize-hold`.
+- Durable contract update: control-winner confidence chain is now `CTRLW -> CTRLWN -> CTRLWNH -> CTRLWNLEN -> CTRLWLEG -> CTRLWLEN -> CTRLRB` with sparse mixed-window parity lock.
+- Verification bundle PASS: `python3 -m py_compile ...` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.

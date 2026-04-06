@@ -3944,6 +3944,11 @@ def run_fixture_case(
         md_text,
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence note row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence note decode helper (design/world+combat/vfx): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:A=lane-lock|B=pressure-shift|C=stabilize-hold**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence note decode helper row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence note eval (ux/design, report-only): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:B67|C61|LIM72|PASS**"
         in md_text
@@ -3966,6 +3971,7 @@ def run_fixture_case(
     stalf2_control_winner_chain_matches = re.findall(
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:[^*]+\*\*.*?"
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN:[^*]+\*\*.*?"
@@ -3975,7 +3981,7 @@ def run_fixture_case(
     )
     assert len(stalf2_control_winner_chain_matches) >= 1, (
         f"{name}: summary/token sections must keep strict ordered chain "
-        "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB"
+        "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB"
     )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback operator cue legend (design/world+combat/vfx): "
@@ -6512,6 +6518,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL:A=ABR|B=XCF|C=SHH**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:A**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:B**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:C**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:A:anchor brace reserve confidence lane-lock**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:B:crossfire cut feint confidence pressure-shift**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:C:shelter hold harden confidence stabilize-hold**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:A=lane-lock|B=pressure-shift|C=stabilize-hold**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:B67|C61|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwlegRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG:A=ABR winner|B=XCF winner|C=SHH winner**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN:B39|C39|LIM72|PASS**"),
@@ -7391,6 +7398,7 @@ def main() -> int:
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN",
