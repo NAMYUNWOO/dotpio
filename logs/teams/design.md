@@ -4121,3 +4121,8 @@
 - Completed injected decode-helper readability slice for control-winner VFX cue: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH:A=GLINT-HOLD|B=PULSE-CUT|C=SHIELD-HOLD`.
 - Added paired eval row `...CTRLWVFXHLEN:B43|C43|LIM72|PASS` to keep one-scan readability deterministic.
 - Follow-up: keep helper copy stable unless chain diagnostics request alternate compact wording.
+
+## 2026-04-06 16:52 KST
+- Closed confidence-note rollback-helper slice by adding `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRB:KEEP if CTRLWNH/CTRLWNHLEN remain PASS|ROLLBACK on helper drift`.
+- Kept strict chain deterministic with `...CTRLWNHLEN -> ...CTRLWNRB -> ...CTRLWNLEN` and preserved report-only runtime coupling.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

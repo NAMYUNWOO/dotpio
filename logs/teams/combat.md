@@ -3977,3 +3977,8 @@
 - Combat/VFX readability updated for control-winner pulse cue block via `...CTRLWVFXH` mapping row.
 - Decision: preserve report-only behavior; no runtime coupling change.
 - Follow-up: next combat-facing backlog remains confidence rollback helper prototype.
+
+## 2026-04-06 16:52 KST
+- Closed confidence-note rollback-helper slice by adding `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRB:KEEP if CTRLWNH/CTRLWNHLEN remain PASS|ROLLBACK on helper drift`.
+- Kept strict chain deterministic with `...CTRLWNHLEN -> ...CTRLWNRB -> ...CTRLWNLEN` and preserved report-only runtime coupling.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

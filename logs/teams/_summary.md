@@ -6157,3 +6157,9 @@ Compact decision memory for AI context efficiency.
 - Closed TASKS IP108 Systems/Ops+QA injected item: `...NFXQBACKSTAF2CTRLWVFX` is now fixture-required when control legend is present, payload-domain locked to `GLINT-HOLD|PULSE-CUT|SHIELD-HOLD`, and mixed-window parity key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount` is asserted against `...BACKSTAF2CTRL`.
 - Durable decision: every new control-chain report row gets both fixture-required presence checks and explicit mixed-window parity key assertions, not just ordered-chain checks.
 - Verification: `python3 -m py_compile scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 16:52 KST
+- Closed injected Design/World + Combat/VFX + AI-content task by shipping report-only confidence-note rollback helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRB:KEEP if CTRLWNH/CTRLWNHLEN remain PASS|ROLLBACK on helper drift`.
+- Durable decision: control-winner confidence-note helper now has explicit rollback checkpoint in the strict chain (`...CTRLWNHLEN -> ...CTRLWNRB -> ...CTRLWNLEN`) before decode-helper eval rows.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` (PASS).
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: Systems/Ops + QA firstMissingToken diagnostics sync item).

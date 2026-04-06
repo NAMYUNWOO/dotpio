@@ -3968,3 +3968,8 @@
 - World/design readability pass aligned control-winner VFX helper labels with compact one-scan operator format.
 - No map/progression changes in this slice.
 - Follow-up: monitor helper naming coherence against existing decode legend family.
+
+## 2026-04-06 16:52 KST
+- Closed confidence-note rollback-helper slice by adding `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRB:KEEP if CTRLWNH/CTRLWNHLEN remain PASS|ROLLBACK on helper drift`.
+- Kept strict chain deterministic with `...CTRLWNHLEN -> ...CTRLWNRB -> ...CTRLWNLEN` and preserved report-only runtime coupling.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

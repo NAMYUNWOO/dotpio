@@ -18,7 +18,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP107)
 - [ ] Systems/Ops + QA Team (injected): Add explicit sparse mixed-window `firstMissingToken` diagnostics for control-winner helper chain (`...CTRLW` through `...CTRLRB`) to reduce ordered-chain triage time.
-- [ ] Design/World + Combat/VFX + AI-content Team (injected): Prototype report-only control confidence rollback helper row bound to `...CTRLWNH`/`...CTRLWNHLEN` PASS status and keep runtime coupling disabled.
+- [x] Design/World + Combat/VFX + AI-content Team (injected): Added report-only control confidence rollback helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRB:KEEP if CTRLWNH/CTRLWNHLEN remain PASS|ROLLBACK on helper drift` and locked ordered chain `...CTRLWNHLEN -> ...CTRLWNRB -> ...CTRLWNLEN` while keeping runtime coupling disabled. *(lifecycle: [ ] -> [~] started: 2026-04-06 16:46 KST -> [x] completed: 2026-04-06 16:52 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP106)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP104 closure, so mandatory Game Director loop triggered.
