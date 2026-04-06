@@ -1,3 +1,8 @@
+
+## 2026-04-07 03:48 KST
+- Closed IP122 systems+qa payload diagnostics follow-up by adding `...pinsafeNonPassRows` extraction + sparse mixed-window first-diverged fixture assertion for `...CTRLWNRBLGLEGALTPINSAFE` in regression harness.
+- Reconciled docs-order callout tracker: contiguous `...PIN -> ...PINLEN -> ...PINSAFE -> ...SAFE` requirement already present in guardrail markdown docs block and now marked complete in TASKS/POST_RC.
+- Verification bundle PASS (`py_compile` + `regression_check_lane_coverage_guardrail.py` + `check_lane_coverage_guardrail.py --backlog ...`).
 ## 2026-04-06 23:50 KST
 - QA validated new alt-legend width eval row `...CTRLWNRBLGLEGALTLEN` and strict ordered-chain inclusion in sparse first-missing-token diagnostics.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` (PASS).

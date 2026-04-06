@@ -5933,6 +5933,15 @@ def run_fixture_case(
         for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinlen_eval_rows)
         if payload != "B19|C19|LIM72|PASS"
     )
+    nfxqbackstaf2ctrlwnrblglegaltpinsafe_payload_values = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINSAFE:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinsafe_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinsafe_payload_values)
+        if payload != "PIN=guard before SAFE gate"
+    )
     nfxqbackstaf2ctrlwnrb_payload_mismatch_rows = tuple(
         f"occurrence={index} payload={payload}"
         for index, payload in enumerate(nfxqbackstaf2ctrlwnrb_payload_values)
@@ -6970,6 +6979,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblgleglen_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpin_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinlen_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinsafeNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinsafe_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltsafe_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnlen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbNonPassRows": " || ".join(nfxqbackstaf2ctrlwvfxrb_payload_mismatch_rows),
@@ -8407,6 +8417,30 @@ def main() -> int:
             "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINLEN payload deterministic across sparse summary + token sections; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinlen_status_mismatch[0]} "
             f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinlen_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinsafe_status_mismatch = next(
+            (
+                (fixture_name, non_pass_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    non_pass_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinsafeNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinsafe_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINSAFE payload deterministic across sparse summary + token sections; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinsafe_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinsafe_status_mismatch[1]}"
         )
         mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnlen_status_mismatch = next(
             (

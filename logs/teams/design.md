@@ -1,3 +1,8 @@
+
+## 2026-04-07 03:48 KST
+- Closed IP122 systems+qa payload diagnostics follow-up by adding `...pinsafeNonPassRows` extraction + sparse mixed-window first-diverged fixture assertion for `...CTRLWNRBLGLEGALTPINSAFE` in regression harness.
+- Reconciled docs-order callout tracker: contiguous `...PIN -> ...PINLEN -> ...PINSAFE -> ...SAFE` requirement already present in guardrail markdown docs block and now marked complete in TASKS/POST_RC.
+- Verification bundle PASS (`py_compile` + `regression_check_lane_coverage_guardrail.py` + `check_lane_coverage_guardrail.py --backlog ...`).
 ## 2026-04-06 23:50 KST
 - Design lane closed injected readability follow-up by pinning `...CTRLWNRBLGLEGALTLEN` in-chain after `...CTRLWNRBLGLEGALT`, keeping alternate legend verification one-scan deterministic.
 

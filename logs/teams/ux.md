@@ -1,3 +1,8 @@
+
+## 2026-04-07 03:48 KST
+- Closed IP122 systems+qa payload diagnostics follow-up by adding `...pinsafeNonPassRows` extraction + sparse mixed-window first-diverged fixture assertion for `...CTRLWNRBLGLEGALTPINSAFE` in regression harness.
+- Reconciled docs-order callout tracker: contiguous `...PIN -> ...PINLEN -> ...PINSAFE -> ...SAFE` requirement already present in guardrail markdown docs block and now marked complete in TASKS/POST_RC.
+- Verification bundle PASS (`py_compile` + `regression_check_lane_coverage_guardrail.py` + `check_lane_coverage_guardrail.py --backlog ...`).
 ## 2026-04-06 23:50 KST
 - UX compactness pass: validated alternate legend width row (`B63|C63|LIM72|PASS`) for `...CTRLWNRBLGLEGALTLEN` so rollback-safe wording stays scan-friendly.
 
