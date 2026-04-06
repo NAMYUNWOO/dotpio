@@ -4008,6 +4008,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include confidence-note rollback helper alternate legend variant row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence-note rollback helper alternate legend safety-anchor length eval row (combat/vfx+ux, report-only): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE:B13|C13|LIM72|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include confidence-note rollback helper alternate legend safety-anchor length eval row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence-note rollback helper alternate legend length eval row (combat/vfx+ux, report-only): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN:B63|C63|LIM72|PASS**"
         in md_text
@@ -4058,6 +4063,7 @@ def run_fixture_case(
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLG:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEG:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALT:[^*]+\*\*.*?"
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGLEN:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEN:[^*]+\*\*.*?"
@@ -4070,7 +4076,7 @@ def run_fixture_case(
     )
     assert len(stalf2_control_winner_chain_matches) >= 1, (
         f"{name}: summary/token sections must keep strict ordered chain "
-        "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWVFXRBLEN -> ...NFXQBACKSTAF2CTRLWVFXRBLG -> ...NFXQBACKSTAF2CTRLWVFXRBLGLEN -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNRBLG -> ...NFXQBACKSTAF2CTRLWNRBLGLEG -> ...NFXQBACKSTAF2CTRLWNRBLGLEGALT -> ...NFXQBACKSTAF2CTRLWNRBLGLEGALTLEN -> ...NFXQBACKSTAF2CTRLWNRBLGLEGLEN -> ...NFXQBACKSTAF2CTRLWNRBLGLEN -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB"
+        "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWVFXRBLEN -> ...NFXQBACKSTAF2CTRLWVFXRBLG -> ...NFXQBACKSTAF2CTRLWVFXRBLGLEN -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNRBLG -> ...NFXQBACKSTAF2CTRLWNRBLGLEG -> ...NFXQBACKSTAF2CTRLWNRBLGLEGALT -> ...NFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE -> ...NFXQBACKSTAF2CTRLWNRBLGLEGALTLEN -> ...NFXQBACKSTAF2CTRLWNRBLGLEGLEN -> ...NFXQBACKSTAF2CTRLWNRBLGLEN -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB"
     )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback operator cue legend (design/world+combat/vfx): "
@@ -6780,6 +6786,7 @@ def run_fixture_case(
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLG",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEG",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALT",
+        "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGLEN",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEN",
@@ -6876,6 +6883,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLG:K=KEEP confidence lane|R=ROLLBACK confidence lane**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEG:K=confidence KEEP lane|R=confidence ROLLBACK lane**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALT:K=KEEP confidence rail|R=ROLLBACK confidence rail|SAFE=CTRLWNRB**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE:B13|C13|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN:B63|C63|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGLEN:B53|C53|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEN:B49|C37|LIM72|PASS**"),
@@ -8379,6 +8387,10 @@ def main() -> int:
             (
                 "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEG",
                 "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegRowCount",
+            ),
+            (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeRowCount",
             ),
             (
                 "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN",

@@ -4034,3 +4034,6 @@
 ## 2026-04-06 22:34 KST (Cycle IP116)
 - Shipped legend-pairing eval row `...CTRLWNRBLGLEGLEN` and extended strict rollback chain to `...CTRLWNRBLG -> ...CTRLWNRBLGLEG -> ...CTRLWNRBLGLEGLEN -> ...CTRLWNRBLGLEN`; verification bundle PASS.
 - 2026-04-06 23:24 KST — Cycle IP116 injected item `...CTRLWNRBLGLEG` alt legend variant completed. Decision: add report-only rollback-gated alt row `...CTRLWNRBLGLEGALT` (`KEEP/ROLLBACK confidence rail`) so combat-callout wording experiment stays reversible. Follow-up: monitor lane cadence and avoid consecutive combat-heavy cycles.
+
+## 2026-04-07 00:31 KST — IP118 combat/vfx rollback cue stability
+- Combat-facing rollback cue stack now includes explicit SAFE anchor eval row to reduce ambiguity when auditing control-winner rollback guidance.

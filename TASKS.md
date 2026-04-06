@@ -1,6 +1,18 @@
 # TASKS
 
-Last updated: 2026-04-06 23:50 KST
+Last updated: 2026-04-07 00:26 KST
+
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP118)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP117 closure, so mandatory Game Director loop executed.
+- Candidate ideas generated:
+  - Low-risk UX/Design + Combat/VFX: add rollback-alt safety-anchor length eval row (`...CTRLWNRBLGLEGALTSAFE`) for one-scan legend safety readability.
+  - Mid-risk Systems/Ops + QA: extend strict chain + sparse parity contracts so `...CTRLWNRBLGLEGALTSAFE` is deterministically required between `...CTRLWNRBLGLEGALT` and `...CTRLWNRBLGLEGALTLEN`.
+  - High-risk AI-content + Combat/VFX: prototype alternate SAFE alias wording (`SAFE=CTRLWNRB-HOLD`) behind report-only gate.
+- [x] Systems/Ops + UX + QA + Combat/VFX Team (selected): added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE:B13|C13|LIM72|PASS`, then wired regression presence + strict-chain + sparse parity contracts so ordering is fixed at `...CTRLWNRBLGLEGALT -> ...CTRLWNRBLGLEGALTSAFE -> ...CTRLWNRBLGLEGALTLEN`. *(lifecycle: [ ] -> [~] started: 2026-04-07 00:26 KST -> [x] completed: 2026-04-07 00:31 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP118)
+- [ ] Systems/Ops + QA Team (injected): add sparse mixed-window diagnostics key `...ctrlwnrblglegaltsafeNonPassRows` to expose first-diverged fixture when `...CTRLWNRBLGLEGALTSAFE` payload drifts.
+- [ ] Design/World + UX Team (injected): pin `...CTRLWNRBLGLEGALTSAFE` report row copy directly adjacent to `...CTRLWNRBLGLEGALT` + `...CTRLWNRBLGLEGALTLEN` in markdown/report docs to preserve one-scan readability.
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP117)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP116 closure, so mandatory Game Director loop executed.

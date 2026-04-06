@@ -1,3 +1,7 @@
+## Next Up (Game Director Injection — Cycle IP118)
+- [ ] Systems/Ops + QA Team (injected): add sparse mixed-window diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows` with first-diverged fixture surfacing for `...CTRLWNRBLGLEGALTSAFE` payload drift.
+- [ ] Design/World + UX Team (injected): preserve one-scan readability by pinning `...CTRLWNRBLGLEGALTSAFE` between `...CTRLWNRBLGLEGALT` and `...CTRLWNRBLGLEGALTLEN` in report order + docs summary callouts.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP114)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) with health `ALERT`.
 - Candidate ideas:

@@ -4181,3 +4181,6 @@
 ## 2026-04-06 22:34 KST (Cycle IP116)
 - Shipped legend-pairing eval row `...CTRLWNRBLGLEGLEN` and extended strict rollback chain to `...CTRLWNRBLG -> ...CTRLWNRBLGLEG -> ...CTRLWNRBLGLEGLEN -> ...CTRLWNRBLGLEN`; verification bundle PASS.
 - 2026-04-06 23:24 KST — Added alternate legend row wording `KEEP/ROLLBACK confidence rail` with `SAFE=CTRLWNRB` for deterministic operator decoding. Decision: place directly after `...CTRLWNRBLGLEG` in strict chain for readability continuity.
+
+## 2026-04-07 00:31 KST — IP118 legend readability micro-slice
+- Added compact eval row `...CTRLWNRBLGLEGALTSAFE` (B13/C13) to keep rollback legend safety-anchor readability auditable in one scan.

@@ -6256,3 +6256,8 @@ Compact decision memory for AI context efficiency.
 - Injected next backlog items: (1) systems/qa `...ctrlwnrblgleglenNonPassRows`, (2) combat/ai-content alternate legend variant prototype.
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-06 23:24 KST — Cycle IP116 injected follow-up closed: added report-only rollback-gated alternate confidence legend row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALT:K=KEEP confidence rail|R=ROLLBACK confidence rail|SAFE=CTRLWNRB`, and updated regression contracts (presence + strict chain + row-count parity) so experimental wording stays reversible and deterministic.
+
+## 2026-04-07 00:31 KST — Cycle IP118 shipped
+- Shipped minimal vertical slice: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE:B13|C13|LIM72|PASS`.
+- Durable decision: strict chain now requires `...CTRLWNRBLGLEGALT -> ...CTRLWNRBLGLEGALTSAFE -> ...CTRLWNRBLGLEGALTLEN`.
+- Injected next tasks: SAFE payload drift diagnostics key + readability pinning in report/docs order.

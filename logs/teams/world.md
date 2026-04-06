@@ -4023,3 +4023,6 @@
 ## 2026-04-06 22:34 KST (Cycle IP116)
 - Shipped legend-pairing eval row `...CTRLWNRBLGLEGLEN` and extended strict rollback chain to `...CTRLWNRBLG -> ...CTRLWNRBLGLEG -> ...CTRLWNRBLGLEGLEN -> ...CTRLWNRBLGLEN`; verification bundle PASS.
 - 2026-04-06 23:24 KST — World/design readability chain updated to include `...CTRLWNRBLGLEGALT` between `...CTRLWNRBLGLEG` and `...CTRLWNRBLGLEGLEN`; no map/progression data changes.
+
+## 2026-04-07 00:31 KST — IP118 readability placement decision
+- Durable ordering decision: keep `...CTRLWNRBLGLEGALTSAFE` adjacent to alt legend + alt length rows for one-scan readability in summary/token sections.

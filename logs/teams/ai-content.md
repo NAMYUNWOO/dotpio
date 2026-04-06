@@ -4109,3 +4109,6 @@
 ## 2026-04-06 22:34 KST (Cycle IP116)
 - Shipped legend-pairing eval row `...CTRLWNRBLGLEGLEN` and extended strict rollback chain to `...CTRLWNRBLG -> ...CTRLWNRBLGLEG -> ...CTRLWNRBLGLEGLEN -> ...CTRLWNRBLGLEN`; verification bundle PASS.
 - 2026-04-06 23:24 KST — Added report-only alternate confidence rollback legend phrasing (`confidence rail`) under explicit safety token `SAFE=CTRLWNRB`. Decision: keep runtime coupling disabled; treat as offline wording experiment only. Follow-up: candidate A/B wording can be compared in future report-only slices.
+
+## 2026-04-07 00:31 KST — IP118 report-only wording constraint
+- Held high-risk wording variant; no copy mutation shipped this cycle. Kept SAFE anchor literal stable as `SAFE=CTRLWNRB` while adding eval row coverage only.

@@ -4278,3 +4278,6 @@
 ## 2026-04-06 22:34 KST (Cycle IP116)
 - Shipped legend-pairing eval row `...CTRLWNRBLGLEGLEN` and extended strict rollback chain to `...CTRLWNRBLG -> ...CTRLWNRBLGLEG -> ...CTRLWNRBLGLEGLEN -> ...CTRLWNRBLGLEN`; verification bundle PASS.
 - 2026-04-06 23:24 KST — Confirmed rollback-gated alt legend token is visible in markdown output and preserved in strict ordered chain checks, maintaining one-scan UX triage behavior.
+
+## 2026-04-07 00:31 KST — IP118 UX eval continuity
+- UX/report ordering now expects `LEGALT -> LEGALTSAFE -> LEGALTLEN` in strict chain assertions for deterministic scan order.

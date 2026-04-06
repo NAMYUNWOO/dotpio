@@ -5721,3 +5721,7 @@
 ## 2026-04-06 22:34 KST (Cycle IP116)
 - Shipped legend-pairing eval row `...CTRLWNRBLGLEGLEN` and extended strict rollback chain to `...CTRLWNRBLG -> ...CTRLWNRBLGLEG -> ...CTRLWNRBLGLEGLEN -> ...CTRLWNRBLGLEN`; verification bundle PASS.
 - 2026-04-06 23:24 KST — Extended regression contracts for `...CTRLWNRBLGLEGALT` (presence, chain regex, row-count parity token). Decision: treat token as report-only safety-gated variant; keep deterministic payload lock.
+
+## 2026-04-07 00:31 KST — IP118 alt-legend safety-anchor chain lock
+- Added required row token `...CTRLWNRBLGLEGALTSAFE:B13|C13|LIM72|PASS` and enforced strict ordered-chain placement before `...CTRLWNRBLGLEGALTLEN`.
+- Follow-up: add sparse non-pass diagnostics key for first-diverged SAFE payload drift.
