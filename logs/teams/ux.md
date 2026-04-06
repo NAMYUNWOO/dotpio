@@ -4220,3 +4220,6 @@
 - Closed confidence-note rollback-helper slice by adding `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRB:KEEP if CTRLWNH/CTRLWNHLEN remain PASS|ROLLBACK on helper drift`.
 - Kept strict chain deterministic with `...CTRLWNHLEN -> ...CTRLWNRB -> ...CTRLWNLEN` and preserved report-only runtime coupling.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 17:27 KST
+- UX note: firstMissingToken surfaced directly in mixed-window parity assertion messages to shorten operator diagnosis path for control-winner helper-chain regressions.

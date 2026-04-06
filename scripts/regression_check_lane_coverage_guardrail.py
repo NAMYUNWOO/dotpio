@@ -7844,6 +7844,84 @@ def main() -> int:
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnlen_status_mismatch[0]} "
             f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnlen_status_mismatch[1]}"
         )
+        stalf2_control_chain_sparse_row_keys = (
+            (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwRowCount",
+            ),
+            (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount",
+            ),
+            (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxhRowCount",
+            ),
+            (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXHLEN",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxhlenRowCount",
+            ),
+            (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnRowCount",
+            ),
+            (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhRowCount",
+            ),
+            (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhlenRowCount",
+            ),
+            (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRB",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrbRowCount",
+            ),
+            (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenRowCount",
+            ),
+            (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwlegRowCount",
+            ),
+            (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwlenRowCount",
+            ),
+            (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLRB",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlrbRowCount",
+            ),
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrl_sparse_first_missing_token = next(
+            (
+                (fixture_name, first_missing_token)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    first_missing_token := next(
+                        (
+                            token
+                            for token, row_key in stalf2_control_chain_sparse_row_keys
+                            if int(fixture_result[row_key]) <= 0
+                        ),
+                        None,
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrl_sparse_first_missing_token is None, (
+            "mixed-window fixture matrix must keep explicit sparse firstMissingToken diagnostics for strict ordered chain "
+            "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_sparse_first_missing_token[0]} "
+            f"firstMissingToken={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_sparse_first_missing_token[1]}"
+        )
         mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token = next(
             (
                 (fixture_name, first_missing_token)
@@ -7875,6 +7953,14 @@ def main() -> int:
                     fixture_name,
                     int(fixture_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlRowCount"]),
                     int(fixture_result["tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount"]),
+                    next(
+                        (
+                            token
+                            for token, row_key in stalf2_control_chain_sparse_row_keys
+                            if int(fixture_result[row_key]) <= 0
+                        ),
+                        None,
+                    ),
                 )
                 for fixture_name, fixture_result in (
                     ("balanced_tie", balanced_tie_result),
@@ -7893,7 +7979,8 @@ def main() -> int:
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRL whenever control legend row exists; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwvfx_row_count_mismatch[0]} "
             f"expected={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwvfx_row_count_mismatch[1]} "
-            f"actual={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwvfx_row_count_mismatch[2]}"
+            f"actual={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwvfx_row_count_mismatch[2]} "
+            f"firstMissingToken={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwvfx_row_count_mismatch[3]}"
         )
         assert all(
             tsdpmfxvwcritspmbcbnxdleg_count

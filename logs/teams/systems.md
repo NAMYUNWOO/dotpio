@@ -5641,3 +5641,8 @@
 - Closed confidence-note rollback-helper slice by adding `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRB:KEEP if CTRLWNH/CTRLWNHLEN remain PASS|ROLLBACK on helper drift`.
 - Kept strict chain deterministic with `...CTRLWNHLEN -> ...CTRLWNRB -> ...CTRLWNLEN` and preserved report-only runtime coupling.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 17:27 KST
+- Shipped sparse control-winner chain diagnostics lock for mixed-window fixtures by introducing explicit row-key chain mapping (`...CTRLW` through `...CTRLRB`) and first-missing-token extraction from row-counts.
+- Decision: parity mismatch assertions must include `firstMissingToken` alongside fixture/expected/actual for immediate triage.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

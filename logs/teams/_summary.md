@@ -6163,3 +6163,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: control-winner confidence-note helper now has explicit rollback checkpoint in the strict chain (`...CTRLWNHLEN -> ...CTRLWNRB -> ...CTRLWNLEN`) before decode-helper eval rows.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` (PASS).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: Systems/Ops + QA firstMissingToken diagnostics sync item).
+
+## 2026-04-06 17:27 KST
+- Closed IP107 injected Systems/Ops+QA task by implementing explicit sparse firstMissingToken diagnostics for the `...BACKSTAF2CTRLW -> ...CTRLRB` helper chain.
+- Ran immediate mandatory Game Director cycle IP109 (all checklists were fully checked): selected low+mid-risk diagnostics slice and shipped sparse row-key chain + firstMissingToken parity-mismatch surfacing.
+- Durable decision: control-chain mixed-window mismatch assertions must always include fixture + expected + actual + `firstMissingToken` for deterministic triage.
+- Next injected tasks opened: (1) combat/design compact cue-priority helper row for `...CTRLWVFX`, (2) systems/qa parity assertion for that helper row.

@@ -4126,3 +4126,6 @@
 - Closed confidence-note rollback-helper slice by adding `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRB:KEEP if CTRLWNH/CTRLWNHLEN remain PASS|ROLLBACK on helper drift`.
 - Kept strict chain deterministic with `...CTRLWNHLEN -> ...CTRLWNRB -> ...CTRLWNLEN` and preserved report-only runtime coupling.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 17:27 KST
+- Reviewed control-winner helper-chain diagnostics wording; preserved compact token names while exposing firstMissingToken in assertion output to keep one-scan triage readable.

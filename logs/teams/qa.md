@@ -6112,3 +6112,8 @@
 - Closed confidence-note rollback-helper slice by adding `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRB:KEEP if CTRLWNH/CTRLWNHLEN remain PASS|ROLLBACK on helper drift`.
 - Kept strict chain deterministic with `...CTRLWNHLEN -> ...CTRLWNRB -> ...CTRLWNLEN` and preserved report-only runtime coupling.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 17:27 KST
+- Added QA-facing sparse first-missing-token diagnostics in control-winner parity mismatch assertion path (`...BACKSTAF2CTRLWVFX` parity vs `...BACKSTAF2CTRL`).
+- Decision: mixed-window mismatch output now reports `firstMissingToken` to reduce fixture replay time.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
