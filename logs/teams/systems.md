@@ -5655,3 +5655,12 @@
 - Closed highest-priority unchecked POST_RC item by adding fixture payload-domain lock for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH` ordered helper copy.
 - Implementation: capture `...CTRLWVFXH` payload tuples per fixture and assert mixed-window domain stays exactly `A=GLINT-HOLD first|B=PULSE-CUT second|C=SHIELD-HOLD third` with first-diverged fixture/occurrence/payload diagnostics.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 18:49 KST — Cycle IP110 follow-up support
+- Added sparse row-count key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbRowCount` and wired it into mixed-window parity checks.
+- Kept first-missing-token chain diagnostics synchronized with the inserted `...CTRLWVFXRB` token.
+- Follow-up: if control chain expands again, update all parity key tuples in one patch.
+
+## 2026-04-06 18:54 KST — Cycle IP111 selected slice
+- Added deterministic payload-domain assertion for `...NFXQBACKSTAF2CTRLWVFXRB` in fixture-level checks.
+- Ensured sparse first-missing-token chain still includes `...CTRLWVFXRB` before `...CTRLWN`.

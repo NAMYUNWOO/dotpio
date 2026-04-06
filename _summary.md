@@ -244,3 +244,12 @@
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - 2026-04-06 09:48 KST: Closed forced systems/qa parity task by adding `...NFXQBACKSTAF2` + `...NFXQBACKSTAF2LEN` to mixed-window row-count parity matrix; verification suite green; next up remains control-decode eval row + control rollback domain lock.
 - 2026-04-06 10:23 KST: Completed STAF2 control continuity/watchdog slice. Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLLEN:B17|C17|LIM72|PASS` adjacent to `...NFXQBACKSTAF2LEN`/`...NFXQBACKSTAF2CTRL`, plus fixture-level KEEP/ROLLBACK domain lock assertion for `...NFXQBACKSTAF2CTRLRB` gated on `...NFXQBACKSTAF2CTRL` presence. Extended row-count parity keys for STAF2 control rows and re-ran lane guardrail regression bundle successfully.
+
+## 2026-04-06 18:49 KST — Cycle IP110 follow-up (CTRLWVFXRB)
+- Added report-only control-winner VFX rollback helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB:KEEP if CTRLWVFXH/CTRLWVFXHLEN stay PASS|ROLLBACK on VFX helper drift`.
+- Enforced deterministic chain insertion `...CTRLWVFXHLEN -> ...CTRLWVFXRB -> ...CTRLWN` across regression ordered-chain checks and sparse mixed-window first-missing diagnostics.
+- Added parity key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbRowCount` to keep fixture row-count parity auditable.
+
+## 2026-04-06 18:54 KST — Cycle IP111 durable decision
+- Domain-locked `...NFXQBACKSTAF2CTRLWVFXRB` payload in regression fixtures to prevent rollback-helper copy drift.
+- Queued injected follow-ups for RB non-pass diagnostics and RB eval-row chain lock.

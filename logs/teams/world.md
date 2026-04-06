@@ -3977,3 +3977,7 @@
 - [2026-04-06 17:51 KST] World: No map/progression changes in this slice; world lane reviewed for ordering coherence only.
 
 - [2026-04-06 17:58 KST] World: No map changes in IP110; supported design lane review for helper-row ordering and rollback-helper placement.
+
+## 2026-04-06 18:49 KST — Cycle IP110 follow-up note
+- No world/layout content change in this cycle.
+- Recorded control-winner VFX rollback-helper ordering decision to keep design/world readability context aligned.

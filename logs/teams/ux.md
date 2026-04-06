@@ -4227,3 +4227,11 @@
 - [2026-04-06 17:51 KST] UX: Confirmed CTRLWVFX helper wording remains compact and scan-friendly with ordering semantics (`first/second/third`) and existing length-eval rail (`CTRLWVFXHLEN`) unchanged.
 
 - [2026-04-06 17:58 KST] UX: IP110 retained compact scan path while clarifying ordinal priority wording for CTRLWVFX helper row; follow-up is KEEP/ROLLBACK helper row for operator triage.
+
+## 2026-04-06 18:49 KST — Cycle IP110 follow-up (rollback-helper readability)
+- Added compact VFX rollback helper row copy: `KEEP if CTRLWVFXH/CTRLWVFXHLEN stay PASS|ROLLBACK on VFX helper drift`.
+- Regression checks now require this row in markdown output and fixture-level control-legend contexts.
+- Follow-up: watch for copy drift if priority helper text evolves.
+
+## 2026-04-06 18:54 KST — Cycle IP111 readability guard
+- Locked rollback-helper copy domain to a single deterministic string to prevent operator-facing drift.

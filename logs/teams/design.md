@@ -4133,3 +4133,8 @@
 - [2026-04-06 17:51 KST] Design/World: Tightened CTRLWVFX decode helper wording to explicit first/second/third priority cues without exceeding DOS-width policy, anchored before CTRLWVFXHLEN eval row. Follow-up: keep helper wording deterministic for operator docs.
 
 - [2026-04-06 17:58 KST] Design/World: IP110 selected helper-copy refinement shipped with deterministic ordering semantics; next design-facing task is compact rollback helper copy anchored after CTRLWVFXHLEN.
+
+## 2026-04-06 18:49 KST — Cycle IP110 follow-up (CTRLWVFXRB copy lock)
+- Finalized compact KEEP/ROLLBACK helper wording for `...NFXQBACKSTAF2CTRLWVFXRB` to preserve one-scan operator triage.
+- Placement anchored immediately after `...CTRLWVFXHLEN` and before `...CTRLWN` for deterministic reading flow.
+- Follow-up: preserve <=72 readability style in future helper variants.

@@ -4066,3 +4066,7 @@
 - [2026-04-06 17:51 KST] AI-content: No generator payload-domain changes in this slice; retained report-only control-winner helper semantics and deterministic alias domain expectations.
 
 - [2026-04-06 17:58 KST] AI-content: No payload-domain expansion in IP110; monitored report-only helper wording lock and rollback-path framing for next experiment.
+
+## 2026-04-06 18:49 KST — Cycle IP110 follow-up note
+- No AI-content payload domain changes this cycle.
+- Confidence-note and VFX helper rows remain report-only; rollback helper insertion does not couple runtime behavior.

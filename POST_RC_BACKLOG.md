@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP111)
+- Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; cadence buckets remain missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) with health `ALERT`.
+- Candidate ideas:
+  - Low-risk UX/Design + Combat/VFX: add fixture-domain lock ensuring `...NFXQBACKSTAF2CTRLWVFXRB` copy remains deterministic for one-glance rollback triage.
+  - Mid-risk Systems/Ops + QA: emit dedicated mixed-window non-pass diagnostics key for `...CTRLWVFXRB` payload drift.
+  - High-risk Combat/VFX + AI-content: prototype alternate VFX rollback copy variant (`KEEP if cue order stable|ROLLBACK on pulse drift`) as report-only wording candidate.
+- Selected experiment: low-risk deterministic payload lock for `...CTRLWVFXRB` with strict chain/parity continuity.
+- [x] UX/Design + Combat/VFX + Systems/Ops + QA Team (selected): Added fixture-level payload extraction/assertion so `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB` is required and domain-locked to `KEEP if CTRLWVFXH/CTRLWVFXHLEN stay PASS|ROLLBACK on VFX helper drift` when control legend rows exist, while preserving strict ordered-chain/parity checks with `...CTRLWVFXRB` inserted before `...CTRLWN`. *(lifecycle: [ ] -> [~] started: 2026-04-06 18:50 KST -> [x] completed: 2026-04-06 18:54 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP111)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window non-pass diagnostics key (`tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbNonPassRows`) to surface first-diverged fixture payload for `...CTRLWVFXRB`.
+- [ ] Design/World + Combat/VFX + UX Team (injected): Add compact decode-helper eval row for rollback helper copy (`...NFXQBACKSTAF2CTRLWVFXRBLEN`) and anchor chain `...CTRLWVFXRB -> ...CTRLWVFXRBLEN -> ...CTRLWN` under LIM72 report-only policy.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP110)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP109 follow-up closure, so mandatory Game Director loop executed.
 - Candidate ideas:
@@ -9,7 +22,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP110)
 - [x] Systems/Ops + QA Team (injected): Added fixture-level domain assertion that `...NFXQBACKSTAF2CTRLWVFXH` helper row remains constrained to ordered copy (`GLINT-HOLD first|PULSE-CUT second|SHIELD-HOLD third`) whenever `...CTRLWVFX` exists, with first-diverged fixture diagnostics across sparse mixed-window fixtures. *(lifecycle: [ ] -> [~] started: 2026-04-06 18:16 KST -> [x] completed: 2026-04-06 18:19 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
-- [ ] UX/Design + Combat/VFX Team (injected): Add compact rollback helper row for control-winner VFX priority helper (`...NFXQBACKSTAF2CTRLWVFXRB`) with KEEP/ROLLBACK guidance anchored between `...CTRLWVFXHLEN` and `...CTRLWN`.
+- [x] UX/Design + Combat/VFX Team (injected): Add compact rollback helper row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB:KEEP if CTRLWVFXH/CTRLWVFXHLEN stay PASS|ROLLBACK on VFX helper drift` anchored between `...CTRLWVFXHLEN` and `...CTRLWN`, then extend strict chain/parity fixtures to include `...CTRLWVFXRB` for deterministic first-missing-token triage. *(lifecycle: [ ] -> [~] started: 2026-04-06 18:47 KST -> [x] completed: 2026-04-06 18:49 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP109)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked right after closing IP107 remaining Systems/Ops+QA item, so mandatory Game Director loop triggered immediately.

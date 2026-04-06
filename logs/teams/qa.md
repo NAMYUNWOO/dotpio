@@ -6126,3 +6126,14 @@
 - QA added explicit mixed-window payload-domain assertion for `...NFXQBACKSTAF2CTRLWVFXH` helper row to prevent wording drift under sparse fixture combinations.
 - Failure diagnostics now report first-diverged fixture + occurrence + payload for helper-copy mismatches.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 18:49 KST — Cycle IP110 follow-up verification
+- Extended regression assertions for new row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB` (presence + fixture requirement + chain ordering + sparse parity row-count key).
+- Verification pass:
+  - `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py`
+  - `python3 scripts/regression_check_lane_coverage_guardrail.py`
+  - `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`
+
+## 2026-04-06 18:54 KST — Cycle IP111 verification
+- Verified fixture-level payload extraction + deterministic-domain assertion for `...CTRLWVFXRB`.
+- Regression bundle passed (py_compile + guardrail regression + guardrail regeneration).

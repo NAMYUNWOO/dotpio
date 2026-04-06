@@ -1,6 +1,19 @@
 # TASKS
 
-Last updated: 2026-04-06 15:41 KST
+Last updated: 2026-04-06 18:54 KST
+
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP111)
+- Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).
+- Candidate ideas generated:
+  - Low-risk UX/Design + Combat/VFX: fixture-domain lock for deterministic `...CTRLWVFXRB` rollback-helper payload.
+  - Mid-risk Systems/Ops + QA: mixed-window non-pass diagnostics key for `...CTRLWVFXRB` payload drift.
+  - High-risk Combat/VFX + AI-content: alternate rollback-helper wording candidate for offline readability bakeoff.
+- Selected experiment: low-risk deterministic payload lock for `...CTRLWVFXRB`.
+- [x] UX/Design + Combat/VFX + Systems/Ops + QA Team (selected): Added fixture-level payload extraction/assertion requiring `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB` domain `KEEP if CTRLWVFXH/CTRLWVFXHLEN stay PASS|ROLLBACK on VFX helper drift` whenever control legend rows exist; strict chain/parity checks remain locked with `...CTRLWVFXRB` before `...CTRLWN`. *(lifecycle: [ ] -> [~] started: 2026-04-06 18:50 KST -> [x] completed: 2026-04-06 18:54 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP111)
+- [ ] Systems/Ops + QA Team (injected): Add sparse mixed-window non-pass diagnostics key (`tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbNonPassRows`) for first-diverged `...CTRLWVFXRB` fixture payload.
+- [ ] Design/World + Combat/VFX + UX Team (injected): Add compact rollback-helper eval row `...NFXQBACKSTAF2CTRLWVFXRBLEN` and lock chain `...CTRLWVFXRB -> ...CTRLWVFXRBLEN -> ...CTRLWN` under report-only LIM72 policy.
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP108)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0.

@@ -3986,3 +3986,11 @@
 - [2026-04-06 17:51 KST] Combat/VFX: Updated control-winner cue-priority helper copy to explicit ordering (`GLINT-HOLD first|PULSE-CUT second|SHIELD-HOLD third`) to improve one-glance triage readability while preserving report-only runtime coupling. Follow-up: monitor readability deltas in next Game Director cycle.
 
 - [2026-04-06 17:58 KST] Combat/VFX: IP110 selected experiment kept control-winner VFX guidance readable via explicit first/second/third ordering; queued rollback-helper row (`...CTRLWVFXRB`) for next cycle.
+
+## 2026-04-06 18:49 KST — Cycle IP110 follow-up (CTRLWVFXRB rollback helper)
+- Added report-only control-winner VFX rollback helper row `...NFXQBACKSTAF2CTRLWVFXRB` between `...CTRLWVFXHLEN` and `...CTRLWN`.
+- Locked strict ordered-chain/parity expectations so first-missing-token diagnostics include the new VFX rollback gate.
+- Follow-up: keep row report-only unless a runtime-coupled experiment is explicitly scheduled.
+
+## 2026-04-06 18:54 KST — Cycle IP111 combat/vfx guard
+- Preserved rollback-helper placement and chain ordering for control-winner VFX triage stability.

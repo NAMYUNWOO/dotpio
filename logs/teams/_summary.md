@@ -6179,3 +6179,12 @@ Compact decision memory for AI context efficiency.
 - Durable decision: control-winner VFX helper rows now require both row-presence parity and payload-string invariants across sparse mixed-window fixtures.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` (PASS).
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=1 (next: `...NFXQBACKSTAF2CTRLWVFXRB` rollback helper row).
+
+## 2026-04-06 18:49 KST — Cycle IP110 follow-up durable decision
+- Shipped `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB` rollback helper row with compact KEEP/ROLLBACK guidance.
+- Locked strict order to `...CTRLWVFXHLEN -> ...CTRLWVFXRB -> ...CTRLWN` and extended sparse mixed-window parity row-count coverage (`tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbRowCount`).
+- Verification bundle passed (py_compile + regression_check_lane_coverage_guardrail + guardrail regeneration).
+
+## 2026-04-06 18:54 KST — Cycle IP111 durable decision
+- `...NFXQBACKSTAF2CTRLWVFXRB` is now fixture-domain locked to one deterministic KEEP/ROLLBACK payload.
+- Next injections queued: non-pass diagnostics key for RB payload drift + compact RB eval row/chain lock.
