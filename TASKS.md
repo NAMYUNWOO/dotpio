@@ -1,6 +1,17 @@
 # TASKS
 
-Last updated: 2026-04-07 07:24 KST
+Last updated: 2026-04-07 08:29 KST
+
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP127)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP126 injected item closure, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Systems/Ops + UX: add compact docs-order mnemonic delta helper row so baseline vs candidate wording difference is one-scan visible.
+  - Mid-risk QA + Design/World: add fixture-level payload-drift diagnostics key for mnemonic delta helper and keep report-only gate deterministic.
+  - High-risk AI-content + Combat/VFX: stage alternate SAFE-gate phrasing candidate (`PIN=guard pre-safe`) behind report-only wording gate for future A/B.
+- [x] Systems/Ops + UX + QA Team (selected): add docs-order mnemonic delta helper row and regression guardrail coverage for deterministic baseline/candidate readability comparison. *(lifecycle: [ ] -> [~] started: 2026-04-07 08:25 KST -> [x] completed: 2026-04-07 08:29 KST; implementation: added `...CTRLWNRBLGLEGALTPINDIFF:BASE=ALTLEN|ALT=WIDTH|DELTA=-2` report-only helper row in `scripts/check_lane_coverage_guardrail.py`; extended `scripts/regression_check_lane_coverage_guardrail.py` with presence assertion plus fixture payload mismatch and row-count key coverage for `...LEGALTPINDIFF`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP127)
+- [ ] Systems/Ops + QA Team (injected): add explicit first-diverged sparse mixed-window assertion label for mnemonic delta helper drift (`...legaltpindiffNonPassRows`) so docs-order readability regressions surface as `assertionLabel=<...legaltpindiffNonPassRows>` in one scan.
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP126)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP125 follow-up closure, so mandatory Game Director loop executed immediately.
@@ -12,7 +23,7 @@ Last updated: 2026-04-07 07:24 KST
 
 ## Next Up (Game Director Injection — Cycle IP126)
 - [x] Design/World + UX Team (injected): add compact docs helper line that maps PINLEN/PINSAFE/SAFE/ALTLEN to their corresponding `...NonPassRows` assertion-label family names for one-scan triage. *(lifecycle: [ ] -> [~] started: 2026-04-07 07:46 KST -> [x] completed: 2026-04-07 07:49 KST; implementation: added docs-order helper row in `scripts/check_lane_coverage_guardrail.py` mapping PINLEN/PINSAFE/SAFE/ALTLEN to `assertionLabel=<...legalt*NonPassRows>` family values and enforced presence via regression assertion in `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
-- [ ] AI-content + Combat/VFX Team (injected): prototype alternate ALTLEN mnemonic wording behind report-only gate and evaluate readability vs current docs-order wording.
+- [x] AI-content + Combat/VFX Team (injected): prototype alternate ALTLEN mnemonic wording behind report-only gate and evaluate readability vs current docs-order wording. *(lifecycle: [ ] -> [~] started: 2026-04-07 08:18 KST -> [x] completed: 2026-04-07 08:24 KST; implementation: added report-only docs-order alternate mnemonic candidate row `...CTRLWNRBLGLEGALTPINALT:ALT>PIN>SAFE>WIDTH` with compactness eval `...LEGALTPINALTLEN:B18|C18|LIM72|PASS` and explicit readability comparison note while preserving baseline `ALT>PIN>SAFE>ALTLEN` as source-of-truth in `scripts/check_lane_coverage_guardrail.py`; extended regression assertions + fixture mismatch capture/row-count keys for the new candidate rows in `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP125)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS completed; POST_RC had one unchecked stale injection from IP124, so it was reconciled first and mandatory Game Director loop executed immediately after all queues were fully checked.

@@ -4018,10 +4018,20 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include alternate legend docs-order sentinel row"
     assert (
+        "docs-order sentinel alternate mnemonic candidate (ai-content+combat/vfx, report-only + wording gate): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINALT:ALT>PIN>SAFE>WIDTH**"
+        in md_text
+    ), f"{name}: markdown output must include alternate docs-order mnemonic candidate row"
+    assert (
         "docs-order sentinel eval row (combat/vfx+ux, report-only): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINLEN:B19|C19|LIM72|PASS**"
         in md_text
     ), f"{name}: markdown output must include alternate legend docs-order sentinel eval row"
+    assert (
+        "docs-order sentinel alternate mnemonic eval row (ai-content+ux, report-only + wording gate): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINALTLEN:B18|C18|LIM72|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include alternate docs-order mnemonic eval row"
     assert (
         "docs-order sentinel safety gate row (combat/vfx+ux, report-only): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINSAFE:PIN=guard before SAFE gate**"
@@ -4110,6 +4120,16 @@ def run_fixture_case(
         "ALTLEN=`assertionLabel=<...legaltlenNonPassRows>`."
         in md_text
     ), f"{name}: markdown output must include docs-order PINLEN/PINSAFE/SAFE/ALTLEN assertion-label helper row for one-scan triage"
+    assert (
+        "docs-order mnemonic readability note (ai-content+ux, report-only gate): baseline **ALT>PIN>SAFE>ALTLEN** remains source-of-truth; "
+        "candidate **ALT>PIN>SAFE>WIDTH** is emitted as `...LEGALTPINALT` with compactness check `...LEGALTPINALTLEN` before any promotion."
+        in md_text
+    ), f"{name}: markdown output must include docs-order mnemonic readability comparison note"
+    assert (
+        "docs-order mnemonic delta helper (systems/qa+ux, report-only gate): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINDIFF:BASE=ALTLEN|ALT=WIDTH|DELTA=-2**"
+        in md_text
+    ), f"{name}: markdown output must include docs-order mnemonic delta helper row"
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback operator cue legend (design/world+combat/vfx): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUE:AGF=anchor brace|CRF=crossfire cut|SHD=shelter hold**"
@@ -5947,6 +5967,33 @@ def run_fixture_case(
         for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpin_payload_values)
         if payload != "ALT>PIN>SAFE>ALTLEN"
     )
+    nfxqbackstaf2ctrlwnrblglegaltpinalt_payload_values = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINALT:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinalt_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinalt_payload_values)
+        if payload != "ALT>PIN>SAFE>WIDTH"
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinaltlen_eval_rows = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINALTLEN:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinaltlen_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinaltlen_eval_rows)
+        if payload != "B18|C18|LIM72|PASS"
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpindiff_payload_values = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINDIFF:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpindiff_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpindiff_payload_values)
+        if payload != "BASE=ALTLEN|ALT=WIDTH|DELTA=-2"
+    )
     nfxqbackstaf2ctrlwnrblglegaltpinlen_eval_rows = re.findall(
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINLEN:([^*\n]+)\*\*",
         md_text,
@@ -6963,7 +7010,10 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEG:K=confidence KEEP lane|R=confidence ROLLBACK lane**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALT:K=KEEP confidence rail|R=ROLLBACK confidence rail|SAFE=CTRLWNRB**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPIN:ALT>PIN>SAFE>ALTLEN**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinaltRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINALT:ALT>PIN>SAFE>WIDTH**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINLEN:B19|C19|LIM72|PASS**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinaltlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINALTLEN:B18|C18|LIM72|PASS**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpindiffRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINDIFF:BASE=ALTLEN|ALT=WIDTH|DELTA=-2**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinsafeRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINSAFE:PIN=guard before SAFE gate**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE:B13|C13|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN:B63|C63|LIM72|PASS**"),
@@ -7001,7 +7051,10 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglen_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblgleglen_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpin_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinaltNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinalt_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinlen_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinaltlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinaltlen_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpindiffNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpindiff_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinsafeNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinsafe_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltsafe_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltlen_payload_mismatch_rows),

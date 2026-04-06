@@ -4238,3 +4238,6 @@
 
 ## 2026-04-07 07:49 KST
 - Added compact docs helper line mapping PINLEN/PINSAFE/SAFE/ALTLEN to `assertionLabel=<...legalt*NonPassRows>` families for one-scan operator decode.
+
+- 2026-04-07 08:24 KST — Added mnemonic readability comparison note so operators can compare baseline vs candidate wording in one scan without displacing canonical docs order.
+- 2026-04-07 08:29 KST — Added durable docs-order comparison affordance via explicit baseline/candidate delta helper payload.

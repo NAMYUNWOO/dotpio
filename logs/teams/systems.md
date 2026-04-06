@@ -5800,3 +5800,6 @@
 ## 2026-04-07 07:49 KST
 - Added regression contract requiring docs-order assertion-label helper row for PINLEN/PINSAFE/SAFE/ALTLEN `...NonPassRows` mapping.
 - Verification bundle PASS: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration.
+
+- 2026-04-07 08:24 KST — Added regression contracts for docs-order alternate mnemonic candidate (`...LEGALTPINALT` / `...LEGALTPINALTLEN`), including deterministic row-count and payload mismatch diagnostics. Follow-up: keep candidate report-only until readability wins across cycles.
+- 2026-04-07 08:29 KST — Cycle IP127 selected slice shipped: added docs-order mnemonic delta helper `...LEGALTPINDIFF` and regression presence/mismatch keys. Injected next: add first-diverged assertionLabel surfacing for `...legaltpindiffNonPassRows`.

@@ -6263,3 +6263,6 @@
 
 ## 2026-04-07 07:49 KST
 - Added deterministic regression assertion for new docs-order helper row and confirmed full verification bundle passes.
+
+- 2026-04-07 08:24 KST — Verified alternate mnemonic candidate with full guardrail bundle (py_compile + regression + guardrail regeneration). Result: PASS, no chain/order regressions.
+- 2026-04-07 08:29 KST — Regression bundle PASS after IP127 slice; next injected task is assertionLabel surfacing for mnemonic-delta first-diverged diagnostics.

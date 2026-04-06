@@ -4091,3 +4091,6 @@
 
 ## 2026-04-07 07:49 KST
 - No combat/VFX payload tuning this slice; validated docs helper mapping landed without breaking guardrail regression suite.
+
+- 2026-04-07 08:24 KST — Combat/VFX lane supported report-only wording gate experiment for docs-order mnemonic; no runtime gameplay coupling introduced. Follow-up: keep experiment reversible.
+- 2026-04-07 08:29 KST — No runtime combat coupling changes; supported report-only docs readability experiment and rollback-safe posture.

@@ -4163,3 +4163,6 @@
 
 ## 2026-04-07 07:49 KST
 - No payload-generation logic changed this cycle; synchronized on docs helper mapping that clarifies ALTLEN/PINSAFE diagnostics semantics for report consumers.
+
+- 2026-04-07 08:24 KST — Prototyped alternate ALTLEN mnemonic wording (`ALT>PIN>SAFE>WIDTH`) behind report-only gate and documented promotion guardrails. Follow-up: gather additional readability signal before any canonical swap.
+- 2026-04-07 08:29 KST — High-risk wording lane deferred; maintained report-only scope and left next injected diagnostics task for safer progression.

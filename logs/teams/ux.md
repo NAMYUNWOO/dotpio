@@ -4332,3 +4332,6 @@
 
 ## 2026-04-07 07:49 KST
 - Improved report scannability by adding explicit PIN-chain assertion-label helper line under docs-order section.
+
+- 2026-04-07 08:24 KST — Added compactness eval rail (`...LEGALTPINALTLEN:B18|C18|LIM72|PASS`) for alternate mnemonic candidate. Follow-up: continue evaluating scan speed and ambiguity risk.
+- 2026-04-07 08:29 KST — UX readability instrumentation expanded with mnemonic delta row to reduce scan ambiguity for ALTLEN vs WIDTH candidate.

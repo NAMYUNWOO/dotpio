@@ -4078,3 +4078,6 @@
 ## 2026-04-07 07:49 KST
 - Docs-order readability pass: added compact PIN-chain assertion-label helper mapping row for one-scan triage in markdown output.
 - Follow-up: keep helper row adjacent to docs-order callout when future sentinel rows are added.
+
+- 2026-04-07 08:24 KST — Docs-order readability note updated to keep baseline `ALT>PIN>SAFE>ALTLEN` canonical while surfacing candidate `ALT>PIN>SAFE>WIDTH` for operator scan trials. Follow-up: monitor one-scan triage clarity in summaries.
+- 2026-04-07 08:29 KST — Reviewed docs-order readability framing; kept baseline mnemonic canonical and documented delta helper for one-scan operator comparison.
