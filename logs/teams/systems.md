@@ -5631,3 +5631,8 @@
 - Closed injected CTRLWVFX guardrail task: added fixture-level required-row assertion for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX` whenever control legend row exists, with payload domain lock `GLINT-HOLD|PULSE-CUT|SHIELD-HOLD`.
 - Added mixed-window parity key/assertion `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount` and enforced parity against `...BACKSTAF2CTRL` row count.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 16:24 KST
+- Updated regression row-count keys for `...CTRLWVFXH` and `...CTRLWVFXHLEN` to keep sparse matrix parity telemetry deterministic.
+- Decision: control-winner helper chain tokens now include VFX helper/eval as first-class contract rows.
+- Follow-up: next systems item is explicit mixed-window firstMissingToken diagnostics cleanup.

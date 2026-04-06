@@ -1,3 +1,8 @@
+## 2026-04-06 16:24 KST
+- Closed injected Design/World + Combat/VFX item by adding `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH` and `...CTRLWVFXHLEN` rows.
+- Durable decision: strict control-winner chain now includes explicit VFX helper readability stage: `...CTRLW -> ...CTRLWVFX -> ...CTRLWVFXH -> ...CTRLWVFXHLEN -> ...CTRLWN ...`.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md` (PASS).
+
 ## 2026-04-06 15:41 KST
 - Game Director Cycle IP108 completed on `feature/ai-disassemble-builder` after guardrail coverage check over latest 10 completed items (`systems/world/ai-content/combat/design/vfx/ux/qa` all 0%; no lane >40%).
 - Cadence status remained missing in all 24h buckets (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so experiment pick was forced into underrepresented combat/vfx lane while injecting design/world + systems/ops follow-ups.

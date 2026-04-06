@@ -5,7 +5,7 @@
 
 ## Next Up (Game Director Injection — Cycle IP108)
 - [x] Systems/Ops + QA Team (injected): Added fixture-level domain assertion and sparse mixed-window parity row-count coverage for `...NFXQBACKSTAF2CTRLWVFX` (required when control legend row exists), including key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount` and fixture mismatch assertion versus `...BACKSTAF2CTRL` count. *(lifecycle: [ ] -> [~] started: 2026-04-06 15:47 KST -> [x] completed: 2026-04-06 15:50 KST; verification bundle re-run.)*
-- [ ] Design/World + Combat/VFX Team (injected): Add compact decode-helper companion/eval rows for `...NFXQBACKSTAF2CTRLWVFX` to keep one-scan readability deterministic under LIM72.
+- [x] Design/World + Combat/VFX Team (injected): Added compact decode-helper companion/eval rows for `...NFXQBACKSTAF2CTRLWVFX` via `...CTRLWVFXH:A=GLINT-HOLD|B=PULSE-CUT|C=SHIELD-HOLD` and `...CTRLWVFXHLEN:B43|C43|LIM72|PASS`, and tightened strict chain ordering before confidence-note rows to keep one-scan readability deterministic under LIM72. *(lifecycle: [ ] -> [~] started: 2026-04-06 16:20 KST -> [x] completed: 2026-04-06 16:24 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP107)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP106 closure, so mandatory Game Director loop triggered.

@@ -4210,3 +4210,8 @@
 - Closed injected CTRLWVFX guardrail task: added fixture-level required-row assertion for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX` whenever control legend row exists, with payload domain lock `GLINT-HOLD|PULSE-CUT|SHIELD-HOLD`.
 - Added mixed-window parity key/assertion `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount` and enforced parity against `...BACKSTAF2CTRL` row count.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 16:24 KST
+- Added explicit helper eval row for VFX control mapping (`...CTRLWVFXHLEN:B43|C43|LIM72|PASS`).
+- Decision: keep LIM72 evaluation rows paired with each new decode-helper companion.
+- Follow-up: pending rollback-helper wording prototype in queue.

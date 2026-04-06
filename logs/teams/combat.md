@@ -3972,3 +3972,8 @@
 - Closed injected CTRLWVFX guardrail task: added fixture-level required-row assertion for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX` whenever control legend row exists, with payload domain lock `GLINT-HOLD|PULSE-CUT|SHIELD-HOLD`.
 - Added mixed-window parity key/assertion `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount` and enforced parity against `...BACKSTAF2CTRL` row count.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 16:24 KST
+- Combat/VFX readability updated for control-winner pulse cue block via `...CTRLWVFXH` mapping row.
+- Decision: preserve report-only behavior; no runtime coupling change.
+- Follow-up: next combat-facing backlog remains confidence rollback helper prototype.

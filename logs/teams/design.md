@@ -4116,3 +4116,8 @@
 - Closed injected CTRLWVFX guardrail task: added fixture-level required-row assertion for `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFX` whenever control legend row exists, with payload domain lock `GLINT-HOLD|PULSE-CUT|SHIELD-HOLD`.
 - Added mixed-window parity key/assertion `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxRowCount` and enforced parity against `...BACKSTAF2CTRL` row count.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
+## 2026-04-06 16:24 KST
+- Completed injected decode-helper readability slice for control-winner VFX cue: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH:A=GLINT-HOLD|B=PULSE-CUT|C=SHIELD-HOLD`.
+- Added paired eval row `...CTRLWVFXHLEN:B43|C43|LIM72|PASS` to keep one-scan readability deterministic.
+- Follow-up: keep helper copy stable unless chain diagnostics request alternate compact wording.
