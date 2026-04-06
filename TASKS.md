@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-04-06 14:41 KST
+Last updated: 2026-04-06 15:19 KST
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP107)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop triggered.
@@ -12,7 +12,7 @@ Last updated: 2026-04-06 14:41 KST
 - [x] UX/Design + Systems/Ops + QA + Combat/VFX + AI-content Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:B45|C45|LIM72|PASS`, expanded strict ordered chain to include `...CTRLWNHLEN`, and wired fixture/mixed-window non-pass diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhlenNonPassRows` while keeping runtime coupling disabled. *(lifecycle: [ ] -> [~] started: 2026-04-06 14:31 KST -> [x] completed: 2026-04-06 14:41 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP107)
-- [ ] Systems/Ops + QA Team (injected): Add fixture-level ordered-chain mismatch diagnostic payload (`firstMissingToken`) for `...CTRLW -> ...CTRLWN -> ...CTRLWNH -> ...CTRLWNHLEN -> ...CTRLWNLEN -> ...CTRLWLEG -> ...CTRLWLEN -> ...CTRLRB` to speed sparse mixed-window triage.
+- [x] Systems/Ops + QA Team (injected): Added fixture-level ordered-chain mismatch diagnostic payload key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlChainFirstMissingToken` and sparse mixed-window assertion surfacing `firstMissingToken` for `...CTRLW -> ...CTRLWN -> ...CTRLWNH -> ...CTRLWNHLEN -> ...CTRLWNLEN -> ...CTRLWLEG -> ...CTRLWLEN -> ...CTRLRB` triage. *(lifecycle: [ ] -> [~] started: 2026-04-06 15:15 KST -> [x] completed: 2026-04-06 15:19 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [ ] Design/World + Combat/VFX + AI-content Team (injected): Prototype report-only compact confidence-note rollback helper row tied to decode-helper eval failures (`KEEP if CTRLWNH/CTRLWNHLEN remain PASS|ROLLBACK on helper drift`) with runtime coupling disabled.
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP106)

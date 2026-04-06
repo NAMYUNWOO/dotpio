@@ -6092,3 +6092,8 @@
 - Cycle IP107 shipped `...NFXQBACKSTAF2CTRLWNHLEN` eval-row contract (`B45|C45|LIM72|PASS`) with strict chain insertion `CTRLWNH -> CTRLWNHLEN -> CTRLWNLEN`.
 - Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up: inject `firstMissingToken` ordered-chain diagnostics + report-only confidence rollback helper row in next cycle.
+
+## 2026-04-06 15:19 KST
+- QA validated fixture-level ordered-chain diagnostics now emit explicit `firstMissingToken` payload key for the `...BACKSTAF2CTRL*` helper chain.
+- Sparse mixed-window regression assertion now reports `first diverged fixture` + `firstMissingToken` for control-winner chain mismatch triage.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

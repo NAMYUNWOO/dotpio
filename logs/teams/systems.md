@@ -5617,3 +5617,8 @@
 - Cycle IP107 shipped `...NFXQBACKSTAF2CTRLWNHLEN` eval-row contract (`B45|C45|LIM72|PASS`) with strict chain insertion `CTRLWNH -> CTRLWNHLEN -> CTRLWNLEN`.
 - Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Follow-up: inject `firstMissingToken` ordered-chain diagnostics + report-only confidence rollback helper row in next cycle.
+
+## 2026-04-06 15:19 KST
+- Closed highest-priority unchecked TASKS item (Systems/Ops+QA): added fixture payload key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlChainFirstMissingToken` to surface the first missing token in control-winner ordered chain diagnostics.
+- Added sparse mixed-window assertion that reports `firstMissingToken` when `...CTRLW -> ...CTRLWN -> ...CTRLWNH -> ...CTRLWNHLEN -> ...CTRLWNLEN -> ...CTRLWLEG -> ...CTRLWLEN -> ...CTRLRB` chain drifts.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

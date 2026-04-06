@@ -6134,3 +6134,9 @@ Compact decision memory for AI context efficiency.
 - Shipped vertical slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:B45|C45|LIM72|PASS` and hardened regression fixture/mixed-window diagnostics with `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhlenNonPassRows`.
 - Durable decision: confidence-note decode helper rows must carry their own eval token + explicit non-pass diagnostics before expanding rollback semantics.
 - Queue status after injection: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2.
+
+## 2026-04-06 15:19 KST
+- Closed TASKS IP107 Systems/Ops+QA injected item: fixture payload now includes `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlChainFirstMissingToken` and mixed-window assertion surfaces `firstMissingToken` for ordered-chain drift (`CTRLW -> CTRLWN -> CTRLWNH -> CTRLWNHLEN -> CTRLWNLEN -> CTRLWLEG -> CTRLWLEN -> CTRLRB`).
+- Durable decision: long ordered-chain contracts must export a first-missing-token diagnostic payload, not just parity counts/non-pass rows.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=2 (next: report-only compact confidence-note rollback helper row in TASKS).

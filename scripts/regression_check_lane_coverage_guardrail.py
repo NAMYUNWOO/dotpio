@@ -6472,6 +6472,25 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include compact combat-callout DOS-width/readability evaluation row"
 
+    stalf2_control_winner_chain_tokens = (
+        "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW",
+        "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN",
+        "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH",
+        "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN",
+        "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN",
+        "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG",
+        "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN",
+        "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLRB",
+    )
+    stalf2_control_winner_chain_first_missing_token = next(
+        (
+            token
+            for token in stalf2_control_winner_chain_tokens
+            if md_text.count(f"**{token}:") == 0
+        ),
+        "",
+    )
+
     return {
         "familyTrend": family_trend,
         "stprvLegendRowCount": cadence_24h_triad_coverage_spread_trend_confidence_momentum_score_vfx_cue_hysteresis_confidence_drift_score_trend_alias_smoothing_policy_pressure_recommendation_visual_legend_rows,
@@ -6565,6 +6584,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaflenNonPassRows": " || ".join(nfxqbackstaflen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnhlen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnlen_eval_non_pass_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlChainFirstMissingToken": stalf2_control_winner_chain_first_missing_token,
         "tsdpmfxvwcritspmbcbnxdmapnfxplegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxplenRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_eval_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxpoRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_operator_helper_row_count,
@@ -7754,6 +7774,31 @@ def main() -> int:
             "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN domain-constrained to PASS across sparse summary + token sections; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnlen_status_mismatch[0]} "
             f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnlen_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token = next(
+            (
+                (fixture_name, first_missing_token)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    first_missing_token := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlChainFirstMissingToken"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token is None, (
+            "mixed-window fixture matrix must keep strict ordered chain "
+            "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token[0]} "
+            f"firstMissingToken={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token[1]}"
         )
         assert all(
             tsdpmfxvwcritspmbcbnxdleg_count
