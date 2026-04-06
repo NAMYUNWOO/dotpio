@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP107)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP106 closure, so mandatory Game Director loop triggered.
+- Candidate ideas:
+  - Low-risk UX/Design: add compact decode-helper width eval row for `...NFXQBACKSTAF2CTRLWNH` to keep confidence helper readability one-scan visible.
+  - Mid-risk Systems/Ops + QA: enforce fixture-level PASS-domain diagnostics key + mixed-window mismatch assertion for the decode-helper eval row.
+  - High-risk Combat/VFX + AI-content: prototype alternate compact confidence helper wording variant (report-only) behind rollback guidance.
+- Selected experiment: low-risk decode-helper eval row + mid-risk diagnostics lock vertical slice.
+- [x] UX/Design + Systems/Ops + QA + Combat/VFX + AI-content Team (selected): Added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:B45|C45|LIM72|PASS`, inserted strict chain guard `CTRLWNH -> CTRLWNHLEN -> CTRLWNLEN`, and wired fixture/mixed-window non-pass diagnostics via `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhlenNonPassRows` while runtime coupling stayed disabled. *(lifecycle: [ ] -> [~] started: 2026-04-06 14:31 KST -> [x] completed: 2026-04-06 14:41 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
+
+## Next Up (Game Director Injection — Cycle IP107)
+- [ ] Systems/Ops + QA Team (injected): Add explicit sparse mixed-window `firstMissingToken` diagnostics for control-winner helper chain (`...CTRLW` through `...CTRLRB`) to reduce ordered-chain triage time.
+- [ ] Design/World + Combat/VFX + AI-content Team (injected): Prototype report-only control confidence rollback helper row bound to `...CTRLWNH`/`...CTRLWNHLEN` PASS status and keep runtime coupling disabled.
+
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP106)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP104 closure, so mandatory Game Director loop triggered.
 - Candidate ideas:

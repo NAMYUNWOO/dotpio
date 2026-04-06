@@ -4200,3 +4200,8 @@
 - Completed injected slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:A=lane-lock|B=pressure-shift|C=stabilize-hold` adjacent to `...CTRLWN`.
 - Synced strict chain/parity contracts (`CTRLW -> CTRLWN -> CTRLWNH -> CTRLWNLEN -> CTRLWLEG -> CTRLWLEN -> CTRLRB`) in regression.
 - Verification: `py_compile` + `regression_check_lane_coverage_guardrail.py` + `check_lane_coverage_guardrail.py --backlog ...` PASS.
+
+## 2026-04-06 14:41 KST
+- Cycle IP107 shipped `...NFXQBACKSTAF2CTRLWNHLEN` eval-row contract (`B45|C45|LIM72|PASS`) with strict chain insertion `CTRLWNH -> CTRLWNHLEN -> CTRLWNLEN`.
+- Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: inject `firstMissingToken` ordered-chain diagnostics + report-only confidence rollback helper row in next cycle.

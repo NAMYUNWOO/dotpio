@@ -664,3 +664,8 @@
 
 ## 2026-04-06 11:59 KST — IP104 vfx lane note
 - No live VFX behavior change; control-winner readability slice preserves report-only cadence signals for future vfx/callout experiments.
+
+## 2026-04-06 14:41 KST
+- Cycle IP107 shipped `...NFXQBACKSTAF2CTRLWNHLEN` eval-row contract (`B45|C45|LIM72|PASS`) with strict chain insertion `CTRLWNH -> CTRLWNHLEN -> CTRLWNLEN`.
+- Verification bundle: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: inject `firstMissingToken` ordered-chain diagnostics + report-only confidence rollback helper row in next cycle.

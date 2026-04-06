@@ -6128,3 +6128,9 @@ Compact decision memory for AI context efficiency.
 - Shipped report-only helper row: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:A=lane-lock|B=pressure-shift|C=stabilize-hold`.
 - Durable contract update: control-winner confidence chain is now `CTRLW -> CTRLWN -> CTRLWNH -> CTRLWNLEN -> CTRLWLEG -> CTRLWLEN -> CTRLRB` with sparse mixed-window parity lock.
 - Verification bundle PASS: `python3 -m py_compile ...` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-06 14:41 KST
+- Game Director Cycle IP107 executed after queue-full-check state (ACTION_ITEMS/TASKS/POST_RC all checked at run start).
+- Shipped vertical slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:B45|C45|LIM72|PASS` and hardened regression fixture/mixed-window diagnostics with `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhlenNonPassRows`.
+- Durable decision: confidence-note decode helper rows must carry their own eval token + explicit non-pass diagnostics before expanding rollback semantics.
+- Queue status after injection: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2.

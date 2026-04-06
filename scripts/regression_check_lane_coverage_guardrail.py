@@ -3949,6 +3949,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence note decode helper row"
     assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence note decode helper eval (ux/design, report-only): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:B45|C45|LIM72|PASS**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence note decode helper eval row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence note eval (ux/design, report-only): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:B67|C61|LIM72|PASS**"
         in md_text
@@ -3972,6 +3977,7 @@ def run_fixture_case(
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:[^*]+\*\*.*?"
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN:[^*]+\*\*.*?"
@@ -3981,7 +3987,7 @@ def run_fixture_case(
     )
     assert len(stalf2_control_winner_chain_matches) >= 1, (
         f"{name}: summary/token sections must keep strict ordered chain "
-        "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB"
+        "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB"
     )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback operator cue legend (design/world+combat/vfx): "
@@ -4310,6 +4316,12 @@ def run_fixture_case(
             in md_text
         ), (
             f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN row when control legend row is present"
+        )
+        assert (
+            "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:B45|C45|LIM72|PASS**"
+            in md_text
+        ), (
+            f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN row when control legend row is present"
         )
         assert (
             "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:B67|C61|LIM72|PASS**"
@@ -5583,6 +5595,13 @@ def run_fixture_case(
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:([^*\n]+)\*\*",
         md_text,
     )
+    nfxqbackstaf2ctrlwnhlen_eval_rows = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnhlen_eval_non_pass_rows = tuple(
+        row for row in nfxqbackstaf2ctrlwnhlen_eval_rows if not row.strip().endswith("|PASS")
+    )
     nfxqbackstaf2ctrlwnlen_eval_non_pass_rows = tuple(
         row for row in nfxqbackstaf2ctrlwnlen_eval_rows if not row.strip().endswith("|PASS")
     )
@@ -6519,6 +6538,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:A**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:B**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW:C**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:A:anchor brace reserve confidence lane-lock**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:B:crossfire cut feint confidence pressure-shift**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:C:shelter hold harden confidence stabilize-hold**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:A=lane-lock|B=pressure-shift|C=stabilize-hold**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:B45|C45|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN:B67|C61|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwlegRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG:A=ABR winner|B=XCF winner|C=SHH winner**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN:B39|C39|LIM72|PASS**"),
@@ -6543,6 +6563,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackvfxlenNonPassRows": " || ".join(nfxqbackvfxlen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstafcuelenNonPassRows": " || ".join(nfxqbackstafcuelen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaflenNonPassRows": " || ".join(nfxqbackstaflen_eval_non_pass_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnhlen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnlen_eval_non_pass_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxplegRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_row_count,
         "tsdpmfxvwcritspmbcbnxdmapnfxplenRowCount": fx_urgency_confidence_trend_momentum_band_trend_vfx_pulse_guidance_confidence_recommendation_intensity_trend_score_posture_beat_bridge_microcopy_alt_beat_phase_note_pressure_tag_map_narrative_alias_fx_pack_decode_eval_row_count,
@@ -7399,6 +7420,7 @@ def main() -> int:
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLW",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNLEN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEG",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWLEN",
@@ -7684,6 +7706,30 @@ def main() -> int:
             "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAFCUELEN domain-constrained to PASS across sparse summary + token sections; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstafcuelen_status_mismatch[0]} "
             f"rows={mixed_window_tsdpmfx_nfxqbackstafcuelen_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnhlen_status_mismatch = next(
+            (
+                (fixture_name, non_pass_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    non_pass_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhlenNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnhlen_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN domain-constrained to PASS across sparse summary + token sections; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnhlen_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnhlen_status_mismatch[1]}"
         )
         mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnlen_status_mismatch = next(
             (
