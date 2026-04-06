@@ -1,6 +1,18 @@
 # TASKS
 
-Last updated: 2026-04-07 01:25 KST
+Last updated: 2026-04-07 02:29 KST
+
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP121)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP120 follow-up closure, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + UX: add docs-order sentinel eval row for `...CTRLWNRBLGLEGALTPIN` so ALT/PIN/SAFE/ALTLEN chain readability remains one-scan auditable.
+  - Mid-risk Systems/Ops + QA: expand strict ordered-chain + sparse parity contracts to require `...CTRLWNRBLGLEGALTPINLEN` between `...LEGALTPIN` and `...LEGALTSAFE`.
+  - High-risk AI-content + Combat/VFX: prototype alternate sentinel order microcopy candidate (`ALT>HOLD>PINSAFE`) behind report-only rollback gate.
+- [x] Combat/VFX + UX + Systems/Ops + QA Team (selected): add docs-order sentinel eval row `...CTRLWNRBLGLEGALTPINLEN` and enforce strict-chain + sparse parity placement before `...LEGALTSAFE`. *(lifecycle: [ ] -> [~] started: 2026-04-07 02:24 KST -> [x] completed: 2026-04-07 02:29 KST; implementation: added markdown row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINLEN:B19|C19|LIM72|PASS`, inserted `...CTRLWNRBLGLEGALTPINLEN` into strict ordered-chain regex/row-key contracts, and added sparse mixed-window row-count parity assertion requiring PINLEN counts mirror PIN counts; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
+
+## Next Up (Game Director Injection — Cycle IP121)
+- [ ] Systems/Ops + QA Team (injected): add sparse mixed-window payload diagnostics key for `...CTRLWNRBLGLEGALTPINLEN` (`...pinlenNonPassRows`) with first-diverged fixture surfacing when sentinel eval payload drifts.
+- [ ] Design/World + UX Team (injected): add explicit docs-order callout requiring contiguous `...CTRLWNRBLGLEGALTPIN -> ...CTRLWNRBLGLEGALTPINLEN -> ...CTRLWNRBLGLEGALTSAFE` sequence for one-scan sentinel readability.
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP120)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP119 follow-up closure, so mandatory Game Director loop executed.

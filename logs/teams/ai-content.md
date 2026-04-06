@@ -4125,3 +4125,4 @@
 - Verification bundle PASS (`python3 -m py_compile` + regression script + guardrail regeneration).
 - Injected follow-up: lock docs-order callout contiguity `...LEGALT -> ...LEGALTPIN -> ...LEGALTSAFE -> ...LEGALTLEN` in summary markdown text.
 - 2026-04-07 02:21 KST — No content payload expansion this cycle; aligned with sentinel change so alternate legend copy remains deterministic and unchanged (`KEEP/ROLLBACK` semantics retained). Follow-up: only revisit copy if readability A/B requires it.
+- 2026-04-07 02:29 KST — No copy mutation shipped; retained deterministic ALT/PIN/SAFE semantics while adding eval telemetry row only. Follow-up: keep alternate microcopy behind report-only gate.

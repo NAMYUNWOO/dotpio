@@ -4197,3 +4197,4 @@
 - Verification bundle PASS (`python3 -m py_compile` + regression script + guardrail regeneration).
 - Injected follow-up: lock docs-order callout contiguity `...LEGALT -> ...LEGALTPIN -> ...LEGALTSAFE -> ...LEGALTLEN` in summary markdown text.
 - 2026-04-07 02:21 KST — Completed docs-order readability pin for control-winner rollback legend cluster; one-scan chain now explicitly includes PIN between ALT and SAFE. Follow-up: reuse this callout pattern for future decode clusters.
+- 2026-04-07 02:29 KST — Design readability updated to include sentinel eval row in rollback legend cluster and preserve one-scan order before SAFE eval. Follow-up: propagate explicit PIN->PINLEN->SAFE callout in docs text.

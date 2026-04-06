@@ -4050,3 +4050,4 @@
 - Verification bundle PASS (`python3 -m py_compile` + regression script + guardrail regeneration).
 - Injected follow-up: lock docs-order callout contiguity `...LEGALT -> ...LEGALTPIN -> ...LEGALTSAFE -> ...LEGALTLEN` in summary markdown text.
 - 2026-04-07 02:21 KST — Combat-facing rollback legend path kept stable while sentinel ordering tightened (PIN inserted before safety eval row). Follow-up: maintain deterministic helper-chain order before combat cue experiments.
+- 2026-04-07 02:29 KST — Combat/VFX readability cycle shipped sentinel eval telemetry row `...LEGALTPINLEN:B19|C19|LIM72|PASS` to keep rollback chain scanability stable. Follow-up: validate non-pass diagnostics when payload drifts.

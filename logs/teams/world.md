@@ -4039,3 +4039,4 @@
 - Verification bundle PASS (`python3 -m py_compile` + regression script + guardrail regeneration).
 - Injected follow-up: lock docs-order callout contiguity `...LEGALT -> ...LEGALTPIN -> ...LEGALTSAFE -> ...LEGALTLEN` in summary markdown text.
 - 2026-04-07 02:21 KST — Design/world readability contract accepted: rollback legend documentation order now explicitly anchors `...LEGALT -> ...LEGALTPIN -> ...LEGALTSAFE -> ...LEGALTLEN`. Follow-up: preserve this ordering in future markdown helper additions.
+- 2026-04-07 02:29 KST — World/readability docs contract extended: sentinel cluster now expects contiguous `...LEGALTPIN -> ...LEGALTPINLEN -> ...LEGALTSAFE`. Follow-up: add explicit docs callout for this sub-chain.
