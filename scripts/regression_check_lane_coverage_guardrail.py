@@ -8810,9 +8810,13 @@ def main() -> int:
             ),
             None,
         )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinsafe_row_count_label = (
+            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinsafeNonPassRows"
+        )
         assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinsafe_row_count_mismatch is None, (
             "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINSAFE row-count parity with "
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINLEN across sparse summary + token sections; "
+            f"assertionLabel={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinsafe_row_count_label}; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinsafe_row_count_mismatch[0]} "
             f"expected={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinsafe_row_count_mismatch[1]} "
             f"actual={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinsafe_row_count_mismatch[2]}"
@@ -8857,10 +8861,14 @@ def main() -> int:
             ),
             None,
         )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltsafe_row_count_label = (
+            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows"
+        )
         assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltsafe_row_count_mismatch is None, (
             "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE row-count parity with "
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINSAFE across sparse summary + token sections; "
             "docs-order diagnostics must narrate PINSAFE->SAFE parity in one scan; "
+            f"assertionLabel={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltsafe_row_count_label}; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltsafe_row_count_mismatch[0]} "
             f"expected={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltsafe_row_count_mismatch[1]} "
             f"actual={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltsafe_row_count_mismatch[2]}"

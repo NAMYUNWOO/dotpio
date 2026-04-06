@@ -5771,3 +5771,9 @@
 ## 2026-04-07 04:53 KST — Sparse PINSAFE->SAFE diagnostics wording parity
 - Updated regression mismatch assertion copy so mixed-window LEGALTSAFE row-count parity failures explicitly narrate PINSAFE->SAFE docs-order intent in one scan.
 - Verification bundle: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py (weekly artifacts) PASS.
+
+## 2026-04-07 05:24 KST — Cycle IP124 selected slice (PINSAFE assertion-label parity)
+- Added dedicated assertion label `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinsafeNonPassRows` for the mixed-window PINSAFE row-count parity assertion path.
+- Decision: PIN-chain row-count parity assertions should emit `assertionLabel=<...NonPassRows>` in first-diverged diagnostics for one-scan triage alignment.
+- Verification: py_compile + regression guardrail script + weekly guardrail regeneration PASS.
+- Follow-up: extend the same assertion-label pattern to PINLEN row-count parity mismatch.

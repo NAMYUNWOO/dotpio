@@ -6320,3 +6320,10 @@ Compact decision memory for AI context efficiency.
 ## 2026-04-07 04:53 KST — Docs-order sparse diagnostics wording closure
 - Closed injected docs/readability item by making PINSAFE->SAFE parity explicit in both docs-order callout text and mixed-window first-diverged mismatch messaging.
 - Verification bundle PASS (py_compile + regression + weekly guardrail regeneration).
+
+## 2026-04-07 05:24 KST
+- Mandatory Game Director Cycle IP124 executed after ACTION_ITEMS/TASKS/POST_RC hit fully-checked state.
+- Selected low-risk Systems/Ops+QA experiment shipped: PINSAFE mixed-window row-count parity assertion now emits `assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinsafeNonPassRows` in first-diverged diagnostics.
+- Durable decision: keep `assertionLabel=<...NonPassRows>` visible on PIN-chain parity assertions to align row-count mismatch triage with payload `...NonPassRows` diagnostics naming.
+- Verification bundle PASS (py_compile + regression_check_lane_coverage_guardrail.py + weekly guardrail regeneration).
+- Next injected tasks opened: (1) docs-order note for assertionLabel semantics on PINLEN/PINSAFE/SAFE chain, (2) PINLEN row-count parity assertion label parity.

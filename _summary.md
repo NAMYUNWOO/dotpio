@@ -271,3 +271,10 @@
 - Implemented minimal vertical slice: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEN:B49|C37|LIM72|PASS` with strict chain extension `...CTRLWNRB -> ...CTRLWNRBLG -> ...CTRLWNRBLGLEN -> ...CTRLWNLEN`.
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Next injections: combat/vfx `...CTRLWVFXRBLGLEN`, design/world `...CTRLWNRBLGLEG`, systems/ops+qa `...ctrlwnrblglenNonPassRows`.
+
+## 2026-04-07 05:24 KST — Game Director Cycle IP124
+- Executed mandatory review cycle after ACTION_ITEMS/TASKS/POST_RC all reached checked state.
+- Selected experiment shipped: PINSAFE row-count parity assertion now emits `assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinsafeNonPassRows` in mixed-window first-diverged diagnostics (`scripts/regression_check_lane_coverage_guardrail.py`).
+- Durable decision: PIN-chain row-count parity mismatch assertions should always expose `assertionLabel=<...NonPassRows>` for diagnostics-family consistency with payload mismatch surfaces.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Backlog injection opened: docs-order assertionLabel note for PINLEN/PINSAFE/SAFE chain, and PINLEN row-count parity assertion-label parity.

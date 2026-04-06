@@ -6236,3 +6236,8 @@
 
 ## 2026-04-07 04:53 KST — Regression wording contract verification
 - Re-ran guardrail verification bundle after diagnostics copy updates; all checks passed.
+
+## 2026-04-07 05:24 KST — QA diagnostics naming consistency check
+- Verified first-diverged row-count parity diagnostics now include `assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinsafeNonPassRows` for PINSAFE parity failures.
+- Regression bundle PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Follow-up: require same assertion-label output for PINLEN parity mismatch path.
