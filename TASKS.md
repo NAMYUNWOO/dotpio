@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-04-06 19:54 KST
+Last updated: 2026-04-06 20:19 KST
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP112)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; cadence buckets remain missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`) with health `ALERT`.
@@ -12,7 +12,7 @@ Last updated: 2026-04-06 19:54 KST
 - [x] Systems/Ops + QA + UX/Design Team (selected): Added eval non-pass diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblenNonPassRows` and mixed-window assertion ensuring `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN` remains PASS across sparse summary/token fixtures while preserving strict ordered-chain lock. *(lifecycle: [ ] -> [~] started: 2026-04-06 19:52 KST -> [x] completed: 2026-04-06 19:54 KST; implementation: extended `run_fixture_case` regex extraction for `...CTRLWVFXRBLEN`, returned `...ctrlwvfxrblenNonPassRows`, and added mixed-window PASS-domain assertion; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 
 ## Next Up (Game Director Injection — Cycle IP112)
-- [ ] Design/World + Combat/VFX + UX Team (injected): Add compact rollback-helper eval decode row `...NFXQBACKSTAF2CTRLWVFXRBLG:K=KEEP lane|R=ROLLBACK lane` and keep strict chain `...CTRLWVFXRB -> ...CTRLWVFXRBLEN -> ...CTRLWVFXRBLG -> ...CTRLWN` under LIM72 report-only policy.
+- [x] Design/World + Combat/VFX + UX Team (injected): Add compact rollback-helper eval decode row `...NFXQBACKSTAF2CTRLWVFXRBLG:K=KEEP lane|R=ROLLBACK lane` and keep strict chain `...CTRLWVFXRB -> ...CTRLWVFXRBLEN -> ...CTRLWVFXRBLG -> ...CTRLWN` under LIM72 report-only policy. *(lifecycle: [ ] -> [~] started: 2026-04-06 20:17 KST -> [x] completed: 2026-04-06 20:19 KST; implementation: added markdown report row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLG:K=KEEP lane|R=ROLLBACK lane`, expanded fixture-level deterministic payload assertion, and inserted `...CTRLWVFXRBLG` into strict chain/parity row-key contracts between `...CTRLWVFXRBLEN` and `...CTRLWN`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-06 (Game Director Review — Cycle IP111)
 - Coverage check (last 10 completions from `logs/weekly_lane_coverage_guardrail.json`): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; cadence buckets still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`).

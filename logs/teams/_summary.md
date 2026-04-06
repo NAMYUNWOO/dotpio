@@ -6207,3 +6207,5 @@ Compact decision memory for AI context efficiency.
 ## 2026-04-06 18:54 KST — Cycle IP111 durable decision
 - `...NFXQBACKSTAF2CTRLWVFXRB` is now fixture-domain locked to one deterministic KEEP/ROLLBACK payload.
 - Next injections queued: non-pass diagnostics key for RB payload drift + compact RB eval row/chain lock.
+
+- 2026-04-06 20:19 KST | Closed IP112 injected item by shipping ...CTRLWVFXRBLG decode row (K=KEEP lane|R=ROLLBACK lane) and hard-locking strict chain/parity insertion between ...CTRLWVFXRBLEN and ...CTRLWN across markdown, fixture-domain, sparse chain, and mixed-window checks. Verification bundle: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail (--json-out/--md-out).

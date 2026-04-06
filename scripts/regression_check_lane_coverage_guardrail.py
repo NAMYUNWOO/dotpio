@@ -3963,6 +3963,11 @@ def run_fixture_case(
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN:B69|C69|LIM72|PASS**"
         in md_text
     ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner VFX rollback helper eval row"
+    assert (
+        "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner VFX rollback helper eval decode row (design/world+combat/vfx+ux, report-only): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLG:K=KEEP lane|R=ROLLBACK lane**"
+        in md_text
+    ), f"{name}: markdown output must include beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner VFX rollback helper eval decode row"
     assert re.search(
         r"trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence note \(combat/vfx\+ai-content, report-only\): \*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:(A:anchor brace reserve confidence lane-lock|B:crossfire cut feint confidence pressure-shift|C:shelter hold harden confidence stabilize-hold)\*\*",
         md_text,
@@ -4009,6 +4014,7 @@ def run_fixture_case(
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXHLEN:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN:[^*]+\*\*.*?"
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLG:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:[^*]+\*\*.*?"
         r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:[^*]+\*\*.*?"
@@ -4022,7 +4028,7 @@ def run_fixture_case(
     )
     assert len(stalf2_control_winner_chain_matches) >= 1, (
         f"{name}: summary/token sections must keep strict ordered chain "
-        "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWVFXRBLEN -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB"
+        "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWVFXRBLEN -> ...NFXQBACKSTAF2CTRLWVFXRBLG -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB"
     )
     assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback operator cue legend (design/world+combat/vfx): "
@@ -4343,6 +4349,13 @@ def run_fixture_case(
             md_text,
         )
     ]
+    nfxqbackstaf2ctrlwvfxrblg_payload_values = [
+        payload.strip()
+        for payload in re.findall(
+            r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLG:([^*]+)\*\*",
+            md_text,
+        )
+    ]
     nfxqbackstaf2ctrlwn_payload_values = [
         payload.strip()
         for payload in re.findall(
@@ -4409,6 +4422,12 @@ def run_fixture_case(
         assert nfxqbackstaf2ctrlwvfxrb_payload_values, (
             f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB payload when control legend row is present"
         )
+        assert (
+            "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLG:K=KEEP lane|R=ROLLBACK lane**"
+            in md_text
+        ), (
+            f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLG row when control legend row is present"
+        )
         assert nfxqbackstaf2ctrlwn_payload_values, (
             f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN row when control legend row is present"
         )
@@ -4460,6 +4479,18 @@ def run_fixture_case(
         assert invalid_nfxqbackstaf2ctrlwvfxrb_payload is None, (
             f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB payload to stay deterministic when control legend row is present; "
             f"first diverged occurrence={invalid_nfxqbackstaf2ctrlwvfxrb_payload[0]} payload={invalid_nfxqbackstaf2ctrlwvfxrb_payload[1]}"
+        )
+        invalid_nfxqbackstaf2ctrlwvfxrblg_payload = next(
+            (
+                (index, payload)
+                for index, payload in enumerate(nfxqbackstaf2ctrlwvfxrblg_payload_values)
+                if payload != "K=KEEP lane|R=ROLLBACK lane"
+            ),
+            None,
+        )
+        assert invalid_nfxqbackstaf2ctrlwvfxrblg_payload is None, (
+            f"{name}: fixture-level domain assertion requires TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLG payload to stay deterministic when control legend row is present; "
+            f"first diverged occurrence={invalid_nfxqbackstaf2ctrlwvfxrblg_payload[0]} payload={invalid_nfxqbackstaf2ctrlwvfxrblg_payload[1]}"
         )
         invalid_nfxqbackstaf2ctrlwn_payload = next(
             (
@@ -6609,6 +6640,7 @@ def run_fixture_case(
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXHLEN",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN",
+        "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLG",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH",
         "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN",
@@ -6697,6 +6729,7 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxhlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXHLEN:B43|C43|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrbRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB:KEEP if CTRLWVFXH/CTRLWVFXHLEN stay PASS|ROLLBACK on VFX helper drift**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN:B69|C69|LIM72|PASS**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblgRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLG:K=KEEP lane|R=ROLLBACK lane**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:A:anchor brace reserve confidence lane-lock**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:B:crossfire cut feint confidence pressure-shift**") + md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN:C:shelter hold harden confidence stabilize-hold**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH:A=lane-lock|B=pressure-shift|C=stabilize-hold**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnhlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN:B45|C45|LIM72|PASS**"),
@@ -7612,6 +7645,8 @@ def main() -> int:
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXH",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXHLEN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRB",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN",
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLG",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNH",
             "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNHLEN",
@@ -8040,6 +8075,10 @@ def main() -> int:
                 "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblenRowCount",
             ),
             (
+                "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLG",
+                "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblgRowCount",
+            ),
+            (
                 "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWN",
                 "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnRowCount",
             ),
@@ -8096,7 +8135,7 @@ def main() -> int:
         )
         assert mixed_window_tsdpmfx_nfxqbackstaf2ctrl_sparse_first_missing_token is None, (
             "mixed-window fixture matrix must keep explicit sparse firstMissingToken diagnostics for strict ordered chain "
-            "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWVFXRBLEN -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB; "
+            "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWVFXRBLEN -> ...NFXQBACKSTAF2CTRLWVFXRBLG -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_sparse_first_missing_token[0]} "
             f"firstMissingToken={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_sparse_first_missing_token[1]}"
         )
@@ -8121,7 +8160,7 @@ def main() -> int:
         )
         assert mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token is None, (
             "mixed-window fixture matrix must keep strict ordered chain "
-            "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWVFXRBLEN -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB; "
+            "...NFXQBACKSTAF2CTRLW -> ...NFXQBACKSTAF2CTRLWVFX -> ...NFXQBACKSTAF2CTRLWVFXH -> ...NFXQBACKSTAF2CTRLWVFXHLEN -> ...NFXQBACKSTAF2CTRLWVFXRB -> ...NFXQBACKSTAF2CTRLWVFXRBLEN -> ...NFXQBACKSTAF2CTRLWVFXRBLG -> ...NFXQBACKSTAF2CTRLWN -> ...NFXQBACKSTAF2CTRLWNH -> ...NFXQBACKSTAF2CTRLWNHLEN -> ...NFXQBACKSTAF2CTRLWNRB -> ...NFXQBACKSTAF2CTRLWNLEN -> ...NFXQBACKSTAF2CTRLWLEG -> ...NFXQBACKSTAF2CTRLWLEN -> ...NFXQBACKSTAF2CTRLRB; "
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token[0]} "
             f"firstMissingToken={mixed_window_tsdpmfx_nfxqbackstaf2ctrl_chain_first_missing_token[1]}"
         )

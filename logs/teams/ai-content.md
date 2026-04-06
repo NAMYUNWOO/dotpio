@@ -4087,3 +4087,5 @@
 - IP112 selected slice complete: added sparse PASS-domain diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwvfxrblenNonPassRows` for `...CTRLWVFXRBLEN`.
 - Added mixed-window fixture assertion so `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLEN` stays `|PASS` across sparse summary/token sections.
 - Verification PASS: python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py && python3 scripts/regression_check_lane_coverage_guardrail.py && python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md.
+
+- 2026-04-06 20:19 KST | Cycle IP112 injected follow-up closure: added CTRLWVFXRBLG decode row (TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWVFXRBLG:K=KEEP lane|R=ROLLBACK lane) and extended strict chain to ...CTRLWVFXRB -> ...CTRLWVFXRBLEN -> ...CTRLWVFXRBLG -> ...CTRLWN; verified via py_compile + regression_check + guardrail regen. Follow-up: monitor mixed-window chain firstMissingToken for CTRLWVFXRBLG regressions.
