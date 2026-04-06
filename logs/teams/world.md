@@ -4045,3 +4045,8 @@
 - Completed injected Systems/Ops+QA item: added sparse mixed-window diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinlenNonPassRows` and first-diverged fixture assertion for `...CTRLWNRBLGLEGALTPINLEN` payload drift.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Next: close remaining Design/World+UX docs-order callout task for `...LEGALTPIN -> ...LEGALTPINLEN -> ...LEGALTSAFE` contiguity.
+
+## 2026-04-07 03:24 KST
+- World/docs readability alignment completed: guardrail callout now explicitly spells out contiguous `PIN -> PINLEN -> SAFE` sequence for operator scan flow.
+- Decision: contiguity callouts should mirror current backlog wording verbatim to reduce drift between plan and output docs.
+- Follow-up: if ordering extends again, update callout and backlog wording in the same cycle.

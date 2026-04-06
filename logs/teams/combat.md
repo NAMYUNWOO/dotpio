@@ -4056,3 +4056,8 @@
 - Completed injected Systems/Ops+QA item: added sparse mixed-window diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinlenNonPassRows` and first-diverged fixture assertion for `...CTRLWNRBLGLEGALTPINLEN` payload drift.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Next: close remaining Design/World+UX docs-order callout task for `...LEGALTPIN -> ...LEGALTPINLEN -> ...LEGALTSAFE` contiguity.
+
+## 2026-04-07 03:24 KST
+- Combat-facing guardrail readability task closed via docs-order callout refinement to contiguous sentinel trio (`PIN -> PINLEN -> SAFE`).
+- Decision: combat/vfx-adjacent report callouts should spotlight immediate decision chain to minimize scan overhead.
+- Follow-up: retain existing eval-row ordering (`PINLEN` before `SAFE`) as fixed regression invariant.

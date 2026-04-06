@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-04-07 02:29 KST
+Last updated: 2026-04-07 03:24 KST
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP121)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP120 follow-up closure, so mandatory Game Director loop executed immediately.
@@ -12,7 +12,7 @@ Last updated: 2026-04-07 02:29 KST
 
 ## Next Up (Game Director Injection — Cycle IP121)
 - [x] Systems/Ops + QA Team (injected): add sparse mixed-window payload diagnostics key for `...CTRLWNRBLGLEGALTPINLEN` (`...pinlenNonPassRows`) with first-diverged fixture surfacing when sentinel eval payload drifts. *(lifecycle: [ ] -> [~] started: 2026-04-07 02:46 KST -> [x] completed: 2026-04-07 02:50 KST; implementation: added `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinlenNonPassRows` extraction for `...CTRLWNRBLGLEGALTPINLEN` payload drift and wired sparse mixed-window first-diverged fixture assertion in `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
-- [ ] Design/World + UX Team (injected): add explicit docs-order callout requiring contiguous `...CTRLWNRBLGLEGALTPIN -> ...CTRLWNRBLGLEGALTPINLEN -> ...CTRLWNRBLGLEGALTSAFE` sequence for one-scan sentinel readability.
+- [x] Design/World + UX Team (injected): add explicit docs-order callout requiring contiguous `...CTRLWNRBLGLEGALTPIN -> ...CTRLWNRBLGLEGALTPINLEN -> ...CTRLWNRBLGLEGALTSAFE` sequence for one-scan sentinel readability. *(lifecycle: [ ] -> [~] started: 2026-04-07 03:20 KST -> [x] completed: 2026-04-07 03:24 KST; implementation: updated guardrail markdown docs-order callout copy in `scripts/check_lane_coverage_guardrail.py` to explicitly require contiguous PIN -> PINLEN -> SAFE sequence for one-scan sentinel readability; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`) *
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP120)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after IP119 follow-up closure, so mandatory Game Director loop executed.

@@ -6293,3 +6293,9 @@ Compact decision memory for AI context efficiency.
 - Durable decision: each newly added sentinel eval row must ship with a dedicated `...NonPassRows` diagnostics key + mixed-window first-diverged fixture assertion before backlog closure.
 - Verification bundle PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=1, POST_RC_BACKLOG unchecked=1. Next item: Design/World + UX docs-order callout for `...LEGALTPIN -> ...LEGALTPINLEN -> ...LEGALTSAFE`.
+
+## 2026-04-07 03:24 KST
+- Closed highest-priority unchecked TASKS/POST_RC item by updating the guardrail docs-order callout to explicitly enforce contiguous `...CTRLWNRBLGLEGALTPIN -> ...CTRLWNRBLGLEGALTPINLEN -> ...CTRLWNRBLGLEGALTSAFE` ordering.
+- Durable decision: when backlog asks for contiguous sentinel trio readability, prefer a trio-focused callout phrase over broader chain wording while keeping strict-chain regression contracts unchanged.
+- Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next run should execute mandatory Game Director 3-idea cycle).

@@ -5749,3 +5749,8 @@
 - Completed injected Systems/Ops+QA item: added sparse mixed-window diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinlenNonPassRows` and first-diverged fixture assertion for `...CTRLWNRBLGLEGALTPINLEN` payload drift.
 - Verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Next: close remaining Design/World+UX docs-order callout task for `...LEGALTPIN -> ...LEGALTPINLEN -> ...LEGALTSAFE` contiguity.
+
+## 2026-04-07 03:24 KST
+- Systems lane validated that callout-only copy update preserves existing strict ordered-chain and sparse parity contracts.
+- Decision: docs-order copy updates can ship independently when they do not change resolver payloads or row-count contracts.
+- Follow-up: keep py_compile + regression + guardrail generation bundle mandatory for copy-only guardrail edits.
