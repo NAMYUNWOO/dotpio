@@ -6261,3 +6261,8 @@ Compact decision memory for AI context efficiency.
 - Shipped minimal vertical slice: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE:B13|C13|LIM72|PASS`.
 - Durable decision: strict chain now requires `...CTRLWNRBLGLEGALT -> ...CTRLWNRBLGLEGALTSAFE -> ...CTRLWNRBLGLEGALTLEN`.
 - Injected next tasks: SAFE payload drift diagnostics key + readability pinning in report/docs order.
+
+## 2026-04-07 00:58 KST — IP118 follow-up (systems/qa) closed
+- Added sparse mixed-window diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows` with first-diverged fixture surfacing for `...CTRLWNRBLGLEGALTSAFE` payload drift.
+- Durable decision: every new rollback-helper eval row must ship with dedicated `...NonPassRows` diagnostics before closure.
+- Remaining top unchecked item: TASKS/POST `Design/World + UX Team` readability pinning for `...CTRLWNRBLGLEGALTSAFE` adjacency in report/docs order.

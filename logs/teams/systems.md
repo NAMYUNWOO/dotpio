@@ -5725,3 +5725,8 @@
 ## 2026-04-07 00:31 KST — IP118 alt-legend safety-anchor chain lock
 - Added required row token `...CTRLWNRBLGLEGALTSAFE:B13|C13|LIM72|PASS` and enforced strict ordered-chain placement before `...CTRLWNRBLGLEGALTLEN`.
 - Follow-up: add sparse non-pass diagnostics key for first-diverged SAFE payload drift.
+
+## 2026-04-07 00:58 KST — SAFE payload drift diagnostics shipped
+- Added fixture extraction + deterministic mismatch surfacing key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows` for `...CTRLWNRBLGLEGALTSAFE` eval payload drift.
+- Mixed-window matrix now fails with first diverged fixture + payload details when SAFE eval row deviates from `B13|C13|LIM72|PASS`.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).

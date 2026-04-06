@@ -6195,3 +6195,7 @@
 
 ## 2026-04-07 00:31 KST — IP118 regression contract hardening
 - Regression suite now asserts presence + ordered regex chain + sparse row-count parity for `...CTRLWNRBLGLEGALTSAFE` row.
+
+## 2026-04-07 00:58 KST — SAFE non-pass diagnostics coverage
+- Added `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows` extraction and mixed-window assertion so first-diverged fixture/payload is surfaced for `...CTRLWNRBLGLEGALTSAFE` drift.
+- QA gate remains green after full verification bundle (py_compile + regression + guardrail regeneration).
