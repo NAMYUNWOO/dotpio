@@ -1,3 +1,4 @@
+- 2026-04-08 08:31 KST — IP159 systems/qa follow-up: added ALT27 + ALT26V27 deterministic regression extraction keys and mixed-window first-diverged assertions (`...alt27*`, `...alt26v27*`); verification PASS (`python3 scripts/regression_check_lane_coverage_guardrail.py`).
 - 2026-04-08 06:28 KST — Cycle IP156: extended docs-order helper continuity through ALT25 (added ALT25 helper callout + ALT14~ALT25 adjacency regression lock); verification PASS (py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py guardrail run).
 ## 2026-04-08 04:00 KST
 - AI-content phrasebank extended with ALT22 candidate trio (`PIN=GLINT meridian|SAFE=SHIELD brace`) while keeping runtime decoupled.

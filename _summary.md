@@ -1,3 +1,8 @@
+## 2026-04-08 08:31 KST
+- Autonomous cycle IP159 completed injected systems/qa item: regression harness now extracts deterministic payload/eval/rationale drift for `...ALT27*` and comparator drift for `...ALT26V27*`, then enforces mixed-window first-diverged + row-count parity assertions for one-scan triage.
+- Durable decision: every new docs-order ALT phrase/comparator pair must land with both extraction keys and mixed-window assertion-label surfacing in the same commit.
+- Verification PASS (`python3 scripts/regression_check_lane_coverage_guardrail.py`).
+
 ## 2026-04-08 03:47 KST — IP151 ALT21 docs-order expansion
 - Coverage check (last 10 completions) from `logs/weekly_lane_coverage_guardrail.json`: all lanes remained `0` and cadence triad buckets stayed missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so forced underrepresented-lane cadence remained active with combat/vfx priority.
 - Candidate ideas generated: low-risk ALT21 phrase trio (`PIN=GLINT azimuth`), mid-risk ALT21 assertion-label helper extension, high-risk ALT19/ALT20 comparator promotion trial.

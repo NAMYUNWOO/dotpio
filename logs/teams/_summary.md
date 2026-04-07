@@ -1,3 +1,8 @@
+## 2026-04-08 08:31 KST
+- Autonomous cycle IP159 completed injected systems/qa item: regression harness now extracts deterministic payload/eval/rationale drift for `...ALT27*` and comparator drift for `...ALT26V27*`, then enforces mixed-window first-diverged + row-count parity assertions for one-scan triage.
+- Durable decision: every new docs-order ALT phrase/comparator pair must land with both extraction keys and mixed-window assertion-label surfacing in the same commit.
+- Verification PASS (`python3 scripts/regression_check_lane_coverage_guardrail.py`).
+
 ## 2026-04-08 07:48 KST
 - Game Director Cycle IP158 executed immediately after ACTION_ITEMS/TASKS/POST_RC remained fully checked; selected low+mid+high hybrid vertical slice.
 - Completed item: added ALT27 docs-order phrase family (`...LEGALTPINVFXALT27`, `...ALT27LEN:B34|C34|LIM72|PASS`, `...ALT27R`) plus ALT26-vs-ALT27 comparator/rationale rows (`...ALT26V27LEN`, `...ALT26V27R`) and assertion-label helper mapping extension.

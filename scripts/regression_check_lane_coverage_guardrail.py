@@ -6769,6 +6769,52 @@ def run_fixture_case(
         for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt25v26r_payload_values)
         if payload != "ALT25 prow and ALT26 mast keep pin readability parity"
     )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27_payload_values = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27_payload_values)
+        if payload != "PIN=GLINT rudder|SAFE=SHIELD brace"
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27len_eval_rows = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27LEN:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27len_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27len_eval_rows)
+        if payload != "B34|C34|LIM72|PASS"
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_payload_values = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27R:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_payload_values)
+        if payload
+        != "GLINT rudder keeps pin handoff explicit|SAFE brace preserves readability"
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27len_eval_rows = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT26V27LEN:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27len_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27len_eval_rows)
+        if payload != "B39|C39|LIM72|PREF:TIE|PASS"
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_payload_values = re.findall(
+        r"\*\*TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT26V27R:([^*\n]+)\*\*",
+        md_text,
+    )
+    nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_payload_mismatch_rows = tuple(
+        f"occurrence={index} payload={payload}"
+        for index, payload in enumerate(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_payload_values)
+        if payload != "ALT26 mast and ALT27 rudder keep pin readability parity"
+    )
     nfxqbackstaf2ctrlwnrb_payload_mismatch_rows = tuple(
         f"occurrence={index} payload={payload}"
         for index, payload in enumerate(nfxqbackstaf2ctrlwnrb_payload_values)
@@ -7831,6 +7877,11 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt19v20rRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT19V20R:ALT19 bearing and ALT20 heading keep pin readability parity**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt25v26lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT25V26LEN:B37|C37|LIM72|PREF:TIE|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt25v26rRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT25V26R:ALT25 prow and ALT26 mast keep pin readability parity**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27RowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27:PIN=GLINT rudder|SAFE=SHIELD brace**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27LEN:B34|C34|LIM72|PASS**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27rRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27R:GLINT rudder keeps pin handoff explicit|SAFE brace preserves readability**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27lenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT26V27LEN:B39|C39|LIM72|PREF:TIE|PASS**"),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27rRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT26V27R:ALT26 mast and ALT27 rudder keep pin readability parity**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTSAFE:B13|C13|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN:B63|C63|LIM72|PASS**"),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblgleglenRowCount": md_text.count("**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGLEN:B53|C53|LIM72|PASS**"),
@@ -7937,6 +7988,11 @@ def run_fixture_case(
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt19v20rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt19v20r_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt25v26lenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt25v26len_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt25v26rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt25v26r_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27NonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27lenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27len_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27lenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27len_payload_mismatch_rows),
+        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27rNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltsafeNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltsafe_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnrblglegaltlen_payload_mismatch_rows),
         "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnlenNonPassRows": " || ".join(nfxqbackstaf2ctrlwnlen_eval_non_pass_rows),
@@ -10914,6 +10970,227 @@ def main() -> int:
             f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt25v26r_row_count_mismatch[0]} "
             f"expected={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt25v26r_row_count_mismatch[1]} "
             f"actual={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt25v26r_row_count_mismatch[2]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27_status_mismatch = next(
+            (
+                (fixture_name, mismatch_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    mismatch_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27NonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27 payload deterministic across sparse summary + token sections; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27NonPassRows; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27len_status_mismatch = next(
+            (
+                (fixture_name, mismatch_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    mismatch_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27lenNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27len_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27LEN payload deterministic across sparse summary + token sections; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27lenNonPassRows; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27len_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27len_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_status_mismatch = next(
+            (
+                (fixture_name, mismatch_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    mismatch_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27rNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27R payload deterministic across sparse summary + token sections; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27rNonPassRows; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_row_count_mismatch = next(
+            (
+                (
+                    fixture_name,
+                    int(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27lenRowCount"
+                        ]
+                    ),
+                    int(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27rRowCount"
+                        ]
+                    ),
+                )
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if int(
+                    fixture_result[
+                        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27lenRowCount"
+                    ]
+                )
+                > 0
+                and int(
+                    fixture_result[
+                        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27rRowCount"
+                    ]
+                )
+                != int(
+                    fixture_result[
+                        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27lenRowCount"
+                    ]
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_row_count_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27R row-count parity with "
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT27LEN so missing rationale rows expose comparator occurrence context in one failure path; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt27rNonPassRows; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_row_count_mismatch[0]} "
+            f"expected={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_row_count_mismatch[1]} "
+            f"actual={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt27r_row_count_mismatch[2]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27len_status_mismatch = next(
+            (
+                (fixture_name, mismatch_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    mismatch_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27lenNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27len_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT26V27LEN payload deterministic across sparse summary + token sections; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27lenNonPassRows; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27len_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27len_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_status_mismatch = next(
+            (
+                (fixture_name, mismatch_rows)
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if (
+                    mismatch_rows := str(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27rNonPassRows"
+                        ]
+                    )
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_status_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT26V27R payload deterministic across sparse summary + token sections; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27rNonPassRows; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_status_mismatch[0]} "
+            f"rows={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_status_mismatch[1]}"
+        )
+        mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_row_count_mismatch = next(
+            (
+                (
+                    fixture_name,
+                    int(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27lenRowCount"
+                        ]
+                    ),
+                    int(
+                        fixture_result[
+                            "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27rRowCount"
+                        ]
+                    ),
+                )
+                for fixture_name, fixture_result in (
+                    ("balanced_tie", balanced_tie_result),
+                    ("ready_mix", ready_mix_result),
+                    ("prior_window_trend_up", prior_window_trend_up_result),
+                    ("prior_window_trend_down", prior_window_trend_down_result),
+                )
+                if int(
+                    fixture_result[
+                        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27lenRowCount"
+                    ]
+                )
+                > 0
+                and int(
+                    fixture_result[
+                        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27rRowCount"
+                    ]
+                )
+                != int(
+                    fixture_result[
+                        "tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27lenRowCount"
+                    ]
+                )
+            ),
+            None,
+        )
+        assert mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_row_count_mismatch is None, (
+            "mixed-window fixture matrix must keep TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT26V27R row-count parity with "
+            "TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT26V27LEN so missing rationale rows expose comparator occurrence context in one failure path; "
+            "assertionLabel=tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27rNonPassRows; "
+            f"first diverged fixture={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_row_count_mismatch[0]} "
+            f"expected={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_row_count_mismatch[1]} "
+            f"actual={mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnrblglegaltpinvfxalt26v27r_row_count_mismatch[2]}"
         )
         mixed_window_tsdpmfx_nfxqbackstaf2ctrlwnlen_status_mismatch = next(
             (
