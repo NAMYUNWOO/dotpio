@@ -1,3 +1,7 @@
+## 2026-04-07 13:06 KST
+- Combat/VFX wording lane now has third docs-order handoff phrase candidate (`...LEGALTPINVFXALT2`) plus eval row guard, keeping cue readability experimentation reversible.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-07 10:23 KST
 - Combat/VFX phrase candidate added as rollback-gated alternate row `...LEGALTPINVFXALT` to compare against baseline latch/hold wording without runtime impact.
 

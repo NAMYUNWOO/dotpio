@@ -1,3 +1,7 @@
+## 2026-04-07 13:06 KST
+- UX guardrail now includes third handoff phrase eval row `...LEGALTPINVFXALT2LEN:B33|C33|LIM72|PASS` to preserve compact-copy budget while testing alternate wording.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-07 10:23 KST
 - Alternate VFX handoff phrase now appears as explicit report-only row (`...LEGALTPINVFXALT`) to support one-scan baseline-vs-candidate readability review.
 

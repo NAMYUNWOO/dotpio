@@ -1,3 +1,7 @@
+## 2026-04-07 13:06 KST
+- VFX cue handoff wording matrix expanded with `...LEGALTPINVFXALT2` (`GLINT spark`/`SHIELD brace`) under report-only rollback gate.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-07 09:49 KST
 - Cycle IP128 selected combat/vfx vertical slice shipped docs-order handoff cue row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFX:PIN=GLINT latch|SAFE=SHIELD hold`.
 - Scope remains report-only/reversible; no runtime rendering/combat stat mutation.

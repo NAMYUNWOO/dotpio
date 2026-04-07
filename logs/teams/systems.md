@@ -1,3 +1,7 @@
+## 2026-04-07 13:06 KST
+- Cycle IP130 systems/ops slice shipped: regression harness now tracks third docs-order VFX candidate payload + eval drift via `...legaltpinvfxalt2NonPassRows` and `...legaltpinvfxalt2lenNonPassRows`, with sparse mixed-window first-diverged assertions.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-07 10:23 KST
 - Added regression presence assertion for `...LEGALTPINVFXALT` so rollback-gated alternate VFX phrase rows cannot silently disappear from guardrail output.
 - Verification bundle PASS (py_compile + regression + guardrail regeneration).

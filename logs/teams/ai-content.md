@@ -1,3 +1,7 @@
+## 2026-04-07 13:06 KST
+- Introduced report-only third wording candidate `PIN=GLINT spark|SAFE=SHIELD brace` (`...LEGALTPINVFXALT2`) to expand handoff microcopy A/B space without runtime coupling.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-07 10:23 KST
 - Shipped report-only alternate handoff microcopy candidate `PIN=GLINT flare|SAFE=SHIELD brace` behind rollback wording gate (`...LEGALTPINVFXALT`).
 - Runtime coupling unchanged; candidate is guardrail/report-only for A/B readability prep.
