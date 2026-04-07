@@ -1,3 +1,8 @@
+## 2026-04-07 21:40 KST
+- Cycle IP144 combat/vfx slice shipped: added docs-order sixteenth handoff phrase row `...LEGALTPINVFXALT15:PIN=GLINT vector|SAFE=SHIELD brace` plus eval/rationale rows (`...ALT15LEN`, `...ALT15R`) to expand report-only wording bakeoff.
+- Scope remains additive/reversible and telemetry-only; runtime combat/VFX behavior unchanged.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-07 15:41 KST
 - Cycle IP135 forced-lane combat/vfx slice shipped: added report-only docs-order VFX handoff ALT8 row `...LEGALTPINVFXALT8:PIN=GLINT guardrail|SAFE=SHIELD brace` plus eval row `...LEGALTPINVFXALT8LEN:B37|C37|LIM72|PASS`.
 - Scope remains additive/reversible and telemetry-only; runtime combat/VFX behavior unchanged.

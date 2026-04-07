@@ -1,3 +1,16 @@
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP144)
+- Coverage check (last 10 completions): systems=0, world=0, ai-content=0, combat=0, design=0, vfx=0, ux=0, qa=0; no lane exceeded 40% cap.
+- Cadence status remained `ALERT` (`CV0D0|DW0D0|SO0D0`) with all three required 24h buckets missing, so selected slice stayed forced toward combat/vfx and bundled design/world + systems/ops contracts.
+- Candidate ideas generated:
+  - Low-risk Combat/VFX + UX: add sixteenth docs-order VFX handoff phrase candidate row + LIM72 eval lock.
+  - Mid-risk Design/World + UX: add ALT15 compact helper callout and assertion-label helper extension.
+  - High-risk Systems/Ops + QA: add ALT15 sparse mixed-window diagnostics family.
+- [x] Combat/VFX + Design/World + Systems/Ops + QA Team (selected): added `...LEGALTPINVFXALT15` + `...LEGALTPINVFXALT15LEN` + `...LEGALTPINVFXALT15R`, extended docs assertion-label helper coverage through ALT15, and wired deterministic regression row-count/non-pass diagnostics keys for payload/PASS/rationale drift. *(lifecycle: [ ] -> [~] started: 2026-04-07 21:34 KST -> [x] completed: 2026-04-07 21:40 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
+## Next Up (Game Director Injection — Cycle IP144)
+- [ ] Systems/Ops + QA Team (injected): add explicit sparse mixed-window first-diverged assertion-label surfacing for ALT15 parity mismatches so diagnostics include `assertionLabel=<...legaltpinvfxalt15NonPassRows>` with fixture/payload context.
+- [ ] Design/World + UX Team (injected): add compact waypoint-vs-vector docs helper note adjacent to ALT14/ALT15 rows for one-scan readability A/B while keeping report-only rollback wording gate.
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP143)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:

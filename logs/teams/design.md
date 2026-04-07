@@ -1,4 +1,9 @@
 
+## 2026-04-07 21:40 KST
+- Cycle IP144 design/world+ux follow-through: added ALT15 docs helper callout (`GLINT=vector pin intent`) and extended assertion-label helper chain to include `ALT15` + `ALT15LEN` for one-scan triage readability.
+- Maintained docs-order contiguous readability policy while expanding candidate matrix with report-only rollback gate intact.
+- Verification PASS (shared guardrail bundle: py_compile + regression + guardrail regeneration).
+
 ## 2026-04-07 15:41 KST
 - IP135 injected design/world follow-up opened: add compact ALT8 docs-order helper callout clarifying `GLINT guardrail` intent plus SAFE brace readability cue next to the existing VFX decode helper row.
 

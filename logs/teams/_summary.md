@@ -1,3 +1,14 @@
+## 2026-04-07 21:40 KST
+- Game Director Cycle IP144 coverage snapshot over latest 10 completions remained all-zero by lane (`systems/world/ai-content/combat/design/vfx/ux/qa`) with no lane above 40%.
+- Cadence stayed `ALERT` with missing buckets (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so the selected experiment remained forced into combat/vfx and bundled design/world + systems/ops recovery contracts.
+- Candidate ideas:
+  - Low-risk Combat/VFX + UX: add sixteenth docs-order VFX handoff phrase candidate row + eval lock.
+  - Mid-risk Design/World + UX: add ALT15 helper callout + assertion-label helper extension.
+  - High-risk Systems/Ops + QA: add ALT15 sparse mixed-window diagnostics family for payload/PASS/rationale drift.
+- Selected vertical slice shipped: added `...LEGALTPINVFXALT15` + `...LEGALTPINVFXALT15LEN` + `...LEGALTPINVFXALT15R`, plus regression extraction/row-count/non-pass keys (`...legaltpinvfxalt15NonPassRows`, `...alt15lenNonPassRows`, `...alt15rNonPassRows`).
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+- Injected next tasks: (1) systems/qa assertionLabel surfacing for ALT15 parity mismatch, (2) design/world waypoint-vs-vector helper note.
+
 ## 2026-04-07 18:00 KST
 - Game Director Cycle IP138 executed after ACTION_ITEMS/TASKS/POST_RC stayed fully checked; selected low-risk+mid-risk docs-order VFX phrase slice.
 - Completed item: added `...LEGALTPINVFXALT11:PIN=GLINT stabilizer|SAFE=SHIELD brace`, `...LEGALTPINVFXALT11LEN:B38|C38|LIM72|PASS`, and `...LEGALTPINVFXALT11R` with regression extraction/row-count/non-pass + sparse mixed-window first-diverged assertions.
