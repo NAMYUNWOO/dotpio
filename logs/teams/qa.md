@@ -6336,3 +6336,7 @@
 
 ## 2026-04-07 18:53 KST
 - Regression coverage expanded for combo banner tier variants (`RUINS/FORGE/ABYSS`) plus tier normalization fallback; validation passed with combo debug token regression bundle.
+
+## 2026-04-07 19:24 KST — Combo momentum threshold regression lock
+- Extended `scripts/regression_combat_combo_momentum_banner.lua` with deterministic threshold fixtures (2.0/1.7/0.8) and exact-boundary asserts (1.8=>STABLE, 0.9=>HOLD).
+- Verification PASS: `lua scripts/regression_combat_combo_momentum_banner.lua` and `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`.

@@ -1,3 +1,15 @@
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP140)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked after closing outstanding POST_RC threshold fixture item, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk UX + Combat: add explicit urgency boundary regression fixture for exact cutoffs (1.8s/0.9s) so HUD bucket edge behavior remains deterministic.
+  - Mid-risk Systems/Ops + QA: centralize combo urgency bucket logic in one HUD helper consumed by banner formatting to prevent threshold drift across callers.
+  - High-risk Design/World + AI-content: prototype map-tier-specific boundary copy overrides that shift urgency labels at the exact cutoff values.
+- [x] Systems/Ops + QA + Combat + UX Team (selected): added `HUD.getComboMomentumUrgencyBucket()` and deterministic boundary coverage (2.0/1.7/0.8 plus exact 1.8/0.9 cutoffs) in combo momentum banner regression. *(lifecycle: [ ] -> [~] started: 2026-04-07 19:22 KST -> [x] completed: 2026-04-07 19:24 KST; implementation: updated `src/hud.lua` to use shared urgency bucket helper and extended `scripts/regression_combat_combo_momentum_banner.lua` with threshold fixture matrix + boundary asserts; verification: `lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`.)*
+
+## Next Up (Game Director Injection — Cycle IP140)
+- [ ] Design/World + UX Team (injected): add compact docs helper note that combo urgency boundary policy is strict `<0.9 NOW`, `<1.8 HOLD`, otherwise `STABLE` for one-scan debugging copy.
+- [ ] Systems/Ops + QA Team (injected): add fixture-level assertion that tier copy (`RUINS/FORGE/ABYSS`) preserves bucket semantics at exact boundaries (0.9, 1.8) while only label text changes.
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP137)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:

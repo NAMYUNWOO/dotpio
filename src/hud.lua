@@ -677,6 +677,16 @@ function HUD.resolveComboMomentumMapTier(missionState)
     return "DEFAULT"
 end
 
+function HUD.getComboMomentumUrgencyBucket(comboTimer)
+    local timer = math.max(0, tonumber(comboTimer) or 0)
+    if timer < 0.9 then
+        return "NOW"
+    elseif timer < 1.8 then
+        return "HOLD"
+    end
+    return "STABLE"
+end
+
 function HUD.formatComboMomentumBanner(combo, mapTier)
     combo = combo or {}
     local count = math.max(0, math.floor(tonumber(combo.comboCount) or 0))
@@ -689,12 +699,7 @@ function HUD.formatComboMomentumBanner(combo, mapTier)
     if heat ~= "HOT" and heat ~= "WARM" and heat ~= "COLD" then
         heat = "COLD"
     end
-    local urgencyBucket = "STABLE"
-    if timer < 0.9 then
-        urgencyBucket = "NOW"
-    elseif timer < 1.8 then
-        urgencyBucket = "HOLD"
-    end
+    local urgencyBucket = HUD.getComboMomentumUrgencyBucket(timer)
 
     local normalizedTier = string.upper(tostring(mapTier or "DEFAULT"))
     local tierCopy = COMBO_MOMENTUM_URGENCY_COPY_BY_TIER[normalizedTier] or COMBO_MOMENTUM_URGENCY_COPY_BY_TIER.DEFAULT

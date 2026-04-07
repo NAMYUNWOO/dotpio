@@ -5880,3 +5880,7 @@
 
 ## 2026-04-07 18:53 KST
 - HUD combo banner pipeline now resolves map-tier context (`comboMomentumMapTier/mapTier/routeTag/lastPackTag`) with deterministic fallback to `DEFAULT`, reducing nil/unknown branch drift in display copy.
+
+## 2026-04-07 19:24 KST — Combo momentum urgency helper
+- Added shared `HUD.getComboMomentumUrgencyBucket(comboTimer)` in `src/hud.lua` and routed combo banner urgency selection through helper to keep threshold policy single-sourced.
+- Follow-up: tier boundary fixture parity at exact 0.9/1.8 cutoffs is queued in TASKS Cycle IP140.

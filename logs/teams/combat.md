@@ -4149,3 +4149,7 @@
 
 ## 2026-04-07 18:53 KST
 - Combo momentum banner now accepts map-tier context but keeps existing urgency bucket thresholds (`STABLE/HOLD/NOW` boundaries at 1.8s/0.9s), so combat timing semantics remain unchanged.
+
+## 2026-04-07 19:24 KST — Combo urgency cadence stability
+- Locked combo urgency bucket boundaries used by combat HUD momentum banner via shared helper and regression matrix.
+- Player-facing behavior unchanged except stronger anti-regression guarantees on urgency transitions.

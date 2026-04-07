@@ -4393,3 +4393,7 @@
 
 ## 2026-04-07 18:53 KST
 - HUD combo banner wording now adapts by tier while preserving one-line readability (`CHAIN xN HEAT t.s [WORD]`) and minimal glyph width growth.
+
+## 2026-04-07 19:24 KST — HUD urgency readability reliability
+- Preserved existing combo banner copy while hardening boundary determinism so urgency labels do not flicker from threshold drift.
+- Injected follow-up docs helper task in TASKS Cycle IP140 for one-scan boundary policy visibility.

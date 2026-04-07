@@ -4138,3 +4138,7 @@
 
 ## 2026-04-07 18:53 KST
 - World-facing tone pass added tier lexicon for combo urgency: RUINS (`STEADY/BRACE/NOW`), FORGE (`BANK/GRIP/STRIKE`), ABYSS (`CALM/ANCHOR/SNAP`) while preserving concise HUD footprint.
+
+## 2026-04-07 19:24 KST — World lane status
+- No world/map routing changes in this cycle.
+- Watch item injected: verify tier labels keep same boundary semantics at 0.9/1.8 across RUINS/FORGE/ABYSS.

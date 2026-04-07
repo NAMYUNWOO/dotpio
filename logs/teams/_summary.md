@@ -6477,3 +6477,9 @@ Compact decision memory for AI context efficiency.
 - Closed injected POST_RC item: map-tier combo momentum banner copy variants now ship in HUD with deterministic tier resolver and regression coverage.
 - Durable decision: keep urgency timing buckets fixed and only swap bracket copy by tier, so readability flavor changes do not alter combat semantics.
 - Verification PASS (`lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`).
+
+## 2026-04-07 19:24 KST — Cycle IP140 combo urgency boundary hardening
+- Decision: centralize combo urgency bucket mapping behind `HUD.getComboMomentumUrgencyBucket()` and route HUD banner formatting through helper.
+- Durable threshold contract: `<0.9 => NOW`, `<1.8 => HOLD`, otherwise `STABLE`; deterministic fixture coverage now includes 2.0/1.7/0.8 and exact boundaries 1.8/0.9.
+- Evidence: `lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua` both PASS.
+- Backlog injection: queued docs helper + tier-boundary parity fixture tasks under `TASKS.md` Cycle IP140 Next Up.
