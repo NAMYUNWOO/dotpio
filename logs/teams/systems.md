@@ -5850,3 +5850,4 @@
 ## 2026-04-07 14:18 KST
 - Cycle IP133: shipped docs-order VFX alt5 guardrail slice (`...LEGALTPINVFXALT5`, `...LEGALTPINVFXALT5LEN`) with deterministic sparse mixed-window mismatch keys (`...legaltpinvfxalt5NonPassRows`, `...legaltpinvfxalt5lenNonPassRows`).
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py regeneration PASS.
+- 2026-04-07 15:24 KST — IP134: Extended regression harness with ALT7/ALT7LEN payload + mixed-window mismatch assertions and diagnostics keys.
