@@ -6001,3 +6001,8 @@
 ## 2026-04-08 07:29 KST — ALT25V26 comparator diagnostics hardening
 - Added ALT25V26 LEN/R diagnostics-family coverage with first-diverged assertionLabel surfacing in regression guardrails.
 - Follow-up: keep future comparator pairs shipped with LEN+R row-count parity assertion in same slice.
+
+
+## 2026-04-08 07:48 KST — Cycle IP158 ALT27 vertical slice
+- Added ALT27 docs-order support in guardrail output (`...LEGALTPINVFXALT27`, `...ALT27LEN`, `...ALT27R`) plus ALT26-vs-ALT27 comparator rows (`...ALT26V27LEN`, `...ALT26V27R`).
+- Verification PASS via py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact regeneration.

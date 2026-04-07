@@ -4253,3 +4253,8 @@
 ## 2026-04-08 07:29 KST — Combat/VFX docs-order telemetry support
 - Extended docs-order telemetry coverage with ALT25V26 comparator diagnostics to reduce handoff phrase drift blind spots.
 - Follow-up: maintain report-only gate for comparator rows; no gameplay-runtime coupling introduced.
+
+
+## 2026-04-08 07:48 KST — Cycle IP158 ALT27 vertical slice
+- Added ALT27 docs-order support in guardrail output (`...LEGALTPINVFXALT27`, `...ALT27LEN`, `...ALT27R`) plus ALT26-vs-ALT27 comparator rows (`...ALT26V27LEN`, `...ALT26V27R`).
+- Verification PASS via py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact regeneration.

@@ -1,3 +1,9 @@
+## 2026-04-08 07:48 KST
+- Game Director Cycle IP158 executed immediately after ACTION_ITEMS/TASKS/POST_RC remained fully checked; selected low+mid+high hybrid vertical slice.
+- Completed item: added ALT27 docs-order phrase family (`...LEGALTPINVFXALT27`, `...ALT27LEN:B34|C34|LIM72|PASS`, `...ALT27R`) plus ALT26-vs-ALT27 comparator/rationale rows (`...ALT26V27LEN`, `...ALT26V27R`) and assertion-label helper mapping extension.
+- Durable decision: keep maritime ALT phrase expansion paired with immediate comparator + helper-map updates in the same cycle so one-scan readability and diagnostics aliases evolve together.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-08 06:28 KST
 - Cycle IP156 shipped low+mid risk slice: `...LEGALTPINVFXALT25` helper-callout continuity now locked by regression adjacency contract spanning ALT14~ALT25 around waypoint-vs-vector note.
 - Durable decision: each newly introduced ALT helper row must update both helper-callout chain ordering regex and adjacency failure text in the same cycle to keep one-scan diagnostics deterministic.

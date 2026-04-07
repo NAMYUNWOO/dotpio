@@ -4502,3 +4502,8 @@
 ## 2026-04-08 07:29 KST — Assertion-label helper continuity
 - Assertion-label helper text now includes ALT25V26 diagnostics labels for LEN/R comparator drift surfacing.
 - Follow-up: preserve helper ordering so comparator labels remain adjacent to existing ALT comparator family.
+
+
+## 2026-04-08 07:48 KST — Cycle IP158 ALT27 vertical slice
+- Added ALT27 docs-order support in guardrail output (`...LEGALTPINVFXALT27`, `...ALT27LEN`, `...ALT27R`) plus ALT26-vs-ALT27 comparator rows (`...ALT26V27LEN`, `...ALT26V27R`).
+- Verification PASS via py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact regeneration.

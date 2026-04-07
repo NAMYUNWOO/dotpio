@@ -4324,3 +4324,8 @@
 ## 2026-04-08 07:29 KST — Phrase-family instrumentation update
 - No runtime phrase changes; added report-only instrumentation ensuring ALT25/ALT26 comparator diagnostics remain deterministic.
 - Follow-up: keep future phrase injections paired with comparator diagnostics when semantic proximity is high.
+
+
+## 2026-04-08 07:48 KST — Cycle IP158 ALT27 vertical slice
+- Added ALT27 docs-order support in guardrail output (`...LEGALTPINVFXALT27`, `...ALT27LEN`, `...ALT27R`) plus ALT26-vs-ALT27 comparator rows (`...ALT26V27LEN`, `...ALT26V27R`).
+- Verification PASS via py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact regeneration.

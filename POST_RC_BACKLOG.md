@@ -1,3 +1,14 @@
+## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP158)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Design/World + UX: add ALT27 helper callout continuity row so maritime pin-cue chain stays one-scan readable past ALT26.
+  - Mid-risk Systems/Ops + QA: add ALT26-vs-ALT27 comparator rows (`...ALT26V27LEN`, `...ALT26V27R`) and assertion-label helper mapping for deterministic diagnostics parity.
+  - High-risk AI-content + Combat/VFX: add ALT27 report-only phrase triad (`ALT27`, `ALT27LEN`, `ALT27R`) with rollback-gated wording.
+- [x] Design/World + Systems/Ops + QA + AI-content + Combat/VFX Team (selected): shipped ALT27 docs-order vertical slice by adding ALT27 helper callout, `...LEGALTPINVFXALT27` payload/eval/rationale rows, `...ALT26V27LEN` + `...ALT26V27R` comparator rows, and assertion-label helper mapping extension in `scripts/check_lane_coverage_guardrail.py` plus regression helper-string contract sync in `scripts/regression_check_lane_coverage_guardrail.py`. *(lifecycle: [ ] -> [~] started: 2026-04-08 07:46 KST -> [x] completed: 2026-04-08 07:48 KST; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
+## Next Up (Game Director Injection — Cycle IP158)
+- [ ] Systems/Ops + QA Team (injected): add deterministic mixed-window first-diverged assertions and row-count/non-pass diagnostics extraction for `...ALT27*` and `...ALT26V27*` payload drift (`...legaltpinvfxalt27NonPassRows`, `...alt27lenNonPassRows`, `...alt27rNonPassRows`, `...alt26v27lenNonPassRows`, `...alt26v27rNonPassRows`).
+
 ## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP156)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after IP155 closure, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:
