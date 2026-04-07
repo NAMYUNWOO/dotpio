@@ -4308,3 +4308,4 @@
 - Verification PASS (py_compile + regression + guardrail runner bundle).
 - 2026-04-08 04:38 KST — Cycle IP150: ALT22 docs-order contracts updated. Decision: extend assertion-label helper + adjacency lock + sparse mixed-window diagnostics for ALT22 payload/eval/rationale in guardrail regression. Follow-up: validate ALT23 phrase candidate rows next cycle.
 - 2026-04-08 04:54 KST — Cycle IP153: Shipped ALT23 docs-order guardrail slice (`...LEGALTPINVFXALT23`, `...ALT23LEN`, `...ALT23R`) with true-north wording plus deterministic regression diagnostics (`...alt23NonPassRows`, `...alt23lenNonPassRows`, `...alt23rNonPassRows`) and mixed-window first-diverged assertion-label surfacing.
+- 2026-04-08 05:00 KST — Cycle IP154: Added ALT22-vs-ALT23 comparator contracts (`...ALT22V23LEN`, `...ALT22V23R`) with deterministic row-count/non-pass diagnostics and mixed-window first-diverged assertion-label surfacing.
