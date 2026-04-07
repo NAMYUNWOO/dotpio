@@ -6380,3 +6380,10 @@ Compact decision memory for AI context efficiency.
 - Added explicit `...PRLENCUETD` row-count extraction + mixed-window parity tuple coverage in `scripts/regression_check_lane_coverage_guardrail.py`.
 - Added dedicated helper-pair parity assertion linking `...PRLENCUETD` payload copy to `...PRLENCUETDLEN` decode-eval payload (`1:1` lock across summary/token sections).
 - Durable impact: transition-handoff decode wording drift now surfaces in one assertion path instead of split failures.
+
+
+## 2026-04-07 09:55 KST
+- Closed highest-priority unchecked IP128 injected item by adding docs-order VFX decode helper copy adjacent to `...LEGALTPINVFX` (`GLINT=pin latch`, `SHIELD=safe hold`) in `scripts/check_lane_coverage_guardrail.py`.
+- Durable decision: every new docs-order sentinel phrase row must ship with a nearby compact semantic decode helper (not just assertion-label callouts) before item closure.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=3, POST_RC_BACKLOG unchecked=3 (next: systems/ops+qa `...legaltpinvfxNonPassRows` diagnostics key + assertion-label surfacing).

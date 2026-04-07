@@ -299,3 +299,10 @@
 ## 2026-04-07 08:57 KST
 - Executed Game Director Cycle IP128 and added JSON-contract regression assertion coverage for `...TransitionHandoffDecodeHelperEvaluation`.
 - Durable decision: markdown decode-helper LEN rails are no longer sufficient alone; matching JSON payload key contracts are mandatory.
+
+
+## 2026-04-07 09:55 KST
+- Closed highest-priority unchecked IP128 injected item by adding docs-order VFX decode helper copy adjacent to `...LEGALTPINVFX` (`GLINT=pin latch`, `SHIELD=safe hold`) in `scripts/check_lane_coverage_guardrail.py`.
+- Durable decision: every new docs-order sentinel phrase row must ship with a nearby compact semantic decode helper (not just assertion-label callouts) before item closure.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+- Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=3, POST_RC_BACKLOG unchecked=3 (next: systems/ops+qa `...legaltpinvfxNonPassRows` diagnostics key + assertion-label surfacing).

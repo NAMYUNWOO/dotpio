@@ -6277,3 +6277,6 @@
 ## 2026-04-07 09:24 KST — Mixed-window parity assertion expansion
 - Regression now captures `stprlencuetdRowCount` and asserts `stprlencuetd_count == stprlencuetdlen_count` in `mixed_window_tsdpmfx_pulse_parity`.
 - Verification bundle passed: py_compile + regression + guardrail regeneration.
+
+## 2026-04-07 09:55 KST
+- Re-ran verification matrix after docs text update; sparse mixed-window/regression suite remained green with regenerated guardrail artifacts.

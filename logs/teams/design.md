@@ -4255,3 +4255,6 @@
 ## 2026-04-07 09:24 KST — Transition handoff decode helper drift guard
 - Added explicit helper-pair parity guard so `...PRLENCUETD` copy drift is caught together with `...PRLENCUETDLEN` decode-eval telemetry.
 - Outcome: one-failure-path triage for decode wording + width-eval coupling.
+
+## 2026-04-07 09:55 KST
+- Closed IP128 injected design task by adding compact decode helper near docs-order callout: `GLINT=pin latch`, `SHIELD=safe hold`.

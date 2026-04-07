@@ -5818,3 +5818,6 @@
 - Added `stprlencuetdRowCount` fixture extraction and mixed-window tuple wiring in `scripts/regression_check_lane_coverage_guardrail.py`.
 - Locked row-count chain to include `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETD` before `...PRLENCUETDLEN`.
 - Follow-up: pair with upcoming alternate compact alias experiment (`...LENCUET*`) once AI-content/combat item is picked.
+
+## 2026-04-07 09:55 KST
+- Verified guardrail/regression bundle after docs-order helper insertion; no contract regressions (py_compile + regression + guardrail regeneration PASS).

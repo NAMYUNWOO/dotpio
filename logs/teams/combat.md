@@ -4101,3 +4101,6 @@
 
 ## 2026-04-07 08:57 KST
 - Cycle IP128 shipped: regression harness now enforces JSON key-contract payload for `...TransitionHandoffDecodeHelperEvaluation` (baseline/compact/len/preferred/status) with green verification bundle.
+
+## 2026-04-07 09:55 KST
+- Confirmed VFX handoff baseline cue remains unchanged (`PIN=GLINT latch|SAFE=SHIELD hold`) while adjacent helper clarifies intent without combat-logic drift.

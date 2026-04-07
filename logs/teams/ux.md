@@ -4346,3 +4346,6 @@
 ## 2026-04-07 09:24 KST — One-scan PRLENCUET helper/eval parity
 - Enforced 1:1 parity check between `...PRLENCUETD` helper row and `...PRLENCUETDLEN` eval row across summary/token sections.
 - This keeps wording drift visible in a single assertion failure path.
+
+## 2026-04-07 09:55 KST
+- Improved one-scan readability by adding explicit decode helper text beside `...LEGALTPINVFX` docs-order sentinel row.

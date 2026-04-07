@@ -4173,3 +4173,6 @@
 
 ## 2026-04-07 08:57 KST
 - Cycle IP128 shipped: regression harness now enforces JSON key-contract payload for `...TransitionHandoffDecodeHelperEvaluation` (baseline/compact/len/preferred/status) with green verification bundle.
+
+## 2026-04-07 09:55 KST
+- Deferred alternate handoff phrase experiment (`PIN=GLINT flare|SAFE=SHIELD brace`) until current design helper closure; baseline wording remains canonical.

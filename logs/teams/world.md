@@ -4091,3 +4091,6 @@
 
 ## 2026-04-07 09:24 KST — Design/world decode stability note
 - `PRLENCUETD` sequencing helper is now parity-linked to decode-eval row `PRLENCUETDLEN` for deterministic docs-order stability.
+
+## 2026-04-07 09:55 KST
+- Added docs readability support for VFX handoff semantics so `...LEGALTPINVFX` remains one-scan interpretable in world/design-facing report text.

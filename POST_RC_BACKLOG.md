@@ -4,7 +4,7 @@
 - [x] Selected experiment (Combat/VFX + UX + Systems/Ops + QA): added docs-order sentinel VFX handoff cue row `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFX:PIN=GLINT latch|SAFE=SHIELD hold` plus regression presence assertion. *(completed 2026-04-07 09:49 KST; verification bundle: py_compile + regression + guardrail regeneration command)*
 
 ## Next Up (Injected from Cycle IP128)
-- [ ] Design/World + UX: add compact decode helper line for `...LEGALTPINVFX` state meanings near docs-order callout.
+- [x] Design/World + UX: add compact decode helper line for `...LEGALTPINVFX` state meanings near docs-order callout. *(lifecycle: [ ] -> [~] started: 2026-04-07 09:53 KST -> [x] completed: 2026-04-07 09:55 KST; implementation: inserted docs-order VFX decode helper line in `scripts/check_lane_coverage_guardrail.py` adjacent to the `...LEGALTPINVFX` row (`GLINT=pin latch`, `SHIELD=safe hold`) for one-scan readability; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`)*
 - [ ] Systems/Ops + QA: add sparse mixed-window payload diagnostics key + `assertionLabel=<...legaltpinvfxNonPassRows>` surfacing for `...LEGALTPINVFX` drift.
 - [ ] AI-content + Combat/VFX: add report-only alternate handoff phrase candidate (`PIN=GLINT flare|SAFE=SHIELD brace`) with rollback wording gate and readability eval.
 
