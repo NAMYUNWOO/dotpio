@@ -6538,3 +6538,9 @@ Compact decision memory for AI context efficiency.
 - Closed TASKS top priority injected Systems/Ops + QA item by pre-wiring ALT17 diagnostics placeholders in both docs-order assertion-label helper text and regression sparse mixed-window checklist contracts.
 - Durable decision: each new docs-order ALT payload/eval/rationale family must reserve assertionLabel + NonPassRows placeholders before (or at latest with) payload-row landing to keep first-diverged diagnostics deterministic.
 - Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
+## 2026-04-08 00:32 KST
+- Game Director Cycle IP148 executed immediately after queues were fully checked.
+- Selected experiment shipped: ALT17 helper callout (`GLINT=trajectory pin intent`) plus regression adjacency contract expansion from ALT14~ALT16 to ALT14~ALT17 contiguous block.
+- Backlog reinjection completed: queued ALT18 diagnostics placeholder pre-wire task (systems/qa) and ALT18 report-only phrase prototype task (combat/vfx + ai-content).
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).

@@ -4234,15 +4234,16 @@ def run_fixture_case(
         "docs-order waypoint-vs-vector helper note (design/world+ux, report-only gate): **ALT14=GLINT waypoint** keeps route anchor readability while **ALT15=GLINT vector** keeps directional handoff readability; both preserve SAFE brace rollback wording."
         in md_text
     ), f"{name}: markdown output must include ALT14 vs ALT15 waypoint/vector helper note for one-scan docs readability"
-    alt14_alt16_waypoint_vector_adjacency_matches = re.findall(
+    alt14_alt17_waypoint_vector_adjacency_matches = re.findall(
         r"- docs-order ALT14 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT14` keeps \*\*GLINT=waypoint pin handoff intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT15 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT15` keeps \*\*GLINT=vector pin handoff intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order ALT16 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT16` keeps \*\*GLINT=beeline pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
+        r"- docs-order ALT17 helper callout \(design/world\+ux\): `\.\.\.LEGALTPINVFXALT17` keeps \*\*GLINT=trajectory pin intent\*\* \+ \*\*SHIELD=SAFE brace readability cue\*\* for one-scan triage\.\n"
         r"- docs-order waypoint-vs-vector helper note \(design/world\+ux, report-only gate\): \*\*ALT14=GLINT waypoint\*\* keeps route anchor readability while \*\*ALT15=GLINT vector\*\* keeps directional handoff readability; both preserve SAFE brace rollback wording\.",
         md_text,
     )
-    assert len(alt14_alt16_waypoint_vector_adjacency_matches) >= 1, (
-        f"{name}: ALT14/ALT15/ALT16 helper callouts must stay immediately adjacent to waypoint-vs-vector helper note for one-scan docs readability"
+    assert len(alt14_alt17_waypoint_vector_adjacency_matches) >= 1, (
+        f"{name}: ALT14/ALT15/ALT16/ALT17 helper callouts must stay immediately adjacent to waypoint-vs-vector helper note for one-scan docs readability"
     )
     assert (
         "docs-order assertion-label helper (design/world+ux): PINLEN=`assertionLabel=<...legaltpinlenNonPassRows>` | "
