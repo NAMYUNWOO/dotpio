@@ -4342,3 +4342,7 @@
 
 ## 2026-04-07 08:57 KST
 - Cycle IP128 shipped: regression harness now enforces JSON key-contract payload for `...TransitionHandoffDecodeHelperEvaluation` (baseline/compact/len/preferred/status) with green verification bundle.
+
+## 2026-04-07 09:24 KST — One-scan PRLENCUET helper/eval parity
+- Enforced 1:1 parity check between `...PRLENCUETD` helper row and `...PRLENCUETDLEN` eval row across summary/token sections.
+- This keeps wording drift visible in a single assertion failure path.

@@ -4088,3 +4088,6 @@
 
 ## 2026-04-07 08:57 KST
 - Cycle IP128 shipped: regression harness now enforces JSON key-contract payload for `...TransitionHandoffDecodeHelperEvaluation` (baseline/compact/len/preferred/status) with green verification bundle.
+
+## 2026-04-07 09:24 KST — Design/world decode stability note
+- `PRLENCUETD` sequencing helper is now parity-linked to decode-eval row `PRLENCUETDLEN` for deterministic docs-order stability.

@@ -6369,3 +6369,8 @@ Compact decision memory for AI context efficiency.
 - Game Director Cycle IP128 executed after fully-checked queues; selected low-risk systems/qa slice added direct JSON-contract assertion for `...TransitionHandoffDecodeHelperEvaluation`.
 - Durable decision: every markdown LEN token contract for transition handoff decode helper must now have mirrored report JSON payload assertion coverage.
 - Injected next: Design/World+UX helper-pair parity assertion and AI-content+Combat/VFX report-only alternate compact alias experiment.
+
+## 2026-04-07 — PRLENCUET helper/eval parity contract tightened
+- Added explicit `...PRLENCUETD` row-count extraction + mixed-window parity tuple coverage in `scripts/regression_check_lane_coverage_guardrail.py`.
+- Added dedicated helper-pair parity assertion linking `...PRLENCUETD` payload copy to `...PRLENCUETDLEN` decode-eval payload (`1:1` lock across summary/token sections).
+- Durable impact: transition-handoff decode wording drift now surfaces in one assertion path instead of split failures.

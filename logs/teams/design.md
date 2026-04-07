@@ -4248,3 +4248,7 @@
 
 ## 2026-04-07 08:57 KST
 - Cycle IP128 shipped: regression harness now enforces JSON key-contract payload for `...TransitionHandoffDecodeHelperEvaluation` (baseline/compact/len/preferred/status) with green verification bundle.
+
+## 2026-04-07 09:24 KST — Transition handoff decode helper drift guard
+- Added explicit helper-pair parity guard so `...PRLENCUETD` copy drift is caught together with `...PRLENCUETDLEN` decode-eval telemetry.
+- Outcome: one-failure-path triage for decode wording + width-eval coupling.
