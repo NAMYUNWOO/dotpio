@@ -1,3 +1,14 @@
+## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP155)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after ALT24 closure, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk UX/game-feel: add ALT24 helper decode footnote clarifying keel readability intent next to ALT23 helper row.
+  - Mid-risk Design/World + UX: add ALT23-vs-ALT24 compact comparator eval+rationale rows for one-scan parity review.
+  - High-risk novelty: prototype ALT25 phrase family (`PIN=GLINT prow|SAFE=SHIELD brace`) with diagnostics placeholders.
+- [x] Design/World + UX + Systems/Ops + QA Team (selected): implement ALT23-vs-ALT24 comparator vertical slice (`...ALT23V24LEN` + `...ALT23V24R`) and extend assertion-label helper coverage for comparator mismatch surfacing. *(lifecycle: [ ] -> [~] started: 2026-04-08 05:27 KST -> [x] completed: 2026-04-08 05:31 KST; implementation: added `...LEGALTPINVFXALT23V24LEN:B41|C41|LIM72|PREF:TIE|PASS` + `...LEGALTPINVFXALT23V24R:ALT23 true-north and ALT24 keel keep pin readability parity` and wired ALT23V24 assertion-label helper aliases in `scripts/check_lane_coverage_guardrail.py` + `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
+## Next Up (Game Director Injection — Cycle IP155)
+- [ ] Combat/VFX + AI-content Team (injected): prototype ALT25 report-only handoff phrase candidate (`PIN=GLINT prow|SAFE=SHIELD brace`) with LIM72 eval/rationale rows while preserving rollback wording gate.
+
 ## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP154)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked after ALT23 closure, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:

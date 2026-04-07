@@ -4311,3 +4311,5 @@
 - 2026-04-08 05:00 KST — Cycle IP154: Added ALT22-vs-ALT23 comparator contracts (`...ALT22V23LEN`, `...ALT22V23R`) with deterministic row-count/non-pass diagnostics and mixed-window first-diverged assertion-label surfacing.
 
 - 2026-04-08 05:24 KST — Cycle IP154 follow-up (ALT24): completed report-only handoff phrase slice ...LEGALTPINVFXALT24 (PIN=GLINT keel|SAFE=SHIELD brace) with ...ALT24LEN:B32|C32|LIM72|PASS + ...ALT24R; preserved rollback wording gate and synced assertion-label helper/regression contract. Verification: py_compile + regression_check_lane_coverage_guardrail.py + check_lane_coverage_guardrail.py backlog/json/md regeneration.
+
+- 2026-04-08 05:31 KST — Cycle IP155 selected slice (ALT23V24 comparator): added ...LEGALTPINVFXALT23V24LEN:B41|C41|LIM72|PREF:TIE|PASS + ...ALT23V24R and extended comparator assertion-label helper aliases; verification bundle PASS (py_compile + regression + guardrail regen).
