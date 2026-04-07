@@ -1,3 +1,6 @@
+## 2026-04-07 10:23 KST
+- Kept docs-order readability adjacency intact while introducing `...LEGALTPINVFXALT`; alternate row remains adjacent to baseline `...LEGALTPINVFX` for one-scan comparison.
+
 
 ## 2026-04-07 03:48 KST
 - Closed IP122 systems+qa payload diagnostics follow-up by adding `...pinsafeNonPassRows` extraction + sparse mixed-window first-diverged fixture assertion for `...CTRLWNRBLGLEGALTPINSAFE` in regression harness.

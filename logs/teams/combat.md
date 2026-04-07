@@ -1,3 +1,6 @@
+## 2026-04-07 10:23 KST
+- Combat/VFX phrase candidate added as rollback-gated alternate row `...LEGALTPINVFXALT` to compare against baseline latch/hold wording without runtime impact.
+
 
 ## 2026-04-07 03:48 KST
 - Closed IP122 systems+qa payload diagnostics follow-up by adding `...pinsafeNonPassRows` extraction + sparse mixed-window first-diverged fixture assertion for `...CTRLWNRBLGLEGALTPINSAFE` in regression harness.

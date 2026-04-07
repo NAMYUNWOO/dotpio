@@ -4054,6 +4054,11 @@ def run_fixture_case(
         in md_text
     ), f"{name}: markdown output must include docs-order sentinel VFX handoff cue row"
     assert (
+        "docs-order sentinel VFX handoff cue alternate phrase candidate (ai-content+combat/vfx, report-only + rollback wording gate): "
+        "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT:PIN=GLINT flare|SAFE=SHIELD brace**"
+        in md_text
+    ), f"{name}: markdown output must include docs-order sentinel VFX alternate handoff phrase candidate row"
+    assert (
         "trend-score dispatch-pressure momentum fx urgency guidance confidence recommendation intensity trend beat-side quick-map narrative alias intensity pack backcompat shelter-tone fallback cue micro-pack control winner confidence-note rollback helper alternate legend length eval row (combat/vfx+ux, report-only): "
         "**TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTLEN:B63|C63|LIM72|PASS**"
         in md_text

@@ -1,3 +1,6 @@
+## 2026-04-07 10:23 KST
+- Added A/B-readable alternate phrase row for docs-order VFX handoff (`GLINT flare` vs baseline `GLINT latch`) while preserving compact token contract.
+
 
 ## 2026-04-07 09:49 KST
 - IP128 injection queued for design/world cadence bucket: add compact decode helper note for `...LEGALTPINVFX` (`GLINT=pin latch`, `SHIELD=safe hold`) adjacent to docs-order callout for one-scan readability.

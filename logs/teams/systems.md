@@ -1,3 +1,7 @@
+## 2026-04-07 10:23 KST
+- Added regression presence assertion for `...LEGALTPINVFXALT` so rollback-gated alternate VFX phrase rows cannot silently disappear from guardrail output.
+- Verification bundle PASS (py_compile + regression + guardrail regeneration).
+
 
 ## 2026-04-07 09:49 KST
 - IP128 systems/qa injection queued: add sparse mixed-window payload diagnostics key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxNonPassRows` and first-diverged `assertionLabel=<...legaltpinvfxNonPassRows>` surfacing for `...LEGALTPINVFX` drift.

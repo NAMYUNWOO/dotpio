@@ -1,3 +1,9 @@
+## 2026-04-07 10:23 KST — IP128 injected VFX alternate phrase candidate closure
+- Completed the remaining unchecked TASKS item by shipping rollback-gated alternate docs-order VFX handoff wording: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT:PIN=GLINT flare|SAFE=SHIELD brace`.
+- Added matching regression presence contract in `scripts/regression_check_lane_coverage_guardrail.py` so guardrail markdown output must include the alternate candidate row.
+- Durable decision: new docs-order VFX phrase experiments stay report-only + rollback-gated until they have explicit regression presence coverage in the same slice.
+- Verification bundle PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-07 09:49 KST — IP128 docs-order sentinel VFX handoff cue slice
 - Coverage check (last 10 completions) stayed all-zero by lane (`systems/world/ai-content/combat/design/vfx/ux/qa`) with no lane >40%; cadence buckets remained missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so forced pick stayed in combat/vfx.
 - Shipped minimal vertical slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFX:PIN=GLINT latch|SAFE=SHIELD hold` in guardrail markdown output and matching regression presence contract.

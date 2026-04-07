@@ -1,3 +1,7 @@
+## 2026-04-07 10:23 KST
+- Shipped report-only alternate handoff microcopy candidate `PIN=GLINT flare|SAFE=SHIELD brace` behind rollback wording gate (`...LEGALTPINVFXALT`).
+- Runtime coupling unchanged; candidate is guardrail/report-only for A/B readability prep.
+
 
 ## 2026-04-07 03:48 KST
 - Closed IP122 systems+qa payload diagnostics follow-up by adding `...pinsafeNonPassRows` extraction + sparse mixed-window first-diverged fixture assertion for `...CTRLWNRBLGLEGALTPINSAFE` in regression harness.

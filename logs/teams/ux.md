@@ -1,3 +1,6 @@
+## 2026-04-07 10:23 KST
+- Alternate VFX handoff phrase now appears as explicit report-only row (`...LEGALTPINVFXALT`) to support one-scan baseline-vs-candidate readability review.
+
 
 ## 2026-04-07 03:48 KST
 - Closed IP122 systems+qa payload diagnostics follow-up by adding `...pinsafeNonPassRows` extraction + sparse mixed-window first-diverged fixture assertion for `...CTRLWNRBLGLEGALTPINSAFE` in regression harness.

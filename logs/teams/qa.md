@@ -1,3 +1,6 @@
+## 2026-04-07 10:23 KST
+- Regression harness now fails if `...LEGALTPINVFXALT` is missing from markdown output, locking deterministic presence for rollback-gated wording experiments.
+
 
 ## 2026-04-07 04:23 KST
 - QA validated new row-count parity contract: `...CTRLWNRBLGLEGALTSAFE` must now mirror `...CTRLWNRBLGLEGALTPINSAFE` counts in sparse mixed-window fixture matrix.
