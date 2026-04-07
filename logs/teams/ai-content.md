@@ -4218,3 +4218,6 @@
 ## 2026-04-07 18:27 KST — Cycle IP139 ai-content note
 - No prompt/model changes this cycle.
 - Potential future tie-in: adaptive combo coaching microcopy gated behind same urgency buckets.
+
+## 2026-04-07 18:53 KST
+- Offline copy variant pack for combo momentum urgency now supports biome flavor tiers without changing combat logic; tier words stay short enough for dense HUD scan.

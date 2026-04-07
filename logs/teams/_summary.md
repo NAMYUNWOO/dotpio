@@ -6472,3 +6472,8 @@ Compact decision memory for AI context efficiency.
 - Shipped: `HUD.formatComboMomentumBanner`, urgency buckets (`STABLE/HOLD/NOW`), heat-aware color mapping, and draw hook.
 - Regression guardrails added for banner text + color thresholds; existing combo debug token regression remains green.
 - Backlog reinjected with two unchecked tasks: (1) world/design themed copy variants, (2) systems/qa deterministic urgency-threshold replay fixture.
+
+## 2026-04-07 18:53 KST
+- Closed injected POST_RC item: map-tier combo momentum banner copy variants now ship in HUD with deterministic tier resolver and regression coverage.
+- Durable decision: keep urgency timing buckets fixed and only swap bracket copy by tier, so readability flavor changes do not alter combat semantics.
+- Verification PASS (`lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`).

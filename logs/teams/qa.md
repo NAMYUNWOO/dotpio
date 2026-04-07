@@ -6333,3 +6333,6 @@
 - Added regression script `scripts/regression_combat_combo_momentum_banner.lua`.
 - Assertions: hidden state for combo<2, exact banner text for urgency thresholds, deterministic color mapping for HOT/WARM states.
 - Companion check: existing combo token regression still passes with debug env enabled.
+
+## 2026-04-07 18:53 KST
+- Regression coverage expanded for combo banner tier variants (`RUINS/FORGE/ABYSS`) plus tier normalization fallback; validation passed with combo debug token regression bundle.

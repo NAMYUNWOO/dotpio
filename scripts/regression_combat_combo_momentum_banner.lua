@@ -22,6 +22,18 @@ expect(hotHold == "CHAIN x3  HOT  1.4s [HOLD]", "hot hold banner mismatch: " .. 
 local hotNow = HUD.formatComboMomentumBanner({ comboCount = 4, comboTimer = 0.7, heat = "HOT" })
 expect(hotNow == "CHAIN x4  HOT  0.7s [NOW]", "hot now banner mismatch: " .. tostring(hotNow))
 
+local ruins = HUD.formatComboMomentumBanner({ comboCount = 3, comboTimer = 1.6, heat = "HOT" }, "RUINS")
+expect(ruins == "CHAIN x3  HOT  1.6s [BRACE]", "ruins tier banner mismatch: " .. tostring(ruins))
+
+local forge = HUD.formatComboMomentumBanner({ comboCount = 4, comboTimer = 0.6, heat = "HOT" }, "FORGE")
+expect(forge == "CHAIN x4  HOT  0.6s [STRIKE]", "forge tier banner mismatch: " .. tostring(forge))
+
+local abyss = HUD.formatComboMomentumBanner({ comboCount = 2, comboTimer = 2.0, heat = "WARM" }, "ABYSS")
+expect(abyss == "CHAIN x2  WARM  2.0s [CALM]", "abyss tier banner mismatch: " .. tostring(abyss))
+
+expect(HUD.resolveComboMomentumMapTier({ mapTier = "forge" }) == "FORGE", "map tier normalize should uppercase valid tier")
+expect(HUD.resolveComboMomentumMapTier({ mapTier = "unknown" }) == "DEFAULT", "unknown tier should fallback to DEFAULT")
+
 local r, g, b, a = HUD.getComboMomentumBannerColor({ comboCount = 4, comboTimer = 0.6, heat = "HOT" })
 expect(r == 1.0 and g == 0.42 and b == 0.34 and a == 0.96, "hot-now color mismatch")
 

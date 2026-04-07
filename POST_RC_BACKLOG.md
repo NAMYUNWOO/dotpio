@@ -7,7 +7,7 @@
 - [x] Combat/VFX + UX + QA Team (selected): ship minimal vertical slice for combo momentum banner via `HUD.formatComboMomentumBanner` + urgency color mapping + runtime draw hook with regression coverage. *(lifecycle: [ ] -> [~] started: 2026-04-07 18:21 KST -> [x] completed: 2026-04-07 18:27 KST; verification: `lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`.)*
 
 ## Next Up (Game Director Injection — Cycle IP139)
-- [ ] Design/World + UX Team (injected): draft DOS-width copy variants for combo momentum banner across map tiers (ruins/forge/abyss) while preserving <=32 char core token readability.
+- [x] Design/World + UX Team (injected): draft DOS-width copy variants for combo momentum banner across map tiers (ruins/forge/abyss) while preserving <=32 char core token readability. *(lifecycle: [ ] -> [~] started: 2026-04-07 18:51 KST -> [x] completed: 2026-04-07 18:53 KST; implementation: added tier-aware urgency copy map in `src/hud.lua` with `RUINS/FORGE/ABYSS` variants and mission-state tier resolver, then threaded map-tier into combo banner draw path; verification: `lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`.)*
 - [ ] Systems/Ops + QA Team (injected): add deterministic fixture that replays combo timer thresholds (2.0, 1.7, 0.8s) and asserts urgency buckets (`STABLE/HOLD/NOW`) for snapshot-safe HUD output.
 
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP138)

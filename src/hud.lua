@@ -660,7 +660,24 @@ function HUD.resolveDamageComboConfidenceToken()
     return string.format("DMG COMBO CONF:%s", confidence)
 end
 
-function HUD.formatComboMomentumBanner(combo)
+local COMBO_MOMENTUM_URGENCY_COPY_BY_TIER = {
+    DEFAULT = { STABLE = "STABLE", HOLD = "HOLD", NOW = "NOW" },
+    RUINS = { STABLE = "STEADY", HOLD = "BRACE", NOW = "NOW" },
+    FORGE = { STABLE = "BANK", HOLD = "GRIP", NOW = "STRIKE" },
+    ABYSS = { STABLE = "CALM", HOLD = "ANCHOR", NOW = "SNAP" },
+}
+
+function HUD.resolveComboMomentumMapTier(missionState)
+    local state = type(missionState) == "table" and missionState or nil
+    local candidate = state and (state.comboMomentumMapTier or state.mapTier or state.routeTag or state.lastPackTag)
+    candidate = string.upper(tostring(candidate or "DEFAULT"))
+    if COMBO_MOMENTUM_URGENCY_COPY_BY_TIER[candidate] then
+        return candidate
+    end
+    return "DEFAULT"
+end
+
+function HUD.formatComboMomentumBanner(combo, mapTier)
     combo = combo or {}
     local count = math.max(0, math.floor(tonumber(combo.comboCount) or 0))
     if count < 2 then
@@ -672,12 +689,16 @@ function HUD.formatComboMomentumBanner(combo)
     if heat ~= "HOT" and heat ~= "WARM" and heat ~= "COLD" then
         heat = "COLD"
     end
-    local urgency = "STABLE"
+    local urgencyBucket = "STABLE"
     if timer < 0.9 then
-        urgency = "NOW"
+        urgencyBucket = "NOW"
     elseif timer < 1.8 then
-        urgency = "HOLD"
+        urgencyBucket = "HOLD"
     end
+
+    local normalizedTier = string.upper(tostring(mapTier or "DEFAULT"))
+    local tierCopy = COMBO_MOMENTUM_URGENCY_COPY_BY_TIER[normalizedTier] or COMBO_MOMENTUM_URGENCY_COPY_BY_TIER.DEFAULT
+    local urgency = tierCopy[urgencyBucket] or COMBO_MOMENTUM_URGENCY_COPY_BY_TIER.DEFAULT[urgencyBucket]
 
     return string.format("CHAIN x%d  %s  %.1fs [%s]", count, heat, timer, urgency)
 end
@@ -865,7 +886,8 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     end
 
     local comboState = Combat.debugGetKillComboState and Combat.debugGetKillComboState() or nil
-    local comboBanner = HUD.formatComboMomentumBanner(comboState)
+    local comboMapTier = HUD.resolveComboMomentumMapTier(missionState)
+    local comboBanner = HUD.formatComboMomentumBanner(comboState, comboMapTier)
     if comboBanner then
         love.graphics.setColor(0, 0, 0, 0.62)
         love.graphics.rectangle("fill", 8, 104, 260, 20)

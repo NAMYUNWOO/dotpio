@@ -4146,3 +4146,6 @@
 - Implementation: added `HUD.formatComboMomentumBanner` + urgency tiers (`STABLE/HOLD/NOW`) and heat-aware colors; wired draw panel near core HUD.
 - Verification: `lua scripts/regression_combat_combo_momentum_banner.lua`, `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`.
 - Follow-up: tune wording per map tone without breaking DOS readability budget.
+
+## 2026-04-07 18:53 KST
+- Combo momentum banner now accepts map-tier context but keeps existing urgency bucket thresholds (`STABLE/HOLD/NOW` boundaries at 1.8s/0.9s), so combat timing semantics remain unchanged.

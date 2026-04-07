@@ -5877,3 +5877,6 @@
 ## 2026-04-07 18:27 KST — Cycle IP139 systems note
 - No economy/runtime-state schema changes; HUD derives directly from existing `Combat.debugGetKillComboState()`.
 - Risk profile: low, additive, reversible.
+
+## 2026-04-07 18:53 KST
+- HUD combo banner pipeline now resolves map-tier context (`comboMomentumMapTier/mapTier/routeTag/lastPackTag`) with deterministic fallback to `DEFAULT`, reducing nil/unknown branch drift in display copy.

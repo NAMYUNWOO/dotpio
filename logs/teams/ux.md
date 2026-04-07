@@ -4390,3 +4390,6 @@
 - Decision: place combo banner in compact black strip at HUD top-left to avoid overlap with mission panel.
 - Outcome: streak intent visible in one glance (`CHAIN xN HEAT timer [urgency]`).
 - Follow-up: iterate copy variants by biome/theme.
+
+## 2026-04-07 18:53 KST
+- HUD combo banner wording now adapts by tier while preserving one-line readability (`CHAIN xN HEAT t.s [WORD]`) and minimal glyph width growth.

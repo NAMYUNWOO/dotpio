@@ -343,3 +343,8 @@
 - Shipped: `...LEGALTPINVFXALT10:PIN=GLINT anchor|SAFE=SHIELD brace`, `...ALT10LEN:B34|C34|LIM72|PASS`, `...ALT10R` plus helper and assertion-label callouts.
 - Durable decision: each new docs-order VFX phrase candidate must ship same-cycle payload+PASS+rationale diagnostics (`NonPassRows`) and explicit `assertionLabel` surfacing before closure.
 - Verification PASS: py_compile + regression + guardrail regeneration bundle.
+
+## 2026-04-07 18:53 KST — Combo momentum map-tier copy variant closure
+- Completed top unchecked POST_RC item by shipping map-tier urgency copy variants for combo momentum banner in `src/hud.lua` (`RUINS/FORGE/ABYSS` + deterministic DEFAULT fallback).
+- Durable decision: urgency thresholds remain timing-driven (`<0.9 NOW`, `<1.8 HOLD`, else STABLE); tier flavor only changes bracket copy to avoid combat-semantics drift.
+- Verification bundle PASS (`lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`).

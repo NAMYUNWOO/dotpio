@@ -4135,3 +4135,6 @@
 ## 2026-04-07 18:27 KST — Cycle IP139 world lane bookkeeping
 - No map/layout mutations in this slice.
 - Injected follow-up requests world-themed combo lexicon variants by map tier.
+
+## 2026-04-07 18:53 KST
+- World-facing tone pass added tier lexicon for combo urgency: RUINS (`STEADY/BRACE/NOW`), FORGE (`BANK/GRIP/STRIKE`), ABYSS (`CALM/ANCHOR/SNAP`) while preserving concise HUD footprint.

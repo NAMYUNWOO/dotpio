@@ -4301,3 +4301,6 @@
 ## 2026-04-07 18:27 KST — Cycle IP139 design note
 - Current banner copy is mechanical and readable; defer stylistic flavoring to injected backlog task.
 - Constraint kept: core token must remain DOS-compact and quickly parseable during combat.
+
+## 2026-04-07 18:53 KST
+- Completed injected map-tier copy variant task for combo momentum banner with DOS-friendly urgency labels scoped to ruins/forge/abyss themes.
