@@ -4180,3 +4180,7 @@
 
 ## 2026-04-07 09:55 KST
 - Deferred alternate handoff phrase experiment (`PIN=GLINT flare|SAFE=SHIELD brace`) until current design helper closure; baseline wording remains canonical.
+
+## 2026-04-07 11:24 KST — AI-content
+- Implemented report-only alternate compact alias experiment row `TSDCAD24TRICOVSTCMSVHCSTPRLENCUETDX:GH->PP rise cue|PP->GH settle cue`.
+- Kept runtime coupling disabled; experiment is markdown/report surface only.

@@ -4107,3 +4107,6 @@
 
 ## 2026-04-07 09:55 KST
 - Confirmed VFX handoff baseline cue remains unchanged (`PIN=GLINT latch|SAFE=SHIELD hold`) while adjacent helper clarifies intent without combat-logic drift.
+
+## 2026-04-07 11:24 KST — Combat
+- Added combat-facing handoff phrasing variant for GH/PP transition readability A/B in offline report output.

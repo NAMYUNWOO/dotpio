@@ -211,6 +211,7 @@
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoff": "GH->PP=rise handoff|PP->GH=settle handoff",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoffAlias": "GH->PP=RH|PP->GH=SH",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoffDecodeHelper": "GH->PP rise first|PP->GH settle second",
+  "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoffDecodeHelperAlt": "GH->PP rise cue|PP->GH settle cue",
   "cadence24hRecoveryTriadCoverageSpreadTrendConfidenceMomentumScoreVfxCueHysteresisConfidenceDriftScoreTrendAliasSmoothingPolicyPressureRecommendationDecodeOperatorCueTransitionHandoffDecodeHelperEvaluation": {
     "baseline": "GH->PP rise handoff first|PP->GH settle handoff second",
     "compact": "GH->PP rise first|PP->GH settle second",

@@ -4352,3 +4352,6 @@
 
 ## 2026-04-07 09:55 KST
 - Improved one-scan readability by adding explicit decode helper text beside `...LEGALTPINVFX` docs-order sentinel row.
+
+## 2026-04-07 11:24 KST — UX
+- Verified compact alt copy remains concise and deterministic in summary/token sections.

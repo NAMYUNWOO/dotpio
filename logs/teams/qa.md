@@ -6287,3 +6287,7 @@
 ## 2026-04-07 10:56 KST
 - Completed injected docs-order VFX drift diagnostics slice: added `...LEGALTPINVFX` payload mismatch extraction plus sparse mixed-window first-diverged assertion surfacing key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxNonPassRows` with `assertionLabel=<...legaltpinvfxNonPassRows>`.
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
+
+## 2026-04-07 11:24 KST — QA
+- Extended regression contracts for transition-handoff helper alt row: presence, strict order, mixed-window parity, and deterministic mismatch diagnostics key `stprlencuetdxNonPassRows`.
+- Verification bundle: py_compile + regression_check_lane_coverage_guardrail + guardrail regeneration PASS.

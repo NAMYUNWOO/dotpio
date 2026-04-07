@@ -4261,3 +4261,6 @@
 
 ## 2026-04-07 09:55 KST
 - Closed IP128 injected design task by adding compact decode helper near docs-order callout: `GLINT=pin latch`, `SHIELD=safe hold`.
+
+## 2026-04-07 11:24 KST — Design
+- Preserved one-scan decode flow by placing `PRLENCUETDX` immediately after `PRLENCUETD` and before `PRLENCUETDLEN`.

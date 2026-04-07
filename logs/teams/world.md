@@ -4097,3 +4097,6 @@
 
 ## 2026-04-07 09:55 KST
 - Added docs readability support for VFX handoff semantics so `...LEGALTPINVFX` remains one-scan interpretable in world/design-facing report text.
+
+## 2026-04-07 11:24 KST — World
+- Validated transition-handoff wording remains sequencing-readable with new alt helper row (`rise cue`/`settle cue`) adjacent to world decode context.
