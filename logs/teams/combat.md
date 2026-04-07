@@ -1,3 +1,6 @@
+## 2026-04-08 04:00 KST
+- Combat/VFX docs-order handoff matrix now includes ALT22 meridian phrase candidate/eval/rationale rows under rollback wording gate.
+
 ## 2026-04-08 03:01 KST
 - Combat lane held steady while IP138 focused on readability diagnostics; queued ALT21 combat/vfx phrase experiment for next injected cycle.
 

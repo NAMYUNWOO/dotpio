@@ -1,3 +1,8 @@
+## 2026-04-08 04:00 KST
+- Autonomous Cycle IP152 completed injected ALT22 vertical slice after marking in-progress: shipped `...LEGALTPINVFXALT22`, `...ALT22LEN:B36|C36|LIM72|PASS`, and `...ALT22R` plus ALT22 helper callout.
+- Durable decision: continue docs-order phrase expansion with same-cycle deterministic payload/eval/rationale diagnostics keys in regression before checking backlog items done.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-08 03:47 KST
 - Game Director Cycle IP151: lane coverage over last 10 completions remained all-zero (`systems/world/ai-content/combat/design/vfx/ux/qa`), cadence triad still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so forced pick stayed combat/vfx with design/world+systems framing.
 - Candidate ideas: (1) low-risk ALT21 docs phrase trio (`azimuth`), (2) mid-risk ALT21 regression non-pass surfacing, (3) high-risk ALT19V20 comparator promotion experiment.

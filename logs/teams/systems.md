@@ -1,3 +1,7 @@
+## 2026-04-08 04:00 KST
+- Closed ALT22 injected slice by wiring deterministic ALT22 payload/eval/rationale diagnostics (`...alt22NonPassRows`, `...alt22lenNonPassRows`, `...alt22rNonPassRows`) and row-count capture keys in regression harness.
+- Verification PASS (py_compile + regression + guardrail regeneration bundle).
+
 ## 2026-04-08 03:01 KST
 - IP138 systems/qa slice added mixed-window assertion coverage for `...ALT19V20R` mismatch labels, extending comparator diagnostics to rationale parity checks.
 

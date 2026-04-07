@@ -1,3 +1,6 @@
+## 2026-04-08 04:00 KST
+- Added world wording candidate `meridian` for ALT22 handoff phrase and kept report-only rollback gate.
+
 ## 2026-04-08 03:01 KST
 - World lexicon parity decision documented in-token: ALT19 bearing and ALT20 heading remain equivalent readability picks.
 

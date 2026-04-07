@@ -1,3 +1,6 @@
+## 2026-04-08 04:00 KST
+- Design readability lane added ALT22 helper callout (`GLINT=meridian pin intent`) to keep one-scan docs-order clarity.
+
 ## 2026-04-08 03:01 KST
 - Design/world readability parity now includes explicit rationale row `...ALT19V20R` explaining bearing-vs-heading tie contract.
 

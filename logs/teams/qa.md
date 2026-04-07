@@ -1,3 +1,6 @@
+## 2026-04-08 04:00 KST
+- QA coverage added deterministic ALT22 payload/PASS/rationale mismatch extraction and non-pass diagnostics exports for sparse fixture triage.
+
 ## 2026-04-08 03:01 KST
 - QA deterministic matrix now checks `ALT19V20R` payload drift via non-pass key + mixed-window first-diverged assertion-label surfacing.
 

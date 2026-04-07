@@ -1,3 +1,6 @@
+## 2026-04-08 04:00 KST
+- UX compactness lock: ALT22 eval row set to `B36|C36|LIM72|PASS` for consistent docs-order width triage.
+
 ## 2026-04-08 03:01 KST
 - UX one-scan comparator contract extended with rationale companion row so `PREF:TIE` outcomes remain human-readable without leaving compact rail.
 
