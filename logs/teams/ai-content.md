@@ -4234,3 +4234,4 @@
 - Shipped docs-order ALT12 vertical slice (`...LEGALTPINVFXALT12`, `...ALT12LEN`, `...ALT12R`) and wired regression row-count/non-pass + first-diverged assertion labels.
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + guardrail regeneration PASS.
 - Follow-up: continue lane-rotation with non-guardrail player-facing slice next cycle.
+- 2026-04-07 20:58 KST — Cycle IP142: Expanded report-only phrase candidate set with ALT13 (`PIN=GLINT beacon|SAFE=SHIELD brace`) and deterministic rationale payload to support future wording A/B selection.

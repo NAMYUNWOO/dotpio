@@ -6491,3 +6491,4 @@ Compact decision memory for AI context efficiency.
 - Queue status after run: ACTION_ITEMS unchecked=0, TASKS unchecked=0, POST_RC_BACKLOG unchecked=0 (next: mandatory Game Director review cycle).
 
 - 2026-04-07 20:31 KST (IP141): Added ALT12 docs-order VFX handoff phrase family (`PIN=GLINT relay|SAFE=SHIELD brace`) with PASS eval + rationale row and assertion-label diagnostics (`...alt12NonPassRows`, `...alt12lenNonPassRows`, `...alt12rNonPassRows`); regression + guardrail regeneration stayed green.
+- 2026-04-07 20:58 KST — Cycle IP142 shipped ALT13 docs-order sentinel phrase pack (`...LEGALTPINVFXALT13/ALT13LEN/ALT13R`) with helper-callout + assertion-label family (`...alt13NonPassRows`, `...alt13lenNonPassRows`, `...alt13rNonPassRows`). Durable decision: keep extending report-only VFX handoff phrasing via deterministic regression contracts before any runtime adoption.

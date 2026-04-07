@@ -742,3 +742,4 @@
 - Decision: encode combo urgency into warm/hot color gradients with near-expiry accent at <0.9s.
 - Rationale: create visible "act now" combat pulse without requiring extra particle effects.
 - Follow-up: capture gameplay clip + evaluate readability against red damage flashes.
+- 2026-04-07 20:58 KST — Cycle IP142: Introduced ALT13 cue phrasing (`GLINT beacon`) plus rationale row to preserve pin-before-safe readability under docs-order sentinel flow; retained rollback-safe report-only scope.

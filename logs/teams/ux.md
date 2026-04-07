@@ -4407,3 +4407,4 @@
 - Shipped docs-order ALT12 vertical slice (`...LEGALTPINVFXALT12`, `...ALT12LEN`, `...ALT12R`) and wired regression row-count/non-pass + first-diverged assertion labels.
 - Verification: py_compile + regression_check_lane_coverage_guardrail.py + guardrail regeneration PASS.
 - Follow-up: continue lane-rotation with non-guardrail player-facing slice next cycle.
+- 2026-04-07 20:58 KST — Cycle IP142: Added ALT13 eval lock (`B34|C34|LIM72|PASS`) and helper-callout copy to keep DOS-width and triage readability explicit.
