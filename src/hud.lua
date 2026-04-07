@@ -660,6 +660,46 @@ function HUD.resolveDamageComboConfidenceToken()
     return string.format("DMG COMBO CONF:%s", confidence)
 end
 
+function HUD.formatComboMomentumBanner(combo)
+    combo = combo or {}
+    local count = math.max(0, math.floor(tonumber(combo.comboCount) or 0))
+    if count < 2 then
+        return nil
+    end
+
+    local timer = math.max(0, tonumber(combo.comboTimer) or 0)
+    local heat = tostring(combo.heat or "COLD")
+    if heat ~= "HOT" and heat ~= "WARM" and heat ~= "COLD" then
+        heat = "COLD"
+    end
+    local urgency = "STABLE"
+    if timer < 0.9 then
+        urgency = "NOW"
+    elseif timer < 1.8 then
+        urgency = "HOLD"
+    end
+
+    return string.format("CHAIN x%d  %s  %.1fs [%s]", count, heat, timer, urgency)
+end
+
+function HUD.getComboMomentumBannerColor(combo)
+    combo = combo or {}
+    local heat = tostring(combo.heat or "COLD")
+    local timer = math.max(0, tonumber(combo.comboTimer) or 0)
+    if heat == "HOT" then
+        if timer < 0.9 then
+            return 1.0, 0.42, 0.34, 0.96
+        end
+        return 1.0, 0.66, 0.24, 0.94
+    elseif heat == "WARM" then
+        if timer < 0.9 then
+            return 1.0, 0.78, 0.38, 0.94
+        end
+        return 0.98, 0.9, 0.46, 0.92
+    end
+    return 0.72, 0.84, 0.96, 0.9
+end
+
 function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSummary, onboardingHint)
     love.graphics.setColor(0,0,0,0.7)
     love.graphics.rectangle("fill", 8, 8, 240, 92)
@@ -822,6 +862,15 @@ function HUD.draw(player, enemies, gameOver, missionState, unlockFlags, runSumma
     if damageComboConfidenceToken then
         love.graphics.setColor(0.76, 0.92, 1.0, 0.9)
         love.graphics.print(damageComboConfidenceToken, 1420, 798)
+    end
+
+    local comboState = Combat.debugGetKillComboState and Combat.debugGetKillComboState() or nil
+    local comboBanner = HUD.formatComboMomentumBanner(comboState)
+    if comboBanner then
+        love.graphics.setColor(0, 0, 0, 0.62)
+        love.graphics.rectangle("fill", 8, 104, 260, 20)
+        love.graphics.setColor(HUD.getComboMomentumBannerColor(comboState))
+        love.graphics.print(comboBanner, 16, 106)
     end
 
     drawMissionPanel(missionState, unlockFlags, onboardingHint and 118 or 84)

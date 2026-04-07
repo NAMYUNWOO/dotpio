@@ -1,3 +1,15 @@
+## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP139)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Combat/UX: add always-on combo momentum banner (`CHAIN xN HEAT timer`) so kill streak urgency is readable without debug env flags.
+  - Mid-risk Design/World + UX: add map-tier-specific combo copy variants so urgency lexicon aligns with biome tone.
+  - High-risk Systems/Ops + QA: add deterministic replay harness that snapshots combo timer/banner frames for anti-regression diffs.
+- [x] Combat/VFX + UX + QA Team (selected): ship minimal vertical slice for combo momentum banner via `HUD.formatComboMomentumBanner` + urgency color mapping + runtime draw hook with regression coverage. *(lifecycle: [ ] -> [~] started: 2026-04-07 18:21 KST -> [x] completed: 2026-04-07 18:27 KST; verification: `lua scripts/regression_combat_combo_momentum_banner.lua` + `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`.)*
+
+## Next Up (Game Director Injection — Cycle IP139)
+- [ ] Design/World + UX Team (injected): draft DOS-width copy variants for combo momentum banner across map tiers (ruins/forge/abyss) while preserving <=32 char core token readability.
+- [ ] Systems/Ops + QA Team (injected): add deterministic fixture that replays combo timer thresholds (2.0, 1.7, 0.8s) and asserts urgency buckets (`STABLE/HOLD/NOW`) for snapshot-safe HUD output.
+
 ## Autonomous Cycle 2026-04-07 (Game Director Review — Cycle IP138)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC backlog fully checked, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:

@@ -4140,3 +4140,9 @@
 - Follow-up: keep ALT9 in docs-order assertion-label family (`...alt9NonPassRows`, `...alt9lenNonPassRows`) for first-diverged sparse mixed-window triage.
 
 - 2026-04-07 17:19 KST: Cycle IP137 shipped ALT10 docs-order VFX phrase guardrails (`...ALT10`, `...ALT10LEN`, `...ALT10R`) with verification bundle PASS.- 2026-04-07 18:00 KST (Cycle IP138): Added ALT11 guardrail vertical slice (`...LEGALTPINVFXALT11` family) in docs-order/report-only path with deterministic sparse mixed-window diagnostics + assertion-label surfacing; verification: py_compile + regression + guardrail regeneration.
+
+## 2026-04-07 18:27 KST — Cycle IP139 combo momentum banner slice
+- Decision: surface kill-combo momentum as always-on non-debug HUD banner once comboCount >=2.
+- Implementation: added `HUD.formatComboMomentumBanner` + urgency tiers (`STABLE/HOLD/NOW`) and heat-aware colors; wired draw panel near core HUD.
+- Verification: `lua scripts/regression_combat_combo_momentum_banner.lua`, `DOTPIO_EXPERIMENT_DMG_COMBO_DEBUG=1 lua scripts/regression_combat_damage_combo_token.lua`.
+- Follow-up: tune wording per map tone without breaking DOS readability budget.

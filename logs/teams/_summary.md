@@ -6465,3 +6465,10 @@ Compact decision memory for AI context efficiency.
 - Decision: Added report-only tenth handoff phrase candidate `...LEGALTPINVFXALT9` with `PIN=GLINT tether|SAFE=SHIELD brace` plus `...ALT9LEN:B34|C34|LIM72|PASS` and rationale row.
 - Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
 - Follow-up: keep ALT9 in docs-order assertion-label family (`...alt9NonPassRows`, `...alt9lenNonPassRows`) for first-diverged sparse mixed-window triage.
+
+## 2026-04-07 18:27 KST — Cycle IP139 durable decisions
+- ACTION_ITEMS/TASKS/POST_RC were fully checked; Game Director mandatory review loop executed.
+- Selected experiment (low-risk Combat/UX): always-on combo momentum banner from existing combo state, no new combat-state storage.
+- Shipped: `HUD.formatComboMomentumBanner`, urgency buckets (`STABLE/HOLD/NOW`), heat-aware color mapping, and draw hook.
+- Regression guardrails added for banner text + color thresholds; existing combo debug token regression remains green.
+- Backlog reinjected with two unchecked tasks: (1) world/design themed copy variants, (2) systems/qa deterministic urgency-threshold replay fixture.

@@ -737,3 +737,8 @@
 - Decision: Added report-only tenth handoff phrase candidate `...LEGALTPINVFXALT9` with `PIN=GLINT tether|SAFE=SHIELD brace` plus `...ALT9LEN:B34|C34|LIM72|PASS` and rationale row.
 - Evidence: py_compile + regression guardrail + guardrail regeneration all passed.
 - Follow-up: keep ALT9 in docs-order assertion-label family (`...alt9NonPassRows`, `...alt9lenNonPassRows`) for first-diverged sparse mixed-window triage.
+
+## 2026-04-07 18:27 KST — Cycle IP139 combo urgency color pass
+- Decision: encode combo urgency into warm/hot color gradients with near-expiry accent at <0.9s.
+- Rationale: create visible "act now" combat pulse without requiring extra particle effects.
+- Follow-up: capture gameplay clip + evaluate readability against red damage flashes.
