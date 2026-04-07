@@ -1,3 +1,10 @@
+## 2026-04-08 03:47 KST
+- Game Director Cycle IP151: lane coverage over last 10 completions remained all-zero (`systems/world/ai-content/combat/design/vfx/ux/qa`), cadence triad still missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so forced pick stayed combat/vfx with design/world+systems framing.
+- Candidate ideas: (1) low-risk ALT21 docs phrase trio (`azimuth`), (2) mid-risk ALT21 regression non-pass surfacing, (3) high-risk ALT19V20 comparator promotion experiment.
+- Selected experiment shipped: added `...LEGALTPINVFXALT21`, `...ALT21LEN:B35|C35|LIM72|PASS`, `...ALT21R` and extended helper/assertion-label mapping for ALT21.
+- Injected next task: ALT22 phrase prototype (`PIN=GLINT meridian|SAFE=SHIELD brace`) behind report-only rollback gate.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-08 03:01 KST
 - Game Director Cycle IP138 executed immediately after full-check state: selected low-risk+mid-risk hybrid and shipped `...ALT19V20R` rationale vertical slice with deterministic regression coverage.
 - New injections opened: (1) systems/qa row-count parity assertion between `ALT19V20LEN` and `ALT19V20R`, (2) ai-content+combat/vfx ALT21 phrase experiment behind report-only rollback gate.

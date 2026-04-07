@@ -1,3 +1,10 @@
+## 2026-04-08 03:47 KST — IP151 ALT21 docs-order expansion
+- Coverage check (last 10 completions) from `logs/weekly_lane_coverage_guardrail.json`: all lanes remained `0` and cadence triad buckets stayed missing (`combat-or-vfx`, `design-or-world`, `systems-or-ops`), so forced underrepresented-lane cadence remained active with combat/vfx priority.
+- Candidate ideas generated: low-risk ALT21 phrase trio (`PIN=GLINT azimuth`), mid-risk ALT21 assertion-label helper extension, high-risk ALT19/ALT20 comparator promotion trial.
+- Selected vertical slice shipped: `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT21:PIN=GLINT azimuth|SAFE=SHIELD brace`, `...ALT21LEN:B35|C35|LIM72|PASS`, and `...ALT21R:GLINT azimuth keeps pin handoff explicit|SAFE brace preserves readability`.
+- Regression contract update: docs-order assertion-label helper expectation now includes ALT21 keys (`...legaltpinvfxalt21NonPassRows`, `...alt21lenNonPassRows`, `...alt21rNonPassRows`).
+- Verification bundle PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-07 13:52 KST — IP132 docs-order VFX fifth phrase candidate slice
 - Coverage check: ACTION_ITEMS/TASKS/POST_RC all remained fully checked, so mandatory Game Director loop executed.
 - Shipped minimal vertical slice: added `TSDPMFXVWCRITSPMBCBNXDMAPNFXQBACKSTAF2CTRLWNRBLGLEGALTPINVFXALT4:PIN=GLINT guard|SAFE=SHIELD brace` and eval row `...LEGALTPINVFXALT4LEN:B33|C33|LIM72|PASS`.
