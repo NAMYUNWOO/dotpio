@@ -6387,3 +6387,8 @@ Compact decision memory for AI context efficiency.
 - Durable decision: every new docs-order sentinel phrase row must ship with a nearby compact semantic decode helper (not just assertion-label callouts) before item closure.
 - Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
 - Queue status: ACTION_ITEMS unchecked=0, TASKS unchecked=3, POST_RC_BACKLOG unchecked=3 (next: systems/ops+qa `...legaltpinvfxNonPassRows` diagnostics key + assertion-label surfacing).
+
+## 2026-04-07 10:56 KST
+- Closed highest-priority unchecked Systems/Ops+QA item: sparse mixed-window diagnostics now cover `...LEGALTPINVFX` drift with key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxNonPassRows` and explicit first-diverged `assertionLabel=<...legaltpinvfxNonPassRows>` surfacing.
+- Durable decision: every docs-order sentinel payload row (including VFX handoff rows) must include both deterministic mismatch diagnostics keys and assertion-label surfacing in sparse mixed-window failure paths.
+- Queue status after completion: ACTION_ITEMS unchecked=0, TASKS unchecked=2, POST_RC_BACKLOG unchecked=2 (next: AI-content+Combat/VFX alternate compact alias experiment row + deterministic mismatch diagnostics key).

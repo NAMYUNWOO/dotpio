@@ -5825,3 +5825,7 @@
 
 ## 2026-04-07 09:55 KST
 - Verified guardrail/regression bundle after docs-order helper insertion; no contract regressions (py_compile + regression + guardrail regeneration PASS).
+
+## 2026-04-07 10:56 KST
+- Completed injected docs-order VFX drift diagnostics slice: added `...LEGALTPINVFX` payload mismatch extraction plus sparse mixed-window first-diverged assertion surfacing key `tsdpmfxvwcritspmbcbnxdmapnfxqbackstaf2ctrlwnrblglegaltpinvfxNonPassRows` with `assertionLabel=<...legaltpinvfxNonPassRows>`.
+- Verification PASS: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.
