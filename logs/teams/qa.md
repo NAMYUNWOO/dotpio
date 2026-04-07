@@ -6353,3 +6353,8 @@
 - 2026-04-07 20:58 KST — Cycle IP142: Regression suite updated for ALT13 payload/PASS/rationale drift with sparse mixed-window first-diverged assertion labels. Verification PASS: py_compile + regression_check_lane_coverage_guardrail + guardrail regeneration command.
 
 - 2026-04-07 21:22 KST — Cycle IP143: Verification pass complete (`py_compile`, regression script, guardrail regeneration). ALT14 payload/PASS/rationale drift now guarded by sparse mixed-window first-diverged assertions.
+
+## 2026-04-07 21:54 KST — Regression diagnostics contract hardening (ALT14/ALT15)
+- Extended regression checks so sparse mixed-window parity/payload drift for `...LEGALTPINVFXALT14*` and `...LEGALTPINVFXALT15*` always emit explicit assertion labels.
+- Keeps first-diverged fixture output deterministic and one-scan actionable.
+- Validation suite passed end-to-end.

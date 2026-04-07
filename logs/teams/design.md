@@ -4325,3 +4325,7 @@
 - 2026-04-07 20:58 KST — Cycle IP142: Added ALT13 helper callout semantics (`GLINT=beacon pin handoff intent`, `SHIELD=SAFE brace`) and assertion-label helper extension for one-scan triage.
 
 - 2026-04-07 21:22 KST — Cycle IP143: Added ALT14 rationale row (`GLINT waypoint...`) and helper callout to preserve compact readability semantics across docs-order rows.
+
+## 2026-04-07 21:54 KST — Docs helper note for ALT14 vs ALT15
+- Added waypoint-vs-vector helper note adjacent to ALT14/ALT15 docs rows to clarify readability intent split (`waypoint` route anchor vs `vector` directional handoff).
+- Preserved report-only rollback wording gate semantics.

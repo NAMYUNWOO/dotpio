@@ -6507,3 +6507,5 @@ Compact decision memory for AI context efficiency.
 - 2026-04-07 21:22 KST — Cycle IP143 shipped ALT14 docs-order VFX handoff candidate stack: `...LEGALTPINVFXALT14`, `...ALT14LEN`, `...ALT14R` with payload `PIN=GLINT waypoint|SAFE=SHIELD brace`.
 - Assertion-label helper contract now explicitly includes ALT14 + ALT14LEN family names, and regression matrix enforces first-diverged diagnostics via `...alt14NonPassRows`, `...alt14lenNonPassRows`, `...alt14rNonPassRows`.
 - Verification bundle remains stable: py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail guardrail regeneration all passing after ALT14 insertion.
+
+- 2026-04-07 21:54 KST: Hardened sparse mixed-window diagnostics for docs-order VFX ALT14/ALT15 rows (`...LEGALTPINVFXALT14*`, `...LEGALTPINVFXALT15*`) so first-diverged failures always expose explicit `assertionLabel=...NonPassRows`; also added a waypoint-vs-vector helper note beside ALT14/ALT15 docs rows for one-scan readability under rollback-gated wording.
