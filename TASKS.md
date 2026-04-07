@@ -1,3 +1,14 @@
+## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP159)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Design/World + UX: extend assertion-label helper row to include ALT27 payload/eval/rationale aliases for one-scan docs parity.
+  - Mid-risk Systems/Ops + QA: add strict regression contract for ALT27 helper aliases so first-diverged label triage remains deterministic.
+  - High-risk AI-content + Combat/VFX: stage ALT28 phrase + comparator family (`...ALT28*`, `...ALT27V28*`) with mixed-window diagnostics.
+- [x] Design/World + Systems/Ops + QA Team (selected): shipped low+mid risk vertical slice by extending docs-order assertion-label helper contract with ALT27/ALT27LEN/ALT27R aliases in both guardrail emitter and regression expectation text. *(lifecycle: [ ] -> [~] started: 2026-04-08 08:52 KST -> [x] completed: 2026-04-08 08:56 KST; implementation: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
+## Next Up (Game Director Injection — Cycle IP159)
+- [ ] Systems/Ops + QA Team (injected): add ALT27-vs-ALT26 helper consistency assertion to ensure helper-row alias ordering remains `ALT26 -> ALT27 -> ALT26V27*` for deterministic one-scan triage output.
+
 ## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP156)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC all fully checked, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:
@@ -160,8 +171,6 @@
 - [x] Systems/Ops + QA Team (injected): pin dedicated sparse mixed-window diagnostics keys for fourth phrase candidate drift (`...legaltpinvfxalt3NonPassRows`, `...legaltpinvfxalt3lenNonPassRows`) and keep first-diverged fixture surfacing deterministic. *(lifecycle: [ ] -> [~] started: 2026-04-07 13:18 KST -> [x] completed: 2026-04-07 13:20 KST; verification bundle same as above.)*
 
 # TASKS
-
-Last updated: 2026-04-08 07:46 KST
 
 ## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP158)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC all fully checked, so mandatory Game Director loop executed immediately.

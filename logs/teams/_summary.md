@@ -1,3 +1,8 @@
+## 2026-04-08 08:56 KST
+- Game Director Cycle IP159 selected low+mid slice to close docs/diagnostics drift: assertion-label helper row now includes `ALT27`, `ALT27LEN`, `ALT27R` aliases in both emitter and regression contract text.
+- Durable decision: when a new ALT diagnostics family lands, helper alias triad must be added in the same cycle before injecting next comparator/ordering work.
+- Verification PASS (`python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`).
+
 ## 2026-04-08 08:31 KST
 - Autonomous cycle IP159 completed injected systems/qa item: regression harness now extracts deterministic payload/eval/rationale drift for `...ALT27*` and comparator drift for `...ALT26V27*`, then enforces mixed-window first-diverged + row-count parity assertions for one-scan triage.
 - Durable decision: every new docs-order ALT phrase/comparator pair must land with both extraction keys and mixed-window assertion-label surfacing in the same commit.

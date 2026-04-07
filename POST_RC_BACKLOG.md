@@ -1,3 +1,14 @@
+## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP159)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Design/World + UX: extend docs-order assertion-label helper with ALT27 triad aliases for one-scan parity with existing ALT27 diagnostics extraction.
+  - Mid-risk Systems/Ops + QA: lock regression copy contract so ALT27 helper aliases cannot silently drop in future rows.
+  - High-risk AI-content + Combat/VFX: stage ALT28 phrase/comparator family (`...ALT28`, `...ALT27V28*`) with sparse mixed-window diagnostics.
+- [x] Design/World + Systems/Ops + QA Team (selected): shipped helper-contract vertical slice by adding ALT27/ALT27LEN/ALT27R assertion-label aliases in guardrail markdown emitter + regression expectation row. *(lifecycle: [ ] -> [~] started: 2026-04-08 08:52 KST -> [x] completed: 2026-04-08 08:56 KST; implementation: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
+## Next Up (Game Director Injection — Cycle IP159)
+- [ ] Systems/Ops + QA Team (injected): add ALT27-vs-ALT26 helper consistency assertion to keep helper-row alias ordering deterministic (`ALT26 -> ALT27 -> ALT26V27*`) in one-scan diagnostics docs.
+
 ## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP158)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked, so mandatory Game Director loop executed immediately.
 - Candidate ideas generated:
@@ -739,6 +750,17 @@
 - [x] Combat/AI-content Team (injected): Prototype offline alternate alias-pack extension candidate (`R2/S2`) for future transition handoff readability experiments.
 
 # POST_RC_BACKLOG
+
+## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP159)
+- Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked, so mandatory Game Director loop executed immediately.
+- Candidate ideas generated:
+  - Low-risk Design/World + UX: extend docs-order assertion-label helper with ALT27 triad aliases for one-scan parity with existing ALT27 diagnostics extraction.
+  - Mid-risk Systems/Ops + QA: lock regression copy contract so ALT27 helper aliases cannot silently drop in future rows.
+  - High-risk AI-content + Combat/VFX: stage ALT28 phrase/comparator family (`...ALT28`, `...ALT27V28*`) with sparse mixed-window diagnostics.
+- [x] Design/World + Systems/Ops + QA Team (selected): shipped helper-contract vertical slice by adding ALT27/ALT27LEN/ALT27R assertion-label aliases in guardrail markdown emitter + regression expectation row. *(lifecycle: [ ] -> [~] started: 2026-04-08 08:52 KST -> [x] completed: 2026-04-08 08:56 KST; implementation: `scripts/check_lane_coverage_guardrail.py`, `scripts/regression_check_lane_coverage_guardrail.py`; verification: `python3 -m py_compile scripts/check_lane_coverage_guardrail.py scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/regression_check_lane_coverage_guardrail.py` + `python3 scripts/check_lane_coverage_guardrail.py --backlog POST_RC_BACKLOG.md --max-items 10 --cap-ratio 0.40 --json-out logs/weekly_lane_coverage_guardrail.json --md-out logs/weekly_lane_coverage_guardrail.md`.)*
+
+## Next Up (Game Director Injection — Cycle IP159)
+- [ ] Systems/Ops + QA Team (injected): add ALT27-vs-ALT26 helper consistency assertion to keep helper-row alias ordering deterministic (`ALT26 -> ALT27 -> ALT26V27*`) in one-scan diagnostics docs.
 
 ## Autonomous Cycle 2026-04-08 (Game Director Review — Cycle IP149)
 - Coverage check (start-of-run): ACTION_ITEMS/TASKS/POST_RC were fully checked, so mandatory Game Director loop executed immediately.

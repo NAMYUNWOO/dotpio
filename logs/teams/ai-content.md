@@ -4330,3 +4330,8 @@
 ## 2026-04-08 07:48 KST — Cycle IP158 ALT27 vertical slice
 - Added ALT27 docs-order support in guardrail output (`...LEGALTPINVFXALT27`, `...ALT27LEN`, `...ALT27R`) plus ALT26-vs-ALT27 comparator rows (`...ALT26V27LEN`, `...ALT26V27R`).
 - Verification PASS via py_compile + regression_check_lane_coverage_guardrail + check_lane_coverage_guardrail artifact regeneration.
+
+## 2026-04-08 08:56 KST — Cycle IP159 helper alias parity slice
+- Decision: Extended docs-order assertion-label helper contract with ALT27/ALT27LEN/ALT27R aliases to align docs triage text with shipped ALT27 diagnostics extraction.
+- Evidence: scripts/check_lane_coverage_guardrail.py + scripts/regression_check_lane_coverage_guardrail.py updated and validated via py_compile + regression + guardrail regeneration commands.
+- Follow-up: Injected next task to lock ALT26->ALT27->ALT26V27 helper ordering assertion.
